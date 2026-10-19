@@ -1,0 +1,744 @@
+{
+ "_doc": "Written by tools/keith_1965_cause_fit.py (T-2830): T-2764's controls on the 1965 close view of Keith's loggia fitted under one hypothesis at a time (optics, the bow, the loggia's plan, its heights), and Nickel 1967 read beside it; read the tool's docstring for what is fitted.",
+ "print": "data/sources/assets/inland_architect_1888_02_keith/a18-gh-1808-porch-1965.jpg",
+ "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
+ "glb_sha256": "cf3e8ece7221b2f5ac88ec9eb6098c981aef78ea0cc7be08b56b2d9d21516bf4",
+ "points_read_on": "8f38ad9020c2156e21229cd6f2a729365c0f6a6a457acc385162951b76c8663e",
+ "hypotheses": [
+  {
+   "group": "level",
+   "hypothesis": "level camera, every control (T-2764's \"all controls\")",
+   "free": [],
+   "n": 29,
+   "rms_px": 5.71,
+   "max_px": 17.32,
+   "eye_uvy": [
+    34.94,
+    -10.48,
+    1.7
+   ],
+   "yaw_deg": 318.39,
+   "focal_px": 808.5,
+   "principal_px": [
+    337.0,
+    272.6
+   ],
+   "params": {},
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 17.3,
+    "north pair capital top": 7.2,
+    "south pedestal cap arris": -5.7,
+    "north pedestal cap arris": -9.2
+   }
+  },
+  {
+   "group": "level",
+   "hypothesis": "level camera, eye height free",
+   "free": [
+    "y"
+   ],
+   "n": 29,
+   "rms_px": 5.68,
+   "max_px": 17.41,
+   "eye_uvy": [
+    34.19,
+    -9.73,
+    2.34
+   ],
+   "yaw_deg": 318.61,
+   "focal_px": 768.1,
+   "principal_px": [
+    337.0,
+    249.4
+   ],
+   "params": {
+    "y": 2.336
+   },
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 17.4,
+    "north pair capital top": 6.4,
+    "south pedestal cap arris": -5.9,
+    "north pedestal cap arris": -10.5
+   }
+  },
+  {
+   "group": "optics",
+   "hypothesis": "pitched camera",
+   "free": [
+    "pitch"
+   ],
+   "n": 29,
+   "rms_px": 5.61,
+   "max_px": 16.72,
+   "eye_uvy": [
+    34.6,
+    -10.22,
+    1.7
+   ],
+   "yaw_deg": 318.91,
+   "focal_px": 786.0,
+   "principal_px": [
+    337.0,
+    110.3
+   ],
+   "params": {
+    "pitch": 11.645
+   },
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 16.7,
+    "north pair capital top": 6.2,
+    "south pedestal cap arris": -7.1,
+    "north pedestal cap arris": -10.9
+   }
+  },
+  {
+   "group": "optics",
+   "hypothesis": "pitched camera, eye height free",
+   "free": [
+    "pitch",
+    "y"
+   ],
+   "n": 29,
+   "rms_px": 5.55,
+   "max_px": 16.31,
+   "eye_uvy": [
+    35.16,
+    -10.62,
+    0.66
+   ],
+   "yaw_deg": 318.9,
+   "focal_px": 802.9,
+   "principal_px": [
+    337.0,
+    50.0
+   ],
+   "params": {
+    "pitch": 18.124,
+    "y": 0.657
+   },
+   "at_bound": [
+    "cy"
+   ],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 16.3,
+    "north pair capital top": 7.1,
+    "south pedestal cap arris": -7.6,
+    "north pedestal cap arris": -9.7
+   }
+  },
+  {
+   "group": "optics",
+   "hypothesis": "radial distortion k1",
+   "free": [
+    "k1"
+   ],
+   "n": 29,
+   "rms_px": 5.51,
+   "max_px": 18.35,
+   "eye_uvy": [
+    38.23,
+    -13.47,
+    1.7
+   ],
+   "yaw_deg": 317.45,
+   "focal_px": 933.3,
+   "principal_px": [
+    337.0,
+    272.7
+   ],
+   "params": {
+    "k1": 1.5
+   },
+   "at_bound": [
+    "k1"
+   ],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 18.4,
+    "north pair capital top": 5.7,
+    "south pedestal cap arris": -4.3,
+    "north pedestal cap arris": -8.8
+   }
+  },
+  {
+   "group": "optics",
+   "hypothesis": "principal point x free",
+   "free": [
+    "cx"
+   ],
+   "n": 29,
+   "rms_px": 5.67,
+   "max_px": 16.39,
+   "eye_uvy": [
+    30.86,
+    -6.5,
+    1.7
+   ],
+   "yaw_deg": 308.83,
+   "focal_px": 594.9,
+   "principal_px": [
+    222.3,
+    275.2
+   ],
+   "params": {
+    "cx": 222.257
+   },
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 16.4,
+    "north pair capital top": 7.6,
+    "south pedestal cap arris": -6.0,
+    "north pedestal cap arris": -9.0
+   }
+  },
+  {
+   "group": "optics",
+   "hypothesis": "principal x and k1",
+   "free": [
+    "cx",
+    "k1"
+   ],
+   "n": 29,
+   "rms_px": 5.45,
+   "max_px": 17.67,
+   "eye_uvy": [
+    33.66,
+    -8.44,
+    1.7
+   ],
+   "yaw_deg": 313.74,
+   "focal_px": 678.5,
+   "principal_px": [
+    292.1,
+    274.1
+   ],
+   "params": {
+    "cx": 292.095,
+    "k1": 1.5
+   },
+   "at_bound": [
+    "k1"
+   ],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 17.7,
+    "north pair capital top": 4.9,
+    "south pedestal cap arris": -3.7,
+    "north pedestal cap arris": -8.5
+   }
+  },
+  {
+   "group": "optics",
+   "hypothesis": "pitch, k1 and eye height",
+   "free": [
+    "pitch",
+    "k1",
+    "y"
+   ],
+   "n": 29,
+   "rms_px": 5.33,
+   "max_px": 17.19,
+   "eye_uvy": [
+    37.35,
+    -13.45,
+    0.69
+   ],
+   "yaw_deg": 318.9,
+   "focal_px": 928.2,
+   "principal_px": [
+    337.0,
+    184.9
+   ],
+   "params": {
+    "pitch": 7.409,
+    "k1": 1.5,
+    "y": 0.69
+   },
+   "at_bound": [
+    "k1"
+   ],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 17.2,
+    "north pair capital top": 6.7,
+    "south pedestal cap arris": -8.0,
+    "north pedestal cap arris": -10.0
+   }
+  },
+  {
+   "group": "bow",
+   "hypothesis": "principal lights' heads at a free height",
+   "free": [
+    "hh"
+   ],
+   "n": 29,
+   "rms_px": 4.64,
+   "max_px": 11.04,
+   "eye_uvy": [
+    30.66,
+    -9.46,
+    1.7
+   ],
+   "yaw_deg": 325.79,
+   "focal_px": 738.8,
+   "principal_px": [
+    337.0,
+    273.4
+   ],
+   "params": {
+    "hh": 4.764
+   },
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 11.0,
+    "north pair capital top": 5.2,
+    "south pedestal cap arris": -6.7,
+    "north pedestal cap arris": -8.0
+   }
+  },
+  {
+   "group": "bow",
+   "hypothesis": "every bow height scaled about grade",
+   "free": [
+    "kb"
+   ],
+   "n": 29,
+   "rms_px": 4.78,
+   "max_px": 10.78,
+   "eye_uvy": [
+    30.82,
+    -8.96,
+    1.7
+   ],
+   "yaw_deg": 324.61,
+   "focal_px": 709.9,
+   "principal_px": [
+    337.0,
+    269.7
+   ],
+   "params": {
+    "kb": 0.892
+   },
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 10.8,
+    "north pair capital top": 5.3,
+    "south pedestal cap arris": -8.7,
+    "north pedestal cap arris": -9.5
+   }
+  },
+  {
+   "group": "plan",
+   "hypothesis": "loggia moved in plan (du, dv)",
+   "free": [
+    "du",
+    "dv"
+   ],
+   "n": 29,
+   "rms_px": 3.45,
+   "max_px": 6.34,
+   "eye_uvy": [
+    28.69,
+    -4.1,
+    1.7
+   ],
+   "yaw_deg": 320.52,
+   "focal_px": 455.3,
+   "principal_px": [
+    337.0,
+    279.1
+   ],
+   "params": {
+    "du": 1.98,
+    "dv": -2.701
+   },
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 0.6,
+    "north pair capital top": 5.3,
+    "south pedestal cap arris": -6.3,
+    "north pedestal cap arris": -3.5
+   }
+  },
+  {
+   "group": "plan",
+   "hypothesis": "loggia layout scaled about its centre (L)",
+   "free": [
+    "L"
+   ],
+   "n": 29,
+   "rms_px": 5.64,
+   "max_px": 16.97,
+   "eye_uvy": [
+    33.91,
+    -9.52,
+    1.7
+   ],
+   "yaw_deg": 318.7,
+   "focal_px": 759.2,
+   "principal_px": [
+    337.0,
+    272.8
+   ],
+   "params": {
+    "L": 1.085
+   },
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 17.0,
+    "north pair capital top": 8.0,
+    "south pedestal cap arris": -5.7,
+    "north pedestal cap arris": -9.0
+   }
+  },
+  {
+   "group": "plan",
+   "hypothesis": "loggia members' plan size (m)",
+   "free": [
+    "m"
+   ],
+   "n": 29,
+   "rms_px": 5.59,
+   "max_px": 17.44,
+   "eye_uvy": [
+    34.6,
+    -10.1,
+    1.7
+   ],
+   "yaw_deg": 318.39,
+   "focal_px": 789.0,
+   "principal_px": [
+    337.0,
+    272.5
+   ],
+   "params": {
+    "m": 1.332
+   },
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 17.4,
+    "north pair capital top": 7.4,
+    "south pedestal cap arris": -5.7,
+    "north pedestal cap arris": -9.2
+   }
+  },
+  {
+   "group": "plan",
+   "hypothesis": "pedestals' plan size (w)",
+   "free": [
+    "w"
+   ],
+   "n": 29,
+   "rms_px": 5.71,
+   "max_px": 17.29,
+   "eye_uvy": [
+    35.01,
+    -10.57,
+    1.7
+   ],
+   "yaw_deg": 318.41,
+   "focal_px": 813.4,
+   "principal_px": [
+    337.0,
+    272.6
+   ],
+   "params": {
+    "w": 0.939
+   },
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 17.3,
+    "north pair capital top": 7.1,
+    "south pedestal cap arris": -5.6,
+    "north pedestal cap arris": -9.2
+   }
+  },
+  {
+   "group": "plan",
+   "hypothesis": "layout and pedestals (L, w)",
+   "free": [
+    "L",
+    "w"
+   ],
+   "n": 29,
+   "rms_px": 5.63,
+   "max_px": 16.93,
+   "eye_uvy": [
+    33.97,
+    -9.6,
+    1.7
+   ],
+   "yaw_deg": 318.73,
+   "focal_px": 763.1,
+   "principal_px": [
+    337.0,
+    272.8
+   ],
+   "params": {
+    "L": 1.085,
+    "w": 0.937
+   },
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 16.9,
+    "north pair capital top": 8.0,
+    "south pedestal cap arris": -5.7,
+    "north pedestal cap arris": -8.9
+   }
+  },
+  {
+   "group": "heights",
+   "hypothesis": "one factor on the loggia's heights (k)",
+   "free": [
+    "k"
+   ],
+   "n": 29,
+   "rms_px": 3.45,
+   "max_px": 6.45,
+   "eye_uvy": [
+    30.45,
+    -5.18,
+    1.7
+   ],
+   "yaw_deg": 317.89,
+   "focal_px": 534.9,
+   "principal_px": [
+    337.0,
+    279.8
+   ],
+   "params": {
+    "k": 1.293
+   },
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 1.9,
+    "north pair capital top": -0.2,
+    "south pedestal cap arris": -3.3,
+    "north pedestal cap arris": -2.8
+   }
+  },
+  {
+   "group": "heights",
+   "hypothesis": "k, eye height free",
+   "free": [
+    "k",
+    "y"
+   ],
+   "n": 29,
+   "rms_px": 3.21,
+   "max_px": 5.87,
+   "eye_uvy": [
+    31.01,
+    -5.66,
+    0.53
+   ],
+   "yaw_deg": 317.5,
+   "focal_px": 562.5,
+   "principal_px": [
+    337.0,
+    322.1
+   ],
+   "params": {
+    "k": 1.323,
+    "y": 0.533
+   },
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": -0.1,
+    "north pair capital top": 0.6,
+    "south pedestal cap arris": -2.5,
+    "north pedestal cap arris": 0.9
+   }
+  },
+  {
+   "group": "heights",
+   "hypothesis": "k over a free deck height D",
+   "free": [
+    "k",
+    "D"
+   ],
+   "n": 29,
+   "rms_px": 3.26,
+   "max_px": 5.86,
+   "eye_uvy": [
+    30.45,
+    -4.88,
+    1.7
+   ],
+   "yaw_deg": 317.09,
+   "focal_px": 524.6,
+   "principal_px": [
+    337.0,
+    276.8
+   ],
+   "params": {
+    "k": 1.355,
+    "D": 1.732
+   },
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 1.5,
+    "north pair capital top": -1.6,
+    "south pedestal cap arris": 0.5,
+    "north pedestal cap arris": -0.5
+   }
+  },
+  {
+   "group": "heights",
+   "hypothesis": "a free deck height D alone",
+   "free": [
+    "D"
+   ],
+   "n": 29,
+   "rms_px": 5.34,
+   "max_px": 13.47,
+   "eye_uvy": [
+    33.15,
+    -8.94,
+    1.7
+   ],
+   "yaw_deg": 319.38,
+   "focal_px": 721.3,
+   "principal_px": [
+    337.0,
+    278.9
+   ],
+   "params": {
+    "D": 2.354
+   },
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 13.5,
+    "north pair capital top": 7.0,
+    "south pedestal cap arris": -10.1,
+    "north pedestal cap arris": -10.6
+   }
+  },
+  {
+   "group": "heights",
+   "hypothesis": "k with the heads free",
+   "free": [
+    "k",
+    "hh"
+   ],
+   "n": 29,
+   "rms_px": 3.28,
+   "max_px": 7.7,
+   "eye_uvy": [
+    29.95,
+    -5.85,
+    1.7
+   ],
+   "yaw_deg": 320.74,
+   "focal_px": 558.5,
+   "principal_px": [
+    337.0,
+    278.8
+   ],
+   "params": {
+    "k": 1.245,
+    "hh": 5.095
+   },
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 2.0,
+    "north pair capital top": 0.1,
+    "south pedestal cap arris": -4.1,
+    "north pedestal cap arris": -3.6
+   }
+  },
+  {
+   "group": "heights",
+   "hypothesis": "k with the members' plan size",
+   "free": [
+    "k",
+    "m"
+   ],
+   "n": 29,
+   "rms_px": 3.12,
+   "max_px": 6.23,
+   "eye_uvy": [
+    30.21,
+    -4.93,
+    1.7
+   ],
+   "yaw_deg": 317.92,
+   "focal_px": 521.6,
+   "principal_px": [
+    337.0,
+    279.8
+   ],
+   "params": {
+    "k": 1.299,
+    "m": 1.443
+   },
+   "at_bound": [],
+   "loggia_heights_dy_px": {
+    "south pair capital top": 1.7,
+    "north pair capital top": -0.1,
+    "south pedestal cap arris": -3.3,
+    "north pedestal cap arris": -2.7
+   }
+  }
+ ],
+ "nickel_1967": {
+  "camera": "data/reference_views/keith_house_1808_prairie/nickel-1967.json",
+  "rows": [
+   {
+    "edge": "south pair capital top",
+    "print_y": 623.5,
+    "read": "x 339-346: the beam's shadow ends (y 618-623 dark, 624-631 lit)",
+    "camera_y": 642.4,
+    "dy_px": -18.9
+   },
+   {
+    "edge": "south pedestal cap arris",
+    "print_y": 696.5,
+    "read": "x 339-346: the cap's shadow line, darkest y 697-698",
+    "camera_y": 703.7,
+    "dy_px": -7.2
+   },
+   {
+    "edge": "bow principal sill",
+    "print_y": 701.5,
+    "read": "x 284-298: the glass ends (dark to y 701) on the lit sill (702-709)",
+    "camera_y": 710.4,
+    "dy_px": -8.9
+   },
+   {
+    "edge": "bow string course foot",
+    "print_y": 620.0,
+    "read": "x 274-279 and 284-298 alike: the course's shadow line, darkest y 620-621",
+    "camera_y": 621.1,
+    "dy_px": -1.1
+   },
+   {
+    "edge": "bow principal glass head",
+    "print_y": 647.5,
+    "read": "x 284-298: the glass begins (y 648 onward), stone-pale above it from 623",
+    "camera_y": 634.4,
+    "dy_px": 13.1
+   }
+  ],
+  "column_px": {
+   "print": 73.0,
+   "camera": 61.3,
+   "ratio": 1.19
+  },
+  "bow_sill_to_string_course_px": {
+   "print": 81.5,
+   "camera": 89.3,
+   "ratio": 0.913
+  },
+  "column_over_bow_span": {
+   "print": 0.896,
+   "model": 0.687,
+   "factor": 1.304
+  },
+  "glass_head_below_string_course_px": {
+   "print": 27.5,
+   "camera_at_5.30_m": 13.3,
+   "camera_at_transom_bar_4.85_m": 24.6
+  }
+ }
+}

@@ -1,0 +1,403 @@
+{
+  "ticket": "T-2598",
+  "measured": {
+    "on": "2026-10-19T00:56:20.117Z",
+    "build": "43d8f0a04",
+    "machine": "AMD EPYC 9V74 80-Core Processor ×4",
+    "seconds": 293,
+    "method": "the glessner-approach walk: /1904/, welcome entered, the eye stood at each station, residency let finish its uploads, 3 frames; GPU from a WebGL allocation meter"
+  },
+  "rows": [
+    {
+      "year": "1904",
+      "viewport": "mobile",
+      "label": "phone 390x780 dpr3",
+      "walk": "glessner-approach",
+      "residencyOff": false,
+      "steps": [
+        {
+          "local_e": 1410,
+          "local_n": -3218,
+          "yaw_deg": 265,
+          "gpuTextures": 102423585,
+          "gpuBuffers": 107535836,
+          "residency": {
+            "resident": 56,
+            "sources": 63,
+            "residentBytes": 65712256,
+            "budgetBytes": 268435456,
+            "wantedBytes": 65712256,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 7,
+            "redecodes": 0,
+            "overBudget": 0
+          },
+          "jsHeap": 275042000,
+          "arrayBuffers": 197252746,
+          "total": 682254167,
+          "picks": {
+            "n": 20,
+            "msPerPick": 5.2,
+            "hit": "glessner_house",
+            "distance": 71.76030731201172,
+            "before": {
+              "textures": 743,
+              "framebuffers": 6,
+              "renderbuffers": 2,
+              "programs": 42,
+              "gpuTextures": 102423585,
+              "gpuBuffers": 107535836,
+              "threeTextures": 739,
+              "threeGeometries": 290,
+              "threePrograms": 42,
+              "targets": 1,
+              "materials": 2,
+              "pool": 0
+            },
+            "made": {},
+            "heapKept": 79861
+          }
+        },
+        {
+          "local_e": 1406,
+          "local_n": -3218.4,
+          "yaw_deg": 265,
+          "gpuTextures": 102423585,
+          "gpuBuffers": 107535836,
+          "residency": {
+            "resident": 56,
+            "sources": 63,
+            "residentBytes": 65712256,
+            "budgetBytes": 268435456,
+            "wantedBytes": 65712256,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 7,
+            "redecodes": 0,
+            "overBudget": 0
+          },
+          "jsHeap": 82424964,
+          "arrayBuffers": 130313976,
+          "total": 422698361,
+          "picks": {
+            "n": 20,
+            "msPerPick": 5.7,
+            "hit": "glessner_house",
+            "distance": 18.759201049804688,
+            "before": {
+              "textures": 743,
+              "framebuffers": 6,
+              "renderbuffers": 2,
+              "programs": 42,
+              "gpuTextures": 102423585,
+              "gpuBuffers": 107535836,
+              "threeTextures": 739,
+              "threeGeometries": 290,
+              "threePrograms": 42,
+              "targets": 1,
+              "materials": 2,
+              "pool": 0
+            },
+            "made": {},
+            "heapKept": 13200
+          }
+        },
+        {
+          "local_e": 1402,
+          "local_n": -3218.8,
+          "yaw_deg": 265,
+          "gpuTextures": 102423585,
+          "gpuBuffers": 107535836,
+          "residency": {
+            "resident": 56,
+            "sources": 63,
+            "residentBytes": 65712256,
+            "budgetBytes": 268435456,
+            "wantedBytes": 65712256,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 7,
+            "redecodes": 0,
+            "overBudget": 0
+          },
+          "jsHeap": 81968328,
+          "arrayBuffers": 130313770,
+          "total": 422241519,
+          "picks": {
+            "n": 20,
+            "msPerPick": 5,
+            "hit": "glessner_house",
+            "distance": 63.72877502441406,
+            "before": {
+              "textures": 743,
+              "framebuffers": 6,
+              "renderbuffers": 2,
+              "programs": 42,
+              "gpuTextures": 102423585,
+              "gpuBuffers": 107535836,
+              "threeTextures": 739,
+              "threeGeometries": 290,
+              "threePrograms": 42,
+              "targets": 1,
+              "materials": 2,
+              "pool": 0
+            },
+            "made": {},
+            "heapKept": -3356
+          }
+        },
+        {
+          "local_e": 1398,
+          "local_n": -3219.2,
+          "yaw_deg": 265,
+          "gpuTextures": 102423585,
+          "gpuBuffers": 107535836,
+          "residency": {
+            "resident": 56,
+            "sources": 63,
+            "residentBytes": 65712256,
+            "budgetBytes": 268435456,
+            "wantedBytes": 65712256,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 7,
+            "redecodes": 0,
+            "overBudget": 0
+          },
+          "jsHeap": 82037476,
+          "arrayBuffers": 130313770,
+          "total": 422310667,
+          "picks": {
+            "n": 20,
+            "msPerPick": 5.3,
+            "hit": "glessner_house",
+            "distance": 10.341986656188965,
+            "before": {
+              "textures": 743,
+              "framebuffers": 6,
+              "renderbuffers": 2,
+              "programs": 42,
+              "gpuTextures": 102423585,
+              "gpuBuffers": 107535836,
+              "threeTextures": 739,
+              "threeGeometries": 290,
+              "threePrograms": 42,
+              "targets": 1,
+              "materials": 2,
+              "pool": 0
+            },
+            "made": {},
+            "heapKept": 6780
+          }
+        },
+        {
+          "local_e": 1394,
+          "local_n": -3219.6,
+          "yaw_deg": 265,
+          "gpuTextures": 102423585,
+          "gpuBuffers": 107535836,
+          "residency": {
+            "resident": 56,
+            "sources": 63,
+            "residentBytes": 65712256,
+            "budgetBytes": 268435456,
+            "wantedBytes": 65712256,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 7,
+            "redecodes": 0,
+            "overBudget": 0
+          },
+          "jsHeap": 82217456,
+          "arrayBuffers": 130313770,
+          "total": 422490647,
+          "picks": {
+            "n": 20,
+            "msPerPick": 7.7,
+            "hit": "glessner_house",
+            "distance": 6.359463691711426,
+            "before": {
+              "textures": 743,
+              "framebuffers": 6,
+              "renderbuffers": 2,
+              "programs": 42,
+              "gpuTextures": 102423585,
+              "gpuBuffers": 107535836,
+              "threeTextures": 739,
+              "threeGeometries": 290,
+              "threePrograms": 42,
+              "targets": 1,
+              "materials": 2,
+              "pool": 0
+            },
+            "made": {},
+            "heapKept": 28912
+          }
+        },
+        {
+          "local_e": 1390.6,
+          "local_n": -3220,
+          "yaw_deg": 265,
+          "gpuTextures": 102423585,
+          "gpuBuffers": 107535836,
+          "residency": {
+            "resident": 56,
+            "sources": 63,
+            "residentBytes": 65712256,
+            "budgetBytes": 268435456,
+            "wantedBytes": 65712256,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 7,
+            "redecodes": 0,
+            "overBudget": 0
+          },
+          "jsHeap": 82541856,
+          "arrayBuffers": 130313770,
+          "total": 422815047,
+          "picks": {
+            "n": 20,
+            "msPerPick": 7.3,
+            "hit": "glessner_house",
+            "distance": 2.950406312942505,
+            "before": {
+              "textures": 743,
+              "framebuffers": 6,
+              "renderbuffers": 2,
+              "programs": 42,
+              "gpuTextures": 102423585,
+              "gpuBuffers": 107535836,
+              "threeTextures": 739,
+              "threeGeometries": 290,
+              "threePrograms": 42,
+              "targets": 1,
+              "materials": 2,
+              "pool": 0
+            },
+            "made": {},
+            "heapKept": 11576
+          }
+        },
+        {
+          "local_e": 1390.6,
+          "local_n": -3220,
+          "yaw_deg": 265,
+          "gpuTextures": 102423585,
+          "gpuBuffers": 107535836,
+          "residency": {
+            "resident": 56,
+            "sources": 63,
+            "residentBytes": 65712256,
+            "budgetBytes": 268435456,
+            "wantedBytes": 65712256,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 7,
+            "redecodes": 0,
+            "overBudget": 0
+          },
+          "jsHeap": 82655068,
+          "arrayBuffers": 130313770,
+          "total": 422928259,
+          "picks": {
+            "n": 20,
+            "msPerPick": 6.9,
+            "hit": "glessner_house",
+            "distance": 2.950406312942505,
+            "before": {
+              "textures": 743,
+              "framebuffers": 6,
+              "renderbuffers": 2,
+              "programs": 42,
+              "gpuTextures": 102423585,
+              "gpuBuffers": 107535836,
+              "threeTextures": 739,
+              "threeGeometries": 290,
+              "threePrograms": 42,
+              "targets": 1,
+              "materials": 2,
+              "pool": 0
+            },
+            "made": {},
+            "heapKept": 39252
+          }
+        },
+        {
+          "local_e": 1410,
+          "local_n": -3218,
+          "yaw_deg": 265,
+          "gpuTextures": 102423585,
+          "gpuBuffers": 107535836,
+          "residency": {
+            "resident": 56,
+            "sources": 63,
+            "residentBytes": 65712256,
+            "budgetBytes": 268435456,
+            "wantedBytes": 65712256,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 7,
+            "redecodes": 0,
+            "overBudget": 0
+          },
+          "jsHeap": 82749052,
+          "arrayBuffers": 130313770,
+          "total": 423022243,
+          "picks": {
+            "n": 20,
+            "msPerPick": 7.2,
+            "hit": "glessner_house",
+            "distance": 71.76030731201172,
+            "before": {
+              "textures": 743,
+              "framebuffers": 6,
+              "renderbuffers": 2,
+              "programs": 42,
+              "gpuTextures": 102423585,
+              "gpuBuffers": 107535836,
+              "threeTextures": 739,
+              "threeGeometries": 290,
+              "threePrograms": 42,
+              "targets": 1,
+              "materials": 2,
+              "pool": 0
+            },
+            "made": {},
+            "heapKept": 1192
+          }
+        }
+      ],
+      "residency": {
+        "tier": "light",
+        "enterM": 70,
+        "leaveM": 90,
+        "budgetBytes": 268435456,
+        "uploadBytesPerFrame": 4194304,
+        "sources": 63,
+        "resident": 56,
+        "residentBytes": 65712256,
+        "allBytes": 77596304,
+        "peakResidentBytes": 65712256,
+        "pending": 0,
+        "uploads": 0,
+        "evictions": 7,
+        "redecodes": 0,
+        "standIns": 278,
+        "standInBytes": 1525664,
+        "encodedBytes": 0,
+        "wantedBytes": 65712256,
+        "overBudget": 0,
+        "problems": []
+      },
+      "errors": [],
+      "over": 0,
+      "maxGpuTextures": 102423585,
+      "maxTotal": 682254167,
+      "maxResidentBytes": 65712256,
+      "seconds": {
+        "walk": 293
+      }
+    }
+  ]
+}

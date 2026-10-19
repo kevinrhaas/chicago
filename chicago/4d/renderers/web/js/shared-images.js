@@ -91,11 +91,12 @@ export function shareImageSources(loader, { keepEncoded = false } = {}) {
             shared.set(texture.image, entryFor(byKey, key));
             // T-2598: which pictures a GLB brought in, and — on a phone, where the
             // decoded copy is closed once uploaded — the bytes to decode it again
-            // from (texture-residency.js). A KTX2 keeps its transcoded levels, so
-            // its bytes are not kept twice.
+            // from (texture-residency.js). T-2828: a KTX2's too: a phone lets go of
+            // its transcoded levels once the GPU holds them, and the file is about a
+            // tenth of the levels it transcodes to.
             // A texture with no `source` (never one of three's) has nothing to key on.
             if (texture.source) {
-              glbSources.set(texture.source, { encoded: keepEncoded && !texture.isCompressedTexture
+              glbSources.set(texture.source, { encoded: keepEncoded
                 ? { view, mimeType: def.mimeType, imageLoader } : null });
             }
             return texture;

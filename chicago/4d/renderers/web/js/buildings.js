@@ -1084,6 +1084,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
      * @param {THREE.Camera} camera
      */
     pickAt: pick.pickAt,
+    /** The structure whose part's box the ray meets first: no draw (gpu-pick.js
+     *  `boxPick`, T-2827). A phone's target probe asks this. */
+    pickAtBox: pick.pickAtBox,
     /** The raycast it replaced, kept as the oracle (tools/check_upload_release.mjs). */
     pickAtRaycast: pick.pickAtRaycast,
 

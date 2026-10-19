@@ -158,6 +158,8 @@ step "Crash-aware boot: a dead session steps down once, a lost context reloads a
   node tools/test_crash_guard.mjs
 step "The black box keeps the page's last steps in local storage, and the next page shows a cut-off page's on the crash card (T-2826)" \
   node tools/test_blackbox.mjs
+step "A pick draws only the building batches its ray meets, and a phone's look-around answers from the parts' boxes without drawing (T-2827)" \
+  node tools/test_pick_boxes.mjs
 step "Read frame pacing is offered only on the dev preview or with ?pacing=read, and reads sd and p95 as measure_walk_frames --live does (T-2732)" \
   node tools/test_pacing_read.mjs
 
@@ -188,6 +190,9 @@ step "Finishing the Field Check awards the Navigator License once per device, ne
 # T-2629: Settings › About.
 step "Settings › About shows the build stamp, and the DEV mark on a dev build only (T-2629)" \
   node tools/test_about.mjs
+# T-2660: the field log, on the device only.
+step "Settings › About's field log counts landings, first inspects, tabs, Show me, Jaunts, Tour steps and presets in localStorage only, clears, and never sends (T-2660)" \
+  node tools/test_field_log.mjs
 # T-2657: Researcher mode, the Settings › About switch.
 step "Researcher mode is off by default and remembered per device, and shows research prose in place while on (T-2657)" \
   node tools/test_researcher_mode.mjs
@@ -2034,6 +2039,11 @@ step "the planted poplar rows re-derive from the rule that chose their greens" \
 # L-shore-grove-1835-2766).
 step "the 1835 shore cottonwood grove re-derives from the rule that dealt it" \
   python3 tools/generate_shore_grove_1835.py --check
+
+# The fort's company gardens and Dr. Harmon's orchard (Wau-Bun, 1831): which fruit,
+# how many and where are a rule's, re-derived here (T-2809, L-fruit-trees-1835-2809).
+step "the 1835 company-garden and Harmon orchard plantings re-derive from their rule" \
+  python3 tools/generate_fruit_plantings_1835.py --check
 
 # The business signboards are the same shape of claim one layer over: exactly one record
 # in this dataset ATTESTS a sign, and the boards on the other two dozen frontages are a

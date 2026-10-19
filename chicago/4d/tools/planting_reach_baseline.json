@@ -16,7 +16,7 @@
       4.7,
       5.6
     ],
-    "call_sites": 5
+    "call_sites": 8
   },
   "east_limits": {
     "north": {
@@ -100,12 +100,21 @@
   },
   "unselectable": {},
   "placed": {
+    "malus_domestica": [
+      "z10_settled_town"
+    ],
     "populus_deltoides": [
       "z05_riverbank_timber",
       "z08_lakeshore",
       "z10_settled_town"
     ],
     "populus_nigra_italica": [
+      "z10_settled_town"
+    ],
+    "prunus_cerasus": [
+      "z10_settled_town"
+    ],
+    "prunus_persica": [
       "z10_settled_town"
     ],
     "ribes_spp": [
