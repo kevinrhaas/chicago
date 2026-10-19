@@ -1,0 +1,10 @@
+{
+  "title": "The street readout gives the house number then and today",
+  "kind": "fix",
+  "items": [
+    "The top row under the compass now reads \"Then\" instead of the year, so \"1904 Prairie Avenue\" no longer looks like a house number.",
+    "In 1904 it gives the house number of the lot beside you, as the 1911 Sanborn prints it on the traced lots: 1616 Prairie Avenue in front of 1616.",
+    "Today's row uses the same number on Prairie, Indiana and Calumet, whose numbers the 1909 renumbering left alone, instead of a guess from the City's block range that put 1616 at 1644. Cross-street lots, which 1909 renumbered, give no number.",
+    "Navigator Home's YOU ARE AT gives the same period address."
+  ]
+}
