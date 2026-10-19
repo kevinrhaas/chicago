@@ -1,4 +1,28 @@
 export const CHANGELOG = [ // newest first
+  { v: 2028, ts: '2026-10-18T23:27:40.956Z', date: 'Oct 18, 2026, 6:27 PM CT', title: 'Guide › About this destination: the research in four cards', kind: 'feature',
+    items: [
+      'The old Sources section is now Guide › About this destination, in four cards: How we grade, Sources, Liberties, and What lived and grew here. Each card holds the lists that belong to it, from the town in numbers to the animals, plants and open questions.',
+      'Guide has a new block that opens each card. Sources and Liberties also point to a building\'s own Sources tab in Inspect.',
+      'The source list now says what kind each source is, such as first-hand or gathered from witnesses, instead of a number.',
+      'The order book of what the town still owes now shows only in Researcher mode.',
+    ] },
+  { v: 2027, ts: '2026-10-18T23:27:40.956Z', date: 'Oct 18, 2026, 6:27 PM CT', title: 'Inspect\'s Design tab: a style guide and numbered features to look at', kind: 'feature',
+    items: [
+      'Glessner House\'s Design tab opens on a Richardsonian Romanesque style card: two lines, four ways to spot the style, and an 1888 photograph of another Romanesque house on the avenue.',
+      'Under it, On this house numbers six features, from the granite street walls to the window heights we had to fill in. Each has its grade dot, and tapping one turns the camera to it.',
+      'Compare styles points to two neighbours the district marker names: Second Empire at 1900 Prairie and French Chateauesque at 1801.',
+      'Every other building lists its own recorded features the same way, numbered and graded, where the attribute table used to be.',
+    ] },
+  { v: 2026, ts: '2026-10-18T23:27:40.956Z', date: 'Oct 18, 2026, 6:27 PM CT', title: 'After a display reset, the crash card says what the page was doing', kind: 'improvement',
+    items: [
+      'The page keeps a short record of its last steps on the device: taps, cards, the Navigator, detail switches, and what the graphics card was drawing.',
+      'If the display resets or the page stops, the next load shows those last steps on the crash card. Copy details copies the whole record, so it can be pasted into a report.',
+    ] },
+  { v: 2025, ts: '2026-10-18T23:10:14.829Z', date: 'Oct 18, 2026, 6:10 PM CT', title: '1637 Prairie\'s carved south bay rises on its side wall', kind: 'feature',
+    items: [
+      'The Spalding house on Prairie Avenue now has the stone bay its oldest photograph shows on its south side: a tall arched window, a bracketed cornice and a balustrade on top, with an arched window over it in the wall above.',
+      'The bay keeps its 1911 fire-insurance-map outline and the photograph\'s heights. Its columns, carving and side windows come next.',
+    ] },
   { v: 2024, ts: '2026-10-18T22:53:44.520Z', date: 'Oct 18, 2026, 5:53 PM CT', title: 'Finish the field check and earn your Navigator License', kind: 'feature',
     items: [
       'Press Finish at the end of the 60-second field check and you earn the Navigator License. A line says it is kept with your keepsakes in Jaunts.',

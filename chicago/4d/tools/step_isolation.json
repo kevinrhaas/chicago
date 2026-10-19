@@ -5406,6 +5406,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_blackbox.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_boot_forecast.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5570,6 +5574,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_guide_about.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_guide_glossary.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5611,6 +5619,10 @@
       "wrote_ignored": []
     },
     "tools/test_move_comfort.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_nav_design.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
