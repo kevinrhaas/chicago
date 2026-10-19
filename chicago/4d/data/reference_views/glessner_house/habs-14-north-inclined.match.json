@@ -20,7 +20,7 @@
       "status": "fixed"
     },
     {
-      "what": "T-2869: the stack's date-stone panel (the print's upper stone reads a joined monogram, not the plain AD drawn) and the north tower finial (about 30-40 px east of the photograph's, with the cone) still differ; stone/course appearance differs.",
+      "what": "T-2869: the stack's date-stone panel (the print's upper stone reads a joined monogram, not the plain AD drawn) still differs (the north tower finial is ruled by T-2872 below); stone/course appearance differs.",
       "status": "open"
     },
     {
@@ -34,6 +34,10 @@
     {
       "what": "T-2848: the stone in this print is darkened by decades of city soot, so its tone in the 1960s photograph is not its 1887 tone; the render's clean stone is not compared against it.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2872: the north tower finial, ruled against both north photographs; the plan is kept. On this camera the built tip (W 41, S 7.35, 44.9 ft) lands at x 1329, y 343 against the photograph's 1302, 354, about 29 px; HABS 01, whose camera was fitted with the tower left out, holds it to 3 px, and the two tips alone triangulate at about W 39.7 / S 8.8. A drum still tangent to 18th Street that carried that tip would have a radius of about 8.8 ft and a cone 1.2-1.3 times as wide as the built one, and the cone's own silhouette refuses it: HABS 01's two edges fit best at 0.9 of the built size (0.8-1.0 within half a pixel, the wider cone 1.4 px worse) and this photograph's right edge at 0.82. Every control in this camera but two lies in the north wall's plane, and those two are model-derived; re-solved with either one dropped, the camera moves the built tip by 28.5 px, the size of the miss. So the miss is this camera's depth, not the tower's plan. data/comparisons/glessner/north-finial.json (tools/glessner_north_finial_read.py).",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
