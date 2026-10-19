@@ -9,14 +9,20 @@
  * (frontage 80, enclosures 41, yard 30 — the reading in T-2546).
  *
  * So a tap draws the candidate chunks once more, into ONE pixel: a 1x1
- * `RGBA32UI` target, through a camera whose view is offset so that pixel's
- * centre is exactly the tapped ray, with an id material that writes
+ * target, through a camera whose view is offset so that pixel's centre is
+ * exactly the tapped ray, with an id material that writes three 32-bit words
  *
- *   r  the chunk's slot in the candidate list, 1-based (0 is a miss)
- *   g  `gl_VertexID` of the triangle's provoking vertex (`flat`)
- *   b  the distance from the eye, `floatBitsToUint(length(view position))`
+ *   slot      the chunk's slot in the candidate list, 1-based (0 is a miss)
+ *   id        `gl_VertexID` of the triangle's provoking vertex (`flat`)
+ *   distance  from the eye, `floatBitsToUint(length(view position))`
  *
- * and reads that one pixel back. The layers' chunks are NON-INDEXED triangle
+ * and reads that one pixel back. Each word goes out as its four bytes into an
+ * attachment of its own, three plain RGBA8 attachments, and is put back
+ * together here (T-2822). Until then it was one `RGBA32UI` pixel read with
+ * `RGBA_INTEGER`, the read WebKit has lost the context on (WebKit bug 245476):
+ * on an iPhone, a tap on the Glessner House, or the Navigator opening beside it
+ * (Home's probe asks the same pick), reset the display. An RGBA8 read is the one
+ * every WebGL implementation must support. The layers' chunks are NON-INDEXED triangle
  * soups, so the provoking vertex names the face (`floor(vertex / 3)`) and the
  * face spans each layer already keeps resolve it exactly as they resolved the
  * raycast's `faceIndex`. The distance gives back the hit point on the ray.
@@ -41,6 +47,16 @@
  * per-instance cull runs against the one-pixel frustum, so a pick draws only the
  * buildings under the finger; a hidden instance is skipped by both engines.
  *
+ * Only the batches the ray can meet are drawn (T-2827). Every instance's box is
+ * kept in the world, and a batch none of whose shown instances' boxes the ray
+ * meets within reach cannot be hit, so it is not drawn; a pick no box answers
+ * draws nothing at all. Drawing all 183 batches of 1904 on every look was 183
+ * passes, each culling every instance and uploading the batch's indirect
+ * texture, twice a second while the HUD's target probe listened, and an iPhone
+ * stopped the page in the middle of one (Kevin's black-box records, T-2826).
+ * `boxPick` is that box test alone, nearest box wins: what a phone's probe asks
+ * (main.js), so looking around a phone draws no pick at all.
+ *
  * `raycastPick` is the old path, kept as the oracle while arrays exist (the
  * desktop, which releases nothing, and the harness's `?keep-geometry=1`):
  * `tools/check_upload_release.mjs` taps a fixed list on the desktop and
@@ -54,6 +70,11 @@ let renderer = null;
 
 /** main.js hands over its renderer once; until then a pick falls back to the raycast. */
 export function setPickRenderer(r) { renderer = r ?? null; }
+
+let pickLog = null;
+/** T-2826: each pick's start and end go to the black box (blackbox.js), so a reset
+ *  mid-pick is told from one after it. */
+export function setPickLog(fn) { pickLog = typeof fn === 'function' ? fn : null; }
 
 /** The ray budget every layer's pick has always used: as far as you can see from this height. */
 export function pickReach(camera) { return Math.max(400, camera.position.y * 4); }
@@ -76,15 +97,26 @@ void main() {
   gl_Position = projectionMatrix * mv;
 }`;
 
+/** A word as its four bytes, low first, each exact in an 8-bit unorm channel. */
+const BYTES = /* glsl */`
+vec4 bytes(highp uint v) {
+  return vec4(uvec4(v, v >> 8u, v >> 16u, v >> 24u) & 255u) / 255.0;
+}`;
+
 const FRAG = /* glsl */`
 precision highp float;
 precision highp int;
 uniform highp uint uSlot;
 flat in highp uint vVertex;
 in vec3 vView;
-layout(location = 0) out highp uvec4 pickOut;
+layout(location = 0) out highp vec4 pickSlot;
+layout(location = 1) out highp vec4 pickId;
+layout(location = 2) out highp vec4 pickDistance;
+${BYTES}
 void main() {
-  pickOut = uvec4(uSlot, vVertex, floatBitsToUint(length(vView)), 1u);
+  pickSlot = bytes(uSlot);
+  pickId = bytes(vVertex);
+  pickDistance = bytes(floatBitsToUint(length(vView)));
 }`;
 
 /**
@@ -113,9 +145,14 @@ const FRAG_BATCHED = /* glsl */`
 uniform highp uint uSlot;
 flat in highp uint vVertex;
 in vec3 vView;
-layout(location = 0) out highp uvec4 pickOut;
+layout(location = 0) out highp vec4 pickSlot;
+layout(location = 1) out highp vec4 pickId;
+layout(location = 2) out highp vec4 pickDistance;
+${BYTES}
 void main() {
-  pickOut = uvec4(uSlot, vVertex, floatBitsToUint(length(vView)), 1u);
+  pickSlot = bytes(uSlot);
+  pickId = bytes(vVertex);
+  pickDistance = bytes(floatBitsToUint(length(vView)));
 }`;
 
 const materials = new Map();
@@ -156,11 +193,70 @@ const pool = [];
 let target = null;
 const cameras = { perspective: new THREE.PerspectiveCamera(), orthographic: new THREE.OrthographicCamera() };
 for (const c of Object.values(cameras)) c.matrixWorldAutoUpdate = false;
-const texel = new Uint32Array(4);
+/** What the pick holds, for the harness (T-2828): one target, its id materials, its stand-ins. */
+export function pickResources() {
+  return { targets: target ? 1 : 0, materials: materials.size, pool: pool.length };
+}
+const texel = new Uint32Array(3); // slot, id, distance bits
 const texelFloat = new Float32Array(texel.buffer);
+const bytes = new Uint8Array(4);
 const size = new THREE.Vector2();
 const clear = new THREE.Color();
 const ray = new THREE.Raycaster();
+
+const box = new THREE.Box3();
+const boxMatrix = new THREE.Matrix4();
+const worldBoxes = new WeakMap(); // batch → { version, count, world, boxes }
+
+/**
+ * Each instance's box in the world, six floats an instance, kept until the batch
+ * moves or its matrices change. upload-release.js caches every geometry's box
+ * before a phone lets go of the positions, so this reads no released array.
+ */
+function boxesOf(batch) {
+  const info = batch._instanceInfo;
+  const version = batch._matricesTexture?.version ?? 0;
+  const kept = worldBoxes.get(batch);
+  if (kept && kept.version === version && kept.count === info.length && kept.world.equals(batch.matrixWorld)) {
+    return kept.boxes;
+  }
+  const boxes = new Float32Array(info.length * 6).fill(NaN);
+  for (let i = 0; i < info.length; i += 1) {
+    if (!info[i].active || !batch.getBoundingBoxAt(info[i].geometryIndex, box)) continue;
+    // A centimetre out, so the float32 copy never shaves a triangle on the box's face.
+    box.applyMatrix4(batch.getMatrixAt(i, boxMatrix).premultiply(batch.matrixWorld)).expandByScalar(0.01);
+    box.min.toArray(boxes, i * 6);
+    box.max.toArray(boxes, i * 6 + 3);
+  }
+  worldBoxes.set(batch, { version, count: info.length, world: batch.matrixWorld.clone(), boxes });
+  return boxes;
+}
+
+/**
+ * The nearest shown instance whose box `worldRay` meets within `far`: `{ batchId, distance }`
+ * or null. The slab test is written out over the raw floats: 1904 holds 37k parts.
+ */
+function nearestBox(batch, worldRay, far) {
+  const info = batch._instanceInfo;
+  const boxes = boxesOf(batch);
+  const { origin: o, direction: d } = worldRay;
+  const ix = 1 / d.x, iy = 1 / d.y, iz = 1 / d.z;
+  let best = -1, bestT = far;
+  for (let i = 0, j = 0; i < info.length; i += 1, j += 6) {
+    const x0 = boxes[j];
+    if (x0 !== x0 || !info[i].visible || !info[i].active) continue; // NaN: no box
+    let t0 = (x0 - o.x) * ix, t1 = (boxes[j + 3] - o.x) * ix;
+    let lo = Math.min(t0, t1), hi = Math.max(t0, t1);
+    t0 = (boxes[j + 1] - o.y) * iy; t1 = (boxes[j + 4] - o.y) * iy;
+    lo = Math.max(lo, Math.min(t0, t1)); hi = Math.min(hi, Math.max(t0, t1));
+    t0 = (boxes[j + 2] - o.z) * iz; t1 = (boxes[j + 5] - o.z) * iz;
+    lo = Math.max(lo, Math.min(t0, t1)); hi = Math.min(hi, Math.max(t0, t1));
+    if (hi < 0 || lo > hi) continue;
+    const t = Math.max(lo, 0); // a ray that starts inside meets the box at once
+    if (t <= bestT) { bestT = t; best = i; }
+  }
+  return best < 0 ? null : { batchId: best, distance: bestT };
+}
 
 /**
  * Draw `meshes` into one pixel under `ndc` and read back what is nearest.
@@ -170,9 +266,12 @@ const ray = new THREE.Raycaster();
  */
 export function gpuPick(meshes, ndc, camera, far = pickReach(camera)) {
   if (!renderer || !meshes.length) return renderer ? null : undefined;
+  ray.setFromCamera(ndc, camera);
+  const met = meshes.map((src) => !src.isBatchedMesh || !!nearestBox(src, ray.ray, far));
+  if (!met.includes(true)) return null;
   if (!target) {
     target = new THREE.WebGLRenderTarget(1, 1, {
-      type: THREE.UnsignedIntType, format: THREE.RGBAIntegerFormat, internalFormat: 'RGBA32UI',
+      count: 3, type: THREE.UnsignedByteType, format: THREE.RGBAFormat,
       minFilter: THREE.NearestFilter, magFilter: THREE.NearestFilter,
       generateMipmaps: false, depthBuffer: true,
     });
@@ -192,7 +291,10 @@ export function gpuPick(meshes, ndc, camera, far = pickReach(camera)) {
   const batches = [];
   for (let i = 0; i < meshes.length; i += 1) {
     const src = meshes[i];
-    if (src.isBatchedMesh) { batches.push(i); continue; }
+    if (src.isBatchedMesh) {
+      if (met[i]) batches.push(i);
+      continue;
+    }
     let stand = pool[stood];
     if (!stand) {
       stand = new THREE.Mesh(EMPTY, materialFor(THREE.FrontSide));
@@ -222,6 +324,7 @@ export function gpuPick(meshes, ndc, camera, far = pickReach(camera)) {
   };
   renderer.getClearColor(clear);
   texel.fill(0);
+  pickLog?.('pick', { meshes: stood, batches: batches.length });
   try {
     renderer.autoClear = true;
     renderer.shadowMap.autoUpdate = false;
@@ -232,8 +335,12 @@ export function gpuPick(meshes, ndc, camera, far = pickReach(camera)) {
     // Every batch after into the same pixel and depth: the nearest wins.
     renderer.autoClear = false;
     for (const i of batches) drawBatch(meshes[i], i + 1, cam);
-    const gl = renderer.getContext();
-    gl.readPixels(0, 0, 1, 1, gl.RGBA_INTEGER, gl.UNSIGNED_INT, texel);
+    // A miss reads one attachment; a hit, all three.
+    for (let k = 0; k < 3; k += 1) {
+      renderer.readRenderTargetPixels(target, 0, 0, 1, 1, bytes, undefined, k);
+      texel[k] = (bytes[0] | (bytes[1] << 8) | (bytes[2] << 16) | (bytes[3] << 24)) >>> 0;
+      if (!texel[0]) break;
+    }
   } finally {
     renderer.setRenderTarget(was.target);
     renderer.setClearColor(clear, was.alpha);
@@ -248,9 +355,9 @@ export function gpuPick(meshes, ndc, camera, far = pickReach(camera)) {
 
   const slot = texel[0];
   const distance = texelFloat[2];
+  pickLog?.('picked', { hit: slot ? (meshes[slot - 1]?.name || slot) : 0 });
   if (!slot || slot > meshes.length || !(distance <= far)) return null;
   const object = meshes[slot - 1];
-  ray.setFromCamera(ndc, camera);
   const point = ray.ray.at(distance, new THREE.Vector3());
   if (object.isBatchedMesh) return { object, batchId: texel[1], vertex: null, face: null, distance, point };
   const vertex = texel[1];
@@ -276,6 +383,25 @@ function drawBatch(batch, slot, cam) {
   }
 }
 
+/**
+ * The batches' boxes alone, nearest first: no draw, no readback, and no plain
+ * chunk (those have no instance boxes). A box is a building part's box, so it is
+ * a little generous where the part is not a box, and a ray that starts inside
+ * one answers that part at once.
+ */
+export function boxPick(meshes, ndc, camera, far = pickReach(camera)) {
+  ray.setFromCamera(ndc, camera);
+  let best = null;
+  for (const src of meshes) {
+    if (!src.isBatchedMesh) continue;
+    const hit = nearestBox(src, ray.ray, far);
+    if (hit && (!best || hit.distance < best.distance)) best = { object: src, ...hit };
+  }
+  if (!best) return null;
+  return { object: best.object, batchId: best.batchId, vertex: null, face: null, distance: best.distance,
+    point: ray.ray.at(best.distance, new THREE.Vector3()) };
+}
+
 /** The raycast the layers used before: the oracle while the page arrays exist. */
 export function raycastPick(meshes, ndc, camera, far = pickReach(camera)) {
   ray.setFromCamera(ndc, camera);
@@ -299,8 +425,9 @@ export function raycastPick(meshes, ndc, camera, far = pickReach(camera)) {
 function drawable(mesh) { return !mesh.userData.reachCulled; }
 
 /**
- * A layer's pair of picks over one resolver: `pickAt` on the GPU (the raycast
- * only where there is no renderer), and `pickAtRaycast`, the oracle.
+ * A layer's picks over one resolver: `pickAt` on the GPU (the raycast only
+ * where there is no renderer), `pickAtBox` from the batches' boxes, and
+ * `pickAtRaycast`, the oracle.
  *
  * @param {() => THREE.Mesh[]} candidates  what a tap on this layer may hit
  * @param {(hit) => object|null} resolve   `{object, batchId, face, distance, point}` → the layer's answer
@@ -315,6 +442,7 @@ export function layerPick(candidates, resolve) {
   const gpu = run(gpuPick);
   const cast = run(raycastPick);
   return {
+    pickAtBox: run(boxPick),
     pickAt: (ndc, camera) => {
       if (!camera) return null;
       if (!renderer) return cast(ndc, camera);

@@ -1,0 +1,86 @@
+/* T-2650 (NAV-605; DESIGN §09, M9): the Confidence view's overlays — the four switches at
+   the foot of the app, and the one layer over the town that holds building labels, people
+   pins and the Jaunt route (js/confidence-overlays.js). The layer sits under the HUD (20)
+   and the Navigator (25), so neither is ever covered; only its pins and its list take a tap.
+   Skin tokens only, so all four machine skins and both themes carry it. */
+
+/* ---- the switches ---- */
+.cv-ov { margin-top: 12px; display: grid; gap: 6px; }
+.cv-ov-row {
+  display: grid; grid-template-columns: auto 1fr; column-gap: 10px; row-gap: 2px; align-items: center;
+  min-height: 44px; padding: 6px 12px; border: 1px solid var(--edge); border-radius: 10px; cursor: pointer;
+}
+.cv-ov-row input[type="checkbox"] { grid-row: 1 / span 2; width: 18px; height: 18px; margin: 0; accent-color: var(--accent); }
+.cv-ov-name { font-weight: 600; color: var(--ink); }
+.cv-ov-note { grid-column: 2; margin: 0; font-size: 12px; line-height: 1.4; }
+.cv-ov-row.is-off { cursor: default; }
+.cv-ov-row.is-off .cv-ov-name { color: var(--ink-dim, var(--ink)); }
+.cv-ov-row:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ---- the layer over the town ---- */
+.cv-overlays { position: fixed; inset: 0; z-index: 19; pointer-events: none; overflow: hidden; }
+.cv-overlays[hidden], .cv-overlays [hidden] { display: none !important; }
+.cv-route { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.cv-route path {
+  fill: none; stroke: var(--accent); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 1.5 6; filter: drop-shadow(0 0 1.5px rgba(0, 0, 0, .7));
+}
+.cv-label, .cv-pin, .cv-stop { position: absolute; left: 0; top: 0; will-change: transform; }
+/* A building's name, centred over its roof. */
+.cv-label {
+  margin: 0; translate: -50% -100%; width: max-content; max-width: 220px; white-space: normal; text-align: center; text-wrap: balance;
+  padding: 3px 8px; font: 600 10.5px/1.3 var(--font-label, var(--font-mono, ui-monospace, monospace)); letter-spacing: .06em;
+  color: var(--ink); background: var(--panel); border: 1px solid var(--edge); border-radius: 8px; box-shadow: var(--shadow);
+}
+.cv-label[data-grade="attested"] { border-color: color-mix(in srgb, var(--grade-attested, var(--accent)) 60%, var(--edge)); }
+.cv-label[data-grade="inferred"] { border-color: color-mix(in srgb, var(--grade-inferred, var(--accent)) 60%, var(--edge)); }
+.cv-label[data-grade="reconstructed"] { border-color: color-mix(in srgb, var(--grade-reconstructed, var(--accent)) 60%, var(--edge)); }
+/* A people pin: a plain marker, no figure (L1), with how many are there. 44 px to tap. */
+.cv-pin {
+  pointer-events: auto; translate: -50% -100%; width: 44px; height: 44px; padding: 0 0 12px; border: 0; background: none; cursor: pointer;
+  font: 700 11px/1 var(--font-mono, ui-monospace, monospace); color: var(--ink);
+  display: grid; place-items: center;
+}
+.cv-pin::before {
+  content: ''; position: absolute; left: 50%; top: 4px; width: 24px; height: 24px; translate: -50% 0; rotate: -45deg;
+  border-radius: 50% 50% 50% 0; background: var(--panel-solid, var(--panel)); border: 2px solid var(--accent); box-shadow: var(--shadow);
+}
+.cv-pin { isolation: isolate; }
+.cv-pin::before { z-index: -1; }
+.cv-pin:hover::before, .cv-pin:focus-visible::before { background: var(--accent); }
+.cv-pin:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+/* A Jaunt stop, numbered; the next one ringed. */
+.cv-stop {
+  translate: -50% -50%; min-width: 20px; height: 20px; padding: 0 4px; border-radius: 10px; display: grid; place-items: center;
+  font: 700 10.5px/1 var(--font-mono, ui-monospace, monospace); color: var(--ink); background: var(--panel-solid, var(--panel));
+  border: 1.5px solid var(--accent); box-shadow: var(--shadow);
+}
+.cv-stop.is-next { background: var(--accent); color: var(--page, #111); outline: 2px solid var(--accent); outline-offset: 3px; }
+/* Who is at a pin. */
+.cv-pop {
+  position: absolute; pointer-events: auto; width: min(260px, calc(100vw - 24px)); max-height: min(320px, 60vh); overflow: auto;
+  padding: 10px 12px; color: var(--ink); background: var(--panel-solid, var(--panel)); border: 1px solid var(--edge);
+  border-radius: 12px; box-shadow: var(--shadow);
+}
+.cv-pop-head { display: flex; align-items: flex-start; gap: 8px; }
+.cv-pop-title { flex: 1; font-size: 13px; line-height: 1.35; }
+.cv-pop-close { flex: none; width: 32px; height: 32px; border: 1px solid var(--edge); border-radius: 8px; background: transparent; color: var(--ink); font: inherit; font-size: 18px; line-height: 1; cursor: pointer; }
+.cv-pop-list { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 4px; }
+.cv-pop-person {
+  display: grid; width: 100%; min-height: 44px; padding: 6px 8px; text-align: left; border: 1px solid var(--edge); border-radius: 8px;
+  background: transparent; color: var(--ink); font: inherit; cursor: pointer;
+}
+.cv-pop-person:hover, .cv-pop-person:focus-visible { border-color: var(--accent); }
+.cv-pop-name { font-weight: 600; font-size: 13px; }
+.cv-pop-sub { font-size: 11.5px; color: var(--ink-dim, var(--ink)); }
+.cv-pop-review { display: block; margin: 2px 0 4px 8px; font-size: 11.5px; line-height: 1.4; color: var(--ink-dim, var(--ink)); }
+.cv-pop-more { margin-top: 6px; width: 100%; min-height: 40px; border: 1px dashed var(--edge); border-radius: 8px; background: transparent; color: var(--ink); font: inherit; font-size: 12px; cursor: pointer; }
+
+/* A phone with a card up: the strip above the sheet frames the building (card.css). */
+@media (max-width: 620px) {
+  html.card-open .cv-overlays { visibility: hidden; }
+  .cv-label { max-width: 160px; font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cv-label, .cv-pin, .cv-stop { will-change: auto; transition: none; animation: none; }
+}

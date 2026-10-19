@@ -183,7 +183,104 @@
       ]
     }
   ],
-  "style": null,
+  "style": "richardsonian_romanesque",
+  "onThisHouse": [
+    {
+      "text": "Granite street walls",
+      "detail": "Rough granite on the two street sides, brick on the courtyard.",
+      "attribute": "construction",
+      "feature": "street_wall_granite",
+      "camera": {
+        "yaw": 265,
+        "pitch": 6
+      },
+      "grade": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_data_pages",
+        "habs_glessner_house_il_1015_drawings",
+        "inland_architect_1888_02_glessner_exterior"
+      ]
+    },
+    {
+      "text": "Red tile roofs",
+      "detail": "Red baked tiles with no glaze, as John Glessner described them.",
+      "attribute": "roof_covering",
+      "feature": "roof_covering",
+      "camera": {
+        "yaw": 265,
+        "pitch": 20
+      },
+      "grade": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_data_pages",
+        "habs_glessner_house_il_1015_drawings",
+        "inland_architect_1888_02_glessner_exterior"
+      ]
+    },
+    {
+      "text": "The great arch on 18th Street",
+      "detail": "The service entrance went in through it.",
+      "feature": "great_arch_18th_street",
+      "camera": {
+        "yaw": 175,
+        "pitch": 8
+      },
+      "grade": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_drawings"
+      ]
+    },
+    {
+      "text": "Narrow windows on 18th Street",
+      "detail": "Just enough to light the corridors behind them.",
+      "feature": "north_corridor_windows",
+      "camera": {
+        "yaw": 175,
+        "pitch": 12
+      },
+      "grade": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ]
+    },
+    {
+      "text": "Oak carriage doors",
+      "detail": "Two heavy panelled leaves with iron straps, on Prairie Avenue.",
+      "attribute": "porte_cochere_doors",
+      "feature": "porte_cochere_doors",
+      "camera": {
+        "yaw": 265,
+        "pitch": 4
+      },
+      "grade": "attested",
+      "sources": [
+        "glessner_porte_cochere_doors_c1888",
+        "habs_glessner_house_il_1015_data_pages",
+        "habs_glessner_house_il_1015_drawings"
+      ]
+    },
+    {
+      "text": "Exact window heights",
+      "detail": "No drawing gives every one, so some are our best fit.",
+      "attribute": "opening_heights",
+      "feature": "opening_heights",
+      "camera": {
+        "yaw": 175,
+        "pitch": 12
+      },
+      "grade": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "habs_glessner_photo_01_nw_1963",
+        "habs_glessner_photo_05_court_c1923"
+      ],
+      "note": "The survey drawings print the heights of a few windows in stone courses. The rest are carried over from those, so their heights are ours.",
+      "liberty": "L295"
+    }
+  ],
   "story": [
     {
       "date": "1885-03-24",

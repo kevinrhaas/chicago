@@ -647,6 +647,16 @@ if meta not in s or not vs:
 s = s.replace(meta, f'<meta name="c4d-releases" content="{releases}">')
 p.write_text(s)
 PYEOF
+  # THE DEVELOPER NOTES STAY IN THE SOURCE. renderers/web/index.html carries about
+  # 13 KB of HTML comments — why each line is the way it is, for the next editor —
+  # and the doors below ship this page five times over. They are byte-identical on
+  # purpose, so validate.py's site check (T-0722) refuses them once they reach its
+  # 64 KB floor, which PR #1030's markup did. The shipped page drops its comments
+  # instead: placeholders and conditional comments stay, and nothing inside
+  # <script>, <style>, <textarea> or <pre> is touched. It runs after the stamp and
+  # before the doors, so every door is a copy of the stripped page.
+  # `strip_page_comments.mjs --check` (check.sh) holds the shipped form to the source.
+  node tools/strip_page_comments.mjs "$SITE/walk/index.html"
 fi
 # THE FRONT DOORS (chicago.polecat.live). The renderer lives at walk/, but nobody is
 # sent there: /4d/ and /4d/<year>/ are copies of the STAMPED walk/index.html carrying a

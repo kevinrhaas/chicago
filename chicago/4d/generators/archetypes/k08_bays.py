@@ -26,13 +26,20 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                distance in from the eaves on every plane, so the hips stay shared
   balcony      (T-2525) a bow's iron balcony rail on its eaves, round the plan from wall to
                wall: a post at each end against the wall, square bars between a foot rail
-               and a top rail; and a window entry's `grille`, iron bars in its reveal
+               and a top rail (T-2780: or a stone balustrade round a canted bay's flat top); and a window entry's `grille`, iron bars in its reveal
                clipped to its head, with an arch ring over them as 1621's drawing draws
   heads        (T-2531) a window entry's `voussoirs`: a block of splayed stones over the
                light from its head to the string course, their joints fanned, as 1621's
                drawing draws over its basement lights
   floor balcony (T-2534) a projection's balcony on one of its floors, bowed out from its
                front under the window it serves: a stone slab and a stone balustrade on it
+  frieze       (T-2778) a windowless storey's carved frieze: on every run a dressed panel
+               proud of the face between plain stiles, and on it a guilloche, a chain of
+               interlaced rings standing proud in turn (the light tier keeps the panel)
+  spire        (T-2778) a roof whose every plane runs from its eaves line up to one apex on
+               the wall plane over the plan's middle, a polygonal cone; and an oriel carried
+               up through its house's eave (`back_from_m`) closes its back on the wall plane
+               from that height to the apex, since no wall stands behind it there
 
 Everything a run carries is built FLAT, in the run's own (s, y, z) frame (s along the
 run's outer face, y up, z out of it: K06's frame), then mapped onto the run: rigidly
@@ -690,6 +697,9 @@ def k06_variant(w: dict) -> dict:
     for k in ("clear_width_m", "clear_height_m", "mullion_m"):
         if k in w:
             v6[k] = w[k]
+    # T-2815: a transom window's lights in tiers on stone bars, read off a picture (Keith's bow)
+    if "tiers" in w:
+        v6["tiers"] = w["tiers"]
     return v6
 
 
@@ -786,12 +796,19 @@ class Bay:
                     masonry_cells(flat, holes, run.L, lo, hi, v["masonry"], trim_holes)
                 else:
                     wall_cells(flat, "wall", holes, 0.0, run.L, lo, hi)
+                if v["storeys"][k].get("frieze"):
+                    if per_run[i][k] or k == 0:
+                        raise ValueError(f"{v['id']}: a frieze is a windowless storey over another")
+                    self._frieze(flat, run, levels[k], hi, v["storeys"][k]["frieze"], band["height_m"],
+                                 k + 1 < len(v["storeys"]))
                 if 0 < k:
                     yb = levels[k]
                     proud(flat, "band", run, yb - band["height_m"] / 2, yb + band["height_m"] / 2, band["proud_m"])
             if grade:
                 proud(flat, "plinth", run, 0.0, plinth["height_m"], plinth["proud_m"], bottom=False)
             # the eaves: a soffit out to the fascia, the fascia's top the roof's eaves line
+            if v.get("cap_band"):
+                self._cap_band(flat, run, y_top, v["cap_band"])
             if prof:
                 # T-2472: in the stone of the bay's bands, or the role its eaves name (the
                 # bracketed cornice's section is the eave's painted timber)
@@ -802,7 +819,7 @@ class Bay:
             if v.get("brackets"):
                 self._modillions(flat, run, y_top, ov)
             if v.get("balcony"):
-                self._balcony(flat, run, y_e, ov)
+                self._balcony(flat, run, y_e, ov, first=i == 0)
             if v.get("floor_balcony"):
                 ((fi, fs),) = locate(self.runs, self.plan, {"at": [v["floor_balcony"]["at"]]})
                 if fi == i:
@@ -814,6 +831,8 @@ class Bay:
         if not grade:
             self._corbel_bottom(world, y0, cv)
         self._roof(world, y_e, ov, cv)
+        if v.get("back_from_m") is not None:
+            self._back(world, float(v["back_from_m"]), y_top, y_e)
         if v.get("brackets"):
             self._consoles(world, y_top, ov)
         merge(self.prims, world.prims)
@@ -948,7 +967,9 @@ class Bay:
     def _roof(self, world, y_e, ov, cv):
         rf = self.v["roof"]
         tower = self.v["kind"] == "tower"
-        if self.plan["kind"] == "arc":
+        if rf["kind"] == "spire":
+            self._spire(world, y_e, ov, float(rf["rise_m"]))
+        elif self.plan["kind"] == "arc":
             self._cone(world, y_e, ov, rf["pitch"], cv, tower)
         else:
             self._hip(world, y_e, ov, rf["pitch"], tower)
@@ -1008,6 +1029,121 @@ class Bay:
                              "apex": [round(c, 4) for c in apex]}
         if flare:
             self.meta["roof"]["flare"] = dict(flare)
+
+    def _eaves_outline(self, ov):
+        """The plan's eaves line: each run's line offset `ov` out, from where the first meets
+        the wall plane to where the last does, through the corners between them."""
+        lines = [((a[0] + ov * n[0], a[1] + ov * n[1]), (-n[0], -n[1])) for a, e, n in self.plan["lines"]]
+        return [self._offset_corner(None, lines[0], ov)] + \
+            [self._offset_corner(lines[i], lines[i + 1], ov) for i in range(len(lines) - 1)] + \
+            [self._offset_corner(lines[-1], None, ov)]
+
+    def _spire(self, world, y_e, ov, rise):
+        """T-2778: a polygonal cone. Every plane runs from one run's eaves line up to a single
+        apex `rise` over the eaves, on the wall plane over the middle of the plan, so the
+        planes meet on hips that all run to it (a hip at one pitch would end in a ridge
+        along the wall instead). Its back, the triangle on the wall plane under the apex,
+        is closed: against a wall it is the wall's own face, and over a house's eave
+        (`_back`) nothing else stands there."""
+        if self.plan["kind"] != "polyline" or self.v["kind"] != "oriel":
+            raise ValueError(f"{self.v['id']}: a spire stands on an oriel's straight runs")
+        if not 0.5 <= rise <= 6.0:
+            raise ValueError(f"{self.v['id']}: a spire rises 0.5-6 m over its eaves, not {rise}")
+        dom = self._eaves_outline(ov)
+        # the apex stands the finial's radius off the wall plane, so the finial's shaft does too
+        apex = ((dom[0][0] + dom[-1][0]) / 2, y_e + rise,
+                part(self.v, self.data, "finial")["radius_m"] if self.v["roof"].get("finial") else 0.0)
+        for a, b in zip(dom, dom[1:]):
+            world.face("roof", [(a[0], y_e, a[1]), (b[0], y_e, b[1]), apex], Y)
+        self._spire_back = (dom[0][0], dom[-1][0], apex)
+        if self.v.get("back_from_m") is None:
+            world.face("roof_back", [(dom[-1][0], y_e, 0.0), (dom[0][0], y_e, 0.0), apex], (0.0, 0.0, -1.0))
+        self.meta["roof"] = {"kind": "spire", "rise_m": rise, "planes": len(dom) - 1,
+                             "apex": [round(c, 4) for c in apex]}
+
+    def _back(self, world, y_b, y_top, y_e):
+        """T-2778: an oriel carried up through its house's eave has no wall behind it over that
+        eave, so its back is closed on the wall plane, in its own walling, from `y_b` (the
+        house's wall head, where the house's roof leaves the wall) up: behind its walls to
+        their top, behind its eaves to their line, and under its spire to the apex. Cut at
+        the junctions and at the eaves' ends, so no edge of it ends on another's middle."""
+        if not hasattr(self, "_spire_back"):
+            raise ValueError(f"{self.v['id']}: only an oriel under a spire is carried through an eave")
+        jl, jr = self.runs[0].world(0.0, 0.0, 0.0)[0], self.runs[-1].world(self.runs[-1].L, 0.0, 0.0)[0]
+        el, er, apex = self._spire_back
+        if not el < jl < jr < er or not y_b < y_top - 0.3:
+            raise ValueError(f"{self.v['id']}: its back from {y_b} m needs the wall top at least 0.3 m over it")
+        B = (0.0, 0.0, -1.0)
+        q = lambda x0, x1, y0, y1: [(x1, y0, 0.0), (x0, y0, 0.0), (x0, y1, 0.0), (x1, y1, 0.0)]
+        world.face("roof_back", q(jl, jr, y_b, y_top), B)
+        for x0, x1 in ((el, jl), (jl, jr), (jr, er)):
+            world.face("roof_back", q(x0, x1, y_top, y_e), B)
+            world.face("roof_back", [(x1, y_e, 0.0), (x0, y_e, 0.0), apex], B)
+        self.meta["back"] = {"from_m": round(y_b, 4), "to_m": round(apex[1], 4)}
+
+    def _frieze(self, flat, run, y0, y1, fr, band_h, framed_above):
+        """T-2778: a windowless storey's carved frieze on one run, between the floor bands
+        that bound it: a dressed panel `proud_m` out, `border_m` in from the run's ends
+        (the stiles) and from the bands, and on it a guilloche, rings of `ring_width_m` laid
+        along the panel's middle at `pitch` of their radius, every other one standing
+        `ring_proud_m` and the rest half that, so where two cross one passes over the
+        other. The light tier keeps the panel and drops the rings."""
+        b, pr = float(fr["border_m"]), float(fr["proud_m"])
+        lo = y0 + band_h / 2 + b / 2
+        hi = y1 - (band_h / 2 if framed_above else 0.0) - b / 2
+        s0, s1 = b, run.L - b
+        if s1 - s0 < 0.2 or hi - lo < 0.2:
+            raise ValueError(f"{self.v['id']}: a {run.L:.2f} by {y1 - y0:.2f} m frieze leaves no panel")
+        rect_ = rect(s0, s1, lo, hi)
+        flat.plane("band", rect_, -pr)
+        flat.tube("band", rect_, 0.0, -pr, inward=False)
+        self.meta.setdefault("frieze", {"panels": 0, "rings": 0})["panels"] += 1
+        if self.tier == "light":
+            return
+        self.meta["frieze"]["rings"] += self._guilloche(flat, s0, s1, lo, hi, fr["guilloche"], pr)
+
+    def _cap_band(self, flat, run, y_top, cb):
+        """T-2815: a carved band round the bay under its cap (Keith's bow on the 1888 plate:
+        a dark carved band under the cap's light top): a dressed strip `height_m` deep
+        under the eaves moulding's seat, `proud_m` out along the whole run, carrying the
+        frieze's guilloche. Its top stands 2 mm under the seat, whose own underside the
+        moulding draws (mitred at the run's ends, so the two would overlap on one plane).
+        The light tier keeps the strip and drops the rings."""
+        h, pr = float(cb["height_m"]), float(cb["proud_m"])
+        lo, hi = y_top - h, y_top - 0.002
+        rect_ = rect(0.0, run.L, lo, hi)
+        flat.plane("band", rect_, -pr)
+        flat.tube("band", rect_, 0.0, -pr, inward=False)
+        m = self.meta.setdefault("cap_band", {"y_m": [round(lo, 4), round(hi, 4)], "rings": 0})
+        if self.tier == "light":
+            return
+        m["rings"] += self._guilloche(flat, 0.0, run.L, lo, hi, cb["guilloche"], pr)
+
+    def _guilloche(self, flat, s0, s1, lo, hi, g, pr):
+        """Rings of `ring_width_m` laid along a panel's middle at `pitch` of their radius,
+        every other one standing `ring_proud_m` and the rest half that, so where two cross
+        one passes over the other; returns how many."""
+        w, rp, k = float(g["ring_width_m"]), float(g["ring_proud_m"]), int(g["segments"])
+        R = min(float(g["radius_m"]), (hi - lo) / 2 - float(g["margin_m"]), (s1 - s0) / 2 - float(g["margin_m"]))
+        if R < 2 * w:
+            raise ValueError(f"{self.v['id']}: a frieze panel {hi - lo:.2f} m high holds no ring")
+        pitch = float(g["pitch"]) * R
+        n = max(1, math.floor((s1 - s0 - 2 * R - 2 * g["margin_m"]) / pitch + 1e-9) + 1)
+        sc = (s0 + s1) / 2 - (n - 1) * pitch / 2
+        yc = (lo + hi) / 2
+        for j in range(n):
+            d0 = -pr
+            d1 = -pr - (rp if j % 2 == 0 else rp / 2)
+            cs = sc + j * pitch
+            ring_ = lambda r, t: (cs + r * math.cos(2 * math.pi * t / k), yc + r * math.sin(2 * math.pi * t / k))
+            for t in range(k):
+                o0, o1, i0, i1 = ring_(R, t), ring_(R, t + 1), ring_(R - w, t), ring_(R - w, t + 1)
+                flat.plane("band", [o0, o1, i1, i0], d1)
+                mo = ((o0[0] + o1[0]) / 2 - cs, (o0[1] + o1[1]) / 2 - yc, 0.0)
+                flat.face("band", [flat.P(*o0, d0), flat.P(*o1, d0), flat.P(*o1, d1), flat.P(*o0, d1)], mo)
+                flat.face("band", [flat.P(*i1, d0), flat.P(*i0, d0), flat.P(*i0, d1), flat.P(*i1, d1)],
+                          (-mo[0], -mo[1], 0.0))
+        return n
 
     def _flare_bands(self, reg, Li, d, y_e, pitch, flare):
         """T-2408: one plane of a flared hip. Its slope runs from `eave_pitch` at the eaves up
@@ -1116,29 +1252,34 @@ class Bay:
         self.meta["finial"] = {"top_m": round(ay + H, 4)}
 
     # sockets and the specimen's board --------------------------------------------------------
-    def _balcony(self, flat, run, y_e, ov):
+    def _balcony(self, flat, run, y_e, ov, first=True):
         """T-2525: an iron rail on the eaves, `inset_m` in from their edge and round the run
         from the wall to the wall: a square post against the wall at each end, a foot rail
         and a top rail between them, and square bars at `pitch_m` under the top rail. Only a
-        bow, one arc from the wall to the wall, takes it (k01_frontage_params refuses others)."""
+        bow, one arc from the wall to the wall, takes it (k01_frontage_params refuses others);
+        T-2780: or a canted bay's flat top, a post at each end of each run, in the bay's dressed
+        stone where the balcony names `fabric: stone` (1637's south bay, its balustrade)."""
         bl = self.v["balcony"]
+        role = "band" if bl.get("fabric") == "stone" else "iron"
         z = ov - bl["inset_m"]
         pm, bm, (rw, rd) = bl["post_m"], bl["bar_m"], bl["rail_m"]
-        y0, y3 = y_e, y_e + bl["height_m"]
+        # a stone balustrade's feet stand on a 2 mm bed over the flat roof, not in its plane
+        y0, y3 = y_e + (0.002 if role == "band" else 0.0), y_e + bl["height_m"]
         d0, d1 = -z - pm / 2, -z + pm / 2
         sa, sb = run.s_start(z), run.s_end(z)
-        for a in (sa, sb - pm):
-            prism(flat, "iron", rect(a, a + pm, y0, y3), d0, d1)
+        # a canted top's runs meet at its corners, where the run before stood its end post
+        for a in ((sa, sb - pm) if first else (sb - pm,)):
+            prism(flat, role, rect(a, a + pm, y0, y3), d0, d1)
         e0, e1 = sa + pm, sb - pm
         # the rails run into the posts' middles, so no end of theirs lies in a post's face
         for ya, yb in ((y3 - rd, y3 - 0.004), (y0 + bl["foot_rail_m"], y0 + bl["foot_rail_m"] + rd / 2)):
-            prism(flat, "iron", rect(sa + pm / 2, sb - pm / 2, ya, yb), -z - rw / 2, -z + rw / 2)
+            prism(flat, role, rect(sa + pm / 2, sb - pm / 2, ya, yb), -z - rw / 2, -z + rw / 2)
         n = max(1, math.floor((e1 - e0) / bl["pitch_m"]))
         step = (e1 - e0) / (n + 1)
         # the light tier keeps the posts and rails, the rail's outline, and drops the bars
         for i in (range(1, n + 1) if self.tier == "full" else ()):
             m = e0 + i * step
-            prism(flat, "iron", rect(m - bm / 2, m + bm / 2, y0, y3 - rd / 2), -z - bm / 2, -z + bm / 2)   # into the rail
+            prism(flat, role, rect(m - bm / 2, m + bm / 2, y0, y3 - rd / 2), -z - bm / 2, -z + bm / 2)   # into the rail
         self.meta["balcony"] = {"bars": n, "top_m": round(y3, 4), "line_out_m": round(z, 4)}
 
     def _floor_balcony(self, flat, s_c, cv):

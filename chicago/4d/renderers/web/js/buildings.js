@@ -815,12 +815,13 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
             && batch.geometry.attributes.position.version===backingPositionVersion
             && batch.geometry.index.version===backingIndexVersion
             && batch.geometry.attributes[SCALARS].version===backingConfidenceVersion
-            && ([m.onBeforeCompile,m.onBeforeRender,m.customProgramCacheKey].every((fn,i)=>fn===hooks[i])
+            // T-2806: compared without building an array: this runs every frame on a phone
+            && ((m.onBeforeCompile===hooks[0] && m.onBeforeRender===hooks[1] && m.customProgramCacheKey===hooks[2])
               || seasonPreservesSurface(m,hooks))
             && m.visible && m.opacity===1 && !m.transparent && !m.transmission && m.depthWrite && m.depthTest
             && m.colorWrite && !m.wireframe && !m.alphaTest && !m.alphaHash && !m.alphaMap
             && !m.displacementMap && !m.polygonOffset && !m.stencilWrite
-            && [THREE.LessDepth,THREE.LessEqualDepth].includes(m.depthFunc)
+            && (m.depthFunc===THREE.LessDepth || m.depthFunc===THREE.LessEqualDepth)
             && !m.clippingPlanes?.length;
         };
         const ranges=new Map();
@@ -1083,6 +1084,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
      * @param {THREE.Camera} camera
      */
     pickAt: pick.pickAt,
+    /** The structure whose part's box the ray meets first: no draw (gpu-pick.js
+     *  `boxPick`, T-2827). A phone's target probe asks this. */
+    pickAtBox: pick.pickAtBox,
     /** The raycast it replaced, kept as the oracle (tools/check_upload_release.mjs). */
     pickAtRaycast: pick.pickAtRaycast,
 

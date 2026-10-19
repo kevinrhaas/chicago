@@ -377,6 +377,11 @@ def _cornice(a, K, data, bays, conf):
                                  f"street front to the bed moulding's foot at {y_bed:.3f} m (has {wall_top:.3f})")
             cut.append(tuple(b["span_m"]))
             continue
+        if b.get("through_eave"):
+            # T-2778: an oriel carried up through the eave; the bed moulding dies into its
+            # cants at its junctions, and its brackets stand clear of it (_blocked)
+            cut.append(tuple(b["span_m"]))
+            continue
         if top > y_bed - 0.005:
             raise ValueError(f"the bay on {wall} reaches the bed moulding at {y_bed:.3f} m")
     w, h = B["width_m"], B["height_m"]

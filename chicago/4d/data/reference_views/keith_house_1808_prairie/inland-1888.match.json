@@ -2,10 +2,10 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "inland-1888",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "bee27f8824a16f205a2d905c2af06639f4ff6e50f89dec2b50f56df9478eb203",
+  "glb_sha256": "c505419a7f8e102a8508129543029fd2cd7dd2357cd6f12c5547d6a79535ca4b",
   "camera_sha256": "6819cfca050bb147eac1c0036afc191e7d8dc1992bbb6529aa36841c0e0443e0",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "The flat top now has real two-row openings, corner pinnacles, a checker band and five colonnettes dividing six upper windows.",
@@ -92,12 +92,20 @@
       "status": "fixed"
     },
     {
-      "what": "T-2769: the south pedestal's south side, which this camera sees (x about 872-886, y 1590-1650), shows a plain field in a border like its front's; the model's side face is plain stone with no border. Open for the build.",
-      "status": "open"
+      "what": "T-2769: the south pedestal's south side, which this camera sees (x about 872-886, y 1590-1650), shows a plain field in a border like its front's; the model's side face is plain stone with no border. T-2815 builds it: the south pedestal's south face carries a field in a bead border like its front's (0.035 m bead, 0.1 m in from its front and back arrises, 0.23 m up to 0.2 m under its top). The render draws that face as the narrow strip behind the stair's cheek, as the print does. No picture shows the north pedestal's north face, so it stays plain.",
+      "status": "fixed"
     },
     {
-      "what": "T-2765: the plate draws each of the bow's principal lights in three tiers between stone bars: a main sash from the sill to about 4.05 m, a light about 4.2-4.7 m and a top light about 4.85-5.3 m (read on one level column at 77.8 px/m). The model's sash_transom_flat lays one 0.45 m transom over a 2.5 m sash, so its transom is the top light and the middle light is not built.",
-      "status": "open"
+      "what": "T-2765: the plate draws each of the bow's principal lights in three tiers between stone bars: a main sash from the sill to about 4.05 m, a light about 4.2-4.7 m and a top light about 4.85-5.3 m (read on one level column at 77.8 px/m). The model's sash_transom_flat lays one 0.45 m transom over a 2.5 m sash, so its transom is the top light and the middle light is not built. T-2815 builds the three tiers: the principal storey's K06 transom sash takes `tiers`, two 0.15 m stone bars in the wall's own stone across the hole, under a 0.5 m light (about 4.2-4.7 m) and a 0.45 m top light (about 4.85-5.3 m), so the sash runs from the sill to about 4.05 m. Each fixed light keeps the kit's three panes; the print does not resolve their glazing.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2773/T-2815: under the bow's moulded cap the plate draws a dark carved band (read at its native 1559 px on the south light's column, the dark from y 1006 to 1054, its foot about 9.54 m by T-2765's 77.8 px/m and 27 px over the second-storey heads), where the model had plain wall up to the cap's seat at 9.8 m. T-2815 builds a dressed band 0.26 m deep round the bow under the seat, 0.045 m proud, from 9.54 m: in the render its foot stands 33 px over the heads against the print's 27, inside the camera's residual here. The cap's moulding's shadowed bed carries the print's dark up to its light top.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2815: the bow band's carving is not shown. Through the street tree's branches the plate draws it only as a dark texture, with no motif, depth or tone to read a scroll, a leaf or a ring from, and the neutral review render lights it where the print holds it in shadow. It is built as the K08 kit's guilloche of interlaced rings (T-2778, 1623 Prairie's oriel frieze), reconstructed.",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

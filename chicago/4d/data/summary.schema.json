@@ -320,7 +320,70 @@
         "null"
       ],
       "pattern": "^[a-z0-9_]+$",
-      "description": "A style-library module id. Data, never shown; null where no module fits."
+      "description": "A style-library module id: data/styles/<id>.json must exist (tools/compile_summaries.py refuses one that does not). Data, never shown; null where no module fits."
+    },
+    "onThisHouse": {
+      "type": "array",
+      "description": "The Design tab's numbered hotspots, 'On this house' (T-2641; design doc section 08 'Design', section 12 'Attribute table -> Design hotspots'). Each names a feature of this building a visitor can look at, with its grade. Optional: a building without it shows its own attributes, each with its grade, instead. Where `attribute` names one of the structure's sidecar attributes, the hotspot's grade must be that attribute's own confidence, so the tab and the record cannot grade one feature two ways. Where `camera` is given, tapping the hotspot turns the camera there (Show me, T-2640). These are not counted in the front page's Confidence meter: they restate what the record and the sidecar already grade.",
+      "items": {
+        "type": "object",
+        "required": [
+          "text",
+          "detail",
+          "grade"
+        ],
+        "properties": {
+          "text": {
+            "$ref": "#/$defs/text",
+            "description": "The feature, at most 8 words."
+          },
+          "detail": {
+            "$ref": "#/$defs/text",
+            "description": "One line under it, at most 16 words."
+          },
+          "attribute": {
+            "$ref": "#/$defs/id",
+            "description": "The sidecar attribute this hotspot shows. Data, never shown."
+          },
+          "feature": {
+            "$ref": "#/$defs/id",
+            "description": "The feature Show me outlines. Data, never shown."
+          },
+          "camera": {
+            "type": "object",
+            "required": [
+              "yaw",
+              "pitch"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "yaw": {
+                "type": "number",
+                "minimum": -180,
+                "maximum": 360
+              },
+              "pitch": {
+                "type": "number",
+                "minimum": -90,
+                "maximum": 90
+              }
+            }
+          },
+          "grade": {
+            "$ref": "#/$defs/grade"
+          },
+          "sources": {
+            "$ref": "#/$defs/sources"
+          },
+          "note": {
+            "$ref": "#/$defs/note"
+          },
+          "liberty": {
+            "$ref": "#/$defs/liberty"
+          }
+        },
+        "additionalProperties": false
+      }
     },
     "story": {
       "type": "array",

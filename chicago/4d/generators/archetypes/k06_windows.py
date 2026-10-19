@@ -122,6 +122,12 @@ def box(s0, s1, y0, y1):
     return [(s0, y0), (s1, y0), (s1, y1), (s0, y1)]
 
 
+def rise_over_span(v: dict, data: dict) -> float:
+    """A segmental head's rise over its span: the kit's working figure, or (T-2818) the
+    variant's own, where a drawing reads a flatter head (1623's broad basement light)."""
+    return float(v.get("rise_over_span", data["arch"]["segmental"]["working_rise_over_span"]))
+
+
 class Head:
     """The top of a clear opening s0..s1 whose jambs rise to `spring`."""
 
@@ -289,7 +295,7 @@ class Opening:
             if kind == "flat":
                 head = Head("flat", s0, s1, H)
             else:
-                ros = self.data["arch"]["segmental"]["working_rise_over_span"]
+                ros = rise_over_span(v, self.data)
                 rr = v.get("head_radius_ratio", 1.0)    # T-2457: a drop head, its radius under the span
                 h0 = Head(kind, s0, s1, 0.0, ros, rr)
                 head = Head(kind, s0, s1, H - h0.rise, ros, rr)
@@ -437,6 +443,8 @@ class Opening:
         """A transom bar `transom_m` under the daylight's top and the fixed light over it;
         returns the top of what opens under the bar."""
         v, st = self.v, sa["stile_m"]
+        if v.get("tiers"):
+            return self._tiers(day, rev, fr, sa, mu, d_out)
         tb = 0.06
         t_bot = day.top_y - v["transom_m"]
         sash_top = t_bot - tb
@@ -447,6 +455,33 @@ class Opening:
         self._sash("sash_outer", Region(day.s0, day.s1, t_bot, top_y=day.top_y), d_out, sa, mu,
                    (v.get("transom_lights", 3), 1), (st, st, st, st), "transom")
         return sash_top
+
+    def _tiers(self, day: Region, rev, fr, sa, mu, d_out):
+        """T-2815: fixed lights in tiers over the sash, each on a stone bar across the hole
+        (Keith's bow on the 1888 plate: a main sash, a light over it and a top light).
+        `tiers` names the bar's depth and each light's clear height, bottom up, measured on
+        the hole as the picture's stone reveals draw them; the top light runs to the head.
+        Each bar is the wall's stone, its face on the wall's face, back to the frame's back;
+        returns the top of the sash under the lowest bar."""
+        v, st = self.v, sa["stile_m"]
+        bar, lights = float(v["tiers"]["bar_m"]), [float(h) for h in v["tiers"]["lights_m"]]
+        H, d_back = v["clear_height_m"], rev + fr["depth_m"]
+        top = H
+        for n, h in reversed(list(enumerate(lights, 1))):
+            lo = top - h
+            b0, b1 = lo - bar, lo
+            self.plane("mullion", box(day.s0 - fr["face_m"], day.s1 + fr["face_m"], b0, b1), 0.0)
+            for y, hy in ((b0, -1.0), (b1, 1.0)):
+                self.face("mullion", [self.P(day.s0 - fr["face_m"], y, 0.0), self.P(day.s1 + fr["face_m"], y, 0.0),
+                                      self.P(day.s1 + fr["face_m"], y, d_back),
+                                      self.P(day.s0 - fr["face_m"], y, d_back)], (0.0, hy, 0.0))
+            self._sash("sash_outer", Region(day.s0, day.s1, b1, top_y=min(top, day.top_y)), d_out, sa, mu,
+                       (v.get("transom_lights", 3), 1), (st, st, st, st), f"tier{n}")
+            top = b0
+        if top - day.y0 < 0.6:
+            raise ValueError(f"{v['id']}: its tiers leave a {top - day.y0:.2f} m sash under them")
+        self.meta["tiers_m"] = round(top, 4)
+        return top
 
     def _fanlight(self, fan: Region, head, d, bars, mu):
         outer = fan.outline()
