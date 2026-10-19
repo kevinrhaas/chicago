@@ -82,7 +82,15 @@ const KEEP_ARRAYS = (() => {
 
 const census = { geometries: 0, attributes: 0, bytes: 0, keptForHarness: KEEP_ARRAYS,
   // T-2548: the buildings' source glTF geometry, and their decoded images.
-  sources: 0, sourceBytes: 0, images: 0, imageBytes: 0 };
+  sources: 0, sourceBytes: 0, images: 0, imageBytes: 0,
+  // T-2828: a GLB KTX2's transcoded levels, let go by texture residency once uploaded.
+  compressed: 0, compressedBytes: 0 };
+
+/** T-2828: texture-residency.js let go of one source's transcoded levels (`bytes`). */
+export function noteReleasedLevels(bytes) {
+  census.compressed += 1;
+  census.compressedBytes += bytes;
+}
 
 function release(attr, drop = dropArray) {
   if (!attr || !attr.array || attr.userData?.uploadReleased) return;
