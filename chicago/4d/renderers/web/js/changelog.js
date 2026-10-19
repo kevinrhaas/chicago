@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2065, ts: '2026-10-19T15:54:13.631Z', date: 'Oct 19, 2026, 10:54 AM CT', title: 'Keith\'s loggia stands where its plan puts it', kind: 'improvement',
+    items: [
+      '1808 Prairie\'s loggia now stands on slimmer 0.6 m pedestals at the places the 1888 floor plan draws, its paired columns closer together, and the front stair narrowed to the plan\'s 1.8 m with its north wall running into the loggia.',
+      'In the 1888 engraving the rebuilt columns now land on the drawing\'s own; the 1965 photograph still reads each pair a little wider, which is the next thing to settle.',
+    ] },
+  { v: 2064, ts: '2026-10-19T15:54:13.631Z', date: 'Oct 19, 2026, 10:54 AM CT', title: 'Glessner\'s courtyard dormers drawn to the 1963 survey', kind: 'improvement',
+    items: [
+      'The third dormer moves a full foot south, to where the HABS courtyard drawing puts it, and the first moves two inches north.',
+      'Each dormer\'s bell finial now shows: the hip covers are slimmed to the drawing\'s single line and stop under the bell instead of burying it.',
+      'The bell is fuller and stands where it is drawn, and the apron\'s fascia and the window\'s frame are cut to the drawing\'s sizes.',
+    ] },
   { v: 2063, ts: '2026-10-19T15:12:55.865Z', date: 'Oct 19, 2026, 10:12 AM CT', title: 'Ghosted trees in the Confidence view fade by dither', kind: 'fix',
     items: [
       'In the Confidence view, a grade set to Ghost now fades the trees with a fine screen-door pattern at its opacity, as fences and yards already do, instead of drawing the wood a second time. X-ray\'s trees fade the same way.',
