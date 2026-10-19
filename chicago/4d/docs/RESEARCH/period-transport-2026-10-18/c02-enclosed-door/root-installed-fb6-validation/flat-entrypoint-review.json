@@ -1,0 +1,29 @@
+{
+  "scope": "Read-only installed wrapper/hook/probe-source review; no app writes, reruns, browser or new measurements",
+  "blockers_in_flat_entrypoint_behavior": [],
+  "confirmed": {
+    "flat_entries": ["tools/test_carriage_c02_door.py", "tools/test_carriage_c02_door_hierarchy.py"],
+    "mechanism": "runpy.run_path(repo-relative nested path,run_name='__main__')",
+    "arguments_preserved": "Original CLI argv[1:] retained; runpy temporarily supplies nested argv0 and __file__, so nested ROOT and sibling checker/generator defaults remain correct. Normal errors/exit status propagate; no swallowing/guard edits.",
+    "nested_implementation_hashes": {
+      "tools/transport/test_carriage_c02_door.py": "f7704aacc54683623a87ea911ece369993fd2997d1d2caabddc98a63c4c0acec",
+      "tools/transport/test_carriage_c02_door_hierarchy.py": "6c591d7f72a41ff108899ec316f5e832770e470b72844ace85dbaf19bbe73ac6"
+    },
+    "check_hooks_only_redirect_to_flat_entries": true,
+    "existing_toolOf_parser_matches_flat_entries_without_change": true,
+    "GPL_headers_present": true
+  },
+  "measurement_semantics": {
+    "in_process_nested_code": "Python audit hook remains installed in same interpreter through runpy and records its open-write events. At atexit runpy has restored original flat argv0, allowing flat-row attribution.",
+    "spawned_children": "Hierarchy subprocesses inherit PYTHONPATH/ISOLATION_ROOT/OUT and therefore emit raw probe JSONL under their own nested checker argv. buildOne explicitly filters key!==tool, so these spawned-helper writes are NOT folded into flat wrapper row.",
+    "required_honest_scope": "Flat wrote[] proves recorded same-process opens only. Retain and inspect raw spawned-child rows to establish they wrote no live-tree files; do not claim automatic transitive aggregation.",
+    "existing_probe_limits": "sitecustomize watches open-write audit events, not arbitrary filesystem mutation. buildOne does not check child command status as a test verdict; separate actual gate passes remain necessary. These are existing probe limits, not new parser/wrapper changes."
+  },
+  "source_qualification": "Nested checker generates into TemporaryDirectory, optional receipt only at caller-specified path; hierarchy normal gate owns temporary fixture outputs and explicitly disables imported-module bytecode. Actual child source generates into owned temporary outputs and does not intentionally write app assets. This source observation is distinct from measured raw-child evidence.",
+  "root_next": [
+    "Complete real measurements for both declared flat entries; preserve actual raw probe rows/logs, including child invocations.",
+    "Inspect any raw nested checker row writes and record actual findings separately rather than inventing aggregation/measurement.",
+    "Run normal derivation and mandatory final installed full gate after intended changes; wrapper review is not a new installed fullgatePASS."
+  ],
+  "conclusion": "Flat entrypoints are a small compatible way to reach existing measurement parser. No CLI/path/guard regression found; transitive child-write measurement must remain explicitly qualified."
+}

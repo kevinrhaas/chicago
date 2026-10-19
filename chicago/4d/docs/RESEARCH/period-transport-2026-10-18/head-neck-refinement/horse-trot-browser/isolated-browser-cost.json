@@ -1,0 +1,14 @@
+{
+  "samples": 120,
+  "p50": {
+    "update_ms": 0,
+    "update_render_submission_ms": 0.20000000298023224
+  },
+  "p95": {
+    "update_ms": 0,
+    "update_render_submission_ms": 0.6000000014901161
+  },
+  "draw_calls": 14,
+  "triangles": 28346,
+  "scope": "one isolated synchronous desktop headless loop, submission timing not GPUcompletion/towncapacity/mobileproof"
+}

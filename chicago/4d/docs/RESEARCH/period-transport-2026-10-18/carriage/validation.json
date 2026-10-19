@@ -1,0 +1,72 @@
+{
+  "glb": {
+    "bytes": 722768,
+    "nodes": 49,
+    "meshes": 27,
+    "triangles": 9744,
+    "required_pivots_unique": true
+  },
+  "browser": [
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "page_errors": [],
+      "controls": "travel, turn, unequal wheel travel, reset, play passed",
+      "render": {
+        "drawCalls": 56,
+        "triangles": 19490,
+        "width": 1280,
+        "height": 800
+      }
+    },
+    {
+      "viewport": [
+        390,
+        780
+      ],
+      "page_errors": [],
+      "controls": "travel, turn, unequal wheel travel, reset, play passed",
+      "render": {
+        "drawCalls": 56,
+        "triangles": 19490,
+        "width": 390,
+        "height": 445
+      }
+    }
+  ],
+  "numeric": {
+    "bounds_m": [
+      -0.855,
+      -1.1920928910669204e-08,
+      -1.5757331848144531,
+      0.855,
+      1.5175000000745058,
+      3.151774835586548
+    ],
+    "wheel_ground_error_m": 1.1920928966180355e-08,
+    "wheel_centers_m": [
+      [
+        0.7,
+        0.55,
+        -0.95
+      ],
+      [
+        -0.7,
+        0.55,
+        -0.95
+      ],
+      [
+        0.7,
+        0.45,
+        0.95
+      ],
+      [
+        -0.7,
+        0.45,
+        0.95
+      ]
+    ]
+  }
+}

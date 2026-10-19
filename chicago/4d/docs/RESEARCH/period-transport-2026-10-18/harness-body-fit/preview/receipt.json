@@ -1,0 +1,302 @@
+{
+  "rows": [
+    {
+      "file": "desktop-whole-baseline.png",
+      "variant": "baseline",
+      "view": "whole",
+      "camera": [
+        3.327199744590175,
+        2.244066581530058,
+        4.561266326120233
+      ],
+      "target": [
+        0,
+        1.135,
+        0.125
+      ],
+      "bounds": {
+        "min": [
+          -0.45,
+          0,
+          -1.15
+        ],
+        "max": [
+          0.45,
+          2.27,
+          1.4
+        ]
+      },
+      "selectedBoundsInside": true,
+      "framingScope": "Horse-only bound, unboundline tails maycrop",
+      "drawCalls": 43,
+      "triangles": 21722,
+      "glError": 0,
+      "horseScale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "desktop-whole-candidate.png",
+      "variant": "candidate",
+      "view": "whole",
+      "camera": [
+        3.327199744590175,
+        2.244066581530058,
+        4.561266326120233
+      ],
+      "target": [
+        0,
+        1.135,
+        0.125
+      ],
+      "bounds": {
+        "min": [
+          -0.45,
+          0,
+          -1.15
+        ],
+        "max": [
+          0.45,
+          2.27,
+          1.4
+        ]
+      },
+      "selectedBoundsInside": true,
+      "framingScope": "Horse-only bound, unboundline tails maycrop",
+      "drawCalls": 43,
+      "triangles": 22186,
+      "glError": 0,
+      "horseScale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "desktop-close-baseline.png",
+      "variant": "baseline",
+      "view": "close",
+      "camera": [
+        1.676387946133324,
+        1.947916383839997,
+        1.4825919640888827
+      ],
+      "target": [
+        0,
+        1.4449999999999998,
+        0.365
+      ],
+      "bounds": {
+        "min": [
+          -0.43,
+          1.13,
+          -0.12
+        ],
+        "max": [
+          0.43,
+          1.76,
+          0.85
+        ]
+      },
+      "selectedBoundsInside": true,
+      "framingScope": "Chest-only detail, otherbody/lines intentionallycrop",
+      "drawCalls": 42,
+      "triangles": 21146,
+      "glError": 0,
+      "horseScale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "desktop-close-candidate.png",
+      "variant": "candidate",
+      "view": "close",
+      "camera": [
+        1.676387946133324,
+        1.947916383839997,
+        1.4825919640888827
+      ],
+      "target": [
+        0,
+        1.4449999999999998,
+        0.365
+      ],
+      "bounds": {
+        "min": [
+          -0.43,
+          1.13,
+          -0.12
+        ],
+        "max": [
+          0.43,
+          1.76,
+          0.85
+        ]
+      },
+      "selectedBoundsInside": true,
+      "framingScope": "Chest-only detail, otherbody/lines intentionallycrop",
+      "drawCalls": 42,
+      "triangles": 21610,
+      "glError": 0,
+      "horseScale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "mobile-whole-baseline.png",
+      "variant": "baseline",
+      "view": "whole",
+      "camera": [
+        4.518242203104994,
+        2.641080734368331,
+        6.149322937473325
+      ],
+      "target": [
+        0,
+        1.135,
+        0.125
+      ],
+      "bounds": {
+        "min": [
+          -0.45,
+          0,
+          -1.15
+        ],
+        "max": [
+          0.45,
+          2.27,
+          1.4
+        ]
+      },
+      "selectedBoundsInside": true,
+      "framingScope": "Horse-only bound, unboundline tails maycrop",
+      "drawCalls": 43,
+      "triangles": 21722,
+      "glError": 0,
+      "horseScale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "mobile-whole-candidate.png",
+      "variant": "candidate",
+      "view": "whole",
+      "camera": [
+        4.518242203104994,
+        2.641080734368331,
+        6.149322937473325
+      ],
+      "target": [
+        0,
+        1.135,
+        0.125
+      ],
+      "bounds": {
+        "min": [
+          -0.45,
+          0,
+          -1.15
+        ],
+        "max": [
+          0.45,
+          2.27,
+          1.4
+        ]
+      },
+      "selectedBoundsInside": true,
+      "framingScope": "Horse-only bound, unboundline tails maycrop",
+      "drawCalls": 43,
+      "triangles": 22186,
+      "glError": 0,
+      "horseScale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "mobile-close-baseline.png",
+      "variant": "baseline",
+      "view": "close",
+      "camera": [
+        3.227934568943725,
+        2.413380370683117,
+        2.5169563792958165
+      ],
+      "target": [
+        0,
+        1.4449999999999998,
+        0.365
+      ],
+      "bounds": {
+        "min": [
+          -0.43,
+          1.13,
+          -0.12
+        ],
+        "max": [
+          0.43,
+          1.76,
+          0.85
+        ]
+      },
+      "selectedBoundsInside": true,
+      "framingScope": "Chest-only detail, otherbody/lines intentionallycrop",
+      "drawCalls": 40,
+      "triangles": 19994,
+      "glError": 0,
+      "horseScale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "mobile-close-candidate.png",
+      "variant": "candidate",
+      "view": "close",
+      "camera": [
+        3.227934568943725,
+        2.413380370683117,
+        2.5169563792958165
+      ],
+      "target": [
+        0,
+        1.4449999999999998,
+        0.365
+      ],
+      "bounds": {
+        "min": [
+          -0.43,
+          1.13,
+          -0.12
+        ],
+        "max": [
+          0.43,
+          1.76,
+          0.85
+        ]
+      },
+      "selectedBoundsInside": true,
+      "framingScope": "Chest-only detail, otherbody/lines intentionallycrop",
+      "drawCalls": 40,
+      "triangles": 20458,
+      "glError": 0,
+      "horseScale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "errors": [],
+  "browserClosed": true
+}

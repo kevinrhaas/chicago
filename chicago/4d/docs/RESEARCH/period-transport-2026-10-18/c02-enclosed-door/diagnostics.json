@@ -1,0 +1,90 @@
+{
+  "rows": [
+    {
+      "name": "first",
+      "returncode": 0
+    },
+    {
+      "name": "repeat",
+      "returncode": 0
+    },
+    {
+      "name": "flag-off",
+      "returncode": 0
+    },
+    {
+      "name": "open",
+      "returncode": 0
+    },
+    {
+      "name": "invalid-nan",
+      "returncode": 1
+    },
+    {
+      "name": "invalid-negative",
+      "returncode": 1
+    },
+    {
+      "name": "invalid-bool",
+      "returncode": 1
+    },
+    {
+      "name": "invalid-cabin",
+      "returncode": 1
+    },
+    {
+      "name": "invalid-flag",
+      "returncode": 1
+    },
+    {
+      "name": "invalid-angle--1",
+      "returncode": 1
+    },
+    {
+      "name": "invalid-angle-71",
+      "returncode": 1
+    },
+    {
+      "name": "invalid-angle-nan",
+      "returncode": 1
+    },
+    {
+      "name": "old-default-orchestrator",
+      "returncode": 0
+    },
+    {
+      "name": "new-default-orchestrator",
+      "returncode": 0
+    },
+    {
+      "name": "explicit-c02-orchestrator",
+      "returncode": 0
+    },
+    {
+      "name": "portable-door-checker",
+      "returncode": 0
+    }
+  ],
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "final_enabled_glb_sha256": "ddda1b89b330c889d69acaf55b79c4a114d193ff140e9e27c11cf74fc7f16eb6",
+  "reviewed_bytes_preserved": true,
+  "same_runtime_enabled_two_runs_identical": true,
+  "flag_off_matches_prior_repaired_C02_bytes": true,
+  "old_vs_new_default_four_model_output_hashes": {
+    "harness/geometry-stats.json": "832327c8a03265ac9b81c9de067568779d810018341e6c0ebe42dfd85186d0af",
+    "harness/manifest.json": "59391da0b8e9af7a21d64396167f3e1c967bfe4e98c679b9485317c2072e1b9c",
+    "harness/light_breastcollar_harness_reconstructed_01.glb": "45930f41b73a8c0698417093dede9644e3e2cb7192a2eef0e222038638b193cd",
+    "horse/equine_light_harness_skinned_prototype_01.glb": "89b048b7cda748e6f3a7111aa8e4f3198b01fabf6015cae644c78ed02d385bc6",
+    "horse/manifest.json": "6d5cccb73dbae3dae52a5db6ef0a8cf1be0e79095467c0348cdb0dd315bf2e6a",
+    "carriage/parameters.json": "3268082b9a8f90a2288a49db16f95de5acb732ac6d589b568ed8b53b11dbbf6f",
+    "carriage/carriage-c01.json": "118a614a3a2d67352bb3f1b48cac4e6371523bee4320f0ccb6c5d35fed68135c",
+    "carriage/carriage-c01.glb": "5d4038fcb1e0982100c776239d649de21035098e019d5fa5d0c399427f15a062",
+    "wagon/wagon-w01.json": "ea3705651f11ddddcc33595abffd7ee0c3cffb7ae94fc18967c65883fb15243f",
+    "wagon/wagon-w01.glb": "7749a0199b93bd196ecf6c3482af8ec537f1420a38f6fac88ab79fd8f34d44aa"
+  },
+  "explicit_c02_only_is_additive": true,
+  "checker_does_not_write_sibling_or_asset_outputs": true,
+  "source_mapping_and_discrete15SAT": "portable-triangle-receipt.json",
+  "negative_inputs_refused": 8,
+  "runtime_scope": "Exact-byte comparisons qualified on executinginterpreter; legacyfloatingreductions are unchanged, notcrossPythonminor byteguarantee"
+}

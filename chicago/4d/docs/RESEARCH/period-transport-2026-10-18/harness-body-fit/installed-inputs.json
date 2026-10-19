@@ -1,0 +1,50 @@
+{
+  "scope": "Final installed authored inputs, outputs and regression tool; original INTEGRATION-MANIFEST retained as agent handoff before distance and active-scene guard additions.",
+  "files": [
+    {
+      "path": "data/transport/studies/harness.json",
+      "bytes": 8921,
+      "sha256": "1bcd19f47ac881df0f4e9c9c3115177f7b8dd3127837d0cd6c66ff5534e474dd"
+    },
+    {
+      "path": "tools/transport/generate_harness.py",
+      "bytes": 13808,
+      "sha256": "695b299c25c53af9ece325e4c0270ee9714999cc35157383848c103e77e6eeb2"
+    },
+    {
+      "path": "tools/transport/test_harness_body_fit.py",
+      "bytes": 10133,
+      "sha256": "4e6b5911283dc806cd4f820063f2787bf0f637988f6a2a8a418e0c3202ce607a"
+    },
+    {
+      "path": "tools/transport/fixtures/harness-before-body-fit.json",
+      "bytes": 3524,
+      "sha256": "7473be06e127388b07cd67af69db671bcc134999fa66849a5866f40c0794d85d"
+    },
+    {
+      "path": "tools/transport/fixtures/harness-before-body-fit.glb.gz",
+      "bytes": 100075,
+      "sha256": "cce8c06f3ff46346c133bdc4954546aa7533febd645bff61e6db5a2a11b5ebf9"
+    },
+    {
+      "path": "renderers/web/transport/harness/light_breastcollar_harness_reconstructed_01.glb",
+      "bytes": 602980,
+      "sha256": "45930f41b73a8c0698417093dede9644e3e2cb7192a2eef0e222038638b193cd"
+    },
+    {
+      "path": "renderers/web/transport/harness/manifest.json",
+      "bytes": 5886,
+      "sha256": "59391da0b8e9af7a21d64396167f3e1c967bfe4e98c679b9485317c2072e1b9c"
+    },
+    {
+      "path": "renderers/web/transport/harness/geometry-stats.json",
+      "bytes": 2992,
+      "sha256": "832327c8a03265ac9b81c9de067568779d810018341e6c0ebe42dfd85186d0af"
+    },
+    {
+      "path": "renderers/web/transport/horse/equine_light_harness_skinned_prototype_01.glb",
+      "bytes": 715316,
+      "sha256": "89b048b7cda748e6f3a7111aa8e4f3198b01fabf6015cae644c78ed02d385bc6"
+    }
+  ]
+}

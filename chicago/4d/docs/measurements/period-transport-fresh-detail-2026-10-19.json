@@ -1,0 +1,551 @@
+{
+  "format": "fresh_split_diagnostic_sweep_v1",
+  "coverage": {
+    "expected": 36,
+    "actual_unique": 36,
+    "viewports": [
+      "desktop 1280x800",
+      "mobile 390x780"
+    ],
+    "levels": [
+      "full",
+      "balanced",
+      "light"
+    ],
+    "stands": [
+      "lake_at_canal",
+      "the_forks",
+      "from_above",
+      "lake_and_market",
+      "prairie_west",
+      "sauganash_26"
+    ]
+  },
+  "scope": "Split diagnostic runs using forced two production steps and GPU finish, keep-geometry=1. Initial run timed out after27 rows; continuation supplies9. Not one completed CI smoke run; no claim of exact causality relative to normal unforced CI samples.",
+  "render_source_identity": "Source receipt verifies trees.js and tree-model.js match frozen e5; main.js differs only by the human role-card import/listener, with no human actors placed. No attestation that all rendering modules match. Aggregator validates numeric coverage only, not source hashes.",
+  "source_receipts": [
+    "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+    "/tmp/e5-fresh-continuation-mobile.json.stands.jsonl"
+  ],
+  "rows": [
+    {
+      "viewport": "desktop 1280x800",
+      "level": "full",
+      "stand": "lake_at_canal",
+      "triangles": 3076607,
+      "calls": 306,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 1
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "full",
+      "stand": "the_forks",
+      "triangles": 2709399,
+      "calls": 259,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 2
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "full",
+      "stand": "from_above",
+      "triangles": 2249867,
+      "calls": 228,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 3
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "full",
+      "stand": "lake_and_market",
+      "triangles": 2846348,
+      "calls": 319,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 4
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "full",
+      "stand": "prairie_west",
+      "triangles": 3449919,
+      "calls": 301,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 5
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "full",
+      "stand": "sauganash_26",
+      "triangles": 2094094,
+      "calls": 229,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 6
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "balanced",
+      "stand": "lake_at_canal",
+      "triangles": 2416472,
+      "calls": 278,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 7
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "balanced",
+      "stand": "the_forks",
+      "triangles": 2103992,
+      "calls": 232,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 8
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "balanced",
+      "stand": "from_above",
+      "triangles": 1764711,
+      "calls": 223,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 9
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "balanced",
+      "stand": "lake_and_market",
+      "triangles": 2299343,
+      "calls": 314,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 10
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "balanced",
+      "stand": "prairie_west",
+      "triangles": 2607952,
+      "calls": 271,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 11
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "balanced",
+      "stand": "sauganash_26",
+      "triangles": 1688562,
+      "calls": 226,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 12
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "light",
+      "stand": "lake_at_canal",
+      "triangles": 1010661,
+      "calls": 61,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 13
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "light",
+      "stand": "the_forks",
+      "triangles": 939454,
+      "calls": 64,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 14
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "light",
+      "stand": "from_above",
+      "triangles": 655344,
+      "calls": 55,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 15
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "light",
+      "stand": "lake_and_market",
+      "triangles": 831667,
+      "calls": 89,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 16
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "light",
+      "stand": "prairie_west",
+      "triangles": 1154091,
+      "calls": 85,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 17
+    },
+    {
+      "viewport": "desktop 1280x800",
+      "level": "light",
+      "stand": "sauganash_26",
+      "triangles": 648718,
+      "calls": 75,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 18
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "full",
+      "stand": "lake_at_canal",
+      "triangles": 2640406,
+      "calls": 283,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 19
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "full",
+      "stand": "the_forks",
+      "triangles": 2199247,
+      "calls": 240,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 20
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "full",
+      "stand": "from_above",
+      "triangles": 2097244,
+      "calls": 210,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 21
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "full",
+      "stand": "lake_and_market",
+      "triangles": 2257978,
+      "calls": 274,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 22
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "full",
+      "stand": "prairie_west",
+      "triangles": 3030587,
+      "calls": 300,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 23
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "full",
+      "stand": "sauganash_26",
+      "triangles": 1489688,
+      "calls": 181,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 24
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "balanced",
+      "stand": "lake_at_canal",
+      "triangles": 2113887,
+      "calls": 254,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 25
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "balanced",
+      "stand": "the_forks",
+      "triangles": 1739296,
+      "calls": 208,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 26
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "balanced",
+      "stand": "from_above",
+      "triangles": 1632084,
+      "calls": 208,
+      "flora": null,
+      "diagnostic_split": "initial480s_partial",
+      "receipt_file": "/tmp/e5-fresh-six-stand-two-viewport.json.stands.jsonl",
+      "receipt_line": 27
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "balanced",
+      "stand": "lake_and_market",
+      "triangles": 1853041,
+      "calls": 270,
+      "flora": null,
+      "diagnostic_split": "mobile_continuation",
+      "receipt_file": "/tmp/e5-fresh-continuation-mobile.json.stands.jsonl",
+      "receipt_line": 1
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "balanced",
+      "stand": "prairie_west",
+      "triangles": 2313680,
+      "calls": 246,
+      "flora": null,
+      "diagnostic_split": "mobile_continuation",
+      "receipt_file": "/tmp/e5-fresh-continuation-mobile.json.stands.jsonl",
+      "receipt_line": 2
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "balanced",
+      "stand": "sauganash_26",
+      "triangles": 1239846,
+      "calls": 178,
+      "flora": null,
+      "diagnostic_split": "mobile_continuation",
+      "receipt_file": "/tmp/e5-fresh-continuation-mobile.json.stands.jsonl",
+      "receipt_line": 3
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "light",
+      "stand": "lake_at_canal",
+      "triangles": 845506,
+      "calls": 56,
+      "flora": null,
+      "diagnostic_split": "mobile_continuation",
+      "receipt_file": "/tmp/e5-fresh-continuation-mobile.json.stands.jsonl",
+      "receipt_line": 4
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "light",
+      "stand": "the_forks",
+      "triangles": 756763,
+      "calls": 55,
+      "flora": null,
+      "diagnostic_split": "mobile_continuation",
+      "receipt_file": "/tmp/e5-fresh-continuation-mobile.json.stands.jsonl",
+      "receipt_line": 5
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "light",
+      "stand": "from_above",
+      "triangles": 593542,
+      "calls": 72,
+      "flora": null,
+      "diagnostic_split": "mobile_continuation",
+      "receipt_file": "/tmp/e5-fresh-continuation-mobile.json.stands.jsonl",
+      "receipt_line": 6
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "light",
+      "stand": "lake_and_market",
+      "triangles": 656037,
+      "calls": 85,
+      "flora": null,
+      "diagnostic_split": "mobile_continuation",
+      "receipt_file": "/tmp/e5-fresh-continuation-mobile.json.stands.jsonl",
+      "receipt_line": 7
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "light",
+      "stand": "prairie_west",
+      "triangles": 977672,
+      "calls": 74,
+      "flora": null,
+      "diagnostic_split": "mobile_continuation",
+      "receipt_file": "/tmp/e5-fresh-continuation-mobile.json.stands.jsonl",
+      "receipt_line": 8
+    },
+    {
+      "viewport": "mobile 390x780",
+      "level": "light",
+      "stand": "sauganash_26",
+      "triangles": 422840,
+      "calls": 63,
+      "flora": null,
+      "diagnostic_split": "mobile_continuation",
+      "receipt_file": "/tmp/e5-fresh-continuation-mobile.json.stands.jsonl",
+      "receipt_line": 9
+    }
+  ],
+  "tiers": {
+    "full": {
+      "maximum_triangles": 3449919,
+      "triangle_locations": [
+        {
+          "viewport": "desktop 1280x800",
+          "stand": "prairie_west"
+        }
+      ],
+      "maximum_calls": 319,
+      "call_locations": [
+        {
+          "viewport": "desktop 1280x800",
+          "stand": "lake_and_market"
+        }
+      ],
+      "current_triangle_cap": 3400000,
+      "current_headroom": -49919,
+      "proposed_triangle_cap": 3470000,
+      "proposal_delta": 70000,
+      "proposal_headroom": 20081,
+      "preserved_absolute_margin": 18059,
+      "rounding_rule": "ceil((measured global worst + original absolute margin)/5000)*5000",
+      "general_calls_cap_unchanged": 330,
+      "general_calls_within_cap": true,
+      "tier_calls_cap_unchanged": 330,
+      "tier_calls_within_cap": true,
+      "tier_calls_headroom": 11
+    },
+    "balanced": {
+      "maximum_triangles": 2607952,
+      "triangle_locations": [
+        {
+          "viewport": "desktop 1280x800",
+          "stand": "prairie_west"
+        }
+      ],
+      "maximum_calls": 314,
+      "call_locations": [
+        {
+          "viewport": "desktop 1280x800",
+          "stand": "lake_and_market"
+        }
+      ],
+      "current_triangle_cap": 2535000,
+      "current_headroom": -72952,
+      "proposed_triangle_cap": 2625000,
+      "proposal_delta": 90000,
+      "proposal_headroom": 17048,
+      "preserved_absolute_margin": 16806,
+      "rounding_rule": "ceil((measured global worst + original absolute margin)/5000)*5000",
+      "general_calls_cap_unchanged": 330,
+      "general_calls_within_cap": true,
+      "tier_calls_cap_unchanged": 330,
+      "tier_calls_within_cap": true,
+      "tier_calls_headroom": 16
+    },
+    "light": {
+      "maximum_triangles": 1154091,
+      "triangle_locations": [
+        {
+          "viewport": "desktop 1280x800",
+          "stand": "prairie_west"
+        }
+      ],
+      "maximum_calls": 89,
+      "call_locations": [
+        {
+          "viewport": "desktop 1280x800",
+          "stand": "lake_and_market"
+        }
+      ],
+      "current_triangle_cap": 1190000,
+      "current_headroom": 35909,
+      "proposed_triangle_cap": 1190000,
+      "proposal_delta": 0,
+      "proposal_headroom": 35909,
+      "preserved_absolute_margin": null,
+      "rounding_rule": "unchanged light floor",
+      "general_calls_cap_unchanged": 330,
+      "general_calls_within_cap": true,
+      "tier_calls_cap_unchanged": 90,
+      "tier_calls_within_cap": true,
+      "tier_calls_headroom": 1
+    }
+  },
+  "proposal_status": "Arithmetic candidate only; no app/budget change. Full/balanced preserve original absolute margins; light remains1190000. Actual scene/period/photographic acceptance is separate.",
+  "source_hash_receipt": {
+    "source_head": "379e7d3d002379088d40e0f85cab5e4bbc5c0415",
+    "scope": "Current preflight published mirror, built before commit; not exact e5 published artifact. Tree modules equal e5. main differs only by resident role-card import/listener, with no human scene instances.",
+    "files": [
+      {
+        "file": "trees.js",
+        "source_sha256": "744634ec8d9c77bb018eae6549906959a6420d9cf9bab3f3f2788707c855a505",
+        "e5_source_sha256": "744634ec8d9c77bb018eae6549906959a6420d9cf9bab3f3f2788707c855a505",
+        "published_sha256": "744634ec8d9c77bb018eae6549906959a6420d9cf9bab3f3f2788707c855a505",
+        "source_equals_e5": true,
+        "published_equals_source": true
+      },
+      {
+        "file": "tree-model.js",
+        "source_sha256": "dc68bb27587563a8495ed046bc4f9612594febc23d9e54c94cc604835032265a",
+        "e5_source_sha256": "dc68bb27587563a8495ed046bc4f9612594febc23d9e54c94cc604835032265a",
+        "published_sha256": "dc68bb27587563a8495ed046bc4f9612594febc23d9e54c94cc604835032265a",
+        "source_equals_e5": true,
+        "published_equals_source": true
+      },
+      {
+        "file": "main.js",
+        "source_sha256": "c14fb4415371430ee6465bbb2b8c0290fceb700a0a2335f20a47d9a5e9665488",
+        "e5_source_sha256": "42f4a358fb01d6fb65fbe87bab2486af03ea97ab8bc671519c7549c08fd0dba7",
+        "published_sha256": "c14fb4415371430ee6465bbb2b8c0290fceb700a0a2335f20a47d9a5e9665488",
+        "source_equals_e5": false,
+        "published_equals_source": true
+      }
+    ]
+  },
+  "diagnostic_scripts_sha256": {
+    "measure_fresh_sweep.mjs": "ac4d3bc2857e1e5016b82a086b87bc6edfda99e60886bbb8c14a5229857f39d8",
+    "measure_fresh_continuation.mjs": "1ab91313a6b79110280d943ddaaf0006a6bb3b6df7309f5f9c049508f1ae2b37",
+    "aggregate_fresh_sweep.py": "1ad54fbfd1ef27ef4a8d385d3f279610264c51e315d120fb2cf5c93c3af7cf38"
+  },
+  "integration_scope": "Pricing was captured before the a369c613 UI/dev merge. No new town transport or human actors were drawn. Complete published smoke coverage at the corrected merged head remains required."
+}

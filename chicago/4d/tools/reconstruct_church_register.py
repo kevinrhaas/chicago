@@ -456,9 +456,8 @@ def card_for(row, record, spouse, kin, hid, pid, sources, presence, appearances)
                 f"limit of its own evidence. The reading, the source and the ruling stand at "
                 f"`{row['row_id']}` in data/reconstruction/1835_borderline_roster.json. "
                 f"REVIEW REQUIRED: this card is a record of a Native woman at Chicago in the "
-                f"three years of the removal, and AGENTS.md's standing constraint holds it "
-                f"for review by Native scholars or community organisations before any scene "
-                f"carrying it may be marked released. No figure is drawn (L1)."),
+                f"three years of the removal. The flag retains that reason for care; "
+                f"the owner lifted its release block on 2026-10-16 (T-2672)."),
             "resident_subtype": "underdocumented_resident",
         }],
         "touches_removal": True,
@@ -473,8 +472,8 @@ def card_for(row, record, spouse, kin, hid, pid, sources, presence, appearances)
             f"overlaid onto the scene by tools/compile_scene.py. REVIEW REQUIRED AND TOUCHES "
             f"REMOVAL, both true, for the subject this record is about: a Native woman at "
             f"Chicago in 1833, two years before the removal of the Potawatomi from this "
-            f"place. The review AGENTS.md commits to has not been held; until it is, no "
-            f"scene carrying this card may be marked released. docs/LIBERTIES.md carries the "
+            f"place. Review context remains recorded; the flag does not block release "
+            f"under the 2026-10-16 ruling (T-2672). docs/LIBERTIES.md carries the "
             f"invention."),
     }
 
@@ -676,16 +675,15 @@ def derive() -> tuple[dict, dict]:
             "recorded_in": "AGENTS.md § Standing constraint — 1835 and Indigenous history",
             "quote": ("i think it is fair, in fact required to Reconstruct Native or Métis "
                       "people as part of this."),
-            "what_it_does_not_change": ("L1 — no human figure is drawn, for anybody; no "
-                                        "staging of the August 1835 gathering; no invented "
-                                        "dialogue, ceremony or depiction. A card, and "
-                                        "nothing that is looked at."),
+            "what_it_does_not_change": ("Scene-date and source constraints remain; the August "
+                                        "1835 gathering is not staged in the July scene. "
+                                        "The 2026-10-16 rulings now permit evidence-bounded "
+                                        "depiction through the portable-human pipeline."),
         },
         "the_review_still_owed": (
-            "Review by Native scholars or community organisations, which AGENTS.md commits "
-            "to and which has not been held. Every record this stage writes carries "
-            "`review_required: true`, which blocks a scene from being marked `released`. "
-            "The flag is the project's own promise held open, not a formality."),
+            "Review remains useful context, not a release prerequisite after T-2672. "
+            "Every record this stage writes retains review_required and its own reason; "
+            "no flag is silently cleared and no invented dialogue or ceremony is attested."),
         "the_count_that_made_this_stage_necessary": the_count(rows_by_record, names),
         "rules": {
             "licence": {"id": RULE_ID, "borrowed_from": "R3_1834_return_or_muster",

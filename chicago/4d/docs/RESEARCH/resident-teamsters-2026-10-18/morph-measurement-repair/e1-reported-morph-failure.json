@@ -1,0 +1,608 @@
+{
+  "run_id": 39200379231,
+  "sha": "e1b31c070bfb11d99331aa3d903023cf9865940c",
+  "conclusion": "failure",
+  "actual_failure": "36 missing required facial morph findings: eyeBlinkLeft,eyeBlinkRight,jawOpen across three resident source/web LOD0 and LOD1 GLBs; measure refused",
+  "failed_glb_count": 12,
+  "failed_measure_lines": [
+    "teamster-studies\tMeasure all human exports and inspect the workwear studies\t2026-10-19T05:44:28.4609638Z FAIL assets/humans/bardwell_otis_1835.lod0.glb: 8233.7 KB, 38431 tris, 8 draws, 56 joints, 0 morphs, load 141.4/136.2 ms, frame 0.3/0.3 ms",
+    "teamster-studies\tMeasure all human exports and inspect the workwear studies\t2026-10-19T05:44:28.4685752Z FAIL assets/humans/bardwell_otis_1835.lod1.glb: 7673.3 KB, 23786 tris, 8 draws, 56 joints, 0 morphs, load 140.1/131.2 ms, frame 0.3/0.4 ms",
+    "teamster-studies\tMeasure all human exports and inspect the workwear studies\t2026-10-19T05:44:28.4917196Z FAIL assets/humans/dufresne_joseph_1835.lod0.glb: 8231.1 KB, 38465 tris, 8 draws, 56 joints, 0 morphs, load 183.4/148.6 ms, frame 0.2/0.3 ms",
+    "teamster-studies\tMeasure all human exports and inspect the workwear studies\t2026-10-19T05:44:28.5090302Z FAIL assets/humans/dufresne_joseph_1835.lod1.glb: 7670.1 KB, 23805 tris, 8 draws, 56 joints, 0 morphs, load 272.7/200.3 ms, frame 0.2/0.3 ms",
+    "teamster-studies\tMeasure all human exports and inspect the workwear studies\t2026-10-19T05:44:28.5277247Z FAIL assets/humans/flynn_martin_1835.lod0.glb: 8231.0 KB, 38465 tris, 8 draws, 56 joints, 0 morphs, load 133.5/130.4 ms, frame 0.2/0.2 ms",
+    "teamster-studies\tMeasure all human exports and inspect the workwear studies\t2026-10-19T05:44:28.5347492Z FAIL assets/humans/flynn_martin_1835.lod1.glb: 7670.0 KB, 23805 tris, 8 draws, 56 joints, 0 morphs, load 141.7/136 ms, frame 0.2/0.2 ms",
+    "teamster-studies\tMeasure all human exports and inspect the workwear studies\t2026-10-19T05:44:28.5642558Z FAIL assets/humans/web/bardwell_otis_1835.lod0.glb: 4167.1 KB, 38431 tris, 8 draws, 56 joints, 0 morphs, load 117.6/92.2 ms, frame 0.3/0.3 ms",
+    "teamster-studies\tMeasure all human exports and inspect the workwear studies\t2026-10-19T05:44:28.5681340Z FAIL assets/humans/web/bardwell_otis_1835.lod1.glb: 1402.1 KB, 23786 tris, 8 draws, 56 joints, 0 morphs, load 52.5/45.1 ms, frame 0.2/0.2 ms",
+    "teamster-studies\tMeasure all human exports and inspect the workwear studies\t2026-10-19T05:44:28.5722987Z FAIL assets/humans/web/dufresne_joseph_1835.lod0.glb: 4166.2 KB, 38465 tris, 8 draws, 56 joints, 0 morphs, load 177.4/184.8 ms, frame 0.2/0.2 ms",
+    "teamster-studies\tMeasure all human exports and inspect the workwear studies\t2026-10-19T05:44:28.5761444Z FAIL assets/humans/web/dufresne_joseph_1835.lod1.glb: 1401.5 KB, 23805 tris, 8 draws, 56 joints, 0 morphs, load 91.8/77.8 ms, frame 0.2/0.2 ms",
+    "teamster-studies\tMeasure all human exports and inspect the workwear studies\t2026-10-19T05:44:28.5788883Z FAIL assets/humans/web/flynn_martin_1835.lod0.glb: 4166.2 KB, 38465 tris, 8 draws, 56 joints, 0 morphs, load 97.9/97.2 ms, frame 0.2/0.2 ms",
+    "teamster-studies\tMeasure all human exports and inspect the workwear studies\t2026-10-19T05:44:28.5826974Z FAIL assets/humans/web/flynn_martin_1835.lod1.glb: 1401.5 KB, 23805 tris, 8 draws, 56 joints, 0 morphs, load 81.6/62.7 ms, frame 0.2/0.3 ms"
+  ],
+  "normal_audits": [
+    {
+      "asset_id": "bardwell_otis_1835",
+      "mesh": "bardwell_otis_1835_body_0_lod0",
+      "corners": 80268,
+      "max_vector_delta": 6.967941453254201e-05,
+      "mean_vector_delta": 1.311888837724211e-05,
+      "bad_corner_count": 0,
+      "tolerance": 0.001,
+      "status": "passed",
+      "source_uv_seam_disagreement": {
+        "scope": "actual corner normal pair spread across distinct UV-split vertices sharing source ID; diagnostic only",
+        "duplicate_source_groups": 1122,
+        "max_pair_vector_delta": 7.344926858127824e-05,
+        "groups_over_1e_3": 0,
+        "top_groups": [
+          {
+            "source_vertex_id": 12972,
+            "duplicate_vertices": 3,
+            "actual_normal_variants": 3,
+            "maximum_pair_vector_delta": 7.344926858127824e-05
+          },
+          {
+            "source_vertex_id": 4241,
+            "duplicate_vertices": 2,
+            "actual_normal_variants": 2,
+            "maximum_pair_vector_delta": 6.862120472987099e-05
+          },
+          {
+            "source_vertex_id": 1082,
+            "duplicate_vertices": 2,
+            "actual_normal_variants": 2,
+            "maximum_pair_vector_delta": 6.674827582262119e-05
+          },
+          {
+            "source_vertex_id": 3308,
+            "duplicate_vertices": 2,
+            "actual_normal_variants": 2,
+            "maximum_pair_vector_delta": 6.414230063443972e-05
+          },
+          {
+            "source_vertex_id": 1090,
+            "duplicate_vertices": 2,
+            "actual_normal_variants": 2,
+            "maximum_pair_vector_delta": 6.0682036620204054e-05
+          }
+        ]
+      },
+      "top_corners": [
+        {
+          "loop_index": 12847,
+          "vertex_index": 3105,
+          "source_vertex_id": 3308,
+          "vector_delta": 6.967941453254201e-05,
+          "expected_normal": [
+            0.008413850329816341,
+            -0.9711838960647583,
+            -0.23818284273147583
+          ],
+          "actual_normal": [
+            0.008376732468605042,
+            -0.97117018699646,
+            -0.23824019730091095
+          ]
+        },
+        {
+          "loop_index": 17066,
+          "vertex_index": 3105,
+          "source_vertex_id": 3308,
+          "vector_delta": 6.967941453254201e-05,
+          "expected_normal": [
+            0.008413850329816341,
+            -0.9711838960647583,
+            -0.23818284273147583
+          ],
+          "actual_normal": [
+            0.008376732468605042,
+            -0.97117018699646,
+            -0.23824019730091095
+          ]
+        },
+        {
+          "loop_index": 17068,
+          "vertex_index": 3105,
+          "source_vertex_id": 3308,
+          "vector_delta": 6.967941453254201e-05,
+          "expected_normal": [
+            0.008413850329816341,
+            -0.9711838960647583,
+            -0.23818284273147583
+          ],
+          "actual_normal": [
+            0.008376732468605042,
+            -0.97117018699646,
+            -0.23824019730091095
+          ]
+        },
+        {
+          "loop_index": 2024,
+          "vertex_index": 554,
+          "source_vertex_id": 520,
+          "vector_delta": 6.317884288816955e-05,
+          "expected_normal": [
+            0.0,
+            -0.12871870398521423,
+            -0.9916811585426331
+          ],
+          "actual_normal": [
+            -6.252527236938477e-05,
+            -0.12872770428657532,
+            -0.9916800856590271
+          ]
+        },
+        {
+          "loop_index": 2026,
+          "vertex_index": 554,
+          "source_vertex_id": 520,
+          "vector_delta": 6.317884288816955e-05,
+          "expected_normal": [
+            0.0,
+            -0.12871870398521423,
+            -0.9916811585426331
+          ],
+          "actual_normal": [
+            -6.252527236938477e-05,
+            -0.12872770428657532,
+            -0.9916800856590271
+          ]
+        }
+      ],
+      "scope": "local LOD0 BPy readback before modifiers/export; bounded diagnostics only, not emitted GLB/morph/decimated normal acceptance"
+    },
+    {
+      "asset_id": "dufresne_joseph_1835",
+      "mesh": "dufresne_joseph_1835_body_0_lod0",
+      "corners": 80268,
+      "max_vector_delta": 5.863368354873406e-05,
+      "mean_vector_delta": 1.3125806213516935e-05,
+      "bad_corner_count": 0,
+      "tolerance": 0.001,
+      "status": "passed",
+      "source_uv_seam_disagreement": {
+        "scope": "actual corner normal pair spread across distinct UV-split vertices sharing source ID; diagnostic only",
+        "duplicate_source_groups": 1122,
+        "max_pair_vector_delta": 7.259969450152128e-05,
+        "groups_over_1e_3": 0,
+        "top_groups": [
+          {
+            "source_vertex_id": 6375,
+            "duplicate_vertices": 3,
+            "actual_normal_variants": 3,
+            "maximum_pair_vector_delta": 7.259969450152128e-05
+          },
+          {
+            "source_vertex_id": 4223,
+            "duplicate_vertices": 2,
+            "actual_normal_variants": 2,
+            "maximum_pair_vector_delta": 6.959971898073288e-05
+          },
+          {
+            "source_vertex_id": 12972,
+            "duplicate_vertices": 3,
+            "actual_normal_variants": 3,
+            "maximum_pair_vector_delta": 5.965383195613839e-05
+          },
+          {
+            "source_vertex_id": 6617,
+            "duplicate_vertices": 2,
+            "actual_normal_variants": 2,
+            "maximum_pair_vector_delta": 5.865240149816528e-05
+          },
+          {
+            "source_vertex_id": 12453,
+            "duplicate_vertices": 2,
+            "actual_normal_variants": 2,
+            "maximum_pair_vector_delta": 5.626569856666084e-05
+          }
+        ]
+      },
+      "top_corners": [
+        {
+          "loop_index": 41762,
+          "vertex_index": 7838,
+          "source_vertex_id": 7268,
+          "vector_delta": 5.863368354873406e-05,
+          "expected_normal": [
+            0.018410369753837585,
+            0.24206867814064026,
+            -0.9700844287872314
+          ],
+          "actual_normal": [
+            0.01835721731185913,
+            0.24209290742874146,
+            -0.9700793623924255
+          ]
+        },
+        {
+          "loop_index": 41764,
+          "vertex_index": 7838,
+          "source_vertex_id": 7268,
+          "vector_delta": 5.863368354873406e-05,
+          "expected_normal": [
+            0.018410369753837585,
+            0.24206867814064026,
+            -0.9700844287872314
+          ],
+          "actual_normal": [
+            0.01835721731185913,
+            0.24209290742874146,
+            -0.9700793623924255
+          ]
+        },
+        {
+          "loop_index": 41795,
+          "vertex_index": 7838,
+          "source_vertex_id": 7268,
+          "vector_delta": 5.863368354873406e-05,
+          "expected_normal": [
+            0.018410369753837585,
+            0.24206867814064026,
+            -0.9700844287872314
+          ],
+          "actual_normal": [
+            0.01835721731185913,
+            0.24209290742874146,
+            -0.9700793623924255
+          ]
+        },
+        {
+          "loop_index": 41832,
+          "vertex_index": 7838,
+          "source_vertex_id": 7268,
+          "vector_delta": 5.863368354873406e-05,
+          "expected_normal": [
+            0.018410369753837585,
+            0.24206867814064026,
+            -0.9700844287872314
+          ],
+          "actual_normal": [
+            0.01835721731185913,
+            0.24209290742874146,
+            -0.9700793623924255
+          ]
+        },
+        {
+          "loop_index": 41835,
+          "vertex_index": 7838,
+          "source_vertex_id": 7268,
+          "vector_delta": 5.863368354873406e-05,
+          "expected_normal": [
+            0.018410369753837585,
+            0.24206867814064026,
+            -0.9700844287872314
+          ],
+          "actual_normal": [
+            0.01835721731185913,
+            0.24209290742874146,
+            -0.9700793623924255
+          ]
+        }
+      ],
+      "scope": "local LOD0 BPy readback before modifiers/export; bounded diagnostics only, not emitted GLB/morph/decimated normal acceptance"
+    },
+    {
+      "asset_id": "flynn_martin_1835",
+      "mesh": "flynn_martin_1835_body_0_lod0",
+      "corners": 80268,
+      "max_vector_delta": 5.863368354873406e-05,
+      "mean_vector_delta": 1.3125806213516935e-05,
+      "bad_corner_count": 0,
+      "tolerance": 0.001,
+      "status": "passed",
+      "source_uv_seam_disagreement": {
+        "scope": "actual corner normal pair spread across distinct UV-split vertices sharing source ID; diagnostic only",
+        "duplicate_source_groups": 1122,
+        "max_pair_vector_delta": 7.259969450152128e-05,
+        "groups_over_1e_3": 0,
+        "top_groups": [
+          {
+            "source_vertex_id": 6375,
+            "duplicate_vertices": 3,
+            "actual_normal_variants": 3,
+            "maximum_pair_vector_delta": 7.259969450152128e-05
+          },
+          {
+            "source_vertex_id": 4223,
+            "duplicate_vertices": 2,
+            "actual_normal_variants": 2,
+            "maximum_pair_vector_delta": 6.959971898073288e-05
+          },
+          {
+            "source_vertex_id": 12972,
+            "duplicate_vertices": 3,
+            "actual_normal_variants": 3,
+            "maximum_pair_vector_delta": 5.965383195613839e-05
+          },
+          {
+            "source_vertex_id": 6617,
+            "duplicate_vertices": 2,
+            "actual_normal_variants": 2,
+            "maximum_pair_vector_delta": 5.865240149816528e-05
+          },
+          {
+            "source_vertex_id": 12453,
+            "duplicate_vertices": 2,
+            "actual_normal_variants": 2,
+            "maximum_pair_vector_delta": 5.626569856666084e-05
+          }
+        ]
+      },
+      "top_corners": [
+        {
+          "loop_index": 41762,
+          "vertex_index": 7838,
+          "source_vertex_id": 7268,
+          "vector_delta": 5.863368354873406e-05,
+          "expected_normal": [
+            0.018410369753837585,
+            0.24206867814064026,
+            -0.9700844287872314
+          ],
+          "actual_normal": [
+            0.01835721731185913,
+            0.24209290742874146,
+            -0.9700793623924255
+          ]
+        },
+        {
+          "loop_index": 41764,
+          "vertex_index": 7838,
+          "source_vertex_id": 7268,
+          "vector_delta": 5.863368354873406e-05,
+          "expected_normal": [
+            0.018410369753837585,
+            0.24206867814064026,
+            -0.9700844287872314
+          ],
+          "actual_normal": [
+            0.01835721731185913,
+            0.24209290742874146,
+            -0.9700793623924255
+          ]
+        },
+        {
+          "loop_index": 41795,
+          "vertex_index": 7838,
+          "source_vertex_id": 7268,
+          "vector_delta": 5.863368354873406e-05,
+          "expected_normal": [
+            0.018410369753837585,
+            0.24206867814064026,
+            -0.9700844287872314
+          ],
+          "actual_normal": [
+            0.01835721731185913,
+            0.24209290742874146,
+            -0.9700793623924255
+          ]
+        },
+        {
+          "loop_index": 41832,
+          "vertex_index": 7838,
+          "source_vertex_id": 7268,
+          "vector_delta": 5.863368354873406e-05,
+          "expected_normal": [
+            0.018410369753837585,
+            0.24206867814064026,
+            -0.9700844287872314
+          ],
+          "actual_normal": [
+            0.01835721731185913,
+            0.24209290742874146,
+            -0.9700793623924255
+          ]
+        },
+        {
+          "loop_index": 41835,
+          "vertex_index": 7838,
+          "source_vertex_id": 7268,
+          "vector_delta": 5.863368354873406e-05,
+          "expected_normal": [
+            0.018410369753837585,
+            0.24206867814064026,
+            -0.9700844287872314
+          ],
+          "actual_normal": [
+            0.01835721731185913,
+            0.24209290742874146,
+            -0.9700793623924255
+          ]
+        }
+      ],
+      "scope": "local LOD0 BPy readback before modifiers/export; bounded diagnostics only, not emitted GLB/morph/decimated normal acceptance"
+    }
+  ],
+  "jobs": [
+    {
+      "name": "humans",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run pip install --quiet jsonschema",
+          "conclusion": "success"
+        },
+        {
+          "name": "Read the Blender pin",
+          "conclusion": "success"
+        },
+        {
+          "name": "Cache Blender",
+          "conclusion": "success"
+        },
+        {
+          "name": "Rebuild the fixture and require the committed bytes",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install Playwright",
+          "conclusion": "success"
+        },
+        {
+          "name": "Open every human GLB in the browser, at both viewports",
+          "conclusion": "success"
+        },
+        {
+          "name": "Drive the browser actor with the fixture, at both viewports",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Cache Blender",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "name": "teamster-studies",
+      "conclusion": "failure",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run pip install --quiet jsonschema pyproj openpyxl pypdf numpy scipy Pillow",
+          "conclusion": "success"
+        },
+        {
+          "name": "Read the Blender pin",
+          "conclusion": "success"
+        },
+        {
+          "name": "Restore the verified fixture worker's Blender",
+          "conclusion": "success"
+        },
+        {
+          "name": "Verify the original body preparation",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build three canonical masters and export through the portable path",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build same-new-master parented hierarchy controls (test artifacts only)",
+          "conclusion": "success"
+        },
+        {
+          "name": "Install Playwright",
+          "conclusion": "success"
+        },
+        {
+          "name": "Audit declared resident animation time bounds before browser loading",
+          "conclusion": "success"
+        },
+        {
+          "name": "Check actual resident hair material, embedded PNG and source/web LOD dimensions",
+          "conclusion": "success"
+        },
+        {
+          "name": "Validate the actual new GLB containers",
+          "conclusion": "success"
+        },
+        {
+          "name": "Validate hierarchy control warnings with exact node pointers",
+          "conclusion": "success"
+        },
+        {
+          "name": "Measure all human exports and inspect the workwear studies",
+          "conclusion": "failure"
+        },
+        {
+          "name": "Preserve masters, exports and inspection evidence",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Restore the verified fixture worker's Blender",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "terminal": {
+    "id": 39200379231,
+    "head_sha": "e1b31c070bfb11d99331aa3d903023cf9865940c",
+    "status": "completed",
+    "conclusion": "failure",
+    "html_url": "https://github.com/kevinrhaas/chicago/actions/runs/39200379231",
+    "run_attempt": 1,
+    "created_at": "2026-10-19T04:37:13Z",
+    "updated_at": "2026-10-19T05:44:46Z",
+    "expected_sha": "e1b31c070bfb11d99331aa3d903023cf9865940c",
+    "head_matches": true,
+    "log_collected": true,
+    "structured_receipt_count": 114,
+    "issue_receipt_count": 24,
+    "issue_code_totals": {
+      "2:UNUSED_OBJECT": 400,
+      "2:NODE_EMPTY": 72,
+      "2:IMAGE_NPOT_DIMENSIONS": 24,
+      "2:UNSUPPORTED_EXTENSION": 12
+    },
+    "any_issue_receipt_truncated": false,
+    "errors": [
+      "##[error]Process completed with exit code 1."
+    ]
+  },
+  "scope": "All preexport normal audits pass. Detailed resident contact/framing inspector commands were not reached after failed measure; no photographic acceptance. Khronos counts are log receipts only; no artifact pointers inspected."
+}

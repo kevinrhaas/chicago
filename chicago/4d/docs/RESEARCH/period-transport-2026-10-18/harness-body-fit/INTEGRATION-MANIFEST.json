@@ -1,0 +1,56 @@
+{
+  "apply_only_these_paths": [
+    {
+      "path": "chicago/4d/tools/transport/generate_harness.py",
+      "old_sha256": "ef019b99e39f106994ea1cb1c39358df98318bc682095bf1a52b80dea36b2954",
+      "new_sha256": "695b299c25c53af9ece325e4c0270ee9714999cc35157383848c103e77e6eeb2",
+      "bytes": 13808
+    },
+    {
+      "path": "chicago/4d/data/transport/studies/harness.json",
+      "old_sha256": "7473be06e127388b07cd67af69db671bcc134999fa66849a5866f40c0794d85d",
+      "new_sha256": "1bcd19f47ac881df0f4e9c9c3115177f7b8dd3127837d0cd6c66ff5534e474dd",
+      "bytes": 8921
+    },
+    {
+      "path": "chicago/4d/renderers/web/transport/harness/light_breastcollar_harness_reconstructed_01.glb",
+      "old_sha256": "b4a7318053e8508617a24fff64f02beb7eee77684db689dc04771d209a54fa8b",
+      "new_sha256": "45930f41b73a8c0698417093dede9644e3e2cb7192a2eef0e222038638b193cd",
+      "bytes": 602980
+    },
+    {
+      "path": "chicago/4d/renderers/web/transport/harness/manifest.json",
+      "old_sha256": "d97d6b4328b234939dfe320d7174553a42de4c40317523ca288b18c51e62428a",
+      "new_sha256": "59391da0b8e9af7a21d64396167f3e1c967bfe4e98c679b9485317c2072e1b9c",
+      "bytes": 5886
+    },
+    {
+      "path": "chicago/4d/renderers/web/transport/harness/geometry-stats.json",
+      "old_sha256": "87c1ca510d6a9d0351a9aa1239a2f64ff45e5f0ce72fa1a11a8b270f7416113b",
+      "new_sha256": "832327c8a03265ac9b81c9de067568779d810018341e6c0ebe42dfd85186d0af",
+      "bytes": 2992
+    },
+    {
+      "path": "chicago/4d/tools/transport/test_harness_body_fit.py",
+      "old_sha256": null,
+      "new_sha256": "94c09b17b6865d49e1376961c93afa5cc88a2f35f70a5fc3c14b45c311cf164b",
+      "bytes": 7094
+    },
+    {
+      "path": "chicago/4d/tools/transport/fixtures/harness-before-body-fit.json",
+      "old_sha256": null,
+      "new_sha256": "7473be06e127388b07cd67af69db671bcc134999fa66849a5866f40c0794d85d",
+      "bytes": 3524
+    },
+    {
+      "path": "chicago/4d/tools/transport/fixtures/harness-before-body-fit.glb.gz",
+      "old_sha256": null,
+      "new_sha256": "cce8c06f3ff46346c133bdc4954546aa7533febd645bff61e6db5a2a11b5ebf9",
+      "bytes": 100075
+    }
+  ],
+  "protected_horse_testmirror_not_integrationchange": "chicago/4d/renderers/web/transport/horse/equine_light_harness_skinned_prototype_01.glb",
+  "horse_sha256": "89b048b7cda748e6f3a7111aa8e4f3198b01fabf6015cae644c78ed02d385bc6",
+  "generator_default_originalparams_currentPy312_reproduces_b4": true,
+  "cross_python_reduction_limit": "Legacyoriginalsource usesbuiltinfloat sum; Py311leftfold changesbyteJSON. RegressionuseshashverifiedexactoriginalGLBgzip, notportablegeneratorbyteassumption."
+}
