@@ -1121,3 +1121,136 @@ outlines). No photograph or third-party image is sampled. They are project-autho
 repository licence, and the generator reproduces them. They show what a species' leaf and bark
 generally look like; they are not evidence about any tree that stood (docs/LIBERTIES.md
 L-tree-architecture-2743).
+
+
+### Anonymous adult source and preparation — `authored/humans/makehuman_hm08/`
+
+The verbatim MakeHuman graphical assets are **CC0-1.0**,
+pinned to [MakeHuman commit a8bc2d54ff0ac92e78ff71431b1023eda42bf482](https://github.com/makehumancommunity/makehuman/tree/a8bc2d54ff0ac92e78ff71431b1023eda42bf482).
+The upstream license documents are preserved verbatim under their own distribution
+terms; LICENSE.CODE.md is a license notice, not included program code.
+`SOURCE.json` records per-file upstream URLs and SHA-256 hashes; the OBJ, skeleton,
+weights and material retain their own CC0 notices. Upstream application code is AGPL
+and is not included or copied into the preprocessing tool. `LICENSE.md.gz` losslessly preserves
+the upstream explanation of this distinction. Original `prepared.json`,
+`prepared.report.json`, `SOURCE.json` and README adaptations are CC0-1.0.
+Height, pose, joint mapping and weight pruning are reconstructed (L418). This is a
+cleared modeling input, not a finished photographic person. No external skin-image
+pack has been imported.
+
+Originally authored canonical workwear masters under `authored/humans/teamsters/`
+and their `humans/*_1835.lod*.glb` / `humans/web/*_1835.lod*.glb`
+exports are CC0-1.0 with the same base provenance and L418 reconstruction declaration.
+These paths become deliverables only after the CI bake produces and validates them;
+listing the license does not assert the files already exist or meet production quality.
+
+Exact covered paths (future canonical/export paths retain the provisional status above):
+
+```text
+authored/humans/makehuman_hm08/LICENSE.ASSETS.md
+authored/humans/makehuman_hm08/LICENSE.CODE.md
+authored/humans/makehuman_hm08/LICENSE.md.gz
+authored/humans/makehuman_hm08/README.md
+authored/humans/makehuman_hm08/SOURCE.json
+authored/humans/makehuman_hm08/adult_25.recipe.json
+authored/humans/makehuman_hm08/adult_35.recipe.json
+authored/humans/makehuman_hm08/makehuman/data/3dobjs/base.obj
+authored/humans/makehuman_hm08/makehuman/data/rigs/default.mhskel
+authored/humans/makehuman_hm08/makehuman/data/rigs/default_weights.mhw
+authored/humans/makehuman_hm08/makehuman/data/skins/default.mhmat
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-male-old.target
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-male-young.target
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-male-old.target
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-male-young.target
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-male-old.target
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-male-young.target
+authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-male-young-averagemuscle-averageweight.target
+authored/humans/makehuman_hm08/prepared.json
+authored/humans/makehuman_hm08/prepared.report.json
+authored/humans/makehuman_hm08/prepared_adult_25.json
+authored/humans/makehuman_hm08/prepared_adult_25.report.json
+authored/humans/makehuman_hm08/prepared_adult_35.json
+authored/humans/makehuman_hm08/prepared_adult_35.report.json
+authored/humans/teamsters/bardwell_otis_1835/canonical.blend
+humans/bardwell_otis_1835.lod0.glb
+humans/web/bardwell_otis_1835.lod0.glb
+humans/bardwell_otis_1835.lod1.glb
+humans/web/bardwell_otis_1835.lod1.glb
+humans/bardwell_otis_1835.lod2.glb
+humans/web/bardwell_otis_1835.lod2.glb
+humans/bardwell_otis_1835.lod3.glb
+humans/web/bardwell_otis_1835.lod3.glb
+authored/humans/teamsters/dufresne_joseph_1835/canonical.blend
+humans/dufresne_joseph_1835.lod0.glb
+humans/web/dufresne_joseph_1835.lod0.glb
+humans/dufresne_joseph_1835.lod1.glb
+humans/web/dufresne_joseph_1835.lod1.glb
+humans/dufresne_joseph_1835.lod2.glb
+humans/web/dufresne_joseph_1835.lod2.glb
+humans/dufresne_joseph_1835.lod3.glb
+humans/web/dufresne_joseph_1835.lod3.glb
+authored/humans/teamsters/flynn_martin_1835/canonical.blend
+humans/flynn_martin_1835.lod0.glb
+humans/web/flynn_martin_1835.lod0.glb
+humans/flynn_martin_1835.lod1.glb
+humans/web/flynn_martin_1835.lod1.glb
+humans/flynn_martin_1835.lod2.glb
+humans/web/flynn_martin_1835.lod2.glb
+humans/flynn_martin_1835.lod3.glb
+humans/web/flynn_martin_1835.lod3.glb
+```
+
+
+### Skin material component — `authored/humans/skin_toigo_bronze/`
+
+MargaretToigo, *young light-skinned male, bronze variation* (2017, changed 2019),
+**CC0-1.0** in the actual official MakeHuman pack metadata; source
+<https://files2.makehumancommunity.org/asset_packs/skins02/skins02_cc0.zip>,
+asset page <http://www.makehumancommunity.org/node/1136>. The unchanged 2048² PNG
+is SHA-256 `5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0`.
+Exact metadata, material, official-page copies and extraction checks are retained
+beside it; those documentary copies retain their source terms, while the original
+SOURCE/README are project-authored CC0. This component conveys no historical likeness.
+
+Additional exact covered CC0 graphical/derived and documentary paths:
+
+```text
+authored/humans/skin_toigo_bronze/README.md
+authored/humans/skin_toigo_bronze/SOURCE.json
+authored/humans/skin_toigo_bronze/skins02.official-page.md
+authored/humans/skin_toigo_bronze/skins02.original.json
+authored/humans/skin_toigo_bronze/toigo_light_skin_male_bronze.mhmat
+authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png
+```
+
+The upstream MakeHuman overview notice is retained verbatim as deterministic gzip:
+its original seven-equals Markdown heading conflicts with the repository's literal
+marker scan. SOURCE.json records both original and stored hashes and sizes, and the
+preparation tool verifies the decompressed original too. No notice wording or
+conflict-check assertion is changed.
+
+
+### Hair component — `authored/humans/hair_short04/` (CC0-1.0)
+
+MakeHuman system **short04**, UUID `e09bfd91-f83f-4f9a-ba8c-4635cd1ae0d8`, officially listed author `makehuman_system`. Actual original OBJ, mhclo and mhmat headers EACH state:
+
+> This asset was explicitly released as CC0 in september 2020.
+> Copyright (C) 2020 Data Collection AB, https://www.datacollection.se
+> Copyright (C) 2020 Joel Palmius
+> Copyright (C) 2020 Jonas Hauquier
+
+Original archive: <https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip>, ETag `"10bbb7ea-6160e7c0d7996"`. The original material directly names `short04_diffuse.png`; that texture is part of the expressly CC0 asset. No separate PNG license exception found. The headers refer to the upstream CC0 legal text; this component does not falsely claim a separate legal-text file was extracted from the archive. Retain original notices verbatim. No MakeHuman AGPL program or shader code included in the asset.
+
+The periodic padded PNG is an original CC0 source derivative, explicitly labeled draft. README.md and SOURCE.json are original project-authored CC0 documentary provenance; original `.mhmat`/`.mhclo`/`.obj` notices retain their exact upstream wording. All exact component paths and SHA-256 hashes:
+
+| Path relative to assets/ | Kind | SHA-256 |
+|---|---|---|
+| authored/humans/hair_short04/README.md | CC0 original project documentary | `fb920ea8d0082d3080db8acf6ed0d98805335ee166e1e1957861a3c520ac7679` |
+| authored/humans/hair_short04/SOURCE.json | CC0 original project documentary | `68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99` |
+| authored/humans/hair_short04/short04.mhclo | CC0 original graphical/source metadata | `d60640aa4c4ffce1aa269647ba436b6ee0bb21bb948f927b84e27a48d2107157` |
+| authored/humans/hair_short04/short04.mhmat | CC0 original graphical/source metadata | `7a3ac74db8478aa0afdb8a596c6fe3997d1a8a09d12211d70e8f1e9f0b7e0e97` |
+| authored/humans/hair_short04/short04.obj | CC0 original graphical/source metadata | `676964a133ee35ffcea1195382bf75542da7a298931e4001bc7b0d7b707225de` |
+| authored/humans/hair_short04/short04_diffuse.png | CC0 original graphical/source metadata | `0bef7fc0e403db5a40fabb2111ebfa6f7e8158e204c6e56b8da98e9ef527846e` |
+| authored/humans/hair_short04/short04_diffuse_periodic_pad_draft.png | CC0 derived periodic-padded texture | `194e53741c7c96e16d4aac8ba10a1bb87c9cb86e976bda82655ad10d38b58871` |
+
+This is a component entry additive to existing canonical-master and human master/web export entries for `bardwell_otis_1835`, `dufresne_joseph_1835` and `flynn_martin_1835`; their rebuilt byte hashes do not exist yet and must be measured after CI, never fabricated. The source component conveys no period hairstyle, resident likeness, ancestry or historically observed action. Fitting tools remain project GPL-3.0-or-later code; those tools are not CC0 graphical assets.

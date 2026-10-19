@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 626,
+  "count": 627,
   "liberties": [
     {
       "id": "L1",
@@ -41012,6 +41012,37 @@
         {
           "label": "Recorded",
           "text": "2026-10-18 (T-2780)."
+        }
+      ]
+    },
+    {
+      "id": "L418",
+      "title": "Resident workwear studies on a licensed human base",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-18",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The 2026-10-18 generic transport-human studies depict no identified resident. Their body begins with the CC0 MakeHuman hm08 graphical base pinned in `assets/authored/humans/makehuman_hm08/SOURCE.json`, not its AGPL application code. A chosen 1.75 m height, sole registration, source A-to-T limb rotation, helper-joint interpretation, 163-to-56 joint mapping and four-influence pruning are reconstructed engineering choices. The preparation report quantifies discarded weights and pose displacement; anatomy, palm roll and joint correctives remain review items. The 1835 recipe fits originally authored shirt, separate waistcoat, high-waisted pantaloons, collar and closed shoes to that base. Nearby newspaper clothing terms are text evidence only; an advertisement dated 4 July does not establish stock on 1 July. Exact cut, seam placement, fit ease, colors, body shape, skin appearance and synthetic motion are reconstructed. Color variants are pipeline proofs, not three attested people. No named likeness, occupation, ethnicity, livery or exact historical wardrobe is attested by the mesh. These studies require actual canonical exports, close rendering, skinning/garment contact and period review before scene placement. Flat PBR colors do not meet the requested photographic skin/clothing quality. The owner's subsequent October 18 direction prioritizes existing attested, inferred or reconstructed people. The first studies now reference already reconstructed 1835 residents `rc_bardwell_otis`, `rc_dufresne_joseph` and `rc_flynn_martin` instead of introducing anonymous scene residents. Their modeled identities, occupations and age bands retain the underlying reconstruction basis; no portrait or attested likeness is supplied by assigning the existing record to a reusable body. Appearance and staged transport actions require their own declared reconstruction and review."
+        },
+        {
+          "label": "Applies to",
+          "text": "`assets/authored/humans/makehuman_hm08/`, the original workwear recipe and canonical builder, and `bardwell_otis_1835`, `dufresne_joseph_1835`, `flynn_martin_1835` study exports. No structure claim is discharged."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-18 (T-1789)."
+        },
+        {
+          "label": "Adult-body and skin update (2026-10-18)",
+          "text": "The neutral source body is not accepted as the finished male anatomy. Hash-verified CC0 hm08 male young/old shape deltas now change visible and helper vertices together before joint reconstruction and posing. Engineering ages 25 and 35 are chosen within the modeled bands, not read birth years. An equal blend of source software-category shapes is an authoring choice, not scientifically neutral ethnicity or inferred ancestry. MargaretToigo's CC0 original 2K bronze male skin atlas is a reusable component, not these residents' complexion or likeness; its actual source metadata, CRC and hashes are retained. Roughness, body proportions, garment patterns and all animation remain reconstructed and need canonical export/render review. No skin upscaling is called 4K detail."
+        },
+        {
+          "label": "Hair component update (2026-10-19)",
+          "text": "Existing reconstructed residents `rc_bardwell_otis`, `rc_dufresne_joseph` and `rc_flynn_martin` retain their current identity, age-band, occupation and presence basis. Their referenced studies may share the cleared CC0 MakeHuman short04 component, fitted to each selected adult25/35 prepared body. Hair shape, dark color, parting, hairline, density and grooming are reconstructed appearance choices, not attested1835hairstyles or individual likenesses. This introduces no new person or biography and implies no ethnicity. Source license clearance is not historical style acceptance. The adaptation retains signed geometric proxy coefficients; normalized existing body skinweights clamp one negative interpolation row (maximum mass0.0000127) and keep at most4joints. The original Vmaximum1.0031 is remapped with a clearly labeled periodic-padded derivative:8toprows+1bottomrow, Vnew=(2048V+1)/2057. Measured unminified bilinear equivalence does not establish mipmap/aniso/export equivalence. PBR roughness.65, alpha threshold.4 and double-sided rendering are reconstructed shader choices, not the original legacy litsphere appearance. Source topology retained at every LOD pending measured reductions. Actual pinned exporter source statically recognizes the proposed 1-(Alpha<.4) node pattern as glTF MASK/.4; actual canonical BPy creation, packed image decode, exported material/UV/skin integrity and close/mobile hair-edge, scalp/ear/collar and animated-contact review still require CI. No photographic quality, historical haircut acceptance or independently validated resident depiction is claimed by this addendum."
         }
       ]
     },

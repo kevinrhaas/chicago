@@ -1,3 +1,29 @@
+## T-2672 / T-1789 — resident transport adults (2026-10-18)
+
+The owner requested adults for driving, riding, standing near transport and walking,
+with period-specific clothing and photographic quality, then directed us to use existing
+attested, inferred or reconstructed people; anonymous figures are a last resort. The standing human
+policy now reflects the explicit October 16 rulings; record flags, reasons, rights and
+scene dates remain. No figure is added by clearing a flag or inventing a resident.
+
+A pinned CC0 human graphical base, hash-verified adult male shape targets, a
+verified original 2K CC0 skin atlas, engine-neutral preparation and an original
+1835 workwear canonical-master builder are under integration. The first studies reference existing reconstructed residents Otis Bardwell, Joseph
+Dufresne and Martin Flynn. Their appearances remain reconstructed assembly proofs. Blender runs on CI, not this runner. Canonical exports and
+close desktop/mobile review must precede any scene use; canonical skin/cloth rendering, clothing
+detail, hair, reliable gait, seated driver/rein contact and riding tack remain open.
+The primitive portable-human fixture remains a test artifact. T-1789 is not complete
+on a single base or flat-color outfit. See L418 and the authored source manifest.
+
+Canonical CI now reproduces all three prepared inputs on Python 3.11. It built
+Otis Bardwell's master and all four source/web LODs, then the unchanged contract
+rejected tiny exported joint-scale residue and a skin-palette count change during
+quantization. The authored-only export repair verifies the actual Blender rig is
+unscaled, bounds numerical cleanup, consolidates only exactly equal bindings and
+uses one quantization volume. Existing fixture bytes and contract tolerances stay
+unchanged. Corrected canonical CI and actual visual/deformation review remain open;
+artifact download also requires publishing the saved environment network draft.
+
 ## T-1883 — Keith house photographic finish (2026-10-16)
 
 The owner-approved 1888 Inland Architect photograph now drives the pierced parapet,
@@ -5524,3 +5550,10 @@ Transport integration repair, 2026-10-19: merge current dev, rebuild conflicted 
 
 
 Transport recovery assertions: retain currentdev Researcher mode and T-2826 prior-reset diagnostic. Replace stale no-notice predicates with exact readable diagnostic/Copy/previous-page checks while preserving navigation, autoreload and tier invariants. Focused actual blackbox regression passes; next exact-head full preflight and all published desktop/mobile stage groups remain required before dev merge. No horse-head/wheel trial is included in this correction.
+Resident transport adults,2026-10-19: first grounded-walk inspection refused the actual exported duration. Authored-only zero-origin export and declared-time diagnostics are implemented; fixture kwargs and loaded1.2s/contact limits remain strict. Canonical rebuild/decoded inspection is required before any gait acceptance. Existing named residents remain the models; photographic clothing/hair, seated drivers, mounted riders and scene placement remain unfinished.
+
+
+Resident surface refinement: the earlier canonical45 build passed mechanical source/web inspection. The next authoring revision adds hash-verified CC0 short04 hair fitted to the same three named reconstructed residents, plus body normals shared across exact source UV seams. Six hair and five normal source tests pass; new Blender exports and actual material, shading and LOD inspection are required. Photographic acceptance, hair-card refinement, individual faces, period wardrobe, seated drivers and mounted riders remain open in T-1789/T-2804. See the resident teamster dossier for exact provenance and source-preview limitations.
+
+
+Combined transport/resident integration (2026-10-19): retain c4f6e5424 transport and2679d6c98 named resident authoring on one review head. Integrate reviewed W01 tapered spokes/board-edge study with declared reconstructed dimensions. Diagnose the canonical body-normal readback failure with bounded errors/seam metrics and unchanged guard before claiming resident exports. Run full preflight and final same-head canonical authoring plus published desktop/mobile coverage before dev merge. Horse head/strap refinement, photographic quality, occupancy, traffic and boarding/riding remain production work.

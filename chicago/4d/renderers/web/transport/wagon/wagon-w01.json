@@ -20,7 +20,8 @@
     "wheel_center_track_m": 1.21,
     "tongue_length_m": 2.75,
     "tier": "reconstructed",
-    "historical_match": false
+    "historical_match": false,
+    "wheel_refinement": true
   },
   "wheel_radius_m": {
     "rear": 0.685,
@@ -41,8 +42,25 @@
     "source_ids": []
   },
   "statistics": {
-    "triangles": 9000,
+    "triangles": 10792,
     "meshes": 22,
     "nodes": 47
+  },
+  "wheel_refinement": {
+    "grade": "reconstructed",
+    "historical_match": false,
+    "spoke_sections_m": {
+      "hub": [
+        0.035,
+        0.032
+      ],
+      "felloe": [
+        0.022,
+        0.022
+      ]
+    },
+    "spoke_radial_stations": "original .08m to radius-.07m unchanged",
+    "board_chamfer_m": 0.0012,
+    "note": "Original octagonal taper and restrained edge/material response study; no source-attested joinery or photographic match"
   }
 }

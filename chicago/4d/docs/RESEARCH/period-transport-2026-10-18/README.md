@@ -131,3 +131,15 @@ batch had15 accepted successes, one mobile6-7 failure and two desktop legs still
 running at last observation. These results are retained, not replaced with a
 new-head pass. No model photographic gate, occupied traffic or boarding/riding
 acceptance follows from a corrected test predicate.
+
+
+## Combined transport and resident checkpoint — 2026-10-19
+
+Transport c4f6e5424 passed full preflight985/0 and postcommit changelog checks. Resident2679d6c98 passed local991/0, but canonical CI39184480142 failed during the first resident LOD0 body custom-normal readback. The guard raised before printing errors, so neither magnitude nor seam disagreement is yet known; no resident master/export/hair/hierarchy/browser proof followed. Legacy fixture checks passed separately. The combined source adds bounded diagnostics before the unchanged1e-3 guard. Pinned Blender codec analysis supplies a conditional counterexample to a universal1e-3 bound, but no complete floating-point/fallback bound or actual resident metrics; it does not authorize relaxing acceptance.
+
+W01 now has original reconstructed tapered octagonal spokes,1.2mm board/stave chamfers and less board-color contrast. Reviewed controlled close/clay/mobile comparisons show a slimmer taper, with modest full-view gain. It increases9000 to10792 triangles, retaining22 meshes,47nodes, wheel bounds and proposed socket frames. Determinism and Khronos0errors/0warnings were measured outside the application; combined integration gates remain required. These dimensions are engineering liberties. Historical joinery, photographic surfaces, occupied traffic, boarding and riding remain open. Horse-head and strap candidates remain outside the application pending visual refinement; intersection checks alone do not establish fit or photographic quality.
+
+The frozen9a84 batch currently has16 accepted successes, one preserved mobile6-7 recovery-predicate failure and desktop13 still running. It cannot qualify this combined revision. Full local preflight, canonical resident authoring and complete published desktop/mobile coverage must pass on the final same head before dev merge.
+
+
+Combined merge derivation qualification: full `rederive --resolve` failed at unchanged North Branch raster reread (IIIF HTTP403); this is retained as a failed attempt, not a successful full rebuild. All44 tracked terrain/traces and river readers/baseline were byte-identical to both parents. A separate cycle audit found22 selected readers/outputs/declared inputs byte-identical to both parents and mergebase; changed resident data outside human metadata consists only of incoming prose, with no seating/population/placement field change. The supported `--tail tools/compile_liberties.py` route rebuilds the actual liberties conflict and every downstream step, with a final unchanged lap required. Complete earlier verifiers remain required in full preflight. That bounded route does not claim a fresh raster measurement or equivalent full second-pass orchestration.

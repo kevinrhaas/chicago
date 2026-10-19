@@ -1,3 +1,29 @@
+## T-2672 / T-1789 — resident transport adults (2026-10-18)
+
+The owner requested adults for driving, riding, standing near transport and walking,
+with period-specific clothing and photographic quality, then directed us to use existing
+attested, inferred or reconstructed people; anonymous figures are a last resort. The standing human
+policy now reflects the explicit October 16 rulings; record flags, reasons, rights and
+scene dates remain. No figure is added by clearing a flag or inventing a resident.
+
+A pinned CC0 human graphical base, hash-verified adult male shape targets, a
+verified original 2K CC0 skin atlas, engine-neutral preparation and an original
+1835 workwear canonical-master builder are under integration. The first studies reference existing reconstructed residents Otis Bardwell, Joseph
+Dufresne and Martin Flynn. Their appearances remain reconstructed assembly proofs. Blender runs on CI, not this runner. Canonical exports and
+close desktop/mobile review must precede any scene use; canonical skin/cloth rendering, clothing
+detail, hair, reliable gait, seated driver/rein contact and riding tack remain open.
+The primitive portable-human fixture remains a test artifact. T-1789 is not complete
+on a single base or flat-color outfit. See L418 and the authored source manifest.
+
+Canonical CI now reproduces all three prepared inputs on Python 3.11. It built
+Otis Bardwell's master and all four source/web LODs, then the unchanged contract
+rejected tiny exported joint-scale residue and a skin-palette count change during
+quantization. The authored-only export repair verifies the actual Blender rig is
+unscaled, bounds numerical cleanup, consolidates only exactly equal bindings and
+uses one quantization volume. Existing fixture bytes and contract tolerances stay
+unchanged. Corrected canonical CI and actual visual/deformation review remain open;
+artifact download also requires publishing the saved environment network draft.
+
 ## T-2737 — dev's still-frame ceiling: the trip blur the instrument froze on (2026-10-18)
 
 Nothing you can see changed. This gate blocks a visible parcel: PR #992 (T-2728, 1623's
@@ -24005,3 +24031,31 @@ Full preflight and complete published desktop/mobile coverage of this corrected 
 
 
 Transport recovery validation: current dev43d8f0a04 merges cleanly into9a84, retaining the Researcher mode UI. The frozen9a84 mobile6-7 failure was an outdated notice===null expectation: T-2826 deliberately retains the prior display-reset diagnostic after a clean reload. Smoke assertions now require its readable exact text, no Reload prompt, Copy bytes matching the actual previous blackbox record, and the previous-page ID matching the exact page that just reset. Existing navigation counts, single autoreload and lowered-tier checks remain; the manual reload additionally requires watching/session-loss state. Actual blackbox records across two navigation sequences and eleven refusal cases pass without a browser. New complete published desktop/mobile coverage remains pending. Older failures and logs stay retained; no dev merge yet.
+Resident movement checkpoint (T-1789, 2026-10-18): canonical CI39173614006 at0577792dc passed three masters,24GLB contracts and24mechanical browser inspections; visual/photographic acceptance remains open. The next canonical build must validate new source-frame flat-foot walking, independently decoded source/web sole contacts, dormant facial morph preservation, decoded skin bindings and geometry-fitted inspection cameras. Existing reconstructed resident references are preserved. No scene driver, rider or anonymous person is added; saved hair and seated-driver proposals remain unapplied. See docs/RESEARCH/resident-teamsters-2026-10-18/README.md for engineering thresholds and limits.
+
+
+## Resident authored walk time origin — 2026-10-19
+
+Canonical run39177201156 at379e7d3d failed before the first sole-contact result: the loaded walk did not satisfy the unchanged1.2s duration guard. No resident time inputs were recovered from its inaccessible artifact. Official pinned Blender4.5.3 exporter source defaults positive-start animation sliding off; the existing legacy fixture's decoded time inputs start at1/30s. The authored37keys at frames1..37 have a1.2s span but, without sliding, can end at37/30s.
+
+Only independently verified authored rigid rigs now request the supported export_anim_slide_to_zero option. Legacy fixture kwargs are frozen byte-for-byte in an actual-call AST regression and omit the option. The loaded duration/contact guards stay strict; errors now include actual clip names/durations/track endpoints. A pre-browser CI audit records declared accessor bounds and motion extras for every resident source/web GLB, explicitly metadata evidence rather than decoded motion. The browser CPU sampler remains the motion/contact authority.
+
+Sixteen frame/wiring tests, ten declared-time audit tests and twelve actual Three CPU sole-sampler regressions pass locally without Blender. New canonical exports and completed inspections must prove the fix; photographic appearance, clothing/hair refinement, driver/rider poses and scene placements remain open. Existing Otis Bardwell, Joseph Dufresne and Martin Flynn references and evidence grades are retained; no new anonymous identity is introduced.
+
+
+Resident surface refinement: prior human canonical run39179622053 at45bb1933e passed all24 source and24 published-web mechanical inspections, including walk duration and sampled contact. Photographic acceptance remains OPEN. The new unbaked revision adds hash-verified CC0 short04 hair fitted to the existing Otis Bardwell, Joseph Dufresne and Martin Flynn studies, plus area-weighted custom body normals shared by exact source vertex IDs. Six real-source hair tests and five normal tests pass without Blender. A viewed controlled source preview removed the sharp neck triangle by changing only normals; crown faceting, hair-card gaps and nape appearance remain unfinished. Actual Blender custom-normal export, MASK/0.4/double-sided hair material, resized web textures, morph shading and all LOD appearances require new canonical verification. No occupied transport or new town person is enabled. See docs/RESEARCH/resident-teamsters-2026-10-18/README.md.
+
+
+Resident export qualification now includes temporary same-master parented controls for the authored root-mesh hierarchy, exact Khronos warning/node pointers, unchanged 0.1 mm loaded motion/morph comparison, actual source/web embedded hair image and material checks, and decoded hair geometry/skin checks. Five control tests, four embedded-container test methods and eleven synthetic decoded-runtime cases pass locally. LOD0 BPy custom-normal readback will report corner counts and maximum/mean differences under an explicit 0.001 vector tolerance accounting for short2 storage; actual execution remains pending CI. Neither hierarchy warning removal nor normal preservation in final GLBs is accepted before that run and actual visual review. Earlier fixture behavior is retained.
+
+
+## Combined transport and resident checkpoint — 2026-10-19
+
+Transport c4f6e5424 passed full preflight985/0 and postcommit changelog checks. Resident2679d6c98 passed local991/0, but canonical CI39184480142 failed during the first resident LOD0 body custom-normal readback. The guard raised before printing errors, so neither magnitude nor seam disagreement is yet known; no resident master/export/hair/hierarchy/browser proof followed. Legacy fixture checks passed separately. The combined source adds bounded diagnostics before the unchanged1e-3 guard. Pinned Blender codec analysis supplies a conditional counterexample to a universal1e-3 bound, but no complete floating-point/fallback bound or actual resident metrics; it does not authorize relaxing acceptance.
+
+W01 now has original reconstructed tapered octagonal spokes,1.2mm board/stave chamfers and less board-color contrast. Reviewed controlled close/clay/mobile comparisons show a slimmer taper, with modest full-view gain. It increases9000 to10792 triangles, retaining22 meshes,47nodes, wheel bounds and proposed socket frames. Determinism and Khronos0errors/0warnings were measured outside the application; combined integration gates remain required. These dimensions are engineering liberties. Historical joinery, photographic surfaces, occupied traffic, boarding and riding remain open. Horse-head and strap candidates remain outside the application pending visual refinement; intersection checks alone do not establish fit or photographic quality.
+
+The frozen9a84 batch currently has16 accepted successes, one preserved mobile6-7 recovery-predicate failure and desktop13 still running. It cannot qualify this combined revision. Full local preflight, canonical resident authoring and complete published desktop/mobile coverage must pass on the final same head before dev merge.
+
+
+Combined merge derivation qualification: full `rederive --resolve` failed at unchanged North Branch raster reread (IIIF HTTP403); this is retained as a failed attempt, not a successful full rebuild. All44 tracked terrain/traces and river readers/baseline were byte-identical to both parents. A separate cycle audit found22 selected readers/outputs/declared inputs byte-identical to both parents and mergebase; changed resident data outside human metadata consists only of incoming prose, with no seating/population/placement field change. The supported `--tail tools/compile_liberties.py` route rebuilds the actual liberties conflict and every downstream step, with a final unchanged lap required. Complete earlier verifiers remain required in full preflight. That bounded route does not claim a fresh raster measurement or equivalent full second-pass orchestration.

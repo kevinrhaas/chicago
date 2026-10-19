@@ -276,6 +276,45 @@ step "loading cards: seeded bags, dwell, stop and humor cap (T-1275)" \
   node tools/test_loading_content.mjs
 step "Restoration baseline waits for observed scene readiness; after capture stays immediate" \
   node tools/test_capture_restore_state.mjs
+# Real source geometry/UV/rig checks; stdlib, no Blender or browser here.
+step "CC0 adult preparation preserves source UVs, metric frame and bounded rig weights (T-1789)" \
+  python3 tools/test_human_base_prepare.py
+
+step "Resident hair preserves verified source pixels, fitted UVs and existing skin bindings (T-1789)" \
+  python3 tools/test_human_hair_short04.py
+
+step "Resident body normals share exact source seams without welding geometry or UVs (T-1789)" \
+  python3 tools/test_human_source_normals.py
+
+step "Resident hair export rejects missing alpha, embedded images and skin bindings (T-1789)" \
+  python3 tools/test_human_hair.py
+
+step "Resident hair validates decoded runtime geometry, texture and skin attributes (T-1789)" \
+  node tools/test_human_hair_runtime.mjs
+
+step "Authored humans preserve exact skin bindings when consolidating equivalent palettes" \
+  python3 tools/test_human_skin_canonicalize.py
+
+step "Rigid authored human frames reject real scaling and preserve binary data" \
+  python3 tools/test_human_frame_residue.py
+
+step "Human inspection preserves decoded morph defaults and compares actual CPU-skinned surfaces" \
+  node tools/test_human_inspection.mjs
+
+step "Resident mechanical gait holds prepared-source contact without stretching joints" \
+  python3 tools/test_human_grounded_gait.py
+
+step "Resident inspection camera fits geometry below the header without moving the subject" \
+  node tools/test_human_camera_fit.mjs
+
+step "Loaded human sole contacts preserve named limb identity and require gait metadata" \
+  node tools/test_human_sole_contact.mjs
+
+step "Authored human serialized animation bounds reject malformed metadata and nonzero origins" \
+  python3 tools/test_human_animation_times.py
+
+step "Hierarchy control refuses nonidentity frames and object animation before mutation" \
+  python3 tools/test_human_hierarchy_control.py
 
 step "Portable human contract holds; every human GLB and instance is held to it (T-1786)" \
   python3 tools/human_contract.py --check

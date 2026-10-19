@@ -1,0 +1,54 @@
+{
+  "license": "CC0-1.0",
+  "asset": "MakeHuman system short04",
+  "uuid": "e09bfd91-f83f-4f9a-ba8c-4635cd1ae0d8",
+  "author_listing": "makehuman_system",
+  "copyright_holders": [
+    "Data Collection AB https://www.datacollection.se",
+    "Joel Palmius",
+    "Jonas Hauquier"
+  ],
+  "release": "Explicit per-asset CC0 September2020 headers in OBJ/mhclo/mhmat; material names the PNG",
+  "archive_url": "https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip",
+  "archive_etag": "\"10bbb7ea-6160e7c0d7996\"",
+  "files": [
+    {
+      "path": "short04.mhclo",
+      "sha256": "d60640aa4c4ffce1aa269647ba436b6ee0bb21bb948f927b84e27a48d2107157",
+      "bytes": 59195,
+      "kind": "original source"
+    },
+    {
+      "path": "short04.mhmat",
+      "sha256": "7a3ac74db8478aa0afdb8a596c6fe3997d1a8a09d12211d70e8f1e9f0b7e0e97",
+      "bytes": 1316,
+      "kind": "original source"
+    },
+    {
+      "path": "short04.obj",
+      "sha256": "676964a133ee35ffcea1195382bf75542da7a298931e4001bc7b0d7b707225de",
+      "bytes": 55152,
+      "kind": "original source"
+    },
+    {
+      "path": "short04_diffuse.png",
+      "sha256": "0bef7fc0e403db5a40fabb2111ebfa6f7e8158e204c6e56b8da98e9ef527846e",
+      "bytes": 2308132,
+      "kind": "original source"
+    },
+    {
+      "path": "short04_diffuse_periodic_pad_draft.png",
+      "sha256": "194e53741c7c96e16d4aac8ba10a1bb87c9cb86e976bda82655ad10d38b58871",
+      "bytes": 2436675,
+      "kind": "original affine periodic-padding derivative; base-level bilinear equivalence assessed"
+    },
+    {
+      "path": "README.md",
+      "sha256": "fb920ea8d0082d3080db8acf6ed0d98805335ee166e1e1957861a3c520ac7679",
+      "bytes": 1158,
+      "kind": "original project CC0 documentary provenance"
+    }
+  ],
+  "rights_scope": "No MakeHuman AGPL shader/program code copied; source litsphere not ported; procedural PBR approximation reconstructed",
+  "UV_derivative": "8periodic top rows,1bottom row; Vnew=(2048V+1)/2057; no mip/aniso equivalence claim"
+}

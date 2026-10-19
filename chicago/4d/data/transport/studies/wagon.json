@@ -14,5 +14,6 @@
   "wheel_center_track_m": 1.21,
   "tongue_length_m": 2.75,
   "tier": "reconstructed",
-  "historical_match": false
+  "historical_match": false,
+  "wheel_refinement": true
 }
