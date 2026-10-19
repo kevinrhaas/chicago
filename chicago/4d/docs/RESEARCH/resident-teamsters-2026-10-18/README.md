@@ -282,3 +282,26 @@ explicit 0.001 vector difference. Blender 4.5 stores custom normals as angular
 float32 equality or a proven codec bound. Actual maximum/mean differences are
 logged per resident. This audit remains unexecuted until CI and does not prove
 emitted GLB, decimated or morphed normals preserve the intended shading.
+
+## Actual normal-probe trial and hierarchy-control import repair
+
+Canonical run [39196464162](https://github.com/kevinrhaas/chicago/actions/runs/39196464162)
+at `9e25f2d73` passed the existing generic fixture and all three resident
+LOD0 body normal readbacks under pinned Blender 4.5.3. Maximum raw normal
+vector deltas were 0.0000696794 for Bardwell and 0.0000586337 for Dufresne
+and Flynn. All three had zero bad corners and zero source-UV seam groups
+over the unchanged 0.001 limits. The three canonical master/export steps
+completed. These receipts qualify this local BPy packed-normal adapter at
+those inputs, not decimated/exported normals or photographic appearance.
+
+The run then failed before hierarchy-control construction: Blender did not
+put the script directory on Python's import path, so
+`from human_export import verified_rigid_frames` raised `ModuleNotFoundError`.
+The control now locates its sibling module from its own resolved script path.
+An isolated Python regression removes the tools directory from the import
+path, supplies only a synthetic `bpy`, and executes the real CLI to its first
+file-open boundary. This reproduces the import failure without executing
+Blender. Actual hierarchy controls, declared-time checks, hair checks,
+Khronos validation and loaded source/published browser inspection remain
+pending the next canonical run. The failed run and its original logs are
+retained; it is not a passing pipeline result.

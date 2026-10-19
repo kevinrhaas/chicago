@@ -35,6 +35,8 @@ def main(argv):
   if not path.resolve().is_relative_to(Path('/tmp')):p.error('test control outputs must be under /tmp')
  if len({args.output.resolve(),args.source.resolve(),args.receipt.resolve()})!=3:p.error('source, control and receipt paths must be distinct')
  import bpy
+ # Blender --python does not guarantee that this script directory is on sys.path.
+ sys.path.insert(0,str(Path(__file__).resolve().parent))
  from human_export import verified_rigid_frames
  source_hash=hashlib.sha256(args.source.read_bytes()).hexdigest();bpy.ops.wm.open_mainfile(filepath=str(args.source.resolve()))
  scene=bpy.context.scene;prov=scene.get('chicago4d_human');prov=prov.to_dict() if hasattr(prov,'to_dict') else prov
