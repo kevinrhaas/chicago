@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 628,
+  "count": 631,
   "liberties": [
     {
       "id": "L1",
@@ -40625,6 +40625,54 @@
       ]
     },
     {
+      "id": "L-k01-keith-crown-stack-2813",
+      "title": "Keith's moulded course 0.20 m deep: the kit's section scaled to the crown the pictures read",
+      "section": "per_subject",
+      "subjects": [
+        "keith_house_1808_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "keith_house_1808_prairie",
+          "phase": "as_built_1886",
+          "aspect": "form.wall_head"
+        }
+      ],
+      "recorded": "2026-10-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the moulded stone course between Keith's checker band and its lattice (1808 Prairie) is 0.20 m deep, where it was the K10 kit's 0.36 m section, every member's height scaled by the same factor and its 0.32 m projection kept (`wall_head.depth_m`); its foot stays on the checker band's top at 14.63 m, and the wall head comes down 0.16 m to 14.84 m (`storey_heights_m`, third storey 5.04 m), so the cornice box, lattice, coping, pinnacles, deck and cowl stand 0.16 m lower. The carved boss on the north-east corner keeps its read size and centre (14.8 m), so it now spans the course and the box over it (T-2813, piece 3 of T-2751)."
+        },
+        {
+          "label": "What is read, not invented",
+          "text": "the length of the crown stack, the lattice's lower sill down to the head band's top, as a ratio to the lattice's own 0.40 m row pitch, which no level camera changes (tools/keith_crown_stack.py): the Glessner-front print 1.55-1.57 m, Florian 1948 1.64-1.65 m, against the 1.74 m built. 0.16 m is the least-squares cut over the two in each print's own pixels; the stack is now 1.58 m, about 2 px long in the one and 1.3 px short in the other. Florian 1948 places the excess between the lattice and the checker band."
+        },
+        {
+          "label": "What is invented",
+          "text": "which member gives up the height and how. The course is the one member in that stretch whose depth was not read off Keith (the section is 1619 Prairie's drawing, generic here), so it is the one cut; scaling every member alike, rather than dropping one, is reconstructed. The course's moulding is not legible in any picture at this grain. Florian's other reading, the checker band and its gap about 0.12 m deeper than built, is not taken: the Glessner-front print hides the band's first row and cannot check it."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a sharper print of the street front's crown, read for the course's own members and the band's depth."
+        },
+        {
+          "label": "Covers",
+          "text": "`keith_house_1808_prairie.as_built_1886.form.wall_head`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2813 (piece 3 of T-2751)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-19 (T-2813)."
+        }
+      ]
+    },
+    {
       "id": "L-tree-architecture-2743",
       "title": "Every tree is grown from its species' habit, with painted bark and leaves",
       "section": "per_subject",
@@ -40833,6 +40881,41 @@
         {
           "label": "Recorded",
           "text": "2026-10-19 (T-2809)."
+        }
+      ]
+    },
+    {
+      "id": "L-woods-1812-2745",
+      "title": "The 1812 North Side woods reach the State Street sand as in 1835, and the 1835 shore grove stands in 1812 as young cottonwoods",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1812 scene draws no streets, so the timber's east limits (Wells south of the river, State north of it) had fallen back to a fixed E +316 m there, and the North Side wood stopped 500 m short of the line it reaches in 1835, with no wood on the sand beyond it. A scene with no streets now takes those two limits at the eastings the 1835 records survey Wells and State at (E +328.7 and +825.1): the State Street line is the break of slope where the clay meets the beach-ridge sand, which `generators/terrain_gen.py` builds and the 1812 ground shares, so the same wood, edge thicket and sand wood stand on undeveloped ground in both years. The 1835 paths (the Rush Street bridle path and the Green Bay road cut) stay 1835-only. The 1835 shore grove at Sixteenth to Eighteenth Street stands in 1812 (`data/flora/plantings/shore_cottonwood_grove_1812.json`, written by `tools/generate_shore_grove_1812.py`): 58 stems at the 1835 record's positions, at half their 1835 heights (11-13 m) as z08's dune cottonwood, without the two massacre trees the 1812 record already stands as saplings."
+        },
+        {
+          "label": "What is read, not invented",
+          "text": "Andreas's North Division timber with \"the sandy hills near the lake\" excepted, and its east end at the State Street ridge, as the 1835 records already read them; \"On its lower reaches stood scattered cottonwoods, and here and there a small group or a single tree\" (Moses and Kirkland, 1895, p. 60, of the 1812 shore); Clarke's grove of 1835 (Kirkland 1893, App. K)."
+        },
+        {
+          "label": "What is invented",
+          "text": "that the wood's 1835 east edge is its 1812 edge (the sources describing the timber are of the 1830s, and none clears the North Side wood beyond the houses at the river before then); that every 1835 grove stem was already standing in 1812, and their heights (a cottonwood on wet sand grows about a metre a year when young). The owner asked for the 1812 woods to lean to more trees rather than fewer, so where a stem might or might not have stood, it stands."
+        },
+        {
+          "label": "How to resolve",
+          "text": "an account or survey of the North Side or the south shore from before 1830 that says where the timber ended or names trees on the shore."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2745."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-19 (T-2745)."
         }
       ]
     },
@@ -41084,6 +41167,37 @@
         {
           "label": "Recorded",
           "text": "2026-10-18 (T-2780)."
+        }
+      ]
+    },
+    {
+      "id": "L-ambience-2659",
+      "title": "Each destination's ambience is a made-up bed tone, not a recording of the past",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-18",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "once a visitor's first tap lets the page play sound, each destination plays a quiet ambience under the Navigator's own sounds (T-2659, DESIGN §13). It is a band of filtered noise swaying slowly under two soft drone notes. All of it is synthesized in the page (`js/sound.js`): no recording is played, so no file needs a source or a licence."
+        },
+        {
+          "label": "What is invented",
+          "text": "all of it. Each destination's band, sway and drone pitch (1812 darkest, 1835 in the middle, 1904 brightest) was chosen for mood, and nothing bounds it but taste. It is not a reconstruction of how Chicago sounded in that year, and it imitates no animal, wagon, bell or voice. The design suggested \"wagons and birds in 1835, streetcar bells in 1904\", and that was not built: imitating a heard place would be a claim this ambience cannot make. Settings › Sound says the ambience is \"made up for mood: it is not a recording of the past\"."
+        },
+        {
+          "label": "What it does not discharge",
+          "text": "L2 (fauna heard rather than seen). No species in `data/fauna/` is voiced, and this ambience is not that layer."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a sound layer built from the records, such as the fauna voices L2 describes or documented street noise for 1904, each sound graded and cited like any other fact. It would replace the bed tone rather than sit on it."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-18 (T-2659)."
         }
       ]
     },

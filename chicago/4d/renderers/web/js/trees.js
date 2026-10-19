@@ -190,6 +190,9 @@ const CHANNEL_Y = -0.60;
  * along and the North Division's was 510 m short of the sand.
  */
 const TIMBER_EAST_LIMIT_STREETS = { south: 'wells', north: 'state' };
+/** T-2745: the same two lines for a scene with no streets, at the mean eastings
+ *  of `data/streets/1835.json`'s Wells and State centrelines (Wright 1834). */
+const LANDFORM_EAST_M = { south: 328.7, north: 825.1 };
 
 /** Earth radius corrected for standard atmospheric refraction (k = 0.13). */
 const R_EFF = 6371000 / 0.87;
@@ -1412,6 +1415,23 @@ function woodyHeadOf(sp, zoneId, problems) {
  */
 function timberEastLimits(streetRecords, problems = []) {
   const fallback = { south: 316, north: 316, streets: {} };
+  // T-2745 — A SCENE THAT DRAWS NO STREETS (1812) STILL HAS THE LAND THEY
+  // FOLLOWED. The limits are landforms first: Andreas's east end of the river
+  // timber and the State Street break of slope where the clay gives way to the
+  // beach-ridge sand (generators/terrain_gen.py builds it off the two State
+  // Street control points). An empty street list is a scene before the
+  // streets, not a failed load, so it takes those lines at the eastings the
+  // 1835 records survey them at, and the North Side wood runs to the sand in
+  // 1812 as it does in 1835. A list that lacks the street is still the failure
+  // below.
+  if (Array.isArray(streetRecords) && streetRecords.length === 0) {
+    const out = { south: LANDFORM_EAST_M.south, north: LANDFORM_EAST_M.north, streets: {} };
+    for (const [side, id] of Object.entries(TIMBER_EAST_LIMIT_STREETS)) {
+      out.streets[side] = { id, name: `the line ${id} later took`, east_m: LANDFORM_EAST_M[side],
+        landform: true };
+    }
+    return out;
+  }
   const out = { south: 0, north: 0, streets: {} };
   for (const [side, id] of Object.entries(TIMBER_EAST_LIMIT_STREETS)) {
     const st = (streetRecords ?? []).find((s) => s.id === id);
@@ -2409,8 +2429,9 @@ export async function createTrees({
   // is a question that gets asked at every cell rather than never.
   const eastLimit = timberEastLimits(streetRecords, problems);
   stats.eastLimits = eastLimit.streets;
-  // T-2808: the wood on the sand east of State, where the east limit was read
-  // off the street data (so 1835: 1812 still stands at the fallback line).
+  // T-2808: the wood on the sand east of State, wherever the north limit is
+  // the State Street line (read off the 1835 streets, or T-2745's landform for
+  // 1812); a fallback line has no sand wood.
   const sandWood = eastLimit.streets.north ? SAND_WOOD : null;
   // T-2808: the two ways through the North Side wood, on their street lines.
   const pathLines = [];
