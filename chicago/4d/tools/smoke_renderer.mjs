@@ -10880,6 +10880,12 @@ for (const [label, viewport, touch] of [
         ext.restoreContext();
         return { notice };
       });
+      // T-2826 (#1049): a load after a lost context shows the black box's line on the card,
+      // "Display reset N s into the visit. Just before: …" (blackbox.js summary), by design.
+      // The guard itself still says nothing on those boots: no notice of its own, no
+      // lowering and no second reload, so its silence is what is checked; the black box's
+      // line, and only that line, may stand on the card.
+      const blackboxOnly = (n) => n === null || /^Display reset [\d.]+ m?s into the visit\. Just before: /.test(n ?? '');
       const t0 = Date.now();
       await pc.goto(base, { waitUntil: 'domcontentloaded' });
       await pc.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 240_000, polling: 500 });
@@ -10903,7 +10909,7 @@ for (const [label, viewport, touch] of [
       const after = await guardState();
       check(`${label}: two lost contexts reload the page once at most, then lower the next boot a tier`,
         /reset/.test(firstLoss.notice ?? '') && loads === 2 && reloaded?.boot?.detail === 'balanced'
-        && reloaded.lowered === null && reloaded.notice === null
+        && reloaded.lowered === null && blackboxOnly(reloaded.notice)
         && after?.reloads === 1 && after.sessionLosses === 2 && after.lowered?.why === 'context'
         && after.lowered.to.detail === 'light' && after.readable && after.reloadButton
         && /^Detail lowered to Light/.test(secondLoss.notice ?? ''),
@@ -10916,8 +10922,8 @@ for (const [label, viewport, touch] of [
       await pc.mouse.click(at.x, at.y);
       await pc.waitForFunction(() => window.__chicago4d?.crashGuard?.watching === true, null, { timeout: 120_000, polling: 500 });
       const lowered = await guardState();
-      check(`${label}: the boot after Reload runs at the lowered tier with no card`,
-        loads === 3 && lowered?.boot?.detail === 'light' && lowered.notice === null && lowered.reloads === 1,
+      check(`${label}: the boot after Reload runs at the lowered tier with no card of the guard's own (T-2826's black-box line aside)`,
+        loads === 3 && lowered?.boot?.detail === 'light' && blackboxOnly(lowered.notice) && lowered.reloads === 1,
         JSON.stringify({ loads, lowered }));
       check(`${label}: no page errors through the crash, the lost contexts and the reloads`,
         crashErrors.length === 0, crashErrors.slice(0, 5).join(' | '));
@@ -15688,6 +15694,82 @@ for (const [label, viewport, touch] of [
       && Object.keys(settingsApp.clipped).length >= 6 && Object.values(settingsApp.clipped).every((list) => list.length === 0),
       JSON.stringify({ scale: settingsApp.scale, stored: settingsApp.storedScale, back: settingsApp.back, clipped: settingsApp.clipped }));
     // <<< T-2656
+    // >>> T-2660: Settings › About › Field log (DESIGN §14). Clear empties it; a Field Check
+    // step (the Tour's own start, then Skip) and two Confidence view presets picked by tap in
+    // their app count through their real hooks, and the rest through the one call every hook
+    // makes; About shows each count and localStorage holds them. Nothing is sent: every
+    // request the page makes while the events fire is watched, and none may post, beacon or
+    // carry the log. Settings is left open as found. Waits are generous for a starved runner.
+    const fieldRequests = [];
+    const onFieldRequest = (req) => fieldRequests.push({ url: req.url(), method: req.method(), body: req.postData() ?? '', type: req.resourceType() });
+    page.on('request', onFieldRequest);
+    const fieldLogRun = await page.evaluate(async () => {
+      const api = window.__chicago4d, n = api.navigator;
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      const until = async (fn, ms = 30000) => { for (let t = 0; t < ms; t += 100) { if (fn()) return true; await wait(100); } return !!fn(); };
+      const beacons = [];
+      const realBeacon = navigator.sendBeacon;
+      navigator.sendBeacon = (...a) => { beacons.push(String(a[0])); return false; };
+      const cell = (k) => document.querySelector(`#s-field-log-rows [data-field-log="${k}"]`)?.textContent ?? null;
+      const keys = ['landed', 'firstInspect', 'time', 'tab', 'showMe', 'jauntStarted', 'jauntFinished', 'tourStep', 'confidencePreset'];
+      const cells = () => Object.fromEntries(keys.map((k) => [k, cell(k)]));
+      const stored = () => { try { return JSON.parse(localStorage.getItem('chicago4d.fieldLog') ?? 'null'); } catch { return 'unreadable'; } };
+      const section = document.getElementById('s-field-log');
+      const out = { inAbout: !!section?.closest('#s-about'), shown: (section?.getBoundingClientRect().height ?? 0) > 0,
+        labels: [...document.querySelectorAll('#s-field-log-rows dt')].map((d) => d.textContent) };
+      document.getElementById('s-field-log-clear')?.click();
+      await wait(100);
+      out.cleared = cells();
+      out.clearedStore = stored();
+      out.status = document.getElementById('s-field-log-status')?.textContent ?? '';
+      // A Field Check step, through the Tour's own hook.
+      api.tour?.start();
+      await wait(300);
+      api.tour?.skip();
+      // Two presets tapped in the Confidence view app, then Normal is where it was.
+      await n.select('confidence');
+      await until(() => document.querySelector('#navigator .nav-preset[data-preset="bygrade"]'), 30000);
+      document.querySelector('#navigator .nav-preset[data-preset="bygrade"]')?.click();
+      await wait(150);
+      document.querySelector('#navigator .nav-preset[data-preset="normal"]')?.click();
+      await wait(150);
+      // The rest through the call each hook makes: a landing, then its first inspect.
+      for (const e of ['landed', 'inspect', 'inspect', 'tab', 'showMe', 'jauntStarted', 'jauntFinished']) api.fieldLog?.count(e);
+      await n.select('settings');
+      await until(() => { const p = document.getElementById('panel'); return p && !p.hidden && !!p.closest('.nav-screen:not([hidden])'); }, 30000);
+      if (api.hud.tab !== 'settings') api.hud.selectTab('settings');
+      await until(() => (document.getElementById('s-field-log')?.getBoundingClientRect().height ?? 0) > 0, 30000);
+      out.after = cells();
+      out.afterStore = stored();
+      // On a phone and a desktop alike the rows stay inside the section.
+      const box = document.getElementById('s-field-log')?.getBoundingClientRect();
+      out.past = [...document.querySelectorAll('#s-field-log *')].filter((el) => {
+        const r = el.getBoundingClientRect(); return r.width > 0 && box && (r.right > box.right + 1 || r.left < box.left - 1);
+      }).map((el) => el.tagName.toLowerCase() + (el.dataset.fieldLog ? `[${el.dataset.fieldLog}]` : '')).slice(0, 6);
+      navigator.sendBeacon = realBeacon;
+      out.beacons = beacons;
+      return out;
+    });
+    page.off('request', onFieldRequest);
+    const fieldSent = fieldRequests.filter((r) => !['GET', 'HEAD'].includes(r.method) || r.body || ['beacon', 'ping'].includes(r.type)
+      || /fieldLog|field_log|firstInspect|confidencePreset/i.test(decodeURIComponent(r.url)));
+    const zeroes = (c) => ['landed', 'firstInspect', 'tab', 'showMe', 'jauntStarted', 'jauntFinished', 'tourStep', 'confidencePreset'].every((k) => c?.[k] === '0');
+    check(`${label}: Settings › About has the field log in plain words, and Clear empties it (T-2660)`,
+      fieldLogRun.inAbout && fieldLogRun.shown && fieldLogRun.labels.length === 9 && fieldLogRun.labels.every((l) => !/_|[a-z][A-Z]/.test(l))
+      && zeroes(fieldLogRun.cleared) && fieldLogRun.cleared.time === 'Not yet' && fieldLogRun.clearedStore === null
+      && /^Cleared\./.test(fieldLogRun.status),
+      JSON.stringify({ inAbout: fieldLogRun.inAbout, shown: fieldLogRun.shown, labels: fieldLogRun.labels, cleared: fieldLogRun.cleared, store: fieldLogRun.clearedStore, status: fieldLogRun.status }));
+    const fieldAfter = fieldLogRun.after ?? {};
+    check(`${label}: the field log counts a landing, its first inspect, a tab, Show me, a Jaunt started and finished, a Tour step and two presets, kept in localStorage (T-2660)`,
+      fieldAfter.landed === '1' && fieldAfter.firstInspect === '1' && /^\d+ s last time, 1 of 1 within 90 s$/.test(fieldAfter.time ?? '') && fieldAfter.tab === '1' && fieldAfter.showMe === '1'
+      && fieldAfter.jauntStarted === '1' && fieldAfter.jauntFinished === '1' && fieldAfter.tourStep === '1' && fieldAfter.confidencePreset === '2'
+      && fieldLogRun.afterStore?.counts?.confidencePreset === 2 && fieldLogRun.afterStore?.counts?.tourStep === 1
+      && fieldLogRun.past.length === 0,
+      JSON.stringify({ after: fieldAfter, store: fieldLogRun.afterStore, past: fieldLogRun.past }));
+    check(`${label}: no request carries the field log — nothing posted, no beacon, no counts in a URL (T-2660)`,
+      fieldSent.length === 0 && fieldLogRun.beacons.length === 0,
+      JSON.stringify({ sent: fieldSent.slice(0, 5), beacons: fieldLogRun.beacons, watched: fieldRequests.length }));
+    // <<< T-2660
     // >>> T-2657: Researcher mode, the Settings › About switch. Off by default: no RESEARCHER
     // label, no [data-researcher] element drawn, the short "Why" hints shown and the full
     // essays not. The switch (a hit-tested click; a miss is this check's failure, read below,
@@ -16175,6 +16257,14 @@ for (const [label, viewport, touch] of [
         controls: window.__chicago4d.controlBackend, lookTag: !document.getElementById('look-tag')?.hidden, hintUp };
     });
     await page.evaluate(() => { window.__chicago4d.navigator?.dock?.(); window.__chicago4d.popup?.close?.(); window.__chicago4d.hud.dismissControlHelp?.({ remember: false }); });
+    // dock() sets the level at once, but the device shrinks through a CSS transition, and a
+    // desktop frame costs ~10 s on the software-GL runner (T-2412): measured straight away it
+    // read the open Navigator (292,800 px2, 31.23 %) on two runs of 2026-10-19 where the docked
+    // rail is 42,456 px2. Wait, bounded, until it is docked and nothing in it is animating.
+    await page.waitForFunction(() => {
+      const n = window.__chicago4d.navigator, el = document.getElementById('navigator');
+      return (!n || n.level === 0) && (!el || el.getAnimations({ subtree: true }).length === 0);
+    }, null, { timeout: 60_000, polling: 250 }).catch(() => {});
     const footprints = [await hudFootprint()];
     if (touch) {
       await page.setViewportSize({ width: 390, height: 844 });
@@ -18690,18 +18780,18 @@ for (const [label, viewport, touch] of [
           return {
             at1800,
             midBlock,
-            year: document.getElementById('street-era-year')?.textContent,
+            then: document.querySelector('#street-readout .street-era b')?.textContent,
             label: document.getElementById('s-street-names-label')?.textContent,
             shown: !document.getElementById('street-readout')?.hasAttribute('hidden'),
           };
         });
-        check(`${label}: 1904 names Prairie Avenue then and the City's address now (T-2741)`,
-          streetNames1904.shown && streetNames1904.year === '1904'
+        check(`${label}: 1904 names Prairie Avenue then and the address now, mid-block off the traced lot (T-2741)`,
+          streetNames1904.shown && streetNames1904.then === 'Then'
           && streetNames1904.label === '1904 / current street names'
           && /Prairie Avenue/.test(streetNames1904.at1800.era) && /Eighteenth/.test(streetNames1904.at1800.era)
           && /S Prairie Ave/.test(streetNames1904.at1800.today) && /E 18th St/.test(streetNames1904.at1800.today)
-          && streetNames1904.midBlock.era === 'Prairie Avenue'
-          && /^17\d\d S Prairie Ave$/.test(streetNames1904.midBlock.today),
+          && /^17\d\d Prairie Avenue$/.test(streetNames1904.midBlock.era)
+          && streetNames1904.midBlock.today === `${streetNames1904.midBlock.era.split(' ')[0]} S Prairie Ave`,
           JSON.stringify(streetNames1904));
         const at = await page.evaluate(({ neLot, lotMid, ghFront }) => {
           const a = window.__chicago4d;

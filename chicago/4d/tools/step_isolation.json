@@ -3991,6 +3991,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/generate_fruit_plantings_1835.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/generate_glessner_finish.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5406,10 +5410,6 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_researcher_mode.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
     "tools/test_arrival.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5462,15 +5462,15 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_confidence_overlays.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_confidence_presets.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_confidence_rows.mjs": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_confidence_overlays.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5499,6 +5499,10 @@
       "wrote_ignored": []
     },
     "tools/test_fallback_summary.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_field_log.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5759,6 +5763,10 @@
       "wrote_ignored": []
     },
     "tools/test_repo_file.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_researcher_mode.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

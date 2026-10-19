@@ -641,6 +641,19 @@ class Entrance(Opening):
                 # field plain inside its border, as T-2585 read the balcony's dies; the leaf
                 # scrolls T-1883 laid in it are not in the picture
                 self._panel_relief(q0+.12,q1-.12,.23,ph-.2,D+.02,"pedestal",leaves=False)
+            # T-2815: the plate also sees the south (flight-side) pedestal's side, x 872-886,
+            # y 1590-1650, and draws its field in a border like the front's; no picture shows
+            # the north pedestal's side, which stays plain
+            fs = m(s_deck)
+            out = 1.0 if fs > m(s_deck + pw) else -1.0
+            e = .035
+            for o0, o1, y0_, y1_ in ((D-pd+.1, D-.1, .23, .23+e), (D-pd+.1, D-.1, ph-.2-e, ph-.2),
+                                     (D-pd+.1, D-pd+.1+e, .23+e, ph-.2-e), (D-.1-e, D-.1, .23+e, ph-.2-e)):
+                sa_, sb_ = (fs, fs + out * e) if out > 0 else (fs + out * e, fs)
+                skip = ("left",) if out > 0 else ("right",)
+                if o1 - o0 < e + 1e-6:
+                    skip += ("top", "bottom")
+                self._box("pedestal", sa_, sb_, y0_, y1_, o0, o1, skip=skip)
         # the balcony: its floor and its parapet on the three open sides
         bt, bh = B["thickness_m"], B["height_m"]
         s0, s1 = lo(s_deck + bt, S - bt)
