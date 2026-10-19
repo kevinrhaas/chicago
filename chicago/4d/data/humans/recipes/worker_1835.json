@@ -68,7 +68,7 @@
     ]
   },
   "material_limitations": "Hash-verified CC0 reusable generic skin atlas is packed as sRGB with WHITE base-color factor; it does not attest a resident complexion or photographic likeness. Skin roughness is reconstructed. Shirt uses original deterministic 256x256 procedural weave; other surfaces remain flat original PBR colors. Final skin UV/LOD/export fidelity and photographic quality remain unaccepted.",
-  "validation_status": "Builder not yet executed in Blender. Canonical blend, exports, anatomical fit, morphs, skinning, UV density and all CI renders remain unverified.",
+  "validation_status": "Earlier recipe revisions passed canonical mechanical CI; this hair and body-normal revision requires a new pinned Blender build and source/web inspection. Anatomical and garment fit, individual appearance and photographic quality remain unaccepted.",
   "proof_variants": [
     {
       "id": "bardwell_otis_1835",
@@ -183,5 +183,18 @@
     "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
     "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
     "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 source fitted to existing Otis/Joseph/Martin bodies; hair/part/color are reconstructed choices, no period hairstyle attestation or individual likeness.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
   }
 }

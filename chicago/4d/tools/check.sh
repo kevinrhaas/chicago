@@ -262,6 +262,18 @@ step "loading cards: seeded bags, dwell, stop and humor cap (T-1275)" \
 step "CC0 adult preparation preserves source UVs, metric frame and bounded rig weights (T-1789)" \
   python3 tools/test_human_base_prepare.py
 
+step "Resident hair preserves verified source pixels, fitted UVs and existing skin bindings (T-1789)" \
+  python3 tools/test_human_hair_short04.py
+
+step "Resident body normals share exact source seams without welding geometry or UVs (T-1789)" \
+  python3 tools/test_human_source_normals.py
+
+step "Resident hair export rejects missing alpha, embedded images and skin bindings (T-1789)" \
+  python3 tools/test_human_hair.py
+
+step "Resident hair validates decoded runtime geometry, texture and skin attributes (T-1789)" \
+  node tools/test_human_hair_runtime.mjs
+
 step "Authored humans preserve exact skin bindings when consolidating equivalent palettes" \
   python3 tools/test_human_skin_canonicalize.py
 
@@ -282,6 +294,9 @@ step "Loaded human sole contacts preserve named limb identity and require gait m
 
 step "Authored human serialized animation bounds reject malformed metadata and nonzero origins" \
   python3 tools/test_human_animation_times.py
+
+step "Hierarchy control refuses nonidentity frames and object animation before mutation" \
+  python3 tools/test_human_hierarchy_control.py
 
 step "Portable human contract holds; every human GLB and instance is held to it (T-1786)" \
   python3 tools/human_contract.py --check

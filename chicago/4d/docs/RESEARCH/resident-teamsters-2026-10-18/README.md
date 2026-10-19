@@ -191,3 +191,94 @@ Canonical run39177201156 at379e7d3d failed before the first sole-contact result:
 Only independently verified authored rigid rigs now request the supported export_anim_slide_to_zero option. Legacy fixture kwargs are frozen byte-for-byte in an actual-call AST regression and omit the option. The loaded duration/contact guards stay strict; errors now include actual clip names/durations/track endpoints. A pre-browser CI audit records declared accessor bounds and motion extras for every resident source/web GLB, explicitly metadata evidence rather than decoded motion. The browser CPU sampler remains the motion/contact authority.
 
 Sixteen frame/wiring tests, ten declared-time audit tests and twelve actual Three CPU sole-sampler regressions pass locally without Blender. New canonical exports and completed inspections must prove the fix; photographic appearance, clothing/hair refinement, driver/rider poses and scene placements remain open. Existing Otis Bardwell, Joseph Dufresne and Martin Flynn references and evidence grades are retained; no new anonymous identity is introduced.
+
+## Hair and body surface refinement
+
+Canonical run `39179622053` passed the earlier `45bb1933e` revision: all 24 source
+and 24 published-web mechanical inspections passed, including the authored walk
+duration and sampled sole-contact guards. Its photographic gate stayed open.
+The following changes require a separate canonical build and do not inherit that
+earlier success.
+
+The pinned MakeHuman `short04` hair carries original asset-specific CC0 notices
+and verified hashes. Its original OBJ, proxy, material and diffuse image remain
+unchanged. The proxy fits both existing prepared bodies using their actual source
+vertex IDs and skin weights. The shared hairstyle is reconstructed, with no claim
+that it depicts these residents' documented hair, ancestry or individual likeness.
+Each LOD currently retains 991 UV-split vertices and 1,050 triangles; this adds a
+draw and needs measured lower-LOD refinement.
+
+The original image is 2048 square. A labeled 2048 by 2057 derivative preserves
+every original pixel, repeats eight bottom rows above it and one top row below it,
+and uses `Vnew = (2048 * V + 1) / 2057`. This brings the source proxy's small repeat
+excursion inside the portable human UV contract. Six source tests verify the real
+fit, every decoded image row, provenance, nonmutation and invalid-input refusal.
+This establishes base-level source registration; resized web textures, mipmaps,
+anisotropic filtering and final scalp/ear/collar appearance need actual review.
+The authoring material uses a double-sided alpha mask at 0.4 and reconstructed
+roughness 0.65. Canonical export must verify those values in the actual GLBs.
+
+An actual controlled Three source preview also isolated a sharp neck triangle to
+independently accumulated normals at duplicate source UV vertices. Sharing
+oriented area-weighted rest normals by exact source ID removed that patch in the
+viewed preview while preserving positions, topology, UVs, weights and image bytes.
+The builder now supplies these custom normals to body meshes only. Five analytic
+and actual-body tests check unequal area weighting, winding, source-ID separation,
+unit seam normals, nonmutation and invalid geometry. Lower-LOD decimation,
+shape-key deformation, Blender normal export and final GLB shading still need
+canonical verification. This does not establish photographic skin or anatomy.
+
+Source previews still show crown faceting, hair-card gaps and a scalloped nape.
+These remain refinement work alongside clothing, eyes, individual faces and
+occupied transport poses. No new town person or seated/riding interaction is
+enabled by this revision.
+
+## Controlled hierarchy qualification
+
+The earlier canonical45 exports each reported seven
+`NODE_SKINNED_MESH_NON_ROOT` warnings. Their metadata and successful mechanical
+summary do not establish that those warnings are harmless. The next authoring
+revision keeps identity skinned meshes as scene roots, with their existing
+Armature modifiers still referencing the same rig. The legacy fixture path is
+unchanged.
+
+Pinned CI additionally clones each newly built canonical master into a temporary
+parented control. Before mutation it requires identity rig/mesh frames and parent
+inverses, unique mesh names, the same Armature target and no object-transform
+animation. It changes only mesh parents, preserves world matrices and mesh data,
+reopens the saved control to verify serialized provenance, and checks that the
+original master bytes remain unchanged. These controls stay under `/tmp` and are
+test artifacts, never production assets or substitutes for inaccessible old
+artifacts.
+
+Actual Khronos validation must report exact warning pointers, resolved node names
+and file hashes: only the expected child-skinned warning is allowed for controls,
+and no warnings or errors are allowed for production root meshes. A separate
+loaded CPU comparison matches uniquely named meshes with exact vertex/index,
+material and morph layouts before sampling rest, 21 phases per clip and named
+morphs at rest and a clip midpoint. The existing 0.1 mm displacement tolerance
+remains unchanged. This comparison uses source GLBs; it does not assert pointwise
+Meshopt parity. Existing source/web contact and framing checks continue.
+
+Five portable control/refusal tests and real Three mesh-reordering regressions
+pass. Parsed workflow review confirms the legacy job is unchanged and only the
+dependent resident job builds controls. Actual new Blender control creation,
+validator pointers and resident motion/morph comparisons remain pending CI.
+
+The next CI also checks all 24 expected source/web containers for a used, skinned
+hair primitive, embedded alpha PNG, MASK/0.4, double-sided rendering and the
+reconstructed roughness/metalness. Source images remain 2048 by 2057; the existing
+pinned resize pipeline produces web sizes 2039 by 2048, 1020 by 1024, 510 by 512
+and 255 by 256. The existing browser inspection additionally checks actual loaded
+hair geometry, normalized weights, unit normals, UV bounds and decoded texture
+dimensions after GLTFLoader/Meshopt. Four real embedded-image/container test
+methods and eleven synthetic decoded-object cases pass; actual resident outputs
+remain pending. The inspector serves its new runtime helper explicitly.
+
+LOD0 body authoring also reads back actual BPy custom corner normals before
+modifiers/export, requiring the expected count and finite vectors within an
+explicit 0.001 vector difference. Blender 4.5 stores custom normals as angular
+`short2` values; this tolerance is a conservative engineering choice, not exact
+float32 equality or a proven codec bound. Actual maximum/mean differences are
+logged per resident. This audit remains unexecuted until CI and does not prove
+emitted GLB, decimated or morphed normals preserve the intended shading.

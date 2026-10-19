@@ -58,3 +58,19 @@ const multi=ctx.sampleNamedMorphs(multiRaw,multiClean);assert.equal(multi.maximu
 assert.deepEqual(multiRaw.meshes[0].morphTargetInfluences,[.4,.35]);assert.deepEqual(multiClean.meshes[0].morphTargetInfluences,[.4,.35]);
 
 console.log('PASS: actual vendored Three.js CPU skin/morph regression: defaults, sampled surface difference, terminal clamp/reset, empty surface, metric scale and duplicate clips; plus dormant named-morph delta detection at rest/walk midpoint and default restoration; no resident/WebGL acceptance');
+
+
+// Hierarchy traversal changes cannot change vertex correspondence. Real Three
+// CPU-skinned/morphed meshes are reordered by unique names, never array position.
+const orderA=model(.4),orderB=model(.4),extraA=model(.2),extraB=model(.2);
+for(const [m,name]of [[orderA,'body'],[orderB,'body'],[extraA,'hair'],[extraB,'hair']]){m.meshes[0].name=name;for(const clip of m.animations)for(const track of clip.tracks)track.name=track.name.replace('adult.',name+'.');}
+orderA.scene.add(extraA.scene);orderB.scene.add(extraB.scene);
+orderA.meshes.push(extraA.meshes[0]);orderB.meshes.unshift(extraB.meshes[0]);
+assert.notDeepEqual(orderA.meshes.map(m=>m.name),orderB.meshes.map(m=>m.name));
+orderA.meshes=ctx.sortUniqueMeshes(orderA.meshes);orderB.meshes=ctx.sortUniqueMeshes(orderB.meshes);
+ctx.bind(orderA);ctx.bind(orderB);ctx.pose(orderA,null,0);ctx.pose(orderB,null,0);
+assert.equal(ctx.maximumPointDisplacement(ctx.surface(orderA),ctx.surface(orderB)),0);
+assert.equal(JSON.stringify(ctx.layout(orderA)),JSON.stringify(ctx.layout(orderB)));
+assert.equal(ctx.sampleNamedMorphs(orderA,orderB).maximum_vertex_delta_m,0);
+assert.throws(()=>ctx.sortUniqueMeshes([orderA.meshes[0],orderA.meshes[0]]),/duplicate/);
+const missingName=model();missingName.meshes[0].name='';assert.throws(()=>ctx.sortUniqueMeshes(missingName.meshes),/missing/);

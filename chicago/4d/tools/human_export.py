@@ -23,8 +23,9 @@ export is a command and never an interactive dialog with undocumented toggles
                               applied after, by tools/human_export.sh
   export_image_format AUTO    PNG/JPEG as authored. KTX2 is refused (§ 9)
 
-The master must follow the layout tools/human_fixture_blend.py writes: one armature
-object; collections `lod0`..`lod3` of mesh objects parented to it; `socket_*` empties
+The master carries one armature object and collections `lod0`..`lod3` of skinned
+meshes. The legacy fixture parents them to its rig; authored rigid studies keep
+identity meshes as roots with Armature modifiers targeting the rig. `socket_*` empties
 on their bones beside the armature; one action per clip; and the scene custom
 property `chicago4d_human`, whose `lod` this script rewrites per file.
 """

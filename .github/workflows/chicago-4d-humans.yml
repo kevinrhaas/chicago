@@ -178,6 +178,27 @@ jobs:
               --liberty L418 --output "$master" 2>&1 | tee "/tmp/teamster-studies/$variant-build.log"
             bash tools/human_export.sh --master "$master" 2>&1 | tee "/tmp/teamster-studies/$variant-export.log"
           done
+      - name: Build same-new-master parented hierarchy controls (test artifacts only)
+        working-directory: chicago/4d
+        env:
+          BLENDER_CACHE: /opt/blender-dl
+          HUMAN_EXPORT_EVIDENCE_DIR: /tmp/teamster-studies/hierarchy-controls/frame-evidence
+        run: |
+          set -euo pipefail
+          source generators/blender.pin
+          for variant in bardwell_otis_1835 dufresne_joseph_1835 flynn_martin_1835; do
+            control="/tmp/teamster-studies/hierarchy-controls/$variant"
+            mkdir -p "$control/raw"
+            "$BLENDER_CACHE/$BLENDER_DIR/blender" -b -noaudio --factory-startup --python-exit-code 1 \
+              --python tools/human_hierarchy_control.py -- --test-only-parented-control \
+              --source "assets/authored/humans/teamsters/$variant/canonical.blend" \
+              --output "$control/control.blend" --receipt "$control/control-receipt.json" \
+              2>&1 | tee "$control/clone.log"
+            "$BLENDER_CACHE/$BLENDER_DIR/blender" -b -noaudio "$control/control.blend" --python-exit-code 1 \
+              --python tools/human_export.py -- "$control/raw" 2>&1 | tee "$control/export.log"
+            python3 tools/human_skin_canonicalize.py "$control/raw/$variant.lod0.glb" \
+              "$control/$variant.lod0.glb" --diagnostics "$control/skin-diagnostics.json"
+          done
       - name: Install Playwright
         run: |
           npm install -g playwright@1.56.1
@@ -190,6 +211,15 @@ jobs:
             assets/humans/{bardwell_otis_1835,dufresne_joseph_1835,flynn_martin_1835}.lod*.glb \
             assets/humans/web/{bardwell_otis_1835,dufresne_joseph_1835,flynn_martin_1835}.lod*.glb \
             | tee /tmp/teamster-studies/declared-animation-times.jsonl
+
+      - name: Check actual resident hair material, embedded PNG and source/web LOD dimensions
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          python3 tools/test_human_hair.py
+          node tools/test_human_hair_runtime.mjs
+          python3 tools/check_human_hair.py --assets assets/humans \
+            | tee /tmp/teamster-studies/hair-container-contract.jsonl
 
       - name: Validate the actual new GLB containers
         working-directory: chicago/4d
@@ -218,6 +248,15 @@ jobs:
             if (errors) process.exitCode = 1;
           })().catch(error => { console.error(error); process.exitCode = 1; });
           JS
+      - name: Validate hierarchy control warnings with exact node pointers
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          NODE_PATH="$(npm root -g)" node tools/validate_hierarchy_controls.mjs \
+            /tmp/teamster-studies/hierarchy-controls/bardwell_otis_1835/bardwell_otis_1835.lod0.glb assets/humans/bardwell_otis_1835.lod0.glb \
+            /tmp/teamster-studies/hierarchy-controls/dufresne_joseph_1835/dufresne_joseph_1835.lod0.glb assets/humans/dufresne_joseph_1835.lod0.glb \
+            /tmp/teamster-studies/hierarchy-controls/flynn_martin_1835/flynn_martin_1835.lod0.glb assets/humans/flynn_martin_1835.lod0.glb \
+            | tee /tmp/teamster-studies/hierarchy-controls/validator-pointers.jsonl
       - name: Measure all human exports and inspect the workwear studies
         working-directory: chicago/4d
         run: |
@@ -227,6 +266,9 @@ jobs:
           node tools/test_human_inspection.mjs
           NODE_PATH="$(npm root -g)" node tools/human_teamster.mjs --published --sole-contact --output /tmp/teamster-studies/web \
             --frame-samples 21 \
+            --frame-pair /tmp/teamster-studies/hierarchy-controls/bardwell_otis_1835/bardwell_otis_1835.lod0.glb assets/humans/bardwell_otis_1835.lod0.glb \
+            --frame-pair /tmp/teamster-studies/hierarchy-controls/dufresne_joseph_1835/dufresne_joseph_1835.lod0.glb assets/humans/dufresne_joseph_1835.lod0.glb \
+            --frame-pair /tmp/teamster-studies/hierarchy-controls/flynn_martin_1835/flynn_martin_1835.lod0.glb assets/humans/flynn_martin_1835.lod0.glb \
             --frame-pair /tmp/teamster-studies/export-evidence/bardwell_otis_1835.lod0.raw.glb assets/humans/bardwell_otis_1835.lod0.glb \
             --frame-pair /tmp/teamster-studies/export-evidence/dufresne_joseph_1835.lod0.raw.glb assets/humans/dufresne_joseph_1835.lod0.glb \
             --frame-pair /tmp/teamster-studies/export-evidence/flynn_martin_1835.lod0.raw.glb assets/humans/flynn_martin_1835.lod0.glb 2>&1 | tee /tmp/teamster-studies/inspection.log

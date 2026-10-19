@@ -133,6 +133,8 @@ def build(args):
     if body.get('target_blend',{}).get('phenotype',{}).get('chosen_age_years')!=variant['body_parameters']['engineering_age_years']:
         raise ValueError('variant adult macro body does not match its reconstructed authoring-age parameter')
     skinpath = verify_skin_texture(recipe)
+    from human_hair_short04 import fit as fit_short04
+    hair, hairpath, hair_report = fit_short04(body, recipe['hair_component'], ROOT)
     colors = {**recipe['colors_linear_rgba'], **variant.get('color_overrides',{})}
     colors['garment_upper__shirt_collar'] = colors['garment_upper__shirt_linen']
     asset = args.variant
@@ -210,8 +212,35 @@ def build(args):
     tex=nodes.new('ShaderNodeTexImage');tex.name='Original reconstructed cloth weave';tex.image=weave
     tex.interpolation='Linear'
     links.new(tex.outputs['Color'],nodes['Principled BSDF'].inputs['Base Color'])
+    # Cleared CC0 short04 source, fitted to this resident's selected body. The
+    # padded derivative preserves source repeat samples at base-level bilinear only;
+    # mip/aniso and actual glTF alpha-mode behavior must be reviewed after export.
+    hair_config=recipe['hair_component']
+    hair_mat=bpy.data.materials.new('hair__makehuman_short04');hair_mat.use_nodes=True
+    hair_mat.use_backface_culling=False
+    if hasattr(hair_mat,'surface_render_method'):hair_mat.surface_render_method='DITHERED'
+    hair_nodes=hair_mat.node_tree.nodes;hair_links=hair_mat.node_tree.links
+    hair_bsdf=hair_nodes['Principled BSDF']
+    hair_bsdf.inputs['Base Color'].default_value=(1,1,1,1)
+    hair_bsdf.inputs['Roughness'].default_value=hair_config['roughness']
+    hair_image=bpy.data.images.load(str(hairpath.resolve()),check_existing=True)
+    if tuple(hair_image.size)!=(2048,2057):raise ValueError('unexpected padded hair atlas dimensions')
+    hair_image.colorspace_settings.name='sRGB';hair_image.pack()
+    hair_tex=hair_nodes.new('ShaderNodeTexImage');hair_tex.image=hair_image
+    hair_tex.extension='EXTEND';hair_tex.interpolation='Linear'
+    hair_links.new(hair_tex.outputs['Color'],hair_bsdf.inputs['Base Color'])
+    # Binary alpha threshold is explicit node geometry, not an opaque alpha label.
+    # CI must inspect exported material alphaMode/cutoff and actual hair edges.
+    clip=hair_nodes.new('ShaderNodeMath');clip.operation='LESS_THAN'
+    clip.inputs[1].default_value=hair_config['alpha_cutoff']
+    hair_links.new(hair_tex.outputs['Alpha'],clip.inputs[0])
+    inverse=hair_nodes.new('ShaderNodeMath');inverse.operation='SUBTRACT'
+    inverse.inputs[0].default_value=1
+    hair_links.new(clip.outputs[0],inverse.inputs[1])
+    hair_links.new(inverse.outputs[0],hair_bsdf.inputs['Alpha'])
+    materials['hair__makehuman_short04']=hair_mat
     # Incoming source UVs are retained per loop, including source-seam duplicates.
-    def object_mesh(name,points,faces,uvs,weights,material,col,ratio=1):
+    def object_mesh(name,points,faces,uvs,weights,material,col,ratio=1,source_vertex_indices=None):
         mesh = bpy.data.meshes.new(name)
         mesh.from_pydata([xyz(v) for v in points],[],faces)
         mesh.update()
@@ -220,6 +249,33 @@ def build(args):
             polygon.use_smooth = True
             for li in polygon.loop_indices:
                 layer.data[li].uv = uvs[mesh.loops[li].vertex_index]
+        if source_vertex_indices is not None:
+            # Body UV duplicates share rest normals without welding positions/UVs.
+            # Decimation, morph and export behavior still require canonical checks.
+            from human_source_normals import source_shared_normals
+            source_normals=source_shared_normals(points,faces,source_vertex_indices)
+            converted=[tuple(xyz(n).normalized()) for n in source_normals]
+            mesh.normals_split_custom_set([converted[loop.vertex_index] for loop in mesh.loops])
+            if ratio == 1:
+                # Blender 4.5 encodes custom corner normals as short2. This 1e-3
+                # vector bound is conservative engineering acceptance, not exact
+                # float32 equivalence or a proven codec worst-case bound.
+                mesh.update()
+                actual=mesh.corner_normals
+                if not mesh.has_custom_normals or len(actual)!=len(mesh.loops):
+                    raise ValueError('LOD0 body custom normals missing or corner count changed')
+                deltas=[]
+                for index,loop in enumerate(mesh.loops):
+                    value=tuple(actual[index].vector)
+                    if not all(math.isfinite(x) for x in value):
+                        raise ValueError('LOD0 body custom normal readback is nonfinite')
+                    deltas.append(math.dist(value,converted[loop.vertex_index]))
+                if not deltas or max(deltas)>1e-3:
+                    raise ValueError('LOD0 body custom normal readback exceeds 1e-3 vector tolerance')
+                print(json.dumps({'body_normal_preexport_audit':{'asset_id':asset,
+                    'mesh':name,'corners':len(deltas),'max_vector_delta':max(deltas),
+                    'mean_vector_delta':math.fsum(deltas)/len(deltas),'tolerance':1e-3,
+                    'scope':'local LOD0 BPy readback before modifiers/export; not emitted GLB/morph/decimated normal acceptance'}}))
         obj = bpy.data.objects.new(name,mesh)
         col.objects.link(obj)
         mesh.materials.append(materials[material])
@@ -235,7 +291,7 @@ def build(args):
             decimate = obj.modifiers.new('authored_lod_reduction','DECIMATE')
             decimate.ratio = ratio
             bpy.ops.object.modifier_apply(modifier=decimate.name)
-        obj.parent = rig
+        # Authored identity mesh is a root; skin modifier references the rig.
         mod = obj.modifiers.new('skin','ARMATURE')
         mod.object = rig
         return obj
@@ -302,8 +358,10 @@ def build(args):
         if not touched or amplitude<=.001:raise ValueError('jawOpen target must move actual jaw vertices >1 mm; inspect prepared jaw joint/LOD')
     for lod,ratio in enumerate(recipe['lod_ratios']):
         col=bpy.data.collections.new('lod'+str(lod));scene.collection.children.link(col)
+        # Preserve source hair topology pending measured lower-LOD adaptation.
+        object_mesh(f'{asset}_short04_hair_lod{lod}',hair['positions_m'],hair['triangles'],hair['uvs'],hair['weights'],'hair__makehuman_short04',col)
         for mi,m in enumerate(body['meshes']):
-            obj=object_mesh(f'{asset}_body_{mi}_lod{lod}',m['positions_m'],m['triangles'],m['uvs'],m['weights'],'skin',col,ratio)
+            obj=object_mesh(f'{asset}_body_{mi}_lod{lod}',m['positions_m'],m['triangles'],m['uvs'],m['weights'],'skin',col,ratio,source_vertex_indices=m['source_vertex_indices'])
             if lod in contract['morphs']['required_lods']:morphs(obj)
             for kind,mat,offset in [('shirt','garment_upper__shirt_linen',recipe['shirt_offset_m']),('waistcoat','garment_outer__waistcoat_wool',recipe['waistcoat_offset_m']),('trousers','garment_lower__highwaist_pantaloons',recipe['trouser_offset_m'])]:
                 points,faces,uvs,weights=shell(m,kind,offset)
@@ -421,6 +479,7 @@ def build(args):
         pose.location=(0,0,0)
         pose.rotation_mode='QUATERNION';pose.rotation_quaternion=(1,0,0,0)
     scene['chicago4d_human']={'contract_version':contract['version'],'rigid_bone_frame_export':True,'kind':'body','asset_id':asset,'lod':0,'skeleton':contract['skeleton']['id'],'grade':'reconstructed','basis':recipe['basis']+' '+recipe['source_scope']+' Existing resident reference '+variant['person_reference_id']+' has reconstructed identity/presence/age/occupation. Age-bounded CC0 male macro body and cleared generic skin atlas are provisional authoring choices; height/complexion are not record facts, and no photographic likeness or individually validated anatomy is claimed.','sources':recipe['sources'],'liberty':liberty,'license':recipe['license'],'master':str(args.output),'authored_by':'Chicago4D original workwear authoring (T-1789)','recipe':'data/humans/recipes/worker_1835.json','person_reference_id':variant['person_reference_id'],'person_reference_scene':variant['person_reference_scene'],'person_reference_grade':variant['person_reference_grade'],'review_required':reference['review_required'],'touches_removal':reference['touches_removal'],'person_reference_summary_json':json.dumps(reference,sort_keys=True),'body_input':variant['body_input'],'body_target_blend_json':json.dumps(body.get('target_blend',{}),sort_keys=True),'body_parameters_json':json.dumps(variant['body_parameters'],sort_keys=True),'skin_source_json':json.dumps(recipe['skin_texture'],sort_keys=True),'body_source_json':json.dumps(body.get('source',body.get('provenance',{})),sort_keys=True)}
+    scene['chicago4d_human']['hair_source_json']=json.dumps(hair_report,sort_keys=True)
     scene['authoring_status']='UNVERIFIED: fitting, anatomy, facial targets, UV density, grounded animation and all export/render gates remain open until Blender/CI runs'
     scene.frame_set(1)
     args.output.parent.mkdir(parents=True,exist_ok=True)

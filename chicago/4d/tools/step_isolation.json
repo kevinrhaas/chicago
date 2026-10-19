@@ -5598,6 +5598,22 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_human_hair.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_hair_runtime.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_hair_short04.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_hierarchy_control.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_human_inspection.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5607,6 +5623,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_sole_contact.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_source_normals.py": {
       "wrote": [],
       "wrote_ignored": []
     },

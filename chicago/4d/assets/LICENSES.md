@@ -1228,3 +1228,29 @@ its original seven-equals Markdown heading conflicts with the repository's liter
 marker scan. SOURCE.json records both original and stored hashes and sizes, and the
 preparation tool verifies the decompressed original too. No notice wording or
 conflict-check assertion is changed.
+
+
+### Hair component — `authored/humans/hair_short04/` (CC0-1.0)
+
+MakeHuman system **short04**, UUID `e09bfd91-f83f-4f9a-ba8c-4635cd1ae0d8`, officially listed author `makehuman_system`. Actual original OBJ, mhclo and mhmat headers EACH state:
+
+> This asset was explicitly released as CC0 in september 2020.
+> Copyright (C) 2020 Data Collection AB, https://www.datacollection.se
+> Copyright (C) 2020 Joel Palmius
+> Copyright (C) 2020 Jonas Hauquier
+
+Original archive: <https://files2.makehumancommunity.org/asset_packs/makehuman_system_assets/makehuman_system_assets_cc0.zip>, ETag `"10bbb7ea-6160e7c0d7996"`. The original material directly names `short04_diffuse.png`; that texture is part of the expressly CC0 asset. No separate PNG license exception found. The headers refer to the upstream CC0 legal text; this component does not falsely claim a separate legal-text file was extracted from the archive. Retain original notices verbatim. No MakeHuman AGPL program or shader code included in the asset.
+
+The periodic padded PNG is an original CC0 source derivative, explicitly labeled draft. README.md and SOURCE.json are original project-authored CC0 documentary provenance; original `.mhmat`/`.mhclo`/`.obj` notices retain their exact upstream wording. All exact component paths and SHA-256 hashes:
+
+| Path relative to assets/ | Kind | SHA-256 |
+|---|---|---|
+| authored/humans/hair_short04/README.md | CC0 original project documentary | `fb920ea8d0082d3080db8acf6ed0d98805335ee166e1e1957861a3c520ac7679` |
+| authored/humans/hair_short04/SOURCE.json | CC0 original project documentary | `68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99` |
+| authored/humans/hair_short04/short04.mhclo | CC0 original graphical/source metadata | `d60640aa4c4ffce1aa269647ba436b6ee0bb21bb948f927b84e27a48d2107157` |
+| authored/humans/hair_short04/short04.mhmat | CC0 original graphical/source metadata | `7a3ac74db8478aa0afdb8a596c6fe3997d1a8a09d12211d70e8f1e9f0b7e0e97` |
+| authored/humans/hair_short04/short04.obj | CC0 original graphical/source metadata | `676964a133ee35ffcea1195382bf75542da7a298931e4001bc7b0d7b707225de` |
+| authored/humans/hair_short04/short04_diffuse.png | CC0 original graphical/source metadata | `0bef7fc0e403db5a40fabb2111ebfa6f7e8158e204c6e56b8da98e9ef527846e` |
+| authored/humans/hair_short04/short04_diffuse_periodic_pad_draft.png | CC0 derived periodic-padded texture | `194e53741c7c96e16d4aac8ba10a1bb87c9cb86e976bda82655ad10d38b58871` |
+
+This is a component entry additive to existing canonical-master and human master/web export entries for `bardwell_otis_1835`, `dufresne_joseph_1835` and `flynn_martin_1835`; their rebuilt byte hashes do not exist yet and must be measured after CI, never fabricated. The source component conveys no period hairstyle, resident likeness, ancestry or historically observed action. Fitting tools remain project GPL-3.0-or-later code; those tools are not CC0 graphical assets.

@@ -5547,3 +5547,6 @@ Transport integration validation (2026-10-18): the original full mobile smoke fa
 
 
 Resident transport adults,2026-10-19: first grounded-walk inspection refused the actual exported duration. Authored-only zero-origin export and declared-time diagnostics are implemented; fixture kwargs and loaded1.2s/contact limits remain strict. Canonical rebuild/decoded inspection is required before any gait acceptance. Existing named residents remain the models; photographic clothing/hair, seated drivers, mounted riders and scene placement remain unfinished.
+
+
+Resident surface refinement: the earlier canonical45 build passed mechanical source/web inspection. The next authoring revision adds hash-verified CC0 short04 hair fitted to the same three named reconstructed residents, plus body normals shared across exact source UV seams. Six hair and five normal source tests pass; new Blender exports and actual material, shading and LOD inspection are required. Photographic acceptance, hair-card refinement, individual faces, period wardrobe, seated drivers and mounted riders remain open in T-1789/T-2804. See the resident teamster dossier for exact provenance and source-preview limitations.
