@@ -15774,7 +15774,8 @@ for (const [label, viewport, touch] of [
     // every painted, visible box under #hud and the Navigator (docked), rasterised on a 2 px
     // grid, as a share of the viewport — measured in the steady state, once the hint has faded,
     // with readouts the visitor can switch off left out (owner, 2026-10-18: T-2741's street
-    // readout and its switch stay on by default and do not count; they are measured and reported), at this viewport and
+    // readout and its switch stay on by default and do not count; they are measured and reported; and,
+    // the same day, T-2649's Confidence view legend chip, shown only while the view is on), at this viewport and
     // (on the phone leg) at 390×844 too. And the
     // gate is shown to fire: a planted row of the pre-declutter chips puts it over budget.
     const HUD_BUDGET_PCT = 10;
@@ -15819,6 +15820,10 @@ for (const [label, viewport, touch] of [
           // owner's ruling 2026-10-18 — keep it on by default, measure the budget without it.
           // The switch beside the compass is part of that instrument and goes with it.
           if (el.closest('#street-readout') || el.closest('#street-toggle')) continue;
+          // T-2649's Confidence view legend chip: owner's ruling 2026-10-18 — it shows only while
+          // the visitor has turned the Confidence view on, so like the street readout it is left
+          // out of the budget, and its share is measured and reported (confLegend).
+          if (el.closest('#conf-legend')) continue;
           const r = el.getBoundingClientRect();
           if (r.width < 1 || r.height < 1 || r.right <= 0 || r.bottom <= 0 || r.left >= W || r.top >= H) continue;
           if (!painted(el, getComputedStyle(el)) || !shown(el)) continue;
@@ -15841,7 +15846,8 @@ for (const [label, viewport, touch] of [
         return b ? (b.width * b.height) / (W * H) * 100 : 0;
       };
       const streetReadout = +(share('street-readout') + share('street-toggle')).toFixed(2);
-      return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest, streetReadout,
+      const confLegend = +share('conf-legend').toFixed(2);
+      return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest, streetReadout, confLegend,
         controls: window.__chicago4d.controlBackend, lookTag: !document.getElementById('look-tag')?.hidden, hintUp };
     });
     await page.evaluate(() => { window.__chicago4d.navigator?.dock?.(); window.__chicago4d.popup?.close?.(); window.__chicago4d.hud.dismissControlHelp?.({ remember: false }); });
@@ -15879,8 +15885,8 @@ for (const [label, viewport, touch] of [
     // the view is anything else, a chip under the year chip on a phone (beside it on a desktop,
     // where the Navigator's rail stands under it) with a dot per grade in the colour that grade
     // wears, a hidden grade's dot an empty ring, and its label in words; a tap opens the app.
-    // Then T-2628's footprint taken again with the legend showing: the legend is COUNTED (it
-    // is not one of the owner's exclusions), and its own share is reported beside the total.
+    // Then T-2628's footprint taken again with the legend showing: left out of the budget by
+    // the owner's 2026-10-18 ruling, as the street readout is, and its own share reported.
     const legendState = () => page.evaluate(() => {
       const el = document.getElementById('conf-legend');
       const yc = document.getElementById('year-badge').getBoundingClientRect();
@@ -15946,20 +15952,16 @@ for (const [label, viewport, touch] of [
       await page.setViewportSize(viewport);
       await page.waitForTimeout(400);
     }
-    // MEASURED AND REPORTED, NOT GATED — an open question for the owner. On the first local
-    // mobile reading (2026-10-18) the HUD at Normal was 9.81 % of 390x780, so the legend's
-    // 0.59 % took it to 10.46 %: over T-2628's budget at 390x780, inside it at 390x844 (9.66 %).
-    // Whether the legend, shown only while the view is on, is a switchable readout like the
-    // street readout (excluded by the owner's 2026-10-18 ruling) is his call, not this
-    // check's, so the legend is COUNTED here and the verdict is printed beside the numbers.
-    // Once he rules, the condition below becomes `f.pct <= HUD_BUDGET_PCT` (counted) or the
-    // legend joins T-2628's exclusions (not counted).
-    const legendVerdict = legendFoot.map((f) => `${f.viewport} ${f.pct} % with the legend (${f.legend} % of it)`
-      + ` — ${f.pct <= HUD_BUDGET_PCT ? 'within' : 'OVER'} the ${HUD_BUDGET_PCT} % budget`).join('; ');
-    console.log(`        T-2649 HUD footprint with the legend chip counted: ${legendVerdict}`);
-    check(`${label}: the HUD's footprint is measured with the legend chip showing and counted, and reported against the ${HUD_BUDGET_PCT} % budget (T-2649, T-2628)`,
-      legendFoot.every((f) => f.legend > 0 && f.boxes > 0),
-      `${legendVerdict}; ${JSON.stringify({ withLegend: legendFoot.map((f) => ({ viewport: f.viewport, pct: f.pct, legend: f.legend, streetReadout: f.streetReadout })),
+    // Owner's ruling, 2026-10-18: the legend chip is NOT counted — like the street readout, it
+    // shows only while the visitor has turned the Confidence view on — so T-2628's measure
+    // leaves #conf-legend out, and this holds the HUD to the budget with the legend showing.
+    // Its own share is still measured (confLegend) and printed. The first local reading had
+    // the HUD at 10.46 % of 390x780 with the legend counted (0.59 % of it), 9.81 % without.
+    const legendVerdict = legendFoot.map((f) => `${f.viewport} ${f.pct} % with the legend on and left out (the legend ${f.confLegend} %)`).join('; ');
+    console.log(`        T-2649 HUD footprint: ${legendVerdict}`);
+    check(`${label}: with the legend chip showing (and left out, by the owner's ruling), the HUD covers ${HUD_BUDGET_PCT} % of the screen or less (T-2649, T-2628)`,
+      legendFoot.every((f) => f.pct <= HUD_BUDGET_PCT && f.boxes > 0 && f.confLegend > 0 && f.legend > 0),
+      `${legendVerdict}; ${JSON.stringify({ withLegend: legendFoot.map((f) => ({ viewport: f.viewport, pct: f.pct, confLegend: f.confLegend, streetReadout: f.streetReadout })),
         without: footprints.map((f) => ({ viewport: f.viewport, pct: f.pct })) })}`, true);
     // Give the town back as found: Normal, Home, docked.
     await legendPreset('normal');
