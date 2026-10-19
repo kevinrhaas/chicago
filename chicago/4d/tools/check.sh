@@ -7417,9 +7417,13 @@ selftest "…and the reader's rewrite drops a ticket, names an id and says a pat
 # edits that publish.sh compiles by the same rule (tools/compile_reader_text.py); the page
 # applies it (js/reader-text.js), and the visitor-UI lint above reads every one of those
 # records through the same rewrite. Here: the overlay, compiled to a scratch folder, is found
-# and applied by the page's own JavaScript exactly as the gate reads it.
-step "the page finds and applies every entry of the reader's overlay, as the gate reads it (T-2825)" \
-  node tools/test_reader_text.mjs
+# and applied by the page's own JavaScript exactly as the gate reads it, and then every
+# household card, every building card of every scene and the plants and wildlife topics are
+# rendered by the page's own functions and read as a person reads them, tooltips included —
+# the one place a bare id a renderer prints itself can be seen. About forty seconds, in the
+# pool; it replaces a smoke pass over 2,300 cards that no runner could afford.
+step "the page says every record as the gate reads it, and no card it renders leaks (T-2825)" \
+  node tools/test_reader_text.mjs --all
 
 # T-2669. Section 03's voice rule, in the gate: every summary, fact, time-stream caption and
 # tour bubble a visitor reads is held to Flesch-Kincaid grade 9 or lower and 20 words a

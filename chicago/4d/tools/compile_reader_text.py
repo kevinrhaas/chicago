@@ -300,11 +300,13 @@ def main(argv=None) -> int:
     for name, paths in fams.items():
         out = outdir / f"{name}.json"
         old = None
-        if out.is_file():
-            try:
-                old = json.loads(out.read_text(encoding="utf-8"))
-            except ValueError:
-                old = None
+        # An overlay already on disk is a cache of edits (its own folder's, else data/reader/'s).
+        for cached in (out, OUT / f"{name}.json"):
+            if old is None and cached.is_file():
+                try:
+                    old = json.loads(cached.read_text(encoding="utf-8"))
+                except ValueError:
+                    old = None
         doc, unclear = build_family(name, paths, reader, old)
         bad += unclear
         text = text_of(doc)
