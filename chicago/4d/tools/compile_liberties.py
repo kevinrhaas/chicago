@@ -1224,21 +1224,20 @@ RELATED_TICKET = re.compile(
 
 
 def _own_ticket(entry: dict) -> int | None:
-    """The ticket an entry was written under: its `Ticket:` field, else the number its id
-    ends in (`L-glessner-terrace-terminal-2759`), else the first one its decision names."""
-    for f in entry["fields"]:
-        if f["label"].lower() == "ticket":
-            m = re.search(r"T-(\d{3,5})", f["text"])
-            if m:
-                return int(m.group(1))
+    """The ticket an entry was written under: its `Ticket:` field, else the one its
+    `Recorded:` line names, else the number its id ends in
+    (`L-glessner-terrace-terminal-2759`). None when it says none: its references are then
+    "other work", never guessed earlier or later off the first number its prose happens
+    to name (that guess called another ticket's join "this work" in L397)."""
+    for label in ("ticket", "recorded"):
+        for f in entry["fields"]:
+            if f["label"].lower() == label:
+                m = re.search(r"T-(\d{3,5})", f["text"])
+                if m:
+                    return int(m.group(1))
     m = re.search(r"-(\d{4})$", entry["id"])
     if m:
         return int(m.group(1))
-    for f in entry["fields"]:
-        if f["label"].lower() in ("decision", "what is invented", "what we invented"):
-            m = re.search(r"T-(\d{3,5})", f["text"])
-            if m:
-                return int(m.group(1))
     return None
 
 
