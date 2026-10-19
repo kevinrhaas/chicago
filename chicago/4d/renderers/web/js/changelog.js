@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2047, ts: '2026-10-19T07:22:56.100Z', date: 'Oct 19, 2026, 2:22 AM CT', title: 'Nothing you can see changed: the Keith porch columns are right', kind: 'chore',
+    items: [
+      'Nothing you can see changed. Two later photographs, from 1965 and 1967, seemed to show 1808 Prairie\'s porch columns about a third taller than the model. They are not. By then the top panes of the bay window beside the porch had been filled in, so its windows looked shorter, and the 1967 reading had taken the beam over the columns for their tops. Read correctly, all three photographs agree with the 1888 magazine plate the columns are built from.',
+    ] },
   { v: 2046, ts: '2026-10-19T07:12:00.933Z', date: 'Oct 19, 2026, 2:12 AM CT', title: 'Houses can now be built in stone all the way round', kind: 'add',
     items: [
       'A stone house can now be laid in coursed stone on every side, not just a stone front on a brick box. That covers the flanks, the back and the rear wings.',
