@@ -1,0 +1,94 @@
+{
+  "id": "armour_house_2115_prairie",
+  "scene": "1904",
+  "name": "Kelley and Armour House",
+  "address": "2115 S. Prairie Ave.",
+  "status": {
+    "text": "Gone",
+    "today": "No longer standing",
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_lost_houses_2000_2100",
+      "chicago_tribune_1928_07_08_armour_famous_homes"
+    ],
+    "note": "The district marker lists it among the lost houses of Prairie Avenue and gives no year. A photograph of 1928 shows it still standing then."
+  },
+  "built": {
+    "year": 1871,
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_lost_houses_2000_2100"
+    ]
+  },
+  "use": "Home",
+  "summary": "A stone house with a steep mansard roof, built for the lumberman David Kelley. The family of the meatpacker Philip D. Armour lived here for nearly 50 years. Armour's widow was one of the last people living on the street.",
+  "key": [
+    {
+      "label": "Architect",
+      "value": "Not known",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ]
+    },
+    {
+      "label": "Built for",
+      "value": "David Kelley",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ]
+    },
+    {
+      "label": "Style",
+      "value": "Second Empire",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "Philip D. Armour's widow was one of the street's last residents. She died here in 1927.",
+      "about": "person",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ]
+    },
+    {
+      "text": "In 1928 the Tribune called it a show place in its day. By then it was a rooming house.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "chicago_tribune_1928_07_08_armour_famous_homes"
+      ]
+    }
+  ],
+  "style": "second_empire",
+  "story": [
+    {
+      "date": "1927",
+      "text": "Philip D. Armour's widow dies here.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ]
+    },
+    {
+      "date": "1928-07-08",
+      "text": "The Tribune pictures it as a rooming house that still stands.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "chicago_tribune_1928_07_08_armour_famous_homes"
+      ]
+    }
+  ]
+}

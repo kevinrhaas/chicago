@@ -1,0 +1,28 @@
+{
+  "id": "glessner_blog_2022_01_burley_tyrrell",
+  "type": "website",
+  "citation": "Glessner House Museum, 'Burley & Tyrrell, Chicago's Forgotten Retailer', The Story of a House (blog), 18 January 2022; with an undated photograph of the John Tyrrell house, 1720 S. Prairie Avenue, photographer and holder not named.",
+  "author": "Glessner House Museum",
+  "date": "2022-01-18",
+  "describes_date": "1868-1878 (Tyrrell's ownership); the photograph undated",
+  "url": "https://glessnerhouse.blogspot.com/2022/01/burley-tyrrell-chicagos-forgotten.html",
+  "archived_url": "https://web.archive.org/web/20260430090406/http://glessnerhouse.blogspot.com/2022/01/burley-tyrrell-chicagos-forgotten.html",
+  "repository": "The photograph is the Prairie library's image a16-ghm-blog-1720-tyrrell-house (stream-1600-1700), held in the image store as a reference copy.",
+  "locator": "The paragraph on Tyrrell's house and the photograph of it.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "A museum's blog post, cited in words only; the photograph's holder and rights are not stated, so nothing is derived from it.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-10-19 (T-2642) from the live page; the photograph read from the image store's copy, 1200 x 1119 px, sha256 8bcc2366a0f42187342eb728565c1e9f4f174181977230ce70aebda733719b81, which the page shows.",
+  "note": "Read: 'In 1868, Tyrrell purchased a large lot on South Prairie Avenue and engaged architect Otis L. Wheelock to design a substantial two-story frame house in the Italianate style. (He sold the house at 1720 S. Prairie in 1878 ...)'. The photograph shows the clapboard front: wide eaves on carved brackets, a low gable over the middle, round-arched windows under hood mouldings, single and paired, a canted bay at one front corner, and a full-width porch on paired posts with a central stair.",
+  "what_it_supplies": [
+    "the style, the architect and the year",
+    "the front as photographed: brackets, centre gable, hooded arched windows, corner bay, porch"
+  ],
+  "what_it_does_not_supply": [
+    "a date for the photograph",
+    "the 1904 state",
+    "measurement or colour"
+  ]
+}
