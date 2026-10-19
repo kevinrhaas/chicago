@@ -488,6 +488,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "light_margin_fraction": dm.get("light_margin_fraction", .22),
                 "side_overhang_m": dm.get("side_overhang_m", .26),
                 "side_apron_inset_m": dm.get("side_apron_inset_m", .18),
+                # T-2859: HABS sheet 4's hip line, fascia and frame, read at its grain.
+                "hip_cover_radius_m": dm.get("hip_cover_radius_m", .047),
+                "fascia_m": dm.get("fascia_m", .075),
+                "frame_stock_m": dm.get("frame_stock_m", .055),
                 "conf": cf("dormers", "dormer_depth"),
             })
 
