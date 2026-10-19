@@ -955,7 +955,17 @@
       "inputs_sha256": "320a3c34ce7f7a7c03d1a7e857e953c12587e3b426776b1f6e7a64fd6ae845c1",
       "kind": "generated",
       "phase_id": "as_built_1887",
-      "structure_id": "glessner_house"
+      "structure_id": "glessner_house",
+      "web_lods": {
+        "light": {
+          "asset": "glessner_house__as_built_1887.light.glb",
+          "master_sha256": "568ca6510e905e5df0f07bdade9a61aa1f185b948447362cfb3354b327cddb53",
+          "output_sha256": "9fb828593fb40ccf17639bb3095d08c1091e1005f96cb6faf21711dbbd2a3932",
+          "recipe_sha256": "84cb6b33a83f556f177491af1dd2b17a418b4d608563cc6e3093c182c9981346",
+          "triangles": 194494
+        }
+      },
+      "web_master_sha256": "568ca6510e905e5df0f07bdade9a61aa1f185b948447362cfb3354b327cddb53"
     },
     "glessner_lee_house_1700_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
