@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1812-1808-1800-mid1950s",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "37618537fd47c6cf160a1a3b8251c0a461c2a6b3878d18ec20cfea6dccb9a6c2",
+  "glb_sha256": "674a9e99d509d2bee7dc4efcd7291a441d3365a0e19ee5132674c68b1d952777",
   "camera_sha256": "c5804648e2982d9c24cf7038d4d840c4e09a7b036f9f0e534bd2340d713033c1",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1812-1808-1800-mid1950s-side-by-side.jpg",
   "verdict": "matches",
@@ -53,6 +53,10 @@
     },
     {
       "what": "T-2813: re-rendered with Keith's crown 0.16 m lower (the moulded course under the lattice 0.20 m deep where it was 0.36 m, the checker and head bands unmoved); its camera does not use the crown and is unchanged. Read again at the crown beside the previous render: the lattice, coping and pinnacles move a few pixels at this picture's scale and nothing it shows opens a difference; the verdict stands as it was (matches).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2876: re-rendered on the GLB in the tree, T-2845's loggia (0.6 m pedestals at the first-floor plan's place, each pair's shafts 0.36 m apart, the flight 1.8 m clear and the stoop 0.15 m south), and read again beside the previous render and the picture: the render changes only at the loggia and flight (x 313-490, y 58-369); the pairs and flight move a few pixels at this picture's scale, and the loggia's interior, across the 1800 stair and behind parked cars, is too coarse here to read a rear row (not shown). Nothing it shows opens a difference; the verdict returns to matches.",
       "status": "fixed"
     }
   ],
