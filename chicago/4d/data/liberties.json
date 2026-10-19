@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 639,
+  "count": 641,
   "liberties": [
     {
       "id": "L1",
@@ -9666,7 +9666,7 @@
         },
         {
           "label": "Recorded",
-          "text": "2026-08-16. **PARTLY RESOLVED, 2026-08-16 (ROADMAP K45(c)) — the second of the three repairs is done, and it was one step short of what this entry said it was.** `trees.js` has a head path now, and the **American basswood in bloom** and the **ironwood in fruit** are drawn from their own records: `tools/measure_flora_reach.py` banks **one** headless flower where it banked three, and the remaining one is the grape, whose `vine_drape` form is still unimplemented and which was never this repair's. What the sentence above got wrong is the size of it — handing `trees.js` `flora.js`'s own `HEAD_OF_SHAPE` verbatim draws `cluster_terminal`'s **1 to 4** heads, a count calibrated for a forb whose whole plant is one flowering scape, and four 3-pixel specks on a 580-pixel crown is not a tree in flower. The multiplicity that makes it one is **L115**. The first repair remains refuted (K45(a)) and the third — the vines — is untouched."
+          "text": "2026-08-16. **PARTLY RESOLVED, 2026-08-16 (ROADMAP K45(c)) — the second of the three repairs is done, and it was one step short of what this entry said it was.** `trees.js` has a head path now, and the **American basswood in bloom** and the **ironwood in fruit** are drawn from their own records: `tools/measure_flora_reach.py` banks **one** headless flower where it banked three, and the remaining one is the grape, whose `vine_drape` form is still unimplemented and which was never this repair's. What the sentence above got wrong is the size of it — handing `trees.js` `flora.js`'s own `HEAD_OF_SHAPE` verbatim draws `cluster_terminal`'s **1 to 4** heads, a count calibrated for a forb whose whole plant is one flowering scape, and four 3-pixel specks on a 580-pixel crown is not a tree in flower. The multiplicity that makes it one is **L115**. The first repair remains refuted (K45(a)) and the third — the vines — is untouched. **THIRD REPAIR DONE, 2026-10-19 (T-2810).** `trees.js` draws `vine_drape`: the riverbank grape as a curtain on the gallery's water-side crowns, with its July fruit hung in it, and the Virginia creeper on the trunks' shaded side (**L-deadwood-vines-2810** for the shares). `vine_drape` moved from `forms_unimplemented` to `forms_trees` in `data/flora/index.json`, and `tools/measure_flora_reach.py` now banks **no** unrouted record and **no** headless flower."
         }
       ]
     },
@@ -41051,6 +41051,41 @@
       ]
     },
     {
+      "id": "L-deadwood-vines-2810",
+      "title": "Dead trees, fallen trunks and vines in the river woods of 1812 and 1835",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "in the river gallery and the wet woods (the same dealt woods in both years), a share of the stems stand dead and a share have a fallen trunk of their own species lying 2-7 m off: 5% and 6% in the gallery, 7% and 8% in the wet woods. A standing dead tree is its species' own tree broken at 55-85% of its height with its fine wood gone, grey; a fallen one is broken at 45-70%, laid flat, and refused anywhere it would lie in water, under the dry floor, on a track or footprint, in a cleared plot, or across a slope it could not lie on. On the gallery trees within 32 m of the water, the riverbank grape hangs a curtain over the water side of 15% of the crowns, to 78-95% of the tree's height and never over 12 m, with its hard green July fruit in it; the Virginia creeper climbs the north side of the trunk on 8%. Which stems, and where each log lies, is drawn from a stream seeded by the stem's own position, so no living tree moves."
+        },
+        {
+          "label": "What is read, not invented",
+          "text": "z05's two vine records (Swink and Wilhelm 1994): the grape \"drapes 10-20% of the edge trees\" as a \"heavy curtain vine on the river-facing edge trees\", the creeper is \"climbing the trunks on the shaded side\"; their heights and colours are the records'."
+        },
+        {
+          "label": "What is invented",
+          "text": "every dead-wood share and size (no source counts snags or logs on the Chicago River in 1812 or 1835: an unmanaged floodplain wood of cottonwood, willow and elm carries standing and fallen dead wood, and these shares are a modest reading of that); the 32 m that makes a tree an edge tree; where on the crown the curtain hangs; and the share of the creeper, which the record does not give."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a description of the river woods before 1840 that mentions dead or drift timber, fallen trees or the vines, or a plate that draws them."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2810."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-19 (T-2810)."
+        }
+      ]
+    },
+    {
       "id": "L-jaunt-prairie-walks",
       "title": "Prairie Avenue's themed walks: routes, order and framing",
       "section": "per_subject",
@@ -41520,6 +41555,35 @@
         {
           "label": "Recorded",
           "text": "2026-10-19 (T-2839)."
+        }
+      ]
+    },
+    {
+      "id": "L-glessner-datestone-device-2870",
+      "title": "Glessner's 18th Street monogram drawn as the joined device HABS 14 shows, at the photograph's grain",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the `glessner_house` north stack's upper date stone carries one joined device in place of the letters AD set in Blender's built-in face: two bowls facing outward, each closed by a stem, and a bar between the stems at mid-height, drawn as cut strokes (the near-black matte lining L-glessner-datestone-2214 uses for every cut on the stack). **What is read, not invented.** From HABS photograph 14 (`habs_glessner_photo_14_north_inclined_1965`, no known restrictions, so derived from): the device's shape, its extent (x 959-991, y 267-280 px on a stone at x 938-1013, y 262-287: about 0.43 of the stone's width and 0.53 of its height, centred within a pixel) and its stems' places (about 0.33 and 0.73 of its width), the bar at mid-height. **What is invented.** The stroke's weight (0.16 of the device's height, about two of the print's pixels) and each bowl's curve, a half-ellipse from its stem to the device's edge; the print draws the device about 32 px across and shows neither the carver's line nor any interlacing finer than that. Reading the device as A and D is photograph 4's (L-glessner-datestone-2214), not this one's. The lower stone's 1886 is still the built-in face."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a close photograph of today's stack would give the carver's strokes and the cut depth. HABS 14 also reads the stack's face and both stones about 1.35-1.5 times wider than built, with their heights agreeing; that is T-2873's to rule."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2870 (piece 1 of T-2869)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-19 (T-2870)."
         }
       ]
     },
