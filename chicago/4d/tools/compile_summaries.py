@@ -56,7 +56,10 @@ words, every one of them graded and sourced the same way, and the plate's own pi
 record public domain or free of known restrictions (AGENTS.md hard rule 6). A cue the
 sources do not support is left out, never written from general knowledge. Every module is
 carried into every scene's file under `styles`, with its cited sources added to `sources`,
-so a building of any year can link to one (T-2642).
+so a building of any year can link to one (T-2642). A Compare styles line may name another
+module by its `style`; the Design tab then opens that module's lines and cues in place, so
+the gate refuses a line pointing at its own module or calling the module it names by any
+name but that module's own.
 
 GENERATED, NOT COMMITTED. data/inspect/ is ignored by git and written by publish.sh just
 before the mirror, the way data/pictures/ is: the compiled form reads source records and
@@ -386,6 +389,17 @@ def gate_style(stem, mod, world, schema):
     for i, c in enumerate(mod.get("compare") or []):
         if isinstance(c, dict):
             limit(f"compare[{i}].text", c.get("text"), LIMITS["style.compare"])
+            # T-2642: a Compare line may point at another module, which the Design tab then
+            # opens in place. It may not point at its own module, and where the module it
+            # names exists, the line must call that style by the module's own name.
+            other = c.get("style")
+            if other is not None and other == mod.get("id"):
+                errs.append(f"compare[{i}]: points at its own module `{other}`")
+            elif isinstance(other, str) and isinstance(world.get("styles", {}).get(other), dict):
+                theirs = world["styles"][other].get("name")
+                if theirs != c.get("name"):
+                    errs.append(f"compare[{i}]: calls `{other}` \"{c.get('name')}\", but that module "
+                                f"names itself \"{theirs}\"")
     plate = mod.get("plate")
     if isinstance(plate, dict):
         scene, sid, record = plate.get("scene"), plate.get("structure"), plate.get("record")
@@ -859,6 +873,12 @@ def self_test():
         plant_style("five cues", "is too long", five_cues)
     plant_style("a plate from a record whose rights are not cleared", "has rights_status `check_required`", plate_rights)
     world["rights"]["fixture_source"] = "public_domain"
+    # T-2642: Compare lines that point between modules.
+    def compare_self(m): m["compare"][0]["style"] = "fixture_style"
+    plant_style("a Compare line pointing at its own module", "points at its own module", compare_self)
+    world["styles"]["other_fixture"] = {"id": "other_fixture", "name": "Another Fixture"}
+    plant_style("a Compare line that misnames the module it points at", "but that module names itself", lambda m: None)
+    del world["styles"]["other_fixture"]
 
     for f in fails:
         print(f"FAIL: {f}")

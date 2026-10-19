@@ -512,6 +512,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "tiers": int(v["tiers"]), "per_face": int(v["per_face"]),
                 "opening_width_m": float(v["opening_width_ft"]) * FT,
                 "perch_projection_m": float(v["perch_projection_ft"]) * FT}
+            if "ledge_ft" in v:
+                p.turrets[-1]["vent"]["ledge_m"] = float(v["ledge_ft"]) * FT
+            if t.get("body_material"):
+                p.turrets[-1]["body_material"] = t["body_material"]
             p.turrets[-1]["eave"] = {
                 "overhang_m": float(e["overhang_ft"]) * FT,
                 "drop_m": float(e["drop_ft"]) * FT,
@@ -989,6 +993,11 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             p.detail["pigeon_ledge"] = {"axis": "y", "sign": 1, "at": fr.y(0),
                 "u0": a, "u1": b, "z0": fr.z(sn["pigeon_ledge_z"][0]),
                 "z1": fr.z(sn["pigeon_ledge_z"][1]), "projection_m": sn["projection_ft"] * FT}
+            if sn.get("corbels_W"):
+                p.detail["pigeon_ledge"]["corbels"] = [sorted(fr.x(w) for w in c)
+                                                       for c in sn["corbels_W"]]
+                p.detail["pigeon_ledge"]["corbel_drop_m"] = sn["corbel_drop_ft"] * FT
+                p.detail["pigeon_ledge"]["corbel_projection_m"] = sn["corbel_projection_ft"] * FT
         p.detail["joinery"] = {k: (float(v)*FT if k.endswith("_ft") else v)
                                for k,v in raw.get("joinery", {}).items()}
         if raw.get("bow_garden_window_z") and not bt:

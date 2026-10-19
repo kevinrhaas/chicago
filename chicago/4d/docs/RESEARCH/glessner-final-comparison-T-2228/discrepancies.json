@@ -124,10 +124,10 @@
     },
     {
       "id": "west-court-access",
-      "status": "open",
+      "status": "fixed",
       "views": [],
-      "finding": "Modeled high west courtyard door lacks a supported access/level reconciliation. HABS2 DN flight points toward the door; modern058 shows a low recess.",
-      "next": "Use independent plan/level controls and dated evidence. Prior modern058 fit was rejected at focal/eye-height bounds; no speculative raised flight or exact-height claim."
+      "finding": "T-2760: the west courtyard door is a grade door, 0.35-7.85 ft, its head coursed with the first-floor sills and about 34 brick courses tall in modern058; HABS2's flight descends toward it. No high door, no raised flight.",
+      "limit": "Head read against the record's 7.5 ft sills; the 1904 threshold may sit a step lower in the 1963 plan's areaway, which is undated and not built. See docs/RESEARCH/glessner-west-court-door-T-2760/."
     },
     {
       "id": "court-east-drainage",
@@ -137,6 +137,22 @@
       ],
       "finding": "Both east-court leaders occupy clear masonry strips beside the revised tower and broad basement light. Full/Light spatial checks pass with no opening crossings.",
       "limit": "Exact S61.61/42.4ft leader anchors are reconstructed clearances, not independent historic measurements."
+    },
+    {
+      "id": "photographic-light",
+      "status": "fixed",
+      "views": [
+        "habs-01-northwest",
+        "habs-13-north-level",
+        "habs-14-north-inclined",
+        "habs-15-stable-detail",
+        "habs-16-prairie-front",
+        "habs-17-habs-ne",
+        "cornell-northwest-west-windows",
+        "taylor-2135-ne"
+      ],
+      "finding": "T-2848: each photographic camera now carries the light read off its own print instead of the review default: HABS 01 a low east-north-east sun (the 18th Street wall raked, the stable's west end in shade); HABS 14 and 15 a hazy sun behind the house to the south-south-west (north faces lit by the sky alone); HABS 13, 16, 17, the Cornell view and Taylor 2135 overcast (nothing in them casts a shadow), rendered with photo_match's new overcast sky. Each camera's solve.light says what it was read from.",
+      "limit": "Sun azimuths are read from lit faces, shadows and flare, not solved from a dated exposure; elevations are not measured. The 1960s HABS prints show soot-darkened stone, which cannot stand for its 1887 tone (recorded as not shown)."
     }
   ]
 }
