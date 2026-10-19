@@ -981,6 +981,14 @@ function citesFor(named, citationsById) {
 }
 
 function prose(text, citationsById, found = null) {
+  // T-2825: a sentence said for a reader names its sources by title, not by handle, so the
+  // handles are read off the sentence it was said from, and the citations under the block
+  // still list every source the record's words named.
+  if (found) {
+    for (const id of String(originalOf(String(text ?? '')) ?? '').match(SOURCE_ID) || []) {
+      if (citationsById.get(id)) found.add(id);
+    }
+  }
   return escapeHtml(String(text ?? '')).replace(SOURCE_ID, (id) => {
     const cite = citationsById.get(id);
     if (!cite) return id;
