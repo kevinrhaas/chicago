@@ -15051,6 +15051,21 @@ for (const [label, viewport, touch] of [
         locations: card?.querySelectorAll('.biz-loc').length ?? 0,
         printings: /printings that attest it/.test(card?.textContent ?? '') };
       dir.close();
+      // T-2832: AN AUTHORED FIRM'S CARD LOADS ITS RECORD. The 94 records in
+      // data/businesses/authored/ were filed in the index where compiled ones sit, so
+      // every one of their cards fetched a 404 and printed "No card yet". The row's
+      // `file` is the path the card fetches; it must be the record's own.
+      const authoredRows = idx.businesses.filter((b) => /^authored\//.test(b.file || ''));
+      const own = authoredRows[0] ?? null;
+      const openedOwn = own ? await dir.open(own.id) : false;
+      const ownBody = card?.querySelector('.people-card-body');
+      out.authored = { rows: authoredRows.length, stated: idx.counts?.authored, id: own?.id ?? null,
+        file: own?.file ?? null, opened: openedOwn,
+        name: card?.querySelector('.people-card-name')?.textContent.trim() ?? '',
+        busy: ownBody?.getAttribute('aria-busy') ?? null,
+        failed: /could not be loaded|No card yet/.test(ownBody?.textContent ?? ''),
+        body: (ownBody?.textContent ?? '').trim().length };
+      dir.close();
       return out;
     });
     check(`${label}: the Businesses directory lists every firm, and its count is the index's`,
@@ -15088,6 +15103,11 @@ for (const [label, viewport, touch] of [
       && biz.card.go === biz.card.wantedStructure
       && biz.card.locations > 0 && biz.card.printings,
       JSON.stringify(biz.card));
+    check(`${label}: an authored firm's card opens with its own record, not a 404 (T-2832)`,
+      biz.authored.rows > 0 && biz.authored.rows === biz.authored.stated && biz.authored.opened
+      && biz.authored.name.length > 0 && biz.authored.busy === null && !biz.authored.failed
+      && biz.authored.body > 40,
+      JSON.stringify(biz.authored));
 
     // T-1325: THE WAY INTO A FIRM FROM WHERE THE VISITOR ALREADY IS. The directory
     // above is the way in for somebody who came looking for a firm by name. It was
