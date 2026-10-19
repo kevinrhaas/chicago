@@ -26117,7 +26117,7 @@ rear section stepping out to the south under its mansard, which a K01 rear wing 
 are open in the match record for T-2435.
 **How to resolve:** T-2435 builds the gable (with T-2428's K01 wall gable) and brings the match
 record to `matches`; a later photograph of the house, ingested as a source, says what changed by 1904.
-**Covers:** `house_1625_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1625_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1625_prairie.as_mapped_1904.form.service_wall_brick`, `house_1625_prairie.as_mapped_1904.form.roof_form`, `house_1625_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1625_prairie.as_mapped_1904.form.stair_tread_m`, `house_1625_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1625_prairie.as_mapped_1904.form.stoop_width_m`, `house_1625_prairie.as_mapped_1904.form.bays`, `house_1625_prairie.as_mapped_1904.form.rear_bays`, `house_1625_prairie.as_mapped_1904.form.roof_covering`, `house_1625_prairie.as_mapped_1904.form.window_kit`, `house_1625_prairie.as_mapped_1904.form.entrance_kit`.
+**Covers:** `house_1625_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1625_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1625_prairie.as_mapped_1904.form.service_wall_brick`, `house_1625_prairie.as_mapped_1904.form.roof_form`, `house_1625_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1625_prairie.as_mapped_1904.form.stair_tread_m`, `house_1625_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1625_prairie.as_mapped_1904.form.stoop_width_m`, `house_1625_prairie.as_mapped_1904.form.rear_bays`, `house_1625_prairie.as_mapped_1904.form.roof_covering`, `house_1625_prairie.as_mapped_1904.form.window_kit`, `house_1625_prairie.as_mapped_1904.form.entrance_kit`.
 **Ticket:** T-2432 (piece 1 of T-1869).
 **Review:** `docs/RESEARCH/k01-1625-mcbirney-2432/README.md`.
 **Recorded:** 2026-10-13 (T-2432). **The gable, the knee wall and the north stack taken out of
@@ -26128,6 +26128,9 @@ coped wall gable, under `L-k01-1625-mcbirney-wall-gable-2730`; `dormer` and `eav
 front's windows are now read off the photograph one by one (`street_front_windows`, under
 `L-k01-1625-mcbirney-street-windows-2752`), and the area lights the K01 front carried are gone with
 `basement_lights`, which leaves this entry's cover.
+**Evidence since, 2026-10-19:** the `form.bays` token is withdrawn — T-2846 builds the oriel the
+photograph shows on the south wall, read off it, so `bays` is `inferred` now; what it invents is
+L-k01-1625-oriel-2846.
 
 ### L-k01-1625-mcbirney-wall-gable-2730 — 1625 Prairie's front carried up as its photograph's coped wall gable, on the knee wall K01 lends the top storey
 
@@ -26271,6 +26274,44 @@ or a plan, would settle the section's width, its floors and its rear wall.
 **Ticket:** T-2820 (piece 1 of T-2754).
 **Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
 **Recorded:** 2026-10-18 (T-2820).
+**Revised:** 2026-10-19 (T-2846) — **the step is the print's width, on a camera that holds the
+south wall.** The camera is re-solved on the main south wall's level lines (the eave's shadow and
+two top-floor heads), keeping the front plane: the eye 28.7 m out, 8.4 m south of the south wall, at
+1.0 m, f 1108 px. The face stands parallel to the plate, so its width against its heights never
+depended on the camera; on the new one the sheet's 11.85 m puts its corner at the print's x 528 and
+its 48 px is 1.8 m, so it is built 1.8 m (the sheet's trace reads 0.8-1.4 m). The door, windows
+and dormer stand toward the main wall's corner, as the print sets them. The door is ruled a door at
+grade: its 1.7 m head was the old camera's horizon, and it now reads 1.9-2.1 m. Still ours: the
+face's heights, which stand on the 13.0 m wall head where the new camera reads the eave at 10.9 m
+(T-2847), and the eye's height (0.5-1.3 m, bounded by the door's dark running down to the fence).
+
+### L-k01-1625-oriel-2846 — 1625 Prairie's oriel on its south wall, read off the McBirney photograph
+
+**Decision:** the oriel the 1890 photograph shows on 1625's main south wall, just in front of the
+rear section, is built as K08's oriel (`bays.south_oriel`): a box 0.48 m out and 1.29 m along the
+wall, centred 8.8 m behind the front, standing on the first floor (3.6 m) on five corbel courses,
+one storey to about 5.7 m under K08's eaves and a low copper hip, a transomed casement pair in its
+south face.
+**What is read, not invented.** Through the camera T-2846 re-solved on the south wall's level
+lines: the west cheek faces the plate (x 505-519.5 px) and a cheek 0.48 m deep puts both its edges
+at one depth; the long south face recedes beside it to x 527.5, which puts its far end 9.45 m back
+(it can reach no further: the rear section's lower window shows past it). The heights at the
+cheek's scale (30.05 px/m): the apron's foot about 2.3 m, the lights 3.5-5.5 m, the cornice to
+about 5.8 m. Nothing shows over the cornice, so the roof is low.
+**What is invented.** The square corners (the print cannot tell a square cheek from a slightly
+canted one); the east cheek, hidden behind the oriel; the south face's light, built as the house's
+first-floor casements under a transom (the print's light carries a bar about 0.43 of its height
+down); the dressed stone of its walls, which the print reads light, near the trim's tone, and
+cannot tell from painted timber; the apron, laid as K08's five stepped courses to 2.6 m where the
+print's runs as a flat, darker face to about 2.3 m; and the low copper hip, at a pitch the print
+cannot see. **Left out:** the west cheek's light, the print's most visible (about 0.3 m across):
+K08's frame and piers need 0.7 m of cheek for any light, and its corbel cannot carry a cheek that
+deep on a face this short. The cheek stands plain until the kit can light it (T-2847).
+**How to resolve:** a view of 1625 from the south, or the oriel's own drawing, would settle its
+plan, its east cheek and its apron.
+**Ticket:** T-2846 (piece 1 of T-2838).
+**Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
+**Recorded:** 2026-10-19 (T-2846).
 
 ### L-1619-wears-hamline-front-2436 — 1619 Prairie stands, for now, in the front of John H. Hamline's house at 1621
 
