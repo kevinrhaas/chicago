@@ -2035,6 +2035,11 @@ step "the planted poplar rows re-derive from the rule that chose their greens" \
 step "the 1835 shore cottonwood grove re-derives from the rule that dealt it" \
   python3 tools/generate_shore_grove_1835.py --check
 
+# The same grove in 1812, twenty-three years younger: the 1835 record's positions at
+# half its heights as z08's dune cottonwood (T-2745, L-woods-1812-2745).
+step "the 1812 shore cottonwoods re-derive from the 1835 grove" \
+  python3 tools/generate_shore_grove_1812.py --check
+
 # The fort's company gardens and Dr. Harmon's orchard (Wau-Bun, 1831): which fruit,
 # how many and where are a rule's, re-derived here (T-2809, L-fruit-trees-1835-2809).
 step "the 1835 company-garden and Harmon orchard plantings re-derive from their rule" \

@@ -29034,6 +29034,33 @@ in it.
 **Ticket:** T-2809.
 **Recorded:** 2026-10-19 (T-2809).
 
+### L-woods-1812-2745 — The 1812 North Side woods reach the State Street sand as in 1835, and the 1835 shore grove stands in 1812 as young cottonwoods
+
+**Decision:** the 1812 scene draws no streets, so the timber's east limits (Wells south of the
+river, State north of it) had fallen back to a fixed E +316 m there, and the North Side wood stopped
+500 m short of the line it reaches in 1835, with no wood on the sand beyond it. A scene with no
+streets now takes those two limits at the eastings the 1835 records survey Wells and State at
+(E +328.7 and +825.1): the State Street line is the break of slope where the clay meets the beach-ridge
+sand, which `generators/terrain_gen.py` builds and the 1812 ground shares, so the same wood, edge
+thicket and sand wood stand on undeveloped ground in both years. The 1835 paths (the Rush Street
+bridle path and the Green Bay road cut) stay 1835-only. The 1835 shore grove at Sixteenth to
+Eighteenth Street stands in 1812 (`data/flora/plantings/shore_cottonwood_grove_1812.json`, written
+by `tools/generate_shore_grove_1812.py`): 58 stems at the 1835 record's positions, at half their 1835
+heights (11-13 m) as z08's dune cottonwood, without the two massacre trees the 1812 record already
+stands as saplings.
+**What is read, not invented:** Andreas's North Division timber with "the sandy hills near the lake"
+excepted, and its east end at the State Street ridge, as the 1835 records already read them; "On its
+lower reaches stood scattered cottonwoods, and here and there a small group or a single tree"
+(Moses and Kirkland, 1895, p. 60, of the 1812 shore); Clarke's grove of 1835 (Kirkland 1893, App. K).
+**What is invented:** that the wood's 1835 east edge is its 1812 edge (the sources describing the timber
+are of the 1830s, and none clears the North Side wood beyond the houses at the river before then); that every 1835 grove stem was already standing in 1812, and their heights (a
+cottonwood on wet sand grows about a metre a year when young). The owner asked for the 1812 woods to
+lean to more trees rather than fewer, so where a stem might or might not have stood, it stands.
+**How to resolve:** an account or survey of the North Side or the south shore from before 1830 that
+says where the timber ended or names trees on the shore.
+**Ticket:** T-2745.
+**Recorded:** 2026-10-19 (T-2745).
+
 ### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
 
 **Decision:** Five 1904 walking jaunts — the famous names, the architects, and three style walks
