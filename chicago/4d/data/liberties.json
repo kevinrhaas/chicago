@@ -41082,6 +41082,12 @@
           "domain": "structure",
           "structure": "house_1623_prairie",
           "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
           "aspect": "form.stone_front"
         },
         {
@@ -41089,6 +41095,12 @@
           "structure": "house_1623_prairie",
           "phase": "as_mapped_1904",
           "aspect": "form.street_front_dress"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
         }
       ],
       "recorded": "2026-10-17",
@@ -41104,7 +41116,7 @@
         },
         {
           "label": "Covers",
-          "text": "`house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`, `house_1623_prairie.as_mapped_1904.form.stone_front`."
+          "text": "`house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`, `house_1623_prairie.as_mapped_1904.form.stone_front`, `house_1623_prairie.as_mapped_1904.form.window_kit`, `house_1623_prairie.as_mapped_1904.form.rainwater`."
         },
         {
           "label": "Revised 2026-10-18 (T-2818)",
@@ -41113,6 +41125,10 @@
         {
           "label": "Revised 2026-10-19 (T-2817)",
           "text": "the entrance arch is the drawing's porch mouth, as broad as the window's: 1.85 m across, 2.6 m to its crown over the principal floor (`entrance_kit.opening_m`), centred at 4.55 m, under its 0.45 m ring. At the porch's back, 0.95 m in, a wall closes the arch round the door's own flat-headed opening, 1.0 m across and 2.2 m high, 0.1 m north of the arch's axis (`entrance_kit.porch_door`): the door's place and the lit back wall beside it are read, while the porch's depth, the single leaf glazed above its lock rail and the 0.45 m transom in place of the drawing's carved light are reconstructed. The stoop stands 1.05 m north of the arch's axis (`stoop_v_m` 3.5), splitting the drawing's skewed flight, and its landing runs on south to the front's south wall as a stone terrace. Along it the drawing's iron guard stands at the stoop rail's height (`street_front_dress.stoop_rails.guard`), with an ornamental panel at its south end. The panel's ornament is too small to read in the plate, so it is reconstructed as a lozenge of flat bar on a ring."
+        },
+        {
+          "label": "Revised 2026-10-19 (T-2819)",
+          "text": "the stone over the springing, the carved band, the window and the pipes, read from the drawing through its camera. The front is laid evenly (`stone_front.coursing`, rhythm `even`), rock-faced with the profile's whole 0-0.025 m face under 3.4 m and a fifth of it above, as the drawing rules the strips beside the oriel in smoother courses over rock-faced blocks; the share is invented (the drawing draws the difference, not its depth). The drawing's carved band at the springing (about y 534-556, 2.95-3.4 m) is a dressed belt course (`street_front_dress.carved_band`) cut by both openings, carved with the oriel's guilloche of interlaced rings 0.34 m across; the drawing's carving is foliage too small to read, so the rings, their size and their relief are invented. The window is widened to the drawn 1.8 m and its head glazed as a lattice of square lights 0.2 m apart (`k06.opening.sash_round_lattice_wide`): the lattice and its pitch are read, the bars' section is K06's muntin. The drawing draws no pipe down the front, so the two downpipes hang on the flanks 0.35 m back from the front's corners (`rainwater.downpipes`), where the drawing shows neither flank. Where the oriel's front stands along the wall is ruled the pen's own: its front lights stand north of the build's and its finial south, which no one plan does, so K01's symmetric plan stands."
         },
         {
           "label": "Ticket",

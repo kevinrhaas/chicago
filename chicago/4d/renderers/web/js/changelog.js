@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2053, ts: '2026-10-19T10:17:02.251Z', date: 'Oct 19, 2026, 5:17 AM CT', title: '1623 Prairie\'s carved band, smoother upper stone and latticed window', kind: 'feature',
+    items: [
+      'A carved band now runs across Granger Farwell\'s front at 1623 Prairie where its arches spring, as the 1886 drawing shows.',
+      'Above the band the stone is smoother; below it the blocks stay rock-faced.',
+      'The window beside the porch is wider, and its arched head is glazed as a lattice of small square panes.',
+      'The two downpipes have moved off the front onto the side walls, so the front reads as drawn.',
+    ] },
   { v: 2052, ts: '2026-10-19T09:12:42.964Z', date: 'Oct 19, 2026, 4:12 AM CT', title: '1625 Prairie\'s door and plinth brought down to its photograph', kind: 'feature',
     items: [
       'Hugh McBirney\'s front door now stands one low step above the walk with its head at 2.64 m, where the three-step stoop had lifted it half a metre too high.',
