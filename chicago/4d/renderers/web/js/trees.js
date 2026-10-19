@@ -3850,18 +3850,21 @@ export async function createTrees({
   // tree-instances.js for the levels and the shadow ring. `stats.grown` is live:
   // its level counts and triangles are re-read as the visitor walks.
   let forest = null;
+  let grownMats = null;
   if (grown.count) {
-    const mats = await createGrownTreeMaterials({
+    grownMats = await createGrownTreeMaterials({
       assetBase: resolveBases().assetBase, uWind, confidence, patchWind: patchTreeWind,
       lowSpec: lowSpec || level === 'light', alphaCutoff: TREE_ALPHA_CUTOFF, problems,
     });
-    disposables.push(mats);
-    forest = await grown.build({ ...mats, checkpoint });
+    disposables.push(grownMats);
+    forest = await grown.build({ ...grownMats, checkpoint });
     group.add(forest.group);
-    disposables.push(forest);
     stats.drawCalls += forest.stats.drawCalls;
   }
   stats.grown = forest?.stats ?? { stems: 0 };
+  // T-2864: the crown the Season setting asks for (tree-model.js leafCover and
+  // leafScale), and the materials that take its colour.
+  let crownNow = '{}';
 
   /* ---- 5. the horizon ---------------------------------------------------- */
 
@@ -4477,8 +4480,27 @@ uniform float uBandUp;
       }
     },
 
+    /**
+     * T-2864 — the Season setting. `crown` is tree-model.js's season crown
+     * ({} summer, leafCover/leafScale otherwise): the grown trees are re-grown from
+     * the same stems with it, so spring is first leaf, fall a thinner crown and
+     * winter bare limbs. The leaves', thickets' and far band's colour is the
+     * shared season uniforms' (season.js chiFoliage), installed on first use.
+     */
+    async setSeason(crown = {}, { foliage = null } = {}) {
+      if (foliage) for (const [m, role] of [[grownMats?.leafMat, 0], [nearMat, 0], [farMat, 2]]) foliage(m, role);
+      const key = JSON.stringify(crown);
+      if (!grownMats || key === crownNow) return;
+      crownNow = key;
+      if (forest) { group.remove(forest.group); forest.dispose(); forest = null; }
+      forest = await grown.build({ ...grownMats, checkpoint, season: crown });
+      group.add(forest.group);
+      stats.grown = forest.stats;
+    },
+
     dispose() {
       for (const d of disposables) d?.dispose?.();
+      forest?.dispose();
     },
   };
 }

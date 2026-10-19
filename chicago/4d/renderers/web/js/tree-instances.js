@@ -261,6 +261,8 @@ export class TreeInstances {
       batches.shade.leaves.setVisibleAt(s.inst.shade.leaves, false);
       s.level = sets.far[sets.far.length - 1];
       s.shade = false;
+      // A re-build (trees.js setSeason, T-2864) starts every stem drawn, so none is culled yet.
+      s.culled = false;
     }
     for (const set of Object.values(batches)) {
       for (const b of Object.values(set)) {
