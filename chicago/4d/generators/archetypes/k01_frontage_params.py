@@ -775,6 +775,9 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
     eave's fascia; a row of K06 `lights` (`variant`, `sill_m` over grade, `width_m`,
     `height_m`, `at_m` from the centre); the `coping` band on the face; a pinnacle
     `kneelers` each side on the ledge where the outline leaves the eave; a `finial`.
+    T-2865: an optional `ledge_m` (over grade) stands that ledge higher than the eave, so the
+    front carries its full width up past the side walls' eave — 1625 Prairie's corner pier,
+    which its photograph stops at about 13 m over a side wall whose eave is 10.9 m.
     T-2730: 1625 Prairie's plain coped WALL GABLE is the same slab with a straight outline:
     its `kneelers` and `finial` may be left out (the ledge alone is the kneeler stone), its
     lights may be segment-headed and stand below the ledge, on the slab under the eave, an
@@ -810,6 +813,13 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
     lw, lh, sill = float(li["width_m"]), float(li["height_m"]), float(li["sill_m"])
     at = sorted(float(x) for x in li["at_m"])
     ledge = ye + 0.12
+    ledge_m = None
+    if sg.get("ledge_m") is not None:   # T-2865: the front carried up full width past the eave
+        ledge_m = float(sg["ledge_m"])
+        if not ledge <= ledge_m <= pr[-1][1] - 1.0:
+            raise ParamError("shaped_gable.ledge_m: the ledge stands at least 0.12 m over the street "
+                             "fascia and 1.0 m under the apex")
+        ledge = ledge_m
     if sg.get("kneelers") and sill < ledge + 0.3:
         raise ParamError("shaped_gable.lights: a light's sill stands 0.3 m over the kneelers' ledge")
     if sill < foot + 0.3:   # T-2730: without kneelers a light may stand on the slab under the eave
@@ -851,7 +861,8 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
             raise ParamError("shaped_gable.oculus: its ring stands 0.15 m inside the outline and 0.3 m over the lights")
     return {"profile_m": pr, "foot_m": foot, "thickness_m": t, "proud_m": proud,
             "lights": {"variant": li["variant"], "sill_m": sill, "width_m": lw, "height_m": lh, "at_m": at},
-            "coping": coping, "kneelers": kne, "finial": fin, "fabric": fabric, "oculus": oc}
+            "coping": coping, "kneelers": kne, "finial": fin, "fabric": fabric, "oculus": oc,
+            **({"ledge_m": ledge_m} if ledge_m is not None else {})}
 
 
 def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, overhang: float,
@@ -2062,8 +2073,13 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             if not comp.startswith(STREET_WINDOW) or vid not in kit_ids:
                 raise ParamError(f"street_front_windows.windows[{k}]: {comp!r} is not a {STREET_WINDOW}* "
                                  f"component the window_kit glazes")
-            if not 0 <= st < stories or not floors[st] < sill or sill + h + 0.30 > (
-                    floors[st + 1] if st + 1 < stories else eave - 0.25):
+            # T-2865: a front carried up past the eave (shaped_gable.ledge_m) has no eave over
+            # its top storey's lights — the gable's slab stands there, so the light stops under
+            # the slab's foot and its flat arch runs on into the slab's wall
+            sgr = val("shaped_gable") or {}
+            top = (floors[st + 1] - 0.30 if st + 1 < stories
+                   else float(sgr["foot_m"]) if sgr.get("ledge_m") is not None else eave - 0.55)
+            if not 0 <= st < stories or not floors[st] < sill or sill + h > top:
                 raise ParamError(f"street_front_windows.windows[{k}] does not stand in storey {st} under "
                                  f"its flat arch's 0.30 m")
             s0, s1 = s - wd / 2, s + wd / 2
@@ -2333,9 +2349,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                         "columns": {"height_m", "segments", "profile"},
                         "entablature": {"height_m"}, "balcony": {"thickness_m", "height_m"},
                         "parapet": {"thickness_m", "height_m"}, "arch": {"span_m", "spring_m", "depth_m"}}
-                if set(lg) - {"finish"} != set(need) or any(set(lg[k]) != v for k, v in need.items()):
+                # T-2845: the far pedestal's and the side parapet's inset from the terrace's end,
+                # and the pair's pitch, are optional (the kit's defaults stand them at the corner
+                # and the pedestal's quarters)
+                opt = {"pedestal": {"far_inset_m"}, "columns": {"pitch_m"}, "parapet": {"side_inset_m"}}
+                if set(lg) - {"finish"} != set(need) or any(
+                        not v <= set(lg[k]) <= v | opt.get(k, set()) for k, v in need.items()):
                     raise ParamError(f"entrance_kit.terrace.loggia takes {sorted(need)}, each with "
-                                     + "; ".join(f"{k}: {sorted(v)}" for k, v in need.items()))
+                                     + "; ".join(f"{k}: {sorted(v)}" for k, v in need.items())
+                                     + "; optionally " + "; ".join(f"{k}: {sorted(v)}" for k, v in opt.items()))
                 if "out_m" not in t:
                     raise ParamError("entrance_kit.terrace.loggia stands on a terrace with its own out_m")
                 if lg.get("finish") not in (None, "ionic_carved"):
@@ -2343,7 +2365,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 prof = lg["columns"]["profile"]
                 if prof[0][1] != 0.0 or prof[-1][1] != 1.0 or any(b[1] <= a[1] for a, b in zip(prof, prof[1:])):
                     raise ParamError("entrance_kit.terrace.loggia.columns.profile runs [r, fraction of height] from 0 to 1")
-                if 2 * max(r for r, _ in prof) > float(lg["pedestal"]["width_m"]) / 2:
+                # the pair's pitch, half the pedestal's width unless the record gives it (T-2845)
+                pitch = float(lg["columns"].get("pitch_m", float(lg["pedestal"]["width_m"]) / 2))
+                if 2 * max(r for r, _ in prof) > pitch:
                     raise ParamError("entrance_kit.terrace.loggia: two columns do not stand side by side on a pedestal")
                 terraces[-1]["loggia"] = lg
         if len({t["side"] for t in terraces}) != len(terraces):

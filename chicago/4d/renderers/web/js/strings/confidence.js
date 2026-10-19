@@ -1,4 +1,4 @@
-/** The Confidence view app (T-2647 presets, T-2648 per-grade rows; DESIGN §09, M9).
+/** The Confidence view app (T-2647 presets, T-2648 per-grade rows, T-2649 the HUD legend; DESIGN §09, M9).
  * The grade names themselves are the locked terms (terms.js). */
 import { register } from './index.js';
 
@@ -35,4 +35,12 @@ export default register('confidence', {
   'safe.on': 'Colour-blind-safe colours on',
   'show.all': 'Show everything',
   'note': 'Turning a grade off removes it from the view entirely, with the colouring on or off.',
+  // T-2649: the legend chip under the year chip while the view is not Normal. The mark is
+  // the year chip's mono caps; the label says the dots in words.
+  'legend.mark': 'CONF',
+  'legend.label': 'Confidence view on: {grades}. Tap to open it.',
+  'legend.grade': '{grade} {colour}',
+  'legend.grade.shown': '{grade} shown',
+  'legend.grade.hidden': '{grade} hidden',
+  'legend.colour.own': 'own colour',
 });

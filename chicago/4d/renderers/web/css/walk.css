@@ -588,6 +588,37 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 .year-chip:hover { border-color: var(--amber, #E2A63F); }
 .year-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .year-chip:active { transform: translateY(1px); }
+/* T-2649 (§09, §10): the Confidence view's legend chip, under the year chip while the view
+   is not Normal; a tap opens the app. The year chip's LED well, smaller: a dot per grade in
+   the colour it wears (see-through for a ghost, an empty ring for a hidden grade, plain
+   with the colouring off), then CONF. On a desktop the Navigator's rail stands under the
+   year chip, so there the legend sits beside it. */
+.hud-chips { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; min-width: 0; }
+.conf-legend {
+  pointer-events: auto; display: inline-flex; align-items: center; gap: 6px; padding: 3px 8px; min-height: 22px;
+  font: inherit; font-family: var(--font-mono, ui-monospace, monospace); font-size: 9.5px; letter-spacing: .14em;
+  color: var(--amber, #E2A63F); background: var(--screen, #0B0A07); cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--amber, #E2A63F) 30%, var(--edge)); border-radius: var(--r);
+  box-shadow: var(--shadow); -webkit-appearance: none; appearance: none;
+}
+.conf-legend[hidden] { display: none; }
+.conf-legend:hover { border-color: var(--amber, #E2A63F); }
+.conf-legend:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.conf-legend:active { transform: translateY(1px); }
+.conf-legend-dots { display: inline-flex; gap: 4px; }
+.conf-legend-dots i {
+  width: 7px; height: 7px; border-radius: 50%; box-sizing: border-box;
+  background: var(--c, rgba(236, 230, 216, .8)); opacity: var(--a, 1);
+}
+.conf-legend-dots i[data-state="plain"] { background: rgba(236, 230, 216, .8); }
+.conf-legend-dots i[data-state="hidden"] { background: transparent; border: 1px solid rgba(236, 230, 216, .55); }
+.conf-legend-dots i[data-state="dither"] {
+  background: radial-gradient(circle, var(--c) 45%, transparent 50%) 0 0 / 2.5px 2.5px, color-mix(in srgb, var(--c) 35%, transparent);
+}
+.conf-legend-mark { text-shadow: 0 0 6px color-mix(in srgb, var(--amber, #E2A63F) 55%, transparent); }
+@media (min-width: 621px) {
+  .hud-chips { flex-direction: row; align-items: center; gap: 6px; }
+}
 .fly-glyph { font-size: 10px; opacity: .85; }
 
 .hud-actions { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }

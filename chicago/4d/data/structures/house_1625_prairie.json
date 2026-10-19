@@ -98,13 +98,13 @@
           "value": [
             3.45,
             3.6,
-            5.8
+            3.7
           ],
           "confidence": "inferred",
           "sources": [
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "Floor to floor, ground storey first (T-2821: the ground storey 3.45 m from the one-riser floor at 0.15 m, so the first floor stays at 3.6 m); the top storey's runs to the wall head. Through the photograph's camera (inland_architect_front.json, 38.6 px/m at the front's plane) the first-floor sills read at 4.15 m and the second-floor sills at 7.77 m over grade and the gable's lights at 11.5-13.3 m, so the floors at about 3.6, 7.2 and 11.0 m. T-2730: the photograph's south side wall rises to about 13 m before its eave and the south corner pier stops at 13.15 m (y 286 px), a knee wall under the attic; K01 has no attic storey, so the second floor's storey carries the knee wall and runs 5.8 m to a 13.0 m wall head (the attic floor at about 11.0 m is not built)."
+          "note": "Floor to floor, ground storey first (T-2821: the ground storey 3.45 m from the one-riser floor at 0.15 m, so the first floor stays at 3.6 m); the top storey's runs to the wall head. Through the photograph's camera (inland_architect_front.json, 38.6 px/m at the front's plane) the first-floor sills read at 4.15 m and the second-floor sills at 7.77 m over grade and the gable's lights at 11.5-13.3 m, so the floors at about 3.6, 7.2 and 11.0 m. T-2730: the photograph's south side wall rises to about 13 m before its eave and the south corner pier stops at 13.15 m (y 286 px), a knee wall under the attic; K01 has no attic storey, so the second floor's storey carries the knee wall and runs 5.8 m to a 13.0 m wall head (the attic floor at about 11.0 m is not built). T-2865: the knee wall is not there. T-2846's camera, re-solved on the south wall's level lines, reads the side wall's eave at 10.9 m (its shadow meets the corner pier at y 374 px in the front's own plane, 38.6 px/m whatever the camera), so the top storey runs 3.7 m to a 10.9 m wall head, the top-floor side windows' heads (10.5 m) under it. What stands to about 13 m in the photograph is the front alone: its corner pier and the gable over it (shaped_gable.ledge_m)."
         },
         "wall_thickness_front_m": {
           "value": 0.45,
@@ -332,24 +332,24 @@
                 "face": "street",
                 "kind": "sash",
                 "s_m": 0.64,
-                "sill_m": 3.66,
+                "sill_m": 3.4,
                 "width_m": 0.88,
-                "height_m": 2.99
+                "height_m": 2.5
               },
               {
                 "face": "street",
                 "kind": "sash",
                 "s_m": 0.64,
-                "sill_m": 9.02,
+                "sill_m": 7.75,
                 "width_m": 0.77,
-                "height_m": 2.46
+                "height_m": 1.95
               }
             ],
             "attic": {
               "variant": "k05.roof.mansard_convex",
               "lower_pitch_deg": 75,
               "pitch_deg": 15,
-              "lower_rise_m": 4.3,
+              "lower_rise_m": 3.4,
               "overhang_m": 0.3,
               "dormers": [
                 {
@@ -358,8 +358,8 @@
                   "sash": {
                     "variant": "k06.opening.sash_2over2_flat",
                     "width_m": 0.6,
-                    "height_m": 2.4,
-                    "sill_m": 0.6
+                    "height_m": 1.8,
+                    "sill_m": 0.45
                   },
                   "surround_m": 0.12,
                   "face_setback_m": 0.05,
@@ -374,7 +374,7 @@
             "sanborn_1911_chicago_v3_sheet_20",
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "T-2820: the 1911 sheet's four-storey rear section (s20-1625-a1), the rear 7.6 m of the trace stepping 1.3 m further south than the main body (the trace's south line at -3028.0 to -3028.4 where the main part's runs at -3027.0 to -3027.2), built beside the main body's rear part on its south side (K01's north wall, high v): the step-out's three walls in the K03 brick to the main wall head, and over the whole rear part an attic of its own. The photograph (inland_architect_front.json) shows it behind the main body's south wall: a narrow face toward the street in darker brick with a door at its foot and one window a storey over it, its cornice meeting the main south eave at the same height (both at y 482-488 px where they meet), and over it a slated attic with a dormer on its street face and the south end wall carried up as a lit brick face to a stack. The camera's depth is soft that far back (its own solve: +-3 m), so heights are read against the cornice, set at the main wall head's 13.0 m where the photograph's cornice meets the main eave, and the horizon (y 733 px at 1.6 m): about 0.046 m a pixel. On that scale the windows stand 3.66-6.65 m and 9.02-11.48 m, the door's head about 1.7 m (it is built 2.1 m tall from grade, the fence hiding its foot), the dormer's sill 13.85 m and its sash's head 16.3 m, and the attic's top line, its curb, 17.3 m: a 4.3 m lower face. Widths are the sheet's: the face is 1.3 m, so its windows are the contract's narrowest sash (0.75 m) and its dormer 0.84 m, centred, where the photograph's face reads about 50 px across (about 2.2 m on that scale) and its lights about half of it; that disagreement is recorded open in the match record. Reconstructed: the lower faces' 75-degree pitch, the attic's 15-degree top over the curb (the photograph cannot see it), the 0.3 m cornice, the end walls carried up as coped parapets at the party wall and the step-out's outer face (the photograph shows the south one; the north one is the party wall's), and the step-out's outer and rear walls left blank (the photograph shows the outer one lit and windowless; no picture shows the rear) (L-k01-1625-rear-section-2820). T-2846: re-ruled on the camera re-solved on the south wall's level lines (inland_architect_front.json). The face's width is 1.8 m, the print's, not the sheet's 1.3: the face stands parallel to the plate, so its width against its own heights does not depend on the camera at all, and on the re-solved camera (27.3 px/m at the face, 11.85 m behind the front as the sheet sets it) the face's 48 px (x 528-576) is 1.8 m, its rear corner landing at x 606 against the print's 608 (a 1.3 m face would end at x 564). The sheet's trace steps 0.8-1.4 m (its south lines at -3028.0 to -3028.4 against -3027.0 to -3027.2), within a traced line's width of a 1:600 sheet; the photograph is the better measure. Across the wider face the print's openings stand toward the main wall's corner, not centred: the door's right jamb at x 557 (it is built 0.85 m wide at s 0.63 m, its left jamb the kit's 0.2 m pier from the corner, where the print's dark runs into the corner's shadow at x 528), the lower window x 534-557 (0.88 m at s 0.64), the upper x 536-556 (0.77 m at s 0.64), and the dormer's sash centred at x 547 (8.3 m from the party wall). The door is a door at grade, not an areaway's: on the re-solved camera its head (y 730, the top of a transom light over the leaf) reads 1.9-2.1 m over grade for an eye 1.3-0.5 m high, where the old camera put it on its own horizon at 1.7 m; the built 2.1 m head stands within about 3 px. The heights on this face still stand on the main eave at 13.0 m, which the re-solved camera reads at 10.9 m: that, the windows', the dormer's and the curb's heights and the door's transom are T-2847's."
+          "note": "T-2820: the 1911 sheet's four-storey rear section (s20-1625-a1), the rear 7.6 m of the trace stepping 1.3 m further south than the main body (the trace's south line at -3028.0 to -3028.4 where the main part's runs at -3027.0 to -3027.2), built beside the main body's rear part on its south side (K01's north wall, high v): the step-out's three walls in the K03 brick to the main wall head, and over the whole rear part an attic of its own. The photograph (inland_architect_front.json) shows it behind the main body's south wall: a narrow face toward the street in darker brick with a door at its foot and one window a storey over it, its cornice meeting the main south eave at the same height (both at y 482-488 px where they meet), and over it a slated attic with a dormer on its street face and the south end wall carried up as a lit brick face to a stack. The camera's depth is soft that far back (its own solve: +-3 m), so heights are read against the cornice, set at the main wall head's 13.0 m where the photograph's cornice meets the main eave, and the horizon (y 733 px at 1.6 m): about 0.046 m a pixel. On that scale the windows stand 3.66-6.65 m and 9.02-11.48 m, the door's head about 1.7 m (it is built 2.1 m tall from grade, the fence hiding its foot), the dormer's sill 13.85 m and its sash's head 16.3 m, and the attic's top line, its curb, 17.3 m: a 4.3 m lower face. Widths are the sheet's: the face is 1.3 m, so its windows are the contract's narrowest sash (0.75 m) and its dormer 0.84 m, centred, where the photograph's face reads about 50 px across (about 2.2 m on that scale) and its lights about half of it; that disagreement is recorded open in the match record. Reconstructed: the lower faces' 75-degree pitch, the attic's 15-degree top over the curb (the photograph cannot see it), the 0.3 m cornice, the end walls carried up as coped parapets at the party wall and the step-out's outer face (the photograph shows the south one; the north one is the party wall's), and the step-out's outer and rear walls left blank (the photograph shows the outer one lit and windowless; no picture shows the rear) (L-k01-1625-rear-section-2820). T-2846: re-ruled on the camera re-solved on the south wall's level lines (inland_architect_front.json). The face's width is 1.8 m, the print's, not the sheet's 1.3: the face stands parallel to the plate, so its width against its own heights does not depend on the camera at all, and on the re-solved camera (27.3 px/m at the face, 11.85 m behind the front as the sheet sets it) the face's 48 px (x 528-576) is 1.8 m, its rear corner landing at x 606 against the print's 608 (a 1.3 m face would end at x 564). The sheet's trace steps 0.8-1.4 m (its south lines at -3028.0 to -3028.4 against -3027.0 to -3027.2), within a traced line's width of a 1:600 sheet; the photograph is the better measure. Across the wider face the print's openings stand toward the main wall's corner, not centred: the door's right jamb at x 557 (it is built 0.85 m wide at s 0.63 m, its left jamb the kit's 0.2 m pier from the corner, where the print's dark runs into the corner's shadow at x 528), the lower window x 534-557 (0.88 m at s 0.64), the upper x 536-556 (0.77 m at s 0.64), and the dormer's sash centred at x 547 (8.3 m from the party wall). The door is a door at grade, not an areaway's: on the re-solved camera its head (y 730, the top of a transom light over the leaf) reads 1.9-2.1 m over grade for an eye 1.3-0.5 m high, where the old camera put it on its own horizon at 1.7 m; the built 2.1 m head stands within about 3 px. The heights on this face still stand on the main eave at 13.0 m, which the re-solved camera reads at 10.9 m: that, the windows', the dormer's and the curb's heights and the door's transom are T-2847's. T-2865: its heights re-read on the re-solved camera (T-2846's handoff), against a cornice now at the main wall head's 10.9 m where the print's meets the main eave (y 486 px): the lower window 3.4-5.9 m (y 623-690 px), the upper 7.75-9.7 m (y 518-572), the dormer's sill 11.6 m and its sash's head 13.4 m, and the curb 14.3 m, so a 3.4 m lower face. The eye's height is soft (0.5-1.3 m) and each 0.4 m of it moves these by about 0.15 m. The door's transom light (y 731-745 px) is T-2866's."
         },
         "sash_by_storey": {
           "value": [
@@ -547,7 +547,7 @@
               0.75,
               1.0
             ],
-            "top_above_ridge_m": 0.9,
+            "top_above_ridge_m": 3.0,
             "cap_proud_m": 0.05,
             "cap_depth_m": 0.15,
             "stacks": [
@@ -563,7 +563,7 @@
                   0.6
                 ],
                 "in_rear_section": true,
-                "top_m": 19.6
+                "top_m": 17.1
               }
             ]
           },
@@ -571,7 +571,7 @@
           "sources": [
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "Two brick stacks: one against the north party wall beside the gable, where the photograph's tall stack rises left of its north rake — solved through the photograph's camera (eye 17.45 m before the face, f 674 px) from its edges at x 180 and 217 px, it stands about 1.6 m behind the gable's face and 1.0 m along the front from the party wall, its top at about 17.7 m, the ridge's 16.8 m and 0.9 (T-2730; built 0.3 m in from the party wall, the K01 rule for a stack standing in a hip); and the photograph's rear stack, which T-2820 stands in the rear section's south end wall where it rises past the attic: about 4.4 m from the rear wall by its place along that wall's head line (about x 580-602 px of the wall's 577-610), 1.0 m along it and 0.6 m through it, its outer face the step-out's; its top at 19.6 m, about 1.5 m over the attic's ridge, the height it stands over the wall's head line where it leaves it (about 30 px at the section's scale). Its depth through the wall and its plan are reconstructed (L-k01-1625-rear-section-2820). T-2846: the rear stack moved out with the step-out's outer face (now 1.8 m past the south wall, v 9.4), its outer face still the step-out's (v 8.8-9.4): on the re-solved camera it spans x 573-592 against the print's 577-605; its depth along the wall is T-2847's."
+          "note": "Two brick stacks: one against the north party wall beside the gable, where the photograph's tall stack rises left of its north rake — solved through the photograph's camera (eye 17.45 m before the face, f 674 px) from its edges at x 180 and 217 px, it stands about 1.6 m behind the gable's face and 1.0 m along the front from the party wall, its top at about 17.7 m, the ridge's 16.8 m and 0.9 (T-2730; built 0.3 m in from the party wall, the K01 rule for a stack standing in a hip); and the photograph's rear stack, which T-2820 stands in the rear section's south end wall where it rises past the attic: about 4.4 m from the rear wall by its place along that wall's head line (about x 580-602 px of the wall's 577-610), 1.0 m along it and 0.6 m through it, its outer face the step-out's; its top at 19.6 m, about 1.5 m over the attic's ridge, the height it stands over the wall's head line where it leaves it (about 30 px at the section's scale). Its depth through the wall and its plan are reconstructed (L-k01-1625-rear-section-2820). T-2846: the rear stack moved out with the step-out's outer face (now 1.8 m past the south wall, v 9.4), its outer face still the step-out's (v 8.8-9.4): on the re-solved camera it spans x 573-592 against the print's 577-605; its depth along the wall is T-2847's. T-2865: with the eave down to 10.9 m the hip's ridge is 14.7 m, so the party-wall stack stands 3.0 m over it to keep the photograph's 17.7 m top (it stood 0.9 m over the 16.8 m ridge); the rear stack comes down with the rear section's attic to 17.1 m, where its cap meets the print's (y about 348 px) at the stack's own scale on the re-solved camera (about 25.4 px/m, the 19.6 m top rendering at y 283)."
         },
         "rainwater": {
           "value": {
@@ -642,9 +642,9 @@
                 18.85
               ]
             ],
-            "foot_m": 11.22,
+            "foot_m": 10.45,
             "thickness_m": 0.6,
-            "proud_m": 0.2,
+            "proud_m": 0.02,
             "fabric": "front",
             "lights": {
               "variant": "k06.opening.sash_1over1_segmental",
@@ -668,13 +668,14 @@
               "ring_m": 0.09,
               "proud_m": 0.03,
               "bars_m": 0.04
-            }
+            },
+            "ledge_m": 13.0
           },
           "confidence": "inferred",
           "sources": [
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "T-2730: the photograph carries the whole front up as a steep coped wall gable in the front's rock-faced stone, read through its camera (38.6 px/m at the front's plane, grade y 795 px): the apex at 18.85 m (y 67 px), the rakes at about 60 (south) and 66 (north) degrees, so a straight outline from 3.2 m either side of the centre at the 13.0 m ledge to the apex (61 degrees); the south rake lands on the corner pier's flat top at 13.15 m, which the ledge between the outline and the eave's corner stands for, with no kneeler pinnacle and no finial. Three one-over-one lights under segmental stone heads, 11.53-13.34 m over grade (y 350-280 px), about 0.6 m of glass each in a 0.66 m opening, their centres 0.94 m apart (x 239, 275 and 311 px); an oval light near the apex, its glass about 0.45 by 0.85 m (17 by 32 px) centred at 15.56 m (y 194 px), in a dressed ring about 0.09 m wide, its tracery built as a cross of bars. The coping, 0.3 m, is the photograph's dressed stone along both rakes. Not read: the slab's thickness, and its foot at 11.22 m, where the gable's face steps 0.25 m proud of the wall below it as a band under the lights' sills (the photograph's sill course there; K01 stands the slab proud of the street fascia and its gutter, which the photograph does not show across the front), and the gable's centre, built on the front's (3.8 m from the party wall) where the photograph's apex and middle light stand about 0.3 m (12 px) north of it. L-k01-1625-mcbirney-wall-gable-2730."
+          "note": "T-2730: the photograph carries the whole front up as a steep coped wall gable in the front's rock-faced stone, read through its camera (38.6 px/m at the front's plane, grade y 795 px): the apex at 18.85 m (y 67 px), the rakes at about 60 (south) and 66 (north) degrees, so a straight outline from 3.2 m either side of the centre at the 13.0 m ledge to the apex (61 degrees); the south rake lands on the corner pier's flat top at 13.15 m, which the ledge between the outline and the eave's corner stands for, with no kneeler pinnacle and no finial. Three one-over-one lights under segmental stone heads, 11.53-13.34 m over grade (y 350-280 px), about 0.6 m of glass each in a 0.66 m opening, their centres 0.94 m apart (x 239, 275 and 311 px); an oval light near the apex, its glass about 0.45 by 0.85 m (17 by 32 px) centred at 15.56 m (y 194 px), in a dressed ring about 0.09 m wide, its tracery built as a cross of bars. The coping, 0.3 m, is the photograph's dressed stone along both rakes. Not read: the slab's thickness, and its foot at 11.22 m, where the gable's face steps 0.25 m proud of the wall below it as a band under the lights' sills (the photograph's sill course there; K01 stands the slab proud of the street fascia and its gutter, which the photograph does not show across the front), and the gable's centre, built on the front's (3.8 m from the party wall) where the photograph's apex and middle light stand about 0.3 m (12 px) north of it. L-k01-1625-mcbirney-wall-gable-2730. T-2865: the ledge stays at 13.0 m, where the south rake lands on the corner pier's top, but it now stands over a side wall whose eave is 10.9 m (storey_heights_m): `ledge_m` carries the front's full width up past the eave as the photograph's pier does, so from the south the pier's top reads as a block standing over the hip's slope. The slab's foot comes down to 10.45 m with the eave, since K01 stands the slab in front of the street fascia and its gutter (at 10.85-10.9 m), which the photograph does not show across the front: just over the top floor's narrow lights (heads 10.42 m), their flat arches running on into it. Its face stands 0.02 m proud of the fascia, the least K01 lays (0.07 m off the wall), where it stood 0.2 m: the photograph shows no step anywhere on the front, and the step is K01's, never read off it."
         }
       }
     }
