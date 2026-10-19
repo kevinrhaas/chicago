@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2073, ts: '2026-10-19T20:04:59.550Z', date: 'Oct 19, 2026, 3:04 PM CT', title: 'The build loop works one house at a time', kind: 'improvement',
+    items: [
+      'The automated runs no longer work on the same Prairie Avenue house at once, so two changes to one house stop colliding and having to be rebuilt.',
+      'While a house has work in flight, its other tickets wait, and the runs take the next house instead.',
+    ] },
   { v: 2072, ts: '2026-10-19T19:26:47.065Z', date: 'Oct 19, 2026, 2:26 PM CT', title: 'Keith\'s photographs checked again against the house as built', kind: 'chore',
     items: [
       'Every old picture of 1808 Prairie was compared again with the house as it now stands, after its loggia moved to the floor plan\'s place; ten of them still match.',
