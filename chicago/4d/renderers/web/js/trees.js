@@ -1573,7 +1573,7 @@ async function loadTimberZones(dataBase, problems = [], sceneId = null) {
       // dooryard shrubs are, and only VINE_EDGE reads it. Its recorded band is
       // the height it climbs to; the drawing caps it at its host's crown. The
       // grape's July fruit (hard green clusters a few centimetres across) is
-      // hung in the curtain by the vine's own template (`fruit`), not by the
+      // hung in the curtain by the vine's own template (`berries`), not by the
       // head path.
       if (form === 'vine_drape') {
         const dark = rgbHex(sp.july?.foliage_rgb);
@@ -1588,7 +1588,7 @@ async function loadTimberZones(dataBase, problems = [], sceneId = null) {
           conf: Math.max(0.5, CONFIDENCE_VALUE[sp.confidence] ?? 0.5),
           july: sp.july?.appearance ?? null,
           head: null,
-          fruit: sp.july?.phenology === 'fruiting' ? sp.july?.inflorescence ?? null : null,
+          berries: sp.july?.phenology === 'fruiting' ? sp.july?.inflorescence ?? null : null,
           fromRecord: true,
         };
         continue;

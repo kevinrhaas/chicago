@@ -991,13 +991,13 @@ export function buildVineTemplate(spec, seed, lod = 'near', { conf = 0.5 } = {})
   // The record's July fruit (the grape's "hard green fruit"), hung in its band
   // of the curtain at the two near levels: clusters a hand long, which the far
   // levels could not resolve.
-  const fruit = spec.fruit;
-  if (fruit && Array.isArray(fruit.rgb) && (lod === 'near' || lod === 'mid')) {
+  const bunch = spec.berries;
+  if (bunch && Array.isArray(bunch.rgb) && (lod === 'near' || lod === 'mid')) {
     const frnd = mulberry32(seed ^ 0x2810f);
-    const [fr, fg, fb] = fruit.rgb;
+    const [fr, fg, fb] = bunch.rgb;
     const fc = linearRGB((fr << 16) | (fg << 8) | fb).map((v) => v * LEAF_GAIN);
-    const band = fruit.height_frac ?? 0.6;
-    const fs = ((fruit.size_m?.[0] ?? 0.06) + (fruit.size_m?.[1] ?? 0.12)) * (lod === 'near' ? 1.4 : 2.4);
+    const band = bunch.height_frac ?? 0.6;
+    const fs = ((bunch.size_m?.[0] ?? 0.06) + (bunch.size_m?.[1] ?? 0.12)) * (lod === 'near' ? 1.4 : 2.4);
     for (const a of anchors) {
       if (a.c % stride || a.r % stride) continue;
       if (Math.abs(a.at[1] / H - band) > 0.17 || frnd() > 0.45) continue;
