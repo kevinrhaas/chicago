@@ -116,8 +116,10 @@ export function summary(record) {
     .filter((e) => e.k !== 'lost')
     .map((e) => `${words(e)} (${ago(at - e.t)} before)`);
   const s = record.last;
-  const gpu = s ? ` Last read: ${s.calls ?? '?'} draws, ${k(s.tris ?? 0)} triangles, ${s.tex ?? '?'} textures, `
-    + `${s.geo ?? '?'} geometries, ${s.w ?? '?'}×${s.h ?? '?'} at ${s.ratio ?? '?'}×.` : '';
+  // T-2828: the bytes behind the counts, where the page could read them.
+  const mb = (v) => (Number.isFinite(v) ? ` (${v} MB)` : '');
+  const gpu = s ? ` Last read: ${s.calls ?? '?'} draws, ${k(s.tris ?? 0)} triangles, ${s.tex ?? '?'} textures${mb(s.texMB)}, `
+    + `${s.geo ?? '?'} geometries${mb(s.geoMB)}, ${s.w ?? '?'}×${s.h ?? '?'} at ${s.ratio ?? '?'}×.` : '';
   const how = cut >= 0 ? 'Display reset' : 'Page stopped';
   return `${how} ${ago(at)} into the visit. Just before: ${steps.join('; ') || 'nothing logged'}.${gpu}`;
 }

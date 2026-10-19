@@ -405,3 +405,39 @@ All seventeen views were re-rendered. Every changed pixel sits in one cluster at
 four views (the 1965 porch, the mid-1950s, the owner's crop and Reed 1941) are unchanged to the
 pixel. The verdicts stand where they were, and the plate, Taylor 2135 and the 1887 view still
 read `matches`.
+
+## T-2815 — the 1888 plate's bow lights, bow cap band and south pedestal side (piece 5 of T-2751)
+
+Three items the 1888 plate (inland-1888, native 1559 px) drew and the model did not:
+
+- **The principal bow lights in three tiers.** T-2765 read them on the south light's column
+  with no camera (heights fitted to one scale, 77.8 px/m): the main sash's head at y 1480
+  (4.05 m), the lower bar's top at 1468 (4.21 m), the upper bar at 1418 (4.85 m) and the head at
+  1382 (5.32 m). The K06 transom sash learns `tiers` (`generators/archetypes/k06_windows.py`
+  `_tiers`): each fixed light stands on a bar in the wall's own stone (the `mullion` role), its
+  face on the wall's face, back to the frame's back. Keith's bow takes two 0.15 m bars under a
+  0.5 m light and a 0.45 m top light, so the sash runs from the 2.35 m sill to 4.05 m. In the
+  render the three tiers and their bars stand where the print's do.
+- **The carved band under the bow's cap.** Median intensity down the bow at x 400-640 puts the
+  print's dark band from y 1006 to 1054 and the cap's light top over it (975-1005, a fillet's
+  shadow at 993); the band's foot is about 9.54 m on T-2765's scale, 27 px over the second-storey
+  heads (y 1081). The model had plain coursed wall from the heads to the cap's seat at 9.8 m.
+  K08 learns `cap_band` (`generators/archetypes/k08_bays.py` `_cap_band`, sharing T-2778's
+  guilloche through `_guilloche`, so 1623's frieze keeps its bytes): Keith's bow carries a
+  dressed band 0.26 m deep, 0.045 m proud (clear of the 0.036 m rock face) under the seat, its
+  top 2 mm under the seat's underside, which the mitred moulding already draws. In the render
+  its foot stands 33 px over the heads against the print's 27. The print draws the carving
+  only as dark texture through the street tree, so the guilloche is reconstructed, and the
+  neutral review render lights the band where the print holds it in shadow (its own `not shown`
+  item in the match record).
+- **The south pedestal's side field.** The plate sees the south pedestal's south face (x
+  872-886, y 1590-1650) and draws a field in a border like its front's; K07's loggia now lays the
+  same 35 mm bead on that face, 0.1 m in from its arrises. No picture shows the north
+  pedestal's north side, so it stays plain.
+
+`inland-1888` now reads `matches`: every difference is fixed, or not shown (the colonnettes'
+capitals, the head bands' sections, the rear, the colour and the band's carving). The kit
+code is an input to every K01, K13 and K16 master, so all of them were re-emitted; only
+Keith's bytes changed. All sixteen views were re-rendered. In the three that see the bow's
+front (mid-1950s, Nickel 1967, the owner's view looking SW) the print shows the principal lights
+tiered as now built, and the verdicts stand where they were.

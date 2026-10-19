@@ -89,8 +89,9 @@ export class TreeInstances {
     this.name = name;
     this.level = LEVELS[level] ? level : 'full';
     this.cullPerM = cull ? CULL_PER_M[this.level] : Infinity;
-    this.distantM = cull ? DISTANT_M[this.level] : Infinity;
     this.dist = levels?.[this.level] ?? LEVELS[this.level];
+    // T-2833: a caller's own rings may name a `distant` reach without culling.
+    this.distantM = cull ? DISTANT_M[this.level] : (this.dist.distant ?? Infinity);
     variants ??= this.level === 'light' ? variantsForLight : variantsFor;
     this.shadowM = shadowM ?? SHADOW_M[this.level];
     this.variantsFor = variants;
@@ -101,7 +102,7 @@ export class TreeInstances {
   /** One stem. Its height in the spec's band, its turn and its variant are drawn
    *  from a stream seeded by where it stands, so the planter's own stream is not
    *  consumed and a re-grown species moves no other stem. */
-  add(spec, x, groundY, z, scale = 1, { yaw = null, variant = null } = {}) {
+  add(spec, x, groundY, z, scale = 1, { yaw = null, variant = null, lodK = 1 } = {}) {
     const rnd = mulberry32(hashString(`${Math.round(x * 100)},${Math.round(z * 100)}`));
     const key = archetypeKey(spec);
     let kind = this.kinds.get(key);
@@ -115,7 +116,7 @@ export class TreeInstances {
     kind.hMax = Math.max(kind.hMax, h);
     const turn = rnd() * Math.PI * 2;
     const pick = rnd();
-    this.stems.push({ kind, x, y: groundY, z, h, yaw: yaw ?? turn, pick, variant });
+    this.stems.push({ kind, x, y: groundY, z, h, yaw: yaw ?? turn, pick, variant, lodK });
     return h;
   }
 
@@ -291,7 +292,9 @@ export class TreeInstances {
       let t = 0; let nn = 0; let nm = 0; let nf = 0; let nd = 0; let ns = 0; let nc = 0;
       for (const s of this.stems) {
         const dx = s.x - eye.x; const dz = s.z - eye.z;
-        const d = Math.sqrt(dx * dx + dz * dz);
+        // `lodK` (T-2833): a stem the caller marks as background takes its levels and
+        // its shadow as if it stood that many times further off.
+        const d = Math.sqrt(dx * dx + dz * dz) * s.lodK;
         const shade = d <= shadeM;
         // Too small to see from here (CULL_PER_M): hidden in both sets.
         if (d > s.h * cullPerM) {

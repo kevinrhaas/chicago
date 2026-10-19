@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 7666628,
-      "sha256": "79c26558d834d058d1c9118eb0496c108abc1df2e86245ae48bb40f9a92d706c",
+      "bytes": 7996576,
+      "sha256": "37618537fd47c6cf160a1a3b8251c0a461c2a6b3878d18ec20cfea6dccb9a6c2",
       "generator": "chicago-4d generators/archetypes/k01_frontage.py (K01, T-2266)",
       "extensions_required": [],
       "nodes": [
@@ -19,8 +19,8 @@
       "mesh": {
         "draw_primitives": 26,
         "materials": 26,
-        "triangles": 64430,
-        "vertices": 138283
+        "triangles": 68218,
+        "vertices": 146005
       },
       "texture": {
         "images": 12,
@@ -82,13 +82,13 @@
           "uv_per_m_times_tile_m": 1
         },
         "bay_stone": {
-          "median_uv_per_m": 0.6226,
+          "median_uv_per_m": 0.6227,
           "fabric": "granite_rock_faced",
           "tile_m": [
             1.6,
             1.6
           ],
-          "uv_per_m_times_tile_m": 0.9962
+          "uv_per_m_times_tile_m": 0.9963
         },
         "bay_tin": {
           "median_uv_per_m": 1.0001
@@ -163,7 +163,7 @@
           "median_uv_per_m": 1
         },
         "glass": {
-          "median_uv_per_m": 1.0183
+          "median_uv_per_m": 1.0209
         },
         "limestone_trim": {
           "median_uv_per_m": 1.1111,
@@ -193,7 +193,7 @@
           "uv_per_m_times_tile_m": 1
         },
         "sash": {
-          "median_uv_per_m": 1.005
+          "median_uv_per_m": 1.0059
         },
         "slate_covering": {
           "median_uv_per_m": 0.4803,
@@ -261,8 +261,8 @@
     },
     "web": {
       "path": "assets/web/keith_house_1808_prairie__as_built_1886.glb",
-      "bytes": 3610656,
-      "sha256": "d6d51bf6636e1beb7ceccd273fefe845a555b676ace0534a40a30594b5b26fad",
+      "bytes": 3676600,
+      "sha256": "48c5a0bd1c8550b93560d4e9d40de0068b2d67ed338fa474741e8e3f2d2f071a",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -281,8 +281,8 @@
       "mesh": {
         "draw_primitives": 26,
         "materials": 26,
-        "triangles": 64430,
-        "vertices": 112126
+        "triangles": 68218,
+        "vertices": 118622
       },
       "texture": {
         "images": 12,
@@ -347,13 +347,13 @@
           "uv_per_m_times_tile_m": 1
         },
         "bay_stone": {
-          "median_uv_per_m": 0.6224,
+          "median_uv_per_m": 0.6226,
           "fabric": "granite_rock_faced",
           "tile_m": [
             1.6,
             1.6
           ],
-          "uv_per_m_times_tile_m": 0.9958
+          "uv_per_m_times_tile_m": 0.9961
         },
         "brick": {
           "median_uv_per_m": 1.2031,
@@ -452,7 +452,7 @@
             0.9,
             0.9
           ],
-          "uv_per_m_times_tile_m": 1.0002
+          "uv_per_m_times_tile_m": 1.0001
         },
         "yard_cinder": {
           "median_uv_per_m": 0.4995,
