@@ -1,0 +1,470 @@
+{
+  "variant": "trial-v5",
+  "scope": "Wholechangedgear actualGLBtriangles vsALL14172activehorse triangles over63 actualGLTFLoaderLBSidle/walk/trot poses; discrete only, no solidcontainment/pressure proof",
+  "parts": [
+    [
+      "breastcollar",
+      260
+    ],
+    [
+      "harness_saddle_pad",
+      180
+    ],
+    [
+      "breastcollar_support_l",
+      164
+    ],
+    [
+      "breastcollar_support_r",
+      164
+    ]
+  ],
+  "glb_sha256": "45930f41b73a8c0698417093dede9644e3e2cb7192a2eef0e222038638b193cd",
+  "horse_pose_sha256": "dd608d988c1b8db8a34c1b69fdbfae9f75e205d3736ce950f0f0cfc3f15b9e74",
+  "rows": [
+    {
+      "clip": "idle",
+      "phase": 0,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.05,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.1,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.15,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.2,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.25,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.3,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.35,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.4,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.45,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.5,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.55,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.6,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.65,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.7,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.75,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.8,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.85,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.9,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 0.95,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "idle",
+      "phase": 1,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.05,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.1,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.15,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.2,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.25,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.3,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.35,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.4,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.45,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.5,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.55,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.6,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.65,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.7,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.75,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.8,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.85,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.9,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 0.95,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "walk",
+      "phase": 1,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.05,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.1,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.15,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.2,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.25,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.3,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.35,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.4,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.45,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.5,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.55,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.6,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.65,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.7,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.75,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.8,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.85,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.9,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 0.95,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    },
+    {
+      "clip": "trot",
+      "phase": 1,
+      "SAT_intersections": 0,
+      "proper_crossings": 0,
+      "pairs": []
+    }
+  ],
+  "SAT_intersections": 0,
+  "proper_crossings": 0,
+  "elapsed_s": 63.47175049781799
+}

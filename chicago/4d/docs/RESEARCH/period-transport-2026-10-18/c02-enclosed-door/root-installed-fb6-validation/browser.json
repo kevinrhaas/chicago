@@ -1,0 +1,410 @@
+{
+  "assetSha256": "93d4020036e5c685ce95010fe64b26c55a1561db4517405f0590f7a398253331",
+  "scope": "Actual isolated exportedGLB, desktop/mobileviewport, closed/openengineering endpoints. No collisioncontinuum/physicalboarding/town/GPUhardware acceptance.",
+  "rows": [
+    {
+      "file": "c02-desktop-rear-closed.png",
+      "mobile": false,
+      "view": "rear",
+      "doorAngleDeg": 0,
+      "clay": false,
+      "shadows": true,
+      "camera": {
+        "position": [
+          3.3649988039242524,
+          1.525634321324787,
+          -4.904995052426576
+        ],
+        "target": [
+          0.23251316444624825,
+          1.0700000464916228,
+          0.7904333829879762
+        ],
+        "fov": 40
+      },
+      "framing": {
+        "scope": "Identical union of closed/open fullbody bounds including shafts/wheels",
+        "headerPx": 164,
+        "canvasPx": [
+          1280,
+          636
+        ],
+        "ndcMin": [
+          -0.361875875967468,
+          -0.8599999999999998,
+          0.9749617341845807
+        ],
+        "ndcMax": [
+          0.587186317312232,
+          0.6329718207656565,
+          0.9901131993534428
+        ],
+        "entireSelectedBoundsInside": true
+      },
+      "drawCalls": 64,
+      "triangles": 23026,
+      "sourceTriangles": 11512,
+      "glError": 0,
+      "bytes": 860956,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "c02-desktop-rear-open.png",
+      "mobile": false,
+      "view": "rear",
+      "doorAngleDeg": 70,
+      "clay": false,
+      "shadows": true,
+      "camera": {
+        "position": [
+          3.3649988039242524,
+          1.525634321324787,
+          -4.904995052426576
+        ],
+        "target": [
+          0.23251316444624825,
+          1.0700000464916228,
+          0.7904333829879762
+        ],
+        "fov": 40
+      },
+      "framing": {
+        "scope": "Identical union of closed/open fullbody bounds including shafts/wheels",
+        "headerPx": 164,
+        "canvasPx": [
+          1280,
+          636
+        ],
+        "ndcMin": [
+          -0.361875875967468,
+          -0.8599999999999998,
+          0.9749617341845807
+        ],
+        "ndcMax": [
+          0.587186317312232,
+          0.6329718207656565,
+          0.9901131993534428
+        ],
+        "entireSelectedBoundsInside": true
+      },
+      "drawCalls": 64,
+      "triangles": 23026,
+      "sourceTriangles": 11512,
+      "glError": 0,
+      "bytes": 860956,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "c02-desktop-side-closed.png",
+      "mobile": false,
+      "view": "side",
+      "doorAngleDeg": 0,
+      "clay": false,
+      "shadows": true,
+      "camera": {
+        "position": [
+          5.177473437994694,
+          1.6633952793174362,
+          0.7904333829879762
+        ],
+        "target": [
+          0.23251316444624825,
+          1.0700000464916228,
+          0.7904333829879762
+        ],
+        "fov": 40
+      },
+      "framing": {
+        "scope": "Identical union of closed/open fullbody bounds including shafts/wheels",
+        "headerPx": 164,
+        "canvasPx": [
+          1280,
+          636
+        ],
+        "ndcMin": [
+          -0.8600000000000002,
+          -0.820076597048845,
+          0.9743088402647015
+        ],
+        "ndcMax": [
+          0.8600000000000002,
+          0.6815456815900455,
+          0.9848958961185332
+        ],
+        "entireSelectedBoundsInside": true
+      },
+      "drawCalls": 64,
+      "triangles": 23026,
+      "sourceTriangles": 11512,
+      "glError": 0,
+      "bytes": 860956,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "c02-desktop-side-open.png",
+      "mobile": false,
+      "view": "side",
+      "doorAngleDeg": 70,
+      "clay": false,
+      "shadows": true,
+      "camera": {
+        "position": [
+          5.177473437994694,
+          1.6633952793174362,
+          0.7904333829879762
+        ],
+        "target": [
+          0.23251316444624825,
+          1.0700000464916228,
+          0.7904333829879762
+        ],
+        "fov": 40
+      },
+      "framing": {
+        "scope": "Identical union of closed/open fullbody bounds including shafts/wheels",
+        "headerPx": 164,
+        "canvasPx": [
+          1280,
+          636
+        ],
+        "ndcMin": [
+          -0.8600000000000002,
+          -0.820076597048845,
+          0.9743088402647015
+        ],
+        "ndcMax": [
+          0.8600000000000002,
+          0.6815456815900455,
+          0.9848958961185332
+        ],
+        "entireSelectedBoundsInside": true
+      },
+      "drawCalls": 64,
+      "triangles": 23026,
+      "sourceTriangles": 11512,
+      "glError": 0,
+      "bytes": 860956,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "c02-mobile-rear-closed.png",
+      "mobile": true,
+      "view": "rear",
+      "doorAngleDeg": 0,
+      "clay": false,
+      "shadows": true,
+      "camera": {
+        "position": [
+          6.12885222184562,
+          1.9276493639315313,
+          -9.930183085010881
+        ],
+        "target": [
+          0.23251316444624825,
+          1.0700000464916228,
+          0.7904333829879762
+        ],
+        "fov": 40
+      },
+      "framing": {
+        "scope": "Identical union of closed/open fullbody bounds including shafts/wheels",
+        "headerPx": 164,
+        "canvasPx": [
+          390,
+          616
+        ],
+        "ndcMin": [
+          -0.668291562000016,
+          -0.3524333334942538,
+          0.9905694131119123
+        ],
+        "ndcMax": [
+          0.8600000000000008,
+          0.2535674771154574,
+          0.9943031659012274
+        ],
+        "entireSelectedBoundsInside": true
+      },
+      "drawCalls": 64,
+      "triangles": 23026,
+      "sourceTriangles": 11512,
+      "glError": 0,
+      "bytes": 860956,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "c02-mobile-rear-open.png",
+      "mobile": true,
+      "view": "rear",
+      "doorAngleDeg": 70,
+      "clay": false,
+      "shadows": true,
+      "camera": {
+        "position": [
+          6.12885222184562,
+          1.9276493639315313,
+          -9.930183085010881
+        ],
+        "target": [
+          0.23251316444624825,
+          1.0700000464916228,
+          0.7904333829879762
+        ],
+        "fov": 40
+      },
+      "framing": {
+        "scope": "Identical union of closed/open fullbody bounds including shafts/wheels",
+        "headerPx": 164,
+        "canvasPx": [
+          390,
+          616
+        ],
+        "ndcMin": [
+          -0.668291562000016,
+          -0.3524333334942538,
+          0.9905694131119123
+        ],
+        "ndcMax": [
+          0.8600000000000008,
+          0.2535674771154574,
+          0.9943031659012274
+        ],
+        "entireSelectedBoundsInside": true
+      },
+      "drawCalls": 64,
+      "triangles": 23026,
+      "sourceTriangles": 11512,
+      "glError": 0,
+      "bytes": 860956,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "c02-mobile-side-closed.png",
+      "mobile": true,
+      "view": "side",
+      "doorAngleDeg": 0,
+      "clay": false,
+      "shadows": true,
+      "camera": {
+        "position": [
+          13.286388661371994,
+          2.6364651061227127,
+          0.7904333829879762
+        ],
+        "target": [
+          0.23251316444624825,
+          1.0700000464916228,
+          0.7904333829879762
+        ],
+        "fov": 40
+      },
+      "framing": {
+        "scope": "Identical union of closed/open fullbody bounds including shafts/wheels",
+        "headerPx": 164,
+        "canvasPx": [
+          390,
+          616
+        ],
+        "ndcMin": [
+          -0.86,
+          -0.2697556052076173,
+          0.9926038391518289
+        ],
+        "ndcMax": [
+          0.86,
+          0.23243370131872154,
+          0.9940427256757544
+        ],
+        "entireSelectedBoundsInside": true
+      },
+      "drawCalls": 64,
+      "triangles": 23026,
+      "sourceTriangles": 11512,
+      "glError": 0,
+      "bytes": 860956,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "c02-mobile-side-open.png",
+      "mobile": true,
+      "view": "side",
+      "doorAngleDeg": 70,
+      "clay": false,
+      "shadows": true,
+      "camera": {
+        "position": [
+          13.286388661371994,
+          2.6364651061227127,
+          0.7904333829879762
+        ],
+        "target": [
+          0.23251316444624825,
+          1.0700000464916228,
+          0.7904333829879762
+        ],
+        "fov": 40
+      },
+      "framing": {
+        "scope": "Identical union of closed/open fullbody bounds including shafts/wheels",
+        "headerPx": 164,
+        "canvasPx": [
+          390,
+          616
+        ],
+        "ndcMin": [
+          -0.86,
+          -0.2697556052076173,
+          0.9926038391518289
+        ],
+        "ndcMax": [
+          0.86,
+          0.23243370131872154,
+          0.9940427256757544
+        ],
+        "entireSelectedBoundsInside": true
+      },
+      "drawCalls": 64,
+      "triangles": 23026,
+      "sourceTriangles": 11512,
+      "glError": 0,
+      "bytes": 860956,
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "browserClosed": true,
+  "serverClosed": true
+}

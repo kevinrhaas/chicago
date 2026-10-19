@@ -87,43 +87,40 @@ def test_epoch_must_cover_scene_date() -> None:
           any("does not resolve" in e for e in rep.errors), rep.errors)
 
 
-def test_review_required_blocks_release() -> None:
+def test_review_annotations_do_not_block_release() -> None:
+    """T-2672: retain flags on every layer without making them release vetoes."""
     rep = V.Report()
     structures = {"x.json": {"id": "x", "review_required": True,
                              "phases": [phase("p", "1831-01-01", "1851-01-01")]}}
-    V.validate_scene(scene(released=True), structures, EPOCHS, {}, rep)
-    check("review_required blocks a scene from being released",
-          any("review_required" in e for e in rep.errors), rep.errors)
+    households = {"hh_x": {"id": "hh_x", "review_required": True,
+                            "touches_removal": True,
+                            "persons": [{"id": "p1", "review_required": True}]}}
+    released = scene(released=True)
+    released["cards"] = [{"id": "care", "kind": "project", "text": "Review context",
+                          "review_required": True,
+                          "review_note": "Review_required records care for Potawatomi history."}]
+    V.validate_scene(released, structures, EPOCHS, {}, rep, households=households)
+    V.check_scene_cards(released, set(), rep)
+    check("flagged structure, household, person and card no longer block release",
+          not rep.errors, rep.errors)
+    check("release validation does not erase review flags",
+          structures["x.json"]["review_required"] and households["hh_x"]["review_required"]
+          and households["hh_x"]["persons"][0]["review_required"]
+          and released["cards"][0]["review_required"])
 
-
-def test_a_flagged_household_blocks_release() -> None:
-    """AGENTS.md says ANY record, and until 2026-08-16 it meant any BUILDING.
-
-    ROADMAP K34. The seven households carrying the standing constraint were covered
-    only by the coincidence that each one lives or works in a building that is also
-    flagged — so the scene below is the shape the coincidence does not cover: a
-    flagged household attached to nothing. Before K34 this passed clean.
-    """
+    # Release permission is not permission to remove the flag's own explanation.
+    released["cards"][0]["review_note"] = ""
     rep = V.Report()
-    households = {"hh_x": {"id": "hh_x", "review_required": True, "touches_removal": True}}
-    V.validate_scene(scene(released=True), {}, EPOCHS, {}, rep, households=households)
-    check("a flagged household blocks a scene from being released",
-          any("hh_x" in e and "review_required" in e for e in rep.errors), rep.errors)
+    V.check_scene_cards(released, set(), rep)
+    check("a released scene still requires the flagged card's explanatory prose",
+          any("does not say" in e for e in rep.errors), rep.errors)
 
-    # and the person layer, which carries the same two fields and had never been read
+    # The owner lifted the review veto, not the independent date gate.
     rep = V.Report()
-    households = {"hh_y": {"id": "hh_y", "persons": [{"id": "p1", "review_required": True}]}}
-    V.validate_scene(scene(released=True), {}, EPOCHS, {}, rep, households=households)
-    check("a flagged PERSON blocks a scene from being released",
-          any("hh_y" in e for e in rep.errors), rep.errors)
-
-    # an unflagged household is not swept up with them
-    rep = V.Report()
-    households = {"hh_z": {"id": "hh_z", "review_required": False,
-                           "persons": [{"id": "p1", "review_required": False}]}}
-    V.validate_scene(scene(released=True), {}, EPOCHS, {}, rep, households=households)
-    check("an unflagged household does not block release",
-          not any("review_required" in e for e in rep.errors), rep.errors)
+    V.validate_scene(scene("1830-01-01", released=True), structures, EPOCHS, {}, rep,
+                     households=households)
+    check("released with flags still rejects an out-of-epoch date",
+          any("does not include target_date" in e for e in rep.errors), rep.errors)
 
 
 def test_exclusions_cannot_contradict_the_dataset() -> None:

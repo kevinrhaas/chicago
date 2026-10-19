@@ -1,0 +1,34 @@
+<!doctype html><meta charset="utf-8"><title>Discrete headstrap/neck boundary measurement</title>
+<script type="importmap">{"imports":{"three":"../../../renderers/web/vendor/three-0.185.1/three.module.js","three/addons/":"../../../renderers/web/vendor/three-0.185.1/addons/"}}</script>
+<pre id="result">Measuring original reconstructed geometry; no containment or photographic acceptance.</pre>
+<script type="module">
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {measureHeadFit} from './head-fit.js';
+const base='../../../renderers/web/transport/';
+async function exactInput(path) {
+ const response=await fetch(base+path);if(!response.ok)throw Error(`${path}: HTTP${response.status}`);
+ const bytes=await response.arrayBuffer();
+ const digest=await crypto.subtle.digest('SHA-256',bytes);
+ return {path:'renderers/web/transport/'+path,bytes:bytes.byteLength,sha256:[...new Uint8Array(digest)].map(x=>x.toString(16).padStart(2,'0')).join(''),buffer:bytes};
+}
+window.measurement=(async()=>{
+ const [horse,harness,manifest]=await Promise.all([
+  exactInput('horse/equine_light_harness_skinned_prototype_01.glb'),
+  exactInput('harness/light_breastcollar_harness_reconstructed_01.glb'),
+  exactInput('horse/manifest.json')]);
+ const loader=new GLTFLoader();
+ const gltf=await loader.parseAsync(horse.buffer,base+'horse/');
+ const gear=await loader.parseAsync(harness.buffer,base+'harness/');
+ gltf.scene.userData.clips=gltf.animations;
+ const join=JSON.parse(new TextDecoder().decode(manifest.buffer)).join_trial?.records;
+ if(!join)throw Error('Missing original shared-boundary metadata');
+ // Already-decoded exact hashed bytes, avoiding an unverified second GLB fetch.
+ const clipName=new URL(location.href).searchParams.get('clip')||'walk';
+ if(!['idle','walk','trot'].includes(clipName))throw Error('Unsupported clip');
+ const result=await measureHeadFit({T,loader:{loadAsync:async()=>gear},models:{integrated:gltf.scene},whichModels:['integrated'],measureDistance:true,joinRecords:join,clipName});
+ result.inputs=[horse,harness,manifest].map(({buffer,...receipt})=>receipt);
+ result.protocol={clip:clipName,phase_samples:21,phase_step:.05,SAT_projection_tolerance_m:1e-8,headstrap_triangles:564,join_pairs:24};
+ document.querySelector('#result').textContent=JSON.stringify(result,null,2);return result;
+})();window.measurement.catch(error=>{document.querySelector('#result').textContent=error.stack;});
+</script>

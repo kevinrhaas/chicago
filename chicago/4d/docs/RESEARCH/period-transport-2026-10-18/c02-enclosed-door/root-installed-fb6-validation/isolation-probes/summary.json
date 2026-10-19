@@ -1,0 +1,97 @@
+{
+  "utc": "2026-10-19T09:25:40.922962+00:00",
+  "scope": "Actual open-write probe rows for both flat commands and their observed nested checker children. buildOne itself filters child rows; inspected separately. This does not prove arbitrary syscalls or conditional execution paths.",
+  "rows": [
+    {
+      "probe_path": "/tmp/c4d-iso1-SS437s/probe.jsonl",
+      "argv": [
+        "tools/test_carriage_c02_door.py"
+      ],
+      "wrote": []
+    },
+    {
+      "probe_path": "/tmp/c4d-iso1-zdP2Rb/probe.jsonl",
+      "argv": [
+        "/workspace/chicago/chicago/4d/tools/transport/test_carriage_c02_door.py",
+        "--generator",
+        "/workspace/chicago/chicago/4d/tools/transport/generate_carriage_c02.py",
+        "--parameters",
+        "/workspace/chicago/chicago/4d/data/transport/studies/carriage-c02.json",
+        "--asset",
+        "/tmp/c02-hierarchy-controls-fg34zvxa/reparent-all-door-geometry.glb",
+        "--receipt",
+        "/tmp/c02-hierarchy-controls-fg34zvxa/reparent-all-door-geometry-receipt.json"
+      ],
+      "wrote": []
+    },
+    {
+      "probe_path": "/tmp/c4d-iso1-zdP2Rb/probe.jsonl",
+      "argv": [
+        "/workspace/chicago/chicago/4d/tools/transport/test_carriage_c02_door.py",
+        "--generator",
+        "/workspace/chicago/chicago/4d/tools/transport/generate_carriage_c02.py",
+        "--parameters",
+        "/workspace/chicago/chicago/4d/data/transport/studies/carriage-c02.json",
+        "--asset",
+        "/tmp/c02-hierarchy-controls-fg34zvxa/reparent-one-door-part.glb",
+        "--receipt",
+        "/tmp/c02-hierarchy-controls-fg34zvxa/reparent-one-door-part-receipt.json"
+      ],
+      "wrote": []
+    },
+    {
+      "probe_path": "/tmp/c4d-iso1-zdP2Rb/probe.jsonl",
+      "argv": [
+        "/workspace/chicago/chicago/4d/tools/transport/test_carriage_c02_door.py",
+        "--generator",
+        "/workspace/chicago/chicago/4d/tools/transport/generate_carriage_c02.py",
+        "--parameters",
+        "/workspace/chicago/chicago/4d/data/transport/studies/carriage-c02.json",
+        "--asset",
+        "/tmp/c02-hierarchy-controls-fg34zvxa/orphan-door-part.glb",
+        "--receipt",
+        "/tmp/c02-hierarchy-controls-fg34zvxa/orphan-door-part-receipt.json"
+      ],
+      "wrote": []
+    },
+    {
+      "probe_path": "/tmp/c4d-iso1-zdP2Rb/probe.jsonl",
+      "argv": [
+        "/workspace/chicago/chicago/4d/tools/transport/test_carriage_c02_door.py",
+        "--generator",
+        "/workspace/chicago/chicago/4d/tools/transport/generate_carriage_c02.py",
+        "--parameters",
+        "/workspace/chicago/chicago/4d/data/transport/studies/carriage-c02.json",
+        "--asset",
+        "/tmp/c02-hierarchy-controls-fg34zvxa/duplicate-active-pivot.glb",
+        "--receipt",
+        "/tmp/c02-hierarchy-controls-fg34zvxa/duplicate-active-pivot-receipt.json"
+      ],
+      "wrote": []
+    },
+    {
+      "probe_path": "/tmp/c4d-iso1-zdP2Rb/probe.jsonl",
+      "argv": [
+        "/workspace/chicago/chicago/4d/tools/transport/test_carriage_c02_door.py",
+        "--generator",
+        "/workspace/chicago/chicago/4d/tools/transport/generate_carriage_c02.py",
+        "--parameters",
+        "/workspace/chicago/chicago/4d/data/transport/studies/carriage-c02.json",
+        "--asset",
+        "/tmp/c02-hierarchy-controls-fg34zvxa/selected-empty-scene.glb",
+        "--receipt",
+        "/tmp/c02-hierarchy-controls-fg34zvxa/selected-empty-scene-receipt.json"
+      ],
+      "wrote": []
+    },
+    {
+      "probe_path": "/tmp/c4d-iso1-zdP2Rb/probe.jsonl",
+      "argv": [
+        "tools/test_carriage_c02_door_hierarchy.py"
+      ],
+      "wrote": []
+    }
+  ],
+  "observed_in_tree_writes": [],
+  "separate_direct_checks_passed": true
+}

@@ -643,7 +643,8 @@ class Opening:
         w, out = hb["width_m"], hb["proud_m"]
         s0, s1, head = holes[0][0], holes[-1][1], holes[0][2]
         if head.kind == "flat":
-            self.proud("head", box(s0 - 0.12, s1 + 0.12, head.spring, head.spring + w), out)
+            ear = hb.get("ear_m", 0.12)     # T-2883: a narrow K08 light's lintel stops at its jambs
+            self.proud("head", box(s0 - ear, s1 + ear, head.spring, head.spring + w), out)
             return
         inner = head.curve(0.0, s1, s0)
         outer = head.curve(-w, s1 + w, s0 - w)

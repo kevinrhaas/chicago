@@ -1,0 +1,47 @@
+{
+  "baseline_HEAD": "9cc7b9ac8a2fe304ce844ed266677af786f541bc",
+  "files": [
+    {
+      "path": "chicago/4d/tools/transport/horse_geometry.py",
+      "old_sha256": "89d7874bc95e48bed7dcf42957d514175398a66cd687d833984ba6c6f9b090e2",
+      "new_sha256": "d0dd08076180e9964648ff19b8eb8e2271f63c3abefae18f5122269e0f3f95db",
+      "bytes": 17848
+    },
+    {
+      "path": "chicago/4d/tools/transport/generate_horse.py",
+      "old_sha256": "890ddda0852b2fd0714ceb19fa08d2b6defffe65c705b62493fb06ac69ec2791",
+      "new_sha256": "890ddda0852b2fd0714ceb19fa08d2b6defffe65c705b62493fb06ac69ec2791",
+      "bytes": 8803
+    },
+    {
+      "path": "chicago/4d/data/transport/studies/horse.json",
+      "old_sha256": "d4826037c0964504fe50b23f927ab069ee004990263604fe14fde2a2b93a01bf",
+      "new_sha256": "0c10cfcfc536e7a6eb657756c84dfc3b45d8c5268f559996696ab681d800be01",
+      "bytes": 605
+    },
+    {
+      "path": "chicago/4d/renderers/web/transport/horse/equine_light_harness_skinned_prototype_01.glb",
+      "old_sha256": "6e9b37b755ae3eda7b5cf2f492d1781b0e507664a99c88a2e6dee086f77c2296",
+      "new_sha256": "89b048b7cda748e6f3a7111aa8e4f3198b01fabf6015cae644c78ed02d385bc6",
+      "bytes": 715316
+    },
+    {
+      "path": "chicago/4d/renderers/web/transport/horse/manifest.json",
+      "old_sha256": "f2b4710e2d65037ad84dd059c21d1bfb3ae6f1f751b9c794931dc73397d6d094",
+      "new_sha256": "6d5cccb73dbae3dae52a5db6ef0a8cf1be0e79095467c0348cdb0dd315bf2e6a",
+      "bytes": 17181
+    },
+    {
+      "path": "chicago/4d/renderers/web/transport/horse/demo.js",
+      "old_sha256": "651ee9497d08af854542b4134044c83898b4893106e326aaa42940aa66869686",
+      "new_sha256": "b33d0b8a60dbd9b7f0b2ed2160619b654ddd1659cd62e3ee645bdcb0127167f7",
+      "bytes": 5620
+    },
+    {
+      "path": "chicago/4d/renderers/web/transport/horse/index.html",
+      "old_sha256": "6dc9a3fc5d1baaec826056424e83d7e9eebef30392f5cf0a2b6ed381bfba10b5",
+      "new_sha256": "8f00c48ef866dad549a9368ebad4b115b6966e5554c3ec0ff70a55c593af238d",
+      "bytes": 1610
+    }
+  ]
+}

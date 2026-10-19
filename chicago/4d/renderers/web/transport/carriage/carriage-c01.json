@@ -1,0 +1,53 @@
+{
+  "asset_id": "carriage_c01_study",
+  "revision": 1,
+  "units": "m",
+  "up_axis": "+Y",
+  "forward_axis": "+Z",
+  "root_datum": "ground midpoint between axles",
+  "status": "original engineering study; unverified historical subtype; no photographic quality claim",
+  "scene_eligibility": "1904 development study only; not 1835 deployment",
+  "parameters": {
+    "body_envelope_m": [
+      1.2,
+      2.2
+    ],
+    "wheelbase_m": 1.9,
+    "track_m": 1.4,
+    "wheel_radius_front_m": 0.45,
+    "wheel_radius_rear_m": 0.55,
+    "shaft_length_m": 2.2,
+    "shaft_inner_spacing_tip_m": 0.773,
+    "steering_limit_deg": 12,
+    "rounded_upholstery_study": true
+  },
+  "wheel_roll_axis": "+X",
+  "wheel_roll_sign_forward": 1,
+  "socket_policy": "proposed empty boarding/seat/hitch transforms; no occupant or harness validated",
+  "license": "GPL-3.0-or-later",
+  "source_attributes": [
+    {
+      "attributes": "all geometry, proportions, materials",
+      "tier": "reconstructed",
+      "basis": "vehicle-master-spec.md engineering envelope; independently authored, no source image tracing",
+      "source_ids": []
+    }
+  ],
+  "liberties": [
+    "Original open carriage family study, not a named manufacturer or owner replica",
+    "Spring forms, bodywork, brass lamps and upholstery are unmeasured engineering approximations",
+    "No brake, reins, harness, horse, doors, cloth hood or physics",
+    "Steering bound provisional; swept collision and coupling remain integration gates"
+  ],
+  "statistics": {
+    "triangles": 10416,
+    "meshes": 27,
+    "nodes": 49
+  },
+  "upholstery_refinement": {
+    "grade": "reconstructed",
+    "radius_m": 0.02,
+    "quarter_edge_samples": 4,
+    "note": "Original three-cushion edge rounding; same axis envelope and seat datums; not source-attested interior, measured compression or photographic cloth/leather"
+  }
+}

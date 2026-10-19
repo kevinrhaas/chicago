@@ -1,0 +1,19 @@
+{
+  "scope": "Source-only equal-center/grid-color follow-up; no browser pixel proof",
+  "source_file": "/workspace/chicago/chicago/4d/renderers/web/transport/horse/demo.js",
+  "current_sha256": "047e2ea0d6da9318d3c5850cda572b76370a1d6a74bf57a8da7f2444b056b47d",
+  "next_sha256": "b3fe653d64a12c6621673e1dad1d7af2551fe7b871386f21d679ff1c44e38230",
+  "patch_sha256": "34ae25b4a1bb8767f55f3d5bd88f4f4c392f2efd19ad45263b811491e3553416",
+  "prior_distance_patch": "/workspace/shared/horse-grid-continuity/continuous-grid.patch",
+  "prior_patch_sha256": "f9b88c99b32e8115760cf5d6950aa8c456374e716f26680746203e72eb557d38",
+  "exact_change": {
+    "from": "new THREE.GridHelper(12,48,0x7e8a7c,0xa3ad9f)",
+    "to": "new THREE.GridHelper(12,48,0xa3ad9f,0xa3ad9f)"
+  },
+  "geometry_extent_changed": false,
+  "divisions_changed": false,
+  "timing_or_gait_changed": false,
+  "browser_run": false,
+  "app_writes": false,
+  "remaining_limit": "Finite debug-grid edges still move/reset within0.25m as mesh offset wraps; not an infinite ground shader."
+}

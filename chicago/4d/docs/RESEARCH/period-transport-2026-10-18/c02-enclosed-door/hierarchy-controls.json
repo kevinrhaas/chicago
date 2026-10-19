@@ -1,0 +1,94 @@
+{
+  "rows": [
+    {
+      "name": "reparent-all-door-geometry",
+      "checker": "test_carriage_c02_door.py",
+      "returncode": 1,
+      "expected_success": false,
+      "receipt_survives": true,
+      "receipt": "reparent-all-door-geometry-receipt.json",
+      "log": "reparent-all-door-geometry.log",
+      "verified_receipt_stage": "closed_geometry_and_actual_ancestry_binding",
+      "verified_rejection_reason": "Actual door ancestry mismatch for source part door_lower_panel at exported node 35"
+    },
+    {
+      "name": "reparent-one-door-part",
+      "checker": "test_carriage_c02_door.py",
+      "returncode": 1,
+      "expected_success": false,
+      "receipt_survives": true,
+      "receipt": "reparent-one-door-part-receipt.json",
+      "log": "reparent-one-door-part.log",
+      "verified_receipt_stage": "closed_geometry_and_actual_ancestry_binding",
+      "verified_rejection_reason": "Actual door ancestry mismatch for source part door_lower_panel at exported node 35"
+    },
+    {
+      "name": "orphan-door-part",
+      "checker": "test_carriage_c02_door.py",
+      "returncode": 1,
+      "expected_success": false,
+      "receipt_survives": true,
+      "receipt": "orphan-door-part-receipt.json",
+      "log": "orphan-door-part.log",
+      "verified_receipt_stage": "closed_geometry_and_actual_ancestry_binding",
+      "verified_rejection_reason": "Active exported triangle missing for source part door_lower_panel"
+    },
+    {
+      "name": "duplicate-active-pivot",
+      "checker": "test_carriage_c02_door.py",
+      "returncode": 1,
+      "expected_success": false,
+      "receipt_survives": true,
+      "receipt": "duplicate-active-pivot-receipt.json",
+      "log": "duplicate-active-pivot.log",
+      "verified_receipt_stage": "active_export_decode",
+      "verified_rejection_reason": "One active exported door pivot required"
+    },
+    {
+      "name": "selected-empty-scene",
+      "checker": "test_carriage_c02_door.py",
+      "returncode": 1,
+      "expected_success": false,
+      "receipt_survives": true,
+      "receipt": "selected-empty-scene-receipt.json",
+      "log": "selected-empty-scene.log",
+      "verified_receipt_stage": "active_export_decode",
+      "verified_rejection_reason": "One active exported door pivot required"
+    }
+  ],
+  "fixtures": {
+    "reparent-all-door-geometry": {
+      "path": "/workspace/shared/c02-metadata-next/negative-controls/reparent-all-door-geometry.glb",
+      "sha256": "c429ce72cc1814ede4806b04a38a7bebf347b125f1140452c22c2aef1bedb139"
+    },
+    "reparent-one-door-part": {
+      "path": "/workspace/shared/c02-metadata-next/negative-controls/reparent-one-door-part.glb",
+      "sha256": "ffb5a3d240cf50b5d9c641e1e27e1b731c961e16601f19672eb4b7859358d15f"
+    },
+    "orphan-door-part": {
+      "path": "/workspace/shared/c02-metadata-next/negative-controls/orphan-door-part.glb",
+      "sha256": "2c236f4c0f0c127c1a011aa9cd6be2d664558893c1c73d5c4c154d14f628a3fd"
+    },
+    "duplicate-active-pivot": {
+      "path": "/workspace/shared/c02-metadata-next/negative-controls/duplicate-active-pivot.glb",
+      "sha256": "8d686e36584e551641d41d93002f5998c038b544a318a7252d4938759e972215"
+    },
+    "selected-empty-scene": {
+      "path": "/workspace/shared/c02-metadata-next/negative-controls/selected-empty-scene.glb",
+      "sha256": "d7549cc49c400ed6e1387e691f1ac1ee7c72900c149442ece8f4f0eb791afacd"
+    },
+    "positive-matrix-encoding": {
+      "path": "/workspace/shared/c02-metadata-next/negative-controls/positive-matrix-encoding.glb",
+      "sha256": "ffc8831f25f621b7431efffc684cfc3cb64bcb6d8b1dbcf65b61f93df546f9cd"
+    },
+    "positive-moving-child-TRS": {
+      "path": "/workspace/shared/c02-metadata-next/negative-controls/positive-moving-child-TRS.glb",
+      "sha256": "d358c4b78d5117d89a8266e507176847f5061343f14f471afa5503a1899394f6"
+    }
+  },
+  "baseline_sha256": "93d4020036e5c685ce95010fe64b26c55a1561db4517405f0590f7a398253331",
+  "new_checker_sha256": "f7704aacc54683623a87ea911ece369993fd2997d1d2caabddc98a63c4c0acec",
+  "original_false_positive_reproduced": false,
+  "changed_asset_geometry": "Only synthetic controls; baseline production bytes untouched",
+  "one_checker_process_at_a_time": true
+}

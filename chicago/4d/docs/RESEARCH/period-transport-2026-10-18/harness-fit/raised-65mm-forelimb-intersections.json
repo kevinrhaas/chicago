@@ -1,0 +1,2192 @@
+{
+  "asset": "equine_light_harness_skinned_prototype_01",
+  "upper_forelimb_ranges": [
+    {
+      "original_node": "fore_l_upper_mesh",
+      "material": 0,
+      "vertex_start": 242,
+      "vertex_count": 98,
+      "joint": "fore_l_upper"
+    },
+    {
+      "original_node": "fore_r_upper_mesh",
+      "material": 0,
+      "vertex_start": 438,
+      "vertex_count": 98,
+      "joint": "fore_r_upper"
+    }
+  ],
+  "samples": [
+    {
+      "route_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "distance_m": 0.18356648848588197,
+      "point_m": [
+        0.22347009769440457,
+        1.2085677117862128,
+        0.3284992814826024
+      ],
+      "normal": [
+        0.1305254827229302,
+        -0.28466339323735995,
+        -0.9496998741236825
+      ],
+      "signed_triangle_plane_distance_m": 0.08808975133006064,
+      "signed_nearest_distance_m": 0.18356648848588197,
+      "suggested_outer_route_10mm_m": [
+        0.22477535252163386,
+        1.2057210778538392,
+        0.31900228274136555
+      ],
+      "triangle_vertex_ids": [
+        260,
+        261,
+        285
+      ]
+    },
+    {
+      "route_m": [
+        0.24833,
+        1.337846,
+        0.297953
+      ],
+      "distance_m": 0.13253344303410955,
+      "point_m": [
+        0.2478934638915503,
+        1.2115604241527778,
+        0.3381634002919275
+      ],
+      "normal": [
+        0.382682962993995,
+        -0.2652641398766391,
+        -0.8849794833382544
+      ],
+      "signed_triangle_plane_distance_m": 0.0022533995506702556,
+      "signed_nearest_distance_m": 0.13253344303410955,
+      "suggested_outer_route_10mm_m": [
+        0.2517202935214902,
+        1.2089077827540113,
+        0.32931360545854493
+      ],
+      "triangle_vertex_ids": [
+        261,
+        262,
+        286
+      ]
+    },
+    {
+      "route_m": [
+        0.217892,
+        1.33606,
+        0.412946
+      ],
+      "distance_m": 0.09680569277753137,
+      "point_m": [
+        0.21789200531032077,
+        1.2435868298823463,
+        0.4415826017978605
+      ],
+      "normal": [
+        -5.485545994755067e-08,
+        0.9552451665230661,
+        -0.29581526639833233
+      ],
+      "signed_triangle_plane_distance_m": 0.09680569277753136,
+      "signed_nearest_distance_m": 0.09680569277753137,
+      "suggested_outer_route_10mm_m": [
+        0.21789200476176618,
+        1.2531392815475768,
+        0.4386244491338772
+      ],
+      "triangle_vertex_ids": [
+        338,
+        244,
+        243
+      ]
+    },
+    {
+      "route_m": [
+        0.15347,
+        1.332872,
+        0.553992
+      ],
+      "distance_m": 0.06671775823826044,
+      "point_m": [
+        0.16652991486304336,
+        1.2714322486760563,
+        0.531500782928419
+      ],
+      "normal": [
+        -0.13052706408967463,
+        0.2846631608464842,
+        0.9496997264383193
+      ],
+      "signed_triangle_plane_distance_m": 0.04055420885797535,
+      "signed_nearest_distance_m": 0.06671775823826044,
+      "suggested_outer_route_10mm_m": [
+        0.1652246442221466,
+        1.274278880284521,
+        0.5409977801928022
+      ],
+      "triangle_vertex_ids": [
+        248,
+        249,
+        273
+      ]
+    },
+    {
+      "route_m": [
+        0,
+        1.329404,
+        0.698044
+      ],
+      "distance_m": 0.2338625758341827,
+      "point_m": [
+        0.1400000067816258,
+        1.2681812924054099,
+        0.5210030935638577
+      ],
+      "normal": [
+        -0.38268482876378895,
+        0.26526386945174474,
+        0.8849787575967671
+      ],
+      "signed_triangle_plane_distance_m": 0.2264934923586722,
+      "signed_nearest_distance_m": 0.2338625758341827,
+      "suggested_outer_route_10mm_m": [
+        0.13617315849398792,
+        1.2708339310999273,
+        0.5298528811398253
+      ],
+      "triangle_vertex_ids": [
+        249,
+        250,
+        274
+      ]
+    },
+    {
+      "route_m": [
+        -0.15347,
+        1.332872,
+        0.553992
+      ],
+      "distance_m": 0.06671775823826044,
+      "point_m": [
+        -0.16652991486304336,
+        1.2714322486760563,
+        0.531500782928419
+      ],
+      "normal": [
+        0.3826848282081547,
+        0.26526370405738214,
+        0.8849788074123881
+      ],
+      "signed_triangle_plane_distance_m": 0.04119981774959161,
+      "signed_nearest_distance_m": 0.06671775823826044,
+      "suggested_outer_route_10mm_m": [
+        -0.1627030665809618,
+        1.27408488571663,
+        0.5403505710025428
+      ],
+      "triangle_vertex_ids": [
+        442,
+        443,
+        467
+      ]
+    },
+    {
+      "route_m": [
+        -0.217892,
+        1.33606,
+        0.412946
+      ],
+      "distance_m": 0.09680569277753137,
+      "point_m": [
+        -0.21789200531032077,
+        1.2435868298823463,
+        0.4415826017978605
+      ],
+      "normal": [
+        5.485545994755067e-08,
+        0.9552451665230661,
+        -0.29581526639833233
+      ],
+      "signed_triangle_plane_distance_m": 0.09680569277753136,
+      "signed_nearest_distance_m": 0.09680569277753137,
+      "suggested_outer_route_10mm_m": [
+        -0.21789200476176618,
+        1.2531392815475768,
+        0.4386244491338772
+      ],
+      "triangle_vertex_ids": [
+        534,
+        449,
+        448
+      ]
+    },
+    {
+      "route_m": [
+        -0.24833,
+        1.337846,
+        0.297953
+      ],
+      "distance_m": 0.13253344303410955,
+      "point_m": [
+        -0.2478934638915503,
+        1.2115604241527778,
+        0.3381634002919275
+      ],
+      "normal": [
+        -0.38268296281985376,
+        -0.2652640879849841,
+        -0.8849794989675823
+      ],
+      "signed_triangle_plane_distance_m": 0.0022534067322233092,
+      "signed_nearest_distance_m": 0.13253344303410955,
+      "suggested_outer_route_10mm_m": [
+        -0.25172029351974884,
+        1.208907783272928,
+        0.3293136053022517
+      ],
+      "triangle_vertex_ids": [
+        454,
+        455,
+        479
+      ]
+    },
+    {
+      "route_m": [
+        -0.238396,
+        1.337854,
+        0.199043
+      ],
+      "distance_m": 0.18356648848588197,
+      "point_m": [
+        -0.22347009769440457,
+        1.2085677117862128,
+        0.3284992814826024
+      ],
+      "normal": [
+        -0.38268296281985376,
+        -0.2652640879849841,
+        -0.8849794989675823
+      ],
+      "signed_triangle_plane_distance_m": 0.08598303430975063,
+      "signed_nearest_distance_m": 0.18356648848588197,
+      "suggested_outer_route_10mm_m": [
+        -0.2272969273226031,
+        1.205915070906363,
+        0.31964948649292657
+      ],
+      "triangle_vertex_ids": [
+        454,
+        455,
+        479
+      ]
+    }
+  ],
+  "width_aware": {
+    "method": "all actual breastcollar mesh vertices against actual skinned upper forelimb triangles; sign from nearest face normal, not a watertight inside test; separate full triangle-pair AABB+SAT intersection test included for selected upper limbs only",
+    "phases": [
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "idle",
+        "phase": 0,
+        "upper_forelimb_max_y_m": 1.2725410521125626,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.027750247707383657,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 53,
+          "vertex_m": [
+            0.15127728879451752,
+            1.3002912998199463,
+            0.5515555143356323
+          ],
+          "distance_m": 0.03815074188442588,
+          "point_m": [
+            0.16330288720810204,
+            1.27103681097766,
+            0.5302238718366632
+          ],
+          "normal": [
+            -0.38268482876378895,
+            0.26526386945174474,
+            0.8849787575967671
+          ],
+          "signed_triangle_plane_distance_m": 0.031240223455058544,
+          "signed_nearest_distance_m": 0.03815074188442588,
+          "suggested_outer_route_10mm_m": [
+            0.15947603892046416,
+            1.2736894496721773,
+            0.5390736594126309
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.25784743218805894,
+          "point_m": [
+            0.1400000067816258,
+            1.2681812924054099,
+            0.5210030935638577
+          ],
+          "normal": [
+            -0.38268482876378895,
+            0.26526386945174474,
+            0.8849787575967671
+          ],
+          "signed_triangle_plane_distance_m": 0.25229539758320707,
+          "signed_nearest_distance_m": 0.25784743218805894,
+          "suggested_outer_route_10mm_m": [
+            0.13617315849398792,
+            1.2708339310999273,
+            0.5298528811398253
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 0,
+        "upper_forelimb_max_y_m": 1.2779915065786025,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.02229979324134379,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 53,
+          "vertex_m": [
+            0.15127728879451752,
+            1.3002912998199463,
+            0.5515555143356323
+          ],
+          "distance_m": 0.03545238160859764,
+          "point_m": [
+            0.16364067235074756,
+            1.276283633289169,
+            0.5285848796793986
+          ],
+          "normal": [
+            -0.38266340942943317,
+            0.31420231948868926,
+            0.8688185181680749
+          ],
+          "signed_triangle_plane_distance_m": 0.032231591776601204,
+          "signed_nearest_distance_m": 0.03545238160859764,
+          "suggested_outer_route_10mm_m": [
+            0.15981403825645324,
+            1.2794256564840558,
+            0.5372730648610794
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.2575679930377157,
+          "point_m": [
+            0.1400000067816258,
+            1.2729015110811546,
+            0.5193956797735969
+          ],
+          "normal": [
+            -0.38266340942943317,
+            0.31420231948868926,
+            0.8688185181680749
+          ],
+          "signed_triangle_plane_distance_m": 0.253181834385591,
+          "signed_nearest_distance_m": 0.2575679930377157,
+          "suggested_outer_route_10mm_m": [
+            0.13617337268733148,
+            1.2760435342760414,
+            0.5280838649552777
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 0.05,
+        "upper_forelimb_max_y_m": 1.291981399000832,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.008309900819114313,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 110,
+          "vertex_m": [
+            -0.14505593478679657,
+            1.3020446300506592,
+            0.5468416810035706
+          ],
+          "distance_m": 0.03238498294642399,
+          "point_m": [
+            -0.15743654238326266,
+            1.2877717598085652,
+            0.5205397257333849
+          ],
+          "normal": [
+            0.38229470791903597,
+            0.44072495779004106,
+            0.8121651727807992
+          ],
+          "signed_triangle_plane_distance_m": 0.03238498294642399,
+          "signed_nearest_distance_m": 0.03238498294642399,
+          "suggested_outer_route_10mm_m": [
+            -0.1536135953040723,
+            1.2921790093864656,
+            0.5286613774611929
+          ],
+          "triangle_vertex_ids": [
+            442,
+            443,
+            467
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.25566124245788363,
+          "point_m": [
+            -0.14000000649467964,
+            1.2517885899491974,
+            0.5318538915667408
+          ],
+          "normal": [
+            0.6083035665157875,
+            0.37848449035666837,
+            0.6976505296519352
+          ],
+          "signed_triangle_plane_distance_m": 0.2549534360858946,
+          "signed_nearest_distance_m": 0.25566124245788363,
+          "suggested_outer_route_10mm_m": [
+            -0.13391697082952175,
+            1.255573434852764,
+            0.5388303968632602
+          ],
+          "triangle_vertex_ids": [
+            441,
+            442,
+            466
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 50,
+        "triangle_intersections": 4,
+        "intersecting_pairs": [
+          {
+            "collar_triangle": 41,
+            "upper_forelimb_triangle": 202,
+            "upper_forelimb_vertex_ids": [
+              443,
+              444,
+              468
+            ]
+          },
+          {
+            "collar_triangle": 41,
+            "upper_forelimb_triangle": 346,
+            "upper_forelimb_vertex_ids": [
+              534,
+              444,
+              443
+            ]
+          },
+          {
+            "collar_triangle": 46,
+            "upper_forelimb_triangle": 202,
+            "upper_forelimb_vertex_ids": [
+              443,
+              444,
+              468
+            ]
+          },
+          {
+            "collar_triangle": 46,
+            "upper_forelimb_triangle": 346,
+            "upper_forelimb_vertex_ids": [
+              534,
+              444,
+              443
+            ]
+          }
+        ],
+        "clip": "walk",
+        "phase": 0.1,
+        "upper_forelimb_max_y_m": 1.3040037030868306,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": -0.0037124032668842677,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 110,
+          "vertex_m": [
+            -0.14505593478679657,
+            1.3020446300506592,
+            0.5468416810035706
+          ],
+          "distance_m": 0.03123743716076372,
+          "point_m": [
+            -0.15697433879600173,
+            1.2848471086490139,
+            0.5236474061952051
+          ],
+          "normal": [
+            0.38154231244602493,
+            0.5505420087165949,
+            0.7425152930759314
+          ],
+          "signed_triangle_plane_distance_m": 0.031237437160763718,
+          "signed_nearest_distance_m": 0.03123743716076372,
+          "suggested_outer_route_10mm_m": [
+            -0.15315891567154147,
+            1.29035252873618,
+            0.5310725591259644
+          ],
+          "triangle_vertex_ids": [
+            442,
+            443,
+            467
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.24885185033577067,
+          "point_m": [
+            -0.14000000617186673,
+            1.2313164619422654,
+            0.5545837066951428
+          ],
+          "normal": [
+            0.6074211047572137,
+            0.47292565287419713,
+            0.6382639958113262
+          ],
+          "signed_triangle_plane_distance_m": 0.24847140845723728,
+          "signed_nearest_distance_m": 0.24885185033577067,
+          "suggested_outer_route_10mm_m": [
+            -0.1339257951242946,
+            1.2360457184710074,
+            0.5609663466532561
+          ],
+          "triangle_vertex_ids": [
+            441,
+            442,
+            466
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 62,
+        "triangle_intersections": 7,
+        "intersecting_pairs": [
+          {
+            "collar_triangle": 41,
+            "upper_forelimb_triangle": 202,
+            "upper_forelimb_vertex_ids": [
+              443,
+              444,
+              468
+            ]
+          },
+          {
+            "collar_triangle": 41,
+            "upper_forelimb_triangle": 346,
+            "upper_forelimb_vertex_ids": [
+              534,
+              444,
+              443
+            ]
+          },
+          {
+            "collar_triangle": 46,
+            "upper_forelimb_triangle": 200,
+            "upper_forelimb_vertex_ids": [
+              442,
+              443,
+              467
+            ]
+          },
+          {
+            "collar_triangle": 46,
+            "upper_forelimb_triangle": 202,
+            "upper_forelimb_vertex_ids": [
+              443,
+              444,
+              468
+            ]
+          },
+          {
+            "collar_triangle": 46,
+            "upper_forelimb_triangle": 203,
+            "upper_forelimb_vertex_ids": [
+              443,
+              468,
+              467
+            ]
+          },
+          {
+            "collar_triangle": 46,
+            "upper_forelimb_triangle": 344,
+            "upper_forelimb_vertex_ids": [
+              534,
+              443,
+              442
+            ]
+          },
+          {
+            "collar_triangle": 46,
+            "upper_forelimb_triangle": 346,
+            "upper_forelimb_vertex_ids": [
+              534,
+              444,
+              443
+            ]
+          }
+        ],
+        "clip": "walk",
+        "phase": 0.15,
+        "upper_forelimb_max_y_m": 1.3050694507437948,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": -0.004778150923848479,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 110,
+          "vertex_m": [
+            -0.14505593478679657,
+            1.3020446300506592,
+            0.5468416810035706
+          ],
+          "distance_m": 0.03101177138116808,
+          "point_m": [
+            -0.15688543402868413,
+            1.2846678772343043,
+            0.5240416508842194
+          ],
+          "normal": [
+            0.381451904068629,
+            0.5603276447119311,
+            0.7352056688124743
+          ],
+          "signed_triangle_plane_distance_m": 0.031011771381168084,
+          "signed_nearest_distance_m": 0.03101177138116808,
+          "suggested_outer_route_10mm_m": [
+            -0.15307091498799785,
+            1.2902711536814235,
+            0.5313937075723442
+          ],
+          "triangle_vertex_ids": [
+            442,
+            443,
+            467
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.24796796047625122,
+          "point_m": [
+            -0.14000000614192507,
+            1.2297954562064346,
+            0.5570645853642505
+          ],
+          "normal": [
+            0.6073150553922264,
+            0.4813508296605326,
+            0.6320362349415214
+          ],
+          "signed_triangle_plane_distance_m": 0.24762316099653064,
+          "signed_nearest_distance_m": 0.24796796047625122,
+          "suggested_outer_route_10mm_m": [
+            -0.1339268555880028,
+            1.23460896450304,
+            0.5633849477136658
+          ],
+          "triangle_vertex_ids": [
+            441,
+            442,
+            466
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 0.2,
+        "upper_forelimb_max_y_m": 1.2946629439574187,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.005628355862527634,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 110,
+          "vertex_m": [
+            -0.14505593478679657,
+            1.3020446300506592,
+            0.5468416810035706
+          ],
+          "distance_m": 0.032332900022965176,
+          "point_m": [
+            -0.15741246549302518,
+            1.287005647234749,
+            0.5210238273231452
+          ],
+          "normal": [
+            0.3821658650307313,
+            0.46512941323630846,
+            0.798501021006085
+          ],
+          "signed_triangle_plane_distance_m": 0.03233290002296517,
+          "signed_nearest_distance_m": 0.032332900022965176,
+          "suggested_outer_route_10mm_m": [
+            -0.15359080684271786,
+            1.2916569413671122,
+            0.529008837533206
+          ],
+          "triangle_vertex_ids": [
+            442,
+            443,
+            467
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.2546090061046656,
+          "point_m": [
+            -0.14000000642488816,
+            1.2467847335979576,
+            0.536111059909792
+          ],
+          "normal": [
+            0.6081524526641042,
+            0.3994582713729507,
+            0.6859910230829324
+          ],
+          "signed_triangle_plane_distance_m": 0.25395790328185947,
+          "signed_nearest_distance_m": 0.2546090061046656,
+          "suggested_outer_route_10mm_m": [
+            -0.13391848189824712,
+            1.2507793163116872,
+            0.5429709701406213
+          ],
+          "triangle_vertex_ids": [
+            441,
+            442,
+            466
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 0.25,
+        "upper_forelimb_max_y_m": 1.2816938482999278,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.01859745152001846,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 101,
+          "vertex_m": [
+            -0.15127728879451752,
+            1.3002912998199463,
+            0.5515555143356323
+          ],
+          "distance_m": 0.03413986337179388,
+          "point_m": [
+            -0.16380060078129116,
+            1.2798446465364628,
+            0.5272526071549739
+          ],
+          "normal": [
+            0.3826117649041872,
+            0.34756176458493165,
+            0.8560426725085096
+          ],
+          "signed_triangle_plane_distance_m": 0.032702367009426116,
+          "signed_nearest_distance_m": 0.03413986337179388,
+          "suggested_outer_route_10mm_m": [
+            -0.1599744831322493,
+            1.283320264182312,
+            0.535813033880059
+          ],
+          "triangle_vertex_ids": [
+            442,
+            443,
+            467
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.2575379772055641,
+          "point_m": [
+            -0.1400000067521179,
+            1.2724861803533942,
+            0.5196023594780289
+          ],
+          "normal": [
+            0.6086754844323669,
+            0.29845847936156683,
+            0.7351439932069125
+          ],
+          "signed_triangle_plane_distance_m": 0.2567212989281794,
+          "signed_nearest_distance_m": 0.2575379772055641,
+          "suggested_outer_route_10mm_m": [
+            -0.13391325190779424,
+            1.2754707651470099,
+            0.526953799410098
+          ],
+          "triangle_vertex_ids": [
+            441,
+            442,
+            466
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 0.3,
+        "upper_forelimb_max_y_m": 1.2858571559482153,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.014434143871731031,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 110,
+          "vertex_m": [
+            -0.14505593478679657,
+            1.3020446300506592,
+            0.5468416810035706
+          ],
+          "distance_m": 0.033020792859324286,
+          "point_m": [
+            -0.15734279547547791,
+            1.2827081478776972,
+            0.5230613052149069
+          ],
+          "normal": [
+            0.3825155188787018,
+            0.38517739248069804,
+            0.8398334680987224
+          ],
+          "signed_triangle_plane_distance_m": 0.03211944614613657,
+          "signed_nearest_distance_m": 0.033020792859324286,
+          "suggested_outer_route_10mm_m": [
+            -0.1535176402866909,
+            1.2865599218025041,
+            0.5314596398958942
+          ],
+          "triangle_vertex_ids": [
+            442,
+            443,
+            467
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.2571710824488678,
+          "point_m": [
+            -0.14000000664981488,
+            1.263876847417989,
+            0.5237980554697982
+          ],
+          "normal": [
+            0.6085625697847449,
+            0.33076407491466414,
+            0.7212813080919496
+          ],
+          "signed_triangle_plane_distance_m": 0.2563772485759666,
+          "signed_nearest_distance_m": 0.2571710824488678,
+          "suggested_outer_route_10mm_m": [
+            -0.13391438095196742,
+            1.2671844881671355,
+            0.5310108685507177
+          ],
+          "triangle_vertex_ids": [
+            441,
+            442,
+            466
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 0.35,
+        "upper_forelimb_max_y_m": 1.2859273402857896,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.0143639595341567,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 110,
+          "vertex_m": [
+            -0.14505593478679657,
+            1.3020446300506592,
+            0.5468416810035706
+          ],
+          "distance_m": 0.03300470829738965,
+          "point_m": [
+            -0.15734484823787132,
+            1.2827738676511797,
+            0.5230313661688065
+          ],
+          "normal": [
+            0.38251353570616464,
+            0.38581251081335444,
+            0.8395427931329433
+          ],
+          "signed_triangle_plane_distance_m": 0.03212535518254095,
+          "signed_nearest_distance_m": 0.03300470829738965,
+          "suggested_outer_route_10mm_m": [
+            -0.15351971288080968,
+            1.2866319927593133,
+            0.5314267941001359
+          ],
+          "triangle_vertex_ids": [
+            442,
+            443,
+            467
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.2571604705113936,
+          "point_m": [
+            -0.14000000664806903,
+            1.2637340275231403,
+            0.5238775349930384
+          ],
+          "normal": [
+            0.6085602433474673,
+            0.3313095883333115,
+            0.7210328611757463
+          ],
+          "signed_triangle_plane_distance_m": 0.25636726918164987,
+          "signed_nearest_distance_m": 0.2571604705113936,
+          "suggested_outer_route_10mm_m": [
+            -0.13391440421459436,
+            1.2670471234064735,
+            0.5310878636047958
+          ],
+          "triangle_vertex_ids": [
+            441,
+            442,
+            466
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 0.4,
+        "upper_forelimb_max_y_m": 1.284339432705969,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.015951867113977336,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 6,
+        "min": {
+          "vertex_index": 56,
+          "vertex_m": [
+            0.15566271543502808,
+            1.365452766418457,
+            0.5564284920692444
+          ],
+          "distance_m": 0.14354223918612927,
+          "point_m": [
+            0.15723041695168194,
+            1.2242820385728819,
+            0.530491214994093
+          ],
+          "normal": [
+            -0.38032579974663433,
+            -0.17196910787836533,
+            0.9087237820056224
+          ],
+          "signed_triangle_plane_distance_m": -0.00011094627439840049,
+          "signed_nearest_distance_m": -0.14354223918612927,
+          "suggested_outer_route_10mm_m": [
+            0.1534271589542156,
+            1.2225623474940983,
+            0.5395784528141493
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.25736416859578626,
+          "point_m": [
+            -0.14000000668739432,
+            1.2669854261031668,
+            0.5221507597718852
+          ],
+          "normal": [
+            0.6086093990032233,
+            0.31897493011800243,
+            0.726532582477311
+          ],
+          "signed_triangle_plane_distance_m": 0.2565586713932027,
+          "signed_nearest_distance_m": 0.25736416859578626,
+          "suggested_outer_route_10mm_m": [
+            -0.13391391269736208,
+            1.2701751754043469,
+            0.5294160855966583
+          ],
+          "triangle_vertex_ids": [
+            441,
+            442,
+            466
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 0.45,
+        "upper_forelimb_max_y_m": 1.2816248519398472,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.01866644788009908,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 101,
+          "vertex_m": [
+            -0.15127728879451752,
+            1.3002912998199463,
+            0.5515555143356323
+          ],
+          "distance_m": 0.03415988869919907,
+          "point_m": [
+            -0.16379815315649474,
+            1.279778326689503,
+            0.5272791084047629
+          ],
+          "normal": [
+            0.38261301348520455,
+            0.34693935396791975,
+            0.8562945559678008
+          ],
+          "signed_triangle_plane_distance_m": 0.0326951575278808,
+          "signed_nearest_distance_m": 0.03415988869919907,
+          "suggested_outer_route_10mm_m": [
+            -0.15997202302164268,
+            1.2832477202291823,
+            0.5358420539644408
+          ],
+          "triangle_vertex_ids": [
+            442,
+            443,
+            467
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.25753980067649107,
+          "point_m": [
+            -0.14000000675379284,
+            1.2726308721512876,
+            0.5195413334020795
+          ],
+          "normal": [
+            0.6086769494051755,
+            0.2979239729459264,
+            0.7353595566842961
+          ],
+          "signed_triangle_plane_distance_m": 0.2567229847945918,
+          "signed_nearest_distance_m": 0.25753980067649107,
+          "suggested_outer_route_10mm_m": [
+            -0.13391323725974108,
+            1.2756101118807468,
+            0.5268949289689225
+          ],
+          "triangle_vertex_ids": [
+            441,
+            442,
+            466
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 0.5,
+        "upper_forelimb_max_y_m": 1.2779915065786025,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.02229979324134379,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 101,
+          "vertex_m": [
+            -0.15127728879451752,
+            1.3002912998199463,
+            0.5515555143356323
+          ],
+          "distance_m": 0.03545238160859764,
+          "point_m": [
+            -0.16364067235074756,
+            1.276283633289169,
+            0.5285848796793986
+          ],
+          "normal": [
+            0.38266341998897235,
+            0.3142072849873684,
+            0.8688167177622735
+          ],
+          "signed_triangle_plane_distance_m": 0.03223166976072539,
+          "signed_nearest_distance_m": 0.03545238160859764,
+          "suggested_outer_route_10mm_m": [
+            -0.15981403815085785,
+            1.2794257061390426,
+            0.5372730468570214
+          ],
+          "triangle_vertex_ids": [
+            442,
+            443,
+            467
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.2575679930377157,
+          "point_m": [
+            -0.1400000067816258,
+            1.2729015110811546,
+            0.5193956797735969
+          ],
+          "normal": [
+            0.6087360966521477,
+            0.26981583892594335,
+            0.7460829563107555
+          ],
+          "signed_triangle_plane_distance_m": 0.25663381364701726,
+          "signed_nearest_distance_m": 0.2575679930377157,
+          "suggested_outer_route_10mm_m": [
+            -0.13391264581510431,
+            1.275599669470414,
+            0.5268565093367045
+          ],
+          "triangle_vertex_ids": [
+            441,
+            442,
+            466
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 0.55,
+        "upper_forelimb_max_y_m": 1.2919813953441468,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.00830990447579949,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 62,
+          "vertex_m": [
+            0.14505593478679657,
+            1.3020446300506592,
+            0.5468416810035706
+          ],
+          "distance_m": 0.032385058362218895,
+          "point_m": [
+            0.15743657617580437,
+            1.2877746005943662,
+            0.520538107420545
+          ],
+          "normal": [
+            -0.3822948611218609,
+            0.44063621243742085,
+            0.8122132524458223
+          ],
+          "signed_triangle_plane_distance_m": 0.03238505836221889,
+          "signed_nearest_distance_m": 0.032385058362218895,
+          "suggested_outer_route_10mm_m": [
+            0.15361362756458577,
+            1.2921809627187404,
+            0.5286602399450032
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.2556612437243705,
+          "point_m": [
+            0.14000000649467972,
+            1.2517885969082505,
+            0.5318538860693734
+          ],
+          "normal": [
+            -0.3822948611218609,
+            0.44063621243742085,
+            0.8122132524458223
+          ],
+          "signed_triangle_plane_distance_m": 0.25119395387142684,
+          "signed_nearest_distance_m": 0.2556612437243705,
+          "suggested_outer_route_10mm_m": [
+            0.13617705788346113,
+            1.2561949590326247,
+            0.5399760185938317
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 50,
+        "triangle_intersections": 9,
+        "intersecting_pairs": [
+          {
+            "collar_triangle": 17,
+            "upper_forelimb_triangle": 12,
+            "upper_forelimb_vertex_ids": [
+              248,
+              249,
+              273
+            ]
+          },
+          {
+            "collar_triangle": 17,
+            "upper_forelimb_triangle": 156,
+            "upper_forelimb_vertex_ids": [
+              338,
+              249,
+              248
+            ]
+          },
+          {
+            "collar_triangle": 22,
+            "upper_forelimb_triangle": 12,
+            "upper_forelimb_vertex_ids": [
+              248,
+              249,
+              273
+            ]
+          },
+          {
+            "collar_triangle": 22,
+            "upper_forelimb_triangle": 156,
+            "upper_forelimb_vertex_ids": [
+              338,
+              249,
+              248
+            ]
+          },
+          {
+            "collar_triangle": 23,
+            "upper_forelimb_triangle": 12,
+            "upper_forelimb_vertex_ids": [
+              248,
+              249,
+              273
+            ]
+          },
+          {
+            "collar_triangle": 23,
+            "upper_forelimb_triangle": 14,
+            "upper_forelimb_vertex_ids": [
+              249,
+              250,
+              274
+            ]
+          },
+          {
+            "collar_triangle": 23,
+            "upper_forelimb_triangle": 15,
+            "upper_forelimb_vertex_ids": [
+              249,
+              274,
+              273
+            ]
+          },
+          {
+            "collar_triangle": 23,
+            "upper_forelimb_triangle": 156,
+            "upper_forelimb_vertex_ids": [
+              338,
+              249,
+              248
+            ]
+          },
+          {
+            "collar_triangle": 23,
+            "upper_forelimb_triangle": 158,
+            "upper_forelimb_vertex_ids": [
+              338,
+              250,
+              249
+            ]
+          }
+        ],
+        "clip": "walk",
+        "phase": 0.6,
+        "upper_forelimb_max_y_m": 1.304003701570921,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": -0.0037124017509746476,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 62,
+          "vertex_m": [
+            0.14505593478679657,
+            1.3020446300506592,
+            0.5468416810035706
+          ],
+          "distance_m": 0.03124287675895692,
+          "point_m": [
+            0.1569764614928276,
+            1.28485160222808,
+            0.5236378411162116
+          ],
+          "normal": [
+            -0.381543825109303,
+            0.5503023282787246,
+            0.7426921684062493
+          ],
+          "signed_triangle_plane_distance_m": 0.03124287675895692,
+          "signed_nearest_distance_m": 0.03124287675895692,
+          "suggested_outer_route_10mm_m": [
+            0.15316102324173456,
+            1.2903546255108673,
+            0.531064762800274
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.2488518515574952,
+          "point_m": [
+            0.14000000617186675,
+            1.2313164641471486,
+            0.5545837032222075
+          ],
+          "normal": [
+            -0.381543825109303,
+            0.5503023282787246,
+            0.7426921684062493
+          ],
+          "signed_triangle_plane_distance_m": 0.24358823038698174,
+          "signed_nearest_distance_m": 0.2488518515574952,
+          "suggested_outer_route_10mm_m": [
+            0.1361845679207737,
+            1.2368194874299359,
+            0.56201062490627
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 67,
+        "triangle_intersections": 9,
+        "intersecting_pairs": [
+          {
+            "collar_triangle": 17,
+            "upper_forelimb_triangle": 12,
+            "upper_forelimb_vertex_ids": [
+              248,
+              249,
+              273
+            ]
+          },
+          {
+            "collar_triangle": 17,
+            "upper_forelimb_triangle": 156,
+            "upper_forelimb_vertex_ids": [
+              338,
+              249,
+              248
+            ]
+          },
+          {
+            "collar_triangle": 22,
+            "upper_forelimb_triangle": 12,
+            "upper_forelimb_vertex_ids": [
+              248,
+              249,
+              273
+            ]
+          },
+          {
+            "collar_triangle": 22,
+            "upper_forelimb_triangle": 156,
+            "upper_forelimb_vertex_ids": [
+              338,
+              249,
+              248
+            ]
+          },
+          {
+            "collar_triangle": 23,
+            "upper_forelimb_triangle": 12,
+            "upper_forelimb_vertex_ids": [
+              248,
+              249,
+              273
+            ]
+          },
+          {
+            "collar_triangle": 23,
+            "upper_forelimb_triangle": 14,
+            "upper_forelimb_vertex_ids": [
+              249,
+              250,
+              274
+            ]
+          },
+          {
+            "collar_triangle": 23,
+            "upper_forelimb_triangle": 15,
+            "upper_forelimb_vertex_ids": [
+              249,
+              274,
+              273
+            ]
+          },
+          {
+            "collar_triangle": 23,
+            "upper_forelimb_triangle": 156,
+            "upper_forelimb_vertex_ids": [
+              338,
+              249,
+              248
+            ]
+          },
+          {
+            "collar_triangle": 23,
+            "upper_forelimb_triangle": 158,
+            "upper_forelimb_vertex_ids": [
+              338,
+              250,
+              249
+            ]
+          }
+        ],
+        "clip": "walk",
+        "phase": 0.65,
+        "upper_forelimb_max_y_m": 1.3050694501347588,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": -0.004778150314812546,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 62,
+          "vertex_m": [
+            0.14505593478679657,
+            1.3020446300506592,
+            0.5468416810035706
+          ],
+          "distance_m": 0.031018167755733975,
+          "point_m": [
+            0.15688792803892707,
+            1.2846722424207297,
+            0.5240309200640519
+          ],
+          "normal": [
+            -0.3814536482395302,
+            0.5600713674236274,
+            0.73540001199142
+          ],
+          "signed_triangle_plane_distance_m": 0.031018167755733975,
+          "signed_nearest_distance_m": 0.031018167755733975,
+          "suggested_outer_route_10mm_m": [
+            0.15307339155653177,
+            1.290272956094966,
+            0.5313849201839661
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.24796796099575663,
+          "point_m": [
+            0.14000000614192507,
+            1.2297954570586915,
+            0.5570645839240104
+          ],
+          "normal": [
+            -0.3814536482395302,
+            0.5600713674236274,
+            0.73540001199142
+          ],
+          "signed_triangle_plane_distance_m": 0.24259415721263897,
+          "signed_nearest_distance_m": 0.24796796099575663,
+          "suggested_outer_route_10mm_m": [
+            0.13618546965952977,
+            1.2353961707329277,
+            0.5644185840439245
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 0.7,
+        "upper_forelimb_max_y_m": 1.294662941632255,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.005628358187691251,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 62,
+          "vertex_m": [
+            0.14505593478679657,
+            1.3020446300506592,
+            0.5468416810035706
+          ],
+          "distance_m": 0.032333509654276546,
+          "point_m": [
+            0.1574127083186833,
+            1.2870091242940804,
+            0.5210211550389674
+          ],
+          "normal": [
+            -0.38216616952537874,
+            0.4650131061349257,
+            0.7985686132030534
+          ],
+          "signed_triangle_plane_distance_m": 0.032333509654276546,
+          "signed_nearest_distance_m": 0.032333509654276546,
+          "suggested_outer_route_10mm_m": [
+            0.1535910466234295,
+            1.2916592553554296,
+            0.5290068411709979
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.25460900712595097,
+          "point_m": [
+            0.14000000642488822,
+            1.2467847378459624,
+            0.536111056021224
+          ],
+          "normal": [
+            -0.38216616952537874,
+            0.4650131061349257,
+            0.7985686132030534
+          ],
+          "signed_triangle_plane_distance_m": 0.25002420737173325,
+          "signed_nearest_distance_m": 0.25460900712595097,
+          "suggested_outer_route_10mm_m": [
+            0.13617834472963444,
+            1.2514348689073116,
+            0.5440967421532545
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 0.75,
+        "upper_forelimb_max_y_m": 1.2816938482999278,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.01859745152001846,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 53,
+          "vertex_m": [
+            0.15127728879451752,
+            1.3002912998199463,
+            0.5515555143356323
+          ],
+          "distance_m": 0.03413986337179388,
+          "point_m": [
+            0.16380060078129116,
+            1.2798446465364628,
+            0.5272526071549739
+          ],
+          "normal": [
+            -0.3826117439714637,
+            0.34754454158362064,
+            0.8560496743709131
+          ],
+          "signed_triangle_plane_distance_m": 0.032702184760154865,
+          "signed_nearest_distance_m": 0.03413986337179388,
+          "suggested_outer_route_10mm_m": [
+            0.15997448334157652,
+            1.283320091952299,
+            0.5358131038986831
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.2575379772055641,
+          "point_m": [
+            0.1400000067521179,
+            1.2724861803533942,
+            0.5196023594780289
+          ],
+          "normal": [
+            -0.3826117439714637,
+            0.34754454158362064,
+            0.8560496743709131
+          ],
+          "signed_triangle_plane_distance_m": 0.25327927971026626,
+          "signed_nearest_distance_m": 0.2575379772055641,
+          "suggested_outer_route_10mm_m": [
+            0.13617388931240326,
+            1.2759616257692303,
+            0.5281628562217381
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 0.8,
+        "upper_forelimb_max_y_m": 1.285857156328076,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.014434143491870222,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 62,
+          "vertex_m": [
+            0.14505593478679657,
+            1.3020446300506592,
+            0.5468416810035706
+          ],
+          "distance_m": 0.03302079277174659,
+          "point_m": [
+            0.15734279548664673,
+            1.2827081482334015,
+            0.5230613050530526
+          ],
+          "normal": [
+            -0.3825155146796371,
+            0.38513785894988334,
+            0.8398516003633453
+          ],
+          "signed_triangle_plane_distance_m": 0.032119112850406674,
+          "signed_nearest_distance_m": 0.03302079277174659,
+          "suggested_outer_route_10mm_m": [
+            0.15351764033985035,
+            1.2865595268229004,
+            0.5314598210566861
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.2571710823918384,
+          "point_m": [
+            0.14000000664981488,
+            1.263876846644769,
+            0.5237980558991744
+          ],
+          "normal": [
+            -0.3825155146796371,
+            0.38513785894988334,
+            0.8398516003633453
+          ],
+          "signed_triangle_plane_distance_m": 0.2528704195167404,
+          "signed_nearest_distance_m": 0.2571710823918384,
+          "suggested_outer_route_10mm_m": [
+            0.1361748515030185,
+            1.2677282252342679,
+            0.5321965719028079
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 0.85,
+        "upper_forelimb_max_y_m": 1.2859273400146876,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.01436395980525873,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 62,
+          "vertex_m": [
+            0.14505593478679657,
+            1.3020446300506592,
+            0.5468416810035706
+          ],
+          "distance_m": 0.03300470835914633,
+          "point_m": [
+            0.15734484822998404,
+            1.2827738673973283,
+            0.523031366284585
+          ],
+          "normal": [
+            -0.38251353225965334,
+            0.3857725178323478,
+            0.8395611723534706
+          ],
+          "signed_triangle_plane_distance_m": 0.032125022057688385,
+          "signed_nearest_distance_m": 0.03300470835914633,
+          "suggested_outer_route_10mm_m": [
+            0.1535197129073875,
+            1.2866315925756517,
+            0.5314269780081198
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.2571604705526743,
+          "point_m": [
+            0.14000000664806903,
+            1.263734028074647,
+            0.5238775346854655
+          ],
+          "normal": [
+            -0.38251353225965334,
+            0.3857725178323478,
+            0.8395611723534706
+          ],
+          "signed_triangle_plane_distance_m": 0.252858630334442,
+          "signed_nearest_distance_m": 0.2571604705526743,
+          "suggested_outer_route_10mm_m": [
+            0.13617487132547249,
+            1.2675917532529704,
+            0.5322731464090003
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 0.9,
+        "upper_forelimb_max_y_m": 1.2843394341523502,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.0159518656675961,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 6,
+        "min": {
+          "vertex_index": 104,
+          "vertex_m": [
+            -0.15566271543502808,
+            1.365452766418457,
+            0.5564284920692444
+          ],
+          "distance_m": 0.143542251873202,
+          "point_m": [
+            -0.15723041078187722,
+            1.2242820264923233,
+            0.5304912101600477
+          ],
+          "normal": [
+            0.38033234515899306,
+            -0.17138940648650092,
+            0.9088305554777883
+          ],
+          "signed_triangle_plane_distance_m": -2.6329756319085768e-05,
+          "signed_nearest_distance_m": -0.143542251873202,
+          "suggested_outer_route_10mm_m": [
+            -0.1534270873302873,
+            1.2225681324274582,
+            0.5395795157148257
+          ],
+          "triangle_vertex_ids": [
+            442,
+            443,
+            467
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.25736416844465415,
+          "point_m": [
+            0.1400000066873943,
+            1.2669854231231303,
+            0.5221507612769387
+          ],
+          "normal": [
+            -0.3825554213310542,
+            0.37142089502657,
+            0.8459892838256765
+          ],
+          "signed_triangle_plane_distance_m": 0.25308508251151274,
+          "signed_nearest_distance_m": 0.25736416844465415,
+          "suggested_outer_route_10mm_m": [
+            0.13617445247408375,
+            1.270699632073396,
+            0.5306106541151955
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 0.95,
+        "upper_forelimb_max_y_m": 1.2816248537739152,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.01866644604603107,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 53,
+          "vertex_m": [
+            0.15127728879451752,
+            1.3002912998199463,
+            0.5515555143356323
+          ],
+          "distance_m": 0.034159888164529036,
+          "point_m": [
+            0.1637981532218309,
+            1.2797783284524495,
+            0.5272791077011605
+          ],
+          "normal": [
+            -0.38261299257854076,
+            0.34692244118857407,
+            0.8563014175568403
+          ],
+          "signed_triangle_plane_distance_m": 0.03269497692533238,
+          "signed_nearest_distance_m": 0.034159888164529036,
+          "suggested_outer_route_10mm_m": [
+            0.15997202329604548,
+            1.2832475528643352,
+            0.5358421218767289
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.25753980062982557,
+          "point_m": [
+            0.1400000067537928,
+            1.272630868304312,
+            0.5195413350206327
+          ],
+          "normal": [
+            -0.38261299257854076,
+            0.34692244118857407,
+            0.8563014175568403
+          ],
+          "signed_triangle_plane_distance_m": 0.25328134988887996,
+          "signed_nearest_distance_m": 0.25753980062982557,
+          "suggested_outer_route_10mm_m": [
+            0.13617387682800738,
+            1.2761000927161976,
+            0.5281043491962011
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        }
+      },
+      {
+        "triangle_aabb_candidates": 0,
+        "triangle_intersections": 0,
+        "intersecting_pairs": [],
+        "clip": "walk",
+        "phase": 1,
+        "upper_forelimb_max_y_m": 1.2779915065786025,
+        "collar_min_y_m": 1.3002912998199463,
+        "vertical_aabb_gap_m": 0.02229979324134379,
+        "vertex_samples": 204,
+        "vertices_with_signed_distance_below_minus_1mm": 0,
+        "min": {
+          "vertex_index": 53,
+          "vertex_m": [
+            0.15127728879451752,
+            1.3002912998199463,
+            0.5515555143356323
+          ],
+          "distance_m": 0.03545238160859764,
+          "point_m": [
+            0.16364067235074756,
+            1.276283633289169,
+            0.5285848796793986
+          ],
+          "normal": [
+            -0.38266340942943317,
+            0.31420231948868926,
+            0.8688185181680749
+          ],
+          "signed_triangle_plane_distance_m": 0.032231591776601204,
+          "signed_nearest_distance_m": 0.03545238160859764,
+          "suggested_outer_route_10mm_m": [
+            0.15981403825645324,
+            1.2794256564840558,
+            0.5372730648610794
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        },
+        "max": {
+          "vertex_index": 74,
+          "vertex_m": [
+            0,
+            1.3537991046905518,
+            0.7198871970176697
+          ],
+          "distance_m": 0.2575679930377157,
+          "point_m": [
+            0.1400000067816258,
+            1.2729015110811546,
+            0.5193956797735969
+          ],
+          "normal": [
+            -0.38266340942943317,
+            0.31420231948868926,
+            0.8688185181680749
+          ],
+          "signed_triangle_plane_distance_m": 0.253181834385591,
+          "signed_nearest_distance_m": 0.2575679930377157,
+          "suggested_outer_route_10mm_m": [
+            0.13617337268733148,
+            1.2760435342760414,
+            0.5280838649552777
+          ],
+          "triangle_vertex_ids": [
+            249,
+            250,
+            274
+          ]
+        }
+      }
+    ],
+    "min_signed_distance_m": -0.143542251873202,
+    "max_signed_distance_m": 0.25784743218805894,
+    "min_vertical_aabb_gap_m": -0.004778150923848479
+  }
+}

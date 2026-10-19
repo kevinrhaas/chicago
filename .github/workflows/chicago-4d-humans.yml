@@ -33,26 +33,39 @@ on:
     paths:
       - 'chicago/4d/tools/human_*'
       - 'chicago/4d/assets/humans/**'
+      - 'chicago/4d/assets/authored/humans/**'
       - 'chicago/4d/data/humans/**'
       - 'chicago/4d/generators/blender.pin'
       - 'chicago/4d/tools/web_derivatives.sh'
       - 'chicago/4d/renderers/web/vendor/**'
       - 'chicago/4d/renderers/web/js/scene-loader.js'
       - 'chicago/4d/renderers/web/js/humans.js'
+      - 'chicago/4d/renderers/web/js/human-identity.js'
       - '.github/workflows/chicago-4d-humans.yml'
   push:
     branches: [dev]
     paths:
       - 'chicago/4d/tools/human_*'
       - 'chicago/4d/assets/humans/**'
+      - 'chicago/4d/assets/authored/humans/**'
       - 'chicago/4d/data/humans/**'
       - 'chicago/4d/generators/blender.pin'
       - 'chicago/4d/tools/web_derivatives.sh'
       - 'chicago/4d/renderers/web/vendor/**'
       - 'chicago/4d/renderers/web/js/scene-loader.js'
       - 'chicago/4d/renderers/web/js/humans.js'
+      - 'chicago/4d/renderers/web/js/human-identity.js'
       - '.github/workflows/chicago-4d-humans.yml'
   workflow_dispatch:
+    inputs:
+      build_teamsters:
+        description: 'Build and inspect existing residents’ reconstructed 1835 workwear masters (prototype artifacts)'
+        type: boolean
+        default: false
+      build_seated_driver_study:
+        description: 'Add reconstructed named1835 sit_drive on physical W01 bench; no production promotion'
+        type: boolean
+        default: false
 
 concurrency:
   group: chicago-4d-humans-${{ github.ref }}
@@ -113,3 +126,193 @@ jobs:
       - name: Drive the browser actor with the fixture, at both viewports
         working-directory: chicago/4d
         run: NODE_PATH="$(npm root -g)" node tools/human_actor.mjs
+
+  # Explicit dispatch on the owner-visible authoring PR. No branch writes, scene
+  # placements or production promotion: canonical masters and measurements are
+  # reviewable artifacts. Existing fixture verification must pass first.
+  teamster-studies:
+    if: github.event_name == 'workflow_dispatch' && (inputs.build_teamsters || inputs.build_seated_driver_study)
+    needs: humans
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install --quiet jsonschema pyproj openpyxl pypdf numpy scipy Pillow
+      - name: Read the Blender pin
+        id: pin
+        run: |
+          source chicago/4d/generators/blender.pin
+          echo "version=$BLENDER_VERSION" >> "$GITHUB_OUTPUT"
+      - name: Restore the verified fixture worker's Blender
+        uses: actions/cache@v4
+        with:
+          path: /opt/blender-dl
+          key: blender-${{ steps.pin.outputs.version }}
+      - name: Verify the original body preparation
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          python tools/test_human_base_prepare.py
+          python tools/human_base_prepare.py --output /tmp/prepared.json > /tmp/body-preparation.log
+          cmp assets/authored/humans/makehuman_hm08/prepared.json /tmp/prepared.json
+          for age in 25 35; do
+            python tools/human_base_prepare.py --target-recipe "assets/authored/humans/makehuman_hm08/adult_$age.recipe.json" --output "/tmp/prepared_adult_$age.json" > "/tmp/teamster-body-$age.log"
+            cmp "assets/authored/humans/makehuman_hm08/prepared_adult_$age.json" "/tmp/prepared_adult_$age.json"
+          done
+      - name: Prepare opt-in physical W01 seated study
+        if: inputs.build_seated_driver_study
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          python3 tools/transport/generate_wagon.py --parameters data/transport/studies/wagon-driver-bench.json --output-dir renderers/web/transport/wagon-driver
+          python3 tools/test_human_seated_study.py --vehicle renderers/web/transport/wagon-driver/wagon-w01.json
+          node tools/test_human_seated_runtime.mjs --supported renderers/web/transport/wagon-driver/wagon-w01.glb --baseline renderers/web/transport/wagon/wagon-w01.glb
+      - name: Build three canonical masters and export through the portable path
+        working-directory: chicago/4d
+        env:
+          BLENDER_CACHE: /opt/blender-dl
+          HUMAN_EXPORT_EVIDENCE_DIR: /tmp/teamster-studies/export-evidence
+        run: |
+          set -euo pipefail
+          source generators/blender.pin
+          mkdir -p /tmp/teamster-studies
+          sit_args=()
+          if [ "${{ inputs.build_seated_driver_study }}" = "true" ]; then
+            sit_args=(--sit-drive-study data/humans/poses/w01/resident-driver-bindings.json --sit-drive-vehicle renderers/web/transport/wagon-driver/wagon-w01.json)
+          fi
+          for variant in bardwell_otis_1835 dufresne_joseph_1835 flynn_martin_1835; do
+            master="assets/authored/humans/teamsters/$variant/canonical.blend"
+            "$BLENDER_CACHE/$BLENDER_DIR/blender" -b -noaudio --factory-startup --python-exit-code 1 \
+              --python tools/human_teamster_blend.py -- \
+              --recipe data/humans/recipes/worker_1835.json --variant "$variant" \
+              --liberty L418 --output "$master" \
+              --experimental-normal-probes --normal-probe-receipts /tmp/teamster-studies/normal-probes "${sit_args[@]}" \
+              2>&1 | tee "/tmp/teamster-studies/$variant-build.log"
+            bash tools/human_export.sh --master "$master" 2>&1 | tee "/tmp/teamster-studies/$variant-export.log"
+          done
+      - name: Build same-new-master parented hierarchy controls (test artifacts only)
+        working-directory: chicago/4d
+        env:
+          BLENDER_CACHE: /opt/blender-dl
+          HUMAN_EXPORT_EVIDENCE_DIR: /tmp/teamster-studies/hierarchy-controls/frame-evidence
+        run: |
+          set -euo pipefail
+          source generators/blender.pin
+          for variant in bardwell_otis_1835 dufresne_joseph_1835 flynn_martin_1835; do
+            control="/tmp/teamster-studies/hierarchy-controls/$variant"
+            mkdir -p "$control/raw"
+            "$BLENDER_CACHE/$BLENDER_DIR/blender" -b -noaudio --factory-startup --python-exit-code 1 \
+              --python tools/human_hierarchy_control.py -- --test-only-parented-control \
+              --source "assets/authored/humans/teamsters/$variant/canonical.blend" \
+              --output "$control/control.blend" --receipt "$control/control-receipt.json" \
+              2>&1 | tee "$control/clone.log"
+            "$BLENDER_CACHE/$BLENDER_DIR/blender" -b -noaudio "$control/control.blend" --python-exit-code 1 \
+              --python tools/human_export.py -- "$control/raw" 2>&1 | tee "$control/export.log"
+            python3 tools/human_skin_canonicalize.py "$control/raw/$variant.lod0.glb" \
+              "$control/$variant.lod0.glb" --diagnostics "$control/skin-diagnostics.json"
+          done
+      - name: Install Playwright
+        run: |
+          npm install -g playwright@1.56.1
+          node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
+      - name: Audit declared resident animation time bounds before browser loading
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          python3 tools/audit_human_animation_times.py \
+            assets/humans/{bardwell_otis_1835,dufresne_joseph_1835,flynn_martin_1835}.lod*.glb \
+            assets/humans/web/{bardwell_otis_1835,dufresne_joseph_1835,flynn_martin_1835}.lod*.glb \
+            | tee /tmp/teamster-studies/declared-animation-times.jsonl
+
+      - name: Check actual resident hair material, embedded PNG and source/web LOD dimensions
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          python3 tools/test_human_hair.py
+          node tools/test_human_hair_runtime.mjs
+          python3 tools/check_human_hair.py --assets assets/humans \
+            | tee /tmp/teamster-studies/hair-container-contract.jsonl
+
+      - name: Validate the actual new GLB containers
+        working-directory: chicago/4d
+        run: |
+          npm install -g gltf-validator@2.0.0-dev.3.10
+          NODE_PATH="$(npm root -g)" node <<'JS'
+          const fs = require('node:fs');
+          const validator = require('gltf-validator');
+          (async () => {
+            let errors = 0;
+            for (const dir of ['assets/humans', 'assets/humans/web']) {
+              for (const file of fs.readdirSync(dir).filter(n => /^(bardwell_otis|dufresne_joseph|flynn_martin)_1835\.lod[0-3]\.glb$/.test(n))) {
+                const name = `${dir}/${file}`;
+                const result = await validator.validateBytes(new Uint8Array(fs.readFileSync(name)), {uri: name});
+                fs.writeFileSync(`/tmp/teamster-studies/${dir.endsWith('/web') ? 'web-' : ''}${file}.validation.json`, JSON.stringify(result, null, 2));
+                console.log(`${name}: ${result.issues.numErrors} errors, ${result.issues.numWarnings} warnings`);
+                const codes = {};
+                for (const issue of result.issues.messages || []) {
+                  const key = `${issue.severity}:${issue.code}`;
+                  codes[key] = (codes[key] || 0) + 1;
+                }
+                console.log(JSON.stringify({file: name, issue_code_counts: codes, numInfos: result.issues.numInfos, numHints: result.issues.numHints, truncated: result.issues.truncated}));
+                errors += result.issues.numErrors;
+              }
+            }
+            if (errors) process.exitCode = 1;
+          })().catch(error => { console.error(error); process.exitCode = 1; });
+          JS
+      - name: Validate hierarchy control warnings with exact node pointers
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          NODE_PATH="$(npm root -g)" node tools/validate_hierarchy_controls.mjs \
+            /tmp/teamster-studies/hierarchy-controls/bardwell_otis_1835/bardwell_otis_1835.lod0.glb assets/humans/bardwell_otis_1835.lod0.glb \
+            /tmp/teamster-studies/hierarchy-controls/dufresne_joseph_1835/dufresne_joseph_1835.lod0.glb assets/humans/dufresne_joseph_1835.lod0.glb \
+            /tmp/teamster-studies/hierarchy-controls/flynn_martin_1835/flynn_martin_1835.lod0.glb assets/humans/flynn_martin_1835.lod0.glb \
+            | tee /tmp/teamster-studies/hierarchy-controls/validator-pointers.jsonl
+      - name: Measure all human exports and inspect the workwear studies
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          NODE_PATH="$(npm root -g)" node tools/human_fixture.mjs --write 2>&1 | tee /tmp/teamster-studies/human-fixture.log
+          bash tools/publish.sh
+          node tools/test_human_inspection.mjs
+          NODE_PATH="$(npm root -g)" node tools/human_teamster.mjs --published --sole-contact --output /tmp/teamster-studies/web \
+            --frame-samples 21 \
+            --frame-pair /tmp/teamster-studies/hierarchy-controls/bardwell_otis_1835/bardwell_otis_1835.lod0.glb assets/humans/bardwell_otis_1835.lod0.glb \
+            --frame-pair /tmp/teamster-studies/hierarchy-controls/dufresne_joseph_1835/dufresne_joseph_1835.lod0.glb assets/humans/dufresne_joseph_1835.lod0.glb \
+            --frame-pair /tmp/teamster-studies/hierarchy-controls/flynn_martin_1835/flynn_martin_1835.lod0.glb assets/humans/flynn_martin_1835.lod0.glb \
+            --frame-pair /tmp/teamster-studies/export-evidence/bardwell_otis_1835.lod0.raw.glb assets/humans/bardwell_otis_1835.lod0.glb \
+            --frame-pair /tmp/teamster-studies/export-evidence/dufresne_joseph_1835.lod0.raw.glb assets/humans/dufresne_joseph_1835.lod0.glb \
+            --frame-pair /tmp/teamster-studies/export-evidence/flynn_martin_1835.lod0.raw.glb assets/humans/flynn_martin_1835.lod0.glb 2>&1 | tee /tmp/teamster-studies/inspection.log
+          NODE_PATH="$(npm root -g)" node tools/human_teamster.mjs --masters --sole-contact \
+            --output /tmp/teamster-studies/source 2>&1 | tee /tmp/teamster-studies/source-inspection.log
+      - name: Inspect actual exported named seated residents on W01
+        if: inputs.build_seated_driver_study
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          NODE_PATH="$(npm root -g)" node tools/human_seated_driver.cjs /tmp/teamster-studies/seated-driver
+          NODE_PATH="$(npm root -g)" node tools/transport/smoke_wagon_driver.cjs . /tmp/teamster-studies/wagon-driver-source
+          NODE_PATH="$(npm root -g)" node tools/transport/smoke_wagon_driver.cjs ../../site/4d /tmp/teamster-studies/wagon-driver-published --published
+      - name: Preserve masters, exports and inspection evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resident-teamster-studies-${{ github.sha }}
+          if-no-files-found: warn
+          retention-days: 30
+          path: |
+            chicago/4d/assets/authored/humans/teamsters/
+            chicago/4d/assets/humans/*_1835.lod*.glb
+            chicago/4d/assets/humans/web/*_1835.lod*.glb
+            chicago/4d/data/humans/fixture.measure.json
+            chicago/4d/renderers/web/transport/wagon-driver/
+            /tmp/teamster-studies/
+            /tmp/body-preparation.log
+            /tmp/prepared*.json
