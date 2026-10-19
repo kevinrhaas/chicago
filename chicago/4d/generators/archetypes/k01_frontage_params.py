@@ -1832,6 +1832,55 @@ def wing_walls(w: dict) -> dict:
             "rear": ((u0, 0.0, -v1), (0.0, 0.0, 1.0), v1 - v0)}
 
 
+#: T-2841: what a wing is roofed with — K04's tin deck (T-2343), or a slated hip or gable
+WING_ROOFS = ("flat", "hip", "gable")
+#: T-2841: the sides a wing's gable may face; north or south runs the ridge along the
+#: wing (v), so both of its flank walls carry a gable, and rear runs it across (u) into
+#: the host wall, so the rear wall carries the one gable
+WING_GABLE_SIDES = ("rear", "north", "south")
+
+
+def _wing_pitched(wid, roof, kind, u0, u1, v0, v1, top) -> dict:
+    """T-2841: a wing's hipped or gabled roof, resolved. Slated in a K04 slate read at its
+    own pitch by K04's slate_exposure rule, as the main roof's is (`_k04`); its eaves are
+    the deck's overhang and fascia; its gable named by the side it faces.
+
+    The ridge runs across the wing (along u, into the host wall) for a gable to the rear
+    and for a hip on a wing deeper than it is wide; otherwise along it (v), hipped or
+    gabled at both flank walls, its front slope down to the host wall at the wing's wall
+    top. `cover_m` is the roof's highest point on the host wall: the ridge where the ridge
+    runs into it, the wall top where a slope comes down to it."""
+    pitch = float(roof["pitch_deg"])
+    lib = json.loads(K04.read_text())
+    fabrics = {f["id"]: f for f in lib["fabrics"]}
+    cov = roof.get("covering")
+    if cov not in lib["slots"]["covering"] or fabrics[cov]["kind"] != "slate":
+        raise ParamError(f"rear_wings: {wid}'s {kind} is covered in {cov!r}; a pitched K01 wing is slated "
+                         f"in a K04 slate covering fabric")
+    if not 25.0 <= pitch <= 60.0:
+        raise ParamError(f"rear_wings: {wid}'s {kind} is pitched {pitch} deg, outside 25-60 (K04 slates "
+                         f"nothing under 25 deg; a steeper face is a mansard's)")
+    want = lib["profiles"]["slate_exposure"]["headlap_m"]["pitch_45_up" if pitch >= 45 else "pitch_25_to_45"]
+    if fabrics[cov]["module"]["headlap_m"] < want - 1e-9:
+        raise ParamError(f"rear_wings: {cov} is cut for a {fabrics[cov]['module']['headlap_m']} m headlap and "
+                         f"{wid}'s {pitch} deg roof needs {want} m (k04 slate_exposure.headlap_m)")
+    gable_to = roof.get("gable_to")
+    if kind == "gable":
+        if gable_to not in WING_GABLE_SIDES:
+            raise ParamError(f"rear_wings: {wid}'s gable faces {gable_to!r}; name the side it faces "
+                             f"({', '.join(WING_GABLE_SIDES)})")
+        axis = "u" if gable_to == "rear" else "v"
+    else:
+        if gable_to is not None:
+            raise ParamError(f"rear_wings: {wid} is hipped and has no gable to face {gable_to!r}")
+        axis = "u" if u1 - u0 > v1 - v0 else "v"
+    t = math.tan(math.radians(pitch))
+    ridge = round(top + ((v1 - v0) if axis == "u" else (u1 - u0)) / 2 * t, 4)
+    return {"kind": kind, "pitch_deg": pitch, "covering": cov, "axis": axis,
+            **({"gable_to": gable_to} if kind == "gable" else {}),
+            "ridge_m": ridge, "cover_m": ridge if axis == "u" else top}
+
+
 def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
     """Resolve the record's `rear_wings` (T-2343): the ranges a sheet draws behind the main
     body, each a rectangle in the footprint frame whose front stands on the main rear wall
@@ -1839,7 +1888,9 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
 
     A wing covers its host wall from grade to its deck: every host opening in that span
     below the deck is behind it and is not cut, and one that straddles a junction is
-    refused, as a bay's. Its own windows are cut in its south, north and rear walls."""
+    refused, as a bay's. Its own windows are cut in its south, north and rear walls.
+    T-2841: a hipped or gabled wing covers it to its roof's highest point on that wall
+    (`_wing_pitched`), and the wall is drawn down to the wing's own wall top."""
     out = []
     for e in entries or ():
         wid = e["id"]
@@ -1872,16 +1923,28 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
             y += h
         top = round(y, 4)
         roof = e["roof"]
-        if roof.get("kind") != "flat":
-            raise ParamError(f"rear_wings: {wid}'s roof is a {roof.get('kind')}; a K01 wing is decked flat")
-        if roof.get("covering") != "painted_tin_sheet":
-            raise ParamError(f"rear_wings: {wid}'s deck is covered in {roof.get('covering')!r}; a K01 wing "
-                             f"deck is K04's painted_tin_sheet")
+        kind = roof.get("kind")
+        if kind not in WING_ROOFS:
+            raise ParamError(f"rear_wings: {wid}'s roof is a {kind}; a K01 wing is decked flat, hipped or "
+                             f"gabled ({', '.join(WING_ROOFS)})")
         ov, fas = float(roof["overhang_m"]), float(roof["fascia_m"])
         if not (0.0 <= ov <= 0.6 and 0.1 <= fas <= 0.5):
             raise ParamError(f"rear_wings: {wid}'s deck overhangs {ov} m on a {fas} m fascia, outside "
                              f"0-0.6 m and 0.1-0.5 m")
-        deck = round(top + fas, 4)
+        if kind == "flat":
+            if roof.get("covering") != "painted_tin_sheet":
+                raise ParamError(f"rear_wings: {wid}'s deck is covered in {roof.get('covering')!r}; a K01 wing "
+                                 f"deck is K04's painted_tin_sheet")
+            pitched = None
+            deck = cover = round(top + fas, 4)
+        else:
+            # T-2841: a hipped or gabled wing, slated. What its plan and its gable say fixes the
+            # ridge: across the wing (along u) it dies into the host wall, along it (v) the front
+            # slope comes down to the host wall at the wing's own wall top
+            pitched = _wing_pitched(wid, roof, kind, u0, u1, v0, v1, top)
+            # the host wall is drawn down to the wing's wall top, the roof dying into it; a host
+            # light is behind the wing up to the roof's highest point on that wall
+            deck, cover = top, pitched["cover_m"]
         sash = e["sash_by_storey"]
         if len(sash) != len(heights):
             raise ParamError(f"rear_wings: {wid}'s sash_by_storey needs one row per storey")
@@ -1912,7 +1975,7 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
             if o.wall != hwall:
                 continue
             o0, o1 = o.s_m - o.width_m / 2 - 0.12, o.s_m + o.width_m / 2 + 0.12   # the head's horns
-            if o1 <= a or o0 >= b or o.sill_m - 0.15 >= deck:
+            if o1 <= a or o0 >= b or o.sill_m - 0.15 >= cover:
                 continue
             if o0 < a or o1 > b:
                 raise ParamError(f"rear_wings: {wid}'s junction at s {a:.3f}..{b:.3f} cuts the opening at "
@@ -1922,7 +1985,11 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
             host["openings"] = tuple(pool)
         out.append({"id": wid, "fabric": fabric, "rect": (u0, u1, v0, v1), "host_wall": hwall, "host_span_m": (round(a, 4), round(b, 4)),
                     "floors_m": tuple(floors), "top_m": top, "deck_m": deck, "overhang_m": ov, "fascia_m": fas,
-                    "host_v_m": (hv0, hv1), "openings": tuple(ops)})
+                    "host_v_m": (hv0, hv1), "openings": tuple(ops), "roof": pitched or {"kind": "flat"}})
+    slates = {w["roof"]["covering"] for w in out if w["roof"]["kind"] != "flat"}
+    if len(slates) > 1:
+        raise ParamError(f"rear_wings: the wings are slated in {', '.join(sorted(slates))}; a K01 house's "
+                         f"wings share one slate (the assembly's wing_slate)")
     return tuple(out)
 
 
