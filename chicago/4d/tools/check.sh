@@ -4244,6 +4244,15 @@ step "the tickets repo: claim is a pushed lock, done waits on the merge, ask sta
 step "every held or resumable pull request reaches the board with its reason, and an unread list says so" \
   node tools/test_ticket_parked.mjs
 
+# ONE RUN PER HOUSE AT A TIME (owner, 2026-10-19). Three slices held Glessner at once
+# (#1090, #1091, #1094): each rebaked the house, each conflicted with the others' bakes,
+# and their full smokes queued three hours and were cancelled. `claim` refuses a ticket
+# whose house has a live claim, a ticket in review, or an open PR titled with a ticket of
+# the same house, and `list --workable` marks the row HOUSE BUSY. Run for real against a
+# tickets repository of its own; it reaches no network.
+step "claim and list hold a 1904 house to one run at a time" \
+  node tools/test_ticket_house_serial.mjs
+
 # A GATED WRITER BELONGS IN THE MANIFEST (T-1282, owner 2026-09-18). A tool this gate runs
 # with --check, and that can also write, produces DERIVED content by definition — so if
 # derived_manifest.json has never heard of it, rederive.mjs never runs it, the lap leaves
