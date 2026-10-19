@@ -47,10 +47,12 @@ the thing's own id spelt as words; the evidence a line rests on is still named, 
 from __future__ import annotations
 
 import argparse
+import difflib
 import glob
 import json
 import re
 import sys
+import zlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -240,7 +242,7 @@ class Names:
         for p in sorted(glob.glob(str(r / "data" / "structures" / "*.json"))):
             d = _load(Path(p)) or {}
             sid = Path(p).stem
-            self.add(sid, structure_title(d.get("name", ""), sid), "structure")
+            self.add(sid, structure_title(plain_name(d.get("name", "")), sid), "structure")
         for p in sorted(glob.glob(str(r / "data" / "sources" / "*.json"))):
             d = _load(Path(p)) or {}
             sid = d.get("id") or Path(p).stem
@@ -464,7 +466,7 @@ def rewrite(text: str, names: Names | None = None, own: int | None = None,
                lambda m: f"{m.group(1)}{m.group(2)}grade{m.group(3)}", s, flags=re.IGNORECASE)
     if re.search(r"\btiers?\b", s, re.IGNORECASE):
         s = re.sub(r"[^.!?]+[.!?]*", _tier_in_sentence, s)
-    s = re.sub(r"\bROADMAP\s+(?:\*\*)?[A-Z]{1,3}\d+[a-z]?(?:\*\*)?", "the project's roadmap", s)
+    s = re.sub(r"\bROADMAP\s+(?:\*\*)?[A-Z]{1,3}\d+[a-z]?(?:\([a-z0-9]{1,3}\))?(?:\*\*)?", "the project's roadmap", s)
     s = re.sub(r"\b(?:the\s+)?(?:reconstruction\s+)?order[\s-]+books?\b",
                lambda m: ((m.group(0)[:3] + " ") if m.group(0).lower().startswith("the") else "") + "reconstruction plan", s,
                flags=re.IGNORECASE)
@@ -529,12 +531,17 @@ def _name(tok: str, names: Names | None) -> str:
     m = re.fullmatch(r"blk_([a-z0-9_]+)", tok)
     if m:
         return f"the {words(m.group(1)).title()} block"
-    m = re.fullmatch(r"hh_([a-z]+)_([a-z0-9_]+)", tok)
+    m = re.fullmatch(r"hh_(?:rc_|inf_|ll_)?([a-z]+)_([a-z0-9_]+)", tok)
     if m:
         return f"the {m.group(1).capitalize()} household"
     m = re.fullmatch(r"z\d{2}_([a-z0-9_]+)", tok)
     if m:
         return f"the {words(m.group(1))} zone"
+    # A newspaper's issue (`chicago_democrat_1834_11_12`) is the paper and its date.
+    m = re.fullmatch(r"([a-z]+(?:_[a-z]+)*)_(1[78]\d\d)_(\d\d)_(\d\d)", tok)
+    if m:
+        paper = " ".join(w.capitalize() for w in m.group(1).split("_"))
+        return f"the {paper} of {m.group(2)}-{m.group(3)}-{m.group(4)}"
     # an id that embeds a ticket number (`T2769_1965_neutrals`) keeps the rest of its words
     return words("_".join(x for x in tok.split("_") if not re.fullmatch(r"(?:T|NAV|PR)\d{2,5}", x)) or tok)
 
@@ -669,6 +676,147 @@ def rewrite_paths(doc, paths, names: Names | None = None, liberties: dict | None
     for path in paths:
         walk(doc, path.split("."), "", None)
     return out
+
+
+# ------------------------------------------------------------------- building names
+#
+# The owner's naming ruling of 2026-08-18 ("give the locations useful names not technical
+# D3 #03 names") reached the anonymous roofs (js/display-name.js) and stopped at the named
+# ones: 146 of the 1904 Prairie Avenue records are named with the production step they were
+# built in — "…, K01 frontage assembly", "(district draft; refined by T-1908)", "Buckingham
+# map-led corner mansion", "its massing read off J. W. Taylor's c. 1895 photograph". Those
+# are a builder's notes on how the model was made, not a name the house was known by. The
+# card, the target tag and Go to say the name with them taken off, and nothing else changes:
+# every word left is the record's own.
+
+PRODUCTION_BRACKET = re.compile(
+    r"\s*\((?:[^()]*\b(?:draft|refined|T-\d{2,5})\b[^()]*)\)", re.IGNORECASE)
+PRODUCTION_TAIL = re.compile(r",\s*(?:its\s+massing\s+read\s+off|K\d{2}\b)[^,()]*$", re.IGNORECASE)
+PRODUCTION_WORDS = re.compile(r"\b(?:map-led|traced)\s+|\bthe\s+K\d{2}\s+(?=\w)|\bK\d{2}\s+(?=\w)",
+                              re.IGNORECASE)
+SEEN_IN = re.compile(r"^(.*?—\s*)([A-Z][\w'’.-]+)\s+partly seen in\b.*$")
+# What reads as the production step in a name, so the gate can refuse one that slipped by.
+NAME_MACHINERY = re.compile(r"\b(?:map-led|frontage assembly|district draft|refined by|K\d{2}|"
+                            r"massing read off|partly seen in)\b", re.IGNORECASE)
+
+
+def plain_name(name: str) -> str:
+    """A building's name without the production step it was modelled in.
+
+    Only removes: a bracket naming a draft, a refinement or a ticket; a trailing ", K01 …"
+    kit clause or ", its massing read off …" clause; the words "map-led" and "traced"; a
+    kit code before a noun ("the K16 timber house" → "the timber house"); and "partly seen
+    in <a photograph>", which leaves the family's name as the house's ("Roloson" → "the
+    Roloson house"). A name with none of those is returned as it is."""
+    n = str(name or "")
+    if not NAME_MACHINERY.search(n) and not PRODUCTION_BRACKET.search(n) and "traced" not in n:
+        return n
+    m = SEEN_IN.match(n)
+    if m:
+        n = f"{m.group(1)}the {m.group(2)} house"
+    n = PRODUCTION_BRACKET.sub("", n)
+    n = PRODUCTION_TAIL.sub("", n)
+    n = PRODUCTION_WORDS.sub(lambda m: "the " if m.group(0).lower().startswith("the ") else "", n)
+    return re.sub(r"\s{2,}", " ", n).strip(" ,;")
+
+
+# ------------------------------------------------------------------- the reader's overlay
+#
+# Some records a person opens are read by the page straight from the files they are authored
+# in, with no compile step between: the plant and wildlife communities, the household records
+# behind a person's card, a firm's record, a building's sidecar. Their prose is the builders'
+# and stays as written; what a reader gets is the same rewrite every other surface gets,
+# applied by the page as it renders, from an overlay compile_reader_text.py writes. The
+# overlay is keyed by each original string's CRC-32 and UTF-8 length, and holds the edits
+# that turn it into the reader's sentence: `[start, delete, insert]`, in UTF-16 code units
+# (a JavaScript string's own indices), in order. js/reader-text.js applies it; reader_copy()
+# below is its twin, so check_visitor_ui.py lints exactly what the page shows.
+
+PROSE = re.compile(r"\S\s+\S")
+
+
+def is_prose(value) -> bool:
+    """A string a person reads as words: two of them at least. An id, a grade, a date or a
+    key is one token, and is the data's, never the overlay's."""
+    return isinstance(value, str) and bool(PROSE.search(value))
+
+
+def reader_key(text: str) -> str:
+    raw = text.encode("utf-8")
+    return f"{zlib.crc32(raw):08x}:{len(raw):x}"
+
+
+def prose_strings(doc):
+    """Every prose string in a document, values only, depth first."""
+    if isinstance(doc, dict):
+        for v in doc.values():
+            yield from prose_strings(v)
+    elif isinstance(doc, list):
+        for v in doc:
+            yield from prose_strings(v)
+    elif is_prose(doc):
+        yield doc
+
+
+TOKEN = re.compile(r"\w+|\s+|[^\w\s]")
+
+
+def _u16(s: str, i: int) -> int:
+    return len(s[:i].encode("utf-16-le")) // 2
+
+
+def edits_between(old: str, new: str) -> list:
+    """The `[start, delete, insert]` edits that turn `old` into `new`, word by word."""
+    a, b = TOKEN.findall(old), TOKEN.findall(new)
+    lo = 0
+    while lo < len(a) and lo < len(b) and a[lo] == b[lo]:
+        lo += 1
+    hi = 0
+    while hi < len(a) - lo and hi < len(b) - lo and a[-1 - hi] == b[-1 - hi]:
+        hi += 1
+    offs = [0]
+    for t in a:
+        offs.append(offs[-1] + len(t))
+    out = []
+    sm = difflib.SequenceMatcher(None, a[lo:len(a) - hi], b[lo:len(b) - hi], autojunk=False)
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag == "equal":
+            continue
+        start, end = offs[lo + i1], offs[lo + i2]
+        ins = "".join(b[lo + j1:lo + j2])
+        if out and out[-1][0] + out[-1][1] == start:
+            out[-1][1] += end - start
+            out[-1][2] += ins
+        else:
+            out.append([start, end - start, ins])
+    if any(ord(c) > 0xFFFF for c in old):
+        out = [[_u16(old, s), _u16(old, s + d) - _u16(old, s), ins] for s, d, ins in out]
+    return out
+
+
+def apply_edits(old: str, edits) -> str:
+    """The twin of js/reader-text.js `applyEdits`, in UTF-16 code units."""
+    u = old.encode("utf-16-le")
+    out, pos = [], 0
+    for start, delete, insert in edits:
+        out.append(u[pos * 2:start * 2].decode("utf-16-le"))
+        out.append(insert)
+        pos = start + delete
+    out.append(u[pos * 2:].decode("utf-16-le"))
+    return "".join(out)
+
+
+def reader_copy(doc, overlay: dict):
+    """`doc` as the page renders it: every prose string the overlay holds, rewritten."""
+    if isinstance(doc, dict):
+        return {k: reader_copy(v, overlay) for k, v in doc.items()}
+    if isinstance(doc, list):
+        return [reader_copy(v, overlay) for v in doc]
+    if is_prose(doc):
+        e = overlay.get(reader_key(doc))
+        if e is not None:
+            return apply_edits(doc, e)
+    return doc
 
 
 def problems(text: str) -> list[str]:

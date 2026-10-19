@@ -1,0 +1,129 @@
+/**
+ * reader-text.js — a record's research prose as a person reads it (T-2825).
+ *
+ * The owner, 2026-10-18: "You should rewrite the records so you are not referring to
+ * internal ticket numbers or internal record ids in researcher or educator mode." Some of
+ * the records a person opens are fetched exactly as they are authored — a plant community,
+ * a household behind a person's card, a firm's record, a building's sidecar — and their
+ * notes are the builders' working record: "(T-1460)", "see fort_dearborn_barracks",
+ * "read off data/streets/1835.json". Those files stay as written, because the next builder
+ * and two dozen tools read them.
+ *
+ * So the rewrite is compiled, not computed here. tools/compile_reader_text.py runs the one
+ * rule every research surface shares (tools/readable_text.py) over each family of records
+ * and writes, to data/reader/<family>.json, the edits that turn each string a reader would
+ * be refused into the sentence they get. This module fetches that overlay once and applies
+ * it to a record before it is rendered. A string the overlay does not hold is already
+ * clean, and is shown as it is. The gate reads the same overlay through readable_text's
+ * `reader_copy`, the twin of `readerCopy` below, so what it lints is what is shown.
+ *
+ * The key is the original string's CRC-32 and UTF-8 length; the edits are
+ * `[start, delete, insert]` in this string's own (UTF-16) indices, in order.
+ */
+
+let CRC_TABLE = null;
+function crcTable() {
+  if (CRC_TABLE) return CRC_TABLE;
+  CRC_TABLE = new Uint32Array(256);
+  for (let n = 0; n < 256; n++) {
+    let c = n;
+    for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1;
+    CRC_TABLE[n] = c >>> 0;
+  }
+  return CRC_TABLE;
+}
+
+const encoder = typeof TextEncoder === 'function' ? new TextEncoder() : null;
+
+/** `crc32:utf8length`, both hex — readable_text.reader_key. */
+export function readerKey(text) {
+  const bytes = encoder ? encoder.encode(String(text)) : new Uint8Array(0);
+  const table = crcTable();
+  let c = 0xFFFFFFFF;
+  for (let i = 0; i < bytes.length; i++) c = table[(c ^ bytes[i]) & 0xFF] ^ (c >>> 8);
+  return `${((c ^ 0xFFFFFFFF) >>> 0).toString(16).padStart(8, '0')}:${bytes.length.toString(16)}`;
+}
+
+/** The string the edits make of `text`. */
+export function applyEdits(text, edits) {
+  let out = '';
+  let pos = 0;
+  for (const [start, del, ins] of edits) {
+    out += text.slice(pos, start) + ins;
+    pos = start + del;
+  }
+  return out + text.slice(pos);
+}
+
+// Each rewritten sentence, against the one it was written from: a renderer that finds the
+// sources a sentence names (residents.js `prose`) reads them off the original, so the
+// citations under a block still list every source its sentences named.
+const ORIGINAL = new Map();
+const ORIGINAL_MAX = 20000;
+
+/** The authored string a rewritten one was said from, or null when it was not rewritten. */
+export function originalOf(text) {
+  return ORIGINAL.get(text) ?? null;
+}
+
+/** One string as a reader gets it. */
+export function say(text, overlay) {
+  if (typeof text !== 'string' || !overlay?.edits) return text;
+  const e = overlay.edits[readerKey(text)];
+  if (!e) return text;
+  const out = applyEdits(text, e);
+  if (ORIGINAL.size >= ORIGINAL_MAX) ORIGINAL.clear();
+  ORIGINAL.set(out, text);
+  return out;
+}
+
+/** A copy of `doc` with every string the overlay holds said for a reader. The record
+ *  itself is never changed: other views, and the smoke's hash of a sidecar, hold it. */
+export function readerCopy(doc, overlay) {
+  if (!overlay?.edits) return doc;
+  const walk = (v) => {
+    if (typeof v === 'string') return say(v, overlay);
+    if (Array.isArray(v)) return v.map(walk);
+    if (v && typeof v === 'object') {
+      const out = {};
+      for (const k of Object.keys(v)) out[k] = walk(v[k]);
+      return out;
+    }
+    return v;
+  };
+  return walk(doc);
+}
+
+const overlays = new Map();
+
+/**
+ * The overlay for one family (`flora`, `fauna`, `residents`, `businesses`,
+ * `structures_<scene>`), fetched once per data base. Resolves to null when it cannot be
+ * read, and reports why: the records are then shown as authored, which is poorer and
+ * never wrong about the evidence.
+ */
+export function loadReaderText(dataBase, family, problems = null) {
+  const key = `${String(dataBase)}|${family}`;
+  if (!overlays.has(key)) {
+    overlays.set(key, fetch(new URL(`reader/${family}.json`, dataBase), { cache: 'no-cache' })
+      .then((res) => {
+        if (!res.ok) throw new Error(`reader/${family}.json: ${res.status}`);
+        return res.json();
+      })
+      .catch((err) => {
+        overlays.delete(key);
+        problems?.push?.(`${err.message} — these records are shown in their builders' words`);
+        return null;
+      }));
+  }
+  return overlays.get(key);
+}
+
+/** A record id said as words, for the few places a card prints one bare: the overlay's
+ *  own name for it where the data gives one, and otherwise its words. Never the id. */
+export function nameOf(id, overlay) {
+  const s = String(id ?? '');
+  const hit = overlay?.names?.[s];
+  if (hit) return hit;
+  return s.replace(/#c\d+$/, '').replace(/^(?:hh|rc|biz|cand)_/, '').replace(/[_:/.]+/g, ' ').trim();
+}

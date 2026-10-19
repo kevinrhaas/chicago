@@ -33,6 +33,7 @@
  */
 
 import { citationItems, escapeHtml } from './citations.js';
+import { loadReaderText, readerCopy } from './reader-text.js';
 
 /** A closed-set token as a reader should see it: `year_round_resident`. */
 function words(token) {
@@ -54,6 +55,12 @@ function rank(list, value) {
 function swatch(confidence) {
   const cls = { attested: 'sw-doc', inferred: 'sw-inf' }[confidence] || 'sw-rec';
   return `<i class="sw ${cls}" title="${escapeHtml(confidence || 'reconstructed')}"></i>`;
+}
+
+/** A plant community's id said as its words (`z01_wet_prairie` → "wet prairie"), the same
+ *  way the plants topic's count sentence says it (T-2825: a reader never gets the id). */
+function communityWords(id) {
+  return String(id || '').replace(/^z\d+_/, '').replace(/_/g, ' ');
 }
 
 /** A `<dt>/<dd>` pair, omitted entirely when the record carries nothing. */
@@ -158,7 +165,7 @@ function zoneHtml(zone, vocab, citationsById) {
   // would be making a claim about the town.
   const ground = zone.in_modelled_extent
     ? `<dd>The ground for this habitat is drawn in the scene, on the same extent as the
-       plant community <code>${escapeHtml(zone.extent_from?.flora_zone || '')}</code>${
+       plant community <b>${escapeHtml(communityWords(zone.extent_from?.flora_zone))}</b>${
       zone.extent_from?.kind ? ` (${escapeHtml(words(zone.extent_from.kind))})` : ''}.</dd>`
     : `<dd>This habitat's ground is <b>not modelled</b> in this scene, so nothing here stands
        anywhere you can walk. The record is kept because the animals were there.</dd>`;
@@ -235,8 +242,7 @@ export async function mountFauna({ mount, noteMount = null, sceneId, dataBase, p
   const fail = (message) => {
     problems.push(`fauna: ${message} — the wildlife of 1835 is not shown`);
     if (mount) {
-      mount.innerHTML = '<p class="legend-note">The animal records could not be loaded. '
-        + 'They are committed at <code>data/fauna/</code>.</p>';
+      mount.innerHTML = '<p class="legend-note">The animal records could not be loaded.</p>';
       mount.removeAttribute('aria-busy');
     }
     if (noteMount) {
@@ -246,10 +252,13 @@ export async function mountFauna({ mount, noteMount = null, sceneId, dataBase, p
     return { zones: 0, species: 0, error: message };
   };
 
+  // T-2825: every record below is said for a reader, by the overlay the gate lints
+  // (reader-text.js), as it arrives. A missing overlay shows the records as authored.
+  const reader = loadReaderText(dataBase, 'fauna', problems);
   const getJson = async (rel) => {
     const res = await fetch(new URL(rel, dataBase), { cache: 'no-cache' });
     if (!res.ok) throw new Error(`${rel}: ${res.status} ${res.statusText}`);
-    return res.json();
+    return readerCopy(await res.json(), await reader);
   };
 
   let index;
