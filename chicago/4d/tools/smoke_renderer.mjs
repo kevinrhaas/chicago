@@ -16425,6 +16425,35 @@ for (const [label, viewport, touch] of [
         await new Promise((r) => setTimeout(r, 150));
       }
       const hintUp = !!document.getElementById('hint')?.classList.contains('on');
+      // dock() updates its detent synchronously, while the actual box still transitions.
+      // After the hint wait, require the visible final dock immediately before sampling.
+      const nav = document.getElementById('navigator'), deadline = performance.now() + 60000;
+      const dockShown = (el) => {
+        if (!el?.isConnected) return false;
+        for (let e = el; e && e !== document.documentElement; e = e.parentElement) {
+          const cs = getComputedStyle(e);
+          if (e.hidden || cs.display === 'none' || cs.visibility === 'hidden' || parseFloat(cs.opacity) < 0.05) return false;
+        }
+        return true;
+      };
+      let navigatorDock;
+      do {
+        const b = nav?.getBoundingClientRect(); // Flush style before reading native transitions.
+        const phone = innerWidth <= 620;
+        const animations = nav?.getAnimations?.() ?? [];
+        navigatorDock = { detent: window.__chicago4d.navigator?.detent ?? null,
+          level: window.__chicago4d.navigator?.level ?? null,
+          box: b ? { x: b.x, y: b.y, width: b.width, height: b.height, right: b.right, bottom: b.bottom } : null,
+          visible: dockShown(nav),
+          running: animations.filter(a => a.playState === 'running' || a.pending).map(a => ({ state: a.playState, pending: a.pending, property: a.transitionProperty ?? null })) };
+        navigatorDock.ready = !!b && navigatorDock.visible && b.height > 0
+          && b.left >= 0 && b.top >= 0 && b.right <= innerWidth && b.bottom <= innerHeight
+          && navigatorDock.level === 0 && navigatorDock.detent === (phone ? 'dock' : 'rail')
+          && navigatorDock.running.length === 0
+          && (phone ? Math.abs(b.width - 136) <= 1 && Math.abs(b.height - 64) <= 1 : Math.abs(b.width - 58) <= 1);
+        if (navigatorDock.ready || performance.now() >= deadline) break;
+        await new Promise(resolve => setTimeout(resolve, 100));
+      } while (true);
       const W = innerWidth, H = innerHeight, cell = 2;
       const cols = Math.ceil(W / cell), rows = Math.ceil(H / cell);
       const grid = new Uint8Array(cols * rows);
@@ -16486,7 +16515,7 @@ for (const [label, viewport, touch] of [
       const streetReadout = +(share('street-readout') + share('street-toggle')).toFixed(2);
       const targetTag = +share('target-tag').toFixed(2);
       return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest, streetReadout, targetTag,
-        controls: window.__chicago4d.controlBackend, lookTag: !document.getElementById('look-tag')?.hidden, hintUp };
+        navigatorDock, controls: window.__chicago4d.controlBackend, lookTag: !document.getElementById('look-tag')?.hidden, hintUp };
     });
     await page.evaluate(() => { window.__chicago4d.navigator?.dock?.(); window.__chicago4d.popup?.close?.(); window.__chicago4d.hud.dismissControlHelp?.({ remember: false }); });
     const footprints = [await hudFootprint()];
@@ -16514,7 +16543,8 @@ for (const [label, viewport, touch] of [
     if (touch) { await page.setViewportSize(viewport); await page.waitForTimeout(400); }
     const base = footprints.at(-1);
     check(`${label}: the HUD covers ${HUD_BUDGET_PCT} % of the screen or less, and the measure catches a planted button (T-2628)`,
-      footprints.every((f) => f.pct <= HUD_BUDGET_PCT && f.boxes > 0)
+      [...footprints, oneMore, oldRow].every((f) => f.navigatorDock.ready)
+      && footprints.every((f) => f.pct <= HUD_BUDGET_PCT && f.boxes > 0)
       // On the phone the pre-declutter row alone breaks the budget, as it did (IMG_6942).
       && oneMore.pct > base.pct + 0.05 && (!touch || oldRow.pct > HUD_BUDGET_PCT),
       JSON.stringify({ footprints, plantedOne: oneMore.pct, plantedOldRow: oldRow.pct }), true);
