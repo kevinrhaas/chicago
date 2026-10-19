@@ -2546,11 +2546,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 opt = {"pedestal": {"far_inset_m"}, "columns": {"pitch_m"}, "parapet": {"side_inset_m"}}
                 # T-2877: and a rear row, a pedestal against the wall behind each front one
                 # (its depth; its width, its pair's place off the wall, pitch and radii the
-                # front's unless given), carrying a pair under a paired capital
+                # front's unless given), carrying a pair under a paired capital; T-2882: and a
+                # respond on the wall behind the pair, `respond_m` deep, from the pedestal to the ceiling
                 if "rear" in lg and not ({"depth_m"} <= set(lg["rear"]) <= {"depth_m", "width_m", "axis_m",
-                                                                         "pitch_m", "radius_scale"}):
+                                                                         "pitch_m", "radius_scale", "respond_m"}):
                     raise ParamError("entrance_kit.terrace.loggia.rear takes depth_m, and optionally width_m, "
-                                     "axis_m, pitch_m and radius_scale")
+                                     "axis_m, pitch_m, radius_scale and respond_m")
                 if set(lg) - {"finish", "rear"} != set(need) or any(
                         not v <= set(lg[k]) <= v | opt.get(k, set()) for k, v in need.items()):
                     raise ParamError(f"entrance_kit.terrace.loggia takes {sorted(need)}, each with "
