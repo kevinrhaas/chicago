@@ -39,7 +39,10 @@ jobs:
     runs-on: ubuntu-latest
     # Both viewports, unfiltered, measured ~26 min in 2026-08-14 and the suite
     # has grown since; leave room rather than killing the measurement run.
-    timeout-minutes: 90
+    # 2026-10-19: desktop part 13 alone ran 85 min (#1054) and three runs were cut off
+    # at 90 min mid-suite with no failure (#1061, #1063, #1064): a desktop frame costs
+    # ~10 s on these runners (T-2412). 150 lets the part finish and report.
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
 
