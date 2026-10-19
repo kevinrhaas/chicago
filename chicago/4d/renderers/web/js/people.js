@@ -879,7 +879,7 @@ export async function mountPeople({
     // too, and are drawn once the household overlay is in hand, said for a reader.
     const rowNotes = cardEl.querySelector('.people-card-row-notes');
     const fillRowNotes = (overlay) => {
-      if (!rowNotes || seq !== openSeq) return;
+      if (!rowNotes?.isConnected || seq !== openSeq) return;
       const said = readerCopy(r, overlay);
       rowNotes.outerHTML = `${readmissionHtml(said)}${transientHtml(said)}`;
     };
