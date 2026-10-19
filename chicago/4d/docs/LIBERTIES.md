@@ -4725,6 +4725,12 @@ calibrated for a forb whose whole plant is one flowering scape, and four 3-pixel
 580-pixel crown is not a tree in flower. The multiplicity that makes it one is **L115**. The
 first repair remains refuted (K45(a)) and the third — the vines — is untouched.
 
+**THIRD REPAIR DONE, 2026-10-19 (T-2810).** `trees.js` draws `vine_drape`: the riverbank grape as a
+curtain on the gallery's water-side crowns, with its July fruit hung in it, and the Virginia creeper
+on the trunks' shaded side (**L-deadwood-vines-2810** for the shares). `vine_drape` moved from
+`forms_unimplemented` to `forms_trees` in `data/flora/index.json`, and
+`tools/measure_flora_reach.py` now banks **no** unrouted record and **no** headless flower.
+
 
 ### L114 — A researched tree that no mix can choose, and three quarters of the modelled ground the timber layer has never visited
 
@@ -29186,6 +29192,31 @@ lean to more trees rather than fewer, so where a stem might or might not have st
 says where the timber ended or names trees on the shore.
 **Ticket:** T-2745.
 **Recorded:** 2026-10-19 (T-2745).
+
+### L-deadwood-vines-2810 — Dead trees, fallen trunks and vines in the river woods of 1812 and 1835
+
+**Decision:** in the river gallery and the wet woods (the same dealt woods in both years), a share
+of the stems stand dead and a share have a fallen trunk of their own species lying 2-7 m off: 5% and
+6% in the gallery, 7% and 8% in the wet woods. A standing dead tree is its species' own tree broken at
+55-85% of its height with its fine wood gone, grey; a fallen one is broken at 45-70%, laid flat, and
+refused anywhere it would lie in water, under the dry floor, on a track or footprint, in a cleared
+plot, or across a slope it could not lie on. On the gallery trees within 32 m of the water, the
+riverbank grape hangs a curtain over the water side of 15% of the crowns, to 78-95% of the tree's
+height and never over 12 m, with its hard green July fruit in it; the Virginia creeper climbs the
+north side of the trunk on 8%. Which stems, and where each log lies, is drawn from a stream seeded by
+the stem's own position, so no living tree moves.
+**What is read, not invented:** z05's two vine records (Swink and Wilhelm 1994): the grape "drapes
+10-20% of the edge trees" as a "heavy curtain vine on the river-facing edge trees", the creeper is
+"climbing the trunks on the shaded side"; their heights and colours are the records'.
+**What is invented:** every dead-wood share and size (no source counts snags or logs on the Chicago
+River in 1812 or 1835: an unmanaged floodplain wood of cottonwood, willow and elm carries standing and
+fallen dead wood, and these shares are a modest reading of that); the 32 m that makes a tree an edge
+tree; where on the crown the curtain hangs; and the share of the creeper, which the record does not
+give.
+**How to resolve:** a description of the river woods before 1840 that mentions dead or drift timber,
+fallen trees or the vines, or a plate that draws them.
+**Ticket:** T-2810.
+**Recorded:** 2026-10-19 (T-2810).
 
 ### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
 
