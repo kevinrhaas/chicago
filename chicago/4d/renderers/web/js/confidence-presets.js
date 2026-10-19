@@ -20,14 +20,16 @@
  * wearing (confidence-rows.js) — the grade colours unless a visitor chose another whole
  * set, such as the colour-blind-safe one, which no preset takes away.
  *
- * The choice persists in localStorage['chicago4d.confidence'] (DESIGN §09) as the looks
- * the colouring and hiding do not already carry; the HUD's own keys carry the rest.
+ * The choice persists in localStorage['chicago4d.confidence'] (DESIGN §09): the looks
+ * here, the colouring and the hidden set from the HUD, all in one record that each writer
+ * merges into (T-2649, confidence-store.js), so it carries to the next page and year.
  */
 import { GRADE_LOOK } from './confidence.js';
 import { presetColours, setInForce, DEFAULT_SET } from './confidence-rows.js';
+import { STORE_KEY, readChoices, keepChoices } from './confidence-store.js';
 
 export const LEVELS = Object.freeze(['attested', 'inferred', 'reconstructed']);
-export const STORE_KEY = 'chicago4d.confidence';
+export { STORE_KEY };
 
 const looks = (inferred, reconstructed) => Object.freeze({
   attested: GRADE_LOOK.attested,
@@ -100,7 +102,8 @@ export function toggleByGrade(deps) {
   return applyPreset(deps.hud?.confidenceOn ? 'normal' : 'bygrade', deps);
 }
 
-/** Keep each grade's look, for the next visit. Storage refused, it is simply not kept. */
+/** Keep each grade's look, for the next visit (the colouring and hidden set kept beside
+ * them stay as they are). Storage refused, it is simply not kept; the scene is unchanged. */
 export function saveLooks(view, storage = globalThis.localStorage) {
   try {
     const out = {};
@@ -108,15 +111,16 @@ export function saveLooks(view, storage = globalThis.localStorage) {
       const g = view.grade(level);
       out[level] = { mode: g.mode, opacity: Math.round(g.opacity * 100) / 100, color: g.color };
     }
-    storage?.setItem(STORE_KEY, JSON.stringify({ looks: out }));
+    keepChoices({ looks: out }, storage);
   } catch { /* a convenience */ }
+  // T-2649: and say the looks moved, for whoever shows them beside the app (the HUD legend).
+  try { globalThis.document?.dispatchEvent(new CustomEvent('chicago4d-confidence')); } catch { /* no page */ }
 }
 
 /** Put the kept looks back on the renderer at boot (before the HUD restores the colouring). */
 export function restoreLooks(view, storage = globalThis.localStorage) {
-  let kept = null;
-  try { kept = JSON.parse(storage?.getItem(STORE_KEY) ?? 'null'); } catch { kept = null; }
-  if (!kept?.looks) return false;
+  const kept = readChoices(storage);
+  if (!kept.looks) return false;
   let any = false;
   for (const level of LEVELS) {
     const g = kept.looks[level];
