@@ -16821,6 +16821,8 @@ for (const [label, viewport, touch] of [
         rendered: mount ? mount.querySelectorAll('details.lib').length : 0,
         busy: mount ? mount.hasAttribute('aria-busy') : true,
         text: mount ? mount.textContent : '',
+        // T-2825: an entry's id rides on its element; its text is the reader's.
+        ids: mount ? [...mount.querySelectorAll('details.lib')].map((d) => d.dataset.libId) : [],
         overflow: document.documentElement.scrollWidth <= window.innerWidth + 1,
       };
     });
@@ -16829,8 +16831,13 @@ for (const [label, viewport, touch] of [
     check(`${label}: every loaded liberty is rendered`, lib.rendered === lib.counted,
       `${lib.rendered} rendered of ${lib.counted}`);
     check(`${label}: the list names a scene-wide liberty`,
-      /No people, anywhere/.test(lib.text) && /L1\b/.test(lib.text),
+      /No people, anywhere/.test(lib.text) && lib.ids.includes('L1'),
       lib.text.slice(0, 160));
+    // ---- T-2825
+    check(`${label}: no liberty names a work number or a record id (T-2825)`,
+      !/\bT-\d{3,5}\b/.test(lib.text) && !/\b[a-z0-9]+(?:_[a-z0-9]+){2,}\b/.test(lib.text),
+      (lib.text.match(/.{0,60}(?:\bT-\d{3,5}\b|\b[a-z0-9]+(?:_[a-z0-9]+){2,}\b).{0,20}/) || [''])[0]);
+    // ---- end T-2825
     check(`${label}: the Evidence panel does not overflow`, lib.overflow);
 
     // --- the town's people, in the same panel (ROADMAP K52) ----------------
@@ -17318,7 +17325,7 @@ for (const [label, viewport, touch] of [
       // The dense forest is the sharpest case and the one the note names, so it
       // is read by id rather than by position.
       const dense = [...(mount?.querySelectorAll('details.plant-zone') ?? [])]
-        .find((d) => /z06_dense_forest/.test(d.textContent));
+        .find((d) => d.dataset.sourceEntity === 'z06_dense_forest'); // T-2825: the id is on the element, not in its text
       if (dense) dense.open = true;
       await new Promise((r) => setTimeout(r, 50));
       return {
@@ -17811,7 +17818,7 @@ for (const [label, viewport, touch] of [
     // the claim on the record that carries it, which is the same claim the
     // provenance card shows, so the two cannot drift.
     check(`${label}: the standing one names the claim on its record that carries the doubt`,
-      /frame_1834\.documented_range/.test(open.western.text)
+      /documented range/.test(open.western.text) && !/frame_1834/.test(open.western.text) // T-2825: the claim in words
       && /provenance card/i.test(open.western.body),
       open.western.body.slice(0, 200));
     // An entry resting on no source record says so in a sentence. An empty list
@@ -17880,7 +17887,7 @@ for (const [label, viewport, touch] of [
       openCard.western.present
       && /W\. H\. Stow/.test(openCard.western.text)
       && /hotel chronology/i.test(openCard.western.text)
-      && /frame_1834\.documented_range/.test(openCard.western.text),
+      && /documented range/.test(openCard.western.text) && !/frame_1834/.test(openCard.western.text), // T-2825
       openCard.western.text.slice(0, 220));
     // What no chip can say: what settling it would change. The grade tells a
     // visitor we are unsure; only this says the dispute is between the builder's
