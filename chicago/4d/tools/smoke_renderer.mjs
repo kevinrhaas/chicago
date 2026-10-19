@@ -15051,6 +15051,21 @@ for (const [label, viewport, touch] of [
         locations: card?.querySelectorAll('.biz-loc').length ?? 0,
         printings: /printings that attest it/.test(card?.textContent ?? '') };
       dir.close();
+      // T-2832: AN AUTHORED FIRM'S CARD LOADS ITS RECORD. The 94 records in
+      // data/businesses/authored/ were filed in the index where compiled ones sit, so
+      // every one of their cards fetched a 404 and printed "No card yet". The row's
+      // `file` is the path the card fetches; it must be the record's own.
+      const authoredRows = idx.businesses.filter((b) => /^authored\//.test(b.file || ''));
+      const own = authoredRows[0] ?? null;
+      const openedOwn = own ? await dir.open(own.id) : false;
+      const ownBody = card?.querySelector('.people-card-body');
+      out.authored = { rows: authoredRows.length, stated: idx.counts?.authored, id: own?.id ?? null,
+        file: own?.file ?? null, opened: openedOwn,
+        name: card?.querySelector('.people-card-name')?.textContent.trim() ?? '',
+        busy: ownBody?.getAttribute('aria-busy') ?? null,
+        failed: /could not be loaded|No card yet/.test(ownBody?.textContent ?? ''),
+        body: (ownBody?.textContent ?? '').trim().length };
+      dir.close();
       return out;
     });
     check(`${label}: the Businesses directory lists every firm, and its count is the index's`,
@@ -15088,6 +15103,11 @@ for (const [label, viewport, touch] of [
       && biz.card.go === biz.card.wantedStructure
       && biz.card.locations > 0 && biz.card.printings,
       JSON.stringify(biz.card));
+    check(`${label}: an authored firm's card opens with its own record, not a 404 (T-2832)`,
+      biz.authored.rows > 0 && biz.authored.rows === biz.authored.stated && biz.authored.opened
+      && biz.authored.name.length > 0 && biz.authored.busy === null && !biz.authored.failed
+      && biz.authored.body > 40,
+      JSON.stringify(biz.authored));
 
     // T-1325: THE WAY INTO A FIRM FROM WHERE THE VISITOR ALREADY IS. The directory
     // above is the way in for somebody who came looking for a firm by name. It was
@@ -15667,9 +15687,9 @@ for (const [label, viewport, touch] of [
       settingsApp.tiles.join(',') === 'control-room,brass,worlds-fair,deep-space' && settingsApp.tileOn === settingsApp.skin
       && settingsApp.switched && settingsApp.restored,
       JSON.stringify({ tiles: settingsApp.tiles, on: settingsApp.tileOn, skin: settingsApp.skin, switched: settingsApp.switched }));
-    check(`${label}: Auto names this device's levels, Sound has master, effects and ambience and says nothing plays yet, About opens What's new (T-2656)`,
+    check(`${label}: Auto names this device's levels, Sound has master, effects and ambience and says what each covers, About opens What's new (T-2656)`,
       settingsApp.autoShown && /^Auto for this device: (Full|Balanced|Light) detail, (Low|Medium|High) sharpness, adaptive pacing\.$/.test(settingsApp.auto)
-      && settingsApp.sound === 3 && /^Nothing in the town makes a sound yet\./.test(settingsApp.soundNote) && settingsApp.whatsNew,
+      && settingsApp.sound === 3 && /not a recording of the past\./.test(settingsApp.soundNote) && settingsApp.whatsNew,  // the note: T-2659
       JSON.stringify({ auto: settingsApp.auto, autoShown: settingsApp.autoShown, sound: settingsApp.sound, note: settingsApp.soundNote, whatsNew: settingsApp.whatsNew }));
     check(`${label}: at text size 140 % every Navigator app reflows, nothing past its edge and no line cut short, and the choice is stored (T-2656, QA-18)`,
       settingsApp.scale === '1.4' && settingsApp.storedScale === 1.4 && settingsApp.back
@@ -15921,6 +15941,111 @@ for (const [label, viewport, touch] of [
       await openSection('settings').catch(() => {});
     }
     // <<< T-2658
+    // >>> T-2659: the Navigator's sounds (js/sound.js). The gesture is the visitor's own: a
+    // TRUSTED tap (touchscreen on a phone, mouse on a desktop) at the centre of a Settings
+    // control in the open Navigator — the tone already chosen, so nothing changes — hit-tested
+    // in the page first. clickChrome's untrusted .click() is no gesture to a browser (or to
+    // gesture-gate.js), which is why it must not be the instrument here. Then the graph is
+    // built on a running context, the device open hums and the destination's bed tone plays, a
+    // relay click and a ticker tick play, Settings › Sound's sliders move the real gains
+    // (Master at Off is silence, Ambience at Off stops the bed), a hidden tab stops the hum and
+    // the bed and they come back, and every level is put back as found. Every wait is bounded
+    // by the clock, not by a count of timer ticks a starved runner stretches.
+    await openSection('settings').catch(() => {});
+    const soundTapSel = '#s-theme .seg-btn[aria-checked="true"]';
+    const soundTap = await page.evaluate(async (s) => {
+      const el = document.querySelector(s);
+      if (!el) return { miss: `nothing matches ${s}` };
+      const device = el.closest('#navigator');
+      const until = Date.now() + 30000;
+      while (Date.now() < until && device?.getAnimations?.().some((a) => a.playState === 'running')) await new Promise((r) => setTimeout(r, 50));
+      el.scrollIntoView({ block: 'center', inline: 'center' });
+      const b = el.getBoundingClientRect();
+      if (b.width < 1 || b.height < 1) return { miss: `${s} has no box` };
+      const x = b.x + b.width / 2, y = b.y + b.height / 2;
+      const top = document.elementFromPoint(x, y);
+      if (!top || !(top === el || el.contains(top))) {
+        let owner = top;
+        while (owner && !owner.id && owner !== document.body) owner = owner.parentElement;
+        return { miss: `${s} is covered at its centre by <${top ? top.tagName.toLowerCase() : 'nothing'}>${owner?.id ? ` inside #${owner.id}` : ''}` };
+      }
+      return { x, y, inNavigator: !!device };
+    }, soundTapSel);
+    if (!soundTap.miss) {
+      if (touch) await page.touchscreen.tap(soundTap.x, soundTap.y);
+      else await page.mouse.click(soundTap.x, soundTap.y);
+    }
+    const soundRead = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+      const until = async (fn, ms = 30000) => { const end = Date.now() + ms; while (Date.now() < end) { if (fn()) return true; await wait(100); } return !!fn(); };
+      const out = { loaded: await until(() => !!api.sound, 60000), gestured: !!api.gesture?.gestured };
+      if (!out.loaded) return out;
+      const sound = api.sound;
+      const near = (a, b) => Math.abs(a - b) < 0.03;
+      const gain = (k) => sound.nodes?.[k]?.gain?.value ?? null;
+      const slider = (k) => document.getElementById(`s-sound-${k}`);
+      const slide = (k, v) => { const el = slider(k); el.value = String(v); el.dispatchEvent(new Event('input', { bubbles: true })); };
+      const stored = () => { try { return JSON.parse(localStorage.getItem('chicago4d.settings') || '{}'); } catch { return {}; } };
+      out.running = await until(() => sound.state.context === 'running', 15000);
+      out.graph = !!sound.nodes?.master && !!sound.nodes?.effects && !!sound.nodes?.ambience;
+      out.year = String(api.scene?.target_date ?? '').slice(0, 4);
+      out.hum = await until(() => sound.state.hum, 10000);
+      out.bed = await until(() => sound.state.ambience === out.year, 10000);
+      out.clunked = sound.state.clunked;
+      const was = { master: slider('master').value, effects: slider('effects').value, ambience: slider('ambience').value };
+      out.was = was;
+      for (const k of ['master', 'effects', 'ambience']) slide(k, 1);
+      out.full = await until(() => near(gain('master'), 1) && near(gain('effects'), 1) && near(gain('ambience'), 1), 10000);
+      await wait(60);
+      const clicks = sound.state.clicks;
+      out.relay = sound.relay() && sound.state.clicks === clicks + 1;
+      sound.ticker(2001);
+      out.tick = sound.ticker(2000) > 0;
+      slide('master', 0.5);
+      out.half = await until(() => near(gain('master'), 0.25), 10000);
+      out.storedHalf = stored().soundMaster === 0.5;
+      slide('effects', 0);
+      out.effectsOff = await until(() => near(gain('effects'), 0) && !sound.state.hum, 10000);
+      await wait(60);
+      out.noRelay = sound.relay() === false;
+      slide('ambience', 0);
+      out.bedOff = await until(() => sound.state.ambience === null, 10000);
+      slide('effects', 1); slide('ambience', 1); slide('master', 0);
+      out.silent = await until(() => near(gain('master'), 0) && sound.state.silent && !sound.state.hum && sound.state.ambience === null, 10000);
+      slide('master', 1);
+      out.back = await until(() => near(gain('master'), 1) && sound.state.hum && sound.state.ambience === out.year, 10000);
+      // A hidden tab: the page is told so, as the browser would tell it, then shown again.
+      const hide = (on) => {
+        for (const [k, v] of [['visibilityState', 'hidden'], ['hidden', true]]) {
+          if (on) Object.defineProperty(document, k, { configurable: true, get: () => v });
+          else delete document[k];
+        }
+        document.dispatchEvent(new Event('visibilitychange'));
+      };
+      hide(true);
+      out.hidden = await until(() => !sound.state.hum && sound.state.ambience === null, 10000);
+      hide(false);
+      out.shown = await until(() => sound.state.hum && sound.state.ambience === out.year, 10000);
+      for (const k of ['master', 'effects', 'ambience']) slide(k, was[k]);
+      out.restored = ['Master', 'Effects', 'Ambience'].every((k) => String(stored()[`sound${k}`]) === String(Number(was[k.toLowerCase()])));
+      out.note = document.getElementById('s-sound-note')?.textContent.trim() ?? '';
+      out.state = sound.state;
+      return out;
+    });
+    check(`${label}: after a tap the Navigator's sound graph runs, the open device hums, the destination plays its bed tone, and a relay click and a ticker tick play (T-2659)`,
+      !soundTap.miss && soundRead.loaded && soundRead.running && soundRead.graph && soundRead.hum && soundRead.bed && soundRead.clunked
+      && soundRead.relay && soundRead.tick,
+      JSON.stringify({ tap: soundTap, gestured: soundRead.gestured, loaded: soundRead.loaded, running: soundRead.running, graph: soundRead.graph, hum: soundRead.hum, bed: soundRead.bed,
+        year: soundRead.year, clunked: soundRead.clunked, relay: soundRead.relay, tick: soundRead.tick, state: soundRead.state }));
+    check(`${label}: Settings › Sound's sliders move the real gains and are stored, Effects or Ambience at Off stops theirs, Master at Off is silence, a hidden tab stops the hum and the bed, all put back (T-2659)`,
+      soundRead.loaded && soundRead.full && soundRead.half && soundRead.storedHalf && soundRead.effectsOff && soundRead.noRelay
+      && soundRead.bedOff && soundRead.silent && soundRead.back && soundRead.hidden && soundRead.shown && soundRead.restored
+      && /made up for mood: it is not a recording of the past\./.test(soundRead.note ?? ''),
+      JSON.stringify({ full: soundRead.full, half: soundRead.half, storedHalf: soundRead.storedHalf, effectsOff: soundRead.effectsOff,
+        noRelay: soundRead.noRelay, bedOff: soundRead.bedOff, silent: soundRead.silent, back: soundRead.back, hidden: soundRead.hidden,
+        shown: soundRead.shown, restored: soundRead.restored, was: soundRead.was, note: soundRead.note }));
+    // <<< T-2659
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
@@ -19470,6 +19595,77 @@ for (const [label, viewport, touch] of [
             JSON.stringify(d).slice(0, 900));
         }
         // <<< T-2641
+        // >>> T-2642: the style library on the 1904 houses whose record names a style. 1900 and
+        // 2115 Prairie open on the Second Empire card, 1834 on the Italianate one, each with its
+        // cues and a credited plate where the pictures file holds a copy that may be shown; every
+        // Compare line that names another module opens that style's cues in place, each dotted,
+        // on these houses and on Glessner's; nothing internal reaches the visitor. Generous waits:
+        // each house's tab is read the first time it opens.
+        const library1904 = await page.evaluate(async (ids) => {
+          const a = window.__chicago4d;
+          const wait = (f, n = 300) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+          const root = () => document.getElementById('nav-app-inspect');
+          const pane = () => root()?.querySelector('[data-insp-pane="design"]');
+          const doc = await a.inspectSummaries();
+          const pics = await a.pictures();
+          const out = {};
+          for (const id of ids) {
+            a.pick(id);
+            await a.navigator.select('inspect');
+            a.navigator.open(2);
+            await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
+            root().querySelector('[data-insp-tab="design"]')?.click();
+            await wait(() => ['yes', 'failed'].includes(pane()?.dataset.filled));
+            await wait(() => { const img = pane()?.querySelector('.insp-style-plate img'); return !img || img.complete; }, 100);
+            const p = pane();
+            if (!p) { out[id] = { filled: 'missing' }; continue; }
+            const rec = doc?.summaries?.[id] ?? {};
+            const mod = doc?.styles?.[rec.style] ?? {};
+            const pic = (pics?.by_structure?.[mod.plate?.structure] ?? []).find((x) => x.id === mod.plate?.picture);
+            const more = [...p.querySelectorAll('.insp-compare-more')];
+            for (const d of more) d.open = true;
+            await new Promise((r) => setTimeout(r, 300));
+            const text = [...p.querySelectorAll('.insp-style-name, .insp-style-desc, .insp-cue, .insp-h, .insp-compare-item, .insp-style-cap-text')]
+              .map((n) => n.textContent).join(' ');
+            out[id] = { filled: p.dataset.filled, style: p.querySelector('.insp-design')?.dataset.style ?? null, want: rec.style ?? null,
+              name: p.querySelector('.insp-style-name')?.textContent.trim() ?? '', wantName: mod.name ?? null,
+              cues: p.querySelectorAll('.insp-cue').length, wantCues: (mod.cues ?? []).length,
+              dotted: [...p.querySelectorAll('.insp-cue, .insp-style-desc, .insp-compare-item')].every((n) => n.querySelector('.fact-dot')),
+              plate: !!p.querySelector('.insp-style-plate img'),
+              plateWanted: !!(pic?.held?.f && /^(public domain|no known restrictions)/i.test(String(pic.rights ?? ''))),
+              credit: p.querySelector('.insp-style-cap .insp-credit')?.textContent.trim() ?? '',
+              more: more.length,
+              wantMore: (mod.compare ?? []).filter((c) => c.style && c.style !== mod.id && doc?.styles?.[c.style]).length,
+              opened: more.map((d) => ({ style: d.dataset.style, open: d.open,
+                cues: d.querySelectorAll('.insp-compare-cue').length, want: (doc?.styles?.[d.dataset.style]?.cues ?? []).length,
+                dotted: [...d.querySelectorAll('.insp-compare-cue, .insp-compare-desc')].every((n) => n.querySelector('.fact-dot')),
+                visible: d.querySelector('.insp-compare-cue')?.getBoundingClientRect().height > 0 })),
+              plumbing: /[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bT-\d{3,}|\btier\b|\bticket\b/i.test(text),
+              overflow: p.scrollWidth > p.clientWidth + 1 || document.documentElement.scrollWidth > innerWidth };
+            for (const d of more) d.open = false;
+          }
+          await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+          return out;
+        }, ['elbridge_keith_house_1900_prairie', 'armour_house_2115_prairie', 'jones_house_1834_prairie', 'glessner_house']);
+        {
+          const L = library1904;
+          const want = { elbridge_keith_house_1900_prairie: 'second_empire', armour_house_2115_prairie: 'second_empire',
+            jones_house_1834_prairie: 'italianate', glessner_house: 'richardsonian_romanesque' };
+          const good = (id) => {
+            const d = L[id] ?? {};
+            return d.filled === 'yes' && d.style === want[id] && d.want === want[id] && d.name && d.name === d.wantName
+              && d.cues === d.wantCues && d.cues >= 1 && d.cues <= 4 && d.dotted && d.plate === d.plateWanted
+              && (!d.plate || d.credit.length > 0)
+              && d.more === d.wantMore && d.more >= 1
+              && d.opened.every((o) => o.open && o.cues === o.want && o.cues >= 1 && o.dotted && o.visible)
+              && !d.plumbing && !d.overflow;
+          };
+          check(`${label}: 1900 and 2115 Prairie show the Second Empire card and 1834 the Italianate one, cues dotted and the plate credited; Compare lines open the other styles' cues in place, on them and on Glessner's (T-2642)`,
+            Object.keys(want).every(good) && L.glessner_house.opened.some((o) => o.style === 'second_empire')
+            && L.glessner_house.opened.some((o) => o.style === 'italianate'),
+            JSON.stringify(L).slice(0, 1200));
+        }
+        // <<< T-2642
         // >>> T-2645 (NAV-510): Inspect's Photos tab on Glessner House — the 12 best by date, each
         // with its year, a caption and its credit; All N shows every picture; From this spot only
         // on a picture a solved camera names, and it stands the visitor where that camera stood.

@@ -113,6 +113,11 @@ def spec(params) -> dict | None:
     if lf is not None and (t.get("cornice") != STONE or not getattr(params, "stone_finish", None)
                            or not 0.0 < float(lf) <= 0.5):
         raise ValueError(f"wall_head.lift_m lifts {STONE!r} under a stone finish's lattice, 0-0.5 m")
+    # T-2813: a stone cornice may stand shallower than the kit's section, every member's height
+    # scaled to depth_m and its projection kept (1808's, where two photographs read its crown short)
+    dp = t.get("depth_m")
+    if dp is not None and (t.get("cornice") != STONE or not 0.15 <= float(dp) <= 0.36):
+        raise ValueError(f"wall_head.depth_m scales {STONE!r}'s section to 0.15-0.36 m deep (the kit's is 0.36)")
     paint = t.get("paint")
     if paint is not None and not (len(paint.get("color", ())) == 3 and all(0.0 <= x <= 1.0 for x in paint["color"])):
         raise ValueError("wall_head.paint names the cornice timber's linear colour, three values 0-1")
@@ -365,7 +370,16 @@ def _cornice(a, K, data, bays, conf):
     # the house's soffit and fascia; the wall's bed moulding stops at its junctions
     sec = [tuple(q) for q in bracketed_section(data, p.eave_overhang_m)]
     cut = []
+    # T-2787: a tower rises past the eave, so the bed moulding stops at its junctions and
+    # dies into its ring, on whichever wall it stands (a cut is perimeter s: the street
+    # front's run starts the perimeter, then north, rear and south, as `runs` lays them)
+    at_run, acc = {}, 0.0
+    for r in runs(p):
+        at_run[r.name], acc = acc, acc + r.L
     for b, (wall, s0, s1, top) in zip(p.bays, bays):
+        if b["variant"]["kind"] == "tower":
+            cut.append(tuple(at_run[wall] + s for s in b["span_m"]))
+            continue
         if cr.get("form") == "hip" and wall == "k01.wall.street_front" \
                 and -cr["z1"] - cr["overhang_m"] <= s0 and s1 <= -cr["z0"] + cr["overhang_m"]:
             continue
@@ -568,6 +582,9 @@ def _stone_cornice(a, K, data, bays, conf):
     v = next(x for x in data["variants"] if x["id"] == STONE)
     prof = [tuple(q) for q in data["parts"]["profiles"][v["profile"]]["points"]]
     pj, ch = max(n for n, _ in prof), max(u for _, u in prof)
+    if p.wall_head.get("depth_m"):                  # T-2813: the section scaled in height alone
+        k = float(p.wall_head["depth_m"]) / ch
+        prof, ch = [(n, u * k) for n, u in prof], ch * k
     y_s = a.soffit_m + float(p.wall_head.get("lift_m", 0.0))
     y_c = y_s - ch
     front = runs(p)[0]
@@ -579,6 +596,9 @@ def _stone_cornice(a, K, data, bays, conf):
     cut = []
     for b, (wall, s0, s1, top) in zip(p.bays, bays):
         if wall != front.name or top <= y_c - 0.005:
+            continue
+        if b["variant"]["kind"] == "tower":   # T-2787: the course dies into a tower's ring
+            cut.append(tuple(b["span_m"]))
             continue
         ev = b["variant"].get("overrides", {}).get("eaves", {})
         wall_top = b["variant"].get("base", 0.0) if b["variant"].get("base") != "grade" else 0.0
@@ -603,6 +623,8 @@ def _stone_cornice(a, K, data, bays, conf):
         info["stops_m"] = {k: float(x) for k, x in sorted(stops.items())}
     if p.wall_head.get("lift_m"):
         info["lift_m"] = float(p.wall_head["lift_m"])
+    if p.wall_head.get("depth_m"):
+        info["depth_m"] = float(p.wall_head["depth_m"])
     seed = a.instance(STONE, "cornice", info, {"soffit": (p.depth_m, y_s, 0.0)})
     var = K.Variant({"id": STONE, "kind": "moulded", "material": "stone"}, data)
     var.seed, var.rng = seed, random.Random(seed)

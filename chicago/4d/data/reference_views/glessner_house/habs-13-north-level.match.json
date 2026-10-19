@@ -2,8 +2,8 @@
   "structure_id": "glessner_house",
   "view": "habs-13-north-level",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
-  "camera_sha256": "b715f46bdcd3f09118dc8a09b7cb908611219ef5a66398a68e615999f136777f",
+  "glb_sha256": "54ad9acb753eac1f65dde9cec4d2232a377de4c63cb1c29e6c25ee52fbd9c024",
+  "camera_sha256": "05df87bce99e2d3e0df38d02d0f0230f844abeb09c8e6293af791638ee5f6c77",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-13-north-level-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -12,11 +12,19 @@
       "status": "open"
     },
     {
-      "what": "North masonry/course texture, pair detailing and lighting differ. The source facade is shaded; the default review sun is not a solved historical light.",
+      "what": "North masonry/course texture and pair detailing differ.",
       "status": "open"
     },
     {
       "what": "Signs, poles, cars, neighbor fabric and ground alterations date to1965; the photograph does not establish1904 RGB.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2848 light: the photograph was taken under an overcast sky (wet street, no shadow from the poles beside the wall); the render now uses the overcast sky (camera solve.light), so the shaded north facade is no longer raked by the review sun.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2848: the stone in this print is darkened by decades of city soot, so its tone in the 1960s photograph is not its 1887 tone; the render's clean stone is not compared against it.",
       "status": "not shown"
     }
   ],

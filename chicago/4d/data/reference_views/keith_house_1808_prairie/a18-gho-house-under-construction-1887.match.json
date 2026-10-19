@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gho-house-under-construction-1887",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c505419a7f8e102a8508129543029fd2cd7dd2357cd6f12c5547d6a79535ca4b",
+  "glb_sha256": "37618537fd47c6cf160a1a3b8251c0a461c2a6b3878d18ec20cfea6dccb9a6c2",
   "camera_sha256": "58459d896bcda17e77a1d65e99b5f75388ece26d2bfab249167f85a0beaabbe2",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gho-house-under-construction-1887-side-by-side.jpg",
   "verdict": "matches",
@@ -46,6 +46,10 @@
     {
       "what": "T-2714: the checker band's units are pitched 0.28 m along their rows (0.336 m before), with 0.07 m of ground between neighbours, as the 1888 Keith plate lays them; the rows are unchanged. Not judged here: only the north return's crown shows here, edge-on.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2813: re-rendered with Keith's crown 0.16 m lower (the moulded course under the lattice 0.20 m deep where it was 0.36 m, the checker and head bands unmoved); its camera does not use the crown and is unchanged. Read again at the crown beside the previous render: the lattice, coping and pinnacles move a few pixels at this picture's scale and nothing it shows opens a difference; the verdict stands as it was (matches).",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

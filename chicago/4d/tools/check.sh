@@ -170,6 +170,8 @@ step "The Navigator docks, opens and snaps between its heights, Home reads the s
   node tools/test_navigator.mjs
 step "Settings lays out Display, Machine, Performance with Auto, Sound, Units and About & What's new, every id kept, every choice stored (T-2656)" \
   node tools/test_settings_app.mjs
+step "The Navigator's sounds: a tick per flipped digit at most 12 a second, nothing before the first tap, Master at 0 silent, a hidden tab stops the hum and the ambience, and Settings › Sound's levels reach the graph (T-2659)" \
+  node tools/test_sound.mjs
 step "Every Navigator app is legible at 4.5:1 or better in all four machines and both tones (T-2656, QA-21)" \
   node tools/check_navigator_contrast.mjs
 selftest "…and a token drifted toward its panel, or the device's overrides removed, is refused (T-2656)" \
@@ -873,6 +875,29 @@ step "the K08 bay kit builds every bay, oriel and tower closed against its wall,
 
 selftest "…and a window off its run, a recess through the wall, a faceted curve, an oriel on one deep course or a roof with a hole still fails it" \
   python3 tools/check_bay_kit.py --self-test
+
+# T-2787. ...and a K01 frontage carries a K08 tower past its eave (the kit piece 1801
+# Prairie's move needs). Built on two committed records with a tower added, a hip and a
+# mansard: the cap over the main roof, the ring closed above the wall head in the wall's
+# plane, the wall head's brackets and bed moulding stopped at its junctions, the lights
+# behind it dropped; a tower under the eave, out of its size range or in front of a door
+# refused.
+step "a K01 frontage carries a K08 tower past its eave, closed above the wall head and the wall head stopped at it (T-2787)" \
+  python3 tools/test_k01_tower.py
+
+# T-2788. ...and what an all-stone house is. A K01 record naming `construction: "stone"`
+# lays its K02 stone_front round every face, not a stone front on a brick box. No record
+# names it yet (1801 Prairie, T-2789, is the first), so this builds four houses that carry
+# a K02 front as all-stone, in memory, and measures them: every wall coursed in the
+# record's stone, no brick under the eave, every course on the front's beds (level round
+# each corner), a stone flat arch over every opening off the front, no coincident face;
+# a quoin bond, a brick bay or a missing stone_front refused; every record as committed
+# still brick on its flanks.
+step "the K01 kit lays an all-stone house in its K02 stone round every face (T-2788)" \
+  python3 tools/check_stone_house_kit.py --check
+
+selftest "…and flanks left in brick, a corner off the front's beds, a headless opening, a doubled face or a refused record built anyway still fails it" \
+  python3 tools/check_stone_house_kit.py --self-test
 
 # T-2303. ...and what the 1904 entrances are. The K07 kit's parts are sized in
 # data/components/prairie_1904/k07_entrances.json and built by
@@ -2040,6 +2065,11 @@ step "the planted poplar rows re-derive from the rule that chose their greens" \
 # L-shore-grove-1835-2766).
 step "the 1835 shore cottonwood grove re-derives from the rule that dealt it" \
   python3 tools/generate_shore_grove_1835.py --check
+
+# The same grove in 1812, twenty-three years younger: the 1835 record's positions at
+# half its heights as z08's dune cottonwood (T-2745, L-woods-1812-2745).
+step "the 1812 shore cottonwoods re-derive from the 1835 grove" \
+  python3 tools/generate_shore_grove_1812.py --check
 
 # The fort's company gardens and Dr. Harmon's orchard (Wau-Bun, 1831): which fruit,
 # how many and where are a rule's, re-derived here (T-2809, L-fruit-trees-1835-2809).

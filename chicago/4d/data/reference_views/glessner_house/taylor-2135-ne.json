@@ -31,34 +31,35 @@
     [
       -0.8012145999119349,
       -0.5983771092613404,
-      0.0
+      0
     ]
   ],
+  "sky": "overcast",
   "sun_uvy": [
-    55,
-    20,
-    40
+    0.8,
+    -0.2,
+    1
   ],
   "solve": {
     "method": "Level rising-front perspective with fitted small roll, reconstructed camera height1.7m. Four Prairie wall/eave corners and the north service gable foot control the view; drain fittings excluded. Model-based dimensions do not constitute an independent survey. Native scan1056x991;1600display is an enlargement.",
     "controls_xyz_px": [
       [
         49.149,
-        0.0,
-        0.0,
+        0,
+        0,
         45,
         875
       ],
       [
         49.149,
         22.5552,
-        0.0,
+        0,
         904,
         920
       ],
       [
         49.149,
-        0.0,
+        0,
         8.4856,
         56,
         529
@@ -100,7 +101,8 @@
         0.13803389622478335
       ]
     ],
-    "rms_px": 1.5698954755110228
+    "rms_px": 1.5698954755110228,
+    "light": "T-2848, read off the photograph: hazy, diffuse light. The lamp post at the corner, the two street trees and the window heads throw no shadow, and the rustication is shaded softly along each block's lower edge; the Prairie (east) front reads a little brighter than the 18th Street (north) flank. So the sky is brightest to the east and somewhat high: the overcast sky with its soft key at sun_uvy [0.8, -0.2, 1] (east, a little south, about 45 degrees up). This replaces [55, 20, 40], which T-2221 carried over with the camera and no reading behind it."
   },
   "source_id": "taylor_2135_glessner_exterior_1887_1889"
 }
