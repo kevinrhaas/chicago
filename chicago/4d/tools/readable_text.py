@@ -732,7 +732,10 @@ def plain_name(name: str) -> str:
 # (a JavaScript string's own indices), in order. js/reader-text.js applies it; reader_copy()
 # below is its twin, so check_visitor_ui.py lints exactly what the page shows.
 
-PROSE = re.compile(r"\S\s+\S")
+# Spelt out, not `\s`: Python's and JavaScript's whitespace classes differ at the edges,
+# and js/reader-text.js holds this same class, so both call the same strings prose.
+_WS = " \t\n\r\f\v\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff"
+PROSE = re.compile(f"[^{_WS}][{_WS}]+[^{_WS}]")
 
 
 def is_prose(value) -> bool:

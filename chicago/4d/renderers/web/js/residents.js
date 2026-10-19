@@ -70,6 +70,7 @@ import { tierOf, isNotAsserted, TIER_LABEL, TIER_TITLE } from './attribute-tiers
 // holding for the building card and the person card both (T-1041).
 import { agencySectionHtml, loadAgencies } from './agencies.js';
 import { readHouseholdRecord } from './letter-list-roster.js';
+import { loadReaderText, nameOf, originalOf, readerCopy } from './reader-text.js';
 
 /** A closed-set token as a reader should see it: `tavern_keeper`. */
 export function words(token) {
@@ -2158,8 +2159,7 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
   const fail = (message) => {
     problems.push(`residents: ${message} — the town's people are not shown`);
     if (mount) {
-      mount.innerHTML = '<p class="legend-note">The household records could not be loaded. '
-        + 'They are committed at <code>data/residents/</code>.</p>';
+      mount.innerHTML = '<p class="legend-note">The household records could not be loaded.</p>';
       mount.removeAttribute('aria-busy');
     }
     if (noteMount) {
@@ -2169,10 +2169,14 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
     return { households: 0, persons: 0, offCard: 0, error: message };
   };
 
+  // T-2825: the manifest is said for a reader as it arrives (reader-text.js), by its own
+  // small overlay; the joins a card reads are said when a card opens (`sayJoins`), so the
+  // household overlay is fetched with the first card and never with the section.
   const getJson = async (rel) => {
     const res = await fetch(new URL(rel, dataBase), { cache: 'no-cache' });
     if (!res.ok) throw new Error(`${rel}: ${res.status} ${res.statusText}`);
-    return res.json();
+    const doc = await res.json();
+    return readerCopy(doc, await loadReaderText(dataBase, 'residents_index', problems));
   };
 
   // The agency relation. A man who held one is named on his own town card, and a
@@ -2433,16 +2437,17 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
       try {
         // T-0438: the letter-list cohort is published packed, so its rows read
         // through the roster; every other row reads its own file as before.
-        const hh = await readHouseholdRecord(dataBase, el.dataset.file,
-          { cohort: cohortFiles.has(el.dataset.file) });
-        if (body) body.innerHTML = householdHtml(hh, citationsById, researchByPerson, directoryByPerson,
-          vocab.ladder_rules, agencies, withheldByPerson, seatingByPerson, coverage);
+        const [hh, reader] = await Promise.all([readHouseholdRecord(dataBase, el.dataset.file,
+          { cohort: cohortFiles.has(el.dataset.file) }), loadReaderText(dataBase, 'residents', problems)]);
+        const said = sayJoins({ citationsById, researchByPerson, directoryByPerson, withheldByPerson,
+          seatingByPerson, coverage }, reader);
+        if (body) body.innerHTML = householdHtml(hh, said.citationsById, said.researchByPerson, said.directoryByPerson,
+          vocab.ladder_rules, agencies, said.withheldByPerson, said.seatingByPerson, said.coverage);
       } catch (err) {
         el.dataset.loaded = '0';
         problems.push(`residents: ${err.message} — one household record is missing`);
         if (body) {
-          body.innerHTML = `<p class="legend-note">This household's record could not be
-            loaded. It is committed at <code>data/residents/${escapeHtml(el.dataset.file || '')}</code>.</p>`;
+          body.innerHTML = '<p class="legend-note">This household\'s record could not be loaded.</p>';
         }
       }
     }, true);
@@ -2465,6 +2470,42 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
     researchCounts,
     error: null,
   };
+}
+
+/** A join map whose rows come out said for a reader, each the first time a card asks. */
+function saidMap(map, overlay) {
+  if (!map || typeof map.get !== 'function') return map;
+  const memo = new Map();
+  return {
+    get(k) {
+      if (!memo.has(k)) memo.set(k, map.has(k) ? readerCopy(map.get(k), overlay) : undefined);
+      return memo.get(k);
+    },
+    has: (k) => map.has(k),
+    get size() { return map.size; },
+  };
+}
+
+/**
+ * The joins a household card reads, as a reader gets them (T-2825): the citations, the
+ * identity reviews, the directory findings, the refusals, the seatings, the employment
+ * answers and the address book's seats, each row said through the household overlay as the
+ * card reads it. The joins themselves stay as fetched, so a section that counts them counts
+ * the record. Without an overlay a sentence that would leak is withheld (reader-text.js).
+ */
+export function sayJoins(joins, overlay) {
+  if (!joins) return joins;
+  const out = { ...joins };
+  for (const k of ['citationsById', 'researchByPerson', 'directoryByPerson', 'withheldByPerson',
+    'seatingByPerson', 'seatByHousehold', 'seatByBusiness']) {
+    if (joins[k]) out[k] = saidMap(joins[k], overlay);
+  }
+  if (joins.coverage) {
+    out.coverage = { ...joins.coverage, byPerson: saidMap(joins.coverage.byPerson, overlay),
+      words: readerCopy(joins.coverage.words, overlay) };
+  }
+  if (joins.agencies) out.agencies = readerCopy(joins.agencies, overlay);
+  return out;
 }
 
 /**
@@ -2495,10 +2536,14 @@ const residentJoinCache = new Map();
 export function loadResidentJoins(dataBase, sceneId, problems = []) {
   const key = `${sceneId}@${String(dataBase)}`;
   if (residentJoinCache.has(key)) return residentJoinCache.get(key);
+  // T-2825: the manifest is said for a reader as it arrives (reader-text.js), by its own
+  // small overlay; the joins a card reads are said when a card opens (`sayJoins`), so the
+  // household overlay is fetched with the first card and never with the section.
   const getJson = async (rel) => {
     const res = await fetch(new URL(rel, dataBase), { cache: 'no-cache' });
     if (!res.ok) throw new Error(`${rel}: ${res.status} ${res.statusText}`);
-    return res.json();
+    const doc = await res.json();
+    return readerCopy(doc, await loadReaderText(dataBase, 'residents_index', problems));
   };
   const promise = (async () => {
     const citationsById = new Map();

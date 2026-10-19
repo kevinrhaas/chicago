@@ -14,13 +14,15 @@ stands between: the page fetches them as they are authored or compiled for the s
   flora        the plant communities (js/plants.js): data/flora/, and each scene's
                flora_sources.json and flora_clamp.json
   fauna        the wildlife communities (js/fauna.js): data/fauna/ and fauna_sources.json
-  residents    a person's card and the household browser (js/people.js, js/residents.js):
-               every household record, the residents index, and the joins the card reads
-               (the research pilot, the facts withheld, the seating, the employment
-               coverage, the directories, the 1835 address book, residents_sources.json)
-  businesses   the Shops & work card (js/businesses.js): every firm's record and the index
-  structures_<scene>  a building's card (js/popup.js): every structure sidecar of the scene
-               and its versions
+  residents_index  the household browser's manifest, read as the section mounts
+  residents    a person's card and a household's (js/people.js, js/residents.js), read when
+               one opens: every household record and the joins the card reads (the research
+               pilot, the facts withheld, the seating, the employment coverage, the
+               directories, the 1835 address book and agencies, residents_sources.json)
+  businesses   the Shops & work card (js/businesses.js): every firm's record, the index and
+               the address book's seats
+  structures_<scene>  a building's card (js/popup.js): every structure sidecar of the scene,
+               its versions, and the agencies it can name
 
 A record's prose is said for a reader by the one rule every research surface shares
 (readable_text.rewrite: a ticket dropped or said as "earlier work", an id as the name the
@@ -79,22 +81,27 @@ def _structures(scene: str) -> list[Path]:
 
 def families() -> dict[str, list[Path]]:
     res = DATA / "residents"
+    book = DATA / "reconstruction" / "1835_address_book.json"
+    agencies = DATA / "reconstruction" / "1835_agencies.json"
     fam = {
         "flora": [DATA / "flora" / "index.json", *sorted((DATA / "flora" / "zones").glob("*.json"))]
                  + [p for s in SCENES for p in _sidecar_files(s, ("flora_sources.json", "flora_clamp.json"))],
         "fauna": [DATA / "fauna" / "index.json", *sorted((DATA / "fauna" / "zones").glob("*.json"))]
                  + [p for s in SCENES for p in _sidecar_files(s, ("fauna_sources.json",))],
-        "residents": [res / "index.json", *sorted((res / "households").glob("*.json"))]
+        # The manifest is read when the section mounts; everything else when a card opens,
+        # so the two are two files and the household one never rides the first visit.
+        "residents_index": [res / "index.json"],
+        "residents": [*sorted((res / "households").glob("*.json"))]
                      + [res / n for n in ("research_pilot.json", "person_facts_withheld.json",
                                           "reconstructed_seating.json", "employment_coverage.json",
                                           "directories.json")]
-                     + [DATA / "reconstruction" / "1835_address_book.json"]
+                     + [book, agencies]
                      + [p for s in SCENES for p in _sidecar_files(s, ("residents_sources.json",))],
         "businesses": [DATA / "businesses" / "index.json", *sorted((DATA / "businesses").glob("biz_*.json")),
-                       *sorted((DATA / "businesses" / "authored").glob("biz_*.json"))],
+                       *sorted((DATA / "businesses" / "authored").glob("biz_*.json")), book],
     }
     for scene in SCENES:
-        fam[f"structures_{scene}"] = _structures(scene)
+        fam[f"structures_{scene}"] = _structures(scene) + [agencies]
     return {k: [p for p in v if p.is_file()] for k, v in fam.items()}
 
 
@@ -106,6 +113,7 @@ DOC = ("The reader's overlay for {what} (T-2825): the edits that say each of its
 WHAT = {
     "flora": "the plant communities",
     "fauna": "the wildlife communities",
+    "residents_index": "the household browser's manifest",
     "residents": "the household records and a person's card",
     "businesses": "the Shops & work card",
 }

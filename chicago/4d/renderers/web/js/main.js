@@ -46,6 +46,7 @@ import { createWalker, footprintsFrom, decksFrom, WALK } from './walker.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
 import { createPopup } from './popup.js';
+import { loadReaderText } from './reader-text.js';
 import { createWelcome } from './welcome.js';
 import { createYearPack } from './year-pack.js';
 import { createDestinations } from './destinations.js';
@@ -2987,9 +2988,20 @@ async function boot() {
       tourCounts.opens++; tourCounts.deeper++;
       // T-2664: the first Reconstructed building's card says, once, what the word means.
       if (isReconstructed(record?.sidecar)) api.hints?.show('reconstructed');
-      void ensureLiberties(); void ensureHouseholdNotes(record); void ensurePictures();
+      void ensureLiberties(); void ensureHouseholdNotes(record); void ensurePictures(); void ensureReaderText();
     },
   });
+  // T-2825. The scene's reader overlay: the edits that say each research note on a building's
+  // card without a ticket number, a record id or a file path (tools/compile_reader_text.py).
+  // Off the boot path, like the liberties: the first card asks for it and is redrawn when it
+  // lands, and until then a note that would leak is withheld rather than shown.
+  let readerPromise = null;
+  const ensureReaderText = () => (readerPromise ??= loadReaderText(bases.dataBase,
+    `structures_${loaded.scene.id ?? YEAR}`, problems).then((doc) => {
+    if (!doc) readerPromise = null;
+    popup.setReader(doc);
+    return doc;
+  }));
   popupRoot.addEventListener('click', (e) => { if (e.target.closest?.('[data-pop-tab]')) tourCounts.deeper++; });
   // The pictures of each building, for the card's Images tab (T-2389). Off the boot path
   // for the liberties' reason: only the card reads it, so it is fetched the first time a
@@ -4439,16 +4451,21 @@ async function boot() {
         // T-2638: what Inspect's front page reads. The compiled summaries (inspect/<scene>.json,
         // tools/compile_summaries.py), the pictures (the card's own file), a building's record,
         // and the card itself, on a tab, as the full record until the Inspect tabs (T-2639).
-        inspectSummaries: () => ensureInspect(),
+        inspectSummaries: () => Promise.all([ensureInspect(), ensureReaderText().catch(() => null)]).then(([doc]) => doc),
         pictures: () => ensurePictures(),
-        record: (id) => loaded.registry.get(id) ?? null,
+        // T-2825: the record as the card says it — its notes without a ticket, a record id or
+        // a file path, once the scene's reader overlay is in (inspectSummaries waits for it).
+        record: (id) => {
+          const record = loaded.registry.get(id);
+          return record ? { ...record, sidecar: popup.say(record.sidecar) } : null;
+        },
         // T-2639: the card's content as Inspect's tabs show it, once the lazy data it reads
         // (liberties, pictures, a seated record's household notes) is in hand.
         cardSections: async (id) => {
           const record = loaded.registry.get(id);
           if (!record) return null;
           ensureHouseholdNotes(record);
-          await Promise.all([ensureLiberties(), ensurePictures(), householdNotes.get(record.id)].map((x) => Promise.resolve(x).catch(() => null)));
+          await Promise.all([ensureLiberties(), ensurePictures(), householdNotes.get(record.id), ensureReaderText()].map((x) => Promise.resolve(x).catch(() => null)));
           return popup.sections(record);
         },
         // A person by directory id: in the drawer's People section where the scene has one
