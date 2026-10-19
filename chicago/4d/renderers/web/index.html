@@ -730,8 +730,8 @@
         <textarea class="pacing-read-out" id="pacing-read-out" readonly rows="12" hidden
           aria-label="Frame pacing reading"></textarea>
       </div>
-      <!-- T-2656: Settings › Sound. The controls are kept now; the sounds are T-2659's. Until
-           they land the note says so, and nothing pretends to play. -->
+      <!-- T-2656: Settings › Sound. T-2659 (js/sound.js) makes the sounds; the note says what
+           each level covers, and that the ambience is mood, not a recording of the past. -->
       <div class="settings-group" id="s-sound">
         <h4 data-str="settings.sound">Sound</h4>
         <label class="field"><span><span data-str="settings.sound.master">Master</span> <b id="v-sound-master"></b></span>
@@ -740,7 +740,7 @@
           <input type="range" id="s-sound-effects" min="0" max="1" step="0.05"></label>
         <label class="field"><span><span data-str="settings.sound.ambience">Ambience</span> <b id="v-sound-ambience"></b></span>
           <input type="range" id="s-sound-ambience" min="0" max="1" step="0.05"></label>
-        <p class="legend-note" id="s-sound-note" data-str="settings.sound.none">Nothing in the town makes a sound yet. These are kept for when it does.</p>
+        <p class="legend-note" id="s-sound-note" data-str="settings.sound.note">Effects are the year ticker, the landing, and the Navigator's clicks and hum. Ambience is a quiet tone for each destination, made up for mood: it is not a recording of the past. Sound starts with your first tap, and Master at Off is silence.</p>
       </div>
       <div class="settings-group">
         <h4>Units</h4>

@@ -58,7 +58,7 @@
         "required": ["name", "text", "grade"],
         "properties": {
           "name": { "$ref": "#/$defs/text" },
-          "style": { "$ref": "#/$defs/id", "description": "That style's module id, where one exists or is planned. Data, never shown." },
+          "style": { "$ref": "#/$defs/id", "description": "That style's module id, where one exists or is planned. Data, never shown. Where the module exists, the Design tab opens its two lines and cues in place under this line, and tools/compile_summaries.py refuses a line that points at its own module or calls that module by another name (T-2642)." },
           "text": { "$ref": "#/$defs/text" },
           "grade": { "type": "string", "enum": ["attested", "inferred", "reconstructed"] },
           "sources": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },

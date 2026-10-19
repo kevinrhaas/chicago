@@ -1,0 +1,117 @@
+{
+  "id": "elbridge_keith_house_1900_prairie",
+  "scene": "1904",
+  "name": "Elbridge Keith House",
+  "address": "1900 S. Prairie Ave.",
+  "status": {
+    "text": "Still standing",
+    "today": "Still on Prairie Avenue",
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_heritage_preserved",
+      "glessner_blog_2014_11_elbridge_keith_house"
+    ]
+  },
+  "built": {
+    "year": 1870,
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_heritage_preserved",
+      "glessner_blog_2014_11_elbridge_keith_house"
+    ],
+    "note": "The marker gives 1870. The museum's post gives 1870 to 1871."
+  },
+  "use": "Home",
+  "summary": "A limestone house with a steep slate roof, built for Elbridge Keith, a hat merchant who became a banker. The top floor inside that roof was added in the 1880s. It is the last Second Empire house left on Prairie Avenue.",
+  "key": [
+    {
+      "label": "Architect",
+      "value": "John W. Roberts",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved",
+        "glessner_blog_2014_11_elbridge_keith_house"
+      ]
+    },
+    {
+      "label": "Built for",
+      "value": "Elbridge G. Keith",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved",
+        "glessner_blog_2014_11_elbridge_keith_house"
+      ]
+    },
+    {
+      "label": "Style",
+      "value": "Second Empire",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved",
+        "glessner_blog_2014_11_elbridge_keith_house"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "The top floor, inside the steep mansard roof, was not part of the first house. It was added in the 1880s.",
+      "about": "structure",
+      "surprising": true,
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "glessner_blog_2014_11_elbridge_keith_house"
+      ]
+    },
+    {
+      "text": "It is the last house left of the Second Empire style, which once ruled the street.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved",
+        "glessner_blog_2014_11_elbridge_keith_house"
+      ]
+    },
+    {
+      "text": "Elbridge Keith died at home here in May 1905, the year after your visit.",
+      "about": "person",
+      "grade": "attested",
+      "sources": [
+        "glessner_blog_2014_11_elbridge_keith_house"
+      ]
+    }
+  ],
+  "style": "second_empire",
+  "story": [
+    {
+      "date": "1868",
+      "text": "Elbridge Keith buys a double lot and hires the architect John W. Roberts.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "glessner_blog_2014_11_elbridge_keith_house"
+      ]
+    },
+    {
+      "date": "1905-05-17",
+      "text": "Elbridge Keith dies at home.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "glessner_blog_2014_11_elbridge_keith_house"
+      ]
+    },
+    {
+      "date": "1920",
+      "text": "His widow, Harriet, sells the house.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "glessner_blog_2014_11_elbridge_keith_house"
+      ]
+    }
+  ]
+}

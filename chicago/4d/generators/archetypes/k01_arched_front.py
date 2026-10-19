@@ -572,14 +572,18 @@ def _rails(a, frame, sr, conf):
     nose = lambda d: y0 - (d - L) * r / g                # the nosing line
     tread = lambda d: y0 - min(n, max(0, math.floor((d - L) / g) + 1)) * r if d > L else y0
     H, nm, bm, rm, rw = R["height_m"], R["newel_m"], R["baluster_m"], R["rail_m"], R["rail_width_m"]
+    # T-2817: on the stoop's own axis, which 1623's stands north of its door's
+    cs = p.stoop_s_m(door.s_m)
     seed = a.instance("k11.rail.stoop_rail", "stair", {"risers": n, "rail_height_m": H, "sides": 2,
                                                        "balusters_per_tread": R["per_tread"],
                                                        "scroll_m": sr["scroll_m"]},
-                      {"top": _P(frame, door.s_m, y0 + H, L), "foot": _P(frame, door.s_m, r + H, F)})
+                      {"top": _P(frame, cs, y0 + H, L), "foot": _P(frame, cs, r + H, F)})
     d_top, d_foot = L - 0.12, F - g / 2
     sc = sr["scroll_m"]
+    if sr.get("guard"):
+        _landing_guard(a, frame, sr["guard"], cs, R, y0, d_top, g, seed, conf)
     for sg in (-1, 1):
-        x = door.s_m + sg * (p.stoop_width_m / 2 - R["inset_m"])
+        x = cs + sg * (p.stoop_width_m / 2 - R["inset_m"])
         rail_top = lambda d: nose(min(max(d, L), F)) + H
         for d in (d_top, d_foot):
             yt = rail_top(d) + 0.1
@@ -599,6 +603,45 @@ def _rails(a, frame, sr, conf):
                for t in (math.pi * j / 6 for j in range(7))]
         for p0, p1 in zip(pts, pts[1:]):
             _beam(a, "iron", frame, x, rw, p0, p1, rm * 0.8, seed, conf)
+
+
+def _landing_guard(a, frame, gd, cs, R, y0, d, g, seed, conf):
+    """T-2817: the landing's guard, as 1623's drawing draws it at the stoop's head: from the
+    stoop rail's head newel along the landing's street edge to `to_v_m`, where a newel ends
+    it — the stoop rail's height, newel, handrail and baluster pitch, a foot bar, and between
+    `panel_v_m` an ornamental panel in place of the balusters: a lozenge of flat bar on a
+    ring, framed by two posts (the drawing's panel of iron ornament, there too small to read)."""
+    p = a.p
+    H, nm, bm, rm, rw = R["height_m"], R["newel_m"], R["baluster_m"], R["rail_m"], R["rail_width_m"]
+    b = IRON_BAR_M
+    side = 1.0 if gd["to_v_m"] > cs else -1.0
+    xa = cs + side * (p.stoop_width_m / 2 - R["inset_m"])        # the stoop rail's head newel
+    xb = gd["to_v_m"] - side * nm / 2                             # the guard's own end newel
+    lo, hi = sorted((xa + side * nm / 2, xb - side * nm / 2))
+    top, foot = y0 + H, y0 + 0.06
+    _box(a, "iron", frame, xb - nm / 2, xb + nm / 2, y0, top + 0.1, d - nm / 2, d + nm / 2, seed, conf, skip=("bottom",))
+    _box(a, "iron", frame, lo, hi, top - rm, top, d - rw / 2, d + rw / 2, seed, conf)
+    _box(a, "iron", frame, lo, hi, foot, foot + b, d - b / 2, d + b / 2, seed, conf)
+    pa, pb = sorted(gd["panel_v_m"])
+    pitch = g / R["per_tread"]
+    n = max(1, round((hi - lo) / pitch))
+    for i in range(1, n):
+        x = lo + (hi - lo) * i / n
+        if pa - pitch / 2 < x < pb + pitch / 2:
+            continue
+        _box(a, "iron", frame, x - bm / 2, x + bm / 2, foot + b, top - rm, d - bm / 2, d + bm / 2, seed, conf)
+    for x in (pa, pb):      # the panel's posts
+        _box(a, "iron", frame, x - b, x + b, foot + b, top - rm, d - b, d + b, seed, conf)
+    y_lo, y_hi = foot + b, top - rm
+    cx, cy = (pa + pb) / 2, (y_lo + y_hi) / 2
+    hx, hy = (pb - pa) / 2 - b, (y_hi - y_lo) / 2
+    lz = [(cx, y_lo), (cx + hx, cy), (cx, y_hi), (cx - hx, cy)]
+    for p0, p1 in zip(lz, lz[1:] + lz[:1]):
+        _rod(a, frame, p0, p1, b, d - b / 2, d + b / 2, seed, conf)
+    rr = min(hx, hy) * 0.45
+    ring = [(cx + rr * math.cos(2 * math.pi * j / 16), cy + rr * math.sin(2 * math.pi * j / 16)) for j in range(17)]
+    for p0, p1 in zip(ring, ring[1:]):
+        _rod(a, frame, p0, p1, b, d - b / 2, d + b / 2, seed, conf)
 
 
 def lay(a, frame, yf, length, conf, recess):

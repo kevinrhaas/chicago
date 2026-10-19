@@ -28866,6 +28866,33 @@ entry read their pitch.
 **Ticket:** T-2724 (piece 1 of T-2714).
 **Recorded:** 2026-10-17 (T-2724).
 
+### L-k01-keith-crown-stack-2813 — Keith's moulded course 0.20 m deep: the kit's section scaled to the crown the pictures read
+
+**Decision:** the moulded stone course between Keith's checker band and its lattice (1808 Prairie) is
+0.20 m deep, where it was the K10 kit's 0.36 m section, every member's height scaled by the same
+factor and its 0.32 m projection kept (`wall_head.depth_m`); its foot stays on the checker band's top
+at 14.63 m, and the wall head comes down 0.16 m to 14.84 m (`storey_heights_m`, third storey 5.04 m),
+so the cornice box, lattice, coping, pinnacles, deck and cowl stand 0.16 m lower. The carved boss
+on the north-east corner keeps its read size and centre (14.8 m), so it now spans the course and
+the box over it (T-2813, piece 3 of T-2751).
+**What is read, not invented:** the length of the crown stack, the lattice's lower sill down to the
+head band's top, as a ratio to the lattice's own 0.40 m row pitch, which no level camera changes
+(tools/keith_crown_stack.py): the Glessner-front print 1.55-1.57 m, Florian 1948 1.64-1.65 m,
+against the 1.74 m built. 0.16 m is the least-squares cut over the two in each print's own pixels;
+the stack is now 1.58 m, about 2 px long in the one and 1.3 px short in the other. Florian 1948
+places the excess between the lattice and the checker band.
+**What is invented:** which member gives up the height and how. The course is the one member in that
+stretch whose depth was not read off Keith (the section is 1619 Prairie's drawing, generic here), so
+it is the one cut; scaling every member alike, rather than dropping one, is reconstructed. The
+course's moulding is not legible in any picture at this grain. Florian's other reading, the checker
+band and its gap about 0.12 m deeper than built, is not taken: the Glessner-front print hides the
+band's first row and cannot check it.
+**How to resolve:** a sharper print of the street front's crown, read for the course's own members
+and the band's depth.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.wall_head`.
+**Ticket:** T-2813 (piece 3 of T-2751).
+**Recorded:** 2026-10-19 (T-2813).
+
 ### L-tree-architecture-2743 — Every tree is grown from its species' habit, with painted bark and leaves
 
 **Decision:** every tree in the 1812 and 1835 timber and plantings, and the 1904 parkway elms,
@@ -29034,6 +29061,33 @@ in it.
 **Ticket:** T-2809.
 **Recorded:** 2026-10-19 (T-2809).
 
+### L-woods-1812-2745 — The 1812 North Side woods reach the State Street sand as in 1835, and the 1835 shore grove stands in 1812 as young cottonwoods
+
+**Decision:** the 1812 scene draws no streets, so the timber's east limits (Wells south of the
+river, State north of it) had fallen back to a fixed E +316 m there, and the North Side wood stopped
+500 m short of the line it reaches in 1835, with no wood on the sand beyond it. A scene with no
+streets now takes those two limits at the eastings the 1835 records survey Wells and State at
+(E +328.7 and +825.1): the State Street line is the break of slope where the clay meets the beach-ridge
+sand, which `generators/terrain_gen.py` builds and the 1812 ground shares, so the same wood, edge
+thicket and sand wood stand on undeveloped ground in both years. The 1835 paths (the Rush Street
+bridle path and the Green Bay road cut) stay 1835-only. The 1835 shore grove at Sixteenth to
+Eighteenth Street stands in 1812 (`data/flora/plantings/shore_cottonwood_grove_1812.json`, written
+by `tools/generate_shore_grove_1812.py`): 58 stems at the 1835 record's positions, at half their 1835
+heights (11-13 m) as z08's dune cottonwood, without the two massacre trees the 1812 record already
+stands as saplings.
+**What is read, not invented:** Andreas's North Division timber with "the sandy hills near the lake"
+excepted, and its east end at the State Street ridge, as the 1835 records already read them; "On its
+lower reaches stood scattered cottonwoods, and here and there a small group or a single tree"
+(Moses and Kirkland, 1895, p. 60, of the 1812 shore); Clarke's grove of 1835 (Kirkland 1893, App. K).
+**What is invented:** that the wood's 1835 east edge is its 1812 edge (the sources describing the timber
+are of the 1830s, and none clears the North Side wood beyond the houses at the river before then); that every 1835 grove stem was already standing in 1812, and their heights (a
+cottonwood on wet sand grows about a metre a year when young). The owner asked for the 1812 woods to
+lean to more trees rather than fewer, so where a stem might or might not have stood, it stands.
+**How to resolve:** an account or survey of the North Side or the south shore from before 1830 that
+says where the timber ended or names trees on the shore.
+**Ticket:** T-2745.
+**Recorded:** 2026-10-19 (T-2745).
+
 ### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
 
 **Decision:** Five 1904 walking jaunts — the famous names, the architects, and three style walks
@@ -29113,6 +29167,7 @@ springing. Each is open in the match record and is T-2729's, which changes the K
 the iron; the architects' plans would settle the recess and the porch.
 **Covers:** `house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`, `house_1623_prairie.as_mapped_1904.form.stone_front`.
 **Revised 2026-10-18 (T-2818):** the basement light under the window is the drawing's broad, low opening: K06's segmental basement light (`k06.opening.basement_segmental`), 1.8 m across from 0.1 m to a crown at 0.97 m, under a block of voussoirs 0.25 m deep with a skewback at each end and a keystone, 0.1 m north of the window over it. Its grille is the drawing's in kind: eight close uprights to a bar at 0.57 m and over it a band of six scrolls to the springing (`street_front_dress.grilles.scrolls`). Read from the drawing: the opening's breadth, height and flat arc (its head rising about a sixteenth of its span), the radiating stones over it and the band of about six scrolls over close uprights. Reconstructed: each scroll's curl (a flat bar wound one and a half turns into its centre, turned alternately), the bars' count and section, the voussoirs' count and depth, and the light's place 0.15 m south of where the drawing draws it, so its voussoirs stand 0.3 m inside the corner. Still open: the entrance porch and the landing's guard (T-2817), and the stone above the springing and the oriel front's place (T-2819).
+**Revised 2026-10-19 (T-2817):** the entrance arch is the drawing's porch mouth, as broad as the window's: 1.85 m across, 2.6 m to its crown over the principal floor (`entrance_kit.opening_m`), centred at 4.55 m, under its 0.45 m ring. At the porch's back, 0.95 m in, a wall closes the arch round the door's own flat-headed opening, 1.0 m across and 2.2 m high, 0.1 m north of the arch's axis (`entrance_kit.porch_door`): the door's place and the lit back wall beside it are read, while the porch's depth, the single leaf glazed above its lock rail and the 0.45 m transom in place of the drawing's carved light are reconstructed. The stoop stands 1.05 m north of the arch's axis (`stoop_v_m` 3.5), splitting the drawing's skewed flight, and its landing runs on south to the front's south wall as a stone terrace. Along it the drawing's iron guard stands at the stoop rail's height (`street_front_dress.stoop_rails.guard`), with an ornamental panel at its south end. The panel's ornament is too small to read in the plate, so it is reconstructed as a lozenge of flat bar on a ring.
 **Ticket:** T-2728 (piece 1 of T-2435).
 **Recorded:** 2026-10-17 (T-2728).
 
@@ -29171,6 +29226,34 @@ third rights-cleared photograph whose camera can be solved on two faces of the s
 **Applies to:** `data/structures/glessner_house.json` (`ridge_west_wing`, `turret_stable`); see
 `data/comparisons/glessner/stable-roof-heights.json` (`tools/glessner_stable_roof_read.py`).
 **Recorded:** 2026-10-18 (T-2758).
+
+### L-k01-all-stone-house-2788 — The K01 all-stone house: the front's K02 courses laid round every face, its corners, belts, heads and parapets reconstructed
+
+**Decision:** a K01 record may name `construction: "stone"` (T-2788): its K02 `stone_front` — fabric,
+dressing and coursing — is laid round the whole envelope, so a Bedford-stone house is not a stone front
+on a brick box. `generators/archetypes/k01_frontage.py` lays both flanks, the rear and every masonry
+rear wing's walls through the street front's own coursing (`Assembly.stone_front`), struck on the
+front's bed lines up to each face's wall top, so every course runs level round every corner. Each face
+carries the front's rusticated base and coping and its belts, run round in place of the brick house's
+K03 string course; the K06 sills are seated on every face and every opening off the street front takes
+a K02 flat arch of voussoirs as its head, where a brick wall takes a brick segmental or soldier head; a
+kit seated on a face (a sill, a bay, a stoop) has its stones dressed smooth and flush under it, as on the
+front. A flat roof's side parapets are in the house's stone, a timber bay's plinth is the house's stone
+carried out under it, and a stone bay wears the house's own K02 fabric. A timber (`frame`) wing stays
+timber. The K15 stacks keep whatever fabric the record's stack names. **What is invented.** That the
+flanks and rear are laid as the front is — the same course heights, block lengths, joints and dressing,
+the same base and coping; a real house often dressed its street front more richly than its sides. That
+the corners are the two faces' courses meeting (no quoin, which is stone returned into brick, so an
+all-stone record names no `corner_bond`); on a rock-faced wall the two faces' rock stands proud of each
+corner without wrapping it. That the belts are the front's, at the front's floor lines, on every face.
+That every opening off the front has a flat arch rather than a lintel. **What is not.** Nothing here is
+attested for any house; no structure record names it yet. 1801 Prairie (T-2789) is the first that will,
+on the Taylor photograph and the 1888 Inland Architect plate's reading of its stone.
+**How to resolve:** a house's own photographs, drawings or descriptions of its side and rear walls give
+their coursing, corners, belts and heads, and that house takes them in place of the front's.
+**Ticket:** T-2788 (piece 2 of T-2539).
+**Review:** `tools/check_stone_house_kit.py --check` builds four K01 houses as all-stone and measures it.
+**Recorded:** 2026-10-18 (T-2788).
 
 ### L-k01-1637-south-bay-2780 — 1637 Prairie's south-flank bay built on the 1911 sheet's plan to the Grosvenor photograph's heights, in plain dressed stone: its cheeks blank, its columns and carving not yet built, its entablature's projection and balusters reconstructed
 
@@ -29235,3 +29318,22 @@ threshold against the court, settles both the threshold and whether the areaway 
 (`v4_detail.supplemental_openings`, face east at 125.75, the stable courtyard door); see
 `docs/RESEARCH/glessner-west-court-door-T-2760/`.
 **Recorded:** 2026-10-19 (T-2760).
+
+### L-ambience-2659 — Each destination's ambience is a made-up bed tone, not a recording of the past
+
+**Decision:** once a visitor's first tap lets the page play sound, each destination plays a quiet
+ambience under the Navigator's own sounds (T-2659, DESIGN §13). It is a band of filtered noise
+swaying slowly under two soft drone notes. All of it is synthesized in the page (`js/sound.js`):
+no recording is played, so no file needs a source or a licence.
+**What is invented:** all of it. Each destination's band, sway and drone pitch (1812 darkest, 1835
+in the middle, 1904 brightest) was chosen for mood, and nothing bounds it but taste. It is not a
+reconstruction of how Chicago sounded in that year, and it imitates no animal, wagon, bell or voice.
+The design suggested "wagons and birds in 1835, streetcar bells in 1904", and that was not built:
+imitating a heard place would be a claim this ambience cannot make. Settings › Sound says the
+ambience is "made up for mood: it is not a recording of the past".
+**What it does not discharge:** L2 (fauna heard rather than seen). No species in `data/fauna/` is
+voiced, and this ambience is not that layer.
+**How to resolve:** a sound layer built from the records, such as the fauna voices L2 describes or
+documented street noise for 1904, each sound graded and cited like any other fact. It would replace
+the bed tone rather than sit on it.
+**Recorded:** 2026-10-18 (T-2659).
