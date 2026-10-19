@@ -182,19 +182,42 @@ def record_pairs():
 
 CAMERA_KEYS = ("eye", "basis_right_up_forward", "focal_px", "principal_px")
 
+# The solve is a least-squares fit, and another machine's BLAS/scipy lands it a few
+# rounded digits away (CI read the basis 1e-7 off on T-2855), so --check compares
+# numbers to these tolerances, never as text. Keyed by the nearest named field.
+TOLERANCES = {"basis_right_up_forward": 1e-4, "eye": 0.01,  # unit vectors; metres
+              "focal_px": 0.5, "principal_px": 0.5, "rms_px": 0.5, "max_px": 0.5, "residual_px": 0.5}
+FT_TOLERANCE = 0.02  # every *_ft figure and views_disagree_by
+
+
+def close(a, b, key=None):
+    """True when a and b are the same structure with numbers equal to tolerance."""
+    if isinstance(a, dict) and isinstance(b, dict):
+        return a.keys() == b.keys() and all(close(a[k], b[k], k if k in TOLERANCES or k.endswith("_ft")
+                                                  or k == "views_disagree_by" else key) for k in a)
+    if isinstance(a, list) and isinstance(b, list):
+        return len(a) == len(b) and all(close(x, y, key) for x, y in zip(a, b))
+    if isinstance(a, bool) or isinstance(b, bool) or not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        return a == b
+    tol = TOLERANCES.get(key, FT_TOLERANCE if key and (key.endswith("_ft") or key == "views_disagree_by") else 0)
+    return abs(a - b) <= tol
+
 
 def camera_drift(result):
     """The reference cameras must be the cameras this solve found (T-2850)."""
     drift = []
     for name, v in result["views"].items():
         cam = json.loads((VIEWS / f"{name}.json").read_text())
-        if any(cam.get(k) != v["camera"][k] for k in CAMERA_KEYS) or cam.get("solve", {}).get("record") != f"data/comparisons/glessner/north-pairs.json#{name}":
+        if any(not close(cam.get(k), v["camera"][k], k) for k in CAMERA_KEYS) or cam.get("solve", {}).get("record") != f"data/comparisons/glessner/north-pairs.json#{name}":
             drift.append(name)
     return drift
 
 
 def write_cameras(result):
+    drift = camera_drift(result)
     for name, v in result["views"].items():
+        if name not in drift:
+            continue  # the committed camera agrees to tolerance; leave its bytes alone
         path = VIEWS / f"{name}.json"
         cam = json.loads(path.read_text())
         cam.update(v["camera"])
@@ -214,9 +237,8 @@ def main():
     ap.add_argument("--cameras", action="store_true", help="also write the solved cameras into both reference views")
     a = ap.parse_args()
     result = derive()
-    text = json.dumps(result, indent=2) + "\n"
     if a.check:
-        if not OUT.exists() or OUT.read_text() != text:
+        if not OUT.exists() or not close(json.loads(OUT.read_text()), result):
             print("FAIL: north-pairs.json is stale; run python3 tools/glessner_north_pairs.py")
             return 1
         drift = camera_drift(result)
@@ -224,7 +246,10 @@ def main():
             print(f"FAIL: {drift} no longer carry the camera this solve finds; run with --cameras")
             return 1
     else:
-        OUT.write_text(text)
+        # Rewrite only on a real change: a re-solve that agrees to tolerance would
+        # otherwise churn the last rounded digits on every machine it runs on.
+        if not OUT.exists() or not close(json.loads(OUT.read_text()), result):
+            OUT.write_text(json.dumps(result, indent=2) + "\n")
         if a.cameras:
             write_cameras(result)
     reading = result["reading_ft"]
