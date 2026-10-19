@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2074, ts: '2026-10-19T20:08:41.424Z', date: 'Oct 19, 2026, 3:08 PM CT', title: 'A short "Why?" beside brightness, road visibility and eye height', kind: 'feature',
+    items: [
+      'Under brightness and road visibility in Settings, and eye height in Move, one line now says what the default is.',
+      'Tap or click "Why?" at the end of that line for the reason in 40 words or fewer. Tap anywhere else or press Escape to close it.',
+      'Researcher mode puts the short line away and shows the full reasoning under "Why this default".',
+    ] },
   { v: 2073, ts: '2026-10-19T20:04:59.550Z', date: 'Oct 19, 2026, 3:04 PM CT', title: 'The build loop works one house at a time', kind: 'improvement',
     items: [
       'The automated runs no longer work on the same Prairie Avenue house at once, so two changes to one house stop colliding and having to be rebuilt.',
