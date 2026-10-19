@@ -24,6 +24,7 @@ import { t as str } from '../strings/index.js';
 import { gradeTerm } from '../strings/terms.js';
 import '../strings/hud.js';
 import '../strings/confidence.js';
+import { mountOverlays } from '../confidence-overlays.js'; // T-2650: the overlays at the foot
 
 const nameOf = (level) => gradeTerm(level).label;
 let timer = null;
@@ -187,6 +188,7 @@ export function mount(el, ctx = {}) {
   doc.removeEventListener('chicago4d-confidence', onChange);
   onChange = paint;
   doc.addEventListener('chicago4d-confidence', onChange);
+  mountOverlays(el, ctx); // T-2650: street names, building labels, people pins, Jaunt route
 }
 let onChange = () => {};
 

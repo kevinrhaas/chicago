@@ -183,6 +183,22 @@ function landed({ settings = {}, scene = '1835', doc = fakeDoc(), nav = fakeNav(
   assert.equal(sound.state.clunks, 1, 'and only once');
 }
 
+// ---- the landing's reverb rings out and lets go, so nothing convolves silence after ----
+{
+  const journey = createJourney({ root: null });
+  journey.land();
+  const ctx = new FakeContext(); ctx.state = 'running';
+  const timers = [];
+  const sound = createSound({ audio: () => ctx, journey, settings: () => ({}), scene: () => '1835', doc: fakeDoc(), storage: null,
+    later: (fn, ms) => timers.push({ fn, ms }) });
+  assert.equal(sound.state.clunks, 1);
+  const verb = ctx.made.find((n) => n.kind === 'convolver');
+  assert.ok(verb && verb.out.length === 1, 'the clunk rings through a convolver');
+  assert.ok(timers.length === 1 && timers[0].ms >= 1100, 'its release waits out the 1.1 s tail');
+  timers[0].fn();
+  assert.equal(verb.out.length, 0, 'then the convolver is let go');
+}
+
 // ---- the early start: only where the browser says, or after a tapped jump --------------
 {
   assert.equal(mayStartEarly({ nav: { getAutoplayPolicy: () => 'allowed' } }), true);

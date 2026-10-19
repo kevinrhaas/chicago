@@ -129,9 +129,10 @@ export function createSound({
   doc = globalThis.document ?? null,
   now = () => (globalThis.performance?.now?.() ?? Date.now()),
   random = Math.random,
+  later = (fn, ms) => setTimeout(fn, ms),
 } = {}) {
   let ctx = null;
-  let master = null, effects = null, bed = null, tickBand = null, verb = null, verbSend = null;
+  let master = null, effects = null, bed = null, tickBand = null, impulse = null;
   let noise = null;
   let hum = null, amb = null, ambScene = null;
   let navOpen = false, navApp = null, navLevel = 0, unNav = null;
@@ -189,22 +190,25 @@ export function createSound({
     return true;
   }
 
-  /** The reverb, made the first time the landing needs it: 1.1 s of decaying noise. */
+  /** The reverb, for one landing: a convolver on 1.1 s of decaying noise (the impulse made
+   * once), let go once its tail has rung out, so nothing convolves silence afterwards. */
   function reverb() {
-    if (verb) return verbSend;
     const sr = ctx.sampleRate, len = Math.max(1, Math.round(sr * 1.1));
-    const ir = ctx.createBuffer(2, len, sr);
-    for (let ch = 0; ch < 2; ch++) {
-      const d = ir.getChannelData(ch);
-      for (let i = 0; i < len; i++) d[i] = (random() * 2 - 1) * (1 - i / len) ** 3;
+    if (!impulse) {
+      impulse = ctx.createBuffer(2, len, sr);
+      for (let ch = 0; ch < 2; ch++) {
+        const d = impulse.getChannelData(ch);
+        for (let i = 0; i < len; i++) d[i] = (random() * 2 - 1) * (1 - i / len) ** 3;
+      }
     }
-    verb = ctx.createConvolver();
-    verb.buffer = ir;
+    const verb = ctx.createConvolver();
+    verb.buffer = impulse;
     verb.connect(effects);
-    verbSend = ctx.createGain();
-    verbSend.gain.value = 0.35;
-    verbSend.connect(verb);
-    return verbSend;
+    const send = ctx.createGain();
+    send.gain.value = 0.35;
+    send.connect(verb);
+    later(() => { try { send.disconnect(); verb.disconnect(); } catch { /* gone */ } }, 1800);
+    return send;
   }
 
   /** A burst of the noise buffer through `into`, shaped by an attack/decay envelope. */

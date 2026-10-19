@@ -5398,6 +5398,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_researcher_mode.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_arrival.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5455,6 +5459,10 @@
       "wrote_ignored": []
     },
     "tools/test_confidence_rows.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_confidence_overlays.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
