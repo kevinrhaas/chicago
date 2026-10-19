@@ -243,6 +243,37 @@ export const ARCH = {
     limbAngle: 16, rise: 0.12, twist: 0.10, order2: [3, 22], order3: [0, 0], droop: 0.0,
     clump: 0.62, density: 1.6, gaps: 0.18, leaf: 'poplar', bark: 'furrowed',
   },
+  // T-2809 — THE FORT'S AND DR. HARMON'S YOUNG FRUIT TREES, and the currants
+  // beside them. Nursery stock headed low: a short clear stem, three to five
+  // scaffold limbs held wide, a round open head. Apple carries oval toothed
+  // leaves on scaly grey wood; sour cherry is more upright, on smooth banded
+  // bark; peach is the most open, a vase of a few limbs with long narrow
+  // leaves (the willow sprays). The currant is a clump of arching stems from
+  // the ground with lobed leaves (the maple sprays, at its own small size).
+  malus_domestica: {
+    crown: 'round', crownBase: 0.30, fork: 'decurrent', stems: [1, 1], scaffolds: [3, 5],
+    limbAngle: 54, rise: 0.0, twist: 0.55, order2: [4, 48], order3: [2, 50], droop: 0.10,
+    clump: 0.24, clumpMin: 0.30, density: 1.15, gaps: 0.30, leaf: 'elm', bark: 'plated',
+    farBins: [4, 2],
+  },
+  prunus_cerasus: {
+    crown: 'round', crownBase: 0.30, fork: 'decurrent', stems: [1, 1], scaffolds: [3, 5],
+    limbAngle: 42, rise: 0.04, twist: 0.40, order2: [4, 44], order3: [2, 46], droop: 0.14,
+    clump: 0.24, clumpMin: 0.28, density: 1.15, gaps: 0.30, leaf: 'elm', bark: 'smooth',
+    farBins: [4, 2],
+  },
+  prunus_persica: {
+    crown: 'vase', crownBase: 0.22, fork: 'decurrent', stems: [1, 1], scaffolds: [3, 4],
+    limbAngle: 40, rise: 0.04, twist: 0.35, order2: [4, 42], order3: [2, 44], droop: 0.12,
+    clump: 0.24, clumpMin: 0.28, density: 1.05, gaps: 0.36, leaf: 'willow', bark: 'smooth',
+    farBins: [4, 2],
+  },
+  ribes_spp: {
+    crown: 'round', crownBase: 0.06, fork: 'decurrent', stems: [6, 10], scaffolds: [0, 0],
+    stemSplay: 26, limbAngle: 16, rise: 0.02, twist: 0.30, order2: [3, 40], order3: [0, 0],
+    droop: 0.18, clump: 0.26, clumpMin: 0.20, density: 1.30, gaps: 0.20, leaf: 'maple', bark: 'smooth',
+    farBins: [4, 2],
+  },
 };
 
 /** A species with no habit of its own grows as the form its record names. */

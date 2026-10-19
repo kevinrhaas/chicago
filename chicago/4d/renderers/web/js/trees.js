@@ -650,6 +650,25 @@ const ARCHETYPE_BY_ZONE = {
       form: 'columnar', h: [12, 18], dbh: [0.24, 0.42], spreadK: 0.14, boleK: 0.12, puffs: 14,
       dark: 0x426036, light: 0x7a9260, bark: 0x5f5849,
     },
+    // T-2809 — THE YOUNG FRUIT TREES of the fort's company gardens and Dr.
+    // Harmon's orchard. Here for the poplar's reason: each is recorded at a
+    // density of zero, so no community deals one and the planting records are
+    // the only way in. Shape is tree-model.js's ARCH; these carry what the old
+    // path still reads. `dbh` is young nursery stock, a few centimetres; the
+    // barks are invented (apple grey-brown and scaly, cherry red-brown, peach
+    // dark). docs/LIBERTIES.md L-fruit-trees-1835-2809.
+    malus_domestica: { common: 'apple (young, planted)', dossier: 'ZONE 10',
+      form: 'open', h: [2.5, 6], dbh: [0.07, 0.16], spreadK: 0.95, boleK: 0.30, puffs: 5,
+      dark: 0x3e5a2e, light: 0x7f9757, bark: 0x5e564a,
+    },
+    prunus_cerasus: { common: 'sour cherry (young, planted)', dossier: 'ZONE 10',
+      form: 'open', h: [2, 5.5], dbh: [0.05, 0.13], spreadK: 0.80, boleK: 0.32, puffs: 5,
+      dark: 0x355229, light: 0x76914a, bark: 0x5a3f36,
+    },
+    prunus_persica: { common: 'peach (seedling, planted)', dossier: 'ZONE 10',
+      form: 'open', h: [2, 4.5], dbh: [0.05, 0.12], spreadK: 0.90, boleK: 0.24, puffs: 5,
+      dark: 0x4a6b33, light: 0x8ba75a, bark: 0x4f3c34,
+    },
   },
 };
 
@@ -2695,12 +2714,17 @@ export async function createTrees({
     let e = 0;
     let n = 0;
     for (const p of f.pts) { e += p[0]; n += p[1]; }
-    return { pts: f.pts, e: e / f.pts.length, n: n / f.pts.length };
+    return { id: f.id ?? null, pts: f.pts, e: e / f.pts.length, n: n / f.pts.length };
   });
   const CLEAR_MARGIN = 4.5;
-  function blocked(e, n) {
+  // `insideId` names the one footprint a stem may stand in (T-2809): the fort's
+  // company garden is a committed footprint, its fence's, and a planting record
+  // that says its stems stand IN that garden is asking past that one polygon
+  // and no other.
+  function blocked(e, n, insideId = null) {
     if (growthBlocked(e, n)) return true;
     for (const f of fps) {
+      if (insideId !== null && f.id === insideId) continue;
       if (Math.abs(e - f.e) > 60 || Math.abs(n - f.n) > 60) continue;
       const pts = f.pts;
       let inside = false;
@@ -2714,6 +2738,14 @@ export async function createTrees({
     }
     return false;
   }
+  // T-2809 — A PLOT A PLANTING RECORD CLEARS. Dr. Harmon's orchard stands in
+  // the sand hills' ground, and a cedar the dealer drops among his rows is a
+  // tree nobody would have left inside a fenced orchard. Asked only by the
+  // position-seeded dealers (sand hills, edge thicket, sand wood), never by the
+  // shared-stream sweep, so no stem outside a plot moves.
+  const clearedPlots = (records.plantings ?? []).map((r) => r.clears_local_enu_m).filter(Boolean);
+  const inClearedPlot = (e, n) => clearedPlots.some((p) =>
+    e >= p.west_e && e <= p.east_e && n <= p.north_n && n >= p.south_n);
   function clearedFactor(e, n) {
     // The factor only rises with distance, so the nearest building decides it:
     // the same value as taking the least over every building, without boxing
@@ -3239,7 +3271,7 @@ export async function createTrees({
     const clump = 2 * smoothstep(0.30, 0.78, noise2(px, pz, c.clumpM ?? 24, 61));
     const perHa = lerp(c.perHa[0], c.perHa[1], noise2(px, pz, 58, 7)) * clump * clearedFactor(px, pz);
     if (hr() > (perHa * cellArea * keep) / 10000) return true;
-    if (stats.trees >= maxTrees || blocked(px, pz)) return true;
+    if (stats.trees >= maxTrees || blocked(px, pz) || inClearedPlot(px, pz)) return true;
     const p = pickers[key];
     const id = (swale ? p.swaleMix : p.mix)(hr());
     const spec = communitySpecs[key][id];
@@ -3302,7 +3334,7 @@ export async function createTrees({
     const perHa = lerp(range[0], range[1], noise2(px, pz, 58, 9)) * (savanna ? 1 : band)
       * clump * cleared * cleared;
     if (hr() > (perHa * cellArea * keep) / 10000) return false;
-    if (stats.edgeThicket.planted >= maxShrubs || blocked(px, pz)) return false;
+    if (stats.edgeThicket.planted >= maxShrubs || blocked(px, pz) || inClearedPlot(px, pz)) return false;
     const id = (savanna ? edgePick.savanna : edgePick.mix)(hr());
     const spec = edgeSpecs[id];
     if (!spec) return false;
@@ -3329,7 +3361,7 @@ export async function createTrees({
       const perHa = lerp(l.shrubPerHa[0], l.shrubPerHa[1], noise2(px, pz, 58, 9)) * clump
         * clearedFactor(px, pz);
       if (hr() > (perHa * cellArea * keep) / 10000) return false;
-      if (stats.edgeThicket.planted >= maxShrubs || blocked(px, pz)) return false;
+      if (stats.edgeThicket.planted >= maxShrubs || blocked(px, pz) || inClearedPlot(px, pz)) return false;
       const id = edgePick.mix(hr());
       const spec = edgeSpecs[id];
       if (!spec) return false;
@@ -3364,7 +3396,7 @@ export async function createTrees({
     const clumpK = near ? 1 + 0.6 * ct : wc.floor + (2 - 2 * wc.floor) * ct;
     const perHa = lerp(c.perHa[0], c.perHa[1], noise2(px, pz, 58, 7)) * clearedFactor(px, pz) * clumpK;
     if (hr() > (perHa * cellArea * keep) / 10000) return;
-    if (stats.trees >= maxTrees || blocked(px, pz)) return;
+    if (stats.trees >= maxTrees || blocked(px, pz) || inClearedPlot(px, pz)) return;
     const id = pickers[key].mix(hr());
     const spec = communitySpecs[key][id];
     if (!spec) return;
@@ -3648,12 +3680,17 @@ export async function createTrees({
           + 'below the planter\'s own dry floor — not drawn');
         continue;
       }
-      if (blocked(pe, pn)) {
+      if (blocked(pe, pn, rec.in_structure ?? null)) {
         problems.push(`trees: planting ${where} stands inside a committed footprint or on `
           + 'the travelled track — not drawn');
         continue;
       }
-      plant({ ...spec, h: [h, h] }, pe, gy, pn, rnd);
+      // A stated shrub is drawn grown (T-2809), as the woods' edge thicket is
+      // (T-2807): the record's own currant as a clump of stems from
+      // tree-model.js's ARCH rather than the dooryard's three-puff clump. Its
+      // July berries were never drawn on either path (`head` is null).
+      const grownSpec = spec.form === 'shrub' ? { ...spec, form: 'edge_shrub' } : spec;
+      plant({ ...grownSpec, h: [h, h] }, pe, gy, pn, rnd);
       noteStation(pe, pn, gy);
       stats.planted++;
       stats.plantedStems.push({ id: stem.id, record: rec.id, e: pe, n: pn,

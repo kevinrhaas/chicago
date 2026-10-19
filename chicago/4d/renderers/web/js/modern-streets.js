@@ -45,7 +45,7 @@ export function houseNumber(from, to, t, parity) {
 
 /** "S Prairie Ave" + 1800 -> "1800 S Prairie Ave". */
 export function addressText(number, name) {
-  return Number.isFinite(number) ? `${number} ${name}` : name;
+  return Number.isFinite(number) || (typeof number === 'string' && number) ? `${number} ${name}` : name;
 }
 
 export function createModernStreets(doc) {
@@ -147,6 +147,28 @@ export function createModernStreets(doc) {
       return out;
     },
   };
+}
+
+/** "South Prairie Avenue" and "S Prairie Ave" are one street. */
+export function sameStreet(a, b) {
+  const key = (s) => String(s ?? '').toLowerCase()
+    .replace(/\bnorth\b/g, 'n').replace(/\bsouth\b/g, 's').replace(/\beast\b/g, 'e').replace(/\bwest\b/g, 'w')
+    .replace(/\bavenue\b/g, 'ave').replace(/\bstreet\b/g, 'st').replace(/\bboulevard\b/g, 'blvd')
+    .replace(/[^a-z0-9]+/g, ' ').trim();
+  return !!a && !!b && key(a) === key(b);
+}
+
+/**
+ * Today's reading with the period lot's own number in place of the range interpolation,
+ * where the scene knows the lot (where.js `number`) and it stands on the same street
+ * today. The district's avenue numbers stood through the 1909 renumbering (where.js),
+ * so the lot's number is its number now; interpolating the City's block range is a rule
+ * of thumb that the real lots do not follow (16th to 18th on Prairie runs 1600 to 1736
+ * on its lots, but 1600 to 1799 in the City's range), and puts the door of 1616 at 1644.
+ */
+export function withLotNumber(today, era) {
+  if (!today || today.mode === 'corner' || !era?.number || !sameStreet(today.street, era.street_2026)) return today;
+  return { ...today, number: era.number, address: addressText(era.number, today.street), from_lot: true };
 }
 
 /** One line of text for the readout: the corner, the house number, or the street. */

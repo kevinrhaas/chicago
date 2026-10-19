@@ -35,6 +35,7 @@ import { renderPhotos } from '../photos-tab.js';
 import { cameraOf } from '../show-me.js';
 import { buildingFacts, factCounts, sourcesPaneHtml } from '../inspect-sources.js';
 import { storyTimeline, renderStory } from '../inspect-story.js';
+import { count as countField } from '../field-log.js'; // T-2660
 import { designModel, renderDesign } from '../inspect-design.js';
 
 const GRADES = ['attested', 'inferred', 'reconstructed'];
@@ -146,6 +147,7 @@ function render(root, ctx) {
     root.append(el(doc, 'p', 'nav-sub', 'Aim at a building, or tap one, to inspect it.'));
     return;
   }
+  countField('inspect'); // T-2660: the first since landing is the field log's
   const record = ctx.actions?.record?.(id) ?? null;
   const s = record?.sidecar ?? null;
   const summaries = ctx.inspectDoc ?? null;
@@ -334,6 +336,9 @@ function render(root, ctx) {
 /** Show one tab; build its pane the first time. */
 function selectTab(root, key) {
   if (!TABS.some(([k]) => k === key)) return;
+  // T-2660: a tab the visitor moved to (the first draw selects one, and is not counted).
+  const was = root.querySelector('.insp-tab[aria-selected="true"]')?.dataset.inspTab ?? null;
+  if (was && was !== key) countField('tab');
   lastTab = key;
   for (const b of root.querySelectorAll('.insp-tab')) {
     const on = b.dataset.inspTab === key;
