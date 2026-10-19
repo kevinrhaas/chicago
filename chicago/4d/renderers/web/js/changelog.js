@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2036, ts: '2026-10-19T03:11:40.263Z', date: 'Oct 18, 2026, 10:11 PM CT', title: 'Keith\'s bow lights in three tiers, a carved band under its cap', kind: 'change',
+    items: [
+      'The bow\'s tall principal windows at 1808 Prairie are now split into three tiers by stone bars, as the 1888 Inland Architect photograph shows them.',
+      'A carved band runs round the bow under its cap, and the south porch pedestal\'s side has a bordered panel like its front.',
+    ] },
+  { v: 2035, ts: '2026-10-19T03:11:40.263Z', date: 'Oct 18, 2026, 10:11 PM CT', title: 'The street readout gives the house number then and today', kind: 'fix',
+    items: [
+      'The top row under the compass now reads "Then" instead of the year, so "1904 Prairie Avenue" no longer looks like a house number.',
+      'In 1904 it gives the house number of the lot beside you, as the 1911 Sanborn prints it on the traced lots: 1616 Prairie Avenue in front of 1616.',
+      'Today\'s row uses the same number on Prairie, Indiana and Calumet, whose numbers the 1909 renumbering left alone, instead of a guess from the City\'s block range that put 1616 at 1644. Cross-street lots, which 1909 renumbered, give no number.',
+      'Navigator Home\'s YOU ARE AT gives the same period address.',
+    ] },
   { v: 2034, ts: '2026-10-19T02:19:31.927Z', date: 'Oct 18, 2026, 9:19 PM CT', title: 'A real phone\'s frame-pacing reading is filed, and the tool says more', kind: 'improvement',
     items: [
       'The first frame-pacing reading from a real phone is on file. Adaptive pacing made walking steadier, but made turning and flying a little less steady. That is written down as not met, and the next step is to find out why.',
