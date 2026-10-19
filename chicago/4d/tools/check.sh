@@ -149,6 +149,8 @@ step "The Confidence view's overlays — street names, building labels, people p
   node tools/test_confidence_overlays.mjs
 step "The Confidence view's per-grade rows — four swatches with a colour-blind-safe set, Tint/Ghost/Dither, opacity 0-100 and a count per grade, none rebuilding the scene (T-2648)" \
   node tools/test_confidence_rows.mjs
+step "The Confidence view persists in one record and carries to the next page and year; its HUD legend shows while the view is not Normal (T-2649)" \
+  node tools/test_confidence_persist.mjs
 
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
@@ -3551,6 +3553,12 @@ step "Glessner street and stable opening schedule matches its record (T-2211)" \
 # being re-written and re-read is caught here (T-2758).
 step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
   python3 tools/glessner_stable_roof_read.py --check
+
+# Both north cameras are re-solved with the gable pairs' sill and head left free, so
+# a pick, camera or record height that moves without the reading being re-written,
+# or a record that builds the pairs outside it, is caught here (T-2850).
+step "Glessner north gable pairs stand where HABS 13 and 14 read them (T-2850)" \
+  python3 tools/glessner_north_pairs.py --check
 
 step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)" \
   python3 tools/test_compile_source_use.py

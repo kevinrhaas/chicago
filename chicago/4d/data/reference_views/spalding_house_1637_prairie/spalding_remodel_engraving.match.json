@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "spalding_remodel_engraving",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5da7b1ed4a8cc4bfb699a0a91b7a2666933cfe375d0ed6fed856ea635feaa619",
+  "glb_sha256": "f7f2f4153e15703592a70f7064c5eb053e62f87e62d36609783e760235f3d296",
   "camera_sha256": "06623cf6f05d0dafcc01b75c32c2d59a8079f6b2df83342aa3e040e00f77e557",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/spalding_remodel_engraving-side-by-side.jpg",
   "verdict": "differs",
@@ -30,12 +30,12 @@
     {
       "what": "the stacks: two tall stacks on the north wall near its front and its rear, one over the wing",
       "status": "fixed",
-      "how": "T-2441: three K01 stacks at the engraving's columns (x 225, 135 and 690 px) and at the tops it reads (16.4, 15.5 and 14.8 m); T-2465 stood the wing's stack beside its hipped roof's ridge at u 10.2, v 11.2, its shaft at x 662-715 px against the drawn 663-717 and its top at 15.11 m (y 112 px against 113), the least that clears the crown's ridge by 0.6 m"
+      "how": "T-2441: three K01 stacks at the engraving's columns (x 225, 135 and 690 px) and at the tops it reads (16.4, 15.5 and 14.8 m). The third is the Grosvenor photograph's stack on the south wall (T-2781): the two pictures' rays through it meet at u 6.47, v 13.37, so it stands on the south wall's cornice at u 6.5, v 13.2, 1.2 by 0.75 m, and not over the wing at u 10.2, v 11.2, where T-2465 had stood it on this camera's ray alone. Through this camera its shaft stands at x 660-710 px against the drawn 663-717 (the cap's spread to 654-716) and its top at 15.85 m at about y 114 against 113, behind the wing's hipped crown"
     },
     {
       "what": "the wing: the engraving draws it standing well forward of the front and rising under its own steep hipped roof, as high as the main roof, with a stack at its ridge; the build stands it on the 1911 sheet's 1.0 m step under the mansard's cornice, with a flat tin deck",
       "status": "fixed",
-      "how": "T-2465: the wing hipped to its own ridge by K01's mansard crown built as a hip (mansard.crown.form: hip), its fascia's top on the main eave and its cornice 0.55 m past the wing's face: the sides and back at 45.5 degrees, so the ridge stands at 14.5 m (its apex at y 137 px against the drawn 142), 0.4 m over the main curb, and runs 1.9 m back into the main roof; the street end at 60 degrees, so it stands whole in front of the main lower faces up to the curb, as drawn. The engraving's apex stands about 45 px left of the build's (x 640 against 685): no symmetric hip on the 1911 sheet's 1.0 m step stands its apex that far back and still clears the main lower faces, which is the draughtsman's perspective (the camera's solve). The wing still stands on the sheet's 1.0 m step, which controls the plan"
+      "how": "T-2465: the wing hipped to its own ridge by K01's mansard crown built as a hip (mansard.crown.form: hip), its fascia's top on the main eave and its cornice 0.55 m past the wing's face: the sides and back at 45.5 degrees, so the ridge stands at 14.5 m (its apex at y 137 px against the drawn 142), 0.4 m over the main curb, and runs 1.9 m back into the main roof; the street end at 60 degrees, so it stands whole in front of the main lower faces up to the curb, as drawn. The engraving's apex stands about 45 px left of the build's (x 640 against 685): no symmetric hip on the 1911 sheet's 1.0 m step stands its apex that far back and still clears the main lower faces, which is the draughtsman's perspective (the camera's solve). The wing still stands on the sheet's 1.0 m step, which controls the plan. The stack the engraving draws at the wing's ridge stands behind it on the south wall (T-2781, the stacks item)"
     },
     {
       "what": "the main roof: steep straight lower faces in slate under a level top line, hipped down at the wing; the build's K05 mansard has convex lower faces 2.6 m tall",
@@ -100,7 +100,7 @@
     {
       "what": "the stacks' panelled shafts and caps",
       "status": "fixed",
-      "how": "T-2471: the K15 kit's carved head on the three stacks (k15.stack.sherman less its stone bands and corbel blocks): three corbelled brick courses under a 0.14 m stone cap projecting 0.15 m, the head's step out reading at each stack's top as the engraving's does; on the two tall north stacks a sunk panel 0.45 m wide on the street face (and the rear), from 0.5 m over the roof to 0.3 m under the head, where the engraving draws the tall front stack's lit face as a long light field in a dark border. The wing's stack stands too little over its crown for a panel and is left plain"
+      "how": "T-2471: the K15 kit's carved head on the three stacks (k15.stack.sherman less its stone bands and corbel blocks): three corbelled brick courses under a 0.14 m stone cap projecting 0.15 m, the head's step out reading at each stack's top as the engraving's does; on the two tall north stacks and the south one (T-2781) a sunk panel 0.45 m wide on the street face (and the rear), from 0.5 m over the roof to 0.3 m under the head, where the engraving draws the tall front stack's lit face as a long light field in a dark border."
     },
     {
       "what": "a dark hooded crown over each stack's cap, about 0.4-0.5 m tall",
