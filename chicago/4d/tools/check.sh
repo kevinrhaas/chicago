@@ -187,6 +187,9 @@ step "Settings › About shows the build stamp, and the DEV mark on a dev build 
 # T-2657: Researcher mode, the Settings › About switch.
 step "Researcher mode is off by default and remembered per device, and shows research prose in place while on (T-2657)" \
   node tools/test_researcher_mode.mjs
+# T-2658: Short "Why?" — a one-line hint and a bubble of 40 words at most per researched setting.
+step "Every 'Why this default' is one line and a 'Why?' bubble of 40 words at most that opens by tap, click or key and closes on Escape or an outside tap; the full essay is Researcher mode's (T-2658)" \
+  node tools/test_short_why.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
 # T-2643: Inspect's Story tab.

@@ -2252,6 +2252,20 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   color: var(--ink); background: var(--panel-solid); border: 1px solid var(--accent); border-radius: 10px; box-shadow: var(--shadow); }
 .term-tip[hidden] { display: none; }
 .term-tip strong { margin-right: 4px; }
+/* T-2658: the bubble a setting's "Why?" opens (js/why-tips.js) — one element on <body>,
+   placed beside its button and kept 16 px inside the window; the skin's own panel, ink,
+   accent and corner. It scales with Settings › Text size, scrolls if it ever outgrows the
+   window, and fades in only when motion is welcome. */
+.why-tip { position: fixed; z-index: 60; box-sizing: border-box; overflow: auto; pointer-events: auto;
+  padding: 10px 12px; font: 400 calc(13px * var(--text-scale, 1))/1.45 var(--font-body, inherit);
+  color: var(--ink); background: var(--panel-solid); border: 1px solid var(--accent);
+  border-radius: var(--r-screen, 10px); box-shadow: var(--shadow); overflow-wrap: anywhere;
+  animation: why-tip-in .14s var(--ease-machine, ease-out); }
+.why-tip[hidden] { display: none; }
+@keyframes why-tip-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.why-tip[data-side="above"] { animation-name: why-tip-up; }
+@keyframes why-tip-up { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .why-tip { animation: none; } }
 
 /* T-2629 (NAV-305): Settings › About — the build stamp, and on a dev build the DEV mark
    in the preview banner's own amber. On a phone the dev chrome is not drawn on the town:
