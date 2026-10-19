@@ -87,7 +87,8 @@ import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
 import { jobsState } from './jobs/pool.js';
 import { createStreetTrees } from './street-trees.js';
-import { SEASONS, SEASON_TREE_MODE, seasonDate, applySeasonLook, patchSeason } from './season.js';
+import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, applySeasonLook, patchSeason, patchFoliage }
+  from './season.js';
 import { createContext } from './context.js';
 import { createRailway } from './railway.js';
 import { createViewOcclusion } from './view-occlusion.js';
@@ -110,6 +111,7 @@ import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { paintAbout } from './about.js';
 import { createResearcherMode } from './researcher.js';
+import { wireWhyTips } from './why-tips.js';
 import { createTour } from './tour.js';
 import { createTourOverlay } from './tour-overlay.js';
 import { markTerms } from './term-tips.js';
@@ -1598,6 +1600,10 @@ if (document.documentElement.dataset.transfer === 'true') void loadSound(true);
 Object.defineProperty(api, 'audio', { get: () => gesture.audio, enumerable: true, configurable: true });
 // T-2624: the page's static words from the string table, before anything paints over them.
 applyStrings(document);
+// T-2658: each researched setting's "Why?" opens its bubble of 40 words at most; Researcher
+// mode, which puts the button away for the full essay, closes an open one.
+api.whyTips = wireWhyTips(document);
+api.researcher?.onChange(() => api.whyTips.close());
 const arrival = createArrival({
   boot: bootController,
   journey,
@@ -2205,13 +2211,15 @@ async function boot() {
       allow:()=>buildings.group.visible && api.season?.current==='summer'});
   }
 
-  // T-2481 — the Season setting, offered where there are street trees (1904): the
-  // ground's snow, sward and leaves (season.js uniforms), the elms, the context
-  // city's crowns and the sun's date. A viewing choice; the scene stays 1 July.
-  const seasonal = streetTrees.records.length > 0;
+  // T-2481 — the Season setting: the ground's snow, sward and leaves (season.js
+  // uniforms), the elms, the context city's crowns and the sun's date. A viewing
+  // choice; the scene keeps its own date. T-2864 offers it in every year, and the
+  // woods and the prairie take it too (`seasonPlants`, set once they are planted).
+  const seasonal = true;
   const seasonState = { season: 'summer', treesShown: seasonPref.treesShown };
   let structuresSeasoned = false;
-  const applySeason = (season) => {
+  let seasonPlants = () => null;
+  const applySeason = async (season) => {
     const s = seasonal && SEASONS.includes(season) ? season : 'summer';
     // The lawns, steps and roofs inside the building GLBs take the season too.
     // Their materials learn it the first time a season other than summer is
@@ -2227,10 +2235,15 @@ async function boot() {
         if (!o.isMesh || /crowns/.test(o.name)) return;
         for (const m of [].concat(o.material)) if (m && !m.transparent) patchSeason(m, /street/.test(o.name) ? 0.3 : 1);
       });
+      // T-2864: the earth roads of 1812 and 1835 (streets.js), as a travelled roadway.
+      streets.group.traverse((o) => {
+        if (o.isMesh) for (const m of [].concat(o.material)) patchSeason(m, 0.3);
+      });
     }
     seasonState.season = applySeasonLook(s);
     world.setSunDate(seasonDate(s, loaded.scene.target_date));
     contextCity.setSeason?.(s);
+    await seasonPlants(s);
     return streetTrees.setMode(streetTreeMode(s, seasonState.treesShown));
   };
   if (seasonal && seasonPref.season !== 'summer') await applySeason(seasonPref.season);
@@ -2756,6 +2769,27 @@ async function boot() {
   });
   scene3d.add(trees.group);
   settleOnGpu(trees.group);
+  /**
+   * T-2864 — the Season on the plants: the sward and its forbs (flora.js, one
+   * Lambert family) and the woods (trees.js setSeason: the grown trees re-grown
+   * with the season's crown, the thickets' and far band's leaves recoloured). The
+   * colour is installed only once a season other than summer is chosen, so a
+   * summer visit compiles and draws what it did. Read through `flora` and `trees`
+   * as they stand, so a detail rebuild's new layers take it the same way.
+   */
+  seasonPlants = (s) => {
+    const on = s !== 'summer';
+    if (on) {
+      flora.group.traverse((o) => {
+        if (!o.isMesh) return;
+        for (const m of [].concat(o.material)) {
+          if (m?.isMeshLambertMaterial && m.vertexColors) patchFoliage(m, FOLIAGE.grass, { xz: 'vChiPW.xz' });
+        }
+      });
+    }
+    return trees.setSeason?.(SEASON_CROWN[s] ?? {}, { foliage: on ? (m, role) => patchFoliage(m, role) : null });
+  };
+  if (seasonState.season !== 'summer') await seasonPlants(seasonState.season);
   await flora.prepare?.(camera, bootCheckpoint, plantingProgress);
   bootController.end('flora');
   bootController.start('interaction');
@@ -2903,6 +2937,7 @@ async function boot() {
       previousTrees.dispose?.();
       api.flora = flora;
       api.trees = trees;
+      if (seasonState.season !== 'summer') void seasonPlants(seasonState.season).then(() => gateFrame.invalidate());
       detailLevel = level;
       blackbox.log('detail', { to: level });
       residency?.setTier(level);
@@ -3007,6 +3042,7 @@ async function boot() {
       if (coarse) releaseAfterUpload(scene3d);
       api.flora = flora;
       api.trees = trees;
+      if (seasonState.season !== 'summer') void seasonPlants(seasonState.season).then(() => gateFrame.invalidate());
       confidence.set(confidence.enabled);
     });
     detailPending = run.catch(() => {});
@@ -3361,6 +3397,15 @@ async function boot() {
   // The Trees setting is offered only where there are parkway trees to set (T-2473).
   document.getElementById('row-street-trees')?.toggleAttribute('hidden', !streetTrees.records.length);
   document.getElementById('row-season')?.toggleAttribute('hidden', !seasonal);
+  // T-2864: every year has its own day, so the choice says which one it is.
+  const seasonDay = String(loaded.scene.target_date ?? '').match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (seasonDay) {
+    const day = new Date(Date.UTC(+seasonDay[1], +seasonDay[2] - 1, +seasonDay[3]))
+      .toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+    document.getElementById('s-season')?.setAttribute('title', `A viewing choice: the scene is dated ${day}`);
+    const summer = document.querySelector('#s-season option[value="summer"]');
+    if (summer) summer.textContent = `Summer — ${day.replace(/ \d{4}$/, '')}, full leaf`;
+  }
   document.getElementById('row-lot-lines')?.toggleAttribute('hidden', !streetGrid.lotLines);
   api.evidenceHub = createEvidenceHub({
     root: hudRoot.querySelector('[data-panel="evidence"]'),

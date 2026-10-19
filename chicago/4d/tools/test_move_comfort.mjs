@@ -69,8 +69,9 @@ for (const id of ['s-head-bob', 's-eye', 'v-eye', 'eye-note', 's-snap-turn']) {
   assert(comfort.includes(`id="${id}"`), `#${id} is in Move › Comfort`);
   assert.equal(html.split(`id="${id}"`).length, 2, `#${id} is on the page once`);
 }
-// T-2657: a one-line hint for a visitor, and the full essay (#eye-note) for Researcher mode.
-assert(/<details class="why"><summary>Why this default<\/summary>\s*<p class="legend-note" data-visitor-only data-str="research\.why\.eye">The default, 1\.68 m[\s\S]*?<p class="legend-note why-full" id="eye-note" data-researcher>The default, 1\.68 m/.test(comfort),
+// T-2657 / T-2658: a one-line hint and its "Why?" bubble for a visitor, and the full essay
+// (#eye-note) for Researcher mode.
+assert(/<div class="why-line" data-visitor-only>[\s\S]*?<span class="why-text" id="why-eye-text" hidden data-str="research\.why\.eye">The default, 1\.68 m[\s\S]*?<details class="why" data-researcher><summary>Why this default<\/summary>\s*<p class="legend-note why-full" id="eye-note" data-researcher>The default, 1\.68 m/.test(comfort),
   'the eye height keeps its "Why this default", naming the researched figure');
 const settingsPanel = html.slice(html.indexOf('data-panel="settings"'), html.indexOf('</section>', html.indexOf('data-panel="settings"')));
 assert(!settingsPanel.includes('id="s-eye"'), 'eye height has left Settings');

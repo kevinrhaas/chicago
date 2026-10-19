@@ -27013,6 +27013,34 @@ look; a weather record for a chosen day would set its snow.
 **Review:** `renderers/web/js/season.js`.
 **Recorded:** 2026-10-13 (T-2481).
 
+### L-season-view-2864 — The Season setting in 1812 and 1835: spring, fall and winter on scenes dated 14 August and 1 July
+
+**Decision:** Settings › Season is offered in every year, not only 1904. In 1812 (dated 14 August)
+and 1835 (dated 1 July) summer is the scene's own day and stays the default; spring, fall and winter
+move the sun to 25 April, 20 October and 21 December of that year at the scene's hour, and repaint
+the ground as 1904's do (snow, a fresher or browner sward, fallen leaves), with snow on the roofs
+and trodden on the earth roads. The woods are re-grown with a season's crown: first leaf in spring,
+a thinner crown in fall, bare limbs in winter. In fall each stand turns yellow, orange, oak russet
+or olive by place, not by species; the thickets go twig grey-brown in winter; the prairie sward is
+fresh in spring with no July flower, tawny in fall and straw in winter, its flowers gone to seed
+heads; the far band of woods goes olive-russet and then bare grey (`renderers/web/js/season.js`
+patchFoliage, `trees.js` setSeason).
+**What it stands on:** the sun's path is computed (NOAA's algorithm, `world.js`) for the date it
+names. That tallgrass prairie cures tawny to russet in autumn and stands as straw through the
+winter, and that the region's oaks, maples, elms and ashes turn and drop their leaves in October,
+is general knowledge of these plant communities, not a record of either year.
+**What is invented:** every particular of any day: the snow and where it lay, how far the leaves had
+turned, which stand turned which colour (the colour is a smooth pattern over the ground, not each
+tree's species), the season's dates themselves, and how the river, the lake and the people looked
+in them, which this setting does not change at all. The scenes reconstruct their own summer days;
+the other seasons are a way of looking at them, never a claim about the town on those days.
+**How to resolve:** dated accounts of the river's freezing and the first snow in 1812 or 1835 would
+set winter's ground; per-species autumn colour drawn from the woods' own species records would
+replace the place-based colours.
+**Ticket:** T-2864.
+**Review:** `renderers/web/js/season.js`.
+**Recorded:** 2026-10-19 (T-2864).
+
 ### L-glessner-service-junction-2219 — north service bay (2026-10-13)
 
 **Decision:** HABS plans 2/3 and photographs 01/15 support wider service openings than the
@@ -29546,3 +29574,24 @@ depth. HABS 14 also reads the stack's face and both stones about 1.35-1.5 times 
 with their heights agreeing; that is T-2873's to rule.
 **Ticket:** T-2870 (piece 1 of T-2869).
 **Recorded:** 2026-10-19 (T-2870).
+
+### L-glessner-stack-width-2873 — Glessner's 18th Street stack widened to the 7.1 ft HABS 14 reads, its stones and crosses with it
+
+**Decision:** the `glessner_house` north-gable stack's face is 7.1 ft wide (W 15.25-22.35), where
+it was 5.1 ft (W 16.25-21.35), and its two date stones are 4.4 and 4.3 ft (they were 3.1 and
+2.8), the two crosses moved out with the face's edges (W 15.9 and 21.7).
+**What is read, not invented.** From HABS photograph 14 (`habs_glessner_photo_14_north_inclined_1965`,
+no known restrictions), through its camera solved on the north wall's plane, the plane the stack's
+face is flush with: the stack's silhouette, 128-137 px across through the stones' rows (x 909-1041),
+is W 15.0-22.3 with the stack's 3.1-ft depth; the stones' 78 and 75 px are 4.4 and 4.3 ft; the
+crosses stand about 0.65 ft inside the face's edges. Photograph 4 (c. 1923) agrees in proportion
+(the stones fill about 0.6 of the face). HABS photograph 1 (1963) reads the face about 6.3 ft, on a
+level camera that reads this roof about 2 ft low.
+**What is invented.** The 0.2 ft taken off the silhouette for the rock faces' reach at its two edges,
+and the centring: HABS 14 puts the face's centre within 0.15 ft of the gable apex, and it is kept on
+the apex at W 18.8 with the stones and crosses, as the 1888 plate shows the stack centred on the
+gable. The reading is through a hand-solved camera, about +/-0.4 ft. No sheet gives the width:
+sheet 6 draws the stack edge-on and sheet 3 only the corner fireplace whose flue it carries.
+**How to resolve:** a measured elevation of the 18th Street gable, or a tape on today's stack.
+**Ticket:** T-2873 (piece 2 of T-2871).
+**Recorded:** 2026-10-19 (T-2873).
