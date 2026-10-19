@@ -34,6 +34,7 @@
      feature own its style. walk.css stays the base and the tokens. -->
 <link rel="stylesheet" href="./css/drawer.css">
 <link rel="stylesheet" href="./css/navigator.css">
+<link rel="stylesheet" href="./css/confidence-overlays.css">
 <link rel="stylesheet" href="./css/inspect.css">
 <link rel="stylesheet" href="./css/photos.css">
 <link rel="stylesheet" href="./css/tour.css">
@@ -196,6 +197,9 @@
       class="badge-year">1835</span><span class="badge-dot" aria-hidden="true">·</span><span class="badge-sub">07.01</span><span
       class="badge-alt" id="badge-alt" hidden></span><span
       class="badge-version" id="badge-version" role="note" hidden></span></button>
+    <!-- T-2657: Researcher mode's label, in the row between the year chip and the instrument,
+         shown only while it is on (css/skins.css). -->
+    <span class="research-badge" id="research-badge" data-researcher data-str="research.badge">RESEARCHER</span>
     <div class="hud-actions">
       <!-- T-2625 (§10 "In-world HUD"): Start / Jaunts, the pace chip and the light / dark
            switch left this row. Start / Jaunts's three choices are the Navigator's Jaunts app
@@ -349,7 +353,9 @@
       <label class="field"><span>Eye height <b id="v-eye"></b></span>
         <input type="range" id="s-eye" min="1.4" max="2.6" step="0.02"></label>
       <details class="why"><summary>Why this default</summary>
-        <p class="legend-note" id="eye-note">The default, 1.68 m, is the mean stature of an adult
+        <p class="legend-note" data-visitor-only data-str="research.why.eye">The default, 1.68 m, is the average height of an American man in the 1830s. Raise it if the view feels low; it moves only the camera, never the town.</p>
+        <!-- T-2657: the full essay, for Researcher mode. -->
+        <p class="legend-note why-full" id="eye-note" data-researcher>The default, 1.68 m, is the mean stature of an adult
           man in the 1830s United States — this walkthrough puts your eye where a person of the
           period had theirs, which is lower than a modern viewer expects and lower than the
           prairie grass beside you, because both of those are true of the place. Raise it if the
@@ -572,8 +578,8 @@
             minus what the sources can name, bucket by bucket — people by sex, age, division,
             household and trade; households by kind; the December 1835 trade census against the
             firms the town already holds; and the roofs the building programme still owes. Each
-            bucket names the ticket that owes it and carries a counter the reconstruction tools
-            write, so the bars fill as the town does. The section at the top is the other
+            bucket carries a counter the reconstruction tools write, so the bars fill as the town
+            does. The section at the top is the other
             direction: how many of the households the book ordered now have ground under them,
             how many of the town&rsquo;s standing roofs carry one, and which houses have been asked
             for and not yet built. Nothing here is a claim about 1835: it is
@@ -613,7 +619,8 @@
         <label class="field"><span>Brightness <b id="v-brightness"></b></span>
           <input type="range" id="s-brightness" min="0" max="1" step="0.05"></label>
         <details class="why"><summary>Why this default</summary>
-          <p class="legend-note" id="brightness-note">The scene is lit by a sky whose colour was
+          <p class="legend-note" data-visitor-only data-str="research.why.brightness">The default is the light matched to a July photograph taken at this latitude. Raise it for a dim room or a bright window. It changes nothing else.</p>
+          <p class="legend-note why-full" id="brightness-note" data-researcher>The scene is lit by a sky whose colour was
             matched to a July photograph taken at this latitude, and the default position of this
             slider is that measured light — which is why it says "calibrated" rather than showing a
             number. Raise it if the scene is hard to see: a dim room, a bright window, a phone at
@@ -630,7 +637,8 @@
         <label class="field"><span>Road visibility <b id="v-road-aid"></b></span>
           <input type="range" id="s-road-aid" min="0" max="1" step="0.05"></label>
         <details class="why"><summary>Why this default</summary>
-          <p class="legend-note" id="road-aid-note">These are worn earth tracks through prairie
+          <p class="legend-note" data-visitor-only data-str="research.why.road">The default paints the worn earth tracks as the record describes them. Raise it if they are hard to follow; it changes your screen, not the past.</p>
+          <p class="legend-note why-full" id="road-aid-note" data-researcher>These are worn earth tracks through prairie
             grass, and how much bare earth shows is a modelled figure with its own evidence behind
             it — so the default paints them exactly as the record describes. Raise this if they are
             hard to follow: on a phone in daylight, or if faint contrast is difficult to see. It
@@ -747,6 +755,10 @@
         <!-- T-2656: What's new, from About. T-2657 adds Researcher mode below it. -->
         <div class="field row"><span data-str="settings.whatsnew.line">Release notes</span>
           <button class="setting-button" id="s-open-whatsnew" type="button" data-str="hud.tab.whatsnew">What's new</button></div>
+        <!-- T-2657: Researcher mode (js/researcher.js), off by default, remembered per device. -->
+        <label class="field row check-field"><span data-str="research.switch">Researcher mode</span>
+          <input type="checkbox" id="s-researcher"></label>
+        <p class="legend-note" id="s-researcher-note" data-str="research.switch.note">Shows the full reasoning and the working records we keep for researchers, in place. This device remembers it.</p>
       </div>
     </section>
     <section class="panel-body" data-panel="controls" hidden>

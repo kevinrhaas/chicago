@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 2030, ts: '2026-10-19T01:13:09.397Z', date: 'Oct 18, 2026, 8:13 PM CT', title: 'Overlays in the Confidence view: street names, labels, people and your Jaunt', kind: 'feature',
+    items: [
+      'At the foot of the Navigator\'s Confidence view, four switches each lay one thing over the town: street names, building labels, people pins and the Jaunt route.',
+      'Building labels float the names of the nearest named buildings in sight. A building at a grade you have hidden is not labelled.',
+      'People pins mark the addresses in the town\'s people directory. Tap one to see who lived or worked there, then tap a name for that person\'s card.',
+      'The Jaunt route draws a dotted line through the stops of the Jaunt under way, numbered, with the next stop ringed.',
+      'Each switch says what this destination has for it: 1812 has no people directory or Jaunts yet, and no streets drawn, so only today\'s street names show.',
+    ] },
+  { v: 2029, ts: '2026-10-19T00:43:32.707Z', date: 'Oct 18, 2026, 7:43 PM CT', title: 'Researcher mode: the full reasoning, back in place behind a switch', kind: 'feature',
+    items: [
+      'Settings › About has a Researcher mode switch. It is off unless you turn it on, and this device remembers your choice.',
+      'While it is on, a small RESEARCHER label sits at the top of the screen, between the year and the compass.',
+      'Each "Why this default" now opens on a one-line reason. Researcher mode shows the full essay in its place.',
+      'Researcher mode never shows internal record numbers or file names; where it points to how something was worked out, it is a plain link.',
+    ] },
   { v: 2028, ts: '2026-10-18T23:27:40.956Z', date: 'Oct 18, 2026, 6:27 PM CT', title: 'Guide › About this destination: the research in four cards', kind: 'feature',
     items: [
       'The old Sources section is now Guide › About this destination, in four cards: How we grade, Sources, Liberties, and What lived and grew here. Each card holds the lists that belong to it, from the town in numbers to the animals, plants and open questions.',

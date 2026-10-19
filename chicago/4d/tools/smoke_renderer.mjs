@@ -15665,6 +15665,60 @@ for (const [label, viewport, touch] of [
       && Object.keys(settingsApp.clipped).length >= 6 && Object.values(settingsApp.clipped).every((list) => list.length === 0),
       JSON.stringify({ scale: settingsApp.scale, stored: settingsApp.storedScale, back: settingsApp.back, clipped: settingsApp.clipped }));
     // <<< T-2656
+    // >>> T-2657: Researcher mode, the Settings › About switch. Off by default: no RESEARCHER
+    // label, no [data-researcher] element drawn, the short "Why" hints shown and the full
+    // essays not. The switch (a hit-tested click; a miss is this check's failure, read below,
+    // and never aborts the part) turns it on: the label sits at the top, clear of the year
+    // chip and the instrument and inside the screen; every research element is drawn and
+    // every visitor stand-in put away; the device remembers it. Off again puts all of it back
+    // and forgets it. (No mode shows a ticket number or record id: owner, 2026-10-18.)
+    const researchRead = () => page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const shown = (el) => !!el && getComputedStyle(el).display !== 'none';
+      const box = (el) => { const b = el?.getBoundingClientRect(); return b ? { l: b.left, r: b.right, t: b.top, b: b.bottom, w: b.width, h: b.height } : null; };
+      const badge = document.getElementById('research-badge');
+      const marked = [...document.querySelectorAll('[data-researcher]')].filter((el) => !el.hidden);
+      const stand = [...document.querySelectorAll('[data-visitor-only]')].filter((el) => !el.hidden);
+      const whys = [...document.querySelectorAll('details.why')];
+      return {
+        attr: document.documentElement.hasAttribute('data-researcher-mode'), apiOn: api.researcher?.on ?? null,
+        checked: document.getElementById('s-researcher')?.checked ?? null,
+        inAbout: !!document.getElementById('s-researcher')?.closest('#s-about'),
+        stored: localStorage.getItem('chicago4d.researcher'),
+        badge: shown(badge) && !!box(badge)?.w, badgeText: badge?.textContent.trim() ?? '', badgeBox: box(badge),
+        year: box(document.getElementById('year-badge')), instrument: box(document.getElementById('hud-instrument')),
+        researchAll: marked.length, researchShown: marked.filter(shown).length,
+        standAll: stand.length, standShown: stand.filter(shown).length,
+        whys: whys.length, full: whys.filter((d) => shown(d.querySelector('.why-full'))).length,
+        hints: whys.filter((d) => shown(d.querySelector('[data-visitor-only]'))).length,
+        innerW: innerWidth, innerH: innerHeight,
+      };
+    });
+    const researchOff = await researchRead();
+    const researchClick = await clickChrome('#s-researcher').then(() => null, (e) => page.evaluate(() => document.getElementById('s-researcher')?.click()).then(() => e.message));
+    await page.waitForFunction(() => document.documentElement.hasAttribute('data-researcher-mode'), null, { timeout: 30_000, polling: 100 }).catch(() => {});
+    const researchOn = await researchRead();
+    await openSection('settings');
+    const researchClick2 = await clickChrome('#s-researcher').then(() => null, (e) => page.evaluate(() => document.getElementById('s-researcher')?.click()).then(() => e.message));
+    await page.waitForFunction(() => !document.documentElement.hasAttribute('data-researcher-mode'), null, { timeout: 30_000, polling: 100 }).catch(() => {});
+    const researchBack = await researchRead();
+    // Never leave the mode on for the parts after this one, whatever happened above.
+    await page.evaluate(() => window.__chicago4d.researcher?.set(false));
+    {
+      const a = researchOff, b = researchOn, c = researchBack;
+      const clear = (x, y) => !x || !y || x.r <= y.l || y.r <= x.l || x.b <= y.t || y.b <= x.t;
+      const inView = (x) => !!x && x.l >= 0 && x.r <= b.innerW + 1 && x.t >= 0 && x.b <= b.innerH;
+      check(`${label}: Researcher mode is off by default; Settings › About's switch shows the RESEARCHER label and the full "Why this default" essays, is remembered, and turns off again (T-2657)`,
+        a.inAbout && !a.attr && a.apiOn === false && a.checked === false && a.stored === null && !a.badge
+        && a.researchAll > 0 && a.researchShown === 0 && a.standShown === a.standAll && a.whys === 3 && a.full === 0 && a.hints === 3
+        && !researchClick && b.attr && b.apiOn === true && b.checked === true && b.stored === 'on'
+        && b.badge && b.badgeText === 'RESEARCHER' && inView(b.badgeBox) && clear(b.badgeBox, b.year) && clear(b.badgeBox, b.instrument)
+        && b.researchShown === b.researchAll && b.standShown === 0 && b.full === 3 && b.hints === 0
+        && !researchClick2 && !c.attr && c.apiOn === false && c.checked === false && c.stored === null && !c.badge
+        && c.researchShown === 0 && c.standShown === c.standAll && c.full === 0 && c.hints === 3,
+        JSON.stringify({ off: a, click: researchClick, on: b, click2: researchClick2, back: c }));
+    }
+    // <<< T-2657
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
@@ -15857,6 +15911,137 @@ for (const [label, viewport, touch] of [
       await a.navigator.select('home'); a.navigator.dock(); document.activeElement?.blur?.();
     });
     // <<< T-2648
+    // >>> T-2650: the Confidence view's overlays — street names, building labels, people pins
+    // and the Jaunt route, each on its own switch at the foot of the app. Street names are
+    // T-2741's readout (the same setting); the other three are one DOM layer over the town,
+    // placed from the camera, with no frame loop while all are off and no scene work ever.
+    // Generous waits: the switches read the people directory and the town's names on open.
+    // Wrapped so a stuck click is one red line here, not the rest of the part lost.
+    {
+      const ovRead = () => page.evaluate(() => {
+        const a = window.__chicago4d, o = a.confidenceOverlays;
+        const row = (id) => {
+          const b = document.getElementById(`cv-ov-${id}`);
+          return b ? { checked: b.checked, disabled: b.disabled, note: document.getElementById(`cv-ov-${id}-note`)?.textContent ?? '' } : null;
+        };
+        const layer = document.getElementById('cv-overlays');
+        const shown = (sel) => (layer && !layer.hidden ? [...layer.querySelectorAll(sel)].filter((n) => !n.hidden && n.getBoundingClientRect().width > 0).length : 0);
+        return { rows: Object.fromEntries(['streets', 'labels', 'people', 'route'].map((id) => [id, row(id)])),
+          handle: !!o, running: o?.running ?? null, places: o?.places ?? null, drawn: o?.drawn ?? null,
+          layerShown: !!layer && !layer.hidden, labels: shown('.cv-label'), pins: shown('.cv-pin'), stops: shown('.cv-stop'),
+          streetSetting: a.hud.settings.streetNames, readoutHidden: document.getElementById('street-readout')?.hidden ?? null };
+      });
+      const ovStats = () => page.evaluate(() => { const a = window.__chicago4d; a.step(); const st = a.stats(); return { programs: st.programs, geometries: st.geometries, calls: st.drawCalls }; });
+      const ovSwitch = async (id, want) => {
+        const now = await page.evaluate((i) => document.getElementById(`cv-ov-${i}`)?.checked ?? null, id);
+        if (now !== want) await clickChrome(`#cv-ov-${id}`);
+      };
+      const pose0 = await page.evaluate(() => { const p = window.__chicago4d.player; return { local_e: p.e, local_n: p.n, yaw_deg: p.bearingDeg }; });
+      const standFacing = (e, n, back) => page.evaluate(([pe, pn]) => { window.__chicago4d.walker.teleport({ local_e: pe, local_n: pn, yaw_deg: 0 }); }, [e, n - back]);
+      try {
+        await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
+        await page.waitForTimeout(1500);
+        const ov0 = await ovRead();
+        const notes = Object.values(ov0.rows).every((r) => r && r.note.length > 0 && !/[a-z]_[a-z]|undefined|\{/.test(r.note));
+        check(`${label}: the Confidence view's foot has four overlay switches, each saying what this destination has (T-2650)`,
+          ov0.handle && notes && ov0.rows.streets.checked === (ov0.streetSetting !== false) && ov0.running === false
+            && /known addresses in \d{4}/.test(ov0.rows.people.note) && !ov0.rows.people.disabled && ov0.places > 0,
+          JSON.stringify(ov0));
+        // Street names: the switch IS T-2741's — the readout under the compass follows it.
+        const streetWas = ov0.streetSetting !== false;
+        await clickChrome('#cv-ov-streets');
+        await page.waitForTimeout(400);
+        const ovStreet = await ovRead();
+        await clickChrome('#cv-ov-streets');
+        await page.waitForTimeout(400);
+        const ovStreetBack = await ovRead();
+        check(`${label}: the Street names switch is the compass readout's own setting, both ways (T-2650)`,
+          ovStreet.streetSetting === !streetWas && ovStreet.readoutHidden === streetWas
+            && ovStreetBack.streetSetting === streetWas && ovStreetBack.readoutHidden === !streetWas && ovStreetBack.rows.streets.checked === streetWas,
+          JSON.stringify({ streetWas, ovStreet: { s: ovStreet.streetSetting, h: ovStreet.readoutHidden }, back: { s: ovStreetBack.streetSetting, h: ovStreetBack.readoutHidden } }));
+        // Labels: stand 35 m south of a named building, facing it; the Navigator docked so the town shows.
+        const named = await page.evaluate(() => {
+          const a = window.__chicago4d;
+          const set = a.confidenceOverlays.labelSet;
+          const p = a.player;
+          set.sort((x, y) => Math.hypot(x.e - p.e, x.n - p.n) - Math.hypot(y.e - p.e, y.n - p.n));
+          return set[0] ?? null;
+        });
+        await page.evaluate(() => window.__chicago4d.navigator.dock());
+        if (named) await standFacing(named.e, named.n, 35);
+        await page.waitForTimeout(800);
+        const statsOff = await ovStats();
+        await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
+        await page.waitForTimeout(800);
+        await ovSwitch('labels', true);
+        await ovSwitch('people', true);
+        await ovSwitch('route', true);
+        await page.evaluate(() => window.__chicago4d.navigator.dock());
+        // A frame of the town can take seconds on a runner: wait for the layer to place a label.
+        await page.waitForFunction(() => [...document.querySelectorAll('#cv-overlays .cv-label')].some((n) => !n.hidden),
+          null, { timeout: 10000 }).catch(() => {});
+        await page.waitForTimeout(300);
+        const ovOn = await ovRead();
+        const statsOn = await ovStats();
+        const cap = (await page.evaluate(() => innerWidth)) <= 620 ? 6 : 12;
+        check(`${label}: Building labels float named buildings in sight over the town — at least one, at most ${cap} (T-2650)`,
+          !!named && ovOn.layerShown && ovOn.running === true && ovOn.labels >= 1 && ovOn.labels <= cap && ovOn.rows.labels.checked,
+          JSON.stringify({ named, labels: ovOn.labels, drawn: ovOn.drawn, running: ovOn.running }));
+        check(`${label}: three overlays on add no shader program and no geometry (T-2650)`,
+          statsOn.programs === statsOff.programs && statsOn.geometries === statsOff.geometries,
+          JSON.stringify({ statsOff, statsOn }));
+        // People pins: stand 60 m south of the first pinned address, facing it; its pin lists
+        // who is there, and a name opens that person (People, in the Navigator).
+        const pinAt = await page.evaluate(() => window.__chicago4d.confidenceOverlays.pinPlaces[0] ?? null);
+        let pinOpened = null;
+        if (pinAt) {
+          await standFacing(pinAt.e, pinAt.n, 60);
+          const sel = `#cv-overlays .cv-pin[data-place="${pinAt.id}"]`;
+          await page.waitForFunction((s) => { const n = document.querySelector(s); return !!n && !n.hidden; }, sel, { timeout: 10000 }).catch(() => {});
+          await page.waitForTimeout(300);
+          const seen = await page.evaluate((s) => { const n = document.querySelector(s); return !!n && !n.hidden; }, sel);
+          if (seen) {
+            await clickChrome(sel);
+            await page.waitForTimeout(500);
+            const pop = await page.evaluate(() => {
+              const p = document.getElementById('cv-pop');
+              return p ? { names: [...p.querySelectorAll('.cv-pop-person')].length, text: p.textContent } : null;
+            });
+            if (pop?.names) {
+              await clickChrome('#cv-pop .cv-pop-person');
+              await page.waitForTimeout(1200);
+            }
+            pinOpened = { pop, app: await page.evaluate(() => window.__chicago4d.navigator.app), popGone: await page.evaluate(() => !document.getElementById('cv-pop')) };
+          }
+        }
+        check(`${label}: a people pin lists who is there, and a name opens that person (T-2650)`,
+          !!pinAt && !!pinOpened && pinOpened.pop?.names >= 1 && Math.min(pinAt.count, 8) === pinOpened.pop.names
+            && !/[a-z]_[a-z]/.test(pinOpened.pop.text) && pinOpened.app === 'people' && pinOpened.popGone,
+          JSON.stringify({ pinAt, pinOpened }));
+        // All off again: the layer goes, and its frame loop with it.
+        await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
+        await page.waitForTimeout(800);
+        await ovSwitch('labels', false);
+        await ovSwitch('people', false);
+        await ovSwitch('route', false);
+        await page.waitForTimeout(500);
+        const ovOff = await ovRead();
+        check(`${label}: with every overlay off the layer is gone and no frame loop runs (T-2650)`,
+          ovOff.running === false && !ovOff.layerShown && ovOff.labels === 0 && ovOff.pins === 0
+            && !ovOff.rows.labels.checked && !ovOff.rows.people.checked && !ovOff.rows.route.checked,
+          JSON.stringify(ovOff));
+      } catch (err) {
+        check(`${label}: the overlay checks ran to their end (T-2650)`, false, String(err?.message ?? err));
+      } finally {
+        await page.evaluate(async (pose) => {
+          const a = window.__chicago4d, o = a.confidenceOverlays;
+          for (const id of ['labels', 'people', 'route']) await o?.set(id, false);
+          a.walker.teleport(pose);
+          await a.navigator.select('home'); a.navigator.dock(); document.activeElement?.blur?.();
+        }, pose0).catch(() => {});
+      }
+    }
+    // <<< T-2650
     // >>> T-2625: the HUD's top row holds none of what left it, and each is reachable in the
     // Navigator — Start / Jaunts's three choices in Jaunts (T-2630), the Confidence view's
     // presets (T-2647), the pace in Move, light or dark in Settings. (The street readout is
@@ -15935,6 +16120,11 @@ for (const [label, viewport, touch] of [
           // owner's ruling 2026-10-18 — keep it on by default, measure the budget without it.
           // The switch beside the compass is part of that instrument and goes with it.
           if (el.closest('#street-readout') || el.closest('#street-toggle')) continue;
+          // The target tag (T-2627) is a glance, not the HUD's steady state: since T-2736 it
+          // holds 3 s and fades, and whether it is up depends on where the reticle happens to
+          // rest. A run measured 10.96 % at 390x844 with it up (5,923 px2) and 9.83 % without.
+          // Left out like the hint and the look tag, and reported.
+          if (el.closest('#target-tag')) continue;
           const r = el.getBoundingClientRect();
           if (r.width < 1 || r.height < 1 || r.right <= 0 || r.bottom <= 0 || r.left >= W || r.top >= H) continue;
           if (!painted(el, getComputedStyle(el)) || !shown(el)) continue;
@@ -15957,7 +16147,8 @@ for (const [label, viewport, touch] of [
         return b ? (b.width * b.height) / (W * H) * 100 : 0;
       };
       const streetReadout = +(share('street-readout') + share('street-toggle')).toFixed(2);
-      return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest, streetReadout,
+      const targetTag = +share('target-tag').toFixed(2);
+      return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest, streetReadout, targetTag,
         controls: window.__chicago4d.controlBackend, lookTag: !document.getElementById('look-tag')?.hidden, hintUp };
     });
     await page.evaluate(() => { window.__chicago4d.navigator?.dock?.(); window.__chicago4d.popup?.close?.(); window.__chicago4d.hud.dismissControlHelp?.({ remember: false }); });

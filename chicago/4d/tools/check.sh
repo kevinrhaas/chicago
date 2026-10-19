@@ -145,6 +145,8 @@ step "Each grade's look — tint, dither or ghost at an opacity — and the ghos
   node tools/test_confidence_looks.mjs
 step "The Confidence view's presets — NORMAL, BY GRADE, ATTESTED ONLY (exactly the two grades hidden by hand), X-RAY — and C toggling BY GRADE (T-2647)" \
   node tools/test_confidence_presets.mjs
+step "The Confidence view's overlays — street names, building labels, people pins and the Jaunt route, each on its own switch, only what each destination has, and no frame loop while off (T-2650)" \
+  node tools/test_confidence_overlays.mjs
 step "The Confidence view's per-grade rows — four swatches with a colour-blind-safe set, Tint/Ghost/Dither, opacity 0-100 and a count per grade, none rebuilding the scene (T-2648)" \
   node tools/test_confidence_rows.mjs
 
@@ -154,6 +156,8 @@ step "Crash-aware boot: a dead session steps down once, a lost context reloads a
   node tools/test_crash_guard.mjs
 step "The black box keeps the page's last steps in local storage, and the next page shows a cut-off page's on the crash card (T-2826)" \
   node tools/test_blackbox.mjs
+step "A pick draws only the building batches its ray meets, and a phone's look-around answers from the parts' boxes without drawing (T-2827)" \
+  node tools/test_pick_boxes.mjs
 step "Read frame pacing is offered only on the dev preview or with ?pacing=read, and reads sd and p95 as measure_walk_frames --live does (T-2732)" \
   node tools/test_pacing_read.mjs
 
@@ -184,6 +188,9 @@ step "Finishing the Field Check awards the Navigator License once per device, ne
 # T-2629: Settings › About.
 step "Settings › About shows the build stamp, and the DEV mark on a dev build only (T-2629)" \
   node tools/test_about.mjs
+# T-2657: Researcher mode, the Settings › About switch.
+step "Researcher mode is off by default and remembered per device, and shows research prose in place while on (T-2657)" \
+  node tools/test_researcher_mode.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
 # T-2643: Inspect's Story tab.
@@ -7389,8 +7396,9 @@ step "string table: sections register and extend, placeholders fill, no key ever
 
 # T-2668 (NAV-1003). The visitor-UI lint: no file path, link, id, snake_case word, ticket
 # number, or the words "tier", "ticket" or "order book" in what a visitor reads — the string
-# table, the static pages' visible text, and the Go to list's business rows from
-# data/businesses/index.json. Researcher-mode strings are exempt (a `researcher` key segment;
+# table, the static pages' visible text, the Go to list's business rows from
+# data/businesses/index.json and the Shops & work card's location lines (T-2657, which holds
+# a record sentence that fails for Researcher mode where the page gates it). Researcher-mode strings are exempt (a `researcher` key segment;
 # a [data-researcher] element, which css/skins.css hides until Researcher mode is on), and a
 # leak another ticket owns sits on the tool's allowlist with that ticket, failing once stale.
 step "no path, id, snake_case, 'tier', 'ticket' or 'order book' in what a visitor reads (T-2668)" \

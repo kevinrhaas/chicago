@@ -176,8 +176,11 @@ export function hubPlan(omit = []) {
  *  a heading, its line, its topics' tiles and, for Sources and Liberties, the pointer to
  *  Inspect. `topics` maps a topic id to { id, title, gloss, icon }. */
 export function hubHtml(plan, topics) {
+  // T-2657: a topic that is Researcher mode's (`researcher`, or its markup's `data-researcher`)
+  // marks its own tile too, so it stays off a visitor's screen whichever card it is filed under.
+  const mine = (t) => !!(t.researcher || t.el?.hasAttribute?.('data-researcher'));
   const tile = (t) => `<button class="ev-tile" type="button" data-topic="${t.id}"`
-    + ` aria-label="${escapeHtml(t.title)}">`
+    + `${mine(t) ? ' data-researcher' : ''} aria-label="${escapeHtml(t.title)}">`
     + `<span class="ev-tile-head">${t.icon}<b class="ev-count" aria-label="entries">…</b></span>`
     + `<span class="ev-tile-title">${escapeHtml(t.title)}</span>`
     + `<span class="ev-gloss">${escapeHtml(t.gloss)}</span></button>`;

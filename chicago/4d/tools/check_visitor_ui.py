@@ -28,7 +28,6 @@ WHAT IT READS — the surfaces, and why each is one:
           with no roof to stand at, `where.limit_reason` from data/businesses/index.json,
           which main.js also says aloud when the row is picked. A firm not trading at the
           scene date shows "Not present at this scene date" instead, so its reason is not read.
-
   records the research records a person opens from the Sources hub, Inspect and the card,
           as compiled (T-2825): every liberty in data/liberties.json — its title and every
           field js/liberties.js prints as a row, and the names its subjects and covers are
@@ -48,20 +47,29 @@ WHAT IT READS — the surfaces, and why each is one:
   NOT YET READ, and why. Strings built in JavaScript (template literals in js/*.js) are not
   read: telling a visible literal from a class name or a key statically is noise, and the
   honest check is the rendered DOM in the smoke, which wants the runner. Of the research
-  records (T-2825), `records` reads the compiled ones listed above. Not read yet: the
+  records (T-2825), `records` reads the compiled ones listed above, which Guide › About this
+  destination (T-2667) renders in its four cards, the order book among them behind
+  `data-researcher`. A records string is read with the visitor's rules in every mode: the
+  ruling of 2026-10-18 is that no mode shows a ticket number or a record id, so whether a
+  card is Researcher mode's does not change what its text may carry. Not read yet: the
   plants and wildlife topics and a person's card, which their renderers fill from authored
-  files no compiler rewrites, and the rest of the Shops & work card; T-2825 says which. Guide ›
-  About this destination (T-2667) folded the old hub into four cards and put its order
-  book behind `data-researcher`; the records those cards render are the ones read above.
+  files no compiler rewrites, and the rest of the Shops & work card; T-2825 says which.
   What's New (js/changelog.js) is the release history Manager and the launcher parse,
   held by its own length budget, and is not rewritten after the fact.
 
-THE RESEARCHER-MODE EXEMPTION (owner ruling 2026-10-16: strings shown only in Researcher
-mode are exempt), NARROWED by the owner's ruling of 2026-10-18 (T-2825): "rewrite the records
-so you are not referring to internal ticket numbers or internal record ids in researcher or
-educator mode". So a Researcher-mode string may name a file, a link or the words this lint
-otherwise refuses, and it may still never carry a ticket number or a record id
-(`researcher_problems`). Researcher mode itself is T-2657; this is the contract it builds on:
+THE RESEARCHER-MODE EXEMPTION, AND HOW NARROW IT IS. The owner ruled on 2026-10-16 that
+strings shown only in Researcher mode (T-2657) are exempt, and narrowed it on 2026-10-18:
+"rewrite the records so you are not referring to internal ticket numbers or internal record
+ids in researcher or educator mode", and "If in that mode you want to refer to the tickets as
+a link or something as an external source or link back, ok, but I don't want to talk internal
+ticket language to researchers." So a Researcher-mode string is READ like any other and may
+carry exactly one thing a visitor's may not: the words "order book" (Researcher mode is where
+the order book lives). It still refuses a path, a link, an id, snake_case, a ticket number,
+"tier" and "ticket". A ticket may reach a researcher only as a LINK: an <a> whose href opens
+it in kevinrhaas/chicago-tickets, behind a label in plain words, inside a `data-researcher`
+element. A ticket link anywhere else is refused, and so is one whose label is empty.
+
+Which strings are Researcher mode's:
 
   - in the table, a key with a `researcher` segment — the `researcher` namespace
     (js/strings/researcher.js) or a key such as `guide.researcher.why-full` in an app's own
@@ -103,6 +111,10 @@ WORDS = [
 
 RESEARCHER = "researcher"
 MARKER = "data-researcher"
+# The one word a Researcher-mode string may carry that a visitor's may not.
+RESEARCHER_ALLOWS = {"the words `order book`"}
+# A link that opens a ticket: the tickets repository, or a ticket number in the address.
+TICKET_HREF = re.compile(r"github\.com/kevinrhaas/chicago-tickets|\bT-\d{3,5}\b")
 
 # Each entry: surface, a regex the finding's "where: text" must match, why, and the ticket
 # that owns the fix. An entry that matches nothing fails the gate (it is stale).
@@ -110,19 +122,17 @@ ALLOWLIST = [
 ]
 
 
-def researcher_problems(text):
-    """What a Researcher-mode string still may not carry: a ticket number or a record id."""
-    return [p for p in lint_string(text) if p.startswith(("a ticket number", "an id or snake_case"))]
-
-
 def is_researcher_key(key):
     return RESEARCHER in str(key).split(".")
 
 
-def problems(text):
-    """What in this string a visitor must never read."""
+def problems(text, researcher=False):
+    """What in this string a visitor must never read. `researcher`: a string only Researcher
+    mode shows, which may carry the words "order book" and nothing else a visitor's may not."""
     found = list(lint_string(text))
     for pattern, what in WORDS:
+        if researcher and what in RESEARCHER_ALLOWS:
+            continue
         for m in pattern.finditer(text):
             found.append(f"{what} (`{m.group(0)}`)")
     return found
@@ -131,23 +141,12 @@ def problems(text):
 # ------------------------------------------------------------------- the surfaces
 
 def table_strings(dump=None):
-    """(where, text) for the string table and the app manifests, Researcher keys left out."""
+    """(where, text, researcher) for the string table and the app manifests."""
     if dump is None:
         from check_strings import read_table
         dump = read_table()
     for key, value in list(dump["entries"]) + list(dump.get("apps", [])):
-        if not is_researcher_key(key):
-            yield f"{key}", value
-
-
-def researcher_table_strings(dump=None):
-    """(where, text) for the Researcher-mode keys, which `researcher_problems` reads."""
-    if dump is None:
-        from check_strings import read_table
-        dump = read_table()
-    for key, value in list(dump["entries"]) + list(dump.get("apps", [])):
-        if is_researcher_key(key):
-            yield f"{key}", value
+        yield f"{key}", value, is_researcher_key(key)
 
 
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param",
@@ -159,15 +158,17 @@ AUTO_CLOSE = {"li", "p", "dt", "dd", "option", "tr", "td", "th"}
 
 
 class _Visible(HTMLParser):
-    """The text a visitor can read on a static page, each piece with its line, skipping
-    scripts, styles, comments and every element under a `data-researcher` marker."""
+    """The text a reader can see on a static page, each piece with its line and whether it
+    sits under a `data-researcher` marker (Researcher mode's), skipping scripts, styles and
+    comments; and every link that opens a ticket, with its label and the same flag."""
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
-        self.stack = []      # (tag, exempt)
-        self.out = []        # (line, text)
+        self.stack = []      # (tag, researcher)
+        self.out = []        # (line, text, researcher)
+        self.links = []      # [line, researcher, label] for each ticket link
+        self.open_link = None
         self.skip = 0        # inside <script>/<style>
-        self.researcher = []  # (line, text) under a marker: still no ticket or record id
 
     def exempt(self):
         return bool(self.stack) and self.stack[-1][1]
@@ -179,23 +180,28 @@ class _Visible(HTMLParser):
         exempt = self.exempt() or MARKER in names
         if tag in ("script", "style"):
             self.skip += 1
-        if not exempt and not self.skip:
+        if not self.skip:
             for a in VISIBLE_ATTRS:
                 if names.get(a):
-                    self.out.append((self.getpos()[0], names[a]))
+                    self.out.append((self.getpos()[0], names[a], exempt))
+            if tag == "a" and TICKET_HREF.search(names.get("href") or ""):
+                self.open_link = [self.getpos()[0], exempt, ""]
+                self.links.append(self.open_link)
         if tag not in VOID:
             self.stack.append((tag, exempt))
 
     def handle_startendtag(self, tag, attrs):
         names = dict(attrs)
-        if not (self.exempt() or MARKER in names or self.skip):
+        if not self.skip:
             for a in VISIBLE_ATTRS:
                 if names.get(a):
-                    self.out.append((self.getpos()[0], names[a]))
+                    self.out.append((self.getpos()[0], names[a], self.exempt() or MARKER in names))
 
     def handle_endtag(self, tag):
         if tag in ("script", "style") and self.skip:
             self.skip -= 1
+        if tag == "a":
+            self.open_link = None
         for i in range(len(self.stack) - 1, -1, -1):
             if self.stack[i][0] == tag:
                 del self.stack[i:]
@@ -204,21 +210,41 @@ class _Visible(HTMLParser):
     def handle_data(self, data):
         if self.skip or not data.strip():
             return
-        if self.exempt():
-            self.researcher.append((self.getpos()[0], " ".join(data.split())))
-            return
-        self.out.append((self.getpos()[0], " ".join(data.split())))
+        text = " ".join(data.split())
+        if self.open_link is not None:
+            self.open_link[2] = f"{self.open_link[2]} {text}".strip()
+        self.out.append((self.getpos()[0], text, self.exempt()))
 
 
-def page_strings(pages=PAGES, researcher=False):
+def _parse(path):
+    parser = _Visible()
+    parser.feed(Path(path).read_text(encoding="utf-8"))
+    parser.close()
+    return parser
+
+
+def page_strings(pages=PAGES):
     for path in pages:
         if not Path(path).is_file():
             continue
-        parser = _Visible()
-        parser.feed(Path(path).read_text(encoding="utf-8"))
-        parser.close()
-        for line, text in (parser.researcher if researcher else parser.out):
-            yield f"{Path(path).name}:{line}", text
+        for line, text, researcher in _parse(path).out:
+            yield f"{Path(path).name}:{line}", text, researcher
+
+
+def ticket_link_errors(pages=PAGES):
+    """A ticket reaches a reader only as a link in Researcher mode, behind plain words
+    (owner, 2026-10-18). Its label is linted with the page's other text."""
+    errs = []
+    for path in pages:
+        if not Path(path).is_file():
+            continue
+        for line, researcher, label in _parse(path).links:
+            where = f"link | {Path(path).name}:{line}"
+            if not researcher:
+                errs.append(f"{where}: a link to a ticket outside Researcher mode (a `data-researcher` element)")
+            if not label:
+                errs.append(f"{where}: a link to a ticket with no label in plain words")
+    return errs
 
 
 def goto_strings(index=None):
@@ -329,8 +355,8 @@ def lint(surfaces, allowlist=ALLOWLIST):
     """(failures, allowed, stale): each failure "surface | where: problem — in 'text'"."""
     failures, allowed, used = [], [], set()
     for surface, strings in surfaces:
-        for where, text in strings:
-            found = problems(text)
+        for where, text, *flag in strings:
+            found = problems(text, researcher=bool(flag and flag[0]))
             if not found:
                 continue
             subject = f"{where}: {text}"
@@ -363,18 +389,6 @@ def surfaces(dump=None, pages=PAGES, index=None, records=None):
             ("records", list(record_strings()) if records is None else records)]
 
 
-def researcher_errors(dump=None, pages=PAGES):
-    """A Researcher-mode string with a ticket number or a record id in it (T-2825)."""
-    out = []
-    for surface, strings in (("table", researcher_table_strings(dump)),
-                             ("page", page_strings(pages, researcher=True))):
-        for where, text in strings:
-            found = researcher_problems(text)
-            if found:
-                out.append(f"researcher {surface} | {where}: {'; '.join(found)} — in {text[:90]!r}")
-    return out
-
-
 # ------------------------------------------------------------------- self-test
 
 def self_test():
@@ -392,6 +406,7 @@ def self_test():
     records = list(record_strings())
     base = surfaces(dump, PAGES, index, records)
     f, _, stale = lint(base)
+    f += ticket_link_errors()
     expect(not f and not stale, f"the committed visitor UI passes ({(f + stale)[:2]})")
 
     def planted_table(value, key="planted.string"):
@@ -408,12 +423,20 @@ def self_test():
         ("a ticket number", "Fixed under T-2624.", "ticket number"),
     ]:
         expect(any(needle in e for e in planted_table(value)), f"{label} in the string table is refused")
-    expect(not planted_table("See data/scenes/1835.json, tier 1.", key="researcher.planted"),
-           "the same string under the researcher namespace is exempt")
-    expect(not planted_table("ticket and tier", key="guide.researcher.why"),
-           "a researcher segment inside an app's own section is exempt from the visitor's words")
-    expect(planted_table("ticket", key="researchers.note"),
-           "a namespace merely starting with `researcher` is not exempt")
+    # The owner, 2026-10-18 (T-2657): no internal ticket number or record id in any mode.
+    expect(not planted_table("Open the order book.", key="researcher.planted"),
+           "the words order book under the researcher namespace are allowed (Researcher mode holds it)")
+    expect(not planted_table("The order book, bucket by bucket.", key="guide.researcher.why"),
+           "and under a researcher segment inside an app's own section")
+    for label, value, needle in [("a ticket number", "Fixed under T-2624.", "ticket number"),
+                                 ("a snake_case id", "Inspect glessner_house.", "snake_case"),
+                                 ("a file path", "See data/scenes/1835.json.", "file path"),
+                                 ("the word ticket", "Its own ticket will settle it.", "`ticket`"),
+                                 ("the word tier", "A tier 1 source.", "`tier`")]:
+        expect(any(needle in e for e in planted_table(value, key="researcher.planted")),
+               f"{label} in a Researcher-mode string is still refused")
+    expect(planted_table("Open the order book.", key="researchers.note"),
+           "a namespace merely starting with `researcher` is not Researcher mode's")
 
     with tempfile.TemporaryDirectory() as tmp:
         page = Path(tmp) / "index.html"
@@ -422,7 +445,7 @@ def self_test():
             "<p>Straight from <code>docs/LIBERTIES.md</code>.</p>\n"
             "<button title=\"Open the order book\">x</button>\n"
             "<img alt=\"tier_one\">\n"
-            "<section data-researcher><p>ticket T-1 at data/x.json</p><br><b title=\"tier\">y</b></section>\n"
+            "<section data-researcher><p>The order book.</p><br><b title=\"The order book\">y</b></section>\n"
             "<div data-researcher title=\"order book\"></div>\n"
             "<p>After the marker: the tickets.</p>\n"
             "<script>const a = 'data/x.json';</script><style>.tier{}</style><!-- tier -->\n"
@@ -431,9 +454,30 @@ def self_test():
         expect(any("index.html:2" in e and "file path" in e for e in got), "a path in a page's <code> is refused, with its line")
         expect(any("index.html:3" in e and "`order book`" in e for e in got), "a title attribute is read")
         expect(any("index.html:4" in e and "snake_case" in e for e in got), "an alt attribute is read")
-        expect(not any(":5" in e or ":6" in e for e in got), "a data-researcher subtree and its own attributes are exempt")
+        expect(not any(":5" in e or ":6" in e for e in got),
+               "a data-researcher subtree and its own attributes may name the order book")
         expect(any("index.html:7" in e and "`ticket`" in e for e in got), "the exemption ends with the marked element")
         expect(not any(":8" in e for e in got), "scripts, styles and comments are not visible text")
+
+    with tempfile.TemporaryDirectory() as tmp:
+        page = Path(tmp) / "index.html"
+        page.write_text(
+            "<main><section data-researcher><p>Seated by T-1198 at data/x.json.</p>\n"
+            "<p><a href=\"https://github.com/kevinrhaas/chicago-tickets/blob/main/T-1000-1249/T-1198-x.md\">How this was decided</a></p>\n"
+            "<p><a href=\"https://github.com/kevinrhaas/chicago-tickets/blob/main/T-1198.md\"></a></p></section>\n"
+            "<p><a href=\"https://github.com/kevinrhaas/chicago-tickets/blob/main/T-1198.md\">The work record</a></p>\n"
+            "<p><a href=\"https://example.org/x\">A source</a></p>\n"
+            "<section data-researcher><a href=\"#T-1198\">T-1198</a></section></main>", encoding="utf-8")
+        got = lint([("page", list(page_strings([page])))], allowlist=[])[0]
+        links = ticket_link_errors([page])
+        expect(any("index.html:1" in e and "ticket number" in e for e in got) and any("index.html:1" in e and "file path" in e for e in got),
+               "a ticket number and a path in Researcher-mode text are refused")
+        expect(not any(":2" in e for e in got + links),
+               "a ticket as a link behind plain words, in Researcher mode, is allowed")
+        expect(any(":3" in e and "no label" in e for e in links), "a ticket link with no label is refused")
+        expect(any(":4" in e and "outside Researcher mode" in e for e in links), "a ticket link outside Researcher mode is refused")
+        expect(not any(":5" in e for e in got + links), "a link to anything else is not a ticket link")
+        expect(any(":6" in e and "ticket number" in e for e in got), "a ticket link labelled with its number is refused")
 
     def planted_goto(row):
         idx = json.loads(json.dumps(index))
@@ -477,30 +521,7 @@ def self_test():
     expect(not planted_records(sidecars={"1835/terrain.json": {"claims": [{"id": "swales.west_prairie_swale_a"}]}}),
            "a claim's id is the data's, not a sentence, and is not read")
 
-    def planted_researcher(value=None, key="researcher.planted", page_html=None):
-        d = json.loads(json.dumps(dump))
-        if value is not None:
-            d["entries"].append([key, value])
-        pages = []
-        if page_html is not None:
-            tmpd = tempfile.mkdtemp()
-            pg = Path(tmpd) / "index.html"
-            pg.write_text(page_html, encoding="utf-8")
-            pages = [pg]
-        return researcher_errors(d, pages)
-
-    expect(any("ticket number" in e for e in planted_researcher("Fixed under T-2624.")),
-           "a Researcher-mode string naming a ticket is refused (the 2026-10-18 ruling narrows the exemption)")
-    expect(any("snake_case" in e for e in planted_researcher("Inspect glessner_house.", key="guide.researcher.why")),
-           "a Researcher-mode string naming a record id is refused")
-    expect(not planted_researcher("See the research notes, tier 1, at docs/LIBERTIES.md."),
-           "a Researcher-mode string may still name a file and the machinery's words")
-    expect(any("ticket number" in e for e in planted_researcher(page_html=
-           "<main><section data-researcher><p>the work, T-1234</p></section></main>")),
-           "a data-researcher element naming a ticket is refused")
-    expect(not planted_researcher(page_html="<main><section data-researcher><p>data/x.json</p></section></main>"),
-           "a data-researcher element may name a file")
-    expect(not researcher_errors(), "the committed Researcher-mode strings name no ticket and no record id")
+    # ---- end T-2825
 
     f2, _, stale2 = lint(base, allowlist=ALLOWLIST + [{"surface": "page", "match": "^nothing-here$",
                                                        "ticket": "T-0000", "why": "planted"}])
@@ -528,8 +549,7 @@ def main(argv=None):
         return self_test()
     found = surfaces()
     failures, allowed, stale = lint(found)
-    failures += contract_errors()
-    failures += researcher_errors()
+    failures += contract_errors() + ticket_link_errors()
     print("  read " + ", ".join(f"{len(s)} {name} string(s)" for name, s in found))
     for line in allowed:
         print(f"  allowed {line}")
