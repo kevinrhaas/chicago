@@ -1,4 +1,23 @@
 export const CHANGELOG = [ // newest first
+  { v: 2061, ts: '2026-10-19T14:11:36.406Z', date: 'Oct 19, 2026, 9:11 AM CT', title: '1625 Prairie\'s side wall drops to its photographed eave', kind: 'change',
+    items: [
+      '1625 Prairie Avenue\'s south side wall now stops at 10.9 m, where the 1890 photograph puts its eave, instead of running up 2 m higher to the gable\'s foot.',
+      'The stone front alone still rises to about 13 m at its corner and carries the gable over the lower roof, as the photograph shows. The step where the gable stands out from the front is now a fine line, not a deep band.',
+      'The four-storey rear section came down with the eave: its windows, attic dormer, slate roof and chimney now stand at the photograph\'s heights.',
+      'The tall chimney beside the gable keeps its photographed height.',
+    ] },
+  { v: 2060, ts: '2026-10-19T13:34:21.252Z', date: 'Oct 19, 2026, 8:34 AM CT', title: '1637 Prairie\'s south flank gains its columns, belt course and tall stack', kind: 'improvement',
+    items: [
+      'The stone bay on 1637\'s south side now has columns at its corners and on its sides, where the old photograph of the house shows them.',
+      'A pale stone band runs along the foot of the south wall, as in the photograph.',
+      'The tall panelled chimney now rises from the south wall. It used to stand over the front wing; read together, the photograph and the engraving put it on the south wall.',
+    ] },
+  { v: 2059, ts: '2026-10-19T13:34:21.252Z', date: 'Oct 19, 2026, 8:34 AM CT', title: 'Glessner\'s paired windows on 18th Street set to their photographed height', kind: 'improvement',
+    items: [
+      'The two pairs of second-floor windows on the Glessner House\'s 18th Street gable now stop about a foot lower, where the 1965 survey photographs show their heads. Their sills are unchanged within a couple of inches.',
+      'Both north photographs were re-measured with the window heights left as unknowns, instead of assumed. The two photographs agree to within a few inches.',
+      'Seen from the north photographs\' own viewpoints, the wall, both pairs and the narrow ground-floor windows now line up with the pictures. Still to do: the slimmer stone column between each pair, and the tower\'s finial.',
+    ] },
   { v: 2058, ts: '2026-10-19T12:13:40.138Z', date: 'Oct 19, 2026, 7:13 AM CT', title: 'Glessner\'s front windows checked against its survey drawing and photographs', kind: 'change',
     items: [
       'Nothing you can see moved yet. The Glessner House\'s Prairie Avenue windows and door were measured on three street photographs and on the 1965 survey elevation.',

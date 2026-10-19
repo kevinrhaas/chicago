@@ -61,7 +61,7 @@ def geometry(p, ye):
     xf = D + o + sg["proud_m"]
     xb = xf - sg["thickness_m"]
     zc = -W / 2
-    ledge = ye + LEDGE_OVER_FASCIA_M
+    ledge = sg.get("ledge_m") or ye + LEDGE_OVER_FASCIA_M   # T-2865: a ledge over the eave
     hb = W / 2 + o + 0.02             # the base covers the eave's corners
     hl = half_width(sg, ledge)
     up = [(w, y) for w, y in sg["profile_m"] if y > ledge + 1e-6]
