@@ -1,0 +1,7 @@
+{
+  "title": "Phones: no more graphics errors from the first-load GPU warm-up",
+  "kind": "fix",
+  "items": [
+    "Nothing you can see changes. On a phone, the early pass that hands each layer to the GPU before the first frame also tried to draw it, before the sun's shadow map existed, and every one of those draws was refused as a graphics error. The pass now uploads without drawing, so the errors are gone and the phone uses the same memory as before."
+  ]
+}
