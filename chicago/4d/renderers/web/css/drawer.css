@@ -312,7 +312,8 @@ body:is(.is-touch, .touch-first) .panel-close { margin-right: -6px; }
 
 /* -------------------------------------------------------------- settings --- */
 /* The long list, grouped. The value is the first thing on every row and the
-   reasoning behind a default folds away under "Why this default". */
+   reasoning behind a default is a "Why?" away (T-2658), or, in Researcher mode, folds
+   under "Why this default". */
 
 .settings-group { margin: 0 0 6px; }
 .settings-group + .settings-group { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--edge); }
@@ -362,6 +363,25 @@ details.why > summary::before {
 details.why[open] > summary::before { transform: rotate(45deg) translate(0, -2px); }
 details.why > summary:hover { color: var(--ink); }
 details.why > .legend-note { margin: 6px 0 0; line-height: 1.55; }
+
+/* T-2658 (NAV-904) — a visitor's short "Why?": one line under the setting saying what the
+   default is, and a small button at its end that opens a bubble of 40 words at most
+   (js/why-tips.js). The line takes the fold's place; the fold, with the full essay, is
+   Researcher mode's. The button is a 32 px target on a touch screen. */
+.why-line { display: flex; align-items: center; gap: 8px; margin: -6px 0 14px; min-width: 0; }
+.why-hint { flex: 1 1 auto; min-width: 0; color: var(--ink-dim); font-size: 11.5px; line-height: 1.4; overflow-wrap: anywhere; }
+.why-btn {
+  flex: 0 0 auto; min-height: 26px; padding: 2px 10px; cursor: pointer;
+  font: 600 11.5px/1.2 var(--font-body, inherit); letter-spacing: .02em;
+  color: var(--accent); background: transparent;
+  border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  border-radius: var(--r-control, 999px);
+  transition: background-color .12s, color .12s;
+}
+.why-btn:hover, .why-btn[aria-expanded="true"] { background: var(--accent); color: var(--accent-ink, var(--panel-solid)); }
+.why-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (pointer: coarse) { .why-btn { min-height: 32px; min-width: 48px; } }
+@media (prefers-reduced-motion: reduce) { .why-btn { transition: none; } }
 
 /* Controls: the key list reads a touch calmer with a little more air. */
 .keys { gap: 8px 14px; }

@@ -2,8 +2,8 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "cgn-1808-inland-1888-keith-copy",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "37618537fd47c6cf160a1a3b8251c0a461c2a6b3878d18ec20cfea6dccb9a6c2",
-  "camera_sha256": "19fae3bf2110e80c8d0d5fac3871262edbce6ea1433e5f226970c860941ea758",
+  "glb_sha256": "674a9e99d509d2bee7dc4efcd7291a441d3365a0e19ee5132674c68b1d952777",
+  "camera_sha256": "46115ac244cc65333d243964347a01814de2331453f82ea86651a33af8d4141a",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/cgn-1808-inland-1888-keith-copy-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -82,6 +82,14 @@
     {
       "what": "T-2813: re-rendered with Keith's crown 0.16 m lower (the moulded course under the lattice 0.20 m deep where it was 0.36 m, the checker and head bands unmoved); its camera does not use the crown and is unchanged. Read again at the crown beside the previous render: the lattice, coping and pinnacles move a few pixels at this picture's scale and nothing it shows opens a difference; the verdict stands as it was (differs).",
       "status": "fixed"
+    },
+    {
+      "what": "T-2876: the camera re-derived from the plate's camera as it now stands (T-2845's re-fit), through this copy's own registration to the plate (tools/keith_copy_cameras.py; the solve says how), and re-rendered on the GLB in the tree, T-2845's loggia (0.6 m pedestals at the first-floor plan's place, each pair's shafts 0.36 m apart, the flight 1.8 m clear and the stoop 0.15 m south). T-1883's camera, fitted to the plate's camera of its day, drew the front pairs about 25-35 px left of this copy's shafts on the rebuilt loggia; on the re-derived camera each pair stands on the copy's shafts, the capitals and pedestal caps on its rows, the balcony's front and pinnacle on its, as inland-1888 reads them at full size. Nothing else this copy shows moved.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2876: the loggia has a REAR ROW of paired columns that the model does not build. Read on the plate (this is a reproduction of it) at its native 1559 px (inland-1888): behind and left of the south front pair (whose shafts stand at x 875-927) two shafts in shadow at x 818-828 and 839-845, rows 1480-1540; and through the opening between the front pairs (875-927 and 1094-1146) three lit shafts at x 998-1004, 1020-1032 and 1044-1050 standing on the parapet's line at rows 1550-1570. On this camera a point deeper in the loggia (further west) draws nearer the principal point (x 450), so both sets are a second row of pairs behind the front ones, at the house wall or a bay deeper. The render draws the front pairs only, with the lit house wall and door close behind them where the print is dark to the back. Its depth and whether the rear pairs are free or engaged are for the build to rule (T-2877). This copy shows both sets the same.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
