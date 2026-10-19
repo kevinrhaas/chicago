@@ -718,8 +718,14 @@
             <button class="setting-button" id="s-pacing-read" type="button">Read frame pacing</button>
           </span>
         </div>
+        <!-- T-2733: the longer run is the default; one 5 s sample a mode was too thin to settle. -->
+        <label class="field row" id="pacing-read-length" hidden><span>Reading length</span>
+          <select id="s-pacing-seconds">
+            <option value="15">15 s a mode — steadier</option>
+            <option value="5">5 s a mode — quicker</option>
+          </select></label>
         <p class="legend-note" id="pacing-read-status" hidden>Walks, turns and flies for about
-          half a minute at Light, Fixed then Adaptive, and puts you back where you were.</p>
+          a minute and a half at Light, Fixed then Adaptive, and puts you back where you were.</p>
         <textarea class="pacing-read-out" id="pacing-read-out" readonly rows="12" hidden
           aria-label="Frame pacing reading"></textarea>
       </div>
