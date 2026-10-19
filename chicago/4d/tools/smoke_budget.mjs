@@ -508,6 +508,9 @@ const COVERAGE = [
   ['data/research/', [14], 'researched, and still open — the third category'],
   // T-0474. The 1904 street grid is drawn only at the /1904/ door, which part 14 boots.
   ['renderers/web/js/street-grid.js', [14], 'the 1904 Prairie Avenue street grid (T-0474)'],
+  // T-2833. The 1904 context city is drawn only at the /1904/ door too.
+  ['renderers/web/js/context.js', [14], 'the 1904 context city: its stand-ins, their facades and its trees (T-2477, T-2833)'],
+  ['data/context/', [14], 'the 1904 context city\'s rows, read by context.js at the /1904/ door'],
   // T-2109/T-2213. Only a transmissive pane is replaced, and only Glessner's GLB carries one: /1904/.
   ['renderers/web/js/glass.js', [14], "Glessner's dark panes, their blinds and sheen (T-2213)"],
   ['data/street_grid/', [14], 'the 1904 carriageways, block faces, alleys and parcels'],

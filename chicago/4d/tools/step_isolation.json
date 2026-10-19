@@ -3987,6 +3987,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/generate_fruit_plantings_1835.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/generate_glessner_finish.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5491,6 +5495,10 @@
       "wrote_ignored": []
     },
     "tools/test_fallback_summary.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_field_log.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

@@ -28,6 +28,8 @@ import { createForecast, createNetMeter, expectedBytes } from './boot-forecast.j
 import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { createJourney } from './journey.js';
+import { fieldLog, count as countField } from './field-log.js'; // T-2660
+import { wireFieldLogView } from './field-log-view.js';
 import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
@@ -1588,6 +1590,11 @@ const journey = createJourney();
 // T-2621: a shared screen, read once (`?nav=app[:id]&tab=`), opened after the landing.
 const navLink = parseNavLink(location.search);
 api.journey = journey;
+// T-2660: the field log, kept on this device only and never sent (js/field-log.js). A landing
+// is the journey reaching `landed`; Settings › About shows the counts, with Clear.
+journey.on(({ to }) => { if (to === 'landed') countField('landed'); });
+api.fieldLog = fieldLog;
+api.fieldLogView = wireFieldLogView({ log: fieldLog });
 // Back to the Observatory is the journey's recall, from wherever the link sits. T-2735: the
 // way home asks first and plays the reverse ring (js/recall.js), so the journey moves to
 // `recall` only as the page actually leaves; a cancelled prompt leaves it where it was.
@@ -2152,25 +2159,27 @@ async function boot() {
   // listing `street_trees` is handed a data base. The Season and Street trees
   // settings (T-2481) are read here so the first frame already shows the visitor's pick.
   const seasonPref = readSeasonPreference();
-  const streetTrees = await createStreetTrees({
-    dataBase: layerBase('street_trees'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
-    problems: layerProblems('street_trees'), lowSpec: coarse,
-    mode: streetTreeMode(seasonPref.season, seasonPref.treesShown),
-    checkpoint: bootCheckpoint, levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
-  });
-  scene3d.add(streetTrees.group);
-  api.streetTrees = streetTrees;
-
   // T-2477 — the context city: faded stand-ins on every part of the 1904 map not yet
   // built (data/context/<scene>.json, read off the Sanborn sheets where they reach and
   // projected past them), so Prairie Avenue reads in full colour against a sketch of the
   // city around it. Each gives way to any placed structure whose footprint it touches.
+  // Built before the parkway elms, which draw its trees as their own (T-2833).
   let contextCity = await createContext({
     dataBase: layerBase('context'), sceneId: loaded.scene.id ?? YEAR, terrain, footprints,
     confidence, problems: layerProblems('context'), detail: detailLevel,
   });
   scene3d.add(contextCity.group);
   api.contextCity = contextCity;
+  const streetTrees = await createStreetTrees({
+    dataBase: layerBase('street_trees'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
+    problems: layerProblems('street_trees'), lowSpec: coarse,
+    mode: streetTreeMode(seasonPref.season, seasonPref.treesShown),
+    checkpoint: bootCheckpoint, levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
+    contextTrees: (level) => contextCity.treeStems?.(level) ?? [],
+  });
+  scene3d.add(streetTrees.group);
+  api.streetTrees = streetTrees;
+
 
   // T-2478 — the Illinois Central along the lake east of Prairie Avenue: the tracks
   // the 1911 sheets draw, on cinder ballast, with ties, rails and weedy verges
@@ -3026,6 +3035,7 @@ async function boot() {
     onBusiness: (id) => openBusiness(id),
     onShow: (record) => {
       tourCounts.opens++; tourCounts.deeper++;
+      countField('inspect'); // T-2660: the first since landing is the field log's
       // T-2664: the first Reconstructed building's card says, once, what the word means.
       if (isReconstructed(record?.sidecar)) api.hints?.show('reconstructed');
       void ensureLiberties(); void ensureHouseholdNotes(record); void ensurePictures();
@@ -4392,6 +4402,7 @@ async function boot() {
     if (!target) return Promise.resolve(false);
     travel?.stop?.('show-me');
     showMeId = id;
+    countField('showMe'); // T-2660
     return showMe.show(target);
   }
   api.showMe = { show: showMeFor, get last() { return showMe.last; }, cancel: () => showMe.cancel() };

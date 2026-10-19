@@ -26702,6 +26702,20 @@ frontages the grid's own Indiana and Calumet lots measure, one house per lot set
 stable on some, and materials in the mix the traced sheets measure; kept 40 m off the water and west
 of the Illinois Central's line on sheets 20 and 28. The rectangles drop porches' and
 bays' shapes and the sheets' storey figures.
+**Amended (T-2833, 2026-10-19; owner: the street ends showed "fake buildings as just boxes and the
+bad trees").** Each stand-in's walls are now painted, not modelled, with what its rule already
+claims: storeys at its height (3.4 m a house storey on a 1.1 m raised stone basement, 3.9 m a loft's),
+rows of two-over-two sash windows under stone lintels, string courses, a door at the top of a stoop
+on a house's end and in each house of a row; a row of lots is divided into 25 ft houses (7.6 m), each
+a slightly different brick, and a gabled row takes a gable to the street per house rather than one
+ridge; shop blocks carry shop windows under their flats, lofts wide windows, sheds high lights and
+doors; a flat roof sits behind a cornice. All of that is invented, by building type, and claims
+nothing about any one building. A drawn building at least 3.5 times as long as it is deep and no
+deeper than 16 m is read as a row of attached houses at the house rules' height, not a block: so
+the 110 m strip Robinson's plate 10 draws on 16th Street's north side, Mortimer and Tappan's
+subdivision of sixteen lots, is a row of three-storey houses and no longer a 16 m block. The trees
+are drawn as the parkway's grown American elm (street-trees.js), sized by each tree's own height;
+the species is ours, after the elms the prints show on Prairie Avenue.
 **How to resolve:** read the storey figures each sheet prints into the rows; trace sheets 19, 27, 34
 and 36 (Indiana's west face, Indiana 18th-20th, Calumet's east face) to replace the projection where
 they reach; each stand-in a drafted building lands on is dropped by the renderer already.
@@ -28989,6 +29003,36 @@ survey's notes for the section lines through the North Side; a dated witness to 
 State Street and the sand hills before 1836.
 **Ticket:** T-2808.
 **Recorded:** 2026-10-18 (T-2808).
+
+### L-fruit-trees-1835-2809 — The fort's company-garden fruit trees and currants, and Dr. Harmon's young orchard by the lake
+
+**Decision:** in 1835 the fort's company gardens (`fort_dearborn_garrison_garden`, the 1830 plan's
+77 m square) are planted (`data/flora/plantings/fort_company_garden_1835.json`): a border row of 36
+young fruit trees 4 m inside the fence at 7 m spacing, apple with one in three a sour cherry, 3 to
+5.5 m tall, and 124 currant bushes in four long rows running the plot's length between its vegetable beds. Dr.
+Harmon's orchard (`harmon_orchard_1835.json`) is a 48 x 44 m plot just south of the Sixteenth Street
+line (N -2961.6 to -3005.6) and 20 m west of the shore cottonwood grove (E 1352.3 to 1400.3): 72
+seedlings in rows about 5 m apart, peach with two in five a sour cherry, 2 to 3.8 m tall. Both are
+written by `tools/generate_fruit_plantings_1835.py`. The three fruit species are new z10 records at a
+density of zero, so nothing but these records plants them. The currants in these and in every other
+planting record (the town's dooryards too) are now drawn as grown clumps of stems.
+**What is read, not invented:** "the company gardens, well filled with currant-bushes and young
+fruit-trees", south of the fort beyond the parade (Kinzie, *Wau-Bun*, 1856, of 1831); Harmon building
+"a sod fence, at a spot he had chosen, near the shore of the lake", and in it "planting fruit stones
+of all descriptions, to make ready a garden and orchard" (the same, spring 1831); Harmon's claim's
+north line "in the vicinity of Sixteenth Street" (Andreas, vol. 1). The garden's place and size are
+its own record's.
+**What is invented:** which fruits (neither witness names one: apple as the frontier's orchard tree,
+sour cherry and peach as the "fruit stones" a settler planted), how many of each, their heights, the
+border row and the currant rows (nothing records the plot's plan; a working garden of long parallel beds was chosen over a laid-out four-square); that Harmon's orchard still stands in 1835; its
+place, its size and its rows; and that his "fruit stones" grew into peach and cherry. The sod fence
+round Harmon's plot is not drawn (the enclosure layer has no turf bank), nor the vegetables in either
+garden.
+**How to resolve:** a garrison return or an officer's letter naming the garden's fruit; the 1830s
+pre-emption entry or a plat of Harmon's claim; any account that sites his garden or names what grew
+in it.
+**Ticket:** T-2809.
+**Recorded:** 2026-10-19 (T-2809).
 
 ### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
 
