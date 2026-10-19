@@ -962,7 +962,15 @@ def _k02(front: dict) -> dict:
     # (the profile's course_rule) up to a line, and evenly above it with a shallower face;
     # every course and rock face it lays stays inside the profile's own ranges
     coursing = front.get("coursing")
-    if coursing is not None:
+    if coursing is not None and coursing.get("rhythm") == "even":
+        # T-2819: or evenly throughout, the whole range of rock face under `even_above_m`
+        # and the shallower face above it (1623's drawing: rock-faced to the arches'
+        # springing, smoother coursed stone over it) — the line itself a course line
+        if set(coursing) != {"rhythm", "even_above_m", "even_rock_share"}:
+            raise ParamError("stone_front.coursing with rhythm 'even' takes even_above_m and even_rock_share")
+        if not (0.0 < float(coursing["even_rock_share"]) <= 1.0 and float(coursing["even_above_m"]) > 0.0):
+            raise ParamError("stone_front.coursing: even_rock_share in (0, 1], even_above_m above grade")
+    elif coursing is not None:
         lo_c, hi_c = (float(x) for x in f["course_height_m"])
         req = {"rhythm", "low_ratio", "even_above_m", "even_rock_share"}
         if not req <= set(coursing) <= req | {"even_below_m", "deep_max_m"} or coursing["rhythm"] != "alternating":
@@ -1491,6 +1499,28 @@ def _arched_front(groups, openings, variants, kit, dress, pf, floors, width, doo
     if blocks and (blocks[0][0] < 0.25 or blocks[-1][1] > width - 0.25):
         raise ParamError("an arched group's voussoir block runs within 0.25 m of a corner")
     belts = [tuple(float(y) for y in b) for b in dress.get("belts", [])]
+    cb = dress.get("carved_band")
+    if cb is not None:
+        # T-2819: a carved band across the front at the arches' springing (1623's drawing):
+        # a belt course from `bed_m` to `top_m`, cut by every light it crosses, the
+        # oriel's guilloche (k08_bays._guilloche) carved along each run of it between them
+        if set(cb) != {"bed_m", "top_m", "guilloche"} or \
+                set(cb["guilloche"]) != {"radius_m", "ring_width_m", "ring_proud_m", "margin_m", "pitch", "segments"}:
+            raise ParamError("street_front_dress.carved_band takes bed_m, top_m and a guilloche (radius_m, "
+                             "ring_width_m, ring_proud_m, margin_m, pitch, segments)")
+        b0, b1 = float(cb["bed_m"]), float(cb["top_m"])
+        if not (pf < b0 and 0.15 <= b1 - b0 <= 0.6 and b1 <= floors[1] - 0.3):
+            raise ParamError(f"street_front_dress.carved_band [{b0}, {b1}]: a band 0.15-0.6 m deep over the "
+                             f"principal floor ({pf} m), 0.3 m clear of the second ({floors[1]} m)")
+        if any(g["spring_m"] < b1 - 1e-6 < g["top_m"] for g in out):
+            raise ParamError(f"street_front_dress.carved_band's top ({b1} m) runs into a voussoir block: "
+                             f"the arches spring from the band, not under it")
+        g_ = cb["guilloche"]
+        if not 0.05 <= float(g_["radius_m"]) <= (b1 - b0) / 2 or not 0.0 < float(g_["ring_proud_m"]) <= 0.05:
+            raise ParamError("street_front_dress.carved_band.guilloche: a ring at most half the band "
+                             "high, standing at most 0.05 m")
+        belts.append((b0, b1))
+        cb = {"bed_m": b0, "top_m": b1, "guilloche": {k: float(v) for k, v in g_.items()}}
     stone_top = float(dress.get("stone_top_m", soffit))
     if not floors[-1] < stone_top <= soffit:
         raise ParamError(f"street_front_dress.stone_top_m {stone_top} is not between the top floor and the soffit ({soffit:.3f} m)")
@@ -1541,7 +1571,7 @@ def _arched_front(groups, openings, variants, kit, dress, pf, floors, width, doo
     return {"groups": tuple(out), "belts": tuple(belts), "stone_top_m": stone_top, "frieze": fr or {},
             "frontispiece": dress.get("frontispiece") or {}, "portico": po or {},
             "balconettes": dress.get("balconettes") or {}, "grilles": dress.get("grilles") or {},
-            "stoop_rails": rails,
+            "stoop_rails": rails, "carved_band": cb or {},
             "banded": dress.get("banded") or {}}
 
 
