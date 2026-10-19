@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs04-terrace-section",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6430eff3b9d9f0d5279df0fa3a83196e7e2514e75f8fd1ccb21cd3b7bc13899d",
+  "glb_sha256": "5e7a76bdfe060ea7944207a3953f5a71263ee8ce32251a329c2e52b07c405645",
   "camera_sha256": "edcbbda49386ff9fb91c7cc99c9022fe4ce523204959ff46c1bb3a764b7d659c",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-terrace-section-side-by-side.jpg",
   "verdict": "differs",
@@ -16,7 +16,7 @@
       "status": "fixed"
     },
     {
-      "what": "T-2759: sheets 2 and 4 put that junction at different points along S. The section ends the coping at S45.35 and shows 1.22 ft of clear shaft (S45.35-46.57). Built from the plan, the junction lands at about S46.4-46.6, with about 0.5 ft of clear shaft and the post's south face at S47.1. The same two sheets disagree by 0.63 ft the other way at the stair tower, so there is no single datum shift to apply. The plan governs plan positions because the stair boundaries are plan readings.",
+      "what": "T-2879 ruled the plan against the section along S. Sheet 2's printed court chain (12'-6\" + 12'-0\" + 10'-0\" + 12'-8\" = 47'-2\") governs, and the plan scan reproduces it: court face S26.99 for the printed 26.83, the bow's tangent on the east wing 39.42 for 39.33, the tower's south junction 61.27 for 61.33. Sheet 4 draws the same court shifted north, not rescaled: face 26.21, bow flank 38.66, so its bow is 12.45 ft across against the printed 12.5. Re-zeroed on the printed court face (+0.65 ft), its terminal post reads S46.0-47.3. The plan-built post, seen past the wall's end, shows S46.2-47.1, so the post agrees within 0.2 ft and stays where the plan puts it. The bow and the stair tower stay on the plan too (docs/RESEARCH/glessner-court-ruling-T-2879/). What this view still shows is the frame mix. The coping's traced profile and the two grilles were read at sheet 4's un-re-zeroed S, and the camera reads in that frame too. So the coping reaches the post 0.65 ft early, over a reconstructed shoulder, and in this view the brick wall end covers the post's north half (render S46.3) where the drawing shows the stone shaft from S45.4. T-2880 carries those readings and this camera onto the plan's frame.",
       "status": "open"
     },
     {
