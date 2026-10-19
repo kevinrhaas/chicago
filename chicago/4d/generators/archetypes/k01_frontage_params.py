@@ -2456,9 +2456,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                         "columns": {"height_m", "segments", "profile"},
                         "entablature": {"height_m"}, "balcony": {"thickness_m", "height_m"},
                         "parapet": {"thickness_m", "height_m"}, "arch": {"span_m", "spring_m", "depth_m"}}
-                if set(lg) - {"finish"} != set(need) or any(set(lg[k]) != v for k, v in need.items()):
+                # T-2845: the far pedestal's and the side parapet's inset from the terrace's end,
+                # and the pair's pitch, are optional (the kit's defaults stand them at the corner
+                # and the pedestal's quarters)
+                opt = {"pedestal": {"far_inset_m"}, "columns": {"pitch_m"}, "parapet": {"side_inset_m"}}
+                if set(lg) - {"finish"} != set(need) or any(
+                        not v <= set(lg[k]) <= v | opt.get(k, set()) for k, v in need.items()):
                     raise ParamError(f"entrance_kit.terrace.loggia takes {sorted(need)}, each with "
-                                     + "; ".join(f"{k}: {sorted(v)}" for k, v in need.items()))
+                                     + "; ".join(f"{k}: {sorted(v)}" for k, v in need.items())
+                                     + "; optionally " + "; ".join(f"{k}: {sorted(v)}" for k, v in opt.items()))
                 if "out_m" not in t:
                     raise ParamError("entrance_kit.terrace.loggia stands on a terrace with its own out_m")
                 if lg.get("finish") not in (None, "ionic_carved"):
@@ -2466,7 +2472,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 prof = lg["columns"]["profile"]
                 if prof[0][1] != 0.0 or prof[-1][1] != 1.0 or any(b[1] <= a[1] for a, b in zip(prof, prof[1:])):
                     raise ParamError("entrance_kit.terrace.loggia.columns.profile runs [r, fraction of height] from 0 to 1")
-                if 2 * max(r for r, _ in prof) > float(lg["pedestal"]["width_m"]) / 2:
+                # the pair's pitch, half the pedestal's width unless the record gives it (T-2845)
+                pitch = float(lg["columns"].get("pitch_m", float(lg["pedestal"]["width_m"]) / 2))
+                if 2 * max(r for r, _ in prof) > pitch:
                     raise ParamError("entrance_kit.terrace.loggia: two columns do not stand side by side on a pedestal")
                 terraces[-1]["loggia"] = lg
         if len({t["side"] for t in terraces}) != len(terraces):
