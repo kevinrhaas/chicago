@@ -228,6 +228,14 @@ AMBIGUOUS_LEAVES = frozenset({
     # view really does read a role's claim id (T-1255) it declares the expression and
     # never reaches here.
     "claim",
+    # The zone records' `july.inflorescence.fruit`, a boolean `trees.js` leaves unread
+    # on purpose (see its `headOf`). Since T-2810 `tree-model.js` reads `spec.fruit`,
+    # the grape's July inflorescence that the vine draper hangs as fruit (its rgb,
+    # height_frac and size_m, all declared), which is no read of that flag; the
+    # bare-name scan called the flag a
+    # phantom on it (found by T-2784, whose gate this was the only red of). Narrowed to
+    # `inflorescence.fruit`, so the day a renderer reads the flag it is caught.
+    "fruit",
     # T-1313's `persons[].stated_family.statement`. `statement` is a word this renderer
     # already owns twice over: `orderbook.js` prints `d.statement` and `i.statement` off
     # the reconstruction order book's own disagreement rows, which are not a resident
