@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "grosvenor_asbuilt_photo",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5da7b1ed4a8cc4bfb699a0a91b7a2666933cfe375d0ed6fed856ea635feaa619",
+  "glb_sha256": "f7f2f4153e15703592a70f7064c5eb053e62f87e62d36609783e760235f3d296",
   "camera_sha256": "856a15ff71693396f8e7a7b8f4b66bfb786f6d3fff3e7bae180a916a561f4a8b",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/grosvenor_asbuilt_photo-side-by-side.jpg",
   "verdict": "differs",
@@ -29,8 +29,8 @@
     },
     {
       "what": "a pale stone band along the foot of the south wall (y 712-726 px), the wall's water table or a low coping before it; the build's front band (y about 731 px through this camera) returns about 0.5 m round the corner and stops",
-      "status": "open",
-      "how": "kept: masonry the remodel had no call to touch, and the engraving cannot see this flank. T-2756 reads whether it is the wall's band (then K01 carries the front's band along the south wall) or a coping, and builds it"
+      "status": "fixed",
+      "how": "T-2781: a course on the wall, not a coping: the brick runs on below it in the same plane to the fence and it throws a line of shadow along its underside. Built as K01's side belt (form.side_belts) in the trim limestone, 2.3-2.5 m and 0.05 m proud, along the whole south wall and stopped against the bay and the rear range: through this camera at y 712-725 px from the corner to the bay's base, against the photograph's 712-726. Its foot is the line the camera was fitted to, so this photograph places it in the wall and does not measure its height; at the corner it stands 0.07 m over the wing's string course, a corner no picture shows after the remodel (L-k01-1637-south-flank-2781)"
     },
     {
       "what": "an ornate stone-dressed projection on the south wall from x 322 px (about u 3.9-5.2 m) to past the frame's edge: its front through the principal storey in tall round-arched lights between columns under a bracketed entablature, small round lights in its base (y 690-730 px), and on its top a balcony behind a balustrade (y 355-420 px)",
@@ -39,28 +39,28 @@
     },
     {
       "what": "the projection's columns: a column at each corner of the bay and between its lights, from the sill band to the capitals under the entablature (x 350-362 and 395-405 px, y 505-690)",
-      "status": "open",
-      "how": "not built: K08 lays a bay's walls, windows, bands and brackets, and has no column; T-2781 builds them with the bay's carved dress"
+      "status": "fixed",
+      "how": "T-2781: engaged stone columns 0.2 m across on the bay (bays[south_flank].columns), at each front angle on its bisector and on each cheek 0.3 m from the wall, from the base's string course at 3.03 m to 6.15 m, each on a square base 0.15 m tall under a square capital 0.2 m tall: through this camera the cheek's column at x 351-362 px and the angle's at x 391-402, against the photograph's 350-362 and 395-405, from y 690 to the capitals at 505-520 against 505-515. The capitals stand plain, as square blocks; their carving is the dress item below"
     },
     {
       "what": "the projection's carved dress: the oval lights or medallions in the frieze over the arches (y 470-500), the capitals' band (y 505-515), the consoles' scrolls and the corona's mouldings",
       "status": "open",
-      "how": "the entablature's consoles and fascia stand where the photograph's do (T-2780), plain; T-2781 carves them"
+      "how": "the entablature's consoles and fascia stand where the photograph's do (T-2780), plain, and the columns' capitals (T-2781) stand as plain square blocks under the band; the frieze's ovals, the capitals' carving, the arches over the lights, the consoles' scrolls and the corona's mouldings are T-2840's"
     },
     {
       "what": "the cheeks' lights: a round-arched light in the west cheek between its columns (x 362-398 px, y 515-680) over a small light in its base (y 690-730), and the east cheek's, out of the frame, by symmetry",
       "status": "open",
-      "how": "not cut: K08 holds every window's recess to at least 0.33 m inside the bay (check_bay_kit.py), and a 1.0 m cheek 0.75 m out has no room for it, so the cheeks stand blank (L-k01-1637-south-bay-2780). T-2781 opens them, which needs a shallower light the kit can close"
+      "how": "not cut: K08 holds every window's recess to at least 0.33 m inside the bay (check_bay_kit.py), and a 1.0 m cheek 0.75 m out has no room for it, so the cheeks stand blank (L-k01-1637-south-bay-2780). T-2840 opens them, between the columns that now stand either side of each, which needs a shallower light the kit can close"
     },
     {
       "what": "the front's round-arched light stands about 15-20 px left of the photograph's (x 406-436 px against 420-458) and its base light with it",
       "status": "open",
-      "how": "the light is centred on the sheet's front, which through this camera spans x 395-452 px; the photograph's light runs to the frame's edge, so its front may stand wider, or its bay further east, than the sheet's 2.2 m and its place. T-2781 weighs the two with the columns"
+      "how": "the light is centred on the sheet's front, which through this camera spans x 395-452 px; the photograph's light runs to the frame's edge, so its front may stand wider, or its bay further east, than the sheet's 2.2 m and its place. T-2840 weighs the two; the front angle's column stands where the photograph's does (x 391-402 against 395-405), so it is the light and not the angle that stands left"
     },
     {
       "what": "the window over the bay's open shutters (x 352-375 and 425-445 px)",
       "status": "open",
-      "how": "not built: K06 carries no shutter; T-2781's dress"
+      "how": "not built: K06 carries no shutter; T-2840's dress"
     },
     {
       "what": "a second-storey window over the projection's balcony (x 350-445 px, y 305-355), round-headed between open shutters, the balcony's door or window",
@@ -69,8 +69,8 @@
     },
     {
       "what": "a tall panelled stack with a corbelled cap rising behind the eave (x 245-345 px, its cap's top at y 30): on the south wall's line it stands at about u 6.0, its top about 14.2 m over grade",
-      "status": "open",
-      "how": "the build has no stack there. Through the engraving's camera this stack, carried up past the remodel's mansard to about 15.9 m, stands at x 672 px with its top at y 113, which is where the engraving draws the stack the build reads as the wing's (x 663-717, top y 113; T-2465 put it at u 10.2, v 11.2, top 15.11 m). Through this camera the build's wing stack falls at x about 75 px, where the photograph shows sky between the branches, but this photograph predates the wing. So the engraving's stack is either this one carried up or a new one on the wing: T-2756 weighs the two and builds the one the evidence holds"
+      "status": "fixed",
+      "how": "T-2781: the photograph's ray through the stack's middle (x 295 px) and the engraving's through its drawn stack (x 690) meet in plan at u 6.47, v 13.37, on the south wall's line, so the two pictures show one stack, raised by the remodel past its mansard. Built there on the cornice (chimneys.stacks, u 6.5, v 13.2, 1.2 by 0.75 m, panelled and capped as the north stacks are), and the stack T-2465 had stood over the wing on the engraving's ray alone (u 10.2, v 11.2) retired. Through this camera its shaft rises behind the eave at x 251-321 px against the photograph's 245-345 (the cap's spread to 251-345); its top, at 15.85 m where the engraving draws it, stands over the frame, where the photograph's cap (y 30 px, about 14.2 m) is the stack before the remodel raised it, which this photograph predates as it predates the mansard"
     },
     {
       "what": "the cornice: a deep dark band round the eave on the front and the south flank, its top against the sky on the build's slope through this camera (0.19 on the flank, 0.21 on the front)",
