@@ -16065,6 +16065,11 @@ for (const [label, viewport, touch] of [
           // owner's ruling 2026-10-18 — keep it on by default, measure the budget without it.
           // The switch beside the compass is part of that instrument and goes with it.
           if (el.closest('#street-readout') || el.closest('#street-toggle')) continue;
+          // The target tag (T-2627) is a glance, not the HUD's steady state: since T-2736 it
+          // holds 3 s and fades, and whether it is up depends on where the reticle happens to
+          // rest. A run measured 10.96 % at 390x844 with it up (5,923 px2) and 9.83 % without.
+          // Left out like the hint and the look tag, and reported.
+          if (el.closest('#target-tag')) continue;
           const r = el.getBoundingClientRect();
           if (r.width < 1 || r.height < 1 || r.right <= 0 || r.bottom <= 0 || r.left >= W || r.top >= H) continue;
           if (!painted(el, getComputedStyle(el)) || !shown(el)) continue;
@@ -16087,7 +16092,8 @@ for (const [label, viewport, touch] of [
         return b ? (b.width * b.height) / (W * H) * 100 : 0;
       };
       const streetReadout = +(share('street-readout') + share('street-toggle')).toFixed(2);
-      return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest, streetReadout,
+      const targetTag = +share('target-tag').toFixed(2);
+      return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest, streetReadout, targetTag,
         controls: window.__chicago4d.controlBackend, lookTag: !document.getElementById('look-tag')?.hidden, hintUp };
     });
     await page.evaluate(() => { window.__chicago4d.navigator?.dock?.(); window.__chicago4d.popup?.close?.(); window.__chicago4d.hud.dismissControlHelp?.({ remember: false }); });
