@@ -29142,6 +29142,30 @@ docstring together.
 **Ticket:** T-2228.
 **Recorded:** 2026-10-18.
 
+### L-glessner-cupola-stone-2849 — Glessner's stable cupola body built in granite, its landing ledges in stone
+
+**Decision:** The c. 1887 Cornell A. D. White northwest view (`cornell_adw_glessner_stable_1887`), read at 3x on the cupola, shows its body as coursed stone continuous with the gable below it, from the roof up through both pigeon-hole tiers, each tier standing on a projecting ledge; HABS photograph 1 (`habs_glessner_photo_01_nw_1963`) shows the same coursed shaft under the band. The model built the body, band and ledges as pale boarding. They are now built in the house's granite, and each landing ledge is 0.25 ft thick (it was a 0.08 ft board).
+
+**What is invented.** The ledge's 0.25 ft thickness, a bounded reading of the Cornell print's 0.25–0.35 ft against the cupola's 6 ft plan, not a measurement. The coursing is not modelled block by block: the body is a plain granite surface. The ledges still stop short of the corners, where the print runs them unbroken round; that is left open in the match records.
+
+**What is kept.** Plan, centre, heights, eave, flare, finial and the dovecote counts and sizes of L-glessner-cupola-2207 and L-glessner-cupola-body-2228.
+
+**Covers:** `glessner_house.as_built_1887.form.turret_stable`.
+**Ticket:** T-2849.
+**Recorded:** 2026-10-19.
+
+### L-glessner-stable-gable-2849 — Glessner's stable north gable recentred on its axis, its dovecote and hoist stone read from HABS photograph 15
+
+**Decision:** HABS photograph 15 (`habs_glessner_photo_15_north_stable_1965`), taken square to the stable's north gable, centres the gable's feet, the carriage doorway, the loft opening, the pigeon holes and their ledge within 2 px of one vertical. The model's gable stood on W 142.0 (T-2219 moved its east foot and not its west), a foot off the W 141 axis everything else on that face shares. It is now W 127.75–154.25. The gable's pigeon holes are re-read from the same print: five over the ledge, three over them and one at the top, at 1.53 ft centres, each about 0.4 ft wide, sills at about 31.65, 33.0 and 34.55 ft; the ledge is 7.7 ft long, its top at 31.55 ft, on two corbels about 1 ft wide and 0.45 ft deep, 2.3 ft either side of the axis. The hoist stone under the relieving arch rises to 28.15 ft, into the crown voussoir as a keystone.
+
+**What is invented.** All of these are photographic readings of about ±0.3 ft through a frozen camera whose roll (about 1.2°) was measured and removed, not survey. The gable's west foot is 0.35–0.65 ft inside the print's width readings, because the east foot cannot move east past the upper service window's clearance (T-2219) and the print's centring is the firmer reading; that disagreement is recorded, not resolved. The corbels' 0.5 ft projection is reconstructed. The hoist's 1.75 ft projection is unchanged and is shorter than HABS photograph 1 and the Cornell view show; that stays open.
+
+**What is kept.** Eave heights, the ridge, the relieving arch, the loft and carriage openings and every other opening on the face.
+
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-2849.
+**Recorded:** 2026-10-19.
+
 ### L-k01-1623-farwell-entrance-2728 — 1623 Prairie's entrance and base from the drawing: a deep round-arched door, the stoop's iron rails, a grille in the basement light and a rock-faced front, their places read and their joinery reconstructed
 
 **Decision:** Granger Farwell's house at 1623 Prairie (T-2728, piece 1 of T-2435) takes the

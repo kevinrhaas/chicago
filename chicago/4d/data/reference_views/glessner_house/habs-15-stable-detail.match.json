@@ -2,13 +2,17 @@
   "structure_id": "glessner_house",
   "view": "habs-15-stable-detail",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
+  "glb_sha256": "1e6d2ef4a16c3d232cc250d8cf713b97547971b97200d7cd39308c20aaa70f5e",
   "camera_sha256": "d72eede57db0000c2d1b7f58906a4ac49cb8aa7faad8a82b461640d73e377adc",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
-      "what": "Actual master reviewed in the imported unchanged T2200 camera. Stable gable/cupola, roof/vent and portal/window correspondence and stone lighting differ. Frozen-pose residuals require semantic control review before dimension changes.",
+      "what": "T-2849, reviewed from the rebaked master in this imported camera, which carries about 1.2 degrees of roll (the render's verticals lean about 12 px between the doorway and the pigeon holes; the print's do not). Gable: it stood centred on W 142.0, a foot off the doorway, loft and pigeon axis the print centres it on within 2 px; now W 127.75-154.25 on W 141. The west foot still reads about 0.6 ft inside the print's (13.25 ft half-width against 13.6-13.9 read), held there by the upper service window's clearance on the east; recorded in the record's note. Pigeon holes: 5-3-1 at 1.53 ft centres, 0.4 ft wide, rows within about 5 px (0.3 ft) of the print, from 2 ft centres and slits up to 1.2 ft tall. Ledge: 7.7 ft long on its two corbels as the print shows, its front edge within 4 px. Hoist stone: rises into the crown voussoir to 28.15 ft as the print's keystone does.",
+      "status": "fixed"
+    },
+    {
+      "what": "Still open at the stable end: the hoist stone's foot reads about 10 px lower and its face narrower in the print than in the render, and the print hides the gable apex and the cupola behind its film holder, so neither is judged from this view. The roof covering reads slate-grey against the model's red tile (house-wide, not this ticket's), and the stone tone is the review render's diagnostic lighting, not a solved sun (T-2848).",
       "status": "open"
     },
     {
