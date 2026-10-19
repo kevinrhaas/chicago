@@ -8183,13 +8183,15 @@ for (const [label, viewport, touch] of [
       }));
     });
     const rungOf = (re) => rungs.find((r) => re.test(r.cite))?.tier ?? '(no such citation)';
+    // ---- T-2825: the rung in words alone; "tier N" is the ladder's number, not a reader's word
     check(`${label}: every citation says what rung it is on`,
-      rungs.length > 0 && rungs.every((r) => /^tier \d+ · \S/.test(r.tier)),
+      rungs.length > 0 && rungs.every((r) => /\S/.test(r.tier) && !/\btier\b|\d/.test(r.tier)),
       JSON.stringify(rungs.map((r) => r.tier)));
     check(`${label}: the rung belongs to its own citation`,
-      /^tier 2 · near-primary recollection$/.test(rungOf(/Wau-Bun/))
-      && /^tier 1 · period\/eyewitness$/.test(rungOf(/Wright/))
-      && /^tier 5 · modern retrospective/.test(rungOf(/Kurz/)),
+      /^near-primary recollection$/.test(rungOf(/Wau-Bun/))
+      && /^period\/eyewitness$/.test(rungOf(/Wright/))
+      && /^modern retrospective/.test(rungOf(/Kurz/)),
+    // ---- end T-2825
       `Wau-Bun "${rungOf(/Wau-Bun/)}" · Wright "${rungOf(/Wright/)}" · Kurz "${rungOf(/Kurz/)}"`);
     // --- and WHY a citation is on that rung, and what it cannot be used for --
     // A rung is a judgement about a document, and on ten of these records the
@@ -8464,8 +8466,10 @@ for (const [label, viewport, touch] of [
           present: !!sec,
           text: sec?.textContent?.replace(/\s+/g, ' ').trim() ?? '',
           refused: !!document.querySelector('#popup .pop-agency .agency-refused'),
-          cites: [...document.querySelectorAll('#popup .pop-agency .agency-cites code')]
+          // ---- T-2825: each printing by its paper and date, never its claim id
+          cites: [...document.querySelectorAll('#popup .pop-agency .agency-cites .agency-printing')]
             .map((n) => n.textContent.trim()),
+          // ---- end T-2825
         };
       };
       return {
@@ -8486,8 +8490,11 @@ for (const [label, viewport, touch] of [
       popAgency.hubbard.text.slice(0, 400));
     // Every other line on this card cites its source; so does this one.
     check(`${label}: the holding cites the printings it rests on`,
-      popAgency.hubbard.cites.includes('chicago_democrat_1834_07_02#c048')
-      && popAgency.hubbard.cites.length === 3,
+      // ---- T-2825: the notice of 2 July 1834 by its paper and date, and no claim id
+      popAgency.hubbard.cites.includes('the Chicago Democrat of 1834-07-02')
+      && popAgency.hubbard.cites.length === 3
+      && popAgency.hubbard.cites.every((c) => !/_|#c\d/.test(c)),
+      // ---- end T-2825
       `got [${popAgency.hubbard.cites.join(', ')}]`);
     // THE CAVEAT IS THE ACCEPTANCE CLAUSE. "Nothing on the card implies the holder
     // traded in the principal's line, held a roof for it, or was a partner in any
@@ -15277,7 +15284,9 @@ for (const [label, viewport, touch] of [
         grades: seg('.gc-seg-att, .gc-seg-inf, .gc-seg-rec'),
         keys: [...city.querySelectorAll('.gc-key li')].map((el) => el.textContent.trim()),
         targetDate: city.querySelector('.city-meta time')?.getAttribute('datetime') || '',
-        derivedBy: city.querySelector('.city-meta code')?.textContent.trim() || '',
+        // ---- T-2825: the derivation is said as a tool, never as its path
+        derivedBy: city.querySelector('.city-meta .city-derived')?.textContent.trim() || '',
+        // ---- end T-2825
         build: city.querySelector('.city-meta > div:last-child dd')?.textContent.trim() || '',
         data: api.census,
         oldMount: !!document.getElementById('gate-census'),
@@ -15472,7 +15481,12 @@ for (const [label, viewport, touch] of [
       hub.city.text);
     check(`${label}: City identifies its date, derivation and published build`,
       hub.city.targetDate === hub.city.data?.target_date
-      && hub.city.derivedBy === hub.city.data?.derived_by && /^build\s+\S+/.test(hub.city.build),
+      // ---- T-2825: "the town census tool", and no path or file name in it
+      && hub.city.derivedBy === `the ${String(hub.city.data?.derived_by ?? '').split('/').pop()
+        .replace(/\.[A-Za-z0-9]+$/, '').replace(/[_-]+/g, ' ').trim()} tool`
+      && !/[/.]|_/.test(hub.city.derivedBy)
+      // ---- end T-2825
+      && /^build\s+\S+/.test(hub.city.build),
       JSON.stringify({ date: hub.city.targetDate, derivedBy: hub.city.derivedBy, build: hub.city.build }));
     check(`${label}: City fits a phone-width topic and scrolls inside the sheet`,
       hub.city.fits && hub.city.scrollsInSheet,
@@ -17346,9 +17360,12 @@ for (const [label, viewport, touch] of [
       check(`${label}: a drawn family member says they were drawn, and how to redraw them`,
         /Why this person is in the town/.test(residents.namedKinText)
         && /Nobody a source names/.test(residents.namedKinText)
-        && /modelled_families/.test(residents.namedKinText)
+        // ---- T-2825: the stage by its words, and the seed kept on the record, not printed
+        && /modelled families/.test(residents.namedKinText)
         && /How this person is named/.test(residents.namedKinText)
-        && /Redrawn with the seed/.test(residents.namedKinText),
+        && /drawn again exactly, from the seed kept on its record/.test(residents.namedKinText)
+        && !/modelled_families|Redrawn with the seed/.test(residents.namedKinText),
+        // ---- end T-2825
         residents.namedKinText.slice(0, 300));
     }
     // The nine the sources actually date, with the reasoning that says which of

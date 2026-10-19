@@ -7412,6 +7412,14 @@ step "visitor-UI lint: the faults, the Researcher exemption, the Go to rows and 
 # no ticket number, record id or file path in a sentence; the ticket kept as `work_refs`.
 selftest "…and the reader's rewrite drops a ticket, names an id and says a path in words (T-2825)" \
   python3 tools/readable_text.py --self-test
+# T-2825, second half. The records a page reads as authored (plants, wildlife, households and a
+# person's card, a firm's record, a building's card) are said for a reader by an overlay of
+# edits that publish.sh compiles by the same rule (tools/compile_reader_text.py); the page
+# applies it (js/reader-text.js), and the visitor-UI lint above reads every one of those
+# records through the same rewrite. Here: the overlay, compiled to a scratch folder, is found
+# and applied by the page's own JavaScript exactly as the gate reads it.
+step "the page finds and applies every entry of the reader's overlay, as the gate reads it (T-2825)" \
+  node tools/test_reader_text.mjs
 
 # T-2669. Section 03's voice rule, in the gate: every summary, fact, time-stream caption and
 # tour bubble a visitor reads is held to Flesch-Kincaid grade 9 or lower and 20 words a

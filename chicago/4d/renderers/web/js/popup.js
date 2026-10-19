@@ -1327,9 +1327,8 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
   /** Whether the card on screen was opened by aiming at this building's signboard,
    *  kept so a redraw (the liberties, the agencies) does not lose the fact. */
   let currentFromSign = false;
-  /** The scene's reader overlay (T-2825, reader-text.js), null until it loads. Until then
-   *  a note that would show a ticket, record id or file path is withheld, and the card is
-   *  redrawn said in full when it lands. */
+  /** The scene's reader overlay (T-2825, reader-text.js), null until it loads; the card on
+   *  screen is redrawn said in full when it lands. */
   let reader = null;
   let saidCache = new WeakMap();
   /** A record's sidecar (or a household list, or the agencies) as a reader gets it. */

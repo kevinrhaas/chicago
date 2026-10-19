@@ -47,7 +47,6 @@ the thing's own id spelt as words; the evidence a line rests on is still named, 
 from __future__ import annotations
 
 import argparse
-import difflib
 import glob
 import json
 import re
@@ -768,30 +767,64 @@ def _u16(s: str, i: int) -> int:
     return len(s[:i].encode("utf-16-le")) // 2
 
 
+def _myers(a: list, b: list) -> list:
+    """The shortest edit script from `a` to `b` (Myers, O((N+M)D)): one op per token, in
+    order — "=" kept, "-" deleted from `a`, "+" inserted from `b`. A rewrite changes a few
+    words in a long sentence, so D is small and this is fast where a quadratic matcher
+    is not."""
+    n, m = len(a), len(b)
+    v = {1: 0}
+    trace = []
+    for d in range(n + m + 1):
+        trace.append(dict(v))
+        for k in range(-d, d + 1, 2):
+            if k == -d or (k != d and v.get(k - 1, -1) < v.get(k + 1, -1)):
+                x = v.get(k + 1, 0)
+            else:
+                x = v.get(k - 1, 0) + 1
+            y = x - k
+            while x < n and y < m and a[x] == b[y]:
+                x, y = x + 1, y + 1
+            v[k] = x
+            if x >= n and y >= m:
+                ops = []
+                for dd in range(d, 0, -1):
+                    vv = trace[dd]
+                    kk = x - y
+                    if kk == -dd or (kk != dd and vv.get(kk - 1, -1) < vv.get(kk + 1, -1)):
+                        pk = kk + 1
+                    else:
+                        pk = kk - 1
+                    px = vv.get(pk, 0)
+                    py = px - pk
+                    while x > px and y > py:
+                        ops.append("=")
+                        x, y = x - 1, y - 1
+                    ops.append("+" if x == px else "-")
+                    x, y = px, py
+                ops.extend("=" * x)
+                return ops[::-1]
+    return []
+
+
 def edits_between(old: str, new: str) -> list:
     """The `[start, delete, insert]` edits that turn `old` into `new`, word by word."""
     a, b = TOKEN.findall(old), TOKEN.findall(new)
-    lo = 0
-    while lo < len(a) and lo < len(b) and a[lo] == b[lo]:
-        lo += 1
-    hi = 0
-    while hi < len(a) - lo and hi < len(b) - lo and a[-1 - hi] == b[-1 - hi]:
-        hi += 1
-    offs = [0]
-    for t in a:
-        offs.append(offs[-1] + len(t))
-    out = []
-    sm = difflib.SequenceMatcher(None, a[lo:len(a) - hi], b[lo:len(b) - hi], autojunk=False)
-    for tag, i1, i2, j1, j2 in sm.get_opcodes():
-        if tag == "equal":
+    out, i, j, pos = [], 0, 0, 0
+    for op in _myers(a, b):
+        if op == "=":
+            pos += len(a[i])
+            i, j = i + 1, j + 1
             continue
-        start, end = offs[lo + i1], offs[lo + i2]
-        ins = "".join(b[lo + j1:lo + j2])
-        if out and out[-1][0] + out[-1][1] == start:
-            out[-1][1] += end - start
-            out[-1][2] += ins
+        if not out or out[-1][0] + out[-1][1] != pos:
+            out.append([pos, 0, ""])
+        if op == "-":
+            out[-1][1] += len(a[i])
+            pos += len(a[i])
+            i += 1
         else:
-            out.append([start, end - start, ins])
+            out[-1][2] += b[j]
+            j += 1
     if any(ord(c) > 0xFFFF for c in old):
         out = [[_u16(old, s), _u16(old, s + d) - _u16(old, s), ins] for s, d, ins in out]
     return out

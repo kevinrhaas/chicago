@@ -41,6 +41,11 @@
  * the line that makes the rung beside it legible.
  */
 
+// What kind of source each rung of the ladder is, in Inspect's words (strings/
+// inspect-sources.js kind.N), for a citation whose compiled record carries no label.
+const KIND = { 1: 'first-hand', 2: 'a witness remembering', 3: 'gathered from witnesses',
+  4: "a historian's account", 5: 'a modern reconstruction', 6: 'a popular map' };
+
 export function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, (c) => (
     { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -112,7 +117,7 @@ function limitsBlock(c) {
  *                              the source says it cannot supply. On by default
  *                              and off in one place; see the note above the
  *                              `<li>` for why the not-here list is that place
- * @param {boolean} [o.tier]    whether to print the rung ("tier 4 · later scholarship").
+ * @param {boolean} [o.tier]    whether to print the rung's words ("later scholarship").
  *                              On by default; Inspect's Sources tab turns it off, because a
  *                              visitor there reads "from the time" or "written later" on the
  *                              source's title instead (T-2644, design doc §12)
@@ -131,12 +136,11 @@ export function citationItems(citations, {
     } else if (c.url) {
       links.push('<span title="No archived copy recorded; this link may not survive">not archived</span>');
     }
-    // the label is the point; the bare number is the fallback for a rung the
-    // compiled ladder has no words for, which is a finding for the validator
-    // rather than something to print a guess about
-    const tier = c.tier && showTier
-      ? `<span class="tier">tier ${escapeHtml(c.tier)}${c.tier_label ? ` · ${escapeHtml(c.tier_label)}` : ''}</span>`
-      : '';
+    // The label is the point (T-2825: and only the label — "tier 4" is the ladder's own
+    // number, not a word a reader has a table for). A rung the compiled ladder has no label
+    // for says its kind the way Inspect does; a rung off the ladder says nothing.
+    const kind = c.tier_label || KIND[Number(c.tier)] || '';
+    const tier = c.tier && showTier && kind ? `<span class="tier">${escapeHtml(kind)}</span>` : '';
     // The one context that turns this off is "What is not here", and the smoke
     // found the reason rather than a reviewer. A source's own account of what it
     // carries names buildings — `chicagology_prefire278` reprints the Inter

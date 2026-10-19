@@ -291,6 +291,15 @@ cp -f data/comparisons/glessner/*.json "$SITE/data/comparisons/glessner/"
 # The liberties list the Evidence panel reads. Derived from docs/LIBERTIES.md,
 # which itself stays out of the payload.
 cp -f data/liberties.json "$SITE/data/"
+# The reader's overlay (T-2825): the edits that say each research note of the records a page
+# reads as authored — plants, wildlife, households and a person's card, a firm's record, a
+# building's card — without a ticket number, a record id or a file path. DERIVED HERE, not
+# committed (data/reader/ is ignored), from the records as they stand, so it never lags a
+# note; js/reader-text.js fetches a family's file the first time one of its records opens.
+# A failure stops the publish: a page without its overlay shows the builders' notes.
+python3 tools/compile_reader_text.py >/dev/null
+mkdir -p "$SITE/data/reader"
+cp -f data/reader/*.json "$SITE/data/reader/"
 # The pictures of each building, for the card's Images tab (T-2389). DERIVED HERE, not
 # committed: the Prairie library and data/sources/ change under other tickets, so the
 # file is made from what this tree holds at the moment it ships. Fetched by the card on

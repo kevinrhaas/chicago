@@ -4296,6 +4296,7 @@ async function boot() {
       // Inspect opens on what is selected first, so a card left open on another
       // building is put away before the tag hands over its own.
       if (popup.openId && popup.openId !== t.id) popup.close();
+      void ensureReaderText(); // T-2825: Inspect reads the record as the card says it
       // …and Inspect drops the building it was holding for the tag's (T-2639).
       inspectHold = t.id ?? null;
       if (isReconstructed(loaded.registry.get(t.id)?.sidecar)) hints.show('reconstructed'); // T-2664

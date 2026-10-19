@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """The reader's overlay for the records a page reads as authored (T-2825).
 
-    python3 tools/compile_reader_text.py            write data/reader/*.json
-    python3 tools/compile_reader_text.py --check    re-derive and compare, write nothing
+    python3 tools/compile_reader_text.py            write data/reader/*.json (publish.sh runs this)
+    python3 tools/compile_reader_text.py --out DIR  write them to DIR instead (the JS test does)
+    python3 tools/compile_reader_text.py --check    derive them in memory, write nothing
     python3 tools/compile_reader_text.py --stats    what each family holds, and how much
+    python3 tools/compile_reader_text.py --list     each family's files, as JSON (the JS test reads it)
 
 THE OWNER, 2026-10-18: "You should rewrite the records so you are not referring to internal
 ticket numbers or internal record ids in researcher or educator mode." The research records
@@ -18,7 +20,8 @@ stands between: the page fetches them as they are authored or compiled for the s
   residents    a person's card and a household's (js/people.js, js/residents.js), read when
                one opens: every household record and the joins the card reads (the research
                pilot, the facts withheld, the seating, the employment coverage, the
-               directories, the 1835 address book and agencies, residents_sources.json)
+               directories, the 1835 address book and agencies, residents_sources.json, and
+               the directory rows of people.json a card prints)
   businesses   the Shops & work card (js/businesses.js): every firm's record, the index and
                the address book's seats
   structures_<scene>  a building's card (js/popup.js): every structure sidecar of the scene,
@@ -41,8 +44,14 @@ shape Researcher mode may link from. `names` says the few record ids a card prin
 NAMED_KEYS) by the name the data gives each.
 
 A string the rewrite cannot clear is reported and fails the build: the overlay never
-claims a clean sentence it does not have. `--check` re-derives every rewrite (the slow half
-is the word diff, and an entry that still reproduces its rewrite is kept, not re-diffed).
+claims a clean sentence it does not have.
+
+DERIVED AT PUBLISH, NEVER COMMITTED (data/reader/ is ignored), like the Inspect summaries:
+the overlay follows the records as they stand, so a change to one household note never has
+to re-commit a megabyte of edits beside it. The gate reads the same records through the same
+rewrite (check_visitor_ui.py), and test_reader_text.mjs compiles the overlay to a scratch
+folder and holds the page's JavaScript to it. An overlay already on disk is a cache: an entry
+that still reproduces its string's rewrite is kept rather than diffed again.
 """
 
 from __future__ import annotations
@@ -96,7 +105,7 @@ def families() -> dict[str, list[Path]]:
                                           "reconstructed_seating.json", "employment_coverage.json",
                                           "directories.json")]
                      + [book, agencies]
-                     + [p for s in SCENES for p in _sidecar_files(s, ("residents_sources.json",))],
+                     + [p for s in SCENES for p in _sidecar_files(s, ("residents_sources.json", "people.json"))],
         "businesses": [DATA / "businesses" / "index.json", *sorted((DATA / "businesses").glob("biz_*.json")),
                        *sorted((DATA / "businesses" / "authored").glob("biz_*.json")), book],
     }
@@ -123,7 +132,7 @@ WHAT = {
 # was dealt in, and the notice or book a firm was read from. js/reader-text.js `nameOf`
 # says each by the name written here.
 NAMED_KEYS = {
-    "residents": ("from_household",),
+    "residents": ("from_household", "wife", "sources"),
     "businesses": ("claim_ids",),
 }
 
@@ -181,14 +190,51 @@ def liberty_titles() -> dict[str, str]:
     return {e["id"]: e["title"] for e in doc.get("liberties") or [] if e.get("id") and e.get("title")}
 
 
-def build_family(name: str, paths: list[Path], names: rt.Names, old: dict | None,
-                 libs: dict | None = None):
+class Reader:
+    """The one rewrite, with what it names things by, said once per distinct string. The
+    compiler writes its edits; the gate (check_visitor_ui.py) reads the records through it."""
+
+    def __init__(self, root: Path = ROOT):
+        self.names = rt.Names(root)
+        self.libs = liberty_titles()
+        self.claims = claim_sources()
+        self.memo: dict[str, tuple[str, list[str]]] = {}
+
+    def say(self, text: str) -> tuple[str, list[str]]:
+        """(the string as a reader gets it, the tickets it named) — unchanged when clean."""
+        hit = self.memo.get(text)
+        if hit is None:
+            hit = rt.rewrite(text, self.names, liberties=self.libs) if rt.problems(text) else (text, [])
+            self.memo[text] = hit
+        return hit
+
+    def copy(self, doc):
+        """`doc` as the page renders it once its overlay is applied (js/reader-text.js)."""
+        if isinstance(doc, dict):
+            return {k: self.copy(v) for k, v in doc.items()}
+        if isinstance(doc, list):
+            return [self.copy(v) for v in doc]
+        return self.say(doc)[0] if rt.is_prose(doc) else doc
+
+    def names_for(self, family: str, paths: list[Path]) -> dict[str, str]:
+        """The bare ids of a family a card prints (NAMED_KEYS), each by the name it is said by."""
+        out = {}
+        for tok in tokens_of(paths, NAMED_KEYS.get(family, ())):
+            said, _ = rt.rewrite(tok, self.names, liberties=self.libs)
+            if tok in self.claims and self.names.get(self.claims[tok]):
+                said = self.names.get(self.claims[tok])
+            if said != tok:
+                out[tok] = said
+        return out
+
+
+def build_family(name: str, paths: list[Path], reader: Reader, old: dict | None):
     edits, refs, unclear = {}, {}, []
     prior = (old or {}).get("edits") or {}
     for s in strings_of(paths):
         if not rt.problems(s):
             continue
-        new, tickets = rt.rewrite(s, names, liberties=libs)
+        new, tickets = reader.say(s)
         left = rt.problems(new)
         if left:
             unclear.append(f"{name}: {left[0]} — in {new[:120]!r}")
@@ -205,17 +251,11 @@ def build_family(name: str, paths: list[Path], names: rt.Names, old: dict | None
         edits[key] = e
         if tickets:
             refs[key] = tickets
-    named = {}
-    claims = claim_sources() if NAMED_KEYS.get(name) else {}
-    for tok in tokens_of(paths, NAMED_KEYS.get(name, ())):
-        said, _ = rt.rewrite(tok, names, liberties=libs)
-        if tok in claims and names.get(claims[tok]):
-            said = names.get(claims[tok])
-        if said != tok:
-            named[tok] = said
-            left = rt.problems(said)
-            if left:
-                unclear.append(f"{name}: the name for {tok!r} still carries {left[0]}")
+    named = reader.names_for(name, paths)
+    for tok, said in named.items():
+        left = rt.problems(said)
+        if left:
+            unclear.append(f"{name}: the name for {tok!r} still carries {left[0]}")
     what = WHAT.get(name) or f"a building's card in the {name.split('_')[-1]} scene"
     doc = {"_doc": DOC.format(what=what), "family": name, "count": len(edits),
            "edits": dict(sorted(edits.items())), "work_refs": dict(sorted(refs.items()))}
@@ -231,46 +271,52 @@ def text_of(doc) -> str:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("--check", action="store_true", help="re-derive and compare, write nothing")
+    ap.add_argument("--check", action="store_true", help="derive in memory, write nothing")
+    ap.add_argument("--out", type=Path, default=None, help="write the overlay here, not data/reader/")
     ap.add_argument("--stats", action="store_true", help="print each family's size")
+    ap.add_argument("--list", action="store_true", help="print each family's files as JSON")
+    ap.add_argument("--family", action="append", default=None,
+                    help="only this family (repeatable); the overlay of the others is left as it is")
     a = ap.parse_args(argv)
-    names = rt.Names(ROOT)
-    libs = liberty_titles()
-    bad, stale = [], []
+    if a.list:
+        print(json.dumps({k: [str(p.relative_to(ROOT)) for p in v] for k, v in families().items()}))
+        return 0
+    reader = Reader(ROOT)
+    bad = []
     fams = families()
+    if a.family:
+        unknown = [f for f in a.family if f not in fams]
+        if unknown:
+            print(f"   FAIL no such family: {', '.join(unknown)} (there are {', '.join(fams)})")
+            return 1
+        fams = {k: v for k, v in fams.items() if k in a.family}
+    outdir = a.out or OUT
     for name, paths in fams.items():
-        out = OUT / f"{name}.json"
+        out = outdir / f"{name}.json"
         old = None
         if out.is_file():
             try:
                 old = json.loads(out.read_text(encoding="utf-8"))
             except ValueError:
                 old = None
-        doc, unclear = build_family(name, paths, names, old, libs)
+        doc, unclear = build_family(name, paths, reader, old)
         bad += unclear
         text = text_of(doc)
         if a.stats:
             print(f"   {name}: {len(paths)} files, {doc['count']} strings rewritten, "
                   f"{len(text.encode()) // 1024} KiB")
-        if a.check:
-            if not out.is_file() or out.read_text(encoding="utf-8") != text:
-                stale.append(f"data/reader/{name}.json")
-        else:
-            OUT.mkdir(parents=True, exist_ok=True)
+        if not a.check:
+            outdir.mkdir(parents=True, exist_ok=True)
             if not out.is_file() or out.read_text(encoding="utf-8") != text:
                 out.write_text(text, encoding="utf-8")
-    known = {f"{n}.json" for n in fams}
-    extra = sorted(p.name for p in OUT.glob("*.json") if p.name not in known) if OUT.is_dir() else []
-    for e in extra:
-        if a.check:
-            stale.append(f"data/reader/{e} is not a family this compiler writes")
-        else:
-            (OUT / e).unlink()
+    if not a.check and not a.family and outdir.is_dir():
+        known = {f"{n}.json" for n in fams}
+        for p in outdir.glob("*.json"):
+            if p.name not in known:
+                p.unlink()
     for b in bad:
         print(f"   FAIL {b}")
-    for s in stale:
-        print(f"   FAIL {s} is not what the records compile to — run tools/compile_reader_text.py")
-    if bad or stale:
+    if bad:
         return 1
     print(f"OK: the reader's overlay covers {len(fams)} families, every string a reader opens "
           f"is said without a ticket, a record id or a file path")

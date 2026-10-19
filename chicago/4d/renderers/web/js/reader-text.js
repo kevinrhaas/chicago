@@ -20,12 +20,10 @@
  * The key is the original string's CRC-32 and UTF-8 length; the edits are
  * `[start, delete, insert]` in this string's own (UTF-16) indices, in order.
  *
- * WITHOUT THE OVERLAY (not loaded yet, or it failed), a sentence the visitor lint would
- * refuse is withheld rather than shown: a card drawn before its overlay lands is drawn
- * without those notes and redrawn when it arrives, which is poorer for a moment and never
- * a ticket number on screen.
+ * WITHOUT THE OVERLAY a record is shown as authored, and the failure is reported. A building's
+ * card asks for its scene's overlay the first time a card opens and is redrawn when it lands
+ * (popup.js `setReader`); every other surface waits for its overlay before it draws.
  */
-import { clean } from './fallback-summary.js';
 
 let CRC_TABLE = null;
 function crcTable() {
@@ -79,8 +77,7 @@ const PROSE = new RegExp(`[^${WS}][${WS}]+[^${WS}]`);
 
 /** One string as a reader gets it. */
 export function say(text, overlay) {
-  if (typeof text !== 'string' || !PROSE.test(text)) return text;
-  if (!overlay?.edits) return clean(text) ? text : '';
+  if (typeof text !== 'string' || !overlay?.edits || !PROSE.test(text)) return text;
   const e = overlay.edits[readerKey(text)];
   if (!e) return text;
   const out = applyEdits(text, e);
@@ -89,10 +86,10 @@ export function say(text, overlay) {
   return out;
 }
 
-/** A copy of `doc` with every string the overlay holds said for a reader (and, with no
- *  overlay, every sentence that would leak withheld). The record itself is never
- *  changed: other views, and the smoke's hash of a sidecar, hold it. */
+/** A copy of `doc` with every string the overlay holds said for a reader. The record
+ *  itself is never changed: other views, and the smoke's hash of a sidecar, hold it. */
 export function readerCopy(doc, overlay) {
+  if (!overlay?.edits) return doc;
   const walk = (v) => {
     if (typeof v === 'string') return say(v, overlay);
     if (Array.isArray(v)) return v.map(walk);

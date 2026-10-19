@@ -111,7 +111,7 @@ export function holdingHtml({ agency, holding, refused }, escape) {
     ${lead}
     ${why ? `<details class="agency-why"><summary>why</summary><p>${e(why)}</p></details>` : ''}
     <p class="agency-cites">${holding.witnesses.length} printing(s):
-      ${[...new Set(holding.witnesses.map((w) => nameOf(w)))].map(e).join('; ')}</p>
+      ${holding.witnesses.map((w) => `<span class="agency-printing">${e(nameOf(w))}</span>`).join(' · ')}</p>
   </article>`;
 }
 

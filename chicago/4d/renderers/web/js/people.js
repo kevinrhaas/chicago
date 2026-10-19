@@ -261,7 +261,7 @@ function filterSpecs(people) {
     // T-1400. The tier, out of the cramped `facts` line and under the vocabulary's own
     // name, with the card's three sentences on the pills.
     {
-      key: 'grade', label: 'Tier',
+      key: 'grade', label: 'Grade', // T-2825: a grade, never the ladder's word tier
       options: grades.map((v) => [v, v]),
       title: (v) => TIER_TITLE[v] || '',
       test: (v) => (r) => r.grade === v,
@@ -845,8 +845,7 @@ export async function mountPeople({
       </p>
       <div class="people-card-actions">${actionsHtml(r)}</div>
       <p class="people-card-what">${escapeHtml(knownTitle)}.</p>
-      ${readmissionHtml(r)}
-      ${transientHtml(r)}
+      <div class="people-card-row-notes"></div>
       ${firmsHtml(r.id)}
       <div class="people-card-body" aria-busy="true"><p class="legend-note">Loading the household record…</p></div>`;
     home.hidden = true;
@@ -876,10 +875,19 @@ export async function mountPeople({
       }
     };
     let reader = null;
+    // T-2825: the row's own notes (a re-admission, a visitor's season) are research prose
+    // too, and are drawn once the household overlay is in hand, said for a reader.
+    const rowNotes = cardEl.querySelector('.people-card-row-notes');
+    const fillRowNotes = (overlay) => {
+      if (!rowNotes || seq !== openSeq) return;
+      const said = readerCopy(r, overlay);
+      rowNotes.outerHTML = `${readmissionHtml(said)}${transientHtml(said)}`;
+    };
     try {
       const [hh, citationsById, overlay] = await Promise.all([readHouseholdRecord(dataBase, r.file, { cohort: !!r.letter_list_only }), citations(),
         loadReaderText(dataBase, 'residents', problems)]);
       reader = overlay;
+      fillRowNotes(overlay);
       if (seq !== openSeq || signal?.aborted) return false; // a later open won
       render(hh, { citationsById, researchByPerson: new Map(), directoryByPerson: new Map(),
         withheldByPerson: new Map(), ladderRules: [] });
@@ -930,6 +938,7 @@ export async function mountPeople({
       }
     } catch (err) {
       if (seq !== openSeq || signal?.aborted) return false;
+      fillRowNotes(await loadReaderText(dataBase, 'residents', problems));
       problems.push(`people: ${err.message} — one household record is missing`);
       body.innerHTML = 'No card yet. <p class="legend-note">This household\'s record could not be loaded.</p>';
     } finally {
