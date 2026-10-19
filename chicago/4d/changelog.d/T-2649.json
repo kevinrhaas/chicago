@@ -1,0 +1,9 @@
+{
+  "title": "The Confidence view remembers your choices and shows a legend",
+  "kind": "feature",
+  "items": [
+    "Presets, hidden grades, colours, looks and opacity now come back when you reload, and when you Jump to another year. Before, the colouring itself was forgotten.",
+    "While the Confidence view is on, a small chip by the year chip shows a dot for each grade in the colour it wears. Tap it to open the Confidence view.",
+    "If your browser won't save anything, the view simply opens at Normal."
+  ]
+}

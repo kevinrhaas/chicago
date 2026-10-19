@@ -41,6 +41,7 @@ import { createBuildings } from './buildings.js';
 import { readGlassRequest, glassForDetail } from './glass.js';
 import { createConfidenceView } from './confidence.js';
 import { toggleByGrade, restoreLooks } from './confidence-presets.js';
+import { createConfidenceLegend } from './confidence-legend.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
@@ -3584,6 +3585,12 @@ async function boot() {
   // The visitor's stored level choices, before the first frame — otherwise a
   // returning visitor who had hidden the reconstructed town sees it flash in.
   hud.applyHidden();
+  // T-2649 (§09, §10): the Confidence view's legend chip under the year chip, shown while the
+  // view is not Normal; a tap opens the app. It paints from the HUD and the renderer's view
+  // each time either says the view moved, so after the colouring is restored on the way in
+  // it is already right.
+  api.confidenceLegend = createConfidenceLegend({ el: document.getElementById('conf-legend'), hud, view: confidence,
+    open: () => { void navigatorUi?.select('confidence'); } });
 
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
