@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-13-north-level",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "35891a9dda527e117cb32c1c1eaf3850058c9097f5ae80c90339a8db4c53349c",
+  "glb_sha256": "568ca6510e905e5df0f07bdade9a61aa1f185b948447362cfb3354b327cddb53",
   "camera_sha256": "7ed6ecf3f30b39cce72d30507c3c3f40763fa9ea9487c7678a574a8dec4e4cd9",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-13-north-level-side-by-side.jpg",
   "verdict": "differs",
@@ -12,8 +12,8 @@
       "status": "fixed"
     },
     {
-      "what": "T-2856: each pair's lights and mullion. The photograph shows lights about 2.8 ft wide either side of a slender colonnette about 1.3 ft wide under a carved capital; the model's pier is 1.9 ft (the plan's spacing) and reads as a broad pale panel, so its inner jambs stand about half a foot off the photograph's.",
-      "status": "open"
+      "what": "T-2868: each pair's lights and colonnette. The photograph shows the capital about 27 px (1.3 ft) wide over a round shaft about 1.0 ft across; the model's 1.9-ft plan pier had drawn the shaft about 1.4 ft and read as a broad pale panel. The inner jambs, read through this camera and HABS 14's (tools/glessner_north_pairs.py, north-pairs.json#jambs), are rebuilt at the 1.3-ft pier (W 10.55/11.85 and 28.45/29.8), the capital at its read 1.1 ft and the base at 0.5 ft: in the render the east pair's pier stands at x 897.5-923.5 against the print's 897.5-925.5, and the west pair's shaft ends at x 1306 against the capital's 1303 beside the pole. The sash frames are drawn dark where the print shows them painted white; paint is not geometry and the 1965 colour does not establish 1904's.",
+      "status": "fixed"
     },
     {
       "what": "North masonry/course texture and pair detailing differ.",

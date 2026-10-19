@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "35891a9dda527e117cb32c1c1eaf3850058c9097f5ae80c90339a8db4c53349c",
+  "glb_sha256": "568ca6510e905e5df0f07bdade9a61aa1f185b948447362cfb3354b327cddb53",
   "camera_sha256": "7639e074421cc7e1a4768e010e8678a6e3b2ed4af090a69cbfb58e6ebc7efd72",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
   "verdict": "differs",
@@ -16,7 +16,11 @@
       "status": "fixed"
     },
     {
-      "what": "T-2856: the pairs' inner jambs and colonnette mullion (narrower in the photograph than the model's 1.9-ft pier), the stack's panel lettering, and the north tower finial (about 30 px from the photograph's) still differ; stone/course appearance differs.",
+      "what": "T-2868: the pairs' inner jambs and colonnette mullion. The inner jambs are rebuilt at the 1.3-ft pier both north photographs read (W 10.55/11.85 and 28.45/29.8; north-pairs.json#jambs), the shaft about 1.0 ft, the capital 1.1 ft and the base 0.5 ft: the east pair's pier now stands at x 826.5-851 in the render against the print's 826-851.5, and the west pair's shaft ends at x 1204.5 against the capital's 1206.5 beside the pole.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2869: the stack's date-stone panel (the print's upper stone reads a joined monogram, not the plain AD drawn) and the north tower finial (about 30-40 px east of the photograph's, with the cone) still differ; stone/course appearance differs.",
       "status": "open"
     },
     {
