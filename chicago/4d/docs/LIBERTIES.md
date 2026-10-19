@@ -26162,6 +26162,17 @@ of it, would take the step at 11.22 m away.
 **Ticket:** T-2730 (piece 3 of T-2435).
 **Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
 **Recorded:** 2026-10-17 (T-2730).
+**Evidence since, 2026-10-19 (T-2865):** the knee wall is withdrawn. T-2846's camera, re-solved on
+the south wall's level lines, reads the side wall's eave at 10.9 m, not 13.0: what stands to about
+13 m is the front alone, its corner pier and the gable. So the top storey runs 3.7 m to a 10.9 m
+wall head, and the front carries its full width up past it to the 13.0 m ledge (K01's new
+`shaped_gable.ledge_m`), a block standing over the hip from the south as the photograph's pier top
+does. The slab's foot comes down with the eave to 10.45 m, just over the top floor's narrow lights,
+whose flat arches run on into it, and its face now stands 0.02 m proud of the fascia (0.07 m off the
+wall) where it stood 0.25 m off it: still K01's, still not the photograph's one plane, but a line
+rather than a band. Invented now: the foot at 10.45 m and the 0.07 m step; the ledge's depth (the
+slab's 0.6 m) where the pier's is not seen; the party-wall stack held at its read 17.7 m top by
+standing it 3.0 m over the lower ridge.
 
 ### L-k01-1625-mcbirney-street-windows-2752 — 1625 Prairie's street windows read off its photograph one by one, glazed from new K06 kinds, on a plinth the K02 base sets
 
