@@ -300,6 +300,18 @@
                 "kind": "hip",
                 "pitch": 0.0,
                 "covering": "tin_flat_seam_painted"
+              },
+              "balcony": {
+                "height_m": 0.55,
+                "inset_m": 0.1,
+                "post_m": 0.08,
+                "bar_m": 0.045,
+                "pitch_m": 0.24,
+                "rail_m": [
+                  0.06,
+                  0.05
+                ],
+                "foot_rail_m": 0.08
               }
             }
           ],
@@ -308,7 +320,7 @@
             "sanborn_1911_chicago_v3_sheet_28",
             "levy_1812_prairie_photo"
           ],
-          "note": "The south projection: the photograph shows the south part of the front carried forward through the basement and the first two storeys to a flat top at the third floor, where the balcony stands; it reads 4.75-5.0 m across against (built at 4.75 m, which lands its north face on the photograph's within a few pixels) the sheet's 8.5 m front (the sheet's own step is 3.9 m from the south wall, which the photograph does not bear out, and it is built to the photograph). It stands out 1.2 m, the kit's most against the sheet's 1.3 m, and 0.3 m in from the south corner where the photograph has it flush, because K08 keeps a bay that far from a corner (built otherwise, L-k01-1812-wheeler-front-2543). Its openings are the photograph's; its deck is K08's flat tin until the balcony is built on it (T-2544)."
+          "note": "The south projection: the photograph shows the south part of the front carried forward through the basement and the first two storeys to a flat top at the third floor, where the balcony stands; it reads 4.75-5.0 m across against (built at 4.75 m, which lands its north face on the photograph's within a few pixels) the sheet's 8.5 m front (the sheet's own step is 3.9 m from the south wall, which the photograph does not bear out, and it is built to the photograph). It stands out 1.2 m, the kit's most against the sheet's 1.3 m, and 0.3 m in from the south corner where the photograph has it flush, because K08 keeps a bay that far from a corner (built otherwise, L-k01-1812-wheeler-front-2543). Its openings are the photograph's. On its flat top stands the photograph's balcony (T-2888): an iron rail on the eaves, 0.1 m in from their edge, round the cheeks and the front from the wall to the wall, 0.55 m high, its balusters 0.24 m apart. Through the camera the print's rail rises about 47 px (0.51 m at the projection's 92.4 px a metre) over the cornice's top edge, which hides its foot, and its balusters stand about 22 px apart; the posts', rails' and balusters' sections and the inset are K08's to choose, and the print's solid stone panel in the middle of the front run, rising to a central pedestal, is built as more of the iron rail (L-k08-1812-projection-balcony-2888)."
         },
         "side_bays": {
           "value": [],

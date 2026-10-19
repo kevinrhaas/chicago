@@ -29721,6 +29721,36 @@ sheet 6 draws the stack edge-on and sheet 3 only the corner fireplace whose flue
 **Recorded:** 2026-10-19 (T-2873).
 
 
+### L-k08-1812-projection-balcony-2888 — 1812 Prairie's south projection given its photographed balcony rail: its height and baluster spacing read, its sections and inset reconstructed, its stone middle panel built as iron
+
+**Decision:** the flat top of the south projection on George H. Wheeler's house at 1812 Prairie
+(T-2888, piece 1 of T-2544) takes the balcony Albert Levy's photograph shows on it, which T-2543
+left as K08's bare tin deck. K08's balcony rail, which stood only on a bow or a canted bay's flat
+top, now stands on a projection's flat top the same way: an iron rail 0.1 m in from the eaves'
+edge, round the two cheeks and the front from the wall to the wall, 0.55 m high, a post against
+the wall at each end and at each corner, a foot rail and a top rail, square balusters 0.24 m apart.
+**What is read, not invented.** From the photograph (`levy_1812_prairie_photo`), through the camera
+T-2543 solved (`data/reference_views/wheeler_house_1812_prairie/levy_front.json`), at the
+projection's 92.4 px a metre (1.2 m nearer than the main front's 88.5): that the projection's top
+carries a balcony across its whole front, from its south corner (x 305 px) to its north face
+(x 765 px); that its rail is a light iron one, its top rail about 47 px (0.51 m) over the
+cornice's top edge, which hides its foot, so about 0.55 m over the deck; and that its balusters
+stand about 22 px (0.24 m) apart at the two ends of the run, each with a roundel under the rail.
+**What is invented.** The rail on the two cheeks, which the square-on camera does not see; the
+posts' 0.08 m, the balusters' 0.045 m and the rails' sections; the 0.1 m inset; the foot rail's
+height; the balusters drawn as plain square bars without their roundels; the iron's colour.
+**What is built otherwise than read.** The middle of the photograph's front run, from about
+x 390 to 680 px, is a solid stone panel whose top rises to a pedestal at the centre (x 525-558 px),
+with iron scrolls against it; K08's balcony is one fabric, so the iron rail runs across it. The
+rail stands on K08's fascia, 0.2 m over the projection's wall top, and the projection's top already
+rendered over the print's cornice (T-2543's fit), so the rail, the print's height over its own
+cornice, renders about 25-30 px higher than the print's. Both are open in the match record.
+**How to resolve:** a sharper print of the front, or a second view of the balcony from the street
+at an angle, settles the cheeks and the stone panel's outline; the panel is a K08 piece of its own.
+**Ticket:** T-2888 (piece 1 of T-2544).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-19 (T-2888).
+
 ## T-2804: named resident seated-driver and supported W01 studies (2026-10-19)
 
 This is an additive seated-study declaration under existing L418. Existing reconstructed 1835 residents Otis Bardwell (`rc_bardwell_otis`), Joseph Dufresne (`rc_dufresne_joseph`) and Martin Flynn (`rc_flynn_martin`) retain their record identity, date and reconstruction basis. The static seated pose, age/body fit, hand targets and staged driving action are original engineering reconstructions, not portraits, recorded driving assignments or observed actions. No new anonymous person or biography is introduced. The optional canonical `sit_drive` authoring uses the existing portable export and HumanActor; actual exported garment/bench/shoe contact and palm/rein grip require inspection, and source-body pose calculations alone do not establish them.
