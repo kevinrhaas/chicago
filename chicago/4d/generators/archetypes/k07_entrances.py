@@ -686,7 +686,11 @@ class Entrance(Opening):
         # T-2877: a REAR ROW, a pedestal against the wall behind each front one carrying a
         # pair of turned shafts under a paired capital (1808's: the 1888 plate draws a pair
         # behind each front one). The pair stands `axis_m` off the wall, `pitch_m` apart,
-        # its profile's radii scaled by `radius_scale`; each defaults to the front's
+        # its profile's radii scaled by `radius_scale`; each defaults to the front's. T-2882: a
+        # RESPOND, a flat pier `respond_m` deep and the pedestal's width, may stand on the wall
+        # behind the pair from the pedestal's top to the ceiling (1808's: the first-floor plan
+        # draws a block about 0.24 m deep at the wall behind each front pedestal, and the plate
+        # draws its lit south face beside the north rear pair)
         rear, rcols = lg.get("rear"), []
         if rear:
             rw, rd = rear.get("width_m", pw), rear["depth_m"]
@@ -696,6 +700,10 @@ class Entrance(Opening):
             if not (2 * rr <= rp and rr <= ra <= rd - rr and rd + 0.6 <= D - pd):
                 raise ValueError(f"the loggia's rear pairs ({2 * rr:.3f} m shafts at a {rp} m pitch, {ra} m off the "
                                  f"wall) do not stand on their {rd} m pedestals, or leave no deck behind the front ones")
+            rs = rear.get("respond_m", 0.0)
+            if not 0.0 <= rs <= ra - rr:
+                raise ValueError(f"the loggia's rear respond ({rs} m deep) runs into its pair, whose shafts stand "
+                                 f"{ra - rr:.3f} m off the wall")
             for a in (s_deck, Sp - pw):
                 c = a + pw / 2
                 q0, q1 = lo(c - rw / 2, c + rw / 2)
@@ -712,6 +720,10 @@ class Entrance(Opening):
                         self._box("pedestal", q0 - .03, q1 + .03, yy, yy + hh, rd, rd + pd_,
                                   skip=("back",) + (("bottom",) if yy == 0 else ()))   # on the deck
                     self._panel_relief(q0 + .12, q1 - .12, .23, ph - .2, rd + .02, "pedestal", leaves=False)
+                if rs > 0.0:
+                    # on the pedestal's top, under the ceiling, against the wall
+                    self._box("pedestal", q0, q1, ph, ph + ch, 0.0, rs, skip=("bottom", "top", "back"))
+                    self.probe(m(c), ph + ch / 2, rs, ("pedestal",), "a rear respond's face")
         # the entablature over the whole plan, its soffit the ceiling
         y0, y1 = ph + ch, ph + ch + E["height_m"]
         s0, s1 = lo(s_deck, S)

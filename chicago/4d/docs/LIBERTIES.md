@@ -27629,6 +27629,8 @@ derived from it here) puts every dimension above on a side-by-side.
 
 **Revised:** 2026-10-19 (T-2881) — **the loggia's rear row built.** The 1888 plate draws a second pair of shafts behind each front pair (T-2876). Read at its native 1559 px through `inland-1888`'s camera (`tools/keith_loggia_rear_read.py`, `docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-rear-read.json`), the four rear shafts' middles (x 823.2, 841.8, 1025.8 and 1046.7) fit at 1.14 px RMS with each pair at its front pair's v, 0.39 m off the wall at a 0.28 m pitch, and the south rear pedestal's lit face reads 0.54-0.58 m off the wall. So the K07 loggia takes `rear`: a pedestal 0.6 m square against the wall behind each front one, carrying a pair of turned shafts 0.39 m off the wall at a 0.28 m pitch, their radii 0.78 of the front's (0.24 m shafts, so the closer pair does not run together), under a paired capital, the north side parapet now running from the rear pedestal. Built so, the row draws the four middles within 1.7 px of the print's, and Nickel 1967's lit shaft between the front pairs is its south pair. **Still invented:** the rear shafts' girth is set by the pitch the plate reads, not measured (their silhouettes are in shade); their profile, capital and the pedestals' fields are the front's; and the plan under the plate draws the block at the wall only about 0.21 m deep, where a pedestal that carries the pair the plate reads must be about 0.55 m. That block, and a lit upright the plate draws beside the north rear pair (x 997-1009), are T-2882's.
 
+**Revised:** 2026-10-19 (T-2882) — **a respond on the wall behind each rear pair.** Both things T-2881 left are ruled (`tools/keith_loggia_respond_read.py`, `docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-respond-read.json`). The plate's lit upright beside the north rear pair (lit across x 997.8-1004.8, a dim strip to x 1010) is, through `inland-1888`'s camera, a south-facing face on the line of the north rear pedestal's south side, running from the wall to 0.27 m off it and standing from the front parapet's coping to 3.82 m over grade, 0.9 m over the rear pedestal's top: square-edged, with no base, so neither the pedestal nor a third shaft; the door's north reveal projects 19-35 px south of it. The first-floor plan's block at the wall reads 0.27 m deep to the light line it draws against the wall (both blocks, v 6.84-7.33 and 9.56-10.24), the north one in two lobes where the pair stands on it. So the K07 loggia's rear takes `respond_m`: a flat pier the rear pedestal's width on the wall behind each pair, from the pedestal's top to the ceiling, 0.25 m deep (the two readings' 0.27 m held to the 0.254 m the pair's shafts leave, so the pair stands on its face). Its south face draws at x 999.8-1009.3 against the print's 997.8-1010. **Still invented:** the respond's plain face (no capital or moulding shows; the loggia's shadow covers it above 3.82 m), its width (the pedestal's 0.6 m against the plan's 0.49 and 0.68), and the rear pedestal's 0.6 m depth, which the plan does not draw under the 0.27 m block and the plate's lit face of the south one (T-2881) alone holds.
+
 ### L-first-fort-water-2508 — The first fort's wharf and its covered way to the river stand on the committed 1812 river, by the drafter's one distance and Quaife's one sentence
 
 **Decision:** the 1812 scene gains the last two works Captain Whistler's index of January 1808 names
@@ -29258,6 +29260,41 @@ give.
 fallen trees or the vines, or a plate that draws them.
 **Ticket:** T-2810.
 **Recorded:** 2026-10-19 (T-2810).
+
+### L-prairie-woody-2784 — Shrubs, slough-edge willows and lone fire-shadow trees on the open plain of 1812 and 1835
+
+**Decision:** the open plain west and south of the river (wherever no woods community stands, on
+prairie, sedge meadow and marsh ground, never on the 1835 town's lots or cleared plots) now carries
+woody plants, the same ground for ground in 1812 and 1835. Three kinds, drawn by
+`renderers/web/js/trees.js` (`PRAIRIE_WOODY`) as grown clumps of stems: wild rose, New Jersey tea and
+leadplant scattered through the grass in little colonies, about 16-36 to the hectare at full detail,
+fewer on wet ground; pussy willow, slender willow and meadowsweet in clumps on the wet prairie and
+sedge meadow, about 6-16 to the hectare, thickest within 24-170 m of water, with buttonbush and
+willow in the wettest ground within 70 m of it; and now and then a lone bur oak (drier ground) or
+cottonwood (wetter), about 2-3.6 to the hectare, only where water lies 60-280 m upwind of it on a
+bearing from 205° to 280°, that is, just east and north-east of the river. Each is dealt from a
+generator seeded by where it stands. The phone draws 55% of the shrubs, balanced 85%; every tier
+draws as many lone trees. The wild rose,
+New Jersey tea and the two willows are new zone records at a density of zero (z02, z03), so the
+sward deals none of them and every stem is this layer's.
+**What is read, not invented:** that Cook County held "the only willow thickets described by the
+PLS" (McBride and Bowles 2007, through the flora dossier's ZONE 6), and willow "in the swales and
+along backwater sloughs" (the dossier's reading of it); that trees stood denser, and the
+fire-intolerant ones gathered, on the east sides of watercourses, which broke the fires running
+west to east (the same); Andreas's "good stretch of level grass" south of the town and his
+"occasional patches of timber" (vol. 1). Leadplant, meadowsweet, buttonbush, bur oak and
+cottonwood, and every height and colour, are their zone records' own.
+**What is invented:** the wild rose and New Jersey tea (no record or source in this project names
+either on the Chicago plain: they are the shrubs of a burned tallgrass prairie in northern Illinois,
+and their records say so and cite nothing); every density, clump size and band above; that the
+sloughs are the wet prairie, sedge meadow and the river's margin (the modelled ground holds no
+slough water); the fire's bearings; and where each plant stands. The owner asked for more trees
+rather than fewer, so the lone trees are a few to the hectare in the shadow band rather than none.
+**How to resolve:** a surveyor's line description, a settler's account or a plate of the prairie
+south or west of the river before 1840 that names its shrubs, its willows or a lone tree, or the
+Government Land Office field notes for T39N R14E read line by line.
+**Ticket:** T-2784.
+**Recorded:** 2026-10-19 (T-2784).
 
 ### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
 

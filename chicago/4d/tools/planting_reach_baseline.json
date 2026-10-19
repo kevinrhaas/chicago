@@ -50,6 +50,22 @@
     "reached_east_of_limit_ha": 274.0
   },
   "zone_boxes": {
+    "z01_wet_prairie": {
+      "verdict": "no-box",
+      "box": null
+    },
+    "z02_mesic_prairie": {
+      "verdict": "no-box",
+      "box": null
+    },
+    "z03_sedge_meadow": {
+      "verdict": "no-box",
+      "box": null
+    },
+    "z04_marsh": {
+      "verdict": "no-box",
+      "box": null
+    },
     "z05_riverbank_timber": {
       "verdict": "no-box",
       "box": null
