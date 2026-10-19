@@ -43,24 +43,44 @@ class Exemption(unittest.TestCase):
         self.assertFalse(v.is_researcher_key("researchers.note"))
         self.assertFalse(v.is_researcher_key("hud.tab.sources"))
 
-    def test_table_skips_researcher_keys(self):
+    def test_table_flags_researcher_keys(self):
+        # T-2657: a researcher key is read, flagged, not skipped.
         dump = {"entries": [["hud.a", "ticket"], ["researcher.b", "ticket"]], "apps": [["app.x.label", "Tier"]]}
-        self.assertEqual([k for k, _ in v.table_strings(dump)], ["hud.a", "app.x.label"])
+        self.assertEqual([(k, r) for k, _, r in v.table_strings(dump)],
+                         [("hud.a", False), ("researcher.b", True), ("app.x.label", False)])
+
+    def test_researcher_may_name_the_order_book_and_nothing_else(self):
+        # The owner, 2026-10-18: no internal ticket number or record id in researcher mode.
+        self.assertEqual(v.problems("the order book", researcher=True), [])
+        self.assertTrue(v.problems("the order book"))
+        for text in ("under T-2624", "Open glessner_house", "See docs/LIBERTIES.md", "its own ticket", "a Tier 1 source"):
+            with self.subTest(text=text):
+                self.assertTrue(v.problems(text, researcher=True))
 
     def test_page_marker_covers_its_subtree_only(self):
         with tempfile.TemporaryDirectory() as tmp:
             page = Path(tmp) / "p.html"
             page.write_text('<div><p>one</p><aside data-researcher title="t"><p>two<img alt="a"></p>'
                             '<ul><li>three</li></ul></aside><p title="four">five</p></div>', encoding="utf-8")
-            texts = [t for _, t in v.page_strings([page])]
-        self.assertEqual(texts, ["one", "four", "five"])
+            texts = [(t, r) for _, t, r in v.page_strings([page])]
+        self.assertEqual(texts, [("one", False), ("t", True), ("two", True), ("a", True), ("three", True),
+                                 ("four", False), ("five", False)])
 
     def test_unclosed_marked_item_does_not_spread(self):
         with tempfile.TemporaryDirectory() as tmp:
             page = Path(tmp) / "p.html"
             page.write_text("<ul><li data-researcher>hidden<li>shown</ul>", encoding="utf-8")
-            texts = [t for _, t in v.page_strings([page])]
-        self.assertEqual(texts, ["shown"])
+            texts = [(t, r) for _, t, r in v.page_strings([page])]
+        self.assertEqual(texts, [("hidden", True), ("shown", False)])
+
+    def test_ticket_links(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            page = Path(tmp) / "p.html"
+            page.write_text('<div data-researcher><a href="https://github.com/kevinrhaas/chicago-tickets/x">how this was decided</a></div>'
+                            '<a href="https://github.com/kevinrhaas/chicago-tickets/y">the work record</a>', encoding="utf-8")
+            errs = v.ticket_link_errors([page])
+        self.assertEqual(len(errs), 1)
+        self.assertIn("outside Researcher mode", errs[0])
 
 
 class GoTo(unittest.TestCase):

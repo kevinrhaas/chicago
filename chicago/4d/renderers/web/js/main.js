@@ -104,6 +104,7 @@ import { createEvidenceHub } from './evidence.js';
 import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { paintAbout } from './about.js';
+import { createResearcherMode } from './researcher.js';
 import { createTour } from './tour.js';
 import { createTourOverlay } from './tour-overlay.js';
 import { markTerms } from './term-tips.js';
@@ -1488,6 +1489,9 @@ const api = {
   textureResidency: null,
 };
 window.__chicago4d = api;
+// T-2657: Researcher mode, Settings › About. Read from this device before anything paints,
+// so a researcher's page opens with the research already in place.
+api.researcher = createResearcherMode({ storage: safeStorage() });
 // The gate is up exactly when no control backend is live, so its hint row cannot wait
 // for one: it follows the device's best guess (T-2045). A phone was shown W A S D and
 // Esc through the whole arrival, on a failed boot, and back on the welcome.
@@ -4226,11 +4230,15 @@ async function boot() {
   // RIGHT IN FRONT OF YOU is inspect()'s own aim "down the crosshair" (no point
   // given), over the structure layers whose hits carry a building record, nearest
   // first, within 40 m. target.js decides when to look; T-2627 and T-2638 read it too.
+  // T-2827: on a phone the probe draws nothing. It answers from the buildings'
+  // boxes (gpu-pick.js `boxPick`): the pick it drew twice a second while you
+  // walked is where an iPhone stopped the page (Kevin's black-box records). A tap
+  // still draws its pick, now of only the batches its ray meets.
   target = createTarget({
     pick: () => {
       let best = null;
-      for (const layer of [buildings, enclosures, frontage]) {
-        const hit = layer?.pickAt?.(null, camera);
+      for (const layer of coarse ? [buildings] : [buildings, enclosures, frontage]) {
+        const hit = coarse ? layer?.pickAtBox?.(null, camera) : layer?.pickAt?.(null, camera);
         if (!hit) continue;
         const record = loaded.registry.get(hit.id) ?? hit.record ?? null;
         if (!record) continue;
