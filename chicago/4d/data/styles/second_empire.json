@@ -1,0 +1,94 @@
+{
+  "id": "second_empire",
+  "name": "Second Empire",
+  "description": {
+    "text": "The style that ruled Prairie Avenue by the 1880s. Its top floor sits inside a steep roof.",
+    "grade": "inferred",
+    "sources": [
+      "hmdb_prairie_heritage_preserved",
+      "glessner_house_prairie_avenue_page",
+      "glessner_blog_2014_11_elbridge_keith_house",
+      "chicago_tribune_1928_07_08_armour_famous_homes"
+    ],
+    "note": "The district marker says the style ruled the street by the 1880s. The second line is what the two houses the markers call Second Empire share. At 1900 Prairie the third floor is the mansard. A 1928 photograph shows the same at 2115 Prairie."
+  },
+  "cues": [
+    {
+      "text": "A steep mansard roof",
+      "grade": "attested",
+      "sources": [
+        "glessner_house_prairie_avenue_page",
+        "glessner_blog_2014_11_elbridge_keith_house"
+      ],
+      "note": "The Glessner House history of the street names the steep mansard roof as this style's mark. The post on 1900 Prairie calls its roof a slate mansard."
+    },
+    {
+      "text": "Windows that stand up from the roof",
+      "grade": "inferred",
+      "sources": [
+        "rand_mcnally_1893_views_prairie_west_1816_1936",
+        "chicago_tribune_1928_07_08_armour_famous_homes",
+        "hmdb_prairie_heritage_preserved",
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "note": "Both houses the markers call Second Empire show them. An 1893 drawing shows dormers in the roof of 1900 Prairie, and a 1928 photograph shows them on 2115 Prairie."
+    },
+    {
+      "text": "Arched tops on the windows",
+      "grade": "inferred",
+      "sources": [
+        "rand_mcnally_1893_views_prairie_west_1816_1936",
+        "chicago_tribune_1928_07_08_armour_famous_homes",
+        "hmdb_prairie_heritage_preserved",
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "note": "Both houses the markers call Second Empire show them. The 1893 drawing gives 1900 Prairie arched windows under hoods, and the 1928 photograph shows round-arched windows on 2115 Prairie."
+    },
+    {
+      "text": "A stone front on the street",
+      "grade": "inferred",
+      "sources": [
+        "glessner_blog_2014_11_elbridge_keith_house",
+        "chicago_tribune_1928_07_08_armour_famous_homes",
+        "hmdb_prairie_heritage_preserved",
+        "hmdb_prairie_lost_houses_2000_2100"
+      ],
+      "note": "Both houses the markers call Second Empire have one. The post on 1900 Prairie calls it limestone clad, and the 1928 caption calls 2115 Prairie a stone residence."
+    }
+  ],
+  "plate": {
+    "picture": "nps-2115-tribune-1928-07-08-famous-homes-photo",
+    "structure": "armour_house_2115_prairie",
+    "scene": "1904",
+    "record": "chicago_tribune_1928_07_08_armour_famous_homes",
+    "caption": "2115 Prairie Avenue in 1928, a Second Empire house",
+    "grade": "attested",
+    "sources": [
+      "chicago_tribune_1928_07_08_armour_famous_homes",
+      "hmdb_prairie_lost_houses_2000_2100"
+    ]
+  },
+  "compare": [
+    {
+      "name": "Italianate",
+      "style": "italianate",
+      "text": "1834 Prairie began Italianate, then got a mansard in 1886.",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ]
+    },
+    {
+      "name": "Richardsonian Romanesque",
+      "style": "richardsonian_romanesque",
+      "text": "Rough stone and round arches. See Glessner House, built 1887.",
+      "grade": "inferred",
+      "sources": [
+        "hmdb_prairie_heritage_preserved",
+        "inland_architect_1888_10_ames_residence",
+        "habs_glessner_photo_13_north_1965"
+      ],
+      "note": "The district marker calls Glessner House Romanesque and dates it 1887. Rough stone and round arches are what the two houses it calls Romanesque share, as that style's own card says."
+    }
+  ]
+}

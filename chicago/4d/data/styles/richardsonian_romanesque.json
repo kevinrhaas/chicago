@@ -18,9 +18,10 @@
       "sources": [
         "hmdb_prairie_heritage_preserved",
         "inland_architect_1888_10_ames_residence",
-        "habs_glessner_photo_13_north_1965"
+        "habs_glessner_photo_13_north_1965",
+        "nrhp_1972_prairie_avenue_district"
       ],
-      "note": "Both houses the marker calls Romanesque show it. The marker says 1811 Prairie is built of rough-faced brown sandstone, and its 1888 photograph shows the front. A 1965 survey photograph shows rock-faced stone on 1800 Prairie."
+      "note": "Both houses the marker calls Romanesque show it. The marker says 1811 Prairie is built of rough-faced brown sandstone, and its 1888 photograph shows the front. A 1965 survey photograph shows rock-faced stone on 1800 Prairie. The 1972 National Register form says the same house is faced with heavily rusticated granite."
     },
     {
       "text": "Round arches over doors and windows",
@@ -29,9 +30,10 @@
         "inland_architect_1888_10_ames_residence",
         "glessner_story_of_a_house_1923",
         "habs_glessner_house_il_1015_drawings",
-        "hmdb_prairie_heritage_preserved"
+        "hmdb_prairie_heritage_preserved",
+        "nrhp_1972_prairie_avenue_district"
       ],
-      "note": "Both houses the marker calls Romanesque show it. The 1888 photograph of 1811 Prairie shows a deep round arch over the front stair and round-topped windows. At 1800 Prairie, John Glessner wrote of the great arch on 18th Street, and the survey drawings measure it."
+      "note": "Both houses the marker calls Romanesque show it. The 1888 photograph of 1811 Prairie shows a deep round arch over the front stair and round-topped windows. At 1800 Prairie, John Glessner wrote of the great arch on 18th Street, and the survey drawings measure it. The 1972 National Register form names a round arch motif there."
     },
     {
       "text": "A stone gable facing the street",
@@ -75,6 +77,18 @@
       "sources": [
         "hmdb_prairie_heritage_preserved"
       ]
+    },
+    {
+      "name": "Italianate",
+      "style": "italianate",
+      "text": "Older, with deep eaves on brackets. See 1834 Prairie.",
+      "grade": "inferred",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west",
+        "glessner_blog_2015_08_van_osdel",
+        "glessner_blog_2022_01_burley_tyrrell"
+      ],
+      "note": "The marker calls 1834 Prairie Italianate and dates it 1866. The deep eaves on brackets are what its photograph shares with 1720 Prairie, the other house a source calls Italianate."
     },
     {
       "name": "French Chateauesque",
