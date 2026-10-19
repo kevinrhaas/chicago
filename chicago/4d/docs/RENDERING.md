@@ -560,6 +560,18 @@ visual phase in the whole program.
   (in 1904, south along Prairie Avenue's east walk — the first 1904 attempt walked due
   west into the Glessner front, T-2828); `tools/test_pacing_read.mjs` holds every pose
   clear of its scene's footprints. The 1904 reading is T-2719.*
+  *Why the turn rose (T-2829, 2026-10-19): the phone draws on a 120 Hz grid. Its Fixed turn
+  fits a 25 ms third-vsync rung, and no 60 Hz fit comes close. At that build, Adaptive
+  stepped the scale three times (three drawing-buffer resizes that bought nothing, because
+  the frame is not fill-bound at Low) and then paced the turn to 30, holding 25 ms frames
+  back to 33 ms (median 27 → 32). The governor no longer paces a window whose median lies
+  between 21 ms and the paced interval: a rate of the device's own, which a 60 Hz display
+  cannot have, so T-2555's 60/30 case is unchanged. A pace now takes three windows in a row,
+  and the ladder stops at the first step that does not lower the p80. In a model fed his Fixed rows
+  (`tools/model_governor_phone.mjs`, a model and not a reading), the Adaptive turn now reads
+  no worse than Fixed in sd and p95. Read frame pacing also prints each row's ratio switches,
+  the >50 ms draws that came on one, and the paced share. Adaptive stays the default; his
+  15 s repeat on this build is the acceptance. `docs/measurements/T-2829-pacing-model.md`.*
 
 **Milestones**
 - W5.1 — seam merged with zero behavior change at default tiers (capture-identical), smoke
