@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 505381539,
+  "content_version": 569043671,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -235,8 +235,8 @@
         "kind": "structure",
         "id": "house_1623_prairie"
       },
-      "text": "1623 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: 1625 Prairie.",
-      "read_s": 13,
+      "text": "1623 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: 1625 Prairie.",
+      "read_s": 12,
       "evidence": [
         "stood-11",
         "tour"
