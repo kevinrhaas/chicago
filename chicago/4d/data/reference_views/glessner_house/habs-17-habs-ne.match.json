@@ -8,7 +8,19 @@
   "verdict": "differs",
   "differences": [
     {
-      "what": "Actual master reviewed in the imported unchanged T2200 camera. Main roof/stack height correspondence, street openings/entry and course relief still differ. This pass corrects courtyard and north-cone junctions, not every visible facade detail.",
+      "what": "T-2857 openings and entry: ten first-floor jambs and the door fit the model's spacing camera-free to 1.62 px rms (docs/RESEARCH/glessner-prairie-front-T-2857/).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2857 north-end openings: sheet 6 places first-floor A and B and the second-floor north group 0.30-0.63 ft further north than built (T-2858). Fitted on the openings, this photograph puts the NE corner 2.0 ft nearer window A than built, an extrapolation that stands on the downspout pick and is ruled in T-2858.",
+      "status": "open"
+    },
+    {
+      "what": "T-2857 stacks: the north stack reads about 16 px higher than the render, inside this camera's 33.7 px withheld-check residual, so it is not a reading of the stack. The roof and stack heights are read on Taylor 2135, where they agree within 2 px.",
+      "status": "not shown"
+    },
+    {
+      "what": "Stone/course relief: the 1965 soot hides the coursing at this distance; course relief stays open with Taylor 2135.",
       "status": "open"
     },
     {

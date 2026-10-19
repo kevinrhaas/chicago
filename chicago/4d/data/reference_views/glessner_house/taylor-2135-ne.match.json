@@ -8,7 +8,23 @@
   "verdict": "differs",
   "differences": [
     {
-      "what": "Actual master reviewed: the early photograph still differs in street opening/entry alignment, roof/stack silhouette and stone/course relief. The new north-cone/courtyard corrections do not constitute full photographic acceptance.",
+      "what": "T-2857 openings: the jambs of the four first-floor windows and the door fit the model's opening spacing camera-free (one-dimensional projective fit along the course, 10 jambs, 1.50 px rms). The openings are right relative to one another (docs/RESEARCH/glessner-prairie-front-T-2857/).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2857 north-end openings: HABS sheet 6 places first-floor A 0.63 ft, B 0.38 ft, the door 0.37 ft and the second-floor north group 0.30 ft further north than built, and draws the first-floor lights 4.3-4.45 ft wide against the 3.9 ft built (T-2858).",
+      "status": "open"
+    },
+    {
+      "what": "T-2857 camera: the two Prairie-corner controls are the downspouts (sheet 6 draws them 0.90 and 0.82 ft in from the corners), and through this camera every first-floor jamb lands 20.5 px left of the photograph (21.6 px rms), the stacks 15-22 px left with them. A registration error, not the building; refit on the openings with the stacks withheld (T-2858).",
+      "status": "open"
+    },
+    {
+      "what": "T-2857 roof and stacks: the three stack tops are within 2 px of the photograph (south +2, middle -1, north +1 px) and the ridge within 4-8 px; the main roof and stack heights agree.",
+      "status": "fixed"
+    },
+    {
+      "what": "Stone/course relief: the photograph's rock-faced courses alternate deep and shallow more strongly than the render's.",
       "status": "open"
     },
     {

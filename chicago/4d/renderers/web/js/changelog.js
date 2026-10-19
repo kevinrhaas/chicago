@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2058, ts: '2026-10-19T12:13:40.138Z', date: 'Oct 19, 2026, 7:13 AM CT', title: 'Glessner\'s front windows checked against its survey drawing and photographs', kind: 'change',
+    items: [
+      'Nothing you can see moved yet. The Glessner House\'s Prairie Avenue windows and door were measured on three street photographs and on the 1965 survey elevation.',
+      'The openings are right relative to one another, and the chimneys and main roof stand at the heights the 1880s photograph shows.',
+      'The survey drawing puts the windows at the 18th Street end up to 0.2 m further north than they are built, and draws the first-floor windows a little wider. The next change moves them.',
+    ] },
+  { v: 2057, ts: '2026-10-19T11:32:45.394Z', date: 'Oct 19, 2026, 6:32 AM CT', title: 'Glessner\'s stable gable and cupola matched to their photographs', kind: 'improvement',
+    items: [
+      'The stable\'s street gable now stands centred over its carriage doorway and loft, as HABS photograph 15 shows it; it had sat a foot off to the west.',
+      'Its dovecote is re-read from the same photograph: five, three and one small arched pigeon holes, closer set, over a shorter stone ledge on two corbels.',
+      'The hoist stone under the gable\'s arch now rises into the arch as its keystone.',
+      'The rooftop cupola\'s body and its pigeon-hole ledges are stone, as the 1887 photograph shows them, instead of pale boarding.',
+    ] },
   { v: 2056, ts: '2026-10-19T11:05:29.352Z', date: 'Oct 19, 2026, 6:05 AM CT', title: 'Keith\'s porch pedestals are too wide, the old plan shows', kind: 'chore',
     items: [
       'Nothing you can see moved yet. The floor plan printed under the 1888 magazine plate draws the stone pedestals under 1808 Prairie\'s porch columns about 0.6 m wide, not the model\'s 0.9 m, and puts the south pair about 0.4 m further south. The plate\'s own photograph and a 1965 colour slide both agree with the plan, so the porch will be rebuilt to it next, and the 1965 view has been lined up again so it can be checked when that lands.',
