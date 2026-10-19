@@ -109,6 +109,10 @@ class K01FrontageParams:
     # T-2342: window centres along the north wall, east to west. None for the party wall
     # K01 was cut for (1808's, 0.02 m off the Glessner court); a corner house's street side
     north_bays: tuple = ()
+    # T-2781: stone belt courses along a side wall, read off a picture — each
+    # {"wall", "from_m", "to_m", "proud_m"}, stopped against a bay and a rear wing as the
+    # front's belts are; empty for every house whose side walls carry K03's brick course or none
+    side_belts: tuple = ()
     roof: dict = field(default_factory=dict)       # T-2293: covering, caps, flashing (K04)
     dormer: dict = field(default_factory=dict)     # T-2293: the front dormer, if any
     rainwater: dict = field(default_factory=dict)  # T-2293: gutters, outlets, pipes (K04)
@@ -234,7 +238,7 @@ CONSUMED = frozenset({
     "stone_front", "boundary", "north_bays", "mansard", "rear_wings", "rear_section", "yard", "condition",
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
     "front_bays_by_storey", "gable_roof", "wall_finish", "stone_finish", "shaped_gable",
-    "street_front_windows", "street_front_frontispiece",
+    "street_front_windows", "street_front_frontispiece", "side_belts",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -1388,13 +1392,42 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 raise ParamError(f"bays: {e['id']}.strips[{j}] fabric {q.get('fabric')!r} is not one of {tuple(STRIP_FABRICS)}")
             strips.append({"run": run, "at": at, "width_m": w, "proud_m": d, "from_m": y0, "to_m": y1,
                            "fabric": q["fabric"]})
+        # T-2781: engaged stone columns on a canted bay's faces (1637's south bay, the Grosvenor
+        # photograph's columns at its angles and beside its lights): one shaft size for all,
+        # each at `s_m` along one run of the plan (a run's end stands it on the corner's
+        # bisector), from `from_m` to `to_m` over grade, a square base and capital at its ends
+        columns = None
+        if e.get("columns") is not None:
+            cl = e["columns"]
+            pts = v["plan"]["points"] if v["plan"]["kind"] == "polyline" else None
+            need = {"diameter_m", "from_m", "to_m", "base_m", "capital_m", "at"}
+            if pts is None or set(cl) != need or e.get("fabric", "stone") != "stone" or not cl["at"]:
+                raise ParamError(f"bays: {e['id']}'s columns take {sorted(need)}, on a stone bay's polyline plan")
+            d, y0, y1 = float(cl["diameter_m"]), float(cl["from_m"]), float(cl["to_m"])
+            hb, hc = float(cl["base_m"]), float(cl["capital_m"])
+            if not 0.1 <= d <= 0.5 or not 0.0 <= y0 < y1 <= top + 1e-9 \
+                    or not (0.05 <= hb <= 0.5 and 0.05 <= hc <= 0.5) or y1 - y0 - hb - hc < 4 * d:
+                raise ParamError(f"bays: {e['id']}'s columns are {d} m across (0.1-0.5) from {y0} to {y1} m "
+                                 f"inside the bay's wall (top {top:.2f} m), a shaft at least four diameters "
+                                 f"between a base and a capital of 0.05-0.5 m each")
+            at = []
+            for j, q in enumerate(cl["at"]):
+                run, s_ = int(q["run"]), float(q["s_m"])
+                if set(q) != {"run", "s_m"} or not 0 <= run < len(pts) - 1 \
+                        or not 0.0 <= s_ <= math.dist(pts[run], pts[run + 1]) + 1e-3:
+                    raise ParamError(f"bays: {e['id']}.columns.at[{j}] {q} is not a run of its plan and a "
+                                     f"distance along it")
+                at.append({"run": run, "s_m": s_})
+            columns = {"diameter_m": d, "from_m": y0, "to_m": y1, "base_m": hb, "capital_m": hc,
+                       "at": tuple(at)}
         if e.get("fabric") == "front_stone" and not front_stone:
             raise ParamError(f"bays: {e['id']} is laid in the front's stone, and the record names no K02 stone_front")
         out.append({"id": e["id"], "wall": e["wall"], "s_m": s, "span_m": (round(a, 4), round(b, 4)),
                     "fabric": e.get("fabric", "stone"), "variant": v,
                     **({"flush_corner": flush} if flush else {}),
                     **({"through_eave": True} if e.get("through_eave") else {}),
-                    **({"strips": tuple(strips)} if strips else {})})
+                    **({"strips": tuple(strips)} if strips else {}),
+                    **({"columns": columns} if columns else {})})
     return tuple(out)
 
 
@@ -2582,6 +2615,24 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if stone_finish and (roof_form != "flat" or not stone):
         raise ParamError("stone_finish requires a flat roof and a stone front")
     names = sorted(CONSUMED)
+    # T-2781: a side wall's stone belt (1637's south flank, the Grosvenor photograph's pale band
+    # along its foot). Never on a wall that carries K03's brick course, which is the same line
+    side_belts = []
+    for j, sb in enumerate(val("side_belts") or ()):
+        walls_ = {"k01.wall.side.south": bool(val("side_bays")), "k01.wall.side.north": bool(val("north_bays"))}
+        if set(sb) != {"wall", "from_m", "to_m", "proud_m"} or sb["wall"] not in walls_:
+            raise ParamError(f"side_belts[{j}] takes wall (a side wall), from_m, to_m and proud_m, not {sb}")
+        if walls_[sb["wall"]] or (stone or {}).get("all_round"):
+            raise ParamError(f"side_belts[{j}]: {sb['wall']} carries K03's string course or the front's "
+                             f"belts already")
+        y0, y1, d = float(sb["from_m"]), float(sb["to_m"]), float(sb["proud_m"])
+        if not (0.3 <= y0 and 0.08 <= y1 - y0 <= 0.4 and y1 <= pf + sum(heights) - 0.5 and 0.01 <= d <= 0.08):
+            raise ParamError(f"side_belts[{j}] runs {y0}-{y1} m, {d} m proud: a course 0.08-0.4 m deep "
+                             f"from 0.3 m up, under the wall head, 0.01-0.08 m proud")
+        for o in openings:
+            if o.wall == sb["wall"] and o.sill_m < y1 and y0 < o.head_m:
+                raise ParamError(f"side_belts[{j}] runs through {o.component} at s {o.s_m} on {o.wall}")
+        side_belts.append({"wall": sb["wall"], "from_m": y0, "to_m": y1, "proud_m": d})
     params = K01FrontageParams(
         depth_m=depth, width_m=width, stories=stories, principal_floor_m=pf,
         storey_heights_m=heights, front_thickness_m=ft, side_thickness_m=st,
@@ -2593,6 +2644,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         side_bays=tuple(float(s) for s in val("side_bays")),
         rear_bays=tuple(float(s) for s in val("rear_bays")),
         north_bays=tuple(float(s) for s in val("north_bays") or ()),
+        side_belts=tuple(side_belts),
         basement_sill_m=bsill, openings=tuple(openings), service_wall_brick=panel,
         roof=k04, dormer=dormer, rainwater=rainwater, chimneys=tuple(chimneys),
         window_kit={k: kit[k] for k in sorted(kit)}, entrance_kit=door_kit, bays=bays,
