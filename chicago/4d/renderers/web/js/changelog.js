@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2077, ts: '2026-10-19T21:21:50.989Z', date: 'Oct 19, 2026, 4:21 PM CT', title: 'The Keith house\'s loggia gains its second row of columns', kind: 'improvement',
+    items: [
+      'The 1888 photograph shows a second pair of columns behind each front pair of the north loggia at 1808 Prairie. Both pairs are now built, standing against the house wall.',
+      'Their depth, spacing and slimmer shafts are measured from the photograph. The model lands within two pixels of the print.',
+      'A 1967 photograph\'s lit column between the front pairs turns out to be the new south pair.',
+    ] },
+  { v: 2076, ts: '2026-10-19T20:43:59.113Z', date: 'Oct 19, 2026, 3:43 PM CT', title: 'Glessner\'s courtyard: the plan and the section reconciled along the court', kind: 'change',
+    items: [
+      'The 1963 survey\'s plan and section disagreed by up to a foot about where the hall bow, the stair tower and the terrace\'s end post stand. The plan\'s printed courtyard dimensions now settle it.',
+      'The section draws the whole court about 8 inches north of those dimensions. Corrected for that, its terrace post lands where the model already has it.',
+      'The bow and the stair tower stay where they stand. The section draws the stair tower about a foot wider than the printed dimensions allow, so the model keeps the plan\'s size.',
+      'Nothing moves in the walk yet. Moving the terrace\'s coping and grilles to match is the next piece of work.',
+    ] },
   { v: 2075, ts: '2026-10-19T20:21:03.407Z', date: 'Oct 19, 2026, 3:21 PM CT', title: 'Glessner\'s 18th Street chimney is as broad as the photographs show', kind: 'change',
     items: [
       'In 1904, the chimney on Glessner House\'s 18th Street gable is now about 7 ft wide, up from 5. The 1965 survey photograph shows it that broad.',

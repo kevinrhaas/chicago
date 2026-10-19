@@ -37452,6 +37452,14 @@
         {
           "label": "Still invented",
           "text": "the pitch and the side parapet's place are read at a few pixels on the plate and the plan; the turned bases and necks are trimmed to 0.175 m in radius (from 0.2) so the closer shafts do not run into each other, and the paired capital widened to span them (0.71 m), neither read off any picture. The 1965 slide still reads the loggia about 1.1 times taller than built, and each pair about 8 px wider than built; the column stays at 2.2 m on the plate (0.999) and Nickel 1967 (0.994), and the pairs' width is T-2816's to rule."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-19 (T-2881) — **the loggia's rear row built.** The 1888 plate draws a second pair of shafts behind each front pair (T-2876). Read at its native 1559 px through `inland-1888`'s camera (`tools/keith_loggia_rear_read.py`, `docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-rear-read.json`), the four rear shafts' middles (x 823.2, 841.8, 1025.8 and 1046.7) fit at 1.14 px RMS with each pair at its front pair's v, 0.39 m off the wall at a 0.28 m pitch, and the south rear pedestal's lit face reads 0.54-0.58 m off the wall. So the K07 loggia takes `rear`: a pedestal 0.6 m square against the wall behind each front one, carrying a pair of turned shafts 0.39 m off the wall at a 0.28 m pitch, their radii 0.78 of the front's (0.24 m shafts, so the closer pair does not run together), under a paired capital, the north side parapet now running from the rear pedestal. Built so, the row draws the four middles within 1.7 px of the print's, and Nickel 1967's lit shaft between the front pairs is its south pair."
+        },
+        {
+          "label": "Still invented",
+          "text": "the rear shafts' girth is set by the pitch the plate reads, not measured (their silhouettes are in shade); their profile, capital and the pedestals' fields are the front's; and the plan under the plate draws the block at the wall only about 0.21 m deep, where a pedestal that carries the pair the plate reads must be about 0.55 m. That block, and a lit upright the plate draws beside the north rear pair (x 997-1009), are T-2882's."
         }
       ]
     },
