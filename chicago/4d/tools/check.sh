@@ -3563,6 +3563,12 @@ step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
 step "Glessner north gable pairs stand where HABS 13 and 14 read them (T-2850)" \
   python3 tools/glessner_north_pairs.py --check
 
+# The north tower's finial is read through both north cameras, and the cone's size off
+# its silhouette, so a plan moved to HABS 14's tip alone (which that camera cannot hold
+# off the wall's plane) or a camera that moves without the reading is caught (T-2872).
+step "Glessner north tower stands where HABS 01's tip and silhouette read it (T-2872)" \
+  python3 tools/glessner_north_finial_read.py --check
+
 step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)" \
   python3 tools/test_compile_source_use.py
 

@@ -130,7 +130,8 @@ def dormer_host(points,params):
 def court_finial(b,x,y,kind,material):
     """Closed revolved bell silhouette; only courtyard components opt in."""
     spec=b.params.detail['court_finial'];base=spec[kind+'_base_ft']*.3048
-    profile=[(base+z*.3048,r*.3048) for z,r in spec['profile_ft']]
+    # T-2859: a kind may carry its own drawn silhouette; the stair keeps the shared one.
+    profile=[(base+z*.3048,r*.3048) for z,r in spec.get(kind+'_profile_ft',spec['profile_ft'])]
     count=12 if getattr(b,'reduced_sash',False) else 24
     for i in range(count):
         a,c=[2*math.pi*j/count for j in (i,i+1)]
