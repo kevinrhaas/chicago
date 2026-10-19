@@ -3113,7 +3113,8 @@ async function boot() {
     }
     return libertiesPromise;
   };
-  api.loadLiberties = ensureLiberties;
+  // The harness's and the panel's load: loaded AND drawn (T-2834; a card only loads).
+  api.loadLiberties = () => ensureLiberties().then((h) => { h?.render?.(); return h; });
   // T-2741: where you stand in the scene's own year — the 1835 streets, the 1904 grid and,
   // past it, the context city's named centrelines; 1812 has none — shared by the compass
   // readout and Navigator Home. Today's streets load after the scene (navigation.setModern).
@@ -3348,7 +3349,11 @@ async function boot() {
     omit: api.drawerOmitted.topics,
     onTopic: id => {
       if (id === 'sources') openSources();
-      if (id === 'liberties') void ensureLiberties();
+      if (id === 'liberties') {
+        // Drawn now if loaded (a card may have loaded it), else once it arrives (T-2834).
+        if (api.liberties?.render) api.liberties.render();
+        else void ensureLiberties().then((h) => h?.render?.());
+      }
     },
     onTitle: (text, onBack) => hud.setTitle(text, onBack),
   });
@@ -3376,7 +3381,7 @@ async function boot() {
     if (tab === 'settings') paintAbout({ version: VERSION });
     if (tab === 'evidence') {
       void ensureCityCensus();
-      void ensureLiberties();
+      void ensureLiberties().then((h) => h?.render?.()); // the hub's tile counts the drawn list
       api.evidenceHub?.showHub?.({ keep: true });
     }
     if (tab === 'goto') hud.goTo?.refreshDistances?.();
