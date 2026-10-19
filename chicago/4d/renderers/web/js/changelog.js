@@ -1,4 +1,68 @@
 export const CHANGELOG = [ // newest first
+  { v: 2076, ts: '2026-10-19T20:43:59.113Z', date: 'Oct 19, 2026, 3:43 PM CT', title: 'Glessner\'s courtyard: the plan and the section reconciled along the court', kind: 'change',
+    items: [
+      'The 1963 survey\'s plan and section disagreed by up to a foot about where the hall bow, the stair tower and the terrace\'s end post stand. The plan\'s printed courtyard dimensions now settle it.',
+      'The section draws the whole court about 8 inches north of those dimensions. Corrected for that, its terrace post lands where the model already has it.',
+      'The bow and the stair tower stay where they stand. The section draws the stair tower about a foot wider than the printed dimensions allow, so the model keeps the plan\'s size.',
+      'Nothing moves in the walk yet. Moving the terrace\'s coping and grilles to match is the next piece of work.',
+    ] },
+  { v: 2075, ts: '2026-10-19T20:21:03.407Z', date: 'Oct 19, 2026, 3:21 PM CT', title: 'Glessner\'s 18th Street chimney is as broad as the photographs show', kind: 'change',
+    items: [
+      'In 1904, the chimney on Glessner House\'s 18th Street gable is now about 7 ft wide, up from 5. The 1965 survey photograph shows it that broad.',
+      'Its two carved stones widen with it, and the small crosses beside the 1886 stone move out to the chimney\'s edges.',
+      'The width is read from the survey photograph through its matched camera, so it is a careful estimate, not a tape measurement.',
+    ] },
+  { v: 2074, ts: '2026-10-19T20:08:41.424Z', date: 'Oct 19, 2026, 3:08 PM CT', title: 'A short "Why?" beside brightness, road visibility and eye height', kind: 'feature',
+    items: [
+      'Under brightness and road visibility in Settings, and eye height in Move, one line now says what the default is.',
+      'Tap or click "Why?" at the end of that line for the reason in 40 words or fewer. Tap anywhere else or press Escape to close it.',
+      'Researcher mode puts the short line away and shows the full reasoning under "Why this default".',
+    ] },
+  { v: 2073, ts: '2026-10-19T20:04:59.550Z', date: 'Oct 19, 2026, 3:04 PM CT', title: 'The build loop works one house at a time', kind: 'improvement',
+    items: [
+      'The automated runs no longer work on the same Prairie Avenue house at once, so two changes to one house stop colliding and having to be rebuilt.',
+      'While a house has work in flight, its other tickets wait, and the runs take the next house instead.',
+    ] },
+  { v: 2072, ts: '2026-10-19T19:26:47.065Z', date: 'Oct 19, 2026, 2:26 PM CT', title: 'Keith\'s photographs checked again against the house as built', kind: 'chore',
+    items: [
+      'Every old picture of 1808 Prairie was compared again with the house as it now stands, after its loggia moved to the floor plan\'s place; ten of them still match.',
+      'Three reprints of the 1888 engraving now line up with it exactly, so their columns land on the printed ones.',
+      'The engraving and a 1967 photograph both show a second row of paired columns at the back of the loggia, which the model does not have yet. That is the next thing to build.',
+    ] },
+  { v: 2071, ts: '2026-10-19T19:26:47.065Z', date: 'Oct 19, 2026, 2:26 PM CT', title: 'Seasons in every year: 1812 and 1835 get spring, fall, winter', kind: 'feature',
+    items: [
+      'Settings › Season now shows in 1812 and 1835 as well as 1904. Summer stays the scene\'s own day: 14 August 1812, 1 July 1835.',
+      'Spring brings first leaf and a fresh green prairie. Fall turns the woods yellow, orange and russet and the grass tawny. Winter lays snow on the ground, roofs and roads, with the trees bare and the prairie gone to straw.',
+      'The sun moves to each season\'s date at the same hour, as in 1904.',
+      'The seasons are a viewing choice, recorded as a liberty: each scene still reconstructs its own summer day.',
+    ] },
+  { v: 2070, ts: '2026-10-19T18:54:40.320Z', date: 'Oct 19, 2026, 1:54 PM CT', title: '1812 and 1835: grapevines, dead trees and fallen logs by the river', kind: 'feature',
+    items: [
+      'Riverbank grape hangs in curtains over the water side of the river\'s edge trees, with its green July fruit, and Virginia creeper climbs the shaded side of their trunks.',
+      'Some trees in the river woods and the wet woods now stand dead and grey, and fallen trunks lie on the ground beside them.',
+      'The vines follow the riverbank records; how many trees are dead or down is reconstructed under a new liberty.',
+    ] },
+  { v: 2069, ts: '2026-10-19T18:54:40.320Z', date: 'Oct 19, 2026, 1:54 PM CT', title: 'Glessner\'s 18th Street monogram, as the 1965 photograph shows it', kind: 'improvement',
+    items: [
+      'The Glessner House\'s north chimney stone above the 1886 date now carries the joined monogram HABS photograph 14 shows: two outward-facing bowls, each closed by a stem, joined by a bar at mid-height. It replaces the plain letters AD set in a stock typeface.',
+      'The device is drawn at the photograph\'s own proportions on the stone: about 0.43 of its width and half its height, centred. The weight of each stroke is reconstructed and recorded as a liberty.',
+    ] },
+  { v: 2068, ts: '2026-10-19T18:54:40.320Z', date: 'Oct 19, 2026, 1:54 PM CT', title: 'Keith\'s loggia columns: three photographs weighed, the 1888 pairing kept', kind: 'change',
+    items: [
+      'The 1965 colour slide shows the column pairs on Keith\'s front porch about a third wider than the model draws them. This pass checked that against the 1888 photograph and Nickel\'s 1967 photograph.',
+      'Seen from the north, the 1967 photograph shows the pairs narrower, and the 1965 slide, seen from the south, shows them wider. One column standing a little forward of its partner would explain both, but the 1888 photograph rules that out by its width and by which column stands in front.',
+      'The 1904 porch therefore keeps the 1888 arrangement: two columns side by side on each pedestal. The 1965 difference is recorded rather than built, and the house\'s last open item on that view is closed.',
+    ] },
+  { v: 2067, ts: '2026-10-19T17:09:58.504Z', date: 'Oct 19, 2026, 12:09 PM CT', title: '1625 Prairie gains its south roof dormer and photographed side windows', kind: 'change',
+    items: [
+      '1625 Prairie Avenue\'s main roof now carries the dormer the 1890 photograph shows on its south slope, just above the side wall\'s eave: a pale face with one tall window under a small hipped roof.',
+      'The south side wall\'s windows now stand where the photograph puts them: two on the top floor, a tall stair window behind the oriel, and one on the ground floor behind the corner pier. The old evenly spaced columns are gone.',
+      'The door at the foot of the rear section now has its transom window over the door.',
+    ] },
+  { v: 2066, ts: '2026-10-19T17:09:58.504Z', date: 'Oct 19, 2026, 12:09 PM CT', title: 'Glessner\'s north tower checked against two old photographs', kind: 'chore',
+    items: [
+      'Nothing you can see moved. One 1965 photograph put the tip of the round tower\'s cone about 2 ft from where the model has it, which would need a wider tower. A second photograph, and the outline of the cone in both, say the tower is right where it stands, and that the first photograph\'s camera position was what was off. The tower stays as built, and a check now keeps it there.',
+    ] },
   { v: 2065, ts: '2026-10-19T15:54:13.631Z', date: 'Oct 19, 2026, 10:54 AM CT', title: 'Keith\'s loggia stands where its plan puts it', kind: 'improvement',
     items: [
       '1808 Prairie\'s loggia now stands on slimmer 0.6 m pedestals at the places the 1888 floor plan draws, its paired columns closer together, and the front stair narrowed to the plan\'s 1.8 m with its north wall running into the loggia.',

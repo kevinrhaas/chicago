@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 198441156,
-      "sha256": "8b45fdd435f1df82d70f7499e2892cfccd5f01f35efc69c8975e09d40e1dbe7f",
+      "bytes": 198537456,
+      "sha256": "5e7a76bdfe060ea7944207a3953f5a71263ee8ce32251a329c2e52b07c405645",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -21,13 +21,13 @@
       "mesh": {
         "draw_primitives": 31,
         "materials": 31,
-        "triangles": 1369278,
-        "vertices": 3154626
+        "triangles": 1369936,
+        "vertices": 3156490
       },
       "texture": {
         "images": 38,
         "textures": 73,
-        "encoded_bytes": 31294034,
+        "encoded_bytes": 31293040,
         "pixels": 68681032,
         "gpu_rgba8_mip_bytes": 366298837,
         "largest_px": 4096
@@ -69,7 +69,7 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 2864,
+        "degenerate": 2851,
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,
@@ -158,7 +158,7 @@
           ]
         },
         "granite_1": {
-          "median_uv_per_m": 0.6213,
+          "median_uv_per_m": 0.6212,
           "fabric": "granite",
           "tile_m": [
             1.6,
@@ -336,8 +336,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 43843548,
-      "sha256": "e895db70ab67659910f98227d22e2b23123b061096c8e8df4527e0e56b82f088",
+      "bytes": 43850788,
+      "sha256": "f7debad36183b5e570ac91d000e8b06af804f4fec73f71c216e5583396bf2be4",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -357,13 +357,13 @@
       "mesh": {
         "draw_primitives": 31,
         "materials": 31,
-        "triangles": 1369278,
-        "vertices": 2498447
+        "triangles": 1369936,
+        "vertices": 2499463
       },
       "texture": {
         "images": 37,
         "textures": 37,
-        "encoded_bytes": 17252383,
+        "encoded_bytes": 17247136,
         "pixels": 62390272,
         "gpu_rgba8_mip_bytes": 332748117,
         "largest_px": 2048
@@ -407,7 +407,7 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 3757,
+        "degenerate": 3746,
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,
@@ -459,7 +459,7 @@
             2.4,
             2.4
           ],
-          "uv_per_m_times_tile_m": 1.0009
+          "uv_per_m_times_tile_m": 1.0008
         },
         "drive": {
           "median_uv_per_m": 0.5001,
@@ -529,7 +529,7 @@
           ]
         },
         "granite_4": {
-          "median_uv_per_m": 0.6204,
+          "median_uv_per_m": 0.6205,
           "fabric": "granite",
           "tile_m": [
             1.6,
@@ -659,8 +659,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 15531892,
-      "sha256": "a966d15a76d4cecbfbf172d51bf8a2a4d05e627abac222544ee1582a3a9f39be",
+      "bytes": 15531656,
+      "sha256": "3ad36b5b9de51a050cc05a51a5c02ecd5e3c28833c2d08ee29fe2811215614b4",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -680,13 +680,13 @@
       "mesh": {
         "draw_primitives": 28,
         "materials": 28,
-        "triangles": 194916,
-        "vertices": 380231
+        "triangles": 194917,
+        "vertices": 380218
       },
       "texture": {
         "images": 37,
         "textures": 37,
-        "encoded_bytes": 12179676,
+        "encoded_bytes": 12179633,
         "pixels": 34078720,
         "gpu_rgba8_mip_bytes": 181753173,
         "largest_px": 1024
@@ -728,7 +728,7 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 327,
+        "degenerate": 319,
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,
@@ -774,7 +774,7 @@
           "uv_per_m_times_tile_m": 1
         },
         "copper": {
-          "median_uv_per_m": 0.4171,
+          "median_uv_per_m": 0.417,
           "fabric": "copper",
           "tile_m": [
             2.4,
@@ -843,7 +843,7 @@
             1.6,
             1.6
           ],
-          "uv_per_m_times_tile_m": 0.9999,
+          "uv_per_m_times_tile_m": 1,
           "texture_transform_scale": [
             7.2727,
             7.2727
