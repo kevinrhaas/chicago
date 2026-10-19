@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2067, ts: '2026-10-19T17:09:58.504Z', date: 'Oct 19, 2026, 12:09 PM CT', title: '1625 Prairie gains its south roof dormer and photographed side windows', kind: 'change',
+    items: [
+      '1625 Prairie Avenue\'s main roof now carries the dormer the 1890 photograph shows on its south slope, just above the side wall\'s eave: a pale face with one tall window under a small hipped roof.',
+      'The south side wall\'s windows now stand where the photograph puts them: two on the top floor, a tall stair window behind the oriel, and one on the ground floor behind the corner pier. The old evenly spaced columns are gone.',
+      'The door at the foot of the rear section now has its transom window over the door.',
+    ] },
+  { v: 2066, ts: '2026-10-19T17:09:58.504Z', date: 'Oct 19, 2026, 12:09 PM CT', title: 'Glessner\'s north tower checked against two old photographs', kind: 'chore',
+    items: [
+      'Nothing you can see moved. One 1965 photograph put the tip of the round tower\'s cone about 2 ft from where the model has it, which would need a wider tower. A second photograph, and the outline of the cone in both, say the tower is right where it stands, and that the first photograph\'s camera position was what was off. The tower stays as built, and a check now keeps it there.',
+    ] },
   { v: 2065, ts: '2026-10-19T15:54:13.631Z', date: 'Oct 19, 2026, 10:54 AM CT', title: 'Keith\'s loggia stands where its plan puts it', kind: 'improvement',
     items: [
       '1808 Prairie\'s loggia now stands on slimmer 0.6 m pedestals at the places the 1888 floor plan draws, its paired columns closer together, and the front stair narrowed to the plan\'s 1.8 m with its north wall running into the loggia.',
