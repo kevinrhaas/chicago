@@ -4103,6 +4103,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/glessner_north_finial_read.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/glessner_north_pairs.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5478,6 +5482,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_confidence_persist.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_confidence_presets.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6051,10 +6059,6 @@
       "wrote_ignored": []
     },
     "{}": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_confidence_persist.mjs": {
       "wrote": [],
       "wrote_ignored": []
     }
