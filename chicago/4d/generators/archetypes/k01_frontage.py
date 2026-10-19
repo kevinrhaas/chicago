@@ -1207,6 +1207,8 @@ class Assembly:
             lines |= {fbed, fp["door_surround"]["top_m"], pa["bed_m"], pa["bed_m"] + pa["height_m"]}
         if (k.get("coursing") or {}).get("even_below_m"):   # T-2773: the principal sill's bed
             lines.add(float(k["coursing"]["even_below_m"]))
+        if (k.get("coursing") or {}).get("rhythm") == "even":   # T-2819: where the face turns smoother
+            lines.add(float(k["coursing"]["even_above_m"]))
         if beds is not None:   # T-2788: the front's own lines, up to this face's top
             lines = {y for y in beds if y < ytop - 0.02} | {0.0, ytop}
         merged = []
@@ -1550,7 +1552,8 @@ class Assembly:
         lo_c, hi_c = k["course_m"]
         h = yb - ya
         c = k.get("coursing")
-        if c and ya < c["even_above_m"] - 1e-6 and not yb <= c.get("even_below_m", 0.0) + 1e-6:
+        if c and c["rhythm"] == "alternating" and ya < c["even_above_m"] - 1e-6 \
+                and not yb <= c.get("even_below_m", 0.0) + 1e-6:
             r = c["low_ratio"]
             deep_max = min(hi_c, c.get("deep_max_m", hi_c))   # T-2773: the photograph's deep course
             for n in range(1, 64):
@@ -1585,6 +1588,8 @@ class Assembly:
             return lo, hi
         if ya >= c["even_above_m"] - 1e-6:
             return lo, lo + (hi - lo) * c["even_rock_share"]
+        if c["rhythm"] == "even":   # T-2819: no high and low courses, the whole range below the line
+            return lo, hi
         mid = (lo + hi) / 2
         lo_c, hi_c = self.p.stone["course_m"]
         return (mid, hi) if yb - ya >= (lo_c + hi_c) / 2 else (lo, mid)
@@ -1888,7 +1893,7 @@ class Assembly:
     # sash in the door's joinery, the knob iron, the transom's glass and the dark hall
     # behind it the windows' own. A role not named here — a porch, an area wall, a guard
     # stone — is one this house's variant does not build, and is refused.
-    K07_ROLES = {"reveal": None, "threshold": "stoop_stone", "landing": "stoop_stone",
+    K07_ROLES = {"reveal": None, "porch_back": None, "threshold": "stoop_stone", "landing": "stoop_stone",
                  "tread": "stoop_stone", "riser": "stoop_stone", "stair_end": "stoop_stone",
                  "cheek": "stoop_stone", "frame": "door_leaf", "leaf": "door_leaf",
                  "sash_outer": "door_leaf", "glass_outer": "glass", "glass_leaf": "glass",
@@ -1914,6 +1919,10 @@ class Assembly:
         v = dict(next(x for x in self._entrances["variants"] if x["id"] == p.entrance_kit["variant"]))
         door = next(o for o in p.openings if o.component == "k01.opening.door_leaf")
         v["clear_width_m"], v["clear_height_m"] = door.width_m, door.height_m
+        # T-2817: a porch's door at the back of the arch, off its axis
+        pd = p.entrance_kit.get("porch_door")
+        if pd:
+            v["porch_door"] = {"s_m": pd["offset_m"], **{k: x for k, x in pd.items() if k != "offset_m"}}
         v["stair"] = dict(v["stair"], floor_m=p.door_floor_m, going_m=p.tread_m,
                           landing_m=p.landing_depth_m, width_m=p.stoop_width_m)
         # T-2463: a stoop off its door's axis

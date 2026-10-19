@@ -8,8 +8,8 @@
     1297
   ],
   "principal_px": [
-    895.0,
-    670.0
+    895,
+    670
   ],
   "focal_px": 1851.38888889,
   "eye": [
@@ -35,6 +35,7 @@
       -0.0004490301
     ]
   ],
+  "sky": "overcast",
   "solve": {
     "method": "T-2228 imports the unchanged T-2200 frozen pinhole camera; no refit against this candidate.",
     "record": "data/comparisons/glessner/report.json#prairie-front",
@@ -45,7 +46,8 @@
     "bounds_active": [
       "height"
     ],
-    "limitations": "The north corner and ridge are outside the photographed area; black plate edges are not building corners. Neighboring 1808, signs and vines are excluded. Aperture controls span the visible south/central fa\u00e7ade only; projected whole-body width is extrapolated and the observed-span metric is reported separately. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
-    "warning": "Residuals refer to the original frozen asset and vertex associations. They are not measurements of this changed mesh. Lighting uses the diagnostic default, not a solved historical sun."
+    "limitations": "The north corner and ridge are outside the photographed area; black plate edges are not building corners. Neighboring 1808, signs and vines are excluded. Aperture controls span the visible south/central façade only; projected whole-body width is extrapolated and the observed-span metric is reported separately. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
+    "warning": "Residuals refer to the original frozen asset and vertex associations. They are not measurements of this changed mesh. Lighting: see light (T-2848).",
+    "light": "T-2848, read off the photograph: overcast. Neither the young trees nor the sign post on the parkway throw a shadow on the grass or the walk, and the Prairie front's window reveals and basement grilles show no cast shadow, so no sun direction can be read; the bright patch at the left edge is flare on the neighbouring bay, not a lit wall. The render uses the overcast sky and no sun_uvy."
   }
 }

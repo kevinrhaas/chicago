@@ -7,8 +7,8 @@
   "doorway": "habs_glessner_house_il_1015_drawings (sheet 2 jambs W 134.9-147.0; sheet 5 soffit 12.6 ft)"
  },
  "camera_sha256": {
-  "habs-01-northwest": "914f653e5bce5182ea25206d155249d462225db4901e887ca44492971275591a",
-  "cornell-northwest-west-windows": "0594fb5e78cce8ce5dddef6754b10f2d8b1fffd0868e596be904ffb32bf04fb1"
+  "habs-01-northwest": "338f0d726e6c0e2d97069253e242a098ba4baae8344ce5a1fa224c2388e06bc0",
+  "cornell-northwest-west-windows": "98341850e0c29a9e5841d5ef17833ecdc7c3c14a11ff76aa740c3aa84f82f4f4"
  },
  "model": {
   "ridge_W": 141.0,
@@ -633,7 +633,7 @@
     ],
     "basis_right_up_forward": [
      [
-      -0.776766,
+      -0.776767,
       -0.629789,
       0.0
      ],
@@ -644,7 +644,7 @@
      ],
      [
       0.629789,
-      -0.776766,
+      -0.776767,
       0.0
      ]
     ],

@@ -2,8 +2,8 @@
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
-  "camera_sha256": "e7561b646f21444ace9b190547f15f973f50a2243a70bee0c3df17b937538e7c",
+  "glb_sha256": "54ad9acb753eac1f65dde9cec4d2232a377de4c63cb1c29e6c25ee52fbd9c024",
+  "camera_sha256": "845cb304c6854c2c23889e0e1ca4dd523e29bdc37addbe458699c91538709d67",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -12,11 +12,19 @@
       "status": "fixed"
     },
     {
-      "what": "Finial/stack correspondence, opening/ornament alignment, stone/course appearance and lighting still differ. The reference north wall is shaded whereas this unchanged diagnostic light illuminates it.",
+      "what": "Finial/stack correspondence, opening/ornament alignment and stone/course appearance still differ.",
       "status": "open"
     },
     {
       "what": "The connector ridge is a camera-dependent reconstruction bounded by HABS14, not a second independently surveyed height; monochrome imagery cannot establish1904 material RGB.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2848 light: the photograph is backlit, the sun behind the house to the south-south-west; the render now puts it there (camera solve.light), so the north gable and tower are lit by the sky alone and the house's shadow falls toward the camera, as the print shows. The sun's elevation is not readable and is not claimed.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2848: the stone in this print is darkened by decades of city soot, so its tone in the 1960s photograph is not its 1887 tone; the render's clean stone is not compared against it.",
       "status": "not shown"
     }
   ],

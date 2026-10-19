@@ -1,4 +1,53 @@
 export const CHANGELOG = [ // newest first
+  { v: 2056, ts: '2026-10-19T11:05:29.352Z', date: 'Oct 19, 2026, 6:05 AM CT', title: 'Keith\'s porch pedestals are too wide, the old plan shows', kind: 'chore',
+    items: [
+      'Nothing you can see moved yet. The floor plan printed under the 1888 magazine plate draws the stone pedestals under 1808 Prairie\'s porch columns about 0.6 m wide, not the model\'s 0.9 m, and puts the south pair about 0.4 m further south. The plate\'s own photograph and a 1965 colour slide both agree with the plan, so the porch will be rebuilt to it next, and the 1965 view has been lined up again so it can be checked when that lands.',
+    ] },
+  { v: 2055, ts: '2026-10-19T11:05:29.352Z', date: 'Oct 19, 2026, 6:05 AM CT', title: '1625 Prairie\'s rear section widened and its south-wall oriel built', kind: 'feature',
+    items: [
+      'Hugh McBirney\'s four-storey rear section now steps 1.8 m out past the south wall, as wide as the 1890 photograph shows it, instead of the 1.3 m the 1911 map traced.',
+      'Its door, windows and dormer stand toward the main wall\'s corner, as in the photograph.',
+      'The small oriel on the south wall, just in front of the rear section, is built: one storey on the first floor under a moulded cornice, carried on stepped stone corbels.',
+      'The photograph\'s camera was re-measured from the south wall\'s level lines, which is how the wider step and the oriel\'s size were read.',
+    ] },
+  { v: 2054, ts: '2026-10-19T11:05:29.352Z', date: 'Oct 19, 2026, 6:05 AM CT', title: 'Glessner\'s photo comparisons lit the way each photograph was', kind: 'improvement',
+    items: [
+      'Each photograph of the Glessner House is now compared under its own light, read from which walls are lit and which way shadows fall, not under one standard sun.',
+      'The sunny 1963 view of the stable rakes the 18th Street wall from the east-north-east. Two 1965 views are backlit, so their north faces stand in shade.',
+      'The overcast pictures, where nothing casts a shadow, are now rendered under a soft, shadowless sky.',
+      'The 1960s prints show the stone blackened by soot, so its tone there is marked as something those pictures cannot show for 1887.',
+    ] },
+  { v: 2053, ts: '2026-10-19T10:17:02.251Z', date: 'Oct 19, 2026, 5:17 AM CT', title: '1623 Prairie\'s carved band, smoother upper stone and latticed window', kind: 'feature',
+    items: [
+      'A carved band now runs across Granger Farwell\'s front at 1623 Prairie where its arches spring, as the 1886 drawing shows.',
+      'Above the band the stone is smoother; below it the blocks stay rock-faced.',
+      'The window beside the porch is wider, and its arched head is glazed as a lattice of small square panes.',
+      'The two downpipes have moved off the front onto the side walls, so the front reads as drawn.',
+    ] },
+  { v: 2052, ts: '2026-10-19T09:12:42.964Z', date: 'Oct 19, 2026, 4:12 AM CT', title: '1625 Prairie\'s door and plinth brought down to its photograph', kind: 'feature',
+    items: [
+      'Hugh McBirney\'s front door now stands one low step above the walk with its head at 2.64 m, where the three-step stoop had lifted it half a metre too high.',
+      'The dressed lintel over the door and the carved panel above it take back the height the tall door had squeezed out: the panel is now as tall as the photograph\'s.',
+      'The stone plinth along the front is the photograph\'s plain 0.26 m band instead of a rusticated course twice that height.',
+      'The second-floor windows\' arched heads were re-measured against the photograph and already match.',
+    ] },
+  { v: 2051, ts: '2026-10-19T08:54:44.339Z', date: 'Oct 19, 2026, 3:54 AM CT', title: 'Shops & work: 94 firms\' cards open again', kind: 'fix',
+    items: [
+      'Opening one of the 94 firms written up by hand in Shops & work (Thomas Andrus\'s carpentry is one) showed "No card yet", because the card looked for its record in the wrong folder. Each of those cards now opens with its people, places and dates.',
+      'Nothing else on the cards or in the list changed.',
+    ] },
+  { v: 2050, ts: '2026-10-19T08:54:44.339Z', date: 'Oct 19, 2026, 3:54 AM CT', title: 'Glessner\'s west courtyard door comes down to the ground', kind: 'fix',
+    items: [
+      'In the 1904 courtyard, the stable wing\'s door beside the north range had been hanging almost six feet up the wall with no steps to it. It now opens at the court\'s level.',
+      'Its head lines up with the sills of the first-floor windows beside it, as a 2024 photograph of the courtyard shows. Its height was counted in brick courses.',
+      'The 1963 survey\'s small flight of steps down to this door has no date, so it is not built. The liberty records it.',
+    ] },
+  { v: 2049, ts: '2026-10-19T08:18:32.747Z', date: 'Oct 19, 2026, 3:18 AM CT', title: '1623 Prairie\'s entrance porch, its arch as broad as the window\'s', kind: 'feature',
+    items: [
+      'Granger Farwell\'s entrance arch at 1623 Prairie is now as broad as the window\'s beside it, as the 1886 drawing shows.',
+      'The arch opens into a porch: a glazed door stands at its back, its back wall lit beside it.',
+      'The stoop climbs north of the arch; its landing runs south behind an iron guard with an ornamental panel.',
+    ] },
   { v: 2048, ts: '2026-10-19T07:43:48.984Z', date: 'Oct 19, 2026, 2:43 AM CT', title: 'Nothing you can see changed: Prairie houses can now carry a tower', kind: 'chore',
     items: [
       'Nothing you can see changed yet. The kit the Prairie Avenue houses are built from can now stand a round or eight-sided tower against a wall, rising past the eaves with its cone above the roof.',

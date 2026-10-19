@@ -1,107 +1,127 @@
 {
- "structure_id": "house_1623_prairie",
- "view": "building_budget_front",
- "glb": "assets/gltf/house_1623_prairie__as_mapped_1904.glb",
- "glb_sha256": "8af5b470a959d97425a13b3322779a294c60f8b09dd66e06bed85d763ebfb440",
- "camera_sha256": "11659dfcf3ba97045918dcf86c57473f7866482a17b88095daed6d2224a7eee9",
- "side_by_side": "docs/RESEARCH/photo-match/house_1623_prairie/building_budget_front-side-by-side.jpg",
- "verdict": "differs",
- "differences": [
-  {
-   "what": "massing: a narrow stone town house of three storeys over a raised basement between party walls, its front filled by an oriel over two arches; the draft stood a grey flat-roofed brick box",
-   "status": "fixed",
-   "how": "T-2433: K01 frontage on the 1911 sheet's plan (19.5 by 6.2 m), a K02 Lemont limestone front over a rusticated base on K03 brick party walls; through the camera the front's edges land within 5-7 px of the drawing's and the main cornice at 9.75 m within about 3 px"
-  },
-  {
-   "what": "storey lines: the principal floor at the stoop's head (about 1.85 m), the second floor at the oriel's sill (about 5.8 m), the main cornice at about 9.7 m",
-   "status": "fixed",
-   "how": "T-2433: a 1.85 m principal floor read off the drawing, 3.9 and 4.0 m storeys; the bands fall within about 3-10 px of the drawing's"
-  },
-  {
-   "what": "the north arch: a broad round-arched window in the principal storey, its sill at about 2.1 m and its crown at about 4.4 m under a ring of long voussoirs, a basement light under it",
-   "status": "fixed",
-   "how": "T-2433: K01's arched principal light on K06's wide fanlight sash, 1.6 m across under a 0.35 m voussoir ring, its sill and crown within about 3 px; K06's round-headed basement light under it. Its lattice transom and the drawing's 1.8 m width are the next two rows"
-  },
-  {
-   "what": "the oriel's place and second storey: a canted oriel on corbelling over the arches, its sill at the second floor, tall transomed lights in it",
-   "status": "fixed",
-   "how": "T-2433: K08's canted corbelled oriel centred on the front from the second floor on four corbel courses, three K06 transomed lights 0.4 m across to its front; its sill within about 10 px"
-  },
-  {
-   "what": "the oriel's size: about 4.8 m across at the wall, 3.4 m of front and about 0.9 m out; the build's is 3.38 m, 2.4 m and 0.5 m, so its edges stand 27-40 px inside the drawing's",
-   "status": "fixed",
-   "how": "T-2777: the K08 canted corbelled oriel at the drawing's size, 4.8 m at the wall and 3.4 m of front, centred on the front (3.1 m) over both arches, whose heads stand more than 0.3 m under its lowest corbel course. Through the camera its wall junctions land at x 75 and 294 against the drawing's 67 and 297 (the drawn sill band's ends, which stand proud of the wall), and its front spans 164 px against the drawn 159. Its depth is 0.65 m, not 0.9: under this level, square-on camera the front moves under 3 px between 0.65 and 0.9 m out, inside the camera's residuals, so the drawing does not read it; 0.65 m is the most the four 0.2 m corbel courses carry under the K08 oversail rule, and puts the cants at about 43 degrees. Where the drawing places the front along the wall is the next row"
-  },
-  {
-   "what": "the oriel's lights: four to its front and one in each cant, between stone mullions; the build's three to its front and its 0.7 m cheeks blind, the most the K08 kit lays on an oriel that size",
-   "status": "fixed",
-   "how": "T-2777: six K06 transomed lights where the build had three and blind cheeks: four 0.55 m across to the front at 0.82 m centres, which through the camera stand 26 px wide at a 39 px pitch against the drawing's 29 and 40, and a light in each cant, 0.35 m, the most a 0.96 m cant holds with its recess in front of the house wall (check_bay_kit's recess and pier rules), so the cant lights are narrower than drawn. Their transoms are K06's three-pane lights under the drawing's leaded ring lattice, and the front's lights stand 16-18 px south of the drawn ones (the next row)"
-  },
-  {
-   "what": "the oriel's front along the wall: the drawing draws the front about 0.35 m north of the middle of its wall junctions, its north cant 20 px across and its south cant 51 px, where a symmetric oriel through this camera draws 31 and 28 px; so the build's front lights stand 16-18 px south of the drawn ones",
-   "status": "open",
-   "how": "T-2779: either the pen perspective's own (the plate is drawn, not photographed, and a level camera north of the oriel's axis cannot widen the south cant past the north) or an oriel whose front stands north of its middle; K01 lays a symmetric canted plan (k01_frontage_params._bays), so the second is a K01 change"
-  },
-  {
-   "what": "the oriel above its second storey: a carved frieze at about 8.1-9.0 m, an upper stage of five shorter lights to about 10.4 m, and a steep conical slate roof with a finial whose eave stands at about 10.9 m, above the main cornice, and apex at about 13.4 m; the build's oriel stops at 8.55 m under a low copper hood, under a 45-degree hip",
-   "status": "fixed",
-   "how": "T-2778: K01 carries the oriel up through the main eave (`through_eave`), its heights read through this camera at the oriel's front, about 47.5 px/m, where the house's own cornice (9.7 m) lands within about 3 px: the frieze between two string courses from 8.35 to 9.5 m, its panels at 8.48-9.37 m against the drawn band's rows 247-292 (about 8.45-9.4 m), landing at about rows 252-292; the upper stage to 10.9 m, four 0.55 m lights to its front and a 0.3 m light in each cant, 9.69-10.69 m against the drawn lights' rows 186-237 (about 9.6-10.7 m), landing at about rows 186-232, the north cant's light a sliver as in the drawing, so five read; its cornice at 11.15 m (drawn about row 165, built about rows 168-180) and a slate spire whose planes run to one apex at 13.85 m (drawn about row 52, built about 55) under the K08 finial, whose top lands at about row 20 as the drawing's does. The drawing's hips stand at the oriel's corners, so the cone is the polygonal one built. The ticket's figures (frieze 8.1-9.0 m, lights to 10.4 m, eave 10.9 m, apex 13.4 m) read about 0.35 m low through this camera; the build follows the camera, and the second storey's lights moved up with it (6.03-8.03 m, drawn about rows 305-405, 6.05-8.2 m). The house's eave, gutter and bed moulding die into the cants and the oriel's back is closed in its stone over the wall head. Reconstructed (L-k01-1623-farwell-oriel-front-2433): the frieze's carving, which the drawing draws as interlaced strapwork, is a guilloche of interlaced rings on a dressed panel on each face, and reads at this scale as a band of rings where the drawing's is a dense knot; the cant lights are narrower than drawn, so their sills clear the house's eave where it meets the cant"
-  },
-  {
-   "what": "the entrance: a deep round arch matching the window's, a glazed door under a carved light within it; the build has K07's flat-headed panelled door",
-   "status": "fixed",
-   "how": "T-2728: K07's deep-arch entrance under the window's ring of long voussoirs, turned to a curved extrados 0.04 m before the wall, the door 0.95 m back at the end of a recess as the drawing's stands (entrance_kit.arch, as 1621's). Through the camera the arch's crown lands within about 5 px of the drawn one (about y 485) and the ring's top within about 5 px (about y 462); the leaves are K07's panelled pair under a radial fanlight, where the drawing half-hides a glazed door under a carved light in the recess's shadow (reconstructed, L-k01-1623-farwell-entrance-2728). The arch's width is the next row"
-  },
-  {
-   "what": "the entrance arch's width and the door's place in it: the drawing's arch is about 1.85 m across, as broad as the window's, springing from the carved band at about 3.4 m, and its door and stoop stand about 1.3 m north of the arch's axis at the back of a porch whose lit south jamb fills the rest; the build's is the K01 door's 1.2 m round head springing at about 3.95 m, about 30 px narrower than drawn, with its door and stoop on its axis, so the stoop's rails land about 60 px south of the drawn ones",
-   "status": "open",
-   "how": "T-2779: K01 cuts every front door 1.2 by 2.7 m (k01_frontage_params, the door_leaf opening) and K07 centres the door in its hole; a broader arch and a porch with the door to one side are a K01 change, with the openings' places"
-  },
-  {
-   "what": "the openings' places: the drawing's window arch is centred about 1.55 m from the north wall and the entrance arch about 4.6 m; the build's stand at 1.45 and 4.85 m, so that the oriel can stand between their centres",
-   "status": "fixed",
-   "how": "T-2777: the window arch centred at 1.55 m and the entrance arch at 4.6 m, the oriel no longer standing between them. Through the camera the window's arch centre lands at x 114 against the drawn 120 and the entrance's at 251 against about 261: the drawing's front is about 6.5 m to the sheet's 6.2 m, and scaled to the sheet the drawn centres stand at about 1.6 and 4.53 m"
-  },
-  {
-   "what": "the basement light: a broad segmental opening behind an ornamental iron grille, about 1.8 m wide; the build's is a 1.1 m round-headed light without a grille",
-   "status": "fixed",
-   "how": "T-2818: K06's broad segmental basement light (k06.opening.basement_segmental), 1.8 m across from 0.1 m to a crown at 0.97 m, its head rising a sixteenth of its span, under a 0.25 m block of voussoirs radiating from the arc's centre with a skewback at each end and a keystone to 1.25 m (K01's arched rows now lay a segmental head). Through the camera its jambs land at x 68 and 150 against the drawn 63 and 145, its crown at about y 647 as drawn and its sill within about 2 px; the voussoirs' top at about y 635 against the drawn 632. It stands 1.45 m from the north wall, 0.1 m north of the window over it (`offset_m`): the drawing draws it about 0.25 m north, and 1.45 m is as far as its voussoir block stands 0.3 m inside the corner. Its grille is the drawing's: eight close uprights from the sill to a bar at 0.57 m, a bar across them over the sill, and over them a band of six scrolls to the springing, each a flat bar curled into its centre and turned alternately, where the drawing's band of C-scrolls is about six across; each scroll's curl is the kit's (reconstructed, L-k01-1623-farwell-entrance-2728)"
-  },
-  {
-   "what": "the stoop: the drawing's climbs straight up from the walk between iron rails and stone newels; the build's is a plain straight stoop with cheeks",
-   "status": "fixed",
-   "how": "T-2728: the stoop without stone cheeks between the K11 kit's stair rails (street_front_dress.stoop_rails, as 1612's): a newel at the head and at the foot, a raked handrail, two balusters to a tread and a scroll at the foot. The drawing's newels are slim iron posts with flared caps, the kit's square; the rails stand where the stoop does (the arch's width, above)"
-  },
-  {
-   "what": "the landing's guard: at the stoop's head the drawing carries an iron railing with an ornamental panel south along the landing, before the porch's south jamb, over the area beside the stoop",
-   "status": "open",
-   "how": "T-2779, with the door's place in the porch: the K01 landing is the stoop's own, as wide as the flight, and takes no guard of its own"
-  },
-  {
-   "what": "the stone: the drawing rusticates the front in big rock-faced blocks from grade to the arches' springing; the build lays two smooth-channelled base courses to 1.0 m and smooth stone above",
-   "status": "fixed",
-   "how": "T-2728: the front laid rock-faced in the Lemont stone's courses (stone_front.dressing, the profile's 0-0.025 m face) over its two rusticated base courses; at the camera's scale the faces read as a tone in the coursing rather than the drawing's hatched blocks. K01 lays one dressing a front, so the strips beside the oriel above the springing, which the drawing draws as smoother coursed stone, are rock-faced with the rest: the next row"
-  },
-  {
-   "what": "the stone above the arches' springing: the drawing draws the narrow strips beside the oriel as smoother coursed stone and a carved band at the springing across both arches; the build lays the whole front rock-faced and carves no band",
-   "status": "open",
-   "how": "T-2779: K01 lays one dressing a front and the Lemont profile no alternating coursing (k02_stone_profiles.json), and the band is the oriel's, carved like its frieze"
-  },
-  {
-   "what": "the roof and stack: the drawing slates a steep roof behind the cone and stands a tall stack, stepped, on the north wall near the front",
-   "status": "fixed",
-   "how": "T-2433: a 45-degree slate hip whose ridge (12.85 m) stands where the drawing's slope tops out (about 12.7 m), and a K15 stack on the north party wall 2.9 m behind the front; its steps are not built"
-  },
-  {
-   "what": "the front's width: the drawing's front is about 6.5 m, the 1911 sheet's 6.2 m",
-   "status": "not shown",
-   "how": "the sheet controls the plan, as at 1619 (T-2420)"
-  },
-  {
-   "what": "colour and tone: the drawing is a monochrome pen plate",
-   "status": "not shown",
-   "how": "the stone (Lemont limestone), brick and paint are reconstructed, L-k01-1623-farwell-oriel-front-2433"
-  }
- ],
- "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "structure_id": "house_1623_prairie",
+  "view": "building_budget_front",
+  "glb": "assets/gltf/house_1623_prairie__as_mapped_1904.glb",
+  "glb_sha256": "20379778b92638376e458c782761dcf1b7fe4469c18fcade8e72745bbe3f385b",
+  "camera_sha256": "11659dfcf3ba97045918dcf86c57473f7866482a17b88095daed6d2224a7eee9",
+  "side_by_side": "docs/RESEARCH/photo-match/house_1623_prairie/building_budget_front-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "massing: a narrow stone town house of three storeys over a raised basement between party walls, its front filled by an oriel over two arches; the draft stood a grey flat-roofed brick box",
+      "status": "fixed",
+      "how": "T-2433: K01 frontage on the 1911 sheet's plan (19.5 by 6.2 m), a K02 Lemont limestone front over a rusticated base on K03 brick party walls; through the camera the front's edges land within 5-7 px of the drawing's and the main cornice at 9.75 m within about 3 px"
+    },
+    {
+      "what": "storey lines: the principal floor at the stoop's head (about 1.85 m), the second floor at the oriel's sill (about 5.8 m), the main cornice at about 9.7 m",
+      "status": "fixed",
+      "how": "T-2433: a 1.85 m principal floor read off the drawing, 3.9 and 4.0 m storeys; the bands fall within about 3-10 px of the drawing's"
+    },
+    {
+      "what": "the north arch: a broad round-arched window in the principal storey, its sill at about 2.1 m and its crown at about 4.4 m under a ring of long voussoirs, a basement light under it",
+      "status": "fixed",
+      "how": "T-2433: K01's arched principal light on K06's wide fanlight sash, 1.6 m across under a 0.35 m voussoir ring, its sill and crown within about 3 px; K06's round-headed basement light under it. Its lattice head and the drawing's 1.8 m width are the two rows after the openings' places (T-2819)"
+    },
+    {
+      "what": "the oriel's place and second storey: a canted oriel on corbelling over the arches, its sill at the second floor, tall transomed lights in it",
+      "status": "fixed",
+      "how": "T-2433: K08's canted corbelled oriel centred on the front from the second floor on four corbel courses, three K06 transomed lights 0.4 m across to its front; its sill within about 10 px"
+    },
+    {
+      "what": "the oriel's size: about 4.8 m across at the wall, 3.4 m of front and about 0.9 m out; the build's is 3.38 m, 2.4 m and 0.5 m, so its edges stand 27-40 px inside the drawing's",
+      "status": "fixed",
+      "how": "T-2777: the K08 canted corbelled oriel at the drawing's size, 4.8 m at the wall and 3.4 m of front, centred on the front (3.1 m) over both arches, whose heads stand more than 0.3 m under its lowest corbel course. Through the camera its wall junctions land at x 75 and 294 against the drawing's 67 and 297 (the drawn sill band's ends, which stand proud of the wall), and its front spans 164 px against the drawn 159. Its depth is 0.65 m, not 0.9: under this level, square-on camera the front moves under 3 px between 0.65 and 0.9 m out, inside the camera's residuals, so the drawing does not read it; 0.65 m is the most the four 0.2 m corbel courses carry under the K08 oversail rule, and puts the cants at about 43 degrees. Where the drawing places the front along the wall is the next row"
+    },
+    {
+      "what": "the oriel's lights: four to its front and one in each cant, between stone mullions; the build's three to its front and its 0.7 m cheeks blind, the most the K08 kit lays on an oriel that size",
+      "status": "fixed",
+      "how": "T-2777: six K06 transomed lights where the build had three and blind cheeks: four 0.55 m across to the front at 0.82 m centres, which through the camera stand 26 px wide at a 39 px pitch against the drawing's 29 and 40, and a light in each cant, 0.35 m, the most a 0.96 m cant holds with its recess in front of the house wall (check_bay_kit's recess and pier rules), so the cant lights are narrower than drawn. Their transoms are K06's three-pane lights under the drawing's leaded ring lattice, and the front's lights stand 16-18 px south of the drawn ones (the next row)"
+    },
+    {
+      "what": "the oriel's front along the wall: the drawing draws the front about 0.35 m north of the middle of its wall junctions, its north cant 20 px across and its south cant 51 px, where a symmetric oriel through this camera draws 31 and 28 px; so the build's front lights stand 16-18 px south of the drawn ones",
+      "status": "not shown",
+      "how": "T-2819 ruled it the pen perspective's own, and the drawing cannot say where the front stands along the wall. Under this level camera the drawing contradicts itself about the oriel's middle: its four front lights stand 16-18 px north of the build's (drawn about x 97-242, built 115-257), but the finial over the same oriel stands about 21 px SOUTH of the build's (drawn about x 207, built 186) and about 16 px south of the middle of its own spire's eave (drawn about x 70-312). A spire's apex stands over its oriel's middle, so an oriel built with its front 0.35 m north would draw its finial north too, and no plan puts both where the pen did. A level camera north of the axis cannot widen the south cant past the north one either. So the plan stays K01's symmetric canted one, the front centred on its 4.8 m at the wall, whose wall junctions land within about 3-8 px of the drawn ones and whose 3.4 m front spans 164 px against the drawn 159"
+    },
+    {
+      "what": "the oriel above its second storey: a carved frieze at about 8.1-9.0 m, an upper stage of five shorter lights to about 10.4 m, and a steep conical slate roof with a finial whose eave stands at about 10.9 m, above the main cornice, and apex at about 13.4 m; the build's oriel stops at 8.55 m under a low copper hood, under a 45-degree hip",
+      "status": "fixed",
+      "how": "T-2778: K01 carries the oriel up through the main eave (`through_eave`), its heights read through this camera at the oriel's front, about 47.5 px/m, where the house's own cornice (9.7 m) lands within about 3 px: the frieze between two string courses from 8.35 to 9.5 m, its panels at 8.48-9.37 m against the drawn band's rows 247-292 (about 8.45-9.4 m), landing at about rows 252-292; the upper stage to 10.9 m, four 0.55 m lights to its front and a 0.3 m light in each cant, 9.69-10.69 m against the drawn lights' rows 186-237 (about 9.6-10.7 m), landing at about rows 186-232, the north cant's light a sliver as in the drawing, so five read; its cornice at 11.15 m (drawn about row 165, built about rows 168-180) and a slate spire whose planes run to one apex at 13.85 m (drawn about row 52, built about 55) under the K08 finial, whose top lands at about row 20 as the drawing's does. The drawing's hips stand at the oriel's corners, so the cone is the polygonal one built. The ticket's figures (frieze 8.1-9.0 m, lights to 10.4 m, eave 10.9 m, apex 13.4 m) read about 0.35 m low through this camera; the build follows the camera, and the second storey's lights moved up with it (6.03-8.03 m, drawn about rows 305-405, 6.05-8.2 m). The house's eave, gutter and bed moulding die into the cants and the oriel's back is closed in its stone over the wall head. Reconstructed (L-k01-1623-farwell-oriel-front-2433): the frieze's carving, which the drawing draws as interlaced strapwork, is a guilloche of interlaced rings on a dressed panel on each face, and reads at this scale as a band of rings where the drawing's is a dense knot; the cant lights are narrower than drawn, so their sills clear the house's eave where it meets the cant"
+    },
+    {
+      "what": "the entrance: a deep round arch matching the window's, a glazed door under a carved light within it; the build has K07's flat-headed panelled door",
+      "status": "fixed",
+      "how": "T-2728: K07's deep-arch entrance under the window's ring of long voussoirs, turned to a curved extrados 0.04 m before the wall, the door 0.95 m back at the end of a recess as the drawing's stands (entrance_kit.arch, as 1621's). Through the camera the arch's crown lands within about 5 px of the drawn one (about y 485) and the ring's top within about 5 px (about y 462); the leaves are K07's panelled pair under a radial fanlight, where the drawing half-hides a glazed door under a carved light in the recess's shadow (reconstructed, L-k01-1623-farwell-entrance-2728). The arch's width is the next row"
+    },
+    {
+      "what": "the entrance arch's width and the door's place in it: the drawing's arch is about 1.85 m across, as broad as the window's, springing from the carved band at about 3.4 m, and its door and stoop stand about 1.3 m north of the arch's axis at the back of a porch whose lit south jamb fills the rest; the build's is the K01 door's 1.2 m round head springing at about 3.95 m, about 30 px narrower than drawn, with its door and stoop on its axis, so the stoop's rails land about 60 px south of the drawn ones",
+      "status": "fixed",
+      "how": "T-2817: the arch cut 1.85 m across (`opening_m`), 2.6 m to its crown over the principal floor, so it springs at about 3.5 m and its crown stands at 4.45 m, and centred at 4.55 m so that its 0.45 m ring stays a course inside the south corner: through the camera its intrados lands at x 210-293 against the drawn 215-300, its springing at about y 537 against the drawn band's 535 and its crown at about y 488 against the drawn 482 (the drawn arch is a little stilted; a round one splits its springing and crown), the ring's top at about y 467 against 460. The arch is a porch's mouth: 0.95 m in, a wall closes it round the door's own flat-headed opening (`porch_door`, k07_entrances), 1.0 m across and 2.2 m high, 0.1 m north of the arch's axis, whose frame lands at x 220-263 against the drawn 222-262, the back wall lit south of it as the drawing's is; a single leaf glazed above its lock rail under a 0.45 m transom where the drawing draws a glazed door under a carved light (reconstructed, L-k01-1623-farwell-entrance-2728). The stoop stands 1.05 m north of the arch's axis (`stoop_v_m` 3.5), its landing carried south past the arch to the south wall as a stone terrace at the principal floor: its rails' head newels land at x 168 and 243 against the drawn 173 and 277, their foot newels at x 173 and 260 against 147 and 253. The drawn flight is skewed in the pen perspective (its head centres about v 3.9, its foot about v 3.15) and drawn wider than the record's 1.7 m, so no straight stoop lands every newel; 3.5 m splits the head and foot. Against the ticket's 'about 1.3 m north': that figure was the rails' 60 px read at the front's own scale, where the rails stand nearer the eye. The door does not stand 1.3 m north: so far off it would sit behind the pier, where the camera, north of the arch, cannot see it, and the drawing draws it inside the arch"
+    },
+    {
+      "what": "the openings' places: the drawing's window arch is centred about 1.55 m from the north wall and the entrance arch about 4.6 m; the build's stand at 1.45 and 4.85 m, so that the oriel can stand between their centres",
+      "status": "fixed",
+      "how": "T-2777: the window arch centred at 1.55 m and the entrance arch at 4.6 m, the oriel no longer standing between them. Through the camera the window's arch centre lands at x 114 against the drawn 120 and the entrance's at 251 against about 261: the drawing's front is about 6.5 m to the sheet's 6.2 m, and scaled to the sheet the drawn centres stand at about 1.6 and 4.53 m. T-2817: the entrance arch moved to 4.55 m so that its broader ring stays inside the south corner; its intrados now centres at about x 252 against the drawn 257"
+    },
+    {
+      "what": "the window's width: the drawing's window arch is about 1.8 m across inside its ring (x 68-152); the build's is 1.6 m, narrowed so its voussoir block stood 0.4 m inside the corner",
+      "status": "fixed",
+      "how": "T-2819: widened to 1.8 m at its 1.55 m centre, its voussoir block 0.3 m inside the north corner (K01 refuses one within 0.25 m); through the camera its jambs land at about x 74 and 156 against the drawn 68 and 152, its crown unchanged at 4.4 m and its springing 3.5 m"
+    },
+    {
+      "what": "the window's head: the drawing glazes the arch's head as a lattice of small square panes over a transom bar on the spring line; the build's is K06's radial fanlight",
+      "status": "fixed",
+      "how": "T-2819: K06's wide sash with its round head glazed as a grid of square lights (k06.opening.sash_round_lattice_wide, fanlight_grid_m 0.2 m), about eight squares across as the drawing's, over the kit's transom bar on the spring line; the bars are K06's muntin, the drawing's being too fine to read (reconstructed)"
+    },
+    {
+      "what": "the basement light: a broad segmental opening behind an ornamental iron grille, about 1.8 m wide; the build's is a 1.1 m round-headed light without a grille",
+      "status": "fixed",
+      "how": "T-2818: K06's broad segmental basement light (k06.opening.basement_segmental), 1.8 m across from 0.1 m to a crown at 0.97 m, its head rising a sixteenth of its span, under a 0.25 m block of voussoirs radiating from the arc's centre with a skewback at each end and a keystone to 1.25 m (K01's arched rows now lay a segmental head). Through the camera its jambs land at x 68 and 150 against the drawn 63 and 145, its crown at about y 647 as drawn and its sill within about 2 px; the voussoirs' top at about y 635 against the drawn 632. It stands 1.45 m from the north wall, 0.1 m north of the window over it (`offset_m`): the drawing draws it about 0.25 m north, and 1.45 m is as far as its voussoir block stands 0.3 m inside the corner. Its grille is the drawing's: eight close uprights from the sill to a bar at 0.57 m, a bar across them over the sill, and over them a band of six scrolls to the springing, each a flat bar curled into its centre and turned alternately, where the drawing's band of C-scrolls is about six across; each scroll's curl is the kit's (reconstructed, L-k01-1623-farwell-entrance-2728)"
+    },
+    {
+      "what": "the stoop: the drawing's climbs straight up from the walk between iron rails and stone newels; the build's is a plain straight stoop with cheeks",
+      "status": "fixed",
+      "how": "T-2728: the stoop without stone cheeks between the K11 kit's stair rails (street_front_dress.stoop_rails, as 1612's): a newel at the head and at the foot, a raked handrail, two balusters to a tread and a scroll at the foot. The drawing's newels are slim iron posts with flared caps, the kit's square; the stoop's place, north of the arch, is T-2817's (the arch's width, above)"
+    },
+    {
+      "what": "the landing's guard: at the stoop's head the drawing carries an iron railing with an ornamental panel south along the landing, before the porch's south jamb, over the area beside the stoop",
+      "status": "fixed",
+      "how": "T-2817: the landing runs on south from the stoop's head to the front's south wall as a stone terrace (K07's `terrace`), faced to grade where the drawing draws coursed stone under the guard, and the guard stands on its street edge (street_front_dress.stoop_rails.guard): from the stoop rail's head newel to a newel at v 6.15, the stoop rail's handrail, a foot bar and its balusters, and an ornamental panel at v 5.45-6.0 whose lozenge of flat bar on a ring lands at x 297-330 against the drawn panel's 302-327. The drawing's ornament is too small to read (reconstructed, L-k01-1623-farwell-entrance-2728). Its rail stands at the stoop rail's 0.86 m over the landing, about y 565, where the drawn guard's is about y 593: the plate draws the stoop's head newels and the guard low against its own landing"
+    },
+    {
+      "what": "the stone: the drawing rusticates the front in big rock-faced blocks from grade to the arches' springing; the build lays two smooth-channelled base courses to 1.0 m and smooth stone above",
+      "status": "fixed",
+      "how": "T-2728: the front laid rock-faced in the Lemont stone's courses (stone_front.dressing, the profile's 0-0.025 m face) over its two rusticated base courses; at the camera's scale the faces read as a tone in the coursing rather than the drawing's hatched blocks. K01 lays one dressing a front, so the strips beside the oriel above the springing, which the drawing draws as smoother coursed stone, are rock-faced with the rest: the next row"
+    },
+    {
+      "what": "the stone above the arches' springing: the drawing draws the narrow strips beside the oriel as smoother coursed stone and a carved band at the springing across both arches; the build lays the whole front rock-faced and carves no band",
+      "status": "fixed",
+      "how": "T-2819: K01 lays the front evenly (stone_front.coursing, rhythm 'even'), rock-faced with the Lemont profile's whole 0-0.025 m face under 3.4 m and a fifth of it above, so the strips beside the oriel and the spandrels read smoother than the rock-faced blocks under the springing. The carved band is a dressed belt course from 2.95 to 3.4 m (street_front_dress.carved_band), cut by the window's and the porch's openings, its top the drawn springing (y 535): through the camera it lands at about y 526-547 on the piers, and the drawn band at about 534-556 (the band's face is proud and the drawn carving overhangs its lower edge). On each run of it the oriel's frieze carving, a guilloche of interlaced rings 0.34 m across: one on the north pier, four between the arches, one south of the porch's mouth, where the drawing's carving is foliage too small to read (reconstructed, L-k01-1623-farwell-entrance-2728). Both arches spring a little over the band (the window at 3.5 m, the porch at 3.525 m), their jambs rising past it, as the drawn arches are stilted over theirs"
+    },
+    {
+      "what": "the spandrel between the arches, under the oriel's corbels: the drawing cross-hatches it in a close diagonal diaper, and hatches the strip south of the porch's arch",
+      "status": "not shown",
+      "how": "T-2819: read as the pen's shade, not a carved or laid diaper: it falls where the oriel's corbelling shades the wall and the drawing shades the porch's south strip with the same hatching, while the lit strips beside the oriel above it are drawn in plain courses. The stone there is the front's smoother coursing over the band (the row above)"
+    },
+    {
+      "what": "the rainwater: the drawing draws no pipe down its front; the build ran a copper downpipe down the front's face at each corner",
+      "status": "fixed",
+      "how": "T-2819: the two pipes hang on the flanks 0.35 m back from the front's corners (rainwater.downpipes), as 1625's photograph hangs its pipe, so none crosses the front through this camera; where they stand is reconstructed, the drawing showing neither flank"
+    },
+    {
+      "what": "the roof and stack: the drawing slates a steep roof behind the cone and stands a tall stack, stepped, on the north wall near the front",
+      "status": "fixed",
+      "how": "T-2433: a 45-degree slate hip whose ridge (12.85 m) stands where the drawing's slope tops out (about 12.7 m), and a K15 stack on the north party wall 2.9 m behind the front; its steps are not built"
+    },
+    {
+      "what": "the front's width: the drawing's front is about 6.5 m, the 1911 sheet's 6.2 m",
+      "status": "not shown",
+      "how": "the sheet controls the plan, as at 1619 (T-2420)"
+    },
+    {
+      "what": "colour and tone: the drawing is a monochrome pen plate",
+      "status": "not shown",
+      "how": "the stone (Lemont limestone), brick and paint are reconstructed, L-k01-1623-farwell-oriel-front-2433"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
