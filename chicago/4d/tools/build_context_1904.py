@@ -127,7 +127,10 @@ RULES = {
     # T-2491: past the near ring, and in the business zones, a run of three to six lots is one box.
     "house_row": {"eave_m": "10.5 masonry, 6.5 frame, x0.85-1.15", "why": "past the near ring a run of three to "
                   "six houses is drawn as one row, at the house rules' heights: at that distance the haze leaves a "
-                  "third or less of its colour and a row reads as the houses would"},
+                  "third or less of its colour and a row reads as the houses would; on a sheet, a drawn building at "
+                  "least 3.5 times as long as it is deep and no deeper than 16 m is a row of attached houses, not a "
+                  "block (T-2833: Mortimer and Tappan's sixteen lots on 16th Street, Robinson plate 10), at the "
+                  "house rules' heights under a flat roof"},
     "shops_block": {"eave_m": "11-15", "why": "State Street and Wabash Avenue south of Twelfth: brick business "
                     "blocks of three and four storeys, shops under flats, to the lot line"},
     "business_block": {"eave_m": "17-24", "why": "Twelfth Street to Harrison: the wholesale and printing district's "
@@ -146,6 +149,11 @@ READINGS = [
     {"sheet": "20", "px": [1500, 1700], "what": "Thompson-Reid & Collins Bros. Ice Cream Co., Indiana at 16th",
      "printed": "'4' at the corner, 'carpr. 4th', '1st, 3d & 4th floors'", "eave_m": 17.0, "roof": "flat"},
 ]
+
+# T-2833: a drawn building at least this many times as long as it is deep, and no deeper
+# than a house, is a row of houses (house_row), whatever its area.
+ROW_MIN_RATIO = 3.5
+ROW_MAX_DEPTH_M = 16.0
 
 # The projection.
 ROW_HALF_M = 33 * 0.3048          # a 66 ft street, the width every street on the sheets prints
@@ -377,6 +385,8 @@ def read_sheet(sheet: str, grid: dict, rnd) -> tuple:
         # sheets put the alley at the back of every face, so "toward the alley" is "away from
         # its own avenue": nearer the block's middle line than the block's edge.
         detached_rear = building_m2 <= RULES["outbuilding"]["max_m2"]
+        _, _, mw, md, _ = main["rect"]
+        row_like = mw <= ROW_MAX_DEPTH_M and md >= ROW_MIN_RATIO * mw and main["m2"] >= 0.6 * building_m2
         for j, r in enumerate(recs):
             rule, eave, roof, rise = heights(r["mat"], r["m2"], main["m2"], building_m2, j == 0, detached_rear, rnd)
             reading = None
@@ -388,6 +398,11 @@ def read_sheet(sheet: str, grid: dict, rnd) -> tuple:
                 rule, eave, roof = "printed", reading["eave_m"], reading["roof"]
                 rise = reading.get("rise_m", 0.45 * r["rect"][2] if roof == "gable" else 0.0)
             e, n, w, d, bearing = r["rect"]
+            if rule in ("block", "big_block") and row_like:
+                # T-2833: a long, shallow building is a row of houses, not one block: Robinson
+                # draws Mortimer and Tappan's sixteen lots on 16th Street as one pink strip.
+                rule, roof, rise = "house_row", "flat", 0.0
+                eave = RULES["frame_dwelling"]["eave_m"] if r["mat"] == "frame" else RULES["dwelling_masonry"]["eave_m"]
             if roof == "gable" and rule != "printed":
                 rise = min(rise, 0.5 * w + 0.5)
             rows.append({"e": e, "n": n, "w": w, "d": d, "bearing": bearing, "eave": eave, "rise": rise,
@@ -584,7 +599,7 @@ def projected(grid: dict, ground: Ground, fr: Frame, net: dict, sheet_rows: list
     frontages = [p["frontage_ft"] * 0.3048 for p in grid["parcels"]
                  if p["street"] in ("indiana", "calumet") and p.get("frontage_ft")]
     mats = [r["mat"] for r in sheet_rows if r["src"] in ("20", "28", "35")
-            and r["rule"] in ("dwelling_masonry", "frame_dwelling", "block", "big_block")]
+            and r["rule"] in ("dwelling_masonry", "frame_dwelling", "block", "big_block", "house_row")]
     mix = {m: mats.count(m) / len(mats) for m in MATS}
     buildings, trees = [], []
 

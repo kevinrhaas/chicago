@@ -2111,25 +2111,27 @@ async function boot() {
   // listing `street_trees` is handed a data base. The Season and Street trees
   // settings (T-2481) are read here so the first frame already shows the visitor's pick.
   const seasonPref = readSeasonPreference();
-  const streetTrees = await createStreetTrees({
-    dataBase: layerBase('street_trees'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
-    problems: layerProblems('street_trees'), lowSpec: coarse,
-    mode: streetTreeMode(seasonPref.season, seasonPref.treesShown),
-    checkpoint: bootCheckpoint, levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
-  });
-  scene3d.add(streetTrees.group);
-  api.streetTrees = streetTrees;
-
   // T-2477 — the context city: faded stand-ins on every part of the 1904 map not yet
   // built (data/context/<scene>.json, read off the Sanborn sheets where they reach and
   // projected past them), so Prairie Avenue reads in full colour against a sketch of the
   // city around it. Each gives way to any placed structure whose footprint it touches.
+  // Built before the parkway elms, which draw its trees as their own (T-2833).
   let contextCity = await createContext({
     dataBase: layerBase('context'), sceneId: loaded.scene.id ?? YEAR, terrain, footprints,
     confidence, problems: layerProblems('context'), detail: detailLevel,
   });
   scene3d.add(contextCity.group);
   api.contextCity = contextCity;
+  const streetTrees = await createStreetTrees({
+    dataBase: layerBase('street_trees'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
+    problems: layerProblems('street_trees'), lowSpec: coarse,
+    mode: streetTreeMode(seasonPref.season, seasonPref.treesShown),
+    checkpoint: bootCheckpoint, levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
+    contextTrees: (level) => contextCity.treeStems?.(level) ?? [],
+  });
+  scene3d.add(streetTrees.group);
+  api.streetTrees = streetTrees;
+
 
   // T-2478 — the Illinois Central along the lake east of Prairie Avenue: the tracks
   // the 1911 sheets draw, on cinder ballast, with ties, rails and weedy verges

@@ -26702,6 +26702,20 @@ frontages the grid's own Indiana and Calumet lots measure, one house per lot set
 stable on some, and materials in the mix the traced sheets measure; kept 40 m off the water and west
 of the Illinois Central's line on sheets 20 and 28. The rectangles drop porches' and
 bays' shapes and the sheets' storey figures.
+**Amended (T-2833, 2026-10-19; owner: the street ends showed "fake buildings as just boxes and the
+bad trees").** Each stand-in's walls are now painted, not modelled, with what its rule already
+claims: storeys at its height (3.4 m a house storey on a 1.1 m raised stone basement, 3.9 m a loft's),
+rows of two-over-two sash windows under stone lintels, string courses, a door at the top of a stoop
+on a house's end and in each house of a row; a row of lots is divided into 25 ft houses (7.6 m), each
+a slightly different brick, and a gabled row takes a gable to the street per house rather than one
+ridge; shop blocks carry shop windows under their flats, lofts wide windows, sheds high lights and
+doors; a flat roof sits behind a cornice. All of that is invented, by building type, and claims
+nothing about any one building. A drawn building at least 3.5 times as long as it is deep and no
+deeper than 16 m is read as a row of attached houses at the house rules' height, not a block: so
+the 110 m strip Robinson's plate 10 draws on 16th Street's north side, Mortimer and Tappan's
+subdivision of sixteen lots, is a row of three-storey houses and no longer a 16 m block. The trees
+are drawn as the parkway's grown American elm (street-trees.js), sized by each tree's own height;
+the species is ours, after the elms the prints show on Prairie Avenue.
 **How to resolve:** read the storey figures each sheet prints into the rows; trace sheets 19, 27, 34
 and 36 (Indiana's west face, Indiana 18th-20th, Calumet's east face) to replace the projection where
 they reach; each stand-in a drafted building lands on is dropped by the renderer already.
