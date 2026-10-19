@@ -5398,11 +5398,19 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_researcher_mode.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_arrival.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_arrival_telemetry.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_blackbox.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5574,6 +5582,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_guide_about.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_guide_glossary.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5594,6 +5606,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_license.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_loading_content.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5611,6 +5627,10 @@
       "wrote_ignored": []
     },
     "tools/test_move_comfort.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_nav_design.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

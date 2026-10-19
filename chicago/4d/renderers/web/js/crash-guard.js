@@ -143,7 +143,7 @@ export function createCrashGuard({
   }
 
   /** The card. Built on first use; one at a time; the visitor can always shut it. */
-  function show(text, { reloadButton = false } = {}) {
+  function show(text, { reloadButton = false, copyText = null } = {}) {
     state.notice = text;
     if (!doc?.body) return;
     if (!card) {
@@ -156,15 +156,26 @@ export function createCrashGuard({
         + '<path d="M12 10v4.5M12 17.2v.3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>'
         + '<p class="crash-notice-text"></p>'
         + '<button type="button" class="crash-notice-reload" hidden>Reload</button>'
+        + '<button type="button" class="crash-notice-copy" hidden>Copy details</button>'
         + '<button type="button" class="crash-notice-close" aria-label="Dismiss">'
         + '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" '
         + 'stroke-width="2" stroke-linecap="round"/></svg></button>';
       card.querySelector('.crash-notice-close').addEventListener('click', dismiss);
       card.querySelector('.crash-notice-reload').addEventListener('click', () => reload());
+      card.querySelector('.crash-notice-copy').addEventListener('click', (e) => {
+        const button = e.currentTarget;
+        const text = button.dataset.copy ?? '';
+        const done = (ok) => { button.textContent = ok ? 'Copied' : 'Copy failed'; };
+        try { win?.navigator?.clipboard?.writeText(text).then(() => done(true), () => done(false)); } catch { done(false); }
+      });
       doc.body.append(card);
     }
     card.querySelector('.crash-notice-text').textContent = text;
     card.querySelector('.crash-notice-reload').hidden = !reloadButton;
+    const copy = card.querySelector('.crash-notice-copy');
+    copy.hidden = !copyText;
+    copy.textContent = 'Copy details';
+    if (copyText) copy.dataset.copy = copyText; else delete copy.dataset.copy;
     card.hidden = false;
   }
   function dismiss() {
@@ -277,5 +288,5 @@ export function createCrashGuard({
     });
   }
 
-  return { state, boot, live, chosen, watchContext, dismiss };
+  return { state, boot, live, chosen, watchContext, dismiss, show };
 }
