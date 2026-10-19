@@ -152,6 +152,8 @@ step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 step "Crash-aware boot: a dead session steps down once, a lost context reloads at most once (T-2547)" \
   node tools/test_crash_guard.mjs
+step "The black box keeps the page's last steps in local storage, and the next page shows a cut-off page's on the crash card (T-2826)" \
+  node tools/test_blackbox.mjs
 step "Read frame pacing is offered only on the dev preview or with ?pacing=read, and reads sd and p95 as measure_walk_frames --live does (T-2732)" \
   node tools/test_pacing_read.mjs
 
@@ -176,6 +178,9 @@ step "The Field Check's seven steps each move on only on their own action, resum
 # T-2664: the tour offered once per device, and the one-time hints after it.
 step "Home offers the Field Check once per device, declining or finishing never re-prompts, and the first Jaunt, Jump and Reconstructed building each hint once (T-2664)" \
   node tools/test_tour_offer.mjs
+# T-2665: the Navigator License keepsake.
+step "Finishing the Field Check awards the Navigator License once per device, never on Skip, with storage refused safely, and the Jaunts daybook shows it after a reload (T-2665)" \
+  node tools/test_license.mjs
 # T-2629: Settings › About.
 step "Settings › About shows the build stamp, and the DEV mark on a dev build only (T-2629)" \
   node tools/test_about.mjs
@@ -223,9 +228,15 @@ step "Inspect's Photos tab shows each picture's year, caption and credit by date
 # T-2662: the Guide's glossary and questions, and first appearances explained on tap.
 step "Guide lists the seven locked terms with their lines and answers its two questions in 60 words or fewer, and a locked term's first appearance shows its line on tap (T-2662)" \
   node tools/test_guide_glossary.mjs
+# T-2641: Inspect's Design tab.
+step "Inspect's Design tab shows the building's style card from its sourced module, numbered On this house hotspots each with its grade in place of the attribute table, and Compare styles; a building with neither falls back to its own graded sidecar (T-2641)" \
+  node tools/test_nav_design.mjs
 # T-2666: Guide › For teachers, the teacher handout.
 step "Guide › For teachers prints the Field Check's seven steps from the tour itself and three Jaunts per destination by one stated rule, as one top-level copy the print stylesheet keeps (T-2666)" \
   node tools/test_teacher_handout.mjs
+# T-2667: Guide › About this destination, the old research hub as four cards.
+step "Guide › About this destination folds every research topic into one of four cards, How we grade, Sources, Liberties and What lived and grew here, in every destination, with the order book behind Researcher mode and every id kept (T-2667)" \
+  node tools/test_guide_about.mjs
 # T-2652: getting there — one choice for Go to, the Map and Jaunts.
 step "Getting there is one choice, Teleport, Ride there or Fly over, and a Jaunt rides between its stops at it where it may (T-2652)" \
   node tools/test_getting_there.mjs
@@ -258,6 +269,9 @@ step "loading evidence refuses promoted or unrelated facts (T-1275)" \
   python3 tools/test_loading_content.py
 step "loading cards: seeded bags, dwell, stop and humor cap (T-1275)" \
   node tools/test_loading_content.mjs
+step "Restoration baseline waits for observed scene readiness; after capture stays immediate" \
+  node tools/test_capture_restore_state.mjs
+
 step "Portable human contract holds; every human GLB and instance is held to it (T-1786)" \
   python3 tools/human_contract.py --check
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
