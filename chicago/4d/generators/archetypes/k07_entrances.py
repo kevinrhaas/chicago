@@ -70,6 +70,25 @@ BOARD_ROLES = ("wall", "ground", "walk")
 STAIR_TREADS = ("landing", "tread", "deck")
 
 
+def _arc_y(arc, x):
+    """The height of an arch's head polyline (right to left, as Region.outline draws it) at s=x."""
+    for (xa, ya), (xb, yb) in zip(arc, arc[1:]):
+        if xb - 1e-9 <= x <= xa + 1e-9:
+            return ya if abs(xa - xb) < 1e-12 else ya + (yb - ya) * (x - xa) / (xb - xa)
+    raise ValueError(f"s {x:.3f} is not under the arch")
+
+
+def _porch_back(arc, s0, s1, a, b, Hd):
+    """T-2817: the porch's back wall, the arch's outline less a door a..b under a flat head Hd:
+    a strip each side of the door and the tympanum over it, each convex, each closed on the
+    arch's own head polyline so that it meets the reveal's back edge vertex for vertex."""
+    inside = lambda lo, hi: [q for q in arc if lo + 1e-9 < q[0] < hi - 1e-9]
+    ya, yb = _arc_y(arc, a), _arc_y(arc, b)
+    return [[(b, 0.0), (s1, 0.0)] + [q for q in arc if q[0] > b + 1e-9] + [(b, yb)],
+            [(a, Hd), (b, Hd), (b, yb)] + inside(a, b) + [(a, ya)],
+            [(s0, 0.0), (a, 0.0), (a, ya)] + [q for q in arc if q[0] < a - 1e-9]]
+
+
 def materials(data: dict) -> dict:
     p = data["parts"]
     g = p["glass"]
@@ -129,6 +148,7 @@ class Entrance(Opening):
             ros = 0.125
             head = Head(kind, s0, s1, H - Head(kind, s0, s1, 0.0, ros).rise, ros)
         flat = kind == "flat"
+        self._arch_head = head
         hole = Region(s0, s1, 0.0, top_y=H if flat else None, head=None if flat else head)
         outline = hole.outline()
         self.holes.append(outline)
@@ -144,12 +164,35 @@ class Entrance(Opening):
             self.face("reveal", [self.P(a[0], a[1], 0), self.P(b[0], b[1], 0),
                                  self.P(b[0], b[1], rev), self.P(a[0], a[1], rev)], (c[0] - m[0], c[1] - m[1], 0.0))
         self.face("threshold", [self.P(s0, 0, 0), self.P(s1, 0, 0), self.P(s1, 0, rev), self.P(s0, 0, rev)], Y)
+        pd = v.get("porch_door")
+        if pd:
+            # T-2817: the hole is a porch's mouth (1623's drawing: an arch as broad as the window's,
+            # its door at the back to one side and the porch's back wall lit beside it). A wall at
+            # the reveal's depth closes the arch round the door's own flat-headed opening, `width_m`
+            # across under a head `height_m` up, its centre `s_m` off the arch's axis; the door and
+            # its frame stand in that, and take their leaves, transom and glazing from it
+            a, b = pd["s_m"] - pd["width_m"] / 2, pd["s_m"] + pd["width_m"] / 2
+            Hd = pd["height_m"]
+            arc = outline[2:]
+            if not s0 + 0.1 <= a < b <= s1 - 0.1 or not Hd + 0.1 <= min(_arc_y(arc, a), _arc_y(arc, b)):
+                raise ValueError(f"{v['id']}: a {pd['width_m']} m porch door at s {pd['s_m']:+.3f}, {Hd} m high, "
+                                 f"does not stand 0.1 m inside its {W} m arch")
+            for poly in _porch_back(arc, s0, s1, a, b, Hd):
+                self.plane("porch_back", poly, rev)
+            self.v = v = {**v, **{k: pd[k] for k in ("leaves", "panels", "transom_m", "transom_lights",
+                                                      "glazed_rows", "rails_y_m") if k in pd}}
+            hole, head, flat = Region(a, b, 0.0, top_y=Hd), Head("flat", a, b, Hd), True
+            outline = hole.outline()
+            self.meta["porch_door"] = {"s_m": [round(a, 4), round(b, 4)], "height_m": Hd}
         # frame: a face ring with no foot, and its sight edges
         self.ring("frame", outline, hole.outline(f, f, 0, f), rev)
         self.tube("frame", hole.outline(f, f, 0, f), rev, rev + fr["depth_m"])
-        day = Region(s0 + f, s1 - f, 0.0, top_y=H - f if flat else None, head=None if flat else head, head_inset=f)
+        s0f, s1f, Hf = (hole.s0, hole.s1, hole.top_y) if pd else (s0, s1, H)
+        day = Region(s0f + f, s1f - f, 0.0, top_y=Hf - f if flat else None, head=None if flat else head, head_inset=f)
         self.meta["daylight_s"] = [day.s0, day.s1]
         self._door(day, head, rev, fr)
+        if pd:
+            head = self._arch_head
         if v.get("carriage"):
             self._lintel(s0, s1, H, v["lintel"])
             self._guards(s0, s1)
