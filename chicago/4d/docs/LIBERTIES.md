@@ -28952,8 +28952,8 @@ along the lake before 1840, or the witness-tree layer for the township.
 
 **Decision:** in 1835 the North Side wood no longer stops at State Street north of N +300. In
 `renderers/web/js/trees.js` (T-2808, `SAND_WOOD`) it runs on east over the beach-ridge sand to
-about E +1140 (wobbling 36 m), short of the Wau-Bun sand hills, as open ridge oak with the mesic
-pocket's closed canopy where the mosaic falls low and within 40 m of the Rush Street line. Its
+about E +1140 (wobbling 36 m), short of the Wau-Bun sand hills, as open ridge oak, with the mesic
+pocket's closed canopy only in a band 22 m either side of the Rush Street line. Its
 east end facing the sand hills carries the woods' edge thicket. The thicket at State Street stays,
 as the edge between the closed wood on the clay and the open oak on the sand. Two ways run through
 the wood (`PATHS`): a bare tread 2.6 m wide on the Rush Street line from N +300 north, with shrubs
@@ -28967,7 +28967,7 @@ North Side west of the shore sand-hills" (Judge Blodgett, 1831-32, reported by K
 the tree research notes, B5, and not yet a source record); the Green Bay road surveyed in 1833 and
 in 1834 cut "to the width of two rods" through the trees (Andreas, vol. 1).
 **What is invented:** where the sand wood starts and ends (N +300, E +1140) and that it is oak on
-the sand with a mesic band along the path; the mosaic's split; the path's width and that it still
+the sand with a mesic band along the path, and that band's 22 m width; the path's width and that it still
 runs in 1835, four years after Kinzie rode it, when Rush Street is platted and unopened; the road's
 line on the Clark Street line (nobody traced the 1834 line, and the later N. Clark Street is only
 where the histories put the road's name); the shrubs on both, their density and their place.
