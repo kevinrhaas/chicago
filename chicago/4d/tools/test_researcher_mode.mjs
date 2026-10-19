@@ -95,10 +95,14 @@ function fakeStorage() {
   assert.doesNotMatch(about, /id="s-researcher"[^>]*checked/, 'and is not checked in the markup');
   assert.match(page, /<span class="research-badge" id="research-badge" data-researcher data-str="research.badge">RESEARCHER<\/span>/,
     'a small RESEARCHER label, shown only while it is on');
-  const whys = [...page.matchAll(/<details class="why">([\s\S]*?)<\/details>/g)].map((m) => m[1]);
+  // T-2658: each essay's fold is Researcher mode's, and a visitor's one line and "Why?"
+  // bubble (its own test, test_short_why.mjs) stand directly before it.
+  const whys = [...page.matchAll(/<div class="why-line" data-visitor-only>([\s\S]*?)<\/div>\s*<details class="why" data-researcher>([\s\S]*?)<\/details>/g)]
+    .map((m) => m[1] + m[2]);
   assert.equal(whys.length, 3, 'three "Why this default" essays');
+  assert.equal(page.split('<details class="why"').length - 1, 3, 'and no other');
   for (const w of whys) {
-    const short = w.match(/<p class="legend-note" data-visitor-only data-str="(research\.why\.\w+)">/);
+    const short = w.match(/<span class="why-text" id="[\w-]+" hidden data-str="(research\.why\.\w+)">/);
     assert.ok(short, 'each has a short visitor hint');
     const words = t(short[1]).split(/\s+/).length;
     assert.ok(words <= 40, `${short[1]} is ${words} words (40 at most)`);
