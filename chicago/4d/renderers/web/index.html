@@ -762,6 +762,16 @@
         <!-- T-2656: What's new, from About. T-2657 adds Researcher mode below it. -->
         <div class="field row"><span data-str="settings.whatsnew.line">Release notes</span>
           <button class="setting-button" id="s-open-whatsnew" type="button" data-str="hud.tab.whatsnew">What's new</button></div>
+        <!-- T-2660: the field log (js/field-log.js, js/field-log-view.js): counts kept on this
+             device only, never sent anywhere, with Clear. The rows are painted from the table. -->
+        <div class="field-log" id="s-field-log">
+          <h5 data-str="fieldlog.title">Field log</h5>
+          <p class="legend-note" data-str="fieldlog.note">Counted on this device only. Nothing is sent anywhere.</p>
+          <dl class="field-log-rows" id="s-field-log-rows"></dl>
+          <div class="field row"><span data-str="fieldlog.clear.line">Start the log again</span>
+            <button class="setting-button" id="s-field-log-clear" type="button" data-str="fieldlog.clear">Clear</button></div>
+          <p class="legend-note" id="s-field-log-status" role="status"></p>
+        </div>
         <!-- T-2657: Researcher mode (js/researcher.js), off by default, remembered per device. -->
         <label class="field row check-field"><span data-str="research.switch">Researcher mode</span>
           <input type="checkbox" id="s-researcher"></label>
