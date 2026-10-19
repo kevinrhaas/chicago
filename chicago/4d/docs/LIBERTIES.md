@@ -29576,3 +29576,24 @@ depth. HABS 14 also reads the stack's face and both stones about 1.35-1.5 times 
 with their heights agreeing; that is T-2873's to rule.
 **Ticket:** T-2870 (piece 1 of T-2869).
 **Recorded:** 2026-10-19 (T-2870).
+
+### L-glessner-stack-width-2873 — Glessner's 18th Street stack widened to the 7.1 ft HABS 14 reads, its stones and crosses with it
+
+**Decision:** the `glessner_house` north-gable stack's face is 7.1 ft wide (W 15.25-22.35), where
+it was 5.1 ft (W 16.25-21.35), and its two date stones are 4.4 and 4.3 ft (they were 3.1 and
+2.8), the two crosses moved out with the face's edges (W 15.9 and 21.7).
+**What is read, not invented.** From HABS photograph 14 (`habs_glessner_photo_14_north_inclined_1965`,
+no known restrictions), through its camera solved on the north wall's plane, the plane the stack's
+face is flush with: the stack's silhouette, 128-137 px across through the stones' rows (x 909-1041),
+is W 15.0-22.3 with the stack's 3.1-ft depth; the stones' 78 and 75 px are 4.4 and 4.3 ft; the
+crosses stand about 0.65 ft inside the face's edges. Photograph 4 (c. 1923) agrees in proportion
+(the stones fill about 0.6 of the face). HABS photograph 1 (1963) reads the face about 6.3 ft, on a
+level camera that reads this roof about 2 ft low.
+**What is invented.** The 0.2 ft taken off the silhouette for the rock faces' reach at its two edges,
+and the centring: HABS 14 puts the face's centre within 0.15 ft of the gable apex, and it is kept on
+the apex at W 18.8 with the stones and crosses, as the 1888 plate shows the stack centred on the
+gable. The reading is through a hand-solved camera, about +/-0.4 ft. No sheet gives the width:
+sheet 6 draws the stack edge-on and sheet 3 only the corner fireplace whose flue it carries.
+**How to resolve:** a measured elevation of the 18th Street gable, or a tape on today's stack.
+**Ticket:** T-2873 (piece 2 of T-2871).
+**Recorded:** 2026-10-19 (T-2873).
