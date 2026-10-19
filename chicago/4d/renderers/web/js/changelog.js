@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2051, ts: '2026-10-19T08:54:44.339Z', date: 'Oct 19, 2026, 3:54 AM CT', title: 'Shops & work: 94 firms\' cards open again', kind: 'fix',
+    items: [
+      'Opening one of the 94 firms written up by hand in Shops & work (Thomas Andrus\'s carpentry is one) showed "No card yet", because the card looked for its record in the wrong folder. Each of those cards now opens with its people, places and dates.',
+      'Nothing else on the cards or in the list changed.',
+    ] },
+  { v: 2050, ts: '2026-10-19T08:54:44.339Z', date: 'Oct 19, 2026, 3:54 AM CT', title: 'Glessner\'s west courtyard door comes down to the ground', kind: 'fix',
+    items: [
+      'In the 1904 courtyard, the stable wing\'s door beside the north range had been hanging almost six feet up the wall with no steps to it. It now opens at the court\'s level.',
+      'Its head lines up with the sills of the first-floor windows beside it, as a 2024 photograph of the courtyard shows. Its height was counted in brick courses.',
+      'The 1963 survey\'s small flight of steps down to this door has no date, so it is not built. The liberty records it.',
+    ] },
   { v: 2049, ts: '2026-10-19T08:18:32.747Z', date: 'Oct 19, 2026, 3:18 AM CT', title: '1623 Prairie\'s entrance porch, its arch as broad as the window\'s', kind: 'feature',
     items: [
       'Granger Farwell\'s entrance arch at 1623 Prairie is now as broad as the window\'s beside it, as the 1886 drawing shows.',
