@@ -707,6 +707,8 @@ export function createNavigation({ root, terrain, registry, streets, year = '', 
     get eraState() { return eraState; },
     get todayState() { return todayState; },
     get modernLoaded() { return !!modern; },
+    /** T-2650: the scene draws no streets of its own year (1812), for the Confidence view's overlays. */
+    get eraEmpty() { return !!eraWhere?.empty; },
     snapshot() {
       return {
         ...player, compassVisible, mapVisible, streetVisible, streetState, eraState, todayState, units,
