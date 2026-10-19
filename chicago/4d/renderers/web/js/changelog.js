@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2029, ts: '2026-10-19T00:43:32.707Z', date: 'Oct 18, 2026, 7:43 PM CT', title: 'Researcher mode: the full reasoning, back in place behind a switch', kind: 'feature',
+    items: [
+      'Settings › About has a Researcher mode switch. It is off unless you turn it on, and this device remembers your choice.',
+      'While it is on, a small RESEARCHER label sits at the top of the screen, between the year and the compass.',
+      'Each "Why this default" now opens on a one-line reason. Researcher mode shows the full essay in its place.',
+      'Researcher mode never shows internal record numbers or file names; where it points to how something was worked out, it is a plain link.',
+    ] },
   { v: 2028, ts: '2026-10-18T23:27:40.956Z', date: 'Oct 18, 2026, 6:27 PM CT', title: 'Guide › About this destination: the research in four cards', kind: 'feature',
     items: [
       'The old Sources section is now Guide › About this destination, in four cards: How we grade, Sources, Liberties, and What lived and grew here. Each card holds the lists that belong to it, from the town in numbers to the animals, plants and open questions.',
