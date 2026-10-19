@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2046, ts: '2026-10-19T07:12:00.933Z', date: 'Oct 19, 2026, 2:12 AM CT', title: 'Houses can now be built in stone all the way round', kind: 'add',
+    items: [
+      'A stone house can now be laid in coursed stone on every side, not just a stone front on a brick box. That covers the flanks, the back and the rear wings.',
+      'The courses run level round each corner. Every window off the front gets a stone sill and a stone arch, never a brick head.',
+      'No house in the town uses it yet. 1801 Prairie, the Kimball house, will be the first, in Bedford stone.',
+    ] },
   { v: 2045, ts: '2026-10-19T06:24:43.488Z', date: 'Oct 19, 2026, 1:24 AM CT', title: 'Two new style guides: Second Empire and Italianate', kind: 'feature',
     items: [
       'Inspect\'s Design tab has style guides for Second Empire and Italianate, each with four things to look for and a period picture with its credit.',
