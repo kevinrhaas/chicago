@@ -1,4 +1,26 @@
 export const CHANGELOG = [ // newest first
+  { v: 2065, ts: '2026-10-19T15:54:13.631Z', date: 'Oct 19, 2026, 10:54 AM CT', title: 'Keith\'s loggia stands where its plan puts it', kind: 'improvement',
+    items: [
+      '1808 Prairie\'s loggia now stands on slimmer 0.6 m pedestals at the places the 1888 floor plan draws, its paired columns closer together, and the front stair narrowed to the plan\'s 1.8 m with its north wall running into the loggia.',
+      'In the 1888 engraving the rebuilt columns now land on the drawing\'s own; the 1965 photograph still reads each pair a little wider, which is the next thing to settle.',
+    ] },
+  { v: 2064, ts: '2026-10-19T15:54:13.631Z', date: 'Oct 19, 2026, 10:54 AM CT', title: 'Glessner\'s courtyard dormers drawn to the 1963 survey', kind: 'improvement',
+    items: [
+      'The third dormer moves a full foot south, to where the HABS courtyard drawing puts it, and the first moves two inches north.',
+      'Each dormer\'s bell finial now shows: the hip covers are slimmed to the drawing\'s single line and stop under the bell instead of burying it.',
+      'The bell is fuller and stands where it is drawn, and the apron\'s fascia and the window\'s frame are cut to the drawing\'s sizes.',
+    ] },
+  { v: 2063, ts: '2026-10-19T15:12:55.865Z', date: 'Oct 19, 2026, 10:12 AM CT', title: 'Ghosted trees in the Confidence view fade by dither', kind: 'fix',
+    items: [
+      'In the Confidence view, a grade set to Ghost now fades the trees with a fine screen-door pattern at its opacity, as fences and yards already do, instead of drawing the wood a second time. X-ray\'s trees fade the same way.',
+      'That keeps a ghosted view within the frame budget now that the fort\'s and Dr. Harmon\'s young fruit trees stand among the woods. The town at Normal is unchanged.',
+    ] },
+  { v: 2062, ts: '2026-10-19T15:12:55.865Z', date: 'Oct 19, 2026, 10:12 AM CT', title: 'The Confidence view remembers your choices and shows a legend', kind: 'feature',
+    items: [
+      'Presets, hidden grades, colours, looks and opacity now come back when you reload, and when you Jump to another year. Before, the colouring itself was forgotten.',
+      'While the Confidence view is on, a small chip by the year chip shows a dot for each grade in the colour it wears. Tap it to open the Confidence view.',
+      'If your browser won\'t save anything, the view simply opens at Normal.',
+    ] },
   { v: 2061, ts: '2026-10-19T14:11:36.406Z', date: 'Oct 19, 2026, 9:11 AM CT', title: '1625 Prairie\'s side wall drops to its photographed eave', kind: 'change',
     items: [
       '1625 Prairie Avenue\'s south side wall now stops at 10.9 m, where the 1890 photograph puts its eave, instead of running up 2 m higher to the gable\'s foot.',

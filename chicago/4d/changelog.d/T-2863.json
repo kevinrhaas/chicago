@@ -1,8 +1,0 @@
-{
-  "title": "Ghosted trees in the Confidence view fade by dither",
-  "kind": "fix",
-  "items": [
-    "In the Confidence view, a grade set to Ghost now fades the trees with a fine screen-door pattern at its opacity, as fences and yards already do, instead of drawing the wood a second time. X-ray's trees fade the same way.",
-    "That keeps a ghosted view within the frame budget now that the fort's and Dr. Harmon's young fruit trees stand among the woods. The town at Normal is unchanged."
-  ]
-}
