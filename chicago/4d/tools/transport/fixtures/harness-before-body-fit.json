@@ -1,0 +1,209 @@
+{
+  "asset_id": "light_breastcollar_harness_reconstructed_01",
+  "units": "metres",
+  "trace_width_m": 0.0254,
+  "strap_width_m": 0.026,
+  "strap_thickness_m": 0.004,
+  "bridle_width_m": 0.018,
+  "rein_width_m": 0.014,
+  "rein_thickness_m": 0.003,
+  "check_rein_radius_m": 0.003,
+  "trace_tail_z_m": -2.25,
+  "driver_hands_m": [
+    [
+      0.13,
+      1.55,
+      -2.3
+    ],
+    [
+      -0.13,
+      1.55,
+      -2.3
+    ]
+  ],
+  "head_origin_m": [
+    0,
+    1.88,
+    0.8
+  ],
+  "shaft_tug_center_m": [
+    0.405,
+    1.0,
+    0.05
+  ],
+  "shaft_tug_bore_radius_m": 0.037,
+  "shaft_tug_section_radius_m": 0.006,
+  "breastcollar_width_axis": [
+    0,
+    0.869,
+    0.495
+  ],
+  "breastcollar_route_m": [
+    [
+      0.238396,
+      1.337854,
+      0.199043
+    ],
+    [
+      0.24833,
+      1.337846,
+      0.297953
+    ],
+    [
+      0.217892,
+      1.33606,
+      0.412946
+    ],
+    [
+      0.15347,
+      1.332872,
+      0.553992
+    ],
+    [
+      0,
+      1.329404,
+      0.698044
+    ],
+    [
+      -0.15347,
+      1.332872,
+      0.553992
+    ],
+    [
+      -0.217892,
+      1.33606,
+      0.412946
+    ],
+    [
+      -0.24833,
+      1.337846,
+      0.297953
+    ],
+    [
+      -0.238396,
+      1.337854,
+      0.199043
+    ]
+  ],
+  "leather_linear_rgb": [
+    0.025,
+    0.016,
+    0.01
+  ],
+  "metal_linear_rgb": [
+    0.6,
+    0.59,
+    0.55
+  ],
+  "source_rule": "Only trace width is text-attested to Moore 1891 No1; every other dimension/route is reconstructed fixture geometry.",
+  "breastcollar_surface_normals": [
+    [
+      0.9536050784440734,
+      0.2854380486007584,
+      -0.09571771781856286
+    ],
+    [
+      0.9538384394154951,
+      0.28463716841853015,
+      -0.0957800365651178
+    ],
+    [
+      0.9040346027079602,
+      0.10603094782695728,
+      0.40951704405764544
+    ],
+    [
+      0.868958988566574,
+      -0.21282353552055489,
+      0.4462275737109369
+    ],
+    [
+      0,
+      -0.5595557029155457,
+      0.8043615574482319
+    ],
+    [
+      -0.868958988566574,
+      -0.21282353552055489,
+      0.4462275737109369
+    ],
+    [
+      -0.9040346027079602,
+      0.10603094782695728,
+      0.40951704405764544
+    ],
+    [
+      -0.9538384394154951,
+      0.28463716841853015,
+      -0.0957800365651178
+    ],
+    [
+      -0.9536050784440734,
+      0.2854380486007584,
+      -0.09571771781856286
+    ]
+  ],
+  "breastcollar_width_m": 0.05,
+  "breastcollar_thickness_m": 0.008,
+  "headstrap_reconstruction_trial": {
+    "cheekpiece_top_m": [
+      0.096,
+      0.0175,
+      -0.06
+    ],
+    "crownpiece_z_m": -0.06,
+    "noseband_center_y_m": -0.125,
+    "noseband_radii_xy_m": [
+      0.084,
+      0.09
+    ],
+    "basis": "Original head-surface toile V3: added poll-side contour anchor avoids long-chord skull crossing; brow bottom edge lifted3-5mm; all endpoints/bodygear/width/thickness unchanged versus declared trial controls",
+    "cheekpiece_middle_m": [
+      0.096,
+      0.06,
+      0.15
+    ],
+    "cheekpiece_lower_m": [
+      0.088,
+      -0.11,
+      0.28
+    ],
+    "crownpiece_center_y_m": 0.0175,
+    "crownpiece_radii_xy_m": [
+      0.096,
+      0.139
+    ],
+    "browband_route_m": [
+      [
+        -0.096,
+        0.06,
+        0.15
+      ],
+      [
+        -0.06,
+        0.077,
+        0.18
+      ],
+      [
+        0,
+        0.084,
+        0.205
+      ],
+      [
+        0.06,
+        0.077,
+        0.18
+      ],
+      [
+        0.096,
+        0.06,
+        0.15
+      ]
+    ],
+    "cheekpiece_poll_m": [
+      0.123,
+      0.045,
+      0.065
+    ]
+  }
+}

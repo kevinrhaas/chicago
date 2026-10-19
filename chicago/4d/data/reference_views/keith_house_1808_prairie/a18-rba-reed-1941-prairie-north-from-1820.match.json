@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-rba-reed-1941-prairie-north-from-1820",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "37618537fd47c6cf160a1a3b8251c0a461c2a6b3878d18ec20cfea6dccb9a6c2",
+  "glb_sha256": "9e1eea5b84ad8dc8d310b33cd7da265c551c725885a6c6a01c3f634e1330078b",
   "camera_sha256": "482684ed8d4b491c02678a2bd7c6f647abc4e4bf566c851c9cd4a588b8887b13",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-rba-reed-1941-prairie-north-from-1820-side-by-side.jpg",
   "verdict": "matches",
@@ -46,6 +46,14 @@
     {
       "what": "T-2813: re-rendered with Keith's crown 0.16 m lower (the moulded course under the lattice 0.20 m deep where it was 0.36 m, the checker and head bands unmoved); its camera re-solved on the moved crown controls (3.28 to 3.39 px RMS, tools/keith_crown_resolve.py). Read again at the crown beside the previous render: the lattice, coping and pinnacles move a few pixels at this picture's scale and nothing it shows opens a difference; the verdict stands as it was (matches).",
       "status": "fixed"
+    },
+    {
+      "what": "T-2876: re-rendered on the GLB in the tree, T-2845's loggia (0.6 m pedestals at the first-floor plan's place, each pair's shafts 0.36 m apart, the flight 1.8 m clear and the stoop 0.15 m south), and read again beside the previous render and the picture: the render changes only at the loggia (x 318-420, y 187-524), which the 1941 view sees end-on behind 1812's front and trees; nothing it shows of Keith moved. Nothing it shows opens a difference; the verdict returns to matches.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2881: re-rendered on the loggia with its rear row built (a pedestal 0.6 m square against the wall behind each front one, carrying a pair of turned shafts 0.39 m off the wall at a 0.28 m pitch, their radii 0.78 of the front's, under a paired capital; tools/keith_loggia_rear_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-rear-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 348-359, y 417-465), which the 1941 view sees end-on behind 1812's front and trees; the rear north pair stands inside the loggia's dark, where this view shows nothing of it. Nothing it shows opens a difference; the verdict returns to matches.",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

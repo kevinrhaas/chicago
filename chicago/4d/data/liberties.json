@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 640,
+  "count": 643,
   "liberties": [
     {
       "id": "L1",
@@ -35489,6 +35489,14 @@
           "text": "the west cheek's light, the print's most visible (about 0.3 m across): K08's frame and piers need 0.7 m of cheek for any light, and its corbel cannot carry a cheek that deep on a face this short. The cheek stands plain until the kit can light it (T-2847)."
         },
         {
+          "label": "Evidence since, 2026-10-19 (T-2883)",
+          "text": "both are now read off the print. The west cheek's light is built (K08's `narrow` light: one light a sash on K06's least stile, its sill and lintel stopped at its jambs, the cheek's stone its surround), 0.3 m across with its centre 0.22 m out from the wall, 3.72-5.47 m, its edges within about 1-2 px of the print's (x 507-516); and the apron is K08's `apron`: the oriel's plan carried straight down as a flat face to a moulded foot at 2.3 m (the print's y 718), the foot 0.11 m tall and 0.05 m proud, closed under it back to the wall."
+        },
+        {
+          "label": "Still invented",
+          "text": "the light's kind (a sash; the print shows a light and a bar about 0.43-0.46 of it down, which a sash's meeting rail at half-way stands within about 1 px of, and cannot say sash or casement); the foot's section (a fillet and a cyma, at the print's height and nose); and the apron's stone, laid as the oriel's own where the print reads it darker and stippled (an open item on the match record, T-2885)."
+        },
+        {
           "label": "How to resolve",
           "text": "a view of 1625 from the south, or the oriel's own drawing, would settle its plan, its east cheek and its apron."
         },
@@ -36436,6 +36444,45 @@
         {
           "label": "Recorded",
           "text": "2026-10-13 (T-2481)."
+        }
+      ]
+    },
+    {
+      "id": "L-season-view-2864",
+      "title": "The Season setting in 1812 and 1835: spring, fall and winter on scenes dated 14 August and 1 July",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Settings › Season is offered in every year, not only 1904. In 1812 (dated 14 August) and 1835 (dated 1 July) summer is the scene's own day and stays the default; spring, fall and winter move the sun to 25 April, 20 October and 21 December of that year at the scene's hour, and repaint the ground as 1904's do (snow, a fresher or browner sward, fallen leaves), with snow on the roofs and trodden on the earth roads. The woods are re-grown with a season's crown: first leaf in spring, a thinner crown in fall, bare limbs in winter. In fall each stand turns yellow, orange, oak russet or olive by place, not by species; the thickets go twig grey-brown in winter; the prairie sward is fresh in spring with no July flower, tawny in fall and straw in winter, its flowers gone to seed heads; the far band of woods goes olive-russet and then bare grey (`renderers/web/js/season.js` patchFoliage, `trees.js` setSeason)."
+        },
+        {
+          "label": "What it stands on",
+          "text": "the sun's path is computed (NOAA's algorithm, `world.js`) for the date it names. That tallgrass prairie cures tawny to russet in autumn and stands as straw through the winter, and that the region's oaks, maples, elms and ashes turn and drop their leaves in October, is general knowledge of these plant communities, not a record of either year."
+        },
+        {
+          "label": "What is invented",
+          "text": "every particular of any day: the snow and where it lay, how far the leaves had turned, which stand turned which colour (the colour is a smooth pattern over the ground, not each tree's species), the season's dates themselves, and how the river, the lake and the people looked in them, which this setting does not change at all. The scenes reconstruct their own summer days; the other seasons are a way of looking at them, never a claim about the town on those days."
+        },
+        {
+          "label": "How to resolve",
+          "text": "dated accounts of the river's freezing and the first snow in 1812 or 1835 would set winter's ground; per-species autumn colour drawn from the woods' own species records would replace the place-based colours."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2864."
+        },
+        {
+          "label": "Review",
+          "text": "`renderers/web/js/season.js`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-19 (T-2864)."
         }
       ]
     },
@@ -37405,6 +37452,14 @@
         {
           "label": "Still invented",
           "text": "the pitch and the side parapet's place are read at a few pixels on the plate and the plan; the turned bases and necks are trimmed to 0.175 m in radius (from 0.2) so the closer shafts do not run into each other, and the paired capital widened to span them (0.71 m), neither read off any picture. The 1965 slide still reads the loggia about 1.1 times taller than built, and each pair about 8 px wider than built; the column stays at 2.2 m on the plate (0.999) and Nickel 1967 (0.994), and the pairs' width is T-2816's to rule."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-19 (T-2881) — **the loggia's rear row built.** The 1888 plate draws a second pair of shafts behind each front pair (T-2876). Read at its native 1559 px through `inland-1888`'s camera (`tools/keith_loggia_rear_read.py`, `docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-rear-read.json`), the four rear shafts' middles (x 823.2, 841.8, 1025.8 and 1046.7) fit at 1.14 px RMS with each pair at its front pair's v, 0.39 m off the wall at a 0.28 m pitch, and the south rear pedestal's lit face reads 0.54-0.58 m off the wall. So the K07 loggia takes `rear`: a pedestal 0.6 m square against the wall behind each front one, carrying a pair of turned shafts 0.39 m off the wall at a 0.28 m pitch, their radii 0.78 of the front's (0.24 m shafts, so the closer pair does not run together), under a paired capital, the north side parapet now running from the rear pedestal. Built so, the row draws the four middles within 1.7 px of the print's, and Nickel 1967's lit shaft between the front pairs is its south pair."
+        },
+        {
+          "label": "Still invented",
+          "text": "the rear shafts' girth is set by the pitch the plate reads, not measured (their silhouettes are in shade); their profile, capital and the pedestals' fields are the front's; and the plan under the plate draws the block at the wall only about 0.21 m deep, where a pedestal that carries the pair the plate reads must be about 0.55 m. That block, and a lit upright the plate draws beside the north rear pair (x 997-1009), are T-2882's."
         }
       ]
     },
@@ -41489,6 +41544,37 @@
       ]
     },
     {
+      "id": "L418",
+      "title": "Resident workwear studies on a licensed human base",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-18",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The 2026-10-18 generic transport-human studies depict no identified resident. Their body begins with the CC0 MakeHuman hm08 graphical base pinned in `assets/authored/humans/makehuman_hm08/SOURCE.json`, not its AGPL application code. A chosen 1.75 m height, sole registration, source A-to-T limb rotation, helper-joint interpretation, 163-to-56 joint mapping and four-influence pruning are reconstructed engineering choices. The preparation report quantifies discarded weights and pose displacement; anatomy, palm roll and joint correctives remain review items. The 1835 recipe fits originally authored shirt, separate waistcoat, high-waisted pantaloons, collar and closed shoes to that base. Nearby newspaper clothing terms are text evidence only; an advertisement dated 4 July does not establish stock on 1 July. Exact cut, seam placement, fit ease, colors, body shape, skin appearance and synthetic motion are reconstructed. Color variants are pipeline proofs, not three attested people. No named likeness, occupation, ethnicity, livery or exact historical wardrobe is attested by the mesh. These studies require actual canonical exports, close rendering, skinning/garment contact and period review before scene placement. Flat PBR colors do not meet the requested photographic skin/clothing quality. The owner's subsequent October 18 direction prioritizes existing attested, inferred or reconstructed people. The first studies now reference already reconstructed 1835 residents `rc_bardwell_otis`, `rc_dufresne_joseph` and `rc_flynn_martin` instead of introducing anonymous scene residents. Their modeled identities, occupations and age bands retain the underlying reconstruction basis; no portrait or attested likeness is supplied by assigning the existing record to a reusable body. Appearance and staged transport actions require their own declared reconstruction and review."
+        },
+        {
+          "label": "Applies to",
+          "text": "`assets/authored/humans/makehuman_hm08/`, the original workwear recipe and canonical builder, and `bardwell_otis_1835`, `dufresne_joseph_1835`, `flynn_martin_1835` study exports. No structure claim is discharged."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-18 (T-1789)."
+        },
+        {
+          "label": "Adult-body and skin update (2026-10-18)",
+          "text": "The neutral source body is not accepted as the finished male anatomy. Hash-verified CC0 hm08 male young/old shape deltas now change visible and helper vertices together before joint reconstruction and posing. Engineering ages 25 and 35 are chosen within the modeled bands, not read birth years. An equal blend of source software-category shapes is an authoring choice, not scientifically neutral ethnicity or inferred ancestry. MargaretToigo's CC0 original 2K bronze male skin atlas is a reusable component, not these residents' complexion or likeness; its actual source metadata, CRC and hashes are retained. Roughness, body proportions, garment patterns and all animation remain reconstructed and need canonical export/render review. No skin upscaling is called 4K detail."
+        },
+        {
+          "label": "Hair component update (2026-10-19)",
+          "text": "Existing reconstructed residents `rc_bardwell_otis`, `rc_dufresne_joseph` and `rc_flynn_martin` retain their current identity, age-band, occupation and presence basis. Their referenced studies may share the cleared CC0 MakeHuman short04 component, fitted to each selected adult25/35 prepared body. Hair shape, dark color, parting, hairline, density and grooming are reconstructed appearance choices, not attested1835hairstyles or individual likenesses. This introduces no new person or biography and implies no ethnicity. Source license clearance is not historical style acceptance. The adaptation retains signed geometric proxy coefficients; normalized existing body skinweights clamp one negative interpolation row (maximum mass0.0000127) and keep at most4joints. The original Vmaximum1.0031 is remapped with a clearly labeled periodic-padded derivative:8toprows+1bottomrow, Vnew=(2048V+1)/2057. Measured unminified bilinear equivalence does not establish mipmap/aniso/export equivalence. PBR roughness.65, alpha threshold.4 and double-sided rendering are reconstructed shader choices, not the original legacy litsphere appearance. Source topology retained at every LOD pending measured reductions. Actual pinned exporter source statically recognizes the proposed 1-(Alpha<.4) node pattern as glTF MASK/.4; actual canonical BPy creation, packed image decode, exported material/UV/skin integrity and close/mobile hair-edge, scalp/ear/collar and animated-contact review still require CI. No photographic quality, historical haircut acceptance or independently validated resident depiction is claimed by this addendum."
+        }
+      ]
+    },
+    {
       "id": "L-k01-1637-south-flank-2781",
       "title": "1637 Prairie's south flank: its belt course laid at the photograph's height, its bay's columns plain, and its stack placed by crossing two pictures",
       "section": "per_subject",
@@ -41545,6 +41631,35 @@
         {
           "label": "Recorded",
           "text": "2026-10-19 (T-2870)."
+        }
+      ]
+    },
+    {
+      "id": "L-glessner-stack-width-2873",
+      "title": "Glessner's 18th Street stack widened to the 7.1 ft HABS 14 reads, its stones and crosses with it",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the `glessner_house` north-gable stack's face is 7.1 ft wide (W 15.25-22.35), where it was 5.1 ft (W 16.25-21.35), and its two date stones are 4.4 and 4.3 ft (they were 3.1 and 2.8), the two crosses moved out with the face's edges (W 15.9 and 21.7). **What is read, not invented.** From HABS photograph 14 (`habs_glessner_photo_14_north_inclined_1965`, no known restrictions), through its camera solved on the north wall's plane, the plane the stack's face is flush with: the stack's silhouette, 128-137 px across through the stones' rows (x 909-1041), is W 15.0-22.3 with the stack's 3.1-ft depth; the stones' 78 and 75 px are 4.4 and 4.3 ft; the crosses stand about 0.65 ft inside the face's edges. Photograph 4 (c. 1923) agrees in proportion (the stones fill about 0.6 of the face). HABS photograph 1 (1963) reads the face about 6.3 ft, on a level camera that reads this roof about 2 ft low. **What is invented.** The 0.2 ft taken off the silhouette for the rock faces' reach at its two edges, and the centring: HABS 14 puts the face's centre within 0.15 ft of the gable apex, and it is kept on the apex at W 18.8 with the stones and crosses, as the 1888 plate shows the stack centred on the gable. The reading is through a hand-solved camera, about +/-0.4 ft. No sheet gives the width: sheet 6 draws the stack edge-on and sheet 3 only the corner fireplace whose flue it carries."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a measured elevation of the 18th Street gable, or a tape on today's stack."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2873 (piece 2 of T-2871)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-19 (T-2873)."
         }
       ]
     },

@@ -1,0 +1,52 @@
+[
+  {
+    "path": "renderers/web/transport/horse/equine_light_harness_skinned_prototype_01.glb",
+    "bytes": 715316,
+    "sha256": "89b048b7cda748e6f3a7111aa8e4f3198b01fabf6015cae644c78ed02d385bc6"
+  },
+  {
+    "path": "renderers/web/transport/horse/manifest.json",
+    "bytes": 17181,
+    "sha256": "6d5cccb73dbae3dae52a5db6ef0a8cf1be0e79095467c0348cdb0dd315bf2e6a"
+  },
+  {
+    "path": "renderers/web/transport/horse/demo.js",
+    "bytes": 5620,
+    "sha256": "b33d0b8a60dbd9b7f0b2ed2160619b654ddd1659cd62e3ee645bdcb0127167f7"
+  },
+  {
+    "path": "renderers/web/transport/horse/index.html",
+    "bytes": 1610,
+    "sha256": "8f00c48ef866dad549a9368ebad4b115b6966e5554c3ec0ff70a55c593af238d"
+  },
+  {
+    "path": "renderers/web/transport/harness/light_breastcollar_harness_reconstructed_01.glb",
+    "bytes": 569564,
+    "sha256": "b4a7318053e8508617a24fff64f02beb7eee77684db689dc04771d209a54fa8b"
+  },
+  {
+    "path": "renderers/web/transport/harness/manifest.json",
+    "bytes": 5370,
+    "sha256": "d97d6b4328b234939dfe320d7174553a42de4c40317523ca288b18c51e62428a"
+  },
+  {
+    "path": "tools/transport/head-fit/head-fit.js",
+    "bytes": 6726,
+    "sha256": "05635593fa76e197e7da0d8b1a387c3830572006f894f999b7157c7dc436e525"
+  },
+  {
+    "path": "tools/transport/head-fit/geometry-distance.js",
+    "bytes": 1688,
+    "sha256": "d304f49169679b4fcb1947496f01fa88281e903bda430c6213f66a3b0ec9615b"
+  },
+  {
+    "path": "docs/RESEARCH/period-transport-2026-10-18/harness-fit/measure.py",
+    "bytes": 4248,
+    "sha256": "02cb8e4a90f5c8ac581ddb62d52cde55cf8e641f64e622020a83fd420be0c69e"
+  },
+  {
+    "path": "docs/RESEARCH/period-transport-2026-10-18/harness-fit/measure_forelimbs.py",
+    "bytes": 6068,
+    "sha256": "fbf08d182fc2395221d2202e5d2b21973f7f4560b043d1bdf2a3314637e8e586"
+  }
+]

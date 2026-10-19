@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-glessner-front-with-keith",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "37618537fd47c6cf160a1a3b8251c0a461c2a6b3878d18ec20cfea6dccb9a6c2",
+  "glb_sha256": "9e1eea5b84ad8dc8d310b33cd7da265c551c725885a6c6a01c3f634e1330078b",
   "camera_sha256": "4635894ce3104edd82f51b4f4ea46222d84e68fce6d8e8d0d30ef17cdb6a128f",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-glessner-front-with-keith-side-by-side.jpg",
   "verdict": "matches",
@@ -53,6 +53,14 @@
     },
     {
       "what": "T-2714: the checker band's units are pitched 0.28 m along their rows (0.336 m before), with 0.07 m of ground between neighbours, as the 1888 Keith plate lays them; the rows are unchanged. Not judged here: Keith's front is edge-on behind the return; the band's units are not resolved.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2876: re-rendered on the GLB in the tree, T-2845's loggia (0.6 m pedestals at the first-floor plan's place, each pair's shafts 0.36 m apart, the flight 1.8 m clear and the stoop 0.15 m south), and read again beside the previous render and the picture: the render changes only at Keith's loggia (x 12-316), which this picture shows behind Glessner's front and a street tree; the capital and pair it shows sit on the render's within the tree's cover, and nothing behind them is visible. Nothing it shows opens a difference; the verdict returns to matches.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2881: re-rendered on the loggia with its rear row built (a pedestal 0.6 m square against the wall behind each front one, carrying a pair of turned shafts 0.39 m off the wall at a 0.28 m pitch, their radii 0.78 of the front's, under a paired capital; tools/keith_loggia_rear_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-rear-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 61-115, y 900-1138), which this picture shows behind Glessner's front and a street tree; nothing behind the front pair is visible, so the rear row is not read. Nothing it shows opens a difference; the verdict returns to matches.",
       "status": "not shown"
     }
   ],

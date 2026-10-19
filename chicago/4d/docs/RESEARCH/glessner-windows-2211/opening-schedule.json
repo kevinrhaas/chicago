@@ -2,37 +2,10 @@
  {
   "face": "east",
   "record": "openings_prairie",
-  "what": "basement lights, 3 x 3",
-  "at_ft": [
-   8.1,
-   12.0
-  ],
-  "z_ft": [
-   0.8,
-   4.7
-  ],
-  "z_from": "item",
-  "lights": 1,
-  "kind": "window",
-  "style": "stone_grille",
-  "transom_ft": null,
-  "built_as": "3 x 3 basement grille light, recessed glass",
-  "confidence": "attested",
-  "sources": [
-   "habs_glessner_house_il_1015_drawings",
-   "inland_architect_1888_02_glessner_exterior",
-   "glessner_porte_cochere_doors_c1888",
-   "artic_glessner_sheet_95_main_entrance_door",
-   "artic_glessner_sheet_23a_entrance_detail"
-  ]
- },
- {
-  "face": "east",
-  "record": "openings_prairie",
   "what": "first-floor windows",
   "at_ft": [
-   8.1,
-   12.0
+   7.19,
+   11.65
   ],
   "z_ft": [
    9.2,
@@ -56,10 +29,37 @@
  {
   "face": "east",
   "record": "openings_prairie",
+  "what": "basement lights, 3 x 3",
+  "at_ft": [
+   7.47,
+   11.37
+  ],
+  "z_ft": [
+   0.8,
+   4.7
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "window",
+  "style": "stone_grille",
+  "transom_ft": null,
+  "built_as": "3 x 3 basement grille light, recessed glass",
+  "confidence": "attested",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "inland_architect_1888_02_glessner_exterior",
+   "glessner_porte_cochere_doors_c1888",
+   "artic_glessner_sheet_95_main_entrance_door",
+   "artic_glessner_sheet_23a_entrance_detail"
+  ]
+ },
+ {
+  "face": "east",
+  "record": "openings_prairie",
   "what": "second-floor group of three",
   "at_ft": [
-   9.3,
-   19.4
+   8.98,
+   19.12
   ],
   "z_ft": [
    19.8,
@@ -83,21 +83,21 @@
  {
   "face": "east",
   "record": "openings_prairie",
-  "what": "basement lights, 3 x 3",
+  "what": "first-floor windows",
   "at_ft": [
-   16.9,
-   20.8
+   16.28,
+   20.67
   ],
   "z_ft": [
-   0.8,
-   4.7
+   9.2,
+   14.5
   ],
   "z_from": "item",
   "lights": 1,
   "kind": "window",
-  "style": "stone_grille",
+  "style": "prairie_sash",
   "transom_ft": null,
-  "built_as": "3 x 3 basement grille light, recessed glass",
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
   "confidence": "attested",
   "sources": [
    "habs_glessner_house_il_1015_drawings",
@@ -110,21 +110,21 @@
  {
   "face": "east",
   "record": "openings_prairie",
-  "what": "first-floor windows",
+  "what": "basement lights, 3 x 3",
   "at_ft": [
-   16.9,
-   20.8
+   16.53,
+   20.43
   ],
   "z_ft": [
-   9.2,
-   14.5
+   0.8,
+   4.7
   ],
   "z_from": "item",
   "lights": 1,
   "kind": "window",
-  "style": "prairie_sash",
+  "style": "stone_grille",
   "transom_ft": null,
-  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "built_as": "3 x 3 basement grille light, recessed glass",
   "confidence": "attested",
   "sources": [
    "habs_glessner_house_il_1015_drawings",
@@ -280,21 +280,21 @@
  {
   "face": "east",
   "record": "openings_prairie",
-  "what": "basement lights, 3 x 3",
+  "what": "first-floor windows",
   "at_ft": [
-   45.1,
-   49.0
+   44.87,
+   49.21
   ],
   "z_ft": [
-   0.8,
-   4.7
+   9.2,
+   14.5
   ],
   "z_from": "item",
   "lights": 1,
   "kind": "window",
-  "style": "stone_grille",
+  "style": "prairie_sash",
   "transom_ft": null,
-  "built_as": "3 x 3 basement grille light, recessed glass",
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
   "confidence": "attested",
   "sources": [
    "habs_glessner_house_il_1015_drawings",
@@ -307,21 +307,21 @@
  {
   "face": "east",
   "record": "openings_prairie",
-  "what": "first-floor windows",
+  "what": "basement lights, 3 x 3",
   "at_ft": [
-   45.1,
-   49.0
+   45.09,
+   48.99
   ],
   "z_ft": [
-   9.2,
-   14.5
+   0.8,
+   4.7
   ],
   "z_from": "item",
   "lights": 1,
   "kind": "window",
-  "style": "prairie_sash",
+  "style": "stone_grille",
   "transom_ft": null,
-  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "built_as": "3 x 3 basement grille light, recessed glass",
   "confidence": "attested",
   "sources": [
    "habs_glessner_house_il_1015_drawings",
@@ -361,21 +361,21 @@
  {
   "face": "east",
   "record": "openings_prairie",
-  "what": "basement lights, 3 x 3",
+  "what": "first-floor windows",
   "at_ft": [
-   54.4,
-   58.3
+   53.98,
+   58.4
   ],
   "z_ft": [
-   0.8,
-   4.7
+   9.2,
+   14.5
   ],
   "z_from": "item",
   "lights": 1,
   "kind": "window",
-  "style": "stone_grille",
+  "style": "prairie_sash",
   "transom_ft": null,
-  "built_as": "3 x 3 basement grille light, recessed glass",
+  "built_as": "one-over-one double-hung, upper sash outside the lower",
   "confidence": "attested",
   "sources": [
    "habs_glessner_house_il_1015_drawings",
@@ -388,21 +388,21 @@
  {
   "face": "east",
   "record": "openings_prairie",
-  "what": "first-floor windows",
+  "what": "basement lights, 3 x 3",
   "at_ft": [
-   54.4,
-   58.3
+   54.24,
+   58.14
   ],
   "z_ft": [
-   9.2,
-   14.5
+   0.8,
+   4.7
   ],
   "z_from": "item",
   "lights": 1,
   "kind": "window",
-  "style": "prairie_sash",
+  "style": "stone_grille",
   "transom_ft": null,
-  "built_as": "one-over-one double-hung, upper sash outside the lower",
+  "built_as": "3 x 3 basement grille light, recessed glass",
   "confidence": "attested",
   "sources": [
    "habs_glessner_house_il_1015_drawings",

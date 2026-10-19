@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-owner-1800-block-looking-sw",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "37618537fd47c6cf160a1a3b8251c0a461c2a6b3878d18ec20cfea6dccb9a6c2",
+  "glb_sha256": "9e1eea5b84ad8dc8d310b33cd7da265c551c725885a6c6a01c3f634e1330078b",
   "camera_sha256": "062073704791ce2c410ebcc52694bc7b9f4753a84a02d722336cb0678747286d",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-owner-1800-block-looking-sw-side-by-side.jpg",
   "verdict": "matches",
@@ -58,6 +58,14 @@
     {
       "what": "T-2813: re-rendered with Keith's crown 0.16 m lower (the moulded course under the lattice 0.20 m deep where it was 0.36 m, the checker and head bands unmoved); its camera re-solved on the moved crown controls (carried from the c. 1888 camera through its map, tools/keith_crown_resolve.py). Read again at the crown beside the previous render: the lattice, coping and pinnacles move a few pixels at this picture's scale and nothing it shows opens a difference; the verdict stands as it was (matches).",
       "status": "fixed"
+    },
+    {
+      "what": "T-2876: re-rendered on the GLB in the tree, T-2845's loggia (0.6 m pedestals at the first-floor plan's place, each pair's shafts 0.36 m apart, the flight 1.8 m clear and the stoop 0.15 m south), and read again beside the previous render and the picture: the render changes only at the loggia and flight (x 269-416, y 0-283); at this copy's size the loggia's pairs are a few pixels each and their move is below its grain, and it cannot read a rear row (not shown). Nothing it shows opens a difference; the verdict returns to matches.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2881: re-rendered on the loggia with its rear row built (a pedestal 0.6 m square against the wall behind each front one, carrying a pair of turned shafts 0.39 m off the wall at a 0.28 m pitch, their radii 0.78 of the front's, under a paired capital; tools/keith_loggia_rear_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-rear-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 335-364, y 181-240); at this copy's size the loggia's pairs are a few pixels each and the rear row is below its grain. Nothing it shows opens a difference; the verdict returns to matches.",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -1,0 +1,100 @@
+{
+  "loaded_skinned_meshes": 6,
+  "rest": [
+    {
+      "name": "skinned_equine_coat",
+      "vertices": 4154,
+      "joints": 15,
+      "mixed_weight_vertices": 3235,
+      "max_displacement_m": 7.207873982095578e-8
+    },
+    {
+      "name": "skinned_equine_mane_tail",
+      "vertices": 1474,
+      "joints": 15,
+      "mixed_weight_vertices": 50,
+      "max_displacement_m": 6.111518313118978e-8
+    },
+    {
+      "name": "skinned_equine_hooves",
+      "vertices": 392,
+      "joints": 15,
+      "mixed_weight_vertices": 0,
+      "max_displacement_m": 2.5599515052781404e-8
+    },
+    {
+      "name": "skinned_equine_eyes",
+      "vertices": 820,
+      "joints": 15,
+      "mixed_weight_vertices": 412,
+      "max_displacement_m": 6.444752659042209e-8
+    },
+    {
+      "name": "skinned_equine_muzzle",
+      "vertices": 122,
+      "joints": 15,
+      "mixed_weight_vertices": 0,
+      "max_displacement_m": 1.2839233334631493e-8
+    },
+    {
+      "name": "skinned_equine_ear_inner",
+      "vertices": 290,
+      "joints": 15,
+      "mixed_weight_vertices": 50,
+      "max_displacement_m": 6.503065921162983e-8
+    }
+  ],
+  "deformed": [
+    {
+      "name": "skinned_equine_coat",
+      "vertices": 4154,
+      "joints": 15,
+      "mixed_weight_vertices": 3235,
+      "max_displacement_m": 0.3033782677228607
+    },
+    {
+      "name": "skinned_equine_mane_tail",
+      "vertices": 1474,
+      "joints": 15,
+      "mixed_weight_vertices": 50,
+      "max_displacement_m": 0.03855487912691722
+    },
+    {
+      "name": "skinned_equine_hooves",
+      "vertices": 392,
+      "joints": 15,
+      "mixed_weight_vertices": 0,
+      "max_displacement_m": 0.3019366151179804
+    },
+    {
+      "name": "skinned_equine_eyes",
+      "vertices": 820,
+      "joints": 15,
+      "mixed_weight_vertices": 412,
+      "max_displacement_m": 0.003394836113894408
+    },
+    {
+      "name": "skinned_equine_muzzle",
+      "vertices": 122,
+      "joints": 15,
+      "mixed_weight_vertices": 0,
+      "max_displacement_m": 0.012627616202008479
+    },
+    {
+      "name": "skinned_equine_ear_inner",
+      "vertices": 290,
+      "joints": 15,
+      "mixed_weight_vertices": 50,
+      "max_displacement_m": 0.0077207195935163455
+    }
+  ],
+  "actual_rest_sole_vertex_count": 100,
+  "rest_sole_max_height_m": 9.394667716791268e-9,
+  "walk_samples": 1001,
+  "actual_sole_stance_drift_m": 0.00002009128421409656,
+  "actual_sole_stance_max_height_error_m": 0.000039603712960696544,
+  "actual_sole_min_y_m": -0.000039603712960696544,
+  "contact_definition": "all existing authored hoof vertices on the rest sole plane; no added/repositioned markers",
+  "no_foot_skate_target_20mm": true,
+  "page_errors": []
+}

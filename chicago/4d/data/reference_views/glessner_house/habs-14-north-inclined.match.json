@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "7d7d5f8dd802cff544cf9d9941bd61b36a15cbfb3ef7bbb6b2cfe18fa49b3eeb",
+  "glb_sha256": "22d4bb361f05c26ddab3d7b935c368538e48b03d63d7365d4cd36f91b772c6a5",
   "camera_sha256": "7639e074421cc7e1a4768e010e8678a6e3b2ed4af090a69cbfb58e6ebc7efd72",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
   "verdict": "differs",
@@ -28,8 +28,8 @@
       "status": "fixed"
     },
     {
-      "what": "T-2873 (found by T-2870): the north stack's face and both date stones read wider in the photograph than built: the face about 124 px across the stones' height (x 912-1036) against the render's 92, the upper stone 75 px against 49 and the lower 78 against 56, while every height (the stones 25 and 23 px, the crest) agrees within a few pixels. The shares of the face agree (0.60-0.63 against 0.55-0.61); the face itself is about 5.1 ft built.",
-      "status": "open"
+      "what": "T-2873: the north stack's face is widened from 5.1 to 7.1 ft (W 15.25-22.35, on the apex) and its stones from 3.1 and 2.8 to 4.4 and 4.3 ft, the crosses moved out with the face's edges. Read through this camera: the photograph's silhouette is 128-137 px across through the stones' rows (W 15.0-22.3 with the stack's depth), the stones 78 and 75 px. Re-rendered, the render's silhouette is 126-131 px through the same rows against the photograph's 125-134, and both stones and the device fall on the photograph's widths; HABS 01 agrees within its camera (silhouette 61 px against 58.5). L-glessner-stack-width-2873.",
+      "status": "fixed"
     },
     {
       "what": "The connector ridge is a camera-dependent reconstruction bounded by HABS14, not a second independently surveyed height; monochrome imagery cannot establish1904 material RGB.",
@@ -46,6 +46,10 @@
     {
       "what": "T-2872: the north tower finial, ruled against both north photographs; the plan is kept. On this camera the built tip (W 41, S 7.35, 44.9 ft) lands at x 1329, y 343 against the photograph's 1302, 354, about 29 px; HABS 01, whose camera was fitted with the tower left out, holds it to 3 px, and the two tips alone triangulate at about W 39.7 / S 8.8. A drum still tangent to 18th Street that carried that tip would have a radius of about 8.8 ft and a cone 1.2-1.3 times as wide as the built one, and the cone's own silhouette refuses it: HABS 01's two edges fit best at 0.9 of the built size (0.8-1.0 within half a pixel, the wider cone 1.4 px worse) and this photograph's right edge at 0.82. Every control in this camera but two lies in the north wall's plane, and those two are model-derived; re-solved with either one dropped, the camera moves the built tip by 28.5 px, the size of the miss. So the miss is this camera's depth, not the tower's plan. data/comparisons/glessner/north-finial.json (tools/glessner_north_finial_read.py).",
       "status": "fixed"
+    },
+    {
+      "what": "T-2854 (found by T-2873): the stack's vertical layout. The gable's coping meets the stack's sides about 34 px lower in the photograph than in the render (rows 326 against 292; about 20 px past the camera's 14 px stack-crest offset, roughly 1.5 ft), the 1886 stone stands about 0.6 ft lower under the device's stone (a 13 px gap against 5), and the two crosses read level at the 1886 stone's mid-height here where the record carries photograph 4's stepped reading.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

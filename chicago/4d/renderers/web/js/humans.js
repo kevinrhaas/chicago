@@ -14,8 +14,8 @@
  *                       drawn. tools/human_actor.html, a test page that is never published,
  *                       drives it with the CI fixture (`c4d_fixture`, who is nobody).
  *   mountHumans()       the SCENE path main.js calls. It reads the instance records filed under
- *                       the scene (§ 11) and hands the engine only those it may draw: L1 stands
- *                       (`contract.json § l1.in_force`), so today that is none of them. A scene
+ *                       the scene (§ 11) and hands the engine only eligible records. The owner
+ *                       lifted L1 for the portable path (T-2672); an explicit gate remains. A scene
  *                       that does not list the `humans` layer is given no data base, fetches
  *                       nothing and draws nobody — the scene-year gate.
  *
@@ -31,6 +31,7 @@
  * frame of work each.
  */
 import * as THREE from 'three';
+import { resolveHumanIdentity, humanRoleCard } from './human-identity.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { registerKTX2 } from './ktx2.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
@@ -144,10 +145,11 @@ const PROXY_MATERIAL = new THREE.MeshBasicMaterial({ visible: false });
  * skeleton, § 7) adds clips the body's own file does not carry.
  */
 export class HumanActor {
-  constructor({ instance, person = null, assets, heightAt = () => 0, clipLibrary = [], tier = 'full' }) {
+  constructor({ instance, person = null, identity = null, assets, heightAt = () => 0, clipLibrary = [], tier = 'full' }) {
     this.instance = instance;
     this.person = person;
-    this.personId = instance.person_id;
+    this.identity = identity ?? { kind: 'person', personId: instance.person_id, person, profile: null, role: null };
+    this.personId = this.identity.personId;
     this.id = instance.id;
     this.assets = assets;
     this.heightAt = heightAt;
@@ -156,6 +158,8 @@ export class HumanActor {
     this.root = new THREE.Group();
     this.root.name = `human:${instance.id}`;
     this.root.userData.personId = this.personId;
+    this.root.userData.instanceId = this.id;
+    this.root.userData.identityKind = this.identity.kind;
     this.proxy = new THREE.Mesh(PROXY_GEOMETRY, PROXY_MATERIAL);
     // Never submitted (a raycast tests layers, not visibility), so it is never uploaded either.
     this.proxy.visible = false;
@@ -470,6 +474,8 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
   const detail = (actor) => ({
     personId: actor.personId, instanceId: actor.id, state: actor.state,
     opens: actor.instance.interaction?.opens ?? 'none', person: actor.person,
+    identityKind: actor.identity.kind, profileId: actor.identity.profile?.id ?? null, role: actor.identity.role,
+    roleCard: humanRoleCard(actor.identity, actor.instance),
   });
   const emit = (type, actor) => events.dispatchEvent(new CustomEvent(type, { detail: detail(actor) }));
 
@@ -480,14 +486,17 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
     on(type, fn) { events.addEventListener(type, (ev) => fn(ev.detail)); return layer; },
     get count() { return actors.size; },
     get actors() { return [...actors.values()]; },
-    get(personId) { return [...actors.values()].find((a) => a.personId === personId) ?? null; },
+    get(personId) { return actors.get(personId) ?? (personId ? [...actors.values()].find((a) => a.personId === personId) : null) ?? null; },
 
     /** Stand one figure in the group. Refuses a second instance of one person (§ 11). */
-    add(instance, { person = null } = {}) {
-      if (actors.has(instance.id) || layer.get(instance.person_id)) {
+    add(instance, { person = null, profile = null, identity: validatedIdentity = null } = {}) {
+      if (actors.has(instance.id) || (instance.person_id && layer.get(instance.person_id))) {
         throw new Error(`humans: ${instance.person_id} already stands in this scene`);
       }
-      const actor = new HumanActor({ instance, person, assets: store, heightAt, clipLibrary, tier });
+      const identity = validatedIdentity ?? (instance.anonymous_profile_id
+        ? resolveHumanIdentity(instance, { profiles: profile ? [profile] : [] })
+        : { kind: 'person', personId: instance.person_id, person, profile: null, role: null });
+      const actor = new HumanActor({ instance, person, identity, assets: store, heightAt, clipLibrary, tier });
       actors.set(instance.id, actor);
       group.add(actor.root);
       return actor;
@@ -527,7 +536,8 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
         if (inside && !near.has(a)) {
           near.add(a);
           emit('approach', a);
-          if (a.instance.interaction?.opens === 'resident_card') emit('open', a);
+          if (a.instance.interaction?.opens === 'resident_card' && a.identity.kind === 'person') emit('open', a);
+          if (a.instance.interaction?.opens === 'role_card' && a.identity.kind === 'anonymous') emit('role_open', a);
         } else if (!inside && near.has(a)) {
           near.delete(a);
           emit('leave', a);
@@ -563,7 +573,8 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
       const a = typeof target === 'string' ? layer.get(target) : target?.actor ?? null;
       if (!a || !a.instance.interaction?.selectable) return null;
       emit('select', a);
-      if (a.instance.interaction?.opens === 'resident_card') emit('open', a);
+      if (a.instance.interaction?.opens === 'resident_card' && a.identity.kind === 'person') emit('open', a);
+          if (a.instance.interaction?.opens === 'role_card' && a.identity.kind === 'anonymous') emit('role_open', a);
       return detail(a);
     },
 
@@ -581,7 +592,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
  * it names, binds each to its person, and stands in the engine only the ones that may be drawn.
  *
  * `dataBase` null — the scene does not list `humans` — fetches nothing. A record is kept and
- * not drawn when it is `withheld`, when L1 is in force, when it is review_required, when its
+ * not drawn when it is `withheld`, when L1 is in force, when it drops person review metadata, when its
  * person does not resolve, or when its person already stands. Every refusal but `withheld`
  * (which is what a record says when it wants nothing drawn) is a line in `problems`.
  */
@@ -615,17 +626,24 @@ export async function mountHumans({
   const ids = Array.isArray(index.instances) ? index.instances : [];
   const records = await Promise.all(ids.map((id) => getJson(`humans/instances/${sceneId}/${id}.json`)
     .catch((err) => { problems.push(`humans: ${id} did not load (${err.message})`); return null; })));
+  const profiles = new Map();
+  for (const id of new Set(records.filter(Boolean).map(r => r.anonymous_profile_id).filter(Boolean))) {
+    if (!/^anonymous_[a-z0-9_]+$/.test(id)) continue;
+    try { const profile = await getJson(`humans/role_profiles/${id}.json`); if (profile.id === id) profiles.set(id, profile); }
+    catch (err) { problems.push(`humans: anonymous profile ${id} did not load (${err.message})`); }
+  }
   for (const rec of records.filter(Boolean)) {
     out.records.push(rec);
     const refuse = (why) => { out.refused.push({ id: rec.id, why }); problems.push(`humans: ${rec.id} is not drawn — ${why}`); };
-    const person = byId.get(rec.person_id);
-    if (String(rec.scene) !== String(sceneId)) refuse(`it is filed under ${sceneId} and says scene ${rec.scene}`);
-    else if (!person) refuse(`its person ${rec.person_id} is not in sidecars/${sceneId}/people.json`);
+    let identity;
+    try { identity = resolveHumanIdentity(rec, { sceneId, people: [...byId.values()], profiles: [...profiles.values()] }); }
+    catch (err) { refuse(err.message); continue; }
+    const person = identity.person;
+    if (person && (person.review_required || person.touches_removal) && !rec.review_required) refuse('its person carries review metadata that the instance dropped');
     else if (rec.display !== 'shown') out.withheld.push(rec.id);
     else if (l1) refuse('L1 is in force (data/humans/contract.json § l1): no human figure is drawn');
-    else if (rec.review_required) refuse('its person carries a standing review, and no review record exists yet');
-    else if (layer.get(rec.person_id)) refuse(`${rec.person_id} already stands in this scene`);
-    else layer.add(rec, { person });
+    else if (layer.get(rec.id) || (rec.person_id && layer.get(rec.person_id))) refuse('instance identity already stands in this scene');
+    else layer.add(rec, { person, profile: identity.profile, identity });
   }
   return out;
 }

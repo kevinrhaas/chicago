@@ -1,0 +1,46 @@
+{
+  "rows": [
+    {
+      "clip": "idle",
+      "sole_vertices": 100,
+      "samples": 1001,
+      "drift_m": 0,
+      "stance_height_m": 9.394667716791268e-9,
+      "minY_m": -9.394667716791268e-9,
+      "phase25_action_time_s": 0.3125,
+      "exported_cycle_s": 1.25,
+      "exported_stride_m": 0,
+      "expected_phase25_time_s": 0.3125
+    },
+    {
+      "clip": "walk",
+      "sole_vertices": 100,
+      "samples": 1001,
+      "drift_m": 0.00002009128421409656,
+      "stance_height_m": 0.000039603712960696544,
+      "minY_m": -0.000039603712960696544,
+      "phase25_action_time_s": 0.3125,
+      "exported_cycle_s": 1.25,
+      "exported_stride_m": 1.161290322580645,
+      "expected_phase25_time_s": 0.3125
+    },
+    {
+      "clip": "trot",
+      "sole_vertices": 100,
+      "samples": 1001,
+      "drift_m": 0.000008026338710998004,
+      "stance_height_m": 0.000024224859145874585,
+      "minY_m": -0.000024224859145874585,
+      "phase25_action_time_s": 0.18000000715255737,
+      "exported_cycle_s": 0.72,
+      "exported_stride_m": 1.3076923076923077,
+      "expected_phase25_time_s": 0.18
+    }
+  ],
+  "dropdown": [
+    "idle",
+    "walk",
+    "trot"
+  ],
+  "contact_definition": "unchanged actual authored restsolevertices; world travel phase*exportedstride"
+}

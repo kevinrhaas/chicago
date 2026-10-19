@@ -4107,6 +4107,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/glessner_prairie_front.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/glessner_opening_schedule.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5442,6 +5446,18 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_capture_restore_state.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_carriage_c02_door.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_carriage_c02_door_hierarchy.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_changelog_entry_gate.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5614,7 +5630,79 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_head_fit_distances.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_house_front.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_animation_times.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_base_prepare.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_camera_fit.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_frame_residue.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_grounded_gait.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_hair.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_hair_runtime.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_hair_short04.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_hierarchy_control.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_inspection.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_morph_measure.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_normal_probe_adapter.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_normal_probe_math.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_normal_probe_optin.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_skin_canonicalize.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_sole_contact.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_source_normals.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5774,6 +5862,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_recovered_display_diagnostic.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_repo_file.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5867,6 +5959,10 @@
       "wrote_ignored": []
     },
     "tools/test_ticket_filing_effort.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_ticket_house_serial.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6047,6 +6143,10 @@
       "wrote_ignored": []
     },
     "{}": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_short_why.mjs": {
       "wrote": [],
       "wrote_ignored": []
     }

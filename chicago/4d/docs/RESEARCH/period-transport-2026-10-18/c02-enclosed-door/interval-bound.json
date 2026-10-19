@@ -1,0 +1,7 @@
+{
+  "max_actual_vertex_hinge_radius_m": 0.7476379540665237,
+  "nearest_sample_angle_max_deg": 2.5,
+  "rigid_surface_displacement_to_nearest_sample_upper_bound_m": 0.0326192720308714,
+  "continuous_global_clearance_certified": false,
+  "reason": "Positive sampled triangle nonintersection does not supply a minimum distance larger than this displacement bound.16gon bore inscribedradius minus pinouterradius=.0008847117m, much smaller than globalbound. Discrete15angle proof only; no full interval or enclosedsolidcontainment claim."
+}

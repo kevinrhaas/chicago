@@ -2,7 +2,7 @@
   "structure_id": "house_1625_prairie",
   "view": "inland_architect_front",
   "glb": "assets/gltf/house_1625_prairie__as_mapped_1904.glb",
-  "glb_sha256": "54839405de2df161c4864a96594c21637fdc1c2e71821d8829177d68dd0d8edd",
+  "glb_sha256": "b057fd5b35a9d6e9cbebba94b299084a56ee2a522dedf9d1c0766933dd64615e",
   "camera_sha256": "c38fa66c558625703b0e5df1ac52544c7c184e62b1c357844035aeb11defe13b",
   "side_by_side": "docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg",
   "verdict": "differs",
@@ -94,8 +94,13 @@
     },
     {
       "what": "the oriel's west cheek and apron: the print's west cheek is mostly glass, a light about 0.3 m across (x 507-516 px, y 621-681), and its apron a flat darker face to a moulded foot at about 2.3 m (y 718); the build's cheek is plain (K08's frame and piers need 0.7 m of cheek for any light) and its apron is the kit's five stepped corbel courses to 2.6 m, about 8 px over the print's foot",
+      "status": "fixed",
+      "how": "T-2883: the west cheek lit with K08's narrow light (one light a sash on K06's least stile, its sill and lintel stopped at its jambs, the cheek's stone its surround), 0.3 m across with its centre 0.22 m out from the wall, 3.72-5.47 m: its jambs land at x 507-516 against the print's 506-515, its head at y 622 on the print's 621-622, its meeting rail at y 647 where the print's bar stands (y 645-647), its foot at y 674 against the print's 676, within about 1-2 px; its glass about 0.13 m between the frames where the print's reads about 0.15. The apron is K08's apron in place of the corbel courses: the oriel's plan carried straight down as a flat face from its floor (3.6 m, y 679) to a moulded foot at 2.3 m, the foot 0.11 m tall and 0.05 m proud, its underside at y 717 against the print's 716-718, closed back to the wall (L-k01-1625-oriel-2846). The apron's tone is the item below"
+    },
+    {
+      "what": "the oriel's apron's tone: the print's apron reads darker than the oriel's walls over it and stippled, as a rock-faced stone or a rough-cast or shingled face would; the build lays it in the oriel's own pale dressed stone, which K08's apron shares with its corbel role (K01 has no darker stone slot for a bay)",
       "status": "open",
-      "how": "T-2867"
+      "how": "T-2885"
     },
     {
       "what": "the rear section's heights on the re-solved camera: its cornice meets the main eave at 10.9 m (y 486), its windows read about 3.4-5.9 and 7.75-9.7 m, the dormer's sill about 11.6 m and its sash's head 13.4 m, the curb about 14.3 m, and the door has a transom light over its leaf (y 731-745); the build stands them on the 13.0 m wall head, so its lower window's head is about 20 px and its upper window, dormer and curb 40-60 px over the print's",
