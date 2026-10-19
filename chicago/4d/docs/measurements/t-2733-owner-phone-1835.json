@@ -1,0 +1,29 @@
+{
+  "ticket": "T-2733",
+  "what": "The frame governor's moving reading, Fixed against Adaptive, on the owner's phone (T-2732's Read frame pacing)",
+  "verbatim": "t-2733-owner-phone-1835.txt",
+  "when": "2026-10-19T00:37:59.075Z",
+  "scene": "1835",
+  "scene_note": "the owner was asked to open /4d/dev/1835/; that build's readout did not print the scene",
+  "device": {
+    "screen": "375x636 (screen 375x812)",
+    "device_pixel_ratio": 3,
+    "render_ratio": null,
+    "render_ratio_note": "not printed by that build; Sharpness caps it at 1, 1.5 or 2",
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 27_0_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/155.0.8059.37 Mobile/15E148 Safari/604.1"
+  },
+  "build": "0.1.0",
+  "tier": "light",
+  "seconds_per_mode": 5,
+  "units": "ms between consecutive canvas draws; sd is the population sd, p95 the floor(0.95 n)-th sorted interval",
+  "rows": [
+    { "move": "walk", "mode": "fixed", "draws": 163, "mean": 30.8, "sd": 6.0, "median": 29.0, "p95": 43.0, "max": 59.0, "over33": 34, "over50": 3 },
+    { "move": "walk", "mode": "adaptive", "draws": 161, "mean": 31.3, "sd": 5.0, "median": 30.0, "p95": 41.0, "max": 46.0, "over33": 47, "over50": 0 },
+    { "move": "turn", "mode": "fixed", "draws": 186, "mean": 27.1, "sd": 4.7, "median": 27.0, "p95": 37.0, "max": 44.0, "over33": 16, "over50": 0 },
+    { "move": "turn", "mode": "adaptive", "draws": 157, "mean": 32.0, "sd": 6.5, "median": 32.0, "p95": 41.0, "max": 73.0, "over33": 56, "over50": 3 },
+    { "move": "flight", "mode": "fixed", "draws": 162, "mean": 31.0, "sd": 3.9, "median": 31.0, "p95": 38.0, "max": 45.0, "over33": 42, "over50": 0 },
+    { "move": "flight", "mode": "adaptive", "draws": 161, "mean": 31.2, "sd": 5.0, "median": 30.0, "p95": 41.0, "max": 49.0, "over33": 48, "over50": 0 }
+  ],
+  "verdicts": { "walk": "FELL", "turn": "DID NOT FALL", "flight": "DID NOT FALL" },
+  "conclusion": "T-2592 read, not met: Adaptive lowered sd and p95 for walk only; turn and flight rose"
+}

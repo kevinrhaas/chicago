@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2034, ts: '2026-10-19T02:19:31.927Z', date: 'Oct 18, 2026, 9:19 PM CT', title: 'A real phone\'s frame-pacing reading is filed, and the tool says more', kind: 'improvement',
+    items: [
+      'The first frame-pacing reading from a real phone is on file. Adaptive pacing made walking steadier, but made turning and flying a little less steady. That is written down as not met, and the next step is to find out why.',
+      'Read frame pacing on the dev preview now prints the year you are in, your Sharpness setting and the pixel ratio each move was drawn at. A 15-second run per mode is the default, which gives a steadier reading.',
+      'Each year now has its own route for the reading. In 1904 the walk goes along the Prairie Avenue sidewalk instead of across the street into the Glessner house, and a test keeps every route clear of every building.',
+    ] },
+  { v: 2033, ts: '2026-10-19T02:15:50.857Z', date: 'Oct 18, 2026, 9:15 PM CT', title: 'Nothing you can see changed: the 1965 porch photograph\'s puzzle narrowed', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The 1965 colour slide draws 1808 Prairie\'s porch about a third taller than the model. We tested the explanations one at a time: a tilted camera, a distorting lens, a mis-measured bay window, and the porch standing somewhere else. None of them fits. A second photograph, Richard Nickel\'s from 1967, draws the porch taller by the same amount. So the question left for the Keith house\'s photo check is narrower: are the porch\'s columns taller than the model built them from the 1888 magazine plate?',
+    ] },
   { v: 2032, ts: '2026-10-19T01:45:45.986Z', date: 'Oct 18, 2026, 8:45 PM CT', title: '1835: the Rush Street bridle path and Green Bay road cut', kind: 'feature',
     items: [
       'North of the river the wood now runs on east of State Street over the sand to short of the lake\'s sand hills, as open oak with a closed canopy along the line of Rush Street, where Juliette Kinzie rode in 1831 under boughs that met overhead.',
