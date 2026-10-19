@@ -8677,20 +8677,29 @@ for (const [label, viewport, touch] of [
     // feet twice — and the Sauganash's is the placeholder its own note calls the
     // central unresolved question of the record. A card stamping one grade on all
     // eight outlines would pass any check for "there is a chip".
-    const shape = await page.evaluate(() => {
+    const shape = await page.evaluate(async () => {
+      // ---- T-2825: the card says a record through the scene's reader overlay (no ticket,
+      // record id or file path in it), so "the record's words" are the record AS SAID by
+      // that overlay: the same edits, applied here to the raw sidecar, independently of the card.
+      const overlay = await window.__chicago4d.readerText();
+      const { say } = await import(window.__MODULE_BASE + 'reader-text.js');
+      const said = (text, key) => say(text, overlay, key);
+      // ---- end T-2825
       const read = (id) => {
         window.__chicago4d.pick(id);
         const sec = [...document.querySelectorAll('#popup .pop-sec')]
           .find((s) => /Was it this shape/i.test(s.querySelector('h3')?.textContent ?? ''));
         const row = sec?.querySelector('table.attrs tr');
+        const raw = window.__chicago4d.registry.get(id)?.sidecar?.footprint?.note ?? '';
         return {
           present: !!sec,
           conf: row?.querySelector('.conf')?.textContent.trim() ?? '',
           shown: row?.querySelector('[data-note]')?.textContent ?? '',
-          recorded: window.__chicago4d.registry.get(id)?.sidecar?.footprint?.note ?? '',
+          recorded: said(raw, 'note'),
+          raw,
         };
       };
-      const pair = { hogan: read('hogan_store'), saug: read('sauganash_hotel') };
+      const pair = { hogan: read('hogan_store'), saug: read('sauganash_hotel'), overlay: !!overlay?.edits };
       // Every building, because the omission below is a rule and not a property
       // of the two buildings the pair happens to name.
       let valued = [];
@@ -8705,7 +8714,10 @@ for (const [label, viewport, touch] of [
       && shape.hogan.conf === 'attested' && shape.saug.conf === 'reconstructed',
       `hogan ${shape.hogan.conf}, sauganash ${shape.saug.conf}`);
     check(`${label}: the footprint's reasoning is the record's, verbatim`,
-      shape.saug.shown === shape.saug.recorded && shape.saug.recorded.length > 300
+      // ---- T-2825: verbatim against the record as the overlay says it, and the overlay is in
+      shape.overlay && shape.saug.raw.length > 300
+      // ---- end T-2825
+      && shape.saug.shown === shape.saug.recorded && shape.saug.recorded.length > 300
       && /PLACEHOLDER/.test(shape.saug.shown)
       && shape.hogan.shown === shape.hogan.recorded
       && shape.hogan.shown !== shape.saug.shown,
@@ -9025,7 +9037,14 @@ for (const [label, viewport, touch] of [
     // The control is the other half. A held notice on a building that is not held
     // would be a worse fault than a missing one: it would put a consultation claim
     // on a record nobody made it for.
-    const held = await page.evaluate(() => {
+    const held = await page.evaluate(async () => {
+      // ---- T-2825: the card says a record through the scene's reader overlay (no ticket,
+      // record id or file path in it), so "the record's words" are the record AS SAID by
+      // that overlay: the same edits, applied here to the raw sidecar, independently of the card.
+      const overlay = await window.__chicago4d.readerText();
+      const { say } = await import(window.__MODULE_BASE + 'reader-text.js');
+      const said = (text, key) => say(text, overlay, key);
+      // ---- end T-2825
       const read = (id) => {
         window.__chicago4d.pick(id);
         const flag = document.querySelector('#popup .pop-flag-held');
@@ -9033,7 +9052,8 @@ for (const [label, viewport, touch] of [
           id,
           notice: !!flag && /held pending consultation/i.test(flag.textContent),
           why: flag?.querySelector('.pop-held-why')?.textContent?.trim() ?? '',
-          recorded: window.__chicago4d.registry.get(id)?.sidecar?.review_reason ?? '',
+          recorded: said(window.__chicago4d.registry.get(id)?.sidecar?.review_reason ?? '', 'review_reason').trim(),
+          overlay: !!overlay?.edits,
           // Folded sections are not an answer to "without unfolding anything":
           // the reason lived inside a 400-word note behind a disclosure before
           // this, and that is the state the ticket was opened about.
@@ -9055,7 +9075,7 @@ for (const [label, viewport, touch] of [
     // Verbatim, and for the same reason the account below is: this is the record's
     // sentence, not a gloss of it, and a renderer that trimmed it to a first clause
     // would pass any substring check written here.
-    const whyDrift = held.flagged.filter((h) => !h.recorded || h.why !== h.recorded);
+    const whyDrift = held.flagged.filter((h) => !h.overlay || !h.recorded || h.why !== h.recorded);
     check(`${label}: and says what it is held for, in the record's own words`,
       held.flagged.length > 0 && whyDrift.length === 0,
       whyDrift.map((h) => `${h.id}: shown ${JSON.stringify(h.why.slice(0, 40))}`
@@ -9078,31 +9098,46 @@ for (const [label, viewport, touch] of [
     // about the limit of the evidence is the last text on this card that should be
     // trimmed or summarised, and a renderer that showed a first sentence and an
     // ellipsis would pass every looser check written here.
-    const account = await page.evaluate(() => {
+    const account = await page.evaluate(async () => {
+      // ---- T-2825: the card says a record through the scene's reader overlay (no ticket,
+      // record id or file path in it), so "the record's words" are the record AS SAID by
+      // that overlay: the same edits, applied here to the raw sidecar, independently of the card.
+      const overlay = await window.__chicago4d.readerText();
+      const { say } = await import(window.__MODULE_BASE + 'reader-text.js');
+      const said = (text, key) => say(text, overlay, key);
+      // ---- end T-2825
       const read = (id) => {
         window.__chicago4d.pick(id);
         const sec = [...document.querySelectorAll('#popup .pop-sec')]
           .find((s) => /own account/i.test(s.querySelector('h3')?.textContent ?? ''));
         const body = sec?.querySelector('.research-body');
+        const raw = window.__chicago4d.registry.get(id)?.sidecar?.research_note ?? '';
         return {
           present: !!sec,
           shown: body?.textContent ?? '',
-          recorded: window.__chicago4d.registry.get(id)?.sidecar?.research_note ?? '',
+          recorded: said(raw, 'research_note'),
+          raw,
         };
       };
-      return { hogan: read('hogan_store'), saug: read('sauganash_hotel') };
+      return { hogan: read('hogan_store'), saug: read('sauganash_hotel'), overlay: !!overlay?.edits };
     });
     check(`${label}: the record's own account reaches the card`,
       account.hogan.present && /THE BUILDING WHERE CHICAGO'S MAIL BEGAN/.test(account.hogan.shown),
       `present ${account.hogan.present}, "${account.hogan.shown.slice(0, 90)}"`);
     check(`${label}: it is the record's words, unabridged`,
-      account.hogan.shown === account.hogan.recorded && account.hogan.recorded.length > 500,
+      // ---- T-2825: the account as the overlay says it, the overlay in hand, nothing trimmed
+      account.overlay && account.hogan.raw.length > 500
+      // ---- end T-2825
+      && account.hogan.shown === account.hogan.recorded && account.hogan.recorded.length > 500,
       `${account.hogan.shown.length} chars shown of ${account.hogan.recorded.length} recorded`);
     // The discriminating case, as everywhere else on this card: a second building
     // gets its own account. A section rendering one fixed block of prose — or the
     // scene's, or the previous pick's — would pass both checks above.
     check(`${label}: another building gets its own account, not this one's`,
       account.saug.shown === account.saug.recorded
+      // ---- T-2825: and it is said from ITS record: the raw notes differ, and so do the saids
+      && account.saug.raw !== account.hogan.raw
+      // ---- end T-2825
       && account.saug.shown !== account.hogan.shown
       && /MILESTONE 0 REFERENCE RECORD/.test(account.saug.shown),
       `sauganash "${account.saug.shown.slice(0, 90)}"`);
@@ -14884,7 +14919,9 @@ for (const [label, viewport, touch] of [
       && /on nothing its record says/.test(people.policyOnly.label)
       && /^No source places this household anywhere/.test(people.policyOnly.words)
       && /BOTH halves of this band are dealt rather than read/.test(people.policyOnly.words)
-      && /reconstruction order book's own household target by division/.test(people.policyOnly.words)
+      // ---- T-2825: the order book is the reconstruction plan to a reader (readable_text's rule)
+      && /reconstruction plan's own household target by division/.test(people.policyOnly.words)
+      // ---- end T-2825
       && /town model's employment distribution/.test(people.policyOnly.words),
       JSON.stringify(people.policyOnly));
     // TWO ASSERTIONS THE FIRST DRAFT CARRIED ARE GONE, AND SAYING SO IS THE POINT:

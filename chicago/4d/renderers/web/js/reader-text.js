@@ -17,7 +17,7 @@
  * clean, and is shown as it is. The gate reads the same overlay through readable_text's
  * `reader_copy`, the twin of `readerCopy` below, so what it lints is what is shown.
  *
- * The key is the original string's CRC-32 and UTF-8 length; the edits are
+ * The key is the original string's CRC-32, Adler-32 and UTF-8 length; the edits are
  * `[start, delete, insert]` in this string's own (UTF-16) indices, in order.
  *
  * WITHOUT THE OVERLAY a record is shown as authored, and the failure is reported. A building's
@@ -39,13 +39,23 @@ function crcTable() {
 
 const encoder = typeof TextEncoder === 'function' ? new TextEncoder() : null;
 
-/** `crc32:utf8length`, both hex — readable_text.reader_key. */
+/** CRC-32 and Adler-32 of the UTF-8 bytes, then the byte length, all hex —
+ *  readable_text.reader_key. Two independent checksums, so a sentence the overlay holds no
+ *  edit for cannot pass for one it does, and one record's edits never reach another's text
+ *  (tools/compile_reader_text.py also refuses any family where a clean string shares a key). */
 export function readerKey(text) {
   const bytes = encoder ? encoder.encode(String(text)) : new Uint8Array(0);
   const table = crcTable();
   let c = 0xFFFFFFFF;
-  for (let i = 0; i < bytes.length; i++) c = table[(c ^ bytes[i]) & 0xFF] ^ (c >>> 8);
-  return `${((c ^ 0xFFFFFFFF) >>> 0).toString(16).padStart(8, '0')}:${bytes.length.toString(16)}`;
+  let a = 1;
+  let b = 0;
+  for (let i = 0; i < bytes.length; i++) {
+    c = table[(c ^ bytes[i]) & 0xFF] ^ (c >>> 8);
+    a = (a + bytes[i]) % 65521;
+    b = (b + a) % 65521;
+  }
+  const hex = (n) => (n >>> 0).toString(16).padStart(8, '0');
+  return `${hex(c ^ 0xFFFFFFFF)}${hex((b << 16) | a)}:${bytes.length.toString(16)}`;
 }
 
 /** The string the edits make of `text`. */

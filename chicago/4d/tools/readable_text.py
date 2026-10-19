@@ -726,7 +726,7 @@ def plain_name(name: str) -> str:
 # behind a person's card, a firm's record, a building's sidecar. Their prose is the builders'
 # and stays as written; what a reader gets is the same rewrite every other surface gets,
 # applied by the page as it renders, from an overlay compile_reader_text.py writes. The
-# overlay is keyed by each original string's CRC-32 and UTF-8 length, and holds the edits
+# overlay is keyed by each original string's CRC-32, Adler-32 and UTF-8 length, and holds the edits
 # that turn it into the reader's sentence: `[start, delete, insert]`, in UTF-16 code units
 # (a JavaScript string's own indices), in order. js/reader-text.js applies it; reader_copy()
 # below is its twin, so check_visitor_ui.py lints exactly what the page shows.
@@ -751,8 +751,10 @@ def is_prose(value, key=None) -> bool:
 
 
 def reader_key(text: str) -> str:
+    """CRC-32, Adler-32 and UTF-8 length: two independent checksums, so that a sentence the
+    overlay holds no edit for cannot pass for one it does (js/reader-text.js `readerKey`)."""
     raw = text.encode("utf-8")
-    return f"{zlib.crc32(raw):08x}:{len(raw):x}"
+    return f"{zlib.crc32(raw):08x}{zlib.adler32(raw):08x}:{len(raw):x}"
 
 
 def prose_strings(doc, key=None):

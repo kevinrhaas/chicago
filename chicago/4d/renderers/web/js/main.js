@@ -4882,6 +4882,8 @@ async function boot() {
     get flying() { return walker.state.flying; },
     get altitude() { return walker.state.altitude; },
     pick,
+    // T-2825: the scene's reader overlay, loaded and handed to the card; resolves to it.
+    readerText: () => ensureReaderText(),
     frame,
     framing,
     /** A local ENU point (metres, y above datum) through the live camera, as NDC

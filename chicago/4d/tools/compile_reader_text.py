@@ -33,7 +33,7 @@ A record's prose is said for a reader by the one rule every research surface sha
 data gives it, a file path as what the file is). The authored text stays as it is, because
 it is the builders' working record and two dozen tools read it. What is written here is the
 EDIT that turns each string a reader would be refused into the string they get, keyed by the
-original's CRC-32 and UTF-8 length, so the page (js/reader-text.js) can apply it to the
+original's CRC-32, Adler-32 and UTF-8 length, so the page (js/reader-text.js) can apply it to the
 record it fetched and the gate (tools/check_visitor_ui.py, the `records` surface) lints the
 very same result through readable_text.reader_copy.
 
@@ -119,7 +119,7 @@ def families() -> dict[str, list[Path]]:
 
 DOC = ("The reader's overlay for {what} (T-2825): the edits that say each of its research "
        "strings without a ticket number, a record id or a file path, keyed by the original "
-       "string's CRC-32 and UTF-8 length. Applied by js/reader-text.js as the page renders and "
+       "string's CRC-32, Adler-32 and UTF-8 length. Applied by js/reader-text.js as the page renders and "
        "by tools/readable_text.py reader_copy() in the gate. Derived by "
        "tools/compile_reader_text.py; never hand-written.")
 WHAT = {
@@ -255,6 +255,12 @@ def build_family(name: str, paths: list[Path], reader: Reader, old: dict | None)
         edits[key] = e
         if tickets:
             refs[key] = tickets
+    # The overlay is applied to every string of these records that hashes to one of its keys,
+    # so a clean sentence must never share a key with a rewritten one: if it did, the page
+    # would put one record's edits on another's text. Refused, never assumed.
+    clean_keys = {rt.reader_key(t) for t in strings_of(paths) if not rt.problems(t)}
+    for key in sorted(clean_keys & set(edits)):
+        unclear.append(f"{name}: a clean string shares the key {key} with a rewritten one")
     named = reader.names_for(name, paths)
     for tok, said in named.items():
         left = rt.problems(said)

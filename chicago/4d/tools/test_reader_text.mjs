@@ -16,13 +16,15 @@
  * one another on the committed data, not on fixtures:
  *
  *   1. every entry of every overlay is found by the page: some string in that family's files
- *      hashes, in JavaScript, to the entry's key (the CRC, the UTF-8 length and the prose
+ *      hashes, in JavaScript, to the entry's key (the two checksums, the UTF-8 length and the prose
  *      rule agree across the two languages);
  *   2. every string the page rewrites comes out free of a link, a file path, an id, a ticket
  *      number and the words "tier", "ticket" and "order book" (fallback-summary.js's lint,
  *      the twin of compile_summaries.lint_string);
  *   3. the newspaper rule `nameOf` holds agrees with the names the compiler wrote;
- *   4. a record is never changed by being said: `readerCopy` returns a copy;
+ *   4. a record is never changed by being said: `readerCopy` returns a copy, and no CLEAN
+ *      sentence shares a key with a rewritten one, so one record's edits never land on
+ *      another record's text;
  *   5. (with --all) what the cards RENDER carries none of them either, in its text and its
  *      tooltips — the bare ids a renderer prints itself (a source id on a grade summary, a
  *      record id on a research row, a stage code), which no data lint can see.
@@ -78,6 +80,7 @@ for (const [family, files] of Object.entries(families)) {
   const keys = new Set(Object.keys(overlay.edits || {}));
   const found = new Set();
   const left = [];
+  const collided = [];
   let rewritten = 0;
   let unchanged = true;
   for (const rel of files) {
@@ -89,6 +92,10 @@ for (const [family, files] of Object.entries(families)) {
     raw.forEach((pair, i) => {
       const k = readerKey(pair[0]);
       if (!keys.has(k) || !isProse(pair)) return;
+      if (!visitorTextProblems(pair[0]).length && !WORDS.test(pair[0])) {
+        collided.push(`${rel}: "${pair[0].slice(0, 60)}" is clean and shares the key ${k}`);
+        return;
+      }
       found.add(k);
       rewritten++;
       const out = said[i][0];
@@ -102,6 +109,8 @@ for (const [family, files] of Object.entries(families)) {
   expect(left.length === 0, `${family}: the ${rewritten} strings the page rewrites carry no ticket, id or path`
     + (left.length ? ` — ${left[0]}` : ''));
   expect(unchanged, `${family}: saying a record for a reader leaves the record itself as it was`);
+  expect(collided.length === 0, `${family}: no clean sentence shares a key with a rewritten one`
+    + (collided.length ? ` — ${collided[0]}` : ''));
   for (const [tok, name] of Object.entries(overlay.names || {})) {
     // Where the compiler fell back on the newspaper rule (no source record names the issue),
     // the page's own fallback must say it the same way.
