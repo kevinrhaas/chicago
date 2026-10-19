@@ -631,9 +631,14 @@ class Entrance(Opening):
         carved = lg.get("finish") == "ionic_carved"
         P, C, E, B, W = lg["pedestal"], lg["columns"], lg["entablature"], lg["balcony"], lg["parapet"]
         pw, pd, ph = P["width_m"], P["depth_m"], P["height_m"]
-        if not (2 * pw + 0.6 <= S - s_deck and pd < D):
-            raise ValueError(f"the loggia's pedestals ({pw} x {pd} m) do not fit its {S - s_deck:.3f} x {D} m deck")
-        for a, b, sk in ((s_deck, s_deck + pw, ()), (S - pw, S, ())):
+        # T-2845: the far pedestal may stand in from the terrace's end (1808's, the first-floor
+        # plan under the 1888 plate, stands it about 0.2 m in from the north corner)
+        fi = P.get("far_inset_m", 0.0)
+        Sp = S - fi
+        if not (fi >= 0.0 and 2 * pw + 0.6 <= Sp - s_deck and pd < D):
+            raise ValueError(f"the loggia's pedestals ({pw} x {pd} m, the far one {fi} m in) do not fit its "
+                             f"{S - s_deck:.3f} x {D} m deck")
+        for a, b, sk in ((s_deck, s_deck + pw, ()), (Sp - pw, Sp, ())):
             s0, s1 = lo(a, b)
             self._box("pedestal", s0, s1, 0.0, ph, D - pd, D, skip=("bottom",))
             self.probe(m((a + b) / 2), ph / 2, D, ("pedestal",), "a loggia pedestal's face")
@@ -641,27 +646,41 @@ class Entrance(Opening):
         wt, wh = W["thickness_m"], W["height_m"]
         if wh > ph:
             raise ValueError("the loggia's parapet stands over its pedestals")
-        s0, s1 = lo(s_deck + pw, S - pw)
+        s0, s1 = lo(s_deck + pw, Sp - pw)
         if carved:
             self._pierced_panel(s0, s1, 0.0, wh, D-wt, D)
         else:
             self._box("loggia_wall", s0, s1, 0.0, wh, D - wt, D, skip=("bottom", "left", "right"))
-        s0, s1 = lo(S - wt, S)
+        # T-2845: the side parapet may stand in from the terrace's end too (the plan draws
+        # 1808's on its north pedestal's middle), its outer face `side_inset_m` in
+        si_ = W.get("side_inset_m", 0.0)
+        if not (0.0 <= si_ and Sp - pw <= S - si_ - wt and S - si_ <= Sp):
+            raise ValueError(f"the loggia's side parapet ({si_} m in) does not land on its far pedestal")
+        s0, s1 = lo(S - si_ - wt, S - si_)
         self._box("loggia_wall", s0, s1, 0.0, wh, 0.0, D - pd, skip=("bottom", "back", "front"))
         self.probe(m((s_deck + S) / 2), wh / 2, D, ("loggia_wall",), "the loggia's front parapet")
         # the columns, two to a pedestal side by side along the front
         prof = [[float(r), float(y)] for r, y in C["profile"]]
         ch = C["height_m"]
         cols = []
-        for a in (s_deck, S - pw):
-            for f in (0.25, 0.75):
-                cs, co = m(a + pw * f), D - pd / 2
+        # T-2845: the pair's shafts `pitch_m` apart about the pedestal's middle (the kit's
+        # default, half the pedestal's width, set them at its quarters); the turned profile
+        # must not run the two into each other
+        pitch = C.get("pitch_m", pw / 2)
+        rmax = max(r for r, _ in prof)
+        if not 2 * rmax <= pitch:
+            raise ValueError(f"the loggia's shafts ({2 * rmax:.3f} m across) overlap at a {pitch} m pitch")
+        for a in (s_deck, Sp - pw):
+            for f in (-0.5, 0.5):
+                cs, co = m(a + pw / 2 + pitch * f), D - pd / 2
                 self._turn((cs, co), [(r, ph + ch * y) for r, y in prof], C["segments"], role="column")
                 cols.append([round(cs, 4), round(co, 4)])
             if carved:
                 # T-2565: the 1888 plate and the 1965 view both show ONE capital over each
-                # pair, a carved block spanning both shafts, not a capital to a column
-                self._paired_capital(*lo(a + 0.005, a + pw - 0.005), D - pd / 2, ph + ch)
+                # pair, a carved block spanning both shafts, not a capital to a column;
+                # T-2845: on a pedestal narrower than the pair it spans the shafts' tops
+                hw_ = max(pw / 2 - 0.005, pitch / 2 + prof[-1][0])
+                self._paired_capital(*lo(a + pw / 2 - hw_, a + pw / 2 + hw_), D - pd / 2, ph + ch)
         # the entablature over the whole plan, its soffit the ceiling
         y0, y1 = ph + ch, ph + ch + E["height_m"]
         s0, s1 = lo(s_deck, S)
@@ -675,7 +694,7 @@ class Entrance(Opening):
             for i, (yy, hh, proud) in enumerate(bands):
                 covered = 0 < i < len(bands) - 1
                 self._box("entablature", s0-.03, s1+.03, yy, yy+hh, D, D+proud, skip=("back",)+(("top",) if covered else ()))
-            for a,b in ((s_deck,s_deck+pw),(S-pw,S)):
+            for a,b in ((s_deck,s_deck+pw),(Sp-pw,Sp)):
                 q0,q1=lo(a,b)
                 for yy,hh,pd_ in ((0,.1,.05),(ph-.12,.12,.08)):
                     self._box("pedestal",q0-.03,q1+.03,yy,yy+hh,D,D+pd_,skip=("back",))

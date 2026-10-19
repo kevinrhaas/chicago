@@ -2,10 +2,10 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "inland-1888",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "37618537fd47c6cf160a1a3b8251c0a461c2a6b3878d18ec20cfea6dccb9a6c2",
-  "camera_sha256": "6819cfca050bb147eac1c0036afc191e7d8dc1992bbb6529aa36841c0e0443e0",
+  "glb_sha256": "674a9e99d509d2bee7dc4efcd7291a441d3365a0e19ee5132674c68b1d952777",
+  "camera_sha256": "5afa7d23c1c7bb7d1593203b9f94488249db7eccdd800bced424ba98072c2d2b",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "The flat top now has real two-row openings, corner pinnacles, a checker band and five colonnettes dividing six upper windows.",
@@ -112,9 +112,12 @@
       "status": "fixed"
     },
     {
-      "what": "the loggia's pedestals' width and place: this plate and the plan draw them about 0.6 m across, the plan at v 6.73-7.34 and 9.58-10.23, where the model's are 0.9 m at 7.0-7.9 and 9.5-10.4; on this camera the built pairs stand 16.9 px north and 9.7 px south of the print's (x 901.5 and 1120.5), on the plan's place 2.1 and 1.2 px (T-2844)",
-      "status": "open",
-      "how": "T-2845: K07's pedestals built at the plan's width and place, the pairs at this plate's pitch (about 0.36 m), rebaked and re-rendered"
+      "what": "the loggia's pedestals' width and place: this plate and the plan draw them about 0.6 m across, the plan at v 6.73-7.34 and 9.58-10.23, where the model's are 0.9 m at 7.0-7.9 and 9.5-10.4; on this camera the built pairs stand 16.9 px north and 9.7 px south of the print's (x 901.5 and 1120.5), on the plan's place 2.1 and 1.2 px (T-2844) T-2845: built, and this camera re-fitted on it. K07's pedestals now stand 0.6 m square at v 6.75-7.35 and 9.6-10.2, each pair's shafts 0.36 m apart. On the rebuilt GLB T-2763's camera, whose loggia controls stood at the old place, drew both pairs about 13 px south of the print's; re-fitted level on the same 27 coordinates at the built place (tools/keith_loggia_built_read.py; docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-built-read.json) it fits at 4.49 px RMS (4.94 before) with no parameter at a bound, its eye [40.883, -2.97, 0.746], and draws the pairs' centres 2.8 and 1.4 px from the print's, their outer silhouettes at x 877.9-930.5 and 1097.0-1146.8 against 874.5-928.5 and 1093.5-1147.5; a free factor on the loggia's heights reads 0.999. The dark band between each pair's shafts (x 907-910, 1126-1129) is narrow at the 0.36 m pitch (drawn 902-906 and 1120-1124; 0.45 m opens it to 11 px); the print draws it about 4 px right of the shafts' gap, where the south shaft's shadow falls on the north one, which is also why the print's north shaft of each pair reads narrower than its south one (18 px lit against 34).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2845: re-rendered on the rebuilt loggia (0.6 m pedestals at the plan's place, the pairs at a 0.36 m pitch, the flight 1.8 m clear) and the re-fitted camera, and read again beside the print: the pairs stand on the print's shafts, the capital tops and pedestal caps on the print's rows, and the flight's north cheek runs into the south pedestal as the print draws it. Nothing else this view shows moved, and nothing opens a difference; the verdict returns to matches.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
