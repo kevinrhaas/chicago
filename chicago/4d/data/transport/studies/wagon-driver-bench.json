@@ -1,0 +1,33 @@
+{
+  "body_m": [
+    3.05,
+    1.07,
+    0.55
+  ],
+  "bed_top_m": 0.95,
+  "wheel_diameter_front_m": 1.07,
+  "wheel_diameter_rear_m": 1.37,
+  "axle_stations_z_m": [
+    -1.175,
+    1.175
+  ],
+  "wheel_center_track_m": 1.21,
+  "tongue_length_m": 2.75,
+  "tier": "reconstructed",
+  "historical_match": false,
+  "wheel_refinement": true,
+  "driver_furniture": {
+    "variant": "removable_bench_study",
+    "seat_width_m": 1.18,
+    "seat_depth_m": 0.3,
+    "seat_thickness_m": 0.05,
+    "seat_z_m": 0.65,
+    "footboard_width_m": 0.85,
+    "footboard_depth_m": 0.3,
+    "footboard_thickness_m": 0.04,
+    "footboard_top_m": 1.12,
+    "footboard_z_m": 1.27,
+    "grade": "reconstructed",
+    "source_ids": []
+  }
+}

@@ -5,9 +5,9 @@
   "doc": "docs/HUMAN-ASSET-CONTRACT.md",
   "_doc": "The portable human contract, machine-readable half. docs/HUMAN-ASSET-CONTRACT.md is the prose and wins on any difference of intent; this file is what tools/human_contract.py holds a GLB and an instance record to. A change here is a change to every human asset and every engine that reads one: propose it, version it, never edit it to make an asset pass.",
   "l1": {
-    "in_force": true,
-    "rule": "AGENTS.md § Standing constraint, and docs/LIBERTIES.md L1: no human figure is drawn, for anyone, in any scene. Until the owner lifts it there, an instance record may not ask to be shown; tools/human_contract.py refuses `display: shown` while this reads true.",
-    "lifted_by": "the owner, in AGENTS.md, and nobody else"
+    "in_force": false,
+    "rule": "Owner, 2026-10-16: \"I think human figures are ok once we are able to render them and go through those tickets\". Human figures may be shown through the portable-humans pipeline. Owner, 2026-10-16, on lifting the review release block: \"Yes lift that\". Review metadata travels with the person and does not itself block display or scene release. The explicit l1.in_force gate remains available and refuses shown instances when true.",
+    "lifted_by": "the owner, 2026-10-16, recorded in AGENTS.md and T-2672"
   },
   "frame": {
     "container": "glb",

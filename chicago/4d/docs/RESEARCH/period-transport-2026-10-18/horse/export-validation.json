@@ -1,0 +1,15 @@
+{
+  "structural_checks": "passed",
+  "external_khronos_validator": "not run",
+  "sha256": "325844726ba0daa5c8373a8424e7e839ab4693ba9cdc869c8a0ab6fef79d86e5",
+  "nodes": 74,
+  "meshes": 23,
+  "triangles": 15600,
+  "clips": [
+    "idle",
+    "walk"
+  ],
+  "skin": "none; articulated rigid segments, not finished equine skeleton",
+  "root_motion": "no root channels",
+  "provenance": "original procedural geometry; no photo inputs"
+}

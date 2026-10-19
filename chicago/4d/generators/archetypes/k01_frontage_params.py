@@ -1180,6 +1180,14 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             v["base"] = base
             if "corbel" in e:
                 v["corbel"] = {"courses": int(e["corbel"]["courses"])}
+            # T-2883: or an apron in the corbel courses' place, a flat face down to a moulded foot
+            if "apron" in e:
+                ap = e["apron"]
+                if "corbel" in e or set(ap) != {"foot_m"} or not 1.0 <= base - float(ap["foot_m"]) <= 2.5:
+                    raise ParamError(f"bays: {e['id']}'s apron takes foot_m alone, 1.0-2.5 m under its floor "
+                                     f"at {base} m, in place of its corbel courses (not beside them)")
+                v["apron"] = {"foot_m": float(ap["foot_m"])}
+                v.pop("corbel", None)
             q = e.get("plan")
             if q is not None:
                 pts = [[float(x), float(z)] for x, z in q.get("points", ())]
@@ -1301,6 +1309,15 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                          f"lights_m (0.2-1.0 m each) on a K06 transom sash, leaving at least "
                                          f"1.0 m of sash under them, not {t}")
                     w["tiers"] = {"bar_m": bar, "lights_m": lights}
+                # T-2883: a narrow light in a shallow cheek (1625's oriel, from its print): one light
+                # a sash on a double-hung K06 opening, under half a metre, and it says why
+                if "narrow" in w:
+                    k06 = json.loads(WINDOW_KIT.read_text())
+                    v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
+                    if w["narrow"] is not True or v6.get("operation") != "double_hung" or v6.get("bays", 1) != 1 \
+                            or not 0.2 <= float(w.get("clear_width_m", 1.0)) <= 0.45 or not w.get("why_not_ordinary"):
+                        raise ParamError(f"bays: {e['id']}'s narrow light is `narrow: true` on a single double-hung "
+                                         f"K06 opening 0.2-0.45 m across that says why (why_not_ordinary)")
                 g = w.get("grille")
                 if g is None:
                     continue
@@ -1449,8 +1466,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         top = sum(float(st["height_m"]) for st in v["storeys"])
         bottom = 0.0
         if oriel:
-            kit_all = json.loads(BAY_KIT.read_text())
-            bottom = v["base"] - v["corbel"]["courses"] * float(kit_all["parts"]["corbel"]["course_height_m"])
+            from . import k08_bays as K8
+            bottom = K8.support_bottom(v)
             top += v["base"]
             spire = v["roof"].get("kind") == "spire"
             if e.get("through_eave"):
