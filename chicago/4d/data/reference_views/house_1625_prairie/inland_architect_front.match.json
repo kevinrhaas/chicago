@@ -2,8 +2,8 @@
   "structure_id": "house_1625_prairie",
   "view": "inland_architect_front",
   "glb": "assets/gltf/house_1625_prairie__as_mapped_1904.glb",
-  "glb_sha256": "5d606ba8ed0d5d5bd8bf699cd67c38ea717de6eb02e8c780b1d05d46dec4fc7d",
-  "camera_sha256": "95ef55fe597125fa212e06ba6af0af5ef13437d278a7399a967719ce5592eef2",
+  "glb_sha256": "3d2febdcecf1d5e22595210c2bc849241ed598505599d216e30b8dbf217ed368",
+  "camera_sha256": "c38fa66c558625703b0e5df1ac52544c7c184e62b1c357844035aeb11defe13b",
   "side_by_side": "docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -30,7 +30,7 @@
     {
       "what": "the south side wall's eave: the photograph's runs about 13 m over grade, a knee wall under the attic; the build's eave is the third floor's, 11.0 m",
       "status": "fixed",
-      "how": "T-2730: the wall head at 13.0 m, the second floor's storey carrying the knee wall (K01 has no attic storey), the eave plain at 0.05 m; the hip's ridge at 16.8 m behind the gable"
+      "how": "T-2730 built the wall head at 13.0 m on T-2432's camera; T-2846 re-reads it at 10.9 m: the eave's shadow meets the corner pier at y 374 px (x 434), in the front's plane, where 38.6 px/m holds whatever the camera, and on the camera re-solved on that line (inland_architect_front.json) it runs level at 10.9 m to the rear section, the top-floor side windows' heads level under it at 10.5 m. The pier's top (y 286, 13.2 m) and the gable stand over the eave; the side wall does not. T-2847 brings the wall head, the gable's foot and the hip down to it. T-2865: done. The top storey runs 3.7 m to a 10.9 m wall head and the hip comes down with it (its ridge 14.7 m); the front alone carries up past the eave to the 13.0 m ledge (shaped_gable.ledge_m), so from the south its corner pier's top stands over the hip as the photograph's does. The built eave meets the front's corner at about y 381 px against the print's 374, about 0.2 m at the front's scale and inside the eye's softness (0.5-1.3 m); the side wall's run to the rear section lands on the print's line, meeting the rear cornice at y 486. The party-wall stack keeps its 17.7 m top (3.0 m over the lower ridge)."
     },
     {
       "what": "the windows' kind: the photograph's ground- and first-floor windows are leaded casements, two lights under a transom, mullioned, in dressed quoined surrounds; its second-floor windows single one-over-one sash under segmental heads, the middle one standing a little south of the windows under it; the build has K06 two-over-two sash under flat stone lintels, all on one bay line",
@@ -49,8 +49,8 @@
     },
     {
       "what": "the plinth's height: the photograph's plain plinth band stands about 0.26 m over the walk (y 785 px); the build's K02 base and coping rise to 0.48 m, the least the K02 base lays (one 0.25 m course under the 0.23 m coping)",
-      "status": "open",
-      "how": "T-2754"
+      "status": "fixed",
+      "how": "T-2837: the plinth laid plain, one dressed course from grade to 0.26 m (stone_front.rusticated_base_courses 0, K01's plain plinth); its top within about 1 px of the print's (y 785 px)"
     },
     {
       "what": "the belts: the photograph runs a string course under the first-floor windows at about 4.0 m and caps the frontispiece at about 7.2 m; the build carries K01's own belts at 3.40-3.60 and 7.05-7.20 m across the whole front",
@@ -59,13 +59,13 @@
     },
     {
       "what": "the door's height: the print's door opening stands about 0.13-2.64 m over grade (y 693 px at its head), its surround's lintel to about 3.11 m and the carved panel 3.16-4.02 m; the build's K07 door stands on the 0.45 m ground floor to a head at 3.15 m, about 20 px higher, so its surround's lintel rises to 3.45 m and the panel between that and the string course is 0.51 m tall",
-      "status": "open",
-      "how": "T-2754"
+      "status": "fixed",
+      "how": "T-2837: the floor the door opens on brought down to one 0.15 m riser (the print's threshold, y 789 px) and the door's clear height read at 2.49 m (door_clear_height_m), so its head stands at 2.64 m, the surround's lintel at 2.64-3.11 m and the carved panel 3.11-3.96 m, 0.85 m tall under the string course; the door's head, foot, jambs and lintel each within about 1 px of the print's. The stoop is now the one step; the ground storey's side windows keep their 1.11 m sills"
     },
     {
       "what": "the second floor's segmental heads: the photograph's rise about 0.19 m on a 0.94 m span (about a fifth); K06's working segmental rise is an eighth of the span, 0.12 m, about 3 px lower at the crown",
-      "status": "open",
-      "how": "T-2754"
+      "status": "fixed",
+      "how": "T-2837, re-read: on the print's pixels (4x crops) the dark of each head runs from its spring at the jamb (y 414-415 px over the north window, 406 over the middle one) to its crown (y 410 and 402), a rise of 4-5 px, 0.10-0.13 m on the 0.94 m span, about an eighth: K06's working rise (0.12 m). T-2753's 'about a fifth' does not survive the pixel read; the built heads' springs and crowns fall within about 1 px of the print's, so no change was needed"
     },
     {
       "what": "the stacks: the photograph's tall stack stands on the north party wall near the front, beside the gable; the build's stands 9.4 m behind the front (a K01 stack may not stand in the dormer's body)",
@@ -79,18 +79,38 @@
     },
     {
       "what": "the rear section's street face: the print's reads about 50 px across (x 528-577), its corner with the main south wall at x 528 and its lit south end at x 577-610, the stack at x 580-602; on the camera's solve the sheet's 1.3 m step stands at x 505-527, so the face is about 20 px narrower than the print's and stands about 25 px north of it, its windows (0.75 m, the contract's narrowest sash) and dormer narrower with it. No camera that fits the front can stand a 1.3 m face 50 px wide that far back, so either the step is wider than the sheet traces it or the camera's depth is wrong at the rear (its solve: +-3 m)",
-      "status": "open",
-      "how": "T-2821"
+      "status": "fixed",
+      "how": "T-2846, ruled both ways: the camera's depth was wrong, and so was the step. The face stands parallel to the plate, so its width against its own heights does not depend on the camera; re-solved on the south wall's level lines (the eye 28.7 m out, 8.4 m south of the south wall, f 1108 px), the sheet's 11.85 m puts the face's corner at x 528, where the print's is, and its 48 px (x 528-576) is 1.8 m, not the sheet's 1.3 (whose trace reads 0.8-1.4 m): its rear corner then lands at x 606 against the print's 608. Built 1.8 m; its door, windows and dormer stand toward the main wall's corner as the print sets them, each edge within about 2 px of the print's across the face"
     },
     {
       "what": "the rear section's door: the print's head reads about 1.7 m over grade (y 730 px), its foot hidden by the fence; the build's plain door stands 2.1 m from grade, about 8 px higher at its head",
-      "status": "open",
-      "how": "T-2821"
+      "status": "fixed",
+      "how": "T-2846, ruled: a door at grade, neither an areaway's nor on a lower grade. The 1.7 m head was T-2432's camera, whose horizon (y 733) the head (y 730) sat on; on the re-solved camera it reads 1.9-2.1 m over grade for an eye 1.3-0.5 m high (the eye cannot stand higher: the door's dark runs down to the fence's top rail at y 779, and grade at the face must be under it). The built 2.1 m head stands within about 3 px of the print's; the transom light over the leaf is T-2847's"
     },
     {
       "what": "the oriel on the main south wall just in front of the rear section (x 505-527 px, about 4.0-6.6 m over grade, under a small roof): not built",
+      "status": "fixed",
+      "how": "T-2846 (bays.south_oriel): K08's oriel on the first floor, a box 0.48 m out and 1.29 m along the wall, centred 8.8 m back (a cheek that deep puts both edges of the west cheek, x 505 and 519.5, at one depth); its wall top under K08's eaves at about 5.7 m, on five corbel courses to 2.6 m, a transomed casement pair in its south face, in dressed stone. Its outline stands within about 2-8 px of the print's (L-k01-1625-oriel-2846); its west cheek's light and its apron's face are open below"
+    },
+    {
+      "what": "the oriel's west cheek and apron: the print's west cheek is mostly glass, a light about 0.3 m across (x 507-516 px, y 621-681), and its apron a flat darker face to a moulded foot at about 2.3 m (y 718); the build's cheek is plain (K08's frame and piers need 0.7 m of cheek for any light) and its apron is the kit's five stepped corbel courses to 2.6 m, about 8 px over the print's foot",
       "status": "open",
-      "how": "T-2821"
+      "how": "T-2867"
+    },
+    {
+      "what": "the rear section's heights on the re-solved camera: its cornice meets the main eave at 10.9 m (y 486), its windows read about 3.4-5.9 and 7.75-9.7 m, the dormer's sill about 11.6 m and its sash's head 13.4 m, the curb about 14.3 m, and the door has a transom light over its leaf (y 731-745); the build stands them on the 13.0 m wall head, so its lower window's head is about 20 px and its upper window, dormer and curb 40-60 px over the print's",
+      "status": "fixed",
+      "how": "T-2865: rear_section re-read on the re-solved camera against a cornice at the main wall head's 10.9 m: the cornice meets the main eave at y 486 px as the print's does; the lower window at 3.4-5.9 m and the upper at 7.75-9.7 m land on the print's (y 623-690 and 518-572) within about 3 px; the dormer's sill at 11.6 m and its sash's head at 13.4 m (built y about 407-478 against the print's 403-470); the curb at 14.3 m (a 3.4 m lower face), its top line within about 5 px; and the rear stack brought down with the attic to 17.1 m, its cap at y about 343 against the print's 348. The door's transom light is T-2866's."
+    },
+    {
+      "what": "the main roof's south slope: the print shows a dormer on it over the side wall's eave (x 440-505 px, its hood about y 340-360), with a slated face and a light in its south side; the build's south slope is plain",
+      "status": "open",
+      "how": "T-2866"
+    },
+    {
+      "what": "the main south wall's windows: on the re-solved camera the print's top-floor side lights stand about 2.4 and 5.2 m behind the front (x 451 and 483 px) with a stair light lower down at about 9.4 m (x 513, 7.3-9.8 m), and the ground floor's at about 2.3 m (x 457, 1.0-2.7 m); the build's side windows stand in two columns at 3.8 and 10.6 m, the first between the print's two",
+      "status": "open",
+      "how": "T-2866"
     },
     {
       "what": "the picket fence along the open ground to the south, and the builders' stone and barrels on the walk",

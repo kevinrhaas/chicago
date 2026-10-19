@@ -149,6 +149,8 @@ step "The Confidence view's overlays — street names, building labels, people p
   node tools/test_confidence_overlays.mjs
 step "The Confidence view's per-grade rows — four swatches with a colour-blind-safe set, Tint/Ghost/Dither, opacity 0-100 and a count per grade, none rebuilding the scene (T-2648)" \
   node tools/test_confidence_rows.mjs
+step "The Confidence view persists in one record and carries to the next page and year; its HUD legend shows while the view is not Normal (T-2649)" \
+  node tools/test_confidence_persist.mjs
 
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
@@ -872,6 +874,29 @@ step "the K08 bay kit builds every bay, oriel and tower closed against its wall,
 
 selftest "…and a window off its run, a recess through the wall, a faceted curve, an oriel on one deep course or a roof with a hole still fails it" \
   python3 tools/check_bay_kit.py --self-test
+
+# T-2787. ...and a K01 frontage carries a K08 tower past its eave (the kit piece 1801
+# Prairie's move needs). Built on two committed records with a tower added, a hip and a
+# mansard: the cap over the main roof, the ring closed above the wall head in the wall's
+# plane, the wall head's brackets and bed moulding stopped at its junctions, the lights
+# behind it dropped; a tower under the eave, out of its size range or in front of a door
+# refused.
+step "a K01 frontage carries a K08 tower past its eave, closed above the wall head and the wall head stopped at it (T-2787)" \
+  python3 tools/test_k01_tower.py
+
+# T-2788. ...and what an all-stone house is. A K01 record naming `construction: "stone"`
+# lays its K02 stone_front round every face, not a stone front on a brick box. No record
+# names it yet (1801 Prairie, T-2789, is the first), so this builds four houses that carry
+# a K02 front as all-stone, in memory, and measures them: every wall coursed in the
+# record's stone, no brick under the eave, every course on the front's beds (level round
+# each corner), a stone flat arch over every opening off the front, no coincident face;
+# a quoin bond, a brick bay or a missing stone_front refused; every record as committed
+# still brick on its flanks.
+step "the K01 kit lays an all-stone house in its K02 stone round every face (T-2788)" \
+  python3 tools/check_stone_house_kit.py --check
+
+selftest "…and flanks left in brick, a corner off the front's beds, a headless opening, a doubled face or a refused record built anyway still fails it" \
+  python3 tools/check_stone_house_kit.py --self-test
 
 # T-2303. ...and what the 1904 entrances are. The K07 kit's parts are sized in
 # data/components/prairie_1904/k07_entrances.json and built by
@@ -3528,6 +3553,12 @@ step "Glessner street and stable opening schedule matches its record (T-2211)" \
 # being re-written and re-read is caught here (T-2758).
 step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
   python3 tools/glessner_stable_roof_read.py --check
+
+# Both north cameras are re-solved with the gable pairs' sill and head left free, so
+# a pick, camera or record height that moves without the reading being re-written,
+# or a record that builds the pairs outside it, is caught here (T-2850).
+step "Glessner north gable pairs stand where HABS 13 and 14 read them (T-2850)" \
+  python3 tools/glessner_north_pairs.py --check
 
 step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)" \
   python3 tools/test_compile_source_use.py

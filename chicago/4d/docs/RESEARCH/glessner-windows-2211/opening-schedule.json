@@ -558,8 +558,8 @@
    10.1
   ],
   "z_ft": [
-   20,
-   25.25
+   19.6,
+   24.3
   ],
   "z_from": "item",
   "lights": 1,
@@ -587,8 +587,8 @@
    14.7
   ],
   "z_ft": [
-   20,
-   25.25
+   19.6,
+   24.3
   ],
   "z_from": "item",
   "lights": 1,
@@ -650,8 +650,8 @@
    28.1
   ],
   "z_ft": [
-   20,
-   25.25
+   19.6,
+   24.3
   ],
   "z_from": "item",
   "lights": 1,
@@ -708,8 +708,8 @@
    32.9
   ],
   "z_ft": [
-   20,
-   25.25
+   19.6,
+   24.3
   ],
   "z_from": "item",
   "lights": 1,
@@ -1212,37 +1212,6 @@
  },
  {
   "face": "north",
-  "record": "v4_detail",
-  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
-  "at_ft": [
-   136.75,
-   137.25
-  ],
-  "z_ft": [
-   31.0,
-   31.85
-  ],
-  "z_from": "item",
-  "lights": 1,
-  "kind": "arch",
-  "style": "pigeon_vent",
-  "transom_ft": null,
-  "built_as": "open pigeon hole",
-  "confidence": "reconstructed",
-  "sources": [
-   "habs_glessner_house_il_1015_drawings",
-   "habs_glessner_photo_05_court_c1923",
-   "owner_glessner_v4_reconstruction_brief_2026",
-   "habs_glessner_photo_14_north_inclined_1965",
-   "habs_glessner_photo_15_north_stable_1965",
-   "habs_glessner_house_il_1015_data_pages",
-   "taylor_2135_glessner_exterior_1887_1889",
-   "habs_glessner_photo_01_nw_1963",
-   "artic_glessner_sheet_23a_entrance_detail"
-  ]
- },
- {
-  "face": "north",
   "record": "openings_18th_stable",
   "what": "loft opening over the carriage doorway, open in 1904",
   "at_ft": [
@@ -1272,12 +1241,12 @@
   "record": "v4_detail",
   "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
   "at_ft": [
-   138.75,
-   139.25
+   137.74,
+   138.14
   ],
   "z_ft": [
-   31.0,
-   31.85
+   31.65,
+   32.1
   ],
   "z_from": "item",
   "lights": 1,
@@ -1303,12 +1272,43 @@
   "record": "v4_detail",
   "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
   "at_ft": [
-   138.75,
-   139.25
+   139.27,
+   139.67
+  ],
+  "z_ft": [
+   31.65,
+   32.1
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "arch",
+  "style": "pigeon_vent",
+  "transom_ft": null,
+  "built_as": "open pigeon hole",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_photo_05_court_c1923",
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "habs_glessner_photo_14_north_inclined_1965",
+   "habs_glessner_photo_15_north_stable_1965",
+   "habs_glessner_house_il_1015_data_pages",
+   "taylor_2135_glessner_exterior_1887_1889",
+   "habs_glessner_photo_01_nw_1963",
+   "artic_glessner_sheet_23a_entrance_detail"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "v4_detail",
+  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+  "at_ft": [
+   139.27,
+   139.67
   ],
   "z_ft": [
    33.0,
-   34.2
+   33.65
   ],
   "z_from": "item",
   "lights": 1,
@@ -1334,12 +1334,12 @@
   "record": "v4_detail",
   "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
   "at_ft": [
-   140.75,
-   141.25
+   140.8,
+   141.2
   ],
   "z_ft": [
-   31.0,
-   31.85
+   31.65,
+   32.1
   ],
   "z_from": "item",
   "lights": 1,
@@ -1365,105 +1365,12 @@
   "record": "v4_detail",
   "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
   "at_ft": [
-   140.75,
-   141.25
-  ],
-  "z_ft": [
-   33.0,
-   34.2
-  ],
-  "z_from": "item",
-  "lights": 1,
-  "kind": "arch",
-  "style": "pigeon_vent",
-  "transom_ft": null,
-  "built_as": "open pigeon hole",
-  "confidence": "reconstructed",
-  "sources": [
-   "habs_glessner_house_il_1015_drawings",
-   "habs_glessner_photo_05_court_c1923",
-   "owner_glessner_v4_reconstruction_brief_2026",
-   "habs_glessner_photo_14_north_inclined_1965",
-   "habs_glessner_photo_15_north_stable_1965",
-   "habs_glessner_house_il_1015_data_pages",
-   "taylor_2135_glessner_exterior_1887_1889",
-   "habs_glessner_photo_01_nw_1963",
-   "artic_glessner_sheet_23a_entrance_detail"
-  ]
- },
- {
-  "face": "north",
-  "record": "v4_detail",
-  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
-  "at_ft": [
-   140.75,
-   141.25
-  ],
-  "z_ft": [
-   35.2,
-   36.4
-  ],
-  "z_from": "item",
-  "lights": 1,
-  "kind": "arch",
-  "style": "pigeon_vent",
-  "transom_ft": null,
-  "built_as": "open pigeon hole",
-  "confidence": "reconstructed",
-  "sources": [
-   "habs_glessner_house_il_1015_drawings",
-   "habs_glessner_photo_05_court_c1923",
-   "owner_glessner_v4_reconstruction_brief_2026",
-   "habs_glessner_photo_14_north_inclined_1965",
-   "habs_glessner_photo_15_north_stable_1965",
-   "habs_glessner_house_il_1015_data_pages",
-   "taylor_2135_glessner_exterior_1887_1889",
-   "habs_glessner_photo_01_nw_1963",
-   "artic_glessner_sheet_23a_entrance_detail"
-  ]
- },
- {
-  "face": "north",
-  "record": "v4_detail",
-  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
-  "at_ft": [
-   142.75,
-   143.25
-  ],
-  "z_ft": [
-   31.0,
-   31.85
-  ],
-  "z_from": "item",
-  "lights": 1,
-  "kind": "arch",
-  "style": "pigeon_vent",
-  "transom_ft": null,
-  "built_as": "open pigeon hole",
-  "confidence": "reconstructed",
-  "sources": [
-   "habs_glessner_house_il_1015_drawings",
-   "habs_glessner_photo_05_court_c1923",
-   "owner_glessner_v4_reconstruction_brief_2026",
-   "habs_glessner_photo_14_north_inclined_1965",
-   "habs_glessner_photo_15_north_stable_1965",
-   "habs_glessner_house_il_1015_data_pages",
-   "taylor_2135_glessner_exterior_1887_1889",
-   "habs_glessner_photo_01_nw_1963",
-   "artic_glessner_sheet_23a_entrance_detail"
-  ]
- },
- {
-  "face": "north",
-  "record": "v4_detail",
-  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
-  "at_ft": [
-   142.75,
-   143.25
+   140.8,
+   141.2
   ],
   "z_ft": [
    33.0,
-   34.2
+   33.65
   ],
   "z_from": "item",
   "lights": 1,
@@ -1489,12 +1396,105 @@
   "record": "v4_detail",
   "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
   "at_ft": [
-   144.75,
-   145.25
+   140.8,
+   141.2
   ],
   "z_ft": [
-   31.0,
-   31.85
+   34.55,
+   35.0
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "arch",
+  "style": "pigeon_vent",
+  "transom_ft": null,
+  "built_as": "open pigeon hole",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_photo_05_court_c1923",
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "habs_glessner_photo_14_north_inclined_1965",
+   "habs_glessner_photo_15_north_stable_1965",
+   "habs_glessner_house_il_1015_data_pages",
+   "taylor_2135_glessner_exterior_1887_1889",
+   "habs_glessner_photo_01_nw_1963",
+   "artic_glessner_sheet_23a_entrance_detail"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "v4_detail",
+  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+  "at_ft": [
+   142.33,
+   142.73
+  ],
+  "z_ft": [
+   31.65,
+   32.1
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "arch",
+  "style": "pigeon_vent",
+  "transom_ft": null,
+  "built_as": "open pigeon hole",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_photo_05_court_c1923",
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "habs_glessner_photo_14_north_inclined_1965",
+   "habs_glessner_photo_15_north_stable_1965",
+   "habs_glessner_house_il_1015_data_pages",
+   "taylor_2135_glessner_exterior_1887_1889",
+   "habs_glessner_photo_01_nw_1963",
+   "artic_glessner_sheet_23a_entrance_detail"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "v4_detail",
+  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+  "at_ft": [
+   142.33,
+   142.73
+  ],
+  "z_ft": [
+   33.0,
+   33.65
+  ],
+  "z_from": "item",
+  "lights": 1,
+  "kind": "arch",
+  "style": "pigeon_vent",
+  "transom_ft": null,
+  "built_as": "open pigeon hole",
+  "confidence": "reconstructed",
+  "sources": [
+   "habs_glessner_house_il_1015_drawings",
+   "habs_glessner_photo_05_court_c1923",
+   "owner_glessner_v4_reconstruction_brief_2026",
+   "habs_glessner_photo_14_north_inclined_1965",
+   "habs_glessner_photo_15_north_stable_1965",
+   "habs_glessner_house_il_1015_data_pages",
+   "taylor_2135_glessner_exterior_1887_1889",
+   "habs_glessner_photo_01_nw_1963",
+   "artic_glessner_sheet_23a_entrance_detail"
+  ]
+ },
+ {
+  "face": "north",
+  "record": "v4_detail",
+  "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
+  "at_ft": [
+   143.86,
+   144.26
+  ],
+  "z_ft": [
+   31.65,
+   32.1
   ],
   "z_from": "item",
   "lights": 1,

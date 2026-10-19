@@ -2900,6 +2900,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_stone_house_kit.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_stone_occlusion_atlas.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4096,6 +4100,10 @@
       "wrote_ignored": []
     },
     "tools/georef_prairie_1904.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/glessner_north_pairs.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5618,6 +5626,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k01_tower.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_leg_notes.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6039,6 +6051,10 @@
       "wrote_ignored": []
     },
     "{}": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_confidence_persist.mjs": {
       "wrote": [],
       "wrote_ignored": []
     }
