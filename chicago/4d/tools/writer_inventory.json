@@ -938,6 +938,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-10-19 — reasoned, not derived; see the manifest step (beside generate_planted_rows.py, the same planting layer)"
     },
+    "generate_shore_grove_1812.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-19",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
+      "placed": "by layer, 2026-10-19 — reasoned, not derived; see the manifest step (after generate_shore_grove_1835.py, whose record it reads)"
+    },
     "generate_planted_rows.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
