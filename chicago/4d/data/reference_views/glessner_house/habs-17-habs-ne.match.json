@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-17-habs-ne",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "54ad9acb753eac1f65dde9cec4d2232a377de4c63cb1c29e6c25ee52fbd9c024",
+  "glb_sha256": "905a3dd4947991bdd4d4d8c27c45b0b9e1cf4fe320bb4e6682d29a09a2b780e3",
   "camera_sha256": "4d314a4a64d2df0bc559faf6e75b77d808df0137b4efb59ce76bd0f402f63f11",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-17-habs-ne-side-by-side.jpg",
   "verdict": "differs",
@@ -12,8 +12,8 @@
       "status": "fixed"
     },
     {
-      "what": "T-2857 north-end openings: sheet 6 places first-floor A and B and the second-floor north group 0.30-0.63 ft further north than built (T-2858). Fitted on the openings, this photograph puts the NE corner 2.0 ft nearer window A than built, an extrapolation that stands on the downspout pick and is ruled in T-2858.",
-      "status": "open"
+      "what": "T-2858 north-end openings: first-floor A and B and the second-floor north group moved to sheet 6's places and widths; camera-free the jambs fit 1.49 px rms against 2.35 before, and the side-by-side puts A, B and the north group on the photograph's horizontally (this frozen camera's vertical offset is its own). The NE corner pick now reads 0.70 ft in from the corner, where sheet 6 draws the downspout it stands on (0.90 ft): the pier stands as built (tools/glessner_prairie_front.py; data/comparisons/glessner/prairie-front.json; docs/RESEARCH/glessner-prairie-front-T-2858/).",
+      "status": "fixed"
     },
     {
       "what": "T-2857 stacks: the north stack reads about 16 px higher than the render, inside this camera's 33.7 px withheld-check residual, so it is not a reading of the stack. The roof and stack heights are read on Taylor 2135, where they agree within 2 px.",
