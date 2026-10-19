@@ -1257,3 +1257,61 @@ correction). Every number quotes its anchor and viewport.
   T-2774, the follow-up that also carries the mid, forb and far-shrub sets. SwiftShader
   draws the pass on the CPU, so on a phone's GPU the deal pass's main-thread share is its
   command encoding and should be smaller; the CPU walk's share is the same code anywhere.
+- **The near heads hung from the GPU's deal; the CPU near walk retired** (T-2774, the first
+  slice of the follow-up T-2717 named): wherever the GPU draws the near ring, `rebuildGround`
+  no longer walks the near lattice at all — no `dealNearSlot`, no `placeGraminoid`. The deal
+  pass now writes every slot it deals a WORD in its first target's fourth channel
+  (`flora-gpu-near.js` `nearWord`: the `NEAR_DEAL` code, the WET bit and the deal-table row),
+  and the page reads three targets back after each placement and REAPS them in slot order
+  (`flora.js` `reap`): inside the placement's view cone — the cone the CPU walk was given,
+  because the GPU deals the whole ring — it counts the matrix census as `dealNearSlot` did,
+  counts the placed tufts into the sink `tally` reads, and offers each placed tuft of a
+  flowering species its head through `maybeHead`, off the GPU's height and ring, on the
+  slot's own xorshift stream rebuilt from its cell and index and moved past the nine draws
+  its jitter and tuft took (`NEAR_STREAM_DRAWS`). The heads are recorded, then appended to
+  the head sets after the pass's own forb, shrub and far-band heads (`hangNearHeads`); they
+  used to be pushed first, so a set that fills now turns away a near head before a forb's —
+  no head set fills at the 18 critic anchors at the phone's `light`.
+  On the frame loop the read is NOT waited for: three pixel-pack buffers and a fence, polled
+  between frames, and until it lands the sets keep the last placement's near heads, which
+  stand where they stood (every slot is world-anchored) and differ only at the lattice's
+  edge, past the heads' ring. three's own `readRenderTargetPixelsAsync` was tried first and
+  is not used: for a float target it asks `getParameter(IMPLEMENTATION_COLOR_READ_TYPE)`,
+  a round trip that waits for the GPU — 1282 ms over 169 reads on the phone profile's walk,
+  7.6 ms a read in the frame. A caller that reads the buffers straight after (`step()`, the
+  boot, `settle()`, `nearDraw.flush()`) reads in the frame. A strip landing re-deals the
+  placement only when the tile it was dealt on did not wholly cover its lattice; T-2717 read
+  the flight re-dealing 9 times with no near pass.
+  **Equivalence**, every head instance at the 18 anchors x 4 bearings on the phone at `light`
+  (dev's tip against this, both through the in-frame read and through the frame loop's
+  non-blocking one): 2964 heads against 2964, every one matched to the same kind and the
+  same size and spin draws, the worst 0.27 mm apart across and 0.12 mm in height (float32
+  against double, and the tile's ground against the terrain's); every other flora set's
+  instance buffers, `flora-near`'s read-back included, bit-identical; 3 of 792 matrix census
+  rows differ, by at most 2 slots, at `from_above` (the aerial frustum test on float32
+  points). **Readings** (`docs/measurements/t-2774-near-heads-mobile.json`): the phone
+  profile, `light`, SwiftShader, `--source`, dev's tip against this, interleaved
+  (before, after, before, after, after with `--profile 400`, before with it, after once
+  more as committed), on a shared four-core machine about three times slower than T-2717's
+  runner:
+
+  | | near walk in a CPU profile over the three moves | the near ring's other main-thread ms over the moves | GPU re-deals in the flight |
+  |---|---|---|---|
+  | before | `rebuildGround` 2275 ms inclusive, of which `dealNearSlot` 708 | deal pass 488 | 9 |
+  | after | `rebuildGround` 1053 ms (the mid walk alone); `dealNearSlot` and `drawsAt` gone | deal pass 412, asking the reads 171, collecting and reaping them between frames 153 (less the tally since dropped) | 1 |
+
+  `placeGraminoid` still reads about 300 ms in both: the near CARRY set's (`rebuildCarry`,
+  on the far pass), which is not the near ring. The `near re-deal` line, walk / turn median
+  main-thread ms of a near pass: 9.9, 9.2, 10.2 before against 9.5, 10.5, 9.1 after (walk),
+  and 18.5, 17.5, 16.9 against 8.4, 9.4, 9.1 (turn); the moving p95 of scripted ms did not
+  move outside the runs' noise (walk 13.8, 10.7, 13.9 against 10.2, 11.3, 12.6). Asking a
+  read costs 0.6 ms of the frame; collecting it, 0.3 ms, and reaping it, 0.1 ms, between
+  frames. The pass counts that line takes differ between the trees (turn: 5-7 counted
+  before against 35-39 after, with 59 near rebuilds in every run), so its medians are not
+  like for like and the CPU profile is the reading this rests on. **The near re-deal is
+  still not at zero**: a near pass still walks the mid ring, the forbs and shrubs and the
+  far band on the CPU, and those — not the near ring — are now nearly all of it. They are
+  the rest of T-2774. SwiftShader runs the deal pass on the CPU, in the GPU process,
+  unthrottled, so the ms a phone's GPU spends on it are not read here at all; what is read
+  is the main thread's share, which is the same code anywhere, and the read-back's
+  collection, which on a real GPU is a copy out of a buffer the GPU has finished with.

@@ -1,0 +1,851 @@
+{
+ "ticket": "T-2774",
+ "tool": "tools/measure_walk_frames.mjs --source --only mobile --tiers light --moves walk,turn,flight [--profile 400]",
+ "profile": "390x780 touch, CPU throttled 4x, tier light, SwiftShader, draw skipped (the GPU deal pass draws with placementRender and is counted); a shared 4-core machine, every run under one lock, interleaved before/after",
+ "trees": {
+  "before": "origin/dev 39611fe81 (T-2716 GPU tufts, CPU near walk for the heads)",
+  "after1": "this change with three's readRenderTargetPixelsAsync (superseded: its getParameter round trip stalls)",
+  "after": "this change as committed (own pixel-pack buffers and fence)"
+ },
+ "order": [
+  "before1",
+  "after1",
+  "before2",
+  "after2",
+  "afterP",
+  "beforeP",
+  "after3"
+ ],
+ "runs": {
+  "before1": [
+   {
+    "move": "walk",
+    "frames": 2234,
+    "rebuilds": 167,
+    "near": {
+     "passes": 75,
+     "median": 9.9,
+     "max": 34.5,
+     "ms": 828.6,
+     "gpu": {
+      "passes": 173,
+      "passMs": 310.9,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 15,
+      "uploads": 6
+     }
+    },
+    "scriptedP95": 13.8,
+    "floraP95": 4.2,
+    "floraMax": 76,
+    "spread": {
+     "landings": 180,
+     "msPerPass": 16.18,
+     "waits": 1062,
+     "oneFrame": 3,
+     "jumps": 2
+    }
+   },
+   {
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 59,
+    "near": {
+     "passes": 6,
+     "median": 18.5,
+     "max": 26.2,
+     "ms": 113.6,
+     "gpu": {
+      "passes": 59,
+      "passMs": 102.7,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 4,
+      "uploads": 0
+     }
+    },
+    "scriptedP95": 19.8,
+    "floraP95": 9.4,
+    "floraMax": 61.9,
+    "spread": {
+     "landings": 118,
+     "msPerPass": 47.71,
+     "waits": 571,
+     "oneFrame": 0,
+     "jumps": 0
+    }
+   },
+   {
+    "move": "flight",
+    "frames": 360,
+    "rebuilds": 281,
+    "near": {
+     "passes": 0,
+     "median": 0,
+     "max": 0,
+     "ms": 0,
+     "gpu": {
+      "passes": 9,
+      "passMs": 32.3,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 1,
+      "uploads": 8
+     }
+    },
+    "scriptedP95": 19.4,
+    "floraP95": 10.2,
+    "floraMax": 91.5,
+    "spread": {
+     "landings": 33,
+     "msPerPass": 83.94,
+     "waits": 123,
+     "oneFrame": 0,
+     "jumps": 357
+    }
+   }
+  ],
+  "after1": [
+   {
+    "move": "walk",
+    "frames": 2234,
+    "rebuilds": 170,
+    "near": {
+     "passes": 48,
+     "median": 17.3,
+     "max": 43.9,
+     "ms": 936,
+     "gpu": {
+      "passes": 170,
+      "passMs": 267.1,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 15,
+      "uploads": 6,
+      "reads": 169,
+      "syncReads": 1,
+      "readMs": 1282.3,
+      "reaps": 170,
+      "reapMs": 20,
+      "stale": 0,
+      "failed": 0
+     }
+    },
+    "scriptedP95": 11.1,
+    "floraP95": 4.4,
+    "floraMax": 134.2,
+    "spread": {
+     "landings": 186,
+     "msPerPass": 21.16,
+     "waits": 909,
+     "oneFrame": 0,
+     "jumps": 2
+    }
+   },
+   {
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 59,
+    "near": {
+     "passes": 37,
+     "median": 13.9,
+     "max": 31.6,
+     "ms": 550.8,
+     "gpu": {
+      "passes": 59,
+      "passMs": 75.3,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 4,
+      "uploads": 0,
+      "reads": 59,
+      "syncReads": 0,
+      "readMs": 399.9,
+      "reaps": 59,
+      "reapMs": 11.3,
+      "stale": 0,
+      "failed": 0
+     }
+    },
+    "scriptedP95": 18.6,
+    "floraP95": 13.7,
+    "floraMax": 145.8,
+    "spread": {
+     "landings": 118,
+     "msPerPass": 46.41,
+     "waits": 528,
+     "oneFrame": 0,
+     "jumps": 0
+    }
+   },
+   {
+    "move": "flight",
+    "frames": 360,
+    "rebuilds": 325,
+    "near": {
+     "passes": 0,
+     "median": 0,
+     "max": 0,
+     "ms": 0,
+     "gpu": {
+      "passes": 1,
+      "passMs": 7.9,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 1,
+      "uploads": 8,
+      "reads": 0,
+      "syncReads": 1,
+      "readMs": 8.8,
+      "reaps": 1,
+      "reapMs": 0.7,
+      "stale": 0,
+      "failed": 0
+     }
+    },
+    "scriptedP95": 14.3,
+    "floraP95": 8.1,
+    "floraMax": 74.9,
+    "spread": {
+     "landings": 33,
+     "msPerPass": 68.24,
+     "waits": 123,
+     "oneFrame": 0,
+     "jumps": 357
+    }
+   }
+  ],
+  "before2": [
+   {
+    "move": "walk",
+    "frames": 2234,
+    "rebuilds": 167,
+    "near": {
+     "passes": 76,
+     "median": 9.2,
+     "max": 25.5,
+     "ms": 776.9,
+     "gpu": {
+      "passes": 173,
+      "passMs": 269.5,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 15,
+      "uploads": 6
+     }
+    },
+    "scriptedP95": 10.7,
+    "floraP95": 4,
+    "floraMax": 74.6,
+    "spread": {
+     "landings": 181,
+     "msPerPass": 15.33,
+     "waits": 1067,
+     "oneFrame": 2,
+     "jumps": 2
+    }
+   },
+   {
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 59,
+    "near": {
+     "passes": 7,
+     "median": 17.5,
+     "max": 30.6,
+     "ms": 115.7,
+     "gpu": {
+      "passes": 59,
+      "passMs": 77,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 4,
+      "uploads": 0
+     }
+    },
+    "scriptedP95": 14.5,
+    "floraP95": 8.5,
+    "floraMax": 114.8,
+    "spread": {
+     "landings": 118,
+     "msPerPass": 40.52,
+     "waits": 608,
+     "oneFrame": 0,
+     "jumps": 0
+    }
+   },
+   {
+    "move": "flight",
+    "frames": 360,
+    "rebuilds": 296,
+    "near": {
+     "passes": 0,
+     "median": 0,
+     "max": 0,
+     "ms": 0,
+     "gpu": {
+      "passes": 9,
+      "passMs": 26,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 1,
+      "uploads": 8
+     }
+    },
+    "scriptedP95": 15.4,
+    "floraP95": 8.4,
+    "floraMax": 67,
+    "spread": {
+     "landings": 33,
+     "msPerPass": 57.56,
+     "waits": 134,
+     "oneFrame": 0,
+     "jumps": 357
+    }
+   }
+  ],
+  "after2": [
+   {
+    "move": "walk",
+    "frames": 2234,
+    "rebuilds": 158,
+    "near": {
+     "passes": 56,
+     "median": 9.5,
+     "max": 16,
+     "ms": 547.7,
+     "gpu": {
+      "passes": 158,
+      "passMs": 237.2,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 15,
+      "uploads": 6,
+      "reads": 157,
+      "syncReads": 1,
+      "readMs": 100.9,
+      "collectMs": 44.9,
+      "reaps": 158,
+      "reapMs": 7.7,
+      "stale": 0,
+      "failed": 0
+     }
+    },
+    "scriptedP95": 10.2,
+    "floraP95": 3.6,
+    "floraMax": 92.6,
+    "spread": {
+     "landings": 171,
+     "msPerPass": 13.47,
+     "waits": 848,
+     "oneFrame": 2,
+     "jumps": 2
+    }
+   },
+   {
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 57,
+    "near": {
+     "passes": 39,
+     "median": 8.4,
+     "max": 14.5,
+     "ms": 344.1,
+     "gpu": {
+      "passes": 57,
+      "passMs": 90.2,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 4,
+      "uploads": 0,
+      "reads": 57,
+      "syncReads": 0,
+      "readMs": 32.6,
+      "collectMs": 18.9,
+      "reaps": 57,
+      "reapMs": 16.6,
+      "stale": 0,
+      "failed": 0
+     }
+    },
+    "scriptedP95": 17,
+    "floraP95": 9.3,
+    "floraMax": 55.2,
+    "spread": {
+     "landings": 115,
+     "msPerPass": 44.07,
+     "waits": 517,
+     "oneFrame": 2,
+     "jumps": 0
+    }
+   },
+   {
+    "move": "flight",
+    "frames": 360,
+    "rebuilds": 308,
+    "near": {
+     "passes": 0,
+     "median": 0,
+     "max": 0,
+     "ms": 0,
+     "gpu": {
+      "passes": 1,
+      "passMs": 6.7,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 1,
+      "uploads": 8,
+      "reads": 0,
+      "syncReads": 1,
+      "readMs": 12.7,
+      "collectMs": 0,
+      "reaps": 1,
+      "reapMs": 0.1,
+      "stale": 0,
+      "failed": 0
+     }
+    },
+    "scriptedP95": 16.6,
+    "floraP95": 8.7,
+    "floraMax": 70.5,
+    "spread": {
+     "landings": 33,
+     "msPerPass": 63.53,
+     "waits": 116,
+     "oneFrame": 0,
+     "jumps": 357
+    }
+   }
+  ],
+  "afterP": [
+   {
+    "move": "walk",
+    "frames": 2234,
+    "rebuilds": 160,
+    "near": {
+     "passes": 54,
+     "median": 10.5,
+     "max": 24.9,
+     "ms": 606.3,
+     "gpu": {
+      "passes": 160,
+      "passMs": 302.4,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 15,
+      "uploads": 6,
+      "reads": 160,
+      "syncReads": 0,
+      "readMs": 109.9,
+      "collectMs": 50.7,
+      "reaps": 160,
+      "reapMs": 15.4,
+      "stale": 0,
+      "failed": 0
+     }
+    },
+    "scriptedP95": 11.3,
+    "floraP95": 4.1,
+    "floraMax": 95.6,
+    "spread": {
+     "landings": 176,
+     "msPerPass": 15.9,
+     "waits": 875,
+     "oneFrame": 0,
+     "jumps": 2
+    }
+   },
+   {
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 59,
+    "near": {
+     "passes": 36,
+     "median": 9.4,
+     "max": 26.7,
+     "ms": 356.6,
+     "gpu": {
+      "passes": 59,
+      "passMs": 114.8,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 4,
+      "uploads": 0,
+      "reads": 59,
+      "syncReads": 0,
+      "readMs": 38.7,
+      "collectMs": 15.9,
+      "reaps": 59,
+      "reapMs": 21,
+      "stale": 0,
+      "failed": 0
+     }
+    },
+    "scriptedP95": 17.5,
+    "floraP95": 10,
+    "floraMax": 85.3,
+    "spread": {
+     "landings": 118,
+     "msPerPass": 51.91,
+     "waits": 502,
+     "oneFrame": 0,
+     "jumps": 0
+    }
+   },
+   {
+    "move": "flight",
+    "frames": 360,
+    "rebuilds": 313,
+    "near": {
+     "passes": 0,
+     "median": 0,
+     "max": 0,
+     "ms": 0,
+     "gpu": {
+      "passes": 1,
+      "passMs": 4.7,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 1,
+      "uploads": 8,
+      "reads": 0,
+      "syncReads": 1,
+      "readMs": 11.3,
+      "collectMs": 0,
+      "reaps": 1,
+      "reapMs": 1.4,
+      "stale": 0,
+      "failed": 0
+     }
+    },
+    "scriptedP95": 16.1,
+    "floraP95": 8.7,
+    "floraMax": 44.2,
+    "spread": {
+     "landings": 33,
+     "msPerPass": 75.52,
+     "waits": 120,
+     "oneFrame": 0,
+     "jumps": 357
+    }
+   }
+  ],
+  "beforeP": [
+   {
+    "move": "walk",
+    "frames": 2234,
+    "rebuilds": 170,
+    "near": {
+     "passes": 73,
+     "median": 10.2,
+     "max": 30.9,
+     "ms": 809.5,
+     "gpu": {
+      "passes": 176,
+      "passMs": 333.9,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 15,
+      "uploads": 6
+     }
+    },
+    "scriptedP95": 13.9,
+    "floraP95": 4.1,
+    "floraMax": 62.4,
+    "spread": {
+     "landings": 186,
+     "msPerPass": 17.09,
+     "waits": 1081,
+     "oneFrame": 0,
+     "jumps": 2
+    }
+   },
+   {
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 59,
+    "near": {
+     "passes": 5,
+     "median": 16.9,
+     "max": 22.1,
+     "ms": 83.3,
+     "gpu": {
+      "passes": 59,
+      "passMs": 105.5,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 4,
+      "uploads": 0
+     }
+    },
+    "scriptedP95": 19.4,
+    "floraP95": 9.5,
+    "floraMax": 113.7,
+    "spread": {
+     "landings": 118,
+     "msPerPass": 50.06,
+     "waits": 569,
+     "oneFrame": 0,
+     "jumps": 0
+    }
+   },
+   {
+    "move": "flight",
+    "frames": 360,
+    "rebuilds": 264,
+    "near": {
+     "passes": 0,
+     "median": 0,
+     "max": 0,
+     "ms": 0,
+     "gpu": {
+      "passes": 9,
+      "passMs": 43,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 1,
+      "uploads": 8
+     }
+    },
+    "scriptedP95": 20.7,
+    "floraP95": 9.9,
+    "floraMax": 49.3,
+    "spread": {
+     "landings": 33,
+     "msPerPass": 72.1,
+     "waits": 126,
+     "oneFrame": 0,
+     "jumps": 357
+    }
+   }
+  ],
+  "after3": [
+   {
+    "move": "walk",
+    "frames": 2234,
+    "rebuilds": 157,
+    "near": {
+     "passes": 50,
+     "median": 9.1,
+     "max": 26.4,
+     "ms": 510.3,
+     "gpu": {
+      "passes": 157,
+      "passMs": 262.4,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 15,
+      "uploads": 6,
+      "reads": 157,
+      "syncReads": 0,
+      "readMs": 94.8,
+      "collectMs": 45.4,
+      "reaps": 157,
+      "reapMs": 12.7,
+      "stale": 0,
+      "failed": 0
+     }
+    },
+    "scriptedP95": 12.6,
+    "floraP95": 4.1,
+    "floraMax": 38.2,
+    "spread": {
+     "landings": 172,
+     "msPerPass": 14.67,
+     "waits": 845,
+     "oneFrame": 1,
+     "jumps": 2
+    }
+   },
+   {
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 59,
+    "near": {
+     "passes": 35,
+     "median": 9.1,
+     "max": 24,
+     "ms": 334.9,
+     "gpu": {
+      "passes": 60,
+      "passMs": 109.3,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 4,
+      "uploads": 0,
+      "reads": 60,
+      "syncReads": 0,
+      "readMs": 46,
+      "collectMs": 23.5,
+      "reaps": 60,
+      "reapMs": 17.4,
+      "stale": 0,
+      "failed": 0
+     }
+    },
+    "scriptedP95": 19.2,
+    "floraP95": 10.3,
+    "floraMax": 100.8,
+    "spread": {
+     "landings": 120,
+     "msPerPass": 51.13,
+     "waits": 525,
+     "oneFrame": 0,
+     "jumps": 0
+    }
+   },
+   {
+    "move": "flight",
+    "frames": 360,
+    "rebuilds": 313,
+    "near": {
+     "passes": 0,
+     "median": 0,
+     "max": 0,
+     "ms": 0,
+     "gpu": {
+      "passes": 1,
+      "passMs": 2.5,
+      "builds": 0,
+      "buildMs": 0,
+      "readBacks": 1,
+      "uploads": 8,
+      "reads": 0,
+      "syncReads": 1,
+      "readMs": 14.3,
+      "collectMs": 0,
+      "reaps": 1,
+      "reapMs": 0.9,
+      "stale": 0,
+      "failed": 0
+     }
+    },
+    "scriptedP95": 17.6,
+    "floraP95": 9,
+    "floraMax": 48.5,
+    "spread": {
+     "landings": 33,
+     "msPerPass": 72.44,
+     "waits": 129,
+     "oneFrame": 0,
+     "jumps": 357
+    }
+   }
+  ]
+ },
+ "cpuProfileTotalMs": {
+  "note": "inclusive ms over the three moves, Chrome CPU profile, one run each (flora.js and near-field.js frames only); after was taken before the between-frame landing stopped calling tally (147 ms of its nearReaped and collect); placeGraminoid after is the near CARRY set (rebuildCarry, far pass)",
+  "before": {
+   "rebuildAll flora.js:2359": 3958,
+   "rebuildGround flora.js:1894": 2275,
+   "land near-field.js:331": 864,
+   "dealNearSlot flora.js:1837": 708,
+   "keep flora.js:1606": 625,
+   "dealPass flora.js:1546": 488,
+   "place flora.js:1624": 464,
+   "placeGraminoid flora.js:5210": 298,
+   "tally flora.js:2346": 86,
+   "maybeHead flora.js:5356": 33,
+   "drawsAt flora.js:1648": 13,
+   "land flora.js:2540": 7
+  },
+  "after": {
+   "rebuildAll flora.js:2589": 3538,
+   "rebuildGround flora.js:2121": 1053,
+   "land near-field.js:331": 858,
+   "place flora.js:1860": 648,
+   "keep flora.js:1832": 604,
+   "dealPass flora.js:1630": 412,
+   "placeGraminoid flora.js:5460": 345,
+   "collect flora.js:1725": 300,
+   "read flora.js:1685": 171,
+   "nearReaped flora.js:1463": 157,
+   "tally flora.js:2576": 147,
+   "maybeHead flora.js:5606": 95,
+   "reap flora.js:1767": 29,
+   "land flora.js:2776": 16
+  }
+ },
+ "equivalence": {
+  "what": "every head instance, every other flora set's instance-buffer digest and the matrix census, at the 18 critic anchors x 4 bearings, mobile 390x780 at light; A = before (origin/dev), B = after; heads matched one to one by kind, size and spin draws within 2 cm",
+  "inFrameRead": {
+   "stations": 72,
+   "headsA": 2964,
+   "headsB": 2964,
+   "unmatchedA": 0,
+   "unmatchedB": 0,
+   "worstXZ": 0.00027324897099662113,
+   "worstY": 0.00011599999999978294,
+   "worstAttr": 2.199999999996649e-05,
+   "censusRows": 792,
+   "censusDiff": 3,
+   "censusWorst": {
+    "at": "from_above@90",
+    "a": [
+     "z03_sedge_meadow",
+     38,
+     38,
+     0,
+     0,
+     38,
+     0
+    ],
+    "b": [
+     "z03_sedge_meadow",
+     40,
+     40,
+     0,
+     0,
+     40,
+     0
+    ],
+    "dd": 2
+   },
+   "digestDiff": 0,
+   "cappedA": [],
+   "cappedB": [],
+   "errorsA": 0,
+   "errorsB": 0
+  },
+  "frameLoopRead": {
+   "stations": 72,
+   "headsA": 2964,
+   "headsB": 2964,
+   "unmatchedA": 0,
+   "unmatchedB": 0,
+   "worstXZ": 0.00027324897099662113,
+   "worstY": 0.00011599999999978294,
+   "worstAttr": 2.199999999996649e-05,
+   "censusRows": 792,
+   "censusDiff": 3,
+   "censusWorst": {
+    "at": "from_above@90",
+    "a": [
+     "z03_sedge_meadow",
+     38,
+     38,
+     0,
+     0,
+     38,
+     0
+    ],
+    "b": [
+     "z03_sedge_meadow",
+     40,
+     40,
+     0,
+     0,
+     40,
+     0
+    ],
+    "dd": 2
+   },
+   "digestDiff": 0,
+   "cappedA": [],
+   "cappedB": [],
+   "errorsA": 0,
+   "errorsB": 0
+  }
+ }
+}

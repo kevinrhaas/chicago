@@ -52,6 +52,8 @@
  * each one's main-thread ms, and where the GPU draws the near ring (T-2716), its
  * deal passes, tile builds and uploads (`flora.nearDraw.stats`) — so the near
  * ring's share of a moving frame is read on its own (docs/RENDERING.md App. B).
+ * T-2774: and the read-backs its heads and census are reaped from, with the
+ * main thread's ms asking and reaping them.
  *
  * T-2106: the moves are driven with the flora rebuild SPREAD over frames, as
  * the animation loop runs it (`setFloraSpread`); `--sync` reads the one-frame
@@ -508,6 +510,9 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
     // dropped pass, a flight's step) would be compared with the wrong pose.
     const kinds = ['near', 'far'].filter((k) => sp.last[k]?.camera
       && sp.last[k].pass === sp.passes[k]);
+    // T-2774: the near heads hang off a read-back the frame loop does not wait
+    // for; the landed pass's own is taken now, as the one-frame pass takes it.
+    a.flora.nearDraw?.flush?.();
     const spreadDigests = Object.fromEntries(kinds.map((k) => [k, passDigest(k)]));
     verified = {};
     for (const k of kinds) {
@@ -886,6 +891,12 @@ for (const vp of VIEWPORTS) {
           + ` ${r.near.max.toFixed(1)} max on the main thread (${r.near.ms.toFixed(0)} ms in all)`
           + (g ? ` | GPU near ring: ${g.passes} deal passes ${g.passMs.toFixed(0)} ms, ${g.builds} tile builds`
             + ` ${g.buildMs.toFixed(0)} ms, ${g.uploads} uploads, ${g.readBacks} read-backs`
+            // T-2774: the read-backs the near heads and census are reaped from,
+            // and the main thread's ms asking and reaping them (a reap that lands
+            // between frames is in no frame's flora ms, so it is printed here).
+            + (g.reaps != null ? `, ${g.reads} reads asked without waiting and ${g.syncReads} in the frame`
+              + ` ${g.readMs.toFixed(0)} ms, collected ${(g.collectMs ?? 0).toFixed(0)} ms,`
+              + ` ${g.reaps} reaped ${g.reapMs.toFixed(0)} ms, ${g.stale} stale` : '')
             : ' | near tufts drawn by the CPU'));
       }
       for (const l of r.longs ?? []) {
