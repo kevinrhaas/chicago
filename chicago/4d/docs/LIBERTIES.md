@@ -29494,3 +29494,24 @@ stands 15-20 px left of the photograph's.
 **How to resolve:** a nearer photograph of the south flank, or the house's drawings.
 **Ticket:** T-2839 (piece 1 of T-2781, itself piece 2 of T-2756).
 **Recorded:** 2026-10-19 (T-2839).
+
+### L-glessner-datestone-device-2870 — Glessner's 18th Street monogram drawn as the joined device HABS 14 shows, at the photograph's grain
+
+**Decision:** the `glessner_house` north stack's upper date stone carries one joined device in
+place of the letters AD set in Blender's built-in face: two bowls facing outward, each closed by a
+stem, and a bar between the stems at mid-height, drawn as cut strokes (the near-black matte lining
+L-glessner-datestone-2214 uses for every cut on the stack).
+**What is read, not invented.** From HABS photograph 14 (`habs_glessner_photo_14_north_inclined_1965`,
+no known restrictions, so derived from): the device's shape, its extent (x 959-991, y 267-280 px on a
+stone at x 938-1013, y 262-287: about 0.43 of the stone's width and 0.53 of its height, centred
+within a pixel) and its stems' places (about 0.33 and 0.73 of its width), the bar at mid-height.
+**What is invented.** The stroke's weight (0.16 of the device's height, about two of the print's
+pixels) and each bowl's curve, a half-ellipse from its stem to the device's edge; the print draws the
+device about 32 px across and shows neither the carver's line nor any interlacing finer than that.
+Reading the device as A and D is photograph 4's (L-glessner-datestone-2214), not this one's. The
+lower stone's 1886 is still the built-in face.
+**How to resolve:** a close photograph of today's stack would give the carver's strokes and the cut
+depth. HABS 14 also reads the stack's face and both stones about 1.35-1.5 times wider than built,
+with their heights agreeing; that is T-2873's to rule.
+**Ticket:** T-2870 (piece 1 of T-2869).
+**Recorded:** 2026-10-19 (T-2870).
