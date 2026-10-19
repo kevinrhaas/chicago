@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2032, ts: '2026-10-19T01:45:45.986Z', date: 'Oct 18, 2026, 8:45 PM CT', title: '1835: the Rush Street bridle path and Green Bay road cut', kind: 'feature',
+    items: [
+      'North of the river the wood now runs on east of State Street over the sand to short of the lake\'s sand hills, as open oak with a closed canopy along the line of Rush Street, where Juliette Kinzie rode in 1831 under boughs that met overhead.',
+      'Kinzie\'s bridle path runs north along the Rush Street line through that closed wood, a bare tread with hazel, plum, hawthorn and dogwood crowding its edges.',
+      'The Green Bay road, cut two rods (about 10 m) wide through the trees in 1834, runs north out of the town on the Clark Street line, its edges already sprouting.',
+      'Trees past about 600 m now draw a lighter distant form, and shrubs and young trees stop drawing where they would be a few pixels tall, so the new wood costs less than it adds: the west prairie view draws fewer triangles than before.',
+      'Placement reconstructed under a new liberty.',
+    ] },
+  { v: 2031, ts: '2026-10-19T01:45:45.986Z', date: 'Oct 18, 2026, 8:45 PM CT', title: 'iPhone: 1904 no longer stops while you walk past the houses', kind: 'fix',
+    items: [
+      'On a phone, "right in front of you" is now read from each building\'s outline instead of being drawn on the graphics card twice a second. That drawing is where the iPhone stopped the page in both crash records.',
+      'A tap draws only the few buildings under your finger, not every building in the district.',
+    ] },
   { v: 2030, ts: '2026-10-19T01:13:09.397Z', date: 'Oct 18, 2026, 8:13 PM CT', title: 'Overlays in the Confidence view: street names, labels, people and your Jaunt', kind: 'feature',
     items: [
       'At the foot of the Navigator\'s Confidence view, four switches each lay one thing over the town: street names, building labels, people pins and the Jaunt route.',
