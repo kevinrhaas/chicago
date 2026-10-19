@@ -67,7 +67,8 @@ standoff from the wall. It is a level camera with a small fitted roll, the heigh
 
 - fit: 1.36 px rms; jambs +1.8, -0.3, -0.2, -0.3, -1.1, -3.6, +2.0, +0.9, +1.0, -0.0 px
 - stacks, withheld (render minus photograph): before {"south": {"right_x": -22, "top_y": 2}, "middle": {"left_x": -21, "right_x": -19, "top_y": -1}, "north": {"left_x": -13, "right_x": -15, "top_y": 1}};
-  after {"south": {"right_x": -14.6, "top_y": -0.5}, "middle": {"left_x": -7.8, "right_x": -6.6, "top_y": -2.1}, "north": {"left_x": 3.6, "right_x": 0.7, "top_y": 1.6}} (6.5 px rms, from 14.5)
+  after {"south": {"right_x": -14.6, "top_y": -0.5}, "middle": {"left_x": -7.8, "right_x": -6.6, "top_y": -2.1}, "north": {"left_x": 3.8, "right_x": 0.5, "top_y": 1.7}} (6.5 px rms, from 14.5;
+  the north stack re-read after T-2873 widened the 18th Street stack to HABS 14's 7.1 ft: it moved 0.1-0.2 px)
 
 The stack tops stay within 2 px. The south stack's north face still reads 14.6 px left, the
 middle stack's 7-8 px and the north stack's within 4 px. That is a gradient along the roof which
