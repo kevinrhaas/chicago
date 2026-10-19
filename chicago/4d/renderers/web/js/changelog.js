@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2049, ts: '2026-10-19T08:18:32.747Z', date: 'Oct 19, 2026, 3:18 AM CT', title: '1623 Prairie\'s entrance porch, its arch as broad as the window\'s', kind: 'feature',
+    items: [
+      'Granger Farwell\'s entrance arch at 1623 Prairie is now as broad as the window\'s beside it, as the 1886 drawing shows.',
+      'The arch opens into a porch: a glazed door stands at its back, its back wall lit beside it.',
+      'The stoop climbs north of the arch; its landing runs south behind an iron guard with an ornamental panel.',
+    ] },
   { v: 2048, ts: '2026-10-19T07:43:48.984Z', date: 'Oct 19, 2026, 2:43 AM CT', title: 'Nothing you can see changed: Prairie houses can now carry a tower', kind: 'chore',
     items: [
       'Nothing you can see changed yet. The kit the Prairie Avenue houses are built from can now stand a round or eight-sided tower against a wall, rising past the eaves with its cone above the roof.',
