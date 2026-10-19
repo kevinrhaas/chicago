@@ -198,6 +198,9 @@ step "Settings › About's field log counts landings, first inspects, tabs, Show
 # T-2657: Researcher mode, the Settings › About switch.
 step "Researcher mode is off by default and remembered per device, and shows research prose in place while on (T-2657)" \
   node tools/test_researcher_mode.mjs
+# T-2658: Short "Why?" — a one-line hint and a bubble of 40 words at most per researched setting.
+step "Every 'Why this default' is one line and a 'Why?' bubble of 40 words at most that opens by tap, click or key and closes on Escape or an outside tap; the full essay is Researcher mode's (T-2658)" \
+  node tools/test_short_why.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
 # T-2643: Inspect's Story tab.
@@ -4313,6 +4316,15 @@ step "the tickets repo: claim is a pushed lock, done waits on the merge, ask sta
 # READING. It reaches no network.
 step "every held or resumable pull request reaches the board with its reason, and an unread list says so" \
   node tools/test_ticket_parked.mjs
+
+# ONE RUN PER HOUSE AT A TIME (owner, 2026-10-19). Three slices held Glessner at once
+# (#1090, #1091, #1094): each rebaked the house, each conflicted with the others' bakes,
+# and their full smokes queued three hours and were cancelled. `claim` refuses a ticket
+# whose house has a live claim, a ticket in review, or an open PR titled with a ticket of
+# the same house, and `list --workable` marks the row HOUSE BUSY. Run for real against a
+# tickets repository of its own; it reaches no network.
+step "claim and list hold a 1904 house to one run at a time" \
+  node tools/test_ticket_house_serial.mjs
 
 # A GATED WRITER BELONGS IN THE MANIFEST (T-1282, owner 2026-09-18). A tool this gate runs
 # with --check, and that can also write, produces DERIVED content by definition — so if

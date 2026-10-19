@@ -66,7 +66,7 @@ jobs:
                   if output.read_bytes()!=pathlib.Path(manifest['body_path']).read_bytes():
                       raise RuntimeError('Actual body preparation bytes drifted for '+era)
           PYCODE
-      - name: Build canonical masters and existing portable exports
+      - name: Build canonical masters with failure diagnostics and portable exports
         working-directory: chicago/4d
         env:
           STUDY_ERA: ${{ inputs.era_study || 'both' }}

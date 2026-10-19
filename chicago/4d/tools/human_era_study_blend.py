@@ -108,6 +108,41 @@ def main(args):
                       "production_eligible": False}))
 
 
+def record_failure(args, error):
+    """Diagnostic only: persist actual traceback and expose it as a CI annotation.
+
+    The caller always re-raises the original exception. No retry, normal repair,
+    numerical normalization, acceptance downgrade or success receipt is supplied.
+    """
+    import os
+    import traceback
+    details = {"PASS": False, "scene": args.era_study,
+               "scope": "Actual canonical authoring failure; no master/export acceptance",
+               "error_type": type(error).__name__, "error": str(error),
+               "traceback": "".join(traceback.format_exception(type(error), error, error.__traceback__))}
+    # Emit before receipt I/O, so a secondary filesystem error cannot conceal
+    # the primary failure. Workflow command newlines/% are escaped explicitly.
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        message = details["traceback"][-6000:]
+        message = message.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A")
+        print("::error title=Era study " + args.era_study + " authoring failed::" + message, flush=True)
+    if args.receipt:
+        path = args.receipt.with_name("authoring-failure.json")
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open("x") as file:
+            json.dump(details, file, indent=2)
+            file.write("\n")
+    return details
+
+
 if __name__ == "__main__":
     argv = sys.argv[sys.argv.index("--")+1:] if "--" in sys.argv else sys.argv[1:]
-    main(parse(argv))
+    args = parse(argv)
+    try:
+        main(args)
+    except Exception as error:
+        try:
+            record_failure(args, error)
+        except Exception as diagnostic_error:
+            print("Could not save authoring failure receipt: " + repr(diagnostic_error), file=sys.stderr)
+        raise

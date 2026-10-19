@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-florian-1948-northeast-overall",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "37618537fd47c6cf160a1a3b8251c0a461c2a6b3878d18ec20cfea6dccb9a6c2",
+  "glb_sha256": "674a9e99d509d2bee7dc4efcd7291a441d3365a0e19ee5132674c68b1d952777",
   "camera_sha256": "914cda22e855b0f3054227a6062d30544a85d971bbf2a3a621808566cf92bfc4",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-florian-1948-northeast-overall-side-by-side.jpg",
   "verdict": "matches",
@@ -57,6 +57,10 @@
     },
     {
       "what": "T-2813: re-rendered with Keith's crown 0.16 m lower (the moulded course under the lattice 0.20 m deep where it was 0.36 m, the checker and head bands unmoved); its camera re-solved on the moved crown controls (2.73 to 3.20 px RMS, tools/keith_crown_resolve.py). Read again at the crown beside the previous render: the lattice, coping and pinnacles move a few pixels at this picture's scale and nothing it shows opens a difference; the verdict stands as it was (matches).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2876: re-rendered on the GLB in the tree, T-2845's loggia (0.6 m pedestals at the first-floor plan's place, each pair's shafts 0.36 m apart, the flight 1.8 m clear and the stoop 0.15 m south), and read again beside the previous render and the picture: the render changes only at the loggia and flight (x 12-361, y 250-942). Here the loggia is mostly hidden: a dark lattice stands over its south end and 1812's ivy wall over its north end, and the camera is fitted on the crown and upper lights only (six controls 10-17 m up, the eye height held), so the one pair it shows, about 30 px left of the render's north pair, is that fit's extrapolation to the ground, not a reading of the loggia's place, which the plate rules. It stays under this record's not-shown item for the lower front. Nothing it shows opens a difference; the verdict returns to matches.",
       "status": "fixed"
     }
   ],

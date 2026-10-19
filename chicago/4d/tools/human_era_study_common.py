@@ -138,7 +138,7 @@ def skin_and_hair(root, manifest, study):
              "Actual source-body normal readback absent")
         delta = max(math.dist(tuple(obj.data.corner_normals[i].vector), normals[loop.vertex_index])
                     for i, loop in enumerate(obj.data.loops))
-        need(delta <= 1e-3, "Unchanged RAW1e-3 source-body normal readback failed")
+        need(delta <= 1e-3, f"Unchanged RAW1e-3 source-body normal readback failed: mesh={obj.name} maximum_raw_vector_delta={delta:.17g} bound=0.001")
         normal_receipts.append({"mesh": obj.name, "maximum_raw_vector_delta": delta,
                                 "bound": 1e-3, "scope": "Actual BPy body before LOD/export only"})
     hair, hair_path, report = fit(study["body"], manifest["hair_component"], Path(root))
