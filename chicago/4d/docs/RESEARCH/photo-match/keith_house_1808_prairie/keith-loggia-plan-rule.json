@@ -12,6 +12,16 @@
    10.4
   ]
  },
+ "flush_0_6": {
+  "south": [
+   7.0,
+   7.6
+  ],
+  "north": [
+   9.8,
+   10.4
+  ]
+ },
  "plan": {
   "walls_rows": [
    2046.5,
@@ -47,6 +57,16 @@
    "north": 9.904
   }
  },
+ "plate_pairs_x": {
+  "south": [
+   874.5,
+   928.5
+  ],
+  "north": [
+   1093.5,
+   1147.5
+  ]
+ },
  "plate_refits": {
   "built": {
    "rms_px": 4.94,
@@ -70,6 +90,10 @@
    "pair_centre_x": {
     "south": 918.4,
     "north": 1110.8
+   },
+   "pair_centre_dx_px": {
+    "south": 16.9,
+    "north": -9.7
    }
   },
   "flush 0.6": {
@@ -94,6 +118,10 @@
    "pair_centre_x": {
     "south": 906.5,
     "north": 1122.0
+   },
+   "pair_centre_dx_px": {
+    "south": 5.0,
+    "north": 1.5
    }
   },
   "plan": {
@@ -118,6 +146,10 @@
    "pair_centre_x": {
     "south": 903.6,
     "north": 1121.7
+   },
+   "pair_centre_dx_px": {
+    "south": 2.1,
+    "north": 1.2
    }
   }
  },

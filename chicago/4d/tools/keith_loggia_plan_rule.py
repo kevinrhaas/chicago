@@ -20,13 +20,18 @@ place the house is built to.
      coordinates) with the loggia's world points moved to the plan's: the pairs' capital tops and
      cap arrises over the plan's centres, the south pedestal's south face and the north
      pedestal's north face at the plan's. The front's controls are unchanged, so what moves
-     the fit is only the loggia's place.
+     the fit is only the loggia's place. Each fit then predicts the pairs' centres, which are
+     not controls, against the print's (PLATE_PAIRS, the shafts' outer silhouettes).
 
   3. THE 1965 SLIDE RE-FITTED (tools/keith_1965_cause_fit.py's level camera on T-2764's 29
      coordinates) with the principal heads at 4.70 m (T-2831), on the built layout and on the
      plan's: shafts at their pair's centre +-0.225 m as built, the south pedestal's box at the
      plan's v extent; with nothing more free, with k on the loggia's heights, and with the whole
-     loggia free to move in plan (dv).
+     loggia free to move in plan (dv). Both pictures are fitted a third way, FLUSH: pedestals at
+     the plan's 0.6 m but flush with the deck's corners as the K07 kit lays them.
+
+  4. THE SLIDE'S GRAIN on the chosen camera: where the third storey falls in the frame, and what a
+     thin course and a 10 mm joint come to in pixels at the bow and the loggia.
 
   python3 tools/keith_loggia_plan_rule.py            # print the reading
   python3 tools/keith_loggia_plan_rule.py --write    # and write REPORT
@@ -61,6 +66,9 @@ BUILT = {'south': (7.0, 7.9), 'north': (9.5, 10.4)}
 # 1112-1155, 48 and 44 px, from the south face at v 7.0 and to the north face at 10.4)
 FLUSH = {'south': (7.0, 7.6), 'north': (9.8, 10.4)}
 DECK_FRONT, PED_DEPTH, SHAFT_OFF = 20.7, 0.6, 0.225
+# the plate's pairs: each pair's two shafts' outer silhouettes, where the lit shaft meets the dark
+# loggia behind it, down rows 1440-1520 (mid-shaft): south x 874.5-928.5, north x 1093.5-1147.5
+PLATE_PAIRS = {'south': (874.5, 928.5), 'north': (1093.5, 1147.5)}
 
 
 def dark_runs(x, rows):
@@ -116,12 +124,13 @@ def plate_fit(lay):
               for suf, c in ((' x', x), (' y', y)) if c is not None]
     lp = {lab: round(float(v), 1) for lab, v in zip(labels, r)
           if ('pedestal' in lab or 'pair' in lab)}
-    # where this camera draws each pair's centre, against the print's (the pair's shafts' outer
-    # silhouettes' middle, read off the plate at x 875-932 and 1095-1148 on the shafts' mid rows)
-    xs = {k: round(pf.project(p, [20.4, centre(lay[k]), 4.0], False)[0], 1) for k in ('south', 'north')}
+    # where this camera draws each pair's centre, against the print's (PLATE_PAIRS' middles): not a
+    # control, so a prediction
+    xs = {k: round(float(pf.project(p, [20.4, centre(lay[k]), 4.0], False)[0]), 1) for k in ('south', 'north')}
+    dx = {k: round(xs[k] - centre(PLATE_PAIRS[k]), 1) for k in xs}
     return {'rms_px': round(float(np.sqrt((r ** 2).mean())), 2), 'max_px': round(float(abs(r).max()), 2),
             'eye': [round(float(v), 3) for v in p[:3]], 'yaw': round(float(p[3]), 2), 'at_bound': at_bound,
-            'loggia_residuals_px': lp, 'pair_centre_x': xs}
+            'loggia_residuals_px': lp, 'pair_centre_x': xs, 'pair_centre_dx_px': dx}
 
 
 # --- the 1965 slide -------------------------------------------------------------------------
@@ -255,7 +264,7 @@ def main():
     layouts = {'built': BUILT, 'flush 0.6': FLUSH, 'plan': plan}
     plate = {k: plate_fit(lay) for k, lay in layouts.items()}
     for k, q in plate.items():
-        print(f"plate, {k:9s} RMS {q['rms_px']:5.2f} max {q['max_px']:5.1f} eye {q['eye']} pairs drawn at x {q['pair_centre_x']}"
+        print(f"plate, {k:9s} RMS {q['rms_px']:5.2f} max {q['max_px']:5.1f} eye {q['eye']} pairs drawn {q['pair_centre_dx_px']} px from the print's"
               f"  loggia {q['loggia_residuals_px']}")
     slide, cams = {}, {}
     for k, lay in layouts.items():
@@ -278,7 +287,8 @@ def main():
                     'first-floor plan under the 1888 plate; the plate and the 1965 slide (principal heads at 4.70 m) '
                     're-fitted with the loggia as built and at the plan\'s place. Read the tool\'s docstring.',
             'glb': str(lf.GLB.relative_to(ROOT)), 'glb_sha256': hashlib.sha256(lf.GLB.read_bytes()).hexdigest(),
-            'built': {k: list(v) for k, v in BUILT.items()}, 'plan': reading,
+            'built': {k: list(v) for k, v in BUILT.items()}, 'flush_0_6': {k: list(v) for k, v in FLUSH.items()},
+            'plan': reading, 'plate_pairs_x': {k: list(v) for k, v in PLATE_PAIRS.items()},
             'plate_refits': plate, 'slide_refits': slide, 'camera_chosen': 'plan: nothing more free',
             'slide_grain_on_the_chosen_camera': g}, indent=1) + '\n')
         print(f'wrote {REPORT.relative_to(ROOT)}')
