@@ -2382,6 +2382,62 @@ function liveWorkOn(t, { pulls = undefined, lockless = false } = {}) {
   return { rival, own, notes, branches, here: here && branchCarries(here, t.id) ? here : null, me };
 }
 
+/**
+ * ONE RUN PER HOUSE AT A TIME (owner, 2026-10-19: "serialize tickets per house").
+ *
+ * Every Prairie Avenue 1904 ticket that moves a house rebakes it, and a bake rewrites
+ * that house's shared assets: the stone-occlusion atlas, both manifests, the K01
+ * baseline, the recovery package. Two branches rebaking one house therefore conflict
+ * in content no lap will hand-merge, and whichever merges second rebakes again. On
+ * 2026-10-19 three slices held Glessner at once (#1090 T-2858, #1091 T-2868, #1094
+ * T-2870). Each passed its own gate, each conflicted with the others' bakes, and their
+ * full smoke runs queued behind one another for three hours and were cancelled.
+ * So a house's tickets are worked one after another, like the Glessner finish chain
+ * (owner, 2026-10-10: "one at a time").
+ *
+ * The house comes from the ticket: an explicit `house:` in its front matter wins.
+ * Otherwise, for the 1904 programme (epic SOUTH_TIME) only, it is read from the head of
+ * the title, which that programme writes as the house: "Glessner's …", "Keith's …",
+ * "1637 Prairie's …", "1623's …", "Finish 1801 Kimball …". The three houses its
+ * titles name by family are keyed to their numbers, so "Keith's" and "1808 Prairie's"
+ * are one house. Anything else answers null and is never held back.
+ */
+const HOUSE_BY_NAME = { glessner: '1800', keith: '1808', kimball: '1801' };
+function houseOf(t) {
+  if (t?.house) return String(t.house).trim().toLowerCase();
+  if (t?.epic !== 'SOUTH_TIME') return null;
+  const title = String(t.title ?? '').trim();
+  const num = /^(?:(?:Refine|Finish|Build|Verify)\s+)?(\d{4})\b/.exec(title);
+  if (num) return num[1];
+  const name = /^([A-Z][A-Za-z]+)(?:['\u2019]s\b|:)/.exec(title);
+  if (name) return HOUSE_BY_NAME[name[1].toLowerCase()] ?? name[1].toLowerCase();
+  return null;
+}
+
+/** The other work in flight on T's house: a live claim, a ticket in review (its PR is
+ *  open), or an open PR whose title carries a ticket of the same house. `open` null or
+ *  undefined reads the tickets alone, which is what `list` does to stay off the network. */
+function houseRivals(t, tickets, open = null) {
+  const house = houseOf(t);
+  if (!house) return { house: null, rivals: [] };
+  const rivals = new Map();
+  for (const o of tickets) {
+    if (o.id === t.id || houseOf(o) !== house) continue;
+    if (o.state === 'claimed' && !claimIsDead(o)) rivals.set(o.id, `${o.id} claimed ${sinceWords(claimAgeHours(o))} — ${o.title}`);
+    else if (o.state === 'review' && o.pr) rivals.set(o.id, `${o.id} in review, PR #${o.pr} open — ${o.title}`);
+  }
+  for (const p of open ?? []) {
+    if (!p || (p.state && p.state !== 'open')) continue;
+    for (const id of prTicketIds(p.title)) {
+      const o = tickets.find((x) => x.id === id);
+      if (o && o.id !== t.id && !rivals.has(o.id) && houseOf(o) === house) {
+        rivals.set(o.id, `${o.id} — PR #${p.number} on ${p.head?.ref || 'an unknown branch'} is open — ${o.title}`);
+      }
+    }
+  }
+  return { house, rivals: [...rivals.values()] };
+}
+
 /** The owner question an `ask` wrote into a ticket body, read back for the board. */
 export function decisionOf(body) {
   const sec = /\n## Decision needed\n([\s\S]*?)(?=\n## |$)/.exec(`\n${body ?? ''}`)?.[1] ?? '';
@@ -2756,6 +2812,19 @@ switch (cmd) {
   }
   case 'claim': {
     const t = find(tickets, args[0]);
+    const refuseIfHouseBusy = (tk, open) => {
+      const { house, rivals } = houseRivals(tk, tickets, open);
+      if (!rivals.length) return;
+      console.error(`${tk.id} is work on house ${house}, and that house already has work in flight:\n`
+        + rivals.map((r) => `  ${r}`).join('\n')
+        + `\nOne run per house at a time (owner, 2026-10-19): two branches rebaking one house\n`
+        + `collide on its baked assets, and whichever merges second must rebake. Take the next\n`
+        + `workable ticket on another house:\n`
+        + `  node tools/ticket.mjs list --workable\n`
+        + `To work it alongside anyway:\n`
+        + `  node tools/ticket.mjs claim ${tk.id} --force`);
+      process.exit(1);
+    };
     if (!WORKABLE.includes(t.state)) { console.error(`${t.id} is ${t.state}, not claimable`); process.exit(1); }
     // An L ticket cannot be finished in the run that claims it, so claiming one
     // guarantees a half-done ticket and a PR that invents its own "(1/2)".
@@ -2795,8 +2864,10 @@ switch (cmd) {
       const open = pulls !== undefined ? pulls : restGet(`repos/${REPO}/pulls?state=open&per_page=100`);
       if (open === null) {
         console.error(`  note: the open pull requests could not be read, so ${t.id} was checked against branches and its claim only`);
+        refuseIfHouseBusy(t, null);
       } else {
         const { rival: carrying } = openPullsCarrying(t, open);
+        if (!carrying.length) refuseIfHouseBusy(t, open);
         if (carrying.length) {
           console.error(`${t.id} HAS AN OPEN PULL REQUEST already carrying it:\n`
             + carrying.map((p) => `  PR #${p.number} on ${p.head?.ref || 'an unknown branch'}`
@@ -3202,6 +3273,12 @@ switch (cmd) {
     // state word alone sent every run past a claim `claim` would have stolen.
     const span = (h) => elapsedWords(new Date(Date.now() - h * 3.6e6).toISOString());
     const cell = (t) => {
+      // A house with work in flight is not takeable (owner, 2026-10-19), and the list
+      // says so on the line, so a slice counting rows skips it as `claim` will.
+      if (has('workable') && t.state === 'open') {
+        const { house, rivals } = houseRivals(t, tickets);
+        if (rivals.length) return `HOUSE BUSY ${house} (${rivals[0].split(' ')[0]})`;
+      }
       if (t.state !== 'claimed') return String(t.state);
       const age = claimAgeHours(t);
       if (claimIsDead(t)) return `TAKEABLE dead claim ${span(age)}`;
