@@ -29259,6 +29259,41 @@ fallen trees or the vines, or a plate that draws them.
 **Ticket:** T-2810.
 **Recorded:** 2026-10-19 (T-2810).
 
+### L-prairie-woody-2784 — Shrubs, slough-edge willows and lone fire-shadow trees on the open plain of 1812 and 1835
+
+**Decision:** the open plain west and south of the river (wherever no woods community stands, on
+prairie, sedge meadow and marsh ground, never on the 1835 town's lots or cleared plots) now carries
+woody plants, the same ground for ground in 1812 and 1835. Three kinds, drawn by
+`renderers/web/js/trees.js` (`PRAIRIE_WOODY`) as grown clumps of stems: wild rose, New Jersey tea and
+leadplant scattered through the grass in little colonies, about 16-36 to the hectare at full detail,
+fewer on wet ground; pussy willow, slender willow and meadowsweet in clumps on the wet prairie and
+sedge meadow, about 6-16 to the hectare, thickest within 24-170 m of water, with buttonbush and
+willow in the wettest ground within 70 m of it; and now and then a lone bur oak (drier ground) or
+cottonwood (wetter), about 2-3.6 to the hectare, only where water lies 60-280 m upwind of it on a
+bearing from 205° to 280°, that is, just east and north-east of the river. Each is dealt from a
+generator seeded by where it stands. The phone draws 55% of the shrubs, balanced 85%; every tier
+draws as many lone trees. The wild rose,
+New Jersey tea and the two willows are new zone records at a density of zero (z02, z03), so the
+sward deals none of them and every stem is this layer's.
+**What is read, not invented:** that Cook County held "the only willow thickets described by the
+PLS" (McBride and Bowles 2007, through the flora dossier's ZONE 6), and willow "in the swales and
+along backwater sloughs" (the dossier's reading of it); that trees stood denser, and the
+fire-intolerant ones gathered, on the east sides of watercourses, which broke the fires running
+west to east (the same); Andreas's "good stretch of level grass" south of the town and his
+"occasional patches of timber" (vol. 1). Leadplant, meadowsweet, buttonbush, bur oak and
+cottonwood, and every height and colour, are their zone records' own.
+**What is invented:** the wild rose and New Jersey tea (no record or source in this project names
+either on the Chicago plain: they are the shrubs of a burned tallgrass prairie in northern Illinois,
+and their records say so and cite nothing); every density, clump size and band above; that the
+sloughs are the wet prairie, sedge meadow and the river's margin (the modelled ground holds no
+slough water); the fire's bearings; and where each plant stands. The owner asked for more trees
+rather than fewer, so the lone trees are a few to the hectare in the shadow band rather than none.
+**How to resolve:** a surveyor's line description, a settler's account or a plate of the prairie
+south or west of the river before 1840 that names its shrubs, its willows or a lone tree, or the
+Government Land Office field notes for T39N R14E read line by line.
+**Ticket:** T-2784.
+**Recorded:** 2026-10-19 (T-2784).
+
 ### L-far-sward-2783 — The open prairie past the grass cards is painted as sward, and a ring of cheap cards carries the grass out to it
 
 **Decision:** past the dealt grass, the ground of every zone whose record has graminoids is
