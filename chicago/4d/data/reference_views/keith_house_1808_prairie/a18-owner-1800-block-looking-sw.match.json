@@ -2,8 +2,8 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-owner-1800-block-looking-sw",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c505419a7f8e102a8508129543029fd2cd7dd2357cd6f12c5547d6a79535ca4b",
-  "camera_sha256": "a1049cc934f2dfe0602308f2a426dd2d38fb4927abf213619fd51b29ff1916e4",
+  "glb_sha256": "37618537fd47c6cf160a1a3b8251c0a461c2a6b3878d18ec20cfea6dccb9a6c2",
+  "camera_sha256": "062073704791ce2c410ebcc52694bc7b9f4753a84a02d722336cb0678747286d",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-owner-1800-block-looking-sw-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -54,6 +54,10 @@
     {
       "what": "T-2748 (the reviewer's reason for this verdict): this file is the owner's reproduction of the c. 1888 SW photograph, cropped (the crown above the third-storey lights is out of frame, so the pinnacles, the return's coping and the cowl are not shown here) and about a third of the blog copy's size, now on that view's re-fitted camera. In register, the third-storey lights, the bow and the north arris lie on the print's; the stoop does not, and reads here as it does in the c. 1888 view: its landing's pierced balustrade and the low round arch under its flight stand left of the render's (the arch at about x 296-305 against 310-321 at this file's scale) and the arch far lower than built. The record differs on that alone. T-2812 ruled it (tools/keith_c1888_stoop_read.py; docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1800-block-looking-sw-c1888-stoop.json): the print draws the loggia's front at its built width (the deck front 85 px against 80, the pierced parapet 40 against 40, its shadowed north side beside it) displaced as one block about 35-40 px left and down, and no level camera holds that block and the crown together: fitted on the crown, every camera leaves the loggia 32-41 px off across and 29-49 px off down; fitted on both, the crown goes to 20 px and T-1883's south-corner grade point to 10-42 px. Only an eye 5-6 m up fits both (7.7 px RMS), and the print's own horizon refuses it: Glessner's two identical window grids scale about y 986, where that eye's horizon is y 734. The 1888 plate (its level fits have the pedestals' arrises and caps in them, 4.6-5.4 px RMS) and the 1965 slide (the shafts' and south pedestal's silhouettes, 3.4 px, the pedestal caps predicted within 3-4 px) place the loggia, its deck and its stair as built, with the plan's deck 2.7 m out; the plate draws the arch's crown at y 1728 against the built 1724, its void 10-15 px inside the built outline in its shadowed reveal. What this print shows of the arch is its head over a light band at y 1032 in front of it; where the block is displaced, the built crown lands on the print's (y 1009-1011 against 1012). So this print cannot place the stoop: a 35 px move would be about 0.9 m out from the front or 1.4 m south along it against three readings that hold it, and the stoop is not moved. With the stoop ruled, nothing this record names is open, and as T-2748 found everything else in register here, the verdict is matches.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2813: re-rendered with Keith's crown 0.16 m lower (the moulded course under the lattice 0.20 m deep where it was 0.36 m, the checker and head bands unmoved); its camera re-solved on the moved crown controls (carried from the c. 1888 camera through its map, tools/keith_crown_resolve.py). Read again at the crown beside the previous render: the lattice, coping and pinnacles move a few pixels at this picture's scale and nothing it shows opens a difference; the verdict stands as it was (matches).",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

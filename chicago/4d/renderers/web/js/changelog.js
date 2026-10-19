@@ -1,4 +1,29 @@
 export const CHANGELOG = [ // newest first
+  { v: 2044, ts: '2026-10-19T05:59:34.092Z', date: 'Oct 19, 2026, 12:59 AM CT', title: '1812: the North Side woods and the shore cottonwoods match 1835', kind: 'feature',
+    items: [
+      'In 1812 the North Side wood now runs east to the sand at the State Street ridge, with its edge thicket and the wood on the sand beyond, as it does in 1835. Before, it stopped 500 m short.',
+      'The shore cottonwood grove at Sixteenth to Eighteenth Street stands in 1812 as 58 young cottonwoods, 11 to 13 m tall, at the same places it stands in 1835.',
+      'Where they stood and how tall they were is reconstructed under a new liberty.',
+    ] },
+  { v: 2043, ts: '2026-10-19T05:59:34.092Z', date: 'Oct 19, 2026, 12:59 AM CT', title: 'Keith House\'s crown brought down to match two photographs', kind: 'fix',
+    items: [
+      'The moulded stone course under 1808 Prairie\'s open stone lattice is now 20 cm deep instead of 36 cm, so the lattice, coping and corner pinnacles stand 16 cm lower.',
+      'Two photographs, one taken from Glessner\'s front and one from 1948, measure the crown that much shorter against the lattice\'s own rows. The carved band below it hasn\'t moved.',
+      'In the photograph from Glessner\'s front, the crown now lines up within about two pixels.',
+    ] },
+  { v: 2042, ts: '2026-10-19T05:59:34.092Z', date: 'Oct 19, 2026, 12:59 AM CT', title: 'iPhone: opening a building\'s card no longer stops the page', kind: 'fix',
+    items: [
+      'The first card you opened also built the full liberties list for every year in a hidden panel: about 28,000 page elements, at the moment the card appeared. The list is now built only when you open the Evidence panel.',
+    ] },
+  { v: 2041, ts: '2026-10-19T05:18:39.457Z', date: 'Oct 19, 2026, 12:18 AM CT', title: 'The Navigator makes sounds, on from your first tap', kind: 'feature',
+    items: [
+      'Your first tap after landing turns sound on. If the jump has already let sound play, you hear the year ticker flap down on the way in, at most 12 ticks a second.',
+      'The last digit drops into place with a low clunk and a short echo. If sound was still waiting for your tap, the clunk plays with that tap.',
+      'The Navigator\'s keys and apps click like relays, and the device hums softly while it is open.',
+      'Each destination has a quiet background tone of its own. It is made up for mood, not a recording of how the town sounded, and Liberties says so.',
+      'Settings › Sound\'s Master, Effects and Ambience levels change the sound as you slide them. Master at Off is silence, and the hum and the background stop while the tab is hidden.',
+      'Every sound is made in the page, so there are no audio files to download.',
+    ] },
   { v: 2040, ts: '2026-10-19T03:48:03.317Z', date: 'Oct 18, 2026, 10:48 PM CT', title: 'A field log in Settings › About, kept on this device only', kind: 'feature',
     items: [
       'Settings › About now has a Field log: how many times you landed, inspected a building, opened an Inspect tab, used Show me, started and finished a Jaunt, reached a Tour step and chose a Confidence view preset.',

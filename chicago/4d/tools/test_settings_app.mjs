@@ -2,7 +2,7 @@
 /**
  * T-2656 (NAV-903) — the Navigator's Settings app: its groups in the design's order, every
  * id the page and the smoke read kept, light or dark as a two-way choice, text size
- * 100-140 %, Auto, Sound's three levels (kept for T-2659, and saying so), What's new from
+ * 100-140 %, Auto, Sound's three levels (and what each covers, T-2659), What's new from
  * About, and the machine tiles painted in each machine's own colours.
  *
  *   node tools/test_settings_app.mjs
@@ -49,8 +49,8 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   assert.deepEqual(sizes.map((m) => Number(m[2])), [100, 110, 120, 130, 140]);
   // Light or dark left the HUD for good, and the old chip with it.
   assert(!/id="btn-theme"/.test(html), 'the HUD chip is gone');
-  // Sound says what it does today.
-  assert.match(settingsHtml, /id="s-sound-note"[^>]*>Nothing in the town makes a sound yet\./);
+  // Sound says what each level covers, and that the ambience is not a recording (T-2659).
+  assert.match(settingsHtml, /id="s-sound-note"[^>]*>Effects are the year ticker, the landing, and the Navigator's clicks and hum\. Ambience is a quiet tone for each destination, made up for mood: it is not a recording of the past\./);
   // About keeps T-2629's stamp, and opens What's new.
   const about = settingsHtml.slice(settingsHtml.indexOf('id="s-about"'));
   assert(about.indexOf('id="s-about-build"') > 0 && about.indexOf('id="s-open-whatsnew"') > about.indexOf('id="s-about-build"'));
@@ -238,4 +238,4 @@ function fakePage() {
 
 console.log('SETTINGS APP PASS — Display, Show, Movement, Machine, Performance, Sound, Units, About & What\'s new in order with every id kept; '
   + 'light or dark is a two-way choice; text size 100–140 % applies and persists; Auto names and restores the device\'s levels; '
-  + 'Sound\'s three levels persist and say nothing plays yet; the machine tiles are each machine\'s own colours');
+  + 'Sound\'s three levels persist and say what each covers; the machine tiles are each machine\'s own colours');

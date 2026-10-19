@@ -9,8 +9,8 @@
  *   Machine      the four skins as preview tiles (js/skin.js paints and applies them)
  *   Performance  detail, sharpness and frame pacing, with an Auto key that puts back what
  *                this device's profile recommends (js/device-profile.js)
- *   Sound        master, effects and ambience. T-2659 makes the sounds; until it lands
- *                the group says nothing in the town makes one, and pretends to nothing
+ *   Sound        master, effects and ambience, which js/sound.js (T-2659) reads live; the
+ *                note says what each covers, and that the ambience is mood, not a recording
  *   Units
  *   About        the build stamp (js/about.js, T-2629) and What's new. T-2657 adds
  *                Researcher mode here.
@@ -30,8 +30,7 @@ export function normalTextScale(value) {
 }
 
 /** The sound levels the HUD's settings carry (0..1, all up by default: the owner ruled
- * sound on by default, 2026-10-16). T-2659 reads them; they are kept now so its controls
- * are where the design puts them and a choice made today is still the visitor's then. */
+ * sound on by default, 2026-10-16). js/sound.js (T-2659) reads them on every move. */
 export const SOUND_KEYS = Object.freeze(['soundMaster', 'soundEffects', 'soundAmbience']);
 export const SOUND_DEFAULTS = Object.freeze({ soundMaster: 1, soundEffects: 1, soundAmbience: 1 });
 export function normalVolume(value, fallback = 1) {
@@ -174,7 +173,7 @@ export function wireSettingsApp({
   for (const id of ['s-detail', 's-quality', 's-governor']) $(id)?.addEventListener('change', () => paintAuto());
   paintAuto();
 
-  // ---- Sound: three levels, kept for T-2659's sounds.
+  // ---- Sound: three levels; main.js hands each move to js/sound.js (T-2659).
   for (const key of SOUND_KEYS) {
     settings[key] = normalVolume(settings[key], SOUND_DEFAULTS[key]);
     const slug = key.replace(/^sound/, '').toLowerCase();
