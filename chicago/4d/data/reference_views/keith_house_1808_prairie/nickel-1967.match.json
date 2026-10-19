@@ -5,7 +5,7 @@
   "glb_sha256": "c505419a7f8e102a8508129543029fd2cd7dd2357cd6f12c5547d6a79535ca4b",
   "camera_sha256": "4cde10e103c3052890d4f2945bb1b9bd504261479d28aa56d46004171c482fff",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/nickel-1967-side-by-side.jpg",
-  "verdict": "matches",
+  "verdict": "differs",
   "differences": [
     {
       "what": "The flat top now has real two-row openings, corner pinnacles, a checker band and five colonnettes dividing six upper windows.",
@@ -50,6 +50,10 @@
     {
       "what": "T-2765: the bow's principal storey has four lights standing plumb under the second storey's four, the fourth beside the loggia's south column, as this view shows them square to the front with no tree in the way; the model had three at different bearings.",
       "status": "fixed"
+    },
+    {
+      "what": "T-2830: read by luminance profile at x 339-346, the loggia's south pair stands its capital top at y 623.5 and its pedestal's cap at 696.5, where this camera draws the as-built loggia's at 642.4 and 703.7: the column reads 73 px against 61. Beside it the bow's string course foot registers (y 620 against 621, the 1888 plate's 5.83 m) and its principal sill reads 9 px high (701.5 against 710, the plate's 2.29 m), so against the bow's sill-to-string-course span the column stands 1.30 times the model's proportion, the factor the 1965 close view reads (T-2764's k 1.29; tools/keith_1965_cause_fit.py). Also read: the bow's principal glass begins 27.5 px under the string course where a 5.30 m head would draw 13 px under it and the plate's upper transom bar (4.85 m) 25, and the band between reads as pale as the piers, so by 1967 the upper transoms read blind. Which height the loggia is built to is T-2831's to rule.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

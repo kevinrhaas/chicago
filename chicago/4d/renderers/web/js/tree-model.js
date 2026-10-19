@@ -596,7 +596,8 @@ const FOLIAGE_K = 4.2;
 const LEAF_GAIN = 2.0;
 const SHELL_K = 7.0;
 
-const SIDES = { near: [10, 7, 5, 3], mid: [6, 4, 3, 0], far: [4, 3, 0, 0] };
+// `distant` (T-2808): the trunk alone, three-sided, under a crown of a few masses.
+const SIDES = { near: [10, 7, 5, 3], mid: [6, 4, 3, 0], far: [4, 3, 0, 0], distant: [3, 0, 0, 0] };
 
 function linearRGB(hex) {
   const c = new THREE.Color().setHex(hex);
@@ -715,8 +716,8 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
   const flexOf = (p) => clamp01((p[1] / Math.max(1, sk.H)) * 0.55 + Math.hypot(p[0], p[2]) / Math.max(1, sk.R) * 0.25) * 0.6;
   // Coarser levels walk every second (mid) or fourth (far) node of a limb:
   // the same limb, in fewer, longer segments.
-  const stride = lod === 'near' ? 1 : lod === 'mid' ? 2 : 4;
-  const minRad = lod === 'near' ? 0 : lod === 'far' ? 0.07 : 0.03;
+  const stride = lod === 'near' ? 1 : lod === 'mid' ? 2 : lod === 'far' ? 4 : 8;
+  const minRad = lod === 'near' ? 0 : lod === 'mid' ? 0.03 : 0.07;
   // A shrub's stems are all thinner than that, which would leave its coarse
   // levels with no wood at all: a batch geometry of zero vertices, which the
   // drawn-timber census cannot read back. Its stoutest stem stays.
@@ -730,7 +731,7 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
     // Thin wood a far tree cannot resolve is not drawn at all.
     if (b.rad[0] < minRad && b !== keep) continue;
     // A far tree's limbs are a few strokes against the sky: twice the trunk's stride.
-    const k = lod === 'far' && b.order > 0 ? stride * 2 : stride;
+    const k = (lod === 'far' || lod === 'distant') && b.order > 0 ? stride * 2 : stride;
     tube(wood, k > 1 ? decimate(b, k) : b, s, barkTile, b.order === 0 ? barkTint : barkUpper, flexOf);
   }
 
@@ -754,7 +755,7 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
   const clumps = leafCover >= 1 ? sk.clumps : sk.clumps.filter(() => lrnd() < leafCover);
   if (!clumps.length) {
     // bare: the wood alone
-  } else if (lod === 'far') {
+  } else if (lod === 'far' || lod === 'distant') {
     // The crown as a few broad masses: clumps binned by bearing and height,
     // one card per bin sized to hold the bin's leaf area, so the silhouette
     // and the gaps between masses stay the tree's own.
@@ -763,7 +764,9 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
       const rel = sub(c.at, centre);
       // A crown a few metres high is held by fewer masses (`farBins`, the dune
       // conifers): at the far ring it is a handful of pixels either way.
-      const [nSec, nBand] = arch.farBins ?? [6, 3];
+      // `distant` (T-2808): half the bearings and one band fewer.
+      const [fSec, fBand] = arch.farBins ?? [6, 3];
+      const [nSec, nBand] = lod === 'distant' ? [Math.max(3, fSec >> 1), Math.max(1, fBand - 1)] : [fSec, fBand];
       const sector = Math.floor(((Math.atan2(rel[2], rel[0]) + Math.PI) / (2 * Math.PI)) * nSec) % nSec;
       const band = Math.min(nBand - 1, Math.floor(clamp01((c.at[1] - sk.baseY) / sk.crownH) * nBand));
       const key = band === nBand - 1 && Math.hypot(rel[0], rel[2]) < sk.R * 0.35 ? 'cap' : `${sector}:${band}`;

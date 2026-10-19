@@ -28961,6 +28961,35 @@ along the lake before 1840, or the witness-tree layer for the township.
 **Ticket:** T-2807.
 **Recorded:** 2026-10-18 (T-2807).
 
+### L-north-side-paths-2808 — The North Side wood on the sand east of State Street, Kinzie's Rush Street bridle path and the Green Bay road cut
+
+**Decision:** in 1835 the North Side wood no longer stops at State Street north of N +300. In
+`renderers/web/js/trees.js` (T-2808, `SAND_WOOD`) it runs on east over the beach-ridge sand to
+about E +1140 (wobbling 36 m), short of the Wau-Bun sand hills, as open ridge oak, with the mesic
+pocket's closed canopy only in a band 22 m either side of the Rush Street line. Its
+east end facing the sand hills carries the woods' edge thicket. The thicket at State Street stays,
+as the edge between the closed wood on the clay and the open oak on the sand. Two ways run through
+the wood (`PATHS`): a bare tread 2.6 m wide on the Rush Street line from N +300 north, with shrubs
+crowding its margins out to 4.5 m, and the Green Bay road, a cut 10.06 m (two rods) wide on the
+Clark Street line from the north end of the town's Clark Street north to the field's edge, its
+margins in stump sprouts and hazel and its middle bare. Neither is a street record: no wheel track
+is drawn or graded.
+**What is read, not invented:** woods on the line of Rush Street, a closed canopy over the path and
+shrubs crowding it (Juliette Kinzie, spring 1831, *Wau-Bun* 1856); a wood filling "almost all the
+North Side west of the shore sand-hills" (Judge Blodgett, 1831-32, reported by Kirkland 1893; in
+the tree research notes, B5, and not yet a source record); the Green Bay road surveyed in 1833 and
+in 1834 cut "to the width of two rods" through the trees (Andreas, vol. 1).
+**What is invented:** where the sand wood starts and ends (N +300, E +1140) and that it is oak on
+the sand with a mesic band along the path, and that band's 22 m width; the path's width and that it still
+runs in 1835, four years after Kinzie rode it, when Rush Street is platted and unopened; the road's
+line on the Clark Street line (nobody traced the 1834 line, and the later N. Clark Street is only
+where the histories put the road's name); the shrubs on both, their density and their place.
+**How to resolve:** the 1833 Green Bay road survey or the 1834 field notes; the original land
+survey's notes for the section lines through the North Side; a dated witness to the ground between
+State Street and the sand hills before 1836.
+**Ticket:** T-2808.
+**Recorded:** 2026-10-18 (T-2808).
+
 ### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
 
 **Decision:** Five 1904 walking jaunts — the famous names, the architects, and three style walks
