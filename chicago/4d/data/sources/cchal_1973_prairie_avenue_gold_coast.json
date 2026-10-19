@@ -1,0 +1,30 @@
+{
+  "id": "cchal_1973_prairie_avenue_gold_coast",
+  "type": "article",
+  "citation": "Commission on Chicago Historical and Architectural Landmarks, 'Prairie Avenue: Chicago's First Gold Coast', staff research study, March 1973.",
+  "author": "the staff of the Commission on Chicago Historical and Architectural Landmarks",
+  "date": "March 1973",
+  "describes_date": "the avenue from its first houses to 1973",
+  "repository": "a scanned PDF of 24 pages at reports.chicagolandmarkreports.org",
+  "url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf",
+  "locator": "PDF pages 4-5 (printed pages 15-16): Arthur Meeker on the street's houses, quoted from Chicago, With Love, and the report's own paragraph on the French style; PDF page 11 (printed page 22): the house at 1919. PDF page 1 is the cover.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "A City commission's staff study, scanned. Reuse rights for the text and the scan are not established here, so it is cited in words only.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-10-19 (T-2642) from the PDF at the url, its text layer checked against the page images at each quotation below. The Wayback Machine's availability service returned no snapshot of the url on 2026-10-19 and web.archive.org reset the connection to direct queries, so no archived_url is recorded.",
+  "note": "Read: on printed page 15 the report quotes Meeker ('says Meeker in Chicago, With Love. He continues:'), and the quotation runs on to printed page 16: 'There were Gothic wooden cottages...pleasant relics of a simpler day; Alt-Deutsch horrors with winged pigs on the roof; vaguely Venetian palazzi; ponderous constructions that seemed a far cry from the dignified Queen Anne or Georgian they aspired to.' The report's own words follow on page 16: 'The French style of architecture predominated, and so mansard and hipped roofs and dormer windows were de rigueur. Cupolas or towers were fairly common'. On printed page 22: 'William H. Murray, Arthur Meeker's maternal grandfather, who was a speculator on the Board of Trade, built the house at 1919 and soon sold it to his wife's brother, Charles Schwartz'; 'Schwartz, in turn, sold the house to Marshall Field when Marshall Jr. married in the early 1890s. This red-brick house, described by Meeker as \"a rambling edifice...that has been rebuilt so often it's impossible to say any longer what it was originally trying to be,\" is still standing, currently occupied by a nursing home.' Not cited by any record yet: T-2642 read it to test a Queen Anne reading of 1919 Prairie, and the owner's ruling of 2026-10-19 left Queen Anne out of these scenes.",
+  "what_it_supplies": [
+    "Meeker's view, quoted at second hand, that the street's houses fell 'a far cry from the dignified Queen Anne or Georgian they aspired to'",
+    "the report's statement that the French style predominated on the avenue, with mansard and hipped roofs and dormers",
+    "that William H. Murray built 1919 Prairie and that it passed to Charles Schwartz and then to Marshall Field in the early 1890s",
+    "Meeker's description of 1919 as rebuilt so often that its first style could no longer be told"
+  ],
+  "what_it_does_not_supply": [
+    "a style for 1919 Prairie: it quotes Meeker saying none can be told",
+    "a date or an architect for 1919 Prairie",
+    "Meeker's book itself: its quotations are the report's, at second hand",
+    "measurement"
+  ]
+}

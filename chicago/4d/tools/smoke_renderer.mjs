@@ -19577,6 +19577,77 @@ for (const [label, viewport, touch] of [
             JSON.stringify(d).slice(0, 900));
         }
         // <<< T-2641
+        // >>> T-2642: the style library on the 1904 houses whose record names a style. 1900 and
+        // 2115 Prairie open on the Second Empire card, 1834 on the Italianate one, each with its
+        // cues and a credited plate where the pictures file holds a copy that may be shown; every
+        // Compare line that names another module opens that style's cues in place, each dotted,
+        // on these houses and on Glessner's; nothing internal reaches the visitor. Generous waits:
+        // each house's tab is read the first time it opens.
+        const library1904 = await page.evaluate(async (ids) => {
+          const a = window.__chicago4d;
+          const wait = (f, n = 300) => new Promise(async (res) => { for (let i = 0; i < n && !f(); i++) await new Promise((r) => setTimeout(r, 100)); res(f()); });
+          const root = () => document.getElementById('nav-app-inspect');
+          const pane = () => root()?.querySelector('[data-insp-pane="design"]');
+          const doc = await a.inspectSummaries();
+          const pics = await a.pictures();
+          const out = {};
+          for (const id of ids) {
+            a.pick(id);
+            await a.navigator.select('inspect');
+            a.navigator.open(2);
+            await wait(() => root()?.dataset.structure === id && !!root().querySelector('.insp-tabs'));
+            root().querySelector('[data-insp-tab="design"]')?.click();
+            await wait(() => ['yes', 'failed'].includes(pane()?.dataset.filled));
+            await wait(() => { const img = pane()?.querySelector('.insp-style-plate img'); return !img || img.complete; }, 100);
+            const p = pane();
+            if (!p) { out[id] = { filled: 'missing' }; continue; }
+            const rec = doc?.summaries?.[id] ?? {};
+            const mod = doc?.styles?.[rec.style] ?? {};
+            const pic = (pics?.by_structure?.[mod.plate?.structure] ?? []).find((x) => x.id === mod.plate?.picture);
+            const more = [...p.querySelectorAll('.insp-compare-more')];
+            for (const d of more) d.open = true;
+            await new Promise((r) => setTimeout(r, 300));
+            const text = [...p.querySelectorAll('.insp-style-name, .insp-style-desc, .insp-cue, .insp-h, .insp-compare-item, .insp-style-cap-text')]
+              .map((n) => n.textContent).join(' ');
+            out[id] = { filled: p.dataset.filled, style: p.querySelector('.insp-design')?.dataset.style ?? null, want: rec.style ?? null,
+              name: p.querySelector('.insp-style-name')?.textContent.trim() ?? '', wantName: mod.name ?? null,
+              cues: p.querySelectorAll('.insp-cue').length, wantCues: (mod.cues ?? []).length,
+              dotted: [...p.querySelectorAll('.insp-cue, .insp-style-desc, .insp-compare-item')].every((n) => n.querySelector('.fact-dot')),
+              plate: !!p.querySelector('.insp-style-plate img'),
+              plateWanted: !!(pic?.held?.f && /^(public domain|no known restrictions)/i.test(String(pic.rights ?? ''))),
+              credit: p.querySelector('.insp-style-cap .insp-credit')?.textContent.trim() ?? '',
+              more: more.length,
+              wantMore: (mod.compare ?? []).filter((c) => c.style && c.style !== mod.id && doc?.styles?.[c.style]).length,
+              opened: more.map((d) => ({ style: d.dataset.style, open: d.open,
+                cues: d.querySelectorAll('.insp-compare-cue').length, want: (doc?.styles?.[d.dataset.style]?.cues ?? []).length,
+                dotted: [...d.querySelectorAll('.insp-compare-cue, .insp-compare-desc')].every((n) => n.querySelector('.fact-dot')),
+                visible: d.querySelector('.insp-compare-cue')?.getBoundingClientRect().height > 0 })),
+              plumbing: /[A-Za-z0-9]_[A-Za-z0-9]|\.json\b|\bdata\/|\bT-\d{3,}|\btier\b|\bticket\b/i.test(text),
+              overflow: p.scrollWidth > p.clientWidth + 1 || document.documentElement.scrollWidth > innerWidth };
+            for (const d of more) d.open = false;
+          }
+          await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
+          return out;
+        }, ['elbridge_keith_house_1900_prairie', 'armour_house_2115_prairie', 'jones_house_1834_prairie', 'glessner_house']);
+        {
+          const L = library1904;
+          const want = { elbridge_keith_house_1900_prairie: 'second_empire', armour_house_2115_prairie: 'second_empire',
+            jones_house_1834_prairie: 'italianate', glessner_house: 'richardsonian_romanesque' };
+          const good = (id) => {
+            const d = L[id] ?? {};
+            return d.filled === 'yes' && d.style === want[id] && d.want === want[id] && d.name && d.name === d.wantName
+              && d.cues === d.wantCues && d.cues >= 1 && d.cues <= 4 && d.dotted && d.plate === d.plateWanted
+              && (!d.plate || d.credit.length > 0)
+              && d.more === d.wantMore && d.more >= 1
+              && d.opened.every((o) => o.open && o.cues === o.want && o.cues >= 1 && o.dotted && o.visible)
+              && !d.plumbing && !d.overflow;
+          };
+          check(`${label}: 1900 and 2115 Prairie show the Second Empire card and 1834 the Italianate one, cues dotted and the plate credited; Compare lines open the other styles' cues in place, on them and on Glessner's (T-2642)`,
+            Object.keys(want).every(good) && L.glessner_house.opened.some((o) => o.style === 'second_empire')
+            && L.glessner_house.opened.some((o) => o.style === 'italianate'),
+            JSON.stringify(L).slice(0, 1200));
+        }
+        // <<< T-2642
         // >>> T-2645 (NAV-510): Inspect's Photos tab on Glessner House — the 12 best by date, each
         // with its year, a caption and its credit; All N shows every picture; From this spot only
         // on a picture a solved camera names, and it stands the visitor where that camera stood.
