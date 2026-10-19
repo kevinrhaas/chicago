@@ -16239,6 +16239,14 @@ for (const [label, viewport, touch] of [
         controls: window.__chicago4d.controlBackend, lookTag: !document.getElementById('look-tag')?.hidden, hintUp };
     });
     await page.evaluate(() => { window.__chicago4d.navigator?.dock?.(); window.__chicago4d.popup?.close?.(); window.__chicago4d.hud.dismissControlHelp?.({ remember: false }); });
+    // dock() sets the level at once, but the device shrinks through a CSS transition, and a
+    // desktop frame costs ~10 s on the software-GL runner (T-2412): measured straight away it
+    // read the open Navigator (292,800 px2, 31.23 %) on two runs of 2026-10-19 where the docked
+    // rail is 42,456 px2. Wait, bounded, until it is docked and nothing in it is animating.
+    await page.waitForFunction(() => {
+      const n = window.__chicago4d.navigator, el = document.getElementById('navigator');
+      return (!n || n.level === 0) && (!el || el.getAnimations({ subtree: true }).length === 0);
+    }, null, { timeout: 60_000, polling: 250 }).catch(() => {});
     const footprints = [await hudFootprint()];
     if (touch) {
       await page.setViewportSize({ width: 390, height: 844 });
