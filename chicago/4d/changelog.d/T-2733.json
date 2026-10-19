@@ -1,9 +1,0 @@
-{
-  "title": "A real phone's frame-pacing reading is filed, and the tool says more",
-  "kind": "improvement",
-  "items": [
-    "The first frame-pacing reading from a real phone is on file. Adaptive pacing made walking steadier, but made turning and flying a little less steady. That is written down as not met, and the next step is to find out why.",
-    "Read frame pacing on the dev preview now prints the year you are in, your Sharpness setting and the pixel ratio each move was drawn at. A 15-second run per mode is the default, which gives a steadier reading.",
-    "Each year now has its own route for the reading. In 1904 the walk goes along the Prairie Avenue sidewalk instead of across the street into the Glessner house, and a test keeps every route clear of every building."
-  ]
-}
