@@ -41,12 +41,14 @@ import { createBuildings } from './buildings.js';
 import { readGlassRequest, glassForDetail } from './glass.js';
 import { createConfidenceView } from './confidence.js';
 import { toggleByGrade, restoreLooks } from './confidence-presets.js';
+import { createConfidenceLegend } from './confidence-legend.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { createWalker, footprintsFrom, decksFrom, WALK } from './walker.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
+import { grownGroupName } from './tree-instances.js';
 import { createPopup } from './popup.js';
 import { createWelcome } from './welcome.js';
 import { createYearPack } from './year-pack.js';
@@ -1354,6 +1356,20 @@ const safeStorage = () => { try { return window.localStorage; } catch { return n
 const FURNITURE_LAYERS = ['enclosures', 'yard', 'frontage', 'wharves', 'boats', 'wells'];
 
 /**
+ * T-2863 — THE GROWN WOOD GHOSTS AS A DITHER TOO, which is a draw-budget ruling and
+ * not a claim that the trees are furniture (they keep their own shadow and reach).
+ * Its four batches (`tree-instances.js`: shade and far, wood and leaves) held only
+ * Inferred stems until T-2809 stood young apple, sour cherry and peach among them
+ * at Reconstructed, so with Reconstructed set to Ghost every batch carried a ghosted
+ * grade AND another one and was drawn in both passes: six more calls in the ghost
+ * pass (each leaf batch twice, as a double-sided transparent material is), measured
+ * at Hogan's store at 1280x800 as 320 -> 326, and read by the desktop smoke's
+ * T-2648 frame as 331 of 330. Named here, a ghosted stem is screen-door dithered at
+ * its opacity in the opaque pass instead, and the ghost pass never draws the wood.
+ */
+const GROWN_TIMBER_LAYER = grownGroupName('timber');
+
+/**
  * THE NEAR PLANE, AND WHY IT MOVES WITH ALTITUDE — ROADMAP R-BUG1.
  *
  * The owner reported the river's edge flickering when flying, and it is the
@@ -1938,7 +1954,9 @@ async function boot() {
   const confidence = createConfidenceView();
   // T-2647: the furniture ghosts as a dither in the opaque pass, not in a second draw —
   // X-RAY one tap away has to fit the draw budget (confidence.js § setGhostAsDither).
-  confidence.setGhostAsDither(FURNITURE_LAYERS);
+  // T-2863: and so does the grown wood, since its batches hold a Reconstructed grade
+  // (T-2809's fruit trees) beside the Inferred one and were drawn in both passes.
+  confidence.setGhostAsDither([...FURNITURE_LAYERS, GROWN_TIMBER_LAYER]);
   // T-2647: the looks the visitor last chose (X-RAY's ghosts), before anything is drawn coloured.
   restoreLooks(confidence, safeStorage());
 
@@ -3607,6 +3625,12 @@ async function boot() {
   // The visitor's stored level choices, before the first frame — otherwise a
   // returning visitor who had hidden the reconstructed town sees it flash in.
   hud.applyHidden();
+  // T-2649 (§09, §10): the Confidence view's legend chip under the year chip, shown while the
+  // view is not Normal; a tap opens the app. It paints from the HUD and the renderer's view
+  // each time either says the view moved, so after the colouring is restored on the way in
+  // it is already right.
+  api.confidenceLegend = createConfidenceLegend({ el: document.getElementById('conf-legend'), hud, view: confidence,
+    open: () => { void navigatorUi?.select('confidence'); } });
 
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();

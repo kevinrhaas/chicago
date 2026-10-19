@@ -18798,7 +18798,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the default build of 1800 Prairie Avenue (`glessner_house`, T-1732) stands on HABS IL-1015's measured plan and heights, the February 1888 *Inland Architect* photograph, Sanborn 1911 sheet 28 and — new since T-1731's specification — the HABS photographs of PR #169. Where none of them gives a number, the build takes one, and **these are ours:** - **Colours**, all of them: the granite (a pale pinkish grey), the courtyard brick (a warm red lifted toward pink), the limestone trim (a grey), the roof tile (a dull brick red), the copper (a dark weathered brown) and the oak (a dark oiled brown). The *materials* are attested — rock-faced granite, \"common brick of slightly pinkish colour\", grey Joliet limestone, \"red baked terracotta tiles, unglazed\", copper sheathing on the hall bow, oak doors (Glessner 1923; HABS 1963) — and nothing read shows any of them in colour. The 1888 plate shows a pale stone; HABS photograph 1 (1963) shows the same walls near black with soot, and how far that had gone by 1904 is not drawn. - **The north tower's position in plan.** Sheet 4 fixes its heights and N-S extent (S 0–16.7); HABS photographs 1 and 13 show it round. Its centre (W 35) and drum radius (7.35 ft) are ours, tangent to the east wing's west face. - **The hall bow's roof form** (a low copper cone sector rising 3.5 ft into the main slopes) — HABS records the copper; no sheet or print shows the shape. - **How far forward the three courtyard dormers stand** on their slope (fronts at W 25.2). - **Every dimension of the stable's ridge turret** (6 ft square, 5.6-ft pyramid, set at S 8) — its form is attested by the 1888 plate and HABS photograph 1, its numbers are read off photograph 1's proportions. - **The E-W size and position of all four chimneys** (4 ft deep; the great chimney at W 38–42) — their N-S extents and tops are measured. - **The stable's south end** as a plain brick gable, and **its carriage doors** as two plain oak leaves: the doorway is attested, the 1904 doors are not (replaced 1946). - **The north range's courtyard windows** — placed at sheet 2's gaps, stacked two storeys, heights ours — and **the heights of every opening read off a plan**: the 18th Street narrow windows take the one pair sheet 5 draws; the alley wall's stable lights (7.0–10.5 ft) and loft lights (17.8–22.9 ft, from photograph 1) are ours. - **The eave cornices'** depth and projection (0.5–0.7 ft), and **the courtyard gate's** heights (9-ft wall stub, 8-ft closed oak leaves, 9.5-ft pier). -"
+          "text": "the default build of 1800 Prairie Avenue (`glessner_house`, T-1732) stands on HABS IL-1015's measured plan and heights, the February 1888 *Inland Architect* photograph, Sanborn 1911 sheet 28 and — new since T-1731's specification — the HABS photographs of PR #169. Where none of them gives a number, the build takes one, and **these are ours:** - **Colours**, all of them: the granite (a pale pinkish grey), the courtyard brick (a warm red lifted toward pink), the limestone trim (a grey), the roof tile (a dull brick red), the copper (a dark weathered brown) and the oak (a dark oiled brown). The *materials* are attested — rock-faced granite, \"common brick of slightly pinkish colour\", grey Joliet limestone, \"red baked terracotta tiles, unglazed\", copper sheathing on the hall bow, oak doors (Glessner 1923; HABS 1963) — and nothing read shows any of them in colour. The 1888 plate shows a pale stone; HABS photograph 1 (1963) shows the same walls near black with soot, and how far that had gone by 1904 is not drawn. - **The north tower's position in plan.** Sheet 4 fixes its heights and N-S extent (S 0–16.7); HABS photographs 1 and 13 show it round. Its centre (W 35) and drum radius (7.35 ft) are ours, tangent to the east wing's west face. - **The hall bow's roof form** (a low copper cone sector rising 3.5 ft into the main slopes) — HABS records the copper; no sheet or print shows the shape. - **How far forward the three courtyard dormers stand** on their slope (fronts at W 25.2). T-2859: their S centres (32.1, 45.0, 67.8), widths, frames and finial bells are now read off sheet 4 at its native grain and are not ours; the slim 20 mm hip covers that stop under each bell, the 0.03 m apron fascia and the 0.067 m frame stock are ours, chosen so each reads at the width the drawing gives its line, not measured fittings. - **Every dimension of the stable's ridge turret** (6 ft square, 5.6-ft pyramid, set at S 8) — its form is attested by the 1888 plate and HABS photograph 1, its numbers are read off photograph 1's proportions. - **The E-W size and position of all four chimneys** (4 ft deep; the great chimney at W 38–42) — their N-S extents and tops are measured. - **The stable's south end** as a plain brick gable, and **its carriage doors** as two plain oak leaves: the doorway is attested, the 1904 doors are not (replaced 1946). - **The north range's courtyard windows** — placed at sheet 2's gaps, stacked two storeys, heights ours — and **the heights of every opening read off a plan**: the 18th Street narrow windows take the one pair sheet 5 draws; the alley wall's stable lights (7.0–10.5 ft) and loft lights (17.8–22.9 ft, from photograph 1) are ours. - **The eave cornices'** depth and projection (0.5–0.7 ft), and **the courtyard gate's** heights (9-ft wall stub, 8-ft closed oak leaves, 9.5-ft pier). -"
         },
         {
           "label": "The courtyard ground in 1904",
@@ -35351,6 +35351,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-17 (T-2730)."
+        },
+        {
+          "label": "Evidence since, 2026-10-19 (T-2865)",
+          "text": "the knee wall is withdrawn. T-2846's camera, re-solved on the south wall's level lines, reads the side wall's eave at 10.9 m, not 13.0: what stands to about 13 m is the front alone, its corner pier and the gable. So the top storey runs 3.7 m to a 10.9 m wall head, and the front carries its full width up past it to the 13.0 m ledge (K01's new `shaped_gable.ledge_m`), a block standing over the hip from the south as the photograph's pier top does. The slab's foot comes down with the eave to 10.45 m, just over the top floor's narrow lights, whose flat arches run on into it, and its face now stands 0.02 m proud of the fascia (0.07 m off the wall) where it stood 0.25 m off it: still K01's, still not the photograph's one plane, but a line rather than a band. Invented now: the foot at 10.45 m and the 0.07 m step; the ledge's depth (the slab's 0.6 m) where the pier's is not seen; the party-wall stack held at its read 17.7 m top by standing it 3.0 m over the lower ridge."
         }
       ]
     },
@@ -35499,6 +35503,39 @@
         {
           "label": "Recorded",
           "text": "2026-10-19 (T-2846)."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-1625-south-dormer-2866",
+      "title": "1625 Prairie's dormer on its main roof's south slope, and its rear door's transom",
+      "section": "per_subject",
+      "subjects": [
+        "house_1625_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the dormer the 1890 McBirney photograph shows on the main roof's south slope, over the side wall's eave, is built (`slope_dormers`, K01's new side-slope dormer): a hipped dormer whose face stands 0.1 m up the slope from the wall line, 1.4 m along the wall and centred 7.22 m behind the front, one sash 0.9 m wide at 11.52-13.47 m in a 0.25 m surround, its soffit at 13.72 m and K05's hip over it at 40 degrees to a 14.55 m ridge, its body run back until that ridge dies into the main hip. The rear section's door takes a transom light in the top 0.65 m of its hole. **What is read, not invented.** Through the camera T-2846 re-solved: the cheek faces the plate (its hood's lines run level) and the face is seen end-on beside it, so the face's corner (x 490 px) and edge (x 500), the light's jambs, head and sill and the hood's fascia give its place, width and heights once the face's setback is fixed; the hip at the face's end (its ridge stops short of the corner, its eave returns level over the face) and its pitch from the hood's rise (38-42 degrees); the cheeks as pale as the face, unlike the rear attic's slates. The transom's bar and panes are read on the print's pixels. **What is invented.** The face's setback, 0.1 m: the one number the print leaves free (each 0.1 m moves every height by about 0.15 m), held there by the cornice running unbroken under the face and by the main hip's 14.7 m ridge, which a face further up the slope would carry the dormer's ridge past; the main roof's own 45-degree pitch is reconstructed (`roof_pitch_deg`), so this bound is too. The sash's panes (the kit's two-over-two; the print shows a meeting rail and cannot count panes); the face's and cheeks' dressed stone, which the print reads pale and cannot tell from painted timber or sheet metal; the kit's 0.15 m eave and 0.12 m fascia; how far the body runs back into the hip, which nothing can see. The transom's frame and bar in the leaf's timber, and the dark of the hall behind its panes."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a view of 1625 from the south or the rear, or its drawings, would settle the dormer's depth into the roof, the main roof's pitch and the face's finish."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2866 (piece 2 of T-2847)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-19 (T-2866)."
         }
       ]
     },
@@ -37362,7 +37399,7 @@
         }
       ],
       "recorded": "2026-10-15",
-      "revised": "2026-10-18",
+      "revised": "2026-10-19",
       "fields": [
         {
           "label": "Ticket",
@@ -37399,6 +37436,14 @@
         {
           "label": "Revised",
           "text": "2026-10-18 (T-2763) — **the loggia lowered to 0.88 of its height over the deck; the plate's camera now determined.** Re-read on the GLB's own edges (the capital's abacus, not the beam's lowest band; the projecting sill's arris, not a height on no edge), every level camera fitted to the 1888 plate with the loggia as built put its eye at grade 40-90 m out and still drew pedestal and column alike 6-8 % long, so the front's ruler T-2725 read the column against was not where its camera stood. One factor on the loggia's heights over its 2.0 m deck, fitted with the camera, read 0.879 and put the eye 2.3 m high about 21 m out; freeing the third-storey sills as well moved them 0.03 m, so the front stands. Built at pedestal 0.88 m and column 2.2 m (their ratio the pictures' 2.44-2.49), the pierced parapet at 0.72 m (its coping at 0.82 of the pedestal, as the plate draws it); the entablature (0.9 m) and balcony front (0.75 m) stand, so the balcony floor is at 5.98 m and its coping 6.73 m. On the rebuilt GLB the plate's level fit puts its eye at [39.19, -0.23, 2.21] with nothing at a bound (RMS 4.94 px) and reads the column 1-2 % short; that is now `inland-1888`'s camera (`tools/keith_plate_level_fit.py`). Still reconstructed: one factor for the whole loggia (only its capital tops and pedestal caps are fitted), and the 1965 close view's camera, which now draws the loggia about a quarter short, is re-fitted at the loggia's depth by T-2764."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-19 (T-2845) — **the pedestals and stair built at the first-floor plan's place.** The plan under the 1888 plate, read between its side walls' outer faces (23.17 px/m, T-2844), draws the front pedestals 0.60 and 0.65 m across at v 6.73-7.34 and 9.58-10.23 and the stair 1.86 m clear between its cheeks (v 4.92-6.78), its north cheek running into the south pedestal. Both pedestals are now 0.6 m square, the south one at 6.75-7.35 and the north one 0.2 m in from the corner at 9.6-10.2, where they stood 0.9 m wide flush with the deck's corners; the north side parapet stands on that pedestal's middle (9.7-10.0) as the plan draws it; the stair is 1.8 m clear at 4.95-6.75 (centred 5.85 m), where it was 2.0 m at 5.0-7.0. Each pair's shafts stand 0.36 m apart, the plate's pitch, where the 0.9 m pedestals set them 0.45 m."
+        },
+        {
+          "label": "Still invented",
+          "text": "the pitch and the side parapet's place are read at a few pixels on the plate and the plan; the turned bases and necks are trimmed to 0.175 m in radius (from 0.2) so the closer shafts do not run into each other, and the paired capital widened to span them (0.71 m), neither read off any picture. The 1965 slide still reads the loggia about 1.1 times taller than built, and each pair about 8 px wider than built; the column stays at 2.2 m on the plate (0.999) and Nickel 1967 (0.994), and the pairs' width is T-2816's to rule."
         }
       ]
     },
