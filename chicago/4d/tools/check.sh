@@ -149,6 +149,8 @@ step "The Confidence view's overlays — street names, building labels, people p
   node tools/test_confidence_overlays.mjs
 step "The Confidence view's per-grade rows — four swatches with a colour-blind-safe set, Tint/Ghost/Dither, opacity 0-100 and a count per grade, none rebuilding the scene (T-2648)" \
   node tools/test_confidence_rows.mjs
+step "The Confidence view persists in one record and carries to the next page and year; its HUD legend shows while the view is not Normal (T-2649)" \
+  node tools/test_confidence_persist.mjs
 
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs

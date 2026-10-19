@@ -1,4 +1,22 @@
 export const CHANGELOG = [ // newest first
+  { v: 2063, ts: '2026-10-19T15:12:55.865Z', date: 'Oct 19, 2026, 10:12 AM CT', title: 'Ghosted trees in the Confidence view fade by dither', kind: 'fix',
+    items: [
+      'In the Confidence view, a grade set to Ghost now fades the trees with a fine screen-door pattern at its opacity, as fences and yards already do, instead of drawing the wood a second time. X-ray\'s trees fade the same way.',
+      'That keeps a ghosted view within the frame budget now that the fort\'s and Dr. Harmon\'s young fruit trees stand among the woods. The town at Normal is unchanged.',
+    ] },
+  { v: 2062, ts: '2026-10-19T15:12:55.865Z', date: 'Oct 19, 2026, 10:12 AM CT', title: 'The Confidence view remembers your choices and shows a legend', kind: 'feature',
+    items: [
+      'Presets, hidden grades, colours, looks and opacity now come back when you reload, and when you Jump to another year. Before, the colouring itself was forgotten.',
+      'While the Confidence view is on, a small chip by the year chip shows a dot for each grade in the colour it wears. Tap it to open the Confidence view.',
+      'If your browser won\'t save anything, the view simply opens at Normal.',
+    ] },
+  { v: 2061, ts: '2026-10-19T14:11:36.406Z', date: 'Oct 19, 2026, 9:11 AM CT', title: '1625 Prairie\'s side wall drops to its photographed eave', kind: 'change',
+    items: [
+      '1625 Prairie Avenue\'s south side wall now stops at 10.9 m, where the 1890 photograph puts its eave, instead of running up 2 m higher to the gable\'s foot.',
+      'The stone front alone still rises to about 13 m at its corner and carries the gable over the lower roof, as the photograph shows. The step where the gable stands out from the front is now a fine line, not a deep band.',
+      'The four-storey rear section came down with the eave: its windows, attic dormer, slate roof and chimney now stand at the photograph\'s heights.',
+      'The tall chimney beside the gable keeps its photographed height.',
+    ] },
   { v: 2060, ts: '2026-10-19T13:34:21.252Z', date: 'Oct 19, 2026, 8:34 AM CT', title: '1637 Prairie\'s south flank gains its columns, belt course and tall stack', kind: 'improvement',
     items: [
       'The stone bay on 1637\'s south side now has columns at its corners and on its sides, where the old photograph of the house shows them.',
