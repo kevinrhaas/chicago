@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2041, ts: '2026-10-19T05:18:39.457Z', date: 'Oct 19, 2026, 12:18 AM CT', title: 'The Navigator makes sounds, on from your first tap', kind: 'feature',
+    items: [
+      'Your first tap after landing turns sound on. If the jump has already let sound play, you hear the year ticker flap down on the way in, at most 12 ticks a second.',
+      'The last digit drops into place with a low clunk and a short echo. If sound was still waiting for your tap, the clunk plays with that tap.',
+      'The Navigator\'s keys and apps click like relays, and the device hums softly while it is open.',
+      'Each destination has a quiet background tone of its own. It is made up for mood, not a recording of how the town sounded, and Liberties says so.',
+      'Settings › Sound\'s Master, Effects and Ambience levels change the sound as you slide them. Master at Off is silence, and the hum and the background stop while the tab is hidden.',
+      'Every sound is made in the page, so there are no audio files to download.',
+    ] },
   { v: 2040, ts: '2026-10-19T03:48:03.317Z', date: 'Oct 18, 2026, 10:48 PM CT', title: 'A field log in Settings › About, kept on this device only', kind: 'feature',
     items: [
       'Settings › About now has a Field log: how many times you landed, inspected a building, opened an Inspect tab, used Show me, started and finished a Jaunt, reached a Tour step and chose a Confidence view preset.',
