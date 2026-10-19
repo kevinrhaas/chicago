@@ -26,6 +26,8 @@ stands between: the page fetches them as they are authored or compiled for the s
                the address book's seats
   structures_<scene>  a building's card (js/popup.js): every structure sidecar of the scene,
                its versions, and the agencies it can name
+  jaunts_<scene>  a jaunt's route and stops (js/jaunt-preview.js): each compiled jaunt's
+               evidence — its locators, its reasoning and its citations
 
 A record's prose is said for a reader by the one rule every research surface shares
 (readable_text.rewrite: a ticket dropped or said as "earlier work", an id as the name the
@@ -111,6 +113,8 @@ def families() -> dict[str, list[Path]]:
     }
     for scene in SCENES:
         fam[f"structures_{scene}"] = _structures(scene) + [agencies]
+    for scene in SCENES:
+        fam[f"jaunts_{scene}"] = sorted((DATA / "sidecars" / scene / "jaunts").glob("*.json"))
     return {k: [p for p in v if p.is_file()] for k, v in fam.items()}
 
 
@@ -256,7 +260,8 @@ def build_family(name: str, paths: list[Path], reader: Reader, old: dict | None)
         left = rt.problems(said)
         if left:
             unclear.append(f"{name}: the name for {tok!r} still carries {left[0]}")
-    what = WHAT.get(name) or f"a building's card in the {name.split('_')[-1]} scene"
+    what = WHAT.get(name) or (f"the {name.split('_')[-1]} jaunts" if name.startswith("jaunts_")
+                              else f"a building's card in the {name.split('_')[-1]} scene")
     doc = {"_doc": DOC.format(what=what), "family": name, "count": len(edits),
            "edits": dict(sorted(edits.items())), "work_refs": dict(sorted(refs.items()))}
     if named:

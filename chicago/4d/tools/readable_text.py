@@ -934,6 +934,30 @@ def self_test() -> int:
            f"a source title is its citation's opening words ({source_title(cit)!r})")
     expect(structure_title("Reconstructed D3 one-room frame cottage #017", "x") == "a one-room frame cottage",
            "an anonymous roof is said as what it is")
+    # T-2825, second half: the names, the bare ids, and the overlay the page applies.
+    t, _ = rw("named in the claim read as chicago_democrat_1834_11_12#c004, and hh_rc_bacon_betsey.")
+    expect(t == "named in the claim read as the Chicago Democrat of 1834-11-12, and the Bacon household.",
+           f"a newspaper issue is its paper and date, a reconstructed household its family ({t!r})")
+    t, _ = rw("added for ROADMAP K49(c) so it reads")
+    expect(t == "added for the project's roadmap so it reads", f"a roadmap item's clause goes with it ({t!r})")
+    for name, plain in [
+        ("1600 Prairie Avenue — brick corner house, K01 frontage assembly", "1600 Prairie Avenue — brick corner house"),
+        ("1945 Prairie Avenue — George Armour/Corwith corner mansion (district draft; refined by T-1908)",
+         "1945 Prairie Avenue — George Armour/Corwith corner mansion"),
+        ("2036 Prairie Avenue — Buckingham map-led corner mansion", "2036 Prairie Avenue — Buckingham corner mansion"),
+        ("Shortall-Gregory house (1638 Prairie Avenue): the K16 timber house",
+         "Shortall-Gregory house (1638 Prairie Avenue): the timber house"),
+        ("2109 Prairie Avenue — Roloson partly seen in Armour photograph", "2109 Prairie Avenue — the Roloson house"),
+        ("1635 Prairie Avenue — Italianate villa of 1863 (the Forsyth house)",
+         "1635 Prairie Avenue — Italianate villa of 1863 (the Forsyth house)"),
+        ("Green Tree Tavern", "Green Tree Tavern")]:
+        expect(plain_name(name) == plain, f"a building's name without its production step ({plain_name(name)!r})")
+    note = "Seated by T-1433; see data/streets/1835.json and fort_dearborn_barracks — 𝄞 é."
+    new, _ = rewrite(note, Names(root=Path("/nonexistent"), extra={"fort_dearborn_barracks": "the barracks"}))
+    e = edits_between(note, new)
+    expect(apply_edits(note, e) == new and not problems(new), f"the overlay's edits make the reader's sentence ({new!r})")
+    expect(reader_copy({"a": [note, "one_token"]}, {reader_key(note): e}) == {"a": [new, "one_token"]},
+           "the page's step: a sentence is said, a bare id is the data's and is left alone")
     print(f"   {len(fails)} rewrite(s) not made" if fails else "   every rewrite made")
     return 1 if fails else 0
 

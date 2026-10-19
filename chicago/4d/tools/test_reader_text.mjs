@@ -33,7 +33,8 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const COMPILER = path.join(ROOT, 'tools/compile_reader_text.py');
 // The households and the 1835 cards are the two big families; the default run leaves them to
 // --all (and to the gate's lint, which reads every family's records through the same rewrite).
-const SMALL = ['flora', 'fauna', 'residents_index', 'businesses', 'structures_1812', 'structures_1904'];
+const SMALL = ['flora', 'fauna', 'residents_index', 'businesses', 'structures_1812', 'structures_1904',
+  'jaunts_1812', 'jaunts_1835', 'jaunts_1904'];
 const args = process.argv.slice(2);
 const given = args.find((a) => !a.startsWith('--'));
 let families = JSON.parse(execFileSync('python3', [COMPILER, '--list'],
