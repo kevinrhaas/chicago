@@ -364,11 +364,15 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
     return roof, rainwater
 
 # T-2308: the K08 kinds a K01 frontage can carry. A bay or a full-height projection
-# stands on grade against one wall under its own roof; a tower's cap meets the main
-# eave and roof, which this assembly does not cut. T-2369: an oriel stands on its corbel
+# stands on grade against one wall under its own roof. T-2369: an oriel stands on its corbel
 # courses and stops under the main eave, its own roof leaning on the wall below the
-# cornice (1612's south wall), so it is carried too.
-BAY_KINDS = ("bay", "projection", "oriel")
+# cornice (1612's south wall), so it is carried too. T-2787: a tower stands on grade and
+# rises PAST the main eave, its cap whole over the main roof; the roof is not cut for it,
+# so its ring closes round the eave and its back is closed in the wall's plane above it.
+BAY_KINDS = ("bay", "projection", "oriel", "tower")
+#: T-2787: how far a tower's wall top stands over the main eave at the least. Under that
+#: it is a bay with a cone on it, and the eave would run into its cap
+TOWER_PAST_EAVE_M = 1.0
 
 #: T-2350: the K05 variant a flat K01 roof is built from (k05_roofs.json)
 FLAT_ROOF = "k05.roof.flat_parapet"
@@ -1018,7 +1022,20 @@ def _bay_span(plan: dict) -> tuple:
         return float(plan["points"][0][0]), float(plan["points"][-1][0])
     if plan["kind"] == "bow":
         return -float(plan["chord_m"]) / 2, float(plan["chord_m"]) / 2
-    raise ParamError(f"a K01 bay's plan is a polyline or a bow, not a {plan['kind']}")
+    if plan["kind"] == "circle":
+        # T-2787: a round tower meets its wall where its circle crosses the wall's face
+        r, c = float(plan["radius_m"]), float(plan["centre_proud_m"])
+        h = math.sqrt(r * r - c * c)
+        return -h, h
+    if plan["kind"] == "polygon":
+        # ...and a polygonal one where its ring does (k08_bays walks the same ring)
+        from . import k08_bays as K8
+        ring = K8.polygon_vertices(int(plan["sides"]), float(plan["radius_m"]), float(plan["centre_proud_m"]))
+        xs = [a[0] + a[1] / (a[1] - b[1]) * (b[0] - a[0])
+              for a, b in zip(ring, ring[1:] + ring[:1]) if (a[1] < 0) != (b[1] < 0)]
+        xs += [a[0] for a in ring if abs(a[1]) < 1e-12]
+        return min(xs), max(xs)
+    raise ParamError(f"a K01 bay's plan is a polyline, a bow, a circle or a polygon, not a {plan['kind']}")
 
 
 def bracketed_section(k10: dict, overhang: float) -> list:
@@ -1056,7 +1073,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         oriel = v["kind"] == "oriel"
         if v["kind"] not in BAY_KINDS or (v["base"] != "grade") != oriel:
             raise ParamError(f"bays: {v['id']} is a {v['kind']} off {v['base']}; a K01 frontage carries "
-                             f"a bay or a projection on grade, or an oriel on its corbels")
+                             f"a bay, a projection or a tower on grade, or an oriel on its corbels")
         if oriel:
             base = float(e.get("base_m", -1.0))
             if not any(abs(base - y) < 1e-6 for y in floors[1:]):
@@ -1108,6 +1125,19 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 raise ParamError(f"bays: {e['id']}'s projection is {w} m wide and {d} m proud; a pavilion "
                                  f"is 1.5-6.0 m wide and stands 0.1-1.2 m proud")
             v["plan"] = {"kind": "polyline", "points": [[-w / 2, 0.0], [-w / 2, d], [w / 2, d], [w / 2, 0.0]]}
+        elif "plan" in e and v["kind"] == "tower":
+            # T-2787: a tower read off a picture keeps the picture's radius and how far its
+            # centre stands out of the wall; the kit's tower is the shape (its ring, its sides),
+            # never the size. Its centre stands on or out of the wall's face, so at least half
+            # the ring is clear of it, and the ring always crosses the face
+            q = e["plan"]
+            if set(q) != {"radius_m", "centre_proud_m"}:
+                raise ParamError(f"bays: {e['id']} sizes its tower by radius_m and centre_proud_m, not {sorted(q)}")
+            r, c = float(q["radius_m"]), float(q["centre_proud_m"])
+            if not (1.0 <= r <= 4.0 and 0.0 <= c <= r - 0.3):
+                raise ParamError(f"bays: {e['id']}'s tower is {r} m in radius, its centre {c} m proud; a tower "
+                                 f"is 1.0-4.0 m in radius and its centre 0 m to its radius less 0.3 m out")
+            v["plan"] = {**v["plan"], "radius_m": r, "centre_proud_m": c}
         elif "plan" in e and not oriel and v["plan"]["kind"] == "polyline" and v["kind"] == "bay":
             # T-2780: a canted bay drawn on its sheet keeps the sheet's size (1637's south bay on
             # the 1911 sheet, 3.55 m at the wall and 0.75 m out); the kit's polyline is the shape,
@@ -1338,6 +1368,9 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             elif spire or top > eave - 1.0:
                 raise ParamError(f"bays: {e['id']}'s wall top {top:.2f} m is not a metre under the eave "
                                  f"({eave:.2f} m), or it stands under a spire without being carried through it")
+        if v["kind"] == "tower" and top < eave + TOWER_PAST_EAVE_M - 1e-9:
+            raise ParamError(f"bays: {e['id']} is a tower whose wall top {top:.2f} m is not {TOWER_PAST_EAVE_M} m "
+                             f"over the eave ({eave:.2f} m); a shorter one is a bay with its cap in the eave")
         for o in list(openings):
             if o.wall != e["wall"]:
                 continue
