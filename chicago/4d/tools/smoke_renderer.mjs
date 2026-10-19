@@ -15331,7 +15331,13 @@ for (const [label, viewport, touch] of [
       && hub.tiles.every((t) => t.title && t.title === t.h3 && (t.id === 'sources' && t.mount === null ? !Number.isFinite(t.count) : Number.isFinite(t.count) && t.count > 0 && t.count === t.mount)),
       JSON.stringify(hub.tiles.map((t) => `${t.id} ${t.count}/${t.mount}`)));
     await page.evaluate(() => window.__chicago4d.evidenceHub.showTopic('sources'));
-    await page.waitForFunction(() => window.__chicago4d.sources?.rows.length > 0);
+    // Polled on a timer, not per animation frame (Playwright's default): a desktop frame costs
+    // ~10 s on the 4-cpu software-GL runner (T-2412), so frame polling read this about 80 s
+    // after the hub on 2026-10-17/18 and past the 90 s default by 2026-10-19 (three runs). The
+    // rows themselves are what is checked below; the elapsed time is printed.
+    const sourcesT0 = Date.now();
+    await page.waitForFunction(() => window.__chicago4d.sources?.rows.length > 0, null, { timeout: 180_000, polling: 250 });
+    console.log(`        Sources rows ready ${((Date.now() - sourcesT0) / 1000).toFixed(1)} s after the hub (${label})`);
     const sourcesView = await page.evaluate(() => {
       const api = window.__chicago4d, root = document.getElementById('sources');
       const initial = root.querySelector('.src-status').textContent;
