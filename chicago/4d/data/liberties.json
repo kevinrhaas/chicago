@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 642,
+  "count": 643,
   "liberties": [
     {
       "id": "L1",
@@ -41613,6 +41613,33 @@
         {
           "label": "Recorded",
           "text": "2026-10-19 (T-2873)."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-1637-cheek-lights-2886",
+      "title": "1637 Prairie's south bay: its cheeks' lights sized between their columns, and its front light moved as far east as the sheet's front allows",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the canted bay on the south flank of Jesse Spalding's remodel of the Grosvenor house (T-2886, piece 1 of T-2840) takes a round-arched light in each cheek between its two columns, 0.38 m clear from 3.15 to 5.8 m under a 0.05 m band, its recess 0.33 m, over a round-headed light 0.3 by 0.55 m from 2.2 m in the base. The front's arched light and the base light under it move 0.245 m east, to 1.355 m along the 2.22 m front, and the front light's band narrows to 0.1 m. K06 takes a head band's breadth per window (`head_band_m`, 0.03 m to the kit's 0.18 m, over an arched head only). **What is read, not invented.** From the photograph (`glessner_blog_1637_grosvenor_asbuilt_photo`) through T-2755's camera: that the west cheek carries a light between its columns (glass dark at x 375-392 px at y 640), its crown under the capitals' band (about y 520), and a small light in the base under it (x 367-383, y 690-723); and that the front's light is dark from x 421 to 447 px with stone from 448 px to the crop's edge, so it is about as wide as built and centred about 9 px east of the sheet's front's centre. **What is invented.** The cheek lights' exact width and head: the photograph's grain gives a light between two columns, not its frame, so it is cut 0.38 m, the room between the shafts less a narrow band, round-headed like the front's. The base light's shape (the photograph's is a dark oval about 0.3 m across), its 0.55 m height the front's base light's, its foot 0.1 m higher, under the floor band. The bands' 0.05 and 0.1 m breadths (the kit's 0.18 m does not fit between the columns). The east cheek's lights, out of the frame, by symmetry. The front light stands 0.1 m short of the photograph's place: the 1911 sheet's front is 2.22 m and the east angle's column takes its last 0.1 m, so the light cannot go further east without widening the front past the sheet's plan, which only the photograph (cropped at that edge) would support."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the uncropped Grosvenor plate, which would show the bay's east angle and so the front's width; or a nearer photograph of the south flank."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2886 (piece 1 of T-2840, itself piece 2 of T-2781)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-19 (T-2886)."
         }
       ]
     },

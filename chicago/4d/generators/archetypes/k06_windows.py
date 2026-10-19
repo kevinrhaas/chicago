@@ -311,7 +311,10 @@ class Opening:
             daylight = self._frame(s0, s1, head, rev, y_frame, fr)
             self._glaze(daylight, head, rev, fr, sa, mu, s0, s1)
         self._sill(holes, rev, run, sill)
-        self._head_band(holes, p["head_band"])
+        # T-2886: a light set between columns takes a narrower band over its head than the
+        # kit's, so it fits the run between their shafts (1637's south bay's cheeks)
+        hb = {**p["head_band"], **({"width_m": ov["head_band_m"]} if "head_band_m" in ov else {})}
+        self._head_band(holes, hb)
         if v.get("well"):
             self._well(holes, p["well"])
         return self
