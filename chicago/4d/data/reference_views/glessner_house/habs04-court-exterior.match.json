@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs04-court-exterior",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
+  "glb_sha256": "9d31c846b943819492913bc94fabaa46a12c6c575e65559b0bb76f25cad999b1",
   "camera_sha256": "7ccd4571592b31439e969f77d078d8e835fd8b2ba0e963b25dbd8b2ecc5346b3",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-court-exterior-side-by-side.jpg",
   "verdict": "differs",
@@ -16,7 +16,15 @@
       "status": "fixed"
     },
     {
-      "what": "Exact apron/finial silhouette, frame stock and local section correspondence still require reconciliation with the licensed photographic references.",
+      "what": "T-2859: the three dormers re-read on native sheet 4. Centres move to the drawing's S32.1 and S67.8 (built 32.3 and 66.8; the third stood a foot west of the drawn one), 45.0 kept. The hip covers are slimmed from 47 to 20 mm and stop under the finial's bell, which they had buried; the bell now reads as drawn, on its own drawn profile (foot 37.03, top 38.90 ft). Frame stock 0.067 m and apron fascia 0.03 m follow the drawing's lines. Pyramid slope, eave, body and light already agreed within 0.04-0.08 ft. Close-ups at the drawing's grain: docs/RESEARCH/glessner-court-dormers-T-2859/.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2859: at the drawing's grain the outer dormers render about 0.18 ft toward the picture's centre - the far-field camera's 1% depth residual, the dormers standing about 5.5 m behind its nominal face; the record puts them where the orthographic drawing does.",
+      "status": "not shown"
+    },
+    {
+      "what": "Found by T-2859: the bow's lights and door do not match the section (sheet 4 draws two broad lights and a narrow one above, and a broad light, the door and a narrow light below, at sizes the build does not have) - T-2862.",
       "status": "open"
     },
     {

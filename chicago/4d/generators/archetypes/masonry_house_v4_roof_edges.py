@@ -153,13 +153,13 @@ def finial(b,x,y,z,height,mat):
     _receipt(b,'finial',centre=[x,y,z],height_m=height,max_radius_m=.132)
 
 
-def hip_caps(b,p,q):
-    """Solid overlapping covers, with the inherited 47mm hip radius."""
+def hip_caps(b,p,q,radius=.047):
+    """Solid overlapping covers, with the inherited 47mm hip radius by default."""
     tangent=_unit(_sub(q,p));across=_unit((tangent[1],-tangent[0],0))
     outward=(across[1]*tangent[2]-across[2]*tangent[1],
              across[2]*tangent[0]-across[0]*tangent[2],
              across[0]*tangent[1]-across[1]*tangent[0])
-    length=math.dist(p,q);count=max(1,math.ceil(length/.27));radius=.047
+    length=math.dist(p,q);count=max(1,math.ceil(length/.27))
     segments=2 if getattr(b,'reduced_roof_details',False) else 8
     def section(t):
         profile=[(radius*math.cos(math.pi*j/segments),.009+radius*math.sin(math.pi*j/segments))

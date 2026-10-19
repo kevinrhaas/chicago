@@ -17232,6 +17232,10 @@ them gives a number, the build takes one, and **these are ours:**
 - **The hall bow's roof form** (a low copper cone sector rising 3.5 ft into the main slopes) — HABS
   records the copper; no sheet or print shows the shape.
 - **How far forward the three courtyard dormers stand** on their slope (fronts at W 25.2).
+  T-2859: their S centres (32.1, 45.0, 67.8), widths, frames and finial bells are now read off
+  sheet 4 at its native grain and are not ours; the slim 20 mm hip covers that stop under each bell,
+  the 0.03 m apron fascia and the 0.067 m frame stock are ours, chosen so each reads at the width the
+  drawing gives its line, not measured fittings.
 - **Every dimension of the stable's ridge turret** (6 ft square, 5.6-ft pyramid, set at S 8) — its
   form is attested by the 1888 plate and HABS photograph 1, its numbers are read off photograph 1's
   proportions.
