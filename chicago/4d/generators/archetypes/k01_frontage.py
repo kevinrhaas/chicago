@@ -3349,9 +3349,8 @@ def build(params, structure_id: str):
         # over) — the clearance k01_frontage_params._bays already reads its host openings by
         under = None
         if bay["variant"]["kind"] == "oriel":
-            course = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k08_bays.json")
-                                .read_text())["parts"]["corbel"]["course_height_m"]
-            under = float(bay["variant"]["base"]) - bay["variant"]["corbel"]["courses"] * float(course)
+            from . import k08_bays as K8
+            under = K8.support_bottom(bay["variant"])   # T-2883: its apron's foot, or its corbels
         for o in p.openings:
             if under is not None and o.head_m + 0.30 <= under:
                 continue

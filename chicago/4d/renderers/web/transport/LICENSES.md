@@ -1,0 +1,55 @@
+# Transport study licenses
+
+All studies use original procedural geometry, solid PBR colors and no external photographic textures, tracing or extracted dimensions. These are technical studies, not finished historical reconstructions. Three.js is the existing separately licensed vendor dependency; no second vendor copy is included.
+
+| Study | Generator and geometry | Basis |
+| --- | --- | --- |
+| `wagon/` | GPL-3.0-or-later, project-derived original work | Existing explicitly reconstructed wagon dimensions in `data/yard/town_trade_goods.json` and running-gear arrangement in `yard.js`. Those are not measured Chicago artifacts. |
+| `carriage/` | GPL-3.0-or-later, original work | Independent engineering reconstruction; no rights-pending image derivation and no claimed manufacturer or historical owner. |
+| `horse/` | CC0-1.0, original work | Independent anatomical/articulation study; no source pixels, base meshes or textures. No particular breed or individual animal is asserted. Integration code is under the project's GPL license. |
+
+Harness generator and geometry are original CC0-1.0. The component list and 25.4 mm trace width use John Moore’s New York 1891 published text; US public-domain reasoning and exact source URL are recorded in the harness manifest. Source images and plates were not used. Unmeasured shapes, dimensions and routing remain reconstructed.
+
+Generated GLB files, JSON notes and browser fixtures retain these terms. See `docs/RESEARCH/period-transport-2026-10-18/` for validation and limitations, and `data/transport/studies/` for the geometry inputs. Dimensions, surfaces, color and gait in these studies are reconstructed or conjectural, not attested.
+
+## W01 wheel refinement: original reconstruction (2026-10-19)
+
+The enabled W01 study uses original tapered octagonal spokes (hub section35×32mm, felloe22×22mm), retained radial endpoints and1.2mm board/stave chamfers. These dimensions and reduced board-color contrast are engineering choices, not source-attested1835 joinery, wear, paint or photographic measurements. GPL-3.0-or-later remains unchanged; no third-party material is introduced.
+
+| Generated/reproducible file | SHA-256 |
+| --- | --- |
+| `tools/transport/generate_wagon.py` | `9f3879f05734bf78bcddd4e564464244c0f11c4c5242466770becf1398599934` |
+| `data/transport/studies/wagon.json` | `0a317cd45c514866a0a43ec5c208b93b5f2832de415e2551a0a4be146836e103` |
+| `renderers/web/transport/wagon/wagon-w01.glb` | `7749a0199b93bd196ecf6c3482af8ec537f1420a38f6fac88ab79fd8f34d44aa` |
+| `renderers/web/transport/wagon/wagon-w01.json` | `ea3705651f11ddddcc33595abffd7ee0c3cffb7ae94fc18967c65883fb15243f` |
+
+## C01 upholstery rounding: original reconstruction (2026-10-19)
+
+Three cushion shells use original20mm rounded edges with four samples per quarter edge. Radius, shell construction and unchanged original colors are unmeasured engineering choices, not source-attested upholstery, compressed cloth/leather, historical interior or photographic materials. GPL-3.0-or-later is unchanged; no external pixels, textures or sourced geometry are introduced. Existing1904development-only eligibility remains.
+
+| Generated/reproducible file | SHA-256 |
+| --- | --- |
+| `tools/transport/generate_carriage.py` | `167f163962fe6f6b12b0b6a09b696188b23d21dbd37071a00e95ac4975bfb856` |
+| `data/transport/studies/carriage.json` | `3268082b9a8f90a2288a49db16f95de5acb732ac6d589b568ed8b53b11dbbf6f` |
+| `renderers/web/transport/carriage/carriage-c01.glb` | `5d4038fcb1e0982100c776239d649de21035098e019d5fa5d0c399427f15a062` |
+| `renderers/web/transport/carriage/carriage-c01.json` | `118a614a3a2d67352bb3f1b48cac4e6371523bee4320f0ccb6c5d35fed68135c` |
+| `renderers/web/transport/carriage/parameters.json` | `3268082b9a8f90a2288a49db16f95de5acb732ac6d589b568ed8b53b11dbbf6f` |
+
+
+## Original paired equine head/neck and headstrap refinement (T-2800/T-2801/T-2803)
+
+CC0-1.0 original generated geometry and original generator source: `tools/transport/horse_geometry.py`, `tools/transport/generate_horse.py`, `tools/transport/generate_harness.py`; original parameter data `data/transport/studies/horse.json` (unchanged) and `data/transport/studies/harness.json`; derived `renderers/web/transport/horse/{equine_light_harness_skinned_prototype_01.glb,manifest.json}` and `renderers/web/transport/harness/{light_breastcollar_harness_reconstructed_01.glb,manifest.json,geometry-stats.json}`. Exact hashes are recorded in `docs/RESEARCH/period-transport-2026-10-18/head-neck-refinement/integration-inputs.json`. No external model, texture, source pixels or traced plate geometry. Research text informs provisional anatomy/construction but does not attest a horse, owner, breed, exact anatomy or strap dimensions. Original additions retain CC0-1.0 SPDX headers. Demo/integration and reused project fit methodology remain under the project's existing GPL license; CC0 geometry does not relicense those tools. Documentary screenshots/receipts are original diagnostic outputs, not source photographs.
+
+
+## Grounded trot study (2026-10-19)
+
+Original grounded-trot engineering addition (T-2803): tools/transport/horse_geometry.py, unchanged original tools/transport/generate_horse.py, data/transport/studies/horse.json, generated renderers/web/transport/horse/{equine_light_harness_skinned_prototype_01.glb,manifest.json} contain project-original CC0-1.0 procedural geometry/solver/animation/data; no externally copied program/model/texture or image tracing. Original3Dtwo-bone solver uses geometric sphere intersection and shortest-arc quaternions. renderers/web/transport/horse/{demo.js,index.html} and diagnostic test glue retain project's existing GPL license. No source-bounded measured biological gait or historic animal identity asserted. Concrete checkpoint hashes are in `docs/RESEARCH/period-transport-2026-10-18/head-neck-refinement/trot-inputs.json`.
+
+## C02 enclosed carriage reconstruction (T-2794,2026-10-19)
+
+Original project-derived GPL-3.0-or-later source/geometry, based on the already licensed C01 procedural conventions; C02 is standalone source, not a runtime import or downloaded base. Exact source/input/output hashes are in docs/RESEARCH/period-transport-2026-10-18/c02-enclosed-door/INTEGRATION-MANIFEST.json. New files are tools/transport/generate_carriage_c02.py, tools/transport/test_carriage_c02_door.py, tools/transport/smoke_carriage_c02.cjs, data/transport/studies/carriage-c02.json, tools/transport/fixtures/carriage-c02-flag-off.json and renderers/web/transport/carriage-c02/{carriage-c02.glb,carriage-c02.json,parameters.json,index.html,demo.js}; gallery/orchestrator changes and original documentary receipts/screenshots retain projectGPL terms. No external model/texture/sourcepixels or proprietary program code is included. ExistingThree/vendor remains separately licensed and is not copied. No asset under assets/ is added; this entry records original generated-output provenance, not a CC0 external-asset exception.
+
+All cabin/hardware/color dimensions are reconstructed. Reference catalog wording is 'No known restrictions on publication', not a new unconditional license. No rights-pending local photo or unseenWareplate derivation, attested ownership/subtype or historical paint is asserted. BaselineGLB SHA256 93d4020036e5c685ce95010fe64b26c55a1561db4517405f0590f7a398253331.
+
+
+**Metadata and articulation qualification:** The pre-door project scope quotation is preserved separately with its original branch and explicit non-period origin; the enabled branch now describes reconstructed rigid door/hinge geometry and endpoint transforms. Current model metadata hash is 93d4020036e5c685ce95010fe64b26c55a1561db4517405f0590f7a398253331 (860956 bytes). Corrected checks bind all 424 actual moving triangles to the unique active exported door and compose actual hierarchy transforms at each angle; closed-world shape alone cannot qualify detached geometry. Old closed-mapping/source-posed receipts are retained only as limited historical checkpoints. No continuous/occupant/photographic acceptance or installed-head gate is implied.

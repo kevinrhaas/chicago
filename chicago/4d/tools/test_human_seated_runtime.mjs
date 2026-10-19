@@ -1,0 +1,27 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+import assert from 'node:assert/strict';
+import {readFile,writeFile} from 'node:fs/promises';
+import {parseVerifiedSeatedWagon,SUPPORTED_W01_SHA256,cleanupSeatedStudy} from './human_seated_runtime.mjs';
+const args=process.argv.slice(2),arg=name=>{const i=args.indexOf(name);return i>=0?args[i+1]:null;};
+const supported=arg('--supported'),baseline=arg('--baseline'),receipt=arg('--receipt');
+if(!supported||!baseline)throw Error('--supported and --baseline actual GLB paths required');
+const ab=buffer=>buffer.buffer.slice(buffer.byteOffset,buffer.byteOffset+buffer.byteLength);
+const bytes=ab(await readFile(supported));let parses=0;
+const actual=await parseVerifiedSeatedWagon(bytes,(received,base)=>{parses++;assert.strictEqual(received,bytes);assert.equal(base,'explicit-base/');return {same_buffer:true};},'explicit-base/');
+assert.equal(actual.sha256,SUPPORTED_W01_SHA256);assert.equal(parses,1);
+const untouched=parses;
+const baselineBytes=ab(await readFile(baseline));
+await assert.rejects(()=>parseVerifiedSeatedWagon(baselineBytes,()=>{parses++;}),/Supported W01 GLB hash mismatch/);
+assert.equal(parses,untouched,'Ordinary unoccupied wagon must fail before any parser call');
+const corrupt=bytes.slice(0);new Uint8Array(corrupt)[corrupt.byteLength-1]^=1;
+await assert.rejects(()=>parseVerifiedSeatedWagon(corrupt,()=>{parses++;}),/Supported W01 GLB hash mismatch/);
+assert.equal(parses,untouched);
+await assert.rejects(()=>parseVerifiedSeatedWagon(new Uint8Array(bytes),()=>{parses++;}),/ArrayBuffer required/);
+const calls=[],resources={asset:'named',inspectionLease:true,assets:{loaded:[],release:(id,lod)=>calls.push(['release',id,lod])},actor:{dispose:()=>calls.push(['actor'])},wagon:{marker:true,scene:{removeFromParent:()=>calls.push(['wagonScene'])}},disposeLoadedAsset:vehicle=>{assert.equal(vehicle.marker,true);calls.push(['wagon']);},renderer:{dispose:()=>calls.push(['renderer']),domElement:{remove:()=>calls.push(['canvas'])}}};
+const first=cleanupSeatedStudy(resources);assert(first.passed);assert.deepEqual(calls,[['actor'],['release','named',0],['wagonScene'],['wagon'],['renderer'],['canvas']]);
+assert(cleanupSeatedStudy(resources).passed);assert.equal(calls.length,6,'Catch plus unload cleanup must be idempotent');
+const continued=[];const failure=cleanupSeatedStudy({actor:{dispose:()=>{throw Error('injected actor failure');}},wagon:{},disposeLoadedAsset:()=>continued.push('wagon'),renderer:{dispose:()=>continued.push('renderer'),domElement:{remove:()=>continued.push('canvas')}}});
+assert.equal(failure.passed,false);assert.equal(failure.errors[0].name,'actor');assert.deepEqual(continued,['wagon','renderer','canvas']);
+assert.equal(cleanupSeatedStudy({assets:{loaded:['unexpected.lod0']}}).passed,false,'A surviving asset lease cannot be called cleaned');
+const result={scope:'Actual supported and ordinary baseline GLB byte-hash refusal/parser-buffer identity, plus actual cleanup function with injected resource failures; no human/Blender/render/clothing proof',passed:true,supported_sha256:actual.sha256,baseline_substitution_refused_before_parse:true,corrupt_refused_before_parse:true,same_verified_ArrayBuffer_delivered_to_parser:true,cleanup_idempotent:true,cleanup_continues_after_failure:true,remaining_lease_refused:true};
+if(receipt)await writeFile(receipt,JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));

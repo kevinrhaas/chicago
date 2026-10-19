@@ -1,0 +1,42 @@
+[
+  {
+    "cap": 2048,
+    "jpeg_dimensions": [
+      2048,
+      2048
+    ],
+    "web_glb_bytes": 640276,
+    "jpeg_rgb_rmse": 1.954830147599829,
+    "jpeg_psnr_db": 42.30862304580353
+  },
+  {
+    "cap": 1024,
+    "jpeg_dimensions": [
+      1024,
+      1024
+    ],
+    "web_glb_bytes": 253956,
+    "jpeg_rgb_rmse": 1.9478130891022694,
+    "jpeg_psnr_db": 42.33985801025107
+  },
+  {
+    "cap": 512,
+    "jpeg_dimensions": [
+      512,
+      512
+    ],
+    "web_glb_bytes": 149796,
+    "jpeg_rgb_rmse": 1.9998636199228725,
+    "jpeg_psnr_db": 42.11079600674395
+  },
+  {
+    "cap": 256,
+    "jpeg_dimensions": [
+      256,
+      256
+    ],
+    "web_glb_bytes": 122444,
+    "jpeg_rgb_rmse": 2.2754814337208584,
+    "jpeg_psnr_db": 40.98933768210532
+  }
+]

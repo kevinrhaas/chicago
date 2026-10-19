@@ -1302,6 +1302,9 @@ export async function createFlora({
   disposables.push(foliage);
   const bladeMat = plantMaterial({ uniforms, billboard: false });
   const cardMat = plantMaterial({ uniforms, billboard: true, membrane: 0.30 });
+  // Camera-facing clump cards retain both sides in one transparent ghost draw.
+  // Volumetric blade/head materials keep their existing two-pass policy.
+  cardMat.forceSinglePass = true;
   // Heads share the blade program deliberately. Under the software rasteriser
   // every extra shader program is seconds of compile time on the first frame,
   // and a flower head's own sway works out at four millimetres.
