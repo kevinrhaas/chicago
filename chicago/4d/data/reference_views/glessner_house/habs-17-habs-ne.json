@@ -8,8 +8,8 @@
     1279
   ],
   "principal_px": [
-    892.0,
-    670.0
+    892,
+    670
   ],
   "focal_px": 1602.33333333,
   "eye": [
@@ -35,6 +35,7 @@
       0.0038414301
     ]
   ],
+  "sky": "overcast",
   "solve": {
     "method": "T-2228 imports the unchanged T-2200 frozen pinhole camera; no refit against this candidate.",
     "record": "data/comparisons/glessner/report.json#habs-ne",
@@ -44,6 +45,7 @@
     "baseline_check_rms_px": 33.7111,
     "bounds_active": [],
     "limitations": "1965 altered doors, signs, air conditioners, road and adjoining houses are excluded; masonry envelope only. Northwest corner partly obscured; use its picking uncertainty, not as a survey coordinate. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
-    "warning": "Residuals refer to the original frozen asset and vertex associations. They are not measurements of this changed mesh. Lighting uses the diagnostic default, not a solved historical sun."
+    "warning": "Residuals refer to the original frozen asset and vertex associations. They are not measurements of this changed mesh. Lighting: see light (T-2848).",
+    "light": "T-2848, read off the photograph: overcast winter light (snow lies in the gutters). Both the Prairie front and the 18th Street flank read flat and dark, and the lamp standards, poles and hydrant throw nothing on the pavement, so no sun direction can be read. The render uses the overcast sky and no sun_uvy."
   }
 }

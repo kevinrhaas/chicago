@@ -28,7 +28,7 @@ from north); optional `pixel_aspect` (horizontal over vertical focal length, def
 east/north/up frame, overriding yaw for an inclined or rolled photograph); `solve` (how the camera was fitted, in words and numbers: which lengths scaled it,
 which lines and points it was fitted to, the residuals); optionally `sun_uvy`, the direction
 the picture's sunlight comes from in the same frame, so the render lights the walls the picture
-lights and casts its shadows the same way (T-2369). A drawing is an elevation or a
+lights and casts its shadows the same way (T-2369); and optionally `sky`, `"sun"` (default) or `"overcast"` for a picture in which nothing casts a shadow, which renders a soft, shadowless key at `sun_uvy` (straight overhead when absent) under a brighter sky, so a face the picture shows unlit is not raked by the review sun (T-2848). Say in the `solve` what the light was read from: which walls are lit, which way shadows fall, or that none fall. A drawing is an elevation or a
 perspective: an elevation is an orthographic camera far off on the face's normal, and is solved
 the same way with one length.
 
