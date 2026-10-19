@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2040, ts: '2026-10-19T03:48:03.317Z', date: 'Oct 18, 2026, 10:48 PM CT', title: 'A field log in Settings › About, kept on this device only', kind: 'feature',
+    items: [
+      'Settings › About now has a Field log: how many times you landed, inspected a building, opened an Inspect tab, used Show me, started and finished a Jaunt, reached a Tour step and chose a Confidence view preset.',
+      'It also shows how long the last first inspect took after landing, and how many landings got there within 90 seconds.',
+      'The counts stay in this browser. Nothing is sent anywhere, and Clear empties the log.',
+    ] },
   { v: 2039, ts: '2026-10-19T03:38:07.387Z', date: 'Oct 18, 2026, 10:38 PM CT', title: '1835: fruit trees and currants in the fort\'s gardens and Dr. Harmon\'s orchard', kind: 'feature',
     items: [
       'The fort\'s company gardens south of the parade, which Juliette Kinzie saw in 1831 \'well filled with currant-bushes and young fruit-trees\', now hold a border row of young apple and sour cherry trees and long rows of currant bushes between the vegetable beds.',
