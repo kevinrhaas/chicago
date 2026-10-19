@@ -737,10 +737,17 @@ _WS = " \t\n\r\f\v\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff"
 PROSE = re.compile(f"[^{_WS}][{_WS}]+[^{_WS}]")
 
 
-def is_prose(value) -> bool:
-    """A string a person reads as words: two of them at least. An id, a grade, a date or a
-    key is one token, and is the data's, never the overlay's."""
-    return isinstance(value, str) and bool(PROSE.search(value))
+# A field whose value a card prints as a sentence even when it is one token: a note that is
+# only a file reference ("data/reconstruction/1835_town_model.json#…"), a locator that is
+# only a claim id ("chicago_democrat_1834_05_07#c004"). js/reader-text.js holds the same set.
+PROSE_KEYS = frozenset({"note", "locator"})
+
+
+def is_prose(value, key=None) -> bool:
+    """A string a person reads as words: two of them at least, or any string under a key in
+    PROSE_KEYS. An id, a grade, a date or a key is one token, and is the data's, never the
+    overlay's."""
+    return isinstance(value, str) and (bool(PROSE.search(value)) or (key in PROSE_KEYS and bool(value.strip())))
 
 
 def reader_key(text: str) -> str:
@@ -748,15 +755,15 @@ def reader_key(text: str) -> str:
     return f"{zlib.crc32(raw):08x}:{len(raw):x}"
 
 
-def prose_strings(doc):
+def prose_strings(doc, key=None):
     """Every prose string in a document, values only, depth first."""
     if isinstance(doc, dict):
-        for v in doc.values():
-            yield from prose_strings(v)
+        for k, v in doc.items():
+            yield from prose_strings(v, k)
     elif isinstance(doc, list):
         for v in doc:
-            yield from prose_strings(v)
-    elif is_prose(doc):
+            yield from prose_strings(v, key)
+    elif is_prose(doc, key):
         yield doc
 
 
@@ -842,13 +849,13 @@ def apply_edits(old: str, edits) -> str:
     return "".join(out)
 
 
-def reader_copy(doc, overlay: dict):
+def reader_copy(doc, overlay: dict, key=None):
     """`doc` as the page renders it: every prose string the overlay holds, rewritten."""
     if isinstance(doc, dict):
-        return {k: reader_copy(v, overlay) for k, v in doc.items()}
+        return {k: reader_copy(v, overlay, k) for k, v in doc.items()}
     if isinstance(doc, list):
-        return [reader_copy(v, overlay) for v in doc]
-    if is_prose(doc):
+        return [reader_copy(v, overlay, key) for v in doc]
+    if is_prose(doc, key):
         e = overlay.get(reader_key(doc))
         if e is not None:
             return apply_edits(doc, e)

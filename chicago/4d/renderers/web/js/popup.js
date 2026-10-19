@@ -133,7 +133,10 @@ function chip(confidence) {
 /** The card's sources by id, each said by its title (T-2825: a reader is never handed the
  *  id). Set from the sidecar's own citations each time a card or a tab is drawn. */
 let citeTitles = new Map();
-function setCiteTitles(citations) {
+/** The scene's reader overlay while a card is drawn, for the names of sources it does not cite. */
+let cardReader = null;
+function setCiteTitles(citations, overlay = null) {
+  cardReader = overlay;
   citeTitles = new Map((Array.isArray(citations) ? citations : [])
     .map((c) => [c.source_id, sourceTitle(c.citation)]).filter(([id, title]) => id && title));
 }
@@ -144,9 +147,12 @@ function shortTitle(title) {
   return `${cut.slice(0, Math.max(cut.lastIndexOf(' '), 24)).replace(/[\s,;:.]+$/, '')}…`;
 }
 
+/** One source as the card names it: its short title, or its id said as words. */
+const sourceName = (id) => shortTitle(citeTitles.get(id) || nameOf(id, cardReader));
+
 function sourceList(sources) {
   if (!Array.isArray(sources) || !sources.length) return '';
-  const said = [...new Set(sources.map((id) => shortTitle(citeTitles.get(id) || nameOf(id))))];
+  const said = [...new Set(sources.map(sourceName))];
   return `<span class="attr-note">sources: ${said.map(escapeHtml).join('; ')}</span>`;
 }
 
@@ -316,7 +322,7 @@ function residentsSection(s) {
         <span class="res-name">${escapeHtml(person.name)}</span>
         <span class="res-role">${escapeHtml(person.occupation ? person.occupation.replace(/_/g, ' ') : '')}${
           person.relationship && person.relationship !== 'head'
-            ? ` · ${escapeHtml(person.relationship)}` : ''}</span>
+            ? ` · ${escapeHtml(String(person.relationship).replace(/_/g, ' '))}` : ''}</span>
         ${gradeChip(person.grade)}
         ${noteToggle(person.note)}
       </li>`).join('');
@@ -440,8 +446,9 @@ function basisRow(level, mine, total) {
     : `<p class="basis-what basis-empty">${escapeHtml(LEVEL_EMPTY[level])}</p>`;
   const from = !mine.length ? ''
     : sources.length
+      // T-2825: each source by its title, never its id.
       ? `<p class="basis-from">${escapeHtml(LEVEL_SOURCE_LEAD[level])}:
-           ${sources.map(escapeHtml).join(' · ')}</p>`
+           ${[...new Set(sources.map(sourceName))].map(escapeHtml).join(' · ')}</p>`
       : `<p class="basis-from">${escapeHtml(LEVEL_NO_SOURCE[level])}</p>`;
   // An `attested` chip over something the model does not contain is true about
   // the evidence and false about the view — the rows below already mark it, and
@@ -1501,7 +1508,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     sections(record) {
       if (!record?.sidecar) return null;
       const s = said(record.sidecar);
-      setCiteTitles(s.citations);
+      setCiteTitles(s.citations, reader);
       // The placement, for Story's fire-limit row (T-2643); Sources reads it off the sidecar.
       const p = s.placement ?? {};
       const residents = householdsById.has(record.id) ? { residents: said(householdsById.get(record.id)) } : s;
@@ -1539,7 +1546,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
       if (!record?.sidecar) return false;
       onShow?.(record);
       const s = said(record.sidecar);
-      setCiteTitles(s.citations);
+      setCiteTitles(s.citations, reader);
       currentId = record.id;
       currentRecord = record;
       currentFromSign = !!fromSign;

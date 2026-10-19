@@ -136,8 +136,9 @@ WHAT = {
 # was dealt in, and the notice or book a firm was read from. js/reader-text.js `nameOf`
 # says each by the name written here.
 NAMED_KEYS = {
-    "residents": ("from_household", "wife", "sources"),
+    "residents": ("from_household", "wife", "sources", "cards", "weighed_against"),
     "businesses": ("claim_ids",),
+    **{f"structures_{scene}": ("sources", "position_sources", "witnesses") for scene in SCENES},
 }
 
 
@@ -167,7 +168,7 @@ def tokens_of(paths: list[Path], keys: tuple[str, ...]) -> list[str]:
         elif isinstance(node, list):
             for v in node:
                 walk(v, key)
-        elif key in keys and isinstance(node, str) and node and not rt.is_prose(node) and node not in seen:
+        elif key in keys and isinstance(node, str) and node and not rt.is_prose(node, key) and node not in seen:
             seen.add(node)
             out.append(node)
     for path in paths:
@@ -212,13 +213,13 @@ class Reader:
             self.memo[text] = hit
         return hit
 
-    def copy(self, doc):
+    def copy(self, doc, key=None):
         """`doc` as the page renders it once its overlay is applied (js/reader-text.js)."""
         if isinstance(doc, dict):
-            return {k: self.copy(v) for k, v in doc.items()}
+            return {k: self.copy(v, k) for k, v in doc.items()}
         if isinstance(doc, list):
-            return [self.copy(v) for v in doc]
-        return self.say(doc)[0] if rt.is_prose(doc) else doc
+            return [self.copy(v, key) for v in doc]
+        return self.say(doc)[0] if rt.is_prose(doc, key) else doc
 
     def names_for(self, family: str, paths: list[Path]) -> dict[str, str]:
         """The bare ids of a family a card prints (NAMED_KEYS), each by the name it is said by."""

@@ -8881,7 +8881,10 @@ for (const [label, viewport, touch] of [
     // stood there.
     check(`${label}: a source on an invention is named as a bound, not as attribution`,
       /^Bounded by:/.test(row(basis.anon, 'reconstructed').from)
-      && /reconstruction_spec/.test(row(basis.anon, 'reconstructed').from)
+      // ---- T-2825: the spec by its title (its citation's opening words), never its id
+      && /Building Inventory/.test(row(basis.anon, 'reconstructed').from)
+      && !/_/.test(row(basis.anon, 'reconstructed').from + row(basis.saug, 'attested').from)
+      // ---- end T-2825
       && /^From:/.test(row(basis.saug, 'attested').from),
       `invention "${row(basis.anon, 'reconstructed').from.slice(0, 70)}", `
       + `attested "${row(basis.saug, 'attested').from.slice(0, 70)}"`);

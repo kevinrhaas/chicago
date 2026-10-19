@@ -75,9 +75,14 @@ export function originalOf(text) {
 const WS = ' \\t\\n\\r\\f\\v\\u00a0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000\\ufeff';
 const PROSE = new RegExp(`[^${WS}][${WS}]+[^${WS}]`);
 
-/** One string as a reader gets it. */
-export function say(text, overlay) {
-  if (typeof text !== 'string' || !overlay?.edits || !PROSE.test(text)) return text;
+// A field a card prints as a sentence even when its value is one token (a note that is only
+// a file reference, a locator that is only a claim id): readable_text.PROSE_KEYS.
+const PROSE_KEYS = new Set(['note', 'locator']);
+
+/** One string as a reader gets it. `key` is the field it sits in, where there is one. */
+export function say(text, overlay, key = null) {
+  if (typeof text !== 'string' || !overlay?.edits) return text;
+  if (!PROSE.test(text) && !(PROSE_KEYS.has(key) && text.trim())) return text;
   const e = overlay.edits[readerKey(text)];
   if (!e) return text;
   const out = applyEdits(text, e);
@@ -90,17 +95,17 @@ export function say(text, overlay) {
  *  itself is never changed: other views, and the smoke's hash of a sidecar, hold it. */
 export function readerCopy(doc, overlay) {
   if (!overlay?.edits) return doc;
-  const walk = (v) => {
-    if (typeof v === 'string') return say(v, overlay);
-    if (Array.isArray(v)) return v.map(walk);
+  const walk = (v, key) => {
+    if (typeof v === 'string') return say(v, overlay, key);
+    if (Array.isArray(v)) return v.map((x) => walk(x, key));
     if (v && typeof v === 'object') {
       const out = {};
-      for (const k of Object.keys(v)) out[k] = walk(v[k]);
+      for (const k of Object.keys(v)) out[k] = walk(v[k], k);
       return out;
     }
     return v;
   };
-  return walk(doc);
+  return walk(doc, null);
 }
 
 const overlays = new Map();
