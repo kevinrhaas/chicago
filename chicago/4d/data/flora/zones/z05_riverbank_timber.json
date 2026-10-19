@@ -361,7 +361,7 @@
    },
    "confidence": "inferred",
    "sources": ["swink_wilhelm_1994"],
-   "note": "Dossier [I]. Drapes 10-20% of the edge trees. form 'vine_drape' is outside the renderer's implemented list on purpose: a vine is neither sward nor tree, and the modules are expected to record it as an unimplemented form and draw nothing rather than substitute a shrub."
+   "note": "Dossier [I]. Drapes 10-20% of the edge trees. form 'vine_drape' is drawn by trees.js (T-2810) as a curtain hung on a gallery tree within 32 m of the water, on its water side, at 15% of those trees, with this record's July fruit in it; a vine is neither sward nor tree and is never drawn as a shrub."
   },
   {
    "id": "parthenocissus_quinquefolia",
@@ -379,7 +379,7 @@
    },
    "confidence": "inferred",
    "sources": ["swink_wilhelm_1994"],
-   "note": "Dossier [I]. See vitis_riparia on the form."
+   "note": "Dossier [I]. See vitis_riparia on the form. Drawn by trees.js (T-2810) as a column on the north (shaded) side of the trunk, at 8% of the gallery trees within 32 m of the water."
   },
   {
    "id": "carex_spp_shore",
@@ -432,6 +432,6 @@
  ],
  "confidence": "attested",
  "sources": ["chicagology_prefire273","mcbride_bowles_2007"],
- "note": "Canopy 30-80 trees/ha, the open-to-closed savanna range: this is a thin grassy gallery of medium trees, not a closed eastern hardwood forest. The 'vine_drape' form on the two vines is deliberately outside the renderer's implemented list.",
+ "note": "Canopy 30-80 trees/ha, the open-to-closed savanna range: this is a thin grassy gallery of medium trees, not a closed eastern hardwood forest. The 'vine_drape' form on the two vines is drawn by trees.js on the gallery's edge trees (T-2810).",
  "review_required": false
 }
