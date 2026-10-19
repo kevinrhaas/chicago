@@ -7,7 +7,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { designModel, renderDesign, hotspots, plateOf, styleFor, labelOf, valueOf } from '../renderers/web/js/inspect-design.js';
+import { designModel, renderDesign, hotspots, plateOf, styleFor, labelOf, valueOf, compareCard } from '../renderers/web/js/inspect-design.js';
 import { t } from '../renderers/web/js/strings/index.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -178,6 +178,82 @@ ok('a style id with no module, and a building with nothing graded, degrade hones
   const root = renderDesign(fakeDoc(), m, { dot });
   assert.equal(cls(root, 'insp-hot').length, 0);
   assert.match(root.textContent, new RegExp(t('inspect-design.hotspots.none').replace(/[.]/g, '\\.')));
+});
+
+// ---- T-2642: the style library -------------------------------------------------------------
+const library = Object.fromEntries(['richardsonian_romanesque', 'second_empire', 'italianate'].map((id) => [id, read(`styles/${id}.json`)]));
+const images = JSON.parse(readFileSync(path.join(here, '../../prairie_1904_v1/data/images.json'), 'utf8'));
+const imageById = new Map((Array.isArray(images.images) ? images.images : Object.values(images.images)).map((r) => [r.id, r]));
+
+ok('the library\'s modules: one to four cues of at most 8 words, every fact graded and sourced, never padded', () => {
+  for (const [id, m] of Object.entries(library)) {
+    assert.equal(m.id, id);
+    assert.ok(m.cues.length >= 1 && m.cues.length <= 4, `${id}: one to four cues`);
+    assert.ok(m.cues.every((c) => c.text.split(/\s+/).length <= 8), `${id}: cues of at most 8 words`);
+    for (const c of [m.description, ...m.cues, ...m.compare, ...(m.plate ? [m.plate] : [])]) {
+      assert.ok(['attested', 'inferred', 'reconstructed'].includes(c.grade), `${id}: ${c.text ?? c.caption}`);
+      assert.ok(c.grade === 'attested' ? c.sources?.length > 0 : (c.note ?? '').trim().length > 0, `${id}: ${c.text ?? c.caption}`);
+      for (const sid of c.sources ?? []) assert.ok(readFileSync(path.join(data, 'sources', `${sid}.json`), 'utf8').length > 0, sid);
+    }
+    // No two cues say the same thing.
+    assert.equal(new Set(m.cues.map((c) => c.text)).size, m.cues.length, `${id}: no cue twice`);
+  }
+});
+
+ok('every plate is a held picture of its own structure, credited by a public-domain record of its own', () => {
+  for (const [id, m] of Object.entries(library)) {
+    if (!m.plate) continue;
+    const rec = read(`sources/${m.plate.record}.json`);
+    assert.ok(['public_domain', 'no_known_restrictions'].includes(rec.rights_status), `${id}: the plate's record allows display`);
+    const img = imageById.get(m.plate.picture);
+    assert.ok(img, `${id}: the plate is a picture the library holds`);
+    assert.match(String(img.rights), /^(public domain|no known restrictions)/i, `${id}: the library's own rights allow display`);
+    assert.ok(img.local?.display, `${id}: the image store holds a copy`);
+    assert.ok(readFileSync(path.join(data, 'sidecars', m.plate.scene, `${m.plate.structure}.json`), 'utf8').length > 0, `${id}: its structure stands in its scene`);
+  }
+});
+
+ok('the buildings a record names a style for link to those modules, and only those', () => {
+  const linked = { elbridge_keith_house_1900_prairie: 'second_empire', armour_house_2115_prairie: 'second_empire',
+    jones_house_1834_prairie: 'italianate', glessner_house: 'richardsonian_romanesque' };
+  for (const [sid, want] of Object.entries(linked)) {
+    const rec = read(`summaries/${sid}.json`);
+    assert.equal(rec.style, want, sid);
+    const styleKey = rec.key.find((k) => k.label === 'Style');
+    assert.ok(styleKey && styleKey.grade === 'attested' && styleKey.sources.length > 0, `${sid}: its Style fact is sourced`);
+    assert.equal(designModel({ sum: rec, sidecar: null, styles: library, pictures: null, scene: S1904 }).style.name, library[want].name);
+  }
+});
+
+ok('a Compare line that points at another module opens that style\'s card in place; one that does not, does not', () => {
+  const keith = read('summaries/elbridge_keith_house_1900_prairie.json');
+  const m = designModel({ sum: keith, sidecar: read('sidecars/1904/elbridge_keith_house_1900_prairie.json'), styles: library, scene: S1904 });
+  assert.equal(m.style.name, 'Second Empire');
+  const ital = m.style.compare.find((c) => c.style === 'italianate');
+  assert.ok(ital.card, 'the Italianate line carries the Italianate card');
+  assert.deepEqual(ital.card.cues.map((c) => c.text), library.italianate.cues.map((c) => c.text));
+  assert.equal(ital.card.description.text, library.italianate.description.text);
+  const doc = fakeDoc();
+  dots.length = 0;
+  const root = renderDesign(doc, m, { dot });
+  assert.equal(cls(root, 'insp-compare-item').length, library.second_empire.compare.length);
+  const more = cls(root, 'insp-compare-more');
+  assert.equal(more.length, library.second_empire.compare.filter((c) => library[c.style]).length);
+  const opened = more.find((d) => d.dataset.style === 'italianate');
+  assert.equal(cls(opened, 'insp-compare-open')[0].textContent, t('inspect-design.compare.open', { name: 'Italianate' }));
+  assert.equal(cls(opened, 'insp-compare-cue').length, library.italianate.cues.length);
+  assert.ok(cls(opened, 'insp-compare-cue').every((li) => cls(li, 'fact-dot').length === 1), 'every opened cue keeps its grade dot');
+  assert.equal(cls(root, 'insp-cue').length, library.second_empire.cues.length, 'the opened cards do not count as this card\'s cues');
+  assert.equal(cls(root, 'insp-h').length, 3, 'the opened cards add no section heading');
+  // Glessner's Chateauesque line names no module: it stays a line.
+  const g = designModel({ sum, sidecar, styles: library, pictures, scene: S1904 });
+  assert.equal(g.style.compare.find((c) => c.style === 'chateauesque').card, null);
+  assert.ok(g.style.compare.find((c) => c.style === 'second_empire').card);
+  // A line pointing at the card's own module opens nothing.
+  assert.equal(compareCard({ style: 'second_empire' }, library.second_empire, library), null);
+  const text = root.textContent;
+  assert.ok(!/[a-z0-9]+_[a-z0-9]+/i.test(text), 'no snake_case reaches a visitor');
+  assert.ok(!/\b(attested|inferred|reconstructed|tier|ticket)\b/i.test(text));
 });
 
 console.log(`test_nav_design: OK (${n} checks)`);

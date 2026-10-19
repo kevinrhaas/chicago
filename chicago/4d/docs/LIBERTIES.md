@@ -29227,6 +29227,34 @@ third rights-cleared photograph whose camera can be solved on two faces of the s
 `data/comparisons/glessner/stable-roof-heights.json` (`tools/glessner_stable_roof_read.py`).
 **Recorded:** 2026-10-18 (T-2758).
 
+### L-k01-all-stone-house-2788 — The K01 all-stone house: the front's K02 courses laid round every face, its corners, belts, heads and parapets reconstructed
+
+**Decision:** a K01 record may name `construction: "stone"` (T-2788): its K02 `stone_front` — fabric,
+dressing and coursing — is laid round the whole envelope, so a Bedford-stone house is not a stone front
+on a brick box. `generators/archetypes/k01_frontage.py` lays both flanks, the rear and every masonry
+rear wing's walls through the street front's own coursing (`Assembly.stone_front`), struck on the
+front's bed lines up to each face's wall top, so every course runs level round every corner. Each face
+carries the front's rusticated base and coping and its belts, run round in place of the brick house's
+K03 string course; the K06 sills are seated on every face and every opening off the street front takes
+a K02 flat arch of voussoirs as its head, where a brick wall takes a brick segmental or soldier head; a
+kit seated on a face (a sill, a bay, a stoop) has its stones dressed smooth and flush under it, as on the
+front. A flat roof's side parapets are in the house's stone, a timber bay's plinth is the house's stone
+carried out under it, and a stone bay wears the house's own K02 fabric. A timber (`frame`) wing stays
+timber. The K15 stacks keep whatever fabric the record's stack names. **What is invented.** That the
+flanks and rear are laid as the front is — the same course heights, block lengths, joints and dressing,
+the same base and coping; a real house often dressed its street front more richly than its sides. That
+the corners are the two faces' courses meeting (no quoin, which is stone returned into brick, so an
+all-stone record names no `corner_bond`); on a rock-faced wall the two faces' rock stands proud of each
+corner without wrapping it. That the belts are the front's, at the front's floor lines, on every face.
+That every opening off the front has a flat arch rather than a lintel. **What is not.** Nothing here is
+attested for any house; no structure record names it yet. 1801 Prairie (T-2789) is the first that will,
+on the Taylor photograph and the 1888 Inland Architect plate's reading of its stone.
+**How to resolve:** a house's own photographs, drawings or descriptions of its side and rear walls give
+their coursing, corners, belts and heads, and that house takes them in place of the front's.
+**Ticket:** T-2788 (piece 2 of T-2539).
+**Review:** `tools/check_stone_house_kit.py --check` builds four K01 houses as all-stone and measures it.
+**Recorded:** 2026-10-18 (T-2788).
+
 ### L-k01-1637-south-bay-2780 — 1637 Prairie's south-flank bay built on the 1911 sheet's plan to the Grosvenor photograph's heights, in plain dressed stone: its cheeks blank, its columns and carving not yet built, its entablature's projection and balusters reconstructed
 
 **Decision:** the canted bay on the south wall of Jesse Spalding's remodel of the Grosvenor house

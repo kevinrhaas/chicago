@@ -1755,13 +1755,16 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # T-2341: a plain brick house is the same assembly with its street front laid in the
     # K03 brick too, its openings dressed in stone; which front it is, the record's
     # `stone_front` says — named for a stone front, absent for a brick one
+    # T-2788: or an all-stone house (`stone`), its K02 stone_front's fabric, dressing and
+    # coursing laid round every face — flanks, rear and wings — not a stone front on a brick box
     construction = val("construction")
-    if construction not in ("brick_with_stone_front", "brick"):
+    if construction not in ("brick_with_stone_front", "brick", "stone"):
         raise ParamError("k01_frontage builds a stone or a brick street front on common-brick "
-                         "side and rear walls; another construction is another assembly")
-    if (construction == "brick_with_stone_front") != bool(val("stone_front")):
-        raise ParamError(f"construction {construction!r}: a stone street front names its K02 "
-                         "stone_front and a brick one names none")
+                         "side and rear walls, or an all-stone house; another construction is "
+                         "another assembly")
+    if (construction != "brick") != bool(val("stone_front")):
+        raise ParamError(f"construction {construction!r}: a stone street front or an all-stone "
+                         "house names its K02 stone_front and a brick one names none")
 
     # T-2476: paint over the brick walls, the colour a source names for the house
     wf = val("wall_finish", {}) or {}
@@ -2573,6 +2576,17 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 f"course_height_m; base courses, coping and the area lights' heads must agree)")
         stone["base_course_m"] = round(course, 5)
         stone["coping_top_m"] = round(top, 5)
+    if construction == "stone":
+        # T-2788: an all-stone house's corners are its own courses turned, so it names no
+        # quoin bond (a quoin is stone returned into brick), and a bay on it is stone or timber
+        if stone["corners"] or "south_return_m" in stone:
+            raise ParamError("construction 'stone': its courses turn every corner, so its "
+                             "stone_front names no corner_bond or south_return_m")
+        brick_bays = [b["id"] for b in bays if b["fabric"] == "brick"]
+        if brick_bays:
+            raise ParamError(f"construction 'stone': bays {brick_bays} are brick; an all-stone "
+                             "house lays its bays in stone, its front's stone or frame")
+        stone["all_round"] = True
 
     # T-1861: a brick street front may lay its windows' heads in the brick, as its side and
     # rear walls do (two rowlock rings on a segmental arch), instead of the stone lintel or
