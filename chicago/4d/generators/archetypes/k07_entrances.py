@@ -51,7 +51,7 @@ OUT = (0.0, 0.0, 1.0)
 # Role -> material. A role is what the gate measures; a material is what a renderer
 # binds. Fixed order: the file is the same bytes every run.
 ROLE_MATERIAL = {
-    "wall": "masonry", "reveal": "masonry",
+    "wall": "masonry", "reveal": "masonry", "porch_back": "masonry",
     "threshold": "stone", "head": "stone", "landing": "stone", "tread": "stone", "riser": "stone",
     "stair_end": "stone", "cheek": "stone", "area_wall": "area_brick", "coping": "stone", "guard": "stone",
     "frame": "joinery", "leaf": "joinery", "sash_outer": "joinery",
