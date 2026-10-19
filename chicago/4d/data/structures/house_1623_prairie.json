@@ -124,10 +124,15 @@
             "trim_fabric": "dressed_trim",
             "rusticated_base_courses": 2,
             "coping_height_m": 0.23,
-            "corner_bond": []
+            "corner_bond": [],
+            "coursing": {
+              "rhythm": "even",
+              "even_above_m": 3.4,
+              "even_rock_share": 0.2
+            }
           },
           "confidence": "reconstructed",
-          "note": "The drawing draws the front's base in big rock-faced blocks, coursed and rusticated up to the arches' springing, and the oriel in dressed stone; it is monochrome, so the stone is chosen: K02's buff Lemont limestone, the common Chicago building stone of the 1880s, over two rusticated base courses (the most its K02 profile lays). T-2728 lays it rock-faced (`dressing`, the profile's 0-0.025 m face), as the drawing draws every block from grade to the arches' springing. K01 lays one dressing a front and the Lemont profile no alternating coursing, so the narrow strips beside the oriel above the springing, which the drawing draws as smoother coursed stone, are rock-faced with the rest (the match record's 'stone'; T-2729). Replaceable by any description naming the stone."
+          "note": "The drawing draws the front's base in big rock-faced blocks, coursed and rusticated up to the arches' springing, and the oriel in dressed stone; it is monochrome, so the stone is chosen: K02's buff Lemont limestone, the common Chicago building stone of the 1880s, over two rusticated base courses (the most its K02 profile lays). T-2728 lays it rock-faced (`dressing`, the profile's 0-0.025 m face), as the drawing draws every block from grade to the arches' springing. T-2819: above the carved band at the arches' springing the drawing draws the narrow strips beside the oriel as smoother coursed stone, ruled in level courses with few marks on their faces, where every block under it is drawn rock-faced. So K01 lays the front evenly (`coursing`, rhythm `even`: no high and low courses) with the profile's whole 0-0.025 m rock face under 3.4 m, the band's top (street_front_dress.carved_band), and a fifth of it (0-0.005 m) above, so the stone over the band reads smoother and still quarry-faced. The share is reconstructed: the drawing draws the difference, not its depth (L-k01-1623-farwell-entrance-2728). Replaceable by any description naming the stone."
         },
         "wall_head": {
           "value": {
@@ -400,17 +405,17 @@
             "ends_at": "grade_with_splash_stone",
             "downpipes": [
               {
-                "wall": "k01.wall.street_front",
+                "wall": "k01.wall.side.north",
                 "s_m": 0.35
               },
               {
-                "wall": "k01.wall.street_front",
-                "s_m": 5.85
+                "wall": "k01.wall.side.south",
+                "s_m": 0.35
               }
             ]
           },
           "confidence": "reconstructed",
-          "note": "Copper half-round gutters and two pipes at the front's corners, as 1619's; the drawing shows none."
+          "note": "Copper half-round gutters and two pipes by the front's corners. The drawing draws no pipe down its front, so T-2819 hangs them on the flanks 0.35 m back from the front's corners, as 1625's photograph hangs its pipe (T-2753), where until then they ran down the front's face at its corners, as 1619's; where the pipes stand is reconstructed, the drawing showing neither flank."
         },
         "window_kit": {
           "value": {
@@ -419,14 +424,14 @@
               "variant": "k06.opening.area_light",
               "well": false
             },
-            "k01.opening.arched_principal": "k06.opening.sash_round_fanlight_wide",
+            "k01.opening.arched_principal": "k06.opening.sash_round_lattice_wide",
             "k01.opening.arched_basement": {
               "variant": "k06.opening.basement_segmental",
               "well": false
             }
           },
           "confidence": "reconstructed",
-          "note": "K06's two-over-two sash in the side and rear walls; its wide fanlight sash under the principal storey's arch, as 1612's, and under that (T-2818) its broad segmental basement light, the drawing's low arched opening."
+          "note": "K06's two-over-two sash in the side and rear walls; under the principal storey's arch its wide sash with the head glazed as a lattice of square lights, as the drawing draws it (T-2819, k06.opening.sash_round_lattice_wide; until then the radial fanlight of 1612's), and under that (T-2818) its broad segmental basement light, the drawing's low arched opening."
         },
         "entrance_kit": {
           "value": {
@@ -503,7 +508,7 @@
                 ],
                 "storey": 0,
                 "sill_above_floor_m": 0.25,
-                "width_m": 1.6,
+                "width_m": 1.8,
                 "height_m": 2.3,
                 "arch_ring_m": 0.35,
                 "keystone_top_m": 4.8,
@@ -518,7 +523,7 @@
           "sources": [
             "building_budget_1886_06_hamline_farwell_houses"
           ],
-          "note": "Read through the drawing's camera (data/reference_views/house_1623_prairie/building_budget_front.json), at the front's 46 px/m: the principal storey's window is one broad round-arched light, its sill at about 2.1 m, its springing at about 3.4 m and its crown at about 4.4 m, about 1.8 m across inside a ring of long voussoirs about 0.5 m deep; under it a broad segmental basement light behind an iron grille, from grade to about 0.9 m. Built as K01's arched principal light on K06's wide fanlight sash, 1.6 m across (narrowed, at the drawing's 1.55 m centre since T-2777, so its voussoir block stands 0.4 m inside the corner), its sill at 2.1 m and its crown at 4.4 m under a 0.35 m ring. T-2818: under it the drawing's basement light, built as K06's broad segmental basement light, 1.8 m across from 0.1 m to its crown at 0.97 m, its head rising 0.11 m (a sixteenth of its span, the drawing's flat arc), centred 1.45 m from the north wall, 0.1 m north of the window over it (`offset_m`; the drawing draws it about 0.25 m north, between x 63 and 145, and 1.45 m is as far as its voussoirs stand 0.3 m inside the corner): through the camera its jambs land at x 68 and 150 and its crown at about y 647, against the drawn 63, 145 and 647, its sill within about 2 px. Over it a block of voussoirs 0.25 m deep radiating from the arc's centre, with a skewback at each end and a keystone to 1.25 m, where the drawing's radiating stones stop at about 1.3 m. The window's lattice transom is not built."
+          "note": "Read through the drawing's camera (data/reference_views/house_1623_prairie/building_budget_front.json), at the front's 46 px/m: the principal storey's window is one broad round-arched light, its sill at about 2.1 m, its springing at about 3.4 m and its crown at about 4.4 m, about 1.8 m across inside a ring of long voussoirs about 0.5 m deep; under it a broad segmental basement light behind an iron grille, from grade to about 0.9 m. Built as K01's arched principal light at the drawing's 1.55 m centre (T-2777), its sill at 2.1 m and its crown at 4.4 m under a 0.35 m ring; T-2819 widens it to the drawing's 1.8 m (it had been narrowed to 1.6 m so its voussoir block stood 0.4 m inside the corner; at 1.8 m the block stands 0.3 m inside, past K01's 0.25 m), so it springs at 3.5 m, 0.1 m over the carved band's top as the drawn arch is stilted over it, on K06's wide sash with its head glazed as a lattice (window_kit). T-2818: under it the drawing's basement light, built as K06's broad segmental basement light, 1.8 m across from 0.1 m to its crown at 0.97 m, its head rising 0.11 m (a sixteenth of its span, the drawing's flat arc), centred 1.45 m from the north wall, 0.1 m north of the window over it (`offset_m`; the drawing draws it about 0.25 m north, between x 63 and 145, and 1.45 m is as far as its voussoirs stand 0.3 m inside the corner): through the camera its jambs land at x 68 and 150 and its crown at about y 647, against the drawn 63, 145 and 647, its sill within about 2 px. Over it a block of voussoirs 0.25 m deep radiating from the arc's centre, with a skewback at each end and a keystone to 1.25 m, where the drawing's radiating stones stop at about 1.3 m. T-2819: the window's head is glazed as the drawing's lattice, a grid of square lights 0.2 m apart (about eight across the drawn head) over the transom bar on the spring line; the bars' section is K06's muntin (reconstructed, L-k01-1623-farwell-entrance-2728)."
         },
         "street_front_dress": {
           "value": {
@@ -542,13 +547,25 @@
                   6.0
                 ]
               }
+            },
+            "carved_band": {
+              "bed_m": 2.95,
+              "top_m": 3.4,
+              "guilloche": {
+                "radius_m": 0.17,
+                "ring_width_m": 0.05,
+                "ring_proud_m": 0.04,
+                "margin_m": 0.03,
+                "pitch": 1.5,
+                "segments": 16
+              }
             }
           },
           "confidence": "reconstructed",
           "sources": [
             "building_budget_1886_06_hamline_farwell_houses"
           ],
-          "note": "The rusticated base's coping at 1.0 m, over two courses of the Lemont stone (the rock-faced front above it is stone_front's, T-2728). T-2728: the drawing's iron. The stoop rises between iron rails, the K11 kit's stair rail as 1612's (T-2369): a newel at its head and one at its foot, a raked handrail, two balusters to a tread and a scroll at the foot; the drawing's newels are slim iron posts under flared caps, the kit's square ones. The basement light under the window stands behind an iron grille let into its reveal 0.05 m behind the face, as the drawing draws it (T-2818): eight close uprights from the sill to a bar at 0.57 m, a bar across them 0.25 m over the sill, and over the bar a band of six scrolls to the springing, each a flat bar curled into its centre and turned alternately, where the drawing draws a row of about six C-scrolls over its uprights at about 0.58-0.9 m and a bar across them at about 0.25 m. Read from the drawing: the rails, the grille's place, its band of scrolls and the number of them; reconstructed (the value's grade): every bar's count and section, and each scroll's curl (L-k01-1623-farwell-entrance-2728). T-2817: the landing's guard, which the drawing draws at the stoop's head running south along the landing before the porch's south jamb (x 277-335, v about 3.9-6.15 at the landing's edge), an ornamental panel at its south end (about x 302-327, v 5.45-6.0): built from the stoop rail's head newel to a newel at v 6.15, at the stoop rail's height, with its handrail, a foot bar and the rail's baluster pitch, and in the panel a lozenge of flat bar on a ring between two posts, where the drawing's ornament is too small to read (reconstructed, L-k01-1623-farwell-entrance-2728). The drawing's guard rail stands lower than the kit's 0.86 m over the landing (about 0.25-0.6 m, the plate's heights at the stoop's head being loose); it is built at the stoop rail's height, which a landing's guard needs."
+          "note": "The rusticated base's coping at 1.0 m, over two courses of the Lemont stone (the rock-faced front above it is stone_front's, T-2728). T-2728: the drawing's iron. The stoop rises between iron rails, the K11 kit's stair rail as 1612's (T-2369): a newel at its head and one at its foot, a raked handrail, two balusters to a tread and a scroll at the foot; the drawing's newels are slim iron posts under flared caps, the kit's square ones. The basement light under the window stands behind an iron grille let into its reveal 0.05 m behind the face, as the drawing draws it (T-2818): eight close uprights from the sill to a bar at 0.57 m, a bar across them 0.25 m over the sill, and over the bar a band of six scrolls to the springing, each a flat bar curled into its centre and turned alternately, where the drawing draws a row of about six C-scrolls over its uprights at about 0.58-0.9 m and a bar across them at about 0.25 m. Read from the drawing: the rails, the grille's place, its band of scrolls and the number of them; reconstructed (the value's grade): every bar's count and section, and each scroll's curl (L-k01-1623-farwell-entrance-2728). T-2817: the landing's guard, which the drawing draws at the stoop's head running south along the landing before the porch's south jamb (x 277-335, v about 3.9-6.15 at the landing's edge), an ornamental panel at its south end (about x 302-327, v 5.45-6.0): built from the stoop rail's head newel to a newel at v 6.15, at the stoop rail's height, with its handrail, a foot bar and the rail's baluster pitch, and in the panel a lozenge of flat bar on a ring between two posts, where the drawing's ornament is too small to read (reconstructed, L-k01-1623-farwell-entrance-2728). The drawing's guard rail stands lower than the kit's 0.86 m over the landing (about 0.25-0.6 m, the plate's heights at the stoop's head being loose); it is built at the stoop rail's height, which a landing's guard needs. T-2819: the carved band at the arches' springing, which the drawing draws as a band of carving across the front on the north pier, between the arches and south of the porch's mouth, level with the window's transom, between y 534 and 556: through the solved camera (46 px/m at the front, its eye 1.6 m up at y 618) about 2.95-3.4 m, its top the drawn springing (y 535, the ticket's 3.4 m). Built as a dressed belt course from 2.95 to 3.4 m (`carved_band`), cut by the window's and the porch's openings, and on each run of it the oriel's frieze carving, a guilloche of interlaced rings 0.34 m across, where the drawing's carving is foliage too small to read (reconstructed, L-k01-1623-farwell-entrance-2728). Both arches spring a little over it (the window's at 3.6 m, the porch's at 3.525 m), their jambs rising past the band, as the drawing's arches are stilted over theirs."
         }
       }
     }

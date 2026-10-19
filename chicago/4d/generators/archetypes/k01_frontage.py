@@ -1207,6 +1207,8 @@ class Assembly:
             lines |= {fbed, fp["door_surround"]["top_m"], pa["bed_m"], pa["bed_m"] + pa["height_m"]}
         if (k.get("coursing") or {}).get("even_below_m"):   # T-2773: the principal sill's bed
             lines.add(float(k["coursing"]["even_below_m"]))
+        if (k.get("coursing") or {}).get("rhythm") == "even":   # T-2819: where the face turns smoother
+            lines.add(float(k["coursing"]["even_above_m"]))
         if beds is not None:   # T-2788: the front's own lines, up to this face's top
             lines = {y for y in beds if y < ytop - 0.02} | {0.0, ytop}
         merged = []
@@ -1550,7 +1552,8 @@ class Assembly:
         lo_c, hi_c = k["course_m"]
         h = yb - ya
         c = k.get("coursing")
-        if c and ya < c["even_above_m"] - 1e-6 and not yb <= c.get("even_below_m", 0.0) + 1e-6:
+        if c and c["rhythm"] == "alternating" and ya < c["even_above_m"] - 1e-6 \
+                and not yb <= c.get("even_below_m", 0.0) + 1e-6:
             r = c["low_ratio"]
             deep_max = min(hi_c, c.get("deep_max_m", hi_c))   # T-2773: the photograph's deep course
             for n in range(1, 64):
@@ -1585,6 +1588,8 @@ class Assembly:
             return lo, hi
         if ya >= c["even_above_m"] - 1e-6:
             return lo, lo + (hi - lo) * c["even_rock_share"]
+        if c["rhythm"] == "even":   # T-2819: no high and low courses, the whole range below the line
+            return lo, hi
         mid = (lo + hi) / 2
         lo_c, hi_c = self.p.stone["course_m"]
         return (mid, hi) if yb - ya >= (lo_c + hi_c) / 2 else (lo, mid)

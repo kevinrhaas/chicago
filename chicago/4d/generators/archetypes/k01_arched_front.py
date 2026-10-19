@@ -35,6 +35,7 @@ FILLET = (0.08, 0.04)        # the frieze's foot: a fillet this high, this proud
 IRON_BAR_M = 0.018           # a guard's or grille's square bar
 SHAFT_SIDES = 16
 SCROLL_SEGMENTS = 18         # T-2818: one grille scroll's volute, in straight runs of bar
+BELT_PROUD_M = 0.05          # T-2819: a belt course's face before the wall (k01_frontage.stone_front's F)
 
 
 def _k01():
@@ -644,10 +645,57 @@ def _landing_guard(a, frame, gd, cs, R, y0, d, g, seed, conf):
         _rod(a, frame, p0, p1, b, d - b / 2, d + b / 2, seed, conf)
 
 
+def _carved_band(a, frame, af, length, conf):
+    """T-2819: the carving on a carved band (1623's drawing: a band of carving across the front
+    at the arches' springing, on the piers between and beside them). The band is a belt course
+    `k01_frontage.stone_front` lays, its face BELT_PROUD_M before the wall; on every run of it
+    between the lights it crosses, the oriel's guilloche (k08_bays._guilloche): rings of
+    `ring_width_m` along the run's middle at `pitch` of their radius, every other one standing
+    `ring_proud_m` and the rest half that, so where two cross one passes over the other; each
+    ring is sunk 0.01 m into the band's face, so none stands off it."""
+    cb = af["carved_band"]
+    b0, b1, g = cb["bed_m"], cb["top_m"], cb["guilloche"]
+    seed = a.instance("k01.wall.carved_band", "wall", {"bed_m": b0, "top_m": b1},
+                      {"bed": _P(frame, 0.0, b0, 0.0), "top": _P(frame, 0.0, b1, 0.0)})
+    cuts = sorted((q[0], q[1]) for gr in af["groups"] for q in gr["lights"] if q[4] < b1 and q[2] > b0)
+    runs, x = [], 0.0
+    for c0, c1 in cuts:
+        if c0 > x:
+            runs.append((x, c0))
+        x = max(x, c1)
+    if x < length:
+        runs.append((x, length))
+    w, rp, k, mg = g["ring_width_m"], g["ring_proud_m"], int(g["segments"]), g["margin_m"]
+    d0 = BELT_PROUD_M - 0.01
+    yc = (b0 + b1) / 2
+    for s0, s1 in runs:
+        R = min(g["radius_m"], (b1 - b0) / 2 - mg, (s1 - s0) / 2 - mg)
+        if R < 2 * w:
+            continue   # a sliver of pier holds no ring
+        pitch = g["pitch"] * R
+        n = max(1, math.floor((s1 - s0 - 2 * R - 2 * mg) / pitch + 1e-9) + 1)
+        sc = (s0 + s1) / 2 - (n - 1) * pitch / 2
+        for j in range(n):
+            d1 = BELT_PROUD_M + (rp if j % 2 == 0 else rp / 2)
+            cs = sc + j * pitch
+            ring = lambda r, t: (cs + r * math.cos(2 * math.pi * t / k), yc + r * math.sin(2 * math.pi * t / k))
+            for t in range(k):
+                o0, o1, i0, i1 = ring(R, t), ring(R, t + 1), ring(R - w, t), ring(R - w, t + 1)
+                mo = ((o0[0] + o1[0]) / 2 - cs, (o0[1] + o1[1]) / 2 - yc, 0.0)
+                _face(a, "limestone_trim", frame, [(*o0, d1), (*o1, d1), (*i1, d1), (*i0, d1)], (0, 0, 1), seed, conf)
+                _face(a, "limestone_trim", frame, [(*o0, d0), (*o1, d0), (*o1, d1), (*o0, d1)], mo, seed, conf)
+                _face(a, "limestone_trim", frame, [(*i1, d0), (*i0, d0), (*i0, d1), (*i1, d1)],
+                      (-mo[0], -mo[1], 0.0), seed, conf)
+        a.components["k01.wall.carved_band"]["instances"][-1]["params"].setdefault("rings", 0)
+        a.components["k01.wall.carved_band"]["instances"][-1]["params"]["rings"] += n
+
+
 def lay(a, frame, yf, length, conf, recess):
     af = a.p.arched_front
     for g in af["groups"]:
         _voussoirs(a, frame, g, conf, recess)
+    if af.get("carved_band"):
+        _carved_band(a, frame, af, length, conf)
     if af["frieze"]:
         _frieze(a, frame, af, yf, length, conf)
     if af["frontispiece"]:

@@ -2,17 +2,25 @@
   "structure_id": "glessner_house",
   "view": "habs-17-habs-ne",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
-  "camera_sha256": "0c512ffb38142a21ff4bda05d9ca33afbe53bb0b08d341341274a3e6e2bed07f",
+  "glb_sha256": "54ad9acb753eac1f65dde9cec4d2232a377de4c63cb1c29e6c25ee52fbd9c024",
+  "camera_sha256": "4d314a4a64d2df0bc559faf6e75b77d808df0137b4efb59ce76bd0f402f63f11",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-17-habs-ne-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
-      "what": "Actual master reviewed in the imported unchanged T2200 camera. Main roof/stack height correspondence, street openings/entry, course relief and lighting still differ. This pass corrects courtyard and north-cone junctions, not every visible facade detail.",
+      "what": "Actual master reviewed in the imported unchanged T2200 camera. Main roof/stack height correspondence, street openings/entry and course relief still differ. This pass corrects courtyard and north-cone junctions, not every visible facade detail.",
       "status": "open"
     },
     {
       "what": "Neighboring buildings, street poles/cars/signs and1965 vegetation are not copied into the1904 house. Monochrome tones do not determine historical RGB.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2848 light: overcast winter light (snow in the gutters, nothing on the pavement casts a shadow); the render now uses the overcast sky (camera solve.light), both faces lit by the sky alone as in the print.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2848: the stone in this print is darkened by decades of city soot, so its tone in the 1960s photograph is not its 1887 tone; the render's clean stone is not compared against it.",
       "status": "not shown"
     }
   ],
