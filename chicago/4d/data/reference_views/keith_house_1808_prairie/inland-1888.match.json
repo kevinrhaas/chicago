@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "inland-1888",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "cf3e8ece7221b2f5ac88ec9eb6098c981aef78ea0cc7be08b56b2d9d21516bf4",
+  "glb_sha256": "79c26558d834d058d1c9118eb0496c108abc1df2e86245ae48bb40f9a92d706c",
   "camera_sha256": "6819cfca050bb147eac1c0036afc191e7d8dc1992bbb6529aa36841c0e0443e0",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-side-by-side.jpg",
   "verdict": "differs",
@@ -98,6 +98,10 @@
     {
       "what": "T-2765: the plate draws each of the bow's principal lights in three tiers between stone bars: a main sash from the sill to about 4.05 m, a light about 4.2-4.7 m and a top light about 4.85-5.3 m (read on one level column at 77.8 px/m). The model's sash_transom_flat lays one 0.45 m transom over a 2.5 m sash, so its transom is the top light and the middle light is not built.",
       "status": "open"
+    },
+    {
+      "what": "T-2813: re-rendered with Keith's crown 0.16 m lower (the moulded course under the lattice 0.20 m deep where it was 0.36 m, the checker and head bands unmoved); its camera does not use the crown and is unchanged. Read again at the crown beside the previous render: the lattice, coping and pinnacles move a few pixels at this picture's scale and nothing it shows opens a difference; the verdict stands as it was (differs).",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

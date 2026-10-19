@@ -2,8 +2,8 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-florian-1948-northeast-overall",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "cf3e8ece7221b2f5ac88ec9eb6098c981aef78ea0cc7be08b56b2d9d21516bf4",
-  "camera_sha256": "8f47b3a1f6768f52ee223bc5907e0249e56f50abe75f7b1297182e363dde1503",
+  "glb_sha256": "79c26558d834d058d1c9118eb0496c108abc1df2e86245ae48bb40f9a92d706c",
+  "camera_sha256": "914cda22e855b0f3054227a6062d30544a85d971bbf2a3a621808566cf92bfc4",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-florian-1948-northeast-overall-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -53,6 +53,10 @@
     },
     {
       "what": "T-2680: the lattice and coping stood high over the moulded course. With the third-storey light in register, the lower row read at 15.48-15.74 m against the photograph's 15.25-15.53 m and the upper row 0.2 m high likewise, with the moulded course standing as a deep stack between the lattice and the boss. The crown is now 0.2 m lower, and the course stays level with the boss as it is here. The rows read within 3-5 px (about 0.1 m, near this camera's 2.7 px RMS), and the coping, band and head band within a few pixels.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2813: re-rendered with Keith's crown 0.16 m lower (the moulded course under the lattice 0.20 m deep where it was 0.36 m, the checker and head bands unmoved); its camera re-solved on the moved crown controls (2.73 to 3.20 px RMS, tools/keith_crown_resolve.py). Read again at the crown beside the previous render: the lattice, coping and pinnacles move a few pixels at this picture's scale and nothing it shows opens a difference; the verdict stands as it was (matches).",
       "status": "fixed"
     }
   ],

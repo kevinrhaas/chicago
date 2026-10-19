@@ -2,8 +2,8 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-inland-architect-1888-02-glessner-plate",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "cf3e8ece7221b2f5ac88ec9eb6098c981aef78ea0cc7be08b56b2d9d21516bf4",
-  "camera_sha256": "585abddb7bf1c9034f76bdbd0b2fea01f40e7927675c8e094030203a8fbd8642",
+  "glb_sha256": "79c26558d834d058d1c9118eb0496c108abc1df2e86245ae48bb40f9a92d706c",
+  "camera_sha256": "66091c5f28c06a87a76fae6a41a39ead14634863d16f710d705e151c69e3fb63",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-inland-architect-1888-02-glessner-plate-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -54,6 +54,10 @@
     {
       "what": "T-2714: the checker band's units are pitched 0.28 m along their rows (0.336 m before), with 0.07 m of ground between neighbours, as the 1888 Keith plate lays them; the rows are unchanged. Not judged here: the band is a few pixels of the crown at this plate's scale.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2813: re-rendered with Keith's crown 0.16 m lower (the moulded course under the lattice 0.20 m deep where it was 0.36 m, the checker and head bands unmoved); its camera re-solved on the moved crown controls (1.52 to 2.09 px RMS, tools/keith_crown_resolve.py). Read again at the crown beside the previous render: the lattice, coping and pinnacles move a few pixels at this picture's scale and nothing it shows opens a difference; the verdict stands as it was (matches).",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

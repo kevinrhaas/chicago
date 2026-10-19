@@ -28839,6 +28839,33 @@ entry read their pitch.
 **Ticket:** T-2724 (piece 1 of T-2714).
 **Recorded:** 2026-10-17 (T-2724).
 
+### L-k01-keith-crown-stack-2813 — Keith's moulded course 0.20 m deep: the kit's section scaled to the crown the pictures read
+
+**Decision:** the moulded stone course between Keith's checker band and its lattice (1808 Prairie) is
+0.20 m deep, where it was the K10 kit's 0.36 m section, every member's height scaled by the same
+factor and its 0.32 m projection kept (`wall_head.depth_m`); its foot stays on the checker band's top
+at 14.63 m, and the wall head comes down 0.16 m to 14.84 m (`storey_heights_m`, third storey 5.04 m),
+so the cornice box, lattice, coping, pinnacles, deck and cowl stand 0.16 m lower. The carved boss
+on the north-east corner keeps its read size and centre (14.8 m), so it now spans the course and
+the box over it (T-2813, piece 3 of T-2751).
+**What is read, not invented:** the length of the crown stack, the lattice's lower sill down to the
+head band's top, as a ratio to the lattice's own 0.40 m row pitch, which no level camera changes
+(tools/keith_crown_stack.py): the Glessner-front print 1.55-1.57 m, Florian 1948 1.64-1.65 m,
+against the 1.74 m built. 0.16 m is the least-squares cut over the two in each print's own pixels;
+the stack is now 1.58 m, about 2 px long in the one and 1.3 px short in the other. Florian 1948
+places the excess between the lattice and the checker band.
+**What is invented:** which member gives up the height and how. The course is the one member in that
+stretch whose depth was not read off Keith (the section is 1619 Prairie's drawing, generic here), so
+it is the one cut; scaling every member alike, rather than dropping one, is reconstructed. The
+course's moulding is not legible in any picture at this grain. Florian's other reading, the checker
+band and its gap about 0.12 m deeper than built, is not taken: the Glessner-front print hides the
+band's first row and cannot check it.
+**How to resolve:** a sharper print of the street front's crown, read for the course's own members
+and the band's depth.
+**Covers:** `keith_house_1808_prairie.as_built_1886.form.wall_head`.
+**Ticket:** T-2813 (piece 3 of T-2751).
+**Recorded:** 2026-10-19 (T-2813).
+
 ### L-tree-architecture-2743 — Every tree is grown from its species' habit, with painted bark and leaves
 
 **Decision:** every tree in the 1812 and 1835 timber and plantings, and the 1904 parkway elms,
