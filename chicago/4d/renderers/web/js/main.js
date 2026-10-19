@@ -60,7 +60,8 @@ import { createSignage } from './signage.js';
 import { createYardGoods } from './yard.js';
 import { keptGround } from './kept-ground.js';
 import { createFrontage, fetchPrebuiltFrontage, pageBuild } from './frontage.js';
-import { setPickRenderer, setPickLog } from './gpu-pick.js';
+import { setPickRenderer, setPickLog, pickResources } from './gpu-pick.js';
+import { residentEstimate } from './resident-estimate.js';
 import { createFarMerge } from './far-merge.js';
 import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
   closeUploadedImages } from './upload-release.js';
@@ -1785,17 +1786,21 @@ async function boot() {
   // T-2548: a closed building image is gone from the page as a released array is.
   crashGuard.watchContext(renderer.domElement, { needsReload: () => {
     const released = uploadReleaseState();
-    return released.attributes > 0 || released.images > 0;
+    return released.attributes > 0 || released.images > 0 || released.compressed > 0;
   } });
   renderer.domElement.addEventListener('webglcontextlost', () => blackbox.log('lost'));
   renderer.domElement.addEventListener('webglcontextrestored', () => blackbox.log('restored'));
   setPickLog((kind, data) => blackbox.log(kind, data));
+  api.pickResources = pickResources;
   const blackboxSize = new THREE.Vector2();
   blackboxSample = () => {
     const { render, memory } = renderer.info;
     renderer.getDrawingBufferSize(blackboxSize);
     const pose = api.walker?.state;
+    // T-2828: the bytes behind those counts, as far as the page can read them (MB).
+    const est = residentEstimate(scene3d, renderer);
     return { calls: render.calls, tris: render.triangles, geo: memory.geometries, tex: memory.textures,
+      geoMB: Math.round(est.geometry / 1048576), texMB: Math.round(est.textures / 1048576),
       w: blackboxSize.x, h: blackboxSize.y, ratio: +renderer.getPixelRatio().toFixed(2),
       heap: performance.memory ? Math.round(performance.memory.usedJSHeapSize / 1048576) : null,
       at: pose ? `${Math.round(pose.e)},${Math.round(pose.n)}` : null };

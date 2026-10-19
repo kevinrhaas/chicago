@@ -193,6 +193,10 @@ const pool = [];
 let target = null;
 const cameras = { perspective: new THREE.PerspectiveCamera(), orthographic: new THREE.OrthographicCamera() };
 for (const c of Object.values(cameras)) c.matrixWorldAutoUpdate = false;
+/** What the pick holds, for the harness (T-2828): one target, its id materials, its stand-ins. */
+export function pickResources() {
+  return { targets: target ? 1 : 0, materials: materials.size, pool: pool.length };
+}
 const texel = new Uint32Array(3); // slot, id, distance bits
 const texelFloat = new Float32Array(texel.buffer);
 const bytes = new Uint8Array(4);

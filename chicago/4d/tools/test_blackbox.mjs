@@ -3,6 +3,7 @@
 // records the next page shows, and the line it shows.
 import assert from 'node:assert/strict';
 import { createBlackbox, wasCut, summary, report, BLACKBOX_KEY, SAMPLE_MS, STALE_MS } from '../renderers/web/js/blackbox.js';
+import { residentEstimate } from '../renderers/web/js/resident-estimate.js';
 
 const store = () => {
   const m = new Map();
@@ -83,4 +84,33 @@ const sample = () => ({ calls: 236, tris: 907703, geo: 410, tex: 61, w: 390, h: 
   assert.equal(box.previous, null);
 }
 
-console.log('ok  the black box keeps the page\'s last steps, shows a cut-off page\'s, and never throws (T-2826)');
+// T-2828: the last read carries the bytes behind its counts, and an older record without them still reads.
+{
+  const withBytes = { entries: [{ t: 0, k: 'boot' }, { t: 10, k: 'pick', meshes: 0, batches: 183 }], last: {
+    calls: 103, tris: 549763, geo: 291, tex: 741, texMB: 98, geoMB: 101, w: 375, h: 636, ratio: 1 } };
+  assert.match(summary(withBytes), /741 textures \(98 MB\), 291 geometries \(101 MB\), 375×636 at 1×/);
+  assert.doesNotMatch(summary({ ...withBytes, last: { ...withBytes.last, texMB: undefined, geoMB: undefined } }), /MB/);
+
+  // The estimate it is read from: once per source and per array, uploaded textures only,
+  // a released array at the bytes it recorded, a released KTX2 at the bytes residency kept.
+  const uploaded = new Set();
+  const renderer = { properties: { get: (t) => (uploaded.has(t) ? { __webglTexture: {} } : {}) } };
+  const src = {};
+  const img = { isTexture: true, source: src, image: { width: 256, height: 256 }, generateMipmaps: true };
+  const clone = { ...img };
+  const ktx = { isTexture: true, isCompressedTexture: true, source: {}, mipmaps: [{ data: new Uint8Array(0) }],
+    userData: { releasedBytes: 1398096 } };
+  const never = { isTexture: true, source: {}, image: { width: 4096, height: 4096 } };
+  uploaded.add(img); uploaded.add(clone); uploaded.add(ktx);
+  const pos = { array: new Float32Array(300) };
+  const gone = { array: null, userData: { uploadBytes: 1200 } };
+  const objects = [
+    { geometry: { attributes: { position: pos, normal: gone }, index: null }, material: { map: img, normalMap: ktx } },
+    { geometry: { attributes: { position: pos }, index: null }, material: [{ map: clone }, { map: never }] },
+  ];
+  const est = residentEstimate({ traverse: (fn) => objects.forEach(fn) }, renderer);
+  assert.equal(est.geometry, 1200 + 1200, 'a shared array once, a released one at its recorded bytes');
+  assert.equal(est.textures, Math.round(256 * 256 * 4 * 4 / 3) + 1398096, 'a shared source once; never uploaded, nothing');
+}
+
+console.log('ok  the black box keeps the page\'s last steps, shows a cut-off page\'s, and never throws (T-2826), with its bytes (T-2828)');
