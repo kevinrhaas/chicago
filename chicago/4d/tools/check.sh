@@ -935,6 +935,20 @@ step "the K08 bay kit builds every bay, oriel and tower closed against its wall,
 selftest "…and a window off its run, a recess through the wall, a faceted curve, an oriel on one deep course or a roof with a hole still fails it" \
   python3 tools/check_bay_kit.py --self-test
 
+# T-2788. ...and what an all-stone house is. A K01 record naming `construction: "stone"`
+# lays its K02 stone_front round every face, not a stone front on a brick box. No record
+# names it yet (1801 Prairie, T-2789, is the first), so this builds four houses that carry
+# a K02 front as all-stone, in memory, and measures them: every wall coursed in the
+# record's stone, no brick under the eave, every course on the front's beds (level round
+# each corner), a stone flat arch over every opening off the front, no coincident face;
+# a quoin bond, a brick bay or a missing stone_front refused; every record as committed
+# still brick on its flanks.
+step "the K01 kit lays an all-stone house in its K02 stone round every face (T-2788)" \
+  python3 tools/check_stone_house_kit.py --check
+
+selftest "…and flanks left in brick, a corner off the front's beds, a headless opening, a doubled face or a refused record built anyway still fails it" \
+  python3 tools/check_stone_house_kit.py --self-test
+
 # T-2303. ...and what the 1904 entrances are. The K07 kit's parts are sized in
 # data/components/prairie_1904/k07_entrances.json and built by
 # generators/archetypes/k07_entrances.py. This rebuilds every variant and measures the

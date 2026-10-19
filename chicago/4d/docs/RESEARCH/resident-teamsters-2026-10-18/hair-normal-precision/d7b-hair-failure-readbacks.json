@@ -1,0 +1,5122 @@
+[
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/bardwell_otis_1835.lod0.glb",
+    "viewport": "desktop",
+    "sha256": "985a2bde5af37e0882fc532b9f7c2cea6c02025fc8ef94e0a125f8178a6258c4",
+    "passed": false,
+    "error_count": 1,
+    "error_samples": [
+      "bardwell_otis_1835_short04_hair_lod0: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 845,
+            "position": [
+              -0.009399700918607135,
+              0.8933072908719139,
+              -0.10608233893856624
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 2039,
+              "height": 2048,
+              "expected_width": 2039,
+              "expected_height": 2048
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "bardwell_otis_1835_short04_hair_lod0",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/bardwell_otis_1835.lod1.glb",
+    "viewport": "desktop",
+    "sha256": "9989e6dfa86d217b099385ce50c13e65f40f7c7290ae5505e27b8852c8e48742",
+    "passed": false,
+    "error_count": 1,
+    "error_samples": [
+      "bardwell_otis_1835_short04_hair_lod1: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 845,
+            "position": [
+              -0.009399700918607135,
+              0.8933072908719139,
+              -0.10632648701437422
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 1020,
+              "height": 1024,
+              "expected_width": 1020,
+              "expected_height": 1024
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "bardwell_otis_1835_short04_hair_lod1",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/bardwell_otis_1835.lod2.glb",
+    "viewport": "desktop",
+    "sha256": "8cd8b60d619797e00aaa020c2ce71ae7bb3cf0ddc2a64ca3b5a1a69768d5d10c",
+    "passed": false,
+    "error_count": 1,
+    "error_samples": [
+      "bardwell_otis_1835_short04_hair_lod2: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 845,
+            "position": [
+              -0.009399700918607135,
+              0.86901455732902,
+              -0.10632648701437422
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 510,
+              "height": 512,
+              "expected_width": 510,
+              "expected_height": 512
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "bardwell_otis_1835_short04_hair_lod2",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/bardwell_otis_1835.lod3.glb",
+    "viewport": "desktop",
+    "sha256": "7876715d69cff32dbeffb56704607d9892b48e55df323fb374aa4e170390d7e3",
+    "passed": false,
+    "error_count": 1,
+    "error_samples": [
+      "bardwell_otis_1835_short04_hair_lod3: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 845,
+            "position": [
+              -0.009399700918607135,
+              0.869991149632252,
+              -0.10657063509018219
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 255,
+              "height": 256,
+              "expected_width": 255,
+              "expected_height": 256
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "bardwell_otis_1835_short04_hair_lod3",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/dufresne_joseph_1835.lod0.glb",
+    "viewport": "desktop",
+    "sha256": "779b2466d174fa6ce44ac84afdf3d3e4168843684d1423c2dac5ffebe006e6dc",
+    "passed": false,
+    "error_count": 2,
+    "error_samples": [
+      "dufresne_joseph_1835_short04_hair_lod0: invalid decoded normal 453",
+      "dufresne_joseph_1835_short04_hair_lod0: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 453,
+            "position": [
+              -0.014526810510574664,
+              0.7838068788720359,
+              -0.0837427900021363
+            ],
+            "uv": [
+              0.4251468680857557,
+              0.9802243076218814
+            ],
+            "normal": [
+              -0.33070866141732286,
+              -0.33070866141732286,
+              -0.889763779527559
+            ],
+            "normal_length": 1.0051945189027056,
+            "joint_indices": [
+              5,
+              6,
+              4,
+              0
+            ],
+            "weights": [
+              0.6588235294117647,
+              0.23921568627450981,
+              0.10196078431372549,
+              0
+            ],
+            "weight_sum": 1
+          },
+          {
+            "index": 845,
+            "position": [
+              -0.009521774956511124,
+              0.9058809167760247,
+              -0.10925626392406995
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 2039,
+              "height": 2048,
+              "expected_width": 2039,
+              "expected_height": 2048
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "dufresne_joseph_1835_short04_hair_lod0",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/dufresne_joseph_1835.lod1.glb",
+    "viewport": "desktop",
+    "sha256": "53faec08dbf3e36fadd2c1b6ba37ae200e521443c281512c302b8e108af2cc70",
+    "passed": false,
+    "error_count": 2,
+    "error_samples": [
+      "dufresne_joseph_1835_short04_hair_lod1: invalid decoded normal 453",
+      "dufresne_joseph_1835_short04_hair_lod1: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 453,
+            "position": [
+              -0.014526810510574664,
+              0.7838068788720359,
+              -0.08410901211584826
+            ],
+            "uv": [
+              0.4251468680857557,
+              0.9802243076218814
+            ],
+            "normal": [
+              -0.33070866141732286,
+              -0.33070866141732286,
+              -0.889763779527559
+            ],
+            "normal_length": 1.0051945189027056,
+            "joint_indices": [
+              5,
+              6,
+              4,
+              0
+            ],
+            "weights": [
+              0.6588235294117647,
+              0.23921568627450981,
+              0.10196078431372549,
+              0
+            ],
+            "weight_sum": 1
+          },
+          {
+            "index": 845,
+            "position": [
+              -0.009521774956511124,
+              0.9058809167760247,
+              -0.10962248603778192
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 1020,
+              "height": 1024,
+              "expected_width": 1020,
+              "expected_height": 1024
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "dufresne_joseph_1835_short04_hair_lod1",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/dufresne_joseph_1835.lod2.glb",
+    "viewport": "desktop",
+    "sha256": "de3213fc884fd6ce980c75e7fa84015a02ecda9ee99a543c19ba5b981c754f8a",
+    "passed": false,
+    "error_count": 2,
+    "error_samples": [
+      "dufresne_joseph_1835_short04_hair_lod2: invalid decoded normal 453",
+      "dufresne_joseph_1835_short04_hair_lod2: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 453,
+            "position": [
+              -0.014526810510574664,
+              0.7590258491775261,
+              -0.08410901211584826
+            ],
+            "uv": [
+              0.4251468680857557,
+              0.9802243076218814
+            ],
+            "normal": [
+              -0.33070866141732286,
+              -0.33070866141732286,
+              -0.889763779527559
+            ],
+            "normal_length": 1.0051945189027056,
+            "joint_indices": [
+              5,
+              6,
+              4,
+              0
+            ],
+            "weights": [
+              0.6588235294117647,
+              0.23921568627450981,
+              0.10196078431372549,
+              0
+            ],
+            "weight_sum": 1
+          },
+          {
+            "index": 845,
+            "position": [
+              -0.009521774956511124,
+              0.881099887081515,
+              -0.10962248603778192
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 510,
+              "height": 512,
+              "expected_width": 510,
+              "expected_height": 512
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "dufresne_joseph_1835_short04_hair_lod2",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/dufresne_joseph_1835.lod3.glb",
+    "viewport": "desktop",
+    "sha256": "894bf75e40528ab120c22c582a1e41d97a2029f94fdc18bc97e62107c10682fd",
+    "passed": false,
+    "error_count": 2,
+    "error_samples": [
+      "dufresne_joseph_1835_short04_hair_lod3: invalid decoded normal 453",
+      "dufresne_joseph_1835_short04_hair_lod3: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 453,
+            "position": [
+              -0.014526810510574664,
+              0.7600024414807581,
+              -0.08435316019165624
+            ],
+            "uv": [
+              0.4251468680857557,
+              0.9802243076218814
+            ],
+            "normal": [
+              -0.33070866141732286,
+              -0.33070866141732286,
+              -0.889763779527559
+            ],
+            "normal_length": 1.0051945189027056,
+            "joint_indices": [
+              5,
+              6,
+              4,
+              0
+            ],
+            "weights": [
+              0.6588235294117647,
+              0.23921568627450981,
+              0.10196078431372549,
+              0
+            ],
+            "weight_sum": 1
+          },
+          {
+            "index": 845,
+            "position": [
+              -0.009521774956511124,
+              0.8821985534226509,
+              -0.10986663411358989
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 255,
+              "height": 256,
+              "expected_width": 255,
+              "expected_height": 256
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "dufresne_joseph_1835_short04_hair_lod3",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/flynn_martin_1835.lod0.glb",
+    "viewport": "desktop",
+    "sha256": "be6180141eb77b7ef588edb15ea07bc0960edabd039bb994f5525f4fb133b321",
+    "passed": false,
+    "error_count": 2,
+    "error_samples": [
+      "flynn_martin_1835_short04_hair_lod0: invalid decoded normal 453",
+      "flynn_martin_1835_short04_hair_lod0: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 453,
+            "position": [
+              -0.014526810510574664,
+              0.7838068788720359,
+              -0.0837427900021363
+            ],
+            "uv": [
+              0.4251468680857557,
+              0.9802243076218814
+            ],
+            "normal": [
+              -0.33070866141732286,
+              -0.33070866141732286,
+              -0.889763779527559
+            ],
+            "normal_length": 1.0051945189027056,
+            "joint_indices": [
+              5,
+              6,
+              4,
+              0
+            ],
+            "weights": [
+              0.6588235294117647,
+              0.23921568627450981,
+              0.10196078431372549,
+              0
+            ],
+            "weight_sum": 1
+          },
+          {
+            "index": 845,
+            "position": [
+              -0.009521774956511124,
+              0.9058809167760247,
+              -0.10925626392406995
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 2039,
+              "height": 2048,
+              "expected_width": 2039,
+              "expected_height": 2048
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "flynn_martin_1835_short04_hair_lod0",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/flynn_martin_1835.lod1.glb",
+    "viewport": "desktop",
+    "sha256": "7f90ae645b36d36e99eb3ae1fc37f83c3543ecfa296a8edea6c654c006e43671",
+    "passed": false,
+    "error_count": 2,
+    "error_samples": [
+      "flynn_martin_1835_short04_hair_lod1: invalid decoded normal 453",
+      "flynn_martin_1835_short04_hair_lod1: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 453,
+            "position": [
+              -0.014526810510574664,
+              0.7838068788720359,
+              -0.08410901211584826
+            ],
+            "uv": [
+              0.4251468680857557,
+              0.9802243076218814
+            ],
+            "normal": [
+              -0.33070866141732286,
+              -0.33070866141732286,
+              -0.889763779527559
+            ],
+            "normal_length": 1.0051945189027056,
+            "joint_indices": [
+              5,
+              6,
+              4,
+              0
+            ],
+            "weights": [
+              0.6588235294117647,
+              0.23921568627450981,
+              0.10196078431372549,
+              0
+            ],
+            "weight_sum": 1
+          },
+          {
+            "index": 845,
+            "position": [
+              -0.009521774956511124,
+              0.9058809167760247,
+              -0.10962248603778192
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 1020,
+              "height": 1024,
+              "expected_width": 1020,
+              "expected_height": 1024
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "flynn_martin_1835_short04_hair_lod1",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/flynn_martin_1835.lod2.glb",
+    "viewport": "desktop",
+    "sha256": "89d5d0a3cdb4a319844675527a0bc18e604911ac0990aa53abad5a51dc25504e",
+    "passed": false,
+    "error_count": 2,
+    "error_samples": [
+      "flynn_martin_1835_short04_hair_lod2: invalid decoded normal 453",
+      "flynn_martin_1835_short04_hair_lod2: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 453,
+            "position": [
+              -0.014526810510574664,
+              0.7590258491775261,
+              -0.08410901211584826
+            ],
+            "uv": [
+              0.4251468680857557,
+              0.9802243076218814
+            ],
+            "normal": [
+              -0.33070866141732286,
+              -0.33070866141732286,
+              -0.889763779527559
+            ],
+            "normal_length": 1.0051945189027056,
+            "joint_indices": [
+              5,
+              6,
+              4,
+              0
+            ],
+            "weights": [
+              0.6588235294117647,
+              0.23921568627450981,
+              0.10196078431372549,
+              0
+            ],
+            "weight_sum": 1
+          },
+          {
+            "index": 845,
+            "position": [
+              -0.009521774956511124,
+              0.881099887081515,
+              -0.10962248603778192
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 510,
+              "height": 512,
+              "expected_width": 510,
+              "expected_height": 512
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "flynn_martin_1835_short04_hair_lod2",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/flynn_martin_1835.lod3.glb",
+    "viewport": "desktop",
+    "sha256": "5e59272a99950d1b7e72e778c87d4de227ecf72a6cab26ead00325f7f8598be8",
+    "passed": false,
+    "error_count": 2,
+    "error_samples": [
+      "flynn_martin_1835_short04_hair_lod3: invalid decoded normal 453",
+      "flynn_martin_1835_short04_hair_lod3: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 453,
+            "position": [
+              -0.014526810510574664,
+              0.7600024414807581,
+              -0.08435316019165624
+            ],
+            "uv": [
+              0.4251468680857557,
+              0.9802243076218814
+            ],
+            "normal": [
+              -0.33070866141732286,
+              -0.33070866141732286,
+              -0.889763779527559
+            ],
+            "normal_length": 1.0051945189027056,
+            "joint_indices": [
+              5,
+              6,
+              4,
+              0
+            ],
+            "weights": [
+              0.6588235294117647,
+              0.23921568627450981,
+              0.10196078431372549,
+              0
+            ],
+            "weight_sum": 1
+          },
+          {
+            "index": 845,
+            "position": [
+              -0.009521774956511124,
+              0.8821985534226509,
+              -0.10986663411358989
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 255,
+              "height": 256,
+              "expected_width": 255,
+              "expected_height": 256
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "flynn_martin_1835_short04_hair_lod3",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/bardwell_otis_1835.lod0.glb",
+    "viewport": "mobile",
+    "sha256": "985a2bde5af37e0882fc532b9f7c2cea6c02025fc8ef94e0a125f8178a6258c4",
+    "passed": false,
+    "error_count": 1,
+    "error_samples": [
+      "bardwell_otis_1835_short04_hair_lod0: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 845,
+            "position": [
+              -0.009399700918607135,
+              0.8933072908719139,
+              -0.10608233893856624
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 2039,
+              "height": 2048,
+              "expected_width": 2039,
+              "expected_height": 2048
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "bardwell_otis_1835_short04_hair_lod0",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/bardwell_otis_1835.lod1.glb",
+    "viewport": "mobile",
+    "sha256": "9989e6dfa86d217b099385ce50c13e65f40f7c7290ae5505e27b8852c8e48742",
+    "passed": false,
+    "error_count": 1,
+    "error_samples": [
+      "bardwell_otis_1835_short04_hair_lod1: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 845,
+            "position": [
+              -0.009399700918607135,
+              0.8933072908719139,
+              -0.10632648701437422
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 1020,
+              "height": 1024,
+              "expected_width": 1020,
+              "expected_height": 1024
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "bardwell_otis_1835_short04_hair_lod1",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/bardwell_otis_1835.lod2.glb",
+    "viewport": "mobile",
+    "sha256": "8cd8b60d619797e00aaa020c2ce71ae7bb3cf0ddc2a64ca3b5a1a69768d5d10c",
+    "passed": false,
+    "error_count": 1,
+    "error_samples": [
+      "bardwell_otis_1835_short04_hair_lod2: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 845,
+            "position": [
+              -0.009399700918607135,
+              0.86901455732902,
+              -0.10632648701437422
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 510,
+              "height": 512,
+              "expected_width": 510,
+              "expected_height": 512
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "bardwell_otis_1835_short04_hair_lod2",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/bardwell_otis_1835.lod3.glb",
+    "viewport": "mobile",
+    "sha256": "7876715d69cff32dbeffb56704607d9892b48e55df323fb374aa4e170390d7e3",
+    "passed": false,
+    "error_count": 1,
+    "error_samples": [
+      "bardwell_otis_1835_short04_hair_lod3: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 845,
+            "position": [
+              -0.009399700918607135,
+              0.869991149632252,
+              -0.10657063509018219
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 255,
+              "height": 256,
+              "expected_width": 255,
+              "expected_height": 256
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "bardwell_otis_1835_short04_hair_lod3",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/dufresne_joseph_1835.lod0.glb",
+    "viewport": "mobile",
+    "sha256": "779b2466d174fa6ce44ac84afdf3d3e4168843684d1423c2dac5ffebe006e6dc",
+    "passed": false,
+    "error_count": 2,
+    "error_samples": [
+      "dufresne_joseph_1835_short04_hair_lod0: invalid decoded normal 453",
+      "dufresne_joseph_1835_short04_hair_lod0: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 453,
+            "position": [
+              -0.014526810510574664,
+              0.7838068788720359,
+              -0.0837427900021363
+            ],
+            "uv": [
+              0.4251468680857557,
+              0.9802243076218814
+            ],
+            "normal": [
+              -0.33070866141732286,
+              -0.33070866141732286,
+              -0.889763779527559
+            ],
+            "normal_length": 1.0051945189027056,
+            "joint_indices": [
+              5,
+              6,
+              4,
+              0
+            ],
+            "weights": [
+              0.6588235294117647,
+              0.23921568627450981,
+              0.10196078431372549,
+              0
+            ],
+            "weight_sum": 1
+          },
+          {
+            "index": 845,
+            "position": [
+              -0.009521774956511124,
+              0.9058809167760247,
+              -0.10925626392406995
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 2039,
+              "height": 2048,
+              "expected_width": 2039,
+              "expected_height": 2048
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "dufresne_joseph_1835_short04_hair_lod0",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/dufresne_joseph_1835.lod1.glb",
+    "viewport": "mobile",
+    "sha256": "53faec08dbf3e36fadd2c1b6ba37ae200e521443c281512c302b8e108af2cc70",
+    "passed": false,
+    "error_count": 2,
+    "error_samples": [
+      "dufresne_joseph_1835_short04_hair_lod1: invalid decoded normal 453",
+      "dufresne_joseph_1835_short04_hair_lod1: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 453,
+            "position": [
+              -0.014526810510574664,
+              0.7838068788720359,
+              -0.08410901211584826
+            ],
+            "uv": [
+              0.4251468680857557,
+              0.9802243076218814
+            ],
+            "normal": [
+              -0.33070866141732286,
+              -0.33070866141732286,
+              -0.889763779527559
+            ],
+            "normal_length": 1.0051945189027056,
+            "joint_indices": [
+              5,
+              6,
+              4,
+              0
+            ],
+            "weights": [
+              0.6588235294117647,
+              0.23921568627450981,
+              0.10196078431372549,
+              0
+            ],
+            "weight_sum": 1
+          },
+          {
+            "index": 845,
+            "position": [
+              -0.009521774956511124,
+              0.9058809167760247,
+              -0.10962248603778192
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 1020,
+              "height": 1024,
+              "expected_width": 1020,
+              "expected_height": 1024
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "dufresne_joseph_1835_short04_hair_lod1",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/dufresne_joseph_1835.lod2.glb",
+    "viewport": "mobile",
+    "sha256": "de3213fc884fd6ce980c75e7fa84015a02ecda9ee99a543c19ba5b981c754f8a",
+    "passed": false,
+    "error_count": 2,
+    "error_samples": [
+      "dufresne_joseph_1835_short04_hair_lod2: invalid decoded normal 453",
+      "dufresne_joseph_1835_short04_hair_lod2: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 453,
+            "position": [
+              -0.014526810510574664,
+              0.7590258491775261,
+              -0.08410901211584826
+            ],
+            "uv": [
+              0.4251468680857557,
+              0.9802243076218814
+            ],
+            "normal": [
+              -0.33070866141732286,
+              -0.33070866141732286,
+              -0.889763779527559
+            ],
+            "normal_length": 1.0051945189027056,
+            "joint_indices": [
+              5,
+              6,
+              4,
+              0
+            ],
+            "weights": [
+              0.6588235294117647,
+              0.23921568627450981,
+              0.10196078431372549,
+              0
+            ],
+            "weight_sum": 1
+          },
+          {
+            "index": 845,
+            "position": [
+              -0.009521774956511124,
+              0.881099887081515,
+              -0.10962248603778192
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 510,
+              "height": 512,
+              "expected_width": 510,
+              "expected_height": 512
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "dufresne_joseph_1835_short04_hair_lod2",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/dufresne_joseph_1835.lod3.glb",
+    "viewport": "mobile",
+    "sha256": "894bf75e40528ab120c22c582a1e41d97a2029f94fdc18bc97e62107c10682fd",
+    "passed": false,
+    "error_count": 2,
+    "error_samples": [
+      "dufresne_joseph_1835_short04_hair_lod3: invalid decoded normal 453",
+      "dufresne_joseph_1835_short04_hair_lod3: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 453,
+            "position": [
+              -0.014526810510574664,
+              0.7600024414807581,
+              -0.08435316019165624
+            ],
+            "uv": [
+              0.4251468680857557,
+              0.9802243076218814
+            ],
+            "normal": [
+              -0.33070866141732286,
+              -0.33070866141732286,
+              -0.889763779527559
+            ],
+            "normal_length": 1.0051945189027056,
+            "joint_indices": [
+              5,
+              6,
+              4,
+              0
+            ],
+            "weights": [
+              0.6588235294117647,
+              0.23921568627450981,
+              0.10196078431372549,
+              0
+            ],
+            "weight_sum": 1
+          },
+          {
+            "index": 845,
+            "position": [
+              -0.009521774956511124,
+              0.8821985534226509,
+              -0.10986663411358989
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 255,
+              "height": 256,
+              "expected_width": 255,
+              "expected_height": 256
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "dufresne_joseph_1835_short04_hair_lod3",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/flynn_martin_1835.lod0.glb",
+    "viewport": "mobile",
+    "sha256": "be6180141eb77b7ef588edb15ea07bc0960edabd039bb994f5525f4fb133b321",
+    "passed": false,
+    "error_count": 2,
+    "error_samples": [
+      "flynn_martin_1835_short04_hair_lod0: invalid decoded normal 453",
+      "flynn_martin_1835_short04_hair_lod0: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 453,
+            "position": [
+              -0.014526810510574664,
+              0.7838068788720359,
+              -0.0837427900021363
+            ],
+            "uv": [
+              0.4251468680857557,
+              0.9802243076218814
+            ],
+            "normal": [
+              -0.33070866141732286,
+              -0.33070866141732286,
+              -0.889763779527559
+            ],
+            "normal_length": 1.0051945189027056,
+            "joint_indices": [
+              5,
+              6,
+              4,
+              0
+            ],
+            "weights": [
+              0.6588235294117647,
+              0.23921568627450981,
+              0.10196078431372549,
+              0
+            ],
+            "weight_sum": 1
+          },
+          {
+            "index": 845,
+            "position": [
+              -0.009521774956511124,
+              0.9058809167760247,
+              -0.10925626392406995
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 2039,
+              "height": 2048,
+              "expected_width": 2039,
+              "expected_height": 2048
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "flynn_martin_1835_short04_hair_lod0",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/flynn_martin_1835.lod1.glb",
+    "viewport": "mobile",
+    "sha256": "7f90ae645b36d36e99eb3ae1fc37f83c3543ecfa296a8edea6c654c006e43671",
+    "passed": false,
+    "error_count": 2,
+    "error_samples": [
+      "flynn_martin_1835_short04_hair_lod1: invalid decoded normal 453",
+      "flynn_martin_1835_short04_hair_lod1: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 453,
+            "position": [
+              -0.014526810510574664,
+              0.7838068788720359,
+              -0.08410901211584826
+            ],
+            "uv": [
+              0.4251468680857557,
+              0.9802243076218814
+            ],
+            "normal": [
+              -0.33070866141732286,
+              -0.33070866141732286,
+              -0.889763779527559
+            ],
+            "normal_length": 1.0051945189027056,
+            "joint_indices": [
+              5,
+              6,
+              4,
+              0
+            ],
+            "weights": [
+              0.6588235294117647,
+              0.23921568627450981,
+              0.10196078431372549,
+              0
+            ],
+            "weight_sum": 1
+          },
+          {
+            "index": 845,
+            "position": [
+              -0.009521774956511124,
+              0.9058809167760247,
+              -0.10962248603778192
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 1020,
+              "height": 1024,
+              "expected_width": 1020,
+              "expected_height": 1024
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "flynn_martin_1835_short04_hair_lod1",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/flynn_martin_1835.lod2.glb",
+    "viewport": "mobile",
+    "sha256": "89d5d0a3cdb4a319844675527a0bc18e604911ac0990aa53abad5a51dc25504e",
+    "passed": false,
+    "error_count": 2,
+    "error_samples": [
+      "flynn_martin_1835_short04_hair_lod2: invalid decoded normal 453",
+      "flynn_martin_1835_short04_hair_lod2: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 453,
+            "position": [
+              -0.014526810510574664,
+              0.7590258491775261,
+              -0.08410901211584826
+            ],
+            "uv": [
+              0.4251468680857557,
+              0.9802243076218814
+            ],
+            "normal": [
+              -0.33070866141732286,
+              -0.33070866141732286,
+              -0.889763779527559
+            ],
+            "normal_length": 1.0051945189027056,
+            "joint_indices": [
+              5,
+              6,
+              4,
+              0
+            ],
+            "weights": [
+              0.6588235294117647,
+              0.23921568627450981,
+              0.10196078431372549,
+              0
+            ],
+            "weight_sum": 1
+          },
+          {
+            "index": 845,
+            "position": [
+              -0.009521774956511124,
+              0.881099887081515,
+              -0.10962248603778192
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 510,
+              "height": 512,
+              "expected_width": 510,
+              "expected_height": 512
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "flynn_martin_1835_short04_hair_lod2",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  },
+  {
+    "scope": "actual loaded hair runtime diagnostic; acceptance unchanged",
+    "file": "assets/humans/web/flynn_martin_1835.lod3.glb",
+    "viewport": "mobile",
+    "sha256": "5e59272a99950d1b7e72e778c87d4de227ecf72a6cab26ead00325f7f8598be8",
+    "passed": false,
+    "error_count": 2,
+    "error_samples": [
+      "flynn_martin_1835_short04_hair_lod3: invalid decoded normal 453",
+      "flynn_martin_1835_short04_hair_lod3: invalid decoded normal 845"
+    ],
+    "error_samples_truncated": false,
+    "mesh_count": 1,
+    "meshes": [
+      {
+        "bone_count": 56,
+        "bone_name_samples": [
+          "root",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "jaw",
+          "eye_l",
+          "eye_r",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r"
+        ],
+        "invalid_vertex_samples": [
+          {
+            "index": 453,
+            "position": [
+              -0.014526810510574664,
+              0.7600024414807581,
+              -0.08435316019165624
+            ],
+            "uv": [
+              0.4251468680857557,
+              0.9802243076218814
+            ],
+            "normal": [
+              -0.33070866141732286,
+              -0.33070866141732286,
+              -0.889763779527559
+            ],
+            "normal_length": 1.0051945189027056,
+            "joint_indices": [
+              5,
+              6,
+              4,
+              0
+            ],
+            "weights": [
+              0.6588235294117647,
+              0.23921568627450981,
+              0.10196078431372549,
+              0
+            ],
+            "weight_sum": 1
+          },
+          {
+            "index": 845,
+            "position": [
+              -0.009521774956511124,
+              0.8821985534226509,
+              -0.10986663411358989
+            ],
+            "uv": [
+              0.38144502937361713,
+              0.6520180056458381
+            ],
+            "normal": [
+              -0.7244094488188977,
+              -0.07874015748031496,
+              -0.6771653543307087
+            ],
+            "normal_length": 0.9947471935340949,
+            "joint_indices": [
+              6,
+              0,
+              0,
+              0
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "weight_sum": 1
+          }
+        ],
+        "attributes": {
+          "position": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int16Array"
+          },
+          "normal": {
+            "itemSize": 3,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Int8Array"
+          },
+          "uv": {
+            "itemSize": 2,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint16Array"
+          },
+          "skinIndex": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": false,
+            "array_type": "Uint8Array"
+          },
+          "skinWeight": {
+            "itemSize": 4,
+            "count": 991,
+            "normalized": true,
+            "array_type": "Uint8Array"
+          }
+        },
+        "materials": [
+          {
+            "name": "hair__makehuman_short04",
+            "alphaTest": 0.4000000059604645,
+            "side": 2,
+            "roughness": 0.6499999761581421,
+            "metalness": 0,
+            "image": {
+              "width": 255,
+              "height": 256,
+              "expected_width": 255,
+              "expected_height": 256
+            },
+            "map": {
+              "channel": 0,
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ],
+              "rotation": 0,
+              "matrixAutoUpdate": true,
+              "matrix": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                1
+              ],
+              "flipY": false
+            }
+          }
+        ],
+        "name": "flynn_martin_1835_short04_hair_lod3",
+        "vertices": 991,
+        "indices": 3150,
+        "UV_bounds": [
+          0.010498207064927139,
+          0.9831540398260471,
+          0.0007324330510414282,
+          0.9816891737239642
+        ],
+        "max_weight_sum_error": 1.1102230246251565e-16,
+        "max_normal_length_error": 0.005252806465905091
+      }
+    ]
+  }
+]

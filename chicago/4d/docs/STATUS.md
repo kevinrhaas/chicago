@@ -24092,3 +24092,8 @@ Canonical e1 resident run passed normals, hierarchy, hair and container checks b
 
 
 T-1789 loaded-hair diagnostic (2026-10-19): actual canonical run39211997787/48b1cc889 passed all32 source/web fixture measurements and six hierarchy/raw surface comparisons, then published24-case inspection failed only hair_export_contract. Source inspection not reached; actual failing subcondition was absent from logs. Bounded loaded-attribute/material/invalid-vertex receipts added without changing any guard; corrected CI, independent images and photographic acceptance remain pending. No local Blender or artifact-policy bypass.
+
+
+### 2026-10-19 — Authored resident hair web-normal precision
+
+Diagnostic d7b944d86 / canonical 39215214430 identifies 8-bit decoded hair normals just beyond the unchanged 0.005 length-error guard. Pinned real glTFTransform 4.5.0 canary reproduces the exact failure; authored-only medium mode with 16-bit normals passes it (precision flag alone fails because high mode caps eight bits). Generic fixture export stays unchanged. See RESEARCH/resident-teamsters-2026-10-18/hair-normal-precision/. Actual corrected resident CI, full smoke and photographic/production acceptance remain open. Incoming dev c7770e99 merges without conflicts; the full combined gate is next.

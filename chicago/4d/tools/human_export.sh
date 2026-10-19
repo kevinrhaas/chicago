@@ -112,7 +112,9 @@ for f in "$SCRATCH"/lods/*.glb; do
     python3 tools/human_web_texture_inputs.py "$OUT/$name" "$SCRATCH/labeled.glb"
     "${GT_NPX[@]}" gltf-transform resize "$SCRATCH/labeled.glb" "$SCRATCH/resized.glb" --width "$cap" --height "$cap"
     "${GT_NPX[@]}" gltf-transform jpeg "$SCRATCH/resized.glb" "$SCRATCH/color.glb" --formats '*' --quality 92 --pattern 'c4d_web_opaque_*' --slots '{baseColorTexture,emissiveTexture}'
-    "${GT_NPX[@]}" gltf-transform meshopt "$SCRATCH/color.glb" "$OUT/web/$name" --quantization-volume scene
+    # High mode caps normals at 8 bits even with --quantize-normal 16.
+    # Preserve unit hair normals under the loaded runtime contract.
+    "${GT_NPX[@]}" gltf-transform meshopt "$SCRATCH/color.glb" "$OUT/web/$name" --quantization-volume scene --level medium --quantize-normal 16
     echo "authored web $name: texture cap ${cap}px; opaque color JPEG quality 92; $(wc -c < "$OUT/web/$name") bytes"
   else
   "${GT_NPX[@]}" gltf-transform meshopt "$OUT/$name" "$OUT/web/$name" 2>&1 | grep -E '→' | sed 's/^info: //' || true
