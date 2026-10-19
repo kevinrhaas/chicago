@@ -1,4 +1,22 @@
 export const CHANGELOG = [ // newest first
+  { v: 2056, ts: '2026-10-19T11:05:29.352Z', date: 'Oct 19, 2026, 6:05 AM CT', title: 'Keith\'s porch pedestals are too wide, the old plan shows', kind: 'chore',
+    items: [
+      'Nothing you can see moved yet. The floor plan printed under the 1888 magazine plate draws the stone pedestals under 1808 Prairie\'s porch columns about 0.6 m wide, not the model\'s 0.9 m, and puts the south pair about 0.4 m further south. The plate\'s own photograph and a 1965 colour slide both agree with the plan, so the porch will be rebuilt to it next, and the 1965 view has been lined up again so it can be checked when that lands.',
+    ] },
+  { v: 2055, ts: '2026-10-19T11:05:29.352Z', date: 'Oct 19, 2026, 6:05 AM CT', title: '1625 Prairie\'s rear section widened and its south-wall oriel built', kind: 'feature',
+    items: [
+      'Hugh McBirney\'s four-storey rear section now steps 1.8 m out past the south wall, as wide as the 1890 photograph shows it, instead of the 1.3 m the 1911 map traced.',
+      'Its door, windows and dormer stand toward the main wall\'s corner, as in the photograph.',
+      'The small oriel on the south wall, just in front of the rear section, is built: one storey on the first floor under a moulded cornice, carried on stepped stone corbels.',
+      'The photograph\'s camera was re-measured from the south wall\'s level lines, which is how the wider step and the oriel\'s size were read.',
+    ] },
+  { v: 2054, ts: '2026-10-19T11:05:29.352Z', date: 'Oct 19, 2026, 6:05 AM CT', title: 'Glessner\'s photo comparisons lit the way each photograph was', kind: 'improvement',
+    items: [
+      'Each photograph of the Glessner House is now compared under its own light, read from which walls are lit and which way shadows fall, not under one standard sun.',
+      'The sunny 1963 view of the stable rakes the 18th Street wall from the east-north-east. Two 1965 views are backlit, so their north faces stand in shade.',
+      'The overcast pictures, where nothing casts a shadow, are now rendered under a soft, shadowless sky.',
+      'The 1960s prints show the stone blackened by soot, so its tone there is marked as something those pictures cannot show for 1887.',
+    ] },
   { v: 2053, ts: '2026-10-19T10:17:02.251Z', date: 'Oct 19, 2026, 5:17 AM CT', title: '1623 Prairie\'s carved band, smoother upper stone and latticed window', kind: 'feature',
     items: [
       'A carved band now runs across Granger Farwell\'s front at 1623 Prairie where its arches spring, as the 1886 drawing shows.',
