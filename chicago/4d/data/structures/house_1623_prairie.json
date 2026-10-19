@@ -180,14 +180,14 @@
         "front_bays": {
           "value": [
             1.55,
-            4.6,
+            4.55,
             5.7
           ],
           "confidence": "inferred",
           "sources": [
             "building_budget_1886_06_hamline_farwell_houses"
           ],
-          "note": "Read through the drawing's camera and scaled to the sheet's 6.2 m front (the drawing's front is about 6.5 m): the arched window's centre at about 1.55 m from the north wall and the entrance arch's at about 4.6 m, both built there (T-2777): the oriel over them stands on its corbelling clear of both arches' heads, so it no longer needs the width between their centres. The third, at 5.7 m, is the blank bay K01's named-opening front needs (entrance_bay)."
+          "note": "Read through the drawing's camera and scaled to the sheet's 6.2 m front (the drawing's front is about 6.5 m): the arched window's centre at about 1.55 m from the north wall and the entrance arch's at about 4.6 m, both built there (T-2777): the oriel over them stands on its corbelling clear of both arches' heads, so it no longer needs the width between their centres. The third, at 5.7 m, is the blank bay K01's named-opening front needs (entrance_bay). T-2817: the entrance arch's centre moved to 4.55 m, 0.05 m north, so that its broader ring (the arch now 1.85 m across) stays a course inside the south corner; the drawn arch's intrados centres at about x 257, the built one at about x 252."
         },
         "bays": {
           "value": [
@@ -433,6 +433,12 @@
             "k01.opening.door_leaf": {
               "variant": "k07.entrance.double_door_deep_arch",
               "front_yard_m": 3.8,
+              "stoop_v_m": 3.5,
+              "terrace": {
+                "side": "right",
+                "to_v_m": 6.2,
+                "back": []
+              },
               "cheeks": false,
               "reveal_depth_m": 0.95,
               "arch": {
@@ -444,11 +450,29 @@
                 ],
                 "extrados": "curved",
                 "ring_proud_m": 0.04
+              },
+              "opening_m": [
+                1.85,
+                2.6
+              ],
+              "porch_door": {
+                "width_m": 1.0,
+                "offset_m": -0.1,
+                "height_m": 2.2,
+                "leaves": 1,
+                "panels": [
+                  1,
+                  2
+                ],
+                "transom_m": 0.45,
+                "glazed_rows": [
+                  1
+                ]
               }
             }
           },
           "confidence": "reconstructed",
-          "note": "T-2728: the drawing's entrance is a deep round arch beside the window's and matching it, its door standing at the back of a recess whose lit south jamb shows inside the arch, a glazed door under a carved light. Built as K07's deep-arch entrance: the K01 door's round-headed hole, 1.2 m by 2.7 m to the crown over the principal floor (1.85 m), so its crown stands at 4.55 m against the window arch's 4.4 m; round it the front's stone cut into a ring of long voussoirs 0.45 m deep under the window's keystone, with a curved extrados standing 0.04 m before the wall (`arch`, as 1621's, T-2531); and the door 0.95 m back, K07's own reveal for the variant, whose vestibule carries the recess past the 0.45 m front (`reveal_depth_m`). The stoop climbs between iron rails and newels, not stone cheeks (`cheeks` false; the rails are street_front_dress.stoop_rails), 3.8 m of front yard to the 1904 parcel's street line. Read from the drawing: the arch, its place and the recess; reconstructed (the value's grade, since most of the entrance's joinery is the kit's): the leaves (K07's panelled pair under a radial fanlight, where the drawing half-hides a glazed door under a carved light in the recess's shadow), the ring's projection and the recess's depth (L-k01-1623-farwell-entrance-2728).",
+          "note": "T-2728: the drawing's entrance is a deep round arch beside the window's and matching it, its door standing at the back of a recess whose lit south jamb shows inside the arch, a glazed door under a carved light. Built as K07's deep-arch entrance: round it the front's stone cut into a ring of long voussoirs under the window's keystone, with a curved extrados standing 0.04 m before the wall (`arch`, as 1621's, T-2531); and the door 0.95 m back, K07's own reveal for the variant, whose vestibule carries the recess past the 0.45 m front (`reveal_depth_m`). The stoop climbs between iron rails and newels, not stone cheeks (`cheeks` false; the rails are street_front_dress.stoop_rails), 3.8 m of front yard to the 1904 parcel's street line. Read from the drawing: the arch, its place and the recess; reconstructed (the value's grade, since most of the entrance's joinery is the kit's): the leaves (K07's panelled pair under a radial fanlight, where the drawing half-hides a glazed door under a carved light in the recess's shadow), the ring's projection and the recess's depth (L-k01-1623-farwell-entrance-2728). T-2817: the arch is the porch's mouth, as broad as the window's: read through the drawing's camera at the front's 46 px/m, its intrados stands between x 215 and 300 (about 1.85 m), its jambs rise to the carved band at about y 535 (about 3.4 m) and its crown at about y 482 (about 4.55 m), so the drawn arch is a little stilted; built round at 1.85 m (`opening_m`), 2.6 m to its crown over the principal floor, so it springs at 3.525 m and its crown stands at 4.45 m, splitting the drawn springing and crown, under its 0.45 m ring, whose top (4.9 m) stands about 5 px under the drawn ring's (about y 460, 5.0 m): a deeper ring would run within a course of the south corner. At the porch's back (`porch_door`), 0.95 m in, a wall closes the arch round the door's own opening, 1.0 m across under a flat head 2.2 m up, its centre 0.1 m north of the arch's axis (v 4.45): the drawing draws the door's frame between x 222 and 262 at the porch's back (43.9 px/m there), about v 4.0-4.9, and the back wall lit south of it to the arch's south jamb, which is the 'lit south jamb' of T-2728's reading. A single leaf, glazed above its lock rail as the drawing's glazed door with its curtain, under a 0.45 m transom in place of the drawing's carved light. The stoop stands north of the arch (`stoop_v_m` 3.5): the drawing's rails' head newels centre at about x 225 (v 3.9 at the landing's edge) and their foot newels at about x 200 (v 3.15 at the foot), the drawn flight a little skewed in the pen perspective; 3.5 m splits them, 1.05 m north of the arch's axis, where the ticket's figure (about 1.3 m) was read off the rails' 60 px at the front's own scale, too small for the foot's. Its landing runs on south past the arch to the front's south wall as a stone terrace at the principal floor (`terrace` right, to v 6.2), which carries the porch's mouth, and the drawing's iron guard stands along it (street_front_dress.stoop_rails.guard). Reconstructed: the porch's depth (K07's 0.95 m reveal, the drawing showing its back but not how far in), the door's leaf, transom and joinery (L-k01-1623-farwell-entrance-2728).",
           "sources": [
             "building_budget_1886_06_hamline_farwell_houses"
           ]
@@ -510,14 +534,21 @@
             },
             "stoop_rails": {
               "kit": "k11.rail.stoop_rail",
-              "scroll_m": 0.22
+              "scroll_m": 0.22,
+              "guard": {
+                "to_v_m": 6.15,
+                "panel_v_m": [
+                  5.45,
+                  6.0
+                ]
+              }
             }
           },
           "confidence": "reconstructed",
           "sources": [
             "building_budget_1886_06_hamline_farwell_houses"
           ],
-          "note": "The rusticated base's coping at 1.0 m, over two courses of the Lemont stone (the rock-faced front above it is stone_front's, T-2728). T-2728: the drawing's iron. The stoop rises between iron rails, the K11 kit's stair rail as 1612's (T-2369): a newel at its head and one at its foot, a raked handrail, two balusters to a tread and a scroll at the foot; the drawing's newels are slim iron posts under flared caps, the kit's square ones. The basement light under the window stands behind an iron grille let into its reveal 0.05 m behind the face, as the drawing draws it (T-2818): eight close uprights from the sill to a bar at 0.57 m, a bar across them 0.25 m over the sill, and over the bar a band of six scrolls to the springing, each a flat bar curled into its centre and turned alternately, where the drawing draws a row of about six C-scrolls over its uprights at about 0.58-0.9 m and a bar across them at about 0.25 m. Read from the drawing: the rails, the grille's place, its band of scrolls and the number of them; reconstructed (the value's grade): every bar's count and section, and each scroll's curl (L-k01-1623-farwell-entrance-2728)."
+          "note": "The rusticated base's coping at 1.0 m, over two courses of the Lemont stone (the rock-faced front above it is stone_front's, T-2728). T-2728: the drawing's iron. The stoop rises between iron rails, the K11 kit's stair rail as 1612's (T-2369): a newel at its head and one at its foot, a raked handrail, two balusters to a tread and a scroll at the foot; the drawing's newels are slim iron posts under flared caps, the kit's square ones. The basement light under the window stands behind an iron grille let into its reveal 0.05 m behind the face, as the drawing draws it (T-2818): eight close uprights from the sill to a bar at 0.57 m, a bar across them 0.25 m over the sill, and over the bar a band of six scrolls to the springing, each a flat bar curled into its centre and turned alternately, where the drawing draws a row of about six C-scrolls over its uprights at about 0.58-0.9 m and a bar across them at about 0.25 m. Read from the drawing: the rails, the grille's place, its band of scrolls and the number of them; reconstructed (the value's grade): every bar's count and section, and each scroll's curl (L-k01-1623-farwell-entrance-2728). T-2817: the landing's guard, which the drawing draws at the stoop's head running south along the landing before the porch's south jamb (x 277-335, v about 3.9-6.15 at the landing's edge), an ornamental panel at its south end (about x 302-327, v 5.45-6.0): built from the stoop rail's head newel to a newel at v 6.15, at the stoop rail's height, with its handrail, a foot bar and the rail's baluster pitch, and in the panel a lozenge of flat bar on a ring between two posts, where the drawing's ornament is too small to read (reconstructed, L-k01-1623-farwell-entrance-2728). The drawing's guard rail stands lower than the kit's 0.86 m over the landing (about 0.25-0.6 m, the plate's heights at the stoop's head being loose); it is built at the stoop rail's height, which a landing's guard needs."
         }
       }
     }
