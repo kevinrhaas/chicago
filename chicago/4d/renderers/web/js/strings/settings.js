@@ -18,7 +18,8 @@ export default register('settings', {
   'sound.effects': 'Effects',
   'sound.ambience': 'Ambience',
   'sound.off': 'Off',
-  'sound.none': 'Nothing in the town makes a sound yet. These are kept for when it does.',
+  // T-2659: what each level covers, and that the ambience is mood, not a recording.
+  'sound.note': "Effects are the year ticker, the landing, and the Navigator's clicks and hum. Ambience is a quiet tone for each destination, made up for mood: it is not a recording of the past. Sound starts with your first tap, and Master at Off is silence.",
   'about': "About & What's new",
   'whatsnew.line': 'Release notes',
 });
