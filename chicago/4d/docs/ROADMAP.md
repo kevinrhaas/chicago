@@ -5560,3 +5560,8 @@ Combined transport/resident integration (2026-10-19): retain c4f6e5424 transport
 
 
 2026-10-19 parallel transport/human batch: explicit strict Short2 normal recovery trial unblocks T-1789 only if pinned CI passes unchanged limits; named identity/date/likeness provenance remains intact. Rounded carriage upholstery, paired horse neck/headgear and additive grounded trot are integrated development refinements with bounded actual browser receipts. Final same-head full gate/canonical authoring/desktop-mobile coverage precede dev merge. Parallel claimed T-1790/T-1792/T-2796/T-2797/T-2803/T-2804 work supplies animation, population budgets, route/boarding controllers and named driver fitting; dependency-bounded prototypes are not ticket completion. Riding gear and mount controls remain under development. Photographic masters, real occupied scenes and phone/GPU acceptance remain open.
+
+
+## Harness chest repair — 2026-10-19
+
+T-2801 baseline harness body interference: rerouted collar, shortened supports and locally lowered pad integrated into the development study. Preserve original-failure negative control and discrete whole-body clearance evidence; continue period-plate comparison, pressure/load/contact, continuous motion, photographic materials and occupied interaction before production acceptance.

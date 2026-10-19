@@ -24079,3 +24079,8 @@ Post-checkpoint integration: dev ffd4cd34c307c563a586c286d12a03cfd2208f8f adds f
 
 
 2026-10-19 T-1789 actual canonical9e25 trial39196464162: generic fixture PASS; all3 LOD0 body raw-normal and UV-seam guards PASS at unchanged1e-3, maxima6.96794e-5/5.86337e-5/5.86337e-5. Canonical master/export steps completed. Pipeline FAILED later at hierarchy-control sibling import human_export under Blender script execution; bounded explicit script-directory import repair and isolated CLI regression follow. No normal algorithm/tolerance change; no hierarchy/browser/Khronos/photo acceptance. Central terminal logs preserved, final18 still held pending corrected canonical.
+
+
+## Harness chest repair — 2026-10-19
+
+Harness chest repair: four reconstructed gear meshes now avoid the unchanged horse in 63 discrete idle/walk/trot samples (zero surface intersections, 5.113260 mm minimum against a declared 5 mm). Installed stdlib regression reproduces 100 original proper crossings and requires zero repaired crossings plus 5 mm bind-pose clearance. Eight actual desktop/mobile comparison images inspected; engineering leather and photographic/anatomical/pressure/continuous-motion quality remain open. Merge acceptance requires full preflight and final-head remote qualification; exact results are recorded in the central ticket checkpoint. No production ticket is closed.

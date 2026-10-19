@@ -305,6 +305,9 @@ step "Normal authoring experiments require explicit isolated receipt arguments" 
 step "Headstrap unsigned triangle distance preserves analytic contact and piercing cases" \
   node tools/test_head_fit_distances.mjs
 
+step "Harness body fit reproduces original crossings and enforces 5 mm bind-pose clearance" \
+  python3 tools/transport/test_harness_body_fit.py
+
 step "Resident hair export rejects missing alpha, embedded images and skin bindings (T-1789)" \
   python3 tools/test_human_hair.py
 

@@ -1,0 +1,81 @@
+{
+  "status": "Bounded baseline surface-interference repair, notproductionhorse/tackfit",
+  "new_glb_sha256": "45930f41b73a8c0698417093dede9644e3e2cb7192a2eef0e222038638b193cd",
+  "new_glb_bytes": 602980,
+  "triangles": 8012,
+  "meshes": 36,
+  "changed_parts": [
+    "breastcollar",
+    "breastcollar_support_l",
+    "breastcollar_support_r",
+    "harness_saddle_pad"
+  ],
+  "other_meshes_attribute_bytes_exact": 32,
+  "nodes_sockets_materials_exact": true,
+  "actualwholehorse_triangles": 14172,
+  "actualposes": 63,
+  "rawSAT": 0,
+  "propercrossings": 0,
+  "minimum_unsigned_triangle_clearance_m": 0.00511326013369922,
+  "declared_minimum_m": 0.005,
+  "stand_off": {
+    "breastcollar": {
+      "surfacevertex_median_range_m": [
+        0.026609598067150683,
+        0.02791892812706722
+      ],
+      "max_surfacevertex_stand_off_m": 0.05398323219829132,
+      "nonconnector_max_m": 0.05398323219829132
+    },
+    "breastcollar_support_l": {
+      "surfacevertex_median_range_m": [
+        0.02338166381179531,
+        0.023388011382142186
+      ],
+      "max_surfacevertex_stand_off_m": 0.045753190753006136,
+      "nonconnector_max_m": 0.03522143323300956
+    },
+    "breastcollar_support_r": {
+      "surfacevertex_median_range_m": [
+        0.023517796160682624,
+        0.023528949907634374
+      ],
+      "max_surfacevertex_stand_off_m": 0.04655189184825194,
+      "nonconnector_max_m": 0.035686155280165055
+    },
+    "harness_saddle_pad": {
+      "surfacevertex_median_range_m": [
+        0.029132071063425045,
+        0.029132071063425045
+      ],
+      "max_surfacevertex_stand_off_m": 0.04453206670035397,
+      "nonconnector_max_m": 0.04453206670035397
+    }
+  },
+  "portable_bindpose_regression": "Actualdecompressedhashverifiedb4original100propercrossings; actualcurrentGLB0SAT. Stdlib skinning+samepredicate,0.4s, no snapshot/cachedgreen.",
+  "actually_inspected": [
+    "desktop-whole-baseline.png",
+    "desktop-whole-candidate.png",
+    "desktop-close-baseline.png",
+    "desktop-close-candidate.png",
+    "mobile-whole-baseline.png",
+    "mobile-whole-candidate.png",
+    "mobile-close-baseline.png",
+    "mobile-close-candidate.png"
+  ],
+  "visible_result": "Continuouscollar outsidechest; shortside supportsattach locallyloweredpad, oldembeddedstub and unsupportedV2withersarch gone. Flat/thick/facetedleather remainsengineering.",
+  "framing": "Wholehorseportrait, uncoupledline tailsmaycrop; chestdetail intentionallycropsotherbody. Samecamera/light perpair, desktop/mobile. No controls required staticinspection.",
+  "browser_closed": true,
+  "renderer_errors": [],
+  "original_failure_source_archive": "/workspace/shared/horse-forechest-baseline-gear-finding-2026-10-19.tar.gz",
+  "original_failure_archive_sha256": "dd6595acc5a37cc5be7bd63715d54d0ee38c4523af1b0a38d76bbce54baa411e",
+  "open_gates": [
+    "continuousmotionclearance",
+    "solidcontainment",
+    "pressure/load/animalfit",
+    "othergearbodyfit",
+    "photographicmaterials",
+    "historicalplate/periodspecificfit",
+    "riding/occupiedinteraction"
+  ]
+}

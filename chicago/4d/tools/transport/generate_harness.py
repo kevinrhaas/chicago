@@ -60,11 +60,19 @@ def tube(name,points,r=.004,parent=0,ma=leather,N=8):
  return mesh(name,vs,fs,ma,parent)
 def arc_xy(cx,cy,z,rx,ry,start=0,end=2*math.pi,N=36):return [[cx+rx*math.cos(start+(end-start)*i/N),cy+ry*math.sin(start+(end-start)*i/N),z] for i in range(N+1)]
 def ring(name,c,rx=.028,ry=.028,parent=0):tube(name,arc_xy(c[0],c[1],c[2],rx,ry),.003,parent,nickel)
+
+def smooth_route(points):
+ out=[]
+ for i in range(len(points)-1):
+  a=points[max(0,i-1)];b=points[i];c=points[i+1];e=points[min(len(points)-1,i+2)]
+  for j in range(4):
+   t=j/4;out.append([.5*((2*b[k])+(-a[k]+c[k])*t+(2*a[k]-5*b[k]+4*c[k]-e[k])*t*t+(-a[k]+3*b[k]-3*c[k]+e[k])*t*t*t) for k in range(3)])
+ out.append(points[-1]);return out
 # Rounded front breast collar with load paths leading aft along both shoulders.
 strap('breastcollar',p['breastcollar_route_m'],p['breastcollar_width_m'],p['breastcollar_thickness_m'],width_axis=p['breastcollar_width_axis'],surface_normals=p['breastcollar_surface_normals'])
 # Girth is circumferential; harness pad is short and distinct from a riding seat.
 strap('girth',arc_xy(0,1.16,-.08,.31,.395),.046,.006,width_axis=(0,0,1))
-strap('harness_saddle_pad',arc_xy(0,1.16,-.08,.325,.415,.10,math.pi-.10,22),.15,.016,width_axis=(0,0,1))
+strap('harness_saddle_pad',arc_xy(0,1.16,-.08,*p.get('harness_pad_radii_xy_m',[.325,.415]),.10,math.pi-.10,22),.15,.016,width_axis=(0,0,1))
 # Breeching passes behind hindquarters, with separate hip support straps.
 strap('breeching',[[.30,1.10,-.34],[.31,1.09,-.61],[.27,1.075,-.84],[.15,1.06,-.98],[0,1.06,-1.00],[-.15,1.06,-.98],[-.27,1.075,-.84],[-.31,1.09,-.61],[-.30,1.10,-.34]],.052,.007,width_axis=(0,1,0))
 for side,s in [('l',1),('r',-1)]:
@@ -75,7 +83,10 @@ for side,s in [('l',1),('r',-1)]:
  strap('shaft_tug_support_'+side,[[s*.32,1.36,-.08],[s*.35,1.24,-.015],[cx,cy+p['shaft_tug_bore_radius_m']+p['shaft_tug_section_radius_m'],cz]],.028,.006,width_axis=(0,0,1))
  strap('hip_support_'+side,[[s*.29,1.09,-.66],[s*.27,1.36,-.64],[s*.13,1.50,-.54],[0,1.525,-.48]],.023,.004,width_axis=(0,0,1))
  strap('longitudinal_support_'+side,[[s*.13,1.51,-.52],[s*.14,1.55,-.20],[s*.15,1.54,.03]],.020,.004)
- strap('breastcollar_support_'+side,[[s*p['breastcollar_route_m'][1][0],*p['breastcollar_route_m'][1][1:]],[s*.20,1.44,.38],[s*.09,1.57,.32],[0,1.585,.27]],.023,.004)
+ if p.get('breastcollar_support_route_m'):
+  strap('breastcollar_support_'+side,smooth_route([[s*v[0],v[1],v[2]] for v in p['breastcollar_support_route_m']]),.023,.004,width_axis=(0,0,1))
+ else:
+  strap('breastcollar_support_'+side,[[s*p['breastcollar_route_m'][1][0],*p['breastcollar_route_m'][1][1:]],[s*.20,1.44,.38],[s*.09,1.57,.32],[0,1.585,.27]],.023,.004)
  strap('trace_'+side,[[s*p['breastcollar_route_m'][0][0],*p['breastcollar_route_m'][0][1:]],[s*.355,1.10,-.18],[s*.37,1.045,-.90],[s*.39,1.04,p['trace_tail_z_m']]],p['trace_width_m'],.005,width_axis=(0,1,0),extra={'width_m':p['trace_width_m'],'width_grade':'text_attested','route_and_length_grade':'reconstructed','source_locator':'Moore 1891 printed p1 Buggy Harness No1'})
  ring('trace_end_'+side,[s*.39,1.04,p['trace_tail_z_m']],.02,.024)
  ring('rein_terret_'+side,[s*.14,1.59,-.08],.020,.022)
@@ -103,4 +114,5 @@ d['buffers']=[{'byteLength':len(bin)}];j=json.dumps(d,separators=(',',':')).enco
 (P/(p['asset_id']+'.glb')).write_bytes(raw)
 side={'asset_id':p['asset_id'],'version':'fixture_0.1','frame':{'units':'metres','up':'+Y','forward':'+Z','left':'+X','origin':'horse fixture ground root'},'license':'CC0-1.0','grade':'reconstructed','source':{'source_id':'john_moore_harness_catalog_1891','verification':'OCR-read; original page and plate verification outstanding','title':'John Moore Fine harness saddlery & horse clothing','year':1891,'url':'https://archive.org/stream/fineharnesssaddl1891john/fineharnesssaddl1891john_djvu.txt','locator':'printed p1 Buggy Harness No1','rights_basis':'Reasoned US public domain: published New York 1891; IA metadata contains no explicit rights statement. Construction text read; plates not read or traced.'},'bindings':[{'harness_node':'root','horse_node':'root','operation':'copy actor root world transform','status':'proposed_not_runtime_bound'},{'harness_node':'harness_head','horse_node':'head','operation':'copy current head world transform after actor animation; harness geometry is authored head-local','status':'proposed_not_runtime_bound'}],'anchors':anchors,'head_relative_components':['cheekpiece_l','cheekpiece_r','bit_ring_l','bit_ring_r','crownpiece','browband','noseband','bit_bar'],'dynamic_components_unbound':['rein_l','rein_r','round_check_rein_l','round_check_rein_r','trace_l','trace_r'],'missing':['source plate verification','photographic comparison','correct fitted clearances','rein and trace tension','breeching force behavior','bits/bridle pressure suitability','riding tack','collar and hames variants','LOD derivatives','Blender authored master','sourced buckle and mouthpiece shapes'],'triangles':sum(v['triangles'] for v in stats.values()),'mesh_count':len(stats),'glb_bytes':len(raw)}
 side['shaft_tugs']={'center_m':p['shaft_tug_center_m'],'bore_radius_m':p['shaft_tug_bore_radius_m'],'section_radius_m':p['shaft_tug_section_radius_m'],'grade':'reconstructed','geometry':'open round-section loop in local XY plane; support webbing to girth/saddle; no source-plate or force qualification','mesh_names':['shaft_tug_l','shaft_tug_r','shaft_tug_support_l','shaft_tug_support_r']}
+if p.get('breastcollar_routing_study'):side['breastcollar_routing_study']=p['breastcollar_routing_study']
 (P/'manifest.json').write_text(json.dumps(side,indent=2)+'\n');(P/'geometry-stats.json').write_text(json.dumps(stats,indent=2)+'\n');print(json.dumps({'glb_bytes':len(raw),'triangles':side['triangles'],'meshes':len(stats),'anchors':len(anchors)}))

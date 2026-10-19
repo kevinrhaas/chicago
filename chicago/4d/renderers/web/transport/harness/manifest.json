@@ -236,9 +236,9 @@
     "Blender authored master",
     "sourced buckle and mouthpiece shapes"
   ],
-  "triangles": 7548,
+  "triangles": 8012,
   "mesh_count": 36,
-  "glb_bytes": 569564,
+  "glb_bytes": 602980,
   "shaft_tugs": {
     "center_m": [
       0.405,
@@ -255,5 +255,12 @@
       "shaft_tug_support_l",
       "shaft_tug_support_r"
     ]
+  },
+  "breastcollar_routing_study": {
+    "grade": "reconstructed",
+    "minimum_declared_engineering_clearance_m": 0.005,
+    "purpose": "Original curvedbreastcollar/support geometry aroundunchangedhorse; no sourceplate/load/pressure/animalacceptance",
+    "scope": "63discreteidle/walk/trotposes atphase0..1/20; no continuousmotion orsolidcontainment claim",
+    "support_attachment_basis": "Shortside support ends on locallytightened padfrontedge(.235,1.39,-.005);4parts changed, no pressure/loadqualification."
   }
 }

@@ -1264,3 +1264,10 @@ CC0-1.0 original generated geometry and original generator source: `tools/transp
 ## Grounded trot study (2026-10-19)
 
 Original grounded-trot engineering addition (T-2803): tools/transport/horse_geometry.py, unchanged original tools/transport/generate_horse.py, data/transport/studies/horse.json, generated renderers/web/transport/horse/{equine_light_harness_skinned_prototype_01.glb,manifest.json} contain project-original CC0-1.0 procedural geometry/solver/animation/data; no externally copied program/model/texture or image tracing. Original3Dtwo-bone solver uses geometric sphere intersection and shortest-arc quaternions. renderers/web/transport/horse/{demo.js,index.html} and diagnostic test glue retain project's existing GPL license. No source-bounded measured biological gait or historic animal identity asserted. Concrete checkpoint hashes are in `docs/RESEARCH/period-transport-2026-10-18/head-neck-refinement/trot-inputs.json`.
+
+
+## Original harness chest-clearance repair (T-2801, 2026-10-19)
+
+The original CC0-1.0 harness generator, parameter data and generated web geometry retain the existing original reconstructed-asset license. Only breastcollar, two support straps and saddle-pad surfaces change; no external model, photograph, texture or traced source plate is copied. Current exact hashes appear in `docs/RESEARCH/period-transport-2026-10-18/harness-body-fit/INTEGRATION-MANIFEST.json`. Diagnostic screenshots are original project outputs, not historical source images.
+
+`tools/transport/fixtures/harness-before-body-fit.json` is unchanged original CC0 parameter data (SHA-256 `7473be06e127388b07cd67af69db671bcc134999fa66849a5866f40c0794d85d`). `tools/transport/fixtures/harness-before-body-fit.glb.gz` is the original CC0 generated geometry, stored SHA-256 `cce8c06f3ff46346c133bdc4954546aa7533febd645bff61e6db5a2a11b5ebf9`, decompressed SHA-256 `b4a7318053e8508617a24fff64f02beb7eee77684db689dc04771d209a54fa8b`. Both are regression controls, not newly licensed third-party assets. The new standard-library diagnostic `tools/transport/test_harness_body_fit.py` remains project GPL-3.0-or-later code.

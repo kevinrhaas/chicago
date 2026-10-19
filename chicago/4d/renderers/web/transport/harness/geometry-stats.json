@@ -1,6 +1,6 @@
 {
   "breastcollar": {
-    "triangles": 68,
+    "triangles": 260,
     "material": "tack_leather"
   },
   "girth": {
@@ -32,7 +32,7 @@
     "material": "tack_leather"
   },
   "breastcollar_support_l": {
-    "triangles": 28,
+    "triangles": 164,
     "material": "tack_leather"
   },
   "trace_l": {
@@ -88,7 +88,7 @@
     "material": "tack_leather"
   },
   "breastcollar_support_r": {
-    "triangles": 28,
+    "triangles": 164,
     "material": "tack_leather"
   },
   "trace_r": {
