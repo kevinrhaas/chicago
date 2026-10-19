@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2077, ts: '2026-10-19T21:21:50.989Z', date: 'Oct 19, 2026, 4:21 PM CT', title: 'The Keith house\'s loggia gains its second row of columns', kind: 'improvement',
+    items: [
+      'The 1888 photograph shows a second pair of columns behind each front pair of the north loggia at 1808 Prairie. Both pairs are now built, standing against the house wall.',
+      'Their depth, spacing and slimmer shafts are measured from the photograph. The model lands within two pixels of the print.',
+      'A 1967 photograph\'s lit column between the front pairs turns out to be the new south pair.',
+    ] },
   { v: 2076, ts: '2026-10-19T20:43:59.113Z', date: 'Oct 19, 2026, 3:43 PM CT', title: 'Glessner\'s courtyard: the plan and the section reconciled along the court', kind: 'change',
     items: [
       'The 1963 survey\'s plan and section disagreed by up to a foot about where the hall bow, the stair tower and the terrace\'s end post stand. The plan\'s printed courtyard dimensions now settle it.',
