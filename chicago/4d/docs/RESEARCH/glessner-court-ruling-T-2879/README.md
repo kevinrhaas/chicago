@@ -75,6 +75,8 @@ north half (render S46.3 against the drawing's stone shaft from S45.4). T-2880 c
 those sheet-4 readings and this camera onto the plan's frame by the same +0.65 ft, builds
 the coping's terminal into the plan's post, rebakes, and brings the view to `matches`.
 
+The record's notes on `tower_stair` and `hall_bow` still describe the disagreement as unresolved. Every byte of `data/structures/glessner_house.json` is part of the Light derivative's recipe (`generators/common/versions.py`), so even a note edit means a Light rebuild. T-2880 rewrites that record and rebuilds anyway, so it carries the notes: the tower's "HABS4 suggests S56.73/r5.55" becomes this ruling, and the bow note gains the printed 12'-6".
+
 Nothing here is invented, and no liberty is added. The ruling is reasoning over two
 unrestricted HABS drawings (`habs_glessner_house_il_1015_drawings`) and one printed
 dimension chain.
