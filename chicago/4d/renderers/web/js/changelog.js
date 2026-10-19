@@ -1,4 +1,22 @@
 export const CHANGELOG = [ // newest first
+  { v: 2060, ts: '2026-10-19T13:34:21.252Z', date: 'Oct 19, 2026, 8:34 AM CT', title: '1637 Prairie\'s south flank gains its columns, belt course and tall stack', kind: 'improvement',
+    items: [
+      'The stone bay on 1637\'s south side now has columns at its corners and on its sides, where the old photograph of the house shows them.',
+      'A pale stone band runs along the foot of the south wall, as in the photograph.',
+      'The tall panelled chimney now rises from the south wall. It used to stand over the front wing; read together, the photograph and the engraving put it on the south wall.',
+    ] },
+  { v: 2059, ts: '2026-10-19T13:34:21.252Z', date: 'Oct 19, 2026, 8:34 AM CT', title: 'Glessner\'s paired windows on 18th Street set to their photographed height', kind: 'improvement',
+    items: [
+      'The two pairs of second-floor windows on the Glessner House\'s 18th Street gable now stop about a foot lower, where the 1965 survey photographs show their heads. Their sills are unchanged within a couple of inches.',
+      'Both north photographs were re-measured with the window heights left as unknowns, instead of assumed. The two photographs agree to within a few inches.',
+      'Seen from the north photographs\' own viewpoints, the wall, both pairs and the narrow ground-floor windows now line up with the pictures. Still to do: the slimmer stone column between each pair, and the tower\'s finial.',
+    ] },
+  { v: 2058, ts: '2026-10-19T12:13:40.138Z', date: 'Oct 19, 2026, 7:13 AM CT', title: 'Glessner\'s front windows checked against its survey drawing and photographs', kind: 'change',
+    items: [
+      'Nothing you can see moved yet. The Glessner House\'s Prairie Avenue windows and door were measured on three street photographs and on the 1965 survey elevation.',
+      'The openings are right relative to one another, and the chimneys and main roof stand at the heights the 1880s photograph shows.',
+      'The survey drawing puts the windows at the 18th Street end up to 0.2 m further north than they are built, and draws the first-floor windows a little wider. The next change moves them.',
+    ] },
   { v: 2057, ts: '2026-10-19T11:32:45.394Z', date: 'Oct 19, 2026, 6:32 AM CT', title: 'Glessner\'s stable gable and cupola matched to their photographs', kind: 'improvement',
     items: [
       'The stable\'s street gable now stands centred over its carriage doorway and loft, as HABS photograph 15 shows it; it had sat a foot off to the west.',

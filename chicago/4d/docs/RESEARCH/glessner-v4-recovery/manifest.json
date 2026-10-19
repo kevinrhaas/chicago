@@ -2,120 +2,120 @@
   "purpose": "Exact three-file Glessner v4 GLB package; materialized before ordinary validation/publish.",
   "files": {
     "assets/gltf/glessner_house__as_built_1887.glb": {
-      "bytes": 198427164,
-      "sha256": "9d31c846b943819492913bc94fabaa46a12c6c575e65559b0bb76f25cad999b1"
+      "bytes": 198366684,
+      "sha256": "35891a9dda527e117cb32c1c1eaf3850058c9097f5ae80c90339a8db4c53349c"
     },
     "assets/web/glessner_house__as_built_1887.glb": {
-      "bytes": 43841540,
-      "sha256": "9dba8758dc1af97e952347abee6eaeb11530b88c4b1282512a9ec8358b3672c7"
+      "bytes": 43834632,
+      "sha256": "c4c68ec6caaa50db2e989bc8ff5bb03eae999d0eb52c424ed96336653a078a31"
     },
     "assets/web/glessner_house__as_built_1887.light.glb": {
-      "bytes": 15530776,
-      "sha256": "747bc8436fe80621e126794c02e10789c4419e5295c69cbe7f933ca01de52a23"
+      "bytes": 15534016,
+      "sha256": "44412a82026b82340ae5c46b4adb2ba777c5e2569b7ea0e49de38dd307539876"
     }
   },
   "parts": [
     {
       "name": "assets.zip.part00",
       "bytes": 6291456,
-      "sha256": "fc8775c317ac062ad3bc1b9c13084e0f2988d967b56f94237cc3dbdc334774a6"
+      "sha256": "0c1b628a22a827e0731236be013ce2fe4803cfd302de175e4241a908b68e92d4"
     },
     {
       "name": "assets.zip.part01",
       "bytes": 6291456,
-      "sha256": "81cf94d8558002aa93349c15de3a1e12d161c851b5995beff3164949a57fd402"
+      "sha256": "b6d285ce5352837505ad01ff6076585d64b9e3879a487f86ce60a13e49f5a9e3"
     },
     {
       "name": "assets.zip.part02",
       "bytes": 6291456,
-      "sha256": "affeebce0d2d823ae69ed1a097aac94c2cddcf6b6d0ff24c85c826b2f012e0b2"
+      "sha256": "6f4faa57bad931c0c0c699a11d9531e49a999386cfb7771264bfa15e61b64d29"
     },
     {
       "name": "assets.zip.part03",
       "bytes": 6291456,
-      "sha256": "e31dabd60210a68e6927042a08664b5cf46a6e4b8340ea90562f86493b068179"
+      "sha256": "8b316f11558caa8e8a60a41c703f0d4353c4dbceab55ddd9da56fab7d24d43cd"
     },
     {
       "name": "assets.zip.part04",
       "bytes": 6291456,
-      "sha256": "8c00614bb1e8b581ba29bf6ce55450ddd61d0012dd0f6e4c6792b71d69a0016c"
+      "sha256": "0180394c65f27398f016d8e11720c0d961579903c4b07c2b63fc0008d830d14d"
     },
     {
       "name": "assets.zip.part05",
       "bytes": 6291456,
-      "sha256": "0eb1c6dfa4317124ce29110e7e39c5d10a651a2f98ac9e817810f3c59eb26ee8"
+      "sha256": "1a098f86e82a3da5ff031822377d3384709f66b3427195928fe776b7644758d6"
     },
     {
       "name": "assets.zip.part06",
       "bytes": 6291456,
-      "sha256": "f3e786dfa2bc3945960f80283183d3b3a436612342990bea90990d95415d7ded"
+      "sha256": "24a0852df5d069a00df1593b48a01b377d2de3d2c17e22db73d774a674051243"
     },
     {
       "name": "assets.zip.part07",
       "bytes": 6291456,
-      "sha256": "62ccfc2840641cb658775fc7b1faf15e322de6a27d8043ab8d71424496632ec2"
+      "sha256": "94048320fab73fb6d0fa40d0bbdd0d778e26ce1bcc86bec0492b569ec9f2f835"
     },
     {
       "name": "assets.zip.part08",
       "bytes": 6291456,
-      "sha256": "6f4a9b87b7288790dbe50118f6221ccc9f4c4f142f4733b4a2564e678f1e0d67"
+      "sha256": "1452567f3e0c46ce536ac3b9d157fb464a3a6821fec7235bb48f32a4ef6a4aee"
     },
     {
       "name": "assets.zip.part09",
       "bytes": 6291456,
-      "sha256": "79fad282a603da5d37315145f40e687fe1f4b14b48fa6c035636ce722dae03d0"
+      "sha256": "0a557e717f2581fbbeacde2ce49fa95e6b93459ea9406104012940164f79556e"
     },
     {
       "name": "assets.zip.part10",
       "bytes": 6291456,
-      "sha256": "1eb13f5507236f5d1b443c1de512aaa0aafe8c3c71d51d2187c74be4ede79c1c"
+      "sha256": "9e045463e1675fca2f0df11b1a59f57000a93e65064fbb39730a3378406fba55"
     },
     {
       "name": "assets.zip.part11",
       "bytes": 6291456,
-      "sha256": "32e62c33ef7960d1aa547bf38f22b734c1424025547af838b583c50b21f23901"
+      "sha256": "46dfb066760b36fce2caa88219018268151682b173e26c2a7f60944b954af43d"
     },
     {
       "name": "assets.zip.part12",
       "bytes": 6291456,
-      "sha256": "57809e1be4c3dd1bb20cdbac78fd24700b5a8cc1ab9440714e009c1fdaf99f7a"
+      "sha256": "29f1092bc9aed1c17f9456952c7f4be57aae88f00a0031f8cac87fd906135005"
     },
     {
       "name": "assets.zip.part13",
       "bytes": 6291456,
-      "sha256": "564c4ae9b8719c3e09f9631bb7f1e893dab173d7eda82f210b5a7648aed5f60b"
+      "sha256": "6c76fbd5b81d80f3b1eeac41a369e032c65ca798e6bf7d8fb6dc65b3c842b42f"
     },
     {
       "name": "assets.zip.part14",
       "bytes": 6291456,
-      "sha256": "389ae62d348fde7f7be67db14fba8a644d1fd83400b4a719f2e11bc45fc40a72"
+      "sha256": "1ce2306841f9234b03f572e87e94cbac943ce2fd36487cd038a1ff55d49f3ad4"
     },
     {
       "name": "assets.zip.part15",
       "bytes": 6291456,
-      "sha256": "2b158febd927687e2282df994ad93111e1c3841bc73a318217b11767ecd281f2"
+      "sha256": "ba991d6fbe24c3dc8058a00c17dfd6893adc8192552f790afb1b13d963d146d3"
     },
     {
       "name": "assets.zip.part16",
       "bytes": 6291456,
-      "sha256": "5feaebd7f3deea7260a8e6126a2e319bf8214ebd729d39b87d94c9c1586fd20f"
+      "sha256": "5a5e5818a700be66bf8eb8da1b53729dd3e73580942890b16f925321a5e7024f"
     },
     {
       "name": "assets.zip.part17",
       "bytes": 6291456,
-      "sha256": "cc667302334804c8babfdd569ec95b85a2ca550126c9e64bab20f14e2e31dc4f"
+      "sha256": "d8045420ffdfbb56a96e4bb9e39a267a034c97c35737f961b6ff2e2304381982"
     },
     {
       "name": "assets.zip.part18",
       "bytes": 6291456,
-      "sha256": "1412dac80c634b122d1629fae4ea358dd275e6ff4287af2eccc20b485988a741"
+      "sha256": "0f82e8e2a235e8ff32ec7a23dac9b0066946791019041de408fce012db0d8fd9"
     },
     {
       "name": "assets.zip.part19",
-      "bytes": 937554,
-      "sha256": "280728713c56ede974b86a84347d4185ca66125f6839967d6da60e2c525867d2"
+      "bytes": 913270,
+      "sha256": "b515d821ba7d41fd2f5ac5c5daf90eae9e907df0e8c7ea834f7464f8d00d4606"
     }
   ],
-  "archive_sha256": "d9c8d57c06f4b1f09ebe746ed12e1888e460d63bc7555c8669fdb0a1713380bf",
-  "archive_bytes": 120475218
+  "archive_sha256": "0741b1c573923930a4157ee7fc2d280ebf00547982b4382bbe2bc96fcc0121dd",
+  "archive_bytes": 120450934
 }
