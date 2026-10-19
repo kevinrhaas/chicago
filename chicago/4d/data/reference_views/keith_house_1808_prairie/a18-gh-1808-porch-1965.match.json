@@ -3,9 +3,9 @@
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
   "glb_sha256": "37618537fd47c6cf160a1a3b8251c0a461c2a6b3878d18ec20cfea6dccb9a6c2",
-  "camera_sha256": "b63e192d14d9458275cd12286c59ef0ada4767222c1805257a23a1601a6f9117",
+  "camera_sha256": "bbf0e2f09a8a9ae3db6a92f6ea1091200ae3e96ef82fbaeb132ea863553e9825",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "unreviewed",
   "differences": [
     {
       "what": "The flat top now has real two-row openings, corner pinnacles, a checker band and five colonnettes dividing six upper windows.",
