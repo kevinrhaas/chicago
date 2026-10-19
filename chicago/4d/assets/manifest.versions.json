@@ -20,8 +20,7 @@
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
-      "version_label": "pre-v4",
-      "web_master_sha256": "352f187c0879b3188ff3f63bd78fb046a7cfdc89d9c980343fcaa29d25167410"
+      "version_label": "pre-v4"
     },
     "versions/glessner_house/v2/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
@@ -31,8 +30,7 @@
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
-      "version_label": "v2",
-      "web_master_sha256": "951b64e0914b57c79db7386a534bf501aea9da586deceb43f639b7112c43d39e"
+      "version_label": "v2"
     },
     "versions/glessner_house/v3/glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
@@ -42,8 +40,7 @@
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
-      "version_label": "v3",
-      "web_master_sha256": "f1b011b292bf59eed7ed5ba789051fcacefedd05f439bf8832dd0679b27da2d2"
+      "version_label": "v3"
     }
   },
   "inputs_scheme": "resolved-params-v4"
