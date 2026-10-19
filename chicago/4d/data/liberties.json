@@ -37323,7 +37323,7 @@
         }
       ],
       "recorded": "2026-10-15",
-      "revised": "2026-10-18",
+      "revised": "2026-10-19",
       "fields": [
         {
           "label": "Ticket",
@@ -37360,6 +37360,14 @@
         {
           "label": "Revised",
           "text": "2026-10-18 (T-2763) — **the loggia lowered to 0.88 of its height over the deck; the plate's camera now determined.** Re-read on the GLB's own edges (the capital's abacus, not the beam's lowest band; the projecting sill's arris, not a height on no edge), every level camera fitted to the 1888 plate with the loggia as built put its eye at grade 40-90 m out and still drew pedestal and column alike 6-8 % long, so the front's ruler T-2725 read the column against was not where its camera stood. One factor on the loggia's heights over its 2.0 m deck, fitted with the camera, read 0.879 and put the eye 2.3 m high about 21 m out; freeing the third-storey sills as well moved them 0.03 m, so the front stands. Built at pedestal 0.88 m and column 2.2 m (their ratio the pictures' 2.44-2.49), the pierced parapet at 0.72 m (its coping at 0.82 of the pedestal, as the plate draws it); the entablature (0.9 m) and balcony front (0.75 m) stand, so the balcony floor is at 5.98 m and its coping 6.73 m. On the rebuilt GLB the plate's level fit puts its eye at [39.19, -0.23, 2.21] with nothing at a bound (RMS 4.94 px) and reads the column 1-2 % short; that is now `inland-1888`'s camera (`tools/keith_plate_level_fit.py`). Still reconstructed: one factor for the whole loggia (only its capital tops and pedestal caps are fitted), and the 1965 close view's camera, which now draws the loggia about a quarter short, is re-fitted at the loggia's depth by T-2764."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-19 (T-2845) — **the pedestals and stair built at the first-floor plan's place.** The plan under the 1888 plate, read between its side walls' outer faces (23.17 px/m, T-2844), draws the front pedestals 0.60 and 0.65 m across at v 6.73-7.34 and 9.58-10.23 and the stair 1.86 m clear between its cheeks (v 4.92-6.78), its north cheek running into the south pedestal. Both pedestals are now 0.6 m square, the south one at 6.75-7.35 and the north one 0.2 m in from the corner at 9.6-10.2, where they stood 0.9 m wide flush with the deck's corners; the north side parapet stands on that pedestal's middle (9.7-10.0) as the plan draws it; the stair is 1.8 m clear at 4.95-6.75 (centred 5.85 m), where it was 2.0 m at 5.0-7.0. Each pair's shafts stand 0.36 m apart, the plate's pitch, where the 0.9 m pedestals set them 0.45 m."
+        },
+        {
+          "label": "Still invented",
+          "text": "the pitch and the side parapet's place are read at a few pixels on the plate and the plan; the turned bases and necks are trimmed to 0.175 m in radius (from 0.2) so the closer shafts do not run into each other, and the paired capital widened to span them (0.71 m), neither read off any picture. The 1965 slide still reads the loggia about 1.1 times taller than built, and each pair about 8 px wider than built; the column stays at 2.2 m on the plate (0.999) and Nickel 1967 (0.994), and the pairs' width is T-2816's to rule."
         }
       ]
     },

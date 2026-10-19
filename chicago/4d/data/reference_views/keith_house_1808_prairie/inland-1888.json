@@ -8,20 +8,20 @@
     2400
   ],
   "principal_px": [
-    626.83,
-    1629.88
+    450.43,
+    1756.11
   ],
-  "focal_px": 1681.55,
+  "focal_px": 1883.45,
   "eye": [
-    39.191,
-    -0.225,
-    2.214
+    40.883,
+    -2.97,
+    0.746
   ],
-  "yaw_deg": 282.379,
+  "yaw_deg": 282.519,
   "sun_uvy": [
     1,
     -0.7,
     1.4
   ],
-  "solve": "T-2763 re-fit: a level camera (verticals vertical, roll 0; the print's north arris stands at x 1060-1061 from y 870 to y 1250), square pixels; free: eye u, v and height, yaw, focal length and principal point. Fitted by tools/keith_plate_level_fit.py ('all controls', square) on 27 coordinates read at the plate's native 1559 x 2400 px against the committed GLB's own edges: the two corner pinnacles' axes, the north arris at 12.0 and 9.5 m, the six third-storey lights' heads (sash head, 12.655 m) and four of their sills (the projecting sill's top arris, u 18.34, 10.36 m), and the loggia's capital tops (abacus, 5.095 m), pedestal tops (2.88 m), the north pedestal's north-east arris and the south pedestal's south face. RMS 4.94 px, max 16.74 px; no parameter at a bound, so the fit determines the eye: [39.191, -0.225, 2.214] (about 21 m out from the front, on the line of its south corner, 2.2 m over grade), yaw 282.379. Every control and residual is in docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-level-fit.json. It became determinate only once the loggia was rebuilt to the height this plate gives it (T-2763: pedestal 0.88 m, column 2.2 m); with the loggia as built before, every level fit put its eye at grade 40-90 m out. Replaces the T-1883 fit, whose text follows. T-1883: least-squares perspective fit to six manually picked wall/parapet corners in the 1280x1971 inspection display; camera intrinsics are scaled by 1559/1280 to the native 1559x2400 raster. Fixed principal point [640,1000]; solved camera eye, rotation and focal length. Pixel-coordinate RMS 14.19px; scan distortion and obscured grade corners limit precision. World control points [[18.0, 0.0, 0.0], [18.0, 10.4, 0.0], [18.0, 0.0, 15.2], [18.0, 10.4, 15.2], [18.0, 0.17, 16.44], [18.0, 10.23, 16.44]]; photograph pixels [[211, 1450], [884, 1440], [224, 514], [867, 591], [241, 435], [848, 513]]; projected [[209.37, 1461.84], [876.93, 1453.13], [246.11, 510.2], [846.42, 569.05], [259.22, 442.35], [835.12, 503.46]]. The ground corners are partly hidden by the early low stone rail. This is an approximate camera calibration, not an assertion of image agreement."
+  "solve": "T-2845 re-fit (tools/keith_loggia_built_read.py; report docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-built-read.json): T-2763's level camera (verticals vertical, roll 0, square pixels; free: eye u, v and height, yaw, focal length and principal point) on the same 27 coordinates, with the loggia's world points at the place the GLB now builds it, the first-floor plan's (T-2844's ruling): its front pedestals 0.6 m square at v 6.75-7.35 and 9.6-10.2, the pairs over their middles. RMS 4.49 px, max 15.79 px; no parameter at a bound. Eye [40.883, -2.97, 0.746], yaw 282.519. T-2763's fit, which this replaces, put the loggia's controls at the old place (0.9 m pedestals at v 7.0-7.9 and 9.5-10.4), RMS 4.94 px, and on the rebuilt GLB drew both pairs about 13 px south of the print's. Its text follows. T-2763 re-fit: a level camera (verticals vertical, roll 0; the print's north arris stands at x 1060-1061 from y 870 to y 1250), square pixels; free: eye u, v and height, yaw, focal length and principal point. Fitted by tools/keith_plate_level_fit.py ('all controls', square) on 27 coordinates read at the plate's native 1559 x 2400 px against the committed GLB's own edges: the two corner pinnacles' axes, the north arris at 12.0 and 9.5 m, the six third-storey lights' heads (sash head, 12.655 m) and four of their sills (the projecting sill's top arris, u 18.34, 10.36 m), and the loggia's capital tops (abacus, 5.095 m), pedestal tops (2.88 m), the north pedestal's north-east arris and the south pedestal's south face. RMS 4.94 px, max 16.74 px; no parameter at a bound, so the fit determines the eye: [39.191, -0.225, 2.214] (about 21 m out from the front, on the line of its south corner, 2.2 m over grade), yaw 282.379. Every control and residual is in docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-level-fit.json. It became determinate only once the loggia was rebuilt to the height this plate gives it (T-2763: pedestal 0.88 m, column 2.2 m); with the loggia as built before, every level fit put its eye at grade 40-90 m out. Replaces the T-1883 fit, whose text follows. T-1883: least-squares perspective fit to six manually picked wall/parapet corners in the 1280x1971 inspection display; camera intrinsics are scaled by 1559/1280 to the native 1559x2400 raster. Fixed principal point [640,1000]; solved camera eye, rotation and focal length. Pixel-coordinate RMS 14.19px; scan distortion and obscured grade corners limit precision. World control points [[18.0, 0.0, 0.0], [18.0, 10.4, 0.0], [18.0, 0.0, 15.2], [18.0, 10.4, 15.2], [18.0, 0.17, 16.44], [18.0, 10.23, 16.44]]; photograph pixels [[211, 1450], [884, 1440], [224, 514], [867, 591], [241, 435], [848, 513]]; projected [[209.37, 1461.84], [876.93, 1453.13], [246.11, 510.2], [846.42, 569.05], [259.22, 442.35], [835.12, 503.46]]. The ground corners are partly hidden by the early low stone rail. This is an approximate camera calibration, not an assertion of image agreement."
 }
