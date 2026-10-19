@@ -1808,6 +1808,9 @@ class Assembly:
                 for s0, s1 in spans:
                     self.proud_box(STRIP_FABRICS[q["fabric"]], (W((x0, 0.0, z0)), Rw, Nw), s0, s1,
                                    q["from_m"], q["to_m"], q["proud_m"], seed + j, conf)
+        # T-2781: its engaged columns, each a square base, a shaft and a square capital
+        if b.get("columns"):
+            self.bay_columns(b, v["plan"]["points"], W, R, N, body, seed, conf)
         # T-2787: a tower rises past the main eave, and the wall that closes its ring below
         # stops at the wall head. Above that its ring is closed where the wall's plane cuts
         # it, facing the roof behind: from the wall head to the tower's wall top across the
@@ -1830,6 +1833,59 @@ class Assembly:
         top = max(q[1] for q in roof.pos if abs(q[2]) < 1e-6) if roof else built.meta["eave_m"]
         xs = [q[0] for pr in built.prims.values() for q in pr.pos]
         return top, (b["s_m"] + min(xs), b["s_m"] + max(xs))
+
+    def bay_columns(self, b, pts, W, R, N, mat, seed, conf):
+        """T-2781: a stone bay's engaged columns (1637's south bay, the Grosvenor photograph).
+        Each stands on its run's face `s_m` along it, or on a corner's bisector at a run's end,
+        its axis a quarter of its diameter out, so three quarters of the shaft stand clear of
+        the wall: a square base, a round shaft and a square capital twice the base's spread,
+        each turned to its run."""
+        c = b["columns"]
+        r = c["diameter_m"] / 2
+        y0, y1, hb, hc = c["from_m"], c["to_m"], c["base_m"], c["capital_m"]
+        runs = []
+        for (x0, z0), (x1, z1) in zip(pts, pts[1:]):
+            L = math.hypot(x1 - x0, z1 - z0)
+            runs.append(((x0, z0), ((x1 - x0) / L, (z1 - z0) / L), L))
+        for j, q in enumerate(c["at"]):
+            (x0, z0), (tx, tz), L = runs[q["run"]]
+            nx, nz = tz, -tx      # out of the bay: the plan runs left to right seen from outside
+            if nx * (x0 - (pts[0][0] + pts[-1][0]) / 2) + nz * z0 < 0:
+                nx, nz = -nx, -nz
+            nb = None
+            if q["s_m"] < 1e-3 and q["run"] > 0:
+                nb = runs[q["run"] - 1][1]
+            elif q["s_m"] > L - 1e-3 and q["run"] < len(runs) - 1:
+                nb = runs[q["run"] + 1][1]
+            if nb is not None:    # a corner: out along the bisector of the two runs' normals
+                mx, mz = nb[1], -nb[0]
+                if mx * nx + mz * nz < 0:
+                    mx, mz = -mx, -mz
+                nx, nz = nx + mx, nz + mz
+                k = math.hypot(nx, nz)
+                nx, nz = nx / k, nz / k
+            ax = (x0 + tx * q["s_m"] + nx * r / 2, z0 + tz * q["s_m"] + nz * r / 2)
+            Rw = _add(_mul(R, tx), _mul(N, tz))
+            Nw = _add(_mul(R, nx), _mul(N, nz))
+            for (h, ya, yb) in ((r + 0.04, y0, y0 + hb), (r + 0.08, y1 - hc, y1)):
+                self.column_block(mat, W((ax[0], 0.0, ax[1])), Rw, _cross(Rw, Y), h, ya, yb, seed + j, conf)
+            foot, head = W((ax[0], y0 + hb, ax[1])), W((ax[0], y1 - hc, ax[1]))
+            self.tube(mat, [foot, head], r, Rw, seed + j, conf, sides=12)
+
+    def column_block(self, mat, C, A, B, h, y0, y1, seed, conf):
+        """A square block about the vertical through C, `h` either side along A and B, from
+        y0 to y1 over grade: its four faces and its top (its foot stands on a band)."""
+        pr = self.prim(mat)
+        P = lambda a, b_, y: _add(_add(_add((C[0], 0.0, C[2]), _mul(A, a)), _mul(B, b_)), (0.0, y, 0.0))
+        for along, ax_ in ((True, A), (True, _mul(A, -1)), (False, B), (False, _mul(B, -1))):
+            side_ = B if along else A
+            e = _mul(side_, h)
+            c0 = _add((C[0], 0.0, C[2]), _mul(ax_, h))
+            pts = [_add(_sub(c0, e), (0.0, y0, 0.0)), _add(_add(c0, e), (0.0, y0, 0.0)),
+                   _add(_add(c0, e), (0.0, y1, 0.0)), _add(_sub(c0, e), (0.0, y1, 0.0))]
+            pr.face(pts, ax_, self.basis(mat, pts[0], side_, Y, seed), conf)
+        top = [P(-h, -h, y1), P(h, -h, y1), P(h, h, y1), P(-h, h, y1)]
+        pr.face(top, Y, self.basis(mat, top[0], A, B, seed), conf)
 
     # -- K07 entrance (T-2304) ------------------------------------------------------------
     # K07 role -> this assembly's material: the reveal in the front's own stone, the
@@ -3137,13 +3193,16 @@ def build(params, structure_id: str):
     # T-2788: an all-stone house lays its side and rear walls in the front's K02 stone too
     all_round = bool(p.stone.get("all_round"))
     side = "rough_stone_trim" if all_round else "brick"
+
+    def side_belts(which):   # T-2781: a side wall's stone belt, laid as the front's are
+        return tuple((b["from_m"], b["to_m"], b["proud_m"]) for b in p.side_belts if b["wall"] == f"k01.wall.side.{which}")
     walls = {
         # T-2341: a record with no K02 stone front is a brick house, its front in the K03 brick
         "k01.wall.street_front": ("rough_stone_trim" if p.stone else "brick", (D, 0.0, 0.0), (0.0, 0.0, -1.0),
                                   W, p.front_thickness_m, belts),
-        "k01.wall.side.north": (side, (D, 0.0, -W), (-1.0, 0.0, 0.0), D, p.side_thickness_m, ()),
+        "k01.wall.side.north": (side, (D, 0.0, -W), (-1.0, 0.0, 0.0), D, p.side_thickness_m, side_belts("north")),
         "k01.wall.rear_service": (side, (0.0, 0.0, -W), (0.0, 0.0, 1.0), W, p.side_thickness_m, ()),
-        "k01.wall.side.south": (side, (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), D, p.side_thickness_m, ()),
+        "k01.wall.side.south": (side, (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), D, p.side_thickness_m, side_belts("south")),
     }
     gaps = {cid: [bay["span_m"] for bay in p.bays if bay["wall"] == cid]
                  + [w["host_span_m"] for w in p.rear_wings if w["host_wall"] == cid]

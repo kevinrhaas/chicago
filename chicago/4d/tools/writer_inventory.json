@@ -35,6 +35,13 @@
       "finding": "Reproduces: run bare on a clean tree it rewrote its own four outputs, docs/RESEARCH/glessner-windows-2211/opening-schedule.{md,json} and (since T-2212) docs/RESEARCH/glessner-windows-2212/opening-schedule.{md,json}, byte for byte and moved nothing else.",
       "placed": "not yet — measured to reproduce. It reads only data/structures/glessner_house.json, which no reconstruction stage writes, and nothing reads its four outputs, so it has no ordering hazard on either side; the manifest's order is its own measured pass, so it is not appended blind (T-2211; T-2212)."
     },
+    "glessner_north_pairs.py": {
+      "placement": "pending",
+      "write_mode": "(bare); --cameras",
+      "measured": "2026-10-19",
+      "finding": "Reproduces to tolerance: run bare, and with --cameras, on a clean tree it changed no committed byte. A deliberately perturbed report (a view's sill_ft +0.1 ft) failed --check and a bare run restored it; the restored file differs from the committed one only in the camera basis's last rounded digits (about 1e-7), which is why --check compares numbers to stated tolerances (1e-4 basis, 0.01 m eye, 0.5 px, 0.02 ft) and why the write mode now leaves a report or camera that agrees to tolerance untouched. Before that fix CI's scipy solve differed from the steward runner's in those digits and --check, comparing text, went red on an unchanged tree (T-2855).",
+      "placed": "not yet — measured to reproduce. It reads data/comparisons/glessner/observations.json, data/reference_views/glessner_house/habs-14-north-inclined.json and data/structures/glessner_house.json, which no reconstruction stage writes; nothing in the manifest reads its report, and its --cameras outputs are the two north reference cameras the photo-match renders read, so it has no ordering hazard against the manifest's stages; the manifest's order is its own measured pass, so it is not appended blind (T-2850; T-2855)."
+    },
     "glessner_stable_roof_read.py": {
       "placement": "pending",
       "write_mode": "--write",

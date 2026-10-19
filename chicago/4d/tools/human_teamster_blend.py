@@ -38,6 +38,8 @@ from human_grounded_gait import (prepare_legs, pose_at_phase, linearize_action,
 def parse_args():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--body', type=Path)
+    p.add_argument('--sit-drive-study', type=Path, help='Explicit reconstructed1835 named-resident/W01 seated study profile')
+    p.add_argument('--sit-drive-vehicle', type=Path, help='Actual exported physical driver-bench wagon sidecar')
     p.add_argument('--recipe', type=Path, default=ROOT/'data/humans/recipes/worker_1835.json')
     p.add_argument('--output', required=True, type=Path)
     p.add_argument('--liberty', help='Existing project LIBERTIES entry assigned by the integrator')
@@ -46,6 +48,8 @@ def parse_args():
     p.add_argument('--normal-probe-receipts',type=Path,help='Required /tmp directory for experimental normal diagnostics')
     argv = sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else []
     args=p.parse_args(argv)
+    if bool(args.sit_drive_study)!=bool(args.sit_drive_vehicle):
+        p.error("--sit-drive-study and --sit-drive-vehicle must be supplied together")
     if args.experimental_normal_probes:
         if args.normal_probe_receipts is None or not args.normal_probe_receipts.resolve().is_relative_to(Path('/tmp')):
             p.error('--experimental-normal-probes requires --normal-probe-receipts under /tmp')
@@ -520,6 +524,34 @@ def build(args):
                 pose.keyframe_insert('location',frame=frame)
         linearize_action(act)
         act['loop']=True
+    if args.sit_drive_study:
+        from human_seated_study import load_study, desired_matrix, local_basis
+        if not args.sit_drive_vehicle:raise ValueError('--sit-drive-study requires --sit-drive-vehicle exported sidecar')
+        study_pose,study_metadata=load_study(args.sit_drive_study,variant,bodypath,scale,args.sit_drive_vehicle)
+        if set(study_pose)!=set(bones):raise ValueError('seated study joint set differs from canonical rig')
+        # Read actual Blender rest bases; do not reconstruct roll or treat global
+        # deformations as parent-local quaternions.
+        rests={n:[list(row) for row in rig.data.bones[n].matrix_local] for n in bones}
+        desired={n:desired_matrix(study_pose[n],rests[n]) for n in bones}
+        act=bpy.data.actions.new('sit_drive');act.use_fake_user=True
+        rig.animation_data.action=act
+        act['loop']=True
+        act['cycle_duration_s']=1.0
+        act['in_place']=True
+        act['motion_basis']='Original reconstructed static seated IK study; no driving forces or biological motion claim'
+        act['driver_study_json']=json.dumps(study_metadata,sort_keys=True)
+        for frame in (0,30):
+            for name,parent in contract['skeleton']['bones']:
+                pose=rig.pose.bones[name]
+                matrix=local_basis(rests[name],desired[name],rests[parent] if parent else None,desired[parent] if parent else None)
+                pose.rotation_mode='QUATERNION'
+                pose.matrix_basis=Matrix(matrix)
+                pose.scale=(1,1,1)
+                pose.keyframe_insert('rotation_quaternion',frame=frame)
+                pose.keyframe_insert('location',frame=frame)
+                # Rigid contract: no scale animation channels or stretched bones.
+        linearize_action(act)
+        scene['driver_study_json']=json.dumps(study_metadata,sort_keys=True)
     rig.animation_data.action=None
     for pose in rig.pose.bones:
         pose.location=(0,0,0)

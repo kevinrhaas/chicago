@@ -1280,3 +1280,10 @@ All cabin/hardware/color dimensions are reconstructed. Reference catalog wording
 
 
 **Metadata and articulation qualification:** The pre-door project scope quotation is preserved separately with its original branch and explicit non-period origin; the enabled branch now describes reconstructed rigid door/hinge geometry and endpoint transforms. Current model metadata hash is 93d4020036e5c685ce95010fe64b26c55a1561db4517405f0590f7a398253331 (860956 bytes). Corrected checks bind all 424 actual moving triangles to the unique active exported door and compose actual hierarchy transforms at each angle; closed-world shape alone cannot qualify detached geometry. Old closed-mapping/source-posed receipts are retained only as limited historical checkpoints. No continuous/occupant/photographic acceptance or installed-head gate is implied.
+
+
+### Supported W01 driver-bench study and named seated authoring (T-2804, 2026-10-19)
+
+`renderers/web/transport/wagon-driver/wagon-w01.glb` and its JSON sidecar are original GPL-3.0-or-later procedural geometry produced by `tools/transport/generate_wagon.py` from `data/transport/studies/wagon-driver-bench.json`. The unoccupied variant is separate from the existing W01 and introduces no external image/model/texture derivation. Bench/hardware dimensions and construction are reconstructed engineering choices; license provenance does not establish period accuracy.
+
+Optional seated resident pose data in `data/humans/poses/w01/` is original reconstructed CC0-1.0 numerical authoring based on the already-cleared CC0 human inputs. Helper, viewer and authoring code remains GPL-3.0-or-later. Existing MakeHuman graphical-base, skin, hair, canonical-master and human-export provenance continues unchanged. Existing L418 records these residents' reconstructed appearance and actions. New seated canonical export hashes and garment/contact/photographic acceptance must be measured after the actual CI export; no new master hash or likeness is invented here.

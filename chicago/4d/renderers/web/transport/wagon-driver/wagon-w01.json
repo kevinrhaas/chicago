@@ -1,0 +1,581 @@
+{
+  "asset_id": "wagon_w01_driver_bench_study",
+  "status": "engineering prototype; not photographically matched",
+  "units": "m",
+  "forward_axis": "+Z",
+  "up_axis": "+Y",
+  "parameters": {
+    "body_m": [
+      3.05,
+      1.07,
+      0.55
+    ],
+    "bed_top_m": 0.95,
+    "wheel_diameter_front_m": 1.07,
+    "wheel_diameter_rear_m": 1.37,
+    "axle_stations_z_m": [
+      -1.175,
+      1.175
+    ],
+    "wheel_center_track_m": 1.21,
+    "tongue_length_m": 2.75,
+    "tier": "reconstructed",
+    "historical_match": false,
+    "wheel_refinement": true,
+    "driver_furniture": {
+      "variant": "removable_bench_study",
+      "seat_width_m": 1.18,
+      "seat_depth_m": 0.3,
+      "seat_thickness_m": 0.05,
+      "seat_z_m": 0.65,
+      "footboard_width_m": 0.85,
+      "footboard_depth_m": 0.3,
+      "footboard_thickness_m": 0.04,
+      "footboard_top_m": 1.12,
+      "footboard_z_m": 1.27,
+      "grade": "reconstructed",
+      "source_ids": []
+    }
+  },
+  "wheel_radius_m": {
+    "rear": 0.685,
+    "front": 0.535
+  },
+  "steering_limit_deg": 8,
+  "socket_policy": "Bench study driver seat and foot surface sockets reflect physical reconstructed furniture; remaining sockets retain proposed semantics",
+  "license": "GPL-3.0-or-later",
+  "liberties": [
+    "All geometry and colors reconstructed, original procedural surfaces; no reference-photo pixels or tracing",
+    "No brake, suspension, horse, harness, seated humans, historical load or named owner",
+    "Steering limited to \u00b18 degrees for this box clearance; not historical limit",
+    "Tongue resting pitch optional; no hitch or load physics",
+    "Floor, bolsters, hounds, reach and kingbolt are engineering visual approximations"
+  ],
+  "provenance": {
+    "basis": "Existing declared reconstruction: kevinrhaas/chicago chicago/4d/renderers/web/js/yard.js and data/yard/town_trade_goods.json; vehicle-master-spec.md 2026-10-18",
+    "source_ids": []
+  },
+  "statistics": {
+    "triangles": 11032,
+    "meshes": 23,
+    "nodes": 50
+  },
+  "wheel_refinement": {
+    "grade": "reconstructed",
+    "historical_match": false,
+    "spoke_sections_m": {
+      "hub": [
+        0.035,
+        0.032
+      ],
+      "felloe": [
+        0.022,
+        0.022
+      ]
+    },
+    "spoke_radial_stations": "original .08m to radius-.07m unchanged",
+    "board_chamfer_m": 0.0012,
+    "note": "Original octagonal taper and restrained edge/material response study; no source-attested joinery or photographic match"
+  },
+  "driver_furniture": {
+    "variant": "removable_bench_study",
+    "grade": "reconstructed",
+    "historical_attestation": false,
+    "note": "Original engineering study; no source-attested1835 bench dimensions or strength/occupant acceptance",
+    "parts": [
+      {
+        "name": "driver_bench_plank",
+        "role": "timber",
+        "size_m": [
+          1.18,
+          0.05,
+          0.3
+        ],
+        "center_m": [
+          0,
+          1.555,
+          0.65
+        ],
+        "min_m": [
+          -0.59,
+          1.53,
+          0.5
+        ],
+        "max_m": [
+          0.59,
+          1.5799999999999998,
+          0.8
+        ]
+      },
+      {
+        "name": "driver_bench_cleat_-1",
+        "role": "timber",
+        "size_m": [
+          0.045,
+          0.045,
+          0.3
+        ],
+        "center_m": [
+          -0.48500000000000004,
+          1.5075,
+          0.65
+        ],
+        "min_m": [
+          -0.5075000000000001,
+          1.485,
+          0.5
+        ],
+        "max_m": [
+          -0.4625,
+          1.53,
+          0.8
+        ]
+      },
+      {
+        "name": "driver_bench_bolt_-1_0.56",
+        "role": "fastener_intentional_intersection",
+        "size_m": [
+          0.012,
+          0.10500000000000001,
+          0.012
+        ],
+        "center_m": [
+          -0.535,
+          1.5275,
+          0.56
+        ],
+        "min_m": [
+          -0.541,
+          1.475,
+          0.554
+        ],
+        "max_m": [
+          -0.529,
+          1.58,
+          0.5660000000000001
+        ]
+      },
+      {
+        "name": "driver_bench_plate_-1_0.56_1.583",
+        "role": "fastener_intentional_intersection",
+        "size_m": [
+          0.045,
+          0.006,
+          0.035
+        ],
+        "center_m": [
+          -0.535,
+          1.583,
+          0.56
+        ],
+        "min_m": [
+          -0.5575,
+          1.58,
+          0.5425000000000001
+        ],
+        "max_m": [
+          -0.5125000000000001,
+          1.5859999999999999,
+          0.5775
+        ]
+      },
+      {
+        "name": "driver_bench_plate_-1_0.56_1.487",
+        "role": "fastener_intentional_intersection",
+        "size_m": [
+          0.045,
+          0.006,
+          0.035
+        ],
+        "center_m": [
+          -0.535,
+          1.487,
+          0.56
+        ],
+        "min_m": [
+          -0.5575,
+          1.4840000000000002,
+          0.5425000000000001
+        ],
+        "max_m": [
+          -0.5125000000000001,
+          1.49,
+          0.5775
+        ]
+      },
+      {
+        "name": "driver_bench_bolt_-1_0.74",
+        "role": "fastener_intentional_intersection",
+        "size_m": [
+          0.012,
+          0.10500000000000001,
+          0.012
+        ],
+        "center_m": [
+          -0.535,
+          1.5275,
+          0.74
+        ],
+        "min_m": [
+          -0.541,
+          1.475,
+          0.734
+        ],
+        "max_m": [
+          -0.529,
+          1.58,
+          0.746
+        ]
+      },
+      {
+        "name": "driver_bench_plate_-1_0.74_1.583",
+        "role": "fastener_intentional_intersection",
+        "size_m": [
+          0.045,
+          0.006,
+          0.035
+        ],
+        "center_m": [
+          -0.535,
+          1.583,
+          0.74
+        ],
+        "min_m": [
+          -0.5575,
+          1.58,
+          0.7225
+        ],
+        "max_m": [
+          -0.5125000000000001,
+          1.5859999999999999,
+          0.7575
+        ]
+      },
+      {
+        "name": "driver_bench_plate_-1_0.74_1.487",
+        "role": "fastener_intentional_intersection",
+        "size_m": [
+          0.045,
+          0.006,
+          0.035
+        ],
+        "center_m": [
+          -0.535,
+          1.487,
+          0.74
+        ],
+        "min_m": [
+          -0.5575,
+          1.4840000000000002,
+          0.7225
+        ],
+        "max_m": [
+          -0.5125000000000001,
+          1.49,
+          0.7575
+        ]
+      },
+      {
+        "name": "driver_bench_cleat_1",
+        "role": "timber",
+        "size_m": [
+          0.045,
+          0.045,
+          0.3
+        ],
+        "center_m": [
+          0.48500000000000004,
+          1.5075,
+          0.65
+        ],
+        "min_m": [
+          0.4625,
+          1.485,
+          0.5
+        ],
+        "max_m": [
+          0.5075000000000001,
+          1.53,
+          0.8
+        ]
+      },
+      {
+        "name": "driver_bench_bolt_1_0.56",
+        "role": "fastener_intentional_intersection",
+        "size_m": [
+          0.012,
+          0.10500000000000001,
+          0.012
+        ],
+        "center_m": [
+          0.535,
+          1.5275,
+          0.56
+        ],
+        "min_m": [
+          0.529,
+          1.475,
+          0.554
+        ],
+        "max_m": [
+          0.541,
+          1.58,
+          0.5660000000000001
+        ]
+      },
+      {
+        "name": "driver_bench_plate_1_0.56_1.583",
+        "role": "fastener_intentional_intersection",
+        "size_m": [
+          0.045,
+          0.006,
+          0.035
+        ],
+        "center_m": [
+          0.535,
+          1.583,
+          0.56
+        ],
+        "min_m": [
+          0.5125000000000001,
+          1.58,
+          0.5425000000000001
+        ],
+        "max_m": [
+          0.5575,
+          1.5859999999999999,
+          0.5775
+        ]
+      },
+      {
+        "name": "driver_bench_plate_1_0.56_1.487",
+        "role": "fastener_intentional_intersection",
+        "size_m": [
+          0.045,
+          0.006,
+          0.035
+        ],
+        "center_m": [
+          0.535,
+          1.487,
+          0.56
+        ],
+        "min_m": [
+          0.5125000000000001,
+          1.4840000000000002,
+          0.5425000000000001
+        ],
+        "max_m": [
+          0.5575,
+          1.49,
+          0.5775
+        ]
+      },
+      {
+        "name": "driver_bench_bolt_1_0.74",
+        "role": "fastener_intentional_intersection",
+        "size_m": [
+          0.012,
+          0.10500000000000001,
+          0.012
+        ],
+        "center_m": [
+          0.535,
+          1.5275,
+          0.74
+        ],
+        "min_m": [
+          0.529,
+          1.475,
+          0.734
+        ],
+        "max_m": [
+          0.541,
+          1.58,
+          0.746
+        ]
+      },
+      {
+        "name": "driver_bench_plate_1_0.74_1.583",
+        "role": "fastener_intentional_intersection",
+        "size_m": [
+          0.045,
+          0.006,
+          0.035
+        ],
+        "center_m": [
+          0.535,
+          1.583,
+          0.74
+        ],
+        "min_m": [
+          0.5125000000000001,
+          1.58,
+          0.7225
+        ],
+        "max_m": [
+          0.5575,
+          1.5859999999999999,
+          0.7575
+        ]
+      },
+      {
+        "name": "driver_bench_plate_1_0.74_1.487",
+        "role": "fastener_intentional_intersection",
+        "size_m": [
+          0.045,
+          0.006,
+          0.035
+        ],
+        "center_m": [
+          0.535,
+          1.487,
+          0.74
+        ],
+        "min_m": [
+          0.5125000000000001,
+          1.4840000000000002,
+          0.7225
+        ],
+        "max_m": [
+          0.5575,
+          1.49,
+          0.7575
+        ]
+      },
+      {
+        "name": "driver_footboard",
+        "role": "timber",
+        "size_m": [
+          0.85,
+          0.04,
+          0.3
+        ],
+        "center_m": [
+          0,
+          1.1,
+          1.27
+        ],
+        "min_m": [
+          -0.425,
+          1.08,
+          1.12
+        ],
+        "max_m": [
+          0.425,
+          1.12,
+          1.42
+        ]
+      },
+      {
+        "name": "driver_footboard_block_-1_1.201",
+        "role": "timber",
+        "size_m": [
+          0.07,
+          0.13000000000000012,
+          0.07
+        ],
+        "center_m": [
+          -0.32499999999999996,
+          1.0150000000000001,
+          1.201
+        ],
+        "min_m": [
+          -0.36,
+          0.9500000000000001,
+          1.1660000000000001
+        ],
+        "max_m": [
+          -0.2899999999999999,
+          1.08,
+          1.236
+        ]
+      },
+      {
+        "name": "driver_footboard_block_-1_1.339",
+        "role": "timber",
+        "size_m": [
+          0.07,
+          0.13000000000000012,
+          0.07
+        ],
+        "center_m": [
+          -0.32499999999999996,
+          1.0150000000000001,
+          1.339
+        ],
+        "min_m": [
+          -0.36,
+          0.9500000000000001,
+          1.304
+        ],
+        "max_m": [
+          -0.2899999999999999,
+          1.08,
+          1.3739999999999999
+        ]
+      },
+      {
+        "name": "driver_footboard_block_1_1.201",
+        "role": "timber",
+        "size_m": [
+          0.07,
+          0.13000000000000012,
+          0.07
+        ],
+        "center_m": [
+          0.32499999999999996,
+          1.0150000000000001,
+          1.201
+        ],
+        "min_m": [
+          0.2899999999999999,
+          0.9500000000000001,
+          1.1660000000000001
+        ],
+        "max_m": [
+          0.36,
+          1.08,
+          1.236
+        ]
+      },
+      {
+        "name": "driver_footboard_block_1_1.339",
+        "role": "timber",
+        "size_m": [
+          0.07,
+          0.13000000000000012,
+          0.07
+        ],
+        "center_m": [
+          0.32499999999999996,
+          1.0150000000000001,
+          1.339
+        ],
+        "min_m": [
+          0.2899999999999999,
+          0.9500000000000001,
+          1.304
+        ],
+        "max_m": [
+          0.36,
+          1.08,
+          1.3739999999999999
+        ]
+      }
+    ],
+    "seat_surface_m": [
+      0,
+      1.58,
+      0.65
+    ],
+    "footboard_top_m": 1.12,
+    "footboard_bounds_xz_m": [
+      -0.425,
+      0.425,
+      1.12,
+      1.42
+    ],
+    "contacts": "Bench bottom rests on existing rail tops; blocks connect floor to board underside. Fasteners intentionally intersect timber; no strength simulation."
+  }
+}

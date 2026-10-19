@@ -5597,3 +5597,8 @@ An isolated roofed carriage specimen adds a repaired cabin aperture and reconstr
 
 
 2026-10-19 installed desktop qualification repair: only flat grass cardMat now uses the documented single transparent pass; controlled tint287/287, row ghost327/325 and X-RAY316/313 preserve exact full-frame pixels, coverage and all other draws, with exact restoration. All three HUD baseline/planted CSS-layout cases and both actual refusal controls passed; final state restored. Historical331 is not reproduced, generic ghost triangle overages remain, and photographic/genuine-touch acceptance is not implied. No330/10%/triangle ceiling changed. See docs/RESEARCH/period-transport-2026-10-18/desktop-qualification-repair-2026-10-19.md. Installed-source preflight and final exact-head CI are required; central recovery receipts record their outcome.
+
+
+### T-2804 progress: physical W01 driver support and named seated export path
+
+The separate supported-bench study and opt-in canonical sit_drive path advance existing reconstructed1835 resident drivers. Remaining: actual canonical/clothed output and contact inspection, real reins/hand grips, scene placement, driver control/boarding, photographic finishing and period construction review. These partial engineering results do not close the rider/driver or vehicle interaction tickets.

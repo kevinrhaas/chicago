@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 637,
+  "count": 638,
   "liberties": [
     {
       "id": "L1",
@@ -41436,6 +41436,37 @@
         {
           "label": "Hair component update (2026-10-19)",
           "text": "Existing reconstructed residents `rc_bardwell_otis`, `rc_dufresne_joseph` and `rc_flynn_martin` retain their current identity, age-band, occupation and presence basis. Their referenced studies may share the cleared CC0 MakeHuman short04 component, fitted to each selected adult25/35 prepared body. Hair shape, dark color, parting, hairline, density and grooming are reconstructed appearance choices, not attested1835hairstyles or individual likenesses. This introduces no new person or biography and implies no ethnicity. Source license clearance is not historical style acceptance. The adaptation retains signed geometric proxy coefficients; normalized existing body skinweights clamp one negative interpolation row (maximum mass0.0000127) and keep at most4joints. The original Vmaximum1.0031 is remapped with a clearly labeled periodic-padded derivative:8toprows+1bottomrow, Vnew=(2048V+1)/2057. Measured unminified bilinear equivalence does not establish mipmap/aniso/export equivalence. PBR roughness.65, alpha threshold.4 and double-sided rendering are reconstructed shader choices, not the original legacy litsphere appearance. Source topology retained at every LOD pending measured reductions. Actual pinned exporter source statically recognizes the proposed 1-(Alpha<.4) node pattern as glTF MASK/.4; actual canonical BPy creation, packed image decode, exported material/UV/skin integrity and close/mobile hair-edge, scalp/ear/collar and animated-contact review still require CI. No photographic quality, historical haircut acceptance or independently validated resident depiction is claimed by this addendum."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-1637-south-flank-2781",
+      "title": "1637 Prairie's south flank: its belt course laid at the photograph's height, its bay's columns plain, and its stack placed by crossing two pictures",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the south flank of Jesse Spalding's remodel of the Grosvenor house (T-2781, piece 2 of T-2756) carries three things the c. 1870 Grosvenor photograph shows. A stone belt course along the wall, 2.3-2.5 m and 0.05 m proud, from the front's corner to the canted bay and on behind it to the rear range (K01's new `side_belts`). Engaged stone columns on the bay, 0.2 m across, at each front angle and on each cheek 0.3 m from the wall, from 3.03 to 6.15 m, each on a square base under a square capital (K01's new bay `columns`). And the tall panelled stack behind the south eave, on the south wall's cornice at u 6.5, its top at 15.85 m, in place of the stack T-2465 had stood over the wing. **What is read, not invented.** From the photograph (`glessner_blog_1637_grosvenor_asbuilt_photo`) through T-2755's camera: the belt's line and depth (y 712-726 px, a course on the wall with brick below it and a shadow under it), the columns' places (x 350-362 and 395-405 px), their foot and the capitals' band (y 690 and 505-515), their width (about 12 px), and the stack's place along the wall. The stack's place in plan is where the photograph's ray through it (x 295 px) crosses the engraving's (`glessner_blog_1637_spalding_remodel_engraving`, x 690 px): u 6.47, v 13.37, on the south wall's line. Its top is the engraving's, drawn after the remodel. **What is invented.** The belt's height: the camera was fitted with the belt's foot at the principal floor (2.3 m), so the photograph places it on the wall and does not measure how high it stands; built there, it stands 0.07 m over the wing's string course where the two meet at the front corner, a corner no picture shows after the remodel. The columns' form: round shafts on plain square bases under plain square capitals, their axes a quarter diameter out of the bay's face; the photograph's capitals are carved and its shafts may be fluted or banded, which its grain does not show. The east cheek's two columns stand by symmetry, outside the frame. The stack's 1.2 m breadth along the wall, read from both pictures' widths, and its sunk panels, the north stacks'."
+        },
+        {
+          "label": "What is left out, and open for T-2840",
+          "text": "the capitals' and consoles' carving, the frieze's ovals and the arches over the lights; the cheeks' lights, which K08 cannot yet cut in a 1.0 m cheek; the shutters at the window over the bay; and the front light's place, which stands 15-20 px left of the photograph's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer photograph of the south flank, or the house's drawings."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2839 (piece 1 of T-2781, itself piece 2 of T-2756)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-19 (T-2839)."
         }
       ]
     },

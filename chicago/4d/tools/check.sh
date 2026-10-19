@@ -3622,6 +3622,12 @@ step "Glessner street and stable opening schedule matches its record (T-2211)" \
 step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
   python3 tools/glessner_stable_roof_read.py --check
 
+# Both north cameras are re-solved with the gable pairs' sill and head left free, so
+# a pick, camera or record height that moves without the reading being re-written,
+# or a record that builds the pairs outside it, is caught here (T-2850).
+step "Glessner north gable pairs stand where HABS 13 and 14 read them (T-2850)" \
+  python3 tools/glessner_north_pairs.py --check
+
 step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)" \
   python3 tools/test_compile_source_use.py
 

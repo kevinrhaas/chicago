@@ -24121,3 +24121,13 @@ An isolated roofed carriage specimen adds a repaired cabin aperture and reconstr
 ## T-2857 — Glessner's Prairie front read (2026-10-19)
 
 Nothing in the scene changed. T-2851 was split into this reading and T-2858, which builds what it found. The Prairie openings were read camera-free, with a one-dimensional projective fit along each course, on Taylor 2135, HABS 16 and HABS 17. They fit the model's spacing to 1.5, 3.3 and 1.6 px rms. HABS sheet 6 was re-measured off its scale bar, and its front measures 73.98 ft against the printed 74'-0". Against it, first-floor A, B and the door, and the second-floor north group, are built 0.30-0.63 ft too far south. The sheet also draws the first-floor lights 4.3-4.45 ft wide where 3.9 ft is built. Taylor's camera has its corner controls on the downspouts, and through it the openings and the stacks register 15-22 px left together. That is the camera, not the building. The stack tops agree with that photograph within 2 px. The match records' generic front items are now specific, and all three views still read `differs`. See docs/RESEARCH/glessner-prairie-front-T-2857/.
+
+
+## T-2804 supported bench and opt-in named seated authoring (2026-10-19)
+
+A separate W01 driver-bench variant now has actual generated timber seat, rail bearings, cleats/fasteners and floor-supported footboard. Its regenerated GLB matches reviewed f415e6fb79c9df9372c5b2ec6cb77c9a305117de3fa8e9c704c87d5c09a6aeb0. Existing W01/hitch geometry is preserved. Geometry checks cover decoded support planes/material ownership and five steering samples; they do not prove occupied safety or historical construction.
+
+Optional canonical sit_drive authoring and named runtime inspection reference existing reconstructed1835 residents Otis Bardwell, Joseph Dufresne and Martin Flynn. Actual canonical seated/clothed export, garment/shoe/seat contact, rein grips and photographic quality remain unverified until the manual CI export and actual render inspection. No production scene population, mounted rider, boarding/riding or anonymous replacement is supplied. All full smoke and portable-human gates remain required before dev merge.
+
+
+**Installed published bench verification (2026-10-19):** The actual published mirror passed the supported-W01 browser probe at1280x800 and390x780, including steering, wheel travel/reset, touch view controls, actualf415GLB hash, all eight declared framing checks, zero page/console/GL errors, and owned browser/server cleanup. This verifies the unoccupied bench study only; named canonical seated clothing/contact remains pending CI.

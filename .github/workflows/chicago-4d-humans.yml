@@ -62,6 +62,10 @@ on:
         description: 'Build and inspect existing residents’ reconstructed 1835 workwear masters (prototype artifacts)'
         type: boolean
         default: false
+      build_seated_driver_study:
+        description: 'Add reconstructed named1835 sit_drive on physical W01 bench; no production promotion'
+        type: boolean
+        default: false
 
 concurrency:
   group: chicago-4d-humans-${{ github.ref }}
@@ -127,7 +131,7 @@ jobs:
   # placements or production promotion: canonical masters and measurements are
   # reviewable artifacts. Existing fixture verification must pass first.
   teamster-studies:
-    if: github.event_name == 'workflow_dispatch' && inputs.build_teamsters
+    if: github.event_name == 'workflow_dispatch' && (inputs.build_teamsters || inputs.build_seated_driver_study)
     needs: humans
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -161,6 +165,14 @@ jobs:
             python tools/human_base_prepare.py --target-recipe "assets/authored/humans/makehuman_hm08/adult_$age.recipe.json" --output "/tmp/prepared_adult_$age.json" > "/tmp/teamster-body-$age.log"
             cmp "assets/authored/humans/makehuman_hm08/prepared_adult_$age.json" "/tmp/prepared_adult_$age.json"
           done
+      - name: Prepare opt-in physical W01 seated study
+        if: inputs.build_seated_driver_study
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          python3 tools/transport/generate_wagon.py --parameters data/transport/studies/wagon-driver-bench.json --output-dir renderers/web/transport/wagon-driver
+          python3 tools/test_human_seated_study.py --vehicle renderers/web/transport/wagon-driver/wagon-w01.json
+          node tools/test_human_seated_runtime.mjs --supported renderers/web/transport/wagon-driver/wagon-w01.glb --baseline renderers/web/transport/wagon/wagon-w01.glb
       - name: Build three canonical masters and export through the portable path
         working-directory: chicago/4d
         env:
@@ -170,13 +182,17 @@ jobs:
           set -euo pipefail
           source generators/blender.pin
           mkdir -p /tmp/teamster-studies
+          sit_args=()
+          if [ "${{ inputs.build_seated_driver_study }}" = "true" ]; then
+            sit_args=(--sit-drive-study data/humans/poses/w01/resident-driver-bindings.json --sit-drive-vehicle renderers/web/transport/wagon-driver/wagon-w01.json)
+          fi
           for variant in bardwell_otis_1835 dufresne_joseph_1835 flynn_martin_1835; do
             master="assets/authored/humans/teamsters/$variant/canonical.blend"
             "$BLENDER_CACHE/$BLENDER_DIR/blender" -b -noaudio --factory-startup --python-exit-code 1 \
               --python tools/human_teamster_blend.py -- \
               --recipe data/humans/recipes/worker_1835.json --variant "$variant" \
               --liberty L418 --output "$master" \
-              --experimental-normal-probes --normal-probe-receipts /tmp/teamster-studies/normal-probes \
+              --experimental-normal-probes --normal-probe-receipts /tmp/teamster-studies/normal-probes "${sit_args[@]}" \
               2>&1 | tee "/tmp/teamster-studies/$variant-build.log"
             bash tools/human_export.sh --master "$master" 2>&1 | tee "/tmp/teamster-studies/$variant-export.log"
           done
@@ -276,6 +292,14 @@ jobs:
             --frame-pair /tmp/teamster-studies/export-evidence/flynn_martin_1835.lod0.raw.glb assets/humans/flynn_martin_1835.lod0.glb 2>&1 | tee /tmp/teamster-studies/inspection.log
           NODE_PATH="$(npm root -g)" node tools/human_teamster.mjs --masters --sole-contact \
             --output /tmp/teamster-studies/source 2>&1 | tee /tmp/teamster-studies/source-inspection.log
+      - name: Inspect actual exported named seated residents on W01
+        if: inputs.build_seated_driver_study
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          NODE_PATH="$(npm root -g)" node tools/human_seated_driver.cjs /tmp/teamster-studies/seated-driver
+          NODE_PATH="$(npm root -g)" node tools/transport/smoke_wagon_driver.cjs . /tmp/teamster-studies/wagon-driver-source
+          NODE_PATH="$(npm root -g)" node tools/transport/smoke_wagon_driver.cjs ../../site/4d /tmp/teamster-studies/wagon-driver-published --published
       - name: Preserve masters, exports and inspection evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -288,6 +312,7 @@ jobs:
             chicago/4d/assets/humans/*_1835.lod*.glb
             chicago/4d/assets/humans/web/*_1835.lod*.glb
             chicago/4d/data/humans/fixture.measure.json
+            chicago/4d/renderers/web/transport/wagon-driver/
             /tmp/teamster-studies/
             /tmp/body-preparation.log
             /tmp/prepared*.json

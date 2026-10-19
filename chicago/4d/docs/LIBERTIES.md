@@ -29522,3 +29522,48 @@ The door exposes closed/open0/70 degree study endpoints. Zero actual triangle-su
 
 
 **Metadata and articulation qualification:** The pre-door project scope quotation is preserved separately with its original branch and explicit non-period origin; the enabled branch now describes reconstructed rigid door/hinge geometry and endpoint transforms. Current model metadata hash is 93d4020036e5c685ce95010fe64b26c55a1561db4517405f0590f7a398253331 (860956 bytes). Corrected checks bind all 424 actual moving triangles to the unique active exported door and compose actual hierarchy transforms at each angle; closed-world shape alone cannot qualify detached geometry. Old closed-mapping/source-posed receipts are retained only as limited historical checkpoints. No continuous/occupant/photographic acceptance or installed-head gate is implied.
+
+
+## Per-subject liberties
+
+### L-k01-1637-south-flank-2781 — 1637 Prairie's south flank: its belt course laid at the photograph's height, its bay's columns plain, and its stack placed by crossing two pictures
+
+**Decision:** the south flank of Jesse Spalding's remodel of the Grosvenor house (T-2781, piece 2
+of T-2756) carries three things the c. 1870 Grosvenor photograph shows. A stone belt course along
+the wall, 2.3-2.5 m and 0.05 m proud, from the front's corner to the canted bay and on behind it to
+the rear range (K01's new `side_belts`). Engaged stone columns on the bay, 0.2 m across, at each
+front angle and on each cheek 0.3 m from the wall, from 3.03 to 6.15 m, each on a square base under
+a square capital (K01's new bay `columns`). And the tall panelled stack behind the south eave, on
+the south wall's cornice at u 6.5, its top at 15.85 m, in place of the stack T-2465 had stood over
+the wing.
+**What is read, not invented.** From the photograph (`glessner_blog_1637_grosvenor_asbuilt_photo`)
+through T-2755's camera: the belt's line and depth (y 712-726 px, a course on the wall with brick
+below it and a shadow under it), the columns' places (x 350-362 and 395-405 px), their foot and the
+capitals' band (y 690 and 505-515), their width (about 12 px), and the stack's place along the wall.
+The stack's place in plan is where the photograph's ray through it (x 295 px) crosses the
+engraving's (`glessner_blog_1637_spalding_remodel_engraving`, x 690 px): u 6.47, v 13.37, on the
+south wall's line. Its top is the engraving's, drawn after the remodel.
+**What is invented.** The belt's height: the camera was fitted with the belt's foot at the
+principal floor (2.3 m), so the photograph places it on the wall and does not measure how high it
+stands; built there, it stands 0.07 m over the wing's string course where the two meet at the front
+corner, a corner no picture shows after the remodel. The columns' form: round shafts on plain square
+bases under plain square capitals, their axes a quarter diameter out of the bay's face; the
+photograph's capitals are carved and its shafts may be fluted or banded, which its grain does not
+show. The east cheek's two columns stand by symmetry, outside the frame. The stack's 1.2 m breadth
+along the wall, read from both pictures' widths, and its sunk panels, the north stacks'.
+**What is left out, and open for T-2840:** the capitals' and consoles'
+carving, the frieze's ovals and the arches over the lights; the cheeks' lights, which K08 cannot yet
+cut in a 1.0 m cheek; the shutters at the window over the bay; and the front light's place, which
+stands 15-20 px left of the photograph's.
+**How to resolve:** a nearer photograph of the south flank, or the house's drawings.
+**Ticket:** T-2839 (piece 1 of T-2781, itself piece 2 of T-2756).
+**Recorded:** 2026-10-19 (T-2839).
+
+
+## T-2804: named resident seated-driver and supported W01 studies (2026-10-19)
+
+This is an additive seated-study declaration under existing L418. Existing reconstructed 1835 residents Otis Bardwell (`rc_bardwell_otis`), Joseph Dufresne (`rc_dufresne_joseph`) and Martin Flynn (`rc_flynn_martin`) retain their record identity, date and reconstruction basis. The static seated pose, age/body fit, hand targets and staged driving action are original engineering reconstructions, not portraits, recorded driving assignments or observed actions. No new anonymous person or biography is introduced. The optional canonical `sit_drive` authoring uses the existing portable export and HumanActor; actual exported garment/bench/shoe contact and palm/rein grip require inspection, and source-body pose calculations alone do not establish them.
+
+A separate W01 bench variant adds an original removable timber seat, retaining cleats, bearing plates, bolts, footboard and four floor supports. Its support-plane datum is (0,1.58,0.65)m; the footboard top is1.12m. These chosen dimensions and construction are reconstructed to support the selected pose, not attested 1835 joinery or load-tested hardware. Fasteners intentionally enter timber. The ordinary W01 wagon and hitch remain separate. Unoccupied geometry/support samples do not establish occupant collision clearance, strength, continuous movement, historical construction, photographic quality or usable boarding/riding.
+
+The visible bench study is a development reconstruction. No photograph, ownership, manufacturer or historical likeness is asserted; all earlier source rights restrictions remain.

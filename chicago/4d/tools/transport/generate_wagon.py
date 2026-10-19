@@ -122,6 +122,39 @@ for parent,r,label in [(rear,RR,'rear'),(front,RF,'front')]:
 tongue=node('vehicle_tongue',front,t=(0,0,.35));box('tongue_timber',tongue,(.055,.055,TL),(0,0,TL/2),1)
 for z in [.10,.30,TL-.10]:box('tongue_strap_'+str(z),tongue,(.062,.063,.025),(0,0,z),4)
 hitch=node('vehicle_hitch_team',tongue,t=(0,0,TL));node('vehicle_hitch_single',front,t=(0,0,.35));node('vehicle_seat_driver',body,t=(0,1.15,1.10));node('vehicle_seat_passenger_01',body,t=(0,1.15,-.45));node('vehicle_board_left',body,t=(.85,0,.5));node('vehicle_board_right',body,t=(-.85,0,.5));node('vehicle_camera_ride',body,t=(0,1.8,.2));node('vehicle_collision',root)
+# Opt-in reconstructed furniture; baseline sockets/geometry remain untouched.
+furniture=None
+if params.get('driver_furniture'):
+ f=params['driver_furniture']
+ if f.get('variant')!='removable_bench_study':raise ValueError('unknown driver furniture variant')
+ for key in ['seat_width_m','seat_depth_m','seat_thickness_m','footboard_width_m','footboard_depth_m','footboard_thickness_m','footboard_top_m']:
+  if not isinstance(f.get(key),(int,float)) or not math.isfinite(f[key]) or f[key]<=0:raise ValueError('invalid '+key)
+ for key in ['seat_z_m','footboard_z_m']:
+  if not isinstance(f.get(key),(int,float)) or not math.isfinite(f[key]):raise ValueError('invalid '+key)
+ sw,sd,st=f['seat_width_m'],f['seat_depth_m'],f['seat_thickness_m'];fw,fd,ft=f['footboard_width_m'],f['footboard_depth_m'],f['footboard_thickness_m']
+ sz,fz=f['seat_z_m'],f['footboard_z_m'];rail_top=BED+H+.03;seat_top=rail_top+st;fbtop=f['footboard_top_m'];bearing=.055
+ if not(sw>=W+.055 and fw<W-.035 and fd/2+abs(fz)<L/2-.0175 and abs(sz)+sd/2<L/2 and BED<fbtop-ft<rail_top):raise ValueError('furniture outside supported box envelope')
+ parts=[]
+ def part(name,size,center,material=1,role='timber'):
+  box(name,body,size,center,material);parts.append({'name':name,'role':role,'size_m':list(size),'center_m':list(center),'min_m':[c-s/2 for c,s in zip(center,size)],'max_m':[c+s/2 for c,s in zip(center,size)]})
+ part('driver_bench_plank',(sw,st,sd),(0,rail_top+st/2,sz))
+ for side in [-1,1]:
+  # Inboard cleat touches rail inner face and plank underside, restraining lateral travel.
+  part('driver_bench_cleat_'+str(side),(.045,.045,sd),(side*(W/2-.055/2-.045/2),rail_top-.045/2,sz))
+  # Two reconstructed through-bolts with upper/lower bearing plates per rail.
+  for z in [sz-sd*.30,sz+sd*.30]:
+   part('driver_bench_bolt_'+str(side)+'_'+str(z),(.012,st+.055,.012),(side*W/2,rail_top+(st-.055)/2,z),4,'fastener_intentional_intersection')
+   for y in [seat_top+.003,rail_top-.043]:part('driver_bench_plate_'+str(side)+'_'+str(z)+'_'+str(y),(.045,.006,.035),(side*W/2,y,z),4,'fastener_intentional_intersection')
+ part('driver_footboard',(fw,ft,fd),(0,fbtop-ft/2,fz))
+ for side in [-1,1]:
+  for z in [fz-fd*.23,fz+fd*.23]:
+   height=fbtop-ft-BED
+   part('driver_footboard_block_'+str(side)+'_'+str(z),(.07,height,.07),(side*(fw/2-.10),BED+height/2,z))
+ furniture={'variant':f['variant'],'grade':'reconstructed','historical_attestation':False,'note':'Original engineering study; no source-attested1835 bench dimensions or strength/occupant acceptance','parts':parts,'seat_surface_m':[0,seat_top,sz],'footboard_top_m':fbtop,'footboard_bounds_xz_m':[-fw/2,fw/2,fz-fd/2,fz+fd/2],'contacts':'Bench bottom rests on existing rail tops; blocks connect floor to board underside. Fasteners intentionally intersect timber; no strength simulation.'}
+ for n in nodes:
+  if n['name']=='vehicle_seat_driver':n['translation']=[0,seat_top,sz]
+ node('vehicle_driver_foot_left',body,t=(.18,fbtop,fz-.08));node('vehicle_driver_foot_right',body,t=(-.18,fbtop,fz-.08))
+
 # Merge by material inside each articulation frame, retaining wheel/steer/tongue pivots.
 def rotate(v,q):
  x,y,z,w=q;vx,vy,vz=v;tx=2*(y*vz-z*vy);ty=2*(z*vx-x*vz);tz=2*(x*vy-y*vx)
@@ -148,6 +181,11 @@ sidecar={'asset_id':'wagon_w01_prototype','status':'engineering prototype; not p
 
 if refined:
  sidecar['wheel_refinement']={'grade':'reconstructed','historical_match':False,'spoke_sections_m':{'hub':[.035,.032],'felloe':[.022,.022]},'spoke_radial_stations':'original .08m to radius-.07m unchanged','board_chamfer_m':.0012,'note':'Original octagonal taper and restrained edge/material response study; no source-attested joinery or photographic match'}
+
+if furniture:
+ sidecar['asset_id']='wagon_w01_driver_bench_study'
+ sidecar['driver_furniture']=furniture
+ sidecar['socket_policy']='Bench study driver seat and foot surface sockets reflect physical reconstructed furniture; remaining sockets retain proposed semantics'
 
 # Discard surface placeholders left by material batching; retain sockets and pivots.
 surface_nodes={entry[0] for entry in geometry}
