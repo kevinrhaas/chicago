@@ -29259,6 +29259,28 @@ fallen trees or the vines, or a plate that draws them.
 **Ticket:** T-2810.
 **Recorded:** 2026-10-19 (T-2810).
 
+### L-far-sward-2783 — The open prairie past the grass cards is painted as sward, and a ring of cheap cards carries the grass out to it
+
+**Decision:** past the dealt grass, the ground of every zone whose record has graminoids is
+tinted toward that zone's own sward colour (its `matColor`, weighted by its `matrixShare`), from the
+near tuft ring's radius to the mid ring's edge, and streaked with the same grain the near sward is
+cut from, laid at 18 m and turned off the lattice. The tint is a 16 m raster of the zone map, blurred
+one cell, so it follows the zones and never a straight line; it skips water, the z10 town turf and
+any zone with no grass, and it thins on wet ground. A third band of the far card lattice (2.3 m cells
+at full, 3.0 at balanced, 3.8 on phone; 22-88 m, 16-64 m and 12-44 m) stands narrower cards
+(1.0-1.9 m wide) of the same sward between the near ring and the far band, with no seed heads, in the
+far band's draw call. The 1812 and 1835 open prairie take the same raster from the same zones.
+**What is read, not invented:** each zone's sward colour, its graminoid share and its extent, from
+the zone records as the near ring already reads them (L137 for the far band).
+**What is invented:** the tint's strength (0.82, 0.88, 0.64 of the sward colour), the streak's
+strength and length, the 16 m raster, the ring radii and the card lattice. They are tuned by eye
+against the near ring so the edge between dealt grass and painted ground does not read as a line;
+no source describes the look of a prairie at 30-300 m, beyond that it was grass.
+**How to resolve:** a period painting or description of the open prairie's colour and texture at
+distance, or a measured reflectance of a tallgrass sward in late June.
+**Ticket:** T-2783.
+**Recorded:** 2026-10-19 (T-2783).
+
 ### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
 
 **Decision:** Five 1904 walking jaunts — the famous names, the architects, and three style walks
