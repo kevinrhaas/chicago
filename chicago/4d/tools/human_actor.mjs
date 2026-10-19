@@ -11,7 +11,7 @@
  * and by detail tier with hysteresis, what a far figure is spared (face, shadow, mixer, and
  * beyond DRAW_M every per-frame update), pick / select / hover / approach / leave and the
  * resident-card `open`, disposal back to the renderer's memory baseline, and the scene
- * path's refusals (no layer, withheld, L1, unknown person, review, one person twice).
+ * path's refusals (no layer, withheld, L1, unknown person, dropped review metadata, one person twice).
  *
  * The other half of the scene-year gate is the walkthrough's own: tools/smoke_renderer.mjs
  * holds every scene it boots to a mounted, empty human layer and no request under humans/.

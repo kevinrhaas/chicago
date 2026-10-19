@@ -1,0 +1,6 @@
+{
+  "accepted": false,
+  "failure": "Initial proposal added carriage-c02 to default four-model list; exact old/new output dictionary assertion failed.",
+  "corrected": "Default remains wagon, carriage, horse, harness; C02 only explicit --only carriage-c02.",
+  "scope": "Outside proposal only; never applied to app."
+}

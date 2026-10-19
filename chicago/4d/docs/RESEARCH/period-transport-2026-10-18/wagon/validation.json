@@ -1,0 +1,51 @@
+{
+  "glb": {
+    "bytes": 678852,
+    "nodes": 177,
+    "meshes": 22,
+    "triangles": 9000,
+    "required_pivots_unique": true
+  },
+  "browser": [
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "page_errors": [],
+      "controls": "travel, turn, unequal wheel travel, reset, play passed",
+      "with_shadows": {
+        "drawCalls": 46,
+        "triangles": 18002,
+        "width": 1280,
+        "height": 800
+      },
+      "without_shadows": {
+        "drawCalls": 24,
+        "triangles": 9002,
+        "width": 1280,
+        "height": 800
+      }
+    },
+    {
+      "viewport": [
+        390,
+        780
+      ],
+      "page_errors": [],
+      "controls": "travel, turn, unequal wheel travel, reset, play passed",
+      "with_shadows": {
+        "drawCalls": 46,
+        "triangles": 18002,
+        "width": 390,
+        "height": 445
+      },
+      "without_shadows": {
+        "drawCalls": 24,
+        "triangles": 9002,
+        "width": 390,
+        "height": 445
+      }
+    }
+  ]
+}

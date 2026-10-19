@@ -1,4 +1,33 @@
 export const CHANGELOG = [ // newest first
+  { v: 2082, ts: '2026-10-19T22:37:47.305Z', date: 'Oct 19, 2026, 5:37 PM CT', title: 'Glessner\'s Prairie Avenue windows moved to the survey drawing', kind: 'change',
+    items: [
+      'The Glessner House\'s first-floor windows at the 18th Street end, and the three windows above them, move up to 0.2 m north, to where the 1965 survey elevation draws them.',
+      'All four first-floor windows on Prairie Avenue are a little wider, about 1.35 m, as the drawing shows them. The street photographs only looked narrower because they look past the deep stone reveals at an angle.',
+      'The 1880s street photograph is now lined up on the windows themselves, and its view of the house matches the picture more closely.',
+    ] },
+  { v: 2081, ts: '2026-10-19T22:12:56.857Z', date: 'Oct 19, 2026, 5:12 PM CT', title: '1625 Prairie\'s oriel gets its side window and its apron', kind: 'change',
+    items: [
+      'In 1904, the small oriel on the south side of 1625 Prairie now has the narrow window in its west side that the 1890 photograph shows most clearly, about a foot across.',
+      'Under the oriel, the stepped stone brackets are gone. A flat apron now runs down to a moulded foot about 7.5 ft above the ground, as the photograph draws it.',
+      'Both are measured from the 1890 photograph through its matched camera. The apron is still built in the oriel\'s pale stone, where the photograph shows it darker.',
+    ] },
+  { v: 2080, ts: '2026-10-19T22:12:56.857Z', date: 'Oct 19, 2026, 5:12 PM CT', title: 'Enclosed carriage study', kind: 'feature',
+    items: [
+      'A separate carriage study adds a roofed cabin and a door that opens and closes.',
+      'This is a 1904 development reconstruction. Historical details, photographic materials and boarding remain unfinished.',
+    ] },
+  { v: 2079, ts: '2026-10-19T22:12:56.857Z', date: 'Oct 19, 2026, 5:12 PM CT', title: 'First moving transport studies', kind: 'feature',
+    items: [
+      'A development collection shows original wagon, carriage, horse and light-harness studies with articulated motion, including a separate wagon with a supported driver bench.',
+      'Wagon spokes taper, carriage cushions have rounded edges, and the horse has a cleaner neck join and a grounded trot study.',
+      'The harness breast strap now curves outside the horse\'s chest, with shorter supports joining the saddle pad.',
+      'These are early reconstructions. Historical comparisons, photographic surfaces, fitted gear, town traffic and riding remain in progress.',
+    ] },
+  { v: 2078, ts: '2026-10-19T22:12:56.857Z', date: 'Oct 19, 2026, 5:12 PM CT', title: 'Resident transport adults: period workwear authoring begins', kind: 'feature',
+    items: [
+      'Prepared a licensed adult base and resident-based 1835 workwear studies for drivers, riders and street figures. Canonical models and photographic detail remain under review.',
+      'Updated the human rendering policy to the owner\'s October rulings while retaining historical flags, source provenance and scene dates.',
+    ] },
   { v: 2077, ts: '2026-10-19T21:21:50.989Z', date: 'Oct 19, 2026, 4:21 PM CT', title: 'The Keith house\'s loggia gains its second row of columns', kind: 'improvement',
     items: [
       'The 1888 photograph shows a second pair of columns behind each front pair of the north loggia at 1808 Prairie. Both pairs are now built, standing against the house wall.',

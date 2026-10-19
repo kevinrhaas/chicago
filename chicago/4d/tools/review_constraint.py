@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
 """The one reading of `review_required`, shared by the census and the compiler.
 
-AGENTS.md's standing constraint has exactly one mechanism — `review_required: true`
-blocks a scene from being marked `released` — and `measure_review_constraint.py`
-assertion 6 holds that a record carrying the flag must also say WHY, in its own
-prose, wherever in the record that falls. The sentence it finds is the honest
-answer to "what is this building held for", and T-0268 puts that sentence on the
-visitor's card.
+Under T-2672 and the owner's 2026-10-16 ruling, review_required is an explanatory
+annotation, not a release block. measure_review_constraint.py still holds that a
+flagged record says WHY in its own prose, and T-0268 carries that reason to its card.
 
 Which means two programs now need the same reading: the census, which judges it,
 and `compile_scene.py`, which carries it to the browser. Two copies of a regex

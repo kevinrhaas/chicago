@@ -1,0 +1,23 @@
+{
+  "served_source_hashes": {
+    "tools/transport/smoke_carriage_c02.cjs": "62260fb0c914d7bee39f5ae5c79cfb51c47ae7bc01c1e94413ccd0dda753ccfe",
+    "renderers/web/transport/carriage-c02/index.html": "d69f61aa286d4b792e78e38d3e47846de5674b7497e9a170b5cd32e9d22e5e7d",
+    "renderers/web/transport/carriage-c02/demo.js": "8c132b5f969135842b64dc4b76d993bb7624234568a96d45ba8c964b8105b947",
+    "renderers/web/transport/carriage-c02/carriage-c02.glb": "ddda1b89b330c889d69acaf55b79c4a114d193ff140e9e27c11cf74fc7f16eb6",
+    "renderers/web/vendor/three-0.185.1/three.module.js": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+    "renderers/web/vendor/three-0.185.1/three.core.js": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+    "renderers/web/vendor/three-0.185.1/addons/loaders/GLTFLoader.js": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2"
+  },
+  "original_package_sha256": "a185e7cf0105a04b772d5f690cebb2b645f7557a00ad262bd97c2f8405849aab",
+  "visual_inspection": "All eight actual images inspected in contact sheet: whole vehicle including shafts/wheels fits both viewports below header; closed cabin coherent, open door exposes real dark cabin aperture; matching camera/light per pair. Mobile vehicle smaller due full shaft-bound framing. Flat study materials, not photographic acceptance.",
+  "orphan_negative": {
+    "node_index": 31,
+    "node_name": "surface_1_1",
+    "returncode": 1,
+    "fixture_sha256": "d4e3923addaabe47d5fc2fbf8b93490b63bb00959bfa741e16a04b06a0345ea0",
+    "failure_log": "orphan-negative.log",
+    "scope": "Unreachable mesh cannot satisfy actual selected-scene triangle mapping; expected nonzero exit before SAT."
+  },
+  "browser_and_server_closed": true,
+  "new_geometry_changes": false
+}

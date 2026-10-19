@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "path": "tools/human_fixture.html",
+      "sha256": "b258e318d84e6ff14feb9204d794192373ec24535de1d873c13fdec00687278d"
+    },
+    {
+      "path": "tools/test_human_morph_measure.mjs",
+      "sha256": "ff43b53ec94800fd26bc80eeee70c516507a6ad1cf2d29e7ab47a7cbc0d5c158"
+    },
+    {
+      "path": "tools/human_fixture.mjs",
+      "sha256": "48c1666963013db003dd78dd9435541ac2d8a68cbbfcebb0d5b38a14295f3473"
+    },
+    {
+      "path": "data/humans/contract.json",
+      "sha256": "1821bd833d036d24d2cfc65827139fe62a8fcf58d85f91b9e5581dcc389e2bb8"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "Viewer-only fix, sourceproof; no browser/gait/phase changes",
+  "old_sha256": "b33d0b8a60dbd9b7f0b2ed2160619b654ddd1659cd62e3ee645bdcb0127167f7",
+  "new_sha256": "047e2ea0d6da9318d3c5850cda572b76370a1d6a74bf57a8da7f2444b056b47d",
+  "walk_loop_artifact_m": 0.16129032258064502,
+  "trot_loop_artifact_m": 0.05769230769230771,
+  "behavior": "Accumulate only explicit running travel-grid distance; pause holds; clip/scrub/checkbox/preference reset origin only. Reducedmotion freezes grid, gait/posephase unchanged.",
+  "app_writes": false,
+  "actual_source_control_cases": 7,
+  "actual_source_tests": "PASS"
+}

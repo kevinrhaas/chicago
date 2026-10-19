@@ -1,0 +1,32 @@
+{
+  "format": "chicago4d_human_graphical_target_recipe_v1",
+  "targets": [
+    {
+      "path": "makehuman/data/targets/macrodetails/caucasian-male-young.target",
+      "sha256": "70e228ba7164737dae664454394536fc5935fa48d333c1a97d77e2dc6eacc5f5",
+      "coefficient": 0.3333333333333333
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/asian-male-young.target",
+      "sha256": "ed2e8c191cb6b87b4a2d97c80486acb2604fa549316c7aa2a738a5d5a14334dc",
+      "coefficient": 0.3333333333333333
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/african-male-young.target",
+      "sha256": "894abc1fbb3d28543a51fef16f89d5d4bdf9aa2e1534413339811a3d47818b7d",
+      "coefficient": 0.3333333333333333
+    }
+  ],
+  "phenotype": {
+    "sex": "male engineering variant",
+    "chosen_age_years": 25,
+    "age_band_years": [
+      20,
+      29
+    ],
+    "ancestry_status": "unattested; equal technical shape-category blend is an authoring liberty, not resident ethnicity",
+    "age_status": "chosen within existing reconstructed age band; no birth year or precise age asserted",
+    "likeness_status": "component study; not attested likeness"
+  },
+  "basis": "Sparse CC0 graphical target deltas applied to base and all helper vertices before skeleton derivation; no upstream program logic copied"
+}

@@ -1,0 +1,6226 @@
+{
+  "scope": "ActualGLB decoded skin-bindpose, wholeactivehorse versus4changedgearparts; no cachedgeometry/green, no animated/continuous/inside/pressureacceptance",
+  "horse_sha256": "89b048b7cda748e6f3a7111aa8e4f3198b01fabf6015cae644c78ed02d385bc6",
+  "gear_sha256": "b4a7318053e8508617a24fff64f02beb7eee77684db689dc04771d209a54fa8b",
+  "baseline": {
+    "active_part_triangles": {
+      "breastcollar": 68,
+      "breastcollar_support_l": 28,
+      "breastcollar_support_r": 28,
+      "harness_saddle_pad": 180
+    },
+    "active_horse_triangles": 14172,
+    "surface_pairs": 100,
+    "proper_crossings": 100,
+    "pairs": [
+      {
+        "part": "breastcollar",
+        "gear_triangle": 12,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 240,
+        "proper": {
+          "point_m": [
+            0.23152954463048714,
+            1.3465200446379915,
+            0.32963490838296616
+          ],
+          "edge_signed_distances_m": [
+            0.005118856418276498,
+            -0.0020209811454705937
+          ],
+          "face_barycentric": [
+            0.056326878611487136,
+            0.808676522522107,
+            0.1349965988664059
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 12,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 243,
+        "proper": {
+          "point_m": [
+            0.23240748236649958,
+            1.3486574337281139,
+            0.32470525349904283
+          ],
+          "edge_signed_distances_m": [
+            -0.019493995491844312,
+            0.006162164445854849
+          ],
+          "face_barycentric": [
+            0.886845186910765,
+            0.019433648973361233,
+            0.09372116411587382
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 13,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 240,
+        "proper": {
+          "point_m": [
+            0.23152954463048714,
+            1.3465200446379915,
+            0.32963490838296616
+          ],
+          "edge_signed_distances_m": [
+            -0.0020209811454705937,
+            0.005118856418276498
+          ],
+          "face_barycentric": [
+            0.056326878611487136,
+            0.808676522522107,
+            0.1349965988664059
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 13,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 243,
+        "proper": {
+          "point_m": [
+            0.2324074823664996,
+            1.3486574337281139,
+            0.3247052534990429
+          ],
+          "edge_signed_distances_m": [
+            0.006162164445854849,
+            -0.019493995491844312
+          ],
+          "face_barycentric": [
+            0.886845186910765,
+            0.019433648973360883,
+            0.09372116411587417
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 20,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 284,
+        "proper": {
+          "point_m": [
+            0.17839270053733675,
+            1.3345372088857659,
+            0.4805225957357426
+          ],
+          "edge_signed_distances_m": [
+            0.013788360080380797,
+            -0.014207898620682523
+          ],
+          "face_barycentric": [
+            0.023471652957516964,
+            0.1676859622938876,
+            0.8088423847485955
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 20,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 287,
+        "proper": {
+          "point_m": [
+            0.18010934015564267,
+            1.3358830389239236,
+            0.4769182870245128
+          ],
+          "edge_signed_distances_m": [
+            -0.010972583453845122,
+            0.01017592367566222
+          ],
+          "face_barycentric": [
+            0.2029906440698246,
+            0.03729680779483819,
+            0.7597125481353372
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 21,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 284,
+        "proper": {
+          "point_m": [
+            0.17839270053733675,
+            1.3345372088857659,
+            0.4805225957357426
+          ],
+          "edge_signed_distances_m": [
+            -0.014207898620682523,
+            0.013788360080380797
+          ],
+          "face_barycentric": [
+            0.023471652957516964,
+            0.1676859622938876,
+            0.8088423847485955
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 21,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 287,
+        "proper": {
+          "point_m": [
+            0.18010934015564267,
+            1.3358830389239236,
+            0.4769182870245128
+          ],
+          "edge_signed_distances_m": [
+            0.01017592367566222,
+            -0.010972583453845122
+          ],
+          "face_barycentric": [
+            0.2029906440698246,
+            0.03729680779483819,
+            0.7597125481353372
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 24,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 324,
+        "proper": {
+          "point_m": [
+            0.02204802575229777,
+            1.3488419370089917,
+            0.6942550346587825
+          ],
+          "edge_signed_distances_m": [
+            -0.08804776786086567,
+            0.014005114355398201
+          ],
+          "face_barycentric": [
+            0.37112787103377387,
+            0.08584136114339891,
+            0.5430307678228272
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 24,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 330,
+        "proper": {
+          "point_m": [
+            0.12647410643030463,
+            1.3545232021480158,
+            0.5931387507904448
+          ],
+          "edge_signed_distances_m": [
+            0.013670357972635865,
+            -0.050574539553344865
+          ],
+          "face_barycentric": [
+            0.47006656754322373,
+            0.2975263863094197,
+            0.23240704614735655
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 24,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 331,
+        "proper": {
+          "point_m": [
+            0.11895109606723146,
+            1.316415155324253,
+            0.5885088613653835
+          ],
+          "edge_signed_distances_m": [
+            -0.05734244031980064,
+            0.01617338624314625
+          ],
+          "face_barycentric": [
+            0.8634501132044294,
+            0.1261002815784951,
+            0.010449605217075547
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 25,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 324,
+        "proper": {
+          "point_m": [
+            0.025990138480853228,
+            1.3408194414817933,
+            0.6878346264882913
+          ],
+          "edge_signed_distances_m": [
+            -0.06817205681195701,
+            0.014005114355398201
+          ],
+          "face_barycentric": [
+            0.29037044158830116,
+            0.2041585818544526,
+            0.5054709765572463
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 25,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 330,
+        "proper": {
+          "point_m": [
+            0.12079434520192649,
+            1.307397453622856,
+            0.5806028492578003
+          ],
+          "edge_signed_distances_m": [
+            -0.05445330036619602,
+            0.014293220556150243
+          ],
+          "face_barycentric": [
+            0.8601683059126286,
+            0.047700374311817006,
+            0.09213131977555442
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 25,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 331,
+        "proper": {
+          "point_m": [
+            0.11895109606723146,
+            1.316415155324253,
+            0.5885088613653835
+          ],
+          "edge_signed_distances_m": [
+            0.01617338624314625,
+            -0.05734244031980064
+          ],
+          "face_barycentric": [
+            0.8634501132044294,
+            0.1261002815784951,
+            0.010449605217075547
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 26,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 325,
+        "proper": {
+          "point_m": [
+            0.009130846566254883,
+            1.352561213197927,
+            0.6999489722810618
+          ],
+          "edge_signed_distances_m": [
+            -0.09042656475203287,
+            0.005682213300073866
+          ],
+          "face_barycentric": [
+            0.4308837464020359,
+            0.271376018561603,
+            0.2977402350363611
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 26,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 330,
+        "proper": {
+          "point_m": [
+            0.13970310217825493,
+            1.3575710316808345,
+            0.5699889471873877
+          ],
+          "edge_signed_distances_m": [
+            0.005762600409225158,
+            -0.05463265150896469
+          ],
+          "face_barycentric": [
+            0.06681659780619592,
+            0.7681740592702481,
+            0.165009342923556
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 27,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 324,
+        "proper": {
+          "point_m": [
+            0.02204802575229779,
+            1.3488419370089915,
+            0.6942550346587824
+          ],
+          "edge_signed_distances_m": [
+            0.014005114355398201,
+            -0.08804776786086567
+          ],
+          "face_barycentric": [
+            0.37112787103377376,
+            0.08584136114339995,
+            0.5430307678228263
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 27,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 325,
+        "proper": {
+          "point_m": [
+            0.010132890200225904,
+            1.3524740216761013,
+            0.6996394767316274
+          ],
+          "edge_signed_distances_m": [
+            -0.08441109162203207,
+            0.005682213300073866
+          ],
+          "face_barycentric": [
+            0.43205701210914677,
+            0.3011575519428613,
+            0.2667854359479919
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 27,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 330,
+        "proper": {
+          "point_m": [
+            0.12850521787902283,
+            1.3555480481278488,
+            0.5898576296705517
+          ],
+          "edge_signed_distances_m": [
+            0.013670357972635865,
+            -0.05463265150896469
+          ],
+          "face_barycentric": [
+            0.4055164376350434,
+            0.3703676703366719,
+            0.22411589202828475
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 28,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 325,
+        "proper": {
+          "point_m": [
+            0.010882667569470265,
+            1.311031316476786,
+            0.6706235826385111
+          ],
+          "edge_signed_distances_m": [
+            -0.07069549692904978,
+            0.005682214942163344
+          ],
+          "face_barycentric": [
+            0.6128369098584212,
+            0.32344153139609716,
+            0.06372155874548152
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 28,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 330,
+        "proper": {
+          "point_m": [
+            0.13188679772128067,
+            1.3095385411583602,
+            0.5609885148076819
+          ],
+          "edge_signed_distances_m": [
+            0.006385436051493455,
+            -0.05851141232181584
+          ],
+          "face_barycentric": [
+            0.5240079511278323,
+            0.4419042432691124,
+            0.03408780560305538
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 29,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 325,
+        "proper": {
+          "point_m": [
+            0.0091308490489495,
+            1.3139426164941614,
+            0.6730838687464544
+          ],
+          "edge_signed_distances_m": [
+            -0.09042656475203287,
+            0.005682214942163344
+          ],
+          "face_barycentric": [
+            0.5987906766357614,
+            0.27137609234925764,
+            0.12983323101498107
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 29,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 330,
+        "proper": {
+          "point_m": [
+            0.1405923644388505,
+            1.3539251612762686,
+            0.5665438625682147
+          ],
+          "edge_signed_distances_m": [
+            0.005762600409225158,
+            -0.05851141232181584
+          ],
+          "face_barycentric": [
+            0.05794526961931851,
+            0.7957975175692922,
+            0.14625721281138931
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 30,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 324,
+        "proper": {
+          "point_m": [
+            0.02579009070748141,
+            1.30676798950182,
+            0.6643238795485648
+          ],
+          "edge_signed_distances_m": [
+            -0.06817205681195701,
+            0.013875375403798204
+          ],
+          "face_barycentric": [
+            0.3296192208503581,
+            0.3123939951656213,
+            0.3579867839840206
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 30,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 330,
+        "proper": {
+          "point_m": [
+            0.12079434520192646,
+            1.3073974536228559,
+            0.5806028492578003
+          ],
+          "edge_signed_distances_m": [
+            0.014293220556150243,
+            -0.05445330036619602
+          ],
+          "face_barycentric": [
+            0.860168305912631,
+            0.04770037431181505,
+            0.09213131977555392
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 31,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 324,
+        "proper": {
+          "point_m": [
+            0.023076342893505717,
+            1.3070331270073272,
+            0.6651068021401536
+          ],
+          "edge_signed_distances_m": [
+            -0.07407994343289728,
+            0.013875375403798204
+          ],
+          "face_barycentric": [
+            0.3905757187637787,
+            0.24837469369481202,
+            0.36104958754140926
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 31,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 325,
+        "proper": {
+          "point_m": [
+            0.01088266756947027,
+            1.311031316476786,
+            0.6706235826385111
+          ],
+          "edge_signed_distances_m": [
+            0.005682214942163344,
+            -0.07069549692904978
+          ],
+          "face_barycentric": [
+            0.6128369098584212,
+            0.32344153139609716,
+            0.06372155874548152
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 31,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 330,
+        "proper": {
+          "point_m": [
+            0.13092674487142147,
+            1.3090708944499627,
+            0.5625476410878627
+          ],
+          "edge_signed_distances_m": [
+            0.006385436051493455,
+            -0.05445330036619602
+          ],
+          "face_barycentric": [
+            0.554439676432713,
+            0.40749156924221547,
+            0.038068754325071626
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 32,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 316,
+        "proper": {
+          "point_m": [
+            -0.1277002810140732,
+            1.3545899117561127,
+            0.591951439953157
+          ],
+          "edge_signed_distances_m": [
+            -0.051987664299691747,
+            0.013418213084658834
+          ],
+          "face_barycentric": [
+            0.5168173937701186,
+            0.2544229976400311,
+            0.22875960858985017
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 32,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 322,
+        "proper": {
+          "point_m": [
+            -0.021424395341932734,
+            1.3132361834639146,
+            0.6701132905211652
+          ],
+          "edge_signed_distances_m": [
+            -0.08823176184435608,
+            0.013576335866981757
+          ],
+          "face_barycentric": [
+            0.48692652991531893,
+            0.12284770349816386,
+            0.3902257665865172
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 32,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 323,
+        "proper": {
+          "point_m": [
+            -0.021473629215452348,
+            1.348810687162214,
+            0.6948112256303821
+          ],
+          "edge_signed_distances_m": [
+            0.013132796811914638,
+            -0.08512343350146938
+          ],
+          "face_barycentric": [
+            0.45526059668210256,
+            0.5018668372319739,
+            0.042872566085923526
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 33,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 316,
+        "proper": {
+          "point_m": [
+            -0.12937606788748632,
+            1.346688641911979,
+            0.5847688107814464
+          ],
+          "edge_signed_distances_m": [
+            -0.05549123872822483,
+            0.013418213084658834
+          ],
+          "face_barycentric": [
+            0.5372468501695467,
+            0.2737280411770991,
+            0.18902510865335428
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 33,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 322,
+        "proper": {
+          "point_m": [
+            -0.021424395341932738,
+            1.3132361834639148,
+            0.6701132905211652
+          ],
+          "edge_signed_distances_m": [
+            0.013576335866981757,
+            -0.08823176184435608
+          ],
+          "face_barycentric": [
+            0.48692652991531954,
+            0.12284770349816261,
+            0.3902257665865178
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 34,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 317,
+        "proper": {
+          "point_m": [
+            -0.14009029518265212,
+            1.3575858875677977,
+            0.5696035696634129
+          ],
+          "edge_signed_distances_m": [
+            -0.06195542985398369,
+            0.006345700696445239
+          ],
+          "face_barycentric": [
+            0.8361890027665072,
+            0.07064321373521178,
+            0.093167783498281
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 34,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 322,
+        "proper": {
+          "point_m": [
+            -0.008825361696453884,
+            1.3525494923025514,
+            0.7002530247856235
+          ],
+          "edge_signed_distances_m": [
+            0.005705486543958865,
+            -0.09413731077905808
+          ],
+          "face_barycentric": [
+            0.2005798846369763,
+            0.22935839400705058,
+            0.5700617213559731
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 35,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 316,
+        "proper": {
+          "point_m": [
+            -0.1277002810140732,
+            1.3545899117561127,
+            0.591951439953157
+          ],
+          "edge_signed_distances_m": [
+            0.013418213084658834,
+            -0.051987664299691747
+          ],
+          "face_barycentric": [
+            0.5168173937701186,
+            0.2544229976400311,
+            0.22875960858985017
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 35,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 317,
+        "proper": {
+          "point_m": [
+            -0.13925734764166617,
+            1.3571048445919438,
+            0.571078178400876
+          ],
+          "edge_signed_distances_m": [
+            -0.058208024283393334,
+            0.006345700696445239
+          ],
+          "face_barycentric": [
+            0.8325063055691456,
+            0.10478624656518958,
+            0.06270744786566486
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 35,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 322,
+        "proper": {
+          "point_m": [
+            -0.019465625624631958,
+            1.3489650950620926,
+            0.6954021495725214
+          ],
+          "edge_signed_distances_m": [
+            0.01357633421816661,
+            -0.09413731077905808
+          ],
+          "face_barycentric": [
+            0.4424082634192885,
+            0.01063787982523165,
+            0.5469538567554798
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 35,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 323,
+        "proper": {
+          "point_m": [
+            -0.021473629215452334,
+            1.348810687162214,
+            0.6948112256303821
+          ],
+          "edge_signed_distances_m": [
+            -0.08512343350146938,
+            0.013132796811914638
+          ],
+          "face_barycentric": [
+            0.45526059668210256,
+            0.5018668372319739,
+            0.042872566085923526
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 36,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 316,
+        "proper": {
+          "point_m": [
+            -0.13204919672343432,
+            1.3095365377125123,
+            0.5608413741638507
+          ],
+          "edge_signed_distances_m": [
+            -0.05953370670366366,
+            0.006415793519397944
+          ],
+          "face_barycentric": [
+            0.4734864399289538,
+            0.49289962698825457,
+            0.03361393308279157
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 36,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 322,
+        "proper": {
+          "point_m": [
+            -0.010451486726134007,
+            1.311036635767292,
+            0.6710142514607009
+          ],
+          "edge_signed_distances_m": [
+            0.005705488192774026,
+            -0.07414895512753955
+          ],
+          "face_barycentric": [
+            0.23753791333619723,
+            0.37404083328572973,
+            0.3884212533780731
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 37,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 316,
+        "proper": {
+          "point_m": [
+            -0.13125077846875993,
+            1.313763447546703,
+            0.5644983822023382
+          ],
+          "edge_signed_distances_m": [
+            -0.056030132275130574,
+            0.006415793519397944
+          ],
+          "face_barycentric": [
+            0.4655677911393581,
+            0.48015354731331455,
+            0.054278661547327384
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 37,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 317,
+        "proper": {
+          "point_m": [
+            -0.14009029518265212,
+            1.3575858875677977,
+            0.569603569663413
+          ],
+          "edge_signed_distances_m": [
+            0.006345700696445239,
+            -0.06195542985398369
+          ],
+          "face_barycentric": [
+            0.8361890027665065,
+            0.07064321373521362,
+            0.09316778349827977
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 37,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 322,
+        "proper": {
+          "point_m": [
+            -0.010451483921583973,
+            1.3491493148936087,
+            0.6975274124401633
+          ],
+          "edge_signed_distances_m": [
+            0.005705486543958865,
+            -0.07414895512753955
+          ],
+          "face_barycentric": [
+            0.23753784959531676,
+            0.20833360823616998,
+            0.5541285421685133
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 38,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 316,
+        "proper": {
+          "point_m": [
+            -0.12122665239041962,
+            1.3074003179352585,
+            0.5802218852323958
+          ],
+          "edge_signed_distances_m": [
+            -0.05549123872822483,
+            0.014315834284994586
+          ],
+          "face_barycentric": [
+            0.1328889339100049,
+            0.7761895272605722,
+            0.0909215388294229
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 38,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 322,
+        "proper": {
+          "point_m": [
+            -0.02530451072467685,
+            1.3067647722229867,
+            0.6647517894002372
+          ],
+          "edge_signed_distances_m": [
+            0.013576335866981757,
+            -0.06824333921539212
+          ],
+          "face_barycentric": [
+            0.5751125015069076,
+            0.06554185663665564,
+            0.35934564185643675
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 39,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 316,
+        "proper": {
+          "point_m": [
+            -0.12293859477010018,
+            1.308297262391433,
+            0.5774401940923978
+          ],
+          "edge_signed_distances_m": [
+            -0.05953370670366366,
+            0.014315834284994586
+          ],
+          "face_barycentric": [
+            0.1889597678704784,
+            0.7270880483286378,
+            0.08395218380088378
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 39,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 322,
+        "proper": {
+          "point_m": [
+            -0.011766157040146831,
+            1.3108910522783805,
+            0.6706217068906436
+          ],
+          "edge_signed_distances_m": [
+            0.005705488192774026,
+            -0.06824333921539212
+          ],
+          "face_barycentric": [
+            0.2674173028717341,
+            0.3457239939873786,
+            0.3868587031408873
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 0,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 195,
+        "proper": {
+          "point_m": [
+            0.2389672433414972,
+            1.3339010138335994,
+            0.29734966808360735
+          ],
+          "edge_signed_distances_m": [
+            -0.0014461427058498596,
+            0.02042762613632285
+          ],
+          "face_barycentric": [
+            0.05343016053292504,
+            0.10066882231136354,
+            0.8459010171557114
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 0,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 242,
+        "proper": {
+          "point_m": [
+            0.2328406303069193,
+            1.3523989213684986,
+            0.3113720614799456
+          ],
+          "edge_signed_distances_m": [
+            0.022838999743712764,
+            -0.004601782170280538
+          ],
+          "face_barycentric": [
+            0.7867107809926674,
+            0.16545709597816313,
+            0.04783212302916935
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 1,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 242,
+        "proper": {
+          "point_m": [
+            0.2328406303069193,
+            1.3523989213684986,
+            0.3113720614799456
+          ],
+          "edge_signed_distances_m": [
+            -0.004601782170280538,
+            0.022838999743712764
+          ],
+          "face_barycentric": [
+            0.7867107809926674,
+            0.16545709597816313,
+            0.04783212302916935
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 1,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 243,
+        "proper": {
+          "point_m": [
+            0.19098302596776884,
+            1.4337162735222801,
+            0.38141224294190157
+          ],
+          "edge_signed_distances_m": [
+            0.02190642631528381,
+            -0.000587904025035911
+          ],
+          "face_barycentric": [
+            0.38274483357538386,
+            0.16490612162732038,
+            0.4523490447972957
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 4,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 195,
+        "proper": {
+          "point_m": [
+            0.23796990172981378,
+            1.336118899270567,
+            0.29400066417891024
+          ],
+          "edge_signed_distances_m": [
+            0.021438634585921306,
+            -0.0004351682001016788
+          ],
+          "face_barycentric": [
+            0.0640589630511248,
+            0.14060223949344988,
+            0.7953387974554254
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 4,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 242,
+        "proper": {
+          "point_m": [
+            0.23523681007965055,
+            1.348928070815345,
+            0.304896508034711
+          ],
+          "edge_signed_distances_m": [
+            -0.01720964900651258,
+            0.05161934852408993
+          ],
+          "face_barycentric": [
+            0.15960821048372748,
+            0.7182377895643183,
+            0.12215399995195425
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 4,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 243,
+        "proper": {
+          "point_m": [
+            0.19340052048095407,
+            1.4298699081185748,
+            0.37406389183551775
+          ],
+          "edge_signed_distances_m": [
+            -0.0008616014991791113,
+            0.019426066496571057
+          ],
+          "face_barycentric": [
+            0.42680457686848744,
+            0.22303353002386087,
+            0.3501618931076517
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 5,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 243,
+        "proper": {
+          "point_m": [
+            0.19340052048095407,
+            1.4298699081185748,
+            0.37406389183551775
+          ],
+          "edge_signed_distances_m": [
+            0.019426066496571057,
+            -0.0008616014991791113
+          ],
+          "face_barycentric": [
+            0.42680457686848744,
+            0.22303353002386087,
+            0.3501618931076517
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 8,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 245,
+        "proper": {
+          "point_m": [
+            0.16823928930612186,
+            1.4948906981816061,
+            0.3581748730775137
+          ],
+          "edge_signed_distances_m": [
+            0.009931421519356127,
+            -0.0169632362728552
+          ],
+          "face_barycentric": [
+            0.3399899699931279,
+            0.09402614283685279,
+            0.5659838871700194
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 8,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 242,
+        "proper": {
+          "point_m": [
+            0.1711514551609083,
+            1.4901033690204133,
+            0.36028378025536917
+          ],
+          "edge_signed_distances_m": [
+            -0.10377563026687124,
+            0.054747199789856246
+          ],
+          "face_barycentric": [
+            0.03839339437997785,
+            0.6249255782908271,
+            0.3366810273291951
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 8,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 243,
+        "proper": {
+          "point_m": [
+            0.19098302596776884,
+            1.4337162735222801,
+            0.38141224294190157
+          ],
+          "edge_signed_distances_m": [
+            -0.000587904025035911,
+            0.02190642631528381
+          ],
+          "face_barycentric": [
+            0.38274483357538386,
+            0.16490612162732038,
+            0.4523490447972957
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 10,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 245,
+        "proper": {
+          "point_m": [
+            0.1688238938686334,
+            1.4935620356653097,
+            0.3548282843133088
+          ],
+          "edge_signed_distances_m": [
+            0.01031710675407066,
+            -0.018023405843334627
+          ],
+          "face_barycentric": [
+            0.3609768987269887,
+            0.12620732730466172,
+            0.5128157739683495
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 11,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 245,
+        "proper": {
+          "point_m": [
+            0.16980461879598951,
+            1.4921868360203105,
+            0.35796909718512904
+          ],
+          "edge_signed_distances_m": [
+            0.009931421519356127,
+            -0.018023405843334627
+          ],
+          "face_barycentric": [
+            0.349948731719003,
+            0.06162457371879618,
+            0.5884266945622009
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 12,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 242,
+        "proper": {
+          "point_m": [
+            0.17551816377961368,
+            1.4774478243891713,
+            0.363906985382897
+          ],
+          "edge_signed_distances_m": [
+            -0.061410863209047616,
+            0.022386583384693903
+          ],
+          "face_barycentric": [
+            0.1599076525879234,
+            0.19083455371729366,
+            0.649257793694783
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 12,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 243,
+        "proper": {
+          "point_m": [
+            0.19121455467095286,
+            1.4342508977806152,
+            0.3774450365451186
+          ],
+          "edge_signed_distances_m": [
+            0.021632725722492033,
+            -0.0008616014991791113
+          ],
+          "face_barycentric": [
+            0.3987941622377625,
+            0.22429872806253673,
+            0.3769071096997008
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 13,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 245,
+        "proper": {
+          "point_m": [
+            0.1688238938686334,
+            1.4935620356653094,
+            0.3548282843133088
+          ],
+          "edge_signed_distances_m": [
+            -0.018023405843334627,
+            0.01031710675407066
+          ],
+          "face_barycentric": [
+            0.3609768987269909,
+            0.1262073273046596,
+            0.5128157739683495
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 13,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 242,
+        "proper": {
+          "point_m": [
+            0.1755181637796137,
+            1.4774478243891713,
+            0.363906985382897
+          ],
+          "edge_signed_distances_m": [
+            0.022386583384693903,
+            -0.061410863209047616
+          ],
+          "face_barycentric": [
+            0.1599076525879234,
+            0.19083455371729366,
+            0.649257793694783
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 16,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 250,
+        "proper": {
+          "point_m": [
+            0.021114728732195703,
+            1.5878071513742886,
+            0.27029076994212675
+          ],
+          "edge_signed_distances_m": [
+            -0.02365179857672166,
+            0.0047364662362974035
+          ],
+          "face_barycentric": [
+            0.3263241906088629,
+            0.2829993024642788,
+            0.39067650692685835
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 17,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 250,
+        "proper": {
+          "point_m": [
+            0.013369841341844765,
+            1.5872562317352574,
+            0.26757306597652675
+          ],
+          "edge_signed_distances_m": [
+            -0.04293389726574646,
+            0.0047364662362974035
+          ],
+          "face_barycentric": [
+            0.20662840189814313,
+            0.4253857526780382,
+            0.3679858454238186
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 18,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 250,
+        "proper": {
+          "point_m": [
+            0.014572560251205072,
+            1.5849498013333507,
+            0.2650051251917307
+          ],
+          "edge_signed_distances_m": [
+            -0.02355019542104429,
+            0.0024926179206215503
+          ],
+          "face_barycentric": [
+            0.22521619810451982,
+            0.4331740601995163,
+            0.34160974169596386
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 19,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 250,
+        "proper": {
+          "point_m": [
+            0.014538351049535433,
+            1.5851841520472707,
+            0.26528910110953313
+          ],
+          "edge_signed_distances_m": [
+            -0.02365179857672166,
+            0.0024926179206215503
+          ],
+          "face_barycentric": [
+            0.22468750127929377,
+            0.43084318175930875,
+            0.34446931696139743
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 21,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 250,
+        "proper": {
+          "point_m": [
+            0.004173438717995687,
+            1.5851519522505424,
+            0.2625333859039366
+          ],
+          "edge_signed_distances_m": [
+            -0.01552505170185377,
+            0.0024926179206215503
+          ],
+          "face_barycentric": [
+            0.06449971623973627,
+            0.6125840405777822,
+            0.3229162431824816
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 24,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 195,
+        "proper": {
+          "point_m": [
+            0.23890421691389163,
+            1.3340411739986109,
+            0.29713803619967405
+          ],
+          "edge_signed_distances_m": [
+            -0.0014461427058498596,
+            0.021438634585921306
+          ],
+          "face_barycentric": [
+            0.054101811468475036,
+            0.1031923915654591,
+            0.8427057969660658
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 25,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 195,
+        "proper": {
+          "point_m": [
+            0.23796990172981378,
+            1.336118899270567,
+            0.29400066417891024
+          ],
+          "edge_signed_distances_m": [
+            -0.0004351682001016788,
+            0.021438634585921306
+          ],
+          "face_barycentric": [
+            0.0640589630511248,
+            0.14060223949344988,
+            0.7953387974554254
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 26,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 250,
+        "proper": {
+          "point_m": [
+            0.002736306654837912,
+            1.5882712661599407,
+            0.26605601757393954
+          ],
+          "edge_signed_distances_m": [
+            -0.013281111521550955,
+            0.0047364662362974035
+          ],
+          "face_barycentric": [
+            0.042289108504439066,
+            0.5987358482363667,
+            0.3589750432591942
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 27,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 250,
+        "proper": {
+          "point_m": [
+            0.003946331409495213,
+            1.5856448872442883,
+            0.2630900553574385
+          ],
+          "edge_signed_distances_m": [
+            -0.013281111521550955,
+            0.0024926179206215503
+          ],
+          "face_barycentric": [
+            0.06098981518593943,
+            0.6103956912960159,
+            0.32861449351804467
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 0,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 260,
+        "proper": {
+          "point_m": [
+            -0.19383823609576523,
+            1.4288039842536662,
+            0.37750306532356714
+          ],
+          "edge_signed_distances_m": [
+            -0.0009447692679039714,
+            0.018396713811127473
+          ],
+          "face_barycentric": [
+            0.14220775428700905,
+            0.28720543202834353,
+            0.5705868136846475
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 0,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 213,
+        "proper": {
+          "point_m": [
+            -0.23895972802158966,
+            1.3338988525189988,
+            0.2973479321670191
+          ],
+          "edge_signed_distances_m": [
+            0.020431336772808187,
+            -0.0014382495923159553
+          ],
+          "face_barycentric": [
+            0.059757200491300906,
+            0.8990302534843572,
+            0.04121254602434193
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 1,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 260,
+        "proper": {
+          "point_m": [
+            -0.19383823609576523,
+            1.4288039842536662,
+            0.37750306532356714
+          ],
+          "edge_signed_distances_m": [
+            0.018396713811127473,
+            -0.0009447692679039714
+          ],
+          "face_barycentric": [
+            0.14220775428700905,
+            0.28720543202834353,
+            0.5705868136846475
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 4,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 260,
+        "proper": {
+          "point_m": [
+            -0.23308945869188524,
+            1.353564837276885,
+            0.30735646484159107
+          ],
+          "edge_signed_distances_m": [
+            0.02099634786016892,
+            -0.003964248498157578
+          ],
+          "face_barycentric": [
+            0.2642211577664299,
+            0.7125751078324926,
+            0.023203734401077543
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 4,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 213,
+        "proper": {
+          "point_m": [
+            -0.237960891409635,
+            1.336116307962295,
+            0.2939985829415901
+          ],
+          "edge_signed_distances_m": [
+            -0.0004259532331596532,
+            0.02144366705090346
+          ],
+          "face_barycentric": [
+            0.07164463410467123,
+            0.8590369743439303,
+            0.06931839155139843
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 5,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 260,
+        "proper": {
+          "point_m": [
+            -0.23308945869188524,
+            1.3535648372768847,
+            0.30735646484159107
+          ],
+          "edge_signed_distances_m": [
+            -0.003964248498157578,
+            0.02099634786016892
+          ],
+          "face_barycentric": [
+            0.264221157766428,
+            0.7125751078324948,
+            0.02320373440107722
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 8,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 260,
+        "proper": {
+          "point_m": [
+            -0.19129032417875358,
+            1.4339239792252712,
+            0.38143196844782207
+          ],
+          "edge_signed_distances_m": [
+            0.021398160926405653,
+            -0.0009447692679039714
+          ],
+          "face_barycentric": [
+            0.14374466025238053,
+            0.2531928538808088,
+            0.6030624858668107
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 8,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 261,
+        "proper": {
+          "point_m": [
+            -0.17530025442590416,
+            1.4780189551322023,
+            0.3675809480866087
+          ],
+          "edge_signed_distances_m": [
+            -0.05670277018501119,
+            0.020851520556002392
+          ],
+          "face_barycentric": [
+            0.34912262800161115,
+            0.22893455739145324,
+            0.42194281460693567
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 9,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 258,
+        "proper": {
+          "point_m": [
+            -0.16793493898922832,
+            1.49524942189579,
+            0.35799475604984543
+          ],
+          "edge_signed_distances_m": [
+            -0.015578108587826047,
+            0.0092275622890648
+          ],
+          "face_barycentric": [
+            0.08597103899191239,
+            0.2622609402901272,
+            0.6517680207179604
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 9,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 261,
+        "proper": {
+          "point_m": [
+            -0.17530025442590413,
+            1.4780189551322023,
+            0.3675809480866087
+          ],
+          "edge_signed_distances_m": [
+            0.020851520556002392,
+            -0.05670277018501119
+          ],
+          "face_barycentric": [
+            0.34912262800161115,
+            0.2289345573914541,
+            0.4219428146069348
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 12,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 258,
+        "proper": {
+          "point_m": [
+            -0.16843827470366995,
+            1.4940069021310922,
+            0.3546028156005966
+          ],
+          "edge_signed_distances_m": [
+            0.009657143512774708,
+            -0.016621447427492587
+          ],
+          "face_barycentric": [
+            0.11478329970645218,
+            0.2572360455477847,
+            0.6279806547457631
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 12,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 260,
+        "proper": {
+          "point_m": [
+            -0.19163252951367038,
+            1.4345334108426369,
+            0.377471865741562
+          ],
+          "edge_signed_distances_m": [
+            -0.001346578317672797,
+            0.02099634786016892
+          ],
+          "face_barycentric": [
+            0.1955157605315233,
+            0.2225827231854619,
+            0.5819015162830148
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 12,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 261,
+        "proper": {
+          "point_m": [
+            -0.18614574441262308,
+            1.4510654198049049,
+            0.3713612676904208
+          ],
+          "edge_signed_distances_m": [
+            0.10015749161416215,
+            -0.07237310719863535
+          ],
+          "face_barycentric": [
+            0.6466802652332001,
+            0.25434223696700625,
+            0.09897749779979359
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 14,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 258,
+        "proper": {
+          "point_m": [
+            -0.1679349389892283,
+            1.49524942189579,
+            0.3579947560498454
+          ],
+          "edge_signed_distances_m": [
+            0.0092275622890648,
+            -0.015578108587826047
+          ],
+          "face_barycentric": [
+            0.08597103899191327,
+            0.2622609402901268,
+            0.6517680207179599
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 15,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 258,
+        "proper": {
+          "point_m": [
+            -0.16674000683568996,
+            1.496891260048763,
+            0.35482937578157825
+          ],
+          "edge_signed_distances_m": [
+            0.009657143512774708,
+            -0.015578108587826047
+          ],
+          "face_barycentric": [
+            0.14400019198072933,
+            0.22026114066995148,
+            0.6357386673493192
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 17,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 252,
+        "proper": {
+          "point_m": [
+            -0.0228243640841243,
+            1.5875880015922585,
+            0.271320720734041
+          ],
+          "edge_signed_distances_m": [
+            0.0051841866708501865,
+            -0.022772715407224503
+          ],
+          "face_barycentric": [
+            0.5220400703030404,
+            0.08666731785680977,
+            0.39129261184014974
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 17,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 253,
+        "proper": {
+          "point_m": [
+            -0.0026836235942008114,
+            1.588245166432266,
+            0.2661430171197148
+          ],
+          "edge_signed_distances_m": [
+            -0.013385607110204754,
+            0.004886903400280075
+          ],
+          "face_barycentric": [
+            0.6414794696922461,
+            0.060992504267576964,
+            0.2975280260401769
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 20,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 252,
+        "proper": {
+          "point_m": [
+            -0.016203886107858535,
+            1.584765765300883,
+            0.26595176122094394
+          ],
+          "edge_signed_distances_m": [
+            -0.022712663299926515,
+            0.0029064896232695366
+          ],
+          "face_barycentric": [
+            0.6399650551997538,
+            0.01751337280941307,
+            0.3425215719908331
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 20,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 253,
+        "proper": {
+          "point_m": [
+            -0.01052061477237234,
+            1.5844567298527399,
+            0.2638503036426295
+          ],
+          "edge_signed_distances_m": [
+            0.002655119473818729,
+            -0.040094164447325845
+          ],
+          "face_barycentric": [
+            0.6729034161239837,
+            0.23910903257375105,
+            0.08798755130226522
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 21,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 253,
+        "proper": {
+          "point_m": [
+            -0.01052061477237234,
+            1.5844567298527399,
+            0.2638503036426295
+          ],
+          "edge_signed_distances_m": [
+            -0.040094164447325845,
+            0.002655119473818729
+          ],
+          "face_barycentric": [
+            0.6729034161239837,
+            0.23910903257375105,
+            0.08798755130226522
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 22,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 252,
+        "proper": {
+          "point_m": [
+            -0.022824364084124308,
+            1.5875880015922588,
+            0.271320720734041
+          ],
+          "edge_signed_distances_m": [
+            -0.022772715407224503,
+            0.0051841866708501865
+          ],
+          "face_barycentric": [
+            0.5220400703030403,
+            0.08666731785680865,
+            0.3912926118401509
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 23,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 252,
+        "proper": {
+          "point_m": [
+            -0.022861076380609132,
+            1.5871340296622753,
+            0.2707506284626338
+          ],
+          "edge_signed_distances_m": [
+            -0.022712663299926515,
+            0.0051841866708501865
+          ],
+          "face_barycentric": [
+            0.5232639929541989,
+            0.09104122090384575,
+            0.38569478614195524
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 24,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 213,
+        "proper": {
+          "point_m": [
+            -0.23798129056035686,
+            1.3360710203950628,
+            0.29406698440733353
+          ],
+          "edge_signed_distances_m": [
+            0.020431336772808187,
+            -0.0004259532331596532
+          ],
+          "face_barycentric": [
+            0.07140186846885596,
+            0.8598537535040861,
+            0.06874437802705793
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 25,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 213,
+        "proper": {
+          "point_m": [
+            -0.23796089140963503,
+            1.336116307962295,
+            0.2939985829415901
+          ],
+          "edge_signed_distances_m": [
+            0.02144366705090346,
+            -0.0004259532331596532
+          ],
+          "face_barycentric": [
+            0.07164463410467123,
+            0.8590369743439303,
+            0.06931839155139843
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 26,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 253,
+        "proper": {
+          "point_m": [
+            -0.0026836235942008114,
+            1.588245166432266,
+            0.2661430171197148
+          ],
+          "edge_signed_distances_m": [
+            0.004886903400280075,
+            -0.013385607110204754
+          ],
+          "face_barycentric": [
+            0.6414794696922461,
+            0.060992504267576964,
+            0.2975280260401769
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 27,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 253,
+        "proper": {
+          "point_m": [
+            -0.0030195590346193315,
+            1.587498440526738,
+            0.26531432294561125
+          ],
+          "edge_signed_distances_m": [
+            0.004886903400280075,
+            -0.01561748240736903
+          ],
+          "face_barycentric": [
+            0.6501306296625309,
+            0.0686275331992174,
+            0.28124183713825174
+          ]
+        }
+      }
+    ],
+    "required_clearance_m": 0,
+    "exact_distance_candidates": 0,
+    "clearance_violations": []
+  },
+  "repaired": {
+    "active_part_triangles": {
+      "breastcollar": 68,
+      "breastcollar_support_l": 28,
+      "breastcollar_support_r": 28,
+      "harness_saddle_pad": 180
+    },
+    "active_horse_triangles": 14172,
+    "surface_pairs": 100,
+    "proper_crossings": 100,
+    "pairs": [
+      {
+        "part": "breastcollar",
+        "gear_triangle": 12,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 240,
+        "proper": {
+          "point_m": [
+            0.23152954463048714,
+            1.3465200446379915,
+            0.32963490838296616
+          ],
+          "edge_signed_distances_m": [
+            0.005118856418276498,
+            -0.0020209811454705937
+          ],
+          "face_barycentric": [
+            0.056326878611487136,
+            0.808676522522107,
+            0.1349965988664059
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 12,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 243,
+        "proper": {
+          "point_m": [
+            0.23240748236649958,
+            1.3486574337281139,
+            0.32470525349904283
+          ],
+          "edge_signed_distances_m": [
+            -0.019493995491844312,
+            0.006162164445854849
+          ],
+          "face_barycentric": [
+            0.886845186910765,
+            0.019433648973361233,
+            0.09372116411587382
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 13,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 240,
+        "proper": {
+          "point_m": [
+            0.23152954463048714,
+            1.3465200446379915,
+            0.32963490838296616
+          ],
+          "edge_signed_distances_m": [
+            -0.0020209811454705937,
+            0.005118856418276498
+          ],
+          "face_barycentric": [
+            0.056326878611487136,
+            0.808676522522107,
+            0.1349965988664059
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 13,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 243,
+        "proper": {
+          "point_m": [
+            0.2324074823664996,
+            1.3486574337281139,
+            0.3247052534990429
+          ],
+          "edge_signed_distances_m": [
+            0.006162164445854849,
+            -0.019493995491844312
+          ],
+          "face_barycentric": [
+            0.886845186910765,
+            0.019433648973360883,
+            0.09372116411587417
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 20,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 284,
+        "proper": {
+          "point_m": [
+            0.17839270053733675,
+            1.3345372088857659,
+            0.4805225957357426
+          ],
+          "edge_signed_distances_m": [
+            0.013788360080380797,
+            -0.014207898620682523
+          ],
+          "face_barycentric": [
+            0.023471652957516964,
+            0.1676859622938876,
+            0.8088423847485955
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 20,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 287,
+        "proper": {
+          "point_m": [
+            0.18010934015564267,
+            1.3358830389239236,
+            0.4769182870245128
+          ],
+          "edge_signed_distances_m": [
+            -0.010972583453845122,
+            0.01017592367566222
+          ],
+          "face_barycentric": [
+            0.2029906440698246,
+            0.03729680779483819,
+            0.7597125481353372
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 21,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 284,
+        "proper": {
+          "point_m": [
+            0.17839270053733675,
+            1.3345372088857659,
+            0.4805225957357426
+          ],
+          "edge_signed_distances_m": [
+            -0.014207898620682523,
+            0.013788360080380797
+          ],
+          "face_barycentric": [
+            0.023471652957516964,
+            0.1676859622938876,
+            0.8088423847485955
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 21,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 287,
+        "proper": {
+          "point_m": [
+            0.18010934015564267,
+            1.3358830389239236,
+            0.4769182870245128
+          ],
+          "edge_signed_distances_m": [
+            0.01017592367566222,
+            -0.010972583453845122
+          ],
+          "face_barycentric": [
+            0.2029906440698246,
+            0.03729680779483819,
+            0.7597125481353372
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 24,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 324,
+        "proper": {
+          "point_m": [
+            0.02204802575229777,
+            1.3488419370089917,
+            0.6942550346587825
+          ],
+          "edge_signed_distances_m": [
+            -0.08804776786086567,
+            0.014005114355398201
+          ],
+          "face_barycentric": [
+            0.37112787103377387,
+            0.08584136114339891,
+            0.5430307678228272
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 24,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 330,
+        "proper": {
+          "point_m": [
+            0.12647410643030463,
+            1.3545232021480158,
+            0.5931387507904448
+          ],
+          "edge_signed_distances_m": [
+            0.013670357972635865,
+            -0.050574539553344865
+          ],
+          "face_barycentric": [
+            0.47006656754322373,
+            0.2975263863094197,
+            0.23240704614735655
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 24,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 331,
+        "proper": {
+          "point_m": [
+            0.11895109606723146,
+            1.316415155324253,
+            0.5885088613653835
+          ],
+          "edge_signed_distances_m": [
+            -0.05734244031980064,
+            0.01617338624314625
+          ],
+          "face_barycentric": [
+            0.8634501132044294,
+            0.1261002815784951,
+            0.010449605217075547
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 25,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 324,
+        "proper": {
+          "point_m": [
+            0.025990138480853228,
+            1.3408194414817933,
+            0.6878346264882913
+          ],
+          "edge_signed_distances_m": [
+            -0.06817205681195701,
+            0.014005114355398201
+          ],
+          "face_barycentric": [
+            0.29037044158830116,
+            0.2041585818544526,
+            0.5054709765572463
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 25,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 330,
+        "proper": {
+          "point_m": [
+            0.12079434520192649,
+            1.307397453622856,
+            0.5806028492578003
+          ],
+          "edge_signed_distances_m": [
+            -0.05445330036619602,
+            0.014293220556150243
+          ],
+          "face_barycentric": [
+            0.8601683059126286,
+            0.047700374311817006,
+            0.09213131977555442
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 25,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 331,
+        "proper": {
+          "point_m": [
+            0.11895109606723146,
+            1.316415155324253,
+            0.5885088613653835
+          ],
+          "edge_signed_distances_m": [
+            0.01617338624314625,
+            -0.05734244031980064
+          ],
+          "face_barycentric": [
+            0.8634501132044294,
+            0.1261002815784951,
+            0.010449605217075547
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 26,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 325,
+        "proper": {
+          "point_m": [
+            0.009130846566254883,
+            1.352561213197927,
+            0.6999489722810618
+          ],
+          "edge_signed_distances_m": [
+            -0.09042656475203287,
+            0.005682213300073866
+          ],
+          "face_barycentric": [
+            0.4308837464020359,
+            0.271376018561603,
+            0.2977402350363611
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 26,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 330,
+        "proper": {
+          "point_m": [
+            0.13970310217825493,
+            1.3575710316808345,
+            0.5699889471873877
+          ],
+          "edge_signed_distances_m": [
+            0.005762600409225158,
+            -0.05463265150896469
+          ],
+          "face_barycentric": [
+            0.06681659780619592,
+            0.7681740592702481,
+            0.165009342923556
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 27,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 324,
+        "proper": {
+          "point_m": [
+            0.02204802575229779,
+            1.3488419370089915,
+            0.6942550346587824
+          ],
+          "edge_signed_distances_m": [
+            0.014005114355398201,
+            -0.08804776786086567
+          ],
+          "face_barycentric": [
+            0.37112787103377376,
+            0.08584136114339995,
+            0.5430307678228263
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 27,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 325,
+        "proper": {
+          "point_m": [
+            0.010132890200225904,
+            1.3524740216761013,
+            0.6996394767316274
+          ],
+          "edge_signed_distances_m": [
+            -0.08441109162203207,
+            0.005682213300073866
+          ],
+          "face_barycentric": [
+            0.43205701210914677,
+            0.3011575519428613,
+            0.2667854359479919
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 27,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 330,
+        "proper": {
+          "point_m": [
+            0.12850521787902283,
+            1.3555480481278488,
+            0.5898576296705517
+          ],
+          "edge_signed_distances_m": [
+            0.013670357972635865,
+            -0.05463265150896469
+          ],
+          "face_barycentric": [
+            0.4055164376350434,
+            0.3703676703366719,
+            0.22411589202828475
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 28,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 325,
+        "proper": {
+          "point_m": [
+            0.010882667569470265,
+            1.311031316476786,
+            0.6706235826385111
+          ],
+          "edge_signed_distances_m": [
+            -0.07069549692904978,
+            0.005682214942163344
+          ],
+          "face_barycentric": [
+            0.6128369098584212,
+            0.32344153139609716,
+            0.06372155874548152
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 28,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 330,
+        "proper": {
+          "point_m": [
+            0.13188679772128067,
+            1.3095385411583602,
+            0.5609885148076819
+          ],
+          "edge_signed_distances_m": [
+            0.006385436051493455,
+            -0.05851141232181584
+          ],
+          "face_barycentric": [
+            0.5240079511278323,
+            0.4419042432691124,
+            0.03408780560305538
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 29,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 325,
+        "proper": {
+          "point_m": [
+            0.0091308490489495,
+            1.3139426164941614,
+            0.6730838687464544
+          ],
+          "edge_signed_distances_m": [
+            -0.09042656475203287,
+            0.005682214942163344
+          ],
+          "face_barycentric": [
+            0.5987906766357614,
+            0.27137609234925764,
+            0.12983323101498107
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 29,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 330,
+        "proper": {
+          "point_m": [
+            0.1405923644388505,
+            1.3539251612762686,
+            0.5665438625682147
+          ],
+          "edge_signed_distances_m": [
+            0.005762600409225158,
+            -0.05851141232181584
+          ],
+          "face_barycentric": [
+            0.05794526961931851,
+            0.7957975175692922,
+            0.14625721281138931
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 30,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 324,
+        "proper": {
+          "point_m": [
+            0.02579009070748141,
+            1.30676798950182,
+            0.6643238795485648
+          ],
+          "edge_signed_distances_m": [
+            -0.06817205681195701,
+            0.013875375403798204
+          ],
+          "face_barycentric": [
+            0.3296192208503581,
+            0.3123939951656213,
+            0.3579867839840206
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 30,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 330,
+        "proper": {
+          "point_m": [
+            0.12079434520192646,
+            1.3073974536228559,
+            0.5806028492578003
+          ],
+          "edge_signed_distances_m": [
+            0.014293220556150243,
+            -0.05445330036619602
+          ],
+          "face_barycentric": [
+            0.860168305912631,
+            0.04770037431181505,
+            0.09213131977555392
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 31,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 324,
+        "proper": {
+          "point_m": [
+            0.023076342893505717,
+            1.3070331270073272,
+            0.6651068021401536
+          ],
+          "edge_signed_distances_m": [
+            -0.07407994343289728,
+            0.013875375403798204
+          ],
+          "face_barycentric": [
+            0.3905757187637787,
+            0.24837469369481202,
+            0.36104958754140926
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 31,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 325,
+        "proper": {
+          "point_m": [
+            0.01088266756947027,
+            1.311031316476786,
+            0.6706235826385111
+          ],
+          "edge_signed_distances_m": [
+            0.005682214942163344,
+            -0.07069549692904978
+          ],
+          "face_barycentric": [
+            0.6128369098584212,
+            0.32344153139609716,
+            0.06372155874548152
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 31,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 330,
+        "proper": {
+          "point_m": [
+            0.13092674487142147,
+            1.3090708944499627,
+            0.5625476410878627
+          ],
+          "edge_signed_distances_m": [
+            0.006385436051493455,
+            -0.05445330036619602
+          ],
+          "face_barycentric": [
+            0.554439676432713,
+            0.40749156924221547,
+            0.038068754325071626
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 32,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 316,
+        "proper": {
+          "point_m": [
+            -0.1277002810140732,
+            1.3545899117561127,
+            0.591951439953157
+          ],
+          "edge_signed_distances_m": [
+            -0.051987664299691747,
+            0.013418213084658834
+          ],
+          "face_barycentric": [
+            0.5168173937701186,
+            0.2544229976400311,
+            0.22875960858985017
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 32,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 322,
+        "proper": {
+          "point_m": [
+            -0.021424395341932734,
+            1.3132361834639146,
+            0.6701132905211652
+          ],
+          "edge_signed_distances_m": [
+            -0.08823176184435608,
+            0.013576335866981757
+          ],
+          "face_barycentric": [
+            0.48692652991531893,
+            0.12284770349816386,
+            0.3902257665865172
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 32,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 323,
+        "proper": {
+          "point_m": [
+            -0.021473629215452348,
+            1.348810687162214,
+            0.6948112256303821
+          ],
+          "edge_signed_distances_m": [
+            0.013132796811914638,
+            -0.08512343350146938
+          ],
+          "face_barycentric": [
+            0.45526059668210256,
+            0.5018668372319739,
+            0.042872566085923526
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 33,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 316,
+        "proper": {
+          "point_m": [
+            -0.12937606788748632,
+            1.346688641911979,
+            0.5847688107814464
+          ],
+          "edge_signed_distances_m": [
+            -0.05549123872822483,
+            0.013418213084658834
+          ],
+          "face_barycentric": [
+            0.5372468501695467,
+            0.2737280411770991,
+            0.18902510865335428
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 33,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 322,
+        "proper": {
+          "point_m": [
+            -0.021424395341932738,
+            1.3132361834639148,
+            0.6701132905211652
+          ],
+          "edge_signed_distances_m": [
+            0.013576335866981757,
+            -0.08823176184435608
+          ],
+          "face_barycentric": [
+            0.48692652991531954,
+            0.12284770349816261,
+            0.3902257665865178
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 34,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 317,
+        "proper": {
+          "point_m": [
+            -0.14009029518265212,
+            1.3575858875677977,
+            0.5696035696634129
+          ],
+          "edge_signed_distances_m": [
+            -0.06195542985398369,
+            0.006345700696445239
+          ],
+          "face_barycentric": [
+            0.8361890027665072,
+            0.07064321373521178,
+            0.093167783498281
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 34,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 322,
+        "proper": {
+          "point_m": [
+            -0.008825361696453884,
+            1.3525494923025514,
+            0.7002530247856235
+          ],
+          "edge_signed_distances_m": [
+            0.005705486543958865,
+            -0.09413731077905808
+          ],
+          "face_barycentric": [
+            0.2005798846369763,
+            0.22935839400705058,
+            0.5700617213559731
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 35,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 316,
+        "proper": {
+          "point_m": [
+            -0.1277002810140732,
+            1.3545899117561127,
+            0.591951439953157
+          ],
+          "edge_signed_distances_m": [
+            0.013418213084658834,
+            -0.051987664299691747
+          ],
+          "face_barycentric": [
+            0.5168173937701186,
+            0.2544229976400311,
+            0.22875960858985017
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 35,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 317,
+        "proper": {
+          "point_m": [
+            -0.13925734764166617,
+            1.3571048445919438,
+            0.571078178400876
+          ],
+          "edge_signed_distances_m": [
+            -0.058208024283393334,
+            0.006345700696445239
+          ],
+          "face_barycentric": [
+            0.8325063055691456,
+            0.10478624656518958,
+            0.06270744786566486
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 35,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 322,
+        "proper": {
+          "point_m": [
+            -0.019465625624631958,
+            1.3489650950620926,
+            0.6954021495725214
+          ],
+          "edge_signed_distances_m": [
+            0.01357633421816661,
+            -0.09413731077905808
+          ],
+          "face_barycentric": [
+            0.4424082634192885,
+            0.01063787982523165,
+            0.5469538567554798
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 35,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 323,
+        "proper": {
+          "point_m": [
+            -0.021473629215452334,
+            1.348810687162214,
+            0.6948112256303821
+          ],
+          "edge_signed_distances_m": [
+            -0.08512343350146938,
+            0.013132796811914638
+          ],
+          "face_barycentric": [
+            0.45526059668210256,
+            0.5018668372319739,
+            0.042872566085923526
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 36,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 316,
+        "proper": {
+          "point_m": [
+            -0.13204919672343432,
+            1.3095365377125123,
+            0.5608413741638507
+          ],
+          "edge_signed_distances_m": [
+            -0.05953370670366366,
+            0.006415793519397944
+          ],
+          "face_barycentric": [
+            0.4734864399289538,
+            0.49289962698825457,
+            0.03361393308279157
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 36,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 322,
+        "proper": {
+          "point_m": [
+            -0.010451486726134007,
+            1.311036635767292,
+            0.6710142514607009
+          ],
+          "edge_signed_distances_m": [
+            0.005705488192774026,
+            -0.07414895512753955
+          ],
+          "face_barycentric": [
+            0.23753791333619723,
+            0.37404083328572973,
+            0.3884212533780731
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 37,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 316,
+        "proper": {
+          "point_m": [
+            -0.13125077846875993,
+            1.313763447546703,
+            0.5644983822023382
+          ],
+          "edge_signed_distances_m": [
+            -0.056030132275130574,
+            0.006415793519397944
+          ],
+          "face_barycentric": [
+            0.4655677911393581,
+            0.48015354731331455,
+            0.054278661547327384
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 37,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 317,
+        "proper": {
+          "point_m": [
+            -0.14009029518265212,
+            1.3575858875677977,
+            0.569603569663413
+          ],
+          "edge_signed_distances_m": [
+            0.006345700696445239,
+            -0.06195542985398369
+          ],
+          "face_barycentric": [
+            0.8361890027665065,
+            0.07064321373521362,
+            0.09316778349827977
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 37,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 322,
+        "proper": {
+          "point_m": [
+            -0.010451483921583973,
+            1.3491493148936087,
+            0.6975274124401633
+          ],
+          "edge_signed_distances_m": [
+            0.005705486543958865,
+            -0.07414895512753955
+          ],
+          "face_barycentric": [
+            0.23753784959531676,
+            0.20833360823616998,
+            0.5541285421685133
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 38,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 316,
+        "proper": {
+          "point_m": [
+            -0.12122665239041962,
+            1.3074003179352585,
+            0.5802218852323958
+          ],
+          "edge_signed_distances_m": [
+            -0.05549123872822483,
+            0.014315834284994586
+          ],
+          "face_barycentric": [
+            0.1328889339100049,
+            0.7761895272605722,
+            0.0909215388294229
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 38,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 322,
+        "proper": {
+          "point_m": [
+            -0.02530451072467685,
+            1.3067647722229867,
+            0.6647517894002372
+          ],
+          "edge_signed_distances_m": [
+            0.013576335866981757,
+            -0.06824333921539212
+          ],
+          "face_barycentric": [
+            0.5751125015069076,
+            0.06554185663665564,
+            0.35934564185643675
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 39,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 316,
+        "proper": {
+          "point_m": [
+            -0.12293859477010018,
+            1.308297262391433,
+            0.5774401940923978
+          ],
+          "edge_signed_distances_m": [
+            -0.05953370670366366,
+            0.014315834284994586
+          ],
+          "face_barycentric": [
+            0.1889597678704784,
+            0.7270880483286378,
+            0.08395218380088378
+          ]
+        }
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 39,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 322,
+        "proper": {
+          "point_m": [
+            -0.011766157040146831,
+            1.3108910522783805,
+            0.6706217068906436
+          ],
+          "edge_signed_distances_m": [
+            0.005705488192774026,
+            -0.06824333921539212
+          ],
+          "face_barycentric": [
+            0.2674173028717341,
+            0.3457239939873786,
+            0.3868587031408873
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 0,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 195,
+        "proper": {
+          "point_m": [
+            0.2389672433414972,
+            1.3339010138335994,
+            0.29734966808360735
+          ],
+          "edge_signed_distances_m": [
+            -0.0014461427058498596,
+            0.02042762613632285
+          ],
+          "face_barycentric": [
+            0.05343016053292504,
+            0.10066882231136354,
+            0.8459010171557114
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 0,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 242,
+        "proper": {
+          "point_m": [
+            0.2328406303069193,
+            1.3523989213684986,
+            0.3113720614799456
+          ],
+          "edge_signed_distances_m": [
+            0.022838999743712764,
+            -0.004601782170280538
+          ],
+          "face_barycentric": [
+            0.7867107809926674,
+            0.16545709597816313,
+            0.04783212302916935
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 1,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 242,
+        "proper": {
+          "point_m": [
+            0.2328406303069193,
+            1.3523989213684986,
+            0.3113720614799456
+          ],
+          "edge_signed_distances_m": [
+            -0.004601782170280538,
+            0.022838999743712764
+          ],
+          "face_barycentric": [
+            0.7867107809926674,
+            0.16545709597816313,
+            0.04783212302916935
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 1,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 243,
+        "proper": {
+          "point_m": [
+            0.19098302596776884,
+            1.4337162735222801,
+            0.38141224294190157
+          ],
+          "edge_signed_distances_m": [
+            0.02190642631528381,
+            -0.000587904025035911
+          ],
+          "face_barycentric": [
+            0.38274483357538386,
+            0.16490612162732038,
+            0.4523490447972957
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 4,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 195,
+        "proper": {
+          "point_m": [
+            0.23796990172981378,
+            1.336118899270567,
+            0.29400066417891024
+          ],
+          "edge_signed_distances_m": [
+            0.021438634585921306,
+            -0.0004351682001016788
+          ],
+          "face_barycentric": [
+            0.0640589630511248,
+            0.14060223949344988,
+            0.7953387974554254
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 4,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 242,
+        "proper": {
+          "point_m": [
+            0.23523681007965055,
+            1.348928070815345,
+            0.304896508034711
+          ],
+          "edge_signed_distances_m": [
+            -0.01720964900651258,
+            0.05161934852408993
+          ],
+          "face_barycentric": [
+            0.15960821048372748,
+            0.7182377895643183,
+            0.12215399995195425
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 4,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 243,
+        "proper": {
+          "point_m": [
+            0.19340052048095407,
+            1.4298699081185748,
+            0.37406389183551775
+          ],
+          "edge_signed_distances_m": [
+            -0.0008616014991791113,
+            0.019426066496571057
+          ],
+          "face_barycentric": [
+            0.42680457686848744,
+            0.22303353002386087,
+            0.3501618931076517
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 5,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 243,
+        "proper": {
+          "point_m": [
+            0.19340052048095407,
+            1.4298699081185748,
+            0.37406389183551775
+          ],
+          "edge_signed_distances_m": [
+            0.019426066496571057,
+            -0.0008616014991791113
+          ],
+          "face_barycentric": [
+            0.42680457686848744,
+            0.22303353002386087,
+            0.3501618931076517
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 8,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 245,
+        "proper": {
+          "point_m": [
+            0.16823928930612186,
+            1.4948906981816061,
+            0.3581748730775137
+          ],
+          "edge_signed_distances_m": [
+            0.009931421519356127,
+            -0.0169632362728552
+          ],
+          "face_barycentric": [
+            0.3399899699931279,
+            0.09402614283685279,
+            0.5659838871700194
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 8,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 242,
+        "proper": {
+          "point_m": [
+            0.1711514551609083,
+            1.4901033690204133,
+            0.36028378025536917
+          ],
+          "edge_signed_distances_m": [
+            -0.10377563026687124,
+            0.054747199789856246
+          ],
+          "face_barycentric": [
+            0.03839339437997785,
+            0.6249255782908271,
+            0.3366810273291951
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 8,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 243,
+        "proper": {
+          "point_m": [
+            0.19098302596776884,
+            1.4337162735222801,
+            0.38141224294190157
+          ],
+          "edge_signed_distances_m": [
+            -0.000587904025035911,
+            0.02190642631528381
+          ],
+          "face_barycentric": [
+            0.38274483357538386,
+            0.16490612162732038,
+            0.4523490447972957
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 10,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 245,
+        "proper": {
+          "point_m": [
+            0.1688238938686334,
+            1.4935620356653097,
+            0.3548282843133088
+          ],
+          "edge_signed_distances_m": [
+            0.01031710675407066,
+            -0.018023405843334627
+          ],
+          "face_barycentric": [
+            0.3609768987269887,
+            0.12620732730466172,
+            0.5128157739683495
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 11,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 245,
+        "proper": {
+          "point_m": [
+            0.16980461879598951,
+            1.4921868360203105,
+            0.35796909718512904
+          ],
+          "edge_signed_distances_m": [
+            0.009931421519356127,
+            -0.018023405843334627
+          ],
+          "face_barycentric": [
+            0.349948731719003,
+            0.06162457371879618,
+            0.5884266945622009
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 12,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 242,
+        "proper": {
+          "point_m": [
+            0.17551816377961368,
+            1.4774478243891713,
+            0.363906985382897
+          ],
+          "edge_signed_distances_m": [
+            -0.061410863209047616,
+            0.022386583384693903
+          ],
+          "face_barycentric": [
+            0.1599076525879234,
+            0.19083455371729366,
+            0.649257793694783
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 12,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 243,
+        "proper": {
+          "point_m": [
+            0.19121455467095286,
+            1.4342508977806152,
+            0.3774450365451186
+          ],
+          "edge_signed_distances_m": [
+            0.021632725722492033,
+            -0.0008616014991791113
+          ],
+          "face_barycentric": [
+            0.3987941622377625,
+            0.22429872806253673,
+            0.3769071096997008
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 13,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 245,
+        "proper": {
+          "point_m": [
+            0.1688238938686334,
+            1.4935620356653094,
+            0.3548282843133088
+          ],
+          "edge_signed_distances_m": [
+            -0.018023405843334627,
+            0.01031710675407066
+          ],
+          "face_barycentric": [
+            0.3609768987269909,
+            0.1262073273046596,
+            0.5128157739683495
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 13,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 242,
+        "proper": {
+          "point_m": [
+            0.1755181637796137,
+            1.4774478243891713,
+            0.363906985382897
+          ],
+          "edge_signed_distances_m": [
+            0.022386583384693903,
+            -0.061410863209047616
+          ],
+          "face_barycentric": [
+            0.1599076525879234,
+            0.19083455371729366,
+            0.649257793694783
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 16,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 250,
+        "proper": {
+          "point_m": [
+            0.021114728732195703,
+            1.5878071513742886,
+            0.27029076994212675
+          ],
+          "edge_signed_distances_m": [
+            -0.02365179857672166,
+            0.0047364662362974035
+          ],
+          "face_barycentric": [
+            0.3263241906088629,
+            0.2829993024642788,
+            0.39067650692685835
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 17,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 250,
+        "proper": {
+          "point_m": [
+            0.013369841341844765,
+            1.5872562317352574,
+            0.26757306597652675
+          ],
+          "edge_signed_distances_m": [
+            -0.04293389726574646,
+            0.0047364662362974035
+          ],
+          "face_barycentric": [
+            0.20662840189814313,
+            0.4253857526780382,
+            0.3679858454238186
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 18,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 250,
+        "proper": {
+          "point_m": [
+            0.014572560251205072,
+            1.5849498013333507,
+            0.2650051251917307
+          ],
+          "edge_signed_distances_m": [
+            -0.02355019542104429,
+            0.0024926179206215503
+          ],
+          "face_barycentric": [
+            0.22521619810451982,
+            0.4331740601995163,
+            0.34160974169596386
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 19,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 250,
+        "proper": {
+          "point_m": [
+            0.014538351049535433,
+            1.5851841520472707,
+            0.26528910110953313
+          ],
+          "edge_signed_distances_m": [
+            -0.02365179857672166,
+            0.0024926179206215503
+          ],
+          "face_barycentric": [
+            0.22468750127929377,
+            0.43084318175930875,
+            0.34446931696139743
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 21,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 250,
+        "proper": {
+          "point_m": [
+            0.004173438717995687,
+            1.5851519522505424,
+            0.2625333859039366
+          ],
+          "edge_signed_distances_m": [
+            -0.01552505170185377,
+            0.0024926179206215503
+          ],
+          "face_barycentric": [
+            0.06449971623973627,
+            0.6125840405777822,
+            0.3229162431824816
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 24,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 195,
+        "proper": {
+          "point_m": [
+            0.23890421691389163,
+            1.3340411739986109,
+            0.29713803619967405
+          ],
+          "edge_signed_distances_m": [
+            -0.0014461427058498596,
+            0.021438634585921306
+          ],
+          "face_barycentric": [
+            0.054101811468475036,
+            0.1031923915654591,
+            0.8427057969660658
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 25,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 195,
+        "proper": {
+          "point_m": [
+            0.23796990172981378,
+            1.336118899270567,
+            0.29400066417891024
+          ],
+          "edge_signed_distances_m": [
+            -0.0004351682001016788,
+            0.021438634585921306
+          ],
+          "face_barycentric": [
+            0.0640589630511248,
+            0.14060223949344988,
+            0.7953387974554254
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 26,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 250,
+        "proper": {
+          "point_m": [
+            0.002736306654837912,
+            1.5882712661599407,
+            0.26605601757393954
+          ],
+          "edge_signed_distances_m": [
+            -0.013281111521550955,
+            0.0047364662362974035
+          ],
+          "face_barycentric": [
+            0.042289108504439066,
+            0.5987358482363667,
+            0.3589750432591942
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 27,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 250,
+        "proper": {
+          "point_m": [
+            0.003946331409495213,
+            1.5856448872442883,
+            0.2630900553574385
+          ],
+          "edge_signed_distances_m": [
+            -0.013281111521550955,
+            0.0024926179206215503
+          ],
+          "face_barycentric": [
+            0.06098981518593943,
+            0.6103956912960159,
+            0.32861449351804467
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 0,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 260,
+        "proper": {
+          "point_m": [
+            -0.19383823609576523,
+            1.4288039842536662,
+            0.37750306532356714
+          ],
+          "edge_signed_distances_m": [
+            -0.0009447692679039714,
+            0.018396713811127473
+          ],
+          "face_barycentric": [
+            0.14220775428700905,
+            0.28720543202834353,
+            0.5705868136846475
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 0,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 213,
+        "proper": {
+          "point_m": [
+            -0.23895972802158966,
+            1.3338988525189988,
+            0.2973479321670191
+          ],
+          "edge_signed_distances_m": [
+            0.020431336772808187,
+            -0.0014382495923159553
+          ],
+          "face_barycentric": [
+            0.059757200491300906,
+            0.8990302534843572,
+            0.04121254602434193
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 1,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 260,
+        "proper": {
+          "point_m": [
+            -0.19383823609576523,
+            1.4288039842536662,
+            0.37750306532356714
+          ],
+          "edge_signed_distances_m": [
+            0.018396713811127473,
+            -0.0009447692679039714
+          ],
+          "face_barycentric": [
+            0.14220775428700905,
+            0.28720543202834353,
+            0.5705868136846475
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 4,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 260,
+        "proper": {
+          "point_m": [
+            -0.23308945869188524,
+            1.353564837276885,
+            0.30735646484159107
+          ],
+          "edge_signed_distances_m": [
+            0.02099634786016892,
+            -0.003964248498157578
+          ],
+          "face_barycentric": [
+            0.2642211577664299,
+            0.7125751078324926,
+            0.023203734401077543
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 4,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 213,
+        "proper": {
+          "point_m": [
+            -0.237960891409635,
+            1.336116307962295,
+            0.2939985829415901
+          ],
+          "edge_signed_distances_m": [
+            -0.0004259532331596532,
+            0.02144366705090346
+          ],
+          "face_barycentric": [
+            0.07164463410467123,
+            0.8590369743439303,
+            0.06931839155139843
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 5,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 260,
+        "proper": {
+          "point_m": [
+            -0.23308945869188524,
+            1.3535648372768847,
+            0.30735646484159107
+          ],
+          "edge_signed_distances_m": [
+            -0.003964248498157578,
+            0.02099634786016892
+          ],
+          "face_barycentric": [
+            0.264221157766428,
+            0.7125751078324948,
+            0.02320373440107722
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 8,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 260,
+        "proper": {
+          "point_m": [
+            -0.19129032417875358,
+            1.4339239792252712,
+            0.38143196844782207
+          ],
+          "edge_signed_distances_m": [
+            0.021398160926405653,
+            -0.0009447692679039714
+          ],
+          "face_barycentric": [
+            0.14374466025238053,
+            0.2531928538808088,
+            0.6030624858668107
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 8,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 261,
+        "proper": {
+          "point_m": [
+            -0.17530025442590416,
+            1.4780189551322023,
+            0.3675809480866087
+          ],
+          "edge_signed_distances_m": [
+            -0.05670277018501119,
+            0.020851520556002392
+          ],
+          "face_barycentric": [
+            0.34912262800161115,
+            0.22893455739145324,
+            0.42194281460693567
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 9,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 258,
+        "proper": {
+          "point_m": [
+            -0.16793493898922832,
+            1.49524942189579,
+            0.35799475604984543
+          ],
+          "edge_signed_distances_m": [
+            -0.015578108587826047,
+            0.0092275622890648
+          ],
+          "face_barycentric": [
+            0.08597103899191239,
+            0.2622609402901272,
+            0.6517680207179604
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 9,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 261,
+        "proper": {
+          "point_m": [
+            -0.17530025442590413,
+            1.4780189551322023,
+            0.3675809480866087
+          ],
+          "edge_signed_distances_m": [
+            0.020851520556002392,
+            -0.05670277018501119
+          ],
+          "face_barycentric": [
+            0.34912262800161115,
+            0.2289345573914541,
+            0.4219428146069348
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 12,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 258,
+        "proper": {
+          "point_m": [
+            -0.16843827470366995,
+            1.4940069021310922,
+            0.3546028156005966
+          ],
+          "edge_signed_distances_m": [
+            0.009657143512774708,
+            -0.016621447427492587
+          ],
+          "face_barycentric": [
+            0.11478329970645218,
+            0.2572360455477847,
+            0.6279806547457631
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 12,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 260,
+        "proper": {
+          "point_m": [
+            -0.19163252951367038,
+            1.4345334108426369,
+            0.377471865741562
+          ],
+          "edge_signed_distances_m": [
+            -0.001346578317672797,
+            0.02099634786016892
+          ],
+          "face_barycentric": [
+            0.1955157605315233,
+            0.2225827231854619,
+            0.5819015162830148
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 12,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 261,
+        "proper": {
+          "point_m": [
+            -0.18614574441262308,
+            1.4510654198049049,
+            0.3713612676904208
+          ],
+          "edge_signed_distances_m": [
+            0.10015749161416215,
+            -0.07237310719863535
+          ],
+          "face_barycentric": [
+            0.6466802652332001,
+            0.25434223696700625,
+            0.09897749779979359
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 14,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 258,
+        "proper": {
+          "point_m": [
+            -0.1679349389892283,
+            1.49524942189579,
+            0.3579947560498454
+          ],
+          "edge_signed_distances_m": [
+            0.0092275622890648,
+            -0.015578108587826047
+          ],
+          "face_barycentric": [
+            0.08597103899191327,
+            0.2622609402901268,
+            0.6517680207179599
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 15,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 258,
+        "proper": {
+          "point_m": [
+            -0.16674000683568996,
+            1.496891260048763,
+            0.35482937578157825
+          ],
+          "edge_signed_distances_m": [
+            0.009657143512774708,
+            -0.015578108587826047
+          ],
+          "face_barycentric": [
+            0.14400019198072933,
+            0.22026114066995148,
+            0.6357386673493192
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 17,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 252,
+        "proper": {
+          "point_m": [
+            -0.0228243640841243,
+            1.5875880015922585,
+            0.271320720734041
+          ],
+          "edge_signed_distances_m": [
+            0.0051841866708501865,
+            -0.022772715407224503
+          ],
+          "face_barycentric": [
+            0.5220400703030404,
+            0.08666731785680977,
+            0.39129261184014974
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 17,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 253,
+        "proper": {
+          "point_m": [
+            -0.0026836235942008114,
+            1.588245166432266,
+            0.2661430171197148
+          ],
+          "edge_signed_distances_m": [
+            -0.013385607110204754,
+            0.004886903400280075
+          ],
+          "face_barycentric": [
+            0.6414794696922461,
+            0.060992504267576964,
+            0.2975280260401769
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 20,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 252,
+        "proper": {
+          "point_m": [
+            -0.016203886107858535,
+            1.584765765300883,
+            0.26595176122094394
+          ],
+          "edge_signed_distances_m": [
+            -0.022712663299926515,
+            0.0029064896232695366
+          ],
+          "face_barycentric": [
+            0.6399650551997538,
+            0.01751337280941307,
+            0.3425215719908331
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 20,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 253,
+        "proper": {
+          "point_m": [
+            -0.01052061477237234,
+            1.5844567298527399,
+            0.2638503036426295
+          ],
+          "edge_signed_distances_m": [
+            0.002655119473818729,
+            -0.040094164447325845
+          ],
+          "face_barycentric": [
+            0.6729034161239837,
+            0.23910903257375105,
+            0.08798755130226522
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 21,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 253,
+        "proper": {
+          "point_m": [
+            -0.01052061477237234,
+            1.5844567298527399,
+            0.2638503036426295
+          ],
+          "edge_signed_distances_m": [
+            -0.040094164447325845,
+            0.002655119473818729
+          ],
+          "face_barycentric": [
+            0.6729034161239837,
+            0.23910903257375105,
+            0.08798755130226522
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 22,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 252,
+        "proper": {
+          "point_m": [
+            -0.022824364084124308,
+            1.5875880015922588,
+            0.271320720734041
+          ],
+          "edge_signed_distances_m": [
+            -0.022772715407224503,
+            0.0051841866708501865
+          ],
+          "face_barycentric": [
+            0.5220400703030403,
+            0.08666731785680865,
+            0.3912926118401509
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 23,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 252,
+        "proper": {
+          "point_m": [
+            -0.022861076380609132,
+            1.5871340296622753,
+            0.2707506284626338
+          ],
+          "edge_signed_distances_m": [
+            -0.022712663299926515,
+            0.0051841866708501865
+          ],
+          "face_barycentric": [
+            0.5232639929541989,
+            0.09104122090384575,
+            0.38569478614195524
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 24,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 213,
+        "proper": {
+          "point_m": [
+            -0.23798129056035686,
+            1.3360710203950628,
+            0.29406698440733353
+          ],
+          "edge_signed_distances_m": [
+            0.020431336772808187,
+            -0.0004259532331596532
+          ],
+          "face_barycentric": [
+            0.07140186846885596,
+            0.8598537535040861,
+            0.06874437802705793
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 25,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 213,
+        "proper": {
+          "point_m": [
+            -0.23796089140963503,
+            1.336116307962295,
+            0.2939985829415901
+          ],
+          "edge_signed_distances_m": [
+            0.02144366705090346,
+            -0.0004259532331596532
+          ],
+          "face_barycentric": [
+            0.07164463410467123,
+            0.8590369743439303,
+            0.06931839155139843
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 26,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 253,
+        "proper": {
+          "point_m": [
+            -0.0026836235942008114,
+            1.588245166432266,
+            0.2661430171197148
+          ],
+          "edge_signed_distances_m": [
+            0.004886903400280075,
+            -0.013385607110204754
+          ],
+          "face_barycentric": [
+            0.6414794696922461,
+            0.060992504267576964,
+            0.2975280260401769
+          ]
+        }
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 27,
+        "horse_mesh": "skinned_equine_coat",
+        "horse_triangle": 253,
+        "proper": {
+          "point_m": [
+            -0.0030195590346193315,
+            1.587498440526738,
+            0.26531432294561125
+          ],
+          "edge_signed_distances_m": [
+            0.004886903400280075,
+            -0.01561748240736903
+          ],
+          "face_barycentric": [
+            0.6501306296625309,
+            0.0686275331992174,
+            0.28124183713825174
+          ]
+        }
+      }
+    ],
+    "required_clearance_m": 0.005,
+    "exact_distance_candidates": 1373,
+    "clearance_violations": [
+      {
+        "part": "breastcollar",
+        "gear_triangle": 10,
+        "horse_triangle": 195,
+        "distance_m": 0.0046713574532817196
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 10,
+        "horse_triangle": 240,
+        "distance_m": 0.0021649964736931253
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 10,
+        "horse_triangle": 242,
+        "distance_m": 0.0032826486241052714
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 10,
+        "horse_triangle": 243,
+        "distance_m": 0.0021649964736931288
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 12,
+        "horse_triangle": 192,
+        "distance_m": 0.0006210105167917065
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 12,
+        "horse_triangle": 193,
+        "distance_m": 0.0006210105167917065
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 12,
+        "horse_triangle": 195,
+        "distance_m": 0.0006210105167917065
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 12,
+        "horse_triangle": 240,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 12,
+        "horse_triangle": 241,
+        "distance_m": 0.0017032520531952394
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 12,
+        "horse_triangle": 242,
+        "distance_m": 0.0006210105167917065
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 12,
+        "horse_triangle": 243,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 12,
+        "horse_triangle": 286,
+        "distance_m": 0.0017032520531952376
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 13,
+        "horse_triangle": 195,
+        "distance_m": 0.003938707378495408
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 13,
+        "horse_triangle": 240,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 13,
+        "horse_triangle": 241,
+        "distance_m": 0.001703252053195236
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 13,
+        "horse_triangle": 242,
+        "distance_m": 0.0009705667136823744
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 13,
+        "horse_triangle": 243,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 13,
+        "horse_triangle": 286,
+        "distance_m": 0.0017032520531952387
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 14,
+        "horse_triangle": 193,
+        "distance_m": 0.0035616815572231705
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 14,
+        "horse_triangle": 240,
+        "distance_m": 0.0035616815572231697
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 15,
+        "horse_triangle": 193,
+        "distance_m": 0.0021387469146433983
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 15,
+        "horse_triangle": 240,
+        "distance_m": 0.0021387469146433957
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 15,
+        "horse_triangle": 241,
+        "distance_m": 0.002415752589245671
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 15,
+        "horse_triangle": 286,
+        "distance_m": 0.0024157525892456655
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 20,
+        "horse_triangle": 282,
+        "distance_m": 0.0025555300114481054
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 20,
+        "horse_triangle": 283,
+        "distance_m": 0.003561379149708118
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 20,
+        "horse_triangle": 284,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 20,
+        "horse_triangle": 285,
+        "distance_m": 0.0018479768379254177
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 20,
+        "horse_triangle": 287,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 21,
+        "horse_triangle": 282,
+        "distance_m": 0.002555530011448105
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 21,
+        "horse_triangle": 283,
+        "distance_m": 0.0035613791497081126
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 21,
+        "horse_triangle": 284,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 21,
+        "horse_triangle": 285,
+        "distance_m": 0.0018479768379254177
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 21,
+        "horse_triangle": 287,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 22,
+        "horse_triangle": 284,
+        "distance_m": 0.004520661741018436
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 22,
+        "horse_triangle": 287,
+        "distance_m": 0.004520661741018432
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 23,
+        "horse_triangle": 282,
+        "distance_m": 0.0031836034279319895
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 23,
+        "horse_triangle": 283,
+        "distance_m": 0.004389206472835914
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 23,
+        "horse_triangle": 284,
+        "distance_m": 0.001700810355173178
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 23,
+        "horse_triangle": 285,
+        "distance_m": 0.0031836034279319886
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 23,
+        "horse_triangle": 287,
+        "distance_m": 0.0017008103551731755
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 24,
+        "horse_triangle": 324,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 24,
+        "horse_triangle": 325,
+        "distance_m": 0.001785851615218301
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 24,
+        "horse_triangle": 328,
+        "distance_m": 0.0025304099898318276
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 24,
+        "horse_triangle": 330,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 24,
+        "horse_triangle": 331,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 25,
+        "horse_triangle": 324,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 25,
+        "horse_triangle": 325,
+        "distance_m": 0.0036682344704709216
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 25,
+        "horse_triangle": 328,
+        "distance_m": 0.002530409989831823
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 25,
+        "horse_triangle": 330,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 25,
+        "horse_triangle": 331,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 26,
+        "horse_triangle": 322,
+        "distance_m": 0.004442645159153761
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 26,
+        "horse_triangle": 324,
+        "distance_m": 0.0038452967821527096
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 26,
+        "horse_triangle": 325,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 26,
+        "horse_triangle": 330,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 26,
+        "horse_triangle": 332,
+        "distance_m": 0.004915989035659019
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 26,
+        "horse_triangle": 333,
+        "distance_m": 0.00122987850773672
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 27,
+        "horse_triangle": 322,
+        "distance_m": 0.004581105903276524
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 27,
+        "horse_triangle": 324,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 27,
+        "horse_triangle": 325,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 27,
+        "horse_triangle": 330,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 27,
+        "horse_triangle": 331,
+        "distance_m": 0.004854289627148524
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 28,
+        "horse_triangle": 283,
+        "distance_m": 0.0040458814444847176
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 28,
+        "horse_triangle": 322,
+        "distance_m": 0.0044426464192859495
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 28,
+        "horse_triangle": 324,
+        "distance_m": 0.0008691013554281123
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 28,
+        "horse_triangle": 325,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 28,
+        "horse_triangle": 330,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 28,
+        "horse_triangle": 332,
+        "distance_m": 0.004630135761341017
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 28,
+        "horse_triangle": 333,
+        "distance_m": 0.0010959594160198116
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 29,
+        "horse_triangle": 322,
+        "distance_m": 0.004442645159153764
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 29,
+        "horse_triangle": 324,
+        "distance_m": 0.002065709765295992
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 29,
+        "horse_triangle": 325,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 29,
+        "horse_triangle": 330,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 29,
+        "horse_triangle": 332,
+        "distance_m": 0.004630135761341016
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 29,
+        "horse_triangle": 333,
+        "distance_m": 0.001095959416019807
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 30,
+        "horse_triangle": 283,
+        "distance_m": 0.00423485433503413
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 30,
+        "horse_triangle": 324,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 30,
+        "horse_triangle": 325,
+        "distance_m": 0.004961685554007039
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 30,
+        "horse_triangle": 328,
+        "distance_m": 0.002942174902668083
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 30,
+        "horse_triangle": 330,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 30,
+        "horse_triangle": 331,
+        "distance_m": 0.0009217620670438198
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 31,
+        "horse_triangle": 283,
+        "distance_m": 0.004045881444484719
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 31,
+        "horse_triangle": 322,
+        "distance_m": 0.004668833384197432
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 31,
+        "horse_triangle": 324,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 31,
+        "horse_triangle": 325,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 31,
+        "horse_triangle": 330,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 32,
+        "horse_triangle": 316,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 32,
+        "horse_triangle": 322,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 32,
+        "horse_triangle": 323,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 33,
+        "horse_triangle": 316,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 33,
+        "horse_triangle": 318,
+        "distance_m": 0.004073756809909126
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 33,
+        "horse_triangle": 319,
+        "distance_m": 0.002942174902668085
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 33,
+        "horse_triangle": 322,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 33,
+        "horse_triangle": 323,
+        "distance_m": 0.0013619499179151064
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 34,
+        "horse_triangle": 314,
+        "distance_m": 0.001229878507736712
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 34,
+        "horse_triangle": 316,
+        "distance_m": 0.0011543956237416505
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 34,
+        "horse_triangle": 317,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 34,
+        "horse_triangle": 322,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 34,
+        "horse_triangle": 323,
+        "distance_m": 0.00026402196791367355
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 34,
+        "horse_triangle": 325,
+        "distance_m": 0.004442645159153735
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 35,
+        "horse_triangle": 314,
+        "distance_m": 0.0016769894134639354
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 35,
+        "horse_triangle": 316,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 35,
+        "horse_triangle": 317,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 35,
+        "horse_triangle": 322,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 35,
+        "horse_triangle": 323,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 36,
+        "horse_triangle": 269,
+        "distance_m": 0.004045881444484722
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 36,
+        "horse_triangle": 316,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 36,
+        "horse_triangle": 322,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 36,
+        "horse_triangle": 323,
+        "distance_m": 0.004587898816547681
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 36,
+        "horse_triangle": 325,
+        "distance_m": 0.00466883206050548
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 37,
+        "horse_triangle": 269,
+        "distance_m": 0.004811225604182388
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 37,
+        "horse_triangle": 314,
+        "distance_m": 0.0012298785077367112
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 37,
+        "horse_triangle": 316,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 37,
+        "horse_triangle": 317,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 37,
+        "horse_triangle": 322,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 37,
+        "horse_triangle": 323,
+        "distance_m": 0.004587898816547674
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 37,
+        "horse_triangle": 325,
+        "distance_m": 0.004442645159153721
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 38,
+        "horse_triangle": 316,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 38,
+        "horse_triangle": 318,
+        "distance_m": 0.0040737568099091185
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 38,
+        "horse_triangle": 319,
+        "distance_m": 0.002942174902668103
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 38,
+        "horse_triangle": 322,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 38,
+        "horse_triangle": 323,
+        "distance_m": 0.0013619499179151075
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 38,
+        "horse_triangle": 325,
+        "distance_m": 0.004807152939612231
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 39,
+        "horse_triangle": 269,
+        "distance_m": 0.004045881444484717
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 39,
+        "horse_triangle": 316,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 39,
+        "horse_triangle": 319,
+        "distance_m": 0.004543889810200031
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 39,
+        "horse_triangle": 322,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 39,
+        "horse_triangle": 325,
+        "distance_m": 0.004668833384197399
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 44,
+        "horse_triangle": 264,
+        "distance_m": 0.001700810355173178
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 44,
+        "horse_triangle": 265,
+        "distance_m": 0.003563978691389124
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 44,
+        "horse_triangle": 266,
+        "distance_m": 0.002368737734044249
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 44,
+        "horse_triangle": 267,
+        "distance_m": 0.0017008103551731755
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 44,
+        "horse_triangle": 269,
+        "distance_m": 0.0031836034279319886
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 45,
+        "horse_triangle": 264,
+        "distance_m": 0.004829865103661096
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 45,
+        "horse_triangle": 265,
+        "distance_m": 0.004633757493795529
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 46,
+        "horse_triangle": 266,
+        "distance_m": 0.003735164508070355
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 46,
+        "horse_triangle": 267,
+        "distance_m": 0.00373516450807036
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 46,
+        "horse_triangle": 269,
+        "distance_m": 0.00410347890320349
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 47,
+        "horse_triangle": 264,
+        "distance_m": 0.001700810355173178
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 47,
+        "horse_triangle": 265,
+        "distance_m": 0.0035639786913891124
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 47,
+        "horse_triangle": 266,
+        "distance_m": 0.002368737734044253
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 47,
+        "horse_triangle": 267,
+        "distance_m": 0.0017008103551731798
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 47,
+        "horse_triangle": 269,
+        "distance_m": 0.00318360342793199
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 50,
+        "horse_triangle": 260,
+        "distance_m": 0.0021649964736931253
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 50,
+        "horse_triangle": 262,
+        "distance_m": 0.0031043154617952057
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 50,
+        "horse_triangle": 263,
+        "distance_m": 0.0021649964736931235
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 50,
+        "horse_triangle": 213,
+        "distance_m": 0.004671357453281719
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 51,
+        "horse_triangle": 260,
+        "distance_m": 0.004721391790405227
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 51,
+        "horse_triangle": 263,
+        "distance_m": 0.004721391790405233
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 52,
+        "horse_triangle": 262,
+        "distance_m": 0.0021387469146433983
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 52,
+        "horse_triangle": 265,
+        "distance_m": 0.002415752589245671
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 52,
+        "horse_triangle": 215,
+        "distance_m": 0.0021387469146433957
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 53,
+        "horse_triangle": 260,
+        "distance_m": 0.0017176279547505271
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 53,
+        "horse_triangle": 262,
+        "distance_m": 0.0017176279547505271
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 53,
+        "horse_triangle": 263,
+        "distance_m": 0.0017176279547505271
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 53,
+        "horse_triangle": 212,
+        "distance_m": 0.0017176279547505271
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 53,
+        "horse_triangle": 213,
+        "distance_m": 0.0017176279547505271
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 53,
+        "horse_triangle": 215,
+        "distance_m": 0.0017176279547505271
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 54,
+        "horse_triangle": 262,
+        "distance_m": 0.0042546570792245005
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 54,
+        "horse_triangle": 265,
+        "distance_m": 0.004254657079224503
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 55,
+        "horse_triangle": 262,
+        "distance_m": 0.002138746914643397
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 55,
+        "horse_triangle": 265,
+        "distance_m": 0.0024157525892456685
+      },
+      {
+        "part": "breastcollar",
+        "gear_triangle": 55,
+        "horse_triangle": 215,
+        "distance_m": 0.002138746914643397
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 0,
+        "horse_triangle": 195,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 0,
+        "horse_triangle": 242,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 1,
+        "horse_triangle": 195,
+        "distance_m": 0.001446142705849856
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 1,
+        "horse_triangle": 242,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 1,
+        "horse_triangle": 243,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 4,
+        "horse_triangle": 195,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 4,
+        "horse_triangle": 242,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 4,
+        "horse_triangle": 243,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 5,
+        "horse_triangle": 243,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 6,
+        "horse_triangle": 195,
+        "distance_m": 0.00043516820010167817
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 6,
+        "horse_triangle": 242,
+        "distance_m": 0.0020814420730918483
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 6,
+        "horse_triangle": 243,
+        "distance_m": 0.0005879040250359143
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 7,
+        "horse_triangle": 195,
+        "distance_m": 0.00043516820010167817
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 7,
+        "horse_triangle": 242,
+        "distance_m": 0.0020814420730918483
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 7,
+        "horse_triangle": 243,
+        "distance_m": 0.0005879040250359143
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 8,
+        "horse_triangle": 245,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 8,
+        "horse_triangle": 242,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 8,
+        "horse_triangle": 243,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 8,
+        "horse_triangle": 246,
+        "distance_m": 0.0028864284878058984
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 8,
+        "horse_triangle": 249,
+        "distance_m": 0.003675409735729774
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 9,
+        "horse_triangle": 243,
+        "distance_m": 0.0005879040250359143
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 9,
+        "horse_triangle": 246,
+        "distance_m": 0.0028864284878058984
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 9,
+        "horse_triangle": 249,
+        "distance_m": 0.003675409735729774
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 10,
+        "horse_triangle": 245,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 10,
+        "horse_triangle": 242,
+        "distance_m": 0.0005794815920816644
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 10,
+        "horse_triangle": 246,
+        "distance_m": 0.003471721106163382
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 10,
+        "horse_triangle": 249,
+        "distance_m": 0.0037039704793411423
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 11,
+        "horse_triangle": 245,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 11,
+        "horse_triangle": 242,
+        "distance_m": 0.0005794815920816696
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 11,
+        "horse_triangle": 246,
+        "distance_m": 0.0028864284878058984
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 11,
+        "horse_triangle": 249,
+        "distance_m": 0.0036438513344483475
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 12,
+        "horse_triangle": 242,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 12,
+        "horse_triangle": 243,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 13,
+        "horse_triangle": 245,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 13,
+        "horse_triangle": 242,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 13,
+        "horse_triangle": 246,
+        "distance_m": 0.003471721106163382
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 13,
+        "horse_triangle": 249,
+        "distance_m": 0.0037039704793411423
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 14,
+        "horse_triangle": 243,
+        "distance_m": 0.0005879040250359143
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 15,
+        "horse_triangle": 243,
+        "distance_m": 0.0008616014991791113
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 16,
+        "horse_triangle": 246,
+        "distance_m": 0.0028864284878058984
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 16,
+        "horse_triangle": 249,
+        "distance_m": 0.0035349677410663706
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 16,
+        "horse_triangle": 250,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 16,
+        "horse_triangle": 251,
+        "distance_m": 0.004268106127489462
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 17,
+        "horse_triangle": 250,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 17,
+        "horse_triangle": 253,
+        "distance_m": 0.0024944503715757546
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 18,
+        "horse_triangle": 246,
+        "distance_m": 0.0028864284878058984
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 18,
+        "horse_triangle": 249,
+        "distance_m": 0.0035555018010355547
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 18,
+        "horse_triangle": 250,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 19,
+        "horse_triangle": 246,
+        "distance_m": 0.0028864284878058984
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 19,
+        "horse_triangle": 249,
+        "distance_m": 0.0035349677410663675
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 19,
+        "horse_triangle": 250,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 19,
+        "horse_triangle": 251,
+        "distance_m": 0.004268106127489456
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 20,
+        "horse_triangle": 246,
+        "distance_m": 0.003471721106163382
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 20,
+        "horse_triangle": 249,
+        "distance_m": 0.0037039704793411423
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 21,
+        "horse_triangle": 246,
+        "distance_m": 0.003471721106163382
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 21,
+        "horse_triangle": 249,
+        "distance_m": 0.0037039704793411423
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 21,
+        "horse_triangle": 250,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 21,
+        "horse_triangle": 253,
+        "distance_m": 0.003804562355503597
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 24,
+        "horse_triangle": 195,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 25,
+        "horse_triangle": 195,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 26,
+        "horse_triangle": 250,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 26,
+        "horse_triangle": 253,
+        "distance_m": 0.00249445037157575
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 27,
+        "horse_triangle": 250,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_l",
+        "gear_triangle": 27,
+        "horse_triangle": 253,
+        "distance_m": 0.0034626376294726456
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 0,
+        "horse_triangle": 260,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 0,
+        "horse_triangle": 212,
+        "distance_m": 0.0031554198615590776
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 0,
+        "horse_triangle": 213,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 1,
+        "horse_triangle": 260,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 2,
+        "horse_triangle": 260,
+        "distance_m": 0.0013465783176727943
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 2,
+        "horse_triangle": 212,
+        "distance_m": 0.0034494166852555796
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 2,
+        "horse_triangle": 213,
+        "distance_m": 0.00042595323315965523
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 3,
+        "horse_triangle": 260,
+        "distance_m": 0.0009447692679039702
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 3,
+        "horse_triangle": 212,
+        "distance_m": 0.0034494166852555796
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 3,
+        "horse_triangle": 213,
+        "distance_m": 0.0014382495923159588
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 4,
+        "horse_triangle": 260,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 4,
+        "horse_triangle": 213,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 5,
+        "horse_triangle": 260,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 5,
+        "horse_triangle": 213,
+        "distance_m": 0.00042595323315965523
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 8,
+        "horse_triangle": 260,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 8,
+        "horse_triangle": 261,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 9,
+        "horse_triangle": 257,
+        "distance_m": 0.0027464658415957285
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 9,
+        "horse_triangle": 258,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 9,
+        "horse_triangle": 259,
+        "distance_m": 0.0027393145534104785
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 9,
+        "horse_triangle": 261,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 9,
+        "horse_triangle": 254,
+        "distance_m": 0.003675409735729774
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 10,
+        "horse_triangle": 260,
+        "distance_m": 0.0009447692679039702
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 11,
+        "horse_triangle": 260,
+        "distance_m": 0.0009447692679039702
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 12,
+        "horse_triangle": 257,
+        "distance_m": 0.003389085517055394
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 12,
+        "horse_triangle": 258,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 12,
+        "horse_triangle": 259,
+        "distance_m": 0.0028812726367366563
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 12,
+        "horse_triangle": 260,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 12,
+        "horse_triangle": 261,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 12,
+        "horse_triangle": 254,
+        "distance_m": 0.0037039704793411423
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 13,
+        "horse_triangle": 257,
+        "distance_m": 0.003389085517055394
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 13,
+        "horse_triangle": 260,
+        "distance_m": 0.0013465783176727943
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 13,
+        "horse_triangle": 254,
+        "distance_m": 0.0037039704793411423
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 14,
+        "horse_triangle": 257,
+        "distance_m": 0.0027464658415957285
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 14,
+        "horse_triangle": 258,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 14,
+        "horse_triangle": 259,
+        "distance_m": 0.002366647477434892
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 14,
+        "horse_triangle": 261,
+        "distance_m": 0.000858222368610784
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 14,
+        "horse_triangle": 254,
+        "distance_m": 0.003675409735729774
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 15,
+        "horse_triangle": 257,
+        "distance_m": 0.0027464658415957285
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 15,
+        "horse_triangle": 258,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 15,
+        "horse_triangle": 259,
+        "distance_m": 0.002366647477434892
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 15,
+        "horse_triangle": 261,
+        "distance_m": 0.001227496496088297
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 15,
+        "horse_triangle": 254,
+        "distance_m": 0.0036438513344483423
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 16,
+        "horse_triangle": 254,
+        "distance_m": 0.0036554129880597822
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 16,
+        "horse_triangle": 257,
+        "distance_m": 0.0027464658415957285
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 17,
+        "horse_triangle": 250,
+        "distance_m": 0.002494450371575776
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 17,
+        "horse_triangle": 252,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 17,
+        "horse_triangle": 253,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 17,
+        "horse_triangle": 254,
+        "distance_m": 0.0035349677410663766
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 17,
+        "horse_triangle": 257,
+        "distance_m": 0.0027464658415957285
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 20,
+        "horse_triangle": 257,
+        "distance_m": 0.003389085517055394
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 20,
+        "horse_triangle": 252,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 20,
+        "horse_triangle": 253,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 20,
+        "horse_triangle": 254,
+        "distance_m": 0.0037039704793411423
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 21,
+        "horse_triangle": 250,
+        "distance_m": 0.0038045623555036188
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 21,
+        "horse_triangle": 252,
+        "distance_m": 0.0019541137664189014
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 21,
+        "horse_triangle": 253,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 22,
+        "horse_triangle": 257,
+        "distance_m": 0.0027464658415957285
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 22,
+        "horse_triangle": 252,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 22,
+        "horse_triangle": 253,
+        "distance_m": 0.0017972874855306565
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 22,
+        "horse_triangle": 254,
+        "distance_m": 0.0035349677410663753
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 23,
+        "horse_triangle": 257,
+        "distance_m": 0.003389085517055394
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 23,
+        "horse_triangle": 252,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 23,
+        "horse_triangle": 253,
+        "distance_m": 0.00033619737291906867
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 23,
+        "horse_triangle": 254,
+        "distance_m": 0.0037039704793411423
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 24,
+        "horse_triangle": 212,
+        "distance_m": 0.003155419861559078
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 24,
+        "horse_triangle": 213,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 25,
+        "horse_triangle": 213,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 26,
+        "horse_triangle": 250,
+        "distance_m": 0.0024944503715757754
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 26,
+        "horse_triangle": 253,
+        "distance_m": 0.0
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 27,
+        "horse_triangle": 250,
+        "distance_m": 0.00287694072289076
+      },
+      {
+        "part": "breastcollar_support_r",
+        "gear_triangle": 27,
+        "horse_triangle": 253,
+        "distance_m": 0.0
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/harness-negative-pr3vrvgi/tools/transport/test_harness_body_fit.py", line 142, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/tmp/harness-negative-pr3vrvgi/tools/transport/test_harness_body_fit.py", line 138, in main
+    assert after['active_horse_triangles'] and all(after['active_part_triangles'].values()),'Missing active horse or one of four harness parts'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Missing active horse or one of four harness parts

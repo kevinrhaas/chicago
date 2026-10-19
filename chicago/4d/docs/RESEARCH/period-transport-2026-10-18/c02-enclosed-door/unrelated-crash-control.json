@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "meaning": "Hierarchy regression rejects a child checker that returns nonzero with a fresh matching-fixture receipt but unrelated stage/error.",
+  "returncode": 1,
+  "optimization_enabled": true,
+  "production_checker_unchanged": true
+}

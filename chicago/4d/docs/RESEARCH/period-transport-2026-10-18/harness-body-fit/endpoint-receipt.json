@@ -1,0 +1,678 @@
+{
+  "status": "Original collar trace-anchor endpoint stays outside all42+Xray sampled surfaces; no necessity to move other geometry/sockets established",
+  "scope": "Actual all-active-surface +Xray intersections, deduplicated1e-8m; oddparitynotclosedmanifoldacceptance",
+  "rows": [
+    {
+      "clip": "walk",
+      "phase": 0,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22787856,
+        0.22794615
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.05,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22786859,
+        0.22794616
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.1,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22786095,
+        0.22794617
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.15,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22786018,
+        0.22794619
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.2,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22786702,
+        0.2279462
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.25,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22787401,
+        0.22794621
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.3,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22787194,
+        0.22794622
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.35,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.2278719,
+        0.22794623
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.4,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.2278727,
+        0.22794623
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.45,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22787404,
+        0.22794621
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.5,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22787574,
+        0.22794617
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.55,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22787768,
+        0.22794611
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.6,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22787979,
+        0.22794607
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.65,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22788196,
+        0.22794606
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.7,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22788411,
+        0.2279461
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.75,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22788622,
+        0.22794614
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.8,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22788813,
+        0.22794613
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.85,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22788978,
+        0.22794613
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.9,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22789008,
+        0.22794613
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 0.95,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22788635,
+        0.22794614
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "walk",
+      "phase": 1,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22787856,
+        0.22794615
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22788918,
+        0.22794613
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.05,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.2278901,
+        0.22794613
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.1,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22788833,
+        0.22794613
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.15,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22788398,
+        0.22794614
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.2,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22787731,
+        0.22794615
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.25,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.2278696,
+        0.22794616
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.3,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22786333,
+        0.22794618
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.35,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22786093,
+        0.22794619
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.4,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22786339,
+        0.2279462
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.45,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22786959,
+        0.22794622
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.5,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22787283,
+        0.22794623
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.55,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22787178,
+        0.22794623
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.6,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.2278723,
+        0.22794622
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.65,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22787364,
+        0.2279462
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.7,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22787546,
+        0.22794616
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.75,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22787763,
+        0.22794612
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.8,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22787999,
+        0.22794608
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.85,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22788245,
+        0.22794607
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.9,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22788487,
+        0.22794608
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 0.95,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22788716,
+        0.22794612
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    },
+    {
+      "clip": "trot",
+      "phase": 1,
+      "point_m": [
+        0.238396,
+        1.337854,
+        0.199043
+      ],
+      "x_intersections_m": [
+        -0.22788918,
+        0.22794613
+      ],
+      "nearest_positive_x_surface_m": null,
+      "positive_ray_crossings": 0,
+      "odd_parity_inside": false
+    }
+  ]
+}

@@ -1,0 +1,323 @@
+{
+  "status": "engineering source/rebind preparation; not canonical Blender master or photographic adult",
+  "target_blend": {
+    "status": "original linear blend of verified CC0 graphical target deltas",
+    "recipe_sha256": "4325d1e7a577d3b44b1d4bd387852423d43e360d46feb2a9db5be2a008885f6f",
+    "phenotype": {
+      "sex": "male engineering variant",
+      "chosen_age_years": 35,
+      "age_band_years": [
+        30,
+        39
+      ],
+      "ancestry_status": "unattested; equal technical shape-category blend is an authoring liberty, not resident ethnicity",
+      "age_status": "chosen within existing reconstructed age band; no birth year or precise age asserted",
+      "likeness_status": "component study; not attested likeness"
+    },
+    "applied_targets": [
+      {
+        "path": "makehuman/data/targets/macrodetails/caucasian-male-young.target",
+        "sha256": "70e228ba7164737dae664454394536fc5935fa48d333c1a97d77e2dc6eacc5f5",
+        "coefficient": 0.28205128205128205,
+        "delta_rows": 19150
+      },
+      {
+        "path": "makehuman/data/targets/macrodetails/asian-male-young.target",
+        "sha256": "ed2e8c191cb6b87b4a2d97c80486acb2604fa549316c7aa2a738a5d5a14334dc",
+        "coefficient": 0.28205128205128205,
+        "delta_rows": 19150
+      },
+      {
+        "path": "makehuman/data/targets/macrodetails/african-male-young.target",
+        "sha256": "894abc1fbb3d28543a51fef16f89d5d4bdf9aa2e1534413339811a3d47818b7d",
+        "coefficient": 0.28205128205128205,
+        "delta_rows": 19150
+      },
+      {
+        "path": "makehuman/data/targets/macrodetails/caucasian-male-old.target",
+        "sha256": "b0d2b1d58cba0358af59833740e70229265f7da1c20a11240f4123b7192cfd6d",
+        "coefficient": 0.05128205128205128,
+        "delta_rows": 19158
+      },
+      {
+        "path": "makehuman/data/targets/macrodetails/asian-male-old.target",
+        "sha256": "36dc5a3a135ded33885e814806b0e3668ca5bf44bddcebdee48ae75ae68bc3d3",
+        "coefficient": 0.05128205128205128,
+        "delta_rows": 19150
+      },
+      {
+        "path": "makehuman/data/targets/macrodetails/african-male-old.target",
+        "sha256": "59ec94956b3525dbb30238d1239b2bce52adc3bfae091f12cd85d2570aa1933c",
+        "coefficient": 0.05128205128205128,
+        "delta_rows": 19158
+      }
+    ],
+    "coefficient_sum": 1.0,
+    "max_vertex_delta_source_units": 1.1984515631613648,
+    "changed_vertex_count": 19158,
+    "helper_vertex_count": 1117,
+    "changed_helper_vertices": 1117,
+    "max_joint_anchor_delta_source_units": 0.8326271879207163
+  },
+  "body_source_vertices": 13380,
+  "output_vertices_uv_split": 14517,
+  "source_uv_seam_vertices": 1122,
+  "triangles": 26756,
+  "source_polygons": 13378,
+  "source_face_arities": {
+    "4": 13378
+  },
+  "helper_groups_excluded": 138,
+  "source_bones": 163,
+  "target_bones": 56,
+  "max_source_influences": 9,
+  "max_output_influences": 4,
+  "source_weight_sum_error_max": 0.06300000000000017,
+  "pruned_vertices": 442,
+  "pruning_review_vertices": [
+    {
+      "source_vertex_index": 769,
+      "discarded_weight_fraction": 0.08700000000000001,
+      "pruned_vs_unpruned_tpose_error_m": 0.0023570534421957206,
+      "retained_weights": {
+        "neck_01": 0.6243154435925521,
+        "spine_03": 0.21796276013143484,
+        "clavicle_r": 0.07995618838992333,
+        "jaw": 0.0777656078860898
+      }
+    },
+    {
+      "source_vertex_index": 7488,
+      "discarded_weight_fraction": 0.08700000000000001,
+      "pruned_vs_unpruned_tpose_error_m": 0.0023570534421957206,
+      "retained_weights": {
+        "neck_01": 0.6243154435925521,
+        "spine_03": 0.21796276013143484,
+        "clavicle_l": 0.07995618838992333,
+        "jaw": 0.0777656078860898
+      }
+    },
+    {
+      "source_vertex_index": 777,
+      "discarded_weight_fraction": 0.076,
+      "pruned_vs_unpruned_tpose_error_m": 0.0026573593793277677,
+      "retained_weights": {
+        "neck_01": 0.6136363636363636,
+        "spine_03": 0.2142857142857143,
+        "jaw": 0.09632034632034632,
+        "clavicle_r": 0.07575757575757577
+      }
+    },
+    {
+      "source_vertex_index": 7496,
+      "discarded_weight_fraction": 0.076,
+      "pruned_vs_unpruned_tpose_error_m": 0.0026573593793277677,
+      "retained_weights": {
+        "neck_01": 0.6136363636363636,
+        "spine_03": 0.2142857142857143,
+        "jaw": 0.09632034632034632,
+        "clavicle_l": 0.07575757575757577
+      }
+    },
+    {
+      "source_vertex_index": 929,
+      "discarded_weight_fraction": 0.075,
+      "pruned_vs_unpruned_tpose_error_m": 0.002264098275828162,
+      "retained_weights": {
+        "neck_01": 0.5827027027027027,
+        "spine_03": 0.23891891891891892,
+        "jaw": 0.10162162162162161,
+        "clavicle_r": 0.07675675675675675
+      }
+    },
+    {
+      "source_vertex_index": 7631,
+      "discarded_weight_fraction": 0.075,
+      "pruned_vs_unpruned_tpose_error_m": 0.002264098275828162,
+      "retained_weights": {
+        "neck_01": 0.5827027027027027,
+        "spine_03": 0.23891891891891892,
+        "jaw": 0.10162162162162161,
+        "clavicle_l": 0.07675675675675675
+      }
+    },
+    {
+      "source_vertex_index": 770,
+      "discarded_weight_fraction": 0.07392607392607393,
+      "pruned_vs_unpruned_tpose_error_m": 0.002205052958502307,
+      "retained_weights": {
+        "neck_01": 0.6299892125134843,
+        "spine_03": 0.20496224379719524,
+        "head": 0.08845738942826323,
+        "clavicle_r": 0.07659115426105717
+      }
+    },
+    {
+      "source_vertex_index": 7489,
+      "discarded_weight_fraction": 0.07392607392607393,
+      "pruned_vs_unpruned_tpose_error_m": 0.002205052958502307,
+      "retained_weights": {
+        "neck_01": 0.6299892125134843,
+        "spine_03": 0.20496224379719524,
+        "head": 0.08845738942826323,
+        "clavicle_l": 0.07659115426105717
+      }
+    },
+    {
+      "source_vertex_index": 3690,
+      "discarded_weight_fraction": 0.064,
+      "pruned_vs_unpruned_tpose_error_m": 0.0017268939563245195,
+      "retained_weights": {
+        "neck_01": 0.5512820512820512,
+        "spine_03": 0.2692307692307692,
+        "jaw": 0.10790598290598291,
+        "clavicle_r": 0.07158119658119658
+      }
+    },
+    {
+      "source_vertex_index": 10358,
+      "discarded_weight_fraction": 0.064,
+      "pruned_vs_unpruned_tpose_error_m": 0.0017268939563245195,
+      "retained_weights": {
+        "neck_01": 0.5512820512820512,
+        "spine_03": 0.2692307692307692,
+        "jaw": 0.10790598290598291,
+        "clavicle_l": 0.07158119658119658
+      }
+    },
+    {
+      "source_vertex_index": 771,
+      "discarded_weight_fraction": 0.063,
+      "pruned_vs_unpruned_tpose_error_m": 0.00028577010004008046,
+      "retained_weights": {
+        "neck_01": 0.5901814300960513,
+        "spine_03": 0.2508004268943436,
+        "clavicle_r": 0.12379935965848453,
+        "upperarm_r": 0.035218783351120594
+      }
+    },
+    {
+      "source_vertex_index": 778,
+      "discarded_weight_fraction": 0.063,
+      "pruned_vs_unpruned_tpose_error_m": 0.004957645668288343,
+      "retained_weights": {
+        "neck_01": 0.5880469583778015,
+        "spine_03": 0.2508004268943436,
+        "clavicle_r": 0.11846318036286019,
+        "jaw": 0.042689434364994665
+      }
+    },
+    {
+      "source_vertex_index": 7490,
+      "discarded_weight_fraction": 0.063,
+      "pruned_vs_unpruned_tpose_error_m": 0.00028577010004008046,
+      "retained_weights": {
+        "neck_01": 0.5901814300960513,
+        "spine_03": 0.2508004268943436,
+        "clavicle_l": 0.12379935965848453,
+        "upperarm_l": 0.035218783351120594
+      }
+    },
+    {
+      "source_vertex_index": 7497,
+      "discarded_weight_fraction": 0.063,
+      "pruned_vs_unpruned_tpose_error_m": 0.004957645668288343,
+      "retained_weights": {
+        "neck_01": 0.5880469583778015,
+        "spine_03": 0.2508004268943436,
+        "clavicle_l": 0.11846318036286019,
+        "jaw": 0.042689434364994665
+      }
+    },
+    {
+      "source_vertex_index": 772,
+      "discarded_weight_fraction": 0.06,
+      "pruned_vs_unpruned_tpose_error_m": 0.004388708724652464,
+      "retained_weights": {
+        "neck_01": 0.601063829787234,
+        "spine_03": 0.24255319148936172,
+        "clavicle_r": 0.11808510638297873,
+        "head": 0.03829787234042553
+      }
+    },
+    {
+      "source_vertex_index": 7491,
+      "discarded_weight_fraction": 0.06,
+      "pruned_vs_unpruned_tpose_error_m": 0.004388708724652464,
+      "retained_weights": {
+        "neck_01": 0.601063829787234,
+        "spine_03": 0.24255319148936172,
+        "clavicle_l": 0.11808510638297873,
+        "head": 0.03829787234042553
+      }
+    },
+    {
+      "source_vertex_index": 930,
+      "discarded_weight_fraction": 0.05894105894105894,
+      "pruned_vs_unpruned_tpose_error_m": 0.0043880929630698675,
+      "retained_weights": {
+        "neck_01": 0.5541401273885351,
+        "spine_03": 0.2813163481953291,
+        "clavicle_r": 0.11889596602972399,
+        "jaw": 0.045647558386411886
+      }
+    },
+    {
+      "source_vertex_index": 7632,
+      "discarded_weight_fraction": 0.05894105894105894,
+      "pruned_vs_unpruned_tpose_error_m": 0.0043880929630698675,
+      "retained_weights": {
+        "neck_01": 0.5541401273885351,
+        "spine_03": 0.2813163481953291,
+        "clavicle_l": 0.11889596602972399,
+        "jaw": 0.045647558386411886
+      }
+    },
+    {
+      "source_vertex_index": 804,
+      "discarded_weight_fraction": 0.055055055055055056,
+      "pruned_vs_unpruned_tpose_error_m": 0.0011754016244022204,
+      "retained_weights": {
+        "neck_01": 0.5201271186440678,
+        "spine_03": 0.3008474576271187,
+        "jaw": 0.11334745762711866,
+        "clavicle_r": 0.06567796610169492
+      }
+    },
+    {
+      "source_vertex_index": 7517,
+      "discarded_weight_fraction": 0.055055055055055056,
+      "pruned_vs_unpruned_tpose_error_m": 0.0011754016244022204,
+      "retained_weights": {
+        "neck_01": 0.5201271186440678,
+        "spine_03": 0.3008474576271187,
+        "jaw": 0.11334745762711866,
+        "clavicle_l": 0.06567796610169492
+      }
+    }
+  ],
+  "discarded_weight_max": 0.08700000000000001,
+  "discarded_weight_mean": 0.00047269812199055337,
+  "discarded_weight_p95": 0.0,
+  "pruning_pose_displacement_max_m": 0.0049576456682885305,
+  "pruning_pose_displacement_mean_m": 1.3575910529904958e-05,
+  "zero_area_triangles": 0,
+  "height_m": 1.75,
+  "ground_min_y_m": 0.0,
+  "chosen_height_m": 1.75,
+  "initial_source_scale": 0.10141520648581821,
+  "final_registration_scale": 0.9966576731626317,
+  "hand_head_bilateral_error_m": 0.0,
+  "arm_horizontal_error_m": 0.0,
+  "thumb_forward_z_delta_m": {
+    "l": 0.030544379625614085,
+    "r": 0.030544379625614085
+  },
+  "gaps": [
+    "Body shape uses a recorded graphical target recipe when supplied; still not an attested phenotype or period-clothed photographic asset",
+    "Engineering LBS A-to-T correction needs visual shoulder/elbow/wrist/hip corrective sculpt review; positions alone do not prove a good deformation rig",
+    "Shortest-arc hand/finger transforms do not fully constrain bone roll or prove palms-down skin orientation; canonical Blender author must solve roll from anatomical landmarks",
+    "Source facial/tongue bones collapsed to head/jaw; no ARKit morphs or expression quality supplied",
+    "No skin photographic texture, eyes/teeth/hair/clothing, LODs, seated/walking clips or canonical .blend provided"
+  ]
+}

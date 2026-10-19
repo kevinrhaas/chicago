@@ -1,0 +1,28 @@
+{
+  "utc": "2026-10-19T09:21:43.304212+00:00",
+  "head": "f97ee94970385d35f469c449c6b111b0d8488057",
+  "merge_head": "fb6a775794e1fc9d64809af5f9dfa3518537517d",
+  "overlay_sha256": "2fa1b4f8ff508ea45c493adbcc5ae4bc5c347abf52f09dc57c2feec1940e045b",
+  "new_files": 39,
+  "modified_files": 8,
+  "asset_sha256": "93d4020036e5c685ce95010fe64b26c55a1561db4517405f0590f7a398253331",
+  "all_preimages_and_payload_hashes_verified": true,
+  "protected_inputs_exact": true,
+  "installed_validation": "actual15-angle,5semanticnegative,8desktop/mobile capturesPASS; full preflight/remote qualification still PENDING",
+  "flat_gate_entrypoints": {
+    "tools/test_carriage_c02_door.py": "f504ec530b394b5bf27a3e82257d943fdc0719e68ce4f8cf8b502353c94cf662",
+    "tools/test_carriage_c02_door_hierarchy.py": "22bd7541ad83471e45622ddfdeff144e8f8e606cefd11581910887a957cbaf94"
+  },
+  "actual_measured_rows": {
+    "tools/test_carriage_c02_door.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_carriage_c02_door_hierarchy.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    }
+  },
+  "observed_child_probe_rows": 5,
+  "updated_utc": "2026-10-19T09:31:24.747030+00:00"
+}
