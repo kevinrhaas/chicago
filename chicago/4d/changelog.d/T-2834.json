@@ -1,0 +1,7 @@
+{
+  "title": "iPhone: opening a building's card no longer stops the page",
+  "kind": "fix",
+  "items": [
+    "The first card you opened also built the full liberties list for every year in a hidden panel: about 28,000 page elements, at the moment the card appeared. The list is now built only when you open the Evidence panel."
+  ]
+}

@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c505419a7f8e102a8508129543029fd2cd7dd2357cd6f12c5547d6a79535ca4b",
+  "glb_sha256": "37618537fd47c6cf160a1a3b8251c0a461c2a6b3878d18ec20cfea6dccb9a6c2",
   "camera_sha256": "b63e192d14d9458275cd12286c59ef0ada4767222c1805257a23a1601a6f9117",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
   "verdict": "differs",
@@ -102,6 +102,10 @@
     {
       "what": "T-2831: the bow's principal top lights (4.85-5.30 m) read blind here: the glass stops at the middle light's head, 4.66 m by the sill-to-string-course span, under plain coursed stone. The reconstructed 1886 and 1904 states keep them glazed, as the 1888 plate shows them.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2813: re-rendered with Keith's crown 0.16 m lower (the moulded course under the lattice 0.20 m deep where it was 0.36 m, the checker and head bands unmoved); its camera does not use the crown and is unchanged. Read again at the crown beside the previous render: the lattice, coping and pinnacles move a few pixels at this picture's scale and nothing it shows opens a difference; the verdict stands as it was (differs).",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
