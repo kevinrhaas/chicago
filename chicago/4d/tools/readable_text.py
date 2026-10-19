@@ -465,8 +465,8 @@ def rewrite(text: str, names: Names | None = None, own: int | None = None,
     if re.search(r"\btiers?\b", s, re.IGNORECASE):
         s = re.sub(r"[^.!?]+[.!?]*", _tier_in_sentence, s)
     s = re.sub(r"\bROADMAP\s+(?:\*\*)?[A-Z]{1,3}\d+[a-z]?(?:\*\*)?", "the project's roadmap", s)
-    s = re.sub(r"\b(?:the\s+)?order[\s-]+books?\b",
-               lambda m: ("the " if m.group(0).lower().startswith("the") else "") + "reconstruction plan", s,
+    s = re.sub(r"\b(?:the\s+)?(?:reconstruction\s+)?order[\s-]+books?\b",
+               lambda m: ((m.group(0)[:3] + " ") if m.group(0).lower().startswith("the") else "") + "reconstruction plan", s,
                flags=re.IGNORECASE)
     s = re.sub(r"\btickets\b", "pieces of work", s, flags=re.IGNORECASE)
     s = re.sub(r"\bticket\b", "piece of work", s, flags=re.IGNORECASE)
@@ -583,6 +583,22 @@ SIDECAR_PATHS = {
                         "uncertain[].dossier.anchor"]
                        + [f"{k}[].citations[].{c}" for k in ("excluded", "uncertain") for c in CITATION_PATHS],
 }
+
+
+# The order book's sentences js/orderbook.js prints (build_order_book_1835.py rewrites them,
+# check_visitor_ui.py reads them), and the completion audit's (audit_town_completion_1835.py).
+ORDER_BOOK_PATHS = ["bucket_families[].title", "bucket_families[].lead",
+                    "seats_against_roofs.statement", "seats_against_roofs.what_the_slots_wait_on",
+                    "seats_against_roofs.what_is_left", "seats_against_roofs.passes[].title",
+                    "seats_against_roofs.requested_slots[].name",
+                    "seats_against_roofs.requested_slots[].family",
+                    "programme_deltas[].statement", "invariants[].statement", "invariants[].measured_now"]
+# The town census's sentences js/census.js shows (as a tile's hover text).
+CENSUS_PATHS = ["buildings.basis", "buildings.dwellings.question", "buildings.dwellings.basis",
+                "people.split.basis", "people.basis", "people.waiting_note", "people.scene.question",
+                "people.scene.basis", "people.scene.population.question", "people.scene.population.basis",
+                "people.scene.target_note", "people.scene.target_method", "beyond_the_index.why_apart"]
+COMPLETION_PATHS = ["joins[].label", "joins[].what_keeps_it_open", "not_a_remedy"]
 
 
 def strings_at(doc, paths):

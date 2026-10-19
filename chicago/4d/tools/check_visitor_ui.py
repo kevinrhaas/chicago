@@ -35,7 +35,11 @@ WHAT IT READS — the surfaces, and why each is one:
           shown by — and, in every scene, the ground's claims (sidecars/<scene>/terrain.json)
           and the exclusions and open questions (sidecars/<scene>/exclusions.json), at the
           fields tools/readable_text.py SIDECAR_PATHS lists, which are the fields compile_scene
-          rewrites. Their ticket numbers live beside the prose as `work_refs`, never in it.
+          rewrites; the Shops & work card's location lines; the reconstruction plan's
+          (order book's) sentences and the completion audit's; the town census's hover text;
+          the population profile's sections; and Sources › a source (the catalog's citations,
+          a source's limits, the names of what it supplied and where each use was read).
+          Their ticket numbers live beside the prose as `work_refs`, never in it.
 
   Already linted elsewhere, with the same lint_string: the summary records
   (compile_summaries.py), the time-stream caption decks (check_timestream.py), the Guide's
@@ -44,11 +48,9 @@ WHAT IT READS — the surfaces, and why each is one:
   NOT YET READ, and why. Strings built in JavaScript (template literals in js/*.js) are not
   read: telling a visible literal from a class name or a key statically is noise, and the
   honest check is the rendered DOM in the smoke, which wants the runner. Of the research
-  records (T-2825), `records` reads the liberties, the ground, the exclusions and open
-  questions and the Shops & work card's location lines; the hub's other topics (the town's
-  people, the population profile, the reconstruction plan, the town in numbers, plants and
-  wildlife), the source detail views and the rest of the Shops & work card are not read
-  yet, and T-2825 says which in its own record. What's New (js/changelog.js) is the release history Manager and the launcher parse,
+  records (T-2825), `records` reads the compiled ones listed above. Not read yet: the
+  plants and wildlife topics and a person's card, which their renderers fill from authored
+  files no compiler rewrites, and the rest of the Shops & work card; T-2825 says which. What's New (js/changelog.js) is the release history Manager and the launcher parse,
   held by its own length budget, and is not rewritten after the fact.
 
 THE RESEARCHER-MODE EXEMPTION (owner ruling 2026-10-16: strings shown only in Researcher
@@ -266,6 +268,54 @@ def record_strings(liberties=None, sidecars=None):
             for key in ("basis", "limit_reason"):
                 if isinstance(loc.get(key), str) and loc[key].strip():
                     yield f"businesses/{path.name} locations[{i}].{key}", loc[key]
+    from readable_text import CENSUS_PATHS, COMPLETION_PATHS, ORDER_BOOK_PATHS
+    for rel, paths in (("reconstruction/1835_reconstruction_order_book.json", ORDER_BOOK_PATHS),
+                       ("render/town_completion_1835.json", COMPLETION_PATHS),
+                       ("town_census.json", CENSUS_PATHS)):
+        path = ROOT / "data" / rel
+        if path.is_file():
+            doc = json.loads(path.read_text(encoding="utf-8"))
+            for where, text in strings_at(doc, paths):
+                yield f"{rel} {where}", text
+            if rel.endswith("order_book.json"):
+                for fam in doc.get("bucket_families") or []:
+                    for key, value in (fam.get("summary") or {}).items():
+                        if isinstance(value, str):
+                            yield f"{rel} summary.{key}", value
+    srcdir = SIDECARS / "1835" / "sources"
+    for path in sorted(srcdir.glob("*.json")):
+        # Sources › a source (js/sources.js): the catalog row's citation, and the detail view's
+        # citation, limits, the names of what it supplied, and where in it each use was read.
+        doc = json.loads(path.read_text(encoding="utf-8"))
+        if path.name == "index.json":
+            for row in doc.get("sources") or []:
+                yield f"sources/index.json {row.get('source_id')}", str(row.get("citation", ""))
+            continue
+        if path.name == "uses.json":
+            continue
+        src = doc.get("source") or {}
+        for key in ("citation", "what_it_supplies", "what_it_does_not_supply"):
+            vals = src.get(key)
+            for v in vals if isinstance(vals, list) else [vals]:
+                if isinstance(v, str) and v.strip():
+                    yield f"sources/{path.name} {key}", v
+        for eid, name in (doc.get("names") or {}).items():
+            yield f"sources/{path.name} names.{eid}", str(name)
+        for i, edge in enumerate(doc.get("edges") or []):
+            if edge.get("locator_text"):
+                yield f"sources/{path.name} edges[{i}].locator_text", edge["locator_text"]
+    pop = ROOT / "data" / "reconstruction" / "1835_population_profile.json"
+    if pop.is_file():
+        # The town's people, axis by axis (js/population.js): every section's prose and cells.
+        for sec in json.loads(pop.read_text(encoding="utf-8")).get("sections") or []:
+            where = f"population_profile {sec.get('id')}"
+            texts = [sec.get("title"), sec.get("lead"), *(sec.get("notes") or [])]
+            for t in sec.get("tables") or []:
+                texts += [t.get("title"), t.get("note"), *(t.get("headers") or [])]
+                texts += [c for row in t.get("rows") or [] for c in row]
+            for text in texts:
+                if isinstance(text, str) and text.strip():
+                    yield where, text
     if sidecars is None:
         sidecars = {}
         for name in SIDECAR_PATHS:
