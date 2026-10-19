@@ -188,6 +188,9 @@ step "Finishing the Field Check awards the Navigator License once per device, ne
 # T-2629: Settings › About.
 step "Settings › About shows the build stamp, and the DEV mark on a dev build only (T-2629)" \
   node tools/test_about.mjs
+# T-2660: the field log, on the device only.
+step "Settings › About's field log counts landings, first inspects, tabs, Show me, Jaunts, Tour steps and presets in localStorage only, clears, and never sends (T-2660)" \
+  node tools/test_field_log.mjs
 # T-2657: Researcher mode, the Settings › About switch.
 step "Researcher mode is off by default and remembered per device, and shows research prose in place while on (T-2657)" \
   node tools/test_researcher_mode.mjs
