@@ -111,6 +111,7 @@ import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { paintAbout } from './about.js';
 import { createResearcherMode } from './researcher.js';
+import { wireWhyTips } from './why-tips.js';
 import { createTour } from './tour.js';
 import { createTourOverlay } from './tour-overlay.js';
 import { markTerms } from './term-tips.js';
@@ -1599,6 +1600,10 @@ if (document.documentElement.dataset.transfer === 'true') void loadSound(true);
 Object.defineProperty(api, 'audio', { get: () => gesture.audio, enumerable: true, configurable: true });
 // T-2624: the page's static words from the string table, before anything paints over them.
 applyStrings(document);
+// T-2658: each researched setting's "Why?" opens its bubble of 40 words at most; Researcher
+// mode, which puts the button away for the full essay, closes an open one.
+api.whyTips = wireWhyTips(document);
+api.researcher?.onChange(() => api.whyTips.close());
 const arrival = createArrival({
   boot: bootController,
   journey,
