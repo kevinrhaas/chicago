@@ -283,6 +283,46 @@
    "confidence": "inferred",
    "sources": ["swink_wilhelm_1994"],
    "note": "Dossier [I]: matrix filler."
+  },
+  {
+   "id": "salix_discolor",
+   "binomial": "Salix discolor",
+   "common": "pussy willow",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"density_per_ha":[0,0]},
+   "height_m": [2.0,5.0],
+   "width_m": [1.5,3.5],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [80,108,58],
+    "foliage_rgb_alt": [134,154,112],
+    "inflorescence": null,
+    "appearance": "A clump of several upright grey-brown stems with elliptic leaves, dark above and whitish beneath, so the bush flickers pale when the wind turns them; the catkins are long gone."
+   },
+   "confidence": "inferred",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "THE WILLOW THICKET IS THE SURVEY'S; THE SPECIES IS THE ECOLOGY'S. The flora dossier (docs/research/02-flora.md, ZONE 6) carries McBride and Bowles's finding that 'Cook County had the only willow thickets described by the PLS', and builds them as a willow thicket 'in the swales and along backwater sloughs', the species unnamed (Salix spp.). The trees report's ecology analysis (section 2.5, 18 October 2026) names the two shrub willows of the slough edge on the wet lake-plain prairie: pussy willow and slender willow, in clumps where the sedge meadow meets the grass. THE ZERO DENSITY IS A ROUTING CLAIM, NOT AN ECOLOGICAL ONE, as the young fruit trees' is in z10_settled_town (T-2809): this zone's sward lattice in renderers/web/js/flora.js deals no plant of this record, and every stem of it in the scene is placed by renderers/web/js/trees.js PRAIRIE_WOODY (T-2784) at a density that file states and docs/LIBERTIES.md L-prairie-woody-2784 records. WHAT WOULD REPLACE IT: the survey's own line notes for these sections read for 'willow'."
+  },
+  {
+   "id": "salix_petiolaris",
+   "binomial": "Salix petiolaris",
+   "common": "slender willow",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"density_per_ha":[0,0]},
+   "height_m": [1.2,3.0],
+   "width_m": [1.0,2.5],
+   "july": {
+    "phenology": "vegetative",
+    "foliage_rgb": [88,114,64],
+    "foliage_rgb_alt": [138,156,108],
+    "inflorescence": null,
+    "appearance": "A dense clump of thin, straight, reddish-brown wands with narrow, finely toothed leaves, standing out of the sedge at the wet edge of the grass."
+   },
+   "confidence": "inferred",
+   "sources": ["mcbride_bowles_2007"],
+   "note": "THE WILLOW THICKET IS THE SURVEY'S; THE SPECIES IS THE ECOLOGY'S. The flora dossier (docs/research/02-flora.md, ZONE 6) carries McBride and Bowles's finding that 'Cook County had the only willow thickets described by the PLS', and builds them as a willow thicket 'in the swales and along backwater sloughs', the species unnamed (Salix spp.). The trees report's ecology analysis (section 2.5, 18 October 2026) names the two shrub willows of the slough edge on the wet lake-plain prairie: pussy willow and slender willow, in clumps where the sedge meadow meets the grass. THE ZERO DENSITY IS A ROUTING CLAIM, NOT AN ECOLOGICAL ONE, as the young fruit trees' is in z10_settled_town (T-2809): this zone's sward lattice in renderers/web/js/flora.js deals no plant of this record, and every stem of it in the scene is placed by renderers/web/js/trees.js PRAIRIE_WOODY (T-2784) at a density that file states and docs/LIBERTIES.md L-prairie-woody-2784 records. WHAT WOULD REPLACE IT: the survey's own line notes for these sections read for 'willow'."
   }
  ],
  "confidence": "attested",

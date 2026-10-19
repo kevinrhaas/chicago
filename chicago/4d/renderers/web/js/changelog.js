@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2083, ts: '2026-10-19T23:05:28.778Z', date: 'Oct 19, 2026, 6:05 PM CT', title: 'Nothing you can see changed: rear wings can take slate roofs', kind: 'chore',
+    items: [
+      'Nothing you can see changed yet. The kit the Prairie Avenue houses are built from can now roof a rear wing with a slated hip or gable, where every wing was decked flat in tin.',
+      'Where a wing rises past the house it stands against, the join is closed in the wing\'s own walling.',
+      'It is the piece 1801 Prairie, the Kimball house, needs for its gabled section and its east range.',
+    ] },
+  { v: 2082, ts: '2026-10-19T22:37:47.305Z', date: 'Oct 19, 2026, 5:37 PM CT', title: 'Glessner\'s Prairie Avenue windows moved to the survey drawing', kind: 'change',
+    items: [
+      'The Glessner House\'s first-floor windows at the 18th Street end, and the three windows above them, move up to 0.2 m north, to where the 1965 survey elevation draws them.',
+      'All four first-floor windows on Prairie Avenue are a little wider, about 1.35 m, as the drawing shows them. The street photographs only looked narrower because they look past the deep stone reveals at an angle.',
+      'The 1880s street photograph is now lined up on the windows themselves, and its view of the house matches the picture more closely.',
+    ] },
   { v: 2081, ts: '2026-10-19T22:12:56.857Z', date: 'Oct 19, 2026, 5:12 PM CT', title: '1625 Prairie\'s oriel gets its side window and its apron', kind: 'change',
     items: [
       'In 1904, the small oriel on the south side of 1625 Prairie now has the narrow window in its west side that the 1890 photograph shows most clearly, about a foot across.',

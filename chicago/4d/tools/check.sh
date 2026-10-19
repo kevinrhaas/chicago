@@ -957,6 +957,16 @@ selftest "…and a window off its run, a recess through the wall, a faceted curv
 step "a K01 frontage carries a K08 tower past its eave, closed above the wall head and the wall head stopped at it (T-2787)" \
   python3 tools/test_k01_tower.py
 
+# T-2841. ...and a K01 rear wing takes a hipped or gabled roof in K04's slate, where it was
+# decked flat in tin (the kit piece 1801 Prairie's gabled section and east range need).
+# Built on 1604's two wings and on 1811 as all-stone with its range raised over the main
+# eave: the slate's eave and ridge, the ridge across the wing into the host wall or along
+# it, the gable's walling, the junction closed above the host's top and the host wall
+# drawn from the wing's wall top; a slate cut short for its pitch, a hip in tin, a gable
+# facing no side and two slates on one house refused; every committed wing still flat.
+step "a K01 rear wing takes a slated hip or gable, its junction with the host closed above the host's top (T-2841)" \
+  python3 tools/test_k01_wing_roof.py
+
 # T-2788. ...and what an all-stone house is. A K01 record naming `construction: "stone"`
 # lays its K02 stone_front round every face, not a stone front on a brick box. No record
 # names it yet (1801 Prairie, T-2789, is the first), so this builds four houses that carry
@@ -3632,6 +3642,12 @@ step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
 # or a record that builds the pairs outside it, is caught here (T-2850).
 step "Glessner north gable pairs stand where HABS 13 and 14 read them (T-2850)" \
   python3 tools/glessner_north_pairs.py --check
+
+# Taylor 2135 is refitted on the Prairie front's first-floor jambs with the stacks withheld,
+# and the front's lights stand at HABS sheet 6's places and widths, so a pick, camera or
+# opening that moves without the reading being re-written is caught here (T-2858).
+step "Glessner's Prairie lights stand on HABS sheet 6, Taylor 2135 refitted on them (T-2858)" \
+  python3 tools/glessner_prairie_front.py --check
 
 # The north tower's finial is read through both north cameras, and the cone's size off
 # its silhouette, so a plan moved to HABS 14's tip alone (which that camera cannot hold
