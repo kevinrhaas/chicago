@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "checks": {
+    "dropdown": true,
+    "unchanged100realsoleverts": true,
+    "sole20mmslide5mmheightminus1mmbounds": true,
+    "actualclipduration": true,
+    "head21poses0hitspositiveunsigned0join": true,
+    "fore101poses0SAT": true,
+    "torso21posepositivevertexcriterion": true,
+    "no_page_errors": true
+  },
+  "limits": "Headfulltriangle/SATunsigneddistance; torsovertexnearestnormalonly; foreactualtriangleSAT. No watertightcontainment or continuous-time/loadclaim. No frame-budget/town/mobile/photo acceptance."
+}

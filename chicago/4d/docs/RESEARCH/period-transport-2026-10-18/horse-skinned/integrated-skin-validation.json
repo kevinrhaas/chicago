@@ -1,11 +1,11 @@
 {
-  "loaded_skinned_meshes": 5,
+  "loaded_skinned_meshes": 6,
   "rest": [
     {
       "name": "skinned_equine_coat",
-      "vertices": 4534,
+      "vertices": 4154,
       "joints": 15,
-      "mixed_weight_vertices": 3604,
+      "mixed_weight_vertices": 3235,
       "max_displacement_m": 7.207873982095578e-8
     },
     {
@@ -26,8 +26,8 @@
       "name": "skinned_equine_eyes",
       "vertices": 820,
       "joints": 15,
-      "mixed_weight_vertices": 392,
-      "max_displacement_m": 6.500263697087883e-8
+      "mixed_weight_vertices": 412,
+      "max_displacement_m": 6.444752659042209e-8
     },
     {
       "name": "skinned_equine_muzzle",
@@ -35,14 +35,21 @@
       "joints": 15,
       "mixed_weight_vertices": 0,
       "max_displacement_m": 1.2839233334631493e-8
+    },
+    {
+      "name": "skinned_equine_ear_inner",
+      "vertices": 290,
+      "joints": 15,
+      "mixed_weight_vertices": 50,
+      "max_displacement_m": 6.503065921162983e-8
     }
   ],
   "deformed": [
     {
       "name": "skinned_equine_coat",
-      "vertices": 4534,
+      "vertices": 4154,
       "joints": 15,
-      "mixed_weight_vertices": 3604,
+      "mixed_weight_vertices": 3235,
       "max_displacement_m": 0.3033782677228607
     },
     {
@@ -63,8 +70,8 @@
       "name": "skinned_equine_eyes",
       "vertices": 820,
       "joints": 15,
-      "mixed_weight_vertices": 392,
-      "max_displacement_m": 0.0035522010048982607
+      "mixed_weight_vertices": 412,
+      "max_displacement_m": 0.003394836113894408
     },
     {
       "name": "skinned_equine_muzzle",
@@ -72,6 +79,13 @@
       "joints": 15,
       "mixed_weight_vertices": 0,
       "max_displacement_m": 0.012627616202008479
+    },
+    {
+      "name": "skinned_equine_ear_inner",
+      "vertices": 290,
+      "joints": 15,
+      "mixed_weight_vertices": 50,
+      "max_displacement_m": 0.0077207195935163455
     }
   ],
   "actual_rest_sole_vertex_count": 100,

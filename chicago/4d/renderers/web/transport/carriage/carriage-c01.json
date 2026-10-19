@@ -18,7 +18,8 @@
     "wheel_radius_rear_m": 0.55,
     "shaft_length_m": 2.2,
     "shaft_inner_spacing_tip_m": 0.773,
-    "steering_limit_deg": 12
+    "steering_limit_deg": 12,
+    "rounded_upholstery_study": true
   },
   "wheel_roll_axis": "+X",
   "wheel_roll_sign_forward": 1,
@@ -39,8 +40,14 @@
     "Steering bound provisional; swept collision and coupling remain integration gates"
   ],
   "statistics": {
-    "triangles": 9744,
+    "triangles": 10416,
     "meshes": 27,
     "nodes": 49
+  },
+  "upholstery_refinement": {
+    "grade": "reconstructed",
+    "radius_m": 0.02,
+    "quarter_edge_samples": 4,
+    "note": "Original three-cushion edge rounding; same axis envelope and seat datums; not source-attested interior, measured compression or photographic cloth/leather"
   }
 }

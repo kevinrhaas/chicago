@@ -9,5 +9,6 @@
   "wheel_radius_rear_m": 0.55,
   "shaft_length_m": 2.2,
   "shaft_inner_spacing_tip_m": 0.773,
-  "steering_limit_deg": 12
+  "steering_limit_deg": 12,
+  "rounded_upholstery_study": true
 }

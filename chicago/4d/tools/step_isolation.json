@@ -5454,6 +5454,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_confidence_overlays.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_confidence_presets.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5586,6 +5590,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_head_fit_distances.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_house_front.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5627,6 +5635,18 @@
       "wrote_ignored": []
     },
     "tools/test_human_inspection.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_normal_probe_adapter.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_normal_probe_math.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_normal_probe_optin.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5743,6 +5763,10 @@
       "wrote_ignored": []
     },
     "tools/test_people_scene.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_pick_boxes.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

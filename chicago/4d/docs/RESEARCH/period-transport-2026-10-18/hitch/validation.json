@@ -208,7 +208,7 @@
   },
   "raw_samples": {
     "file": "samples.json.gz",
-    "sha256": "b5c30aad2e2fb54d2fa9448f5645b667dd27d09535032177a3cc72542be563d4",
+    "sha256": "601bd266c6218ea026cb8e587ff856e9ff6c6272b05eaf075bffa06f71654911",
     "format": "gzip JSON array: one 35-state sample list per viewport"
   }
 }

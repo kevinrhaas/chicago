@@ -3,7 +3,7 @@
     "controls": "load, travel, turn, unequal wheel paths, reset, play passed",
     "render": {
       "drawCalls": 46,
-      "triangles": 18002,
+      "triangles": 21586,
       "width": 1280,
       "height": 800
     },
@@ -14,7 +14,7 @@
     "controls": "load, travel, turn, unequal wheel paths, reset, play passed",
     "render": {
       "drawCalls": 56,
-      "triangles": 19490,
+      "triangles": 20834,
       "width": 1280,
       "height": 800
     },
@@ -82,7 +82,7 @@
         "vertices": 60
       }
     ],
-    "render_calls": 42,
+    "render_calls": 43,
     "page_errors": [],
     "failed_requests": []
   },
@@ -90,7 +90,7 @@
     "controls": "load, travel, turn, unequal wheel paths, reset, play passed",
     "render": {
       "drawCalls": 46,
-      "triangles": 18002,
+      "triangles": 21586,
       "width": 390,
       "height": 445
     },
@@ -101,7 +101,7 @@
     "controls": "load, travel, turn, unequal wheel paths, reset, play passed",
     "render": {
       "drawCalls": 56,
-      "triangles": 19490,
+      "triangles": 20834,
       "width": 390,
       "height": 445
     },
@@ -169,7 +169,7 @@
         "vertices": 60
       }
     ],
-    "render_calls": 42,
+    "render_calls": 43,
     "page_errors": [],
     "failed_requests": []
   }

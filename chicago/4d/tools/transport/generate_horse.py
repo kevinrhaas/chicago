@@ -31,7 +31,7 @@ neighbors={j:[] for j in joints}
 for j in joints:
  if j==0:continue
  p=owner(parent[j]);neighbors[j].append((p,jpos[j]));neighbors[p].append((j,jpos[j]))
-groups={};ranges=[]
+groups={};ranges=[];join_records={}
 for ni,n in enumerate(nodes):
  if 'mesh' not in n:continue
  mat=d['meshes'][n['mesh']]['primitives'][0]['material'];g=groups.setdefault(mat,{'p':[],'n':[],'j':[],'w':[],'i':[]});p=d['meshes'][n['mesh']]['primitives'][0];vv=read(p['attributes']['POSITION']);nn=read(p['attributes']['NORMAL']);tr=W(ni);vv=(tr[:3,:3]@vv.T).T+tr[:3,3];nn=(tr[:3,:3]@nn.T).T;idx=read(p['indices']).ravel();offset=len(g['p']);own=owner(ni);jw=[];ww=[]
@@ -45,7 +45,25 @@ for ni,n in enumerate(nodes):
    if candidates:
     dist,other=min(candidates);fraction=.5*max(0,1-dist/.17)**2;weights={own:1-fraction,other:fraction}
   ids=[ji[x] for x in weights];ws=list(weights.values());jw.append(ids+[0]*(4-len(ids)));ww.append(ws+[0]*(4-len(ws)))
+ if 'equine_join' in n.get('extras',{}):
+  record=dict(n['extras']['equine_join']);record['interface']=[x+offset for x in record['interface']];record['band']=[x+offset for x in record['band']];record['material']=mat;join_records[record['role']]=record
  g['p'].extend(vv.tolist());g['n'].extend(nn.tolist());g['j'].extend(jw);g['w'].extend(ww);g['i'].extend((idx+offset).tolist());ranges.append({'original_node':n['name'],'material':mat,'vertex_start':offset,'vertex_count':len(vv),'joint':nodes[own]['name']});del n['mesh']
+# Original shared deformation boundary, preserving all undeclared vertex arrays.
+neck=join_records['neck'];head=join_records['head'];g=groups[neck['material']]
+assert neck['material']==head['material'] and len(neck['interface'])==len(head['interface'])==24
+head_node=next(i for i,n in enumerate(nodes) if n['name']=='head')
+for record in (neck,head):
+ for index in record['band']:
+  h=record['head_weight'];g['j'][index]=[ji[0],ji[head_node],0,0];g['w'][index]=[1-h,h,0,0]
+for n,h in zip(neck['interface'],head['interface']):
+ g['p'][h]=list(g['p'][n])
+ for index in (n,h):g['j'][index]=[ji[0],ji[head_node],0,0];g['w'][index]=[.5,.5,0,0]
+positions=np.asarray(g['p']);faces=np.asarray(g['i']).reshape(-1,3);weighted=np.zeros_like(positions)
+face_normals=np.cross(positions[faces[:,1]]-positions[faces[:,0]],positions[faces[:,2]]-positions[faces[:,0]])
+for k in range(3):np.add.at(weighted,faces[:,k],face_normals)
+for n,h in zip(neck['interface'],head['interface']):
+ normal=weighted[n]+weighted[h];normal/=np.linalg.norm(normal)
+ g['n'][n]=normal.tolist();g['n'][h]=normal.tolist()
 newmeshes=[]
 for mat,g in sorted(groups.items()):
  attrs={'POSITION':acc(g['p'],'VEC3'),'NORMAL':acc(g['n'],'VEC3'),'JOINTS_0':acc(g['j'],'VEC4',5123),'WEIGHTS_0':acc(g['w'],'VEC4')};newmeshes.append({'name':'skinned_'+d['materials'][mat]['name'],'primitives':[{'attributes':attrs,'indices':acc(g['i'],'SCALAR',5125),'material':mat}]});idx=len(nodes);nodes.append({'name':'skinned_'+d['materials'][mat]['name'],'mesh':len(newmeshes)-1,'skin':0});d['scenes'][0]['nodes'].append(idx)
@@ -68,5 +86,6 @@ manifest=json.loads((out/'manifest.json').read_text())
 manifest['frame']={'units':'metres','up':'+Y','forward':'+Z','anatomical_left':'+X','root_origin':'ground below support midpoint'}
 manifest['locomotion']={a['name']:{k:v for k,v in a['extras'].items() if k in ('cycle_duration_s','speed_m_s','stride_m','stance_fraction','phase_offsets','foot_contacts','in_place','status','motion_basis')} for a in d['animations']}
 manifest['sockets']=[{'name':n['name'],'parent':nodes[parent[i]]['name'] if i in parent else None,'translation_m':n.get('translation',[0,0,0]),'rotation_xyzw':n.get('rotation',[0,0,0,1]),'world_rest_matrix_column_major':W(i).flatten(order='F').tolist(),'status':n.get('extras',{}).get('status','provisional_unfitted')} for i,n in enumerate(nodes) if n['name'].startswith('socket_equine_')]
+manifest['join_trial']={'status':'original reconstruction, acceptance pending','records':join_records,'boundary_weights':[.5,.5],'normal_method':'oriented area-weighted face sum over paired uncapped boundary'}
 manifest['rig_status']='15-joint prototype; multi-bone anatomical chains remain unresolved'
 (out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')

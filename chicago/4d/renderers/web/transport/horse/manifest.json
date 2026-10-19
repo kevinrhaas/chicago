@@ -1,9 +1,9 @@
 {
   "asset_id": "equine_light_harness_skinned_prototype_01",
   "license": "CC0-1.0",
-  "bytes": 661624,
-  "triangles": 14544,
-  "mesh_draws": 5,
+  "bytes": 715316,
+  "triangles": 14172,
+  "mesh_draws": 6,
   "skin_joints": 15,
   "joint_table": [
     {
@@ -30,7 +30,7 @@
     },
     {
       "index": 2,
-      "node": 16,
+      "node": 17,
       "name": "tail_base",
       "parent_joint": "root",
       "world_rest_m": [
@@ -41,7 +41,7 @@
     },
     {
       "index": 3,
-      "node": 18,
+      "node": 19,
       "name": "fore_l_upper",
       "parent_joint": "root",
       "world_rest_m": [
@@ -52,7 +52,7 @@
     },
     {
       "index": 4,
-      "node": 20,
+      "node": 21,
       "name": "fore_l_carpus",
       "parent_joint": "fore_l_upper",
       "world_rest_m": [
@@ -63,7 +63,7 @@
     },
     {
       "index": 5,
-      "node": 22,
+      "node": 23,
       "name": "fore_l_fetlock",
       "parent_joint": "fore_l_carpus",
       "world_rest_m": [
@@ -74,7 +74,7 @@
     },
     {
       "index": 6,
-      "node": 27,
+      "node": 28,
       "name": "fore_r_upper",
       "parent_joint": "root",
       "world_rest_m": [
@@ -85,7 +85,7 @@
     },
     {
       "index": 7,
-      "node": 29,
+      "node": 30,
       "name": "fore_r_carpus",
       "parent_joint": "fore_r_upper",
       "world_rest_m": [
@@ -96,7 +96,7 @@
     },
     {
       "index": 8,
-      "node": 31,
+      "node": 32,
       "name": "fore_r_fetlock",
       "parent_joint": "fore_r_carpus",
       "world_rest_m": [
@@ -107,7 +107,7 @@
     },
     {
       "index": 9,
-      "node": 36,
+      "node": 37,
       "name": "hind_l_upper",
       "parent_joint": "root",
       "world_rest_m": [
@@ -118,7 +118,7 @@
     },
     {
       "index": 10,
-      "node": 38,
+      "node": 39,
       "name": "hind_l_hock",
       "parent_joint": "hind_l_upper",
       "world_rest_m": [
@@ -129,7 +129,7 @@
     },
     {
       "index": 11,
-      "node": 40,
+      "node": 41,
       "name": "hind_l_fetlock",
       "parent_joint": "hind_l_hock",
       "world_rest_m": [
@@ -140,7 +140,7 @@
     },
     {
       "index": 12,
-      "node": 45,
+      "node": 46,
       "name": "hind_r_upper",
       "parent_joint": "root",
       "world_rest_m": [
@@ -151,7 +151,7 @@
     },
     {
       "index": 13,
-      "node": 47,
+      "node": 48,
       "name": "hind_r_hock",
       "parent_joint": "hind_r_upper",
       "world_rest_m": [
@@ -162,7 +162,7 @@
     },
     {
       "index": 14,
-      "node": 49,
+      "node": 50,
       "name": "hind_r_fetlock",
       "parent_joint": "hind_r_hock",
       "world_rest_m": [
@@ -177,7 +177,7 @@
       "original_node": "continuous_body_neck",
       "material": 0,
       "vertex_start": 0,
-      "vertex_count": 242,
+      "vertex_count": 241,
       "joint": "root"
     },
     {
@@ -204,14 +204,14 @@
     {
       "original_node": "fore_l_upper_mesh",
       "material": 0,
-      "vertex_start": 242,
+      "vertex_start": 241,
       "vertex_count": 98,
       "joint": "fore_l_upper"
     },
     {
       "original_node": "fore_l_cannon",
       "material": 0,
-      "vertex_start": 340,
+      "vertex_start": 339,
       "vertex_count": 98,
       "joint": "fore_l_carpus"
     },
@@ -225,14 +225,14 @@
     {
       "original_node": "fore_r_upper_mesh",
       "material": 0,
-      "vertex_start": 438,
+      "vertex_start": 437,
       "vertex_count": 98,
       "joint": "fore_r_upper"
     },
     {
       "original_node": "fore_r_cannon",
       "material": 0,
-      "vertex_start": 536,
+      "vertex_start": 535,
       "vertex_count": 98,
       "joint": "fore_r_carpus"
     },
@@ -246,14 +246,14 @@
     {
       "original_node": "hind_l_upper_mesh",
       "material": 0,
-      "vertex_start": 634,
+      "vertex_start": 633,
       "vertex_count": 98,
       "joint": "hind_l_upper"
     },
     {
       "original_node": "hind_l_cannon",
       "material": 0,
-      "vertex_start": 732,
+      "vertex_start": 731,
       "vertex_count": 98,
       "joint": "hind_l_hock"
     },
@@ -267,14 +267,14 @@
     {
       "original_node": "hind_r_upper_mesh",
       "material": 0,
-      "vertex_start": 830,
+      "vertex_start": 829,
       "vertex_count": 98,
       "joint": "hind_r_upper"
     },
     {
       "original_node": "hind_r_cannon",
       "material": 0,
-      "vertex_start": 928,
+      "vertex_start": 927,
       "vertex_count": 98,
       "joint": "hind_r_hock"
     },
@@ -288,8 +288,8 @@
     {
       "original_node": "head_material_equine_coat",
       "material": 0,
-      "vertex_start": 1026,
-      "vertex_count": 1476,
+      "vertex_start": 1025,
+      "vertex_count": 1097,
       "joint": "head"
     },
     {
@@ -307,30 +307,37 @@
       "joint": "head"
     },
     {
+      "original_node": "head_material_equine_ear_inner",
+      "material": 5,
+      "vertex_start": 0,
+      "vertex_count": 290,
+      "joint": "head"
+    },
+    {
       "original_node": "fore_l_fetlock_material_equine_coat",
       "material": 0,
-      "vertex_start": 2502,
+      "vertex_start": 2122,
       "vertex_count": 508,
       "joint": "fore_l_fetlock"
     },
     {
       "original_node": "fore_r_fetlock_material_equine_coat",
       "material": 0,
-      "vertex_start": 3010,
+      "vertex_start": 2630,
       "vertex_count": 508,
       "joint": "fore_r_fetlock"
     },
     {
       "original_node": "hind_l_fetlock_material_equine_coat",
       "material": 0,
-      "vertex_start": 3518,
+      "vertex_start": 3138,
       "vertex_count": 508,
       "joint": "hind_l_fetlock"
     },
     {
       "original_node": "hind_r_fetlock_material_equine_coat",
       "material": 0,
-      "vertex_start": 4026,
+      "vertex_start": 3646,
       "vertex_count": 508,
       "joint": "hind_r_fetlock"
     }
@@ -396,6 +403,51 @@
         "fore_l": 0.25,
         "hind_r": 0.5,
         "fore_r": 0.75
+      },
+      "motion_basis": "synthetic contact-continuous Hermite swing; not measured motion",
+      "status": "synthetic_skinned_fixture_not_measured_motion"
+    },
+    "trot": {
+      "in_place": true,
+      "cycle_duration_s": 0.72,
+      "speed_m_s": 1.8162393162393162,
+      "stride_m": 1.3076923076923077,
+      "stance_fraction": 0.52,
+      "foot_contacts": {
+        "fore_l": {
+          "phase_offset": 0,
+          "stance": [
+            0,
+            0.52
+          ]
+        },
+        "fore_r": {
+          "phase_offset": 0.5,
+          "stance": [
+            0,
+            0.52
+          ]
+        },
+        "hind_l": {
+          "phase_offset": 0.5,
+          "stance": [
+            0,
+            0.52
+          ]
+        },
+        "hind_r": {
+          "phase_offset": 0,
+          "stance": [
+            0,
+            0.52
+          ]
+        }
+      },
+      "phase_offsets": {
+        "fore_l": 0,
+        "hind_r": 0,
+        "fore_r": 0.5,
+        "hind_l": 0.5
       },
       "motion_basis": "synthetic contact-continuous Hermite swing; not measured motion",
       "status": "synthetic_skinned_fixture_not_measured_motion"
@@ -743,5 +795,129 @@
       "status": "provisional_unfitted"
     }
   ],
+  "join_trial": {
+    "status": "original reconstruction, acceptance pending",
+    "records": {
+      "neck": {
+        "role": "neck",
+        "interface": [
+          216,
+          217,
+          218,
+          219,
+          220,
+          221,
+          222,
+          223,
+          224,
+          225,
+          226,
+          227,
+          228,
+          229,
+          230,
+          231,
+          232,
+          233,
+          234,
+          235,
+          236,
+          237,
+          238,
+          239
+        ],
+        "band": [
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210,
+          211,
+          212,
+          213,
+          214,
+          215
+        ],
+        "head_weight": 0.25,
+        "material": 0
+      },
+      "head": {
+        "role": "head",
+        "interface": [
+          1025,
+          1026,
+          1027,
+          1028,
+          1029,
+          1030,
+          1031,
+          1032,
+          1033,
+          1034,
+          1035,
+          1036,
+          1037,
+          1038,
+          1039,
+          1040,
+          1041,
+          1042,
+          1043,
+          1044,
+          1045,
+          1046,
+          1047,
+          1048
+        ],
+        "band": [
+          1049,
+          1050,
+          1051,
+          1052,
+          1053,
+          1054,
+          1055,
+          1056,
+          1057,
+          1058,
+          1059,
+          1060,
+          1061,
+          1062,
+          1063,
+          1064,
+          1065,
+          1066,
+          1067,
+          1068,
+          1069,
+          1070,
+          1071,
+          1072
+        ],
+        "head_weight": 0.8,
+        "material": 0
+      }
+    },
+    "boundary_weights": [
+      0.5,
+      0.5
+    ],
+    "normal_method": "oriented area-weighted face sum over paired uncapped boundary"
+  },
   "rig_status": "15-joint prototype; multi-bone anatomical chains remain unresolved"
 }

@@ -72,4 +72,32 @@ const secondPage = box.box.page;
 box = navigate(box, 'light');
 assert.equal(accepts(diagnostic(box), secondPage), true,
   'the next lowered-tier navigation retains the second actual reset record');
+
+// Exercise the actual caller's loss callback too: a correct predicate cannot
+// recover a prior page that loseAndRestore failed to return before navigation.
+const lossCallback = source.match(/const loseAndRestore = \(\) => pc\.evaluate\((async \(\) => \{[\s\S]*?^      \})\);/m);
+assert(lossCallback, 'the smoke must expose its actual loss/restore callback');
+let resolveLost;
+const contextWindow = { __chicago4d: {
+  crashGuard: { notice: 'Display reset' }, blackbox: { box: { page: secondPage } },
+} };
+const extension = {
+  loseContext() { resolveLost(); },
+  restoreContext() { contextWindow.__chicago4d.blackbox.box.page = 'new-page-after-restore'; },
+};
+const canvas = { addEventListener(event, callback) {
+  assert.equal(event, 'webglcontextlost'); resolveLost = callback;
+} };
+const gl = { canvas, getExtension(name) {
+  assert.equal(name, 'WEBGL_lose_context'); return extension;
+} };
+const actualLoss = vm.runInNewContext(`(${lossCallback[1]})`, {
+  window: contextWindow,
+  document: { getElementById: () => ({ getContext: () => gl }) },
+  setTimeout: callback => callback(),
+});
+const loss = await actualLoss();
+assert.equal(loss.diagnostic.currentPage, secondPage,
+  'the actual loss callback returns the old page before restore navigates');
+assert.equal(contextWindow.__chicago4d.blackbox.box.page, 'new-page-after-restore');
 console.log('PASS: actual blackbox records across two clean reloads; exact prior-page smoke diagnostic predicate and eleven refusals. Browser reload/tier mechanics remain covered by the published smoke.');

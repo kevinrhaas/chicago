@@ -80,7 +80,7 @@ for side,s in [('l',1),('r',-1)]:
  ring('trace_end_'+side,[s*.39,1.04,p['trace_tail_z_m']],.02,.024)
  ring('rein_terret_'+side,[s*.14,1.59,-.08],.020,.022)
  # Original dimensional bridle route local to horse head, not plate tracing.
- strap('cheekpiece_'+side,[[s*.105,.13,.02],[s*.13,.015,.14],[s*.115,-.11,.28],[s*.095,-.20,.39]],p['bridle_width_m'],.003,parent=head,width_axis=(0,1,0))
+ strap('cheekpiece_'+side,[[s*p['headstrap_reconstruction_trial']['cheekpiece_top_m'][0],*p['headstrap_reconstruction_trial']['cheekpiece_top_m'][1:]],[s*p['headstrap_reconstruction_trial']['cheekpiece_poll_m'][0],*p['headstrap_reconstruction_trial']['cheekpiece_poll_m'][1:]],[s*p['headstrap_reconstruction_trial']['cheekpiece_middle_m'][0],*p['headstrap_reconstruction_trial']['cheekpiece_middle_m'][1:]],[s*p['headstrap_reconstruction_trial']['cheekpiece_lower_m'][0],*p['headstrap_reconstruction_trial']['cheekpiece_lower_m'][1:]],[s*.095,-.20,.39]],p['bridle_width_m'],.003,parent=head,width_axis=(0,1,0))
  ring('bit_ring_'+side,[s*.105,-.20,.39],.026,.026,head)
  strap('rein_'+side,[[s*.095,1.68,1.19],[s*.15,1.66,.77],[s*.14,1.59,-.08],[s*.16,1.49,-.8],p['driver_hands_m'][0 if s==1 else 1]],p['rein_width_m'],p['rein_thickness_m'],width_axis=(0,1,0),extra={'status':'rest_pose_only_not_dynamic','shape':'flat_rein','dimensions':'reconstructed'})
  tube('round_check_rein_'+side,[[s*.10,1.70,1.18],[s*.15,1.93,.92],[s*.14,1.87,.63],[s*.14,1.59,-.08]],p['check_rein_radius_m'])
@@ -88,9 +88,9 @@ for side,s in [('l',1),('r',-1)]:
  # Rectangular nickel buckle frames use actual strips, not decals.
  x=s*.325;y=1.21;z=-.08
  tube('girth_buckle_'+side,[[x,y-.022,z-.018],[x,y+.022,z-.018],[x,y+.022,z+.018],[x,y-.022,z+.018],[x,y-.022,z-.018]],.003,ma=nickel)
-strap('crownpiece',arc_xy(0,.105,.025,.123,.075,0,math.pi,20),p['bridle_width_m'],.003,parent=head,width_axis=(0,0,1))
-strap('browband',[[-.12,.06,.15],[-.07,.10,.19],[0,.115,.205],[.07,.10,.19],[.12,.06,.15]],p['bridle_width_m'],.003,parent=head,width_axis=(0,1,0))
-strap('noseband',arc_xy(0,-.15,.36,.095,.075),p['bridle_width_m'],.003,parent=head,width_axis=(0,0,1))
+strap('crownpiece',arc_xy(0,p['headstrap_reconstruction_trial']['crownpiece_center_y_m'],p['headstrap_reconstruction_trial']['crownpiece_z_m'],*p['headstrap_reconstruction_trial']['crownpiece_radii_xy_m'],0,math.pi,20),p['bridle_width_m'],.003,parent=head,width_axis=(0,0,1))
+strap('browband',p['headstrap_reconstruction_trial']['browband_route_m'],p['bridle_width_m'],.003,parent=head,width_axis=(0,1,0))
+strap('noseband',arc_xy(0,p['headstrap_reconstruction_trial']['noseband_center_y_m'],.36,*p['headstrap_reconstruction_trial']['noseband_radii_xy_m']),p['bridle_width_m'],.003,parent=head,width_axis=(0,0,1))
 # Bit is a reconstruction fixture bar; no historically specific mouthpiece is asserted.
 tube('bit_bar',[[-.105,-.20,.39],[0,-.205,.40],[.105,-.20,.39]],.006,head,nickel)
 anchors={}

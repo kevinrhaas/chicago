@@ -42,8 +42,16 @@ def parse_args():
     p.add_argument('--output', required=True, type=Path)
     p.add_argument('--liberty', help='Existing project LIBERTIES entry assigned by the integrator')
     p.add_argument('--variant', required=True, help='Required existing-resident recipe variant ID; no generic default')
+    p.add_argument('--experimental-normal-probes',action='store_true',help='Explicit isolated-CI experiment only; no default normal method change')
+    p.add_argument('--normal-probe-receipts',type=Path,help='Required /tmp directory for experimental normal diagnostics')
     argv = sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else []
-    return p.parse_args(argv)
+    args=p.parse_args(argv)
+    if args.experimental_normal_probes:
+        if args.normal_probe_receipts is None or not args.normal_probe_receipts.resolve().is_relative_to(Path('/tmp')):
+            p.error('--experimental-normal-probes requires --normal-probe-receipts under /tmp')
+    elif args.normal_probe_receipts is not None:
+        p.error('--normal-probe-receipts requires explicit --experimental-normal-probes')
+    return args
 
 
 def validate_input(body, contract):
@@ -256,6 +264,16 @@ def build(args):
             source_normals=source_shared_normals(points,faces,source_vertex_indices)
             converted=[tuple(xyz(n).normalized()) for n in source_normals]
             mesh.normals_split_custom_set([converted[loop.vertex_index] for loop in mesh.loops])
+            if ratio == 1 and args.experimental_normal_probes:
+                # UNEXECUTED prototype until an explicitly opted-in pinned CI run.
+                # Existing RAW1e-3 readback audit below remains unchanged.
+                from human_normal_probe import experiment
+                receipt_path=args.normal_probe_receipts/(asset+'-'+hashlib.sha256(name.encode()).hexdigest()+'-normal-probe.json')
+                probe_receipt=experiment(mesh,converted,source_vertex_indices,receipt_path,
+                    context={'blender_version':bpy.app.version_string,'asset_id':asset,'explicit_opt_in':True})
+                print(json.dumps({'experimental_normal_probe':{'mesh':name,'receipt':str(receipt_path),
+                    'maximum_raw_delta':probe_receipt['after']['maximum_raw_vector_delta'],
+                    'scope':'experimental LOD0 body packed-normal readback only; not export/appearance acceptance'}}),flush=True)
             if ratio == 1:
                 # Blender 4.5 encodes custom corner normals as short2. This 1e-3
                 # vector bound is conservative engineering acceptance, not exact

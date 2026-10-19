@@ -175,7 +175,9 @@ jobs:
             "$BLENDER_CACHE/$BLENDER_DIR/blender" -b -noaudio --factory-startup --python-exit-code 1 \
               --python tools/human_teamster_blend.py -- \
               --recipe data/humans/recipes/worker_1835.json --variant "$variant" \
-              --liberty L418 --output "$master" 2>&1 | tee "/tmp/teamster-studies/$variant-build.log"
+              --liberty L418 --output "$master" \
+              --experimental-normal-probes --normal-probe-receipts /tmp/teamster-studies/normal-probes \
+              2>&1 | tee "/tmp/teamster-studies/$variant-build.log"
             bash tools/human_export.sh --master "$master" 2>&1 | tee "/tmp/teamster-studies/$variant-export.log"
           done
       - name: Build same-new-master parented hierarchy controls (test artifacts only)

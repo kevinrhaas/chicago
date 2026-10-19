@@ -1150,6 +1150,24 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                          f"(not {w['opening']}), 0.02-0.3 m, and lights {lo}-{hi} m wide "
                                          f"(these are {round(bw, 3)} m)")
                     w["mullion_m"] = mu
+                # T-2815: a transom window's fixed lights in tiers, each on a stone bar (Keith's
+                # bow, from the 1888 plate): only on a K06 transom sash, and a sash left under them
+                if "tiers" in w:
+                    k06 = json.loads(WINDOW_KIT.read_text())
+                    v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
+                    t = w["tiers"]
+                    ok = isinstance(t, dict) and set(t) == {"bar_m", "lights_m"} \
+                        and v6.get("operation") == "double_hung_transom" and 1 <= len(t["lights_m"]) <= 3
+                    if ok:
+                        bar, lights = float(t["bar_m"]), [float(h) for h in t["lights_m"]]
+                        ch = float(w.get("clear_height_m", v6.get("clear_height_m", 0.0)))
+                        ok = 0.05 <= bar <= 0.3 and all(0.2 <= h <= 1.0 for h in lights) \
+                            and ch - sum(lights) - bar * len(lights) >= 1.0
+                    if not ok:
+                        raise ParamError(f"bays: {e['id']}'s tiers take bar_m (0.05-0.3 m) and one to three "
+                                         f"lights_m (0.2-1.0 m each) on a K06 transom sash, leaving at least "
+                                         f"1.0 m of sash under them, not {t}")
+                    w["tiers"] = {"bar_m": bar, "lights_m": lights}
                 g = w.get("grille")
                 if g is None:
                     continue
@@ -1179,6 +1197,21 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             if v["base"] != "grade" or not 0.1 <= ph <= 0.6:
                 raise ParamError(f"bays: {e['id']}'s plinth_m {ph} is a grade bay's, 0.1-0.6 m")
             v.setdefault("overrides", {}).setdefault("plinth", {})["height_m"] = ph
+        if "cap_band" in e:
+            # T-2815: a carved band round the bay under its cap, read off a picture (Keith's
+            # bow, the 1888 plate), carrying the frieze's guilloche (T-2778's keys)
+            cb = e["cap_band"]
+            g = cb.get("guilloche") if isinstance(cb, dict) else None
+            gk = {"radius_m", "ring_width_m", "ring_proud_m", "margin_m", "pitch", "segments"}
+            if not isinstance(g, dict) or set(cb) != {"height_m", "proud_m", "guilloche"} or set(g) != gk \
+                    or not (0.1 <= float(cb["height_m"]) <= 0.8 and 0.01 <= float(cb["proud_m"]) <= 0.08) \
+                    or not (6 <= int(g["segments"]) <= 24 and 1.0 <= float(g["pitch"]) <= 3.0) \
+                    or not (0.0 < float(g["ring_width_m"]) < float(g["radius_m"]) <= 0.5
+                            and 0.0 < float(g["ring_proud_m"]) <= 0.05 and 0.0 <= float(g["margin_m"]) <= 0.1):
+                raise ParamError(f"bays: {e['id']}'s cap_band takes height_m (0.1-0.8 m), proud_m (0.01-0.08 m) "
+                                 f"and a guilloche of {sorted(gk)}, not {cb}")
+            v["cap_band"] = {"height_m": float(cb["height_m"]), "proud_m": float(cb["proud_m"]),
+                             "guilloche": {k: (int(g[k]) if k == "segments" else float(g[k])) for k in sorted(gk)}}
         if "eaves" in e:
             # T-2369: a hood read off a picture sizes the kit's soffit and fascia, never its shape
             ev = e["eaves"]

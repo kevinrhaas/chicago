@@ -1,0 +1,46 @@
+{
+  "generated_files": {
+    "carriage/carriage-c01.glb": {
+      "bytes": 770892,
+      "sha256": "5d4038fcb1e0982100c776239d649de21035098e019d5fa5d0c399427f15a062"
+    },
+    "carriage/carriage-c01.json": {
+      "bytes": 1857,
+      "sha256": "118a614a3a2d67352bb3f1b48cac4e6371523bee4320f0ccb6c5d35fed68135c"
+    },
+    "carriage/parameters.json": {
+      "bytes": 278,
+      "sha256": "3268082b9a8f90a2288a49db16f95de5acb732ac6d589b568ed8b53b11dbbf6f"
+    },
+    "harness/geometry-stats.json": {
+      "bytes": 2989,
+      "sha256": "87c1ca510d6a9d0351a9aa1239a2f64ff45e5f0ce72fa1a11a8b270f7416113b"
+    },
+    "harness/light_breastcollar_harness_reconstructed_01.glb": {
+      "bytes": 569564,
+      "sha256": "b4a7318053e8508617a24fff64f02beb7eee77684db689dc04771d209a54fa8b"
+    },
+    "harness/manifest.json": {
+      "bytes": 5370,
+      "sha256": "d97d6b4328b234939dfe320d7174553a42de4c40317523ca288b18c51e62428a"
+    },
+    "horse/equine_light_harness_skinned_prototype_01.glb": {
+      "bytes": 715316,
+      "sha256": "89b048b7cda748e6f3a7111aa8e4f3198b01fabf6015cae644c78ed02d385bc6"
+    },
+    "horse/manifest.json": {
+      "bytes": 17181,
+      "sha256": "6d5cccb73dbae3dae52a5db6ef0a8cf1be0e79095467c0348cdb0dd315bf2e6a"
+    },
+    "wagon/wagon-w01.glb": {
+      "bytes": 793932,
+      "sha256": "7749a0199b93bd196ecf6c3482af8ec537f1420a38f6fac88ab79fd8f34d44aa"
+    },
+    "wagon/wagon-w01.json": {
+      "bytes": 2002,
+      "sha256": "ea3705651f11ddddcc33595abffd7ee0c3cffb7ae94fc18967c65883fb15243f"
+    }
+  },
+  "two_runs_identical": true,
+  "integrated_outputs_identical": true
+}

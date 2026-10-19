@@ -28360,6 +28360,19 @@ bracketed within about 9 CIELAB units of grey and the neutral grey stands, still
 reconstructed (`docs/RESEARCH/k01-1808-keith-1883/stone-colour-measurement.json`,
 T2769_1965_neutrals). Still invented: the border's 35 mm bead and the field's depth, below
 the plate's grain; the south pedestal's side shows a like field the model does not yet lay.
+**T-2815 (2026-10-19), the bow's lights and cap, and the south pedestal's side:** what is
+read now, from the 1888 plate at its native 1559 px on the bow's south light column (77.8 px
+to the metre, T-2765's camera-free reading): each principal light stands in three tiers between
+stone bars, a sash from the sill to about 4.05 m, a light about 4.2-4.7 m and a top light about
+4.85-5.3 m, so two 0.15 m bars in the wall's stone; under the bow's moulded cap a dark carved
+band from about 9.54 m (y 1054) up to the cap's light top, built as a dressed band 0.26 m deep
+under the cap's seat (9.8 m), 0.045 m proud; and the south pedestal's side field in a bead
+border like its front's. Still invented: each fixed light's three panes, which the print does
+not resolve; the band's carving, which it draws only as a dark texture through the street
+tree's branches and which is laid as the K08 kit's guilloche of interlaced rings (T-2778's,
+1623 Prairie's oriel frieze), its motif, depth and ring size reconstructed; the side field's
+margins and bead, below the plate's grain. No picture shows the north pedestal's north side,
+which stays plain.
 **How to resolve:** sharper original prints and an architectural specification for the
 stone, quarry and carved sections; rear photographs for the service elevations.
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`, `keith_house_1808_prairie.as_built_1886.form.stone_front`, `keith_house_1808_prairie.as_built_1886.form.boundary`, `keith_house_1808_prairie.as_built_1886.form.bays`, `keith_house_1808_prairie.as_built_1886.form.entrance_kit`.
@@ -28948,6 +28961,35 @@ along the lake before 1840, or the witness-tree layer for the township.
 **Ticket:** T-2807.
 **Recorded:** 2026-10-18 (T-2807).
 
+### L-north-side-paths-2808 — The North Side wood on the sand east of State Street, Kinzie's Rush Street bridle path and the Green Bay road cut
+
+**Decision:** in 1835 the North Side wood no longer stops at State Street north of N +300. In
+`renderers/web/js/trees.js` (T-2808, `SAND_WOOD`) it runs on east over the beach-ridge sand to
+about E +1140 (wobbling 36 m), short of the Wau-Bun sand hills, as open ridge oak, with the mesic
+pocket's closed canopy only in a band 22 m either side of the Rush Street line. Its
+east end facing the sand hills carries the woods' edge thicket. The thicket at State Street stays,
+as the edge between the closed wood on the clay and the open oak on the sand. Two ways run through
+the wood (`PATHS`): a bare tread 2.6 m wide on the Rush Street line from N +300 north, with shrubs
+crowding its margins out to 4.5 m, and the Green Bay road, a cut 10.06 m (two rods) wide on the
+Clark Street line from the north end of the town's Clark Street north to the field's edge, its
+margins in stump sprouts and hazel and its middle bare. Neither is a street record: no wheel track
+is drawn or graded.
+**What is read, not invented:** woods on the line of Rush Street, a closed canopy over the path and
+shrubs crowding it (Juliette Kinzie, spring 1831, *Wau-Bun* 1856); a wood filling "almost all the
+North Side west of the shore sand-hills" (Judge Blodgett, 1831-32, reported by Kirkland 1893; in
+the tree research notes, B5, and not yet a source record); the Green Bay road surveyed in 1833 and
+in 1834 cut "to the width of two rods" through the trees (Andreas, vol. 1).
+**What is invented:** where the sand wood starts and ends (N +300, E +1140) and that it is oak on
+the sand with a mesic band along the path, and that band's 22 m width; the path's width and that it still
+runs in 1835, four years after Kinzie rode it, when Rush Street is platted and unopened; the road's
+line on the Clark Street line (nobody traced the 1834 line, and the later N. Clark Street is only
+where the histories put the road's name); the shrubs on both, their density and their place.
+**How to resolve:** the 1833 Green Bay road survey or the 1834 field notes; the original land
+survey's notes for the section lines through the North Side; a dated witness to the ground between
+State Street and the sand hills before 1836.
+**Ticket:** T-2808.
+**Recorded:** 2026-10-18 (T-2808).
+
 ### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
 
 **Decision:** Five 1904 walking jaunts — the famous names, the architects, and three style walks
@@ -29199,3 +29241,21 @@ Actual pinned exporter source statically recognizes the proposed 1-(Alpha<.4) no
 The development study now uses independently authored octagonal spokes tapering from35×32mm at the hub to22×22mm at the felloe. These are reconstructed engineering dimensions, not measured or source-attested1835 wagon construction. Original spoke radial endpoints, wheel diameters, axle positions, wheel/steering/tongue pivots and existing proposed hitch/driver frames remain unchanged. Board/stave1.2mm edge chamfers and restrained two-board color variation are look-development inventions, not evidence for historic wear, timber species, paint or photographic grain. Felloe segments, joinery, fastener strength, historical dimensions and photographic quality remain unaccepted. No driver furniture, new people, harness coupling or scene traffic is supplied by this parcel.
 
 The authored model increases9000 to10792 triangles(+1792,19.9%) while retaining22 material-batched meshes. Controlled close/clay views show a lighter taper and less broad striping; full-view gain is modest and does not itself justify using the refinement for distant wagons without an LOD decision. Original materials and surfaces remain covered by GPL-3.0-or-later; no external pixels, texture or rights-pending image geometry was introduced.
+
+
+## T-2794 — C01 original upholstery edge study (2026-10-19)
+
+The development-only C01 now uses independently authored20mm rounded edges on the passenger seat/back cushions and driver cushion, four samples per quarter edge. Radius and shape are reconstructed engineering choices, not measured historic upholstery, stuffing, comfort, material thickness or photographic cloth/leather. Local cushion axis extrema and actual central seat support planes are preserved; rounding the tilted passenger back changes its corner silhouette. Existing gold seam bars/materials remain simplified. No occupant fit, pressure/compression, period subclass, manufacturer or ownership is asserted. The original1904development-study eligibility remains; this does not authorize1835 carriage deployment.
+
+All49nodes, wheel/axle/steering/shaft/hitch/boarding/seat transforms and four actual wheel bounds remain unchanged. Mesh batches remain27; triangles increase9744→10416(+672,6.9%). Controlled close/clay views show rounded rims instead of slab corners; wide-view gain is subtle and facet bands remain visible. Draw calls do not increase. Canonical seating/cloth contact, biological comfort, source-attested period construction, photographic materials and final historical match remain open. This parcel does not introduce people, coupling, traffic, forces or riding. No third-party photograph/texture/geometry derivation was used.
+
+
+## T-2800/T-2801 — Paired head, neck and headstrap refinement (2026-10-19)
+
+The paired intermediate head/neck and bridle study replaces separate spheroidal cheeks with an original cranio-facial loft, adds closed reconstructed ear surfaces and a small eyelid rim, and matches the uncapped upper-neck/head boundary with shared skin weights and area-weighted normals. This is engineered continuity, not measured anatomical or photographic acceptance. Ear height raises whole-horse rest bounds by19.200087mm compared with the previous integrated asset. Jaw/forehead/ear/muzzle/eyelid quality remains provisional. Crownpiece, browband, cheekpieces and noseband routes were reconstructed against this head with unchanged strap width/thickness, bit/rein endpoints, body collar, traces and shaft tugs. Zero sampled triangle crossings and positive unsigned surface separation at21discrete poses do not establish outside-volume containment, pressure, continuous-time safety, correct animal fit or period construction. These isolated studies still attest no individual animal and authorize no historic-scene placement or ride/traffic behavior.
+
+
+## T-2803 — Original grounded trot engineering study (2026-10-19)
+
+The isolated bare-horse study adds a synthetic in-place grounded diagonal trot, with reconstructed.72second cycle,.52stance fraction,.68m stance sweep and.12m hoof lift. Alternating fore-left/hind-right and fore-right/hind-left pairs have brief overlapping stance. These are engineered parameters, not measured historical timing, biological conformation or a claim about a particular horse. Existing idle/walk outputs and current15joint geometry/sockets are unchanged. Actual sole-surface samples establish only bounded numerical contact at sampled clip poses; they do not validate full anatomical pivots, skin/volume quality, loading or animal welfare. Browser duration/stride now follow activeclip metadata, but phase-preserving distance-matched gait transitions, dynamic trot gear/reins/rider coupling and scene traffic remain separate open work. This does not close photographic/period/master/LOD acceptance or T-2803.
+

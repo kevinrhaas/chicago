@@ -144,5 +144,66 @@
     ]
   ],
   "breastcollar_width_m": 0.05,
-  "breastcollar_thickness_m": 0.008
+  "breastcollar_thickness_m": 0.008,
+  "headstrap_reconstruction_trial": {
+    "cheekpiece_top_m": [
+      0.096,
+      0.0175,
+      -0.06
+    ],
+    "crownpiece_z_m": -0.06,
+    "noseband_center_y_m": -0.125,
+    "noseband_radii_xy_m": [
+      0.084,
+      0.09
+    ],
+    "basis": "Original head-surface toile V3: added poll-side contour anchor avoids long-chord skull crossing; brow bottom edge lifted3-5mm; all endpoints/bodygear/width/thickness unchanged versus declared trial controls",
+    "cheekpiece_middle_m": [
+      0.096,
+      0.06,
+      0.15
+    ],
+    "cheekpiece_lower_m": [
+      0.088,
+      -0.11,
+      0.28
+    ],
+    "crownpiece_center_y_m": 0.0175,
+    "crownpiece_radii_xy_m": [
+      0.096,
+      0.139
+    ],
+    "browband_route_m": [
+      [
+        -0.096,
+        0.06,
+        0.15
+      ],
+      [
+        -0.06,
+        0.077,
+        0.18
+      ],
+      [
+        0,
+        0.084,
+        0.205
+      ],
+      [
+        0.06,
+        0.077,
+        0.18
+      ],
+      [
+        0.096,
+        0.06,
+        0.15
+      ]
+    ],
+    "cheekpiece_poll_m": [
+      0.123,
+      0.045,
+      0.065
+    ]
+  }
 }

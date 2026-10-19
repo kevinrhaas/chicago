@@ -10983,9 +10983,18 @@ for (const [label, viewport, touch] of [
         // which a microtask inside it has not: a task later, it has.
         await new Promise((r) => setTimeout(r, 50));
         const notice = window.__chicago4d.crashGuard.notice;
+        // Capture this page before restore reloads it; the next boot must retain
+        // this exact lost-page record, not merely any Display reset message.
+        const diagnostic = { currentPage: window.__chicago4d.blackbox?.box?.page ?? null };
         ext.restoreContext();
-        return { notice };
+        return { notice, diagnostic };
       });
+      // T-2826 (#1049): a load after a lost context shows the black box's line on the card,
+      // "Display reset N s into the visit. Just before: …" (blackbox.js summary), by design.
+      // The guard itself still says nothing on those boots: no notice of its own, no
+      // lowering and no second reload, so its silence is what is checked; the black box's
+      // line, and only that line, may stand on the card.
+      const blackboxOnly = (n) => n === null || /^Display reset [\d.]+ m?s into the visit\. Just before: /.test(n ?? '');
       const t0 = Date.now();
       await pc.goto(base, { waitUntil: 'domcontentloaded' });
       await pc.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 240_000, polling: 500 });
@@ -11009,7 +11018,8 @@ for (const [label, viewport, touch] of [
       const after = await guardState();
       check(`${label}: two lost contexts reload the page once at most, then lower the next boot a tier`,
         /reset/.test(firstLoss.notice ?? '') && loads === 2 && reloaded?.boot?.detail === 'balanced'
-        && reloaded.lowered === null && recoveredDisplayDiagnostic(reloaded, firstLoss.diagnostic.currentPage)
+        && reloaded.lowered === null && blackboxOnly(reloaded.notice)
+        && recoveredDisplayDiagnostic(reloaded, firstLoss.diagnostic.currentPage)
         && after?.reloads === 1 && after.sessionLosses === 2 && after.lowered?.why === 'context'
         && after.lowered.to.detail === 'light' && after.readable && after.reloadButton
         && /^Detail lowered to Light/.test(secondLoss.notice ?? ''),
@@ -11025,6 +11035,7 @@ for (const [label, viewport, touch] of [
       const lowered = await guardState();
       check(`${label}: the boot after Reload runs at the lowered tier with only the prior-reset diagnostic`,
         loads === 3 && lowered?.boot?.detail === 'light' && lowered.lowered === null
+        && blackboxOnly(lowered.notice)
         && recoveredDisplayDiagnostic(lowered, after.diagnostic.currentPage) && lowered.reloads === 1
         && lowered.sessionLosses === 2 && lowered.watching === true,
         JSON.stringify({ loads, lowered }));
@@ -16030,6 +16041,137 @@ for (const [label, viewport, touch] of [
       await a.navigator.select('home'); a.navigator.dock(); document.activeElement?.blur?.();
     });
     // <<< T-2648
+    // >>> T-2650: the Confidence view's overlays — street names, building labels, people pins
+    // and the Jaunt route, each on its own switch at the foot of the app. Street names are
+    // T-2741's readout (the same setting); the other three are one DOM layer over the town,
+    // placed from the camera, with no frame loop while all are off and no scene work ever.
+    // Generous waits: the switches read the people directory and the town's names on open.
+    // Wrapped so a stuck click is one red line here, not the rest of the part lost.
+    {
+      const ovRead = () => page.evaluate(() => {
+        const a = window.__chicago4d, o = a.confidenceOverlays;
+        const row = (id) => {
+          const b = document.getElementById(`cv-ov-${id}`);
+          return b ? { checked: b.checked, disabled: b.disabled, note: document.getElementById(`cv-ov-${id}-note`)?.textContent ?? '' } : null;
+        };
+        const layer = document.getElementById('cv-overlays');
+        const shown = (sel) => (layer && !layer.hidden ? [...layer.querySelectorAll(sel)].filter((n) => !n.hidden && n.getBoundingClientRect().width > 0).length : 0);
+        return { rows: Object.fromEntries(['streets', 'labels', 'people', 'route'].map((id) => [id, row(id)])),
+          handle: !!o, running: o?.running ?? null, places: o?.places ?? null, drawn: o?.drawn ?? null,
+          layerShown: !!layer && !layer.hidden, labels: shown('.cv-label'), pins: shown('.cv-pin'), stops: shown('.cv-stop'),
+          streetSetting: a.hud.settings.streetNames, readoutHidden: document.getElementById('street-readout')?.hidden ?? null };
+      });
+      const ovStats = () => page.evaluate(() => { const a = window.__chicago4d; a.step(); const st = a.stats(); return { programs: st.programs, geometries: st.geometries, calls: st.drawCalls }; });
+      const ovSwitch = async (id, want) => {
+        const now = await page.evaluate((i) => document.getElementById(`cv-ov-${i}`)?.checked ?? null, id);
+        if (now !== want) await clickChrome(`#cv-ov-${id}`);
+      };
+      const pose0 = await page.evaluate(() => { const p = window.__chicago4d.player; return { local_e: p.e, local_n: p.n, yaw_deg: p.bearingDeg }; });
+      const standFacing = (e, n, back) => page.evaluate(([pe, pn]) => { window.__chicago4d.walker.teleport({ local_e: pe, local_n: pn, yaw_deg: 0 }); }, [e, n - back]);
+      try {
+        await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
+        await page.waitForTimeout(1500);
+        const ov0 = await ovRead();
+        const notes = Object.values(ov0.rows).every((r) => r && r.note.length > 0 && !/[a-z]_[a-z]|undefined|\{/.test(r.note));
+        check(`${label}: the Confidence view's foot has four overlay switches, each saying what this destination has (T-2650)`,
+          ov0.handle && notes && ov0.rows.streets.checked === (ov0.streetSetting !== false) && ov0.running === false
+            && /known addresses in \d{4}/.test(ov0.rows.people.note) && !ov0.rows.people.disabled && ov0.places > 0,
+          JSON.stringify(ov0));
+        // Street names: the switch IS T-2741's — the readout under the compass follows it.
+        const streetWas = ov0.streetSetting !== false;
+        await clickChrome('#cv-ov-streets');
+        await page.waitForTimeout(400);
+        const ovStreet = await ovRead();
+        await clickChrome('#cv-ov-streets');
+        await page.waitForTimeout(400);
+        const ovStreetBack = await ovRead();
+        check(`${label}: the Street names switch is the compass readout's own setting, both ways (T-2650)`,
+          ovStreet.streetSetting === !streetWas && ovStreet.readoutHidden === streetWas
+            && ovStreetBack.streetSetting === streetWas && ovStreetBack.readoutHidden === !streetWas && ovStreetBack.rows.streets.checked === streetWas,
+          JSON.stringify({ streetWas, ovStreet: { s: ovStreet.streetSetting, h: ovStreet.readoutHidden }, back: { s: ovStreetBack.streetSetting, h: ovStreetBack.readoutHidden } }));
+        // Labels: stand 35 m south of a named building, facing it; the Navigator docked so the town shows.
+        const named = await page.evaluate(() => {
+          const a = window.__chicago4d;
+          const set = a.confidenceOverlays.labelSet;
+          const p = a.player;
+          set.sort((x, y) => Math.hypot(x.e - p.e, x.n - p.n) - Math.hypot(y.e - p.e, y.n - p.n));
+          return set[0] ?? null;
+        });
+        await page.evaluate(() => window.__chicago4d.navigator.dock());
+        if (named) await standFacing(named.e, named.n, 35);
+        await page.waitForTimeout(800);
+        const statsOff = await ovStats();
+        await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
+        await page.waitForTimeout(800);
+        await ovSwitch('labels', true);
+        await ovSwitch('people', true);
+        await ovSwitch('route', true);
+        await page.evaluate(() => window.__chicago4d.navigator.dock());
+        // A frame of the town can take seconds on a runner: wait for the layer to place a label.
+        await page.waitForFunction(() => [...document.querySelectorAll('#cv-overlays .cv-label')].some((n) => !n.hidden),
+          null, { timeout: 10000 }).catch(() => {});
+        await page.waitForTimeout(300);
+        const ovOn = await ovRead();
+        const statsOn = await ovStats();
+        const cap = (await page.evaluate(() => innerWidth)) <= 620 ? 6 : 12;
+        check(`${label}: Building labels float named buildings in sight over the town — at least one, at most ${cap} (T-2650)`,
+          !!named && ovOn.layerShown && ovOn.running === true && ovOn.labels >= 1 && ovOn.labels <= cap && ovOn.rows.labels.checked,
+          JSON.stringify({ named, labels: ovOn.labels, drawn: ovOn.drawn, running: ovOn.running }));
+        check(`${label}: three overlays on add no shader program and no geometry (T-2650)`,
+          statsOn.programs === statsOff.programs && statsOn.geometries === statsOff.geometries,
+          JSON.stringify({ statsOff, statsOn }));
+        // People pins: stand 60 m south of the first pinned address, facing it; its pin lists
+        // who is there, and a name opens that person (People, in the Navigator).
+        const pinAt = await page.evaluate(() => window.__chicago4d.confidenceOverlays.pinPlaces[0] ?? null);
+        let pinOpened = null;
+        if (pinAt) {
+          await standFacing(pinAt.e, pinAt.n, 60);
+          const sel = `#cv-overlays .cv-pin[data-place="${pinAt.id}"]`;
+          await page.waitForFunction((s) => { const n = document.querySelector(s); return !!n && !n.hidden; }, sel, { timeout: 10000 }).catch(() => {});
+          await page.waitForTimeout(300);
+          const seen = await page.evaluate((s) => { const n = document.querySelector(s); return !!n && !n.hidden; }, sel);
+          if (seen) {
+            await clickChrome(sel);
+            await page.waitForTimeout(500);
+            const pop = await page.evaluate(() => {
+              const p = document.getElementById('cv-pop');
+              return p ? { names: [...p.querySelectorAll('.cv-pop-person')].length, text: p.textContent } : null;
+            });
+            if (pop?.names) {
+              await clickChrome('#cv-pop .cv-pop-person');
+              await page.waitForTimeout(1200);
+            }
+            pinOpened = { pop, app: await page.evaluate(() => window.__chicago4d.navigator.app), popGone: await page.evaluate(() => !document.getElementById('cv-pop')) };
+          }
+        }
+        check(`${label}: a people pin lists who is there, and a name opens that person (T-2650)`,
+          !!pinAt && !!pinOpened && pinOpened.pop?.names >= 1 && Math.min(pinAt.count, 8) === pinOpened.pop.names
+            && !/[a-z]_[a-z]/.test(pinOpened.pop.text) && pinOpened.app === 'people' && pinOpened.popGone,
+          JSON.stringify({ pinAt, pinOpened }));
+        // All off again: the layer goes, and its frame loop with it.
+        await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
+        await page.waitForTimeout(800);
+        await ovSwitch('labels', false);
+        await ovSwitch('people', false);
+        await ovSwitch('route', false);
+        await page.waitForTimeout(500);
+        const ovOff = await ovRead();
+        check(`${label}: with every overlay off the layer is gone and no frame loop runs (T-2650)`,
+          ovOff.running === false && !ovOff.layerShown && ovOff.labels === 0 && ovOff.pins === 0
+            && !ovOff.rows.labels.checked && !ovOff.rows.people.checked && !ovOff.rows.route.checked,
+          JSON.stringify(ovOff));
+      } catch (err) {
+        check(`${label}: the overlay checks ran to their end (T-2650)`, false, String(err?.message ?? err));
+      } finally {
+        await page.evaluate(async (pose) => {
+          const a = window.__chicago4d, o = a.confidenceOverlays;
+          for (const id of ['labels', 'people', 'route']) await o?.set(id, false);
+          a.walker.teleport(pose);
+          await a.navigator.select('home'); a.navigator.dock(); document.activeElement?.blur?.();
+        }, pose0).catch(() => {});
+      }
+    }
+    // <<< T-2650
     // >>> T-2625: the HUD's top row holds none of what left it, and each is reachable in the
     // Navigator — Start / Jaunts's three choices in Jaunts (T-2630), the Confidence view's
     // presets (T-2647), the pace in Move, light or dark in Settings. (The street readout is
@@ -16108,6 +16250,11 @@ for (const [label, viewport, touch] of [
           // owner's ruling 2026-10-18 — keep it on by default, measure the budget without it.
           // The switch beside the compass is part of that instrument and goes with it.
           if (el.closest('#street-readout') || el.closest('#street-toggle')) continue;
+          // The target tag (T-2627) is a glance, not the HUD's steady state: since T-2736 it
+          // holds 3 s and fades, and whether it is up depends on where the reticle happens to
+          // rest. A run measured 10.96 % at 390x844 with it up (5,923 px2) and 9.83 % without.
+          // Left out like the hint and the look tag, and reported.
+          if (el.closest('#target-tag')) continue;
           const r = el.getBoundingClientRect();
           if (r.width < 1 || r.height < 1 || r.right <= 0 || r.bottom <= 0 || r.left >= W || r.top >= H) continue;
           if (!painted(el, getComputedStyle(el)) || !shown(el)) continue;
@@ -16130,7 +16277,8 @@ for (const [label, viewport, touch] of [
         return b ? (b.width * b.height) / (W * H) * 100 : 0;
       };
       const streetReadout = +(share('street-readout') + share('street-toggle')).toFixed(2);
-      return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest, streetReadout,
+      const targetTag = +share('target-tag').toFixed(2);
+      return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest, streetReadout, targetTag,
         controls: window.__chicago4d.controlBackend, lookTag: !document.getElementById('look-tag')?.hidden, hintUp };
     });
     await page.evaluate(() => { window.__chicago4d.navigator?.dock?.(); window.__chicago4d.popup?.close?.(); window.__chicago4d.hud.dismissControlHelp?.({ remember: false }); });
@@ -18639,18 +18787,18 @@ for (const [label, viewport, touch] of [
           return {
             at1800,
             midBlock,
-            year: document.getElementById('street-era-year')?.textContent,
+            then: document.querySelector('#street-readout .street-era b')?.textContent,
             label: document.getElementById('s-street-names-label')?.textContent,
             shown: !document.getElementById('street-readout')?.hasAttribute('hidden'),
           };
         });
-        check(`${label}: 1904 names Prairie Avenue then and the City's address now (T-2741)`,
-          streetNames1904.shown && streetNames1904.year === '1904'
+        check(`${label}: 1904 names Prairie Avenue then and the address now, mid-block off the traced lot (T-2741)`,
+          streetNames1904.shown && streetNames1904.then === 'Then'
           && streetNames1904.label === '1904 / current street names'
           && /Prairie Avenue/.test(streetNames1904.at1800.era) && /Eighteenth/.test(streetNames1904.at1800.era)
           && /S Prairie Ave/.test(streetNames1904.at1800.today) && /E 18th St/.test(streetNames1904.at1800.today)
-          && streetNames1904.midBlock.era === 'Prairie Avenue'
-          && /^17\d\d S Prairie Ave$/.test(streetNames1904.midBlock.today),
+          && /^17\d\d Prairie Avenue$/.test(streetNames1904.midBlock.era)
+          && streetNames1904.midBlock.today === `${streetNames1904.midBlock.era.split(' ')[0]} S Prairie Ave`,
           JSON.stringify(streetNames1904));
         const at = await page.evaluate(({ neLot, lotMid, ghFront }) => {
           const a = window.__chicago4d;

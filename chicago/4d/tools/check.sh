@@ -145,6 +145,8 @@ step "Each grade's look — tint, dither or ghost at an opacity — and the ghos
   node tools/test_confidence_looks.mjs
 step "The Confidence view's presets — NORMAL, BY GRADE, ATTESTED ONLY (exactly the two grades hidden by hand), X-RAY — and C toggling BY GRADE (T-2647)" \
   node tools/test_confidence_presets.mjs
+step "The Confidence view's overlays — street names, building labels, people pins and the Jaunt route, each on its own switch, only what each destination has, and no frame loop while off (T-2650)" \
+  node tools/test_confidence_overlays.mjs
 step "The Confidence view's per-grade rows — four swatches with a colour-blind-safe set, Tint/Ghost/Dither, opacity 0-100 and a count per grade, none rebuilding the scene (T-2648)" \
   node tools/test_confidence_rows.mjs
 
@@ -154,6 +156,8 @@ step "Crash-aware boot: a dead session steps down once, a lost context reloads a
   node tools/test_crash_guard.mjs
 step "The black box keeps the page's last steps in local storage, and the next page shows a cut-off page's on the crash card (T-2826)" \
   node tools/test_blackbox.mjs
+step "A pick draws only the building batches its ray meets, and a phone's look-around answers from the parts' boxes without drawing (T-2827)" \
+  node tools/test_pick_boxes.mjs
 step "Read frame pacing is offered only on the dev preview or with ?pacing=read, and reads sd and p95 as measure_walk_frames --live does (T-2732)" \
   node tools/test_pacing_read.mjs
 
@@ -285,6 +289,18 @@ step "Resident hair preserves verified source pixels, fitted UVs and existing sk
 
 step "Resident body normals share exact source seams without welding geometry or UVs (T-1789)" \
   python3 tools/test_human_source_normals.py
+
+step "Packed normal frame recovery preserves raw target limits and refuses invalid frames" \
+  python3 tools/test_human_normal_probe_math.py
+
+step "Packed normal Mesh adapter restores original data on every rejected experiment" \
+  python3 tools/test_human_normal_probe_adapter.py
+
+step "Normal authoring experiments require explicit isolated receipt arguments" \
+  python3 tools/test_human_normal_probe_optin.py
+
+step "Headstrap unsigned triangle distance preserves analytic contact and piercing cases" \
+  node tools/test_head_fit_distances.mjs
 
 step "Resident hair export rejects missing alpha, embedded images and skin bindings (T-1789)" \
   python3 tools/test_human_hair.py

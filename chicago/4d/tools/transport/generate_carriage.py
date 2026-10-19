@@ -14,6 +14,8 @@ for key,(low,high) in limits.items():
 if params.get('body_envelope_m') != [1.20,2.20]:raise ValueError('body_envelope_m describes fixed study furniture; only [1.2,2.2] supported')
 if params['shaft_inner_spacing_tip_m'] != .773:raise ValueError('shaft tip spacing is fixed at .773m in this study')
 WB=params['wheelbase_m'];TRACK=params['track_m'];RF=params['wheel_radius_front_m'];RR=params['wheel_radius_rear_m'];SHAFT=params['shaft_length_m']
+rounded=params.get('rounded_upholstery_study',False)
+if not isinstance(rounded,bool):raise ValueError('rounded_upholstery_study must be boolean')
 nodes=[]; meshes=[]; access=[]; views=[]; binary=bytearray(); tris=0
 materials=[]
 for name,color,metal,rough in [('black_lacquer',[.035,.045,.05,1],.1,.32),('varnished_wood',[.26,.12,.045,1],0,.4),('upholstery',[.16,.055,.035,1],0,.86),('brass',[.55,.32,.07,1],.8,.28),('iron',[.075,.08,.085,1],.8,.45),('lamp_glass',[.75,.64,.38,1],.1,.2)]: materials.append({'name':name,'pbrMetallicRoughness':{'baseColorFactor':color,'metallicFactor':metal,'roughnessFactor':rough}})
@@ -33,7 +35,48 @@ def geom(name,parent,vertices,faces,mat,t=(0,0,0),rotation=None):
  def buf(values):
   off=len(binary);binary.extend(struct.pack('<%sf'%len(values),*values));vi=len(views);views.append({'buffer':0,'byteOffset':off,'byteLength':len(values)*4,'target':34962});ai=len(access); access.append({'bufferView':vi,'componentType':5126,'count':len(values)//3,'type':'VEC3','min':[min(values[k::3]) for k in range(3)],'max':[max(values[k::3]) for k in range(3)]});return ai
  a=buf(pos);b=buf(norm);mi=len(meshes);meshes.append({'name':name,'primitives':[{'attributes':{'POSITION':a,'NORMAL':b},'material':mat}]});i=node(name,parent,t,rotation);nodes[i]['mesh']=mi;return i
+# Original rounded cushion shell, same axis extrema and seat-center height.
+# Minkowski sum of an inset box and20mm sphere, four samples per quarter edge.
+def rounded_cushion(name,parent,size,t,mat,rx):
+ radius=.020;ext=[v/2 for v in size];core=[e-radius for e in ext];N=4;vs=[];fs=[]
+ if min(core)<=0:raise ValueError('cushion radius exceeds fixed envelope')
+ def face(points):
+  start=len(vs);vs.extend(points);fs.append(list(range(start,start+len(points))))
+ def corner_point(signs,direction):
+  length=math.sqrt(sum(x*x for x in direction));return [signs[k]*(core[k]+radius*direction[k]/length) for k in range(3)]
+ for axis in range(3):
+  other=[k for k in range(3) if k!=axis]
+  for sign in [-1,1]:
+   points=[]
+   for a,b in [(-1,-1),(1,-1),(1,1),(-1,1)]:
+    p=[0,0,0];p[axis]=sign*ext[axis];p[other[0]]=a*core[other[0]];p[other[1]]=b*core[other[1]];points.append(p)
+   face(points)
+ for axis in range(3):
+  for other in range(axis+1,3):
+   free=3-axis-other
+   for sa in [-1,1]:
+    for sb in [-1,1]:
+     for j in range(N):
+      points=[]
+      for q,sf in [(j,-1),(j,1),(j+1,1),(j+1,-1)]:
+       length=math.hypot(N-q,q);p=[0,0,0];p[axis]=sa*(core[axis]+radius*(N-q)/length);p[other]=sb*(core[other]+radius*q/length);p[free]=sf*core[free];points.append(p)
+      face(points)
+ for sx in [-1,1]:
+  for sy in [-1,1]:
+   for sz in [-1,1]:
+    signs=[sx,sy,sz]
+    def p(i,j):return corner_point(signs,[i,j,N-i-j])
+    for i in range(N):
+     for j in range(N-i):
+      face([p(i,j),p(i+1,j),p(i,j+1)])
+      if i+j<N-1:face([p(i+1,j),p(i+1,j+1),p(i,j+1)])
+ for face_indices in fs:
+  p,q,r=[vs[i] for i in face_indices[:3]];u=[q[k]-p[k] for k in range(3)];v=[r[k]-p[k] for k in range(3)];normal=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]];center=[sum(vs[i][k] for i in face_indices)/len(face_indices) for k in range(3)]
+  if sum(a*b for a,b in zip(normal,center))<0:face_indices.reverse()
+ return geom(name,parent,vs,fs,mat,t,[math.sin(rx/2),0,0,math.cos(rx/2)] if rx else None)
+
 def box(name,parent,size,t,mat=0,rx=0):
+ if rounded and name in ('passenger_cushion','passenger_back_cushion','driver_seat'):return rounded_cushion(name,parent,size,t,mat,rx)
  x,y,z=[v/2 for v in size];vs=[[-x,-y,-z],[x,-y,-z],[x,y,-z],[-x,y,-z],[-x,-y,z],[x,-y,z],[x,y,z],[-x,y,z]];fs=[[0,3,2,1],[4,5,6,7],[0,4,7,3],[1,2,6,5],[3,7,6,2],[0,1,5,4]];return geom(name,parent,vs,fs,mat,t,[math.sin(rx/2),0,0,math.cos(rx/2)] if rx else None)
 def ring(name,parent,outer,inner,width,mat):
  vs=[];fs=[];N=48
@@ -128,6 +171,9 @@ nodes=[{**oldnodes[j],'children':[mapping[c] for c in oldnodes[j]['children'] if
 meshes=[];access=[];views=[];binary=bytearray();tris=0
 for (frame,mat),vs in batches.items():geom('surface_'+str(frame)+'_'+str(mat),mapping[frame],vs,[list(range(i,i+3)) for i in range(0,len(vs),3)],mat)
 sidecar={'asset_id':'carriage_c01_study','revision':1,'units':'m','up_axis':'+Y','forward_axis':'+Z','root_datum':'ground midpoint between axles','status':'original engineering study; unverified historical subtype; no photographic quality claim','scene_eligibility':'1904 development study only; not 1835 deployment','parameters':params,'wheel_roll_axis':'+X','wheel_roll_sign_forward':1,'socket_policy':'proposed empty boarding/seat/hitch transforms; no occupant or harness validated','license':'GPL-3.0-or-later','source_attributes':[{'attributes':'all geometry, proportions, materials','tier':'reconstructed','basis':'vehicle-master-spec.md engineering envelope; independently authored, no source image tracing','source_ids':[]}],'liberties':['Original open carriage family study, not a named manufacturer or owner replica','Spring forms, bodywork, brass lamps and upholstery are unmeasured engineering approximations','No brake, reins, harness, horse, doors, cloth hood or physics','Steering bound provisional; swept collision and coupling remain integration gates'],'statistics':{'triangles':tris,'meshes':len(meshes),'nodes':len(nodes)}}
+
+if rounded:
+ sidecar['upholstery_refinement']={'grade':'reconstructed','radius_m':.020,'quarter_edge_samples':4,'note':'Original three-cushion edge rounding; same axis envelope and seat datums; not source-attested interior, measured compression or photographic cloth/leather'}
 
 for exported_node in nodes:
  if not exported_node.get('children'):exported_node.pop('children',None)

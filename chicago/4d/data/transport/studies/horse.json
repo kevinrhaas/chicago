@@ -11,5 +11,12 @@
   "stance_sweep_m": 0.72,
   "hoof_lift_m": 0.14,
   "stance_fraction": 0.62,
-  "shaft_lateral_offset_m": 0.405
+  "shaft_lateral_offset_m": 0.405,
+  "trot_reconstruction": {
+    "cycle_duration_s": 0.72,
+    "stance_fraction": 0.52,
+    "stance_sweep_m": 0.68,
+    "hoof_lift_m": 0.12,
+    "status": "synthetic grounded diagonal trot engineering trial; not measured gait"
+  }
 }

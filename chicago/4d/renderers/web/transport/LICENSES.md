@@ -22,3 +22,25 @@ The enabled W01 study uses original tapered octagonal spokes (hub section35×32m
 | `data/transport/studies/wagon.json` | `0a317cd45c514866a0a43ec5c208b93b5f2832de415e2551a0a4be146836e103` |
 | `renderers/web/transport/wagon/wagon-w01.glb` | `7749a0199b93bd196ecf6c3482af8ec537f1420a38f6fac88ab79fd8f34d44aa` |
 | `renderers/web/transport/wagon/wagon-w01.json` | `ea3705651f11ddddcc33595abffd7ee0c3cffb7ae94fc18967c65883fb15243f` |
+
+## C01 upholstery rounding: original reconstruction (2026-10-19)
+
+Three cushion shells use original20mm rounded edges with four samples per quarter edge. Radius, shell construction and unchanged original colors are unmeasured engineering choices, not source-attested upholstery, compressed cloth/leather, historical interior or photographic materials. GPL-3.0-or-later is unchanged; no external pixels, textures or sourced geometry are introduced. Existing1904development-only eligibility remains.
+
+| Generated/reproducible file | SHA-256 |
+| --- | --- |
+| `tools/transport/generate_carriage.py` | `167f163962fe6f6b12b0b6a09b696188b23d21dbd37071a00e95ac4975bfb856` |
+| `data/transport/studies/carriage.json` | `3268082b9a8f90a2288a49db16f95de5acb732ac6d589b568ed8b53b11dbbf6f` |
+| `renderers/web/transport/carriage/carriage-c01.glb` | `5d4038fcb1e0982100c776239d649de21035098e019d5fa5d0c399427f15a062` |
+| `renderers/web/transport/carriage/carriage-c01.json` | `118a614a3a2d67352bb3f1b48cac4e6371523bee4320f0ccb6c5d35fed68135c` |
+| `renderers/web/transport/carriage/parameters.json` | `3268082b9a8f90a2288a49db16f95de5acb732ac6d589b568ed8b53b11dbbf6f` |
+
+
+## Original paired equine head/neck and headstrap refinement (T-2800/T-2801/T-2803)
+
+CC0-1.0 original generated geometry and original generator source: `tools/transport/horse_geometry.py`, `tools/transport/generate_horse.py`, `tools/transport/generate_harness.py`; original parameter data `data/transport/studies/horse.json` (unchanged) and `data/transport/studies/harness.json`; derived `renderers/web/transport/horse/{equine_light_harness_skinned_prototype_01.glb,manifest.json}` and `renderers/web/transport/harness/{light_breastcollar_harness_reconstructed_01.glb,manifest.json,geometry-stats.json}`. Exact hashes are recorded in `docs/RESEARCH/period-transport-2026-10-18/head-neck-refinement/integration-inputs.json`. No external model, texture, source pixels or traced plate geometry. Research text informs provisional anatomy/construction but does not attest a horse, owner, breed, exact anatomy or strap dimensions. Original additions retain CC0-1.0 SPDX headers. Demo/integration and reused project fit methodology remain under the project's existing GPL license; CC0 geometry does not relicense those tools. Documentary screenshots/receipts are original diagnostic outputs, not source photographs.
+
+
+## Grounded trot study (2026-10-19)
+
+Original grounded-trot engineering addition (T-2803): tools/transport/horse_geometry.py, unchanged original tools/transport/generate_horse.py, data/transport/studies/horse.json, generated renderers/web/transport/horse/{equine_light_harness_skinned_prototype_01.glb,manifest.json} contain project-original CC0-1.0 procedural geometry/solver/animation/data; no externally copied program/model/texture or image tracing. Original3Dtwo-bone solver uses geometric sphere intersection and shortest-arc quaternions. renderers/web/transport/horse/{demo.js,index.html} and diagnostic test glue retain project's existing GPL license. No source-bounded measured biological gait or historic animal identity asserted. Concrete checkpoint hashes are in `docs/RESEARCH/period-transport-2026-10-18/head-neck-refinement/trot-inputs.json`.

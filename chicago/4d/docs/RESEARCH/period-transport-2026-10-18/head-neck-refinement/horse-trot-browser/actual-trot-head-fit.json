@@ -1,0 +1,888 @@
+{
+  "scope": "All actual5headstrap triangles/vertices versus actual deformed wholehorse surface,21discrete clip-phase endpoints. Bit/rings/reins excluded; nearest-face sign is not watertightinside classification. AABB+SAT copied project methodology. Not continuous-time/force/historicalfit acceptance.",
+  "rows": [
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.0024064311693538865,
+        "evaluated_triangle_pairs": 4558,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.0024739262889761867,
+        "excluded_horse_triangles": 7616,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6556,
+      "triangle_AABB_candidates": 2545,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.0024739262889761867,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8435000005364417,
+          1.1510000109672547
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.05,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.0024064311693538726,
+        "evaluated_triangle_pairs": 4176,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.002473926288976303,
+        "excluded_horse_triangles": 7616,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6556,
+      "triangle_AABB_candidates": 2424,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.002473926288976303,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8407898383282788,
+          1.1507076002619991
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.1,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.0024064311693538,
+        "evaluated_triangle_pairs": 3805,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.002473926288975905,
+        "excluded_horse_triangles": 7616,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6556,
+      "triangle_AABB_candidates": 2385,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.002473926288975905,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8383467560993045,
+          1.1504258337115028
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.15,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.0024064311693539056,
+        "evaluated_triangle_pairs": 3655,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.002473926288976358,
+        "excluded_horse_triangles": 7616,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6556,
+      "triangle_AABB_candidates": 2255,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.002473926288976358,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8364094289706445,
+          1.1501901194739614
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.2,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.0024064311693538327,
+        "evaluated_triangle_pairs": 3501,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.002473926288976175,
+        "excluded_horse_triangles": 7616,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6556,
+      "triangle_AABB_candidates": 2193,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.002473926288976175,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8351666526224906,
+          1.1500331821738907
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.25,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.0024064311693539407,
+        "evaluated_triangle_pairs": 3501,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.002473926288975969,
+        "excluded_horse_triangles": 7616,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6556,
+      "triangle_AABB_candidates": 2193,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.002473926288975969,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8347373199778925,
+          1.1499779242424712
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.3,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.0024064311693539208,
+        "evaluated_triangle_pairs": 3501,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.0024739262889759096,
+        "excluded_horse_triangles": 7616,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6556,
+      "triangle_AABB_candidates": 2193,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.0024739262889759096,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.835166652970572,
+          1.1500331822184742
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.35,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.0024064311693540318,
+        "evaluated_triangle_pairs": 3655,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.002473926288976177,
+        "excluded_horse_triangles": 7616,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6556,
+      "triangle_AABB_candidates": 2255,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.002473926288976177,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8364094297165983,
+          1.1501901195668154
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.4,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.0024064311693541003,
+        "evaluated_triangle_pairs": 3805,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.0024739262889761074,
+        "excluded_horse_triangles": 7616,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6556,
+      "triangle_AABB_candidates": 2385,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.0024739262889761074,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8383467573802785,
+          1.1504258338637654
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.45,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.002406431169354026,
+        "evaluated_triangle_pairs": 4176,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.002473926288976124,
+        "excluded_horse_triangles": 7616,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6556,
+      "triangle_AABB_candidates": 2424,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.002473926288976124,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8407898400649567,
+          1.150707600456165
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.5,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.0024064311693538865,
+        "evaluated_triangle_pairs": 4558,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.0024739262889761867,
+        "excluded_horse_triangles": 7616,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6556,
+      "triangle_AABB_candidates": 2545,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.0024739262889761867,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8435000005364417,
+          1.1510000109672547
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.55,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.002406431169353907,
+        "evaluated_triangle_pairs": 4765,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.0024739262889761082,
+        "excluded_horse_triangles": 7616,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6556,
+      "triangle_AABB_candidates": 2750,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.0024739262889761082,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8462123410124338,
+          1.15127147871695
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.6,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.002406431169354049,
+        "evaluated_triangle_pairs": 5078,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.0024739262889760722,
+        "excluded_horse_triangles": 7624,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6548,
+      "triangle_AABB_candidates": 2890,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.0024739262889760722,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.848661125545111,
+          1.1514984105337511
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.65,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.0024064311693538674,
+        "evaluated_triangle_pairs": 5180,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.002473926288976061,
+        "excluded_horse_triangles": 7635,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6537,
+      "triangle_AABB_candidates": 2995,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.002473926288976061,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8506055006366369,
+          1.1516663490683035
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.7,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.002406431169353876,
+        "evaluated_triangle_pairs": 5293,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.0024739262889760644,
+        "excluded_horse_triangles": 7690,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6482,
+      "triangle_AABB_candidates": 3092,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.0024739262889760644,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8518539763411168,
+          1.1517684735902953
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.75,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.0024064311693538882,
+        "evaluated_triangle_pairs": 5333,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.0024739262889761624,
+        "excluded_horse_triangles": 7690,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6482,
+      "triangle_AABB_candidates": 3149,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.0024739262889761624,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8522854924063943,
+          1.1518027341120256
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.8,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.002406431169353991,
+        "evaluated_triangle_pairs": 5293,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.002473926288976285,
+        "excluded_horse_triangles": 7690,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6482,
+      "triangle_AABB_candidates": 3092,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.002473926288976285,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8518539755015777,
+          1.1517684735231213
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.85,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.002406431169353914,
+        "evaluated_triangle_pairs": 5180,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.00247392628897638,
+        "excluded_horse_triangles": 7635,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6537,
+      "triangle_AABB_candidates": 2995,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.00247392628897638,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8506054981850546,
+          1.1516663488633847
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.9,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.0024064311693540214,
+        "evaluated_triangle_pairs": 5078,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.002473926288976398,
+        "excluded_horse_triangles": 7624,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6548,
+      "triangle_AABB_candidates": 2890,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.002473926288976398,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8486611233424455,
+          1.151498410337366
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 0.95,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.002406431169353814,
+        "evaluated_triangle_pairs": 4765,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.002473926288975954,
+        "excluded_horse_triangles": 7616,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6556,
+      "triangle_AABB_candidates": 2750,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.002473926288975954,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8462123379683402,
+          1.1512714784241485
+        ]
+      }
+    },
+    {
+      "which": "integrated",
+      "clip": "trot",
+      "phase": 1,
+      "join_max_gap_m": 0,
+      "triangle_distance": {
+        "unsigned_minimum_m": 0.0024064311693538865,
+        "evaluated_triangle_pairs": 4558,
+        "witness": {
+          "strap": "noseband",
+          "horse_mesh": "skinned_equine_coat"
+        },
+        "initial_upper_bound_m": 0.0024739262889761867,
+        "excluded_horse_triangles": 7616,
+        "broadphase_expansion_m": 0.1,
+        "remote_exclusion_proof": "Any omitted triangle AABB is disjoint from garment union expanded100mm on each axis; hence at least one axis gap>100mm, greater than verified actual eligible-surface upperbound. Omitted triangles cannot improve minimum or intersect.",
+        "scope": "Actual full triangle unsigned minimum with safe AABB lower-bound pruning; no containment/pressure/continuous-time claim"
+      },
+      "strap_meshes": [
+        "cheekpiece_l",
+        "cheekpiece_r",
+        "crownpiece",
+        "browband",
+        "noseband"
+      ],
+      "strap_triangles": 564,
+      "strap_vertices": 1692,
+      "broadphase_horse_triangles": 6556,
+      "triangle_AABB_candidates": 2545,
+      "triangle_intersections": 0,
+      "intersections_by_strap": {},
+      "min_signed_nearest_face_distance_m": 0.0024739262889761867,
+      "vertices_below_minus1mm": 0,
+      "worst": {
+        "strap": "noseband",
+        "vertex": [
+          5.143516582334358e-18,
+          1.8435000005364417,
+          1.1510000109672547
+        ]
+      }
+    }
+  ],
+  "passed": true
+}
