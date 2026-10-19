@@ -5,7 +5,7 @@
   "glb_sha256": "c505419a7f8e102a8508129543029fd2cd7dd2357cd6f12c5547d6a79535ca4b",
   "camera_sha256": "4cde10e103c3052890d4f2945bb1b9bd504261479d28aa56d46004171c482fff",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/nickel-1967-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "The flat top now has real two-row openings, corner pinnacles, a checker band and five colonnettes dividing six upper windows.",
@@ -52,8 +52,12 @@
       "status": "fixed"
     },
     {
-      "what": "T-2830: read by luminance profile at x 339-346, the loggia's south pair stands its capital top at y 623.5 and its pedestal's cap at 696.5, where this camera draws the as-built loggia's at 642.4 and 703.7: the column reads 73 px against 61. Beside it the bow's string course foot registers (y 620 against 621, the 1888 plate's 5.83 m) and its principal sill reads 9 px high (701.5 against 710, the plate's 2.29 m), so against the bow's sill-to-string-course span the column stands 1.30 times the model's proportion, the factor the 1965 close view reads (T-2764's k 1.29; tools/keith_1965_cause_fit.py). Also read: the bow's principal glass begins 27.5 px under the string course where a 5.30 m head would draw 13 px under it and the plate's upper transom bar (4.85 m) 25, and the band between reads as pale as the piers, so by 1967 the upper transoms read blind. Which height the loggia is built to is T-2831's to rule.",
-      "status": "open"
+      "what": "T-2830: read by luminance profile at x 339-346, the loggia's south pair stands its capital top at y 623.5 and its pedestal's cap at 696.5, where this camera draws the as-built loggia's at 642.4 and 703.7: the column reads 73 px against 61. Beside it the bow's string course foot registers (y 620 against 621, the 1888 plate's 5.83 m) and its principal sill reads 9 px high (701.5 against 710, the plate's 2.29 m), so against the bow's sill-to-string-course span the column stands 1.30 times the model's proportion, the factor the 1965 close view reads (T-2764's k 1.29; tools/keith_1965_cause_fit.py). Also read: the bow's principal glass begins 27.5 px under the string course where a 5.30 m head would draw 13 px under it and the plate's upper transom bar (4.85 m) 25, and the band between reads as pale as the piers, so by 1967 the upper transoms read blind. Which height the loggia is built to is T-2831's to rule. T-2831: re-read, and closed. The y 623.5 edge is the top of the beam, not the capital's: down x 339-346 the cornice's shadow lies at 618-623, the beam's lit face at 624-639 and the shadow under it at 640-643 (darkest 642), where this camera draws the record's beam top at 618.1 and its capital top at 642.4, and the carved balcony front stands above them at 598-617 (its top drawn at 597.6). Read at the beam's soffit (y 639.5) the column is 57 px over the bow's 81.5 px sill-to-string-course span, 0.699, where the camera draws the as-built 0.703 (factor 0.994, a 2.19 m column). The 1888 plate reads 1.057 on the same ruler and the 1965 slide 1.04 once its heads are paired at the glass it shows, so the column stands at its built 2.2 m (docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-column-rule.json).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2831: by 1967 the bow's principal top lights (4.85-5.30 m over their stone bar, as the 1888 plate glazes them) read blind: down the 11 degree light the glass stops at 0.663 of the sill-to-string-course span (y 647.5 between the sill at 701.5 and the course's foot at 620), 4.66 m, the middle light's head (4.70 m), with stone-pale wall above it. The 1965 slide reads the same 0.664. The reconstructed 1886 and 1904 states keep the top lights glazed, as the plate shows them.",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
