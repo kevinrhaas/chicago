@@ -34,6 +34,8 @@ CORNER_M = 0.20                         # the least pier between an opening and 
 DOOR_KIT = "k01.opening.service_door"   # a plain boarded door: no K07 stoop, no entrance kit
 SASH = "k01.opening.sash_flat"
 DOOR_REVEAL_M = 0.20
+TRANSOM_BAR_M = 0.08                    # T-2866: the bar between a door's leaf and its transom light
+TRANSOM_FRAME_M = 0.05                  # and the light's frame round its other three sides
 
 
 def _err(msg):
@@ -101,6 +103,9 @@ def resolve(e: dict, *, depth: float, width: float, eave: float, side_wall: floa
         if face not in FACES:
             raise _err(f"{what}.face {face!r}: one of {', '.join(FACES)}")
         s, wd, sill, h = (float(w[x]) for x in ("s_m", "width_m", "sill_m", "height_m"))
+        tr = float(w.get("transom_m", 0.0))
+        if tr and (kind != "door" or not 0.25 <= tr <= 0.8):
+            raise _err(f"{what}.transom_m {tr}: a door's transom light, 0.25-0.8 m in the top of its hole")
         if kind == "sash":
             # the picture's own sizes: the contract's single sash width, its height read (the
             # starting range yields to the picture, as street_front_windows' do)
@@ -122,7 +127,8 @@ def resolve(e: dict, *, depth: float, width: float, eave: float, side_wall: floa
             if s - wd / 2 < a1 and s + wd / 2 > a0 and sill < b1 + 0.45 and sill + h > b0 - 0.45:
                 raise _err(f"{what} meets an opening under or over it, or its head")
         laid[face].append((s - wd / 2, s + wd / 2, sill, sill + h))
-        ops.append(Opening(comp, f"k01.wall.rear_section.{face}", round(s, 4), round(sill, 4), wd, h, kind == "sash"))
+        ops.append(Opening(comp, f"k01.wall.rear_section.{face}", round(s, 4), round(sill, 4), wd, h, kind == "sash",
+                           tr))
     # the dormers, on the attic's street or rear lower face: each the main mansard's gabled
     # dormer, standing on what the main roof leaves of that face and clear of the end parapet
     dormers = []
@@ -177,14 +183,17 @@ def walls(a) -> None:
 
 def service_door(a, op, frame, thickness) -> None:
     """A plain boarded door in its brick reveal under a soldier head: the photograph's door
-    at the section's foot, a service door, so no K07 entrance and no stoop."""
+    at the section's foot, a service door, so no K07 entrance and no stoop. T-2866: a door
+    with a transom (`transom_m`) hangs its leaf under a bar across the hole, and the light
+    over it is the dark of the hall behind a pane, as a K06 light's backing and glass are."""
     from . import k03_brick
     from .k01_frontage import Y, _add, _mul
     p = a.p
     O, R, N = frame
     conf = p.worst_conf("footprint", "rear_section")
     seed = a.instance(op.component, "opening", {"clear_width_m": op.width_m, "clear_height_m": op.height_m,
-                                                "reveal_m": DOOR_REVEAL_M, "wall": op.wall},
+                                                "reveal_m": DOOR_REVEAL_M, "wall": op.wall,
+                                                **({"transom_m": op.transom_m} if op.transom_m else {})},
                       {"sill": _add(O, _add(_mul(R, op.s_m), _mul(Y, op.sill_m))),
                        "head": _add(O, _add(_mul(R, op.s_m), _mul(Y, op.head_m)))})
     P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
@@ -196,7 +205,19 @@ def service_door(a, op, frame, thickness) -> None:
     rev.face([P(s1, y0, d), P(s1, y0, 0), P(s1, y1, 0), P(s1, y1, d)], neg(R), b, conf)
     rev.face([P(s0, y1, 0), P(s0, y1, d), P(s1, y1, d), P(s1, y1, 0)], neg(Y), b, conf)
     leaf = a.prim("door_leaf")
-    leaf.face([P(s0, y0, d), P(s1, y0, d), P(s1, y1, d), P(s0, y1, d)], N, a.basis("door_leaf", O, R, Y, seed), conf)
+    lb = a.basis("door_leaf", O, R, Y, seed)
+    yt = y1 - op.transom_m                     # the leaf's head, under the transom's bar
+    leaf.face([P(s0, y0, d), P(s1, y0, d), P(s1, yt, d), P(s0, yt, d)], N, lb, conf)
+    if op.transom_m:
+        # the bar and the light's frame, in the leaf's timber, at the hole's back; the light's
+        # dark and its pane a hair in front of it
+        f_ = TRANSOM_FRAME_M
+        leaf.face([P(s0, yt, d), P(s1, yt, d), P(s1, y1, d), P(s0, y1, d)], N, lb, conf)
+        g0, g1, h0, h1 = s0 + f_, s1 - f_, yt + TRANSOM_BAR_M, y1 - f_
+        a.prim("backing").face([P(g0, h0, d + 0.005), P(g1, h0, d + 0.005), P(g1, h1, d + 0.005),
+                                P(g0, h1, d + 0.005)], N, a.basis("backing", O, R, Y, seed), conf)
+        a.prim("glass").face([P(g0, h0, d + 0.01), P(g1, h0, d + 0.01), P(g1, h1, d + 0.01),
+                              P(g0, h1, d + 0.01)], N, a.basis("glass", O, R, Y, seed), conf)
     k03_brick.soldier_head(a, seed, frame, s0, s1, y1, conf)
 
 

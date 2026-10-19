@@ -2209,6 +2209,10 @@ class Assembly:
             for g in self.mansard_dormer_bodies(m, E):
                 solids.append(g["body"])
                 recesses.append(g["recess"])
+        if p.slope_dormers:   # T-2866: dormers on the hip's side slopes
+            for g in self.slope_dormer_bodies(E, tp):
+                solids += [g["body"], g["roof"]] if g["roof"] else [g["body"]]
+                recesses.append(g["recess"])
         d = p.dormer
         if d:
             dp = kit["parts"]["dormer"]
@@ -2542,7 +2546,8 @@ class Assembly:
     DORMER_FACES = {"street": ("x", 1.0, (0.0, 0.0, -1.0)), "rear": ("x", -1.0, (0.0, 0.0, 1.0)),
                     "north": ("z", -1.0, (-1.0, 0.0, 0.0)), "south": ("z", 1.0, (1.0, 0.0, 0.0))}
 
-    def round_dormer_body(self, d, face, fascia, centre, rise, lower_pitch_deg, bulge, E, profile=None):
+    def round_dormer_body(self, d, face, fascia, centre, rise, lower_pitch_deg, bulge, E, profile=None,
+                          back_at=None):
         """A round-headed dormer as a closed solid for the roof's union (T-2404's crown
         dormer; T-2411 on the main mansard's lower faces) — a stone face on the lower face,
         `face_setback_m` in from the fascia's face (`fascia`, on the face's axis), its head
@@ -2572,6 +2577,9 @@ class Assembly:
             # pediment's two slopes to its apex, slated as the cheeks are
             eaves = sill + d["sash_height_m"] + d["surround_m"]
             head = [(centre + r, eaves), (centre, top), (centre - r, eaves)]
+        elif d.get("head") == "hip":
+            # T-2866: square to the face's wall head; the hip over it is joined below
+            head = [(centre + r, top), (centre - r, top)]
         else:
             # the face's outline across the face: jambs to the sash's spring, then a half
             # circle struck from the sash's own centre, `surround_m` outside its arch
@@ -2579,10 +2587,13 @@ class Assembly:
             head = [(centre + r * math.cos(math.pi * i / 12), spring + r * math.sin(math.pi * i / 12))
                     for i in range(13)]
         outline = [(centre - r, ys - 0.4), (centre + r, ys - 0.4)] + head
-        back = fascia - sg * (run + 0.3)
+        back = fascia - sg * (run + 0.3) if back_at is None else back_at
         P = k5.frame(axis)
         ends = ("hidden", "dormer_face") if sg > 0 else ("dormer_face", "hidden")
-        body = k5.extrude(outline, min(back, nf), max(back, nf), P, "cheek", *ends)
+        # T-2866: a hipped dormer's cheeks are its face's (1625's print draws both pale, where
+        # its slates read dark); the others' are slated, as the K01 dormer's are
+        body = k5.extrude(outline, min(back, nf), max(back, nf), P,
+                          "dormer_face" if d.get("head") == "hip" else "cheek", *ends)
         if d.get("head") == "gable":
             # T-2452: its cheeks and pediment slopes are slated as the lower faces are (_emit_shell
             # reads a cheek inside this box as one of them), its plan box in the K01 frame
@@ -2596,7 +2607,17 @@ class Assembly:
         recess = k5.extrude(rec, min(inner, outer), max(inner, outer), P, "reveal",
                             *(("window", "reveal") if sg > 0 else ("reveal", "window")))
         at = lambda along, y, n: (n, y, along) if axis == "x" else (along, y, n)
-        return {"body": body, "recess": recess,
+        roof = None
+        if d.get("head") == "hip":
+            # T-2866: K05's hip over the dormer's wall-line rectangle, its soffit on the face's
+            # wall head and its eaves the kit's dormer overhang; its back end dies into the
+            # main roof, which the record's resolve ran the body far enough back to bury
+            a0, a1 = sorted((back, nf))
+            x0, x1, z0, z1 = (a0, a1, centre - r, centre + r) if axis == "x" else (centre - r, centre + r, a0, a1)
+            t = math.tan(math.radians(d["hip_pitch_deg"]))
+            roof, _ = k5.hip_element(x0, x1, z0, z1, top + d["overhang_m"] * t + d["fascia_m"], t,
+                                     d["overhang_m"], d["fascia_m"])
+        return {"body": body, "recess": recess, "roof": roof,
                 "geom": {"O": at(centre - ra * r, ys, nf), "R": R, "ys": ys, "sill": sill,
                          "sill_pt": at(centre, sill, nf), "top_pt": at(centre, top, nf),
                          "width": 2 * r, "top": top, "variant": v, "d": d}}
@@ -2617,6 +2638,24 @@ class Assembly:
             centre = d["along_m"] if self.DORMER_FACES[d["face"]][0] == "z" else -d["along_m"]
             g = self.round_dormer_body(d, d["face"], fascia[d["face"]], centre, m["lower_rise_m"],
                                        m["lower_pitch_deg"], m["bulge"], E)
+            self.round_dormers.append(g["geom"])
+            out.append(g)
+        return out
+
+    def slope_dormer_bodies(self, E, tp):
+        """T-2866: the hip's side-slope dormers (1625's on its open south side), each the
+        lower-face dormer's construction on the hip's plane: the covering at the fascia's face
+        stands `o` of run under the wall head, so a face `face_setback_m` in from it leaves the
+        slope where the straight chord says, and its body runs `back_m` in from the wall line."""
+        W, o = self.p.width_m, self.p.eave_overhang_m
+        fascia = {"north": -W - o, "south": o}
+        wall = {"north": -W, "south": 0.0}
+        out = []
+        for d in self.p.slope_dormers:
+            sg = self.DORMER_FACES[d["face"]][1]
+            g = self.round_dormer_body(d, d["face"], fascia[d["face"]], d["along_m"], W / 2 * tp,
+                                       self.p.roof_pitch_deg, 0.0, E - o * tp, profile="convex",
+                                       back_at=wall[d["face"]] - sg * d["back_m"])
             self.round_dormers.append(g["geom"])
             out.append(g)
         return out
@@ -2706,6 +2745,14 @@ class Assembly:
                 if self.p.mansard and kind in ("hip", "valley") else [(A, B)]
             for A, B in spans:
                 ns = self._line_planes(pts, tris, A, B)
+                if len(ns) == 1:
+                    # T-2866: a SEAM, not a fold — one covering plane on both sides of the line.
+                    # The union's BSP splits a face by every other solid's planes, and a split
+                    # can leave a sliver whose three corners are all but collinear, so the
+                    # normal K05's graph computes from them is noise and it reads a ridge, hip
+                    # or valley there (1625's attic face, once its south dormer joined). The
+                    # face's own plane says it is flat; there is nothing to cap or flash
+                    continue
                 if len(ns) != 2:
                     raise ValueError(f"the {kind} {A}-{B} does not part two covering planes ({len(ns)})")
                 n1, n2 = ns
