@@ -15664,6 +15664,60 @@ for (const [label, viewport, touch] of [
       && Object.keys(settingsApp.clipped).length >= 6 && Object.values(settingsApp.clipped).every((list) => list.length === 0),
       JSON.stringify({ scale: settingsApp.scale, stored: settingsApp.storedScale, back: settingsApp.back, clipped: settingsApp.clipped }));
     // <<< T-2656
+    // >>> T-2657: Researcher mode, the Settings › About switch. Off by default: no RESEARCHER
+    // label, no [data-researcher] element drawn, the short "Why" hints shown and the full
+    // essays not. The switch (a hit-tested click; a miss is this check's failure, read below,
+    // and never aborts the part) turns it on: the label sits at the top, clear of the year
+    // chip and the instrument and inside the screen; every research element is drawn and
+    // every visitor stand-in put away; the device remembers it. Off again puts all of it back
+    // and forgets it. (No mode shows a ticket number or record id: owner, 2026-10-18.)
+    const researchRead = () => page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const shown = (el) => !!el && getComputedStyle(el).display !== 'none';
+      const box = (el) => { const b = el?.getBoundingClientRect(); return b ? { l: b.left, r: b.right, t: b.top, b: b.bottom, w: b.width, h: b.height } : null; };
+      const badge = document.getElementById('research-badge');
+      const marked = [...document.querySelectorAll('[data-researcher]')].filter((el) => !el.hidden);
+      const stand = [...document.querySelectorAll('[data-visitor-only]')].filter((el) => !el.hidden);
+      const whys = [...document.querySelectorAll('details.why')];
+      return {
+        attr: document.documentElement.hasAttribute('data-researcher-mode'), apiOn: api.researcher?.on ?? null,
+        checked: document.getElementById('s-researcher')?.checked ?? null,
+        inAbout: !!document.getElementById('s-researcher')?.closest('#s-about'),
+        stored: localStorage.getItem('chicago4d.researcher'),
+        badge: shown(badge) && !!box(badge)?.w, badgeText: badge?.textContent.trim() ?? '', badgeBox: box(badge),
+        year: box(document.getElementById('year-badge')), instrument: box(document.getElementById('hud-instrument')),
+        researchAll: marked.length, researchShown: marked.filter(shown).length,
+        standAll: stand.length, standShown: stand.filter(shown).length,
+        whys: whys.length, full: whys.filter((d) => shown(d.querySelector('.why-full'))).length,
+        hints: whys.filter((d) => shown(d.querySelector('[data-visitor-only]'))).length,
+        innerW: innerWidth, innerH: innerHeight,
+      };
+    });
+    const researchOff = await researchRead();
+    const researchClick = await clickChrome('#s-researcher').then(() => null, (e) => page.evaluate(() => document.getElementById('s-researcher')?.click()).then(() => e.message));
+    await page.waitForFunction(() => document.documentElement.hasAttribute('data-researcher-mode'), null, { timeout: 30_000, polling: 100 }).catch(() => {});
+    const researchOn = await researchRead();
+    await openSection('settings');
+    const researchClick2 = await clickChrome('#s-researcher').then(() => null, (e) => page.evaluate(() => document.getElementById('s-researcher')?.click()).then(() => e.message));
+    await page.waitForFunction(() => !document.documentElement.hasAttribute('data-researcher-mode'), null, { timeout: 30_000, polling: 100 }).catch(() => {});
+    const researchBack = await researchRead();
+    // Never leave the mode on for the parts after this one, whatever happened above.
+    await page.evaluate(() => window.__chicago4d.researcher?.set(false));
+    {
+      const a = researchOff, b = researchOn, c = researchBack;
+      const clear = (x, y) => !x || !y || x.r <= y.l || y.r <= x.l || x.b <= y.t || y.b <= x.t;
+      const inView = (x) => !!x && x.l >= 0 && x.r <= b.innerW + 1 && x.t >= 0 && x.b <= b.innerH;
+      check(`${label}: Researcher mode is off by default; Settings › About's switch shows the RESEARCHER label and the full "Why this default" essays, is remembered, and turns off again (T-2657)`,
+        a.inAbout && !a.attr && a.apiOn === false && a.checked === false && a.stored === null && !a.badge
+        && a.researchAll > 0 && a.researchShown === 0 && a.standShown === a.standAll && a.whys === 3 && a.full === 0 && a.hints === 3
+        && !researchClick && b.attr && b.apiOn === true && b.checked === true && b.stored === 'on'
+        && b.badge && b.badgeText === 'RESEARCHER' && inView(b.badgeBox) && clear(b.badgeBox, b.year) && clear(b.badgeBox, b.instrument)
+        && b.researchShown === b.researchAll && b.standShown === 0 && b.full === 3 && b.hints === 0
+        && !researchClick2 && !c.attr && c.apiOn === false && c.checked === false && c.stored === null && !c.badge
+        && c.researchShown === 0 && c.standShown === c.standAll && c.full === 0 && c.hints === 3,
+        JSON.stringify({ off: a, click: researchClick, on: b, click2: researchClick2, back: c }));
+    }
+    // <<< T-2657
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
