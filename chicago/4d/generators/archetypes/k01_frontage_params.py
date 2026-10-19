@@ -2460,11 +2460,19 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 # and the pair's pitch, are optional (the kit's defaults stand them at the corner
                 # and the pedestal's quarters)
                 opt = {"pedestal": {"far_inset_m"}, "columns": {"pitch_m"}, "parapet": {"side_inset_m"}}
-                if set(lg) - {"finish"} != set(need) or any(
+                # T-2877: and a rear row, a pedestal against the wall behind each front one
+                # (its depth; its width, its pair's place off the wall, pitch and radii the
+                # front's unless given), carrying a pair under a paired capital
+                if "rear" in lg and not ({"depth_m"} <= set(lg["rear"]) <= {"depth_m", "width_m", "axis_m",
+                                                                         "pitch_m", "radius_scale"}):
+                    raise ParamError("entrance_kit.terrace.loggia.rear takes depth_m, and optionally width_m, "
+                                     "axis_m, pitch_m and radius_scale")
+                if set(lg) - {"finish", "rear"} != set(need) or any(
                         not v <= set(lg[k]) <= v | opt.get(k, set()) for k, v in need.items()):
                     raise ParamError(f"entrance_kit.terrace.loggia takes {sorted(need)}, each with "
                                      + "; ".join(f"{k}: {sorted(v)}" for k, v in need.items())
-                                     + "; optionally " + "; ".join(f"{k}: {sorted(v)}" for k, v in opt.items()))
+                                     + "; optionally " + "; ".join(f"{k}: {sorted(v)}" for k, v in opt.items())
+                                     + "; and optionally rear")
                 if "out_m" not in t:
                     raise ParamError("entrance_kit.terrace.loggia stands on a terrace with its own out_m")
                 if lg.get("finish") not in (None, "ionic_carved"):

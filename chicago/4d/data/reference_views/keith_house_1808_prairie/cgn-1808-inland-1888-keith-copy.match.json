@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "cgn-1808-inland-1888-keith-copy",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "674a9e99d509d2bee7dc4efcd7291a441d3365a0e19ee5132674c68b1d952777",
+  "glb_sha256": "9e1eea5b84ad8dc8d310b33cd7da265c551c725885a6c6a01c3f634e1330078b",
   "camera_sha256": "46115ac244cc65333d243964347a01814de2331453f82ea86651a33af8d4141a",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/cgn-1808-inland-1888-keith-copy-side-by-side.jpg",
   "verdict": "differs",
@@ -88,7 +88,11 @@
       "status": "fixed"
     },
     {
-      "what": "T-2876: the loggia has a REAR ROW of paired columns that the model does not build. Read on the plate (this is a reproduction of it) at its native 1559 px (inland-1888): behind and left of the south front pair (whose shafts stand at x 875-927) two shafts in shadow at x 818-828 and 839-845, rows 1480-1540; and through the opening between the front pairs (875-927 and 1094-1146) three lit shafts at x 998-1004, 1020-1032 and 1044-1050 standing on the parapet's line at rows 1550-1570. On this camera a point deeper in the loggia (further west) draws nearer the principal point (x 450), so both sets are a second row of pairs behind the front ones, at the house wall or a bay deeper. The render draws the front pairs only, with the lit house wall and door close behind them where the print is dark to the back. Its depth and whether the rear pairs are free or engaged are for the build to rule (T-2877). This copy shows both sets the same.",
+      "what": "T-2876: the loggia has a REAR ROW of paired columns that the model does not build. Read on the plate (this is a reproduction of it) at its native 1559 px (inland-1888): behind and left of the south front pair (whose shafts stand at x 875-927) two shafts in shadow at x 818-828 and 839-845, rows 1480-1540; and through the opening between the front pairs (875-927 and 1094-1146) three lit shafts at x 998-1004, 1020-1032 and 1044-1050 standing on the parapet's line at rows 1550-1570. On this camera a point deeper in the loggia (further west) draws nearer the principal point (x 450), so both sets are a second row of pairs behind the front ones, at the house wall or a bay deeper. The render draws the front pairs only, with the lit house wall and door close behind them where the print is dark to the back. Its depth and whether the rear pairs are free or engaged are for the build to rule (T-2877). This copy shows both sets the same. T-2881: built. Read on the plate at its native 1559 px (inland-1888) at half-max, the rear shafts' middles stand at x 823.2 and 841.8 (the south pair, in shade, rows 1440-1520) and 1025.8 and 1046.7 (the north pair's lit feet, rows 1540-1560); with each pair at its front pair's v (7.05 and 9.9) they fit at 1.14 px RMS 0.39 m off the wall at a 0.28 m pitch (0.2775), so both pairs stand behind the front ones, free of the wall, closer set and slighter than the front's 0.36 m (shafts 0.24 m across, from 0.31). The south rear pedestal's lit face (x 817-860, rows 1600-1630) reads 0.54-0.58 m off the wall for a 0.6 m pedestal. Built so, the row draws the four middles within 1.7 px of the print's. In this reproduction, whose camera is the plate's re-derived (T-2876), the rear pairs stand on the print's: the south pair in shade behind the south front pair, the north pair's lit feet between the front pairs.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2881: beside the north rear pair the plate (inland-1888, of which this is a reproduction, read at its native 1559 px) draws a third lit upright at x 997-1009, rows 1522-1587, standing over the pedestals' line where the render draws the house wall just south of the north rear pedestal; and the first-floor plan under the plate draws a block at the wall behind each front pedestal only about 0.21 m deep (x 666-671 at 23.17 px/m; the south one at v 6.82-7.34), where the rear pedestals are built 0.6 m deep to carry their pairs, as the plate reads the south one's face. Whether the upright is a respond on the wall, the door's lit reveal or a third shaft, and what the plan's thin block is, are T-2882's to rule.",
       "status": "open"
     }
   ],
