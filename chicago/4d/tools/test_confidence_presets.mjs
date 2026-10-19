@@ -21,6 +21,8 @@ await writeFile(path.join(tmp, 'confidence.js'), conf);
 await writeFile(path.join(tmp, 'confidence-presets.js'), await readFile(path.join(web, 'js/confidence-presets.js'), 'utf8'));
 // T-2648: the presets keep the curated swatch set in force (confidence-rows.js).
 await writeFile(path.join(tmp, 'confidence-rows.js'), await readFile(path.join(web, 'js/confidence-rows.js'), 'utf8'));
+// T-2649: the looks are kept in the Confidence view's one record (confidence-store.js).
+await writeFile(path.join(tmp, 'confidence-store.js'), await readFile(path.join(web, 'js/confidence-store.js'), 'utf8'));
 const C = await import(pathToFileURL(path.join(tmp, 'confidence.js')).href);
 const P = await import(pathToFileURL(path.join(tmp, 'confidence-presets.js')).href);
 
