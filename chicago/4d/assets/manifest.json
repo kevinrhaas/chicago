@@ -948,24 +948,24 @@
       "structure_id": "george_glessner_house_1706_prairie"
     },
     "glessner_house__as_built_1887.glb": {
-      "ao_occlusion_mean": 0.564396,
+      "ao_occlusion_mean": 0.56606,
       "archetype": "masonry_house",
       "baked_ao": true,
-      "bytes": 198468868,
-      "inputs_sha256": "269304d598704dcc20225a7818926a83a327078445a10b16485b8789f73463c8",
+      "bytes": 198488300,
+      "inputs_sha256": "d432453c22b96f6f05597e58e5170411ced2bf90cff701947eeebf3dce1a3885",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "web_lods": {
         "light": {
           "asset": "glessner_house__as_built_1887.light.glb",
-          "master_sha256": "54ad9acb753eac1f65dde9cec4d2232a377de4c63cb1c29e6c25ee52fbd9c024",
-          "output_sha256": "2fc6ed2b917fa3542b68192bba5ca6b2ee8dc9b89815bd76d6617405852e8d66",
-          "recipe_sha256": "2c287b2fab079f483cf7091684699bdc45542ded2dcb3917ea35b475dde71a80",
-          "triangles": 194302
+          "master_sha256": "fedab61a331336c645dc947a228b0a16818283a2f10c051a2144b3c0ffdf8607",
+          "output_sha256": "69a5b698edc642e825ef718e47c1da356179d3e5902b18b681dfeca9bec66d56",
+          "recipe_sha256": "ecc10beda1eb093d5aaf2f5ca3aeda07d69e1f2fcf6a236f22abdb9dabde1d33",
+          "triangles": 194342
         }
       },
-      "web_master_sha256": "54ad9acb753eac1f65dde9cec4d2232a377de4c63cb1c29e6c25ee52fbd9c024"
+      "web_master_sha256": "fedab61a331336c645dc947a228b0a16818283a2f10c051a2144b3c0ffdf8607"
     },
     "glessner_lee_house_1700_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
