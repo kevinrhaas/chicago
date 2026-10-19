@@ -1,4 +1,26 @@
 export const CHANGELOG = [ // newest first
+  { v: 2051, ts: '2026-10-19T08:54:44.339Z', date: 'Oct 19, 2026, 3:54 AM CT', title: 'Shops & work: 94 firms\' cards open again', kind: 'fix',
+    items: [
+      'Opening one of the 94 firms written up by hand in Shops & work (Thomas Andrus\'s carpentry is one) showed "No card yet", because the card looked for its record in the wrong folder. Each of those cards now opens with its people, places and dates.',
+      'Nothing else on the cards or in the list changed.',
+    ] },
+  { v: 2050, ts: '2026-10-19T08:54:44.339Z', date: 'Oct 19, 2026, 3:54 AM CT', title: 'Glessner\'s west courtyard door comes down to the ground', kind: 'fix',
+    items: [
+      'In the 1904 courtyard, the stable wing\'s door beside the north range had been hanging almost six feet up the wall with no steps to it. It now opens at the court\'s level.',
+      'Its head lines up with the sills of the first-floor windows beside it, as a 2024 photograph of the courtyard shows. Its height was counted in brick courses.',
+      'The 1963 survey\'s small flight of steps down to this door has no date, so it is not built. The liberty records it.',
+    ] },
+  { v: 2049, ts: '2026-10-19T08:18:32.747Z', date: 'Oct 19, 2026, 3:18 AM CT', title: '1623 Prairie\'s entrance porch, its arch as broad as the window\'s', kind: 'feature',
+    items: [
+      'Granger Farwell\'s entrance arch at 1623 Prairie is now as broad as the window\'s beside it, as the 1886 drawing shows.',
+      'The arch opens into a porch: a glazed door stands at its back, its back wall lit beside it.',
+      'The stoop climbs north of the arch; its landing runs south behind an iron guard with an ornamental panel.',
+    ] },
+  { v: 2048, ts: '2026-10-19T07:43:48.984Z', date: 'Oct 19, 2026, 2:43 AM CT', title: 'Nothing you can see changed: Prairie houses can now carry a tower', kind: 'chore',
+    items: [
+      'Nothing you can see changed yet. The kit the Prairie Avenue houses are built from can now stand a round or eight-sided tower against a wall, rising past the eaves with its cone above the roof.',
+      'It is the piece 1801 Prairie, the Kimball house, needs before it can move onto that kit with its corner tower.',
+    ] },
   { v: 2047, ts: '2026-10-19T07:22:56.100Z', date: 'Oct 19, 2026, 2:22 AM CT', title: 'Nothing you can see changed: the Keith porch columns are right', kind: 'chore',
     items: [
       'Nothing you can see changed. Two later photographs, from 1965 and 1967, seemed to show 1808 Prairie\'s porch columns about a third taller than the model. They are not. By then the top panes of the bay window beside the porch had been filled in, so its windows looked shorter, and the 1967 reading had taken the beam over the columns for their tops. Read correctly, all three photographs agree with the 1888 magazine plate the columns are built from.',

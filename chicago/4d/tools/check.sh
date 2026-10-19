@@ -310,6 +310,14 @@ step "Headstrap unsigned triangle distance preserves analytic contact and pierci
 step "Human morph inspection spans meshes and restores each mesh's exact defaults" \
   node tools/test_human_morph_measure.mjs
 
+# C02 actual source/export mapping and15 discrete rigid angles; approximately 10 s on one CPU, no browser.
+step "C02 door preserves actual exported surfaces at discrete study endpoints (T-2794)" \
+  python3 tools/test_carriage_c02_door.py
+
+# Cheap actual-CLI rejection controls, owned temporary outputs; root measures isolation after install.
+step "C02 actual door hierarchy refuses closed-preserving detachment (T-2794)" \
+  python3 tools/test_carriage_c02_door_hierarchy.py
+
 step "Harness body fit reproduces original crossings and enforces 5 mm bind-pose clearance" \
   python3 tools/transport/test_harness_body_fit.py
 
@@ -934,6 +942,15 @@ step "the K08 bay kit builds every bay, oriel and tower closed against its wall,
 
 selftest "…and a window off its run, a recess through the wall, a faceted curve, an oriel on one deep course or a roof with a hole still fails it" \
   python3 tools/check_bay_kit.py --self-test
+
+# T-2787. ...and a K01 frontage carries a K08 tower past its eave (the kit piece 1801
+# Prairie's move needs). Built on two committed records with a tower added, a hip and a
+# mansard: the cap over the main roof, the ring closed above the wall head in the wall's
+# plane, the wall head's brackets and bed moulding stopped at its junctions, the lights
+# behind it dropped; a tower under the eave, out of its size range or in front of a door
+# refused.
+step "a K01 frontage carries a K08 tower past its eave, closed above the wall head and the wall head stopped at it (T-2787)" \
+  python3 tools/test_k01_tower.py
 
 # T-2788. ...and what an all-stone house is. A K01 record naming `construction: "stone"`
 # lays its K02 stone_front round every face, not a stone front on a brick box. No record

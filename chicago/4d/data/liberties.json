@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 633,
+  "count": 634,
   "liberties": [
     {
       "id": "L1",
@@ -35365,7 +35365,7 @@
       ],
       "covers": [],
       "recorded": "2026-10-18",
-      "revised": null,
+      "revised": "2026-10-19",
       "fields": [
         {
           "label": "Decision",
@@ -35386,6 +35386,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-18 (T-2752)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-19 (T-2837) — **the plinth is the print's.** K01 now lays a plain plinth, one dressed course from grade (`stone_front.rusticated_base_courses: 0`), so 1625's stands at 0.26 m, the print's plain band (top at y 785 px), where the one-course rusticated base stood it at 0.48 m. Its weathered top, overhang and drip are K02's coping profile, which the square-on print cannot measure: reconstructed, as the coping was."
         }
       ]
     },
@@ -35398,7 +35402,7 @@
       ],
       "covers": [],
       "recorded": "2026-10-18",
-      "revised": null,
+      "revised": "2026-10-19",
       "fields": [
         {
           "label": "Decision",
@@ -35419,6 +35423,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-18 (T-2753)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-19 (T-2837) — **the door is the print's height, so the panel is too.** The door is read off the print at 2.49 m clear (`door_clear_height_m`) on a floor of one 0.15 m riser, its head at 2.64 m, so the surround's lintel stands at the print's 2.64-3.11 m (0.47 m deep) and the carved panel 3.11-3.96 m, 0.85 m tall against the print's 0.86 m. The stoop is the one step the print shows. The leaf in the doorway is still K07's panelled door at that size: the print shows the doorway black and cannot say how its leaf was panelled."
         }
       ]
     },
@@ -41064,6 +41072,10 @@
           "text": "the basement light under the window is the drawing's broad, low opening: K06's segmental basement light (`k06.opening.basement_segmental`), 1.8 m across from 0.1 m to a crown at 0.97 m, under a block of voussoirs 0.25 m deep with a skewback at each end and a keystone, 0.1 m north of the window over it. Its grille is the drawing's in kind: eight close uprights to a bar at 0.57 m and over it a band of six scrolls to the springing (`street_front_dress.grilles.scrolls`). Read from the drawing: the opening's breadth, height and flat arc (its head rising about a sixteenth of its span), the radiating stones over it and the band of about six scrolls over close uprights. Reconstructed: each scroll's curl (a flat bar wound one and a half turns into its centre, turned alternately), the bars' count and section, the voussoirs' count and depth, and the light's place 0.15 m south of where the drawing draws it, so its voussoirs stand 0.3 m inside the corner. Still open: the entrance porch and the landing's guard (T-2817), and the stone above the springing and the oriel front's place (T-2819)."
         },
         {
+          "label": "Revised 2026-10-19 (T-2817)",
+          "text": "the entrance arch is the drawing's porch mouth, as broad as the window's: 1.85 m across, 2.6 m to its crown over the principal floor (`entrance_kit.opening_m`), centred at 4.55 m, under its 0.45 m ring. At the porch's back, 0.95 m in, a wall closes the arch round the door's own flat-headed opening, 1.0 m across and 2.2 m high, 0.1 m north of the arch's axis (`entrance_kit.porch_door`): the door's place and the lit back wall beside it are read, while the porch's depth, the single leaf glazed above its lock rail and the 0.45 m transom in place of the drawing's carved light are reconstructed. The stoop stands 1.05 m north of the arch's axis (`stoop_v_m` 3.5), splitting the drawing's skewed flight, and its landing runs on south to the front's south wall as a stone terrace. Along it the drawing's iron guard stands at the stoop rail's height (`street_front_dress.stoop_rails.guard`), with an ornamental panel at its south end. The panel's ornament is too small to read in the plate, so it is reconstructed as a lozenge of flat bar on a ring."
+        },
+        {
           "label": "Ticket",
           "text": "T-2728 (piece 1 of T-2435)."
         },
@@ -41198,6 +41210,43 @@
         {
           "label": "Recorded",
           "text": "2026-10-18 (T-2780)."
+        }
+      ]
+    },
+    {
+      "id": "L-glessner-west-court-door-2760",
+      "title": "Glessner's west-court door brought down to grade (2026-10-19)",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The stable wing's courtyard door beside the north-range junction (W35.5, S44.6-47.1) is built at grade, 0.35-7.85 ft above the 18th Street grade, where it had stood at the main-floor landing datum (sill 5.8 ft, head 14.0 ft) with nothing to climb to it. The 2024 courtyard photograph (`wlemay_glessner_courtyard_2024_159537058`, CC BY-SA 2.0, the library's 1920 px copy, SHA-256 fca788a6…) shows this door low beside the railed walk: its stone lintel courses with the sills of the first-floor windows beside it, and the opening is about 34 brick courses tall (a course of 66.675 mm, counted at about 5.4 px in the photograph's own coursing beside the jamb), so about 7.5 ft. The head is set 0.35 ft above the record's 7.5 ft window sills, where the photograph puts it, and the sill 7.5 ft below that. HABS sheet 2 (`habs_glessner_house_il_1015_drawings`, 1963) draws a narrow flight descending north toward this door, at the south end of a long narrow landing, which also puts the door below the court's walk rather than above it."
+        },
+        {
+          "label": "Bounds",
+          "text": "The head is read against the record's own 7.5 ft first-floor sills (themselves this record's reading), so it carries their error plus about ±0.2 ft of coursing; the sill carries a further ±0.3 ft from where the door's foot meets the 2024 walk. The photograph is 2024 fabric: the head is fixed in original coursing and is not likely to have moved, but the 1904 threshold may have been a step lower, into the areaway the 1963 plan draws."
+        },
+        {
+          "label": "What is not built",
+          "text": "the 1963 plan's descending flight and its areaway. The plan gives no level, no riser count anyone can read with confidence and no date for them (its only dated note is the c.1955 wooden stair behind the service wing, a different stair), and the 2024 view shows a sloping railed walk in their place. The lawn runs to the wall as before."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a dated photograph of the west court before 1955, or a level survey of the door's threshold against the court, settles both the threshold and whether the areaway is original."
+        },
+        {
+          "label": "Applies to",
+          "text": "`data/structures/glessner_house.json` (`v4_detail.supplemental_openings`, face east at 125.75, the stable courtyard door); see `docs/RESEARCH/glessner-west-court-door-T-2760/`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-19 (T-2760)."
         }
       ]
     },

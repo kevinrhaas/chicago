@@ -5578,3 +5578,16 @@ T-1789 loaded-hair diagnostic (2026-10-19): actual canonical run39211997787/48b1
 ### 2026-10-19 — Authored resident hair web-normal precision
 
 Diagnostic d7b944d86 / canonical 39215214430 identifies 8-bit decoded hair normals just beyond the unchanged 0.005 length-error guard. Pinned real glTFTransform 4.5.0 canary reproduces the exact failure; authored-only medium mode with 16-bit normals passes it (precision flag alone fails because high mode caps eight bits). Generic fixture export stays unchanged. See RESEARCH/resident-teamsters-2026-10-18/hair-normal-precision/. Actual corrected resident CI, full smoke and photographic/production acceptance remain open. Incoming dev c7770e99 merges without conflicts; the full combined gate is next.
+
+
+2026-10-19 transport integration: reconciled new dev fb6a77579 after the exact-f97 qualification. Only the generated source-use index conflicted; it is rebuilt by its owning compiler through the liberties/source-use tail. Human and transport sources remain unchanged. Validation receipts stay revision-specific in PR1041 and central tickets; photographic appearance, independent CI image review, seated/riding interaction and production acceptance remain open.
+
+## T-2794 — separate C02 enclosed carriage study (2026-10-19)
+
+An isolated roofed carriage specimen adds a repaired cabin aperture and reconstructed rigid door, with accessible closed/open endpoints. It is1904 development-only; C01, W01, horse, harness, hitch and scene placements are unchanged. Actual source checkpoints have zero SAT contacts at15 discrete door angles and eight matched desktop/mobile views; these do not establish continuous collision safety, passengers, real boarding, historic ownership/subtype/materials or photographic quality. Installed-head/fullgate checks remain required at integration. T-2794 stays open; optional paint/studio studies are separate, not baseline claims.
+
+
+**Metadata and articulation qualification:** The pre-door project scope quotation is preserved separately with its original branch and explicit non-period origin; the enabled branch now describes reconstructed rigid door/hinge geometry and endpoint transforms. Current model metadata hash is 93d4020036e5c685ce95010fe64b26c55a1561db4517405f0590f7a398253331 (860956 bytes). Corrected checks bind all 424 actual moving triangles to the unique active exported door and compose actual hierarchy transforms at each angle; closed-world shape alone cannot qualify detached geometry. Old closed-mapping/source-posed receipts are retained only as limited historical checkpoints. No continuous/occupant/photographic acceptance or installed-head gate is implied.
+
+
+2026-10-19 installed C02 follow-up: the minimal enclosed-carriage study now loads from project-relative files with a reconstructed rigid door. Root actual source/export15-angle and five semantic negative controls pass; eight desktop/mobile keyboard/touch/framing captures pass. Both flat gate entrypoints were actually isolation-measured, with raw nested child rows separately inspected. Engineering appearance, continuous/occupant collision, boarding and photographic acceptance remain open. See c02-enclosed-door/root-installed-fb6-validation; merged-tree full preflight and remote qualification follow separately.

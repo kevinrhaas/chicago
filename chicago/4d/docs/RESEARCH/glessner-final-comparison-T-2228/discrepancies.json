@@ -124,10 +124,10 @@
     },
     {
       "id": "west-court-access",
-      "status": "open",
+      "status": "fixed",
       "views": [],
-      "finding": "Modeled high west courtyard door lacks a supported access/level reconciliation. HABS2 DN flight points toward the door; modern058 shows a low recess.",
-      "next": "Use independent plan/level controls and dated evidence. Prior modern058 fit was rejected at focal/eye-height bounds; no speculative raised flight or exact-height claim."
+      "finding": "T-2760: the west courtyard door is a grade door, 0.35-7.85 ft, its head coursed with the first-floor sills and about 34 brick courses tall in modern058; HABS2's flight descends toward it. No high door, no raised flight.",
+      "limit": "Head read against the record's 7.5 ft sills; the 1904 threshold may sit a step lower in the 1963 plan's areaway, which is undated and not built. See docs/RESEARCH/glessner-west-court-door-T-2760/."
     },
     {
       "id": "court-east-drainage",

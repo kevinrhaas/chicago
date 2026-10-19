@@ -5438,6 +5438,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_carriage_c02_door.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_carriage_c02_door_hierarchy.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_changelog_entry_gate.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5687,6 +5695,10 @@
       "wrote_ignored": []
     },
     "tools/test_jaunts_reducer.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_tower.py": {
       "wrote": [],
       "wrote_ignored": []
     },
