@@ -26188,6 +26188,11 @@ section and brings the match record to `matches`.
 **Ticket:** T-2752 (piece 1 of T-2731).
 **Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
 **Recorded:** 2026-10-18 (T-2752).
+**Revised:** 2026-10-19 (T-2837) — **the plinth is the print's.** K01 now lays a plain plinth, one
+dressed course from grade (`stone_front.rusticated_base_courses: 0`), so 1625's stands at 0.26 m,
+the print's plain band (top at y 785 px), where the one-course rusticated base stood it at 0.48 m.
+Its weathered top, overhang and drip are K02's coping profile, which the square-on print cannot
+measure: reconstructed, as the coping was.
 
 ### L-k01-1625-mcbirney-frontispiece-2753 — 1625 Prairie's frontispiece stood proud with its quoins, the door's surround, a carved panel and the hood mould, and the lower windows in dressed surrounds
 
@@ -26221,6 +26226,12 @@ which stands about 0.5 m taller than the print's door; that difference is open i
 **Ticket:** T-2753 (piece 2 of T-2731).
 **Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
 **Recorded:** 2026-10-18 (T-2753).
+**Revised:** 2026-10-19 (T-2837) — **the door is the print's height, so the panel is too.** The door
+is read off the print at 2.49 m clear (`door_clear_height_m`) on a floor of one 0.15 m riser, its
+head at 2.64 m, so the surround's lintel stands at the print's 2.64-3.11 m (0.47 m deep) and the
+carved panel 3.11-3.96 m, 0.85 m tall against the print's 0.86 m. The stoop is the one step the
+print shows. The leaf in the doorway is still K07's panelled door at that size: the print shows
+the doorway black and cannot say how its leaf was panelled.
 
 ### L-k01-1625-rear-section-2820 — 1625 Prairie's four-storey rear section built beside its main body, under an attic of its own
 

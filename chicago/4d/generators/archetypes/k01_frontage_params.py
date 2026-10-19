@@ -234,7 +234,7 @@ CONSUMED = frozenset({
     "stone_front", "boundary", "north_bays", "mansard", "rear_wings", "rear_section", "yard", "condition",
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
     "front_bays_by_storey", "gable_roof", "wall_finish", "stone_finish", "shaped_gable",
-    "street_front_windows", "street_front_frontispiece",
+    "street_front_windows", "street_front_frontispiece", "door_clear_height_m",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -930,7 +930,9 @@ def _k02(front: dict) -> dict:
         raise ParamError(f"{fab} declares no corner bond or rusticated base")
     base = int(front.get("rusticated_base_courses", 0))
     lo, hi = f["rusticated_base"]["courses"]
-    if not lo <= base <= hi:
+    # T-2821: none at all is a plain plinth, one dressed course from grade (the coping),
+    # where a photograph draws no rusticated base under it (1625's)
+    if base and not lo <= base <= hi:
         raise ParamError(f"stone_front.rusticated_base_courses = {base} is outside {fab}'s "
                          f"profile [{lo}, {hi}] (k02_stone_profiles.json)")
     corners = tuple(front.get("corner_bond", ()))
@@ -1910,10 +1912,20 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             openings.append(Opening("k01.opening.sash_flat", "k01.wall.rear_service", float(s), round(sill, 4), w, h))
         for s in val("north_bays") or ():
             openings.append(Opening("k01.opening.sash_flat", "k01.wall.side.north", float(s), round(sill, 4), w, h))
-    openings.append(Opening("k01.opening.door_leaf", "k01.wall.street_front", door_s, round(door_floor, 4), 1.20, 2.70, False))
+    # T-2821: a door whose height its picture reads (1625's, 2.48 m clear over its one step);
+    # K07 hangs its leaf in the K01 hole, so the hole is the door's. K01's 2.70 m otherwise
+    door_h = 2.70
+    if form.get("door_clear_height_m"):
+        dch = form["door_clear_height_m"]
+        if dch.get("confidence", "reconstructed") == "reconstructed" or not dch.get("sources"):
+            raise ParamError("door_clear_height_m moves the door's head off K01's 2.70 m; only a source can")
+        door_h = float(dch["value"])
+        if not 2.0 <= door_h <= 3.2:
+            raise ParamError(f"door_clear_height_m {door_h} is not a principal door's: 2.0-3.2 m clear")
+    openings.append(Opening("k01.opening.door_leaf", "k01.wall.street_front", door_s, round(door_floor, 4), 1.20, door_h, False))
     if sfw:
         kit_ids = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
-        door = (door_s - 0.60 - 0.30, door_s + 0.60 + 0.30, door_floor + 2.70 + 0.30)
+        door = (door_s - 0.60 - 0.30, door_s + 0.60 + 0.30, door_floor + door_h + 0.30)
         laid = []
         for k, w in enumerate(sfw["windows"]):
             if set(w) != {"component", "storey", "s_m", "width_m", "sill_m", "height_m"}:
@@ -2523,9 +2535,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         # the rusticated base and its coping run up to the area lights' heads, so the
         # coping's top is the line the lights' flat arches spring from (T-2289)
         top = bsill + float(bl["height_m"]) if bl else float((val("street_front_dress") or sfw or {}).get("base_top_m", 0.0))
-        course = (top - stone["coping_height_m"]) / stone["base_courses"]
-        _within(course, stone["course_m"], f"the rusticated base's course height ({stone['fabric']} "
-                f"course_height_m; base courses, coping and the area lights' heads must agree)")
+        if not stone["base_courses"]:
+            if bl or abs(top - stone["coping_height_m"]) > 1e-6:
+                raise ParamError("stone_front: a plain plinth (no rusticated base courses) is its coping alone, "
+                                 "coping_height_m to the plinth's top, under no area light")
+            course = 0.0
+        else:
+            course = (top - stone["coping_height_m"]) / stone["base_courses"]
+            _within(course, stone["course_m"], f"the rusticated base's course height ({stone['fabric']} "
+                    f"course_height_m; base courses, coping and the area lights' heads must agree)")
         stone["base_course_m"] = round(course, 5)
         stone["coping_top_m"] = round(top, 5)
 
