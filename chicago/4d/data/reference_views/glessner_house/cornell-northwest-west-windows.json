@@ -35,20 +35,21 @@
       0.1850813768638351
     ]
   ],
+  "sky": "overcast",
   "solve": {
     "method": "West wall homography from four exterior corner/eave points, decomposed with principal x at image midpoint and orthogonal horizontal/vertical axes. Windows and gable peak are withheld. Actual preserved HABS width59.75ft; retained reconstructed eaves25.2/16.5ft.",
     "world_S_z_ft": [
       [
-        0.0,
-        0.0
+        0,
+        0
       ],
       [
-        0.0,
+        0,
         25.2
       ],
       [
         59.75,
-        0.0
+        0
       ],
       [
         59.75,
@@ -136,6 +137,7 @@
         "used_for_camera": false
       }
     ],
-    "limits": "Reconstructed diagnostic camera, not independent height survey. Hand picks approximately5px; alternate historical eave interpretations move the upper south slit estimate from17.8 to20.5ft. North portal/apex residuals remain; this pose is for testing west-wall opening placement, not whole-house acceptance."
+    "limits": "Reconstructed diagnostic camera, not independent height survey. Hand picks approximately5px; alternate historical eave interpretations move the upper south slit estimate from17.8 to20.5ft. North portal/apex residuals remain; this pose is for testing west-wall opening placement, not whole-house acceptance.",
+    "light": "T-2848, read off the photograph: overcast. The 18th Street face and the west face of the stable are lit almost equally, the telegraph pole and the young tree throw no shadow, and the rustication is modelled only softly from above, so no sun direction can be read. The render uses the overcast sky and no sun_uvy."
   }
 }

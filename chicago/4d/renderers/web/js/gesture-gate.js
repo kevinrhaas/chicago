@@ -10,7 +10,10 @@
  *
  * That tap resumes the page's one AudioContext. The context is never made before it, so
  * neither Chrome ("The AudioContext was not allowed to start") nor iOS Safari has anything
- * to complain about, and on iOS (no pointer lock at all) audio is the whole story.
+ * to complain about, and on iOS (no pointer lock at all) audio is the whole story. The one
+ * exception is js/sound.js's `mayStartEarly` (T-2659): where the browser says it will run
+ * audio, or the page was opened by a jump tapped on this site, it makes the context on the
+ * way in through `unlockAudio`, so the ticker can be heard; the next tap still resumes it.
  *
  * Pointer lock follows from the same rule, but only a click on the scene takes it: a
  * menu choice that grabbed the mouse would leave a desktop visitor with no cursor on the

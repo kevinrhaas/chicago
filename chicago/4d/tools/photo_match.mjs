@@ -26,6 +26,12 @@
 //                  in the same frame (T-2369: which walls are lit and where shadows fall is
 //                  part of what is compared); the review render's default east-north-east sun
 //                  otherwise
+//   sky            optional: "sun" (default) or "overcast" (T-2848) — a picture with no cast
+//                  shadow anywhere in it (wet street, flat walls, lamp posts throwing nothing)
+//                  was taken under a sky, not a sun: the render then lights from a soft
+//                  key at sun_uvy (straight overhead when absent) that casts no shadow, and
+//                  lets the sky do most of the work, so a face the picture shows unlit is not
+//                  raked by the review sun
 //   near_m         optional near depth (>0, <500 m); distant drawing cameras need
 //                  a near plane close to their subject to resolve millimetre layers
 //   clip_planes    optional section cuts: {normal:[east,north,up],constant:metres};
@@ -55,6 +61,7 @@ const camFile = args.find(a => a.endsWith('.json'));
 if (!camFile) { console.error('usage: node tools/photo_match.mjs <camera.json> [--glb <path>] [--out <dir>]'); process.exit(2); }
 const cam = JSON.parse(fs.readFileSync(camFile, 'utf8'));
 if (cam.pixel_aspect !== undefined && (!Number.isFinite(cam.pixel_aspect) || cam.pixel_aspect<=0.5 || cam.pixel_aspect>=2)) throw Error('pixel_aspect must be finite and between 0.5 and 2');
+if (cam.sky !== undefined && !['sun', 'overcast'].includes(cam.sky)) throw Error('sky must be "sun" or "overcast"');
 if (cam.near_m !== undefined && (!Number.isFinite(cam.near_m) || cam.near_m<=0 || cam.near_m>=500)) throw Error('near_m must be finite and between 0 and the 500 m far plane');
 if (cam.clip_planes !== undefined && (!Array.isArray(cam.clip_planes) || cam.clip_planes.some(p => !p || !Array.isArray(p.normal) || p.normal.length !== 3 || !p.normal.every(Number.isFinite) || Math.abs(Math.hypot(...p.normal)-1)>1e-6 || !Number.isFinite(p.constant)))) throw Error('clip_planes requires finite unit [east,north,up] normals and constants in metres');
 const glb = opt('--glb') || (() => {
@@ -76,15 +83,15 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
 import {KTX2Loader} from 'three/addons/loaders/KTX2Loader.js';
 import {tintKeithStone} from '/renderers/web/js/keith-stone.js';
-const c=${JSON.stringify({W, H, cx, cy, f, aspect: cam.pixel_aspect ?? 1, eye: cam.eye, yaw: cam.yaw_deg, basis: cam.basis_right_up_forward || null, near: cam.near_m ?? 0.1, sun: cam.sun_uvy || null, clips: cam.clip_planes || [], glb: '/' + glb.replace(/\\/g, '/')})};
+const c=${JSON.stringify({W, H, cx, cy, f, aspect: cam.pixel_aspect ?? 1, eye: cam.eye, yaw: cam.yaw_deg, basis: cam.basis_right_up_forward || null, near: cam.near_m ?? 0.1, sun: cam.sun_uvy || null, overcast: cam.sky === 'overcast', clips: cam.clip_planes || [], glb: '/' + glb.replace(/\\/g, '/')})};
 const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});r.setPixelRatio(1);r.setSize(c.W,c.H);
 r.outputColorSpace=THREE.SRGBColorSpace;r.toneMapping=THREE.ACESFilmicToneMapping;r.shadowMap.enabled=true;
 r.clippingPlanes=c.clips.map(p=>new THREE.Plane(new THREE.Vector3(p.normal[0],p.normal[2],-p.normal[1]),p.constant));
 document.body.appendChild(r.domElement);
 const s=new THREE.Scene();s.background=new THREE.Color(0xe8ecef);
-s.add(new THREE.HemisphereLight(0xdfe8f0,0x8a8070,1.1));
-const sun=new THREE.DirectionalLight(0xfff4e0,2.4);sun.castShadow=true;
-if(c.sun){const k=75/Math.hypot(...c.sun);sun.position.set(c.sun[0]*k,c.sun[2]*k,-c.sun[1]*k);}else sun.position.set(60,45,-20);
+s.add(new THREE.HemisphereLight(0xdfe8f0,0x8a8070,c.overcast?2.6:1.1));
+const sun=new THREE.DirectionalLight(c.overcast?0xf2f2f0:0xfff4e0,c.overcast?0.9:2.4);sun.castShadow=!c.overcast;
+if(c.sun){const k=75/Math.hypot(...c.sun);sun.position.set(c.sun[0]*k,c.sun[2]*k,-c.sun[1]*k);}else if(c.overcast)sun.position.set(0,75,0);else sun.position.set(60,45,-20);
 Object.assign(sun.shadow.camera,{left:-40,right:40,top:40,bottom:-40,near:1,far:200});sun.shadow.mapSize.set(4096,4096);sun.shadow.bias=-0.0004;
 s.add(sun);
 const g=new THREE.Mesh(new THREE.PlaneGeometry(400,400),new THREE.MeshStandardMaterial({color:0x9a9686,roughness:1}));

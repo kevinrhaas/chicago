@@ -2,8 +2,8 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1800-block-looking-sw-c1888",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "c505419a7f8e102a8508129543029fd2cd7dd2357cd6f12c5547d6a79535ca4b",
-  "camera_sha256": "61431835d6a0fe315e115a4ab299b1b94b91a27db28b940bc6ce7c5bbbe2a78e",
+  "glb_sha256": "37618537fd47c6cf160a1a3b8251c0a461c2a6b3878d18ec20cfea6dccb9a6c2",
+  "camera_sha256": "750d123c485475d631bccadd32ea08df00f563e357d82d83499fbf2a640d0c51",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1800-block-looking-sw-c1888-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -74,6 +74,10 @@
     {
       "what": "T-2748: with this camera now holding grade (T-1883's grade reading at the south corner lands within 1 px vertically), the stoop can be compared here for the first time. In the c. 1888 print the landing's pierced balustrade reads at x 915-960, y 910-960 against the render's 950-990, 885-925, and the arch under the flight is a low round-headed opening at x 910-937, y 1012-1032 (about 27 x 20 px) against the render's 952-985, 973-1035 (about 33 x 62 px). The stoop stands about 35 px further left (east or south of where it is built) and its arch is far lower than built. T-2812 ruled it (tools/keith_c1888_stoop_read.py; docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1800-block-looking-sw-c1888-stoop.json): the print draws the loggia's front at its built width (the deck front 85 px against 80, the pierced parapet 40 against 40, its shadowed north side beside it) displaced as one block about 35-40 px left and down, and no level camera holds that block and the crown together: fitted on the crown, every camera leaves the loggia 32-41 px off across and 29-49 px off down; fitted on both, the crown goes to 20 px and T-1883's south-corner grade point to 10-42 px. Only an eye 5-6 m up fits both (7.7 px RMS), and the print's own horizon refuses it: Glessner's two identical window grids scale about y 986, where that eye's horizon is y 734. The 1888 plate (its level fits have the pedestals' arrises and caps in them, 4.6-5.4 px RMS) and the 1965 slide (the shafts' and south pedestal's silhouettes, 3.4 px, the pedestal caps predicted within 3-4 px) place the loggia, its deck and its stair as built, with the plan's deck 2.7 m out; the plate draws the arch's crown at y 1728 against the built 1724, its void 10-15 px inside the built outline in its shadowed reveal. What this print shows of the arch is its head over a light band at y 1032 in front of it; where the block is displaced, the built crown lands on the print's (y 1009-1011 against 1012). So this print cannot place the stoop: a 35 px move would be about 0.9 m out from the front or 1.4 m south along it against three readings that hold it, and the stoop is not moved.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2813: re-rendered with Keith's crown 0.16 m lower (the moulded course under the lattice 0.20 m deep where it was 0.36 m, the checker and head bands unmoved); its camera re-solved on the moved crown controls (4.11 to 4.60 px RMS, tools/keith_crown_resolve.py). Read again at the crown beside the previous render: the lattice, coping and pinnacles move a few pixels at this picture's scale and nothing it shows opens a difference; the verdict stands as it was (differs).",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -492,6 +492,9 @@ class Opening:
         self.tube("sash_outer", inner, d, g)
         cx, cy = head.cx, head.spring
         r = head.R - fan.head_inset - st
+        if self.v.get("fanlight_grid_m"):
+            self._fanlight_grid(inner, d, g, cx, cy, r, mu)
+            return
         # sectors between radial bar centre-lines, each a convex wedge
         angles = [math.pi * k / (bars + 1) for k in range(bars + 2)]
         for k in range(bars + 1):
@@ -517,6 +520,28 @@ class Opening:
             if area2(bar) < 0:
                 bar = bar[::-1]
             self.plane("sash_outer", bar, d)
+
+    def _fanlight_grid(self, inner, d, g, cx, cy, r, mu):
+        """T-2819: a fanlight glazed as a lattice of square lights (1623 Prairie's drawing: a
+        grid of small square panes in its window's round head) — one glass behind a grid of
+        muntin bars `fanlight_grid_m` [across, up] apart, centred on the head's axis and
+        laid up from the spring, each bar clipped to the head; the upright bars stand a
+        millimetre before the level ones, so their crossings are never coplanar."""
+        self.plane("glass_outer", inner, g)
+        self.panes.append({"sash": "fanlight", "poly": inner, "depth_m": g, "col": 0, "row": 0})
+        qw, qh = self.v["fanlight_grid_m"]
+        hw = mu["width_m"] / 2
+        n = int(r / qw + 0.5)
+        bars = [[(cx + k * qw - hw, cy), (cx + k * qw + hw, cy), (cx + k * qw + hw, cy + r), (cx + k * qw - hw, cy + r)]
+                for k in range(-n, n + 1) if abs(k * qw) < r - hw]
+        bars += [[(cx - r, cy + k * qh - hw), (cx + r, cy + k * qh - hw), (cx + r, cy + k * qh + hw), (cx - r, cy + k * qh + hw)]
+                 for k in range(1, int(r / qh) + 1) if k * qh < r - hw]
+        for i, bar in enumerate(bars):
+            piece = clip(bar, inner)
+            if len(piece) >= 3 and abs(area2(piece)) > 1e-7:
+                if area2(piece) < 0:
+                    piece = piece[::-1]
+                self.plane("sash_outer", piece, d - (0.001 if bar[0][1] == cy else 0.0))
 
     def _cames(self, day: Region, rails, g):
         """Diamond quarries on lead cames, the two diagonal families a millimetre apart

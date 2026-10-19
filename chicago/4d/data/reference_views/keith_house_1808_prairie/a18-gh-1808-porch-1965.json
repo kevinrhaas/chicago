@@ -8,29 +8,29 @@
   ],
   "principal_px": [
     337.0,
-    276.35097948997793
+    275.21241013337567
   ],
-  "focal_px": 535.9639602157696,
+  "focal_px": 725.9556209071667,
   "eye": [
-    30.672853936868698,
-    -5.097982628284437,
+    30.030491934024717,
+    -8.905204119199118,
     1.7
   ],
-  "yaw_deg": 317.0319514695849,
+  "yaw_deg": 326.19068197154684,
   "basis_right_up_forward": [
     [
-      0.7317326127649119,
-      0.6815892002442887,
-      0.0018829568732578095
+      0.8308864907235443,
+      0.5564257307719818,
+      0.004248019300786518
     ],
     [
-      -0.0013778233951494904,
-      -0.0012834053445141787,
-      0.9999982272351354
+      -0.003529653696979422,
+      -0.002363728571400336,
+      0.9999909771253039
     ],
     [
-      -0.681590408543817,
-      0.7317339099570777,
+      -0.5564307513769284,
+      0.8308939877758816,
       0.0
     ]
   ],
@@ -39,5 +39,5 @@
     -0.7,
     1.4
   ],
-  "solve": "T-2764 re-fit (tools/keith_1965_level_fit.py; report docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-level-fit.json): a level camera (verticals vertical; roll fitted, prior 0 +/- 1.5 degrees), eye height 1.7 m kept from T-2579 (left free, these controls let it wander to 0.6 m), principal x 337, least squares over 25 coordinates read off the slide by luminance profile, each against the committed GLB's own edge. The bow, re-picked on T-2765's lights: the -33, -11 and 11 degree principal lights by both jambs and their heads (and the first one's sill), the three basement lights by both jambs and two heads, the bow's north junction with the flat front. The loggia's PLAN, which gives the camera its depth there: both pairs' shafts by their outer silhouettes at 4.0 m and the south pedestal's silhouette. The loggia's heights are NOT fitted, so they are predicted. Free: u, v, yaw, roll, f, cy. Coordinate RMS 3.47 px, max 5.7 px. PREDICTED at the loggia: the south pair's column (capital top to cap arris) 73.9 px against the print's 101, the north pair's 66.4 against 88.5, the south pedestal 29.5 against 38.5: the as-built loggia draws about 26 % short on the camera its own plan places. Fitting its heights too pulls the camera to 5.71 px RMS (max 17.32); one free factor on the loggia's heights over its deck reads k 1.293 (eye 1.7 m) or 1.323 (eye free), and a free pixel aspect reads 1.054 beside k 1.32, so a resampled scan does not explain it. Read inside the loggia with no camera but its heading, the column's height (45.6 px/m), the pedestal's (43.8) and the south pair's width (47.1) agree, and the south pedestal's width (32.9) and the pairs' 2.5 m spacing do not: the print draws the loggia about 1.35 times taller for its plan than it is built. Replaces T-2579's fit (1.7 px RMS on seven controls, three of them on bow lights T-2765 moved, one on the loggia). 1965 colour photograph, Glessner House Museum. The print is blue-cast and the fa\u00e7ade in shade; ratios constrain a pale neutral granite, not a calibrated quarry colour. Later iron infill and ivy are not copied into 1904."
+  "solve": "T-2836 re-solve (tools/keith_loggia_plan_rule.py; report docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-plan-rule.json): T-2764's level camera (roll fitted, prior 0 +/- 1.5 degrees; eye height 1.7 m kept; principal x 337) on all 29 of its coordinates, read off the slide by luminance profile, with two changes. The bow's three principal heads are paired with the middle light's head, 4.70 m, where this slide stops the glass (T-2831: 0.664 of the sill-to-string-course span; the top lights are blind by 1965), not the 5.30 m head the 1888 plate glazes. The loggia's world points stand at the first-floor plan's place (T-2836's ruling): its front pedestals about 0.6 m across at v 6.73-7.34 and 9.58-10.23, the pairs over their middles, where the GLB still stands them 0.9 m wide at v 7.0-7.9 and 9.5-10.4, so this camera does not lean on the loggia the plan refuses. Free: u, v, yaw, roll, f, cy. Coordinate RMS 3.51 px, max 7.5 px (south pair capital top). On the as-built loggia the same controls fit at 4.66 px RMS (max 10.2). Replaces T-2764's fit (3.47 px on the 5.30 m heads). 1965 colour photograph, Glessner House Museum. The print is blue-cast and the fa\u00e7ade in shade; ratios constrain a pale neutral granite, not a calibrated quarry colour. Later iron infill and ivy are not copied into 1904."
 }

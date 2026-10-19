@@ -218,11 +218,19 @@ export async function mountLiberties({ mount, noteMount = null, dataBase,
   for (const nm of Array.isArray(doc.names) ? doc.names : []) if (!names.has(nm.id)) names.set(nm.id, nm.name);
 
   const liberties = Array.isArray(doc.liberties) ? doc.liberties : [];
-  if (mount) {
+  // T-2834: the list is drawn when the Liberties topic is first shown, not when it
+  // loads. A building card loads it too, for that building's few entries, and
+  // drawing every scene's entries then put ~28k nodes into a hidden panel at the
+  // moment the card opened (1812, +49 MB on a phone profile); an iPhone stopped
+  // the page right there.
+  let rendered = false;
+  function render() {
+    if (rendered || !mount) return;
+    rendered = true;
     mount.innerHTML = liberties.map((lib) => libertyEntryHtml(lib, { names })).join('')
       || '<p class="legend-note">No liberties recorded.</p>';
     mount.removeAttribute('aria-busy');
   }
   return { count: liberties.length, liberties, standard: doc.standard, note: doc.note,
-           error: null };
+           error: null, render };
 }

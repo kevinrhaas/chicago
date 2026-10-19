@@ -976,16 +976,21 @@ def housed_in(where, adoption):
     }
 
 
-def index_row(record, streets, adoptions=None):
+def index_row(record, streets, adoptions=None, authored=False):
     """One business as a directory row: everything the list, its filters and its
-    counts read, and nothing the card alone needs — the card fetches the record."""
+    counts read, and nothing the card alone needs — the card fetches the record.
+
+    `file` is the record's path under data/businesses/, which is what the card fetches
+    (js/businesses.js reads `businesses/${file}`): a compiled record sits at the top, an
+    authored one in authored/. It was written "<id>.json" for both until T-2832, so the
+    94 authored firms' cards fetched a file that does not exist and opened on a 404."""
     where = primary_location(record, streets)
     housed = housed_in(where, (adoptions or {}).get(record.get("register_id")))
     if housed:
         where["housed_in"] = housed
     return {
         "id": record["id"],
-        "file": "%s.json" % record["id"],
+        "file": ("authored/%s.json" if authored else "%s.json") % record["id"],
         "name": record["name"],
         "register_id": record.get("register_id"),
         "provenance": record["provenance"],
@@ -1036,7 +1041,8 @@ def build_index(records, authored, rows):
     counts_by_community = {}
     streets = street_names()
     adoptions = street_face_adoptions()
-    directory = [index_row(r, streets, adoptions)
+    authored_ids = {id(r) for r in authored}
+    directory = [index_row(r, streets, adoptions, authored=id(r) in authored_ids)
                  for r in sorted(everything, key=lambda r: r["id"])]
     for row in directory:
         counts_by_grade[row["grade"]] = counts_by_grade.get(row["grade"], 0) + 1
@@ -1735,6 +1741,7 @@ def check():
                        "gazetteer or the dataset, not this file" % path.name)
     if INDEX.exists() and INDEX.read_text(encoding="utf-8") != dumps(index):
         bad.append("data/businesses/index.json differs from a rebuild")
+    bad += unresolved_files(load_json(INDEX) if INDEX.exists() else index)   # what the card reads
 
     for record in authored:
         if record.get("provenance") == "compiled_from_register":
@@ -1756,6 +1763,19 @@ def check():
         elif pointed not in have:
             bad.append("register business %s points at %s, which the layer does not hold"
                        % (entry["id"], pointed))
+    return bad
+
+
+def unresolved_files(index, root=None):
+    """EVERY ROW'S `file` RESOLVES (T-2832). The card fetches it, so a row naming a file
+    that is not under data/businesses/ is a card that opens on a 404 — which is what all
+    94 authored firms' were, because the index named them where compiled records sit."""
+    root = root or BUSINESSES
+    bad = []
+    for row in index["businesses"]:
+        if not (root / row["file"]).is_file():
+            bad.append("data/businesses/index.json: %s's file %s is not under data/businesses/ "
+                       "— its card would fetch a 404" % (row["id"], row["file"]))
     return bad
 
 
@@ -2192,6 +2212,21 @@ def self_test():
     if [(r["name"], r["person_id"], r["link"]["tier"]) for r in rows] != \
             [("Botsford", "fixture_a", "inferred")]:
         failures.append("a partner the style names was not added and linked: %r" % rows)
+
+    # T-2832: a row naming a file that is not there is refused; the built index names none.
+    fired.append("an index row whose file is missing")
+    built_index = compiled_docs()[2]
+    lost = json.loads(json.dumps(built_index))
+    authored_row = next((r for r in lost["businesses"] if r["file"].startswith("authored/")), None)
+    if authored_row is None:
+        failures.append("the index files no authored record under authored/")
+    else:
+        authored_row["file"] = "%s.json" % authored_row["id"]
+        if not any(authored_row["id"] in p for p in unresolved_files(lost)):
+            failures.append("an authored row filed where compiled records sit was not refused")
+    if unresolved_files(built_index):
+        failures.append("the built index names a file that is not there: %r"
+                        % unresolved_files(built_index)[:3])
 
     # The build is deterministic: two compiles of the same input agree byte for byte.
     first, _, index_a = compiled_docs()

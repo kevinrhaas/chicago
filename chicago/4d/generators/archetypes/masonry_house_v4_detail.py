@@ -1360,10 +1360,15 @@ def dovecote_band(b,t,x0,x1,y0,y1):
     projecting landing board, in place of the slatted louvres the band carried
     before. The form is read from the photograph; counts and stock sizes are
     bounded reconstruction (docs/LIBERTIES.md L-glessner-cupola-2207).
+
+    A `body_material` of granite builds the body, band and ledges in stone, as
+    the c. 1887 Cornell view shows them, and `ledge_m` sets the ledge's depth
+    (T-2849, L-glessner-cupola-stone-2849); without either it is boarding.
     """
     lo,hi=t['louvre'];conf=t['conf'];v=t['vent'];reconstructed=1.0
     tiers,per_face=v['tiers'],v['per_face'];width=v['opening_width_m']
-    perch=v['perch_projection_m'];board=.025
+    perch=v['perch_projection_m'];board=v.get('ledge_m',.025)
+    body=GRANITE if t.get('body_material')=='granite' else WOOD
     segments=3 if getattr(b,'reduced_roof_details',False) else 6
     step=(hi-lo)/tiers
     for pl,(a,c) in (({'axis':'x','sign':1,'at':x1},(y0,y1)),
@@ -1380,10 +1385,10 @@ def dovecote_band(b,t,x0,x1,y0,y1):
                 holes.append(_arched_hole(mid-width/2,mid+width/2,sill,spring,segments))
             # The landing board the birds alight on, one per tier and face;
             # it stops short of the corner so two faces' boards never meet.
-            slab(b,pl,ua,uc,base,base+board,-.04,perch,reconstructed,WOOD)
+            slab(b,pl,ua,uc,base,base+board,-.04,perch,reconstructed,body)
         wall=[(a,t['z0']),(c,t['z0']),(c,t['top_z']),(a,t['top_z'])]
         for fragment in subtract(wall,holes):
-            solid_polygon(b,pl,fragment,-.08,0,conf,WOOD)
+            solid_polygon(b,pl,fragment,-.08,0,conf,body)
         # The dark cote behind the holes: one closing card per face.
         b.raw([legacy._plane_point(pl,u,z,-.17) for u,z in
                [(ua,lo),(uc,lo),(uc,hi),(ua,hi)]],reconstructed,DARK_GLASS,n)
@@ -1794,6 +1799,11 @@ def date_stones(b,params):
     ledge=params.detail.get('pigeon_ledge')
     if ledge:
         slab(b,ledge,ledge['u0'],ledge['u1'],ledge['z0'],ledge['z1'],0,ledge['projection_m'],params.detail['conf'],GRANITE)
+        # The two corbels HABS photograph 15 shows under it (T-2849); their
+        # projection is reconstructed (L-glessner-stable-gable-2849).
+        for u0,u1 in ledge.get('corbels',[]):
+            slab(b,ledge,u0,u1,ledge['z0']-ledge['corbel_drop_m'],ledge['z0'],0,
+                 ledge['corbel_projection_m'],1.0,GRANITE)
 
 def north_entry(b,p):
     """Open vaulted porch, west-facing door up the left-turn stair (HABS 2–3)."""
