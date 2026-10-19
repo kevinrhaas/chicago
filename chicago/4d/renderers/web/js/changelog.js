@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2037, ts: '2026-10-19T03:15:35.101Z', date: 'Oct 18, 2026, 10:15 PM CT', title: '1904 on a phone holds 56 MB less at the Glessner house', kind: 'fix',
+    items: [
+      'Nothing you can see changes: this fixes the owner\'s report of 1904 closing on an iPhone while walking up to the Glessner house.',
+      'On a phone, the stone, brick and wood pictures the houses are painted with were kept twice, once on the graphics chip and once in the page. The page\'s copy now goes once the picture is up, and is rebuilt from the much smaller file when you walk back to a house.',
+      'Standing at the Glessner front, 1904 now holds about 347 MB on a phone, down from 403, and every picture looks exactly as before.',
+      'If a visit is ever cut off, the note it leaves now says how many megabytes of pictures and shapes were loaded, not only how many of each.',
+    ] },
   { v: 2036, ts: '2026-10-19T03:11:40.263Z', date: 'Oct 18, 2026, 10:11 PM CT', title: 'Keith\'s bow lights in three tiers, a carved band under its cap', kind: 'change',
     items: [
       'The bow\'s tall principal windows at 1808 Prairie are now split into three tiers by stone bars, as the 1888 Inland Architect photograph shows them.',
