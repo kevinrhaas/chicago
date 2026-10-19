@@ -1,0 +1,25 @@
+{
+  "id": 39211997787,
+  "head_sha": "48b1cc8891e1e90f032ab4d60cc0c59b3103c1e6",
+  "status": "completed",
+  "conclusion": "failure",
+  "html_url": "https://github.com/kevinrhaas/chicago/actions/runs/39211997787",
+  "run_attempt": 1,
+  "created_at": "2026-10-19T06:47:52Z",
+  "updated_at": "2026-10-19T06:56:37Z",
+  "expected_sha": "48b1cc8891e1e90f032ab4d60cc0c59b3103c1e6",
+  "head_matches": true,
+  "log_collected": true,
+  "structured_receipt_count": 121,
+  "issue_receipt_count": 24,
+  "issue_code_totals": {
+    "2:UNUSED_OBJECT": 400,
+    "2:NODE_EMPTY": 72,
+    "2:IMAGE_NPOT_DIMENSIONS": 24,
+    "2:UNSUPPORTED_EXTENSION": 12
+  },
+  "any_issue_receipt_truncated": false,
+  "errors": [
+    "##[error]Process completed with exit code 1."
+  ]
+}

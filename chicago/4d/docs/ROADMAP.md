@@ -5570,3 +5570,6 @@ T-2801 baseline harness body interference: rerouted collar, shortened supports a
 ## Whole-figure morph measurement — 2026-10-19
 
 T-1789: correct hair-first facial measurement before rerunning actual canonical resident exports. Preserve actual full-surface morph movement and identity/period requirements; continue contact/framing, independent imagery and photographic acceptance after CI qualification.
+
+
+T-1789 loaded-hair diagnostic (2026-10-19): actual canonical run39211997787/48b1cc889 passed all32 source/web fixture measurements and six hierarchy/raw surface comparisons, then published24-case inspection failed only hair_export_contract. Source inspection not reached; actual failing subcondition was absent from logs. Bounded loaded-attribute/material/invalid-vertex receipts added without changing any guard; corrected CI, independent images and photographic acceptance remain pending. No local Blender or artifact-policy bypass.

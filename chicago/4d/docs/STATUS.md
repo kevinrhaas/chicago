@@ -24089,3 +24089,6 @@ Harness chest repair: four reconstructed gear meshes now avoid the unchanged hor
 ## Whole-figure morph measurement — 2026-10-19
 
 Canonical e1 resident run passed normals, hierarchy, hair and container checks but reported36missing facial findings. The reader inspected only the first hair mesh. Its union-of-skinned-mesh repair and actual-source Three.js regression now preserve required names, >1mm movement and exact defaults; corrected canonical exports and detailed resident inspection remain unverified. This repairs measurement and does not prove the actual body target arrays or photographic quality.
+
+
+T-1789 loaded-hair diagnostic (2026-10-19): actual canonical run39211997787/48b1cc889 passed all32 source/web fixture measurements and six hierarchy/raw surface comparisons, then published24-case inspection failed only hair_export_contract. Source inspection not reached; actual failing subcondition was absent from logs. Bounded loaded-attribute/material/invalid-vertex receipts added without changing any guard; corrected CI, independent images and photographic acceptance remain pending. No local Blender or artifact-policy bypass.

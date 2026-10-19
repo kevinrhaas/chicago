@@ -1,0 +1,44 @@
+{
+  "assets": [
+    "bardwell_otis_1835",
+    "dufresne_joseph_1835",
+    "flynn_martin_1835"
+  ],
+  "lods": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "viewports": 2,
+  "inspections": 24,
+  "mechanical_passed": false,
+  "photographic_gate": "open",
+  "failures": [
+    "assets/humans/web/bardwell_otis_1835.lod0.glb desktop: hair_export_contract",
+    "assets/humans/web/bardwell_otis_1835.lod1.glb desktop: hair_export_contract",
+    "assets/humans/web/bardwell_otis_1835.lod2.glb desktop: hair_export_contract",
+    "assets/humans/web/bardwell_otis_1835.lod3.glb desktop: hair_export_contract",
+    "assets/humans/web/dufresne_joseph_1835.lod0.glb desktop: hair_export_contract",
+    "assets/humans/web/dufresne_joseph_1835.lod1.glb desktop: hair_export_contract",
+    "assets/humans/web/dufresne_joseph_1835.lod2.glb desktop: hair_export_contract",
+    "assets/humans/web/dufresne_joseph_1835.lod3.glb desktop: hair_export_contract",
+    "assets/humans/web/flynn_martin_1835.lod0.glb desktop: hair_export_contract",
+    "assets/humans/web/flynn_martin_1835.lod1.glb desktop: hair_export_contract",
+    "assets/humans/web/flynn_martin_1835.lod2.glb desktop: hair_export_contract",
+    "assets/humans/web/flynn_martin_1835.lod3.glb desktop: hair_export_contract",
+    "assets/humans/web/bardwell_otis_1835.lod0.glb mobile: hair_export_contract",
+    "assets/humans/web/bardwell_otis_1835.lod1.glb mobile: hair_export_contract",
+    "assets/humans/web/bardwell_otis_1835.lod2.glb mobile: hair_export_contract",
+    "assets/humans/web/bardwell_otis_1835.lod3.glb mobile: hair_export_contract",
+    "assets/humans/web/dufresne_joseph_1835.lod0.glb mobile: hair_export_contract",
+    "assets/humans/web/dufresne_joseph_1835.lod1.glb mobile: hair_export_contract",
+    "assets/humans/web/dufresne_joseph_1835.lod2.glb mobile: hair_export_contract",
+    "assets/humans/web/dufresne_joseph_1835.lod3.glb mobile: hair_export_contract",
+    "assets/humans/web/flynn_martin_1835.lod0.glb mobile: hair_export_contract",
+    "assets/humans/web/flynn_martin_1835.lod1.glb mobile: hair_export_contract",
+    "assets/humans/web/flynn_martin_1835.lod2.glb mobile: hair_export_contract",
+    "assets/humans/web/flynn_martin_1835.lod3.glb mobile: hair_export_contract"
+  ],
+  "output": "/tmp/teamster-studies/web"
+}
