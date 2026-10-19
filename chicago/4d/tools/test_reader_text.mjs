@@ -145,19 +145,32 @@ if (args.includes('--all') || given) {
   }
   const dirs = R('data/residents/directories.json');
   const cov = R('data/residents/employment_coverage.json');
-  const said = res.sayJoins({
+  const rawJoins = {
     citationsById: cites, researchByPerson: byPerson(R('data/residents/research_pilot.json').reviews),
     directoryByPerson: new Map((dirs.people || []).map((r) => [r.person_id, { ...r, standard: dirs.standard }])),
     withheldByPerson: withheld, seatingByPerson: byPerson(R('data/residents/reconstructed_seating.json').rows),
     coverage: { byPerson: byPerson(cov.rows), words: cov.vocabulary?.reasons || {}, placed: new Set(), counts: {}, model: {} },
-  }, roverlay);
+  };
+  const said = res.sayJoins(rawJoins, roverlay);
   const ladder = readerCopy(R('data/residents/index.json'), ov('residents_index')).vocabulary?.ladder_rules || [];
   const people = tally('household cards', 1000);
+  const plain = rawJoins;
+  const citesOf = (html) => (html.match(/<li><span class="cite-text">/g) || []).length;
+  let citedSaid = 0, citedAuthored = 0;
   for (const f of readdirSync(path.join(ROOT, 'data/residents/households')).filter((x) => x.endsWith('.json'))) {
-    people.add(res.householdHtml(readerCopy(R(`data/residents/households/${f}`), roverlay), said.citationsById,
-      said.researchByPerson, said.directoryByPerson, ladder, null, said.withheldByPerson, said.seatingByPerson, said.coverage));
+    const hh = R(`data/residents/households/${f}`);
+    const html = res.householdHtml(readerCopy(hh, roverlay), said.citationsById,
+      said.researchByPerson, said.directoryByPerson, ladder, null, said.withheldByPerson, said.seatingByPerson, said.coverage);
+    people.add(html);
+    citedSaid += citesOf(html);
+    citedAuthored += citesOf(res.householdHtml(hh, plain.citationsById, plain.researchByPerson, plain.directoryByPerson,
+      ladder, null, plain.withheldByPerson, plain.seatingByPerson, plain.coverage));
   }
   people.done();
+  // Saying a card drops no source: the citations under each block are the same in number as
+  // the record's own words would have listed (residents.js `prose` reads them off the original).
+  expect(citedSaid === citedAuthored && citedAuthored > 0,
+    `household cards: said, they list ${citedSaid} citations; as authored, ${citedAuthored}`);
 
   // A building's card, every tab of it, in every scene, and the title it leads with.
   const doc = globalThis.document;
