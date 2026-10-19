@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-inland-architect-1888-02-glessner-plate",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "674a9e99d509d2bee7dc4efcd7291a441d3365a0e19ee5132674c68b1d952777",
+  "glb_sha256": "9e1eea5b84ad8dc8d310b33cd7da265c551c725885a6c6a01c3f634e1330078b",
   "camera_sha256": "66091c5f28c06a87a76fae6a41a39ead14634863d16f710d705e151c69e3fb63",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-inland-architect-1888-02-glessner-plate-side-by-side.jpg",
   "verdict": "matches",
@@ -61,6 +61,10 @@
     },
     {
       "what": "T-2876: re-rendered on the GLB in the tree, T-2845's loggia (0.6 m pedestals at the first-floor plan's place, each pair's shafts 0.36 m apart, the flight 1.8 m clear and the stoop 0.15 m south), and read again beside the previous render and the picture: the render changes only at Keith's loggia and flight (x 422-1025, y 217-684), all of which stands behind Glessner's front in this plate; what the plate shows of Keith, the crown and north return, did not move. Nothing it shows opens a difference; the verdict returns to matches.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2881: re-rendered on the loggia with its rear row built (a pedestal 0.6 m square against the wall behind each front one, carrying a pair of turned shafts 0.39 m off the wall at a 0.28 m pitch, their radii 0.78 of the front's, under a paired capital; tools/keith_loggia_rear_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-rear-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 503-625, y 458-583), all of which stands behind Glessner's front in this plate. Nothing it shows opens a difference; the verdict returns to matches.",
       "status": "fixed"
     }
   ],
