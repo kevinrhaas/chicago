@@ -15797,7 +15797,8 @@ for (const [label, viewport, touch] of [
         researchAll: marked.length, researchShown: marked.filter(shown).length,
         standAll: stand.length, standShown: stand.filter(shown).length,
         whys: whys.length, full: whys.filter((d) => shown(d.querySelector('.why-full'))).length,
-        hints: whys.filter((d) => shown(d.querySelector('[data-visitor-only]'))).length,
+        // T-2658: a visitor's stand-in is the one line and "Why?" before each fold.
+        hints: [...document.querySelectorAll('.why-line[data-visitor-only]')].filter(shown).length,
         innerW: innerWidth, innerH: innerHeight,
       };
     });
@@ -15826,6 +15827,120 @@ for (const [label, viewport, touch] of [
         JSON.stringify({ off: a, click: researchClick, on: b, click2: researchClick2, back: c }));
     }
     // <<< T-2657
+    // >>> T-2658: Short "Why?". Each researched setting (Settings › Display's brightness and
+    // road visibility, Move › Comfort's eye height) shows a visitor one line and a "Why?"
+    // button. A REAL tap (phone) or mouse click (desktop) at the button's hit-tested centre
+    // opens a bubble of 40 words at most, inside the window; a real tap elsewhere closes it;
+    // Enter opens it from the keyboard and Escape closes it without closing the Navigator;
+    // and Researcher mode puts the line away and shows the full essay instead. Every step is
+    // bounded and caught, so a stuck click is this check's one red line, never an aborted part.
+    {
+      const whyTap = async (sel) => {
+        const at = await page.evaluate((s) => {
+          const el = document.querySelector(s);
+          if (!el) return { why: `nothing matches ${s}` };
+          el.scrollIntoView({ block: 'center', inline: 'nearest' });
+          const b = el.getBoundingClientRect();
+          if (b.width < 1 || b.height < 1) return { why: `${s} has no box` };
+          const x = b.x + b.width / 2; const y = b.y + b.height / 2;
+          const top = document.elementFromPoint(x, y);
+          if (!top || !(top === el || el.contains(top))) return { why: `${s} is covered by <${top?.tagName.toLowerCase() ?? 'nothing'} class="${top?.className ?? ''}">` };
+          return { x, y };
+        }, sel);
+        if (at.why) throw new Error(at.why);
+        if (touch) await page.touchscreen.tap(at.x, at.y); else await page.mouse.click(at.x, at.y);
+      };
+      const tipOpen = (want) => page.waitForFunction((w) => {
+        const tip = document.getElementById('why-tip');
+        return w ? !!tip && !tip.hidden : !tip || tip.hidden;
+      }, want, { timeout: 30_000, polling: 100 });
+      const tipRead = (key) => page.evaluate((k) => {
+        const tip = document.getElementById('why-tip');
+        const btn = document.getElementById(`why-${k}`);
+        const b = tip && !tip.hidden ? tip.getBoundingClientRect() : null;
+        const hint = btn?.closest('.why-line')?.querySelector('.why-hint');
+        const hb = hint?.getBoundingClientRect();
+        const lh = hint ? parseFloat(getComputedStyle(hint).lineHeight) || 16 : 16;
+        return {
+          open: !!tip && !tip.hidden, for: tip?.dataset.for ?? null, expanded: btn?.getAttribute('aria-expanded') ?? null,
+          text: tip?.textContent ?? '', words: (tip?.textContent ?? '').trim().split(/\s+/).filter(Boolean).length,
+          same: !!tip && tip.textContent === document.getElementById(`why-${k}-text`)?.textContent.replace(/\s+/g, ' ').trim(),
+          box: b ? { l: Math.round(b.left), r: Math.round(b.right), t: Math.round(b.top), b: Math.round(b.bottom) } : null,
+          inView: !!b && b.left >= 0 && b.right <= innerWidth && b.top >= 0 && b.bottom <= innerHeight,
+          noScrollX: document.documentElement.scrollWidth <= innerWidth,
+          hintOneLine: !!hb && hb.height > 0 && hb.height < lh * 1.6,
+          focused: document.activeElement === btn, navLevel: window.__chicago4d.navigator?.level ?? null,
+          w: innerWidth, h: innerHeight,
+        };
+      }, key);
+      const whyRun = async (key) => {
+        const out = { key };
+        try {
+          await page.evaluate(() => window.__chicago4d.whyTips?.close());
+          await whyTap(`#why-${key}`);
+          await tipOpen(true).catch(() => {});
+          out.tapped = await tipRead(key);
+          // Outside: the line's own words, beside the button and clear of the bubble below it.
+          await whyTap(`.why-line:has(#why-${key}) .why-hint`);
+          await tipOpen(false).catch(() => {});
+          out.outside = await tipRead(key);
+          await page.evaluate((k) => document.getElementById(`why-${k}`)?.focus(), key);
+          await page.keyboard.press('Enter');
+          await tipOpen(true).catch(() => {});
+          out.keyed = await tipRead(key);
+          await page.keyboard.press('Escape');
+          await tipOpen(false).catch(() => {});
+          out.escaped = await tipRead(key);
+        } catch (e) { out.error = String(e.message || e).slice(0, 300); }
+        return out;
+      };
+      const ok = (r) => !r.error && r.tapped?.open && r.tapped.for === `why-${r.key}-text` && r.tapped.expanded === 'true'
+        && r.tapped.words > 0 && r.tapped.words <= 40 && r.tapped.same && r.tapped.inView && r.tapped.noScrollX && r.tapped.hintOneLine
+        && !r.outside?.open && r.outside.expanded === 'false'
+        && r.keyed?.open && r.keyed.inView && !r.escaped?.open && r.escaped.focused && r.escaped.navLevel > 0;
+      const whys = [];
+      try {
+        await openSection('settings');
+        whys.push(await whyRun('brightness'), await whyRun('road'));
+        await openSection('travel');
+        whys.push(await whyRun('eye'));
+      } catch (e) { whys.push({ key: 'open', error: String(e.message || e).slice(0, 300) }); }
+      // Researcher mode: the line and its button step aside, an open bubble closes, and the
+      // full essay is under "Why this default".
+      let research = {};
+      try {
+        await whyTap('#why-eye');
+        await tipOpen(true).catch(() => {});
+        await page.evaluate(() => window.__chicago4d.researcher.set(true));
+        await tipOpen(false).catch(() => {});
+        research = await page.evaluate(() => {
+          const shown = (el) => !!el && getComputedStyle(el).display !== 'none';
+          const folds = [...document.querySelectorAll('details.why')];
+          for (const d of folds) d.open = true;
+          const full = folds.map((d) => d.querySelector('.why-full'));
+          return {
+            tipClosed: document.getElementById('why-tip')?.hidden !== false,
+            lines: [...document.querySelectorAll('.why-line')].filter(shown).length,
+            folds: folds.filter(shown).length,
+            eyeFull: (() => { const e = document.getElementById('eye-note'); const b = e?.getBoundingClientRect(); return shown(e) && !!b && b.height > 0; })(),
+            shortest: Math.min(...full.map((p) => (p?.textContent ?? '').trim().split(/\s+/).length)),
+          };
+        });
+      } catch (e) { research.error = String(e.message || e).slice(0, 300); }
+      await page.evaluate(() => {
+        const api = window.__chicago4d;
+        api.researcher?.set(false); api.whyTips?.close();
+        for (const d of document.querySelectorAll('details.why')) d.open = false;
+      }).catch(() => {});
+      check(`${label}: each researched setting's "Why?" opens a bubble of 40 words at most by a real ${touch ? 'tap' : 'click'} and by Enter, inside the screen, and an outside tap or Escape closes it, the Navigator staying open (T-2658)`,
+        whys.length === 3 && whys.every(ok), JSON.stringify(whys));
+      check(`${label}: in Researcher mode the one-line hints and "Why?" step aside, an open bubble closes, and the full "Why this default" essays show (T-2658)`,
+        !research.error && research.tipClosed && research.lines === 0 && research.folds === 3 && research.eyeFull && research.shortest > 40,
+        JSON.stringify(research));
+      // Give the Settings screen back as T-2657's block left it, for the close below.
+      await openSection('settings').catch(() => {});
+    }
+    // <<< T-2658
     // >>> T-2659: the Navigator's sounds (js/sound.js). The gesture is the visitor's own: a
     // TRUSTED tap (touchscreen on a phone, mouse on a desktop) at the centre of a Settings
     // control in the open Navigator — the tone already chosen, so nothing changes — hit-tested

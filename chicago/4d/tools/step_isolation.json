@@ -5870,6 +5870,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_ticket_house_serial.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_ticket_inflight.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6047,6 +6051,10 @@
       "wrote_ignored": []
     },
     "{}": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_short_why.mjs": {
       "wrote": [],
       "wrote_ignored": []
     }
