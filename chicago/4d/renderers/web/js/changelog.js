@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 2067, ts: '2026-10-19T17:09:58.504Z', date: 'Oct 19, 2026, 12:09 PM CT', title: '1625 Prairie gains its south roof dormer and photographed side windows', kind: 'change',
+    items: [
+      '1625 Prairie Avenue\'s main roof now carries the dormer the 1890 photograph shows on its south slope, just above the side wall\'s eave: a pale face with one tall window under a small hipped roof.',
+      'The south side wall\'s windows now stand where the photograph puts them: two on the top floor, a tall stair window behind the oriel, and one on the ground floor behind the corner pier. The old evenly spaced columns are gone.',
+      'The door at the foot of the rear section now has its transom window over the door.',
+    ] },
+  { v: 2066, ts: '2026-10-19T17:09:58.504Z', date: 'Oct 19, 2026, 12:09 PM CT', title: 'Glessner\'s north tower checked against two old photographs', kind: 'chore',
+    items: [
+      'Nothing you can see moved. One 1965 photograph put the tip of the round tower\'s cone about 2 ft from where the model has it, which would need a wider tower. A second photograph, and the outline of the cone in both, say the tower is right where it stands, and that the first photograph\'s camera position was what was off. The tower stays as built, and a check now keeps it there.',
+    ] },
+  { v: 2065, ts: '2026-10-19T15:54:13.631Z', date: 'Oct 19, 2026, 10:54 AM CT', title: 'Keith\'s loggia stands where its plan puts it', kind: 'improvement',
+    items: [
+      '1808 Prairie\'s loggia now stands on slimmer 0.6 m pedestals at the places the 1888 floor plan draws, its paired columns closer together, and the front stair narrowed to the plan\'s 1.8 m with its north wall running into the loggia.',
+      'In the 1888 engraving the rebuilt columns now land on the drawing\'s own; the 1965 photograph still reads each pair a little wider, which is the next thing to settle.',
+    ] },
+  { v: 2064, ts: '2026-10-19T15:54:13.631Z', date: 'Oct 19, 2026, 10:54 AM CT', title: 'Glessner\'s courtyard dormers drawn to the 1963 survey', kind: 'improvement',
+    items: [
+      'The third dormer moves a full foot south, to where the HABS courtyard drawing puts it, and the first moves two inches north.',
+      'Each dormer\'s bell finial now shows: the hip covers are slimmed to the drawing\'s single line and stop under the bell instead of burying it.',
+      'The bell is fuller and stands where it is drawn, and the apron\'s fascia and the window\'s frame are cut to the drawing\'s sizes.',
+    ] },
   { v: 2063, ts: '2026-10-19T15:12:55.865Z', date: 'Oct 19, 2026, 10:12 AM CT', title: 'Ghosted trees in the Confidence view fade by dither', kind: 'fix',
     items: [
       'In the Confidence view, a grade set to Ghost now fades the trees with a fine screen-door pattern at its opacity, as fences and yards already do, instead of drawing the wood a second time. X-ray\'s trees fade the same way.',
