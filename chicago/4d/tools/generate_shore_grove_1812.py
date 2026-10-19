@@ -1,0 +1,162 @@
+#!/usr/bin/env python3
+"""Generate the 1812 shore cottonwoods at Sixteenth to Eighteenth Street (T-2745).
+
+THE SAME TREES, TWENTY-THREE YEARS YOUNGER. The 1835 scene's grove
+(data/flora/plantings/shore_cottonwood_grove_1835.json, T-2766) is Robert G.
+Clarke's "perhaps fifty to seventy-five large cottonwoods" on the shore south of
+the town. No source clears or plants that shore between 1812 and 1835, and the
+1812 scene's own record of the place, massacre_cottonwoods_1812, already stands
+two of its trees there as saplings.
+What the 1812 shore looked like is said once, by Moses and Kirkland (History of
+Chicago vol. 1, 1895, p. 60, source `moses_kirkland_history_of_chicago_v1`):
+"On its lower reaches stood scattered cottonwoods, and here and there a small
+group or a single tree." So the grove of 1835 stood in 1812 as the young
+cottonwoods it grew from, and this file draws them at the 1835 record's
+positions so a tree of one year is the same tree in the other, as the two
+massacre trees already are.
+
+WHAT THIS FILE INVENTS.
+
+  * THAT EVERY 1835 STEM WAS ALREADY STANDING. A cottonwood on wet sand puts on
+    a metre a year when young, so a 22-26 m tree of 1835 was a 10-15 m tree in
+    1812. A grove that was "scattered cottonwoods" in 1812 would have filled in
+    by 1835; this record keeps every stem rather than inventing which came later,
+    because the owner asked for the woods of 1812 to lean to more trees, not fewer.
+  * THE HEIGHTS: half the 1835 height, which is inside z08_lakeshore's recorded
+    5-15 m band for the dune cottonwood. The zone is z08, not z05 as in 1835,
+    because a young tree on the beach ridge is the leaning, wind-cut dune form
+    z08 describes, and the full-grown river tree z05 records is what these became.
+  * THE TWO MASSACRE TREES ARE LEFT OUT. massacre_cottonwoods_1812 stands them
+    in 1812 at 5 m as Mrs. Kinzie's "saplings"; this record does not stand a
+    second, taller stem on the same spot.
+
+Every position must stand on the 1812 ground (generators/terrain_gen_e1830.py's
+e1830_natural) at least DRY_FLOOR_M above the water, the planter's own dry floor,
+or the rule fails rather than leave a stem the renderer would refuse.
+
+    python3 tools/generate_shore_grove_1812.py            write the record
+    python3 tools/generate_shore_grove_1812.py --check    re-derive and diff
+"""
+from __future__ import annotations
+
+import argparse
+import array
+import json
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import generate_shore_grove_1835 as g1835  # noqa: E402
+
+ROOT = g1835.ROOT
+SRC = g1835.OUT
+HF_DIR = ROOT / "data/terrain/epochs/e1830_natural"
+OUT = ROOT / "data/flora/plantings/shore_cottonwood_grove_1812.json"
+
+AGE_FACTOR = 0.5
+H_BAND = (5, 15)          # z08_lakeshore's populus_deltoides
+DRY_FLOOR_M = 0.20        # renderers/web/js/trees.js TREE_DRY_MARGIN_M
+LEFT_OUT = {"grove_eighteenth_street_tree", "grove_eighteenth_street_fellow"}
+
+
+def field() -> g1835.Field:
+    """The 1835 file's bilinear sampler over the 1812 heightfield."""
+    f = g1835.Field.__new__(g1835.Field)
+    meta = json.loads((HF_DIR / "heightfield.json").read_text())
+    raw = array.array("h")
+    raw.frombytes((HF_DIR / "heightfield.bin").read_bytes())
+    if sys.byteorder != "little":
+        raw.byteswap()
+    f.m, f.raw = meta, raw
+    return f
+
+
+def stems() -> list[dict]:
+    src = json.loads(SRC.read_text())
+    ground = field()
+    out = []
+    for s in src["stems"]:
+        if s["id"] in LEFT_OUT:
+            continue
+        e, n = s["at_local_enu_m"]
+        y = ground.h(e, n)
+        if y < DRY_FLOOR_M:
+            raise SystemExit(f"generate_shore_grove_1812: {s['id']} stands {y:.2f} m on the 1812 "
+                             f"ground, under the {DRY_FLOOR_M} m dry floor")
+        h = round(s["height_m"] * AGE_FACTOR)
+        if not H_BAND[0] <= h <= H_BAND[1]:
+            raise SystemExit(f"generate_shore_grove_1812: {s['id']} at {h} m is outside z08's band")
+        sid = s["id"].replace("grove_", "grove1812_", 1)
+        out.append({"id": sid, "species": "populus_deltoides", "at_local_enu_m": [e, n],
+                    "height_m": h, "confidence": "reconstructed",
+                    "note": (f"THE 1835 GROVE'S {s['id']} TWENTY-THREE YEARS YOUNGER: its position, "
+                             f"on 1812 ground {y:.1f} m above the water, at half its 1835 height of "
+                             f"{s['height_m']} m, inside z08_lakeshore's 5-15 m band for the young "
+                             "dune cottonwood. Position reconstructed, as in 1835.")})
+    return out
+
+
+def record(st: list[dict]) -> dict:
+    return {
+        "_doc": ("A PLANTING RECORD for the 1812 scene (T-2745): the shore cottonwood grove of 1835 "
+                 "as the young trees it grew from, read by renderers/web/js/trees.js through "
+                 "data/flora/index.json and scoped there to scene 1812. GENERATED by "
+                 "tools/generate_shore_grove_1812.py from shore_cottonwood_grove_1835.json, and "
+                 "re-derived byte for byte in tools/check.sh. Do not hand-edit."),
+        "id": "shore_cottonwood_grove_1812",
+        "name": "The young shore cottonwoods at Sixteenth to Eighteenth Street",
+        "kind": "planting",
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "generated_by": "tools/generate_shore_grove_1812.py",
+        "zone": "z08_lakeshore",
+        "existence": {
+            "value": True,
+            "confidence": "inferred",
+            "sources": ["moses_kirkland_history_of_chicago_v1",
+                        "kirkland_1893_chicago_massacre_appendix_k"],
+            "note": ("INFERRED, AS THE 1835 GROVE IS. Moses and Kirkland (1895, p. 60) put "
+                     "'scattered cottonwoods, and here and there a small group or a single tree' on "
+                     "the lower reaches of this shore in 1812, and the same page has Mrs. Kinzie's "
+                     "word that the two massacre trees were saplings then. Clarke's grove of 1835 "
+                     "(Kirkland 1893, App. K) stood on ground no source clears or plants in the years "
+                     "between, so its trees were growing here in 1812. Which of them were already "
+                     "standing, and how tall, nobody records."),
+        },
+        "rule": {
+            "from": "data/flora/plantings/shore_cottonwood_grove_1835.json",
+            "age_factor": AGE_FACTOR,
+            "height_m": list(H_BAND),
+            "left_out": sorted(LEFT_OUT),
+            "dry_floor_m": DRY_FLOOR_M,
+        },
+        "stems": st,
+        "research_note": ("WHAT IS INVENTED is that every 1835 stem stood in 1812, and the heights "
+                          "(docs/LIBERTIES.md L-woods-1812-2745). WHAT WOULD MOVE THESE: anything that "
+                          "moves the 1835 grove, or a survey of the shore before 1835 that draws "
+                          "trees south of the fort."),
+    }
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--check", action="store_true",
+                    help="re-derive the record and fail if the committed file differs")
+    args = ap.parse_args()
+    st = stems()
+    text = json.dumps(record(st), indent=2, ensure_ascii=False) + "\n"
+    if args.check:
+        have = OUT.read_text() if OUT.exists() else ""
+        if have != text:
+            print(f"generate_shore_grove_1812: {OUT.relative_to(ROOT)} does not re-derive; "
+                  "run tools/generate_shore_grove_1812.py and commit the result")
+            return 1
+        print(f"generate_shore_grove_1812: {len(st)} stems re-derive")
+        return 0
+    OUT.write_text(text)
+    print(f"generate_shore_grove_1812: wrote {len(st)} stems to {OUT.relative_to(ROOT)}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

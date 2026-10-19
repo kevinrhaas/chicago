@@ -24084,3 +24084,8 @@ Post-checkpoint integration: dev ffd4cd34c307c563a586c286d12a03cfd2208f8f adds f
 ## Harness chest repair — 2026-10-19
 
 Harness chest repair: four reconstructed gear meshes now avoid the unchanged horse in 63 discrete idle/walk/trot samples (zero surface intersections, 5.113260 mm minimum against a declared 5 mm). Installed stdlib regression reproduces 100 original proper crossings and requires zero repaired crossings plus 5 mm bind-pose clearance. Eight actual desktop/mobile comparison images inspected; engineering leather and photographic/anatomical/pressure/continuous-motion quality remain open. Merge acceptance requires full preflight and final-head remote qualification; exact results are recorded in the central ticket checkpoint. No production ticket is closed.
+
+
+## Whole-figure morph measurement — 2026-10-19
+
+Canonical e1 resident run passed normals, hierarchy, hair and container checks but reported36missing facial findings. The reader inspected only the first hair mesh. Its union-of-skinned-mesh repair and actual-source Three.js regression now preserve required names, >1mm movement and exact defaults; corrected canonical exports and detailed resident inspection remain unverified. This repairs measurement and does not prove the actual body target arrays or photographic quality.

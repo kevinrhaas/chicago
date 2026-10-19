@@ -1028,6 +1028,12 @@
       "note": "The 1812 scene's one planting (T-0471): the two cottonwood saplings a family tradition, recorded by Moses and Kirkland in 1895, remembered as marking the ground of 15 August 1812. Scoped to scene 1812 so it stands in no other year, and kept out of the zone records so a remembered tree is never read as reconstructed cover. Existence inferred, positions reconstructed; the record says why."
     },
     {
+      "id": "shore_cottonwood_grove_1812",
+      "file": "plantings/shore_cottonwood_grove_1812.json",
+      "scenes": ["1812"],
+      "note": "The 1835 shore cottonwood grove at Sixteenth to Eighteenth Street as the young trees it grew from (T-2745): Moses and Kirkland's 'scattered cottonwoods, and here and there a small group or a single tree' on the 1812 shore. The 1835 record's positions at half its heights, z08's dune cottonwood, without the two massacre trees, which massacre_cottonwoods_1812 already stands. Written by tools/generate_shore_grove_1812.py; existence inferred, positions and heights reconstructed (L-woods-1812-2745)."
+    },
+    {
       "id": "kinzie_house_1812_trees",
       "file": "plantings/kinzie_house_1812_trees.json",
       "scenes": ["1812"],

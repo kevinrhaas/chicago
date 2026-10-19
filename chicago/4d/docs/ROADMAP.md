@@ -5565,3 +5565,8 @@ Combined transport/resident integration (2026-10-19): retain c4f6e5424 transport
 ## Harness chest repair — 2026-10-19
 
 T-2801 baseline harness body interference: rerouted collar, shortened supports and locally lowered pad integrated into the development study. Preserve original-failure negative control and discrete whole-body clearance evidence; continue period-plate comparison, pressure/load/contact, continuous motion, photographic materials and occupied interaction before production acceptance.
+
+
+## Whole-figure morph measurement — 2026-10-19
+
+T-1789: correct hair-first facial measurement before rerunning actual canonical resident exports. Preserve actual full-surface morph movement and identity/period requirements; continue contact/framing, independent imagery and photographic acceptance after CI qualification.
