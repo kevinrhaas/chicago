@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2048, ts: '2026-10-19T07:43:48.984Z', date: 'Oct 19, 2026, 2:43 AM CT', title: 'Nothing you can see changed: Prairie houses can now carry a tower', kind: 'chore',
+    items: [
+      'Nothing you can see changed yet. The kit the Prairie Avenue houses are built from can now stand a round or eight-sided tower against a wall, rising past the eaves with its cone above the roof.',
+      'It is the piece 1801 Prairie, the Kimball house, needs before it can move onto that kit with its corner tower.',
+    ] },
   { v: 2047, ts: '2026-10-19T07:22:56.100Z', date: 'Oct 19, 2026, 2:22 AM CT', title: 'Nothing you can see changed: the Keith porch columns are right', kind: 'chore',
     items: [
       'Nothing you can see changed. Two later photographs, from 1965 and 1967, seemed to show 1808 Prairie\'s porch columns about a third taller than the model. They are not. By then the top panes of the bay window beside the porch had been filled in, so its windows looked shorter, and the 1967 reading had taken the beam over the columns for their tops. Read correctly, all three photographs agree with the 1888 magazine plate the columns are built from.',
