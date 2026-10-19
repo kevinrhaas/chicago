@@ -2730,7 +2730,16 @@
             "ad_text": "AD",
             "incised": true,
             "date_fill": 0.58,
-            "ad_fill": 0.46,
+            "ad_fill": 0.43,
+            "ad_device": {
+              "stems_u": [
+                0.33,
+                0.73
+              ],
+              "bar_z": 0.5,
+              "stroke": 0.16,
+              "height_fill": 0.53
+            },
             "crosses": [
               {
                 "W": 16.75,
