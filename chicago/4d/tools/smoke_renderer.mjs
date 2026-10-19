@@ -10869,6 +10869,12 @@ for (const [label, viewport, touch] of [
         ext.restoreContext();
         return { notice };
       });
+      // T-2826 (#1049): a load after a lost context shows the black box's line on the card,
+      // "Display reset N s into the visit. Just before: …" (blackbox.js summary), by design.
+      // The guard itself still says nothing on those boots: no notice of its own, no
+      // lowering and no second reload, so its silence is what is checked; the black box's
+      // line, and only that line, may stand on the card.
+      const blackboxOnly = (n) => n === null || /^Display reset [\d.]+ m?s into the visit\. Just before: /.test(n ?? '');
       const t0 = Date.now();
       await pc.goto(base, { waitUntil: 'domcontentloaded' });
       await pc.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 240_000, polling: 500 });
@@ -10892,7 +10898,7 @@ for (const [label, viewport, touch] of [
       const after = await guardState();
       check(`${label}: two lost contexts reload the page once at most, then lower the next boot a tier`,
         /reset/.test(firstLoss.notice ?? '') && loads === 2 && reloaded?.boot?.detail === 'balanced'
-        && reloaded.lowered === null && reloaded.notice === null
+        && reloaded.lowered === null && blackboxOnly(reloaded.notice)
         && after?.reloads === 1 && after.sessionLosses === 2 && after.lowered?.why === 'context'
         && after.lowered.to.detail === 'light' && after.readable && after.reloadButton
         && /^Detail lowered to Light/.test(secondLoss.notice ?? ''),
@@ -10905,8 +10911,8 @@ for (const [label, viewport, touch] of [
       await pc.mouse.click(at.x, at.y);
       await pc.waitForFunction(() => window.__chicago4d?.crashGuard?.watching === true, null, { timeout: 120_000, polling: 500 });
       const lowered = await guardState();
-      check(`${label}: the boot after Reload runs at the lowered tier with no card`,
-        loads === 3 && lowered?.boot?.detail === 'light' && lowered.notice === null && lowered.reloads === 1,
+      check(`${label}: the boot after Reload runs at the lowered tier with no card of the guard's own (T-2826's black-box line aside)`,
+        loads === 3 && lowered?.boot?.detail === 'light' && blackboxOnly(lowered.notice) && lowered.reloads === 1,
         JSON.stringify({ loads, lowered }));
       check(`${label}: no page errors through the crash, the lost contexts and the reloads`,
         crashErrors.length === 0, crashErrors.slice(0, 5).join(' | '));
