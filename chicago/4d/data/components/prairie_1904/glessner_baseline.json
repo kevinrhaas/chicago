@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 198441156,
-      "sha256": "8b45fdd435f1df82d70f7499e2892cfccd5f01f35efc69c8975e09d40e1dbe7f",
+      "bytes": 198436980,
+      "sha256": "f889022d16afbc0fd8ff6281304804e0ab15414b0fe6eae74e60f30444be5fb0",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -21,13 +21,13 @@
       "mesh": {
         "draw_primitives": 31,
         "materials": 31,
-        "triangles": 1369278,
-        "vertices": 3154626
+        "triangles": 1369267,
+        "vertices": 3154539
       },
       "texture": {
         "images": 38,
         "textures": 73,
-        "encoded_bytes": 31294034,
+        "encoded_bytes": 31294101,
         "pixels": 68681032,
         "gpu_rgba8_mip_bytes": 366298837,
         "largest_px": 4096
@@ -336,8 +336,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 43843548,
-      "sha256": "e895db70ab67659910f98227d22e2b23123b061096c8e8df4527e0e56b82f088",
+      "bytes": 43843456,
+      "sha256": "36a90bcf792056209f9c7cad8d5733cbebd9ba4a01aa359f45b4f3956f580608",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -357,13 +357,13 @@
       "mesh": {
         "draw_primitives": 31,
         "materials": 31,
-        "triangles": 1369278,
-        "vertices": 2498447
+        "triangles": 1369267,
+        "vertices": 2498393
       },
       "texture": {
         "images": 37,
         "textures": 37,
-        "encoded_bytes": 17252383,
+        "encoded_bytes": 17252463,
         "pixels": 62390272,
         "gpu_rgba8_mip_bytes": 332748117,
         "largest_px": 2048
@@ -660,7 +660,7 @@
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
       "bytes": 15531892,
-      "sha256": "a966d15a76d4cecbfbf172d51bf8a2a4d05e627abac222544ee1582a3a9f39be",
+      "sha256": "f3ba80a15971ab5940957a17511579fd226858c98b6c0c5ede0251944cefa7db",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",

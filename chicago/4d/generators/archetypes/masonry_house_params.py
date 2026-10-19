@@ -987,6 +987,11 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 stones.append({"axis": "y", "sign": 1, "at": fr.y(face),
                     "u0": a, "u1": b, "z0": fr.z(en[zkey][0]), "z1": fr.z(en[zkey][1]),
                     "text": en[tkey], "fill": en.get(fkey), "incised": bool(en.get("incised"))})
+                # T-2869: a stone may carry a monogram drawn as strokes ("ad_device").
+                dev = en.get(tkey.replace("_text", "_device"))
+                if dev:
+                    stones[-1].update({"device": {k: dev[k] for k in ("stems_u", "bar_z", "stroke")},
+                                       "height_fill": dev["height_fill"]})
             p.detail["date_stones"] = stones
             p.detail["date_crosses"] = [{"axis": "y", "sign": 1, "at": fr.y(face),
                 "u": fr.x(c["W"]), "z": fr.z(c["z"]), "size": en["cross_ft"] * FT,
