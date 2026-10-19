@@ -240,9 +240,10 @@
         </div>
         <!-- T-2741: where you stand, in the scene's year and today — the era street (none in
              1812) over today's street, corner or house number, read off the City's own
-             centrelines (data/modern/streets.json). -->
+             centrelines (data/modern/streets.json). "Then", not the year: "1904 Prairie
+             Avenue" read as a house number. -->
         <div id="street-readout" class="street-readout" aria-live="polite" hidden>
-          <span class="street-line street-era"><b id="street-era-year"></b><strong id="street-historic"></strong></span>
+          <span class="street-line street-era"><b>Then</b><strong id="street-historic"></strong></span>
           <span class="street-line street-today"><b>Today</b><span class="street-modern" id="street-modern"></span></span>
           <span class="street-approach" id="street-approach" hidden></span>
         </div>
