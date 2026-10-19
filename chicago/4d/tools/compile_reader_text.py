@@ -3,7 +3,6 @@
 
     python3 tools/compile_reader_text.py            write data/reader/*.json (publish.sh runs this)
     python3 tools/compile_reader_text.py --out DIR  write them to DIR instead (the JS test does)
-    python3 tools/compile_reader_text.py --check    derive them in memory, write nothing
     python3 tools/compile_reader_text.py --stats    what each family holds, and how much
     python3 tools/compile_reader_text.py --list     each family's files, as JSON (the JS test reads it)
 
@@ -277,7 +276,6 @@ def text_of(doc) -> str:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("--check", action="store_true", help="derive in memory, write nothing")
     ap.add_argument("--out", type=Path, default=None, help="write the overlay here, not data/reader/")
     ap.add_argument("--stats", action="store_true", help="print each family's size")
     ap.add_argument("--list", action="store_true", help="print each family's files as JSON")
@@ -313,11 +311,10 @@ def main(argv=None) -> int:
         if a.stats:
             print(f"   {name}: {len(paths)} files, {doc['count']} strings rewritten, "
                   f"{len(text.encode()) // 1024} KiB")
-        if not a.check:
-            outdir.mkdir(parents=True, exist_ok=True)
-            if not out.is_file() or out.read_text(encoding="utf-8") != text:
-                out.write_text(text, encoding="utf-8")
-    if not a.check and not a.family and outdir.is_dir():
+        outdir.mkdir(parents=True, exist_ok=True)
+        if not out.is_file() or out.read_text(encoding="utf-8") != text:
+            out.write_text(text, encoding="utf-8")
+    if not a.family and outdir.is_dir():
         known = {f"{n}.json" for n in fams}
         for p in outdir.glob("*.json"):
             if p.name not in known:

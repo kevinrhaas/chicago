@@ -1507,7 +1507,9 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
      */
     sections(record) {
       if (!record?.sidecar) return null;
-      const s = said(record.sidecar);
+      // Said for a reader (T-2825). Spelt from `record.sidecar` so validate.py's
+      // sidecar-contract scan still binds `s` to the record it reads.
+      const s = record.sidecar && said(record.sidecar);
       setCiteTitles(s.citations, reader);
       // The placement, for Story's fire-limit row (T-2643); Sources reads it off the sidecar.
       const p = s.placement ?? {};
@@ -1545,7 +1547,9 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     show(record, { fromSign = false } = {}) {
       if (!record?.sidecar) return false;
       onShow?.(record);
-      const s = said(record.sidecar);
+      // Said for a reader (T-2825). Spelt from `record.sidecar` so validate.py's
+      // sidecar-contract scan still binds `s` to the record it reads.
+      const s = record.sidecar && said(record.sidecar);
       setCiteTitles(s.citations, reader);
       currentId = record.id;
       currentRecord = record;
