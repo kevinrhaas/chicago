@@ -10,28 +10,28 @@
     415.50272048928315,
     815.5140668074222
   ],
-  "focal_px": 2301.6831823661023,
+  "focal_px": 2330.9736,
   "eye": [
-    88.88668939847942,
-    40.906072571055496,
-    1.7
+    89.845097,
+    40.367211,
+    1.702588
   ],
-  "yaw_deg": 233.2462451348943,
+  "yaw_deg": 234.033818,
   "basis_right_up_forward": [
     [
-      -0.5981975964161029,
-      0.8009742359169728,
-      0.02449304062828582
+      -0.5871363184,
+      0.809126825,
+      0.0241810795
     ],
     [
-      0.014656074848174232,
-      -0.01962418174761879,
-      0.9997000004805348
+      0.0141849137,
+      -0.0195834946,
+      0.9997075947
     ],
     [
-      -0.8012145999119349,
-      -0.5983771092613404,
-      0
+      -0.8093637821,
+      -0.5873076432,
+      -2.07867e-05
     ]
   ],
   "sky": "overcast",
@@ -41,68 +41,96 @@
     1
   ],
   "solve": {
-    "method": "Level rising-front perspective with fitted small roll, reconstructed camera height1.7m. Four Prairie wall/eave corners and the north service gable foot control the view; drain fittings excluded. Model-based dimensions do not constitute an independent survey. Native scan1056x991;1600display is an enlargement.",
+    "method": "T-2858: refitted on the ten first-floor jambs of T-2857 (x only; each jamb whose reveal faces the camera at the sash, 0.6 ft behind the arris) with the five earlier controls, the two Prairie-corner x picks put on sheet 6's downspouts (0.90 ft in from the north corner, 0.82 from the south). Level camera with a small fitted roll, height bounded 1.0-2.5 m, principal point held. The three stacks are withheld checks (tools/glessner_prairie_front.py; data/comparisons/glessner/prairie-front.json).",
     "controls_xyz_px": [
       [
         49.149,
-        0,
-        0,
-        45,
-        875
+        0.0,
+        0.0,
+        45.0,
+        875.0
       ],
       [
         49.149,
         22.5552,
-        0,
-        904,
-        920
+        0.0,
+        904.0,
+        920.0
       ],
       [
         49.149,
-        0,
+        0.0,
         8.4856,
-        56,
-        529
+        56.0,
+        529.0
       ],
       [
         49.149,
         22.5552,
         8.4856,
-        909,
-        463
+        909.0,
+        463.0
       ],
       [
         10.2108,
         22.5552,
         7.0409,
-        1426,
-        674
+        1426.0,
+        674.0
       ]
     ],
     "residual_px": [
       [
-        1.2177561948363405,
-        0.9681500088241819
+        null,
+        1.78
       ],
       [
-        -3.0607206061297347,
-        -1.1840355879163553
+        null,
+        -0.8
       ],
       [
-        -1.28767156327973,
-        0.25644511391783453
+        null,
+        -1.3
       ],
       [
-        3.1113242334818096,
-        -0.17859343100928982
+        null,
+        0.57
       ],
       [
-        0.019311683568048466,
-        0.13803389622478335
+        -0.09,
+        -0.25
       ]
     ],
-    "rms_px": 1.5698954755110228,
-    "light": "T-2848, read off the photograph: hazy, diffuse light. The lamp post at the corner, the two street trees and the window heads throw no shadow, and the rustication is shaded softly along each block's lower edge; the Prairie (east) front reads a little brighter than the 18th Street (north) flank. So the sky is brightest to the east and somewhat high: the overcast sky with its soft key at sun_uvy [0.8, -0.2, 1] (east, a little south, about 45 degrees up). This replaces [55, 20, 40], which T-2221 carried over with the camera and no reading behind it."
+    "rms_px": 1.36,
+    "light": "T-2848, read off the photograph: hazy, diffuse light. The lamp post at the corner, the two street trees and the window heads throw no shadow, and the rustication is shaded softly along each block's lower edge; the Prairie (east) front reads a little brighter than the 18th Street (north) flank. So the sky is brightest to the east and somewhat high: the overcast sky with its soft key at sun_uvy [0.8, -0.2, 1] (east, a little south, about 45 degrees up). This replaces [55, 20, 40], which T-2221 carried over with the camera and no reading behind it.",
+    "jamb_residual_px": [
+      1.81,
+      -0.29,
+      -0.24,
+      -0.35,
+      -1.12,
+      -3.61,
+      2.05,
+      0.91,
+      0.99,
+      -0.04
+    ],
+    "stack_checks_px": {
+      "south": {
+        "right_x": -14.6,
+        "top_y": -0.5
+      },
+      "middle": {
+        "left_x": -7.8,
+        "right_x": -6.6,
+        "top_y": -2.1
+      },
+      "north": {
+        "left_x": 3.6,
+        "right_x": 0.7,
+        "top_y": 1.6
+      }
+    }
   },
   "source_id": "taylor_2135_glessner_exterior_1887_1889"
 }
