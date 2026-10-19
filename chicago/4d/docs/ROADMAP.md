@@ -1,3 +1,29 @@
+## T-2672 / T-1789 — resident transport adults (2026-10-18)
+
+The owner requested adults for driving, riding, standing near transport and walking,
+with period-specific clothing and photographic quality, then directed us to use existing
+attested, inferred or reconstructed people; anonymous figures are a last resort. The standing human
+policy now reflects the explicit October 16 rulings; record flags, reasons, rights and
+scene dates remain. No figure is added by clearing a flag or inventing a resident.
+
+A pinned CC0 human graphical base, hash-verified adult male shape targets, a
+verified original 2K CC0 skin atlas, engine-neutral preparation and an original
+1835 workwear canonical-master builder are under integration. The first studies reference existing reconstructed residents Otis Bardwell, Joseph
+Dufresne and Martin Flynn. Their appearances remain reconstructed assembly proofs. Blender runs on CI, not this runner. Canonical exports and
+close desktop/mobile review must precede any scene use; canonical skin/cloth rendering, clothing
+detail, hair, reliable gait, seated driver/rein contact and riding tack remain open.
+The primitive portable-human fixture remains a test artifact. T-1789 is not complete
+on a single base or flat-color outfit. See L418 and the authored source manifest.
+
+Canonical CI now reproduces all three prepared inputs on Python 3.11. It built
+Otis Bardwell's master and all four source/web LODs, then the unchanged contract
+rejected tiny exported joint-scale residue and a skin-palette count change during
+quantization. The authored-only export repair verifies the actual Blender rig is
+unscaled, bounds numerical cleanup, consolidates only exactly equal bindings and
+uses one quantization volume. Existing fixture bytes and contract tolerances stay
+unchanged. Corrected canonical CI and actual visual/deformation review remain open;
+artifact download also requires publishing the saved environment network draft.
+
 ## T-1883 — Keith house photographic finish (2026-10-16)
 
 The owner-approved 1888 Inland Architect photograph now drives the pierced parapet,
@@ -5509,3 +5535,70 @@ T-2228 window-location clarification: the owner explicitly requested historical 
 T-2228 (2026-10-16): final roof/window correction assets reviewed at eleven canonical cameras plus owner overhead; all remain differs. Southern upper west slit moved two feet north from the ca. 1887 Cornell northwest photo, other seven retained. Straight ridge and seated northeast copper return verified. Correction PR needs green integration; final photographic signoff stays open.
 
 T-2228 follow-up2026-10-16: owner front-entry section/threshold/header/carving pass remains active; fixed-camera validation and green dev merge required.
+
+
+## Period transport studies — T-2793 / T-2794 / T-2800 (2026-10-18)
+
+Original wagon, open-carriage and horse GLBs are now inspectable in the development transport collection, with data-driven regeneration and separately articulated wheels/gear or horse limb clips. This is the first visible engineering checkpoint; photographic fidelity, continuous skinned anatomy, period gear, LOD qualification, town traffic and riding remain open. The existing scene wagons and human policy are unchanged. See [recovery instructions and current limitations](RESEARCH/period-transport-2026-10-18/README.md). Research and claims remain authoritative in chicago-tickets bands 8D/8E.
+
+Period transport follow-up (T-2795/T-2800/T-2801, 2026-10-18): skinned horse silhouettes and contact transitions refined; actual sole drift 0.020 mm. Metadata-driven wheel/stride motion and finite shaft tugs replace the 45 mm coupling mismatch (6.49 mm measured radial section clearance). Breastcollar route/width fit checked against actual torso vertices over 21 walk phases. Photographic matching, forelimb/full collision, holdbacks/forces, LODs, occupied traffic and riding remain open; see period transport recovery notes.
+
+Transport integration validation (2026-10-18): the original full mobile smoke failed and desktop timed out; neither is a green merge result. Current-dev integration preserves its Guide readiness fix. Far-merge sampling now compares fresh on/off/on frames with strict geometry/restoration assertions; yard/confidence checks record state fingerprints with unchanged thresholds. Replacement complete desktop/mobile stage coverage remains required. See period transport recovery notes for retained failures and exact-head evidence.
+
+
+Transport integration repair, 2026-10-19: merge current dev, rebuild conflicted source-use outputs from source, await bounded baseline readiness and force fresh stage5 frames. Measured full/balanced caps become 3.47m/2.625m under the existing absolute-margin rule; Light stays at 1.19m and 90 calls. New exact-head full desktop/mobile coverage remains required; production photographic/traffic/riding tickets remain open.
+
+
+Transport recovery assertions: retain currentdev Researcher mode and T-2826 prior-reset diagnostic. Replace stale no-notice predicates with exact readable diagnostic/Copy/previous-page checks while preserving navigation, autoreload and tier invariants. Focused actual blackbox regression passes; next exact-head full preflight and all published desktop/mobile stage groups remain required before dev merge. No horse-head/wheel trial is included in this correction.
+Resident transport adults,2026-10-19: first grounded-walk inspection refused the actual exported duration. Authored-only zero-origin export and declared-time diagnostics are implemented; fixture kwargs and loaded1.2s/contact limits remain strict. Canonical rebuild/decoded inspection is required before any gait acceptance. Existing named residents remain the models; photographic clothing/hair, seated drivers, mounted riders and scene placement remain unfinished.
+
+
+Resident surface refinement: the earlier canonical45 build passed mechanical source/web inspection. The next authoring revision adds hash-verified CC0 short04 hair fitted to the same three named reconstructed residents, plus body normals shared across exact source UV seams. Six hair and five normal source tests pass; new Blender exports and actual material, shading and LOD inspection are required. Photographic acceptance, hair-card refinement, individual faces, period wardrobe, seated drivers and mounted riders remain open in T-1789/T-2804. See the resident teamster dossier for exact provenance and source-preview limitations.
+
+
+Combined transport/resident integration (2026-10-19): retain c4f6e5424 transport and2679d6c98 named resident authoring on one review head. Integrate reviewed W01 tapered spokes/board-edge study with declared reconstructed dimensions. Diagnose the canonical body-normal readback failure with bounded errors/seam metrics and unchanged guard before claiming resident exports. Run full preflight and final same-head canonical authoring plus published desktop/mobile coverage before dev merge. Horse head/strap refinement, photographic quality, occupancy, traffic and boarding/riding remain production work.
+
+
+2026-10-19 parallel transport/human batch: explicit strict Short2 normal recovery trial unblocks T-1789 only if pinned CI passes unchanged limits; named identity/date/likeness provenance remains intact. Rounded carriage upholstery, paired horse neck/headgear and additive grounded trot are integrated development refinements with bounded actual browser receipts. Final same-head full gate/canonical authoring/desktop-mobile coverage precede dev merge. Parallel claimed T-1790/T-1792/T-2796/T-2797/T-2803/T-2804 work supplies animation, population budgets, route/boarding controllers and named driver fitting; dependency-bounded prototypes are not ticket completion. Riding gear and mount controls remain under development. Photographic masters, real occupied scenes and phone/GPU acceptance remain open.
+
+
+## Harness chest repair — 2026-10-19
+
+T-2801 baseline harness body interference: rerouted collar, shortened supports and locally lowered pad integrated into the development study. Preserve original-failure negative control and discrete whole-body clearance evidence; continue period-plate comparison, pressure/load/contact, continuous motion, photographic materials and occupied interaction before production acceptance.
+
+
+## Whole-figure morph measurement — 2026-10-19
+
+T-1789: correct hair-first facial measurement before rerunning actual canonical resident exports. Preserve actual full-surface morph movement and identity/period requirements; continue contact/framing, independent imagery and photographic acceptance after CI qualification.
+
+
+T-1789 loaded-hair diagnostic (2026-10-19): actual canonical run39211997787/48b1cc889 passed all32 source/web fixture measurements and six hierarchy/raw surface comparisons, then published24-case inspection failed only hair_export_contract. Source inspection not reached; actual failing subcondition was absent from logs. Bounded loaded-attribute/material/invalid-vertex receipts added without changing any guard; corrected CI, independent images and photographic acceptance remain pending. No local Blender or artifact-policy bypass.
+
+
+### 2026-10-19 — Authored resident hair web-normal precision
+
+Diagnostic d7b944d86 / canonical 39215214430 identifies 8-bit decoded hair normals just beyond the unchanged 0.005 length-error guard. Pinned real glTFTransform 4.5.0 canary reproduces the exact failure; authored-only medium mode with 16-bit normals passes it (precision flag alone fails because high mode caps eight bits). Generic fixture export stays unchanged. See RESEARCH/resident-teamsters-2026-10-18/hair-normal-precision/. Actual corrected resident CI, full smoke and photographic/production acceptance remain open. Incoming dev c7770e99 merges without conflicts; the full combined gate is next.
+
+
+2026-10-19 transport integration: reconciled new dev fb6a77579 after the exact-f97 qualification. Only the generated source-use index conflicted; it is rebuilt by its owning compiler through the liberties/source-use tail. Human and transport sources remain unchanged. Validation receipts stay revision-specific in PR1041 and central tickets; photographic appearance, independent CI image review, seated/riding interaction and production acceptance remain open.
+
+## T-2794 — separate C02 enclosed carriage study (2026-10-19)
+
+An isolated roofed carriage specimen adds a repaired cabin aperture and reconstructed rigid door, with accessible closed/open endpoints. It is1904 development-only; C01, W01, horse, harness, hitch and scene placements are unchanged. Actual source checkpoints have zero SAT contacts at15 discrete door angles and eight matched desktop/mobile views; these do not establish continuous collision safety, passengers, real boarding, historic ownership/subtype/materials or photographic quality. Installed-head/fullgate checks remain required at integration. T-2794 stays open; optional paint/studio studies are separate, not baseline claims.
+
+
+**Metadata and articulation qualification:** The pre-door project scope quotation is preserved separately with its original branch and explicit non-period origin; the enabled branch now describes reconstructed rigid door/hinge geometry and endpoint transforms. Current model metadata hash is 93d4020036e5c685ce95010fe64b26c55a1561db4517405f0590f7a398253331 (860956 bytes). Corrected checks bind all 424 actual moving triangles to the unique active exported door and compose actual hierarchy transforms at each angle; closed-world shape alone cannot qualify detached geometry. Old closed-mapping/source-posed receipts are retained only as limited historical checkpoints. No continuous/occupant/photographic acceptance or installed-head gate is implied.
+
+
+2026-10-19 installed C02 follow-up: the minimal enclosed-carriage study now loads from project-relative files with a reconstructed rigid door. Root actual source/export15-angle and five semantic negative controls pass; eight desktop/mobile keyboard/touch/framing captures pass. Both flat gate entrypoints were actually isolation-measured, with raw nested child rows separately inspected. Engineering appearance, continuous/occupant collision, boarding and photographic acceptance remain open. See c02-enclosed-door/root-installed-fb6-validation; merged-tree full preflight and remote qualification follow separately.
+
+
+2026-10-19 transport qualification follow-up: published desktop stage13 exposed a missing Navigator dock-settle precondition in the HUD instrument, consistent with closing-transition sampling. The footprint measurement now waits, after the hint, for the actual visible in-viewport dock and native animations to settle, and requires that readiness for baseline and both planted controls. The 10 percent union limit and all original exclusions/grid/positive controls are unchanged. Fourteen extracted-source readiness controls and nine aggregate controls pass; actual browser confirmation and final exact-head qualification remain pending. The separate 331 versus 330 draw failure is still under actual tracing; no draw ceiling change.
+
+
+2026-10-19 installed desktop qualification repair: only flat grass cardMat now uses the documented single transparent pass; controlled tint287/287, row ghost327/325 and X-RAY316/313 preserve exact full-frame pixels, coverage and all other draws, with exact restoration. All three HUD baseline/planted CSS-layout cases and both actual refusal controls passed; final state restored. Historical331 is not reproduced, generic ghost triangle overages remain, and photographic/genuine-touch acceptance is not implied. No330/10%/triangle ceiling changed. See docs/RESEARCH/period-transport-2026-10-18/desktop-qualification-repair-2026-10-19.md. Installed-source preflight and final exact-head CI are required; central recovery receipts record their outcome.
+
+
+### T-2804 progress: physical W01 driver support and named seated export path
+
+The separate supported-bench study and opt-in canonical sit_drive path advance existing reconstructed1835 resident drivers. Remaining: actual canonical/clothed output and contact inspection, real reins/hand grips, scene placement, driver control/boarding, photographic finishing and period construction review. These partial engineering results do not close the rider/driver or vehicle interaction tickets.

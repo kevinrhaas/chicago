@@ -1,0 +1,43 @@
+{
+  "scope": "Independent source and actual saved receipt/hash review plus lightweight actual-function canary; outside only, no generation, full angle rerun, app edits, browser or full gate",
+  "checker_sha256": "f7704aacc54683623a87ea911ece369993fd2997d1d2caabddc98a63c4c0acec",
+  "blocking_findings_in_repaired_articulation_logic": [],
+  "original_blocker_resolved": {
+    "ancestry_binding": "Each closed-pose source triangle is matched to an actual active exported record and required to agree moving-vs-fixed through descendant(actual_node, actual_pivot, actual_active_parents). Static exported geometry cannot inherit a source moving label without refusal.",
+    "pose_authority": "Every angle composes actual GLB node-local positions through actual active hierarchy, replacing actual pivot local rotation. Both fixed and moving collision triangles use actual record.local and actual matrices; source triangle coordinates are not used in the posed collision loop.",
+    "pivot_frame": "Exactly one active pivot, identity original local hinge basis and original world hinge frame required; the counterexample cannot compensate a changed pivot basis silently.",
+    "selected_scene": "Active hierarchy follows selected scene only and explicitly rejects repeated nodes, cycles and multiparents. Orphan geometry cannot satisfy matching."
+  },
+  "guards_preserved": {
+    "closed_mapping_m": 0.000001,
+    "SAT_tolerance_m": 0.00000001,
+    "angles_deg": [0,5,10,15,20,25,30,35,40,45,50,55,60,65,70],
+    "contacts_included_no_whitelist": true,
+    "selected_scene_and_actual_TRS_or_matrix": true,
+    "predicate_controls_both_orders": true,
+    "optimized_python_safety": "Explicit require/ValueError rather than removable asserts in actual checker"
+  },
+  "actual_existing_receipts_reviewed": {
+    "baseline": "ddda original asset,11512active triangles,424actual moving,15poses zero contacts,70degree maximum travel0.8576550267485274m",
+    "old_checker_false_positive": "Reparent-all fixture d8cab6d4282052d403ed7e01648c83debad0e1e934b61029008eb9ebd6c94d46 accepted by old checker and rejected by repaired actual-ancestry binding",
+    "negatives": ["all door reparented preserving closed worldpose", "one door part reparented preserving closed worldpose", "orphan door part", "duplicate active pivot", "empty selected scene"],
+    "positives": ["equivalent actual node matrix encoding", "inverse-baked moving child with rotation/translation/nonuniform scale"],
+    "durable_failure_receipts": "All five failed repaired runs have passed:false, explicit failure stage/error and existing JSON receipt; all8recorded control fixture hashes and current checker hash independently match controls.json"
+  },
+  "new_independent_light_canary": {
+    "script": "independent-canary.py",
+    "receipt": "independent-canary-receipt.json",
+    "passed": true,
+    "actual_function_world_composition_vs_independent_explicit_formula_max_error_m": 0.0,
+    "coverage": ["parent translation + posed Y hinge + nonuniform child scale composition", "selected alternate scene", "cycle refusal", "multiple-parent refusal", "all8existing control receipt/hash consistency"]
+  },
+  "remaining_integration_conditions": [
+    "Repaired checker is outside app and package has not been rebuilt around it. Do not label installed f97PASS.",
+    "Root must measure actual new flat gate isolation after installing; no invented row/wrote[] evidence.",
+    "Enabled baseline metadata still contains stale no-working-door/hinge text. Correct source and regenerate source/output hashes before final truthful package.",
+    "Retain original old-checker falsepositive and limited qualification records; do not overwrite them with later success.",
+    "Full installed generation/Khronos/mechanics/browser/framing/derivation checks remain root's future work."
+  ],
+  "limits": "15 sampled rigid surface poses, not continuous swept clearance, containment, physical/passenger/boarding safety, historical hardware or photographic acceptance",
+  "verdict": "No remaining source-level blocker found in repaired actual-door ancestry/pose logic. Prior actual-articulation falsepositive is meaningfully addressed and independently light-checked; final installation and metadata/isolation conditions remain open."
+}

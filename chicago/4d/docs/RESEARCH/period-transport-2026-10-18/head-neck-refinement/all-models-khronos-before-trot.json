@@ -1,0 +1,30 @@
+[
+  {
+    "file": "wagon/wagon-w01.glb",
+    "errors": 0,
+    "warnings": 0,
+    "info": 17,
+    "hints": 0
+  },
+  {
+    "file": "carriage/carriage-c01.glb",
+    "errors": 0,
+    "warnings": 0,
+    "info": 13,
+    "hints": 0
+  },
+  {
+    "file": "horse/equine_light_harness_skinned_prototype_01.glb",
+    "errors": 0,
+    "warnings": 0,
+    "info": 41,
+    "hints": 0
+  },
+  {
+    "file": "harness/light_breastcollar_harness_reconstructed_01.glb",
+    "errors": 0,
+    "warnings": 0,
+    "info": 1,
+    "hints": 72
+  }
+]

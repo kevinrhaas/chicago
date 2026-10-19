@@ -1,0 +1,135 @@
+{
+  "status": "Discrete actual GLB triangle surface SAT; all intersections retained, no whitelist",
+  "angles_deg": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60,
+    65,
+    70
+  ],
+  "scope": "15 discrete rigid door angles only, triangle surfaces including contact; no continuous clearance or enclosed solid containment proof",
+  "actual_final_triangles_matched_to_source_labels": 11512,
+  "input_sha256": "ddda1b89b330c889d69acaf55b79c4a114d193ff140e9e27c11cf74fc7f16eb6",
+  "generator_sha256": "16f763b217771c2bd46765e42051a30e7fa218d3d5f4359dfc132d71184b692d",
+  "parameters_sha256": "3922cb11ebdb7a21ffc9890e1c23e62567e71e62fdb35008b0a016ab533824f7",
+  "elapsed_s": 10.113237142562866,
+  "rows": [
+    {
+      "angle_deg": 0,
+      "broadphase_pairs": 128,
+      "triangle_intersections_including_contact": 0,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 5,
+      "broadphase_pairs": 1664,
+      "triangle_intersections_including_contact": 0,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 10,
+      "broadphase_pairs": 2376,
+      "triangle_intersections_including_contact": 0,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 15,
+      "broadphase_pairs": 1711,
+      "triangle_intersections_including_contact": 0,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 20,
+      "broadphase_pairs": 1478,
+      "triangle_intersections_including_contact": 0,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 25,
+      "broadphase_pairs": 1437,
+      "triangle_intersections_including_contact": 0,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 30,
+      "broadphase_pairs": 1744,
+      "triangle_intersections_including_contact": 0,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 35,
+      "broadphase_pairs": 1884,
+      "triangle_intersections_including_contact": 0,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 40,
+      "broadphase_pairs": 1991,
+      "triangle_intersections_including_contact": 0,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 45,
+      "broadphase_pairs": 1892,
+      "triangle_intersections_including_contact": 0,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 50,
+      "broadphase_pairs": 1641,
+      "triangle_intersections_including_contact": 0,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 55,
+      "broadphase_pairs": 1308,
+      "triangle_intersections_including_contact": 0,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 60,
+      "broadphase_pairs": 797,
+      "triangle_intersections_including_contact": 0,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 65,
+      "broadphase_pairs": 445,
+      "triangle_intersections_including_contact": 0,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 70,
+      "broadphase_pairs": 304,
+      "triangle_intersections_including_contact": 0,
+      "part_pairs": [],
+      "examples": []
+    }
+  ],
+  "intersection_tolerance_m": 1e-08,
+  "all_contacts_preserved": true
+}

@@ -1,0 +1,763 @@
+{
+  "scope": "Wholechangedgear actualsurfaces vsallactivehorse, exact vertex-face+edge-edge unsignedtriangle distance, broadphaseAABBlowerbound only prunes pairs unable to improve currentbest; actualSAT separately confirmsnointersections",
+  "rows": [
+    {
+      "clip": "idle",
+      "phase": 0,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.05,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.1,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.15,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.2,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.25,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.3,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.35,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.4,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.45,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.5,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.55,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.6,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.65,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.7,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.75,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.8,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.85,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.9,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 0.95,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "idle",
+      "phase": 1,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 0,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 0.05,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 0.1,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2311
+    },
+    {
+      "clip": "walk",
+      "phase": 0.15,
+      "minimum_unsigned_triangle_distance_m": 0.0052308414280146966,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 172,
+        "horse_triangle_global": 852,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2240
+    },
+    {
+      "clip": "walk",
+      "phase": 0.2,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 0.25,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 0.3,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 0.35,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 0.4,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 0.45,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 0.5,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 0.55,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 0.6,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2312
+    },
+    {
+      "clip": "walk",
+      "phase": 0.65,
+      "minimum_unsigned_triangle_distance_m": 0.00511326013369922,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 86,
+        "horse_triangle_global": 466,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2238
+    },
+    {
+      "clip": "walk",
+      "phase": 0.7,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 0.75,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 0.8,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 0.85,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 0.9,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 0.95,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "walk",
+      "phase": 1,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0.05,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0.1,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0.15,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0.2,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0.25,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0.3,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0.35,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2311
+    },
+    {
+      "clip": "trot",
+      "phase": 0.4,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0.45,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0.5,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0.55,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2248
+    },
+    {
+      "clip": "trot",
+      "phase": 0.6,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0.65,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0.7,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0.75,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0.8,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0.85,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2312
+    },
+    {
+      "clip": "trot",
+      "phase": 0.9,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 0.95,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    },
+    {
+      "clip": "trot",
+      "phase": 1,
+      "minimum_unsigned_triangle_distance_m": 0.005992800380442225,
+      "pair": {
+        "gear": "breastcollar",
+        "gear_triangle": 4,
+        "horse_triangle_global": 194,
+        "horse_mesh": "skinned_equine_coat"
+      },
+      "exact_candidate_pairs": 2247
+    }
+  ],
+  "minimum_m": 0.00511326013369922,
+  "elapsed_s": 92.41410231590271
+}

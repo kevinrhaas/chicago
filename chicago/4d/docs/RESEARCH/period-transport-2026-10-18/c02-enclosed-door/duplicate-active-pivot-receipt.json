@@ -1,0 +1,31 @@
+{
+  "passed": false,
+  "status": "Actual selected-GLB ancestry binding and hierarchy-composed triangle surface SAT",
+  "scope": "15 discrete door angles only; all contacts retained, no whitelist; no continuous clearance/solid containment/occupant acceptance",
+  "angles_deg": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60,
+    65,
+    70
+  ],
+  "intersection_tolerance_m": 1e-08,
+  "closed_mapping_tolerance_m": 1e-06,
+  "all_contacts_preserved": true,
+  "stage": "active_export_decode",
+  "input_sha256": "8d686e36584e551641d41d93002f5998c038b544a318a7252d4938759e972215",
+  "generator_sha256": "b3b136f37a125210effdc71c6203d7293456899996f8ff37d8723f013ff2c26d",
+  "parameters_sha256": "3922cb11ebdb7a21ffc9890e1c23e62567e71e62fdb35008b0a016ab533824f7",
+  "error": "One active exported door pivot required",
+  "elapsed_s": 0.14105987548828125
+}

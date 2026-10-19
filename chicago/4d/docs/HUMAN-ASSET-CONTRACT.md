@@ -16,22 +16,27 @@ Three files, one contract:
 `tools/human_contract.py` holds them to each other and holds every asset and instance to them.
 `check.sh` runs `--check` and `--self-test`; an exporter (T-1787) calls `--glb FILE…`.
 
-## What this does NOT change: L1 stands
+## Current depiction policy — T-2672
 
-**No human figure is drawn, for anyone, in any scene** (AGENTS.md § Standing constraint;
-`docs/LIBERTIES.md` L1). This contract builds the road; it does not lift the gate.
-`contract.json § l1.in_force` is `true`, and while it is, the gate refuses any instance record
-that asks for `display: shown`. Lifting it is the owner's act, made in AGENTS.md and then
-here. Even after it lifts:
+Owner, 2026-10-16: *"I think human figures are ok once we are able to render them and go through those tickets"*.
+Owner, 2026-10-16: *"And I think ok to for native and Métis depictions based on your fair and reasonable judgement, you have been careful and I trust you to make informed and reasonable depictions"*.
+The project retains evidence-bounded judgement, source provenance and declared liberties;
+this policy does not authorize invented dialogue or ceremony presented as attested.
+On lifting the review-based release block, the owner answered *"Yes lift that"*.
 
-- **Review travels with the person.** A person whose record carries `review_required` or
-  `touches_removal` has an instance that carries `review_required: true`. The gate refuses an
-  instance that drops it, and refuses `shown` for such a person until a review is recorded.
-  This contract defines no review record yet, so for now it refuses `shown` for them outright.
-- **No invented dialogue.** An instance may open the person's own resident card and nothing
-  else (`interaction.opens`). Conversation is not defined here.
-- **The August 1835 gathering is not staged.** Nothing here places a crowd. Each instance is
-  one person who already has a record.
+The portable-humans path may draw figures. `contract.json § l1.in_force` is `false`;
+if explicitly set true, the gate still refuses `display: shown`. A pipeline fixture
+is not a completed historical portrayal.
+
+- **Review travels with the person.** A record carrying `review_required` or
+  `touches_removal` requires `review_required: true` on its instance. Dropping it is
+  refused. The flag documents care taken; it does not itself block display or release
+  under the owner's 2026-10-16 ruling.
+- **No invented dialogue.** An instance may open the person's own resident card;
+  conversation is not defined here.
+- **Scene dates remain authoritative.** The August 1835 gathering is not staged in
+  the 1 July scene. Each current instance resolves an existing person record;
+  anonymous role identities require a separate contract extension.
 
 ## 1. One master, three outputs
 
@@ -290,7 +295,7 @@ then breaks it one way at a time:
   go. `mountHumans` is the scene path main.js calls. It reads
   `humans/instances/<scene>/index.json` and the records it names, but only for a scene whose
   `layers` lists `humans` (none does). It draws a record only when it is `shown`, L1 is lifted,
-  it is not under review, and its person is in the scene's directory and not already
+  it preserves review metadata, and its person is in the scene's directory and not already
   standing. `tools/human_actor.mjs` proves the engine on the fixture at both viewports. The
   smoke holds every scene it boots to an empty layer and no request under `humans/`. Still
   owed: `publish.sh` does not mirror `assets/humans/` yet. The first scene that lists
@@ -304,3 +309,13 @@ then breaks it one way at a time:
 
 A change to any of this is a change to every human asset and every engine that reads one.
 **Propose it, bump `version`, and never edit the contract to make an asset pass.**
+
+## Anonymous adult fallback identities (T-2823)
+
+Prefer existing attested, inferred or reconstructed people as the reference/model. An anonymous adult is an explicit fallback when no suitable existing person can serve the role, never an invented resident. An instance has **exactly one** identity: existing `person_id`, or `anonymous_profile_id` plus `role`, `fallback_basis` and `considered_person_ids`. Named resident identity and its canonical card remain unchanged. Each considered person ID must resolve in the scene directory; an empty considered list needs an explicit no-candidate explanation in the fallback basis. The basis records human judgment, not an automated assertion that every resident was exhausted.
+
+`data/humans/human_role_profile.schema.json` defines fallback-only adult profiles in `data/humans/role_profiles/`. Profiles bound role/date eligibility separately from each accepted asset's period-qualified wardrobe and recorded basis. The initial 1812, 1835 and 1904 profiles have **empty `eligible_assets`**: no anonymous production outfit is accepted, and a shown instance cannot bypass that gate with a generic or named person's mesh. A fixture may supply an explicitly synthetic unpublished qualification to test the mechanism; that does not alter committed acceptance. No production instances or scene placements are added by this change.
+
+A reusable profile is not an individual: multiple anonymous actors may share it, but every scene/instance ID is unique. Anonymous selection emits `role_open` with `personId: null` and opens a reconstructed role card, never a resident card, biography or dialogue. The card identifies the role, date, reconstruction/fallback basis and wardrobe qualification. Named actors still select by canonical person ID and emit the existing resident-card event. Review metadata on named people still travels with them; the explicit L1 switch remains enforceable when true.
+
+`human-identity.js` is the browser identity resolver; the normal renderer tree copy publishes it. `human_contract.py --check` validates profiles and instances, and its required `--self-test` includes anonymous refusal tests. The browser actor harness also exercises two independently identified fallback actors, wrong dates/outfits, duplicate IDs, fake resident-card requests and the role-card dialog. These checks establish identity mechanics; they do not certify a production model, wardrobe or population budget.

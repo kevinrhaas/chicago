@@ -2,10 +2,10 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "nickel-1967",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "674a9e99d509d2bee7dc4efcd7291a441d3365a0e19ee5132674c68b1d952777",
+  "glb_sha256": "9e1eea5b84ad8dc8d310b33cd7da265c551c725885a6c6a01c3f634e1330078b",
   "camera_sha256": "4cde10e103c3052890d4f2945bb1b9bd504261479d28aa56d46004171c482fff",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/nickel-1967-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "The flat top now has real two-row openings, corner pinnacles, a checker band and five colonnettes dividing six upper windows.",
@@ -64,8 +64,8 @@
       "status": "fixed"
     },
     {
-      "what": "T-2876: re-rendered on the GLB in the tree, T-2845's loggia (0.6 m pedestals at the first-floor plan's place, each pair's shafts 0.36 m apart, the flight 1.8 m clear and the stoop 0.15 m south): the pairs and flight move a few pixels at this picture's scale and stand on the photograph's front pairs (the south pair at about x 335-350, the north at 410-425). But between them, against the dark interior, this 1967 view shows a lit shaft at about x 362-371, rows 640-700, where the render draws the lit house wall: the plate's rear row (inland-1888, T-2876), not built.",
-      "status": "open"
+      "what": "T-2876: re-rendered on the GLB in the tree, T-2845's loggia (0.6 m pedestals at the first-floor plan's place, each pair's shafts 0.36 m apart, the flight 1.8 m clear and the stoop 0.15 m south): the pairs and flight move a few pixels at this picture's scale and stand on the photograph's front pairs (the south pair at about x 335-350, the north at 410-425). But between them, against the dark interior, this 1967 view shows a lit shaft at about x 362-371, rows 640-700, where the render draws the lit house wall: the plate's rear row (inland-1888, T-2876), not built. T-2881: built, and read again: the lit shaft the photograph shows between the front pairs (its light at x 355-373, rows 650-690) is the rear south pair, which the render now draws at x 349-365. Every pair here stands 6-12 px left of the photograph's, the front pairs too (photograph 335-347 and 411-425, render 325-337 and 401-413), which this ticket did not move: that is this camera's place at the loggia (T-1883's six controls all on the front's plane), not the rear row's, which the plate rules. Nothing else it shows opens a difference; the verdict is matches.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
