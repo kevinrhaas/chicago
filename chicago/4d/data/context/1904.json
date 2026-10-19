@@ -72,7 +72,7 @@
   },
   "house_row": {
    "eave_m": "10.5 masonry, 6.5 frame, x0.85-1.15",
-   "why": "past the near ring a run of three to six houses is drawn as one row, at the house rules' heights: at that distance the haze leaves a third or less of its colour and a row reads as the houses would"
+   "why": "past the near ring a run of three to six houses is drawn as one row, at the house rules' heights: at that distance the haze leaves a third or less of its colour and a row reads as the houses would; on a sheet, a drawn building at least 3.5 times as long as it is deep and no deeper than 16 m is a row of attached houses, not a block (T-2833: Mortimer and Tappan's sixteen lots on 16th Street, Robinson plate 10), at the house rules' heights under a flat roof"
   },
   "shops_block": {
    "eave_m": "11-15",
@@ -741,8 +741,8 @@
 [1397.1,-2904.7,82.8,10.4,31.9,10.5,3.4,1,0,0,2,3,3,0],
 [1252.0,-2901.0,90.3,3.5,4.5,3.4,1.6,1,0,4,1,3,7,0],
 [1280.7,-2906.5,0.3,8.0,9.3,5.5,2.6,1,0,0,0,3,7,0],
-[1348.4,-2930.2,90.3,15.2,110.4,16.0,0.0,0,0,4,1,3,0,0],
-[1288.2,-2930.1,90.3,14.9,23.2,16.0,0.0,0,0,0,2,3,0,0],
+[1348.4,-2930.2,90.3,15.2,110.4,10.5,0.0,0,0,4,1,3,5,0],
+[1288.2,-2930.1,90.3,14.9,23.2,10.5,0.0,0,0,0,2,3,5,0],
 [1238.9,-2934.9,90.3,4.8,33.2,10.5,0.0,0,0,1,3,3,3,0],
 [-1472.4,-6322.8,179.0,16.0,138.9,6.9,6.9,1,2,3,3,4,5,1],
 [-1473.5,-6414.2,179.0,14.8,39.2,7.2,6.4,1,2,3,2,4,5,1],

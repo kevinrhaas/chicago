@@ -1,0 +1,227 @@
+{
+  "ticket": "T-2598",
+  "measured": {
+    "on": "2026-10-19T00:49:19.408Z",
+    "build": "43d8f0a04",
+    "machine": "AMD EPYC 9V74 80-Core Processor ×4",
+    "seconds": 103,
+    "method": "the glessner-approach walk: /1904/, welcome entered, the eye stood at each station, residency let finish its uploads, 3 frames; GPU from a WebGL allocation meter"
+  },
+  "rows": [
+    {
+      "year": "1904",
+      "viewport": "mobile",
+      "label": "phone 390x780 dpr3",
+      "walk": "glessner-approach",
+      "residencyOff": false,
+      "steps": [
+        {
+          "local_e": 1410,
+          "local_n": -3218,
+          "yaw_deg": 265,
+          "gpuTextures": 102423585,
+          "gpuBuffers": 107535836,
+          "residency": {
+            "resident": 56,
+            "sources": 63,
+            "residentBytes": 65712256,
+            "budgetBytes": 268435456,
+            "wantedBytes": 65712256,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 7,
+            "redecodes": 0,
+            "overBudget": 0
+          },
+          "jsHeap": 86792940,
+          "arrayBuffers": 214059386,
+          "total": 510811747
+        },
+        {
+          "local_e": 1406,
+          "local_n": -3218.4,
+          "yaw_deg": 265,
+          "gpuTextures": 102423585,
+          "gpuBuffers": 107535836,
+          "residency": {
+            "resident": 56,
+            "sources": 63,
+            "residentBytes": 65712256,
+            "budgetBytes": 268435456,
+            "wantedBytes": 65712256,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 7,
+            "redecodes": 0,
+            "overBudget": 0
+          },
+          "jsHeap": 94247776,
+          "arrayBuffers": 214059592,
+          "total": 518266789
+        },
+        {
+          "local_e": 1402,
+          "local_n": -3218.8,
+          "yaw_deg": 265,
+          "gpuTextures": 102423585,
+          "gpuBuffers": 107535836,
+          "residency": {
+            "resident": 56,
+            "sources": 63,
+            "residentBytes": 65712256,
+            "budgetBytes": 268435456,
+            "wantedBytes": 65712256,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 7,
+            "redecodes": 0,
+            "overBudget": 0
+          },
+          "jsHeap": 100817556,
+          "arrayBuffers": 214059798,
+          "total": 524836775
+        },
+        {
+          "local_e": 1398,
+          "local_n": -3219.2,
+          "yaw_deg": 265,
+          "gpuTextures": 102423585,
+          "gpuBuffers": 107535836,
+          "residency": {
+            "resident": 56,
+            "sources": 63,
+            "residentBytes": 65712256,
+            "budgetBytes": 268435456,
+            "wantedBytes": 65712256,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 7,
+            "redecodes": 0,
+            "overBudget": 0
+          },
+          "jsHeap": 107518796,
+          "arrayBuffers": 214060004,
+          "total": 531538221
+        },
+        {
+          "local_e": 1394,
+          "local_n": -3219.6,
+          "yaw_deg": 265,
+          "gpuTextures": 102423585,
+          "gpuBuffers": 107535836,
+          "residency": {
+            "resident": 56,
+            "sources": 63,
+            "residentBytes": 65712256,
+            "budgetBytes": 268435456,
+            "wantedBytes": 65712256,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 7,
+            "redecodes": 0,
+            "overBudget": 0
+          },
+          "jsHeap": 82527404,
+          "arrayBuffers": 130310998,
+          "total": 422797823
+        },
+        {
+          "local_e": 1390.6,
+          "local_n": -3220,
+          "yaw_deg": 265,
+          "gpuTextures": 102423585,
+          "gpuBuffers": 107535836,
+          "residency": {
+            "resident": 56,
+            "sources": 63,
+            "residentBytes": 65712256,
+            "budgetBytes": 268435456,
+            "wantedBytes": 65712256,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 7,
+            "redecodes": 0,
+            "overBudget": 0
+          },
+          "jsHeap": 83142864,
+          "arrayBuffers": 130311204,
+          "total": 423413489
+        },
+        {
+          "local_e": 1390.6,
+          "local_n": -3220,
+          "yaw_deg": 265,
+          "gpuTextures": 102423585,
+          "gpuBuffers": 107535836,
+          "residency": {
+            "resident": 56,
+            "sources": 63,
+            "residentBytes": 65712256,
+            "budgetBytes": 268435456,
+            "wantedBytes": 65712256,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 7,
+            "redecodes": 0,
+            "overBudget": 0
+          },
+          "jsHeap": 83244072,
+          "arrayBuffers": 130311204,
+          "total": 423514697
+        },
+        {
+          "local_e": 1410,
+          "local_n": -3218,
+          "yaw_deg": 265,
+          "gpuTextures": 102423585,
+          "gpuBuffers": 107535836,
+          "residency": {
+            "resident": 56,
+            "sources": 63,
+            "residentBytes": 65712256,
+            "budgetBytes": 268435456,
+            "wantedBytes": 65712256,
+            "pending": 0,
+            "uploads": 0,
+            "evictions": 7,
+            "redecodes": 0,
+            "overBudget": 0
+          },
+          "jsHeap": 83767620,
+          "arrayBuffers": 130311204,
+          "total": 424038245
+        }
+      ],
+      "residency": {
+        "tier": "light",
+        "enterM": 70,
+        "leaveM": 90,
+        "budgetBytes": 268435456,
+        "uploadBytesPerFrame": 4194304,
+        "sources": 63,
+        "resident": 56,
+        "residentBytes": 65712256,
+        "allBytes": 77596304,
+        "peakResidentBytes": 65712256,
+        "pending": 0,
+        "uploads": 0,
+        "evictions": 7,
+        "redecodes": 0,
+        "standIns": 278,
+        "standInBytes": 1525664,
+        "encodedBytes": 0,
+        "wantedBytes": 65712256,
+        "overBudget": 0,
+        "problems": []
+      },
+      "errors": [],
+      "over": 0,
+      "maxGpuTextures": 102423585,
+      "maxTotal": 531538221,
+      "maxResidentBytes": 65712256,
+      "seconds": {
+        "walk": 103
+      }
+    }
+  ]
+}

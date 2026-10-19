@@ -110,6 +110,11 @@ const ONLY = argAt('--only') || 'both';
 const WALK = argAt('--walk');
 const RESIDENCY_OFF = has('--residency-off');
 const CAPTURES = has('--captures');
+// T-2828: `--picks N` aims the gaze probe (target.js, every 500 ms on a walk) N times at
+// each station and reads what the picks left behind: GL textures, framebuffers (render
+// targets), renderbuffers and programs, three's own counts and the pick module's
+// materials, and the heap they leave once collected. A pick that allocates fails the walk.
+const PICKS = Number(argAt('--picks') || 0);
 /** T-2598's stands: Glessner from five sides and three street eyes, on foot unless aloft. */
 const STANDS = [
   { id: 'glessner-ne-corner', local_e: 1410, local_n: -3200, yaw_deg: 225 },
@@ -141,6 +146,16 @@ const WALKS = {
   'prairie-there-and-back': { year: '1904', stations: [
     ...Array.from({ length: 9 }, (_, i) => ({ local_e: 1402, local_n: -3230 - 40 * i, yaw_deg: 180 })),
     ...Array.from({ length: 21 }, (_, i) => ({ local_e: 1402, local_n: -3510 + 40 * i, yaw_deg: 0 })),
+  ] },
+  // T-2828: the owner's phone killed walking from 1904's spawn (glessner_house: the east
+  // sidewalk at E 18th, 1410.12,-3218.01, facing west) straight across Prairie Avenue;
+  // its last sample was 1390,-3220. Every 4 m along that line, then the stop 3 m from
+  // the Glessner front (its east face at E 1387.6), then back to the spawn.
+  'glessner-approach': { year: '1904', stations: [
+    ...Array.from({ length: 5 }, (_, i) => ({ local_e: 1410 - 4 * i, local_n: -3218 - 0.4 * i, yaw_deg: 265 })),
+    { local_e: 1390.6, local_n: -3220, yaw_deg: 265 },
+    { local_e: 1390.6, local_n: -3220, yaw_deg: 265 },
+    { local_e: 1410, local_n: -3218, yaw_deg: 265 },
   ] },
 };
 if (WALK && !WALKS[WALK]) { console.error(`no walk named ${WALK}: ${Object.keys(WALKS).join(', ')}`); process.exit(2); }
@@ -253,6 +268,7 @@ const PORT = server.address().port;
  */
 function installGlMeter() {
   const buffers = new Map(); const textures = new Map(); const renderbuffers = new Map();
+  const framebuffers = new Set(); const programs = new Set();
   const mipped = new WeakSet();
   const BPP = {
     0x8058: 4, 0x8C43: 4, 0x8051: 4, 0x8C41: 4, 0x881A: 8, 0x8814: 16, 0x881B: 8, 0x8815: 16,
@@ -352,6 +368,12 @@ function installGlMeter() {
     wrap('renderbufferStorage', (gl, [, internal, w, h]) => rbStore(gl, internal, w, h, 1));
     wrap('renderbufferStorageMultisample', (gl, [, samples, internal, w, h]) => rbStore(gl, internal, w, h, samples));
     wrap('deleteRenderbuffer', (gl, [rb]) => renderbuffers.delete(rb));
+    // T-2828: what a pick may make and never let go of — a render target is a
+    // framebuffer, a new material a program.
+    wrap('createFramebuffer', (gl, args, fb) => { if (fb) framebuffers.add(fb); });
+    wrap('deleteFramebuffer', (gl, [fb]) => framebuffers.delete(fb));
+    wrap('createProgram', (gl, args, prog) => { if (prog) programs.add(prog); });
+    wrap('deleteProgram', (gl, [prog]) => programs.delete(prog));
   }
   window.__memoryMeter = () => {
     let gpuBuffers = 0; let gpuTextures = 0; let gpuRenderbuffers = 0;
@@ -363,7 +385,8 @@ function installGlMeter() {
     }
     for (const r of renderbuffers.values()) gpuRenderbuffers += r;
     return { gpuBuffers, gpuTextures, gpuRenderbuffers,
-      liveBuffers: buffers.size, liveTextures: textures.size, liveRenderbuffers: renderbuffers.size };
+      liveBuffers: buffers.size, liveTextures: textures.size, liveRenderbuffers: renderbuffers.size,
+      liveFramebuffers: framebuffers.size, livePrograms: programs.size };
   };
 }
 
@@ -393,7 +416,8 @@ function readLayers() {
   const texBytes = (t) => {
     // A compressed texture (a KTX2 sheet) is its transcoded blocks, every level it holds.
     if (t.isCompressedTexture && t.mipmaps?.length) {
-      return t.mipmaps.reduce((sum, m) => sum + (m.data?.byteLength ?? 0), 0);
+      // T-2828: a phone's GLB KTX2 lets go of its levels once uploaded; residency records them.
+      return t.mipmaps.reduce((sum, m) => sum + (m.data?.byteLength ?? 0), 0) || t.userData?.releasedBytes || 0;
     }
     const img = t.image || t.source?.data;
     const w = img?.width || img?.videoWidth || 0; const h = img?.height || img?.videoHeight || 0;
@@ -573,6 +597,42 @@ async function takeSnapshot(cdp, file) {
   fs.closeSync(out);
 }
 
+// ---------------------------------------------------------------- the pick probe
+
+/** N gaze picks where the eye stands; what they made and kept (T-2828). */
+async function pickProbe(page, cdp, n) {
+  const read = () => page.evaluate(() => {
+    const api = window.__chicago4d;
+    const gl = window.__memoryMeter();
+    const s = api.stats();
+    return { textures: gl.liveTextures, framebuffers: gl.liveFramebuffers, renderbuffers: gl.liveRenderbuffers,
+      programs: gl.livePrograms, gpuTextures: gl.gpuTextures + gl.gpuRenderbuffers, gpuBuffers: gl.gpuBuffers,
+      threeTextures: s.textures, threeGeometries: s.geometries, threePrograms: s.programs,
+      ...(api.pickResources?.() ?? {}) };
+  });
+  const look = (k) => page.evaluate((count) => {
+    const api = window.__chicago4d;
+    let hit = null;
+    const t0 = performance.now();
+    for (let i = 0; i < count; i += 1) { api.target.invalidate(); hit = api.target.current(); }
+    return { ms: (performance.now() - t0) / count, hit: hit?.id ?? null, distance: hit?.distance ?? null };
+  }, k);
+  const gc = async () => {
+    await cdp.send('HeapProfiler.collectGarbage');
+    return cdp.send('Runtime.getHeapUsage');
+  };
+  await look(1); // the first pick makes the pick's one target and materials: those are kept on purpose
+  const heap0 = await gc();
+  const before = await read();
+  const timed = await look(n);
+  const after = await read();
+  const heap1 = await gc();
+  const made = {};
+  for (const k of Object.keys(before)) if (typeof before[k] === 'number' && after[k] !== before[k]) made[k] = after[k] - before[k];
+  return { n, msPerPick: +timed.ms.toFixed(1), hit: timed.hit, distance: timed.distance, before, made,
+    heapKept: (heap1.usedSize + (heap1.backingStorageSize ?? 0)) - (heap0.usedSize + (heap0.backingStorageSize ?? 0)) };
+}
+
 // ---------------------------------------------------------------- one reading
 
 const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABLE || undefined });
@@ -725,6 +785,7 @@ for (const year of YEARS) {
         const heap = await walkCdp.send('Runtime.getHeapUsage');
         step.jsHeap = heap.usedSize; step.arrayBuffers = heap.backingStorageSize ?? 0;
         step.total = step.jsHeap + step.arrayBuffers + step.gpuBuffers + step.gpuTextures;
+        if (PICKS) step.picks = await pickProbe(page, walkCdp, PICKS);
         steps.push(step);
         console.log(`  N ${step.local_n}: total ${MB(step.total)} MB (heap ${MB(step.jsHeap)}`
           + ` + arraybuffers ${MB(step.arrayBuffers)} + gpu buffers ${MB(step.gpuBuffers)}) · gpu textures ${MB(step.gpuTextures)} MB`
@@ -732,6 +793,11 @@ for (const year of YEARS) {
             + ` = ${MB(step.residency.residentBytes)} of ${MB(step.residency.budgetBytes)} MB`
             + ` (reach asks ${MB(step.residency.wantedBytes)}, ${step.residency.overBudget} turned away)`
             + ` (pending ${step.residency.pending})` : ' · residency off'));
+        if (step.picks) {
+          const p = step.picks;
+          console.log(`    ${p.n} picks: ${p.msPerPick} ms each, hit ${p.hit ?? 'nothing'}${p.distance != null ? ` at ${p.distance.toFixed(1)} m` : ''}`
+            + ` · made ${Object.keys(p.made).length ? JSON.stringify(p.made) : 'nothing'} · heap kept ${MB(p.heapKept)} MB`);
+        }
       }
       const residency = await page.evaluate(() => {
         const r = window.__chicago4d.residency;
@@ -797,7 +863,7 @@ for (const year of YEARS) {
       const ts = Date.now();
       const file = path.join(os.tmpdir(), `memory-${year}-${vp.id}-${process.pid}.heapsnapshot`);
       await takeSnapshot(cdp, file);
-      const r = retainersFrom(parseSnapshot(file));
+      const r = retainersFrom(parseSnapshot(file), Number(argAt('--retainers') || 10));
       fs.rmSync(file, { force: true });
       row.snapshot = { arrayBufferBytes: r.arrayBufferBytes, arrayBuffers: r.arrayBuffers };
       row.retainers = r.top;
@@ -833,6 +899,14 @@ if (WALK) {
   for (const row of rows) {
     if (row.over) { red += 1; console.log(`::error::${row.viewport}: residency held more than its budget at ${row.over} station(s)`); }
     if (row.errors.length) { red += 1; console.log(`::error::${row.viewport}: ${row.errors.length} pageerror(s): ${row.errors[0]}`); }
+    // A pick may make nothing that lasts: no texture, render target, renderbuffer,
+    // program or material, and no GPU byte (heap is read, not held — V8's own churn).
+    const PICK_HELD = ['textures', 'framebuffers', 'renderbuffers', 'programs', 'gpuTextures', 'gpuBuffers',
+      'threeTextures', 'threeGeometries', 'threePrograms', 'materials', 'targets', 'pool'];
+    for (const st of row.steps ?? []) {
+      const kept = PICK_HELD.filter((k) => st.picks?.made?.[k] > 0);
+      if (kept.length) { red += 1; console.log(`::error::${row.viewport}: ${st.picks.n} picks at ${st.local_e},${st.local_n} made ${kept.map((k) => `${k} +${st.picks.made[k]}`).join(', ')}`); }
+    }
     if (row.residency?.problems?.length) console.log(`::warning::${row.viewport}: ${row.residency.problems.join('; ')}`);
   }
   console.log(`\n${rows.length} walk(s) in ${reading.measured.seconds} s`);

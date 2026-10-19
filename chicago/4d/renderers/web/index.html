@@ -240,9 +240,10 @@
         </div>
         <!-- T-2741: where you stand, in the scene's year and today — the era street (none in
              1812) over today's street, corner or house number, read off the City's own
-             centrelines (data/modern/streets.json). -->
+             centrelines (data/modern/streets.json). "Then", not the year: "1904 Prairie
+             Avenue" read as a house number. -->
         <div id="street-readout" class="street-readout" aria-live="polite" hidden>
-          <span class="street-line street-era"><b id="street-era-year"></b><strong id="street-historic"></strong></span>
+          <span class="street-line street-era"><b>Then</b><strong id="street-historic"></strong></span>
           <span class="street-line street-today"><b>Today</b><span class="street-modern" id="street-modern"></span></span>
           <span class="street-approach" id="street-approach" hidden></span>
         </div>
@@ -730,8 +731,14 @@
             <button class="setting-button" id="s-pacing-read" type="button">Read frame pacing</button>
           </span>
         </div>
+        <!-- T-2733: the longer run is the default; one 5 s sample a mode was too thin to settle. -->
+        <label class="field row" id="pacing-read-length" hidden><span>Reading length</span>
+          <select id="s-pacing-seconds">
+            <option value="15">15 s a mode — steadier</option>
+            <option value="5">5 s a mode — quicker</option>
+          </select></label>
         <p class="legend-note" id="pacing-read-status" hidden>Walks, turns and flies for about
-          half a minute at Light, Fixed then Adaptive, and puts you back where you were.</p>
+          a minute and a half at Light, Fixed then Adaptive, and puts you back where you were.</p>
         <textarea class="pacing-read-out" id="pacing-read-out" readonly rows="12" hidden
           aria-label="Frame pacing reading"></textarea>
       </div>
@@ -767,6 +774,16 @@
         <!-- T-2656: What's new, from About. T-2657 adds Researcher mode below it. -->
         <div class="field row"><span data-str="settings.whatsnew.line">Release notes</span>
           <button class="setting-button" id="s-open-whatsnew" type="button" data-str="hud.tab.whatsnew">What's new</button></div>
+        <!-- T-2660: the field log (js/field-log.js, js/field-log-view.js): counts kept on this
+             device only, never sent anywhere, with Clear. The rows are painted from the table. -->
+        <div class="field-log" id="s-field-log">
+          <h5 data-str="fieldlog.title">Field log</h5>
+          <p class="legend-note" data-str="fieldlog.note">Counted on this device only. Nothing is sent anywhere.</p>
+          <dl class="field-log-rows" id="s-field-log-rows"></dl>
+          <div class="field row"><span data-str="fieldlog.clear.line">Start the log again</span>
+            <button class="setting-button" id="s-field-log-clear" type="button" data-str="fieldlog.clear">Clear</button></div>
+          <p class="legend-note" id="s-field-log-status" role="status"></p>
+        </div>
         <!-- T-2657: Researcher mode (js/researcher.js), off by default, remembered per device. -->
         <label class="field row check-field"><span data-str="research.switch">Researcher mode</span>
           <input type="checkbox" id="s-researcher"></label>

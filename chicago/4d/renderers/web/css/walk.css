@@ -2280,6 +2280,17 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   color: #1a1503; background: linear-gradient(135deg, #fbbf24, #d97706); }
 .about-dev[hidden], #s-about-dev-note[hidden] { display: none; }
 #s-about-dev-note a { color: var(--accent); }
+/* T-2660: Settings › About › Field log — the counts this device keeps, label and number on
+   one line, the number in tabular figures so the column reads down. A long label wraps. */
+.field-log { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--edge); }
+.field-log > h5 { margin: 0 0 6px; font-size: 10.5px; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--accent); }
+.field-log-rows { display: grid; grid-template-columns: minmax(0, 1fr) fit-content(55%); gap: 4px 12px; margin: 8px 0 10px;
+  font-size: 12.5px; line-height: 1.4; }
+.field-log-rows dt { color: var(--ink-dim); min-width: 0; overflow-wrap: anywhere; }
+.field-log-rows dd { margin: 0; color: var(--ink); text-align: right; font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere; min-width: 0; }
+#s-field-log-status:empty { display: none; }
 /* T-2785 (owner, 2026-10-18: "the dev marker tag and date time stamp for dev is now gone
    so that should come back"): on a phone the DEV pill always shows in place of the
    full-width banner, which is the piece that covered the HUD's top row, and the arrival

@@ -331,6 +331,66 @@
    "note": "THE SPECIES IS ATTESTED AT CHICAGO; ITS MEMBERSHIP OF THIS COMMUNITY IS NOT, AND THAT IS WHAT THE GRADE MEANS HERE. Wau-Bun, ch. XVII 'Chicago in 1831', verbatim: \"On the northern bank of the river, directly facing the fort, was the family mansion of my husband. It was a long, low building, with a piazza extending along its front, a range of four or five rooms. A BROAD GREEN SPACE WAS INCLOSED BETWEEN IT AND THE RIVER, AND SHADED BY A ROW OF LOMBARDY POPLARS. Two immense cottonwood-trees stood in the rear of the building, one of which still remains as an ancient landmark.\" The species, the ROW, the fenced green, and which side of the house it stood on are all stated, by a near-contemporary who lived there. WHAT IS INFERRED IS THIS ENTRY: Populus nigra 'Italica' is a European cultivar and no part of the settled town's ecology; it is held in this zone's species table only because that table is where renderers/web/js/trees.js reads a stem's height, crown, foliage and confidence from. THE ZERO DENSITY IS THE CLAIM THAT KEEPS THAT HONEST — nothing grows this tree here. Every stem of it arrives as nursery stock and is put in the ground by a household, so no density over the settled town may ever deal one, and the only stems of it in this scene are the ones data/flora/plantings/town_planted_rows.json states by the rule in tools/generate_planted_rows.py. THE HEIGHT BAND IS RECONSTRUCTED. No source gives this tree a size. The ceiling is 18 m because that is the FLOOR of the eastern cottonwood's band in this same record, and every committed plate that draws both draws the round-crowned cottonwoods behind the house standing clear above the poplar row — which is Wau-Bun's reading too, since the cottonwoods are the 'immense' ones and the surviving landmark. The floor is 12 m because it is the shortest row the rule in tools/generate_planted_rows.py can deal: the youngest house that rule's age clause lets through has eleven and a half growing seasons behind it, at the cultivar's ordinary metre a year on lake-plain clay. WHAT WOULD REPLACE IT: a nurseryman's list, a sale notice, or a girth measured off a photograph-era survivor."
   },
   {
+   "id": "malus_domestica",
+   "binomial": "Malus domestica",
+   "common": "apple (young, planted)",
+   "role": "tree",
+   "form": "tree_open_crown",
+   "abundance": {"density_per_ha":[0,0]},
+   "height_m": [2.5,6],
+   "width_m": [2.5,5],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [62,90,46],
+    "foliage_rgb_alt": [127,151,87],
+    "inflorescence": null,
+    "appearance": "A low round head on a short stem, headed at a metre or so, the limbs held out wide; dull grey-green oval leaves. The fruit is set but small and green on 1 July, and is not drawn."
+   },
+   "confidence": "reconstructed",
+   "sources": ["kinzie_waubun_1856"],
+   "note": "THE YOUNG FRUIT TREES ARE ATTESTED; THIS SPECIES IS NOT, AND THAT IS WHAT THE GRADE MEANS HERE. Wau-Bun (1856), of the fort in 1831: beyond the parade ground south of the pickets 'were the company gardens, well filled with currant-bushes and young fruit-trees'; and of Dr. Harmon the same spring, 'planting fruit stones of all descriptions, to make ready a garden and orchard', inside a sod fence near the lake south of the fort. Neither names a fruit. APPLE is chosen because it was the ordinary orchard tree of the western frontier and of an army post that had to feed itself; a garrison's young fruit trees are likelier apple than anything else. THE ZERO DENSITY KEEPS IT HONEST, as it does for the Lombardy poplar above: an orchard tree is planted, never dealt, so no community may select it and every stem of it in the scene is stated by a planting record (data/flora/plantings/fort_company_garden_1835.json, harmon_orchard_1835.json, both written by tools/generate_fruit_plantings_1835.py). THE HEIGHT AND CROWN BANDS ARE RECONSTRUCTED for trees four to ten seasons from planting, nursery-grade young stock; no source gives a size. docs/LIBERTIES.md L-fruit-trees-1835-2809."
+  },
+  {
+   "id": "prunus_cerasus",
+   "binomial": "Prunus cerasus",
+   "common": "sour cherry (young, planted)",
+   "role": "tree",
+   "form": "tree_open_crown",
+   "abundance": {"density_per_ha":[0,0]},
+   "height_m": [2,5.5],
+   "width_m": [2,4],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [53,82,41],
+    "foliage_rgb_alt": [118,145,74],
+    "inflorescence": null,
+    "appearance": "An upright, rounded little tree with glossy bark banded by lenticels and dark, finely toothed leaves. Its fruit ripens about the scene date and is not drawn."
+   },
+   "confidence": "reconstructed",
+   "sources": ["kinzie_waubun_1856"],
+   "note": "THE YOUNG FRUIT TREES ARE ATTESTED; THIS SPECIES IS NOT, AND THAT IS WHAT THE GRADE MEANS HERE. Wau-Bun (1856), of the fort in 1831: beyond the parade ground south of the pickets 'were the company gardens, well filled with currant-bushes and young fruit-trees'; and of Dr. Harmon the same spring, 'planting fruit stones of all descriptions, to make ready a garden and orchard', inside a sod fence near the lake south of the fort. Neither names a fruit. SOUR CHERRY is chosen because it is a stone fruit (Harmon's 'fruit stones'), the hardiest of the cultivated cherries on the lake plain, and comes true enough from a stone to be worth planting one. THE ZERO DENSITY KEEPS IT HONEST, as it does for the Lombardy poplar above: an orchard tree is planted, never dealt, so no community may select it and every stem of it in the scene is stated by a planting record (data/flora/plantings/fort_company_garden_1835.json, harmon_orchard_1835.json, both written by tools/generate_fruit_plantings_1835.py). THE HEIGHT AND CROWN BANDS ARE RECONSTRUCTED for trees four to ten seasons from planting, nursery-grade young stock; no source gives a size. docs/LIBERTIES.md L-fruit-trees-1835-2809."
+  },
+  {
+   "id": "prunus_persica",
+   "binomial": "Prunus persica",
+   "common": "peach (seedling, planted)",
+   "role": "tree",
+   "form": "tree_open_crown",
+   "abundance": {"density_per_ha":[0,0]},
+   "height_m": [2,4.5],
+   "width_m": [2,4],
+   "july": {
+    "phenology": "fruiting",
+    "foliage_rgb": [74,107,51],
+    "foliage_rgb_alt": [139,167,90],
+    "inflorescence": null,
+    "appearance": "A low, open, spreading head of a few upright limbs from a short stem, with long narrow willow-like leaves; the fruit is green and downy on 1 July and is not drawn."
+   },
+   "confidence": "reconstructed",
+   "sources": ["kinzie_waubun_1856"],
+   "note": "THE YOUNG FRUIT TREES ARE ATTESTED; THIS SPECIES IS NOT, AND THAT IS WHAT THE GRADE MEANS HERE. Wau-Bun (1856), of the fort in 1831: beyond the parade ground south of the pickets 'were the company gardens, well filled with currant-bushes and young fruit-trees'; and of Dr. Harmon the same spring, 'planting fruit stones of all descriptions, to make ready a garden and orchard', inside a sod fence near the lake south of the fort. Neither names a fruit. PEACH is chosen because a peach stone was the commonest 'fruit stone' a settler of 1831 planted, and a seedling peach bears in its third or fourth year. A peach is short-lived and frost-tender on this shore; that is a reason Harmon's seedlings stay small, not a reason he would not plant them. THE ZERO DENSITY KEEPS IT HONEST, as it does for the Lombardy poplar above: an orchard tree is planted, never dealt, so no community may select it and every stem of it in the scene is stated by a planting record (data/flora/plantings/fort_company_garden_1835.json, harmon_orchard_1835.json, both written by tools/generate_fruit_plantings_1835.py). THE HEIGHT AND CROWN BANDS ARE RECONSTRUCTED for trees four to ten seasons from planting, nursery-grade young stock; no source gives a size. docs/LIBERTIES.md L-fruit-trees-1835-2809."
+  },
+  {
    "id": "ribes_spp",
    "binomial": "Ribes spp.",
    "common": "currant bushes (dooryard)",

@@ -1,8 +1,0 @@
-{
-  "title": "iPhone: 1904 no longer stops while you walk past the houses",
-  "kind": "fix",
-  "items": [
-    "On a phone, \"right in front of you\" is now read from each building's outline instead of being drawn on the graphics card twice a second. That drawing is where the iPhone stopped the page in both crash records.",
-    "A tap draws only the few buildings under your finger, not every building in the district."
-  ]
-}
