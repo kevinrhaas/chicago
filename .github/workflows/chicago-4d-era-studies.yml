@@ -1,0 +1,132 @@
+name: Chicago 4D — opt-in era authoring studies
+on:
+  push:
+    paths:
+      - ".github/workflows/chicago-4d-era-studies.yml"
+  workflow_dispatch:
+    inputs:
+      era_study:
+        description: 'Build unaccepted named1812/1904 canonical study artifacts'
+        type: choice
+        options: ['both', '1812', '1904']
+        default: both
+      liberty:
+        description: 'Actual integrator-assigned LIBERTIES heading after rebase'
+        type: string
+        required: true
+permissions:
+  contents: read
+concurrency:
+  group: chicago-4d-era-studies-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  era-studies:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install --quiet jsonschema pyproj openpyxl pypdf numpy scipy Pillow
+      - name: Read existing Blender pin
+        id: pin
+        run: |
+          source chicago/4d/generators/blender.pin
+          echo "version=$BLENDER_VERSION" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@v4
+        with:
+          path: /opt/blender-dl
+          key: blender-${{ steps.pin.outputs.version }}
+      - name: Preserve existing fixture byte verification
+        working-directory: chicago/4d
+        env:
+          BLENDER_CACHE: /opt/blender-dl
+        run: bash tools/human_export.sh --verify
+      - name: Compile actual era identities and validate opted-in sources
+        working-directory: chicago/4d
+        env:
+          STUDY_LIBERTY: ${{ inputs.liberty || 'L419' }}
+        run: |
+          set -euo pipefail
+          python tools/compile_scene.py --scene 1812
+          python tools/compile_scene.py --scene 1904
+          python tools/test_human_era_study_source.py --liberty "$STUDY_LIBERTY" > /tmp/era-study-source-checks.json
+          python - <<'PYCODE'
+          import json,pathlib,subprocess,tempfile
+          for era in ['1812','1904']:
+              manifest=json.loads(pathlib.Path(f'data/humans/recipes/era_studies/{era}.json').read_text())
+              with tempfile.TemporaryDirectory(prefix=f'era-{era}-body-repro-') as scratch:
+                  output=pathlib.Path(scratch)/'prepared.json'
+                  subprocess.run(['python','tools/human_base_prepare.py','--height-m',str(manifest['body_height_m']),
+                                  '--target-recipe',manifest['body_target_recipe_path'],'--output',str(output)],check=True)
+                  if output.read_bytes()!=pathlib.Path(manifest['body_path']).read_bytes():
+                      raise RuntimeError('Actual body preparation bytes drifted for '+era)
+          PYCODE
+      - name: Build canonical masters and existing portable exports
+        working-directory: chicago/4d
+        env:
+          STUDY_ERA: ${{ inputs.era_study || 'both' }}
+          STUDY_LIBERTY: ${{ inputs.liberty || 'L419' }}
+          BLENDER_CACHE: /opt/blender-dl
+        run: bash tools/human_era_study.sh --era-study "$STUDY_ERA" --liberty "$STUDY_LIBERTY" --output-dir /tmp/era-studies
+      - name: Stage only fresh study IDs in this disposable checkout
+        working-directory: chicago/4d
+        env:
+          STUDY_ERA: ${{ inputs.era_study || 'both' }}
+        run: |
+          python - <<'PY'
+          import os,pathlib,shutil
+          root=pathlib.Path('/tmp/era-studies')
+          ids=[]
+          for era,pid in [('1812','kinzie_john_elder_1812_study'),('1904','glessner_john_j_1904_study')]:
+              if os.environ['STUDY_ERA'] not in ['both',era]:continue
+              for folder in ['', 'web']:
+                  for lod in range(4):
+                      src=root/era/'exports'/folder/f'{pid}.lod{lod}.glb'
+                      dest=pathlib.Path('assets/humans')/folder/src.name
+                      if dest.exists():raise RuntimeError('Prior study export exists; refusing overwrite: '+str(dest))
+                      if not src.is_file():raise RuntimeError('Missing actual export: '+str(src))
+                      dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(src,dest)
+              ids.append(pid)
+          (root/'asset-ids.txt').write_text(','.join(ids)+'\n')
+          PY
+      - name: Install existing browser and container validator pins
+        run: |
+          npm install -g playwright@1.56.1 gltf-validator@2.0.0-dev.3.10
+          node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
+      - name: Validate actual new master and derivative containers
+        working-directory: chicago/4d
+        run: |
+          NODE_PATH="$(npm root -g)" node <<'JS'
+          const fs=require('node:fs'),v=require('gltf-validator');
+          (async()=>{let errors=0;const ids=fs.readFileSync('/tmp/era-studies/asset-ids.txt','utf8').trim().split(',');
+            for(const id of ids)for(const folder of ['','web/'])for(let lod=0;lod<4;lod++){
+              const file=`assets/humans/${folder}${id}.lod${lod}.glb`;
+              const r=await v.validateBytes(new Uint8Array(fs.readFileSync(file)),{uri:file});
+              fs.writeFileSync(`/tmp/era-studies/${folder?'web-':''}${id}.lod${lod}.validation.json`,JSON.stringify(r,null,2));
+              console.log(file,r.issues.numErrors,r.issues.numWarnings);errors+=r.issues.numErrors;
+            }if(errors)process.exitCode=1;
+          })().catch(e=>{console.error(e);process.exitCode=1;});
+          JS
+      - name: Actual source and normal-published inspection with unchanged sole checks
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          ids="$(cat /tmp/era-studies/asset-ids.txt)"
+          python tools/check_human_hair.py --assets assets/humans | tee /tmp/era-studies/hair-container-contract.jsonl
+          NODE_PATH="$(npm root -g)" node tools/human_teamster.mjs --asset-ids "$ids" --masters --sole-contact --output /tmp/era-studies/source
+          bash tools/publish.sh
+          NODE_PATH="$(npm root -g)" node tools/human_teamster.mjs --asset-ids "$ids" --published --sole-contact --output /tmp/era-studies/published
+      - name: Retain actual masters, exports, failures and image evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: era-authoring-studies-${{ github.sha }}
+          path: |
+            /tmp/era-studies/
+            /tmp/era-study-source-checks.json
+          if-no-files-found: warn

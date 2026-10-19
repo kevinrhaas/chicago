@@ -24131,3 +24131,10 @@ Optional canonical sit_drive authoring and named runtime inspection reference ex
 
 
 **Installed published bench verification (2026-10-19):** The actual published mirror passed the supported-W01 browser probe at1280x800 and390x780, including steering, wheel travel/reset, touch view controls, actualf415GLB hash, all eight declared framing checks, zero page/console/GL errors, and owned browser/server cleanup. This verifies the unoccupied bench study only; named canonical seated clothing/contact remains pending CI.
+
+
+## T-1789 / T-2804 — named1812 and1904 canonical authoring studies (2026-10-19)
+
+Added opt-in canonical source composition for inferred John Kinzie the elder on1812-08-14 and existing attested John Jacob Glessner on the1904 scene date. Their identity grades and source citations remain distinct from reconstructed age49/61 bodies, wholly conjectural civilian garment shells, hair, eyes, color maps and actions. L419 records the choices. The1812 household and card make its inferred identity available; no figure placement or driver/rider assignment is added.
+
+Source arrays, exact source-index shoe/body derivations, provenance, required shared rig/LODs/morphs/sockets/actions and the optional existing-export output directory passed independent source-only review. The opt-in workflow can self-test when its own file is pushed and otherwise takes explicit dispatch; it reuses pinned fixture verification and unchanged actual master/container/normal/animation/source/published sole checks. New canonical masters, portable exports, fit, age-appropriate skin, anatomical and clothing detail, source/published render review and photographic acceptance have NOT passed. No Blender was run on this improve runner. Existing1835 authoring/default export behavior remains.

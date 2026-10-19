@@ -1,0 +1,75 @@
+{
+  "id": "hh_kinzie_john_elder",
+  "scene": "1812",
+  "name": "John Kinzie the elder at the house across the river",
+  "head": "kinzie_john_elder",
+  "division": "north",
+  "arrival": {
+    "value": "1804",
+    "confidence": "inferred",
+    "precision": "year",
+    "sources": [
+      "currey_1912_story_of_old_fort_dearborn",
+      "moses_kirkland_history_of_chicago_v1"
+    ],
+    "note": "Currey dates arrival to fall1804; other accounts differ. This year precision avoids fabricating the day; the existing structure phase opens1804-10-01 as its own inferred convention, which is not copied as a personal arrival date."
+  },
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "moses_kirkland_history_of_chicago_v1"
+    ],
+    "note": "Presence on 1812-08-14 is inferred from the named interpreter at the 12 August council (local OCR lines 7290\u20137296) and the elder Kinzie accompanying the land column on 15 August (lines 7458\u20137466), with no absence between reported. These are 1895 compilation passages drawing on Wau-Bun, not contemporary attendance at 15:00 on 14 August."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "kinzie_house_1812",
+      "resolves_to": "structure",
+      "from": "1804",
+      "to": null,
+      "tier": "inferred",
+      "source_id": "currey_1912_story_of_old_fort_dearborn",
+      "also_sources": [
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "note": "The existing scene structure is the house occupied by John Kinzie the elder and family. Exact homecomings or daily position are not attested. This association is not the son John Harris Kinzie card."
+    }
+  ],
+  "persons": [
+    {
+      "id": "kinzie_john_elder",
+      "name": "John Kinzie the elder",
+      "relationship": "head",
+      "grade": "inferred",
+      "sources": [
+        "moses_kirkland_history_of_chicago_v1",
+        "currey_1912_story_of_old_fort_dearborn"
+      ],
+      "born": {
+        "value": "1763",
+        "confidence": "inferred",
+        "sources": [
+          "moses_kirkland_history_of_chicago_v1"
+        ],
+        "note": "Wau-Bun biographical extract reproduced in1895 local OCR line5185 states born inQuebec1763. Secondary/transcription-mediated; no exact birthday supplied. He is48or49 on1812-08-14."
+      },
+      "occupation": {
+        "value": "silversmith and trader",
+        "confidence": "inferred",
+        "sources": [
+          "moses_kirkland_history_of_chicago_v1"
+        ],
+        "note": "Local OCR lines5151-5153 calls him silver-smith and Indian-trader; council interpreter passage is separate. Neither occupation makes him a professional wagon driver."
+      },
+      "note": "Existing historical identity already named by the1812 house and source narratives, newly proposed as a date-qualified portable-person record. Inferred grade reflects a later compilation/family narrative, not an anonymous invented identity. Distinct from kinzie_john_h (the child John Harris Kinzie, aged9 in1812); no1835 resident card is moved backward. Appearance, dimensions, clothes and standing/walking actions are reconstructed, no portrait likeness or observed action claimed."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Only the selected adult is carried by this first parcel. Omission of Eleanor, children or staff is not evidence they were absent. The 1812 family boat on15August is not staged on14August; no unnamed driver is invented. Liberty White and Lee farm deaths inApril are not resurrected.",
+    "sources": [
+      "moses_kirkland_history_of_chicago_v1"
+    ]
+  }
+}

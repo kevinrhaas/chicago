@@ -29666,3 +29666,18 @@ This is an additive seated-study declaration under existing L418. Existing recon
 A separate W01 bench variant adds an original removable timber seat, retaining cleats, bearing plates, bolts, footboard and four floor supports. Its support-plane datum is (0,1.58,0.65)m; the footboard top is1.12m. These chosen dimensions and construction are reconstructed to support the selected pose, not attested 1835 joinery or load-tested hardware. Fasteners intentionally enter timber. The ordinary W01 wagon and hitch remain separate. Unoccupied geometry/support samples do not establish occupant collision clearance, strength, continuous movement, historical construction, photographic quality or usable boarding/riding.
 
 The visible bench study is a development reconstruction. No photograph, ownership, manufacturer or historical likeness is asserted; all earlier source rights restrictions remain.
+
+
+## Per-subject liberties
+
+### L419 — Opt-in Kinzie1812 and Glessner1904 authoring studies
+
+**Decision:** Create isolated unaccepted canonical-authoring studies for the inferred John Kinzie elder identity at1812-08-14 and attested John Jacob Glessner identity in the existing1904 scene. Identity citations support identity/presence only. Reconstructed age49/61 software bodies, original wholly conjectural civilian garments, engineering eyes and cleared reusable generic skin/hair do not establish likeness, measured complexion, personal clothing, age-appropriate skin or a historical action. No driver/rider/event assignment or scene placeholder is added.
+
+Canonical source composition may apply explicitly recorded shoe registration, source-index barefoot masks and identified winding corrections while preserving immutable original body/garment inputs. These operations are engineering derivations, not fit acceptance. Existing source/normal/published sole-contact, animation, skeleton, LOD, material, morphology and container gates remain required. The manual opted-in workflow retains failed and successful evidence; no source-only, array-only or canonical-build result is photographic or production acceptance. Existing1835 builder/default paths remain unchanged.
+
+**Applies to:** `assets/authored/humans/era_studies/1812/`, `assets/authored/humans/era_studies/1904/`, both era recipes and canonical studies, and the inferred Kinzie elder household. No structure or portrait claim is discharged.
+
+**How to resolve:** actual canonical exports and source/published images, independently reviewed period garments and anatomy, fit and source licenses. Unverified studies remain unaccepted.
+
+**Recorded:** 2026-10-19 (T-1789, T-2804).
