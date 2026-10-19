@@ -29228,7 +29228,10 @@ step lower, into the areaway the 1963 plan draws.
 **What is not built:** the 1963 plan's descending flight and its areaway. The plan gives no level, no
 riser count anyone can read with confidence and no date for them (its only dated note is the c.1955
 wooden stair behind the service wing, a different stair), and the 2024 view shows a sloping railed walk
-in their place. The lawn runs to the wall as before.
+in their place. The lawn runs to the wall as before. Also withdrawn: the reconstructed garden light
+under the first stable bay (29.5-33.0 ft, one of three placed by the stable window rhythm). With the
+door lowered it stood against the door's jamb, and the 2024 photograph shows unbroken brick from that
+window's sill down to the granite base. The other two garden lights are unchanged.
 **How to resolve:** a dated photograph of the west court before 1955, or a level survey of the door's
 threshold against the court, settles both the threshold and whether the areaway is original.
 **Applies to:** `data/structures/glessner_house.json`
