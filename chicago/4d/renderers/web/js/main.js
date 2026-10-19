@@ -61,13 +61,14 @@ import { createSignage } from './signage.js';
 import { createYardGoods } from './yard.js';
 import { keptGround } from './kept-ground.js';
 import { createFrontage, fetchPrebuiltFrontage, pageBuild } from './frontage.js';
-import { setPickRenderer } from './gpu-pick.js';
+import { setPickRenderer, setPickLog } from './gpu-pick.js';
 import { createFarMerge } from './far-merge.js';
 import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
   closeUploadedImages } from './upload-release.js';
 import { compactStreams } from './compact-streams.js';
 import { createTextureResidency } from './texture-residency.js';
 import { createCrashGuard } from './crash-guard.js';
+import { createBlackbox, wasCut, summary as blackboxSummary, report as blackboxReport } from './blackbox.js';
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
@@ -104,11 +105,13 @@ import { createEvidenceHub } from './evidence.js';
 import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { paintAbout } from './about.js';
+import { createResearcherMode } from './researcher.js';
 import { createTour } from './tour.js';
 import { createTourOverlay } from './tour-overlay.js';
 import { markTerms } from './term-tips.js';
 import { createRoamTip } from './roam-tip.js';
-import { createTourOffer, createHints, takeJumped } from './tour-offer.js';
+import { createTourOffer, createHints, takeJumped, HINT_MS } from './tour-offer.js';
+import { createLicense } from './license.js';
 import { isReconstructed } from './place-kinds.js';
 import { plateFor as jauntPlate } from './pictures.js';
 import { jauntModeFor, jauntChoice, styleWords } from './getting-there.js';
@@ -1487,6 +1490,9 @@ const api = {
   textureResidency: null,
 };
 window.__chicago4d = api;
+// T-2657: Researcher mode, Settings › About. Read from this device before anything paints,
+// so a researcher's page opens with the research already in place.
+api.researcher = createResearcherMode({ storage: safeStorage() });
 // The gate is up exactly when no control backend is live, so its hint row cannot wait
 // for one: it follows the device's best guess (T-2045). A phone was shown W A S D and
 // Esc through the whole arrival, on a failed boot, and back on the welcome.
@@ -1513,6 +1519,22 @@ const crashBoot = crashGuard.boot({
   detail: readDetailPreference() || bootGuess?.detail || (prefersTouch() ? 'light' : 'full'),
   quality: resolveSharpness(readQualityPreference(), prefersTouch(), bootGuess?.sharpness),
 });
+// T-2826: the page's last moments, kept for the next load (blackbox.js). A page
+// that was cut off (a lost context, or a tab killed mid-visit) says on the card
+// what it was doing, with the whole record a tap away for the owner's report.
+let blackboxSample = () => null;
+const blackbox = createBlackbox({ year: YEAR, build: document.getElementById('gate-build')?.textContent?.trim() || VERSION, sample: () => blackboxSample() });
+api.blackbox = blackbox;
+if (wasCut(blackbox.previous)) {
+  const line = blackboxSummary(blackbox.previous);
+  crashGuard.show(crashGuard.state.notice ? `${crashGuard.state.notice} ${line}` : line,
+    { copyText: blackboxReport(blackbox.previous) });
+}
+blackbox.log('boot', { to: `${crashBoot.detail}@${crashBoot.quality}` });
+window.addEventListener('pagehide', () => blackbox.end('left'));
+document.addEventListener('visibilitychange', () => blackbox.log(document.hidden ? 'hidden' : 'shown'));
+window.addEventListener('error', (e) => blackbox.log('error', { msg: String(e.message ?? e).slice(0, 120) }));
+window.addEventListener('unhandledrejection', (e) => blackbox.log('error', { msg: String(e.reason?.message ?? e.reason).slice(0, 120) }));
 const bootCell = {
   device: prefersTouch() ? 'mobile' : 'desktop',
   detail: crashBoot.detail,
@@ -1589,6 +1611,7 @@ api.timeStream = createTimeStream({ boot: bootController, forecast: bootForecast
 void api.timeStream.load(new URL(`timestream/${YEAR}.json`, resolveBases().dataBase));
 bootController.on('ready', () => { try { sessionStorage.setItem(`c4d.loading.build.${YEAR}`, VERSION); } catch { /* optional */ } });
 bootController.on('ready', () => crashGuard.live());
+bootController.on('ready', () => blackbox.log('ready'));
 const bootCheckpoint = createCheckpoint();
 
 boot().catch((err) => {
@@ -1765,6 +1788,19 @@ async function boot() {
     const released = uploadReleaseState();
     return released.attributes > 0 || released.images > 0;
   } });
+  renderer.domElement.addEventListener('webglcontextlost', () => blackbox.log('lost'));
+  renderer.domElement.addEventListener('webglcontextrestored', () => blackbox.log('restored'));
+  setPickLog((kind, data) => blackbox.log(kind, data));
+  const blackboxSize = new THREE.Vector2();
+  blackboxSample = () => {
+    const { render, memory } = renderer.info;
+    renderer.getDrawingBufferSize(blackboxSize);
+    const pose = api.walker?.state;
+    return { calls: render.calls, tris: render.triangles, geo: memory.geometries, tex: memory.textures,
+      w: blackboxSize.x, h: blackboxSize.y, ratio: +renderer.getPixelRatio().toFixed(2),
+      heap: performance.memory ? Math.round(performance.memory.usedJSHeapSize / 1048576) : null,
+      at: pose ? `${Math.round(pose.e)},${Math.round(pose.n)}` : null };
+  };
 
   const scene3d = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(62, 1, NEAR.min, 3000);
@@ -2826,6 +2862,7 @@ async function boot() {
       api.flora = flora;
       api.trees = trees;
       detailLevel = level;
+      blackbox.log('detail', { to: level });
       residency?.setTier(level);
       BUDGET.triangles = detailLevels[level].triangles;
       enclosures.setDetail?.(level);
@@ -2869,6 +2906,7 @@ async function boot() {
     }
     if (!DETAIL[level] || level === detailLevel) return;
     detailLevel = level;
+    blackbox.log('detail', { to: level });
     residency?.setTier(level);
     BUDGET.triangles = detailLevels[level].triangles;
     // The fence's half of the level, first: `light` draws a pale as a plank and
@@ -3626,6 +3664,7 @@ async function boot() {
   // ---- picking ---------------------------------------------------------- //
 
   function inspect(ndc = null) {
+    blackbox.log('tap', { to: ndc ? 'point' : 'crosshair' });
     let hit = buildings.pickAt(ndc, camera);
     /**
      * A fence can be the thing you are aiming at. The estray pen's geometry
@@ -3972,6 +4011,10 @@ async function boot() {
   let tourEntering = false;
   api.tourOffer = tourOffer;
   api.hints = hints;
+  // T-2665: the Navigator License, awarded once per device as the Field Check's Finish
+  // closes it (below, at the tour), and kept with the Jaunt keepsakes in Jaunts' daybook.
+  const license = createLicense();
+  api.license = license;
   for (const type of ['pointerdown', 'keydown']) {
     window.addEventListener(type, () => { if (hints.showing) hints.hide(); }, { capture: true });
   }
@@ -4048,6 +4091,7 @@ async function boot() {
         // mode where the Jaunt allows it; one that cannot go that way keeps its own and says so.
         preferredMode: (jaunt) => jauntModeFor(hud.gettingThere, jaunt),
         modeNote: (jaunt) => jauntWay(jaunt).note,
+        license,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
       const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
@@ -4388,6 +4432,13 @@ async function boot() {
         jauntCatalog: (year) => (jauntCatalogs[year] ??= fetch(new URL(`sidecars/${encodeURIComponent(year)}/jaunts/catalog.json`, resolveBases().dataBase), { cache: 'no-cache' })
           .then((res) => { if (res.status === 404) return []; if (!res.ok) throw new Error(String(res.status)); return res.json().then((doc) => doc?.jaunts ?? []); })
           .catch((err) => { delete jauntCatalogs[year]; throw err; })),
+        // T-2667: Guide › About this destination opens one of its cards in the section
+        // under the Guide's sheet (the old research hub, js/evidence.js).
+        aboutCard: (id) => {
+          if (!hud.panelOpen()) hud.setPanel(true);
+          hud.selectTab('evidence');
+          return api.evidenceHub?.showCard?.(id) ?? false;
+        },
         // T-2638: what Inspect's front page reads. The compiled summaries (inspect/<scene>.json,
         // tools/compile_summaries.py), the pictures (the card's own file), a building's record,
         // and the card itself, on a tab, as the full record until the Inspect tabs (T-2639).
@@ -4492,8 +4543,22 @@ async function boot() {
       if (v && !tourTimer) tourTimer = setInterval(() => { tour.tick(); tourOverlay.place(); }, 250);
       if (!v && tourTimer) { clearInterval(tourTimer); tourTimer = null; }
     },
+    onFinish: () => awardLicense(),
   });
   api.tour = tour;
+  // T-2665: Finish (never Skip) awards the Navigator License, and the hint line says where it
+  // is kept, once: a replay that finishes again keeps the one license and says nothing.
+  let licenseTimer = null;
+  function awardLicense() {
+    if (!license.award()) return false;
+    const el = document.getElementById('nav-hint');
+    if (!el) return true;
+    hints.hide();
+    el.textContent = license.awardedText(); el.dataset.hint = 'license'; el.hidden = false;
+    clearTimeout(licenseTimer);
+    licenseTimer = setTimeout(() => { if (el.dataset.hint === 'license') el.hidden = true; }, HINT_MS);
+    return true;
+  }
   document.getElementById('tour-start')?.addEventListener('click', () => { hud.setPanel(false); tour.start(); });
 
   // ---- resize ----------------------------------------------------------- //
@@ -4701,8 +4766,18 @@ async function boot() {
     shadow.autoUpdate = governor.shadowFresh;
     if (!governor.shadowFresh) shadow.needsUpdate = false;
   }
+  // T-2826: what the visitor has open, as a step in the black box when it changes.
+  let seenCard = null, seenNav = null;
+  function watchSteps() {
+    const card = popup.openId ?? null;
+    if (card !== seenCard) { blackbox.log(card ? 'card' : 'card-closed', card ? { id: card } : null); seenCard = card; }
+    const nav = navigatorUi ? `${navigatorUi.level}:${navigatorUi.app ?? ''}` : null;
+    if (nav !== seenNav) { if (seenNav !== null || nav !== '0:home') blackbox.log('nav', { level: navigatorUi?.level, app: navigatorUi?.app ?? null }); seenNav = nav; }
+    blackbox.tick();
+  }
   renderer.setAnimationLoop((t) => {
     try {
+      watchSteps();
       governor.setTier(detailLevel);
       // A capture, the welcome and a held clock are still frames by definition,
       // and are drawn exactly as they were before the governor existed.

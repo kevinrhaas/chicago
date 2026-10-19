@@ -404,7 +404,8 @@ export async function mountCityCensus({ dataBase, root, buildStamp = '', onError
   const meta = census ? '<dl class="city-meta">'
     + `<div><dt>Target date</dt><dd><time datetime="${targetDate}">`
     + `${targetDate || 'not recorded'}</time></dd></div>`
-    + '<div><dt>Derived by</dt><dd><code>'
+    // T-2667: the tool that derived the census is a file path, for researchers only.
+    + '<div data-researcher><dt>Derived by</dt><dd><code>'
     + `${attr(census.derived_by || 'not recorded')}</code></dd></div>`
     + `<div><dt>Build</dt><dd>${attr(buildStamp || 'development build')}</dd></div>`
     + '</dl>' : '';

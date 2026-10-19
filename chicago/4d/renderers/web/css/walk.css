@@ -1285,6 +1285,11 @@ body.is-touch .crosshair { display: none; }
 body:is(.is-touch, .touch-first) .crash-notice button { min-height: 44px; }
 .crash-notice-reload { padding: 0 14px; font-weight: 600; color: var(--accent); }
 .crash-notice-reload[hidden] { display: none; }
+/* T-2826: the black box's line after a reset is long, so the card wraps and Copy sits under it. */
+.crash-notice:has(.crash-notice-copy:not([hidden])) { flex-wrap: wrap; align-items: flex-start; }
+.crash-notice:has(.crash-notice-copy:not([hidden])) .crash-notice-text { flex: 1 1 calc(100% - 90px); overflow-wrap: anywhere; }
+.crash-notice-copy { padding: 0 14px; font-weight: 600; color: var(--accent); margin-left: 30px; }
+.crash-notice-copy[hidden] { display: none; }
 .crash-notice-close { width: 36px; display: grid; place-items: center; border-color: transparent; }
 body:is(.is-touch, .touch-first) .crash-notice-close { width: 44px; }
 .crash-notice-close svg { width: 16px; height: 16px; }
@@ -2300,3 +2305,16 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   #__dev { display: none !important; }
   #__devpill { display: inline-block !important; }
 }
+/* T-2657 — Researcher mode. Its label is an item of the HUD's top row, between the year chip
+   and the instrument, so the row's own layout keeps it clear of both; level with the chip's
+   middle, it takes no pointer, and it is drawn only while the mode is on (css/skins.css).
+   A full essay it brings back is set off by a dashed rule in the skin's accent. */
+.research-badge {
+  flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  align-self: flex-start; margin-top: 10px; pointer-events: none; padding: 3px 9px; border-radius: 999px;
+  font: 500 9px/1.2 var(--font-mono, ui-monospace, monospace); letter-spacing: .16em;
+  color: var(--accent); background: var(--panel, rgba(16, 32, 58, .94));
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+}
+.why-full { border-left: 2px dashed color-mix(in srgb, var(--accent) 70%, transparent); padding-left: 8px; }
+.research-link { color: var(--accent); }

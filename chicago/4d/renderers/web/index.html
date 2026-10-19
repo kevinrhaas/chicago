@@ -34,6 +34,7 @@
      feature own its style. walk.css stays the base and the tokens. -->
 <link rel="stylesheet" href="./css/drawer.css">
 <link rel="stylesheet" href="./css/navigator.css">
+<link rel="stylesheet" href="./css/confidence-overlays.css">
 <link rel="stylesheet" href="./css/inspect.css">
 <link rel="stylesheet" href="./css/photos.css">
 <link rel="stylesheet" href="./css/tour.css">
@@ -204,6 +205,9 @@
       class="conf-legend-dots" aria-hidden="true"><i data-grade="attested"></i><i data-grade="inferred"></i><i
       data-grade="reconstructed"></i></span><span class="conf-legend-mark" aria-hidden="true" data-str="confidence.legend.mark">CONF</span></button>
     </div>
+    <!-- T-2657: Researcher mode's label, in the row between the year chip and the instrument,
+         shown only while it is on (css/skins.css). -->
+    <span class="research-badge" id="research-badge" data-researcher data-str="research.badge">RESEARCHER</span>
     <div class="hud-actions">
       <!-- T-2625 (§10 "In-world HUD"): Start / Jaunts, the pace chip and the light / dark
            switch left this row. Start / Jaunts's three choices are the Navigator's Jaunts app
@@ -290,7 +294,7 @@
       <button class="panel-tab" data-tab="travel" role="tab" aria-selected="false" title="Move" data-str-title="hud.tab.move"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17h3l2-5h6l2 5h3"/><path d="M9 12l1.5-4h3L15 12"/><circle cx="7" cy="19" r="1.6"/><circle cx="17" cy="19" r="1.6"/><path d="M12 8V4"/></svg><span class="tab-label" data-str="hud.tab.move">Move</span></button>
       <button class="panel-tab" data-tab="people" role="tab" aria-selected="false" title="People" data-str-title="hud.tab.people"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.5A5 5 0 0 1 22 19"/></svg><span class="tab-label" data-str="hud.tab.people">People</span></button>
       <button class="panel-tab" data-tab="businesses" data-title="Shops &amp; work" role="tab" aria-selected="false" title="Shops &amp; work" data-str-title="hud.tab.shops"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5 4.7 5.2A1.6 1.6 0 0 1 6.2 4.2h11.6a1.6 1.6 0 0 1 1.5 1L21 9.5"/><path d="M4.5 9.5v9a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5v-9"/><path d="M3 9.5a2.6 2.6 0 0 0 5 0 2.6 2.6 0 0 0 4 0 2.6 2.6 0 0 0 4 0 2.6 2.6 0 0 0 5 0"/><path d="M9.5 20v-5h5v5"/></svg><span class="tab-label" data-str="hud.tab.shops.short">Shops</span></button>
-      <button class="panel-tab" data-tab="evidence" role="tab" aria-selected="false" title="Sources" data-str-title="hud.tab.sources"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg><span class="tab-label" data-str="hud.tab.sources">Sources</span></button>
+      <button class="panel-tab" data-tab="evidence" data-title="About this destination" role="tab" aria-selected="false" title="About this destination" data-str-title="guide-about.tab.title"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/></svg><span class="tab-label" data-str="guide-about.tab">About</span></button>
       <button class="panel-tab" data-tab="settings" role="tab" aria-selected="false" title="Settings" data-str-title="hud.tab.settings"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 12h2M10 12h10M4 17h8M16 17h4"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="14" cy="17" r="2"/></svg><span class="tab-label" data-str="hud.tab.settings">Settings</span></button>
       <button class="panel-tab" data-tab="controls" role="tab" aria-selected="false" title="Guide" data-str-title="hud.tab.guide"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M11 10h.01M15 10h.01M7 14h10"/></svg><span class="tab-label" data-str="hud.tab.guide">Guide</span></button>
       <button class="panel-tab" data-tab="whatsnew" role="tab" aria-selected="false" title="What's new" data-str-title="hud.tab.whatsnew"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2H4.5z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="tab-label" data-str="hud.tab.whatsnew">What's new</span><span class="tab-dot" id="whatsnew-dot" hidden aria-hidden="true"></span></button>
@@ -357,7 +361,9 @@
       <label class="field"><span>Eye height <b id="v-eye"></b></span>
         <input type="range" id="s-eye" min="1.4" max="2.6" step="0.02"></label>
       <details class="why"><summary>Why this default</summary>
-        <p class="legend-note" id="eye-note">The default, 1.68 m, is the mean stature of an adult
+        <p class="legend-note" data-visitor-only data-str="research.why.eye">The default, 1.68 m, is the average height of an American man in the 1830s. Raise it if the view feels low; it moves only the camera, never the town.</p>
+        <!-- T-2657: the full essay, for Researcher mode. -->
+        <p class="legend-note why-full" id="eye-note" data-researcher>The default, 1.68 m, is the mean stature of an adult
           man in the 1830s United States — this walkthrough puts your eye where a person of the
           period had theirs, which is lower than a modern viewer expects and lower than the
           prairie grass beside you, because both of those are true of the place. Raise it if the
@@ -389,8 +395,11 @@
       <div id="businesses-directory"></div>
     </section>
     <section class="panel-body" data-panel="evidence" hidden>
-      <!-- The Evidence hub (evidence.js). Ten topics, one shown at a time; the
-           tiles render into #evidence-hub. Each topic is a container whose mounts
+      <!-- Guide › About this destination (T-2667): the old Evidence hub (evidence.js).
+           Its topics fold into four cards, How we grade, Sources, Liberties and What
+           lived and grew here, drawn into #evidence-hub; the order book's topic is marked
+           data-researcher, hidden until Researcher mode is on. One topic is shown at a
+           time; the tiles sit in their cards. Each topic is a container whose mounts
            keep their ids — liberties.js, ground.js, fauna.js, plants.js and
            exclusions.js still render into them, and the smoke reads them by id.
            The topics carry no `hidden` in the markup on purpose: if the hub
@@ -400,9 +409,9 @@
       <div class="ev-topic" data-topic="grades">
         <h3 class="legend-h ev-topic-title">How we grade</h3>
         <ul class="legend-list">
-          <li><i class="sw sw-doc"></i> <b>attested</b> — a source attests this at the scene date</li>
-          <li><i class="sw sw-inf"></i> <b>inferred</b> — reasoned from evidence about this thing: a described location, a measured lot, an adjacent record</li>
-          <li><i class="sw sw-rec"></i> <b>reconstructed</b> — no source speaks to this one; built to fill a demonstrable need of the town, and drawn as dithered massing</li>
+          <li><i class="sw sw-doc"></i> <b>Attested</b> — a source attests this at the scene date</li>
+          <li><i class="sw sw-inf"></i> <b>Inferred</b> — reasoned from evidence about this thing: a described location, a measured lot, an adjacent record</li>
+          <li><i class="sw sw-rec"></i> <b>Reconstructed</b> — no source speaks to this one; built to fill a demonstrable need of the town, and drawn as dithered massing</li>
           <!-- T-1158. The fourth chip appears on PEOPLE, not on buildings: most of an
                1835 resident's attributes are simply not recorded, and until now the card
                showed that absence with the reconstructed chip — which reads as "we made
@@ -439,8 +448,8 @@
             Liberties document. Every value a record states without evidence is named in
             this list — an invented outline or placement, and equally a roof, a height or a porch
             chosen because it was usual rather than because it was found. An entry says which
-            inventions it admits to — the dashed chips — and the commit gate checks those claims
-            against the records both ways, failing if an invention has no admission or an admission
+            inventions it admits to — the dashed chips — and an automatic check holds those
+            claims to the records both ways, failing if an invention has no admission or an admission
             has no invention. The rule now runs the other way as well: where a record states
             something the model does not build — a stable, a painted sign, a chimney count no
             generator reads — the popup marks that row <em>not built</em> or <em>not modelled from
@@ -565,7 +574,10 @@
         </div>
       </div>
 
-      <div class="ev-topic" data-topic="orderbook">
+      <!-- T-2667: Researcher mode only (owner ruling 2026-10-16). The order book is
+           internal language — the quota, the work still owed — so the whole topic is
+           data-researcher; its mounts keep their ids and still fill at boot. -->
+      <div class="ev-topic" data-topic="orderbook" data-researcher>
         <h3 class="legend-h ev-topic-title">Reconstructing the town</h3>
         <p class="legend-note ev-lead" id="order-book-note" aria-busy="true">Loading…</p>
         <details class="ev-about">
@@ -574,8 +586,8 @@
             minus what the sources can name, bucket by bucket — people by sex, age, division,
             household and trade; households by kind; the December 1835 trade census against the
             firms the town already holds; and the roofs the building programme still owes. Each
-            bucket names the ticket that owes it and carries a counter the reconstruction tools
-            write, so the bars fill as the town does. The section at the top is the other
+            bucket carries a counter the reconstruction tools write, so the bars fill as the town
+            does. The section at the top is the other
             direction: how many of the households the book ordered now have ground under them,
             how many of the town&rsquo;s standing roofs carry one, and which houses have been asked
             for and not yet built. Nothing here is a claim about 1835: it is
@@ -615,7 +627,8 @@
         <label class="field"><span>Brightness <b id="v-brightness"></b></span>
           <input type="range" id="s-brightness" min="0" max="1" step="0.05"></label>
         <details class="why"><summary>Why this default</summary>
-          <p class="legend-note" id="brightness-note">The scene is lit by a sky whose colour was
+          <p class="legend-note" data-visitor-only data-str="research.why.brightness">The default is the light matched to a July photograph taken at this latitude. Raise it for a dim room or a bright window. It changes nothing else.</p>
+          <p class="legend-note why-full" id="brightness-note" data-researcher>The scene is lit by a sky whose colour was
             matched to a July photograph taken at this latitude, and the default position of this
             slider is that measured light — which is why it says "calibrated" rather than showing a
             number. Raise it if the scene is hard to see: a dim room, a bright window, a phone at
@@ -632,7 +645,8 @@
         <label class="field"><span>Road visibility <b id="v-road-aid"></b></span>
           <input type="range" id="s-road-aid" min="0" max="1" step="0.05"></label>
         <details class="why"><summary>Why this default</summary>
-          <p class="legend-note" id="road-aid-note">These are worn earth tracks through prairie
+          <p class="legend-note" data-visitor-only data-str="research.why.road">The default paints the worn earth tracks as the record describes them. Raise it if they are hard to follow; it changes your screen, not the past.</p>
+          <p class="legend-note why-full" id="road-aid-note" data-researcher>These are worn earth tracks through prairie
             grass, and how much bare earth shows is a modelled figure with its own evidence behind
             it — so the default paints them exactly as the record describes. Raise this if they are
             hard to follow: on a phone in daylight, or if faint contrast is difficult to see. It
@@ -749,6 +763,10 @@
         <!-- T-2656: What's new, from About. T-2657 adds Researcher mode below it. -->
         <div class="field row"><span data-str="settings.whatsnew.line">Release notes</span>
           <button class="setting-button" id="s-open-whatsnew" type="button" data-str="hud.tab.whatsnew">What's new</button></div>
+        <!-- T-2657: Researcher mode (js/researcher.js), off by default, remembered per device. -->
+        <label class="field row check-field"><span data-str="research.switch">Researcher mode</span>
+          <input type="checkbox" id="s-researcher"></label>
+        <p class="legend-note" id="s-researcher-note" data-str="research.switch.note">Shows the full reasoning and the working records we keep for researchers, in place. This device remembers it.</p>
       </div>
     </section>
     <section class="panel-body" data-panel="controls" hidden>
