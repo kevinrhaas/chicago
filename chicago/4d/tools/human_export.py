@@ -133,6 +133,10 @@ def main(out_dir: Path) -> int:
             export_force_sampling=True,
             export_optimize_animation_size=True,
             export_frame_range=False,
+            # Blender4.5.3 defaults to positive frame/30 timestamps. Only
+            # independently verified authored rigs opt into zero-origin loops;
+            # leave legacy fixture exporter kwargs exactly unchanged.
+            **({'export_anim_slide_to_zero': True} if rigid_proof is not None else {}),
             export_draco_mesh_compression_enable=False,
             export_cameras=False,
             export_lights=False,

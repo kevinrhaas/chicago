@@ -280,6 +280,9 @@ step "Resident inspection camera fits geometry below the header without moving t
 step "Loaded human sole contacts preserve named limb identity and require gait metadata" \
   node tools/test_human_sole_contact.mjs
 
+step "Authored human serialized animation bounds reject malformed metadata and nonzero origins" \
+  python3 tools/test_human_animation_times.py
+
 step "Portable human contract holds; every human GLB and instance is held to it (T-1786)" \
   python3 tools/human_contract.py --check
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \

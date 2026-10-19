@@ -182,6 +182,15 @@ jobs:
         run: |
           npm install -g playwright@1.56.1
           node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
+      - name: Audit declared resident animation time bounds before browser loading
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          python3 tools/audit_human_animation_times.py \
+            assets/humans/{bardwell_otis_1835,dufresne_joseph_1835,flynn_martin_1835}.lod*.glb \
+            assets/humans/web/{bardwell_otis_1835,dufresne_joseph_1835,flynn_martin_1835}.lod*.glb \
+            | tee /tmp/teamster-studies/declared-animation-times.jsonl
+
       - name: Validate the actual new GLB containers
         working-directory: chicago/4d
         run: |

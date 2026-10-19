@@ -24018,3 +24018,12 @@ Transport integration validation (2026-10-18): the original full mobile smoke fa
 
 
 Resident movement checkpoint (T-1789, 2026-10-18): canonical CI39173614006 at0577792dc passed three masters,24GLB contracts and24mechanical browser inspections; visual/photographic acceptance remains open. The next canonical build must validate new source-frame flat-foot walking, independently decoded source/web sole contacts, dormant facial morph preservation, decoded skin bindings and geometry-fitted inspection cameras. Existing reconstructed resident references are preserved. No scene driver, rider or anonymous person is added; saved hair and seated-driver proposals remain unapplied. See docs/RESEARCH/resident-teamsters-2026-10-18/README.md for engineering thresholds and limits.
+
+
+## Resident authored walk time origin — 2026-10-19
+
+Canonical run39177201156 at379e7d3d failed before the first sole-contact result: the loaded walk did not satisfy the unchanged1.2s duration guard. No resident time inputs were recovered from its inaccessible artifact. Official pinned Blender4.5.3 exporter source defaults positive-start animation sliding off; the existing legacy fixture's decoded time inputs start at1/30s. The authored37keys at frames1..37 have a1.2s span but, without sliding, can end at37/30s.
+
+Only independently verified authored rigid rigs now request the supported export_anim_slide_to_zero option. Legacy fixture kwargs are frozen byte-for-byte in an actual-call AST regression and omit the option. The loaded duration/contact guards stay strict; errors now include actual clip names/durations/track endpoints. A pre-browser CI audit records declared accessor bounds and motion extras for every resident source/web GLB, explicitly metadata evidence rather than decoded motion. The browser CPU sampler remains the motion/contact authority.
+
+Sixteen frame/wiring tests, ten declared-time audit tests and twelve actual Three CPU sole-sampler regressions pass locally without Blender. New canonical exports and completed inspections must prove the fix; photographic appearance, clothing/hair refinement, driver/rider poses and scene placements remain open. Existing Otis Bardwell, Joseph Dufresne and Martin Flynn references and evidence grades are retained; no new anonymous identity is introduced.

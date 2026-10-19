@@ -9,7 +9,7 @@ export function sampleSoleContact(T, gltf, {
   for(const v of [speed_m_s,expected_duration_s,duty,sole_band_m,ground_y_m,tolerance_m,...forward_world])if(!Number.isFinite(v))throw Error('nonfinite setting');
   if(speed_m_s<=0||expected_duration_s<=0||duty<=.5||duty>=1||sole_band_m<=0||sole_band_m>.001||tolerance_m<=0||tolerance_m>.01||forward_world.length!==3||Math.abs(Math.hypot(...forward_world)-1)>1e-9||Math.abs(forward_world[1])>1e-9)throw Error('invalid bounded contact settings');
   const clips=gltf.animations.filter(c=>c.name==='walk');
-  if(clips.length!==1||!Number.isFinite(clips[0].duration)||Math.abs(clips[0].duration-expected_duration_s)>1e-5)throw Error('unique walk clip with expected duration required');
+  if(clips.length!==1||!Number.isFinite(clips[0].duration)||Math.abs(clips[0].duration-expected_duration_s)>1e-5)throw Error('unique walk clip with expected duration required: '+JSON.stringify({expected_duration_s,tolerance_s:1e-5,walk_count:clips.length,loaded_clips:gltf.animations.map(c=>({name:c.name,duration_s:c.duration,track_time_ranges:c.tracks.map(t=>({name:t.name,samples:t.times.length,first_s:t.times[0]??null,last_s:t.times[t.times.length-1]??null}))}))}));
   const clip=clips[0], declared=clip.userData??{};
   const metadata_comparisons={};
   for(const [key,expected]of [['speed_m_s',speed_m_s],['stance_fraction',duty],['cycle_duration_s',expected_duration_s]]){

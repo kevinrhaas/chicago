@@ -140,4 +140,44 @@ class FrameResidueTest(unittest.TestCase):
   d,c,ai,vi,si,off=self.animation();blob=bytearray(c[1][1]);struct.pack_into('<f',blob,off+4,1.01);c[1]=(c[1][0],bytes(blob));b=pack(d,c)
   with self.assertRaises(Rejected):repair(b,proof(b))
 
+
+class ExportAnimationOptionWiringTest(unittest.TestCase):
+ # Frozen legacy exporter kwargs before authored-loop zero-origin support.
+ # This asserts the full historical call, not a second copy of current source.
+ HISTORICAL = dict(
+  filepath='/explicit-test-export.glb', export_format='GLB',
+  use_selection=True, export_yup=True, export_extras=True, export_apply=False,
+  export_texcoords=True, export_normals=True, export_tangents=False,
+  export_materials='EXPORT', export_image_format='AUTO', export_skins=True,
+  export_def_bones=False, export_influence_nb=4, export_all_influences=False,
+  export_morph=True, export_morph_normal=True, export_animations=True,
+  export_animation_mode='ACTIONS', export_rest_position_armature=True,
+  export_force_sampling=True, export_optimize_animation_size=True,
+  export_frame_range=False, export_draco_mesh_compression_enable=False,
+  export_cameras=False, export_lights=False)
+ def actual_export_kwargs(self,rigid_proof):
+  # Evaluate only the ACTUAL operator-call AST, never import bpy/run main.
+  exporter=pathlib.Path(__file__).resolve().with_name('human_export.py')
+  tree=ast.parse(exporter.read_text())
+  main=next(n for n in tree.body if isinstance(n,ast.FunctionDef)and n.name=='main')
+  calls=[n for n in ast.walk(main)if isinstance(n,ast.Call)and ast.unparse(n.func)=='bpy.ops.export_scene.gltf']
+  self.assertEqual(len(calls),1,'one actual portable exporter call required')
+  captured=[]
+  def capture(**kwargs):captured.append(kwargs)
+  bpy_stub=types.SimpleNamespace(ops=types.SimpleNamespace(export_scene=types.SimpleNamespace(gltf=capture)))
+  namespace={'bpy':bpy_stub,'path':pathlib.Path('/explicit-test-export.glb'),'rigid_proof':rigid_proof}
+  expression=ast.fix_missing_locations(ast.Expression(body=calls[0]))
+  eval(compile(expression,str(exporter),'eval'),namespace)
+  self.assertEqual(len(captured),1)
+  return captured[0]
+ def test_legacy_fixture_export_kwargs_exactly_historical(self):
+  kwargs=self.actual_export_kwargs(None)
+  self.assertNotIn('export_anim_slide_to_zero',kwargs)
+  self.assertEqual(kwargs,self.HISTORICAL)
+ def test_verified_authored_export_differs_only_by_zero_origin_option(self):
+  # Explicit stub proof only. Actual bpy verification is separately tested above.
+  kwargs=self.actual_export_kwargs({'verified_by':'EXPLICIT AST TEST STUB'})
+  self.assertIs(kwargs.pop('export_anim_slide_to_zero',None),True)
+  self.assertEqual(kwargs,self.HISTORICAL)
+
 if __name__=='__main__':unittest.main()
