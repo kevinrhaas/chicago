@@ -2035,6 +2035,11 @@ step "the planted poplar rows re-derive from the rule that chose their greens" \
 step "the 1835 shore cottonwood grove re-derives from the rule that dealt it" \
   python3 tools/generate_shore_grove_1835.py --check
 
+# The fort's company gardens and Dr. Harmon's orchard (Wau-Bun, 1831): which fruit,
+# how many and where are a rule's, re-derived here (T-2809, L-fruit-trees-1835-2809).
+step "the 1835 company-garden and Harmon orchard plantings re-derive from their rule" \
+  python3 tools/generate_fruit_plantings_1835.py --check
+
 # The business signboards are the same shape of claim one layer over: exactly one record
 # in this dataset ATTESTS a sign, and the boards on the other two dozen frontages are a
 # reconstruction chosen by a rule about trades rather than a list of shops somebody liked.
