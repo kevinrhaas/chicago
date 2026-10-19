@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2072, ts: '2026-10-19T19:26:47.065Z', date: 'Oct 19, 2026, 2:26 PM CT', title: 'Keith\'s photographs checked again against the house as built', kind: 'chore',
+    items: [
+      'Every old picture of 1808 Prairie was compared again with the house as it now stands, after its loggia moved to the floor plan\'s place; ten of them still match.',
+      'Three reprints of the 1888 engraving now line up with it exactly, so their columns land on the printed ones.',
+      'The engraving and a 1967 photograph both show a second row of paired columns at the back of the loggia, which the model does not have yet. That is the next thing to build.',
+    ] },
+  { v: 2071, ts: '2026-10-19T19:26:47.065Z', date: 'Oct 19, 2026, 2:26 PM CT', title: 'Seasons in every year: 1812 and 1835 get spring, fall, winter', kind: 'feature',
+    items: [
+      'Settings › Season now shows in 1812 and 1835 as well as 1904. Summer stays the scene\'s own day: 14 August 1812, 1 July 1835.',
+      'Spring brings first leaf and a fresh green prairie. Fall turns the woods yellow, orange and russet and the grass tawny. Winter lays snow on the ground, roofs and roads, with the trees bare and the prairie gone to straw.',
+      'The sun moves to each season\'s date at the same hour, as in 1904.',
+      'The seasons are a viewing choice, recorded as a liberty: each scene still reconstructs its own summer day.',
+    ] },
   { v: 2070, ts: '2026-10-19T18:54:40.320Z', date: 'Oct 19, 2026, 1:54 PM CT', title: '1812 and 1835: grapevines, dead trees and fallen logs by the river', kind: 'feature',
     items: [
       'Riverbank grape hangs in curtains over the water side of the river\'s edge trees, with its green July fruit, and Virginia creeper climbs the shaded side of their trunks.',
