@@ -8,8 +8,8 @@
     1275
   ],
   "principal_px": [
-    900.0,
-    603.0
+    900,
+    603
   ],
   "focal_px": 1598.11111111,
   "eye": [
@@ -35,6 +35,12 @@
       -0.0152422341
     ]
   ],
+  "sky": "sun",
+  "sun_uvy": [
+    -0.262,
+    -0.72,
+    0.643
+  ],
   "solve": {
     "method": "T-2228 imports the unchanged T-2200 frozen pinhole camera; no refit against this candidate.",
     "record": "data/comparisons/glessner/report.json#stable-detail",
@@ -46,6 +52,7 @@
       "height"
     ],
     "limitations": "1965 plate; parked cars block grade and ridge is cropped. Altered carriage-door leaves and loft infill are excluded. Stable opening masonry remains a check. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
-    "warning": "Residuals refer to the original frozen asset and vertex associations. They are not measurements of this changed mesh. Lighting uses the diagnostic default, not a solved historical sun."
+    "warning": "Residuals refer to the original frozen asset and vertex associations. They are not measurements of this changed mesh. Lighting: see light (T-2848).",
+    "light": "T-2848, read off the photograph: hazy sun behind the stable. There is flare at the top of the frame over the gable, the camera's own side of 18th Street (the foreground sidewalk) is sunlit, the parked cars throw short soft shadows straight under them, and the stable's north wall is in shade with no cast shadow on it. Same reading as HABS 14 of the same series: azimuth about 200 degrees (behind the building, south-south-west); the elevation (40 degrees) is not measured and only has to keep the north face unlit."
   }
 }

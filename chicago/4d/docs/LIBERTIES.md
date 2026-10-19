@@ -26117,7 +26117,7 @@ rear section stepping out to the south under its mansard, which a K01 rear wing 
 are open in the match record for T-2435.
 **How to resolve:** T-2435 builds the gable (with T-2428's K01 wall gable) and brings the match
 record to `matches`; a later photograph of the house, ingested as a source, says what changed by 1904.
-**Covers:** `house_1625_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1625_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1625_prairie.as_mapped_1904.form.service_wall_brick`, `house_1625_prairie.as_mapped_1904.form.roof_form`, `house_1625_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1625_prairie.as_mapped_1904.form.stair_tread_m`, `house_1625_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1625_prairie.as_mapped_1904.form.stoop_width_m`, `house_1625_prairie.as_mapped_1904.form.bays`, `house_1625_prairie.as_mapped_1904.form.rear_bays`, `house_1625_prairie.as_mapped_1904.form.roof_covering`, `house_1625_prairie.as_mapped_1904.form.window_kit`, `house_1625_prairie.as_mapped_1904.form.entrance_kit`.
+**Covers:** `house_1625_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1625_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1625_prairie.as_mapped_1904.form.service_wall_brick`, `house_1625_prairie.as_mapped_1904.form.roof_form`, `house_1625_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1625_prairie.as_mapped_1904.form.stair_tread_m`, `house_1625_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1625_prairie.as_mapped_1904.form.stoop_width_m`, `house_1625_prairie.as_mapped_1904.form.rear_bays`, `house_1625_prairie.as_mapped_1904.form.roof_covering`, `house_1625_prairie.as_mapped_1904.form.window_kit`, `house_1625_prairie.as_mapped_1904.form.entrance_kit`.
 **Ticket:** T-2432 (piece 1 of T-1869).
 **Review:** `docs/RESEARCH/k01-1625-mcbirney-2432/README.md`.
 **Recorded:** 2026-10-13 (T-2432). **The gable, the knee wall and the north stack taken out of
@@ -26128,6 +26128,9 @@ coped wall gable, under `L-k01-1625-mcbirney-wall-gable-2730`; `dormer` and `eav
 front's windows are now read off the photograph one by one (`street_front_windows`, under
 `L-k01-1625-mcbirney-street-windows-2752`), and the area lights the K01 front carried are gone with
 `basement_lights`, which leaves this entry's cover.
+**Evidence since, 2026-10-19:** the `form.bays` token is withdrawn — T-2846 builds the oriel the
+photograph shows on the south wall, read off it, so `bays` is `inferred` now; what it invents is
+L-k01-1625-oriel-2846.
 
 ### L-k01-1625-mcbirney-wall-gable-2730 — 1625 Prairie's front carried up as its photograph's coped wall gable, on the knee wall K01 lends the top storey
 
@@ -26271,6 +26274,44 @@ or a plan, would settle the section's width, its floors and its rear wall.
 **Ticket:** T-2820 (piece 1 of T-2754).
 **Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
 **Recorded:** 2026-10-18 (T-2820).
+**Revised:** 2026-10-19 (T-2846) — **the step is the print's width, on a camera that holds the
+south wall.** The camera is re-solved on the main south wall's level lines (the eave's shadow and
+two top-floor heads), keeping the front plane: the eye 28.7 m out, 8.4 m south of the south wall, at
+1.0 m, f 1108 px. The face stands parallel to the plate, so its width against its heights never
+depended on the camera; on the new one the sheet's 11.85 m puts its corner at the print's x 528 and
+its 48 px is 1.8 m, so it is built 1.8 m (the sheet's trace reads 0.8-1.4 m). The door, windows
+and dormer stand toward the main wall's corner, as the print sets them. The door is ruled a door at
+grade: its 1.7 m head was the old camera's horizon, and it now reads 1.9-2.1 m. Still ours: the
+face's heights, which stand on the 13.0 m wall head where the new camera reads the eave at 10.9 m
+(T-2847), and the eye's height (0.5-1.3 m, bounded by the door's dark running down to the fence).
+
+### L-k01-1625-oriel-2846 — 1625 Prairie's oriel on its south wall, read off the McBirney photograph
+
+**Decision:** the oriel the 1890 photograph shows on 1625's main south wall, just in front of the
+rear section, is built as K08's oriel (`bays.south_oriel`): a box 0.48 m out and 1.29 m along the
+wall, centred 8.8 m behind the front, standing on the first floor (3.6 m) on five corbel courses,
+one storey to about 5.7 m under K08's eaves and a low copper hip, a transomed casement pair in its
+south face.
+**What is read, not invented.** Through the camera T-2846 re-solved on the south wall's level
+lines: the west cheek faces the plate (x 505-519.5 px) and a cheek 0.48 m deep puts both its edges
+at one depth; the long south face recedes beside it to x 527.5, which puts its far end 9.45 m back
+(it can reach no further: the rear section's lower window shows past it). The heights at the
+cheek's scale (30.05 px/m): the apron's foot about 2.3 m, the lights 3.5-5.5 m, the cornice to
+about 5.8 m. Nothing shows over the cornice, so the roof is low.
+**What is invented.** The square corners (the print cannot tell a square cheek from a slightly
+canted one); the east cheek, hidden behind the oriel; the south face's light, built as the house's
+first-floor casements under a transom (the print's light carries a bar about 0.43 of its height
+down); the dressed stone of its walls, which the print reads light, near the trim's tone, and
+cannot tell from painted timber; the apron, laid as K08's five stepped courses to 2.6 m where the
+print's runs as a flat, darker face to about 2.3 m; and the low copper hip, at a pitch the print
+cannot see. **Left out:** the west cheek's light, the print's most visible (about 0.3 m across):
+K08's frame and piers need 0.7 m of cheek for any light, and its corbel cannot carry a cheek that
+deep on a face this short. The cheek stands plain until the kit can light it (T-2847).
+**How to resolve:** a view of 1625 from the south, or the oriel's own drawing, would settle its
+plan, its east cheek and its apron.
+**Ticket:** T-2846 (piece 1 of T-2838).
+**Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
+**Recorded:** 2026-10-19 (T-2846).
 
 ### L-1619-wears-hamline-front-2436 — 1619 Prairie stands, for now, in the front of John H. Hamline's house at 1621
 
@@ -29200,9 +29241,10 @@ oriel above the springing read as smoother stone and a carved band runs across b
 springing. Each is open in the match record and is T-2729's, which changes the K01 assembly they need.
 **How to resolve:** a photograph of the house after 1886 settles the doorway, the door's leaves and
 the iron; the architects' plans would settle the recess and the porch.
-**Covers:** `house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`, `house_1623_prairie.as_mapped_1904.form.stone_front`.
+**Covers:** `house_1623_prairie.as_mapped_1904.form.entrance_kit`, `house_1623_prairie.as_mapped_1904.form.street_front_dress`, `house_1623_prairie.as_mapped_1904.form.stone_front`, `house_1623_prairie.as_mapped_1904.form.window_kit`, `house_1623_prairie.as_mapped_1904.form.rainwater`.
 **Revised 2026-10-18 (T-2818):** the basement light under the window is the drawing's broad, low opening: K06's segmental basement light (`k06.opening.basement_segmental`), 1.8 m across from 0.1 m to a crown at 0.97 m, under a block of voussoirs 0.25 m deep with a skewback at each end and a keystone, 0.1 m north of the window over it. Its grille is the drawing's in kind: eight close uprights to a bar at 0.57 m and over it a band of six scrolls to the springing (`street_front_dress.grilles.scrolls`). Read from the drawing: the opening's breadth, height and flat arc (its head rising about a sixteenth of its span), the radiating stones over it and the band of about six scrolls over close uprights. Reconstructed: each scroll's curl (a flat bar wound one and a half turns into its centre, turned alternately), the bars' count and section, the voussoirs' count and depth, and the light's place 0.15 m south of where the drawing draws it, so its voussoirs stand 0.3 m inside the corner. Still open: the entrance porch and the landing's guard (T-2817), and the stone above the springing and the oriel front's place (T-2819).
 **Revised 2026-10-19 (T-2817):** the entrance arch is the drawing's porch mouth, as broad as the window's: 1.85 m across, 2.6 m to its crown over the principal floor (`entrance_kit.opening_m`), centred at 4.55 m, under its 0.45 m ring. At the porch's back, 0.95 m in, a wall closes the arch round the door's own flat-headed opening, 1.0 m across and 2.2 m high, 0.1 m north of the arch's axis (`entrance_kit.porch_door`): the door's place and the lit back wall beside it are read, while the porch's depth, the single leaf glazed above its lock rail and the 0.45 m transom in place of the drawing's carved light are reconstructed. The stoop stands 1.05 m north of the arch's axis (`stoop_v_m` 3.5), splitting the drawing's skewed flight, and its landing runs on south to the front's south wall as a stone terrace. Along it the drawing's iron guard stands at the stoop rail's height (`street_front_dress.stoop_rails.guard`), with an ornamental panel at its south end. The panel's ornament is too small to read in the plate, so it is reconstructed as a lozenge of flat bar on a ring.
+**Revised 2026-10-19 (T-2819):** the stone over the springing, the carved band, the window and the pipes, read from the drawing through its camera. The front is laid evenly (`stone_front.coursing`, rhythm `even`), rock-faced with the profile's whole 0-0.025 m face under 3.4 m and a fifth of it above, as the drawing rules the strips beside the oriel in smoother courses over rock-faced blocks; the share is invented (the drawing draws the difference, not its depth). The drawing's carved band at the springing (about y 534-556, 2.95-3.4 m) is a dressed belt course (`street_front_dress.carved_band`) cut by both openings, carved with the oriel's guilloche of interlaced rings 0.34 m across; the drawing's carving is foliage too small to read, so the rings, their size and their relief are invented. The window is widened to the drawn 1.8 m and its head glazed as a lattice of square lights 0.2 m apart (`k06.opening.sash_round_lattice_wide`): the lattice and its pitch are read, the bars' section is K06's muntin. The drawing draws no pipe down the front, so the two downpipes hang on the flanks 0.35 m back from the front's corners (`rainwater.downpipes`), where the drawing shows neither flank. Where the oriel's front stands along the wall is ruled the pen's own: its front lights stand north of the build's and its finial south, which no one plan does, so K01's symmetric plan stands.
 **Ticket:** T-2728 (piece 1 of T-2435).
 **Recorded:** 2026-10-17 (T-2728).
 

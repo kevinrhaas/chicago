@@ -8,7 +8,7 @@
     1268
   ],
   "principal_px": [
-    901.0,
+    901,
     607.5
   ],
   "focal_px": 1600.22222222,
@@ -35,6 +35,7 @@
       -0.0505613029
     ]
   ],
+  "sky": "overcast",
   "solve": {
     "method": "T-2228 imports the unchanged T-2200 frozen pinhole camera; no refit against this candidate.",
     "record": "data/comparisons/glessner/report.json#north-level",
@@ -46,6 +47,7 @@
       "height"
     ],
     "limitations": "1965 coplanar bay; roof is cropped and utility poles obscure the western pair. Lens/distance are not independently identifiable. No whole-north-elevation sign-off. Camera height is constrained to the declared reconstructed range; it is not a surveyed exposure station.",
-    "warning": "Residuals refer to the original frozen asset and vertex associations. They are not measurements of this changed mesh. Lighting uses the diagnostic default, not a solved historical sun."
+    "warning": "Residuals refer to the original frozen asset and vertex associations. They are not measurements of this changed mesh. Lighting: see light (T-2848).",
+    "light": "T-2848, read off the photograph: overcast. The street is wet and reflecting, and neither the poles standing a few feet in front of the north wall nor its downpipe throws any shadow on it, so there is no sun direction to read. The north face is lit by the sky alone; the render uses the overcast sky and no sun_uvy (a soft overhead key, no shadow)."
   }
 }

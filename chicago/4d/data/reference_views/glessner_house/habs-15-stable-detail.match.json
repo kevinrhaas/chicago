@@ -3,7 +3,7 @@
   "view": "habs-15-stable-detail",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
   "glb_sha256": "1e6d2ef4a16c3d232cc250d8cf713b97547971b97200d7cd39308c20aaa70f5e",
-  "camera_sha256": "d72eede57db0000c2d1b7f58906a4ac49cb8aa7faad8a82b461640d73e377adc",
+  "camera_sha256": "09789d6f7f1c6e24ff9cae425a4a272b17d6eee58eec7f85df30707277b18c82",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -12,11 +12,19 @@
       "status": "fixed"
     },
     {
-      "what": "Still open at the stable end: the hoist stone's foot reads about 10 px lower and its face narrower in the print than in the render, and the print hides the gable apex and the cupola behind its film holder, so neither is judged from this view. The roof covering reads slate-grey against the model's red tile (house-wide, not this ticket's), and the stone tone is the review render's diagnostic lighting, not a solved sun (T-2848).",
+      "what": "Still open at the stable end: the hoist stone's foot reads about 10 px lower and its face narrower in the print than in the render, and the print hides the gable apex and the cupola behind its film holder, so neither is judged from this view. The roof covering reads slate-grey against the model's red tile (house-wide, not this ticket's).",
       "status": "open"
     },
     {
       "what": "The overhead garage leaf and closed loft opening are later alterations; original1904 opening treatments are tested against earlier evidence, not copied from this1965 plate. Cars/signs/street fabric are outside this house-only comparison.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2848 light: hazy sun behind the stable (flare over the gable, the camera's side of 18th Street sunlit); the render now lights from the south-south-west (camera solve.light), so the stable's north wall reads in shade as in the print. The sun's elevation is not readable and is not claimed.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2848: the stone in this print is darkened by decades of city soot, so its tone in the 1960s photograph is not its 1887 tone; the render's clean stone is not compared against it.",
       "status": "not shown"
     }
   ],
