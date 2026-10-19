@@ -697,6 +697,9 @@ def k06_variant(w: dict) -> dict:
     for k in ("clear_width_m", "clear_height_m", "mullion_m"):
         if k in w:
             v6[k] = w[k]
+    # T-2815: a transom window's lights in tiers on stone bars, read off a picture (Keith's bow)
+    if "tiers" in w:
+        v6["tiers"] = w["tiers"]
     return v6
 
 
@@ -804,6 +807,8 @@ class Bay:
             if grade:
                 proud(flat, "plinth", run, 0.0, plinth["height_m"], plinth["proud_m"], bottom=False)
             # the eaves: a soffit out to the fascia, the fascia's top the roof's eaves line
+            if v.get("cap_band"):
+                self._cap_band(flat, run, y_top, v["cap_band"])
             if prof:
                 # T-2472: in the stone of the bay's bands, or the role its eaves name (the
                 # bracketed cornice's section is the eave's painted timber)
@@ -1095,7 +1100,29 @@ class Bay:
         self.meta.setdefault("frieze", {"panels": 0, "rings": 0})["panels"] += 1
         if self.tier == "light":
             return
-        g = fr["guilloche"]
+        self.meta["frieze"]["rings"] += self._guilloche(flat, s0, s1, lo, hi, fr["guilloche"], pr)
+
+    def _cap_band(self, flat, run, y_top, cb):
+        """T-2815: a carved band round the bay under its cap (Keith's bow on the 1888 plate:
+        a dark carved band under the cap's light top): a dressed strip `height_m` deep
+        under the eaves moulding's seat, `proud_m` out along the whole run, carrying the
+        frieze's guilloche. Its top stands 2 mm under the seat, whose own underside the
+        moulding draws (mitred at the run's ends, so the two would overlap on one plane).
+        The light tier keeps the strip and drops the rings."""
+        h, pr = float(cb["height_m"]), float(cb["proud_m"])
+        lo, hi = y_top - h, y_top - 0.002
+        rect_ = rect(0.0, run.L, lo, hi)
+        flat.plane("band", rect_, -pr)
+        flat.tube("band", rect_, 0.0, -pr, inward=False)
+        m = self.meta.setdefault("cap_band", {"y_m": [round(lo, 4), round(hi, 4)], "rings": 0})
+        if self.tier == "light":
+            return
+        m["rings"] += self._guilloche(flat, 0.0, run.L, lo, hi, cb["guilloche"], pr)
+
+    def _guilloche(self, flat, s0, s1, lo, hi, g, pr):
+        """Rings of `ring_width_m` laid along a panel's middle at `pitch` of their radius,
+        every other one standing `ring_proud_m` and the rest half that, so where two cross
+        one passes over the other; returns how many."""
         w, rp, k = float(g["ring_width_m"]), float(g["ring_proud_m"]), int(g["segments"])
         R = min(float(g["radius_m"]), (hi - lo) / 2 - float(g["margin_m"]), (s1 - s0) / 2 - float(g["margin_m"]))
         if R < 2 * w:
@@ -1116,7 +1143,7 @@ class Bay:
                 flat.face("band", [flat.P(*o0, d0), flat.P(*o1, d0), flat.P(*o1, d1), flat.P(*o0, d1)], mo)
                 flat.face("band", [flat.P(*i1, d0), flat.P(*i0, d0), flat.P(*i0, d1), flat.P(*i1, d1)],
                           (-mo[0], -mo[1], 0.0))
-        self.meta["frieze"]["rings"] += n
+        return n
 
     def _flare_bands(self, reg, Li, d, y_e, pitch, flare):
         """T-2408: one plane of a flared hip. Its slope runs from `eave_pitch` at the eaves up

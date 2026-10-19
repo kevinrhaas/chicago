@@ -28374,6 +28374,19 @@ bracketed within about 9 CIELAB units of grey and the neutral grey stands, still
 reconstructed (`docs/RESEARCH/k01-1808-keith-1883/stone-colour-measurement.json`,
 T2769_1965_neutrals). Still invented: the border's 35 mm bead and the field's depth, below
 the plate's grain; the south pedestal's side shows a like field the model does not yet lay.
+**T-2815 (2026-10-19), the bow's lights and cap, and the south pedestal's side:** what is
+read now, from the 1888 plate at its native 1559 px on the bow's south light column (77.8 px
+to the metre, T-2765's camera-free reading): each principal light stands in three tiers between
+stone bars, a sash from the sill to about 4.05 m, a light about 4.2-4.7 m and a top light about
+4.85-5.3 m, so two 0.15 m bars in the wall's stone; under the bow's moulded cap a dark carved
+band from about 9.54 m (y 1054) up to the cap's light top, built as a dressed band 0.26 m deep
+under the cap's seat (9.8 m), 0.045 m proud; and the south pedestal's side field in a bead
+border like its front's. Still invented: each fixed light's three panes, which the print does
+not resolve; the band's carving, which it draws only as a dark texture through the street
+tree's branches and which is laid as the K08 kit's guilloche of interlaced rings (T-2778's,
+1623 Prairie's oriel frieze), its motif, depth and ring size reconstructed; the side field's
+margins and bead, below the plate's grain. No picture shows the north pedestal's north side,
+which stays plain.
 **How to resolve:** sharper original prints and an architectural specification for the
 stone, quarry and carved sections; rear photographs for the service elevations.
 **Covers:** `keith_house_1808_prairie.as_built_1886.form.stone_finish`, `keith_house_1808_prairie.as_built_1886.form.stone_front`, `keith_house_1808_prairie.as_built_1886.form.boundary`, `keith_house_1808_prairie.as_built_1886.form.bays`, `keith_house_1808_prairie.as_built_1886.form.entrance_kit`.
