@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "35891a9dda527e117cb32c1c1eaf3850058c9097f5ae80c90339a8db4c53349c",
+  "glb_sha256": "f889022d16afbc0fd8ff6281304804e0ab15414b0fe6eae74e60f30444be5fb0",
   "camera_sha256": "7639e074421cc7e1a4768e010e8678a6e3b2ed4af090a69cbfb58e6ebc7efd72",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
   "verdict": "differs",
@@ -16,7 +16,15 @@
       "status": "fixed"
     },
     {
-      "what": "T-2856: the pairs' inner jambs and colonnette mullion (narrower in the photograph than the model's 1.9-ft pier), the stack's panel lettering, and the north tower finial (about 30 px from the photograph's) still differ; stone/course appearance differs.",
+      "what": "T-2856: the pairs' inner jambs and colonnette mullion (narrower in the photograph than the model's 1.9-ft pier) still differ; stone/course appearance differs.",
+      "status": "open"
+    },
+    {
+      "what": "T-2870: the upper date stone's monogram. The photograph shows one joined device, not two letters: two bowls facing outward, each closed by a stem, and a bar between the stems at mid-height (x 959-991, y 267-280 on a stone at x 938-1013, y 262-287: about 0.43 of the stone's width and 0.53 of its height, centred; the stems at about 0.33 and 0.73 of the device's width). The model drew AD in a generic font; it now draws that device as cut strokes at those shares, and the render's device falls on the photograph's within the stone.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2873 (found by T-2870): the north stack's face and both date stones read wider in the photograph than built: the face about 124 px across the stones' height (x 912-1036) against the render's 92, the upper stone 75 px against 49 and the lower 78 against 56, while every height (the stones 25 and 23 px, the crest) agrees within a few pixels. The shares of the face agree (0.60-0.63 against 0.55-0.61); the face itself is about 5.1 ft built.",
       "status": "open"
     },
     {
@@ -30,6 +38,10 @@
     {
       "what": "T-2848: the stone in this print is darkened by decades of city soot, so its tone in the 1960s photograph is not its 1887 tone; the render's clean stone is not compared against it.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2872: the north tower finial, ruled against both north photographs; the plan is kept. On this camera the built tip (W 41, S 7.35, 44.9 ft) lands at x 1329, y 343 against the photograph's 1302, 354, about 29 px; HABS 01, whose camera was fitted with the tower left out, holds it to 3 px, and the two tips alone triangulate at about W 39.7 / S 8.8. A drum still tangent to 18th Street that carried that tip would have a radius of about 8.8 ft and a cone 1.2-1.3 times as wide as the built one, and the cone's own silhouette refuses it: HABS 01's two edges fit best at 0.9 of the built size (0.8-1.0 within half a pixel, the wider cone 1.4 px worse) and this photograph's right edge at 0.82. Every control in this camera but two lies in the north wall's plane, and those two are model-derived; re-solved with either one dropped, the camera moves the built tip by 28.5 px, the size of the miss. So the miss is this camera's depth, not the tower's plan. data/comparisons/glessner/north-finial.json (tools/glessner_north_finial_read.py).",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

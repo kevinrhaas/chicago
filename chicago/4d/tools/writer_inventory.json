@@ -35,6 +35,13 @@
       "finding": "Reproduces: run bare on a clean tree it rewrote its own four outputs, docs/RESEARCH/glessner-windows-2211/opening-schedule.{md,json} and (since T-2212) docs/RESEARCH/glessner-windows-2212/opening-schedule.{md,json}, byte for byte and moved nothing else.",
       "placed": "not yet — measured to reproduce. It reads only data/structures/glessner_house.json, which no reconstruction stage writes, and nothing reads its four outputs, so it has no ordering hazard on either side; the manifest's order is its own measured pass, so it is not appended blind (T-2211; T-2212)."
     },
+    "glessner_north_finial_read.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-19",
+      "finding": "Reproduces to tolerance: run bare on a clean tree it changed no committed byte. A deliberately perturbed report (HABS 14's built tip residual +1.0 px) failed --check and a bare run restored it byte for byte. --check compares numbers to 0.5 (px, ft or ratio), because the reading decodes two JPEGs and runs scipy solves whose last digits can differ by machine, and the write mode leaves a report that agrees to that tolerance untouched (T-2872).",
+      "placed": "not yet — measured to reproduce. It reads data/structures/glessner_house.json, the habs-01-northwest and habs-14-north-inclined reference cameras, the two HABS photographs they name, and (through tools/glessner_north_pairs.py's controls) data/comparisons/glessner/observations.json; no reconstruction stage writes any of them, and nothing reads its report, so it has no ordering hazard against the manifest's stages; the manifest's order is its own measured pass, so it is not appended blind (T-2872)."
+    },
     "glessner_north_pairs.py": {
       "placement": "pending",
       "write_mode": "(bare); --cameras",

@@ -1,4 +1,31 @@
 export const CHANGELOG = [ // newest first
+  { v: 2070, ts: '2026-10-19T18:54:40.320Z', date: 'Oct 19, 2026, 1:54 PM CT', title: '1812 and 1835: grapevines, dead trees and fallen logs by the river', kind: 'feature',
+    items: [
+      'Riverbank grape hangs in curtains over the water side of the river\'s edge trees, with its green July fruit, and Virginia creeper climbs the shaded side of their trunks.',
+      'Some trees in the river woods and the wet woods now stand dead and grey, and fallen trunks lie on the ground beside them.',
+      'The vines follow the riverbank records; how many trees are dead or down is reconstructed under a new liberty.',
+    ] },
+  { v: 2069, ts: '2026-10-19T18:54:40.320Z', date: 'Oct 19, 2026, 1:54 PM CT', title: 'Glessner\'s 18th Street monogram, as the 1965 photograph shows it', kind: 'improvement',
+    items: [
+      'The Glessner House\'s north chimney stone above the 1886 date now carries the joined monogram HABS photograph 14 shows: two outward-facing bowls, each closed by a stem, joined by a bar at mid-height. It replaces the plain letters AD set in a stock typeface.',
+      'The device is drawn at the photograph\'s own proportions on the stone: about 0.43 of its width and half its height, centred. The weight of each stroke is reconstructed and recorded as a liberty.',
+    ] },
+  { v: 2068, ts: '2026-10-19T18:54:40.320Z', date: 'Oct 19, 2026, 1:54 PM CT', title: 'Keith\'s loggia columns: three photographs weighed, the 1888 pairing kept', kind: 'change',
+    items: [
+      'The 1965 colour slide shows the column pairs on Keith\'s front porch about a third wider than the model draws them. This pass checked that against the 1888 photograph and Nickel\'s 1967 photograph.',
+      'Seen from the north, the 1967 photograph shows the pairs narrower, and the 1965 slide, seen from the south, shows them wider. One column standing a little forward of its partner would explain both, but the 1888 photograph rules that out by its width and by which column stands in front.',
+      'The 1904 porch therefore keeps the 1888 arrangement: two columns side by side on each pedestal. The 1965 difference is recorded rather than built, and the house\'s last open item on that view is closed.',
+    ] },
+  { v: 2067, ts: '2026-10-19T17:09:58.504Z', date: 'Oct 19, 2026, 12:09 PM CT', title: '1625 Prairie gains its south roof dormer and photographed side windows', kind: 'change',
+    items: [
+      '1625 Prairie Avenue\'s main roof now carries the dormer the 1890 photograph shows on its south slope, just above the side wall\'s eave: a pale face with one tall window under a small hipped roof.',
+      'The south side wall\'s windows now stand where the photograph puts them: two on the top floor, a tall stair window behind the oriel, and one on the ground floor behind the corner pier. The old evenly spaced columns are gone.',
+      'The door at the foot of the rear section now has its transom window over the door.',
+    ] },
+  { v: 2066, ts: '2026-10-19T17:09:58.504Z', date: 'Oct 19, 2026, 12:09 PM CT', title: 'Glessner\'s north tower checked against two old photographs', kind: 'chore',
+    items: [
+      'Nothing you can see moved. One 1965 photograph put the tip of the round tower\'s cone about 2 ft from where the model has it, which would need a wider tower. A second photograph, and the outline of the cone in both, say the tower is right where it stands, and that the first photograph\'s camera position was what was off. The tower stays as built, and a check now keeps it there.',
+    ] },
   { v: 2065, ts: '2026-10-19T15:54:13.631Z', date: 'Oct 19, 2026, 10:54 AM CT', title: 'Keith\'s loggia stands where its plan puts it', kind: 'improvement',
     items: [
       '1808 Prairie\'s loggia now stands on slimmer 0.6 m pedestals at the places the 1888 floor plan draws, its paired columns closer together, and the front stair narrowed to the plan\'s 1.8 m with its north wall running into the loggia.',

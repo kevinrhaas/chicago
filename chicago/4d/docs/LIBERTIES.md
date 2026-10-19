@@ -4725,6 +4725,12 @@ calibrated for a forb whose whole plant is one flowering scape, and four 3-pixel
 580-pixel crown is not a tree in flower. The multiplicity that makes it one is **L115**. The
 first repair remains refuted (K45(a)) and the third — the vines — is untouched.
 
+**THIRD REPAIR DONE, 2026-10-19 (T-2810).** `trees.js` draws `vine_drape`: the riverbank grape as a
+curtain on the gallery's water-side crowns, with its July fruit hung in it, and the Virginia creeper
+on the trunks' shaded side (**L-deadwood-vines-2810** for the shares). `vine_drape` moved from
+`forms_unimplemented` to `forms_trees` in `data/flora/index.json`, and
+`tools/measure_flora_reach.py` now banks **no** unrouted record and **no** headless flower.
+
 
 ### L114 — A researched tree that no mix can choose, and three quarters of the modelled ground the timber layer has never visited
 
@@ -26328,6 +26334,36 @@ plan, its east cheek and its apron.
 **Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
 **Recorded:** 2026-10-19 (T-2846).
 
+### L-k01-1625-south-dormer-2866 — 1625 Prairie's dormer on its main roof's south slope, and its rear door's transom
+
+**Decision:** the dormer the 1890 McBirney photograph shows on the main roof's south slope, over the
+side wall's eave, is built (`slope_dormers`, K01's new side-slope dormer): a hipped dormer whose
+face stands 0.1 m up the slope from the wall line, 1.4 m along the wall and centred 7.22 m behind
+the front, one sash 0.9 m wide at 11.52-13.47 m in a 0.25 m surround, its soffit at 13.72 m and
+K05's hip over it at 40 degrees to a 14.55 m ridge, its body run back until that ridge dies into the
+main hip. The rear section's door takes a transom light in the top 0.65 m of its hole.
+**What is read, not invented.** Through the camera T-2846 re-solved: the cheek faces the plate (its
+hood's lines run level) and the face is seen end-on beside it, so the face's corner (x 490 px) and
+edge (x 500), the light's jambs, head and sill and the hood's fascia give its place, width and
+heights once the face's setback is fixed; the hip at the face's end (its ridge stops short of the
+corner, its eave returns level over the face) and its pitch from the hood's rise (38-42 degrees);
+the cheeks as pale as the face, unlike the rear attic's slates. The transom's bar and panes are
+read on the print's pixels.
+**What is invented.** The face's setback, 0.1 m: the one number the print leaves free (each 0.1 m
+moves every height by about 0.15 m), held there by the cornice running unbroken under the face and
+by the main hip's 14.7 m ridge, which a face further up the slope would carry the dormer's ridge
+past; the main roof's own 45-degree pitch is reconstructed (`roof_pitch_deg`), so this bound is
+too. The sash's panes (the kit's two-over-two; the print shows a meeting rail and cannot count
+panes); the face's and cheeks' dressed stone, which the print reads pale and cannot tell from
+painted timber or sheet metal; the kit's 0.15 m eave and 0.12 m fascia; how far the body runs back
+into the hip, which nothing can see. The transom's frame and bar in the leaf's timber, and the dark
+of the hall behind its panes.
+**How to resolve:** a view of 1625 from the south or the rear, or its drawings, would settle the
+dormer's depth into the roof, the main roof's pitch and the face's finish.
+**Ticket:** T-2866 (piece 2 of T-2847).
+**Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
+**Recorded:** 2026-10-19 (T-2866).
+
 ### L-1619-wears-hamline-front-2436 — 1619 Prairie stands, for now, in the front of John H. Hamline's house at 1621
 
 **Decision:** `house_1619_prairie` keeps the K01 stone front T-2420 built from Treat & Foltz's drawing
@@ -29157,6 +29193,31 @@ says where the timber ended or names trees on the shore.
 **Ticket:** T-2745.
 **Recorded:** 2026-10-19 (T-2745).
 
+### L-deadwood-vines-2810 — Dead trees, fallen trunks and vines in the river woods of 1812 and 1835
+
+**Decision:** in the river gallery and the wet woods (the same dealt woods in both years), a share
+of the stems stand dead and a share have a fallen trunk of their own species lying 2-7 m off: 5% and
+6% in the gallery, 7% and 8% in the wet woods. A standing dead tree is its species' own tree broken at
+55-85% of its height with its fine wood gone, grey; a fallen one is broken at 45-70%, laid flat, and
+refused anywhere it would lie in water, under the dry floor, on a track or footprint, in a cleared
+plot, or across a slope it could not lie on. On the gallery trees within 32 m of the water, the
+riverbank grape hangs a curtain over the water side of 15% of the crowns, to 78-95% of the tree's
+height and never over 12 m, with its hard green July fruit in it; the Virginia creeper climbs the
+north side of the trunk on 8%. Which stems, and where each log lies, is drawn from a stream seeded by
+the stem's own position, so no living tree moves.
+**What is read, not invented:** z05's two vine records (Swink and Wilhelm 1994): the grape "drapes
+10-20% of the edge trees" as a "heavy curtain vine on the river-facing edge trees", the creeper is
+"climbing the trunks on the shaded side"; their heights and colours are the records'.
+**What is invented:** every dead-wood share and size (no source counts snags or logs on the Chicago
+River in 1812 or 1835: an unmanaged floodplain wood of cottonwood, willow and elm carries standing and
+fallen dead wood, and these shares are a modest reading of that); the 32 m that makes a tree an edge
+tree; where on the crown the curtain hangs; and the share of the creeper, which the record does not
+give.
+**How to resolve:** a description of the river woods before 1840 that mentions dead or drift timber,
+fallen trees or the vines, or a plate that draws them.
+**Ticket:** T-2810.
+**Recorded:** 2026-10-19 (T-2810).
+
 ### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
 
 **Decision:** Five 1904 walking jaunts — the famous names, the architects, and three style walks
@@ -29575,6 +29636,27 @@ stands 15-20 px left of the photograph's.
 **How to resolve:** a nearer photograph of the south flank, or the house's drawings.
 **Ticket:** T-2839 (piece 1 of T-2781, itself piece 2 of T-2756).
 **Recorded:** 2026-10-19 (T-2839).
+
+### L-glessner-datestone-device-2870 — Glessner's 18th Street monogram drawn as the joined device HABS 14 shows, at the photograph's grain
+
+**Decision:** the `glessner_house` north stack's upper date stone carries one joined device in
+place of the letters AD set in Blender's built-in face: two bowls facing outward, each closed by a
+stem, and a bar between the stems at mid-height, drawn as cut strokes (the near-black matte lining
+L-glessner-datestone-2214 uses for every cut on the stack).
+**What is read, not invented.** From HABS photograph 14 (`habs_glessner_photo_14_north_inclined_1965`,
+no known restrictions, so derived from): the device's shape, its extent (x 959-991, y 267-280 px on a
+stone at x 938-1013, y 262-287: about 0.43 of the stone's width and 0.53 of its height, centred
+within a pixel) and its stems' places (about 0.33 and 0.73 of its width), the bar at mid-height.
+**What is invented.** The stroke's weight (0.16 of the device's height, about two of the print's
+pixels) and each bowl's curve, a half-ellipse from its stem to the device's edge; the print draws the
+device about 32 px across and shows neither the carver's line nor any interlacing finer than that.
+Reading the device as A and D is photograph 4's (L-glessner-datestone-2214), not this one's. The
+lower stone's 1886 is still the built-in face.
+**How to resolve:** a close photograph of today's stack would give the carver's strokes and the cut
+depth. HABS 14 also reads the stack's face and both stones about 1.35-1.5 times wider than built,
+with their heights agreeing; that is T-2873's to rule.
+**Ticket:** T-2870 (piece 1 of T-2869).
+**Recorded:** 2026-10-19 (T-2870).
 
 
 ## T-2804: named resident seated-driver and supported W01 studies (2026-10-19)
