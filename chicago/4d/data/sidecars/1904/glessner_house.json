@@ -1305,8 +1305,8 @@
               ]
             ],
             "z": [
-              20,
-              25.25
+              19.6,
+              24.3
             ],
             "style": "north_gable_pair"
           },
@@ -1366,8 +1366,8 @@
               ]
             ],
             "z": [
-              20,
-              25.25
+              19.6,
+              24.3
             ],
             "style": "north_gable_pair"
           }
@@ -1383,7 +1383,7 @@
         "habs_glessner_photo_14_north_inclined_1965",
         "habs_glessner_photo_13_north_1965"
       ],
-      "note": "No HABS elevation of 18th Street exists: positions are read as gaps in the granite on the first- and second-floor plans (sheets 2-3, +/- 0.4 ft). The great arch (12'-0\" clear at 96'-6\", sheet 2; springing 4.6, crown 10.8, voussoir ring 19 ft across, sheet 5) and the 12-ft window over it (19.25-22.25 ft, sheet 5 printed stone-course sum re-read for T-1999) carry their own heights. HABS photograph 1 (1963) shows the same rhythm of narrow slit windows along the range. The 'narrow windows in its north side along 18th Street, just enough to light the narrow corridors' are Glessner's (1923). Items without a height take opening_heights. V4: the opening at W 122.8-125.2 is a full-height service door, not a first-floor slit window: sheet 2 shows a doorway, and HABS photograph 15 shows its sill at street grade. Its head at 10.4 ft is a photographic reading (+/- 1 ft). T-2470: the two gable pairs retain sheet-3 plan positions but receive their own z20.0-25.25-ft bounds, read proportionally from HABS 01/13/14 (+/-0.5 ft). The 3-ft corridor apertures are not a valid height for these visibly tall sashes. The flat gable facade extends west into the tower and carries the second pair above the lower range eave. T-2219: high-resolution sheet 2 shows the service doorway wider than the former 2.4-ft slit; sheet 3 shows the upper stair window about the same width as its 4.1-ft neighbour. Re-read bounds are W122.8–126.7 (door) and W122.8–127.0 (upper window), +/-0.3 ft. The doorway sill at0.85 ft ng is a bounded reconstruction from the two exposed steps in HABS01, not a printed level; the earlier at-grade reading of photo15 was obscured by a car."
+      "note": "No HABS elevation of 18th Street exists: positions are read as gaps in the granite on the first- and second-floor plans (sheets 2-3, +/- 0.4 ft). The great arch (12'-0\" clear at 96'-6\", sheet 2; springing 4.6, crown 10.8, voussoir ring 19 ft across, sheet 5) and the 12-ft window over it (19.25-22.25 ft, sheet 5 printed stone-course sum re-read for T-1999) carry their own heights. HABS photograph 1 (1963) shows the same rhythm of narrow slit windows along the range. The 'narrow windows in its north side along 18th Street, just enough to light the narrow corridors' are Glessner's (1923). Items without a height take opening_heights. V4: the opening at W 122.8-125.2 is a full-height service door, not a first-floor slit window: sheet 2 shows a doorway, and HABS photograph 15 shows its sill at street grade. Its head at 10.4 ft is a photographic reading (+/- 1 ft). T-2470: the two gable pairs retain sheet-3 plan positions but receive their own z20.0-25.25-ft bounds, read proportionally from HABS 01/13/14 (+/-0.5 ft). The 3-ft corridor apertures are not a valid height for these visibly tall sashes. The flat gable facade extends west into the tower and carries the second pair above the lower range eave. T-2219: high-resolution sheet 2 shows the service doorway wider than the former 2.4-ft slit; sheet 3 shows the upper stair window about the same width as its 4.1-ft neighbour. Re-read bounds are W122.8–126.7 (door) and W122.8–127.0 (upper window), +/-0.3 ft. The doorway sill at0.85 ft ng is a bounded reconstruction from the two exposed steps in HABS01, not a printed level; the earlier at-grade reading of photo15 was obscured by a car. T-2850: both pairs re-read at z19.6-24.3 ft. T-2470's 20.0-25.25 was a proportional reading, and both north cameras had been fitted with the pairs' heights ASSUMED (T-2200 at the corridor rows' 19.25-22.25, T-2470 at 20.0-25.25), so neither photograph had been asked. tools/glessner_north_pairs.py refits each camera with the pairs' sill and head left free, from the corner at grade, the narrow first-floor light's printed course interval and every pair corner at its plan W: HABS 13 reads 19.64-24.14, HABS 14 19.61-24.45 (data/comparisons/glessner/north-pairs.json), +/-0.4 ft. The head stood about a foot too high."
     },
     "openings_18th_photo": {
       "value": {
