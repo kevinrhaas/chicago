@@ -1,0 +1,10 @@
+{
+  "title": "Jaunt road notes name the right side and the right buildings",
+  "kind": "fix",
+  "items": [
+    "Road notes now measure from a building's walls, so Glessner House reads on your right when you walk south past it on its own side of Prairie.",
+    "Coach houses, sheds and privies on the alley are no longer listed as passed from the sidewalk.",
+    "Every 1904 jaunt names buildings one way, in stop headings, road notes and the built-so-far walk: Marshall Field House, 1905 Prairie.",
+    "Road notes in 1835 use the same names as the building cards."
+  ]
+}
