@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1808-porch-1965",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "9e1eea5b84ad8dc8d310b33cd7da265c551c725885a6c6a01c3f634e1330078b",
+  "glb_sha256": "de3cee807da75aba0f47e2abb24d30c30656c8846f3163549c765c804fb85ba4",
   "camera_sha256": "bfb140cc76c6fd84c1d81f670fe0abbef1e933332a0628b2bd9f60c0f58f8e6f",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1808-porch-1965-side-by-side.jpg",
   "verdict": "matches",
@@ -119,6 +119,10 @@
     {
       "what": "T-2881: re-rendered on the loggia with its rear row built (a pedestal 0.6 m square against the wall behind each front one, carrying a pair of turned shafts 0.39 m off the wall at a 0.28 m pitch, their radii 0.78 of the front's, under a paired capital; tools/keith_loggia_rear_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-rear-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 293-364, y 148-263); the slide shows the rear south pair as one lit shaft between the bow and the door (x 285-298, from the beam down to its pedestal), its fellow behind it at this angle, and the render now draws the pair there, beside its door (x 299-316), where it drew the bare wall. The pair and the door alike stand 15-19 px north of the slide's while the front pair stands on its own (slide 355-385, render 361-383): the slide's long-standing disagreement with the plan and the plate on the loggia's back in plan (T-2836 found it wanting the loggia 0.7-0.8 m south), not the rear row's place, which the plate rules. Nothing new opens; the verdict stays matches.",
       "status": "fixed"
+    },
+    {
+      "what": "T-2882: re-rendered on the loggia with a respond on the wall behind each rear pair (a flat pier the rear pedestal's width, 0.25 m deep, from the pedestal's top to the ceiling; tools/keith_loggia_respond_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-respond-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 291-354, y 150-232); the slide's lit rear south shaft (x 285-298) now has the respond's face beside it, between the pair and the door, where the slide's light runs from the shaft into the door's lit frame; at this slide's grain the respond cannot be told from the frame, and the pair and door keep T-2881's 15-19 px (the slide's own disagreement on the loggia's back in plan). Nothing new opens; the verdict stays matches.",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

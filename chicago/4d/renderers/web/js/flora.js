@@ -302,6 +302,17 @@ const TUNE = {
     bands: [
       { inner: 16.0, innerRamp: 10.0, radius: 62.0, ramp: 30.0, cell: 3.4, perCell: 1, keep: 0.80, wide: [1.5, 2.6], lift: 1.14 },
       { inner: 44.0, innerRamp: 24.0, radius: 175.0, ramp: 92.0, cell: 9.5, perCell: 1, keep: 0.74, wide: [2.6, 4.6], lift: 1.20 },
+      // T-2783 — THE MID RING. The near carry's tufts end at the mid ring's
+      // edge (31 m here) and past it the two bands above were one card in eleven
+      // square metres and then one in ninety, standing apart on the plain like
+      // tussocks on a lawn: the tufts' end read as a line and the plain as paint.
+      // This band fills the ground between with narrower cards on a finer
+      // lattice, thinning in over the near carry's own fade and out past the
+      // first band, so the sward recedes rather than stops. Same set, same
+      // material, same archetype — no draw call. Its cards hang no flower
+      // (`heads: false`): the two bands above already carry the bloom to its
+      // pixel reach, and the head caps are spent elsewhere.
+      { inner: 22.0, innerRamp: 12.0, radius: 88.0, ramp: 36.0, cell: 2.3, perCell: 1, keep: 0.86, wide: [1.0, 1.9], lift: 1.06, heads: false },
     ],
     // How wide a flower must still be, in pixels of the smaller gate viewport,
     // for the far band to draw it — see `farHeadReach`. ONE pixel is the honest
@@ -350,7 +361,10 @@ const TUNE = {
   // The pitched aerial sees the complete disc instead of a horizontal cone.
   // Reserve twice the old head allocation; placement density is unchanged.
   // T-2035's nadir prairie sweep exhausted ray/raydroop/pompom otherwise.
-  cap: { near: 2400, mid: 4400, forb: 900, head: 1640, far: 420, farShrub: 3200 },
+  // T-2783: `far` now holds the mid ring's band as well: about 1,030 cards on
+  // the open plain at the south-branch stand (2026-10-19), against 270 for the
+  // two outer bands alone, which the old 420 was sized for.
+  cap: { near: 2400, mid: 4400, forb: 900, head: 1640, far: 1400, farShrub: 3200 },
   wind: { speedNear: 1.35, sway: 0.085, waveM: 9.0 },
   /**
    * Rebuild the lattice when the camera has moved this far. It is also the
@@ -836,6 +850,9 @@ const LOW = {
     bands: [
       { inner: 9.5, innerRamp: 6.5, radius: 40.0, ramp: 20.0, cell: 3.9, perCell: 1, keep: 0.74, wide: [1.4, 2.3], lift: 1.14 },
       { inner: 30.0, innerRamp: 16.0, radius: 120.0, ramp: 64.0, cell: 11.0, perCell: 1, keep: 0.70, wide: [2.4, 4.2], lift: 1.20 },
+      // T-2783's mid ring, the phone's: the coarsest and shallowest of the three
+      // tiers, over the ground between its 14.6 m rings and its first band.
+      { inner: 12.0, innerRamp: 7.0, radius: 44.0, ramp: 18.0, cell: 3.8, perCell: 1, keep: 0.70, wide: [1.0, 1.8], lift: 1.06, heads: false },
     ],
     // NULL, and it is a tier decision rather than a big number chosen to make a
     // reach vanish. `light` is where the DRAW-CALL floor binds — 80 calls,
@@ -849,7 +866,7 @@ const LOW = {
   // T-2014. Shallower on the phone, as its far band is: the sward's own far
   // band stops at 120 m here and the shrubs stop well inside it.
   farShrub: { radius: 70.0, ramp: 24.0 },
-  cap: { near: 600, mid: 900, forb: 260, head: 480, far: 190, farShrub: 900 },
+  cap: { near: 600, mid: 900, forb: 260, head: 480, far: 380, farShrub: 900 },
 };
 
 /**
@@ -877,11 +894,13 @@ const MID = {
     bands: [
       { inner: 13.0, innerRamp: 8.5, radius: 52.0, ramp: 26.0, cell: 3.6, perCell: 1, keep: 0.78, wide: [1.5, 2.5], lift: 1.14 },
       { inner: 38.0, innerRamp: 20.0, radius: 150.0, ramp: 80.0, cell: 10.0, perCell: 1, keep: 0.72, wide: [2.5, 4.4], lift: 1.20 },
+      // T-2783's mid ring at the middle setting: between TUNE's and the phone's.
+      { inner: 16.0, innerRamp: 9.0, radius: 64.0, ramp: 26.0, cell: 3.0, perCell: 1, keep: 0.80, wide: [1.0, 1.9], lift: 1.06, heads: false },
     ],
     minPx: 2.0,
   },
   farShrub: { radius: 105.0, ramp: 35.0 },
-  cap: { near: 1500, mid: 2700, forb: 580, head: 1040, far: 300, farShrub: 2000 },
+  cap: { near: 1500, mid: 2700, forb: 580, head: 1040, far: 800, farShrub: 2000 },
 };
 
 /** The closed `form` list, split by how it is drawn. */
@@ -1271,6 +1290,9 @@ export async function createFlora({
   };
   stats.unzonedLandFraction = await auditCoverage(terrain, finder, checkpoint);
   stats.turf = await handTurfToGround(zones, finder, water, terrain, problems, checkpoint);
+  // T-2783: and the far sward's colour, over the whole heightfield.
+  stats.farSward = await handFarSwardToGround(zones, finder, water, terrain, tune, problems,
+    checkpoint);
   if (stats.unzonedLandFraction >= 0.999) {
     // Not a tolerance: records exist, ground exists, and NOTHING matches — the
     // layer would draw an empty prairie while looking healthy. Any fraction
@@ -2238,7 +2260,7 @@ export async function createFlora({
           // `farHeadReach`. The head sets and their material are the ones the
           // forb ring already uses, so this is instances on a mesh that is
           // drawn either way, never a new draw call.
-          if (forb && h > 0 && sp.head && tune.far.minPx
+          if (forb && h > 0 && sp.head && tune.far.minPx && band.heads !== false
             && r <= farHeadReach(sp, tune.far.minPx) + step) {
             const hr = farHeadRing(sp, tune.far.minPx, _headRing);
             hr[0] = Math.min(hr[0], outer - HEAD_FADE_AT * feather);
@@ -4313,6 +4335,114 @@ async function handTurfToGround(zones, finder, water, terrain, problems, checkpo
   return out;
 }
 
+
+/**
+ * T-2783 — THE FAR SWARD'S COLOUR, handed to the ground the way the turf is.
+ *
+ * Past the near ring the sward thins to cards and then to nothing, and the
+ * ground under it was the prairie tile: the colour of litter between stems,
+ * which is what a walker sees at their feet and not what a July sward is at
+ * forty metres, seen almost edge-on, where nothing shows but the grass. So the
+ * plain past the near ring read as paint and the end of the tufts read as a line.
+ *
+ * The ground now eases toward the sward's own colour over the tier's rings
+ * (terrain.js `FAR_SWARD_FRAGMENT`). WHICH colour, and how much of it, is asked
+ * of the placer, texel by texel, over the heightfield: the community the zone
+ * finder deals at that point, its `matColor` (the mean of its grass records'
+ * July greens, the colour its cards are tinted with) and its recorded
+ * `matrix_fraction` as the weight. No grass where a community records none,
+ * none on water, none on the town's turf — the 1835 town paints its own short
+ * grass after this. One question a texel, then one blur pass, because the
+ * finder deals each point from a draw across a blended edge.
+ *
+ * `FAR_SWARD` holds the parts that are tuning, not evidence: the gain that
+ * brings a ground lit as a surface up to a sward lit as leaves, the strength of
+ * the coarse grain's streaks, and its scale (docs/LIBERTIES.md L-far-sward-2783).
+ */
+const FAR_SWARD = {
+  /** Metres a texel. The communities' edges blend over ~100 m (T-2125). */
+  cellM: 16,
+  /** Linear multipliers on the recorded green. A card is lit through the leaf
+   *  (`LEAF.scatter`, `LEAF.transmit`); the ground is lit as a surface, so the
+   *  same albedo reads darker and greyer on the ground than in the grass. */
+  gain: [0.82, 0.88, 0.64],
+  /** How far the coarse grain moves the tone, and its tile in metres. */
+  streak: 0.70,
+  grainM: 18.0,
+};
+async function handFarSwardToGround(zones, finder, water, terrain, tune, problems,
+  checkpoint = () => null) {
+  const out = { painted: false, cellM: FAR_SWARD.cellM, texels: 0, start: null, full: null };
+  const hf = terrain?.heightfield;
+  if (typeof terrain?.setFarSward !== 'function' || !hf?.loaded) return out;
+  const cell = FAR_SWARD.cellM;
+  // A rim of one weightless texel each side, so the clamped map ramps to
+  // nothing at its own edge rather than smearing its last row outward.
+  const w = Math.ceil(hf.widthM / cell) + 2;
+  const h = Math.ceil(hf.depthM / cell) + 2;
+  const e0 = hf.originE - cell;
+  const n0 = hf.originN - cell;
+  const raw = new Float32Array(w * h * 4);
+  for (let j = 1; j < h - 1; j++) {
+    const pause = checkpoint(); if (pause) await pause;
+    for (let i = 1; i < w - 1; i++) {
+      const ce = e0 + (i + 0.5) * cell;
+      const cn = n0 + (j + 0.5) * cell;
+      if (water.isWater(ce, cn)) continue;
+      const z = finder(ce, cn);
+      if (!z || z.turf || !z.graminoids?.length || !z.matColor) continue;
+      const a = clamp01(z.matrixShare ?? 0);
+      if (a <= 0) continue;
+      const k = (j * w + i) * 4;
+      raw[k] = z.matColor[0] * a;
+      raw[k + 1] = z.matColor[1] * a;
+      raw[k + 2] = z.matColor[2] * a;
+      raw[k + 3] = a;
+      out.texels++;
+    }
+  }
+  if (!out.texels) {
+    problems.push('flora: no texel of the heightfield deals a grass community — the far '
+      + 'sward is not painted and the plain past the near ring keeps the tile');
+    return out;
+  }
+  // One blur, premultiplied by the weight so a grass texel beside a bare one
+  // keeps its own green and only its weight falls.
+  const data = new Uint8Array(w * h * 4);
+  for (let j = 1; j < h - 1; j++) {
+    for (let i = 1; i < w - 1; i++) {
+      let r = 0, g = 0, b = 0, a = 0;
+      for (let dj = -1; dj <= 1; dj++) {
+        for (let di = -1; di <= 1; di++) {
+          const k = ((j + dj) * w + i + di) * 4;
+          r += raw[k]; g += raw[k + 1]; b += raw[k + 2]; a += raw[k + 3];
+        }
+      }
+      if (a <= 0) continue;
+      const k = (j * w + i) * 4;
+      // Square-root encoded: the shader squares it back to linear.
+      data[k] = Math.round(255 * Math.sqrt(Math.min(1, r / a)));
+      data[k + 1] = Math.round(255 * Math.sqrt(Math.min(1, g / a)));
+      data[k + 2] = Math.round(255 * Math.sqrt(Math.min(1, b / a)));
+      data[k + 3] = Math.round((255 * a) / 9);
+    }
+  }
+  // The tier's own rings: the ground starts to turn where the near ring's
+  // tufts stop standing solid, and is the sward's colour by the outer edge of
+  // the mid ring, where the cards start to thin.
+  out.start = tune.near.radius;
+  out.full = tune.mid.radius + (tune.mid.fringe ?? 0);
+  out.painted = terrain.setFarSward({
+    box: { e0, e1: e0 + w * cell, n0, n1: n0 + h * cell },
+    map: { data, w, h },
+    start: out.start,
+    full: out.full,
+    streak: FAR_SWARD.streak,
+    grainM: FAR_SWARD.grainM,
+    gain: FAR_SWARD.gain,
+  });
+  return out;
+}
 
 /** What fraction of the modelled DRY ground matches no community. Sampled over
  *  the whole heightfield, so it is a property of the dataset and not of where

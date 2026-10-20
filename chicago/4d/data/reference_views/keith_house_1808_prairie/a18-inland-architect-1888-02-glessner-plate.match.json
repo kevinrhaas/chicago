@@ -2,7 +2,7 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-inland-architect-1888-02-glessner-plate",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "9e1eea5b84ad8dc8d310b33cd7da265c551c725885a6c6a01c3f634e1330078b",
+  "glb_sha256": "de3cee807da75aba0f47e2abb24d30c30656c8846f3163549c765c804fb85ba4",
   "camera_sha256": "66091c5f28c06a87a76fae6a41a39ead14634863d16f710d705e151c69e3fb63",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-inland-architect-1888-02-glessner-plate-side-by-side.jpg",
   "verdict": "matches",
@@ -66,6 +66,10 @@
     {
       "what": "T-2881: re-rendered on the loggia with its rear row built (a pedestal 0.6 m square against the wall behind each front one, carrying a pair of turned shafts 0.39 m off the wall at a 0.28 m pitch, their radii 0.78 of the front's, under a paired capital; tools/keith_loggia_rear_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-rear-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 503-625, y 458-583), all of which stands behind Glessner's front in this plate. Nothing it shows opens a difference; the verdict returns to matches.",
       "status": "fixed"
+    },
+    {
+      "what": "T-2882: re-rendered on the loggia with a respond on the wall behind each rear pair (a flat pier the rear pedestal's width, 0.25 m deep, from the pedestal's top to the ceiling; tools/keith_loggia_respond_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-respond-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 534-624, y 471-591); the rear row stands behind the respond's face, and this picture does not read the rear row, for the reason T-2881's item above gives, so it does not read the respond either. Nothing it shows opens a difference; the verdict stands (matches).",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
