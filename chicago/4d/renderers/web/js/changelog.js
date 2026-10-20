@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2143, ts: '2026-10-20T22:59:22.200Z', date: 'Oct 20, 2026, 5:59 PM CT', title: 'Glessner\'s window colonnettes, carved to their photographs', kind: 'improvement',
+    items: [
+      'The seven little stone columns between the Prairie Avenue upstairs windows now taper, stand on angular splayed bases and sit flush with the wall, as the 1965 survey drawings show.',
+      'They are cut in the house\'s own granite instead of grey limestone, and so is the carved string course beneath them.',
+      'Every capital is carved differently, as on the real house: Richardson\'s monogram over the front door, basket weave, crossing stems, and bands of discs, diamonds, checkers and chevrons, read from the survey and the museum\'s close-up photographs.',
+    ] },
   { v: 2142, ts: '2026-10-20T22:51:33.054Z', date: 'Oct 20, 2026, 5:51 PM CT', title: 'An open building card holds you until you close it', kind: 'improvement',
     items: [
       'Clicking a building frees the mouse and pauses walking, so the card can be read and clicked.',
