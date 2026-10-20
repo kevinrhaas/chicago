@@ -70,6 +70,7 @@ import { tierOf, isNotAsserted, TIER_LABEL, TIER_TITLE } from './attribute-tiers
 // holding for the building card and the person card both (T-1041).
 import { agencySectionHtml, loadAgencies } from './agencies.js';
 import { readHouseholdRecord } from './letter-list-roster.js';
+import { loadReaderText, nameOf, originalOf, readerCopy } from './reader-text.js';
 
 /** A closed-set token as a reader should see it: `tavern_keeper`. */
 export function words(token) {
@@ -121,11 +122,13 @@ function basisHtml(block) {
   if (!basis || typeof basis !== 'object') return '';
   const rep = block.replaceable_by || null;
   const drawn = basis.kind === 'model';
+  // T-2825: the model or rule by its words, and the seed kept on the record for the tools
+  // that redraw it — a seed is a record id, and no card prints one.
   return `<details class="res-basis"><summary>${
-    drawn ? 'Drawn from a model' : 'Argued from a rule'} — <code>${
-    escapeHtml(String(basis.id || ''))}</code></summary>
+    drawn ? 'Drawn from a model' : 'Argued from a rule'} — ${
+    escapeHtml(idWords(basis.id))}</summary>
     <span class="res-why">${escapeHtml(String(basis.note || ''))}${
-    drawn && block.seed ? ` Redrawn with the seed <code>${escapeHtml(String(block.seed))}</code>.` : ''}${
+    drawn && block.seed ? ' It can be drawn again exactly, from the seed kept on its record.' : ''}${
     rep ? ` This value is replaced the moment the project holds ${escapeHtml(String(rep.match || ''))}.` : ''}
     </span></details>`;
 }
@@ -231,7 +234,7 @@ function presenceLegRow(hh, citationsById) {
   // month, a year — and `reaches` the latest day that reading can still mean. A year
   // whose window covers 1 July 1835 pins nothing before it, and the row says which.
   const exactness = { day: 'to the day', month: 'to the month', year: 'to the year' }[
-    leg.precision] || leg.precision;
+    leg.precision] || words(leg.precision);
   const reach = leg.includes_scene_date
     ? `read ${exactness}, so it can mean any day up to ${leg.reaches} — a window that `
       + 'covers 1 July 1835 itself, and pins nothing before it'
@@ -398,7 +401,7 @@ function laterCensusHtml(census, citationsById) {
       <br><span class="res-why">Page ${escapeHtml(String(census.census_page))}, row ${
         escapeHtml(String(census.census_row))}, enumeration serial ${
         escapeHtml(String(census.serial))}${
-        census.source_image ? `, from image ${escapeHtml(census.source_image)}` : ''}${
+        census.source_image ? `, from image ${escapeHtml(String(census.source_image).replace(/\.(?:jpe?g|png|tiff?)$/i, ''))}` : ''}${
         census.source_kind ? ` (${escapeHtml(census.source_kind)})` : ''}.
         The reading of the name is graded ${escapeHtml(words(census.name_confidence))}, the
         identification of it with this person ${escapeHtml(words(census.identity_confidence))},
@@ -442,7 +445,9 @@ function scanHtml(census, citationsById) {
   return `<dt>Read again off the page itself</dt>
     <dd>${swatch('attested')}Line ${escapeHtml(String(scan.line))} of the photographed sheet,
       where the head of the household is written <q>${escapeHtml(scan.head_name_as_read)}</q>.
-      <br><span class="res-why">From ${escapeHtml(scan.image)}, read by ${escapeHtml(scan.read_by)}.</span>
+      <br><span class="res-why">From the photographed sheet ${escapeHtml(String(scan.image ?? '').split('/').pop()
+        .replace(/\.(?:jpe?g|png|tiff?)$/i, ''))}${/^T-\d+$/.test(String(scan.read_by ?? '').trim()) || !scan.read_by
+        ? '' : `, read by ${escapeHtml(String(scan.read_by))}`}.</span>
       ${tallies ? `<ul class="res-candidates">${tallies}</ul>` : ''}
       <span class="res-why">On the line, band by band: ${escapeHtml(scan.age_bands)}.</span>
       <br><span class="res-why">The sheet foots its own columns and that footing is the only
@@ -480,8 +485,11 @@ function laterDirectoryHtml(found, citationsById) {
   const volumes = (found.appearances || []).map((a) => {
     const lines = (a.entries || []).map((e) => `<li><q>${escapeHtml(e.as_printed)}</q>${
       e.firm ? ` — ${escapeHtml(e.firm)}` : ''}
-      <br><span class="res-why">Printed page ${escapeHtml(String(e.printed_page))}, entry ${
-        escapeHtml(e.claim_id)}.</span></li>`).join('');
+      <br><span class="res-why">${(() => {
+        // `fergus_1843_page_002` is the page's record id; the page is its number (T-2825).
+        const page = String(e.printed_page ?? '').match(/(?:^|_page_0*)(\d+)$/)?.[1];
+        return page ? `Printed page ${escapeHtml(page)}.` : 'One printed line of the volume.';
+      })()}</span></li>`).join('');
     const holds = (a.holds || []).map((c) => (c === 'occupation' ? 'a trade' : 'a street'));
     // T-0987 stretch 6: a split is refused per FIELD, so the chip names which of the two
     // does not cross rather than saying it of the whole line. `split_refused` maps a
@@ -568,7 +576,7 @@ function backProjectionHtml(bp) {
     ? `<span class="res-chip res-research">${escapeHtml(String(bp.read_back_years))} years back, from ${
       escapeHtml(String(bp.describes_date))}</span>` : '';
   const clause = bp.clause
-    ? `<span class="res-chip res-research">clause ${escapeHtml(String(bp.clause))}</span>` : '';
+    ? `<span class="res-chip res-research">clause ${escapeHtml(idWords(bp.clause))}</span>` : '';
   // A chip only where there is a claim to grade. A refusal is not a figure held
   // at low confidence; it is the absence of a figure, and the record carries no
   // `confidence` on one for exactly that reason.
@@ -614,7 +622,7 @@ function residenceBackProjectionHtml(rp, citationsById) {
     ? `<span class="res-chip res-research">${escapeHtml(String(rp.read_back_years))} years back, from ${
       escapeHtml(String(rp.describes_date))}</span>` : '';
   const clause = rp.clause
-    ? `<span class="res-chip res-research">clause ${escapeHtml(String(rp.clause))}</span>` : '';
+    ? `<span class="res-chip res-research">clause ${escapeHtml(idWords(rp.clause))}</span>` : '';
   // A chip only where there is a claim to grade, for the reason the row above gives.
   const chip = placed ? swatch(rp.confidence) : '';
   const cites = (rp.sources || []).map((id) => citationsById.get(id)).filter(Boolean);
@@ -668,8 +676,7 @@ function evidenceLineHtml(entry, citationsById) {
   return `<li><q>${escapeHtml(String(entry.as_read ?? ''))}</q>
     <br><span class="res-why">In <b>${escapeHtml(words(entry.list))}</b>, describing ${
       escapeHtml(printedOn(entry.describes_date))}${
-      entry.locator ? `, at ${escapeHtml(String(entry.locator))}` : ''}. Record ${
-      escapeHtml(String(entry.record_id))}, accepted by rung ${
+      entry.locator ? `, at ${escapeHtml(String(entry.locator))}` : ''}. Accepted by rung ${
       escapeHtml(String(entry.rule))}.</span>
     ${cite ? `<ol class="cites">${citationItems([cite])}</ol>` : ''}</li>`;
 }
@@ -908,7 +915,7 @@ function landholdingHtml(block, citationsById) {
         block.place_class === 'outside_chicago' ? ', and ground somewhere other than this town' : ''}.
         <q>${escapeHtml(String(block.as_read ?? ''))}</q> ${escapeHtml(String(block.note ?? ''))}
         A holding is not a residence and is not drawn on the ground: this card's address,
-        where it has one, is a separate claim. Record ${escapeHtml(String(block.record_id))}.</span>
+        where it has one, is a separate claim.</span>
       ${cites.length ? `<ol class="cites">${citationItems(cites)}</ol>` : ''}</dd>`;
 }
 
@@ -922,8 +929,7 @@ function profileFactsHtml(facts, citationsById) {
       f.precision ? ` — the source is exact to the ${escapeHtml(words(f.precision))}` : ''}
       <br><span class="res-why">Describing ${escapeHtml(printedOn(f.describes_date))}${
         f.place_class === 'outside_chicago' ? ', and somewhere other than this town' : ''}.
-        <q>${escapeHtml(String(f.as_read ?? ''))}</q> ${escapeHtml(String(f.note ?? ''))}
-        Record ${escapeHtml(String(f.record_id))}.</span>
+        <q>${escapeHtml(String(f.as_read ?? ''))}</q> ${escapeHtml(String(f.note ?? ''))}</span>
       ${cites.length ? `<ol class="cites">${citationItems(cites)}</ol>` : ''}</li>`;
   }).join('');
   return `<dt>Spent from the matched research</dt>
@@ -931,7 +937,7 @@ function profileFactsHtml(facts, citationsById) {
       rows.length === 1 ? 'fact' : 'facts'}</span>
       <ul class="res-candidates">${body}</ul>
       <span class="res-why">Every candidate the research proposed is adjudicated in
-        <code>data/residents/person_facts.json</code> — these are the ones this project was
+        the project's table of person facts — these are the ones this project was
         willing to assert. The rest are withheld WITH THEIR REASON: a volume printed after
         the scene may date and corroborate and may never promote, a source that puts the
         person somewhere else cannot make them a resident here, and a trade belongs to the
@@ -975,6 +981,14 @@ function citesFor(named, citationsById) {
 }
 
 function prose(text, citationsById, found = null) {
+  // T-2825: a sentence said for a reader names its sources by title, not by handle, so the
+  // handles are read off the sentence it was said from, and the citations under the block
+  // still list every source the record's words named.
+  if (found) {
+    for (const id of String(originalOf(String(text ?? '')) ?? '').match(SOURCE_ID) || []) {
+      if (citationsById.get(id)) found.add(id);
+    }
+  }
   return escapeHtml(String(text ?? '')).replace(SOURCE_ID, (id) => {
     const cite = citationsById.get(id);
     if (!cite) return id;
@@ -1005,7 +1019,7 @@ const WITHHELD_HEADS = new Map([
   ['contradicted', 'Two readings disagree'],
   ['insufficient_identity', 'Not tied firmly enough to this person'],
   ['duplicate', 'The record already holds it'],
-  ['unresolved', 'Handed to another ticket'],
+  ['unresolved', 'Handed on to further work'],
 ]);
 
 function withheldFactsHtml(rows, citationsById) {
@@ -1016,15 +1030,15 @@ function withheldFactsHtml(rows, citationsById) {
     const [kind, ticket] = verdict.split(':');
     const cite = citationsById.get(w.source_id);
     const label = FACT_LABELS.get(w.field) || words(w.field);
+    // T-2825: the ticket a refusal was handed to is the builders' reference, not a reader's.
     return `<li><b>${escapeHtml(WITHHELD_HEADS.get(kind) || words(kind))}</b>${
-      ticket ? ` — ${escapeHtml(ticket)}` : ''}
+      ticket && !/^T-\d+$/.test(ticket.trim()) ? ` — ${escapeHtml(idWords(ticket))}` : ''}
       ${w.field === 'none' ? '' : `<br>${escapeHtml(label)}: <i>${
         escapeHtml(String(w.proposed_value ?? ''))}</i>${
         w.place_class === 'outside_chicago' ? ', and somewhere other than this town' : ''}`}
       <br><span class="res-why">${prose(w.reason, citationsById)}
         Describing ${escapeHtml(printedOn(w.describes_date))}.
-        <q>${prose(w.quote, citationsById)}</q>
-        Record ${escapeHtml(String(w.claim_or_record_id ?? ''))}.</span>
+        <q>${prose(w.quote, citationsById)}</q></span>
       ${cite ? `<ol class="cites">${citationItems([cite])}</ol>` : ''}</li>`;
   }).join('');
   return `<dt>Withheld from this card, and why</dt>
@@ -1034,7 +1048,7 @@ function withheldFactsHtml(rows, citationsById) {
       <span class="res-why">These are readings this project made and would not assert. A
         withheld candidate is NOT a fact about this person and must not be read as one —
         it is the reasoning, published so it can be argued with. Every row is adjudicated
-        in <code>data/residents/person_facts.json</code>.</span></dd>`;
+        in the project's table of person facts.</span></dd>`;
 }
 
 /**
@@ -1059,11 +1073,12 @@ function recordResearchHtml(rr, citationsById, pilotShown) {
   if (!rr) return '';
   // The sources the block declares, plus any its own sentences name by handle.
   const named = new Set(rr.source_ids || []);
+  const candidateName = new Map((rr.candidates || []).filter((c) => c.candidate_id && c.name)
+    .map((c) => [c.candidate_id, c.name]));
 
   const candidates = (rr.candidates || []).map((c) => {
     const cc = (c.sources || []).map((id) => citationsById.get(id)).filter(Boolean);
-    return `<li><b>${escapeHtml(c.name || words(c.candidate_id) || words(c.id))}</b>${
-      c.candidate_id ? ` <code>${escapeHtml(String(c.candidate_id))}</code>` : ''}
+    return `<li><b>${escapeHtml(c.name || idWords(String(c.candidate_id || c.id || '').replace(/^cand_/, '')))}</b>
       · ${escapeHtml(c.asserted ? 'asserted as this person' : 'weighed and not asserted')}${
       c.assessment ? ` · ${escapeHtml(words(c.assessment))}` : ''}
       <br><span class="res-why">${prose(c.basis, citationsById, named)}
@@ -1080,8 +1095,8 @@ function recordResearchHtml(rr, citationsById, pilotShown) {
       pilotShown ? '' : `<span class="res-chip res-research">${
         escapeHtml(words(rr.outcome))}</span>`}
       <span class="res-why">${pilotShown ? '' : `${prose(rr.summary, citationsById, named)} `}Read
-        under ${escapeHtml(String(rr.programme ?? 'the resident research programme'))} for
-        ${escapeHtml(String(rr.ticket ?? ''))}, reviewed ${
+        under ${escapeHtml(rr.programme ? `the ${idWords(rr.programme)} programme` : 'the resident research programme')},
+        reviewed ${
         escapeHtml(printedOn(rr.reviewed_on))}${
         rr.regraded_on ? `, regraded ${escapeHtml(printedOn(rr.regraded_on))} under rule ${
           escapeHtml(String(rr.rule ?? ''))}` : ''}.</span>
@@ -1095,7 +1110,8 @@ function recordResearchHtml(rr, citationsById, pilotShown) {
       ${candidates ? `<ul class="res-candidates">${candidates}</ul>` : ''}
       ${refusals ? `<ul class="res-candidates">${refusals}</ul>` : ''}
       ${(rr.candidate_ids || []).length ? `<span class="res-why">Candidates weighed: ${
-        escapeHtml((rr.candidate_ids || []).map((id) => words(id)).join(', '))}.</span>` : ''}
+        escapeHtml((rr.candidate_ids || []).map((id) => candidateName.get(id)
+          || idWords(String(id).replace(/^cand_/, ''))).join(', '))}.</span>` : ''}
       ${citesFor(named, citationsById)}</dd>`;
 }
 
@@ -1115,11 +1131,12 @@ function nameRulingHtml(ruling, citationsById) {
   if (!ruling) return '';
   const named = new Set();
   const body = `<dt>Why this name, and not the other one</dt>
-    <dd>${swatch(null)}Ruled by ${escapeHtml(String(ruling.ruled_by ?? ''))} under rule ${
+    <dd>${swatch(null)}Ruled under rule ${
       escapeHtml(String(ruling.rule ?? ''))}${
       Number.isFinite(ruling.printed_line) ? `, at printed line ${
-        escapeHtml(String(ruling.printed_line))}` : ''}, and written down in
-      <code>${escapeHtml(String(ruling.ruling ?? ''))}</code>.
+        escapeHtml(String(ruling.printed_line))}` : ''}, and written down in ${
+      /\s/.test(String(ruling.ruling ?? '')) ? escapeHtml(String(ruling.ruling))
+        : 'the name rulings of the letter list'}.
       <br><span class="res-why">The card takes ${prose(ruling.takes, citationsById, named)},
         over ${prose(ruling.over, citationsById, named)}. It had displayed
         <q>${escapeHtml(String(ruling.displayed_name_was ?? ''))}</q>.
@@ -1144,10 +1161,9 @@ function mergedFromHtml(merged, citationsById) {
   if (!list.length) return '';
   const named = new Set();
   const body = list.map((m) => `<li><b>${
-    escapeHtml((m.cards || []).map((c) => words(c)).join(', '))}</b>
-    <br><span class="res-why">Folded under rule ${escapeHtml(String(m.rule ?? ''))} by ${
-    escapeHtml(String(m.ticket ?? ''))}, in the ${escapeHtml(String(m.cluster ?? ''))}
-    cluster. ${prose(m.note, citationsById, named)}</span></li>`).join('');
+    escapeHtml((m.cards || []).map((c) => nameFor(c)).join(', '))}</b>
+    <br><span class="res-why">Folded under rule ${escapeHtml(String(m.rule ?? ''))}, in the
+    ${escapeHtml(idWords(m.cluster))} cluster. ${prose(m.note, citationsById, named)}</span></li>`).join('');
   return `<dt>Cards folded into this person</dt>
     <dd>${swatch(null)}<ul class="res-candidates">${body}</ul>${
       citesFor(named, citationsById)}</dd>`;
@@ -1158,10 +1174,10 @@ function mergeRulingHtml(rulings, citationsById) {
   if (!list.length) return '';
   const named = new Set();
   const body = list.map((r) => `<li><b>${escapeHtml(words(r.verdict))}</b> from ${
-    escapeHtml((r.weighed_against || []).map((c) => words(c)).join(', '))}, under rule ${
-    escapeHtml(String(r.rule ?? ''))} in the ${escapeHtml(String(r.cluster ?? ''))} cluster
-    (${escapeHtml(String(r.ticket ?? ''))})${
-    r.referred_to ? `, referred to ${escapeHtml(String(r.referred_to))}` : ''}
+    escapeHtml((r.weighed_against || []).map((c) => nameFor(c)).join(', '))}, under rule ${
+    escapeHtml(String(r.rule ?? ''))} in the ${escapeHtml(idWords(r.cluster))} cluster${
+    r.referred_to ? (/^T-\d+$/.test(String(r.referred_to).trim()) ? ', referred on to further work'
+      : `, referred to ${escapeHtml(String(r.referred_to))}`) : ''}
     <br><span class="res-why"><b>For a merge:</b> ${prose(r.for_merge, citationsById, named)}</span>
     <br><span class="res-why"><b>Against:</b> ${prose(r.against_merge, citationsById, named)}</span></li>`).join('');
   return `<dt>Weighed against another card</dt>
@@ -1397,7 +1413,7 @@ function roleRowHtml(role, citationsById) {
   // its source does not say, and it prints as nothing rather than as an empty line.
   const place = role.place && role.place !== 'not_stated' ? String(role.place) : '';
   const body = role.employer_or_body && role.employer_or_body !== 'not_stated'
-    ? String(role.employer_or_body) : '';
+    ? idWords(role.employer_or_body) : '';
   const where = place || body
     ? `<span class="res-why">${place ? `Worked at ${escapeHtml(place)}` : 'Worked'}${
         body ? `${place ? ', ' : ' '}for ${escapeHtml(body)}` : ''}, as the record that
@@ -1487,14 +1503,14 @@ function reconstructionHtml(person) {
     ? (age.high === null || age.high === undefined ? `${age.low} or older` : `${age.low}–${age.high}`)
     : '';
   return `<dt>Why this person is here</dt><dd>${swatch('reconstructed')}No source names them.
-    They are written by the <code>${escapeHtml(String(rc.stage || ''))}</code> stage of
-    ${escapeHtml(String(rc.programme || 'the reconstruction programme'))}${
+    They are written by the ${escapeHtml(idWords(rc.stage))} stage of
+    ${escapeHtml(rc.programme ? `the ${idWords(rc.programme)} programme` : 'the reconstruction programme')}${
     rc.counted_by ? `, counted by ${escapeHtml(String(rc.counted_by))}` : ''}.${
     rc.band_1840 ? `<br><span class="res-why">The record that counts them reads
       “${escapeHtml(String(rc.band_1840))}”${span ? `, which is ${escapeHtml(span)} on 1 July 1835` : ''}.
       </span>` : ''}${
     rc.community ? `<br><span class="res-why">The invented forename is drawn from the
-      ${escapeHtml(String(rc.community))} pool.</span>` : ''}${foldedInHtml(person.folded_in)}
+      ${escapeHtml(words(rc.community))} pool.</span>` : ''}${foldedInHtml(person.folded_in)}
     ${basisHtml(person)}</dd>`;
 }
 
@@ -1503,16 +1519,15 @@ function printedSeatHtml(seat) {
   if (!seat || typeof seat !== 'object') return '';
   return `<dt>Why she is in this house</dt><dd>She stood as
     ${escapeHtml(words(seat.relationship_as_dealt))} of her own card,
-    <code>${escapeHtml(String(seat.from_household))}</code>; ${escapeHtml(String(seat.ticket))}
-    seats her here as the wife a source prints.</dd>`;
+    ${escapeHtml(nameFor(seat.from_household))}; she is seated here as the wife a source prints.</dd>`;
 }
 
 /** T-2020: a person moved, with the house they were dealt in, into a married house. */
 function foldedInHtml(folded) {
   if (!folded || typeof folded !== 'object') return '';
   return `<br><span class="res-why">Dealt as ${escapeHtml(words(folded.relationship_as_dealt))}
-    of the house <code>${escapeHtml(String(folded.from_household))}</code>, which
-    ${escapeHtml(String(folded.ticket))} folded into this one.</span>`;
+    of the house ${escapeHtml(nameFor(folded.from_household))}, which was later folded into
+    this one.</span>`;
 }
 
 /**
@@ -1650,7 +1665,7 @@ function employmentHtml(seatingByPerson, personId) {
     ? `<br><span class="res-why">Withdrawn by ${escapeHtml(e.replaceable_by.match)}.</span>` : ''}
       <br><span class="res-why">Drawn, not read. No source places this person at work
         anywhere; the seat is a pointer at a house the business layer already holds,
-        reproducible from the seed <code>${escapeHtml(e.seed || '')}</code>. Nothing is
+        reproducible from the seed kept on its record. Nothing is
         written onto the house itself until the staffing shortfall is minted.</span></dd>`;
 }
 
@@ -1713,8 +1728,8 @@ function employmentCoverageHtml(coverage, personId) {
       ${sentence ? `<br><span class="res-why">${escapeHtml(sentence)}</span>` : ''}
       ${row.ruling ? `<br><span class="res-why">${escapeHtml(row.ruling)}</span>` : ''}
       ${age ? `<br><span class="res-why">${escapeHtml(age)}</span>` : ''}
-      ${row.decided_by ? `<br><span class="res-why">Decided by <code>${
-    escapeHtml(row.decided_by)}</code>.</span>` : ''}
+      ${row.decided_by ? `<br><span class="res-why">Decided by ${
+    escapeHtml(/\s/.test(row.decided_by) ? row.decided_by : idWords(row.decided_by))}.</span>` : ''}
       <br><span class="res-why">One answer, from a closed set of five, for every person in
         the layer \u2014 so a card that has never been asked cannot read like a card that
         was asked and answered no. Nothing here supplies a trade, seats anybody or writes
@@ -1911,8 +1926,8 @@ function reconstructedHtml(person) {
   const rc = person && person.reconstruction;
   if (!rc || typeof rc !== 'object') return '';
   return `<dt>Why this person is in the town</dt><dd>${swatch('reconstructed')}Nobody a source
-    names. Drawn by the <code>${escapeHtml(String(rc.stage || ''))}</code> stage of the 1835
-    resident reconstruction programme${rc.ticket ? ` (${escapeHtml(String(rc.ticket))})` : ''}${
+    names. Drawn by the ${escapeHtml(idWords(rc.stage))} stage of the 1835
+    resident reconstruction programme${
     rc.community ? `, named from the ${escapeHtml(words(rc.community))} pool` : ''}.${
     rc.review_required ? ' This reconstruction carries a standing review.' : ''}
     ${basisHtml(person)}</dd>`;
@@ -1928,10 +1943,10 @@ function modelledFamilyHtml(block) {
     ${escapeHtml(words(block.household_type))} of ${escapeHtml(String(block.size_drawn))},
     drawn at the head's own size band from the 1840 city's household histogram;
     ${escapeHtml(String(block.kin_seated))} of them are seated here as kin.
-    <br><span class="res-why">Drawn by stage <code>${escapeHtml(String(block.stage))}</code>
-    of the 1835 resident reconstruction programme, ${escapeHtml(String(block.ticket))}.
+    <br><span class="res-why">Drawn by the ${escapeHtml(idWords(block.stage))} stage
+    of the 1835 resident reconstruction programme.
     ${escapeHtml(String(block.note || ''))}${
-    block.seed ? ` Redrawn with the seed <code>${escapeHtml(String(block.seed))}</code>.` : ''}
+    block.seed ? ' It can be drawn again exactly, from the seed kept on its record.' : ''}
     </span></dd>${marriedHtml(block.married)}${printedWifeHtml(block.printed_wife)}${
     rulingHtml(block.ruling)}`;
 }
@@ -1941,10 +1956,9 @@ function printedWifeHtml(printed) {
   if (!printed || typeof printed !== 'object') return '';
   return `<dt>The wife the paper prints</dt><dd>“${escapeHtml(String(printed.printed || ''))}”
     <span class="res-why">(${escapeHtml(String(printed.locator))}, married
-    ${escapeHtml(String(printed.married))}; ${escapeHtml((printed.sources || []).join(', '))})</span>
-    <br><span class="res-why">${escapeHtml(String(printed.what_happened || ''))} Seated by
-    ${escapeHtml(String(printed.ticket))}: <code>${escapeHtml(String(printed.wife))}</code>,
-    once the record <code>${escapeHtml(String(printed.from_household))}</code>.</span></dd>`;
+    ${escapeHtml(String(printed.married))}; ${escapeHtml((printed.sources || []).map(nameFor).join('; '))})</span>
+    <br><span class="res-why">${escapeHtml(String(printed.what_happened || ''))} Seated here:
+    ${escapeHtml(nameFor(printed.wife))}, once of ${escapeHtml(nameFor(printed.from_household))}.</span></dd>`;
 }
 
 /**
@@ -1957,8 +1971,7 @@ function rulingHtml(ruling) {
     : 'Why this house stands alone';
   return `<dt>${heading}</dt><dd>${swatch('reconstructed')}
     ${escapeHtml(String(ruling.what_happened || ''))}
-    <br><span class="res-why">Ruled by ${escapeHtml(String(ruling.ticket))}:
-    ${escapeHtml(words(ruling.verdict))}.</span></dd>`;
+    <br><span class="res-why">Ruled: ${escapeHtml(words(ruling.verdict))}.</span></dd>`;
 }
 
 /**
@@ -1969,9 +1982,8 @@ function marriedHtml(married) {
   if (!married || typeof married !== 'object') return '';
   return `<dt>Where the wife and children came from</dt><dd>${swatch('reconstructed')}
     ${escapeHtml(String(married.what_happened || ''))}
-    <br><span class="res-why">Moved by ${escapeHtml(String(married.ticket))}: the wife
-    <code>${escapeHtml(String(married.wife))}</code> and her house, once the record
-    <code>${escapeHtml(String(married.from_household))}</code>.</span></dd>`;
+    <br><span class="res-why">Moved here: the wife, ${escapeHtml(nameFor(married.wife))}, and her
+    house, once ${escapeHtml(nameFor(married.from_household))}.</span></dd>`;
 }
 
 export function householdHtml(hh, citationsById, researchByPerson, directoryByPerson, ladderRules,
@@ -2001,7 +2013,7 @@ export function householdHtml(hh, citationsById, researchByPerson, directoryByPe
       ${modelledFamilyHtml(hh.modelled_family)}
       ${hh.touches_removal
         ? `<dt>Touches the removal of 1835</dt><dd>Yes — read the standing constraint in
-           <code>AGENTS.md</code>. This record is published as research; nothing about the
+           the project's rules. This record is published as research; nothing about the
            removal is depicted or staged in the scene.</dd>` : ''}
       ${hh.surname_collision
         ? `<dt>Another card holds this family name</dt><dd>${
@@ -2013,7 +2025,8 @@ export function householdHtml(hh, citationsById, researchByPerson, directoryByPe
         ? `<dt>What this record is worth</dt><dd>${escapeHtml(hh.research_note)}</dd>` : ''}
     </dl>
     ${onRecord.note ? `<p class="res-why">${escapeHtml(onRecord.note)} Volumes cited on this record: ${
-        escapeHtml((onRecord.sources || []).join(', '))}.</p>` : ''}
+        escapeHtml((onRecord.sources || []).map((id) => (citationsById?.get?.(id)?.citation
+          ? citeHead(citationsById.get(id).citation) : nameFor(id))).join('; '))}.</p>` : ''}
     ${agencySectionHtml(agencies, 'household_id', hh.id, escapeHtml)}
     <div class="res-people">${persons.map((p) => personHtml(p, citationsById, researchByPerson, directoryByPerson, onRecord.people, ladderRules,
       withheldByPerson, hh.old_settler_deaths, seatingByPerson, coverage)).join('')}</div>`;
@@ -2158,8 +2171,7 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
   const fail = (message) => {
     problems.push(`residents: ${message} — the town's people are not shown`);
     if (mount) {
-      mount.innerHTML = '<p class="legend-note">The household records could not be loaded. '
-        + 'They are committed at <code>data/residents/</code>.</p>';
+      mount.innerHTML = '<p class="legend-note">The household records could not be loaded.</p>';
       mount.removeAttribute('aria-busy');
     }
     if (noteMount) {
@@ -2169,10 +2181,14 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
     return { households: 0, persons: 0, offCard: 0, error: message };
   };
 
+  // T-2825: the manifest is said for a reader as it arrives (reader-text.js), by its own
+  // small overlay; the joins a card reads are said when a card opens (`sayJoins`), so the
+  // household overlay is fetched with the first card and never with the section.
   const getJson = async (rel) => {
     const res = await fetch(new URL(rel, dataBase), { cache: 'no-cache' });
     if (!res.ok) throw new Error(`${rel}: ${res.status} ${res.statusText}`);
-    return res.json();
+    const doc = await res.json();
+    return readerCopy(doc, await loadReaderText(dataBase, 'residents_index', problems));
   };
 
   // The agency relation. A man who held one is named on his own town card, and a
@@ -2433,16 +2449,17 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
       try {
         // T-0438: the letter-list cohort is published packed, so its rows read
         // through the roster; every other row reads its own file as before.
-        const hh = await readHouseholdRecord(dataBase, el.dataset.file,
-          { cohort: cohortFiles.has(el.dataset.file) });
-        if (body) body.innerHTML = householdHtml(hh, citationsById, researchByPerson, directoryByPerson,
-          vocab.ladder_rules, agencies, withheldByPerson, seatingByPerson, coverage);
+        const [hh, reader] = await Promise.all([readHouseholdRecord(dataBase, el.dataset.file,
+          { cohort: cohortFiles.has(el.dataset.file) }), loadReaderText(dataBase, 'residents', problems)]);
+        const said = sayJoins({ citationsById, researchByPerson, directoryByPerson, withheldByPerson,
+          seatingByPerson, coverage }, reader);
+        if (body) body.innerHTML = householdHtml(hh, said.citationsById, said.researchByPerson, said.directoryByPerson,
+          vocab.ladder_rules, agencies, said.withheldByPerson, said.seatingByPerson, said.coverage);
       } catch (err) {
         el.dataset.loaded = '0';
         problems.push(`residents: ${err.message} — one household record is missing`);
         if (body) {
-          body.innerHTML = `<p class="legend-note">This household's record could not be
-            loaded. It is committed at <code>data/residents/${escapeHtml(el.dataset.file || '')}</code>.</p>`;
+          body.innerHTML = '<p class="legend-note">This household\'s record could not be loaded.</p>';
         }
       }
     }, true);
@@ -2465,6 +2482,51 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
     researchCounts,
     error: null,
   };
+}
+
+/** The household overlay the card being drawn reads its bare ids through (T-2825): set by
+ *  `sayJoins`, which both card renderers call just before `householdHtml`. */
+let cardOverlay = null;
+/** A bare id a card prints, said as the name the overlay gives it, or its words. */
+const nameFor = (id) => nameOf(id, cardOverlay);
+/** A programme or stage id as words: `1835_resident_reconstruction` → "1835 resident reconstruction". */
+const idWords = (id) => String(id ?? '').replace(/[_-]+/g, ' ').trim();
+
+/** A join map whose rows come out said for a reader, each the first time a card asks. */
+function saidMap(map, overlay) {
+  if (!overlay || !map || typeof map.get !== 'function') return map;
+  const memo = new Map();
+  return {
+    get(k) {
+      if (!memo.has(k)) memo.set(k, map.has(k) ? readerCopy(map.get(k), overlay) : undefined);
+      return memo.get(k);
+    },
+    has: (k) => map.has(k),
+    get size() { return map.size; },
+  };
+}
+
+/**
+ * The joins a household card reads, as a reader gets them (T-2825): the citations, the
+ * identity reviews, the directory findings, the refusals, the seatings, the employment
+ * answers and the address book's seats, each row said through the household overlay as the
+ * card reads it. The joins themselves stay as fetched, so a section that counts them counts
+ * the record. Without an overlay they are returned as they are.
+ */
+export function sayJoins(joins, overlay) {
+  cardOverlay = overlay ?? null;
+  if (!overlay || !joins) return joins;
+  const out = { ...joins };
+  for (const k of ['citationsById', 'researchByPerson', 'directoryByPerson', 'withheldByPerson',
+    'seatingByPerson', 'seatByHousehold', 'seatByBusiness']) {
+    if (joins[k]) out[k] = saidMap(joins[k], overlay);
+  }
+  if (joins.coverage) {
+    out.coverage = { ...joins.coverage, byPerson: saidMap(joins.coverage.byPerson, overlay),
+      words: readerCopy(joins.coverage.words, overlay) };
+  }
+  if (joins.agencies) out.agencies = readerCopy(joins.agencies, overlay);
+  return out;
 }
 
 /**
@@ -2495,10 +2557,14 @@ const residentJoinCache = new Map();
 export function loadResidentJoins(dataBase, sceneId, problems = []) {
   const key = `${sceneId}@${String(dataBase)}`;
   if (residentJoinCache.has(key)) return residentJoinCache.get(key);
+  // T-2825: the manifest is said for a reader as it arrives (reader-text.js), by its own
+  // small overlay; the joins a card reads are said when a card opens (`sayJoins`), so the
+  // household overlay is fetched with the first card and never with the section.
   const getJson = async (rel) => {
     const res = await fetch(new URL(rel, dataBase), { cache: 'no-cache' });
     if (!res.ok) throw new Error(`${rel}: ${res.status} ${res.statusText}`);
-    return res.json();
+    const doc = await res.json();
+    return readerCopy(doc, await loadReaderText(dataBase, 'residents_index', problems));
   };
   const promise = (async () => {
     const citationsById = new Map();

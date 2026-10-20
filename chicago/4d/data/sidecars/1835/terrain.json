@@ -2,7 +2,7 @@
   "scene": "1835",
   "target_date": "1835-07-01",
   "epoch": "e1834_harbor_cut",
-  "scope": "The forks AND the harbour: the Chicago River from the North and South Branches at Wolf Point east down the main stem, through the 1834 cut, past the sand bar and the decaying old southward channel, to open Lake Michigan — and, since T-1123, the North Branch above the forks to the north line of Wright's survey. Land is the three divisions the river separates, the Fort Dearborn reservation, the lakeshore sand-ridge belt east of State Street, the North Division ground Kinzie's Addition is platted on, and the bar itself.",
+  "scope": "The forks AND the harbour: the Chicago River from the North and South Branches at Wolf Point east down the main stem, through the 1834 cut, past the sand bar and the decaying old southward channel, to open Lake Michigan — and, since other work, the North Branch above the forks to the north line of Wright's survey. Land is the three divisions the river separates, the Fort Dearborn reservation, the lakeshore sand-ridge belt east of State Street, the North Division ground Kinzie's Addition is platted on, and the bar itself.",
   "standard": "No contour survey of the 1835 town site exists. The earliest systematic levels are the 1850s street-grade and Chesbrough sewerage surveys. Every land elevation below is a period narrative statement in feet, back-calculated from grade-raising records, or inferred from geology — so NO land elevation in this spec is better than 'inferred', and the generator refuses to emit a 'documented' confidence for any land vertex. The one documented surface is the water: the pre-reversal river was sluggish and outward-flowing with a near-zero surface gradient, standing at lake level through the whole downtown reach.",
   "context": [
     {
@@ -11,11 +11,17 @@
     },
     {
       "label": "Vertical exaggeration",
-      "text": "1.0 and it stays 1.0 in the data. Total natural relief on land inside this box is under 12 ft, which is what the dossier's 'under fifteen feet across the whole modeled area' allows. A vertical-exaggeration control may exist in a renderer, labelled, defaulting off — see docs/LIBERTIES.md L3."
+      "text": "1.0 and it stays 1.0 in the data. Total natural relief on land inside this box is under 12 ft, which is what the dossier's 'under fifteen feet across the whole modeled area' allows. A vertical-exaggeration control may exist in a renderer, labelled, defaulting off — see the liberties register L3."
     },
     {
       "label": "The modelled box",
-      "text": "2405 x 4920 m, 2.5 m cells (8.2 ft — inside the dossier's 5-10 ft), quantised at 5 mm, which is 1/15 of the 0.25 ft the dossier asks for. 963 x 1969 = 1 896 147 samples, 3.79 MB. Row 0 is the SOUTH edge. This box is the union of three extensions that were open at once and could not be merged: T-0464 carried the south wall from Madison Street to Twenty-Second (N -530 -> -3800), T-1123 carried the north wall from the North Branch's old traced end to the north line of Wright's survey (N +400 -> +1120), and T-1416 carried the west wall from the forks trace's own reading window to the easting T-1415 derived (E -320 -> -705). Two heightfields cannot be merged, so the field below is regenerated once against all four walls rather than reconciled."
+      "text": "2405 x 4920 m, 2.5 m cells (8.2 ft — inside the dossier's 5-10 ft), quantised at 5 mm, which is 1/15 of the 0.25 ft the dossier asks for. 963 x 1969 = 1 896 147 samples, 3.79 MB. Row 0 is the SOUTH edge. This box is the union of three extensions that were open at once and could not be merged: other work carried the south wall from Madison Street to Twenty-Second (N -530 -> -3800), other work carried the north wall from the North Branch's old traced end to the north line of Wright's survey (N +400 -> +1120), and other work carried the west wall from the forks trace's own reading window to the easting other work derived (E -320 -> -705). Two heightfields cannot be merged, so the field below is regenerated once against all four walls rather than reconciled.",
+      "work_refs": [
+        "T-0464",
+        "T-1123",
+        "T-1416",
+        "T-1415"
+      ]
     },
     {
       "label": "Measured relief",
@@ -23,7 +29,7 @@
     },
     {
       "label": "Where the ground stops on the south",
-      "text": "The modelled box ends 3800 m south of the forks, and that line falls inside Washington Street's own 80 ft corridor: 0.00 ha of the street's south half, over 0 m of its length, lies off the field. Madison Street — the 1830 town plat's south boundary, fixed here from the section corner at State and Madison — is -3274.8 m further south again, so the plat's last tier of blocks, 6.31 ha on 48 lots between Market and State, is not modelled ground at all. Of the 697.36 ha of land the field does hold south of Washington's corridor, none is in the South Division: it is the far bank of the South Branch. Past every edge of the box the ground is a plain skirt carrying the edge heights outward, which claims nothing about 1835. Measured from the committed heightfield and the committed street lines, not asserted."
+      "text": "The modelled box ends 3800 m south of the forks, and that line falls inside Washington Street's own 80 ft corridor: 0.00 ha of the street's south half, over 0 m of its length, lies off the field. Madison Street — the 1830 town plat's south boundary, fixed here from the section corner at State and Madison — is -3274.8 m further south again, so the plat's last row of blocks, 6.31 ha on 48 lots between Market and State, is not modelled ground at all. Of the 697.36 ha of land the field does hold south of Washington's corridor, none is in the South Division: it is the far bank of the South Branch. Past every edge of the box the ground is a plain skirt carrying the edge heights outward, which claims nothing about 1835. Measured from the committed heightfield and the committed street lines, not asserted."
     }
   ],
   "claims": [
@@ -92,13 +98,13 @@
           "carries_no_document": "Opened and read in full 2026-08-11 (https://en.wikipedia.org/w/index.php?title=Chicago_River&action=raw, HTTP 200). Looked for a transcription of Swearingen's 1803 journal and there is none: the page paraphrases him in one sentence of its own prose and footnotes the reprinting, which is a citation and not a reprinting. Every other passage this project draws on here is the same shape. So this record's rung is a judgement about an encyclopedia article — later scholarship, tier 4 — and the documents behind it have to be fetched on their own terms. Where it sends you: Quaife 1913, pp. 373-377 for Swearingen; Holland, Chicago in Maps (2005), pp. 102-109 and Andreas vol. 1, pp. 234-235 for the harbour works.",
           "what_it_supplies": [
             "a finding aid to the 1833-1837 harbour works chronology, after Holland and Andreas",
-            "the footnote that located the primary printing of Swearingen — its most valuable contribution to this project, now discharged into quaife_1913_swearingen"
+            "the footnote that located the primary printing of Swearingen — its most valuable contribution to this project, now discharged into \"Journal of Lieutenant James Strode Swearingen\", printed as Appendix I in Milo…"
           ],
           "what_it_does_not_supply": [
             "channel width or depth at the forks",
             "bank heights at the forks",
             "any 1835 measurement",
-            "one word of Swearingen's journal — the page paraphrases and footnotes it; the reprinting it names (Quaife 1913, pp. 373-377) was opened 2026-08-11 and is quaife_1913_swearingen, which supersedes this record on every 1803 river figure",
+            "one word of Swearingen's journal — the page paraphrases and footnotes it; the reprinting it names (Quaife 1913, pp. 373-377) was opened 2026-08-11 and is \"Journal of Lieutenant James Strode Swearingen\", printed as Appendix I in Milo…, which supersedes this record on every 1803 river figure",
             "the north bank's height: its '6 ft' is arithmetic on a bounded visual estimate and appears nowhere in the journal",
             "the two sentences that matter most to this project — the river standing dead behind a sand-stopped mouth, and the banks above being quite low — both of which the paraphrase drops",
             "any sourced statement of the river's surface gradient: the sluggish-flow sentence the flat water surface rests on carries no footnote of its own"
@@ -107,13 +113,13 @@
       ],
       "notes": [
         "Flat. Pre-reversal flow was sluggish and outward into the lake with a near-zero surface gradient, so the water surface is effectively at lake level throughout the downtown reach; the river gradient is treated as zero. The lake is the same surface: the river stood at lake level, which is why a bar across its mouth could close it.",
-        "The water surface is the plane Z = 0 by the definition of this project's vertical datum, and terrain_gen.py emits it at a literal zero rather than reading this figure. dossier_zone is a record label for the panel, not a build input."
+        "The water surface is the plane Z = 0 by the definition of this project's vertical datum, and the terrain gen tool emits it at a literal zero rather than reading this figure. dossier zone is a record label for the panel, not a build input."
       ]
     },
     {
       "id": "reaches.main_stem",
       "group": "the channel beds",
-      "label": "main_stem",
+      "label": "main stem",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
@@ -149,13 +155,13 @@
           "carries_no_document": "Opened and read in full 2026-08-11 (https://en.wikipedia.org/w/index.php?title=Chicago_River&action=raw, HTTP 200). Looked for a transcription of Swearingen's 1803 journal and there is none: the page paraphrases him in one sentence of its own prose and footnotes the reprinting, which is a citation and not a reprinting. Every other passage this project draws on here is the same shape. So this record's rung is a judgement about an encyclopedia article — later scholarship, tier 4 — and the documents behind it have to be fetched on their own terms. Where it sends you: Quaife 1913, pp. 373-377 for Swearingen; Holland, Chicago in Maps (2005), pp. 102-109 and Andreas vol. 1, pp. 234-235 for the harbour works.",
           "what_it_supplies": [
             "a finding aid to the 1833-1837 harbour works chronology, after Holland and Andreas",
-            "the footnote that located the primary printing of Swearingen — its most valuable contribution to this project, now discharged into quaife_1913_swearingen"
+            "the footnote that located the primary printing of Swearingen — its most valuable contribution to this project, now discharged into \"Journal of Lieutenant James Strode Swearingen\", printed as Appendix I in Milo…"
           ],
           "what_it_does_not_supply": [
             "channel width or depth at the forks",
             "bank heights at the forks",
             "any 1835 measurement",
-            "one word of Swearingen's journal — the page paraphrases and footnotes it; the reprinting it names (Quaife 1913, pp. 373-377) was opened 2026-08-11 and is quaife_1913_swearingen, which supersedes this record on every 1803 river figure",
+            "one word of Swearingen's journal — the page paraphrases and footnotes it; the reprinting it names (Quaife 1913, pp. 373-377) was opened 2026-08-11 and is \"Journal of Lieutenant James Strode Swearingen\", printed as Appendix I in Milo…, which supersedes this record on every 1803 river figure",
             "the north bank's height: its '6 ft' is arithmetic on a bounded visual estimate and appears nowhere in the journal",
             "the two sentences that matter most to this project — the river standing dead behind a sand-stopped mouth, and the banks above being quite low — both of which the paraphrase drops",
             "any sourced statement of the river's surface gradient: the sluggish-flow sentence the flat water surface rests on carries no footnote of its own"
@@ -169,7 +175,7 @@
     {
       "id": "reaches.fort_bend_pool",
       "group": "the channel beds",
-      "label": "fort_bend_pool",
+      "label": "fort bend pool",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
@@ -205,13 +211,13 @@
           "carries_no_document": "Opened and read in full 2026-08-11 (https://en.wikipedia.org/w/index.php?title=Chicago_River&action=raw, HTTP 200). Looked for a transcription of Swearingen's 1803 journal and there is none: the page paraphrases him in one sentence of its own prose and footnotes the reprinting, which is a citation and not a reprinting. Every other passage this project draws on here is the same shape. So this record's rung is a judgement about an encyclopedia article — later scholarship, tier 4 — and the documents behind it have to be fetched on their own terms. Where it sends you: Quaife 1913, pp. 373-377 for Swearingen; Holland, Chicago in Maps (2005), pp. 102-109 and Andreas vol. 1, pp. 234-235 for the harbour works.",
           "what_it_supplies": [
             "a finding aid to the 1833-1837 harbour works chronology, after Holland and Andreas",
-            "the footnote that located the primary printing of Swearingen — its most valuable contribution to this project, now discharged into quaife_1913_swearingen"
+            "the footnote that located the primary printing of Swearingen — its most valuable contribution to this project, now discharged into \"Journal of Lieutenant James Strode Swearingen\", printed as Appendix I in Milo…"
           ],
           "what_it_does_not_supply": [
             "channel width or depth at the forks",
             "bank heights at the forks",
             "any 1835 measurement",
-            "one word of Swearingen's journal — the page paraphrases and footnotes it; the reprinting it names (Quaife 1913, pp. 373-377) was opened 2026-08-11 and is quaife_1913_swearingen, which supersedes this record on every 1803 river figure",
+            "one word of Swearingen's journal — the page paraphrases and footnotes it; the reprinting it names (Quaife 1913, pp. 373-377) was opened 2026-08-11 and is \"Journal of Lieutenant James Strode Swearingen\", printed as Appendix I in Milo…, which supersedes this record on every 1803 river figure",
             "the north bank's height: its '6 ft' is arithmetic on a bounded visual estimate and appears nowhere in the journal",
             "the two sentences that matter most to this project — the river standing dead behind a sand-stopped mouth, and the banks above being quite low — both of which the paraphrase drops",
             "any sourced statement of the river's surface gradient: the sluggish-flow sentence the flat water surface rests on carries no footnote of its own"
@@ -225,7 +231,7 @@
     {
       "id": "reaches.harbour_cut_1834",
       "group": "the channel beds",
-      "label": "harbour_cut_1834",
+      "label": "harbour cut 1834",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
@@ -287,13 +293,13 @@
           "carries_no_document": "Opened and read in full 2026-08-11 (https://en.wikipedia.org/w/index.php?title=Chicago_River&action=raw, HTTP 200). Looked for a transcription of Swearingen's 1803 journal and there is none: the page paraphrases him in one sentence of its own prose and footnotes the reprinting, which is a citation and not a reprinting. Every other passage this project draws on here is the same shape. So this record's rung is a judgement about an encyclopedia article — later scholarship, tier 4 — and the documents behind it have to be fetched on their own terms. Where it sends you: Quaife 1913, pp. 373-377 for Swearingen; Holland, Chicago in Maps (2005), pp. 102-109 and Andreas vol. 1, pp. 234-235 for the harbour works.",
           "what_it_supplies": [
             "a finding aid to the 1833-1837 harbour works chronology, after Holland and Andreas",
-            "the footnote that located the primary printing of Swearingen — its most valuable contribution to this project, now discharged into quaife_1913_swearingen"
+            "the footnote that located the primary printing of Swearingen — its most valuable contribution to this project, now discharged into \"Journal of Lieutenant James Strode Swearingen\", printed as Appendix I in Milo…"
           ],
           "what_it_does_not_supply": [
             "channel width or depth at the forks",
             "bank heights at the forks",
             "any 1835 measurement",
-            "one word of Swearingen's journal — the page paraphrases and footnotes it; the reprinting it names (Quaife 1913, pp. 373-377) was opened 2026-08-11 and is quaife_1913_swearingen, which supersedes this record on every 1803 river figure",
+            "one word of Swearingen's journal — the page paraphrases and footnotes it; the reprinting it names (Quaife 1913, pp. 373-377) was opened 2026-08-11 and is \"Journal of Lieutenant James Strode Swearingen\", printed as Appendix I in Milo…, which supersedes this record on every 1803 river figure",
             "the north bank's height: its '6 ft' is arithmetic on a bounded visual estimate and appears nowhere in the journal",
             "the two sentences that matter most to this project — the river standing dead behind a sand-stopped mouth, and the banks above being quite low — both of which the paraphrase drops",
             "any sourced statement of the river's surface gradient: the sluggish-flow sentence the flat water surface rests on carries no footnote of its own"
@@ -307,7 +313,7 @@
     {
       "id": "reaches.old_south_channel",
       "group": "the channel beds",
-      "label": "old_south_channel",
+      "label": "old south channel",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
@@ -373,7 +379,7 @@
     {
       "id": "reaches.open_lake_shelf",
       "group": "the channel beds",
-      "label": "open_lake_shelf",
+      "label": "open lake shelf",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
@@ -402,13 +408,16 @@
       "sources": [],
       "citations": [],
       "notes": [
-        "The offshore lake bed, which the dossier tags conjectural outright: slope about 1:60 to 1:100, -10 ft at 600-1000 ft offshore. A -11 ft bed with a 130 m e-fold reproduces that band — about -8.7 ft at 200 m (656 ft) offshore and about -4 ft at 60 m — using the same law as every other reach rather than a second one. Three anchors down the box's east side, because one would let the old channel's -2.5 ft bleed into the lake south-east of the bar. STILL THREE after T-1123 put 720 m of new open lake north of the harbour, and that was a measurement rather than an omission: three more up the east side moved 52 000 samples of the committed field, most of them under the town's own main stem, because the bed blend's support is unbounded. Without them the new northern rows fall 1:25 to 1:30 over the first 25 m and reach -9.7 ft some 370 m offshore, which is the same shape as the committed rows south of the harbour (1:10 to 1:25 at the beach, -9.4 ft at 320 m) and inside dossier zone 30's band. The blend already answers for this water; nothing needed adding to make it. Nobody sounded this water for this project and nobody sounded it in 1835; it is here so the harbour opens into a lake instead of into a wall."
+        "The offshore lake bed, which the dossier tags conjectural outright: slope about 1:60 to 1:100, -10 ft at 600-1000 ft offshore. A -11 ft bed with a 130 m e-fold reproduces that band — about -8.7 ft at 200 m (656 ft) offshore and about -4 ft at 60 m — using the same law as every other reach rather than a second one. Three anchors down the box's east side, because one would let the old channel's -2.5 ft bleed into the lake south-east of the bar. STILL THREE after other work put 720 m of new open lake north of the harbour, and that was a measurement rather than an omission: three more up the east side moved 52 000 samples of the committed field, most of them under the town's own main stem, because the bed blend's support is unbounded. Without them the new northern rows fall 1:25 to 1:30 over the first 25 m and reach -9.7 ft some 370 m offshore, which is the same shape as the committed rows south of the harbour (1:10 to 1:25 at the beach, -9.4 ft at 320 m) and inside dossier zone 30's band. The blend already answers for this water; nothing needed adding to make it. Nobody sounded this water for this project and nobody sounded it in 1835; it is here so the harbour opens into a lake instead of into a wall."
+      ],
+      "work_refs": [
+        "T-1123"
       ]
     },
     {
       "id": "reaches.north_branch",
       "group": "the channel beds",
-      "label": "north_branch",
+      "label": "north branch",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
@@ -433,13 +442,16 @@
       "sources": [],
       "citations": [],
       "notes": [
-        "Dossier zone 21 gives -6 to -10 ft for the branch beds above the forks, itself inferred. Midpoint taken. No sounding of either branch was located, and the trace cannot supply one: branches.geojson states in its own provenance that NO BED DEPTH IS CLAIMED THERE AT ALL, because a cadastral plat gives planform and not soundings. ONE ANCHOR, AND T-1123 TRIED NINE AND WITHDREW THEM. The northern extension carries about 320 m of this branch into the box above the forks, and nine mid-channel anchors up the traced polygon looked like the obvious way to keep the main stem's -12 ft out of it. Measured, they moved 11 405 samples of the committed field that the extension had no business moving — the bed is an inverse-square blend with unbounded support, so an anchor placed 700 m up a branch pulls on the town's own river — while the single anchor already models the new stretch at -6.5 ft mid-channel at N +500, inside zone 21's own range. Withdrawn on that measurement."
+        "Dossier zone 21 gives -6 to -10 ft for the branch beds above the forks, itself inferred. Midpoint taken. No sounding of either branch was located, and the trace cannot supply one: branches.geojson states in its own provenance that NO BED DEPTH IS CLAIMED THERE AT ALL, because a cadastral plat gives planform and not soundings. ONE ANCHOR, AND other work TRIED NINE AND WITHDREW THEM. The northern extension carries about 320 m of this branch into the box above the forks, and nine mid-channel anchors up the traced polygon looked like the obvious way to keep the main stem's -12 ft out of it. Measured, they moved 11 405 samples of the committed field that the extension had no business moving — the bed is an inverse-square blend with unbounded support, so an anchor placed 700 m up a branch pulls on the town's own river — while the single anchor already models the new stretch at -6.5 ft mid-channel at N +500, inside zone 21's own range. Withdrawn on that measurement."
+      ],
+      "work_refs": [
+        "T-1123"
       ]
     },
     {
       "id": "reaches.south_branch",
       "group": "the channel beds",
-      "label": "south_branch",
+      "label": "south branch",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
@@ -464,19 +476,19 @@
       "sources": [],
       "citations": [],
       "notes": [
-        "As north_branch."
+        "As north branch."
       ]
     },
     {
       "id": "channel_profile",
       "group": "the channel cross-section",
-      "label": "channel_profile",
+      "label": "channel profile",
       "confidence": "reconstructed",
       "confidence_key": "bed_confidence",
       "fields": [
         {
           "key": "shape",
-          "value": "depth = bed_ft * (1 - exp(-d_in / e_fold_m)), d_in = distance from the waterline into the channel",
+          "value": "depth = bed (ft) * (1 - exp(-d (in) / e fold (m))), d (in) = distance from the waterline into the channel",
           "mesh": "restated_in_code"
         },
         {
@@ -489,7 +501,7 @@
       "notes": [
         "The default e-folding distance is the river's. A reach or a watercourse may override it: the 1834 cut is 61 m wide, the lake shelf is 200 m of gentle fall, and the north-side slough is 7 m wide where a 9 m e-fold would make a 1 ft channel 4 in deep and invisible.",
         "The cross-section shape is a smooth approach to the reach bed and carries no evidence at all — no cross-section of the Chicago River, the cut, the old channel or the lake bed exists for any date before dredging. It is under water and invisible; it is here so that the surface reaches Z=0 exactly at the traced bank line and so a boat draught question has an answer. Marked conjectural in the confidence channel.",
-        "The formula is written here for a reader and implemented in terrain_gen.py. The mesh follows the code path, not this string."
+        "The formula is written here for a reader and implemented in the terrain gen tool. The mesh follows the code path, not this string."
       ]
     },
     {
@@ -505,7 +517,7 @@
         },
         {
           "key": "profile",
-          "value": "ease_out_quadratic: h = level * (1 - (1 - d/face)^2), steepest at the waterline",
+          "value": "ease out quadratic: h = level * (1 - (1 - d/face)^2), steepest at the waterline",
           "mesh": "restated_in_code"
         },
         {
@@ -517,8 +529,8 @@
       "sources": [],
       "citations": [],
       "notes": [
-        "Default horizontal distance over which the ground rises from the waterline to the local crest. 6 m is what a natural low bank in river alluvium looks like at a 2-4 ft rise; each division overrides it with a face_profile that widens the face as the crest rises east, so the shore slope stays in the 1:6 to 1:10 band that the forks bank (1:8.2 south, 1:5.5 north) and the dossier's beach face (zone 4, about 1:10) both sit in. The ease-out is kept even on the sand faces, where the dossier's beach is a uniform 1:10: an ease-out is slightly steeper at the water than a straight ramp, and it is used because the surface's Z=0 contour IS the drawn waterline, which a straight ramp leaves badly conditioned. A stated approximation, not an oversight.",
-        "The eased ramp is implemented in terrain_gen.py rather than read from this string; dossier_zone is a record label only."
+        "Default horizontal distance over which the ground rises from the waterline to the local crest. 6 m is what a natural low bank in river alluvium looks like at a 2-4 ft rise; each division overrides it with a face profile that widens the face as the crest rises east, so the shore slope stays in the 1:6 to 1:10 band that the forks bank (1:8.2 south, 1:5.5 north) and the dossier's beach face (zone 4, about 1:10) both sit in. The ease-out is kept even on the sand faces, where the dossier's beach is a uniform 1:10: an ease-out is slightly steeper at the water than a straight ramp, and it is used because the surface's Z=0 contour IS the drawn waterline, which a straight ramp leaves badly conditioned. A stated approximation, not an oversight.",
+        "The eased ramp is implemented in the terrain gen tool rather than read from this string; dossier zone is a record label only."
       ]
     },
     {
@@ -586,13 +598,13 @@
           "carries_no_document": "Opened and read in full 2026-08-11 (https://en.wikipedia.org/w/index.php?title=Chicago_River&action=raw, HTTP 200). Looked for a transcription of Swearingen's 1803 journal and there is none: the page paraphrases him in one sentence of its own prose and footnotes the reprinting, which is a citation and not a reprinting. Every other passage this project draws on here is the same shape. So this record's rung is a judgement about an encyclopedia article — later scholarship, tier 4 — and the documents behind it have to be fetched on their own terms. Where it sends you: Quaife 1913, pp. 373-377 for Swearingen; Holland, Chicago in Maps (2005), pp. 102-109 and Andreas vol. 1, pp. 234-235 for the harbour works.",
           "what_it_supplies": [
             "a finding aid to the 1833-1837 harbour works chronology, after Holland and Andreas",
-            "the footnote that located the primary printing of Swearingen — its most valuable contribution to this project, now discharged into quaife_1913_swearingen"
+            "the footnote that located the primary printing of Swearingen — its most valuable contribution to this project, now discharged into \"Journal of Lieutenant James Strode Swearingen\", printed as Appendix I in Milo…"
           ],
           "what_it_does_not_supply": [
             "channel width or depth at the forks",
             "bank heights at the forks",
             "any 1835 measurement",
-            "one word of Swearingen's journal — the page paraphrases and footnotes it; the reprinting it names (Quaife 1913, pp. 373-377) was opened 2026-08-11 and is quaife_1913_swearingen, which supersedes this record on every 1803 river figure",
+            "one word of Swearingen's journal — the page paraphrases and footnotes it; the reprinting it names (Quaife 1913, pp. 373-377) was opened 2026-08-11 and is \"Journal of Lieutenant James Strode Swearingen\", printed as Appendix I in Milo…, which supersedes this record on every 1803 river figure",
             "the north bank's height: its '6 ft' is arithmetic on a bounded visual estimate and appears nowhere in the journal",
             "the two sentences that matter most to this project — the river standing dead behind a sand-stopped mouth, and the banks above being quite low — both of which the paraphrase drops",
             "any sourced statement of the river's surface gradient: the sluggish-flow sentence the flat water surface rests on carries no footnote of its own"
@@ -602,8 +614,11 @@
       "notes": [
         "The whole story of this division is one sentence: 'the elevation of the original topography east of State Street lay from nine to ten feet above the surface of the lake, whereas to the west of State Street, it sloped down to the river in a level plain elevated only two to three feet above the river'. So the plain holds 2.9 ft west of State (zone 9, unchanged from the first pass), drops through a break-of-slope band at State Street (zone 10), and stands 7.6 to 9.4 ft east of it (zone 8, '+7 to +9 gently falling west'), rising into the lakeshore sand-ridge belt at 9.4-9.5 ft (zone 3, '+9 to +10 crest'). The bank crest follows: 2.4 ft at the forks (zone 13) and 8.0 ft along the reservation, which is Swearingen's measured 8 ft south bank at Fort Dearborn in 1803 (zone 12) — the only bank height in this box that was ever measured.",
         "State Street's line is not estimated. Two of the eight ground-control points that fix this project's datum are on it: State & Madison (the PLSS section corner, local E +837.6) and Wolcott & Ohio, Wolcott being today's North State Street (local E +822.5). The break-of-slope band is centred on E +830 and runs E +780 to +880 — 100 m, which is 328 ft, inside dossier zone 10's 200-400 ft transition band. It falls 4.7 ft over 328 ft, against zone 10's stated 'drop ~5-6 ft over 300 ft'.",
-        "Plain 7.6 -> 9.4 ft over E +880 to +1230 is 0.47 ft per 300 ft, inside the dossier's flatness rule with no exemption needed. The break band and the sand-ridge belt are declared in relief_bands below and are excluded from the rule by name.",
-        "THE FORT'S RIVER FRONTAGE STANDS STEEPER THAN THE BANKS EITHER SIDE OF IT, and it has to: the traced 1834 waterline runs 4.5 m north of the stockade's north-west corner and 7 m north of its north-east corner, while the reach's own 20 m face needs four times that distance to bring ground to full height. Built at 20 m the ramp reached some 15 m INSIDE the fort and scaled the north wall's ground to 1.26 m against the parade's 3.65 m, sinking a twelve-foot stockade to four feet of visible picket (T-0125, on the owner's ruling of 2026-08-21 that the ground gives rather than the bake or the placement). Held at 8 m over E 1103-1180 the ground reaches the mound's level at the wall line and the fall happens OUTSIDE the stockade, which is what the source describes: the mound is 'formed by the curve of the river at its base on its three sides' - the river at the BASE of the mound, not partway up the fort's wall. The figure is not free invention: the 1834 harbour cut is a DREDGED channel, and the south edge of a made cut stands steeper than the alluvial bank upstream of it; 8 m carries the fort's 2.57 m of bank to the waterline over about 4.3 m, measured after the rebake - roughly 1:1.7, or 31 degrees, INSIDE the ~34 degree angle of repose for sand rather than past it, and the flattest face that fits the measured gap. The shoulders at 1085/1215 hold the neighbouring reach unchanged. Invented within those bounds and admitted at docs/LIBERTIES.md L155."
+        "Plain 7.6 -> 9.4 ft over E +880 to +1230 is 0.47 ft per 300 ft, inside the dossier's flatness rule with no exemption needed. The break band and the sand-ridge belt are declared in relief bands below and are excluded from the rule by name.",
+        "THE FORT'S RIVER FRONTAGE STANDS STEEPER THAN THE BANKS EITHER SIDE OF IT, and it has to: the traced 1834 waterline runs 4.5 m north of the stockade's north-west corner and 7 m north of its north-east corner, while the reach's own 20 m face needs four times that distance to bring ground to full height. Built at 20 m the ramp reached some 15 m INSIDE the fort and scaled the north wall's ground to 1.26 m against the parade's 3.65 m, sinking a twelve-foot stockade to four feet of visible picket (on the owner's ruling of 2026-08-21 that the ground gives rather than the bake or the placement). Held at 8 m over E 1103-1180 the ground reaches the mound's level at the wall line and the fall happens OUTSIDE the stockade, which is what the source describes: the mound is 'formed by the curve of the river at its base on its three sides' - the river at the BASE of the mound, not partway up the fort's wall. The figure is not free invention: the 1834 harbour cut is a DREDGED channel, and the south edge of a made cut stands steeper than the alluvial bank upstream of it; 8 m carries the fort's 2.57 m of bank to the waterline over about 4.3 m, measured after the rebake - roughly 1:1.7, or 31 degrees, INSIDE the ~34 degree angle of repose for sand rather than past it, and the flattest face that fits the measured gap. The shoulders at 1085/1215 hold the neighbouring reach unchanged. Invented within those bounds and admitted at the liberties register L155."
+      ],
+      "work_refs": [
+        "T-0125"
       ]
     },
     {
@@ -659,13 +674,13 @@
           "carries_no_document": "Opened and read in full 2026-08-11 (https://en.wikipedia.org/w/index.php?title=Chicago_River&action=raw, HTTP 200). Looked for a transcription of Swearingen's 1803 journal and there is none: the page paraphrases him in one sentence of its own prose and footnotes the reprinting, which is a citation and not a reprinting. Every other passage this project draws on here is the same shape. So this record's rung is a judgement about an encyclopedia article — later scholarship, tier 4 — and the documents behind it have to be fetched on their own terms. Where it sends you: Quaife 1913, pp. 373-377 for Swearingen; Holland, Chicago in Maps (2005), pp. 102-109 and Andreas vol. 1, pp. 234-235 for the harbour works.",
           "what_it_supplies": [
             "a finding aid to the 1833-1837 harbour works chronology, after Holland and Andreas",
-            "the footnote that located the primary printing of Swearingen — its most valuable contribution to this project, now discharged into quaife_1913_swearingen"
+            "the footnote that located the primary printing of Swearingen — its most valuable contribution to this project, now discharged into \"Journal of Lieutenant James Strode Swearingen\", printed as Appendix I in Milo…"
           ],
           "what_it_does_not_supply": [
             "channel width or depth at the forks",
             "bank heights at the forks",
             "any 1835 measurement",
-            "one word of Swearingen's journal — the page paraphrases and footnotes it; the reprinting it names (Quaife 1913, pp. 373-377) was opened 2026-08-11 and is quaife_1913_swearingen, which supersedes this record on every 1803 river figure",
+            "one word of Swearingen's journal — the page paraphrases and footnotes it; the reprinting it names (Quaife 1913, pp. 373-377) was opened 2026-08-11 and is \"Journal of Lieutenant James Strode Swearingen\", printed as Appendix I in Milo…, which supersedes this record on every 1803 river figure",
             "the north bank's height: its '6 ft' is arithmetic on a bounded visual estimate and appears nowhere in the journal",
             "the two sentences that matter most to this project — the river standing dead behind a sand-stopped mouth, and the banks above being quite low — both of which the paraphrase drops",
             "any sourced statement of the river's surface gradient: the sluggish-flow sentence the flat water surface rests on carries no footnote of its own"
@@ -673,8 +688,11 @@
         }
       ],
       "notes": [
-        "Zone 19 gives the North Division +4 to +7 ft, rising to +9 near the lake; zone 13 gives the bank crest at the forks +2 to +4; zone 12 gives Swearingen's measured 6 ft north bank at the fort. The forks values (3.6 / 4.6) are held out to E +390, the east edge of the forks tracing window, so extending the box east does not move ground that was already modelled and already has buildings standing on it. East of there the crest rises to 6.0 ft at the fort reach — Swearingen's figure — and to 9.0 ft in the sand-ridge belt along the lake shore. There is NO break-of-slope on this side: the State Street break is a South Division feature (the dossier's modelling rule 3 makes State Street the drainage divide of the South Division), and zone 19 describes the north side as a gradual rise. HELD NORTHWARD UNCHANGED BY T-1123, and that is a decision rather than an oversight. These profiles are functions of EASTING alone — the division's ground is described by how far east of the river it stands, because that is the only axis any source here speaks on. Zone 19 is a statement about the North Division as a whole ('+4 to +7 ft, rising to +9 near the lake'), not about its southern end, and no source reached states a north-south trend across it: Kinzie's Addition and the ground the harbour's north shore stands on are the same division. Inventing a fall or a rise up the 720 m the box now carries would be relief drawn from the absence of a statement. What DOES change up there is drawn from the trace and not from this block: the lake shore runs back west from E +1375 at N +400 to E +1225 at the wall, so the sand-ridge belt's own easting band meets the water further and further west, and the ridge follows the shore because both are read off the same sheet.",
-        "3.6 -> 5.0 ft over 490 m is 0.26 ft per 300 ft and 5.0 -> 6.0 over 330 m is 0.28; both inside the rule. Only the last 120 m into the sand ridge is steeper, and that band is declared in relief_bands."
+        "Zone 19 gives the North Division +4 to +7 ft, rising to +9 near the lake; zone 13 gives the bank crest at the forks +2 to +4; zone 12 gives Swearingen's measured 6 ft north bank at the fort. The forks values (3.6 / 4.6) are held out to E +390, the east edge of the forks tracing window, so extending the box east does not move ground that was already modelled and already has buildings standing on it. East of there the crest rises to 6.0 ft at the fort reach — Swearingen's figure — and to 9.0 ft in the sand-ridge belt along the lake shore. There is NO break-of-slope on this side: the State Street break is a South Division feature (the dossier's modelling rule 3 makes State Street the drainage divide of the South Division), and zone 19 describes the north side as a gradual rise. HELD NORTHWARD UNCHANGED BY other work, and that is a decision rather than an oversight. These profiles are functions of EASTING alone — the division's ground is described by how far east of the river it stands, because that is the only axis any source here speaks on. Zone 19 is a statement about the North Division as a whole ('+4 to +7 ft, rising to +9 near the lake'), not about its southern end, and no source reached states a north-south trend across it: Kinzie's Addition and the ground the harbour's north shore stands on are the same division. Inventing a fall or a rise up the 720 m the box now carries would be relief drawn from the absence of a statement. What DOES change up there is drawn from the trace and not from this block: the lake shore runs back west from E +1375 at N +400 to E +1225 at the wall, so the sand-ridge belt's own easting band meets the water further and further west, and the ridge follows the shore because both are read off the same sheet.",
+        "3.6 -> 5.0 ft over 490 m is 0.26 ft per 300 ft and 5.0 -> 6.0 over 330 m is 0.28; both inside the rule. Only the last 120 m into the sand ridge is steeper, and that band is declared in relief bands."
+      ],
+      "work_refs": [
+        "T-1123"
       ]
     },
     {
@@ -724,19 +742,22 @@
         }
       ],
       "notes": [
-        "Unchanged by the eastward extension, and flat by construction: the West Division is west of BOTH branches — of the South Branch below the forks and, since T-1123, of the North Branch above them — and none of it is east of E +13. The northern extension adds very little of it: the branch's west bank runs from E -219.6 at the forks out to E -486.9 at the survey line, so west of the channel there is a sliver of Wabansia river front between E -320 and about E -230 for the first 150 m and then nothing, the bank having crossed the box's own west wall. Zone 18 gives the wet prairie +3 to +6 ft with 1-2 ft slough swales; zone 13 caps the bank at the point at +2 to +4. Reconciled as 3.2 ft at the bank rising to 4.3 ft at 300 m — 0.34 ft of fall across a 300 ft chord, inside the flatness rule with room for the micro-relief on top. The West Side is documented as open prairie entirely free from timber."
+        "Unchanged by the eastward extension, and flat by construction: the West Division is west of BOTH branches — of the South Branch below the forks and, since other work, of the North Branch above them — and none of it is east of E +13. The northern extension adds very little of it: the branch's west bank runs from E -219.6 at the forks out to E -486.9 at the survey line, so west of the channel there is a sliver of Wabansia river front between E -320 and about E -230 for the first 150 m and then nothing, the bank having crossed the box's own west wall. Zone 18 gives the wet prairie +3 to +6 ft with 1-2 ft slough swales; zone 13 caps the bank at the point at +2 to +4. Reconciled as 3.2 ft at the bank rising to 4.3 ft at 300 m — 0.34 ft of fall across a 300 ft chord, inside the flatness rule with room for the micro-relief on top. The West Side is documented as open prairie entirely free from timber."
+      ],
+      "work_refs": [
+        "T-1123"
       ]
     },
     {
       "id": "marsh_strips.south_division_marsh",
       "group": "the marshy shore",
-      "label": "south_division_marsh",
+      "label": "south division marsh",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "applies_to",
-          "value": "south_division"
+          "value": "south division"
         },
         {
           "key": "width_m",
@@ -786,13 +807,13 @@
         }
       ],
       "notes": [
-        "The South Division was 'generally low and marshy ground', with 'a strip along the river shore that was still more marshy, where land and water mingled, covered with tall grass, reeds and rushes'. Dossier zone 11 puts that strip 40-120 ft back from the bank at +0.5 to +2.0 ft. 30 m (98 ft) at +1.25 ft is the middle of both ranges. It is what makes the bank a crest rather than a ramp: the ground behind it is LOWER than the bank top, which is the natural-levee form a low alluvial bank takes. The e_taper is new with the eastward extension and is not a convenience: the same source that describes the marshy strip is describing the low plain, and the source that governs the ground east of State Street puts it at nine to ten feet above the lake with a measured 8 ft river bank. A marsh at +1.25 ft cannot coexist with that, so the strip fades out across State Street and the eastern shore gets the sand-ridge bank instead."
+        "The South Division was 'generally low and marshy ground', with 'a strip along the river shore that was still more marshy, where land and water mingled, covered with tall grass, reeds and rushes'. Dossier zone 11 puts that strip 40-120 ft back from the bank at +0.5 to +2.0 ft. 30 m (98 ft) at +1.25 ft is the middle of both ranges. It is what makes the bank a crest rather than a ramp: the ground behind it is LOWER than the bank top, which is the natural-levee form a low alluvial bank takes. The e taper is new with the eastward extension and is not a convenience: the same source that describes the marshy strip is describing the low plain, and the source that governs the ground east of State Street puts it at nine to ten feet above the lake with a measured 8 ft river bank. A marsh at +1.25 ft cannot coexist with that, so the strip fades out across State Street and the eastern shore gets the sand-ridge bank instead."
       ]
     },
     {
       "id": "swales.lasalle_slough_lower",
       "group": "the prairie swales",
-      "label": "lasalle_slough_lower",
+      "label": "lasalle slough lower",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
@@ -839,13 +860,20 @@
         }
       ],
       "notes": [
-        "T-0005, amended T-0118. The second of the three Main Branch sloughs: the watercourse Wright 1834 draws dropping south off the main stem just east of La Salle Street, whose traced mouth is the south-shore re-entrant at E +462..+469 (docs/RESEARCH/clark_reach_bulge_1834.md section 4). EXISTENCE AND MOUTH are Wright's, drawn on the sheet this terrain is fitted to. THE COURSE INLAND is inferred from Conley/Stelzer 1933 (asset_use 'orientation'), which carries it up the west half of the La Salle-Clark block; its lower reach is washed as open water to about Lake Street, which is what the 3.2 ft cut expresses: on the 2.4-2.9 ft plain the bed sits about -0.6 ft and holds a narrow strip of standing backwater, the 'marshy, wet, little current' form the dossier gives these sloughs. WIDTH AND DEPTH ARE INVENTED - no source gives either; 8 m overall is inside the north-side slough's measured 7.1 m band and the 15-40 ft the dossier gives zone 14. THE CHANNEL USED TO START AT N -7, one grid cell SOUTH of the platted South Water Street corridor, because Wright draws the stream stopping at the street line ('the trace stops there with it') and the street was read as crossing on fill or a culvert nothing describes, so the corridor itself was left unbroken. T-0129 CARRIED IT THROUGH TO THE RIVER ON THE OWNER'S RULING (2026-08-21, from South Water Street looking west at 277 degrees): 'this slough has kind of a bulge of land and i would think that it would not have that and be a continous water drain into the river and have plank crossings for both the road and the sidewalk.' What he was looking at is what the unbroken corridor made - eleven metres of dry ground standing +0.37 m over datum between the drain's head and the river's traced re-entrant, two pools with a causeway between them rather than one watercourse. The head is now a vertex at (466, +10), inside that re-entrant, and the cut runs the same 3.2 ft and the same 4.0 m half-width as the rest of the lower reach through it: no new depth, no new width, 16.4 m more of the same channel. THE JUNCTION VERTEX MOVED WITH IT, from (467, -7) to (469.5, -6), and that 2.5 m is not cosmetic: carrying the full 3.2 ft cut north past the old vertex deepened the reach alongside blk_south_water_lasalle's north-west corner, which stood +0.14 m over datum and went under. A platted block with a corner in the water is refused outright by tools/generate_plat_lots.py, and it would have taken the block, its eight lots and the roofs standing on them out of the town to gain fifteen metres of water. Re-bending the reach 2.5 m east clears the corner instead - measured +0.32 m over datum afterwards, MORE margin than it had before this ticket - and moves the channel no further from Conley's west-half-of-the-block reading than the meander already swings. WHAT THAT COSTS IN EVIDENCE, said plainly: Wright's trace still stops at the street line, so the fifteen metres between the street line and the water are RECONSTRUCTED and not traced - the reasoning is that a drain drawn entering the river entered the river, and that a town which bridged the State Street slough where Water Street crossed it would have bridged this one too. The fill-or-culvert reading is not refuted by evidence; it is superseded by the owner's ruling, and the crossing the town needed instead is committed as `lasalle_slough_crossing`. Recorded in docs/LIBERTIES.md. T-0118 (the owner, against an 1830s engraving: the built line was 'too straight' and the join with the upper entry read as a dry sill) bent the invented alignment into the meander a prairie drain actually cuts - same traced mouth, same west-half-of-the-block corridor, swings of 7-10 m threading the committed roofs (old_bank_building cleared by 2.4 m at its nearest) - and added the depth_profile so the bed GRADES from the wet mouth reach up through the Lake Street crossing instead of stepping: 3.2 ft holds to about N -74, then shallows to 2.2 ft at the join, putting the water's edge about N -93, north of the Lake Street corridor, which stays dry. The join depth 2.2 ft is carried on by the upper entry at the same figure, so the two entries carve one continuous bed. Recorded in docs/LIBERTIES.md; see docs/RESEARCH/main_branch_sloughs_1833.md. T-0795 RE-CHECKED THE MOUTH ON THE WHOLE NA/HUP SHEET, which is the first time it has been read outside a tracing window. The V notched into the river's south bank at the west end of the South Water block numbered 50 picks at NA px (2403, 2495), E +449.9 through the eleven-point affine, against the E +462..+469 the traced 1834 waterline carries - 12.1 m, inside a fit whose own RMS is 16.02 m. The mouth is confirmed and nothing moves. The sheet draws NO inland course here, which is what this record has always said. docs/RESEARCH/wright_1834_watercourses.md. T-1628 CUT THE COURSE BACK TO WRIGHT, on the owner's ruling of 2026-09-26, flying the reach against Wright 1834 and Hathaway 1834: \"when you look down on the river, there is a bulge and then a slough just east of lasalle that goes very deep, the slough goes all the way to lake. that is not how it is depicted in the wright or hathaway map. i think its ok to depict the slough like the wright map, so it seems it should come in, just a bit past south water and then into the lot, but not deeper\". What he was looking down on is the inland course this record has always said is NOT Wright's: the mouth is traced, the reach above it was argued from Conley/Stelzer 1933 at `orientation` ceiling, and T-0795 read the whole NA/HUP sheet and found no inland course here at all. THE MOUTH DOES NOT MOVE. The first two vertices are exactly as T-0129 and T-0118 left them — (466, +10) inside Wright's traced re-entrant, the junction at (469.5, -6) bent 2.5 m east to keep blk_south_water_lasalle's north-west corner out of the water — and the channel still runs the full 3.2 ft cut and the full 4.0 m half-width under `lasalle_slough_crossing` and across the whole South Water corridor. WHAT IS GONE IS EVERYTHING ABOVE THE LOT. The third vertex, (472.7, -20.0), is not a new line: it is a point ON the committed Conley alignment, 8 mm off the bearing of the old (469.5, -6) -> (475, -30) segment, so the surviving stub is the same course truncated rather than a course redrawn. WHERE THE HEAD STANDS, as a lot-depth figure off the committed block face: the platted south edge of the South Water corridor crosses this line at N -4.05 (E +469.07, 14.39 m along the channel from the mouth), and the head vertex is 15.95 m south of it — 16.35 m of channel inside the lot, 34.7 per cent of block 50's 45.91 m South Water lot depth, and nowhere near the mid-block alley at 45.91 m. That is the owner's \"just a bit past south water and then into the lot, but not deeper\", written as a number. THE CUT FEATHERS TO ZERO the way the other slough heads do (state_slough_course's head, the upper entry's terminus): 3.2 ft holds to 17.0 m — 2.6 m past the block face — then grades 2.2, 1.0 and 0.0 ft over the last 13.7 m, so the ground closes over the head and no trench is left open in the lot. On the 2.4-2.9 ft plain the bed rises through datum at about 20.0 m along, so OPEN WATER ends roughly 7.5 m inside the lot and the damp hollow dies out by 16 m, which is the acceptance this ticket was written to: the slough is visible from the river and no further. The feather is shorter than the upper entry's ~21 m because the whole channel is now 30.7 m long and the street corridor has to hold water across its full width; at 3.2 ft over 13.7 m the longitudinal grade is 7 per cent, gentler than the 24 per cent the banks already stand at, so it closes as a hollow and not as a step. CONLEY/STELZER IS SET ASIDE, NOT DELETED: it stays in `sources` because the surviving stub's alignment is still its line, and the reading it carried past the lot — up the west half of the block, washed to Lake Street, terminating north of Randolph — is kept as the reading that was set aside in docs/RESEARCH/main_branch_sloughs_1833.md and in the amended liberty. `lasalle_slough_upper` is REMOVED by the same ruling."
+        "The second of the three Main Branch sloughs: the watercourse Wright 1834 draws dropping south off the main stem just east of La Salle Street, whose traced mouth is the south-shore re-entrant at E +462..+469 (the research notes on clark reach bulge section 4). EXISTENCE AND MOUTH are Wright's, drawn on the sheet this terrain is fitted to. THE COURSE INLAND is inferred from Conley/Stelzer 1933 (asset use 'orientation'), which carries it up the west half of the La Salle-Clark block; its lower reach is washed as open water to about Lake Street, which is what the 3.2 ft cut expresses: on the 2.4-2.9 ft plain the bed sits about -0.6 ft and holds a narrow strip of standing backwater, the 'marshy, wet, little current' form the dossier gives these sloughs. WIDTH AND DEPTH ARE INVENTED - no source gives either; 8 m overall is inside the north-side slough's measured 7.1 m band and the 15-40 ft the dossier gives zone 14. THE CHANNEL USED TO START AT N -7, one grid cell SOUTH of the platted South Water Street corridor, because Wright draws the stream stopping at the street line ('the trace stops there with it') and the street was read as crossing on fill or a culvert nothing describes, so the corridor itself was left unbroken. Other work CARRIED IT THROUGH TO THE RIVER ON THE OWNER'S RULING (2026-08-21, from South Water Street looking west at 277 degrees): 'this slough has kind of a bulge of land and i would think that it would not have that and be a continous water drain into the river and have plank crossings for both the road and the sidewalk.' What he was looking at is what the unbroken corridor made - eleven metres of dry ground standing +0.37 m over datum between the drain's head and the river's traced re-entrant, two pools with a causeway between them rather than one watercourse. The head is now a vertex at (466, +10), inside that re-entrant, and the cut runs the same 3.2 ft and the same 4.0 m half-width as the rest of the lower reach through it: no new depth, no new width, 16.4 m more of the same channel. THE JUNCTION VERTEX MOVED WITH IT, from (467, -7) to (469.5, -6), and that 2.5 m is not cosmetic: carrying the full 3.2 ft cut north past the old vertex deepened the reach alongside block 18's north-west corner, which stood +0.14 m over datum and went under. A platted block with a corner in the water is refused outright by the plat lots generator, and it would have taken the block, its eight lots and the roofs standing on them out of the town to gain fifteen metres of water. Re-bending the reach 2.5 m east clears the corner instead - measured +0.32 m over datum afterwards, MORE margin than it had before this piece of work - and moves the channel no further from Conley's west-half-of-the-block reading than the meander already swings. WHAT THAT COSTS IN EVIDENCE, said plainly: Wright's trace still stops at the street line, so the fifteen metres between the street line and the water are RECONSTRUCTED and not traced - the reasoning is that a drain drawn entering the river entered the river, and that a town which bridged the State Street slough where Water Street crossed it would have bridged this one too. The fill-or-culvert reading is not refuted by evidence; it is superseded by the owner's ruling, and the crossing the town needed instead is committed as The La Salle Slough Crossing, South Water Street. Recorded in the liberties register. Other work (the owner, against an 1830s engraving: the built line was 'too straight' and the join with the upper entry read as a dry sill) bent the invented alignment into the meander a prairie drain actually cuts - same traced mouth, same west-half-of-the-block corridor, swings of 7-10 m threading the committed roofs (The Old Bank Building cleared by 2.4 m at its nearest) - and added the depth profile so the bed GRADES from the wet mouth reach up through the Lake Street crossing instead of stepping: 3.2 ft holds to about N -74, then shallows to 2.2 ft at the join, putting the water's edge about N -93, north of the Lake Street corridor, which stays dry. The join depth 2.2 ft is carried on by the upper entry at the same figure, so the two entries carve one continuous bed. Recorded in the liberties register; see the research notes on main branch sloughs. Other work RE-CHECKED THE MOUTH ON THE WHOLE NA/HUP SHEET, which is the first time it has been read outside a tracing window. The V notched into the river's south bank at the west end of the South Water block numbered 50 picks at NA px (2403, 2495), E +449.9 through the eleven-point affine, against the E +462..+469 the traced 1834 waterline carries - 12.1 m, inside a fit whose own RMS is 16.02 m. The mouth is confirmed and nothing moves. The sheet draws NO inland course here, which is what this record has always said. the research notes on wright 1834 watercourses. Other work CUT THE COURSE BACK TO WRIGHT, on the owner's ruling of 2026-09-26, flying the reach against Wright 1834 and Hathaway 1834: \"when you look down on the river, there is a bulge and then a slough just east of lasalle that goes very deep, the slough goes all the way to lake. that is not how it is depicted in the wright or hathaway map. i think its ok to depict the slough like the wright map, so it seems it should come in, just a bit past south water and then into the lot, but not deeper\". What he was looking down on is the inland course this record has always said is NOT Wright's: the mouth is traced, the reach above it was argued from Conley/Stelzer 1933 at `orientation` ceiling, and other work read the whole NA/HUP sheet and found no inland course here at all. THE MOUTH DOES NOT MOVE. The first two vertices are exactly as other work left them — (466, +10) inside Wright's traced re-entrant, the junction at (469.5, -6) bent 2.5 m east to keep block 18's north-west corner out of the water — and the channel still runs the full 3.2 ft cut and the full 4.0 m half-width under The La Salle Slough Crossing, South Water Street and across the whole South Water corridor. WHAT IS GONE IS EVERYTHING ABOVE THE LOT. The third vertex, (472.7, -20.0), is not a new line: it is a point ON the committed Conley alignment, 8 mm off the bearing of the old (469.5, -6) -> (475, -30) segment, so the surviving stub is the same course truncated rather than a course redrawn. WHERE THE HEAD STANDS, as a lot-depth figure off the committed block face: the platted south edge of the South Water corridor crosses this line at N -4.05 (E +469.07, 14.39 m along the channel from the mouth), and the head vertex is 15.95 m south of it — 16.35 m of channel inside the lot, 34.7 per cent of block 50's 45.91 m South Water lot depth, and nowhere near the mid-block alley at 45.91 m. That is the owner's \"just a bit past south water and then into the lot, but not deeper\", written as a number. THE CUT FEATHERS TO ZERO the way the other slough heads do (state slough course's head, the upper entry's terminus): 3.2 ft holds to 17.0 m — 2.6 m past the block face — then grades 2.2, 1.0 and 0.0 ft over the last 13.7 m, so the ground closes over the head and no trench is left open in the lot. On the 2.4-2.9 ft plain the bed rises through datum at about 20.0 m along, so OPEN WATER ends roughly 7.5 m inside the lot and the damp hollow dies out by 16 m, which is the acceptance this piece of work was written to: the slough is visible from the river and no further. The feather is shorter than the upper entry's ~21 m because the whole channel is now 30.7 m long and the street corridor has to hold water across its full width; at 3.2 ft over 13.7 m the longitudinal grade is 7 per cent, gentler than the 24 per cent the banks already stand at, so it closes as a hollow and not as a step. CONLEY/STELZER IS SET ASIDE, NOT DELETED: it stays in `sources` because the surviving stub's alignment is still its line, and the reading it carried past the lot — up the west half of the block, washed to Lake Street, terminating north of Randolph — is kept as the reading that was set aside in the research notes on main branch sloughs and in the amended liberty. lasalle slough upper is REMOVED by the same ruling."
+      ],
+      "work_refs": [
+        "T-0005",
+        "T-0118",
+        "T-0129",
+        "T-0795",
+        "T-1628"
       ]
     },
     {
       "id": "swales.state_slough_course",
       "group": "the prairie swales",
-      "label": "state_slough_course",
+      "label": "state slough course",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
@@ -894,13 +922,18 @@
         }
       ],
       "notes": [
-        "T-0005, amended T-0118. The third Main Branch slough, dossier zone 14 - the South Division's natural drain, deferred by this spec since the box first covered it and now built. THE ROUTE IS DOCUMENTED: it drained the public-square pond and the Wells Street marsh, 'passed over the site of the Tremont House and entered the river at the end of State Street' (chicagology_prefire273, transcribed at docs/research/01-terrain-hydrology.md section 2.2). Conley/Stelzer 1933 draws the full winding course and supplies the waypoints this line carries to inferred: head just east of Clark between Washington and Randolph (the square's drain), a mid-block Dearborn crossing about N -190, then north-east under the ridge toe toward State. THE DEPTH IS THE DOSSIER'S: row 14 gives the thalweg as 1.5-3.0 ft below the adjacent plain at about +0.5..+1.5 ft absolute, and 2.2 ft off the 2.9 ft plain lands the bed at +0.7 - a damp swale in July, NOT open water, which is why this is a swale and not a watercourse cut below datum. WIDTH is the dossier's 15-40 ft band read near its top (10 m). The exact line between the documented waypoints is invented and threads the committed roofs. T-0118 added the depth_profile: the cut used to run its full 2.2 ft to the head vertex and stop, leaving an open-ended trench cut into level prairie, and the owner asked that it 'level out with the rest of the land'. The head now FEATHERS from zero at the first vertex to the full 2.2 ft over the first ~58 m, so the ground closes over the drain's head the way a watercourse actually rises out of the ground; the head vertex itself does not move, and the visible hollow dies out inside the head reading's own 20-30 m tolerance. Recorded in docs/LIBERTIES.md; see docs/RESEARCH/main_branch_sloughs_1833.md. T-0795 CONFIRMS THE SILENCE THIS RECORD ALREADY ASSUMED: walked whole, the NA/HUP sheet draws no watercourse anywhere along this course. That is not a fault in the route - this record cites chicagology and Conley/Stelzer and has never cited Wright - it is the audit finding the expected nothing. docs/RESEARCH/wright_1834_watercourses.md."
+        "The third Main Branch slough, dossier zone 14 - the South Division's natural drain, deferred by this spec since the box first covered it and now built. THE ROUTE IS DOCUMENTED: it drained the public-square pond and the Wells Street marsh, 'passed over the site of the Tremont House and entered the river at the end of State Street' (\"Wolf's Point and the Town of Chicago.\" Chicagology, transcribed at the research notes on terrain hydrology section 2.2). Conley/Stelzer 1933 draws the full winding course and supplies the waypoints this line carries to inferred: head just east of Clark between Washington and Randolph (the square's drain), a mid-block Dearborn crossing about N -190, then north-east under the ridge toe toward State. THE DEPTH IS THE DOSSIER'S: row 14 gives the thalweg as 1.5-3.0 ft below the adjacent plain at about +0.5..+1.5 ft absolute, and 2.2 ft off the 2.9 ft plain lands the bed at +0.7 - a damp swale in July, NOT open water, which is why this is a swale and not a watercourse cut below datum. WIDTH is the dossier's 15-40 ft band read near its top (10 m). The exact line between the documented waypoints is invented and threads the committed roofs. Other work added the depth profile: the cut used to run its full 2.2 ft to the head vertex and stop, leaving an open-ended trench cut into level prairie, and the owner asked that it 'level out with the rest of the land'. The head now FEATHERS from zero at the first vertex to the full 2.2 ft over the first ~58 m, so the ground closes over the drain's head the way a watercourse actually rises out of the ground; the head vertex itself does not move, and the visible hollow dies out inside the head reading's own 20-30 m tolerance. Recorded in the liberties register; see the research notes on main branch sloughs. Other work CONFIRMS THE SILENCE THIS RECORD ALREADY ASSUMED: walked whole, the NA/HUP sheet draws no watercourse anywhere along this course. That is not a fault in the route - this record cites chicagology and Conley/Stelzer and has never cited Wright - it is the audit finding the expected nothing. the research notes on wright 1834 watercourses."
+      ],
+      "work_refs": [
+        "T-0005",
+        "T-0118",
+        "T-0795"
       ]
     },
     {
       "id": "swales.state_slough_mouth",
       "group": "the prairie swales",
-      "label": "state_slough_mouth",
+      "label": "state slough mouth",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
@@ -969,13 +1002,20 @@
         }
       ],
       "notes": [
-        "T-0005, remade by T-0118, RE-ROUTED BY T-1629. Zone 14's last reach, from about N -60 into the river. THE OWNER RULED ON 2026-09-26, flying the reach against Wright 1834 and Hathaway 1834: \"you have closer to the fort, further east 2 sloughs that goes in a bit there is only one just east of state, the other slough does not appear to be depicted in either the wright or the hathaway map, correct the slough east of state so it matches the wright map\", and then \"keep the inland state slough, move the bridge, i thgink there should only be one slough though? and from the wright map it appears to start east of state\". Two notches reached the river within 40 m of each other at the foot of State Street - this entry's BUILT mouth at E +809.5 (WEST of State, whose ground control is E +825..+838) and Wright's TRACED re-entrant at E +848.6 - and the built one was the invention. So the built mouth is GONE, filled back to the bank line by its own removal from this spec, and the reach now ends inside the traced re-entrant: it crosses the waterline at the notch's apex (the committed trace turns inland there, E +850.5 N +8.2, between bank vertices E +838.6 N +24.6 and E +854.0 N +10.4) and runs on to E +853.5 N +14.0 in the notch's own open water. THE ENTRY IS SQUARE, IN ONE REACH: the last segment bears 041 deg true, within a few degrees of the normal to the notch's west flank, so the T-0118 ruling that \"a watercourse meets open water square, in one reach\" is kept and the shore-parallel pocket that ruling refused is not re-created anywhere - no reach of this line runs along the bank, the line approaches the water monotonically from 32 m inland at State Street to the notch. WHAT MOVED, AND THE COST THE OWNER ACCEPTED: T-0118 kept the mouth west of State because moving it east meant cutting the reach through the higher ground east of State and re-seating the committed bridge. Both are now done. The ground this reach crosses stands 4.2-5.8 ft on the committed heightfield (measured, natural, at 2 m stations along this line: 3.4 ft at the hand-over, 4.6 ft at State, a crest of 5.8 ft at E +840.7 N -1.0, then falling to 0.5 ft at the notch apex), where the old reach crossed nothing above 4.8 ft. So depth_ft rises from 6.2 to 7.0: that is the figure the bed needs to stay below the water surface across the crest, and it is stated rather than tuned - at 7.0 ft the bed is 1.2 ft under the water at the crest and the pool is continuous from about N -25 (arc length 40 m, where the natural ground dips to 2.7 ft) to the river. Above that the drain is the damp July swale the dossier describes and stands ABOVE the water, which is the claim and not a fault. WIDTH IS UNCHANGED at a 3 m half-width, and so is the deck it carries: under the re-seated Slough Log Bridge this cut is 6.0 m across the top and about 3.2 m of it is open water, the same proportion T-0109 measured at the old seat. THE CROSSING FOLLOWED THE WATER, and which street it carries CHANGED WITH IT: the reach now crosses STATE STREET at E +826.9 N -8.4, and South Water Street stops at the United States Reservation (its committed path ends at E +805 N +4, and the Reservation's west line is State), so the drain no longer meets Water Street anywhere. The source's \"where Water Street crossed it a log bridge was needed until after 1840\" is evidence that the town bridged this drain where its graded street met it; under the owner's ruling that street is State. That substitution is this ticket's one real loss and it is recorded as such in the bridge's own position note and in docs/LIBERTIES.md - it is not dressed up as a reading. THE RE-ENTRANT IS STILL EVIDENCE AND STILL EXACTLY AS TRACED: nothing in shoreline.geojson moved. What changed is that it is claimed as this drain's outfall again, which is what T-0795's re-measurement (NA px (2968, 2515), E +848.6, 1.4 m from the E +850..+856 this record used to quote) always supported. tools/measure_slough_crossing.py takes the deck reading and the unbroken-reach reading on every commit, so this line cannot wander out from under the deck or dam itself. Depth and width invented, bounded as the course entry's are. Recorded in docs/LIBERTIES.md; see docs/RESEARCH/main_branch_sloughs_1833.md section 8 and docs/RESEARCH/wright_1834_watercourses.md."
+        "Zone 14's last reach, from about N -60 into the river. THE OWNER RULED ON 2026-09-26, flying the reach against Wright 1834 and Hathaway 1834: \"you have closer to the fort, further east 2 sloughs that goes in a bit there is only one just east of state, the other slough does not appear to be depicted in either the wright or the hathaway map, correct the slough east of state so it matches the wright map\", and then \"keep the inland state slough, move the bridge, i thgink there should only be one slough though? and from the wright map it appears to start east of state\". Two notches reached the river within 40 m of each other at the foot of State Street - this entry's BUILT mouth at E +809.5 (WEST of State, whose ground control is E +825..+838) and Wright's TRACED re-entrant at E +848.6 - and the built one was the invention. So the built mouth is GONE, filled back to the bank line by its own removal from this spec, and the reach now ends inside the traced re-entrant: it crosses the waterline at the notch's apex (the committed trace turns inland there, E +850.5 N +8.2, between bank vertices E +838.6 N +24.6 and E +854.0 N +10.4) and runs on to E +853.5 N +14.0 in the notch's own open water. THE ENTRY IS SQUARE, IN ONE REACH: the last segment bears 041 deg true, within a few degrees of the normal to the notch's west flank, so the ruling that \"a watercourse meets open water square, in one reach\" is kept and the shore-parallel pocket that ruling refused is not re-created anywhere - no reach of this line runs along the bank, the line approaches the water monotonically from 32 m inland at State Street to the notch. WHAT MOVED, AND THE COST THE OWNER ACCEPTED: other work kept the mouth west of State because moving it east meant cutting the reach through the higher ground east of State and re-seating the committed bridge. Both are now done. The ground this reach crosses stands 4.2-5.8 ft on the committed heightfield (measured, natural, at 2 m stations along this line: 3.4 ft at the hand-over, 4.6 ft at State, a crest of 5.8 ft at E +840.7 N -1.0, then falling to 0.5 ft at the notch apex), where the old reach crossed nothing above 4.8 ft. So depth (ft) rises from 6.2 to 7.0: that is the figure the bed needs to stay below the water surface across the crest, and it is stated rather than tuned - at 7.0 ft the bed is 1.2 ft under the water at the crest and the pool is continuous from about N -25 (arc length 40 m, where the natural ground dips to 2.7 ft) to the river. Above that the drain is the damp July swale the dossier describes and stands ABOVE the water, which is the claim and not a fault. WIDTH IS UNCHANGED at a 3 m half-width, and so is the deck it carries: under the re-seated Slough Log Bridge this cut is 6.0 m across the top and about 3.2 m of it is open water, the same proportion other work measured at the old seat. THE CROSSING FOLLOWED THE WATER, and which street it carries CHANGED WITH IT: the reach now crosses STATE STREET at E +826.9 N -8.4, and South Water Street stops at the United States Reservation (its committed path ends at E +805 N +4, and the Reservation's west line is State), so the drain no longer meets Water Street anywhere. The source's \"where Water Street crossed it a log bridge was needed until after 1840\" is evidence that the town bridged this drain where its graded street met it; under the owner's ruling that street is State. That substitution is this piece of work's one real loss and it is recorded as such in the bridge's own position note and in the liberties register - it is not dressed up as a reading. THE RE-ENTRANT IS STILL EVIDENCE AND STILL EXACTLY AS TRACED: nothing in shoreline.geojson moved. What changed is that it is claimed as this drain's outfall again, which is what other work's re-measurement (NA px (2968, 2515), E +848.6, 1.4 m from the E +850..+856 this record used to quote) always supported. the slough crossing check takes the deck reading and the unbroken-reach reading on every commit, so this line cannot wander out from under the deck or dam itself. Depth and width invented, bounded as the course entry's are. Recorded in the liberties register; see the research notes on main branch sloughs section 8 and the research notes on wright 1834 watercourses."
+      ],
+      "work_refs": [
+        "T-0005",
+        "T-0118",
+        "T-1629",
+        "T-0109",
+        "T-0795"
       ]
     },
     {
       "id": "watercourses.north_side_slough",
       "group": "the watercourses",
-      "label": "north_side_slough",
+      "label": "north side slough",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
@@ -1018,19 +1058,23 @@
         }
       ],
       "notes": [
-        "Existence and course documented by Wright 1834; width measured off the drafted band; depth invented. A shallow, still, connected backwater is the form the sources describe for sloughs off the Main Branch: 'marshy, wet areas with little current'. T-0795 RE-MEASURED THIS CENTRELINE AGAINST THE WHOLE 600 dpi NA/HUP SHEET, the first time it has been read outside a tracing window. 41 of its 45 stations find the pair of inked strokes that bracket them; the centre of the pair departs from the committed line by 1.78 m median and 8.03 m at worst, against a fit whose own RMS is 16.02 m. A window on one scan and the whole of another agree about this watercourse to under two metres, and it is the ONLY watercourse that is not the river anywhere on the sheet. TWO THINGS THE RE-READING FOUND. The strokes stand 13.02 m apart (6.96-22.83 m), nearly twice the 7.1 m the width above was measured from - wash fragments are not the drafted channel, a hand-drawn double line carries no surveyed width, and no width is taken from the ink; both numbers are simply on the record now. AND THE SAME INK WAS BEING READ TWICE, NOW SETTLED IN THIS RECORD'S FAVOUR: T-1080 traced a ROAD down these strokes and its ribbon came out standing in water, because this watercourse is already carved along it. T-1080 withdrew the road. Five things decided it - the two traces agree to 1.54 m median (17.91 m worst) though they come off different scans under different registrations; the whole sheet holds exactly ONE watercourse that is not the river; at NA px (2033, 2270) the two strokes BECOME the river's north bank on either side of an opening, which is how a confluence is drawn and not how a road meets a bank; Thompson drew the same feature as water in 1830 across the same block; and the two readings agree on the stroke separation to 0.2 m. The road reading survives only as this record's cross-check, under this record's name: data/traces/north_side_slough_na_reread.json. Nothing here is regraded by it - a second reading corroborates, it does not promote. docs/RESEARCH/wright_1834_watercourses.md, docs/RESEARCH/michigan_st_tract.md."
+        "Existence and course documented by Wright 1834; width measured off the drafted band; depth invented. A shallow, still, connected backwater is the form the sources describe for sloughs off the Main Branch: 'marshy, wet areas with little current'. Other work RE-MEASURED THIS CENTRELINE AGAINST THE WHOLE 600 dpi NA/HUP SHEET, the first time it has been read outside a tracing window. 41 of its 45 stations find the pair of inked strokes that bracket them; the centre of the pair departs from the committed line by 1.78 m median and 8.03 m at worst, against a fit whose own RMS is 16.02 m. A window on one scan and the whole of another agree about this watercourse to under two metres, and it is the ONLY watercourse that is not the river anywhere on the sheet. TWO THINGS THE RE-READING FOUND. The strokes stand 13.02 m apart (6.96-22.83 m), nearly twice the 7.1 m the width above was measured from - wash fragments are not the drafted channel, a hand-drawn double line carries no surveyed width, and no width is taken from the ink; both numbers are simply on the record now. AND THE SAME INK WAS BEING READ TWICE, NOW SETTLED IN THIS RECORD'S FAVOUR: other work traced a ROAD down these strokes and its ribbon came out standing in water, because this watercourse is already carved along it. Other work withdrew the road. Five things decided it - the two traces agree to 1.54 m median (17.91 m worst) though they come off different scans under different registrations; the whole sheet holds exactly ONE watercourse that is not the river; at NA px (2033, 2270) the two strokes BECOME the river's north bank on either side of an opening, which is how a confluence is drawn and not how a road meets a bank; Thompson drew the same feature as water in 1830 across the same block; and the two readings agree on the stroke separation to 0.2 m. The road reading survives only as this record's cross-check, under this record's name: the north side slough na reread data. Nothing here is regraded by it - a second reading corroborates, it does not promote. the research notes on wright 1834 watercourses, the research notes on michigan st tract."
+      ],
+      "work_refs": [
+        "T-0795",
+        "T-1080"
       ]
     },
     {
       "id": "approaches.north_branch_west",
       "group": "the bridge approaches",
-      "label": "north_branch_west",
+      "label": "north branch west",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "bridge",
-          "value": "north_branch_bridge",
+          "value": "North Branch Bridge",
           "mesh": "record_only"
         },
         {
@@ -1067,13 +1111,13 @@
     {
       "id": "approaches.north_branch_east",
       "group": "the bridge approaches",
-      "label": "north_branch_east",
+      "label": "north branch east",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "bridge",
-          "value": "north_branch_bridge",
+          "value": "North Branch Bridge",
           "mesh": "record_only"
         },
         {
@@ -1104,19 +1148,19 @@
       "sources": [],
       "citations": [],
       "notes": [
-        "The east approach to the North Branch bridge, carrying Kinzie Street onto the deck. Same footing as north_branch_west: existence necessary for a wagon bridge, form invented at 1 in 12."
+        "The east approach to the North Branch bridge, carrying Kinzie Street onto the deck. Same footing as north branch west: existence necessary for a wagon bridge, form invented at 1 in 12."
       ]
     },
     {
       "id": "approaches.south_branch_west",
       "group": "the bridge approaches",
-      "label": "south_branch_west",
+      "label": "south branch west",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "bridge",
-          "value": "south_branch_raft_bridge",
+          "value": "South Branch Bridge",
           "mesh": "record_only"
         },
         {
@@ -1153,13 +1197,13 @@
     {
       "id": "approaches.south_branch_east",
       "group": "the bridge approaches",
-      "label": "south_branch_east",
+      "label": "south branch east",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "bridge",
-          "value": "south_branch_raft_bridge",
+          "value": "South Branch Bridge",
           "mesh": "record_only"
         },
         {
@@ -1190,19 +1234,19 @@
       "sources": [],
       "citations": [],
       "notes": [
-        "The east approach to the South Branch bridge, toward the town side. Same footing as south_branch_west."
+        "The east approach to the South Branch bridge, toward the town side. Same footing as south branch west."
       ]
     },
     {
       "id": "approaches.dearborn_south",
       "group": "the bridge approaches",
-      "label": "dearborn_south",
+      "label": "dearborn south",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "bridge",
-          "value": "dearborn_street_drawbridge",
+          "value": "Dearborn Street Drawbridge",
           "mesh": "record_only"
         },
         {
@@ -1239,13 +1283,13 @@
     {
       "id": "approaches.dearborn_north",
       "group": "the bridge approaches",
-      "label": "dearborn_north",
+      "label": "dearborn north",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "bridge",
-          "value": "dearborn_street_drawbridge",
+          "value": "Dearborn Street Drawbridge",
           "mesh": "record_only"
         },
         {
@@ -1276,19 +1320,19 @@
       "sources": [],
       "citations": [],
       "notes": [
-        "The north approach to the Dearborn Street drawbridge, onto the Kinzie's Addition side. Same footing as dearborn_south."
+        "The north approach to the Dearborn Street drawbridge, onto the Kinzie's Addition side. Same footing as dearborn south."
       ]
     },
     {
       "id": "approaches.slough_west",
       "group": "the bridge approaches",
-      "label": "slough_west",
+      "label": "slough west",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "bridge",
-          "value": "slough_log_bridge",
+          "value": "The Slough Log Bridge, State Street",
           "mesh": "record_only"
         },
         {
@@ -1319,19 +1363,22 @@
       "sources": [],
       "citations": [],
       "notes": [
-        "The approach on the INLAND side of the slough crossing, carrying State Street down to the deck. THE ID IS HISTORICAL AND IS KEPT ON PURPOSE: this was the WEST approach while the deck lay east-west across a north-running reach on Water Street, and T-1629 re-seated the deck across State Street, where the two approaches are south and north. Ids in this dataset are stable, so the name is stale and the geometry is not, and this sentence is the only place that costs anything. Same mode as before and a DEEPER CUT, which is the cost the owner accepted on 2026-09-26 when he ruled the mouth east of State: the ground along State Street stands flat at 5.09 ft from N -30 to N +15 on the committed heightfield, and the deck's walk surface is 2.723 ft, so this deck sits 2.37 ft (0.72 m) BELOW the ground at both its ends where the old seat sat 0.35-0.49 m below its banks. At the house grade of 1 in 12 the cut needs 8.7 m to rise back to natural ground, which is inside this 12 m approach. A road descending to a low log crossing is the minimal reading of how anyone used it; the cut's form is invented."
+        "The approach on the INLAND side of the slough crossing, carrying State Street down to the deck. THE ID IS HISTORICAL AND IS KEPT ON PURPOSE: this was the WEST approach while the deck lay east-west across a north-running reach on Water Street, and other work re-seated the deck across State Street, where the two approaches are south and north. Ids in this dataset are stable, so the name is stale and the geometry is not, and this sentence is the only place that costs anything. Same mode as before and a DEEPER CUT, which is the cost the owner accepted on 2026-09-26 when he ruled the mouth east of State: the ground along State Street stands flat at 5.09 ft from N -30 to N +15 on the committed heightfield, and the deck's walk surface is 2.723 ft, so this deck sits 2.37 ft (0.72 m) BELOW the ground at both its ends where the old seat sat 0.35-0.49 m below its banks. At the house grade of 1 in 12 the cut needs 8.7 m to rise back to natural ground, which is inside this 12 m approach. A road descending to a low log crossing is the minimal reading of how anyone used it; the cut's form is invented."
+      ],
+      "work_refs": [
+        "T-1629"
       ]
     },
     {
       "id": "approaches.slough_east",
       "group": "the bridge approaches",
-      "label": "slough_east",
+      "label": "slough east",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "bridge",
-          "value": "slough_log_bridge",
+          "value": "The Slough Log Bridge, State Street",
           "mesh": "record_only"
         },
         {
@@ -1362,19 +1409,19 @@
       "sources": [],
       "citations": [],
       "notes": [
-        "The approach on the RIVER side of the slough crossing, carrying State Street on toward the bank. Same footing, same stale-but-stable id and the same measured 0.72 m cut as slough_west - the terrace this deck is let into is level for 45 m along the street, so both ends are the same depth below grade and neither approach is a fill."
+        "The approach on the RIVER side of the slough crossing, carrying State Street on toward the bank. Same footing, same stale-but-stable id and the same measured 0.72 m cut as slough west - the terrace this deck is let into is level for 45 m along the street, so both ends are the same depth below grade and neither approach is a fill."
       ]
     },
     {
       "id": "approaches.lasalle_crossing_west",
       "group": "the bridge approaches",
-      "label": "lasalle_crossing_west",
+      "label": "lasalle crossing west",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "bridge",
-          "value": "lasalle_slough_crossing",
+          "value": "The La Salle Slough Crossing, South Water Street",
           "mesh": "record_only"
         },
         {
@@ -1405,19 +1452,22 @@
       "sources": [],
       "citations": [],
       "notes": [
-        "T-0129. The west approach to the La Salle slough crossing, carrying South Water Street onto the deck. THIS ONE IS A FILL AND ITS SIBLING FOUR HUNDRED METRES EAST IS A CUT, and the difference is the ground rather than a change of mind: the State crossing's low deck sits 0.35-0.49 m BELOW its banks, so the road is graded down to it, while this deck stands 0.84 m over water on banks that reach only +0.37 m, so the road is graded UP. That an approach existed is the same necessity argument every entry here makes - a graded public street cannot end 0.47 m under its own crossing - and the form is invented at the same 1 in 12. THE ONE FIGURE THAT DEPARTS FROM THE HOUSE PATTERN IS end_overhang_m, 1.0 against the 3.0 every other approach uses, and it departs for the reason this whole ticket exists: the overhang is fill carried PAST the deck end into the shallows, and three metres of it at each end would take two thirds of the six-metre channel this work opened and put the owner's bulge of land back at a smaller scale. One metre keeps the fill inside the abutment seat (measured 2.65 m at the deck's south edge, 3.35 m at its north) and leaves the water running under the whole of the span. Deck height restated from the structure record's clearance stack (0.5 + 0.26 + 0.08 m = 2.756 ft); if that record moves, the ground-contact gate reopens the gap and fails, which is what holds the two files together."
+        "The west approach to the La Salle slough crossing, carrying South Water Street onto the deck. THIS ONE IS A FILL AND ITS SIBLING FOUR HUNDRED METRES EAST IS A CUT, and the difference is the ground rather than a change of mind: the State crossing's low deck sits 0.35-0.49 m BELOW its banks, so the road is graded down to it, while this deck stands 0.84 m over water on banks that reach only +0.37 m, so the road is graded UP. That an approach existed is the same necessity argument every entry here makes - a graded public street cannot end 0.47 m under its own crossing - and the form is invented at the same 1 in 12. THE ONE FIGURE THAT DEPARTS FROM THE HOUSE PATTERN IS end overhang (m), 1.0 against the 3.0 every other approach uses, and it departs for the reason this whole piece of work exists: the overhang is fill carried PAST the deck end into the shallows, and three metres of it at each end would take two thirds of the six-metre channel this work opened and put the owner's bulge of land back at a smaller scale. One metre keeps the fill inside the abutment seat (measured 2.65 m at the deck's south edge, 3.35 m at its north) and leaves the water running under the whole of the span. Deck height restated from the structure record's clearance stack (0.5 + 0.26 + 0.08 m = 2.756 ft); if that record moves, the ground-contact gate reopens the gap and fails, which is what holds the two files together."
+      ],
+      "work_refs": [
+        "T-0129"
       ]
     },
     {
       "id": "approaches.lasalle_crossing_east",
       "group": "the bridge approaches",
-      "label": "lasalle_crossing_east",
+      "label": "lasalle crossing east",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "bridge",
-          "value": "lasalle_slough_crossing",
+          "value": "The La Salle Slough Crossing, South Water Street",
           "mesh": "record_only"
         },
         {
@@ -1448,7 +1498,10 @@
       "sources": [],
       "citations": [],
       "notes": [
-        "T-0129. The east approach to the La Salle slough crossing, from the town side. Same footing as lasalle_crossing_west: a fill because the deck stands over its banks, form invented at 1 in 12, and the same one-metre overhang so the fill does not close the channel it crosses."
+        "The east approach to the La Salle slough crossing, from the town side. Same footing as lasalle crossing west: a fill because the deck stands over its banks, form invented at 1 in 12, and the same one-metre overhang so the fill does not close the channel it crosses."
+      ],
+      "work_refs": [
+        "T-0129"
       ]
     },
     {
@@ -1541,7 +1594,12 @@
         }
       ],
       "notes": [
-        "T-1824 (piece 1 of the owner's T-1820, under T-1772). Dossier zone 5 names 'the white sand hills both to the north and south' of the fort (chicagology_prefire274, describing the view from the fort's mound) and sizes them as scattered hummocks 50-150 ft across with +10 to +14 ft local peaks; it grades them inferred for EXISTENCE and gives no position or height for any one of them. So the existence is the source's and everything about the form is RECONSTRUCTED: a foredune ridge just behind the beach, a lower second ridge behind it, a blowout hollow between, each broken into hummocks by noise rather than run as a continuous bank, and every vertex they touch is written conjectural. Bounded by the dossier: ridge heights are added to a belt that already crests at +8.5 to +9.5 ft, so the tallest hummock reaches +13.9 ft (heightfield.json land_max), inside zone 5's +10 to +14 ft; the hummock wavelength makes them 20-45 m across, inside its 50-150 ft. Measured inland from the LAKE's edge read per row off the water mask, never from the river's banks. Admitted in docs/LIBERTIES.md L334. NORTH REACH: from N +440, clear of the main stem's north bank and the north pier's root, to N +920, where the traced shore turns west across the addition's shore-cut blocks and Sand Street's corridor runs out into the lake. Between Sand Street and the lake the strip is 50-60 m deep, so this reach carries a foredune and one low back ridge and no more. Its west limit is the east edge of the unopened Sand Street corridor (E +1278.8 + 11.1 m, with a 3 m margin), so the platted ground of Kinzie's Addition is untouched; the sand hills stand where Wright draws the shore-cut blocks."
+        "Other work (the owner's). Dossier zone 5 names 'the white sand hills both to the north and south' of the fort (\"Fort Dearborn I.\" Chicagology, transcribing Chicago Magazine, March 1857, with…, describing the view from the fort's mound) and sizes them as scattered hummocks 50-150 ft across with +10 to +14 ft local peaks; it grades them inferred for EXISTENCE and gives no position or height for any one of them. So the existence is the source's and everything about the form is RECONSTRUCTED: a foredune ridge just behind the beach, a lower second ridge behind it, a blowout hollow between, each broken into hummocks by noise rather than run as a continuous bank, and every vertex they touch is written conjectural. Bounded by the dossier: ridge heights are added to a belt that already crests at +8.5 to +9.5 ft, so the tallest hummock reaches +13.9 ft (the heightfield data land max), inside zone 5's +10 to +14 ft; the hummock wavelength makes them 20-45 m across, inside its 50-150 ft. Measured inland from the LAKE's edge read per row off the water mask, never from the river's banks. Admitted in the liberties register L334. NORTH REACH: from N +440, clear of the main stem's north bank and the north pier's root, to N +920, where the traced shore turns west across the addition's shore-cut blocks and Sand Street's corridor runs out into the lake. Between Sand Street and the lake the strip is 50-60 m deep, so this reach carries a foredune and one low back ridge and no more. Its west limit is the east edge of the unopened Sand Street corridor (E +1278.8 + 11.1 m, with a 3 m margin), so the platted ground of Kinzie's Addition is untouched; the sand hills stand where Wright draws the shore-cut blocks."
+      ],
+      "work_refs": [
+        "T-1820",
+        "T-1772",
+        "T-1824"
       ]
     },
     {
@@ -1630,13 +1688,18 @@
         }
       ],
       "notes": [
-        "T-1824 (piece 1 of the owner's T-1820, under T-1772). Dossier zone 5 names 'the white sand hills both to the north and south' of the fort (chicagology_prefire274, describing the view from the fort's mound) and sizes them as scattered hummocks 50-150 ft across with +10 to +14 ft local peaks; it grades them inferred for EXISTENCE and gives no position or height for any one of them. So the existence is the source's and everything about the form is RECONSTRUCTED: a foredune ridge just behind the beach, a lower second ridge behind it, a blowout hollow between, each broken into hummocks by noise rather than run as a continuous bank, and every vertex they touch is written conjectural. Bounded by the dossier: ridge heights are added to a belt that already crests at +8.5 to +9.5 ft, so the tallest hummock reaches +13.9 ft (heightfield.json land_max), inside zone 5's +10 to +14 ft; the hummock wavelength makes them 20-45 m across, inside its 50-150 ft. Measured inland from the LAKE's edge read per row off the water mask, never from the river's banks. Admitted in docs/LIBERTIES.md L334. SOUTH REACH: from N -700, south of where the old southward channel loses itself in the lake (north of it the lake's edge is the bar and the channel's west bank, and the 1839 Fort Dearborn Addition plat makes the strip beside the reservation 'at best a low sandbar' — CPL, dossier zone 5), to N -2120, inside evidence_limit at Twelfth Street, so no dune is carried into the conjectural frame. No structure stands within 300 m of the lake on this reach."
+        "Other work (the owner's). Dossier zone 5 names 'the white sand hills both to the north and south' of the fort (\"Fort Dearborn I.\" Chicagology, transcribing Chicago Magazine, March 1857, with…, describing the view from the fort's mound) and sizes them as scattered hummocks 50-150 ft across with +10 to +14 ft local peaks; it grades them inferred for EXISTENCE and gives no position or height for any one of them. So the existence is the source's and everything about the form is RECONSTRUCTED: a foredune ridge just behind the beach, a lower second ridge behind it, a blowout hollow between, each broken into hummocks by noise rather than run as a continuous bank, and every vertex they touch is written conjectural. Bounded by the dossier: ridge heights are added to a belt that already crests at +8.5 to +9.5 ft, so the tallest hummock reaches +13.9 ft (the heightfield data land max), inside zone 5's +10 to +14 ft; the hummock wavelength makes them 20-45 m across, inside its 50-150 ft. Measured inland from the LAKE's edge read per row off the water mask, never from the river's banks. Admitted in the liberties register L334. SOUTH REACH: from N -700, south of where the old southward channel loses itself in the lake (north of it the lake's edge is the bar and the channel's west bank, and the 1839 Fort Dearborn Addition plat makes the strip beside the reservation 'at best a low sandbar' — CPL, dossier zone 5), to N -2120, inside evidence limit at Twelfth Street, so no dune is carried into the conjectural frame. No structure stands within 300 m of the lake on this reach."
+      ],
+      "work_refs": [
+        "T-1820",
+        "T-1772",
+        "T-1824"
       ]
     },
     {
       "id": "micro_relief",
       "group": "the surface texture",
-      "label": "micro_relief",
+      "label": "micro relief",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
@@ -1668,21 +1731,24 @@
       "sources": [],
       "citations": [],
       "notes": [
-        "Two octaves of value noise at +/- 0.10 ft (30 mm) — below the 0.25 ft the dossier asks the heightmap to be quantised at, and far below the resolution of any statement in the record. It exists so that a surface the sources describe as dead flat still reads as ground rather than as a rendering error, and so that walking gives motion parallax. It is a texture, not a claim. Set amplitude_ft to 0 for a perfectly flat plain.",
-        "Where the noise applies is decided in terrain_gen.py — it is faded across the bank ramp and excluded from water — and this sentence describes that code path rather than driving it.",
-        "And it stops at Madison Street, which is where the town stops (T-0464). The note above states the two things this texture is for — that ground the sources call dead flat should still read as ground rather than as a rendering error, and that walking should give motion parallax — and neither of them survives south of the plat. Nobody walks there: there is no street, no structure and no scene south of Madison, and the field below it is the frame the 1812 and 1880s epochs will stand in. Nobody can see it either, in the only sense that matters to a +/- 0.10 ft texture: 30 mm at the 500 m where this ground starts subtends 0.0034 deg, against 0.06 deg for one pixel of a 60 deg field across 1000 px, so the texture is an order of magnitude under a pixel at the NEAREST it is ever drawn and falls away from there until world.js's haze closes at 1550 m. What it is NOT under is the planar dissolve: noise is the only thing making this surface non-planar, and carrying it over the extension costs 9.10 MB of master and 807 KiB of published payload — measured, 27,019,736 bytes of master against 17,919,344 and 2,646,392 of derivative against 1,819,896 — against a site budget this extension already had to raise once (tools/validate.py SITE_BUDGET_MB). Inside the plat nothing changes — the whole field north of -530 is bit-identical across this change."
+        "Two octaves of value noise at +/- 0.10 ft (30 mm) — below the 0.25 ft the dossier asks the heightmap to be quantised at, and far below the resolution of any statement in the record. It exists so that a surface the sources describe as dead flat still reads as ground rather than as a rendering error, and so that walking gives motion parallax. It is a texture, not a claim. Set amplitude (ft) to 0 for a perfectly flat plain.",
+        "Where the noise applies is decided in the terrain gen tool — it is faded across the bank ramp and excluded from water — and this sentence describes that code path rather than driving it.",
+        "And it stops at Madison Street, which is where the town stops. The note above states the two things this texture is for — that ground the sources call dead flat should still read as ground rather than as a rendering error, and that walking should give motion parallax — and neither of them survives south of the plat. Nobody walks there: there is no street, no structure and no scene south of Madison, and the field below it is the frame the 1812 and 1880s epochs will stand in. Nobody can see it either, in the only sense that matters to a +/- 0.10 ft texture: 30 mm at the 500 m where this ground starts subtends 0.0034 deg, against 0.06 deg for one pixel of a 60 deg field across 1000 px, so the texture is an order of magnitude under a pixel at the NEAREST it is ever drawn and falls away from there until the walkthrough's world code's haze closes at 1550 m. What it is NOT under is the planar dissolve: noise is the only thing making this surface non-planar, and carrying it over the extension costs 9.10 MB of master and 807 KiB of published payload — measured, 27,019,736 bytes of master against 17,919,344 and 2,646,392 of derivative against 1,819,896 — against a site budget this extension already had to raise once (the validator site budget mb). Inside the plat nothing changes — the whole field north of -530 is bit-identical across this change."
+      ],
+      "work_refs": [
+        "T-0464"
       ]
     },
     {
       "id": "surface_materials.south_division west of State St",
       "group": "what the ground is made of",
-      "label": "south_division west of State St",
+      "label": "south division west of State St",
       "confidence": "attested",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "material",
-          "value": "black_loam_over_quicksand_over_blue_clay",
+          "value": "black loam over quicksand over blue clay",
           "mesh": "simplified"
         },
         {
@@ -1718,19 +1784,19 @@
         }
       ],
       "notes": [
-        "The chip above this line is stronger than the evidence under it, and this sentence is the correction arriving ahead of the grade. The source page was opened at its own locator on 2026-08-11 (docs/RESEARCH/surface_materials_south_division.md) and it prints no footnote, endnote or reference of any kind. A named witness on the page, John Mills Van Osdel, attests saturated sand over impervious clay and the failure of the ground to drain, but he gives no black loam and no thickness. The top layer and all three dimensions are the 2022 author's unsupported synthesis. This value is over-graded and should become inferred; it remains documented only because confidence is baked into the committed ground mesh and the regrade requires the queued Blender rebuild."
+        "The chip above this line is stronger than the evidence under it, and this sentence is the correction arriving ahead of the grade. The source page was opened at its own locator on 2026-08-11 (the research notes on surface materials south division) and it prints no footnote, endnote or reference of any kind. A named witness on the page, John Mills Van Osdel, attests saturated sand over impervious clay and the failure of the ground to drain, but he gives no black loam and no thickness. The top layer and all three dimensions are the 2022 author's unsupported synthesis. This value is over-graded and should become inferred; it remains documented only because confidence is baked into the committed ground mesh and the regrade requires the queued Blender rebuild."
       ]
     },
     {
       "id": "surface_materials.south_division east of State St",
       "group": "what the ground is made of",
-      "label": "south_division east of State St",
+      "label": "south division east of State St",
       "confidence": "attested",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "material",
-          "value": "beach_and_dune_sand_henry_fm",
+          "value": "beach and dune sand henry fm",
           "mesh": "simplified"
         },
         {
@@ -1770,13 +1836,13 @@
     {
       "id": "surface_materials.north_division",
       "group": "what the ground is made of",
-      "label": "north_division",
+      "label": "north division",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "material",
-          "value": "black_loam_over_quicksand_over_blue_clay",
+          "value": "black loam over quicksand over blue clay",
           "mesh": "simplified"
         },
         {
@@ -1794,13 +1860,13 @@
     {
       "id": "surface_materials.north_division near the lake",
       "group": "what the ground is made of",
-      "label": "north_division near the lake",
+      "label": "north division near the lake",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "material",
-          "value": "beach_and_dune_sand_henry_fm",
+          "value": "beach and dune sand henry fm",
           "mesh": "simplified"
         },
         {
@@ -1818,13 +1884,13 @@
     {
       "id": "surface_materials.west_division",
       "group": "what the ground is made of",
-      "label": "west_division",
+      "label": "west division",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "material",
-          "value": "black_loam_over_quicksand_over_blue_clay",
+          "value": "black loam over quicksand over blue clay",
           "mesh": "simplified"
         },
         {
@@ -1842,13 +1908,13 @@
     {
       "id": "surface_materials.south_division_marsh",
       "group": "what the ground is made of",
-      "label": "south_division_marsh",
+      "label": "south division marsh",
       "confidence": "attested",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "material",
-          "value": "peat_muck_with_sedge_reeds_rushes",
+          "value": "peat muck with sedge reeds rushes",
           "mesh": "simplified"
         },
         {
@@ -1883,13 +1949,13 @@
     {
       "id": "surface_materials.sand_bar_1834",
       "group": "what the ground is made of",
-      "label": "sand_bar_1834",
+      "label": "sand bar 1834",
       "confidence": "attested",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "material",
-          "value": "beach_and_dune_sand_henry_fm",
+          "value": "beach and dune sand henry fm",
           "mesh": "simplified"
         },
         {
@@ -1942,7 +2008,7 @@
       "fields": [
         {
           "key": "material",
-          "value": "cahokia_alluvium_silt",
+          "value": "cahokia alluvium silt",
           "mesh": "simplified"
         },
         {
@@ -1960,13 +2026,13 @@
     {
       "id": "surface_materials.open_lake_shelf",
       "group": "what the ground is made of",
-      "label": "open_lake_shelf",
+      "label": "open lake shelf",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "material",
-          "value": "beach_and_dune_sand_henry_fm",
+          "value": "beach and dune sand henry fm",
           "mesh": "simplified"
         },
         {
@@ -2004,31 +2070,41 @@
   "not_modelled": [
     {
       "dossier_zone": 5,
-      "why": "MODELLED SINCE T-1824, on the owner's request (T-1772/T-1820), and kept here so the old reason stays readable: 'the white sand hills both to the north and south' of the fort are the only explicit dune reference and no source places a single one of them. That is still true, which is why `dunes` is graded reconstructed and every vertex it touches is conjectural. What the old reason guarded is kept: the quadrant where Fort Dearborn and the Beaubien houses stand carries no hummock — the reaches stop at N +440 and N -700 — and the one building inside a reach (kelsey_boarding_house) is held clear of them."
+      "why": "MODELLED SINCE other work, on the owner's request, and kept here so the old reason stays readable: 'the white sand hills both to the north and south' of the fort are the only explicit dune reference and no source places a single one of them. That is still true, which is why `dunes` is graded reconstructed and every vertex it touches is conjectural. What the old reason guarded is kept: the quadrant where Fort Dearborn and the Beaubien houses stand carries no hummock — the reaches stop at N +440 and N -700 — and the one building inside a reach (Kelsey's boarding-house) is held clear of them.",
+      "work_refs": [
+        "T-1772",
+        "T-1820",
+        "T-1824"
+      ]
     },
     {
       "dossier_zone": 15,
-      "why": "the public-square pond (Randolph/Washington, Clark/LaSalle, about E +550) is inside the box now. Deferred to parcel (c): existence documented, geometry conjectural. AND ITS DATE IS NOT ESTABLISHED, which is a different thing from its geometry and was never asked. The quotation dates nothing — 'was then a pond', a past tense set against an 1857 present, in a document this project records as built on Hubbard's Chicago of 1818 and Davis's 1832 drawing; the dossier row calls the pond SEASONAL and puts its water at 0.5-2 ft deep IN SPRING against a scene dated 1 July; and this project already stands the estray pen on the square's south-west corner from March 1832 and the log jail on its north-west corner from the fall of 1833. A pound is not built in a pond. Against all of that, the same page's slough sentence has the stream draining 'the pond' as a live feature. So the extent and the date are one question and neither is settled — data/terrain/1835_intown_water_dating.json zone 15."
+      "why": "the public-square pond (Randolph/Washington, Clark/LaSalle, about E +550) is inside the box now. Deferred to parcel (c): existence documented, geometry conjectural. AND ITS DATE IS NOT ESTABLISHED, which is a different thing from its geometry and was never asked. The quotation dates nothing — 'was then a pond', a past tense set against an 1857 present, in a document this project records as built on Hubbard's Chicago of 1818 and Davis's 1832 drawing; the dossier row calls the pond SEASONAL and puts its water at 0.5-2 ft deep IN SPRING against a scene dated 1 July; and this project already stands the estray pen on the square's south-west corner from March 1832 and the log jail on its north-west corner from the fall of 1833. A pound is not built in a pond. Against all of that, the same page's slough sentence has the stream draining 'the pond' as a live feature. So the extent and the date are one question and neither is settled — the 1835 intown water dating data zone 15."
     },
     {
       "dossier_zone": 16,
-      "why": "the Frog Pond at Lake and LaSalle (about E +480) is inside the box now. Deferred to parcel (c). It is the only one of the four in-town waters with a day and a month on it, and the day is a year late: the Chicago American of 9 July 1836 complains of standing water inhabited by frogs at that corner. Same week of the same season, one year after the scene, and the step back to 1835 is an inference this project records as one — data/terrain/1835_intown_water_dating.json zone 16."
+      "why": "the Frog Pond at Lake and LaSalle (about E +480) is inside the box now. Deferred to parcel (c). It is the only one of the four in-town waters with a day and a month on it, and the day is a year late: the Chicago American of 9 July 1836 complains of standing water inhabited by frogs at that corner. Same week of the same season, one year after the scene, and the step back to 1835 is an inference this project records as one — the 1835 intown water dating data zone 16."
     },
     {
       "dossier_zone": 17,
-      "why": "the Wells Street marsh (about E +600) is inside the box now. Deferred to parcel (c). It arrives in the same sentence as the slough and on the same terms — the stream drained 'the pond and the marsh extending up Wells Street' — so whatever dates the slough dates what the slough drains. What is missing here is the EXTENT and not the date: the dossier's own tag is 'documented qualitatively' and 'broad, ill-defined' is the whole of the geometry any source reached supplies — data/terrain/1835_intown_water_dating.json zone 17."
+      "why": "the Wells Street marsh (about E +600) is inside the box now. Deferred to parcel (c). It arrives in the same sentence as the slough and on the same terms — the stream drained 'the pond and the marsh extending up Wells Street' — so whatever dates the slough dates what the slough drains. What is missing here is the EXTENT and not the date: the dossier's own tag is 'documented qualitatively' and 'broad, ill-defined' is the whole of the geometry any source reached supplies — the 1835 intown water dating data zone 17."
     },
     {
       "dossier_zone": 18,
-      "why": "zone 18's '1-2 ft slough swales' on the West Division wet prairie are recorded and not modelled. Two alignments — west_prairie_swale_a and _b — were graded here from 2026-08 until T-1460 (2026-09-29), drawn on invented lines with invented depths: confidence reconstructed, sources [], and T-0795 walked the whole Wright 1834 NA/HUP sheet and found NO watercourse anywhere on this prairie, so the one sheet that could have sourced them shows nothing. T-1416 then carried the field west to E -705 and left both heads beginning abruptly at E -320 — the old west wall of the box — 385 m inside open modelled prairie that carries no hollow and no reason for one, and swale_a's 30 m corridor stood over eight reviewed, baked West Division roofs. The recipe's fourth terrain rule offered to move the roofs; the owner ruled (T-1460, option a) that the invented line is the conjectural half of that pair, not the roofs, and retired both to the record. That the prairie carried swales is what the dossier says and it is kept here; WHERE they ran is not attested anywhere and is no longer asserted in the ground. No roof moved: the cut was about 0.008 m per metre and the deepest relief across any of the eight footprints was 0.119 m of a 0.35 m contract, so taking it out moved the ground under them by centimetres. docs/LIBERTIES.md L15 and L31f are struck by the same ruling."
+      "why": "zone 18's '1-2 ft slough swales' on the West Division wet prairie are recorded and not modelled. Two alignments — west prairie swale a and _b — were graded here from 2026-08 until other work (2026-09-29), drawn on invented lines with invented depths: confidence reconstructed, sources [], and other work walked the whole Wright 1834 NA/HUP sheet and found NO watercourse anywhere on this prairie, so the one sheet that could have sourced them shows nothing. Other work then carried the field west to E -705 and left both heads beginning abruptly at E -320 — the old west wall of the box — 385 m inside open modelled prairie that carries no hollow and no reason for one, and swale a's 30 m corridor stood over eight reviewed, baked West Division roofs. The recipe's fourth terrain rule offered to move the roofs; the owner ruled (option a) that the invented line is the conjectural half of that pair, not the roofs, and retired both to the record. That the prairie carried swales is what the dossier says and it is kept here; WHERE they ran is not attested anywhere and is no longer asserted in the ground. No roof moved: the cut was about 0.008 m per metre and the deepest relief across any of the eight footprints was 0.119 m of a 0.35 m contract, so taking it out moved the ground under them by centimetres. the liberties register L15 and L31f are struck by the same ruling.",
+      "work_refs": [
+        "T-1460",
+        "T-0795",
+        "T-1416"
+      ]
     },
     {
       "dossier_zone": 24,
-      "why": "the north pier is a STRUCTURE with phases, not terrain — data/structures/north_pier.json. Its root at E +1243.5 is now inside the box."
+      "why": "the north pier is a STRUCTURE with phases, not terrain — the record of North Pier. Its root at E +1243.5 is now inside the box."
     },
     {
       "dossier_zone": 25,
-      "why": "the south pier is a structure — data/structures/south_pier.json."
+      "why": "the south pier is a structure — the record of South Pier."
     },
     {
       "dossier_zone": 27,
@@ -2036,11 +2112,17 @@
     },
     {
       "dossier_zone": 28,
-      "why": "the fresh accretion wedge north of the north pier. The traced shore IS Wright's 1834 shore; adding a year of accretion on top of it would be editing the trace rather than reading it. It USED to be out of the box as well — 'the wedge lies mostly north of N +400' — and since T-1123 it is not: the box now reaches N +1120 and the whole of that shore is modelled ground. The reason it is not modelled is now the first sentence alone, which was always the load-bearing one."
+      "why": "the fresh accretion wedge north of the north pier. The traced shore IS Wright's 1834 shore; adding a year of accretion on top of it would be editing the trace rather than reading it. It USED to be out of the box as well — 'the wedge lies mostly north of N +400' — and since other work it is not: the box now reaches N +1120 and the whole of that shore is modelled ground. The reason it is not modelled is now the first sentence alone, which was always the load-bearing one.",
+      "work_refs": [
+        "T-1123"
+      ]
     },
     {
       "dossier_zone": 29,
       "why": "the erosional scarp south of the cut, 'documented qualitatively' with no dimension. The bank face there already falls from the sand ridge; a 1-3 ft cut bank on top of it would be drawn from the adjective."
     }
+  ],
+  "work_refs": [
+    "T-1123"
   ]
 }

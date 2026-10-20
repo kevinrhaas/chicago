@@ -54,6 +54,14 @@ cx=(fan['u0']+fan['u1'])/2;cz=fan['spring_z'];rr=fan['r_in']+.04
 field=[v[0]-x for v in fb.verts if math.hypot(v[1]-cx,v[2]-cz)<rr*.60 and v[2]>cz+.05]
 assert field and max(field)<-.18 and min(field)<-.30,'Carving or its bed floats at the facade'
 assert max(field)-min(field)>.04,'Carving flattened against its recessed backing'
+# T-2912: HABS sheet 5 draws the head stilted, its centre about 0.5 ft over the spring
+# line and both rings plumb below it; the springers must reach the spring, not stop at
+# the centre, and the field's rings are the sheet's eight.
+st=fan.get('stilt',0)
+assert .12<st<.18,'Fan lost its stilt'
+legs=[v[2]-cz for v in fb.verts if abs(abs(v[1]-cx)-fan['r_out'])<.02 and cz-.01<v[2]<cz+st]
+assert legs and min(legs)<.03 and max(legs)>st*.5,'Springers do not run plumb to the spring line'
+assert len(d.ornament.FIELD_ROUNDELS)==8 and all(math.hypot(x,z)+r<1 for x,z,r in d.ornament.FIELD_ROUNDELS),'Field rings leave the field'
 head=next(o for o in p.openings if o.get('style')=='rock_faced_lintel')
 from archetypes.masonry_house_v4_entry import lintel_outline
 poly=lintel_outline(head,s)

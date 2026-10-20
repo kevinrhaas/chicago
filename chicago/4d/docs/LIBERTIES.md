@@ -28615,6 +28615,43 @@ openings, roof and flank to the photographs; T-1890 finishes the architecture an
 **Ticket:** T-2843 (piece 3 of T-2789).
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-20 (T-2843).
+**Revised:** 2026-10-20 (T-2910) — T-2790 was split: T-2910 builds the corner loggia and its stair
+(`L-kimball-1801-loggia-2910`), so the deep-arched door standing for the loggia above is retired;
+the bowed bay, the carved openings and frieze and the corbel table are T-2911's.
+
+### L-kimball-1801-loggia-2910 — 1801 Prairie's corner loggia: a room 2.3 m square behind its two arches under a flat ceiling, its door's leaves, plain stone for the carving, and the stair's cheeks swept on a reconstructed curve
+
+**Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.entrance_kit`, `kimball_house_1801_prairie.as_mapped_1904.form.stair_landing_depth_m`, `kimball_house_1801_prairie.as_mapped_1904.form.stair_tread_m`, `kimball_house_1801_prairie.as_mapped_1904.form.stoop_width_m`
+**Decision:** the W. W. Kimball house at 1801 Prairie (T-2910, piece 1 of T-2790) takes the corner
+entrance J. W. Taylor's c. 1895 photograph shows (`taylor_c1895_kimball_residence_1801`), read through
+its solved camera: an open loggia at the front's 18th Street end with a round arch on each face, and a
+broad stair coming down the front out of the front arch between swept cheek walls. **What is read, not
+invented.** Each arch's place and size: about 1.9 m across, centred about 1.6 m from the corner (the
+front's void v 0.5-2.7, the 18th Street face's u 18.1-19.5 inside its surround), springing about
+2.65 m over grade and crowned about 3.6 m; the loggia's floor at the 1.45 m principal floor; a door
+frame on the loggia's back wall, seen through the 18th Street arch about on the front arch's axis;
+a stone balcony under the 18th Street arch, its top about the arch's sill, its underside corbelled
+back into the wall; nine risers coming down about 2.5 m in front of the front arch, as broad as the
+arch's piers, between cheeks that run level by the arch and sweep down to a block at the foot about
+0.7-0.85 m over grade. **What is invented.** The room behind the arches: 2.3 m square (from the 18th
+Street wall's inner face to 2.75 m along the front, and 2.75 m behind the front), its floor the
+door's, a flat ceiling 3.2 m over it; the photograph shows only its back wall, and the room's
+depth is what puts that wall where the door frame is seen. The door: a pair of panelled leaves 1.5 m
+across under a 0.45 m transom, 2.75 m to its head, K07's deep-arch variant's joinery. The voussoir
+rings (0.4 m) and keystones, K01's arched door group, standing for the photograph's moulded
+archivolts; the balcony 0.4 m out, its face 0.5 m deep and its corbel 0.35 m; the cheeks 0.3 m thick
+(the kit's), level 0.1 m over the landing and swept down in one reversed cosine curve to a 0.5 m block
+0.85 m over grade (the photograph's left block reads 0.68-0.70 m over the camera's grade, which stands
+about 0.2 m under the lot's); the landing 0.3 m at the arch's mouth and the treads 0.28 m.
+**What is not built.** The carving on the piers, round the arches, on the cheeks' blocks and on the
+balcony's face, and the carved frieze over the loggia: plain stone here (T-2911 and T-2540). The
+principal storey's window the K01 build had at 18.9 m on the 18th Street wall is gone: the
+photograph's arch stands there.
+**How to resolve:** a photograph or drawing of the loggia's inside, or a plan of the principal floor,
+would replace the room's plan, ceiling and the door; T-2911 carves the openings and their surrounds.
+**Ticket:** T-2910 (piece 1 of T-2790).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-20 (T-2910).
 
 ### L-k01-1621-last-drawn-2531 — 1621 Prairie's last drawn differences: the door's ring turned to a curved extrados under a band in a deep recess, the light over it stood on a moulded shelf, and splayed voussoirs over the basement lights, their places read and their sections reconstructed
 
@@ -28647,7 +28684,7 @@ string course stands lower than the drawn band.
 shelf and the basement heads; the architects' drawings would settle their sections.
 **Ticket:** T-2531 (piece 2 of T-2527).
 **Recorded:** 2026-10-16 (T-2531).
-### L-k01-1811-ames-front-2541 — 1811 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1888 photograph, its gable and pyramid not yet raised
+### L-k01-1811-ames-front-2541 — 1811 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1888 photograph, its gable, pyramid and steep roof raised by T-2542
 
 **Decision:** the house at 1811 Prairie Avenue (T-2541, piece 1 of T-1891) is no longer a district
 draft. It stands, under the draft's own id `coleman_ames_house_1811_prairie`, as a `k01_frontage`
@@ -28681,9 +28718,25 @@ tall stack; the open porch on clustered columns and the stair's scrolled cheek w
 ashlar of the bay's upper stage and the oriel; the oriel's full depth and its square returns; the
 bay's iron-grilled basement lights; the downpipes; the small projection the sheet draws
 on the range's north wall. All are open on the match record.
-**How to resolve:** T-2542 raises the gable, the pyramid and the roofs and brings the match record to
-`matches`; T-1892 finishes the porch, the carving and the ironwork.
-**Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_pitch_deg`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays_by_storey`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.chimneys`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.gable_roof`
+**Revised:** 2026-10-20 (T-2542, piece 2 of T-1891). The plate's roof storey is IN the roof: its street
+slope comes down behind the bay and the oriel to about 8.5-8.8 m, not to T-2541's 11.7 m eave. So the
+front block is two walled storeys (the eave datum at 9.14 m: fascia top 8.50 m, the moulded stone
+cornice's top at 8.30 m, the plate's bay cornice), the third storey stands in a slated gable pitched
+61.2 degrees to a ridge at 16.0 m (read off the plate, `inferred`, in the K01 contract's steep band,
+which a gable read off a source may now take), and it is lit by the bay's stone gable: K01's wall gable
+(T-2428) on the street wall over the bay, with a finial, a pinnacle each side at the bay's corners and
+the three lights. The oriel is carried through the eave (T-2778) under K08's spire with a finial. What
+that build invents: the wall gable's 3.0 m width (the plate's rake runs wider), its 55-degree pediment,
+its lights' flat heads under voussoirs, the pinnacles' square plan and pyramid tops, the face's dressing
+stone; the oriel's wall top 0.4 m over the plate's (K01 carries an oriel through the eave only 0.3 m past
+its datum); the ridge's depth (half the front block's, as T-2541 set it). What is still not built: the
+gable's great arched recess with its three small round-arched lights and carving, the pierced balcony on
+the bay's deck, the roof's own shape (the plate's is a steep hipped mass over the bay with a lower roof
+to the south; K01 lays one ridge along the front), the stacks' corbelled caps and the range's second
+stack, and everything T-2541 listed for T-1892.
+**How to resolve:** T-1892 finishes the gable's recess and carving, the balcony, the porch and the
+ironwork, and brings the match record to `matches`.
+**Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.chimneys`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.gable_roof`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
 **Recorded:** 2026-10-16 (T-2541).
@@ -30073,6 +30126,37 @@ eave (T-2891's swell).
 **Ticket:** T-2889 (piece 2 of T-2544).
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-20 (T-2889).
+
+### L-glessner-fan-stilt-2912 — Glessner's Prairie door fan stilted to HABS sheet 5 and its tympanum's field laid as the sheet's eight rings
+
+**Decision:** the Prairie Avenue door's fan on the `glessner_house` is a STILTED head (T-2912,
+a piece of T-2853): its centre stands 0.5 ft over the 9.0 ft spring line, the extrados is 6.5 ft
+(it was 6.4, a semicircle on the spring), and the two springing voussoirs, the wall's cut, the
+carving bed and every ring of the tympanum (the outer fillet, the billet channel and its
+billets, the archivolt's floor, the torus and the inner fillet) run plumb down from the centre
+to the spring. The tympanum's field is eight stems bent into rings at HABS sheet 5's places
+and sizes, rising on stems from the boss at the foot, in place of a straight trunk carrying two
+mirrored pairs of roundels and a crowning one. **What is read.** HABS sheet 5 (IL-1015,
+`habs_glessner_house_il_1015_drawings`), on the rectified crop the `habs5-entry` camera is
+solved on at 100 px a foot: the extrados 6.48 ft across and 7.06 ft over the spring, the
+tympanum's ring 2.51 ft across and 2.93 ft high, both plumb below their widest points; the
+eight rings' centres and radii (`docs/RESEARCH/glessner-entry-T-2853/`); the boss at the foot.
+The office's doorway No. 23A agrees on the stilt and the scrolling field; the period photograph
+`a18-gh-glessner-front-with-keith` shows the tympanum's sides plumb on the lintel.
+**What is invented.** One stilt for both rings, where the sheet reads 0.58 and 0.47 ft; the
+stems' paths and which ring each grows from; the leafy rosette inside every ring, which is the
+owner's photographs' and below the sheet's stipple; the leaves at each stem's middle; every
+depth. The billets on the plumb legs keep the arc's pitch. Each ring is left open by a hair at
+its foot, under its stem, so the tube does not cap back on itself.
+**What is not changed.** The spring line, the tympanum's radius, the fifteen voussoirs keyed at
+the crown, the lintel, the door and its leaf. The sheet's leaf is a later one: the period
+photograph shows the figures 1800 and a central knob where sheet No. 95 puts them and the 1963
+leaf has neither (L-glessner-front-door-2216 stands).
+**How to resolve:** the owner's close photographs, read ring by ring, would place each ring's
+own curl and leaves; a measured photograph square to the fan would split the two rings' stilts.
+**Ticket:** T-2912 (piece of T-2853; T-2913 holds the wall's courses and the header stone).
+**Review:** `docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg`.
+**Recorded:** 2026-10-20 (T-2912).
 
 ## T-2804: named resident seated-driver and supported W01 studies (2026-10-19)
 

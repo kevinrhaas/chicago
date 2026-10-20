@@ -1,4 +1,41 @@
 export const CHANGELOG = [ // newest first
+  { v: 2111, ts: '2026-10-20T08:55:50.289Z', date: 'Oct 20, 2026, 3:55 AM CT', title: 'Building cards, people, plants and wildlife read in plain words too', kind: 'change',
+    items: [
+      'A building\'s card: the reasoning behind each value, the record\'s own account and the households who lived there are said without work numbers, record codes or file names. Each value\'s sources are listed by title, and the dossier link reads "the research notes on this building".',
+      'Prairie Avenue, 1904: a house\'s card, its tag and Go to call it by its name alone, so "1600 Prairie Avenue — brick corner house" no longer ends in "K01 frontage assembly" and no title carries "district draft" or "map-led".',
+      'A person\'s card and Browse by household: notes, research reviews, seatings and the family the model drew name households, stages and sources in words. A newspaper notice is its paper and date.',
+      'Sources › Plants and Sources › Wildlife: each community\'s notes, extent and research notes read the same way.',
+      'Shops & work: the rest of a firm\'s card reads in words too, from how a reconstructed house was ordered to the notices that attest a firm.',
+      'Every citation says what kind of source it is, such as "period/eyewitness" or "later scholarship", without the ladder\'s number. A Jaunt\'s sources and the City card\'s notes read in plain words.',
+    ] },
+  { v: 2110, ts: '2026-10-20T08:28:33.157Z', date: 'Oct 20, 2026, 3:28 AM CT', title: 'Glessner\'s front door arch stands as tall as the measured drawing', kind: 'improvement',
+    items: [
+      'The fan of stones over Glessner\'s Prairie Avenue door is now stilted, as the 1963 measured drawing and the architect\'s own detail both draw it: its centre stands half a foot above the springing, so the crown rises to 16 ft and the lowest stones run straight down to the lintel.',
+      'The carved field inside the arch now has the drawing\'s eight curling rings, unequal and not mirrored, growing on stems from a small boss at the foot, in place of a symmetrical tree.',
+      'The drawing\'s door is a later one: a photograph of about the 1890s-1920s shows the house number and a centre knob where Richardson\'s office drew them, so the door stays the office\'s.',
+    ] },
+  { v: 2109, ts: '2026-10-20T08:22:59.372Z', date: 'Oct 20, 2026, 3:22 AM CT', title: '1811 Prairie\'s roofs raised to its 1888 photograph', kind: 'feature',
+    items: [
+      'The Ames house at 1811 Prairie Avenue now has its roofline from the 1888 Inland Architect photograph. Over the north bay stands a stone gable with a finial, a pinnacle at each corner and three lights for the top storey.',
+      'Over the entrance arch, the oriel now ends in a steep slate pyramid with a finial, as in the photograph.',
+      'The main roof is steep, as the photograph shows it, and climbs to about 16 m. The top storey is under the slates, so the stone cornice now runs across the front at the bay\'s height rather than a storey higher.',
+      'Not yet built: the gable\'s arched recess and carving, the pierced balcony on the bay and the open porch. The photograph\'s roof is also more broken than this single ridge. Liberty L-k01-1811-ames-front-2541 records all of these.',
+    ] },
+  { v: 2108, ts: '2026-10-20T07:19:11.559Z', date: 'Oct 20, 2026, 2:19 AM CT', title: '1801 Prairie gains its corner porch and sweeping front stair', kind: 'feature',
+    items: [
+      'The Kimball house\'s open corner porch now stands at the 18th Street end of the front, as J. W. Taylor\'s photograph of about 1895 shows: a round stone arch on each face, the double door inside, and a small stone balcony under the 18th Street arch.',
+      'A broad stone stair of nine steps now comes down the front out of the porch, between side walls that sweep down to blocks at the foot.',
+      'Still to come: the carving round the arches and on the porch, the bowed bay and the front\'s carved windows.',
+    ] },
+  { v: 2107, ts: '2026-10-20T06:58:57.825Z', date: 'Oct 20, 2026, 1:58 AM CT', title: 'Sources and records now read in plain words, without work numbers', kind: 'change',
+    items: [
+      'Sources › Liberties: every entry is rewritten for a reader. Work numbers are gone, a building is named rather than given its record code, and a file is said as what it is, such as "the liberties register" or "the research notes on the Glessner frontage".',
+      'A cross-reference to another liberty now gives that liberty\'s title, so you can find it in the list. Each source an entry rests on is still named, by its title.',
+      'The ground\'s claims, the buildings researched and left out, and the open questions read the same way, in every year. An open question names its research note by topic, not by file name.',
+      'Sources › a source: each use names the building, person or walk it supplied, and says where in the source it was read, in words.',
+      'The town\'s people, the town in numbers and the order book drop their work numbers and record codes too; the order book\'s tables no longer carry a ticket column.',
+      'Shops & work: a firm\'s location lines name the building by its name, and a newspaper notice by its paper and date.',
+    ] },
   { v: 2106, ts: '2026-10-20T06:09:57.960Z', date: 'Oct 20, 2026, 1:09 AM CT', title: '1625 Prairie\'s back door steps down to a sunken entry', kind: 'change',
     items: [
       'In 1904, the door at the foot of 1625 Prairie\'s tall rear wing is now a full-height door whose sill sits about 0.6 m below the sidewalk. The 1890 photograph shows too short a door above the sidewalk for it to sit at street level.',

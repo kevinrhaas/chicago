@@ -40,6 +40,7 @@ from associations import HOME_KINDS, WORK_KINDS, read_bounds  # noqa: E402
 sys.path.insert(0, str(ROOT / "generators"))
 from common.materials import fabric_tone  # noqa: E402
 from grade_structures import grade_street  # noqa: E402
+import readable_text  # noqa: E402
 
 
 CHECK = False
@@ -152,6 +153,8 @@ def emit(path: Path, doc, *, compact: bool = False) -> None:
     the indentation is for that reader. `people.json` has 1,400 rows and no
     reader of that kind — it is a directory the browser filters — and indented it
     is 1.6 MB against 0.7 MB compact, so it is the one file written this way."""
+    if isinstance(doc, dict):
+        doc = reader_copy(path.name, doc)
     text = (json.dumps(doc, separators=(",", ":"), ensure_ascii=False) if compact
             else json.dumps(doc, indent=2, ensure_ascii=False)) + "\n"
     if not CHECK:
@@ -162,6 +165,44 @@ def emit(path: Path, doc, *, compact: bool = False) -> None:
         DRIFT.append(f"{rel} is missing")
     elif path.read_text() != text:
         DRIFT.append(f"{rel} is not what the dataset compiles to")
+
+
+# ---------------------------------------------------------------- the reader's copy (T-2825)
+#
+# The owner, 2026-10-18: the research records a person opens name no internal ticket
+# number and no internal record id, in any mode. The ground's claims and the open
+# questions are research prose written for the people building the town, compiled here
+# into the two sidecars the Sources hub reads, so they are rewritten here, by the rule
+# every research surface shares (tools/readable_text.py). The paths are the fields the
+# renderer prints (js/ground.js, js/exclusions.js, js/citations.js), and nothing else:
+# ids, keys and grades are the data's and stay as they are.
+READER_PATHS = readable_text.SIDECAR_PATHS
+_NAMES = None
+
+
+def reader_copy(name: str, doc: dict) -> dict:
+    """`doc` with every string READER_PATHS lists for `name` rewritten for a reader."""
+    global _NAMES
+    paths = READER_PATHS.get(name)
+    if not paths:
+        return doc
+    if _NAMES is None:
+        _NAMES = readable_text.Names(ROOT)
+    # A copy: the citations in it are the joined source records every other sidecar of
+    # the scene shares, and a building's card is not this rewrite's to change.
+    doc = json.loads(json.dumps(doc))
+    readable_text.rewrite_paths(doc, paths, _NAMES)
+    for u in doc.get("uncertain") or []:
+        # The claim that carries an open question, and the research note it is argued in,
+        # said as words: the renderer printed both as code.
+        if u.get("carried_by"):
+            u["carried_by_label"] = readable_text.words(str(u["carried_by"]).split(".")[-1])
+        dossier = u.get("dossier")
+        if isinstance(dossier, dict) and dossier.get("file"):
+            dossier["label"] = readable_text.path_words(dossier["file"], _NAMES)
+            if dossier.get("anchor"):
+                dossier["anchor"], _ = readable_text.rewrite(dossier["anchor"], _NAMES)
+    return doc
 
 
 def vertical_anchor(archetype: str) -> str:
@@ -3003,6 +3044,14 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
         # they share, and re-derived against these bytes by assertion 7. Written only on
         # the records that carry the flag, like `drawn_by` below: nine files rather than
         # 330 saying nothing in a mirror that is published byte-for-byte.
+        # T-2825. What the card, the target tag and Go to call a named building, where its
+        # name carries the production step it was modelled in ("…, K01 frontage assembly",
+        # "(district draft; refined by T-1908)", "map-led"): the name with that taken off,
+        # by readable_text.plain_name, every word left the record's own. Written only where
+        # it differs, like `drawn_by`; `name` stays what the generators and the GLB read.
+        called = readable_text.plain_name(sidecar.get("name") or "")
+        if called and called != sidecar.get("name"):
+            sidecar["called"] = called
         if sidecar["review_required"]:
             reason = record_reason(st)
             if reason:

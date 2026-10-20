@@ -2996,6 +2996,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/compile_reader_text.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/compile_register.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4986,6 +4990,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/readable_text.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/readmit_borderline_roster.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5879,6 +5887,10 @@
       "wrote_ignored": []
     },
     "tools/test_program_cache_key.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_reader_text.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

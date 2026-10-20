@@ -82,6 +82,8 @@
  */
 
 import { citationItems, escapeHtml } from './citations.js';
+import { nameOf, readerCopy } from './reader-text.js';
+import { sourceTitle } from './inspect-sources.js';
 import { libertiesFor, libertyEntryHtml } from './liberties.js';
 // The Evidence panel's own open-question entry, rendered here for the building
 // being inspected. Shared for the liberties' reason: the panel's entry for the
@@ -128,9 +130,30 @@ function chip(confidence) {
   return `<span class="conf conf-${escapeHtml(c)}">${escapeHtml(c)}</span>`;
 }
 
+/** The card's sources by id, each said by its title (T-2825: a reader is never handed the
+ *  id). Set from the sidecar's own citations each time a card or a tab is drawn. */
+let citeTitles = new Map();
+/** The scene's reader overlay while a card is drawn, for the names of sources it does not cite. */
+let cardReader = null;
+function setCiteTitles(citations, overlay = null) {
+  cardReader = overlay;
+  citeTitles = new Map((Array.isArray(citations) ? citations : [])
+    .map((c) => [c.source_id, sourceTitle(c.citation)]).filter(([id, title]) => id && title));
+}
+const SHORT_TITLE = 48;
+function shortTitle(title) {
+  if (title.length <= SHORT_TITLE) return title;
+  const cut = title.slice(0, SHORT_TITLE);
+  return `${cut.slice(0, Math.max(cut.lastIndexOf(' '), 24)).replace(/[\s,;:.]+$/, '')}…`;
+}
+
+/** One source as the card names it: its short title, or its id said as words. */
+const sourceName = (id) => shortTitle(citeTitles.get(id) || nameOf(id, cardReader));
+
 function sourceList(sources) {
   if (!Array.isArray(sources) || !sources.length) return '';
-  return `<span class="attr-note">sources: ${sources.map(escapeHtml).join(', ')}</span>`;
+  const said = [...new Set(sources.map(sourceName))];
+  return `<span class="attr-note">sources: ${said.map(escapeHtml).join('; ')}</span>`;
 }
 
 /**
@@ -299,7 +322,7 @@ function residentsSection(s) {
         <span class="res-name">${escapeHtml(person.name)}</span>
         <span class="res-role">${escapeHtml(person.occupation ? person.occupation.replace(/_/g, ' ') : '')}${
           person.relationship && person.relationship !== 'head'
-            ? ` · ${escapeHtml(person.relationship)}` : ''}</span>
+            ? ` · ${escapeHtml(String(person.relationship).replace(/_/g, ' '))}` : ''}</span>
         ${gradeChip(person.grade)}
         ${noteToggle(person.note)}
       </li>`).join('');
@@ -314,7 +337,7 @@ function residentsSection(s) {
 
   return `<section class="pop-sec pop-residents">
     <h3>Who was here</h3>
-    <p class="res-lead">From <code>data/residents/</code>. Nobody is drawn: this is the
+    <p class="res-lead">From the town's household records. Nobody is drawn: this is the
       population as a dataset, and each person carries how much of them is reconstructed.</p>
     ${blocks}
   </section>`;
@@ -423,8 +446,9 @@ function basisRow(level, mine, total) {
     : `<p class="basis-what basis-empty">${escapeHtml(LEVEL_EMPTY[level])}</p>`;
   const from = !mine.length ? ''
     : sources.length
+      // T-2825: each source by its title, never its id.
       ? `<p class="basis-from">${escapeHtml(LEVEL_SOURCE_LEAD[level])}:
-           ${sources.map(escapeHtml).join(' · ')}</p>`
+           ${[...new Set(sources.map(sourceName))].map(escapeHtml).join(' · ')}</p>`
       : `<p class="basis-from">${escapeHtml(LEVEL_NO_SOURCE[level])}</p>`;
   // An `attested` chip over something the model does not contain is true about
   // the evidence and false about the view — the rows below already mark it, and
@@ -1310,6 +1334,16 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
   /** Whether the card on screen was opened by aiming at this building's signboard,
    *  kept so a redraw (the liberties, the agencies) does not lose the fact. */
   let currentFromSign = false;
+  /** The scene's reader overlay (T-2825, reader-text.js), null until it loads; the card on
+   *  screen is redrawn said in full when it lands. */
+  let reader = null;
+  let saidCache = new WeakMap();
+  /** A record's sidecar (or a household list, or the agencies) as a reader gets it. */
+  const said = (doc) => {
+    if (!doc || typeof doc !== 'object') return doc;
+    if (!saidCache.has(doc)) saidCache.set(doc, readerCopy(doc, reader));
+    return saidCache.get(doc);
+  };
 
   function close() {
     closePictureViewer();
@@ -1342,6 +1376,20 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
   return {
     get openId() { return currentId; },
     close,
+
+    /**
+     * Hand the popup the scene's reader overlay (T-2825) once it loads, and redraw the
+     * card on screen said in full, on the same terms as the handles below.
+     * @param {object|null} doc  `data/reader/structures_<scene>.json`, or null
+     */
+    setReader(doc) {
+      reader = doc && typeof doc === 'object' ? doc : null;
+      saidCache = new WeakMap();
+      if (currentRecord) this.show(currentRecord, { fromSign: currentFromSign });
+    },
+
+    /** A sidecar as this card says it (T-2825), for Inspect's tabs, which read the record. */
+    say(sidecar) { return said(sidecar); },
 
     /**
      * Hand the popup the derived liberties once they load. Boot no longer
@@ -1459,15 +1507,18 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
      */
     sections(record) {
       if (!record?.sidecar) return null;
-      const s = record.sidecar;
+      // Said for a reader (T-2825). Spelt from `record.sidecar` so validate.py's
+      // sidecar-contract scan still binds `s` to the record it reads.
+      const s = record.sidecar && said(record.sidecar);
+      setCiteTitles(s.citations, reader);
       // The placement, for Story's fire-limit row (T-2643); Sources reads it off the sidecar.
       const p = s.placement ?? {};
-      const residents = householdsById.has(record.id) ? { residents: householdsById.get(record.id) } : s;
+      const residents = householdsById.has(record.id) ? { residents: said(householdsById.get(record.id)) } : s;
       return {
         people: `${s.review_required === true ? `<div class="pop-flags">${heldFlagHtml(s)}</div>` : ''}
           ${lodgingSection(s)}
           ${residentsSection(residents)}
-          ${agencySectionHtml(agencies, 'structure_id', record.id, escapeHtml)}`,
+          ${agencySectionHtml(said(agencies), 'structure_id', record.id, escapeHtml)}`,
         hasResidents: Array.isArray(residents.residents) && residents.residents.length > 0,
         households: (Array.isArray(residents.residents) ? residents.residents : [])
           .map((h) => ({ household: h.household ?? null, name: h.name ?? '' })),
@@ -1496,7 +1547,10 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     show(record, { fromSign = false } = {}) {
       if (!record?.sidecar) return false;
       onShow?.(record);
-      const s = record.sidecar;
+      // Said for a reader (T-2825). Spelt from `record.sidecar` so validate.py's
+      // sidecar-contract scan still binds `s` to the record it reads.
+      const s = record.sidecar && said(record.sidecar);
+      setCiteTitles(s.citations, reader);
       currentId = record.id;
       currentRecord = record;
       currentFromSign = !!fromSign;
@@ -1529,9 +1583,11 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
       // resolves the path against the repository rather than naming one by
       // convention and hoping (ROADMAP K26). Offering a link that breaks taught a
       // visitor to distrust the ones that do not, so the sentence says which it is.
+      // T-2825: the dossier is a link in plain words, like any source; its path is not
+      // something a reader is handed.
       const doc = s.research_doc
         ? `<a href="${escapeHtml(docBase + s.research_doc)}" target="_blank" rel="noopener">
-             ${escapeHtml(s.research_doc)}</a>`
+             the research notes on this building</a>`
         : 'no dossier written for this building yet';
 
       // The liberties count on its tab, so a visitor can see there is something
@@ -1566,17 +1622,16 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
         ${researchSection(s)}
         ${spec}
         <p class="pop-foot">Full dossier: ${doc}<br>
-          Phase <code>${escapeHtml(s.phase ?? '—')}</code> ·
-          record <code>${escapeHtml(record.id)}</code>${record.version
-            ? ` · version <code>${escapeHtml(record.version.label)}</code>` : ''}</p>`;
+          Phase: ${escapeHtml(s.phase ? String(s.phase).replace(/_/g, ' ') : '—')}${record.version
+            ? ` · version: ${escapeHtml(clean(String(record.version.label ?? '')) || 'a version other than the default')}` : ''}</p>`;
 
       root.innerHTML = `
         ${headHtml(s, record, called, p, place)}
         ${leadHtml(s, called)}
         ${factsHtml(s, firms, currentFromSign)}
         ${lodgingSection(s)}
-        ${residentsSection(householdsById.has(record.id) ? { residents: householdsById.get(record.id) } : s)}
-        ${agencySectionHtml(agencies, 'structure_id', record.id, escapeHtml)}
+        ${residentsSection(householdsById.has(record.id) ? { residents: said(householdsById.get(record.id)) } : s)}
+        ${agencySectionHtml(said(agencies), 'structure_id', record.id, escapeHtml)}
         ${tabsHtml({ liberties: libertyCount + questionCount, images: pictureCount })}
         ${paneHtml('evidence', evidencePane)}
         ${paneHtml('images', picturesPaneHtml(pictures, record.id,

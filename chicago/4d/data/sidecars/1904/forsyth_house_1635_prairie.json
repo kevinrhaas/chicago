@@ -189,5 +189,6 @@
   ],
   "research_note": "A DISTRICT DRAFT (T-2335, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-2443 refines in place under this same id. Written by tools/draft_prairie_1904.py from the Robinson 1886 plate 10 reading (r1886-1635-f: the outline in the plate's pixels, carried by its T-1250 fit) (r1886-1635-f), the T-1840 census (r1886-1635-f) and the T-1837 register row none (Italianate villa of 1863 (the Forsyth house)); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-east-2335).",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1635 Prairie Avenue — Italianate villa of 1863 (the Forsyth house)"
 }

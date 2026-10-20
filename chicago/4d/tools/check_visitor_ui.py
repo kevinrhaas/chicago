@@ -28,6 +28,17 @@ WHAT IT READS — the surfaces, and why each is one:
           with no roof to stand at, `where.limit_reason` from data/businesses/index.json,
           which main.js also says aloud when the row is picked. A firm not trading at the
           scene date shows "Not present at this scene date" instead, so its reason is not read.
+  records the research records a person opens from the Sources hub, Inspect and the card,
+          as compiled (T-2825): every liberty in data/liberties.json — its title and every
+          field js/liberties.js prints as a row, and the names its subjects and covers are
+          shown by — and, in every scene, the ground's claims (sidecars/<scene>/terrain.json)
+          and the exclusions and open questions (sidecars/<scene>/exclusions.json), at the
+          fields tools/readable_text.py SIDECAR_PATHS lists, which are the fields compile_scene
+          rewrites; the Shops & work card's location lines; the reconstruction plan's
+          (order book's) sentences and the completion audit's; the town census's hover text;
+          the population profile's sections; and Sources › a source (the catalog's citations,
+          a source's limits, the names of what it supplied and where each use was read).
+          Their ticket numbers live beside the prose as `work_refs`, never in it.
 
   Already linted elsewhere, with the same lint_string: the summary records
   (compile_summaries.py), the time-stream caption decks (check_timestream.py), the Guide's
@@ -35,12 +46,18 @@ WHAT IT READS — the surfaces, and why each is one:
 
   NOT YET READ, and why. Strings built in JavaScript (template literals in js/*.js) are not
   read: telling a visible literal from a class name or a key statically is noise, and the
-  honest check is the rendered DOM in the smoke, which wants the runner. The Shops & work
-  card's location lines (`basis` and every location's `limit_reason`, js/businesses.js)
-  are research prose that T-2825 rewrites (no mode shows internal ids or ticket numbers,
-  owner 2026-10-18). Guide › About this destination (T-2667) folded the old hub into four
-  cards and put its order book behind `data-researcher`; its topics' JS-filled entries are
-  the research records themselves, rendered from the data. What's New (js/changelog.js) is the release history Manager and the launcher parse,
+  honest check is the rendered DOM in the smoke, which wants the runner. Of the research
+  records (T-2825), `records` reads the compiled ones listed above, which Guide › About this
+  destination (T-2667) renders in its four cards, the order book among them behind
+  `data-researcher`. A records string is read with the visitor's rules in every mode: the
+  ruling of 2026-10-18 is that no mode shows a ticket number or a record id, so whether a
+  card is Researcher mode's does not change what its text may carry. The records a page
+  reads as authored — the plants and wildlife topics, a person's card and the household
+  browser, the Shops & work card, a building's card and Inspect — are read through the
+  reader's overlay (tools/compile_reader_text.py, the families it lists), exactly as
+  js/reader-text.js applies it, every sentence of every file; with the names a card prints
+  for a bare id, and each named building's title, held to readable_text.plain_name's rule.
+  What's New (js/changelog.js) is the release history Manager and the launcher parse,
   held by its own length budget, and is not rewritten after the fact.
 
 THE RESEARCHER-MODE EXEMPTION, AND HOW NARROW IT IS. The owner ruled on 2026-10-16 that
@@ -105,13 +122,6 @@ TICKET_HREF = re.compile(r"github\.com/kevinrhaas/chicago-tickets|\bT-\d{3,5}\b"
 # Each entry: surface, a regex the finding's "where: text" must match, why, and the ticket
 # that owns the fix. An entry that matches nothing fails the gate (it is stale).
 ALLOWLIST = [
-    {"surface": "goto", "match": r"^businesses/index\.json biz_(chicago_post_office|cook_county_offices|"
-                                 r"indian_agency_chicago|us_land_office_chicago) ",
-     "ticket": "T-2825",
-     "why": "Four authored civic-office records whose limit is a research ruling that cites research "
-            "notes, exclusion ids and a file path. The owner ruled on 2026-10-18 that no mode shows "
-            "internal ids or ticket numbers, so Researcher mode does not hold them either: T-2825 "
-            "rewrites the records themselves."},
 ]
 
 
@@ -257,12 +267,157 @@ def goto_strings(index=None):
             yield f"businesses/index.json {rid} limit_reason", where["limit_reason"]
 
 
+LIBERTIES = ROOT / "data" / "liberties.json"
+SIDECARS = ROOT / "data" / "sidecars"
+NOT_PRINTED = re.compile(r"^(Recorded|Revised|Covers)$", re.IGNORECASE)
+
+
+def record_strings(liberties=None, sidecars=None, with_overlay=True):
+    """What the research records print (T-2825): the liberties, and each scene's ground,
+    exclusions and open questions, at the fields their renderers show."""
+    from readable_text import SIDECAR_PATHS, strings_at
+    if liberties is None:
+        liberties = json.loads(LIBERTIES.read_text(encoding="utf-8")) if LIBERTIES.is_file() else {}
+    for lib in liberties.get("liberties") or []:
+        lid = lib.get("id", "?")
+        if lib.get("title"):
+            yield f"liberties.json {lid} title", lib["title"]
+        for f in lib.get("fields") or []:
+            if NOT_PRINTED.match(str(f.get("label", ""))):
+                continue
+            yield f"liberties.json {lid} label", str(f.get("label", ""))
+            yield f"liberties.json {lid} {f.get('label', '')[:30]}", str(f.get("text", ""))
+    for nm in liberties.get("names") or []:
+        yield f"liberties.json names {nm.get('id')}", str(nm.get("name", ""))
+    for path in sorted(BUSINESSES.parent.glob("biz_*.json")):
+        # The Shops & work card's location lines (js/businesses.js), from the record it fetches.
+        rec = json.loads(path.read_text(encoding="utf-8"))
+        for i, loc in enumerate(rec.get("locations") or []):
+            for key in ("basis", "limit_reason"):
+                if isinstance(loc.get(key), str) and loc[key].strip():
+                    yield f"businesses/{path.name} locations[{i}].{key}", loc[key]
+    from readable_text import CENSUS_PATHS, COMPLETION_PATHS, ORDER_BOOK_PATHS
+    for rel, paths in (("reconstruction/1835_reconstruction_order_book.json", ORDER_BOOK_PATHS),
+                       ("render/town_completion_1835.json", COMPLETION_PATHS),
+                       ("town_census.json", CENSUS_PATHS)):
+        path = ROOT / "data" / rel
+        if path.is_file():
+            doc = json.loads(path.read_text(encoding="utf-8"))
+            for where, text in strings_at(doc, paths):
+                yield f"{rel} {where}", text
+            if rel.endswith("order_book.json"):
+                for fam in doc.get("bucket_families") or []:
+                    for key, value in (fam.get("summary") or {}).items():
+                        if isinstance(value, str):
+                            yield f"{rel} summary.{key}", value
+    srcdir = SIDECARS / "1835" / "sources"
+    for path in sorted(srcdir.glob("*.json")):
+        # Sources › a source (js/sources.js): the catalog row's citation, and the detail view's
+        # citation, limits, the names of what it supplied, and where in it each use was read.
+        doc = json.loads(path.read_text(encoding="utf-8"))
+        if path.name == "index.json":
+            for row in doc.get("sources") or []:
+                yield f"sources/index.json {row.get('source_id')}", str(row.get("citation", ""))
+            continue
+        if path.name == "uses.json":
+            continue
+        src = doc.get("source") or {}
+        for key in ("citation", "what_it_supplies", "what_it_does_not_supply"):
+            vals = src.get(key)
+            for v in vals if isinstance(vals, list) else [vals]:
+                if isinstance(v, str) and v.strip():
+                    yield f"sources/{path.name} {key}", v
+        for eid, name in (doc.get("names") or {}).items():
+            yield f"sources/{path.name} names.{eid}", str(name)
+        for i, edge in enumerate(doc.get("edges") or []):
+            if edge.get("locator_text"):
+                yield f"sources/{path.name} edges[{i}].locator_text", edge["locator_text"]
+    pop = ROOT / "data" / "reconstruction" / "1835_population_profile.json"
+    if pop.is_file():
+        # The town's people, axis by axis (js/population.js): every section's prose and cells.
+        for sec in json.loads(pop.read_text(encoding="utf-8")).get("sections") or []:
+            where = f"population_profile {sec.get('id')}"
+            texts = [sec.get("title"), sec.get("lead"), *(sec.get("notes") or [])]
+            for t in sec.get("tables") or []:
+                texts += [t.get("title"), t.get("note"), *(t.get("headers") or [])]
+                texts += [c for row in t.get("rows") or [] for c in row]
+            for text in texts:
+                if isinstance(text, str) and text.strip():
+                    yield where, text
+    if with_overlay:
+        yield from overlay_strings()
+    if sidecars is None:
+        sidecars = {}
+        for name in SIDECAR_PATHS:
+            for path in sorted(SIDECARS.glob(f"*/{name}")):
+                sidecars[f"{path.parent.name}/{name}"] = json.loads(path.read_text(encoding="utf-8"))
+    for rel, doc in sidecars.items():
+        for where, text in strings_at(doc, SIDECAR_PATHS[rel.split("/")[-1]]):
+            yield f"sidecars/{rel} {where}", text
+
+
+# The where-suffix of a named building's title, which is also held to plain_name's rule.
+BUILDING_TITLE = "building title"
+
+
+def name_problems(where, text):
+    """A named building's title that still says the production step it was modelled in."""
+    if not where.endswith(BUILDING_TITLE):
+        return []
+    import readable_text as rt
+    m = rt.NAME_MACHINERY.search(text)
+    return [f"the production step `{m.group(0)}` in a building's name"] if m else []
+
+
+def overlay_strings(families=None, overlays=None, root=ROOT):
+    """What a page shows of the records it reads as authored (T-2825, second half): the plant
+    and wildlife communities, the household records and a person's card, a firm's record and
+    a building's card. Each file of each family (tools/compile_reader_text.py) is read the way
+    the page reads it once its reader's overlay is applied (js/reader-text.js), and every
+    sentence of it is yielded, with the names a card prints for a bare id and, for a building,
+    the title the card, the target tag and Go to lead with.
+
+    By default the records are said by the compiler's own Reader, the rewrite the overlay is
+    the edits of (the overlay is derived at publish and never committed, and
+    test_reader_text.mjs holds the page's JavaScript to it). `overlays` — {family: overlay
+    document} — reads them through given overlays instead, the page's exact step, which is how
+    the self-test plants a page whose overlay lacks a sentence."""
+    import readable_text as rt
+    from compile_reader_text import Reader, families as fams
+    if families is None:
+        families = fams()
+    reader = Reader(root) if overlays is None else None
+    for family, paths in families.items():
+        disk = [p for p in paths if not isinstance(p, tuple)]
+        if overlays is None:
+            names = reader.names_for(family, disk)
+            say = reader.copy
+        else:
+            ov = overlays.get(family) or {}
+            names = ov.get("names") or {}
+            say = (lambda edits: (lambda doc: rt.reader_copy(doc, edits)))(ov.get("edits") or {})
+        for tok, name in names.items():
+            yield f"reader/{family} names.{tok}", str(name)
+        for path in paths:
+            if isinstance(path, tuple):
+                rel, doc = path
+            else:
+                rel, doc = str(Path(path).relative_to(root)), json.loads(Path(path).read_text(encoding="utf-8"))
+            said = say(doc)
+            for text in rt.prose_strings(said):
+                yield rel, text
+            if family.startswith("structures_") and isinstance(said, dict) and said.get("name"):
+                # The title a named building leads with: its compiled plain name (display-name.js).
+                if (said.get("reconstruction") or {}).get("status") != "inferred_anonymous":
+                    yield f"{rel} {BUILDING_TITLE}", str(said.get("called") or said["name"])
+
+
 def lint(surfaces, allowlist=ALLOWLIST):
     """(failures, allowed, stale): each failure "surface | where: problem — in 'text'"."""
     failures, allowed, used = [], [], set()
     for surface, strings in surfaces:
         for where, text, *flag in strings:
-            found = problems(text, researcher=bool(flag and flag[0]))
+            found = problems(text, researcher=bool(flag and flag[0])) + name_problems(where, text)
             if not found:
                 continue
             subject = f"{where}: {text}"
@@ -289,9 +444,10 @@ def contract_errors(css_text=None):
             "so the marker would exempt text a visitor can read"]
 
 
-def surfaces(dump=None, pages=PAGES, index=None):
+def surfaces(dump=None, pages=PAGES, index=None, records=None):
     return [("table", list(table_strings(dump))), ("page", list(page_strings(pages))),
-            ("goto", list(goto_strings(index)))]
+            ("goto", list(goto_strings(index))),
+            ("records", list(record_strings()) if records is None else records)]
 
 
 # ------------------------------------------------------------------- self-test
@@ -308,7 +464,10 @@ def self_test():
     from check_strings import read_table
     dump = read_table()
     index = json.loads(BUSINESSES.read_text(encoding="utf-8")) if BUSINESSES.is_file() else {"businesses": []}
-    base = surfaces(dump, PAGES, index)
+    # The records a page reads through its overlay are --check's to read in full (half a
+    # minute of rewriting); the planted cases below read them on fixtures.
+    records = list(record_strings(with_overlay=False))
+    base = surfaces(dump, PAGES, index, records)
     f, _, stale = lint(base)
     f += ticket_link_errors()
     expect(not f and not stale, f"the committed visitor UI passes ({(f + stale)[:2]})")
@@ -316,7 +475,7 @@ def self_test():
     def planted_table(value, key="planted.string"):
         d = json.loads(json.dumps(dump))
         d["entries"].append([key, value])
-        return lint(surfaces(d, PAGES, index))[0]
+        return lint(surfaces(d, PAGES, index, records))[0]
 
     for label, value, needle in [
         ("a file path", "See data/scenes/1835.json for more.", "file path"),
@@ -386,7 +545,7 @@ def self_test():
     def planted_goto(row):
         idx = json.loads(json.dumps(index))
         idx.setdefault("businesses", []).append(row)
-        return lint(surfaces(dump, PAGES, idx))[0]
+        return lint(surfaces(dump, PAGES, idx, records))[0]
 
     expect(any("limit_reason" in e and "snake_case" in e for e in planted_goto(
         {"id": "biz_planted", "name": "A firm", "where": {"kind": "anchored", "limit_reason":
@@ -398,11 +557,67 @@ def self_test():
     expect(any(" name:" in e for e in planted_goto({"id": "biz_x", "name": "biz_x", "where": {}})),
            "a business named by its id is refused")
 
+    # ---- T-2825: the research records, and the narrowed Researcher-mode exemption
+    def planted_records(liberties=None, sidecars=None):
+        lib = liberties if liberties is not None else {"liberties": []}
+        return lint([("records", list(record_strings(lib, sidecars or {}, with_overlay=False)))], allowlist=[])[0]
+
+    def liberty(text, label="Decision", title="A liberty"):
+        return {"liberties": [{"id": "L999", "title": title, "fields": [{"label": label, "text": text}]}]}
+
+    expect(any("ticket number" in e for e in planted_records(liberty("Settled under T-1460."))),
+           "a liberty's field naming a ticket is refused (492 of 623 did, T-2825)")
+    expect(any("snake_case" in e for e in planted_records(liberty("Read off recon_1835_west_002."))),
+           "a liberty's field naming a record id is refused")
+    expect(any("title" in e for e in planted_records(liberty("Fine.", title="The T-2310 roofs"))),
+           "a liberty's title is read")
+    expect(not planted_records(liberty("2026-09-29 (T-1460).", label="Recorded")),
+           "a field the list never prints as a row (Recorded, Revised, Covers) is not read")
+    expect(any("names" in e for e in planted_records({"liberties": [], "names": [{"id": "x", "name": "x_y"}]})),
+           "a subject's compiled name that is still an id is refused")
+    expect(any("file path" in e for e in planted_records(sidecars={"1835/terrain.json": {
+        "claims": [{"notes": ["Read from data/terrain/epochs/x/terrain_spec.json."]}]}})),
+           "a ground claim's note naming a file is refused")
+    expect(any("dossier" in e for e in planted_records(sidecars={"1835/exclusions.json": {
+        "uncertain": [{"dossier": {"label": "docs/research/03-structures-north.md"}}]}})),
+           "an open question's research note is read by its label")
+    expect(not planted_records(sidecars={"1835/terrain.json": {"claims": [{"id": "swales.west_prairie_swale_a"}]}}),
+           "a claim's id is the data's, not a sentence, and is not read")
+
+    # ---- T-2825, second half: the records a page reads as authored, through the overlay
+    import readable_text as rt
+    note = "Seated by T-1433 off hh_rc_bacon_betsey; see data/residents/directories.json."
+    hh = ("data/residents/households/hh_planted.json", {"id": "hh_planted", "persons": [{"note": note}]})
+
+    def planted_overlay(edits=None, names=None, family="residents", doc=hh):
+        ov = {family: {"edits": edits or {}, "names": names or {}}}
+        return lint([("records", list(overlay_strings({family: [doc]}, ov)))], allowlist=[])[0]
+
+    expect(any("ticket number" in e for e in planted_overlay()),
+           "a household note naming a ticket, read with no overlay, is refused")
+    fixed, _ = rt.rewrite(note, rt.Names(extra={"hh_rc_bacon_betsey": "the Bacon household"}))
+    good = {rt.reader_key(note): rt.edits_between(note, fixed)}
+    expect(not planted_overlay(good), f"…and read through its overlay it passes ({fixed!r})")
+    expect(any("ticket number" in e for e in planted_overlay({"00000000:1": [[0, 1, "x"]]})),
+           "an overlay with no edit for the sentence leaves the leak in place, and it is refused")
+    expect(any("names." in e for e in planted_overlay(good, names={"hh_x": "hh_x"})),
+           "a bare id's name that is still an id is refused")
+    title = ("data/sidecars/1904/house_planted.json",
+             {"id": "house_planted", "phase": "p", "attributes": {}, "name": "1600 Prairie Avenue — brick corner house, K01 frontage assembly"})
+    expect(any("production step" in e for e in planted_overlay(family="structures_1904", doc=title)),
+           "a named building whose title says its production step is refused")
+    title[1]["called"] = rt.plain_name(title[1]["name"])
+    expect(not planted_overlay(family="structures_1904", doc=title),
+           f"…and its compiled plain name passes ({title[1]['called']!r})")
+    # ---- end T-2825
+
     f2, _, stale2 = lint(base, allowlist=ALLOWLIST + [{"surface": "page", "match": "^nothing-here$",
                                                        "ticket": "T-0000", "why": "planted"}])
     expect(any("T-0000" in s for s in stale2), "an allowlist entry that matches nothing is refused as stale")
     f3, _, _ = lint(base, allowlist=[])
-    expect(bool(f3), "without the allowlist the leaks it holds are reported")
+    expect(bool(f3) or not ALLOWLIST, "without the allowlist the leaks it holds are reported")
+    expect(not ALLOWLIST or all(a["ticket"] == "T-2825" for a in ALLOWLIST),
+           "the allowlist is empty, or every entry is a surface T-2825 is still fixing")
     expect(not contract_errors(), "css/skins.css hides a [data-researcher] element while Researcher mode is off")
     expect(bool(contract_errors(".x { display: none; }")), "a stylesheet without that rule is refused")
     expect(all(a.get("ticket", "").startswith("T-") and a.get("why") for a in ALLOWLIST),
