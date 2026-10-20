@@ -1,0 +1,34 @@
+{
+  "ticket": "T-2719",
+  "parent": "T-2602",
+  "what": "T-2598's Prairie walk moving p95 at phone profile on a real GPU: the frame governor's moving reading, Fixed against Adaptive, on the owner's phone in 1904 (Read frame pacing)",
+  "verbatim": "t-2719-owner-phone-1904.txt",
+  "when": "2026-10-20T12:54:42.421Z",
+  "scene": "1904",
+  "poses": "1904's own: south along Prairie Avenue's east walk (T-2733, after T-2828)",
+  "device": {
+    "screen": "375x636 (screen 375x812)",
+    "device_pixel_ratio": 3,
+    "sharpness": "Low (1)",
+    "render_ratio_at_rest": 1,
+    "ua": "Mozilla/5.0 (iPhone; CPU iPhone OS 27_0_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/155.0.8059.37 Mobile/15E148 Safari/604.1"
+  },
+  "build": "0.1.0",
+  "tier": "light",
+  "seconds_per_mode": 15,
+  "units": "ms between consecutive canvas draws; sd is the population sd, p95 the floor(0.95 n)-th sorted interval; drawn_at is the pixel ratio the move was drawn at (Sharpness Low caps it at 1); over50_on_switch counts the >50 ms draws that came on a ratio switch (T-2829), null where the mode never switches",
+  "rows": [
+    { "move": "walk", "mode": "fixed", "draws": 346, "mean": 43.5, "sd": 3.6, "median": 43.0, "p95": 50.0, "max": 54.0, "over33": 345, "over50": 14, "drawn_at": "1", "switches": 0, "over50_on_switch": null },
+    { "move": "walk", "mode": "adaptive", "draws": 378, "mean": 39.8, "sd": 4.8, "median": 40.0, "p95": 48.0, "max": 55.0, "over33": 339, "over50": 10, "drawn_at": "0.72-1", "switches": 2, "over50_on_switch": 2 },
+    { "move": "turn", "mode": "fixed", "draws": 430, "mean": 34.9, "sd": 10.0, "median": 32.0, "p95": 53.0, "max": 57.0, "over33": 199, "over50": 57, "drawn_at": "1", "switches": 0, "over50_on_switch": null },
+    { "move": "turn", "mode": "adaptive", "draws": 499, "mean": 30.1, "sd": 10.3, "median": 26.0, "p95": 51.0, "max": 58.0, "over33": 166, "over50": 26, "drawn_at": "0.67-1", "switches": 3, "over50_on_switch": 0 },
+    { "move": "flight", "mode": "fixed", "draws": 194, "mean": 77.8, "sd": 6.6, "median": 80.0, "p95": 85.0, "max": 86.0, "over33": 193, "over50": 193, "drawn_at": "1", "switches": 0, "over50_on_switch": null },
+    { "move": "flight", "mode": "adaptive", "draws": 202, "mean": 74.5, "sd": 8.1, "median": 73.0, "p95": 90.0, "max": 98.0, "over33": 201, "over50": 201, "drawn_at": "0.85-1", "switches": 1, "over50_on_switch": 2 }
+  ],
+  "verdicts": {
+    "walk": "DID NOT FALL",
+    "turn": "DID NOT FALL",
+    "flight": "DID NOT FALL"
+  },
+  "conclusion": "Prairie Avenue's moving p95 at phone profile is 50 ms Fixed / 48 ms Adaptive (median 43 / 40 ms): the phone does not hold 30 fps walking 1904 at Light. Flight is the largest cost (median 73-80 ms, T-2927). By T-2592's rule no move fell; Adaptive lowered every median and p95 on walk and turn but raised sd on every move, and a ratio switch carried some of the >50 ms draws on walk and flight."
+}
