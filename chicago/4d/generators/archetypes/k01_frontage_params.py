@@ -1322,6 +1322,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                          f"lights_m (0.2-1.0 m each) on a K06 transom sash, leaving at least "
                                          f"1.0 m of sash under them, not {t}")
                     w["tiers"] = {"bar_m": bar, "lights_m": lights}
+                # T-2886: a light set between a bay's columns under a narrower band than the
+                # kit's (1637's south bay's cheeks, from the Grosvenor photograph): only over an
+                # arched head, never wider than the kit's own band nor thinner than a moulding
+                if "head_band_m" in w:
+                    k06 = json.loads(WINDOW_KIT.read_text())
+                    v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
+                    hb, hb_kit = float(w["head_band_m"]), k06["parts"]["head_band"]["width_m"]
+                    if v6.get("head", "flat") == "flat" or not 0.03 <= hb <= hb_kit:
+                        raise ParamError(f"bays: {e['id']}'s head_band_m {hb} needs an arched K06 head "
+                                         f"(not {w['opening']}) and a band 0.03-{hb_kit} m broad")
+                    w["head_band_m"] = hb
                 # T-2883: a narrow light in a shallow cheek (1625's oriel, from its print): one light
                 # a sash on a double-hung K06 opening, under half a metre, and it says why
                 if "narrow" in w:

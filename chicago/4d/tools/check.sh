@@ -4203,6 +4203,21 @@ step "a lap that cannot check out a branch says which step failed, and why" \
 step "a branch level with dev but red is re-derived, not called current" \
   node tools/test_pr_lap_current.mjs
 
+# ...AND TWO BAKES OF DIFFERENT STRUCTURES ARE NOT A CONFLICT (T-2892, owner 2026-10-19).
+# assets/manifest.json and assets/manifest.web.json are one object each for the whole
+# town, rewritten whole by every bake, so two PRs that baked different houses conflicted
+# there and the lap left them alone as a REAL CONFLICT — #1104 on 2026-10-19, conflicting
+# on manifest.json and nothing else, until a steward run paid a whole lap. The merger
+# takes each entry from the side that changed it, re-emits on the merged tree any
+# pure-emitter asset whose recipe moved on both sides (byte-identical or refused), and
+# refuses a master both sides rebuilt. Its self-test merges in scratch repositories; the
+# lap test runs the REAL lap over a REAL bare remote, then again with the step cut out,
+# which must leave the PR alone.
+selftest "the asset registries merge entry by entry, and refuse a master both sides rebuilt" \
+  python3 tools/merge_asset_registry.py --self-test
+step "the lap clears a registry-only conflict, and still leaves a real one alone" \
+  node tools/test_pr_lap_registry.mjs
+
 # AND THE THING THAT ACTUALLY MERGES A FINISHED PULL REQUEST, which for most of
 # this repository's life was NOBODY. The lap's header said auto-merge did it; the
 # fleet janitor said the lap plus auto-merge did it, while excluding `custom`
