@@ -79,6 +79,9 @@ for reduced in (False,True):
         assert all(.07<z<top for z in strap_z),(row['name'],'strap outside straight wall run')
         for opening in p.openings:
             if opening['face']!=face or abs(opening['at']-row['wall'])>.01:continue
+            # T-2926: a stone course is wall, not a hole in it; sheet 4 runs the south court
+            # leader down over the underpass's lintel course.
+            if opening.get('style')=='rough_course':continue
             overlaps=opening['u0']-half<u<opening['u1']+half and opening['z0']<top and opening['z1']>0
             assert not overlaps,(row['name'],'leader crosses opening',opening)
             for z in strap_z:

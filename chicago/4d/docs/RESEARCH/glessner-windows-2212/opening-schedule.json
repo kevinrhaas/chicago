@@ -82,62 +82,14 @@
   {
    "face": "west",
    "record": "openings_court",
-   "what": "windows over the underpass",
-   "at_ft": [
-    62.0,
-    64.5
-   ],
-   "z_ft": [
-    12.3,
-    16.9
-   ],
-   "z_from": "item",
-   "lights": 1,
-   "kind": "window",
-   "style": "courtyard_sash",
-   "sash": "two_over_two",
-   "built_as": "two-over-two double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
-   "confidence": "inferred",
-   "sources": [
-    "habs_glessner_house_il_1015_drawings",
-    "habs_glessner_photo_05_court_c1923"
-   ]
-  },
-  {
-   "face": "west",
-   "record": "openings_court",
-   "what": "windows under the eave over the underpass",
-   "at_ft": [
-    62.0,
-    64.5
-   ],
-   "z_ft": [
-    21.0,
-    24.8
-   ],
-   "z_from": "item",
-   "lights": 1,
-   "kind": "window",
-   "style": "courtyard_sash",
-   "sash": "two_over_two",
-   "built_as": "two-over-two double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
-   "confidence": "inferred",
-   "sources": [
-    "habs_glessner_house_il_1015_drawings",
-    "habs_glessner_photo_05_court_c1923"
-   ]
-  },
-  {
-   "face": "west",
-   "record": "openings_court",
    "what": "underpass exit into the courtyard",
    "at_ft": [
-    63.3,
-    72.9
+    62.96,
+    71.96
    ],
    "z_ft": [
     0.0,
-    8.1
+    7.22
    ],
    "z_from": "item",
    "lights": 1,
@@ -154,14 +106,182 @@
   {
    "face": "west",
    "record": "openings_court",
-   "what": "windows over the underpass",
+   "what": "stone lintel over the underpass exit, to the wing's south end",
    "at_ft": [
-    67.5,
-    70.0
+    62.96,
+    74.0
    ],
    "z_ft": [
-    12.3,
-    16.9
+    7.22,
+    8.9
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "band",
+   "style": "rough_course",
+   "sash": null,
+   "built_as": "carved stone (band)",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "sill course under the windows over the underpass",
+   "at_ft": [
+    64.03,
+    73.26
+   ],
+   "z_ft": [
+    11.3,
+    12.1
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "band",
+   "style": "rough_course",
+   "sash": null,
+   "built_as": "carved stone (band)",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "lintel course over the windows over the underpass",
+   "at_ft": [
+    64.03,
+    73.26
+   ],
+   "z_ft": [
+    15.5,
+    16.76
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "band",
+   "style": "rough_course",
+   "sash": null,
+   "built_as": "carved stone (band)",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "windows over the underpass",
+   "at_ft": [
+    64.34,
+    67.35
+   ],
+   "z_ft": [
+    12.1,
+    15.5
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": "two_over_two",
+   "built_as": "two-over-two double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "sill course under the windows under the eave",
+   "at_ft": [
+    64.51,
+    72.65
+   ],
+   "z_ft": [
+    20.45,
+    21.2
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "band",
+   "style": "rough_course",
+   "sash": null,
+   "built_as": "carved stone (band)",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "lintel course over the windows under the eave",
+   "at_ft": [
+    64.51,
+    72.65
+   ],
+   "z_ft": [
+    24.9,
+    26.1
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "band",
+   "style": "rough_course",
+   "sash": null,
+   "built_as": "carved stone (band)",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "windows under the eave over the underpass",
+   "at_ft": [
+    64.84,
+    66.88
+   ],
+   "z_ft": [
+    21.2,
+    24.9
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": "two_over_two",
+   "built_as": "two-over-two double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "windows over the underpass",
+   "at_ft": [
+    69.83,
+    72.9
+   ],
+   "z_ft": [
+    12.1,
+    15.5
    ],
    "z_from": "item",
    "lights": 1,
@@ -180,12 +300,12 @@
    "record": "openings_court",
    "what": "windows under the eave over the underpass",
    "at_ft": [
-    67.5,
-    70.0
+    70.31,
+    72.36
    ],
    "z_ft": [
-    21.0,
-    24.8
+    21.2,
+    24.9
    ],
    "z_from": "item",
    "lights": 1,

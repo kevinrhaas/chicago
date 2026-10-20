@@ -29020,6 +29020,15 @@ its offset from the drawn drum's centre over the drawn half-width (slits 136 and
 219). The bow's continuous lintel and sill courses take the drawing's heights and extents; their 50 mm projection,
 30 mm bed and the absence of joints are reconstructed, as are the slit stones' depth and the slits' 0.75-ft width
 on the drum (0.53 ft drawn in projection at about 45 degrees).
+**Revised 2026-10-20 (T-2926):** the east wing's court face south of the stair tower is read on native sheet 4
+(docs/RESEARCH/glessner-court-face-T-2926/) and carried onto the plan's frame by T-2879's +0.65 ft: its four lights,
+their two continuous sill courses and two continuous lintel courses, the underpass exit and its stone lintel and
+corbels, and the south leader with its hopper head. Their extents and heights are the drawing's. Reconstructed: the
+courses' rock face, projection and the absence of joints (the courtyard's rough lintel stock, carried along each
+course); how far each corbel runs into the passage (1.5 ft; an elevation does not draw it); the hopper's depth off
+the wall (0.24 m, half its drawn width); and the leader's stock, which stays the court's existing 0.105 m against
+about 0.14 m drawn. The hopper hangs under the gutter, as drawn, rather than up to its rim as the photographed
+heads elsewhere on the house do.
 **Recorded:** 2026-10-15.
 
 ### L-glessner-court-roof-2228 — courtyard eave, dormers and bell finials
