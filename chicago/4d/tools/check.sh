@@ -967,6 +967,16 @@ step "a K01 frontage carries a K08 tower past its eave, closed above the wall he
 step "a K01 rear wing takes a slated hip or gable, its junction with the host closed above the host's top (T-2841)" \
   python3 tools/test_k01_wing_roof.py
 
+# T-2842. ...and a K08 tower stands on a K01 rear wing's wall, past the wing's own eave (the
+# kit piece 1801 Prairie's north-east turret on its east range needs). Built on 1604's
+# brick range under its flat deck and on 1811 as all-stone with its rear section hipped in
+# slate: the cap over the wing's roof, the ring closed over the wing's wall top in its
+# wall's plane, the wing's wall open behind it and its lights there dropped; a tower under
+# the wing's eave, a bay or an oriel on a wing, a gable end, a later wing's junction, a
+# corner and a wall no wing has refused.
+step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed over its wall top (T-2842)" \
+  python3 tools/test_k01_wing_tower.py
+
 # T-2788. ...and what an all-stone house is. A K01 record naming `construction: "stone"`
 # lays its K02 stone_front round every face, not a stone front on a brick box. No record
 # names it yet (1801 Prairie, T-2789, is the first), so this builds four houses that carry
@@ -4192,6 +4202,21 @@ step "a lap that cannot check out a branch says which step failed, and why" \
 # tools — and run again with the old exit restored, which must fail.
 step "a branch level with dev but red is re-derived, not called current" \
   node tools/test_pr_lap_current.mjs
+
+# ...AND TWO BAKES OF DIFFERENT STRUCTURES ARE NOT A CONFLICT (T-2892, owner 2026-10-19).
+# assets/manifest.json and assets/manifest.web.json are one object each for the whole
+# town, rewritten whole by every bake, so two PRs that baked different houses conflicted
+# there and the lap left them alone as a REAL CONFLICT — #1104 on 2026-10-19, conflicting
+# on manifest.json and nothing else, until a steward run paid a whole lap. The merger
+# takes each entry from the side that changed it, re-emits on the merged tree any
+# pure-emitter asset whose recipe moved on both sides (byte-identical or refused), and
+# refuses a master both sides rebuilt. Its self-test merges in scratch repositories; the
+# lap test runs the REAL lap over a REAL bare remote, then again with the step cut out,
+# which must leave the PR alone.
+selftest "the asset registries merge entry by entry, and refuse a master both sides rebuilt" \
+  python3 tools/merge_asset_registry.py --self-test
+step "the lap clears a registry-only conflict, and still leaves a real one alone" \
+  node tools/test_pr_lap_registry.mjs
 
 # AND THE THING THAT ACTUALLY MERGES A FINISHED PULL REQUEST, which for most of
 # this repository's life was NOBODY. The lap's header said auto-merge did it; the
