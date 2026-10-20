@@ -32,13 +32,14 @@ def layout(p,reduced=False):
     def gutter(name, edge, normals, drains):
         gutters.append(dict(name=name, edge=edge, normals=normals, drains=drains))
 
-    def leader(name, inlet, xy, normal, wall, head='plain', shoe=False):
+    def leader(name, inlet, xy, normal, wall, head='plain', shoe=False, drop=0.0):
         family=cfg.get('leader_profiles',{}).get('prairie' if name.startswith('prairie-') else
                    'court_feature' if name in ('court-dining','court-bow') else 'plain',{})
         head_h = cfg['heads'][head]['height_m'] if head != 'none' else 0
         # Photographed heads rise to the gutter rim; the trough discharges
         # inside their upper body. Do not hang the entire head below the floor.
-        mouth = inlet[2] + .025 if head!='none' else inlet[2]-depth-.035
+        # `drop` hangs a drawn head that far under the rim instead (T-2926).
+        mouth = inlet[2] + .025 - drop if head!='none' else inlet[2]-depth-.035
         top = mouth - head_h + .025
         upper = (inlet[0], inlet[1], top)
         shoulder = min(top-.18, mouth-head_h-.12)
@@ -157,7 +158,10 @@ def layout(p,reduced=False):
         # clear wall strips than the earlier tangent-based reconstruction.
         # Explicit record anchors keep both leaders and their straps off glass.
         y=cfg.get('court_east_leaders_y',{}).get(name,y)
-        leader(name,(ex-.045,y,ez),(e['x0']-.13,y),(-1,0,0),e['x0'],'none',True)
+        # T-2926: sheet 4 draws the south one under a hopper head.
+        head=cfg.get('court_east_leader_heads',{}).get(name,'none')
+        leader(name,(ex-.045,y,ez),(e['x0']-.13,y),(-1,0,0),e['x0'],head,True,
+               cfg.get('court_east_leader_head_drop_m',{}).get(name,0.0))
         gutter(name,[(ex,a,ez),(ex,c,ez)],[(-1,0,0)]*2,[name])
     open_ends={'court-west':[1],'dining':[0,1],'court-north-west':[0,1],'court-north-east':[0]}
     for row in gutters:row['open_ends']=open_ends.get(row['name'],[])

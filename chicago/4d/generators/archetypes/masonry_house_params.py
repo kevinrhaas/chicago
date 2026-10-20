@@ -629,6 +629,17 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 if it.get("sash"):
                     # T-2212: a sash pattern read off a photograph (two_over_two).
                     op["sash"] = it["sash"]
+                if it.get("courses"):
+                    # T-2926: the light stands in continuous lintel and sill courses
+                    # (their own `band` items), so it lays no stones of its own.
+                    op["courses"] = True
+                if it.get("corbels"):
+                    # T-2926: a passage mouth narrowed by two stone corbels under its lintel.
+                    cb = it["corbels"]
+                    op["corbels"] = {"z0": fr.z(cb["z"][0], datum), "z1": fr.z(cb["z"][1], datum),
+                                     "inset": round(float(cb["inset_ft"]) * FT, 4),
+                                     "round": round(float(cb["round_ft"]) * FT, 4),
+                                     "depth": round(float(cb["depth_ft"]) * FT, 4)}
                 if kind in ("arch", "fan"):
                     op["spring_z"] = fr.z(it["spring"], datum)
                     op["r_out"] = round(float(it.get("ring_ft", 0.0)) * FT, 4)

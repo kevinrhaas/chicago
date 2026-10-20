@@ -14,7 +14,7 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
   corbel       an oriel: stone courses each stepped out over the one below
   apron        (T-2883) or an oriel's apron in their place: its plan carried straight down
                as a flat face to a moulded foot proud of it, closed under the foot back
-               to the wall (1625's oriel, from its print)
+               to the wall (1625's oriel, from its print), in its own `apron` role (T-2904)
   floor bands  a string course at every floor line between storeys
   eaves        a soffit out to a fascia, or (T-2460) a moulded section the variant's
                eaves name as a `profile` (in the role they name, T-2472; a band's stone
@@ -87,6 +87,7 @@ Y = (0.0, 1.0, 0.0)
 ROLE_MATERIAL = {
     "wall": "masonry", "masonry_relief": "masonry", "reveal": "masonry", "mullion": "masonry", "roof_back": "masonry",
     "plinth": "dressed_stone", "band": "dressed_stone", "corbel": "dressed_stone",
+    "apron": "dressed_stone",   # T-2904: its own role, so a host may lay it in a stone of its own
     "sill": "sill_stone", "head": "head_stone",
     "soffit": "trim", "fascia": "trim", "bracket": "trim",
     "frame": "joinery", "sash_outer": "joinery", "sash_inner": "joinery",
@@ -931,10 +932,11 @@ class Bay:
 
     def _apron_face(self, flat, run, y0):
         """The run's face carried straight down from the floor to the foot, and the foot's
-        moulding swept along it, in the support's stone."""
+        moulding swept along it, in the apron's own role (T-2904: the kit lays it in the
+        support's stone; a host may give it a stone of its own, as 1625's print reads it)."""
         foot, prof = self._apron_layout(y0)
-        wall_cells(flat, "corbel", [], 0.0, run.L, foot + max(u for _, u in prof), y0)
-        moulding(flat, "corbel", run, foot, prof)
+        wall_cells(flat, "apron", [], 0.0, run.L, foot + max(u for _, u in prof), y0)
+        moulding(flat, "apron", run, foot, prof)
 
     def _apron_bottom(self, world, y0, cv):
         """The foot's underside: the plan offset out to the foot's nose, closed back to the wall."""
@@ -947,7 +949,7 @@ class Bay:
             n = max(1, math.ceil((b - a) / st)) if st else 1
             for j in range(n + (1 if r is self.runs[-1] else 0)):
                 pts.append(r.world(a + (b - a) * j / n, foot, z))
-        world.face("corbel", pts, (0.0, -1.0, 0.0))
+        world.face("apron", pts, (0.0, -1.0, 0.0))
         self.meta["apron"] = {"top_m": round(y0, 4), "foot_m": round(foot, 4),
                               "foot_height_m": round(max(u for _, u in prof), 4), "foot_proud_m": round(z, 4)}
 

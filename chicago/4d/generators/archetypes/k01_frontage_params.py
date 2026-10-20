@@ -658,6 +658,12 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
     base, so, fl = var["stacks"][0], kit["soot"], kit["parts"]["flashing"]
     nfl, fo = int(k.get("flues", len(base["flues"]))), kit["parts"]["flue"]["opening_m"]
     pn = k.get("panels")
+    # T-2782: a clay pot on every flue, one of the kit's profiles, where the house's picture
+    # draws a crown over each cap (1637's engraving); the record's top stays the cap's
+    pot = k.get("pot")
+    if pot is not None and pot not in kit["pot"]["profiles"]:
+        raise ParamError(f"chimneys.k15.pot {pot!r} is not one of the kit's pot profiles "
+                         f"{sorted(kit['pot']['profiles'])}")
     for st_, c in zip(stacks, chimneys):
         sx, sz = c["plan_m"]
         u, v, top = c["u_m"], c["v_m"], c["top_m"]
@@ -666,7 +672,8 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
         spec = {key: copy.deepcopy(x) for key, x in base.items()
                 if key not in ("x", "z", "width_m", "depth_m", "top_m", "flues", "panels") and key not in omit}
         spec.update(width_m=sz, depth_m=sx, across="z", top_m=top,
-                    flues=[{"at": round((i + 0.5) * sz / nfl - sz / 2, 4)} for i in range(nfl)])
+                    flues=[{"at": round((i + 0.5) * sz / nfl - sz / 2, 4), **({"pot": pot} if pot else {})}
+                           for i in range(nfl)])
         hi = max(cover(u + a * sx / 2, v + b * sz / 2) for a in (-1, 0, 1) for b in (-1, 0, 1))
         y_head = top - spec["cap"]["thickness_m"] - sum(h for h, _ in spec["corbels"])
         if max(y_head - so["band_m"], hi + fl["upstand_m"] + 0.2) > y_head - 0.05:
@@ -1220,11 +1227,16 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # T-2883: or an apron in the corbel courses' place, a flat face down to a moulded foot
             if "apron" in e:
                 ap = e["apron"]
-                if "corbel" in e or set(ap) != {"foot_m"} or not 1.0 <= base - float(ap["foot_m"]) <= 2.5:
-                    raise ParamError(f"bays: {e['id']}'s apron takes foot_m alone, 1.0-2.5 m under its floor "
+                if "corbel" in e or not {"foot_m"} <= set(ap) <= {"foot_m", "fabric"} \
+                        or not 1.0 <= base - float(ap["foot_m"]) <= 2.5:
+                    raise ParamError(f"bays: {e['id']}'s apron takes foot_m (and a fabric), 1.0-2.5 m under its floor "
                                      f"at {base} m, in place of its corbel courses (not beside them)")
                 v["apron"] = {"foot_m": float(ap["foot_m"])}
                 v.pop("corbel", None)
+                # T-2904: or in a stone of its own: the front's K02 walling, where the bay is dressed
+                if "fabric" in ap and not (ap["fabric"] == "front_stone" and front_stone):
+                    raise ParamError(f"bays: {e['id']}'s apron takes one fabric, front_stone (the front's "
+                                     f"K02 walling), and the record must name a stone_front")
             q = e.get("plan")
             if q is not None:
                 pts = [[float(x), float(z)] for x, z in q.get("points", ())]
@@ -1650,6 +1662,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                  f"storey lines {lines}")
         out.append({"id": e["id"], "wall": e["wall"], "s_m": s, "span_m": (round(a, 4), round(b, 4)),
                     "fabric": e.get("fabric", "stone"), "variant": v,
+                    **({"apron_fabric": e["apron"]["fabric"]} if "fabric" in (e.get("apron") or {}) else {}),
                     **({"flush_corner": flush} if flush else {}),
                     **({"through_eave": True} if e.get("through_eave") else {}),
                     **({"strips": tuple(strips)} if strips else {}),
