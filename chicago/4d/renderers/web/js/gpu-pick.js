@@ -57,6 +57,17 @@
  * `boxPick` is that box test alone, nearest box wins: what a phone's probe asks
  * (main.js), so looking around a phone draws no pick at all.
  *
+ * The gaze target's look (target.js, main.js) does not wait for its answer
+ * (T-2723). `readPixels` into page memory waits for the GPU to finish all it was
+ * handed before the read, the frame included, so the look was a pipeline flush
+ * on the main thread every 500 ms of movement: 63 of 72 s of a profiled walk on
+ * the steward runner (T-2721). `gpuPickAsync` draws the same pick in the same
+ * frame and reads its pixel into a pixel-pack buffer behind a fence, and the
+ * answer is put together a frame or two later, once the fence says the GPU got
+ * there; a tap still reads at once, as a tap must (`gpuPick`). Where there is no
+ * fence to wait on it is `gpuPick`, and a chunk rebuilt before the answer lands
+ * answers nothing rather than a face of geometry that is gone.
+ *
  * `raycastPick` is the old path, kept as the oracle while arrays exist (the
  * desktop, which releases nothing, and the harness's `?keep-geometry=1`):
  * `tools/check_upload_release.mjs` taps a fixed list on the desktop and
@@ -200,6 +211,8 @@ export function pickResources() {
 const texel = new Uint32Array(3); // slot, id, distance bits
 const texelFloat = new Float32Array(texel.buffer);
 const bytes = new Uint8Array(4);
+/** A word put back together from its four bytes, low first, at `at`. */
+const word = (b, at = 0) => (b[at] | (b[at + 1] << 8) | (b[at + 2] << 16) | (b[at + 3] << 24)) >>> 0;
 const size = new THREE.Vector2();
 const clear = new THREE.Color();
 const ray = new THREE.Raycaster();
@@ -267,8 +280,97 @@ function nearestBox(batch, worldRay, far) {
 export function gpuPick(meshes, ndc, camera, far = pickReach(camera)) {
   if (!renderer || !meshes.length) return renderer ? null : undefined;
   ray.setFromCamera(ndc, camera);
+  texel.fill(0);
+  if (!drawPick(meshes, ndc, camera, far, readNow)) return null;
+  return answer(meshes, ray.ray, far);
+}
+
+/**
+ * `gpuPick` without the wait (T-2723): drawn now, in the caller's frame, and
+ * answered once the GPU has got to it. Resolves as `gpuPick` returns.
+ */
+export async function gpuPickAsync(meshes, ndc, camera, far = pickReach(camera)) {
+  const gl = renderer?.getContext?.();
+  if (!gl || typeof gl.fenceSync !== 'function') return gpuPick(meshes, ndc, camera, far);
+  if (!meshes.length) return null;
+  ray.setFromCamera(ndc, camera);
+  const at = ray.ray.clone();
+  const drawn = meshes.map((m) => m.geometry);
+  let read = null;
+  if (!drawPick(meshes, ndc, camera, far, () => { read = readLater(gl); })) return null;
+  const words = await read;
+  if (!words || meshes.some((m, i) => m.geometry !== drawn[i])) {
+    pickLog?.('picked', { hit: 0, later: true });
+    return null;
+  }
+  texel.set(words);
+  return answer(meshes, at, far);
+}
+
+/** How often a waiting read asks its fence, and when it gives up on one that never
+ *  settles (a lost context answers WAIT_FAILED at once): long, since a software
+ *  rasteriser's frame can take seconds and its answer is still good. */
+const POLL_MS = 4;
+const GIVE_UP_MS = 30000;
+
+/**
+ * The pixel's three words into a pixel-pack buffer, and a fence after them. The
+ * buffer is unbound before this returns: a `readPixels` into page memory with a
+ * pack buffer bound is an error, and a tap may read while this one waits.
+ * @returns {Promise<Uint32Array|null>}
+ */
+function readLater(gl) {
+  const buffer = gl.createBuffer();
+  gl.bindBuffer(gl.PIXEL_PACK_BUFFER, buffer);
+  gl.bufferData(gl.PIXEL_PACK_BUFFER, 12, gl.STREAM_READ);
+  for (let k = 0; k < 3; k += 1) {
+    gl.readBuffer(gl.COLOR_ATTACHMENT0 + k);
+    gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, k * 4);
+  }
+  gl.readBuffer(gl.COLOR_ATTACHMENT0);
+  gl.bindBuffer(gl.PIXEL_PACK_BUFFER, null);
+  const fence = gl.fenceSync(gl.SYNC_GPU_COMMANDS_COMPLETE, 0);
+  gl.flush();
+  const since = performance.now();
+  return new Promise((resolve) => {
+    const done = (words) => {
+      gl.deleteSync(fence);
+      gl.deleteBuffer(buffer);
+      resolve(words);
+    };
+    const probe = () => {
+      const state = gl.clientWaitSync(fence, 0, 0);
+      if (state === gl.TIMEOUT_EXPIRED && performance.now() - since < GIVE_UP_MS) {
+        setTimeout(probe, POLL_MS);
+        return;
+      }
+      if (state !== gl.ALREADY_SIGNALED && state !== gl.CONDITION_SATISFIED) { done(null); return; }
+      const b = new Uint8Array(12);
+      gl.bindBuffer(gl.PIXEL_PACK_BUFFER, buffer);
+      gl.getBufferSubData(gl.PIXEL_PACK_BUFFER, 0, b);
+      gl.bindBuffer(gl.PIXEL_PACK_BUFFER, null);
+      done(Uint32Array.of(word(b), word(b, 4), word(b, 8)));
+    };
+    setTimeout(probe, POLL_MS);
+  });
+}
+
+/** The read a tap waits for: a miss reads one attachment; a hit, all three. */
+function readNow() {
+  for (let k = 0; k < 3; k += 1) {
+    renderer.readRenderTargetPixels(target, 0, 0, 1, 1, bytes, undefined, k);
+    texel[k] = word(bytes);
+    if (!texel[0]) break;
+  }
+}
+
+/**
+ * The pick's draw into its one pixel, and `read` while that pixel is bound.
+ * False when no candidate can be met, and then nothing is drawn.
+ */
+function drawPick(meshes, ndc, camera, far, read) {
   const met = meshes.map((src) => !src.isBatchedMesh || !!nearestBox(src, ray.ray, far));
-  if (!met.includes(true)) return null;
+  if (!met.includes(true)) return false;
   if (!target) {
     target = new THREE.WebGLRenderTarget(1, 1, {
       count: 3, type: THREE.UnsignedByteType, format: THREE.RGBAFormat,
@@ -323,7 +425,6 @@ export function gpuPick(meshes, ndc, camera, far = pickReach(camera)) {
     render: { ...renderer.info.render },
   };
   renderer.getClearColor(clear);
-  texel.fill(0);
   pickLog?.('pick', { meshes: stood, batches: batches.length });
   try {
     renderer.autoClear = true;
@@ -335,12 +436,8 @@ export function gpuPick(meshes, ndc, camera, far = pickReach(camera)) {
     // Every batch after into the same pixel and depth: the nearest wins.
     renderer.autoClear = false;
     for (const i of batches) drawBatch(meshes[i], i + 1, cam);
-    // A miss reads one attachment; a hit, all three.
-    for (let k = 0; k < 3; k += 1) {
-      renderer.readRenderTargetPixels(target, 0, 0, 1, 1, bytes, undefined, k);
-      texel[k] = (bytes[0] | (bytes[1] << 8) | (bytes[2] << 16) | (bytes[3] << 24)) >>> 0;
-      if (!texel[0]) break;
-    }
+    renderer.setRenderTarget(target); // bound again: the read is of this pixel
+    read();
   } finally {
     renderer.setRenderTarget(was.target);
     renderer.setClearColor(clear, was.alpha);
@@ -352,13 +449,17 @@ export function gpuPick(meshes, ndc, camera, far = pickReach(camera)) {
     // Hold no layer's geometry past the pick: a rebuilt layer disposes its old chunks.
     for (let i = 0; i < stood; i += 1) { pool[i].geometry = EMPTY; pool[i].userData.boxes = null; }
   }
+  return true;
+}
 
+/** `texel` as the layer's hit: what slot, which instance or face, how far down `worldRay`. */
+function answer(meshes, worldRay, far) {
   const slot = texel[0];
   const distance = texelFloat[2];
   pickLog?.('picked', { hit: slot ? (meshes[slot - 1]?.name || slot) : 0 });
   if (!slot || slot > meshes.length || !(distance <= far)) return null;
   const object = meshes[slot - 1];
-  const point = ray.ray.at(distance, new THREE.Vector3());
+  const point = worldRay.at(distance, new THREE.Vector3());
   if (object.isBatchedMesh) return { object, batchId: texel[1], vertex: null, face: null, distance, point };
   const vertex = texel[1];
   return { object, batchId: null, vertex, face: object.geometry.index ? null : Math.floor(vertex / 3),
@@ -426,8 +527,9 @@ function drawable(mesh) { return !mesh.userData.reachCulled; }
 
 /**
  * A layer's picks over one resolver: `pickAt` on the GPU (the raycast only
- * where there is no renderer), `pickAtBox` from the batches' boxes, and
- * `pickAtRaycast`, the oracle.
+ * where there is no renderer), `pickAtAsync` the same without the wait (the gaze
+ * target's, T-2723), `pickAtBox` from the batches' boxes, and `pickAtRaycast`,
+ * the oracle.
  *
  * @param {() => THREE.Mesh[]} candidates  what a tap on this layer may hit
  * @param {(hit) => object|null} resolve   `{object, batchId, face, distance, point}` → the layer's answer
@@ -447,6 +549,12 @@ export function layerPick(candidates, resolve) {
       if (!camera) return null;
       if (!renderer) return cast(ndc, camera);
       return gpu(ndc, camera);
+    },
+    pickAtAsync: async (ndc, camera) => {
+      if (!camera) return null;
+      if (!renderer) return cast(ndc, camera);
+      const hit = await gpuPickAsync(candidates().filter(drawable), ndc ?? centre, camera, pickReach(camera));
+      return hit ? resolve(hit) : null;
     },
     pickAtRaycast: cast,
   };

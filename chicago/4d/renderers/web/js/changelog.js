@@ -1,4 +1,59 @@
 export const CHANGELOG = [ // newest first
+  { v: 2099, ts: '2026-10-20T03:06:13.274Z', date: 'Oct 19, 2026, 10:06 PM CT', title: 'Turning on a fast-screen phone is no longer held to 30 frames', kind: 'fix',
+    items: [
+      'Nothing you can see in a still frame changed. This is about how smoothly the town moves on a phone.',
+      'On phones whose screens refresh 120 times a second, Adaptive pacing (Settings, Performance) held turns to 30 frames a second, even where the phone could draw about 37. It now leaves a phone alone when it already draws faster than that.',
+      'On a phone where drawing fewer pixels does not make frames come sooner, Adaptive now stops lowering sharpness after one try. Sharpness dips once, the first time you move, instead of three times on every move.',
+      'A phone that wavers between 60 and 30 frames still gets a steady 30, as before.',
+      'This was worked out against a model of a phone reading. It has not yet been read again on the phone.',
+    ] },
+  { v: 2098, ts: '2026-10-20T03:06:13.274Z', date: 'Oct 19, 2026, 10:06 PM CT', title: 'Phones: no more graphics errors from the first-load GPU warm-up', kind: 'fix',
+    items: [
+      'Nothing you can see changes. On a phone, the early pass that hands each layer to the GPU before the first frame also tried to draw it, before the sun\'s shadow map existed, and every one of those draws was refused as a graphics error. The pass now uploads without drawing, so the errors are gone and the phone uses the same memory as before.',
+    ] },
+  { v: 2097, ts: '2026-10-20T03:06:13.274Z', date: 'Oct 19, 2026, 10:06 PM CT', title: 'Nothing you can see changed: graphics card now places near flower heads', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The flower heads on the grass around you stand on the same plants, in the same places, as before.',
+      'The page no longer walks the ring of grass at your feet to find where those heads go. It reads back the tufts the graphics card has just placed and hangs the heads on them, so the card and the heads can never disagree.',
+      'While you walk, that read-back is collected when the card has finished, not waited for. For a frame or two after a step the heads you see are the last step\'s, which stand exactly where they stood.',
+    ] },
+  { v: 2096, ts: '2026-10-20T03:06:13.274Z', date: 'Oct 19, 2026, 10:06 PM CT', title: 'Naming the building ahead no longer pauses the walk on a computer', kind: 'fix',
+    items: [
+      'Nothing you can see in the town changed. On a computer, the tag that names the building in front of you made the page wait for the graphics card twice a second while you moved; it now reads its answer a frame or two later instead.',
+      'It names the same building at the same distance, a moment later. A click on a building still answers at once.',
+      'Phones already named the building ahead without that wait, and are unchanged.',
+    ] },
+  { v: 2095, ts: '2026-10-20T03:06:13.274Z', date: 'Oct 19, 2026, 10:06 PM CT', title: 'Nothing you can see changed: fenced-yard lookup checked slot by slot', kind: 'chore',
+    items: [
+      'Nothing you can see changed. Fenced yards were already looked up by where you stand rather than one by one; the frame test can now hold that lookup to the old one at every patch of prairie a walk or turn asks about, and read what each costs.',
+    ] },
+  { v: 2094, ts: '2026-10-20T03:06:13.274Z', date: 'Oct 19, 2026, 10:06 PM CT', title: '1801 Prairie, the Kimball house, rebuilt in coursed Bedford stone', kind: 'feature',
+    items: [
+      'W. W. Kimball\'s Chateauesque house at 1801 Prairie Avenue now stands in coursed Bedford stone, with real windows, its steep slate roof, the round tower on 18th Street and the tall south pavilion, all matched to J. W. Taylor\'s photograph of about 1895.',
+      'The three-storey section beside the tower and the wings behind it are roofed in slate, as the photograph shows.',
+      'Still to come: the small corner turret and the rest of the east range, the pavilion\'s carved gable, and the corner porch and front stair.',
+    ] },
+  { v: 2093, ts: '2026-10-20T03:02:52.370Z', date: 'Oct 19, 2026, 10:02 PM CT', title: 'Glessner\'s courtyard terrace drawn on the plan\'s own frame', kind: 'fix',
+    items: [
+      'The terrace coping, its two barred lights and the garden light beside the stair tower now stand where the house plan puts the courtyard: the section drawing they were read from sits 0.65 ft north of it.',
+      'The coping now meets the terminal post where the drawing has it meet, instead of running past it over the court.',
+    ] },
+  { v: 2092, ts: '2026-10-20T02:40:37.444Z', date: 'Oct 19, 2026, 9:40 PM CT', title: '1637 Prairie\'s south bay gains the lights in its sides', kind: 'improvement',
+    items: [
+      'Each angled side of the stone bay on 1637\'s south flank now has a tall arched window between its two columns, with a small light below it, as the old photograph of the house shows.',
+      'The bay\'s front window, and the small light under it, have moved about a quarter of a metre east, closer to where the photograph places them.',
+    ] },
+  { v: 2091, ts: '2026-10-20T02:27:15.448Z', date: 'Oct 19, 2026, 9:27 PM CT', title: 'Finished houses reach the town faster when two land together', kind: 'improvement',
+    items: [
+      'Nothing you can see changes in the scene itself. Two building changes that rebuilt different houses no longer hold each other up: the build loop now merges the town\'s asset list entry by entry, where before a second house waited a whole extra run to catch up with the first.',
+      'When a shared recipe moved on both sides, the affected houses are rebuilt on the combined version and kept only if they come out identical; anything that would look different still goes back to a full run.',
+    ] },
+  { v: 2090, ts: '2026-10-20T02:27:15.448Z', date: 'Oct 19, 2026, 9:27 PM CT', title: '1625 Prairie\'s south wall gets its low windows', kind: 'change',
+    items: [
+      'In 1904, the south wall of 1625 Prairie now has the three low windows the 1890 photograph shows: a small round-topped one near the ground, a tall narrow round-topped one under the oriel, and a narrow slit just before the rear wing.',
+      'Its ground-floor window and its stair window lose the fan of brick over their tops. The photograph shows plain heads there.',
+      'All five are measured from the photograph through its matched camera. The wall is seen at a steep angle, so their widths are estimates, good to about half a foot.',
+    ] },
   { v: 2089, ts: '2026-10-20T01:24:01.867Z', date: 'Oct 19, 2026, 8:24 PM CT', title: 'Nothing you can see changed: towers can stand on rear wings', kind: 'chore',
     items: [
       'Nothing you can see changed yet. The kit the Prairie Avenue houses are built from can now stand a round or eight-sided tower on a rear wing\'s wall, rising past the wing\'s roof with its cone above it.',

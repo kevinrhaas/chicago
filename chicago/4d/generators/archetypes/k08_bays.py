@@ -704,6 +704,9 @@ def k06_variant(w: dict) -> dict:
     # T-2815: a transom window's lights in tiers on stone bars, read off a picture (Keith's bow)
     if "tiers" in w:
         v6["tiers"] = w["tiers"]
+    # T-2886: a light between a bay's columns names its own narrower head band
+    if "head_band_m" in w:
+        v6["overrides"] = {**v6.get("overrides", {}), "head_band_m": w["head_band_m"]}
     # T-2883: a narrow light (an oriel's cheek) is one light a sash: no bar splits its glass
     if w.get("narrow"):
         v6["panes"] = [1, 1]

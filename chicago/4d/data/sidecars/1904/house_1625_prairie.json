@@ -314,20 +314,46 @@
           "s_m": 9.3,
           "sill_m": 7.3,
           "width_m": 0.8,
-          "height_m": 2.3
+          "height_m": 2.3,
+          "head": "plain"
         },
         {
           "s_m": 2.35,
           "sill_m": 1.11,
           "width_m": 0.95,
-          "height_m": 1.6
+          "height_m": 1.6,
+          "head": "plain"
+        },
+        {
+          "s_m": 5.7,
+          "sill_m": 0.25,
+          "width_m": 0.36,
+          "height_m": 0.64,
+          "head": "round",
+          "why_not_ordinary": "a small round-headed light near grade, read off the print at x 483-490 px (its head at y 759.5, 0.89 m; its foot behind the fence's top rail at y 780, 0.25 m): its outline is 6.5 px across, of which the far jamb's 0.115 m reveal is about 3.7 px at this depth, so the hole is about 0.36 m"
+        },
+        {
+          "s_m": 8.5,
+          "sill_m": 0.2,
+          "width_m": 0.61,
+          "height_m": 1.8,
+          "head": "round",
+          "why_not_ordinary": "a tall narrow round-headed light under the oriel, read off the print at x 503-510.5 px (its head at y 726, 2.0 m; its foot behind the fence's top rail at y 780, 0.2 m): its outline is 7.5 px across, of which the far jamb's reveal is about 3.4 px, so the hole is about 0.6 m, too narrow for a door"
+        },
+        {
+          "s_m": 11.1,
+          "sill_m": 0.9,
+          "width_m": 0.3,
+          "height_m": 1.03,
+          "head": "plain",
+          "why_not_ordinary": "a slit light just short of the rear section, read off the print at x 521-524.5 px, its head square at y 730 (1.93 m) and its sill's lit top at y 758 (0.9 m): its outline is no wider than the far jamb's reveal alone (about 3.2 px), so its width is not readable and it is built at 0.3 m, the oriel cheek's narrow light"
         }
       ],
       "confidence": "inferred",
       "sources": [
         "inland_architect_1890_01_mcbirney_residence"
       ],
-      "note": "Windows in the house's SOUTH side wall (K01's 'north', high v; s from the front corner), toward the open ground the sheet leaves south of 1625: the photograph shows single windows a storey along the main part's south wall, the nearest about 4 m behind the front. Their places further back are reconstructed. T-2820: the two that stood in the rear 7.6 m (s 14.3 and 17.6) are gone, the rear section standing over that part of the wall. T-2866: re-read on the camera re-solved by T-2846 (inland_architect_front.json), each window at its own place rather than a column on every storey: on the south wall's plane (8.39 m beside the eye) the print's columns stand at s = 1108 x 8.39 / (757 - x) - 28.7. The top floor's two lights, x 447-457 and 481-488 px, are s 1.8 and 5.4 (the handoff's 2.4 for the first does not survive the camera: x 451 on that plane is s 1.7), their heads level at about 10.5 m (y 407 and 447 px, the solve's own two heads) and their sills at 8.2 and 8.7 m (the glass ends at y 494 and 505 px; the two are not one size); the first is built 2.28 m tall, its lintel to 10.78 m under the 10.85 m soffit. A stair light behind the oriel, x 509-517, s 9.3, 7.3-9.6 m (y 571 and 502 px), standing on no storey's sill line. The ground floor's one light behind the corner pier, x 451-464, s 2.35, 1.11-2.71 m (y 752 and 695 px), the front's own ground-floor height. The first floor shows no light in the wall before the oriel, and none is built. Widths are the contract's single sash widths nearest the print's 0.8-1.0 m. The old columns (3.8 and 10.6 m, every storey) are gone. The wall's lower openings (a small round-headed light near grade at about s 5.7, a tall narrow one under the oriel at about s 8.5, and one at about s 11.1) are recorded open in the match record, not built."
+      "note": "Windows in the house's SOUTH side wall (K01's 'north', high v; s from the front corner), toward the open ground the sheet leaves south of 1625: the photograph shows single windows a storey along the main part's south wall, the nearest about 4 m behind the front. Their places further back are reconstructed. T-2820: the two that stood in the rear 7.6 m (s 14.3 and 17.6) are gone, the rear section standing over that part of the wall. T-2866: re-read on the camera re-solved by T-2846 (inland_architect_front.json), each window at its own place rather than a column on every storey: on the south wall's plane (8.39 m beside the eye) the print's columns stand at s = 1108 x 8.39 / (757 - x) - 28.7. The top floor's two lights, x 447-457 and 481-488 px, are s 1.8 and 5.4 (the handoff's 2.4 for the first does not survive the camera: x 451 on that plane is s 1.7), their heads level at about 10.5 m (y 407 and 447 px, the solve's own two heads) and their sills at 8.2 and 8.7 m (the glass ends at y 494 and 505 px; the two are not one size); the first is built 2.28 m tall, its lintel to 10.78 m under the 10.85 m soffit. A stair light behind the oriel, x 509-517, s 9.3, 7.3-9.6 m (y 571 and 502 px), standing on no storey's sill line. The ground floor's one light behind the corner pier, x 451-464, s 2.35, 1.11-2.71 m (y 752 and 695 px), the front's own ground-floor height. The first floor shows no light in the wall before the oriel, and none is built. Widths are the contract's single sash widths nearest the print's 0.8-1.0 m. The old columns (3.8 and 10.6 m, every storey) are gone. T-2884: the ground-floor light and the stair light take the print's plain heads (`head: plain`, nothing laid over the hole) in place of K03's gauged segmental fans, which the print does not show; and the wall's three lower lights are built off the print on the same camera (h = 1.0 + (756 - y)(28.7 + s)/1108 m): a small round-headed light near grade at s 5.7 (x 483-490 px), its head at 0.89 m; a tall narrow round-headed light under the oriel at s 8.5 (x 503-510.5), its head at 2.0 m; and a slit at s 11.1 (x 521-524.5), 0.9-1.93 m under a square head. The first two are the house's basement lights, K06's fixed round-headed basement light (k01.opening.sash_round_plain) under no hood or arch, as the print draws them; their feet are hidden behind the fence, so each is built down to the lowest line the print shows (0.25 and 0.2 m), and whether they run lower into an area is T-2885's areaway question. Seen this obliquely (the wall about 8.4 m beside the eye, 34-40 m out) a metre along the wall is 6-8 px and the far jamb's reveal 3-4 px, so each width is the outline less the reveal, good to about 0.15 m; the slit's outline is no wider than its reveal, and it is built 0.3 m. Each says why it is narrower than the ordinary sash (why_not_ordinary)."
     },
     "rear_bays": {
       "value": [
@@ -639,10 +665,14 @@
         "k01.opening.street_casement_pair_transom": "k06.opening.casement_pair_transom_mullioned",
         "k01.opening.street_casement_four_transom": "k06.opening.casement_four_transom_mullioned",
         "k01.opening.street_sash_segmental": "k06.opening.sash_1over1_segmental",
-        "k01.opening.street_sash_narrow_segmental": "k06.opening.sash_2over2_segmental"
+        "k01.opening.street_sash_narrow_segmental": "k06.opening.sash_2over2_segmental",
+        "k01.opening.sash_round_plain": {
+          "variant": "k06.opening.basement_round",
+          "well": false
+        }
       },
       "confidence": "reconstructed",
-      "note": "The street windows from the photograph's kinds (T-2752): the lower storeys' mullioned casements, two lights on the ground floor and two under a transom on the first, the four-light window over the door, the second floor's one-over-one segmental sash and the frontispiece's narrow two-over-two segmental lights. The side, rear and north walls, which the photograph does not show or shows only in raking light, keep the K06 kit's two-over-two sash."
+      "note": "The street windows from the photograph's kinds (T-2752): the lower storeys' mullioned casements, two lights on the ground floor and two under a transom on the first, the four-light window over the door, the second floor's one-over-one segmental sash and the frontispiece's narrow two-over-two segmental lights. The side, rear and north walls, which the photograph does not show or shows only in raking light, keep the K06 kit's two-over-two sash. T-2884: the south wall's two round-headed lights near grade take K06's fixed round-headed basement light, its area well left out (their sills stand over grade), under no hood (k01.opening.sash_round_plain)."
     },
     "entrance_kit": {
       "value": {

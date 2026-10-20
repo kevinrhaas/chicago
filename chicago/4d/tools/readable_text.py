@@ -691,7 +691,8 @@ def rewrite_paths(doc, paths, names: Names | None = None, liberties: dict | None
 PRODUCTION_BRACKET = re.compile(
     r"\s*\((?:[^()]*\b(?:draft|refined|T-\d{2,5})\b[^()]*)\)", re.IGNORECASE)
 PRODUCTION_TAIL = re.compile(r",\s*(?:its\s+massing\s+read\s+off|K\d{2}\b)[^,()]*$", re.IGNORECASE)
-PRODUCTION_WORDS = re.compile(r"\b(?:map-led|traced)\s+|\bthe\s+K\d{2}\s+(?=\w)|\bK\d{2}\s+(?=\w)",
+PRODUCTION_WORDS = re.compile(r"\b(?:map-led|traced)\s+|\bon(?:to)?\s+(?:the\s+)?K\d{2}\s+(?=\w)|"
+                              r"\bthe\s+K\d{2}\s+(?=\w)|\bK\d{2}\s+(?=\w)",
                               re.IGNORECASE)
 SEEN_IN = re.compile(r"^(.*?—\s*)([A-Z][\w'’.-]+)\s+partly seen in\b.*$")
 # What reads as the production step in a name, so the gate can refuse one that slipped by.
@@ -704,7 +705,8 @@ def plain_name(name: str) -> str:
 
     Only removes: a bracket naming a draft, a refinement or a ticket; a trailing ", K01 …"
     kit clause or ", its massing read off …" clause; the words "map-led" and "traced"; a
-    kit code before a noun ("the K16 timber house" → "the timber house"); and "partly seen
+    kit code before a noun ("the K16 timber house" → "the timber house"), or after the "on"
+    it was built on ("built on K01 at the massing" → "built at the massing"); and "partly seen
     in <a photograph>", which leaves the family's name as the house's ("Roloson" → "the
     Roloson house"). A name with none of those is returned as it is."""
     n = str(name or "")
@@ -957,6 +959,8 @@ def self_test() -> int:
         ("Shortall-Gregory house (1638 Prairie Avenue): the K16 timber house",
          "Shortall-Gregory house (1638 Prairie Avenue): the timber house"),
         ("2109 Prairie Avenue — Roloson partly seen in Armour photograph", "2109 Prairie Avenue — the Roloson house"),
+        ("1801 Prairie Avenue — Kimball house in Bedford stone, built on K01 at the massing a photograph shows (T-2538)",
+         "1801 Prairie Avenue — Kimball house in Bedford stone, built at the massing a photograph shows"),
         ("1635 Prairie Avenue — Italianate villa of 1863 (the Forsyth house)",
          "1635 Prairie Avenue — Italianate villa of 1863 (the Forsyth house)"),
         ("Green Tree Tavern", "Green Tree Tavern")]:
