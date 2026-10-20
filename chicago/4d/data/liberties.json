@@ -45925,6 +45925,12 @@
           "domain": "structure",
           "structure": "glessner_house",
           "phase": "as_built_1887",
+          "aspect": "form.hall_bow_height"
+        },
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
           "aspect": "form.tower_stair"
         },
         {
@@ -45943,7 +45949,7 @@
         },
         {
           "label": "Covers",
-          "text": "`glessner_house.as_built_1887.form.tower_stair`, `glessner_house.as_built_1887.form.v4_detail`."
+          "text": "`glessner_house.as_built_1887.form.tower_stair`, `glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.hall_bow_height`."
         },
         {
           "label": "Revised 2026-10-20",
@@ -45954,6 +45960,10 @@
           "text": "ruled. The light is bounded by the post and the built drum, and that end stays at S50.68. Sheet 4 draws the drum 11.09 ft across against sheet 2's printed 10'-0\" mass, and later work kept the plan's drum. So the drawn light's extra 0.96 ft belongs to the drum the drawing draws wide; the light keeps the drawing's own 0.23 ft stone margin to it. The light now sits in the broad dressed-stone panel sheet 4 draws: from behind the post (S45.79) to the drum, and from the upper step's 1.57 ft to 6.24 ft (court garden grille surround (ft)). The panel's stone, depth (30 mm proud) and joints are reconstructed; its extent is the drawing's."
         },
         {
+          "label": "Revised 2026-10-20",
+          "text": "the bow's lights and door, and the stair tower's slits and lantern lights, are read on native sheet 4 (the research notes on glessner court exterior). Two transfers are ours. The bow's lights are drawn as extents along S, so each is set on the plan's arc where its drawn edges project, after later work's +0.65 ft; the arc, not the drawing, decides how far round the curve a light faces. The tower's lights cannot be carried by S at all, because the drawing's drum is wide, so each is set at its angle on the plan's drum: its offset from the drawn drum's centre over the drawn half-width (slits 136 and 225 degrees, lantern 140, 180 and 219). The bow's continuous lintel and sill courses take the drawing's heights and extents; their 50 mm projection, 30 mm bed and the absence of joints are reconstructed, as are the slit stones' depth and the slits' 0.75-ft width on the drum (0.53 ft drawn in projection at about 45 degrees)."
+        },
+        {
           "label": "Recorded",
           "text": "2026-10-15."
         }
@@ -45962,7 +45972,8 @@
         "T-2228",
         "T-2880",
         "T-2879",
-        "T-2906"
+        "T-2906",
+        "T-2925"
       ]
     },
     {
@@ -46004,12 +46015,19 @@
           "text": "`glessner_house.as_built_1887.form.ridge_east_wing`, `glessner_house.as_built_1887.form.dormers`, `glessner_house.as_built_1887.form.rainwater_details`."
         },
         {
+          "label": "Revised 2026-10-20",
+          "text": "the dormer centres later work read in sheet 4's own S (32.1, 45.0, 67.8) are carried onto the plan's frame by later work's +0.65 ft: S32.75, 45.65 and 68.45. Nothing else about them moves."
+        },
+        {
           "label": "Recorded",
           "text": "2026-10-15."
         }
       ],
       "work_refs": [
-        "T-2228"
+        "T-2228",
+        "T-2925",
+        "T-2859",
+        "T-2879"
       ]
     },
     {

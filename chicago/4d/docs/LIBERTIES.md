@@ -28954,7 +28954,7 @@ Every previously traced terrace coping knot is retained. Beyond the last visible
 
 Light omits only stair-drum wall patches inside the east-wing envelope, inset40mm from its faces and below both eaves. The omitted volume stops before adjacent aperture corridors, and refuses a centrally pierced wall. Full retains the interior patches; both retain all exterior wall points. This is a declared removal of concealed detail within the existing200,000-triangle ceiling.
 
-**Covers:** `glessner_house.as_built_1887.form.tower_stair`, `glessner_house.as_built_1887.form.v4_detail`.
+**Covers:** `glessner_house.as_built_1887.form.tower_stair`, `glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.hall_bow_height`.
 **Ticket:** T-2228.
 **Revised 2026-10-20 (T-2880):** the garden light's bounds are sheet 4's frame. Re-zeroed onto the plan (+0.65 ft,
 T-2879) its north jamb is S47.13. Its re-zeroed south jamb, S51.63, falls inside the plan's stair drum, which meets the
@@ -28968,6 +28968,15 @@ the plan's drum. So the drawn light's extra 0.96 ft belongs to the drum the draw
 the drawing's own 0.23 ft stone margin to it. The light now sits in the broad dressed-stone panel sheet 4 draws:
 from behind the post (S45.79) to the drum, and from the upper step's 1.57 ft to 6.24 ft (`court_garden_grille.surround_ft`).
 The panel's stone, depth (30 mm proud) and joints are reconstructed; its extent is the drawing's.
+**Revised 2026-10-20 (T-2925):** the bow's lights and door, and the stair tower's slits and lantern lights, are
+read on native sheet 4 (docs/RESEARCH/glessner-court-exterior-T-2925/). Two transfers are ours. The bow's lights
+are drawn as extents along S, so each is set on the plan's arc where its drawn edges project, after T-2879's
++0.65 ft; the arc, not the drawing, decides how far round the curve a light faces. The tower's lights cannot be
+carried by S at all, because the drawing's drum is wide (T-2879), so each is set at its angle on the plan's drum:
+its offset from the drawn drum's centre over the drawn half-width (slits 136 and 225 degrees, lantern 140, 180 and
+219). The bow's continuous lintel and sill courses take the drawing's heights and extents; their 50 mm projection,
+30 mm bed and the absence of joints are reconstructed, as are the slit stones' depth and the slits' 0.75-ft width
+on the drum (0.53 ft drawn in projection at about 45 degrees).
 **Recorded:** 2026-10-15.
 
 ### L-glessner-court-roof-2228 — courtyard eave, dormers and bell finials
@@ -28991,6 +29000,8 @@ The dormer side overhang is reconstructed at144mm from the native section's appr
 
 **Covers:** `glessner_house.as_built_1887.form.ridge_east_wing`, `glessner_house.as_built_1887.form.dormers`, `glessner_house.as_built_1887.form.rainwater_details`.
 **Ticket:** T-2228.
+**Revised 2026-10-20 (T-2925):** the dormer centres T-2859 read in sheet 4's own S (32.1, 45.0, 67.8) are carried
+onto the plan's frame by T-2879's +0.65 ft: S32.75, 45.65 and 68.45. Nothing else about them moves.
 **Recorded:** 2026-10-15.
 
 ### L-glessner-north-ridge-2228 — straighten the north roof through the west crossing
