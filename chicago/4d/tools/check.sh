@@ -4235,6 +4235,17 @@ step "the lap clears a registry-only conflict, and still leaves a real one alone
 step "the lap unpacks the Glessner package from the merged tree before it publishes" \
   node tools/test_pr_lap_package.mjs
 
+# ...AND NEITHER THE LAP NOR THE MERGER TOUCHES A PR A LIVE RUN IS LAPPING (T-2929). A run
+# takes `lap/pr-<N>` before it laps a `resume` PR (T-1721), and every RUN honoured it; the two
+# server sweeps never read it. #1132's lock was taken at 13:00Z on 2026-10-20, the lap pushed
+# df6ae544a over it at 13:19Z and merge-ready merged that at 13:37Z — the holding run's merge,
+# re-derive, check.sh and smoke all thrown away. Both now ask `ticket.mjs lap <N> --status`,
+# the same reading `lap` steals by. REAL scripts, REAL ticket.mjs, REAL bare remotes: held is
+# left alone, stale is not, unreadable is reported and not acted on, a lock taken mid-lap stops
+# the push; and each script again with its read cut out, which must touch the held PR.
+step "the lap and the merger leave a PR whose lap lock a live run holds" \
+  node tools/test_pr_lap_lock.mjs
+
 # AND THE THING THAT ACTUALLY MERGES A FINISHED PULL REQUEST, which for most of
 # this repository's life was NOBODY. The lap's header said auto-merge did it; the
 # fleet janitor said the lap plus auto-merge did it, while excluding `custom`

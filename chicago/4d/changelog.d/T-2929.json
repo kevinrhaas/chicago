@@ -1,0 +1,7 @@
+{
+  "title": "Nothing you can see changed: the robots wait for a run's lap",
+  "kind": "chore",
+  "items": [
+    "Nothing you can see changed: the automatic sweeps that update and merge pending changes now leave one alone while a run is already updating it, instead of throwing that run's work away."
+  ]
+}

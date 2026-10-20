@@ -118,6 +118,46 @@ DRY="${MERGE_DRY_RUN:-}"
 
 say() { printf '%s\n' "$*"; }
 
+# --- THE LAP LOCK: A CLEAN PR A LIVE RUN IS LAPPING IS NOT MERGED UNDER IT (T-2929) ---
+#
+# A run that laps a `resume` PR takes `lap/pr-<N>` first (`ticket.mjs lap`, T-1721).
+# Nothing here read it. On 2026-10-20 #1132's lock was taken at 13:00Z, the server lap
+# pushed over it at 13:19Z (pr-lap.sh reads the lock too now), and THIS merged that
+# push at 13:37Z — so the holding run's merge of dev, its ten-minute re-derive,
+# check.sh and smoke were all thrown away. A `clean` PR
+# whose lock a LIVE run holds is left to that run, which will push, gate and merge or
+# release it; a dead run's lock (older than RUN_HOURS) is no hold.
+#
+# "Live" is ticket.mjs's: `lap <N> --status` is the tool that takes the lock answering
+# who holds it, so this cannot disagree with it. This checkout's own copy — the one
+# beside this file, found the way checkout_repo finds the origin — reading this
+# checkout's origin, which is the repository the workflow acts on (it passes no
+# `--repo`; a caller that names another repository is reading another's locks).
+#
+# AN UNREADABLE LOCK IS NOT MERGED ON. A merge is one-way and a skip is one pass late:
+# the next push to dev looks again. It is printed per PR with ticket.mjs's reason, so
+# a pass that merged nothing for this says so in every line.
+LOCK_ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")" 2>/dev/null && git rev-parse --show-toplevel 2>/dev/null) || LOCK_ROOT=""
+LOCK_TOOL="${LOCK_ROOT:+$LOCK_ROOT/chicago/4d/tools/ticket.mjs}"
+
+# lap_lock_free N — 0 when nobody live holds lap/pr-N; 1 when a live run does
+# (LOCK_HELD=1) or the lock cannot be read. LOCK_SAID is ticket.mjs's one line.
+lap_lock_free() {
+  LOCK_SAID=; LOCK_HELD=
+  if [ -z "$LOCK_TOOL" ] || [ ! -s "$LOCK_TOOL" ]; then
+    LOCK_SAID="unknown — no chicago/4d/tools/ticket.mjs beside this script, so lap/pr-$1 cannot be read"
+    return 1
+  fi
+  local out rc
+  out=$(node "$LOCK_TOOL" lap "$1" --status 2>&1); rc=$?
+  LOCK_SAID=$(printf '%s\n' "$out" | tail -1)
+  case "$rc" in
+    0) return 0 ;;
+    3) LOCK_HELD=1; return 1 ;;
+    *) LOCK_SAID="unknown (exit $rc) — ${LOCK_SAID:-ticket.mjs said nothing}"; return 1 ;;
+  esac
+}
+
 # THE LIST, AND ITS EXIT STATUS. `PRS=$(gh api …)` carries gh's status and this
 # script runs without `-e`, so a failed call leaves PRS empty, the loop runs zero
 # times, and the summary is character for character what a healthy empty queue
@@ -145,7 +185,7 @@ if [ -n "$ONLY" ]; then
   PRS="$MATCHED"
 fi
 
-MERGED=0; WAITING=0; CONFLICTED=0; REFUSED=0
+MERGED=0; WAITING=0; CONFLICTED=0; REFUSED=0; LAPPING=0
 
 for N in $PRS; do
   [ -n "$N" ] || continue
@@ -164,6 +204,16 @@ for N in $PRS; do
   TITLE=$(gh api "repos/$REPO/pulls/$N" --jq '.title' 2>/dev/null | cut -c1-72)
   case "$STATE" in
     clean)
+      if ! lap_lock_free "$N"; then
+        if [ -n "$LOCK_HELD" ]; then
+          say "#$N  clean, but BEING LAPPED by a live run — not merged under it ($LOCK_SAID)"
+          LAPPING=$((LAPPING+1))
+        else
+          say "#$N  clean, but its lap lock cannot be read — not merged blind: $LOCK_SAID"
+          REFUSED=$((REFUSED+1))
+        fi
+        continue
+      fi
       if [ -n "$DRY" ]; then
         say "#$N  WOULD MERGE — $TITLE"; MERGED=$((MERGED+1)); continue
       fi
@@ -191,5 +241,5 @@ for N in $PRS; do
 done
 
 say ""
-say "merge-ready: merged=$MERGED waiting-on-checks=$WAITING needs-a-lap=$CONFLICTED refused=$REFUSED"
+say "merge-ready: merged=$MERGED waiting-on-checks=$WAITING needs-a-lap=$CONFLICTED refused=$REFUSED being-lapped=$LAPPING"
 say "  (\`clean\` is GitHub's own verdict: the branch merges AND every required check passed.)"

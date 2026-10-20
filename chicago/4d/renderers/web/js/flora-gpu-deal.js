@@ -49,6 +49,22 @@
  * community's record, so the same plant can be bound in one zone and free in
  * the next.
  *
+ * T-2895: THE FORB SECTION, appended after the graminoid rows so nothing the
+ * near and mid deals read moves (flora-gpu-forb.js reads it):
+ *
+ *   zone z's forb header, texels forbBase + 6z .. + 6z+5:
+ *     forbShare, forbShareWet, shrubShare, shrubShareWet
+ *     forbs recorded, shrubs recorded, 0, 0
+ *     dry forbs' entries: first texel, count, total, 0
+ *     wet forbs' entries, dry shrubs', wet shrubs', the same
+ *   a subset entry, one texel: weight, forb row, 0, 0
+ *   a forb or shrub row, FORB_ROW texels from `forbItemBase + FORB_ROW * row`:
+ *     weight, height low, height high, confidence
+ *     substrate (SUBSTRATE), 0, 0, 0
+ *
+ * A forb row carries only what the ground's half of `station` asks of the
+ * species; everything else the reap reads off the record itself (`forbItems`).
+ *
  * PRECISION, stated rather than hoped for (as T-2697 does). The integer hashes
  * are the CPU's to the bit. The float arithmetic is float32 against flora.js's
  * doubles, so a comparison that lands within an ulp of its threshold — `u`
@@ -73,6 +89,8 @@ export const SUBSTRATE = Object.freeze({ unrecorded: 0, soil: 1, wet: 2, open_wa
 
 /** Texels a graminoid row takes. */
 export const DEAL_ROW = 5;
+/** T-2895: texels a forb or shrub row takes (the forb section). */
+export const FORB_ROW = 2;
 /** The table texture's width in texels. */
 export const DEAL_WIDTH = 256;
 /** `nearField.deal`'s numbers a slot: e, n, u, code, row, y, yaw, height,
@@ -104,6 +122,8 @@ function clumpRadiusOf(sp) {
  *   `rowOf(z, sp)` is the row of community z's record `sp` (-1 if none);
  *   `species[row]` is that row's species id, and `items[row]` its community and
  *   record (`{ zone, sp }`, T-2774: what the page's read-back hangs a head on).
+ *   T-2895: `forbBase` and `forbItemBase` place the forb section, and
+ *   `forbItems[row]` is a forb row's `{ zone, sp }`.
  */
 export function dealTable(zones) {
   const entryBase = zones.length * 4;
@@ -129,7 +149,30 @@ export function dealTable(zones) {
     ];
   });
   const itemBase = entryBase + entries.length;
-  const texels = itemBase + items.length * DEAL_ROW;
+  // T-2895: the forb section, after the graminoid rows.
+  const forbBase = itemBase + items.length * DEAL_ROW;
+  const forbEntryBase = forbBase + zones.length * 6;
+  const forbEntries = [];
+  const forbItems = [];
+  const forbHeaders = zones.map((z) => {
+    const rows = new Map();
+    for (const sp of [...z.forbs, ...z.shrubs]) {
+      rows.set(sp, forbItems.length);
+      forbItems.push({ z, sp });
+    }
+    const side = (subset) => {
+      const first = forbEntryBase + forbEntries.length;
+      for (const sp of subset.items) forbEntries.push([sp.weight, rows.get(sp)]);
+      return [first, subset.items.length, subset.total, 0];
+    };
+    return [
+      [z.forbShare, z.forbShareWet, z.shrubShare, z.shrubShareWet],
+      [z.forbs.length, z.shrubs.length, 0, 0],
+      side(z.dry.forbs), side(z.wet.forbs), side(z.dry.shrubs), side(z.wet.shrubs),
+    ];
+  });
+  const forbItemBase = forbEntryBase + forbEntries.length;
+  const texels = forbItemBase + forbItems.length * FORB_ROW;
   const height = Math.max(1, Math.ceil(texels / DEAL_WIDTH));
   const data = new Float32Array(DEAL_WIDTH * height * 4);
   const put = (t, v) => { for (let k = 0; k < 4; k++) data[4 * t + k] = v[k] ?? 0; };
@@ -144,8 +187,16 @@ export function dealTable(zones) {
     put(t + 3, [...sp.alt, z.woody?.roles.has(sp.role) ? 1 : 0]);
     put(t + 4, [...sp.dry, 0]);
   });
+  forbHeaders.forEach((h, zi) => h.forEach((v, k) => put(forbBase + 6 * zi + k, v)));
+  forbEntries.forEach((v, k) => put(forbEntryBase + k, v));
+  forbItems.forEach(({ sp }, row) => {
+    const t = forbItemBase + FORB_ROW * row;
+    put(t, [sp.weight, sp.height[0], sp.height[1], sp.conf]);
+    put(t + 1, [substrateOf(sp), 0, 0, 0]);
+  });
   return {
     data, width: DEAL_WIDTH, height, entryBase, itemBase, rows: items.length,
+    forbBase, forbItemBase, forbItems: forbItems.map(({ z, sp }) => ({ zone: z, sp })),
     rowOf: (zi, sp) => rowMaps[zi]?.get(sp) ?? -1,
     species: items.map(({ sp }) => sp.id),
     items: items.map(({ z, sp }) => ({ zone: z, sp })),
