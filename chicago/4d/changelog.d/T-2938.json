@@ -1,5 +1,5 @@
 {
-  "title": "Nothing you can see changed: related tickets ship together, filed where they belong",
+  "title": "Nothing you can see changed: related tickets ship together, filed by kind",
   "kind": "chore",
   "items": [
     "A run can now claim up to five related tickets at once and ship them in a single pull request, so fewer, larger changes land in the town.",
