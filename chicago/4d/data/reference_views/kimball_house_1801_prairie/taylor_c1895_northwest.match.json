@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "3e08b1b852ccbe84ac4290691f663637b1f3ba3b00d86bd2a9ef61af9ae93f9a",
+  "glb_sha256": "0f1d0b817c58599b4a84485e26ad734f41e8cae4b013f23d547fcd64e5585411",
   "camera_sha256": "d89ca0a91bccddd25a0ffa04ea98ff95ec08faec3913c2588f95f158db8cedf3",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
   "verdict": "differs",
@@ -39,13 +39,18 @@
     },
     {
       "what": "the corner entrance: an open loggia at the front's north-west corner, one round arch on each face, and a broad stair of about nine risers between curved cheek walls coming down the front; the build has a flat door and a straight stoop",
+      "status": "fixed",
+      "how": "T-2910: a loggia behind two round arches, one on each face, each 1.9 m across centred 1.6 m from the corner and crowned 3.6 m (2.15 m over the 1.45 m floor) under a voussoir ring and keystone, within about 10 px of the photograph's arches; the room behind them with its double door in the back wall, seen through the 18th Street arch where the photograph shows the door frame; the stone balcony corbelled under the 18th Street arch; nine risers of 0.161 m coming down the front out of the front arch, 2.3 m broad, between cheeks that run level by the arch and sweep down to blocks at the foot, the foot within about 15 px of the photograph's"
+    },
+    {
+      "what": "the loggia's carving: the archivolts' mouldings, the carved piers and panels beside and over both arches, the carved blocks at the cheeks' foot and the balcony's carved face; the build lays them in plain stone under a voussoir ring",
       "status": "open",
-      "how": "T-2539"
+      "how": "T-2911"
     },
     {
       "what": "the bowed bay in the middle of the front, two storeys under a balcony, and the front's openings: paired and mullioned windows in carved surrounds, the carved frieze over the principal storey; the build has the draft's evenly spaced sash. The sheet's bulge (v 4.8-10.2) and the photograph's bay (about 60 px further north) disagree about where it stands",
       "status": "open",
-      "how": "T-2539"
+      "how": "T-2911"
     },
     {
       "what": "all-stone walls: Bedford stone laid in courses on the front and the flank alike, with string courses and the corbel table; the build is the draft's flat stand-in stone",

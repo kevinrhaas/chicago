@@ -1,7 +1,7 @@
 {
   "id": "kimball_house_1801_prairie",
   "phase": "as_mapped_1904",
-  "name": "1801 Prairie Avenue — W. W. Kimball's Chateauesque house in Bedford stone, built on K01 at the massing J. W. Taylor's c. 1895 photograph shows (T-2538, moved onto the kit by T-2843; refined by T-2790, T-2540, T-1890)",
+  "name": "1801 Prairie Avenue — W. W. Kimball's Chateauesque house in Bedford stone, built on K01 at the massing J. W. Taylor's c. 1895 photograph shows (T-2538, moved onto the kit by T-2843; refined by T-2910, T-2911, T-2540, T-1890)",
   "aka": [
     "1801 S. Prairie Avenue"
   ],
@@ -142,7 +142,7 @@
       "sources": [
         "taylor_c1895_kimball_residence_1801"
       ],
-      "note": "Bedford stone, the register's material for 1801 (frontage register row pa-1801-23, K02's limestone_bedford), laid in smooth courses as the photograph shows on the front and the flank alike, over a two-course base to the basement lights' heads. The front's carved frieze, string courses and corbel table are T-2790's and T-2540's."
+      "note": "Bedford stone, the register's material for 1801 (frontage register row pa-1801-23, K02's limestone_bedford), laid in smooth courses as the photograph shows on the front and the flank alike, over a two-course base to the basement lights' heads. The front's carved frieze, string courses and corbel table are T-2911's and T-2540's."
     },
     "street_front_trim": {
       "value": {
@@ -152,7 +152,7 @@
         ]
       },
       "confidence": "reconstructed",
-      "note": "Plain stone lintels: the photograph's carved surrounds and mullioned windows are T-2790's."
+      "note": "Plain stone lintels: the photograph's carved surrounds and mullioned windows are T-2911's."
     },
     "roof_form": {
       "value": "mansard",
@@ -188,19 +188,28 @@
       "note": "Read through the solved camera (T-2538): straight steep faces at about 72 degrees from the 8.1 m cornice to a curb 7.2 m higher, so the deck's front edge reads 15.3-16.3 m up, inside the photograph's 15.5-17 m. A face this tall holds the house's third storey and its attic, which is why it passes K05's attic-storey 4.5 m (T-2843 lets a mansard that holds two storeys rise to 7.5 m). The face's two tiers of hooded dormers and the deck's cresting are T-2540's."
     },
     "stair_tread_m": {
-      "value": 0.3,
-      "confidence": "reconstructed",
-      "note": "The K01 contract's middle tread."
+      "value": 0.28,
+      "confidence": "inferred",
+      "sources": [
+        "taylor_c1895_kimball_residence_1801"
+      ],
+      "note": "T-2910: the flight's nine risers come down about 2.5 m in front of the loggia's arch, read through the solved camera to the cheeks' foot blocks (the left about 1.9 m out, the right about 2.4 m), so eight treads of about 0.28 m off a 0.3 m landing."
     },
     "stair_landing_depth_m": {
-      "value": 1.1,
-      "confidence": "reconstructed",
-      "note": "A landing at the door, inside the contract's range; the photograph's broad stair between curved cheek walls is T-2790's."
+      "value": 0.3,
+      "confidence": "inferred",
+      "sources": [
+        "taylor_c1895_kimball_residence_1801"
+      ],
+      "note": "T-2910: the photograph's flight starts at the arch: the loggia's floor is the landing, and the cheeks run level only a short way before they sweep down. A 0.3 m step at the arch's mouth, the rest of the landing the loggia's own floor behind it."
     },
     "stoop_width_m": {
-      "value": 2.2,
-      "confidence": "reconstructed",
-      "note": "The contract's range; the photograph's stair is broader and is T-2790's."
+      "value": 2.3,
+      "confidence": "inferred",
+      "sources": [
+        "taylor_c1895_kimball_residence_1801"
+      ],
+      "note": "T-2910: the flight is as wide as the loggia behind the arch, its cheeks' inner faces about at the arch's piers (v 0.45-2.75 through the camera, the left cheek outside the corner pier's face). Built 2.3 m between 0.3 m cheeks, the room's own width."
     },
     "entrance_bay": {
       "value": "south",
@@ -208,7 +217,7 @@
       "sources": [
         "taylor_c1895_kimball_residence_1801"
       ],
-      "note": "The photograph's entrance is under the loggia at the front's 18th Street end (K01's 'south' end of the front in this frame, whose v runs south from 18th Street). The loggia's arches and the curved stair are T-2790's."
+      "note": "The photograph's entrance is under the loggia at the front's 18th Street end (K01's 'south' end of the front in this frame, whose v runs south from 18th Street). T-2910 builds the loggia's arches and the swept stair there."
     },
     "front_bays": {
       "value": [
@@ -217,7 +226,7 @@
         6.3
       ],
       "confidence": "reconstructed",
-      "note": "The door at the 18th Street end and two openings each floor between it and the pavilion; the photograph's bowed bay, paired windows and carved surrounds are T-2790's."
+      "note": "The door at the 18th Street end and two openings each floor between it and the pavilion; the photograph's bowed bay, paired windows and carved surrounds are T-2911's."
     },
     "side_bays": {
       "value": [
@@ -226,7 +235,7 @@
         18.9
       ],
       "confidence": "reconstructed",
-      "note": "The 18th Street wall's openings clear of the flank section and the tower; their sizes and heads are T-2790's."
+      "note": "The 18th Street wall's openings clear of the flank section and the tower; their sizes and heads are T-2911's. T-2910: the principal storey's opening at 18.9 m is the loggia's side arch (the photograph's), so that storey has no window there; the window over it is the photograph's."
     },
     "north_bays": {
       "value": [
@@ -341,18 +350,70 @@
           "variant": "k07.entrance.double_door_deep_arch",
           "front_yard_m": 7.7,
           "reveal_depth_m": 0.32,
+          "opening_m": [
+            1.9,
+            2.15
+          ],
           "arch": {
             "ring_m": 0.4,
-            "keystone_top_m": 4.75,
+            "keystone_top_m": 4.3,
             "keystone_m": [
               0.3,
               0.45
             ]
+          },
+          "porch_door": {
+            "width_m": 1.5,
+            "offset_m": 0.0,
+            "height_m": 2.75,
+            "leaves": 2,
+            "panels": [
+              1,
+              2
+            ],
+            "transom_m": 0.45
+          },
+          "loggia": {
+            "v_m": [
+              0.45,
+              2.75
+            ],
+            "depth_m": 2.75,
+            "ceiling_m": 3.2,
+            "side_arch": {
+              "centre_m": 1.6,
+              "clear_width_m": 1.9,
+              "clear_height_m": 2.15,
+              "ring_m": 0.4,
+              "keystone_top_m": 4.3,
+              "keystone_m": [
+                0.3,
+                0.45
+              ],
+              "balcony": {
+                "span_m": [
+                  0.25,
+                  2.95
+                ],
+                "out_m": 0.4,
+                "height_m": 0.5,
+                "corbel_m": 0.35
+              }
+            }
+          },
+          "cheek_form": {
+            "kind": "swept",
+            "head_m": 0.1,
+            "foot_m": 0.85,
+            "block_m": 0.5
           }
         }
       },
-      "confidence": "reconstructed",
-      "note": "K07's deep-arched double door at the front's 18th Street end, standing for the photograph's loggia arch; the front yard is the 7.7 m from the front to the lot line (street_u 28.2). The loggia and its stair are T-2790's."
+      "confidence": "inferred",
+      "note": "T-2910 builds the corner loggia J. W. Taylor's c. 1895 photograph shows at the front's 18th Street end, read through its solved camera (data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.json): a round arch on the front and one on the 18th Street face, each about 1.9 m across (the front's void x 1010-1095 on the print, v 0.5-2.7; the flank's u 18.1-19.5 inside its surround), centred about 1.6 m from the corner, springing about 2.65 m over grade and crowned about 3.6 m (the photograph's 2.61-2.67 and 3.57), so 2.15 m over the 1.45 m floor; through the 18th Street arch the loggia's back wall and its door frame are seen about on the front arch's axis. Built as K07's deep-arched double door made a loggia: the front arch (opening_m) under its voussoir block, a room 2.3 m square behind it (v 0.45-2.75, 2.75 m behind the front) on the door's floor, the double door in its back wall, and the side arch cut through the 18th Street wall with its own voussoir block, laid in that wall's courses; under the side arch the photograph's stone balcony, its top the arch's sill and its underside corbelled back into the wall. The stair comes down the front out of the arch, as broad as the room, between cheeks whose tops run level by the arch and sweep down in one reversed curve to a block at the foot about 0.85 m over grade (the photograph's left foot block reads 0.68-0.70 m over the walk at the camera's grade, which stands about 0.2 m under the lot's). Reconstructed, and recorded in docs/LIBERTIES.md L-kimball-1801-loggia-2910: the room's depth, ceiling and square plan (only its back wall and the door's frame are seen), the door's leaves and transom, the cheeks' thickness, the balcony's projection and corbel, and plain stone where the photograph shows carved panels on the piers, the cheeks' blocks and the balcony's face (T-2911 and T-2540 carry the carving). front_yard_m is the 7.7 m from the front to the lot line (street_u 28.2).",
+      "sources": [
+        "taylor_c1895_kimball_residence_1801"
+      ]
     },
     "bays": {
       "value": [
@@ -713,7 +774,7 @@
       ]
     }
   ],
-  "research_note": "MOVED ONTO K01 BY T-2843 (piece 3 of T-2789), at the massing T-2538 read off J. W. Taylor's photograph of c. 1895 (taylor_c1895_kimball_residence_1801, camera data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.json) and the 1911 sheet 28 trace (s28fp-1801-b1). The draft builder's copy is retired: the house is now an all-stone K01 frontage (T-2788) in Bedford stone, the register's material for it (pa-1801-23): two storeys of wall to a cornice at 8.1 m under steep slate mansard faces to a deck about 16-17 m up; the front's south pavilion and the 18th Street wall's three-storey section on K08 projections carried past the eave to 13.9 m; the round tower on a K08 tower on the 18th Street wall, its cone to about 18.7 m; the gabled section and the east range as slated K01 wings (T-2841). Three things the photograph and the sheet show are not built and each has its ticket: the east range's corner turret (a turret turned round a wing's corner, eaves level with the range's) and the range's south 12 m behind the gabled section (a wing longer than its host wall), both T-2900, and the pavilion's coped gable (T-2540). The openings, loggia, bowed bay, stair and carving are T-2790's; the roof's dormers, cresting, stacks and the flank's gable are T-2540's; T-1890 finishes the architecture. What the build invents is in docs/LIBERTIES.md (L-kimball-1801-k01-2843, after L-kimball-1801-massing-2538) and what differs is open in the match record.",
+  "research_note": "MOVED ONTO K01 BY T-2843 (piece 3 of T-2789), at the massing T-2538 read off J. W. Taylor's photograph of c. 1895 (taylor_c1895_kimball_residence_1801, camera data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.json) and the 1911 sheet 28 trace (s28fp-1801-b1). The draft builder's copy is retired: the house is now an all-stone K01 frontage (T-2788) in Bedford stone, the register's material for it (pa-1801-23): two storeys of wall to a cornice at 8.1 m under steep slate mansard faces to a deck about 16-17 m up; the front's south pavilion and the 18th Street wall's three-storey section on K08 projections carried past the eave to 13.9 m; the round tower on a K08 tower on the 18th Street wall, its cone to about 18.7 m; the gabled section and the east range as slated K01 wings (T-2841). Three things the photograph and the sheet show are not built and each has its ticket: the east range's corner turret (a turret turned round a wing's corner, eaves level with the range's) and the range's south 12 m behind the gabled section (a wing longer than its host wall), both T-2900, and the pavilion's coped gable (T-2540). The corner loggia, its two arches and the swept stair are built (T-2910); the bowed bay, the front's openings and carving are T-2911's; the roof's dormers, cresting, stacks and the flank's gable are T-2540's; T-1890 finishes the architecture. What the build invents is in docs/LIBERTIES.md (L-kimball-1801-k01-2843, after L-kimball-1801-massing-2538) and what differs is open in the match record.",
   "research_doc": "",
   "review_required": false
 }
