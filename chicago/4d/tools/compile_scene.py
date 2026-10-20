@@ -3044,6 +3044,14 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
         # they share, and re-derived against these bytes by assertion 7. Written only on
         # the records that carry the flag, like `drawn_by` below: nine files rather than
         # 330 saying nothing in a mirror that is published byte-for-byte.
+        # T-2825. What the card, the target tag and Go to call a named building, where its
+        # name carries the production step it was modelled in ("…, K01 frontage assembly",
+        # "(district draft; refined by T-1908)", "map-led"): the name with that taken off,
+        # by readable_text.plain_name, every word left the record's own. Written only where
+        # it differs, like `drawn_by`; `name` stays what the generators and the GLB read.
+        called = readable_text.plain_name(sidecar.get("name") or "")
+        if called and called != sidecar.get("name"):
+            sidecar["called"] = called
         if sidecar["review_required"]:
             reason = record_reason(st)
             if reason:
