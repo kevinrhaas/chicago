@@ -1,0 +1,8 @@
+{
+  "title": "Finished houses reach the town faster when two land together",
+  "kind": "improvement",
+  "items": [
+    "Nothing you can see changes in the scene itself. Two building changes that rebuilt different houses no longer hold each other up: the build loop now merges the town's asset list entry by entry, where before a second house waited a whole extra run to catch up with the first.",
+    "When a shared recipe moved on both sides, the affected houses are rebuilt on the combined version and kept only if they come out identical; anything that would look different still goes back to a full run."
+  ]
+}
