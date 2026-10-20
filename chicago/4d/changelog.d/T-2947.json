@@ -1,0 +1,9 @@
+{
+  "title": "Offline copy is a quiet line, and its download finishes",
+  "kind": "fix",
+  "items": [
+    "The welcome's big \"Keep this year on this device\" button is now a small \"Offline copy\" line under the choices; tapping it explains what it does before anything downloads.",
+    "Downloads no longer stop on the first page: the deploy rewrote each year's door after its file list was made, so every copy failed its own check.",
+    "A deploy that lands mid-download is followed: the list is read again and the download carries on from what it already has."
+  ]
+}

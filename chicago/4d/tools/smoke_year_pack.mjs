@@ -11,7 +11,7 @@
  * laid out: production at /4d/ and the dev preview at /4d/dev/ (the same tree,
  * as deploy.yml copies it). Every part fails on any page error.
  *
- *   keep    a visitor taps "Keep 1835 on this device" on the welcome; every file
+ *   keep    a visitor opens "Offline copy" on the welcome and downloads; every file
  *           of the pack is fetched once and kept. Then the browser goes offline
  *           AND the server stops answering, the page reloads, the town boots and
  *           walks — with zero requests reaching the server. A dev-preview file is
@@ -113,6 +113,8 @@ const keep = async (page, label) => {
   if (SHOTS) await page.screenshot({ path: path.join(SHOTS, `${label}-offer.png`) });
   const before = hits.length;
   const t = Date.now();
+  // T-2947: the control is a small line that opens its explanation; the download is inside.
+  await page.click('.welcome-pack-toggle');
   await page.click('.welcome-pack-keep');
   if (SHOTS) {
     await page.waitForFunction(() => document.getElementById('welcome-pack').dataset.state === 'downloading');
