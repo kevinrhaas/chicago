@@ -1,8 +1,0 @@
-{
-  "title": "Road notes say once that they come from the model's map",
-  "kind": "fix",
-  "items": [
-    "Each \"Passing …\" road note used to end in \"[MAP] Reconstruction route\", which read like a label missing its text.",
-    "The notes now close with one line: \"[MAP] From the model's map, not a historical source.\""
-  ]
-}
