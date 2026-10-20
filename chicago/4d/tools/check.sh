@@ -4395,6 +4395,17 @@ step "every held or resumable pull request reaches the board with its reason, an
 step "claim and list hold a 1904 house to one run at a time" \
   node tools/test_ticket_house_serial.mjs
 
+# A RUN MAY TAKE A GROUP (T-2938, owner 2026-10-20: "when claiming a ticket, it can and
+# should evaluate if it can claim multiple and handle them as a group in a single PR").
+# `claim A B C` asks every member the single claim's questions, claims what passes in ONE
+# pushed commit, reports each refusal and exits non-zero only when none was claimed; a
+# member taken mid-push is reported and the rest re-claimed. `done A B --pr N` is all or
+# nothing; `--with T-A` grows a held group (never inferred from a shared run URL);
+# `release` gives back a claim the run will not finish; `list --group` is the shortlist.
+# Run for real against a tickets repository of its own; it reaches no network.
+step "a run claims, closes and releases a group of tickets as one unit" \
+  node tools/test_ticket_group.mjs
+
 # A GATED WRITER BELONGS IN THE MANIFEST (T-1282, owner 2026-09-18). A tool this gate runs
 # with --check, and that can also write, produces DERIVED content by definition — so if
 # derived_manifest.json has never heard of it, rederive.mjs never runs it, the lap leaves

@@ -348,7 +348,8 @@ is the contract. The short form:
 
 - **Pick**: take the topmost ticket in `tickets/QUEUE.md` you can actually run (skip
   `needs_bake` on the improve runner, with the skip stated in the PR). `node
-  tools/ticket.mjs list --workable` prints the same order.
+  tools/ticket.mjs list --workable` prints the same order. That ticket is your ANCHOR;
+  § A RUN MAY TAKE A GROUP below says when to add up to four more to it.
 - **Skip a LIVE claim, not a dead one** (T-1612). `list --workable` prints each claim's
   age — `claimed 40m` — and a claim older than the three-hour run window as
   `TAKEABLE dead claim 10h`: a run that died. That row is workable in its queue place
@@ -422,7 +423,8 @@ is the contract. The short form:
     deletes the stale ones.
   - Unreachable remote, no credentials, no git? The claim **succeeds and says so**. The
     lock never turns a network blip into a dead slice.
-- **Close** in the merging PR: `node tools/ticket.mjs done T-NNNN --pr N`. Blocked instead?
+- **Close** in the merging PR: `node tools/ticket.mjs done T-NNNN --pr N` (a group:
+  `done T-A T-B T-C --pr N`, all or nothing). Blocked instead?
   `block --owner "the question"` — the question goes in the ticket, where the owner will
   actually see it, not only in a PR body. **Closing after `publish.sh` is fine**: the tool
   carries `tickets.json` to the published mirror itself, so the order below — publish,
@@ -539,6 +541,41 @@ is the contract. The short form:
   open PR at once. **Run `node tools/ticket.mjs check` bare and it is strict** — by hand
   and in the tickets repository's own CI, which is where the rule keeps its teeth. The
   flag softens nothing your run caused: a dirty or unpushed tickets clone still fails.
+
+### A RUN MAY TAKE A GROUP — one to five tickets, one PR (owner, 2026-10-20)
+
+The owner: *"i am very much liking this move of taking several tickets at once that can be
+worked together and merged as a unit ... when claiming a ticket, it can and should evaluate
+if it can claim multiple and handle them as a group in a single PR that way we minimize PR
+churn ... so maybe 3-5 tickets might get picked up and merged together"*. Every PR costs a
+gate, a lap each time a sibling lands, and a merge; five small PRs on one house cost five of
+each and conflict with one another on its bake. So a run SHOULD look for a group, every run:
+
+1. **The anchor is picked exactly as above** — the topmost workable ticket (your k-th under
+   slices). Nothing in this section moves the pick.
+2. **Then look for mates:** `node tools/ticket.mjs list --workable --group T-ANCHOR` prints
+   the takeable tickets linked to it — the same house, pieces of the same small split, one
+   naming the other, a file or kit id both name — with effort and needs-bake. It is a hint:
+   read each one.
+3. **Add up to four** (one to five in all) that share files, a subsystem or a building with
+   the anchor AND fit one run together: up to five `S`, or one `M` plus up to three `S`;
+   **never an `L`**; a `needs_bake` member only if this run bakes anyway. A mate from lower
+   in the queue rides the anchor's run; one that would make the anchor late is not a mate.
+   Under N slices, never take one of the first N workable rows: those are the other
+   slices' anchors.
+4. **Claim every member before any work:** `ticket.mjs claim T-A T-B T-C` — one pushed
+   commit, each member asked everything a single claim asks. A refused member is printed
+   with its reason; work what was claimed (it exits non-zero only if it claimed none).
+   Anchor already claimed alone? `claim T-B T-C --with T-A` joins them to its group.
+5. **One branch named for every member** (`steward/t2931-t2932-t2923-1801-carving`, so
+   `inflight`, the rival scan and the strand gate see each), **one commit per ticket**,
+   **one PR titled `T-A, T-B, T-C: …`**, then `ticket.mjs done T-A T-B T-C --pr N`.
+6. **A member the run cannot finish is never shipped half-done and never left claimed:**
+   `ticket.mjs release T-B --why "…"` gives it back (open, its queue place kept, the reason
+   in the ticket), or `split` it and keep the finished piece. Then retitle the PR.
+7. **One What's-New entry per PR,** `changelog.d/<anchor>.json`, one item per ticket (the
+   budget's six items hold five). The visible-progress rule still counts RUNS: a group is
+   one run, visible only if a member changes what a visitor sees.
 
 **`docs/ROADMAP.md` is no longer the backlog.** It remains the *reasoning archive* — the
 parcel boxes hold measurements, refutations and acceptance clauses that tickets link into,

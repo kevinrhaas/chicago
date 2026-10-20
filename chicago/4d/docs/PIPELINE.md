@@ -219,6 +219,13 @@ to `renderers/web/js/changelog.js`, stamps it, deletes the file and pushes one c
 which starts the dev deploy. Two PRs never write the same entry file, so they stop
 conflicting on the changelog's top line, which used to cost every open PR a lap per landing.
 
+**A group PR still adds ONE file** (T-2938; AGENTS.md § A RUN MAY TAKE A GROUP). A run that
+claims one to five related tickets with `ticket.mjs claim T-A T-B T-C` ships them on one
+branch as one PR titled `T-A, T-B, T-C: …` and closes them with `done T-A T-B T-C --pr N`.
+Its entry is `changelog.d/<anchor>.json` with one item per ticket: one entry per PR keeps
+the visible-progress count in runs, and the gate here asks for at least one entry file, not
+one per ticket. A member the run could not finish is `release`d, never shipped half-done.
+
 The older way still passes the gate, and the notes below are about it: prepend one entry
 to `renderers/web/js/changelog.js` with all three authored fields blank — `v: null, ts: '',
 date: ''` — then run `node tools/stamp-changelog.mjs` before merging.
