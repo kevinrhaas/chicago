@@ -199,7 +199,9 @@ async function walkTheBand(chromium, stands) {
     page.on('pageerror', (e) => errors.push(String(e?.message || e)));
 
     await page.goto(base, { waitUntil: 'domcontentloaded' });
-    await page.waitForFunction(() => window.__chicago4d?.ready === true, { timeout: 60_000 });
+    // (fn, arg, options): the 60 s once written in the arg slot never applied; this has
+    // always run at the page's 90 s above, and keeps it (T-2899).
+    await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 90_000 });
 
     const eyeHeight = await page.evaluate(() => window.__chicago4d.walkBudget.eyeHeight);
 
