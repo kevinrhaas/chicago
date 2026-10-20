@@ -112,7 +112,7 @@ from . import k09_frontage
 from . import k10_frontage
 from . import k11_frontage
 from . import k14_yard
-from .k01_frontage_params import EAVE_FASCIA_M, ROUND_CUT, ROUND_HOODED, STREET_WINDOW, STRIP_FABRICS
+from .k01_frontage_params import EAVE_FASCIA_M, ROUND_CUT, ROUND_HOODED, STREET_WINDOW, STRIP_FABRICS, wing_walls
 
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
@@ -825,7 +825,9 @@ class Assembly:
         for side, (O, R, length) in wing_walls(w).items():
             cid = f"k01.wall.wing.{w['id']}.{side}"
             ops = [o for o in w["openings"] if o.wall == cid]
-            cover = on_rear if side == "rear" else []
+            # T-2842: and where a K08 tower stands on it, from grade to the wing's wall top
+            cover = (on_rear if side == "rear" else []) + [(*b["span_m"], 0.0, w["top_m"]) for b in p.bays
+                                                           if b["wall"] == cid]
             hs = [(o.s_m - o.width_m / 2, o.s_m + o.width_m / 2, o.sill_m, o.head_m) for o in ops] + cover
             if frame_wing:
                 frame, t = self.wall(cid, "bay_frame", O, R, length, w["top_m"], FRAME_WALL_M, hs,
@@ -1925,7 +1927,9 @@ class Assembly:
             on = [q[0] for q in built.prims["soffit"].pos if abs(q[2]) < 1e-6]
             pr = self.prim(body)
             bb = self.basis(body, O, R, Y, seed)
-            for (x0, x1), (y0, y1) in (((b["span_m"][0] - b["s_m"], b["span_m"][1] - b["s_m"]), (p.eave_m, wall_top)),
+            # T-2842: on a rear wing's wall it is closed from the wing's wall top (`eave_m`)
+            for (x0, x1), (y0, y1) in (((b["span_m"][0] - b["s_m"], b["span_m"][1] - b["s_m"]),
+                                        (b.get("eave_m", p.eave_m), wall_top)),
                                        ((min(on), max(on)), (wall_top, eave))):
                 pr.face([tuple(round(c * 1000) / 1000 for c in W((x, y, -0.001)))
                          for x, y in ((x0, y0), (x1, y0), (x1, y1), (x0, y1))], back, bb, conf)
@@ -3405,7 +3409,8 @@ def build(params, structure_id: str):
             a.opening(op, frame, t, mat, "limestone_trim", coursed=all_round or op.wall == "k01.wall.street_front")
         a._walls, a._yf = walls, yf   # T-2773: a bay coursed on the front's beds strikes them first
         for bay in p.bays:
-            laid[bay["id"]] = a.bay(bay, frames[bay["wall"]][0][0])
+            if not bay.get("wing"):   # T-2842: a wing's tower is laid before its wing, below
+                laid[bay["id"]] = a.bay(bay, frames[bay["wall"]][0][0])
         mat, O, R, length, t, _ = walls["k01.wall.street_front"]
         front = [o for o in p.openings if o.wall == "k01.wall.street_front"]
         frame, quoins = a.stone_front("k01.wall.street_front", O, R, length, E, yf, t, front)
@@ -3455,6 +3460,12 @@ def build(params, structure_id: str):
             k03_brick.string_course(a, seed_of(structure_id, cid, 0), frame, s0, s1, floors[1], sc_conf)
     # T-2343: the rear wings, each a brick box on its host wall under its own flat deck
     # (T-2841: or its own slated hip or gable)
+    # T-2842: a K08 tower on a wing's wall is laid first, so a coursed wing is laid round it
+    for bay in p.bays:
+        if bay.get("wing"):
+            w = next(x for x in p.rear_wings if x["id"] == bay["wing"])
+            O, R, _ = wing_walls(w)[bay["wall"].rsplit(".", 1)[1]]
+            laid[bay["id"]] = a.bay(bay, (O, R, _cross(R, Y)))
     for w in p.rear_wings:
         a.wing(w, sc_conf)
     if p.rear_section:   # T-2820: the rear section's step-out walls; its attic is the roof's

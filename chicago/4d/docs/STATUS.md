@@ -1,3 +1,46 @@
+## T-2783 — 1812 and 1835: the far prairie past the near ring (2026-10-19)
+
+The plain past the near grass ring now reads as grass. A third far-card band, the mid ring,
+uses narrow cards with no seed heads: 22-88 m at full, 16-64 m balanced, 12-44 m on the phone.
+It draws inside the far band's existing draw call. Past the cards, the ground shader eases
+toward each grass community's own `matColor`, weighted by `matrixShare` and streaked with the
+sward grain at 18 m. The colour comes from a 16 m map that flora.js rasterises off its zone
+finder. It skips water, the z10 town turf and grassless zones, so the 1835 town's short
+turf is unchanged. Liberty L-far-sward-2783.
+
+- **Cost, open prairie** (south-branch stand at pitch -12, settled; desktop):
+  - 1835: full 1,282,420 → 1,296,166 (+13.7k), balanced 873,499 → 877,099 (+3.6k),
+    light 261,276 → 262,074 (+0.8k).
+  - 1812: full +3.4k, balanced +3.6k, light +0.8k.
+  - Draw calls are unchanged at every stand and tier.
+  - Ground shader: two more texture fetches per fragment.
+- **Ceilings, desktop** (`measure_detail_ceilings.mjs`, against the base tree): every tier
+  inside its ceiling in both years.
+  - 1835 worst (West prairie): full 3,321,419 (+306), balanced 2,490,805 (+112),
+    light 1,102,885.
+  - The ceiling stands barely move because they stand in or look over the town. The mid
+    ring's cost lands on the open plain, where the stands above read it.
+- **Memory** (`measure_memory.mjs`): +0.3 to +0.5 MB per reading, desktop and phone, both years.
+- **Flora commit latency after a teleport** is unchanged within noise (9-32 s on this host,
+  base and change alternating).
+- **The "flat untextured plain" in the eco-shot *south-branch* is not the scene.** It is
+  SwiftShader mis-interpolating a ground triangle that has a vertex exactly in the camera
+  plane. It appears when the stand is at whole-metre coordinates with a cardinal yaw and
+  zero pitch. Moving the stand 0.4 m, or turning it 1°, removes it. It also shows at the
+  whole-metre west-prairie and mid-field-north stands. The shots in
+  `/mnt/project-files/trees-1812-1835/T-2783-shots/` include offset stands. Whether a hardware GPU ever
+  shows it is unverified.
+- **Smoke, by parts:**
+  - Mobile 3,10 and 11-12 pass.
+  - Mobile 14 fails only on the proxy's chicago-images thumbnails.
+  - Desktop 3, 10, 11, 12 and 14 did not reach `ready` inside the smoke's 90 s on this host.
+    The base tree boots in 103-106 s here and the change in 101-102 s, so the desktop parts
+    are unverified on this host, not red from this change.
+- **Unverified:** the 1835 still-frame time (not taken; triangles, calls and memory stand in
+  for it), and any hardware-GPU view of the shader. The 1835 *west-prairie* stand is inside
+  the platted town's turf. Its tan patches are the turf's own bare and dust tones, which this
+  ticket leaves alone.
+
 ## T-2672 / T-1789 — resident transport adults (2026-10-18)
 
 The owner requested adults for driving, riding, standing near transport and walking,
