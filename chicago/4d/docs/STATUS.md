@@ -1,3 +1,94 @@
+## T-2901 — the front door measures this device: a live performance meter (2026-10-20)
+
+The owner asked for a meter on the Temporal Observatory that reads the device during the Wolf
+Point opening and hovers, red to green, around how well the town will run. `portal/device-meter.js`
+runs `profileDevice()` from `js/device-profile.js` — the same reading the town boots on — 300 ms
+into the cold start, and holds the reveal to at least 1.7 s so it reads as part of the opening.
+`scoreProfile()` (new, pure, in device-profile.js) turns the profile into 0-100 in five grades
+(Poor, Low, Fair, Good, Peak, 20 points each): fill and vertex rates on a log scale with each class
+floor in `THRESHOLDS` at 40 and each ceiling at 80, weighted 0.65 against cores 0.2 and memory 0.15,
+then **clamped into the band of the class the town will choose** (weak 8-39, standard 40-79, strong
+76-99), so the meter cannot promise more than the town draws. The hover is ±~3 of smoothed noise
+plus a real dip of up to 18 points for the share of this page's last 40 frames that arrived late.
+
+- **The front door never writes the town's cache** (`storage: null`), so it cannot change what
+  the town chooses; it benchmarks afresh on every load (the same ≤ 0.9 s ceiling the town pays).
+- **What is not known, said plainly.** The score inherits T-2559's thresholds, which are a first
+  setting and not a calibration. On the runner's SwiftShader the profile is not benchmarked, so the
+  meter places it on cores and memory alone: 4 cores and 8 GB read 66, Good, inside `standard`.
+  No reading from real phone or laptop silicon has been taken.
+- `check_device_profile.mjs` holds every class's score inside its band over a grid of benchmark
+  rates and resources; `test_temporal_menu_browser.mjs` holds the meter ready, lit, and on the first
+  screen at 1280×800 and 390×844. The manual gains 07 This device.
+
+## T-2829 — why Adaptive pacing made turning less steady on the owner's phone (2026-10-19)
+
+Nothing you can see in a still frame changed. This changes how frames come while
+moving on a phone with a 120 Hz screen. It fixes the regression in the owner's own
+reading (T-2733).
+
+- **Cause, from the code:** the phone draws on a 120 Hz grid. His Fixed turn fits a
+  25 ms rung (every third vsync), and nothing on a 60 Hz grid fits it. At the build he
+  read, Adaptive stepped the scale three times, three drawing-buffer resizes that bought
+  nothing, and then paced to 30. That held 25 ms frames back to 33 ms: median 27 → 32,
+  draws 186 → 157. The model (`tools/model_governor_phone.mjs`) predicts that from his
+  Fixed row alone.
+- **Fix:** no pace when a window's median lies between 21 ms and the paced interval (60 Hz
+  displays never land there, so T-2555's 60/30 case is unchanged). A pace takes three
+  windows in a row. The ladder stops at a step that does not lower the p80, and stays
+  stopped across rests. Read frame pacing now prints each row's ratio switches, the
+  >50 ms draws that came on one, and the paced share.
+- **Model, not reading:** the Adaptive turn now reads sd 4.8 / p95 35.9 against Fixed's
+  4.8 / 35.9 (5 s, no resize hitch assumed). Flight's p95 still rises 0.6 ms.
+  `docs/measurements/T-2829-pacing-model.md` has the tables.
+- **Unverified:** everything on the phone itself. Whether a resize is a hitch there (the
+  73 ms frame) is for the new readout to say. Adaptive stays the default. The
+  acceptance is his 15 s repeat at `/4d/dev/1835/` (Settings → Performance → Read frame
+  pacing): the turn's Adaptive sd and p95 at or under Fixed's.
+
+## T-2783 — 1812 and 1835: the far prairie past the near ring (2026-10-19)
+
+The plain past the near grass ring now reads as grass. A third far-card band, the mid ring,
+uses narrow cards with no seed heads: 22-88 m at full, 16-64 m balanced, 12-44 m on the phone.
+It draws inside the far band's existing draw call. Past the cards, the ground shader eases
+toward each grass community's own `matColor`, weighted by `matrixShare` and streaked with the
+sward grain at 18 m. The colour comes from a 16 m map that flora.js rasterises off its zone
+finder. It skips water, the z10 town turf and grassless zones, so the 1835 town's short
+turf is unchanged. Liberty L-far-sward-2783.
+
+- **Cost, open prairie** (south-branch stand at pitch -12, settled; desktop):
+  - 1835: full 1,282,420 → 1,296,166 (+13.7k), balanced 873,499 → 877,099 (+3.6k),
+    light 261,276 → 262,074 (+0.8k).
+  - 1812: full +3.4k, balanced +3.6k, light +0.8k.
+  - Draw calls are unchanged at every stand and tier.
+  - Ground shader: two more texture fetches per fragment.
+- **Ceilings, desktop** (`measure_detail_ceilings.mjs`, against the base tree): every tier
+  inside its ceiling in both years.
+  - 1835 worst (West prairie): full 3,321,419 (+306), balanced 2,490,805 (+112),
+    light 1,102,885.
+  - The ceiling stands barely move because they stand in or look over the town. The mid
+    ring's cost lands on the open plain, where the stands above read it.
+- **Memory** (`measure_memory.mjs`): +0.3 to +0.5 MB per reading, desktop and phone, both years.
+- **Flora commit latency after a teleport** is unchanged within noise (9-32 s on this host,
+  base and change alternating).
+- **The "flat untextured plain" in the eco-shot *south-branch* is not the scene.** It is
+  SwiftShader mis-interpolating a ground triangle that has a vertex exactly in the camera
+  plane. It appears when the stand is at whole-metre coordinates with a cardinal yaw and
+  zero pitch. Moving the stand 0.4 m, or turning it 1°, removes it. It also shows at the
+  whole-metre west-prairie and mid-field-north stands. The shots in
+  `/mnt/project-files/trees-1812-1835/T-2783-shots/` include offset stands. Whether a hardware GPU ever
+  shows it is unverified.
+- **Smoke, by parts:**
+  - Mobile 3,10 and 11-12 pass.
+  - Mobile 14 fails only on the proxy's chicago-images thumbnails.
+  - Desktop 3, 10, 11, 12 and 14 did not reach `ready` inside the smoke's 90 s on this host.
+    The base tree boots in 103-106 s here and the change in 101-102 s, so the desktop parts
+    are unverified on this host, not red from this change.
+- **Unverified:** the 1835 still-frame time (not taken; triangles, calls and memory stand in
+  for it), and any hardware-GPU view of the shader. The 1835 *west-prairie* stand is inside
+  the platted town's turf. Its tan patches are the turf's own bare and dust tones, which this
+  ticket leaves alone.
+
 ## T-2672 / T-1789 — resident transport adults (2026-10-18)
 
 The owner requested adults for driving, riding, standing near transport and walking,
@@ -24122,6 +24213,19 @@ An isolated roofed carriage specimen adds a repaired cabin aperture and reconstr
 
 Nothing in the scene changed. T-2851 was split into this reading and T-2858, which builds what it found. The Prairie openings were read camera-free, with a one-dimensional projective fit along each course, on Taylor 2135, HABS 16 and HABS 17. They fit the model's spacing to 1.5, 3.3 and 1.6 px rms. HABS sheet 6 was re-measured off its scale bar, and its front measures 73.98 ft against the printed 74'-0". Against it, first-floor A, B and the door, and the second-floor north group, are built 0.30-0.63 ft too far south. The sheet also draws the first-floor lights 4.3-4.45 ft wide where 3.9 ft is built. Taylor's camera has its corner controls on the downspouts, and through it the openings and the stacks register 15-22 px left together. That is the camera, not the building. The stack tops agree with that photograph within 2 px. The match records' generic front items are now specific, and all three views still read `differs`. See docs/RESEARCH/glessner-prairie-front-T-2857/.
 
+## T-2858 — Glessner's Prairie lights on HABS sheet 6 (2026-10-19)
+
+The four first-floor Prairie lights are now built at sheet 6's outer lines (4.36-4.46 ft wide;
+A and B 0.38-0.63 ft further north). The basement grilles are centred under them, and the
+second-floor north group is 0.30 ft north. The NE photographs had read the lights narrower
+because, seen obliquely, the far jamb is the sash behind the reveal. With that projected (no free
+parameter), sheet 6 fits all three street photographs better than the old 3.9 ft. The door stays
+where it was: the sheet gives only its fan's centre, and the photographs split on it. The corner
+picks read on the downspouts, so the piers stand. Taylor 2135 is refitted on the jambs at 1.36 px
+rms, against 20.5 px off before. Its withheld stacks fall from 14.5 to 6.5 px rms, and the south
+stack's face is still 14.6 px off and open. Rebaked; the three front views are re-rendered and
+their front items closed, and all still read `differs`. See
+docs/RESEARCH/glessner-prairie-front-T-2858/.
 
 ## T-2804 supported bench and opt-in named seated authoring (2026-10-19)
 

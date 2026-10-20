@@ -51,10 +51,10 @@
   {
    "face": "west",
    "record": "v4_detail",
-   "what": "east-wing courtyard barred basement light beside the stair tower, native HABS sheet4 clear aperture",
+   "what": "east-wing courtyard barred basement light beside the stair tower, native HABS sheet4 clear aperture re-zeroed onto the plan (T-2880: north jamb S46.48+0.65; south jamb held 0.23 ft, the drawn clearance, short of the plan's tower drum at S50.91, since the re-zeroed S51.63 falls inside it)",
    "at_ft": [
-    46.48,
-    50.98
+    47.13,
+    50.68
    ],
    "z_ft": [
     2.6,
@@ -65,7 +65,7 @@
    "kind": "window",
    "style": "court_garden_grille",
    "sash": null,
-   "built_as": "recessed dark light behind 6 vertical iron bars and 2 rails, narrow frame, stone head and sill",
+   "built_as": "recessed dark light behind 6 vertical iron bars and 2 rails, narrow frame, stone head and sill, in a broad dressed-stone panel to the post and the drum",
    "confidence": "reconstructed",
    "sources": [
     "habs_glessner_house_il_1015_drawings",

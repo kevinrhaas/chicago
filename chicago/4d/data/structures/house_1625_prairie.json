@@ -220,8 +220,8 @@
               "s_m": 8.8,
               "fabric": "stone",
               "base_m": 3.6,
-              "corbel": {
-                "courses": 5
+              "apron": {
+                "foot_m": 2.3
               },
               "plan": {
                 "kind": "polyline",
@@ -249,6 +249,18 @@
                   "height_m": 2.1,
                   "windows": [
                     {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "narrow": true,
+                      "clear_width_m": 0.3,
+                      "clear_height_m": 1.75,
+                      "sill_m": 0.12,
+                      "at": [
+                        0.096
+                      ],
+                      "recess_m": 0.33,
+                      "why_not_ordinary": "the oriel's west cheek light, read off the print at x 507-516 px (0.3 m at the cheek's 30.05 px/m), its centre 0.22 m out from the wall in a cheek 0.48 m deep: one light a sash on K06's least stile, its sill and lintel stopped at its jambs (K08's narrow light), the cheek's stone its surround; its meeting rail a sash's half-way, where the print's bar stands about 0.43-0.46 of the light down"
+                    },
+                    {
                       "opening": "k06.opening.casement_pair_transom_mullioned",
                       "clear_width_m": 0.7,
                       "clear_height_m": 1.75,
@@ -273,7 +285,7 @@
           "sources": [
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "T-2846: the oriel the photograph shows on the main south wall just in front of the rear section (x 504-527 px), read through the re-solved camera (inland_architect_front.json). A box on the wall: its west cheek faces the plate (x 505-519.5 px) and its long south face recedes beside it (x 519.5-527.5); a cheek 0.48 m deep puts both of the west cheek's edges at one depth (8.16 m behind the front), and the south face's far end then stands at 9.45 m, so the oriel is 1.29 m along the wall, centred 8.8 m back. It cannot reach further: the rear section's lower window (x 534-557) shows past it at its own height. Its far end hides the wall from there to the rear section's corner, which is why it seems to abut it. Heights at the cheek's scale (30.05 px/m): the foot of its apron about 2.3 m (y 718), its lights' sills about 3.5 m (y 681) and their heads about 5.5 m (y 621), the moulded cornice to about 5.8 m (y 613); nothing shows over it, so its roof is low. Built as K08's oriel on the first floor (3.6 m), a storey of 2.1 m to its wall top under K08's eaves, on five corbel courses (the most a 0.48 m reach may carry and still bear 0.08 m on the wall), to 2.6 m; in its south face one light 0.7 m across and 1.75 m tall from 0.12 m over its floor, two casements on a mullion under a transom, the house's first-floor kind (the print's light carries a bar about 0.43 of its height down). Not built: the light in the west cheek, the print's most visible (about 0.3 m across, x 507-516): the kit's frame and piers need 0.7 m of cheek for any light and its corbel cannot carry a cheek that deep on a face this short. Reconstructed: the plan's square corners, the east cheek (hidden), the casement kind, the dressed stone of its walls (the print reads it light, near the trim's tone, with a darker apron, and cannot say stone or painted timber), the corbel courses for the apron, and the low copper hip (L-k01-1625-oriel-2846). Earlier: none, the front being flat (T-2435), which still holds for the front."
+          "note": "T-2846: the oriel the photograph shows on the main south wall just in front of the rear section (x 504-527 px), read through the re-solved camera (inland_architect_front.json). A box on the wall: its west cheek faces the plate (x 505-519.5 px) and its long south face recedes beside it (x 519.5-527.5); a cheek 0.48 m deep puts both of the west cheek's edges at one depth (8.16 m behind the front), and the south face's far end then stands at 9.45 m, so the oriel is 1.29 m along the wall, centred 8.8 m back. It cannot reach further: the rear section's lower window (x 534-557) shows past it at its own height. Its far end hides the wall from there to the rear section's corner, which is why it seems to abut it. Heights at the cheek's scale (30.05 px/m): the foot of its apron about 2.3 m (y 718), its lights' sills about 3.5 m (y 681) and their heads about 5.5 m (y 621), the moulded cornice to about 5.8 m (y 613); nothing shows over it, so its roof is low. Built as K08's oriel on the first floor (3.6 m), a storey of 2.1 m to its wall top under K08's eaves; in its south face one light 0.7 m across and 1.75 m tall from 0.12 m over its floor, two casements on a mullion under a transom, the house's first-floor kind (the print's light carries a bar about 0.43 of its height down). T-2883: in the west cheek the print's most visible light, x 507-516 px, 0.3 m across with its centre 0.22 m out from the wall (at 0.096 of the plan's 2.25 m run), 3.72-5.47 m as the south light stands: K08's narrow light, one light a sash on K06's least stile, its sill and lintel stopped at its jambs so it stands in a cheek 0.48 m deep (the kit's frame, horns and lintel ears had needed 0.7 m). Under the floor the apron the print draws, a flat face from 3.6 m to a moulded foot at 2.3 m (y 718), in place of the five corbel courses to 2.6 m T-2846 laid: K08's apron, the oriel's plan carried straight down, the foot 0.11 m tall and 0.05 m proud, closed under it back to the wall. Reconstructed: the plan's square corners, the east cheek (hidden), the casement kind and the cheek light's sash, the dressed stone of its walls (the print reads it light, near the trim's tone, with a darker apron, and cannot say stone or painted timber; the apron is laid in the oriel's own stone), the foot's section, and the low copper hip (L-k01-1625-oriel-2846). Earlier: none, the front being flat (T-2435), which still holds for the front."
         },
         "side_bays": {
           "value": [],
@@ -301,20 +313,46 @@
               "s_m": 9.3,
               "sill_m": 7.3,
               "width_m": 0.8,
-              "height_m": 2.3
+              "height_m": 2.3,
+              "head": "plain"
             },
             {
               "s_m": 2.35,
               "sill_m": 1.11,
               "width_m": 0.95,
-              "height_m": 1.6
+              "height_m": 1.6,
+              "head": "plain"
+            },
+            {
+              "s_m": 5.7,
+              "sill_m": 0.25,
+              "width_m": 0.36,
+              "height_m": 0.64,
+              "head": "round",
+              "why_not_ordinary": "a small round-headed light near grade, read off the print at x 483-490 px (its head at y 759.5, 0.89 m; its foot behind the fence's top rail at y 780, 0.25 m): its outline is 6.5 px across, of which the far jamb's 0.115 m reveal is about 3.7 px at this depth, so the hole is about 0.36 m"
+            },
+            {
+              "s_m": 8.5,
+              "sill_m": 0.2,
+              "width_m": 0.61,
+              "height_m": 1.8,
+              "head": "round",
+              "why_not_ordinary": "a tall narrow round-headed light under the oriel, read off the print at x 503-510.5 px (its head at y 726, 2.0 m; its foot behind the fence's top rail at y 780, 0.2 m): its outline is 7.5 px across, of which the far jamb's reveal is about 3.4 px, so the hole is about 0.6 m, too narrow for a door"
+            },
+            {
+              "s_m": 11.1,
+              "sill_m": 0.9,
+              "width_m": 0.3,
+              "height_m": 1.03,
+              "head": "plain",
+              "why_not_ordinary": "a slit light just short of the rear section, read off the print at x 521-524.5 px, its head square at y 730 (1.93 m) and its sill's lit top at y 758 (0.9 m): its outline is no wider than the far jamb's reveal alone (about 3.2 px), so its width is not readable and it is built at 0.3 m, the oriel cheek's narrow light"
             }
           ],
           "confidence": "inferred",
           "sources": [
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "Windows in the house's SOUTH side wall (K01's 'north', high v; s from the front corner), toward the open ground the sheet leaves south of 1625: the photograph shows single windows a storey along the main part's south wall, the nearest about 4 m behind the front. Their places further back are reconstructed. T-2820: the two that stood in the rear 7.6 m (s 14.3 and 17.6) are gone, the rear section standing over that part of the wall. T-2866: re-read on the camera re-solved by T-2846 (inland_architect_front.json), each window at its own place rather than a column on every storey: on the south wall's plane (8.39 m beside the eye) the print's columns stand at s = 1108 x 8.39 / (757 - x) - 28.7. The top floor's two lights, x 447-457 and 481-488 px, are s 1.8 and 5.4 (the handoff's 2.4 for the first does not survive the camera: x 451 on that plane is s 1.7), their heads level at about 10.5 m (y 407 and 447 px, the solve's own two heads) and their sills at 8.2 and 8.7 m (the glass ends at y 494 and 505 px; the two are not one size); the first is built 2.28 m tall, its lintel to 10.78 m under the 10.85 m soffit. A stair light behind the oriel, x 509-517, s 9.3, 7.3-9.6 m (y 571 and 502 px), standing on no storey's sill line. The ground floor's one light behind the corner pier, x 451-464, s 2.35, 1.11-2.71 m (y 752 and 695 px), the front's own ground-floor height. The first floor shows no light in the wall before the oriel, and none is built. Widths are the contract's single sash widths nearest the print's 0.8-1.0 m. The old columns (3.8 and 10.6 m, every storey) are gone. The wall's lower openings (a small round-headed light near grade at about s 5.7, a tall narrow one under the oriel at about s 8.5, and one at about s 11.1) are recorded open in the match record, not built."
+          "note": "Windows in the house's SOUTH side wall (K01's 'north', high v; s from the front corner), toward the open ground the sheet leaves south of 1625: the photograph shows single windows a storey along the main part's south wall, the nearest about 4 m behind the front. Their places further back are reconstructed. T-2820: the two that stood in the rear 7.6 m (s 14.3 and 17.6) are gone, the rear section standing over that part of the wall. T-2866: re-read on the camera re-solved by T-2846 (inland_architect_front.json), each window at its own place rather than a column on every storey: on the south wall's plane (8.39 m beside the eye) the print's columns stand at s = 1108 x 8.39 / (757 - x) - 28.7. The top floor's two lights, x 447-457 and 481-488 px, are s 1.8 and 5.4 (the handoff's 2.4 for the first does not survive the camera: x 451 on that plane is s 1.7), their heads level at about 10.5 m (y 407 and 447 px, the solve's own two heads) and their sills at 8.2 and 8.7 m (the glass ends at y 494 and 505 px; the two are not one size); the first is built 2.28 m tall, its lintel to 10.78 m under the 10.85 m soffit. A stair light behind the oriel, x 509-517, s 9.3, 7.3-9.6 m (y 571 and 502 px), standing on no storey's sill line. The ground floor's one light behind the corner pier, x 451-464, s 2.35, 1.11-2.71 m (y 752 and 695 px), the front's own ground-floor height. The first floor shows no light in the wall before the oriel, and none is built. Widths are the contract's single sash widths nearest the print's 0.8-1.0 m. The old columns (3.8 and 10.6 m, every storey) are gone. T-2884: the ground-floor light and the stair light take the print's plain heads (`head: plain`, nothing laid over the hole) in place of K03's gauged segmental fans, which the print does not show; and the wall's three lower lights are built off the print on the same camera (h = 1.0 + (756 - y)(28.7 + s)/1108 m): a small round-headed light near grade at s 5.7 (x 483-490 px), its head at 0.89 m; a tall narrow round-headed light under the oriel at s 8.5 (x 503-510.5), its head at 2.0 m; and a slit at s 11.1 (x 521-524.5), 0.9-1.93 m under a square head. The first two are the house's basement lights, K06's fixed round-headed basement light (k01.opening.sash_round_plain) under no hood or arch, as the print draws them; their feet are hidden behind the fence, so each is built down to the lowest line the print shows (0.25 and 0.2 m), and whether they run lower into an area is T-2885's areaway question. Seen this obliquely (the wall about 8.4 m beside the eye, 34-40 m out) a metre along the wall is 6-8 px and the far jamb's reveal 3-4 px, so each width is the outline less the reveal, good to about 0.15 m; the slit's outline is no wider than its reveal, and it is built 0.3 m. Each says why it is narrower than the ordinary sash (why_not_ordinary)."
         },
         "rear_bays": {
           "value": [
@@ -346,10 +384,16 @@
                 "face": "street",
                 "kind": "door",
                 "s_m": 0.63,
-                "sill_m": 0.0,
+                "sill_m": -0.6,
                 "width_m": 0.85,
-                "height_m": 2.1,
-                "transom_m": 0.65
+                "height_m": 2.7,
+                "transom_m": 0.65,
+                "area": {
+                  "side_m": 0.2,
+                  "landing_m": 0.9,
+                  "riser_m": 0.15,
+                  "tread_m": 0.28
+                }
               },
               {
                 "face": "street",
@@ -377,17 +421,18 @@
               "dormers": [
                 {
                   "face": "street",
-                  "along_m": 8.3,
+                  "along_m": 8.31,
                   "sash": {
                     "variant": "k06.opening.sash_2over2_flat",
-                    "width_m": 0.6,
+                    "width_m": 0.88,
                     "height_m": 1.8,
                     "sill_m": 0.45
                   },
                   "surround_m": 0.12,
                   "face_setback_m": 0.05,
-                  "head": "gable",
-                  "gable_pitch_deg": 30
+                  "head": "flat",
+                  "frieze_m": 0.35,
+                  "hood_fall_deg": 5
                 }
               ]
             }
@@ -397,7 +442,7 @@
             "sanborn_1911_chicago_v3_sheet_20",
             "inland_architect_1890_01_mcbirney_residence"
           ],
-          "note": "T-2820: the 1911 sheet's four-storey rear section (s20-1625-a1), the rear 7.6 m of the trace stepping 1.3 m further south than the main body (the trace's south line at -3028.0 to -3028.4 where the main part's runs at -3027.0 to -3027.2), built beside the main body's rear part on its south side (K01's north wall, high v): the step-out's three walls in the K03 brick to the main wall head, and over the whole rear part an attic of its own. The photograph (inland_architect_front.json) shows it behind the main body's south wall: a narrow face toward the street in darker brick with a door at its foot and one window a storey over it, its cornice meeting the main south eave at the same height (both at y 482-488 px where they meet), and over it a slated attic with a dormer on its street face and the south end wall carried up as a lit brick face to a stack. The camera's depth is soft that far back (its own solve: +-3 m), so heights are read against the cornice, set at the main wall head's 13.0 m where the photograph's cornice meets the main eave, and the horizon (y 733 px at 1.6 m): about 0.046 m a pixel. On that scale the windows stand 3.66-6.65 m and 9.02-11.48 m, the door's head about 1.7 m (it is built 2.1 m tall from grade, the fence hiding its foot), the dormer's sill 13.85 m and its sash's head 16.3 m, and the attic's top line, its curb, 17.3 m: a 4.3 m lower face. Widths are the sheet's: the face is 1.3 m, so its windows are the contract's narrowest sash (0.75 m) and its dormer 0.84 m, centred, where the photograph's face reads about 50 px across (about 2.2 m on that scale) and its lights about half of it; that disagreement is recorded open in the match record. Reconstructed: the lower faces' 75-degree pitch, the attic's 15-degree top over the curb (the photograph cannot see it), the 0.3 m cornice, the end walls carried up as coped parapets at the party wall and the step-out's outer face (the photograph shows the south one; the north one is the party wall's), and the step-out's outer and rear walls left blank (the photograph shows the outer one lit and windowless; no picture shows the rear) (L-k01-1625-rear-section-2820). T-2846: re-ruled on the camera re-solved on the south wall's level lines (inland_architect_front.json). The face's width is 1.8 m, the print's, not the sheet's 1.3: the face stands parallel to the plate, so its width against its own heights does not depend on the camera at all, and on the re-solved camera (27.3 px/m at the face, 11.85 m behind the front as the sheet sets it) the face's 48 px (x 528-576) is 1.8 m, its rear corner landing at x 606 against the print's 608 (a 1.3 m face would end at x 564). The sheet's trace steps 0.8-1.4 m (its south lines at -3028.0 to -3028.4 against -3027.0 to -3027.2), within a traced line's width of a 1:600 sheet; the photograph is the better measure. Across the wider face the print's openings stand toward the main wall's corner, not centred: the door's right jamb at x 557 (it is built 0.85 m wide at s 0.63 m, its left jamb the kit's 0.2 m pier from the corner, where the print's dark runs into the corner's shadow at x 528), the lower window x 534-557 (0.88 m at s 0.64), the upper x 536-556 (0.77 m at s 0.64), and the dormer's sash centred at x 547 (8.3 m from the party wall). The door is a door at grade, not an areaway's: on the re-solved camera its head (y 730, the top of a transom light over the leaf) reads 1.9-2.1 m over grade for an eye 1.3-0.5 m high, where the old camera put it on its own horizon at 1.7 m; the built 2.1 m head stands within about 3 px. The heights on this face still stand on the main eave at 13.0 m, which the re-solved camera reads at 10.9 m: that, the windows', the dormer's and the curb's heights and the door's transom are T-2847's. T-2865: its heights re-read on the re-solved camera (T-2846's handoff), against a cornice now at the main wall head's 10.9 m where the print's meets the main eave (y 486 px): the lower window 3.4-5.9 m (y 623-690 px), the upper 7.75-9.7 m (y 518-572), the dormer's sill 11.6 m and its sash's head 13.4 m, and the curb 14.3 m, so a 3.4 m lower face. The eye's height is soft (0.5-1.3 m) and each 0.4 m of it moves these by about 0.15 m. The door's transom light (y 731-745 px) is T-2866's. T-2866: the door's transom light, read on the print's pixels: the hole's dark runs from its head at y 729 px to a light bar across it at y 745-746, the transom's panes between (y 731-744, a light frame on their left), and the leaf's dark below the bar. The bar's centre stands 16.5 px, about 0.6 m at the face's 27.3 px/m, under the head, so the transom is built 0.65 m deep in the top of the hole (its 0.08 m bar at 1.45-1.53 m, its panes 0.51 m tall, the print's 14 px) under the built 2.1 m head, and the leaf is 1.45 m tall. A 1.45 m leaf is no door at the walk's grade: read with its transom, the print puts the leaf's foot about 0.5-0.7 m under the walk (the fence hides it), which reopens T-2846's ruling of a door at grade; that is recorded open in the match record."
+          "note": "T-2820: the 1911 sheet's four-storey rear section (s20-1625-a1), the rear 7.6 m of the trace stepping 1.3 m further south than the main body (the trace's south line at -3028.0 to -3028.4 where the main part's runs at -3027.0 to -3027.2), built beside the main body's rear part on its south side (K01's north wall, high v): the step-out's three walls in the K03 brick to the main wall head, and over the whole rear part an attic of its own. The photograph (inland_architect_front.json) shows it behind the main body's south wall: a narrow face toward the street in darker brick with a door at its foot and one window a storey over it, its cornice meeting the main south eave at the same height (both at y 482-488 px where they meet), and over it a slated attic with a dormer on its street face and the south end wall carried up as a lit brick face to a stack. The camera's depth is soft that far back (its own solve: +-3 m), so heights are read against the cornice, set at the main wall head's 13.0 m where the photograph's cornice meets the main eave, and the horizon (y 733 px at 1.6 m): about 0.046 m a pixel. On that scale the windows stand 3.66-6.65 m and 9.02-11.48 m, the door's head about 1.7 m (it is built 2.1 m tall from grade, the fence hiding its foot), the dormer's sill 13.85 m and its sash's head 16.3 m, and the attic's top line, its curb, 17.3 m: a 4.3 m lower face. Widths are the sheet's: the face is 1.3 m, so its windows are the contract's narrowest sash (0.75 m) and its dormer 0.84 m, centred, where the photograph's face reads about 50 px across (about 2.2 m on that scale) and its lights about half of it; that disagreement is recorded open in the match record. Reconstructed: the lower faces' 75-degree pitch, the attic's 15-degree top over the curb (the photograph cannot see it), the 0.3 m cornice, the end walls carried up as coped parapets at the party wall and the step-out's outer face (the photograph shows the south one; the north one is the party wall's), and the step-out's outer and rear walls left blank (the photograph shows the outer one lit and windowless; no picture shows the rear) (L-k01-1625-rear-section-2820). T-2846: re-ruled on the camera re-solved on the south wall's level lines (inland_architect_front.json). The face's width is 1.8 m, the print's, not the sheet's 1.3: the face stands parallel to the plate, so its width against its own heights does not depend on the camera at all, and on the re-solved camera (27.3 px/m at the face, 11.85 m behind the front as the sheet sets it) the face's 48 px (x 528-576) is 1.8 m, its rear corner landing at x 606 against the print's 608 (a 1.3 m face would end at x 564). The sheet's trace steps 0.8-1.4 m (its south lines at -3028.0 to -3028.4 against -3027.0 to -3027.2), within a traced line's width of a 1:600 sheet; the photograph is the better measure. Across the wider face the print's openings stand toward the main wall's corner, not centred: the door's right jamb at x 557 (it is built 0.85 m wide at s 0.63 m, its left jamb the kit's 0.2 m pier from the corner, where the print's dark runs into the corner's shadow at x 528), the lower window x 534-557 (0.88 m at s 0.64), the upper x 536-556 (0.77 m at s 0.64), and the dormer's sash centred at x 547 (8.3 m from the party wall). The door is a door at grade, not an areaway's: on the re-solved camera its head (y 730, the top of a transom light over the leaf) reads 1.9-2.1 m over grade for an eye 1.3-0.5 m high, where the old camera put it on its own horizon at 1.7 m; the built 2.1 m head stands within about 3 px. The heights on this face still stand on the main eave at 13.0 m, which the re-solved camera reads at 10.9 m: that, the windows', the dormer's and the curb's heights and the door's transom are T-2847's. T-2865: its heights re-read on the re-solved camera (T-2846's handoff), against a cornice now at the main wall head's 10.9 m where the print's meets the main eave (y 486 px): the lower window 3.4-5.9 m (y 623-690 px), the upper 7.75-9.7 m (y 518-572), the dormer's sill 11.6 m and its sash's head 13.4 m, and the curb 14.3 m, so a 3.4 m lower face. The eye's height is soft (0.5-1.3 m) and each 0.4 m of it moves these by about 0.15 m. The door's transom light (y 731-745 px) is T-2866's. T-2866: the door's transom light, read on the print's pixels: the hole's dark runs from its head at y 729 px to a light bar across it at y 745-746, the transom's panes between (y 731-744, a light frame on their left), and the leaf's dark below the bar. The bar's centre stands 16.5 px, about 0.6 m at the face's 27.3 px/m, under the head, so the transom is built 0.65 m deep in the top of the hole (its 0.08 m bar at 1.45-1.53 m, its panes 0.51 m tall, the print's 14 px) under the built 2.1 m head, and the leaf is 1.45 m tall. A 1.45 m leaf is no door at the walk's grade: read with its transom, the print puts the leaf's foot about 0.5-0.7 m under the walk (the fence hides it), which reopens T-2846's ruling of a door at grade; that is recorded open in the match record. T-2902: the dormer's head, read on the print's pixels: a flat hood, not T-2820's gabled pediment. The cornice's lit face runs at y 397-403 px with its shadow under it to y 410, across x 526-570, and over it the attic's lower face runs on, pale, to the curb (y 391): no pediment or gable. Under the cornice a frieze (the sash's head at y 416, about 0.35 m under the cornice's soffit), and the sash wider than the 0.6 m built: its glass x 539-557, about 0.68 m, so a sash 0.88 m wide (the lower window's own), its face about 1.1 m (x 534-564), centred at x 548.5 (8.37 m from the party wall). Built as K01's flat hood (head flat): the face carried 0.35 m over the sash, the kit's dormer cornice round it, a cap falling 5 degrees back into the attic; centred 8.31 m, the nearest the hood's eaves stand clear of the end parapet. The cap's fall and covering, the cornice's plain section and the frame's plain surround are reconstructed (L-k01-1625-rear-dormer-hood-2902). T-2903: the door ruled an AREA's door, its foot 0.6 m under the walk. Read with its transom, the print's leaf stands about 1.45 m over the walk's grade under its bar (the eye's softness moves it 1.3-1.6 m), and no leaf is a door that short: carried down to a door's height, its foot stands about 0.5-0.7 m under the walk. The print cannot show it: under the fence's top rail (y 782 px) the door's column and the lit south end beside it read alike (a median grey of 45-55 at y 794-810) through the fence's shadow, so the foot is the transom's reading alone. Built at the middle of that band: the hole from 0.6 m under the walk to its 2.1 m head (2.7 m), so the leaf under the 0.65 m transom is 2.05 m, a door's height, and the head, transom and jambs the print fixes do not move. A door's foot under the walk needs a way down to it, so it opens on an area: the K06 area well's box grown to a door's, from the face's corner on the main wall's plane to 0.2 m past the right jamb (1.255 m), a 0.9 m landing at the door's foot and a straight flight of four 0.15 m risers on 0.28 m treads (the front stoop's riser; both inside K01's stair ranges) climbing away from the face toward the street to the walk 1.74 m out, its outer side's 0.1 m wall capped flush over grade. From the camera the area cannot be seen: an eye 0.5-1.3 m high 40 m off looks at its floor past its own near edge. The area's plan, its flight and its stone are reconstructed (L-k01-1625-rear-area-door-2903)."
         },
         "sash_by_storey": {
           "value": [
@@ -626,10 +671,14 @@
             "k01.opening.street_casement_pair_transom": "k06.opening.casement_pair_transom_mullioned",
             "k01.opening.street_casement_four_transom": "k06.opening.casement_four_transom_mullioned",
             "k01.opening.street_sash_segmental": "k06.opening.sash_1over1_segmental",
-            "k01.opening.street_sash_narrow_segmental": "k06.opening.sash_2over2_segmental"
+            "k01.opening.street_sash_narrow_segmental": "k06.opening.sash_2over2_segmental",
+            "k01.opening.sash_round_plain": {
+              "variant": "k06.opening.basement_round",
+              "well": false
+            }
           },
           "confidence": "reconstructed",
-          "note": "The street windows from the photograph's kinds (T-2752): the lower storeys' mullioned casements, two lights on the ground floor and two under a transom on the first, the four-light window over the door, the second floor's one-over-one segmental sash and the frontispiece's narrow two-over-two segmental lights. The side, rear and north walls, which the photograph does not show or shows only in raking light, keep the K06 kit's two-over-two sash."
+          "note": "The street windows from the photograph's kinds (T-2752): the lower storeys' mullioned casements, two lights on the ground floor and two under a transom on the first, the four-light window over the door, the second floor's one-over-one segmental sash and the frontispiece's narrow two-over-two segmental lights. The side, rear and north walls, which the photograph does not show or shows only in raking light, keep the K06 kit's two-over-two sash. T-2884: the south wall's two round-headed lights near grade take K06's fixed round-headed basement light, its area well left out (their sills stand over grade), under no hood (k01.opening.sash_round_plain)."
         },
         "entrance_kit": {
           "value": {

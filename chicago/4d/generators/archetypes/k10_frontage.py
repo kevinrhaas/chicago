@@ -377,6 +377,8 @@ def _cornice(a, K, data, bays, conf):
     for r in runs(p):
         at_run[r.name], acc = acc, acc + r.L
     for b, (wall, s0, s1, top) in zip(p.bays, bays):
+        if b.get("wing"):   # T-2842: a tower on a rear wing's wall is clear of the main wall head
+            continue
         if b["variant"]["kind"] == "tower":
             cut.append(tuple(at_run[wall] + s for s in b["span_m"]))
             continue
@@ -598,6 +600,9 @@ def _stone_cornice(a, K, data, bays, conf):
         if wall != front.name or top <= y_c - 0.005:
             continue
         if b["variant"]["kind"] == "tower":   # T-2787: the course dies into a tower's ring
+            cut.append(tuple(b["span_m"]))
+            continue
+        if b.get("through_eave"):   # T-2542: and into the cants of an oriel carried through the eave
             cut.append(tuple(b["span_m"]))
             continue
         ev = b["variant"].get("overrides", {}).get("eaves", {})

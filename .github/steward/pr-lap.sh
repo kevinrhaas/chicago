@@ -180,7 +180,32 @@ say() { printf '%s\n' "$*"; }
 # mirror the PR ships; this one only makes it readable. publish.sh is idempotent,
 # so running it twice costs those seconds and nothing else.
 lap_publish_mirror() {
+  lap_refresh_package
   ( cd chicago/4d && bash tools/publish.sh ) >/tmp/lap-publish.log 2>&1
+}
+
+# ...AND THE GLESSNER PACKAGE IS UNPACKED AGAIN FROM THE MERGED TREE FIRST (T-2907).
+# The three v4 GLBs too large to commit live in docs/RESEARCH/glessner-v4-recovery/
+# as a packed archive, and publish.sh materializes them as IGNORED files. This one
+# clone laps every PR in turn, and an ignored file survives every checkout and merge,
+# so after a merge that brings dev's repacked archive the copy on disk is the OLD
+# one — and publish.sh, rightly, refuses to publish an output that differs from its
+# package. Measured 2026-10-19: #1116 repacked Glessner, and the very next lap
+# merged #1114's registries (T-2892) and then left it alone at publish for that
+# refusal, which no run could ever fix from the PR. Nothing in the lap ever authors
+# these files; they are always the committed package's, so the lap deletes its
+# unpacked copies and lets --materialize rebuild them from the merged archive. Only
+# paths git calls IGNORED are touched, so a tracked file is never removed.
+lap_refresh_package() {
+  [ -f chicago/4d/tools/recover_glessner_v4.py ] || return 0
+  ( cd chicago/4d && python3 -c '
+import sys; sys.path.insert(0, "tools")
+import recover_glessner_v4 as r
+print("\n".join(r.targets()))' 2>/dev/null ) | while IFS= read -r rel; do
+    [ -n "$rel" ] && [ -e "chicago/4d/$rel" ] && git check-ignore -q "chicago/4d/$rel" \
+      && rm -f "chicago/4d/$rel"
+  done
+  return 0
 }
 
 # The newest `gate` check run on a head, as `status:conclusion`, or nothing when
@@ -340,7 +365,7 @@ while IFS=$'\t' read -r N BR; do
   # iteration unless it is reset at the top — and a stale REDERIVED would silently
   # skip the derived-layer rebuild for the next PR, which is the exact fault the
   # rebuild exists to prevent.
-  REDERIVED=; CURRENT_RED=
+  REDERIVED=; CURRENT_RED=; REGMERGED=
   say "=== PR #$N  ($BR)"
   # THE TWO GUARDS THAT SAID FOUR WORDS AND NOTHING ELSE (T-1565). Both of these
   # were `... 2>/dev/null || { say "  fetch failed"; ... }`, with git's stderr
@@ -467,6 +492,45 @@ while IFS=$'\t' read -r N BR; do
   fi
   if [ -n "$U" ]; then
     REAL=$(comm -23 <(echo "$U" | sort -u) <(echo "$GENERATED" | sed '/^$/d' | sort -u))
+
+    # ...AND THE TWO ASSET REGISTRIES, MERGED ENTRY BY ENTRY (T-2892, owner 2026-10-19).
+    # assets/manifest.json and assets/manifest.web.json are one JSON object for the
+    # whole town, keyed by GLB, and every bake rewrites the file whole — so two PRs
+    # that bake DIFFERENT structures conflict on it without disagreeing about
+    # anything. Measured 2026-10-19: #1104 conflicted with dev on manifest.json and
+    # nothing else, and was left alone for it here until a steward run paid a whole
+    # lap. Neither list above fits: no one command rebuilds the registry (the bake
+    # writes it entry by entry), and taking ours would drop the other side's entries.
+    # merge_asset_registry.py takes each entry from the side that changed it. An
+    # entry both sides changed is refused — both rebuilt the same master — with one
+    # exception it proves rather than assumes: a pure-Python asset (K01, K13, ...)
+    # whose recipe moved on one side or both is emitted again on the merged tree and
+    # kept only if every GLB comes out byte-identical (#1104's 26 K01 houses, after
+    # T-2841 and T-2842 each touched the K01 generators). It writes all or nothing;
+    # a refusal leaves the files in $REAL and the PR is left alone exactly as before.
+    # CI's gate then holds the result: validate.py reads any entry gone stale.
+    #
+    # ONLY WHEN THE REST OF THE MERGE CAN CLEAR. If anything else in $REAL is a real
+    # conflict the PR is left alone regardless, and the emitters would be reading a
+    # tree with conflict markers in it (#1109's k01_frontage.py, 2026-10-19).
+    if [ -n "$REAL" ] && [ -f chicago/4d/tools/merge_asset_registry.py ]; then
+      REG=$(comm -12 <(echo "$REAL" | sort -u) \
+                     <(python3 chicago/4d/tools/merge_asset_registry.py --list | sort -u))
+      REST=$(comm -23 <(echo "$REAL" | sort -u) <(echo "$REG" | sort -u))
+      if [ -n "$REG" ] && { [ -z "$REST" ] || { [ -f chicago/4d/tools/rederive.mjs ] \
+           && node chicago/4d/tools/rederive.mjs --resolvable $REST >/dev/null 2>&1; }; }; then
+        if python3 chicago/4d/tools/merge_asset_registry.py --resolve $REG >/tmp/lap-registry.log 2>&1; then
+          say "  $(echo "$REG" | grep -c .) asset registr$( [ "$(echo "$REG" | grep -c .)" = 1 ] && echo y || echo ies) merged entry by entry"
+          git add $REG; REGMERGED=$REG
+          REAL=$(comm -23 <(echo "$REAL" | sort -u) <(echo "$REG" | sort -u))
+          # Out of $U too: the generated-set step below runs `checkout --ours` on
+          # everything left in $U, which would put ours back over the merge.
+          U=$(comm -23 <(echo "$U" | sort -u) <(echo "$REG" | sort -u))
+        else
+          sed 's/^/    /' /tmp/lap-registry.log | head -4
+        fi
+      fi
+    fi
 
     # ...AND THE DERIVED RESEARCH LAYER, WHICH IS THE SAME KIND OF THING AS THE
     # GENERATED FIVE and was left out only because nobody had enumerated it.
@@ -693,7 +757,12 @@ ticket.mjs board, publish.sh and compile_scene rewrite them from source. Nothing
 in this branch's own diff was touched.
 
 Merge drivers registered from $BASE rather than from this branch, so a branch cut
-before T-0831 resolves the same way one cut after it does (T-0857)." 2>/dev/null
+before T-0831 resolves the same way one cut after it does (T-0857).${REGMERGED:+
+
+Asset registries merged entry by entry (merge_asset_registry.py, T-2892): each
+entry taken from the side that rebaked it, and any pure-Python asset whose recipe
+moved on both sides emitted again on the merged tree, byte-identical.
+$REGMERGED}" 2>/dev/null
   fi
 
   # THE LAP NO LONGER GATES BEFORE PUSHING, AND THIS IS THE ROOT-CAUSE FIX.

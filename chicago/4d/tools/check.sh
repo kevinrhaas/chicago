@@ -957,6 +957,34 @@ selftest "…and a window off its run, a recess through the wall, a faceted curv
 step "a K01 frontage carries a K08 tower past its eave, closed above the wall head and the wall head stopped at it (T-2787)" \
   python3 tools/test_k01_tower.py
 
+# T-2841. ...and a K01 rear wing takes a hipped or gabled roof in K04's slate, where it was
+# decked flat in tin (the kit piece 1801 Prairie's gabled section and east range need).
+# Built on 1604's two wings and on 1811 as all-stone with its range raised over the main
+# eave: the slate's eave and ridge, the ridge across the wing into the host wall or along
+# it, the gable's walling, the junction closed above the host's top and the host wall
+# drawn from the wing's wall top; a slate cut short for its pitch, a hip in tin, a gable
+# facing no side and two slates on one house refused; every committed wing still flat.
+step "a K01 rear wing takes a slated hip or gable, its junction with the host closed above the host's top (T-2841)" \
+  python3 tools/test_k01_wing_roof.py
+
+# T-2842. ...and a K08 tower stands on a K01 rear wing's wall, past the wing's own eave (the
+# kit piece 1801 Prairie's north-east turret on its east range needs). Built on 1604's
+# brick range under its flat deck and on 1811 as all-stone with its rear section hipped in
+# slate: the cap over the wing's roof, the ring closed over the wing's wall top in its
+# wall's plane, the wing's wall open behind it and its lights there dropped; a tower under
+# the wing's eave, a bay or an oriel on a wing, a gable end, a later wing's junction, a
+# corner and a wall no wing has refused.
+step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed over its wall top (T-2842)" \
+  python3 tools/test_k01_wing_tower.py
+
+# T-2843. ...and what 1801 Prairie's move onto K01 needed, held on its record: a mansard face
+# holding two storeys rises 4.5-7.5 m (one stays the attic's 2.0-4.5 m), a K08 projection
+# carried past the main eave is closed on the wall plane behind it and at its cap's end (one
+# at the eave, 1812's, gains nothing), and a wing slated in the main roof's slate keeps its
+# own material, so the publish path's dedup cannot merge its name away.
+step "a mansard face holds two storeys; a K08 pavilion past the eave is closed behind it (T-2843)" \
+  python3 tools/test_k01_pavilion_past_eave.py
+
 # T-2788. ...and what an all-stone house is. A K01 record naming `construction: "stone"`
 # lays its K02 stone_front round every face, not a stone front on a brick box. No record
 # names it yet (1801 Prairie, T-2789, is the first), so this builds four houses that carry
@@ -3633,6 +3661,12 @@ step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
 step "Glessner north gable pairs stand where HABS 13 and 14 read them (T-2850)" \
   python3 tools/glessner_north_pairs.py --check
 
+# Taylor 2135 is refitted on the Prairie front's first-floor jambs with the stacks withheld,
+# and the front's lights stand at HABS sheet 6's places and widths, so a pick, camera or
+# opening that moves without the reading being re-written is caught here (T-2858).
+step "Glessner's Prairie lights stand on HABS sheet 6, Taylor 2135 refitted on them (T-2858)" \
+  python3 tools/glessner_prairie_front.py --check
+
 # The north tower's finial is read through both north cameras, and the cone's size off
 # its silhouette, so a plan moved to HABS 14's tip alone (which that camera cannot hold
 # off the wall's plane) or a camera that moves without the reading is caught (T-2872).
@@ -4176,6 +4210,30 @@ step "a lap that cannot check out a branch says which step failed, and why" \
 # tools — and run again with the old exit restored, which must fail.
 step "a branch level with dev but red is re-derived, not called current" \
   node tools/test_pr_lap_current.mjs
+
+# ...AND TWO BAKES OF DIFFERENT STRUCTURES ARE NOT A CONFLICT (T-2892, owner 2026-10-19).
+# assets/manifest.json and assets/manifest.web.json are one object each for the whole
+# town, rewritten whole by every bake, so two PRs that baked different houses conflicted
+# there and the lap left them alone as a REAL CONFLICT — #1104 on 2026-10-19, conflicting
+# on manifest.json and nothing else, until a steward run paid a whole lap. The merger
+# takes each entry from the side that changed it, re-emits on the merged tree any
+# pure-emitter asset whose recipe moved on both sides (byte-identical or refused), and
+# refuses a master both sides rebuilt. Its self-test merges in scratch repositories; the
+# lap test runs the REAL lap over a REAL bare remote, then again with the step cut out,
+# which must leave the PR alone.
+selftest "the asset registries merge entry by entry, and refuse a master both sides rebuilt" \
+  python3 tools/merge_asset_registry.py --self-test
+step "the lap clears a registry-only conflict, and still leaves a real one alone" \
+  node tools/test_pr_lap_registry.mjs
+
+# ...AND THE LAP UNPACKS THE GLESSNER PACKAGE AGAIN AFTER MERGING (T-2907). Its clone laps
+# every PR in turn and the unpacked v4 GLBs are IGNORED files, so after dev repacks the
+# archive the copy on disk is the old one and publish.sh refuses it — #1114 was left alone
+# for exactly that on 2026-10-19, right after its registries merged. REAL lap, REAL bare
+# remote, a stub publish that refuses a stale output as the real one does; and again with
+# the refresh cut out, which must leave the PR alone.
+step "the lap unpacks the Glessner package from the merged tree before it publishes" \
+  node tools/test_pr_lap_package.mjs
 
 # AND THE THING THAT ACTUALLY MERGES A FINISHED PULL REQUEST, which for most of
 # this repository's life was NOBODY. The lap's header said auto-merge did it; the
@@ -5650,6 +5708,13 @@ selftest "a spatial filter still cannot bias the sward's rank deal" \
 # safe to follow (T-0235).
 selftest "the smoke's change-to-parts map still matches the tree" \
   node tools/smoke_budget.mjs --self-test
+
+# T-2899. `waitForFunction(fn, arg, options)` takes its options THIRD; written second
+# they become the page function's argument and the page default applies, silently. The
+# smoke's boot wait read 30 s and waited 90 for that reason, and four other tools
+# had the same slip five times. The test proves it sees the mistake before it reads the tree.
+step "Every waitForFunction passes its options in the third slot, not as the page function's argument (T-2899)" \
+  node tools/test_wait_for_function_args.mjs
 
 # The 1833-1835 newspaper corpus is the PAPERS epic's foundation: eighty-six issues
 # that the project could not cite until they had a register to resolve against. The
@@ -7541,6 +7606,23 @@ selftest "…and a planted path, snake_case id, 'tier', 'ticket', 'order book' a
   python3 tools/check_visitor_ui.py --self-test
 step "visitor-UI lint: the faults, the Researcher exemption, the Go to rows and the allowlist, on fixtures (T-2668)" \
   python3 tools/test_check_visitor_ui.py
+# T-2825. The research records a person opens (liberties, ground, open questions, the Shops &
+# work card's location lines) are rewritten for a reader at their compile step, by one rule:
+# no ticket number, record id or file path in a sentence; the ticket kept as `work_refs`.
+selftest "…and the reader's rewrite drops a ticket, names an id and says a path in words (T-2825)" \
+  python3 tools/readable_text.py --self-test
+# T-2825, second half. The records a page reads as authored (plants, wildlife, households and a
+# person's card, a firm's record, a building's card) are said for a reader by an overlay of
+# edits that publish.sh compiles by the same rule (tools/compile_reader_text.py); the page
+# applies it (js/reader-text.js), and the visitor-UI lint above reads every one of those
+# records through the same rewrite. Here: the overlay, compiled to a scratch folder, is found
+# and applied by the page's own JavaScript exactly as the gate reads it, and then every
+# household card, every building card of every scene and the plants and wildlife topics are
+# rendered by the page's own functions and read as a person reads them, tooltips included —
+# the one place a bare id a renderer prints itself can be seen. About forty seconds, in the
+# pool; it replaces a smoke pass over 2,300 cards that no runner could afford.
+step "the page says every record as the gate reads it, and no card it renders leaks (T-2825)" \
+  node tools/test_reader_text.mjs --all
 
 # T-2669. Section 03's voice rule, in the gate: every summary, fact, time-stream caption and
 # tour bubble a visitor reads is held to Flesch-Kincaid grade 9 or lower and 20 words a

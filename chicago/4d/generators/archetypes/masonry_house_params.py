@@ -608,6 +608,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                     op["r_out"] = round(float(it.get("ring_ft", 0.0)) * FT, 4)
                     op["r_in"] = round(float(it.get("inner_ft", 0.0)) * FT, 4)
                     op["voussoirs"] = int(it.get("voussoirs", 0))
+                    if it.get("stilt_ft"):
+                        # T-2853: a stilted arch, its centre this far above the
+                        # spring line and its rings run down plumb to it.
+                        op["stilt"] = round(float(it["stilt_ft"]) * FT, 4)
                     if it.get("transom"):
                         # T-2211: a stone transom dividing a round head from the sash below.
                         op["transom_z"] = (fr.z(it["transom"][0], datum), fr.z(it["transom"][1], datum))
@@ -726,6 +730,9 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         p.detail["roof_edges"] = raw.get("roof_edges")
         p.detail["court_dormer_union"] = raw.get("court_dormer_union", False)
         p.detail["court_finial"] = raw.get("court_finial")
+        nc = raw.get("north_pair_colonnette")
+        p.detail["north_pair_colonnette"] = ({"capital_m": nc["capital_ft"] * FT, "base_m": nc["base_ft"] * FT}
+                                             if nc else None)
         p.detail["north_tower_roof"] = dict(raw["north_tower_roof"]) if raw.get("north_tower_roof") else None
         if p.detail["north_tower_roof"] and 'connector_ridge_ft' in p.detail["north_tower_roof"]:
             p.detail["north_tower_roof"]['connector_ridge_z']=fr.zval(p.detail["north_tower_roof"]['connector_ridge_ft'])
@@ -937,7 +944,8 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                     window_distance=[[(v-bt["centre_S"])*FT for v in edge] for edge in bt["window_S"]],
                     newel_xy=fr.xy(bt["newel_WS"]), newel_r=bt["newel_radius_ft"]*FT,
                     newel_top=fr.zval(bt["newel_top_z"]), newel_crown=bt["newel_crown_ft"]*FT,
-                    stair_boundaries=[[fr.xy(q) for q in edge] for edge in bt["stair_boundaries_WS"]])
+                    stair_boundaries=[[fr.xy(q) for q in edge] for edge in bt["stair_boundaries_WS"]],
+                    low_tread_tops=[fr.zval(v) for v in bt.get("low_tread_tops_z", [])])
         p.detail["dining_roof_junction"] = raw.get("dining_roof_junction", False)
         p.detail["dining_crested_connection"] = raw.get("dining_crested_connection", False)
         p.detail["continuous_copper_corner"] = raw.get("continuous_copper_corner", False)

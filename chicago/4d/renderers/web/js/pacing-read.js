@@ -26,6 +26,11 @@
  * reading is attributable and less noisy. `tools/test_pacing_read.mjs` walks every
  * scene's poses against that scene's footprints.
  *
+ * T-2829: each row also says how often the drawn ratio switched (every switch is a
+ * drawing-buffer resize), how many of its draws over 50 ms came on a switch or the
+ * draw after it, and what share of its draws were paced to 30 — so a spike like the
+ * first reading's 73 ms turn frame is attributed by the readout, not by a guess.
+ *
  * DEV ONLY. It is shown on the dev preview (whose banner `#__devpill` the
  * preview script injects, and whose path carries `/dev/`) and anywhere with
  * `?pacing=read`; production without the parameter never shows it. It takes the
@@ -102,6 +107,18 @@ export function ratioRange(r) {
   return Math.abs(r.max - r.min) < 0.005 ? ratioText(r.min) : `${ratioText(r.min)}-${ratioText(r.max)}`;
 }
 
+/** T-2829: a drive's ratio switches, the draws over 50 ms that came on one, and the
+ *  share of its draws paced to 30 — nothing when the drive carries no such count. */
+export function drawNotes(r) {
+  if (!r || !Number.isFinite(r.switches)) return '';
+  const parts = [];
+  if (r.switches) {
+    parts.push(`${r.switches} switch${r.switches === 1 ? '' : 'es'} (${r.slowAtSwitch ?? 0} of the >50 on one)`);
+  }
+  if (r.paced) parts.push(`paced ${Math.round((100 * r.paced) / Math.max(1, r.draws))} %`);
+  return parts.length ? `, ${parts.join(', ')}` : '';
+}
+
 /** The text the visitor copies back: one block, readable in a chat message. */
 export function formatReading(result) {
   const f = (x) => (Number.isFinite(x) ? x.toFixed(1) : '—');
@@ -119,7 +136,7 @@ export function formatReading(result) {
       const r = result.pairs[move][mode];
       lines.push(`${move.padEnd(7)} ${mode.padEnd(9)} ${String(r.draws).padStart(5)} ${f(r.mean).padStart(5)}`
         + ` ${f(r.sd).padStart(5)} ${f(r.median).padStart(5)} ${f(r.p95).padStart(5)} ${f(r.max).padStart(5)}`
-        + ` ${String(r.over33).padStart(4)}${String(r.over50).padStart(4)}  ${ratioRange(r.ratio)}`);
+        + ` ${String(r.over33).padStart(4)}${String(r.over50).padStart(4)}  ${ratioRange(r.ratio)}${drawNotes(r)}`);
     }
     const p = result.pairs[move];
     lines.push(`  ${verdict(p)}: sd ${f(p.fixed.sd)} → ${f(p.adaptive.sd)} ms,`
@@ -218,11 +235,21 @@ async function driveOne(a, move, mode, seconds) {
   await sleep(800);
   const starts = [];
   const ratio = { min: Infinity, max: -Infinity };
+  // T-2829: the ratio is set before the frame's work, so a resize's cost falls in
+  // the interval that ends at the first draw at the new ratio, or the one after.
+  const notes = { switches: 0, slowAtSwitch: 0, paced: 0 };
+  let lastRatio = null;
+  let sinceSwitch = Infinity;
   const render = a.renderer.render;
   a.renderer.render = function timed(...args) {
     if (a.renderer.getRenderTarget() === null) {
-      starts.push(performance.now());
+      const now = performance.now();
       const r = a.renderer.getPixelRatio();
+      if (lastRatio !== null && Math.abs(r - lastRatio) > 1e-9) { notes.switches += 1; sinceSwitch = 0; } else sinceSwitch += 1;
+      if (starts.length && now - starts[starts.length - 1] > 50 && sinceSwitch <= 1) notes.slowAtSwitch += 1;
+      if (a.governor?.pace === 2) notes.paced += 1;
+      lastRatio = r;
+      starts.push(now);
       if (r < ratio.min) ratio.min = r;
       if (r > ratio.max) ratio.max = r;
     }
@@ -242,7 +269,7 @@ async function driveOne(a, move, mode, seconds) {
   } finally {
     a.renderer.render = render;
   }
-  return { ...summarise(starts), ratio };
+  return { ...summarise(starts), ratio, ...notes };
 }
 
 /**

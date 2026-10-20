@@ -138,12 +138,15 @@ def facade(b,t,params):
         u=(a['u1']+c['u0'])/2;lo,hi=a['z0'],a['z1'];rr=Relief(b,a,t['conf_wall'])
         # HABS13 shows the round central shaft and a square foliate capital.
         # Stock/profile are bounded reconstructions; no Prairie-entry carving
-        # is borrowed as if it were this capital's measured pattern.
-        _shaft(rr,u,lo+.06,hi-.23,gap*.60)
-        rr.box(u-gap*.47,u+gap*.47,lo,lo+.075,-.10,.12)
-        rr.box(u-gap*.49,u+gap*.49,hi-.23,hi-.035,-.10,.16)
+        # is borrowed as if it were this capital's measured pattern. T-2868:
+        # the capital's and base's heights are read off HABS 13/14 (record).
+        col=params.detail.get('north_pair_colonnette') or {}
+        cap=col.get('capital_m',.23);foot=col.get('base_m',.075)
+        _shaft(rr,u,lo+min(.06,foot),hi-cap,gap*.60)
+        rr.box(u-gap*.47,u+gap*.47,lo,lo+foot,-.10,.12)
+        rr.box(u-gap*.49,u+gap*.49,hi-cap,hi-.035,-.10,.16)
         for j in range(3):
-            rr.leaf(u+(j-1)*gap*.26,hi-.22,math.pi/2,.17,gap*.25,.16,.025,0,False,steps=5)
+            rr.leaf(u+(j-1)*gap*.26,hi-cap+.01,math.pi/2,cap-.06,gap*.25,.16,.025,0,False,steps=5)
 
 
 def _half(poly, distance):

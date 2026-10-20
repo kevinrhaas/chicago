@@ -21,6 +21,13 @@
  *      deal did not place collapses to a point, as a plant outside its ring
  *      always has.
  *
+ * T-2774: and the CPU deals nothing for the heads either. Every slot the pass
+ * deals writes its WORD (`nearWord`: what it came to, its water and its row)
+ * into the first target, placed or not, and the page reads the targets back —
+ * on the frame loop without waiting for them (`readRenderTargetPixelsAsync`) —
+ * to hang the near ring's heads off the tufts the GPU placed and to count its
+ * census. The CPU near walk is retired wherever this pass runs.
+ *
  * A slot the kept tile does not cover is NOT placed (`flInTile`). The keeper
  * re-centres a strip at a time on the job pool, so for a moment after a step
  * its tile can lag the walker; a lagging tile used to be clamped at its edge,
@@ -43,6 +50,26 @@ export function nearSlotsMax({ cell, perCell, radius }) {
   const side = Math.ceil((2 * radius) / cell) + 3;
   return side * side * perCell;
 }
+
+/**
+ * T-2774. The slot's WORD, the first target's fourth channel: the NEAR_DEAL
+ * code it came to (0 when the ring does not keep it or the tile does not cover
+ * it), whether it stands in water, and its deal-table row plus one (0 before
+ * the deal) — `code | wet << 3 | (row + 1) << 4`, an integer a float32 carries
+ * exactly. A tuft is drawn where the code is `placed` (6).
+ */
+export function nearWord(w) {
+  const x = w | 0;
+  return { code: x & 7, wet: (x & 8) !== 0, row: (x >> 4) - 1 };
+}
+
+/**
+ * T-2774. The draws a near slot's stream has taken when its head is hung: the
+ * jitter's two (`scatter`, `flLatticeSlot`) and `placeGraminoid`'s seven
+ * (`flNearDeal`). `maybeHead` draws from the eighth on, so the page rebuilds the
+ * stream from the slot's cell and index and skips these.
+ */
+export const NEAR_STREAM_DRAWS = 9;
 
 /** The deal pass's target size for `count` slots. */
 export function nearTarget(count) {
@@ -120,7 +147,8 @@ bool flInTile(vec2 en) {
  * Its own uniform is `uTarget` (the target's width and height); the rest are
  * the chunks'. Outputs, one texel per slot in each of four targets:
  *
- *   0  world x, y, z of the root (x east, z = -north), 1 when placed else 0
+ *   0  world x, y, z of the root (x east, z = -north; y 0 when not placed),
+ *      and the slot's word (`nearWord`) for every slot the pass deals
  *   1  height, spread, arch, yaw (`aFlora`)
  *   2  r, g, b, confidence
  *   3  the slot's own ring (`aChiRing`)
@@ -149,11 +177,19 @@ void main() {
     vec2 en = flSlotWorld(id, cellSeed);
     int row; float vig;
     vec3 ground; vec4 fl; vec4 col;
-    if (flInTile(en) && flNearDeal(en, length(rel), u, rng, row, vig, ground, fl, col) == 6) {
-      v0 = vec4(ground.x, ground.y, -ground.z, 1.0);
-      v1 = fl;
-      v2 = col;
-      v3 = flNearRing(ground.xz);
+    if (flInTile(en)) {
+      int code = flNearDeal(en, length(rel), u, rng, row, vig, ground, fl, col);
+      // T-2774: the word for every slot dealt, so the page's read-back can
+      // count the census and hang the heads with no CPU walk (\`nearWord\`).
+      bool wet = (fieldClass(en).y & 1u) != 0u;
+      float word = float(code | (wet ? 8 : 0) | ((row + 1) << 4));
+      v0 = vec4(en.x, 0.0, -en.y, word);
+      if (code == 6) {
+        v0.xyz = vec3(ground.x, ground.y, -ground.z);
+        v1 = fl;
+        v2 = col;
+        v3 = flNearRing(ground.xz);
+      }
     }
   }
   float x = float(id % int(uTarget.x)), y = float(id / int(uTarget.x));
@@ -181,8 +217,9 @@ void main() { o0 = v0; o1 = v1; o2 = v2; o3 = v3; }`;
  * this one and declare no attribute), `aFlora`, `aChiRing`, `aChiFamily` — plus
  * the colour and confidence the CPU set carried as `instanceColor` and
  * `_confidence`, and `chiNearInstance()`, which the program calls first.
- * A slot the deal did not place gets a ring whose outer radius is behind the
- * camera, so the program's own ramp collapses it to a point.
+ * A slot the deal did not place (its word's code is not `placed`) gets a ring
+ * whose outer radius is behind the camera, so the program's own ramp collapses
+ * it to a point.
  *
  * Uniforms: `uNearI0` … `uNearI3`, the targets' textures (nearest); `uNearW`,
  * their width.
@@ -205,7 +242,7 @@ void chiNearInstance() {
   vec4 root = texelFetch(uNearI0, t, 0);
   instanceMatrix = mat4(1.0);
   aChiFamily = 0.0;
-  if (root.w < 0.5) {
+  if ((int(root.w) & 7) != 6) {
     aFlora = vec4(0.0);
     aChiRing = vec4(-1.0, 1e-6, 0.0, 0.0);
     chiNearCol = vec3(0.0);

@@ -2,7 +2,7 @@
   "structure_id": "house_1625_prairie",
   "view": "inland_architect_front",
   "glb": "assets/gltf/house_1625_prairie__as_mapped_1904.glb",
-  "glb_sha256": "54839405de2df161c4864a96594c21637fdc1c2e71821d8829177d68dd0d8edd",
+  "glb_sha256": "9d42691edafcdd79254a36322179f01be1a9098f6bb9f3d4b71df2b60f60a3d2",
   "camera_sha256": "c38fa66c558625703b0e5df1ac52544c7c184e62b1c357844035aeb11defe13b",
   "side_by_side": "docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg",
   "verdict": "differs",
@@ -94,8 +94,13 @@
     },
     {
       "what": "the oriel's west cheek and apron: the print's west cheek is mostly glass, a light about 0.3 m across (x 507-516 px, y 621-681), and its apron a flat darker face to a moulded foot at about 2.3 m (y 718); the build's cheek is plain (K08's frame and piers need 0.7 m of cheek for any light) and its apron is the kit's five stepped corbel courses to 2.6 m, about 8 px over the print's foot",
+      "status": "fixed",
+      "how": "T-2883: the west cheek lit with K08's narrow light (one light a sash on K06's least stile, its sill and lintel stopped at its jambs, the cheek's stone its surround), 0.3 m across with its centre 0.22 m out from the wall, 3.72-5.47 m: its jambs land at x 507-516 against the print's 506-515, its head at y 622 on the print's 621-622, its meeting rail at y 647 where the print's bar stands (y 645-647), its foot at y 674 against the print's 676, within about 1-2 px; its glass about 0.13 m between the frames where the print's reads about 0.15. The apron is K08's apron in place of the corbel courses: the oriel's plan carried straight down as a flat face from its floor (3.6 m, y 679) to a moulded foot at 2.3 m, the foot 0.11 m tall and 0.05 m proud, its underside at y 717 against the print's 716-718, closed back to the wall (L-k01-1625-oriel-2846). The apron's tone is the item below"
+    },
+    {
+      "what": "the oriel's apron's tone: the print's apron reads darker than the oriel's walls over it and stippled, as a rock-faced stone or a rough-cast or shingled face would; the build lays it in the oriel's own pale dressed stone, which K08's apron shares with its corbel role (K01 has no darker stone slot for a bay)",
       "status": "open",
-      "how": "T-2867"
+      "how": "T-2904"
     },
     {
       "what": "the rear section's heights on the re-solved camera: its cornice meets the main eave at 10.9 m (y 486), its windows read about 3.4-5.9 and 7.75-9.7 m, the dormer's sill about 11.6 m and its sash's head 13.4 m, the curb about 14.3 m, and the door has a transom light over its leaf (y 731-745); the build stands them on the 13.0 m wall head, so its lower window's head is about 20 px and its upper window, dormer and curb 40-60 px over the print's",
@@ -114,8 +119,8 @@
     },
     {
       "what": "the south wall's lights' heads: the print shows them plain under the wall's face; the build dresses the ground floor's light and the stair light with K03's gauged brick head, a fan about 0.3 m tall over each",
-      "status": "open",
-      "how": "T-2867"
+      "status": "fixed",
+      "how": "T-2884 (north_bays[].head \"plain\"): the ground floor's light (s 2.35) and the stair light (s 9.3) stand under plain heads, the hole cut square in the wall's face with nothing laid over it, as the print draws them and as the top floor's lights read; the K03 fans are gone. What carries the brick over each (an iron lintel, a flush flat arch) is not modelled (L-k01-1625-south-lower-lights-2884)"
     },
     {
       "what": "the rear section's door's transom light: the print's hole runs dark from its head (y 729 px) to a light bar at y 745-746, its panes between (y 731-744); the build's leaf filled the hole to its 2.1 m head",
@@ -124,18 +129,18 @@
     },
     {
       "what": "the rear section's door's leaf: under its transom the print's leaf is about 1.45 m tall over the walk's grade on this camera (the eye's softness moves it 1.3-1.6 m), which no door at grade is; read with its transom, the leaf's foot stands about 0.5-0.7 m under the walk, behind the fence, so T-2846's ruling of a door at grade does not survive it (an areaway's door, or steps down), and the built leaf is 1.45 m tall",
-      "status": "open",
-      "how": "T-2867"
+      "status": "fixed",
+      "how": "T-2903 (rear_section.openings[0], its area): ruled an area's door. The hole is carried from 0.6 m under the walk to its 2.1 m head (2.7 m), so the leaf under the 0.65 m transom is 2.05 m, a door's height, its foot in the middle of the transom's 0.5-0.7 m band; the head, the transom's bar and panes and the jambs the print fixes do not move, and the re-rendered side-by-side differs from the last by 2 px (the area's coping at grade). The door opens on an area, the K06 well's box grown to a door's: 1.255 m along the face from the main wall's plane, a 0.9 m landing and four 0.15 m risers on 0.28 m treads climbing toward the street to the walk 1.74 m out, its outer wall capped flush over grade. The print cannot see under the fence's top rail (the door's column and the lit south end beside it read alike there), and from this camera the area's own near edge hides its floor, so the foot's depth, the area and its flight are reconstructed (L-k01-1625-rear-area-door-2903). Whether the south wall's two round lights run down into an area too is not this one: they stand 2.6-5.1 m in front of it"
     },
     {
       "what": "the main south wall's lower openings: a small round-headed light near grade at about s 5.7 (x 484-490 px, about 0.25-0.9 m, under the fence's top), a tall narrow round-headed opening under the oriel at about s 8.5 (x 504-511, about 0.2-2.0 m: a door or a light) and a narrow one at about s 11.1 (x 521-526, about 0.8-1.9 m); none is built",
-      "status": "open",
-      "how": "T-2867"
+      "status": "fixed",
+      "how": "T-2884 (north_bays, read on the re-solved camera): the small round-headed light at s 5.7, 0.36 m across, its head at 0.89 m (built x 485-490 px, its crown at y 759 against the print's 483-491 and 759.5), and the tall narrow round-headed light under the oriel at s 8.5, 0.61 m across, its head at 2.0 m (built x 505-510.5 against the print's 503-510.5), both K06's fixed round-headed basement light in a round hole under no hood (k01.opening.sash_round_plain), each built down to the fence's top rail where its foot goes out of sight (0.25 and 0.2 m); and the narrow light at s 11.1, a slit 0.3 m across, 0.9-1.93 m under a plain square head (built x 522.5-525.5, head y 730, sill y 758.5 against the print's 521-524.5, 730 and 758). Widths are the outline less the far jamb's reveal, good to about 0.15 m; whether the two round lights run lower into an area is the rear door's open item (L-k01-1625-south-lower-lights-2884)"
     },
     {
       "what": "the rear section's dormer's head: the print's stands under a flat hood with a projecting cornice and a moulded frame (x 535-560 px, its hood about y 335-350), as the main roof's south dormer's does; the build's is T-2820's gabled pediment, its apex about 15 px over the hood's line",
-      "status": "open",
-      "how": "T-2867"
+      "status": "fixed",
+      "how": "T-2902 (rear_section.attic.dormers[0].head \"flat\"): read on the print's pixels the hood is a cornice, lit at y 397-403 px with its shadow under it to y 410, across x 526-570, the attic's lower face running on over it to the curb (y 391) with no pediment; T-2820's gable is gone. The face is carried 0.35 m over the sash as a frieze to the kit's dormer cornice (0.15 m out, a 0.12 m fascia), under a cap falling 5 degrees back into the attic; the sash 0.88 m wide (the print's glass x 539-557, about 0.68 m; it was built 0.6), centred 8.31 m from the party wall. The built cornice's soffit at y 406 and fascia at y 402-405, within about 2-4 px of the print's; the sash's head (y 416) and foot (y 464) within about 2 px; the face's edges about 2-3 px north of the print's (x 534-564), held 0.05 m clear of the end parapet. The cornice's mouldings and the sash's moulded frame are plain, and the cap's fall unseen (L-k01-1625-rear-dormer-hood-2902)"
     },
     {
       "what": "the picket fence along the open ground to the south, and the builders' stone and barrels on the walk",

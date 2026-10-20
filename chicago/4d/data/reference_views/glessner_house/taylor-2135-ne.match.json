@@ -2,8 +2,8 @@
   "structure_id": "glessner_house",
   "view": "taylor-2135-ne",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "54ad9acb753eac1f65dde9cec4d2232a377de4c63cb1c29e6c25ee52fbd9c024",
-  "camera_sha256": "0b9f174f1d12bc77ab0eead47a96776c016b8846d49f4eea0fc87dbc68de2331",
+  "glb_sha256": "905a3dd4947991bdd4d4d8c27c45b0b9e1cf4fe320bb4e6682d29a09a2b780e3",
+  "camera_sha256": "9eabf3e71a78ab9e598afc4b1e3fc1ba7fbe88b94f0edda25318a1808517fe92",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/taylor-2135-ne-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -12,11 +12,15 @@
       "status": "fixed"
     },
     {
-      "what": "T-2857 north-end openings: HABS sheet 6 places first-floor A 0.63 ft, B 0.38 ft, the door 0.37 ft and the second-floor north group 0.30 ft further north than built, and draws the first-floor lights 4.3-4.45 ft wide against the 3.9 ft built (T-2858).",
-      "status": "open"
+      "what": "T-2858 north-end openings: first-floor A and B and the second-floor north group built at sheet 6's places and the four first-floor lights at its outer lines (4.36-4.46 ft). Camera-free, with the far jamb seen at the sash 0.6 ft behind the arris, the jambs fit sheet 6 to 0.98 px rms against 2.24 for the old schedule; the side-by-side shows A, B, the door and the grilles on the photograph's to a few px. The door stays: the sheet gives only its fan's centre, and this photograph prefers the built place (tools/glessner_prairie_front.py; data/comparisons/glessner/prairie-front.json; docs/RESEARCH/glessner-prairie-front-T-2858/).",
+      "status": "fixed"
     },
     {
-      "what": "T-2857 camera: the two Prairie-corner controls are the downspouts (sheet 6 draws them 0.90 and 0.82 ft in from the corners), and through this camera every first-floor jamb lands 20.5 px left of the photograph (21.6 px rms), the stacks 15-22 px left with them. A registration error, not the building; refit on the openings with the stacks withheld (T-2858).",
+      "what": "T-2858 camera: refitted on the ten first-floor jambs with the corners' heights and the gable foot (the corner x picks are the downspouts, whose standoff no source gives, so they control height only): 1.36 px rms, jambs within 3.6 px, where the old camera put them 20.5 px left. The stacks, withheld, moved from 14.5 to 6.5 px rms; their tops stay within 2 px.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2858 south stack: through the refitted camera its north face still reads 14.6 px left of the photograph (the middle stack 7-8 px, the north within 4 px), a gradient along the roof that the jambs below do not show. Its plan place (W 14.18-21.8, S 57.2-61.2) is not read here.",
       "status": "open"
     },
     {

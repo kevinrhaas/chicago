@@ -201,6 +201,15 @@ class Region:
             top = [(xa, self.top_y - t), (xb, self.top_y - t)]
         else:
             top = self.head.curve(self.head_inset + t, xa, xb)
+            if self.head.kind == "segmental" and top[0][1] < self.y0 + b - 1e-9:
+                # T-2889: a region that starts on a segmental head's spring (a fanlight's):
+                # the arc, inset, meets the spring line inside the jambs, so the region is
+                # the segment over that line, its corners where the inset arc crosses it
+                r_ = self.head.R - self.head_inset - t
+                dx = math.sqrt(max(0.0, r_ * r_ - (self.y0 + b - self.head.cy) ** 2))
+                xa, xb = self.head.cx + dx, self.head.cx - dx
+                top = self.head.curve(self.head_inset + t, xa, xb)
+                top[0], top[-1] = (xa, self.y0 + b), (xb, self.y0 + b)   # on the line exactly
         return [(xb, self.y0 + b), (xa, self.y0 + b)] + top
 
 
@@ -227,8 +236,9 @@ class Opening:
         # T-2366: a round head's region that starts on its own spring (a fanlight's, a
         # fixed light's upper pane) repeats a corner; a repeated point is no vertex
         # (kept to round heads, whose regions alone do it: the flat and segmental
-        # variants' meshes, which committed houses carry, stay their bytes)
-        if self.v.get("head") == "round":
+        # variants' meshes, which committed houses carry, stay their bytes). T-2889: a
+        # segmental fanlight's region starts on its spring the same way
+        if self.v.get("head") == "round" or self.v.get("operation") == "double_hung_fanlight":
             pts = [q for i, q in enumerate(pts) if math.dist(q, pts[i - 1]) > 1e-6]
             if len(pts) < 3:
                 return
@@ -311,7 +321,10 @@ class Opening:
             daylight = self._frame(s0, s1, head, rev, y_frame, fr)
             self._glaze(daylight, head, rev, fr, sa, mu, s0, s1)
         self._sill(holes, rev, run, sill)
-        self._head_band(holes, p["head_band"])
+        # T-2886: a light set between columns takes a narrower band over its head than the
+        # kit's, so it fits the run between their shafts (1637's south bay's cheeks)
+        hb = {**p["head_band"], **({"width_m": ov["head_band_m"]} if "head_band_m" in ov else {})}
+        self._head_band(holes, hb)
         if v.get("well"):
             self._well(holes, p["well"])
         return self
@@ -640,7 +653,8 @@ class Opening:
         w, out = hb["width_m"], hb["proud_m"]
         s0, s1, head = holes[0][0], holes[-1][1], holes[0][2]
         if head.kind == "flat":
-            self.proud("head", box(s0 - 0.12, s1 + 0.12, head.spring, head.spring + w), out)
+            ear = hb.get("ear_m", 0.12)     # T-2883: a narrow K08 light's lintel stops at its jambs
+            self.proud("head", box(s0 - ear, s1 + ear, head.spring, head.spring + w), out)
             return
         inner = head.curve(0.0, s1, s0)
         outer = head.curve(-w, s1 + w, s0 - w)

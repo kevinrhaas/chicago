@@ -16,15 +16,23 @@
   "ceilings": {
     "1812": {
       "desktop": {
-        "total_bytes": 629145600,
-        "reading_bytes": 567392301,
+        "total_bytes": 734003200,
+        "reading_bytes": 644507815,
         "tier": "full",
         "reading_mb": {
-          "total": 541.1,
-          "js_heap": 27.2,
-          "arraybuffers": 215.3,
-          "gpu_buffers": 113.8,
-          "gpu_textures": 184.7
+          "total": 614.7,
+          "js_heap": 34.4,
+          "arraybuffers": 248.3,
+          "gpu_buffers": 142.3,
+          "gpu_textures": 189.7
+        },
+        "raised_by": {
+          "ticket": "T-2784",
+          "on": "2026-10-19T18:21:54.779Z",
+          "build": "37df92b9+T-2784",
+          "reading": "docs/measurements/T-2784-memory.json",
+          "note": "the open plain's woody plants, about 8,000 more grown stems in 1812 (shrubs, slough-edge willows, lone trees). The same machine read the base 37df92b9 at 600.4 MB, already over the 600 MiB line before this parcel (the T-2807 to T-2810 woods had grown it from 541.1), and this tree at 614.7 MB: +14.3 MB, of which the trees layer's geometry 3.2 on the GPU and 3.2 kept on the CPU, the batches' instance textures 2.1, the stem records 3.5 of JS heap. The phone's rows are inside their ceilings (1812 mobile 202.6 MB of 225, 1835 mobile 504.6 of 550; 1835 desktop 1247.3 of 1325). 614.7 MB x 1.1 rounded up to 25 MiB = 700 MiB.",
+          "before": 629145600
         },
         "lowered_by": {
           "ticket": "T-2786",

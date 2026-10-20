@@ -72,7 +72,8 @@ import { NEAR_DEAL, DEAL_GLSL, dealTable } from './flora-gpu-deal.js';
 // T-2716: the near ring drawn from the shader — the lattice walk and the deal
 // pass that writes the tufts' instances, and the tuft's fetch of them.
 import { LATTICE_GLSL, latticeUniforms } from './flora-gpu-lattice.js';
-import { nearPassShaders, nearSlotsMax, nearTarget, NEAR_FETCH_GLSL } from './flora-gpu-near.js';
+import { nearPassShaders, nearSlotsMax, nearTarget, NEAR_FETCH_GLSL, NEAR_STREAM_DRAWS }
+  from './flora-gpu-near.js';
 import { latticeSlots } from './jobs/lattice-kernel.js';
 
 /** docs/PROVENANCE.md's three levels, as the shader reads them. */
@@ -302,6 +303,17 @@ const TUNE = {
     bands: [
       { inner: 16.0, innerRamp: 10.0, radius: 62.0, ramp: 30.0, cell: 3.4, perCell: 1, keep: 0.80, wide: [1.5, 2.6], lift: 1.14 },
       { inner: 44.0, innerRamp: 24.0, radius: 175.0, ramp: 92.0, cell: 9.5, perCell: 1, keep: 0.74, wide: [2.6, 4.6], lift: 1.20 },
+      // T-2783 — THE MID RING. The near carry's tufts end at the mid ring's
+      // edge (31 m here) and past it the two bands above were one card in eleven
+      // square metres and then one in ninety, standing apart on the plain like
+      // tussocks on a lawn: the tufts' end read as a line and the plain as paint.
+      // This band fills the ground between with narrower cards on a finer
+      // lattice, thinning in over the near carry's own fade and out past the
+      // first band, so the sward recedes rather than stops. Same set, same
+      // material, same archetype — no draw call. Its cards hang no flower
+      // (`heads: false`): the two bands above already carry the bloom to its
+      // pixel reach, and the head caps are spent elsewhere.
+      { inner: 22.0, innerRamp: 12.0, radius: 88.0, ramp: 36.0, cell: 2.3, perCell: 1, keep: 0.86, wide: [1.0, 1.9], lift: 1.06, heads: false },
     ],
     // How wide a flower must still be, in pixels of the smaller gate viewport,
     // for the far band to draw it — see `farHeadReach`. ONE pixel is the honest
@@ -350,7 +362,10 @@ const TUNE = {
   // The pitched aerial sees the complete disc instead of a horizontal cone.
   // Reserve twice the old head allocation; placement density is unchanged.
   // T-2035's nadir prairie sweep exhausted ray/raydroop/pompom otherwise.
-  cap: { near: 2400, mid: 4400, forb: 900, head: 1640, far: 420, farShrub: 3200 },
+  // T-2783: `far` now holds the mid ring's band as well: about 1,030 cards on
+  // the open plain at the south-branch stand (2026-10-19), against 270 for the
+  // two outer bands alone, which the old 420 was sized for.
+  cap: { near: 2400, mid: 4400, forb: 900, head: 1640, far: 1400, farShrub: 3200 },
   wind: { speedNear: 1.35, sway: 0.085, waveM: 9.0 },
   /**
    * Rebuild the lattice when the camera has moved this far. It is also the
@@ -836,6 +851,9 @@ const LOW = {
     bands: [
       { inner: 9.5, innerRamp: 6.5, radius: 40.0, ramp: 20.0, cell: 3.9, perCell: 1, keep: 0.74, wide: [1.4, 2.3], lift: 1.14 },
       { inner: 30.0, innerRamp: 16.0, radius: 120.0, ramp: 64.0, cell: 11.0, perCell: 1, keep: 0.70, wide: [2.4, 4.2], lift: 1.20 },
+      // T-2783's mid ring, the phone's: the coarsest and shallowest of the three
+      // tiers, over the ground between its 14.6 m rings and its first band.
+      { inner: 12.0, innerRamp: 7.0, radius: 44.0, ramp: 18.0, cell: 3.8, perCell: 1, keep: 0.70, wide: [1.0, 1.8], lift: 1.06, heads: false },
     ],
     // NULL, and it is a tier decision rather than a big number chosen to make a
     // reach vanish. `light` is where the DRAW-CALL floor binds — 80 calls,
@@ -849,7 +867,7 @@ const LOW = {
   // T-2014. Shallower on the phone, as its far band is: the sward's own far
   // band stops at 120 m here and the shrubs stop well inside it.
   farShrub: { radius: 70.0, ramp: 24.0 },
-  cap: { near: 600, mid: 900, forb: 260, head: 480, far: 190, farShrub: 900 },
+  cap: { near: 600, mid: 900, forb: 260, head: 480, far: 380, farShrub: 900 },
 };
 
 /**
@@ -877,11 +895,13 @@ const MID = {
     bands: [
       { inner: 13.0, innerRamp: 8.5, radius: 52.0, ramp: 26.0, cell: 3.6, perCell: 1, keep: 0.78, wide: [1.5, 2.5], lift: 1.14 },
       { inner: 38.0, innerRamp: 20.0, radius: 150.0, ramp: 80.0, cell: 10.0, perCell: 1, keep: 0.72, wide: [2.5, 4.4], lift: 1.20 },
+      // T-2783's mid ring at the middle setting: between TUNE's and the phone's.
+      { inner: 16.0, innerRamp: 9.0, radius: 64.0, ramp: 26.0, cell: 3.0, perCell: 1, keep: 0.80, wide: [1.0, 1.9], lift: 1.06, heads: false },
     ],
     minPx: 2.0,
   },
   farShrub: { radius: 105.0, ramp: 35.0 },
-  cap: { near: 1500, mid: 2700, forb: 580, head: 1040, far: 300, farShrub: 2000 },
+  cap: { near: 1500, mid: 2700, forb: 580, head: 1040, far: 800, farShrub: 2000 },
 };
 
 /** The closed `form` list, split by how it is drawn. */
@@ -1215,7 +1235,11 @@ export async function createFlora({
     const s = c.byId.get(sp.id);
     if (s) s.drawn++;
   };
+  /** T-2774: bumped by every `openCensus`, so a read-back that lands after a
+   *  later pass has reset the census does not count into that pass's. */
+  let censusGen = 0;
   const openCensus = () => {
+    censusGen++;
     for (const { row } of censusIndex.values()) {
       row.drawn = 0;
       row.drySlots = 0;
@@ -1271,6 +1295,9 @@ export async function createFlora({
   };
   stats.unzonedLandFraction = await auditCoverage(terrain, finder, checkpoint);
   stats.turf = await handTurfToGround(zones, finder, water, terrain, problems, checkpoint);
+  // T-2783: and the far sward's colour, over the whole heightfield.
+  stats.farSward = await handFarSwardToGround(zones, finder, water, terrain, tune, problems,
+    checkpoint);
   if (stats.unzonedLandFraction >= 0.999) {
     // Not a tolerance: records exist, ground exists, and NOTHING matches — the
     // layer would draw an empty prairie while looking healthy. Any fraction
@@ -1414,8 +1441,10 @@ export async function createFlora({
    * near placement the deal pass writes each lattice slot's instance into four
    * float targets — the lattice walk, the deal and the slot's own ring all in
    * GLSL, off the kept field tile — and the tuft mesh draws one instance per
-   * slot from them. What the CPU still does for the near ring is the walk the
-   * heads hang off (`rebuildGround`), the uniforms below, and keeping the tile.
+   * slot from them. What the CPU still does for the near ring is the uniforms
+   * below, keeping the tile, and — since T-2774, which retired the CPU near
+   * walk the heads hung off — reaping the deal pass's read-back for the heads
+   * and the census (`reap`).
    *
    * `flora-near` is still in the group for every reader that asks for it by
    * name: an InstancedMesh that is never drawn, whose instances are READ BACK
@@ -1426,6 +1455,50 @@ export async function createFlora({
    * counts it twice.
    */
   const gpuNear = gpuNearOn ? makeGpuNear() : null;
+  /** T-2774. Whether this frame's caller reads the buffers straight after (no
+   *  budget: `step()`, the boot, `settle`), so the near read-back is taken in
+   *  the frame; and whether a near pass is dealing into the sets now, so a
+   *  read-back that lands then leaves its heads to that pass's commit. */
+  let nearSync = true;
+  let nearDealing = false;
+  /** T-2774. Each head set as the pass left it, before the near ring's heads. */
+  const headMarks = {};
+  /**
+   * T-2774. Append the near ring's heads — the last reap's, from the GPU's
+   * deal — to the head sets after the pass's own (forbs, shrubs, the far
+   * band). They used to be pushed first, by the CPU near walk, so where a set
+   * fills it is now a near head that waits rather than a forb's; no set fills
+   * at the critic anchors (`stats.capped`).
+   */
+  function hangNearHeads() {
+    if (!gpuNear) return;
+    for (const k in heads) {
+      const set = heads[k];
+      headMarks[k] = set.mark();
+      const rows = gpuNear.heads[k].rows;
+      for (let i = 0; i < rows.length; i += 2) {
+        set.ring(rows[i]);
+        set.push(...rows[i + 1]);
+      }
+    }
+  }
+  /** T-2774. A read-back reaped: its heads go up now unless a pass is dealing
+   *  (it hangs them when it commits), and a census it counted is closed again.
+   *  The set figures (`tally`) are redone only for a read taken in the frame,
+   *  whose caller reads them straight after; one that lands between frames
+   *  leaves them to the next pass's — the profile read that tally at 147 ms
+   *  over the phone profile's moves, for figures only the tools read. */
+  function nearReaped(counted, sync) {
+    if (counted) closeCensus();
+    if (nearDealing) return;
+    for (const k in heads) {
+      if (!headMarks[k]) continue;
+      heads[k].rewind(headMarks[k]);
+    }
+    hangNearHeads();
+    for (const k in heads) heads[k].commit();
+    if (sync) tally();
+  }
   function makeGpuNear() {
     const walk = { cell: tune.near.cell, perCell: tune.near.perCell, radius: rings.near.lattice.outer,
       inner: rings.near.lattice.inner, salt: 0x51ed27, draw: 'strata' };
@@ -1508,14 +1581,50 @@ export async function createFlora({
       set(v) { recordCount = v; },
     });
     group.add(record.mesh);
-    disposables.push(rt, tab, passMat, passGeo, tuftGeo, mat, record.mesh.geometry);
+    disposables.push(rt, tab, passMat, passGeo, tuftGeo, mat, record.mesh.geometry,
+      { dispose() { for (const b of pbos) renderer.getContext().deleteBuffer(b); } });
 
     let nf = null, keeper = null, uploaded = null, clsTex = null, hgtTex = null;
     let count = 0, placed = false, lastE = null, lastN = null;
-    const stats = { passes: 0, passMs: 0, builds: 0, buildMs: 0, readBacks: 0, uploads: 0 };
+    // T-2774: the last placement (its centre, cone, lattice and census), which
+    // the read-back reaps; and the newest read-back asked for, so a slower one
+    // that lands after it is dropped.
+    let at = null;
+    let reading = 0;
+    let waiting = false;
+    const stats = { passes: 0, passMs: 0, builds: 0, buildMs: 0, readBacks: 0, uploads: 0,
+      // T-2774: the read-backs the heads and the census are reaped from — asked
+      // without waiting (`reads`) or in the frame (`syncReads`), the main
+      // thread's ms asking them (in the frame), collecting the ones asked
+      // without waiting and reaping them (between frames, when the fence has
+      // signalled), and the ones a newer read made stale before they landed.
+      reads: 0, syncReads: 0, readMs: 0, collectMs: 0, reaps: 0, reapMs: 0, stale: 0, failed: 0 };
     const bufs = [0, 1, 2, 3].map(() => new Float32Array(W * H * 4));
+    // T-2774: the read-back's pixel-pack buffers, and where they land (`read`).
+    const pbos = [];
+    const landed = [0, 1, 2].map(() => new Float32Array(W * H * 4));
     const _rec = [0, 0, 0, 0];
-    const _at = [0, 0, 0];
+    const _slotRing = [0, 0, 0, 0];
+    const { items } = table;
+
+    /**
+     * T-2774. The near ring's heads as the reap hangs them: `maybeHead` is
+     * handed these in place of the head sets, and each records the pushes it is
+     * asked for (the ring with each), which `hangNearHeads` replays into the
+     * real sets after a pass's own heads. A recorder never refuses, so the
+     * demand a full set counts on replay is the whole of what was asked.
+     */
+    const recorders = {};
+    for (const k in heads) {
+      const rows = [];
+      let ringNow = null;
+      recorders[k] = { rows,
+        reset() { rows.length = 0; },
+        ring(r) { ringNow = r.slice(); },
+        push(...args) { rows.push(ringNow, args); return true; },
+        skip() {},
+      };
+    }
 
     function covers(tile, e, n, reach) {
       const span = tile.texel * tile.size;
@@ -1574,7 +1683,8 @@ export async function createFlora({
         const [b0, b1, b2, b3] = bufs;
         for (let id = 0; id < count; id++) {
           const o = 4 * id;
-          if (!(b0[o + 3] > 0.5)) continue;
+          // T-2774: placed is the word's code (`nearWord`), not a flag.
+          if (((b0[o + 3] | 0) & 7) !== NEAR_DEAL.placed) continue;
           _rec[0] = b3[o]; _rec[1] = b3[o + 1]; _rec[2] = b3[o + 2]; _rec[3] = b3[o + 3];
           record.ring(_rec);
           record.push(b0[o], b0[o + 1], -b0[o + 2], b1[o + 3], b1[o], b1[o + 1], b1[o + 2],
@@ -1584,9 +1694,149 @@ export async function createFlora({
       }
       record.commit();
     }
+
+    /**
+     * T-2774 — THE HEADS AND THE CENSUS, OFF THE GPU'S OWN DEAL. The three
+     * targets a head needs (the root and word, the height, the slot's ring) are
+     * read back after a placement's deal pass, and `reap` walks them in slot
+     * order: what the retired CPU walk did per slot, on the GPU's answers.
+     *
+     * On the frame loop the read is asked WITHOUT waiting for it — a pixel-
+     * buffer copy and a fence, collected when the GPU has finished — because a
+     * read that waits stalls the page on everything the GPU still has queued,
+     * which on a phone can be the whole last frame. Until it lands the sets
+     * carry the last placement's heads, which stand where they stood (every
+     * slot is world-anchored) and differ from this one's only at the lattice's
+     * edge, past the heads' own ring. A caller that reads the buffers straight
+     * after (`step()`, `settle()`, the boot) reads in the frame instead.
+     */
+    function read(sync) {
+      if (!at || !uploaded || count <= 0) return;
+      const t0 = performance.now();
+      const rows = Math.ceil(count / W);
+      const rec = at;
+      const ticket = ++reading;
+      waiting = !sync;
+      if (sync) {
+        for (const k of [0, 1, 3]) renderer.readRenderTargetPixels(rt, 0, 0, W, rows, bufs[k], undefined, k);
+        stats.syncReads++;
+        stats.readMs += performance.now() - t0;
+        nearReaped(reap(bufs[0], bufs[1], bufs[3], rec), true);
+        return;
+      }
+      // Not three's `readRenderTargetPixelsAsync`: it asks
+      // `getParameter(IMPLEMENTATION_COLOR_READ_TYPE)` of a float target before
+      // it reads, and that is a round trip that waits for the GPU — measured at
+      // 7.6 ms a read on the phone profile, the whole stall this avoids. The
+      // three targets go into this module's own pixel-pack buffers, behind a
+      // fence, and nothing here waits on either.
+      const gl = renderer.getContext();
+      renderer.state.bindFramebuffer(gl.FRAMEBUFFER, renderer.properties.get(rt).__webglFramebuffer);
+      for (let i = 0; i < 3; i++) {
+        if (!pbos[i]) {
+          pbos[i] = gl.createBuffer();
+          gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pbos[i]);
+          gl.bufferData(gl.PIXEL_PACK_BUFFER, W * H * 16, gl.STREAM_READ);
+        }
+        gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pbos[i]);
+        gl.readBuffer(gl.COLOR_ATTACHMENT0 + [0, 1, 3][i]);
+        gl.readPixels(0, 0, W, rows, gl.RGBA, gl.FLOAT, 0);
+      }
+      gl.bindBuffer(gl.PIXEL_PACK_BUFFER, null);
+      const cur = renderer.getRenderTarget();
+      renderer.state.bindFramebuffer(gl.FRAMEBUFFER,
+        cur ? renderer.properties.get(cur).__webglFramebuffer : null);
+      const fence = gl.fenceSync(gl.SYNC_GPU_COMMANDS_COMPLETE, 0);
+      gl.flush();
+      stats.reads++;
+      stats.readMs += performance.now() - t0;
+      const collect = () => {
+        if (ticket !== reading) { gl.deleteSync(fence); stats.stale++; return; }
+        const got = gl.clientWaitSync(fence, 0, 0);
+        if (got === gl.TIMEOUT_EXPIRED) { setTimeout(collect, 4); return; }
+        gl.deleteSync(fence);
+        waiting = false;
+        if (got === gl.WAIT_FAILED) { stats.failed++; return; }
+        const t1 = performance.now();
+        for (let i = 0; i < 3; i++) {
+          gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pbos[i]);
+          gl.getBufferSubData(gl.PIXEL_PACK_BUFFER, 0, landed[i], 0, W * rows * 4);
+        }
+        gl.bindBuffer(gl.PIXEL_PACK_BUFFER, null);
+        stats.collectMs += performance.now() - t1;
+        nearReaped(reap(landed[0], landed[1], landed[2], rec), false);
+      };
+      setTimeout(collect, 4);
+    }
+
+    /** A slot's xorshift stream, rebuilt from its cell and index as `scatter`
+     *  seeds it, and moved past the draws its tuft took (NEAR_STREAM_DRAWS). */
+    function slotStream(rec, id) {
+      const [c0, r0, cols, perCell] = rec.grid;
+      const k = id % perCell;
+      const cellIdx = (id - k) / perCell;
+      const rng = rngFrom(hash3(hash3(c0 + cellIdx % cols, r0 + Math.floor(cellIdx / cols), walk.salt),
+        k, 0x68bc21eb));
+      for (let i = 0; i < NEAR_STREAM_DRAWS; i++) rng();
+      return rng;
+    }
+
+    /**
+     * One read-back, reaped: for every slot the deal pass dealt inside the
+     * placement's view cone — the cone the CPU walk was given, so the heads and
+     * the census cover what they covered (the GPU draws the whole ring) — the
+     * census counts it as `dealNearSlot` did, the sink counts a placed tuft,
+     * and a placed tuft of a flowering species is offered its head by
+     * `maybeHead`, off the height and the ring the GPU gave it, on the slot's
+     * own stream. The census is counted once per placement, and only while it
+     * is still the census open (a later pass has not reset it). Returns whether
+     * it counted it.
+     */
+    function reap(b0, b1, b3, rec) {
+      const t0 = performance.now();
+      const { camE, camN, cone } = rec;
+      const census = !rec.counted && rec.census === censusGen;
+      rec.counted ||= census;
+      for (const k in recorders) recorders[k].reset();
+      nearSet.reset();
+      for (let id = 0; id < rec.count; id++) {
+        const o = 4 * id;
+        const w = b0[o + 3] | 0;
+        const code = w & 7;
+        if (code < NEAR_DEAL.station) continue;
+        const e = b0[o];
+        const n = -b0[o + 2];
+        const d = Math.hypot(e - camE, n - camN);
+        // `scatter`'s own slot test against the cone.
+        if (cone && d > CONE_KEEP_M
+          && ((e - camE) * cone.fe + (n - camN) * cone.fn) < d * cone.cos - 2 * (cone.margin ?? 0)) continue;
+        if (cone?.planes && outsideFrustum(cone, e, n, d)) continue;
+        const { zone, sp } = items[(w >> 4) - 1];
+        const wet = (w & 8) !== 0;
+        const c = census ? zone.census?.matrix : null;
+        countDealt(c, sp, wet);
+        if (code === NEAR_DEAL.station) { if (c) c.row.rejStation++; continue; }
+        if (code === NEAR_DEAL.walker) { if (c) c.row.rejWalker++; continue; }
+        countDraw(c, sp, wet);
+        nearSet.push();
+        const h = b1[o];
+        if (!sp.head || !(h > 0)) continue;
+        _slotRing[0] = b3[o]; _slotRing[1] = b3[o + 1]; _slotRing[2] = b3[o + 2]; _slotRing[3] = b3[o + 3];
+        const headRing = headRingAt(_slotRing, _headRing);
+        if (d <= headRing[0] + step) {
+          maybeHead(recorders, sp, e, b0[o + 1], n, slotStream(rec, id), h, headRing);
+        }
+      }
+      nearSet.commit();
+      stats.reaps++;
+      stats.reapMs += performance.now() - t0;
+      return census;
+    }
     return {
       mesh,
       stats,
+      /** T-2774: the near ring's heads as the last reap hung them, by kind. */
+      heads: recorders,
       bind(field) { nf = field; keeper = nf.keeper(); },
       /** The kept tile, home around (e, n) before the first deal. */
       async prime(e, n) {
@@ -1597,12 +1847,13 @@ export async function createFlora({
       },
       /**
        * Every frame: the keeper follows the walker. A tile that has landed is
-       * uploaded and the last placement dealt again on it (the strip it adds
-       * holds slots the lagging tile could not). When the kept tile does not
-       * cover the lattice it is built whole, now, if the walker JUMPED (more
-       * than a re-centre step in one frame: a teleport or a goTo, whose near
-       * pass deals in this frame too, so its heads need the tile) or if the
-       * caller reads the buffers straight after (`force`). Smooth motion that
+       * uploaded and the last placement dealt again on it if the tile it was
+       * dealt on did not cover it (the strip it adds holds slots the lagging
+       * tile could not), and read back again for its heads. When the kept
+       * tile does not cover the lattice it is built whole, now, if the walker
+       * JUMPED (more than a re-centre step in one frame: a teleport or a goTo,
+       * whose near pass deals in this frame too, so its heads need the tile)
+       * or if the caller reads the buffers straight after (`force`). Smooth motion that
        * outruns the pool only empties the slots past the tile's edge until the
        * strip lands.
        */
@@ -1620,11 +1871,21 @@ export async function createFlora({
         }
         if (tile && tile !== uploaded) {
           upload(tile);
-          if (placed) dealPass();
+          // T-2774: only a placement the tile did not wholly cover is dealt
+          // again: a strip adds nothing to one it did, whose every slot stands
+          // on texels a re-centre keeps. T-2717 read the flight dealing the
+          // ring 9 times with no near pass at all; each is a read-back now.
+          if (placed && !at?.whole) {
+            dealPass();
+            read(force);
+          }
         }
       },
-      /** The near walk's centre and cone, as the CPU walk was given them. */
-      place(camE, camN, cone) {
+      /**
+       * The near walk's centre and cone: the deal pass, and its read-back —
+       * in the frame when `sync`, else collected when the GPU has finished.
+       */
+      place(camE, camN, cone, sync) {
         const u = latticeUniforms({ camE, camN, ...walk });
         pass.uLatGrid.value = u.grid;
         pass.uLatDeal.value = u.deal;
@@ -1639,31 +1900,22 @@ export async function createFlora({
         passGeo.setDrawRange(0, count);
         tuftGeo.instanceCount = count;
         placed = true;
-        if (uploaded) dealPass();
+        at = { camE, camN, cone, grid: u.grid, count, census: censusGen, counted: false,
+          whole: !!uploaded && covers(uploaded, camE, camN, walk.radius) };
+        if (uploaded) {
+          dealPass();
+          read(sync);
+        }
       },
-      /**
-       * Does the GPU's deal place the tuft the CPU walk just placed at (e, n)?
-       * The same rule on the tile's answers: the slot inside the tile, the same
-       * community and water, not turf, not blocked, and not cropped on the
-       * trodden verge (flora-gpu-deal.js `station`). Walker and lattice agree
-       * by construction — the pass is placed at the walk's own centre.
-       */
-      drawsAt(e, n, o) {
-        const tile = keeper?.tile;
-        if (!tile || !o.zone || !o.sp) return false;
-        const at = sampleField(tile, e, n, _at);
-        if (!at || at[0] !== zoneIndex.get(o.zone) + 1) return false;
-        const f = at[1];
-        if (Boolean(f & FIELD_FLAGS.WET) !== Boolean(o.wet)) return false;
-        if (f & (FIELD_FLAGS.TURF | FIELD_FLAGS.BLOCKED)) return false;
-        const ceiling = o.zone.turfCeiling || 0;
-        return !(ceiling > 0 && o.sp.height[1] > ceiling && (f & FIELD_FLAGS.TRODDEN));
+      /** T-2774: a read-back still on its way is taken now, in the frame. */
+      flush() {
+        if (waiting) read(true);
       },
       /** The kept tile's ground at (e, n) — what a drawn tuft roots on — or null. */
       groundAt(e, n) {
         const tile = keeper?.tile;
-        const at = tile ? sampleField(tile, e, n, [0, 0, 0]) : null;
-        return at ? at[2] : null;
+        const got = tile ? sampleField(tile, e, n, [0, 0, 0]) : null;
+        return got ? got[2] : null;
       },
     };
   }
@@ -1895,7 +2147,9 @@ export async function createFlora({
   const _nearDealt = { code: 0, zone: null, sp: null, y: 0, h: 0, wet: false };
 
   function* rebuildGround(camE, camN, cone) {
-    nearSet.reset();
+    // T-2774: where the GPU deals the near ring, the sink holds the last reap's
+    // count until the next one lands, and there is no near walk below.
+    if (!gpuNear) nearSet.reset();
     midSet.reset();
     for (const k in heads) heads[k].reset();
 
@@ -1909,35 +2163,36 @@ export async function createFlora({
     // solid up to it. The set-wide call is gone rather than left as a default:
     // a slot that missed its own `ring()` would be drawn on the nominal one and
     // would be the only stippled plant in the field.
-    yield* scatter(camE, camN, tune.near.cell, tune.near.perCell,
-      near.lattice.outer, near.lattice.inner, 0x51ed27, 'strata', cone,
-      (e, n, r, rng, _cellSeed, u, z) => {
-        const ring = dealNearSlot(e, n, r, rng, u, z, cone, nearSet, true);
-        if (ring === null) return;
-        // The head is placed off the height the PLANT was actually given, and
-        // only if the plant was actually drawn. Round 1 drew the two from
-        // independent draws of the same range, so a 2.0 m cordgrass spike
-        // could stand over a 1.25 m tuft — which is the pair of flower heads
-        // the critic found floating unattached in the open sky.
-        //
-        // The head rides its PLANT'S ring now, not the layer's. On a spread
-        // boundary the layer's ring answers for no particular tuft, and a head
-        // hung on it would go on being drawn out to 7 m over a plant whose own
-        // handover had already taken it away at five — a flower in the sky with
-        // nothing under it, which is R-BUG7 rebuilt from the other end.
-        //
-        // T-2716: with the tufts drawn by the GPU, this walk is kept for the
-        // heads alone, and a head is hung only where the GPU's own deal places
-        // the same tuft — the tile it deals from answers differently from the
-        // CPU at 0.27 % of slots (T-2715), and a head there would stand on
-        // nothing.
-        if (gpuNear && !gpuNear.drawsAt(e, n, _nearDealt)) return;
-        const { sp, y, h } = _nearDealt;
-        const headRing = headRingAt(ring, _headRing);
-        if (h > 0 && r <= headRing[0] + step) {
-          maybeHead(heads, sp, e, y, n, rng, h, headRing);
-        }
-      });
+    //
+    // T-2774: only where the CPU draws the near ring. Where the GPU does, its
+    // deal pass is the whole of the near deal: the heads and the census are
+    // reaped from its read-back (`gpuNear` `reap`), on the GPU's own answers,
+    // so the 0.27 % of slots where the tile and this walk disagree (T-2715)
+    // carry neither a tuft nor a head nor a count that the frame does not.
+    if (!gpuNear) {
+      yield* scatter(camE, camN, tune.near.cell, tune.near.perCell,
+        near.lattice.outer, near.lattice.inner, 0x51ed27, 'strata', cone,
+        (e, n, r, rng, _cellSeed, u, z) => {
+          const ring = dealNearSlot(e, n, r, rng, u, z, cone, nearSet, true);
+          if (ring === null) return;
+          // The head is placed off the height the PLANT was actually given, and
+          // only if the plant was actually drawn. Round 1 drew the two from
+          // independent draws of the same range, so a 2.0 m cordgrass spike
+          // could stand over a 1.25 m tuft — which is the pair of flower heads
+          // the critic found floating unattached in the open sky.
+          //
+          // The head rides its PLANT'S ring now, not the layer's. On a spread
+          // boundary the layer's ring answers for no particular tuft, and a head
+          // hung on it would go on being drawn out to 7 m over a plant whose own
+          // handover had already taken it away at five — a flower in the sky with
+          // nothing under it, which is R-BUG7 rebuilt from the other end.
+          const { sp, y, h } = _nearDealt;
+          const headRing = headRingAt(ring, _headRing);
+          if (h > 0 && r <= headRing[0] + step) {
+            maybeHead(heads, sp, e, y, n, rng, h, headRing);
+          }
+        });
+    }
 
     // MID: clump cards. The inner edge overlaps the near ring so the change of
     // representation happens inside the field rather than at a visible circle.
@@ -2238,7 +2493,7 @@ export async function createFlora({
           // `farHeadReach`. The head sets and their material are the ones the
           // forb ring already uses, so this is instances on a mesh that is
           // drawn either way, never a new draw call.
-          if (forb && h > 0 && sp.head && tune.far.minPx
+          if (forb && h > 0 && sp.head && tune.far.minPx && band.heads !== false
             && r <= farHeadReach(sp, tune.far.minPx) + step) {
             const hr = farHeadRing(sp, tune.far.minPx, _headRing);
             hr[0] = Math.min(hr[0], outer - HEAD_FADE_AT * feather);
@@ -2360,16 +2615,22 @@ export async function createFlora({
   }
 
   function* rebuildAll(camE, camN, cone) {
+    nearDealing = true;
     openCensus();
     yield* rebuildGround(camE, camN, cone);
     yield* rebuildForbs(camE, camN, cone);
     yield* rebuildFar(camE, camN, cone);
+    // T-2716: the near ring's tufts dealt by the GPU at this pass's centre.
+    // T-2774: and read back for their heads and the census — in this frame for
+    // a caller that reads the buffers straight after, which counts them into
+    // this census before it closes; otherwise collected when the GPU is done,
+    // and until then the sets carry the last placement's near heads.
+    gpuNear?.place(camE, camN, cone, nearSync);
     closeCensus();
-    // T-2716: the near ring's tufts dealt by the GPU at this pass's centre, so
-    // they land in the same frame as the heads the walk above hung on them.
-    gpuNear?.place(camE, camN, cone);
+    hangNearHeads();
     // The far shrubs commit themselves, on their own step.
     for (const s of sets) if (s !== farShrubSet && s !== nearCarry && s !== midCarry) s.commit();
+    nearDealing = false;
     tally();
   }
 
@@ -2674,9 +2935,12 @@ export async function createFlora({
      * T-2716. The near ring as the GPU draws it, or null where the CPU set
      * does: `stats` (deal passes, tile builds and uploads, read-backs, and the
      * main thread's ms on each) and `groundAt`, the kept tile's ground under a
-     * point — what a drawn tuft roots on.
+     * point — what a drawn tuft roots on. T-2774: `flush` takes a read-back
+     * still on its way now, so a reader comparing the head sets sees the last
+     * placement's heads and not the one before.
      */
-    nearDraw: gpuNear ? { stats: gpuNear.stats, groundAt: (e, n) => gpuNear.groundAt(e, n) } : null,
+    nearDraw: gpuNear ? { stats: gpuNear.stats, groundAt: (e, n) => gpuNear.groundAt(e, n),
+      flush: () => gpuNear.flush() } : null,
     nearField: {
       spec: FIELD_SPEC,
       flags: FIELD_FLAGS,
@@ -3061,9 +3325,11 @@ export async function createFlora({
       camera.getWorldPosition(tmpV);
       const e = tmpV.x;
       const n = -tmpV.z;
+      // T-2774: such a caller reads the near ring's heads back in the frame too.
+      nearSync = !Number.isFinite(budgetMs);
       // T-2716: the drawn near ring's field tile follows the walker on the pool;
       // a caller that reads the buffers straight after gets it whole, now.
-      gpuNear?.keep(e, n, !Number.isFinite(budgetMs));
+      gpuNear?.keep(e, n, nearSync);
 
       // Forward in ENU; -Z is north (terrain.js).
       camera.getWorldDirection(tmpF);
@@ -3122,6 +3388,10 @@ export async function createFlora({
      *  of the buffers that must see one whole lattice. True if one landed. */
     settle() {
       let landed = false;
+      // T-2774: and the near heads with it — a pass landed here reads back in
+      // the frame, and a read-back still on its way is taken now.
+      nearSync = true;
+      if (!nearPass.pending) gpuNear?.flush();
       for (const p of [farPass, nearPass]) {
         if (!p.pending) continue;
         const t0 = performance.now();
@@ -4314,6 +4584,114 @@ async function handTurfToGround(zones, finder, water, terrain, problems, checkpo
 }
 
 
+/**
+ * T-2783 — THE FAR SWARD'S COLOUR, handed to the ground the way the turf is.
+ *
+ * Past the near ring the sward thins to cards and then to nothing, and the
+ * ground under it was the prairie tile: the colour of litter between stems,
+ * which is what a walker sees at their feet and not what a July sward is at
+ * forty metres, seen almost edge-on, where nothing shows but the grass. So the
+ * plain past the near ring read as paint and the end of the tufts read as a line.
+ *
+ * The ground now eases toward the sward's own colour over the tier's rings
+ * (terrain.js `FAR_SWARD_FRAGMENT`). WHICH colour, and how much of it, is asked
+ * of the placer, texel by texel, over the heightfield: the community the zone
+ * finder deals at that point, its `matColor` (the mean of its grass records'
+ * July greens, the colour its cards are tinted with) and its recorded
+ * `matrix_fraction` as the weight. No grass where a community records none,
+ * none on water, none on the town's turf — the 1835 town paints its own short
+ * grass after this. One question a texel, then one blur pass, because the
+ * finder deals each point from a draw across a blended edge.
+ *
+ * `FAR_SWARD` holds the parts that are tuning, not evidence: the gain that
+ * brings a ground lit as a surface up to a sward lit as leaves, the strength of
+ * the coarse grain's streaks, and its scale (docs/LIBERTIES.md L-far-sward-2783).
+ */
+const FAR_SWARD = {
+  /** Metres a texel. The communities' edges blend over ~100 m (T-2125). */
+  cellM: 16,
+  /** Linear multipliers on the recorded green. A card is lit through the leaf
+   *  (`LEAF.scatter`, `LEAF.transmit`); the ground is lit as a surface, so the
+   *  same albedo reads darker and greyer on the ground than in the grass. */
+  gain: [0.82, 0.88, 0.64],
+  /** How far the coarse grain moves the tone, and its tile in metres. */
+  streak: 0.70,
+  grainM: 18.0,
+};
+async function handFarSwardToGround(zones, finder, water, terrain, tune, problems,
+  checkpoint = () => null) {
+  const out = { painted: false, cellM: FAR_SWARD.cellM, texels: 0, start: null, full: null };
+  const hf = terrain?.heightfield;
+  if (typeof terrain?.setFarSward !== 'function' || !hf?.loaded) return out;
+  const cell = FAR_SWARD.cellM;
+  // A rim of one weightless texel each side, so the clamped map ramps to
+  // nothing at its own edge rather than smearing its last row outward.
+  const w = Math.ceil(hf.widthM / cell) + 2;
+  const h = Math.ceil(hf.depthM / cell) + 2;
+  const e0 = hf.originE - cell;
+  const n0 = hf.originN - cell;
+  const raw = new Float32Array(w * h * 4);
+  for (let j = 1; j < h - 1; j++) {
+    const pause = checkpoint(); if (pause) await pause;
+    for (let i = 1; i < w - 1; i++) {
+      const ce = e0 + (i + 0.5) * cell;
+      const cn = n0 + (j + 0.5) * cell;
+      if (water.isWater(ce, cn)) continue;
+      const z = finder(ce, cn);
+      if (!z || z.turf || !z.graminoids?.length || !z.matColor) continue;
+      const a = clamp01(z.matrixShare ?? 0);
+      if (a <= 0) continue;
+      const k = (j * w + i) * 4;
+      raw[k] = z.matColor[0] * a;
+      raw[k + 1] = z.matColor[1] * a;
+      raw[k + 2] = z.matColor[2] * a;
+      raw[k + 3] = a;
+      out.texels++;
+    }
+  }
+  if (!out.texels) {
+    problems.push('flora: no texel of the heightfield deals a grass community — the far '
+      + 'sward is not painted and the plain past the near ring keeps the tile');
+    return out;
+  }
+  // One blur, premultiplied by the weight so a grass texel beside a bare one
+  // keeps its own green and only its weight falls.
+  const data = new Uint8Array(w * h * 4);
+  for (let j = 1; j < h - 1; j++) {
+    for (let i = 1; i < w - 1; i++) {
+      let r = 0, g = 0, b = 0, a = 0;
+      for (let dj = -1; dj <= 1; dj++) {
+        for (let di = -1; di <= 1; di++) {
+          const k = ((j + dj) * w + i + di) * 4;
+          r += raw[k]; g += raw[k + 1]; b += raw[k + 2]; a += raw[k + 3];
+        }
+      }
+      if (a <= 0) continue;
+      const k = (j * w + i) * 4;
+      // Square-root encoded: the shader squares it back to linear.
+      data[k] = Math.round(255 * Math.sqrt(Math.min(1, r / a)));
+      data[k + 1] = Math.round(255 * Math.sqrt(Math.min(1, g / a)));
+      data[k + 2] = Math.round(255 * Math.sqrt(Math.min(1, b / a)));
+      data[k + 3] = Math.round((255 * a) / 9);
+    }
+  }
+  // The tier's own rings: the ground starts to turn where the near ring's
+  // tufts stop standing solid, and is the sward's colour by the outer edge of
+  // the mid ring, where the cards start to thin.
+  out.start = tune.near.radius;
+  out.full = tune.mid.radius + (tune.mid.fringe ?? 0);
+  out.painted = terrain.setFarSward({
+    box: { e0, e1: e0 + w * cell, n0, n1: n0 + h * cell },
+    map: { data, w, h },
+    start: out.start,
+    full: out.full,
+    streak: FAR_SWARD.streak,
+    grainM: FAR_SWARD.grainM,
+    gain: FAR_SWARD.gain,
+  });
+  return out;
+}
+
 /** What fraction of the modelled DRY ground matches no community. Sampled over
  *  the whole heightfield, so it is a property of the dataset and not of where
  *  the visitor happens to stand. */
@@ -5113,6 +5491,11 @@ function instSet(name, geometry, material, max) {
      *  attempted before the set filled. */
     skip(k) { want += k; },
     reset() { n = 0; want = 0; },
+    /** T-2774. Where the set stands now, and back to it: the near ring's heads
+     *  are appended after a pass's own (`hangNearHeads`), and appended afresh
+     *  when the read-back they hang off lands after the pass committed. */
+    mark() { return [n, want]; },
+    rewind(m) { n = m[0]; want = m[1]; },
     /** The ring every following push is drawn on, `[outer, band, inner,
      *  innerBand]`. A head set is pushed to from two different rings in one
      *  rebuild, so this is per-push state rather than per-set. */

@@ -335,6 +335,46 @@
    },
    "confidence": "reconstructed",
    "note": "Dossier tags the scattered-forb row I/C and this is the dry-ground member of it: butterfly weed wants sand, and no source places it on the lake-plain prairie at the forks. Recorded conjectural, at the bottom of the density band, so a critic can see it is our guess."
+  },
+  {
+   "id": "rosa_spp",
+   "binomial": "Rosa spp.",
+   "common": "wild rose (pasture rose and smooth wild rose)",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"density_per_ha":[0,0]},
+   "height_m": [0.5,1.4],
+   "width_m": [0.5,1.2],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [72,102,52],
+    "foliage_rgb_alt": [122,146,84],
+    "inflorescence": {"shape":"head_ray","rgb":[232,150,172],"height_frac":0.86,"size_m":[0.04,0.06]},
+    "appearance": "Low thickets of thin prickly canes with dull pinnate leaves standing a little over the grass, the last pink five-petalled flowers of the season open at the shoot tips."
+   },
+   "confidence": "inferred",
+   "sources": [],
+   "note": "THE SPECIES IS THE ECOLOGY'S, NOT A WITNESS'S. The trees report's ecology analysis (section 2.5, 18 October 2026) reads prairie rose (Rosa carolina, R. blanda) as scattered through the grass everywhere on the lake-plain prairie: a fire-tolerant shrub that resprouts from its rhizomes after every burn, so the annual fires that kept the plain treeless never cleared it. No source in data/sources names a rose at the forks, and the genus is kept rather than one species because the two are told apart by their prickles, not by anything a visitor sees. The heights and the colour are the two species' ordinary July habit. THE ZERO DENSITY IS A ROUTING CLAIM, NOT AN ECOLOGICAL ONE, as the young fruit trees' is in z10_settled_town (T-2809): this zone's sward lattice in renderers/web/js/flora.js deals no plant of this record, and every stem of it in the scene is placed by renderers/web/js/trees.js PRAIRIE_WOODY (T-2784) at a density that file states and docs/LIBERTIES.md L-prairie-woody-2784 records. WHAT WOULD REPLACE IT: a regional flora read at its rose entries, or a land-survey line note naming 'rose' or 'briers' on the prairie."
+  },
+  {
+   "id": "ceanothus_americanus",
+   "binomial": "Ceanothus americanus",
+   "common": "New Jersey tea",
+   "role": "shrub_low",
+   "form": "shrub_low",
+   "abundance": {"density_per_ha":[0,0]},
+   "height_m": [0.5,1.0],
+   "width_m": [0.5,1.0],
+   "july": {
+    "phenology": "flowering",
+    "foliage_rgb": [78,104,56],
+    "foliage_rgb_alt": [128,150,92],
+    "inflorescence": {"shape":"panicle_dense","rgb":[238,236,226],"height_frac":0.84,"size_m":[0.03,0.06]},
+    "appearance": "A compact rounded bush of many slender stems from a woody crown, with ovate toothed leaves and fluffy white flower clusters on long stalks, the end of its bloom."
+   },
+   "confidence": "inferred",
+   "sources": [],
+   "note": "THE SPECIES IS THE ECOLOGY'S, NOT A WITNESS'S. The trees report's ecology analysis (sections 2.4 and 2.5, 18 October 2026) puts New Jersey tea on the drier prairie and the sand ridges, with leadplant: a deep-rooted shrub of the fire-maintained prairie that resprouts from a burl after a burn. No source in data/sources names it at the forks. THE ZERO DENSITY IS A ROUTING CLAIM, NOT AN ECOLOGICAL ONE, as the young fruit trees' is in z10_settled_town (T-2809): this zone's sward lattice in renderers/web/js/flora.js deals no plant of this record, and every stem of it in the scene is placed by renderers/web/js/trees.js PRAIRIE_WOODY (T-2784) at a density that file states and docs/LIBERTIES.md L-prairie-woody-2784 records. WHAT WOULD REPLACE IT: a regional flora read at its Ceanothus entry, or a land-survey note naming it ('red root') on this township's prairie."
   }
  ],
  "confidence": "inferred",
