@@ -2,7 +2,7 @@
   "structure_id": "house_1625_prairie",
   "view": "inland_architect_front",
   "glb": "assets/gltf/house_1625_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b057fd5b35a9d6e9cbebba94b299084a56ee2a522dedf9d1c0766933dd64615e",
+  "glb_sha256": "fd3d737f1879ecf978eb4dd2d804783d0d57d22a4000389e6ef0e0d80d79284b",
   "camera_sha256": "c38fa66c558625703b0e5df1ac52544c7c184e62b1c357844035aeb11defe13b",
   "side_by_side": "docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg",
   "verdict": "differs",
@@ -119,8 +119,8 @@
     },
     {
       "what": "the south wall's lights' heads: the print shows them plain under the wall's face; the build dresses the ground floor's light and the stair light with K03's gauged brick head, a fan about 0.3 m tall over each",
-      "status": "open",
-      "how": "T-2867"
+      "status": "fixed",
+      "how": "T-2884 (north_bays[].head \"plain\"): the ground floor's light (s 2.35) and the stair light (s 9.3) stand under plain heads, the hole cut square in the wall's face with nothing laid over it, as the print draws them and as the top floor's lights read; the K03 fans are gone. What carries the brick over each (an iron lintel, a flush flat arch) is not modelled (L-k01-1625-south-lower-lights-2884)"
     },
     {
       "what": "the rear section's door's transom light: the print's hole runs dark from its head (y 729 px) to a light bar at y 745-746, its panes between (y 731-744); the build's leaf filled the hole to its 2.1 m head",
@@ -130,17 +130,17 @@
     {
       "what": "the rear section's door's leaf: under its transom the print's leaf is about 1.45 m tall over the walk's grade on this camera (the eye's softness moves it 1.3-1.6 m), which no door at grade is; read with its transom, the leaf's foot stands about 0.5-0.7 m under the walk, behind the fence, so T-2846's ruling of a door at grade does not survive it (an areaway's door, or steps down), and the built leaf is 1.45 m tall",
       "status": "open",
-      "how": "T-2867"
+      "how": "T-2885"
     },
     {
       "what": "the main south wall's lower openings: a small round-headed light near grade at about s 5.7 (x 484-490 px, about 0.25-0.9 m, under the fence's top), a tall narrow round-headed opening under the oriel at about s 8.5 (x 504-511, about 0.2-2.0 m: a door or a light) and a narrow one at about s 11.1 (x 521-526, about 0.8-1.9 m); none is built",
-      "status": "open",
-      "how": "T-2867"
+      "status": "fixed",
+      "how": "T-2884 (north_bays, read on the re-solved camera): the small round-headed light at s 5.7, 0.36 m across, its head at 0.89 m (built x 485-490 px, its crown at y 759 against the print's 483-491 and 759.5), and the tall narrow round-headed light under the oriel at s 8.5, 0.61 m across, its head at 2.0 m (built x 505-510.5 against the print's 503-510.5), both K06's fixed round-headed basement light in a round hole under no hood (k01.opening.sash_round_plain), each built down to the fence's top rail where its foot goes out of sight (0.25 and 0.2 m); and the narrow light at s 11.1, a slit 0.3 m across, 0.9-1.93 m under a plain square head (built x 522.5-525.5, head y 730, sill y 758.5 against the print's 521-524.5, 730 and 758). Widths are the outline less the far jamb's reveal, good to about 0.15 m; whether the two round lights run lower into an area is the rear door's open item (L-k01-1625-south-lower-lights-2884)"
     },
     {
       "what": "the rear section's dormer's head: the print's stands under a flat hood with a projecting cornice and a moulded frame (x 535-560 px, its hood about y 335-350), as the main roof's south dormer's does; the build's is T-2820's gabled pediment, its apex about 15 px over the hood's line",
       "status": "open",
-      "how": "T-2867"
+      "how": "T-2885"
     },
     {
       "what": "the picket fence along the open ground to the south, and the builders' stone and barrels on the walk",
