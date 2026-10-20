@@ -56,6 +56,10 @@ const DEFAULT_SETTINGS = {
   // T-2736 (owner, 2026-10-17): the tag naming the building in the reticle; on by default,
   // and a visitor who finds it in the way turns it off under Settings › Show.
   lookTag: true,
+  // T-2942 (owner, 2026-10-20): where that tag shows — 'right' under the address (default),
+  // 'centre' under the crosshair (T-2627's place), 'bottom' — and whether it 'fade's after a
+  // few seconds (default, T-2736) or is 'always' shown while the building is in the reticle.
+  lookTagPlace: 'right', lookTagHold: 'fade',
   // T-2481: the 1904 Season — 'summer' (1 July, the scene's own date and the
   // default), 'spring', 'fall' or 'winter': ground, trees and sun. A viewing choice.
   season: 'summer',
@@ -598,6 +602,8 @@ export function createHud({
   wireToggle('s-overview-map', 'overviewMap');
   wireToggle('s-street-names', 'streetNames');
   wireToggle('s-look-tag', 'lookTag');
+  wireSelect('s-look-tag-place', 'lookTagPlace', 'right');
+  wireSelect('s-look-tag-hold', 'lookTagHold', 'fade');
   // T-2741: the toggle names the scene's own year — "1904 / current street names" — not
   // the 1835 it said in every year.
   const streetNamesLabel = $('s-street-names-label');

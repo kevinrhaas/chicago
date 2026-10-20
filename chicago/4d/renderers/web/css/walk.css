@@ -801,11 +801,21 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 /* T-2741: where you stand, then and today, hung under the instrument's right edge so its
    width never shifts the round face. Terse machine status: a year tag, the era street;
    a TODAY tag, today's street, corner or house number. */
-.street-readout {
+/* T-2942: the column hung under the instrument — the street readout, then the name of what
+   you look at when it is docked here (its default place). Grid, right-aligned, so each card
+   keeps its own width and neither shifts the round face. */
+.instrument-below {
   position: absolute;
   top: 100%;
   right: 0;
   margin-top: 5px;
+  display: grid;
+  justify-items: end;
+  gap: 5px;
+  width: max-content;
+  pointer-events: none;
+}
+.street-readout {
   display: grid;
   width: max-content;
   max-width: 248px;
@@ -1192,6 +1202,40 @@ body.is-touch .crosshair { display: none; }
 .target-tag.is-fading { opacity: 0; pointer-events: none; }
 @media (prefers-reduced-motion: reduce) { .target-tag { animation: none; transition: none; } }
 .target-tag:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* T-2942 (owner, 2026-10-20: "on the right side and make it smaller … the tags should have a
+   consistency"): docked under the address (its default), the tag is a card of the address's
+   own kind — the same panel, edge, 10 px radius and shadow, a mono caps label (AHEAD, from
+   data-label) in the column THEN and TODAY stand in, the name in the card's 12 px weight,
+   the distance dimmer. A long name wraps to two lines and then ends in an ellipsis. */
+.target-tag[data-place="right"] {
+  position: static; left: auto; top: auto; transform: none;
+  display: flex; align-items: baseline; gap: 6px;
+  width: max-content; max-width: 248px;
+  padding: 5px 9px 6px;
+  font-family: inherit; font-size: 12px; font-weight: 600; line-height: 1.25;
+  letter-spacing: normal; text-transform: none;
+  text-align: left; text-wrap: wrap;
+  color: var(--ink); background: var(--panel); border: 1px solid var(--edge);
+  border-radius: 10px; box-shadow: var(--shadow);
+}
+.target-tag[data-place="right"]::before {
+  content: attr(data-label);
+  flex: 0 0 auto; min-width: 3.4em;
+  color: var(--accent);
+  font: 700 8px/1 var(--font-mono, ui-monospace, monospace);
+  letter-spacing: .09em; text-transform: uppercase;
+}
+.target-tag[data-place="right"] .tt-name {
+  min-width: 0; overflow: hidden;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2;
+}
+.target-tag[data-place="right"] .tt-dist {
+  flex: 0 0 auto; color: var(--ink-dim); font-size: 11px; font-weight: 500;
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+/* T-2942: Bottom — the centre's own pill, at the top of the HUD's bottom row (above the hint
+   and the travel banner, which ride above the Navigator's sheet on a phone). */
+.target-tag[data-place="bottom"] { position: static; left: auto; top: auto; transform: none; }
 /* T-2627: the quick column — Walk/Fly and, with a target, Inspect. Right edge, centred;
    two buttons at most. */
 .quick-column {
@@ -1832,6 +1876,9 @@ kbd {
   .navigation-stack { top: calc(17px + var(--hud-row) + var(--safe-t)); }
   /* T-2626: the compass no longer stands above it, so it rides up beside the chips' second row; it stays clear of them. */
   .street-readout { max-width: min(206px, calc(100vw - 24px)); padding: 5px 8px 6px; }
+  /* T-2942: docked, the tag keeps the readout's phone width and type. */
+  .target-tag[data-place="right"] { max-width: min(206px, calc(100vw - 24px)); padding: 4px 8px 5px; font-size: 11px; }
+  .target-tag[data-place="right"] .tt-dist { font-size: 10.5px; }
   .street-line strong { font-size: 11px; }
   .street-modern { font-size: 10.5px; }
   /* A phone has room for where you are, not for what is coming. */

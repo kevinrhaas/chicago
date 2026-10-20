@@ -1,3 +1,23 @@
+## T-2942 — the look-at tag docks under the address (2026-10-20)
+
+The owner, 2026-10-20, asked for the name of what you look at "on the right side and make it
+smaller, so it fits with the navigation below the address and its not duplicative with the
+address … the tags should have a consistency", the centre kept as an option, maybe bottom, and
+a choice of always shown or fading (the default). `target-tag.js` now takes a place
+(`right` default / `centre` / `bottom`, setting `lookTagPlace`) and a hold (`fade` default /
+`always`, `lookTagHold`), both in Settings › Show. Right reparents the one `#target-tag` into
+`#instrument-below`, the grid now holding the street readout, and styles it as that card
+(panel, edge, 10 px radius, an AHEAD mono label from `data-label`, 12 px name, dim distance,
+two-line clamp; the phone's 206 px width). Centre is T-2627's place unchanged; Bottom is the
+first child of `#hud-bottom`, above the hint, so it rides above the Navigator's sheet.
+
+- **The duplicate rule:** docked, the tag is hidden when the building's name (or the part before
+  a dash) is one of the addresses the card shows now, compared without direction words and with
+  Avenue/Ave folded (`sameAddress`). The Inspect key still offers it. Centre and bottom always
+  show the name.
+- Tests: `test_navigator.mjs` (places, holds, the rule); smoke T-2942 block (default place,
+  boxes inside the screen, clear of the round map and the quick column, under the readout).
+
 ## T-2941 — sound starts off (2026-10-20)
 
 The owner, 2026-10-20: *"the sound is a bit much, can you default that to off for now"*.

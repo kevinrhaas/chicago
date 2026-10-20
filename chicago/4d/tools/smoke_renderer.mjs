@@ -9655,10 +9655,16 @@ for (const [label, viewport, touch] of [
       for (let i = 0; i < 150 && seen === null; i++) await new Promise((r) => setTimeout(r, 100));
       watch.disconnect();
       return { shown: seen !== null, text: seen ?? tag.textContent, upper: getComputedStyle(tag).textTransform,
+        place: tag.dataset.place, docked: tag.parentElement?.id ?? null, label: getComputedStyle(tag, '::before').content,
         ...(withIt ?? quickNow()) };
     });
-    check(`${label}: resting the reticle on a building shows its name and distance, with an Inspect key (T-2627)`,
-      tagShown.shown && tagShown.current === 'sauganash_hotel' && /^[^_]+ · \d+ (ft|yd|m)$/.test(tagShown.text) && tagShown.upper === 'uppercase'
+    // T-2942: by default the tag is docked under the address, in the card's own case with an
+    // AHEAD label; under the crosshair (Settings › Show) it is T-2627's mono caps.
+    check(`${label}: resting the reticle on a building shows its name and distance, with an Inspect key (T-2627; docked under the address by default, T-2942)`,
+      tagShown.shown && tagShown.current === 'sauganash_hotel' && /^[^_]+ · \d+ (ft|yd|m)$/.test(tagShown.text)
+      && (tagShown.place === 'right'
+        ? tagShown.docked === 'instrument-below' && tagShown.upper === 'none' && /Ahead/.test(tagShown.label)
+        : tagShown.upper === 'uppercase')
       && tagShown.buttons <= 2 && tagShown.visible.includes('btn-inspect') && tagShown.visible.includes('btn-fly'),
       JSON.stringify(tagShown));
     if (tagShown.shown) {
@@ -9696,6 +9702,66 @@ for (const [label, viewport, touch] of [
       });
       check(`${label}: a tap on the target tag opens Inspect on that building (T-2627)`,
         tagOpened.app === 'inspect' && tagOpened.open === 'sauganash_hotel', JSON.stringify(tagOpened));
+      // >>> T-2942: the tag's three places and two holds, chosen in Settings › Show. Right (the
+      // default) stands under the address card, inside the screen, clear of the round map and
+      // the quick column; Centre is under the crosshair as T-2627 placed it; Bottom is low on
+      // the screen, centred. Always shown outlasts the fade; each choice is stored.
+      const places = await page.evaluate(async () => {
+        const api = window.__chicago4d;
+        const tag = document.getElementById('target-tag');
+        const pick = (id, v) => { const el = document.getElementById(id); el.value = v; el.dispatchEvent(new Event('change', { bubbles: true })); };
+        const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+        const showAgain = async () => {
+          api.targetTag.setEnabled(false); api.targetTag.setEnabled(true);
+          for (let i = 0; i < 150 && (tag.hidden || tag.classList.contains('is-fading')); i++) await wait(50);
+        };
+        const box = (el) => { const b = el?.getBoundingClientRect(); return b ? { l: Math.round(b.left), t: Math.round(b.top), r: Math.round(b.right), b: Math.round(b.bottom) } : null; };
+        const overlap = (a, b) => !!a && !!b && a.l < b.r && b.l < a.r && a.t < b.b && b.t < a.b;
+        const W = innerWidth, H = innerHeight;
+        const out = { H, defaults: { place: document.getElementById('s-look-tag-place')?.value, hold: document.getElementById('s-look-tag-hold')?.value,
+          stored: [api.hud.settings.lookTagPlace, api.hud.settings.lookTagHold] } };
+        for (const place of ['right', 'centre', 'bottom']) {
+          pick('s-look-tag-place', place);
+          await showAgain();
+          const t = box(tag);
+          const map = box(document.getElementById('overview-map'));
+          const street = document.getElementById('street-readout');
+          const quick = [...document.querySelectorAll('#quick-column > button')].filter((b) => !b.hidden).map(box);
+          const at = tag.hidden ? null : document.elementFromPoint((t.l + t.r) / 2, (t.t + t.b) / 2);
+          out[place] = { shown: !tag.hidden, box: t, place: tag.dataset.place, parent: tag.parentElement?.id ?? null,
+            inside: !!t && t.l >= 0 && t.t >= 0 && t.r <= W && t.b <= H, onTop: !!at && (at === tag || tag.contains(at)),
+            clearOfMap: !overlap(t, map), clearOfQuick: quick.every((q) => !overlap(t, q)),
+            underStreet: street.hidden || (box(street).b <= t.t + 1 && Math.abs(box(street).r - t.r) <= 1),
+            stored: api.hud.settings.lookTagPlace, saved: JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').lookTagPlace };
+        }
+        // Always shown: the tag outlasts the fade's hold; back to Fades, it fades again.
+        pick('s-look-tag-hold', 'always');
+        await showAgain();
+        await wait(3900);
+        out.always = { shown: !tag.hidden && !tag.classList.contains('is-fading'), stored: api.hud.settings.lookTagHold };
+        pick('s-look-tag-hold', 'fade');
+        await showAgain();
+        // Timed on the clock, not by a fixed wait: on a runner drawing one frame a second the
+        // page's timers run late, so the tag is followed until it goes (up to 20 s) and the
+        // check is that it held at least its 3 s first.
+        const t0 = performance.now();
+        while (!tag.hidden && performance.now() - t0 < 20000) await wait(100);
+        out.fadeAfterMs = Math.round(performance.now() - t0);
+        out.fades = tag.hidden && out.fadeAfterMs >= 2900;
+        pick('s-look-tag-place', 'right');
+        out.back = api.hud.settings.lookTagPlace === 'right' && api.hud.settings.lookTagHold === 'fade';
+        return out;
+      });
+      const okPlace = (p) => p?.shown && p.inside && p.onTop && p.stored === p.saved;
+      check(`${label}: the look-at tag docks under the address by default, clear of the map and the quick column; Centre and Bottom move it, each choice stored (T-2942)`,
+        places.defaults.place === 'right' && places.defaults.hold === 'fade'
+        && okPlace(places.right) && places.right.parent === 'instrument-below' && places.right.clearOfMap && places.right.clearOfQuick && places.right.underStreet
+        && okPlace(places.centre) && places.centre.place === 'centre' && places.centre.box.t > places.H * 0.45 && places.centre.box.t < places.H * 0.62
+        && okPlace(places.bottom) && places.bottom.parent === 'hud-bottom' && places.bottom.box.t > places.centre.box.b,
+        JSON.stringify(places));
+      check(`${label}: the look-at tag can be always shown, and fades after a few seconds by default (T-2942)`,
+        places.always?.shown && places.always.stored === 'always' && places.fades === true && places.back, JSON.stringify({ always: places.always, fades: places.fades, fadeAfterMs: places.fadeAfterMs, back: places.back }));
+      // <<< T-2942
     }
 
     // T-2639 (here, in the town: the device is hidden behind the welcome gate). Inspect's tabs

@@ -3414,6 +3414,10 @@ async function boot() {
         navigation.setStreetVisible(value);
       } else if (key === 'lookTag') {
         api.targetTag?.setTagShown(value);
+      } else if (key === 'lookTagPlace') {
+        api.targetTag?.setPlace(value);
+      } else if (key === 'lookTagHold') {
+        api.targetTag?.setHold(value);
       } else if (key === 'season') {
         void applySeason(value).then(() => gateFrame.invalidate());
       } else if (key === 'streetTrees') {
@@ -4438,6 +4442,24 @@ async function boot() {
     keyEl: document.getElementById('btn-inspect'),
     units: () => hud.settings.units,
     tagShown: hud.settings.lookTag !== false,
+    // T-2942: right under the address by default, or the centre (its first place) or the
+    // bottom row; fading by default. Docked, it never repeats the address the card shows.
+    place: hud.settings.lookTagPlace,
+    holdMode: hud.settings.lookTagHold,
+    slots: (() => {
+      const tagHome = document.getElementById('target-tag');
+      const bottom = document.getElementById('hud-bottom');
+      return {
+        right: { parent: document.getElementById('instrument-below') },
+        centre: { parent: tagHome?.parentNode ?? null, before: tagHome?.nextSibling ?? null },
+        bottom: { parent: bottom, before: bottom?.firstElementChild ?? null },
+      };
+    })(),
+    addresses: () => {
+      const card = document.getElementById('street-readout');
+      if (!card || card.hidden) return [];
+      return ['street-historic', 'street-modern'].map((id) => document.getElementById(id)?.textContent ?? '');
+    },
     onInspect: (t) => {
       // Inspect opens on what is selected first, so a card left open on another
       // building is put away before the tag hands over its own.

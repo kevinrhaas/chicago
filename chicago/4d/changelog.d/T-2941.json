@@ -1,9 +1,8 @@
 {
-  "title": "Sound starts off",
+  "title": "Quieter, and the name of what you see moves under the address",
   "kind": "change",
   "items": [
-    "The town is quiet when you arrive: the year ticker, the clicks, the hum and each destination's tone are off until you turn them on.",
-    "Raise Master in Settings › Sound to hear them; your choice is remembered on your next visit.",
-    "If you had already changed the sound levels yourself, they stay as you set them."
+    "Sound starts off: the ticker, clicks, hum and each destination's tone stay quiet until you raise Master in Settings › Sound, and your choice is remembered. Levels you had already changed stay as you set them.",
+    "The name of the building in front of you now sits top right in a small card under the address, styled like it, and is not shown when it would only repeat that address. Settings › Show moves it back under the crosshair or to the bottom, and lets it stay instead of fading after a few seconds."
   ]
 }
