@@ -86,10 +86,15 @@ await check('people pins: one per address in the directory, absent people left o
   assert.equal(p04.places.length, 1);
   assert.equal(p04.places[0].id, 'glessner_house');
   assert.equal(p04.places[0].people.length, 2);
-  assert.equal(scenes['1812'].people, null, '1812 has no people directory (if it gains one, this test should say what it pins)');
+  const p12 = O.pinPlaces(scenes['1812'].people.people, scenes['1812'].where);
+  assert.equal(p12.people, 1);
+  assert.equal(p12.places.length, 1);
+  assert.equal(p12.places[0].id, 'kinzie_house_1812');
+  assert.deepEqual(p12.places[0].people.map((p) => p.id), ['kinzie_john_elder']);
+  assert.equal(scenes['1812'].people.people[0].grade, 'inferred');
   const none = O.pinPlaces([{ id: 'a', name: 'A. Nobody', lives_at: 'not_drawn' }], () => null);
   assert.equal(none.places.length, 0);
-  console.log(`       pins: 1835 ${p35.places.length} addresses for ${p35.people} people, 1904 ${p04.places.length} for ${p04.people}, 1812 none`);
+  console.log(`       pins: 1835 ${p35.places.length} addresses for ${p35.people} people, 1904 ${p04.places.length} for ${p04.people}, 1812 ${p12.places.length} for ${p12.people}`);
 });
 
 await check('each switch\'s line says what this destination has, or that it has none — never a fake layer', () => {
@@ -335,7 +340,7 @@ await check('the switches at the foot of the app: one per overlay, and a layer t
     const byId = (id) => [...el.walk()].find((n) => n.id === id);
     for (const id of O.OVERLAYS) assert.ok(byId(`cv-ov-${id}`) && byId(`cv-ov-${id}-note`).textContent, `${year} ${id}`);
     const disabled = O.OVERLAYS.filter((id) => byId(`cv-ov-${id}`).disabled);
-    if (year === '1812') assert.deepEqual(disabled, ['people', 'route'], `1812: ${disabled}`);
+    if (year === '1812') assert.deepEqual(disabled, ['route'], `1812: ${disabled}`);
     else assert.deepEqual(disabled, [], `${year}: ${disabled}`);
     assert.equal(byId('cv-ov-streets').checked, true);
     const words = [...el.walk()].map((n) => (n.tagName === '#TEXT' ? n._text : n.textContent)).join(' ');
