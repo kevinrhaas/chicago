@@ -2082,9 +2082,9 @@ class Assembly:
     def bay_dress(self, d, pts, W, R, N, mat, seed, conf):
         """T-2887: a stone bay's carved dress (1637's south bay, the Grosvenor photograph), on
         the bay's own plan: mitred bands proud of its faces (from `in_m` out to `proud_m`, so a
-        band can stand on the eaves' fascia too), oval panels sunk dark in a moulded ring, a roll
-        at each end of every corner console, and open louvred shutters either side of the window
-        over it on the host wall."""
+        band can stand on the eaves' fascia too), oval panels sunk in a moulded ring (dark, or a
+        stone `field`, T-2909), a roll at each end of every corner console, and open louvred
+        shutters either side of the window over it on the host wall."""
         V = lambda x, z: _add(_mul(R, x), _mul(N, z))     # a plan direction in the world
         runs = []
         for (x0, z0), (x1, z1) in zip(pts, pts[1:]):
@@ -2138,7 +2138,10 @@ class Assembly:
                 s0, s1 = E(a - rim, b_ - rim, k, sunk), E(a - rim, b_ - rim, k + 1, sunk)
                 pr.quad(s0, s1, i1, i0, _sub(C, _mul(_add(s0, i1), 0.5)), self.basis(mat, s0, Nw, Y, seed + j), conf)
             disc = [E(a - rim, b_ - rim, k, sunk) for k in range(n)]
-            dark.face(disc, Nw, self.basis("backing", disc[0], Rw, Y, seed + j), conf)
+            if q.get("field") == "stone":        # T-2909: a sunk stone field, not a dark one
+                pr.face(disc, Nw, self.basis(mat, disc[0], Rw, Y, seed + j), conf)
+            else:
+                dark.face(disc, Nw, self.basis("backing", disc[0], Rw, Y, seed + j), conf)
         vo = d.get("volutes")
         if vo:
             rv, Rc, D, t = vo["radius_m"], vo["reach_m"], vo["drop_m"], vo["thickness_m"] / 2 + 0.02
@@ -2156,8 +2159,9 @@ class Assembly:
         if sh:
             frame = (W((0.0, 0.0, 0.0)), R, N)
             y0, y1, w, lv = sh["from_m"], sh["to_m"], sh["width_m"], sh["louvre_m"]
+            c = sh.get("centre_m", 0.0)     # T-2909: the window's offset off the bay's centre
             for sg in (-1.0, 1.0):
-                e0, e1 = sg * (sh["half_m"] + 0.03), sg * (sh["half_m"] + 0.03 + w)
+                e0, e1 = c + sg * (sh["half_m"] + 0.03), c + sg * (sh["half_m"] + 0.03 + w)
                 s0, s1 = min(e0, e1), max(e0, e1)
                 self.proud_box("shutter", frame, s0, s1, y0, y1, 0.035, seed, conf)
                 rows = int((y1 - y0 - 0.16) / lv)
