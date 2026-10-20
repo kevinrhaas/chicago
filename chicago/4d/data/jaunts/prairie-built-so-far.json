@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 871936161,
+  "content_version": 271696833,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -235,8 +235,8 @@
         "kind": "structure",
         "id": "house_1623_prairie"
       },
-      "text": "1623 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: 1625 Prairie.",
-      "read_s": 12,
+      "text": "1623 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: 1637 Prairie, the Spalding house.",
+      "read_s": 13,
       "evidence": [
         "stood-11",
         "tour"
@@ -254,10 +254,10 @@
       "id": "stop-12",
       "destination": {
         "kind": "structure",
-        "id": "house_1625_prairie"
+        "id": "spalding_house_1637_prairie"
       },
-      "text": "1625 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 3 of the pictures on the Images tab show it. Next: 1637 Prairie, the Spalding house.",
-      "read_s": 15,
+      "text": "1637 Prairie, the Spalding house. DETAIL 4/5: a kit build matched to its picture; 2 solved pictures, 1 matching. Pictured: 2 of the pictures on the Images tab show it. Next: 1625 Prairie.",
+      "read_s": 14,
       "evidence": [
         "stood-12",
         "tour"
@@ -265,7 +265,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1625_prairie",
+          "id": "spalding_house_1637_prairie",
           "label": "About this building"
         }
       ],
@@ -275,10 +275,10 @@
       "id": "stop-13",
       "destination": {
         "kind": "structure",
-        "id": "spalding_house_1637_prairie"
+        "id": "house_1625_prairie"
       },
-      "text": "1637 Prairie, the Spalding house. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: 1616 Prairie.",
-      "read_s": 15,
+      "text": "1625 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 3 of the pictures on the Images tab show it. Next: 1616 Prairie.",
+      "read_s": 14,
       "evidence": [
         "stood-13",
         "tour"
@@ -286,7 +286,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "spalding_house_1637_prairie",
+          "id": "house_1625_prairie",
           "label": "About this building"
         }
       ],
@@ -757,7 +757,7 @@
     },
     {
       "id": "stood-12",
-      "text": "1625 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "text": "1637 Prairie, the Spalding house stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
@@ -766,7 +766,7 @@
     },
     {
       "id": "stood-13",
-      "text": "1637 Prairie, the Spalding house stood on 1 July 1904, as its structure record carries it.",
+      "text": "1625 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
