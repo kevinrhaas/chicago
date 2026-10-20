@@ -2,9 +2,9 @@
  "structure_id": "wheeler_house_1812_prairie",
  "view": "levy_front",
  "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
- "glb_sha256": "b8454fcb9b73f38737a6fd620eabd2f2e832f47b2fa1cf3c250aedfa3ae69a38",
+ "glb_sha256": "5e1072a06e5e904aa53f09c91d57d24cc96daea6a80eb9dbc3ff49a3847e787a",
  "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
- "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
+ "side_by_side": "../../../../../../../../tmp/t2889/pm/levy_front-side-by-side.jpg",
  "verdict": "differs",
  "differences": [
   {
@@ -24,8 +24,8 @@
    "status": "open"
   },
   {
-   "what": "Gable: its face is the wall's own plane in the photograph; here it stands 0.5 m proud of the wall below on a square base, so the hip's eave dies into it",
-   "status": "open"
+   "what": "Gable: its face on the wall's own plane, as the print's: the eave under it plain and 0.05 m deep, so the slab stands 0.07 m before the wall below, its foot just over the third storey's arches, with no eave, fascia or gutter across the front (T-2889)",
+   "status": "fixed"
   },
   {
    "what": "Gable: the kneelers are carved scrolls under small pinnacles; built as plain square pinnacles",
@@ -56,11 +56,31 @@
    "status": "open"
   },
   {
-   "what": "Third storey: the large round-arched window with its fanlight over the balcony and the smaller arched window to its north, with their voussoirs; built flat-headed and smaller",
+   "what": "Third storey: the large window over the balcony under its flat segmental arch (2.78 m across, crown 12.05 m) with its fanlight, and the small round-arched window to its north (1.2 m, crown 12.0 m), each in a ring of voussoirs running up into the gable's face, the large one under its keystone (T-2889)",
+   "status": "fixed"
+  },
+  {
+   "what": "Second storey: the north window one wide window, 1.64 m across on a stone mullion, under a transom (T-2889)",
+   "status": "fixed"
+  },
+  {
+   "what": "Third storey: the large window's middle light is wider than the two beside it and carries an arched head of its own, and its fanlight has a concentric bar as well as radial ones; built as three equal lights under a radial fanlight",
    "status": "open"
   },
   {
-   "what": "Second storey: the north pair is one wide window (1.66 m) under a transom; built as K01's widest single sash (1.15 m)",
+   "what": "Third storey: the small arched window is filled with a patterned light or panel; built as a round fanlight sash",
+   "status": "open"
+  },
+  {
+   "what": "Third storey: the voussoirs alternate long and short into the brick; built as a ring of equal stones standing 0.1 m before the wall",
+   "status": "open"
+  },
+  {
+   "what": "Second storey: the north window's transom lights are glazed in small squares; built as one plate light each",
+   "status": "open"
+  },
+  {
+   "what": "Gable: from the kneelers (about 11.6-11.7 m) to the ledge (12.52 m) the slab's base runs out square past the side walls, where the print's outline is already drawing in",
    "status": "open"
   },
   {

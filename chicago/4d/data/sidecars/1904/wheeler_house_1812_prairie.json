@@ -143,9 +143,9 @@
     "street_front_trim": {
       "value": {
         "by_storey": [
-          "k09.trim.lintel_cornice_hood",
-          "k09.surround.rowhouse_restrained",
-          "k09.surround.rowhouse_restrained"
+          "k01.flat_lintel",
+          "k01.flat_lintel",
+          "k01.flat_lintel"
         ],
         "apron": "k09.trim.foliate_panel",
         "apron_storeys": [],
@@ -153,25 +153,13 @@
       },
       "confidence": "reconstructed",
       "sources": [],
-      "note": "K09's restrained dressings, as 1621's, until the photograph's stone bands and carved bosses are built (T-2544; L-k01-1812-wheeler-front-2543)."
+      "note": "K09 dresses none of this front's windows (T-2889): each is named off the photograph (street_front_windows), the arched ones under their voussoirs, and the photograph's stone bands and carved bosses are T-2890's (L-k01-1812-wheeler-front-2543)."
     },
     "wall_head": {
-      "value": {
-        "cornice": "k10.cornice.bracketed_timber",
-        "pairs": {
-          "spacing_m": 1.6
-        },
-        "paint": {
-          "color": [
-            0.045,
-            0.04,
-            0.035
-          ]
-        }
-      },
+      "value": {},
       "confidence": "reconstructed",
       "sources": [],
-      "note": "K10's bracketed timber eave, the cornice K01 hangs under a hip, painted dark as 1612's; no picture shows the side walls' heads, and on the front the gable stands in front of it (L-k01-1812-wheeler-front-2543)."
+      "note": "No cornice (T-2889): the photograph carries the front up into the shaped gable with no eave or cornice across it, and no picture shows the side walls' heads, so they run plain under the 0.05 m eave, as 1625's (L-k01-1812-wheeler-third-storey-2889). Until T-2889 K10's bracketed timber eave stood here, under a 0.45 m overhang the gable had to stand 0.5 m proud of the wall to cover."
     },
     "roof_form": {
       "value": "hip",
@@ -188,10 +176,10 @@
       "note": "Steep enough to show at the gable's shoulders as the photograph does, and to stand its ridge (16.7 m) under the gable's apex (17.0 m); the Pennsylvania slate is cut for 45 degrees and steeper (L-k01-1812-wheeler-front-2543)."
     },
     "eave_overhang_m": {
-      "value": 0.45,
+      "value": 0.05,
       "confidence": "reconstructed",
       "sources": [],
-      "note": "Deep enough for K10's brackets; on the street front the gable stands in front of it (L-k01-1812-wheeler-front-2543)."
+      "note": "T-2889: the photograph runs the front straight up into the gable with no eave across it, and shows the side slopes only behind the gable's shoulders, so the eave is plain and almost flush, 0.05 m, as 1625's: the gable's slab, which K01 stands just proud of the street fascia, then stands 0.07 m before the wall below, on the wall's own plane within the rock face's own relief, and keeps the street run of the eave's gutter inside it. No picture shows the side walls' eaves (L-k01-1812-wheeler-third-storey-2889)."
     },
     "stair_tread_m": {
       "value": 0.28,
@@ -419,17 +407,7 @@
       "sources": [
         "levy_1812_prairie_photo"
       ],
-      "note": "The main wall's windows through the photograph's camera: the second storey's pair over the entrance is 1.66 m across and is laid at K01's widest sash, 1.15 m (the contract's range), until the pair is built (T-2544), its sill 0.51 m over the floor and 2.18 m to its transom's head; the third storey's two arched windows are laid here flat-headed, 1.15 m wide and 1.2 m high under the soffit, until their arches and fanlight are built (T-2544). The first storey has no window on the main wall: its south bay is the projection's and its north bay the entrance."
-    },
-    "basement_lights": {
-      "value": {
-        "sill_m": 0.35,
-        "width_m": 0.85,
-        "height_m": 0.6
-      },
-      "confidence": "reconstructed",
-      "sources": [],
-      "note": "K01's basement lights on the walls no picture shows (L-k01-1812-wheeler-front-2543)."
+      "note": "The contract's sash rows, which K01 lays on walls it is given no picture of; every street window is named off the photograph since T-2889 (street_front_windows), and the main body's side and rear walls are blank or behind the rear range, so no window is laid from them. The values are the photograph's earlier reading: the second storey's pair over the entrance at K01's widest sash, its sill 0.51 m over the floor, and the third storey's arched windows flat-headed (T-2543)."
     },
     "roof_covering": {
       "value": {
@@ -492,16 +470,15 @@
     "window_kit": {
       "value": {
         "k01.opening.sash_flat": "k06.opening.sash_paired_flat",
-        "k01.opening.area_light": {
-          "variant": "k06.opening.area_light",
-          "well": false
-        }
+        "k01.opening.street_casement_pair_transom": "k06.opening.casement_pair_transom_plate",
+        "k01.opening.street_sash_segmental_fanlight": "k06.opening.sash_segmental_fanlight_wide",
+        "k01.opening.street_sash_round_fanlight": "k06.opening.sash_round_fanlight"
       },
       "confidence": "inferred",
       "sources": [
         "levy_1812_prairie_photo"
       ],
-      "note": "The photograph's windows on the main wall are paired sashes; the basement lights stand above grade on the raised basement, so they have no area well."
+      "note": "The street windows from the photograph's kinds (T-2889): the second storey's wide mullioned window under its transom, the third storey's large segmental fanlight window over the balcony and its small round-arched one. The rear range's windows, which no picture shows, keep the paired sash. The street front has no basement light on its main wall (the projection's barred light is K08's), so it names no area light."
     },
     "entrance_kit": {
       "value": {
@@ -569,9 +546,9 @@
             17.0
           ]
         ],
-        "foot_m": 11.3,
+        "foot_m": 12.08,
         "thickness_m": 0.8,
-        "proud_m": 0.05,
+        "proud_m": 0.02,
         "lights": {
           "variant": "k06.opening.attic_group_3",
           "sill_m": 13.33,
@@ -586,7 +563,7 @@
           "proud_m": 0.04
         },
         "kneelers": {
-          "at_m": 4.3,
+          "at_m": 4.07,
           "shaft_m": 0.3,
           "top_m": 12.9,
           "cap_m": 0.08,
@@ -595,13 +572,69 @@
         "finial": {
           "height_m": 0.5,
           "radius_m": 0.12
-        }
+        },
+        "ledge_m": 12.52,
+        "takes_gutter": true
       },
       "confidence": "inferred",
       "sources": [
         "levy_1812_prairie_photo"
       ],
-      "note": "The front's shaped gable, read through the photograph's camera at the front's 88.5 px a metre about its centre (695 px, v 4.24 m): the outline's half-width and height over the walk at ten points from the kneelers (4.07 m out at 11.63 m) up the swell (its four lower points drawn in 0.15-0.2 m after the first render was laid over the print), the shoulder stone (1.24 m at 15.14 m) and the drawn-in head to the apex block at 17.0 m, the finial over it to about 17.5 m; the grid window 1.64 m across, its sill 13.33 m and its head 14.59 m over the walk. Built otherwise: K06's attic group of three lights stands for the photograph's nine (three by three); the slab is 0.8 m thick and its face stands 0.05 m in front of the hip's street fascia, 0.5 m in front of the wall below it, so the eave dies into it, where the photograph's gable is the wall's own plane; under the curves the base runs out square past the eave's corners to a ledge just over the fascia, and the kneelers' pinnacles stand on it (L-k01-1812-wheeler-front-2543)."
+      "note": "The front's shaped gable, read through the photograph's camera at the front's 88.5 px a metre about its centre (695 px, v 4.24 m): the outline's half-width and height over the walk at ten points from the kneelers (4.07 m out at 11.63 m) up the swell (its four lower points drawn in 0.15-0.2 m after the first render was laid over the print), the shoulder stone (1.24 m at 15.14 m) and the drawn-in head to the apex block at 17.0 m, the finial over it to about 17.5 m; the grid window 1.64 m across, its sill 13.33 m and its head 14.59 m over the walk. T-2889: its face brought onto the wall's own plane, as the photograph's is: the eave under it is 0.05 m (eave_overhang_m), so the slab stands 0.02 m before the street fascia and 0.07 m before the wall below, and its foot is set at 12.08 m, just over the third storey's two arched windows (crowns at 12.05 and 12.0 m), whose voussoirs run on up its face; the kneelers stand 4.07 m out, where the print's are, on the ledge (12.52 m) the kit sets 0.12 m over the street fascia; and it takes the eave's gutter (takes_gutter), as the print shows no gutter across the front: the gutter's street run is not built and its side runs die into the base, which runs out past the side walls to take them. Built otherwise: K06's attic group of three lights stands for the photograph's nine (three by three); under the curves the base runs out square to the eave's corners and up to that ledge, where the photograph's outline leaves the wall at the kneelers, about 11.6-11.7 m; the slab is the side walls' brick where the print shows brick dressed in stone (L-k01-1812-wheeler-front-2543; L-k01-1812-wheeler-third-storey-2889)."
+    },
+    "street_front_windows": {
+      "value": {
+        "windows": [
+          {
+            "component": "k01.opening.street_casement_pair_transom",
+            "storey": 1,
+            "s_m": 6.44,
+            "width_m": 1.64,
+            "sill_m": 6.07,
+            "height_m": 1.96
+          },
+          {
+            "component": "k01.opening.street_sash_segmental_fanlight",
+            "storey": 2,
+            "s_m": 2.83,
+            "width_m": 2.78,
+            "sill_m": 9.9,
+            "height_m": 2.15,
+            "voussoirs": {
+              "ring_m": 0.43,
+              "stones": 15,
+              "proud_m": 0.1,
+              "key_m": [
+                0.37,
+                0.71
+              ]
+            }
+          },
+          {
+            "component": "k01.opening.street_sash_round_fanlight",
+            "storey": 2,
+            "s_m": 6.48,
+            "width_m": 1.2,
+            "sill_m": 10.75,
+            "height_m": 1.25,
+            "voussoirs": {
+              "ring_m": 0.4,
+              "stones": 11,
+              "proud_m": 0.1,
+              "key_m": [
+                0.26,
+                0.4
+              ]
+            }
+          }
+        ],
+        "base_top_m": 0.95
+      },
+      "confidence": "inferred",
+      "sources": [
+        "levy_1812_prairie_photo"
+      ],
+      "note": "T-2889: the main wall's street windows read off the photograph through its camera (data/reference_views/wheeler_house_1812_prairie/levy_front.json: level and square to the front, 88.5 px a metre at the main front's plane, the walk at y 1549.6 px, v = 3.54 + (x - 633) / 88.5 m from the south wall), each on 2-3x crops of the print. Second storey, over the entrance: one wide window, 1.64 m across its frame (x 818-962 px) on a stone mullion, two plate lights under a stone transom whose foot is about 0.68 m under the head, the transom's lights low over it; its sill at 6.07 m (y 1013) and its head at 8.03 m (y 840), centred at 6.44 m. Third storey, over the balcony: the large window, 2.78 m between its jambs (x 447-693 px), its jambs rising to a spring at 11.30 m (y 550) and its head a flat segmental arch to a crown at 12.05 m (y 483), rising 0.75 m, a fanlight with radial bars over three lights; its foot is hidden behind the balcony and the projection's top, so its sill is set at 9.9 m, the 0.15 m K08 keeps an opening over where the projection's roof meets the wall (9.73 m). Its voussoirs run out about 0.43 m round the head (y 445 px at the crown), fifteen of them, under a keystone carried to 12.76 m (y 420), 0.37 m across its top. To its north the smaller arched window: 1.2 m across (x 840-946 px), a round head springing at about 11.4 m to a crown at 12.0 m (y 488), its sill at 10.75 m (y 598), centred at 6.48 m, in a ring of about eleven voussoirs 0.4 m deep. Built otherwise: the large window's three lights are a K06 three-light sash, where the print's middle light is wider than the two beside it and carries an arched head of its own, and its fanlight has radial bars only, where the print's also has a concentric bar; the small window is glazed as K06's round fanlight sash, where the print shows it filled with a patterned light or panel; the voussoirs are a ring of equal stones standing 0.1 m before the wall, where the print's alternate long and short into the brick; the transom's small squared glazing is not built (L-k01-1812-wheeler-third-storey-2889)."
     },
     "function": {
       "value": "residence",
