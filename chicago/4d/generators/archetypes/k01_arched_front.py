@@ -665,29 +665,92 @@ def _carved_band(a, frame, af, length, conf):
         x = max(x, c1)
     if x < length:
         runs.append((x, length))
+    for s0, s1 in runs:
+        n = _guilloche_run(a, frame, s0, s1, b0, b1, g, seed, conf)
+        if n:
+            a.components["k01.wall.carved_band"]["instances"][-1]["params"].setdefault("rings", 0)
+            a.components["k01.wall.carved_band"]["instances"][-1]["params"]["rings"] += n
+
+
+def _guilloche_run(a, frame, s0, s1, b0, b1, g, seed, conf):
+    """T-2819's guilloche on one run [s0, s1] of a belt [b0, b1]; returns its rings (0 where
+    a sliver of pier holds none)."""
     w, rp, k, mg = g["ring_width_m"], g["ring_proud_m"], int(g["segments"]), g["margin_m"]
     d0 = BELT_PROUD_M - 0.01
     yc = (b0 + b1) / 2
-    for s0, s1 in runs:
-        R = min(g["radius_m"], (b1 - b0) / 2 - mg, (s1 - s0) / 2 - mg)
-        if R < 2 * w:
-            continue   # a sliver of pier holds no ring
-        pitch = g["pitch"] * R
-        n = max(1, math.floor((s1 - s0 - 2 * R - 2 * mg) / pitch + 1e-9) + 1)
-        sc = (s0 + s1) / 2 - (n - 1) * pitch / 2
-        for j in range(n):
-            d1 = BELT_PROUD_M + (rp if j % 2 == 0 else rp / 2)
-            cs = sc + j * pitch
-            ring = lambda r, t: (cs + r * math.cos(2 * math.pi * t / k), yc + r * math.sin(2 * math.pi * t / k))
-            for t in range(k):
-                o0, o1, i0, i1 = ring(R, t), ring(R, t + 1), ring(R - w, t), ring(R - w, t + 1)
-                mo = ((o0[0] + o1[0]) / 2 - cs, (o0[1] + o1[1]) / 2 - yc, 0.0)
-                _face(a, "limestone_trim", frame, [(*o0, d1), (*o1, d1), (*i1, d1), (*i0, d1)], (0, 0, 1), seed, conf)
-                _face(a, "limestone_trim", frame, [(*o0, d0), (*o1, d0), (*o1, d1), (*o0, d1)], mo, seed, conf)
-                _face(a, "limestone_trim", frame, [(*i1, d0), (*i0, d0), (*i0, d1), (*i1, d1)],
-                      (-mo[0], -mo[1], 0.0), seed, conf)
-        a.components["k01.wall.carved_band"]["instances"][-1]["params"].setdefault("rings", 0)
-        a.components["k01.wall.carved_band"]["instances"][-1]["params"]["rings"] += n
+    R = min(g["radius_m"], (b1 - b0) / 2 - mg, (s1 - s0) / 2 - mg)
+    if R < 2 * w:
+        return 0
+    pitch = g["pitch"] * R
+    n = max(1, math.floor((s1 - s0 - 2 * R - 2 * mg) / pitch + 1e-9) + 1)
+    sc = (s0 + s1) / 2 - (n - 1) * pitch / 2
+    for j in range(n):
+        d1 = BELT_PROUD_M + (rp if j % 2 == 0 else rp / 2)
+        cs = sc + j * pitch
+        ring = lambda r, t: (cs + r * math.cos(2 * math.pi * t / k), yc + r * math.sin(2 * math.pi * t / k))
+        for t in range(k):
+            o0, o1, i0, i1 = ring(R, t), ring(R, t + 1), ring(R - w, t), ring(R - w, t + 1)
+            mo = ((o0[0] + o1[0]) / 2 - cs, (o0[1] + o1[1]) / 2 - yc, 0.0)
+            _face(a, "limestone_trim", frame, [(*o0, d1), (*o1, d1), (*i1, d1), (*i0, d1)], (0, 0, 1), seed, conf)
+            _face(a, "limestone_trim", frame, [(*o0, d0), (*o1, d0), (*o1, d1), (*o0, d1)], mo, seed, conf)
+            _face(a, "limestone_trim", frame, [(*i1, d0), (*i0, d0), (*i0, d1), (*i1, d1)],
+                  (-mo[0], -mo[1], 0.0), seed, conf)
+    return n
+
+
+def _panel_run(a, frame, s0, s1, b0, b1, pa, seed, conf):
+    """T-2915: a band of sunk panels on one run of a belt: raised ribs on the belt's face, one
+    along its bed, one along its top and one between each two rows, and in each row upright
+    ribs `length_m` apart, every other row's set off half a panel so the joints break as a
+    bond's. Each rib stands `proud_m` before the belt and is sunk 0.005 m into it. Returns
+    the panels."""
+    rows, ln, rib, pr = pa["rows"], pa["length_m"], pa["rib_m"], pa["proud_m"]
+    d0, d1 = BELT_PROUD_M - 0.005, BELT_PROUD_M + pr
+    h = (b1 - b0 - rib) / rows
+
+    def box(x0, x1, y0, y1):
+        for (p0, p1, p2, p3), nrm in (
+                (((x0, y0, d1), (x1, y0, d1), (x1, y1, d1), (x0, y1, d1)), (0, 0, 1)),
+                (((x0, y1, d0), (x1, y1, d0), (x1, y1, d1), (x0, y1, d1)), (0, 1, 0)),
+                (((x0, y0, d0), (x0, y0, d1), (x1, y0, d1), (x1, y0, d0)), (0, -1, 0)),
+                (((x0, y0, d0), (x0, y1, d0), (x0, y1, d1), (x0, y0, d1)), (-1, 0, 0)),
+                (((x1, y0, d0), (x1, y0, d1), (x1, y1, d1), (x1, y1, d0)), (1, 0, 0))):
+            _face(a, "limestone_trim", frame, [p0, p1, p2, p3], nrm, seed, conf)
+
+    count = 0
+    for r in range(rows + 1):          # the long ribs
+        y = b0 + r * h
+        box(s0, s1, y, y + rib)
+    for r in range(rows):              # the upright ribs, each row's set off half a panel
+        ya, yb = b0 + r * h + rib, b0 + (r + 1) * h
+        n = max(1, round((s1 - s0 - rib) / ln))
+        step = (s1 - s0 - rib) / n
+        xs = [s0 + step * (i + (0.5 if r % 2 else 0.0)) for i in range(n + 1)]
+        xs = ([s0] if r % 2 else []) + [x for x in xs if x <= s1 - rib + 1e-9] + ([s1 - rib] if r % 2 else [])
+        for x in xs:
+            box(x, x + rib, ya, yb)
+        count += len(xs) - 1
+    return count
+
+
+def street_carved_bands(a, frame, bands, conf):
+    """T-2915: the carved belts of a named-window front (1812's photograph: the carved
+    interlace over the second storey's north window, the band of sunk panels over it), each a
+    belt course `k01_frontage.stone_front` lays, its face BELT_PROUD_M before the wall, carved
+    from `s_m` [from, to] along the front with T-2819's guilloche or with sunk panels."""
+    for cb in bands:
+        b0, b1 = cb["bed_m"], cb["top_m"]
+        s0, s1 = cb["s_m"]
+        kind = "guilloche" if "guilloche" in cb else "panels"
+        seed = a.instance("k01.wall.carved_band", "wall",
+                          {"bed_m": b0, "top_m": b1, "from_s_m": s0, "to_s_m": s1, "carving": kind},
+                          {"bed": _P(frame, s0, b0, 0.0), "top": _P(frame, s1, b1, 0.0)})
+        if kind == "guilloche":
+            n = _guilloche_run(a, frame, s0, s1, b0, b1, cb["guilloche"], seed, conf)
+            a.components["k01.wall.carved_band"]["instances"][-1]["params"]["rings"] = n
+        else:
+            n = _panel_run(a, frame, s0, s1, b0, b1, cb["panels"], seed, conf)
+            a.components["k01.wall.carved_band"]["instances"][-1]["params"]["panels"] = n
 
 
 def side_arch(a, frame, g):

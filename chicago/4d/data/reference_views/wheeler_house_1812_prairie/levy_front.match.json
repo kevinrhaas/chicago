@@ -2,9 +2,9 @@
  "structure_id": "wheeler_house_1812_prairie",
  "view": "levy_front",
  "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
- "glb_sha256": "d02412327c1693f7af292a457453458afa481706d130ddaafdc6c27919aad2d2",
+ "glb_sha256": "df6491aeb4d88006da6e17c4872a4d1db17987e88b099460e1398800abc964cf",
  "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
- "side_by_side": "../../../../../../../../tmp/t2890/pm/levy_front-side-by-side.jpg",
+ "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
  "verdict": "differs",
  "differences": [
   {
@@ -96,11 +96,19 @@
    "status": "fixed"
   },
   {
-   "what": "Fabric: the carved frieze over the second storey's north window and the patterned panel band over it, and the carved bosses under the projection's second-storey jambs, are not built (T-2915)",
+   "what": "Fabric: over the second storey's north window, from the projection's north face to the corner, the carved frieze (8.55-8.95 m) under a moulded band and the patterned band of sunk panels (9.15-9.63 m) under a ledge, and the carved bosses under the projection's second-storey jambs (T-2915)",
+   "status": "fixed"
+  },
+  {
+   "what": "Fabric: the projection's windows in quoined stone jambs, short and long in turn, and the band at the arched window's spring running from each corner to the arch (T-2915)",
+   "status": "fixed"
+  },
+  {
+   "what": "Carving: the frieze is an interlace of crossing straps and leaves and the bosses carved shields; built as T-2819's guilloche of rings and plain oval bosses in a moulded ring",
    "status": "open"
   },
   {
-   "what": "Fabric: the projection's windows stand in quoined stone jambs with a stone band at the arched window's spring; built as plain brick round the K08 reveals (T-2915)",
+   "what": "South projection: the second storey's jamb stones rise past the window's head to small carved caps under the projection's cornice; built stopping at the head",
    "status": "open"
   },
   {
