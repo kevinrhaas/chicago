@@ -1,3 +1,28 @@
+## T-2829 — why Adaptive pacing made turning less steady on the owner's phone (2026-10-19)
+
+Nothing you can see in a still frame changed. This changes how frames come while
+moving on a phone with a 120 Hz screen. It fixes the regression in the owner's own
+reading (T-2733).
+
+- **Cause, from the code:** the phone draws on a 120 Hz grid. His Fixed turn fits a
+  25 ms rung (every third vsync), and nothing on a 60 Hz grid fits it. At the build he
+  read, Adaptive stepped the scale three times, three drawing-buffer resizes that bought
+  nothing, and then paced to 30. That held 25 ms frames back to 33 ms: median 27 → 32,
+  draws 186 → 157. The model (`tools/model_governor_phone.mjs`) predicts that from his
+  Fixed row alone.
+- **Fix:** no pace when a window's median lies between 21 ms and the paced interval (60 Hz
+  displays never land there, so T-2555's 60/30 case is unchanged). A pace takes three
+  windows in a row. The ladder stops at a step that does not lower the p80, and stays
+  stopped across rests. Read frame pacing now prints each row's ratio switches, the
+  >50 ms draws that came on one, and the paced share.
+- **Model, not reading:** the Adaptive turn now reads sd 4.8 / p95 35.9 against Fixed's
+  4.8 / 35.9 (5 s, no resize hitch assumed). Flight's p95 still rises 0.6 ms.
+  `docs/measurements/T-2829-pacing-model.md` has the tables.
+- **Unverified:** everything on the phone itself. Whether a resize is a hitch there (the
+  73 ms frame) is for the new readout to say. Adaptive stays the default. The
+  acceptance is his 15 s repeat at `/4d/dev/1835/` (Settings → Performance → Read frame
+  pacing): the turn's Adaptive sd and p95 at or under Fixed's.
+
 ## T-2783 — 1812 and 1835: the far prairie past the near ring (2026-10-19)
 
 The plain past the near grass ring now reads as grass. A third far-card band, the mid ring,

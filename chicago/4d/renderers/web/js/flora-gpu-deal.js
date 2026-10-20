@@ -102,7 +102,8 @@ function clumpRadiusOf(sp) {
  *   entryBase: number, itemBase: number, rows: number,
  *   rowOf: (zone: number, sp: object) => number, species: string[]}}
  *   `rowOf(z, sp)` is the row of community z's record `sp` (-1 if none);
- *   `species[row]` is that row's species id.
+ *   `species[row]` is that row's species id, and `items[row]` its community and
+ *   record (`{ zone, sp }`, T-2774: what the page's read-back hangs a head on).
  */
 export function dealTable(zones) {
   const entryBase = zones.length * 4;
@@ -147,6 +148,7 @@ export function dealTable(zones) {
     data, width: DEAL_WIDTH, height, entryBase, itemBase, rows: items.length,
     rowOf: (zi, sp) => rowMaps[zi]?.get(sp) ?? -1,
     species: items.map(({ sp }) => sp.id),
+    items: items.map(({ z, sp }) => ({ zone: z, sp })),
   };
 }
 
