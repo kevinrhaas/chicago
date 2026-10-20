@@ -126,6 +126,10 @@ MULTISETS: dict[tuple[str, str], str] = {
         "one K09 head per storey of a K01 front (T-2543); the second and third storeys share a head",
     ("data/sidecars/1904/wheeler_house_1812_prairie.json", "by_storey"):
         "the record's by_storey compiled onto its card: one K09 head per storey (T-2543)",
+    ("data/structures/house_1736_prairie.json", "by_storey"):
+        "one head per storey of a K01 front (T-2933); both storeys take the K01 flat lintel",
+    ("data/sidecars/1904/house_1736_prairie.json", "by_storey"):
+        "the record's by_storey compiled onto its card: one head per storey (T-2933)",
     ("data/structures/kimball_house_1801_prairie.json", "by_storey"):
         "one head per storey of a K01 front (T-2843); both storeys take the plain stone lintel",
     ("data/sidecars/1904/kimball_house_1801_prairie.json", "by_storey"):
