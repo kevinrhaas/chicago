@@ -1,0 +1,79 @@
+{
+ "structure_id": "house_1736_prairie",
+ "view": "mcbirney_c1890_photo",
+ "glb": "assets/gltf/house_1736_prairie__as_mapped_1904.glb",
+ "glb_sha256": "d3715cf23b470253f914ddbc471ba22590ad21953f6969ae156d748b88a287b3",
+ "camera_sha256": "d924f0ee0e92dcf7693117ec8a43053a5929bcb7664a34b41590391a6964b6dd",
+ "side_by_side": "docs/RESEARCH/photo-match/house_1736_prairie/mcbirney_c1890_photo-side-by-side.jpg",
+ "verdict": "differs",
+ "differences": [
+  {
+   "what": "massing: a narrow front two storeys over a raised basement under a mansard, 216 px across at the upper storey (x 321-537)",
+   "status": "fixed",
+   "how": "T-2933: the 1911 sheet's 6.75 m main body on K01; the render's upper wall stands at x 319-536"
+  },
+  {
+   "what": "the bracketed cornice across the front, its bracket band at y 186-196 px",
+   "status": "fixed",
+   "how": "T-2933: K10's bracketed timber cornice at the 9.9 m wall head"
+  },
+  {
+   "what": "the mansard's steep slated lower faces to a curb at y 103 px, and two round-headed dormers on the street face at x 383-398 and 478-493 px",
+   "status": "fixed",
+   "how": "T-2933: K05's mansard 2.7 m over the eave with two round-headed dormers at v 2.12 and 5.18 m"
+  },
+  {
+   "what": "three upper-storey windows at x 357, 423 and 496 px, sills y 300 and heads y 240",
+   "status": "fixed",
+   "how": "T-2933: front_bays 1.12, 3.20, 5.47 m and the upper sash 6.6-8.6 m over grade"
+  },
+  {
+   "what": "the walls' tone: near white against the dark sash and cornice shadow",
+   "status": "fixed",
+   "how": "T-2933: wall_finish paints the brick opaque in a pale colour (the colour itself is reconstructed)"
+  },
+  {
+   "what": "a veranda the front's whole width: slender posts, a deep frieze over them (soffit y 335 px), a low roof, its deck at the principal floor (y 452 px) behind a balustrade",
+   "status": "fixed",
+   "how": "T-2933: K07's veranda on the stoop's landing and terraces, posts at v 0.15, 2.85, 5.05 and 6.6 m, 3.4 m high, a 0.6 m beam and a hipped lean-to roof"
+  },
+  {
+   "what": "the stair at the veranda's north end between cheek walls and between the two north posts, straight out toward the walk",
+   "status": "fixed",
+   "how": "T-2933: the 1.2 m stoop at v 5.8"
+  },
+  {
+   "what": "the upper windows' heads: segmental arches under moulded hoods whose ends turn down (eared); built round-headed under a hood ring",
+   "status": "open"
+  },
+  {
+   "what": "the veranda's posts are turned or chamfered and its balustrade a lighter rail with a pierced pattern, all painted timber; built plain posts and K07's turned stone balustrade on a stone deck",
+   "status": "open"
+  },
+  {
+   "what": "under the deck the photograph shows the raised basement's dark openings between piers; the render stands the terrace's solid face to grade",
+   "status": "open"
+  },
+  {
+   "what": "the veranda roof's slope shows as a textured band over the fascia (y 300-328 px); the render's roof reads as a plain fascia",
+   "status": "open"
+  },
+  {
+   "what": "a lower front set back about 3 m left of the house, with a one-storey canted bay and a dormer over it, which the 1911 sheet does not draw at 1736: whether it was 1736's own south part in c. 1890 (and gone or altered by 1911), or a neighbour, is T-2935's to argue",
+   "status": "open"
+  },
+  {
+   "what": "the low pale wall along the street line and its pier at the stair's foot; no boundary is built",
+   "status": "open"
+  },
+  {
+   "what": "colour: the print is monochrome",
+   "status": "not shown"
+  },
+  {
+   "what": "the south flank on 18th Street, the north wall, the rear and the roof behind the street face: the camera stands square to the front",
+   "status": "not shown"
+  }
+ ],
+ "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

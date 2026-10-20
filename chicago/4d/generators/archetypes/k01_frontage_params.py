@@ -169,6 +169,7 @@ class K01FrontageParams:
     # the paint's linear colour, laid over the K03 brick's own map as its factor, so the
     # courses still read through it; empty for the unpainted brick of every other house
     wall_paint: tuple = ()
+    wall_paint_opaque: bool = False
     # T-2459: "gable" (k01.roof.gable): a ridge parallel to the street front, a steep street
     # slope and a rear slope down to the same wall head, each side wall carried up as a
     # parapet (1619's crow-stepped south wall, its drawing); `gable` holds its resolved numbers
@@ -2268,12 +2269,18 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # T-2476: paint over the brick walls, the colour a source names for the house
     wf = val("wall_finish", {}) or {}
     paint = ()
+    paint_opaque = False
     if wf:
         if construction != "brick":
             raise ParamError("wall_finish paints a brick house's walls; a stone front is not painted here")
-        if set(wf) != {"paint"} or set(wf["paint"]) != {"color"}:
-            raise ParamError("wall_finish is {\"paint\": {\"color\": [r, g, b]}}")
+        # T-2933: `opaque` paint covers the brick's map (1736's walls, near white in its
+        # photograph, which no factor over the buff brick can reach); otherwise it tints it
+        if set(wf) != {"paint"} or not {"color"} <= set(wf["paint"]) <= {"color", "opaque"}:
+            raise ParamError("wall_finish is {\"paint\": {\"color\": [r, g, b]}}, optionally opaque")
         paint = tuple(float(x) for x in wf["paint"]["color"])
+        paint_opaque = wf["paint"].get("opaque", False)
+        if not isinstance(paint_opaque, bool):
+            raise ParamError("wall_finish.paint.opaque is true or false")
         if len(paint) != 3 or not all(0.05 <= x <= 1.0 for x in paint):
             raise ParamError(f"wall_finish.paint.color {wf['paint']['color']}: three factors in [0.05, 1]")
 
@@ -2862,6 +2869,22 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if prof[0][1] != 0.0 or prof[-1][1] != 1.0 or any(b[1] <= a[1] for a, b in zip(prof, prof[1:])):
             raise ParamError("entrance_kit.balustrade.profile runs [r, fraction of height] from 0 to 1")
         door_kit["balustrade"] = dict(balustrade)
+    # T-2933: a timber veranda over the landing and its terraces (1736's, the c. 1890
+    # photograph): posts at `posts_v_m` along the front, a beam over them and a hipped
+    # lean-to roof from the wall; k07_entrances.Entrance._veranda builds and places it
+    if "veranda" in door_kit_in:
+        vr = door_kit_in["veranda"]
+        need = {"posts_v_m", "post_m", "height_m", "inset_m", "beam_m", "roof"}
+        if set(vr) != need or set(vr["roof"]) != {"overhang_m", "rise_m", "thickness_m"}:
+            raise ParamError(f"entrance_kit.veranda takes {sorted(need)}, its roof overhang_m, rise_m "
+                             f"and thickness_m")
+        if terrace is None:
+            raise ParamError("entrance_kit.veranda stands on the landing and a terrace")
+        if not 0.1 <= float(vr["post_m"]) <= 0.3 or not 2.0 <= float(vr["height_m"]) <= 4.5:
+            raise ParamError(f"entrance_kit.veranda: {vr['post_m']} m posts {vr['height_m']} m high are "
+                             f"not a veranda's (0.1-0.3 m, 2.0-4.5 m)")
+        door_kit["veranda"] = {**vr, "posts_v_m": [float(x) for x in vr["posts_v_m"]],
+                               "beam_m": [float(x) for x in vr["beam_m"]], "roof": dict(vr["roof"])}
     if door_arch:
         door_kit["arch"] = dict(door_arch)
     if "opening_m" in door_kit_in:
@@ -3384,7 +3407,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         yard=yard, stone_finish=stone_finish,
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, shaped_gable=shaped, entrance_floor_m=ef, round_heads=rh,
-        wall_paint=paint, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
+        wall_paint=paint, wall_paint_opaque=paint_opaque, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

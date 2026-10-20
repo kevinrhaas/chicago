@@ -1,12 +1,12 @@
 {
   "id": "house_1736_prairie",
-  "phase": "draft_1904",
-  "name": "1736 Prairie Avenue — Ingraham/McBirney map-led altered house (district draft; refined by T-1874)",
+  "phase": "as_mapped_1904",
+  "name": "1736 Prairie Avenue — the Ingraham/McBirney house, its veranda front from the c. 1890 photograph, K01 frontage assembly",
   "aka": [
     "1736 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/house_1736_prairie__draft_1904.glb",
+  "archetype": "k01_frontage",
+  "asset": "gltf/house_1736_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -28,18 +28,18 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1359.097,
-    "local_n": -3195.094,
+    "local_e": 1359.105,
+    "local_n": -3195.844,
     "rotation_deg": -0.618,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 22.750, v -2.125 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation -0.618 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The main body's rear south corner: the draft's frame point u 0.00, v -0.75 (draft position note: the rear corner of the main body's rectangle, lot frame u 22.750, v -2.125 m from the middle of the rear lot line, through the T-1250 fit of the sheet, whose own fit residual, 3.08 m RMS on its control crossings, is all that is claimed; rotation -0.618 degrees turns the plan's u axis onto the lot's own rear-to-street line). Moved by T-2933 from the corner of the draft's fitted strip to the corner of the sheet's own plan: the trace's south wall runs at draft v -0.71 to -0.85 from the rear to the front, so -0.75.",
     "symbolic_location": "1736 S. Prairie Avenue, parcel prairie_1736 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
-    "vertical_anchor": "terrain",
+    "vertical_anchor": "ground",
     "walk_surface_m": null
   },
   "footprint": {
@@ -49,132 +49,475 @@
         0.0
       ],
       [
-        23.25,
+        23.3,
         0.0
       ],
       [
-        23.25,
-        5.5
+        23.3,
+        6.75
       ],
       [
         0.0,
-        5.5
+        6.75
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front), widened to 5.5 m along the front because the fitted strip was narrower than any house of the avenue (T-2690). The building's other rectangles are in draft_plan."
+    "note": "The main body read off the 1911 sheet's trace (s20fp-1736-b1 p3) in the draft's lot frame: the rear wall at u -0.05 to 0.10, the front at 23.27 to 23.36, the south wall at v -0.71 to -0.85 and the north at 5.88 to 6.26 (its jogs are the sheet's printed figures, not walls), so 23.3 m deep and 6.75 m along the street. The photograph's front reads 216 px across at 32 px/m through its camera, 6.75 m. The south wall's two small projections (u 3.8-5.6 and 9.9-12.2, about 0.9 m out) and its frame side porch (u 16.3-18.9) are not built here (T-2935); the veranda (the sheet's frame porch p1/p2, 1.8 m deep the front's width) is the entrance kit's."
   },
   "attributes": {
     "stories": {
-      "value": 3,
-      "confidence": "attested",
+      "value": 2,
+      "confidence": "inferred",
       "sources": [
+        "glessner_blog_1736_mcbirney_c1890_photo",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "'3B' printed on the 1911 sheet: 3 full storeys."
+      "note": "Two storeys over a raised basement under a mansard, the attic storey in the roof: the photograph shows two rows of windows on the front under one cornice and the mansard with its dormers above it. The 1911 sheet's '3B' counts the mansard storey (T-2933)."
     },
     "construction": {
       "value": "brick",
-      "confidence": "attested",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
-      ],
-      "note": "The register reads the map's colours as 'brick'."
-    },
-    "draft_plan": {
-      "value": {
-        "parts": [
-          {
-            "id": "r1",
-            "role": "main",
-            "storeys": 3,
-            "roof": "mansard",
-            "rect": [
-              0.0,
-              0.0,
-              23.25,
-              5.5
-            ],
-            "from": "s20fp-1736-b1 p3 (main, brick), rectangle 1 of that part; the part's rectangles cover 69% of its fill"
-          },
-          {
-            "id": "r2",
-            "role": "porch",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              23.25,
-              -0.625,
-              25.0,
-              3.625
-            ],
-            "from": "s20fp-1736-b1 p1 (porch, frame), rectangle 1 of that part; the part's rectangles cover 70% of its fill"
-          }
-        ],
-        "lot_v": [
-          -2.13,
-          6.38
-        ],
-        "street_u": 32.374
-      },
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1736-b1 p3 (main, brick), rectangle 1 of that part; the part's rectangles cover 69% of its fill; s20fp-1736-b1 p1 (porch, frame), rectangle 1 of that part; the part's rectangles cover 70% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "The 1911 sheet colours the building pink, its brick ('3B brick dwelling'); the photograph shows the walls light, so painted (wall_finish)."
     },
-    "draft_elevation": {
+    "wall_finish": {
       "value": {
-        "kind": "house",
-        "seed": 2726688332,
-        "principal_floor_m": 1.4,
-        "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
+        "paint": {
+          "color": [
+            0.8,
+            0.78,
+            0.72
+          ],
+          "opaque": true
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1736_mcbirney_c1890_photo"
+      ],
+      "note": "The walls PAINTED over their brick, the paint opaque (T-2933: K01's paint otherwise tints the brick's map, and no tint of the buff brick is as light as this): the photograph shows them nearly as light as its sky against the dark sash, hoods and cornice shadow. The tone is read, the colour is not (the print is monochrome): a pale stone colour is RECONSTRUCTED."
+    },
+    "principal_floor_m": {
+      "value": 1.85,
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1736_mcbirney_c1890_photo"
+      ],
+      "note": "The veranda's deck at the principal floor, its front edge at y 452 px through the camera (data/reference_views/house_1736_prairie/mcbirney_c1890_photo.json), 1.85 m over grade at the deck's face; the raised basement's lights show under it."
+    },
+    "storey_heights_m": {
+      "value": [
+        4.2,
+        3.85
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1736_mcbirney_c1890_photo"
+      ],
+      "note": "The bracketed cornice's soffit at y 194 px on the front through the camera, 9.9 m over grade, less the 1.85 m floor: 8.05 m for two storeys. The split puts the second floor 0.55 m under the upper windows' sills (y 300 px, 6.6 m); the principal storey is the taller, as the photograph's long openings behind the veranda say."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a brick-and-a-half wall, as 1620's."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a brick-and-a-half wall, as 1620's."
+    },
+    "service_wall_brick": {
+      "value": "common_buff_common_6",
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the K03 common brick panel 1620 wears; painted over by wall_finish."
+    },
+    "street_front_trim": {
+      "value": {
+        "by_storey": [
+          "k01.flat_lintel",
+          "k01.flat_lintel"
         ],
-        "roof_pitch_deg": 38,
-        "mansard_lower_m": 3.0,
-        "front_bays": 2,
-        "entrance": "north",
-        "side_spacing_m": 2.6,
-        "chimneys": 2,
-        "brackets": false,
-        "attic_dormers": false,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2334",
-          "refined_by": [
-            "T-1874"
-          ]
+        "brick_heads": "segmental"
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the principal storey's heads are hidden under the veranda's frieze, so the K01 flat lintel; the side and rear walls' segmental brick heads, as 1620's."
+    },
+    "street_front_round_heads": {
+      "value": {
+        "storeys": [
+          1
+        ],
+        "key": {
+          "width_m": 0.24,
+          "height_m": 0.28,
+          "proud_m": 0.07
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1736_mcbirney_c1890_photo"
+      ],
+      "note": "The upper storey's three street windows arched under moulded hoods with eared ends: the photograph draws each head rounded at its corners under a hood whose ends turn down. Built on K01's round-headed hooded window (the head's segmental curve and the hood's ears are open on the match record)."
+    },
+    "wall_head": {
+      "value": {
+        "cornice": "k10.cornice.bracketed_timber"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1736_mcbirney_c1890_photo"
+      ],
+      "note": "A bracketed cornice under the mansard: the photograph's dark band of brackets across the front at y 186-196 px. Its profile and bracket spacing are not read; K10's bracketed timber cornice, round all four walls."
+    },
+    "roof_form": {
+      "value": "mansard",
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1736_mcbirney_c1890_photo"
+      ],
+      "note": "A mansard: the photograph shows a steep lower slope from the cornice to a curb with round-headed dormers in it on the street face; the register's 'bounded mansard/attic treatment'. Its date (whether it was the house's first roof) is T-2935's to argue."
+    },
+    "roof_pitch_deg": {
+      "value": 10,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the mansard's upper deck at 10 degrees, as 1620's; no picture sees over the curb."
+    },
+    "eave_overhang_m": {
+      "value": 0.6,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: 0.6 m, 1620's; the photograph's cornice projects about so far at the front's corners."
+    },
+    "stair_tread_m": {
+      "value": 0.28,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: 0.28 m treads; the photograph's steps are seen edge-on and not counted."
+    },
+    "stair_landing_depth_m": {
+      "value": 1.8,
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The veranda's deck depth, which the stair rises to: the 1911 sheet's frame porch (s20fp-1736-b1 p1, p2) stands 1.8 m in front of the front wall the house's whole width."
+    },
+    "stoop_width_m": {
+      "value": 1.2,
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1736_mcbirney_c1890_photo"
+      ],
+      "note": "The stair at the north end of the veranda between its cheeks, x 500-545 px at the deck's front through the camera: about 1.2 m between the north posts."
+    },
+    "entrance_bay": {
+      "value": "north",
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1736_mcbirney_c1890_photo"
+      ],
+      "note": "The door behind the stair at the north end: the photograph's dark doorway at x 490-530 px behind the veranda, over the third bay's line."
+    },
+    "front_bays": {
+      "value": [
+        1.12,
+        3.2,
+        5.47
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1736_mcbirney_c1890_photo"
+      ],
+      "note": "Three bays across the 6.75 m front, south to north, read off the upper storey's three windows through the camera (centres x 357, 423 and 496 px at 32 px/m from the eye's v 4.03): 1.12, 3.20 and 5.47 m. The principal storey's two windows and the door stand on the same lines behind the veranda."
+    },
+    "side_bays": {
+      "value": [
+        2.4,
+        7.0,
+        15.0,
+        19.4,
+        21.6
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: five windows a storey along the 23.3 m south wall on 18th Street, rear to front, clear of the sheet's two projections (u 3.8-5.6 and 9.9-12.2) and side porch (u 16.3-18.9), which T-2935 builds; no picture sees the wall."
+    },
+    "rear_bays": {
+      "value": [
+        1.7,
+        5.0
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: two windows a storey across the 6.75 m rear wall; no picture sees it."
+    },
+    "north_bays": {
+      "value": [],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the north wall stands 0.4 m inside the lot line toward 1730 and is built blank; no picture sees it."
+    },
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.45,
+          "width_m": 1.0,
+          "height_m": 2.9
+        },
+        {
+          "sill_above_floor_m": 0.55,
+          "width_m": 0.95,
+          "height_m": 2.0
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1736_mcbirney_c1890_photo"
+      ],
+      "note": "The UPPER storey's sash read off the photograph through the camera: sills at y 300 px (6.6 m over grade) and heads at y 240 px (8.6 m), 28 px wide at 32 px/m. The principal storey's are long openings behind the veranda whose heads the frieze hides (RECONSTRUCTED at 2.9 m from a 0.45 m sill)."
+    },
+    "basement_lights": {
+      "value": {
+        "sill_m": 0.35,
+        "width_m": 0.9,
+        "height_m": 0.7
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: 1620's basement lights."
+    },
+    "roof_covering": {
+      "value": {
+        "fabric": "tin_standing_seam_painted",
+        "flashing": "copper_sheet",
+        "caps": "copper_ridge_roll",
+        "lower_faces": "slate_pennsylvania",
+        "paint": "black"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1736_mcbirney_c1890_photo"
+      ],
+      "note": "The mansard's lower faces SLATED: the photograph shows them dark and even between the dormers, as a slated mansard reads. The deck's tin is RECONSTRUCTED (1620's)."
+    },
+    "chimneys": {
+      "value": {
+        "plan_m": [
+          0.75,
+          0.6
+        ],
+        "top_above_ridge_m": 0.9,
+        "cap_proud_m": 0.05,
+        "cap_depth_m": 0.15,
+        "stacks": [
+          {
+            "u_m": 8.0,
+            "v_m": 6.1
+          },
+          {
+            "u_m": 16.0,
+            "v_m": 6.1
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: two stacks on the north wall's line; the photograph's trees cover the roof's crest and no stack of the house is read."
+    },
+    "rainwater": {
+      "value": {
+        "gutter": "half_round",
+        "fabric": "copper_sheet",
+        "downpipe": "round",
+        "ends_at": "grade_with_splash_stone",
+        "downpipes": [
+          {
+            "wall": "k01.wall.rear_service",
+            "s_m": 0.35
+          },
+          {
+            "wall": "k01.wall.rear_service",
+            "s_m": 6.4
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: K04 half-round copper gutters and round downpipes at the rear corners; the photograph shows no downpipe on the front."
+    },
+    "window_kit": {
+      "value": {
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight",
+        "k01.opening.area_light": {
+          "variant": "k06.opening.area_light",
+          "well": false
         }
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: The register's 'three-storey brick corner dwelling with bounded mansard/attic treatment' at the 18th Street corner: a mansard over the mapped three storeys. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 2726688332 only tints the fabric inside +-6 %. Liberty L-draft-prairie-16-18-west-2334."
+      "note": "RECONSTRUCTED: the K06 two-over-two sash and area lights 1620 wears, and its round-headed sash for the hooded upper windows."
     },
-    "draft": {
+    "entrance_kit": {
       "value": {
-        "pass": "T-2334",
-        "liberty": "L-draft-prairie-16-18-west-2334",
-        "register_row": "frontage-20-021",
-        "census_ids": [
-          "s20-1736-f"
-        ],
-        "trace_building": "s20fp-1736-b1",
-        "seed": 2726688332,
-        "replaceable_by": [
-          "T-1874"
-        ],
-        "card": "District draft — refined by T-1874."
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.panel_door_stoop",
+          "front_yard_m": 9.38,
+          "stoop_v_m": 5.8,
+          "terrace": [
+            {
+              "side": "left",
+              "to_v_m": 0.0
+            },
+            {
+              "side": "right",
+              "to_v_m": 6.75
+            }
+          ],
+          "balustrade": {
+            "height_m": 0.85,
+            "pitch_m": 0.2,
+            "newel_m": 0.2,
+            "newel_cap_m": 0.1,
+            "rail_m": [
+              0.12,
+              0.08
+            ],
+            "segments": 8,
+            "profile": [
+              [
+                0.06,
+                0.0
+              ],
+              [
+                0.06,
+                0.06
+              ],
+              [
+                0.045,
+                0.1
+              ],
+              [
+                0.04,
+                0.18
+              ],
+              [
+                0.06,
+                0.35
+              ],
+              [
+                0.065,
+                0.45
+              ],
+              [
+                0.045,
+                0.65
+              ],
+              [
+                0.032,
+                0.78
+              ],
+              [
+                0.045,
+                0.86
+              ],
+              [
+                0.055,
+                0.94
+              ],
+              [
+                0.055,
+                1.0
+              ]
+            ]
+          },
+          "veranda": {
+            "posts_v_m": [
+              0.15,
+              2.85,
+              5.05,
+              6.6
+            ],
+            "post_m": 0.16,
+            "height_m": 3.4,
+            "inset_m": 0.1,
+            "beam_m": [
+              0.2,
+              0.6
+            ],
+            "roof": {
+              "overhang_m": 0.25,
+              "rise_m": 0.35,
+              "thickness_m": 0.2
+            }
+          }
+        }
       },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1736_mcbirney_c1890_photo",
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The photograph's veranda (T-2933), the 1911 sheet's frame porch (s20fp-1736-b1 p1/p2) 1.8 m deep across the whole front: a deck at the principal floor (the stoop's landing and K07's terraces either side of it, south to the front's corner and north to its end), a turned balustrade along its front, four slender posts (x 337, 412, 484 and 535 px at the deck's front through the camera, 34 px/m there: v 0.15, 2.85, 5.05 and 6.6 m), a beam and a deep frieze over them (its soffit y 335 px, 5.25 m over grade, and its fascia y 300 px, about 1 m deep with the roof edge), and a low hipped roof from the wall. The stair rises at the north end between the last two posts (stoop_v_m 5.8 for the 1.2 m flight), straight out toward the walk, as the photograph draws its cheeks. front_yard_m is the street grid's: the front stands 9.07 m behind the Prairie Avenue street line (the draft's street_u 32.374 less the 23.3 m body) and the walk begins 1 ft further out. The deck and balustrade are K07's stone where the photograph's are painted timber, the frieze is one beam, and the posts are plain (their turned or chamfered profile is not read): open on the match record."
+    },
+    "mansard": {
+      "value": {
+        "variant": "k05.roof.mansard_convex",
+        "lower_rise_m": 2.7,
+        "bulge": 0.0,
+        "lower_pitch_deg": 80,
+        "dormers": [
+          {
+            "face": "street",
+            "along_m": 2.12,
+            "sash": {
+              "variant": "k06.opening.sash_round_fanlight",
+              "width_m": 0.7,
+              "height_m": 1.4,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.15,
+            "face_setback_m": 0.15
+          },
+          {
+            "face": "street",
+            "along_m": 5.18,
+            "sash": {
+              "variant": "k06.opening.sash_round_fanlight",
+              "width_m": 0.7,
+              "height_m": 1.4,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.15,
+            "face_setback_m": 0.15
+          },
+          {
+            "face": "south",
+            "along_m": 8.0,
+            "sash": {
+              "variant": "k06.opening.sash_round_fanlight",
+              "width_m": 0.7,
+              "height_m": 1.4,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.15,
+            "face_setback_m": 0.15
+          },
+          {
+            "face": "south",
+            "along_m": 15.5,
+            "sash": {
+              "variant": "k06.opening.sash_round_fanlight",
+              "width_m": 0.7,
+              "height_m": 1.4,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.15,
+            "face_setback_m": 0.15
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1736_mcbirney_c1890_photo"
+      ],
+      "note": "The mansard read off the photograph through the camera: its curb at y 103 px, 12.7 m over grade, 2.7 m over the eave; its lower faces near upright and straight. Two round-headed dormers on the street face, their lights at x 383-398 and 478-493 px (v 2.12 and 5.18 m at the mansard's face), sills at y 178 px and round heads at y 120 px. The two on the south face over 18th Street are RECONSTRUCTED: no picture sees that face."
     },
     "function": {
       "value": "residence",
@@ -187,6 +530,27 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "glessner_blog_1736_mcbirney_c1890_photo",
+      "citation": "[The Ingraham/McBirney house, 1736 S. Prairie Avenue, as it appeared circa 1890.] Photograph from the east side of Prairie Avenue looking west across the street; photographer and original holder not named. Reproduced by the Glessner House Museum, 'The Early History of Prairie Avenue - Part IV', The Story of a House (blog), 7 July 2020.",
+      "url": "https://glessnerhouse.blogspot.com/2020/07/the-early-history-of-prairie-avenue.html",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the veranda across the front: its four posts, balustrade, frieze and roof, and the stair at its north end",
+        "three upper-storey windows and their heights, arched under eared hoods",
+        "the bracketed cornice's height, about 9.9 m over grade through its camera",
+        "the mansard, its curb about 12.7 m over grade, and its two street dormers",
+        "the principal floor about 1.85 m over grade (the veranda's deck)"
+      ],
+      "what_it_does_not_supply": [
+        "the 1904 state: the photograph is c. 1890",
+        "colour: the photograph is monochrome",
+        "the south flank on 18th Street, the north wall, the rear and the roof behind the street face",
+        "the principal-storey windows' heads, hidden under the veranda's frieze"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_20",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 20.",
@@ -208,8 +572,8 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2334, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1874 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1736-b1), the T-1840 census (s20-1736-f) and the T-1837 register row frontage-20-021 (Ingraham/McBirney map-led altered house); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-west-2334).",
+  "research_note": "T-2933 (piece 1 of T-1874) refines the district draft (T-2334) in place under the same id from the c. 1890 photograph of the house the Glessner House Museum reproduces (glessner_blog_1736_mcbirney_c1890_photo), read against the 1911 Sanborn sheet 20, which controls the plan. The draft's 5.5 m strip becomes the sheet's own main body, 23.3 m deep and 6.75 m along the street, on K01: two storeys over a raised basement under a slated mansard with two round-headed dormers on the street face, a bracketed cornice, three arched upper windows, and the photograph's timber veranda the front's whole width (the sheet's frame porch) on K07's terrace, with its stair at the north end. The camera is solved into data/reference_views/house_1736_prairie/mcbirney_c1890_photo.json; what the picture still shows differently is on its match record. The south flank's two projections and side porch, the service wing and the coach house are T-2935's. docs/RESEARCH/k01-1736-mcbirney-2933/README.md.",
   "research_doc": "",
   "review_required": false,
-  "called": "1736 Prairie Avenue — Ingraham/McBirney altered house"
+  "called": "1736 Prairie Avenue — the Ingraham/McBirney house, its veranda front from the c. 1890 photograph"
 }
