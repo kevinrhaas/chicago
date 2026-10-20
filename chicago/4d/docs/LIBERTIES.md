@@ -28881,8 +28881,20 @@ that build invents: the grilles' pattern (the plate's are scrolled panels; K08 d
 scroll ring), the balustrade's close-set stone bars at 0.12 m for the plate's pierced fretwork panels, whose
 interlace is not carved, its 0.3 m posts and 0.22 m coping, and the basement storey's 1.75 m, set so the
 string course lands on the plate's sill course.
-**How to resolve:** T-2917 to T-2920 (the split of T-1892) finish the gable's recess and carving, the
-porch, the front's fabric and the roof, and bring the match record to `matches`.
+**Revised:** 2026-10-20 (T-2936, piece 1 of T-2917, of T-1892). The bay's stone gable is the plate's
+great arch: K01's wall gable learns an arched face, its ring of fifteen voussoirs rising from the
+pediment's horizontal cornice (which reads as the plate's lintel over the lights), its centre 0.3 m under
+the cornice's top, a 1.15 m intrados and a 0.16 m ring; the tympanum recessed 0.1 m with three round-
+arched lights, the middle one taller; four colonnettes beside and between the three flat-headed lights
+under it, which lose their voussoirs; a small round-arched light over the crown; and the face, ring and
+colonnettes in the front's brown sandstone dressed smooth, where the buff dressing stone stood. What that
+build invents: the face's 3.0 m width, kept (the plate's gable is about 4 m, its rake past the pinnacles;
+T-2937), so the arch's span, the 0.16 m ring (the most the raking cornice leaves room for) and the
+lights' sizes are scaled down to it; plain voussoirs for the plate's moulded archivolt; 0.055 m
+colonnettes with square bases and capitals for the plate's stouter carved ones; the round-arched lights
+as dark openings without sash; and the carving over the arch, not built.
+**How to resolve:** T-2937 (the gable's width, its archivolt's depth and its carving), T-2918 to T-2920
+(the porch, the front's fabric and the roof) bring the match record to `matches`.
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.chimneys`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.gable_roof`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
@@ -30531,6 +30543,32 @@ and their number.
 **Ticket:** T-2782 (piece 3 of T-2756).
 **Review:** `data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`.
 **Recorded:** 2026-10-20 (T-2782).
+
+### L-glessner-colonnettes-2965 — Glessner's seven Prairie colonnettes: their capitals' carving cut from sheet 6 and three close-ups
+
+**Decision:** the second-floor colonnettes on the `glessner_house` Prairie front (T-2965) are
+rebuilt from HABS sheets 3 and 6 and the owner's photographs: a splayed square base, a
+straight-tapered round shaft, the round front of a stone mullion flush with the wall's face, and a
+cushion block capital, all in the front's granite. Each capital carries its own carving, south to
+north (`prairie_colonnette.capitals` in the record). **What is read.** Sheet 6 (75.5 px/ft) draws
+all seven and their bases, shafts and capitals' outlines; sheet 3 cuts each as a round-fronted
+mullion about 0.95 x 1.5 ft; the Glessner House Museum's 2013 post "The stone capitals on Glessner
+House" (three close-ups held as `a18-ghm-blog-capital-*`) says the capitals were carved in place by
+John Evans's carvers from August 1887, every one different, the one over the door carrying
+Richardson's monogram, and shows that one and its two neighbours; the c. 1888 front
+(`a18-gh-glessner-front-with-keith`) shows the taper and the base joint; Taylor 2135 the granite.
+**What is invented.** Every cut, depth and stem path; the bodies of the four capitals no close-up
+shows, read off the sheet's small, stippled drawing (a slotted band over crossing straps; a
+zigzag band over a leaf roundel; discs over a boss; discs over basket weave); the leaf tips and
+volutes repeated on all but the monogram capital; the letterforms of the monogram. The
+heights are shares of the record's 4.5-ft opening (the sheet draws 5.0 ft; not taken up here).
+**What is not changed.** The openings, the sashes, the carved string's own carving (now granite),
+the north gable pair's colonnettes.
+**How to resolve:** close photographs of the other four capitals, and a square one of each of
+the seven, would let every band and body be cut as carved.
+**Ticket:** T-2965.
+**Review:** `docs/RESEARCH/glessner-colonnettes-T-2965/`.
+**Recorded:** 2026-10-20 (T-2965).
 
 ## T-2804: named resident seated-driver and supported W01 studies (2026-10-19)
 

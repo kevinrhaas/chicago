@@ -5442,6 +5442,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_batch_coalesce.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_blackbox.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6063,6 +6067,10 @@
       "wrote_ignored": []
     },
     "tools/test_wait_for_function_args.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_walker_passage.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
