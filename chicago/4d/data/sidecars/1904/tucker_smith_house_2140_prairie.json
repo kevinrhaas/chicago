@@ -345,5 +345,6 @@
   ],
   "research_note": "A DISTRICT DRAFT (T-2351, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1928, T-1929 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2140-b1), the T-1842 census (s35-2140-front, s35-2140-wing, s35-2140-walls) and the T-1837 register row frontage-35-071 (Tucker/Smith polychrome corner mansion); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-west-2351).",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "2140 Prairie Avenue — Tucker/Smith polychrome corner mansion"
 }

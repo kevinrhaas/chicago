@@ -233,5 +233,6 @@
   ],
   "research_note": "A DISTRICT DRAFT (T-2351, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1922, T-1923 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2110-b1), the T-1842 census (s35-2110-front, s35-2110-wing) and the T-1837 register row frontage-35-066 (Rees Romanesque narrow house); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-west-2351).",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "2110 Prairie Avenue — Rees Romanesque narrow house"
 }

@@ -203,6 +203,11 @@ MACHINERY_LEAVES = frozenset({
 # renderer has to touch `ground` first. One entry, because the layer rule below
 # removes the need for the rest.
 AMBIGUOUS_LEAVES = frozenset({
+    # T-2825: no card reads a resident's `ticket` any more (no mode shows a ticket number,
+    # owner 2026-10-18), and the one `.ticket` left in the renderer is the reconstruction
+    # plan's pass (orderbook.js, kept as a data attribute for Researcher mode's link). Same
+    # narrowing as the words below: qualified by its data parent.
+    "ticket",
     # T-1277: destination rows use derived_from='structure' to identify fallback
     # businesses. That is renderer-owned routing metadata, not a read of a
     # resident's occupation.derived_from. Keep the occupation read detectable
@@ -681,7 +686,7 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "present_on_scene_date.last_dated_appearance.leg":
         ("shown", "escapeHtml(kind || leg.leg)"),
     "present_on_scene_date.last_dated_appearance.precision":
-        ("shown", "leg.precision] || leg.precision"),
+        ("shown", "leg.precision] || words(leg.precision)"),
     "present_on_scene_date.last_dated_appearance.reaches":
         ("shown", "reaching ${leg.reaches}"),
     "present_on_scene_date.last_dated_appearance.includes_scene_date":
@@ -722,8 +727,8 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "arrival_year.basis.kind": ("shown", "basis.kind === 'model'"),
     "origin.basis.kind": ("shown", "basis.kind === 'model'"),
     "reason_for_coming.basis.kind": ("shown", "basis.kind === 'model'"),
-    "arrival_year.seed": ("shown", "escapeHtml(String(block.seed))"),
-    "origin.seed": ("shown", "escapeHtml(String(block.seed))"),
+    "arrival_year.seed": ("shown", "block.seed ? ' It can be drawn again exactly"),
+    "origin.seed": ("shown", "block.seed ? ' It can be drawn again exactly"),
     "arrival_year.replaceable_by.match": ("shown", "escapeHtml(String(rep.match || ''))"),
     "origin.replaceable_by.match": ("shown", "escapeHtml(String(rep.match || ''))"),
     "reason_for_coming.replaceable_by.match": (
@@ -748,7 +753,7 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     # describes and citing the volume. `note` and `sources` are the household's own
     # statement of what a later volume is worth and which ones met it.
     "directories.note": ("shown", "escapeHtml(onRecord.note)"),
-    "directories.sources": ("shown", "escapeHtml((onRecord.sources || []).join(', '))"),
+    "directories.sources": ("shown", "(onRecord.sources || []).map((id) =>"),
     "directories.people[].person_id": (
         "shown", "(directoriesOnRecord || []).find((row) => row.person_id === person.id)"),
     "directories.people[].occupation_later.value": (
@@ -777,7 +782,7 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "directories.people[].back_projection.outcome": (
         "shown", "bp.outcome === 'placed'"),
     "directories.people[].back_projection.clause": (
-        "shown", "escapeHtml(String(bp.clause))"),
+        "shown", "escapeHtml(idWords(bp.clause))"),
     "directories.people[].back_projection.value": ("shown", "escapeHtml(where)"),
     "directories.people[].back_projection.confidence": ("shown", "swatch(bp.confidence)"),
     "directories.people[].back_projection.placement": (
@@ -797,7 +802,7 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "directories.people[].residence_back_projection.outcome": (
         "shown", "rp.outcome === 'placed'"),
     "directories.people[].residence_back_projection.clause": (
-        "shown", "escapeHtml(String(rp.clause))"),
+        "shown", "escapeHtml(idWords(rp.clause))"),
     "directories.people[].residence_back_projection.kind": (
         "shown", "rp.kind === 'boards' ? 'printed as a lodging' : 'printed as a residence'"),
     "directories.people[].residence_back_projection.value": (
@@ -855,9 +860,9 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     # so every field of it is declared read here rather than banked.
     "persons[].sex_basis.tier": ("shown", "tierOf(block) || block.confidence"),
     "persons[].sex_basis.basis.kind": ("shown", "basis.kind === 'model'"),
-    "persons[].sex_basis.basis.id": ("shown", "escapeHtml(String(basis.id || ''))"),
+    "persons[].sex_basis.basis.id": ("shown", "escapeHtml(idWords(basis.id))"),
     "persons[].sex_basis.basis.note": ("shown", "escapeHtml(String(basis.note || ''))"),
-    "persons[].sex_basis.seed": ("shown", "escapeHtml(String(block.seed))"),
+    "persons[].sex_basis.seed": ("shown", "block.seed ? ' It can be drawn again exactly"),
     "persons[].sex_basis.replaceable_by.kind": ("shown", "block.replaceable_by || null"),
     "persons[].sex_basis.replaceable_by.match": ("shown", "escapeHtml(String(rep.match || ''))"),
     # And the age band, which is the second half of the same stage. `value` is the
@@ -870,9 +875,9 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "persons[].age_band.tier": ("shown", "tierOf(block) || block.confidence"),
     "persons[].age_band.note": ("shown", "escapeHtml(block.note)"),
     "persons[].age_band.basis.kind": ("shown", "basis.kind === 'model'"),
-    "persons[].age_band.basis.id": ("shown", "escapeHtml(String(basis.id || ''))"),
+    "persons[].age_band.basis.id": ("shown", "escapeHtml(idWords(basis.id))"),
     "persons[].age_band.basis.note": ("shown", "escapeHtml(String(basis.note || ''))"),
-    "persons[].age_band.seed": ("shown", "escapeHtml(String(block.seed))"),
+    "persons[].age_band.seed": ("shown", "block.seed ? ' It can be drawn again exactly"),
     "persons[].age_band.replaceable_by.kind": ("shown", "block.replaceable_by || null"),
     "persons[].age_band.replaceable_by.match": ("shown", "escapeHtml(String(rep.match || ''))"),
     # T-1171. `name_basis` comes back to this layer with the drawn people: the row
@@ -883,42 +888,37 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "persons[].name_basis.value": ("shown", "claimRow('How this person is named', named && named.value, named, citationsById)"),
     "persons[].name_basis.tier": ("shown", "tierOf(block) || block.confidence"),
     "persons[].name_basis.basis.kind": ("shown", "basis.kind === 'model'"),
-    "persons[].name_basis.seed": ("shown", "escapeHtml(String(block.seed))"),
+    "persons[].name_basis.seed": ("shown", "block.seed ? ' It can be drawn again exactly"),
     "persons[].name_basis.replaceable_by.kind": ("shown", "block.replaceable_by || null"),
     "persons[].name_basis.replaceable_by.match": ("shown", "escapeHtml(String(rep.match || ''))"),
     # T-1171. …and the household block beside them: what size the 1840 histogram drew
     # this house at, and how much of that size is kin rather than the servants and lodgers
     # later stages seat. `modelledFamilyHtml` prints all of it.
-    "modelled_family.stage": ("shown", "escapeHtml(String(block.stage))"),
-    "modelled_family.ticket": ("shown", "escapeHtml(String(block.ticket))"),
+    "modelled_family.stage": ("shown", "escapeHtml(idWords(block.stage))"),
     "modelled_family.household_type": ("shown", "escapeHtml(words(block.household_type))"),
     "modelled_family.size_drawn": ("shown", "escapeHtml(String(block.size_drawn))"),
     "modelled_family.kin_seated": ("shown", "escapeHtml(String(block.kin_seated))"),
-    "modelled_family.seed": ("shown", "escapeHtml(String(block.seed))"),
+    "modelled_family.seed": ("shown", "block.seed ? ' It can be drawn again exactly"),
     "modelled_family.note": ("shown", "escapeHtml(String(block.note || ''))"),
     # T-2020. A married house given the wife and children of a woman-headed house the town
     # already held: `marriedHtml` prints the whole sub-block under the family the model drew.
-    "modelled_family.married.ticket": ("shown", "escapeHtml(String(married.ticket))"),
-    "modelled_family.married.wife": ("shown", "escapeHtml(String(married.wife))"),
-    "modelled_family.married.from_household": ("shown", "escapeHtml(String(married.from_household))"),
+    "modelled_family.married.wife": ("shown", "nameFor(married.wife)"),
+    "modelled_family.married.from_household": ("shown", "nameFor(married.from_household)"),
     "modelled_family.married.what_happened": ("shown", "escapeHtml(String(married.what_happened || ''))"),
     # T-2190. The wife a source prints, seated from her own card in place of the drawn one:
     # `printedWifeHtml` prints the quote, its locator and date, and why; `printedSeatHtml`
     # says on her own entry which card she stood on.
-    "modelled_family.printed_wife.ticket": ("shown", "escapeHtml(String(printed.ticket))"),
-    "modelled_family.printed_wife.wife": ("shown", "escapeHtml(String(printed.wife))"),
-    "modelled_family.printed_wife.from_household": ("shown", "escapeHtml(String(printed.from_household))"),
+    "modelled_family.printed_wife.wife": ("shown", "nameFor(printed.wife)"),
+    "modelled_family.printed_wife.from_household": ("shown", "nameFor(printed.from_household)"),
     "modelled_family.printed_wife.married": ("shown", "escapeHtml(String(printed.married))"),
-    "modelled_family.printed_wife.sources": ("shown", "escapeHtml((printed.sources || []).join(', '))"),
+    "modelled_family.printed_wife.sources": ("shown", "(printed.sources || []).map(nameFor)"),
     "modelled_family.printed_wife.locator": ("shown", "escapeHtml(String(printed.locator))"),
     "modelled_family.printed_wife.printed": ("shown", "escapeHtml(String(printed.printed || ''))"),
     "modelled_family.printed_wife.what_happened": ("shown", "escapeHtml(String(printed.what_happened || ''))"),
-    "persons[].seated_as_printed_wife.ticket": ("shown", "escapeHtml(String(seat.ticket))"),
-    "persons[].seated_as_printed_wife.from_household": ("shown", "escapeHtml(String(seat.from_household))"),
+    "persons[].seated_as_printed_wife.from_household": ("shown", "nameFor(seat.from_household)"),
     "persons[].seated_as_printed_wife.relationship_as_dealt": ("shown", "escapeHtml(words(seat.relationship_as_dealt))"),
     # T-2021. The ruling on a married house no woman in the town fits: `rulingHtml` prints
     # whether the house was given its drawn family or stands alone, and why.
-    "modelled_family.ruling.ticket": ("shown", "escapeHtml(String(ruling.ticket))"),
     "modelled_family.ruling.verdict": ("shown", "escapeHtml(words(ruling.verdict))"),
     "modelled_family.ruling.what_happened": ("shown", "escapeHtml(String(ruling.what_happened || ''))"),
     # T-1564. THE ONE FIGURE OF THE RE-FAMILY BLOCK A RENDERER ALREADY REACHES. The
@@ -932,17 +932,15 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     # them, the model row, the seed a reader can retype and what would retire them.
     # `reconstructedHtml` passes the person record straight to `basisHtml`, which is why
     # `basis`, `seed` and `replaceable_by` read through the same expressions the blocks do.
-    "persons[].reconstruction.stage": ("shown", "escapeHtml(String(rc.stage || ''))"),
-    "persons[].reconstruction.ticket": ("shown", "escapeHtml(String(rc.ticket))"),
-    # T-2020. Where a person moved by a fold was dealt, printed under why they are here.
-    "persons[].folded_in.ticket": ("shown", "escapeHtml(String(folded.ticket))"),
-    "persons[].folded_in.from_household": ("shown", "escapeHtml(String(folded.from_household))"),
-    "persons[].folded_in.relationship_as_dealt": ("shown", "escapeHtml(words(folded.relationship_as_dealt))"),
+    "persons[].reconstruction.stage": ("shown", "escapeHtml(idWords(rc.stage))"),
     "persons[].reconstruction.community": ("shown", "escapeHtml(words(rc.community))"),
+    # T-2020. Where a person moved by a fold was dealt, printed under why they are here.
+    "persons[].folded_in.from_household": ("shown", "nameFor(folded.from_household)"),
+    "persons[].folded_in.relationship_as_dealt": ("shown", "escapeHtml(words(folded.relationship_as_dealt))"),
     "persons[].reconstruction.review_required": (
         "shown", "rc.review_required ? ' This reconstruction carries a standing review.'"),
     "persons[].basis.kind": ("shown", "basis.kind === 'model'"),
-    "persons[].basis.id": ("shown", "escapeHtml(String(basis.id || ''))"),
+    "persons[].basis.id": ("shown", "escapeHtml(idWords(basis.id))"),
     "persons[].basis.note": ("shown", "escapeHtml(String(basis.note || ''))"),
     "persons[].seed": ("shown", "escapeHtml(String(block.seed))"),
     "persons[].replaceable_by.kind": ("shown", "block.replaceable_by || null"),
@@ -957,10 +955,10 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "persons[].seed": ("shown", "drawn && block.seed"),
     "persons[].replaceable_by.kind": ("shown", "const rep = block.replaceable_by"),
     "persons[].replaceable_by.match": ("shown", "escapeHtml(String(rep.match || ''))"),
-    "persons[].reconstruction.stage": ("shown", "escapeHtml(String(rc.stage || ''))"),
+    "persons[].reconstruction.stage": ("shown", "escapeHtml(idWords(rc.stage))"),
     "persons[].reconstruction.programme": (
-        "shown", "escapeHtml(String(rc.programme || 'the reconstruction programme'))"),
-    "persons[].reconstruction.community": ("shown", "escapeHtml(String(rc.community))"),
+        "shown", "rc.programme ? `the ${idWords(rc.programme)} programme`"),
+    "persons[].reconstruction.community": ("shown", "escapeHtml(words(rc.community))"),
     "persons[].reconstruction.counted_by": ("shown", "escapeHtml(String(rc.counted_by))"),
     "persons[].reconstruction.band_1840": ("shown", "escapeHtml(String(rc.band_1840))"),
     "persons[].reconstruction.age_on_scene_date.low": ("shown", "`${age.low} or older`"),
@@ -1183,7 +1181,6 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
         "shown", "f.place_class === 'outside_chicago' ? ', and somewhere other than this town' : ''"),
     "persons[].profile_facts[].as_read": ("shown", "escapeHtml(String(f.as_read ?? ''))"),
     "persons[].profile_facts[].note": ("shown", "escapeHtml(String(f.note ?? ''))"),
-    "persons[].profile_facts[].record_id": ("shown", "Record ${escapeHtml(String(f.record_id))}"),
     "persons[].profile_facts[].precision": (
         "shown", "the source is exact to the ${escapeHtml(words(f.precision))}"),
     # T-1588 — what this person HELD, which is its own field because a landholding is a
@@ -1202,8 +1199,6 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
         "shown", "block.place_class === 'outside_chicago' ? ', and ground somewhere other than this town' : ''"),
     "persons[].landholding.as_read": ("shown", "escapeHtml(String(block.as_read ?? ''))"),
     "persons[].landholding.note": ("shown", "escapeHtml(String(block.note ?? ''))"),
-    "persons[].landholding.record_id": (
-        "shown", "Record ${escapeHtml(String(block.record_id))}"),
     "persons[].later_census.year": ("shown", "Found again in the ${escapeHtml(String(census.year))} census"),
     "persons[].later_census.source_id": ("shown", "citationsById.get(census.source_id)"),
     "persons[].later_census.serial": ("shown", "enumeration serial ${\n        escapeHtml(String(census.serial))}"),
@@ -1211,7 +1206,7 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "persons[].later_census.census_row": ("shown", "escapeHtml(String(census.census_row))"),
     "persons[].later_census.head_name_transcribed": ("shown", "escapeHtml(census.head_name_transcribed)"),
     "persons[].later_census.head_name_normalized": ("shown", "escapeHtml(census.head_name_normalized)"),
-    "persons[].later_census.source_image": ("shown", "from image ${escapeHtml(census.source_image)}"),
+    "persons[].later_census.source_image": ("shown", "String(census.source_image)"),
     # Which image the row was read off, and whether a paired continuation sheet was
     # needed to read it — the 1840 schedules run a household across two facing pages,
     # and a serial fixed from one image alone is a weaker reading than one fixed from
@@ -1243,9 +1238,9 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     # And the same line read off the photograph of the sheet, shown beside the
     # recovered figures rather than instead of them, with the sentence that says
     # where the two disagree (T-0530).
-    "persons[].later_census.scan_verified.read_by": ("shown", "read by ${escapeHtml(scan.read_by)}"),
+    "persons[].later_census.scan_verified.read_by": ("shown", "String(scan.read_by ?? '')"),
     "persons[].later_census.scan_verified.sources": ("shown", "(scan.sources || []).map((id) => citationsById.get(id))"),
-    "persons[].later_census.scan_verified.image": ("shown", "From ${escapeHtml(scan.image)}"),
+    "persons[].later_census.scan_verified.image": ("shown", "String(scan.image ?? '')"),
     "persons[].later_census.scan_verified.line": ("shown", "Line ${escapeHtml(String(scan.line))}"),
     "persons[].later_census.scan_verified.head_name_as_read": ("shown", "escapeHtml(scan.head_name_as_read)"),
     "persons[].later_census.scan_verified.free_persons": ("shown", "['People on the line', scan.free_persons]"),
@@ -1280,35 +1275,30 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "persons[].press_evidence[].list": ("shown", "escapeHtml(words(entry.list))"),
     "persons[].press_evidence[].as_read": ("shown", "escapeHtml(String(entry.as_read ?? ''))"),
     "persons[].press_evidence[].locator": ("shown", "at ${escapeHtml(String(entry.locator))}"),
-    "persons[].press_evidence[].record_id": ("shown", "Record ${\n      escapeHtml(String(entry.record_id))}"),
     "persons[].press_evidence[].describes_date": ("shown", "printedOn(entry.describes_date)"),
     "persons[].press_evidence[].source": ("shown", "citationsById.get(entry.source)"),
     "persons[].press_evidence[].rule": ("shown", "rung ${\n      escapeHtml(String(entry.rule))}"),
     "persons[].civic_evidence[].list": ("shown", "escapeHtml(words(entry.list))"),
     "persons[].civic_evidence[].as_read": ("shown", "escapeHtml(String(entry.as_read ?? ''))"),
     "persons[].civic_evidence[].locator": ("shown", "at ${escapeHtml(String(entry.locator))}"),
-    "persons[].civic_evidence[].record_id": ("shown", "Record ${\n      escapeHtml(String(entry.record_id))}"),
     "persons[].civic_evidence[].describes_date": ("shown", "printedOn(entry.describes_date)"),
     "persons[].civic_evidence[].source": ("shown", "citationsById.get(entry.source)"),
     "persons[].civic_evidence[].rule": ("shown", "rung ${\n      escapeHtml(String(entry.rule))}"),
     "persons[].church_evidence[].list": ("shown", "escapeHtml(words(entry.list))"),
     "persons[].church_evidence[].as_read": ("shown", "escapeHtml(String(entry.as_read ?? ''))"),
     "persons[].church_evidence[].locator": ("shown", "at ${escapeHtml(String(entry.locator))}"),
-    "persons[].church_evidence[].record_id": ("shown", "Record ${\n      escapeHtml(String(entry.record_id))}"),
     "persons[].church_evidence[].describes_date": ("shown", "printedOn(entry.describes_date)"),
     "persons[].church_evidence[].source": ("shown", "citationsById.get(entry.source)"),
     "persons[].church_evidence[].rule": ("shown", "rung ${\n      escapeHtml(String(entry.rule))}"),
     "persons[].book_evidence[].list": ("shown", "escapeHtml(words(entry.list))"),
     "persons[].book_evidence[].as_read": ("shown", "escapeHtml(String(entry.as_read ?? ''))"),
     "persons[].book_evidence[].locator": ("shown", "at ${escapeHtml(String(entry.locator))}"),
-    "persons[].book_evidence[].record_id": ("shown", "Record ${\n      escapeHtml(String(entry.record_id))}"),
     "persons[].book_evidence[].describes_date": ("shown", "printedOn(entry.describes_date)"),
     "persons[].book_evidence[].source": ("shown", "citationsById.get(entry.source)"),
     "persons[].book_evidence[].rule": ("shown", "rung ${\n      escapeHtml(String(entry.rule))}"),
     "persons[].census_evidence[].list": ("shown", "escapeHtml(words(entry.list))"),
     "persons[].census_evidence[].as_read": ("shown", "escapeHtml(String(entry.as_read ?? ''))"),
     "persons[].census_evidence[].locator": ("shown", "at ${escapeHtml(String(entry.locator))}"),
-    "persons[].census_evidence[].record_id": ("shown", "Record ${\n      escapeHtml(String(entry.record_id))}"),
     "persons[].census_evidence[].describes_date": ("shown", "printedOn(entry.describes_date)"),
     "persons[].census_evidence[].source": ("shown", "citationsById.get(entry.source)"),
     "persons[].census_evidence[].rule": ("shown", "rung ${\n      escapeHtml(String(entry.rule))}"),
@@ -1335,8 +1325,7 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "persons[].resident_research.outcome": ("shown", "escapeHtml(words(rr.outcome))"),
     "persons[].resident_research.summary": ("shown", "prose(rr.summary, citationsById, named)"),
     "persons[].resident_research.asserted_identity": ("shown", "rr.asserted_identity ? 'identity asserted' : 'identity not asserted'"),
-    "persons[].resident_research.programme": ("shown", "escapeHtml(String(rr.programme ?? 'the resident research programme'))"),
-    "persons[].resident_research.ticket": ("shown", "escapeHtml(String(rr.ticket ?? ''))"),
+    "persons[].resident_research.programme": ("shown", "rr.programme ? `the ${idWords(rr.programme)} programme`"),
     "persons[].resident_research.reviewed_on": ("shown", "escapeHtml(printedOn(rr.reviewed_on))"),
     "persons[].resident_research.regraded_on": ("shown", "rr.regraded_on ? `, regraded ${escapeHtml(printedOn(rr.regraded_on))}"),
     "persons[].resident_research.rule": ("shown", "under rule ${\n          escapeHtml(String(rr.rule ?? ''))}"),
@@ -1345,8 +1334,8 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "persons[].resident_research.proposed_facts": ("shown", "prose(rr.proposed_facts, citationsById, named)"),
     "persons[].resident_research.notes": ("shown", "prose(rr.notes, citationsById, named)"),
     "persons[].resident_research.source_ids": ("shown", "const named = new Set(rr.source_ids || []);"),
-    "persons[].resident_research.candidate_ids": ("shown", "escapeHtml((rr.candidate_ids || []).map((id) => words(id)).join(', '))"),
-    "persons[].resident_research.candidates[].candidate_id": ("shown", "escapeHtml(String(c.candidate_id))"),
+    "persons[].resident_research.candidate_ids": ("shown", "(rr.candidate_ids || []).map((id) => candidateName.get(id)"),
+    "persons[].resident_research.candidates[].candidate_id": ("shown", "String(c.candidate_id || c.id || '')"),
     "persons[].resident_research.candidates[].asserted": ("shown", "escapeHtml(c.asserted ? 'asserted as this person' : 'weighed and not asserted')"),
     "persons[].resident_research.candidates[].assessment": ("shown", "escapeHtml(words(c.assessment))"),
     "persons[].resident_research.candidates[].basis": ("shown", "prose(c.basis, citationsById, named)"),
@@ -1357,10 +1346,9 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "persons[].resident_research.refusals[].reason": ("shown", "prose(r.reason, citationsById, named)"),
     # The name ruling. Three people, nine figures, and a displayed spelling that changed
     # with the argument for it left in a file.
-    "persons[].name_ruling.ruled_by": ("shown", "Ruled by ${escapeHtml(String(ruling.ruled_by ?? ''))}"),
     "persons[].name_ruling.rule": ("shown", "under rule ${\n      escapeHtml(String(ruling.rule ?? ''))}"),
     "persons[].name_ruling.printed_line": ("shown", "at printed line ${\n        escapeHtml(String(ruling.printed_line))}"),
-    "persons[].name_ruling.ruling": ("shown", "<code>${escapeHtml(String(ruling.ruling ?? ''))}</code>"),
+    "persons[].name_ruling.ruling": ("shown", "escapeHtml(String(ruling.ruling))"),
     "persons[].name_ruling.takes": ("shown", "The card takes ${prose(ruling.takes, citationsById, named)}"),
     "persons[].name_ruling.over": ("shown", "over ${prose(ruling.over, citationsById, named)}"),
     "persons[].name_ruling.displayed_name_was": ("shown", "escapeHtml(String(ruling.displayed_name_was ?? ''))"),
@@ -1369,15 +1357,13 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     # The fold, and the pair that was weighed and kept apart. `for_merge` is rendered
     # beside `against_merge` on purpose: a verdict of `distinct` published without the
     # case for the other answer is an assertion.
-    "persons[].merged_from[].cards": ("shown", "escapeHtml((m.cards || []).map((c) => words(c)).join(', '))"),
+    "persons[].merged_from[].cards": ("shown", "(m.cards || []).map((c) => nameFor(c))"),
     "persons[].merged_from[].rule": ("shown", "Folded under rule ${escapeHtml(String(m.rule ?? ''))}"),
-    "persons[].merged_from[].ticket": ("shown", "by ${\n    escapeHtml(String(m.ticket ?? ''))}"),
-    "persons[].merged_from[].cluster": ("shown", "escapeHtml(String(m.cluster ?? ''))}\n    cluster"),
+    "persons[].merged_from[].cluster": ("shown", "idWords(m.cluster)"),
     "persons[].merge_ruling[].verdict": ("shown", "escapeHtml(words(r.verdict))"),
-    "persons[].merge_ruling[].weighed_against": ("shown", "escapeHtml((r.weighed_against || []).map((c) => words(c)).join(', '))"),
+    "persons[].merge_ruling[].weighed_against": ("shown", "(r.weighed_against || []).map((c) => nameFor(c))"),
     "persons[].merge_ruling[].rule": ("shown", "under rule ${\n    escapeHtml(String(r.rule ?? ''))}"),
-    "persons[].merge_ruling[].cluster": ("shown", "in the ${escapeHtml(String(r.cluster ?? ''))} cluster"),
-    "persons[].merge_ruling[].ticket": ("shown", "(${escapeHtml(String(r.ticket ?? ''))})"),
+    "persons[].merge_ruling[].cluster": ("shown", "idWords(r.cluster)"),
     "persons[].merge_ruling[].referred_to": ("shown", "referred to ${escapeHtml(String(r.referred_to))}"),
     "persons[].merge_ruling[].for_merge": ("shown", "<b>For a merge:</b> ${prose(r.for_merge, citationsById, named)}"),
     "persons[].merge_ruling[].against_merge": ("shown", "<b>Against:</b> ${prose(r.against_merge, citationsById, named)}"),
@@ -1458,6 +1444,75 @@ RECORD_KINDS = ("zone", "manifest", "palette", "household")
 # assertion 4 still fails if a new one appears, and assertion 5 still fails if
 # one of these leaves the data.
 REFUSALS: dict[str, str] = {
+    # -------------------------------------------------------------------------
+    # T-2825. The owner, 2026-10-18: "rewrite the records so you are not referring to internal
+    # ticket numbers or internal record ids in researcher or educator mode." These were shown
+    # on a person's card as the work that wrote a row and the record id a reading came from;
+    # they stay on the record, where the tools that re-derive it read them, and no card
+    # prints them. What a reader judges the row by is still on it: its source, its date, its
+    # grade and its reasoning.
+    "residents/household:modelled_family.ticket": (
+        "Which piece of work wrote or ruled this row: the builders' reference, kept for the "
+        "tools that re-derive it, and since T-2825 not printed in any mode."),
+    "residents/household:modelled_family.married.ticket": (
+        "Which piece of work wrote or ruled this row: the builders' reference, kept for the "
+        "tools that re-derive it, and since T-2825 not printed in any mode."),
+    "residents/household:modelled_family.printed_wife.ticket": (
+        "Which piece of work wrote or ruled this row: the builders' reference, kept for the "
+        "tools that re-derive it, and since T-2825 not printed in any mode."),
+    "residents/household:persons[].seated_as_printed_wife.ticket": (
+        "Which piece of work wrote or ruled this row: the builders' reference, kept for the "
+        "tools that re-derive it, and since T-2825 not printed in any mode."),
+    "residents/household:modelled_family.ruling.ticket": (
+        "Which piece of work wrote or ruled this row: the builders' reference, kept for the "
+        "tools that re-derive it, and since T-2825 not printed in any mode."),
+    "residents/household:persons[].reconstruction.ticket": (
+        "Which piece of work wrote or ruled this row: the builders' reference, kept for the "
+        "tools that re-derive it, and since T-2825 not printed in any mode."),
+    "residents/household:persons[].folded_in.ticket": (
+        "Which piece of work wrote or ruled this row: the builders' reference, kept for the "
+        "tools that re-derive it, and since T-2825 not printed in any mode."),
+    "residents/household:persons[].resident_research.ticket": (
+        "Which piece of work wrote or ruled this row: the builders' reference, kept for the "
+        "tools that re-derive it, and since T-2825 not printed in any mode."),
+    "residents/household:persons[].merged_from[].ticket": (
+        "Which piece of work wrote or ruled this row: the builders' reference, kept for the "
+        "tools that re-derive it, and since T-2825 not printed in any mode."),
+    "residents/household:persons[].merge_ruling[].ticket": (
+        "Which piece of work wrote or ruled this row: the builders' reference, kept for the "
+        "tools that re-derive it, and since T-2825 not printed in any mode."),
+    "residents/household:persons[].name_ruling.ruled_by": (
+        "Which piece of work wrote or ruled this row: the builders' reference, kept for the "
+        "tools that re-derive it, and since T-2825 not printed in any mode."),
+    "residents/household:persons[].profile_facts[].record_id": (
+        "The record id of the reading this row came from: a key into the research files, "
+        "kept for the tools, and since T-2825 not printed in any mode. The source, its date "
+        "and the line as read are on the row."),
+    "residents/household:persons[].landholding.record_id": (
+        "The record id of the reading this row came from: a key into the research files, "
+        "kept for the tools, and since T-2825 not printed in any mode. The source, its date "
+        "and the line as read are on the row."),
+    "residents/household:persons[].press_evidence[].record_id": (
+        "The record id of the reading this row came from: a key into the research files, "
+        "kept for the tools, and since T-2825 not printed in any mode. The source, its date "
+        "and the line as read are on the row."),
+    "residents/household:persons[].civic_evidence[].record_id": (
+        "The record id of the reading this row came from: a key into the research files, "
+        "kept for the tools, and since T-2825 not printed in any mode. The source, its date "
+        "and the line as read are on the row."),
+    "residents/household:persons[].church_evidence[].record_id": (
+        "The record id of the reading this row came from: a key into the research files, "
+        "kept for the tools, and since T-2825 not printed in any mode. The source, its date "
+        "and the line as read are on the row."),
+    "residents/household:persons[].book_evidence[].record_id": (
+        "The record id of the reading this row came from: a key into the research files, "
+        "kept for the tools, and since T-2825 not printed in any mode. The source, its date "
+        "and the line as read are on the row."),
+    "residents/household:persons[].census_evidence[].record_id": (
+        "The record id of the reading this row came from: a key into the research files, "
+        "kept for the tools, and since T-2825 not printed in any mode. The source, its date "
+        "and the line as read are on the row."),
+
     # -------------------------------------------------------------------------
     # T-1489 carried the drawn employment seat back onto the card of the person holding
     # it — 123 of them, 33 in this directory — because the join beside the layer said
