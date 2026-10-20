@@ -9908,6 +9908,10 @@ for (const [label, viewport, touch] of [
     // every update must restore exact standing clearance, not approach it.
     const terrainLock = await page.evaluate(() => {
       const a = window.__chicago4d;
+      // T-2945: the same 37.7 m of slope as at the old 1.45 m/s walk, in finer steps at
+      // today's faster default — further along, the path reaches the plank walk's deck,
+      // which is not terrain and is not what this check is about.
+      const dt = 0.05 * 1.45 / a.walkBudget.speed;
       const run = (n, bearing) => {
         a.walker.teleport({ local_e: 140, local_n: n, yaw_deg: bearing });
         a.walker.state.eyeY += 0.9;
@@ -9916,7 +9920,7 @@ for (const [label, viewport, touch] of [
         let maxGround = -Infinity;
         a.intent.forward = 1;
         for (let i = 0; i < 520; i++) {
-          a.walker.update(0.05, a.intent);
+          a.walker.update(dt, a.intent);
           const s = a.walker.state;
           const ground = a.terrain.walkHeight(s.e, s.n);
           minGround = Math.min(minGround, ground);
@@ -14619,7 +14623,7 @@ for (const [label, viewport, touch] of [
       for (const m of ['walk', 'run', 'wagon', 'horse']) { pick(m); ranges[m] = one(); }
       pick('horse');
       const before = api.hud.settings.horseSpeed;
-      const gaits = { canter: drag(6.5), gallop: drag(10), top: drag(26.82) };
+      const gaits = { canter: drag(6.5), gallop: drag(10), top: drag(35.76) };
       const atTop = { speed: WALK.speed, sprint: WALK.sprintSpeed };
       drag(before);
       const afterDrag = { speed: WALK.speed, sprint: WALK.sprintSpeed, others: [api.hud.settings.speed, api.hud.settings.wagonSpeed] };
@@ -14675,36 +14679,36 @@ for (const [label, viewport, touch] of [
     // constants; each pace now has its own slider, so the claim is that WALK
     // follows THAT pace's stored value — sprint = value × factor (2.28 on foot,
     // 1 by wagon, 1.7 in the saddle) capped at the slider's top — and the seats
-    // are unchanged. The defaults (1.45 / 3.6 / 6.5) are asserted where the store
-    // is fresh, which it is in this run.
+    // are unchanged. The defaults (4.47 / 6.71 / 7.15 / 11.18 since T-2945; they were
+    // 1.45 / 3.4 / 3.6 / 6.5) are asserted where the store is fresh, which it is in this run.
     const near = (a, b) => Math.abs(a - b) < 0.01;
     const sp = travelUi.sliders;
     check(`${label}: each pace sets the walker to its own slider, its Shift factor and its seat`,
-      near(travelUi.paces.horse.speed, sp.horse) && near(travelUi.paces.horse.sprint, Math.min(sp.horse * 1.7, 26.82))
+      near(travelUi.paces.horse.speed, sp.horse) && near(travelUi.paces.horse.sprint, Math.min(sp.horse * 1.7, 35.76))
       && Math.abs(travelUi.paces.horse.eye - (travelUi.eyeSetting + 0.75)) < 0.01
       && near(travelUi.paces.wagon.speed, sp.wagon) && near(travelUi.paces.wagon.sprint, sp.wagon)
       && Math.abs(travelUi.paces.wagon.eye - (travelUi.eyeSetting + 0.5)) < 0.01
-      && near(travelUi.paces.walk.speed, sp.walk) && near(travelUi.paces.walk.sprint, Math.min(sp.walk * 2.28, 8.94))
+      && near(travelUi.paces.walk.speed, sp.walk) && near(travelUi.paces.walk.sprint, Math.min(sp.walk * 2.28, 13.41))
       && Math.abs(travelUi.paces.walk.eye - travelUi.eyeSetting) < 0.01
-      && near(travelUi.paces.run.speed, sp.run) && near(travelUi.paces.run.sprint, Math.min(sp.run * 1.6, 8.94))
+      && near(travelUi.paces.run.speed, sp.run) && near(travelUi.paces.run.sprint, Math.min(sp.run * 1.6, 13.41))
       && Math.abs(travelUi.paces.run.eye - travelUi.eyeSetting) < 0.01
-      && sp.walk === 1.45 && sp.run === 3.4 && sp.wagon === 3.6 && sp.horse === 6.5
+      && sp.walk === 4.47 && sp.run === 6.71 && sp.wagon === 7.15 && sp.horse === 11.18
       && travelUi.paces.horse.chip === 'horse' && travelUi.paces.walk.chip === 'walk',
       JSON.stringify({ ...travelUi.paces, sliders: sp, eye: travelUi.eyeSetting }));
     // ---- T-2651: the one slider takes each mode's range (T-0823's ceilings, Run's jog
     // floor) and names the speed as it moves; dragging it moves that mode alone.
     const rg = travelUi.ranges;
-    check(`${label}: the one slider takes the picked mode's range, 20, 20, 30 and 60 mph, and names the speed as it moves`,
-      rg.walk?.min === 0.5 && rg.walk?.max === 8.94 && rg.run?.min === 2.6 && rg.run?.max === 8.94
-      && rg.wagon?.max === 13.41 && rg.horse?.max === 26.82
+    check(`${label}: the one slider takes the picked mode's range, 30, 30, 40 and 80 mph (T-2945), and names the speed as it moves`,
+      rg.walk?.min === 0.5 && rg.walk?.max === 13.41 && rg.run?.min === 2.6 && rg.run?.max === 13.41
+      && rg.wagon?.max === 17.88 && rg.horse?.max === 35.76
       && rg.walk.label === 'Walk speed' && rg.run.label === 'Run speed' && rg.wagon.label === 'Wagon speed' && rg.horse.label === 'Horse speed'
       && near(rg.walk.value, sp.walk) && near(rg.run.value, sp.run) && near(rg.wagon.value, sp.wagon) && near(rg.horse.value, sp.horse)
       && /^canter · /.test(travelUi.gaits.canter) && /^gallop · /.test(travelUi.gaits.gallop)
-      && /^beyond any horse · /.test(travelUi.gaits.top) && /60\.0 mph|96\.5 km\/h/.test(travelUi.gaits.top)
-      && /^walk · /.test(travelUi.gaits.walkWord) && /^jog · /.test(travelUi.gaits.runWord)
-      && /^rattling along · /.test(travelUi.gaits.rattling) && /^steady roll · /.test(travelUi.gaits.wagonWord)
-      && travelUi.atTop.speed === 26.82 && travelUi.atTop.sprint === 26.82
-      && near(travelUi.afterDrag.speed, 6.5) && near(travelUi.afterDrag.sprint, 11.05)
+      && /^beyond any horse · /.test(travelUi.gaits.top) && /80\.0 mph|128\.7 km\/h/.test(travelUi.gaits.top)
+      && /^run · /.test(travelUi.gaits.walkWord) && /^sprint · /.test(travelUi.gaits.runWord)
+      && /^rattling along · /.test(travelUi.gaits.rattling) && /^rattling along · /.test(travelUi.gaits.wagonWord)
+      && travelUi.atTop.speed === 35.76 && travelUi.atTop.sprint === 35.76
+      && near(travelUi.afterDrag.speed, 11.18) && near(travelUi.afterDrag.sprint, 19.01)
       && near(travelUi.afterDrag.others[0], sp.walk) && near(travelUi.afterDrag.others[1], sp.wagon),
       JSON.stringify({ ranges: rg, gaits: travelUi.gaits, atTop: travelUi.atTop, afterDrag: travelUi.afterDrag }));
     // ---- end T-2651 (the slider)

@@ -16,7 +16,7 @@
  *
  * PACES ARE INTERFACE CHOICES, NOT CLAIMS ABOUT 1835
  *
- * A wagon at 3.6 m/s, a horse at 6.5 m/s cantering and 11 m/s galloping, a
+ * A wagon at 7.15 m/s, a horse at 11.18 m/s galloping and 19 m/s at full stretch (T-2945), a
  * cruise height of 20–80 m: these are chosen so the town reads well at each pace
  * and a ride does not take seven minutes. They are how the camera moves, not
  * findings about how people moved, which is why there is no LIBERTIES entry for
@@ -140,7 +140,7 @@ export function createTravel({
    */
   function applyPace() {
     const pace = activePace();
-    const base = paceSpeed(pace, settings) ?? 1.45;
+    const base = paceSpeed(pace, settings) ?? PACES.walk.defaultSpeed;
     WALK.speed = base;
     WALK.sprintSpeed = Math.min(base * (pace.sprintFactor ?? 1), pace.maxSpeed ?? Infinity);
     WALK.eyeHeight = (Number.isFinite(settings.eyeHeight) ? settings.eyeHeight : 1.68)

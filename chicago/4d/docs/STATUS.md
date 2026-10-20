@@ -1,3 +1,27 @@
+## T-2945 — faster paces: walk 10 mph by default (2026-10-20)
+
+The owner, 2026-10-20: *"can you default the walk speed to much faster like 10mph and increase
+the relative speeds on everthing so its a bit faster"*. `PACES` (travel-settings.js) defaults:
+walk 1.45 → **4.47 m/s** (10 mph), run 3.4 → **6.71** (15 mph), wagon 3.6 → **7.15** (16 mph),
+horse 6.5 → **11.18** (25 mph). Walk < run < wagon < horse holds; sprint factors unchanged
+(Shift: walk 10.2, run 10.7, horse 19.0 m/s). Slider tops 20/20/30/60 mph → **30/30/40/80
+mph** (13.41 / 13.41 / 17.88 / 35.76 m/s), so each default sits at a third to a half of its
+slider and the walk's sprint is no longer capped. Flight (14 m/s, scaled by height) is left as
+is: still three times the new walk.
+
+- **Gait names are unchanged and now say what the speeds are:** 10 mph on foot reads "run",
+  the run's default "sprint", the wagon's "rattling along", the horse's "gallop".
+- **Stored speeds:** the HUD stores its whole settings object, so almost every returning
+  visitor carries 1.45 / 3.4 / 3.6 / 6.5 without having touched a slider. The first read under
+  the new defaults (`migratePaceDefaults`, marker `paceDefaults: 2`) drops a speed EXACTLY equal
+  to its old default and keeps every other stored speed; after that any figure is kept.
+- **Measurements move with it:** `pacing-read.js` and `measure_walk_frames.mjs --live` drive the
+  walk at the walker's own `WALK.speed`, so from this change they walk at 4.47 m/s (about 3x
+  further per second, more flora near-ring re-deals) and `driveLive`'s fixed 54 m walk lasts
+  about 12 s instead of 37 s. Walk readings before and after 2026-10-20 are not comparable
+  without saying so. `test_pacing_read.mjs` now holds every scene's walk to 15 s at the default
+  walk (67 m) rather than at the old 3.3 m/s jog.
+
 ## T-2942 — the look-at tag docks under the address (2026-10-20)
 
 The owner, 2026-10-20, asked for the name of what you look at "on the right side and make it

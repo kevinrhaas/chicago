@@ -15,6 +15,7 @@ import { isTyping } from './controls/pointerlock.js';
 import { formatDistance, formatHeight, formatSpeed, formatStature, normalUnitSystem } from './units.js';
 import { createGoTo } from './goto.js';
 import { PACES } from './travel.js';
+import { migratePaceDefaults, PACE_DEFAULTS_VERSION } from './travel-settings.js';
 import { GROUND_MODES, groundPace as groundOf, nextPace, moveView, travelModeFor, arriveOf } from './move-modes.js';
 import { jauntsFollowFrom } from './getting-there.js';
 import { versionBadge } from './structure-versions.js';
@@ -32,7 +33,8 @@ const DEFAULT_SETTINGS = {
   // eyeHeight defaults to WALK.eyeHeight — the researched figure, not a taste.
   // It lives here so a visitor can raise it for comfort without the project
   // quietly restating the average height of an 1830s adult as something else.
-  speed: 1.45, eyeHeight: 1.68, fov: 72,
+  // T-2945: the walk's default is PACES.walk's (4.47 m/s, 10 mph); see travel-settings.js.
+  speed: PACES.walk.defaultSpeed, eyeHeight: 1.68, fov: 72,
   // Image sharpness, the pixel-ratio cap. '' = never chosen, so main.js's device
   // guess stands: a phone starts at Low (1), a desktop at Medium (1.5) — the
   // owner's pick on T-2110, where Low drew a phone's frame 26-29 % faster. A
@@ -77,7 +79,9 @@ const DEFAULT_SETTINGS = {
   pace: 'walk', travelMode: 'instantly', headBob: true,
   // The wagon's and the horse's own speeds (T-0823) and the run's (T-2651); `speed`
   // above is the walk's.
-  wagonSpeed: 3.6, horseSpeed: 6.5, runSpeed: 3.4,
+  wagonSpeed: PACES.wagon.defaultSpeed, horseSpeed: PACES.horse.defaultSpeed, runSpeed: PACES.run.defaultSpeed,
+  // T-2945: the pace defaults a stored object was read under (travel-settings.js).
+  paceDefaults: PACE_DEFAULTS_VERSION,
   // T-2727: Move › Jaunts use my choice. Off, every Jaunt travels the way it recommends; on,
   // it takes the getting-there choice where it can (js/getting-there.js § jauntChoice).
   // Replaces T-2652's hidden `arriveChosen` rule. Anything but a stored `true` reads as off.
@@ -93,7 +97,8 @@ const DEFAULT_SETTINGS = {
 
 function readSettings() {
   try {
-    const saved = JSON.parse(window.localStorage.getItem(SET_KEY) || '{}') ?? {};
+    // T-2945: an untouched old pace default is no choice (travel-settings.js § migratePaceDefaults).
+    const saved = migratePaceDefaults(JSON.parse(window.localStorage.getItem(SET_KEY) || '{}') ?? {});
     // T-2481: T-2473 kept the season in `streetTrees` ('summer' | 'spring' |
     // 'winter' | 'hidden'); it is now its own setting and the trees are shown or hidden.
     if (['summer', 'spring', 'winter'].includes(saved.streetTrees)) {
