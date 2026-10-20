@@ -28653,6 +28653,40 @@ would replace the room's plan, ceiling and the door; T-2911 carves the openings 
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-20 (T-2910).
 
+### L-kimball-1801-front-bow-2921 — 1801 Prairie's bowed bay and pavilion pair: the bow's depth, its lights' turn, its cornice carried past the eave, square balusters for the pierced balustrade, and the pair's plate lights
+
+**Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.front_bays`
+**Decision:** the W. W. Kimball house at 1801 Prairie (T-2921, piece 1 of T-2911) takes the bowed bay
+and the paired windows J. W. Taylor's c. 1895 photograph shows on its Prairie Avenue front
+(`taylor_c1895_kimball_residence_1801`), read through its solved camera. **What is read, not
+invented.** The bay's place: its north junction at x 1130 and its silhouette's south edge at the
+pavilion's pilaster, x 1245, so a bow 3.4 m on its chord centred at v 5.05; the build's outline falls
+within about 5 px of the print's at both edges. Its storeys: the principal and the second, one broad
+light a storey with a transom light over a bar (the principal storey's bar about 0.8 m under its head,
+the second's about 0.7 m), the light filling the face the camera sees; a frieze about 1.2 m deep over
+the second storey's heads to a moulded cornice that wraps the bow, and a stone balustrade on it.
+The pavilion's windows: one pair a storey on a stone mullion under a stone transom, about 2.4 m across
+between its pilasters, centred, the principal storey's sill about 0.3 m over the floor. **What is
+invented.** The bow's rise, 0.8 m: the camera looks along the front, so a bay's depth and its place
+along the wall trade against each other on the print, and 0.8 m is the depth at which the render's
+outline meets the print's at both edges with the lights where the print draws them. The lights' turn,
+20 degrees toward 18th Street: the print shows each light filling the face it sees, where a light on
+the bow's crown would stand about 30 px south of it; a camera from the south-west would settle whether
+the light is on the crown and the bow deeper. The bow's top, 8.7 m, 0.6 m past the house's 8.1 m eave
+(the photograph's cornice stands over the build's along the whole front; T-2540 reads it), its back
+closed by the mansard's lower face; the cornice's section is K10's moulded stone one. The balustrade
+0.6 m high in square stone balusters at 0.17 m (1637's south bay's), where the print shows pierced
+quatrefoil panels between posts; T-2922 carves them. The pair's lights are K06's plate-glass casements
+2.0 m clear on a 0.18 m mullion; the print's small leaded glazing in the transom lights is not built.
+**What is not built.** The carved pilasters beside the bay and the pavilion, the windows' moulded
+surrounds and the carved frieze over the principal storey: plain stone here (T-2922). The sheet's
+bulge (v 4.8-10.2) is wider and further south than the photograph's bay; the photograph is followed.
+**How to resolve:** a second photograph of the front, from the south-west or straight on, would fix the
+bow's rise and the lights' place round it; a measured drawing would replace every number here.
+**Ticket:** T-2921 (piece 1 of T-2911).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-20 (T-2921).
+
 ### L-k01-1621-last-drawn-2531 — 1621 Prairie's last drawn differences: the door's ring turned to a curved extrados under a band in a deep recess, the light over it stood on a moulded shelf, and splayed voussoirs over the basement lights, their places read and their sections reconstructed
 
 **Decision:** John H. Hamline's house at 1621 Prairie (T-2531, piece 2 of T-2527) takes the three
@@ -30187,6 +30221,41 @@ front's east angle. Any plan or later photograph of the south flank would also s
 **Ticket:** T-2909 (piece 2 of T-2887).
 **Recorded:** 2026-10-20 (T-2909).
 
+### L-k01-1812-wheeler-fabric-2914 — 1812 Prairie's street front stone to the second floor's belt and brick over it, the south projection brick over its basement, read off the photograph
+
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-2914, piece 1 of T-2890) has its
+street front laid as Albert Levy's photograph shows it, stone below and brick above, where K01
+had faced the whole front in its K02 stone. The kit learns a brick line: a stone front's
+`brick_above_m`, one of the upper storeys' floor lines, over which the walling courses are the
+K03 brick (its bond turned at the corner as the brick side wall's), while the belts, sills, flat
+arches, voussoirs and the dressed surround cells stay stone; and a stone bay's `brick_above_m`,
+one of its storey lines, over which the K08 wall is the bay's brick and its plinth, bands, sills,
+heads and reveals stay stone. Every other K01 house re-emits byte-identical. 1812 takes the line
+at 5.6 m, the top of the belt under the second storey, and its south projection at 1.65 m, the
+principal floor; the second storey's north window takes the kit's quoined surround.
+**What is read, not invented.** Through the camera T-2543 solved
+(`data/reference_views/wheeler_house_1812_prairie/levy_front.json`, 88.5 px a metre at the main
+front) and on 3x crops of the print: the basement rock-faced to a smooth water table at the
+principal floor; beside the porch arch (x 1100-1180 px) a coursed ashlar of smooth stone up to
+the second floor's belt; brick, its light mortar showing where the surface has weathered, in the
+projection's first storey either side of the arched window and over it (x 300-560, y 1030-1370
+px), in its second storey either side of the paired window, and over the belt on the main wall
+round the north window and up into the gable; and the north window's jambs a stone about 15 and
+28 px (0.17 and 0.32 m) out from the frame in turn, under a lintel course about 0.17 m deep.
+**What is invented.** The surround's stone heights, which are the kit's courses and not the
+print's joints; that the brick line stands exactly at the belt's top; the brick's bond, which the
+print does not resolve. **What is built otherwise than read.** The projection's windows stand in
+quoined stone jambs with a band at the arched window's spring, built as plain brick round the K08
+reveals; the carved frieze and patterned panel band over the north window and the carved bosses
+under the projection's second-storey jambs are not built (both T-2915); and the stone, the K02
+brown sandstone T-2543 chose, renders darker than the buff brick, where the print's stone reads
+lighter than its brick. Each is open in the match record.
+**How to resolve:** T-2915 builds or argues the carved pieces and the projection's dressings; a
+colour source for 1812's stone and brick, or a ruling on the print's tones, settles the fabrics.
+**Ticket:** T-2914 (piece 1 of T-2890).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-20 (T-2914).
+
 ### L-glessner-fan-stilt-2912 — Glessner's Prairie door fan stilted to HABS sheet 5 and its tympanum's field laid as the sheet's eight rings
 
 **Decision:** the Prairie Avenue door's fan on the `glessner_house` is a STILTED head (T-2912,
@@ -30245,3 +30314,18 @@ This is an additive seated-study declaration under existing L418. Existing recon
 A separate W01 bench variant adds an original removable timber seat, retaining cleats, bearing plates, bolts, footboard and four floor supports. Its support-plane datum is (0,1.58,0.65)m; the footboard top is1.12m. These chosen dimensions and construction are reconstructed to support the selected pose, not attested 1835 joinery or load-tested hardware. Fasteners intentionally enter timber. The ordinary W01 wagon and hitch remain separate. Unoccupied geometry/support samples do not establish occupant collision clearance, strength, continuous movement, historical construction, photographic quality or usable boarding/riding.
 
 The visible bench study is a development reconstruction. No photograph, ownership, manufacturer or historical likeness is asserted; all earlier source rights restrictions remain.
+
+
+## Per-subject liberties
+
+### L419 — Opt-in Kinzie1812 and Glessner1904 authoring studies
+
+**Decision:** Create isolated unaccepted canonical-authoring studies for the inferred John Kinzie elder identity at1812-08-14 and attested John Jacob Glessner identity in the existing1904 scene. Identity citations support identity/presence only. Reconstructed age49/61 software bodies, original wholly conjectural civilian garments, engineering eyes and cleared reusable generic skin/hair do not establish likeness, measured complexion, personal clothing, age-appropriate skin or a historical action. No driver/rider/event assignment or scene placeholder is added.
+
+Canonical source composition may apply explicitly recorded shoe registration, source-index barefoot masks and identified winding corrections while preserving immutable original body/garment inputs. These operations are engineering derivations, not fit acceptance. Existing source/normal/published sole-contact, animation, skeleton, LOD, material, morphology and container gates remain required. The manual opted-in workflow retains failed and successful evidence; no source-only, array-only or canonical-build result is photographic or production acceptance. Existing1835 builder/default paths remain unchanged.
+
+**Applies to:** `assets/authored/humans/era_studies/1812/`, `assets/authored/humans/era_studies/1904/`, both era recipes and canonical studies, and the inferred Kinzie elder household. No structure or portrait claim is discharged.
+
+**How to resolve:** actual canonical exports and source/published images, independently reviewed period garments and anatomy, fit and source licenses. Unverified studies remain unaccepted.
+
+**Recorded:** 2026-10-19 (T-1789, T-2804).

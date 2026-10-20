@@ -34,13 +34,25 @@ cd "$(dirname "$0")/.."
 
 MODE=fixture
 MASTER=""
+OUTPUT_OVERRIDE=""
 while [ $# -gt 0 ]; do
   case "$1" in
     --verify) MODE=verify; shift ;;
-    --master) MODE=master; MASTER="$2"; shift 2 ;;
+    --master)
+      [ $# -ge 2 ] && [ -n "$2" ] && [[ "$2" != --* ]] || { echo "--master requires a file" >&2; exit 2; }
+      MODE=master; MASTER="$2"; shift 2 ;;
+    --output-dir)
+      [ $# -ge 2 ] && [ -n "$2" ] && [[ "$2" = /* ]] || { echo "--output-dir requires an absolute fresh directory" >&2; exit 2; }
+      OUTPUT_OVERRIDE="$2"; shift 2 ;;
     *) echo "unknown argument: $1" >&2; exit 2 ;;
   esac
 done
+
+if [ -n "$OUTPUT_OVERRIDE" ]; then
+  [ "$MODE" = master ] || { echo "--output-dir requires explicit --master mode" >&2; exit 2; }
+  [ -f "$MASTER" ] || { echo "--master file does not exist" >&2; exit 2; }
+  [ ! -e "$OUTPUT_OVERRIDE" ] || { echo "--output-dir must be fresh; preserving prior artifacts" >&2; exit 2; }
+fi
 
 # shellcheck disable=SC1091
 source generators/blender.pin
@@ -68,6 +80,7 @@ GT_NPX=(npx --yes
 SCRATCH="$(mktemp -d -t humanexport.XXXXXX)"
 trap 'rm -rf "$SCRATCH"' EXIT
 OUT=assets/humans
+[ -n "$OUTPUT_OVERRIDE" ] && OUT="$OUTPUT_OVERRIDE"
 [ "$MODE" = "verify" ] && OUT="$SCRATCH/out"
 
 if [ "$MODE" != "master" ]; then

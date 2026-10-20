@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "864566299ffa1112ece2d485da079113258fbc0ff19591c859a2b4c6ec318a3a",
+  "glb_sha256": "269f1e9dfc92fd6015eb3142c26d5740f8e3b34a7dbe740bda2eb5c817fb0fcf",
   "camera_sha256": "d89ca0a91bccddd25a0ffa04ea98ff95ec08faec3913c2588f95f158db8cedf3",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
   "verdict": "differs",
@@ -45,12 +45,17 @@
     {
       "what": "the loggia's carving: the archivolts' mouldings, the carved piers and panels beside and over both arches, the carved blocks at the cheeks' foot and the balcony's carved face; the build lays them in plain stone under a voussoir ring",
       "status": "open",
-      "how": "T-2911"
+      "how": "T-2923"
     },
     {
-      "what": "the bowed bay in the middle of the front, two storeys under a balcony, and the front's openings: paired and mullioned windows in carved surrounds, the carved frieze over the principal storey; the build has the draft's evenly spaced sash. The sheet's bulge (v 4.8-10.2) and the photograph's bay (about 60 px further north) disagree about where it stands",
+      "what": "the front's carving: the carved pilasters beside the bow and the pavilion, the moulded surrounds of the bow's lights and the pavilion's pairs, the carved frieze over the principal storey over the loggia, and the bow balcony's pierced quatrefoil panels; the build lays them in plain stone and square balusters",
       "status": "open",
-      "how": "T-2911"
+      "how": "T-2922"
+    },
+    {
+      "what": "the bowed bay in the middle of the front, two storeys under a balcony, and the front's openings: paired and mullioned windows; the build has the draft's evenly spaced sash. The sheet's bulge (v 4.8-10.2) and the photograph's bay (about 60 px further north) disagree about where it stands",
+      "status": "fixed",
+      "how": "T-2921: a K08 bow 3.4 m on its chord centred at v 5.05 and 0.8 m out, where the photograph has it (its outline within about 5 px of the print's at the north junction, x 1130, and at the pavilion's pilaster, x 1245); one transomed light a storey, 1.5 m clear, turned 20 degrees toward 18th Street so each fills the face the print shows (x 1153-1230 against the render's 1155-1225), the principal storey's 2.4 m from 1.75 m and the second's 2.15 m from 5.4 m, their heads within about 5 px; the bow carried to 8.7 m under K10's moulded stone cornice, which the print wraps round it over a frieze, and a 0.6 m stone balustrade on it, its coping within about 8 px of the print's; the pavilion's windows one mullioned and transomed pair a storey, 2.0 m clear, centred on its face, their heads within about 10 px"
     },
     {
       "what": "all-stone walls: Bedford stone laid in courses on the front and the flank alike, with string courses and the corbel table; the build is the draft's flat stand-in stone",

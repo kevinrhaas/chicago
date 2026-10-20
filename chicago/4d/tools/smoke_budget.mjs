@@ -460,6 +460,9 @@ const COVERAGE = [
   // T-2716: the deal pass and the tuft's fetch that draw the near ring. flora.js
   // is its only importer.
   ['renderers/web/js/flora-gpu-near.js', [10, 11, 12], 'the near ring drawn from the shader, through flora.js'],
+  // T-2894: the mid ring's deal pass, reaped into the mid cards. flora.js is its
+  // only importer.
+  ['renderers/web/js/flora-gpu-mid.js', [10, 11, 12], "the mid ring's cards dealt on the GPU, through flora.js"],
   // T-2604. The flora lattice walk a spread pass runs on a worker: the census parts
   // read what the deal planted from it.
   ['renderers/web/js/jobs/lattice-kernel.js', [10, 11, 12], 'the flora lattice walk a spread pass sends to the job pool'],

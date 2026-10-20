@@ -856,8 +856,6 @@ def self_test() -> int:
     for label, rec, code in [
         ("a person the residents layer does not hold", inst(person_id="nobody_at_all"), "instance.unknown_person"),
         (f"review dropped for {flagged}", inst(person_id=flagged, id=f"hi_{flagged}_1835"), "instance.review_dropped"),
-        # 1812, not 1904: 1904 has its own people directory since T-2702 (the Glessners).
-        ("a scene with no people layer", inst(scene="1812"), "instance.no_people_layer"),
         ("a variant on no contract slot", inst(appearance={"asset_id": "x", "variants": {"cloak": "red"}}),
          "instance.unknown_slot"),
         ("a clip with no contract verb", inst(animation={"clip": "dance"}), "instance.unknown_verb"),
@@ -871,6 +869,11 @@ def self_test() -> int:
          "instance.liberty_missing"),
     ]:
         expect(label, ci(rec), code)
+    # Keep the absent-directory control independent of production scene growth.
+    # 1812 now has the sourced Kinzie elder record, just as1904 has the Glessners.
+    from unittest.mock import patch
+    with patch.dict(_people_cache, {"1812": None}):
+        expect("a scene with no people layer", ci(inst(scene="1812")), "instance.no_people_layer")
     ctx: dict = {}
     check_instance(inst(), c, schema, ctx=ctx)
     expect("the same person standing twice in one scene",
