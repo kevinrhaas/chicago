@@ -228,6 +228,14 @@ jobs:
           # The front doors (/4d/, /4d/<year>/) are copies of walk/index.html, so they
           # are re-written from the page just stamped rather than stamped one by one.
           node chicago/4d/tools/write_entry_pages.mjs site/4d
+          # T-2947: the year packs list every file with its hash, and the stamp just
+          # changed walk/index.html and every door. Without re-listing, every "Offline
+          # copy" download stopped at the first page ("changed while downloading").
+          if [ -f chicago/4d/tools/write_year_packs.mjs ]; then
+            node chicago/4d/tools/write_year_packs.mjs site/4d
+            node chicago/4d/tools/write_year_packs.mjs --check site/4d \
+              || echo "::warning::year packs do not match the stamped site — offline copies will stop"
+          fi
       # The 4D ticket board (T-0937, T-0030 — the URL Manager's queue card reads) needs
       # no step of its own: `tools/publish.sh` above runs `ticket.mjs board` and copies
       # the result to site/4d/tickets.json. One writer, one place it is run.
@@ -254,6 +262,13 @@ jobs:
             (cd _dev-src/chicago/4d && bash tools/publish.sh) \
               || echo "::warning::dev-preview: 4D publish failed in the dev worktree — /4d/dev/ will be missing or stale"
             node .github/chicago-4d-dev-preview.mjs _dev-src "$sha" "$when"
+            # T-2947: the preview step rewrites every page and build.json, so the dev
+            # packs are listed again from what it wrote, with dev's own tool.
+            if [ -f _dev-src/chicago/4d/tools/write_year_packs.mjs ] && [ -d site/4d/dev/packs ]; then
+              node _dev-src/chicago/4d/tools/write_year_packs.mjs site/4d/dev
+              node _dev-src/chicago/4d/tools/write_year_packs.mjs --check site/4d/dev \
+                || echo "::warning::dev year packs do not match the preview — offline copies will stop"
+            fi
             git worktree remove --force _dev-src
           else
             echo "dev-preview: no 'dev' ref yet — skipping /4d/dev/"

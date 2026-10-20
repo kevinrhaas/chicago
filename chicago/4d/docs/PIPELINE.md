@@ -125,9 +125,13 @@ introduced, this stops being true and the preview script needs the pilot's rewri
 
 **3. The service worker keeps the two tiers apart by scope, not by a stub** (T-2561; until
 then there was none). The pilot replaces `sw.js` with a self-unregistering stub so a preview
-never installs offline caching. This app registers its worker only when a visitor taps "Keep
-<year> on this device", and the mirrored tree carries its own copy, so the two tiers stay
+never installs offline caching. This app registers its worker only when a visitor downloads the
+welcome's "Offline copy" (T-2947), and the mirrored tree carries its own copy, so the two tiers stay
 separate by construction:
+
+- **the packs are listed again after every rewrite** (T-2947). A pack lists each file's hash,
+  and deploy.yml's stamp and the preview script both rewrite the pages and `build.json` after
+  publish.sh listed them; until the re-list, every download stopped at the year's own door.
 
 - production's worker is `/4d/sw.js` (scope `/4d/`); the preview's is `/4d/dev/sw.js` (scope
   `/4d/dev/`), and the browser gives a page to the narrower scope that has one;
