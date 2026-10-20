@@ -54,8 +54,8 @@ import { SHRUB_GRAIN, FAR_SHRUB_GRAIN, shrubLayout } from './shrub-grain.js';
 // T-2125: where a community's edge is asked, so the edges blend and wander.
 import { ZONE_BLEND_MAX_M } from './zone-blend.js';
 import { zoneFinder, heldGround, groundZones, waterDistance, ZONE_UNASKED } from './flora-zones.js';
-import { GROUND_WET, GROUND_FLOOR, GROUND_TRODDEN, GROUND_KEEP, GROUND_UNASKED, VERGE_CELL_M,
-  VERGE_KEEP_SHARE, vergeBand, footprintCircles, circleGrid, onFloor, groundAnswers } from './flora-ground.js';
+import { GROUND_WET, GROUND_FLOOR, GROUND_TRODDEN, GROUND_KEEP, GROUND_TRACK, GROUND_UNASKED, VERGE_CELL_M,
+  VERGE_KEEP_SHARE, vergeBand, footprintCircles, circleGrid, onFloor, groundAnswers, trackHeld } from './flora-ground.js';
 import { vergeRecords } from './street-verge.js';
 // T-2707: the near field tile kept a strip at a time, its strips asked of the pool.
 import { FIELD_UNASKED, fieldKeeper } from './near-field.js';
@@ -78,6 +78,7 @@ import { nearPassShaders, nearSlotsMax, nearTarget, NEAR_FETCH_GLSL, NEAR_STREAM
 import { midPassShaders, midFieldSpec, MID_TARGET_WIDTH, MID_STREAM_DRAWS } from './flora-gpu-mid.js';
 // T-2895: the forbs, rosettes and shrubs on the GPU's deal, against the mid tile.
 import { forbPassShaders } from './flora-gpu-forb.js';
+import { carryPassShaders } from './flora-gpu-carry.js';
 import { latticeSlots } from './jobs/lattice-kernel.js';
 
 /** docs/PROVENANCE.md's three levels, as the shader reads them. */
@@ -1285,6 +1286,14 @@ export async function createFlora({
     ground.floors = footprints.map((f) => f.pts);
     ground.streets = vergeRecords(verge.records);
   }
+  // T-2896: and the streets' half of `growthBlocked` — the travelled track,
+  // streets.js `blocksGrowth`, which the page passes as `growthEdges` — by the
+  // same arithmetic over the same records (street-verge.js `trackAt`), so a
+  // held slot asks the page only `growthPatch`, the yards, the ground strip and
+  // the worked bank. `growthBlocked` is the two together (main.js); the
+  // profile read the streets' half as the largest flora entry of a move.
+  const trackOnWorker = !!(ground?.streets && growthEdges !== null && growthPatch !== null
+    && trackHeld(ground));
   const groundWorker = ground ? holdOnWorker('holdGround', { key: groundKey, ground }) : null;
   if (ground) {
     stats.groundBytes = ground.hf.data.byteLength + ground.water.toWater.byteLength
@@ -1434,6 +1443,28 @@ export async function createFlora({
     rings[layer] = ringsFor(tune[layer], step);
     rings[layer].head = headRingOf(rings[layer].fade);
   }
+  /**
+   * T-2035's carries, as `rebuildCarry` walks them: the near and mid lattices'
+   * own slots (their salts, the `'strata'` draw) past the detailed ring's
+   * handover, out to the mid ring's edge (near) and the far band's first edge
+   * (mid), each with its own ragged edge (`carryFringe`) and the far shrubs'
+   * step as its margin. T-2896: one table, which the CPU walk and the GPU's
+   * deal (flora-gpu-carry.js) both read.
+   */
+  const carryMargin = tune.farShrub.step;
+  const carryWalks = [['near', nearCarry, 0x51ed27], ['mid', midCarry, 0x9e3779]]
+    .map(([kind, target, salt]) => {
+      const original = rings[kind];
+      const layer = tune[kind];
+      const radius = kind === 'near' ? tune.mid.radius + tune.mid.fringe : tune.far.bands[0].radius;
+      const inner = kind === 'mid' ? 0 : Math.max(0, original.fade[0] - original.fade[1]
+        - original.spread.outer - original.fringe - carryMargin);
+      const carryFringe = Math.min(3, original.fringe);
+      return { kind, target, original, radius, carryFringe,
+        band: Math.min(radius - 9.5, kind === 'near' ? 9 : 20),
+        walk: { cell: layer.cell, perCell: layer.perCell, radius: radius + carryFringe + carryMargin,
+          inner, salt, draw: 'strata' } };
+    });
   /** Which ring each rooted set is drawn on. A rosette is a forb. */
   const ringOfSet = {
     'flora-near': rings.near, 'flora-mid': rings.mid,
@@ -1655,6 +1686,44 @@ export async function createFlora({
       midScene.add(points);
       return { walk: w, shrub: !!shrub, u, mat, geo };
     });
+    // T-2896 — THE CARRIES ON THE GPU'S DEAL (flora-gpu-carry.js). The far
+    // pass's two carry walks, dealt against the CARRY FIELD — a kept tile of
+    // their own, the mid field's texel grid over the mid carry's reach — into
+    // one target, the near carry's slots and then the mid carry's, read back
+    // and reaped in slot order by `reapCarry`. Where the mid field is (the job
+    // pool keeps the tile), and only a pass the tile wholly covers.
+    const carryOn = midOn;
+    const carryReach = Math.max(...carryWalks.map((c) => c.walk.radius));
+    const carrySpec = midFieldSpec(carryReach);
+    const carryMax = carryWalks.map((c) => (carryOn ? nearSlotsMax(c.walk) : 1));
+    const CH = carryMax.reduce((a, m) => a + Math.max(1, Math.ceil(m / MW)), 0);
+    const carryRt = new THREE.WebGLRenderTarget(MW, CH, { type: THREE.FloatType,
+      format: THREE.RGBAFormat, minFilter: THREE.NearestFilter, magFilter: THREE.NearestFilter,
+      depthBuffer: false, generateMipmaps: false });
+    const carryField = {
+      uFieldClass: { value: null }, uFieldHeight: { value: null },
+      uFieldOrigin: { value: new THREE.Vector2() }, uFieldTexel: { value: carrySpec.texel },
+      uFieldSize: { value: carrySpec.size }, uFieldWrap: { value: [0, 0] },
+    };
+    const carryTarget = { value: new THREE.Vector2(MW, CH) };
+    const carryShaders = carryPassShaders({ lattice: LATTICE_GLSL, field: FIELD_GLSL, deal: DEAL_GLSL,
+      ring: NEAR_RING_GLSL });
+    const carryScene = new THREE.Scene();
+    const carryDraws = carryWalks.map((cw, i) => {
+      const u = {
+        uTarget: carryTarget, uSlot0: { value: 0 }, ...carryField,
+        uLatGrid: { value: [0, 0, 0, 0] }, uLatDeal: { value: [0, 0, 0, 0] }, uLatMode: { value: 0 },
+        uLatRing: { value: new THREE.Vector4() }, uLatCell: { value: new THREE.Vector2() },
+        uDealTable: midPass.uDealTable, uDealLayout: midPass.uDealLayout,
+      };
+      const mat = new THREE.RawShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: u, ...carryShaders });
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(carryMax[i] * 3), 3));
+      const points = new THREE.Points(geo, mat);
+      points.frustumCulled = false;
+      carryScene.add(points);
+      return { cw, u, mat, geo, max: carryMax[i] };
+    });
     // T-2895: the deal passes' programs compiled as the rig is built, and not
     // waited for: the driver links them while the page goes on, so the first
     // pass that draws them — the first near pass whose mid ring is the GPU's,
@@ -1664,6 +1733,7 @@ export async function createFlora({
     try {
       renderer.compile(passScene, passCam);
       renderer.compile(midScene, passCam);
+      if (carryOn) renderer.compile(carryScene, passCam);
     } catch { /* drawn as before: compiled on first use */ }
 
     // The drawn tufts: the near set's own archetype, one instance per slot.
@@ -1701,12 +1771,16 @@ export async function createFlora({
     });
     group.add(record.mesh);
     disposables.push(rt, tab, passMat, passGeo, tuftGeo, mat, record.mesh.geometry, midRt, midMat, midGeo,
-      ...forbDraws.flatMap((d) => [d.mat, d.geo]),
+      ...forbDraws.flatMap((d) => [d.mat, d.geo]), carryRt, ...carryDraws.flatMap((d) => [d.mat, d.geo]),
       { dispose() { for (const b of pbos) if (b) renderer.getContext().deleteBuffer(b); } });
 
     let nf = null, keeper = null, uploaded = null, clsTex = null, hgtTex = null;
     // T-2894: the mid field's keeper, the tile last uploaded and its textures.
     let midKeeper = null, midUploaded = null, midCls = null, midHgt = null;
+    // T-2896: the carry field's keeper, the tile last uploaded and its textures;
+    // the carry deal in flight (`carryDeal`) and its read-back's buffer and fence.
+    let carryKeeper = null, carryUploaded = null, carryCls = null, carryHgt = null;
+    let carryJob = null;
     let count = 0, placed = false, lastE = null, lastN = null;
     // T-2774: the last placement (its centre, cone, lattice and census), which
     // the read-back reaps; and the newest read-back asked for, so a slower one
@@ -1730,7 +1804,15 @@ export async function createFlora({
       // T-2895: the forb ring's reaps (forbs, rosettes and shrubs, dealt in the
       // mid pass), their ms and plants, and the forb slots re-seated by a kept
       // yard (`forbSeat`), whose station the page asks whole at the new foot.
-      forbReaps: 0, forbReapMs: 0, forbPlants: 0, forbSeated: 0 };
+      forbReaps: 0, forbReapMs: 0, forbPlants: 0, forbSeated: 0,
+      // T-2896: the far passes' carry deals and their ms (the carry field's
+      // uploads land inside them), the read-backs collected without waiting and
+      // the ones taken in the frame, the far passes whose carries the CPU walked
+      // because the kept carry tile did not cover them (`carryCpu`), and the
+      // reaps' ms and plants.
+      carryPasses: 0, carryPassMs: 0, carryUploads: 0, carryCollected: 0, carrySync: 0,
+      carryCpu: 0, carryReaps: 0, carryReapMs: 0, carryPlants: 0, carryKeepMs: 0,
+      carryKeepWorst: 0 };
     const bufs = [0, 1, 2, 3].map(() => new Float32Array(W * H * 4));
     // T-2774: the read-back's pixel-pack buffers, and where they land (`read`).
     const pbos = [];
@@ -1738,6 +1820,9 @@ export async function createFlora({
     // T-2894: the mid target's, read in the frame and between frames.
     const midBuf = new Float32Array(MW * MH * 4);
     const midLanded = new Float32Array(MW * MH * 4);
+    // T-2896: the carry target's, one buffer: a far pass reaps it before the
+    // next far pass deals.
+    const carryBuf = new Float32Array(carryOn ? MW * CH * 4 : 4);
     const _rec = [0, 0, 0, 0];
     const _slotRing = [0, 0, 0, 0];
     const { items, forbItems } = table;
@@ -1837,6 +1922,193 @@ export async function createFlora({
       stats.midPasses++;
       stats.midPassMs += performance.now() - t0;
     }
+    /** T-2896: the carry field's tile, into the carry pass's own textures. */
+    function uploadCarry(tile) {
+      if (!carryCls) {
+        carryCls = nearest(new THREE.DataTexture(tile.cls, tile.size, tile.size, THREE.RGIntegerFormat,
+          THREE.UnsignedByteType));
+        carryCls.internalFormat = 'RG8UI';
+        carryHgt = nearest(new THREE.DataTexture(tile.height, tile.size, tile.size, THREE.RedFormat,
+          THREE.FloatType));
+        carryHgt.internalFormat = 'R32F';
+        carryField.uFieldClass.value = carryCls;
+        carryField.uFieldHeight.value = carryHgt;
+        disposables.push(carryCls, carryHgt);
+      } else {
+        carryCls.image.data = tile.cls;
+        carryHgt.image.data = tile.height;
+        carryCls.needsUpdate = true;
+        carryHgt.needsUpdate = true;
+      }
+      carryField.uFieldOrigin.value.set(tile.e0, tile.n0);
+      carryField.uFieldTexel.value = tile.texel;
+      carryField.uFieldSize.value = tile.size;
+      carryField.uFieldWrap.value = [tile.wi ?? 0, tile.wj ?? 0];
+      carryUploaded = tile;
+      stats.carryUploads++;
+    }
+
+    /**
+     * T-2896: the far pass's carries dealt at (camE, camN) — both walks in one
+     * render — and their read-back: in the frame when `sync`, else into a
+     * pixel-pack buffer behind a fence that `ready` polls (the far pass's
+     * generator asks it each frame it resumes, as it asks a walk on the pool).
+     * `take` reads it in the frame now, for a resumption that may not wait.
+     * Returns the job the pass reaps (`reap`).
+     */
+    function carryDeal(camE, camN, sync) {
+      const t0 = performance.now();
+      const gl = renderer.getContext();
+      if (carryJob?.fence) gl.deleteSync(carryJob.fence);
+      const parts = [];
+      let slot0 = 0;
+      for (const d of carryDraws) {
+        const l = latticeUniforms({ camE, camN, ...d.cw.walk });
+        d.u.uLatGrid.value = l.grid;
+        d.u.uLatDeal.value = l.deal;
+        d.u.uLatMode.value = l.mode;
+        d.u.uLatRing.value.set(...l.ring);
+        d.u.uLatCell.value.set(...l.cell);
+        d.u.uSlot0.value = slot0;
+        const c = Math.min(l.count, d.max);
+        d.geo.setDrawRange(0, c);
+        parts.push({ cw: d.cw, grid: l.grid, count: c, slot0 });
+        slot0 += Math.ceil(c / MW) * MW;
+      }
+      const rows = Math.max(1, Math.ceil(slot0 / MW));
+      const prev = renderer.getRenderTarget();
+      renderer.setRenderTarget(carryRt);
+      renderPass(carryScene, passCam);
+      renderer.setRenderTarget(prev);
+      for (let k = 0; k < 3; k++) renderer.state.bindTexture(gl.TEXTURE_2D, null, gl.TEXTURE0 + k);
+      const job = { parts, rows, fence: null, landed: false,
+        ready() {
+          if (this.landed) return true;
+          if (carryJob !== this || !this.fence) return false; // `take` deals it again
+          const got = gl.clientWaitSync(this.fence, 0, 0);
+          if (got === gl.TIMEOUT_EXPIRED) return false;
+          gl.deleteSync(this.fence);
+          this.fence = null;
+          if (got === gl.WAIT_FAILED) { this.take(); return true; }
+          gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pbos[4]);
+          gl.getBufferSubData(gl.PIXEL_PACK_BUFFER, 0, carryBuf, 0, MW * rows * 4);
+          gl.bindBuffer(gl.PIXEL_PACK_BUFFER, null);
+          stats.carryCollected++;
+          this.landed = true;
+          return true;
+        },
+        take() {
+          if (this.landed) return;
+          // A later far pass has dealt since (this one was dropped and is being
+          // drained): deal this one again, in the frame.
+          if (carryJob !== this) { carryDeal(camE, camN, true); carryJob = this; this.landed = true; return; }
+          if (this.fence) { gl.deleteSync(this.fence); this.fence = null; }
+          renderer.readRenderTargetPixels(carryRt, 0, 0, MW, rows, carryBuf);
+          stats.carrySync++;
+          this.landed = true;
+        },
+        reap: (e, n, cone) => reapCarry(job, e, n, cone),
+      };
+      carryJob = job;
+      if (sync) job.take();
+      else {
+        renderer.state.bindFramebuffer(gl.FRAMEBUFFER, renderer.properties.get(carryRt).__webglFramebuffer);
+        if (!pbos[4]) {
+          pbos[4] = gl.createBuffer();
+          gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pbos[4]);
+          gl.bufferData(gl.PIXEL_PACK_BUFFER, MW * CH * 16, gl.STREAM_READ);
+        }
+        gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pbos[4]);
+        gl.readBuffer(gl.COLOR_ATTACHMENT0);
+        gl.readPixels(0, 0, MW, rows, gl.RGBA, gl.FLOAT, 0);
+        gl.bindBuffer(gl.PIXEL_PACK_BUFFER, null);
+        const cur = renderer.getRenderTarget();
+        renderer.state.bindFramebuffer(gl.FRAMEBUFFER,
+          cur ? renderer.properties.get(cur).__webglFramebuffer : null);
+        job.fence = gl.fenceSync(gl.SYNC_GPU_COMMANDS_COMPLETE, 0);
+        gl.flush();
+      }
+      stats.carryPasses++;
+      stats.carryPassMs += performance.now() - t0;
+      return job;
+    }
+
+    /**
+     * T-2896 — THE CARRIES, OFF THE GPU'S DEAL. What `rebuildCarry`'s walk did
+     * per slot, in slot order, on the deal's word: the slot's own point in
+     * doubles from its cell and index (`scatter`'s arithmetic), held to the
+     * lattice's ring and the pass's view cone; the slot's own handover (the
+     * detailed ring's `slotRing`, its fringe included) and edge (the carry
+     * fringe); then the page's half of `station` — `growthBlocked`, and the
+     * woody band at the ground's own height — and the plant on the slot's own
+     * stream past the jitter's two draws, rooted where `station` roots it. A
+     * generator, so a spread far pass reaps it a slice at a time.
+     */
+    const _carryRing = [0, 0, 0, 0];
+    function* reapCarry(job, camE, camN, cone) {
+      const b = carryBuf;
+      stats.carryReaps++;
+      let t = performance.now();
+      for (const part of job.parts) {
+        const { kind, target, original, radius, band, carryFringe, walk: w } = part.cw;
+        const [c0, r0, cols, perCell] = part.grid;
+        const { cell, salt } = w;
+        const sub = Math.max(1, Math.round(Math.sqrt(perCell)));
+        const rr = w.radius * w.radius;
+        const ri = w.inner * w.inner;
+        target.reset();
+        for (let id = 0; id < part.count; id++) {
+          if ((id & 1023) === 1023) {
+            stats.carryReapMs += performance.now() - t;
+            yield { done: id, total: part.count };
+            t = performance.now();
+          }
+          const o = 4 * (part.slot0 + id);
+          const word = b[o + 3] | 0;
+          // Not kept, no community or no graminoids, short turf, or no deal:
+          // the walk returned for each of these wherever the slot stood. And
+          // the ground's half of `station` refused it: every test the walk
+          // made of a slot only drops it, so a refused one is passed over
+          // before its point is recomputed.
+          if ((word & 7) !== NEAR_DEAL.placed) continue;
+          const k = id % perCell;
+          const cellIdx = (id - k) / perCell;
+          const ci = cellIdx % cols;
+          const c = c0 + ci;
+          const r = r0 + (cellIdx - ci) / cols;
+          const rng = rngFrom(hash3(hash3(c, r, salt), k, 0x68bc21eb));
+          const je = rng(), jn = rng();
+          const e = (c + (k % sub + je) / sub) * cell;
+          const n = (r + (((k / sub) | 0) + jn) / sub) * cell;
+          const d2 = (e - camE) ** 2 + (n - camN) ** 2;
+          if (d2 > rr || d2 < ri) continue;
+          const d = Math.sqrt(d2);
+          if (cone && d > CONE_KEEP_M
+            && ((e - camE) * cone.fe + (n - camN) * cone.fn) < d * cone.cos - 2 * (cone.margin ?? 0)) continue;
+          if (cone?.planes && outsideFrustum(cone, e, n, d)) continue;
+          const off = fringeOf(e, n, original.fringe);
+          const detailRing = slotRing(original, e, n, off, _ring);
+          const handover = kind === 'mid' ? 0 : detailRing[0] - detailRing[1];
+          const edge = radius + fringeOf(e, n, carryFringe);
+          if (d < handover - carryMargin || d > edge + carryMargin) continue;
+          if (growthBlocked(e, n)) continue;
+          const { zone, sp } = items[(word >> 4) - 1];
+          const wet = (word & 8) !== 0;
+          const y = wet ? waterY : terrain.surfaceHeight(e, n);
+          if (!wet && woodyRefuses(zone, sp, e, n, y)) continue;
+          // `push` copies the ring out as it places, so one scratch serves.
+          _carryRing[0] = edge; _carryRing[1] = band; _carryRing[2] = handover;
+          _carryRing[3] = kind === 'mid' ? 0 : HARD;
+          target.ring(_carryRing);
+          if (kind === 'near') placeGraminoid(target, sp, e, y, n, rng);
+          else placeCard(target, sp, zone, e, y, n, rng);
+        }
+        target.commit();
+        stats.carryPlants += target.mesh.count;
+      }
+      stats.carryReapMs += performance.now() - t;
+    }
+
     function readBack() {
       readGen = gen;
       record.reset();
@@ -2209,6 +2481,8 @@ export async function createFlora({
         keeper = nf.keeper();
         // T-2894: the mid field, kept by the pool alone (see `reapMid`).
         if (midOn) midKeeper = nf.keeper({ spec: midSpec, page: false });
+        // T-2896: and the carry field, the same way.
+        if (carryOn) carryKeeper = nf.keeper({ spec: carrySpec, page: false });
       },
       /** The kept tile, home around (e, n) before the first deal. */
       async prime(e, n) {
@@ -2217,6 +2491,7 @@ export async function createFlora({
         // T-2894: the mid field starts on the pool now and is not waited for:
         // until it is home the mid ring is the CPU's, as it always was.
         midKeeper?.update(e, n);
+        carryKeeper?.update(e, n);
         await keeper.settled();
         this.keep(e, n, true);
       },
@@ -2250,6 +2525,15 @@ export async function createFlora({
         if (midKeeper) {
           const mt = midKeeper.update(e, n);
           if (mt && mt !== midUploaded) uploadMid(mt);
+        }
+        // T-2896: and the carry field, which the far pass deals on.
+        if (carryKeeper) {
+          const ct = carryKeeper.update(e, n);
+          if (ct && ct !== carryUploaded) uploadCarry(ct);
+          // The keeper's main-thread share (its strips' finishes and writes,
+          // which land between frames, when the pool's answers come home).
+          stats.carryKeepMs = carryKeeper.stats.mainMs;
+          stats.carryKeepWorst = Math.max(stats.carryKeepWorst, carryKeeper.stats.lastMs);
         }
         if (tile && tile !== uploaded) {
           upload(tile);
@@ -2331,11 +2615,22 @@ export async function createFlora({
       },
       /** T-2894: a near pass whose mid ring the CPU walked. */
       midByCpu() { if (midKeeper) stats.midCpu++; },
-      /** T-2894: resolves when neither kept tile has a re-centre in flight. */
+      /** T-2896: whether a far pass at (e, n) can leave its carries to the GPU
+       *  — the kept carry tile, uploaded, covers both carry walks' squares. */
+      carryCovers(e, n) {
+        return !!(carryKeeper && carryUploaded && covers(carryUploaded, e, n, carryReach));
+      },
+      carryDeal,
+      /** T-2896: a far pass whose carries the CPU walked. */
+      carryByCpu() { if (carryKeeper) stats.carryCpu++; },
+      /** T-2894: resolves when no kept tile has a re-centre in flight. */
       async settled() {
         await keeper?.settled();
         await midKeeper?.settled();
+        await carryKeeper?.settled();
       },
+      /** T-2896: the carry field's spec, or null where the CPU walks the carries. */
+      carrySpec: carryOn ? carrySpec : null,
       /** T-2894: the mid field's spec, or null where the CPU deals the mid ring. */
       midSpec: midOn ? midSpec : null,
       /** T-2774: a read-back still on its way is taken now, in the frame. */
@@ -2428,8 +2723,16 @@ export async function createFlora({
     return out;
   }
 
+  /** T-2896: `growthBlocked` at a slot, its streets' half off the slot's
+   *  worker answer when there is one (`trackOnWorker`). */
+  function blockedAt(e, n) {
+    const f = trackOnWorker ? heldFlags(e, n) : -1;
+    if (f < 0) return growthBlocked(e, n);
+    return (f & GROUND_TRACK) !== 0 || growthPatch(e, n);
+  }
+
   function station(e, n, zone, species, wet = wetAt(e, n)) {
-    if (growthBlocked(e, n)) return null;
+    if (blockedAt(e, n)) return null;
     if (trodden(e, n, zone, species)) return null;
     // THE FLOOR TEST COMES BEFORE THE WATER TEST, and the order is the bug it
     // fixes. This block-list rejection used to sit below the `wet` early return,
@@ -2969,6 +3272,11 @@ export async function createFlora({
   const _farShrubRing = [FAR_RING[0], FAR_RING[1], 0, HARD];
   function* rebuildFarShrubs(camE, camN, cone) {
     cone = cone ? { ...cone, margin: tune.farShrub.step } : null;
+    // T-2896: the carries dealt by the GPU first, where the kept carry tile
+    // covers them, so the read-back is on its way while the far shrubs walk.
+    // A pass dealt in one frame (no job pool on its cone) reads it in the frame.
+    const carryJob = gpuNear?.carryCovers(camE, camN)
+      ? gpuNear.carryDeal(camE, camN, !cone?.jobs) : null;
     farShrubSet.reset();
     const f = rings.forb;
     const fs = tune.farShrub;
@@ -3000,28 +3308,28 @@ export async function createFlora({
         placeShrub(farShrubSet, sp, e, y, n, rng);
       });
     farShrubSet.commit();
-    yield* rebuildCarry(camE, camN, cone);
+    yield* rebuildCarry(camE, camN, cone, carryJob);
   }
 
   /** Same-slot sward continuity. The detailed tufts/card geometry and this
    * lower-cost geometry are dealt from identical keys and receive identical
    * transforms. Coverage fades only beyond the nine-metre close verge. */
-  function* rebuildCarry(camE, camN, cone) {
-    const margin = tune.farShrub.step;
-    for (const [kind, target, salt] of [
-      ['near', nearCarry, 0x51ed27], ['mid', midCarry, 0x9e3779],
-    ]) {
+  function* rebuildCarry(camE, camN, cone, job = null) {
+    // T-2896: dealt by the GPU (flora-gpu-carry.js) — waited for while the
+    // read-back is on its way, as a walk on the pool is, and taken in the frame
+    // by a resumption that may not wait — and reaped in slot order.
+    if (job) {
+      while (!job.ready()) {
+        if ((yield WALK_WAIT) !== MAY_WAIT) job.take();
+      }
+      yield* job.reap(camE, camN, cone);
+      return;
+    }
+    gpuNear?.carryByCpu();
+    const margin = carryMargin;
+    for (const { kind, target, original, radius, band, carryFringe, walk } of carryWalks) {
       target.reset();
-      const original = rings[kind];
-      const layer = tune[kind];
-      const radius = kind === 'near' ? tune.mid.radius + tune.mid.fringe
-        : tune.far.bands[0].radius;
-      const band = Math.min(radius - 9.5, kind === 'near' ? 9 : 20);
-      const inner = kind === 'mid' ? 0 : Math.max(0, original.fade[0] - original.fade[1]
-        - original.spread.outer - original.fringe - margin);
-      const carryFringe = Math.min(3, original.fringe);
-      yield* scatter(camE, camN, layer.cell, layer.perCell,
-        radius + carryFringe + margin, inner, salt, 'strata', cone,
+      yield* scatter(camE, camN, walk.cell, walk.perCell, walk.radius, walk.inner, walk.salt, walk.draw, cone,
         (e, n, r, rng, _cellSeed, u, z) => {
           const off = fringeOf(e, n, original.fringe);
           const detailRing = slotRing(original, e, n, off, _ring);
@@ -3328,7 +3636,8 @@ export async function createFlora({
       let s = 0x2695;
       const rnd = () => { s ^= s << 13; s >>>= 0; s ^= s >>> 17; s ^= s << 5; s >>>= 0; return s / 4294967296; };
       const out = { held: true, asked: 0, unasked: 0, differ: 0, first: [],
-        ground: groundAt ? { asked: 0, differ: 0, wet: 0, floor: 0, trodden: 0, keep: 0, first: [] } : null };
+        ground: groundAt ? { asked: 0, differ: 0, wet: 0, floor: 0, trodden: 0, keep: 0, track: 0,
+          trackHeld: trackOnWorker, first: [] } : null };
       // T-2696: the ground answers too, at the same points and at as many again
       // where floors and corridors are — near a footprint, and near a street's
       // line — which a uniform draw over the whole grid would mostly miss.
@@ -3349,17 +3658,22 @@ export async function createFlora({
         return null;
       };
       const askGround = (e, n) => {
-        const f = groundAt(e, n);
-        if (f === GROUND_UNASKED) return;
+        const fw = groundAt(e, n);
+        if (fw === GROUND_UNASKED) return;
+        // The track bit is read only where the page reads it (`trackOnWorker`).
+        const f = trackOnWorker ? fw : fw & ~GROUND_TRACK;
         const g = out.ground;
         g.asked++;
         const page = (water.isWater(e, n) ? GROUND_WET : 0)
-          | (onFloor(blocks, e, n) ? GROUND_FLOOR : 0) | vergeBand(verge(e, n));
+          | (onFloor(blocks, e, n) ? GROUND_FLOOR : 0) | vergeBand(verge(e, n))
+          // T-2896: and the streets' track, where the workers answer it.
+          | (trackOnWorker && growthEdges(e, n) ? GROUND_TRACK : 0);
         const y = terrain.surfaceHeight(e, n);
         if (f & GROUND_WET) g.wet++;
         if (f & GROUND_FLOOR) g.floor++;
         if (f & GROUND_TRODDEN) g.trodden++;
         if (f & GROUND_KEEP) g.keep++;
+        if (f & GROUND_TRACK) g.track++;
         if (f !== page || groundAt.y !== y) {
           g.differ++;
           if (g.first.length < 5) g.first.push({ e, n, worker: [f, groundAt.y], page: [page, y] });

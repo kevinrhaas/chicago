@@ -9,10 +9,47 @@
  * line, [e, n] points), `drawn_width_m` and `corridor_width_m`.
  */
 
-/** The records a worker is sent: those four fields of each prepared street. */
+/** The records a worker is sent: those four fields of each prepared street,
+ *  and (T-2896) `track_width_m`, which streets.js `blocksGrowth` reads. */
 export function vergeRecords(prepared) {
   return prepared.map((r) => ({ bounds: r.bounds, path: r.path,
-    drawn_width_m: r.drawn_width_m, corridor_width_m: r.corridor_width_m }));
+    drawn_width_m: r.drawn_width_m, corridor_width_m: r.corridor_width_m,
+    track_width_m: r.track_width_m }));
+}
+
+/**
+ * T-2896 — streets.js `blocksGrowth` over the same records: whether (e, n) is
+ * on a travelled track or within TRACK_SHOULDER_M of it, by `vergeAt`'s own
+ * arithmetic (the bounds test, then the nearest segment by `pointSegment`'s
+ * sums). The street a hit is on does not matter, only whether there is one.
+ */
+export const TRACK_SHOULDER_M = 0.65;
+export function trackAt(records, e, n) {
+  for (const street of records) {
+    const b = street.bounds;
+    if (e < b.e0 || e > b.e1 || n < b.n0 || n > b.n1) continue;
+    const d = streetDistance(street.path, e, n);
+    if (d <= street.track_width_m * 0.5 + TRACK_SHOULDER_M) return true;
+  }
+  return false;
+}
+
+/** The distance from (e, n) to a street's control line: the nearest of its
+ *  segments, by streets.js `pointSegment`'s arithmetic; Infinity for a line of
+ *  fewer than two points. */
+export function streetDistance(path, e, n) {
+  let distance = Infinity;
+  for (let i = 1; i < path.length; i++) {
+    const a = path[i - 1];
+    const c = path[i];
+    const dx = c[0] - a[0];
+    const dn = c[1] - a[1];
+    const len2 = dx * dx + dn * dn || 1e-9;
+    const t = Math.max(0, Math.min(1, ((e - a[0]) * dx + (n - a[1]) * dn) / len2));
+    const d = Math.hypot(e - (a[0] + dx * t), n - (a[1] + dn * t));
+    if (d < distance) distance = d;
+  }
+  return distance;
 }
 
 /**
