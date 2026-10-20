@@ -5,7 +5,7 @@
  *                                      [--moves walk,turn,flight] [--year 1835]
  *                                      [--throttle 4] [--source] [--json f]
  *                                      [--sync] [--verify] [--gate] [--xray]
- *                                      [--sward grid|scan|both] [--profile N] [--long-ms N]
+ *                                      [--sward grid|scan|both] [--profile N]
  *   node tools/measure_walk_frames.mjs --live [--only mobile] [--tiers light]
  *                                      [--seconds 12] [--stills] [--json f]
  *                                      [--gl swiftshader|llvmpipe] [--no-gaze] [--profile N]
@@ -67,12 +67,6 @@
  * dropped after their ground was dealt to the rebuild count (a disagreement is
  * printed, and fails the run). The held loop's own `flora.update` calls and ms
  * are printed with it: they are main-thread time no driven frame's row carries.
- *
- * T-2896: and a `far pass` line beside it — the far passes (the far shrubs and
- * the carries, on their own 4 m step) off the same log, and where the GPU deals
- * the carries (flora-gpu-carry.js) its deals, the CPU walks, the read-backs, the
- * reaps and the carry tile's keeper, whose strips land between frames.
- * `--long-ms N` lists the frames over N ms (50 by default) with their pass.
  *
  * T-2106: the moves are driven with the flora rebuild SPREAD over frames, as
  * the animation loop runs it (`setFloraSpread`); `--sync` reads the one-frame
@@ -203,9 +197,6 @@ const RENDER = process.argv.includes('--render');
  *  spent the most self time — which line of the rebuild the time is in. */
 const PROFILE = Number(argAt('--profile') || 0);
 const SYNC = process.argv.includes('--sync');
-/** T-2896 `--long-ms N`: the frames over N ms (default 50) are listed, with the
- *  pass that landed in them. */
-const LONG_MS = Number(argAt('--long-ms') || 50);
 const VERIFY = process.argv.includes('--verify');
 /** T-2606 `--sward grid|scan|both` (see the header). */
 const SWARD = argAt('--sward') || 'grid';
@@ -296,7 +287,7 @@ await new Promise((r) => server.listen(PORT, r));
 console.log(`serving ${ROOT} — ${wantSource ? 'source tree' : 'PUBLISHED mirror'}, year ${YEAR}`);
 
 /** Runs in the page: drive one move at one tier and time every frame of it. */
-async function driveMove({ move, tier, render, profile, sync, verify, xray, sward, longMs = 50 }) {
+async function driveMove({ move, tier, render, profile, sync, verify, xray, sward }) {
   const a = window.__chicago4d;
   // T-2606 `--sward`: which sward test the slots ask, installed before the tier
   // change so its rebuild asks it too. main.js reads `yards.suppressesSward`
@@ -429,8 +420,6 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
   // dropped after their ground was dealt; and which pass numbers landed inside
   // a frame this tool drove.
   const nearPass0 = spread0.passes?.near ?? 0;
-  // T-2896: and the far passes (the far shrubs and the carries), off the same log.
-  const farPass0 = spread0.passes?.far ?? 0;
   const dropped0 = spread0.droppedDealt ?? 0;
   const drivenPasses = new Set();
   // T-2096 § acceptance, "no visible change in where plants stand": a digest of
@@ -509,7 +498,7 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
     // milliseconds and what the spread passes had done by then — because a count
     // of them cannot say WHICH pass it was. That is how the walk's grade-change
     // re-deal was told apart from its right turn's.
-    if (rows[rows.length - 1].frame > longMs) {
+    if (rows[rows.length - 1].frame > 50) {
       const sp = sp1 ?? {};
       longs.push({ frame: i, ms: Math.round(rows[rows.length - 1].frame * 10) / 10,
         flora: Math.round((t['flora.update'] ?? 0) * 10) / 10, pass: kind,
@@ -538,15 +527,6 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
     driven: nearLog.filter((x) => drivenPasses.has(x.pass)).length,
     dropped: (spEnd.droppedDealt ?? 0) - dropped0,
     kinds: nearLog.reduce((o, x) => { o[x.kind] = (o[x.kind] ?? 0) + 1; return o; }, {}),
-  } : null;
-  const farLog = (spEnd?.log?.far ?? []).filter((x) => x.pass > farPass0);
-  const farSorted = farLog.map((x) => x.ms).sort((x, y) => x - y);
-  const far = spEnd?.log ? {
-    passes: farLog.length,
-    median: farSorted[Math.floor(farSorted.length / 2)] ?? 0,
-    max: farSorted[farSorted.length - 1] ?? 0,
-    ms: farSorted.reduce((x, y) => x + y, 0),
-    kinds: farLog.reduce((o, x) => { o[x.kind] = (o[x.kind] ?? 0) + 1; return o; }, {}),
   } : null;
   digests.push(digest());
   // Put back before the checks below: `checkSwardGrid` asks the property too.
@@ -643,8 +623,6 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
     median: nearSorted[Math.floor(nearSorted.length / 2)] ?? 0,
     max: nearSorted[nearSorted.length - 1] ?? 0,
     ms: nearMs.reduce((x, y) => x + y, 0),
-    // T-2896: the carry keeper's worst landing (a max, so not differenced).
-    carryKeepWorst: nearStats?.carryKeepWorst ?? null,
     gpu: nearDraw0 ? Object.fromEntries(Object.keys(nearDraw0)
       .map((k) => [k, nearStats[k] - nearDraw0[k]])) : null,
   };
@@ -661,7 +639,7 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
   // spent, which is the part of the frame this runner can honestly read.
   const scripted = rows.map((r) => r.frame - (r['renderer.render'] ?? 0)).sort((x, y) => x - y);
   return {
-    frames: rows.length, rebuilds, digests, spread, near, far, verified, heldZones, swardGrid, swardEvery, longs,
+    frames: rows.length, rebuilds, digests, spread, near, verified, heldZones, swardGrid, swardEvery, longs,
     scripted: describe(scripted),
     layers: Object.fromEntries(Object.keys(t).map((k) => [k, describe(col(k))])),
     heapMB: performance.memory ? performance.memory.usedJSHeapSize / 1048576 : null,
@@ -948,7 +926,7 @@ for (const vp of VIEWPORTS) {
   for (const tier of TIERS) {
     for (const move of MOVES) {
       const r = await page.evaluate(driveMove, { move, tier, render: RENDER, profile: PROFILE > 0,
-        sync: SYNC, verify: VERIFY, xray: XRAY, sward: SWARD, longMs: LONG_MS });
+        sync: SYNC, verify: VERIFY, xray: XRAY, sward: SWARD });
       const f = (x) => x.toFixed(1).padStart(5);
       const n = (x) => String(x).padStart(3);
       const L = r.layers;
@@ -1001,21 +979,8 @@ for (const vp of VIEWPORTS) {
               + ` ${g.forbSeated} re-seated` : '')
             : ' | near tufts drawn by the CPU'));
       }
-      // T-2896: the far passes — the far shrubs and the carries — on their own
-      // 4 m step, read off the same log as the near line.
-      if (r.far?.passes) {
-        console.log(`  far pass: ${r.far.passes} passes (${Object.entries(r.far.kinds).map(([k, v]) => `${v} ${k}`).join(', ')}),`
-          + ` ${r.far.median.toFixed(1)} ms median and ${r.far.max.toFixed(1)} max on the main thread`
-          + ` (${r.far.ms.toFixed(0)} ms in all)`
-          + (r.near?.gpu?.carryPasses != null ? ((g) => ` | GPU carries: ${g.carryPasses} deal passes`
-            + ` ${g.carryPassMs.toFixed(0)} ms, ${g.carryCpu} walked by the CPU, ${g.carryUploads} uploads,`
-            + ` ${g.carryCollected} read-backs collected and ${g.carrySync} taken in the frame,`
-            + ` ${g.carryReaps} reaped ${g.carryReapMs.toFixed(0)} ms`
-            + (g.carryKeepMs != null ? `, the carry tile's keeper ${g.carryKeepMs.toFixed(0)} ms`
-              + ` between frames (its worst landing since the tier's rig was built ${r.near.carryKeepWorst?.toFixed(0)} ms)` : ''))(r.near.gpu) : ''));
-      }
       for (const l of r.longs ?? []) {
-        console.log(`  over ${LONG_MS} ms: frame ${l.frame} of the ${move}, ${l.ms} ms (flora ${l.flora}, ${l.pass ?? 'no'} pass),`
+        console.log(`  over 50 ms: frame ${l.frame} of the ${move}, ${l.ms} ms (flora ${l.flora}, ${l.pass ?? 'no'} pass),`
           + ` after ${l.landings} spread landings, ${l.drained} finished early, ${l.abandoned} dropped`);
       }
       if (r.heldZones?.held) {
@@ -1027,7 +992,7 @@ for (const vp of VIEWPORTS) {
         if (z.ground) {
           const g = z.ground;
           console.log(`  verify ground: ${g.asked} points asked (${g.wet} wet, ${g.floor} on a floor, ${g.trodden} trodden,`
-            + ` ${g.keep} kept verge${g.trackHeld ? `, ${g.track} on a street's track` : ''}), ${g.differ} answered differently${g.differ ? ` ${JSON.stringify(g.first)}` : ''}`);
+            + ` ${g.keep} kept verge), ${g.differ} answered differently${g.differ ? ` ${JSON.stringify(g.first)}` : ''}`);
           if (g.differ) failed++;
         }
       }
