@@ -269,7 +269,7 @@ function zoneHtml(zone, vocab, clampByZone, ceilingPerM2, citationsById) {
 
   return `<details class="lib fauna-zone plant-zone" data-source-entity="${escapeHtml(zone.id)}">
     <summary>
-      <span class="lib-id">${escapeHtml(String(zone.id || ''))}</span>
+      ${'' /* T-2825: the zone's record id is not a word for a reader; its name follows */}
       <span class="lib-title">${escapeHtml(zone.name || zone.id)}</span>
       <span class="lib-scope">${species.length} species</span>
       ${clampChip}
