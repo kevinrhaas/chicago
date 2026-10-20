@@ -2,9 +2,9 @@
  "structure_id": "wheeler_house_1812_prairie",
  "view": "levy_front",
  "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
- "glb_sha256": "5e1072a06e5e904aa53f09c91d57d24cc96daea6a80eb9dbc3ff49a3847e787a",
+ "glb_sha256": "8c592a09938705f35f8fe3795eed426ad825dddcd0fc4c250383cc3d89a0891c",
  "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
- "side_by_side": "../../../../../../../../tmp/t2889/pm/levy_front-side-by-side.jpg",
+ "side_by_side": "../../../../../../../../tmp/t2889/pm2/levy_front-side-by-side.jpg",
  "verdict": "differs",
  "differences": [
   {
@@ -80,7 +80,7 @@
    "status": "open"
   },
   {
-   "what": "Gable: from the kneelers (about 11.6-11.7 m) to the ledge (12.52 m) the slab's base runs out square past the side walls, where the print's outline is already drawing in",
+   "what": "Gable: from the kneelers (about 11.6-11.7 m) to the ledge (12.55 m) the slab's base runs out square past the side walls, where the print's outline is already drawing in",
    "status": "open"
   },
   {

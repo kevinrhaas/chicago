@@ -29871,7 +29871,7 @@ window's three lights are equal, where the print's middle one is wider and arche
 fanlight has no concentric bar; the small window is a round fanlight sash where the print shows
 it filled with a patterned light or panel; the voussoirs are equal stones where the print's
 alternate long and short into the brick; the transom's lights are plate glass where the print's
-are glazed in small squares; and between the kneelers (about 11.6-11.7 m) and the 12.52 m ledge
+are glazed in small squares; and between the kneelers (about 11.6-11.7 m) and the 12.55 m ledge
 the slab's base still runs out square past the side walls. Each is open in the match record.
 **How to resolve:** a sharper print of the third storey settles the large window's lights and the
 small one's fill; the base's square corners go when the kit can start a gable's outline under its
