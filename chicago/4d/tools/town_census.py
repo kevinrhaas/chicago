@@ -575,6 +575,11 @@ def main() -> int:
                         help="fail if the committed census is not what the dataset re-derives")
     args = parser.parse_args()
     census = census_document()
+    # The sentences the City tile shows on hover (js/census.js), said for a reader (T-2825):
+    # no ticket number, record id or file path. The figures and the `inputs` list are the
+    # census's data and are not touched.
+    import readable_text
+    readable_text.rewrite_paths(census, readable_text.CENSUS_PATHS, readable_text.Names(ROOT))
     text = json.dumps(census, indent=1, ensure_ascii=False) + "\n"
     visitors = census.get("transients")
     if visitors and visitors["claiming_a_residence"]:

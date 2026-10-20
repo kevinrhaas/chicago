@@ -103,13 +103,16 @@ export function uncertaintyEntryHtml(u, { onCard = false } = {}) {
   // For a structure that IS in the scene, name the claim on its record that
   // carries the doubt, so this section and the provenance card cannot describe
   // the same uncertainty differently.
+  // The claim's words, not its key (T-2825): the compiler says `carried_by_label`.
+  const carriedBy = u.carried_by_label
+    ? `<b>${escapeHtml(u.carried_by_label)}</b>` : `<code>${escapeHtml(u.carried_by)}</code>`;
   const carried = u.standing && u.carried_by
     ? (onCard
       ? `<dt>Where it is carried</dt><dd>The doubt sits on this record's
-         <code>${escapeHtml(u.carried_by)}</code>, graded
+         ${carriedBy}, graded
          <b>${escapeHtml(u.carried_confidence || '')}</b> — the claim shown above.</dd>`
       : `<dt>Where it is carried</dt><dd>This building is in the scene; the doubt sits on its
-         <code>${escapeHtml(u.carried_by)}</code>, graded
+         ${carriedBy}, graded
          <b>${escapeHtml(u.carried_confidence || '')}</b>, and the provenance card shows it.</dd>`)
     : '';
 
@@ -125,9 +128,13 @@ export function uncertaintyEntryHtml(u, { onCard = false } = {}) {
         evidence: false,
       })}</ol>`;
 
+  // The research note it is argued in, by what it is rather than its path (T-2825).
   const dossier = u.dossier && u.dossier.file
-    ? `<p class="legend-note">Research: <code>${escapeHtml(u.dossier.file)}</code>
-       § ${escapeHtml(u.dossier.anchor || '')}</p>`
+    ? (u.dossier.label
+      ? `<p class="legend-note">Research: ${escapeHtml(u.dossier.label)}${u.dossier.anchor
+        ? `, § ${escapeHtml(u.dossier.anchor)}` : ''}</p>`
+      : `<p class="legend-note">Research: <code>${escapeHtml(u.dossier.file)}</code>
+       § ${escapeHtml(u.dossier.anchor || '')}</p>`)
     : '';
 
   return `<details class="lib excl uncertain">

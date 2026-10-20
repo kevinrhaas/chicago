@@ -29,8 +29,8 @@
    "ordered_high": 387,
    "census": 398,
    "census_source": "andreas_1884_v1",
-   "question": "How many of the town's dwellings stand, against the 398 the November 1835 census counted? The low end counts dwelling houses; the high end adds the boarding houses and taverns, because whether the enumerator's 'dwelling' took them in is not known (1835_town_model.json, lodging open questions).",
-   "basis": "Roofs standing in the roof programme's ordinary_dwellings group, and in larger_boarding_houses and inns_taverns for the high end. Stores with rooms over them are counted with the stores on both readings. The census is four months after the scene date, so the scene is not expected to reach it."
+   "question": "How many of the town's dwellings stand, against the 398 the November 1835 census counted? The low end counts dwelling houses; the high end adds the boarding houses and taverns, because whether the enumerator's 'dwelling' took them in is not known (the 1835 town model data, lodging open questions).",
+   "basis": "Roofs standing in the roof programme's ordinary dwellings group, and in larger boarding houses and inns taverns for the high end. Stores with rooms over them are counted with the stores on both readings. The census is four months after the scene date, so the scene is not expected to reach it."
   }
  },
  "people": {
@@ -64,8 +64,8 @@
    "target_figure": "population_on_1_july_1835",
    "target_source": "data/reconstruction/1835_town_model.json",
    "target_method": "CEILING: the November count of 3,265, because the town grew through 1835 and did not shrink. FLOOR: 43.9% of the 1,438 people the layer carries give an arrival year of 1835, so about 1,433 of the November town arrived that year; spread evenly over an eight-month navigation season, 5 months of that cohort were still to come on 1 July. POINT READING: 2,549, which is the same arithmetic with half the cohort ashore by midsummer rather than three-eighths — the spring land-sale rush pulls arrivals earlier than a flat season does.",
-   "target_note": "The town model's point reading for 1 July 1835 within 2,370–3,265, and the same number the reconstruction order book quotas against. The November count of 3,265 is this range's high end, four months later, and is not what the scene holds.",
-   "basis": "Persons in households the layer records `present` on the scene date — the order book's Rule 3. A card the layer holds without establishing the person in Chicago on 1 July is not counted here; `cards_not_established` is how many those are.",
+   "target_note": "The town model's point reading for 1 July 1835 within 2,370–3,265, and the same number the reconstruction plan quotas against. The November count of 3,265 is this range's high end, four months later, and is not what the scene holds.",
+   "basis": "Persons in households the layer records `present` on the scene date — the reconstruction plan's Rule 3. A card the layer holds without establishing the person in Chicago on 1 July is not counted here; cards not established is how many those are.",
    "question": "How many people does a record establish in Chicago on 1 July 1835? It is the strictest reading the layer supports and it is NOT the town's population: it leaves out every person the research left unadjudicated.",
    "population": {
     "persons": 2863,
@@ -75,7 +75,7 @@
      "inferred": 1015,
      "reconstructed": 1446
     },
-    "question": "How many people did the project's evidence put in the town on 1 July 1835? This is the population — the established people plus the ones the research left `uncertain` and T-1386 has ruled in, each at the tier its own dated readings reach.",
+    "question": "How many people did the project's evidence put in the town on 1 July 1835? This is the population — the established people plus the ones the research left `uncertain` and other work has ruled in, each at the grade its own dated readings reach.",
     "established": 1091,
     "ruled_in": 1772,
     "ruled_in_households": 931,
@@ -90,12 +90,15 @@
      "reconstructed": 833
     },
     "absent_on_evidence": 21,
-    "basis": "data/reconstruction/1835_presence_rulings.json — one ruling per household the research left `uncertain`, with the dated reading it was reached from. An attested or inferred resident is in the population unless there is EVIDENCE they were not; `absent_on_evidence` is how many that is.",
-    "generated_by": "tools/rule_presence_1835.py"
+    "basis": "the 1835 presence rulings data — one ruling per household the research left `uncertain`, with the dated reading it was reached from. An attested or inferred resident is in the population unless there is EVIDENCE they were not; absent on evidence is how many that is.",
+    "generated_by": "tools/rule_presence_1835.py",
+    "work_refs": [
+     "T-1386"
+    ]
    }
   },
-  "basis": "People in the town on 1 July whose household a standing building holds — its card's `lives_at` names the building, or the building seats the household among its residents, as the completion audit reads it. A person counts when the building they live in stands, so this grows as the town builds out.",
-  "waiting_note": "People in the town on 1 July whose household the housing deal holds for a roof the scene does not stand yet (data/reconstruction/1835_housing_seats.json).",
+  "basis": "People in the town on 1 July whose household a standing building holds — its card's lives at names the building, or the building seats the household among its residents, as the completion audit reads it. A person counts when the building they live in stands, so this grows as the town builds out.",
+  "waiting_note": "People in the town on 1 July whose household the housing deal holds for a roof the scene does not stand yet (the 1835 housing seats data).",
   "floor_note": "A FLOOR, not an estimate: some entries counted here stand for a group a source counts but does not name (see group_entries).",
   "dangling_lives_at": [],
   "split": {
@@ -155,7 +158,11 @@
     "persons_not_present": 0
    }
   },
-  "why_apart": "The population above is the residents index (data/residents/index.json) and the presence rulings over it. The completion audit also seats the cards the reconstruction writes outside that index — the trades that staff the town's businesses, the lodgers, the readmitted, the underdocumented and the institutional households — so it counts more people present on 1 July than this figure does. They are not added here: counted in, the town would hold more people on 1 July than the November census counted four months later. T-2194 found the order book's household quota reads houses off the index alone, and T-2237 counted these cards against it (data/reconstruction/1835_held_head_dwellings.json, `beyond_the_index`), saying which are beds in a household another seat forms and which are houses of their own. Whether the town holds too many PEOPLE is not a sum this file may settle by adding."
+  "why_apart": "The population above is the residents index (the residents data) and the presence rulings over it. The completion audit also seats the cards the reconstruction writes outside that index — the trades that staff the town's businesses, the lodgers, the readmitted, the underdocumented and the institutional households — so it counts more people present on 1 July than this figure does. They are not added here: counted in, the town would hold more people on 1 July than the November census counted four months later. Other work found the reconstruction plan's household quota reads houses off the index alone, and other work counted these cards against it (the 1835 held head dwellings data, beyond the index), saying which are beds in a household another seat forms and which are houses of their own. Whether the town holds too many PEOPLE is not a sum this file may settle by adding.",
+  "work_refs": [
+   "T-2194",
+   "T-2237"
+  ]
  },
  "transients": {
   "persons": 307,

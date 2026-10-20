@@ -38,8 +38,11 @@ class SourceUseTests(unittest.TestCase):
             'roof': {'sources': ['map'], 'confidence': 'reconstructed'}}, 'scene')
         edges = json.loads(c.outputs()['map.json'])['edges']
         self.assertEqual(edges, [
-            dict(source_id='map', entity_type='structure', entity_id='house', claim='position', confidence='attested', locator='p. 4', use='scene'),
+            dict(source_id='map', entity_type='structure', entity_id='house', claim='position', confidence='attested', locator='p. 4',
+                 locator_text='p. 4', use='scene'),
             dict(source_id='map', entity_type='structure', entity_id='house', claim='roof', confidence='reconstructed', locator=None, use='scene')])
+        # T-2825: the detail view names what a use is about, never by its record id alone.
+        self.assertIn('house', json.loads(c.outputs()['map.json'])['names'])
         self.assertEqual(self.rows(c)['map']['counts'], {'entities': 1, 'claims': 2, 'grades': [[1, 0, 1], [1, 0, 0]]})
         self.assertEqual(self.rows(c)['memory']['counts'], {'entities': 1, 'claims': 1, 'grades': [[1, 0, 0], [1, 0, 0]]})
         self.assertEqual(self.rows(c)['unused']['use'], 'unused')
