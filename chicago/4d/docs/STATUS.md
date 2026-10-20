@@ -1,3 +1,18 @@
+## T-2941 — sound starts off (2026-10-20)
+
+The owner, 2026-10-20: *"the sound is a bit much, can you default that to off for now"*.
+`SOUND_DEFAULTS` (settings-app.js) is now Master 0, Effects and Ambience 1, so raising Master
+alone turns every sound on. The HUD stores its whole settings object on any change, so most
+returning visitors carry the old all-on levels without ever having chosen them;
+`soundLevelsFrom()` reads those as no choice (silent) and keeps stored levels only when
+`soundChosen` is set (a slider moved since this change) or any level differs from the old
+default 1. Both readers use it: the HUD's `readSettings` and sound.js's early read.
+
+- **Known edge:** a visitor who had moved a slider and put every level back to 100 % before
+  this change is read as having no choice and starts muted. Raising Master once fixes it for
+  good.
+- `test_settings_app.mjs`, `test_sound.mjs` and the smoke's T-2659 block assert the default.
+
 ## T-2719 — Prairie Avenue's moving p95 on a real phone: 48-50 ms (2026-10-20)
 
 Nothing you can see changed. This files the last reading T-2598 left (piece 2 of T-2602),

@@ -1621,7 +1621,7 @@ recallHome?.onReturn(() => journey.recall());
 api.recall = recallHome;
 // T-2614: with no gate to tap, the first tap after landing on a Home choice, the scene or a
 // Navigator control is the gesture audio needs; the page's AudioContext exists only after it.
-// T-2659: the Navigator's sounds (js/sound.js), on by default. The module is fetched with the
+// T-2659: the Navigator's sounds (js/sound.js), off by default since T-2941. The module is fetched with the
 // first gesture, or on the way in when the jump that opened the page lets audio play
 // (sound.js § mayStartEarly), so it is never part of the boot payload.
 const loadSound = (early = false) => (api.soundReady ??= import('./sound.js')

@@ -16194,11 +16194,20 @@ for (const [label, viewport, touch] of [
       out.running = await until(() => sound.state.context === 'running', 15000);
       out.graph = !!sound.nodes?.master && !!sound.nodes?.effects && !!sound.nodes?.ambience;
       out.year = String(api.scene?.target_date ?? '').slice(0, 4);
-      out.hum = await until(() => sound.state.hum, 10000);
-      out.bed = await until(() => sound.state.ambience === out.year, 10000);
-      out.clunked = sound.state.clunked;
       const was = { master: slider('master').value, effects: slider('effects').value, ambience: slider('ambience').value };
       out.was = was;
+      // T-2941: sound is off by default. A fresh visitor's Master reads Off, and with the
+      // context running and the device open there is still no hum, no bed and no click.
+      await wait(600);
+      out.mutedAtFirst = was.master === '0' && sound.state.silent === true && !sound.state.hum && sound.state.ambience === null
+        && near(gain('master') ?? 0, 0) && document.getElementById('v-sound-master')?.textContent.trim() === 'Off';
+      out.mutedState = { silent: sound.state.silent, hum: sound.state.hum, ambience: sound.state.ambience, master: gain('master') };
+      // Master alone turns every sound on.
+      slide('master', 1);
+      out.hum = await until(() => sound.state.hum, 10000);
+      out.bed = await until(() => sound.state.ambience === out.year, 10000);
+      out.clunked = await until(() => sound.state.clunked, 5000);
+      out.storedChoice = stored().soundChosen === true && stored().soundMaster === 1;
       for (const k of ['master', 'effects', 'ambience']) slide(k, 1);
       out.full = await until(() => near(gain('master'), 1) && near(gain('effects'), 1) && near(gain('ambience'), 1), 10000);
       await wait(60);
@@ -16237,7 +16246,10 @@ for (const [label, viewport, touch] of [
       out.state = sound.state;
       return out;
     });
-    check(`${label}: after a tap the Navigator's sound graph runs, the open device hums, the destination plays its bed tone, and a relay click and a ticker tick play (T-2659)`,
+    check(`${label}: sound is off by default — Master reads Off and the running graph makes no hum, bed or click until Master is raised, and that choice is stored (T-2941)`,
+      soundRead.loaded && soundRead.mutedAtFirst && soundRead.storedChoice,
+      JSON.stringify({ was: soundRead.was, muted: soundRead.mutedState, storedChoice: soundRead.storedChoice }));
+    check(`${label}: after a tap and Master raised, the Navigator's sound graph runs, the open device hums, the destination plays its bed tone, and a relay click and a ticker tick play (T-2659)`,
       !soundTap.miss && soundRead.loaded && soundRead.running && soundRead.graph && soundRead.hum && soundRead.bed && soundRead.clunked
       && soundRead.relay && soundRead.tick,
       JSON.stringify({ tap: soundTap, gestured: soundRead.gestured, loaded: soundRead.loaded, running: soundRead.running, graph: soundRead.graph, hum: soundRead.hum, bed: soundRead.bed,

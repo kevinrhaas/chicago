@@ -18,7 +18,7 @@ import { PACES } from './travel.js';
 import { GROUND_MODES, groundPace as groundOf, nextPace, moveView, travelModeFor, arriveOf } from './move-modes.js';
 import { jauntsFollowFrom } from './getting-there.js';
 import { versionBadge } from './structure-versions.js';
-import { wireSettingsApp, SOUND_DEFAULTS } from './settings-app.js';
+import { wireSettingsApp, SOUND_DEFAULTS, soundLevelsFrom } from './settings-app.js';
 import { t as str } from './strings/index.js';
 import './strings/hud.js';
 // T-2649: the colouring and the hidden set are kept in the Confidence view's one record,
@@ -83,7 +83,8 @@ const DEFAULT_SETTINGS = {
   // T-2656: Settings › Display › Text size, the Navigator's text at 100-140 %.
   textScale: 1,
   // T-2656: Settings › Sound, master, effects and ambience (0..1), for T-2659's sounds.
-  ...SOUND_DEFAULTS,
+  // T-2941: off by default (Master 0); `soundChosen` is set once the visitor moves a slider.
+  ...SOUND_DEFAULTS, soundChosen: false,
 };
 
 function readSettings() {
@@ -98,6 +99,8 @@ function readSettings() {
     // T-2727: the retired rule's key goes, and the switch is on only if it was turned on.
     delete saved.arriveChosen;
     saved.jauntsFollowChoice = jauntsFollowFrom(saved);
+    // T-2941: sound is off unless the visitor chose a level (settings-app.js § soundLevelsFrom).
+    Object.assign(saved, soundLevelsFrom(saved));
     return { ...DEFAULT_SETTINGS, ...saved };
   } catch { return { ...DEFAULT_SETTINGS }; }
 }
