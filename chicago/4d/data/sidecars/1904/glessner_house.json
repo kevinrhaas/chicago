@@ -244,7 +244,43 @@
       "sanborn_1911_vol3_sheet_28",
       "inland_architect_1888_02_glessner_exterior"
     ],
-    "note": "The ground-floor masonry outline, courtyard excluded: 34 points, about 7,054 sq ft, from HABS sheet 2's dimension strings (sheet 3 for the 99'-3\" courtyard), checked against Sanborn 1911 sheet 28 (the house drawn as a stone courtyard plan with the coach house at the alley) and the 1888 photograph — T-1731's outline (data/research/glessner_house_1904_spec.json § footprint), converted from the building frame to metres: x = (161.25 - W) * 0.3048, y = (74 - S) * 0.3048. The courtyard projections (stair tower, hall bow, dining bay) are measured, +/- 0.5 ft; printed runs +/- 0.1 ft."
+    "note": "The ground-floor masonry outline, courtyard excluded: 34 points, about 7,054 sq ft, from HABS sheet 2's dimension strings (sheet 3 for the 99'-3\" courtyard), checked against Sanborn 1911 sheet 28 (the house drawn as a stone courtyard plan with the coach house at the alley) and the 1888 photograph — T-1731's outline (data/research/glessner_house_1904_spec.json § footprint), converted from the building frame to metres: x = (161.25 - W) * 0.3048, y = (74 - S) * 0.3048. The courtyard projections (stair tower, hall bow, dining bay) are measured, +/- 0.5 ft; printed runs +/- 0.1 ft.",
+    "passages": [
+      {
+        "kind": "carriage passage",
+        "polygon": [
+          [
+            49.149,
+            3.5418
+          ],
+          [
+            49.149,
+            1.1704
+          ],
+          [
+            41.0718,
+            0.6218
+          ],
+          [
+            41.0718,
+            3.365
+          ]
+        ],
+        "open_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "floor_m": 0.064,
+        "clear_m": 2.1367,
+        "note": "The model's own opening through the footprint (the underpass), carried from the generator's parameters: its plan, its lower soffit above its higher paving. Walking through it is how the scene is visited, not a claim about who passed there."
+      }
+    ]
   },
   "attributes": {
     "frame_ft": {

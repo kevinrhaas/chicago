@@ -19,6 +19,16 @@
  * the approach earthworks (T-0046) grade the terrain itself to meet each deck at
  * its ends, so the walk up is ordinary heightfield walking and the step from
  * earth to planks is millimetres. See docs/LIBERTIES.md L147.
+ *
+ * The one hole in a wall: **a passage** (T-2943). A footprint is solid, but a sidecar
+ * may declare `footprint.passages` — an opening the model really has through the
+ * building (Glessner's carriage passage from Prairie Avenue to the court): its plan in
+ * the footprint's frame, which edges are its open ends, and its clear height. Where
+ * that height clears the eye (WALK.eyeHeight, the seat included, + HEADROOM_MARGIN_M),
+ * the capsule inside the passage is held off its two side walls instead of being
+ * pushed out of the building, so a visitor on foot walks through and a rider who would
+ * strike the soffit does not. The open ends run LANE_REACH_M past the façade, so the
+ * passage takes over before the façade's own push-out would turn you back.
  */
 
 import * as THREE from 'three';
@@ -70,6 +80,43 @@ function nearestOnBoundary(e, n, pts) {
  * Tolerates both shapes seen in the wild: a bare `[[u, v], ...]` array and a
  * `{ polygon, confidence, note }` object.
  */
+/** T-2943: the eye must clear a passage's soffit by this much to walk through it. */
+export const HEADROOM_MARGIN_M = 0.1;
+/** T-2943: how far a passage's open ends reach past the walls, so its lane takes over
+ * from the façade's push-out (more than WALK.radius, with room to spare). */
+export const LANE_REACH_M = 1.0;
+
+/**
+ * T-2943: a passage as the walker uses it — its plan in world metres, its open ends
+ * pushed LANE_REACH_M outward along the side walls, and those side walls as segments.
+ * `toWorld` maps a footprint-frame [u, v] to [e, n]. Returns null for a malformed one.
+ */
+export function passageLane(passage, toWorld = (p) => p) {
+  const plan = passage?.polygon;
+  if (!Array.isArray(plan) || plan.length < 3 || !Number.isFinite(passage.clear_m)) return null;
+  const pts = plan.map(toWorld);
+  const n = pts.length;
+  const open = new Set((passage.open_edges ?? []).map(([a, b]) => `${Math.min(a, b)}:${Math.max(a, b)}`));
+  const edge = (i) => [i, (i + 1) % n];
+  const isOpen = ([a, b]) => open.has(`${Math.min(a, b)}:${Math.max(a, b)}`);
+  const lane = pts.map((p) => [...p]);
+  for (let i = 0; i < n; i++) {
+    const touchesOpen = isOpen(edge(i)) || isOpen(edge((i - 1 + n) % n));
+    if (!touchesOpen) continue;
+    // The wall edge that meets this corner: run outward along it.
+    const wall = [edge(i), edge((i - 1 + n) % n)].find((ed) => !isOpen(ed));
+    if (!wall) continue;
+    const other = wall[0] === i ? wall[1] : wall[0];
+    const dx = pts[i][0] - pts[other][0], dy = pts[i][1] - pts[other][1];
+    const len = Math.hypot(dx, dy) || 1;
+    lane[i] = [pts[i][0] + (dx / len) * LANE_REACH_M, pts[i][1] + (dy / len) * LANE_REACH_M];
+  }
+  const walls = [];
+  for (let i = 0; i < n; i++) if (!isOpen(edge(i))) walls.push([lane[i], lane[(i + 1) % n]]);
+  const centre = lane.reduce((c, p) => [c[0] + p[0] / n, c[1] + p[1] / n], [0, 0]);
+  return { kind: passage.kind ?? 'passage', clear: passage.clear_m, floor: passage.floor_m ?? 0, pts, lane, walls, centre };
+}
+
 export function footprintsFrom(registry, { camps = false } = {}) {
   const out = [];
   for (const record of registry.values()) {
@@ -103,11 +150,13 @@ export function footprintsFrom(registry, { camps = false } = {}) {
     const e0 = p.local_e ?? 0;
     const n0 = p.local_n ?? 0;
 
-    out.push({
-      id: record.id,
-      // Compass-bearing rotation, matching bearingToYaw(): clockwise from north.
-      pts: poly.map(([u, v]) => [e0 + u * cos + v * sin, n0 - u * sin + v * cos]),
-    });
+    // Compass-bearing rotation, matching bearingToYaw(): clockwise from north.
+    const toWorld = ([u, v]) => [e0 + u * cos + v * sin, n0 - u * sin + v * cos];
+    const fp = { id: record.id, pts: poly.map(toWorld) };
+    // T-2943: the openings through it a visitor may walk (see the header).
+    const lanes = (Array.isArray(raw?.passages) ? raw.passages : []).map((p) => passageLane(p, toWorld)).filter(Boolean);
+    if (lanes.length) fp.passages = lanes;
+    out.push(fp);
   }
   return out;
 }
@@ -246,9 +295,32 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
   state.groundY = surfaceAt(state.e, state.n);
   state.eyeY = state.groundY + WALK.eyeHeight;
 
+  /** T-2943: the passage of `fp` whose lane holds this point and clears the eye, or null. */
+  function laneAt(fp, e, n) {
+    if (!fp.passages) return null;
+    const need = WALK.eyeHeight + HEADROOM_MARGIN_M;
+    return fp.passages.find((l) => l.clear >= need && inside(e, n, l.lane)) ?? null;
+  }
+
+  /** T-2943: inside a passage, held WALK.radius off its side walls (and nothing else of it). */
+  function keepInLane(lane, e, n) {
+    for (const [a, b] of lane.walls) {
+      const near = nearestOnBoundary(e, n, [a, b]);
+      if (!near || near.d >= WALK.radius) continue;
+      let dx = e - near.e, dy = n - near.n;
+      let len = Math.hypot(dx, dy);
+      if (len < 1e-6) { dx = lane.centre[0] - near.e; dy = lane.centre[1] - near.n; len = Math.hypot(dx, dy) || 1; }
+      e = near.e + (dx / len) * WALK.radius;
+      n = near.n + (dy / len) * WALK.radius;
+    }
+    return { e, n };
+  }
+
   /** Slide the capsule out of any footprint it has ended up inside. */
   function pushOut(e, n) {
     for (const fp of footprints) {
+      const lane = laneAt(fp, e, n);
+      if (lane) { ({ e, n } = keepInLane(lane, e, n)); continue; }
       const near = nearestOnBoundary(e, n, fp.pts);
       if (!near) continue;
       const within = inside(e, n, fp.pts);

@@ -1,3 +1,43 @@
+## T-2943 — a visitor walks through Glessner's carriage passage (2026-10-20)
+
+The owner, 2026-10-20, in Glessner's carriage passage on /4d/dev/1904/: *"i find it odd that i
+cant walk through the glessner house here … i would think this is where a horse and others
+could pass through right?"* The walker held every footprint solid (walker.js `pushOut`), so the
+open porte-cochere led nowhere: a scripted walk west from Prairie Avenue stopped at E 1388.15,
+WALK.radius off the façade (E 1387.81), and slid along it.
+
+- **Generic mechanism.** A sidecar's `footprint.passages[]` declares an opening through the
+  footprint: `polygon` (footprint frame), `open_edges` (its walk-in ends), `floor_m`, `clear_m`.
+  `footprintsFrom` turns each into a lane (`passageLane`): the open ends reach LANE_REACH_M
+  (1 m) past the walls so the lane takes over before the façade's push-out, and the other
+  edges are side walls. Inside a lane whose `clear_m` ≥ WALK.eyeHeight + 0.1 m (the seat
+  included), `pushOut` holds the capsule WALK.radius off the side walls instead of out of the
+  building. Every other footprint, the router, the planting keep-outs and the gaze probe are
+  unchanged.
+- **From the committed data, at the compile step.** `compile_scene.py walk_passages()` reads
+  the resolved masonry parameters the way `walk_surface_m` reads a deck: Glessner's
+  `underpass` (`plan_WS` → the generator's own frame, 2.37 m wide at Prairie, 2.74 m at the
+  court, 8.08 m long), the lower soffit (court, 2.2007 m) above the higher paving
+  (`passage_front_z` 0.064 m) = **clear 2.137 m**. Nothing is invented: the open ends are the
+  generator's (it builds reveals p-s and r-q and leaves p-q and r-s open).
+- **Gates.** The porte-cochere leaves are modelled open at 82° (`porte_cochere_open_deg`); their
+  free edges stand about 0.16 m off the reveals, inside the 0.34 m the capsule keeps, so nothing
+  in the model blocks the opening and no geometry moved. The boarded court gates (closed, L295)
+  are at the court's other exit, not on this walk. Walking through is an interaction choice of
+  the reconstructed tier, not a claim about who passed.
+- **Who fits.** On foot (eye 1.68 + 0.1 ≤ 2.137) you pass; on horseback (eye 2.43) or the wagon
+  seat (2.18) you would strike the soffit, so riders go round, as a rider would duck or dismount.
+- **Ground.** The walker stands on the terrain, which reads 4.326-4.335 m along the passage; the
+  drawn paving is the building's base (the lowest ground under the footprint) + 0.04-0.06 m, so
+  the eye is at most about 6 cm below standing on the paving. No fall or float.
+- **Proof.** `tools/test_walker_passage.mjs` (in check.sh): a box with and without a passage, the
+  reveals held, the façade beside the mouth still a wall, a rider stopped, and the real 1904
+  Glessner sidecar from Prairie Avenue into the court (a solid footprint refuses the same walk).
+  In the page, the walker's own update from E 1391.8 at bearing 267° reached the court at
+  desktop and 390×780; before the change it stopped at E 1388.15.
+- **Left:** the structure VERSION sidecars (`versions/glessner_house/v3`) carry no passage; the
+  router does not route rides through passages.
+
 ## T-2944 — Jaunt names that read in the list (2026-10-20)
 
 The owner, 2026-10-20, on Navigator › Jaunts: titles cut off with "…", "Prairie Avenue: …"

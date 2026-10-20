@@ -282,6 +282,8 @@ step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
 step "Street travel keeps each pace on its surface and clears buildings (T-2496)" \
   node tools/test_street_travel.mjs
+step "a visitor walks through a building's modelled passage where it clears the eye (T-2943)" \
+  node tools/test_walker_passage.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \
   node tools/test_daybook.mjs
 step "loading library: 160 sourced, phase-local cards (T-1275)" \
