@@ -29791,6 +29791,34 @@ sheet 6 draws the stack edge-on and sheet 3 only the corner fireplace whose flue
 **Ticket:** T-2873 (piece 2 of T-2871).
 **Recorded:** 2026-10-19 (T-2873).
 
+### L-k01-1637-cheek-lights-2886 — 1637 Prairie's south bay: its cheeks' lights sized between their columns, and its front light moved as far east as the sheet's front allows
+
+**Decision:** the canted bay on the south flank of Jesse Spalding's remodel of the Grosvenor house
+(T-2886, piece 1 of T-2840) takes a round-arched light in each cheek between its two columns, 0.38 m
+clear from 3.15 to 5.8 m under a 0.05 m band, its recess 0.33 m, over a round-headed light 0.3 by
+0.55 m from 2.2 m in the base. The front's arched light and the base light under it move 0.245 m
+east, to 1.355 m along the 2.22 m front, and the front light's band narrows to 0.1 m. K06 takes a
+head band's breadth per window (`head_band_m`, 0.03 m to the kit's 0.18 m, over an arched head only).
+**What is read, not invented.** From the photograph (`glessner_blog_1637_grosvenor_asbuilt_photo`)
+through T-2755's camera: that the west cheek carries a light between its columns (glass dark at
+x 375-392 px at y 640), its crown under the capitals' band (about y 520), and a small light in the
+base under it (x 367-383, y 690-723); and that the front's light is dark from x 421 to 447 px with
+stone from 448 px to the crop's edge, so it is about as wide as built and centred about 9 px east
+of the sheet's front's centre.
+**What is invented.** The cheek lights' exact width and head: the photograph's grain gives a light
+between two columns, not its frame, so it is cut 0.38 m, the room between the shafts less a narrow
+band, round-headed like the front's. The base light's shape (the photograph's is a dark oval about
+0.3 m across), its 0.55 m height the front's base light's, its foot 0.1 m higher, under the floor band. The bands' 0.05 and 0.1 m breadths
+(the kit's 0.18 m does not fit between the columns). The east cheek's lights, out of the frame, by
+symmetry. The front light stands 0.1 m short of the photograph's place: the 1911 sheet's front is
+2.22 m and the east angle's column takes its last 0.1 m, so the light cannot go further east
+without widening the front past the sheet's plan, which only the photograph (cropped at that edge)
+would support.
+**How to resolve:** the uncropped Grosvenor plate, which would show the bay's east angle and so
+the front's width; or a nearer photograph of the south flank.
+**Ticket:** T-2886 (piece 1 of T-2840, itself piece 2 of T-2781).
+**Recorded:** 2026-10-19 (T-2886).
+
 ### L-k01-1625-south-lower-lights-2884 — 1625 Prairie's south wall's lower lights and plain heads, read off the McBirney photograph
 
 **Decision:** on 1625's main south wall (K01's `north_bays`), the ground-floor light and the stair
@@ -29819,7 +29847,6 @@ the print shows the wall's face.
 **How to resolve:** a view of 1625's south wall from the open ground, or the house's plans.
 **Ticket:** T-2884 (piece 2 of T-2867).
 **Recorded:** 2026-10-19 (T-2884).
-
 
 ### L-k08-1812-projection-balcony-2888 — 1812 Prairie's south projection given its photographed balcony rail: its height and baluster spacing read, its sections and inset reconstructed, its stone middle panel built as iron
 
