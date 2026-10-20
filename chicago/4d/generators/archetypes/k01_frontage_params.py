@@ -80,6 +80,10 @@ class Opening:
     meeting_rail: bool = True
     # T-2866: a light over a door's leaf in the top of its hole (1625's rear section door), 0 for none
     transom_m: float = 0.0
+    # T-2884: a side light whose picture shows its head plain (1625's south wall): no K03 head
+    # or lintel is drawn over it, and a light narrower than the ordinary sash is one light a sash
+    plain: bool = False
+    narrow: bool = False
 
     @property
     def head_m(self) -> float:
@@ -254,6 +258,11 @@ STRIP_FABRICS = {"stone": "dress_stone", "painted_timber": "bay_strip_paint"}
 #: T-2410: the component a brick street front's round-headed window is cut as — K06's round
 #: sash in a round hole through the K03 wall, under the kit's own arch band as its hood
 ROUND_HOODED = "k01.opening.sash_round_hooded"
+#: T-2884: a side wall's round-headed light whose picture shows its head plain (1625's lower
+#: lights): K06's round sash in the same round hole, under no hood and no brick arch
+ROUND_PLAIN = "k01.opening.sash_round_plain"
+#: the K01 components whose hole the wall cuts round over the spring
+ROUND_CUT = (ROUND_HOODED, ROUND_PLAIN)
 #: T-2752: the street windows a stone front read off a photograph names one by one
 #: (`street_front_windows`), each a component the record's window_kit glazes
 STREET_WINDOW = "k01.opening.street_"
@@ -2033,6 +2042,50 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str):
     return tuple(out)
 
 
+def _gable_walls(roof) -> set:
+    """T-2841's gable ends on a wing: its rear wall, or both flank walls."""
+    if roof.get("kind") != "gable":
+        return set()
+    return {"rear"} if roof["gable_to"] == "rear" else {"north", "south"}
+
+
+def _wing_towers(entries, wings, structure_id: str, front_stone: bool, overhang: float):
+    """T-2842: K08 towers on a rear wing's south, north or rear wall (k01.wall.wing.<id>.<side>),
+    the kit piece 1801 Prairie's north-east turret on its east range needs. Each is resolved
+    by `_bays` against that wing as a main-wall tower is against the house: its wall length,
+    its floors and its wall top in the main eave's place, so it rises TOWER_PAST_EAVE_M past
+    the wing's own eave with its cap whole over the wing's roof, and the wing's lights behind
+    it are dropped; the wing's eave is not cut for it and runs into its ring, as the main
+    eave does. Only a tower: a bay or an oriel on a wing is still the main walls' kit.
+    Refused where the wing's walling stands in the tower's back above its wall top (a gable
+    end), and where a later wing stands on the same stretch of the wall."""
+    wings = list(wings)
+    at = {f"k01.wall.wing.{w['id']}.{side}": (j, side) for j, w in enumerate(wings) for side in WING_SIDES}
+    kinds = {v["id"]: v["kind"] for v in json.loads(BAY_KIT.read_text())["variants"]}
+    out = []
+    for e in entries:
+        if e["wall"] not in at:
+            raise ParamError(f"bays: {e['wall']} is not a wall of one of this house's rear wings")
+        if kinds.get(e["variant"]) != "tower":
+            raise ParamError(f"bays: {e['id']} is a {kinds.get(e['variant'], e['variant'])} on {e['wall']}; a "
+                             f"rear wing's wall carries a K08 tower, past the wing's eave")
+        j, side = at[e["wall"]]
+        w = wings[j]
+        if side in _gable_walls(w["roof"]):
+            raise ParamError(f"bays: {e['id']} stands on {e['wall']}, a gable end: the gable's walling rises "
+                             f"where the tower's back is closed over the wing's wall top")
+        ops = list(w["openings"])
+        (b,) = _bays([e], {e["wall"]: wing_walls(w)[side][2]}, ops, structure_id, front_stone,
+                     tuple(w["floors_m"]), w["top_m"], overhang)
+        for x in wings:
+            if x["host_wall"] == e["wall"] and x["host_span_m"][0] < b["span_m"][1] + BAY_PIER_M \
+                    and b["span_m"][0] - BAY_PIER_M < x["host_span_m"][1]:
+                raise ParamError(f"bays: {e['id']} meets {e['wall']} at s {b['span_m'][0]}..{b['span_m'][1]}, "
+                                 f"within {BAY_PIER_M} m of where {x['id']} stands on it")
+        wings[j] = {**w, "openings": tuple(ops)}
+        out.append({**b, "wing": w["id"], "eave_m": w["top_m"]})
+    return tuple(wings), tuple(out)
+
 def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     form = phase.get("form", {})
     unknown = sorted(set(form) - CONSUMED)
@@ -2248,12 +2301,31 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if not isinstance(e, dict):
             continue
         what = f"north_bays[{j}]"
-        if set(e) != {"s_m", "sill_m", "width_m", "height_m"}:
-            raise ParamError(f"{what}: a window read off a picture takes s_m, sill_m, width_m and height_m")
+        if not {"s_m", "sill_m", "width_m", "height_m"} <= set(e) <= {"s_m", "sill_m", "width_m", "height_m",
+                                                                     "head", "why_not_ordinary"}:
+            raise ParamError(f"{what}: a window read off a picture takes s_m, sill_m, width_m and height_m, "
+                             f"and may take head and why_not_ordinary")
         s, sill, wd, h = (float(e[x]) for x in ("s_m", "sill_m", "width_m", "height_m"))
-        _within(wd, cw, f"{what}.width_m")
-        if not 1.0 <= h <= 3.2 or sill < 0.3:
-            raise ParamError(f"{what}: a sash read off a picture stands 1.0-3.2 m, its sill at least 0.3 m up")
+        # T-2884: its head as the picture draws it — `plain`, a square hole with nothing laid
+        # over it, or `round`, a round-headed hole under no hood or arch (1625's lower lights);
+        # absent, K01 lays the brick wall's own head. A light narrower than the ordinary sash
+        # (a basement light's, a slit's) says why, and may stand lower and shorter
+        head = e.get("head")
+        if head not in (None, "plain", "round"):
+            raise ParamError(f"{what}.head is plain or round, not {head!r}")
+        narrow = "why_not_ordinary" in e
+        if narrow:
+            if not e["why_not_ordinary"] or not 0.25 <= wd < cw[0] or head is None:
+                raise ParamError(f"{what}: a light narrower than the ordinary sash is 0.25-{cw[0]} m across, "
+                                 f"its head read (plain or round), and says why (why_not_ordinary)")
+            if not 0.5 <= h <= 3.2 or sill < 0.15:
+                raise ParamError(f"{what}: a narrow light read off a picture stands 0.5-3.2 m, its sill at least 0.15 m up")
+        else:
+            _within(wd, cw, f"{what}.width_m")
+            if not 1.0 <= h <= 3.2 or sill < 0.3:
+                raise ParamError(f"{what}: a sash read off a picture stands 1.0-3.2 m, its sill at least 0.3 m up")
+        if head == "round" and h < wd / 2 + 0.2:
+            raise ParamError(f"{what}: a round head's spring stands at least 0.2 m over its sill")
         if sill + h + 0.30 > soffit - 0.05:
             raise ParamError(f"{what}'s lintel runs into the soffit at {soffit:.2f} m")
         if s - wd / 2 < 0.45 or s + wd / 2 > depth - 0.45:
@@ -2262,7 +2334,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             if s - wd / 2 < a1 + 0.3 and s + wd / 2 > a0 - 0.3 and sill < b1 + 0.45 and sill + h > b0 - 0.45:
                 raise ParamError(f"{what} meets another read window, or its lintel")
         read.append((s - wd / 2, s + wd / 2, sill, sill + h))
-        openings.append(Opening("k01.opening.sash_flat", "k01.wall.side.north", s, round(sill, 4), wd, h))
+        openings.append(Opening(ROUND_PLAIN if head == "round" else "k01.opening.sash_flat", "k01.wall.side.north",
+                                s, round(sill, 4), wd, h, head != "round", plain=head is not None, narrow=narrow))
     # T-2821: a door whose height its picture reads (1625's, 2.48 m clear over its one step);
     # K07 hangs its leaf in the K01 hole, so the hole is the door's. K01's 2.70 m otherwise
     door_w, door_h = 1.20, 2.70
@@ -2471,6 +2544,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 raise ParamError(f"street_front_round_heads.key: {key['width_m']} x {key['height_m']} m, "
                                  f"{key['proud_m']} m proud, does not stand on the hood's crown (over its "
                                  f"{band['width_m']} m band and {band['proud_m']} m proud, inside 0.30 m and half the sash)")
+        elif comp == ROUND_PLAIN:
+            # T-2884: the side wall cuts this one's round hole as it cuts ROUND_HOODED's
+            if v["head"] != "round" or v.get("bays", 1) != 1:
+                raise ParamError(f"window_kit: {comp} is cut as one round hole, and {vid} is not a single round-headed sash")
         elif v["head"] != "flat" and not (comp in arched_rows and val("stone_front")) and not (
                 comp.startswith(STREET_WINDOW) and v["head"] in ("segmental", "round")):
             # T-2752: the coursed stone front fills a named street window's segmental head
@@ -2902,7 +2979,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
 
     # a bay drops the openings behind it, so an arched group finds its own again by identity
     grouped = [[openings[i] for i in g["ops"]] for g in (arched or {}).get("groups", ())]
-    bays = _bays(val("bays"), {"k01.wall.street_front": width, "k01.wall.rear_service": width,
+    # T-2842: a tower on a rear wing's wall is read against that wing, so it waits for the wings
+    wing_towers = [e for e in val("bays") or () if str(e.get("wall", "")).startswith("k01.wall.wing.")]
+    bays = _bays([e for e in val("bays") or () if e not in wing_towers],
+                 {"k01.wall.street_front": width, "k01.wall.rear_service": width,
                                "k01.wall.side.south": depth, "k01.wall.side.north": depth},
                  openings, (record or {}).get("id", ""), bool(val("stone_front")), tuple(floors), eave,
                  float(val("eave_overhang_m")), bool((val("stone_front") or {}).get("coursing")))
@@ -2945,6 +3025,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
 
     wings = _rear_wings(val("rear_wings"), depth, width, openings, cw,
                         opening["parameters"]["clear_height_m"]["range"], (record or {}).get("id", ""))
+    if wing_towers:
+        wings, more = _wing_towers(wing_towers, wings, (record or {}).get("id", ""), bool(val("stone_front")),
+                                   float(val("eave_overhang_m")))
+        bays = bays + more
 
     stone = _k02(val("stone_front") or {})
     if stone:

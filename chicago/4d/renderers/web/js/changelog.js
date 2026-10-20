@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2089, ts: '2026-10-20T01:24:01.867Z', date: 'Oct 19, 2026, 8:24 PM CT', title: 'Nothing you can see changed: towers can stand on rear wings', kind: 'chore',
+    items: [
+      'Nothing you can see changed yet. The kit the Prairie Avenue houses are built from can now stand a round or eight-sided tower on a rear wing\'s wall, rising past the wing\'s roof with its cone above it.',
+      'The wing\'s wall opens behind the tower, and the tower\'s back is closed where it rises over the wing.',
+      'It is the piece 1801 Prairie, the Kimball house, needs for the small turret on its east range.',
+    ] },
   { v: 2088, ts: '2026-10-20T00:43:54.857Z', date: 'Oct 19, 2026, 7:43 PM CT', title: '1812 Prairie\'s south projection gets its balcony', kind: 'improvement',
     items: [
       'George H. Wheeler\'s house at 1812 Prairie now has the iron balcony that Albert Levy\'s photograph shows on the flat top of its south projection, where it had a bare tin deck.',
