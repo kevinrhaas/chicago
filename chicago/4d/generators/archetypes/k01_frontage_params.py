@@ -1411,16 +1411,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                         raise ParamError(f"bays: {e['id']}'s brackets.{k}.{kk} {x} is outside [{lo}, {hi}]")
                     kb[k][kk] = int(x) if kk == "segments" else float(x)
         # T-2525: an iron balcony rail on a bow's eaves, round its plan from wall to wall;
-        # T-2780: or a stone balustrade round a flat-topped canted bay's (1637's south bay)
+        # T-2780: or a stone balustrade round a flat-topped canted bay's (1637's south bay);
+        # T-2888: or an iron rail round a flat-topped projection's front and cheeks (1812's)
         if "balcony" in e:
             bl = dict(e["balcony"])
             fabric = bl.pop("fabric", "iron")
             need = {"height_m", "inset_m", "post_m", "bar_m", "pitch_m", "rail_m", "foot_rail_m"}
-            flat_top = v["plan"]["kind"] == "polyline" and v["kind"] == "bay" \
+            flat_top = v["plan"]["kind"] == "polyline" and v["kind"] in ("bay", "projection") \
                 and float(e.get("roof", v["roof"]).get("pitch", 1.0)) == 0.0
             if not (v["plan"]["kind"] == "bow" or flat_top) or set(bl) != need or fabric not in ("iron", "stone"):
-                raise ParamError(f"bays: {e['id']}'s balcony stands on a bow, or on a canted bay's flat top, "
-                                 f"in iron or stone, and takes {sorted(need)}")
+                raise ParamError(f"bays: {e['id']}'s balcony stands on a bow, or on a canted bay's or a "
+                                 f"projection's flat top, in iron or stone, and takes {sorted(need)}")
             bal = {k: ([float(x) for x in bl[k]] if k == "rail_m" else float(bl[k])) for k in need}
             if fabric == "stone":   # an iron rail's resolved entry stays as it was, byte for byte
                 bal["fabric"] = fabric
@@ -1429,6 +1430,10 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     or not 0.0 < bal["foot_rail_m"] < bal["height_m"] / 2:
                 raise ParamError(f"bays: {e['id']}'s balcony {bal} is not a railing (0.5-1.2 m high, "
                                  f"bars 0.06-0.3 m apart and thinner than half that, 0-0.3 m in from the eaves)")
+            # T-2888: on a projection the rails stop inside the corner posts, so they are thinner
+            if v["kind"] == "projection" and not bal["rail_m"][0] < bal["post_m"]:
+                raise ParamError(f"bays: {e['id']}'s balcony rail {bal['rail_m'][0]} m is no thinner than its "
+                                 f"{bal['post_m']} m posts, so it cannot stop inside the projection's corner posts")
             v["balcony"] = bal
         # T-2534: a balcony on a projection's floor, bowed out from its front under the window
         # it serves (1637 Prairie's wing, from its engraving): a stone slab and its balustrade
