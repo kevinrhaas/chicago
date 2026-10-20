@@ -1,4 +1,29 @@
 export const CHANGELOG = [ // newest first
+  { v: 2146, ts: '2026-10-20T23:10:37.302Z', date: 'Oct 20, 2026, 6:10 PM CT', title: '1811 Prairie\'s stone gable gains its great arch', kind: 'feature',
+    items: [
+      'The stone gable over the north bay of the Ames house at 1811 Prairie Avenue now has the great round arch from the 1888 Inland Architect photograph. The arch rises from the cornice, with three small round-arched windows inside it.',
+      'The three square-headed windows under the arch now stand between stone colonnettes. A small arched window sits over the arch\'s crown, and the gable is in the front\'s brown sandstone, dressed smooth, as the photograph shows.',
+      'Not yet as wide as the photograph\'s: the gable is 3 m across, not about 4 m, so the arch is smaller and its moulding plainer, and the carving over it isn\'t built yet. Liberty L-k01-1811-ames-front-2541 records this.',
+    ] },
+  { v: 2145, ts: '2026-10-20T23:06:16.326Z', date: 'Oct 20, 2026, 6:06 PM CT', title: 'Quieter and quicker: sound off, faster walks, clearer names', kind: 'change',
+    items: [
+      'Sound starts off: the ticker, clicks, hum and each destination\'s tone stay quiet until you raise Master in Settings › Sound, and your choice is remembered. Levels you had already changed stay as you set them.',
+      'The name of the building in front of you now sits top right in a small card under the address, styled like it, and is not shown when it would only repeat that address. Settings › Show moves it back under the crosshair or to the bottom, and lets it stay instead of fading after a few seconds.',
+      'You move faster: walking now starts at 10 mph, and running, the wagon and the horse are each quicker again (15, 16 and 25 mph), with higher tops on every slider. Speeds you had set yourself are kept.',
+      'Jaunts read at a glance: titles lead with what makes each one different, such as Italianate style walk or Famous names of Prairie Avenue, long names wrap to a second line instead of being cut off, and the list keeps each kind of outing together.',
+      'You can walk through Glessner House\'s carriage passage, from Prairie Avenue into the courtyard, as a carriage would have gone. On horseback you would hit the ceiling, so riders still go round.',
+    ] },
+  { v: 2144, ts: '2026-10-20T23:06:16.326Z', date: 'Oct 20, 2026, 6:06 PM CT', title: 'Flying over 1904 Prairie Avenue asks far less of a phone', kind: 'change',
+    items: [
+      'Flying over 1904 Prairie Avenue asks a phone for about a tenth of the drawing work it did, because each house\'s pieces are now drawn together.',
+      'Nothing in the scene looks different: every building draws exactly as before.',
+    ] },
+  { v: 2143, ts: '2026-10-20T22:59:22.200Z', date: 'Oct 20, 2026, 5:59 PM CT', title: 'Glessner\'s window colonnettes, carved to their photographs', kind: 'improvement',
+    items: [
+      'The seven little stone columns between the Prairie Avenue upstairs windows now taper, stand on angular splayed bases and sit flush with the wall, as the 1965 survey drawings show.',
+      'They are cut in the house\'s own granite instead of grey limestone, and so is the carved string course beneath them.',
+      'Every capital is carved differently, as on the real house: Richardson\'s monogram over the front door, basket weave, crossing stems, and bands of discs, diamonds, checkers and chevrons, read from the survey and the museum\'s close-up photographs.',
+    ] },
   { v: 2142, ts: '2026-10-20T22:51:33.054Z', date: 'Oct 20, 2026, 5:51 PM CT', title: 'An open building card holds you until you close it', kind: 'improvement',
     items: [
       'Clicking a building frees the mouse and pauses walking, so the card can be read and clicked.',

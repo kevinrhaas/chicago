@@ -12,6 +12,7 @@
 import * as THREE from 'three';
 import { partitionTriangles } from './jobs/spatial-kernel.js';
 import { jobsOnWorkers, runJob } from './jobs/pool.js';
+import { coalesceRuns } from './batch-coalesce.js';
 
 const CELL_M = 40;
 
@@ -106,6 +107,10 @@ export function batchPieces(pieces, material) {
   }
   batch.computeBoundingBox();
   batch.computeBoundingSphere();
+  // T-2927: the drawn pieces that touch are drawn as one (batch-coalesce.js). The
+  // grid is for the frustum to reject; from the air it rejects little, and every
+  // piece kept was a draw of its own.
+  coalesceRuns(batch);
   batch.userData.spatialBatch = { cellM: CELL_M, pieces: pieces.length, triangles: count / 3 };
   return batch;
 }

@@ -265,6 +265,57 @@ def walk_surface_m(structure: dict, phase: dict):
     return round(float(value), 4) if value is not None else None
 
 
+def walk_passages(structure: dict, phase: dict):
+    """T-2943: the passages a visitor may walk THROUGH a building's footprint, or `None`.
+
+    The walker treats a footprint as a solid wall (walker.js `pushOut`). A building whose
+    model has a real opening through it — Glessner's carriage passage from Prairie Avenue
+    to the court — declares it here, in the footprint's own frame, so the renderer can
+    carve it out of the wall without reaching into a generator (AGENTS.md rule 5).
+
+    Read off the resolved parameter object, the same way `walk_surface_m` reads a deck:
+    the opening the walker lets you through and the opening the mesh draws have to be one
+    set of numbers. Today that is the masonry house's `underpass` (`plan_WS`, its two
+    soffit heights, its floor), which `masonry_house_v4_detail.underpass` builds as two
+    reveals (p-s, r-q) with OPEN ends p-q and r-s; its paving sits at the frontage's
+    `passage_front_z` / `passage_court_z` where those are given. Every figure is the
+    record's: `clear_m` is the lower soffit above the higher paving, nothing added.
+
+    Silent on failure, like `walk_surface_m`: an archetype with no such opening, or a
+    parameter module that will not import, declares no passage.
+    """
+    arch = structure.get("archetype")
+    if not arch:
+        return None
+    gen = str(ROOT / "generators")
+    if gen not in sys.path:
+        sys.path.insert(0, gen)
+    try:
+        mod = __import__(f"archetypes.{arch}_params", fromlist=["from_phase"])
+        detail = getattr(mod.from_phase(phase), "detail", None) or {}
+    except Exception:  # noqa: BLE001
+        return None
+    under = detail.get("underpass") if isinstance(detail, dict) else None
+    if not under or len(under.get("pts") or []) != 4:
+        return None
+    front = detail.get("prairie_frontage") or {}
+    floors = [under.get("floor_z", 0.0)] + [front[k] for k in ("passage_front_z", "passage_court_z") if k in front]
+    floor = max(float(v) for v in floors)
+    soffit = min(float(under["ceiling_prairie_z"]), float(under["ceiling_court_z"]))
+    return [{
+        "kind": "carriage passage",
+        "polygon": [[round(float(x), 4), round(float(y), 4)] for x, y in under["pts"]],
+        # Edges (by vertex index) a visitor walks in and out through; the other two are walls.
+        "open_edges": [[0, 1], [2, 3]],
+        "floor_m": round(floor, 4),
+        "clear_m": round(soffit - floor, 4),
+        "note": ("The model's own opening through the footprint (the underpass), carried from "
+                 "the generator's parameters: its plan, its lower soffit above its higher "
+                 "paving. Walking through it is how the scene is visited, not a claim about "
+                 "who passed there."),
+    }]
+
+
 def resolve_phase(structure: dict, target: dt.date):
     """Exactly one phase must cover the date — the same rule the validator and
     the generator apply. Duplicated deliberately in three places is worse than
@@ -3010,6 +3061,8 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 "confidence": phase.get("footprint", {}).get("confidence", "reconstructed"),
                 "sources": phase.get("footprint", {}).get("sources", []),
                 "note": phase.get("footprint", {}).get("note", ""),
+                # T-2943: openings a visitor may walk through (walker.js), only where one exists.
+                **({"passages": passages} if (passages := walk_passages(st, phase)) else {}),
             },
             "attributes": attributes,
             # Who was here. Empty on most buildings and never absent, so the card

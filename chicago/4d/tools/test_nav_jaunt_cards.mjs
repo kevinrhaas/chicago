@@ -112,3 +112,28 @@ assert(/if \(!jauntRestoreTried\) \{ jauntRestoreTried = true; if \(!jauntRuntim
   'a saved outing is restored when the list first opens, so Continue survives a reload');
 
 console.log('test_nav_jaunt_cards: credited plates of the stops or none, keepsakes, and Continue pinned on top');
+
+// ---- T-2944 (owner, 2026-10-20): titles lead with what is distinctive, and the list keeps
+// related outings together — by kind, featured first within it, then by name ---------------
+{
+  const { jauntOrder, sortTitle, filterJaunts } = await import('../renderers/web/js/jaunt-menu.js');
+  const { FAMILIES } = await import('../renderers/web/js/menu-icons.js');
+  const { readFileSync } = await import('node:fs');
+  const catalog = (y) => JSON.parse(readFileSync(new URL(`../data/sidecars/${y}/jaunts/catalog.json`, import.meta.url), 'utf8')).jaunts;
+  assert.equal(sortTitle('A Letter Home'), 'Letter Home'); assert.equal(sortTitle('An Evening Stroll'), 'Evening Stroll');
+  assert.equal(sortTitle('The architects'), 'architects'); assert.equal(sortTitle('Taverns of Chicago'), 'Taverns of Chicago');
+  for (const y of ['1835', '1904']) {
+    const rows = filterJaunts(catalog(y));
+    for (const r of rows) {
+      assert(!/^(Prairie Avenue|Style walk):/.test(r.title), `${y}: "${r.title}" leads with what it shares, not what it is`);
+      assert(r.title.length <= 34, `${y}: "${r.title}" is short enough for two lines on a phone`);
+    }
+    const kinds = rows.map((r) => FAMILIES.indexOf(r.primary_family));
+    assert.deepEqual(kinds, [...kinds].sort((a, b) => a - b), `${y}: grouped by kind, in the pills' order`);
+    for (let i = 1; i < rows.length; i++) assert(jauntOrder(rows[i - 1], rows[i]) < 0, `${y}: ${rows[i - 1].title} before ${rows[i].title}`);
+  }
+  const t1904 = filterJaunts(catalog('1904')).map((r) => r.title);
+  const styles = t1904.map((t, i) => (/ style walk$/.test(t) ? i : -1)).filter((i) => i >= 0);
+  assert.deepEqual(styles.map((i) => t1904[i]), ['Italianate style walk', 'Romanesque style walk', 'Second Empire style walk']);
+  assert.equal(styles[2] - styles[0], 2, 'the three style walks sit together');
+}

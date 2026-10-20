@@ -1621,7 +1621,7 @@ recallHome?.onReturn(() => journey.recall());
 api.recall = recallHome;
 // T-2614: with no gate to tap, the first tap after landing on a Home choice, the scene or a
 // Navigator control is the gesture audio needs; the page's AudioContext exists only after it.
-// T-2659: the Navigator's sounds (js/sound.js), on by default. The module is fetched with the
+// T-2659: the Navigator's sounds (js/sound.js), off by default since T-2941. The module is fetched with the
 // first gesture, or on the way in when the jump that opened the page lets audio play
 // (sound.js § mayStartEarly), so it is never part of the boot payload.
 const loadSound = (early = false) => (api.soundReady ??= import('./sound.js')
@@ -3423,6 +3423,10 @@ async function boot() {
         navigation.setStreetVisible(value);
       } else if (key === 'lookTag') {
         api.targetTag?.setTagShown(value);
+      } else if (key === 'lookTagPlace') {
+        api.targetTag?.setPlace(value);
+      } else if (key === 'lookTagHold') {
+        api.targetTag?.setHold(value);
       } else if (key === 'season') {
         void applySeason(value).then(() => gateFrame.invalidate());
       } else if (key === 'streetTrees') {
@@ -4455,6 +4459,24 @@ async function boot() {
     keyEl: document.getElementById('btn-inspect'),
     units: () => hud.settings.units,
     tagShown: hud.settings.lookTag !== false,
+    // T-2942: right under the address by default, or the centre (its first place) or the
+    // bottom row; fading by default. Docked, it never repeats the address the card shows.
+    place: hud.settings.lookTagPlace,
+    holdMode: hud.settings.lookTagHold,
+    slots: (() => {
+      const tagHome = document.getElementById('target-tag');
+      const bottom = document.getElementById('hud-bottom');
+      return {
+        right: { parent: document.getElementById('instrument-below') },
+        centre: { parent: tagHome?.parentNode ?? null, before: tagHome?.nextSibling ?? null },
+        bottom: { parent: bottom, before: bottom?.firstElementChild ?? null },
+      };
+    })(),
+    addresses: () => {
+      const card = document.getElementById('street-readout');
+      if (!card || card.hidden) return [];
+      return ['street-historic', 'street-modern'].map((id) => document.getElementById(id)?.textContent ?? '');
+    },
     onInspect: (t) => {
       // Inspect opens on what is selected first, so a card left open on another
       // building is put away before the tag hands over its own.
