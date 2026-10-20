@@ -444,7 +444,8 @@
                     0.174,
                     0.826
                   ],
-                  "recess_m": 0.4
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the photograph's tall principal-storey sash in the bays' faces, about 3.15 m high on the 4.8 m storey through its camera (the canted bay's south face at x 615-675 px, sill y 855 and head y 685 at 53.6 px/m)"
                 },
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -453,7 +454,8 @@
                   "at": [
                     0.5
                   ],
-                  "clear_height_m": 3.15
+                  "clear_height_m": 3.15,
+                  "why_not_ordinary": "the photograph's tall principal-storey sash in the bays' faces, about 3.15 m high on the 4.8 m storey through its camera (the canted bay's south face at x 615-675 px, sill y 855 and head y 685 at 53.6 px/m)"
                 }
               ]
             },
@@ -469,7 +471,8 @@
                     0.174,
                     0.826
                   ],
-                  "recess_m": 0.4
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the photograph's upper sash in the bays' faces, about 3.0 m high on the 5.3 m second storey through its camera (sill y 590 and head y 430 at 53.6 px/m)"
                 },
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -478,7 +481,8 @@
                   "at": [
                     0.5
                   ],
-                  "clear_height_m": 3.0
+                  "clear_height_m": 3.0,
+                  "why_not_ordinary": "the photograph's upper sash in the bays' faces, about 3.0 m high on the 5.3 m second storey through its camera (sill y 590 and head y 430 at 53.6 px/m)"
                 }
               ]
             }
@@ -525,14 +529,15 @@
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 0.95,
+                  "clear_width_m": 0.6,
                   "clear_height_m": 3.15,
                   "sill_m": 2.6,
                   "at": [
                     0.131,
                     0.869
                   ],
-                  "recess_m": 0.4
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the photograph's tall principal-storey sash in the bays' faces, about 3.15 m high on the 4.8 m storey through its camera (the canted bay's south face at x 615-675 px, sill y 855 and head y 685 at 53.6 px/m)"
                 },
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -541,7 +546,8 @@
                   "at": [
                     0.5
                   ],
-                  "clear_height_m": 3.15
+                  "clear_height_m": 3.15,
+                  "why_not_ordinary": "the photograph's tall principal-storey sash in the bays' faces, about 3.15 m high on the 4.8 m storey through its camera (the canted bay's south face at x 615-675 px, sill y 855 and head y 685 at 53.6 px/m)"
                 }
               ]
             },
@@ -550,14 +556,15 @@
               "windows": [
                 {
                   "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 0.95,
+                  "clear_width_m": 0.6,
                   "clear_height_m": 3.0,
                   "sill_m": 0.7,
                   "at": [
                     0.131,
                     0.869
                   ],
-                  "recess_m": 0.4
+                  "recess_m": 0.4,
+                  "why_not_ordinary": "the photograph's upper sash in the bays' faces, about 3.0 m high on the 5.3 m second storey through its camera (sill y 590 and head y 430 at 53.6 px/m)"
                 },
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -566,7 +573,8 @@
                   "at": [
                     0.5
                   ],
-                  "clear_height_m": 3.0
+                  "clear_height_m": 3.0,
+                  "why_not_ordinary": "the photograph's upper sash in the bays' faces, about 3.0 m high on the 5.3 m second storey through its camera (sill y 590 and head y 430 at 53.6 px/m)"
                 }
               ]
             }
@@ -594,7 +602,7 @@
         "dormers": [
           {
             "face": "street",
-            "along_m": 8.98,
+            "along_m": 9.0,
             "sash": {
               "variant": "k06.opening.sash_round_fanlight",
               "width_m": 0.8,
@@ -606,7 +614,7 @@
           },
           {
             "face": "street",
-            "along_m": 12.6,
+            "along_m": 12.5,
             "sash": {
               "variant": "k06.opening.sash_round_fanlight",
               "width_m": 0.8,
@@ -618,7 +626,7 @@
           },
           {
             "face": "south",
-            "along_m": 7.5,
+            "along_m": 7.4,
             "sash": {
               "variant": "k06.opening.sash_round_fanlight",
               "width_m": 0.8,
@@ -634,7 +642,7 @@
       "sources": [
         "chicagology_1816_henderson_photo"
       ],
-      "note": "A slated mansard over the cornice, its lower faces steep and slightly swelling, with dormers in them: two on the street face, over the door and over the north windows, and one on the south face, where the photograph shows them. The photograph's dormers are pedimented with carved cheeks; these are K05's round-headed dormers (open on the match record)."
+      "note": "A slated mansard over the cornice, its lower faces steep and slightly swelling, with dormers in them: two on the street face, over the door and over the north windows, and one on the south face, where the photograph shows them (set 9.0, 12.5 and 7.4 m along their faces). The photograph's dormers are pedimented with carved cheeks; these are K05's round-headed dormers (open on the match record)."
     },
     "rear_wings": {
       "value": [
