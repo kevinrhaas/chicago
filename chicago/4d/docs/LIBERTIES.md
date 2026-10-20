@@ -24167,7 +24167,7 @@ gone, and its stable keeps `coleman_ames_house_1811_prairie_coach_house` here.
 
 ### L-draft-prairie-16-18-west-2334 — The west side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and 1620 read off the 1886 plate
 
-**Covers:** `george_glessner_house_1706_prairie.draft_1904.form.draft_elevation`, `george_glessner_house_1706_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1708_prairie.draft_1904.form.draft_elevation`, `house_1708_prairie.draft_1904.form.draft`, `house_1712_prairie.draft_1904.form.draft_elevation`, `house_1712_prairie.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie.draft_1904.form.draft_elevation`, `house_1726_prairie.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie.draft_1904.form.draft_elevation`, `house_1730_prairie.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `house_1736_prairie.draft_1904.form.draft_elevation`, `house_1736_prairie.draft_1904.form.draft`, `house_1736_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1736_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie.draft_1904.form.draft_elevation`, `walker_house_1720_prairie.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
+**Covers:** `george_glessner_house_1706_prairie.draft_1904.form.draft_elevation`, `george_glessner_house_1706_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1708_prairie.draft_1904.form.draft_elevation`, `house_1708_prairie.draft_1904.form.draft`, `house_1712_prairie.draft_1904.form.draft_elevation`, `house_1712_prairie.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `house_1736_prairie.draft_1904.form.draft_elevation`, `house_1736_prairie.draft_1904.form.draft`, `house_1736_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1736_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie.draft_1904.form.draft_elevation`, `walker_house_1720_prairie.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
 **Decision:** the district draft's 16th-18th block (T-2160, split to T-2334 for the west side
 and T-2335 for the east), run by the builder and under the rules of
 `L-draft-prairie-18-20-west-2329`, whose "What is invented" and "What is not" hold here word for
@@ -24209,6 +24209,13 @@ house under K01's flat roof, the sheet's canted stone bay on K08 and its narrow 
 rear wings, under `L-k01-1636-stone-front-flat-2348`, under the same id; its draft attributes are
 gone. Its door moves from the south end to the north: the sheet's bay fills the south half of its
 front, so the 1634/1636 pair repeats rather than mirrors.
+**1726 and 1730 retired from this liberty by T-2934 (2026-10-20):** both now stand as K01 brick
+frontages under `L-k01-1726-1730-map-led-2934`, under the same ids, their plans read off the sheet
+(1726's canted bays, side projections and rear pieces; 1730's front block under a mansard, its
+frame bay, south projection and vestibule, and its two-storey rear range); their draft attributes
+are gone, and their stables keep `house_1726_prairie_coach_house` and `house_1730_prairie_coach_house`
+here. The rule above that drew 1730 flat beside 1726 is retired with them: the sheet's own dashed
+line puts a mansard on 1730.
 1720 Walker's Italianate
 frame is a low bracketed hip, its central gable, canted bay and full-width porch left to T-1873.
 The pairs the sheet attests (1626/1628, 1634/1636, 1700/1706) mirror their entrances to their
@@ -24988,6 +24995,52 @@ source, replaces the kits' choices in place.
 **Ticket:** T-2355 (piece 1 of T-1862); T-2391 (the rear piece).
 **Review:** `docs/RESEARCH/k01-1628-brick-2355/README.md`, `docs/RESEARCH/k01-1628-rear-piece-2391/README.md`.
 **Recorded:** 2026-10-11 (T-2355); 2026-10-12 (T-2391).
+
+### L-k01-1726-1730-map-led-2934 — 1726 and 1730 Prairie refined from the district draft to bounded map-led K01 brick houses, their plans the 1911 sheet's and everything above the plan the kits'
+
+**Decision:** the two brick houses at 1726 and 1730 Prairie Avenue (T-2934, piece 2 of T-1874)
+are no longer district drafts. Each stands, under the draft's own id, as a `k01_frontage` record
+built by `generators/k01_emit.py`. No photograph, plate or description of either is known, so
+each is a BOUNDED design: the plan is read off the sheet and every elevation is the kits', chosen
+so the two fronts do not read as one.
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace and the
+T-1840 census: for 1726 ('2½B', brick, 'D'), the main body (21.6 m by 8.4 m, where the
+draft's fill had found 7.25 m), the canted bay across the front's south part and the open porch
+beside it on the north, where the entrance is; the canted bay on the south side and the wider rear
+section behind it; the small projection on the north side; the two-storey brick rear piece and the
+frame porch behind the rear wall; and the '12 12' printed against its side walls, two brick
+storeys, which puts the half storey in the roof. For 1730 ('3B', rear '2B', brick, 'D'), the wall
+the sheet draws across the house between the front block (12.5 m by 7.9 m) and the rear range
+(10.3 m), the north wall on the lot line, the frame bay on the front, the south projection and the
+one-storey vestibule at its front end, the frame porch behind the rear range; and the '12 12'
+against the front block's walls with the dashed line the sheet draws inside them, diagonals to
+each corner: the plan of a mansard's curb and hips, so the '3' is the roof storey. 1736 next door
+carries the same dashed line and is a mansard in its photograph (T-2933).
+**What is invented.** Every height (1726's 1.7 m principal floor and 3.9/3.7 m storeys, 1730's
+1.8 m and 4.1/3.7 m); the walls' thickness; the brick's colour, bond and grime (the one K03
+panel); every window's kind, size and place and every head (K09 cornice hoods on 1726, flat stone
+lintels on 1730); the doors, the stoops and their widths; the K10 bracketed cornices; 1726's hip
+(the sheet draws no roof), its 38-degree pitch and its street dormer for the attic; 1730's
+mansard's section, slate and two gabled dormers; the chimney stacks; the gutters and downpipes;
+every bay's and projection's storey heights, windows and roof; the rear wings' floors, decks and
+windows.
+**What the kit could not hold, and how it is bounded.** K08 holds a sheet's canted bay to 1.2 m
+out and a projection to 6.0 m wide and 1.2 m proud. 1726's front bay (1.4 m out) and south bay
+(1.6 m) are built 1.2 m out on the sheet's widths; of 1726's rear section, 9.7 m along the wall
+and 1.7 m further south on the sheet, 6.0 m from the rear corner are built 1.2 m proud and the
+rest, with its canted end, is not. 1730's south projection and vestibule stand 2.1 m out on the
+sheet and are built 1.2 m out. 1726's north projection is built square where the sheet cants its
+front end. Where 1726's '2B' rear piece runs 2.9 m into the main body's rectangle, it is built at
+the main body's height. Not built: the frame porch the sheet draws north of 1726's rear piece,
+past the main body's north wall (a K01 wing stands inside its host wall's length); the open porch
+in front of 1726's entrance is the K07 stoop alone, with no roof.
+**How to resolve:** a photograph, plate or description of either house, ingested as a source,
+replaces the kits' choices in place; a K08 that holds a deeper bay rebuilds the four bays and
+projections to the sheet's depths.
+**Covers:** `house_1726_prairie.as_mapped_1904.form.basement_lights`, `house_1726_prairie.as_mapped_1904.form.chimneys`, `house_1726_prairie.as_mapped_1904.form.dormer`, `house_1726_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1726_prairie.as_mapped_1904.form.entrance_kit`, `house_1726_prairie.as_mapped_1904.form.north_bays`, `house_1726_prairie.as_mapped_1904.form.principal_floor_m`, `house_1726_prairie.as_mapped_1904.form.rainwater`, `house_1726_prairie.as_mapped_1904.form.rear_bays`, `house_1726_prairie.as_mapped_1904.form.roof_covering`, `house_1726_prairie.as_mapped_1904.form.roof_form`, `house_1726_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1726_prairie.as_mapped_1904.form.sash_by_storey`, `house_1726_prairie.as_mapped_1904.form.service_wall_brick`, `house_1726_prairie.as_mapped_1904.form.side_bays`, `house_1726_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1726_prairie.as_mapped_1904.form.stair_tread_m`, `house_1726_prairie.as_mapped_1904.form.stoop_width_m`, `house_1726_prairie.as_mapped_1904.form.storey_heights_m`, `house_1726_prairie.as_mapped_1904.form.street_front_trim`, `house_1726_prairie.as_mapped_1904.form.wall_head`, `house_1726_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1726_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1726_prairie.as_mapped_1904.form.window_kit`, `house_1730_prairie.as_mapped_1904.form.basement_lights`, `house_1730_prairie.as_mapped_1904.form.chimneys`, `house_1730_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1730_prairie.as_mapped_1904.form.entrance_kit`, `house_1730_prairie.as_mapped_1904.form.mansard`, `house_1730_prairie.as_mapped_1904.form.principal_floor_m`, `house_1730_prairie.as_mapped_1904.form.rainwater`, `house_1730_prairie.as_mapped_1904.form.rear_bays`, `house_1730_prairie.as_mapped_1904.form.roof_covering`, `house_1730_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1730_prairie.as_mapped_1904.form.sash_by_storey`, `house_1730_prairie.as_mapped_1904.form.service_wall_brick`, `house_1730_prairie.as_mapped_1904.form.side_bays`, `house_1730_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1730_prairie.as_mapped_1904.form.stair_tread_m`, `house_1730_prairie.as_mapped_1904.form.stoop_width_m`, `house_1730_prairie.as_mapped_1904.form.storey_heights_m`, `house_1730_prairie.as_mapped_1904.form.street_front_trim`, `house_1730_prairie.as_mapped_1904.form.wall_head`, `house_1730_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1730_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1730_prairie.as_mapped_1904.form.window_kit`
+**Ticket:** T-2934 (piece 2 of T-1874).
+**Review:** `docs/RESEARCH/k01-1726-1730-map-led-2934/README.md`.
+**Recorded:** 2026-10-20 (T-2934).
 
 ### L-k01-1626-brick-frame-bay-2356 — 1626 Prairie's main body refined from the district draft to a three-storey K01 brick house with a two-storey frame bay, the north half of the pair with 1628, everything but the plan, the bay's place and its timber the kits'
 

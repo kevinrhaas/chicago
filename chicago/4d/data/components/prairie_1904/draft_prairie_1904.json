@@ -458,7 +458,9 @@
     "s20-1615-f": "1615 Prairie now stands as the K01 brick frontage house_1615_prairie under K01's flat roof (T-2418, piece 2 of T-1868), the south half of the pair with 1613, laid on 1613's south wall, which refines this draft in place under the draft's own id: the four-storey main body on K01, the sheet's small frame projection on its south wall on K08 in timber, and its one-storey frame rear porch on K01's rear wings in timber; the draft stands no second building beside it.",
     "s28-1811-front": "1811 Prairie now stands as the K01 stone-front house coleman_ames_house_1811_prairie (T-2541, piece 1 of T-1891), Miner T. Ames's house read off the Inland Architect plate of October 1888 against this sheet, which refines this draft in place under the draft's own id: the front block on K01 with its north bay and its oriel on K08, and the brick range and the two-storey rear section behind it on K01's rear wings; the draft stands no second building beside it.",
     "s20-1619-f": "1619 Prairie now stands as the K01 stone-front house house_1619_prairie under K01's flat roof (T-2434, piece 3 of T-1869), which refines this draft in place under the draft's own id: the four-storey main body on K01 with the sheet's curved bay on K08's bow, and the sheet's brick rear block and two-storey frame piece on K01's rear wings; the draft stands no second building beside it.",
-    "s20-1637-f": "1637 Prairie's main body now stands as the K01 brick frontage spalding_house_1637_prairie (T-2441, piece 1 of T-1870), read off the engraving of Jesse Spalding's remodel of the Grosvenor house against this sheet, which refines this draft in place under the draft's own id: the main body on K01 with the engraving's swell bay and the sheet's forward south wing on K08, and the sheet's rear range behind the south part on K01's rear wings; the draft stands no second building beside it."
+    "s20-1637-f": "1637 Prairie's main body now stands as the K01 brick frontage spalding_house_1637_prairie (T-2441, piece 1 of T-1870), read off the engraving of Jesse Spalding's remodel of the Grosvenor house against this sheet, which refines this draft in place under the draft's own id: the main body on K01 with the engraving's swell bay and the sheet's forward south wing on K08, and the sheet's rear range behind the south part on K01's rear wings; the draft stands no second building beside it.",
+    "s20-1726-f": "1726 Prairie now stands as the K01 brick frontage house_1726_prairie (T-2934, piece 2 of T-1874), which refines this draft in place under the draft's own id: the main body on K01 with the sheet's front and south canted bays and its side projections on K08, and the sheet's two-storey rear piece and frame porch on K01's rear wings; the draft stands no second building beside it.",
+    "s20-1730-f": "1730 Prairie now stands as the K01 brick frontage house_1730_prairie under a K05 mansard (T-2934, piece 2 of T-1874), which refines this draft in place under the draft's own id: the sheet's three-storey front block on K01 with its frame front bay and south projection and vestibule on K08, and the two-storey rear range and frame porch on K01's rear wings; the draft stands no second building beside it."
   },
   "frontages": {
     "frontage-28-038": {
@@ -758,14 +760,18 @@
     "frontage-20-019": {
       "slug": "house",
       "entrance": "north",
-      "why": "2B brick with a bay: the brick family's hip over two storeys."
+      "why": "2B brick with a bay: the brick family's hip over two storeys.",
+      "house_id": "house_1726_prairie",
+      "house_address": "1726"
     },
     "frontage-20-020": {
       "slug": "house",
       "roof": "flat",
       "brackets": true,
       "entrance": "south",
-      "why": "3B brick, rear 2B, the main block outlined by a dashed line: flat behind a bracketed cornice so that the three brick houses 1726-1736 do not share one roof; which it had is T-1874's."
+      "why": "3B brick, rear 2B, the main block outlined by a dashed line: flat behind a bracketed cornice so that the three brick houses 1726-1736 do not share one roof; which it had is T-1874's.",
+      "house_id": "house_1730_prairie",
+      "house_address": "1730"
     },
     "frontage-20-021": {
       "slug": "house",

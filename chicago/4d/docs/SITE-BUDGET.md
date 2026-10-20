@@ -900,3 +900,21 @@ desktop 59 of 61 (96.7 of 512 MiB). Arraybuffers rose (phone 358.5 → 372.4, de
 710.9 → 757.2 MB); no heap snapshot was taken, so whose they are is not read here.
 These stand on the GL meter that T-2558's H0 run found may read WebGL textures about
 40 MiB low on one page (T-2720).
+
+## 10. 1726 and 1730 Prairie on K01 — measured storage allowance, T-2934
+
+T-2934 moves 1726 and 1730 Prairie from the district draft to the K01 frontage kit. Their
+two web derivatives are 1,923,648 and 1,997,992 bytes against the drafts' 31,116 and
+42,220, and the published tree goes from 318.39 MiB on dev to 322.17 MiB, over the 320 MiB
+budget. The budget goes to **328 MiB**: two 328 MiB app allowances and the 129.136 MiB of
+other site content total 785.136 MiB, below the 1 GiB platform ceiling.
+
+Where the bytes are: of 1726's 1,923,648 bytes, 1,540,977 (80 %) are the eleven KTX2
+texture sheets the K01 kit embeds in every house it builds — the K03 common brick
+(208,511 with its normal map), the limestone of its sills, lintels and foundation
+(639,980), the K04 tin, copper and painted-tin roofing (366,904 in six sheets), the
+common buff brick (149,650) and the painted timber (176,122). The 21 K01 houses already
+standing carry the same sheets each, so the tree ships them over and over. Sharing them
+across houses (one copy of each sheet, the GLBs referring to it) is the durable fix and
+hands back far more than this raise; it is ticketed as T-2934's follow-up.
+

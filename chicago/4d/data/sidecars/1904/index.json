@@ -343,9 +343,9 @@
     },
     {
       "id": "house_1726_prairie",
-      "name": "1726 Prairie Avenue — Brick masonry (district draft; refined by T-1874)",
+      "name": "1726 Prairie Avenue — brick house of two and a half storeys with its canted bays, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1726_prairie.json",
-      "asset": "gltf/house_1726_prairie__draft_1904.glb"
+      "asset": "gltf/house_1726_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1726_prairie_coach_house",
@@ -355,9 +355,9 @@
     },
     {
       "id": "house_1730_prairie",
-      "name": "1730 Prairie Avenue — Brick masonry (district draft; refined by T-1874)",
+      "name": "1730 Prairie Avenue — brick house under a mansard with its two-storey rear range, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1730_prairie.json",
-      "asset": "gltf/house_1730_prairie__draft_1904.glb"
+      "asset": "gltf/house_1730_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1730_prairie_coach_house",

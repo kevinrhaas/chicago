@@ -230,7 +230,16 @@ WIDE_RANGE_YEARS = 12
 # boot payload is untouched (no textured house is in the 1835 boot). §9 of
 # docs/SITE-BUDGET.md has the numbers; T-2596 (Glessner v4 in KTX2) handed 30.81 MiB
 # back, and the tree then read 268.87 MiB.
-SITE_BUDGET_MB = 320
+# T-2934, 2026-10-20: 320 -> 328 MiB, measured. dev's tree read 318.39 MiB; 1726 and
+# 1730 Prairie leave the draft for K01 and their two web GLBs add 3.85 MiB (1.92 + 2.00,
+# less the 0.07 of the drafts they retire), 322.17 MiB. About 80 % of a K01 house's web
+# GLB is the K03/K04/K02 texture sheets every K01 house embeds again (1726's: 1.54 of
+# 1.92 MB, its limestone sheet alone 0.64), so every house that leaves the draft for K01
+# now pays about 1.5 MiB the tree already holds; sharing those sheets is the durable fix
+# and is ticketed (T-2934's follow-up), and it hands back far more than this raise.
+# Two 328 MiB app allowances plus the 129.136 MiB of other site content total
+# 785.136 MiB, below the 1 GiB platform ceiling. Storage hygiene only, as above.
+SITE_BUDGET_MB = 328
 # Warn at 90 % of it. See run_site_check for why this band exists (T-0722).
 SITE_WARN_FRACTION = 0.90
 # Identical files smaller than this are not worth a merge refusal (T-0722).
