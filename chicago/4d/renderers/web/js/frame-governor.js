@@ -16,7 +16,10 @@
  *           than the visitor chose, never more.
  *   pace    1 = draw on every rAF, 2 = a steady 30 fps (draw when 1/30 s has
  *           passed), taken only by a device that cannot hold 60 at the floor
- *           and can hold 30.
+ *           (or where a step that bought nothing stopped the ladder, T-2829)
+ *           and can hold 30, three windows in a row — and never by one whose
+ *           typical frame already comes sooner than 1/30 s on a rate of its own
+ *           between 60 and 30 (T-2829, below).
  *   shadow  whether the sun's shadow map is re-rendered this frame. On `light`
  *           while moving it is re-rendered every second drawn frame: the sun
  *           does not move during a walk, only the eye does.
@@ -71,6 +74,25 @@ export const GOVERNOR = Object.freeze({
   /** A paced frame is drawn once this much of 1/30 s has passed, so a 60 Hz
    *  display draws every other rAF and a 120 Hz one every fourth. */
   paceSlackMs: 4,
+  /** T-2829. A moving window whose MEDIAN lies above this (ms) and under the
+   *  paced interval is a device delivering a rate of its own between 60 and 30:
+   *  a 120 Hz display drawing every third vsync (25 ms), a 90 Hz one every
+   *  second (22 ms). Pacing that to 30 holds its typical frame back to 33 ms —
+   *  the owner's iPhone turned at a 27 ms median on Fixed and a 32 ms one on
+   *  Adaptive (docs/measurements/T-2829-pacing-model.md). On a 60 Hz display a
+   *  median is 16.7 or 33.3 ms and never lies in this band, so the 60/30
+   *  alternation T-2555 paces is paced exactly as before. */
+  ownRateMin: 21,
+  /** Windows in a row that must ask for the pace before it is taken (the
+   *  mirror of `upAfter`): one window of ten whose median lands on 33 ms is
+   *  not a device that needs 30, and a pace, once taken, holds for `probeMs`. */
+  paceAfter: 3,
+  /** T-2829. A step down whose next window's p80 is not this much (ms) under
+   *  the p80 that asked for it bought nothing — the frame is not fill-bound, or
+   *  not enough to leave its vsync rung — so the scale steps no lower (every
+   *  step is a drawing-buffer resize), until the detail tier or the setting
+   *  changes. Kept across rests, so each new move does not resize again. */
+  stepPaidMs: 0.5,
 });
 
 const quantile = (xs, p) => {
@@ -102,11 +124,14 @@ export function createFrameGovernor({ enabled = true, tier = 'full', onChange = 
   let good = 0;
   let upAfter = G.upAfter;
   let sinceUp = Infinity;
+  let futile = false;
+  let stepFrom = null;
+  let toward30 = 0;
 
   const snapshot = () => ({
     mode: on ? 'adaptive' : 'fixed', scale, pace, fps: pace === 2 ? 30 : 60,
     moving, shadowEvery: on && moving && level === 'light' ? 2 : 1,
-    decisions, p80: lastP80, tier: level,
+    decisions, p80: lastP80, tier: level, scaleHeld: futile,
   });
   let told = '';
   const tell = () => {
@@ -127,6 +152,8 @@ export function createFrameGovernor({ enabled = true, tier = 'full', onChange = 
     good = 0;
     upAfter = G.upAfter;
     sinceUp = Infinity;
+    stepFrom = null;
+    toward30 = 0;
   }
 
   /** Before a rAF's work: false = skip this rAF (paced at 30 and too soon). */
@@ -135,21 +162,28 @@ export function createFrameGovernor({ enabled = true, tier = 'full', onChange = 
     return t - lastDrawT >= 1000 / 30 - G.paceSlackMs;
   }
 
-  function decide(p80) {
+  function decide(p80, p50) {
     decisions += 1;
     lastP80 = p80;
     sinceUp += 1;
+    if (stepFrom !== null && p80 > stepFrom - G.stepPaidMs) futile = true;
+    stepFrom = null;
+    const asked = toward30;
+    toward30 = 0;
     if (pace === 1) {
       if (p80 > G.budget60) {
         good = 0;
         if (sinceUp <= 2) upAfter = Math.min(G.upAfterMax, upAfter * 2);
-        if (scale > G.floor + 1e-6) {
+        if (scale > G.floor + 1e-6 && !futile) {
           // Pixels go as the square of the ratio, so the ratio that would bring
           // this p80 to budget is the square root of the miss — taken in a
           // bounded step, because a window is ten frames and not a promise.
           const f = Math.sqrt(G.budget60 / p80);
           scale = Math.max(G.floor, scale * Math.min(G.stepDownMax, Math.max(G.stepDownMin, f)));
-        } else if (p80 <= G.hold30) {
+          stepFrom = p80;
+        } else if (p80 <= G.hold30 && !(p50 > G.ownRateMin && p50 < 1000 / 30 - G.paceSlackMs)
+          && (toward30 = asked + 1) >= G.paceAfter) {
+          toward30 = 0;
           pace = 2;
           pacedMs = 0;
         }
@@ -162,9 +196,12 @@ export function createFrameGovernor({ enabled = true, tier = 'full', onChange = 
       pace = 1;
     } else if (pacedMs >= G.probeMs) {
       // The probe: one window at 60. A device that still cannot hold it is at
-      // the floor and inside hold30, so the next decision paces it again.
+      // the floor and inside hold30, so the next decision paces it again — at
+      // once, having asked for 30 a moment ago, unless that window shows a
+      // rate of its own between 60 and 30.
       pace = 1;
       pacedMs = 0;
+      toward30 = G.paceAfter - 1;
     }
   }
 
@@ -196,8 +233,9 @@ export function createFrameGovernor({ enabled = true, tier = 'full', onChange = 
     }
     if (samples.length >= G.window) {
       const p80 = quantile(samples, 0.8);
+      const p50 = quantile(samples, 0.5);
       samples = [];
-      decide(p80);
+      decide(p80, p50);
     }
     shadowFresh = level !== 'light' || drawn % 2 === 0;
     tell();
@@ -208,7 +246,7 @@ export function createFrameGovernor({ enabled = true, tier = 'full', onChange = 
     frameDrawn,
     /** Neutral now — for a capture, a forced harness frame, a setting change. */
     rest() { rest(); tell(); },
-    setEnabled(v) { on = !!v; rest(); tell(); return on; },
+    setEnabled(v) { on = !!v; futile = false; rest(); tell(); return on; },
     /** HARNESS ONLY: put the governor where a slow moving window would have —
      *  `scale` (clamped to [floor, 1]) and `pace` — so a runner whose frames are
      *  too slow to drive it there can still ask what a rest does after it. */
@@ -221,7 +259,7 @@ export function createFrameGovernor({ enabled = true, tier = 'full', onChange = 
       tell();
       return snapshot();
     },
-    setTier(t) { level = t; },
+    setTier(t) { if (t !== level) futile = false; level = t; },
     get enabled() { return on; },
     get scale() { return scale; },
     get pace() { return pace; },

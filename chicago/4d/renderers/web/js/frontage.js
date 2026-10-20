@@ -2375,6 +2375,7 @@ export async function createFrontage({
     };
   });
   out.pickAt = pick.pickAt;
+  out.pickAtAsync = pick.pickAtAsync; // the gaze target's look (T-2723)
   out.pickAtRaycast = pick.pickAtRaycast;
 
   out.dispose = () => {

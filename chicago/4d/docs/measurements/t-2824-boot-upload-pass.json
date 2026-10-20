@@ -1,0 +1,178 @@
+{
+  "ticket": "T-2824",
+  "measured": "2026-10-19T18:18:16.666Z",
+  "question": "The phone boot upload pass (uploadLayerNow) logs GL_INVALID_OPERATION on every draw: why, and what does making the draws valid cost a phone?",
+  "cause": "With the sun pass held no shadow map exists; three r185 falls back to a DepthTexture it never uploads for the directionalShadowMap[] sampler array, so WebGLState binds its 1x1 RGBA colour texture to a sampler2DShadow and Chrome refuses the draw: \"glMultiDrawElementsANGLE: Mismatch between texture format and sampler type (signed/unsigned/float/shadow)\".",
+  "answer": "Letting the draws run (valid) removes the errors but costs +67 to +74 MB of GPU-process PSS, still held after the town settles. Holding the draw calls for the pass (held) removes the errors at the memory of before: GPU-process PSS within run-to-run noise, the GL meter identical.",
+  "profile": "/1904/ phone 390x780 dpr3 touch, headless Chromium (SwiftShader), published mirror; three interleaved rounds (held/before/valid, valid/held/before, before/valid/held), each round under the shared gate lock",
+  "tools": {
+    "probe": "ad hoc scratch probe, not committed: an init script wraps the WebGL2 draw calls and WEBGL_multi_draw with getError, attributed by stack to uploadLayerNow (a held draw never reaches the wrapper, so held reads 0 draws seen); Chrome console GL messages counted (Chrome caps them per context); Pss from /proc/<pid>/smaps_rollup of the browser --type=gpu-process and renderer every 200 ms; ready = __chicago4d.ready, settled = entered at spawn, 3 frames, 1 s, GC, 3 s",
+    "memory": "node tools/measure_memory.mjs --year 1904 --only mobile --no-snapshot"
+  },
+  "arms": {
+    "before": "origin/dev: the pass draws with the sun pass held; every draw refused",
+    "valid": "tried, not shipped: the sun lent a 1x1 comparing depth map for the pass, so the draws run",
+    "held": "shipped: the pass runs with the context draw calls held (no-op), uploads unchanged"
+  },
+  "runs": {
+    "before": [
+      {
+        "round": 1,
+        "consoleGlErrors": 252,
+        "getErrorAfterDraw": {
+          "1282": 267
+        },
+        "drawsSeenInPass": 267,
+        "gpuPssReadyMB": 580.3,
+        "gpuPssSettledMB": 585.4,
+        "gpuPssPeakBootMB": 598.2,
+        "rendererPssSettledMB": 524.5,
+        "pageErrors": 0,
+        "bootSeconds": 62
+      },
+      {
+        "round": 2,
+        "consoleGlErrors": 252,
+        "getErrorAfterDraw": {
+          "1282": 267
+        },
+        "drawsSeenInPass": 267,
+        "gpuPssReadyMB": 579.1,
+        "gpuPssSettledMB": 585.7,
+        "gpuPssPeakBootMB": 597.8,
+        "rendererPssSettledMB": 530.8,
+        "pageErrors": 0,
+        "bootSeconds": 59
+      },
+      {
+        "round": 3,
+        "consoleGlErrors": 252,
+        "getErrorAfterDraw": {
+          "1282": 267
+        },
+        "drawsSeenInPass": 267,
+        "gpuPssReadyMB": 576.6,
+        "gpuPssSettledMB": 584.2,
+        "gpuPssPeakBootMB": 608.7,
+        "rendererPssSettledMB": 530.5,
+        "pageErrors": 0,
+        "bootSeconds": 57
+      }
+    ],
+    "valid": [
+      {
+        "round": 1,
+        "consoleGlErrors": 0,
+        "getErrorAfterDraw": {},
+        "drawsSeenInPass": 267,
+        "gpuPssReadyMB": 648.9,
+        "gpuPssSettledMB": 659.4,
+        "gpuPssPeakBootMB": 684.1,
+        "rendererPssSettledMB": 529.5,
+        "pageErrors": 0,
+        "bootSeconds": 69
+      },
+      {
+        "round": 2,
+        "consoleGlErrors": 0,
+        "getErrorAfterDraw": {},
+        "drawsSeenInPass": 267,
+        "gpuPssReadyMB": 646.9,
+        "gpuPssSettledMB": 656.6,
+        "gpuPssPeakBootMB": 679.1,
+        "rendererPssSettledMB": 527.9,
+        "pageErrors": 0,
+        "bootSeconds": 68
+      },
+      {
+        "round": 3,
+        "consoleGlErrors": 0,
+        "getErrorAfterDraw": {},
+        "drawsSeenInPass": 267,
+        "gpuPssReadyMB": 653,
+        "gpuPssSettledMB": 659.5,
+        "gpuPssPeakBootMB": 684.7,
+        "rendererPssSettledMB": 529.7,
+        "pageErrors": 0,
+        "bootSeconds": 64
+      }
+    ],
+    "held": [
+      {
+        "round": 1,
+        "consoleGlErrors": 0,
+        "getErrorAfterDraw": {},
+        "drawsSeenInPass": 0,
+        "gpuPssReadyMB": 581.7,
+        "gpuPssSettledMB": 586.3,
+        "gpuPssPeakBootMB": 596.2,
+        "rendererPssSettledMB": 530.6,
+        "pageErrors": 0,
+        "bootSeconds": 62
+      },
+      {
+        "round": 2,
+        "consoleGlErrors": 0,
+        "getErrorAfterDraw": {},
+        "drawsSeenInPass": 0,
+        "gpuPssReadyMB": 577.1,
+        "gpuPssSettledMB": 585.2,
+        "gpuPssPeakBootMB": 605.1,
+        "rendererPssSettledMB": 523.8,
+        "pageErrors": 0,
+        "bootSeconds": 60
+      },
+      {
+        "round": 3,
+        "consoleGlErrors": 0,
+        "getErrorAfterDraw": {},
+        "drawsSeenInPass": 0,
+        "gpuPssReadyMB": 582.4,
+        "gpuPssSettledMB": 586.3,
+        "gpuPssPeakBootMB": 612.9,
+        "rendererPssSettledMB": 526.3,
+        "pageErrors": 0,
+        "bootSeconds": 54
+      }
+    ]
+  },
+  "measureMemory": {
+    "before": {
+      "totalMB": 354.2,
+      "jsHeapMB": 77.6,
+      "arrayBuffersMB": 76,
+      "gpuBuffersMB": 102.9,
+      "gpuTexturesMB": 97.8
+    },
+    "held": {
+      "totalMB": 354.3,
+      "jsHeapMB": 77.6,
+      "arrayBuffersMB": 76,
+      "gpuBuffersMB": 102.9,
+      "gpuTexturesMB": 97.8
+    }
+  },
+  "desktop": {
+    "note": "desktop never runs the upload pass (main.js settleOnGpu returns unless the pointer is coarse); 1280x800 boot, one run each",
+    "before": {
+      "consoleGlErrors": 0,
+      "getErrorAfterDraw": {
+        "boot": {},
+        "other": {},
+        "bootDraws": 0,
+        "draws": 2465
+      },
+      "gpuPssSettledMB": 1119.5
+    },
+    "held": {
+      "consoleGlErrors": 0,
+      "getErrorAfterDraw": {
+        "boot": {},
+        "other": {},
+        "bootDraws": 0,
+        "draws": 2200
+      },
+      "gpuPssSettledMB": 1118.3
+    }
+  }
+}

@@ -484,8 +484,16 @@ def _mansard_roof(m: dict, depth: float, width: float, eave: float, pitch: float
     _within(lower, k5["ranges"]["mansard_lower_deg"], "mansard.lower_pitch_deg")
     _within(pitch, k5["ranges"]["mansard_upper_deg"], "roof_pitch_deg (a mansard's upper hip)")
     rise = float(m["lower_rise_m"])
-    if not 2.0 <= rise <= 4.5:
-        raise ParamError(f"mansard.lower_rise_m {rise}: an attic storey's face rises 2.0-4.5 m")
+    # T-2843: a face may hold two storeys — the house's top storey and its attic over it, as
+    # 1801's steep slate faces do in the Taylor photograph, cornice 8.1 m to deck about 17 m —
+    # and says so (`storeys: 2`); it then rises 4.5-7.5 m. One storey is the default and the
+    # attic storey's 2.0-4.5 m
+    held = m.get("storeys", 1)
+    if held not in (1, 2):
+        raise ParamError(f"mansard.storeys {held!r}: a face holds 1 storey (an attic) or 2")
+    lo, hi = (2.0, 4.5) if held == 1 else (4.5, 7.5)
+    if not lo <= rise <= hi:
+        raise ParamError(f"mansard.lower_rise_m {rise}: a face holding {held} storey(s) rises {lo}-{hi} m")
     if not 0.3 <= overhang <= 1.0:
         raise ParamError(f"eave_overhang_m {overhang}: a mansard's cornice projects 0.3-1.0 m")
     f = k5["parts"]["eave"]["fascia_depth_m"]

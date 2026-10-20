@@ -70,8 +70,10 @@ for reduced in (False,True):
    assert hit and abs(max(hit)-(bt['z1']-.18+.006))<.0001,('threshold depth separation',reduced,u,off,hit)
  print('stone threshold covers the coplanar reveal and sill',reduced)
  # Independently read section ordinates, metres over grade, on the exposed cap.
+ # They are sheet 4's S; T-2880 builds them on the plan's frame, 0.65 ft south
+ # (T-2879's re-zero on the printed 26'-10" court face), so ask there.
  for south,upper,lower in ((43,2.52,2.30),(44,2.32,1.98),(44.5,2.13,1.46),(45,1.78,1.22)):
-  a=math.pi+math.asin((south-28.8)*.3048/(bt['r']+.055))
+  a=math.pi+math.asin((south+.65-28.8)*.3048/(bt['r']+.055))
   x=bt['cx']+(bt['r']+.054)*math.cos(a);y=bt['cy']+(bt['r']+.054)*math.sin(a)
   hits=rays(b,x,y,2)
   assert hits and abs(max(hits)-upper)<.04 and abs(min(hits)-lower)<.04,('coping section edges',reduced,south,hits)
