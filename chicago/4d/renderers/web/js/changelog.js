@@ -1,4 +1,30 @@
 export const CHANGELOG = [ // newest first
+  { v: 2129, ts: '2026-10-20T16:31:03.239Z', date: 'Oct 20, 2026, 11:31 AM CT', title: 'Glessner\'s bow hood ends at its wall, over a slimmer gutter', kind: 'fix',
+    items: [
+      'The copper hood over Glessner\'s courtyard bow now ends at the bow\'s wall, where the 1963 HABS section ends it. It used to reach about two-thirds of a foot past the wall.',
+      'The bow\'s gutter takes the drawing\'s section: about 0.3 ft out from the wall and 0.36 ft deep, sitting on the brick with no fascia board, in place of a deeper box hung outside the hood.',
+      'Found on the way: the drawing\'s leader at the bow\'s north end drops about half a foot south of the built one. Filed as T-2939.',
+    ] },
+  { v: 2128, ts: '2026-10-20T15:23:49.794Z', date: 'Oct 20, 2026, 10:23 AM CT', title: 'Nothing you can see changed: the robots wait for a run\'s lap', kind: 'chore',
+    items: [
+      'Nothing you can see changed: the automatic sweeps that update and merge pending changes now leave one alone while a run is already updating it, instead of throwing that run\'s work away.',
+    ] },
+  { v: 2127, ts: '2026-10-20T15:23:49.794Z', date: 'Oct 20, 2026, 10:23 AM CT', title: 'Nothing you can see changed: the owner\'s 1835 phone reading filed', kind: 'chore',
+    items: [
+      'The owner\'s iPhone reading of moving frame times in 1835 is kept in the project\'s measurements: with the Adaptive setting, turning is now steadier than with Fixed, the reverse of the day before.',
+    ] },
+  { v: 2126, ts: '2026-10-20T15:23:49.794Z', date: 'Oct 20, 2026, 10:23 AM CT', title: 'Nothing you can see changed: graphics card deals the wildflowers and shrubs', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The wildflowers, the big-leaved rosettes and the shrubs around you stand on the same plants, in the same places, with the same flowers, as before.',
+      'The page no longer walks that ring of plants itself every time you take a step. The graphics card decides which plant stands in each spot, in the same pass that already deals the grass clumps, and the page reads its answer back and sets the plants out.',
+      'The weeds a kept yard pushes out to its fence line are still placed by the page, as they always were.',
+      'Just after you arrive somewhere, or jump across the town, the page still deals that ring itself for a moment, until the card has the ground around you.',
+    ] },
+  { v: 2125, ts: '2026-10-20T15:23:49.794Z', date: 'Oct 20, 2026, 10:23 AM CT', title: '1801 Prairie\'s bow balcony, pierced as in its photograph', kind: 'feature',
+    items: [
+      'The stone balcony on the Kimball house\'s bowed bay trades its square balusters for the pierced panels J. W. Taylor photographed: four panels between posts, each cut right through in a diagonal lattice of diamonds.',
+      'The carved pilasters, window surrounds and frieze on the front are still plain stone, and come next.',
+    ] },
   { v: 2124, ts: '2026-10-20T15:10:09.291Z', date: 'Oct 20, 2026, 10:10 AM CT', title: 'Nothing you can see changed: how smoothly 1904 runs on a phone', kind: 'chore',
     items: [
       'Nothing you can see changed. We timed a walk down Prairie Avenue in 1904 on a real phone, at the lightest detail.',

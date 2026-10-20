@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs04-hood-section",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "77e420fa54c1b3af9ab7f57ad0b6fceb3552c03c9df34a7c51d186be17186587",
+  "glb_sha256": "ef60e946008b3242884615f80baea34c35ee832c4b760be6de5ebab8372e4da4",
   "camera_sha256": "1f76d223ece9f5501fd8d70d9e23282213d62971a12fb5efc6c65de2247ba249",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-hood-section-side-by-side.jpg",
   "verdict": "differs",
@@ -12,11 +12,15 @@
       "status": "fixed"
     },
     {
-      "what": "Gutter/fascia projection and local edge/section correspondence still differ from the drawing; the corrected overall elevation is not an exact whole-crop match.",
-      "status": "open"
+      "what": "T-2861: the trough read on the section, at both ends: the south end drawn end-on (top at the hood's eave 27.38 ft, face 0.31 ft out from the wall line at S38.62, foot 27.0-27.04) and the north end cut against the north range (floor 27.04, lip 27.30, 0.35 ft out from S26.2). No fascia board is drawn under it; the brick runs up to the trough. Built: 0.094 m out from the wall, 0.11 m deep, its outlet at its middle, in place of the shared 0.18 m box hung 1.13 ft out. On the render the trough's face and foot fall within about 0.1 ft of the drawn lines, the top 0.05 ft under the drawn eave (the section/eave datum T-2228 records).",
+      "status": "fixed"
     },
     {
-      "what": "T-2906 re-zeroed this camera on the plan's frame (+0.65 ft; eye v 12.6022 to 12.4041), as T-2880 did habs04-terrace-section. In this frame the drawn hood ends at about S39.25 (sheet 4's 38.6 re-zeroed) against the built 39.9. T-2861 owns that.",
+      "what": "T-2861: sheet 4 ends the hood's copper at S38.62 (plan 39.27), on the bow wall's drawn face. The eave is set 0.05 ft past the built wall (was 0.20 m), so the hood now ends on the render at S38.73 (plan 39.38) against the drawn 38.62, the 0.09 ft that is T-2925's carried bow radius (the drawn bow ends 39.31, the built 39.4), not the hood's.",
+      "status": "fixed"
+    },
+    {
+      "what": "Not recorded before T-2861: the court-bow leader at the hood's north end. Sheet 4 draws it dropping from the trough at about S26.95 to 26.56 ft and offsetting north to S26.54 at 25.8 ft, with a ring at S26.45, 26.55 ft; the build's box leader drops about 0.5 ft further north, with no ring. T-2939 owns it.",
       "status": "open"
     },
     {
