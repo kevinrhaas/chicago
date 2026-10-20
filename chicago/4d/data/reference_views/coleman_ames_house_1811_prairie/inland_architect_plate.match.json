@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8ce7f3461ee93e70be3fda46f6b51774a40eaf8a7d5f9d025a90049a74e95502",
+  "glb_sha256": "718d56d7a333c9f44ce9cd8e8531df534f4d6167e8aa16cc63b969ce3b5a73d3",
   "camera_sha256": "8f67a67f5a407ad30522085a1ab67f9c29ddc0bae6ceb1a979db9ea1accdc2b4",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/inland_architect_plate-side-by-side.jpg",
   "verdict": "differs",
@@ -62,7 +62,8 @@
     },
     {
       "what": "the bay's basement lights: two large iron-grilled lights under its windows, about 0.1-1.1 m over grade; not built (K08 stacks no second window in a storey; the ironwork is T-1892's)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-2916: K08's bay split at a 1.75 m basement storey, its string course at 1.67-1.83 m on the plate's sill course; under each window a basement light 0.95 m by 1.0 m from 0.22 m (the plate's at y 765-819 px, x 139-184 and 235-272 px: the heads within about 3 px, the sills about 7 px higher, because K06's sill stone must stand on the bay's 0.1 m plinth), barred in K08's grille of five bars and a ring. The plate's scrolled panels are drawn as bars and one scroll"
     },
     {
       "what": "the entrance porch: the plate's arch is an open porch, about 1.8 m wide, deep, on clustered columns with carved capitals, the door far back in it; its stair runs between scrolled stone cheek walls; the build has a door in a shallow reveal under a small arch (T-1892)",
@@ -82,7 +83,8 @@
     },
     {
       "what": "the pierced (fretwork) stone balcony on the bay's deck in front of the third storey: not built; the bay's deck carries only its moulded cornice (T-1892)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-2916: K08's stone balustrade round the bay's flat deck, its cheeks and front: 0.7 m high, 0.3 m posts at its corners and against the wall, a 0.22 m coping and close-set stone bars at 0.12 m; its top lands at y about 395 px against the plate's coping at 392. The fretwork's interlace is not carved: the bars give its pierced light and shade"
     },
     {
       "what": "the roof's shape: the plate's main roof reads as a steep hipped mass whose apex stands over the bay (x 320 px, about v 4 m), its south slope falling behind the oriel to a lower roof (top about 13 m) that runs to the tall stack; the build lays K01's one ridge along the whole front at 16.0 m, so it shows slate where the plate shows sky over the south half (x 400-500 px, y 240-340 px)",

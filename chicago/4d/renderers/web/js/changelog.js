@@ -1,4 +1,24 @@
 export const CHANGELOG = [ // newest first
+  { v: 2116, ts: '2026-10-20T12:18:08.863Z', date: 'Oct 20, 2026, 7:18 AM CT', title: '1811 Prairie\'s bay gains its balcony and grilled basement lights', kind: 'feature',
+    items: [
+      'The north bay of the Ames house at 1811 Prairie Avenue now has a stone balcony around its flat top, under the stone gable, as in the 1888 Inland Architect photograph.',
+      'Under the bay\'s two ground-floor windows are its two basement lights, barred in iron, just above the walk. A stone sill course now runs across the bay at the height the photograph shows.',
+      'Not yet carved: the balcony\'s pierced fretwork, drawn here as close-set stone bars, and the grilles\' scrolls, drawn as bars and a ring. Liberty L-k01-1811-ames-front-2541 records both.',
+    ] },
+  { v: 2115, ts: '2026-10-20T12:18:08.863Z', date: 'Oct 20, 2026, 7:18 AM CT', title: 'Glessner\'s garden bow and stair tower, window by window', kind: 'change',
+    items: [
+      'The bow over the courtyard terrace now has the windows the 1963 survey drawing shows. Each floor has a broad window, a middle one and a narrow one, and the garden door sits under the middle one. Before, they were three equal windows spaced evenly round the curve.',
+      'Unbroken bands of stone now run across the bow above and below its windows, as drawn.',
+      'The stair tower\'s four slit windows and its three top-floor windows stand at the drawing\'s heights. The top windows had been a foot too low.',
+      'The three small roof dormers move half a foot south, onto the same footing as the rest of the courtyard.',
+    ] },
+  { v: 2114, ts: '2026-10-20T11:26:03.556Z', date: 'Oct 20, 2026, 6:26 AM CT', title: '1637 Prairie\'s south bay reshaped to its photograph', kind: 'feature',
+    items: [
+      'The stone bay on 1637\'s south side now stands deeper, as its 1870s photograph shows it. Its side windows and corner columns sit where the picture has them, and the big arched window is centred on the front.',
+      'Below that window, the bay\'s base has a broad oval stone panel in a moulded ring, where a small window stood before.',
+      'The arched window above the bay, with its shutters, has moved a little east to match the photograph.',
+      'The 1911 fire map draws the bay shallower. The extra depth, the panel\'s carving and the window\'s offset come from one cropped photograph, and are marked as such.',
+    ] },
   { v: 2113, ts: '2026-10-20T10:39:38.830Z', date: 'Oct 20, 2026, 5:39 AM CT', title: 'Nothing you can see changed: release checks wait honestly for the town', kind: 'chore',
     items: [
       'Nothing you can see changes. The automated walk-through that checks each release now waits for the town to finish loading for as long as it says it does, a limit set from load times measured on this project\'s own test machines, so a slow machine no longer fails it for no fault of the page.',

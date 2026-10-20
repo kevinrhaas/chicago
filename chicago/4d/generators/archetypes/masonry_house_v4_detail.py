@@ -1152,22 +1152,33 @@ def bow(b,w):
     a0,a1=sorted((w['a0'],w['a1']))
     if a1-a0>math.pi:a0,a1=a1,a0+2*math.pi
     n=w['lights_per_row'];r=w['r'];cx,cy=w['cx'],w['cy'];conf=w['conf_wall']
-    window_angles=[]
-    for i in range(n):
-        a=a0+(a1-a0)*(i+.5)/n;half=(a1-a0)/n*.28
-        window_angles.append((a-half,a+half))
     windows=[]
-    for wi,(a,c) in enumerate(window_angles):
-        for ri,(lo,hi) in enumerate(w['light_rows']):
-            isdoor=ri==0 and wi==n//2 and b.params.detail.get('bow_first_floor_central_door')
-            if isdoor and b.params.detail.get('bow_terrace'):
-                lo=b.params.detail['bow_terrace']['z1']-.18
-            windows.append({'a0':a,'a1':c,'z0':lo,'z1':hi,'door':isdoor})
+    if w.get('light_spans'):
+        # T-2925: each light at the extent the drawing gives it, the door named
+        for (lo,hi),row in zip(w['light_rows'],w['light_spans']):
+            for s in row:
+                z0=b.params.detail['bow_terrace']['z1']-.18 if s['door'] and b.params.detail.get('bow_terrace') else lo
+                windows.append({'a0':s['a0'],'a1':s['a1'],'z0':z0,'z1':hi,'door':s['door']})
+    else:
+        window_angles=[]
+        for i in range(n):
+            a=a0+(a1-a0)*(i+.5)/n;half=(a1-a0)/n*.28
+            window_angles.append((a-half,a+half))
+        for wi,(a,c) in enumerate(window_angles):
+            for ri,(lo,hi) in enumerate(w['light_rows']):
+                isdoor=ri==0 and wi==n//2 and b.params.detail.get('bow_first_floor_central_door')
+                if isdoor and b.params.detail.get('bow_terrace'):
+                    lo=b.params.detail['bow_terrace']['z1']-.18
+                windows.append({'a0':a,'a1':c,'z0':lo,'z1':hi,'door':isdoor})
     curved_masonry(b,cx,cy,r,0,w['wall_top_z'],conf,BRICK,windows,a0,a1)
+    courses=w.get('courses') or []
     for op in windows:
         a,c=op['a0'],op['a1'];mid=(a+c)/2
         p=(cx+r*math.cos(a),cy+r*math.sin(a));q=(cx+r*math.cos(c),cy+r*math.sin(c))
-        facet_window(b,p,q,op['z0'],op['z1'],(math.cos(mid),math.sin(mid),0),conf,stone_jambs=False,door=op['door'],sash=True)
+        facet_window(b,p,q,op['z0'],op['z1'],(math.cos(mid),math.sin(mid),0),conf,stone_jambs=False,door=op['door'],sash=True,
+                     surrounds=not courses)
+    for course in courses:
+        arc_course(b,cx,cy,r,course['a0'],course['a1'],course['z0'],course['z1'],conf)
     if b.params.detail.get('continuous_copper_corner'):
         return  # One joined fan and return are emitted in supplemental().
     z=w['wall_top_z'];zr=z+w['roof_rise_m'];ro=r+.20
@@ -1181,8 +1192,25 @@ def bow(b,w):
 
 
 
+def arc_course(b,cx,cy,r,a0,a1,z0,z1,conf,proud=.05,bed=.03):
+    """A stone course laid round part of a curved wall (T-2925: the hall bow's lintel and
+    sill courses, which sheet 4 draws running unbroken past its lights)."""
+    count=max(2,math.ceil((a1-a0)/math.radians(2)))
+    angles=[a0+(a1-a0)*i/count for i in range(count+1)]
+    def P(a,rad,z):return (cx+rad*math.cos(a),cy+rad*math.sin(a),z)
+    ro,ri=r+proud,r-bed
+    for a,c in zip(angles,angles[1:]):
+        mid=(a+c)/2;out=(math.cos(mid),math.sin(mid),0)
+        b.raw([P(a,ro,z0),P(c,ro,z0),P(c,ro,z1),P(a,ro,z1)],conf,ROUGH_TRIM,out)
+        b.raw([P(a,ri,z1),P(c,ri,z1),P(c,ro,z1),P(a,ro,z1)],conf,ROUGH_TRIM,(0,0,1))
+        b.raw([P(a,ri,z0),P(c,ri,z0),P(c,ro,z0),P(a,ro,z0)],conf,ROUGH_TRIM,(0,0,-1))
+    for a,side in ((a0,-1),(a1,1)):
+        tangent=(-math.sin(a)*side,math.cos(a)*side,0)
+        b.raw([P(a,ri,z0),P(a,ro,z0),P(a,ro,z1),P(a,ri,z1)],conf,ROUGH_TRIM,tangent)
+
+
 def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False,panes=None,surrounds=True,
-                 sash=False):
+                 sash=False,stones_m=None):
     """Recessed sash on an arbitrarily oriented planar bay facet.
 
     `sash` draws T-2212's one-over-one double-hung in two planes in place of the
@@ -1295,7 +1323,9 @@ def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False
             z=z0+(z1-z0)*row/rows;frames.append((0,width,z-.022,z+.022))
         for ua,ub,za,zb in frames:
             box(ua,ub,za,zb,-.285,-.18,PAINTED_WOOD)
-    stones=[(-.20,width+.20,z0-.1,z0),(-.20,width+.20,z1,z1+.18)] if surrounds else []
+    # `stones_m` (head, sill, side) sizes a surround the drawing measures (T-2925)
+    head,sill,side=stones_m or (.18,.1,.20)
+    stones=[(-side,width+side,z0-sill,z0),(-side,width+side,z1,z1+head)] if surrounds else []
     if stone_jambs:stones += [(-.27,0,z0,z1),(width,width+.27,z0,z1)]
     for ua,ub,za,zb in stones:
         box(ua,ub,za,zb,-.03,.05,ROUGH_TRIM)
@@ -1624,7 +1654,8 @@ def tower(b,t,params):
         a,c=w['a0'],w['a1'];p=(cx+r*math.cos(a),cy+r*math.sin(a));q=(cx+r*math.cos(c),cy+r*math.sin(c))
         lantern=w['z0']>=data['bands'][0][0]
         facet_window(b,p,q,w['z0'],w['z1'],(math.cos(w['angle']),math.sin(w['angle']),0),conf,stone_jambs=False,
-                     panes=data['lantern_panes'] if lantern else None,surrounds=not lantern)
+                     panes=data['lantern_panes'] if lantern else None,surrounds=not lantern,
+                     stones_m=None if lantern else data.get('slit_stones_m'))
     from archetypes.masonry_house_v4_rough_bands import add_rough_band
     for z0,z1 in data['bands']:
         add_rough_band(b,cx,cy,r+.06,z0,z1,conf)
