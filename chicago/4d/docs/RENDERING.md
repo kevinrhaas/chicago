@@ -574,6 +574,17 @@ visual phase in the whole program.
   no worse than Fixed in sd and p95. Read frame pacing also prints each row's ratio switches,
   the >50 ms draws that came on one, and the paced share. Adaptive stays the default; his
   15 s repeat on this build is the acceptance. `docs/measurements/T-2829-pacing-model.md`.*
+  *Read on the owner's phone in 1904, 2026-10-20 (T-2719, T-2598's last reading): Prairie
+  Avenue's moving p95 at Light is **50 ms Fixed / 48 ms Adaptive** (median 43 / 40 ms, about
+  23-25 fps; 345 of 346 Fixed walk draws over 33 ms), so the phone does not hold 30 walking
+  1904. The tab did not die (T-2828's fix holds). By T-2592's rule no move
+  fell: Adaptive lowered every median (walk 43 → 40, turn 32 → 26, flight 80 → 73) and drew
+  more frames in each move, but raised sd in all three and flight's p95 (85 → 90). It
+  stepped the ratio one to three times a move, and two of the >50 ms draws came on a switch
+  in walk and in flight, so a resize can be a hitch on this phone (the question T-2829 left
+  open). **Flight is the cost**: median 73-80 ms, every draw over 50 ms, which is T-2927.
+  T-2829's acceptance is still its 1835 repeat. `docs/measurements/t-2719-owner-phone-1904.txt`
+  and `.json`.*
 
 **Milestones**
 - W5.1 — seam merged with zero behavior change at default tiers (capture-identical), smoke
