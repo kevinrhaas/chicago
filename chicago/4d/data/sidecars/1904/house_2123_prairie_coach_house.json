@@ -193,5 +193,6 @@
   ],
   "research_note": "A DISTRICT DRAFT (T-2352, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1938 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2123-b2), the T-1842 census (s35-2123-rear) and the T-1837 register row frontage-35-087; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-east-2352).",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "2123 S. Prairie Avenue — the alley building of the house at 2123"
 }

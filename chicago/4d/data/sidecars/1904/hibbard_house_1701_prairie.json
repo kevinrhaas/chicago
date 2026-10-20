@@ -243,5 +243,6 @@
   ],
   "research_note": "A DISTRICT DRAFT (T-2335, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1875, T-1876 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1701-b1), the T-1840 census (s20-1701-f, s20-1701-a1) and the T-1837 register row frontage-20-032 (Italianate mansion with rear addition); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-east-2335).",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1701 Prairie Avenue — Italianate mansion with rear addition"
 }

@@ -240,5 +240,6 @@
   ],
   "research_note": "A DISTRICT DRAFT (T-2330, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1904, T-1905 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1905-b1), the T-1841 census (s28-1905-front) and the T-1837 register row frontage-28-055 (Field Sr. Second Empire); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-east-2330).",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1905 Prairie Avenue — Field Sr. Second Empire"
 }

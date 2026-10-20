@@ -653,5 +653,6 @@
   ],
   "research_note": "T-2541 (piece 1 of T-1891) refines the district draft (T-2330) in place under the same id from the Inland Architect plate of October 1888, 'Residence of Miner T. Ames, Chicago. Cobb & Frost, Architects.' (inland_architect_1888_10_ames_residence), read against the 1911 Sanborn sheet 28, which controls the plan. The draft's 7.25 m box (the largest rectangle its fit found inside the trace) becomes the sheet's own plan: a front block 10.4 m along the street and 7.57 m deep on K01 with a K02 rock-faced brown-stone front, its north bay standing 1.0 m proud on K08 and its corbelled oriel over the entrance arch, and behind it the 8.4 m brick range of three storeys and the two-storey rear section on K01's rear wings, 18.4 m back. The camera is solved into data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json; what the plate still shows differently is on its match record, and the roofs (the bay's gable, the oriel's pyramid) are T-2542's. docs/RESEARCH/k01-1811-ames-2541/README.md.",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1811 Prairie Avenue — the Miner T. Ames (Coleman) house, Cobb & Frost's rock-faced stone front from the 1888 Inland Architect plate"
 }

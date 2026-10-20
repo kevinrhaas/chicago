@@ -112,7 +112,8 @@ export function createJauntPanel({ destinations, actions }) {
     parent.append(toggle);
     for (const claim of claims) {
       const presentation = claimPresentation(claim), fold = node('details', '', presentation.narrative ? 'jaunt-narrative' : '');
-      fold.append(node('summary', `${presentation.label} ${claim?.id || 'Sources'}`), node('p', presentation.text));
+      // T-2825: the claim is introduced by its grade's label, never by its record id.
+      fold.append(node('summary', `${presentation.label} Sources`), node('p', presentation.text));
       if (presentation.narrative) fold.append(node('small', 'Invented connective narrative; not a historical quotation.'));
       for (const id of claim?.sources || []) fold.append(button('Read source', () => actions.detail({ kind: 'source', id, label: 'Source' })));
       chips.append(fold);

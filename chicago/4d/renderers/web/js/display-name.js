@@ -132,8 +132,11 @@ export function displayName(sidecar, id = '') {
   const canal = sidecar?.reconstruction?.programme_phase === 'canal_approach_trade_1835'
     ? /^Reconstructed Canal Street (.+)$/.exec(spec) : null;
   // Anything with a real name keeps it: this layer is the anonymous programme's alone.
+  // T-2825: said without the production step it was modelled in ("…, K01 frontage
+  // assembly", "(district draft; refined by T-1908)", "map-led"), which compile_scene.py
+  // writes as `called` on the records that carry one (tools/readable_text.py plain_name).
   if (sidecar?.reconstruction?.status !== 'inferred_anonymous' || !(parts || raised || canal)) {
-    return { title: spec || id, spec: null, vacant: false };
+    return { title: String(sidecar?.called ?? '') || spec || id, spec: null, vacant: false };
   }
 
   // The description is the part of the production name that describes the BUILDING: the
@@ -205,7 +208,7 @@ export function searchTerms(sidecar, id = '') {
   const { title, spec } = displayName(sidecar, id);
   const households = Array.isArray(sidecar?.residents) ? sidecar.residents : [];
   return [
-    id, title, spec,
+    id, title, spec, sidecar?.called ? sidecar.name : null,
     ...(Array.isArray(sidecar?.aka) ? sidecar.aka : []),
     sidecar?.placement?.symbolic_location,
     ...households.map((h) => h.name),

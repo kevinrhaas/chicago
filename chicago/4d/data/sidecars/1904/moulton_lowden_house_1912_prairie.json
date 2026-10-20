@@ -251,5 +251,6 @@
   ],
   "research_note": "A DISTRICT DRAFT (T-2329, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1899, T-1900 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1912-b1), the T-1841 census (s28-1912-front, s28-1912-wing) and the T-1837 register row frontage-28-046 (Moulton/Lowden Chateauesque); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-west-2329).",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1912 Prairie Avenue — Moulton/Lowden Chateauesque"
 }
