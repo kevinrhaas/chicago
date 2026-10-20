@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 871936161,
+  "content_version": 100852850,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -256,8 +256,8 @@
         "kind": "structure",
         "id": "house_1625_prairie"
       },
-      "text": "1625 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 3 of the pictures on the Images tab show it. Next: 1637 Prairie, the Spalding house.",
-      "read_s": 15,
+      "text": "1625 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: 3 of the pictures on the Images tab show it. Next: 1637 Prairie, the Spalding house.",
+      "read_s": 14,
       "evidence": [
         "stood-12",
         "tour"

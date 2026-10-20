@@ -338,9 +338,9 @@ def rule_support(b, v, data):
                 or h <= 0:
             return ["foundation: a bay on grade stands on no plinth from grade"]
         return []
-    cb = b.prims.get("corbel")
     if v.get("apron"):
-        return rule_apron(b, cb)
+        return rule_apron(b, b.prims.get("apron"))   # T-2904: the apron's own role
+    cb = b.prims.get("corbel")
     meta = b.meta.get("corbel")
     if not cb or not meta:
         return ["support: an oriel off grade has no corbel courses under it"]

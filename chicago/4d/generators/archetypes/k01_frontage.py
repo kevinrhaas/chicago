@@ -239,6 +239,9 @@ MATERIALS.update(k03_brick.MATERIALS)
 # merges identical materials under one name, which handed the bays to the envelope.
 MATERIALS.update({
     "bay_stone": dict(MATERIALS["rough_stone_trim"], roughness=0.9),
+    # T-2904: an oriel's apron, in the bay's stone unless its record lays it in the front's
+    # (Assembly): a shade rougher than the bay's, the web derivative's reason above
+    "bay_apron": dict(MATERIALS["rough_stone_trim"], roughness=0.91),
     "bay_brick": dict(k03_brick.MATERIALS["brick"], roughness=round(k03_brick.MATERIALS["brick"]["roughness"] + 0.02, 2)),
     "bay_copper": {"color": (0.37, 0.52, 0.45), "roughness": 0.45, "metallic": 0.35},
     "bay_tin": {"color": (0.30, 0.22, 0.18), "roughness": 0.7},
@@ -280,7 +283,7 @@ MATERIALS["shutter"] = {"color": (0.045, 0.08, 0.05), "roughness": 0.7}
 # K08 role -> slot; `body` is the bay's fabric (bay_stone, bay_brick or bay_frame), `cover`
 # its roof's K04 covering. A came is a leaded light's, which no K01 bay glazes.
 K08_ROLES = {"wall": "body", "masonry_relief": "body", "reveal": "body", "mullion": "body", "roof_back": "body",
-             "plinth": "bay_stone", "band": "bay_stone", "corbel": "bay_stone",
+             "plinth": "bay_stone", "band": "bay_stone", "corbel": "bay_stone", "apron": "bay_apron",
              "sill": "bay_stone", "head": "bay_stone", "soffit": "fascia", "fascia": "fascia",
              "frame": "sash", "sash_outer": "sash", "sash_inner": "sash",
              "glass_outer": "glass", "glass_inner": "glass", "blind": "blind",
@@ -496,6 +499,17 @@ class Assembly:
                 fab = params.stone["fabric"] if slot == "bay_stone" else params.stone["trim"]
                 self.fabric[slot] = fab
                 self.spec[slot] = dict(self.spec[slot], fabric=fab, color=(1.0,1.0,1.0))
+        # T-2904: an apron the record lays in the front's stone (1625's print reads it darker
+        # than the oriel's dressed walls and stippled, as the rock-faced front is) wears the
+        # front's K02 walling, a shade rougher; any other wears the bay's own stone, as it did
+        # when the apron was the corbel's role
+        if any(b.get("apron_fabric") == "front_stone" for b in params.bays):
+            self.fabric["bay_apron"] = params.stone["fabric"]
+            self.spec["bay_apron"] = dict(self.spec["bay_apron"], fabric=params.stone["fabric"], color=(1.0, 1.0, 1.0),
+                                          roughness=round(params.stone["fabric_roughness"] + 0.03, 3))
+        else:
+            self.fabric["bay_apron"] = self.fabric["bay_stone"]
+            self.spec["bay_apron"] = dict(self.spec["bay_stone"], roughness=round(self.spec["bay_stone"]["roughness"] + 0.01, 3))
         self.footprints: dict[tuple, list] = {}
 
     def seat(self, frame, pts, kind):
@@ -523,11 +537,11 @@ class Assembly:
         st = self.p.stone
         if MATERIALS[name].get("condition"):
             return k03_brick.FABRIC
-        if st and name in ("rough_stone_trim", "bay_stone"):
+        if st and name in ("rough_stone_trim", "bay_stone", "bay_apron"):
             return st["fabric"]
         if st and name == "limestone_trim":
             return st["trim"]
-        if name in ("limestone_trim", "bay_stone"):   # T-2364: a brick house's stone dressings
+        if name in ("limestone_trim", "bay_stone", "bay_apron"):   # T-2364: a brick house's stone dressings
             return K14_BRICK_HOUSE_TRIM
         return None
 

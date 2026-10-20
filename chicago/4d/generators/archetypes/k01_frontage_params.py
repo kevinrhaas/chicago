@@ -1218,11 +1218,16 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # T-2883: or an apron in the corbel courses' place, a flat face down to a moulded foot
             if "apron" in e:
                 ap = e["apron"]
-                if "corbel" in e or set(ap) != {"foot_m"} or not 1.0 <= base - float(ap["foot_m"]) <= 2.5:
-                    raise ParamError(f"bays: {e['id']}'s apron takes foot_m alone, 1.0-2.5 m under its floor "
+                if "corbel" in e or not {"foot_m"} <= set(ap) <= {"foot_m", "fabric"} \
+                        or not 1.0 <= base - float(ap["foot_m"]) <= 2.5:
+                    raise ParamError(f"bays: {e['id']}'s apron takes foot_m (and a fabric), 1.0-2.5 m under its floor "
                                      f"at {base} m, in place of its corbel courses (not beside them)")
                 v["apron"] = {"foot_m": float(ap["foot_m"])}
                 v.pop("corbel", None)
+                # T-2904: or in a stone of its own: the front's K02 walling, where the bay is dressed
+                if "fabric" in ap and not (ap["fabric"] == "front_stone" and front_stone):
+                    raise ParamError(f"bays: {e['id']}'s apron takes one fabric, front_stone (the front's "
+                                     f"K02 walling), and the record must name a stone_front")
             q = e.get("plan")
             if q is not None:
                 pts = [[float(x), float(z)] for x, z in q.get("points", ())]
@@ -1625,6 +1630,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             raise ParamError(f"bays: {e['id']} is laid in the front's stone, and the record names no K02 stone_front")
         out.append({"id": e["id"], "wall": e["wall"], "s_m": s, "span_m": (round(a, 4), round(b, 4)),
                     "fabric": e.get("fabric", "stone"), "variant": v,
+                    **({"apron_fabric": e["apron"]["fabric"]} if "fabric" in (e.get("apron") or {}) else {}),
                     **({"flush_corner": flush} if flush else {}),
                     **({"through_eave": True} if e.get("through_eave") else {}),
                     **({"strips": tuple(strips)} if strips else {}),
