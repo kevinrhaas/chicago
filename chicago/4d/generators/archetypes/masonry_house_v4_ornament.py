@@ -216,12 +216,52 @@ def _annulus(r, cx, cz, r0, r1, back, front, n=48, mat=None):
 
 def _roundel(r, x, z, radius, depth, seed):
     """A stem bent into a ring round a six-leaf rosette with a drilled boss."""
-    r.arc(x,z,radius,depth,radius*.075,0,2*math.pi,40)
+    # The ring is open by a hair at its foot, where its stem comes in: a closed
+    # tube caps back to back on itself, and on a ring a few centimetres across
+    # the two caps fall on one millimetre lattice (T-2853; T-2267's measure).
+    gap=max(.06,.004/radius)
+    r.arc(x,z,radius,depth,radius*.075,-math.pi/2+gap/2,3*math.pi/2-gap/2,40)
+    # A small ring's leaves take fewer rows, so none falls under a millimetre.
+    steps=max(5,min(10,round(radius/.009)))
     for j in range(6):
         th=math.pi/2+2*math.pi*j/6+seed*.21
         r.leaf(x+radius*.10*math.cos(th),z+radius*.10*math.sin(th),th,radius*.86,radius*.62,
-               depth-.006,radius*.16,(.18 if j%2 else -.18),True,seed+j*.7,10)
+               depth-.006,radius*.16,(.18 if j%2 else -.18),True,seed+j*.7,steps)
     r.bead(x,z,depth+.012,radius*.16)
+
+
+def _plumb_arc(r, cx, cz, radius, depth, thickness, stilt):
+    """A roll round a stilted head: the semicircle, then plumb down by `stilt`."""
+    if stilt<=0:
+        return r.arc(cx,cz,radius,depth,thickness)
+    r.tube([(cx+radius,cz-stilt,depth)]+[(cx+radius*math.cos(math.pi*i/64),cz+radius*math.sin(math.pi*i/64),depth)
+                                         for i in range(65)]+[(cx-radius,cz-stilt,depth)],thickness)
+
+
+def _legs(r, cx, cz, r0, r1, back, front, stilt):
+    """A half-annulus floor's two plumb legs under a stilted centre."""
+    if stilt<=0:
+        return
+    steps=math.ceil((r1-r0)/.03) if r.profile else 1
+    for sign in (-1,1):
+        for j in range(steps):
+            x0,x1=sorted((cx+sign*(r0+(r1-r0)*j/steps),cx+sign*(r0+(r1-r0)*(j+1)/steps)))
+            r.face([(x0,cz-stilt,front),(x1,cz-stilt,front),(x1,cz,front),(x0,cz,front)])
+        for x,n in ((cx+sign*r0,-sign),(cx+sign*r1,sign)):
+            quad=[(x,cz-stilt,back),(x,cz,back),(x,cz,front),(x,cz-stilt,front)]
+            r.face(quad if n>0 else quad[::-1],None,(n,0,0))
+
+
+# T-2853: the field's roundels where HABS sheet 5 measures them, as (across,
+# up, radius) in shares of the field's radius F from the stilted centre. Read
+# off the rectified sheet at 100 px a foot (docs/RESEARCH/glessner-entry-T-2853).
+# The sheet draws eight stems bent into rings, unequal and not mirrored, rising
+# from a boss at the foot; the office's No. 23A sketches the same scrolling.
+FIELD_ROUNDELS = ((-.772, .000, .160), (-.486, .486, .126), (-.343, .069, .229),
+                  (.143, .498, .257), (.601, .355, .114), (.469, .029, .183),
+                  (.830, .057, .143), (-.830, .297, .086))
+# Each stem runs from a parent (-1 the boss) to its roundel, as the sheet links them.
+FIELD_STEMS = ((-1, 2), (-1, 5), (-1, 3), (2, 0), (2, 1), (0, 7), (5, 6), (5, 4))
 
 
 def fan(b, o):
@@ -231,46 +271,61 @@ def fan(b, o):
     "Detail of Entrance Doorway" drawing he sent with them. Read off the
     pictures, outside in: fifteen radiating voussoirs, keyed at the crown; a
     fillet; a channel of square billets; a fillet; a broad archivolt of drilled
-    foliage; a torus roll; and a semicircular field of pierced foliage grown as
-    a tree, a central stem branching into stems bent round leafy roundels, the
-    whole standing well in front of a deep dark bed so the piercing reads.
-    The arrangement is the pictures'; every leaf, lobe and drill hole is
-    reconstructed carving, not traced or projected (LIBERTIES).
+    foliage; a torus roll; and a semicircular field of pierced foliage, stems
+    bent round leafy roundels, the whole standing well in front of a deep dark
+    bed so the piercing reads. The arrangement is the pictures'; every leaf,
+    lobe and drill hole is reconstructed carving, not traced or projected
+    (LIBERTIES).
+
+    T-2853 brought it to HABS sheet 5 measured: the head is stilted (its centre
+    `o['stilt']` over the spring line, every ring run plumb down to it), and the
+    field's roundels are the sheet's eight, at its places and sizes, on stems
+    from the boss at the foot, where the record had five on a mirrored trunk.
     """
     conf=b.params.detail.get('conf',o['conf'])
     # The colour photographs show the tympanum cut in the wall's own pink granite,
     # a shade lighter where it is dressed, not in the grey limestone of the trim.
-    cx=(o['u0']+o['u1'])/2;cz=o['spring_z'];rad=o['r_in']
+    stilt=o.get('stilt',0.)
+    cx=(o['u0']+o['u1'])/2;cz=o['spring_z']+stilt;rad=o['r_in']
     from archetypes.masonry_house_v4_entry import settings,relief_profile
     spec=settings(b)
-    profile=relief_profile(spec,cx,cz,rad+.04) if spec else None
+    profile=relief_profile(spec,cx,cz,rad+.04,stilt) if spec else None
     r=Relief(b,o,conf,CARVED_GRANITE,profile=profile)
     from archetypes.masonry_house_v4_detail import rock_voussoirs
     # The structural arch keeps the opening record's measured outline.
-    rock_voussoirs(b,o,cx,cz,rad+.04,o['r_out'],o.get('voussoirs') or 15,conf,90211)
+    rock_voussoirs(b,o,cx,cz,rad+.04,o['r_out'],o.get('voussoirs') or 15,conf,90211,stilt)
     # Bed lies behind all carving, letting the drilled pockets remain dark.
     # The wall builder removes the entire arch; overlap the voussoirs' inner
     # radius by 1 mm so their recessed carving bed cannot reveal the sky.
     bed_radius=o['r_out']
     if profile:
         from archetypes.masonry_house_v4_entry import recessed_bed
-        recessed_bed(r,cx,cz,rad+.04,bed_radius,spec)
+        recessed_bed(r,cx,cz,rad+.04,bed_radius,spec,stilt=stilt)
     else:
-        r.solid([(cx+bed_radius*math.cos(math.pi*i/80),cz+bed_radius*math.sin(math.pi*i/80))
-                 for i in range(81)],-.065,-.045)
+        r.solid([(cx+bed_radius,cz-stilt)]+[(cx+bed_radius*math.cos(math.pi*i/80),cz+bed_radius*math.sin(math.pi*i/80))
+                 for i in range(81)]+[(cx-bed_radius,cz-stilt)],-.065,-.045)
     R=rad+.04
     # Outer frame: a fillet, the billet channel, a fillet.
-    r.arc(cx,cz,R-.012,.034,.012)
+    _plumb_arc(r,cx,cz,R-.012,.034,.012,stilt)
     _annulus(r,cx,cz,R*.885,R-.02,-.045,.004)
+    _legs(r,cx,cz,R*.885,R-.02,-.045,.004,stilt)
     count=33
     for i in range(count):
         th=math.pi*(i+.5)/count;da=math.pi/count*.30
         poly=[(cx+rr*math.cos(aa),cz+rr*math.sin(aa))
               for rr,aa in [(R*.902,th-da*1.08),(R-.032,th-da),(R-.032,th+da),(R*.902,th+da*1.08)]]
         _boss(r,poly,.004,.040,.16)
-    r.arc(cx,cz,R*.878,.030,.010)
+    # The sheet draws the billets on down the plumb legs at the same pitch.
+    pitch=(R*.95)*math.pi/count
+    for k in range(int(stilt/pitch+.5)):
+        z=cz-pitch*(k+.5)
+        for sign in (-1,1):
+            x0,x1=sorted((cx+sign*R*.902,cx+sign*(R-.032)))
+            _boss(r,[(x0,z-pitch*.3),(x1,z-pitch*.3),(x1,z+pitch*.3),(x0,z+pitch*.3)],.004,.040,.16)
+    _plumb_arc(r,cx,cz,R*.878,.030,.010,stilt)
     # The archivolt: a carved band of radiating palmettes, drilled between.
     _annulus(r,cx,cz,R*.705,R*.868,-.045,-.004)
+    _legs(r,cx,cz,R*.705,R*.868,-.045,-.004,stilt)
     band=R*.786;size=R*.150
     for i in range(23):
         th=math.pi*(i+.5)/23
@@ -282,39 +337,47 @@ def fan(b, o):
         th=math.pi*i/23
         r.bead(cx+band*math.cos(th),cz+band*math.sin(th),.012,.0085)
     # Torus roll and fillet framing the field.
-    r.arc(cx,cz,R*.690,.026,.018)
-    r.arc(cx,cz,R*.655,.010,.008)
+    _plumb_arc(r,cx,cz,R*.690,.026,.018,stilt)
+    _plumb_arc(r,cx,cz,R*.655,.010,.008,stilt)
     F=R*.640
-    # The tree: a trunk, its two pairs of branches and a crowning roundel.
+    # The field: HABS sheet 5's roundels on stems from the boss at the foot.
+    foot=(cx,cz-stilt+F*.10)
     def stem(points,depth=.020,width=.011):
-        r.tube(_bezier([(cx+x*F,cz+z*F) for x,z in points],depth,20),width,8)
-    stem([(0,.0),(0,.25),(0,.55),(0,.80)],.022,.016)
-    for mirror in (-1,1):
-        stem([(0,.10),(mirror*.18,.12),(mirror*.30,.18),(mirror*.36,.28)])
-        stem([(0,.46),(mirror*.08,.50),(mirror*.16,.56),(mirror*.21,.62)])
-        _roundel(r,cx+mirror*F*.53,cz+F*.33,F*.235,.024,1+mirror)
-        _roundel(r,cx+mirror*F*.27,cz+F*.70,F*.165,.026,4+mirror)
-        # Leaves fill the field between the roundels, as the drilled foliage does.
-        for j,(x,z,ang,ln) in enumerate(((.20,.06,.30,.24),(.80,.10,1.75,.20),(.10,.36,.95,.22),
-                                          (.48,.62,1.25,.22),(.70,.52,2.10,.18),(.42,.86,1.95,.15),
-                                          (.86,.30,1.45,.15),(.08,.66,1.15,.18))):
-            angle=ang if mirror>0 else math.pi-ang
-            r.leaf(cx+mirror*F*x,cz+F*z,angle,F*ln,F*ln*.55,.016,.016,mirror*.16,True,j*.5+mirror,10)
-        # A second, smaller growth of leaves laps the first, so the field reads
-        # as the photographs' close foliage with only drilled gaps between.
-        for j,(x,z,ang,ln) in enumerate(((.30,.04,.10,.20),(.62,.06,1.00,.16),(.92,.18,1.60,.12),
-                                          (.30,.52,1.40,.15),(.58,.84,2.40,.12),(.20,.92,1.80,.10),
-                                          (.06,.20,1.30,.16),(.40,.16,.60,.14),(.76,.68,2.60,.12))):
-            angle=ang if mirror>0 else math.pi-ang
-            r.leaf(cx+mirror*F*x,cz+F*z,angle,F*ln,F*ln*.60,.010,.014,-mirror*.14,True,j*.3+mirror*2,9)
-    _roundel(r,cx,cz+F*.83,F*.120,.028,7)
-    # The small half-boss the drawing shows at the foot of the trunk.
-    r.solid([(cx+F*.14*math.cos(math.pi*i/16),cz+F*.14*math.sin(math.pi*i/16)) for i in range(17)],-.045,.012)
+        # About a centimetre a ring: a short stem sampled as finely as a long
+        # one folds its rings into each other at the bend.
+        span=math.hypot(points[3][0]-points[0][0],points[3][1]-points[0][1])
+        r.tube(_bezier(points,depth,max(4,min(20,round(span/.012)))),width,8)
+    rings=[(cx+x*F,cz+z*F,rr*F) for x,z,rr in FIELD_ROUNDELS]
+    for j,(parent,child) in enumerate(FIELD_STEMS):
+        x,z,rr=rings[child]
+        p0=foot if parent<0 else rings[parent][:2]
+        dx,dz=x-p0[0],z-p0[1];length=math.hypot(dx,dz) or 1.
+        # The stem meets its ring on the side that faces where it came from, and
+        # leaves its parent a little out along its own way: stems rooted at one
+        # point would cap on top of each other (T-2267's coincident faces).
+        # Both ends sink into the ring's own roll, so no cap lies on its surface.
+        p3=(x-dx/length*rr*.93,z-dz/length*rr*.93)
+        out=F*.05 if parent<0 else rings[parent][2]*.93
+        p0=(p0[0]+dx/length*out,p0[1]+dz/length*out)
+        bend=(-dz/length,dx/length);s=(1 if j%2 else -1)*.18*length
+        p1=(p0[0]+(p3[0]-p0[0])*.33+bend[0]*s,p0[1]+(p3[1]-p0[1])*.33+bend[1]*s)
+        p2=(p0[0]+(p3[0]-p0[0])*.66-bend[0]*s,p0[1]+(p3[1]-p0[1])*.66-bend[1]*s)
+        stem([p0,p1,p2,p3],.022 if parent<0 else .020,.014 if parent<0 else .011)
+        # Leaves off each stem's middle fill the field, as the drilled foliage does.
+        mid=_bezier([p0,p1,p2,p3],0,2)[1]
+        ang=math.atan2(dz,dx)
+        for side in (-1,1):
+            r.leaf(mid[0],mid[1],ang+side*1.05,F*.16,F*.09,.016,.016,side*.16,True,j*.5+side,10)
+    for j,(x,z,rr) in enumerate(rings):
+        _roundel(r,x,z,rr,.024+.002*(j%3),j)
+    # The small half-boss the drawing shows at the foot.
+    fz=cz-stilt
+    r.solid([(cx+F*.14*math.cos(math.pi*i/16),fz+F*.14*math.sin(math.pi*i/16)) for i in range(17)],-.045,.012)
     # Each blade roots a little out from the boss's centre: five blades from one
     # point crowd their first row into sub-millimetre slivers (T-2267).
     for j in range(5):
         th=math.pi*(j+.5)/5
-        r.leaf(cx+F*.03*math.cos(th),cz+.004+F*.03*math.sin(th),th,F*.13,F*.075,.012,.010,0,False,steps=6)
+        r.leaf(cx+F*.03*math.cos(th),fz+.004+F*.03*math.sin(th),th,F*.13,F*.075,.012,.010,0,False,steps=6)
 
 
 def sill(b, o):

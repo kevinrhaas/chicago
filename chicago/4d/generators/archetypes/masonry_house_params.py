@@ -608,6 +608,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                     op["r_out"] = round(float(it.get("ring_ft", 0.0)) * FT, 4)
                     op["r_in"] = round(float(it.get("inner_ft", 0.0)) * FT, 4)
                     op["voussoirs"] = int(it.get("voussoirs", 0))
+                    if it.get("stilt_ft"):
+                        # T-2853: a stilted arch, its centre this far above the
+                        # spring line and its rings run down plumb to it.
+                        op["stilt"] = round(float(it["stilt_ft"]) * FT, 4)
                     if it.get("transom"):
                         # T-2211: a stone transom dividing a round head from the sash below.
                         op["transom_z"] = (fr.z(it["transom"][0], datum), fr.z(it["transom"][1], datum))
