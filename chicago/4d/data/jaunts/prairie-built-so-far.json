@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 155516176,
+  "content_version": 289476730,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -88,8 +88,8 @@
         "kind": "structure",
         "id": "coleman_ames_house_1811_prairie"
       },
-      "text": "1811 Prairie, the Coleman-Ames house. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 4 of the pictures on the Images tab show it. Next: 1812 Prairie, the Wheeler coach house.",
-      "read_s": 17,
+      "text": "1811 Prairie, the Coleman-Ames house. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 4 of the pictures on the Images tab show it. Next: 1801 Prairie, the Kimball house.",
+      "read_s": 16,
       "evidence": [
         "stood-4",
         "tour"
@@ -107,10 +107,10 @@
       "id": "stop-5",
       "destination": {
         "kind": "structure",
-        "id": "wheeler_house_1812_prairie_coach_house"
+        "id": "kimball_house_1801_prairie"
       },
-      "text": "1812 Prairie, the Wheeler coach house. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1801 Prairie, the Kimball house.",
-      "read_s": 15,
+      "text": "1801 Prairie, the Kimball house. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 9 of the pictures on the Images tab show it. Next: 1812 Prairie, the Wheeler coach house.",
+      "read_s": 17,
       "evidence": [
         "stood-5",
         "tour"
@@ -118,7 +118,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "wheeler_house_1812_prairie_coach_house",
+          "id": "kimball_house_1801_prairie",
           "label": "About this building"
         }
       ],
@@ -128,9 +128,9 @@
       "id": "stop-6",
       "destination": {
         "kind": "structure",
-        "id": "kimball_house_1801_prairie"
+        "id": "wheeler_house_1812_prairie_coach_house"
       },
-      "text": "1801 Prairie, the Kimball house. DETAIL 1/5: the district draft, reshaped from a picture; 1 solved picture, 0 matching. Pictured: 9 of the pictures on the Images tab show it. Next: walk on to the 1600-1638 Prairie area, starting at 1638 Prairie, the Shortall-Gregory house.",
+      "text": "1812 Prairie, the Wheeler coach house. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: walk on to the 1600-1638 Prairie area, starting at 1638 Prairie, the Shortall-Gregory house.",
       "read_s": 19,
       "evidence": [
         "stood-6",
@@ -139,7 +139,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "kimball_house_1801_prairie",
+          "id": "wheeler_house_1812_prairie_coach_house",
           "label": "About this building"
         }
       ],
@@ -693,21 +693,22 @@
     },
     {
       "id": "stood-5",
+      "text": "1801 Prairie, the Kimball house stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "taylor_c1895_kimball_residence_1801"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The record claims the 1904 target and no more: the 1911 sheet draws the building ('3B', stone) and the T-1841 census rules it present in 1904 (present_as_mapped); J. W. Taylor's photograph shows it standing about 1895. Its building and loss dates are the finishing ticket's to read (T-1890)."
+    },
+    {
+      "id": "stood-6",
       "text": "1812 Prairie, the Wheeler coach house stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
       "confidence": "inferred",
       "reasoning": "STANDING IN 1904 is what the scene needs, and it rests on sheet 28 of the 1911 Sanborn carried back seven years, the reading the Glessner and 1808 records and the T-1841 sheet census make of this sheet. FROM: the T-1837 building register dates the Wheeler house 1884, and the stable is read as built with it; the register is not a source record here and nothing dates the stable itself, so the day is the 1st of January and the confidence inferred. TO: the last day of the year the sheet was published, the latest date anything here shows the building standing; it is not a demolition date."
-    },
-    {
-      "id": "stood-6",
-      "text": "1801 Prairie, the Kimball house stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_28"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
       "id": "stood-7",
