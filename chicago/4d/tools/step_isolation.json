@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Each in-repo write is then CLASSIFIED by `git check-ignore` at measure time (T-2075): an ignored path is a build product and is listed under `wrote_ignored`; any other path is a tree mutation and is listed under `wrote`, which the audit refuses. A tracked path is never ignored, so no write to one is excused. An ignored build product is still SHARED STATE a concurrent step can read mid-write, and its regeneration is idempotent rather than atomic: classifying it says which question the gate may ask, not that it is safe. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it. ticket.mjs check was one — it wrote nothing on a consistent tree and REPAIRED tickets.json on a stale one — until T-1341 made it compare instead of write (probed both ways: wrote [] on each). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
-  "measured": "2026-10-19",
+  "measured": "2026-10-20",
   "gate_verdict": "CHECK FAIL",
   "declared_steps": 861,
   "tools": {
@@ -4115,6 +4115,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/glessner_prairie_front.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/glessner_stable_roof_read.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5450,6 +5454,18 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_capture_restore_state.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_carriage_c02_door.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_carriage_c02_door_hierarchy.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_changelog_entry_gate.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5622,7 +5638,79 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_head_fit_distances.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_house_front.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_animation_times.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_base_prepare.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_camera_fit.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_frame_residue.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_grounded_gait.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_hair.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_hair_runtime.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_hair_short04.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_hierarchy_control.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_inspection.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_morph_measure.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_normal_probe_adapter.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_normal_probe_math.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_normal_probe_optin.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_skin_canonicalize.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_sole_contact.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_source_normals.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5635,6 +5723,14 @@
       "wrote_ignored": []
     },
     "tools/test_k01_tower.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_wing_roof.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_wing_tower.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5786,6 +5882,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_recovered_display_diagnostic.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_repo_file.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5815,6 +5915,10 @@
       "wrote_ignored": []
     },
     "tools/test_shopfront_bay_count.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_short_why.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6063,10 +6167,6 @@
       "wrote_ignored": []
     },
     "{}": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/test_short_why.mjs": {
       "wrote": [],
       "wrote_ignored": []
     }

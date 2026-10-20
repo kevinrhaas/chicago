@@ -26328,6 +26328,17 @@ print's runs as a flat, darker face to about 2.3 m; and the low copper hip, at a
 cannot see. **Left out:** the west cheek's light, the print's most visible (about 0.3 m across):
 K08's frame and piers need 0.7 m of cheek for any light, and its corbel cannot carry a cheek that
 deep on a face this short. The cheek stands plain until the kit can light it (T-2847).
+**Evidence since, 2026-10-19 (T-2883):** both are now read off the print. The west cheek's light
+is built (K08's `narrow` light: one light a sash on K06's least stile, its sill and lintel stopped
+at its jambs, the cheek's stone its surround), 0.3 m across with its centre 0.22 m out from the
+wall, 3.72-5.47 m, its edges within about 1-2 px of the print's (x 507-516); and the apron is
+K08's `apron`: the oriel's plan carried straight down as a flat face to a moulded foot at 2.3 m
+(the print's y 718), the foot 0.11 m tall and 0.05 m proud, closed under it back to the wall.
+**Still invented:** the light's kind (a sash; the print shows a light and a bar about 0.43-0.46 of
+it down, which a sash's meeting rail at half-way stands within about 1 px of, and cannot say sash
+or casement); the foot's section (a fillet and a cyma, at the print's height and nose); and the
+apron's stone, laid as the oriel's own where the print reads it darker and stippled (an open
+item on the match record, T-2885).
 **How to resolve:** a view of 1625 from the south, or the oriel's own drawing, would settle its
 plan, its east cheek and its apron.
 **Ticket:** T-2846 (piece 1 of T-2838).
@@ -27615,6 +27626,10 @@ derived from it here) puts every dimension above on a side-by-side.
 **Revised:** 2026-10-18 (T-2763) — **the loggia lowered to 0.88 of its height over the deck; the plate's camera now determined.** Re-read on the GLB's own edges (the capital's abacus, not the beam's lowest band; the projecting sill's arris, not a height on no edge), every level camera fitted to the 1888 plate with the loggia as built put its eye at grade 40-90 m out and still drew pedestal and column alike 6-8 % long, so the front's ruler T-2725 read the column against was not where its camera stood. One factor on the loggia's heights over its 2.0 m deck, fitted with the camera, read 0.879 and put the eye 2.3 m high about 21 m out; freeing the third-storey sills as well moved them 0.03 m, so the front stands. Built at pedestal 0.88 m and column 2.2 m (their ratio the pictures' 2.44-2.49), the pierced parapet at 0.72 m (its coping at 0.82 of the pedestal, as the plate draws it); the entablature (0.9 m) and balcony front (0.75 m) stand, so the balcony floor is at 5.98 m and its coping 6.73 m. On the rebuilt GLB the plate's level fit puts its eye at [39.19, -0.23, 2.21] with nothing at a bound (RMS 4.94 px) and reads the column 1-2 % short; that is now `inland-1888`'s camera (`tools/keith_plate_level_fit.py`). Still reconstructed: one factor for the whole loggia (only its capital tops and pedestal caps are fitted), and the 1965 close view's camera, which now draws the loggia about a quarter short, is re-fitted at the loggia's depth by T-2764.
 
 **Revised:** 2026-10-19 (T-2845) — **the pedestals and stair built at the first-floor plan's place.** The plan under the 1888 plate, read between its side walls' outer faces (23.17 px/m, T-2844), draws the front pedestals 0.60 and 0.65 m across at v 6.73-7.34 and 9.58-10.23 and the stair 1.86 m clear between its cheeks (v 4.92-6.78), its north cheek running into the south pedestal. Both pedestals are now 0.6 m square, the south one at 6.75-7.35 and the north one 0.2 m in from the corner at 9.6-10.2, where they stood 0.9 m wide flush with the deck's corners; the north side parapet stands on that pedestal's middle (9.7-10.0) as the plan draws it; the stair is 1.8 m clear at 4.95-6.75 (centred 5.85 m), where it was 2.0 m at 5.0-7.0. Each pair's shafts stand 0.36 m apart, the plate's pitch, where the 0.9 m pedestals set them 0.45 m. **Still invented:** the pitch and the side parapet's place are read at a few pixels on the plate and the plan; the turned bases and necks are trimmed to 0.175 m in radius (from 0.2) so the closer shafts do not run into each other, and the paired capital widened to span them (0.71 m), neither read off any picture. The 1965 slide still reads the loggia about 1.1 times taller than built, and each pair about 8 px wider than built; the column stays at 2.2 m on the plate (0.999) and Nickel 1967 (0.994), and the pairs' width is T-2816's to rule.
+
+**Revised:** 2026-10-19 (T-2881) — **the loggia's rear row built.** The 1888 plate draws a second pair of shafts behind each front pair (T-2876). Read at its native 1559 px through `inland-1888`'s camera (`tools/keith_loggia_rear_read.py`, `docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-rear-read.json`), the four rear shafts' middles (x 823.2, 841.8, 1025.8 and 1046.7) fit at 1.14 px RMS with each pair at its front pair's v, 0.39 m off the wall at a 0.28 m pitch, and the south rear pedestal's lit face reads 0.54-0.58 m off the wall. So the K07 loggia takes `rear`: a pedestal 0.6 m square against the wall behind each front one, carrying a pair of turned shafts 0.39 m off the wall at a 0.28 m pitch, their radii 0.78 of the front's (0.24 m shafts, so the closer pair does not run together), under a paired capital, the north side parapet now running from the rear pedestal. Built so, the row draws the four middles within 1.7 px of the print's, and Nickel 1967's lit shaft between the front pairs is its south pair. **Still invented:** the rear shafts' girth is set by the pitch the plate reads, not measured (their silhouettes are in shade); their profile, capital and the pedestals' fields are the front's; and the plan under the plate draws the block at the wall only about 0.21 m deep, where a pedestal that carries the pair the plate reads must be about 0.55 m. That block, and a lit upright the plate draws beside the north rear pair (x 997-1009), are T-2882's.
+
+**Revised:** 2026-10-19 (T-2882) — **a respond on the wall behind each rear pair.** Both things T-2881 left are ruled (`tools/keith_loggia_respond_read.py`, `docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-respond-read.json`). The plate's lit upright beside the north rear pair (lit across x 997.8-1004.8, a dim strip to x 1010) is, through `inland-1888`'s camera, a south-facing face on the line of the north rear pedestal's south side, running from the wall to 0.27 m off it and standing from the front parapet's coping to 3.82 m over grade, 0.9 m over the rear pedestal's top: square-edged, with no base, so neither the pedestal nor a third shaft; the door's north reveal projects 19-35 px south of it. The first-floor plan's block at the wall reads 0.27 m deep to the light line it draws against the wall (both blocks, v 6.84-7.33 and 9.56-10.24), the north one in two lobes where the pair stands on it. So the K07 loggia's rear takes `respond_m`: a flat pier the rear pedestal's width on the wall behind each pair, from the pedestal's top to the ceiling, 0.25 m deep (the two readings' 0.27 m held to the 0.254 m the pair's shafts leave, so the pair stands on its face). Its south face draws at x 999.8-1009.3 against the print's 997.8-1010. **Still invented:** the respond's plain face (no capital or moulding shows; the loggia's shadow covers it above 3.82 m), its width (the pedestal's 0.6 m against the plan's 0.49 and 0.68), and the rear pedestal's 0.6 m depth, which the plan does not draw under the 0.27 m block and the plate's lit face of the south one (T-2881) alone holds.
 
 ### L-first-fort-water-2508 — The first fort's wharf and its covered way to the river stand on the committed 1812 river, by the drafter's one distance and Quaife's one sentence
 
@@ -29246,6 +29261,63 @@ fallen trees or the vines, or a plate that draws them.
 **Ticket:** T-2810.
 **Recorded:** 2026-10-19 (T-2810).
 
+### L-prairie-woody-2784 — Shrubs, slough-edge willows and lone fire-shadow trees on the open plain of 1812 and 1835
+
+**Decision:** the open plain west and south of the river (wherever no woods community stands, on
+prairie, sedge meadow and marsh ground, never on the 1835 town's lots or cleared plots) now carries
+woody plants, the same ground for ground in 1812 and 1835. Three kinds, drawn by
+`renderers/web/js/trees.js` (`PRAIRIE_WOODY`) as grown clumps of stems: wild rose, New Jersey tea and
+leadplant scattered through the grass in little colonies, about 16-36 to the hectare at full detail,
+fewer on wet ground; pussy willow, slender willow and meadowsweet in clumps on the wet prairie and
+sedge meadow, about 6-16 to the hectare, thickest within 24-170 m of water, with buttonbush and
+willow in the wettest ground within 70 m of it; and now and then a lone bur oak (drier ground) or
+cottonwood (wetter), about 2-3.6 to the hectare, only where water lies 60-280 m upwind of it on a
+bearing from 205° to 280°, that is, just east and north-east of the river. Each is dealt from a
+generator seeded by where it stands. The phone draws 55% of the shrubs, balanced 85%; every tier
+draws as many lone trees. The wild rose,
+New Jersey tea and the two willows are new zone records at a density of zero (z02, z03), so the
+sward deals none of them and every stem is this layer's.
+**What is read, not invented:** that Cook County held "the only willow thickets described by the
+PLS" (McBride and Bowles 2007, through the flora dossier's ZONE 6), and willow "in the swales and
+along backwater sloughs" (the dossier's reading of it); that trees stood denser, and the
+fire-intolerant ones gathered, on the east sides of watercourses, which broke the fires running
+west to east (the same); Andreas's "good stretch of level grass" south of the town and his
+"occasional patches of timber" (vol. 1). Leadplant, meadowsweet, buttonbush, bur oak and
+cottonwood, and every height and colour, are their zone records' own.
+**What is invented:** the wild rose and New Jersey tea (no record or source in this project names
+either on the Chicago plain: they are the shrubs of a burned tallgrass prairie in northern Illinois,
+and their records say so and cite nothing); every density, clump size and band above; that the
+sloughs are the wet prairie, sedge meadow and the river's margin (the modelled ground holds no
+slough water); the fire's bearings; and where each plant stands. The owner asked for more trees
+rather than fewer, so the lone trees are a few to the hectare in the shadow band rather than none.
+**How to resolve:** a surveyor's line description, a settler's account or a plate of the prairie
+south or west of the river before 1840 that names its shrubs, its willows or a lone tree, or the
+Government Land Office field notes for T39N R14E read line by line.
+**Ticket:** T-2784.
+**Recorded:** 2026-10-19 (T-2784).
+
+### L-far-sward-2783 — The open prairie past the grass cards is painted as sward, and a ring of cheap cards carries the grass out to it
+
+**Decision:** past the dealt grass, the ground of every zone whose record has graminoids is
+tinted toward that zone's own sward colour (its `matColor`, weighted by its `matrixShare`), from the
+near tuft ring's radius to the mid ring's edge, and streaked with the same grain the near sward is
+cut from, laid at 18 m and turned off the lattice. The tint is a 16 m raster of the zone map, blurred
+one cell, so it follows the zones and never a straight line; it skips water, the z10 town turf and
+any zone with no grass, and it thins on wet ground. A third band of the far card lattice (2.3 m cells
+at full, 3.0 at balanced, 3.8 on phone; 22-88 m, 16-64 m and 12-44 m) stands narrower cards
+(1.0-1.9 m wide) of the same sward between the near ring and the far band, with no seed heads, in the
+far band's draw call. The 1812 and 1835 open prairie take the same raster from the same zones.
+**What is read, not invented:** each zone's sward colour, its graminoid share and its extent, from
+the zone records as the near ring already reads them (L137 for the far band).
+**What is invented:** the tint's strength (0.82, 0.88, 0.64 of the sward colour), the streak's
+strength and length, the 16 m raster, the ring radii and the card lattice. They are tuned by eye
+against the near ring so the edge between dealt grass and painted ground does not read as a line;
+no source describes the look of a prairie at 30-300 m, beyond that it was grass.
+**How to resolve:** a period painting or description of the open prairie's colour and texture at
+distance, or a measured reflectance of a tallgrass sward in late June.
+**Ticket:** T-2783.
+**Recorded:** 2026-10-19 (T-2783).
+
 ### L-jaunt-prairie-walks — Prairie Avenue's themed walks: routes, order and framing
 
 **Decision:** Five 1904 walking jaunts — the famous names, the architects, and three style walks
@@ -29521,6 +29593,117 @@ documented street noise for 1904, each sound graded and cited like any other fac
 the bed tone rather than sit on it.
 **Recorded:** 2026-10-18 (T-2659).
 
+
+## T-2793 / T-2794 / T-2800 — original transport studies (2026-10-18)
+
+The isolated development collection uses reconstructed 1835 wagon dimensions retained from town_trade_goods.json, independent open-carriage furniture and running gear, and an original generic light-harness horse. No maker, owner, breed, individual horse or original paint/coat color is attested. Furniture, materials, harness sockets and the horse's provisional skinned idle/walk are engineering inventions. Steering limits are provisional, not historical or collision-certified. These studies are not placed in historic scenes and do not authorize later gear in earlier dates. Source-pending photographs were text-cited during research, not traced, textured or measured into these assets.
+
+The coupled study raises C01 shafts by a reconstructed runtime pitch to the horse fixture datum and uses geometric slack curves rather than simulated rein/trace forces. Proposed empty driver-hand targets are not seated people. A remaining shaft-loop fit gap is recorded, not hidden by scaling the horse.
+
+## T-2795 / T-2800 / T-2801 - transport fit refinements (2026-10-18)
+
+Shaft tugs are original reconstructed round-section leather loops with support webbing, fitted to the authored C01 shafts, not dimensions copied from a period plate. They approximate a construction whose folded/overlapped leather still requires source-figure review. Breastcollar route and width orientation were fitted to the reconstructed horse torso, not measured historical anatomy; pressure, shoulder sweep and holdback forces remain unverified. Revised head/mane/hoof shapes and smooth stance/swing timing are original modeling choices. Better numeric contact and local clearance do not establish period accuracy or animal fit.
+
+The breastcollar band uses an explicit reconstructed 50 mm width and 8 mm thickness. Its earlier arbitrary 65 mm width intersected the moving upper forelimbs in triangle-level checks even after torso proximity passed. Width, raised route and local tangent directions were revised against this original model; historical or animal-health suitability is not attested.
+
+
+## T-2672 — superseding L1 and the review release block (2026-10-18)
+
+The owner's 2026-10-16 rulings, quoted in AGENTS.md, supersede earlier L1 prose: human figures may render through the portable-human path, and informed evidence-bounded Native and Métis depiction is authorized. The owner explicitly answered “Yes lift that” for the review_required release block. Historical liberties entries remain unchanged; their former prohibitions are superseded, not erased. Flags, their reasons, source/rights provenance, reconstruction declarations and scene-date gates remain. The August 1835 gathering/last war dance is not staged on 1 July. Generic adult transport prototypes requested 2026-10-18 invent no named likeness or cultural ceremony, and do not claim photographic production quality without comparison.
+
+
+## Per-subject liberties
+
+### L418 — Resident workwear studies on a licensed human base
+
+**Decision:** The 2026-10-18 generic transport-human studies depict no identified resident. Their
+body begins with the CC0 MakeHuman hm08 graphical base pinned in
+`assets/authored/humans/makehuman_hm08/SOURCE.json`, not its AGPL application code.
+A chosen 1.75 m height, sole registration, source A-to-T limb rotation, helper-joint
+interpretation, 163-to-56 joint mapping and four-influence pruning are reconstructed
+engineering choices. The preparation report quantifies discarded weights and pose
+displacement; anatomy, palm roll and joint correctives remain review items.
+
+The 1835 recipe fits originally authored shirt, separate waistcoat, high-waisted
+pantaloons, collar and closed shoes to that base. Nearby newspaper clothing terms
+are text evidence only; an advertisement dated 4 July does not establish stock on
+1 July. Exact cut, seam placement, fit ease, colors, body shape, skin appearance and
+synthetic motion are reconstructed. Color variants are pipeline proofs, not three
+attested people. No named likeness, occupation, ethnicity, livery or exact historical
+wardrobe is attested by the mesh. These studies require actual canonical exports,
+close rendering, skinning/garment contact and period review before scene placement.
+Flat PBR colors do not meet the requested photographic skin/clothing quality.
+
+The owner's subsequent October 18 direction prioritizes existing attested, inferred
+or reconstructed people. The first studies now reference already reconstructed
+1835 residents `rc_bardwell_otis`, `rc_dufresne_joseph` and `rc_flynn_martin` instead
+of introducing anonymous scene residents. Their modeled identities, occupations and
+age bands retain the underlying reconstruction basis; no portrait or attested
+likeness is supplied by assigning the existing record to a reusable body. Appearance
+and staged transport actions require their own declared reconstruction and review.
+
+**Applies to:** `assets/authored/humans/makehuman_hm08/`, the original workwear
+recipe and canonical builder, and `bardwell_otis_1835`, `dufresne_joseph_1835`,
+`flynn_martin_1835` study exports. No structure claim is discharged.
+**Recorded:** 2026-10-18 (T-1789).
+
+**Adult-body and skin update (2026-10-18):** The neutral source body is not accepted as
+the finished male anatomy. Hash-verified CC0 hm08 male young/old shape deltas now
+change visible and helper vertices together before joint reconstruction and posing.
+Engineering ages 25 and 35 are chosen within the modeled bands, not read birth years.
+An equal blend of source software-category shapes is an authoring choice, not
+scientifically neutral ethnicity or inferred ancestry. MargaretToigo's CC0 original
+2K bronze male skin atlas is a reusable component, not these residents' complexion
+or likeness; its actual source metadata, CRC and hashes are retained. Roughness,
+body proportions, garment patterns and all animation remain reconstructed and
+need canonical export/render review. No skin upscaling is called 4K detail.
+
+
+**Hair component update (2026-10-19):** Existing reconstructed residents `rc_bardwell_otis`, `rc_dufresne_joseph` and `rc_flynn_martin` retain their current identity, age-band, occupation and presence basis. Their referenced studies may share the cleared CC0 MakeHuman short04 component, fitted to each selected adult25/35 prepared body. Hair shape, dark color, parting, hairline, density and grooming are reconstructed appearance choices, not attested1835hairstyles or individual likenesses. This introduces no new person or biography and implies no ethnicity. Source license clearance is not historical style acceptance.
+
+The adaptation retains signed geometric proxy coefficients; normalized existing body skinweights clamp one negative interpolation row (maximum mass0.0000127) and keep at most4joints. The original Vmaximum1.0031 is remapped with a clearly labeled periodic-padded derivative:8toprows+1bottomrow, Vnew=(2048V+1)/2057. Measured unminified bilinear equivalence does not establish mipmap/aniso/export equivalence. PBR roughness.65, alpha threshold.4 and double-sided rendering are reconstructed shader choices, not the original legacy litsphere appearance. Source topology retained at every LOD pending measured reductions.
+
+Actual pinned exporter source statically recognizes the proposed 1-(Alpha<.4) node pattern as glTF MASK/.4; actual canonical BPy creation, packed image decode, exported material/UV/skin integrity and close/mobile hair-edge, scalp/ear/collar and animated-contact review still require CI. No photographic quality, historical haircut acceptance or independently validated resident depiction is claimed by this addendum.
+
+
+## T-2793 — W01 original wheel/edge refinement (2026-10-19)
+
+The development study now uses independently authored octagonal spokes tapering from35×32mm at the hub to22×22mm at the felloe. These are reconstructed engineering dimensions, not measured or source-attested1835 wagon construction. Original spoke radial endpoints, wheel diameters, axle positions, wheel/steering/tongue pivots and existing proposed hitch/driver frames remain unchanged. Board/stave1.2mm edge chamfers and restrained two-board color variation are look-development inventions, not evidence for historic wear, timber species, paint or photographic grain. Felloe segments, joinery, fastener strength, historical dimensions and photographic quality remain unaccepted. No driver furniture, new people, harness coupling or scene traffic is supplied by this parcel.
+
+The authored model increases9000 to10792 triangles(+1792,19.9%) while retaining22 material-batched meshes. Controlled close/clay views show a lighter taper and less broad striping; full-view gain is modest and does not itself justify using the refinement for distant wagons without an LOD decision. Original materials and surfaces remain covered by GPL-3.0-or-later; no external pixels, texture or rights-pending image geometry was introduced.
+
+
+## T-2794 — C01 original upholstery edge study (2026-10-19)
+
+The development-only C01 now uses independently authored20mm rounded edges on the passenger seat/back cushions and driver cushion, four samples per quarter edge. Radius and shape are reconstructed engineering choices, not measured historic upholstery, stuffing, comfort, material thickness or photographic cloth/leather. Local cushion axis extrema and actual central seat support planes are preserved; rounding the tilted passenger back changes its corner silhouette. Existing gold seam bars/materials remain simplified. No occupant fit, pressure/compression, period subclass, manufacturer or ownership is asserted. The original1904development-study eligibility remains; this does not authorize1835 carriage deployment.
+
+All49nodes, wheel/axle/steering/shaft/hitch/boarding/seat transforms and four actual wheel bounds remain unchanged. Mesh batches remain27; triangles increase9744→10416(+672,6.9%). Controlled close/clay views show rounded rims instead of slab corners; wide-view gain is subtle and facet bands remain visible. Draw calls do not increase. Canonical seating/cloth contact, biological comfort, source-attested period construction, photographic materials and final historical match remain open. This parcel does not introduce people, coupling, traffic, forces or riding. No third-party photograph/texture/geometry derivation was used.
+
+
+## T-2800/T-2801 — Paired head, neck and headstrap refinement (2026-10-19)
+
+The paired intermediate head/neck and bridle study replaces separate spheroidal cheeks with an original cranio-facial loft, adds closed reconstructed ear surfaces and a small eyelid rim, and matches the uncapped upper-neck/head boundary with shared skin weights and area-weighted normals. This is engineered continuity, not measured anatomical or photographic acceptance. Ear height raises whole-horse rest bounds by19.200087mm compared with the previous integrated asset. Jaw/forehead/ear/muzzle/eyelid quality remains provisional. Crownpiece, browband, cheekpieces and noseband routes were reconstructed against this head with unchanged strap width/thickness, bit/rein endpoints, body collar, traces and shaft tugs. Zero sampled triangle crossings and positive unsigned surface separation at21discrete poses do not establish outside-volume containment, pressure, continuous-time safety, correct animal fit or period construction. These isolated studies still attest no individual animal and authorize no historic-scene placement or ride/traffic behavior.
+
+
+## T-2803 — Original grounded trot engineering study (2026-10-19)
+
+The isolated bare-horse study adds a synthetic in-place grounded diagonal trot, with reconstructed.72second cycle,.52stance fraction,.68m stance sweep and.12m hoof lift. Alternating fore-left/hind-right and fore-right/hind-left pairs have brief overlapping stance. These are engineered parameters, not measured historical timing, biological conformation or a claim about a particular horse. Existing idle/walk outputs and current15joint geometry/sockets are unchanged. Actual sole-surface samples establish only bounded numerical contact at sampled clip poses; they do not validate full anatomical pivots, skin/volume quality, loading or animal welfare. Browser duration/stride now follow activeclip metadata, but phase-preserving distance-matched gait transitions, dynamic trot gear/reins/rider coupling and scene traffic remain separate open work. This does not close photographic/period/master/LOD acceptance or T-2803.
+
+
+**Harness chest-clearance addendum (2026-10-19, T-2801):** The original reconstructed breastcollar and its two support straps are rerouted outside the unchanged procedural horse. The saddle-pad ellipse changes from 0.325/0.415 m radii to 0.295/0.375 m, lowering the top by 40 mm and narrowing the sides by 30 mm; its width and leather thickness stay unchanged. These are engineering choices, not source-measured tack or anatomy. Thirty-two other mesh buffers, headgear, sockets and trace endpoints remain unchanged. The declared 5 mm separation is a discrete surface-clearance criterion (63 idle/walk/trot samples, minimum 5.113260 mm), not pressure, load, leather contact, continuous motion, solid containment, period construction or photographic acceptance. Actual before/after images still show thick, faceted engineering leather. No horse identity or historic scene placement is attested by this repair.
+
+## T-2794 — C02 enclosed carriage and reconstructed door (2026-10-19)
+
+C02 is a separate1904 development-only roofed carriage study, not a replacement for open C01 or an identified historic vehicle. Cabin/window divisions, lamps, seating, steps, roof rails, reconstructed pin/alternating-knuckle hinge, door proportions and gaps are independently authored engineering choices. The Pullman-location photograph supplies only a coarse roofed silhouette analogy; it does not attest ownership, subtype, paint/color, hardware, measurements or1904presence. No source image pixels/tracing or unseen plate are copied. No 1835 occupants/placement is authorized.
+
+The door exposes closed/open0/70 degree study endpoints. Zero actual triangle-surface SAT intersections at15 sampled angles retains all contacts, but is not continuous sweep/solid containment, passenger fit, force/pressure/boarding or photographic acceptance. No person, traffic, hitch or existing C01 socket is changed. Source, generatedGLB and original fixtures retain GPL-3.0-or-later; no external assets are introduced. T-2794 remains open.
+
+
+**Metadata and articulation qualification:** The pre-door project scope quotation is preserved separately with its original branch and explicit non-period origin; the enabled branch now describes reconstructed rigid door/hinge geometry and endpoint transforms. Current model metadata hash is 93d4020036e5c685ce95010fe64b26c55a1561db4517405f0590f7a398253331 (860956 bytes). Corrected checks bind all 424 actual moving triangles to the unique active exported door and compose actual hierarchy transforms at each angle; closed-world shape alone cannot qualify detached geometry. Old closed-mapping/source-posed receipts are retained only as limited historical checkpoints. No continuous/occupant/photographic acceptance or installed-head gate is implied.
+
+
+## Per-subject liberties
+
 ### L-k01-1637-south-flank-2781 — 1637 Prairie's south flank: its belt course laid at the photograph's height, its bay's columns plain, and its stack placed by crossing two pictures
 
 **Decision:** the south flank of Jesse Spalding's remodel of the Grosvenor house (T-2781, piece 2
@@ -29595,3 +29778,42 @@ sheet 6 draws the stack edge-on and sheet 3 only the corner fireplace whose flue
 **How to resolve:** a measured elevation of the 18th Street gable, or a tape on today's stack.
 **Ticket:** T-2873 (piece 2 of T-2871).
 **Recorded:** 2026-10-19 (T-2873).
+
+
+### L-k08-1812-projection-balcony-2888 — 1812 Prairie's south projection given its photographed balcony rail: its height and baluster spacing read, its sections and inset reconstructed, its stone middle panel built as iron
+
+**Decision:** the flat top of the south projection on George H. Wheeler's house at 1812 Prairie
+(T-2888, piece 1 of T-2544) takes the balcony Albert Levy's photograph shows on it, which T-2543
+left as K08's bare tin deck. K08's balcony rail, which stood only on a bow or a canted bay's flat
+top, now stands on a projection's flat top the same way: an iron rail 0.1 m in from the eaves'
+edge, round the two cheeks and the front from the wall to the wall, 0.55 m high, a post against
+the wall at each end and at each corner, a foot rail and a top rail, square balusters 0.24 m apart.
+**What is read, not invented.** From the photograph (`levy_1812_prairie_photo`), through the camera
+T-2543 solved (`data/reference_views/wheeler_house_1812_prairie/levy_front.json`), at the
+projection's 92.4 px a metre (1.2 m nearer than the main front's 88.5): that the projection's top
+carries a balcony across its whole front, from its south corner (x 305 px) to its north face
+(x 765 px); that its rail is a light iron one, its top rail about 47 px (0.51 m) over the
+cornice's top edge, which hides its foot, so about 0.55 m over the deck; and that its balusters
+stand about 22 px (0.24 m) apart at the two ends of the run, each with a roundel under the rail.
+**What is invented.** The rail on the two cheeks, which the square-on camera does not see; the
+posts' 0.08 m, the balusters' 0.045 m and the rails' sections; the 0.1 m inset; the foot rail's
+height; the balusters drawn as plain square bars without their roundels; the iron's colour.
+**What is built otherwise than read.** The middle of the photograph's front run, from about
+x 390 to 680 px, is a solid stone panel whose top rises to a pedestal at the centre (x 525-558 px),
+with iron scrolls against it; K08's balcony is one fabric, so the iron rail runs across it. The
+rail stands on K08's fascia, 0.2 m over the projection's wall top, and the projection's top already
+rendered over the print's cornice (T-2543's fit), so the rail, the print's height over its own
+cornice, renders about 25-30 px higher than the print's. Both are open in the match record.
+**How to resolve:** a sharper print of the front, or a second view of the balcony from the street
+at an angle, settles the cheeks and the stone panel's outline; the panel is a K08 piece of its own.
+**Ticket:** T-2888 (piece 1 of T-2544).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-19 (T-2888).
+
+## T-2804: named resident seated-driver and supported W01 studies (2026-10-19)
+
+This is an additive seated-study declaration under existing L418. Existing reconstructed 1835 residents Otis Bardwell (`rc_bardwell_otis`), Joseph Dufresne (`rc_dufresne_joseph`) and Martin Flynn (`rc_flynn_martin`) retain their record identity, date and reconstruction basis. The static seated pose, age/body fit, hand targets and staged driving action are original engineering reconstructions, not portraits, recorded driving assignments or observed actions. No new anonymous person or biography is introduced. The optional canonical `sit_drive` authoring uses the existing portable export and HumanActor; actual exported garment/bench/shoe contact and palm/rein grip require inspection, and source-body pose calculations alone do not establish them.
+
+A separate W01 bench variant adds an original removable timber seat, retaining cleats, bearing plates, bolts, footboard and four floor supports. Its support-plane datum is (0,1.58,0.65)m; the footboard top is1.12m. These chosen dimensions and construction are reconstructed to support the selected pose, not attested 1835 joinery or load-tested hardware. Fasteners intentionally enter timber. The ordinary W01 wagon and hitch remain separate. Unoccupied geometry/support samples do not establish occupant collision clearance, strength, continuous movement, historical construction, photographic quality or usable boarding/riding.
+
+The visible bench study is a development reconstruction. No photograph, ownership, manufacturer or historical likeness is asserted; all earlier source rights restrictions remain.

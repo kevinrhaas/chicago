@@ -657,7 +657,9 @@ class Entrance(Opening):
         if not (0.0 <= si_ and Sp - pw <= S - si_ - wt and S - si_ <= Sp):
             raise ValueError(f"the loggia's side parapet ({si_} m in) does not land on its far pedestal")
         s0, s1 = lo(S - si_ - wt, S - si_)
-        self._box("loggia_wall", s0, s1, 0.0, wh, 0.0, D - pd, skip=("bottom", "back", "front"))
+        # T-2877: a rear pedestal stands where the side parapet met the wall, so it runs from that
+        rd0 = lg["rear"]["depth_m"] if lg.get("rear") else 0.0
+        self._box("loggia_wall", s0, s1, 0.0, wh, rd0, D - pd, skip=("bottom", "back", "front"))
         self.probe(m((s_deck + S) / 2), wh / 2, D, ("loggia_wall",), "the loggia's front parapet")
         # the columns, two to a pedestal side by side along the front
         prof = [[float(r), float(y)] for r, y in C["profile"]]
@@ -681,6 +683,47 @@ class Entrance(Opening):
                 # T-2845: on a pedestal narrower than the pair it spans the shafts' tops
                 hw_ = max(pw / 2 - 0.005, pitch / 2 + prof[-1][0])
                 self._paired_capital(*lo(a + pw / 2 - hw_, a + pw / 2 + hw_), D - pd / 2, ph + ch)
+        # T-2877: a REAR ROW, a pedestal against the wall behind each front one carrying a
+        # pair of turned shafts under a paired capital (1808's: the 1888 plate draws a pair
+        # behind each front one). The pair stands `axis_m` off the wall, `pitch_m` apart,
+        # its profile's radii scaled by `radius_scale`; each defaults to the front's. T-2882: a
+        # RESPOND, a flat pier `respond_m` deep and the pedestal's width, may stand on the wall
+        # behind the pair from the pedestal's top to the ceiling (1808's: the first-floor plan
+        # draws a block about 0.24 m deep at the wall behind each front pedestal, and the plate
+        # draws its lit south face beside the north rear pair)
+        rear, rcols = lg.get("rear"), []
+        if rear:
+            rw, rd = rear.get("width_m", pw), rear["depth_m"]
+            ra, rp, rk = rear.get("axis_m", rd / 2), rear.get("pitch_m", pitch), rear.get("radius_scale", 1.0)
+            rprof = [(r * rk, y) for r, y in prof]
+            rr = max(r for r, _ in rprof)
+            if not (2 * rr <= rp and rr <= ra <= rd - rr and rd + 0.6 <= D - pd):
+                raise ValueError(f"the loggia's rear pairs ({2 * rr:.3f} m shafts at a {rp} m pitch, {ra} m off the "
+                                 f"wall) do not stand on their {rd} m pedestals, or leave no deck behind the front ones")
+            rs = rear.get("respond_m", 0.0)
+            if not 0.0 <= rs <= ra - rr:
+                raise ValueError(f"the loggia's rear respond ({rs} m deep) runs into its pair, whose shafts stand "
+                                 f"{ra - rr:.3f} m off the wall")
+            for a in (s_deck, Sp - pw):
+                c = a + pw / 2
+                q0, q1 = lo(c - rw / 2, c + rw / 2)
+                self._box("pedestal", q0, q1, 0.0, ph, 0.0, rd, skip=("bottom", "back"))
+                self.probe(m(c), ph / 2, rd, ("pedestal",), "a rear pedestal's face")
+                for f in (-0.5, 0.5):
+                    cs = m(c + rp * f)
+                    self._turn((cs, ra), [(r, ph + ch * y) for r, y in rprof], C["segments"], role="column")
+                    rcols.append([round(cs, 4), round(ra, 4)])
+                if carved:
+                    hr = max(rw / 2 - 0.005, rp / 2 + rprof[-1][0])
+                    self._paired_capital(*lo(c - hr, c + hr), ra, ph + ch)
+                    for yy, hh, pd_ in ((0, .1, .05), (ph - .12, .12, .08)):
+                        self._box("pedestal", q0 - .03, q1 + .03, yy, yy + hh, rd, rd + pd_,
+                                  skip=("back",) + (("bottom",) if yy == 0 else ()))   # on the deck
+                    self._panel_relief(q0 + .12, q1 - .12, .23, ph - .2, rd + .02, "pedestal", leaves=False)
+                if rs > 0.0:
+                    # on the pedestal's top, under the ceiling, against the wall
+                    self._box("pedestal", q0, q1, ph, ph + ch, 0.0, rs, skip=("bottom", "top", "back"))
+                    self.probe(m(c), ph + ch / 2, rs, ("pedestal",), "a rear respond's face")
         # the entablature over the whole plan, its soffit the ceiling
         y0, y1 = ph + ch, ph + ch + E["height_m"]
         s0, s1 = lo(s_deck, S)
@@ -730,7 +773,7 @@ class Entrance(Opening):
             self._box("balcony", s0, s1, y1, y1 + bh, 0.0, D - bt, skip=("bottom", "back", "front"))
         self.probe(m((s_deck + S) / 2), y1 + bh / 2, D, ("balcony",), "the balcony's parapet")
         return {"s": [round(m(s_deck), 4), round(m(S), 4)], "out_m": D, "pedestal_top_m": ph,
-                "columns": cols, "entablature_y_m": [round(y0, 4), round(y1, 4)],
+                "columns": cols, **({"rear_columns": rcols} if rcols else {}), "entablature_y_m": [round(y0, 4), round(y1, 4)],
                 "balcony_top_m": round(y1 + bh, 4)}
 
     def _finish_faces(self, role, faces):

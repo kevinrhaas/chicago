@@ -1227,6 +1227,16 @@ const launchBrowser = () => chromium.launch({
   args: ['--enable-unsafe-swiftshader'],
 });
 
+function recoveredDisplayDiagnostic(state, priorPage) {
+  const d = state?.diagnostic;
+  return state?.readable === true && state.reloadButton === false
+    && /^Display reset /.test(state.notice ?? '') && state.text === state.notice
+    && d?.previousLost === true && d.previousPage !== d.currentPage
+    && typeof priorPage === 'string' && d.previousPage === priorPage
+    && typeof d.previousPage === 'string' && typeof d.currentPage === 'string'
+    && d.copyVisible === true && d.copyMatchesPrevious === true;
+}
+
 /** How different are two pixel signatures, 0..255 per cell. */
 function signatureDistance(a, b) {
   if (!a?.cells || !b?.cells || a.cells.length !== b.cells.length) return Infinity;
@@ -1238,6 +1248,89 @@ function signatureDistance(a, b) {
     worst = Math.max(worst, d);
   }
   return { mean: sum / a.cells.length, worst };
+}
+
+/** Diagnostic bracket around the SAME capture, not another rendered frame.
+ * Read before the baseline and after restoration; counters can identify a changed
+ * scene, but a changed bracket alone does not attribute a pixel residual. */
+async function captureWithRestoreState(page, grid, when) {
+  return page.evaluate(async ({ grid, when }) => {
+    const a = window.__chicago4d;
+    // SPDX-License-Identifier: GPL-3.0-or-later
+    function sceneCaptureReady(state){
+     const f=state?.flora,t=state?.textureResidency;
+     return f?.inFlight===false&&['landings','drained','abandoned'].every(k=>Number.isInteger(f[k])&&f[k]>=0)&&['near','far'].every(k=>Number.isInteger(f.passes?.[k])&&f.passes[k]>=0)&&typeof state?.geometry?.fingerprint==='string'&&!!state.camera&&(t===null||Number.isInteger(t?.pending)&&t.pending===0);
+    }
+    function advanceSceneSettle(previous,state){
+     if(!sceneCaptureReady(state))return{key:null,unchanged:0,settled:false};
+     // Only semantic counters: never frame/timing counters which advance forever.
+     const key=JSON.stringify({camera:state.camera,geometry:state.geometry,flora:state.flora,textureResidency:state.textureResidency});
+     const unchanged=previous?.key===key?previous.unchanged+1:1;
+     return{key,unchanged,settled:unchanged>=4};
+    }
+    const fingerprint = () => {
+      const camera = a.camera;
+      const spread = a.flora?.stats?.spread;
+      const textures = a.textureResidency?.state;
+      let hash = 2166136261; let meshes = 0; let visible = 0;
+      const layers = {};
+      const feed = (value) => {
+        const text = String(value);
+        for (let i = 0; i < text.length; i++) {
+          hash = Math.imul(hash ^ text.charCodeAt(i), 16777619) >>> 0;
+        }
+      };
+      a.scene3d.traverse((o) => {
+        // Include ancestor group visibility/layers as well as mesh buffers.
+        feed(`${o.id}:${o.visible}:${o.layers.mask}:`);
+        if (!o.isMesh) return;
+        meshes++; if (o.visible) visible++;
+        layers[o.layers.mask] = (layers[o.layers.mask] || 0) + 1;
+        feed(`${o.id}:${o.visible}:${o.layers.mask}:${o.geometry.id}:`);
+        feed(`${o.geometry.drawRange.start}:${o.geometry.drawRange.count}:`);
+        feed(o.geometry.index?.version ?? '-');
+        for (const [name, attribute] of Object.entries(o.geometry.attributes)) {
+          feed(`${name}:${attribute.count}:${attribute.version ?? attribute.data?.version ?? '-'};`);
+        }
+      });
+      return {
+        camera: { position: camera.position.toArray(), quaternion: camera.quaternion.toArray(),
+          projection: camera.projectionMatrix.toArray() },
+        geometry: { meshes, visible, layers, fingerprint: hash.toString(16).padStart(8, '0') },
+        flora: { inFlight: a.flora?.inFlight?.() ?? null,
+          landings: spread?.landings ?? null, drained: spread?.drained ?? null,
+          abandoned: spread?.abandoned ?? null, passes: spread ? { ...spread.passes } : null },
+        textureResidency: textures ? { pending: textures.pending, resident: textures.resident,
+          residentBytes: textures.residentBytes, uploads: textures.uploads,
+          evictions: textures.evictions, redecodes: textures.redecodes } : null,
+      };
+    };
+    let settleReceipt = null;
+    if (when === 'before') {
+      // Wait for the normal renderer to finish its live work; never force-drain,
+      // hide or freeze geometry. Poll actual frames, not a fixed delay.
+      let previous = null, last = null, frames = 0;
+      let timeout, cancelled = false;
+      const polling = (async () => {
+        for (; frames < 120 && !cancelled; frames++) {
+          await new Promise(resolve => requestAnimationFrame(resolve));
+          if (cancelled) return null;
+          last = fingerprint();
+          previous = advanceSceneSettle(previous, last);
+          if (previous.settled) return {frames:frames+1,stable_samples:previous.unchanged,state:last};
+        }
+        throw Error('capture scene did not settle within 120 animation-frame observations: '+JSON.stringify(last));
+      })();
+      try {
+        settleReceipt = await Promise.race([polling,new Promise((_,reject)=>{
+          timeout=setTimeout(()=>reject(Error('capture scene did not settle within 60s: '+JSON.stringify(last))),60000);
+        })]);
+      } finally {cancelled = true;clearTimeout(timeout);}
+    }
+    const before = when === 'before' ? fingerprint() : null;
+    const image = await a.capture(grid);
+    return { image, state: when === 'before' ? before : fingerprint(), settle: settleReceipt };
+  }, { grid, when });
 }
 
 // The gate is both viewports and nothing less. SMOKE_VIEWPORT exists because a
@@ -1651,6 +1744,29 @@ for (const [label, viewport, touch] of [
       errors.push(`console.error: ${t}`);
     }
   });
+
+  // T-2559: measure cold profiling BEFORE loading the town. A second page in
+  // the same browser does not stop the first page drawing: doing this after
+  // ready made the benchmark compete with SwiftShader town frames (8.7 s
+  // versus 128 ms with no town). Real boot profiles before the renderer exists.
+  // Keep the cold/warm limits below unchanged; isolate the work they measure.
+  let coldDeviceProfile = null;
+  if (stageOn(1)) {
+    const bctx = await browser.newContext({ viewport, hasTouch: touch, isMobile: false,
+        deviceScaleFactor: touch ? 2 : 1 });
+    try {
+      const bp = await bctx.newPage();
+      const moduleUrl = new URL(`${MODULE_BASE}device-profile.js`, base).href;
+      await bp.goto(moduleUrl, { waitUntil: 'domcontentloaded' });
+      coldDeviceProfile = await bp.evaluate(async ([url, isTouch]) => {
+        const dp = await import(url);
+        const r = await dp.profileDevice({ touch: isTouch, storage: null, forceBench: true });
+        return { costMs: r.costMs, bench: r.bench };
+      }, [moduleUrl, touch]);
+    } finally {
+      await bctx.close();
+    }
+  }
 
   const res = await page.goto(base, { waitUntil: 'domcontentloaded' });
   check(`${label}: page serves`, res.status() === 200, `status ${res.status()} at ${base}`);
@@ -2368,23 +2484,8 @@ for (const [label, viewport, touch] of [
         warmCached: warm.cached, warmMs: warm.costMs,
       };
     }, touch);
-    // The cold price, on a page with no town drawing behind it — the boot runs the
-    // profile before the renderer exists, so a town's frames are not part of it.
-    {
-      const bctx = await browser.newContext({ viewport, hasTouch: touch, isMobile: false,
-        deviceScaleFactor: touch ? 2 : 1 });
-      const bp = await bctx.newPage();
-      const moduleUrl = new URL(`${MODULE_BASE}device-profile.js`, base).href;
-      await bp.goto(moduleUrl, { waitUntil: 'domcontentloaded' });
-      const cold = await bp.evaluate(async ([url, isTouch]) => {
-        const dp = await import(url);
-        const r = await dp.profileDevice({ touch: isTouch, storage: null, forceBench: true });
-        return { costMs: r.costMs, bench: r.bench };
-      }, [moduleUrl, touch]);
-      await bctx.close();
-      deviceProfile.coldMs = cold.costMs;
-      deviceProfile.coldBench = cold.bench;
-    }
+    deviceProfile.coldMs = coldDeviceProfile.costMs;
+    deviceProfile.coldBench = coldDeviceProfile.bench;
     check(`${label}: the device profile classed this device and the class chose its defaults (T-2559)`,
       ['weak', 'standard', 'strong'].includes(deviceProfile.cls) && !deviceProfile.forced
         && deviceProfile.touch === touch
@@ -2704,11 +2805,11 @@ for (const [label, viewport, touch] of [
     // 96 x 96 measures 0.319 from the SAME view. Finer cells reduce that
     // cancellation; camera, scene, mean>=0.3 and worst>=6 remain unchanged.
     // The restored frame is also checked, so unrelated movement cannot pass.
-    const yardWith = await page.evaluate(() => window.__chicago4d.capture(96));
+    const { image: yardWith, state: yardStateBefore } = await captureWithRestoreState(page, 96, 'before');
     await page.evaluate(() => { window.__chicago4d.enclosures.group.visible = false; });
     const yardWithout = await page.evaluate(() => window.__chicago4d.capture(96));
     await page.evaluate(() => { window.__chicago4d.enclosures.group.visible = true; });
-    const yardRestored = await page.evaluate(() => window.__chicago4d.capture(96));
+    const { image: yardRestored, state: yardStateAfter } = await captureWithRestoreState(page, 96, 'after');
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
     const dYard = signatureDistance(yardWith, yardWithout);
     const dYardRestored = signatureDistance(yardWith, yardRestored);
@@ -2717,7 +2818,7 @@ for (const [label, viewport, touch] of [
         && dYardRestored.worst <= 1 && dYardRestored.mean <= 0.02,
       `96x96 cell delta mean ${dYard.mean?.toFixed(3)}, worst ${dYard.worst} `
       + `(need mean>=0.3, worst>=6); restored mean ${dYardRestored.mean?.toFixed(3)}, `
-      + `worst ${dYardRestored.worst}`);
+      + `worst ${dYardRestored.worst}; restore states ${JSON.stringify({ before: yardStateBefore, after: yardStateAfter })}`);
 
     // --- the town pound is a fence, not a box (T-0051) -----------------------
     //
@@ -7418,7 +7519,7 @@ for (const [label, viewport, touch] of [
     // render" assertion strictly harder, since sway can no longer supply any of
     // the difference it needs to find.
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
-    const off = await page.evaluate(() => window.__chicago4d.capture());
+    const { image: off, state: confidenceStateBefore } = await captureWithRestoreState(page, 12, 'before');
     check(`${label}: canvas renders non-black`,
       off.mean > 12 && off.litFraction > 0.5,
       `mean luminance ${off.mean?.toFixed(1)}, lit ${(off.litFraction * 100).toFixed(0)}%`);
@@ -7439,7 +7540,7 @@ for (const [label, viewport, touch] of [
       `cell delta mean ${d.mean?.toFixed(2)}, worst ${d.worst} (need worst>=6)`);
 
     await page.evaluate(() => window.__chicago4d.setConfidenceView(false));
-    const back = await page.evaluate(() => window.__chicago4d.capture());
+    const { image: back, state: confidenceStateAfter } = await captureWithRestoreState(page, 12, 'after');
     const dBack = signatureDistance(off, back);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
     // With the clock held these are two captures of one unchanged scene, so the
@@ -7448,7 +7549,7 @@ for (const [label, viewport, touch] of [
     // broadly (the assertion immediately above pins that at >= 0.6).
     check(`${label}: turning it off restores the render`,
       dBack.mean <= 0.1 && dBack.worst <= 3,
-      `residual mean ${dBack.mean?.toFixed(2)}, worst-cell delta ${dBack.worst}`);
+      `residual mean ${dBack.mean?.toFixed(2)}, worst-cell delta ${dBack.worst}; restore states ${JSON.stringify({ before: confidenceStateBefore, after: confidenceStateAfter })}`);
 
     // T-2646: every grade's look is its own — tint, dither or ghost, at any
     // opacity, from the view's test hook. This runs AFTER the restore check above,
@@ -10292,8 +10393,12 @@ for (const [label, viewport, touch] of [
     // that fails says WHERE.
     const detail = await page.evaluate(async (stands) => {
       const a = window.__chicago4d;
-      const settle = () => new Promise((r) => requestAnimationFrame(
-        () => requestAnimationFrame(r)));
+      const settle = async () => {
+        await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+        // The welcome gate may hold its last render, and sliced flora work may
+        // still be pending. Read a fresh forced frame with synchronous work drained.
+        a.step();
+      };
       const started = a.detail;
       const seen = [];
       // The reference stand is walked LAST, and that is a cost decision with a
@@ -10348,19 +10453,22 @@ for (const [label, viewport, touch] of [
           // drawing what the frustum used to skip would be a ceiling breach
           // wearing a saving's clothes.
           if (st.id === 'lake_at_canal' && level === 'full') {
+            // Fresh frames in one evaluation; step drains synchronous flora work.
+            // The reverse comparison proves the instrument restored its baseline.
+            a.step();
+            const on = a.stats();
             row.mergeClusters = a.farMerge.clusters;
             row.mergeMerged = a.farMerge.merged;
             a.setFarMerge(false);
-            await settle();
+            a.step();
             const off = a.stats();
-            // Restored without a settle of its own, deliberately: this stand is
-            // never the last of the order, `setFarMerge` puts the visibility
-            // back synchronously, and the next stand settles before it reads.
-            // Part 4 is the thinnest margin in the desktop suite (T-0173) and a
-            // frame here costs about three seconds on the software renderer.
             a.setFarMerge(true);
-            row.mergeTris = off.triangles - r.triangles;
-            row.mergeCalls = off.drawCalls - r.drawCalls;
+            a.step();
+            const again = a.stats();
+            row.mergeTris = off.triangles - on.triangles;
+            row.mergeCalls = off.drawCalls - on.drawCalls;
+            row.mergeResidualTris = again.triangles - on.triangles;
+            row.mergeResidualCalls = again.drawCalls - on.drawCalls;
           }
           atStands.push(row);
         }
@@ -10594,11 +10702,13 @@ for (const [label, viewport, touch] of [
      */
     const merged = full.atStands.find((x) => x.id === 'lake_at_canal');
     check(`${label}: the far merge gives back draw calls down the axial street and moves no triangle doing it`,
-      !!merged && merged.mergeTris === 0 && merged.mergeCalls >= 25
+      !!merged && merged.mergeTris === 0 && merged.mergeResidualTris === 0
+      && merged.mergeResidualCalls === 0 && merged.mergeCalls >= 25
       && merged.mergeMerged > 0,
       merged
         ? `${merged.mergeCalls} call(s) saved over ${merged.mergeMerged} of `
-          + `${merged.mergeClusters} cluster(s), ${merged.mergeTris} triangle(s) moved`
+          + `${merged.mergeClusters} cluster(s), ${merged.mergeTris} triangle(s) moved; `
+          + `restore residual ${merged.mergeResidualTris} triangle(s), ${merged.mergeResidualCalls} call(s)`
         : 'the axial stand was not walked at full');
     const axial = light.atStands.find((x) => x.id === 'lake_at_canal');
     check(`${label}: the light tier holds furniture back down the axial street`,
@@ -10897,7 +11007,14 @@ for (const [label, viewport, touch] of [
           readable = r.width > 0 && r.top >= 0 && r.bottom <= innerHeight && r.left >= 0 && r.right <= innerWidth
             && !!top && card.contains(top);
         }
-        return g ? { boot: g.boot, lowered: g.lowered, notice: g.notice, reloads: g.reloads,
+        const box = window.__chicago4d?.blackbox;
+        const previous = box?.previous;
+        const copy = card?.querySelector('.crash-notice-copy');
+        const diagnostic = { previousLost: previous?.entries?.some(e => e.k === 'lost') === true,
+          previousPage: previous?.page ?? null, currentPage: box?.box?.page ?? null,
+          copyVisible: !!copy && !copy.hidden,
+          copyMatchesPrevious: !!previous && copy?.dataset.copy === JSON.stringify(previous) };
+        return g ? { diagnostic, boot: g.boot, lowered: g.lowered, notice: g.notice, reloads: g.reloads,
           watching: g.watching, sessionLosses: g.sessionLosses, readable,
           text: card && !card.hidden ? card.querySelector('.crash-notice-text').textContent : null,
           reloadButton: !!card && !card.hidden && !card.querySelector('.crash-notice-reload').hidden } : null;
@@ -10912,8 +11029,11 @@ for (const [label, viewport, touch] of [
         // which a microtask inside it has not: a task later, it has.
         await new Promise((r) => setTimeout(r, 50));
         const notice = window.__chicago4d.crashGuard.notice;
+        // Capture this page before restore reloads it; the next boot must retain
+        // this exact lost-page record, not merely any Display reset message.
+        const diagnostic = { currentPage: window.__chicago4d.blackbox?.box?.page ?? null };
         ext.restoreContext();
-        return { notice };
+        return { notice, diagnostic };
       });
       // T-2826 (#1049): a load after a lost context shows the black box's line on the card,
       // "Display reset N s into the visit. Just before: …" (blackbox.js summary), by design.
@@ -10945,11 +11065,13 @@ for (const [label, viewport, touch] of [
       check(`${label}: two lost contexts reload the page once at most, then lower the next boot a tier`,
         /reset/.test(firstLoss.notice ?? '') && loads === 2 && reloaded?.boot?.detail === 'balanced'
         && reloaded.lowered === null && blackboxOnly(reloaded.notice)
+        && recoveredDisplayDiagnostic(reloaded, firstLoss.diagnostic.currentPage)
         && after?.reloads === 1 && after.sessionLosses === 2 && after.lowered?.why === 'context'
         && after.lowered.to.detail === 'light' && after.readable && after.reloadButton
         && /^Detail lowered to Light/.test(secondLoss.notice ?? ''),
         JSON.stringify({ firstLoss, loads, reloaded, secondLoss, after }));
-      // The visitor taps Reload: the boot that follows is the lowered tier, and silent.
+      // T-2826 retains the prior reset record after Reload; require its exact Copy record,
+      // readable status and absence of another Reload prompt, alongside the lowered tier.
       const at = await pc.evaluate(() => {
         const r = document.querySelector('#crash-notice .crash-notice-reload').getBoundingClientRect();
         return { x: r.x + r.width / 2, y: r.y + r.height / 2 };
@@ -10957,8 +11079,11 @@ for (const [label, viewport, touch] of [
       await pc.mouse.click(at.x, at.y);
       await pc.waitForFunction(() => window.__chicago4d?.crashGuard?.watching === true, null, { timeout: 120_000, polling: 500 });
       const lowered = await guardState();
-      check(`${label}: the boot after Reload runs at the lowered tier with no card of the guard's own (T-2826's black-box line aside)`,
-        loads === 3 && lowered?.boot?.detail === 'light' && blackboxOnly(lowered.notice) && lowered.reloads === 1,
+      check(`${label}: the boot after Reload runs at the lowered tier with only the prior-reset diagnostic`,
+        loads === 3 && lowered?.boot?.detail === 'light' && lowered.lowered === null
+        && blackboxOnly(lowered.notice)
+        && recoveredDisplayDiagnostic(lowered, after.diagnostic.currentPage) && lowered.reloads === 1
+        && lowered.sessionLosses === 2 && lowered.watching === true,
         JSON.stringify({ loads, lowered }));
       check(`${label}: no page errors through the crash, the lost contexts and the reloads`,
         crashErrors.length === 0, crashErrors.slice(0, 5).join(' | '));
@@ -16471,6 +16596,35 @@ for (const [label, viewport, touch] of [
         await new Promise((r) => setTimeout(r, 150));
       }
       const hintUp = !!document.getElementById('hint')?.classList.contains('on');
+      // dock() updates its detent synchronously, while the actual box still transitions.
+      // After the hint wait, require the visible final dock immediately before sampling.
+      const nav = document.getElementById('navigator'), deadline = performance.now() + 60000;
+      const dockShown = (el) => {
+        if (!el?.isConnected) return false;
+        for (let e = el; e && e !== document.documentElement; e = e.parentElement) {
+          const cs = getComputedStyle(e);
+          if (e.hidden || cs.display === 'none' || cs.visibility === 'hidden' || parseFloat(cs.opacity) < 0.05) return false;
+        }
+        return true;
+      };
+      let navigatorDock;
+      do {
+        const b = nav?.getBoundingClientRect(); // Flush style before reading native transitions.
+        const phone = innerWidth <= 620;
+        const animations = nav?.getAnimations?.() ?? [];
+        navigatorDock = { detent: window.__chicago4d.navigator?.detent ?? null,
+          level: window.__chicago4d.navigator?.level ?? null,
+          box: b ? { x: b.x, y: b.y, width: b.width, height: b.height, right: b.right, bottom: b.bottom } : null,
+          visible: dockShown(nav),
+          running: animations.filter(a => a.playState === 'running' || a.pending).map(a => ({ state: a.playState, pending: a.pending, property: a.transitionProperty ?? null })) };
+        navigatorDock.ready = !!b && navigatorDock.visible && b.height > 0
+          && b.left >= 0 && b.top >= 0 && b.right <= innerWidth && b.bottom <= innerHeight
+          && navigatorDock.level === 0 && navigatorDock.detent === (phone ? 'dock' : 'rail')
+          && navigatorDock.running.length === 0
+          && (phone ? Math.abs(b.width - 136) <= 1 && Math.abs(b.height - 64) <= 1 : Math.abs(b.width - 58) <= 1);
+        if (navigatorDock.ready || performance.now() >= deadline) break;
+        await new Promise(resolve => setTimeout(resolve, 100));
+      } while (true);
       const W = innerWidth, H = innerHeight, cell = 2;
       const cols = Math.ceil(W / cell), rows = Math.ceil(H / cell);
       const grid = new Uint8Array(cols * rows);
@@ -16537,7 +16691,7 @@ for (const [label, viewport, touch] of [
       const confLegend = +share('conf-legend').toFixed(2);
       const targetTag = +share('target-tag').toFixed(2);
       return { viewport: `${W}x${H}`, pct: +pct.toFixed(2), boxes: boxes.length, biggest, streetReadout, confLegend, targetTag,
-        controls: window.__chicago4d.controlBackend, lookTag: !document.getElementById('look-tag')?.hidden, hintUp };
+        navigatorDock, controls: window.__chicago4d.controlBackend, lookTag: !document.getElementById('look-tag')?.hidden, hintUp };
     });
     await page.evaluate(() => { window.__chicago4d.navigator?.dock?.(); window.__chicago4d.popup?.close?.(); window.__chicago4d.hud.dismissControlHelp?.({ remember: false }); });
     // dock() sets the level at once, but the device shrinks through a CSS transition, and a
@@ -16573,7 +16727,8 @@ for (const [label, viewport, touch] of [
     if (touch) { await page.setViewportSize(viewport); await page.waitForTimeout(400); }
     const base = footprints.at(-1);
     check(`${label}: the HUD covers ${HUD_BUDGET_PCT} % of the screen or less, and the measure catches a planted button (T-2628)`,
-      footprints.every((f) => f.pct <= HUD_BUDGET_PCT && f.boxes > 0)
+      [...footprints, oneMore, oldRow].every((f) => f.navigatorDock.ready)
+      && footprints.every((f) => f.pct <= HUD_BUDGET_PCT && f.boxes > 0)
       // On the phone the pre-declutter row alone breaks the budget, as it did (IMG_6942).
       && oneMore.pct > base.pct + 0.05 && (!touch || oldRow.pct > HUD_BUDGET_PCT),
       JSON.stringify({ footprints, plantedOne: oneMore.pct, plantedOldRow: oldRow.pct }), true);

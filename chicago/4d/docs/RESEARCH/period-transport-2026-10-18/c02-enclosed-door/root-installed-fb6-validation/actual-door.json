@@ -1,0 +1,171 @@
+{
+  "passed": true,
+  "status": "Actual selected-GLB ancestry binding and hierarchy-composed triangle surface SAT",
+  "scope": "15 discrete door angles only; all contacts retained, no whitelist; no continuous clearance/solid containment/occupant acceptance",
+  "angles_deg": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60,
+    65,
+    70
+  ],
+  "intersection_tolerance_m": 1e-08,
+  "closed_mapping_tolerance_m": 1e-06,
+  "all_contacts_preserved": true,
+  "stage": "complete",
+  "input_sha256": "93d4020036e5c685ce95010fe64b26c55a1561db4517405f0590f7a398253331",
+  "generator_sha256": "b3b136f37a125210effdc71c6203d7293456899996f8ff37d8723f013ff2c26d",
+  "parameters_sha256": "3922cb11ebdb7a21ffc9890e1c23e62567e71e62fdb35008b0a016ab533824f7",
+  "actual_active_door_node": 2,
+  "active_triangle_count": 11512,
+  "actual_active_moving_triangle_count": 424,
+  "moving_source_parts": [
+    "door_lower_panel",
+    "door_glazing",
+    "door_vertical_stile",
+    "door_vertical_stile",
+    "door_horizontal_rail",
+    "door_horizontal_rail",
+    "door_horizontal_rail",
+    "hinge_moving_knuckle",
+    "hinge_moving_arm",
+    "hinge_moving_knuckle",
+    "hinge_moving_arm",
+    "door_handle"
+  ],
+  "predicate_controls_both_orders": 10,
+  "rows": [
+    {
+      "angle_deg": 0,
+      "broadphase_pairs": 128,
+      "triangle_intersections_including_contact": 0,
+      "actual_moving_max_vertex_travel_m": 0.0,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 5,
+      "broadphase_pairs": 1664,
+      "triangle_intersections_including_contact": 0,
+      "actual_moving_max_vertex_travel_m": 0.06522301905490993,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 10,
+      "broadphase_pairs": 2376,
+      "triangle_intersections_including_contact": 0,
+      "actual_moving_max_vertex_travel_m": 0.13032188238601486,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 15,
+      "broadphase_pairs": 1711,
+      "triangle_intersections_including_contact": 0,
+      "actual_moving_max_vertex_travel_m": 0.19517267060698634,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 20,
+      "broadphase_pairs": 1478,
+      "triangle_intersections_including_contact": 0,
+      "actual_moving_max_vertex_travel_m": 0.2596519365565681,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 25,
+      "broadphase_pairs": 1437,
+      "triangle_intersections_including_contact": 0,
+      "actual_moving_max_vertex_travel_m": 0.32363694028726303,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 30,
+      "broadphase_pairs": 1744,
+      "triangle_intersections_including_contact": 0,
+      "actual_moving_max_vertex_travel_m": 0.38700588270779984,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 35,
+      "broadphase_pairs": 1884,
+      "triangle_intersections_including_contact": 0,
+      "actual_moving_max_vertex_travel_m": 0.449638137434626,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 40,
+      "broadphase_pairs": 1991,
+      "triangle_intersections_including_contact": 0,
+      "actual_moving_max_vertex_travel_m": 0.5114144804110842,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 45,
+      "broadphase_pairs": 1892,
+      "triangle_intersections_including_contact": 0,
+      "actual_moving_max_vertex_travel_m": 0.5722173168571811,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 50,
+      "broadphase_pairs": 1641,
+      "triangle_intersections_including_contact": 0,
+      "actual_moving_max_vertex_travel_m": 0.6319309051179343,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 55,
+      "broadphase_pairs": 1308,
+      "triangle_intersections_including_contact": 0,
+      "actual_moving_max_vertex_travel_m": 0.6904415769841906,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 60,
+      "broadphase_pairs": 797,
+      "triangle_intersections_including_contact": 0,
+      "actual_moving_max_vertex_travel_m": 0.7476379540665236,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 65,
+      "broadphase_pairs": 445,
+      "triangle_intersections_including_contact": 0,
+      "actual_moving_max_vertex_travel_m": 0.8034111598103277,
+      "part_pairs": [],
+      "examples": []
+    },
+    {
+      "angle_deg": 70,
+      "broadphase_pairs": 304,
+      "triangle_intersections_including_contact": 0,
+      "actual_moving_max_vertex_travel_m": 0.8576550267485274,
+      "part_pairs": [],
+      "examples": []
+    }
+  ],
+  "actual_final_triangles_matched_to_source_labels": 11512,
+  "elapsed_s": 12.823888063430786
+}

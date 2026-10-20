@@ -12,6 +12,9 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                recess; on a curved run the whole opening is bent to the curve
   plinth       on grade: a stone plinth, proud, mitred round every corner
   corbel       an oriel: stone courses each stepped out over the one below
+  apron        (T-2883) or an oriel's apron in their place: its plan carried straight down
+               as a flat face to a moulded foot proud of it, closed under the foot back
+               to the wall (1625's oriel, from its print)
   floor bands  a string course at every floor line between storeys
   eaves        a soffit out to a fascia, or (T-2460) a moulded section the variant's
                eaves name as a `profile` (in the role they name, T-2472; a band's stone
@@ -26,7 +29,8 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                distance in from the eaves on every plane, so the hips stay shared
   balcony      (T-2525) a bow's iron balcony rail on its eaves, round the plan from wall to
                wall: a post at each end against the wall, square bars between a foot rail
-               and a top rail (T-2780: or a stone balustrade round a canted bay's flat top); and a window entry's `grille`, iron bars in its reveal
+               and a top rail (T-2780: or a stone balustrade round a canted bay's flat top; T-2888: or
+               an iron rail round a projection's flat top); and a window entry's `grille`, iron bars in its reveal
                clipped to its head, with an arch ring over them as 1621's drawing draws
   heads        (T-2531) a window entry's `voussoirs`: a block of splayed stones over the
                light from its head to the string course, their joints fanned, as 1621's
@@ -700,6 +704,9 @@ def k06_variant(w: dict) -> dict:
     # T-2815: a transom window's lights in tiers on stone bars, read off a picture (Keith's bow)
     if "tiers" in w:
         v6["tiers"] = w["tiers"]
+    # T-2883: a narrow light (an oriel's cheek) is one light a sash: no bar splits its glass
+    if w.get("narrow"):
+        v6["panes"] = [1, 1]
     return v6
 
 
@@ -708,6 +715,13 @@ def window(w: dict, s: float, y_sill: float, recess: float):
     room cut so the recess runs `recess` behind the face: (opening, daylight hole)."""
     data6 = copy.deepcopy(K6.load())
     v6 = k06_variant(w)
+    if w.get("narrow"):
+        # T-2883: its sill and lintel stop at its jambs, so a light 0.3 m across stands in a
+        # cheek under half a metre deep, the cheek's own stone its surround
+        data6["parts"]["sill"]["horn_m"] = 0.0
+        data6["parts"]["head_band"]["ear_m"] = 0.0
+        # and its sashes take K06's least stile, so the glass is most of a light so narrow
+        data6["parts"]["sash"]["stile_m"] = data6["parts"]["sash"]["range_stile_m"][0]
     probe = K6.Opening(v6, data6).build()
     inner_glass = probe.meta["depth_backing_m"] - data6["parts"]["backing"]["depth_m"]
     data6["parts"]["backing"]["depth_m"] = recess - inner_glass
@@ -824,11 +838,15 @@ class Bay:
                 ((fi, fs),) = locate(self.runs, self.plan, {"at": [v["floor_balcony"]["at"]]})
                 if fi == i:
                     self._floor_balcony(flat, fs, cv)
-            if not grade:
+            if not grade and v.get("apron"):
+                self._apron_face(flat, run, y0)
+            elif not grade:
                 self._corbel_courses(flat, run, y0)
             bend(run, flat.prims, self.prims, run.seg_step(cv["max_seg_deg"]), join_quads=bool(v.get("masonry")))
         world = strip(f"{v['id']}|world")
-        if not grade:
+        if not grade and v.get("apron"):
+            self._apron_bottom(world, y0, cv)
+        elif not grade:
             self._corbel_bottom(world, y0, cv)
         self._roof(world, y_e, ov, cv)
         if v.get("back_from_m") is not None:
@@ -899,6 +917,36 @@ class Bay:
         self.meta["corbel"] = {"courses": K, "course_height_m": h, "step_m": round(step, 4),
                                "reach_m": round(reach, 4), "bearing_m": round(reach - K * step, 4),
                                "bottom_m": round(y, 4)}
+
+    def _apron_layout(self, y0):
+        """T-2883: (foot, the foot's profile [n out, u up] from its underside to the face)."""
+        prof = [tuple(q) for q in part(self.v, self.data, "apron")["foot_profile"]]
+        foot = float(self.v["apron"]["foot_m"])
+        if not foot + max(u for _, u in prof) < y0:
+            raise ValueError(f"{self.v['id']}: the apron's foot at {foot} m leaves no face under the floor at {y0} m")
+        return foot, prof
+
+    def _apron_face(self, flat, run, y0):
+        """The run's face carried straight down from the floor to the foot, and the foot's
+        moulding swept along it, in the support's stone."""
+        foot, prof = self._apron_layout(y0)
+        wall_cells(flat, "corbel", [], 0.0, run.L, foot + max(u for _, u in prof), y0)
+        moulding(flat, "corbel", run, foot, prof)
+
+    def _apron_bottom(self, world, y0, cv):
+        """The foot's underside: the plan offset out to the foot's nose, closed back to the wall."""
+        foot, prof = self._apron_layout(y0)
+        z = max(n for n, _ in prof)
+        pts = []
+        for r in self.runs:
+            a, b = r.s_start(z), r.s_end(z)
+            st = r.seg_step(cv["max_seg_deg"])
+            n = max(1, math.ceil((b - a) / st)) if st else 1
+            for j in range(n + (1 if r is self.runs[-1] else 0)):
+                pts.append(r.world(a + (b - a) * j / n, foot, z))
+        world.face("corbel", pts, (0.0, -1.0, 0.0))
+        self.meta["apron"] = {"top_m": round(y0, 4), "foot_m": round(foot, 4),
+                              "foot_height_m": round(max(u for _, u in prof), 4), "foot_proud_m": round(z, 4)}
 
     # brackets (T-2408) -----------------------------------------------------------------------
     def _modillions(self, flat, run, y_top, ov):
@@ -1258,22 +1306,36 @@ class Bay:
         and a top rail between them, and square bars at `pitch_m` under the top rail. Only a
         bow, one arc from the wall to the wall, takes it (k01_frontage_params refuses others);
         T-2780: or a canted bay's flat top, a post at each end of each run, in the bay's dressed
-        stone where the balcony names `fabric: stone` (1637's south bay, its balustrade)."""
+        stone where the balcony names `fabric: stone` (1637's south bay, its balustrade);
+        T-2888: or a projection's flat top the same way, round its cheeks and front (1812's)."""
         bl = self.v["balcony"]
         role = "band" if bl.get("fabric") == "stone" else "iron"
         z = ov - bl["inset_m"]
         pm, bm, (rw, rd) = bl["post_m"], bl["bar_m"], bl["rail_m"]
-        # a stone balustrade's feet stand on a 2 mm bed over the flat roof, not in its plane
-        y0, y3 = y_e + (0.002 if role == "band" else 0.0), y_e + bl["height_m"]
+        # T-2888: a projection's runs meet square, where a post ending at the corner would
+        # stand its face in the next run's rail end; there the corner post stands centred on
+        # the corner and the rails run into it, stopping short of the corner by half their
+        # width and half the post's together, halved, so the two runs' rails never meet
+        square = self.v["kind"] == "projection"
+        tuck = (rw + pm) / 4
+        # a stone balustrade's feet stand on a 2 mm bed over the flat roof, not in its plane,
+        # and so does an iron rail on a projection's flat top (T-2888)
+        y0, y3 = y_e + (0.002 if role == "band" or square else 0.0), y_e + bl["height_m"]
         d0, d1 = -z - pm / 2, -z + pm / 2
         sa, sb = run.s_start(z), run.s_end(z)
+        last = run is self.runs[-1]
+        p0 = sa if first else None
+        p1 = sb - pm if not square or last else sb - pm / 2
         # a canted top's runs meet at its corners, where the run before stood its end post
-        for a in ((sa, sb - pm) if first else (sb - pm,)):
+        for a in (a for a in (p0, p1) if a is not None):
             prism(flat, role, rect(a, a + pm, y0, y3), d0, d1)
-        e0, e1 = sa + pm, sb - pm
+        e0 = sa + pm if first or not square else sa + pm / 2
+        e1 = sb - pm if not square or last else sb - pm / 2
+        r0 = sa + pm / 2 if first or not square else sa + tuck
+        r1 = sb - pm / 2 if not square or last else sb - tuck
         # the rails run into the posts' middles, so no end of theirs lies in a post's face
         for ya, yb in ((y3 - rd, y3 - 0.004), (y0 + bl["foot_rail_m"], y0 + bl["foot_rail_m"] + rd / 2)):
-            prism(flat, role, rect(sa + pm / 2, sb - pm / 2, ya, yb), -z - rw / 2, -z + rw / 2)
+            prism(flat, role, rect(r0, r1, ya, yb), -z - rw / 2, -z + rw / 2)
         n = max(1, math.floor((e1 - e0) / bl["pitch_m"]))
         step = (e1 - e0) / (n + 1)
         # the light tier keeps the posts and rails, the rail's outline, and drops the bars
@@ -1383,6 +1445,14 @@ class Bay:
         b.face("ground", [(x0, 0.0, 0.0), (x1, 0.0, 0.0), (x1, 0.0, G), (x0, 0.0, G)], Y)
         merge(self.prims, b.prims)
         self.meta["board"] = {"x": [round(x0, 4), round(x1, 4)], "top_m": round(top, 4), "ground_to_m": round(G, 4)}
+
+
+def support_bottom(v: dict, data: dict | None = None) -> float:
+    """T-2883: how low an oriel's support reaches: its apron's foot, or its lowest corbel course."""
+    if v.get("apron"):
+        return float(v["apron"]["foot_m"])
+    data = data or load()
+    return float(v["base"]) - v["corbel"]["courses"] * float(data["parts"]["corbel"]["course_height_m"])
 
 
 def build_variant(v: dict, data: dict | None = None, tier: str = "full", board: bool = True) -> Bay:

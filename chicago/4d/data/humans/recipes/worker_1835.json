@@ -1,0 +1,200 @@
+{
+  "version": 1,
+  "label": "Reconstructed 1835 workwear studies referenced to existing resident records",
+  "date_bounds": [
+    1833,
+    1836
+  ],
+  "scene_date": "1835-07-01",
+  "license": "CC0-1.0",
+  "grade": "reconstructed",
+  "sources": [
+    "chicago_american_1835"
+  ],
+  "source_scope": "Text terminology only. Nearby June/July 1835 advertisements mention shirts, vests, pantaloons and round jackets. The July 4 advertisement postdates July 1; source text does not attest an exact outfit or before-scene availability. No page pixels, photographic garment tracing or named likeness is used.",
+  "reading": "transcription_mediated",
+  "basis": "Original garment shells fitted to the cleared anonymous adult base. Shirt, separate waistcoat, high-waisted trousers and closed shoes are a bounded reconstruction. Pattern/cut, seams, layer ease, colors, buttons, wear and body shape are unmeasured choices; not an attested uniform or photographic character.",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "waist_height_fraction": 0.585,
+  "shirt_hem_fraction": 0.565,
+  "shirt_offset_m": 0.006,
+  "waistcoat_offset_m": 0.014,
+  "trouser_offset_m": 0.007,
+  "shoe_offset_m": 0.005,
+  "collar_height_m": 0.023,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__shirt_linen": [
+      0.66,
+      0.61,
+      0.49,
+      1.0
+    ],
+    "garment_outer__waistcoat_wool": [
+      0.12,
+      0.09,
+      0.065,
+      1.0
+    ],
+    "garment_lower__highwaist_pantaloons": [
+      0.18,
+      0.16,
+      0.13,
+      1.0
+    ],
+    "footwear__closed_leather_shoes": [
+      0.055,
+      0.035,
+      0.021,
+      1.0
+    ]
+  },
+  "material_limitations": "Hash-verified CC0 reusable generic skin atlas is packed as sRGB with WHITE base-color factor; it does not attest a resident complexion or photographic likeness. Skin roughness is reconstructed. Shirt uses original deterministic 256x256 procedural weave; other surfaces remain flat original PBR colors. Final skin UV/LOD/export fidelity and photographic quality remain unaccepted.",
+  "validation_status": "Earlier recipe revisions passed canonical mechanical CI; this hair and body-normal revision requires a new pinned Blender build and source/web inspection. Anatomical and garment fit, individual appearance and photographic quality remain unaccepted.",
+  "proof_variants": [
+    {
+      "id": "bardwell_otis_1835",
+      "person_reference_id": "rc_bardwell_otis",
+      "person_reference_scene": "1835",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/residents/reconstructed_trades/hh_rc_bardwell_otis.json",
+      "reference_summary": {
+        "name": "Otis Bardwell",
+        "age_band": "20-29",
+        "occupation": "teamster",
+        "division": "west",
+        "presence": "present"
+      },
+      "description": "Provisional reconstructed depiction study for existing reconstructed record rc_bardwell_otis; shared base anatomy, no photographic likeness claim",
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_25.json",
+      "body_parameters": {
+        "chosen_height_m": 1.75,
+        "height_basis": "Unmeasured reconstructed authoring choice, not a recorded resident height.",
+        "engineering_age_years": 25,
+        "age_basis": "Authoring parameter inside the existing reconstructed age band, not an asserted exact age or birth year.",
+        "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ethnicity or a portrait."
+      }
+    },
+    {
+      "id": "dufresne_joseph_1835",
+      "person_reference_id": "rc_dufresne_joseph",
+      "person_reference_scene": "1835",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/residents/reconstructed_trades/hh_rc_dufresne_joseph.json",
+      "reference_summary": {
+        "name": "Joseph Dufresne",
+        "age_band": "30-39",
+        "occupation": "livery_stable_keeper",
+        "division": "south",
+        "presence": "present"
+      },
+      "description": "Provisional reconstructed depiction study for existing reconstructed record rc_dufresne_joseph; shared base anatomy, no photographic likeness claim",
+      "color_overrides": {
+        "garment_outer__waistcoat_wool": [
+          0.14,
+          0.15,
+          0.14,
+          1.0
+        ]
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_35.json",
+      "body_parameters": {
+        "chosen_height_m": 1.75,
+        "height_basis": "Unmeasured reconstructed authoring choice, not a recorded resident height.",
+        "engineering_age_years": 35,
+        "age_basis": "Authoring parameter inside the existing reconstructed age band, not an asserted exact age or birth year.",
+        "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ethnicity or a portrait."
+      }
+    },
+    {
+      "id": "flynn_martin_1835",
+      "person_reference_id": "rc_flynn_martin",
+      "person_reference_scene": "1835",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/residents/reconstructed_trades/hh_rc_flynn_martin.json",
+      "reference_summary": {
+        "name": "Martin Flynn",
+        "age_band": "30-39",
+        "occupation": "teamster",
+        "division": "north",
+        "presence": "present"
+      },
+      "description": "Provisional reconstructed depiction study for existing reconstructed record rc_flynn_martin; shared base anatomy, no photographic likeness claim",
+      "color_overrides": {
+        "garment_lower__highwaist_pantaloons": [
+          0.23,
+          0.14,
+          0.08,
+          1.0
+        ]
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_35.json",
+      "body_parameters": {
+        "chosen_height_m": 1.75,
+        "height_basis": "Unmeasured reconstructed authoring choice, not a recorded resident height.",
+        "engineering_age_years": 35,
+        "age_basis": "Authoring parameter inside the existing reconstructed age band, not an asserted exact age or birth year.",
+        "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ethnicity or a portrait."
+      }
+    }
+  ],
+  "procedural_shirt_texture": {
+    "size_px": [
+      256,
+      256
+    ],
+    "construction": "original deterministic alternating warp/weft ridge pattern",
+    "embedded": true,
+    "historical_status": "reconstructed; no sampled or attested period textile",
+    "metric_uv_density": "unverified until Blender/export review"
+  },
+  "recipe_family": "worker_1835",
+  "identity_policy": "Each required variant references an existing reconstructed person in the 1835 people layer. Names, ages, occupations and presence remain reconstructed record attributes. Shared anonymous CC0 anatomy and original clothing are provisional depiction studies, not photographic likenesses or three independently validated anatomies.",
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png",
+    "sha256": "5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 source fitted to existing Otis/Joseph/Martin bodies; hair/part/color are reconstructed choices, no period hairstyle attestation or individual likeness.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  }
+}

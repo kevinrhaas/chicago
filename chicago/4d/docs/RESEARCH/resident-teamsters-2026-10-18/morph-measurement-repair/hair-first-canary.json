@@ -1,0 +1,56 @@
+{
+  "three_revision": "185",
+  "actual_source_excerpt": "  r.morphs = Object.keys(mesh.morphTargetDictionary || {});\n  r.morph_max_mm = {};\n  const weigh = (m, w) => skinned.forEach((o) => { const k = o.morphTargetDictionary?.[m]; if (k !== undefined) o.morphTargetInfluences[k] = w; });\n  for (const m of r.morphs) {\n    weigh(m, 1);\n    r.morph_max_mm[m] = +(maxMove(rest, positions(skinned)) * 1000).toFixed(2);\n    weigh(m, 0);\n  }\n\n",
+  "proposed_one_line": "r.morphs = [...new Set(skinned.flatMap((o) => Object.keys(o.morphTargetDictionary || {})))];",
+  "old_hair_first": {
+    "morphs": [],
+    "morph_max_mm": {}
+  },
+  "fixed_hair_first": {
+    "morphs": [
+      "eyeBlinkLeft",
+      "eyeBlinkRight",
+      "jawOpen"
+    ],
+    "morph_max_mm": {
+      "eyeBlinkLeft": 5,
+      "eyeBlinkRight": 6,
+      "jawOpen": 7
+    }
+  },
+  "fixed_body_first": {
+    "morphs": [
+      "eyeBlinkLeft",
+      "eyeBlinkRight",
+      "jawOpen"
+    ],
+    "morph_max_mm": {
+      "eyeBlinkLeft": 5,
+      "eyeBlinkRight": 6,
+      "jawOpen": 7
+    }
+  },
+  "missing_targets_negative": {
+    "morphs": [],
+    "morph_max_mm": {}
+  },
+  "no_movement_negative": {
+    "morphs": [
+      "eyeBlinkLeft",
+      "eyeBlinkRight",
+      "jawOpen"
+    ],
+    "morph_max_mm": {
+      "eyeBlinkLeft": 0,
+      "eyeBlinkRight": 0,
+      "jawOpen": 0
+    }
+  },
+  "unchanged_required_names": [
+    "eyeBlinkLeft",
+    "eyeBlinkRight",
+    "jawOpen"
+  ],
+  "unchanged_threshold_mm": 1,
+  "scope": "Actual installed fixture reader excerpt + vendoredThree CPU SkinnedMesh/getVertexPosition; no browser/BPy/resident artifact/export acceptance."
+}

@@ -103,13 +103,22 @@ for (const file of files) {
   ua.quaternion.copy(q0); root.updateMatrixWorld(true);
 
   // Morphs: each required one, at full weight, must move the surface.
-  r.morphs = Object.keys(mesh.morphTargetDictionary || {});
+  // Hair or clothing can precede the face; measure the whole loaded figure.
+  r.morphs = [...new Set(skinned.flatMap((o) => Object.keys(o.morphTargetDictionary || {})))].sort();
   r.morph_max_mm = {};
   const weigh = (m, w) => skinned.forEach((o) => { const k = o.morphTargetDictionary?.[m]; if (k !== undefined) o.morphTargetInfluences[k] = w; });
-  for (const m of r.morphs) {
-    weigh(m, 1);
-    r.morph_max_mm[m] = +(maxMove(rest, positions(skinned)) * 1000).toFixed(2);
-    weigh(m, 0);
+  const morphDefaults = skinned.map((o) => o.morphTargetInfluences?.slice() ?? null);
+  const restoreMorphDefaults = () => skinned.forEach((o, i) => {
+    if (morphDefaults[i]) morphDefaults[i].forEach((weight, k) => { o.morphTargetInfluences[k] = weight; });
+  });
+  try {
+    for (const m of r.morphs) {
+      restoreMorphDefaults();
+      weigh(m, 1);
+      r.morph_max_mm[m] = +(maxMove(rest, positions(skinned)) * 1000).toFixed(2);
+    }
+  } finally {
+    restoreMorphDefaults();
   }
 
   // Clips: each one, played a quarter of its length, must turn the bones it drives.

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/harness-negative-p62gdj5_/tools/transport/test_harness_body_fit.py", line 142, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/tmp/harness-negative-p62gdj5_/tools/transport/test_harness_body_fit.py", line 139, in main
+    assert after['surface_pairs']==0,'Repaired bind-pose surface interference'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Repaired bind-pose surface interference

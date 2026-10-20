@@ -1,0 +1,25 @@
+{
+  "id": "john_moore_harness_catalog_1891",
+  "type": "book",
+  "citation": "John Moore (Firm: New York). Fine harness, saddlery & horse clothing. New York, 1891. Columbia University Libraries copy, Internet Archive fineharnesssaddl1891john.",
+  "author": "John Moore (Firm: New York)",
+  "date": "1891",
+  "describes_date": "1891",
+  "repository": "Columbia University Libraries, digitized copy at Internet Archive",
+  "url": "https://archive.org/details/fineharnesssaddl1891john",
+  "locator": "Printed p. 1, BUGGY HARNESS, No. 1; full-text OCR at https://archive.org/stream/fineharnesssaddl1891john/fineharnesssaddl1891john_djvu.txt",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "Reasoned US public-domain assessment based on New York publication in 1891. Internet Archive metadata supplies publication information but no explicit rights grant. Only factual construction text was used; no plates, image pixels, base meshes or textures were derived.",
+  "asset_use": "geometry",
+  "verified": false,
+  "note": "Catalog metadata and OCR text were actually read 2026-10-18; page/plate images have not been visually verified because archive storage redirects remain denied. OCR describes folded/stitched breast collar, breeching and girth, straight stitched 1-inch traces, flat reins, bridle with round check rein and plated front, nickel or Davis rubber trim. Component list and 25.4 mm trace-width conversion bound an original development harness only. Width is text-reported, not scan-verified attestation. All other dimensions, routes, fittings, colors and fit remain reconstructed. This is a light driving harness family, not riding equipment or a full collar/hames harness. No Chicago owner, 1835 use or particular horse is established.",
+  "what_it_supplies": [
+    "An 1891 American commercial light-harness component recipe as OCR-read, pending original-page verification."
+  ],
+  "what_it_does_not_supply": [
+    "Measured fit to the project horse or vehicle.",
+    "Proof this precise equipment was used by a named Chicago person or in 1835.",
+    "Verified plate shapes or photographic materials."
+  ]
+}

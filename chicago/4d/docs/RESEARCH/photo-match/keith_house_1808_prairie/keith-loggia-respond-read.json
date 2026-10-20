@@ -1,0 +1,160 @@
+{
+ "ticket": "T-2882",
+ "camera": "data/reference_views/keith_house_1808_prairie/inland-1888.json",
+ "upright": {
+  "lit_x": [
+   997.8,
+   1004.8
+  ],
+  "dim_strip_to_x": 1010,
+  "top_row": 1524,
+  "foot_row": 1609,
+  "profile_rows_1525_1582": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   1,
+   1,
+   0,
+   14,
+   50,
+   76,
+   87,
+   86,
+   81,
+   72,
+   58,
+   40,
+   29,
+   36,
+   37,
+   22,
+   11,
+   9,
+   8,
+   5,
+   5,
+   8,
+   10,
+   11
+  ]
+ },
+ "candidates_x_at_3_4_m": {
+  "door north reveal (v 9.30, 0.45 m into the wall)": [
+   979.2,
+   962.8
+  ],
+  "a face on the rear pedestal's south side (v 9.60), 0.0-0.4 m off the wall": [
+   999.8,
+   1003.6,
+   1007.4,
+   1011.3,
+   1015.1
+  ]
+ },
+ "upright_off_wall_on_v_9_6": {
+  "lit_run_near_edge_m": -0.055,
+  "lit_run_far_edge_m": 0.13,
+  "dim_strip_far_edge_m": 0.265
+ },
+ "upright_heights_over_grade": {
+  "top_m": 3.82,
+  "foot_m": 2.7
+ },
+ "plan_blocks": [
+  {
+   "block": "south",
+   "front_x": 664.8,
+   "light_line_x": 671,
+   "depth_m": 0.27,
+   "dark_runs_rows": [
+    [
+     2205.0,
+     2216.4
+    ]
+   ],
+   "v_m": [
+    6.84,
+    7.33
+   ],
+   "light_line_peak": 93,
+   "across": [
+    233,
+    233,
+    232,
+    231,
+    232,
+    234,
+    235,
+    234,
+    233,
+    188,
+    106,
+    78,
+    59,
+    42,
+    33,
+    53,
+    93,
+    60,
+    25,
+    14,
+    15,
+    12,
+    13,
+    12,
+    12
+   ]
+  },
+  {
+   "block": "north",
+   "front_x": 663.8,
+   "light_line_x": 670,
+   "depth_m": 0.27,
+   "dark_runs_rows": [
+    [
+     2267.9,
+     2283.8
+    ]
+   ],
+   "v_m": [
+    9.56,
+    10.24
+   ],
+   "light_line_peak": 89,
+   "across": [
+    223,
+    222,
+    222,
+    216,
+    225,
+    223,
+    221,
+    213,
+    164,
+    117,
+    79,
+    48,
+    40,
+    37,
+    54,
+    89,
+    66,
+    22,
+    16,
+    10,
+    9,
+    9,
+    7,
+    7,
+    7
+   ]
+  }
+ ]
+}

@@ -1,4 +1,81 @@
 export const CHANGELOG = [ // newest first
+  { v: 2089, ts: '2026-10-20T01:24:01.867Z', date: 'Oct 19, 2026, 8:24 PM CT', title: 'Nothing you can see changed: towers can stand on rear wings', kind: 'chore',
+    items: [
+      'Nothing you can see changed yet. The kit the Prairie Avenue houses are built from can now stand a round or eight-sided tower on a rear wing\'s wall, rising past the wing\'s roof with its cone above it.',
+      'The wing\'s wall opens behind the tower, and the tower\'s back is closed where it rises over the wing.',
+      'It is the piece 1801 Prairie, the Kimball house, needs for the small turret on its east range.',
+    ] },
+  { v: 2088, ts: '2026-10-20T00:43:54.857Z', date: 'Oct 19, 2026, 7:43 PM CT', title: '1812 Prairie\'s south projection gets its balcony', kind: 'improvement',
+    items: [
+      'George H. Wheeler\'s house at 1812 Prairie now has the iron balcony that Albert Levy\'s photograph shows on the flat top of its south projection, where it had a bare tin deck.',
+      'The rail\'s height and baluster spacing are read off the photograph through its solved camera; the solid stone panel in the middle of the photographed rail is not built yet, and is listed as open on the house\'s match record.',
+    ] },
+  { v: 2087, ts: '2026-10-20T00:43:54.857Z', date: 'Oct 19, 2026, 7:43 PM CT', title: '1812 and 1835: the open prairie stays grass all the way out', kind: 'feature',
+    items: [
+      'Past the grass at your feet, a ring of light grass cards now carries the sward outward, so the near grass no longer stops at a visible line.',
+      'Beyond the cards, the ground on the open prairie takes each plant community\'s own grass colour, with a faint streak, instead of the pale tile it used to show.',
+      'The town\'s short turf in 1835 is unchanged; the colours and strengths are tuned by eye under a new liberty.',
+    ] },
+  { v: 2086, ts: '2026-10-19T23:52:55.555Z', date: 'Oct 19, 2026, 6:52 PM CT', title: 'Glessner\'s north windows: slimmer columns between the paired lights', kind: 'improvement',
+    items: [
+      'On the 18th Street side of Glessner House, the stone column between each pair of upstairs windows is now as slim as the 1965 survey photographs show it: about 1.3 feet at the capital rather than 1.9, with a taller carved capital and a low base block.',
+      'Read from both north photographs, which agree to within an inch on the clear pair; the windows either side widen to suit.',
+    ] },
+  { v: 2085, ts: '2026-10-19T23:52:55.555Z', date: 'Oct 19, 2026, 6:52 PM CT', title: 'The Keith house\'s loggia gains its wall piers; every picture now matches', kind: 'improvement',
+    items: [
+      'A flat stone pier now stands on the wall behind each rear pair of columns in the north loggia at 1808 Prairie. The 1888 floor plan draws it, and the 1888 photograph catches the north one\'s sunlit side.',
+      'The photograph\'s pale upright beside the rear columns is the pier\'s face. It is not the door\'s edge or a third column, and the model now draws it within two pixels of the print.',
+      'All sixteen photographs and drawings of the house were compared again, and each one now matches the model.',
+    ] },
+  { v: 2084, ts: '2026-10-19T23:52:55.555Z', date: 'Oct 19, 2026, 6:52 PM CT', title: 'Shrubs, slough willows and lone trees on the open prairie', kind: 'feature',
+    items: [
+      'Wild rose, New Jersey tea and leadplant now grow in small patches through the prairie grass west and south of the river, in 1812 and 1835.',
+      'Pussy willow, slender willow and meadowsweet grow in clumps on the wet prairie, with buttonbush in the wettest ground near the water.',
+      'Here and there a lone bur oak or cottonwood stands just east of the river, where the water broke the prairie fires.',
+      'The rose and New Jersey tea are in July flower. The phone draws fewer shrubs.',
+      'Where each plant stands is a reconstruction, listed in the liberties.',
+    ] },
+  { v: 2083, ts: '2026-10-19T23:05:28.778Z', date: 'Oct 19, 2026, 6:05 PM CT', title: 'Nothing you can see changed: rear wings can take slate roofs', kind: 'chore',
+    items: [
+      'Nothing you can see changed yet. The kit the Prairie Avenue houses are built from can now roof a rear wing with a slated hip or gable, where every wing was decked flat in tin.',
+      'Where a wing rises past the house it stands against, the join is closed in the wing\'s own walling.',
+      'It is the piece 1801 Prairie, the Kimball house, needs for its gabled section and its east range.',
+    ] },
+  { v: 2082, ts: '2026-10-19T22:37:47.305Z', date: 'Oct 19, 2026, 5:37 PM CT', title: 'Glessner\'s Prairie Avenue windows moved to the survey drawing', kind: 'change',
+    items: [
+      'The Glessner House\'s first-floor windows at the 18th Street end, and the three windows above them, move up to 0.2 m north, to where the 1965 survey elevation draws them.',
+      'All four first-floor windows on Prairie Avenue are a little wider, about 1.35 m, as the drawing shows them. The street photographs only looked narrower because they look past the deep stone reveals at an angle.',
+      'The 1880s street photograph is now lined up on the windows themselves, and its view of the house matches the picture more closely.',
+    ] },
+  { v: 2081, ts: '2026-10-19T22:12:56.857Z', date: 'Oct 19, 2026, 5:12 PM CT', title: '1625 Prairie\'s oriel gets its side window and its apron', kind: 'change',
+    items: [
+      'In 1904, the small oriel on the south side of 1625 Prairie now has the narrow window in its west side that the 1890 photograph shows most clearly, about a foot across.',
+      'Under the oriel, the stepped stone brackets are gone. A flat apron now runs down to a moulded foot about 7.5 ft above the ground, as the photograph draws it.',
+      'Both are measured from the 1890 photograph through its matched camera. The apron is still built in the oriel\'s pale stone, where the photograph shows it darker.',
+    ] },
+  { v: 2080, ts: '2026-10-19T22:12:56.857Z', date: 'Oct 19, 2026, 5:12 PM CT', title: 'Enclosed carriage study', kind: 'feature',
+    items: [
+      'A separate carriage study adds a roofed cabin and a door that opens and closes.',
+      'This is a 1904 development reconstruction. Historical details, photographic materials and boarding remain unfinished.',
+    ] },
+  { v: 2079, ts: '2026-10-19T22:12:56.857Z', date: 'Oct 19, 2026, 5:12 PM CT', title: 'First moving transport studies', kind: 'feature',
+    items: [
+      'A development collection shows original wagon, carriage, horse and light-harness studies with articulated motion, including a separate wagon with a supported driver bench.',
+      'Wagon spokes taper, carriage cushions have rounded edges, and the horse has a cleaner neck join and a grounded trot study.',
+      'The harness breast strap now curves outside the horse\'s chest, with shorter supports joining the saddle pad.',
+      'These are early reconstructions. Historical comparisons, photographic surfaces, fitted gear, town traffic and riding remain in progress.',
+    ] },
+  { v: 2078, ts: '2026-10-19T22:12:56.857Z', date: 'Oct 19, 2026, 5:12 PM CT', title: 'Resident transport adults: period workwear authoring begins', kind: 'feature',
+    items: [
+      'Prepared a licensed adult base and resident-based 1835 workwear studies for drivers, riders and street figures. Canonical models and photographic detail remain under review.',
+      'Updated the human rendering policy to the owner\'s October rulings while retaining historical flags, source provenance and scene dates.',
+    ] },
+  { v: 2077, ts: '2026-10-19T21:21:50.989Z', date: 'Oct 19, 2026, 4:21 PM CT', title: 'The Keith house\'s loggia gains its second row of columns', kind: 'improvement',
+    items: [
+      'The 1888 photograph shows a second pair of columns behind each front pair of the north loggia at 1808 Prairie. Both pairs are now built, standing against the house wall.',
+      'Their depth, spacing and slimmer shafts are measured from the photograph. The model lands within two pixels of the print.',
+      'A 1967 photograph\'s lit column between the front pairs turns out to be the new south pair.',
+    ] },
   { v: 2076, ts: '2026-10-19T20:43:59.113Z', date: 'Oct 19, 2026, 3:43 PM CT', title: 'Glessner\'s courtyard: the plan and the section reconciled along the court', kind: 'change',
     items: [
       'The 1963 survey\'s plan and section disagreed by up to a foot about where the hall bow, the stair tower and the terrace\'s end post stand. The plan\'s printed courtyard dimensions now settle it.',

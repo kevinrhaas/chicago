@@ -1,0 +1,83 @@
+{
+  "installed_tool": "/workspace/chicago/chicago/4d/tools/transport/test_harness_body_fit.py",
+  "installed_tool_sha256": "4e6b5911283dc806cd4f820063f2787bf0f637988f6a2a8a418e0c3202ce607a",
+  "unchanged_input_horse_sha256": "89b048b7cda748e6f3a7111aa8e4f3198b01fabf6015cae644c78ed02d385bc6",
+  "unchanged_input_repaired_gear_sha256": "45930f41b73a8c0698417093dede9644e3e2cb7192a2eef0e222038638b193cd",
+  "cases": [
+    {
+      "case": "removed_mesh",
+      "nonzero_exit": 1,
+      "diagnostic_receipt": "/workspace/shared/harness-negative-review/removed_mesh-receipt.json",
+      "receipt_sha256": "0c8e41649bcf9712d3ba096a89513b4d16a813fde19e5653fbe27be0e7ec9c81",
+      "candidate_sha256": "ee500cc7d9e8afce3aeb05f1a7366d72ff2af9d8df7318c5186d0891ea75a849",
+      "active_part_triangles": {
+        "breastcollar": 0,
+        "breastcollar_support_l": 164,
+        "breastcollar_support_r": 164,
+        "harness_saddle_pad": 180
+      },
+      "active_horse_triangles": 14172,
+      "surface_pairs": 0,
+      "proper_crossings": 0,
+      "clearance_violations": 0,
+      "last_error": "AssertionError: Missing active horse or one of four harness parts"
+    },
+    {
+      "case": "renamed_part",
+      "nonzero_exit": 1,
+      "diagnostic_receipt": "/workspace/shared/harness-negative-review/renamed_part-receipt.json",
+      "receipt_sha256": "96fd7b6c0a31eeca14d66220cd8163b257dd5656c16aae7ef19f553a49781f7e",
+      "candidate_sha256": "4cca52e3e53dc26262efb1285d890aa0718417d9cac0b786623ac99fdbfcc132",
+      "active_part_triangles": {
+        "breastcollar": 0,
+        "breastcollar_support_l": 164,
+        "breastcollar_support_r": 164,
+        "harness_saddle_pad": 180
+      },
+      "active_horse_triangles": 14172,
+      "surface_pairs": 0,
+      "proper_crossings": 0,
+      "clearance_violations": 0,
+      "last_error": "AssertionError: Missing active horse or one of four harness parts"
+    },
+    {
+      "case": "orphaned_part",
+      "nonzero_exit": 1,
+      "diagnostic_receipt": "/workspace/shared/harness-negative-review/orphaned_part-receipt.json",
+      "receipt_sha256": "9c9364c0063eb477867a6f3255f1651562133ff87c52f53e737c3b8c627fb838",
+      "candidate_sha256": "5adc8449fe7b8a812dbf2966ec3b0f849be811517121cfa90896c43f21fb7bf8",
+      "active_part_triangles": {
+        "breastcollar": 0,
+        "breastcollar_support_l": 164,
+        "breastcollar_support_r": 164,
+        "harness_saddle_pad": 180
+      },
+      "active_horse_triangles": 14172,
+      "surface_pairs": 0,
+      "proper_crossings": 0,
+      "clearance_violations": 0,
+      "last_error": "AssertionError: Missing active horse or one of four harness parts"
+    },
+    {
+      "case": "original_as_candidate",
+      "nonzero_exit": 1,
+      "diagnostic_receipt": "/workspace/shared/harness-negative-review/original_as_candidate-receipt.json",
+      "receipt_sha256": "79957873402953aed46486403072f9b629fcf72ef5c3a1388739f92fe1baa1be",
+      "candidate_sha256": "b4a7318053e8508617a24fff64f02beb7eee77684db689dc04771d209a54fa8b",
+      "active_part_triangles": {
+        "breastcollar": 68,
+        "breastcollar_support_l": 28,
+        "breastcollar_support_r": 28,
+        "harness_saddle_pad": 180
+      },
+      "active_horse_triangles": 14172,
+      "surface_pairs": 100,
+      "proper_crossings": 100,
+      "clearance_violations": 298,
+      "last_error": "AssertionError: Repaired bind-pose surface interference"
+    }
+  ],
+  "all_four_expected_failures_and_receipts_survive": true,
+  "application_writes": false,
+  "temporary_mirrors_cleaned": true
+}

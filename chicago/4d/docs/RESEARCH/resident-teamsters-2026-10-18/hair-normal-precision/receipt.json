@@ -1,0 +1,559 @@
+{
+  "versions": {
+    "core": "4.5.0",
+    "functions": "4.5.0",
+    "extensions": "4.5.0",
+    "cli": "4.5.0"
+  },
+  "scope": "real pinned CLI Meshopt decoded with NodeIO and actual vendored Three BufferAttribute; no browser/rendered-resident proof",
+  "input_unit_normal": [
+    -0.7282347248904991,
+    -0.07915594835766294,
+    -0.6807411558759013
+  ],
+  "clip_comparison": [
+    {
+      "name": "default8",
+      "clips": [
+        {
+          "name": "walk",
+          "times": [
+            0,
+            1
+          ],
+          "translations": [
+            0,
+            0,
+            0,
+            0,
+            0.0999755859375,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "flag16only",
+      "clips": [
+        {
+          "name": "walk",
+          "times": [
+            0,
+            1
+          ],
+          "translations": [
+            0,
+            0,
+            0,
+            0,
+            0.0999755859375,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "medium16",
+      "clips": [
+        {
+          "name": "walk",
+          "times": [
+            0,
+            1
+          ],
+          "translations": [
+            0,
+            0,
+            0,
+            0,
+            0.10000000149011612,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "non_normal_derivative_invariants": [
+    "positions",
+    "joint_indices",
+    "inverse_bind_matrices",
+    "node_transforms",
+    "uv",
+    "weights",
+    "joints"
+  ],
+  "medium16_exact_source_clip_preserved": true,
+  "invariants_passed": true,
+  "results": [
+    {
+      "name": "default8",
+      "flags": [],
+      "normal_storage": "Int8Array",
+      "normalized": true,
+      "decoded_normals": [
+        [
+          -0.7244094488188977,
+          -0.07874015748031496,
+          -0.6771653543307087
+        ],
+        [
+          -0.7244094488188977,
+          -0.07874015748031496,
+          -0.6771653543307087
+        ],
+        [
+          -0.7244094488188977,
+          -0.07874015748031496,
+          -0.6771653543307087
+        ]
+      ],
+      "max_length_error": 0.005252806465905091,
+      "runtime_guard_pass": false,
+      "joints": [
+        [
+          "root"
+        ]
+      ],
+      "clips": [
+        {
+          "name": "walk",
+          "times": [
+            0,
+            1
+          ],
+          "translations": [
+            0,
+            0,
+            0,
+            0,
+            0.0999755859375,
+            0
+          ]
+        }
+      ],
+      "positions": [
+        -32767,
+        -32767,
+        0,
+        32767,
+        -32767,
+        0,
+        -32767,
+        32767,
+        0
+      ],
+      "joint_indices": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "inverse_bind_matrices": [
+        [
+          0.5,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0.5,
+          0.5,
+          0,
+          1
+        ]
+      ],
+      "node_transforms": [
+        {
+          "name": "root",
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "canary",
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "uv": [
+        0,
+        0,
+        65535,
+        0,
+        0,
+        65535
+      ],
+      "weights": [
+        255,
+        0,
+        0,
+        0,
+        255,
+        0,
+        0,
+        0,
+        255,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "flag16only",
+      "flags": [
+        "--quantize-normal",
+        "16"
+      ],
+      "normal_storage": "Int8Array",
+      "normalized": true,
+      "decoded_normals": [
+        [
+          -0.7244094488188977,
+          -0.07874015748031496,
+          -0.6771653543307087
+        ],
+        [
+          -0.7244094488188977,
+          -0.07874015748031496,
+          -0.6771653543307087
+        ],
+        [
+          -0.7244094488188977,
+          -0.07874015748031496,
+          -0.6771653543307087
+        ]
+      ],
+      "max_length_error": 0.005252806465905091,
+      "runtime_guard_pass": false,
+      "joints": [
+        [
+          "root"
+        ]
+      ],
+      "clips": [
+        {
+          "name": "walk",
+          "times": [
+            0,
+            1
+          ],
+          "translations": [
+            0,
+            0,
+            0,
+            0,
+            0.0999755859375,
+            0
+          ]
+        }
+      ],
+      "positions": [
+        -32767,
+        -32767,
+        0,
+        32767,
+        -32767,
+        0,
+        -32767,
+        32767,
+        0
+      ],
+      "joint_indices": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "inverse_bind_matrices": [
+        [
+          0.5,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0.5,
+          0.5,
+          0,
+          1
+        ]
+      ],
+      "node_transforms": [
+        {
+          "name": "root",
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "canary",
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "uv": [
+        0,
+        0,
+        65535,
+        0,
+        0,
+        65535
+      ],
+      "weights": [
+        255,
+        0,
+        0,
+        0,
+        255,
+        0,
+        0,
+        0,
+        255,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "medium16",
+      "flags": [
+        "--level",
+        "medium",
+        "--quantize-normal",
+        "16"
+      ],
+      "normal_storage": "Int16Array",
+      "normalized": true,
+      "decoded_normals": [
+        [
+          -0.728232673116245,
+          -0.07916501358073672,
+          -0.6807458723715933
+        ],
+        [
+          -0.728232673116245,
+          -0.07916501358073672,
+          -0.6807458723715933
+        ],
+        [
+          -0.728232673116245,
+          -0.07916501358073672,
+          -0.6807458723715933
+        ]
+      ],
+      "max_length_error": 0.000002434157153174965,
+      "runtime_guard_pass": true,
+      "joints": [
+        [
+          "root"
+        ]
+      ],
+      "clips": [
+        {
+          "name": "walk",
+          "times": [
+            0,
+            1
+          ],
+          "translations": [
+            0,
+            0,
+            0,
+            0,
+            0.10000000149011612,
+            0
+          ]
+        }
+      ],
+      "positions": [
+        -32767,
+        -32767,
+        0,
+        32767,
+        -32767,
+        0,
+        -32767,
+        32767,
+        0
+      ],
+      "joint_indices": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "inverse_bind_matrices": [
+        [
+          0.5,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0,
+          0,
+          0,
+          0.5,
+          0,
+          0.5,
+          0.5,
+          0,
+          1
+        ]
+      ],
+      "node_transforms": [
+        {
+          "name": "root",
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "name": "canary",
+          "translation": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "uv": [
+        0,
+        0,
+        65535,
+        0,
+        0,
+        65535
+      ],
+      "weights": [
+        255,
+        0,
+        0,
+        0,
+        255,
+        0,
+        0,
+        0,
+        255,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}
