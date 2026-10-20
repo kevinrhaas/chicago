@@ -7599,6 +7599,11 @@ selftest "…and a planted path, snake_case id, 'tier', 'ticket', 'order book' a
   python3 tools/check_visitor_ui.py --self-test
 step "visitor-UI lint: the faults, the Researcher exemption, the Go to rows and the allowlist, on fixtures (T-2668)" \
   python3 tools/test_check_visitor_ui.py
+# T-2825. The research records a person opens (liberties, ground, open questions, the Shops &
+# work card's location lines) are rewritten for a reader at their compile step, by one rule:
+# no ticket number, record id or file path in a sentence; the ticket kept as `work_refs`.
+selftest "…and the reader's rewrite drops a ticket, names an id and says a path in words (T-2825)" \
+  python3 tools/readable_text.py --self-test
 
 # T-2669. Section 03's voice rule, in the gate: every summary, fact, time-stream caption and
 # tour bubble a visitor reads is held to Flesch-Kincaid grade 9 or lower and 20 words a
