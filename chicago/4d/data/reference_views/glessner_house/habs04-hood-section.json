@@ -14,7 +14,7 @@
   "focal_px": 135593.33024548402,
   "eye": [
     -400,
-    12.602237773359843,
+    12.404117773,
     8.682276356192427
   ],
   "yaw_deg": 90,
@@ -34,5 +34,5 @@
       "constant": -33.4518
     }
   ],
-  "solve": "T-2220 hood detail of the same unrestricted HABS sheet-4 section used by T-2218. Native crop [3600,2800,5300,3350], width1600 and vertical rectification100.6/97.7. Shared north-wall origin x1165 and grade y5858; independent scales100.6px/ft horizontal,97.7 vertical. Far-field eye400mwest, nominal face x36.5m; residual curved-depth perspective about1%. Section cutW51.5ft keeps east side; near350m preserves fine depth. Hood peak approximately native3862,3014; eave3188, picks +/-12px. This camera retains the shared ground datum: the section eave reads about27.33ft versus retained model26.5ft, so the roughly0.25m absolute-height disagreement remains visible forT-2228. It is not aligned away. Relative rise1.78ft is compared separately; reconstructed target1.8ft. The1963 drawing is not direct proof of1904 sheet stock or patina."
+  "solve": "T-2220 hood detail of the same unrestricted HABS sheet-4 section used by T-2218. Native crop [3600,2800,5300,3350], width1600 and vertical rectification100.6/97.7. Shared north-wall origin x1165 and grade y5858; independent scales100.6px/ft horizontal,97.7 vertical. Far-field eye400mwest, nominal face x36.5m; residual curved-depth perspective about1%. Section cutW51.5ft keeps east side; near350m preserves fine depth. Hood peak approximately native3862,3014; eave3188, picks +/-12px. This camera retains the shared ground datum: the section eave reads about27.33ft versus retained model26.5ft, so the roughly0.25m absolute-height disagreement remains visible forT-2228. It is not aligned away. Relative rise1.78ft is compared separately; reconstructed target1.8ft. The1963 drawing is not direct proof of1904 sheet stock or patina. T-2906 re-zeroes it on the plan's frame as T-2880 did habs04-terrace-section (T-2879): sheet 4 reads 0.65 ft north of sheet 2's printed court chain, a shift and not a scale, so the eye moves 0.198 m south, from v 12.6022 to v 12.4041. Scale, cut line and heights are unchanged."
 }
