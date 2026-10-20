@@ -29809,6 +29809,34 @@ the print shows the wall's face.
 **Recorded:** 2026-10-19 (T-2884).
 
 
+### L-k01-1625-rear-dormer-hood-2902 — 1625 Prairie's rear section's dormer under a flat hood, read off the McBirney photograph
+
+**Decision:** the dormer on the street face of 1625's rear section's attic stands under a flat
+hood, where T-2820 had built the main mansard's gabled pediment: its stone face carried square
+0.35 m over the sash's head as a frieze, then the kit's dormer cornice (K05 `parts.dormer`, 0.15 m
+out, a 0.12 m fascia) projecting round its front and both cheeks, and over it a cap falling 5
+degrees back into the attic (K01's `rear_section.attic.dormers[].head` `flat`, `frieze_m`,
+`hood_fall_deg`). Its sash is 0.88 m wide, not 0.6, and its centre 8.31 m from the party wall, not
+8.3. **What is read, not invented.** From the 1890 Inland Architect plate
+(`inland_architect_1890_01_mcbirney_residence`) through the camera T-2846 re-solved
+(inland_architect_front.json; about 27 px/m at the rear section's face): the cornice's lit face
+at y 397-403 px and its shadow under it to y 410, running x 526-570 across the dormer's front;
+the sash's glass x 539-557 (about 0.68 m, so a sash about 0.88 m wide on K06's frames, the rear
+section's lower window's own width), its head at y 416 and its foot at y 464; the face x 534-564,
+about 1.1 m. Over the cornice the print shows the attic's lower face running on up to the curb
+(y 391), as pale as the slates either side of the dormer, and no pediment or gable. The built
+cornice's soffit stands at y 406, its fascia at y 402-405, within about 2-4 px of the print's; the
+sash's head and foot within about 2 px; the face's edges about 2-3 px north of the print's.
+**What is invented.** The cap: an eye 12.8 m under it cannot see its top, so its fall (5 degrees,
+a flat's) and its covering (the attic's slate) are the kit's. The cornice's section is K05's
+plain dormer fascia, not the print's mouldings, and the frame round the sash is the face's plain
+0.12 m surround, where the print draws a moulded architrave. The centre stands 0.06 m (about
+1.6 px) north of the print's because the hood's eaves must stay 0.05 m clear of the south end
+parapet; the print's dormer may stand closer to it than the kit allows.
+**How to resolve:** a nearer view of the rear section's attic, or the house's elevations.
+**Ticket:** T-2902 (piece 1 of T-2885).
+**Recorded:** 2026-10-20 (T-2902).
+
 ### L-k08-1812-projection-balcony-2888 — 1812 Prairie's south projection given its photographed balcony rail: its height and baluster spacing read, its sections and inset reconstructed, its stone middle panel built as iron
 
 **Decision:** the flat top of the south projection on George H. Wheeler's house at 1812 Prairie

@@ -18,7 +18,9 @@ this; the record names it as `rear_section` (resolve() here bounds it) and this 
               from the party wall to the step-out's outer face, and at each end the wall
               carried up the attic's profile as a coped parapet, the kit's parapet_element, so
               the attic dies into it as 1619's gable roof dies into its side walls; and each
-              dormer on its lower faces, the main mansard's gabled dormer (T-2452)
+              dormer on its lower faces, the main mansard's gabled dormer (T-2452), or under
+              eaves of its own (T-2902): the main roof's slope dormer's hip (T-2866), or the
+              photograph's flat hood, a square face under a projecting cornice and a low cap
 
 Every number is the record's or K05's (k05_roofs.json parts.parapet, parts.coping), and
 docs/LIBERTIES.md L-k01-1625-rear-section-2820 says which.
@@ -49,7 +51,7 @@ def resolve(e: dict, *, depth: float, width: float, eave: float, side_wall: floa
     if not e:
         return {}
     import json
-    from .k01_frontage_params import (MANSARD_ROOFS, ROOT, Opening, _round_dormer, _within,
+    from .k01_frontage_params import (HIPPED_HEADS, MANSARD_ROOFS, ROOT, Opening, _round_dormer, _within,
                                       mansard_face_height)
     side = e.get("side")
     if side not in SIDES:
@@ -130,21 +132,32 @@ def resolve(e: dict, *, depth: float, width: float, eave: float, side_wall: floa
         ops.append(Opening(comp, f"k01.wall.rear_section.{face}", round(s, 4), round(sill, 4), wd, h, kind == "sash",
                            tr))
     # the dormers, on the attic's street or rear lower face: each the main mansard's gabled
-    # dormer, standing on what the main roof leaves of that face and clear of the end parapet
+    # dormer, or (T-2902) one under its own eaves, the K05 dormer's — the main roof's slope
+    # dormer's hip, or a flat hood's projecting cornice; standing on what the main roof leaves of that face and clear of the end parapet
+    dp = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())["parts"]["dormer"]
+    do, df = float(dp["overhang_m"]), float(dp["fascia_depth_m"])
     dormers = []
     for i, d in enumerate(m.get("dormers") or ()):
         what = f"rear_section.attic.dormers[{i}]"
         face = d.get("face")
         if face not in ("street", "rear"):
             raise _err(f"attic.dormers[{i}].face {face!r}: street or rear")
-        r_ = _round_dormer(d, what, run)
+        r_ = _round_dormer(d, what, run, hip=True)
         c, r = float(d["along_m"]), r_["width_m"] / 2
+        reach = r + do if r_["head"] in HIPPED_HEADS else r
+        # its face comes down the lower face to the main eave, so it stands past that eave; eaves
+        # of its own stand at its head, metres over the main eave, and are bounded by the parapet
         lo, hi = width + overhang, width + step - side_wall - 0.05
-        if not lo + r - 1e-9 <= c <= hi - r + 1e-9:
-            raise _err(f"attic.dormers[{i}].along_m {c}: its face stands past the main eave and clear of the "
-                       f"parapet only for {lo + r:.2f}-{hi - r:.2f} m")
+        if not lo + r - 1e-9 <= c <= hi - reach + 1e-9:
+            raise _err(f"attic.dormers[{i}].along_m {c}: its face stands past the main eave and its "
+                       f"{'eaves' if reach > r else 'face'} clear of the parapet only for {lo + r:.2f}-{hi - reach:.2f} m")
         foot = mansard_face_height(r_["face_setback_m"], rise, lower, 0.0, v["profile"])
-        if foot + r_["sill_m"] + r_["head_m"] > rise - 0.1:
+        top = foot + r_["sill_m"] + r_["head_m"]
+        if r_["head"] in HIPPED_HEADS:
+            # the cap's ridge, over the face's wall head, its fascia and its eaves' reach
+            top += df + reach * math.tan(math.radians(r_["hip_pitch_deg"]))
+            r_.update(overhang_m=do, fascia_m=df)
+        if top > rise - 0.1:
             raise _err(f"attic.dormers[{i}]: its head meets the curb at {rise} m over the cornice")
         dormers.append(dict(r_, face=face, along_m=c, foot_m=round(eave + foot, 4)))
     attic["dormers"] = dormers
@@ -252,6 +265,6 @@ def elements(a, k5, f: float):
         g = a.round_dormer_body(d, d["face"], fascia[d["face"]], -d["along_m"], rise, m["lower_pitch_deg"],
                                 0.0, E, profile=m["profile"])
         a.round_dormers.append(g["geom"])
-        bodies.append(g["body"])
+        bodies += [g["body"], g["roof"]] if g["roof"] else [g["body"]]
         recesses.append(g["recess"])
     return solids + bodies, recesses

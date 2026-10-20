@@ -2663,7 +2663,7 @@ class Assembly:
         reveal is the solid's. `centre` is its centre along the face, in the K01 frame."""
         from . import k05_roofs as k5
         from . import k06_windows
-        from archetypes.k01_frontage_params import mansard_face_height
+        from archetypes.k01_frontage_params import HIPPED_HEADS, mansard_face_height
         axis, sg, R = self.DORMER_FACES[face]
         ra = R[2] if axis == "x" else R[0]           # R along the face's own coordinate
         run = rise / math.tan(math.radians(lower_pitch_deg))
@@ -2684,8 +2684,8 @@ class Assembly:
             # pediment's two slopes to its apex, slated as the cheeks are
             eaves = sill + d["sash_height_m"] + d["surround_m"]
             head = [(centre + r, eaves), (centre, top), (centre - r, eaves)]
-        elif d.get("head") == "hip":
-            # T-2866: square to the face's wall head; the hip over it is joined below
+        elif d.get("head") in HIPPED_HEADS:
+            # T-2866: square to the face's wall head; the hip (T-2902: or flat hood) over it is joined below
             head = [(centre + r, top), (centre - r, top)]
         else:
             # the face's outline across the face: jambs to the sash's spring, then a half
@@ -2700,7 +2700,7 @@ class Assembly:
         # T-2866: a hipped dormer's cheeks are its face's (1625's print draws both pale, where
         # its slates read dark); the others' are slated, as the K01 dormer's are
         body = k5.extrude(outline, min(back, nf), max(back, nf), P,
-                          "dormer_face" if d.get("head") == "hip" else "cheek", *ends)
+                          "dormer_face" if d.get("head") in HIPPED_HEADS else "cheek", *ends)
         if d.get("head") == "gable":
             # T-2452: its cheeks and pediment slopes are slated as the lower faces are (_emit_shell
             # reads a cheek inside this box as one of them), its plan box in the K01 frame
@@ -2715,7 +2715,7 @@ class Assembly:
                             *(("window", "reveal") if sg > 0 else ("reveal", "window")))
         at = lambda along, y, n: (n, y, along) if axis == "x" else (along, y, n)
         roof = None
-        if d.get("head") == "hip":
+        if d.get("head") in HIPPED_HEADS:
             # T-2866: K05's hip over the dormer's wall-line rectangle, its soffit on the face's
             # wall head and its eaves the kit's dormer overhang; its back end dies into the
             # main roof, which the record's resolve ran the body far enough back to bury

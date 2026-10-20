@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 647,
+  "count": 648,
   "liberties": [
     {
       "id": "L1",
@@ -41765,6 +41765,33 @@
         {
           "label": "Recorded",
           "text": "2026-10-19 (T-2884)."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-1625-rear-dormer-hood-2902",
+      "title": "1625 Prairie's rear section's dormer under a flat hood, read off the McBirney photograph",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-20",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the dormer on the street face of 1625's rear section's attic stands under a flat hood, where T-2820 had built the main mansard's gabled pediment: its stone face carried square 0.35 m over the sash's head as a frieze, then the kit's dormer cornice (K05 `parts.dormer`, 0.15 m out, a 0.12 m fascia) projecting round its front and both cheeks, and over it a cap falling 5 degrees back into the attic (K01's `rear_section.attic.dormers[].head` `flat`, `frieze_m`, `hood_fall_deg`). Its sash is 0.88 m wide, not 0.6, and its centre 8.31 m from the party wall, not 8.3. **What is read, not invented.** From the 1890 Inland Architect plate (`inland_architect_1890_01_mcbirney_residence`) through the camera T-2846 re-solved (inland_architect_front.json; about 27 px/m at the rear section's face): the cornice's lit face at y 397-403 px and its shadow under it to y 410, running x 526-570 across the dormer's front; the sash's glass x 539-557 (about 0.68 m, so a sash about 0.88 m wide on K06's frames, the rear section's lower window's own width), its head at y 416 and its foot at y 464; the face x 534-564, about 1.1 m. Over the cornice the print shows the attic's lower face running on up to the curb (y 391), as pale as the slates either side of the dormer, and no pediment or gable. The built cornice's soffit stands at y 406, its fascia at y 402-405, within about 2-4 px of the print's; the sash's head and foot within about 2 px; the face's edges about 2-3 px north of the print's. **What is invented.** The cap: an eye 12.8 m under it cannot see its top, so its fall (5 degrees, a flat's) and its covering (the attic's slate) are the kit's. The cornice's section is K05's plain dormer fascia, not the print's mouldings, and the frame round the sash is the face's plain 0.12 m surround, where the print draws a moulded architrave. The centre stands 0.06 m (about 1.6 px) north of the print's because the hood's eaves must stay 0.05 m clear of the south end parapet; the print's dormer may stand closer to it than the kit allows."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer view of the rear section's attic, or the house's elevations."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2902 (piece 1 of T-2885)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-20 (T-2902)."
         }
       ]
     },
