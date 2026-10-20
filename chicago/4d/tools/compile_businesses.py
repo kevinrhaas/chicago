@@ -1396,7 +1396,34 @@ def compiled_docs(residents_dir=None):
     records = apply_reconstructed_overlay(records, read_reconstructed_overlay())
     records = apply_contested_readings(records, read_contested_readings())
     authored = read_authored()
+    reader_copy(records + authored)
     return records, authored, build_index(records, authored, works_at_rows(residents_dir))
+
+
+# THE CARD'S LOCATION LINES ARE SAID FOR A READER (T-2825). The owner, 2026-10-18: the
+# records a person opens name no internal ticket number and no internal record id, in any
+# mode. A location's `basis` and `limit_reason` are what the Shops & work card prints
+# under each place and the Go to row says aloud, and they were composed from the register's
+# own words — "the committed structure new_york_house", "chicago_democrat_1834_03_04#c010",
+# "(T-0305)". They are rewritten here, by the rule every research surface shares
+# (tools/readable_text.py): a structure by its name, a newspaper notice by its paper and
+# date, a ticket dropped. The ids themselves stay in their own fields (`structure_id`,
+# `anchor`, the notices), which is where the gates and the card's links read them.
+READER_FIELDS = ("basis", "limit_reason")
+_NAMES = None
+
+
+def reader_copy(records):
+    global _NAMES
+    import readable_text
+    if _NAMES is None:
+        _NAMES = readable_text.Names(ROOT)
+    for record in records:
+        for loc in record.get("locations") or []:
+            for key in READER_FIELDS:
+                if isinstance(loc.get(key), str) and loc[key]:
+                    loc[key], _ = readable_text.rewrite(loc[key], _NAMES)
+    return records
 
 
 def build():

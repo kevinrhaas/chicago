@@ -69,6 +69,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+import readable_text  # noqa: E402
+
 SOURCE = ROOT / "docs" / "LIBERTIES.md"
 OUT = ROOT / "data" / "liberties.json"
 
@@ -1198,6 +1201,120 @@ def parse(markdown: str, known: dict[str, str],
     return entries, problems
 
 
+# ---------------------------------------------------------------- the reader's copy (T-2825)
+#
+# The owner, 2026-10-18: "You should rewrite the records so you are not referring to
+# internal ticket numbers or internal record ids in researcher or educator mode." The
+# markdown is append-only and is not touched; what a person opens is this file, so the
+# rewrite happens here, by tools/readable_text.py, the one rule every research surface's
+# compiler shares. The ticket numbers an entry named are kept beside it as `work_refs` —
+# the shape Researcher mode can link from behind plain words, and nothing puts in a
+# sentence — and the ids its subjects and covers carry are named in `names`, so the list
+# never falls back to an id for a building the scene has not loaded.
+
+# Bookkeeping fields: the ticket an entry was written under says nothing to a reader, and
+# its number moves to `work_refs`. Every other field is rewritten, not dropped.
+REF_ONLY_FIELDS = {"ticket"}
+# Fields the renderer never prints as a row (liberties.js shows Recorded/Revised as the
+# dateline and Covers as chips from `covers`). Kept verbatim: the gates read them.
+NOT_PRINTED = re.compile(r"^(Recorded|Revised|Covers)$", re.IGNORECASE)
+RELATED_TICKET = re.compile(
+    r"(?:(?<=^)|(?<=[,;·]\s)|(?<=\sand\s)|(?<=\s))(?:the\s+)?(?:tickets?\s+)?\*\*T-\d{3,5}\*\*"
+    r"(?:\s*\([^()]*(?:\([^()]*\)[^()]*)*\))?", re.IGNORECASE)
+
+
+def _own_ticket(entry: dict) -> int | None:
+    """The ticket an entry was written under: its `Ticket:` field, else the one its
+    `Recorded:` line names, else the number its id ends in
+    (`L-glessner-terrace-terminal-2759`). None when it says none: its references are then
+    "other work", never guessed earlier or later off the first number its prose happens
+    to name (that guess called another ticket's join "this work" in L397)."""
+    for label in ("ticket", "recorded"):
+        for f in entry["fields"]:
+            if f["label"].lower() == label:
+                m = re.search(r"T-(\d{3,5})", f["text"])
+                if m:
+                    return int(m.group(1))
+    m = re.search(r"-(\d{4})$", entry["id"])
+    if m:
+        return int(m.group(1))
+    return None
+
+
+def _related_without_tickets(text: str) -> str:
+    """A related-records list keeps its liberties and loses its ticket numbers, each with
+    the bracket that glossed it: they are cross-references for the people building the
+    town, and the liberties beside them are the ones a reader can open."""
+    out = RELATED_TICKET.sub("", text)
+    out = re.sub(r"\s*(?:·|;)\s*(?=(?:·|;|\.?$))", "", out)
+    out = re.sub(r"(?:,\s*)+(?=,|\.|$|;|·)", "", out)
+    out = re.sub(r"\s+(?:and|,)\s*(?=\.?$)", "", out)
+    out = re.sub(r"^\s*(?:[,;·]|and)\s*", "", out)
+    out = re.sub(r"\s{2,}", " ", out).strip()
+    return "" if not re.search(r"[A-Za-z]{3}", out.replace("tickets", "")) else out
+
+
+def _cover_name(structure: str, names) -> str:
+    if "*" not in structure:
+        return names.get(structure) or readable_text.words(structure)
+    stem = structure.replace("*", "").rstrip("_")
+    if stem in ("recon", "recon_1835"):
+        return "every reconstructed roof"
+    blk = re.search(r"(blk_[a-z0-9_]+)$", stem)
+    if blk:
+        return f"every reconstructed roof on {names.get(blk.group(1)) or readable_text.words(blk.group(1))}"
+    if stem.startswith("recon_1835_"):
+        return f"every reconstructed roof in the {readable_text.words(stem[len('recon_1835_'):])} group"
+    if stem.startswith("inf_"):
+        return f"every {readable_text.words(stem[4:])} building"
+    return f"every {readable_text.words(stem)} building"
+
+
+def readable(entries: list[dict], names=None) -> list[dict]:
+    """Rewrite every entry in place for a reader; return `names`, each id with its name."""
+    if names is None:
+        names = readable_text.Names(ROOT)
+    owns = {e["id"]: _own_ticket(e) for e in entries}
+    titles = {}
+    for e in entries:
+        titles[e["id"]], _ = readable_text.rewrite(e["title"], names, own=owns[e["id"]])
+    for e in entries:
+        own, refs = owns[e["id"]], []
+        e["title"], r = readable_text.rewrite(e["title"], names, own=own, liberties=titles)
+        refs += r
+        kept = []
+        for f in e["fields"]:
+            label, text = f["label"], f["text"]
+            if label.lower() in REF_ONLY_FIELDS:
+                refs += [f"T-{int(n):04d}" for n in re.findall(r"T-(\d{3,5})", text)]
+                continue
+            if NOT_PRINTED.match(label):
+                kept.append(f)
+                continue
+            if label.lower() == "related":
+                refs += [f"T-{int(n):04d}" for n in re.findall(r"T-(\d{3,5})", text)]
+                text = _related_without_tickets(text)
+            new_label, r1 = readable_text.rewrite(label, names, own=own, liberties=titles)
+            new_text, r2 = readable_text.rewrite(text, names, own=own, liberties=titles)
+            refs += r1 + r2
+            if new_text and re.search(r"[A-Za-z0-9]", new_text):
+                kept.append({"label": new_label, "text": new_text})
+        e["fields"] = kept
+        seen = []
+        for r in refs:
+            if r not in seen:
+                seen.append(r)
+        e["work_refs"] = seen
+    table = {}
+    for e in entries:
+        for sid in e["subjects"]:
+            table[sid] = names.get(sid) or readable_text.words(sid)
+        for c in e["covers"]:
+            if c.get("structure"):
+                table[c["structure"]] = _cover_name(c["structure"], names)
+    return [{"id": k, "name": v} for k, v in sorted(table.items())]
+
+
 def build() -> tuple[dict, list[str]]:
     known = {}
     for p in sorted((ROOT / "data" / "structures").glob("*.json")):
@@ -1206,6 +1323,14 @@ def build() -> tuple[dict, list[str]]:
     entries, problems = parse(markdown, known)
     problems.extend(check_stage_liberties(entries))
     problems.extend(check_stage_table())
+    names = readable(entries)
+    for e in entries:
+        for where, text in [("title", e["title"])] + [(f["label"], f["text"]) for f in e["fields"]
+                                                       if not NOT_PRINTED.match(f["label"])]:
+            left = readable_text.problems(text) + readable_text.problems(where)
+            if left:
+                problems.append(f"{e['id']}: the reader's copy of '{where[:40]}' still carries "
+                                f"{left[0]} — tools/readable_text.py has no rule for it (T-2825)")
     doc = {
         "_doc": "GENERATED from docs/LIBERTIES.md by tools/compile_liberties.py. "
                 "Do not hand-edit: tools/check.sh re-derives this file and fails on drift. "
@@ -1216,6 +1341,7 @@ def build() -> tuple[dict, list[str]]:
                 "above any single attribute: scope, omission, simplification, and the choices "
                 "a visitor would otherwise have to reverse-engineer.",
         "count": len(entries),
+        "names": names,
         "liberties": entries,
     }
     return doc, problems

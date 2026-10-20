@@ -5,7 +5,7 @@
   "parent_ticket": "T-1215",
   "target_date": "1835-07-01",
   "generated_by": "tools/audit_town_completion_1835.py",
-  "not_a_remedy": "A measurement over committed files: nobody is written, seated or roofed here. The gaps are the work T-1215's remaining pieces close (T-1965 the unhoused, T-1966 the work and the empty roofs); only a dangling id fails the gate.",
+  "not_a_remedy": "A measurement over committed files: nobody is written, seated or roofed here. The gaps are the work other work's remaining pieces close (the unhoused, the work and the empty roofs); only a dangling id fails the gate.",
   "inputs": [
     "data/sidecars/1835/index.json",
     "data/sidecars/1835/*.json",
@@ -274,5 +274,10 @@
       "open": 5,
       "what_keeps_it_open": "standing roofs empty and owed somebody"
     }
+  ],
+  "work_refs": [
+    "T-1965",
+    "T-1966",
+    "T-1215"
   ]
 }

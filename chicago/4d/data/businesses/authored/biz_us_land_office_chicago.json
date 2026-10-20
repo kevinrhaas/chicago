@@ -51,7 +51,7 @@
       "to": null,
       "tier": "attested",
       "basis": "Andreas gives the street and the block and no building: 'The location of the first United States Land Office in Chicago was on the east side of Lake Street, between Clark and Dearborn streets' (scan p. 313).",
-      "limit_reason": "A STREET AND NO HOUSE, and the source says why in its own next breath: 'the office of the Registers and Receivers were usually at their private offices' (scan p. 313). Nothing reached describes a building, a size or a lot, and the civic dossier's enumeration is explicit that this is a public FUNCTION and not a public building — `us_land_office_1835` stands in data/exclusions.json as a kind guard so that no roof is ever dealt to it."
+      "limit_reason": "A STREET AND NO HOUSE, and the source says why in its own next breath: 'the office of the Registers and Receivers were usually at their private offices' (scan p. 313). Nothing reached describes a building, a size or a lot, and the civic dossier's enumeration is explicit that this is a public FUNCTION and not a public building — the United States Land Office at Chicago stands in the project's list of researched exclusions so that no roof is ever given to it."
     }
   ],
   "dates": {

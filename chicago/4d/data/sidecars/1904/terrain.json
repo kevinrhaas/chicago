@@ -7,7 +7,7 @@
   "context": [
     {
       "label": "Zero",
-      "text": "Z = 0.0 ft at the summer-1835 lake and river water surface (data/datum.json)"
+      "text": "Z = 0.0 ft at the summer-1835 lake and river water surface (the datum data)"
     },
     {
       "label": "The modelled box",
@@ -22,7 +22,7 @@
     {
       "id": "lake_surface",
       "group": "the lake surface",
-      "label": "lake_surface",
+      "label": "lake surface",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
@@ -59,13 +59,13 @@
     {
       "id": "street_crowns.prairie_16th",
       "group": "the street crowns",
-      "label": "prairie_16th",
+      "label": "prairie 16th",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "reading",
-          "value": "prairie_16th_centre",
+          "value": "prairie 16th centre",
           "mesh": "record_only"
         },
         {
@@ -118,13 +118,13 @@
     {
       "id": "street_crowns.prairie_mid_16_18",
       "group": "the street crowns",
-      "label": "prairie_mid_16_18",
+      "label": "prairie mid 16 18",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "reading",
-          "value": "prairie_mid_16_18",
+          "value": "prairie mid 16 18",
           "mesh": "record_only"
         },
         {
@@ -177,13 +177,13 @@
     {
       "id": "street_crowns.prairie_18th",
       "group": "the street crowns",
-      "label": "prairie_18th",
+      "label": "prairie 18th",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "reading",
-          "value": "prairie_18th_centre",
+          "value": "prairie 18th centre",
           "mesh": "record_only"
         },
         {
@@ -227,7 +227,7 @@
           ],
           "what_it_does_not_supply": [
             "any position, footprint or dimension used by this model — the measured drawings were not opened and nothing is traced from this record",
-            "the dates of any OTHER Prairie Avenue house; HABS records date buildings one at a time and most of the avenue's HABS records carry no dates at all (see habs_kimball_house_il_1077)",
+            "the dates of any OTHER Prairie Avenue house; HABS records date buildings one at a time and most of the avenue's HABS records carry no dates at all (see Historic American Buildings Survey. W. W. Kimball House, 1801 South Prairie…)",
             "anything about the ground, the grade, the lake edge or the Illinois Central corridor"
           ]
         },
@@ -248,19 +248,19 @@
         }
       ],
       "notes": [
-        "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (e1871_grade_readings.json, role house_frontage); a street re-graded since would have left them standing above or below it. Research zone 3."
+        "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (the e1871 grade readings data, role house frontage); a street re-graded since would have left them standing above or below it. Research zone 3."
       ]
     },
     {
       "id": "street_crowns.prairie_mid_18_20",
       "group": "the street crowns",
-      "label": "prairie_mid_18_20",
+      "label": "prairie mid 18 20",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "reading",
-          "value": "prairie_mid_18_20",
+          "value": "prairie mid 18 20",
           "mesh": "record_only"
         },
         {
@@ -304,7 +304,7 @@
           ],
           "what_it_does_not_supply": [
             "any position, footprint or dimension used by this model — the measured drawings were not opened and nothing is traced from this record",
-            "the dates of any OTHER Prairie Avenue house; HABS records date buildings one at a time and most of the avenue's HABS records carry no dates at all (see habs_kimball_house_il_1077)",
+            "the dates of any OTHER Prairie Avenue house; HABS records date buildings one at a time and most of the avenue's HABS records carry no dates at all (see Historic American Buildings Survey. W. W. Kimball House, 1801 South Prairie…)",
             "anything about the ground, the grade, the lake edge or the Illinois Central corridor"
           ]
         },
@@ -325,19 +325,19 @@
         }
       ],
       "notes": [
-        "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (e1871_grade_readings.json, role house_frontage); a street re-graded since would have left them standing above or below it. Research zone 3."
+        "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (the e1871 grade readings data, role house frontage); a street re-graded since would have left them standing above or below it. Research zone 3."
       ]
     },
     {
       "id": "street_crowns.prairie_mid_20_21",
       "group": "the street crowns",
-      "label": "prairie_mid_20_21",
+      "label": "prairie mid 20 21",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "reading",
-          "value": "prairie_mid_20_21",
+          "value": "prairie mid 20 21",
           "mesh": "record_only"
         },
         {
@@ -381,7 +381,7 @@
           ],
           "what_it_does_not_supply": [
             "any position, footprint or dimension used by this model — the measured drawings were not opened and nothing is traced from this record",
-            "the dates of any OTHER Prairie Avenue house; HABS records date buildings one at a time and most of the avenue's HABS records carry no dates at all (see habs_kimball_house_il_1077)",
+            "the dates of any OTHER Prairie Avenue house; HABS records date buildings one at a time and most of the avenue's HABS records carry no dates at all (see Historic American Buildings Survey. W. W. Kimball House, 1801 South Prairie…)",
             "anything about the ground, the grade, the lake edge or the Illinois Central corridor"
           ]
         },
@@ -402,19 +402,19 @@
         }
       ],
       "notes": [
-        "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (e1871_grade_readings.json, role house_frontage); a street re-graded since would have left them standing above or below it. Research zone 3."
+        "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (the e1871 grade readings data, role house frontage); a street re-graded since would have left them standing above or below it. Research zone 3."
       ]
     },
     {
       "id": "street_crowns.prairie_21st",
       "group": "the street crowns",
-      "label": "prairie_21st",
+      "label": "prairie 21st",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "reading",
-          "value": "prairie_21st_centre",
+          "value": "prairie 21st centre",
           "mesh": "record_only"
         },
         {
@@ -458,7 +458,7 @@
           ],
           "what_it_does_not_supply": [
             "any position, footprint or dimension used by this model — the measured drawings were not opened and nothing is traced from this record",
-            "the dates of any OTHER Prairie Avenue house; HABS records date buildings one at a time and most of the avenue's HABS records carry no dates at all (see habs_kimball_house_il_1077)",
+            "the dates of any OTHER Prairie Avenue house; HABS records date buildings one at a time and most of the avenue's HABS records carry no dates at all (see Historic American Buildings Survey. W. W. Kimball House, 1801 South Prairie…)",
             "anything about the ground, the grade, the lake edge or the Illinois Central corridor"
           ]
         },
@@ -479,19 +479,19 @@
         }
       ],
       "notes": [
-        "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (e1871_grade_readings.json, role house_frontage); a street re-graded since would have left them standing above or below it. Research zone 3."
+        "The crown of a street on the corridor the 1911 sheets draw, read from the modern bare-earth model. INFERRED for 1904 because the houses built along this stretch of Prairie Avenue between the 1870s and the 1890s still stand at the grade they were built to, and their walks read within 0.2 ft of this crown (the e1871 grade readings data, role house frontage); a street re-graded since would have left them standing above or below it. Research zone 3."
       ]
     },
     {
       "id": "street_crowns.indiana_16th",
       "group": "the street crowns",
-      "label": "indiana_16th",
+      "label": "indiana 16th",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "reading",
-          "value": "indiana_16th_centre",
+          "value": "indiana 16th centre",
           "mesh": "record_only"
         },
         {
@@ -544,13 +544,13 @@
     {
       "id": "street_crowns.indiana_18th",
       "group": "the street crowns",
-      "label": "indiana_18th",
+      "label": "indiana 18th",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "reading",
-          "value": "indiana_18th_centre",
+          "value": "indiana 18th centre",
           "mesh": "record_only"
         },
         {
@@ -603,13 +603,13 @@
     {
       "id": "street_crowns.indiana_21st",
       "group": "the street crowns",
-      "label": "indiana_21st",
+      "label": "indiana 21st",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "reading",
-          "value": "indiana_21st_centre",
+          "value": "indiana 21st centre",
           "mesh": "record_only"
         },
         {
@@ -662,13 +662,13 @@
     {
       "id": "street_crowns.michigan_16th",
       "group": "the street crowns",
-      "label": "michigan_16th",
+      "label": "michigan 16th",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "reading",
-          "value": "michigan_16th_centre",
+          "value": "michigan 16th centre",
           "mesh": "record_only"
         },
         {
@@ -721,13 +721,13 @@
     {
       "id": "street_crowns.michigan_18th",
       "group": "the street crowns",
-      "label": "michigan_18th",
+      "label": "michigan 18th",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "reading",
-          "value": "michigan_18th_centre",
+          "value": "michigan 18th centre",
           "mesh": "record_only"
         },
         {
@@ -780,13 +780,13 @@
     {
       "id": "street_crowns.michigan_21st",
       "group": "the street crowns",
-      "label": "michigan_21st",
+      "label": "michigan 21st",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "reading",
-          "value": "michigan_21st_centre",
+          "value": "michigan 21st centre",
           "mesh": "record_only"
         },
         {
@@ -839,7 +839,7 @@
     {
       "id": "graded_ground",
       "group": "the graded lots",
-      "label": "graded_lots",
+      "label": "graded lots",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
@@ -889,7 +889,7 @@
           ],
           "what_it_does_not_supply": [
             "any position, footprint or dimension used by this model — the measured drawings were not opened and nothing is traced from this record",
-            "the dates of any OTHER Prairie Avenue house; HABS records date buildings one at a time and most of the avenue's HABS records carry no dates at all (see habs_kimball_house_il_1077)",
+            "the dates of any OTHER Prairie Avenue house; HABS records date buildings one at a time and most of the avenue's HABS records carry no dates at all (see Historic American Buildings Survey. W. W. Kimball House, 1801 South Prairie…)",
             "anything about the ground, the grade, the lake edge or the Illinois Central corridor"
           ]
         },
@@ -916,13 +916,13 @@
     {
       "id": "fill",
       "group": "the fill over the 1835 ground",
-      "label": "post_fire_fill",
+      "label": "post fire fill",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "rule",
-          "value": "graded_ground minus the e1834_harbor_cut surface at the same point",
+          "value": "graded ground minus the the 1834 harbor cut ground surface at the same point",
           "mesh": "record_only"
         },
         {
@@ -957,19 +957,19 @@
         }
       ],
       "notes": [
-        "Research zone 6. The ground the grade raise and the building of the district put over the 1835 surface. It is a DIFFERENCE and is stated as one, never used to make one surface from the other: tools/check_terrain_e1871.py measures it at every crown against the committed 1835 heightfield and fails if it ever comes out constant."
+        "Research zone 6. The ground the grade raise and the building of the district put over the 1835 surface. It is a DIFFERENCE and is stated as one, never used to make one surface from the other: the terrain e1871 check measures it at every crown against the committed 1835 heightfield and fails if it ever comes out constant."
       ]
     },
     {
       "id": "earthworks.ic_row_embankment",
       "group": "the railroad embankment",
-      "label": "ic_row_embankment",
+      "label": "ic row embankment",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "crest",
-          "value": "graded_ground",
+          "value": "graded ground",
           "mesh": "record_only"
         },
         {
@@ -1040,7 +1040,7 @@
     {
       "id": "made_ground",
       "group": "the made ground beside the tracks",
-      "label": "made_ground_1886_1911",
+      "label": "made ground 1886 1911",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
@@ -1135,7 +1135,7 @@
     {
       "id": "lake_shelf",
       "group": "the lake bed",
-      "label": "lake_bed",
+      "label": "lake bed",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
@@ -1161,13 +1161,13 @@
       "sources": [],
       "citations": [],
       "notes": [
-        "Research zone 9. No sounding of the lake off the right-of-way has been found. The bed falls from the breakwater's toe toward -8 ft with a 40 m e-fold, the shape and scale of the lake shelf the 1835 spec already carries (its channel_profile), and it is under water and seen from the shore only."
+        "Research zone 9. No sounding of the lake off the right-of-way has been found. The bed falls from the breakwater's toe toward -8 ft with a 40 m e-fold, the shape and scale of the lake shelf the 1835 spec already carries (its channel profile), and it is under water and seen from the shore only."
       ]
     },
     {
       "id": "original_surface",
       "group": "where the 1835 ground still shows",
-      "label": "where_the_1835_ground_shows",
+      "label": "where the 1835 ground shows",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
@@ -1260,7 +1260,7 @@
     {
       "id": "surface_texture",
       "group": "the surface texture",
-      "label": "surface_texture",
+      "label": "surface texture",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
@@ -1319,11 +1319,17 @@
   "not_modelled": [
     {
       "dossier_zone": null,
-      "why": "narrower than a 2.5 m cell and the street layer's to draw (T-0474); the heightfield carries the crown line only"
+      "why": "narrower than a 2.5 m cell and the street layer's to draw; the heightfield carries the crown line only",
+      "work_refs": [
+        "T-0474"
+      ]
     },
     {
       "dossier_zone": null,
-      "why": "the buildings' (T-1729 and after); the one reading that fell on a terrace (1900 Prairie) is refused for that reason"
+      "why": "the buildings'; the one reading that fell on a terrace (1900 Prairie) is refused for that reason",
+      "work_refs": [
+        "T-1729"
+      ]
     },
     {
       "dossier_zone": null,
