@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "grosvenor_asbuilt_photo",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "f7f2f4153e15703592a70f7064c5eb053e62f87e62d36609783e760235f3d296",
+  "glb_sha256": "ad8cb19228e0a738307aba597abf78f64f575c598e4efcafdb9299a026475827",
   "camera_sha256": "856a15ff71693396f8e7a7b8f4b66bfb786f6d3fff3e7bae180a916a561f4a8b",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/grosvenor_asbuilt_photo-side-by-side.jpg",
   "verdict": "differs",
@@ -45,22 +45,22 @@
     {
       "what": "the projection's carved dress: the oval lights or medallions in the frieze over the arches (y 470-500), the capitals' band (y 505-515), the consoles' scrolls and the corona's mouldings",
       "status": "open",
-      "how": "the entablature's consoles and fascia stand where the photograph's do (T-2780), plain, and the columns' capitals (T-2781) stand as plain square blocks under the band; the frieze's ovals, the capitals' carving, the arches over the lights, the consoles' scrolls and the corona's mouldings are T-2840's"
+      "how": "the entablature's consoles and fascia stand where the photograph's do (T-2780), plain, and the columns' capitals (T-2781) stand as plain square blocks under the band; the frieze's ovals, the capitals' carving, the arches over the lights, the consoles' scrolls and the corona's mouldings are T-2887's"
     },
     {
       "what": "the cheeks' lights: a round-arched light in the west cheek between its columns (x 362-398 px, y 515-680) over a small light in its base (y 690-730), and the east cheek's, out of the frame, by symmetry",
-      "status": "open",
-      "how": "not cut: K08 holds every window's recess to at least 0.33 m inside the bay (check_bay_kit.py), and a 1.0 m cheek 0.75 m out has no room for it, so the cheeks stand blank (L-k01-1637-south-bay-2780). T-2840 opens them, between the columns that now stand either side of each, which needs a shallower light the kit can close"
+      "status": "fixed",
+      "how": "T-2886: a round-arched light in each cheek between its two columns, 0.65 m along the 1.002 m cheek from the wall, 0.38 m clear from the sill band at 3.15 m to 5.8 m under a 0.05 m band (K06's head band named per window, so the light fits between the shafts), its recess the kit's 0.33 m minimum so it clears the front's; under it a round-headed light 0.3 by 0.55 m from 2.2 m. Through this camera the west cheek's glass lands at x 365-384 px against the photograph's 373-397, its crown at about y 527 against 517-520, and the base light at x 367-382, y 700-730 against 367-383, 693-723. The light stands about 8 px left with the cheek's angle column: the photograph's cheek is longer than the sheet's (the plan item below), so its width and place are the sheet's cheek's and not yet the photograph's (L-k01-1637-cheek-lights-2886)"
     },
     {
       "what": "the front's round-arched light stands about 15-20 px left of the photograph's (x 406-436 px against 420-458) and its base light with it",
       "status": "open",
-      "how": "the light is centred on the sheet's front, which through this camera spans x 395-452 px; the photograph's light runs to the frame's edge, so its front may stand wider, or its bay further east, than the sheet's 2.2 m and its place. T-2840 weighs the two; the front angle's column stands where the photograph's does (x 391-402 against 395-405), so it is the light and not the angle that stands left"
+      "how": "T-2886 weighed it: across the light at y 640 the photograph's glass is dark from x 421 to 447 px with stone from 448 to the crop's edge, so the light is about as wide as built and its centre about 9 px east of the sheet's front's centre. The light and the base light under it now stand 1.355 m along the 2.22 m front, 0.245 m east of its centre, as far as the east angle's column leaves room, under a 0.1 m band: through this camera the glass's east edge lands at x 447 against 447, its arch's west edge about 6 px left of the photograph's. What is left is the bay's plan, not the light: between the same two columns the photograph's west cheek spans about 47 px against the build's 37, and its angle column stands at x 398-408 against 389-397, so the photographed bay is larger than the 1911 sheet's (longer cheeks or a deeper projection). T-2887 weighs a deeper bay against the sheet (L-k01-1637-cheek-lights-2886)"
     },
     {
       "what": "the window over the bay's open shutters (x 352-375 and 425-445 px)",
       "status": "open",
-      "how": "not built: K06 carries no shutter; T-2840's dress"
+      "how": "not built: K06 carries no shutter; T-2887's dress"
     },
     {
       "what": "a second-storey window over the projection's balcony (x 350-445 px, y 305-355), round-headed between open shutters, the balcony's door or window",
