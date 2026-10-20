@@ -57,7 +57,9 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
                             a brick street front's round-headed window (T-2410): K06's
                             round sash in a round hole the wall cuts (a rectangle to the
                             spring, strips from the head's curve over it), under the kit's
-                            arch band as its hood, with a key block on the crown
+                            arch band as its hood, with a key block on the crown; or
+                            (T-2960) cut segmental on its K06 sash's rise, under K09's
+                            cornice hood on two consoles in place of band and key
   k01.opening.sash_round_plain
                             a side wall's round-headed light whose picture shows its head
                             plain (T-2884, 1625's lower lights): the same round hole and
@@ -1055,6 +1057,12 @@ class Assembly:
             # block unless the street front's round heads name one
             street = op.wall == "k01.wall.street_front"
             conf = max(conf, p.conf("street_front_round_heads" if street else "bays"))
+            if street and p.round_heads.get("hood"):
+                # T-2960: K09's cornice hood on its two consoles over the head (1736's upper
+                # lights, the c. 1890 photograph), which dresses it in place of the arch band
+                self.glaze(op, frame, body_mat, stone_trim, seed, conf)
+                k09_frontage.dress(self, op, frame, max(conf, p.conf("street_front_trim")))
+                return
             self.glaze(op, frame, body_mat, stone_trim, seed, conf, head=True)
             k = p.round_heads.get("key") if street else None
             if k:
@@ -1876,6 +1884,8 @@ class Assembly:
         entry = self.p.window_kit[op.component]
         v = dict(next(x for x in self._kit["variants"] if x["id"] == entry["variant"]))
         v["clear_width_m"], v["clear_height_m"] = op.width_m, op.height_m
+        if getattr(op, "rise_over_span", 0.0):   # T-2960: the sash to the hole's own segmental rise
+            v["rise_over_span"] = op.rise_over_span
         if getattr(op, "narrow", False):   # T-2884: a light under the ordinary sash's width is one light a sash
             v["panes"] = [1, 1]
         if not entry["well"]:
@@ -2298,11 +2308,13 @@ class Assembly:
                  "arch_back": "backing",
                  # T-2933: a timber veranda's posts, beam and roof, painted with the walls (as a
                  # K08 frame bay's walls are the body's)
-                 "post": None, "beam": None, "porch_roof": None}
+                 "post": None, "beam": None, "porch_roof": None,
+                 # T-2960: and the skirt of a deck open beneath it, over the void's dark
+                 "skirt": None}
     STAIR_ROLES = frozenset({"landing", "tread", "riser", "stair_end", "cheek",
                              "terrace", "terrace_face", "baluster", "newel", "rail",
                              "pedestal", "column", "entablature", "loggia_wall", "balcony", "arch_reveal",
-                             "post", "beam", "porch_roof"})
+                             "post", "beam", "porch_roof", "skirt"})
 
     def door_variant(self) -> dict:
         """The record's K07 variant at this house's own door and stoop: the K01 hole's clear
@@ -2419,6 +2431,12 @@ class Assembly:
                                        for k, ends in sorted(o.sockets.items())
                                        for end, q in zip(("top", "foot"), ends)}})
         roles = {r: (m or body_mat) for r, m in self.K07_ROLES.items()}
+        # T-2960: a painted timber balustrade, and the deck of a veranda open beneath, in the
+        # walls' paint as the veranda's posts are
+        if (p.entrance_kit.get("balustrade") or {}).get("fabric") == "painted_timber":
+            roles.update(baluster=body_mat, newel=body_mat, rail=body_mat)
+        if (p.entrance_kit.get("veranda") or {}).get("open_under"):
+            roles["terrace"] = body_mat
         self.graft(o, "K07", roles, frame, op,
                    lambda role: (stair_seed, stair_conf) if role in self.STAIR_ROLES else (seed, conf))
 
@@ -3645,6 +3663,10 @@ def hole(o):
     if o.component not in ROUND_CUT:
         return (s0, s1, o.sill_m, o.head_m)
     from . import k06_windows
+    if o.rise_over_span:   # T-2960: cut segmental, on its K06 sash's own rise
+        spring = o.head_m - o.width_m * o.rise_over_span
+        head = k06_windows.Head("segmental", s0, s1, spring, o.rise_over_span)
+        return (s0, s1, o.sill_m, spring, head.curve(0.0, s1, s0))
     spring = o.head_m - o.width_m / 2
     return (s0, s1, o.sill_m, spring, k06_windows.Head("round", s0, s1, spring).curve(0.0, s1, s0))
 

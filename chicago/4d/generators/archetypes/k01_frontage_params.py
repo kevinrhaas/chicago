@@ -18,6 +18,7 @@ module to hash what the builder sees.
 from __future__ import annotations
 
 import copy
+import dataclasses
 import json
 import math
 from dataclasses import dataclass, field
@@ -84,6 +85,9 @@ class Opening:
     # or lintel is drawn over it, and a light narrower than the ordinary sash is one light a sash
     plain: bool = False
     narrow: bool = False
+    # T-2960: a ROUND_CUT hole cut segmental at this rise over its span (1736's upper lights,
+    # the c. 1890 photograph), which its K06 sash is built to; 0 is the round head
+    rise_over_span: float = 0.0
 
     @property
     def head_m(self) -> float:
@@ -264,6 +268,7 @@ ROUND_HOODED = "k01.opening.sash_round_hooded"
 ROUND_PLAIN = "k01.opening.sash_round_plain"
 #: the K01 components whose hole the wall cuts round over the spring
 ROUND_CUT = (ROUND_HOODED, ROUND_PLAIN)
+ROUND_HEAD_HOOD = "k09.trim.lintel_cornice_hood"   # T-2960: the hood street_front_round_heads may name
 #: T-2752: the street windows a stone front read off a photograph names one by one
 #: (`street_front_windows`), each a component the record's window_kit glazes
 STREET_WINDOW = "k01.opening.street_"
@@ -2480,17 +2485,34 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                              "height_m}, ...] and base_top_m, the plain plinth's top where no area light sets it "
                              "(and, T-2753, belts and surrounds; T-2915, carved_bands)")
     # T-2410: a brick front's storeys whose street windows are round-headed under hoods
+    # T-2960: or segmental-headed (`head`), under K09's cornice hood on its consoles (`hood`)
+    # in place of the arch band and its key block
     rh = val("street_front_round_heads") or {}
     if rh:
-        if set(rh) != {"storeys", "key"} or set(rh["key"]) != {"width_m", "height_m", "proud_m"}:
-            raise ParamError("street_front_round_heads takes storeys [k, ...] and key {width_m, height_m, proud_m}")
+        if not {"storeys"} <= set(rh) <= {"storeys", "key", "head", "rise_over_span", "hood"} \
+                or ("key" in rh) == ("hood" in rh) \
+                or ("key" in rh and set(rh["key"]) != {"width_m", "height_m", "proud_m"}):
+            raise ParamError("street_front_round_heads takes storeys [k, ...] and either key {width_m, height_m, "
+                             "proud_m} or hood, and may name head and rise_over_span")
+        if rh.get("head", "round") not in ("round", "segmental"):
+            raise ParamError("street_front_round_heads.head cuts a 'round' or a 'segmental' head")
+        if "rise_over_span" in rh and (rh.get("head") != "segmental" or not 0.05 <= rh["rise_over_span"] < 0.5):
+            raise ParamError("street_front_round_heads.rise_over_span sets a segmental head's rise, 0.05 to "
+                             "under 0.5 of its span")
+        hood = rh.get("hood")
+        if hood is not None and (set(hood) != {"variant", "overhang_m"} or hood["variant"] != ROUND_HEAD_HOOD
+                                 or not 0.05 <= hood["overhang_m"] <= 0.4):
+            raise ParamError(f"street_front_round_heads.hood takes variant {ROUND_HEAD_HOOD!r} and overhang_m, "
+                             f"its block 0.05-0.4 m past each jamb")
         if val("stone_front") or sfo:
             raise ParamError("street_front_round_heads cuts round holes in a brick front; a stone front "
                              "lays its arches with street_front_openings")
         if any(not 0 <= int(k) < stories for k in rh["storeys"]):
             raise ParamError(f"street_front_round_heads.storeys names a storey this {stories}-storey house has not")
-        rh = {"storeys": tuple(sorted({int(k) for k in rh["storeys"]})),
-              "key": {k: float(x) for k, x in rh["key"].items()}}
+        rh = {"storeys": tuple(sorted({int(k) for k in rh["storeys"]})), "head": rh.get("head", "round"),
+              **({"rise_over_span": float(rh["rise_over_span"])} if "rise_over_span" in rh else {}),
+              **({"key": {k: float(x) for k, x in rh["key"].items()}} if "key" in rh else
+                 {"hood": {"variant": hood["variant"], "overhang_m": float(hood["overhang_m"])}})}
     # T-2437: as T-2366 rules for the principal floor, the contract's starting range binds a
     # sash height the record reconstructs; one read off a source stands on that source
     sba = form.get("sash_by_storey") or {}
@@ -2801,12 +2823,20 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             # T-2410: the K01 wall cuts this one's round hole (k01_frontage.wall), so its
             # variant is a single round-headed sash, and its hood and key must clear K10's
             # bed moulding as any K01 head does (HEAD_RISE_M, 0.30 m over the crown)
-            if v["head"] != "round" or v.get("bays", 1) != 1:
-                raise ParamError(f"window_kit: {comp} is cut as one round hole, and {vid} is not a single round-headed sash")
+            # T-2960: or its segmental hole, on the variant's own rise over span
+            want = (rh or {}).get("head", "round")
+            if v["head"] != want or v.get("bays", 1) != 1:
+                raise ParamError(f"window_kit: {comp} is cut as one {want} hole, and {vid} is not a single "
+                                 f"{want}-headed sash")
+            if want == "segmental":
+                ros = float(rh.get("rise_over_span") or v.get("rise_over_span", json.loads(
+                    WINDOW_KIT.read_text())["arch"]["segmental"]["working_rise_over_span"]))
+                openings = [dataclasses.replace(o, rise_over_span=ros) if o.component == comp else o
+                            for o in openings]
             band = json.loads(WINDOW_KIT.read_text())["parts"]["head_band"]
-            key = rh["key"]
-            if not band["width_m"] < key["height_m"] <= 0.30 or key["proud_m"] <= band["proud_m"] or \
-                    key["width_m"] > min(o.width_m for o in openings if o.component == comp) / 2:
+            key = (rh or {}).get("key")
+            if key and (not band["width_m"] < key["height_m"] <= 0.30 or key["proud_m"] <= band["proud_m"] or
+                        key["width_m"] > min(o.width_m for o in openings if o.component == comp) / 2):
                 raise ParamError(f"street_front_round_heads.key: {key['width_m']} x {key['height_m']} m, "
                                  f"{key['proud_m']} m proud, does not stand on the hood's crown (over its "
                                  f"{band['width_m']} m band and {band['proud_m']} m proud, inside 0.30 m and half the sash)")
@@ -2965,8 +2995,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         door_kit["terrace"] = terraces[0] if len(terraces) == 1 else terraces
     if balustrade is not None:
         need = {"height_m", "pitch_m", "newel_m", "newel_cap_m", "rail_m", "segments", "profile"}
-        if set(balustrade) != need:
-            raise ParamError(f"entrance_kit.balustrade takes {sorted(need)}")
+        # T-2960: and may be painted timber (`fabric`), as a veranda's is (1736's photograph)
+        if not need <= set(balustrade) <= need | {"fabric"}:
+            raise ParamError(f"entrance_kit.balustrade takes {sorted(need)}, and may name fabric")
+        if balustrade.get("fabric", "stone") not in ("stone", "painted_timber"):
+            raise ParamError("entrance_kit.balustrade.fabric is 'stone' (the stoop's) or 'painted_timber' "
+                             "(the walls' paint)")
         prof = balustrade["profile"]
         if prof[0][1] != 0.0 or prof[-1][1] != 1.0 or any(b[1] <= a[1] for a, b in zip(prof, prof[1:])):
             raise ParamError("entrance_kit.balustrade.profile runs [r, fraction of height] from 0 to 1")
@@ -2977,16 +3011,24 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if "veranda" in door_kit_in:
         vr = door_kit_in["veranda"]
         need = {"posts_v_m", "post_m", "height_m", "inset_m", "beam_m", "roof"}
-        if set(vr) != need or set(vr["roof"]) != {"overhang_m", "rise_m", "thickness_m"}:
+        if not need <= set(vr) <= need | {"open_under"} or set(vr["roof"]) != {"overhang_m", "rise_m", "thickness_m"}:
             raise ParamError(f"entrance_kit.veranda takes {sorted(need)}, its roof overhang_m, rise_m "
-                             f"and thickness_m")
+                             f"and thickness_m, and may name open_under")
+        # T-2960: a deck open beneath, on its posts carried down to grade (1736's photograph):
+        # a skirt board `skirt_m` deep over the void, which stands `recess_m` behind the front
+        ou = vr.get("open_under")
+        if ou is not None and (set(ou) != {"skirt_m", "recess_m"} or not 0.05 <= ou["skirt_m"] <= 0.5
+                               or not 0.2 <= ou["recess_m"] <= 1.5):
+            raise ParamError("entrance_kit.veranda.open_under takes skirt_m (0.05-0.5 m) and recess_m "
+                             "(0.2-1.5 m)")
         if terrace is None:
             raise ParamError("entrance_kit.veranda stands on the landing and a terrace")
         if not 0.1 <= float(vr["post_m"]) <= 0.3 or not 2.0 <= float(vr["height_m"]) <= 4.5:
             raise ParamError(f"entrance_kit.veranda: {vr['post_m']} m posts {vr['height_m']} m high are "
                              f"not a veranda's (0.1-0.3 m, 2.0-4.5 m)")
         door_kit["veranda"] = {**vr, "posts_v_m": [float(x) for x in vr["posts_v_m"]],
-                               "beam_m": [float(x) for x in vr["beam_m"]], "roof": dict(vr["roof"])}
+                               "beam_m": [float(x) for x in vr["beam_m"]], "roof": dict(vr["roof"]),
+                               **({"open_under": {k: float(x) for k, x in ou.items()}} if ou else {})}
     if door_arch:
         door_kit["arch"] = dict(door_arch)
     if "opening_m" in door_kit_in:

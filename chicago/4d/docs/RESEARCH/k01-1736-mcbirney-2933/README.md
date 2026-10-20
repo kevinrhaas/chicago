@@ -65,3 +65,25 @@ the camera's distance places wrongly, is open on the match record for T-2935.
 
 Both are inert for every record that does not name them: the other 22 K01, 1 K12, 1 K13 and 5 K16
 assets rebuilt byte-identical, and only their manifest input hashes moved.
+
+## T-2960 — the upper windows' heads and the veranda open beneath
+
+Piece 1 of T-2935 (T-2961 has the street wall and the set-back front; T-2962 the flank, the
+service wing, the coach house and the mansard's date). Read off the same photograph at 32 px/m
+(34 px/m at the veranda's front):
+
+| what | the photograph | built |
+|---|---|---|
+| upper lights' heads | a segmental arch rising about 7 px (0.22 m) over the 28 px light, its springs rounded | K01 cuts the hole segmental at 0.22 of the span (`street_front_round_heads.head`, `rise_over_span`); K06's one-over-one segmental sash, built to the same rise |
+| their hoods | a flat moulded cornice hood about 54 px (1.7 m) across, its underside about 2 px over the crown, a drop under each end just outside the jambs about 11 px (0.35 m) deep | K09's cornice hood on its two scrolled consoles over the crown (`hood`), its block 0.25 m past each jamb, about 1.7 m across with the cornice's return |
+| under the deck | each post's lower length runs on down to grade, the raised basement dark between them | K07's veranda `open_under`: the posts carried to grade as piers, a 0.2 m skirt (the deck's edge, y 450-457 px), the void 0.5 m back (reconstructed) |
+| deck and balustrade | painted timber: a top rail 0.8 m over the deck and a light, pierced-looking infill | the balustrade's `fabric: painted_timber`, slender balusters at 0.14 m; the deck in the walls' paint |
+
+Still open: the veranda roof's slope, the street-line wall and the lower front left of the house
+(T-2961). The posts' section is `not shown` (each is about 6 px across).
+
+Three generator rules widened (additive, each inert for a record that does not name it):
+`street_front_round_heads` may name `head: segmental`, its `rise_over_span`, and a K09 `hood` in
+place of the band and key (`k01_frontage.hole` cuts the segmental curve; `k09_frontage.head` lays
+the hood); K07's veranda may stand `open_under` (`k07_entrances._terrace` and `_veranda`); and
+`entrance_kit.balustrade.fabric` may be `painted_timber`, which K01 paints with the walls.
