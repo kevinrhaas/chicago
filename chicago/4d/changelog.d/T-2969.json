@@ -1,0 +1,7 @@
+{
+  "title": "Smoother arrival after a jump or a detail change",
+  "kind": "fix",
+  "items": [
+    "When you jump across town or change the detail level, the ground the meadow plants stand on is now loaded in short pieces between frames instead of in one go, so the walk no longer catches on it."
+  ]
+}

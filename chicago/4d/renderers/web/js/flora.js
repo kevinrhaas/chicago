@@ -2338,6 +2338,8 @@ export async function createFlora({
       },
       /** T-2894: the mid field's spec, or null where the CPU deals the mid ring. */
       midSpec: midOn ? midSpec : null,
+      /** T-2969: the kept tiles' keepers (their stats, and a tool's budget). */
+      keepers() { return { near: keeper, mid: midKeeper }; },
       /** T-2774: a read-back still on its way is taken now, in the frame. */
       flush() {
         if (waiting) read(true);
@@ -3429,7 +3431,9 @@ export async function createFlora({
       // T-2894: the mid field's spec (null where the CPU deals the mid ring),
       // and both kept tiles home — a tool waits on it before reading the GPU's
       // mid cards, which a pass deals only where the mid tile covers it.
-      midSpec: gpuNear.midSpec, settled: () => gpuNear.settled() } : null,
+      midSpec: gpuNear.midSpec, settled: () => gpuNear.settled(),
+      // T-2969: the near and mid keepers, whose landings a tool reads.
+      keepers: () => gpuNear.keepers() } : null,
     nearField: {
       spec: FIELD_SPEC,
       flags: FIELD_FLAGS,

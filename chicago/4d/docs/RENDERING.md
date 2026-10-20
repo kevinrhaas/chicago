@@ -1486,3 +1486,37 @@ correction). Every number quotes its anchor and viewport.
   largest remaining walk (`rebuildFar`, 588 ms); moving a deal to the GPU gains only what
   the page then stops asking per slot, and a reap that asks `growthBlocked` and the fringe
   for every dealt slot costs what the walk did.
+- **A kept tile's whole landing, a band at a time** (T-2969, T-2896's fourth slice). The
+  kept field tiles (near-field.js `fieldKeeper`: the near tile, the mid tile, and the carry
+  tile T-2966 keeps the same way) land a strip at a time, but the FIRST tile after a boot, a
+  tier change or a jump of a tile or more is every texel at once, and its finish (the
+  pool's answers copied, and the page's own share asked) and its wrapped write were one
+  main-thread task: the carry tile's read 85-101 ms on the phone profile. A whole landing
+  now finishes and writes `LAND_BAND_ROWS` (16) rows at a time into a second pair of
+  arrays, hands the thread back (`setTimeout`) once a slice has run `LAND.sliceMs` (6 ms;
+  a slice ends at the first band past it), and moves the tile to the new arrays only when
+  the last band is in — until then `tile` is the old one, untouched, as a strip in flight
+  leaves it. Each band reaches `finish` as a rect of its own with its rows of the pool's
+  reply. A tile `adopt`ed while a whole one is still landing drops the landing, as a strip
+  already did. Strips still land in one task, in place (a quarter of the tile or less).
+  **Equivalence**: `tools/check_near_field_keeper.mjs` walks its route three ways — one
+  slice a landing (the before), a band a slice, and the page's budget — with the heights
+  carried in the pool's reply, so a band read from the wrong rows differs; the kept tile is
+  the built one, byte for byte, after every landing in all three, a whole landing takes
+  exactly size / 16 slices at a band a slice and one at Infinity, and a tile adopted
+  mid-landing is the adopted tile. **Reading** (`tools/measure_tile_landing.mjs`,
+  `docs/measurements/t-2969-tile-landing-mobile.json`): the phone profile (390x780, 4x
+  throttle), `--source`, the walker set down 600 m away eight times, west and east, the
+  before (`LAND.sliceMs = Infinity`, set in the page) and the after interleaved with the
+  order flipped each rep so each lands at both places. The mid tile (368 texels a side,
+  the one dev keeps from the pool alone; the carry tile is not on dev yet):
+
+  | | slices a whole landing | longest slice, ms |
+  |---|---|---|
+  | before | 1, 1, 1, 1 | 25.8, 25.2, 10.6, 20.2 |
+  | after | 3, 3, 2, 3 | 6.4, 7.0, 8.4, 6.6 |
+
+  At the same budget the carry tile's 85-101 ms becomes about fifteen slices of 6-8 ms. What
+  the reading also shows, and this does not touch: the near tile on a jump is not landed
+  but BUILT in the frame (`keeper.adopt(nf.build(..))`), 450-520 ms west of Lake at Canal
+  and 640-690 east of it, in either mode; and the jump's own longest task is 3.2-4.1 s.
