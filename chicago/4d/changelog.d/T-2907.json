@@ -1,7 +1,0 @@
-{
-  "title": "Glessner work no longer stalls other houses' changes",
-  "kind": "improvement",
-  "items": [
-    "Nothing you can see changes in the scene. When a Glessner House change landed, the build loop's automatic catch-up kept an old copy of the house's packed model and refused every other open change at publish; it now unpacks the current copy first, so those changes keep moving."
-  ]
-}
