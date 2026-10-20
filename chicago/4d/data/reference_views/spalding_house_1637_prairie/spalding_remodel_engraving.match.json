@@ -2,10 +2,10 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "spalding_remodel_engraving",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "05b9f3ab31a9e78c8831f791ad41e58ac348bd715733bd2a87a1d9c84db4e89d",
+  "glb_sha256": "c083d213d144456fde6a6ced72daa96ce2b96abcda733c3585b6ea0348d3a12a",
   "camera_sha256": "06623cf6f05d0dafcc01b75c32c2d59a8079f6b2df83342aa3e040e00f77e557",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/spalding_remodel_engraving-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: a broad brick block two tall storeys over a raised basement, its north flank receding to the rear, a swell bay at the north end of the front and a wing at the south end; the draft stood a 11.5 m hipped box with no bay, wing or flank windows",
@@ -30,7 +30,7 @@
     {
       "what": "the stacks: two tall stacks on the north wall near its front and its rear, one over the wing",
       "status": "fixed",
-      "how": "T-2441: three K01 stacks at the engraving's columns (x 225, 135 and 690 px) and at the tops it reads (16.4, 15.5 and 14.8 m). The third is the Grosvenor photograph's stack on the south wall (T-2781): the two pictures' rays through it meet at u 6.47, v 13.37, so it stands on the south wall's cornice at u 6.5, v 13.2, 1.2 by 0.75 m, and not over the wing at u 10.2, v 11.2, where T-2465 had stood it on this camera's ray alone. Through this camera its shaft stands at x 660-710 px against the drawn 663-717 (the cap's spread to 654-716) and its top at 15.85 m at about y 114 against 113, behind the wing's hipped crown"
+      "how": "T-2441: three K01 stacks at the engraving's columns (x 225, 135 and 690 px) and at the tops it reads (16.4, 15.5 and 14.8 m). The third is the Grosvenor photograph's stack on the south wall (T-2781): the two pictures' rays through it meet at u 6.47, v 13.37, so it stands on the south wall's cornice at u 6.5, v 13.2, 1.2 by 0.75 m, and not over the wing at u 10.2, v 11.2, where T-2465 had stood it on this camera's ray alone. Through this camera its shaft stands at x 660-710 px against the drawn 663-717 (the cap's spread to 654-716) and its top at 15.85 m at about y 114 against 113, behind the wing's hipped crown. T-2782: those tops are now the pots' lips, the caps 0.56 m under them (the crowns' item)"
     },
     {
       "what": "the wing: the engraving draws it standing well forward of the front and rising under its own steep hipped roof, as high as the main roof, with a stack at its ridge; the build stands it on the 1911 sheet's 1.0 m step under the mansard's cornice, with a flat tin deck",
@@ -90,22 +90,22 @@
     {
       "what": "the swell bay rises to the cornice itself in the engraving; the build stops it at 10.7 m, under K10's bed moulding",
       "status": "fixed",
-      "how": "T-2472: the bow's upper storey carried to the foot of K10's bed moulding (11.24 m since T-2528, which read the soffit off the mansard's wall head; 11.152 m before it, where the y readings here were taken), and the cornice carried round it on T-2460's machinery (the bay's eaves.cornice): the bed moulding swept round the plan under the house's soffit and fascia, 0.5 m out from the bow's face, so the bow's top reads as one plain band at y 245-267 px on its crown against the engraving's about 255-270 (it stood at 270-287 under the old K08 eave). The bow carries no brackets, as the engraving draws none on it; the wall's bed moulding stops at its junctions"
+      "how": "T-2472 carried the bow's upper storey to the foot of K10's bed moulding and swept the cornice round its plan; T-2782 withdrew that on the item below, the engraving read again: the bow does not rise into the cornice but stops under a dark cap of its own (y about 255-270 px on its crown) with the main cornice running straight over it. Built so: its wall top at 10.95 m under K08's own soffit and 0.2 m fascia, clear of the bed moulding, its cap at y 262-276 px on its crown"
     },
     {
       "what": "over the swell bay the engraving draws the main cornice running on straight, a band above the bow's own cap (y about 207-255 px), where the build's eave, about 0.3 m under the engraving's cornice line all along the front (its soffit at 11.3 m since T-2528, 11.21 m before it, against the engraving's about 11.5 m), is the bow's cap itself and is carried round it",
-      "status": "open",
-      "how": "not built: raising the house's cornice moves the whole eave and the mansard on it, which is the storey lines' reading (T-2441's), not the bow's; on the bow the band lands where the engraving's cap does"
+      "status": "fixed",
+      "how": "T-2782: the bow stopped under the main cornice with a cap of its own (the item above), so the house's bed moulding, soffit, fascia and gutter run on straight along the front over it, unbroken, as drawn: through the camera the main cornice's fascia and gutter at y 250-258 px over the bow's cap at 262-276. The band's height is argued, not built. The engraving's cornice line is not one line through this camera: its dark band reads y 207-215 px north of the left dormer and y 228-240 over the door, 20 px apart along 2 m of straight wall, more than the solve's 4-13 px height residual. And it cannot be met without breaking two matched items: the wall head raised 0.3 m (tried, T-2782) either takes the mansard's level top line from 14.1 m to 14.4 m, past the engraving's (T-2452), or, with the lower faces shortened to keep it, leaves the street dormers' heads (2.43 m over the eave) above the curb; and the wing's hipped crown, slated over 45 degrees, rises with it to at least 14.75 m, its apex about 16 px over the drawn one where it now stands 5 px over (T-2465). So the eave stays on T-2441's storey lines, the soffit at 11.3 m (T-2528)"
     },
     {
       "what": "the stacks' panelled shafts and caps",
       "status": "fixed",
-      "how": "T-2471: the K15 kit's carved head on the three stacks (k15.stack.sherman less its stone bands and corbel blocks): three corbelled brick courses under a 0.14 m stone cap projecting 0.15 m, the head's step out reading at each stack's top as the engraving's does; on the two tall north stacks and the south one (T-2781) a sunk panel 0.45 m wide on the street face (and the rear), from 0.5 m over the roof to 0.3 m under the head, where the engraving draws the tall front stack's lit face as a long light field in a dark border."
+      "how": "T-2471: the K15 kit's carved head on the three stacks (k15.stack.sherman less its stone bands and corbel blocks): three corbelled brick courses under a 0.14 m stone cap projecting 0.15 m, the head's step out reading at each stack's top as the engraving's does; on the two tall north stacks and the south one (T-2781) a sunk panel 0.45 m wide on the street face (and the rear), from 0.5 m over the roof to 0.3 m under the head, where the engraving draws the tall front stack's lit face as a long light field in a dark border. T-2782: with its cap lowered under its pots the rear north stack has 0.41 m of shaft for a panel, and the engraving draws that stack's face hatched through with no light field, so it is plain; the front stack's panel is 1.31 m, the south's 0.98 m"
     },
     {
       "what": "a dark hooded crown over each stack's cap, about 0.4-0.5 m tall",
-      "status": "open",
-      "how": "not built: a pot or a cowl, which the engraving's scale does not settle; each stack's top was read at the crown's top, so each cap stands where the drawn crown ends (L-k01-1637-spalding-remodel-2441)"
+      "status": "fixed",
+      "how": "T-2782: a clay pot of the K15 kit's plain profile (0.56 m) on each stack's two flues, and each cap lowered 0.56 m, so the pots' lips stand at the tops read before. The crowns read 20-27 px tall on the plate, 0.5-0.6 m: through the camera the pots' lips land at y 29, 108 and 111 px against the drawn 24, 104 and 113, the caps at y 50-55, 127 and 131-137 against the drawn shoulders' 51-53, 128 and 133-137, the two pots spanning about the crown's width. The hood's turn over one side is a cowl's, or a pot's under a hood, which the plate's scale does not settle (L-k01-1637-stack-pots-2782)"
     },
     {
       "what": "the wing's cornice: the engraving draws it as a band as deep as the main cornice's (y 232-262 px), with a block in it over the window; the build's is the crown's K05 fascia, 0.2 m deep, without K10's brackets",
@@ -119,8 +119,8 @@
     },
     {
       "what": "the garden wall runs on north past the frame's edge, about 3.5 m beyond the 1911 lot line through this camera, onto the unbuilt strip prairie_1625_1637_c",
-      "status": "open",
-      "how": "T-2443 (#771) ruled 1635 standing on that strip on 1 July 1904, the Forsyth house drafted from Robinson 1886, so the run past 1637's lot line stands before the Forsyth house: it is 1635's front garden, not 1637's, and 1637's wall rightly stops at its own line. The Forsyth draft carries no boundary yet; T-2756 builds this run with it or argues it (T-2755)"
+      "status": "not shown",
+      "how": "not 1637's, and not this picture's to say for 1904 (T-2782): the run past 1637's lot line (s -3.14 to about -6.6 m on the wall's line, u 14.5) falls inside the Forsyth house's footprint at 1635 (forsyth_house_1635_prairie, Robinson 1886's outline, standing 1863 to after 1902), whose south wall stands on the 1911 lot line and whose front stands 3.1 m before the wall's line, at u 17.6. The engraving omits that house altogether: on this camera it would stand between the eye and the lower north flank, which the engraving draws whole, so the draughtsman cleared the neighbour, and the wall's run on north is drawn across ground the house stood on. 1637's wall rightly stops at its own line (T-2443, #771)"
     },
     {
       "what": "colour: the engraving is monochrome",
