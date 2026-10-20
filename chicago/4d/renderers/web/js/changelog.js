@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2108, ts: '2026-10-20T07:19:11.559Z', date: 'Oct 20, 2026, 2:19 AM CT', title: '1801 Prairie gains its corner porch and sweeping front stair', kind: 'feature',
+    items: [
+      'The Kimball house\'s open corner porch now stands at the 18th Street end of the front, as J. W. Taylor\'s photograph of about 1895 shows: a round stone arch on each face, the double door inside, and a small stone balcony under the 18th Street arch.',
+      'A broad stone stair of nine steps now comes down the front out of the porch, between side walls that sweep down to blocks at the foot.',
+      'Still to come: the carving round the arches and on the porch, the bowed bay and the front\'s carved windows.',
+    ] },
   { v: 2107, ts: '2026-10-20T06:58:57.825Z', date: 'Oct 20, 2026, 1:58 AM CT', title: 'Sources and records now read in plain words, without work numbers', kind: 'change',
     items: [
       'Sources › Liberties: every entry is rewritten for a reader. Work numbers are gone, a building is named rather than given its record code, and a file is said as what it is, such as "the liberties register" or "the research notes on the Glessner frontage".',
