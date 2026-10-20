@@ -122,7 +122,7 @@ for (const d of DESTINATIONS) {
 }
 assert.equal(picks[1835].length, 3, '1835 has three to suggest');
 assert.equal(picks[1904].length, 3, '1904 has three to suggest');
-assert(!picks[1904].includes('Prairie Avenue: built so far'), 'the 29-stop build log is not a first Jaunt for a class');
+assert(!picks[1904].includes('Every building modelled so far'), 'the 29-stop build log is not a first Jaunt for a class');
 
 // ---- the steps are the tour's own ------------------------------------------------------------
 for (const scene of ['1835', '1904', '1812']) {

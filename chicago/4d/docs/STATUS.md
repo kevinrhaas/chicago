@@ -1,3 +1,21 @@
+## T-2944 — Jaunt names that read in the list (2026-10-20)
+
+The owner, 2026-10-20, on Navigator › Jaunts: titles cut off with "…", "Prairie Avenue: …"
+four times so "its hard so see whats there"; put the important words first and keep related
+ones together. The seven 1904 titles now lead with their subject: Meet the Glessner House
+(was A corner of Prairie Avenue — its premise is meeting the Glessner House from the street),
+Every building modelled so far (Prairie Avenue: built so far; `jaunt_built_so_far.py` writes
+it), Famous names of Prairie Avenue, Architects of Prairie Avenue, Italianate / Romanesque /
+Second Empire style walk. 1835's 26 titles already lead with their subject and are unchanged;
+1812 has no jaunts. Sidecars recompiled (`compile_jaunts.py`); the reader overlay
+(`compile_reader_text.py`) had no edits on titles and is unchanged.
+
+- **Two lines before an ellipsis:** `.jaunt-card h3` clamps at two lines (was one, nowrap).
+- **Order (`jauntOrder`, jaunt-menu.js):** by kind in the pills' order (Wayfinding,
+  Provisions, Neighbors, Livelihood, News & Knowledge), featured first WITHIN a kind, then by
+  name without a leading A/An/The. The old list sorted by title and then pulled every featured
+  outing to the top, which split each kind in two; featured still leads, inside its group.
+
 ## T-2945 — faster paces: walk 10 mph by default (2026-10-20)
 
 The owner, 2026-10-20: *"can you default the walk speed to much faster like 10mph and increase
