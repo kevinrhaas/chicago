@@ -2,10 +2,10 @@
   "structure_id": "house_1625_prairie",
   "view": "inland_architect_front",
   "glb": "assets/gltf/house_1625_prairie__as_mapped_1904.glb",
-  "glb_sha256": "9d42691edafcdd79254a36322179f01be1a9098f6bb9f3d4b71df2b60f60a3d2",
+  "glb_sha256": "6a17bccd76ac438d27daa6c9b0b80b0ea2380fe4e4d336186952523322025824",
   "camera_sha256": "c38fa66c558625703b0e5df1ac52544c7c184e62b1c357844035aeb11defe13b",
   "side_by_side": "docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: a narrow, tall stone town house, its front flat, attached on the north to the Farwell house and open to the south, its south side wall receding along the open ground; the draft stood a grey mansard box 6.75 m wide",
@@ -99,8 +99,8 @@
     },
     {
       "what": "the oriel's apron's tone: the print's apron reads darker than the oriel's walls over it and stippled, as a rock-faced stone or a rough-cast or shingled face would; the build lays it in the oriel's own pale dressed stone, which K08's apron shares with its corbel role (K01 has no darker stone slot for a bay)",
-      "status": "open",
-      "how": "T-2904"
+      "status": "fixed",
+      "how": "T-2904, ruled not shadow: the apron's sunlit south face (x 520-526 px, y 684-712) reads 120 against the south wall's 183 beside it in the same light, and both its faces are stippled (sd 13-17 against the smooth wall's 3) where a shaded face would be smooth; its west cheek (87) reads darker than the front's rock-faced stone in the same west light (126). So the apron is a darker, rough stone, and it is laid in one: K08's apron is now a role of its own (`apron`), and 1625's oriel names `apron.fabric` front_stone, so K01's `bay_apron` slot wears the front's rock-faced K02 brownstone under the oriel's pale dressed walls, its foot and underside with it. No tone factor is invented: the front's own stone lands the re-rendered apron at 57 against the south wall's 92 on the south face (0.62, the print's 0.66) and at 95 on the west cheek (0.63 of the front's 151, the print's 0.69). The print cannot say whether the face is rock-faced stone, rough-cast or shingle; the front's stone is the reconstruction's reading (L-k01-1625-oriel-apron-2904)"
     },
     {
       "what": "the rear section's heights on the re-solved camera: its cornice meets the main eave at 10.9 m (y 486), its windows read about 3.4-5.9 and 7.75-9.7 m, the dormer's sill about 11.6 m and its sash's head 13.4 m, the curb about 14.3 m, and the door has a transom light over its leaf (y 731-745); the build stands them on the 13.0 m wall head, so its lower window's head is about 20 px and its upper window, dormer and curb 40-60 px over the print's",

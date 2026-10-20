@@ -30110,6 +30110,32 @@ sheet that marks an area.
 **Ticket:** T-2903 (piece 2 of T-2885).
 **Recorded:** 2026-10-20 (T-2903).
 
+### L-k01-1625-oriel-apron-2904 — 1625 Prairie's oriel's apron laid in the front's rock-faced stone, the print's darker stippled face
+
+**Decision:** the apron under 1625's oriel (K08's `apron`, T-2883) is laid in the front's own
+rock-faced K02 brownstone instead of the oriel's pale dressed stone: K08's apron is a role of its
+own (`apron`, its face, its moulded foot and its underside), and the bay entry's `apron.fabric`
+`front_stone` hands it to K01's `bay_apron` slot, which wears the front's walling fabric, a shade
+rougher so the web derivative keeps the slot its own. An apron that names no fabric wears the
+bay's stone, as it did.
+**What is read, not invented.** From the 1890 Inland Architect plate
+(`inland_architect_1890_01_mcbirney_residence`), on the pixels: the apron's south face, in the
+same sun as the south wall beside it (both face south), reads 120 against the wall's 183 (mean
+grey, x 520-526 and 490-500 px, y 684-712), so the darkness is the face's own and not the
+light's; both its faces are stippled (a standard deviation of 13-17 against the smooth wall's 3),
+where a face in shadow would be smooth; and its west cheek reads 87 against the front's
+rock-faced stone's 126 in the same west light. Laid in the front's stone with no factor of its
+own, the re-rendered apron reads 0.62 of the south wall on its south face (the print's 0.66) and
+0.63 of the front on its west cheek (the print's 0.69).
+**What is invented.** The material: the print shows a darker, rough face and cannot tell
+rock-faced stone from rough-cast or shingle; the front's brownstone is the reading that needs no
+new fabric and no tone the print cannot give. The foot and its underside are laid in it with the
+face (the print's foot reads dark, but in its own shadow).
+**How to resolve:** a nearer view of 1625's south side, or the oriel's own drawing.
+**Ticket:** T-2904 (piece 3 of T-2885).
+**Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
+**Recorded:** 2026-10-20 (T-2904).
+
 ### L-k08-1812-projection-balcony-2888 — 1812 Prairie's south projection given its photographed balcony rail: its height and baluster spacing read, its sections and inset reconstructed, its stone middle panel built as iron
 
 **Decision:** the flat top of the south projection on George H. Wheeler's house at 1812 Prairie
