@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 644,
+  "count": 646,
   "liberties": [
     {
       "id": "L1",
@@ -41145,6 +41145,41 @@
       ]
     },
     {
+      "id": "L-far-sward-2783",
+      "title": "The open prairie past the grass cards is painted as sward, and a ring of cheap cards carries the grass out to it",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "past the dealt grass, the ground of every zone whose record has graminoids is tinted toward that zone's own sward colour (its `matColor`, weighted by its `matrixShare`), from the near tuft ring's radius to the mid ring's edge, and streaked with the same grain the near sward is cut from, laid at 18 m and turned off the lattice. The tint is a 16 m raster of the zone map, blurred one cell, so it follows the zones and never a straight line; it skips water, the z10 town turf and any zone with no grass, and it thins on wet ground. A third band of the far card lattice (2.3 m cells at full, 3.0 at balanced, 3.8 on phone; 22-88 m, 16-64 m and 12-44 m) stands narrower cards (1.0-1.9 m wide) of the same sward between the near ring and the far band, with no seed heads, in the far band's draw call. The 1812 and 1835 open prairie take the same raster from the same zones."
+        },
+        {
+          "label": "What is read, not invented",
+          "text": "each zone's sward colour, its graminoid share and its extent, from the zone records as the near ring already reads them (L137 for the far band)."
+        },
+        {
+          "label": "What is invented",
+          "text": "the tint's strength (0.82, 0.88, 0.64 of the sward colour), the streak's strength and length, the 16 m raster, the ring radii and the card lattice. They are tuned by eye against the near ring so the edge between dealt grass and painted ground does not read as a line; no source describes the look of a prairie at 30-300 m, beyond that it was grass."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a period painting or description of the open prairie's colour and texture at distance, or a measured reflectance of a tallgrass sward in late June."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2783."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-19 (T-2783)."
+        }
+      ]
+    },
+    {
       "id": "L-jaunt-prairie-walks",
       "title": "Prairie Avenue's themed walks: routes, order and framing",
       "section": "per_subject",
@@ -41703,6 +41738,39 @@
         {
           "label": "Recorded",
           "text": "2026-10-19 (T-2873)."
+        }
+      ]
+    },
+    {
+      "id": "L-k08-1812-projection-balcony-2888",
+      "title": "1812 Prairie's south projection given its photographed balcony rail: its height and baluster spacing read, its sections and inset reconstructed, its stone middle panel built as iron",
+      "section": "per_subject",
+      "subjects": [
+        "wheeler_house_1812_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the flat top of the south projection on George H. Wheeler's house at 1812 Prairie (T-2888, piece 1 of T-2544) takes the balcony Albert Levy's photograph shows on it, which T-2543 left as K08's bare tin deck. K08's balcony rail, which stood only on a bow or a canted bay's flat top, now stands on a projection's flat top the same way: an iron rail 0.1 m in from the eaves' edge, round the two cheeks and the front from the wall to the wall, 0.55 m high, a post against the wall at each end and at each corner, a foot rail and a top rail, square balusters 0.24 m apart. **What is read, not invented.** From the photograph (`levy_1812_prairie_photo`), through the camera T-2543 solved (`data/reference_views/wheeler_house_1812_prairie/levy_front.json`), at the projection's 92.4 px a metre (1.2 m nearer than the main front's 88.5): that the projection's top carries a balcony across its whole front, from its south corner (x 305 px) to its north face (x 765 px); that its rail is a light iron one, its top rail about 47 px (0.51 m) over the cornice's top edge, which hides its foot, so about 0.55 m over the deck; and that its balusters stand about 22 px (0.24 m) apart at the two ends of the run, each with a roundel under the rail. **What is invented.** The rail on the two cheeks, which the square-on camera does not see; the posts' 0.08 m, the balusters' 0.045 m and the rails' sections; the 0.1 m inset; the foot rail's height; the balusters drawn as plain square bars without their roundels; the iron's colour. **What is built otherwise than read.** The middle of the photograph's front run, from about x 390 to 680 px, is a solid stone panel whose top rises to a pedestal at the centre (x 525-558 px), with iron scrolls against it; K08's balcony is one fabric, so the iron rail runs across it. The rail stands on K08's fascia, 0.2 m over the projection's wall top, and the projection's top already rendered over the print's cornice (T-2543's fit), so the rail, the print's height over its own cornice, renders about 25-30 px higher than the print's. Both are open in the match record."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a sharper print of the front, or a second view of the balcony from the street at an angle, settles the cheeks and the stone panel's outline; the panel is a K08 piece of its own."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2888 (piece 1 of T-2544)."
+        },
+        {
+          "label": "Review",
+          "text": "`docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-19 (T-2888)."
         }
       ]
     },

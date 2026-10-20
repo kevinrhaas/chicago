@@ -458,7 +458,9 @@ export async function createTerrain({
   // T-2085: the town's turf, one uniform set for both ground materials, filled
   // when the sward hands over where it stopped drawing cards (`setTurf`).
   const turf = turfGround();
-  const groundMat = groundMaterial(zones, lakeShore, { turf });
+  // T-2783: the far sward's colour map, filled by flora.js (`setFarSward`).
+  const farSward = farSwardGround();
+  const groundMat = groundMaterial(zones, lakeShore, { turf, farSward });
   let walkOffset = null;
   /** The radius around the eye inside which the 15 m base is not drawn. See
    *  the base below, and `baseHoleM()` for how it follows the reach. */
@@ -466,7 +468,8 @@ export async function createTerrain({
   // `.map` is null here — the prairie tile is bound as a shader uniform, not as
   // the standard material map, so disposing `.map` disposed nothing and leaked
   // the canvas texture on every epoch change.
-  disposables.push(groundMat, groundMat.userData.groundTex, groundMat.userData.swardTex, turf);
+  disposables.push(groundMat, groundMat.userData.groundTex, groundMat.userData.swardTex, turf,
+    farSward);
   confidence?.patch(groundMat);
 
   let ground = null;
@@ -547,7 +550,7 @@ export async function createTerrain({
       const bin = await (await fetchOk(new URL(apronMeta.bin, url))).arrayBuffer();
       const apron = new Heightfield().adopt(apronMeta, bin);
       const mat = groundMaterial(zones, lakeShore, { groundTex: groundMat.userData.groundTex,
-        swardTex: groundMat.userData.swardTex, turf });
+        swardTex: groundMat.userData.swardTex, turf, farSward });
       confidence?.patch(mat);
       apronMesh = new THREE.Mesh(apronGeometry(apron, apronMeta.skirt_to_n_m ?? apron.originN), mat);
       apronMesh.name = `terrain_apron__${apronPath.replace(/\W+/g, '_')}`;
@@ -656,7 +659,7 @@ export async function createTerrain({
   if (heightfield.loaded) {
     const baseMat = groundMaterial(zones, lakeShore,
       { nearHole: baseHole, groundTex: groundMat.userData.groundTex,
-        swardTex: groundMat.userData.swardTex, turf });
+        swardTex: groundMat.userData.swardTex, turf, farSward });
     disposables.push(baseMat);
     confidence?.patch(baseMat);
     const baseName = `terrain_base__${epochId ?? 'field'}`;
@@ -800,6 +803,9 @@ export async function createTerrain({
     /** T-2085. Paint the short turf where the sward has stopped drawing cards.
      *  Called by flora.js with its own mask; false if the spec is unusable. */
     setTurf(spec) { return turf.set(spec); },
+    /** T-2783. Paint the far sward's colour past the near rings. Called by
+     *  flora.js with its own map; false if the spec is unusable. */
+    setFarSward(spec) { return farSward.set(spec); },
     waterMaterial: waterMat,
     /** Keep the far base below emitted crossing decks without moving timber.
      * One replacement per frontage load; the current geometry has exactly one
@@ -2371,6 +2377,110 @@ function turfGround() {
 }
 
 /**
+ * T-2783 — THE FAR SWARD, painted by the ground where the plants thin out.
+ *
+ * Past the near ring the sward is a few cards a metre apart, then the far band's
+ * aggregates, then nothing; and the ground under them was the prairie TILE, whose
+ * colour is a reading of litter and soil between the stems — right at the walker's
+ * feet, where the stems are drawn, and wrong at forty metres, where a July sward
+ * seen almost edge-on is nothing but stems. So the plain past the near ring read
+ * as a lighter, yellower paint than the grass standing on it, and the line where
+ * the tufts stop was the line where the colour changed.
+ *
+ * WHAT IT PAINTS: from `start` metres out to `full` (the tier's own near and mid
+ * rings, handed over by flora.js), the ground eases from the tile toward the
+ * sward's own colour — the mean of the grass records the placer deals at that
+ * point, the same `matColor` its cards are tinted with — at the share of the
+ * ground the community's record says its grass covers (`matrix_fraction`). And it
+ * carries the grass grain once more, at a coarse scale, which perspective lays
+ * down into the long horizontal streaks a distant sward shows; the variation map
+ * and the dry lean move it as they move the prairie.
+ *
+ * WHERE: a map flora.js rasterises off its own zone finder over the heightfield
+ * (`setFarSward`), so the ground takes the grass colour exactly where the placer
+ * would stand grass, and none on water, on the town's turf (which paints itself
+ * after this) or where no community grows grass. Until it arrives the map is a
+ * 1x1 texel of zero weight and nothing moves.
+ *
+ * WHAT IT COSTS: no draw call, no mesh; two fetches on the ground (the map, at
+ * level 0 of a texture with no mips, and the grain), and one 16 m texel map of a
+ * few hundred kilobytes. The colour is read from the records; the ramp, the
+ * gain and the streaks are reconstructed (docs/LIBERTIES.md L-far-sward-2783).
+ */
+const FAR_SWARD_HEAD = /* glsl */`
+uniform sampler2D uFarSwMap;
+uniform vec4 uFarSwBox;
+uniform vec4 uFarSwRamp;
+uniform vec3 uFarSwGain;
+`;
+
+const FAR_SWARD_FRAGMENT = /* glsl */`
+  // ---- T-2783, the far sward ---------------------------------------------- //
+  {
+    vec2 chiFsEN = vec2(vChiWorld.x, -vChiWorld.z);
+    vec2 chiFsQ = (chiFsEN - uFarSwBox.xy) * uFarSwBox.zw;
+    // Square-root encoded (linear = stored squared), so the dark greens keep
+    // their steps in eight bits. The map's own rim is weightless and it clamps
+    // to its edge, so off the map the weight ramps to nothing over a texel.
+    vec4 chiFs = textureLod(uFarSwMap, chiFsQ, 0.0);
+    float chiFsW = chiFs.a
+                 * smoothstep(uFarSwRamp.x, uFarSwRamp.y, distance(vChiWorld, cameraPosition))
+                 * (1.0 - 0.6 * chiWet);
+    // The grass grain again, coarse and turned off the fine read's axes so the
+    // two never line up: blade strokes a few metres long, which a grazing view
+    // compresses into streaks across the plain.
+    vec2 chiFsUv = mat2(0.6157, 0.7880, -0.7880, 0.6157) * chiFsEN / uFarSwRamp.w;
+    float chiFsGrain = texture2D(uSward, chiFsUv).r / max(uSwardMean, 1e-6);
+    vec3 chiFsC = chiFs.rgb * chiFs.rgb * uFarSwGain
+                * (1.0 + mix(0.18, 0.30, chiFar) * chiPatch)
+                * (vec3(1.0) + vec3(0.07, 0.035, -0.13) * chiMacro.a)
+                * mix(1.0, chiFsGrain, uFarSwRamp.z);
+    chiPrairie = mix(chiPrairie, diffuseColor.rgb * min(vec3(1.0), chiFsC), chiFsW);
+  }
+`;
+
+/** The far sward's uniforms and the call that fills them (T-2783). One object
+ *  for both ground materials, as the turf's is. Inert until `set`. */
+function farSwardGround() {
+  const blank = new THREE.DataTexture(new Uint8Array([0, 0, 0, 0]), 1, 1, THREE.RGBAFormat);
+  blank.needsUpdate = true;
+  const uniforms = {
+    uFarSwMap: { value: blank },
+    uFarSwBox: { value: new THREE.Vector4(0, 0, 0, 0) },
+    uFarSwRamp: { value: new THREE.Vector4(1e6, 2e6, 0, 7.2) },
+    uFarSwGain: { value: new THREE.Vector3(1, 1, 1) },
+  };
+  let map = null;
+  return {
+    uniforms,
+    /** `spec`: { box: {e0,e1,n0,n1}, map: {data (RGBA, rgb = sqrt of linear),
+     *  w, h}, start, full, streak, grainM, gain: [r,g,b] } — see flora.js. */
+    set(spec) {
+      if (!spec?.box || !spec.map?.data) return false;
+      map?.dispose();
+      map = new THREE.DataTexture(spec.map.data, spec.map.w, spec.map.h, THREE.RGBAFormat);
+      map.name = 'far-sward';
+      map.colorSpace = THREE.NoColorSpace;
+      map.magFilter = map.minFilter = THREE.LinearFilter;
+      map.generateMipmaps = false;
+      const m = map;
+      m.onUpdate = () => { m.image.data = null; };
+      map.needsUpdate = true;
+      uniforms.uFarSwMap.value = map;
+      const { e0, e1, n0, n1 } = spec.box;
+      uniforms.uFarSwBox.value.set(e0, n0, 1 / (e1 - e0), 1 / (n1 - n0));
+      uniforms.uFarSwRamp.value.set(spec.start, spec.full, spec.streak ?? 0, spec.grainM ?? 7.2);
+      if (Array.isArray(spec.gain)) uniforms.uFarSwGain.value.set(...spec.gain);
+      return true;
+    },
+    dispose() {
+      map?.dispose();
+      blank.dispose();
+    },
+  };
+}
+
+/**
  * Ground: a procedural prairie sampled in WORLD space, darkening to wet mud as
  * the surface approaches the water.
  *
@@ -2404,7 +2514,7 @@ function turfGround() {
  * point falls in belongs here — and the ground stops being one green.
  */
 function groundMaterial(zones = [], lakeShore = null,
-  { nearHole = null, groundTex = null, swardTex = null, turf = null } = {}) {
+  { nearHole = null, groundTex = null, swardTex = null, turf = null, farSward = null } = {}) {
   const mat = new THREE.MeshStandardMaterial({
     color: 0xffffff, roughness: 1, metalness: 0,
   });
@@ -2435,6 +2545,7 @@ function groundMaterial(zones = [], lakeShore = null,
     if (lakeShore) shader.uniforms.uChiShore = { value: shoreUniform(lakeShore, THREE) };
     if (nearHole) shader.uniforms.uChiNearHole = nearHole;
     if (turf) Object.assign(shader.uniforms, turf.uniforms);
+    if (farSward) Object.assign(shader.uniforms, farSward.uniforms);
     seasonShaderUniforms(shader);
     shader.vertexShader = 'varying vec3 vChiWorld;\n' + shader.vertexShader.replace(
       '#include <begin_vertex>', '#include <begin_vertex>' + WORLD_POS_VERT,
@@ -2451,11 +2562,13 @@ uniform sampler2D uChiCut;
 uniform vec4 uChiCutBox;
 ${zones.length ? shoreGlslHead(lakeShore) : ''}
 ${turf ? TURF_HEAD : ''}
+${farSward ? FAR_SWARD_HEAD : ''}
 ` + shader.fragmentShader.replace('#include <clipping_planes_fragment>', `#include <clipping_planes_fragment>
 ${nearHole ? '  if (distance(vChiWorld, cameraPosition) < uChiNearHole) discard;' : ''}
 ${GROUND_CUT_FRAGMENT}`)
       .replace('#include <map_fragment>', /* glsl */`${PRAIRIE_FRAGMENT}
 ${zoneGlsl(zones, lakeShore)}
+${farSward ? FAR_SWARD_FRAGMENT : ''}
 ${turf ? TURF_FRAGMENT : ''}
   diffuseColor.rgb = chiPrairie;
   diffuseColor.rgb = chiSeason(diffuseColor.rgb, vChiWorld.xz, 1.0, 1.0);
