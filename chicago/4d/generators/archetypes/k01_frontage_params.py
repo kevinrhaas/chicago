@@ -707,8 +707,12 @@ MANSARD_FACES = {"street": "v", "rear": "v", "north": "u", "south": "u"}
 
 #: T-2452: a lower-face dormer's head — the sash's own arch carried out by the surround
 #: (T-2404, T-2411), or a pitched gable over a square-headed sash — and the K06 head each takes.
-#: T-2866: or a hipped roof of its own over the face's square head (1625's south dormer)
-DORMER_HEADS = {"round": "round", "gable": "flat", "hip": "flat"}
+#: T-2866: or a hipped roof of its own over the face's square head (1625's south dormer).
+#: T-2902: or a FLAT hood — the face carried `frieze_m` over the sash's head to a projecting
+#: cornice, the kit's dormer eaves, under a cap falling `hood_fall_deg` (1625's rear section)
+DORMER_HEADS = {"round": "round", "gable": "flat", "hip": "flat", "flat": "flat"}
+#: the heads whose eaves are K05's hip over the face's square wall head
+HIPPED_HEADS = ("hip", "flat")
 
 
 def _round_dormer(d: dict, what: str, room: float, hip: bool = False) -> dict:
@@ -724,8 +728,9 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False) -> dict:
     head = d.get("head", "round")
     if head not in DORMER_HEADS:
         raise ParamError(f"{what}.head {head!r}: one of {', '.join(DORMER_HEADS)}")
-    if head == "hip" and not hip:
-        raise ParamError(f"{what}.head 'hip': a hipped dormer stands on a hip's slope (slope_dormers)")
+    if head in HIPPED_HEADS and not hip:
+        raise ParamError(f"{what}.head {head!r}: a dormer under its own eaves stands on a hip's slope "
+                         f"(slope_dormers) or a rear section's attic")
     if kit.get(sh.get("variant"), {}).get("head") != DORMER_HEADS[head]:
         raise ParamError(f"{what}.sash.variant: a {DORMER_HEADS[head]}-headed K06 variant under a {head} head")
     sw, sht, sill = float(sh["width_m"]), float(sh["height_m"]), float(sh["sill_m"])
@@ -750,6 +755,15 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False) -> dict:
         if not 30.0 <= hp <= 60.0:
             raise ParamError(f"{what}.hip_pitch_deg {hp}: a dormer's hip is pitched 30-60 deg")
         out["hip_pitch_deg"] = hp
+    if head == "flat":
+        # T-2902: the face's wall head `frieze_m` over the sash (a frieze under the cornice, where
+        # the surround's ring is only its jambs'), the cap K05's hip at a flat's fall
+        fz, fall = float(d["frieze_m"]), float(d["hood_fall_deg"])
+        if not 0.1 <= fz <= 0.6:
+            raise ParamError(f"{what}.frieze_m {fz}: a flat hood's frieze stands 0.1-0.6 m over the sash")
+        if not 2.0 <= fall <= 15.0:
+            raise ParamError(f"{what}.hood_fall_deg {fall}: a flat hood's cap falls 2-15 deg")
+        out.update(frieze_m=fz, hood_fall_deg=fall, hip_pitch_deg=fall, head_m=round(sht + fz, 4))
     return out
 
 
@@ -789,7 +803,7 @@ def _slope_dormers(entries, roof_form: str, depth: float, width: float, eave: fl
                              f"inside the wall line ({overhang} m of eave)")
         foot = eave + w0 * tp
         top = foot + r_["sill_m"] + r_["head_m"]
-        if r_["head"] == "hip":
+        if r_["head"] in HIPPED_HEADS:
             reach = r + do
             high = top + df + reach * math.tan(math.radians(r_["hip_pitch_deg"]))
         else:
@@ -797,9 +811,9 @@ def _slope_dormers(entries, roof_form: str, depth: float, width: float, eave: fl
         if high > ridge - 0.1:
             raise ParamError(f"{what}: its top at {high:.2f} m stands within 0.1 m of the hip's ridge at {ridge:.2f} m")
         # back to where its top is inside the near slope; a hipped head's ridge ends `r` short of it
-        back = (r if r_["head"] == "hip" else 0.0) + (high - eave) / tp + 0.05
-        lowest = top + df if r_["head"] == "hip" else high
-        far = eave + (width - back - (do if r_["head"] == "hip" else 0.0)) * tp
+        back = (r if r_["head"] in HIPPED_HEADS else 0.0) + (high - eave) / tp + 0.05
+        lowest = top + df if r_["head"] in HIPPED_HEADS else high
+        far = eave + (width - back - (do if r_["head"] in HIPPED_HEADS else 0.0)) * tp
         if far < lowest + 0.02:
             raise ParamError(f"{what}: run back {back:.2f} m to bury its top, it stands out of the slope behind the ridge")
         if c - reach < back or c + reach > depth - back:
