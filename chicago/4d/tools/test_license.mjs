@@ -32,27 +32,28 @@ assert.equal(issuedOn('not a date'), null);
 assert.equal(issuedOn(null), null);
 
 // ---- finishing the Field Check awards it once; Skip never does ---------------------------
-// Runs the real tour to its end: Next on 01, each waiting step's action, Finish on 07.
+// Runs the real tour to its end: Next on 01, each waiting step's action, Finish on 08.
 function runTour(tour, probe) {
   tour.start();
   assert.equal(tour.press(), true);
   probe.yawDeg = (probe.yawDeg + 90) % 360; tour.tick();
   probe.e += 6; tour.tick();
-  probe.opens += 1; tour.tick();
-  probe.deeper += 1; tour.tick();
-  probe.confidence = true; probe.confChanges += 1; tour.tick();
-  assert.equal(tour.step, STEPS.length - 1, 'on step 07');
+  probe.opens += 1; probe.selected = true; tour.tick();
+  probe.selected = false; tour.tick();
+  probe.apps = { ...probe.apps, move: (probe.apps.move ?? 0) + 1 }; tour.tick();
+  probe.apps = { ...probe.apps, settings: (probe.apps.settings ?? 0) + 1 }; tour.tick();
+  assert.equal(tour.step, STEPS.length - 1, 'on step 08');
 }
 {
   const s = store();
   const license = createLicense({ storage: s, now: () => WHEN });
   const awards = [];
-  const probe = { yawDeg: 0, e: 0, n: 0, opens: 0, deeper: 0, confidence: false, confChanges: 0, scene: '1835' };
+  const probe = { yawDeg: 0, e: 0, n: 0, opens: 0, selected: false, apps: {}, scene: '1835' };
   const tour = createTour({ probe: () => probe, storage: s, onFinish: () => awards.push(license.award()) });
   assert.equal(license.held, false, 'nothing held before the tour');
   assert.equal(license.card(), null, 'and no card');
 
-  // Skip at 07 is not finishing.
+  // Skip at 08 is not finishing.
   runTour(tour, probe);
   tour.skip();
   assert.deepEqual(awards, [], 'Skip never awards it');
@@ -60,9 +61,8 @@ function runTour(tour, probe) {
   assert.equal(s.m.get(LICENSE_KEY), undefined);
 
   // A replay finished: awarded, dated, on this device.
-  probe.confidence = false;
   runTour(tour, probe);
-  assert.equal(tour.press(), true, 'Finish on step 07');
+  assert.equal(tour.press(), true, 'Finish on step 08');
   assert.deepEqual(awards, [true], 'Finish awards it');
   assert.equal(license.held, true);
   assert.deepEqual(JSON.parse(s.m.get(LICENSE_KEY)), { earned: WHEN.toISOString() }, 'kept on this device, with the day it was issued');
@@ -70,7 +70,6 @@ function runTour(tour, probe) {
   assert.deepEqual(card, { form: t('license.form'), title: 'Navigator License', text: t('license.text'), line: 'Issued Oct 18, 2026 · Good in every year' });
 
   // Again: one license.
-  probe.confidence = false;
   runTour(tour, probe);
   tour.press();
   assert.deepEqual(awards, [true, false], 'a replay that finishes again keeps the one license');

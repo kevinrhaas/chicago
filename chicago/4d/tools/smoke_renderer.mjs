@@ -17076,13 +17076,57 @@ for (const [label, viewport, touch] of [
       && restored.list === 'welcome-jaunts-region' && restored.picker === 'welcome' && restored.pickerHidden === true,
       JSON.stringify({ segGoto, segJaunts, viaRail, roamed, restored }));
 
+    // >>> T-2954: an open card holds the visitor (the owner, 2026-10-20: "the focus should be
+    // on the card until i either close the card or click on the main display"). The card takes
+    // the keyboard focus; its Close stays in view when the card is scrolled to its foot and
+    // carries the Esc keycap with a mouse, 44 px and no keycap on touch. With a keyboard, W
+    // walks nothing while the card is up, and one Esc closes it.
+    await page.evaluate(() => { window.__chicago4d.navigator.dock(); window.__chicago4d.popup.close(); });
+    const hold = await page.evaluate(async (isTouch) => {
+      const api = window.__chicago4d;
+      api.pick('sauganash_hotel');
+      await new Promise((r) => setTimeout(r, 200));
+      const root = document.getElementById('popup');
+      const close = root.querySelector('.pop-close');
+      const focused = root.contains(document.activeElement);
+      root.scrollTop = root.scrollHeight;
+      await new Promise((r) => requestAnimationFrame(() => r()));
+      const rb = root.getBoundingClientRect(); const cb = close?.getBoundingClientRect();
+      const inView = !!cb && cb.height > 0 && cb.top >= rb.top - 1 && cb.bottom <= rb.bottom + 1;
+      const atClose = cb ? document.elementFromPoint(cb.x + cb.width / 2, cb.y + cb.height / 2) : null;
+      const key = close?.querySelector('.pop-close-key');
+      return { open: !!api.popup.openId, focused, scrolled: root.scrollTop > 0, inView, onTop: !!atClose && close.contains(atClose),
+        label: close?.querySelector('.pop-close-label')?.textContent ?? '', tall: Math.round(cb?.height ?? 0),
+        keycap: !!key && getComputedStyle(key).display !== 'none', touch: isTouch };
+    }, touch);
+    let keys = null;
+    if (!touch) {
+      const at = () => page.evaluate(() => { const w = window.__chicago4d.walker.state; return { e: w.e, n: w.n }; });
+      const was = await at();
+      await page.keyboard.down('KeyW');
+      await page.evaluate(() => { const a = window.__chicago4d; a.step(); a.step(); });
+      await page.waitForTimeout(400);
+      await page.evaluate(() => window.__chicago4d.step());
+      await page.keyboard.up('KeyW');
+      const now = await at();
+      await page.keyboard.press('Escape');
+      keys = { held: Math.hypot(now.e - was.e, now.n - was.n), closedByOneEsc: !(await page.evaluate(() => window.__chicago4d.popup.openId)) };
+    }
+    await page.evaluate(() => window.__chicago4d.popup.close());
+    check(`${label}: an open card holds the visitor — focus on the card, Close pinned in view${touch ? ', 44 px with no Esc keycap' : ' with its Esc keycap, W walks nothing behind it, one Esc closes it'} (T-2954)`,
+      hold.open && hold.focused && hold.scrolled && hold.inView && hold.onTop && hold.label === 'Close'
+      && (touch ? hold.tall >= 44 && !hold.keycap : hold.keycap && keys.held < 0.05 && keys.closedByOneEsc),
+      JSON.stringify({ hold, keys }));
+    // <<< T-2954
+
     // ---- T-2663: Tour mode, the Field Check (QA-16, and QA-19's second half). Started from
     // the section Guide opens; each step moves on only on its own action. Step 02's turn is
     // a real drag on the touch build; with a mouse, pointer lock cannot be driven headless,
     // so the camera is turned directly, as step 03's walk moves the walker directly (the
     // engine reads the camera and the walker either way; tools/test_tour.mjs holds the
     // thresholds). Reload at 4 is read from storage here and resumed; Skip at 6 ends it
-    // cleanly; Replay starts again, and a full pass ends on Finish.
+    // cleanly; Replay starts again, and a full pass ends on Finish. T-2954: step 05 is the
+    // release (Esc with a keyboard, the card's Close on touch), 06 opens Move, 07 Settings.
     await page.evaluate(() => { window.__chicago4d.navigator.dock(); window.__chicago4d.popup.close(); });
     // T-2620: the drawer's Guide section opens in the Navigator's Guide, under its sheet.
     await openSection('controls');
@@ -17095,7 +17139,7 @@ for (const [label, viewport, touch] of [
     // reads its starting point when it is entered (where the visitor stands, the counters),
     // and it is entered on the tour's tick, a 250 ms timer that on the desktop runner runs
     // only between frames of 8-10 s (T-2412). An 8 s wait could give up first, the next
-    // action (the walk, the pick, the tab, the preset) then landed before its step began,
+    // action (the walk, the pick, the release, the app) then landed before its step began,
     // was read into that step's starting point, and the step waited for ever: the tour
     // stood on a waiting step with Next hidden, and the last Next below aborted the part
     // with "clickChrome: #tour-next has no box (0x0)" (#971, #984). Bounded, and the
@@ -17129,18 +17173,22 @@ for (const [label, viewport, touch] of [
     const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('chicago4d.tour') || 'null'));
     // Reload at 4: what a reload reads, resumed.
     const resumed = await page.evaluate(() => window.__chicago4d.tour.resume() && window.__chicago4d.tour.step);
-    // 04: open a building's record. 05: go deeper (a card tab).
+    // 04: select a building. 05: release it, as a visitor does — Esc, or the card's Close.
     await page.evaluate(() => window.__chicago4d.pick('sauganash_hotel'));
     await tourWait(4);
     const inspected = await tourView();
-    await page.evaluate(() => document.querySelector('#popup .pop-tab[data-pop-tab="record"]')?.click());
+    const releaseRing = await page.evaluate(() => { const h = document.querySelector('#tour .tour-hole'); const c = document.querySelector('#popup .pop-close');
+      const a = h?.getBoundingClientRect(); const b = c?.getBoundingClientRect();
+      return !!a && !!b && !h.hidden && a.left <= b.left && a.right >= b.right && a.top <= b.top && a.bottom >= b.bottom; });
+    if (touch) await clickChrome('#popup .pop-close'); else await page.keyboard.press('Escape');
     await tourWait(5);
-    const deeper = await tourView();
+    const released = await tourView();
+    const releasedCard = await page.evaluate(() => window.__chicago4d.popup.openId);
     // Skip at 6.
     await clickChrome('#tour-skip');
     const skipped = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, shown: !document.getElementById('tour').hidden,
       dim: document.documentElement.hasAttribute('data-tour'), stored: JSON.parse(localStorage.getItem('chicago4d.tour') || 'null') }));
-    // Replay, and a full pass to Finish: 06 on the Confidence view chip, 07 on Finish.
+    // Replay, and a full pass to Finish: 06 on Move, 07 on Settings, 08 on Finish.
     await page.evaluate(() => { window.__chicago4d.popup.close(); window.__chicago4d.tour.start(); });
     await clickChrome('#tour-next');
     await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e, local_n: w.state.n, yaw_deg: 200 }); });
@@ -17149,20 +17197,18 @@ for (const [label, viewport, touch] of [
     await tourWait(3);
     await page.evaluate(() => window.__chicago4d.pick('sauganash_hotel'));
     await tourWait(4);
-    await page.evaluate(() => document.querySelector('#popup .pop-tab[data-pop-tab="images"]')?.click());
-    await tourWait(5);
     await page.evaluate(() => window.__chicago4d.popup.close());
-    const confWas = await page.evaluate(() => window.__chicago4d.hud.confidenceOn);
-    // T-2647: the Confidence view is the Navigator's app now; a preset other than Normal is
-    // the step's action.
-    await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
-    await clickChrome('#navigator .nav-preset[data-preset="bygrade"]');
+    await tourWait(5);
+    const moveStep = await tourView();
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('move'); });
     await tourWait(6);
+    const settingsStep = await tourView();
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('settings'); });
+    await tourWait(7);
     const last = await tourView();
     await clickChrome('#tour-next');
     const done = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, finished: window.__chicago4d.tour.finished,
       shown: !document.getElementById('tour').hidden }));
-    if (!confWas) await page.evaluate(() => window.__chicago4d.hud.setConfidence(false, { announce: false }));
     // Back as it was found: no card, Home the Navigator's app, docked (the dock reopens its
     // last app, and later parts expect Home).
     await page.evaluate(async () => {
@@ -17171,14 +17217,17 @@ for (const [label, viewport, touch] of [
       await api.navigator.select('home');
       api.navigator.dock();
     });
-    check(`${label}: the Field Check moves on only on each step's own action, resumes at 4, skips cleanly at 6, replays and finishes (T-2663)`,
-      t1.shown && t1.count === 'Field check · 1 / 7' && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
-      && t2.step === 1 && t2.waiting && turned.step === 2 && walked.step === 3 && /^Tap the /.test(walked.bubble ?? '')
+    check(`${label}: the Field Check moves on only on each step's own action — select, release, Move, Settings — resumes at 4, skips cleanly at 6, replays and finishes (T-2663, T-2954)`,
+      t1.shown && t1.count === 'Field check · 1 / 8' && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
+      && t2.step === 1 && t2.waiting && turned.step === 2 && walked.step === 3
+      && new RegExp(`^${touch ? 'Tap' : 'Click'} the `).test(walked.bubble ?? '')
       && stored?.active === true && stored?.step === 3 && resumed === 3
-      && inspected.step === 4 && deeper.step === 5 && /Confidence view/.test(deeper.bubble ?? '')
+      && inspected.step === 4 && (touch ? /Tap Close/ : /Press Esc/).test(inspected.bubble ?? '') && releaseRing
+      && released.step === 5 && releasedCard === null && /^Open (the Navigator, then )?Move/.test(released.bubble ?? '')
       && !skipped.running && !skipped.shown && !skipped.dim && skipped.stored?.active === false
-      && last.step === 6 && /^Ready\./.test(last.bubble ?? '') && !done.running && done.finished && !done.shown,
-      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, deeper, skipped, last, done }));
+      && moveStep.step === 5 && settingsStep.step === 6 && /Settings/.test(settingsStep.bubble ?? '')
+      && last.step === 7 && /^Ready\./.test(last.bubble ?? '') && !done.running && done.finished && !done.shown,
+      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, releaseRing, released, releasedCard, skipped, moveStep, settingsStep, last, done }));
     // ---- end T-2663
     // >>> T-2664: Home offers the Field Check once per device after the landing; taking it
     // goes into the town and starts step 01 (without Free roam's tip); Home does not offer it

@@ -45,7 +45,7 @@ export function isTyping(target) {
   return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
 }
 
-export function createPointerLockBackend({ intent, domElement, onLockChange }) {
+export function createPointerLockBackend({ intent, domElement, onLockChange, holding = () => false }) {
   // PointerLockControls connects its document listeners in the constructor, so
   // enabling and disabling this backend flips `controls.enabled` rather than
   // reconnecting — connect() twice would double-register every listener.
@@ -86,6 +86,9 @@ export function createPointerLockBackend({ intent, domElement, onLockChange }) {
     if (e.metaKey || e.ctrlKey || e.altKey) return;
     // Typing a building name is not a walk instruction. See isTyping.
     if (isTyping(e.target)) return;
+    // T-2954: an open building card holds the keyboard. Nothing walks or turns behind
+    // it, and the keys go to the card (arrows and Space scroll it); E still closes it.
+    if (holding() && e.code !== 'KeyE') return;
     if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') { held.add('sprint'); return; }
     // Vertical, free-fly only. Space is overloaded — it inspects on foot and
     // ascends in the air — which is why the backend has to see intent.flying.
@@ -167,6 +170,7 @@ export function createPointerLockBackend({ intent, domElement, onLockChange }) {
     /** Write this frame's intent. Called once per frame by main.js. */
     update() {
       if (!enabled) return;
+      if (holding()) held.clear();
       intent.forward = (held.has('ahead') ? 1 : 0) - (held.has('back') ? 1 : 0);
       intent.strafe = (held.has('right') ? 1 : 0) - (held.has('left') ? 1 : 0);
       intent.rise = (held.has('up') ? 1 : 0) - (held.has('down') ? 1 : 0);
