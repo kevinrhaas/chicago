@@ -25,7 +25,8 @@ the ticket says:
     the roof's highest point on it are behind the wing;
   * refused: a slate cut for less headlap than the pitch needs, a pitch out of range, a
     hip in tin, a gable facing no side or a hip facing one, two slates on one house;
-  * as-was: every committed record still decks its wings flat and lays no wing slate.
+  * as-was: every committed record still decks its wings flat and lays no wing slate, but
+    the records a ticket roofs from a picture (1801's gabled section and east range, T-2843).
 
     python3 tools/test_k01_wing_roof.py
 """
@@ -261,11 +262,15 @@ def main() -> int:
     refused({"rear_range": {"kind": "hip", "pitch_deg": 45},
              "west_block": {"kind": "hip", "pitch_deg": 45, "covering": "slate_vermont"}}, "two slates on one house")
 
-    # as-was: every committed K01 wing is still decked flat in tin, no wing slate laid
+    # as-was: every committed K01 wing is still decked flat in tin, no wing slate laid, but
+    # those a building's own ticket roofs from its picture (T-2843: 1801's, the Taylor photograph)
     import k01_emit
+    pictured = {"kimball_house_1801_prairie": {"r3", "r2"}}
     n = 0
     for st, phase, _ in k01_emit.records():
         for w in (phase["form"].get("rear_wings") or {}).get("value", ()):
+            if w["id"] in pictured.get(st["id"], ()):
+                continue
             n += 1
             if w["roof"]["kind"] != "flat":
                 check(False, f"as-was: {st['id']}'s {w['id']} is roofed {w['roof']['kind']}")

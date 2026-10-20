@@ -1,0 +1,205 @@
+{
+  "ticket": "T-2606",
+  "command": "node tools/measure_walk_frames.mjs --only mobile --tiers full --moves walk,turn --source --sward scan|grid --profile N",
+  "throttle": 4,
+  "viewport": "390x780",
+  "note": "The yards' sward test, its full walk over every interior's box (--sward scan, the test before T-2696) against the 16 m grid T-2696 shipped (--sward grid), read with the CPU profile over the same driven moves, runs alternated before, after, before, after on one machine (2026-10-19, dev @ 39611fe81). The ticket's 2.3 s of 7.5 s was read on another profile; here the scan is 14.9-18.3 s of 41-49 s of flora.update time, and the grid 0.13-0.18 s. msPerPass is the main-thread ms a landed spread pass spent. before-1 was profiled with --profile 30, the rest with --profile 400 (the grid falls out of a top 30). everySlot: every slot the moves asked of the yards, at every tier and move, answered by both tests; the frame times of that run are not a reading.",
+  "runs": [
+    {
+      "run": "before-1",
+      "sward": "scan",
+      "profileTotalMs": {
+        "swardTest": 14946,
+        "swardAnswer": 14940,
+        "swardPatch": 15598,
+        "floraUpdate": 41293
+      },
+      "moves": [
+        {
+          "move": "walk",
+          "floraP95": 6.4,
+          "floraMax": 384.5,
+          "msPerPass": 67.46,
+          "passes": 197
+        },
+        {
+          "move": "turn",
+          "floraP95": 166.5,
+          "floraMax": 437.4,
+          "msPerPass": 233.37,
+          "passes": 120
+        }
+      ]
+    },
+    {
+      "run": "after-1",
+      "sward": "grid",
+      "profileTotalMs": {
+        "swardTest": 132,
+        "swardAnswer": 49,
+        "swardPatch": 612,
+        "floraUpdate": 25291
+      },
+      "moves": [
+        {
+          "move": "walk",
+          "floraP95": 5.4,
+          "floraMax": 205.7,
+          "msPerPass": 43.47,
+          "passes": 194
+        },
+        {
+          "move": "turn",
+          "floraP95": 80.6,
+          "floraMax": 188.9,
+          "msPerPass": 131.06,
+          "passes": 120
+        }
+      ]
+    },
+    {
+      "run": "before-2",
+      "sward": "scan",
+      "profileTotalMs": {
+        "swardTest": 18312,
+        "swardAnswer": 18304,
+        "swardPatch": 19172,
+        "floraUpdate": 48970
+      },
+      "moves": [
+        {
+          "move": "walk",
+          "floraP95": 7.1,
+          "floraMax": 470.7,
+          "msPerPass": 77.36,
+          "passes": 198
+        },
+        {
+          "move": "turn",
+          "floraP95": 190.9,
+          "floraMax": 471.7,
+          "msPerPass": 275.44,
+          "passes": 119
+        }
+      ]
+    },
+    {
+      "run": "after-2",
+      "sward": "grid",
+      "profileTotalMs": {
+        "swardTest": 180,
+        "swardAnswer": 41,
+        "swardPatch": 558,
+        "floraUpdate": 25710
+      },
+      "moves": [
+        {
+          "move": "walk",
+          "floraP95": 5.3,
+          "floraMax": 213.3,
+          "msPerPass": 47.85,
+          "passes": 195
+        },
+        {
+          "move": "turn",
+          "floraP95": 93.2,
+          "floraMax": 261.9,
+          "msPerPass": 128.82,
+          "passes": 120
+        }
+      ]
+    }
+  ],
+  "everySlot": {
+    "command": "node tools/measure_walk_frames.mjs --only mobile --throttle 1 --source --sward both",
+    "result": "PASS",
+    "moves": [
+      {
+        "tier": "full",
+        "move": "walk",
+        "asked": 157266,
+        "suppressed": 8453,
+        "differ": 0
+      },
+      {
+        "tier": "full",
+        "move": "turn",
+        "asked": 213589,
+        "suppressed": 338,
+        "differ": 0
+      },
+      {
+        "tier": "full",
+        "move": "flight",
+        "asked": 225615,
+        "suppressed": 15555,
+        "differ": 0
+      },
+      {
+        "tier": "full",
+        "move": "travel",
+        "asked": 255343,
+        "suppressed": 8015,
+        "differ": 0
+      },
+      {
+        "tier": "balanced",
+        "move": "walk",
+        "asked": 153216,
+        "suppressed": 5801,
+        "differ": 0
+      },
+      {
+        "tier": "balanced",
+        "move": "turn",
+        "asked": 150830,
+        "suppressed": 315,
+        "differ": 0
+      },
+      {
+        "tier": "balanced",
+        "move": "flight",
+        "asked": 203045,
+        "suppressed": 15536,
+        "differ": 0
+      },
+      {
+        "tier": "balanced",
+        "move": "travel",
+        "asked": 214695,
+        "suppressed": 7924,
+        "differ": 0
+      },
+      {
+        "tier": "light",
+        "move": "walk",
+        "asked": 144576,
+        "suppressed": 5768,
+        "differ": 0
+      },
+      {
+        "tier": "light",
+        "move": "turn",
+        "asked": 113069,
+        "suppressed": 291,
+        "differ": 0
+      },
+      {
+        "tier": "light",
+        "move": "flight",
+        "asked": 191670,
+        "suppressed": 15517,
+        "differ": 0
+      },
+      {
+        "tier": "light",
+        "move": "travel",
+        "asked": 192231,
+        "suppressed": 7885,
+        "differ": 0
+      }
+    ],
+    "totalAsked": 2215145,
+    "totalDiffer": 0
+  }
+}

@@ -72,6 +72,51 @@ const json = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
   assert.equal(broken.current(), null, 'a failing pick is nothing in front of you, not a crash');
 }
 
+// T-2723: with pickAsync, a moving eye's look is heard when its answer lands, never waited for.
+{
+  let pose = { e: 0, n: 0, bearingDeg: 0, pitchDeg: 0 };
+  let now = 0, asks = 0;
+  const pending = [];
+  const at = (id, distance = 10) => ({ id, record: {}, distance });
+  const t = createTarget({ pick: () => { now += 1; return at('asked_now'); }, pose: () => pose,
+    pickAsync: () => { asks++; return new Promise((res, rej) => pending.push({ res, rej })); } });
+  const settle = () => new Promise((r) => setTimeout(r, 0));
+  const heard = [];
+  t.on((next) => heard.push(next?.id ?? null));
+  t.tick(1000);
+  assert.equal(asks, 1); assert.equal(now, 0, 'the tick asks the GPU later, not now');
+  assert.deepEqual(heard, [], 'nothing is heard before the answer lands');
+  pose = { ...pose, e: 5 };
+  t.tick(2000);
+  assert.equal(asks, 1, 'one look in flight at a time');
+  pending.shift().res(at('keith_house'));
+  await settle();
+  assert.deepEqual(heard, ['keith_house'], 'the answer is heard when it lands');
+  t.tick(3000);
+  assert.equal(asks, 2, 'and the eye that moved meanwhile is looked through again');
+  t.invalidate();
+  pending.shift().res(at('stale_house'));
+  await settle();
+  assert.deepEqual(heard, ['keith_house'], 'an answer overtaken by invalidate() is dropped');
+  t.tick(3001);
+  assert.equal(asks, 3, 'and the told eye looks again');
+  t.invalidate();
+  assert.equal(t.current().id, 'asked_now', 'current() after invalidate() answers at once');
+  assert.equal(now, 1);
+  pending.shift().res(at('late_house'));
+  await settle();
+  assert.equal(t.current().id, 'asked_now', 'an answer older than an asked one is dropped');
+  pose = { ...pose, e: 9 };
+  assert.equal(t.current().id, 'asked_now', 'a moved eye asked current() keeps its last answer…');
+  assert.equal(asks, 4, '…and looks again later');
+  pending.shift().rej(new Error('context lost'));
+  await settle();
+  assert.equal(t.current(), null, 'a failed read is nothing in front of you, not a crash');
+  pose = { ...pose, e: 20 };
+  t.tick(9000);
+  assert.equal(asks, 5, 'and the look after it still goes');
+}
+
 // ---- where.js ------------------------------------------------------------------
 {
   const scene1904 = json('data/scenes/1904.json');

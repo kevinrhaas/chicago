@@ -4531,6 +4531,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/merge_asset_registry.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/migrate_attribute_tiers.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5714,6 +5718,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k01_pavilion_past_eave.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k01_tower.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5843,6 +5851,10 @@
       "wrote_ignored": []
     },
     "tools/test_pr_lap_publish.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_pr_lap_registry.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

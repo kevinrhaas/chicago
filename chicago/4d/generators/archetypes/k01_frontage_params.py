@@ -484,8 +484,16 @@ def _mansard_roof(m: dict, depth: float, width: float, eave: float, pitch: float
     _within(lower, k5["ranges"]["mansard_lower_deg"], "mansard.lower_pitch_deg")
     _within(pitch, k5["ranges"]["mansard_upper_deg"], "roof_pitch_deg (a mansard's upper hip)")
     rise = float(m["lower_rise_m"])
-    if not 2.0 <= rise <= 4.5:
-        raise ParamError(f"mansard.lower_rise_m {rise}: an attic storey's face rises 2.0-4.5 m")
+    # T-2843: a face may hold two storeys — the house's top storey and its attic over it, as
+    # 1801's steep slate faces do in the Taylor photograph, cornice 8.1 m to deck about 17 m —
+    # and says so (`storeys: 2`); it then rises 4.5-7.5 m. One storey is the default and the
+    # attic storey's 2.0-4.5 m
+    held = m.get("storeys", 1)
+    if held not in (1, 2):
+        raise ParamError(f"mansard.storeys {held!r}: a face holds 1 storey (an attic) or 2")
+    lo, hi = (2.0, 4.5) if held == 1 else (4.5, 7.5)
+    if not lo <= rise <= hi:
+        raise ParamError(f"mansard.lower_rise_m {rise}: a face holding {held} storey(s) rises {lo}-{hi} m")
     if not 0.3 <= overhang <= 1.0:
         raise ParamError(f"eave_overhang_m {overhang}: a mansard's cornice projects 0.3-1.0 m")
     f = k5["parts"]["eave"]["fascia_depth_m"]
@@ -1332,6 +1340,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                          f"lights_m (0.2-1.0 m each) on a K06 transom sash, leaving at least "
                                          f"1.0 m of sash under them, not {t}")
                     w["tiers"] = {"bar_m": bar, "lights_m": lights}
+                # T-2886: a light set between a bay's columns under a narrower band than the
+                # kit's (1637's south bay's cheeks, from the Grosvenor photograph): only over an
+                # arched head, never wider than the kit's own band nor thinner than a moulding
+                if "head_band_m" in w:
+                    k06 = json.loads(WINDOW_KIT.read_text())
+                    v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
+                    hb, hb_kit = float(w["head_band_m"]), k06["parts"]["head_band"]["width_m"]
+                    if v6.get("head", "flat") == "flat" or not 0.03 <= hb <= hb_kit:
+                        raise ParamError(f"bays: {e['id']}'s head_band_m {hb} needs an arched K06 head "
+                                         f"(not {w['opening']}) and a band 0.03-{hb_kit} m broad")
+                    w["head_band_m"] = hb
                 # T-2883: a narrow light in a shallow cheek (1625's oriel, from its print): one light
                 # a sash on a double-hung K06 opening, under half a metre, and it says why
                 if "narrow" in w:
