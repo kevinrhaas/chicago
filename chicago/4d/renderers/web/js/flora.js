@@ -76,6 +76,8 @@ import { nearPassShaders, nearSlotsMax, nearTarget, NEAR_FETCH_GLSL, NEAR_STREAM
   NEAR_RING_GLSL } from './flora-gpu-near.js';
 // T-2894: the mid ring's cards on the GPU's deal, against a kept tile of its own.
 import { midPassShaders, midFieldSpec, MID_TARGET_WIDTH, MID_STREAM_DRAWS } from './flora-gpu-mid.js';
+// T-2895: the forbs, rosettes and shrubs on the GPU's deal, against the mid tile.
+import { forbPassShaders } from './flora-gpu-forb.js';
 import { latticeSlots } from './jobs/lattice-kernel.js';
 
 /** docs/PROVENANCE.md's three levels, as the shader reads them. */
@@ -1481,13 +1483,41 @@ export async function createFlora({
     for (const k in heads) {
       const set = heads[k];
       headMarks[k] = set.mark();
-      const rows = gpuNear.heads[k].rows;
-      for (let i = 0; i < rows.length; i += 2) {
-        set.ring(rows[i]);
-        set.push(...rows[i + 1]);
+      // T-2895: the forb ring's heads first, then the near ring's, so where a
+      // set fills it is still a near head that waits.
+      for (const rows of [gpuNear.forbHeads[k].rows, gpuNear.heads[k].rows]) {
+        for (let i = 0; i < rows.length; i += 2) {
+          set.ring(rows[i]);
+          set.push(...rows[i + 1]);
+        }
       }
     }
   }
+  /**
+   * T-2774. A set of head recorders, one per head kind: `maybeHead` is handed
+   * these in place of the head sets, and each records the pushes it is asked
+   * for (the ring with each), which `hangNearHeads` replays into the real sets
+   * after a pass's own heads. A recorder never refuses, so the demand a full
+   * set counts on replay is the whole of what was asked.
+   */
+  function headRecorders() {
+    const out = {};
+    for (const k in heads) {
+      const rows = [];
+      let ringNow = null;
+      out[k] = { rows,
+        reset() { rows.length = 0; },
+        ring(r) { ringNow = r.slice(); },
+        push(...args) { rows.push(ringNow, args); return true; },
+        skip() {},
+      };
+    }
+    return out;
+  }
+  /** T-2895. Where a pass whose forbs the CPU walks records their heads (the
+   *  GPU near ring hangs them after the mark, with the reap's): handed over to
+   *  `gpuNear` when the pass lands, so one dropped half-way leaves the last. */
+  const forbHeadsCpu = gpuNearOn ? headRecorders() : null;
   /** T-2774. A read-back reaped: its heads go up now unless a pass is dealing
    *  (it hangs them when it commits), and a census it counted is closed again.
    *  The set figures (`tally`) are redone only for a read taken in the frame,
@@ -1562,11 +1592,23 @@ export async function createFlora({
     // and the CPU mid walk deals as it always has.
     const midWalk = { cell: tune.mid.cell, perCell: tune.mid.perCell, radius: rings.mid.lattice.outer,
       inner: rings.mid.lattice.inner, salt: 0x9e3779, draw: 'strata' };
+    // T-2895: the forb ring's two walks (`rebuildForbs`), dealt in the same
+    // render against the same tile: the forb lattice and the shrub stratum's.
+    const forbWalk = { cell: tune.forb.cell, perCell: tune.forb.perCell, radius: rings.forb.lattice.outer,
+      inner: rings.forb.lattice.inner, salt: 0x2545f9, draw: 'lattice' };
+    const shrubWalk = { ...forbWalk, salt: 0x7b5c1d, draw: 'wild' };
     const midOn = !!groundKey;
-    const midSpec = midFieldSpec(midWalk.radius);
+    // The tile's reach is the wider of the two rings' — the mid ring's at every
+    // tier today (see flora-gpu-forb.js), so the spec is T-2894's own.
+    const fieldReach = Math.max(midWalk.radius, forbWalk.radius);
+    const midSpec = midFieldSpec(fieldReach);
     const MW = MID_TARGET_WIDTH;
     const midMax = midOn ? nearSlotsMax(midWalk) : 1;
-    const MH = Math.max(1, Math.ceil(midMax / MW));
+    const forbMax = midOn ? nearSlotsMax(forbWalk) : 1;
+    // The mid slots' rows, then the forb walk's and the shrub walk's, each
+    // starting on a row of its own (`uSlot0`, set per placement to just past
+    // the walk before it).
+    const MH = Math.max(1, Math.ceil(midMax / MW)) + 2 * Math.max(1, Math.ceil(forbMax / MW));
     const midRt = new THREE.WebGLRenderTarget(MW, MH, { type: THREE.FloatType,
       format: THREE.RGBAFormat, minFilter: THREE.NearestFilter, magFilter: THREE.NearestFilter,
       depthBuffer: false, generateMipmaps: false });
@@ -1587,6 +1629,42 @@ export async function createFlora({
     midPoints.frustumCulled = false;
     const midScene = new THREE.Scene();
     midScene.add(midPoints);
+    // T-2895: the forb and shrub walks' points, in the same scene — so the mid
+    // deal pass's one render draws them into the same target, off the same tile
+    // and its textures (the field's uniforms are the mid pass's own objects),
+    // and the one read-back that takes the mid slots takes theirs. One program
+    // for the two: they differ only in their uniforms.
+    const forbShaders = forbPassShaders({ lattice: LATTICE_GLSL, field: FIELD_GLSL, deal: DEAL_GLSL,
+      ring: NEAR_RING_GLSL });
+    const forbDraws = [[forbWalk, 0], [shrubWalk, 1]].map(([w, shrub]) => {
+      const u = {
+        uTarget: midPass.uTarget, uSlot0: { value: 0 }, uShrub: { value: shrub },
+        uFieldClass: midPass.uFieldClass, uFieldHeight: midPass.uFieldHeight,
+        uFieldOrigin: midPass.uFieldOrigin, uFieldTexel: midPass.uFieldTexel,
+        uFieldSize: midPass.uFieldSize, uFieldWrap: midPass.uFieldWrap,
+        uLatGrid: { value: [0, 0, 0, 0] }, uLatDeal: { value: [0, 0, 0, 0] }, uLatMode: { value: 0 },
+        uLatRing: { value: new THREE.Vector4() }, uLatCell: { value: new THREE.Vector2() },
+        uDealTable: midPass.uDealTable, uDealLayout: midPass.uDealLayout,
+        uForbLayout: { value: [table.forbBase, table.forbItemBase] },
+      };
+      const mat = new THREE.RawShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: u, ...forbShaders });
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(forbMax * 3), 3));
+      const points = new THREE.Points(geo, mat);
+      points.frustumCulled = false;
+      midScene.add(points);
+      return { walk: w, shrub: !!shrub, u, mat, geo };
+    });
+    // T-2895: the deal passes' programs compiled as the rig is built, and not
+    // waited for: the driver links them while the page goes on, so the first
+    // pass that draws them — the first near pass whose mid ring is the GPU's,
+    // which after a tier change is a walking frame — does not stop on the link
+    // (`getProgramInfoLog`, three's first-use check). The phone profile read it
+    // there at 50-60 ms once the forb program joined the mid one.
+    try {
+      renderer.compile(passScene, passCam);
+      renderer.compile(midScene, passCam);
+    } catch { /* drawn as before: compiled on first use */ }
 
     // The drawn tufts: the near set's own archetype, one instance per slot.
     const source = nearTuft();
@@ -1623,6 +1701,7 @@ export async function createFlora({
     });
     group.add(record.mesh);
     disposables.push(rt, tab, passMat, passGeo, tuftGeo, mat, record.mesh.geometry, midRt, midMat, midGeo,
+      ...forbDraws.flatMap((d) => [d.mat, d.geo]),
       { dispose() { for (const b of pbos) if (b) renderer.getContext().deleteBuffer(b); } });
 
     let nf = null, keeper = null, uploaded = null, clsTex = null, hgtTex = null;
@@ -1647,7 +1726,11 @@ export async function createFlora({
       // mid tile did not cover it (`midCpu`) or that found it gone by the time
       // they placed (`midMissed`), and the reaps' share and cards.
       midPasses: 0, midPassMs: 0, midUploads: 0, midCpu: 0, midMissed: 0, midReaps: 0, midReapMs: 0,
-      midCards: 0 };
+      midCards: 0,
+      // T-2895: the forb ring's reaps (forbs, rosettes and shrubs, dealt in the
+      // mid pass), their ms and plants, and the forb slots re-seated by a kept
+      // yard (`forbSeat`), whose station the page asks whole at the new foot.
+      forbReaps: 0, forbReapMs: 0, forbPlants: 0, forbSeated: 0 };
     const bufs = [0, 1, 2, 3].map(() => new Float32Array(W * H * 4));
     // T-2774: the read-back's pixel-pack buffers, and where they land (`read`).
     const pbos = [];
@@ -1657,7 +1740,7 @@ export async function createFlora({
     const midLanded = new Float32Array(MW * MH * 4);
     const _rec = [0, 0, 0, 0];
     const _slotRing = [0, 0, 0, 0];
-    const { items } = table;
+    const { items, forbItems } = table;
 
     /**
      * T-2774. The near ring's heads as the reap hangs them: `maybeHead` is
@@ -1666,17 +1749,10 @@ export async function createFlora({
      * real sets after a pass's own heads. A recorder never refuses, so the
      * demand a full set counts on replay is the whole of what was asked.
      */
-    const recorders = {};
-    for (const k in heads) {
-      const rows = [];
-      let ringNow = null;
-      recorders[k] = { rows,
-        reset() { rows.length = 0; },
-        ring(r) { ringNow = r.slice(); },
-        push(...args) { rows.push(ringNow, args); return true; },
-        skip() {},
-      };
-    }
+    const recorders = headRecorders();
+    /** T-2895. And the forb ring's heads, the last forb deal's — the reap's, or
+     *  a pass's whose forbs the CPU walked (`takeForbHeads`) — hung with them. */
+    const forbRecorders = headRecorders();
 
     function covers(tile, e, n, reach) {
       const span = tile.texel * tile.size;
@@ -1806,7 +1882,9 @@ export async function createFlora({
       const rec = at;
       const ticket = ++reading;
       waiting = !sync;
-      const midRows = rec.mid ? Math.ceil(rec.mid.count / MW) : 0;
+      // T-2895: and the forb and shrub walks' slots after them, where it dealt them.
+      const midRows = rec.mid ? Math.ceil((rec.shrub ? rec.shrub.slot0 + rec.shrub.count : rec.mid.count) / MW)
+        : 0;
       if (sync) {
         for (const k of [0, 1, 3]) renderer.readRenderTargetPixels(rt, 0, 0, W, rows, bufs[k], undefined, k);
         if (midRows) renderer.readRenderTargetPixels(midRt, 0, 0, MW, midRows, midBuf);
@@ -1937,6 +2015,8 @@ export async function createFlora({
       nearSet.commit();
       // T-2894: and the mid cards, unless a pass has since dealt them on the CPU.
       if (rec.mid && rec.midGen === midGen) reapMid(bm, rec, census);
+      // T-2895: and the forbs, rosettes and shrubs, on the same terms.
+      if (rec.forb && rec.midGen === midGen) reapForbs(bm, rec, census);
       stats.reaps++;
       stats.reapMs += performance.now() - t0;
       return census;
@@ -2006,11 +2086,124 @@ export async function createFlora({
       stats.midCards += midSet.mesh.count;
       stats.midReapMs += performance.now() - t0;
     }
+
+    /**
+     * T-2895 — THE FORBS, ROSETTES AND SHRUBS, OFF THE GPU'S DEAL. What
+     * `rebuildForbs`'s two walks did per slot, the forb lattice's and then the
+     * shrub stratum's, in slot order, on the deal pass's word (flora-gpu-
+     * forb.js); their heads into the forb recorders, which `hangNearHeads`
+     * replays.
+     */
+    function reapForbs(b, rec, census) {
+      const t0 = performance.now();
+      forbSet.reset();
+      rosetteSet.reset();
+      shrubSet.reset();
+      for (const k in forbRecorders) forbRecorders[k].reset();
+      reapForbWalk(b, rec, rec.forb, forbWalk, false, census);
+      reapForbWalk(b, rec, rec.shrub, shrubWalk, true, census);
+      forbSet.commit();
+      rosetteSet.commit();
+      shrubSet.commit();
+      stats.forbReaps++;
+      stats.forbPlants += forbSet.mesh.count + rosetteSet.mesh.count + shrubSet.mesh.count;
+      stats.forbReapMs += performance.now() - t0;
+    }
+    /**
+     * One of the forb ring's walks, reaped: the slot's own point recomputed in
+     * doubles from its cell and index (`scatter`'s arithmetic, the `'wild'`
+     * draw's full-cell jitter for the shrubs), held to the lattice's ring and
+     * the placement's view cone; the FRINGE; the census as the walk counted
+     * it; and then the page's half of the deal. A forb slot is asked
+     * `forbSeat` (T-2086): turned out of a kept yard it stands empty, and
+     * re-seated in the strip beside the lot line it is asked `station` whole
+     * at its new foot, here, as the walk asked it — and on short turf only a
+     * re-seated one stands (T-2122). A slot where it is is asked what the
+     * GPU's tile does not hold: `growthBlocked`, and the woody band (T-1056)
+     * at the ground's own height. Then the walker's clearance, the plant on
+     * the slot's own stream past the jitter's two draws, and its heads.
+     */
+    function reapForbWalk(b, rec, part, w, shrub, census) {
+      const { camE, camN, cone } = rec;
+      const [c0, r0, cols, perCell] = part.grid;
+      const { cell, salt } = w;
+      const wild = w.draw === 'wild';
+      const sub = Math.max(1, Math.round(Math.sqrt(perCell)));
+      const rr = w.radius * w.radius;
+      const ri = w.inner * w.inner;
+      const f = rings.forb;
+      for (let id = 0; id < part.count; id++) {
+        const o = 4 * (part.slot0 + id);
+        const word = b[o + 3] | 0;
+        // No community, none of this stratum in it, or no deal: the walk
+        // counted nothing for any of these wherever the slot stood.
+        if ((word & 7) < NEAR_DEAL.station) continue;
+        const k = id % perCell;
+        const cellIdx = (id - k) / perCell;
+        const ci = cellIdx % cols;
+        const c = c0 + ci;
+        const r = r0 + (cellIdx - ci) / cols;
+        const rng = rngFrom(hash3(hash3(c, r, salt), k, 0x68bc21eb));
+        const je = rng(), jn = rng();
+        let e = (c + (wild ? je : (k % sub + je) / sub)) * cell;
+        let n = (r + (wild ? jn : (((k / sub) | 0) + jn) / sub)) * cell;
+        const d2 = (e - camE) ** 2 + (n - camN) ** 2;
+        if (d2 > rr || d2 < ri) continue;
+        let d = Math.sqrt(d2);
+        if (cone && d > CONE_KEEP_M
+          && ((e - camE) * cone.fe + (n - camN) * cone.fn) < d * cone.cos - 2 * (cone.margin ?? 0)) continue;
+        if (cone?.planes && outsideFrustum(cone, e, n, d)) continue;
+        const off = fringeOf(e, n, f.fringe);
+        if (d > f.fade[0] + off + step) continue;
+        const { zone, sp } = forbItems[(word >> 4) - 1];
+        const wet = (word & 8) !== 0;
+        const cz = census ? (shrub ? zone.census?.shrub : zone.census?.forb) : null;
+        countDealt(cz, sp, wet);
+        let y;
+        if (!shrub) {
+          const seat = forbSeat(e, n);
+          if (seat === false || (zone.turf && !seat)) { if (cz) cz.row.rejStation++; continue; }
+          if (seat) {
+            stats.forbSeated++;
+            e = seat[0]; n = seat[1];
+            d = Math.hypot(e - camE, n - camN);
+            if (d > f.fade[0] + off) { if (cz) cz.row.rejStation++; continue; }
+            // The walk's own station, whole: the new foot is no slot the tile
+            // dealt, and the water test stays the slot's, as the walk kept it.
+            y = station(e, n, zone, sp, wet);
+            if (y === null) { if (cz) cz.row.rejStation++; continue; }
+          }
+        }
+        if (y === undefined) {
+          if ((word & 7) === NEAR_DEAL.station || growthBlocked(e, n)) { if (cz) cz.row.rejStation++; continue; }
+          y = wet ? waterY : terrain.surfaceHeight(e, n);
+          if (!wet && woodyRefuses(zone, sp, e, n, y)) { if (cz) cz.row.rejStation++; continue; }
+        }
+        if (crowdsTheWalker(sp, d, cone?.planes ? cone.eyeY - y : 0)) { if (cz) cz.row.rejWalker++; continue; }
+        countDraw(cz, sp, wet);
+        const set = shrub ? shrubSet : sp.form === 'forb_basal_scape' ? rosetteSet : forbSet;
+        set.ring(ringAt(f.fade, off, _ring));
+        const h = shrub ? placeShrub(set, sp, e, y, n, rng) : placeForb(set, sp, e, y, n, rng);
+        if (h > 0 && d <= f.head[0] + off + step) {
+          maybeHead(forbRecorders, sp, e, y, n, rng, h, ringAt(f.head, off, _headRing));
+        }
+      }
+    }
     return {
       mesh,
       stats,
       /** T-2774: the near ring's heads as the last reap hung them, by kind. */
       heads: recorders,
+      /** T-2895: and the forb ring's, the last forb deal's. */
+      forbHeads: forbRecorders,
+      /** T-2895: a pass whose forbs the CPU walked hands its heads over here. */
+      takeForbHeads(from) {
+        for (const k in forbRecorders) {
+          const rows = forbRecorders[k].rows;
+          rows.length = 0;
+          for (const x of from[k].rows) rows.push(x);
+        }
+      },
       bind(field) {
         nf = field;
         keeper = nf.keeper();
@@ -2090,7 +2283,8 @@ export async function createFlora({
         tuftGeo.instanceCount = count;
         placed = true;
         at = { camE, camN, cone, grid: u.grid, count, census: censusGen, counted: false,
-          whole: !!uploaded && covers(uploaded, camE, camN, walk.radius), mid: null, midGen };
+          whole: !!uploaded && covers(uploaded, camE, camN, walk.radius), mid: null, forb: null,
+          shrub: null, midGen };
         // T-2894: the mid ring's deal, where this pass left it to the GPU
         // (`midCovers` at its start) and the uploaded mid tile still covers it.
         if (mid && uploaded && this.midCovers(camE, camN)) {
@@ -2103,6 +2297,22 @@ export async function createFlora({
           const mc = Math.min(m.count, midMax);
           midGeo.setDrawRange(0, mc);
           at.mid = { grid: m.grid, count: mc };
+          // T-2895: the forb and shrub walks, into the rows after the mid
+          // slots, in the same render.
+          let slot0 = Math.ceil(mc / MW) * MW;
+          for (const fd of forbDraws) {
+            const l = latticeUniforms({ camE, camN, ...fd.walk });
+            fd.u.uLatGrid.value = l.grid;
+            fd.u.uLatDeal.value = l.deal;
+            fd.u.uLatMode.value = l.mode;
+            fd.u.uLatRing.value.set(...l.ring);
+            fd.u.uLatCell.value.set(...l.cell);
+            fd.u.uSlot0.value = slot0;
+            const fc = Math.min(l.count, forbMax);
+            fd.geo.setDrawRange(0, fc);
+            at[fd.shrub ? 'shrub' : 'forb'] = { grid: l.grid, count: fc, slot0 };
+            slot0 += Math.ceil(fc / MW) * MW;
+          }
           midDealPass();
         } else if (mid) stats.midMissed++;
         if (uploaded) {
@@ -2114,9 +2324,10 @@ export async function createFlora({
        * T-2894: whether a near pass at (e, n) can leave its mid ring to the
        * GPU — the kept mid tile, uploaded, covers the mid lattice's whole
        * square. Asked when the pass starts; `place` asks again when it ends.
+       * T-2895: and its forb ring with it, whose lattice it covers too.
        */
       midCovers(e, n) {
-        return !!(midKeeper && midUploaded && covers(midUploaded, e, n, midWalk.radius));
+        return !!(midKeeper && midUploaded && covers(midUploaded, e, n, fieldReach));
       },
       /** T-2894: a near pass whose mid ring the CPU walked. */
       midByCpu() { if (midKeeper) stats.midCpu++; },
@@ -2267,15 +2478,17 @@ export async function createFlora({
     // survives stands in POCKETS on the ground that rises toward the band
     // instead of as an even thinning over the whole bar — the terrain is what
     // clusters it, and no length scale is invented here to do it.
-    if (zone?.woody && zone.woody.roles.has(species?.role)) {
-      const [lo, hi] = zone.woody.establishes;
-      const t = smoothstep(lo, hi, y);
-      if (t <= 0) return null;
-      if (t < 1 && hash3(Math.round(e * 4), Math.round(n * 4), 0x5ad8a1) / 4294967296 >= t) {
-        return null;
-      }
-    }
+    if (woodyRefuses(zone, species, e, n, y)) return null;
     return y;
+  }
+  /** T-1056's woody band, out of `station` (T-2895) so the forbs' reap asks it
+   *  alone, at the slot's own height, for the slots the GPU's deal placed. */
+  function woodyRefuses(zone, species, e, n, y) {
+    if (!(zone?.woody && zone.woody.roles.has(species?.role))) return false;
+    const [lo, hi] = zone.woody.establishes;
+    const t = smoothstep(lo, hi, y);
+    if (t <= 0) return true;
+    return t < 1 && hash3(Math.round(e * 4), Math.round(n * 4), 0x5ad8a1) / 4294967296 >= t;
   }
 
   // Flight can expose every azimuth, but not every plant in a whole disc.
@@ -2474,6 +2687,11 @@ export async function createFlora({
     forbSet.reset();
     rosetteSet.reset();
     shrubSet.reset();
+    // T-2895: where the GPU draws the near ring its heads, the forbs' with
+    // them, are hung after the pass's own (`hangNearHeads`), so a pass that
+    // walks the forbs here records theirs for it — see `rebuildAll`.
+    const hs = forbHeadsCpu ?? heads;
+    if (forbHeadsCpu) for (const k in hs) hs[k].reset();
     const f = rings.forb;
     yield* scatter(camE, camN, tune.forb.cell, tune.forb.perCell,
       f.lattice.outer, f.lattice.inner, 0x2545f9, 'lattice', cone,
@@ -2530,7 +2748,7 @@ export async function createFlora({
         set.ring(ringAt(fr.fade, fo, _ring));
         const h = placeForb(set, sp, e, y, n, rng);
         if (h > 0 && r <= fr.head[0] + fo + step) {
-          maybeHead(heads, sp, e, y, n, rng, h, ringAt(fr.head, fo, _headRing));
+          maybeHead(hs, sp, e, y, n, rng, h, ringAt(fr.head, fo, _headRing));
         }
       });
 
@@ -2565,7 +2783,7 @@ export async function createFlora({
         shrubSet.ring(ringAt(f.fade, off, _ring));
         const h = placeShrub(shrubSet, sp, e, y, n, rng);
         if (h > 0 && r <= f.head[0] + off + step) {
-          maybeHead(heads, sp, e, y, n, rng, h, ringAt(f.head, off, _headRing));
+          maybeHead(hs, sp, e, y, n, rng, h, ringAt(f.head, off, _headRing));
         }
       });
   }
@@ -2851,7 +3069,9 @@ export async function createFlora({
     // T-2894: whether this pass's mid ring is the GPU's, decided as it starts.
     const midOnGpu = gpuNear?.midCovers(camE, camN) ?? false;
     yield* rebuildGround(camE, camN, cone, midOnGpu);
-    yield* rebuildForbs(camE, camN, cone);
+    // T-2895: and its forbs, rosettes and shrubs with it: dealt in the mid
+    // pass and reaped beside the mid cards (`reapForbs`), or walked here.
+    if (!midOnGpu) yield* rebuildForbs(camE, camN, cone);
     yield* rebuildFar(camE, camN, cone);
     // T-2716: the near ring's tufts dealt by the GPU at this pass's centre.
     // T-2774: and read back for their heads and the census — in this frame for
@@ -2859,13 +3079,18 @@ export async function createFlora({
     // this census before it closes; otherwise collected when the GPU is done,
     // and until then the sets carry the last placement's near heads.
     // T-2894: and the mid ring with them, where the GPU deals it.
+    // T-2895: a forb ring walked here hands its heads to the near ring's
+    // first, so a read-back reaped in this frame (it hangs none: the pass is
+    // dealing) and the pass's own hanging below both find them.
+    if (!midOnGpu && forbHeadsCpu) gpuNear?.takeForbHeads(forbHeadsCpu);
     gpuNear?.place(camE, camN, cone, nearSync, midOnGpu);
     closeCensus();
     hangNearHeads();
-    // The far shrubs commit themselves, on their own step; a mid ring the GPU
-    // dealt, when its read-back is reaped.
+    // The far shrubs commit themselves, on their own step; a mid ring and a
+    // forb ring the GPU dealt, when its read-back is reaped.
+    const reaped = midOnGpu ? new Set([midSet, forbSet, rosetteSet, shrubSet]) : null;
     for (const s of sets) {
-      if (s !== farShrubSet && s !== nearCarry && s !== midCarry && !(midOnGpu && s === midSet)) s.commit();
+      if (s !== farShrubSet && s !== nearCarry && s !== midCarry && !reaped?.has(s)) s.commit();
     }
     nearDealing = false;
     tally();
