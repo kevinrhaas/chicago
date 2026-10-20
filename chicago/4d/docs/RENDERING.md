@@ -1317,3 +1317,77 @@ correction). Every number quotes its anchor and viewport.
   unthrottled, so the ms a phone's GPU spends on it are not read here at all; what is read
   is the main thread's share, which is the same code anywhere, and the read-back's
   collection, which on a real GPU is a copy out of a buffer the GPU has finished with.
+- **The near pass's mid cards on the GPU's deal** (T-2894, T-2774's second slice). "Mid"
+  here is the near pass's own mid ring, `rebuildGround`'s clump cards (`flora-mid`, 3-13 m
+  on the phone, 4.5-27 m at `full`), not T-2783's far-prairie mid band, which is the third
+  of `rebuildFar`'s bands and still the CPU's. Wherever the GPU draws the near ring and the
+  job pool runs, a near pass no longer walks the mid lattice. A second point pass
+  (`flora-gpu-mid.js`) deals every mid slot in GLSL — community, short turf, the matrix
+  share and the weight walk off the slot's one draw, `station` — against the MID FIELD, a
+  second kept tile on the near tile's 0.125 m texel grid sized to the mid lattice's reach
+  (`midFieldSpec`: 368 texels on the phone, 464 balanced, 632 at `full`), and writes each
+  slot `(e, tone, -n, word)` with T-2774's word layout. The read-back that hangs the near
+  heads takes this target too (a fourth pixel-pack buffer behind the same fence), and
+  `reapMid` does in slot order what the walk did per slot: the slot's point recomputed in
+  doubles from its cell and index, the lattice ring and the view cone, the FRINGE
+  (`fringeOf`), the matrix census, `station`'s first question (the page's
+  `growthBlocked`, asked at the slot), the INNER HANDOVER (`slotRing`) and the card
+  (`placeCard` on the slot's own stream, rooted by `terrain.surfaceHeight`, with the
+  GPU's tone). The fringe stays on the page because its dither hashes `round(e * 64)`,
+  which a float32 `e` lands across a rounding half about one slot in two hundred.
+  The mid field is kept by the pool alone and holds only the worker's answers
+  (`keeper({ page: false })`): the near keeper's main-thread share — the streets' track at
+  every texel corner, the yards, ground strip and bank at every centre — read 555 ms of
+  the dev profile over the three moves, about what the whole mid walk cost, and a tile
+  1.4-2.5 times as wide asked the same way would have cost more than the walk it retires.
+  It is never built whole on the main thread: a pass whose lattice the kept mid tile does
+  not wholly cover (after a boot, a tier change or a jump, until the pool's tile is home)
+  deals the mid ring on the CPU exactly as before, counted as `midCpu`.
+  **For T-2895 and T-2896**: the forb ring's lattice is never wider than the mid ring's
+  (14.6 against 14.6 m on the phone, 19.7 against 20.2 balanced, 29 against 31 at `full`),
+  so the forb, rosette and shrub deal can read this same tile with a deal function and a
+  reap of its own beside `reapMid`, on the same word; the forbs' re-seated slots
+  (`forbSeat`) and their heads are the page's half there as the fringe is here. The far
+  band reaches 40-150 m and needs a coarser field.
+  **The instrument first** (its own commit): the `near re-deal` line counted a pass only
+  when one landed inside a frame `measure_walk_frames.mjs` drove, but the page's own
+  animation loop keeps ticking while the tool holds the clock, in the gaps it yields for the
+  workers, and lands the rest — T-2774's 5-7 against 35-39 of 59. flora now logs every pass
+  (`stats.spread.log`: number, main-thread ms wherever it was dealt, how it ended) and the
+  near passes dropped after their ground was dealt (`droppedDealt`); the line reads its
+  passes and medians off the log and holds passes + dropped to the rebuild count (it fails
+  the run if they disagree). It also prints the held loop's own `flora.update` calls and ms
+  between the driven frames: on the phone profile that is 1.7-3.7 s a move, main-thread
+  time no driven frame's row carries, and every earlier reading of this tool's scripted
+  columns left it out.
+  **Equivalence**, every `flora-mid` card at the 18 anchors x 4 bearings on the phone at
+  `light`, a fresh pass at each pose once the mid tile is home, dev against this, read in
+  the frame and through the frame loop's collected read-back (the two identical): 4293
+  cards against 4295; 4291 at the same slot with the same species and every attribute but
+  colour bit-identical (position, root, height, width, arch, ring, confidence; colour within
+  6.6e-5, the float32 tone); one slot with another species, one card only on dev, three only
+  here — all four where the 0.125 m texel centre's community or turf/water answer differs
+  from the slot's own (T-2698's tile class; none from float32 or the rule). Every other flora
+  set's instance buffers bit-identical; 8 of 2232 census rows differ, by 1 slot.
+  **Readings** (`docs/measurements/t-2894-mid-on-gpu-mobile.json`): the phone profile,
+  `light`, SwiftShader, `--source`, the instrument commit against this, interleaved:
+
+  | | near pass, median main-thread ms, walk / turn | moving p95, scripted ms, walk / turn |
+  |---|---|---|
+  | before | 5.4 / 5.6, 6.0 / 6.5, 6.5 / 6.7 (profiled), 6.0 / 6.2 | 4.9 / 8.2, 5.5 / 9.6, 5.9 / 9.3, 5.2 / 9.0 |
+  | after | 5.1 / 4.8, 5.3 / 4.6, 6.6 / 5.4 (profiled), 5.1 / 4.2 | 5.5 / 8.4, 5.5 / 9.1, 5.8 / 10.0, 4.9 / 8.7 |
+
+  The turn's near pass falls by about 1.5 ms; the walk's does not move outside the runs'
+  noise, because the walk crosses the town's short turf, where the mid walk returned early
+  anyway, and the mid deal pass costs the main thread 0.8-1.2 ms a pass on SwiftShader
+  (34-198 ms over a move, its tile uploads included). The moving p95 did not move. In a CPU
+  profile over the three moves `rebuildGround` goes from 585 ms to nothing in the top 400
+  and `rebuildAll` from 1804 to 1615; added are the mid deal pass (248), `reapMid` (108,
+  between frames) and the bigger read-back (collect 90 -> 226 with the reap); the mid
+  field's strips add no measurable `land`/`finish` (554/495 -> 578/506, one profile each).
+  No pass walked the mid ring on the CPU in any after run (`midCpu` 0; the tile was home
+  before every move). **The near re-deal is still not at zero**: what a near pass spends
+  now is the forbs, rosettes and shrubs (`rebuildForbs`) and the far band (`rebuildFar`),
+  T-2895's and T-2896's, and the two deal passes' command encoding. SwiftShader draws both
+  passes on the CPU in the GPU process, so what a phone's GPU spends on them is not read
+  here; the main thread's share is.

@@ -152,7 +152,7 @@
         ]
       },
       "confidence": "reconstructed",
-      "note": "Plain stone lintels: the photograph's carved surrounds and mullioned windows are T-2911's."
+      "note": "Plain stone lintels: the photograph's carved pilasters and moulded surrounds are T-2922's."
     },
     "roof_form": {
       "value": "mansard",
@@ -222,11 +222,10 @@
     "front_bays": {
       "value": [
         1.6,
-        4.6,
-        6.3
+        5.05
       ],
       "confidence": "reconstructed",
-      "note": "The door at the 18th Street end and two openings each floor between it and the pavilion; the photograph's bowed bay, paired windows and carved surrounds are T-2911's."
+      "note": "The door at the 18th Street end under the loggia (1.6) and the bowed bay's centre (5.05), so the second storey's one window over the loggia stands at 1.6 and the bay's own lights replace the draft's two evenly spaced sash a storey (T-2921); a bay's centre on the front cuts no wall window behind it. The carved surrounds are T-2922's."
     },
     "side_bays": {
       "value": [
@@ -433,14 +432,14 @@
               "height_m": 5.0,
               "windows": [
                 {
-                  "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 0.9,
-                  "clear_height_m": 2.4,
-                  "sill_m": 2.15,
+                  "opening": "k06.opening.casement_pair_transom_plate",
+                  "clear_width_m": 2.0,
+                  "clear_height_m": 2.45,
+                  "sill_m": 1.75,
                   "at": [
-                    0.3,
-                    0.7
-                  ]
+                    0.5
+                  ],
+                  "why_not_ordinary": "a mullioned and transomed pair: the Taylor photograph shows the pavilion's windows as two lights on a stone mullion under a stone transom, about 2 m across (T-2911)"
                 }
               ]
             },
@@ -448,14 +447,14 @@
               "height_m": 3.1,
               "windows": [
                 {
-                  "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 0.9,
-                  "clear_height_m": 2.0,
+                  "opening": "k06.opening.casement_pair_transom_plate",
+                  "clear_width_m": 2.0,
+                  "clear_height_m": 2.2,
                   "sill_m": 0.6,
                   "at": [
-                    0.3,
-                    0.7
-                  ]
+                    0.5
+                  ],
+                  "why_not_ordinary": "a mullioned and transomed pair: the Taylor photograph shows the pavilion's windows as two lights on a stone mullion under a stone transom, about 2 m across (T-2911)"
                 }
               ]
             },
@@ -463,14 +462,14 @@
               "height_m": 5.8,
               "windows": [
                 {
-                  "opening": "k06.opening.sash_2over2_flat",
-                  "clear_width_m": 0.9,
+                  "opening": "k06.opening.casement_pair_transom_plate",
+                  "clear_width_m": 2.0,
                   "clear_height_m": 1.8,
                   "sill_m": 0.7,
                   "at": [
-                    0.3,
-                    0.7
-                  ]
+                    0.5
+                  ],
+                  "why_not_ordinary": "a mullioned and transomed pair: the Taylor photograph shows the pavilion's windows as two lights on a stone mullion under a stone transom, about 2 m across (T-2911)"
                 }
               ]
             }
@@ -479,6 +478,84 @@
             "kind": "hip",
             "pitch": 1.6,
             "covering": "slate_pennsylvania"
+          }
+        },
+        {
+          "id": "front_bow",
+          "variant": "k08.bay.bowed",
+          "wall": "k01.wall.street_front",
+          "s_m": 5.05,
+          "fabric": "front_stone",
+          "plan": {
+            "kind": "bow",
+            "chord_m": 3.4,
+            "rise_m": 0.8
+          },
+          "storeys": [
+            {
+              "height_m": 5.0,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_transom_flat",
+                  "clear_width_m": 1.5,
+                  "clear_height_m": 2.4,
+                  "sill_m": 1.75,
+                  "at_deg": [
+                    -20
+                  ],
+                  "why_not_ordinary": "a sash under a fixed transom light, as the Taylor photograph shows the bow's lights: one broad light a storey with its transom bar about a third down (T-2911)",
+                  "tiers": {
+                    "bar_m": 0.12,
+                    "lights_m": [
+                      0.7
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "height_m": 3.7,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_transom_flat",
+                  "clear_width_m": 1.5,
+                  "clear_height_m": 2.15,
+                  "sill_m": 0.4,
+                  "at_deg": [
+                    -20
+                  ],
+                  "why_not_ordinary": "a sash under a fixed transom light, as the Taylor photograph shows the bow's lights: one broad light a storey with its transom bar about a third down (T-2911)",
+                  "tiers": {
+                    "bar_m": 0.1,
+                    "lights_m": [
+                      0.6
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "cone",
+            "pitch": 0.05,
+            "covering": "tin_flat_seam_painted"
+          },
+          "eaves": {
+            "cornice": "k10.cornice.moulded_stone"
+          },
+          "plinth_m": 0.15,
+          "balcony": {
+            "fabric": "stone",
+            "height_m": 0.6,
+            "inset_m": 0.05,
+            "post_m": 0.2,
+            "bar_m": 0.07,
+            "pitch_m": 0.17,
+            "rail_m": [
+              0.16,
+              0.12
+            ],
+            "foot_rail_m": 0.12
           }
         },
         {
@@ -617,7 +694,7 @@
         "sanborn_1911_chicago_v3_sheet_28",
         "taylor_c1895_kimball_residence_1801"
       ],
-      "note": "Read through the Taylor camera (T-2538) and the 1911 sheet's trace, built on K08 (T-2843). p_south: the front's south pavilion, three storeys of wall to about 13.9 m, flush with the south corner as the photograph shows it (its face from about x 1235 to the corner's x 1345 on the print, so v 7.3-11.2 through the camera; built 3.6 m wide on the 11.0 m block), its storeys 5.0, 3.1 and 5.8 m from grade to the main cornice's line and the gable's springing. p_flank: the 18th Street wall's three-storey section with the corbel table, between the gabled section and the tower, to the same 13.9 m; the photograph's section runs about 7.8 m (u 2.2-10 at the camera) and K08's widest pavilion is 6.0 m, so it is built 6.0 m wide against the tower (u 5.1-11.1). Both stand 0.6 m proud (K08's own pavilion depth, the least its window recesses fit in), where the trace draws the pavilion at 0-0.4 m and the flank section at about 0.1 m, which also lets the main cornice's 0.3 m eave die behind their faces; over the eave each is closed on the wall plane (T-2843). Their caps are K08's low hip: the pavilion's coped stone gable (apex about 17 m) and the section's roof are T-2540's. tower: the round tower on the 18th Street wall, its axis 12.6 m from the main block's rear (between the photograph's u 13.0 and the sheet's bump at u 12.0), 1.45 m in radius, its eaves 12.9 m and its cone 5.8 m more to about 18.7 m with a finial, as the photograph reads; its centre 0.1 m out of the wall's face (the least that keeps its finial clear of the wall), so it stands 1.55 m proud where the sheet draws its bump 1.2-1.3 m out. One shaft for the photograph's shaft and corbelled upper stage. The windows in all three are the kit's sash at about the photograph's places; their heads and carving are T-2790's."
+      "note": "Read through the Taylor camera (T-2538) and the 1911 sheet's trace, built on K08 (T-2843). p_south: the front's south pavilion, three storeys of wall to about 13.9 m, flush with the south corner as the photograph shows it (its face from about x 1235 to the corner's x 1345 on the print, so v 7.3-11.2 through the camera; built 3.6 m wide on the 11.0 m block), its storeys 5.0, 3.1 and 5.8 m from grade to the main cornice's line and the gable's springing. p_flank: the 18th Street wall's three-storey section with the corbel table, between the gabled section and the tower, to the same 13.9 m; the photograph's section runs about 7.8 m (u 2.2-10 at the camera) and K08's widest pavilion is 6.0 m, so it is built 6.0 m wide against the tower (u 5.1-11.1). Both stand 0.6 m proud (K08's own pavilion depth, the least its window recesses fit in), where the trace draws the pavilion at 0-0.4 m and the flank section at about 0.1 m, which also lets the main cornice's 0.3 m eave die behind their faces; over the eave each is closed on the wall plane (T-2843). Their caps are K08's low hip: the pavilion's coped stone gable (apex about 17 m) and the section's roof are T-2540's. tower: the round tower on the 18th Street wall, its axis 12.6 m from the main block's rear (between the photograph's u 13.0 and the sheet's bump at u 12.0), 1.45 m in radius, its eaves 12.9 m and its cone 5.8 m more to about 18.7 m with a finial, as the photograph reads; its centre 0.1 m out of the wall's face (the least that keeps its finial clear of the wall), so it stands 1.55 m proud where the sheet draws its bump 1.2-1.3 m out. One shaft for the photograph's shaft and corbelled upper stage. The tower's and the flank section's windows are the kit's sash at about the photograph's places. p_south's windows (T-2921): the photograph shows one mullioned and transomed pair a storey on the pavilion's face, about 2.4 m across between its carved pilasters (70 px of the face's 205), built as K06's plate-glass casement pair under a stone transom, 2.0 m clear on its 0.18 m mullion, centred as the photograph centres it; the principal storey's from 1.75 m (0.3 m over the floor; the print's sill at y 1000) 2.45 m tall, the second storey's from 5.6 m 2.2 m tall (its head a little over the bow's, as the print draws the two, and its frame inside the storey's clear wall under the 8.1 m eave), the third's 1.8 m from 8.8 m. The transom lights' small leaded glazing is not built. front_bow (T-2921): the photograph's bowed bay between the loggia and the pavilion, two storeys under a stone balcony. Its north junction at x 1130 and its silhouette's south edge against the pavilion's pilaster at x 1245 place it through the camera: built 3.4 m on its chord centred at v 5.05 (v 3.35-6.75, 0.65 m short of the pavilion's cheek) and 0.8 m out, and its render's outline falls within about 5 px of the print's at both edges. The sheet's bulge at v 4.8-10.2 is wider and further south; the photograph is the later and closer evidence, so the bay stands where the photograph has it. One broad light a storey, 1.5 m clear, set 20 degrees round the bow toward 18th Street, where the print shows each light filling the face it sees (x 1153-1230; at the crown the render put it 30 px south of the print's): the principal storey's 2.4 m from 1.75 m with a 0.7 m transom light over a 0.12 m bar (the print's bar about 0.8 m under the head), the second storey's 2.15 m from 5.4 m with a 0.6 m transom light. The bow is carried up 0.6 m past the house's eave, to 8.7 m, because the print wraps the main cornice round it over a frieze about 1.2 m deep above the second storey's heads (the build's main cornice stays at 8.1 m, T-2540's); its eaves are K10's moulded stone cornice swept round the bow, and on it a stone balustrade 0.6 m high round the bow from wall to wall, the print's coping at about y 535. The balustrade's pierced quatrefoil panels are built as square stone balusters (L-kimball-1801-front-bow-2921) and are T-2922's to carve."
     },
     "rear_wings": {
       "value": [

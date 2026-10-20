@@ -54,6 +54,19 @@
  * ring's share of a moving frame is read on its own (docs/RENDERING.md App. B).
  * T-2774: and the read-backs its heads and census are reaped from, with the
  * main thread's ms asking and reaping them.
+ * T-2894: its pass count agrees with the move's near rebuilds. It used to count
+ * a pass only when one landed inside a frame this tool drove (`a.step()`), but
+ * the page's own animation loop goes on ticking while the clock is held — its
+ * `tick()` runs whenever a frame falls due in the gaps this tool yields for the
+ * workers — and it lands passes too, between the driven frames, where nothing
+ * here saw them: T-2774's turn counted 5-7 passes before and 35-39 after, of 59
+ * near rebuilds in every run, so the medians compared different passes. The
+ * line now reads every near pass off flora's own log (`stats.spread.log`: each
+ * pass's number, its main thread ms wherever it was dealt, and how it ended),
+ * prints how many landed in the held loop's frames, and holds passes + the ones
+ * dropped after their ground was dealt to the rebuild count (a disagreement is
+ * printed, and fails the run). The held loop's own `flora.update` calls and ms
+ * are printed with it: they are main-thread time no driven frame's row carries.
  *
  * T-2106: the moves are driven with the flora rebuild SPREAD over frames, as
  * the animation loop runs it (`setFloraSpread`); `--sync` reads the one-frame
@@ -314,13 +327,21 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
     ['terrain', 'updateGroundReach'], ['world', 'aim'], ['terrain', 'setHaze'],
     ['renderer', 'render']];
   const t = {};
+  // T-2894: the hooks the page's own loop calls between the driven frames —
+  // it keeps ticking while the clock is held — counted apart (`held`).
+  let driving = false;
+  const held = { calls: 0, ms: 0 };
   const wrap = (obj, key, slot) => {
     const orig = obj?.[key];
     if (typeof orig !== 'function') return () => {};
     t[slot] = 0;
     obj[key] = function wrapped(...args) {
       const t0 = now();
-      try { return orig.apply(this, args); } finally { t[slot] += now() - t0; }
+      try { return orig.apply(this, args); } finally {
+        const ms = now() - t0;
+        t[slot] += ms;
+        if (!driving && slot === 'flora.update') { held.calls++; held.ms += ms; }
+      }
     };
     return () => { obj[key] = orig; };
   };
@@ -379,6 +400,11 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
   // Let the tier's own rebuild and any first-sight upload land before reading.
   for (let i = 0; i < 4; i++) a.step();
   await new Promise((r) => setTimeout(r, 300));
+  // T-2894: and nothing in flight when the window opens. The page's held loop
+  // ticks through that wait and can start a spread pass there; once the near
+  // pass's ground is cheap (the mid ring on the GPU) its rebuild is counted
+  // before the window and its landing inside it, one pass over the rebuilds.
+  a.flora.settle?.();
   const rebuilds0 = a.flora.stats?.rebuilds ?? 0;
   const spread0 = { ...(a.flora.stats?.spread ?? {}) };
   if (spread0.slots) spread0.slots = { ...spread0.slots }; // T-2696: counted in place
@@ -390,6 +416,12 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
   const nearStats = a.flora.nearDraw?.stats;
   const nearDraw0 = nearStats ? { ...nearStats } : null;
   const nearMs = [];
+  // T-2894: the near passes flora counted before the move, and the ones it
+  // dropped after their ground was dealt; and which pass numbers landed inside
+  // a frame this tool drove.
+  const nearPass0 = spread0.passes?.near ?? 0;
+  const dropped0 = spread0.droppedDealt ?? 0;
+  const drivenPasses = new Set();
   // T-2096 § acceptance, "no visible change in where plants stand": a digest of
   // every instance buffer the flora layer holds, taken along the move, so two
   // builds can be compared plant for plant (`--json` keeps them).
@@ -440,7 +472,9 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
     const before = sp0 && [sp0.passes.near + sp0.passes.far, sp0.landings, sp0.drained];
     const sp0Near = sp0?.passes.near ?? 0;
     const t0 = now();
+    driving = true;
     a.step();
+    driving = false;
     const sp1 = a.flora.stats?.spread;
     // T-2683: what kind of pass a frame finished, so a long one can be named:
     // `one-frame` (dealt where it was needed), `drained` (a spread pass
@@ -451,9 +485,14 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
           : sp1.passes.near + sp1.passes.far > before[0] ? 'one-frame' : null;
     rows.push({ frame: now() - t0, ...t });
     if (before && sp1.passes.near > sp0Near) {
-      const last = sp1.last?.near;
-      nearMs.push(sp1.landings > before[1] && last?.pass === sp1.passes.near ? last.ms
-        : (t['flora.update'] ?? 0));
+      // The T-2717 reading, kept only where flora keeps no log (a tree before
+      // T-2894): such a tree's line counts the driven frames' passes alone.
+      if (!sp1.log) {
+        const last = sp1.last?.near;
+        nearMs.push(sp1.landings > before[1] && last?.pass === sp1.passes.near ? last.ms
+          : (t['flora.update'] ?? 0));
+      }
+      for (let k = sp0Near + 1; k <= sp1.passes.near; k++) drivenPasses.add(k);
     }
     // T-2605: a frame over 50 ms is named — its index along the move, its flora
     // milliseconds and what the spread passes had done by then — because a count
@@ -475,6 +514,20 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
   }
   if (profile) console.profileEnd(`${tier}/${move}`);
   a.flora.settle?.();
+  // T-2894: the near passes and rebuilds are read here, where the move ends —
+  // `--verify` below deals passes of its own.
+  const spEnd = a.flora.stats?.spread;
+  const rebuilds = (a.flora.stats?.rebuilds ?? 0) - rebuilds0;
+  const heldEnd = { ...held };
+  const nearLog = (spEnd?.log?.near ?? []).filter((x) => x.pass > nearPass0);
+  if (spEnd?.log) for (const x of nearLog) nearMs.push(x.ms);
+  const nearCount = spEnd?.log ? {
+    passes: (spEnd.passes?.near ?? 0) - nearPass0,
+    logged: nearLog.length,
+    driven: nearLog.filter((x) => drivenPasses.has(x.pass)).length,
+    dropped: (spEnd.droppedDealt ?? 0) - dropped0,
+    kinds: nearLog.reduce((o, x) => { o[x.kind] = (o[x.kind] ?? 0) + 1; return o; }, {}),
+  } : null;
   digests.push(digest());
   // Put back before the checks below: `checkSwardGrid` asks the property too.
   if (yards && swardShipped) yards.suppressesSward = swardShipped;
@@ -562,10 +615,11 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
       - ((spread0.passes?.near ?? 0) + (spread0.passes?.far ?? 0))
       - ((s1.landings ?? 0) - (spread0.landings ?? 0)),
   } : null;
-  const rebuilds = (a.flora.stats?.rebuilds ?? 0) - rebuilds0;
   const nearSorted = nearMs.slice().sort((x, y) => x - y);
   const near = {
     passes: nearMs.length,
+    count: nearCount,
+    held: heldEnd,
     median: nearSorted[Math.floor(nearSorted.length / 2)] ?? 0,
     max: nearSorted[nearSorted.length - 1] ?? 0,
     ms: nearMs.reduce((x, y) => x + y, 0),
@@ -890,8 +944,20 @@ for (const vp of VIEWPORTS) {
           + (r.spread.jumps ? ` (landing in ${r.spread.jumpFrames} frames between them)` : '') : ''));
       if (r.near?.passes) {
         const g = r.near.gpu;
+        // T-2894: the passes against the move's near rebuilds. Every rebuild
+        // is a pass that landed (or was dealt in one frame) or one dropped after
+        // its ground was dealt; anything else is the instrument miscounting.
+        const c = r.near.count;
+        const agree = c ? c.passes === c.logged && c.passes + c.dropped === r.rebuilds : null;
+        if (agree === false) failed++;
         console.log(`  near re-deal: ${r.near.passes} passes, ${r.near.median.toFixed(1)} ms median and`
           + ` ${r.near.max.toFixed(1)} max on the main thread (${r.near.ms.toFixed(0)} ms in all)`
+          + (c ? ` | of ${r.rebuilds} near rebuilds: ${c.passes} passes`
+            + ` (${Object.entries(c.kinds).map(([k, v]) => `${v} ${k}`).join(', ') || 'none'};`
+            + ` ${c.passes - c.driven} landed outside the driven frames) + ${c.dropped} dropped after`
+            + ` their ground was dealt ${agree ? '= the rebuilds' : `!= the rebuilds — the count DISAGREES (${c.logged} logged)`}`
+            + ` | the page's held loop between them: flora.update ${r.near.held.calls} times, ${r.near.held.ms.toFixed(0)} ms`
+            : ' | counted in the driven frames only (no pass log on this tree)')
           + (g ? ` | GPU near ring: ${g.passes} deal passes ${g.passMs.toFixed(0)} ms, ${g.builds} tile builds`
             + ` ${g.buildMs.toFixed(0)} ms, ${g.uploads} uploads, ${g.readBacks} read-backs`
             // T-2774: the read-backs the near heads and census are reaped from,
@@ -900,6 +966,12 @@ for (const vp of VIEWPORTS) {
             + (g.reaps != null ? `, ${g.reads} reads asked without waiting and ${g.syncReads} in the frame`
               + ` ${g.readMs.toFixed(0)} ms, collected ${(g.collectMs ?? 0).toFixed(0)} ms,`
               + ` ${g.reaps} reaped ${g.reapMs.toFixed(0)} ms, ${g.stale} stale` : '')
+            // T-2894: the mid ring's cards on the GPU's deal — its deal passes,
+            // the passes whose mid ring the CPU still walked (the kept mid tile
+            // not home), and the reaps that set the cards out.
+            + (g.midPasses != null ? ` | GPU mid ring: ${g.midPasses} deal passes ${g.midPassMs.toFixed(0)} ms,`
+              + ` ${g.midCpu} walked by the CPU, ${g.midMissed} missed, ${g.midUploads} uploads,`
+              + ` ${g.midReaps} reaped ${g.midReapMs.toFixed(0)} ms` : '')
             : ' | near tufts drawn by the CPU'));
       }
       for (const l of r.longs ?? []) {

@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2120, ts: '2026-10-20T13:43:02.123Z', date: 'Oct 20, 2026, 8:43 AM CT', title: 'Nothing you can see changed: graphics card now deals the middle-distance grass', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The clumps of grass a few metres out to the edge of the meadow stand on the same plants, in the same places, as before.',
+      'The page no longer walks that ring of grass itself every time you take a step. The graphics card decides which plant stands in each spot, and the page reads its answer back and sets the clumps out.',
+      'Just after you arrive somewhere, or jump across the town, the page still deals that ring itself for a moment, as it always did, until the card has the ground around you.',
+    ] },
+  { v: 2119, ts: '2026-10-20T13:43:02.123Z', date: 'Oct 20, 2026, 8:43 AM CT', title: '1801 Prairie\'s bowed bay and paired windows, from its photograph', kind: 'feature',
+    items: [
+      'The Kimball house at 1801 Prairie gains the bowed bay J. W. Taylor photographed in the middle of its front: two storeys, a broad transomed window on each, its cornice wrapped round the bow and a stone balcony on top.',
+      'The south pavilion\'s windows become the photograph\'s mullioned and transomed pairs, one a storey.',
+      'The carving round them, the frieze over the principal storey and the loggia\'s carving are still plain stone, and come next.',
+    ] },
   { v: 2118, ts: '2026-10-20T12:54:29.405Z', date: 'Oct 20, 2026, 7:54 AM CT', title: '1812 Prairie\'s front in stone and brick, as its photograph shows', kind: 'improvement',
     items: [
       'The Wheeler house at 1812 Prairie is no longer stone from the walk to the gable. Its basement and the entrance bay\'s first storey stay stone; over the second floor\'s belt the front is brick, banded and dressed in stone, as Albert Levy\'s photograph shows it.',
