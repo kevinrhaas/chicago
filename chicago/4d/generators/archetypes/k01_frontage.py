@@ -486,7 +486,7 @@ class Assembly:
                     tint = MATERIALS[slot]["color"]
                     if slot.startswith("brick_unit_"):
                         units = [MATERIALS[k]["color"] for k in MATERIALS if k.startswith("brick_unit_")]
-                        tint = tuple(t / (sum(u[i] for u in units) / len(units)) for i, t in enumerate(tint))
+                        tint = tuple(t / (math.fsum(u[i] for u in units) / len(units)) for i, t in enumerate(tint))
                     else:
                         tint = (1.0, 1.0, 1.0)
                     self.spec[slot]["color"] = tuple(round(min(1.0, f * t), 4)

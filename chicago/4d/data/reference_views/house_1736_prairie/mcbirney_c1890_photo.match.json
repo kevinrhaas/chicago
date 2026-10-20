@@ -2,7 +2,7 @@
  "structure_id": "house_1736_prairie",
  "view": "mcbirney_c1890_photo",
  "glb": "assets/gltf/house_1736_prairie__as_mapped_1904.glb",
- "glb_sha256": "d3715cf23b470253f914ddbc471ba22590ad21953f6969ae156d748b88a287b3",
+ "glb_sha256": "2c8dff5a3bec331fe1c95b24f87c767a3cb7783b74a031c468e817e60ecce0b9",
  "camera_sha256": "d924f0ee0e92dcf7693117ec8a43053a5929bcb7664a34b41590391a6964b6dd",
  "side_by_side": "docs/RESEARCH/photo-match/house_1736_prairie/mcbirney_c1890_photo-side-by-side.jpg",
  "verdict": "differs",
@@ -35,12 +35,12 @@
   {
    "what": "a veranda the front's whole width: slender posts, a deep frieze over them (soffit y 335 px), a low roof, its deck at the principal floor (y 452 px) behind a balustrade",
    "status": "fixed",
-   "how": "T-2933: K07's veranda on the stoop's landing and terraces, posts at v 0.15, 2.85, 5.05 and 6.6 m, 3.4 m high, a 0.6 m beam and a hipped lean-to roof"
+   "how": "T-2933: K07's veranda on the stoop's landing and terraces, posts at v 0.15, 2.85, 4.9 and 6.6 m, 3.4 m high, a 0.6 m beam and a hipped lean-to roof"
   },
   {
    "what": "the stair at the veranda's north end between cheek walls and between the two north posts, straight out toward the walk",
    "status": "fixed",
-   "how": "T-2933: the 1.2 m stoop at v 5.8"
+   "how": "T-2933: the 1.2 m stoop at v 5.65"
   },
   {
    "what": "the upper windows' heads: segmental arches under moulded hoods whose ends turn down (eared); built round-headed under a hood ring",

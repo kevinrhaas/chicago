@@ -359,7 +359,7 @@
         "k01.opening.door_leaf": {
           "variant": "k07.entrance.panel_door_stoop",
           "front_yard_m": 9.38,
-          "stoop_v_m": 5.8,
+          "stoop_v_m": 5.65,
           "terrace": [
             {
               "side": "left",
@@ -431,7 +431,7 @@
             "posts_v_m": [
               0.15,
               2.85,
-              5.05,
+              4.9,
               6.6
             ],
             "post_m": 0.16,
@@ -454,7 +454,7 @@
         "glessner_blog_1736_mcbirney_c1890_photo",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "The photograph's veranda (T-2933), the 1911 sheet's frame porch (s20fp-1736-b1 p1/p2) 1.8 m deep across the whole front: a deck at the principal floor (the stoop's landing and K07's terraces either side of it, south to the front's corner and north to its end), a turned balustrade along its front, four slender posts (x 337, 412, 484 and 535 px at the deck's front through the camera, 34 px/m there: v 0.15, 2.85, 5.05 and 6.6 m), a beam and a deep frieze over them (its soffit y 335 px, 5.25 m over grade, and its fascia y 300 px, about 1 m deep with the roof edge), and a low hipped roof from the wall. The stair rises at the north end between the last two posts (stoop_v_m 5.8 for the 1.2 m flight), straight out toward the walk, as the photograph draws its cheeks. front_yard_m is the street grid's: the front stands 9.07 m behind the Prairie Avenue street line (the draft's street_u 32.374 less the 23.3 m body) and the walk begins 1 ft further out. The deck and balustrade are K07's stone where the photograph's are painted timber, the frieze is one beam, and the posts are plain (their turned or chamfered profile is not read): open on the match record."
+      "note": "The photograph's veranda (T-2933), the 1911 sheet's frame porch (s20fp-1736-b1 p1/p2) 1.8 m deep across the whole front: a deck at the principal floor (the stoop's landing and K07's terraces either side of it, south to the front's corner and north to its end), a turned balustrade along its front, four slender posts (x 337, 412, 484 and 535 px at the deck's front through the camera, 34 px/m there: v 0.15, 2.85, 4.9 and 6.6 m), a beam and a deep frieze over them (its soffit y 335 px, 5.25 m over grade, and its fascia y 300 px, about 1 m deep with the roof edge), and a low hipped roof from the wall. The stair rises at the north end between the last two posts (stoop_v_m 5.65 for the 1.2 m flight), straight out toward the walk, as the photograph draws its cheeks. front_yard_m is the street grid's: the front stands 9.07 m behind the Prairie Avenue street line (the draft's street_u 32.374 less the 23.3 m body) and the walk begins 1 ft further out. The deck and balustrade are K07's stone where the photograph's are painted timber, the frieze is one beam, and the posts are plain (their turned or chamfered profile is not read): open on the match record."
     },
     "mansard": {
       "value": {
