@@ -31,7 +31,7 @@ for label,x,y in [('gate',.013,2.411),('passage',41.06,2.411),
  h=hits(x,y);assert len(h)==1 and h[0][1]==d.DRIVE,(label,h)
  assert .035<h[0][0]<.045,(label,'ground level',h)
 # Probe just outside the actual lowest terrace tread across its entire width.
-a,c=p.detail['bow_terrace']['stair_boundaries'][-1]
+a,c=p.detail['bow_terrace']['stair_boundaries'][-1][-2:]
 import math
 length=math.dist(a,c);nx,ny=-(c[1]-a[1])/length,(c[0]-a[0])/length
 for t in (.1,.5,.9):

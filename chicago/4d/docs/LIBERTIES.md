@@ -28909,6 +28909,12 @@ W26.5 face at S50.91 and which sheet 4 draws wide, so the jamb is held the drawi
 drum, at S50.68. The light is 3.55 ft clear against the drawing's 4.5. Which of the drawn light and the drawn drum is
 right about that end is not settled by either sheet. T-2879 also settles the tower: its S56.73/r5.55 is the drum drawn
 wide, not a second position.
+**Revised 2026-10-20 (T-2906):** ruled. The light is bounded by the post and the built drum, and that end
+stays at S50.68. Sheet 4 draws the drum 11.09 ft across against sheet 2's printed 10'-0" mass, and T-2879 kept
+the plan's drum. So the drawn light's extra 0.96 ft belongs to the drum the drawing draws wide; the light keeps
+the drawing's own 0.23 ft stone margin to it. The light now sits in the broad dressed-stone panel sheet 4 draws:
+from behind the post (S45.79) to the drum, and from the upper step's 1.57 ft to 6.24 ft (`court_garden_grille.surround_ft`).
+The panel's stone, depth (30 mm proud) and joints are reconstructed; its extent is the drawing's.
 **Recorded:** 2026-10-15.
 
 ### L-glessner-court-roof-2228 — courtyard eave, dormers and bell finials
@@ -29507,6 +29513,14 @@ its drum drawn wide (`docs/RESEARCH/glessner-court-ruling-T-2879/`). So the copi
 read on sheet 4, are built 0.65 ft south, and the traced coping now ends at S46.0, on the drawn post's re-zeroed north
 edge. The reconstructed shoulder keeps its 4.35 ft crown spring at the wall's end, S46.8, on the post's centre, so it
 now runs 0.8 ft inside the post instead of 1.45 ft over the open court. The post itself does not move.
+**Revised 2026-10-20 (T-2906):** the lowest two treads are re-seated on sheet 4's section. Their tops are
+the drawing's 1.57 and 0.88 ft (inferred from the section's ink at ±0.03 ft), and the seven treads above them
+share the rest of the rise to the deck evenly: 0.56 ft risers against the 0.61 ft of nine even ones. The cheek
+wall hides those seven in the drawing, so their evenness is reconstructed. The two treads' wall ends follow the
+plan's drum (r 5.25 ft plus 0.02 ft clearance) to where the section ends them, S52.30 and S53.03. So the upper
+tread meets the wall under the garden light, and no pocket is left between the stair and the wall. Where they
+meet the drum is reconstructed; how far they run is the drawing's. The terrace approach's stair-side edge
+follows the new foot.
 
 ### L-glessner-stable-roof-camera-2758 — Glessner's stable roof kept at its heights: the 2 ft was the camera (2026-10-18)
 
@@ -29866,6 +29880,41 @@ the front's width; or a nearer photograph of the south flank.
 **Ticket:** T-2886 (piece 1 of T-2840, itself piece 2 of T-2781).
 **Recorded:** 2026-10-19 (T-2886).
 
+### L-k01-1637-bay-dress-2908 — 1637 Prairie's south bay: its carved dress and the shutters over it, placed from the Grosvenor photograph and shaped by reconstruction
+
+**Decision:** the canted stone bay on the south flank of Jesse Spalding's remodel of the Grosvenor
+house (T-2908, piece 1 of T-2887) takes its carved dress and the shutters over it, as a K01 bay
+`dress`. The columns' capitals are carved as two tiers of leaves under a 0.06 m abacus, each tier's
+crown scalloped, in place of T-2781's plain square blocks. Mitred stone bands run round all three
+faces. The architrave is 6.15-6.3 m, 0.06 m proud, over the capitals. The bed mouldings under the
+soffit step out in four courses from 7.3 to 8.0 m (0.04, 0.09, 0.14 and 0.22 m proud). The corona's
+cymatium caps the fascia at 8.21-8.3 m. An oval panel 0.38 by 0.42 m, its sunk field dark inside a
+0.035 m moulded ring 0.04 m proud, stands centred at 6.55 m in the frieze over each of the three
+lights. A roll at the foot (0.07 m) and at the head (0.049 m) of each corner console stands
+0.02 m clear of the console either side, so the console reads as a scroll. Open louvred shutters
+stand either side of the window over the bay: each leaf 0.7 m wide, from its sill at 8.4 m to
+9.68 m, 0.035 m thick, with 0.035 m slats on a 0.07 m pitch, painted a deep green.
+**What is read, not invented.** From the photograph (`glessner_blog_1637_grosvenor_asbuilt_photo`)
+through T-2755's camera: the dark oval in the frieze over the west cheek's light (x 365-385 px,
+y 472-495), which the build's oval now covers (x 366-384, y 473-492). The capitals' band at
+y 505-520. The dark bed-mould zone under the corona, reaching down to about y 435, which the
+build's stepped courses now reach (about y 430) where T-2780's plain fascia stopped at y 410. The
+two dark shutter leaves standing open beside the window over the bay (x 352-378 and 420-448 px,
+their heads at about y 310, a little under the window's crown). The scrolled outline of the
+consoles.
+**What is invented.** Everything the photograph's grain does not resolve. The carving is drawn as
+the silhouette of leaves, not a modelled acanthus. The ovals' sunk dark field could be an oval
+light or a deep panel; the photograph cannot say which. The ovals over the front light and the
+east cheek are placed by symmetry, because the front's frieze is foreshortened and the east cheek
+is out of frame. The mouldings' profiles are flat steps, not curves. The scroll is drawn as two
+rolls. The shutters' slat pitch and colour are reconstructed: the photograph is monochrome, and a
+dark green is the period's commonest shutter paint. The shutters stand on the window as built,
+which is still about 15 px west of the photograph's window, because of the bay's plan (T-2909).
+**How to resolve:** a nearer or sharper photograph of the south flank. The uncropped Grosvenor
+plate would also show the east cheek's frieze and the front's.
+**Ticket:** T-2908 (piece 1 of T-2887, itself piece 2 of T-2840).
+**Recorded:** 2026-10-20 (T-2908).
+
 ### L-k01-1625-south-lower-lights-2884 — 1625 Prairie's south wall's lower lights and plain heads, read off the McBirney photograph
 
 **Decision:** on 1625's main south wall (K01's `north_bays`), the ground-floor light and the stair
@@ -29922,6 +29971,37 @@ parapet; the print's dormer may stand closer to it than the kit allows.
 **How to resolve:** a nearer view of the rear section's attic, or the house's elevations.
 **Ticket:** T-2902 (piece 1 of T-2885).
 **Recorded:** 2026-10-20 (T-2902).
+
+### L-k01-1625-rear-area-door-2903 — 1625 Prairie's rear section's door ruled an area's door, its foot 0.6 m under the walk, and its area reconstructed
+
+**Decision:** the door at the foot of 1625's rear section's street face, which T-2846 ruled a
+door at grade, is an area's door: its hole runs from 0.6 m under the walk to its 2.1 m head
+(2.7 m), so the leaf under its 0.65 m transom is 2.05 m tall, and it opens on an area (K01's
+`rear_section.openings[].area`): the K06 area well's box (k06_windows.json `parts.well`) grown to
+a door's, from the street face's corner on the main south wall's plane to 0.2 m past the door's
+right jamb (1.255 m), a 0.9 m landing at the door's foot and a straight flight of four 0.15 m
+risers on 0.28 m treads climbing toward the street to the walk 1.74 m out, its outer side's
+0.1 m wall capped flush over grade with K06's 0.05 m coping. **What is read, not invented.**
+From the 1890 Inland Architect plate (`inland_architect_1890_01_mcbirney_residence`) through
+the camera T-2846 re-solved (inland_architect_front.json): the hole's head at y 729-730 px and
+the transom's bar at y 745-746, which T-2866 built at 2.1 m and 1.45-1.53 m. Under the bar the
+leaf stands about 1.45 m over the walk's grade on this camera (1.3-1.6 m for the eye's soft
+height), and no leaf that short is a door, so carried down to a door's height its foot stands
+about 0.5-0.7 m under the walk; it is built at the middle of that band. None of what the print
+fixes moves: the re-rendered side-by-side differs from the last by 2 px, the coping's end at
+grade. **What is invented.** The foot's depth is the transom's reading alone: under the fence's
+top rail (y 782 px) the door's column and the lit south end beside it read alike, a median grey
+of 45-55 at y 794-810 through the fence's shadow, so the print does not show the foot. The area
+is not seen either: from an eye 0.5-1.3 m high about 40 m off, its own near edge hides its floor.
+So its plan (where it stands along the face, its landing, its flight running toward the street
+rather than along the wall), its depth in whole risers of the front stoop's 0.15 m, its treads,
+its brick and its stone floor, steps and coping are reconstructed. An area this size is what a
+service door under a walk needs and no more; a flight running along the wall, or a rail round
+the area's mouth, would fit the print as well.
+**How to resolve:** a view of 1625's south side over the fence, the house's plans, or a Sanborn
+sheet that marks an area.
+**Ticket:** T-2903 (piece 2 of T-2885).
+**Recorded:** 2026-10-20 (T-2903).
 
 ### L-k08-1812-projection-balcony-2888 — 1812 Prairie's south projection given its photographed balcony rail: its height and baluster spacing read, its sections and inset reconstructed, its stone middle panel built as iron
 
