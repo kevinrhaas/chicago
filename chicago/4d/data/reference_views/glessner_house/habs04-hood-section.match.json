@@ -2,8 +2,8 @@
   "structure_id": "glessner_house",
   "view": "habs04-hood-section",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
-  "camera_sha256": "2229a228b90863f49d0a93094d0c79d385aa880fd39815501996e9b61e7a046f",
+  "glb_sha256": "6acac3d5247a71c2ca7bd3deb02d4f9cf88f8e8b9957d3867f79663380ae9e96",
+  "camera_sha256": "1f76d223ece9f5501fd8d70d9e23282213d62971a12fb5efc6c65de2247ba249",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-hood-section-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -13,6 +13,10 @@
     },
     {
       "what": "Gutter/fascia projection and local edge/section correspondence still differ from the drawing; the corrected overall elevation is not an exact whole-crop match.",
+      "status": "open"
+    },
+    {
+      "what": "T-2906 re-zeroed this camera on the plan's frame (+0.65 ft; eye v 12.6022 to 12.4041), as T-2880 did habs04-terrace-section. In this frame the drawn hood ends at about S39.25 (sheet 4's 38.6 re-zeroed) against the built 39.9. T-2861 owns that.",
       "status": "open"
     },
     {

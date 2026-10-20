@@ -28790,7 +28790,7 @@ balustrade panels, the downpipes on the front.
 **How to resolve:** T-2544 (the front's detail: the balcony, the arched third storey, the stone lower
 storeys under a brick upper wall) and T-2545 (the flanks, the rear, the roof behind the gable and the
 c. 1955 and 1915 views) replace these choices in place, each against the same camera.
-**Covers:** `wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_front_m`, `wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_side_m`, `wheeler_house_1812_prairie.as_built_1884.form.service_wall_brick`, `wheeler_house_1812_prairie.as_built_1884.form.stone_front`, `wheeler_house_1812_prairie.as_built_1884.form.street_front_trim`, `wheeler_house_1812_prairie.as_built_1884.form.wall_head`, `wheeler_house_1812_prairie.as_built_1884.form.roof_form`, `wheeler_house_1812_prairie.as_built_1884.form.roof_pitch_deg`, `wheeler_house_1812_prairie.as_built_1884.form.eave_overhang_m`, `wheeler_house_1812_prairie.as_built_1884.form.stair_tread_m`, `wheeler_house_1812_prairie.as_built_1884.form.stair_landing_depth_m`, `wheeler_house_1812_prairie.as_built_1884.form.side_bays`, `wheeler_house_1812_prairie.as_built_1884.form.north_bays`, `wheeler_house_1812_prairie.as_built_1884.form.rear_bays`, `wheeler_house_1812_prairie.as_built_1884.form.basement_lights`, `wheeler_house_1812_prairie.as_built_1884.form.roof_covering`.
+**Covers:** `wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_front_m`, `wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_side_m`, `wheeler_house_1812_prairie.as_built_1884.form.service_wall_brick`, `wheeler_house_1812_prairie.as_built_1884.form.stone_front`, `wheeler_house_1812_prairie.as_built_1884.form.street_front_trim`, `wheeler_house_1812_prairie.as_built_1884.form.wall_head`, `wheeler_house_1812_prairie.as_built_1884.form.roof_form`, `wheeler_house_1812_prairie.as_built_1884.form.roof_pitch_deg`, `wheeler_house_1812_prairie.as_built_1884.form.eave_overhang_m`, `wheeler_house_1812_prairie.as_built_1884.form.stair_tread_m`, `wheeler_house_1812_prairie.as_built_1884.form.stair_landing_depth_m`, `wheeler_house_1812_prairie.as_built_1884.form.side_bays`, `wheeler_house_1812_prairie.as_built_1884.form.north_bays`, `wheeler_house_1812_prairie.as_built_1884.form.rear_bays`, `wheeler_house_1812_prairie.as_built_1884.form.roof_covering`.
 **Ticket:** T-2543 (piece 1 of T-1884).
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-16 (T-2543).
@@ -28946,6 +28946,12 @@ W26.5 face at S50.91 and which sheet 4 draws wide, so the jamb is held the drawi
 drum, at S50.68. The light is 3.55 ft clear against the drawing's 4.5. Which of the drawn light and the drawn drum is
 right about that end is not settled by either sheet. T-2879 also settles the tower: its S56.73/r5.55 is the drum drawn
 wide, not a second position.
+**Revised 2026-10-20 (T-2906):** ruled. The light is bounded by the post and the built drum, and that end
+stays at S50.68. Sheet 4 draws the drum 11.09 ft across against sheet 2's printed 10'-0" mass, and T-2879 kept
+the plan's drum. So the drawn light's extra 0.96 ft belongs to the drum the drawing draws wide; the light keeps
+the drawing's own 0.23 ft stone margin to it. The light now sits in the broad dressed-stone panel sheet 4 draws:
+from behind the post (S45.79) to the drum, and from the upper step's 1.57 ft to 6.24 ft (`court_garden_grille.surround_ft`).
+The panel's stone, depth (30 mm proud) and joints are reconstructed; its extent is the drawing's.
 **Recorded:** 2026-10-15.
 
 ### L-glessner-court-roof-2228 — courtyard eave, dormers and bell finials
@@ -29544,6 +29550,14 @@ its drum drawn wide (`docs/RESEARCH/glessner-court-ruling-T-2879/`). So the copi
 read on sheet 4, are built 0.65 ft south, and the traced coping now ends at S46.0, on the drawn post's re-zeroed north
 edge. The reconstructed shoulder keeps its 4.35 ft crown spring at the wall's end, S46.8, on the post's centre, so it
 now runs 0.8 ft inside the post instead of 1.45 ft over the open court. The post itself does not move.
+**Revised 2026-10-20 (T-2906):** the lowest two treads are re-seated on sheet 4's section. Their tops are
+the drawing's 1.57 and 0.88 ft (inferred from the section's ink at ±0.03 ft), and the seven treads above them
+share the rest of the rise to the deck evenly: 0.56 ft risers against the 0.61 ft of nine even ones. The cheek
+wall hides those seven in the drawing, so their evenness is reconstructed. The two treads' wall ends follow the
+plan's drum (r 5.25 ft plus 0.02 ft clearance) to where the section ends them, S52.30 and S53.03. So the upper
+tread meets the wall under the garden light, and no pocket is left between the stair and the wall. Where they
+meet the drum is reconstructed; how far they run is the drawing's. The terrace approach's stair-side edge
+follows the new foot.
 
 ### L-glessner-stable-roof-camera-2758 — Glessner's stable roof kept at its heights: the 2 ft was the camera (2026-10-18)
 
@@ -29989,6 +30003,47 @@ at an angle, settles the cheeks and the stone panel's outline; the panel is a K0
 **Ticket:** T-2888 (piece 1 of T-2544).
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-19 (T-2888).
+
+### L-k01-1812-wheeler-third-storey-2889 — 1812 Prairie's third-storey arches and wide north window read off the photograph, its gable brought onto the wall's plane over a plain, nearly flush eave
+
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-2889, piece 2 of T-2544) has its
+street windows named one by one off Albert Levy's photograph (`street_front_windows`), as 1625's
+are, in place of K01's flat sash rows: on the second storey the north window is one wide window
+on a stone mullion under a transom, and on the third the large window over the balcony stands
+under a flat segmental arch with a fanlight, and the smaller window to its north under a round
+one, each in a ring of voussoirs that runs on up the gable's face, the large one under a
+keystone. The gable's face is brought onto the wall's own plane: the eave is made plain and
+0.05 m deep (it was 0.45 m under K10's bracketed timber eave), so the slab, which K01 stands just
+proud of the street fascia, stands 0.07 m before the wall below; its foot is set at 12.08 m, just
+over the arches; and the eave's gutter is not run across the front but dies into the gable's base
+at each side (`takes_gutter`). Four kit pieces serve it: K06's segmental fanlight sash and its
+plate mullioned pair under a transom, a named window's round head filled by the coursing as a
+segmental one already was, and a named window's voussoir ring. **What is read, not invented.**
+Through the camera T-2543 solved (`data/reference_views/wheeler_house_1812_prairie/levy_front.json`,
+88.5 px a metre at the main front, the walk at y 1549.6 px): the north window's frame 1.64 m
+across (x 818-962 px), its sill at 6.07 m and its head at 8.03 m, its transom bar's foot about
+0.68 m under the head; the large window 2.78 m between its jambs (x 447-693 px), springing at
+11.30 m to a crown at 12.05 m, a fanlight with radial bars over three lights; its voussoirs about
+0.43 m deep, about fifteen of them, under a keystone 0.37 m across rising to 12.76 m; the small
+window 1.2 m across (x 840-946 px), a round head to a crown at 12.0 m, its sill at 10.75 m, in a
+ring about 0.4 m deep; and that the front runs straight up into the gable with no eave, fascia or
+gutter across it. **What is invented.** The large window's sill, which the balcony and the
+projection's top hide (set at 9.9 m, the 0.15 m K08 keeps an opening over where the projection's
+roof meets the wall); the side walls' plain 0.05 m eave and their want of a cornice, which no
+picture shows; the voussoirs standing 0.1 m before the wall and the keystone 0.03 m before them;
+the sash and frame sections, which are K06's. **What is built otherwise than read.** The large
+window's three lights are equal, where the print's middle one is wider and arched, and its
+fanlight has no concentric bar; the small window is a round fanlight sash where the print shows
+it filled with a patterned light or panel; the voussoirs are equal stones where the print's
+alternate long and short into the brick; the transom's lights are plate glass where the print's
+are glazed in small squares; and between the kneelers (about 11.6-11.7 m) and the 12.55 m ledge
+the slab's base still runs out square past the side walls. Each is open in the match record.
+**How to resolve:** a sharper print of the third storey settles the large window's lights and the
+small one's fill; the base's square corners go when the kit can start a gable's outline under its
+eave (T-2891's swell).
+**Ticket:** T-2889 (piece 2 of T-2544).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-20 (T-2889).
 
 ## T-2804: named resident seated-driver and supported W01 studies (2026-10-19)
 

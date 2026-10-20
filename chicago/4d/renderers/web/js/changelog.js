@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2104, ts: '2026-10-20T04:53:21.838Z', date: 'Oct 19, 2026, 11:53 PM CT', title: 'Glessner\'s garden light in its stone panel, above two steps', kind: 'improve',
+    items: [
+      'The barred basement light beside the stair tower in Glessner House\'s courtyard now sits in the broad dressed-stone panel the HABS terrace section draws, running from the terrace\'s end post to the tower.',
+      'The stair\'s two lowest steps run along under the light and round the tower to the length and height the drawing gives them.',
+    ] },
+  { v: 2103, ts: '2026-10-20T04:46:34.167Z', date: 'Oct 19, 2026, 11:46 PM CT', title: '1812 Prairie\'s third storey gets its arched windows', kind: 'improvement',
+    items: [
+      'George H. Wheeler\'s house at 1812 Prairie now has the third storey Albert Levy\'s photograph shows: a broad arched window with a fanlight over the balcony and a smaller round-arched window beside it, each in a ring of stone voussoirs that runs up into the gable.',
+      'The front now rises straight into its shaped gable, with no eave or gutter across it, and the second storey\'s north window is one wide window on a stone mullion under a transom, as in the photograph.',
+    ] },
   { v: 2102, ts: '2026-10-20T04:14:06.409Z', date: 'Oct 19, 2026, 11:14 PM CT', title: 'Glessner work no longer stalls other houses\' changes', kind: 'improvement',
     items: [
       'Nothing you can see changes in the scene. When a Glessner House change landed, the build loop\'s automatic catch-up kept an old copy of the house\'s packed model and refused every other open change at publish; it now unpacks the current copy first, so those changes keep moving.',
