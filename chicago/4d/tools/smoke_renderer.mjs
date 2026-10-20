@@ -13876,7 +13876,7 @@ for (const [label, viewport, touch] of [
       && /^Confidence view Recolor the world by grade/.test(guideWords.tap.text) && guideWords.tap.inView && guideWords.tap.away,
       JSON.stringify(guideWords));
     // ---- end T-2662
-    // >>> T-2666: Guide › For teachers — the Field Check's seven steps, read from the tour
+    // >>> T-2666: Guide › For teachers — the Field Check's eight steps, read from the tour
     // itself, and three suggested Jaunts per destination, printed as one page at Letter and
     // at A4. window.print is stubbed for the click (a real dialog would hold the page); the
     // print stylesheet's layout is then printed by the browser itself to PDF and its pages
@@ -13898,7 +13898,7 @@ for (const [label, viewport, touch] of [
       return {
         teachers: !!document.querySelector('#nav-app-guide #guide-teachers'),
         print: document.getElementById('guide-handout-print')?.textContent.trim() ?? null,
-        stepsFromTour: !!steps && steps.length === 7 && rows.length === 7 && rows.every((r, i) =>
+        stepsFromTour: !!steps && steps.length === 8 && rows.length === 8 && rows.every((r, i) =>
           r.querySelector('.handout-task')?.textContent === steps[i].task
           && r.querySelector('.handout-bubble')?.textContent === steps[i].bubble({ scene, front: null })),
         scene,
@@ -13945,14 +13945,14 @@ for (const [label, viewport, touch] of [
     });
     // page.pdf is Chromium-headless only; anywhere else it is reported, not counted.
     const pdfUnsupported = Object.values(sheets).every((s) => s.pages === null && /not supported|headless/i.test(s.error ?? ''));
-    check(`${label}: Guide › For teachers prints the seven tour steps and three Jaunts per destination on one page at Letter and A4 (T-2666)`,
+    check(`${label}: Guide › For teachers prints the eight tour steps and three Jaunts per destination on one page at Letter and A4 (T-2666)`,
       handoutRead.teachers && handoutRead.print === 'Print the handout' && handoutRead.stepsFromTour
       && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn'
       && handoutRead.dests.filter((d) => d.year !== '1812').every((d) => d.jaunts === 3)
       && handoutRead.dests.find((d) => d.year === '1812')?.empty === 'No Jaunts here yet.'
       && !handoutRead.snake && !handoutRead.lore
       && printedLayout.shown.join() === 'handout-print'
-      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 7 && s.jaunts === 6)
+      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 8 && s.jaunts === 6)
       && (pdfUnsupported || Object.values(sheets).every((s) => s.pages === 1 && s.after)),
       JSON.stringify({ handoutRead, printedLayout, sheets }));
     // <<< T-2666
@@ -17301,7 +17301,7 @@ for (const [label, viewport, touch] of [
       JSON.stringify({ offerSeen: { ...offerSeen, tourWas: undefined }, offerClick, offerTaken, skipClick, offerAfter }));
     // <<< T-2664
     // >>> T-2665: the Navigator License. The Field Check's Finish above (T-2663) awarded it,
-    // which is read first. Then, the license set aside, the Field Check is put back at step 07
+    // which is read first. Then, the license set aside, the Field Check is put back at step 08 (its last since T-2954)
     // as a reload finds it, and Finish is pressed: the hint line says it was earned (watched
     // for, since on the desktop runner its few seconds can pass inside one frame). A second
     // Finish keeps the one license and says nothing. Then the Jaunts app's daybook shows it
@@ -17321,7 +17321,7 @@ for (const [label, viewport, touch] of [
       };
       window.__licenseObs = new MutationObserver(look);
       window.__licenseObs.observe(h, { attributes: true, childList: true, characterData: true, subtree: true });
-      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 6, done: true }));
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 7, done: true }));
       const resumed = api.tour.resume() && api.tour.step;
       return { first: (() => { try { return JSON.parse(first); } catch { return null; } })(), tourWas, resumed, heldAfterForget: api.license.held };
     });
@@ -17338,7 +17338,7 @@ for (const [label, viewport, touch] of [
       const seen = window.__licenseSeen.slice();
       window.__licenseSeen.length = 0;
       api.hints.hide();
-      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 6, done: true }));
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 7, done: true }));
       api.tour.resume();
       return { seen: seen[0] ?? null, held: api.license.held, stored: localStorage.getItem('chicago4d.navigatorLicense') };
     });
@@ -17380,7 +17380,7 @@ for (const [label, viewport, touch] of [
       return out;
     }, licenseFirst);
     check(`${label}: finishing the Field Check awards the Navigator License once, says so once, and Jaunts' daybook shows it with the keepsakes (T-2665)`,
-      typeof licenseFirst.first?.earned === 'string' && licenseFirst.resumed === 6 && !licenseClick
+      typeof licenseFirst.first?.earned === 'string' && licenseFirst.resumed === 7 && !licenseClick
       && licenseAwarded.seen?.text === 'Navigator License earned. It is kept with your keepsakes in Jaunts.'
       && licenseAwarded.seen.inView && licenseAwarded.seen.pointer === 'none' && licenseAwarded.held && !!licenseAwarded.stored
       && licenseAgain.seen === 0 && licenseAgain.stored === licenseAwarded.stored
