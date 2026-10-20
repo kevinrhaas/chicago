@@ -19,6 +19,37 @@ a mode. The runner cannot take it: SwiftShader draws one frame in seconds.
   one 15 s sample a mode. `docs/measurements/t-2719-owner-phone-1904.txt` and `.json`;
   SITE-BUDGET § 10 has the table.
 
+## T-2927 — 1904's flight: the cells of a house drawn as one (2026-10-20)
+
+Nothing you can see changed: every triangle, colour and shadow is drawn as before. This is
+the owner's own reading (T-2719: 1904's flight at 73–80 ms on his iPhone at Light, against
+the walk's 40–43 and 1835's flight at 35–37).
+
+- **Where the 1904 aerial's frame went.** Counted at the WebGL call
+  (`tools/measure_pose_draws.mjs`, Read frame pacing's own poses, 375×636 at ratio 1, Light):
+  the flight sent **27,895 draws and 1.84 M triangles** a frame, the 1904 walk 18,389 and
+  0.79 M, the 1835 flight 3,485 and 0.53 M. `renderer.info` said 339, 144 and 74 calls,
+  because three counts a BatchedMesh's multi-draw as one call while each entry it keeps
+  is a draw to the driver. 25,309 of the flight's draws (19,829 colour, 5,480 sun) were
+  the structures: in a scene with Glessner's inspection model, `light` and `balanced` cut
+  every house mesh into 4 m × 2 m cells (T-2219) so a courtyard view submits only what it
+  sees, and from the air every cell is in view.
+- **The fix** (`renderers/web/js/batch-coalesce.js`): after three culls and sorts a batch,
+  drawn entries whose index ranges touch and whose instance data match (matrix, colour,
+  structure) are joined into one; the cull is kept, so a hidden cell still breaks a run.
+  Blended batches join only entries already next to each other, keeping their order. It
+  wraps every structures batch that cuts cells and every `spatial-batch.js` ground batch.
+  `?coalesce=0` turns it off, for a before/after on one phone.
+- **After:** flight 2,853 / 2,931 / 2,143 draws at 0 / 7.5 / 15 s (were 27,895 / 32,824 /
+  19,993); walk 2,406 and 2,230 (18,389 and 17,707); 1835 flight 2,591 (3,485: its ground
+  pieces). Triangles unchanged everywhere. `docs/measurements/T-2927-flight-draws.json`.
+- **Not known yet: the phone.** SwiftShader's frame fell only 4,263 → 3,841 ms at the
+  flight, because it rasterises on the CPU and pays little per draw; a phone's driver pays
+  per draw. The owner's re-read decides it. If the flight is still over the walk, the
+  triangles are next: 1.84–2.02 M aloft against 0.79 M walking — the structures' 0.9–1.1 M
+  colour and 0.3–0.4 M in the sun's map, the railway (~330–355 k, about 250 k of it blended
+  ground decals; it is ~350 k of the walk's 0.79 M too) and the ground (145 k).
+
 ## T-2901 — the front door measures this device: a live performance meter (2026-10-20)
 
 The owner asked for a meter on the Temporal Observatory that reads the device during the Wolf

@@ -330,6 +330,9 @@ const COVERAGE = [
   // Every layer that batches through spatial-batch.js: yards (1), streets (2, 7, 8,
   // 10-12), the ground (3), building cells (8, 9) and the 1904 railway (14).
   ['renderers/web/js/spatial-batch.js', [1, 2, 3, 7, 8, 9, 10, 11, 12, 14], 'the 40 m ground pieces and building cells every batched layer is cut into'],
+  // T-2927: it joins the drawn pieces of every batch spatial-batch.js makes and of the
+  // structures' cells (buildings.js), so it is read wherever either is.
+  ['renderers/web/js/batch-coalesce.js', [1, 2, 3, 7, 8, 9, 10, 11, 12, 14], 'the drawn cells and ground pieces that touch, joined into one draw each'],
   // T-1055. terrain.js's ground tile, lifted into its own module so a tool can
   // measure it without a browser. Same part as the file it was lifted out of.
   ['renderers/web/js/prairie-tile.js', [3], 'the ground tile the prairie is painted from'],
