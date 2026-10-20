@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2122, ts: '2026-10-20T14:42:44.069Z', date: 'Oct 20, 2026, 9:42 AM CT', title: '1625 Prairie\'s oriel stands on a darker stone base', kind: 'change',
+    items: [
+      'In 1904, the panel under the small bay window on 1625 Prairie\'s south wall is now the house front\'s rough brownstone rather than the bay\'s pale smooth stone. In the 1890 photograph it reads darker and rougher than the wall beside it, in the same sunlight, so it is the stone and not a shadow.',
+      'With that, the house matches its photograph in everything the photograph shows.',
+    ] },
   { v: 2121, ts: '2026-10-20T14:18:16.801Z', date: 'Oct 20, 2026, 9:18 AM CT', title: '1637 Prairie\'s bow and chimneys, closer to the engraving', kind: 'change',
     items: [
       'The rounded bay at the north end of 1637 Prairie Avenue now stops just under the main cornice with a cap of its own, and the cornice runs straight across above it, as the old engraving of Jesse Spalding\'s remodel draws it. Before, the cornice swept round the top of the bay.',
