@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2117, ts: '2026-10-20T12:50:36.351Z', date: 'Oct 20, 2026, 7:50 AM CT', title: 'Named people: 1812 and 1904 authoring studies', kind: 'feature',
+    items: [
+      'Added an inferred household card for John Kinzie the elder in 1812, with the sources for his identity and presence.',
+      'The named 1812 and 1904 figures (Kinzie and John J. Glessner) now build and pass their export and walking checks, but they are not placed in the town yet; their faces, clothing detail and likeness still await visual review.',
+    ] },
   { v: 2116, ts: '2026-10-20T12:18:08.863Z', date: 'Oct 20, 2026, 7:18 AM CT', title: '1811 Prairie\'s bay gains its balcony and grilled basement lights', kind: 'feature',
     items: [
       'The north bay of the Ames house at 1811 Prairie Avenue now has a stone balcony around its flat top, under the stone gable, as in the 1888 Inland Architect photograph.',
