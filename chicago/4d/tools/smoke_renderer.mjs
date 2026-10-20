@@ -1444,6 +1444,28 @@ const stageOn = (n) => !wantedParts || wantedParts.has(n);
 const anyStage = (...ns) => ns.some(stageOn);
 const startedAt = Date.now();
 
+// T-2899 — THE BOOT WAIT: 240 s, MEASURED. Until T-2899 the first boot was written
+// `waitForFunction(fn, { timeout: 30000 })`, which hands the object to the page
+// function as its ARGUMENT (the signature is fn, arg, options), so the 30 s never
+// applied and every boot ran at the page's 90 s default. That default is the number
+// the boots were actually held to, and on a loaded box it is too short. Boot is
+// timed from `page serves` to `__chicago4d.ready` (the pass line now prints it):
+//   GitHub runners, 60 chicago-4d-smoke.yml runs 2026-10-18..20: desktop 31-67 s
+//     (33 boots), mobile 20-39 s (31);
+//   a 4-core steward box, quiet (load 2-3): desktop 68, 68, 75 s; mobile 35, 36, 37 s;
+//   the same box with four busy threads (load 7.6): desktop 102, 120 s; mobile 53 s;
+//   the loaded runner T-2899 was filed from (PR #1112): desktop 107-170 s, zero page
+//     errors, failed at 90 s three runs running.
+// 240 s is 1.4x the slowest boot ever seen and the figure this file already gives its
+// version and door re-boots (240 s, below), so a slow machine gets its verdict. It is
+// not 600: a boot that has not readied in four minutes is hung, and a staged part has
+// to report inside its ten-minute command. Polling once a second keeps the wait off
+// the render loop, whose frames cost ~10 s each on a loaded software renderer. The
+// whats-new and first-entry RELOADS are full boots too and use the same budget.
+const BOOT_READY_MS = 240_000;
+const bootReady = (p) => p.waitForFunction(() => window.__chicago4d?.ready === true,
+  null, { timeout: BOOT_READY_MS, polling: 1000 });
+
 for (const [label, viewport, touch] of [
   ['mobile 390x780', { width: 390, height: 780 }, true],
   ['desktop 1280x800', { width: 1280, height: 800 }, false],
@@ -1774,8 +1796,9 @@ for (const [label, viewport, touch] of [
   // --- boot ---------------------------------------------------------------
   let ready = false;
   let thrown = null;
+  const bootFrom = Date.now();
   try {
-    await page.waitForFunction(() => window.__chicago4d?.ready === true, { timeout: 30000 });
+    await bootReady(page);
     ready = true;
   } catch {
     const state = await page.evaluate(() => ({
@@ -1783,9 +1806,10 @@ for (const [label, viewport, touch] of [
       problems: window.__chicago4d?.problems ?? [],
     })).catch(() => ({}));
     check(`${label}: scene reaches ready`, false,
-      `${state.error ?? 'timed out'} | ${(state.problems || []).slice(0, 3).join(' | ')}`);
+      `${state.error ?? `timed out at ${BOOT_READY_MS / 1000} s`} | ${(state.problems || []).slice(0, 3).join(' | ')}`);
   }
-  if (ready) check(`${label}: scene reaches ready`, true);
+  if (ready) check(`${label}: scene reaches ready`, true,
+    `${((Date.now() - bootFrom) / 1000).toFixed(1)} s of ${BOOT_READY_MS / 1000} s`, true);
 
   if (ready) {
     const problems = await page.evaluate(() => window.__chicago4d.problems);
@@ -10792,7 +10816,7 @@ for (const [label, viewport, touch] of [
     if (await page.evaluate(() => window.__chicago4d.welcome?.state === 'world')) {
       await page.evaluate(() => localStorage.removeItem('chicago4d.controlHelpDismissed'));
       await page.reload({ waitUntil: 'domcontentloaded' });
-      await page.waitForFunction(() => window.__chicago4d?.ready === true);
+      await bootReady(page);
     }
     // T-2412 — THE FIRST-ENTRY CLICKS ARE `clickChrome`, NOT `page.click`. They
     // are the means here and not the subject — what this block asserts is what
@@ -17561,9 +17585,8 @@ for (const [label, viewport, touch] of [
     // this is the assertion that would catch it before it 404s live.
     await page.evaluate(() => window.localStorage.removeItem('chicago4d.whatsnew.seen'));
     await page.reload({ waitUntil: 'domcontentloaded' });
-    // Use the same 90 s action budget as initial readiness: a reload must
-    // not silently reinstate Playwright's shorter 30 s default (T-1279).
-    await page.waitForFunction(() => window.__chicago4d?.ready === true);
+    // A reload is a full boot: the same measured budget as the first (T-1279, T-2899).
+    await bootReady(page);
     await untilLanded();
     await clickChrome('#home-roam');
     await page.waitForTimeout(150);
@@ -17638,9 +17661,8 @@ for (const [label, viewport, touch] of [
     // release back and exactly the newer entries should carry it.
     await page.evaluate(() => window.localStorage.setItem('chicago4d.whatsnew.seen', '3'));
     await page.reload({ waitUntil: 'domcontentloaded' });
-    // Use the same 90 s action budget as initial readiness: a reload must
-    // not silently reinstate Playwright's shorter 30 s default (T-1279).
-    await page.waitForFunction(() => window.__chicago4d?.ready === true);
+    // A reload is a full boot: the same measured budget as the first (T-1279, T-2899).
+    await bootReady(page);
     await untilLanded();
     await clickChrome('#home-roam');
     await page.waitForTimeout(150);
