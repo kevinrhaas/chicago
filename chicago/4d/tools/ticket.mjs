@@ -510,6 +510,19 @@ function branchAgeHours(sha) {
 const RUN_HOURS = 3;
 
 /**
+ * IS THIS MARKER A DEAD RUN'S? — the ONE definition, for a claim and a lap lock alike
+ * (T-2929). A marker whose age is KNOWN and past RUN_HOURS is dead: `claim` and `lap`
+ * steal it, `claims --sweep` deletes it, and nothing waits on it. A marker of UNKNOWN
+ * age is NOT dead — `takeMarker` has never stolen one and `inflight` has always called
+ * it held, because an age that could not be read is exactly the case that hid #442's
+ * lap (T-1721). Four call sites spelled this out by hand before T-2929 brought the
+ * server lap and merge-ready to read the same lock; a fifth copy, in bash, is how two
+ * readers of one lock come to disagree about who holds it, so the steward scripts ask
+ * `lap <N> --status` instead of re-deriving it.
+ */
+const markerDead = (ageHours) => ageHours !== null && ageHours > RUN_HOURS;
+
+/**
  * IS SOMEBODY ON THIS BRANCH RIGHT NOW? — `live` / `held` / `cold` (T-0852).
  *
  * Branch AGE was the whole answer until now, and it has a blind spot the lane pays
@@ -1285,7 +1298,16 @@ function inspectMarker(branch) {
   const ref = `refs/heads/${branch}`;
   const ls = gitTry(['ls-remote', 'origin', ref]);
   const sha = ls.ok ? (ls.out.split('\t')[0] || '').trim() : '';
-  if (!sha) return { sha: null, by: null, ageHours: null };
+  // `unreadable` says the remote did not ANSWER, which is not the same as answering
+  // "no such marker" (T-2929). Every caller before `lap --status` read both as free,
+  // which is right for a run — never a false stop — and wrong for a server sweep that
+  // would otherwise push over a live run's lap on a network blip. Additive: a caller
+  // that ignores the field reads exactly what it always read.
+  if (!sha) {
+    return { sha: null, by: null, ageHours: null,
+      ...(ls.ok ? {} : { unreadable: (ls.err.split('\n').find((l) => /fatal|error/i.test(l))
+        || ls.err.split('\n').filter(Boolean).pop() || 'ls-remote failed').trim() }) };
+  }
   // The object is one commit with an empty tree; fetching it is cheap, and it is
   // the only way to read a claim's AGE and its run URL without the web API.
   gitTry(['fetch', '--quiet', 'origin', ref]);
@@ -1333,7 +1355,7 @@ function takeMarker(branch, subject, by, run, { steal = false } = {}) {
   }
 
   const holder = inspectMarker(branch);
-  const dead = holder.ageHours !== null && holder.ageHours > RUN_HOURS;
+  const dead = markerDead(holder.ageHours);
   if (!steal && !dead) return { held: false, ...holder };
   if (!holder.sha) return { held: false, ...holder };
 
@@ -2359,7 +2381,7 @@ function liveWorkOn(t, { pulls = undefined, lockless = false } = {}) {
   }
   if (!inRepoMode() && !lockless) {
     const m = inspectClaim(t.id);
-    if (m.sha && !(m.ageHours !== null && m.ageHours > RUN_HOURS)) {
+    if (m.sha && !markerDead(m.ageHours)) {
       const first = (m.by ?? '').split('\n')[0];
       // This checkout's own claim says so in its front matter; anyone else's does not.
       const mine = t.state === 'claimed' && !!t.claimed_by && first.includes(t.claimed_by);
@@ -3599,7 +3621,7 @@ switch (cmd) {
         b.age = branchAgeHours(b.sha);
       }
       const lock = laps.get(Number(pr.number)) ?? null;
-      const lockLive = !!lock && (lock.age === null || lock.age <= RUN_HOURS);
+      const lockLive = !!lock && !markerDead(lock.age);
       const pushed = b?.age ?? null;
       lapOf.set(ref, {
         pr, ref, lock, pushed,
@@ -3882,6 +3904,7 @@ switch (cmd) {
    *   ticket.mjs lap 466              take lap/pr-466, or be told who holds it (exit 1)
    *   ticket.mjs lap 466 --release    give it back: merged, handed on, or abandoned
    *   ticket.mjs lap 466 --force      take it from a live holder, deliberately
+   *   ticket.mjs lap 466 --status     read it, take nothing: the server sweeps ask this (T-2929)
    *
    * A refusal is the whole point: the PR is a sibling's for this run, and the run takes
    * its own row of the queue instead. A marker older than RUN_HOURS is a dead run's and
@@ -3890,10 +3913,34 @@ switch (cmd) {
   case 'lap': {
     const n = Number(String(args[0] ?? '').replace(/^#/, ''));
     if (!Number.isInteger(n) || n <= 0) {
-      console.error('usage: ticket.mjs lap <PR number> [--release] [--force] [--by who] [--run url]');
+      console.error('usage: ticket.mjs lap <PR number> [--status] [--release] [--force] [--by who] [--run url]');
       process.exit(2);
     }
     const branch = lapBranch(n);
+    /**
+     * `--status`: READ the lock, take nothing (T-2929). The server lap and merge-ready
+     * ask this before they touch PR #N, because neither did: #1132's lap/pr-1132 was
+     * taken at 13:00Z on 2026-10-20, pr-lap.sh pushed df6ae544a over it at 13:19Z and
+     * merge-ready merged that at 13:37Z, so the holding run's merge, its ten-minute
+     * re-derive, check.sh and smoke were all thrown away. One line on stdout and an
+     * EXIT CODE, which is the protocol (a stub that prints nothing and exits 0 is free):
+     *   0  free     nobody holds it
+     *   0  stale    a dead run's (markerDead) — never a hold; `claims --sweep` clears it
+     *   3  held     a live run holds it (age unknown counts, as `lap` and `inflight` say)
+     *   4  unknown  the remote did not answer — a caller must not read that as free
+     */
+    if (has('status')) {
+      const info = inspectMarker(branch);
+      const who = info.by ? ` — ${info.by.split('\n').filter((l) => !l.startsWith('nonce: ')).join(' | ')}` : '';
+      if (info.unreadable) { console.log(`unknown ${branch} — the remote did not answer: ${info.unreadable}`); process.exit(4); }
+      if (!info.sha) { console.log(`free ${branch} — nobody holds it`); break; }
+      if (markerDead(info.ageHours)) {
+        console.log(`stale ${branch} — ${sinceWords(info.ageHours)}, older than a run (${RUN_HOURS}h): a dead run's, not a hold${who}`);
+        break;
+      }
+      console.log(`held ${branch} — ${sinceWords(info.ageHours)}${info.ageHours === null ? ' (read as held, as `lap` reads it)' : ''}${who}`);
+      process.exit(3);
+    }
     if (has('release')) {
       const r = gitTry(['push', 'origin', '--delete', branch]);
       const gone = /remote ref does not exist|unable to delete/i.test(r.err || '');
@@ -3939,7 +3986,7 @@ switch (cmd) {
       const id = tickets.find((t) => branchCarries(m.name, t.id))?.id;
       const info = isLapMarker(m.name) ? inspectMarker(m.name)
         : inspectClaim(id ?? m.name.replace(/^claim\//, '').toUpperCase());
-      const dead = info.ageHours !== null && info.ageHours > RUN_HOURS;
+      const dead = markerDead(info.ageHours);
       if (dead) stale.push(m.name);
       console.log(`  ${m.name.padEnd(18)} ${sinceWords(info.ageHours)}${dead ? '  ← older than a run' : ''}`);
       if (info.by) for (const line of info.by.split('\n').filter(Boolean)) console.log(`      ${line}`);

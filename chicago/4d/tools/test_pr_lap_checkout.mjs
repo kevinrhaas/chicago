@@ -62,6 +62,11 @@ function world({ branches = [], singleBranch = false }) {
   // and routing a file to a driver here would only make the lap refuse to start.
   writeFileSync(path.join(seed, '.gitattributes'), '*.bin binary\n');
   writeFileSync(path.join(seed, 'f.txt'), 'dev\n');
+  // The lap reads each PR's `lap/pr-<N>` through dev's ticket.mjs before it fetches
+  // (T-2929), and refuses to lap a PR whose lock it cannot read. A stub that exits 0 is
+  // `--status`'s "free" — the lock is test_pr_lap_lock.mjs's subject, not this one's.
+  mkdirSync(path.join(seed, 'chicago', '4d', 'tools'), { recursive: true });
+  writeFileSync(path.join(seed, 'chicago', '4d', 'tools', 'ticket.mjs'), 'process.exit(0);\n');
   git(seed, 'add', '-A');
   git(seed, 'commit', '-qm', 'dev');
   git(seed, 'remote', 'add', 'origin', remote);

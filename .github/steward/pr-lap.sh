@@ -263,6 +263,52 @@ if [ -n "$MISSING" ]; then
   exit 1
 fi
 
+# --- THE LAP LOCK, READ BEFORE A PR IS TOUCHED AND AGAIN BEFORE IT IS PUSHED (T-2929) ---
+#
+# A run that laps a `resume` PR takes `lap/pr-<N>` first (`ticket.mjs lap`, T-1721) so
+# no sibling relaps it. This sweep never read that lock, so it was the one lapper the
+# lock did not stop. Measured on #1132, 2026-10-20: the lock was taken at 13:00Z, this
+# lap pushed df6ae544a over it at 13:19Z, and merge-ready merged that at 13:37Z — the
+# holding run's merge of dev, its ten-minute re-derive, check.sh and smoke were all
+# thrown away.
+#
+# So a PR whose lock a LIVE run holds is left to that run: it is lapping it already,
+# and it gates before it pushes, which this does not. A DEAD run's lock (older than
+# RUN_HOURS) is no hold, exactly as `lap` steals it. "Live" is not re-derived here:
+# `ticket.mjs lap <N> --status` is the tool that takes the lock answering who holds
+# it, so the two can never disagree. dev's copy, like the drivers above, because the
+# tree below is each PR's in turn; run against THIS clone's git dir, because its
+# origin is the remote this lap pushes to and the lock lives on.
+#
+# AN UNREADABLE LOCK IS LEFT ALONE, NOT LAPPED. `lap` proceeds when the remote cannot
+# answer, and that is right for a run: a false stop strands an hour of budget. Here
+# the costs run the other way — a PR skipped is one pass late, and the next push to
+# dev laps it again; a PR lapped over a live run costs that run everything above. And
+# a remote this lap cannot ls-remote is one it could not push to anyway. It is said
+# per PR, with ticket.mjs's reason, so a lap that skipped everything says why.
+LOCK_TOOL="$DRIVERS/lock/tools/ticket.mjs"     # its ROOT is $DRIVERS/lock: no tickets/ to load
+mkdir -p "$(dirname "$LOCK_TOOL")"
+git show "origin/$BASE:chicago/4d/tools/ticket.mjs" > "$LOCK_TOOL" 2>/dev/null || : > "$LOCK_TOOL"
+LAP_GIT_DIR=$(git rev-parse --absolute-git-dir 2>/dev/null)
+
+# lap_lock_free N — 0 when nobody live holds lap/pr-N; 1 when a live run does
+# (LOCK_HELD=1) or the lock cannot be read. LOCK_SAID is ticket.mjs's one line.
+lap_lock_free() {
+  LOCK_SAID=; LOCK_HELD=
+  if [ ! -s "$LOCK_TOOL" ] || [ -z "$LAP_GIT_DIR" ]; then
+    LOCK_SAID="unknown — tools/ticket.mjs could not be read from origin/$BASE, so lap/pr-$1 cannot be"
+    return 1
+  fi
+  local out rc
+  out=$(GIT_DIR="$LAP_GIT_DIR" node "$LOCK_TOOL" lap "$1" --status 2>&1); rc=$?
+  LOCK_SAID=$(printf '%s\n' "$out" | tail -1)
+  case "$rc" in
+    0) return 0 ;;
+    3) LOCK_HELD=1; return 1 ;;
+    *) LOCK_SAID="unknown (exit $rc) — ${LOCK_SAID:-ticket.mjs said nothing}"; return 1 ;;
+  esac
+}
+
 # REST, NOT `gh pr list`, AND THE REASON IS A RATE LIMIT THAT ONLY BITES HERE.
 # `gh pr list` is a GRAPHQL call. GitHub budgets GraphQL separately from REST and
 # far more tightly, and on 2026-09-14 the steward's own PAT spent its GraphQL
@@ -354,7 +400,7 @@ if [ -n "$ONLY" ]; then
   PRS="$MATCHED"
 fi
 
-PUSHED=0; SKIPPED=0; NOOP=0
+PUSHED=0; SKIPPED=0; NOOP=0; LAPPING=0
 # No `RED` any more: the lap does not gate, so it has no red count to report.
 # Printing `red=0` from a lap that never looked would be the same false
 # reassurance as the blind lap's `pushed=0 ... red=0`.
@@ -367,6 +413,18 @@ while IFS=$'\t' read -r N BR; do
   # rebuild exists to prevent.
   REDERIVED=; CURRENT_RED=; REGMERGED=
   say "=== PR #$N  ($BR)"
+  # Before anything is fetched or spent: a PR a live run is lapping is that run's (T-2929).
+  if ! lap_lock_free "$N"; then
+    if [ -n "$LOCK_HELD" ]; then
+      say "  BEING LAPPED by a live run — left to it ($LOCK_SAID)"
+      LAPPING=$((LAPPING+1))
+    else
+      say "  lap lock UNREADABLE — left alone rather than lapped blind over a run that may hold it:"
+      say "    $LOCK_SAID"
+      SKIPPED=$((SKIPPED+1))
+    fi
+    continue
+  fi
   # THE TWO GUARDS THAT SAID FOUR WORDS AND NOTHING ELSE (T-1565). Both of these
   # were `... 2>/dev/null || { say "  fetch failed"; ... }`, with git's stderr
   # thrown away and the two failures wearing nearly the same four-word label. So
@@ -829,6 +887,18 @@ $REGMERGED}" 2>/dev/null
   elif [ "$(git rev-parse HEAD)" = "$BEFORE" ]; then
     say "  the lap produced no new commit — nothing to push, and this PR is unchanged"
     NOOP=$((NOOP+1))
+  # ...AND READ AGAIN AT THE PUSH (T-2929). The merge and the tail re-derive above take
+  # minutes, and a run can take the lock inside them — #1132's was taken 19 minutes
+  # before this lap pushed. Its lap wins: it gates before it pushes and this does not,
+  # so this lap's commit is dropped here and never reaches the branch.
+  elif ! lap_lock_free "$N"; then
+    if [ -n "$LOCK_HELD" ]; then
+      say "  a run took lap/pr-$N while this lap rebuilt — NOT pushed; its lap wins ($LOCK_SAID)"
+      LAPPING=$((LAPPING+1))
+    else
+      say "  lap lock UNREADABLE at the push — NOT pushed: $LOCK_SAID"
+      SKIPPED=$((SKIPPED+1))
+    fi
   elif git push origin "HEAD:$BR" >/dev/null 2>&1; then
     say "  pushed $(git rev-parse --short "$BEFORE") → $(git rev-parse --short HEAD)"
     say "  — gate will re-run and auto-merge can fire"; PUSHED=$((PUSHED+1))
@@ -867,5 +937,5 @@ else
 fi
 
 say ""
-say "PR lap: pushed=$PUSHED already-current=$NOOP left-alone=$SKIPPED"
+say "PR lap: pushed=$PUSHED already-current=$NOOP left-alone=$SKIPPED being-lapped=$LAPPING"
 say "  (gating is CI's — every push above re-runs the gate and the PR's merge result)"
