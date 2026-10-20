@@ -125,9 +125,13 @@ introduced, this stops being true and the preview script needs the pilot's rewri
 
 **3. The service worker keeps the two tiers apart by scope, not by a stub** (T-2561; until
 then there was none). The pilot replaces `sw.js` with a self-unregistering stub so a preview
-never installs offline caching. This app registers its worker only when a visitor taps "Keep
-<year> on this device", and the mirrored tree carries its own copy, so the two tiers stay
+never installs offline caching. This app registers its worker only when a visitor downloads the
+welcome's "Offline copy" (T-2947), and the mirrored tree carries its own copy, so the two tiers stay
 separate by construction:
+
+- **the packs are listed again after every rewrite** (T-2947). A pack lists each file's hash,
+  and deploy.yml's stamp and the preview script both rewrite the pages and `build.json` after
+  publish.sh listed them; until the re-list, every download stopped at the year's own door.
 
 - production's worker is `/4d/sw.js` (scope `/4d/`); the preview's is `/4d/dev/sw.js` (scope
   `/4d/dev/`), and the browser gives a page to the narrower scope that has one;
@@ -218,6 +222,13 @@ When the file reaches `dev`, `.github/workflows/chicago-4d-changelog-fold.yml` p
 to `renderers/web/js/changelog.js`, stamps it, deletes the file and pushes one commit,
 which starts the dev deploy. Two PRs never write the same entry file, so they stop
 conflicting on the changelog's top line, which used to cost every open PR a lap per landing.
+
+**A group PR still adds ONE file** (T-2938; AGENTS.md § A RUN MAY TAKE A GROUP). A run that
+claims one to five related tickets with `ticket.mjs claim T-A T-B T-C` ships them on one
+branch as one PR titled `T-A, T-B, T-C: …` and closes them with `done T-A T-B T-C --pr N`.
+Its entry is `changelog.d/<anchor>.json` with one item per ticket: one entry per PR keeps
+the visible-progress count in runs, and the gate here asks for at least one entry file, not
+one per ticket. A member the run could not finish is `release`d, never shipped half-done.
 
 The older way still passes the gate, and the notes below are about it: prepend one entry
 to `renderers/web/js/changelog.js` with all three authored fields blank — `v: null, ts: '',
