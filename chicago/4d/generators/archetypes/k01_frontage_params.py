@@ -2260,7 +2260,17 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         _within(t, wall["parameters"]["thickness_m"]["ranges"]["masonry"], what)
     pitch = float(val("roof_pitch_deg"))
     band = "flat" if flat else "mansard_upper" if mansard else "ordinary"
-    _within(pitch, roof["parameters"]["pitch_deg"]["ranges"][band], "roof_pitch_deg")
+    prange = tuple(roof["parameters"]["pitch_deg"]["ranges"][band])
+    # T-2542: a gable read off a source may stand in the contract's steep band too (1811's,
+    # whose plate shows its street slope rising from about 8.4 m to about 16 m); a
+    # reconstructed pitch keeps the ordinary band, as a reconstructed principal floor does
+    rpa = form.get("roof_pitch_deg") or {}
+    if gable and rpa.get("confidence", "reconstructed") != "reconstructed":
+        if not rpa.get("sources"):
+            raise ParamError(f"roof_pitch_deg is {rpa.get('confidence')} and names no source: "
+                             "only a source can put a gable past the ordinary band")
+        prange = (prange[0], roof["parameters"]["pitch_deg"]["ranges"]["steep"][1])
+    _within(pitch, prange, "roof_pitch_deg")
     # T-2541: a gable's ridge runs along the street front (T-2459), so its length is the
     # front's and a front block wider than it is deep (1811's) has one; only a hip's runs
     # front to back and needs the side walls longer than the front

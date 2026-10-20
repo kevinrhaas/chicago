@@ -89,7 +89,10 @@ def verdicts(name, a):
         for inst in a.components.get(cid, {}).get("instances", []):
             b, t = inst["sockets"]["bed"][1], inst["sockets"]["top"][1]
             for y in (round(b, 4), round(t, 4)):
-                if y not in beds and y not in tops:
+                # T-2542: over the front's soffit the front lays no bed to keep level with,
+                # so a wing standing taller than the front's eave (1811's range, three
+                # storeys behind a front whose third is in its roof) courses on its own
+                if y not in beds and y not in tops and y <= round(a.soffit_m, 4):
                     off.append(y)
     out.append((not off, f"{name} level",
                 f"{len(beds)} front beds; course lines off them: {sorted(set(off))[:6] or 'none'}"))

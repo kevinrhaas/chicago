@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "2d1c109c6aebc907aec68b1839f7476359c807bdf2e67dae1af86aaf7b59f696",
+  "glb_sha256": "8ce7f3461ee93e70be3fda46f6b51774a40eaf8a7d5f9d025a90049a74e95502",
   "camera_sha256": "8f67a67f5a407ad30522085a1ab67f9c29ddc0bae6ceb1a979db9ea1accdc2b4",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/inland_architect_plate-side-by-side.jpg",
   "verdict": "differs",
@@ -20,7 +20,7 @@
     {
       "what": "storey lines: the bay's ground-floor sills 2.0 m and heads 4.3 m, first-floor 5.5-7.6 m; the third storey's lights over the bay at about 9.0-9.9 m",
       "status": "fixed",
-      "how": "T-2541: principal floor 1.35 m, storeys 3.65, 3.4 and 3.3 m; the ground and first-floor windows within about 15 px of the plate's; the third storey's three lights over the bay at 8.85-10.35 m"
+      "how": "T-2541: principal floor 1.35 m, storeys 3.65 m and (T-2542) a second storey carried up as the roof storey's knee wall to the 9.14 m eave datum; the ground and first-floor windows within about 15 px of the plate's; the third storey's three lights, now in the bay's stone gable (T-2542), at 9.39-10.29 m, about 0.4 m over the plate's (a wall gable's face stands on the eave datum)"
     },
     {
       "what": "the entrance: the door under a round arch in the south part of the front, reached by a broad straight stair of about nine risers",
@@ -37,20 +37,24 @@
       "status": "open"
     },
     {
-      "what": "the bay's stone gable: its rake from about 10.2 m to an apex about 13.2 m with a finial, a group of three round-arched lights in an arched recess, corner pinnacles, and the pierced (fretwork) balcony on the bay's top in front of the third storey; the build has a flat deck on the bay and the three lights in the main wall behind it, flat-headed (T-2542)",
-      "status": "open"
+      "what": "the bay's stone gable: its rake from about 10.2 m to an apex about 13.2 m with a finial, a group of three round-arched lights in an arched recess, corner pinnacles, and the pierced (fretwork) balcony on the bay's top in front of the third storey",
+      "status": "fixed",
+      "how": "T-2542: K01's wall gable (T-2428) on the street wall over the bay, behind its deck: its face 3.0 m across, its pediment's cornice at about 10.1-10.3 m and its apex about 13.1 m under a finial (the finial's top about 25 px under the plate's); a pinnacle either side at x 125 and 290 px against the plate's 120 and 285, rising to about 12 m under a pyramid; the three lights in it. What it does not yet carry is a difference of its own below (the recess, the round-arched lights, the balcony)"
     },
     {
-      "what": "the oriel's steep pyramid with its finial, apex about 12.0 m; the build carries the K08 kit's low hip (T-2542)",
-      "status": "open"
+      "what": "the oriel's steep pyramid with its finial, apex about 12.0 m; T-2541's build carried the K08 kit's low hip",
+      "status": "fixed",
+      "how": "T-2542: K08's spire with its finial on the oriel, carried through the eave as 1623's is (T-2778): its apex at x 400 y 270 px against the plate's finial at about 415, 270 px"
     },
     {
-      "what": "the main roof: the plate's slopes are steeper and rise to about 16 m behind the gable and the pyramid; the build's gable roof is at K01's steepest 45 degrees, its ridge about 15.5 m, its street eave and stone cornice in full view at 11.7 m where the plate shows the roofs coming down behind the gable and the oriel (T-2542)",
-      "status": "open"
+      "what": "the main roof: the plate's slopes are steep and rise to about 16 m behind the gable and the pyramid, the street slope coming down to about 8.5-8.8 m behind them; T-2541's gable roof was at K01's steepest 45 degrees from an 11.7 m eave, its stone cornice in full view across the front",
+      "status": "fixed",
+      "how": "T-2542: the front block's eave datum at 9.14 m (the fascia's top 8.50 m, the moulded stone cornice's top 8.30 m, the plate's bay cornice), the street slope at 61.2 degrees to a ridge at 16.0 m (y 247 px against the plate's apex at 240), the cornice dying into the oriel's cants"
     },
     {
-      "what": "the brick south flank's front end: the plate and the Chicagology print show its wall carried up as a raking brick gable to the tall stack, standing a little behind the entrance block's stone return; the build's parapet end is the front block's own, and its stacks are reconstructed (T-2542)",
-      "status": "open"
+      "what": "the brick south flank's front end: the plate and the Chicagology print show the front block's south wall carried up as a coped brick gable to the tall stack, a smooth rake (not crow-stepped), standing a little behind the entrance block's stone return",
+      "status": "fixed",
+      "how": "T-2541's coped gable end on K01's 'north' wall, carried up by T-2542 to the steep roof's 16.0 m ridge; the stacks themselves are a difference of their own below"
     },
     {
       "what": "the oriel's depth and returns: the plate's oriel stands about 0.6 m out on square returns with a light in each; the build's stands 0.5 m out on canted returns with none, K08's corbel rule holding three courses to 0.52 m",
@@ -70,6 +74,26 @@
     },
     {
       "what": "downpipes: two on the front, at the bay's south return and the entrance block's south corner; the build hangs none (a K01 gable roof carries no gutter yet)",
+      "status": "open"
+    },
+    {
+      "what": "the bay's stone gable's face: the plate lights its third storey through three flat-headed lights between colonnettes under a great round arch whose tympanum holds three small round-arched lights, with carving over it, the gable about 4 m across (its rake running out past the pinnacles' inner faces); the build's wall gable is 3.0 m across, its three lights flat-headed under voussoirs in a plain recessed panel, its face in the buff dressing stone (the plate's reads smooth ashlar of the front's stone) (T-1892)",
+      "status": "open"
+    },
+    {
+      "what": "the pierced (fretwork) stone balcony on the bay's deck in front of the third storey: not built; the bay's deck carries only its moulded cornice (T-1892)",
+      "status": "open"
+    },
+    {
+      "what": "the roof's shape: the plate's main roof reads as a steep hipped mass whose apex stands over the bay (x 320 px, about v 4 m), its south slope falling behind the oriel to a lower roof (top about 13 m) that runs to the tall stack; the build lays K01's one ridge along the whole front at 16.0 m, so it shows slate where the plate shows sky over the south half (x 400-500 px, y 240-340 px)",
+      "status": "open"
+    },
+    {
+      "what": "the oriel's height: its cornice stands at about 9.46 m against the plate's 9.06 m (about 18 px high), because K01 carries an oriel through the eave only 0.3 m past the eave datum",
+      "status": "open"
+    },
+    {
+      "what": "the stacks: the plate's tall stack with its corbelled cap on the south gable and the range's second stack (x about 545 px); the build's two plain stacks stand behind the ridge where this camera does not see them",
       "status": "open"
     },
     {
