@@ -81,8 +81,10 @@ const fakeNav = () => {
 };
 const button = (inside) => ({ closest: (sel) => (sel.includes(inside) ? {} : null) });
 
-/** A landed page whose first tap has made and resumed a running context. */
-function landed({ settings = {}, scene = '1835', doc = fakeDoc(), nav = fakeNav() } = {}) {
+/** A landed page whose first tap has made and resumed a running context, its sound turned on
+ * in Settings (T-2941: sound is off by default, so the sounds are tested at full levels). */
+const ON = Object.freeze({ soundChosen: true, soundMaster: 1, soundEffects: 1, soundAmbience: 1 });
+function landed({ settings = { ...ON }, scene = '1835', doc = fakeDoc(), nav = fakeNav() } = {}) {
   const journey = createJourney({ root: null });
   journey.land(); journey.landed();
   const ctx = new FakeContext();
@@ -107,6 +109,18 @@ function landed({ settings = {}, scene = '1835', doc = fakeDoc(), nav = fakeNav(
   assert.equal(cap.allow(999), false, 'still inside the second of the first tick');
   assert.equal(cap.allow(1000), true, 'a second after the first, one more');
   assert.equal(curve(1), 1); assert.equal(curve(0.5), 0.25); assert.equal(curve(0), 0); assert.equal(curve('x'), 0);
+}
+
+// ---- T-2941: off by default — the defaults make no sound, no hum and no bed tone --------
+{
+  const { sound, ctx, nav } = landed({ settings: {} });
+  nav.set('home', 1);
+  sound.ticker(2026); sound.ticker(2025);
+  assert.equal(sound.relay(), false, 'no click with sound at its default');
+  assert.equal(sound.state.silent, true, 'Master at its default is silence');
+  assert.equal(sound.state.hum, false);
+  assert.equal(sound.state.ambience, null);
+  assert.equal(ctx.started.length, 0, 'no node is started for a sound nobody can hear');
 }
 
 // ---- the ticker: a tick per flipped digit, never more than 12 in any second -------------
@@ -143,7 +157,7 @@ function landed({ settings = {}, scene = '1835', doc = fakeDoc(), nav = fakeNav(
   const target = { listeners: {}, addEventListener(type, fn) { (this.listeners[type] ??= []).push(fn); } };
   const gate = createGestureGate({ target, journey, AudioContext: FakeContext });
   const doc = fakeDoc();
-  const sound = createSound({ audio: () => gate.audio, journey, settings: () => ({}), scene: () => '1904', doc, storage: null });
+  const sound = createSound({ audio: () => gate.audio, journey, settings: () => ({ ...ON }), scene: () => '1904', doc, storage: null });
   for (let y = 2026; y > 2000; y--) sound.ticker(y);
   assert.equal(gate.audio, null, 'no context before the first gesture');
   assert.equal(sound.state.context, 'none');
@@ -172,7 +186,7 @@ function landed({ settings = {}, scene = '1835', doc = fakeDoc(), nav = fakeNav(
 {
   const journey = createJourney({ root: null });
   const ctx = new FakeContext(); // suspended
-  const sound = createSound({ audio: () => ctx, journey, settings: () => ({}), scene: () => '1835', doc: fakeDoc(), storage: null });
+  const sound = createSound({ audio: () => ctx, journey, settings: () => ({ ...ON }), scene: () => '1835', doc: fakeDoc(), storage: null });
   sound.ticker(2026); sound.ticker(2025); sound.ticker(2024);
   assert.equal(sound.state.ticks, 0, 'no tick is scheduled on a context that is not running');
   journey.land();
@@ -189,7 +203,7 @@ function landed({ settings = {}, scene = '1835', doc = fakeDoc(), nav = fakeNav(
   journey.land();
   const ctx = new FakeContext(); ctx.state = 'running';
   const timers = [];
-  const sound = createSound({ audio: () => ctx, journey, settings: () => ({}), scene: () => '1835', doc: fakeDoc(), storage: null,
+  const sound = createSound({ audio: () => ctx, journey, settings: () => ({ ...ON }), scene: () => '1835', doc: fakeDoc(), storage: null,
     later: (fn, ms) => timers.push({ fn, ms }) });
   assert.equal(sound.state.clunks, 1);
   const verb = ctx.made.find((n) => n.kind === 'convolver');
@@ -259,6 +273,13 @@ function landed({ settings = {}, scene = '1835', doc = fakeDoc(), nav = fakeNav(
   const ctx2 = new FakeContext(); ctx2.state = 'running';
   const early = createSound({ audio: () => ctx2, journey: createJourney({ root: null }), settings: () => null, storage: store, doc: fakeDoc() });
   assert.ok(near(early.state.gains.master, 0.25), 'the stored Master is heard on the way in');
+  // T-2941: with nothing chosen (nothing stored, or only the old all-on defaults), it is silent.
+  for (const stored of ['{}', JSON.stringify({ soundMaster: 1, soundEffects: 1, soundAmbience: 1, fov: 70 })]) {
+    const ctx3 = new FakeContext(); ctx3.state = 'running';
+    const first = createSound({ audio: () => ctx3, journey: createJourney({ root: null }), settings: () => null, storage: { getItem: () => stored }, doc: fakeDoc() });
+    assert.ok(near(first.state.gains.master, 0), `a visitor with no sound choice (${stored}) is silent on the way in`);
+    assert.equal(first.state.silent, true);
+  }
 }
 
 // ---- a hidden tab stops the hum and the ambience, and they come back -------------------

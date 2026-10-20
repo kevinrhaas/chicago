@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 666,
+  "count": 668,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -46063,8 +46063,12 @@
           "text": "2026-10-20 (T-2916, piece 1 of T-1892). The north bay's two basement lights and its balcony are built. The bay is now three K08 storeys, a 1.75 m basement storey under the ground and first floors, so its string course stands on the plate's smooth sill course; under each window a light 0.95 m by 1.0 m from 0.22 m, its head read off the plate through its camera, on a 0.1 m plinth where the kit's 0.6 m would have covered the lights (the sill stands about 0.16 m over the plate's, on the plinth). On the bay's flat deck, a 0.7 m stone balustrade round its cheeks and front. What that build invents: the grilles' pattern (the plate's are scrolled panels; K08 draws five bars and one scroll ring), the balustrade's close-set stone bars at 0.12 m for the plate's pierced fretwork panels, whose interlace is not carved, its 0.3 m posts and 0.22 m coping, and the basement storey's 1.75 m, set so the string course lands on the plate's sill course."
         },
         {
+          "label": "Revised",
+          "text": "2026-10-20 (T-2936, piece 1 of T-2917, of T-1892). The bay's stone gable is the plate's great arch: K01's wall gable learns an arched face, its ring of fifteen voussoirs rising from the pediment's horizontal cornice (which reads as the plate's lintel over the lights), its centre 0.3 m under the cornice's top, a 1.15 m intrados and a 0.16 m ring; the tympanum recessed 0.1 m with three round- arched lights, the middle one taller; four colonnettes beside and between the three flat-headed lights under it, which lose their voussoirs; a small round-arched light over the crown; and the face, ring and colonnettes in the front's brown sandstone dressed smooth, where the buff dressing stone stood. What that build invents: the face's 3.0 m width, kept (the plate's gable is about 4 m, its rake past the pinnacles; T-2937), so the arch's span, the 0.16 m ring (the most the raking cornice leaves room for) and the lights' sizes are scaled down to it; plain voussoirs for the plate's moulded archivolt; 0.055 m colonnettes with square bases and capitals for the plate's stouter carved ones; the round-arched lights as dark openings without sash; and the carving over the arch, not built."
+        },
+        {
           "label": "How to resolve",
-          "text": "Later work (the split) finish the gable's recess and carving, the porch, the front's fabric and the roof, and bring the match record to `matches`."
+          "text": "Later work (the gable's width, its archivolt's depth and its carving), later work (the porch, the front's fabric and the roof) bring the match record to `matches`."
         },
         {
           "label": "Covers",
@@ -46084,8 +46088,8 @@
         "T-2541",
         "T-1891",
         "T-1837",
-        "T-1892",
-        "T-2917",
+        "T-2937",
+        "T-2918",
         "T-2920"
       ]
     },
@@ -48324,6 +48328,40 @@
       ]
     },
     {
+      "id": "L-k01-1812-wheeler-gable-2951",
+      "title": "1812 Prairie's gable outline, shoulder stones, nine-light grid window and scroll kneelers, read off the photograph",
+      "section": "per_subject",
+      "subjects": [
+        "wheeler_house_1812_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-20",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "George H. Wheeler's house at 1812 Prairie takes the shaped gable Albert Levy's photograph shows: its outline re-read and redrawn, a square stone block standing over the outline at each shoulder, the grid window as the print's nine lights (three by three) between stone mullions and transoms in place of K06's three tall lights, and each kneeler a carved scroll console at the front's corner under a small pinnacle. The kit learns this in shaped gable: `lights.rows` and transom (m) stack the K06 group into a grid, `lights.panes` sets its lights' panes, and a grid lays its transoms and mullions in stone; `shoulders` builds the blocks through the slab; `kneelers.scroll` builds the consoles. Every other K01 house re-emits byte-identical. **What is read, not invented.** Through the camera earlier work solved (the levy front data; 88.5 px a metre at the main front, the walk at y 1549.6), on 4x crops of the print with the render's silhouette laid over it and a tenth-metre grid: the outline's half-width at 13.0, 13.5, 14.0 and 14.5 m (3.13, 2.83, 2.55, 2.11 m on the south side; 2.83, 2.58, 2.32, about 1.6-1.9 m on the north), the head's at 15.3, 15.5, 15.75, 16.0, 16.25 and 16.5 m (1.10, 1.04, 0.92, 0.75, 0.54, 0.35 m, the two sides' mean), the finial's plinth about 0.28 m out from about 16.65 m; the shoulder blocks 0.90-1.62 m out from 14.68 to 15.3 m (south) and 0.92-1.60 m about 0.15 m lower (north); the grid window's lights about 0.42 m across between mullions about 0.13 m wide, in three rows about 0.36-0.39 m high over ledges about 0.07 m deep, the whole in the 1.64 by 1.26 m opening earlier work read; and the scroll at each corner about 0.4 m across from about 11.35 to 12.1 m, its roll at its foot. **What is invented.** The mean of the two sides for a symmetric gable, where the print's south side reads about 0.25 m wider than its north all the way up (its crinkle, or a slight roll); the outline built 0.04-0.05 m inside the reading, which the coping's projection gives back in the render; the blocks' 0.06 m proud and plain faces; the transoms' and mullions' 0.02 m proud; the lights' single pane (the print's lights read dark, no bar is seen); the scroll's roll 0.2 m in radius and 0.2 m proud, its raised eye, its body and its cap; the pinnacles' 0.3 m shaft to 12.85 m and 0.2 m spire, set 3.85 m out where the print's kneeler stone stands about 3.6-3.95 m. **What is built otherwise than read.** The shoulder blocks' sunk panels, the grid window's quoined side stones and the wavy hood over it, the deep moulded shelf under it and the carving on the scrolls beyond their roll and eye are not built; the lights are K06's casement sash, whose frame reads heavier at this size than the print's dark lights. These stay open in the match record."
+        },
+        {
+          "label": "How to resolve",
+          "text": "A sharper print, or a drawing of the gable, settles the outline's two sides and lets the panels, the hood and the scrolls be carved as drawn."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-20 (T-2951)."
+        }
+      ],
+      "work_refs": [
+        "T-2951",
+        "T-2891",
+        "T-2543"
+      ]
+    },
+    {
       "id": "L-glessner-fan-stilt-2912",
       "title": "Glessner's Prairie door fan stilted to HABS sheet 5 and its tympanum's field laid as the sheet's eight rings",
       "section": "per_subject",
@@ -48391,6 +48429,38 @@
         "T-2782",
         "T-2441",
         "T-2781"
+      ]
+    },
+    {
+      "id": "L-glessner-colonnettes-2965",
+      "title": "Glessner's seven Prairie colonnettes: their capitals' carving cut from sheet 6 and three close-ups",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-20",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the second-floor colonnettes on the John J. Glessner House Prairie front are rebuilt from HABS sheets 3 and 6 and the owner's photographs: a splayed square base, a straight-tapered round shaft, the round front of a stone mullion flush with the wall's face, and a cushion block capital, all in the front's granite. Each capital carries its own carving, south to north (prairie colonnette capitals in the record). **What is read.** Sheet 6 (75.5 px/ft) draws all seven and their bases, shafts and capitals' outlines; sheet 3 cuts each as a round-fronted mullion about 0.95 x 1.5 ft; the Glessner House Museum's 2013 post \"The stone capitals on Glessner House\" (three close-ups held as `a18-ghm-blog-capital-*`) says the capitals were carved in place by John Evans's carvers from August 1887, every one different, the one over the door carrying Richardson's monogram, and shows that one and its two neighbours; the c. 1888 front (`a18-gh-glessner-front-with-keith`) shows the taper and the base joint; Taylor 2135 the granite. **What is invented.** Every cut, depth and stem path; the bodies of the four capitals no close-up shows, read off the sheet's small, stippled drawing (a slotted band over crossing straps; a zigzag band over a leaf roundel; discs over a boss; discs over basket weave); the leaf tips and volutes repeated on all but the monogram capital; the letterforms of the monogram. The heights are shares of the record's 4.5-ft opening (the sheet draws 5.0 ft; not taken up here). **What is not changed.** The openings, the sashes, the carved string's own carving (now granite), the north gable pair's colonnettes."
+        },
+        {
+          "label": "How to resolve",
+          "text": "close photographs of the other four capitals, and a square one of each of the seven, would let every band and body be cut as carved."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on glessner colonnettes this work/."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-20 (T-2965)."
+        }
+      ],
+      "work_refs": [
+        "T-2965"
       ]
     },
     {

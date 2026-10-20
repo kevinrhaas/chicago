@@ -855,16 +855,21 @@ def _wall_gable(d: dict, wg: dict, dormer: dict, width: float) -> dict:
     if not wd / 2 + 0.3 <= vm <= width - wd / 2 - 0.3:
         raise ParamError("dormer.v_m: the wall gable stands 0.3 m inside both ends of the front")
     at = sorted(float(x) for x in sh.get("at_m", [0.0]))
-    vs = wg["voussoirs"]
-    ring, proud = float(vs["ring_m"]), float(vs["proud_m"])
-    if not 0.1 <= ring <= 0.4 or not 0.0 < proud <= 0.08:
-        raise ParamError("dormer.wall_gable.voussoirs: a 0.1-0.4 m ring, 0-0.08 m proud")
-    side = min(0.6 * ring, *((b - a - sw) / 2 - 0.01 for a, b in zip(at, at[1:])))
-    if side < 0.05:
-        raise ParamError("dormer.sash.at_m: the wall gable's lights stand too close for their voussoirs")
-    if at[-1] + sw / 2 + side > wd / 2 - 0.05 or at[0] - sw / 2 - side < -wd / 2 + 0.05:
+    if "arch" in wg:     # T-2917: the arched recess stands where the voussoirs and the panel would
+        if "voussoirs" in wg or "panel" in wg:
+            raise ParamError("dormer.wall_gable: an arched gable carries no voussoirs or pediment panel")
+        arch, side = _wall_gable_arch(wg["arch"], at, dormer), None
+    else:
+        arch, vs = None, wg["voussoirs"]
+        ring, proud = float(vs["ring_m"]), float(vs["proud_m"])
+        if not 0.1 <= ring <= 0.4 or not 0.0 < proud <= 0.08:
+            raise ParamError("dormer.wall_gable.voussoirs: a 0.1-0.4 m ring, 0-0.08 m proud")
+        side = min(0.6 * ring, *((b - a - sw) / 2 - 0.01 for a, b in zip(at, at[1:])))
+        if side < 0.05:
+            raise ParamError("dormer.sash.at_m: the wall gable's lights stand too close for their voussoirs")
+    if at[-1] + sw / 2 + (side or 0.0) > wd / 2 - 0.05 or at[0] - sw / 2 - (side or 0.0) < -wd / 2 + 0.05:
         raise ParamError("dormer.sash.at_m: a light's voussoirs run off the wall gable's face")
-    pn, fn, pa = wg["pinnacles"], wg["finial"], wg["panel"]
+    pn, fn = wg["pinnacles"], wg["finial"]
     pin = {k: float(pn[k]) for k in ("at_m", "shaft_m", "foot_m", "top_m", "cap_m", "spire_m")}
     if pin["at_m"] - pin["shaft_m"] / 2 < wd / 2 + 0.13 + 0.02:
         raise ParamError("dormer.wall_gable.pinnacles: a shaft stands in the face's cornice return")
@@ -872,15 +877,83 @@ def _wall_gable(d: dict, wg: dict, dormer: dict, width: float) -> dict:
         raise ParamError("dormer.wall_gable.pinnacles: a shaft rises from under the wall head past the face's eave")
     if vm - pin["at_m"] - pin["shaft_m"] / 2 < 0.0 or vm + pin["at_m"] + pin["shaft_m"] / 2 > width:
         raise ParamError("dormer.wall_gable.pinnacles: both shafts stand on the front")
-    panel = {"inset_m": float(pa["inset_m"]), "depth_m": float(pa["depth_m"])}
-    if not 0.1 <= panel["inset_m"] <= 0.5 or not 0.02 <= panel["depth_m"] <= dormer["face_thickness_m"] / 2:
-        raise ParamError("dormer.wall_gable.panel: a 0.1-0.5 m margin, recessed no deeper than half the face")
     finial = {"height_m": float(fn["height_m"]), "radius_m": float(fn["radius_m"])}
     if not 0.2 <= finial["height_m"] <= 1.0 or not 0.04 <= finial["radius_m"] <= 0.2:
         raise ParamError("dormer.wall_gable.finial: 0.2-1.0 m high, 0.04-0.2 m in radius")
-    return {"v_m": vm, "sash": dict(dormer["sash"], variant=vid, at_m=at),
-            "wall_gable": {"voussoirs": {"ring_m": ring, "proud_m": proud, "side_m": round(side, 4)},
-                           "pinnacles": pin, "finial": finial, "panel": panel}}
+    face = wg.get("face_fabric", "dormer_stone")
+    if face not in ("dormer_stone", "front_stone"):
+        raise ParamError("dormer.wall_gable.face_fabric: dormer_stone (the default) or front_stone")
+    if arch:
+        out = {"pinnacles": pin, "finial": finial, "arch": arch}
+    else:
+        pa = wg["panel"]
+        panel = {"inset_m": float(pa["inset_m"]), "depth_m": float(pa["depth_m"])}
+        if not 0.1 <= panel["inset_m"] <= 0.5 or not 0.02 <= panel["depth_m"] <= dormer["face_thickness_m"] / 2:
+            raise ParamError("dormer.wall_gable.panel: a 0.1-0.5 m margin, recessed no deeper than half the face")
+        out = {"voussoirs": {"ring_m": ring, "proud_m": proud, "side_m": round(side, 4)},
+               "pinnacles": pin, "finial": finial, "panel": panel}
+    if face != "dormer_stone":
+        out["face_fabric"] = face
+    return {"v_m": vm, "sash": dict(dormer["sash"], variant=vid, at_m=at), "wall_gable": out}
+
+
+def _wall_gable_arch(ar: dict, at: list, dormer: dict) -> dict:
+    """T-2917: 1811 Prairie's wall gable, which its 1888 plate draws as ONE GREAT ARCH: a
+    round arch whose centre stands `drop_m` under the pediment's foot (the horizontal
+    cornice's top, which reads as the lintel over the lights below it), so its ring rises
+    from the cornice; its tympanum recessed `depth_m`, holding a row of small round-headed
+    lights; and colonnettes standing between and beside the flat-headed lights under the
+    cornice, which carry no voussoirs. Every figure here is in the face's own frame: across
+    it from its centre, and up from the pediment's foot; that the ring clears the raking
+    cornice is the generator's to check, as it knows the cornice."""
+    wd, sw = dormer["width_m"], dormer["sash"]["width_m"]
+    R, drop, ring = float(ar["radius_m"]), float(ar["drop_m"]), float(ar["ring_m"])
+    proud, depth, stones = float(ar["proud_m"]), float(ar["depth_m"]), int(ar["stones"])
+    if not 0.5 <= R <= wd / 2 - 0.1 or not 0.0 <= drop < R / 2:
+        raise ParamError("dormer.wall_gable.arch: a radius of 0.5 m up to 0.1 m inside the face's half-width, "
+                         "its centre under the foot by less than half of it")
+    if not 0.08 <= ring <= 0.4 or not 0.0 < proud <= 0.08 or not 0.02 <= depth <= dormer["face_thickness_m"] / 2:
+        raise ParamError("dormer.wall_gable.arch: a 0.08-0.4 m ring 0-0.08 m proud, its tympanum recessed "
+                         "no deeper than half the face")
+    if stones < 5 or stones % 2 == 0:
+        raise ParamError("dormer.wall_gable.arch.stones: an odd number, at least five, so one is the crown's")
+    lights = []
+    for i, q in enumerate(ar["lights"]):
+        lt = {k: float(q[k]) for k in ("at_m", "sill_m", "width_m", "height_m")}
+        r = lt["width_m"] / 2
+        if not 0.15 <= lt["width_m"] <= 0.8 or lt["height_m"] < r + 0.05 or lt["sill_m"] < 0.03:
+            raise ParamError(f"dormer.wall_gable.arch.lights[{i}]: 0.15-0.8 m wide, its jambs standing "
+                             "0.05 m under its round head, its sill clear of the cornice")
+        spring = lt["sill_m"] + lt["height_m"] - r
+        edge = [(lt["at_m"] + sg * r, y) for sg in (-1, 1) for y in (lt["sill_m"], spring)]
+        edge += [(lt["at_m"] + r * math.cos(math.pi * k / 8), spring + r * math.sin(math.pi * k / 8)) for k in range(9)]
+        if any(math.hypot(x, y + drop) > R - 0.05 for x, y in edge):
+            raise ParamError(f"dormer.wall_gable.arch.lights[{i}]: stands 0.05 m inside the arch's intrados")
+        lights.append(lt)
+    lights.sort(key=lambda q: q["at_m"])
+    for a, b in zip(lights, lights[1:]):
+        if b["at_m"] - b["width_m"] / 2 - a["at_m"] - a["width_m"] / 2 < 0.08:
+            raise ParamError("dormer.wall_gable.arch.lights: the tympanum's lights stand 0.08 m apart")
+    co = ar["colonnettes"]
+    cr = float(co["radius_m"])
+    block = cr + 0.03                       # the half-width of a colonnette's base and capital
+    cat = sorted(float(x) for x in co["at_m"])
+    if not 0.04 <= cr <= 0.12:
+        raise ParamError("dormer.wall_gable.arch.colonnettes: 0.04-0.12 m in radius")
+    for c in cat:
+        if abs(c) + block > wd / 2 - 0.02:
+            raise ParamError("dormer.wall_gable.arch.colonnettes: a colonnette stands off the face")
+        if any(abs(c - x) < sw / 2 + block for x in at):
+            raise ParamError("dormer.wall_gable.arch.colonnettes: a colonnette stands in a light")
+    out = {"radius_m": R, "drop_m": drop, "ring_m": ring, "proud_m": proud, "depth_m": depth, "stones": stones,
+           "lights": lights, "colonnettes": {"at_m": cat, "radius_m": cr, "block_m": round(block, 4)}}
+    if "crown_light" in ar:   # a round-headed light in the pediment over the arch, on the face's centre
+        cl = {k: float(ar["crown_light"][k]) for k in ("sill_m", "width_m", "height_m")}
+        if not 0.15 <= cl["width_m"] <= 0.6 or cl["height_m"] < cl["width_m"] / 2 + 0.05:
+            raise ParamError("dormer.wall_gable.arch.crown_light: 0.15-0.6 m wide, its jambs standing "
+                             "0.05 m under its round head")
+        out["crown_light"] = cl
+    return out
 
 
 def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: float, pitch: float,
@@ -929,6 +1002,15 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
         raise ParamError("shaped_gable.lights.variant: a flat- or segment-headed K06 variant")
     lw, lh, sill = float(li["width_m"]), float(li["height_m"]), float(li["sill_m"])
     at = sorted(float(x) for x in li["at_m"])
+    # T-2951: a grid window — `rows` of the variant stacked over one another, a stone
+    # `transom_m` between each row and the next, and optionally its `panes` per light
+    rows, tr = int(li.get("rows", 1)), float(li.get("transom_m", 0.0))
+    if not 1 <= rows <= 4 or (rows > 1 and not 0.05 <= tr <= 0.3):
+        raise ParamError("shaped_gable.lights: 1-4 rows, a 0.05-0.3 m stone transom between them")
+    panes = li.get("panes")
+    if panes is not None and (len(panes) != 2 or not all(1 <= int(n) <= 4 for n in panes)):
+        raise ParamError("shaped_gable.lights.panes: [across, up], 1-4 each")
+    lh_all = rows * lh + (rows - 1) * tr
     ledge = ye + 0.12
     ledge_m = None
     if sg.get("ledge_m") is not None:   # T-2865: the front carried up full width past the eave
@@ -945,7 +1027,7 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
     q = {"profile_m": pr}
     for x in at:
         need = abs(x) + lw / 2 + 0.15
-        if need > ksg.half_width(q, sill + lh + 0.15) or need > ksg.half_width(q, sill):
+        if need > ksg.half_width(q, sill + lh_all + 0.15) or need > ksg.half_width(q, sill):
             raise ParamError("shaped_gable.lights: every light stands 0.15 m inside the outline")
     cp, kn, fn = sg["coping"], sg.get("kneelers"), sg.get("finial")
     coping = {"width_m": float(cp["width_m"]), "proud_m": float(cp["proud_m"])}
@@ -957,6 +1039,14 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
         hb, hl = width / 2 + overhang + 0.02, ksg.half_width(q, ledge)
         if not hl + kne["shaft_m"] / 2 <= kne["at_m"] <= hb - kne["shaft_m"] / 2 or kne["top_m"] <= ledge + 0.2:
             raise ParamError("shaped_gable.kneelers: each pinnacle stands on its ledge and rises from it")
+        if kn.get("scroll"):   # T-2951: a carved scroll console under each, at the front's corner
+            sc = {k_: float(kn["scroll"][k_]) for k_ in ("bed_m", "width_m", "radius_m", "proud_m")}
+            if not 0.1 <= sc["radius_m"] <= sc["width_m"] / 2 + 1e-9 or not 0.2 <= sc["width_m"] <= 0.8:
+                raise ParamError("shaped_gable.kneelers.scroll: 0.2-0.8 m wide, its roll 0.1 m to half that in radius")
+            if not 0.05 <= sc["proud_m"] <= 0.4 or not foot - 1.5 <= sc["bed_m"] <= foot - 2 * sc["radius_m"] - 0.1:
+                raise ParamError("shaped_gable.kneelers.scroll: 0.05-0.4 m proud, its roll under the slab's foot "
+                                 "and its bed within 1.5 m of it")
+            kne["scroll"] = sc
     fin = {}
     if fn:
         fin = {"height_m": float(fn["height_m"]), "radius_m": float(fn["radius_m"])}
@@ -976,12 +1066,25 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
         top, low = oc["centre_m"] + oc["height_m"] / 2 + oc["ring_m"], oc["centre_m"] - oc["height_m"] / 2 - oc["ring_m"]
         if oc["width_m"] / 2 + oc["ring_m"] + 0.15 > ksg.half_width(q, top) or low < sill + lh + 0.3:
             raise ParamError("shaped_gable.oculus: its ring stands 0.15 m inside the outline and 0.3 m over the lights")
+    sho = {}
+    if sg.get("shoulders"):   # T-2951: a square stone block on the outline each side, through the slab
+        s_ = sg["shoulders"]
+        sho = {k_: float(s_[k_]) for k_ in ("inner_m", "outer_m", "bed_m", "top_m", "proud_m")}
+        if not 0.2 <= sho["outer_m"] - sho["inner_m"] <= 1.2 or not 0.2 <= sho["top_m"] - sho["bed_m"] <= 1.2:
+            raise ParamError("shaped_gable.shoulders: a block 0.2-1.2 m across and high")
+        if not 0.0 < sho["proud_m"] <= 0.15 or sho["outer_m"] > ksg.half_width(q, sho["bed_m"]) + 1e-9:
+            raise ParamError("shaped_gable.shoulders: 0-0.15 m proud, its foot inside the outline")
+        if sho["bed_m"] < sill + lh_all + 0.15 and sho["inner_m"] < max(abs(x) for x in at) + lw / 2 + 0.05:
+            raise ParamError("shaped_gable.shoulders: clear of the lights")
     tg = sg.get("takes_gutter", False)
     if not isinstance(tg, bool):
         raise ParamError("shaped_gable.takes_gutter: true or false (T-2889)")
     return {"profile_m": pr, "foot_m": foot, "thickness_m": t, "proud_m": proud,
             **({"takes_gutter": True} if tg else {}),
-            "lights": {"variant": li["variant"], "sill_m": sill, "width_m": lw, "height_m": lh, "at_m": at},
+            "lights": {"variant": li["variant"], "sill_m": sill, "width_m": lw, "height_m": lh, "at_m": at,
+                       **({"rows": rows, "transom_m": tr} if rows > 1 else {}),
+                       **({"panes": [int(n) for n in panes]} if panes is not None else {})},
+            **({"shoulders": sho} if sho else {}),
             "coping": coping, "kneelers": kne, "finial": fin, "fabric": fabric, "oculus": oc,
             **({"ledge_m": ledge_m} if ledge_m is not None else {})}
 

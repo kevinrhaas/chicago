@@ -6,12 +6,19 @@ export const PACES = {
   instantly: { label: 'Instantly', hint: 'straight there, as before' },
   // Each ground pace has its own slider (T-0823): `settingKey` names the stored
   // value, `defaultSpeed` is what a fresh visitor gets, `maxSpeed` is the slider's
-  // ceiling — 20, 30 and 60 mph, the owner's figures — and `sprintFactor` is what
+  // ceiling — 20, 30 and 60 mph, the owner's figures, raised by T-2945 to 30, 40 and
+  // 80 mph so the faster defaults sit mid-slider — and `sprintFactor` is what
   // Shift does to it (a run on foot, nothing on a wagon, a gallop on a horse),
   // capped at the ceiling. The gait names a slider shows are in GAITS below.
+  // T-2945 (owner, 2026-10-20: "default the walk speed to much faster like 10mph and
+  // increase the relative speeds on everthing so its a bit faster"): walk 1.45 → 4.47 m/s
+  // (10 mph), run 3.4 → 6.71 (15 mph), wagon 3.6 → 7.15 (16 mph), horse 6.5 → 11.18
+  // (25 mph); walk < run < wagon < horse as before, sprint factors unchanged.
+  // OLD_DEFAULTS keeps the figures they replace (hud.js reads an untouched stored one
+  // as no choice).
   walk: {
     label: 'Walk', verb: 'Walking to', eyeOffset: 0, turnRate: 150,
-    settingKey: 'speed', defaultSpeed: 1.45, maxSpeed: 8.94, sprintFactor: 2.28,
+    settingKey: 'speed', defaultSpeed: 4.47, maxSpeed: 13.41, sprintFactor: 2.28,
     hint: 'your own two feet',
   },
   // Running (T-2651): on foot, the walk's network and eye, with its own slider that
@@ -19,17 +26,17 @@ export const PACES = {
   // settings a visitor can flip between rather than one slider dragged back and forth.
   run: {
     label: 'Run', verb: 'Running to', eyeOffset: 0, turnRate: 150,
-    settingKey: 'runSpeed', defaultSpeed: 3.4, minSpeed: 2.6, maxSpeed: 8.94, sprintFactor: 1.6,
+    settingKey: 'runSpeed', defaultSpeed: 6.71, minSpeed: 2.6, maxSpeed: 13.41, sprintFactor: 1.6,
     hint: 'on foot, at a run',
   },
   wagon: {
     label: 'Wagon', verb: 'Driving to', eyeOffset: 0.5, turnRate: 70,
-    settingKey: 'wagonSpeed', defaultSpeed: 3.6, maxSpeed: 13.41, sprintFactor: 1,
+    settingKey: 'wagonSpeed', defaultSpeed: 7.15, maxSpeed: 17.88, sprintFactor: 1,
     hint: 'a light wagon',
   },
   horse: {
     label: 'Horse', verb: 'Riding to', eyeOffset: 0.75, turnRate: 90,
-    settingKey: 'horseSpeed', defaultSpeed: 6.5, maxSpeed: 26.82, sprintFactor: 1.7,
+    settingKey: 'horseSpeed', defaultSpeed: 11.18, maxSpeed: 35.76, sprintFactor: 1.7,
     // The gait figures are a canter's (2 strides a second at 6.5 m/s); updateBob
     // scales the beat with the speed the slider actually set.
     bob: { hz: 2.0, amp: 0.06, sprintHz: 1.6, sprintAmp: 0.09, atSpeed: 6.5 },
@@ -43,6 +50,27 @@ export const PACES = {
     hint: 'up, across and down to the door',
   },
 };
+
+/** T-2945: the defaults the paces had before 2026-10-20, keyed by setting. */
+export const OLD_PACE_DEFAULTS = Object.freeze({ speed: 1.45, runSpeed: 3.4, wagonSpeed: 3.6, horseSpeed: 6.5 });
+/** The version of the pace defaults a stored settings object was last read under. */
+export const PACE_DEFAULTS_VERSION = 2;
+
+/**
+ * T-2945: the HUD stores its whole settings object on any change, so most returning
+ * visitors carry the old pace defaults without ever having touched a slider. The first
+ * time a stored object is read under the new defaults, a speed EXACTLY equal to its old
+ * default is read as no choice and dropped (the new default applies); anything else is
+ * the visitor's own and is kept. `paceDefaults` records that the reading was made, so a
+ * slider later set to one of those figures on purpose is kept too. Pure: returns a copy.
+ */
+export function migratePaceDefaults(saved) {
+  const s = { ...(saved && typeof saved === 'object' ? saved : {}) };
+  if (Number(s.paceDefaults) >= PACE_DEFAULTS_VERSION) return s;
+  for (const [key, old] of Object.entries(OLD_PACE_DEFAULTS)) if (Number(s[key]) === old) delete s[key];
+  s.paceDefaults = PACE_DEFAULTS_VERSION;
+  return s;
+}
 
 /** The slider value for a pace: the stored setting, clamped to the pace's range. */
 export function paceSpeed(pace, settings = {}) {
@@ -62,8 +90,8 @@ export function paceSpeed(pace, settings = {}) {
 export const WALK = {
   eyeHeight: 1.68,      // m — mid-19th-century adult male mean was near 1.72 m
   radius: 0.34,         // m — shoulder half-width for the push-out
-  speed: 1.45,          // m/s — an unhurried walk
-  sprintSpeed: 3.3,     // m/s — a jog, not a sprint
+  speed: 4.47,          // m/s — the Walk pace's default (T-2945; travel.js applyPace sets it)
+  sprintSpeed: 10.19,   // m/s — that × the walk's sprint factor
   stepUp: 0.35,         // m — the plank-walk rule
   pitchLimit: 85 * (Math.PI / 180),
 };

@@ -7,11 +7,25 @@ import { FAMILIES, familySlot, icon } from './menu-icons.js';
 
 export const WINDOW_SIZE = 30;
 const SHORT = { 'News & Knowledge': 'News' };
+/** A title as it sorts: without a leading A, An or The, so "A Letter Home" sits under L. */
+export const sortTitle = (title = '') => String(title).replace(/^(?:a|an|the)\s+/i, '');
+/**
+ * T-2944 (owner, 2026-10-20: "do keep them sorted together so they make snese"): related
+ * outings sit together — by kind, in the family order the pills show (Wayfinding,
+ * Provisions, Neighbors, Livelihood, News & Knowledge; anything else after) — then the
+ * featured ones first within their kind (the old list led with every featured outing,
+ * which split each kind in two), then by name without its article.
+ */
+export function jauntOrder(a, b) {
+  const kind = (r) => { const i = FAMILIES.indexOf(r.primary_family); return i < 0 ? FAMILIES.length : i; };
+  return kind(a) - kind(b) || (b.featured === true) - (a.featured === true)
+    || sortTitle(a.title).localeCompare(sortTitle(b.title)) || String(a.id).localeCompare(String(b.id));
+}
 export function filterJaunts(rows, query = '', family = '') {
   const words = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
   return rows.filter(row => (!family || row.primary_family === family) && words.every(word =>
     `${row.title} ${row.premise} ${row.category} ${row.primary_family}`.toLocaleLowerCase().includes(word)))
-    .sort((a, b) => a.title.localeCompare(b.title) || a.id.localeCompare(b.id));
+    .sort(jauntOrder);
 }
 
 // T-2631: `plateFor(row)` gives a credited picture of the route's stops, or null; `kept(row)`
@@ -120,9 +134,8 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     return el;
   }
   function windowRows({ focus = false } = {}) {
+    // T-2944: grouped by kind, featured first within each (jauntOrder); no second sort here.
     const matches = filterJaunts(rows, query, family);
-    // Unfiltered, the featured outings lead the list rather than repeating above it.
-    if (!query.trim() && !family) matches.sort((a, b) => (b.featured === true) - (a.featured === true));
     offset = Math.min(offset, Math.max(0, Math.floor((matches.length - 1) / WINDOW_SIZE) * WINDOW_SIZE));
     list.replaceChildren(...matches.slice(offset, offset + WINDOW_SIZE).map(row => card(row, 'all')));
     if (!matches.length) list.append(node('p', rows.length ? 'No matching outings.' : 'No jaunts are available yet. You can explore on your own.', 'jaunt-empty'));

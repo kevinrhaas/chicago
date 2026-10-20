@@ -1,6 +1,6 @@
 /**
- * T-2659 (NAV-S01; DESIGN §13 "Sound"): the Navigator's sounds, on by default (owner ruling,
- * 2026-10-16), every one of them made here with the Web Audio API — oscillators, one buffer of
+ * T-2659 (NAV-S01; DESIGN §13 "Sound"): the Navigator's sounds — off by default since T-2941
+ * (owner, 2026-10-20; they were on by default from 2026-10-16) — every one of them made here with the Web Audio API — oscillators, one buffer of
  * noise and envelopes. There is no audio file to fetch, source or license.
  *
  *   ticker    a soft flap tick for each digit of the year that changes as the arrival's
@@ -31,7 +31,7 @@
  * Nothing here runs per frame. The ticker is told each year as it is shown (main.js onYear),
  * and it counts changed digits with arithmetic, so a call that makes no sound allocates nothing.
  */
-import { SOUND_DEFAULTS, normalVolume } from './settings-app.js';
+import { SOUND_DEFAULTS, normalVolume, soundLevelsFrom } from './settings-app.js';
 
 /** At most this many ticks in any one second (DESIGN §13). */
 export const TICK_CAP = 12;
@@ -114,7 +114,10 @@ export function mayStartEarly({ nav = globalThis.navigator, transfer = false } =
 
 /** The stored levels, for a sound made before the HUD has read them (the ticker on the way in). */
 function storedLevels(storage) {
-  try { return JSON.parse(storage?.getItem?.('chicago4d.settings') || '{}') ?? {}; } catch { return {}; }
+  let saved = {};
+  try { saved = JSON.parse(storage?.getItem?.('chicago4d.settings') || '{}') ?? {}; } catch { /* unreadable */ }
+  // T-2941: the same reading the HUD makes, so a visitor who never chose a level is silent here too.
+  return soundLevelsFrom(saved);
 }
 
 export function createSound({

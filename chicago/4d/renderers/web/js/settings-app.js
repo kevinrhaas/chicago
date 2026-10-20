@@ -29,10 +29,32 @@ export function normalTextScale(value) {
   return TEXT_SCALES.includes(n) ? n : 1;
 }
 
-/** The sound levels the HUD's settings carry (0..1, all up by default: the owner ruled
- * sound on by default, 2026-10-16). js/sound.js (T-2659) reads them on every move. */
+/** The sound levels the HUD's settings carry (0..1). js/sound.js (T-2659) reads them on every
+ * move. Sound is OFF by default (T-2941; the owner, 2026-10-20: "the sound is a bit much, can
+ * you default that to off for now"), reversing the 2026-10-16 ruling: Master starts at 0, and
+ * Effects and Ambience stay up, so moving Master alone turns every sound on. */
 export const SOUND_KEYS = Object.freeze(['soundMaster', 'soundEffects', 'soundAmbience']);
-export const SOUND_DEFAULTS = Object.freeze({ soundMaster: 1, soundEffects: 1, soundAmbience: 1 });
+export const SOUND_DEFAULTS = Object.freeze({ soundMaster: 0, soundEffects: 1, soundAmbience: 1 });
+/** The level every key had while sound was on by default (2026-10-16 to T-2941). */
+const SOUND_WAS_DEFAULT = 1;
+
+/**
+ * The sound levels a stored settings object stands for (T-2941). The HUD stores its whole
+ * settings object on any change, so a visitor who never touched Sound has the old all-on
+ * defaults stored beside their real choices, and those 1s are not a choice to keep. A stored
+ * level is the visitor's own when `soundChosen` is set (a slider was moved since T-2941), or
+ * when any level differs from the old default (it can only have got there by a slider).
+ * Otherwise every level is the default, which is silence. Returns the three levels and
+ * `soundChosen`; never touches storage.
+ */
+export function soundLevelsFrom(saved) {
+  const s = saved && typeof saved === 'object' ? saved : {};
+  const moved = SOUND_KEYS.some((k) => s[k] != null && normalVolume(s[k], SOUND_WAS_DEFAULT) !== SOUND_WAS_DEFAULT);
+  const chosen = s.soundChosen === true || moved;
+  const out = { soundChosen: chosen };
+  for (const k of SOUND_KEYS) out[k] = chosen ? normalVolume(s[k], SOUND_DEFAULTS[k]) : SOUND_DEFAULTS[k];
+  return out;
+}
 export function normalVolume(value, fallback = 1) {
   const n = Number(value);
   return Number.isFinite(n) ? Math.min(1, Math.max(0, n)) : fallback;
@@ -185,6 +207,8 @@ export function wireSettingsApp({
     paint();
     el.addEventListener('input', () => {
       settings[key] = normalVolume(el.value, SOUND_DEFAULTS[key]);
+      // T-2941: a slider moved by the visitor is their choice, kept over the default from now on.
+      settings.soundChosen = true;
       paint();
       save();
       onSetting?.(key, settings[key]);

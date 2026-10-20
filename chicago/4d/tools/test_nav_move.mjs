@@ -30,6 +30,13 @@ assert.equal(paceSpeed('run', {}), PACES.run.defaultSpeed);
 assert.equal(paceSpeed('run', { runSpeed: 1 }), PACES.run.minSpeed, 'Run\'s slider starts at a jog');
 assert.equal(paceSpeed('walk', { speed: 0.5 }), 0.5, 'Walk keeps its floor');
 assert.equal(gaitName('run', 3.4), 'jog');
+// T-2945: the faster defaults are named for what they are: 10 mph on foot is a run.
+assert.equal(gaitName('walk', PACES.walk.defaultSpeed), 'run');
+assert.equal(gaitName('run', PACES.run.defaultSpeed), 'sprint');
+assert.equal(gaitName('wagon', PACES.wagon.defaultSpeed), 'rattling along');
+assert.equal(gaitName('horse', PACES.horse.defaultSpeed), 'gallop');
+assert.deepEqual(GROUND_MODES.map((m) => PACES[m].defaultSpeed), [4.47, 6.71, 7.15, 11.18], 'walk 10 mph, then run, wagon and horse faster in turn (owner, 2026-10-20)');
+for (const m of GROUND_MODES) assert(PACES[m].defaultSpeed < PACES[m].maxSpeed * 0.6, `${m}'s default sits below the top of its slider`);
 assert.equal(gaitName('run', 8.94), gaitName('walk', 8.94), 'Run speaks the walk\'s words');
 const from = { e: 0, n: 0 }, to = { e: 300, n: 400 };
 const runLeg = estimateLeg({ from, to, mode: 'run', settings: {} });
@@ -49,17 +56,18 @@ for (const pace of GROUND_MODES) {
   assert(v.slider.value >= v.slider.min && v.slider.value <= v.slider.max);
 }
 const ranges = GROUND_MODES.map((p) => `${views[p].slider.min}-${views[p].slider.max}`);
-assert.deepEqual(ranges, ['0.5-8.94', '2.6-8.94', '0.5-13.41', '0.5-26.82'], 'each mode its own range: 20, 20, 30 and 60 mph');
+assert.deepEqual(ranges, ['0.5-13.41', '2.6-13.41', '0.5-17.88', '0.5-35.76'], 'each mode its own range: 30, 30, 40 and 80 mph (T-2945)');
 assert.equal(new Set(ranges).size, 4, 'changing mode changes the range');
 assert.deepEqual(GROUND_MODES.map((p) => views[p].slider.readout),
   ['walk · 3.2 mph', 'jog · 7.6 mph', 'steady roll · 8.1 mph', 'canter · 14.5 mph']);
 assert.equal(moveView({ ...base, pace: 'wagon', wagonSpeed: 10.97 }).slider.readout, 'rattling along · 24.5 mph',
   'the named speeds are kept: rattling along');
 assert.equal(moveView({ ...base, pace: 'horse', horseSpeed: 26.82 }).slider.readout, 'beyond any horse · 60.0 mph');
+assert.equal(moveView({ ...base, pace: 'horse', horseSpeed: 35.76 }).slider.readout, 'beyond any horse · 80.0 mph');
 assert.equal(moveView({ ...base, pace: 'wagon', wagonSpeed: 10.97, units: 'metric' }).slider.readout, 'rattling along · 39.5 km/h');
-assert.equal(speedOf('horse', { horseSpeed: 99 }), 26.82, 'a stored value past the top is held at the top');
+assert.equal(speedOf('horse', { horseSpeed: 99 }), 35.76, 'a stored value past the top is held at the top');
 assert.equal(speedOf('horse', { horseSpeed: 'nope' }), PACES.horse.defaultSpeed);
-assert.match(views.horse.note, /×1\.7.*60\.0 mph/);
+assert.match(views.horse.note, /×1\.7.*80\.0 mph/);
 assert.match(views.wagon.note, /no faster gear/);
 
 // ---- Fly: the picker shows it, and there is no slider ---------------------------------
@@ -110,3 +118,18 @@ assert.deepEqual(APP_SECTIONS.move, ['travel'], 'and Move holds only that sectio
 assert.ok(!APP.launch && typeof APP.mount === 'function' && typeof APP.shown === 'function', 'Move is a screen, not a launch');
 
 console.log('test_nav_move: one picker, one slider, named speeds, Go to\'s choice and the markup hold');
+
+// ---- T-2945: an untouched old default is no choice; a moved slider is kept -------------
+{
+  const { migratePaceDefaults, OLD_PACE_DEFAULTS, PACE_DEFAULTS_VERSION } = await import('../renderers/web/js/travel-settings.js');
+  assert.deepEqual(OLD_PACE_DEFAULTS, { speed: 1.45, runSpeed: 3.4, wagonSpeed: 3.6, horseSpeed: 6.5 });
+  const old = migratePaceDefaults({ speed: 1.45, runSpeed: 3.4, wagonSpeed: 3.6, horseSpeed: 6.5, fov: 70 });
+  assert.deepEqual(old, { fov: 70, paceDefaults: PACE_DEFAULTS_VERSION }, 'the old defaults a whole-object save stored give way to the new');
+  assert.equal(paceSpeed('walk', old), 4.47, 'so a returning visitor who never moved the slider walks at 10 mph');
+  const mine = migratePaceDefaults({ speed: 2.2, horseSpeed: 6.5 });
+  assert.equal(mine.speed, 2.2, 'a walk speed the visitor chose is kept');
+  assert.equal(mine.horseSpeed, undefined);
+  const later = migratePaceDefaults({ speed: 1.45, paceDefaults: PACE_DEFAULTS_VERSION });
+  assert.equal(later.speed, 1.45, 'once read under the new defaults, 1.45 set on purpose is kept');
+  assert.deepEqual(migratePaceDefaults(null), { paceDefaults: PACE_DEFAULTS_VERSION });
+}

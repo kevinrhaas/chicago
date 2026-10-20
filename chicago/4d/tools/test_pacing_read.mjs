@@ -242,8 +242,10 @@ for (const scene of scenes) {
   // The whole walk, every half metre, to its end — so a longer run or a faster pace
   // only ever stops at the end, inside nothing.
   const length = poses.walk.legs.reduce((t, [, len]) => t + len, 0);
-  assert.ok(length >= WALK.sprintSpeed * LONG_SECONDS,
-    `${scene} walk is ${length} m, short of ${LONG_SECONDS} s at a jog`);
+  // T-2945: the read walks at the walk's own default (4.47 m/s since 2026-10-20, faster than
+  // the 3.3 m/s jog this used to hold it to), so every walk lasts LONG_SECONDS at that pace.
+  assert.ok(length >= WALK.speed * LONG_SECONDS,
+    `${scene} walk is ${length} m, short of ${LONG_SECONDS} s at the default walk`);
   for (let d = 0; d <= length; d += 0.5) {
     const p = walkAt(poses.walk, d);
     clear(p.local_e, p.local_n, `walk at ${d} m`);
@@ -253,7 +255,7 @@ for (const scene of scenes) {
   assert.ok(poses.flight.altitude_m >= 100, `${scene} flight flies at ${poses.flight.altitude_m} m`);
   assert.ok(poses.flight.pitch_deg < 0);
   for (const move of MOVES) {
-    const p = poseFrom(poses, move, 1.45)(LONG_SECONDS);
+    const p = poseFrom(poses, move, WALK.speed)(LONG_SECONDS);
     assert.ok(Number.isFinite(p.local_e) && Number.isFinite(p.local_n) && Number.isFinite(p.yaw_deg));
   }
 }

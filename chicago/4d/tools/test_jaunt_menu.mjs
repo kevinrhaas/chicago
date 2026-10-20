@@ -57,7 +57,9 @@ try {
     await click(page.locator('#welcome-jaunts'));
     await page.waitForSelector('.jaunt-list .jaunt-card');
     assert.equal(await page.locator('.jaunt-card').count(), 30, 'one bounded window, no repeated featured block');
-    assert.equal(await page.locator('.jaunt-list .jaunt-card:first-child .jaunt-star').count(), 1, 'featured outings lead');
+    // T-2944: the list is grouped by kind (Wayfinding first), featured outings leading each kind.
+    assert.equal(await page.locator('.jaunt-list .jaunt-card:first-child .jaunt-star').count(), 1, 'featured outings lead their kind');
+    assert.match(await page.locator('.jaunt-list .jaunt-card:first-child').getAttribute('class'), /jaunt-type-way/, 'the first kind is Wayfinding');
     assert(await page.locator('#welcome-back').isVisible(), 'a way back from Jaunts');
     console.log(`MENU ${viewport.width}: catalog ready`);
     await page.locator('#jaunt-menu-search').fill('tavern');

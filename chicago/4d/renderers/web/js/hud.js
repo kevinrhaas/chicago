@@ -15,10 +15,11 @@ import { isTyping } from './controls/pointerlock.js';
 import { formatDistance, formatHeight, formatSpeed, formatStature, normalUnitSystem } from './units.js';
 import { createGoTo } from './goto.js';
 import { PACES } from './travel.js';
+import { migratePaceDefaults, PACE_DEFAULTS_VERSION } from './travel-settings.js';
 import { GROUND_MODES, groundPace as groundOf, nextPace, moveView, travelModeFor, arriveOf } from './move-modes.js';
 import { jauntsFollowFrom } from './getting-there.js';
 import { versionBadge } from './structure-versions.js';
-import { wireSettingsApp, SOUND_DEFAULTS } from './settings-app.js';
+import { wireSettingsApp, SOUND_DEFAULTS, soundLevelsFrom } from './settings-app.js';
 import { t as str } from './strings/index.js';
 import './strings/hud.js';
 // T-2649: the colouring and the hidden set are kept in the Confidence view's one record,
@@ -32,7 +33,8 @@ const DEFAULT_SETTINGS = {
   // eyeHeight defaults to WALK.eyeHeight — the researched figure, not a taste.
   // It lives here so a visitor can raise it for comfort without the project
   // quietly restating the average height of an 1830s adult as something else.
-  speed: 1.45, eyeHeight: 1.68, fov: 72,
+  // T-2945: the walk's default is PACES.walk's (4.47 m/s, 10 mph); see travel-settings.js.
+  speed: PACES.walk.defaultSpeed, eyeHeight: 1.68, fov: 72,
   // Image sharpness, the pixel-ratio cap. '' = never chosen, so main.js's device
   // guess stands: a phone starts at Low (1), a desktop at Medium (1.5) — the
   // owner's pick on T-2110, where Low drew a phone's frame 26-29 % faster. A
@@ -56,6 +58,10 @@ const DEFAULT_SETTINGS = {
   // T-2736 (owner, 2026-10-17): the tag naming the building in the reticle; on by default,
   // and a visitor who finds it in the way turns it off under Settings › Show.
   lookTag: true,
+  // T-2942 (owner, 2026-10-20): where that tag shows — 'right' under the address (default),
+  // 'centre' under the crosshair (T-2627's place), 'bottom' — and whether it 'fade's after a
+  // few seconds (default, T-2736) or is 'always' shown while the building is in the reticle.
+  lookTagPlace: 'right', lookTagHold: 'fade',
   // T-2481: the 1904 Season — 'summer' (1 July, the scene's own date and the
   // default), 'spring', 'fall' or 'winter': ground, trees and sun. A viewing choice.
   season: 'summer',
@@ -73,7 +79,9 @@ const DEFAULT_SETTINGS = {
   pace: 'walk', travelMode: 'instantly', headBob: true,
   // The wagon's and the horse's own speeds (T-0823) and the run's (T-2651); `speed`
   // above is the walk's.
-  wagonSpeed: 3.6, horseSpeed: 6.5, runSpeed: 3.4,
+  wagonSpeed: PACES.wagon.defaultSpeed, horseSpeed: PACES.horse.defaultSpeed, runSpeed: PACES.run.defaultSpeed,
+  // T-2945: the pace defaults a stored object was read under (travel-settings.js).
+  paceDefaults: PACE_DEFAULTS_VERSION,
   // T-2727: Move › Jaunts use my choice. Off, every Jaunt travels the way it recommends; on,
   // it takes the getting-there choice where it can (js/getting-there.js § jauntChoice).
   // Replaces T-2652's hidden `arriveChosen` rule. Anything but a stored `true` reads as off.
@@ -83,12 +91,14 @@ const DEFAULT_SETTINGS = {
   // T-2656: Settings › Display › Text size, the Navigator's text at 100-140 %.
   textScale: 1,
   // T-2656: Settings › Sound, master, effects and ambience (0..1), for T-2659's sounds.
-  ...SOUND_DEFAULTS,
+  // T-2941: off by default (Master 0); `soundChosen` is set once the visitor moves a slider.
+  ...SOUND_DEFAULTS, soundChosen: false,
 };
 
 function readSettings() {
   try {
-    const saved = JSON.parse(window.localStorage.getItem(SET_KEY) || '{}') ?? {};
+    // T-2945: an untouched old pace default is no choice (travel-settings.js § migratePaceDefaults).
+    const saved = migratePaceDefaults(JSON.parse(window.localStorage.getItem(SET_KEY) || '{}') ?? {});
     // T-2481: T-2473 kept the season in `streetTrees` ('summer' | 'spring' |
     // 'winter' | 'hidden'); it is now its own setting and the trees are shown or hidden.
     if (['summer', 'spring', 'winter'].includes(saved.streetTrees)) {
@@ -98,6 +108,8 @@ function readSettings() {
     // T-2727: the retired rule's key goes, and the switch is on only if it was turned on.
     delete saved.arriveChosen;
     saved.jauntsFollowChoice = jauntsFollowFrom(saved);
+    // T-2941: sound is off unless the visitor chose a level (settings-app.js § soundLevelsFrom).
+    Object.assign(saved, soundLevelsFrom(saved));
     return { ...DEFAULT_SETTINGS, ...saved };
   } catch { return { ...DEFAULT_SETTINGS }; }
 }
@@ -595,6 +607,8 @@ export function createHud({
   wireToggle('s-overview-map', 'overviewMap');
   wireToggle('s-street-names', 'streetNames');
   wireToggle('s-look-tag', 'lookTag');
+  wireSelect('s-look-tag-place', 'lookTagPlace', 'right');
+  wireSelect('s-look-tag-hold', 'lookTagHold', 'fade');
   // T-2741: the toggle names the scene's own year — "1904 / current street names" — not
   // the 1835 it said in every year.
   const streetNamesLabel = $('s-street-names-label');
