@@ -117,7 +117,7 @@ jobs:
         run: |
           set -euo pipefail
           ids="$(cat /tmp/era-studies/asset-ids.txt)"
-          python tools/check_human_hair.py --assets assets/humans | tee /tmp/era-studies/hair-container-contract.jsonl
+          python tools/check_human_hair.py --assets assets/humans --asset-ids "$ids" | tee /tmp/era-studies/hair-container-contract.jsonl
           NODE_PATH="$(npm root -g)" node tools/human_teamster.mjs --asset-ids "$ids" --masters --sole-contact --output /tmp/era-studies/source
           bash tools/publish.sh
           NODE_PATH="$(npm root -g)" node tools/human_teamster.mjs --asset-ids "$ids" --published --sole-contact --output /tmp/era-studies/published
