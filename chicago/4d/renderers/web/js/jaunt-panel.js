@@ -27,7 +27,6 @@ export function createJauntPanel({ destinations, actions }) {
     buttons[id] = button(label, () => id === 'next' ? goNext() : actions[id]()); buttons[id].dataset.action = id; controls.append(buttons[id]);
   }
   const mode = node('select'); mode.setAttribute('aria-label', 'Jaunt travel mode');
-  mode.title = 'Fly is a viewing convenience, not 1835 transport.';
   mode.addEventListener('change', () => actions.setMode(mode.value));
   const straight = button('Go straight to next stop', actions.straight); straight.dataset.action = 'straight';
   controls.prepend(mode, straight);
@@ -124,11 +123,15 @@ export function createJauntPanel({ destinations, actions }) {
     parent.append(chips);
   }
   function contextLines(parent) {
-    for (const line of state.context?.lines || []) {
-      if (line.generated) {
-        const row = node('p', line.text); row.append(node('small', ' [MAP] Reconstruction route', 'jaunt-map-note')); parent.append(row);
-      } else prose(parent, line.text, line.evidence, line.evidence?.every(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'));
+    const lines = state.context?.lines || [];
+    for (const line of lines) {
+      if (line.generated) parent.append(node('p', line.text));
+      else prose(parent, line.text, line.evidence, line.evidence?.every(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'));
     }
+    // T-2956: a "Passing …" note is read off this model's map, not from a period source.
+    // Said once, in words; "[MAP] Reconstruction route" after every line read like a
+    // label missing its text.
+    if (lines.some(line => line.generated)) parent.append(node('p', '[MAP] From the model’s map, not a historical source.', 'jaunt-map-note'));
   }
   function render(next) {
     const old = state;
@@ -159,7 +162,6 @@ export function createJauntPanel({ destinations, actions }) {
     if (state.estimate) {
       const eta = node('p', `${formatEstimate(state.estimate)} remaining`, 'jaunt-progress'); eta.dataset.jauntRemaining = ''; body.append(eta);
     }
-    if (state.mode === 'fly') body.append(node('p', 'Fly is a viewing convenience, not 1835 transport.', 'jaunt-progress'));
     const travelling = ['travelling', 'paused'].includes(state.phase) || (state.phase === 'detail' && ['travelling', 'paused'].includes(state.detailPhase));
     if (travelling) {
       body.append(node('p', state.phase === 'paused' ? 'Ride paused. Explore here, or resume when you are ready.' : state.error || 'On the way to the next stop…'));

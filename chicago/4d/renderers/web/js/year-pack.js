@@ -1,6 +1,6 @@
 /** T-2561 — keep a year on this device.
  *
- * The welcome's "Keep 1835 on this device" control. On a tap it registers the
+ * The welcome's small "Offline copy" control (quieted by T-2947). On a tap it registers the
  * site's service worker (`../sw.js`, scope `../`: see offline/sw.js) and
  * downloads the year's pack (`../packs/<year>.json`, written by
  * tools/write_year_packs.mjs) into Cache Storage, checking every file against
@@ -24,6 +24,7 @@ import { iconSvg } from './menu-icons.js';
 
 const MANIFEST = '__pack__.json';
 const PARALLEL = 6;
+const RETRY_MS = 8000;
 
 /** What an update has to fetch and what it can delete; `have` (the rels the cache holds) refetches
  *  an entry the browser evicted. tools/write_year_packs.mjs --self-test tests this function. */
@@ -64,15 +65,20 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
     return hex(await crypto.subtle.digest('SHA-256', bytes)).slice(0, 16);
   }
 
-  /** Download the year's pack, or the part of it that changed. Resolves to what it fetched. */
-  async function download({ onProgress = () => {} } = {}) {
-    const res = await fetch(url(`packs/${year}.json`), { cache: 'no-store' });
+  /** The published list. Cache-busted, so a CDN copy older than the files it lists cannot answer. */
+  async function publishedPack() {
+    const res = await fetch(url(`packs/${year}.json?t=${Date.now()}`), { cache: 'no-store' });
     if (!res.ok) throw new Error(`no pack for ${year} (${res.status})`);
-    const next = await res.json();
-    const cache = await caches.open(cacheName);
-    const old = await installedPack();
+    return res.json();
+  }
+
+  /** Fetch what `next` adds over the installed pack and over `put`, the files this download
+   *  already stored (rel -> hash), so a retry picks up where the last attempt stopped. */
+  async function fetchFiles(next, old, put, cache, onProgress) {
+    const base = new Map((old?.files || []).map(([rel, hash]) => [rel, hash]));
+    for (const [rel, hash] of put) base.set(rel, hash);
     const have = new Set((await cache.keys()).map((r) => decodeURIComponent(new URL(r.url).pathname.slice(root.pathname.length))));
-    const plan = planUpdate(old, next, have);
+    const plan = planUpdate({ files: [...base] }, next, have);
     const total = plan.fetch.reduce((s, f) => s + f[2], 0);
     let done = 0, bytes = 0, failed = null;
     const queue = plan.fetch.slice();
@@ -86,11 +92,12 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
           const got = await fetch(`${url(rel)}?c4d-pack=${hash}`, { cache: 'no-store' });
           if (!got.ok) throw new Error(`${rel}: ${got.status}`);
           const body = await got.arrayBuffer();
-          // A file that does not match its entry is a site mid-deploy: stop, keep
-          // the installed pack as it was, and let the next visit try again.
-          if (await digest(body) !== hash) throw new Error(`${rel} changed while downloading — the site is updating`);
+          // A file that does not match its entry is a site mid-deploy: stop, and let
+          // download() read the list again.
+          if (await digest(body) !== hash) throw Object.assign(new Error(`${rel} changed while downloading`), { stale: true, rel });
           await cache.put(url(rel), new Response(body, { headers: {
             'content-type': got.headers.get('content-type') || 'application/octet-stream' } }));
+          put.set(rel, hash);
           done += 1; bytes += size;
           onProgress({ done, count: plan.fetch.length, bytes, total });
         } catch (e) { failed = e; }
@@ -98,12 +105,37 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
     }
     await Promise.all(Array.from({ length: PARALLEL }, worker));
     if (failed) throw failed;
+    return { plan, total };
+  }
+
+  /** Download the year's pack, or the part of it that changed. Resolves to what it fetched.
+   *  T-2947: a deploy that lands mid-download changes files under it. The list is read
+   *  again and the download carries on from what it already holds: a new list is followed
+   *  at once, the same list is given a moment for the CDN to catch up. Three tries. */
+  async function download({ onProgress = () => {} } = {}) {
+    const cache = await caches.open(cacheName);
+    const old = await installedPack();
+    const put = new Map();
+    let next = await publishedPack();
+    let got = null;
+    for (let attempt = 1; !got; attempt += 1) {
+      try {
+        got = await fetchFiles(next, old, put, cache, onProgress);
+      } catch (e) {
+        if (!e.stale) throw e;
+        if (attempt >= 3) throw new Error('the site is mid-update; try again in a few minutes');
+        const again = await publishedPack();
+        if (again.id === next.id) await new Promise((r) => setTimeout(r, RETRY_MS));
+        next = again;
+      }
+    }
+    const { plan, total } = got;
     for (const rel of plan.drop) await cache.delete(url(rel));
     // The pack's list goes in LAST: the worker serves nothing of a year until it is complete.
     await cache.put(url(MANIFEST), new Response(JSON.stringify(next), { headers: { 'content-type': 'application/json' } }));
     await tellWorker();
     state.installed = { id: next.id, count: next.count, bytes: next.bytes };
-    state.last = { fetched: plan.fetch.length, fetchedBytes: total, dropped: plan.drop.length, id: next.id };
+    state.last = { fetched: put.size, fetchedBytes: total, dropped: plan.drop.length, id: next.id };
     return state.last;
   }
 
@@ -132,6 +164,7 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
 
   async function install() {
     if (!supported || busy) return busy;
+    if (state.status === 'kept') return state.last;
     state.status = 'downloading'; state.error = null; render({ done: 0, bytes: 0, total: state.published?.bytes || 0 });
     busy = (async () => {
       try {
@@ -149,43 +182,65 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
   }
 
   // ---- the control on the welcome ------------------------------------------------
-  let button = null, note = null, bar = null, drop = null;
+  // T-2947: one small mono line, not a button that shouts. Tapping it opens a short
+  // explanation with the download in it (the phone has no hover for a tooltip), so
+  // 238 MB never starts from a stray tap.
+  let toggle = null, info = null, note = null, keep = null, drop = null, bar = null;
   function build() {
     mount.replaceChildren();
-    button = document.createElement('button');
-    button.type = 'button'; button.className = 'welcome-pack-keep';
-    button.addEventListener('click', () => (state.status === 'kept' ? null : install()));
-    note = document.createElement('span'); note.className = 'welcome-pack-note';
-    bar = document.createElement('i'); bar.className = 'welcome-pack-bar'; bar.setAttribute('aria-hidden', 'true');
+    toggle = document.createElement('button');
+    toggle.type = 'button'; toggle.className = 'welcome-pack-toggle';
+    toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-controls', 'welcome-pack-info');
+    toggle.addEventListener('click', () => {
+      info.hidden = !info.hidden;
+      toggle.setAttribute('aria-expanded', String(!info.hidden));
+    });
+    info = document.createElement('div');
+    info.id = 'welcome-pack-info'; info.className = 'welcome-pack-info'; info.hidden = true;
+    note = document.createElement('p'); note.className = 'welcome-pack-note';
+    keep = document.createElement('button');
+    keep.type = 'button'; keep.className = 'welcome-pack-keep';
+    keep.addEventListener('click', () => { void install(); });
     drop = document.createElement('button');
     drop.type = 'button'; drop.className = 'welcome-pack-remove'; drop.textContent = 'Remove';
     drop.addEventListener('click', () => { void remove(); });
-    mount.append(button, note, drop, bar);
+    bar = document.createElement('i'); bar.className = 'welcome-pack-bar'; bar.setAttribute('aria-hidden', 'true');
+    info.append(note, keep, drop, bar);
+    mount.append(toggle, info);
   }
   function render(progress) {
-    if (!button) return;
-    const size = state.published ? ` · ${mb(state.published.bytes)}` : '';
+    if (!toggle) return;
+    const size = state.published ? mb(state.published.bytes) : '';
     const s = state.status;
     mount.dataset.state = s;
-    button.disabled = s === 'downloading' || s === 'kept';
+    keep.hidden = s === 'downloading' || s === 'kept';
     drop.hidden = s !== 'kept';
+    let line, tip;
     if (s === 'downloading') {
       const p = progress || {};
       const frac = p.total ? Math.min(1, p.bytes / p.total) : 0;
-      button.innerHTML = `${iconSvg('keep', 18)}<span>Keeping ${year} on this device…</span>`;
-      note.textContent = p.total ? `${Math.round(frac * 100)} % · ${mb(p.bytes)} of ${mb(p.total)}` : 'Starting…';
+      line = `Offline copy · ${Math.round(frac * 100)} %`;
+      tip = `Saving ${year} on this device`;
+      note.textContent = p.total ? `Saving ${year}: ${mb(p.bytes)} of ${mb(p.total)}. Keep this page open.` : `Saving ${year}…`;
       bar.style.setProperty('--f', String(frac));
     } else if (s === 'kept') {
-      button.innerHTML = `${iconSvg('kept', 18)}<span>${year} is on this device</span>`;
-      note.textContent = 'Opens offline';
+      line = 'Offline copy · kept';
+      tip = `${year} is on this device and opens offline`;
+      note.textContent = `${year} is on this device and opens with no connection. Updates fetch only what changed.`;
     } else if (s === 'error') {
-      button.innerHTML = `${iconSvg('keep', 18)}<span>Keep ${year} on this device${size}</span>`;
-      note.textContent = `Download stopped: ${state.error}. Tap to try again.`;
-      button.disabled = false;
+      line = 'Offline copy · stopped';
+      tip = `The offline copy stopped: ${state.error}`;
+      note.textContent = `Stopped: ${state.error}.`;
+      keep.textContent = 'Try again';
     } else {
-      button.innerHTML = `${iconSvg('keep', 18)}<span>Keep ${year} on this device${size}</span>`;
-      note.textContent = 'Downloads the year so it opens fast, even offline.';
+      line = 'Offline copy';
+      tip = `Keep ${year} on this device${size ? ` (${size})` : ''} so it opens with no connection`;
+      note.textContent = `Saves ${year}${size ? ` (${size})` : ''} on this device so it opens with no connection. `
+        + 'The browser\'s own cache can be cleared at any time; this copy stays until you remove it.';
+      keep.textContent = size ? `Download ${size}` : 'Download';
     }
+    toggle.innerHTML = `${iconSvg(s === 'kept' ? 'kept' : 'keep', 14)}<span>${line}</span>`;
+    toggle.title = tip;
     mount.hidden = false;
   }
 

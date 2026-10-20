@@ -24,6 +24,17 @@
  * moved STEP_M, never per frame. Every instance is culled by three per stem in
  * the view and the sun.
  *
+ * T-2948 — A LEVEL CHANGE DISSOLVES, IT DOES NOT SNAP. With `fadeS` (the parkway
+ * elms', street-trees.js) a stem changing level or set is drawn at both for that
+ * many seconds, the old one dithered out as the new one is dithered in on the
+ * same screen pattern (`patchFade`), so a crown's leaves thicken and its shadow
+ * comes and goes over a few frames instead of in one. Each set holds a second,
+ * GHOST instance per stem for the level going out. A stem stays at its finer
+ * level HYSTERESIS_M past a ring's edge, so a visitor standing on the edge does
+ * not set it flickering, and a jump (a teleport, a Jump in time) settles at once.
+ * With `castFar` the far set casts too, with its coarse crowns, out to the sun's
+ * own box: the owner saw the street's shade end 32 m ahead and pop in as he walked.
+ *
  * Positions, species, heights and the density are the planters' (`trees.js`),
  * unchanged; this file decides only how a stem is drawn.
  */
@@ -44,6 +55,10 @@ const LEVELS = {
  *  (world.js), and a far tree's shadow is a few pixels of dapple. */
 const SHADOW_M = { full: 150, balanced: 120, light: 80 };
 const STEP_M = 4;
+/** T-2948: how far past a ring's edge a stem keeps its finer level and set, and
+ *  how far the eye must move between two updates for it to be a jump (no fade). */
+const HYSTERESIS_M = 3;
+const JUMP_M = 40;
 /**
  * T-2808 — SMALL STEMS ARE NOT DRAWN WHERE THEY ARE A FEW PIXELS. With `cull`
  * (the timber's own; the 1904 street elms do not ask), a stem is hidden past
@@ -90,8 +105,11 @@ function archetypeKey(spec) {
  * place of trees.js `addTree` for every tree-form stem.
  */
 export class TreeInstances {
-  constructor({ level = 'full', shadowM = null, variants = null, name = 'timber', levels = null, cull = false } = {}) {
+  constructor({ level = 'full', shadowM = null, variants = null, name = 'timber', levels = null, cull = false,
+    fadeS = 0, castFar = false } = {}) {
     this.name = name;
+    this.fadeS = fadeS;
+    this.castFar = castFar;
     this.level = LEVELS[level] ? level : 'full';
     this.cullPerM = cull ? CULL_PER_M[this.level] : Infinity;
     this.dist = levels?.[this.level] ?? LEVELS[this.level];
@@ -137,7 +155,7 @@ export class TreeInstances {
     group.name = grownGroupName(this.name);
     const stats = { stems: this.stems.length, archetypes: this.kinds.size, variants: 0,
       triangles: 0, templateTriangles: 0, near: 0, mid: 0, far: 0, shade: 0, drawCalls: 0 };
-    if (!this.stems.length) return { group, stats, update() {}, dispose() {} };
+    if (!this.stems.length) return { group, stats, update() {}, settle() {}, dispose() {} };
     const t0 = performance.now();
     let paused = 0;
 
@@ -191,12 +209,15 @@ export class TreeInstances {
       sizes[set] = s;
     }
     const n = this.stems.length;
+    const fading = this.fadeS > 0;
+    const castFar = this.castFar;
     const make = (set, part, mat, depth, distance) => {
       const [vc, ic] = sizes[set][part];
-      const b = new THREE.BatchedMesh(n, Math.max(3, vc), Math.max(3, ic), mat);
+      // T-2948: a fading wood holds a ghost instance per stem beside its own.
+      const b = new THREE.BatchedMesh(fading ? 2 * n : n, Math.max(3, vc), Math.max(3, ic), mat);
       b.name = `${this.name}-${set}-${part}`;
       b.sortObjects = false;
-      b.castShadow = set === 'shade';
+      b.castShadow = set === 'shade' || castFar;
       b.receiveShadow = true;
       if (depth) b.customDepthMaterial = depth;
       if (distance) b.customDistanceMaterial = distance;
@@ -205,8 +226,23 @@ export class TreeInstances {
     const batches = {
       shade: { wood: make('shade', 'wood', woodMat, woodDepth, woodDistance),
         leaves: make('shade', 'leaves', leafMat, leafDepth, leafDistance) },
-      far: { wood: make('far', 'wood', woodMat, null, null),
-        leaves: make('far', 'leaves', leafMat, null, null) },
+      far: { wood: make('far', 'wood', woodMat, castFar ? woodDepth : null, castFar ? woodDistance : null),
+        leaves: make('far', 'leaves', leafMat, castFar ? leafDepth : null, castFar ? leafDistance : null) },
+    };
+    // A stem's instance pair (wood and leaves) in one set: shown, given a level,
+    // given a fade (1 whole; 0..1 coming in; -1..0 going out, see patchFade).
+    const show = (p, set, on) => {
+      batches[set].wood.setVisibleAt(p.wood, on);
+      batches[set].leaves.setVisibleAt(p.leaves, on);
+    };
+    const shape = (p, set, v, l) => {
+      batches[set].wood.setGeometryIdAt(p.wood, v.ids[set][l].wood);
+      batches[set].leaves.setGeometryIdAt(p.leaves, v.ids[set][l].leaves);
+    };
+    const fadeTo = (p, set, a) => {
+      _fade.set(1, 1, 1, a);
+      batches[set].wood.setColorAt(p.wood, _fade);
+      batches[set].leaves.setColorAt(p.leaves, _fade);
     };
     for (const [set, lv] of Object.entries(sets)) {
       for (const kind of this.kinds.values()) {
@@ -253,21 +289,34 @@ export class TreeInstances {
       scl.set(w, k, w);
       m.compose(pos, q, scl);
       s.inst = {};
+      s.ghost = fading ? {} : null;
       for (const set of ['shade', 'far']) {
         const l = sets[set][sets[set].length - 1];
-        s.inst[set] = {
-          wood: batches[set].wood.addInstance(v.ids[set][l].wood),
-          leaves: batches[set].leaves.addInstance(v.ids[set][l].leaves),
+        const pair = () => {
+          const p = {
+            wood: batches[set].wood.addInstance(v.ids[set][l].wood),
+            leaves: batches[set].leaves.addInstance(v.ids[set][l].leaves),
+          };
+          batches[set].wood.setMatrixAt(p.wood, m);
+          batches[set].leaves.setMatrixAt(p.leaves, m);
+          return p;
         };
-        batches[set].wood.setMatrixAt(s.inst[set].wood, m);
-        batches[set].leaves.setMatrixAt(s.inst[set].leaves, m);
+        s.inst[set] = pair();
+        if (fading) {
+          s.ghost[set] = pair();
+          show(s.ghost[set], set, false);
+        }
       }
-      batches.shade.wood.setVisibleAt(s.inst.shade.wood, false);
-      batches.shade.leaves.setVisibleAt(s.inst.shade.leaves, false);
+      show(s.inst.shade, 'shade', false);
       s.level = sets.far[sets.far.length - 1];
       s.shade = false;
+      s.fade = null;
       // A re-build (trees.js setSeason, T-2864) starts every stem drawn, so none is culled yet.
       s.culled = false;
+    }
+    // Every instance's fade starts whole (three fills a new colour texture with 1).
+    if (fading) {
+      for (const set of Object.values(batches)) for (const b of Object.values(set)) b.setColorAt(0, WHOLE);
     }
     for (const set of Object.values(batches)) {
       for (const b of Object.values(set)) {
@@ -291,10 +340,67 @@ export class TreeInstances {
     const shadeM = this.shadowM;
     const cullPerM = this.cullPerM;
     const distantM = this.distantM;
+    const fadeS = this.fadeS;
+    const hyst = fading ? HYSTERESIS_M : 0;
+    const levelAt = (d) => (d <= dist.near ? 'near' : d <= dist.mid ? 'mid' : d <= distantM ? 'far' : 'distant');
+    // T-2948: the stems dissolving from one level (or set) to another.
+    const live = new Set();
+    const settle = (s) => {
+      const f = s.fade;
+      show(f.out, f.outSet, false);
+      fadeTo(f.out, f.outSet, 1);
+      fadeTo(s.inst[f.inSet], f.inSet, 1);
+      s.fade = null;
+      live.delete(s);
+    };
+    const settleAll = () => { for (const s of live) settle(s); stats.fading = 0; };
+    /** Draw a stem at `want` in the shade set or the far set, at once or dissolving. */
+    const move = (s, shade, want, smooth) => {
+      const from = s.shade ? 'shade' : 'far';
+      const to = shade ? 'shade' : 'far';
+      if (s.fade) settle(s);
+      if (!smooth || s.level == null) {
+        if (from !== to) { show(s.inst[from], from, false); show(s.inst[to], to, true); }
+        shape(s.inst[to], to, s.v, want);
+      } else if (from !== to) {
+        // The other set's own instance comes in; this set's goes out where it is.
+        shape(s.inst[to], to, s.v, want);
+        fadeTo(s.inst[to], to, 0);
+        show(s.inst[to], to, true);
+        fadeTo(s.inst[from], from, -1);
+        s.fade = { t: 0, inSet: to, out: s.inst[from], outSet: from };
+      } else {
+        // The same set: its ghost takes the old level out while the stem's own
+        // instance brings the new one in.
+        const g = s.ghost[to];
+        shape(g, to, s.v, s.level);
+        fadeTo(g, to, -1);
+        show(g, to, true);
+        shape(s.inst[to], to, s.v, want);
+        fadeTo(s.inst[to], to, 0);
+        s.fade = { t: 0, inSet: to, out: g, outSet: to };
+      }
+      s.shade = shade;
+      s.level = want;
+      if (s.fade) live.add(s);
+    };
     let at = null;
-    const update = (eye) => {
+    const update = (eye, dt = 0) => {
       if (!eye) return;
+      if (live.size && dt > 0) {
+        for (const s of live) {
+          const f = s.fade;
+          f.t += dt / fadeS;
+          if (f.t >= 1) { settle(s); continue; }
+          fadeTo(s.inst[f.inSet], f.inSet, f.t);
+          fadeTo(f.out, f.outSet, f.t - 1);
+        }
+        stats.fading = live.size;
+      }
       if (at && (at.x - eye.x) ** 2 + (at.z - eye.z) ** 2 < STEP_M * STEP_M) return;
+      // A jump (the first look, a teleport, a Jump) is drawn as it stands, no dissolve.
+      const smooth = fading && !!at && (at.x - eye.x) ** 2 + (at.z - eye.z) ** 2 < JUMP_M * JUMP_M;
+      if (!smooth) settleAll();
       at = { x: eye.x, z: eye.z };
       let t = 0; let nn = 0; let nm = 0; let nf = 0; let nd = 0; let ns = 0; let nc = 0;
       for (const s of this.stems) {
@@ -302,60 +408,49 @@ export class TreeInstances {
         // `lodK` (T-2833): a stem the caller marks as background takes its levels and
         // its shadow as if it stood that many times further off.
         const d = Math.sqrt(dx * dx + dz * dz) * s.lodK;
-        const shade = d <= shadeM;
+        // T-2948: a stem keeps its finer set and level `hyst` past the ring's edge.
+        const shade = d <= shadeM || (s.shade && d <= shadeM + hyst);
         // Too small to see from here (CULL_PER_M): hidden in both sets.
         if (d > s.h * cullPerM) {
           if (!s.culled) {
-            for (const set of ['shade', 'far']) {
-              batches[set].wood.setVisibleAt(s.inst[set].wood, false);
-              batches[set].leaves.setVisibleAt(s.inst[set].leaves, false);
-            }
+            if (s.fade) settle(s);
+            for (const set of ['shade', 'far']) show(s.inst[set], set, false);
             s.culled = true;
           }
           nc++;
           continue;
         }
         if (s.culled) {
-          batches.shade.wood.setVisibleAt(s.inst.shade.wood, shade);
-          batches.shade.leaves.setVisibleAt(s.inst.shade.leaves, shade);
-          batches.far.wood.setVisibleAt(s.inst.far.wood, !shade);
-          batches.far.leaves.setVisibleAt(s.inst.far.leaves, !shade);
+          show(s.inst.shade, 'shade', shade);
+          show(s.inst.far, 'far', !shade);
           s.shade = shade;
           s.level = null;
           s.culled = false;
         }
-        const level = d <= dist.near ? 'near' : d <= dist.mid ? 'mid' : d <= distantM ? 'far' : 'distant';
-        if (shade !== s.shade) {
-          batches.shade.wood.setVisibleAt(s.inst.shade.wood, shade);
-          batches.shade.leaves.setVisibleAt(s.inst.shade.leaves, shade);
-          batches.far.wood.setVisibleAt(s.inst.far.wood, !shade);
-          batches.far.leaves.setVisibleAt(s.inst.far.leaves, !shade);
-          s.shade = shade;
-          s.level = null;
-        }
+        let level = levelAt(d);
+        if (hyst && s.level && ORDER[level] > ORDER[s.level]) level = levelAt(Math.max(0, d - hyst));
         // The nearest level the set holds to the one wanted (see `sets`).
         const want = nearestLevel(sets[shade ? 'shade' : 'far'], level);
-        if (want !== s.level) {
-          const set = shade ? 'shade' : 'far';
-          batches[set].wood.setGeometryIdAt(s.inst[set].wood, s.v.ids[set][want].wood);
-          batches[set].leaves.setGeometryIdAt(s.inst[set].leaves, s.v.ids[set][want].leaves);
-          s.level = want;
-        }
+        if (shade !== s.shade || want !== s.level) move(s, shade, want, smooth);
         t += s.v.tris[want] * 1;
         if (want === 'near') nn++; else if (want === 'mid') nm++; else if (want === 'far') nf++; else nd++;
         if (shade) ns++;
       }
       stats.triangles = Math.round(t);
       stats.near = nn; stats.mid = nm; stats.far = nf; stats.shade = ns; stats.culled = nc; stats.distant = nd;
+      stats.fading = live.size;
     };
     const dispose = () => {
+      live.clear();
       for (const set of Object.values(batches)) for (const b of Object.values(set)) { group.remove(b); b.dispose(); }
     };
-    return { group, stats, update, dispose, batches };
+    return { group, stats, update, settle: settleAll, dispose, batches };
   }
 }
 
 const ORDER = { near: 0, mid: 1, far: 2, distant: 3 };
+const WHOLE = new THREE.Vector4(1, 1, 1, 1);
+const _fade = new THREE.Vector4();
 function nearestLevel(held, level) {
   let best = held[0];
   for (const l of held) if (Math.abs(ORDER[l] - ORDER[level]) < Math.abs(ORDER[best] - ORDER[level])) best = l;
@@ -375,7 +470,7 @@ function hashString(s) {
  * skylight transmitted through the blade. Both sway with the trees.js wind.
  */
 export async function createGrownTreeMaterials({ assetBase, uWind, confidence = null, patchWind, lowSpec = false,
-  alphaCutoff = 0.5, problems = [] }) {
+  alphaCutoff = 0.5, problems = [], fade = false }) {
   const base = new URL('textures/trees/', assetBase);
   // A phone takes each atlas at half size: a quarter of the GPU memory, and the
   // level it would sample from a crown a few metres off on a 390-px screen anyway
@@ -432,6 +527,7 @@ export async function createGrownTreeMaterials({ assetBase, uWind, confidence = 
   leafMat.name = 'timber-leaves';
   patchWind(woodMat, uWind);
   patchLeaves(leafMat, uWind, patchWind);
+  if (fade) { patchFade(woodMat); patchFade(leafMat); }
   confidence?.patch(woodMat);
   confidence?.patch(leafMat);
   const leafDepth = new THREE.MeshDepthMaterial({ map: leafA, alphaTest: alphaCutoff, side: THREE.DoubleSide,
@@ -441,6 +537,7 @@ export async function createGrownTreeMaterials({ assetBase, uWind, confidence = 
   const woodDistance = new THREE.MeshDistanceMaterial();
   for (const mm of [leafDepth, leafDistance, woodDepth, woodDistance]) {
     patchWind(mm, uWind);
+    if (fade) patchFade(mm);
     confidence?.patch(mm);
   }
   return {
@@ -465,6 +562,45 @@ reflectedLight.indirectDiffuse += diffuseColor.rgb * 0.22;
 `);
   };
   material.customProgramCacheKey = () => 'grown-tree-leaves-t2743';
+}
+
+/**
+ * T-2948 — THE DISSOLVE. A fading wood (`TreeInstances` with `fadeS`) writes each
+ * instance's fade into the alpha of its batch colour: 1 whole, 0..1 the share of a
+ * level coming in, -1..0 (minus) the share of one going out. A fragment is kept by
+ * one screen-space noise against that share, coming in below it and going out
+ * above it, so the two levels of one stem cover the screen between them and never
+ * both. The batch colour's alpha is taken off the surface colour, so the leaves'
+ * alpha test sees only the leaf. Without a colour texture (a wood that does not
+ * fade) every fragment is whole. The shadow materials take it too, so a crown's
+ * shadow dissolves with the crown.
+ */
+function patchFade(material) {
+  const prior = material.onBeforeCompile;
+  const isDefaultKey = material.customProgramCacheKey === THREE.Material.prototype.customProgramCacheKey;
+  const priorKey = isDefaultKey ? String(prior) : material.customProgramCacheKey();
+  material.onBeforeCompile = (shader, r) => {
+    prior.call(material, shader, r);
+    shader.vertexShader = 'varying float vTreeFade;\n' + shader.vertexShader
+      .replace('#include <color_vertex>', `#include <color_vertex>
+#ifdef USE_BATCHING_COLOR
+vColor.a = 1.0;
+#endif`)
+      .replace('#include <project_vertex>', `#include <project_vertex>
+#ifdef USE_BATCHING_COLOR
+vTreeFade = getBatchingColor( getIndirectIndex( gl_DrawID ) ).a;
+#else
+vTreeFade = 1.0;
+#endif`);
+    shader.fragmentShader = `varying float vTreeFade;
+float chiTreeNoise(vec2 p) { return fract(52.9829189 * fract(dot(p, vec2(0.06711056, 0.00583715)))); }
+` + shader.fragmentShader.replace('void main() {', `void main() {
+if (vTreeFade < 1.0) {
+  float chiN = chiTreeNoise(gl_FragCoord.xy);
+  if (vTreeFade < 0.0 ? chiN < 1.0 + vTreeFade : chiN >= vTreeFade) discard;
+}`);
+  };
+  material.customProgramCacheKey = () => `${priorKey}|tree-fade-t2948`;
 }
 
 export { archFor };

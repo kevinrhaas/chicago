@@ -50,7 +50,7 @@ export function moveView(settings = {}, { flying = false } = {}) {
   const value = speedOf(pace, settings);
   const cap = formatSpeed(p.maxSpeed, settings.units);
   const note = mode === 'fly'
-    ? 'Flying is a way of seeing the town, not a way anyone got about. The higher you are, the faster you go.'
+    ? 'The higher you are, the faster you go.'
     : p.sprintFactor > 1
       ? `Shift hurries you: ×${p.sprintFactor}, never past the slider's top of ${cap}.`
       : `A wagon has no faster gear: Shift does nothing, and the slider tops out at ${cap}.`;
