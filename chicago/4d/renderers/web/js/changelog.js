@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2135, ts: '2026-10-20T18:38:14.422Z', date: 'Oct 20, 2026, 1:38 PM CT', title: 'Road notes say once that they come from the model\'s map', kind: 'fix',
+    items: [
+      'Each "Passing …" road note used to end in "[MAP] Reconstruction route", which read like a label missing its text.',
+      'The notes now close with one line: "[MAP] From the model\'s map, not a historical source."',
+    ] },
   { v: 2134, ts: '2026-10-20T17:48:18.654Z', date: 'Oct 20, 2026, 12:48 PM CT', title: 'Nothing you can see changed: related tickets ship together, filed by kind', kind: 'chore',
     items: [
       'A run can now claim up to five related tickets at once and ship them in a single pull request, so fewer, larger changes land in the town.',
