@@ -3288,6 +3288,10 @@ DERIVED_DOCUMENTS = [
             "not_modelled.dossier_zone": "the terrain dossier's zone number, a pointer "
                                          "into a file no visitor has; `why` says it in "
                                          "words",
+            "work_refs": "the work records (ticket numbers) the prose named, taken out of every sentence by tools/readable_text.py (T-2825) and kept for Researcher mode's link behind plain words; never printed as text",
+            "claims.work_refs": "as `work_refs`",
+            "context.work_refs": "as `work_refs`",
+            "not_modelled.work_refs": "as `work_refs`",
         },
     },
     {
@@ -3297,17 +3301,22 @@ DERIVED_DOCUMENTS = [
         "internal": {
             "scene": "as above — the id this file was fetched by",
             "target_date": "as above",
+            "excluded.work_refs": "the work records (ticket numbers) the prose named, taken out of "
+                                  "every sentence by tools/readable_text.py (T-2825) and kept for "
+                                  "Researcher mode's link behind plain words; never printed as text",
+            "uncertain.work_refs": "as `work_refs`",
         },
     },
     {
         "doc": "liberties.json",
         "module": "renderers/web/js/liberties.js",
         "roots": {"doc": "", "lib": "liberties", "f": "liberties.fields",
-                  "c": "liberties.covers"},
+                  "c": "liberties.covers", "nm": "names"},
         "internal": {
             "_doc": "the do-not-hand-edit banner, addressed to whoever opens the file",
             "source": "docs/LIBERTIES.md, the path the list was derived from",
             "count": "the length of the list the visitor is already scrolling",
+            "liberties.work_refs": "the work records (ticket numbers) the prose named, taken out of every sentence by tools/readable_text.py (T-2825) and kept for Researcher mode's link behind plain words; never printed as text",
             "liberties.scope.enumeration": "which derived population a `Scope:` "
                 "entry admits to, as the key tools/compile_liberties.py re-counts "
                 "it by; the visitor reads the field's own prose, which names the "

@@ -1237,9 +1237,46 @@ class Layer:
         self.pools = pools()
 
 
+_NAMES = None
+
+
+def reader_sections(sections: list) -> list:
+    """The sections as js/population.js prints them, said for a reader (T-2825): no ticket
+    number, record id or file path in a title, lead, note, header or cell. The owner,
+    2026-10-18: "rewrite the records so you are not referring to internal ticket numbers or
+    internal record ids in researcher or educator mode." A household is named by its own
+    card's name; the tickets a section named are kept on it as `work_refs`."""
+    global _NAMES
+    import readable_text
+    if _NAMES is None:
+        _NAMES = readable_text.Names(ROOT)
+
+    def say(text, refs):
+        if not isinstance(text, str):
+            return text
+        new, r = readable_text.rewrite(text, _NAMES)
+        refs.extend(x for x in r if x not in refs)
+        return new
+
+    for section in sections:
+        refs = []
+        for key in ("title", "lead"):
+            section[key] = say(section.get(key), refs)
+        section["notes"] = [say(n, refs) for n in section.get("notes") or []]
+        for t in section.get("tables") or []:
+            for key in ("title", "note"):
+                if key in t:
+                    t[key] = say(t[key], refs)
+            t["headers"] = [say(h, refs) for h in t.get("headers") or []]
+            t["rows"] = [[say(c, refs) for c in row] for row in t.get("rows") or []]
+        if refs:
+            section["work_refs"] = refs
+    return sections
+
+
 def build() -> dict:
     layer = Layer()
-    sections = [fn(layer) for _, fn in SECTIONS]
+    sections = reader_sections([fn(layer) for _, fn in SECTIONS])
     grades = Counter(p["grade"] for _, p in layer.people)
     sexed = sum(1 for _, p in layer.people
                 if sex_of(p, *layer.pools)[0] is not None)

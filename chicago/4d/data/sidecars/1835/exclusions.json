@@ -7,7 +7,7 @@
       "id": "travellers_home",
       "name": "The Traveller's Home (Chester Ingersoll's house)",
       "reason": "NOT A SEPARATE BUILDING — it is the Wolf Point Tavern under a new landlord's sign. An identity guard, not a date guard.",
-      "detail": "The Chicago Democrat of 26 November 1833 carries, dated Oct. 4, 1833: 'TRAVELLER'S HOME. KEPT BY CHESTER INGERSOLL, Chicago--Illinois. The subscriber has taken that noted Tavern Stand in Chicago, lately occupied by Mr. Wm. W. Wattles...' Andreas names the same house three times: 'In 1833, the house again changed hands, William W. Wattles becoming its proprietor and landlord. In November, he sold out to Chester Ingersoll, who ran it an uncertain length of time, first as the \"Traveller's Home,\" and afterward as the Western Stage House. It went out of sight as a hotel in 1834' (p. 632, of the old Wolf Hotel); 'The old Wolf Point Tavern, formerly kept by Caldwell & Wentworth, then by Chester Ingersoll, who had re-christened it \"The Travelers' Home\"' — the fall-1833 inventory of the town's four hotels, which names the Green Tree SEPARATELY in the same sentence, ruling it out; and 'the Travelers' Home, a hotel kept by Chester Ingersoll, on Wolf Point, during June, 1834'. data/structures/wolf_point_tavern.json already carries 'Travelers' Home' in its aka list. TWO DOSSIER CLAIMS MOVE A YEAR: the renaming is 1833, not post-1834, and 'William Walters, landlord 1833-1836' is William W. WATTLES, who sold out in November 1833. See docs/RESEARCH/travellers_home.md.",
+      "detail": "The Chicago Democrat of 26 November 1833 carries, dated Oct. 4, 1833: 'TRAVELLER'S HOME. KEPT BY CHESTER INGERSOLL, Chicago--Illinois. The subscriber has taken that noted Tavern Stand in Chicago, lately occupied by Mr. Wm. W. Wattles...' Andreas names the same house three times: 'In 1833, the house again changed hands, William W. Wattles becoming its proprietor and landlord. In November, he sold out to Chester Ingersoll, who ran it an uncertain length of time, first as the \"Traveller's Home,\" and afterward as the Western Stage House. It went out of sight as a hotel in 1834' (p. 632, of the old Wolf Hotel); 'The old Wolf Point Tavern, formerly kept by Caldwell & Wentworth, then by Chester Ingersoll, who had re-christened it \"The Travelers' Home\"' — the fall-1833 inventory of the town's four hotels, which names the Green Tree SEPARATELY in the same sentence, ruling it out; and 'the Travelers' Home, a hotel kept by Chester Ingersoll, on Wolf Point, during June, 1834'. the record of Wolf Point Tavern already carries 'Travelers' Home' in its aka list. TWO DOSSIER CLAIMS MOVE A YEAR: the renaming is 1833, not post-1834, and 'William Walters, landlord 1833-1836' is William W. WATTLES, who sold out in November 1833. See the research notes on travellers home.",
       "earliest_scene": null,
       "citations": [
         {
@@ -31,7 +31,7 @@
             "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
             "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
             "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
-            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers... past favors')",
             "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
             "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
             "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
@@ -176,7 +176,7 @@
     {
       "id": "frink_walker_stage_office",
       "name": "Frink & Walker stage office",
-      "reason": "By August 1836 stage seats were taken at Markle's Exchange Coffee House at Lake and Wells — Andreas dates that advertisement to the Chicago American of 6 August 1836, THIRTEEN MONTHS after the scene date. Where seats were taken in 1835 is unattested; this file and docs/research/04-structures-south.md both said '1835-36' and neither should have. The guard holds on its own ground: no separate stage-office BUILDING is attested before the 1840s.",
+      "reason": "By August 1836 stage seats were taken at Markle's Exchange Coffee House at Lake and Wells — Andreas dates that advertisement to the Chicago American of 6 August 1836, THIRTEEN MONTHS after the scene date. Where seats were taken in 1835 is unattested; this file and the research notes on structures south both said '1835-36' and neither should have. The guard holds on its own ground: no separate stage-office BUILDING is attested before the 1840s.",
       "detail": "",
       "earliest_scene": "1840",
       "citations": [
@@ -211,7 +211,7 @@
       "id": "north_pier_lighthouse",
       "name": "Pier-head light at the end of the North Pier",
       "reason": "A later structure; the skeletal iron pier light dates to 1859.",
-      "detail": "The light standing in 1835 is the second tower, forty feet high, begun and completed by Samuel Jackson in 1832 and modelled as data/structures/chicago_lighthouse_1832.json. Do not put a light on the pier. AMENDED 2026-08-11: this entry previously called that tower 'the 1832 conical masonry tower' on Andreas's authority. Andreas's sentence gives the 1832 tower a height, a builder and a reflector and no shape and no material; 'The walls were three feet thick' and the fifty-foot height in the same paragraph belong to the FIRST tower, which fell unfinished on 30 October 1831. An exclusion should guard a boundary, not carry an attribution its sources do not support on the way past.",
+      "detail": "The light standing in 1835 is the second tower, forty feet high, begun and completed by Samuel Jackson in 1832 and modelled as the record of Chicago Lighthouse (1832 tower). Do not put a light on the pier. AMENDED 2026-08-11: this entry previously called that tower 'the 1832 conical masonry tower' on Andreas's authority. Andreas's sentence gives the 1832 tower a height, a builder and a reflector and no shape and no material; 'The walls were three feet thick' and the fifty-foot height in the same paragraph belong to the FIRST tower, which fell unfinished on 30 October 1831. An exclusion should guard a boundary, not carry an attribution its sources do not support on the way past.",
       "earliest_scene": "1860",
       "citations": [
         {
@@ -253,7 +253,7 @@
       "id": "kinzie_house",
       "name": "John Kinzie House (the old Kinzie mansion)",
       "reason": "GONE by the scene date — documented absence, not a date guard.",
-      "detail": "The du Sable/Kinzie house on the north bank opposite the fort was unoccupied and 'dilapidated beyond repair' from 1832 and reported gone by 1835. The commemorative plaque dates it 1784-1832. Note that the Conley/Stelzer 1933 map labels it 'Old Kinzie Mansion, built 1832', which contradicts every documentary source — a good illustration of why a tier-5 reconstruction is never sole evidence. The two large cottonwoods behind the house are separately attested and one survived into the 20th century, so the TREES belong in the 1835 scene even though the house does not.",
+      "detail": "The du Sable/Kinzie house on the north bank opposite the fort was unoccupied and 'dilapidated beyond repair' from 1832 and reported gone by 1835. The commemorative plaque dates it 1784-1832. Note that the Conley/Stelzer 1933 map labels it 'Old Kinzie Mansion, built 1832', which contradicts every documentary source — a good illustration of why a reconstruction (a modern reconstruction) is never sole evidence. The two large cottonwoods behind the house are separately attested and one survived into the 20th century, so the TREES belong in the 1835 scene even though the house does not.",
       "earliest_scene": null,
       "citations": [
         {
@@ -310,7 +310,7 @@
     {
       "id": "methodist_meeting_house_south",
       "name": "Methodist Episcopal church, south side",
-      "reason": "LOCATION guard rather than a date guard. The Methodist meeting house was NOT on the south side in 1835 — the congregation floated it across the river and rolled it on logs to Clark and Washington only in 1838. Which bank it was on BEFORE that move is disputed and this entry no longer asserts it: see data/structures/walker_meeting_house.json, where the west-bank and north-bank readings are set out and the position is tagged conjectural. The guard holds either way, because both candidate banks are north or west of the south division.",
+      "reason": "LOCATION guard rather than a date guard. The Methodist meeting house was NOT on the south side in 1835 — the congregation floated it across the river and rolled it on logs to Clark and Washington only in 1838. Which bank it was on BEFORE that move is disputed and this entry no longer asserts it: see the record of Walker Meeting House, where the west-bank and north-bank readings are set out and the position is tagged conjectural. The guard holds either way, because both candidate banks are north or west of the south division.",
       "detail": "The 'M.E. Church' shown south of the river on the 1833 reconstructed map is best read as showing where Methodists met — the fort, and later the Temple Building — not a Methodist-owned building. The brick Clark Street church is 1844. Amended 2026-08-09: this entry previously stated the north bank as settled fact, which contradicted the structure record written against the same evidence. An exclusion should guard a boundary, not quietly decide an open question on the way past.",
       "earliest_scene": "1839",
       "citations": [
@@ -353,7 +353,7 @@
       "id": "fort_dearborn_first_1803",
       "name": "The first Fort Dearborn (1803–1812)",
       "reason": "Burned by the Pottawatomie on 16 August 1812, the day after the evacuation and the massacre. It is not a date guard so much as a SOURCE guard: most of what is published about 'Fort Dearborn's' plan describes this fort and gets applied to the one standing in 1835.",
-      "detail": "Captain John Whistler built it in 1803 and drew a measured plan of it in 1808 which survives in the War Department files and is printed with its index by Quaife. That fort had TWO BLOCKHOUSES at the south-east and north-west angles, a DOUBLE ROW OF PICKETS with the blockhouses commanding the space between them, a COVERED WAY or SALLY-PORT to the river, a FLAGSTAFF in the parade, barracks two storeys high with GALLERIES fronting the parade, and THREE PIECES OF LIGHT ARTILLERY. The second fort, rebuilt on the same ground in 1816, had ONE blockhouse at the south-west and bastions at the north-west and south-east, and John H. Kinzie says in terms that the two were 'differently constructed'. The passage that carries most of the first fort's description in the popular literature closes with the sentence 'Such was the old Fort previous to 1812'. Everything in this entry is excluded from 1835 and none of it may be borrowed for the second fort's records. SINCE T-2050 THE FIRST FORT IS BUILT, IN ITS OWN SCENE, and this entry is no longer the only place it lives: the fourteen data/structures/first_fort_dearborn_*.json records (T-2049, off the 1808 draught's register in data/traces/whistler_1808_fort_dearborn.json) are seated on this ground and resolve in data/scenes/1812.json alone, dated 1803-08-17..1812-08-16. tools/read_whistler_1808.py --check holds that no second-fort phase opens inside that range and that no scene resolves both forts. This entry stays as what it always was: the guard that keeps the first fort out of 1835 and out of the second fort's records.",
+      "detail": "Captain John Whistler built it in 1803 and drew a measured plan of it in 1808 which survives in the War Department files and is printed with its index by Quaife. That fort had TWO BLOCKHOUSES at the south-east and north-west angles, a DOUBLE ROW OF PICKETS with the blockhouses commanding the space between them, a COVERED WAY or SALLY-PORT to the river, a FLAGSTAFF in the parade, barracks two storeys high with GALLERIES fronting the parade, and THREE PIECES OF LIGHT ARTILLERY. The second fort, rebuilt on the same ground in 1816, had ONE blockhouse at the south-west and bastions at the north-west and south-east, and John H. Kinzie says in terms that the two were 'differently constructed'. The passage that carries most of the first fort's description in the popular literature closes with the sentence 'Such was the old Fort previous to 1812'. Everything in this entry is excluded from 1835 and none of it may be borrowed for the second fort's records. SINCE other work THE FIRST FORT IS BUILT, IN ITS OWN SCENE, and this entry is no longer the only place it lives: the fourteen the first fort dearborn data records (off the 1808 draught's register in the whistler 1808 fort dearborn data) are seated on this ground and resolve in the 1812 scenes data alone, dated 1803-08-17..1812-08-16. the whistler 1808 reader --check holds that no second-fort phase opens inside that range and that no scene resolves both forts. This entry stays as what it always was: the guard that keeps the first fort out of 1835 and out of the second fort's records.",
       "earliest_scene": null,
       "citations": [
         {
@@ -402,13 +402,17 @@
             "a reliable division between first-fort and second-fort description - the pamphlet reprints both and readers routinely mix them"
           ]
         }
+      ],
+      "work_refs": [
+        "T-2049",
+        "T-2050"
       ]
     },
     {
       "id": "fort_dearborn_sally_port",
       "name": "Fort Dearborn's sally-port (subterranean passage to the river)",
       "reason": "A FIRST-FORT feature, wrongly carried into this project's own dossier as attested for the 1816 fort.",
-      "detail": "'On the north side a subterranean passage, leading from the parade ground to the river, designed as a place of escape in an emergency, or for supplying the garrison with water in time of a siege' - Andreas, in his description of the fort built in 1803, and repeated in the Chicago Magazine of March 1857 in a passage that ends 'Such was the old Fort previous to 1812'. Whistler's own 1808 index lists it as 'N. 33 Covered Way to procure Water'. John H. Kinzie names it as one of the ways the first fort DIFFERED from the second. docs/research/04-structures-south.md section 1.2 tags it [DOC] 'attested for the 1816 fort's north side'; that reading is not supported by the page it cites, and no source reached attests a sally-port at the second fort. Not modelled. In 1812 it is still not modelled, but it no longer lives only here: the first fort's register (data/traces/whistler_1808_fort_dearborn.json, index no. 33) records it as 'omitted_by_drafter' - the draught's index names it and its plan does not draw it - so the 1812 scene (T-2050) has no line to build it on, and the reason is written where the first fort's other parts are.",
+      "detail": "'On the north side a subterranean passage, leading from the parade ground to the river, designed as a place of escape in an emergency, or for supplying the garrison with water in time of a siege' - Andreas, in his description of the fort built in 1803, and repeated in the Chicago Magazine of March 1857 in a passage that ends 'Such was the old Fort previous to 1812'. Whistler's own 1808 index lists it as 'N. 33 Covered Way to procure Water'. John H. Kinzie names it as one of the ways the first fort DIFFERED from the second. the research notes on structures south section 1.2 tags it [DOC] 'attested for the 1816 fort's north side'; that reading is not supported by the page it cites, and no source reached attests a sally-port at the second fort. Not modelled. In 1812 it is still not modelled, but it no longer lives only here: the first fort's register (the whistler 1808 fort dearborn data, index no. 33) records it as 'omitted by drafter' - the draught's index names it and its plan does not draw it - so the 1812 scene has no line to build it on, and the reason is written where the first fort's other parts are.",
       "earliest_scene": null,
       "citations": [
         {
@@ -457,13 +461,16 @@
             "a reliable division between first-fort and second-fort description - the pamphlet reprints both and readers routinely mix them"
           ]
         }
+      ],
+      "work_refs": [
+        "T-2050"
       ]
     },
     {
       "id": "fort_dearborn_hospital",
       "name": "A hospital building inside Fort Dearborn",
       "reason": "NO SUCH BUILDING IS ATTESTED. The hospital in the sources is a USE of the fort during the 1832 cholera, not a structure in it.",
-      "detail": "The War Department return quoted in Wentworth's address reads 'Fort Dearborn having become a general hospital on July 11th [1832], no returns were received until its reoccupation' - the whole post was given over to sick troops off General Scott's steamers, and the officers and their families 'took shelter wherever they could'. That is an emergency use in July 1832 and by 1835 it has lapsed. docs/research/04-structures-south.md section 1.2 lists a 'hospital' among the fort's buildings tagged [DOC] from that page; there is no hospital building on it. The U.S. Marine Hospital that appears in the 1855 photograph caption is the vantage point of the photograph, built on the reservation after an appropriation of 1848, and is neither a fort building nor within twenty years of the scene date.",
+      "detail": "The War Department return quoted in Wentworth's address reads 'Fort Dearborn having become a general hospital on July 11th [1832], no returns were received until its reoccupation' - the whole post was given over to sick troops off General Scott's steamers, and the officers and their families 'took shelter wherever they could'. That is an emergency use in July 1832 and by 1835 it has lapsed. the research notes on structures south section 1.2 lists a 'hospital' among the fort's buildings tagged [DOC] from that page; there is no hospital building on it. The U.S. Marine Hospital that appears in the 1855 photograph caption is the vantage point of the photograph, built on the reservation after an appropriation of 1848, and is neither a fort building nor within twenty years of the scene date.",
       "earliest_scene": null,
       "citations": [
         {
@@ -474,7 +481,7 @@
           "tier": 4,
           "tier_label": "later scholarship",
           "what_it_supplies": [
-            "NOTHING THAT wentworth_1881_fort_dearborn DOES NOT ALREADY SUPPLY, except the last three entries below - cite that record for the fort, not this one",
+            "NOTHING THAT Wentworth, John. \"Fort Dearborn: An Address delivered at the unveiling of the… DOES NOT ALREADY SUPPLY, except the last three entries below - cite that record for the fort, not this one",
             "commandant's quarters, brick, about 25 x 50 ft, at the north-west corner of the enclosure (1855 caption)",
             "officers' quarters, wood, about 30 x 60 ft, at the north-west corner (1855 caption)",
             "parade ground 80 x 200 ft (1855 caption) AND about 80 x 400 ft (Fergus, 1850) - a disagreement, not a figure",
@@ -496,7 +503,7 @@
             "the fort as it stood in 1835 (its two extended physical descriptions are of the pre-1812 fort and of the fort in 1850)",
             "any plan, footprint, orientation or measured survey",
             "the height, roof form or fenestration of any fort building",
-            "any evidence independent of wentworth_1881_fort_dearborn - it is the same text at a different address"
+            "any evidence independent of Wentworth, John. \"Fort Dearborn: An Address delivered at the unveiling of the… - it is the same text at a different address"
           ]
         },
         {
@@ -526,7 +533,7 @@
       "id": "fort_dearborn_board_fence_compound",
       "name": "Fort Dearborn's whitewashed board fence, turnstile and 400-foot parade",
       "reason": "The compound of the 1850s, after the pickets came down and the army left. A LATER-STATE guard rather than a date guard on a building.",
-      "detail": "Robert Fergus, describing the fort in 1850: 'The whole Fort enclosure was surrounded by a rough-board fence, white-washed, about 6 feet high; the pickets having been removed at an earlier date', with a turnstile entering from the centre of Michigan Avenue about 100 ft south of the sun-dial knoll, and a parade ground 'about 80 feet wide' running 'from the river bank south, the full length of the enclosure - say 400 feet'. NONE of that describes 1835: the pickets are attested standing by Juliette Kinzie in 1831 and drawn on the 1830 plan, the post was garrisoned until 29 December 1836, and the reservation was unplatted in 1835 so Michigan Avenue did not commence at that point. The fort is modelled stockaded. The sun-dial itself is carried back into the scene on the record data/structures/fort_dearborn_parade.json, which says so on the attribute; the fence, the turnstile and the 400 ft parade are not.",
+      "detail": "Robert Fergus, describing the fort in 1850: 'The whole Fort enclosure was surrounded by a rough-board fence, white-washed, about 6 feet high; the pickets having been removed at an earlier date', with a turnstile entering from the centre of Michigan Avenue about 100 ft south of the sun-dial knoll, and a parade ground 'about 80 feet wide' running 'from the river bank south, the full length of the enclosure - say 400 feet'. NONE of that describes 1835: the pickets are attested standing by Juliette Kinzie in 1831 and drawn on the 1830 plan, the post was garrisoned until 29 December 1836, and the reservation was unplatted in 1835 so Michigan Avenue did not commence at that point. The fort is modelled stockaded. The sun-dial itself is carried back into the scene on the record the record of Fort Dearborn — the parade ground, which says so on the attribute; the fence, the turnstile and the 400 ft parade are not.",
       "earliest_scene": "1845",
       "citations": [
         {
@@ -585,7 +592,7 @@
       "id": "fort_dearborn_artillery_pieces_1812",
       "name": "The fort's three pieces of light artillery",
       "reason": "Attested for the FIRST fort and for no other date. A guard on fort furniture, which the dossiers carry as though it were 1835-relevant.",
-      "detail": "'The Fort was furnished with three pieces of light-artillery' and 'A company of United-States troops, about fifty in number, many of whom were invalids, constituted the garrison' both stand in the Chicago Magazine passage that ends 'Such was the old Fort previous to 1812'. docs/research/08-fauna.md takes the fifty invalids from that page as 1835-relevant. Nothing reached says what ordnance stood at the second fort at any date; an artillery HOUSE is named once, in a description of the fort in 1850, and is modelled as data/structures/fort_dearborn_artillery_house.json with the guns left out. No gun is drawn anywhere in this scene. In the 1812 scene (T-2050) the guns' place is the first fort's two blockhouses, after Wilson as Quaife prints him (one held two small cannon, the other one), and that is written on data/structures/first_fort_dearborn_blockhouse_nw.json and _se.json; the register could not locate the draught's 'Port Holes for Cannon', and no gun is built there either.",
+      "detail": "'The Fort was furnished with three pieces of light-artillery' and 'A company of United-States troops, about fifty in number, many of whom were invalids, constituted the garrison' both stand in the Chicago Magazine passage that ends 'Such was the old Fort previous to 1812'. the research notes on fauna takes the fifty invalids from that page as 1835-relevant. Nothing reached says what ordnance stood at the second fort at any date; an artillery HOUSE is named once, in a description of the fort in 1850, and is modelled as the record of Fort Dearborn — artillery house with the guns left out. No gun is drawn anywhere in this scene. In the 1812 scene the guns' place is the first fort's two blockhouses, after Wilson as Quaife prints him (one held two small cannon, the other one), and that is written on the record of First Fort Dearborn — north-west blockhouse and the se data; the register could not locate the draught's 'Port Holes for Cannon', and no gun is built there either.",
       "earliest_scene": null,
       "citations": [
         {
@@ -596,7 +603,7 @@
           "tier": 4,
           "tier_label": "later scholarship",
           "what_it_supplies": [
-            "NOTHING THAT wentworth_1881_fort_dearborn DOES NOT ALREADY SUPPLY, except the last three entries below - cite that record for the fort, not this one",
+            "NOTHING THAT Wentworth, John. \"Fort Dearborn: An Address delivered at the unveiling of the… DOES NOT ALREADY SUPPLY, except the last three entries below - cite that record for the fort, not this one",
             "commandant's quarters, brick, about 25 x 50 ft, at the north-west corner of the enclosure (1855 caption)",
             "officers' quarters, wood, about 30 x 60 ft, at the north-west corner (1855 caption)",
             "parade ground 80 x 200 ft (1855 caption) AND about 80 x 400 ft (Fergus, 1850) - a disagreement, not a figure",
@@ -618,7 +625,7 @@
             "the fort as it stood in 1835 (its two extended physical descriptions are of the pre-1812 fort and of the fort in 1850)",
             "any plan, footprint, orientation or measured survey",
             "the height, roof form or fenestration of any fort building",
-            "any evidence independent of wentworth_1881_fort_dearborn - it is the same text at a different address"
+            "any evidence independent of Wentworth, John. \"Fort Dearborn: An Address delivered at the unveiling of the… - it is the same text at a different address"
           ]
         },
         {
@@ -642,6 +649,9 @@
             "a reliable division between first-fort and second-fort description - the pamphlet reprints both and readers routinely mix them"
           ]
         }
+      ],
+      "work_refs": [
+        "T-2050"
       ]
     },
     {
@@ -682,7 +692,7 @@
       "id": "chicago_town_hall",
       "name": "Town hall or municipal building for the Town of Chicago",
       "reason": "NOT A BUILDING — the town incorporated in August 1833 and never built itself a hall in the years this project models. The positive evidence runs the other way rather than being merely absent.",
-      "detail": "Two things Andreas records say it plainly, and neither is an argument from silence. The town had no ground of its own to build on: when its fire company wanted an engine house in December 1835 the committee had to report that the COUNTY Commissioners would give them 'leave to erect an engine house on the public square ... without paying rent therefor' (Andreas I scan p. 463) — the square is the county's, granted by the State in 1831 for the erection of public buildings, and the town is a tenant on it. And the town met and voted in taverns: 'The fourth and last election under the town system was held at the Tremont House June 6, 1836', and the first CITY election of May 1837 was polled at the Eagle Hotel, Lincoln's Coffee House, a private house, Cox's Chicago Hotel, the Canal Office and the Franklin House (scan pp. 369, 373). A corporation that holds its own elections in six other people's rooms four years after incorporating does not have a hall. The building that eventually served as City Hall is the Saloon Building of 1836, already excluded above, and it was private property.",
+      "detail": "Two things Andreas records say it plainly, and neither is an argument from silence. The town had no ground of its own to build on: when its fire company wanted an engine house in December 1835 the committee had to report that the COUNTY Commissioners would give them 'leave to erect an engine house on the public square... without paying rent therefor' (Andreas I scan p. 463) — the square is the county's, granted by the State in 1831 for the erection of public buildings, and the town is a tenant on it. And the town met and voted in taverns: 'The fourth and last election under the town system was held at the Tremont House June 6, 1836', and the first CITY election of May 1837 was polled at the Eagle Hotel, Lincoln's Coffee House, a private house, Cox's Chicago Hotel, the Canal Office and the Franklin House (scan pp. 369, 373). A corporation that holds its own elections in six other people's rooms four years after incorporating does not have a hall. The building that eventually served as City Hall is the Saloon Building of 1836, already excluded above, and it was private property.",
       "earliest_scene": null,
       "citations": [
         {
@@ -698,8 +708,8 @@
     {
       "id": "south_bank_warehouses_dearborn_reach",
       "name": "The south-bank warehouses on the frontage below the Dearborn draw",
-      "reason": "NO GROUND GUARD, NOT A DATE GUARD — the third kind of entry in this file, and since 2026-09-26 a guard on a FRONTAGE rather than on a bank. Image 3 of the owner's brief of 2026-08-18 draws low warehouses on BOTH banks of the reach below the Dearborn Street drawbridge. The north side stands (four freight sheds, T-0133). On the south side the frontage the plate draws is still left out, because the platted 80 ft corridor of South Water Street occupies that bank down to the water for the whole length of the street, and the strip of ground outside it is the river bank itself, falling to the water inside its own width. Nothing here doubts the plate. Whether an invented building may stand on the river margin of a platted street corridor, where this town's warehouses and landings in fact stood, was a decision about what the dataset asserts, and it is TAKEN since 2026-10-05 (T-0253): IT MAY NOT, and the reach belongs to the wharf layer. Three readings carry it. (1) No source puts a building there: the plate is a tier-5 retrospective view, it is the only witness, and the town's own committed evidence has every South Water store standing on the street's SOUTH side and facing the river across it, so a warehouse on the river margin would be the dataset asserting a row the sources do not. (2) The bank is already drawn, as what it was: data/wharves/working_bank.json carries South Water's river side from E 140 to E 800 as the worked bank the owner asked for on 2026-09-30 (worn earth, low docks, landings and ramps between river and street), and five of the seven landings in river_landings.json cross it to the water — the wharfing-out practice of this bank, which is how the plate's river trade is shown here. (3) The project has refused this very act once already, on the owner's choice: when South Water Street was carried on to State Street on 2026-10-03 (T-2012) and its corridor took south_bank_shed_dearborn_e1's footprint, the reconstructed shed was withdrawn rather than left standing in the platted street (docs/LIBERTIES.md L274, struck). So tools/measure_corridor_intrusion.py --gate keeps refusing a new lap by construction, its written-refusal mechanism (T-0195) stays for documented records whose escape is blocked, and --write-baseline is never spent to bank an invented building's lap. A source — a lot record, an advertisement, a contemporary view — placing a building on that margin is what would re-open this; a measured flat strip inside the corridor is not. WHAT IS NO LONGER EXCLUDED: the 9.5 m of town ground EAST of South Water Street's platted end, between it and State Street's corridor. That ground was a channel of this reconstruction's own making until T-1629 filled it back to the bank Wright drew, and one freight shed stood on it from 2026-09-26 to 2026-10-03 — `south_bank_shed_dearborn_e1`, reconstructed on every line, docs/LIBERTIES.md L274 (struck). It is not on the frontage this entry refuses and it does not settle the question above. AND THAT GROUND TAKES NO MORE, WHICH IS SETTLED SINCE 2026-09-27 (T-1642): the fort road's move released the 81 positions it had masked, and once the reading is told what already STANDS on the strip, 76 of the 91 that read free are the standing shed's own footprint counted 76 ways. The ground takes exactly ONE more shed at the walker's relief clause, 23.08 m back from the main stem behind the one that stands and fronting the town slough rather than the river, and that one is REFUSED in writing: a position opened by this project's own invented line moving is not a position a source opened, and a tier-5 retrospective plate that draws sheds on the BANK does not reach back land. The measured capacity is not a reason to build. AMENDED 2026-10-05 (T-0253), for what moved since: that ribbon no longer exists. South Water Street was carried on to State Street on 2026-10-03 (T-2012, docs/LIBERTIES.md L366), the two corridors now meet, and `south_bank_shed_dearborn_e1` was withdrawn because the corridor took its footprint; `south_bank_shed_dearborn_e2` stands clear of it and keeps its seat (L281). The re-banked reading still finds 0 positions beside the platted street at the 0.30 m clause, so the frontage refusal stands on the same figures, and it is now a refusal by decision as well as by measurement (above).",
-      "detail": "MEASURED, at every tolerance the refusal could turn on, and RE-MEASURED when the ground moved. tools/measure_south_bank_ground.py walks the south bank from the Dearborn crossing (local E 699.2, the bridge's own committed position) east to the United States Reservation's west line (E 842.0), and asks whether the SMALLEST footprint family F1 allows — 18 x 32 ft, the freight shed of the plate — can be put down at any bearing on ground that is dry in the committed heightfield, outside every platted corridor, off refused ground, and out of the travelled way of a road the platted grid cannot see. BESIDE THE PLATTED STREET, which is the frontage the plate draws: ZERO positions at the 0.30 m walker step tolerance three infill generators hold themselves to, zero at the 0.35 m the north bank sheds quote, and — since the fill of 2026-09-26 — zero at a full metre, where the first reading found three. The refusal of this frontage is one clause HARDER than when it was written. The widest free strip there is 8.00 m and what defeats a building on it is the slope, not the width: 126 of 143 stations on the reach carry dry ground outside a corridor. THE ORIGINAL REFUSAL WAS RIGHT FOR THE WRONG REASON: T-0133's records say 'the corridor reaches to within about 1.7 m of the waterline', which was one spot reading at the reach's narrowest station. EAST OF THE FRONTAGE, the fill of the old slough mouth (T-1629) opened 91 flat positions where there had been none — and 81 of them stood in the fort road, which plat_corridors does not carry because the road to the fort was never platted. T-1636 taught the reading that road; T-1637 then moved the road off this reach altogether and released the 81 positions it had held; and T-1642 taught the reading what already STANDS on the ground, which is the correction that settles the count. FIFTEEN positions survive at 0.30 m of relief on the 9 m ribbon between South Water Street's platted end at E 805.0 and State Street's corridor at E 814.5, and 76 of the 91 that read free before the mask are the footprint of the one shed that is built. Fifteen positions on a one-metre lattice are not fifteen buildings: `takes_more`, an exact maximum over the positions that do not overlap each other, says the ribbon takes ONE more shed (three at a metre of relief, five with no clause at all). That one is refused — it stands 23.08 m back from the main stem, behind the shed, with the town slough and not the river 5.45 m off its corner. Full finding, both readings and the correction: docs/RESEARCH/south_bank_dearborn_ground.md. The reading is ratcheted by tools/measure_south_bank_ground.py --gate, which holds the reach's fits, the frontage's fits, the count standing in an unplatted travelled way, the count standing on a footprint the tree already places, and how many more sheds the ground takes — a change in any of them is this question re-opening, not a number to bank.",
+      "reason": "NO GROUND GUARD, NOT A DATE GUARD — the third kind of entry in this file, and since 2026-09-26 a guard on a FRONTAGE rather than on a bank. Image 3 of the owner's brief of 2026-08-18 draws low warehouses on BOTH banks of the reach below the Dearborn Street drawbridge. The north side stands (four freight sheds). On the south side the frontage the plate draws is still left out, because the platted 80 ft corridor of South Water Street occupies that bank down to the water for the whole length of the street, and the strip of ground outside it is the river bank itself, falling to the water inside its own width. Nothing here doubts the plate. Whether an invented building may stand on the river margin of a platted street corridor, where this town's warehouses and landings in fact stood, was a decision about what the dataset asserts, and it is TAKEN since 2026-10-05: IT MAY NOT, and the reach belongs to the wharf layer. Three readings carry it. (1) No source puts a building there: the plate is a retrospective (a modern reconstruction) view, it is the only witness, and the town's own committed evidence has every South Water store standing on the street's SOUTH side and facing the river across it, so a warehouse on the river margin would be the dataset asserting a row the sources do not. (2) The bank is already drawn, as what it was: the working bank data carries South Water's river side from E 140 to E 800 as the worked bank the owner asked for on 2026-09-30 (worn earth, low docks, landings and ramps between river and street), and five of the seven landings in the river landings data cross it to the water — the wharfing-out practice of this bank, which is how the plate's river trade is shown here. (3) The project has refused this very act once already, on the owner's choice: when South Water Street was carried on to State Street on 2026-10-03 and its corridor took south bank shed dearborn e1's footprint, the reconstructed shed was withdrawn rather than left standing in the platted street (the liberties register L274, struck). So the corridor intrusion check --gate keeps refusing a new lap by construction, its written-refusal mechanism stays for documented records whose escape is blocked, and --write-baseline is never spent to bank an invented building's lap. A source — a lot record, an advertisement, a contemporary view — placing a building on that margin is what would re-open this; a measured flat strip inside the corridor is not. WHAT IS NO LONGER EXCLUDED: the 9.5 m of town ground EAST of South Water Street's platted end, between it and State Street's corridor. That ground was a channel of this reconstruction's own making until other work filled it back to the bank Wright drew, and one freight shed stood on it from 2026-09-26 to 2026-10-03 — south bank shed dearborn e1, reconstructed on every line, the liberties register L274 (struck). It is not on the frontage this entry refuses and it does not settle the question above. AND THAT GROUND TAKES NO MORE, WHICH IS SETTLED SINCE 2026-09-27: the fort road's move released the 81 positions it had masked, and once the reading is told what already STANDS on the strip, 76 of the 91 that read free are the standing shed's own footprint counted 76 ways. The ground takes exactly ONE more shed at the walker's relief clause, 23.08 m back from the main stem behind the one that stands and fronting the town slough rather than the river, and that one is REFUSED in writing: a position opened by this project's own invented line moving is not a position a source opened, and a retrospective (a modern reconstruction) plate that draws sheds on the BANK does not reach back land. The measured capacity is not a reason to build. AMENDED 2026-10-05, for what moved since: that ribbon no longer exists. South Water Street was carried on to State Street on 2026-10-03 (the liberties register L366), the two corridors now meet, and south bank shed dearborn e1 was withdrawn because the corridor took its footprint; The second freight shed on the south bank below the Dearborn draw stands clear of it and keeps its seat (L281). The re-banked reading still finds 0 positions beside the platted street at the 0.30 m clause, so the frontage refusal stands on the same figures, and it is now a refusal by decision as well as by measurement (above).",
+      "detail": "MEASURED, at every tolerance the refusal could turn on, and RE-MEASURED when the ground moved. the south bank ground check walks the south bank from the Dearborn crossing (local E 699.2, the bridge's own committed position) east to the United States Reservation's west line (E 842.0), and asks whether the SMALLEST footprint family F1 allows — 18 x 32 ft, the freight shed of the plate — can be put down at any bearing on ground that is dry in the committed heightfield, outside every platted corridor, off refused ground, and out of the travelled way of a road the platted grid cannot see. BESIDE THE PLATTED STREET, which is the frontage the plate draws: ZERO positions at the 0.30 m walker step tolerance three infill generators hold themselves to, zero at the 0.35 m the north bank sheds quote, and — since the fill of 2026-09-26 — zero at a full metre, where the first reading found three. The refusal of this frontage is one clause HARDER than when it was written. The widest free strip there is 8.00 m and what defeats a building on it is the slope, not the width: 126 of 143 stations on the reach carry dry ground outside a corridor. THE ORIGINAL REFUSAL WAS RIGHT FOR THE WRONG REASON: other work's records say 'the corridor reaches to within about 1.7 m of the waterline', which was one spot reading at the reach's narrowest station. EAST OF THE FRONTAGE, the fill of the old slough mouth opened 91 flat positions where there had been none — and 81 of them stood in the fort road, which plat corridors does not carry because the road to the fort was never platted. Other work taught the reading that road; other work then moved the road off this reach altogether and released the 81 positions it had held; and other work taught the reading what already STANDS on the ground, which is the correction that settles the count. FIFTEEN positions survive at 0.30 m of relief on the 9 m ribbon between South Water Street's platted end at E 805.0 and State Street's corridor at E 814.5, and 76 of the 91 that read free before the mask are the footprint of the one shed that is built. Fifteen positions on a one-metre lattice are not fifteen buildings: takes more, an exact maximum over the positions that do not overlap each other, says the ribbon takes ONE more shed (three at a metre of relief, five with no clause at all). That one is refused — it stands 23.08 m back from the main stem, behind the shed, with the town slough and not the river 5.45 m off its corner. Full finding, both readings and the correction: the research notes on south bank dearborn ground. The reading is ratcheted by the south bank ground check --gate, which holds the reach's fits, the frontage's fits, the count standing in an unplatted travelled way, the count standing on a footprint the tree already places, and how many more sheds the ground takes — a change in any of them is this question re-opening, not a number to bank.",
       "earliest_scene": null,
       "citations": [
         {
@@ -738,13 +748,23 @@
             "building locations"
           ]
         }
+      ],
+      "work_refs": [
+        "T-0133",
+        "T-0253",
+        "T-2012",
+        "T-0195",
+        "T-1642",
+        "T-1629",
+        "T-1636",
+        "T-1637"
       ]
     },
     {
       "id": "john_dean_house",
       "name": "The John-Dean house at the foot of Randolph Street",
-      "reason": "NO SOURCE ATTESTS ITS SURVIVAL — last seen in 1818, thirteen years before the scene, and no demolition is recorded either. The same disposition as `ouilmette_cabin`, for the same reason.",
-      "detail": "Andreas scan p. 183: 'In 1815 ... an army contractor named Dean, built a house on the lake shore, at the mouth of the Chicago River, near where is now the foot of Randolph Street. In 1817, Mr. Beaubien purchased this house, which was a low, gloomy building of five rooms, for $1,000 ... he lived in the Dean house for several years'. A SECOND AND INDEPENDENT WITNESS WAS ALREADY IN THIS CORPUS, filed under `landscape` and never noticed: `bk_hub_064` has Gurdon Hubbard, describing Chicago as he found it in 1818, put 'another house of hewn logs ... twelve hundred or more feet from the road, and back of it flowed the Chicago River'. The identification is FORCED rather than suggested, and what forces it is Hubbard's own exhaustiveness — `bk_hub_066` closes his inventory with the buildings named 'comprised all the buildings within the present limits of Cook County', and every other building on that list is placed somewhere this one is not. It adds a material (hewn logs) this project had for no other reading of the house. EVERY SIGHTING FALLS IN 1815-1818: built 1815, bought 1817, Varnum boarding 1816-1822, Hubbard 1818. Beaubien is elsewhere by 1822 or 1823, and nothing follows the building past him. Wentworth's 1881 'what was before known as the John-Dean house' is a statement about a NAME made sixty-six years after the fact, not a sighting. THE SITE IS NO HELP EITHER WAY: the 1828 cut through the spit and the 1833-34 harbour piers rebuilt the mouth a quarter mile north of here and did not touch the ground at the foot of Randolph, so 'the shore changed' is not a demolition argument and is not used as one. The 1830 land-entry map cannot license a dwelling (its own source record says so) and therefore cannot refuse one; the Thompson plat stops well west of this ground, which is unplatted lakefront inside the Fort Dearborn Reservation. A SECOND REASON THAT WOULD HOLD EVEN IF SURVIVAL WERE GRANTED: nothing dimensions it. 'Five rooms' is a room count and not a dimension — no length, no depth, no storey height, no bearing — and 'near where is now the foot of Randolph Street', derived by T-0759's method against this project's own Randolph line and the traced 1834 shoreline, lands on the WATERLINE at local east 1224.1, north -262.43, so a house there would need an invented setback, bearing and size. Full reading, including the measured agreement between Hubbard's distances and this project's geometry, at docs/RESEARCH/john_dean_house.md. T-0895.",
+      "reason": "NO SOURCE ATTESTS ITS SURVIVAL — last seen in 1818, thirteen years before the scene, and no demolition is recorded either. The same disposition as Antoine Ouilmette's cabin, for the same reason.",
+      "detail": "Andreas scan p. 183: 'In 1815... an army contractor named Dean, built a house on the lake shore, at the mouth of the Chicago River, near where is now the foot of Randolph Street. In 1817, Mr. Beaubien purchased this house, which was a low, gloomy building of five rooms, for $1,000... he lived in the Dean house for several years'. A SECOND AND INDEPENDENT WITNESS WAS ALREADY IN THIS CORPUS, filed under `landscape` and never noticed: bk hub 064 has Gurdon Hubbard, describing Chicago as he found it in 1818, put 'another house of hewn logs... twelve hundred or more feet from the road, and back of it flowed the Chicago River'. The identification is FORCED rather than suggested, and what forces it is Hubbard's own exhaustiveness — bk hub 066 closes his inventory with the buildings named 'comprised all the buildings within the present limits of Cook County', and every other building on that list is placed somewhere this one is not. It adds a material (hewn logs) this project had for no other reading of the house. EVERY SIGHTING FALLS IN 1815-1818: built 1815, bought 1817, Varnum boarding 1816-1822, Hubbard 1818. Beaubien is elsewhere by 1822 or 1823, and nothing follows the building past him. Wentworth's 1881 'what was before known as the John-Dean house' is a statement about a NAME made sixty-six years after the fact, not a sighting. THE SITE IS NO HELP EITHER WAY: the 1828 cut through the spit and the 1833-34 harbour piers rebuilt the mouth a quarter mile north of here and did not touch the ground at the foot of Randolph, so 'the shore changed' is not a demolition argument and is not used as one. The 1830 land-entry map cannot license a dwelling (its own source record says so) and therefore cannot refuse one; the Thompson plat stops well west of this ground, which is unplatted lakefront inside the Fort Dearborn Reservation. A SECOND REASON THAT WOULD HOLD EVEN IF SURVIVAL WERE GRANTED: nothing dimensions it. 'Five rooms' is a room count and not a dimension — no length, no depth, no storey height, no bearing — and 'near where is now the foot of Randolph Street', derived by other work's method against this project's own Randolph line and the traced 1834 shoreline, lands on the WATERLINE at local east 1224.1, north -262.43, so a house there would need an invented setback, bearing and size. Full reading, including the measured agreement between Hubbard's distances and this project's geometry, at the research notes on john dean house. Other work.",
       "earliest_scene": null,
       "citations": [
         {
@@ -794,7 +814,7 @@
             "Hubbard's Trail, dated by the man who cut it (1822 to Danville, extended north to Chicago in 1824) and the State road from Vincennes to Chicago ordered in the winter of 1833-34 that adopted most of it",
             "the settlement's size taken sideways: about forty men and women turned out to fight the fort fire in 1827, and a majority of the men at the fort that summer were Hubbard's own employees",
             "for 1835, at one remove through McIlvaine: the brig Illinois lightered ashore on 25 May because the harbour could not take her, the passengers going on to the Green Tree Tavern, the Chicago American of 10 October 1835 on Hubbard's fire engine, and the March 1835 purchase of the eighty acres of Russell & Mather's addition for $5,000",
-            "one period document, and it is graded separately: Hubbard's letter to his sister headed 'Chicago, July 25, 1827', at data/sources/hubbard_letter_1827_07_25.json"
+            "one period document, and it is graded separately: Hubbard's letter to his sister headed 'Chicago, July 25, 1827', at Gurdon S. Hubbard to his sister Elizabeth Hubbard at Middletown, Connecticut…"
           ],
           "what_it_does_not_supply": [
             "Hubbard's own eyewitness on 1835. HIS NARRATIVE ENDS IN NOVEMBER 1830 and the closing note says so in as many words; the book's 1835 is Caroline McIlvaine's, written in 1911",
@@ -804,7 +824,7 @@
             "the right year for the Pottawatomie payment and the fort fire: page 167 prints 1828 where the section heading, the surrounding narrative and Hubbard's own dated letter all say July 1827",
             "the names of the officers commanding Fort Dearborn after 19 June 1833 — Hubbard says he could not find them in the War Department records, so the source names nobody in command during the scene year",
             "a residence for anybody in 1835. Every person Hubbard names, he names for what they did between 1812 and 1830",
-            "page images. This reading is of the Internet Archive's OCR text of the scan, corroborated against the deposited PDF's own text layer; no claim here is scan_verified"
+            "page images. This reading is of the Internet Archive's OCR text of the scan, corroborated against the deposited PDF's own text layer; no claim here is scan verified"
           ]
         },
         {
@@ -828,13 +848,17 @@
             "a reliable division between first-fort and second-fort description - the pamphlet reprints both and readers routinely mix them"
           ]
         }
+      ],
+      "work_refs": [
+        "T-0759",
+        "T-0895"
       ]
     },
     {
       "id": "eagle_coffee_house",
       "name": "The Eagle Coffee House, Trowbridge's, in Dearborn Street",
-      "reason": "NO SEAT, NOT A DATE GUARD and not a doubt about the building — the same third kind of entry as `south_bank_warehouses_dearborn_reach`, and the only one so far whose ground is that the corpus names the STREET and cannot reach a frontage on it. The house plainly stood: the town's Democrats met in it on Monday 29 June 1835, two days before the scene date, and it is named by its keeper the way this town named public houses. It is left out because every neighbour the corpus gives it is measured FROM it — a law office two doors south, a tailoring shop nearly opposite — and neither of those is seated either, so the anchor set closes on itself and touches the plat at nothing but Dearborn Street, which runs the length of the town. Choosing a block, a side and a distance would invent a coordinate for a building whose position is a fact about the town's political geography. T-1603 ruled it; data/research/spend_rulings.json states the rule.",
-      "detail": "THE EVIDENCE, IN THE ORDER IT WAS READ. (1) The house and its keeper. Chicago Democrat, 1835-06-24 (Vol. II No. 10), claim c001: the Democratic friends of the National Administration meet 'at the Eagle Coffee House, Trowbridge's' on Monday 29 June 1835. The same party met at the EXCHANGE Coffee House on 13 April and for the town-election caucus on 6 June, and by 24 June had moved here; nothing in the range explains the move, and both houses are therefore in business at the scene date. (2) The street, nearly. The Abell advertisement three columns away in that issue gives a law office 'in Dearborn street, […] of the \"Eagle Coffee House\"' — page 3 of this issue is a strict line-by-line interleave of two real columns, the advertisement survives as every other line of itself, and the line carrying the preposition is destroyed. The 24 June pass named four readings that fit the fragment and refused to choose between them. (3) THE STREET, DOCUMENTED. The Democrat of 1835-08-05 sets the same advertisement again over the same 24 June 1835 copy date, on page 4 column 3, in a column that is not interleaved, and the missing line is there: 'Office with [E]sq. Harmon in Dearborn stre[et], two doors south of the \"Eagle Coffee House.\"' (claim c020). The true reading is a FIFTH, none of the four the June pass enumerated, which is why that pass was right not to guess. Cooley and Hol[b]man, tailors, say the street independently — a shop 'on Dearborn Street, nearly opposite the [E]agle Coffee House' (1835-08-05 c005, reprinted 1835-08-19 c006). Two firms, three printings, one street. (4) WHY THAT STILL REACHES NO FRONTAGE. 'Two doors south of' and 'nearly opposite' are measured from the Eagle, and the register classes all four of those business readings `street_only` because their only anchor 'names nothing the committed town holds'. Abell, Esq. Harmon and the tailors are unseated; the Eagle is unseated; and the graph has no edge to the plat except the street name. (5) WHAT IT IS NOT. The business layer's `biz_eagle_tavern` and `biz_eagle_hotel` are 1834 firms compiled under other keepers, and `data/research/newspapers/identity.json` states in terms that the Eagle Coffee House — 'Trowbridge's', also 'the Eagle House' — is a DIFFERENT house from the Eagle Hotel, appearing only from 1835-06-24 and in or about Dearborn Street, while the Eagle Hotel is placed nowhere in the whole of 1834. Two houses of entertainment may share a bird. Calling either of the 1834 firms this house would be an identity ruling nothing in the corpus supports. WHAT WOULD RETIRE THIS ENTRY: any reading that ties the Eagle, Abell and Harmon's office, or the Cooley and Hol[b]man shop to a block, a corner, a lot or a numbered address on Dearborn Street. One line would do it, and the house is well enough attested that it is worth looking for.",
+      "reason": "NO SEAT, NOT A DATE GUARD and not a doubt about the building — the same third kind of entry as The south-bank warehouses on the frontage below the Dearborn draw, and the only one so far whose ground is that the corpus names the STREET and cannot reach a frontage on it. The house plainly stood: the town's Democrats met in it on Monday 29 June 1835, two days before the scene date, and it is named by its keeper the way this town named public houses. It is left out because every neighbour the corpus gives it is measured FROM it — a law office two doors south, a tailoring shop nearly opposite — and neither of those is seated either, so the anchor set closes on itself and touches the plat at nothing but Dearborn Street, which runs the length of the town. Choosing a block, a side and a distance would invent a coordinate for a building whose position is a fact about the town's political geography. Other work ruled it; the spend rulings data states the rule.",
+      "detail": "THE EVIDENCE, IN THE ORDER IT WAS READ. (1) The house and its keeper. Chicago Democrat, 1835-06-24 (Vol. II No. 10), claim c001: the Democratic friends of the National Administration meet 'at the Eagle Coffee House, Trowbridge's' on Monday 29 June 1835. The same party met at the EXCHANGE Coffee House on 13 April and for the town-election caucus on 6 June, and by 24 June had moved here; nothing in the range explains the move, and both houses are therefore in business at the scene date. (2) The street, nearly. The Abell advertisement three columns away in that issue gives a law office 'in Dearborn street, […] of the \"Eagle Coffee House\"' — page 3 of this issue is a strict line-by-line interleave of two real columns, the advertisement survives as every other line of itself, and the line carrying the preposition is destroyed. The 24 June pass named four readings that fit the fragment and refused to choose between them. (3) THE STREET, DOCUMENTED. The Democrat of 1835-08-05 sets the same advertisement again over the same 24 June 1835 copy date, on page 4 column 3, in a column that is not interleaved, and the missing line is there: 'Office with [E]sq. Harmon in Dearborn stre[et], two doors south of the \"Eagle Coffee House.\"' (claim c020). The true reading is a FIFTH, none of the four the June pass enumerated, which is why that pass was right not to guess. Cooley and Hol[b]man, tailors, say the street independently — a shop 'on Dearborn Street, nearly opposite the [E]agle Coffee House' (1835-08-05 c005, reprinted 1835-08-19 c006). Two firms, three printings, one street. (4) WHY THAT STILL REACHES NO FRONTAGE. 'Two doors south of' and 'nearly opposite' are measured from the Eagle, and the register classes all four of those business readings street only because their only anchor 'names nothing the committed town holds'. Abell, Esq. Harmon and the tailors are unseated; the Eagle is unseated; and the graph has no edge to the plat except the street name. (5) WHAT IT IS NOT. The business layer's Eagle Tavern and Eagle Hotel are 1834 firms compiled under other keepers, and the identity data states in terms that the Eagle Coffee House — 'Trowbridge's', also 'the Eagle House' — is a DIFFERENT house from the Eagle Hotel, appearing only from 1835-06-24 and in or about Dearborn Street, while the Eagle Hotel is placed nowhere in the whole of 1834. Two houses of entertainment may share a bird. Calling either of the 1834 firms this house would be an identity ruling nothing in the corpus supports. WHAT WOULD RETIRE THIS ENTRY: any reading that ties the Eagle, Abell and Harmon's office, or the Cooley and Hol[b]man shop to a block, a corner, a lot or a numbered address on Dearborn Street. One line would do it, and the house is well enough attested that it is worth looking for.",
       "earliest_scene": null,
       "citations": [
         {
@@ -848,7 +872,7 @@
             "that a named trade was being carried on in Chicago in a named week, and often where",
             "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
             "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
-            "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+            "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter list only)",
             "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
             "arrivals and clearances, which date the piers and the harbour as working structures",
             "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
@@ -860,11 +884,14 @@
             "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
             "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
             "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
-            "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+            "an argument from silence, unless the corpus data shows the issues either side of the silence are both in the deposit",
             "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
             "a citation without an issue page and column"
           ]
         }
+      ],
+      "work_refs": [
+        "T-1603"
       ]
     }
   ],
@@ -879,7 +906,8 @@
       "no_source_record": "",
       "dossier": {
         "file": "docs/research/03-structures-north.md",
-        "anchor": "The Indian Agency House"
+        "anchor": "The Indian Agency House",
+        "label": "the research notes on structures north"
       },
       "citations": [
         {
@@ -892,18 +920,20 @@
         }
       ],
       "carried_by": "log_1820.documented_range",
-      "carried_confidence": "inferred"
+      "carried_confidence": "inferred",
+      "carried_by_label": "documented range"
     },
     {
       "id": "billy_caldwell_house",
       "name": "Billy Caldwell's house at State and Chicago Avenue",
       "question": "Did it exist, and if it did, what state was it in? The 1828 government-built frame house is reported unverified even as a story, and its condition and occupancy in July 1835 are unattested.",
-      "consequence": "The one entry on this list whose uncertainty is about existence rather than survival. It also sits inside the standing constraint on 1835 and Indigenous history in AGENTS.md: Caldwell led his people west in the removal of August 1835, weeks after the scene date, and nothing about that is to be improvised here.",
+      "consequence": "The one entry on this list whose uncertainty is about existence rather than survival. It also sits inside the standing constraint on 1835 and Indigenous history in the project's rules: Caldwell led his people west in the removal of August 1835, weeks after the scene date, and nothing about that is to be improvised here.",
       "standing": false,
       "no_source_record": "The dossier says at least one source notes the story is unverified and does not say which, so there is no page to cite and no source record to point at. Recording that as an uncited entry is the honest reading; naming a source here would be inventing one to satisfy a field.",
       "dossier": {
         "file": "docs/research/03-structures-north.md",
-        "anchor": "Billy Caldwell (Sauganash) — residence(s)"
+        "anchor": "Billy Caldwell (Sauganash) — residence(s)",
+        "label": "the research notes on structures north"
       },
       "citations": []
     },
@@ -916,7 +946,8 @@
       "no_source_record": "",
       "dossier": {
         "file": "docs/RESEARCH/western_hotel.md",
-        "anchor": "Conflict: built 1834 or 1835?"
+        "anchor": "Conflict: built 1834 or 1835?",
+        "label": "the research notes on western hotel"
       },
       "citations": [
         {
@@ -945,7 +976,8 @@
         }
       ],
       "carried_by": "frame_1834.documented_range",
-      "carried_confidence": "inferred"
+      "carried_confidence": "inferred",
+      "carried_by_label": "documented range"
     },
     {
       "id": "new_york_house",
@@ -956,7 +988,8 @@
       "no_source_record": "",
       "dossier": {
         "file": "docs/RESEARCH/new_york_house.md",
-        "anchor": "Which side of Wells?"
+        "anchor": "Which side of Wells?",
+        "label": "the research notes on new york house"
       },
       "citations": [
         {
@@ -984,7 +1017,7 @@
           "what_it_does_not_supply": [
             "any building's form, material, storey count, fenestration or dimensions",
             "a reliable reading of a dense body column — this run had no reconciled second pass",
-            "a word count or uncertainty-marker count: none was delivered, and corpus.json records null rather than zero",
+            "a word count or uncertainty-marker count: none was delivered, and the corpus data records null rather than zero",
             "identification by volume and number: No. 12 is printed on two different issues",
             "anything at all from an engraving — the cuts are the printer's stock",
             "a citation without an issue page and column"
@@ -1000,18 +1033,20 @@
         }
       ],
       "carried_by": "frame_1834.position",
-      "carried_confidence": "inferred"
+      "carried_confidence": "inferred",
+      "carried_by_label": "position"
     },
     {
       "id": "goss_cobb_saddlery",
       "name": "S. B. Cobb's saddle, harness and trunk manufactory",
-      "question": "Which cross street? The corner is read once and never again. The Chicago Democrat of 26 November 1833 puts Goss & Cobb's new shop \"on the corner of Lake and Canal streets\", and that reading is as strong as this corpus gets — it is one of the addresses `chicago_democrat_1833_11_26` was verified against the page images for. The Chicago American then sets S. B. Cobb's own card three times in the weeks either side of the scene date, and loses the cross street in every one of them: \"corner of Lake an[d] [Amor.] streets\" (1835-06-08), no street names at all (1835-06-13), \"corner of [L]ake [an]d the [Balle]\" (1835-07-11). So nothing printed within twenty months of 1 July 1835 says which corner of Lake Street this is, and the building stands on a corner derived from the 1833 advertisement.",
-      "consequence": "The shop STANDS in the scene, so the question is not whether to build it but what a visitor is told when they open its card. It reaches the card through the placement's own confidence, which is `inferred`, and the position note argues the identification of the 1833 shop with the 1835 one rather than hiding it. T-0383 settled the firm's SURVIVAL from those three American cards — four printed dates, the last ten days after the scene date — and could not settle the corner, which is the half of that record's own \"TO RESOLVE\" sentence still outstanding. One page image of either 1835 card closes it in a word: it either corroborates Canal, or it moves this building.",
+      "question": "Which cross street? The corner is read once and never again. The Chicago Democrat of 26 November 1833 puts Goss & Cobb's new shop \"on the corner of Lake and Canal streets\", and that reading is as strong as this corpus gets — it is one of the addresses The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday… was verified against the page images for. The Chicago American then sets S. B. Cobb's own card three times in the weeks either side of the scene date, and loses the cross street in every one of them: \"corner of Lake an[d] [Amor.] streets\" (1835-06-08), no street names at all (1835-06-13), \"corner of [L]ake [an]d the [Balle]\" (1835-07-11). So nothing printed within twenty months of 1 July 1835 says which corner of Lake Street this is, and the building stands on a corner derived from the 1833 advertisement.",
+      "consequence": "The shop STANDS in the scene, so the question is not whether to build it but what a visitor is told when they open its card. It reaches the card through the placement's own confidence, which is `inferred`, and the position note argues the identification of the 1833 shop with the 1835 one rather than hiding it. Other work settled the firm's SURVIVAL from those three American cards — four printed dates, the last ten days after the scene date — and could not settle the corner, which is the half of that record's own \"TO RESOLVE\" sentence still outstanding. One page image of either 1835 card closes it in a word: it either corroborates Canal, or it moves this building.",
       "standing": true,
       "no_source_record": "",
       "dossier": {
         "file": "docs/RESEARCH/american_self_contradictions.md",
-        "anchor": "Which cross street is S. B. Cobb's saddlery on"
+        "anchor": "Which cross street is S. B. Cobb's saddlery on",
+        "label": "the research notes on american self contradictions"
       },
       "citations": [
         {
@@ -1031,7 +1066,7 @@
           "what_it_does_not_supply": [
             "any building's form, material, storey count, fenestration or dimensions",
             "a reliable reading of a dense body column — this run had no reconciled second pass",
-            "a word count or uncertainty-marker count: none was delivered, and corpus.json records null rather than zero",
+            "a word count or uncertainty-marker count: none was delivered, and the corpus data records null rather than zero",
             "identification by volume and number: No. 12 is printed on two different issues",
             "anything at all from an engraving — the cuts are the printer's stock",
             "a citation without an issue page and column"
@@ -1050,7 +1085,7 @@
             "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
             "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
             "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
-            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+            "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers... past favors')",
             "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
             "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
             "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
@@ -1091,7 +1126,7 @@
             "that a named trade was being carried on in Chicago in a named week, and often where",
             "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
             "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
-            "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+            "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter list only)",
             "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
             "arrivals and clearances, which date the piers and the harbour as working structures",
             "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
@@ -1103,14 +1138,18 @@
             "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
             "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
             "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
-            "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+            "an argument from silence, unless the corpus data shows the issues either side of the silence are both in the deposit",
             "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
             "a citation without an issue page and column"
           ]
         }
       ],
       "carried_by": "shop_1833.position",
-      "carried_confidence": "inferred"
+      "carried_confidence": "inferred",
+      "work_refs": [
+        "T-0383"
+      ],
+      "carried_by_label": "position"
     }
   ]
 }

@@ -39,6 +39,29 @@ function barHtml(filled, todo) {
     + `<span style="width:${pct}%"></span></div>`;
 }
 
+/** A bucket's key as words: `persons/male/40_49/west/family/trade` → "persons · male · 40–49 ·
+ *  west · family · trade". The key is the book's index, not a word for a reader (T-2825). */
+function keyWords(key) {
+  return String(key ?? '').split('/')
+    .map((seg) => seg.replace(/^(\d+)_(\d+)$/, '$1–$2').replace(/_/g, ' ')).join(' · ');
+}
+
+/** An id as words, the way the rest of the card says one: `blk_washington_clark` →
+ *  "Washington Clark block", `lot_…_3` → its words. Never the id itself (T-2825). */
+function idWords(id) {
+  const raw = String(id ?? '');
+  const blk = /^blk_(.+)$/.exec(raw);
+  if (blk) return `${blk[1].replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())} block`;
+  return raw.replace(/_/g, ' ');
+}
+
+/** The work orders a row names, kept as data for Researcher mode's link and never printed:
+ *  the owner's ruling of 2026-10-18 (T-2825) refuses ticket language in every mode. */
+function workRefs(...refs) {
+  const list = refs.flat().filter((r) => typeof r === 'string' && r);
+  return list.length ? ` data-work-ref="${escapeHtml(list.join(' '))}"` : '';
+}
+
 /** The columns a bucket actually has: the families do not all carry the same ones. */
 function bucketRow(b) {
   const target = b.target ?? b.roofs_gated ?? null;
@@ -46,11 +69,9 @@ function bucketRow(b) {
     ? (b.standing ?? null)
     : (b.known_attested || 0) + (b.known_inferred || 0));
   const todo = b.to_reconstruct ?? b.to_build ?? null;
-  const owner = b.owning_ticket || (b.owning_tickets || []).join(', ') || '—';
-  return `<tr><td><code>${escapeHtml(b.key)}</code></td>`
+  return `<tr${workRefs(b.owning_ticket, b.owning_tickets || [])}><td>${escapeHtml(keyWords(b.key))}</td>`
     + `<td class="num">${num(target)}</td><td class="num">${num(known)}</td>`
-    + `<td class="num">${num(todo)}</td><td class="num">${num(b.filled)}</td>`
-    + `<td>${escapeHtml(owner)}</td></tr>`;
+    + `<td class="num">${num(todo)}</td><td class="num">${num(b.filled)}</td></tr>`;
 }
 
 /** WHERE THE ORDERED HOUSEHOLDS ARE STANDING (T-1620).
@@ -70,14 +91,13 @@ function seatsHtml(sr) {
   if (!sr) return '';
   const passes = sr.passes || [];
   const slots = sr.requested_slots || [];
-  const passRows = passes.map((p) => `<tr><td>${escapeHtml(p.title)}</td>`
-    + `<td><code>${escapeHtml(p.ticket)}</code></td>`
+  const passRows = passes.map((p) => `<tr${workRefs(p.ticket)}><td>${escapeHtml(p.title)}</td>`
     + `<td class="num">${num(p.rows_offered)}</td><td class="num">${num(p.seated)}</td>`
     + `<td class="num">${num(p.roofs_adopted)}</td><td class="num">${num(p.slots_requested)}</td>`
     + `<td class="num">${num(p.handed_on)}</td></tr>`).join('');
-  const slotRows = slots.map((s) => `<tr><td>${escapeHtml(s.name || s.household_id)}</td>`
-    + `<td><code>${escapeHtml(s.block_id || '')}</code></td>`
-    + `<td><code>${escapeHtml(s.lot_id || '')}</code></td>`
+  const slotRows = slots.map((s) => `<tr><td>${escapeHtml(s.name || idWords(s.household_id))}</td>`
+    + `<td>${escapeHtml(idWords(s.block_id || ''))}</td>`
+    + `<td>${escapeHtml(idWords(s.lot_id || ''))}</td>`
     + `<td>${escapeHtml(s.family || '')}</td></tr>`).join('');
   return `<details class="lib pop ob">
     <summary>
@@ -94,7 +114,7 @@ function seatsHtml(sr) {
         ${num(sr.slots_requested)} more ${sr.slots_requested === 1 ? 'roof was' : 'roofs were'}
         asked for rather than adopted.</p>
       <figure class="pop-table"><div class="pop-scroll"><table>
-        <thead><tr><th>pass</th><th>ticket</th><th class="num">offered</th>
+        <thead><tr><th>pass</th><th class="num">offered</th>
           <th class="num">seated</th><th class="num">adopted</th><th class="num">slots</th>
           <th class="num">handed on</th></tr></thead>
         <tbody>${passRows}</tbody>
@@ -172,7 +192,7 @@ export function familyHtml(family) {
       ${summary}
       <figure class="pop-table"><div class="pop-scroll"><table>
         <thead><tr><th>bucket</th><th class="num">target</th><th class="num">known</th>
-          <th class="num">to do</th><th class="num">filled</th><th>ticket</th></tr></thead>
+          <th class="num">to do</th><th class="num">filled</th></tr></thead>
         <tbody>${buckets.map(bucketRow).join('')}</tbody>
       </table></div></figure>
     </div>
@@ -251,13 +271,13 @@ export async function mountOrderBook({ mount, noteMount = null, dataBase, proble
     // like an agreement (T-1439).
     const deltas = (doc.programme_deltas || []).map((d) => {
       const groups = (d.programme_groups || []).join(' + ');
-      return `<p class="legend-note pop-note">`
+      return `<p class="legend-note pop-note"${workRefs(d.work_refs || [])}>`
         + `<b>${escapeHtml(d.id.replace(/_/g, ' '))}</b> — ${escapeHtml(d.statement)} `
         + `<span class="ob-delta">model ${num(d.model)} · programme ${num(d.programme)}`
         + `${groups ? ` (${escapeHtml(groups)})` : ''}</span></p>`;
     });
-    const invariants = (doc.invariants || []).map((i) => `<p class="legend-note pop-note">`
-      + `<b>${escapeHtml(i.id.replace(/_/g, ' '))}</b> (${escapeHtml(i.owning_ticket)}) — `
+    const invariants = (doc.invariants || []).map((i) => `<p class="legend-note pop-note"${workRefs(i.owning_ticket, i.work_refs || [])}>`
+      + `<b>${escapeHtml(i.id.replace(/_/g, ' '))}</b> — `
       + `${escapeHtml(i.statement)} <i>Now: ${escapeHtml(i.measured_now)}</i></p>`);
     mount.innerHTML = [
       // Whether the town is finished leads the card, then how far the seating has got.
@@ -268,11 +288,11 @@ export async function mountOrderBook({ mount, noteMount = null, dataBase, proble
       ...families,
       listHtml('Where the model and the roof programme disagree',
         `${deltas.length} delta${deltas.length === 1 ? '' : 's'}`,
-        'The book carries the model. Every difference is listed for the ticket that re-cuts '
+        'The book carries the model. Every difference is listed for the work that re-cuts '
         + 'the 668-roof schedule against it.', deltas),
       listHtml('What must be true when the town is finished',
         `${invariants.length} invariant${invariants.length === 1 ? '' : 's'}`,
-        'The assertions the convergence tickets close on, each measured as it stands today.',
+        'What the town has to satisfy before it is finished, each measured as it stands today.',
         invariants),
     ].join('');
     mount.removeAttribute('aria-busy');
