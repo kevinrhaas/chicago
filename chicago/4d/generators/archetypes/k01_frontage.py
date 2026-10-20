@@ -274,6 +274,9 @@ MATERIALS["yard_earth"] = {"color": (0.139, 0.102, 0.061), "roughness": 1.0}
 MATERIALS["yard_cinder"] = {"fabric": "gravel", "color": (0.52, 0.50, 0.47), "roughness": 0.93}
 # T-2369: the white-painted panel behind a frieze light that reads white in its photograph
 MATERIALS["frieze_panel"] = {"color": (0.74, 0.73, 0.70), "roughness": 0.6}
+# T-2887: louvred shutters at a window over a bay (1637's), read dark in a monochrome
+# photograph: a deep painted green, the colour reconstructed (L-k01-1637-bay-dress-2887)
+MATERIALS["shutter"] = {"color": (0.045, 0.08, 0.05), "roughness": 0.7}
 # K08 role -> slot; `body` is the bay's fabric (bay_stone, bay_brick or bay_frame), `cover`
 # its roof's K04 covering. A came is a leaded light's, which no K01 bay glazes.
 K08_ROLES = {"wall": "body", "masonry_relief": "body", "reveal": "body", "mullion": "body", "roof_back": "body",
@@ -1961,6 +1964,9 @@ class Assembly:
         # T-2781: its engaged columns, each a square base, a shaft and a square capital
         if b.get("columns"):
             self.bay_columns(b, v["plan"]["points"], W, R, N, body, seed, conf)
+        # T-2887: its carved dress — bands, frieze ovals, the consoles' scrolls, shutters
+        if b.get("dress"):
+            self.bay_dress(b["dress"], v["plan"]["points"], W, R, N, body, seed, conf)
         # T-2787: a tower rises past the main eave, and the wall that closes its ring below
         # stops at the wall head. Above that its ring is closed where the wall's plane cuts
         # it, facing the roof behind: from the wall head to the tower's wall top across the
@@ -2028,10 +2034,136 @@ class Assembly:
             ax = (x0 + tx * q["s_m"] + nx * r / 2, z0 + tz * q["s_m"] + nz * r / 2)
             Rw = _add(_mul(R, tx), _mul(N, tz))
             Nw = _add(_mul(R, nx), _mul(N, nz))
-            for (h, ya, yb) in ((r + 0.04, y0, y0 + hb), (r + 0.08, y1 - hc, y1)):
+            carved = (b.get("dress") or {}).get("capitals")
+            blocks = ((r + 0.04, y0, y0 + hb),) + (((r + 0.08, y1 - carved["abacus_m"], y1),) if carved
+                                                   else ((r + 0.08, y1 - hc, y1),))
+            for (h, ya, yb) in blocks:
                 self.column_block(mat, W((ax[0], 0.0, ax[1])), Rw, _cross(Rw, Y), h, ya, yb, seed + j, conf)
+            if carved:   # T-2887: a bell of leaves under the abacus, each tier's crown scalloped
+                ya, yb, k = y1 - hc, y1 - carved["abacus_m"], carved["tiers"]
+                for t in range(k):
+                    lo, hi = ya + (yb - ya) * t / k, ya + (yb - ya) * (t + 1) / k
+                    self.bell("carved_trim", W((ax[0], 0.0, ax[1])), Rw, _cross(Rw, Y), lo, hi,
+                              r + 0.01 + 0.02 * t, r + 0.05 + 0.025 * t, seed + j, conf)
             foot, head = W((ax[0], y0 + hb, ax[1])), W((ax[0], y1 - hc, ax[1]))
             self.tube(mat, [foot, head], r, Rw, seed + j, conf, sides=12)
+
+    def bell(self, mat, C, A, B, y0, y1, r0, r1, seed, conf, sides=16, scallop=0.22):
+        """T-2887: a carved capital's tier of leaves about the vertical through C: a ring
+        flaring from r0 at y0 to r1 at y1, its crown scalloped (every other point drawn in by
+        `scallop` of r1), so the tier's top edge reads as leaf tips against the abacus."""
+        pr = self.prim(mat)
+        ring = lambda r, y, sc: [_add(_add((C[0], y, C[2]), _mul(A, math.cos(2 * math.pi * j / sides) * r
+                                                                  * (1 - sc * (j % 2)))),
+                                      _mul(B, math.sin(2 * math.pi * j / sides) * r * (1 - sc * (j % 2))))
+                                 for j in range(sides)]
+        lo, hi = ring(r0, y0, 0.0), ring(r1, y1, scallop)
+        for j in range(sides):
+            a, b_, c, d = lo[j], lo[(j + 1) % sides], hi[(j + 1) % sides], hi[j]
+            mid = _sub(_mul(_add(a, c), 0.5), (C[0], (y0 + y1) / 2, C[2]))
+            pr.quad(a, b_, c, d, mid, self.basis(mat, a, _unit(_sub(b_, a)), Y, seed), conf)
+
+    def drum(self, mat, C, axis, ref, rad, half, seed, conf, sides=12):
+        """T-2887: a closed cylinder about C along `axis`, `half` either way, `ref` one of its
+        radial directions: a console's scroll seen end on."""
+        pr = self.prim(mat)
+        e2 = _unit(_cross(axis, ref))
+        rings = [[_add(_add(C, _mul(axis, k * half)), _add(_mul(ref, math.cos(2 * math.pi * j / sides) * rad),
+                                                             _mul(e2, math.sin(2 * math.pi * j / sides) * rad)))
+                  for j in range(sides)] for k in (-1, 1)]
+        for j in range(sides):
+            a, b_ = rings[0][j], rings[0][(j + 1) % sides]
+            mid = _sub(_mul(_add(a, b_), 0.5), _add(C, _mul(axis, -half)))
+            pr.quad(a, b_, rings[1][(j + 1) % sides], rings[1][j], mid,
+                    self.basis(mat, a, _unit(_sub(b_, a)), axis, seed), conf)
+        for k, ring in ((-1, rings[0]), (1, rings[1])):
+            pr.face(ring, _mul(axis, k), self.basis(mat, ring[0], ref, e2, seed), conf)
+
+    def bay_dress(self, d, pts, W, R, N, mat, seed, conf):
+        """T-2887: a stone bay's carved dress (1637's south bay, the Grosvenor photograph), on
+        the bay's own plan: mitred bands proud of its faces (from `in_m` out to `proud_m`, so a
+        band can stand on the eaves' fascia too), oval panels sunk dark in a moulded ring, a roll
+        at each end of every corner console, and open louvred shutters either side of the window
+        over it on the host wall."""
+        V = lambda x, z: _add(_mul(R, x), _mul(N, z))     # a plan direction in the world
+        runs = []
+        for (x0, z0), (x1, z1) in zip(pts, pts[1:]):
+            L = math.hypot(x1 - x0, z1 - z0)
+            tx, tz = (x1 - x0) / L, (z1 - z0) / L
+            runs.append(((x0, z0), (tx, tz), (-tz, tx), L))   # out: left of the run seen from above
+        def offset(dd):
+            """The plan offset `dd` out, mitred at its corners, its ends on the host wall."""
+            out = []
+            for i, ((x0, z0), (tx, tz), (nx, nz), L) in enumerate(runs):
+                if i == 0:
+                    sa = -(z0 + nz * dd) / tz if abs(tz) > 1e-9 else 0.0
+                    out.append((x0 + nx * dd + tx * sa, z0 + nz * dd + tz * sa))
+                else:
+                    (mx, mz) = runs[i - 1][2]
+                    k = dd / (1.0 + mx * nx + mz * nz)
+                    out.append((x0 + (mx + nx) * k, z0 + (mz + nz) * k))
+            (x0, z0), (tx, tz), (nx, nz), L = runs[-1]
+            x1, z1 = x0 + tx * L, z0 + tz * L
+            sb = -(z1 + nz * dd) / tz if abs(tz) > 1e-9 else 0.0
+            out.append((x1 + nx * dd + tx * sb, z1 + nz * dd + tz * sb))
+            return out
+        for q in d.get("bands", ()):
+            y0, y1 = q["from_m"], q["to_m"]
+            pi, po = offset(q["in_m"]), offset(q["proud_m"])
+            pr = self.prim(mat)
+            for i, (_, (tx, tz), (nx, nz), _L) in enumerate(runs):
+                Rw, Nw = V(tx, tz), V(nx, nz)
+                a, b_ = po[i], po[i + 1]
+                f = [W((a[0], y0, a[1])), W((b_[0], y0, b_[1])), W((b_[0], y1, b_[1])), W((a[0], y1, a[1]))]
+                pr.face(f, Nw, self.basis(mat, f[0], Rw, Y, seed), conf)
+                for y, ny in ((y1, Y), (y0, _mul(Y, -1))):
+                    h = [W((pi[i][0], y, pi[i][1])), W((pi[i + 1][0], y, pi[i + 1][1])),
+                         W((b_[0], y, b_[1])), W((a[0], y, a[1]))]
+                    pr.face(h, ny, self.basis(mat, h[0], Rw, Nw, seed), conf)
+        for j, q in enumerate(d.get("ovals", ())):
+            (x0, z0), (tx, tz), (nx, nz), _L = runs[q["run"]]
+            Rw, Nw = V(tx, tz), V(nx, nz)
+            C = W((x0 + tx * q["s_m"], q["y_m"], z0 + tz * q["s_m"]))
+            a, b_, rim, n = q["width_m"] / 2, q["height_m"] / 2, 0.035, 20
+            E = lambda aa, bb, k, dd: _add(_add(C, _mul(Nw, dd)), _add(_mul(Rw, aa * math.cos(2 * math.pi * k / n)),
+                                                                     _mul(Y, bb * math.sin(2 * math.pi * k / n))))
+            pr, dark = self.prim(mat), self.prim("backing")
+            sunk, dd = 0.015, q["proud_m"]
+            for k in range(n):
+                o0, o1 = E(a, b_, k, dd), E(a, b_, k + 1, dd)
+                i0, i1 = E(a - rim, b_ - rim, k, dd), E(a - rim, b_ - rim, k + 1, dd)
+                pr.face([o0, o1, i1, i0], Nw, self.basis(mat, o0, Rw, Y, seed + j), conf)
+                f0, f1 = E(a, b_, k, 0.0), E(a, b_, k + 1, 0.0)
+                pr.quad(f0, f1, o1, o0, _sub(_mul(_add(f0, o1), 0.5), C), self.basis(mat, f0, Nw, Y, seed + j), conf)
+                s0, s1 = E(a - rim, b_ - rim, k, sunk), E(a - rim, b_ - rim, k + 1, sunk)
+                pr.quad(s0, s1, i1, i0, _sub(C, _mul(_add(s0, i1), 0.5)), self.basis(mat, s0, Nw, Y, seed + j), conf)
+            disc = [E(a - rim, b_ - rim, k, sunk) for k in range(n)]
+            dark.face(disc, Nw, self.basis("backing", disc[0], Rw, Y, seed + j), conf)
+        vo = d.get("volutes")
+        if vo:
+            rv, Rc, D, t = vo["radius_m"], vo["reach_m"], vo["drop_m"], vo["thickness_m"] / 2 + 0.02
+            top = d["soffit_m"]
+            for i in range(1, len(runs)):
+                (mx, mz), (nx, nz) = runs[i - 1][2], runs[i][2]
+                bx, bz = mx + nx, mz + nz
+                k = math.hypot(bx, bz)
+                bx, bz = bx / k, bz / k
+                (cx, cz) = runs[i][0]
+                axis, out = V(-bz, bx), V(bx, bz)
+                for r_, y_, rad in ((rv, top - D + rv, rv), (Rc - 0.7 * rv, top - 0.7 * rv, 0.7 * rv)):
+                    self.drum("fascia", W((cx + bx * r_, y_, cz + bz * r_)), axis, out, rad, t, seed + i, conf)
+        sh = d.get("shutters")
+        if sh:
+            frame = (W((0.0, 0.0, 0.0)), R, N)
+            y0, y1, w, lv = sh["from_m"], sh["to_m"], sh["width_m"], sh["louvre_m"]
+            for sg in (-1.0, 1.0):
+                e0, e1 = sg * (sh["half_m"] + 0.03), sg * (sh["half_m"] + 0.03 + w)
+                s0, s1 = min(e0, e1), max(e0, e1)
+                self.proud_box("shutter", frame, s0, s1, y0, y1, 0.035, seed, conf)
+                rows = int((y1 - y0 - 0.16) / lv)
+                for k in range(rows):
+                    ya = y0 + 0.08 + k * lv
+                    self.proud_box("shutter", frame, s0 + 0.05, s1 - 0.05, ya, ya + lv * 0.5, 0.05, seed, conf)
 
     def column_block(self, mat, C, A, B, h, y0, y1, seed, conf):
         """A square block about the vertical through C, `h` either side along A and B, from
