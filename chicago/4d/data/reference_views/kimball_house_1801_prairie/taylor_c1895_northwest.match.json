@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "269f1e9dfc92fd6015eb3142c26d5740f8e3b34a7dbe740bda2eb5c817fb0fcf",
+  "glb_sha256": "10598f977a910354d1fd09b240a53a0d89d89164e55536b83201dd03c73b18ce",
   "camera_sha256": "d89ca0a91bccddd25a0ffa04ea98ff95ec08faec3913c2588f95f158db8cedf3",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
   "verdict": "differs",
@@ -48,9 +48,14 @@
       "how": "T-2923"
     },
     {
-      "what": "the front's carving: the carved pilasters beside the bow and the pavilion, the moulded surrounds of the bow's lights and the pavilion's pairs, the carved frieze over the principal storey over the loggia, and the bow balcony's pierced quatrefoil panels; the build lays them in plain stone and square balusters",
+      "what": "the front's carving: the carved pilasters beside the bow and the pavilion, the moulded surrounds of the bow's lights and the pavilion's pairs, and the carved frieze over the principal storey over the loggia; the build lays them in plain stone",
       "status": "open",
-      "how": "T-2922"
+      "how": "T-2931 (the pilasters and surrounds), T-2932 (the frieze)"
+    },
+    {
+      "what": "the bow balcony's pierced panels: the print's balustrade on the bow is pierced in a diagonal lattice of diamonds between posts, one post showing a quarter of the way round from the north wall; the build had square stone balusters",
+      "status": "fixed",
+      "how": "T-2930: K08's stone balustrade with four pierced panels between five posts, each a diagonal lattice of 0.05 m straps crossing at 0.16 m in two staggered rows of diamonds, on a 0.10 m base course under a 0.13 m coping; the seen post within about 5 px of the print's (x 1191 against 1186-1190), about five diamonds across a panel as the print shows, the coping within about 10 px of the print's. The balustrade runs on past the print's pilaster at x 1231 to x 1270, where the pavilion's carved pilaster (T-2931) is not built to hide it"
     },
     {
       "what": "the bowed bay in the middle of the front, two storeys under a balcony, and the front's openings: paired and mullioned windows; the build has the draft's evenly spaced sash. The sheet's bulge (v 4.8-10.2) and the photograph's bay (about 60 px further north) disagree about where it stands",
