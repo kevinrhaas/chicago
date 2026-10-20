@@ -180,7 +180,32 @@ say() { printf '%s\n' "$*"; }
 # mirror the PR ships; this one only makes it readable. publish.sh is idempotent,
 # so running it twice costs those seconds and nothing else.
 lap_publish_mirror() {
+  lap_refresh_package
   ( cd chicago/4d && bash tools/publish.sh ) >/tmp/lap-publish.log 2>&1
+}
+
+# ...AND THE GLESSNER PACKAGE IS UNPACKED AGAIN FROM THE MERGED TREE FIRST (T-2907).
+# The three v4 GLBs too large to commit live in docs/RESEARCH/glessner-v4-recovery/
+# as a packed archive, and publish.sh materializes them as IGNORED files. This one
+# clone laps every PR in turn, and an ignored file survives every checkout and merge,
+# so after a merge that brings dev's repacked archive the copy on disk is the OLD
+# one — and publish.sh, rightly, refuses to publish an output that differs from its
+# package. Measured 2026-10-19: #1116 repacked Glessner, and the very next lap
+# merged #1114's registries (T-2892) and then left it alone at publish for that
+# refusal, which no run could ever fix from the PR. Nothing in the lap ever authors
+# these files; they are always the committed package's, so the lap deletes its
+# unpacked copies and lets --materialize rebuild them from the merged archive. Only
+# paths git calls IGNORED are touched, so a tracked file is never removed.
+lap_refresh_package() {
+  [ -f chicago/4d/tools/recover_glessner_v4.py ] || return 0
+  ( cd chicago/4d && python3 -c '
+import sys; sys.path.insert(0, "tools")
+import recover_glessner_v4 as r
+print("\n".join(r.targets()))' 2>/dev/null ) | while IFS= read -r rel; do
+    [ -n "$rel" ] && [ -e "chicago/4d/$rel" ] && git check-ignore -q "chicago/4d/$rel" \
+      && rm -f "chicago/4d/$rel"
+  done
+  return 0
 }
 
 # The newest `gate` check run on a head, as `status:conclusion`, or nothing when

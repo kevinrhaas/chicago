@@ -30,12 +30,14 @@ for reduced in (False,True):
  b=B('terrace',p);b.decorate=False;b.smooth_rock_faces=not reduced;m.build(b,p)
  heights=[]
  for i,(edge,nxt) in enumerate(zip(bt['stair_boundaries'],bt['stair_boundaries'][1:])):
-  x,y=[sum(q[k] for q in edge+nxt)/4 for k in range(2)]
+  x,y=[sum(q[k] for q in edge[-2:]+nxt[-2:])/4 for k in range(2)]
   hit=rays(b,x,y,2)
   assert hit,('missing tread',i)
   heights.append(max(hit))
   if i>0:assert not rays(b,x,y,8),('landing protrudes over tread',i)
- expected=[1.68,1.49,1.31,1.12,.93,.75,.56,.37,.19]
+ # T-2906: the two treads at the foot stand at sheet 4's drawn 1.57 and 0.88 ft;
+ # the seven above them share the rest of the rise to the deck evenly.
+ expected=[1.68,1.51,1.34,1.17,.99,.82,.65,.479,.268]
  assert all(abs(a-c)<.015 for a,c in zip(heights,expected)),heights
  print('nine independent walk-line ray heights',reduced,[round(h,3) for h in heights])
  for face,mat in zip(b.faces,b.mat_index):

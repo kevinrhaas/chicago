@@ -707,8 +707,12 @@ MANSARD_FACES = {"street": "v", "rear": "v", "north": "u", "south": "u"}
 
 #: T-2452: a lower-face dormer's head — the sash's own arch carried out by the surround
 #: (T-2404, T-2411), or a pitched gable over a square-headed sash — and the K06 head each takes.
-#: T-2866: or a hipped roof of its own over the face's square head (1625's south dormer)
-DORMER_HEADS = {"round": "round", "gable": "flat", "hip": "flat"}
+#: T-2866: or a hipped roof of its own over the face's square head (1625's south dormer).
+#: T-2902: or a FLAT hood — the face carried `frieze_m` over the sash's head to a projecting
+#: cornice, the kit's dormer eaves, under a cap falling `hood_fall_deg` (1625's rear section)
+DORMER_HEADS = {"round": "round", "gable": "flat", "hip": "flat", "flat": "flat"}
+#: the heads whose eaves are K05's hip over the face's square wall head
+HIPPED_HEADS = ("hip", "flat")
 
 
 def _round_dormer(d: dict, what: str, room: float, hip: bool = False) -> dict:
@@ -724,8 +728,9 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False) -> dict:
     head = d.get("head", "round")
     if head not in DORMER_HEADS:
         raise ParamError(f"{what}.head {head!r}: one of {', '.join(DORMER_HEADS)}")
-    if head == "hip" and not hip:
-        raise ParamError(f"{what}.head 'hip': a hipped dormer stands on a hip's slope (slope_dormers)")
+    if head in HIPPED_HEADS and not hip:
+        raise ParamError(f"{what}.head {head!r}: a dormer under its own eaves stands on a hip's slope "
+                         f"(slope_dormers) or a rear section's attic")
     if kit.get(sh.get("variant"), {}).get("head") != DORMER_HEADS[head]:
         raise ParamError(f"{what}.sash.variant: a {DORMER_HEADS[head]}-headed K06 variant under a {head} head")
     sw, sht, sill = float(sh["width_m"]), float(sh["height_m"]), float(sh["sill_m"])
@@ -750,6 +755,15 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False) -> dict:
         if not 30.0 <= hp <= 60.0:
             raise ParamError(f"{what}.hip_pitch_deg {hp}: a dormer's hip is pitched 30-60 deg")
         out["hip_pitch_deg"] = hp
+    if head == "flat":
+        # T-2902: the face's wall head `frieze_m` over the sash (a frieze under the cornice, where
+        # the surround's ring is only its jambs'), the cap K05's hip at a flat's fall
+        fz, fall = float(d["frieze_m"]), float(d["hood_fall_deg"])
+        if not 0.1 <= fz <= 0.6:
+            raise ParamError(f"{what}.frieze_m {fz}: a flat hood's frieze stands 0.1-0.6 m over the sash")
+        if not 2.0 <= fall <= 15.0:
+            raise ParamError(f"{what}.hood_fall_deg {fall}: a flat hood's cap falls 2-15 deg")
+        out.update(frieze_m=fz, hood_fall_deg=fall, hip_pitch_deg=fall, head_m=round(sht + fz, 4))
     return out
 
 
@@ -789,7 +803,7 @@ def _slope_dormers(entries, roof_form: str, depth: float, width: float, eave: fl
                              f"inside the wall line ({overhang} m of eave)")
         foot = eave + w0 * tp
         top = foot + r_["sill_m"] + r_["head_m"]
-        if r_["head"] == "hip":
+        if r_["head"] in HIPPED_HEADS:
             reach = r + do
             high = top + df + reach * math.tan(math.radians(r_["hip_pitch_deg"]))
         else:
@@ -797,9 +811,9 @@ def _slope_dormers(entries, roof_form: str, depth: float, width: float, eave: fl
         if high > ridge - 0.1:
             raise ParamError(f"{what}: its top at {high:.2f} m stands within 0.1 m of the hip's ridge at {ridge:.2f} m")
         # back to where its top is inside the near slope; a hipped head's ridge ends `r` short of it
-        back = (r if r_["head"] == "hip" else 0.0) + (high - eave) / tp + 0.05
-        lowest = top + df if r_["head"] == "hip" else high
-        far = eave + (width - back - (do if r_["head"] == "hip" else 0.0)) * tp
+        back = (r if r_["head"] in HIPPED_HEADS else 0.0) + (high - eave) / tp + 0.05
+        lowest = top + df if r_["head"] in HIPPED_HEADS else high
+        far = eave + (width - back - (do if r_["head"] in HIPPED_HEADS else 0.0)) * tp
         if far < lowest + 0.02:
             raise ParamError(f"{what}: run back {back:.2f} m to bury its top, it stands out of the slope behind the ridge")
         if c - reach < back or c + reach > depth - back:
@@ -954,7 +968,11 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
         top, low = oc["centre_m"] + oc["height_m"] / 2 + oc["ring_m"], oc["centre_m"] - oc["height_m"] / 2 - oc["ring_m"]
         if oc["width_m"] / 2 + oc["ring_m"] + 0.15 > ksg.half_width(q, top) or low < sill + lh + 0.3:
             raise ParamError("shaped_gable.oculus: its ring stands 0.15 m inside the outline and 0.3 m over the lights")
+    tg = sg.get("takes_gutter", False)
+    if not isinstance(tg, bool):
+        raise ParamError("shaped_gable.takes_gutter: true or false (T-2889)")
     return {"profile_m": pr, "foot_m": foot, "thickness_m": t, "proud_m": proud,
+            **({"takes_gutter": True} if tg else {}),
             "lights": {"variant": li["variant"], "sill_m": sill, "width_m": lw, "height_m": lh, "at_m": at},
             "coping": coping, "kneelers": kne, "finial": fin, "fabric": fabric, "oculus": oc,
             **({"ledge_m": ledge_m} if ledge_m is not None else {})}
@@ -1602,6 +1620,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 at.append({"run": run, "s_m": s_})
             columns = {"diameter_m": d, "from_m": y0, "to_m": y1, "base_m": hb, "capital_m": hc,
                        "at": tuple(at)}
+        dress = _bay_dress(e, v, top, columns) if e.get("dress") is not None else None
         if e.get("fabric") == "front_stone" and not front_stone:
             raise ParamError(f"bays: {e['id']} is laid in the front's stone, and the record names no K02 stone_front")
         out.append({"id": e["id"], "wall": e["wall"], "s_m": s, "span_m": (round(a, 4), round(b, 4)),
@@ -1609,8 +1628,74 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     **({"flush_corner": flush} if flush else {}),
                     **({"through_eave": True} if e.get("through_eave") else {}),
                     **({"strips": tuple(strips)} if strips else {}),
-                    **({"columns": columns} if columns else {})})
+                    **({"columns": columns} if columns else {}),
+                    **({"dress": dress} if dress else {})})
     return tuple(out)
+
+
+def _bay_dress(e: dict, v: dict, top: float, columns: dict | None) -> dict:
+    """T-2887: a stone bay's carved dress, read off a picture (1637's south bay, the Grosvenor
+    photograph): its columns' capitals carved as a bell of leaves under an abacus, mitred bands
+    round its faces (the architrave over the capitals, the bed mouldings under the soffit and
+    the corona's cymatium), oval panels in its frieze, a roll at each end of its consoles (the
+    scroll) and open louvred shutters at the window over it. Every part is optional."""
+    ds, bid = e["dress"], e["id"]
+    pts = v["plan"]["points"] if v["plan"]["kind"] == "polyline" else None
+    known = {"capitals", "bands", "ovals", "volutes_m", "shutters"}
+    if pts is None or e.get("fabric", "stone") != "stone" or not ds or set(ds) - known:
+        raise ParamError(f"bays: {bid}'s dress takes {sorted(known)}, on a stone bay's polyline plan")
+    out = {"soffit_m": round(top, 4)}
+    if "capitals" in ds:
+        cp = ds["capitals"]
+        if columns is None or set(cp) != {"tiers", "abacus_m"} or cp["tiers"] not in (1, 2) \
+                or not 0.03 <= float(cp["abacus_m"]) <= columns["capital_m"] - 0.08:
+            raise ParamError(f"bays: {bid}'s dress.capitals take tiers (1 or 2) and abacus_m, 0.03 m up to "
+                             f"0.08 m short of its columns' capital, and carve the columns it has")
+        out["capitals"] = {"tiers": int(cp["tiers"]), "abacus_m": float(cp["abacus_m"])}
+    bands = []
+    for j, q in enumerate(ds.get("bands") or ()):
+        if set(q) - {"in_m"} != {"from_m", "to_m", "proud_m"}:
+            raise ParamError(f"bays: {bid}.dress.bands[{j}] takes from_m, to_m, proud_m and an optional in_m")
+        y0, y1, d, d0 = float(q["from_m"]), float(q["to_m"]), float(q["proud_m"]), float(q.get("in_m", 0.0))
+        if not 0.0 < y0 < y1 <= top + 0.5 or y1 - y0 > 0.5 or not 0.0 <= d0 < d <= 0.6:
+            raise ParamError(f"bays: {bid}.dress.bands[{j}] {q} is a band up to 0.5 m tall, inside the bay and "
+                             f"its eaves (top {top:.2f} m), from in_m out to 0.6 m proud")
+        bands.append({"from_m": y0, "to_m": y1, "proud_m": d, "in_m": d0})
+    if bands:
+        out["bands"] = tuple(bands)
+    ovals = []
+    for j, q in enumerate(ds.get("ovals") or ()):
+        need = {"run", "s_m", "y_m", "width_m", "height_m", "proud_m"}
+        if set(q) != need or not 0 <= int(q["run"]) < len(pts) - 1:
+            raise ParamError(f"bays: {bid}.dress.ovals[{j}] takes {sorted(need)}, on a run of its plan")
+        run, s_, y_ = int(q["run"]), float(q["s_m"]), float(q["y_m"])
+        w, h, d = float(q["width_m"]), float(q["height_m"]), float(q["proud_m"])
+        if not (0.1 <= w <= 1.0 and 0.1 <= h <= 1.0 and 0.01 <= d <= 0.1) \
+                or not w / 2 <= s_ <= math.dist(pts[run], pts[run + 1]) - w / 2 or not h / 2 < y_ < top - h / 2:
+            raise ParamError(f"bays: {bid}.dress.ovals[{j}] {q} is 0.1-1.0 m each way and 0.01-0.1 m proud, "
+                             f"inside its run and the bay's wall (top {top:.2f} m)")
+        ovals.append({"run": run, "s_m": s_, "y_m": y_, "width_m": w, "height_m": h, "proud_m": d})
+    if ovals:
+        out["ovals"] = tuple(ovals)
+    if "volutes_m" in ds:
+        rv, con = float(ds["volutes_m"]), (v.get("brackets") or {}).get("consoles")
+        if con is None or not 0.02 <= rv <= min(0.15, con["drop_m"] / 4, con["reach_m"] / 3):
+            raise ParamError(f"bays: {bid}'s dress.volutes_m {rv} rolls its consoles' ends, 0.02 m up to a "
+                             f"quarter of their drop and a third of their reach")
+        out["volutes"] = {"radius_m": rv, "reach_m": float(con["reach_m"]), "drop_m": float(con["drop_m"]),
+                          "thickness_m": float(con["thickness_m"])}
+    if "shutters" in ds:
+        sh, wo = ds["shutters"], e.get("window_over")
+        if wo is None or set(sh) != {"width_m", "to_m", "louvre_m"}:
+            raise ParamError(f"bays: {bid}'s dress.shutters take width_m, to_m and louvre_m, at its window_over")
+        ws, wh = float(wo["sill_m"]), float(wo["height_m"])
+        w, y1, lv = float(sh["width_m"]), float(sh["to_m"]), float(sh["louvre_m"])
+        if not 0.2 <= w <= float(wo["width_m"]) or not ws + 0.5 <= y1 <= ws + wh or not 0.03 <= lv <= 0.15:
+            raise ParamError(f"bays: {bid}'s dress.shutters {sh}: each leaf 0.2 m up to the window's width, "
+                             f"from its sill ({ws} m) to at most its crown, louvres 0.03-0.15 m")
+        out["shutters"] = {"half_m": float(wo["width_m"]) / 2, "from_m": ws, "to_m": y1, "width_m": w,
+                           "louvre_m": lv}
+    return out
 
 
 def _rise_over_span(v) -> float:
@@ -1778,6 +1863,37 @@ def _street_dress(sfw, openings, floors, width) -> dict:
             raise ParamError(f"street_front_windows.surrounds.storeys {list(storeys)} are not this front's storeys")
         out["surrounds"] = {"storeys": storeys, "returns_m": (lo, hi), "lintel_m": float(su["lintel_m"])}
     return out
+
+
+def _voussoirs(vs, k, variant, s, sill, h, sgr, overhang, eave) -> dict:
+    """T-2889: a named street window's arch turned in voussoirs (1812 Prairie's photograph: a
+    ring of dressed stones round each third-storey arch, a keystone at the crown): `ring_m`
+    deep from the head's curve, `stones` of them (odd, the middle one the keystone), standing
+    `proud_m` before the wall, the keystone `key_m` [width at its top, height over the crown].
+    Where the ring rises past a shaped gable's foot it stands before the gable's face too."""
+    what = f"street_front_windows.windows[{k}].voussoirs"
+    if set(vs) != {"ring_m", "stones", "proud_m", "key_m"}:
+        raise ParamError(f"{what} takes ring_m, stones, proud_m and key_m [width, height]")
+    if variant["head"] not in ("round", "segmental"):
+        raise ParamError(f"{what}: a ring is turned over a round or segmental head, not a {variant['head']} one")
+    ring, n, proud = float(vs["ring_m"]), int(vs["stones"]), float(vs["proud_m"])
+    kw, kh = (float(x) for x in vs["key_m"])
+    if not 0.15 <= ring <= 0.6 or n % 2 == 0 or not 5 <= n <= 25 or not 0.02 <= proud <= 0.15:
+        raise ParamError(f"{what}: a 0.15-0.6 m ring of 5-25 stones (odd, the keystone in the middle), "
+                         f"0.02-0.15 m proud")
+    if not 0.15 <= kw <= 0.6 or not ring <= kh <= ring + 0.6:
+        raise ParamError(f"{what}.key_m: a keystone 0.15-0.6 m across its top, rising at least the ring's depth "
+                         f"and at most 0.6 m past it")
+    top = sill + h + kh
+    if sgr and top > float(sgr["foot_m"]):
+        face = overhang + float(sgr["proud_m"])
+        if proud < face + 0.02:
+            raise ParamError(f"{what}: the ring rises past the gable's foot, so it stands at least 0.02 m "
+                             f"before the gable's face ({face + 0.02:.2f} m proud)")
+    elif top > eave - 0.05:
+        raise ParamError(f"{what}: the keystone runs into the wall head")
+    return {"s_m": round(s, 4), "sill_m": round(sill, 4), "ring_m": ring, "stones": n, "proud_m": proud,
+            "key_m": (kw, kh)}
 
 
 def _street_frontispiece(fp, openings, dress, floors, width) -> dict:
@@ -2348,10 +2464,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if sfw:
         kit_ids = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
         door = (door_s - 0.60 - 0.30, door_s + 0.60 + 0.30, door_floor + door_h + 0.30)
-        laid = []
+        laid, rings = [], []
         for k, w in enumerate(sfw["windows"]):
-            if set(w) != {"component", "storey", "s_m", "width_m", "sill_m", "height_m"}:
-                raise ParamError(f"street_front_windows.windows[{k}] takes component, storey, s_m, width_m, sill_m and height_m")
+            if set(w) - {"voussoirs"} != {"component", "storey", "s_m", "width_m", "sill_m", "height_m"}:
+                raise ParamError(f"street_front_windows.windows[{k}] takes component, storey, s_m, width_m, sill_m and height_m"
+                                 f" (and, T-2889, voussoirs)")
             comp, st = w["component"], int(w["storey"])
             s, wd, sill, h = (float(w[x]) for x in ("s_m", "width_m", "sill_m", "height_m"))
             entry = (val("window_kit") or {}).get(comp)
@@ -2377,11 +2494,16 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 if s0 < a1 + 0.24 and s1 > a0 - 0.24 and sill < b1 + 0.30 and sill + h > b0 - 0.30:
                     raise ParamError(f"street_front_windows.windows[{k}] meets windows[{j}] or its flat arch")
             laid.append((s0, s1, sill, sill + h))
+            if w.get("voussoirs") is not None:
+                rings.append(_voussoirs(w["voussoirs"], k, kit_ids[vid], s, sill, h, sgr,
+                                        float(val("eave_overhang_m")), eave))
             dh = kit_ids[vid]["operation"].startswith("double_hung")
             openings.append(Opening(comp, "k01.wall.street_front", round(s, 4), round(sill, 4), wd, h, dh))
     street_dress, frontispiece = {}, {}
     if sfw:
         street_dress = _street_dress(sfw, openings, floors, width)
+        if rings:   # T-2889: the named windows' voussoir rings
+            street_dress["voussoirs"] = tuple(rings)
     if val("street_front_frontispiece"):
         if not sfw:
             raise ParamError("street_front_frontispiece dresses a front laid by street_front_windows")
@@ -2527,8 +2649,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             if v["head"] != "round" or v.get("bays", 1) != 1:
                 raise ParamError(f"window_kit: {comp} is cut as one round hole, and {vid} is not a single round-headed sash")
         elif v["head"] != "flat" and not (comp in arched_rows and val("stone_front")) and not (
-                comp.startswith(STREET_WINDOW) and v["head"] == "segmental"):
+                comp.startswith(STREET_WINDOW) and v["head"] in ("segmental", "round")):
             # T-2752: the coursed stone front fills a named street window's segmental head
+            # (T-2889: and its round one, 1812's small arched window)
             raise ParamError(f"window_kit: {vid} has a {v['head']} head, and a K01 wall cuts "
                              f"a rectangular hole")
         # T-2818: a single light may stand under a segmental arch (1623's broad basement light)

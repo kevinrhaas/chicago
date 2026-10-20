@@ -4226,6 +4226,15 @@ selftest "the asset registries merge entry by entry, and refuse a master both si
 step "the lap clears a registry-only conflict, and still leaves a real one alone" \
   node tools/test_pr_lap_registry.mjs
 
+# ...AND THE LAP UNPACKS THE GLESSNER PACKAGE AGAIN AFTER MERGING (T-2907). Its clone laps
+# every PR in turn and the unpacked v4 GLBs are IGNORED files, so after dev repacks the
+# archive the copy on disk is the old one and publish.sh refuses it — #1114 was left alone
+# for exactly that on 2026-10-19, right after its registries merged. REAL lap, REAL bare
+# remote, a stub publish that refuses a stale output as the real one does; and again with
+# the refresh cut out, which must leave the PR alone.
+step "the lap unpacks the Glessner package from the merged tree before it publishes" \
+  node tools/test_pr_lap_package.mjs
+
 # AND THE THING THAT ACTUALLY MERGES A FINISHED PULL REQUEST, which for most of
 # this repository's life was NOBODY. The lap's header said auto-merge did it; the
 # fleet janitor said the lap plus auto-merge did it, while excluding `custom`
