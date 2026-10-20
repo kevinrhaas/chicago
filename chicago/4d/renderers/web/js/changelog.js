@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2106, ts: '2026-10-20T06:09:57.960Z', date: 'Oct 20, 2026, 1:09 AM CT', title: '1625 Prairie\'s back door steps down to a sunken entry', kind: 'change',
+    items: [
+      'In 1904, the door at the foot of 1625 Prairie\'s tall rear wing is now a full-height door whose sill sits about 0.6 m below the sidewalk. The 1890 photograph shows too short a door above the sidewalk for it to sit at street level.',
+      'It opens on a small sunken entry with four steps down from the walk, hidden behind the fence in the photograph and drawn as our best reconstruction.',
+    ] },
   { v: 2105, ts: '2026-10-20T05:19:14.737Z', date: 'Oct 20, 2026, 12:19 AM CT', title: '1637 Prairie\'s south bay carved, and shutters at the window above', kind: 'feature',
     items: [
       'The stone bay on 1637\'s south side is dressed the way its 1870s photograph shows it. Its column capitals are carved as leaves, and an oval panel sits in the frieze over each window.',
