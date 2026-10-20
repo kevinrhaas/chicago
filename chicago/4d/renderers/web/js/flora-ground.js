@@ -18,7 +18,7 @@
  * it a slot comes back `GROUND_UNASKED` and the page asks.
  */
 import { gridSampler, onGrid, pointInPolygon } from './flora-zones.js';
-import { vergeAt } from './street-verge.js';
+import { vergeAt, trackAt } from './street-verge.js';
 
 /** The slot is under water: terrain.js `isWater`, the grid's height below the shore. */
 export const GROUND_WET = 1;
@@ -30,6 +30,11 @@ export const GROUND_TRODDEN = 4;
 /** The slot is the last VERGE_KEEP_M of a corridor at its lot line, where a
  *  positional hash keeps some tall weeds (flora.js `trodden`). */
 export const GROUND_KEEP = 8;
+/** T-2896: the slot is on a street's travelled track or its shoulder — streets.js
+ *  `blocksGrowth`, the half of the page's `growthBlocked` that is the streets'
+ *  (flora.js `growthEdges`). Only where the held streets carry their track
+ *  widths (`trackHeld`). */
+export const GROUND_TRACK = 16;
 /** A slot the worker did not answer (off the measured grid, or no ground held). */
 export const GROUND_UNASKED = 255;
 
@@ -110,6 +115,12 @@ export function onFloor(blocks, e, n) {
   return false;
 }
 
+/** T-2896: whether a held ground's streets carry the track widths `trackAt`
+ *  reads, so its answers carry GROUND_TRACK. */
+export function trackHeld(g) {
+  return Array.isArray(g?.streets) && g.streets.every((r) => Number.isFinite(r.track_width_m));
+}
+
 /**
  * The worker's side: from a held ground (flora-zones.js `heldGround`, with
  * `floors` — each footprint's points — and `streets` — street-verge.js
@@ -121,12 +132,14 @@ export function groundAnswers(g) {
   if (!g?.hf || !Array.isArray(g.floors) || !Array.isArray(g.streets)) return null;
   const sample = gridSampler(g.hf);
   const blocks = circleGrid(footprintCircles(g.floors.map((pts) => ({ pts }))));
+  const tracks = trackHeld(g);
   const at = (e, n) => {
     if (!onGrid(g.hf, e, n)) return GROUND_UNASKED;
     const y = sample(e, n);
     at.y = y;
     let f = y < g.shoreY ? GROUND_WET : 0;
     if (onFloor(blocks, e, n)) f |= GROUND_FLOOR;
+    if (tracks && trackAt(g.streets, e, n)) f |= GROUND_TRACK;
     return f | vergeBand(vergeAt(g.streets, e, n));
   };
   at.y = 0;
