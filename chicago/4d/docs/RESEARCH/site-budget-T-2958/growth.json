@@ -1,0 +1,191 @@
+{
+ "ticket": [
+  "T-2958",
+  "T-2959"
+ ],
+ "measured": "2026-10-20",
+ "method": "tools/publish.sh at each commit on the steward runner, every file under site/4d compared by path",
+ "before": {
+  "commit": "363579fc5",
+  "note": "T-2596 landing (#908)",
+  "bytes": 292577925,
+  "files": 4886
+ },
+ "after": {
+  "commit": "5f787d3a7",
+  "note": "origin/dev",
+  "bytes": 335532030,
+  "files": 5118
+ },
+ "delta_bytes": 42954105,
+ "by_directory_bytes": {
+  "data/prebuilt": 22770035,
+  "data/gltf": 5385004,
+  "walk/transport": 4685367,
+  "data/textures": 3256162,
+  "data/reader": 2687281,
+  "data/sidecars": 1208646,
+  "walk/js": 1092009,
+  "data/humans": 510618,
+  "data/liberties.json": 470008,
+  "data/flora": 184877,
+  "data/modern": 166184,
+  "js/changelog.js": 161428,
+  "walk/css": 122585,
+  "data/inspect": 99985,
+  "data/comparisons": 37971,
+  "data/timestream": 19484,
+  "data/pictures": 15124,
+  "packs/1835.json": 14265,
+  "packs/1904.json": 11826,
+  "walk/portal": 11420,
+  "packs/1812.json": 11310,
+  "data/residents": -8455,
+  "1835/index.html": 6191,
+  "walk/index.html": 6191,
+  "1812/index.html": 6191,
+  "1904/index.html": 6191,
+  "1880/index.html": 6191,
+  "data/guide": 4088,
+  "data/reconstruction": 2386,
+  "index.html": 2059,
+  "data/businesses": 1115,
+  "data/context": 262,
+  "data/town_census.json": 53,
+  "data/render": 53
+ },
+ "largest_file_changes_bytes": [
+  {
+   "path": "data/prebuilt/1835/ground.bin.gz",
+   "delta": 10626610,
+   "state": "new"
+  },
+  {
+   "path": "data/prebuilt/1835/streets.full.bin.gz",
+   "delta": 4090160,
+   "state": "new"
+  },
+  {
+   "path": "data/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
+   "delta": 3641524,
+   "state": "new"
+  },
+  {
+   "path": "data/prebuilt/1835/yards.bin.gz",
+   "delta": 3222166,
+   "state": "new"
+  },
+  {
+   "path": "data/prebuilt/1835/streets.light.bin.gz",
+   "delta": 2999015,
+   "state": "new"
+  },
+  {
+   "path": "data/gltf/house_1736_prairie__as_mapped_1904.glb",
+   "delta": 1574008,
+   "state": "new"
+  },
+  {
+   "path": "data/reader/residents.json",
+   "delta": 1300628,
+   "state": "new"
+  },
+  {
+   "path": "data/textures/trees/leaf_atlas.ktx2",
+   "delta": 944850,
+   "state": "new"
+  },
+  {
+   "path": "data/reader/structures_1835.json",
+   "delta": 898555,
+   "state": "new"
+  },
+  {
+   "path": "data/textures/trees/leaf_atlas.webp",
+   "delta": 891684,
+   "state": "new"
+  },
+  {
+   "path": "walk/transport/carriage-c02/carriage-c02.glb",
+   "delta": 860956,
+   "state": "new"
+  },
+  {
+   "path": "walk/transport/wagon-driver/wagon-w01.glb",
+   "delta": 817220,
+   "state": "new"
+  },
+  {
+   "path": "data/prebuilt/1835/ground.json",
+   "delta": 797676,
+   "state": "new"
+  },
+  {
+   "path": "walk/transport/wagon/wagon-w01.glb",
+   "delta": 793932,
+   "state": "new"
+  },
+  {
+   "path": "walk/transport/carriage/carriage-c01.glb",
+   "delta": 770892,
+   "state": "new"
+  },
+  {
+   "path": "data/prebuilt/1835/base.bin.gz",
+   "delta": 726189,
+   "state": "new"
+  },
+  {
+   "path": "walk/transport/horse/equine_light_harness_skinned_prototype_01.glb",
+   "delta": 715316,
+   "state": "new"
+  },
+  {
+   "path": "walk/transport/harness/light_breastcollar_harness_reconstructed_01.glb",
+   "delta": 602980,
+   "state": "new"
+  },
+  {
+   "path": "data/textures/trees/bark_normal.ktx2",
+   "delta": 585740,
+   "state": "new"
+  },
+  {
+   "path": "data/liberties.json",
+   "delta": 470008,
+   "state": "changed"
+  },
+  {
+   "path": "data/textures/trees/bark_basecolor.ktx2",
+   "delta": 368774,
+   "state": "new"
+  },
+  {
+   "path": "data/reader/structures_1904.json",
+   "delta": 253702,
+   "state": "new"
+  },
+  {
+   "path": "data/textures/trees/bark_normal.webp",
+   "delta": 241428,
+   "state": "new"
+  },
+  {
+   "path": "data/sidecars/1835/sources/chicago_democrat_1833_1835.json",
+   "delta": 224390,
+   "state": "changed"
+  },
+  {
+   "path": "data/textures/trees/bark_basecolor.webp",
+   "delta": 223686,
+   "state": "new"
+  }
+ ],
+ "pages_arithmetic": {
+  "allowance_mib": 384,
+  "allowances": 2,
+  "other_site_content_bytes": 135408963,
+  "total_mib": 897.136,
+  "ceiling_mib": 1024
+ }
+}

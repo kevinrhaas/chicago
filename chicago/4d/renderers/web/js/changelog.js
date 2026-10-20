@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2140, ts: '2026-10-20T21:28:13.117Z', date: 'Oct 20, 2026, 4:28 PM CT', title: '1816 Prairie, the Henderson house, rebuilt from its photograph', kind: 'feature',
+    items: [
+      '1816 Prairie Avenue is no longer a plain draft block. It now stands as Charles M. Henderson\'s brick house: two tall storeys over a stone basement, under a slated mansard with dormers.',
+      'A canted bay rises at the street front\'s south corner with the cornice carried round it, and a second canted bay stands on the south flank, both where the 1911 map draws them.',
+      'The front door has its photographed porch: two columns carrying an iron-railed balcony, a broad flight down to the walk, and an iron fence along the street.',
+      'The raised roof crown, the iron cresting and the carved window hoods in the photograph are not built yet; they are next.',
+    ] },
+  { v: 2139, ts: '2026-10-20T20:08:09.804Z', date: 'Oct 20, 2026, 3:08 PM CT', title: 'Glessner\'s front door: the stone over it measured', kind: 'change',
+    items: [
+      'The rock-faced stone over Glessner\'s Prairie Avenue door is now the length the 1963 survey drawing gives it, about 10.2 feet centred on the door. The same drawing and an 1888 photograph show the granite courses beside the door sitting a couple of inches higher than the model\'s, which is now a ticket of its own.',
+    ] },
+  { v: 2138, ts: '2026-10-20T20:08:09.804Z', date: 'Oct 20, 2026, 3:08 PM CT', title: 'Nothing you can see changed: room for new buildings again', kind: 'chore',
+    items: [
+      'The town\'s published files had filled their size allowance, which stopped finished houses from landing. Where the growth went is now measured: mostly the 1835 street layers prepared ahead of time so a phone loads faster.',
+      'The allowance is raised to fit, with the arithmetic that keeps the whole site inside its host\'s limit.',
+    ] },
   { v: 2137, ts: '2026-10-20T18:46:53.692Z', date: 'Oct 20, 2026, 1:46 PM CT', title: 'Fly no longer carries a history disclaimer', kind: 'polish',
     items: [
       'The jaunt menu, the jaunt panel and Settings > Move stop telling you that flying is not period transport.',
