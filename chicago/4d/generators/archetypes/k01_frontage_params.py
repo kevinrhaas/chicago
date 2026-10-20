@@ -1465,6 +1465,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         if "balcony" in e:
             bl = dict(e["balcony"])
             fabric = bl.pop("fabric", "iron")
+            # T-2930: or a stone balustrade's pierced panels in place of its bars (1801's bow)
+            panels = bl.pop("panels", None)
             need = {"height_m", "inset_m", "post_m", "bar_m", "pitch_m", "rail_m", "foot_rail_m"}
             flat_top = v["plan"]["kind"] == "polyline" and v["kind"] in ("bay", "projection") \
                 and float(e.get("roof", v["roof"]).get("pitch", 1.0)) == 0.0
@@ -1474,6 +1476,12 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             bal = {k: ([float(x) for x in bl[k]] if k == "rail_m" else float(bl[k])) for k in need}
             if fabric == "stone":   # an iron rail's resolved entry stays as it was, byte for byte
                 bal["fabric"] = fabric
+            if panels is not None:
+                if fabric != "stone" or not isinstance(panels, dict) or set(panels) != {"count", "rows"} \
+                        or not 1 <= int(panels["count"]) <= 6 or not 1 <= int(panels["rows"]) <= 3:
+                    raise ParamError(f"bays: {e['id']}'s balcony panels are a stone balustrade's, and take "
+                                     f"count (1-6 panels between posts) and rows (1-3 diamonds to a panel's height)")
+                bal["panels"] = {"count": int(panels["count"]), "rows": int(panels["rows"])}
             if not 0.5 <= bal["height_m"] <= 1.2 or not 0.06 <= bal["pitch_m"] <= 0.3 \
                     or not 0.0 < bal["bar_m"] < bal["pitch_m"] / 2 or not 0.0 <= bal["inset_m"] <= 0.3 \
                     or not 0.0 < bal["foot_rail_m"] < bal["height_m"] / 2:
