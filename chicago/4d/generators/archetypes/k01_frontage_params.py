@@ -1560,21 +1560,26 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         # the house's sash_by_storey would have put behind the bay and so never cut)
         wo = e.get("window_over")
         if wo is not None:
-            if set(wo) != {"sill_m", "width_m", "height_m", "head"} or wo["head"] not in ("flat", "round") \
-                    or oriel or v["kind"] != "bay":
-                raise ParamError(f"bays: {e['id']}'s window_over takes sill_m, width_m, height_m and head "
-                                 f"(flat or round), over a bay on grade")
+            if set(wo) - {"offset_m"} != {"sill_m", "width_m", "height_m", "head"} \
+                    or wo["head"] not in ("flat", "round") or oriel or v["kind"] != "bay":
+                raise ParamError(f"bays: {e['id']}'s window_over takes sill_m, width_m, height_m, head "
+                                 f"(flat or round) and an optional offset_m, over a bay on grade")
             ws, ww, wh = float(wo["sill_m"]), float(wo["width_m"]), float(wo["height_m"])
+            # T-2909: off the bay's centre line along its wall, where a picture puts it (1637's
+            # light over its south bay stands 0.55 m east of the bay's centre in the Grosvenor
+            # photograph), inside the bay's span with 0.3 m to spare
+            wc = float(wo.get("offset_m", 0.0))
             if not top <= ws or not 0.6 <= ww <= min(1.5, b - a - 0.6) or not 1.0 <= wh <= 3.0 \
-                    or ws + wh + 0.30 > eave - 0.25 or (wo["head"] == "round" and wh < ww / 2 + 0.3):
+                    or ws + wh + 0.30 > eave - 0.25 or (wo["head"] == "round" and wh < ww / 2 + 0.3) \
+                    or abs(wc) > (b - a - ww) / 2 - 0.3:
                 raise ParamError(f"bays: {e['id']}'s window_over {wo} does not stand on the bay's top "
                                  f"({top:.2f} m), 0.6-1.5 m wide inside its span and under the eave ({eave:.2f} m)")
             for o in openings:
-                if o.wall == e["wall"] and abs(o.s_m - s) < (o.width_m + ww) / 2 + 0.24 \
+                if o.wall == e["wall"] and abs(o.s_m - (s + wc)) < (o.width_m + ww) / 2 + 0.24 \
                         and o.sill_m < ws + wh + 0.3 and ws < o.head_m + 0.3:
                     raise ParamError(f"bays: {e['id']}'s window_over meets the opening at s {o.s_m} on {o.wall}")
             openings.append(Opening(ROUND_HOODED if wo["head"] == "round" else "k01.opening.sash_flat",
-                                    e["wall"], s, round(ws, 4), ww, wh))
+                                    e["wall"], round(s + wc, 4), round(ws, 4), ww, wh))
         # T-2451: light strips down a bay's corners — 1620's stone strip at its pavilion's north
         # corner, the painted pilasters at its bay window's front corners. Each stands on one run
         # of the plan (point i to i + 1), at its start, its end or both, from `from_m` to `to_m`
@@ -1672,15 +1677,19 @@ def _bay_dress(e: dict, v: dict, top: float, columns: dict | None) -> dict:
     ovals = []
     for j, q in enumerate(ds.get("ovals") or ()):
         need = {"run", "s_m", "y_m", "width_m", "height_m", "proud_m"}
-        if set(q) != need or not 0 <= int(q["run"]) < len(pts) - 1:
-            raise ParamError(f"bays: {bid}.dress.ovals[{j}] takes {sorted(need)}, on a run of its plan")
+        if set(q) - {"field"} != need or q.get("field", "dark") not in ("dark", "stone") \
+                or not 0 <= int(q["run"]) < len(pts) - 1:
+            raise ParamError(f"bays: {bid}.dress.ovals[{j}] takes {sorted(need)} and an optional field "
+                             f"(dark or stone), on a run of its plan")
         run, s_, y_ = int(q["run"]), float(q["s_m"]), float(q["y_m"])
         w, h, d = float(q["width_m"]), float(q["height_m"]), float(q["proud_m"])
-        if not (0.1 <= w <= 1.0 and 0.1 <= h <= 1.0 and 0.01 <= d <= 0.1) \
+        # T-2909: up to 1.6 m across, for the broad sunk roundel in 1637's bay's base
+        if not (0.1 <= w <= 1.6 and 0.1 <= h <= 1.0 and 0.01 <= d <= 0.1) \
                 or not w / 2 <= s_ <= math.dist(pts[run], pts[run + 1]) - w / 2 or not h / 2 < y_ < top - h / 2:
-            raise ParamError(f"bays: {bid}.dress.ovals[{j}] {q} is 0.1-1.0 m each way and 0.01-0.1 m proud, "
-                             f"inside its run and the bay's wall (top {top:.2f} m)")
-        ovals.append({"run": run, "s_m": s_, "y_m": y_, "width_m": w, "height_m": h, "proud_m": d})
+            raise ParamError(f"bays: {bid}.dress.ovals[{j}] {q} is 0.1-1.6 m across, 0.1-1.0 m tall and "
+                             f"0.01-0.1 m proud, inside its run and the bay's wall (top {top:.2f} m)")
+        ovals.append({"run": run, "s_m": s_, "y_m": y_, "width_m": w, "height_m": h, "proud_m": d,
+                      **({"field": "stone"} if q.get("field") == "stone" else {})})
     if ovals:
         out["ovals"] = tuple(ovals)
     if "volutes_m" in ds:
@@ -1700,7 +1709,7 @@ def _bay_dress(e: dict, v: dict, top: float, columns: dict | None) -> dict:
             raise ParamError(f"bays: {bid}'s dress.shutters {sh}: each leaf 0.2 m up to the window's width, "
                              f"from its sill ({ws} m) to at most its crown, louvres 0.03-0.15 m")
         out["shutters"] = {"half_m": float(wo["width_m"]) / 2, "from_m": ws, "to_m": y1, "width_m": w,
-                           "louvre_m": lv}
+                           "louvre_m": lv, **({"centre_m": float(wo["offset_m"])} if wo.get("offset_m") else {})}
     return out
 
 
