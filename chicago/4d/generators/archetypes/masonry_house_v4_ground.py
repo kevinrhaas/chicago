@@ -82,7 +82,7 @@ def occupied(params):
         result.append([(nx+nr*math.cos(i*math.tau/8),ny+nr*math.sin(i*math.tau/8)) for i in range(8)])
         edges=t['stair_boundaries']
         for a,b in zip(edges,edges[1:]):
-            result.extend(parts([a[0],a[1],b[1],b[0]]))
+            result.extend(parts([*a[-2:],*reversed(b)]))
     return result
 
 
