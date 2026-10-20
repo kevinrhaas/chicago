@@ -30111,6 +30111,41 @@ eave (T-2891's swell).
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-20 (T-2889).
 
+### L-k01-1812-wheeler-fabric-2914 — 1812 Prairie's street front stone to the second floor's belt and brick over it, the south projection brick over its basement, read off the photograph
+
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-2914, piece 1 of T-2890) has its
+street front laid as Albert Levy's photograph shows it, stone below and brick above, where K01
+had faced the whole front in its K02 stone. The kit learns a brick line: a stone front's
+`brick_above_m`, one of the upper storeys' floor lines, over which the walling courses are the
+K03 brick (its bond turned at the corner as the brick side wall's), while the belts, sills, flat
+arches, voussoirs and the dressed surround cells stay stone; and a stone bay's `brick_above_m`,
+one of its storey lines, over which the K08 wall is the bay's brick and its plinth, bands, sills,
+heads and reveals stay stone. Every other K01 house re-emits byte-identical. 1812 takes the line
+at 5.6 m, the top of the belt under the second storey, and its south projection at 1.65 m, the
+principal floor; the second storey's north window takes the kit's quoined surround.
+**What is read, not invented.** Through the camera T-2543 solved
+(`data/reference_views/wheeler_house_1812_prairie/levy_front.json`, 88.5 px a metre at the main
+front) and on 3x crops of the print: the basement rock-faced to a smooth water table at the
+principal floor; beside the porch arch (x 1100-1180 px) a coursed ashlar of smooth stone up to
+the second floor's belt; brick, its light mortar showing where the surface has weathered, in the
+projection's first storey either side of the arched window and over it (x 300-560, y 1030-1370
+px), in its second storey either side of the paired window, and over the belt on the main wall
+round the north window and up into the gable; and the north window's jambs a stone about 15 and
+28 px (0.17 and 0.32 m) out from the frame in turn, under a lintel course about 0.17 m deep.
+**What is invented.** The surround's stone heights, which are the kit's courses and not the
+print's joints; that the brick line stands exactly at the belt's top; the brick's bond, which the
+print does not resolve. **What is built otherwise than read.** The projection's windows stand in
+quoined stone jambs with a band at the arched window's spring, built as plain brick round the K08
+reveals; the carved frieze and patterned panel band over the north window and the carved bosses
+under the projection's second-storey jambs are not built (both T-2915); and the stone, the K02
+brown sandstone T-2543 chose, renders darker than the buff brick, where the print's stone reads
+lighter than its brick. Each is open in the match record.
+**How to resolve:** T-2915 builds or argues the carved pieces and the projection's dressings; a
+colour source for 1812's stone and brick, or a ruling on the print's tones, settles the fabrics.
+**Ticket:** T-2914 (piece 1 of T-2890).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-20 (T-2914).
+
 ## T-2804: named resident seated-driver and supported W01 studies (2026-10-19)
 
 This is an additive seated-study declaration under existing L418. Existing reconstructed 1835 residents Otis Bardwell (`rc_bardwell_otis`), Joseph Dufresne (`rc_dufresne_joseph`) and Martin Flynn (`rc_flynn_martin`) retain their record identity, date and reconstruction basis. The static seated pose, age/body fit, hand targets and staged driving action are original engineering reconstructions, not portraits, recorded driving assignments or observed actions. No new anonymous person or biography is introduced. The optional canonical `sit_drive` authoring uses the existing portable export and HumanActor; actual exported garment/bench/shoe contact and palm/rein grip require inspection, and source-body pose calculations alone do not establish them.
