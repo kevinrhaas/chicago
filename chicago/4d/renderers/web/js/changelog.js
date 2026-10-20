@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2139, ts: '2026-10-20T20:08:09.804Z', date: 'Oct 20, 2026, 3:08 PM CT', title: 'Glessner\'s front door: the stone over it measured', kind: 'change',
+    items: [
+      'The rock-faced stone over Glessner\'s Prairie Avenue door is now the length the 1963 survey drawing gives it, about 10.2 feet centred on the door. The same drawing and an 1888 photograph show the granite courses beside the door sitting a couple of inches higher than the model\'s, which is now a ticket of its own.',
+    ] },
+  { v: 2138, ts: '2026-10-20T20:08:09.804Z', date: 'Oct 20, 2026, 3:08 PM CT', title: 'Nothing you can see changed: room for new buildings again', kind: 'chore',
+    items: [
+      'The town\'s published files had filled their size allowance, which stopped finished houses from landing. Where the growth went is now measured: mostly the 1835 street layers prepared ahead of time so a phone loads faster.',
+      'The allowance is raised to fit, with the arithmetic that keeps the whole site inside its host\'s limit.',
+    ] },
   { v: 2137, ts: '2026-10-20T18:46:53.692Z', date: 'Oct 20, 2026, 1:46 PM CT', title: 'Fly no longer carries a history disclaimer', kind: 'polish',
     items: [
       'The jaunt menu, the jaunt panel and Settings > Move stop telling you that flying is not period transport.',
