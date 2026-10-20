@@ -271,7 +271,13 @@ def lods_sockets_actions(study, manifest, contract):
             obj.data = source.data.copy()
             obj.name = source.name+"_lod"+str(lod)
             collection.objects.link(obj)
-            if ratio < 1 and source not in study["accessory_objects"]:
+            # FOOTWEAR IS NEVER DECIMATED, as the teamster builder never does it
+            # (human_teamster_blend.py builds its shoes at ratio 1 on every LOD).
+            # Collapsing a shoe's flat sole leaves fewer than three vertices in the
+            # walk check's 0.1 mm sole band: era-studies run 39413543925 passed
+            # Kinzie 1812's LOD0-2 and refused his LOD3 for exactly that.
+            footwear = any(m is not None and m.name.startswith("footwear") for m in source.data.materials)
+            if ratio < 1 and source not in study["accessory_objects"] and not footwear:
                 bpy.ops.object.select_all(action="DESELECT")
                 obj.select_set(True)
                 bpy.context.view_layer.objects.active = obj
