@@ -55,6 +55,9 @@ const COPIES = [
   ['data/liberties.json', 'data/liberties.json'],
   // Written into the tree by tools/compile_pictures.py just before the copy (T-2389).
   ['data/pictures/', 'data/pictures/'],
+  // Written into the tree by tools/compile_reader_text.py just before the copy (T-2825):
+  // the reader's overlay, derived and ignored like data/pictures/, copied byte for byte (T-2924).
+  ['data/reader/', 'data/reader/'],
   // Written into the tree by tools/compile_summaries.py just before the copy (T-2635).
   ['data/inspect/', 'data/inspect/'],
   ['data/town_census.json', 'data/town_census.json'],

@@ -1,0 +1,7 @@
+{
+  "title": "The build check accounts for the plain-words reader files again",
+  "kind": "fix",
+  "items": [
+    "The files that let research records read in plain words are now checked as exact copies when the site is published, so the release check passes again and waiting improvements can ship."
+  ]
+}
