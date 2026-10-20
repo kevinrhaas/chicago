@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 import {
   pacingReadOffered, summarise, fell, verdict, formatReading, MOVES, MODES, READ_TIER, MIN_DRAWS,
   READ_SECONDS, LONG_SECONDS, SECONDS_OFFERED, SCENE_POSES, sceneOf, walkAt, poseFrom,
-  describeSharpness, ratioRange,
+  describeSharpness, ratioRange, drawNotes,
 } from '../renderers/web/js/pacing-read.js';
 import { WALK } from '../renderers/web/js/travel-settings.js';
 
@@ -116,6 +116,25 @@ assert.equal(ratioRange({ min: 1.5, max: 1.5 }), '1.5');
 assert.equal(ratioRange({ min: 1.006, max: 1.5 }), '1.01-1.5');
 assert.equal(ratioRange({ min: Infinity, max: -Infinity }), '?');
 assert.equal(ratioRange(undefined), '?');
+
+// T-2829: the ratio switches, the >50 ms draws on one, and the paced share — and nothing
+// for a drive that carries no such count, so an older row prints as it did.
+assert.equal(drawNotes({ draws: 157, switches: 3, slowAtSwitch: 2, paced: 120 }),
+  ', 3 switches (2 of the >50 on one), paced 76 %');
+assert.equal(drawNotes({ draws: 186, switches: 1, slowAtSwitch: 0, paced: 0 }), ', 1 switch (0 of the >50 on one)');
+assert.equal(drawNotes({ draws: 186, switches: 0, slowAtSwitch: 0, paced: 0 }), '');
+assert.equal(drawNotes({ draws: 186 }), '');
+assert.equal(drawNotes(undefined), '');
+{
+  const r = { draws: 157, mean: 32, sd: 6.5, median: 32, p95: 41, max: 73, over33: 56, over50: 3,
+    ratio: { min: 0.67, max: 1 }, switches: 3, slowAtSwitch: 3, paced: 118 };
+  const f = { ...r, draws: 186, ratio: { min: 1, max: 1 }, switches: 0, slowAtSwitch: 0, paced: 0 };
+  const text = formatReading({ when: '2026-10-19T00:00:00.000Z', tier: 'light', seconds: 15, build: 'v-test',
+    scene: '1835', sharpness: { ceiling: 1, ratio: 1 }, device: { screen: '375x636', ratio: 3, ua: 'x' },
+    pairs: { turn: { fixed: f, adaptive: r } } });
+  assert.match(text, /^turn\s+fixed\s+186 .* 1$/m);
+  assert.match(text, /^turn\s+adaptive\s+157 .* 0\.67-1, 3 switches \(3 of the >50 on one\), paced 75 %$/m);
+}
 
 // The longer run is offered, and offered first.
 assert.equal(READ_SECONDS, 5);

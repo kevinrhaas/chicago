@@ -470,6 +470,14 @@ is the contract. The short form:
   owning step down, and stages the result. It refuses and touches nothing while any
   authored file is still unmerged, so resolve those first. The PR lap already does this on
   the server; this is the same move for a local merge. `./tools/check.sh` is still the proof.
+- **The asset registries merge entry by entry, in the lap and in a clone** (T-2892).
+  `assets/manifest.json` and `assets/manifest.web.json` are rewritten whole by every bake,
+  so two PRs that baked different houses used to conflict there and wait a whole run.
+  Mid-merge, `python3 tools/merge_asset_registry.py --resolve chicago/4d/assets/manifest.json
+  chicago/4d/assets/manifest.web.json` takes each entry from the side that changed it,
+  re-emits on the merged tree any pure-Python asset (K01, K13, …) whose recipe moved on both
+  sides, keeping it only if the GLB is byte-identical, and refuses a master both sides
+  rebuilt — that one is still a rebake. The lap runs it when the rest of the merge can clear.
 - **New work found mid-run: extend, place, or make it an epic — in that order** (owner,
   2026-09-10, after the queue reached 195 lines: *"I don't want you to keep adding a whole
   bunch of tickets below your current one and working them … I want fewer tickets to

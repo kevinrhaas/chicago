@@ -927,6 +927,7 @@ export async function createEnclosures({
     return { id, point: hit.point, distance: hit.distance };
   });
   out.pickAt = pick.pickAt;
+  out.pickAtAsync = pick.pickAtAsync; // the gaze target's look (T-2723)
   out.pickAtRaycast = pick.pickAtRaycast;
 
   out.dispose = () => {
