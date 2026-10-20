@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 2137, ts: '2026-10-20T18:46:53.692Z', date: 'Oct 20, 2026, 1:46 PM CT', title: 'Fly no longer carries a history disclaimer', kind: 'polish',
+    items: [
+      'The jaunt menu, the jaunt panel and Settings > Move stop telling you that flying is not period transport.',
+      'Fly itself is unchanged.',
+    ] },
+  { v: 2136, ts: '2026-10-20T18:41:50.520Z', date: 'Oct 20, 2026, 1:41 PM CT', title: '1736 Prairie Avenue, built from its 1890 photograph', kind: 'feature',
+    items: [
+      'The house at the corner of 18th Street now looks like its c. 1890 photograph: pale painted walls, a slate mansard with two arched dormers, three hooded windows upstairs and a veranda across the whole front, its stair at the north end.',
+      'It is the sheet\'s full plan now, 23 m deep and 6.75 m wide, where the draft had only a narrow strip.',
+    ] },
+  { v: 2135, ts: '2026-10-20T18:38:14.422Z', date: 'Oct 20, 2026, 1:38 PM CT', title: 'Road notes say once that they come from the model\'s map', kind: 'fix',
+    items: [
+      'Each "Passing …" road note used to end in "[MAP] Reconstruction route", which read like a label missing its text.',
+      'The notes now close with one line: "[MAP] From the model\'s map, not a historical source."',
+    ] },
   { v: 2134, ts: '2026-10-20T17:48:18.654Z', date: 'Oct 20, 2026, 12:48 PM CT', title: 'Nothing you can see changed: related tickets ship together, filed by kind', kind: 'chore',
     items: [
       'A run can now claim up to five related tickets at once and ship them in a single pull request, so fewer, larger changes land in the town.',

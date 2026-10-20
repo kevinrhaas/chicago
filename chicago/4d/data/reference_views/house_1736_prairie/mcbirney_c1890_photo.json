@@ -1,0 +1,27 @@
+{
+ "structure_id": "house_1736_prairie",
+ "source_id": "glessner_blog_1736_mcbirney_c1890_photo",
+ "library_image": "a16-ghm-blog-1736-mcbirney-c1890",
+ "photo": "../../sources/assets/mcbirney_1736_photo_t2933/mcbirney_1736_photo_c1890.jpg",
+ "image_px": [
+  900,
+  611
+ ],
+ "principal_px": [
+  450,
+  460
+ ],
+ "focal_px": 896,
+ "eye": [
+  51.3,
+  4.03,
+  1.6
+ ],
+ "yaw_deg": -90.0,
+ "sun_uvy": [
+  1.0,
+  -0.6,
+  1.1
+ ],
+ "solve": "Fitted by T-2933 to the photograph alone, a 900 x 611 px copy of the Glessner House Museum's blog print. The footprint frame's u runs toward Prairie Avenue (east) and v north. The camera is LEVEL and SQUARE TO THE FRONT: the house's verticals are vertical, and the front's horizontals (the cornice's bracket band at y 186-196 px, the veranda's fascia at y 328-335, its deck at y 450-457) run level across the front within 2 px, so the image plane stands parallel to the front (yaw -90, looking west) and no flank of the main body is seen. SCALE: the front's two corners at x 321 and 537 px (both partly behind trees, +-4 px) give 216 px for the sheet's 6.75 m, 32.0 px/m at the wall. DISTANCE: the veranda's front, 1.8 m nearer (the sheet's porch), reads about 7% wider than the wall behind it (230 against 216 px), which puts the wall about 27 m from the eye; the library's own reading is 'from the east side of Prairie Avenue looking across the street', and 28 m out from the front (u 51.3) is on that walk, the Prairie Avenue street line standing at u 32.4 and the street 20 m wide. f = 32.0 x 28 = 896 px. HORIZON: the eye is taken 1.6 m over the walk, a standing photographer; then the ice wagon's wheels, meeting the road at y 560 px, stand 16 m from the eye, at the west curb, and its top 3.6 m high, which an ice wagon's is. That puts the horizon at y 460 px (principal_px; the print is cropped or the lens risen, since the image's centre is at y 305), and grade at the front at y 511 px, hidden behind the low wall at the street line. The eye's v: the front's centre stands 21 px left of x 450, 0.66 m, so the eye is at v 4.03 if x 450 is the principal point; the crop's own centre is assumed. Heights then read at the wall: the cornice's soffit 9.9 m, the upper windows' sills 6.6 m and heads 8.6 m, the mansard's curb 12.7 m, the veranda's deck 1.85 m and its frieze's soffit 5.25 m. UNCERTAINTY: the distance rests on a 14 px width difference read through trees and could be 22-35 m; every height above scales with it about the eye (at 22 m the cornice reads 8.1 m, at 35 m 11.9 m), and the wagon's place and height bound it to about 25-31 m. LIGHT: the front is lit and the trees' shadows fall to the left and toward the camera on the walk, so the sun stands high in the south-east (sun_uvy)."
+}

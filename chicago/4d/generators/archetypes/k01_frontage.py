@@ -480,6 +480,19 @@ class Assembly:
         if params.wall_paint:
             for slot in ("brick", "bay_brick", *(k for k in MATERIALS if k.startswith("brick_unit_"))):
                 self.spec[slot]["color"] = tuple(round(c * f, 4) for c, f in zip(self.spec[slot]["color"], params.wall_paint))
+                # T-2933: an opaque paint is the slot's colour itself, with no brick map under it;
+                # a K03 unit keeps its tint's ratio to the units' mean over it, so the four stay
+                # four materials (the web derivative merges identical ones and loses their names)
+                if params.wall_paint_opaque:
+                    tint = MATERIALS[slot]["color"]
+                    if slot.startswith("brick_unit_"):
+                        units = [MATERIALS[k]["color"] for k in MATERIALS if k.startswith("brick_unit_")]
+                        tint = tuple(t / (math.fsum(u[i] for u in units) / len(units)) for i, t in enumerate(tint))
+                    else:
+                        tint = (1.0, 1.0, 1.0)
+                    self.spec[slot]["color"] = tuple(round(min(1.0, f * t), 4)
+                                                     for f, t in zip(params.wall_paint, tint))
+                    self.fabric[slot] = None
         if params.stone:
             st = params.stone
             for slot, fab, rough in (("rough_stone_trim", st["fabric"], st["fabric_roughness"]),
@@ -2283,10 +2296,14 @@ class Assembly:
                  # T-2500: a stone loggia on the terrace, its basement arch's void the hall's backing
                  "pedestal": "stoop_stone", "column": "stoop_stone", "entablature": "stoop_stone",
                  "loggia_wall": "stoop_stone", "balcony": "stoop_stone", "arch_reveal": "stoop_stone",
-                 "arch_back": "backing"}
+                 "arch_back": "backing",
+                 # T-2933: a timber veranda's posts, beam and roof, painted with the walls (as a
+                 # K08 frame bay's walls are the body's)
+                 "post": None, "beam": None, "porch_roof": None}
     STAIR_ROLES = frozenset({"landing", "tread", "riser", "stair_end", "cheek",
                              "terrace", "terrace_face", "baluster", "newel", "rail",
-                             "pedestal", "column", "entablature", "loggia_wall", "balcony", "arch_reveal"})
+                             "pedestal", "column", "entablature", "loggia_wall", "balcony", "arch_reveal",
+                             "post", "beam", "porch_roof"})
 
     def door_variant(self) -> dict:
         """The record's K07 variant at this house's own door and stoop: the K01 hole's clear
@@ -2327,6 +2344,11 @@ class Assembly:
             v["stair"]["porch"] = porches[0] if len(porches) == 1 else porches
         if p.entrance_kit.get("balustrade"):
             v["stair"]["balustrade"] = p.entrance_kit["balustrade"]
+        # T-2933: the veranda's posts from the front's v into the door's own frame
+        if p.entrance_kit.get("veranda"):
+            vr = p.entrance_kit["veranda"]
+            v["stair"]["veranda"] = {**{k: x for k, x in vr.items() if k != "posts_v_m"},
+                                     "posts_s_m": [x - door.s_m for x in vr["posts_v_m"]]}
         v["front_yard_m"] = p.entrance_kit["front_yard_m"]
         # T-2369: the record's own stoop ends (iron rails, no cheeks) and the door's depth
         if "cheeks" in p.entrance_kit:
