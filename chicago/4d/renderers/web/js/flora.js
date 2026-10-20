@@ -2662,7 +2662,31 @@ export async function createFlora({
     jumps: 0, jumpFrames: 0, passes: { near: 0, far: 0 }, last: { near: null, far: null },
     // T-2696: the slots a spread pass dealt off the pool, and how many of them
     // had their worker's zone and ground answers home when the deal reached them.
-    slots: { dealt: 0, zoned: 0, grounded: 0 } };
+    slots: { dealt: 0, zoned: 0, grounded: 0 },
+    // T-2894: every pass as it is counted — its number, the main thread's ms
+    // it cost (a spread pass's slices summed, a one-frame pass's own), and how
+    // it ended — whichever loop dealt it. `measure_walk_frames.mjs` reads the
+    // near re-deal off this: it used to count only the passes that landed in a
+    // frame it drove, and the page's own loop, still ticking while the tool
+    // holds the clock, lands the rest between them (T-2774's turn: 5-7 counted
+    // of 59). The last PASS_LOG_KEEP of each kind are kept.
+    log: { near: [], far: [] },
+    // T-2894: near passes dropped after their ground was dealt (`rebuildGround`
+    // counts `stats.rebuilds` as it ends), so the rebuilds a move did are its
+    // passes plus these.
+    droppedDealt: 0 };
+  const PASS_LOG_KEEP = 4096;
+  function logPass(p, pass, ms, kind) {
+    const log = stats.spread.log[p.name];
+    log.push({ pass, ms, kind });
+    if (log.length > PASS_LOG_KEEP) log.splice(0, log.length - PASS_LOG_KEEP);
+  }
+  /** T-2894: a pass in flight dropped; counted if its ground was dealt. */
+  function dropPass(p) {
+    if (p.name === 'near' && stats.rebuilds > p.pending.rebuilds0) stats.spread.droppedDealt++;
+    p.pending = null;
+    stats.spread.abandoned++;
+  }
 
   /** Run, start or advance one pass this frame. True if its sets changed. */
   function runPass(p, f, due) {
@@ -2687,15 +2711,13 @@ export async function createFlora({
     if (p.pending?.jump) {
       // The camera jumped AGAIN, or the cone changed under it: deal afresh.
       if (f.spread && smooth) return advance(p, f, jumpSlice(p, f));
-      p.pending = null;
-      stats.spread.abandoned++;
+      dropPass(p);
     }
     if (p.pending && !spread) {
       // Dealt for a pose the camera has jumped from: dropped uncommitted. The
       // sets still hold the last whole lattice on the GPU, and `due` decides
       // afresh whether that one still serves.
-      p.pending = null;
-      stats.spread.abandoned++;
+      dropPass(p);
     }
     const c = centres[p.at];
     const d = c ? Math.hypot(e - c.e, n - c.n) : Infinity;
@@ -2711,7 +2733,7 @@ export async function createFlora({
         const t0 = performance.now();
         for (const _ of p.make(e, n, f.cone)) { /* runtime synchronous path */ }
         p.cost = performance.now() - t0;
-        stats.spread.passes[p.name]++;
+        logPass(p, ++stats.spread.passes[p.name], p.cost, 'one-frame');
         centres[p.at] = { e, n };
         centres[p.yawAt] = yaw;
         return true;
@@ -2763,7 +2785,7 @@ export async function createFlora({
       }
     }
     p.pending = { gen: p.make(e, n, cone), cone, e, n, yaw, jump,
-      spent: 0, frames: 0, waits: 0,
+      spent: 0, frames: 0, waits: 0, rebuilds0: stats.rebuilds,
       t0: performance.now(),
       // Where the camera stood, so a gate can deal the same pass in one frame
       // and compare the two plant for plant.
@@ -2820,6 +2842,7 @@ export async function createFlora({
     if (q.jump) sp.jumpFrames += q.frames;
     sp.last[p.name] = { e: q.e, n: q.n, yaw: q.yaw, frames: q.frames, ms: q.spent, waits: q.waits,
       jump: q.jump, camera: q.camera, pass: ++sp.passes[p.name] };
+    logPass(p, sp.passes[p.name], q.spent, drained ? 'drained' : q.jump ? 'jump' : 'landed');
     p.pending = null;
   }
 
