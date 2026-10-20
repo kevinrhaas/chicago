@@ -1532,11 +1532,12 @@ class Assembly:
                 self.stone(frame, [(m0, y0), (m0 + mull, y0), (m0 + mull, y1), (m0, y1)], [hj, 0.0, hj, 0.0],
                            "dress_stone", self._stone_seed(cid, inst, j), conf, recess=recess, bevel=0.0)
                 j += 1
-            if v["head"] == "segmental":
+            if v["head"] in ("segmental", "round"):   # T-2889: a round head's spandrels too
                 ros = k06_windows.rise_over_span(v, self._kit)
                 rr = v.get("head_radius_ratio", 1.0)
-                rise = k06_windows.Head("segmental", s0, s1, 0.0, ros, rr).rise
-                curve = k06_windows.Head("segmental", s0, s1, y1 - rise, ros, rr).curve(0.0, s1, s0)
+                rise = k06_windows.Head(v["head"], s0, s1, 0.0, ros, rr).rise
+                hd = k06_windows.Head(v["head"], s0, s1, y1 - rise, ros, rr)
+                curve = hd.curve(0.0, s1, s0)
                 for q0, q1 in zip(curve, curve[1:]):    # q0 right of q1
                     pts = []
                     for q in ((q1[0], q1[1]), (q0[0], q0[1]), (q0[0], y1), (q1[0], y1)):
@@ -1549,6 +1550,43 @@ class Assembly:
                     self.stone(frame, pts, [0.0] * len(pts), "rough_stone_trim", self._stone_seed(cid, inst, j), conf,
                                recess=recess, bevel=0.0)
                     j += 1
+                ring = next((r for r in self.p.street_dress.get("voussoirs", ())
+                             if abs(r["s_m"] - op.s_m) < 1e-6 and abs(r["sill_m"] - op.sill_m) < 1e-6), None)
+                if ring:
+                    self.street_voussoirs(frame, hd, ring, conf, recess, cid, inst, j)
+
+    KEYSTONE_PROUD_M = 0.03   # T-2889: a keystone stands this far before its ring
+
+    def street_voussoirs(self, frame, hd, ring, conf, recess, cid, inst, j):
+        """T-2889: a named window's arch turned in `ring["stones"]` dressed voussoirs between
+        the head's curve and a ring `ring_m` outside it, each cut on radii from the head's own
+        centre and standing `proud_m` before the wall, so that where the ring rises past a
+        shaped gable's foot it stands before the gable's face as well; the middle stone is the
+        keystone, carried up to `key_m` over the crown and a little prouder (1812 Prairie's
+        third storey, its photograph)."""
+        wk = self.p.stone["wall"]
+        hj = wk["joint_m"] / 2
+        r0, r1 = hd.R, hd.R + ring["ring_m"]
+        cy = hd.cy
+        ta = math.atan2(hd.spring - cy, hd.s1 - hd.cx)
+        n = ring["stones"]
+        angs = [ta + (math.pi - 2 * ta) * i / n for i in range(n + 1)]
+        P = lambda r_, t: (hd.cx + r_ * math.cos(t), cy + r_ * math.sin(t))
+        kw, kh = ring["key_m"]
+        crown = hd.apex()
+        for i, (a0, a1) in enumerate(zip(angs, angs[1:])):
+            mid = (a0 + a1) / 2
+            bed = _unit(_add(_mul(frame[1], math.cos(mid)), _mul(Y, math.sin(mid))))
+            if i == n // 2:   # the keystone
+                pts = [P(r0, a0), (hd.cx + kw / 2, crown + kh), (hd.cx - kw / 2, crown + kh), P(r0, a1)]
+                F = ring["proud_m"] + self.KEYSTONE_PROUD_M
+            else:
+                pts = [P(r0, a0), P(r1, a0), P(r1, a1), P(r0, a1)]
+                F = ring["proud_m"]
+            self.stone(frame, pts, [hj] * 4, "dress_stone", self._stone_seed(cid, inst, j), conf,
+                       recess=recess, bevel=wk["bevel_m"], F=F, bed=bed)
+            j += 1
+        return j
 
     # -- T-2753: the dressed surrounds and the proud frontispiece --------------------------
     def frontispiece_frame(self, frame):
@@ -3116,6 +3154,11 @@ class Assembly:
                 if len(xs) != 2:
                     raise ValueError(f"{b['id']}: the gutter's lip at {zo:.3f} m out does not cross its cants")
                 dead.append((A + min(xs), A + max(xs)))
+        if (p.shaped_gable or {}).get("takes_gutter"):
+            # T-2889: no gutter across a front carried up as a shaped gable: the street run is
+            # not built and each side run dies into the gable's base at its back (k01_shaped_gable)
+            xb = self.shaped_gable_geom["xb"]
+            dead += [(starts[3] + xb + A, P), (0.0, starts[1] + D + A - xb)]
         stations = sorted({*(round(x % P, 6) for x in starts), *(round(x, 6) for x in outlets),
                            *(round(x, 6) for x in highs), *(round(x, 6) for d in dead for x in d)})
         pr = self.prim(mat)
