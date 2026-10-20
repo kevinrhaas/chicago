@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 2103, ts: '2026-10-20T04:46:34.167Z', date: 'Oct 19, 2026, 11:46 PM CT', title: '1812 Prairie\'s third storey gets its arched windows', kind: 'improvement',
+    items: [
+      'George H. Wheeler\'s house at 1812 Prairie now has the third storey Albert Levy\'s photograph shows: a broad arched window with a fanlight over the balcony and a smaller round-arched window beside it, each in a ring of stone voussoirs that runs up into the gable.',
+      'The front now rises straight into its shaped gable, with no eave or gutter across it, and the second storey\'s north window is one wide window on a stone mullion under a transom, as in the photograph.',
+    ] },
+  { v: 2102, ts: '2026-10-20T04:14:06.409Z', date: 'Oct 19, 2026, 11:14 PM CT', title: 'Glessner work no longer stalls other houses\' changes', kind: 'improvement',
+    items: [
+      'Nothing you can see changes in the scene. When a Glessner House change landed, the build loop\'s automatic catch-up kept an old copy of the house\'s packed model and refused every other open change at publish; it now unpacks the current copy first, so those changes keep moving.',
+    ] },
+  { v: 2101, ts: '2026-10-20T04:14:06.409Z', date: 'Oct 19, 2026, 11:14 PM CT', title: '1625 Prairie\'s rear dormer gets its flat hood', kind: 'change',
+    items: [
+      'In 1904, the dormer on 1625 Prairie\'s tall rear wing now stands under a flat hood with a projecting cornice, as the 1890 photograph shows it, instead of a pointed gable.',
+      'Its window is wider too, to match the glass in the photograph.',
+    ] },
+  { v: 2100, ts: '2026-10-20T04:14:06.409Z', date: 'Oct 19, 2026, 11:14 PM CT', title: 'The front door measures your device and shows how it will run', kind: 'feature',
+    items: [
+      'While the Wolf Point aperture opens, the Observatory reads this device: its graphics chip, cores and memory, and a one-second drawing test. It is the same reading the town uses to choose its detail.',
+      'A new This device meter leads the telemetry strip: a 0 to 100 score on a lit bar in five grades, from Poor in red to Peak in green.',
+      'The bar hovers around the score and dips when the page\'s own frames arrive late. Under it: the detail the town will open at, the GPU, cores and memory.',
+      'The operator\'s manual has a new section, 07 This device, which says this is the one real reading on the console.',
+    ] },
   { v: 2099, ts: '2026-10-20T03:06:13.274Z', date: 'Oct 19, 2026, 10:06 PM CT', title: 'Turning on a fast-screen phone is no longer held to 30 frames', kind: 'fix',
     items: [
       'Nothing you can see in a still frame changed. This is about how smoothly the town moves on a phone.',
