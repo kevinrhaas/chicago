@@ -450,9 +450,12 @@ class DetailBuilder(MeshBuilder):
             if o['kind']=='fan':
                 # Carved stone is seated inside the masonry, not overlaid on
                 # rock faces. Its recessed bed closes the radial stone joints.
-                centre=(o['u0']+o['u1'])/2;radius=o['r_out']
+                centre=(o['u0']+o['u1'])/2;radius=o['r_out'];stilt=o.get('stilt',0.)
                 cut=[(centre+radius*math.cos(math.pi*i/80),
-                      o['spring_z']+radius*math.sin(math.pi*i/80)) for i in range(81)]
+                      o['spring_z']+stilt+radius*math.sin(math.pi*i/80)) for i in range(81)]
+                if stilt>0:
+                    # T-2853: the stilted fan's springers run plumb to the spring line.
+                    cut=[(centre+radius,o['spring_z'])]+cut+[(centre-radius,o['spring_z'])]
             elif o['kind']=='band':
                 if o.get('style')=='rock_faced_lintel':
                     from archetypes.masonry_house_v4_entry import lintel_outline,settings
@@ -985,7 +988,7 @@ def voussoir_outline(uc,zs,rin,rout,a,c,chord=False):
                     for k in range(inner_steps+1)]
 
 
-def rock_voussoirs(b,pl,uc,zs,rin,rout,count,conf,seed):
+def rock_voussoirs(b,pl,uc,zs,rin,rout,count,conf,seed,stilt=0.):
     """Radiating granite voussoirs, each pitched and bowed like the wall's ashlar.
 
     Owner, 2026-10-12, with photographs of the Prairie Avenue door: "the front
@@ -995,6 +998,10 @@ def rock_voussoirs(b,pl,uc,zs,rin,rout,count,conf,seed):
     arris and crown, a little fuller than a wall stone of the same breadth,
     which is how the long radiating stones read in the photographs. The reduced
     tier, which cannot afford the lattice, keeps one flat proud face per stone.
+
+    With a `stilt` (T-2853) zs is the raised centre, and the two springers run
+    plumb down to the spring line that far below it, as HABS sheet 5 and the
+    office's doorway No. 23A both draw the Prairie fan.
     """
     rel=ornament.Relief(b,pl,conf)
     reduced=not getattr(b,'smooth_rock_faces',True)
@@ -1005,8 +1012,10 @@ def rock_voussoirs(b,pl,uc,zs,rin,rout,count,conf,seed):
         bed=[(uc+rout*math.cos(a+(c-a)*k/outer),zs+rout*math.sin(a+(c-a)*k/outer)) for k in range(outer+1)]
         bed+=([(uc+rin*math.cos(c-(c-a)*k/inner),zs+rin*math.sin(c-(c-a)*k/inner)) for k in range(inner+1)]
               if rin>1e-6 else [(uc,zs)])
-        rel.face([(*q,-.012) for q in bed],MORTAR)
         poly=voussoir_outline(uc,zs,rin,rout,a,c,chord=reduced)
+        if stilt>0 and rin>1e-6 and i in (0,count-1):
+            bed,poly=_stilted(bed,uc,zs,rin,rout,stilt,i==0,0.),_stilted(poly,uc,zs,rin,rout,stilt,i==0,VOUSSOIR_JOINT/2)
+        rel.face([(*q,-.012) for q in bed],MORTAR)
         mat=12+i%4
         if reduced:
             solid_polygon(b,pl,poly,-.02,.065,conf,mat)
@@ -1018,6 +1027,22 @@ def rock_voussoirs(b,pl,uc,zs,rin,rout,count,conf,seed):
                                    [rel.vector(*p[3:]) for p in facet],conf,mat,rel.vector(0,0,1))
             else:
                 rel.face(facet,mat,None)
+
+
+def _stilted(poly,uc,zs,rin,rout,stilt,first,joint):
+    """A springer: one end stone of a stilted ring, run plumb down by `stilt`.
+
+    Outlines run along the extrados and back along the intrados, so the first
+    stone (from angle 0) starts and ends at the centre's level on the right and
+    the last stone (to angle pi) turns from extrados to intrados on the left;
+    the plumb faces go in at those two places, `joint` clear of the spring line.
+    """
+    low=zs-stilt+joint
+    if first:
+        return [(uc+rout,low)]+list(poly)+[(uc+rin,low)]
+    # The extrados is the run of points on rout; the intrados starts after it.
+    turn=max(j for j,q in enumerate(poly) if abs(math.hypot(q[0]-uc,q[1]-zs)-rout)<1e-6)
+    return list(poly[:turn+1])+[(uc-rout,low),(uc-rin,low)]+list(poly[turn+1:])
 
 
 def rock_lintel(b,o):

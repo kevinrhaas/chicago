@@ -69,13 +69,13 @@
       },
       "form": {
         "stories": {
-          "value": 3,
+          "value": 2,
           "confidence": "inferred",
           "sources": [
             "sanborn_1911_chicago_v3_sheet_28",
             "inland_architect_1888_10_ames_residence"
           ],
-          "note": "'3B; section 2B' on the 1911 sheet: three storeys over a basement, with a two-storey section; the 1888 plate shows three storeys on the street front, the third in the gable over the north bay, and three rows of windows on the brick south flank."
+          "note": "'3B; section 2B' on the 1911 sheet: three storeys over a basement, with a two-storey section. T-2542: the 1888 plate shows the third storey of the street front IN THE ROOF, lit by the stone gable over the north bay, with the street slope coming down to about 8.5-8.8 m between the bay and the oriel; K01 counts the storeys under its eave, so two here and the third in the roof, lit by the wall gable (`dormer`). The brick range behind keeps its three walled storeys, which the plate's south flank shows as three rows of windows."
         },
         "construction": {
           "value": "brick_with_stone_front",
@@ -94,11 +94,10 @@
         "storey_heights_m": {
           "value": [
             3.65,
-            3.4,
-            3.3
+            4.14
           ],
           "confidence": "reconstructed",
-          "note": "Read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): the bay's ground-floor heads at 4.3 m and its first-floor sills at 5.5 m put the second floor near 5.0 m, 3.65 m over the 1.35 m principal floor; the first-floor heads at 7.6 m and the bay's cornice at 8.3 m put the third near 8.4 m; the third is a 3.3 m storey under the main roof's eave at 11.7 m, whose own height the plate does not show (the gable and the oriel's pyramid stand in front of it): high enough that its lights (8.85-10.35 m; the plate's read 9.0-9.9 m) stand clear of the bay's deck below and keep their lintels clear of the stone cornice under the soffit."
+          "note": "Read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): the bay's ground-floor heads at 4.3 m and its first-floor sills at 5.5 m put the second floor near 5.0 m, 3.65 m over the 1.35 m principal floor; the first-floor heads at 7.6 m and the bay's cornice at 8.3 m put the roof storey's floor near 8.4 m. T-2542: the plate's street slope comes down behind the bay and the oriel to about 8.8 m at the front wall's plane (x 290-340 px), so the third storey stands in the roof, not under T-2541's 11.7 m eave. K01's eave is the datum where the roof's plane meets the wall's face, over its 0.35 m eave: 4.14 m over the second floor, at 9.14 m, puts the eave's fascia top at 8.50 m and the soffit, the moulded stone cornice's top, at 8.30 m, the plate's bay cornice. The second storey's wall is carried up as the roof storey's knee wall."
         },
         "wall_thickness_front_m": {
           "value": 0.45,
@@ -131,7 +130,6 @@
           "value": {
             "by_storey": [
               "k01.flat_lintel",
-              "k01.flat_lintel",
               "k01.flat_lintel"
             ]
           },
@@ -148,17 +146,20 @@
         "roof_form": {
           "value": "gable",
           "confidence": "reconstructed",
-          "note": "A ridge along the street front, its street slope rising behind the bay's gable and the oriel's pyramid, and the front block's south wall carried up in brick as a coped gable end to the tall stack, as the plate and the Chicagology print show it; the north end, unseen, the same. The bay's own stone gable and the oriel's pyramid are T-2542's."
+          "note": "A ridge along the street front, its street slope rising steeply from the eave behind the bay's stone gable and the oriel's pyramid (T-2542), and the front block's side walls carried up in brick as coped gable ends, the south one to the tall stack, as the plate and the Chicagology print show it; the north end, unseen, the same."
         },
         "roof_pitch_deg": {
-          "value": 45,
-          "confidence": "reconstructed",
-          "note": "The K01 contract's steepest pitch (45 degrees): the street slope to a ridge 3.78 m back, about 15.2 m over grade. The plate's slopes read steeper and the apex about 16 m through the T-2541 camera; that difference is open on the match record for T-2542, which owns the roofs."
+          "value": 61.2,
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1888_10_ames_residence"
+          ],
+          "note": "T-2542: read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): the street slope rises from its eave, at about 8.5-8.8 m, to the roof's apex, x 320 y 240 px, about 16 m over grade if it stands on the ridge 3.78 m behind the front (the ridge's depth is reconstructed; the plate sees no ridge end). 61.2 degrees from the 9.14 m eave datum over 3.78 m rises 6.87 m, to 16.01 m: in the K01 contract's steep band, which a gable read off a source may take. The rear slope falls at about the same pitch to the same wall head."
         },
         "eave_overhang_m": {
-          "value": 0.4,
+          "value": 0.35,
           "confidence": "reconstructed",
-          "note": "0.4 m: enough eave for K10's moulded stone cornice (0.32 m proud) under the slate, as on 1621; the plate shows a stone eave course, not a deep soffit."
+          "note": "0.35 m: enough eave for K10's moulded stone cornice (0.32 m proud) under the slate; the plate shows a stone eave course, not a deep soffit. T-2542 trimmed it from 0.4 m so the oriel, 0.5 m out, stands 0.15 m past the eave it is carried through."
         },
         "stair_tread_m": {
           "value": 0.3,
@@ -192,17 +193,6 @@
           "confidence": "reconstructed",
           "note": "Centres along the front from its north end (v 0): 0.9 m, the narrow strip north of the bay that the plate shows as a canted face with one narrow window a storey; 3.6 m, behind the bay, whose own windows are the bay's; 7.9 m, the entrance arch's centre, read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json) at x 400 px."
         },
-        "front_bays_by_storey": {
-          "value": {
-            "2": [
-              2.55,
-              3.6,
-              4.65
-            ]
-          },
-          "confidence": "reconstructed",
-          "note": "The third storey's three lights over the bay, behind its balcony, read off the plate between x 147 and 250 px. Their round-arched heads and the gable they stand in are T-2542's."
-        },
         "bays": {
           "value": [
             {
@@ -232,7 +222,7 @@
                   ]
                 },
                 {
-                  "height_m": 3.4,
+                  "height_m": 2.944,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
@@ -251,6 +241,9 @@
                 "kind": "hip",
                 "pitch": 0.0,
                 "covering": "tin_flat_seam_painted"
+              },
+              "eaves": {
+                "cornice": "k10.cornice.moulded_stone"
               }
             },
             {
@@ -286,7 +279,7 @@
               },
               "storeys": [
                 {
-                  "height_m": 3.6,
+                  "height_m": 4.46,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_transom_flat",
@@ -304,9 +297,15 @@
                 }
               ],
               "roof": {
-                "kind": "hip",
-                "pitch": 1.0,
-                "covering": "slate_pennsylvania"
+                "kind": "spire",
+                "rise_m": 2.1,
+                "covering": "slate_pennsylvania",
+                "finial": true
+              },
+              "through_eave": true,
+              "eaves": {
+                "overhang_m": 0.15,
+                "fascia_m": 0.25
               }
             }
           ],
@@ -315,7 +314,7 @@
             "sanborn_1911_chicago_v3_sheet_28",
             "inland_architect_1888_10_ames_residence"
           ],
-          "note": "Read off the plate through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json). NORTH BAY: the front block's north part stands forward of the entrance block (the sheet's stone part p1 draws it about 1.0 m proud); its front, x 112-287 px, is about 3.7 m wide at the bay's own scale (47.4 px/m), with two windows a storey at about 0.3 and 0.78 of its front, iron-grilled basement lights under them (not built: K08 stacks no second window in a storey, so they are the finishing ticket's), and a cornice at about 8.3 m over which the third storey stands back behind a balcony. Built as K08's square-cornered full-height projection, two storeys from grade to 8.4 m: the plate shows (and the sheet draws) its north face CANTED, which K08 has no shape for; that, the bay's smooth upper stage and its balcony are open on the match record. ORIEL: over the entrance arch, corbelled out from about 5.2 m, its front x 340-465 px (about 2.8 m) with three tall transomed lights and a window in each return, its cornice at about 9.1 m; built as K08's corbelled oriel 0.5 m out on three corbel courses from 4.4 m, its returns canted 0.2 m (the plate's are square, and stand further out: K08's oversail rule holds three courses to 0.52 m, and a fourth would bring the corbel down onto the arch). Its steep pyramid and finial (apex about 12 m) are T-2542's: here it carries the kit's hip."
+          "note": "Read off the plate through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json). NORTH BAY: the front block's north part stands forward of the entrance block (the sheet's stone part p1 draws it about 1.0 m proud); its front, x 112-287 px, is about 3.7 m wide at the bay's own scale (47.4 px/m), with two windows a storey at about 0.3 and 0.78 of its front, iron-grilled basement lights under them (not built: K08 stacks no second window in a storey, so they are the finishing ticket's), and a cornice at about 8.3 m over which the third storey stands back behind a balcony. Built as K08's square-cornered full-height projection, two storeys from grade to 8.4 m: the plate shows (and the sheet draws) its north face CANTED, which K08 has no shape for; that, the bay's smooth upper stage and its balcony are open on the match record. ORIEL: over the entrance arch, corbelled out from about 5.2 m, its front x 340-465 px (about 2.8 m) with three tall transomed lights and a window in each return, its cornice at about 9.1 m; built as K08's corbelled oriel 0.5 m out on three corbel courses from 4.4 m, its returns canted 0.2 m (the plate's are square, and stand further out: K08's oversail rule holds three courses to 0.52 m, and a fourth would bring the corbel down onto the arch). T-2542: carried through the street eave as 1623's is (T-2778), so the eave and the moulded stone cornice die into its cants, under its steep pyramid and finial on K08's spire: its wall top 9.46 m (one 4.46 m storey from 5.0 m), 0.4 m over the plate's cornice at 9.06 m because K01 carries an oriel through the eave only 0.3 m past the eave datum (9.14 m), and its spire rising 2.1 m toward the plate's apex at about 12.0 m. The bay's wall top is the stone cornice's foot (7.94 m), the cornice carried round it to 8.30 m, the plate's 8.3 m."
         },
         "side_bays": {
           "value": [
@@ -451,18 +450,13 @@
               "sill_above_floor_m": 0.46,
               "width_m": 1.0,
               "height_m": 2.1
-            },
-            {
-              "sill_above_floor_m": 0.45,
-              "width_m": 0.75,
-              "height_m": 1.5
             }
           ],
           "confidence": "inferred",
           "sources": [
             "inland_architect_1888_10_ames_residence"
           ],
-          "note": "The bay's windows through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): ground floor sills 2.04 m and heads 4.26 m over grade, first floor 5.46-7.57 m, about 1.05 m wide; the third storey's narrow lights about 0.45 m wide on the plate, built at K01's narrowest sash (0.75 m)."
+          "note": "The bay's windows through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): ground floor sills 2.04 m and heads 4.26 m over grade, first floor 5.46-7.57 m, about 1.05 m wide. The third storey's lights are the wall gable's (T-2542)."
         },
         "basement_lights": {
           "value": {
@@ -503,7 +497,7 @@
             ]
           },
           "confidence": "reconstructed",
-          "note": "The plate's tall stack at the junction of the front block and the brick range on the south side, and one on the north wall, reconstructed; the stacks' corbelled caps and the range's second stack are T-2542's."
+          "note": "The plate's tall stack at the junction of the front block and the brick range on the south side, and one on the north wall, reconstructed; T-2542 carried them up past the steepened ridge with it. Their corbelled caps and the range's second stack (the plate's, x about 545 px) stay open on the match record."
         },
         "rainwater": {
           "value": null,
@@ -554,7 +548,56 @@
             }
           },
           "confidence": "reconstructed",
-          "note": "The ridge at half the front block's depth, so the two slopes fall at the same 45 degrees to the one wall head; the side walls carried up as coped parapets (K01's 'north' is the street's south end: the brick gable the plate and the Chicagology print show rising to the tall stack). The plate's roofs read steeper and about a metre higher; open on the match record."
+          "note": "The ridge at half the front block's depth, so the two slopes fall at the same pitch to the one wall head; the side walls carried up as coped parapets (K01's 'north' is the street's south end: the brick gable the plate and the Chicagology print show rising to the tall stack, a smooth coped rake, not crow-stepped)."
+        },
+        "dormer": {
+          "value": {
+            "width_m": 3.0,
+            "face_setback_m": 0.0,
+            "face_height_m": 1.95,
+            "face_thickness_m": 0.2,
+            "pitch_deg": 55,
+            "verge_m": 0.15,
+            "sash": {
+              "sill_m": 0.25,
+              "width_m": 0.5,
+              "height_m": 0.9,
+              "variant": "k06.opening.sash_2over2_flat",
+              "at_m": [
+                -1.05,
+                0.0,
+                1.05
+              ]
+            },
+            "v_m": 3.6,
+            "wall_gable": {
+              "voussoirs": {
+                "ring_m": 0.15,
+                "proud_m": 0.04
+              },
+              "panel": {
+                "inset_m": 0.25,
+                "depth_m": 0.08
+              },
+              "pinnacles": {
+                "at_m": 1.85,
+                "shaft_m": 0.3,
+                "foot_m": -0.35,
+                "top_m": 2.9,
+                "cap_m": 0.1,
+                "spire_m": 0.5
+              },
+              "finial": {
+                "height_m": 0.6,
+                "radius_m": 0.1
+              }
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "inland_architect_1888_10_ames_residence"
+          ],
+          "note": "T-2542: the north bay's STONE GABLE, read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json), built as K01's wall gable (T-2428) on the street wall's plane over the bay, behind the balcony on its deck: centred on the bay (v 3.6); its rake's foot at about 10.2 m and its apex at about 13.2 m with a finial (x 192 px), so a face standing 1.95 m over the 9.14 m eave datum, 3.0 m across and pitched 55 degrees: its pediment's cornice at about 10.1-10.3 m and its apex at about 13.1 m; the third storey's three lights between their colonnettes, about 9.0-9.9 m and about 0.45 m wide on the plate, built at the wall gable's narrowest sash (0.5 m) 1.05 m apart, at T-2541's centres, 9.39-10.29 m (0.4 m high: a wall gable's face stands on the eave datum and its lights 0.25 m over it); a pinnacle either side at the bay's corners (x about 120 and 285 px, 3.7 m apart) rising to about 12 m under a pyramid. Reconstructed: the face's 3.0 m width (the plate's rake runs past the pinnacles' inner faces; K01 keeps each shaft clear of the face's cornice return), the pinnacles' square plan and pyramid tops (the plate's are carved and scaled), the panel, the lights' sash, and the voussoirs over flat heads where the plate shows plain lintels under the gable's great arched recess with its three small round-arched lights, which stays open on the match record for T-1892 (L-k01-1811-ames-front-2541)."
         }
       }
     }

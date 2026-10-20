@@ -31,11 +31,15 @@ def lintel_outline(o, s):
     return [(a+inset,z0),(c-inset,z0),(c,shoulder),((a+c)/2,z1),(a,shoulder)]
 
 
-def relief_profile(s, cx, cz, radius):
-    """Continuous recessed section: outer fillet, hollow archivolt, deep field."""
+def relief_profile(s, cx, cz, radius, stilt=0.):
+    """Continuous recessed section: outer fillet, hollow archivolt, deep field.
+
+    A stilted arch (T-2853) keeps the section square across its plumb legs: in
+    the band `stilt` below the centre the distance is the horizontal one.
+    """
     knots=s['relief_section']
     def depth(u,z):
-        r=math.hypot(u-cx,z-cz)/radius
+        r=(abs(u-cx) if cz-stilt-1e-9<=z<cz else math.hypot(u-cx,z-cz))/radius
         if r<=knots[0][0]:return knots[0][1]
         for (a,da),(c,dc) in zip(knots,knots[1:]):
             if r<=c:
@@ -127,8 +131,16 @@ def end_returns(b,p):
               s['conf'],0,want)
 
 
-def recessed_bed(r,cx,cz,inner,outer,s,reduced=False):
+def recessed_bed(r,cx,cz,inner,outer,s,reduced=False,stilt=0.):
     """One continuous backing following the hollow; no overlapping radial walls."""
+    if stilt>0:
+        # The plumb band under a stilted centre, strip by strip across the same
+        # rings, so the hollow's section carries straight down to the spring.
+        edges=sorted(set([-outer,outer]+[sign*v[0]*inner for v in s['relief_section'] for sign in (-1,1)
+                                          if 0<v[0]*inner<outer]))
+        steps=[e for a,c in zip(edges,edges[1:]) for e in (a+(c-a)*j/2 for j in range(2))]+[edges[-1]]
+        for a,c in zip(steps,steps[1:]):
+            r.face([(cx+a,cz-stilt,-.045),(cx+c,cz-stilt,-.045),(cx+c,cz,-.045),(cx+a,cz,-.045)])
     rings=[0.]
     knots=sorted(set([v[0]*inner for v in s['relief_section']]+[outer]))
     subdivisions=2 if reduced else 4
