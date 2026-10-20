@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "grosvenor_asbuilt_photo",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "ad8cb19228e0a738307aba597abf78f64f575c598e4efcafdb9299a026475827",
+  "glb_sha256": "85f00a005c476af407d6bf91bc06a4903a0dbb45d82141077668a1236bde1470",
   "camera_sha256": "856a15ff71693396f8e7a7b8f4b66bfb786f6d3fff3e7bae180a916a561f4a8b",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/grosvenor_asbuilt_photo-side-by-side.jpg",
   "verdict": "differs",
@@ -44,8 +44,8 @@
     },
     {
       "what": "the projection's carved dress: the oval lights or medallions in the frieze over the arches (y 470-500), the capitals' band (y 505-515), the consoles' scrolls and the corona's mouldings",
-      "status": "open",
-      "how": "the entablature's consoles and fascia stand where the photograph's do (T-2780), plain, and the columns' capitals (T-2781) stand as plain square blocks under the band; the frieze's ovals, the capitals' carving, the arches over the lights, the consoles' scrolls and the corona's mouldings are T-2887's"
+      "status": "fixed",
+      "how": "T-2908: the bay's dress (bays[south_flank].dress). The capitals are carved as two tiers of scalloped leaves under a 0.06 m abacus, in place of T-2781's square blocks. Over them a mitred architrave runs round the three faces at 6.15-6.3 m. In the frieze, an oval panel 0.38 by 0.42 m, dark inside a moulded ring, is centred at 6.55 m over each light. Under the soffit, four stepped bed-mould courses run from 7.3 to 8.0 m (0.04-0.22 m proud). The corona's cymatium caps the fascia at 8.21-8.3 m, and each corner console has a roll at its foot and head, the scroll. Through this camera the west cheek's oval lands at x 366-384 px, y 473-492, against the photograph's 365-385, 472-495. The capitals' band lands at y 505-520, as the photograph's. The bed mouldings reach down to about y 430, against the photograph's dark zone to 435, where T-2780's plain fascia stopped at 410. The carving is a silhouette at this photograph's grain, not a modelled acanthus. The front's and the east cheek's ovals are by symmetry (L-k01-1637-bay-dress-2908)"
     },
     {
       "what": "the cheeks' lights: a round-arched light in the west cheek between its columns (x 362-398 px, y 515-680) over a small light in its base (y 690-730), and the east cheek's, out of the frame, by symmetry",
@@ -55,12 +55,12 @@
     {
       "what": "the front's round-arched light stands about 15-20 px left of the photograph's (x 406-436 px against 420-458) and its base light with it",
       "status": "open",
-      "how": "T-2886 weighed it: across the light at y 640 the photograph's glass is dark from x 421 to 447 px with stone from 448 to the crop's edge, so the light is about as wide as built and its centre about 9 px east of the sheet's front's centre. The light and the base light under it now stand 1.355 m along the 2.22 m front, 0.245 m east of its centre, as far as the east angle's column leaves room, under a 0.1 m band: through this camera the glass's east edge lands at x 447 against 447, its arch's west edge about 6 px left of the photograph's. What is left is the bay's plan, not the light: between the same two columns the photograph's west cheek spans about 47 px against the build's 37, and its angle column stands at x 398-408 against 389-397, so the photographed bay is larger than the 1911 sheet's (longer cheeks or a deeper projection). T-2887 weighs a deeper bay against the sheet (L-k01-1637-cheek-lights-2886)"
+      "how": "T-2886 weighed it: across the light at y 640 the photograph's glass is dark from x 421 to 447 px with stone from 448 to the crop's edge, so the light is about as wide as built and its centre about 9 px east of the sheet's front's centre. The light and the base light under it now stand 1.355 m along the 2.22 m front, 0.245 m east of its centre, as far as the east angle's column leaves room, under a 0.1 m band: through this camera the glass's east edge lands at x 447 against 447, its arch's west edge about 6 px left of the photograph's. What is left is the bay's plan, not the light: between the same two columns the photograph's west cheek spans about 47 px against the build's 37, and its angle column stands at x 398-408 against 389-397, so the photographed bay is larger than the 1911 sheet's (longer cheeks or a deeper projection). T-2909 weighs a deeper bay against the sheet (L-k01-1637-cheek-lights-2886)"
     },
     {
       "what": "the window over the bay's open shutters (x 352-375 and 425-445 px)",
-      "status": "open",
-      "how": "not built: K06 carries no shutter; T-2887's dress"
+      "status": "fixed",
+      "how": "T-2908: open louvred shutters either side of the window over the bay (bays[south_flank].dress.shutters). Each leaf is 0.7 m wide, from the sill at 8.4 m to 9.68 m, a little under the 9.8 m crown as the photograph's heads stand, slatted on a 0.07 m pitch and painted a reconstructed deep green. Through this camera the leaves' heads land at about y 305-310 px against the photograph's 310, and each leaf is about 20 px across against 23-28. They stand with the window as built, about 15 px west of the photograph's: that offset is the bay's plan, item above, T-2909's (L-k01-1637-bay-dress-2908)"
     },
     {
       "what": "a second-storey window over the projection's balcony (x 350-445 px, y 305-355), round-headed between open shutters, the balcony's door or window",

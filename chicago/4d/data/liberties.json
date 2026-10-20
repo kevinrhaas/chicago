@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 651,
+  "count": 652,
   "liberties": [
     {
       "id": "L1",
@@ -41917,6 +41917,33 @@
         {
           "label": "Recorded",
           "text": "2026-10-19 (T-2886)."
+        }
+      ]
+    },
+    {
+      "id": "L-k01-1637-bay-dress-2908",
+      "title": "1637 Prairie's south bay: its carved dress and the shutters over it, placed from the Grosvenor photograph and shaped by reconstruction",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-20",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the canted stone bay on the south flank of Jesse Spalding's remodel of the Grosvenor house (T-2908, piece 1 of T-2887) takes its carved dress and the shutters over it, as a K01 bay `dress`. The columns' capitals are carved as two tiers of leaves under a 0.06 m abacus, each tier's crown scalloped, in place of T-2781's plain square blocks. Mitred stone bands run round all three faces. The architrave is 6.15-6.3 m, 0.06 m proud, over the capitals. The bed mouldings under the soffit step out in four courses from 7.3 to 8.0 m (0.04, 0.09, 0.14 and 0.22 m proud). The corona's cymatium caps the fascia at 8.21-8.3 m. An oval panel 0.38 by 0.42 m, its sunk field dark inside a 0.035 m moulded ring 0.04 m proud, stands centred at 6.55 m in the frieze over each of the three lights. A roll at the foot (0.07 m) and at the head (0.049 m) of each corner console stands 0.02 m clear of the console either side, so the console reads as a scroll. Open louvred shutters stand either side of the window over the bay: each leaf 0.7 m wide, from its sill at 8.4 m to 9.68 m, 0.035 m thick, with 0.035 m slats on a 0.07 m pitch, painted a deep green. **What is read, not invented.** From the photograph (`glessner_blog_1637_grosvenor_asbuilt_photo`) through T-2755's camera: the dark oval in the frieze over the west cheek's light (x 365-385 px, y 472-495), which the build's oval now covers (x 366-384, y 473-492). The capitals' band at y 505-520. The dark bed-mould zone under the corona, reaching down to about y 435, which the build's stepped courses now reach (about y 430) where T-2780's plain fascia stopped at y 410. The two dark shutter leaves standing open beside the window over the bay (x 352-378 and 420-448 px, their heads at about y 310, a little under the window's crown). The scrolled outline of the consoles. **What is invented.** Everything the photograph's grain does not resolve. The carving is drawn as the silhouette of leaves, not a modelled acanthus. The ovals' sunk dark field could be an oval light or a deep panel; the photograph cannot say which. The ovals over the front light and the east cheek are placed by symmetry, because the front's frieze is foreshortened and the east cheek is out of frame. The mouldings' profiles are flat steps, not curves. The scroll is drawn as two rolls. The shutters' slat pitch and colour are reconstructed: the photograph is monochrome, and a dark green is the period's commonest shutter paint. The shutters stand on the window as built, which is still about 15 px west of the photograph's window, because of the bay's plan (T-2909)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer or sharper photograph of the south flank. The uncropped Grosvenor plate would also show the east cheek's frieze and the front's."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2908 (piece 1 of T-2887, itself piece 2 of T-2840)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-20 (T-2908)."
         }
       ]
     },
