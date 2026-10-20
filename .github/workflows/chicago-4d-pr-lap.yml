@@ -2,7 +2,8 @@ name: Chicago 4D — PR lap
 
 # Brings every open PR into `dev` up to date and pushes, so auto-merge can fire.
 # It never merges a PR itself; it only removes the reason GitHub calls one
-# conflicting. See .github/steward/pr-lap.sh for why that reason exists (T-0857):
+# conflicting. And it never laps a PR whose `lap/pr-<N>` lock a live run holds
+# (T-2929): that run is lapping it already, and gates before it pushes. See .github/steward/pr-lap.sh for why that reason exists (T-0857):
 # GitHub's server-side merge does not run this repo's merge drivers, so a branch
 # that merges `dev` with zero conflicts in a clone is reported as conflicting by
 # the platform, and auto-merge can never fire on it.

@@ -660,7 +660,10 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
     merges a `resume` PR the moment GitHub calls it `clean` (which IS the resume, for one
     REST call) and skips `hold`; `pr-stuck.sh` sees both, reports a resumable PR WITH its
     reason and never labels it, and leaves a held one in silence. `waits on` gates only
-    the agentic pickup, never a machine merge of an already-green PR.
+    the agentic pickup, never a machine merge of an already-green PR. The lap and
+    merge-ready both skip a PR whose `lap/pr-<N>` a live run holds — they ask
+    `ticket.mjs lap <N> --status`, the reading `lap` steals by, and an unreadable lock is
+    skipped and said, never acted on (T-2929; #1132 was lapped and merged over one).
   - **The tickets repo's settle workflow reads neither label.** It follows the PR's
     merged/closed state alone: a ticket goes `done` when its PR merges and back to `open`
     if the PR closes unmerged. So a `resume` PR's ticket sits at `review` with its PR
