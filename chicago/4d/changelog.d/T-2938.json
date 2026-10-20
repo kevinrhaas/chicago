@@ -1,8 +1,9 @@
 {
-  "title": "Nothing you can see changed: runs can ship related tickets together",
+  "title": "Nothing you can see changed: related tickets ship together, filed where they belong",
   "kind": "chore",
   "items": [
     "A run can now claim up to five related tickets at once and ship them in a single pull request, so fewer, larger changes land in the town.",
-    "A ticket a run cannot finish is handed back to the queue with its reason, instead of being left claimed."
+    "A ticket a run cannot finish is handed back to the queue with its reason, instead of being left claimed.",
+    "New performance tickets now join the performance group, and a building's follow-up sits beside that building's own work, instead of all landing in the loop's band."
   ]
 }
