@@ -28,7 +28,17 @@ def parse(argv=None):
     parser.add_argument("--output", type=Path)
     parser.add_argument("--check-source-only", action="store_true")
     parser.add_argument("--receipt", type=Path)
+    parser.add_argument("--experimental-normal-probes", action="store_true",
+                        help="Run the teamster pipeline's packed-normal adapter on each LOD0 body "
+                             "before the unchanged RAW1e-3 readback; explicit opt-in only")
+    parser.add_argument("--normal-probe-receipts", type=Path,
+                        help="Required /tmp directory for the adapter's receipts")
     args = parser.parse_args(argv)
+    if args.experimental_normal_probes:
+        if args.normal_probe_receipts is None or not args.normal_probe_receipts.resolve().is_relative_to(Path("/tmp")):
+            parser.error("--experimental-normal-probes requires --normal-probe-receipts under /tmp")
+    elif args.normal_probe_receipts is not None:
+        parser.error("--normal-probe-receipts requires explicit --experimental-normal-probes")
     if args.check_source_only:
         parser.error("--check-source-only cannot write a canonical master") if args.output else None
     elif not args.output:
@@ -72,7 +82,8 @@ def main(args):
         # Validation precedes clearing any factory-startup authoring scene.
         bpy.ops.wm.read_factory_settings(use_empty=True)
         study = module.compose(root, manifest, args.output)
-        hair, normals = skin_and_hair(root, manifest, study)
+        hair, normals = skin_and_hair(root, manifest, study,
+                                      args.normal_probe_receipts if args.experimental_normal_probes else None)
         add_eyes(study)
         lods_sockets_actions(study, manifest, contract)
         scene = bpy.context.scene

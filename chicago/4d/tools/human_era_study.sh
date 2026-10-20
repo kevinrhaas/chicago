@@ -38,6 +38,7 @@ for era in "${eras[@]}"; do
   timeout --signal=TERM --kill-after=5s 600s "$STUDY_BIN" -b -noaudio --factory-startup --python-exit-code 1 \
     --python tools/human_era_study_blend.py -- --era-study "$era" --liberty "$LIBERTY" \
     --output "$master" --receipt "$directory/master-receipt.json" \
+    --experimental-normal-probes --normal-probe-receipts "$directory/normal-probes" \
     2>&1 | tee "$directory/build.log"
   timeout --signal=TERM --kill-after=5s 600s bash tools/human_export.sh \
     --master "$master" --output-dir "$directory/exports" \

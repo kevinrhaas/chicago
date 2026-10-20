@@ -12,4 +12,22 @@ class OptIn(unittest.TestCase):
   common=['--variant','test','--output','/tmp/test.blend']
   for extra in [['--experimental-normal-probes'],['--normal-probe-receipts','/tmp/r'],['--experimental-normal-probes','--normal-probe-receipts','/workspace/r']]:
    with contextlib.redirect_stderr(io.StringIO()),self.assertRaises(SystemExit):self.parse(common+extra)
+class EraOptIn(unittest.TestCase):
+ """The era-study CLI takes the same explicit opt-in as the teamster one (T-1789)."""
+ def parse(self,args):
+  sys.path.insert(0,str(HERE))
+  import human_era_study_blend as era
+  return era.parse(args)
+ def test_default_method_unchanged_and_explicit_tmp_optin(self):
+  common=['--era-study','1812','--liberty','L419','--output','/tmp/era-optin-test.blend']
+  self.assertFalse(self.parse(common).experimental_normal_probes)
+  args=self.parse(common+['--experimental-normal-probes','--normal-probe-receipts','/tmp/receipts'])
+  self.assertTrue(args.experimental_normal_probes)
+ def test_missing_conflicting_unsafe_receipt_args_refuse(self):
+  common=['--era-study','1812','--liberty','L419','--output','/tmp/era-optin-test.blend']
+  for extra in [['--experimental-normal-probes'],['--normal-probe-receipts','/tmp/r'],['--experimental-normal-probes','--normal-probe-receipts','/workspace/r']]:
+   with contextlib.redirect_stderr(io.StringIO()),self.assertRaises(SystemExit):self.parse(common+extra)
+ def test_the_era_build_passes_the_optin(self):
+  script=(HERE/'human_era_study.sh').read_text()
+  self.assertIn('--experimental-normal-probes --normal-probe-receipts "$directory/normal-probes"',script)
 if __name__=='__main__':unittest.main()

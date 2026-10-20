@@ -104,7 +104,7 @@ def mesh_object(name, data, rig, collection, material):
     return obj
 
 
-def skin_and_hair(root, manifest, study):
+def skin_and_hair(root, manifest, study, normal_probe_receipts=None):
     import bpy
     from human_hair_short04 import fit
     from human_source_normals import source_shared_normals
@@ -134,13 +134,32 @@ def skin_and_hair(root, manifest, study):
         normals = [Vector((n[0], -n[2], n[1])).normalized() for n in normals]
         obj.data.normals_split_custom_set([normals[loop.vertex_index] for loop in obj.data.loops])
         obj.data.update()
+        probe = None
+        if normal_probe_receipts is not None:
+            # The teamster pipeline's packed-normal adapter (T-1789), qualified in
+            # canonical run 39196464162 on three resident bodies under the same
+            # pinned Blender: it re-chooses Blender's short2 corner codes toward
+            # the source normals, restores them if any audit fails, and never
+            # touches positions, UVs, weights or shape keys. Kinzie 1812 read back
+            # 0.0019 through the plain setter alone (run 39325858203). The
+            # unchanged RAW1e-3 readback below still decides.
+            from human_normal_probe import experiment
+            import bpy
+            probe = experiment(
+                obj.data, [tuple(n) for n in normals], list(source["source_vertex_indices"]),
+                Path(normal_probe_receipts) / (obj.name + "-normal-probe.json"),
+                context={"blender_version": bpy.app.version_string, "asset_id": manifest["asset_id"],
+                         "explicit_opt_in": True})
         need(obj.data.has_custom_normals and len(obj.data.corner_normals) == len(obj.data.loops),
              "Actual source-body normal readback absent")
         delta = max(math.dist(tuple(obj.data.corner_normals[i].vector), normals[loop.vertex_index])
                     for i, loop in enumerate(obj.data.loops))
         need(delta <= 1e-3, f"Unchanged RAW1e-3 source-body normal readback failed: mesh={obj.name} maximum_raw_vector_delta={delta:.17g} bound=0.001")
         normal_receipts.append({"mesh": obj.name, "maximum_raw_vector_delta": delta,
-                                "bound": 1e-3, "scope": "Actual BPy body before LOD/export only"})
+                                "bound": 1e-3, "scope": "Actual BPy body before LOD/export only",
+                                "packed_normal_probe": None if probe is None else
+                                {"status": probe.get("status"),
+                                 "maximum_raw_vector_delta": probe["after"]["maximum_raw_vector_delta"]}})
     hair, hair_path, report = fit(study["body"], manifest["hair_component"], Path(root))
     config = manifest["hair_component"]
     material = bpy.data.materials.new("hair__makehuman_short04")
