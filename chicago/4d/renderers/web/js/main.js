@@ -4246,9 +4246,12 @@ async function boot() {
         resolve: resolveJaunt, place: spawnAtDestination,
         contextForRoute(state, route) {
           const to = runtime.currentStop(state), from = state.jaunt.stops.find(s => s.id === state.fromStopId);
+          // T-2946: measured to the building's walls and named as the jaunt names it.
+          const outlines = new Map(footprints.map(f => [f.id, f.pts]));
           const places = [...loaded.registry.values()].map(record => ({ id: record.id,
-            label: record.sidecar?.name || record.id,
-            point: travel.destinationOf({ kind: 'structure', id: record.id }) }));
+            label: context.placeName(state.jaunt, record.id, record.sidecar),
+            point: structurePosition(record.id), outline: outlines.get(record.id),
+            minor: context.minorPlace(record.sidecar) }));
           return context.legContext(state.jaunt, from?.id, to.id, route.points, places,
             [from && resolveJaunt(from.destination)?.id, resolveJaunt(to.destination)?.id]);
         },

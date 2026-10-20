@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2131, ts: '2026-10-20T17:24:39.633Z', date: 'Oct 20, 2026, 12:24 PM CT', title: 'Jaunt road notes name the right side and the right buildings', kind: 'fix',
+    items: [
+      'Road notes now measure from a building\'s walls, so Glessner House reads on your right when you walk south past it on its own side of Prairie.',
+      'Coach houses, sheds and privies on the alley are no longer listed as passed from the sidewalk.',
+      'Every 1904 jaunt names buildings one way, in stop headings, road notes and the built-so-far walk: Marshall Field House, 1905 Prairie.',
+      'Road notes in 1835 use the same names as the building cards.',
+    ] },
+  { v: 2130, ts: '2026-10-20T17:08:56.555Z', date: 'Oct 20, 2026, 12:08 PM CT', title: '1812 Prairie\'s carved stone, from the Levy photograph', kind: 'feature',
+    items: [
+      'Over 1812 Prairie\'s second-storey north window, the carved frieze and the band of sunk panels from Albert Levy\'s photograph now run from the south projection to the corner, between the print\'s moulded band and ledge',
+      'The projection\'s arched and paired windows stand in quoined stone jambs, with a band at the arched window\'s spring and two carved bosses under the upper window\'s jambs',
+    ] },
   { v: 2129, ts: '2026-10-20T16:31:03.239Z', date: 'Oct 20, 2026, 11:31 AM CT', title: 'Glessner\'s bow hood ends at its wall, over a slimmer gutter', kind: 'fix',
     items: [
       'The copper hood over Glessner\'s courtyard bow now ends at the bow\'s wall, where the 1963 HABS section ends it. It used to reach about two-thirds of a foot past the wall.',

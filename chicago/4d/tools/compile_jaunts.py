@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 from jsonschema import Draft202012Validator
 from compile_scene import cite
+import jaunt_names
 
 ROOT = Path(__file__).resolve().parents[1]
 # Not jaunts: the content schema, and the visitor's daybook (T-1258), which every scene's
@@ -216,6 +217,8 @@ class Compiler:
     def compile(self, source=None):
         source = Path(source) if source else self.data / 'jaunts'
         catalog, files, errors, ids = [], {}, [], set()
+        # T-2946: one name per building for a stop's heading and its road notes, in every jaunt.
+        places = jaunt_names.names(self.scene_id, list(self.refs['structure'].values()))
         for path in sorted(source.glob('*.json')):
             if path.name in NOT_JAUNTS or path.name == 'catalog-55.json': continue  # Harness catalog, not a story.
             try:
@@ -231,7 +234,7 @@ class Compiler:
                            destinations=[s['destination'] for s in doc['stops']], availability='unavailable' if reasons else 'available', reason='; '.join(reasons) or None)
                 catalog.append(row)
                 citations = cite({sid for claim in doc['evidence'] for sid in claim['sources']}, self.refs['source'])
-                files[doc['id'] + '.json'] = packed({**doc, 'citations': citations})
+                files[doc['id'] + '.json'] = packed({**doc, 'citations': citations, **({'places': places} if places else {})})
             except (ValueError, KeyError, TypeError) as error:
                 errors.append(f'{path.name}: {error}')
         files['catalog.json'] = packed({'schema_version': 1, 'scene': self.scene_id, 'jaunts': catalog})

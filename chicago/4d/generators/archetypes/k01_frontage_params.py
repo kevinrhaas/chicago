@@ -1750,11 +1750,14 @@ def _bay_dress(e: dict, v: dict, top: float, columns: dict | None) -> dict:
     photograph): its columns' capitals carved as a bell of leaves under an abacus, mitred bands
     round its faces (the architrave over the capitals, the bed mouldings under the soffit and
     the corona's cymatium), oval panels in its frieze, a roll at each end of its consoles (the
-    scroll) and open louvred shutters at the window over it. Every part is optional."""
+    scroll) and open louvred shutters at the window over it. Every part is optional.
+    T-2915: a bay in the front's stone takes it too (1812's projection, the Levy photograph),
+    with its windows' quoined jambs, a band along one run broken at its window, and an oval
+    whose field is a raised boss."""
     ds, bid = e["dress"], e["id"]
     pts = v["plan"]["points"] if v["plan"]["kind"] == "polyline" else None
-    known = {"capitals", "bands", "ovals", "volutes_m", "shutters"}
-    if pts is None or e.get("fabric", "stone") != "stone" or not ds or set(ds) - known:
+    known = {"capitals", "bands", "ovals", "volutes_m", "shutters", "quoins", "run_bands"}
+    if pts is None or e.get("fabric", "stone") not in ("stone", "front_stone") or not ds or set(ds) - known:
         raise ParamError(f"bays: {bid}'s dress takes {sorted(known)}, on a stone bay's polyline plan")
     out = {"soffit_m": round(top, 4)}
     if "capitals" in ds:
@@ -1778,10 +1781,10 @@ def _bay_dress(e: dict, v: dict, top: float, columns: dict | None) -> dict:
     ovals = []
     for j, q in enumerate(ds.get("ovals") or ()):
         need = {"run", "s_m", "y_m", "width_m", "height_m", "proud_m"}
-        if set(q) - {"field"} != need or q.get("field", "dark") not in ("dark", "stone") \
+        if set(q) - {"field"} != need or q.get("field", "dark") not in ("dark", "stone", "boss") \
                 or not 0 <= int(q["run"]) < len(pts) - 1:
             raise ParamError(f"bays: {bid}.dress.ovals[{j}] takes {sorted(need)} and an optional field "
-                             f"(dark or stone), on a run of its plan")
+                             f"(dark, stone or boss), on a run of its plan")
         run, s_, y_ = int(q["run"]), float(q["s_m"]), float(q["y_m"])
         w, h, d = float(q["width_m"]), float(q["height_m"]), float(q["proud_m"])
         # T-2909: up to 1.6 m across, for the broad sunk roundel in 1637's bay's base
@@ -1790,9 +1793,50 @@ def _bay_dress(e: dict, v: dict, top: float, columns: dict | None) -> dict:
             raise ParamError(f"bays: {bid}.dress.ovals[{j}] {q} is 0.1-1.6 m across, 0.1-1.0 m tall and "
                              f"0.01-0.1 m proud, inside its run and the bay's wall (top {top:.2f} m)")
         ovals.append({"run": run, "s_m": s_, "y_m": y_, "width_m": w, "height_m": h, "proud_m": d,
-                      **({"field": "stone"} if q.get("field") == "stone" else {})})
+                      **({"field": q["field"]} if q.get("field") in ("stone", "boss") else {})})
     if ovals:
         out["ovals"] = tuple(ovals)
+    run_len = lambda r: math.dist(pts[r], pts[r + 1])
+    quoins = []
+    for j, q in enumerate(ds.get("quoins") or ()):
+        # T-2915: a window's quoined jambs on one run of the plan: from `from_m` to `to_m` over
+        # grade, `courses` dressed stones a side, each `returns_m` [short, long] out from the
+        # jamb in turn from the foot, standing `proud_m` before the wall
+        need = {"run", "jambs_m", "from_m", "to_m", "returns_m", "courses", "proud_m"}
+        if set(q) != need or not 0 <= int(q["run"]) < len(pts) - 1:
+            raise ParamError(f"bays: {bid}.dress.quoins[{j}] takes {sorted(need)}, on a run of its plan")
+        run = int(q["run"])
+        a, b = sorted(float(x) for x in q["jambs_m"])
+        lo, hi = (float(x) for x in q["returns_m"])
+        y0, y1, n, d = float(q["from_m"]), float(q["to_m"]), int(q["courses"]), float(q["proud_m"])
+        if not 0.1 <= lo < hi <= 0.8 or a - hi < 0.05 or b + hi > run_len(run) - 0.05 or b - a < 0.3:
+            raise ParamError(f"bays: {bid}.dress.quoins[{j}]: returns 0.1-0.8 m, short then long, that stop "
+                             f"0.05 m short of the run's ends (0-{run_len(run):.3f} m) from jambs {a}-{b}")
+        if not 0.0 < y0 < y1 <= top or not 0.12 <= (y1 - y0) / max(n, 1) <= 0.6 or not 0.01 <= d <= 0.05:
+            raise ParamError(f"bays: {bid}.dress.quoins[{j}]: {n} courses of 0.12-0.6 m from {y0} to {y1} m "
+                             f"inside the bay's wall (top {top:.2f} m), 0.01-0.05 m proud")
+        quoins.append({"run": run, "jambs_m": (a, b), "from_m": y0, "to_m": y1, "returns_m": (lo, hi),
+                       "courses": n, "proud_m": d})
+    if quoins:
+        out["quoins"] = tuple(quoins)
+    rbs = []
+    for j, q in enumerate(ds.get("run_bands") or ()):
+        # T-2915: a band along one run of the plan, broken where `gaps_m` [from, to] stand (a
+        # window and its arch's ring), so it stops against them as an impost course does
+        need = {"run", "from_m", "to_m", "proud_m", "gaps_m"}
+        if set(q) != need or not 0 <= int(q["run"]) < len(pts) - 1:
+            raise ParamError(f"bays: {bid}.dress.run_bands[{j}] takes {sorted(need)}, on a run of its plan")
+        run = int(q["run"])
+        y0, y1, d = float(q["from_m"]), float(q["to_m"]), float(q["proud_m"])
+        gaps = sorted(tuple(sorted(float(x) for x in g)) for g in q["gaps_m"])
+        if not 0.0 < y0 < y1 <= top or y1 - y0 > 0.6 or not 0.01 <= d <= 0.1 \
+                or any(not 0.0 < g0 < g1 < run_len(run) for g0, g1 in gaps) \
+                or any(p_[1] >= n_[0] for p_, n_ in zip(gaps, gaps[1:])):
+            raise ParamError(f"bays: {bid}.dress.run_bands[{j}] {q} is a band up to 0.6 m tall inside the bay's "
+                             f"wall (top {top:.2f} m), 0.01-0.1 m proud, its gaps inside the run and apart")
+        rbs.append({"run": run, "from_m": y0, "to_m": y1, "proud_m": d, "gaps_m": tuple(gaps)})
+    if rbs:
+        out["run_bands"] = tuple(rbs)
     if "volutes_m" in ds:
         rv, con = float(ds["volutes_m"]), (v.get("brackets") or {}).get("consoles")
         if con is None or not 0.02 <= rv <= min(0.15, con["drop_m"] / 4, con["reach_m"] / 3):
@@ -1978,6 +2022,56 @@ def _street_dress(sfw, openings, floors, width) -> dict:
         if not storeys or not all(0 <= k < len(floors) for k in storeys):
             raise ParamError(f"street_front_windows.surrounds.storeys {list(storeys)} are not this front's storeys")
         out["surrounds"] = {"storeys": storeys, "returns_m": (lo, hi), "lintel_m": float(su["lintel_m"])}
+    cbs = []
+    for j, cb in enumerate(sfw.get("carved_bands") or ()):
+        # T-2915: a carved belt on a named-window front (1812's photograph: a carved interlace
+        # over the second storey's north window and a band of sunk panels over that): a belt
+        # course from `bed_m` to `top_m`, carved from `s_m` [from, to] along the front (the
+        # whole front unless named) with T-2819's guilloche, or with `panels`, rows of sunk
+        # panels between raised ribs, each row's joints halfway along the row under it
+        what = f"street_front_windows.carved_bands[{j}]"
+        carving = set(cb) & {"guilloche", "panels"}
+        if len(carving) != 1 or set(cb) - {"s_m"} != {"bed_m", "top_m", *carving}:
+            raise ParamError(f"{what} takes bed_m, top_m, an optional s_m [from, to] and one of guilloche or panels")
+        if "belts" not in sfw:
+            raise ParamError(f"{what}: a front with carved bands names its belts too, since they replace K01's two")
+        b0, b1 = float(cb["bed_m"]), float(cb["top_m"])
+        if not (floors[0] < b0 and 0.15 <= b1 - b0 <= 0.6):
+            raise ParamError(f"{what} [{b0}, {b1}]: a band 0.15-0.6 m deep over the ground floor")
+        for o in openings:
+            if o.wall == "k01.wall.street_front" and o.sill_m < b1 - 1e-6 and o.head_m > b0 + 1e-6:
+                raise ParamError(f"{what} [{b0}, {b1}] runs through {o.component} at s {o.s_m}")
+        s0, s1 = (float(x) for x in cb.get("s_m", (0.0, width)))
+        if not 0.0 <= s0 < s1 - 0.5 or s1 > width + 1e-6:
+            raise ParamError(f"{what}.s_m [{s0}, {s1}] is not a run of at least 0.5 m along the {width} m front")
+        band = {"bed_m": b0, "top_m": b1, "s_m": (s0, s1)}
+        if "guilloche" in cb:
+            g_ = cb["guilloche"]
+            if set(g_) != {"radius_m", "ring_width_m", "ring_proud_m", "margin_m", "pitch", "segments"} \
+                    or not 0.05 <= float(g_["radius_m"]) <= (b1 - b0) / 2 or not 0.0 < float(g_["ring_proud_m"]) <= 0.05:
+                raise ParamError(f"{what}.guilloche takes radius_m (at most half the band), ring_width_m, "
+                                 f"ring_proud_m (at most 0.05 m), margin_m, pitch and segments")
+            band["guilloche"] = {k: float(v) for k, v in g_.items()}
+        else:
+            pa = cb["panels"]
+            if set(pa) != {"rows", "length_m", "rib_m", "proud_m"}:
+                raise ParamError(f"{what}.panels takes rows, length_m, rib_m and proud_m")
+            rows, ln, rib, pr = int(pa["rows"]), float(pa["length_m"]), float(pa["rib_m"]), float(pa["proud_m"])
+            if not 1 <= rows <= 4 or not 0.15 <= ln <= 1.0 or not 0.015 <= rib <= (b1 - b0) / (3 * rows) \
+                    or not 0.005 <= pr <= 0.04:
+                raise ParamError(f"{what}.panels: 1-4 rows of panels 0.15-1.0 m long, ribs 0.015 m up to a third "
+                                 f"of a row and 0.005-0.04 m proud")
+            band["panels"] = {"rows": rows, "length_m": ln, "rib_m": rib, "proud_m": pr}
+        cbs.append(band)
+    if cbs:
+        spans = sorted((b["bed_m"], b["top_m"]) for b in cbs)
+        if any(a[1] > b[0] + 1e-6 for a, b in zip(spans, spans[1:])):
+            raise ParamError("street_front_windows.carved_bands overlap")
+        if any(b0 < c1 - 1e-6 and c0 < b1 - 1e-6 for b0, b1 in out.get("belts", ()) for c0, c1 in spans):
+            raise ParamError("street_front_windows.carved_bands overlap its belts")
+        out["carved_bands"] = tuple(cbs)
+        # each is a belt course of the front's, laid with the rest
+        out["belts"] = tuple(sorted(out.get("belts", ()) + tuple(spans)))
     return out
 
 
@@ -2446,11 +2540,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if not val("stone_front") or sfo or val("front_bays_by_storey") or val("street_front_round_heads"):
             raise ParamError("street_front_windows names every window of a K02 stone front, and takes "
                              "no street_front_openings, front_bays_by_storey or street_front_round_heads")
-        if not {"windows", "base_top_m", "belts", "surrounds"} >= set(sfw) >= {"windows", "base_top_m"} \
+        if not {"windows", "base_top_m", "belts", "surrounds", "carved_bands"} >= set(sfw) >= {"windows", "base_top_m"} \
                 or not sfw["windows"]:
             raise ParamError("street_front_windows takes windows: [{component, storey, s_m, width_m, sill_m, "
                              "height_m}, ...] and base_top_m, the plain plinth's top where no area light sets it "
-                             "(and, T-2753, belts and surrounds)")
+                             "(and, T-2753, belts and surrounds; T-2915, carved_bands)")
     # T-2410: a brick front's storeys whose street windows are round-headed under hoods
     rh = val("street_front_round_heads") or {}
     if rh:
