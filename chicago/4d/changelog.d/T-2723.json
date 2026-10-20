@@ -1,9 +1,0 @@
-{
-  "title": "Naming the building ahead no longer pauses the walk on a computer",
-  "kind": "fix",
-  "items": [
-    "Nothing you can see in the town changed. On a computer, the tag that names the building in front of you made the page wait for the graphics card twice a second while you moved; it now reads its answer a frame or two later instead.",
-    "It names the same building at the same distance, a moment later. A click on a building still answers at once.",
-    "Phones already named the building ahead without that wait, and are unchanged."
-  ]
-}

@@ -1,9 +1,0 @@
-{
-  "title": "Nothing you can see changed: graphics card now places near flower heads",
-  "kind": "chore",
-  "items": [
-    "Nothing you can see changed. The flower heads on the grass around you stand on the same plants, in the same places, as before.",
-    "The page no longer walks the ring of grass at your feet to find where those heads go. It reads back the tufts the graphics card has just placed and hangs the heads on them, so the card and the heads can never disagree.",
-    "While you walk, that read-back is collected when the card has finished, not waited for. For a frame or two after a step the heads you see are the last step's, which stand exactly where they stood."
-  ]
-}
