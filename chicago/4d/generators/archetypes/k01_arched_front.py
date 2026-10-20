@@ -690,6 +690,15 @@ def _carved_band(a, frame, af, length, conf):
         a.components["k01.wall.carved_band"]["instances"][-1]["params"]["rings"] += n
 
 
+def side_arch(a, frame, g):
+    """T-2910: the loggia's side arch on its end wall, laid as a door's arched group is: the
+    voussoir block's stones radiating from the arch's centre, and its keystone."""
+    k = a.p.stone
+    conf = a.p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "stone_front",
+                          "entrance_kit")
+    _voussoirs(a, frame, g, conf, k["wall"]["recess_m"])
+
+
 def lay(a, frame, yf, length, conf, recess):
     af = a.p.arched_front
     for g in af["groups"]:

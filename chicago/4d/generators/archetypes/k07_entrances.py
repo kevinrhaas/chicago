@@ -156,16 +156,35 @@ class Entrance(Opening):
                                                           "spring_m": round(head.spring, 4)},
                           "host_wall_m": v.get("host_wall_m", self.data["host_wall"]["thickness_m"])})
         # reveal: every edge but the bottom, which is the threshold's
+        # T-2910: a loggia's arch runs through the front wall alone; the room is behind it
+        lg = v.get("loggia")
+        dt = lg["front_wall_m"] if lg else rev
         n = len(outline)
         c = (0.0, H / 2)
         for i in range(1, n):
             a, b = outline[i], outline[(i + 1) % n]
             m = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2)
             self.face("reveal", [self.P(a[0], a[1], 0), self.P(b[0], b[1], 0),
-                                 self.P(b[0], b[1], rev), self.P(a[0], a[1], rev)], (c[0] - m[0], c[1] - m[1], 0.0))
-        self.face("threshold", [self.P(s0, 0, 0), self.P(s1, 0, 0), self.P(s1, 0, rev), self.P(s0, 0, rev)], Y)
+                                 self.P(b[0], b[1], dt), self.P(a[0], a[1], dt)], (c[0] - m[0], c[1] - m[1], 0.0))
+        self.face("threshold", [self.P(s0, 0, 0), self.P(s1, 0, 0), self.P(s1, 0, dt), self.P(s0, 0, dt)], Y)
         pd = v.get("porch_door")
-        if pd:
+        if pd and lg:
+            # T-2910: the door in the loggia's back wall, on the room's floor under its ceiling
+            a, b = pd["s_m"] - pd["width_m"] / 2, pd["s_m"] + pd["width_m"] / 2
+            Hd = pd["height_m"]
+            sa, sb = lg["s_m"]
+            if not sa + 0.15 <= a < b <= sb - 0.15 or not Hd + 0.2 <= lg["ceiling_m"]:
+                raise ValueError(f"{v['id']}: a {pd['width_m']} m loggia door at s {pd['s_m']:+.3f}, {Hd} m high, "
+                                 f"does not stand in its back wall (s {sa}..{sb}, ceiling {lg['ceiling_m']} m)")
+            rev = lg["depth_m"]
+            self._loggia_room(lg, outline[2:], s0, s1, a, b, Hd)
+            self.v = v = {**v, **{k: pd[k] for k in ("leaves", "panels", "transom_m", "transom_lights",
+                                                      "glazed_rows", "rails_y_m") if k in pd}}
+            hole, head, flat = Region(a, b, 0.0, top_y=Hd), Head("flat", a, b, Hd), True
+            outline = hole.outline()
+            self.meta["porch_door"] = {"s_m": [round(a, 4), round(b, 4)], "height_m": Hd}
+            self.meta["reveal_depth_m"] = rev
+        elif pd:
             # T-2817: the hole is a porch's mouth (1623's drawing: an arch as broad as the window's,
             # its door at the back to one side and the porch's back wall lit beside it). A wall at
             # the reveal's depth closes the arch round the door's own flat-headed opening, `width_m`
@@ -415,6 +434,9 @@ class Entrance(Opening):
                     else:
                         self._box("cheek",min(si,so),max(si,so),-R,.85,0,L)
                     continue
+                if st.get("cheek_form") == "swept" and not porches:   # T-2910
+                    self._swept_cheek(si, so, sgn, L, F, R, n, r, g, st["swept"])
+                    continue
                 if Dq > L:
                     o0 = Dq
                     self.quad("cheek", [(si, -R, L), (si, -R, Dq), (si, 0, Dq), (si, 0, L)], (-sgn, 0.0, 0.0))
@@ -603,6 +625,77 @@ class Entrance(Opening):
         self.quad("arch_back", [(m(x), y, L - d) for x, y in outline], OUT)
         self.probe(m(ca), ys, L - d, ("arch_back",), "the basement arch's void")
         self.probe(m(s0 + 0.1), -R / 2, L, ("terrace_face",), "the terrace's face beside the arch")
+
+    # T-2910: a loggia behind the arch (1801's corner loggia, the Taylor photograph) -----
+    def _loggia_room(self, lg, arc, s0, s1, a, b, Hd):
+        """The room behind a loggia's arch: its floor at the door's, a flat ceiling
+        `ceiling_m` up, its sides at `s_m` and its back wall at `depth_m` behind the outer
+        face, the door a..b (flat head Hd) in that back wall. The front wall's inner face
+        is the room's, round the arch (`arc`, its head right to left, from the jambs'
+        spring). `side_arch` opens one side wall onto the street round the corner: a round
+        arch `clear_width_m` across centred `centre_m` behind the front, its crown
+        `clear_height_m` over the floor, through a `wall_m` wall, and optionally a corbelled
+        `balcony` under it on the outer face. Every face is convex: what stands round an
+        arch is cut in strips, one to each segment of the head."""
+        tf, D, Hc = lg["front_wall_m"], lg["depth_m"], lg["ceiling_m"]
+        sa, sb = lg["s_m"]
+        if not (sa < s0 and s1 < sb and tf < D and max(y for _, y in arc) + 0.1 <= Hc):
+            raise ValueError(f"the loggia (s {sa}..{sb}, {tf}..{D} m deep, ceiling {Hc} m) does not hold its arch")
+        self.quad("threshold", [(sa, 0.0, -tf), (sb, 0.0, -tf), (sb, 0.0, -D), (sa, 0.0, -D)], Y)
+        self.quad("reveal", [(sa, Hc, -tf), (sb, Hc, -tf), (sb, Hc, -D), (sa, Hc, -D)], (0.0, -1.0, 0.0))
+
+        def round_hole(pieces, lo, hi, arc_):
+            """The rectangle lo..hi x 0..Hc less a round-headed hole on `arc_` (right to left)."""
+            x0, x1 = arc_[-1][0], arc_[0][0]
+            pieces.append([(lo, 0.0), (x0, 0.0), (x0, Hc), (lo, Hc)])
+            pieces.append([(x1, 0.0), (hi, 0.0), (hi, Hc), (x1, Hc)])
+            for (xa, ya), (xb, yb) in zip(arc_, arc_[1:]):
+                if xa - xb > 1e-9:
+                    pieces.append([(xb, yb), (xa, ya), (xa, Hc), (xb, Hc)])
+            return pieces
+
+        for poly in round_hole([], sa, sb, arc):   # the front wall's inner face
+            self.quad("reveal", [(x, y, -tf) for x, y in poly], (0.0, 0.0, -1.0))
+        for poly in ([(sa, 0.0), (a, 0.0), (a, Hc), (sa, Hc)], [(b, 0.0), (sb, 0.0), (sb, Hc), (b, Hc)],
+                     [(a, Hd), (b, Hd), (b, Hc), (a, Hc)]):   # the back wall round the door
+            self.quad("porch_back", [(x, y, -D) for x, y in poly], OUT)
+        sd = lg.get("side_arch")
+        for x, k in ((sa, -1.0), (sb, 1.0)):
+            if not sd or (sd["side"] == "left") != (k < 0):
+                self.quad("reveal", [(x, 0.0, -tf), (x, 0.0, -D), (x, Hc, -D), (x, Hc, -tf)], (-k, 0.0, 0.0))
+                continue
+            c, w, h = sd["centre_m"], sd["clear_width_m"], sd["clear_height_m"]
+            d0, d1 = c - w / 2, c + w / 2
+            if not tf + 0.1 <= d0 or not d1 <= D - 0.1 or not h + 0.1 <= Hc:
+                raise ValueError(f"the loggia's side arch ({d0:.3f}..{d1:.3f} m, crown {h} m) does not stand in "
+                                 f"its side wall ({tf}..{D} m, ceiling {Hc} m)")
+            hd = Head("round", d0, d1, h - w / 2)
+            ring = Region(d0, d1, 0.0, head=hd).outline()
+            xo = x + k * sd["wall_m"]
+            for poly in round_hole([], tf, D, ring[2:]):
+                self.quad("reveal", [(x, y, -d) for d, y in poly], (-k, 0.0, 0.0))
+            cy = h / 2
+            for i in range(1, len(ring)):
+                p0, p1 = ring[i], ring[(i + 1) % len(ring)]
+                m = ((p0[0] + p1[0]) / 2, (p0[1] + p1[1]) / 2)
+                self.quad("reveal", [(x, p0[1], -p0[0]), (xo, p0[1], -p0[0]), (xo, p1[1], -p1[0]), (x, p1[1], -p1[0])],
+                          (0.0, cy - m[1], m[0] - c))
+            self.quad("threshold", [(x, 0.0, -d0), (xo, 0.0, -d0), (xo, 0.0, -d1), (x, 0.0, -d1)], Y)
+            self.meta["side_arch"] = {"s_m": round(xo, 4), "depth_m": [round(d0, 4), round(d1, 4)],
+                                      "spring_m": round(hd.spring, 4), "crown_m": round(hd.apex(), 4)}
+            bal = sd.get("balcony")
+            if bal:
+                # its top the arch's sill, its face `height_m` deep, then corbelled back into the wall
+                # `corbel_m` lower, `span_m` [from, to] behind the front and `out_m` before the wall
+                (e0, e1), out, hb, hc_ = bal["span_m"], bal["out_m"], bal["height_m"], bal["corbel_m"]
+                xf = xo + k * out
+                lo, hi = sorted((xo, xf))
+                self._box("balcony", lo, hi, -hb, 0.0, -e1, -e0, skip=("left" if k > 0 else "right", "bottom"))
+                yb = -hb - hc_
+                for e in (e0, e1):
+                    self.quad("balcony", [(xo, -hb, -e), (xf, -hb, -e), (xo, yb, -e)], (0.0, 0.0, 1.0 if e == e0 else -1.0))
+                self.quad("balcony", [(xf, -hb, -e0), (xf, -hb, -e1), (xo, yb, -e1), (xo, yb, -e0)], (k * hc_, -out, 0.0))
+                self.meta["side_arch"]["balcony"] = {"out_m": out, "foot_m": round(yb, 4)}
 
     def _box(self, role, s0, s1, y0, y1, o0, o1, skip=()):
         """A closed block in the door's frame, s0 < s1 and o0 < o1; `skip` names the faces
@@ -958,6 +1051,40 @@ class Entrance(Opening):
                     self.quad("balcony", [pa, pb, (c, t0 + .3, o)], mid)
                 from .k01_stone_finish import turned_faces
                 self._finish_faces("balcony", turned_faces(c, o, [(.012, t0 + .27), (.05, t0 + .31), (.045, t0 + .37), (.012, t0 + .4)], 10))
+
+    def _swept_cheek(self, si, so, sgn, L, F, R, n, r, g, sw):
+        """T-2910: 1801's cheek walls, as the Taylor photograph shows them: the top level
+        `head_m` over the landing beside it, then swept down in one reversed curve (level at
+        both ends, steepest at its middle) to a block `block_m` long at the flight's foot whose
+        top stands `foot_m` over grade. Laid in vertical strips, so no face spans a curve;
+        the top never comes within 0.1 m of the nosing line it runs beside."""
+        h0, yF, blk = sw["head_m"], -R + sw["foot_m"], sw["block_m"]
+        o1 = F - blk
+        if not L < o1 or not yF < h0:
+            raise ValueError(f"a swept cheek: its block ({blk} m) and its foot ({sw['foot_m']} m over grade) "
+                             f"leave no sweep between the landing and the foot")
+        N = 24
+        top = lambda o: h0 if o <= L else yF if o >= o1 else \
+            yF + (h0 - yF) * (1.0 + math.cos(math.pi * (o - L) / (o1 - L))) / 2.0
+        cuts = [0.0, L] + [L + (o1 - L) * i / N for i in range(1, N)] + [o1, F]
+        for k in range(1, n):   # the nosing of tread k stands at L + (k-1)g, -k r: and k g further out
+            for o in (L + (k - 1) * g, min(L + k * g, F)):
+                if top(o) < -k * r + 0.1 - 1e-9:
+                    raise ValueError(f"a swept cheek dips to {top(o):.3f} m over tread {k}'s nosing at "
+                                     f"{-k * r:.3f} m, {o:.3f} m out")
+        for a, b in zip(cuts, cuts[1:]):
+            ya, yb = top(a), top(b)
+            for x, hx in ((si, -sgn), (so, sgn)):
+                self.quad("cheek", [(x, -R, a), (x, -R, b), (x, yb, b), (x, ya, a)], (hx, 0.0, 0.0))
+            self.quad("cheek", [(si, ya, a), (so, ya, a), (so, yb, b), (si, yb, b)], (0.0, b - a, ya - yb))
+        self.quad("cheek", [(si, -R, F), (so, -R, F), (so, yF, F), (si, yF, F)], OUT)
+        mid = (si + so) / 2
+        a, b = cuts[1], cuts[2]
+        top_s, foot_s = (mid, (top(a) + top(b)) / 2, (a + b) / 2), (mid, yF, (o1 + F) / 2)
+        self.sockets[f"handrail_{'left' if sgn < 0 else 'right'}"] = [top_s, foot_s]
+        for pt in (top_s, foot_s):
+            self.probe(*pt, ("cheek",), "a handrail socket on its cheek")
+        self.meta.setdefault("swept_cheeks", {"head_m": h0, "foot_m": sw["foot_m"], "block_m": blk})
 
     def _scrolled_cheek(self,si,so,sgn,start,F,R,c,half,t,terrace,low):
         # A concave swept stone cheek; tessellate in vertical strips, so no fan spans
