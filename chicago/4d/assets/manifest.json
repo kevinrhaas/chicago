@@ -2138,9 +2138,9 @@
     "kimball_house_1801_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 6453364,
+      "bytes": 6859052,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "2a1d804e22807037a90c04eccdb9712b4882c865bbe3f33a706017bf6d88844d",
+      "inputs_sha256": "c8ba348e47646b9c6de59752f762d4d09bd803f41e92857e3680c6e19db385b4",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "kimball_house_1801_prairie"
@@ -7823,9 +7823,9 @@
     "spalding_house_1637_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 5215768,
+      "bytes": 5361308,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "12782f9b73a89ef921eaa6038fdf6e45c4d90798dab4b679fa6b35f2b47de819",
+      "inputs_sha256": "3a6b9362030715d91300a68eed16bf4a66bd7f1a34a786f13a53e89a161b0e7e",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "spalding_house_1637_prairie"

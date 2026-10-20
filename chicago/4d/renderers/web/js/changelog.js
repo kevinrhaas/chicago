@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 2121, ts: '2026-10-20T14:18:16.801Z', date: 'Oct 20, 2026, 9:18 AM CT', title: '1637 Prairie\'s bow and chimneys, closer to the engraving', kind: 'change',
+    items: [
+      'The rounded bay at the north end of 1637 Prairie Avenue now stops just under the main cornice with a cap of its own, and the cornice runs straight across above it, as the old engraving of Jesse Spalding\'s remodel draws it. Before, the cornice swept round the top of the bay.',
+      'Each of the house\'s three chimneys now has clay pots on top, standing where the engraving draws a dark crown over each one. The engraving is too small to show whether they were plain pots or hooded cowls, so the pots are a reconstruction. Liberty L-k01-1637-stack-pots-2782 records it.',
+    ] },
+  { v: 2120, ts: '2026-10-20T13:43:02.123Z', date: 'Oct 20, 2026, 8:43 AM CT', title: 'Nothing you can see changed: graphics card now deals the middle-distance grass', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The clumps of grass a few metres out to the edge of the meadow stand on the same plants, in the same places, as before.',
+      'The page no longer walks that ring of grass itself every time you take a step. The graphics card decides which plant stands in each spot, and the page reads its answer back and sets the clumps out.',
+      'Just after you arrive somewhere, or jump across the town, the page still deals that ring itself for a moment, as it always did, until the card has the ground around you.',
+    ] },
+  { v: 2119, ts: '2026-10-20T13:43:02.123Z', date: 'Oct 20, 2026, 8:43 AM CT', title: '1801 Prairie\'s bowed bay and paired windows, from its photograph', kind: 'feature',
+    items: [
+      'The Kimball house at 1801 Prairie gains the bowed bay J. W. Taylor photographed in the middle of its front: two storeys, a broad transomed window on each, its cornice wrapped round the bow and a stone balcony on top.',
+      'The south pavilion\'s windows become the photograph\'s mullioned and transomed pairs, one a storey.',
+      'The carving round them, the frieze over the principal storey and the loggia\'s carving are still plain stone, and come next.',
+    ] },
   { v: 2118, ts: '2026-10-20T12:54:29.405Z', date: 'Oct 20, 2026, 7:54 AM CT', title: '1812 Prairie\'s front in stone and brick, as its photograph shows', kind: 'improvement',
     items: [
       'The Wheeler house at 1812 Prairie is no longer stone from the walk to the gable. Its basement and the entrance bay\'s first storey stay stone; over the second floor\'s belt the front is brick, banded and dressed in stone, as Albert Levy\'s photograph shows it.',
