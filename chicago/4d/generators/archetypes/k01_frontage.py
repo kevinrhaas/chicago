@@ -58,6 +58,10 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
                             round sash in a round hole the wall cuts (a rectangle to the
                             spring, strips from the head's curve over it), under the kit's
                             arch band as its hood, with a key block on the crown
+  k01.opening.sash_round_plain
+                            a side wall's round-headed light whose picture shows its head
+                            plain (T-2884, 1625's lower lights): the same round hole and
+                            K06 sash, under no hood and no brick arch
   k08.*                     a K08 bay (T-2308): `generators/archetypes/k08_bays.py`
                             builds it in its own wall frame and `bay` lays it on
                             its host wall, which carries no opening behind it; a
@@ -108,7 +112,7 @@ from . import k09_frontage
 from . import k10_frontage
 from . import k11_frontage
 from . import k14_yard
-from .k01_frontage_params import EAVE_FASCIA_M, ROUND_HOODED, STREET_WINDOW, STRIP_FABRICS, wing_walls
+from .k01_frontage_params import EAVE_FASCIA_M, ROUND_CUT, ROUND_HOODED, STREET_WINDOW, STRIP_FABRICS, wing_walls
 
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
@@ -1021,6 +1025,11 @@ class Assembly:
                 self.proud_box(stone_trim, frame, op.s_m - k["width_m"] / 2, op.s_m + k["width_m"] / 2,
                                y1, y1 + k["height_m"], k["proud_m"], seed, conf)
             return
+        if getattr(op, "plain", False):
+            # T-2884: a head its picture shows plain (1625's south wall): the light, its hole cut
+            # square or round, and nothing laid over it — no hood, no K03 arch, no lintel
+            self.glaze(op, frame, body_mat, stone_trim, seed, max(conf, p.conf("north_bays")))
+            return
         if not door:
             # T-2298: a window is a K06 opening — reveal, sill, frame, sashes, glass,
             # blind, curtain and an enclosed room — built about this hole's sill socket
@@ -1766,6 +1775,8 @@ class Assembly:
         entry = self.p.window_kit[op.component]
         v = dict(next(x for x in self._kit["variants"] if x["id"] == entry["variant"]))
         v["clear_width_m"], v["clear_height_m"] = op.width_m, op.height_m
+        if getattr(op, "narrow", False):   # T-2884: a light under the ordinary sash's width is one light a sash
+            v["panes"] = [1, 1]
         if not entry["well"]:
             v["well"] = False
         return v
@@ -3330,7 +3341,7 @@ def hole(o):
     """An opening's hole in its wall: (s0, s1, sill, head), or for a round-headed one (T-2410)
     (s0, s1, sill, spring, its head right -> left) on K06's own curve for that span."""
     s0, s1 = o.s_m - o.width_m / 2, o.s_m + o.width_m / 2
-    if o.component != ROUND_HOODED:
+    if o.component not in ROUND_CUT:
         return (s0, s1, o.sill_m, o.head_m)
     from . import k06_windows
     spring = o.head_m - o.width_m / 2

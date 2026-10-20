@@ -29826,6 +29826,35 @@ sheet 6 draws the stack edge-on and sheet 3 only the corner fireplace whose flue
 **Ticket:** T-2873 (piece 2 of T-2871).
 **Recorded:** 2026-10-19 (T-2873).
 
+### L-k01-1625-south-lower-lights-2884 — 1625 Prairie's south wall's lower lights and plain heads, read off the McBirney photograph
+
+**Decision:** on 1625's main south wall (K01's `north_bays`), the ground-floor light and the stair
+light stand under plain heads, nothing laid over the hole, where K01 had dressed each with K03's
+gauged segmental fan; and the wall's three lower lights are built: a small round-headed light near
+grade at s 5.7 m (0.36 m across, its head at 0.89 m), a tall narrow round-headed light under the
+oriel at s 8.5 m (0.61 m across, its head at 2.0 m), both K06's fixed round-headed basement light
+in a round hole under no hood or arch (`k01.opening.sash_round_plain`), and a slit at s 11.1 m,
+0.3 m across, 0.9-1.93 m, under a plain square head, one light a sash.
+**What is read, not invented.** From the 1890 Inland Architect plate
+(`inland_architect_1890_01_mcbirney_residence`) through the camera T-2846 re-solved on the south
+wall's level lines (heights h = 1.0 + (756 - y)(28.7 + s)/1108 m, places s = 1108 x 8.39/(757 - x)
+- 28.7 m): the five lights' places and heads, the two lower round heads (y 759.5 and 726 px) and the
+slit's square head and lit sill (y 730 and 758); that the print draws no fan, band or hood over any
+light on this wall. Each built edge lands within about 1-2 px of the print's.
+**What is invented.** The widths: the wall is seen so obliquely (about 8.4 m beside the eye and
+34-40 m out) that a metre along it is 6-8 px and the far jamb's 0.115 m reveal alone is 3-4 px, so
+each width is the outline less the reveal, good to about 0.15 m; the slit's outline is no wider
+than its reveal, and it is built at 0.3 m, the oriel cheek's narrow light. The two round lights'
+feet, hidden behind the fence's top rail: each is built down to the lowest line the print shows
+(0.25 and 0.2 m), and whether they run lower, into an area along the wall, is T-2885's question
+about the rear section's door. Their kind (fixed, one light; the print cannot say fixed, hopper or
+sash) and the slit's sash. A plain head in a brick wall is carried on something behind its face (an
+iron lintel or a flat arch flush with the bond); none is modelled, the bond running over the hole as
+the print shows the wall's face.
+**How to resolve:** a view of 1625's south wall from the open ground, or the house's plans.
+**Ticket:** T-2884 (piece 2 of T-2867).
+**Recorded:** 2026-10-19 (T-2884).
+
 
 ### L-k08-1812-projection-balcony-2888 — 1812 Prairie's south projection given its photographed balcony rail: its height and baluster spacing read, its sections and inset reconstructed, its stone middle panel built as iron
 
