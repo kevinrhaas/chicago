@@ -1,12 +1,12 @@
 {
   "id": "henderson_house_1816_prairie",
-  "phase": "draft_1904",
-  "name": "1816 Prairie Avenue — Henderson Second Empire (district draft; refined by T-1886)",
+  "phase": "as_mapped_1904",
+  "name": "1816 Prairie Avenue — Charles M. Henderson house",
   "aka": [
     "1816 S. Prairie Avenue"
   ],
-  "archetype": "prairie_draft",
-  "asset": "gltf/henderson_house_1816_prairie__draft_1904.glb",
+  "archetype": "k01_frontage",
+  "asset": "gltf/henderson_house_1816_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
@@ -24,22 +24,22 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+    "note": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the photograph (after 1873) shows the same plan. Its building and loss dates are not read here."
   },
   "change_note": "",
   "placement": {
-    "local_e": 1361.396,
-    "local_n": -3271.528,
+    "local_e": 1372.999,
+    "local_n": -3276.373,
     "rotation_deg": -0.621,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 22.750, v 0.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the georeference's independent check is 1.47 m RMS. Rotation -0.621 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The main body's rear south corner: lot frame u 34.30, v -4.72 m (the draft's frame point u 11.55, v -4.97 through its own rotation), where the 1911 sheet's trace (s28fp-1816-b1) puts the front block's south wall and the rear range's end. The draft's fit of the sheet stands behind it (its georeference's independent check 1.47 m RMS). Rotation -0.621 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1816 S. Prairie Avenue, parcel prairie_1816 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28).",
     "uncertainty_m": 20,
     "placement_provisional": false,
-    "vertical_anchor": "terrain",
+    "vertical_anchor": "ground",
     "walk_surface_m": null
   },
   "footprint": {
@@ -49,146 +49,643 @@
         0.0
       ],
       [
-        23.75,
+        12.0,
         0.0
       ],
       [
-        23.75,
-        8.5
+        12.0,
+        14.82
       ],
       [
         0.0,
-        8.5
+        14.82
       ]
     ],
     "confidence": "inferred",
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+    "note": "The front block read off the 1911 sheet's trace (s28fp-1816-b1 p2) in the lot's frame: its south wall at v -4.72, its north wall at v 10.10, the front at u 46.0-46.6 (taken at 46.3) and the rear range's end at u 34.3. The canted bays, the porch and the rear range stand on it as K08 bays, the door's porch and a K01 rear wing."
   },
   "attributes": {
     "stories": {
-      "value": 3,
-      "confidence": "attested",
+      "value": 2,
+      "confidence": "inferred",
       "sources": [
+        "chicagology_1816_henderson_photo",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "'3S.B.; rear2B' printed on the 1911 sheet: 3 full storeys."
+      "note": "Two storeys of brick over a raised stone basement, under a mansard: the photograph's walls stop at a bracketed cornice over the second storey and the roof's lower faces rise over it with dormers in them. The 1911 sheet's '3S.B.' counts the mansard's attic as its third storey, as it does at 1620 and 1736."
     },
     "construction": {
       "value": "brick",
       "confidence": "attested",
       "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "The 1911 sheet: '3S.B.; rear2B brick dwelling (D)'; the photograph's walls are laid brick over a rusticated stone basement."
+    },
+    "principal_floor_m": {
+      "value": 2.0,
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "The principal floor at the top of the rusticated stone basement, the stone basement's top band at y 885 px at the south-east corner, about 2.0 m over grade at the camera's 53.6 px/m there, through the photograph's camera (data/reference_views/henderson_house_1816_prairie/chicagology_photo.json); the porch's floor and the stoop's landing stand on it."
+    },
+    "storey_heights_m": {
+      "value": [
+        4.8,
+        5.3
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "Floor to floor, principal storey first, read through the photograph's camera at the street front's south corner (53.6 px/m, the corner 46 m from the eye): the upper sills at y 590 px, 5.5 m over the principal floor, and the brackets' foot at y 355 px, 11.9 m over grade: the second storey's sills and the cornice's soffit put the wall head about 12.1 m over grade."
+    },
+    "wall_thickness_front_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a brick-and-a-half wall, as 1620's."
+    },
+    "wall_thickness_side_m": {
+      "value": 0.33,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: a brick-and-a-half wall, as 1620's."
+    },
+    "service_wall_brick": {
+      "value": "common_buff_common_6",
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the K03 common brick panel 1620 wears; the print is monochrome."
+    },
+    "street_front_trim": {
+      "value": {
+        "by_storey": [
+          "k09.trim.lintel_cornice_hood",
+          "k09.trim.lintel_cornice_hood"
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "Every street window under a stone hood on both storeys, as the photograph draws them: K09's cornice-hood lintel. The photograph's hoods are carved (a scrolled cresting over each), which the kit's hood does not carve: open on the match record for T-2964."
+    },
+    "wall_head": {
+      "value": {
+        "cornice": "k10.cornice.bracketed_timber"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "A bracketed cornice round the walls under the mansard: the photograph shows its brackets in pairs under a deep corona along the front and the south flank. K10's bracketed timber cornice; its bracket rhythm is the kit's."
+    },
+    "roof_form": {
+      "value": "mansard",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "A mansard: the photograph's roof rises in steep slated lower faces over the cornice, with dormers in them, to a deck railed with iron cresting."
+    },
+    "roof_pitch_deg": {
+      "value": 10,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the mansard's upper deck at 10 degrees, as 1620's; the photograph shows only its cresting."
+    },
+    "eave_overhang_m": {
+      "value": 0.6,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: 0.6 m, 1620's; the photograph's corona stands about so far out at the south corner."
+    },
+    "stair_tread_m": {
+      "value": 0.3,
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: 0.3 m treads, as 1620's; the photograph's flight is half hidden by its cheek and the fence."
+    },
+    "stair_landing_depth_m": {
+      "value": 2.0,
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "The porch's floor, which the flight rises to: the 1911 sheet's porch stands about 2.0 m out from the front (s28fp-1816-b1 p1, u 46.6 to 48.6 m in the lot's frame) and the photograph's columns stand at its front edge."
+    },
+    "stoop_width_m": {
+      "value": 3.0,
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "The porch's width on the 1911 sheet, 3.1 m (s28fp-1816-b1 p1, v 2.7 to 5.8 m in the lot's frame), less its corners: the photograph's flight runs the porch's width straight down to the walk."
+    },
+    "entrance_bay": {
+      "value": "south",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1816_henderson_photo",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "The register reads the map's colours as 'brick'."
+      "note": "The door is the first of the flat front's bays, behind the porch just north of the canted bay, as the photograph shows it and the 1911 sheet puts the porch."
     },
-    "draft_plan": {
+    "front_bays": {
+      "value": [
+        8.98,
+        11.55,
+        13.6
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1816_henderson_photo",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The flat front north of the canted bay, south to north: the door at the porch's centre (the 1911 sheet's porch, 7.44-10.52 m along the front), then two windows a storey to the north end, which the photograph shows right of the porch. Over the door a window on the second storey."
+    },
+    "side_bays": {
+      "value": [
+        6.4
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "One window a storey on the south flank between its canted bay and the front corner, next to the bay, as the photograph shows; the flank toward the front corner is blank in it."
+    },
+    "rear_bays": {
+      "value": [
+        12.32
+      ],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: one window a storey on the main body's rear wall south of the rear range; no picture sees the rear."
+    },
+    "north_bays": {
+      "value": [],
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the north wall stands about 1.2 m inside the lot line toward 1812 and is built blank; no picture sees it."
+    },
+    "sash_by_storey": {
+      "value": [
+        {
+          "sill_above_floor_m": 0.6,
+          "width_m": 1.1,
+          "height_m": 3.15
+        },
+        {
+          "sill_above_floor_m": 0.7,
+          "width_m": 1.05,
+          "height_m": 3.0
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "Tall sash on the principal floor and shorter above, read through the photograph's camera on the canted bay's south face: the principal windows about 3.1 m high from 0.65 m over the floor, the upper about 2.6 m from 0.7 m. Their widths are the photograph's proportion, about a third of their height."
+    },
+    "basement_lights": {
       "value": {
-        "parts": [
-          {
-            "id": "r1",
-            "role": "main",
-            "storeys": 3,
-            "roof": "mansard",
-            "rect": [
-              0.0,
-              0.0,
-              23.75,
-              8.5
-            ],
-            "from": "s28fp-1816-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill"
-          },
-          {
-            "id": "r2",
-            "role": "wing",
-            "storeys": 3,
-            "roof": "mansard",
-            "rect": [
-              11.5,
-              -4.75,
-              23.75,
-              0.0
-            ],
-            "from": "s28fp-1816-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill"
-          },
-          {
-            "id": "r3",
-            "role": "porch",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              23.75,
-              3.25,
-              25.75,
-              5.5
-            ],
-            "from": "s28fp-1816-b1 p1 (porch, frame), rectangle 1 of that part; the part's rectangles cover 75% of its fill"
-          }
-        ],
-        "lot_v": [
-          -11.556,
-          11.056
-        ],
-        "street_u": 31.206
+        "sill_m": 0.55,
+        "width_m": 1.0,
+        "height_m": 0.95
       },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "The photograph's barred basement lights in the rusticated stone basement, about as wide as the windows over them."
+    },
+    "roof_covering": {
+      "value": {
+        "fabric": "tin_standing_seam_painted",
+        "flashing": "copper_sheet",
+        "caps": "copper_ridge_roll",
+        "lower_faces": "slate_pennsylvania",
+        "paint": "black"
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "The mansard's lower faces SLATED, as the photograph shows them in courses; the deck behind the cresting is not seen and is K04's painted tin, as 1620's."
+    },
+    "chimneys": {
+      "value": {
+        "plan_m": [
+          0.9,
+          0.75
+        ],
+        "top_above_ridge_m": 0.9,
+        "cap_proud_m": 0.05,
+        "cap_depth_m": 0.15,
+        "stacks": [
+          {
+            "u_m": 9.0,
+            "v_m": 1.2
+          },
+          {
+            "u_m": 3.0,
+            "v_m": 13.6
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the photograph shows one tall stack behind the front's south end; it is placed on the south wall's inner face, and a second on the north wall, which no picture sees."
+    },
+    "rainwater": {
+      "value": {
+        "gutter": "half_round",
+        "fabric": "copper_sheet",
+        "downpipe": "round",
+        "ends_at": "grade_with_splash_stone",
+        "downpipes": [
+          {
+            "wall": "k01.wall.side.south",
+            "s_m": 11.6
+          },
+          {
+            "wall": "k01.wall.rear_service",
+            "s_m": 0.35
+          }
+        ]
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: K04 half-round copper gutters and round pipes to splash stones, as 1620's."
+    },
+    "window_kit": {
+      "value": {
+        "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
+        "k01.opening.area_light": {
+          "variant": "k06.opening.area_light",
+          "well": false
+        }
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED: the K06 two-over-two flat sash and area lights 1620 wears; the photograph shows two-over-two sash in the principal windows."
+    },
+    "entrance_kit": {
+      "value": {
+        "k01.opening.door_leaf": {
+          "variant": "k07.entrance.panel_door_stoop",
+          "front_yard_m": 7.66,
+          "hood": {
+            "soffit_m": 5.9,
+            "width_m": 3.0,
+            "out_m": 2.0,
+            "fascia_m": 0.6,
+            "cornice": {
+              "height_m": 0.25,
+              "proud_m": 0.15
+            },
+            "brackets": "k08.bay.canted_hooded",
+            "railing": {
+              "height_m": 0.6,
+              "post_m": 0.1,
+              "baluster_m": 0.03,
+              "pitch_m": 0.12,
+              "rail_m": [
+                0.08,
+                0.06
+              ]
+            },
+            "columns": {
+              "diameter_m": 0.36,
+              "plinth_m": [
+                0.5,
+                0.35
+              ],
+              "capital_m": 0.35,
+              "respond_m": 0.12
+            },
+            "railing_fabric": "iron"
+          }
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1816_henderson_photo",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "The photograph's porch: the door behind a flight straight down to the walk, two turned columns on plinths at the landing's front corners and a respond against the wall behind each, an entablature over them about 0.6 m deep under a moulded cornice, and on it an iron balcony railing. Built on the K01 door hood (T-2480) widened to the 1911 sheet's 3.1 m porch and standing 2.0 m out on columns (T-2963, `hood.columns`); its soffit 5.9 m over grade is read through the camera. The capitals are carved in the print (open on the match record) and the railing's pierced iron panels are the kit's square balusters in iron. The sheet colours the porch frame, so the columns and entablature are painted timber."
+    },
+    "boundary": {
+      "value": {
+        "street_line_m": 7.4,
+        "lot_s_m": [
+          -6.586,
+          16.026
+        ],
+        "fence": "k11.fence.spear_on_curb",
+        "entrance_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "leaves": 2,
+          "clear_m": 1.3,
+          "drawn_deg": 0
+        },
+        "side_gate": {
+          "variant": "k11.gate.walk_gate_on_piers",
+          "pier_s_m": -3.5,
+          "drawn_deg": 0
+        },
+        "posts": {
+          "section_m": 0.12,
+          "height_m": 1.55
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "The photograph's cast-iron fence on a stone curb along the street line, its gate at the stoop's foot and a side gate onto the south yard, as K11's spear fence (its scrolled panels are the kit's spears: open on the match record). Its line is 7.4 m from the front, its curb just inside the 1904 parcel's street line (7.66 m); the lot's sides are the parcel's (data/street_grid/1904.json prairie_1816)."
+    },
+    "bays": {
+      "value": [
+        {
+          "id": "front_canted",
+          "variant": "k08.bay.canted",
+          "wall": "k01.wall.street_front",
+          "s_m": 3.76,
+          "fabric": "brick",
+          "plan": {
+            "kind": "polyline",
+            "points": [
+              [
+                -3.435,
+                0.0
+              ],
+              [
+                -1.2,
+                1.65
+              ],
+              [
+                1.2,
+                1.65
+              ],
+              [
+                3.435,
+                0.0
+              ]
+            ]
+          },
+          "storeys": [
+            {
+              "height_m": 6.8,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.95,
+                  "clear_height_m": 3.15,
+                  "sill_m": 2.6,
+                  "at": [
+                    0.174,
+                    0.826
+                  ],
+                  "recess_m": 0.4
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.05,
+                  "sill_m": 2.6,
+                  "at": [
+                    0.5
+                  ],
+                  "clear_height_m": 3.15
+                }
+              ]
+            },
+            {
+              "height_m": 5.04,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.95,
+                  "clear_height_m": 3.0,
+                  "sill_m": 0.7,
+                  "at": [
+                    0.174,
+                    0.826
+                  ],
+                  "recess_m": 0.4
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.05,
+                  "sill_m": 0.7,
+                  "at": [
+                    0.5
+                  ],
+                  "clear_height_m": 3.0
+                }
+              ]
+            }
+          ],
+          "eaves": {
+            "cornice": "k10.cornice.bracketed_timber"
+          },
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.25,
+            "covering": "slate_pennsylvania"
+          }
+        },
+        {
+          "id": "south_canted",
+          "variant": "k08.bay.canted",
+          "wall": "k01.wall.side.south",
+          "s_m": 2.75,
+          "fabric": "brick",
+          "plan": {
+            "kind": "polyline",
+            "points": [
+              [
+                -2.425,
+                0.0
+              ],
+              [
+                -1.34,
+                1.0
+              ],
+              [
+                1.34,
+                1.0
+              ],
+              [
+                2.425,
+                0.0
+              ]
+            ]
+          },
+          "storeys": [
+            {
+              "height_m": 6.8,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.95,
+                  "clear_height_m": 3.15,
+                  "sill_m": 2.6,
+                  "at": [
+                    0.131,
+                    0.869
+                  ],
+                  "recess_m": 0.4
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.05,
+                  "sill_m": 2.6,
+                  "at": [
+                    0.5
+                  ],
+                  "clear_height_m": 3.15
+                }
+              ]
+            },
+            {
+              "height_m": 4.5,
+              "windows": [
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 0.95,
+                  "clear_height_m": 3.0,
+                  "sill_m": 0.7,
+                  "at": [
+                    0.131,
+                    0.869
+                  ],
+                  "recess_m": 0.4
+                },
+                {
+                  "opening": "k06.opening.sash_2over2_flat",
+                  "clear_width_m": 1.05,
+                  "sill_m": 0.7,
+                  "at": [
+                    0.5
+                  ],
+                  "clear_height_m": 3.0
+                }
+              ]
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.25,
+            "covering": "slate_pennsylvania"
+          }
+        }
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "Two canted bays, each on the 1911 sheet's plan (s28fp-1816-b1 p2) and in the photograph: the street front's at its south corner, 6.87 m at the wall and 1.65 m out with 2.4 m of front, and the south flank's near its rear, 4.85 m at the wall and 1.0 m out with 2.68 m of front, each two storeys over the basement with a window in each face. In the photograph both rise past the cornice into the mansard, the front's into a raised crown and the flank's under its own mansard with dormers; here each stops at the wall head under a slated hip (open on the match record for T-2964)."
+    },
+    "mansard": {
+      "value": {
+        "variant": "k05.roof.mansard_convex",
+        "lower_rise_m": 4.0,
+        "bulge": 0.0,
+        "lower_pitch_deg": 78,
+        "dormers": [
+          {
+            "face": "street",
+            "along_m": 8.98,
+            "sash": {
+              "variant": "k06.opening.sash_round_fanlight",
+              "width_m": 0.8,
+              "height_m": 1.5,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.15,
+            "face_setback_m": 0.15
+          },
+          {
+            "face": "street",
+            "along_m": 12.6,
+            "sash": {
+              "variant": "k06.opening.sash_round_fanlight",
+              "width_m": 0.8,
+              "height_m": 1.5,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.15,
+            "face_setback_m": 0.15
+          },
+          {
+            "face": "south",
+            "along_m": 7.5,
+            "sash": {
+              "variant": "k06.opening.sash_round_fanlight",
+              "width_m": 0.8,
+              "height_m": 1.5,
+              "sill_m": 0.15
+            },
+            "surround_m": 0.15,
+            "face_setback_m": 0.15
+          }
+        ]
+      },
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1816_henderson_photo"
+      ],
+      "note": "A slated mansard over the cornice, its lower faces steep and slightly swelling, with dormers in them: two on the street face, over the door and over the north windows, and one on the south face, where the photograph shows them. The photograph's dormers are pedimented with carved cheeks; these are K05's round-headed dormers (open on the match record)."
+    },
+    "rear_wings": {
+      "value": [
+        {
+          "id": "rear_range",
+          "rect": [
+            -11.89,
+            0.0,
+            5.02,
+            12.62
+          ],
+          "floor_m": 2.0,
+          "storey_heights_m": [
+            4.0,
+            3.6
+          ],
+          "sash_by_storey": [
+            {
+              "sill_above_floor_m": 0.75,
+              "width_m": 1.0,
+              "height_m": 2.3
+            },
+            {
+              "sill_above_floor_m": 0.7,
+              "width_m": 1.0,
+              "height_m": 1.9
+            }
+          ],
+          "windows": {
+            "rear": [
+              2.5,
+              5.4
+            ],
+            "south": [
+              3.0,
+              8.0
+            ]
+          },
+          "roof": {
+            "kind": "flat",
+            "overhang_m": 0.15,
+            "fascia_m": 0.3,
+            "covering": "painted_tin_sheet"
+          }
+        }
+      ],
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1816-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s28fp-1816-b1 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill; s28fp-1816-b1 p1 (porch, frame), rectangle 1 of that part; the part's rectangles cover 75% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
-    },
-    "draft_elevation": {
-      "value": {
-        "kind": "house",
-        "seed": 715317729,
-        "principal_floor_m": 1.4,
-        "storey_heights_m": [
-          3.9,
-          3.5,
-          3.3,
-          3.1
-        ],
-        "roof_pitch_deg": 18,
-        "mansard_lower_m": 3.0,
-        "front_bays": 3,
-        "entrance": "north",
-        "side_spacing_m": 2.6,
-        "chimneys": 2,
-        "brackets": false,
-        "attic_dormers": false,
-        "stone": "stone",
-        "features": [],
-        "draft_label": {
-          "pass": "T-2329",
-          "refined_by": [
-            "T-1886"
-          ]
-        }
-      },
-      "confidence": "reconstructed",
-      "note": "RECONSTRUCTED by the draft rules, family row 'Second Empire' overlaid with the frontage row: Second Empire: the register's mansard with dormers over the mapped rounded front bays, which the fitted plan carries as a projecting bay. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 715317729 only tints the fabric inside +-6 %. Liberty L-draft-prairie-18-20-west-2329."
-    },
-    "draft": {
-      "value": {
-        "pass": "T-2329",
-        "liberty": "L-draft-prairie-18-20-west-2329",
-        "register_row": "frontage-28-039",
-        "census_ids": [
-          "s28-1816-front",
-          "s28-1816-wing"
-        ],
-        "trace_building": "s28fp-1816-b1",
-        "seed": 715317729,
-        "replaceable_by": [
-          "T-1886"
-        ],
-        "card": "District draft — refined by T-1886."
-      },
-      "confidence": "reconstructed",
-      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
-      "geometry": "record_only"
+      "note": "The 1911 sheet's rear range behind the main body (s28fp-1816-b1 p2, 'rear2B': u 22.4 to 34.3 m and v 0.3 to 7.9 m in the lot's frame), two storeys under a flat tin deck; no picture shows it, so its storeys, windows and roof are reconstructed. The sheet's small step between it and the south flank (about 2.1 by 3.2 m) is left to T-2964."
     },
     "function": {
       "value": "residence",
@@ -201,6 +698,25 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "chicagology_1816_henderson_photo",
+      "citation": "[1816 S. Prairie Ave. (Charles M. Henderson house).] Photograph of the house from the walk south-east of it, its street front and south flank, with the shaped gable of 1812 Prairie beyond it to the north; unknown photographer, undated (after 1873). Reproduced on chicagology.com, Prairie Avenue, 1816 S. Prairie.",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/1816prairie/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the canted bay at the street front's south corner and the canted bay on the south flank, against the 1911 sheet's plan",
+        "the porch: turned columns on the stoop's landing, an entablature over them and an iron balcony on it",
+        "the storeys: a rusticated stone basement, two tall brick storeys, a bracketed cornice and a slated mansard with dormers",
+        "the windows: tall sash on the principal floor and shorter above, under carved hoods"
+      ],
+      "what_it_does_not_supply": [
+        "colour: the print is monochrome",
+        "a date: undated, later than 1873",
+        "the north wall, the rear and the rear range"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_28",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
@@ -222,8 +738,7 @@
       ]
     }
   ],
-  "research_note": "A DISTRICT DRAFT (T-2329, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1886 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1816-b1), the T-1841 census (s28-1816-front, s28-1816-wing) and the T-1837 register row frontage-28-039 (Henderson Second Empire); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-west-2329).",
+  "research_note": "Refined from the district draft (T-2329) in place by T-2963 (piece 1 of T-1886), under the draft's own id, as a K01 brick frontage read off the one photograph of the house (chicagology_1816_henderson_photo, undated, after 1873) against the 1911 sheet's plan: the front block with its canted front bay and the porch beside it, the canted bay on the south flank, the rear range, and the mansard. The photograph's camera and match record are in data/reference_views/henderson_house_1816_prairie/; what it shows that is not built yet is open there for T-2964, with the 1874 Land Owner engraving.",
   "research_doc": "",
-  "review_required": false,
-  "called": "1816 Prairie Avenue — Henderson Second Empire"
+  "review_required": false
 }

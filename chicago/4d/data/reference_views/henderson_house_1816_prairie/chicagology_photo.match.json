@@ -1,0 +1,90 @@
+{
+  "structure_id": "henderson_house_1816_prairie",
+  "view": "chicagology_photo",
+  "glb": "assets/gltf/henderson_house_1816_prairie__as_mapped_1904.glb",
+  "glb_sha256": "52cb2fe0e876037c6b007bf230041c7da311ec162894412781a3f8b29e14a546",
+  "camera_sha256": "cd716f257362184bf542e8422a3b0549da4bde9351614c1cf035953b19b1371a",
+  "side_by_side": "docs/RESEARCH/photo-match/henderson_house_1816_prairie/chicagology_photo-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a two-storey brick block over a raised stone basement under a mansard, the street front and the south flank both seen, the corner at x 588 px",
+      "status": "fixed",
+      "how": "T-2963: the 1911 sheet's 14.82 x 12.0 m front block on K01, two storeys (4.8 and 5.3 m) over a 2.0 m basement; the render's corner stands on x 588"
+    },
+    {
+      "what": "the canted bay at the street front's south corner, two storeys of windows in its faces, the cornice carried round it",
+      "status": "fixed",
+      "how": "T-2963: a K08 canted bay 6.87 m at the wall and 1.65 m out (the sheet's), carrying K10's bed moulding and the eave round its plan (eaves.cornice)"
+    },
+    {
+      "what": "the canted bay on the south flank near its rear, a window in each face",
+      "status": "fixed",
+      "how": "T-2963: a K08 canted bay 4.85 m at the wall and 1.0 m out (the sheet's)"
+    },
+    {
+      "what": "the porch: turned columns at the landing's front corners, an entablature over them and an iron balcony railing on it, the flight straight down to the walk",
+      "status": "fixed",
+      "how": "T-2963: K01's door hood standing on two turned columns over plinths with responds at the wall (hood.columns), 2.0 m out and 3.0 m wide, its railing in iron"
+    },
+    {
+      "what": "the bracketed cornice and the slated mansard with dormers in its street and south faces",
+      "status": "fixed",
+      "how": "T-2963: K10's bracketed timber cornice and K05's mansard 4.0 m over the eave, two street dormers and one south"
+    },
+    {
+      "what": "an iron fence on a stone curb along the street line with a gate at the stoop's foot",
+      "status": "fixed",
+      "how": "T-2963: K11's spear fence on its curb 7.4 m before the front"
+    },
+    {
+      "what": "the porch and the front's canted bay stand about 1 m further south in the print than on the 1911 trace (the porch's columns read 60-75 px right of the print's through this camera): an alteration between the photograph and 1911, or the trace's or the camera's error, is T-2964's to argue",
+      "status": "open"
+    },
+    {
+      "what": "the raised mansard crown over the front's south end, with its own curb and iron cresting, standing higher than the main roof",
+      "status": "open"
+    },
+    {
+      "what": "the south flank's bay carried up through the cornice under its own mansard with a dormer in each face, and its cresting; built stopping under the cornice with a low hip",
+      "status": "open"
+    },
+    {
+      "what": "iron cresting along every roof deck",
+      "status": "open"
+    },
+    {
+      "what": "the dormers pedimented with carved cheeks; built round-headed",
+      "status": "open"
+    },
+    {
+      "what": "the window hoods carved, with a scrolled crest over each; built as K09's plain cornice-hood lintels",
+      "status": "open"
+    },
+    {
+      "what": "the porch columns' carved capitals and the balcony's pierced iron panels; built square capital blocks and square iron balusters, the railing 0.6 m where the print's reads nearer 1 m",
+      "status": "open"
+    },
+    {
+      "what": "the window over the door opens onto the balcony; built as a window",
+      "status": "open"
+    },
+    {
+      "what": "the fence's scrolled cast-iron panels and its tall posts; built as the kit's spears",
+      "status": "open"
+    },
+    {
+      "what": "the brick's tone: dark in the print; built in K01's buff brick (the print is monochrome, so the colour itself is not shown)",
+      "status": "open"
+    },
+    {
+      "what": "the tall chimney stack behind the front's south end; placed on the south wall, its height and place not read",
+      "status": "open"
+    },
+    {
+      "what": "the north wall, the rear and the rear range",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
