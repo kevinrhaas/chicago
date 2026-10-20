@@ -3,12 +3,16 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import * as T from '../renderers/web/vendor/three-0.185.1/three.module.js';
 import {sampleSoleContact} from './human_sole_contact.mjs';
-function fixture(){
-  const scene=new T.Group(),root=new T.Bone(),left=new T.Bone(),right=new T.Bone();root.name='pelvis';left.name='foot_l';right.name='foot_r';root.add(left,right);scene.add(root);
+function fixture({collar=false,soleOnCalf=false}={}){
+  const scene=new T.Group(),root=new T.Bone(),left=new T.Bone(),right=new T.Bone(),calfL=new T.Bone(),calfR=new T.Bone();root.name='pelvis';left.name='foot_l';right.name='foot_r';calfL.name='calf_l';calfR.name='calf_r';root.add(left,right,calfL,calfR);scene.add(root);
   const positions=[],indices=[],weights=[];
   for(const x of [.15,-.15])for(const [dx,z]of [[-.05,-.1],[.05,-.1],[0,.15]]){positions.push(x+dx,0,z);indices.push(x>0?1:2,0,0,0);weights.push(1,0,0,0);}
+  // A low shoe's collar: above the sole, blended between its own calf and foot.
+  if(collar)for(const x of [.15,-.15])for(const [dx,z]of [[-.05,0],[.05,0],[0,.05]]){positions.push(x+dx,.1,z);indices.push(x>0?3:4,x>0?1:2,0,0);weights.push(.6,.4,0,0);}
+  // A sole vertex bound mostly to the calf: still the left leg's, but not its foot's.
+  if(soleOnCalf){indices.splice(0,4,3,1,0,0);weights.splice(0,4,.95,.05,0,0);}
   const g=new T.BufferGeometry();g.setAttribute('position',new T.Float32BufferAttribute(positions,3));g.setAttribute('skinIndex',new T.Uint16BufferAttribute(indices,4));g.setAttribute('skinWeight',new T.Float32BufferAttribute(weights,4));
-  const mesh=new T.SkinnedMesh(g,new T.MeshBasicMaterial());mesh.name='synthetic_two_shoes';mesh.material.name='footwear__test';scene.add(mesh);scene.updateMatrixWorld(true);mesh.bind(new T.Skeleton([root,left,right]));
+  const mesh=new T.SkinnedMesh(g,new T.MeshBasicMaterial());mesh.name='synthetic_two_shoes';mesh.material.name='footwear__test';scene.add(mesh);scene.updateMatrixWorld(true);mesh.bind(new T.Skeleton([root,left,right,calfL,calfR]));
   const times=[],values=[[],[]];
   for(let k=0;k<=36;k++){const phase=k/36;times.push(phase*1.2);for(let s=0;s<2;s++){const q=(phase+s*.5)%1,duty=.62;let z,y=0;if(q<duty)z=.2232-.72*q;else{const u=(q-duty)/(1-duty),smooth=u**3*(10-15*u+6*u*u),m=-.72*(1-duty);z=-.2232+m*u+(.4464-m)*smooth;y=.065*Math.sin(Math.PI*u)**2;}values[s].push(0,y,z);}}
   const tracks=['foot_l','foot_r'].map((n,i)=>new T.VectorKeyframeTrack(n+'.position',times,values[i],T.InterpolateLinear));
@@ -29,3 +33,7 @@ test('nonfinite loaded duration refuses explicitly',()=>{const f=fixture();f.ani
 
 test('single material ignores geometry groups exactly as Three renderer does',()=>{const f=fixture();f.mesh.geometry.addGroup(3,3,9);const r=sampleSoleContact(T,f);assert.equal(r.passed,true);assert.equal(r.selection.right.length,3);});
 test('material arrays honor geometry groups',()=>{const f=fixture(),other=new T.MeshBasicMaterial();other.name='skin';f.mesh.material=[f.mesh.material,other];f.mesh.geometry.addGroup(0,3,1);f.mesh.geometry.addGroup(3,3,0);assert.throws(()=>sampleSoleContact(T,f),/missing named left/);});
+
+test('a shoe collar blended with its own calf is that leg, and the walk still passes (T-1789)',()=>{const r=sampleSoleContact(T,fixture({collar:true}));assert.equal(r.passed,true);assert.equal(r.selection.left.length,3);assert.ok(r.selection.left.every(v=>v.rest_world[1]===0));});
+test('a sole vertex bound to the calf rather than the foot refuses',()=>{assert.throws(()=>sampleSoleContact(T,fixture({soleOnCalf:true})),/sole vertex not bound to its left foot/);});
+test('a collar split between the two legs is still ambiguous',()=>{const f=fixture({collar:true});const w=f.mesh.geometry.attributes.skinIndex;w.setXYZW(6,3,2,0,0);w.needsUpdate=true;assert.throws(()=>sampleSoleContact(T,f),/ambiguous/);});

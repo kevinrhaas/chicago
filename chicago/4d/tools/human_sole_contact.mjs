@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Loaded Three CPU skin contact measurement; caller supplies a disposable loaded scene.
+const LEG_L=new Set(['thigh_l','calf_l','foot_l','ball_l']),LEG_R=new Set(['thigh_r','calf_r','foot_r','ball_r']);
 export function sampleSoleContact(T, gltf, {
   samples=1001, speed_m_s=.6, expected_duration_s=1.2, duty=.62,
   sole_band_m=.0001, ground_y_m=0, forward_world=[0,0,1],
@@ -41,13 +42,19 @@ export function sampleSoleContact(T, gltf, {
     for(let mi=0;mi<meshes.length;mi++){
       const m=meshes[mi], ids=footwearVertices(m);if(!ids.length)continue;
       const si=m.geometry.attributes.skinIndex,sw=m.geometry.attributes.skinWeight;if(!si||!sw||si.itemSize!==4||sw.itemSize!==4)throw Error('footwear requires four-lane loaded skin');
-      for(const i of ids){let l=0,r=0,sum=0;for(let lane=0;lane<4;lane++){const w=sw.getComponent(i,lane),bi=si.getComponent(i,lane);if(!Number.isFinite(w)||w<0||!Number.isInteger(bi)||bi<0||bi>=m.skeleton.bones.length)throw Error('invalid footwear skin lane');sum+=w;const name=m.skeleton.bones[bi].name;if(name==='foot_l'||name==='ball_l')l+=w;if(name==='foot_r'||name==='ball_r')r+=w;}
+      // THE LIMB IS THE WHOLE LEG CHAIN; THE SOLE IS THE FOOT (T-1789). A shoe's collar
+      // blends with the calf at the ankle — Kinzie 1812's low shoes do on 1,314 of
+      // 13,584 vertices — and is still unambiguously that leg's. So the side is read
+      // over thigh/calf/foot/ball, and the original foot/ball binding is required of
+      // the vertices the measurement actually stands on: the selected soles, below.
+      for(const i of ids){let l=0,r=0,lf=0,rf=0,sum=0;for(let lane=0;lane<4;lane++){const w=sw.getComponent(i,lane),bi=si.getComponent(i,lane);if(!Number.isFinite(w)||w<0||!Number.isInteger(bi)||bi<0||bi>=m.skeleton.bones.length)throw Error('invalid footwear skin lane');sum+=w;const name=m.skeleton.bones[bi].name;if(LEG_L.has(name))l+=w;if(LEG_R.has(name))r+=w;if(name==='foot_l'||name==='ball_l')lf+=w;if(name==='foot_r'||name==='ball_r')rf+=w;}
         if(Math.abs(sum-1)>.0001)throw Error('unnormalized footwear skin');
         const side=l>.9&&r<.01?'left':r>.9&&l<.01?'right':null;if(!side)throw Error('ambiguous footwear limb identity');
-        candidates[side].push({mesh_index:mi,mesh_name:m.name,vertex_index:i,rest_world:point(m,i)});
+        candidates[side].push({mesh_index:mi,mesh_name:m.name,vertex_index:i,rest_world:point(m,i),foot_weight:side==='left'?lf:rf});
       }
     }
-    const soles={};for(const side of ['left','right']){const c=candidates[side];if(!c.length)throw Error('missing named '+side+' footwear');const min=Math.min(...c.map(p=>p.rest_world[1]));soles[side]=c.filter(p=>p.rest_world[1]<=min+sole_band_m);if(soles[side].length<3)throw Error('insufficient fixed sole vertices');}
+    const soles={};for(const side of ['left','right']){const c=candidates[side];if(!c.length)throw Error('missing named '+side+' footwear');const min=Math.min(...c.map(p=>p.rest_world[1]));soles[side]=c.filter(p=>p.rest_world[1]<=min+sole_band_m);if(soles[side].length<3)throw Error('insufficient fixed sole vertices');
+      if(soles[side].some(p=>!(p.foot_weight>.9)))throw Error('sole vertex not bound to its '+side+' foot');}
     const action=mixer.clipAction(clip);action.setLoop(T.LoopOnce,1);action.clampWhenFinished=true;
     const rows=[], refs={left:null,right:null};let minY=Infinity,maxStanceHeight=0,maxDrift=0,unsupported=0;
     let firstLocal,lastLocal;
