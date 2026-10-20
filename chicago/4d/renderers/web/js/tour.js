@@ -33,8 +33,8 @@ export const WALK_M = 5;
 
 const press = (p) => (p.touch ? 'Tap' : 'Click');
 const opened = (id) => (p, base) => (p.apps?.[id] ?? 0) > (base.apps?.[id] ?? 0);
-/** On a phone the rail is inside the docked Navigator: ring its grip until it is open. */
-const railKey = (id) => (p) => (p.touch && !(p.level > 0) ? '#nav-grip' : `#navigator .nav-app[data-app="${id}"]`);
+/** On a phone the rail is inside the docked Navigator: ring the dock until it is open. */
+const railKey = (id) => (p) => (p.touch && !(p.level > 0) ? '#navigator' : `#navigator .nav-app[data-app="${id}"]`);
 const menuOpen = (name, what) => (p) => (p.touch && !(p.level > 0)
   ? `Open the Navigator, then ${name}: ${what}.`
   : `Open ${name} on the rail: ${what}.`);

@@ -46,7 +46,7 @@ assert.match(STEPS[4].bubble({}), /Esc/, 'release names Esc on a keyboard');
 assert.match(STEPS[4].bubble({ touch: true }), /Tap Close/, 'and Close on touch');
 assert(!/Esc/.test(STEPS[4].bubble({ touch: true })), 'a phone has no Esc key');
 assert.equal(STEPS[4].target, '#popup:not([hidden]) .pop-close', 'release rings the card\'s Close');
-assert.equal(STEPS[5].target({ touch: true, level: 0 }), '#nav-grip', 'on a docked phone, Move rings the grip first');
+assert.equal(STEPS[5].target({ touch: true, level: 0 }), '#navigator', 'on a docked phone, Move rings the dock first');
 assert.equal(STEPS[5].target({ touch: true, level: 1 }), '#navigator .nav-app[data-app="move"]', 'then the rail key');
 assert.equal(STEPS[6].target({ touch: false, level: 0 }), '#navigator .nav-app[data-app="settings"]', 'the desktop rail is always out');
 assert.match(STEPS[6].bubble({ touch: true, level: 0 }), /^Open the Navigator, then Settings/);
@@ -90,8 +90,8 @@ assert.equal(tour.step, 4, 'resumed at the same step');
 tour.tick(); assert.equal(tour.step, 4, 'held while the card is open');
 page.selected = false; tour.tick(); assert.equal(tour.step, 5, 'released');
 
-// 06: Move opened during the step; on a docked phone the ring is on the grip, then the key.
-assert.equal(views.at(-1).target, '#nav-grip');
+// 06: Move opened during the step; on a docked phone the ring is on the dock, then the key.
+assert.equal(views.at(-1).target, '#navigator');
 page.level = 1; tour.tick();
 assert.equal(tour.step, 5, 'opening the Navigator is not opening Move');
 assert.equal(views.at(-1).target, '#navigator .nav-app[data-app="move"]', 'the ring moves to the Move key');

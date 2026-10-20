@@ -1649,8 +1649,8 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
       document.documentElement.classList.add('card-open');
       root.scrollTop = 0;
       // The tab strip pins under the title row, whatever height a long name wraps it to.
-      const pinned = root.querySelector('.pop-title-row');
-      root.style.setProperty('--pop-pin', `${pinned ? pinned.offsetHeight : 0}px`);
+      const pinned = root.querySelector?.('.pop-title-row');
+      root.style?.setProperty?.('--pop-pin', `${pinned?.offsetHeight ?? 0}px`);
       onShown?.(record);
       return true;
     },
