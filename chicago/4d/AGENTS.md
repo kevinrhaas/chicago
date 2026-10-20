@@ -493,7 +493,13 @@ is the contract. The short form:
   above band 9 is honoured only with `--blocks "<why>"` — dev's gate is red on it, or the
   build in hand or the next 5C/5D row cannot finish without it — and the reason is written
   into the ticket. `--by owner` filings are never redirected; an anchor at or below band 9
-  is honoured as before. Third, **if finishing would take more than five tickets, it is an
+  is honoured as before. **Since 2026-10-20 that is the rule for OPERATIONS only: a
+  follow-up goes to the band of its KIND** (owner, after GPU and Glessner follow-ups kept
+  landing in the loop band; T-2940). `new --kind perf` → the foot of band 1; `--kind
+  building` → directly under that building's last queue line (band 2 or 7); `--kind ops`
+  → the foot of band 9, found by its header (it now sits right under band 1). Without
+  `--kind` the title decides: a performance word (GPU, fps, p95, frame time, memory, a
+  figure in ms) is perf, a house it names is building, anything else is ops. Third, **if finishing would take more than five tickets, it is an
   epic**: one ticket under `EPICS` at the foot of QUEUE carrying the list, and no more.
   The loop does not work an epic until the owner promotes it. **Agents never move an
   existing line — only the owner re-ranks.** That is what keeps his priorities durable.

@@ -4402,6 +4402,8 @@ step "claim and list hold a 1904 house to one run at a time" \
 # member taken mid-push is reported and the rest re-claimed. `done A B --pr N` is all or
 # nothing; `--with T-A` grows a held group (never inferred from a shared run URL);
 # `release` gives back a claim the run will not finish; `list --group` is the shortlist.
+# T-2940 rides the same sandbox: `new` files a follow-up into the band of its KIND (perf to
+# band 1's foot, a building beside its own lines, ops to band 9's foot found by header).
 # Run for real against a tickets repository of its own; it reaches no network.
 step "a run claims, closes and releases a group of tickets as one unit" \
   node tools/test_ticket_group.mjs

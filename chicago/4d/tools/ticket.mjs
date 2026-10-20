@@ -1567,6 +1567,78 @@ function queueInsertAtBand9Foot(t) {
   return true;
 }
 
+/**
+ * A FOLLOW-UP GOES TO THE BAND OF ITS KIND (T-2940). Owner, 2026-10-20, after GPU and
+ * Glessner follow-ups kept landing in the loop band: performance work belongs with the
+ * performance group, a building's work beside that building, and only the loop's own
+ * operations at the foot of band 9. QUEUE.md's standing rules say the same; this is the
+ * tool holding them. Three kinds:
+ *
+ *   perf      performance, GPU, memory, frame time  → the foot of band 1
+ *   building  one building's work                   → directly under that building's last
+ *                                                     queue line (band 2 or 7, wherever its
+ *                                                     own tickets stand)
+ *   ops       the loop's tooling, laps, claims, bake  → the foot of band 9 (2026-09-27)
+ *             and rederive faults, measurement gaps
+ *
+ * `--kind` says it; without it the kind is INFERRED only where the title says so plainly:
+ * a building when a house reads off it (`houseOf`'s own reading, or "<number> Prairie"
+ * anywhere), perf when it uses a performance word (PERF_WORDS) — and perf wins a title
+ * that has both, since a GPU follow-up on Glessner is GPU work. Anything else is ops,
+ * which is where every follow-up went before. The epic is NOT read: measured on
+ * 2026-10-20, 287 of the 340 RENDERING tickets carry no performance word at all (horses,
+ * riders, cards), so "RENDERING means perf" would have sent them to band 1.
+ */
+const PERF_WORDS = /\b(?:GPU|WebGPU|fps|p50|p95|p99|frame[- ]?(?:time|pacing|rate)s?|pacing|draw[- ]?(?:calls?|budget)|memory|heap|ArrayBuffers?|VRAM|jank|jitter|stutter|performance|throttl\w*|\d+(?:-\d+)? ?ms)\b/i;
+const KINDS = ['perf', 'building', 'ops'];
+// The project's three years are also numbers a title may start with ("1904's flight",
+// "1812's scene date"); one reads as a house only when the title says "<n> Prairie".
+const SCENE_YEARS = new Set(['1812', '1835', '1904']);
+function houseOfTitle(title) {
+  const h = houseOf({ title, epic: 'SOUTH_TIME' });
+  if (h && !(SCENE_YEARS.has(h) && !new RegExp(`\\b${h}\\s+Prairie\\b`).test(title))) return h;
+  return /\b(1[0-9]\d\d|2[0-4]\d\d)(?:-\d+)?\s+Prairie\b/.exec(title)?.[1] ?? null;
+}
+function followUpKind(title, explicit) {
+  const house = houseOfTitle(title);
+  if (explicit) return { kind: explicit, house, said: true };
+  if (PERF_WORDS.test(title)) return { kind: 'perf', house, said: false, why: `"${PERF_WORDS.exec(title)[0]}"` };
+  if (house) return { kind: 'building', house, said: false, why: `house ${house}` };
+  return { kind: 'ops', house: null, said: false, why: 'no performance word and no building in the title' };
+}
+
+/** A numbered band's span in QUEUE.md, found by its HEADER and never by its position:
+ *  band 9 moved from under band 3 to under band 1 on 2026-10-20. */
+function bandSpan(n) {
+  const lines = queueLines();
+  const head = lines.findIndex((l) => new RegExp(`^# --- ${n}\\.`).test(l));
+  if (head < 0) return null;
+  let end = lines.findIndex((l, i) => i > head && /^# --- \d+[A-Za-z]?\./.test(l));
+  if (end < 0) end = lines.length;
+  let foot = head;
+  for (let i = head; i < end; i += 1) if (queueId(lines[i])) foot = i;
+  while (foot + 1 < end && isDecisionComment(lines[foot + 1], queueId(lines[foot]))) foot += 1;
+  return { lines, head, end, foot };
+}
+function queueInsertAtBandFoot(t, n) {
+  const b = bandSpan(n);
+  if (!b) return false;
+  b.lines.splice(b.foot + 1, 0, `${t.id} — ${t.title}`);
+  writeFileSync(QUEUE, b.lines.join('\n').replace(/\n+$/, '\n'));
+  return true;
+}
+/** The last queue line of a house's own tickets, or null. */
+function lastLineOfHouse(house, all) {
+  const byId = new Map(all.map((t) => [t.id, t]));
+  let last = null;
+  for (const l of queueLines()) {
+    const id = queueId(l);
+    const t = id && byId.get(id);
+    if (t && (houseOf(t) === house || houseOfTitle(String(t.title ?? '')) === house)) last = id;
+  }
+  return last;
+}
+
 // A CHAIN THAT LOST ITS LINE STILL MOVES ON NEAR THE TOP (owner, 2026-10-13: "at any given
 // time there would be at least one Glessner ticket being claimed"). T-2212 was re-blocked by
 // hand while a run was already working it, so its line went to 8b; the run's `done --pr`
@@ -2800,11 +2872,16 @@ switch (cmd) {
     // budget shipped, which produced `T-4141-filed-over-the-budget-it-blocks-a-merge-...`.
     const title = args.filter((a) => !a.startsWith('--')
       && a !== flag('epic') && a !== flag('by') && a !== flag('effort') && a !== flag('legacy')
-      && a !== flag('after') && a !== flag('why') && a !== flag('base') && a !== flag('blocks')).join(' ');
-    if (!title) { console.error('usage: ticket.mjs new "title" [--after T-NNNN [--blocks "<why>"]] [--epic E] [--by owner|loop|steward] [--seen] [--needs-bake] [--effort M] [--legacy OLD-ID] [--anyway --why "<reason>"]\n'
+      && a !== flag('after') && a !== flag('why') && a !== flag('base') && a !== flag('blocks')
+      && a !== flag('kind')).join(' ');
+    if (!title) { console.error('usage: ticket.mjs new "title" [--kind perf|building|ops] [--after T-NNNN [--blocks "<why>"]] [--epic E] [--by owner|loop|steward] [--seen] [--needs-bake] [--effort M] [--legacy OLD-ID] [--anyway --why "<reason>"]\n'
+      + '  --kind K        where a follow-up that is not the owner\'s goes (T-2940): perf → the foot of\n'
+      + '                  band 1; building → under that building\'s own last queue line; ops → the foot\n'
+      + '                  of band 9. Default: inferred from the title (a performance word → perf, a\n'
+      + '                  house → building), else ops\n'
       + '  --after T-NNNN  place the new line directly under that ticket, inside its band. For a\n'
-      + '                  filing that is not the owner\'s, an anchor ABOVE band 9 is honoured only\n'
-      + '                  with --blocks; otherwise the line goes to the foot of band 9 (owner, 2026-09-27)\n'
+      + '                  filing that is not the owner\'s, an anchor outside its kind\'s place is honoured\n'
+      + '                  only with --blocks (ops: an anchor above band 9, as since 2026-09-27)\n'
       + '  --blocks "<why>" dev\'s gate is red, or the build being worked (or the next 5C/5D row)\n'
       + '                  cannot finish without this — the reason is written into the ticket'); process.exit(1); }
     // `flag` returns `true` for a flag written last and the NEXT flag for one written bare,
@@ -2839,6 +2916,11 @@ switch (cmd) {
      * the gate refuses an L unconditionally, so filing one anyway would only choose whose
      * pull request goes red for it.
      */
+    const kindRaw = flag('kind');
+    if (has('kind') && !KINDS.includes(String(kindRaw))) {
+      console.error(`ticket.mjs new: --kind must be one of ${KINDS.join('|')} (got ${kindRaw === true ? 'nothing' : `"${kindRaw}"`}).`);
+      process.exit(1);
+    }
     const effort = String(flag('effort') ?? 'M').toUpperCase();
     const anchorFor = (flag('after') ?? 'T-NNNN');
     if (!Object.keys(EFFORT).includes(effort)) {
@@ -2924,10 +3006,35 @@ switch (cmd) {
     const afterRaw = flag('after');
     const after = afterRaw ? (/^\d+$/.test(afterRaw) ? idOf(+afterRaw) : afterRaw.toUpperCase()) : null;
     let where;
-    const b9 = t.requested_by === 'owner' || blocks ? null : band9();
+    // BY KIND (T-2940) — never for the owner's own filing, nor one placed with --blocks.
+    const placing = !(t.requested_by === 'owner' || blocks);
+    const k = placing ? followUpKind(title, KINDS.includes(String(kindRaw)) ? String(kindRaw) : null) : null;
+    const kindNote = k ? ` [kind ${k.kind}${k.said ? '' : `, read from the title: ${k.why}`}]` : '';
+    const b1 = k?.kind === 'perf' ? bandSpan(1) : null;
+    const houseLast = k?.kind === 'building' && k.house ? lastLineOfHouse(k.house, tickets) : null;
+    const anchorBand = (n) => {
+      const b = bandSpan(n);
+      const at = b && after ? b.lines.findIndex((l) => queueId(l) === after) : -1;
+      return b && at > b.head && at < b.end;
+    };
+    // Ops — and a kind whose own place is missing (no band 1; a building with no queue
+    // line yet) — keep the band-9 rule exactly as it stood.
+    const fallback = k && (k.kind === 'ops' || (k.kind === 'perf' && !b1) || (k.kind === 'building' && !houseLast));
+    const b9 = fallback ? band9() : null;
     const anchorAt = after && b9 ? b9.lines.findIndex((l) => queueId(l) === after) : -1;
-    if (b9 && anchorAt < b9.head && queueInsertAtBand9Foot(t)) {
-      where = 'a follow-up that is not the owner\'s goes to the FOOT OF BAND 9 (owner, 2026-09-27)'
+    if (b1 && after && anchorBand(1) && queueInsertAfter(t, after)) {
+      where = `placed directly under ${after}, in band 1 — performance work`;
+    } else if (b1 && queueInsertAtBandFoot(t, 1)) {
+      where = 'performance work goes to the FOOT OF BAND 1 (owner, 2026-10-20)'
+        + (after ? ` — --after ${after} is not in band 1` : '');
+    } else if (houseLast && after && houseOf(tickets.find((x) => x.id === after) ?? {}) === k.house
+        && queueInsertAfter(t, after)) {
+      where = `placed directly under ${after}, beside house ${k.house}'s own tickets`;
+    } else if (houseLast && queueInsertAfter(t, houseLast)) {
+      where = `a building's follow-up goes BESIDE ITS BUILDING (owner, 2026-10-20) — under ${houseLast}, house ${k.house}'s last line`;
+    } else if (b9 && anchorAt < b9.head && queueInsertAtBand9Foot(t)) {
+      where = (k.kind === 'building' ? `no queue line of house ${k.house ?? '(none read)'} to stand beside, so ` : '')
+        + 'a follow-up that is not the owner\'s goes to the FOOT OF BAND 9 (owner, 2026-09-27)'
         + (after ? ` — --after ${after} ${anchorAt < 0 ? 'is not in QUEUE' : 'sits above band 9'};`
           + ' if dev\'s gate is red on this, or the build in hand cannot finish without it, re-file with --blocks "<why>"' : '');
     } else if (after && queueInsertAfter(t, after)) {
@@ -2941,7 +3048,7 @@ switch (cmd) {
     generateBoard(loadAll());
     mintedFiles.push(t.file);
     commitMessage = `${id}: new — ${title.slice(0, 72)}`;
-    console.log(`${id} created → ${path.relative(ROOT, t.file)} (${where})`);
+    console.log(`${id} created → ${path.relative(ROOT, t.file)} (${where})${kindNote}`);
     break;
   }
   /**

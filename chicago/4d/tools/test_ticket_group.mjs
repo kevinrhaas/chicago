@@ -24,7 +24,11 @@
  *   8. a group on one house is one run on it: `claim T-C --with T-A` grows the group the run
  *      holds, while another run — or one merely sharing the run URL — is held off;
  *   9. `list --workable --group` offers a linked ticket and never an L, a pending decision,
- *      a live claim or a band-only neighbour.
+ *      a live claim or a band-only neighbour;
+ *  10. (T-2940) `new` files a follow-up into the band of its KIND — perf to band 1's foot,
+ *      a building under its house's last line, ops to band 9's foot found by its header —
+ *      honours `--after` where it belongs, leaves the owner's filing alone, and refuses an
+ *      unknown `--kind`.
  */
 import { mkdtempSync, mkdirSync, rmSync, writeFileSync, readFileSync, cpSync, chmodSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
@@ -279,6 +283,87 @@ exec ${JSON.stringify(realGit)} "$@"
     !/T-1744|T-1745|T-1746|T-1747/.test(r.stdout), r.stdout);
   check('…and says how to claim them together', /node tools\/ticket\.mjs claim T-1741 T-17\d\d/.test(r.stdout), r.stdout);
 
+  console.log('10. T-2940: a follow-up goes to the band of its KIND');
+  // The 2026-10-20 shape: band 9 sits right under band 1, found by its header alone.
+  const seed2 = path.join(root, 'seed2');
+  const bare2 = path.join(root, 'kinds.git');
+  mkdirSync(path.join(seed2, 'T-1750-1999'), { recursive: true });
+  const K = [
+    ['T-1801', "the far shrubs on the GPU's deal", {}],
+    ['T-1802', 'the lap tool reads a dirty merge', {}],
+    ['T-1803', "Glessner's bow hood to HABS sheet 4", { epic: 'SOUTH_TIME' }],
+    ['T-1804', "1801 Prairie's carved frieze", { epic: 'SOUTH_TIME' }],
+    ['T-1805', "Glessner's coach house roof", { epic: 'SOUTH_TIME' }],
+    ['T-1806', "1811 Prairie's entrance porch", { epic: 'SOUTH_TIME' }],
+  ];
+  writeFileSync(path.join(seed2, 'QUEUE.md'), ['# QUEUE — top is next.', '',
+    '# --- 1. PERFORMANCE AND GPU', '# ---    the whole optimization group', 'T-1801 — x', '',
+    '# --- 9. LOOP IMPROVEMENTS — operations', '# ---    right under the performance band', 'T-1802 — x', '',
+    '# --- 2. 1904 STRUCTURES IN PROGRESS', 'T-1803 — x', 'T-1804 — x', '',
+    '# --- 7. SOUTH THROUGH TIME', 'T-1805 — x', 'T-1806 — x', '',
+    '# --- 8b. BLOCKED AND WAITING', ''].join('\n'));
+  writeFileSync(path.join(seed2, 'QUEUE_ORDER.md'), '# RE-RANK LEDGER\n');
+  writeFileSync(path.join(seed2, '.gitignore'), 'BOARD.md\ntickets.json\n');
+  for (const [id, title, extra] of K) {
+    writeFileSync(path.join(seed2, 'T-1750-1999', `${id}-${id.slice(2)}.md`), ticketText(id, title, extra));
+  }
+  git(seed2, 'init', '-q', '-b', 'main');
+  git(seed2, '-c', 'user.name=t', '-c', 'user.email=t@t', 'add', '-A');
+  git(seed2, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-q', '-m', 'seed');
+  git(root, 'clone', '-q', '--bare', seed2, bare2);
+  const C = path.join(root, 'c', 'chicago', '4d');
+  mkdirSync(path.join(C, 'tools'), { recursive: true });
+  cpSync(path.join(HERE, 'ticket.mjs'), path.join(C, 'tools', 'ticket.mjs'));
+  git(path.join(root, 'c'), 'init', '-q', '-b', 'dev');
+  git(root, 'clone', '-q', bare2, path.join(C, 'tickets'));
+  git(path.join(C, 'tickets'), 'config', 'user.name', 'c');
+  git(path.join(C, 'tickets'), 'config', 'user.email', 'c@t');
+  const q = () => git(root, '--git-dir', bare2, 'show', 'main:QUEUE.md').stdout.split('\n');
+  const file = (title, ...more) => {
+    const res = tool(C, ['new', title, '--by', 'loop', '--effort', 'S', ...more]);
+    const id = (/^(T-\d{4}) created/m.exec(res.stdout) || [])[1];
+    return { res, id };
+  };
+  const after = (id) => { const l = q(); return l[l.findIndex((x) => x.startsWith(`${id} `)) - 1] ?? ''; };
+  let f = file("Glessner's stone atlas upload stalls the GPU");
+  check('a performance word sends it to the foot of band 1, even naming a house (GPU wins)',
+    f.res.status === 0 && after(f.id).startsWith('T-1801 ') && /FOOT OF BAND 1/.test(f.res.stdout)
+    && /kind perf, read from the title: "GPU"/.test(f.res.stdout), f.res.stdout + f.res.stderr);
+  const perfFoot = f.id;
+  f = file("1904's flight draws at 73-80 ms on the phone");
+  check('…and a frame time in ms is performance too', after(f.id).startsWith(`${perfFoot} `), q().join('\n'));
+  f = file("Glessner's west gutter end caps");
+  check("a building's follow-up goes under that house's LAST line, in band 7 (T-1805), not to band 9",
+    after(f.id).startsWith('T-1805 ') && /BESIDE ITS BUILDING/.test(f.res.stdout) && /house 1800/.test(f.res.stdout), f.res.stdout);
+  f = file("1801 Prairie's cresting deck");
+  check('…and 1801 Prairie under its own band-2 line', after(f.id).startsWith('T-1804 '), f.res.stdout);
+  f = file("Glessner's bow gutter", '--after', 'T-1803');
+  check('…and --after a ticket of the same house is honoured', after(f.id).startsWith('T-1803 '), f.res.stdout);
+  f = file('the lap tool retries a dirty merge');
+  const l9 = q();
+  check('an operations follow-up goes to the foot of band 9, found by its header under band 1',
+    after(f.id).startsWith('T-1802 ') && l9.indexOf(`${f.id} — the lap tool retries a dirty merge`) < l9.findIndex((x) => x.startsWith('# --- 2.')),
+    l9.join('\n'));
+  f = file("1904's aerial camera path ends short");
+  check('a scene year is not a house: "1904\'s …" with no performance word is operations',
+    /kind ops/.test(f.res.stdout) && /FOOT OF BAND 9/.test(f.res.stdout) && !/house 1904/.test(f.res.stdout), f.res.stdout);
+  f = file('the claim sweep misses idlocks', '--after', 'T-1801');
+  check('…and --after an anchor above band 9 still goes to band 9\'s foot (2026-09-27)',
+    /FOOT OF BAND 9/.test(f.res.stdout) && /T-1801 sits above band 9/.test(f.res.stdout), f.res.stdout);
+  f = file('the 1812 Prairie fence posts', '--kind', 'building');
+  check('a building with no queue line yet keeps the band-9 rule, and says why',
+    /no queue line of house 1812/.test(f.res.stdout) && /FOOT OF BAND 9/.test(f.res.stdout), f.res.stdout);
+  f = file('cut the shadow pass', '--kind', 'perf', '--after', 'T-1801');
+  check('--kind perf --after a band-1 ticket is placed under it', after(f.id).startsWith('T-1801 '), f.res.stdout);
+  f = file('cut the far pass', '--kind', 'perf', '--after', 'T-1806');
+  check('…and --after outside band 1 goes to band 1\'s foot, saying so',
+    /FOOT OF BAND 1/.test(f.res.stdout) && /--after T-1806 is not in band 1/.test(f.res.stdout), f.res.stdout);
+  const r10 = tool(C, ['new', "Glessner's GPU atlas, the owner's own", '--by', 'owner']);
+  const ownerId = (/^(T-\d{4}) created/m.exec(r10.stdout) || [])[1];
+  check("the owner's filing is untouched: appended to the bottom", q().filter(Boolean).pop()?.startsWith(`${ownerId} `)
+    && !/kind /.test(r10.stdout), r10.stdout + q().slice(-3).join('\n'));
+  const bad = tool(C, ['new', 'whatever', '--by', 'loop', '--kind', 'house']);
+  check('an unknown --kind is refused', bad.status === 1 && /--kind must be one of perf\|building\|ops/.test(bad.stderr), bad.stderr);
 } finally {
   rmSync(root, { recursive: true, force: true });
 }
