@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2113, ts: '2026-10-20T10:39:38.830Z', date: 'Oct 20, 2026, 5:39 AM CT', title: 'Nothing you can see changed: release checks wait honestly for the town', kind: 'chore',
+    items: [
+      'Nothing you can see changes. The automated walk-through that checks each release now waits for the town to finish loading for as long as it says it does, a limit set from load times measured on this project\'s own test machines, so a slow machine no longer fails it for no fault of the page.',
+      'A new check catches the same slip anywhere else it might be written.',
+    ] },
+  { v: 2112, ts: '2026-10-20T10:04:25.999Z', date: 'Oct 20, 2026, 5:04 AM CT', title: 'The build check accounts for the plain-words reader files again', kind: 'fix',
+    items: [
+      'The files that let research records read in plain words are now checked as exact copies when the site is published, so the release check passes again and waiting improvements can ship.',
+    ] },
   { v: 2111, ts: '2026-10-20T08:55:50.289Z', date: 'Oct 20, 2026, 3:55 AM CT', title: 'Building cards, people, plants and wildlife read in plain words too', kind: 'change',
     items: [
       'A building\'s card: the reasoning behind each value, the record\'s own account and the households who lived there are said without work numbers, record codes or file names. Each value\'s sources are listed by title, and the dossier link reads "the research notes on this building".',
