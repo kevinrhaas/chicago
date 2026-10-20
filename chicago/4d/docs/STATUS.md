@@ -1,3 +1,24 @@
+## T-2719 — Prairie Avenue's moving p95 on a real phone: 48-50 ms (2026-10-20)
+
+Nothing you can see changed. This files the last reading T-2598 left (piece 2 of T-2602),
+taken by the owner on his iPhone with Read frame pacing in 1904, Light, Sharpness Low, 15 s
+a mode. The runner cannot take it: SwiftShader draws one frame in seconds.
+
+- **The reading:** walking Prairie Avenue, p95 **50 ms Fixed / 48 ms Adaptive** (median 43 /
+  40 ms, about 23-25 fps). 345 of 346 Fixed walk draws are over 33 ms, so 1904 does not hold
+  30 fps on this phone. The 1835 walk on the same phone read p95 41-43 ms (T-2733).
+- **Flight is the largest cost:** median 73-80 ms, every draw over 50 ms in both modes. That
+  is T-2927, filed when the reading came in.
+- **The governor on 1904:** by T-2592's rule (sd AND p95 fall) no move fell. Adaptive lowered
+  every median and drew more frames in each move, and lowered p95 on walk and turn, but sd
+  rose in all three and flight's p95 rose 85 → 90. Two of the >50 ms draws came on a ratio
+  switch in walk and in flight, so a resize can be a hitch on this phone (T-2829's open
+  question).
+- **The tab did not die**, so T-2828's fix holds on the owner's phone.
+- **Unverified:** T-2829's own acceptance is the 1835 repeat, which this is not. One phone,
+  one 15 s sample a mode. `docs/measurements/t-2719-owner-phone-1904.txt` and `.json`;
+  SITE-BUDGET § 10 has the table.
+
 ## T-2901 — the front door measures this device: a live performance meter (2026-10-20)
 
 The owner asked for a meter on the Temporal Observatory that reads the device during the Wolf

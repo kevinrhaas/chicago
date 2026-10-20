@@ -574,6 +574,17 @@ visual phase in the whole program.
   no worse than Fixed in sd and p95. Read frame pacing also prints each row's ratio switches,
   the >50 ms draws that came on one, and the paced share. Adaptive stays the default; his
   15 s repeat on this build is the acceptance. `docs/measurements/T-2829-pacing-model.md`.*
+  *Read on the owner's phone in 1904, 2026-10-20 (T-2719, T-2598's last reading): Prairie
+  Avenue's moving p95 at Light is **50 ms Fixed / 48 ms Adaptive** (median 43 / 40 ms, about
+  23-25 fps; 345 of 346 Fixed walk draws over 33 ms), so the phone does not hold 30 walking
+  1904. The tab did not die (T-2828's fix holds). By T-2592's rule no move
+  fell: Adaptive lowered every median (walk 43 → 40, turn 32 → 26, flight 80 → 73) and drew
+  more frames in each move, but raised sd in all three and flight's p95 (85 → 90). It
+  stepped the ratio one to three times a move, and two of the >50 ms draws came on a switch
+  in walk and in flight, so a resize can be a hitch on this phone (the question T-2829 left
+  open). **Flight is the cost**: median 73-80 ms, every draw over 50 ms, which is T-2927.
+  T-2829's acceptance is still its 1835 repeat. `docs/measurements/t-2719-owner-phone-1904.txt`
+  and `.json`.*
 
 **Milestones**
 - W5.1 — seam merged with zero behavior change at default tiers (capture-identical), smoke
@@ -1391,3 +1402,87 @@ correction). Every number quotes its anchor and viewport.
   T-2895's and T-2896's, and the two deal passes' command encoding. SwiftShader draws both
   passes on the CPU in the GPU process, so what a phone's GPU spends on them is not read
   here; the main thread's share is.
+- **The near pass's forbs, rosettes and shrubs on the GPU's deal** (T-2895, T-2774's third
+  slice). `rebuildForbs` walked the forb ring twice per near pass — the forb lattice (salt
+  0x2545f9, the sparse `'lattice'` draw: `flora-forb` and the basal rosettes,
+  `flora-rosette`) and the shrub stratum's own lattice over the same ring (salt 0x7b5c1d,
+  the `'wild'` draw, K54's independent draw: `flora-shrub`), each putting up its plants'
+  heads. Wherever the mid ring is the GPU's (T-2894), both walks are now dealt in GLSL
+  (`flora-gpu-forb.js`) against the SAME kept mid tile — the forb lattice is never wider
+  than the mid lattice — as two more point draws in the mid deal pass's own render: the same
+  target (rows after the mid slots, `uSlot0`), the same field textures and uniforms, so no
+  tile, upload, render-target bind or read-back of their own. The deal is the community,
+  the forb (or shrub) share and the weight walk off the slot's one draw, and the ground's
+  half of `station` (a floor, the trodden verge against the species' height, the water
+  substrates); `dealTable` carries a forb section for it after the graminoid rows. The
+  word is T-2774's. `reapForbs` does the rest in slot order, as the walks did: the point
+  recomputed in doubles from cell and index (the shrubs' full-cell jitter included), ring
+  and cone, the fringe, the forb and shrub census, and the page's half — **`forbSeat`**
+  (T-2086: a kept yard turns the slot out, or re-seats it in the strip beside the lot line,
+  where the page asks `station` whole at the new foot, as the walk did; on short turf only
+  a re-seated forb stands, T-2122), `growthBlocked`, **the woody band** (T-1056, now
+  `woodyRefuses`, asked at `terrain.surfaceHeight` because the texel's float32 height is a
+  slope's worth off the slot's and the band is most of what refuses a shrub), the walker's
+  clearance, and `placeForb` / `placeShrub` and the heads (`maybeHead`, a forb's several
+  inflorescences) on the slot's own stream past the jitter's two draws, with `patchOf` in
+  doubles — so a plant the GPU places where the walk did is the same instance to the bit,
+  colour included. The forb ring's heads go into recorders hung after the pass's own heads
+  with the near ring's (`hangNearHeads`); a pass whose forbs the CPU still walks (the tile
+  not home: counted as `midCpu`, which now covers the forbs too) records its heads there
+  as well and hands them over when it lands, so the heads always belong to the forbs on
+  screen.
+  The deal passes' programs are compiled as the rig is built (`renderer.compile`, not
+  waited for): the first readings of this slice found the walk's worst near pass at 85-99
+  ms against 31-43, the first GPU mid pass after the tier change linking the mid and forb
+  programs inside the walk (`getProgramInfoLog` 61 ms self against 10); compiled up front
+  it reads 8.
+  **Equivalence**, every forb, rosette, shrub and head instance at the 18 anchors x 4
+  bearings on the phone at `light`, a fresh one-frame pass at each pose once the mid tile is
+  home, `ea35e9f76` (T-2894) against this, read in the frame and through the frame loop's
+  collected read-back (the two identical on both trees): 1016 plants against 1015; 1013 at
+  the same slot with the same species and **every attribute bit-identical**, colour
+  included; three slots
+  differ, all at `from_above` (the aerial pose sees furthest) and all T-2698's tile class,
+  shown at the slot — the 0.125 m texel centre's community is not the slot's own: (66.60,
+  -335.36) stands in the settled town's short turf, where an un-seated forb is refused, and
+  its texel in the sedge meadow (a forb only here); (69.50, -328.27) in the riverbank
+  timber, texel in the town (a rosette only on T-2894); (49.95, -336.36) in the sedge
+  meadow, texel in the town (a forb only on T-2894). The heads differ by those plants'
+  (2934 against 2926) and nothing else; 6 of 2232 census rows differ, every one by those
+  three slots; every other flora set bit-identical, zero page errors.
+  **Readings** (`docs/measurements/t-2895-forbs-on-gpu-mobile.json`): the phone profile,
+  `light`, SwiftShader, `--source`, T-2894's head against this, interleaved:
+
+  | | near pass, median main-thread ms, walk / turn | near rebuilds, walk / turn | near ms in all, walk | forb reap, ms a pass | moving p95, scripted ms, walk / turn |
+  |---|---|---|---|---|---|
+  | before | 5.2 / 5.0, 5.4 / 5.2, 6.1 / 5.3 (profiled), 5.3 / 5.7 | 137-143 / 42-50 | 816, 856, 976, 828 | — | 5.5 / 8.9, 5.4 / 9.4, 6.1 / 9.6, 5.7 / 9.8 |
+  | after | 4.5 / 4.1, 4.5 / 4.1, 4.9 / 4.5 (profiled) | 115-122 / 40-44 | 600, 576, 700 | 1.0 | 5.3 / 8.7, 4.8 / 8.9, 5.7 / 9.6 |
+
+  A near pass's own main thread falls by 0.7-1.2 ms on the walk and 0.8-1.6 on the turn, and a
+  spread pass lands sooner: 5.2-5.5 frames a pass against 6.7-6.9 on the walk, with half
+  the frames waiting on a worker (302-382 against 651-730), because the forb ring's two
+  walks no longer go to the pool and back. **But the forb reap costs the main thread about
+  what the walk did** — 1.0 ms a pass, between frames (`forbReapMs`, inside the read-back's
+  `reapMs`) — because what the GPU now answers (the community, the water, the floors and
+  the verge band) the workers already brought home with the walk's slots, while the page
+  keeps the costly half: `growthBlocked` (the streets' track, `blocksGrowth`, is the
+  largest flora entry in either profile), the fringe, the yards' re-seating and the
+  placing itself. Per pass the main thread is a wash: in the CPU profile over the three
+  moves `rebuildForbs` (639 ms) is gone and `rebuildAll` falls 1559 -> 1139, against the
+  forb reap's 195 and the bigger read-back (`collect` 221 -> 387 with its reaps); the mid
+  deal pass, which now draws the forb walks too, 239 -> 276; `rebuildFar` reads 375 -> 588,
+  most likely because more passes are dealt in one frame, and a one-frame pass takes the far
+  band's walk on the main thread rather than waiting for the pool. What the walk gains is FEWER
+  passes: a pass that fits the slice is dealt in one frame and not started early (T-2106's
+  pacing), so the walk takes 115-122 near rebuilds against 137-143, and its near ms in all
+  falls by a quarter to a third (816-976 -> 576-700). The moving p95 does not move outside
+  the runs' noise. No pass walked the forb ring on
+  the CPU in any after run (`midCpu` 0). SwiftShader draws the deal passes on the CPU in
+  the GPU process, so what a phone's GPU spends on the two extra point draws (about 1150
+  points on the phone) is not read here; the main thread's share is. **For T-2896** (the
+  far shrubs, the carries and the far band): the same lesson binds harder there. The far
+  pass (`rebuildFarShrubs`, 4.7 s inclusive over the three moves, 3.9 s of it the carries,
+  `rebuildCarry`) is now where flora's main thread goes, and the far band is the near pass's
+  largest remaining walk (`rebuildFar`, 588 ms); moving a deal to the GPU gains only what
+  the page then stops asking per slot, and a reap that asks `growthBlocked` and the fringe
+  for every dealt slot costs what the walk did.

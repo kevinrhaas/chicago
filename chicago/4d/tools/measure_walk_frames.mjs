@@ -972,6 +972,11 @@ for (const vp of VIEWPORTS) {
             + (g.midPasses != null ? ` | GPU mid ring: ${g.midPasses} deal passes ${g.midPassMs.toFixed(0)} ms,`
               + ` ${g.midCpu} walked by the CPU, ${g.midMissed} missed, ${g.midUploads} uploads,`
               + ` ${g.midReaps} reaped ${g.midReapMs.toFixed(0)} ms` : '')
+            // T-2895: the forbs, rosettes and shrubs, dealt in the mid pass
+            // (its passes and the CPU's walks above are theirs too) and reaped
+            // beside the mid cards; the slots a kept yard re-seated.
+            + (g.forbReaps != null ? ` | GPU forb ring: ${g.forbReaps} reaped ${g.forbReapMs.toFixed(0)} ms,`
+              + ` ${g.forbSeated} re-seated` : '')
             : ' | near tufts drawn by the CPU'));
       }
       for (const l of r.longs ?? []) {

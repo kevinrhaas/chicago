@@ -21,7 +21,7 @@
  * `.github/steward/merge-ready.sh` with `gh` faked on PATH, so a change that
  * makes it merge something it should not fails here rather than on `dev`.
  */
-import { mkdtempSync, mkdirSync, writeFileSync, chmodSync, rmSync, readFileSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, chmodSync, rmSync, readFileSync, cpSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -86,7 +86,25 @@ exit 0
   // whoever started the process — so every assertion below now also stands as proof
   // that the argument wins and the environment is ignored. The refusal itself is
   // tested at the bottom of this file.
-  const r = spawnSync('bash', [SH, '--repo', 'kevinrhaas/chicago'], {
+  // THE SCRIPT RUNS FROM A SANDBOX CHECKOUT, NOT FROM THIS ONE (T-2929). Before it
+  // merges a `clean` PR it reads `lap/pr-<N>` through the ticket.mjs beside it, from
+  // that checkout's origin — run in place, that is the real GitHub remote, and this
+  // suite would depend on the network and on whoever holds a lap today. The sandbox
+  // carries the REAL script and the REAL ticket.mjs over an empty bare origin, so every
+  // lock reads free; test_pr_lap_lock.mjs is where the held, stale and unreadable
+  // locks are exercised.
+  const checkout = path.join(box, 'checkout');
+  const origin = path.join(box, 'locks.git');
+  spawnSync('git', ['init', '--quiet', '--bare', origin]);
+  spawnSync('git', ['init', '--quiet', checkout]);
+  spawnSync('git', ['-C', checkout, 'remote', 'add', 'origin', origin]);
+  const copy = path.join(checkout, '.github', 'steward', 'merge-ready.sh');
+  mkdirSync(path.dirname(copy), { recursive: true });
+  mkdirSync(path.join(checkout, 'chicago', '4d', 'tools'), { recursive: true });
+  cpSync(SH, copy);
+  cpSync(path.join(path.dirname(SH), '..', '..', 'chicago', '4d', 'tools', 'ticket.mjs'),
+         path.join(checkout, 'chicago', '4d', 'tools', 'ticket.mjs'));
+  const r = spawnSync('bash', [copy, '--repo', 'kevinrhaas/chicago'], {
     cwd: box,
     encoding: 'utf8',
     env: { ...process.env, PATH: `${bin}:${process.env.PATH}`,
@@ -369,8 +387,9 @@ console.log('merge-ready.sh — merges what GitHub calls clean, and nothing else
   const log = path.join(box, 'gh.log');
   writeFileSync(log, '');
   spawnSync('git', ['init', '--quiet', box]);
-  // The remote is never contacted: this script runs no networked git, and `gh` below
-  // is a fake. Only the NAME is read.
+  // The remote is never contacted: `gh` below is a fake that lists no pull request, so
+  // the script never reaches a `clean` PR and never reads a lap lock (T-2929) — the one
+  // networked git it runs. Only the NAME is read.
   spawnSync('git', ['-C', box, 'remote', 'add', 'origin',
                     'https://github.com/kevinrhaas/chicago.git']);
   const copy = path.join(box, 'merge-ready.sh');
