@@ -1514,6 +1514,8 @@ class Assembly:
             self.flat_arch(frame_fp if fp and s0 >= fs0 and y2 <= fbed else frame, s0, s1, y1, y2 - y1, conf, r_wall)
         if beds is None:
             self.street_window_dress(frame, square, conf, r_wall)
+            if p.street_dress.get("carved_bands"):   # T-2915: the belts carved off a picture
+                k01_arched_front.street_carved_bands(self, frame, p.street_dress["carved_bands"], conf)
         if fp:
             self.frontispiece(frame, length, conf)
         if af:
@@ -2005,7 +2007,10 @@ class Assembly:
             self.bay_columns(b, v["plan"]["points"], W, R, N, body, seed, conf)
         # T-2887: its carved dress — bands, frieze ovals, the consoles' scrolls, shutters
         if b.get("dress"):
-            self.bay_dress(b["dress"], v["plan"]["points"], W, R, N, body, seed, conf)
+            # T-2915: a bay in the front's stone is dressed in the front's dressed trim, as
+            # the front's own belts and surrounds are (1812's projection, its print's quoins)
+            dmat = "limestone_trim" if b["fabric"] == "front_stone" else body
+            self.bay_dress(b["dress"], v["plan"]["points"], W, R, N, dmat, seed, conf)
         # T-2787: a tower rises past the main eave, and the wall that closes its ring below
         # stops at the wall head. Above that its ring is closed where the wall's plane cuts
         # it, facing the roof behind: from the wall head to the tower's wall top across the
@@ -2168,6 +2173,9 @@ class Assembly:
                                                                      _mul(Y, bb * math.sin(2 * math.pi * k / n))))
             pr, dark = self.prim(mat), self.prim("backing")
             sunk, dd = 0.015, q["proud_m"]
+            boss = q.get("field") == "boss"      # T-2915: the field raised past the ring, a boss
+            if boss:
+                sunk = dd + 0.025
             for k in range(n):
                 o0, o1 = E(a, b_, k, dd), E(a, b_, k + 1, dd)
                 i0, i1 = E(a - rim, b_ - rim, k, dd), E(a - rim, b_ - rim, k + 1, dd)
@@ -2175,12 +2183,32 @@ class Assembly:
                 f0, f1 = E(a, b_, k, 0.0), E(a, b_, k + 1, 0.0)
                 pr.quad(f0, f1, o1, o0, _sub(_mul(_add(f0, o1), 0.5), C), self.basis(mat, f0, Nw, Y, seed + j), conf)
                 s0, s1 = E(a - rim, b_ - rim, k, sunk), E(a - rim, b_ - rim, k + 1, sunk)
-                pr.quad(s0, s1, i1, i0, _sub(C, _mul(_add(s0, i1), 0.5)), self.basis(mat, s0, Nw, Y, seed + j), conf)
+                inward = _sub(C, _mul(_add(s0, i1), 0.5))
+                pr.quad(s0, s1, i1, i0, _mul(inward, -1) if boss else inward, self.basis(mat, s0, Nw, Y, seed + j), conf)
             disc = [E(a - rim, b_ - rim, k, sunk) for k in range(n)]
-            if q.get("field") == "stone":        # T-2909: a sunk stone field, not a dark one
+            if q.get("field") in ("stone", "boss"):   # T-2909: a sunk stone field, not a dark one
                 pr.face(disc, Nw, self.basis(mat, disc[0], Rw, Y, seed + j), conf)
             else:
                 dark.face(disc, Nw, self.basis("backing", disc[0], Rw, Y, seed + j), conf)
+        # T-2915: a window's quoined jambs, each stone a box `returns_m` out from its jamb,
+        # short and long in turn from the foot, a 10 mm joint between courses
+        for j, q in enumerate(d.get("quoins", ())):
+            (x0, z0), (tx, tz), (nx, nz), _L = runs[q["run"]]
+            fr = (W((x0, 0.0, z0)), V(tx, tz), V(nx, nz))
+            a, b_ = q["jambs_m"]
+            h = (q["to_m"] - q["from_m"]) / q["courses"]
+            for k in range(q["courses"]):
+                ret = q["returns_m"][k % 2]
+                ya, yb = q["from_m"] + k * h + 0.005, q["from_m"] + (k + 1) * h - 0.005
+                self.proud_box(mat, fr, a - ret, a, ya, yb, q["proud_m"], seed + j, conf)
+                self.proud_box(mat, fr, b_, b_ + ret, ya, yb, q["proud_m"], seed + j, conf)
+        # T-2915: a band along one run, broken at its gaps (a window and its arch's ring)
+        for j, q in enumerate(d.get("run_bands", ())):
+            (x0, z0), (tx, tz), (nx, nz), L = runs[q["run"]]
+            fr = (W((x0, 0.0, z0)), V(tx, tz), V(nx, nz))
+            cuts = [0.0, *[x for g in q["gaps_m"] for x in g], L]
+            for s0, s1 in zip(cuts[0::2], cuts[1::2]):
+                self.proud_box(mat, fr, s0, s1, q["from_m"], q["to_m"], q["proud_m"], seed + j, conf)
         vo = d.get("volutes")
         if vo:
             rv, Rc, D, t = vo["radius_m"], vo["reach_m"], vo["drop_m"], vo["thickness_m"] / 2 + 0.02

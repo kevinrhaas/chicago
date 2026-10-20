@@ -30256,6 +30256,52 @@ colour source for 1812's stone and brick, or a ruling on the print's tones, sett
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-20 (T-2914).
 
+### L-k01-1812-wheeler-carved-2915 — 1812 Prairie's carved frieze, panel band and bosses and its projection's quoined jambs and spring band, read off the photograph
+
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-2915, piece 2 of T-2890) takes the
+carved and dressed stone Albert Levy's photograph shows on its street front, which T-2914 left
+plain. Over the second storey's north window, from the south projection's north face to the north
+corner, the front's belts are the print's: the moulded band at 8.95-9.15 m and the ledge at
+9.63-9.79 m, in place of K01's own 9.30-9.45 m belt; between and under them two carved belts, the
+frieze at 8.55-8.95 m and the patterned band at 9.15-9.63 m. On the projection the arched window
+and the paired window stand in quoined jambs, a band runs from each of its corners to the arch at
+the arched window's spring, and two bosses stand under the paired window's jambs. The kit learns
+three things for this, and every other K01 house re-emits byte-identical: a named-window front's
+`carved_bands` (a belt carved from `s_m` along the front with T-2819's guilloche, or with rows of
+sunk panels between raised ribs, the joints breaking row on row); a stone bay's `dress` on a bay in
+the front's stone, laid in the front's dressed trim; and in that dress `quoins` (a window's jamb
+stones, short and long in turn), `run_bands` (a band along one run broken at a window) and an oval
+whose field is a raised `boss`.
+**What is read, not invented.** Through the camera T-2543 solved
+(`data/reference_views/wheeler_house_1812_prairie/levy_front.json`; 88.5 px a metre at the main
+front, the walk at y 1549.6; the projection's face 1.2 m nearer at 92.4 px a metre, the horizon at
+y 1408 and 1.6 m) and on 2x and 4x crops of the print: over the north window's lintel a fillet at
+y 790-795, the carved frieze to y 757, a moulded band to y 740, the panel band to y 697 and a ledge
+to y 683, each running from x 775 to the corner, the frieze an interlace of crossing straps and
+leaves and the panel band rows of sunk oblongs about 30-35 px long whose joints break row on row;
+the paired window's jamb stones about 37 and 50 px out from its frame in turn, in courses about
+20 px; the arched window's about 35-45 and 55-65 px out, in courses about 40 px; the long stone at
+y 1140-1175 running from each corner of the projection to the arch; and the two carved shields,
+about 42-45 by 37 px, centred at y 1012 and 132 and 139 px either side of the window's axis, in
+the band over the second floor's belt.
+**What is invented.** The frieze's carving, built as T-2819's guilloche of rings 0.15 m in radius
+standing for the print's interlace; the shields' carving, built as plain oval bosses 0.05 m proud
+in a moulded ring with a raised field; the panel band's two rows and its 0.36 m panels, and the
+ribs' sections; the quoins' 0.02 m and their joints, which are equal courses and not the print's;
+the spring band set 0.1 m under the kit's spring (4.0 m) as the print's stands under its arch's,
+where the print's stands higher, because the kit's arch is lower; and the projection's cheeks left
+plain, which the print does not see.
+**What is built otherwise than read.** The second storey's jamb stones rise in the print past the
+window's head to small carved caps under the projection's cornice, built stopping at the head;
+and the dressings are the front's dressed trim while the projection's own K08 bands stay its brown
+body stone, the tone the match record's tone item already holds open. Both are open in the match
+record.
+**How to resolve:** A sharper print or a drawing of the frieze and the shields lets them be carved
+as drawn; the jamb caps are a K08 dress piece of their own.
+**Ticket:** T-2915 (piece 2 of T-2890).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-20 (T-2915).
+
 ### L-glessner-fan-stilt-2912 — Glessner's Prairie door fan stilted to HABS sheet 5 and its tympanum's field laid as the sheet's eight rings
 
 **Decision:** the Prairie Avenue door's fan on the `glessner_house` is a STILTED head (T-2912,
