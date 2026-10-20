@@ -602,6 +602,9 @@ def _stone_cornice(a, K, data, bays, conf):
         if b["variant"]["kind"] == "tower":   # T-2787: the course dies into a tower's ring
             cut.append(tuple(b["span_m"]))
             continue
+        if b.get("through_eave"):   # T-2542: and into the cants of an oriel carried through the eave
+            cut.append(tuple(b["span_m"]))
+            continue
         ev = b["variant"].get("overrides", {}).get("eaves", {})
         wall_top = b["variant"].get("base", 0.0) if b["variant"].get("base") != "grade" else 0.0
         wall_top += math.fsum(st["height_m"] for st in b["variant"]["storeys"])
