@@ -84,7 +84,7 @@ async function boot(blockId) {
     await page.route(`**/*${blockId}*.glb`, (route) => route.abort('failed'));
   }
   await page.goto(base, { waitUntil: 'domcontentloaded' });
-  await page.waitForFunction(() => window.__chicago4d?.ready === true, { timeout: 120000 });
+  await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 120000 });
   const read = await page.evaluate(() => ({
     roll: window.__chicago4d.roll,
     signs: window.__chicago4d.signage.census,
@@ -106,7 +106,7 @@ let target = process.argv[2];
 if (!target) {
   const page = await browser.newPage();
   await page.goto(base, { waitUntil: 'domcontentloaded' });
-  await page.waitForFunction(() => window.__chicago4d?.ready === true, { timeout: 120000 });
+  await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 120000 });
   target = await page.evaluate(() => {
     const ids = new Set(window.__chicago4d.signage.spans.map((s) => s.id));
     for (const id of ids) {

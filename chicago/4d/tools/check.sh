@@ -5709,6 +5709,13 @@ selftest "a spatial filter still cannot bias the sward's rank deal" \
 selftest "the smoke's change-to-parts map still matches the tree" \
   node tools/smoke_budget.mjs --self-test
 
+# T-2899. `waitForFunction(fn, arg, options)` takes its options THIRD; written second
+# they become the page function's argument and the page default applies, silently. The
+# smoke's boot wait read 30 s and waited 90 for that reason, and four other tools
+# had the same slip five times. The test proves it sees the mistake before it reads the tree.
+step "Every waitForFunction passes its options in the third slot, not as the page function's argument (T-2899)" \
+  node tools/test_wait_for_function_args.mjs
+
 # The 1833-1835 newspaper corpus is the PAPERS epic's foundation: eighty-six issues
 # that the project could not cite until they had a register to resolve against. The
 # register is only worth something if it is true, so this asserts the count rather
