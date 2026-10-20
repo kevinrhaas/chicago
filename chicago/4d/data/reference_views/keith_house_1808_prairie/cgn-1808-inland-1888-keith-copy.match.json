@@ -2,10 +2,10 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "cgn-1808-inland-1888-keith-copy",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "9e1eea5b84ad8dc8d310b33cd7da265c551c725885a6c6a01c3f634e1330078b",
+  "glb_sha256": "de3cee807da75aba0f47e2abb24d30c30656c8846f3163549c765c804fb85ba4",
   "camera_sha256": "46115ac244cc65333d243964347a01814de2331453f82ea86651a33af8d4141a",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/cgn-1808-inland-1888-keith-copy-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "The flat top now has real two-row openings, corner pinnacles, a checker band and five colonnettes dividing six upper windows.",
@@ -92,8 +92,12 @@
       "status": "fixed"
     },
     {
-      "what": "T-2881: beside the north rear pair the plate (inland-1888, of which this is a reproduction, read at its native 1559 px) draws a third lit upright at x 997-1009, rows 1522-1587, standing over the pedestals' line where the render draws the house wall just south of the north rear pedestal; and the first-floor plan under the plate draws a block at the wall behind each front pedestal only about 0.21 m deep (x 666-671 at 23.17 px/m; the south one at v 6.82-7.34), where the rear pedestals are built 0.6 m deep to carry their pairs, as the plate reads the south one's face. Whether the upright is a respond on the wall, the door's lit reveal or a third shaft, and what the plan's thin block is, are T-2882's to rule.",
-      "status": "open"
+      "what": "T-2881: beside the north rear pair the plate (inland-1888, of which this is a reproduction, read at its native 1559 px) draws a third lit upright at x 997-1009, rows 1522-1587, standing over the pedestals' line where the render draws the house wall just south of the north rear pedestal; and the first-floor plan under the plate draws a block at the wall behind each front pedestal only about 0.21 m deep (x 666-671 at 23.17 px/m; the south one at v 6.82-7.34), where the rear pedestals are built 0.6 m deep to carry their pairs, as the plate reads the south one's face. Whether the upright is a respond on the wall, the door's lit reveal or a third shaft, and what the plan's thin block is, are T-2882's to rule. T-2882: ruled and built (on the plate, of which this is a reproduction): the plate's lit upright at x 997-1009 is the north respond's south face: lit across x 997.8-1004.8 with a dim strip to x 1010, from the front parapet's coping to 3.82 m over grade (0.9 m over the rear pedestal's top, so not the pedestal), square-edged with no base (not a third shaft), on the line of the north rear pedestal's south side and running 0.27 m off the wall; the door's north reveal projects at x 963-979 and is not it. The plan's block at the wall (0.27 m deep to the light line it draws against the wall's own dark, at v 6.84-7.33 and 9.56-10.24) is the respond, the rear pair standing on its face (0.254 m off the wall) so the plan draws the two as one block; the 0.6 m rear pedestal under them stands below what the plan draws, held by the plate's lit face of the south one (T-2881).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2882: re-rendered on the loggia with a respond on the wall behind each rear pair (a flat pier the rear pedestal's width, 0.25 m deep, from the pedestal's top to the ceiling; tools/keith_loggia_respond_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-respond-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 336-437, y 528-606); this copy reads the upright as the plate does at its own scale (the plate is read at its native 1559 px; inland-1888). Nothing opens; the verdict is matches.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

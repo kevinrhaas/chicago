@@ -37460,6 +37460,14 @@
         {
           "label": "Still invented",
           "text": "the rear shafts' girth is set by the pitch the plate reads, not measured (their silhouettes are in shade); their profile, capital and the pedestals' fields are the front's; and the plan under the plate draws the block at the wall only about 0.21 m deep, where a pedestal that carries the pair the plate reads must be about 0.55 m. That block, and a lit upright the plate draws beside the north rear pair (x 997-1009), are T-2882's."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-19 (T-2882) — **a respond on the wall behind each rear pair.** Both things T-2881 left are ruled (`tools/keith_loggia_respond_read.py`, `docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-respond-read.json`). The plate's lit upright beside the north rear pair (lit across x 997.8-1004.8, a dim strip to x 1010) is, through `inland-1888`'s camera, a south-facing face on the line of the north rear pedestal's south side, running from the wall to 0.27 m off it and standing from the front parapet's coping to 3.82 m over grade, 0.9 m over the rear pedestal's top: square-edged, with no base, so neither the pedestal nor a third shaft; the door's north reveal projects 19-35 px south of it. The first-floor plan's block at the wall reads 0.27 m deep to the light line it draws against the wall (both blocks, v 6.84-7.33 and 9.56-10.24), the north one in two lobes where the pair stands on it. So the K07 loggia's rear takes `respond_m`: a flat pier the rear pedestal's width on the wall behind each pair, from the pedestal's top to the ceiling, 0.25 m deep (the two readings' 0.27 m held to the 0.254 m the pair's shafts leave, so the pair stands on its face). Its south face draws at x 999.8-1009.3 against the print's 997.8-1010."
+        },
+        {
+          "label": "Still invented",
+          "text": "the respond's plain face (no capital or moulding shows; the loggia's shadow covers it above 3.82 m), its width (the pedestal's 0.6 m against the plan's 0.49 and 0.68), and the rear pedestal's 0.6 m depth, which the plan does not draw under the 0.27 m block and the plate's lit face of the south one (T-2881) alone holds."
         }
       ]
     },
@@ -41098,6 +41106,41 @@
         {
           "label": "Recorded",
           "text": "2026-10-19 (T-2810)."
+        }
+      ]
+    },
+    {
+      "id": "L-prairie-woody-2784",
+      "title": "Shrubs, slough-edge willows and lone fire-shadow trees on the open plain of 1812 and 1835",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the open plain west and south of the river (wherever no woods community stands, on prairie, sedge meadow and marsh ground, never on the 1835 town's lots or cleared plots) now carries woody plants, the same ground for ground in 1812 and 1835. Three kinds, drawn by `renderers/web/js/trees.js` (`PRAIRIE_WOODY`) as grown clumps of stems: wild rose, New Jersey tea and leadplant scattered through the grass in little colonies, about 16-36 to the hectare at full detail, fewer on wet ground; pussy willow, slender willow and meadowsweet in clumps on the wet prairie and sedge meadow, about 6-16 to the hectare, thickest within 24-170 m of water, with buttonbush and willow in the wettest ground within 70 m of it; and now and then a lone bur oak (drier ground) or cottonwood (wetter), about 2-3.6 to the hectare, only where water lies 60-280 m upwind of it on a bearing from 205° to 280°, that is, just east and north-east of the river. Each is dealt from a generator seeded by where it stands. The phone draws 55% of the shrubs, balanced 85%; every tier draws as many lone trees. The wild rose, New Jersey tea and the two willows are new zone records at a density of zero (z02, z03), so the sward deals none of them and every stem is this layer's."
+        },
+        {
+          "label": "What is read, not invented",
+          "text": "that Cook County held \"the only willow thickets described by the PLS\" (McBride and Bowles 2007, through the flora dossier's ZONE 6), and willow \"in the swales and along backwater sloughs\" (the dossier's reading of it); that trees stood denser, and the fire-intolerant ones gathered, on the east sides of watercourses, which broke the fires running west to east (the same); Andreas's \"good stretch of level grass\" south of the town and his \"occasional patches of timber\" (vol. 1). Leadplant, meadowsweet, buttonbush, bur oak and cottonwood, and every height and colour, are their zone records' own."
+        },
+        {
+          "label": "What is invented",
+          "text": "the wild rose and New Jersey tea (no record or source in this project names either on the Chicago plain: they are the shrubs of a burned tallgrass prairie in northern Illinois, and their records say so and cite nothing); every density, clump size and band above; that the sloughs are the wet prairie, sedge meadow and the river's margin (the modelled ground holds no slough water); the fire's bearings; and where each plant stands. The owner asked for more trees rather than fewer, so the lone trees are a few to the hectare in the shadow band rather than none."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a surveyor's line description, a settler's account or a plate of the prairie south or west of the river before 1840 that names its shrubs, its willows or a lone tree, or the Government Land Office field notes for T39N R14E read line by line."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2784."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-19 (T-2784)."
         }
       ]
     },

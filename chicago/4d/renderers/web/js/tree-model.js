@@ -33,6 +33,11 @@
 
 import * as THREE from 'three';
 
+/** T-2784: the open plain's shrubs draw their stems with fewer sides at the
+ *  near level (the trunk's, the stems', the twigs'), since a cane is a few
+ *  millimetres to a centimetre thick; the coarser levels are the shared ones. */
+const PRAIRIE_SIDES = { near: [5, 4, 3, 0] };
+
 /* -------------------------------------------------------------------------- */
 /* the species' habits                                                         */
 /* -------------------------------------------------------------------------- */
@@ -273,6 +278,60 @@ export const ARCH = {
     stemSplay: 26, limbAngle: 16, rise: 0.02, twist: 0.30, order2: [3, 40], order3: [0, 0],
     droop: 0.18, clump: 0.26, clumpMin: 0.20, density: 1.30, gaps: 0.20, leaf: 'maple', bark: 'smooth',
     farBins: [4, 2],
+  },
+  // T-2784 — THE OPEN PLAIN'S SHRUBS. The prairie's own are knee- to waist-high
+  // and resprout from the root after every fire, so each is a low clump of
+  // canes rather than a bush with a stem: wild rose a loose colony of thin
+  // arching canes with pinnate leaves; New Jersey tea a tight dome of many
+  // slender stems off a woody crown; leadplant a few grey wands. The slough
+  // edge's are taller: pussy willow a clump of upright stems that branch, the
+  // slender willow a sheaf of thin straight wands, buttonbush a rounded bush of
+  // crooked spreading stems with broad glossy leaves, meadowsweet a stand of
+  // upright wands. Small clumps (`clumpMin`) so a knee-high shrub's leaf is not
+  // a tree's. Habits, not measurements (docs/LIBERTIES.md L-prairie-woody-2784).
+  // `sides` (PRAIRIE_SIDES): a cane a centimetre thick is a few pixels at any
+  // range a visitor stands from it, so the near level's wood is cut sides.
+  rosa_spp: {
+    crown: 'round', crownBase: 0.12, fork: 'decurrent', stems: [5, 8], scaffolds: [0, 0],
+    stemSplay: 28, limbAngle: 20, rise: 0.0, twist: 0.35, order2: [3, 46], order3: [0, 0],
+    droop: 0.22, clump: 0.30, clumpMin: 0.12, density: 1.20, gaps: 0.26, leaf: 'compound', bark: 'smooth',
+    farBins: [3, 2], sides: PRAIRIE_SIDES,
+  },
+  ceanothus_americanus: {
+    crown: 'round', crownBase: 0.16, fork: 'decurrent', stems: [7, 11], scaffolds: [0, 0],
+    stemSplay: 20, limbAngle: 18, rise: 0.03, twist: 0.25, order2: [3, 42], order3: [0, 0],
+    droop: 0.06, clump: 0.30, clumpMin: 0.12, density: 1.30, gaps: 0.18, leaf: 'elm', bark: 'smooth',
+    farBins: [3, 2], sides: PRAIRIE_SIDES,
+  },
+  amorpha_canescens: {
+    crown: 'round', crownBase: 0.20, fork: 'decurrent', stems: [4, 7], scaffolds: [0, 0],
+    stemSplay: 16, limbAngle: 14, rise: 0.04, twist: 0.20, order2: [2, 40], order3: [0, 0],
+    droop: 0.04, clump: 0.32, clumpMin: 0.10, density: 1.20, gaps: 0.24, leaf: 'compound', bark: 'smooth',
+    farBins: [3, 2], sides: PRAIRIE_SIDES,
+  },
+  salix_discolor: {
+    crown: 'irregular', crownBase: 0.10, fork: 'decurrent', stems: [4, 7], scaffolds: [0, 0],
+    stemSplay: 16, limbAngle: 16, rise: 0.06, twist: 0.30, order2: [4, 36], order3: [0, 0],
+    droop: 0.12, clump: 0.24, clumpMin: 0.30, density: 1.15, gaps: 0.24, leaf: 'willow', bark: 'smooth',
+    farBins: [4, 2], sides: PRAIRIE_SIDES,
+  },
+  salix_petiolaris: {
+    crown: 'round', crownBase: 0.08, fork: 'decurrent', stems: [8, 12], scaffolds: [0, 0],
+    stemSplay: 13, limbAngle: 12, rise: 0.06, twist: 0.20, order2: [3, 30], order3: [0, 0],
+    droop: 0.14, clump: 0.26, clumpMin: 0.24, density: 1.25, gaps: 0.20, leaf: 'willow', bark: 'smooth',
+    farBins: [4, 2], sides: PRAIRIE_SIDES,
+  },
+  cephalanthus_occidentalis: {
+    crown: 'round', crownBase: 0.14, fork: 'decurrent', stems: [3, 6], scaffolds: [0, 0],
+    stemSplay: 24, limbAngle: 30, rise: 0.0, twist: 0.60, order2: [4, 50], order3: [0, 0],
+    droop: 0.08, clump: 0.26, clumpMin: 0.28, density: 1.20, gaps: 0.26, leaf: 'heart', bark: 'smooth',
+    farBins: [4, 2], sides: PRAIRIE_SIDES,
+  },
+  spiraea_alba: {
+    crown: 'column', crownBase: 0.14, fork: 'decurrent', stems: [8, 13], scaffolds: [0, 0],
+    stemSplay: 10, limbAngle: 10, rise: 0.04, twist: 0.15, order2: [2, 36], order3: [0, 0],
+    droop: 0.04, clump: 0.28, clumpMin: 0.12, density: 1.30, gaps: 0.20, leaf: 'willow', bark: 'smooth',
+    farBins: [3, 2], sides: PRAIRIE_SIDES,
   },
 };
 
@@ -625,6 +684,11 @@ const FOLIAGE_K = 4.2;
  *  foliage's reflectance; the vertex colour carries the record's colour over
  *  the atlas's mean so the two multiply back to the record. */
 const LEAF_GAIN = 2.0;
+/** T-2784: the leaf atlas's mean opaque texel is a pale green (sRGB 145, 165,
+ *  125, measured over all twenty tiles, alpha over half), and a flower drawn
+ *  on a leaf tile multiplies that cast in. This is its mean over each channel,
+ *  so a bloom's vertex colour comes back to the record's. */
+const BLOOM_CAST = [1.02, 0.77, 1.40];
 const SHELL_K = 7.0;
 
 // `distant` (T-2808): the trunk alone, three-sided, under a crown of a few masses.
@@ -744,7 +808,7 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
   const lrnd = mulberry32(seed ^ 0x9e3779b9);
   const wood = new Buf();
   const leaves = new Buf();
-  const sides = SIDES[lod] ?? SIDES.near;
+  const sides = arch.sides?.[lod] ?? SIDES[lod] ?? SIDES.near;
   const barkTile = BARK_TILES[arch.bark] ?? 0;
   const barkTint = barkLinear(spec.bark ?? 0x5a5246, arch.bark);
   const barkUpper = spec.barkUpper != null ? barkLinear(spec.barkUpper, arch.bark) : barkTint;
@@ -852,6 +916,30 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
           card(leaves, add(c.at, jit), c.dir, c.r * 1.5 * leafScale, i === 0 ? clumpTile : sunTile, colour, outward, flex, lrnd);
         }
       }
+    }
+  }
+  // T-2784 — A PRAIRIE SHRUB IN FLOWER (`bloom`, its record's July
+  // inflorescence: the rose's pink, New Jersey tea's and meadowsweet's white,
+  // the leadplant's violet, the buttonbush's cream balls), hung on the outer
+  // clumps of the upper crown at the two near levels, blossoms a few
+  // centimetres across that the far levels could not resolve. The leaf atlas
+  // is a pale green, so the colour is set against its cast (`BLOOM_CAST`) to
+  // come out the record's and not a green-grey.
+  const bloom = spec.bloom;
+  if (bloom && Array.isArray(bloom.rgb) && (lod === 'near' || lod === 'mid') && clumps.length) {
+    const brnd = mulberry32(seed ^ 0x2784b);
+    const [br, bg, bb] = bloom.rgb;
+    const bc = linearRGB((br << 16) | (bg << 8) | bb).map((v, j) => v * LEAF_GAIN * BLOOM_CAST[j]);
+    const low = clamp01((bloom.height_frac ?? 0.8) - 0.35);
+    const size = ((bloom.size_m?.[0] ?? 0.04) + (bloom.size_m?.[1] ?? 0.08)) * (lod === 'near' ? 1.3 : 2.2);
+    let alt = 0;
+    for (const c of clumps) {
+      if (c.at[1] < sk.H * low || brnd() > 0.55) continue;
+      if (lod === 'mid' && (alt++ & 1)) continue;
+      const rel = sub(c.at, centre);
+      const outward = norm(add(norm([rel[0], rel[1] * 0.6, rel[2]]), [0, 0.6, 0]));
+      const at = add(c.at, mul(outward, c.r * 0.55));
+      card(leaves, at, outward, size, sunTile, bc, outward, 0.5, brnd, outward);
     }
   }
   // A bare template (a dead tree, a winter crown) still hands the leaf batch
