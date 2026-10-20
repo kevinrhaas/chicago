@@ -222,6 +222,9 @@ def build(b,params):
     # A single raised threshold covers that overlap, as a real stone threshold
     # does, instead of leaving two visible surfaces fighting for the same depth.
     mid=(ba0+ba1)/2;half=(ba1-ba0)/bow['lights_per_row']*.28
+    door=next((s for row in bow.get('light_spans') or [] for s in row if s['door']),None)
+    if door:  # T-2925: the door where the drawing puts it
+        mid=(door['a0']+door['a1'])/2;half=(door['a1']-door['a0'])/2
     radius=bow['r']*math.cos(half);width=2*bow['r']*math.sin(half)
     normal=(math.cos(mid),math.sin(mid));tangent=(-normal[1],normal[0])
     def threshold_point(u,offset):
