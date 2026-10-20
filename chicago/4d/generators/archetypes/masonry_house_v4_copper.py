@@ -42,7 +42,7 @@ def _hull(points):
 def patches(params):
     """Nonoverlapping angular facets; every cut edge lies on a host plane."""
     bow, apex, hosts = controls(params)
-    radius = bow['r'] + .20
+    radius = bow['eave_r']
     result = []
     for i in range(SEGMENTS):
         def edge(j):
@@ -171,7 +171,7 @@ def fold(b, a, c, normal, width=.018, height=.012):
 
 def add_hood(b, params):
     bow, apex, hosts = controls(params)
-    radius = bow['r']+.20
+    radius = bow['eave_r']
     for part in patches(params):
         pts, plane = part['points'], part['plane']
         normal = _unit((-plane[0],-plane[1],1))

@@ -20,7 +20,7 @@ parts=patches(p);faces,holes=surface(p)
 assert len(holes)==1
 assert 1.6<bow['roof_rise_m']/.3048<2.,'HABS low hood replaced by a high canopy'
 apex=(e['x0'],n['y0'],bow['wall_top_z']+bow['roof_rise_m'])
-radius=bow['r']+.20
+radius=bow['eave_r']
 
 def contains(poly,x,y):
     return all((b[0]-a[0])*(y-a[1])-(b[1]-a[1])*(x-a[0])>=-1e-8
