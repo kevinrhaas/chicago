@@ -291,6 +291,8 @@ K08_ROLES = {"wall": "body", "masonry_relief": "body", "reveal": "body", "mullio
              "bracket": "fascia",   # T-2408: a hood's consoles and modillions, the eaves' joinery
              "iron": "iron"}        # T-2525: a bow's balcony rail and a light's grille
 SLIVER_M = 0.0025   # T-2308: a bay triangle with an edge shorter than this is a sliver
+#: T-2914: the cells a coursed front dresses in stone by intent, kept stone over a brick line
+DRESSED_CELLS = ("K01.surround", "K01.quoin", "K01.panel")
 # T-2356: a frame bay has no stone in it. Its dressings are painted timber (the fascia's
 # slot) and its plinth the house's brick carried out under it, as a timber bay on a
 # masonry basement stands.
@@ -1336,6 +1338,8 @@ class Assembly:
             lines.add(float(k["coursing"]["even_below_m"]))
         if (k.get("coursing") or {}).get("rhythm") == "even":   # T-2819: where the face turns smoother
             lines.add(float(k["coursing"]["even_above_m"]))
+        if k.get("brick_above_m") is not None and beds is None:   # T-2914: where the brick begins
+            lines.add(float(k["brick_above_m"]))
         if beds is not None:   # T-2788: the front's own lines, up to this face's top
             lines = {y for y in beds if y < ytop - 0.02} | {0.0, ytop}
         merged = []
@@ -1403,6 +1407,12 @@ class Assembly:
         fs0, fbed = (fp["s_m"], fp["hood"]["bed_m"]) if fp else (None, None)
         rects = holes + arches
         quoins, prev_joints, parity = [], [], 0
+        # T-2914: over this line the walling is the K03 brick, its bond turned at the corner
+        # as a brick wall's; only the dressed cells (surrounds, quoins, a panel) are stone in it
+        brick = k.get("brick_above_m") if beds is None else None
+        if brick is not None:
+            P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
+            bb = self.basis("brick", O, R, Y, 0, k03_brick.phase_u(cid, length, self.tiles[MATERIALS["brick"]["fabric"]][0]))
         for ci, (ya, yb, kind) in enumerate(courses):
             trim = kind in ("coping", "belt", "band")
             spec = tk if trim else wk
@@ -1428,6 +1438,9 @@ class Assembly:
             here = [q for q in seats if q[2] < yb - 1e-6 and q[3] > ya + 1e-6]
             # T-2753: the dressed stones of the surrounds and the frontispiece's quoins, this course's
             here += [q for q in self.dress_cells(square, ya, yb, ci, kind, length) if q[2] < yb - 1e-6 and q[3] > ya + 1e-6]
+            in_brick = brick is not None and kind == "walling" and ya >= brick - 1e-6
+            if in_brick:   # T-2914: a kit's seat on the brick is brick behind it, as on a brick wall
+                here = [q for q in here if q[4] in DRESSED_CELLS]
             on_fp = bool(fp) and yb <= fbed + 1e-6
             # a seat's edge cuts the course too, unless it falls within 0.08 m of a harder
             # edge (a wall end, an opening, an arch) or of another seat's: no sliver stones
@@ -1457,6 +1470,10 @@ class Assembly:
             corner = "south" in k["corners"] and kind in ("base", "walling")
             for sa, sb, free, _ in spans:
                 for fy0, fy1 in free:
+                    if in_brick and not self._seated(here, sa, sb, fy0, fy1):
+                        self.prim("brick").face([P(sa, fy0, 0.0), P(sb, fy0, 0.0), P(sb, fy1, 0.0), P(sa, fy1, 0.0)],
+                                                N, bb, conf)
+                        continue
                     first = None
                     if corner and sa == 0.0 and abs(fy0 - ya) < 1e-9 and abs(fy1 - yb) < 1e-9 \
                             and not self._seated(here, 0.0, min(sb, hi), fy0, fy1):
@@ -1518,8 +1535,11 @@ class Assembly:
         # the wall behind the soffit, up to the eave: inside the roof, one plain face
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
         if E - yf > 1e-6:
-            self.prim("rough_stone_trim").face([P(0.0, yf, 0.0), P(length, yf, 0.0), P(length, E, 0.0), P(0.0, E, 0.0)],
-                                               N, self.basis("rough_stone_trim", O, R, Y, 0), conf)
+            if brick is not None:   # T-2914: brick up to the eave
+                self.prim("brick").face([P(0.0, yf, 0.0), P(length, yf, 0.0), P(length, E, 0.0), P(0.0, E, 0.0)], N, bb, conf)
+            else:
+                self.prim("rough_stone_trim").face([P(0.0, yf, 0.0), P(length, yf, 0.0), P(length, E, 0.0), P(0.0, E, 0.0)],
+                                                   N, self.basis("rough_stone_trim", O, R, Y, 0), conf)
         return frame, quoins
 
     def street_window_dress(self, frame, openings, conf, recess):
@@ -1567,6 +1587,13 @@ class Assembly:
                     if math.dist(pts[0], pts[-1]) < 1e-4:
                         pts.pop()
                     if len(pts) < 3 or max(y1 - q0[1], y1 - q1[1]) < 0.003:
+                        continue
+                    ba = self.p.stone.get("brick_above_m")
+                    if ba is not None and min(q[1] for q in pts) >= ba - 1e-6:
+                        # T-2914: a spandrel over the brick line is brick, flush, its bond the wall's
+                        bb = self.basis("brick", O, R, Y, 0, k03_brick.phase_u(
+                            "k01.wall.street_front", self.p.width_m, self.tiles[MATERIALS["brick"]["fabric"]][0]))
+                        self.prim("brick").face([P(*q) for q in pts], N, bb, conf)
                         continue
                     self.stone(frame, pts, [0.0] * len(pts), "rough_stone_trim", self._stone_seed(cid, inst, j), conf,
                                recess=recess, bevel=0.0)
@@ -1933,34 +1960,46 @@ class Assembly:
             if role not in roles:
                 raise ValueError(f"K08 role {role!r} has no material on a K01 frontage")
             mat = {"body": body, "cover": cover}.get(roles[role], roles[role])
-            spec = MATERIALS[mat]
-            fab = self.fabric[mat]
-            tu, tv = self.tiles[fab] if fab else (1.0, 1.0)
-            _, _, _, _, _, ou, ov = self.basis(mat, O, R, Y, seed)
-            dst = self.prim(mat)
-            off = len(dst.pos)
-            # On the contract's 1 mm grid (k01_contract.json `quantum_m`): the web
-            # derivative quantizes positions to a third of that, so a vertex already on
-            # the grid keeps its millimetre there and the two tiers read the same faces.
-            world = [tuple(round(c * 1000) / 1000 for c in W(q)) for q in src.pos]
-            for q, n, uv, w in zip(src.pos, src.nrm, src.uv, world):
-                dst.pos.append(w)
-                dst.nrm.append(_add(_add(_mul(R, n[0]), _mul(Y, n[1])), _mul(N, n[2])))
-                if spec.get("courses") and abs(n[1]) < 0.5:
-                    dst.uv.append((uv[0] / tu + ou, -q[1] / tv))   # v = 0 at grade, as K03's walls
-                else:
-                    dst.uv.append((uv[0] / tu + ou, uv[1] / tv + ov) if fab else uv)
-                dst.conf.append(conf)
-                dst.tone.append(dst.tone_of(dst.pos[-1][1]) if dst.tone_of else 1.0)
-            # A sliver is not a face (the contract's coincidence measure): where the kit's
-            # slab cuts leave a triangle with an edge under SLIVER_M, it is dropped rather
-            # than shipped. Such a triangle is never wider than that edge, and the web
-            # derivative collapses it to a degenerate one anyway (T-2308 measured 46 there).
-            for t in range(0, len(src.idx), 3):
-                i, j, k = src.idx[t:t + 3]
-                if min(math.dist(world[i], world[j]), math.dist(world[j], world[k]),
-                       math.dist(world[i], world[k])) >= SLIVER_M:
-                    dst.idx += [off + i, off + j, off + k]
+            tris = range(0, len(src.idx), 3)
+            parts = [(mat, tris, range(len(src.pos)))]
+            if role == "wall" and b.get("brick_above_m") is not None:
+                # T-2914: the bay's wall over its line is brick, each triangle by where its
+                # middle stands (the line is a storey line, a vertex row of the kit's wall)
+                ba = b["brick_above_m"]
+                up = {t for t in tris if (src.pos[src.idx[t]][1] + src.pos[src.idx[t + 1]][1] + src.pos[src.idx[t + 2]][1]) / 3 > ba}
+                parts = [(m_, ts, sorted({src.idx[t + i] for t in ts for i in range(3)}))
+                         for m_, ts in ((mat, [t for t in tris if t not in up]),
+                                        ("bay_brick", [t for t in tris if t in up])) if ts]
+            for mat, tris, keep in parts:
+                spec = MATERIALS[mat]
+                fab = self.fabric[mat]
+                tu, tv = self.tiles[fab] if fab else (1.0, 1.0)
+                _, _, _, _, _, ou, ov = self.basis(mat, O, R, Y, seed)
+                dst = self.prim(mat)
+                off = len(dst.pos)
+                # On the contract's 1 mm grid (k01_contract.json `quantum_m`): the web
+                # derivative quantizes positions to a third of that, so a vertex already on
+                # the grid keeps its millimetre there and the two tiers read the same faces.
+                world = [tuple(round(c * 1000) / 1000 for c in W(q)) for q in src.pos]
+                remap = {v_: k_ for k_, v_ in enumerate(keep)}
+                for q, n, uv, w in ((src.pos[v_], src.nrm[v_], src.uv[v_], world[v_]) for v_ in keep):
+                    dst.pos.append(w)
+                    dst.nrm.append(_add(_add(_mul(R, n[0]), _mul(Y, n[1])), _mul(N, n[2])))
+                    if spec.get("courses") and abs(n[1]) < 0.5:
+                        dst.uv.append((uv[0] / tu + ou, -q[1] / tv))   # v = 0 at grade, as K03's walls
+                    else:
+                        dst.uv.append((uv[0] / tu + ou, uv[1] / tv + ov) if fab else uv)
+                    dst.conf.append(conf)
+                    dst.tone.append(dst.tone_of(dst.pos[-1][1]) if dst.tone_of else 1.0)
+                # A sliver is not a face (the contract's coincidence measure): where the kit's
+                # slab cuts leave a triangle with an edge under SLIVER_M, it is dropped rather
+                # than shipped. Such a triangle is never wider than that edge, and the web
+                # derivative collapses it to a degenerate one anyway (T-2308 measured 46 there).
+                for t in tris:
+                    i, j, k = src.idx[t:t + 3]
+                    if min(math.dist(world[i], world[j]), math.dist(world[j], world[k]),
+                           math.dist(world[i], world[k])) >= SLIVER_M:
+                        dst.idx += [off + remap[i], off + remap[j], off + remap[k]]
         # T-2451: the strips down its corners, each a box proud of one run of the plan
         if b.get("strips"):
             pts = v["plan"]["points"]

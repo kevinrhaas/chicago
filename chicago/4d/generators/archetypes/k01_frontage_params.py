@@ -1138,6 +1138,8 @@ def _k02(front: dict) -> dict:
         "base_courses": base, "channel_m": f["rusticated_base"]["channel_width_m"],
         "channel_depth_m": f["rusticated_base"]["channel_depth_m"],
         **({"coursing": dict(coursing)} if coursing else {}),
+        # T-2914: the stone stops at a storey line and the front is the K03 brick over it
+        **({"brick_above_m": float(front["brick_above_m"])} if "brick_above_m" in front else {}),
         "coping_height_m": coping_h, "coping_fall": t["coping"]["fall"],
         "coping_overhang_m": t["coping"]["overhang_m"], "drip_groove_m": t["coping"]["drip_groove_m"],
         "fabric_roughness": lib[fab]["mean_roughness"], "trim_roughness": lib[trim]["mean_roughness"],
@@ -1633,6 +1635,16 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         dress = _bay_dress(e, v, top, columns) if e.get("dress") is not None else None
         if e.get("fabric") == "front_stone" and not front_stone:
             raise ParamError(f"bays: {e['id']} is laid in the front's stone, and the record names no K02 stone_front")
+        brick_above = None
+        if "brick_above_m" in e:
+            # T-2914: a stone bay whose wall is brick over one of its storey lines (1812's
+            # projection: rock-faced basement, brick over it); its plinth, bands, sills,
+            # heads and reveals stay stone, its dressings
+            brick_above = float(e["brick_above_m"])
+            lines = [round(sum(float(st["height_m"]) for st in v["storeys"][:i]), 4) for i in range(1, len(v["storeys"]))]
+            if e.get("fabric", "stone") not in ("stone", "front_stone") or not any(abs(brick_above - y) < 1e-6 for y in lines):
+                raise ParamError(f"bays: {e['id']}.brick_above_m {brick_above} must be one of a stone bay's "
+                                 f"storey lines {lines}")
         out.append({"id": e["id"], "wall": e["wall"], "s_m": s, "span_m": (round(a, 4), round(b, 4)),
                     "fabric": e.get("fabric", "stone"), "variant": v,
                     **({"apron_fabric": e["apron"]["fabric"]} if "fabric" in (e.get("apron") or {}) else {}),
@@ -1640,7 +1652,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     **({"through_eave": True} if e.get("through_eave") else {}),
                     **({"strips": tuple(strips)} if strips else {}),
                     **({"columns": columns} if columns else {}),
-                    **({"dress": dress} if dress else {})})
+                    **({"dress": dress} if dress else {}),
+                    **({"brick_above_m": brick_above} if brick_above is not None else {})})
     return tuple(out)
 
 
@@ -3259,6 +3272,21 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                     f"course_height_m; base courses, coping and the area lights' heads must agree)")
         stone["base_course_m"] = round(course, 5)
         stone["coping_top_m"] = round(top, 5)
+        if "brick_above_m" in stone:
+            # T-2914: a front read off its photograph as stone below and brick above (1812's:
+            # its basement and first storey stone, its upper storeys brick banded and dressed
+            # in stone). The line is a storey line, so it is the top of that floor's belt and
+            # the walling over it is brick; the belts, sills, arches, voussoirs and dressed
+            # surrounds stay stone. A quoined corner is stone returned into brick up a
+            # stone front, so it is refused here rather than half laid
+            ba = stone["brick_above_m"]
+            lines = [round(pf + sum(heights[:i]), 4) for i in range(1, len(heights))]
+            if construction == "stone" or not any(abs(ba - f) < 1e-6 for f in lines):
+                raise ParamError(f"stone_front.brick_above_m {ba} must be one of the upper storeys' "
+                                 f"floor lines {lines}, on a brick house with a stone front")
+            if stone["corners"] or "south_return_m" in stone:
+                raise ParamError("stone_front.brick_above_m: a front whose stone stops under brick "
+                                 "names no corner_bond or south_return_m")
     if construction == "stone":
         # T-2788: an all-stone house's corners are its own courses turned, so it names no
         # quoin bond (a quoin is stone returned into brick), and a bay on it is stone or timber

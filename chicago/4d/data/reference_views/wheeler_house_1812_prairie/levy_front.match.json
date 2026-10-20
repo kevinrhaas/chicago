@@ -2,9 +2,9 @@
  "structure_id": "wheeler_house_1812_prairie",
  "view": "levy_front",
  "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
- "glb_sha256": "8c592a09938705f35f8fe3795eed426ad825dddcd0fc4c250383cc3d89a0891c",
+ "glb_sha256": "d02412327c1693f7af292a457453458afa481706d130ddaafdc6c27919aad2d2",
  "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
- "side_by_side": "../../../../../../../../tmp/t2889/pm2/levy_front-side-by-side.jpg",
+ "side_by_side": "../../../../../../../../tmp/t2890/pm/levy_front-side-by-side.jpg",
  "verdict": "differs",
  "differences": [
   {
@@ -92,7 +92,19 @@
    "status": "open"
   },
   {
-   "what": "Fabric: rock-faced stone basement and a stone first storey under brick upper storeys banded and dressed in stone, the carved frieze and bosses; the whole street front is built in stone",
+   "what": "Fabric: a rock-faced stone basement to a smooth water table, the entrance bay's first storey in coursed stone up to the second floor's belt, and brick over it, banded and dressed in stone (the belts, sills, flat arches, voussoirs, the north window's quoined surround); the south projection brick over its rock-faced basement, its bands, sills, heads and reveals stone (T-2914)",
+   "status": "fixed"
+  },
+  {
+   "what": "Fabric: the carved frieze over the second storey's north window and the patterned panel band over it, and the carved bosses under the projection's second-storey jambs, are not built (T-2915)",
+   "status": "open"
+  },
+  {
+   "what": "Fabric: the projection's windows stand in quoined stone jambs with a stone band at the arched window's spring; built as plain brick round the K08 reveals (T-2915)",
+   "status": "open"
+  },
+  {
+   "what": "Tone: the print's stone reads lighter than its brick; the built brown sandstone renders darker than the buff brick beside it (the colours are not shown, the relation is)",
    "status": "open"
   },
   {

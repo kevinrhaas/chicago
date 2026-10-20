@@ -1,0 +1,47 @@
+{
+  "format": "chicago4d_human_graphical_target_recipe_v1",
+  "targets": [
+    {
+      "path": "makehuman/data/targets/macrodetails/caucasian-male-young.target",
+      "sha256": "70e228ba7164737dae664454394536fc5935fa48d333c1a97d77e2dc6eacc5f5",
+      "coefficient": 0.14871794871794872
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/asian-male-young.target",
+      "sha256": "ed2e8c191cb6b87b4a2d97c80486acb2604fa549316c7aa2a738a5d5a14334dc",
+      "coefficient": 0.14871794871794872
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/african-male-young.target",
+      "sha256": "894abc1fbb3d28543a51fef16f89d5d4bdf9aa2e1534413339811a3d47818b7d",
+      "coefficient": 0.14871794871794872
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/caucasian-male-old.target",
+      "sha256": "b0d2b1d58cba0358af59833740e70229265f7da1c20a11240f4123b7192cfd6d",
+      "coefficient": 0.18461538461538463
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/asian-male-old.target",
+      "sha256": "36dc5a3a135ded33885e814806b0e3668ca5bf44bddcebdee48ae75ae68bc3d3",
+      "coefficient": 0.18461538461538463
+    },
+    {
+      "path": "makehuman/data/targets/macrodetails/african-male-old.target",
+      "sha256": "59ec94956b3525dbb30238d1239b2bce52adc3bfae091f12cd85d2570aa1933c",
+      "coefficient": 0.18461538461538463
+    }
+  ],
+  "phenotype": {
+    "sex": "male engineering variant",
+    "chosen_age_years": 61,
+    "age_band_years": [
+      60,
+      61
+    ],
+    "ancestry_status": "unattested; equal technical shape-category blend is an authoring liberty, not resident ethnicity",
+    "age_status": "John J. Glessner was born in 1843; on July 1 1904 the year-only record bounds his age to 60 or 61. Age61 is an authoring choice within that uncertainty, not a recovered birth date.",
+    "likeness_status": "Reconstructed reusable body; not an attested likeness or body measurement"
+  },
+  "basis": "Original interpolation between engineering young25/old90 anchors using pinned CC0 graphical deltas, equally across software shape categories; not an ethnicity or appearance inference. Source target program logic is not copied."
+}
