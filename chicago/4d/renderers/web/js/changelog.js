@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2146, ts: '2026-10-20T23:10:37.302Z', date: 'Oct 20, 2026, 6:10 PM CT', title: '1811 Prairie\'s stone gable gains its great arch', kind: 'feature',
+    items: [
+      'The stone gable over the north bay of the Ames house at 1811 Prairie Avenue now has the great round arch from the 1888 Inland Architect photograph. The arch rises from the cornice, with three small round-arched windows inside it.',
+      'The three square-headed windows under the arch now stand between stone colonnettes. A small arched window sits over the arch\'s crown, and the gable is in the front\'s brown sandstone, dressed smooth, as the photograph shows.',
+      'Not yet as wide as the photograph\'s: the gable is 3 m across, not about 4 m, so the arch is smaller and its moulding plainer, and the carving over it isn\'t built yet. Liberty L-k01-1811-ames-front-2541 records this.',
+    ] },
   { v: 2145, ts: '2026-10-20T23:06:16.326Z', date: 'Oct 20, 2026, 6:06 PM CT', title: 'Quieter and quicker: sound off, faster walks, clearer names', kind: 'change',
     items: [
       'Sound starts off: the ticker, clicks, hum and each destination\'s tone stay quiet until you raise Master in Settings › Sound, and your choice is remembered. Levels you had already changed stay as you set them.',
