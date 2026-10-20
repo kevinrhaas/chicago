@@ -69,6 +69,16 @@ def garden_light(b,o,spec):
         slab(b,o,lo,hi,bottom,top,-.29,-.24,conf,PAINTED_WOOD)
     slab(b,o,a-.04,c+.04,z1,z1+spec['head_m'],-.02,.08,conf,TRIM)
     slab(b,o,a-.04,c+.04,z0-spec['sill_m'],z0,-.02,.08,conf,TRIM)
+    # T-2906: sheet 4 sets the light in a broad dressed-stone panel running to
+    # the post and the drum, from the upper step to above the head.
+    s=spec.get('surround_ft')
+    if s:
+        lo,hi=a-s['u0']*.3048,c+s['u1']*.3048
+        bottom,top=z0-s['below']*.3048,z1+s['above']*.3048
+        for u0,u1,zb,zt in ((lo,hi,bottom,z0-spec['sill_m']),(lo,hi,z1+spec['head_m'],top),
+                            (lo,a,z0-spec['sill_m'],z1+spec['head_m']),
+                            (c,hi,z0-spec['sill_m'],z1+spec['head_m'])):
+            slab(b,o,u0,u1,zb,zt,-.02,.03,conf,TRIM)
     count=spec['bars'];segments=4 if getattr(b,'reduced_sash',False) else 6
     for i in range(1,count+1):
         x,y,_=legacy._plane_point(o,a+(c-a)*i/(count+1),0,-.08)

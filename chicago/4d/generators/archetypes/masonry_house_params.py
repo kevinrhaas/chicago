@@ -940,7 +940,8 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                     window_distance=[[(v-bt["centre_S"])*FT for v in edge] for edge in bt["window_S"]],
                     newel_xy=fr.xy(bt["newel_WS"]), newel_r=bt["newel_radius_ft"]*FT,
                     newel_top=fr.zval(bt["newel_top_z"]), newel_crown=bt["newel_crown_ft"]*FT,
-                    stair_boundaries=[[fr.xy(q) for q in edge] for edge in bt["stair_boundaries_WS"]])
+                    stair_boundaries=[[fr.xy(q) for q in edge] for edge in bt["stair_boundaries_WS"]],
+                    low_tread_tops=[fr.zval(v) for v in bt.get("low_tread_tops_z", [])])
         p.detail["dining_roof_junction"] = raw.get("dining_roof_junction", False)
         p.detail["dining_crested_connection"] = raw.get("dining_crested_connection", False)
         p.detail["continuous_copper_corner"] = raw.get("continuous_copper_corner", False)

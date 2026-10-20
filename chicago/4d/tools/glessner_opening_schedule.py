@@ -121,7 +121,9 @@ def rows(courtyard: bool = False) -> list[dict]:
                     if it.get("style") == "court_garden_grille":
                         grille = v4["value"]["court_garden_grille"]
                         built = (f"recessed dark light behind {grille['bars']} vertical iron bars and "
-                                 f"{len(grille['rail_fractions'])} rails, narrow frame, stone head and sill")
+                                 f"{len(grille['rail_fractions'])} rails, narrow frame, stone head and sill"
+                                 + (", in a broad dressed-stone panel to the post and the drum"
+                                    if grille.get("surround_ft") else ""))
                 elif kind == "window" and not it.get("style") in ("stable_leaded",):
                     built = window_sash(light_w * FT, (z[1] - z[0]) * FT, bool(it.get("grid")))
                     if it.get("grid"):
