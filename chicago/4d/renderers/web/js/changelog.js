@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2129, ts: '2026-10-20T16:31:03.239Z', date: 'Oct 20, 2026, 11:31 AM CT', title: 'Glessner\'s bow hood ends at its wall, over a slimmer gutter', kind: 'fix',
+    items: [
+      'The copper hood over Glessner\'s courtyard bow now ends at the bow\'s wall, where the 1963 HABS section ends it. It used to reach about two-thirds of a foot past the wall.',
+      'The bow\'s gutter takes the drawing\'s section: about 0.3 ft out from the wall and 0.36 ft deep, sitting on the brick with no fascia board, in place of a deeper box hung outside the hood.',
+      'Found on the way: the drawing\'s leader at the bow\'s north end drops about half a foot south of the built one. Filed as T-2939.',
+    ] },
   { v: 2128, ts: '2026-10-20T15:23:49.794Z', date: 'Oct 20, 2026, 10:23 AM CT', title: 'Nothing you can see changed: the robots wait for a run\'s lap', kind: 'chore',
     items: [
       'Nothing you can see changed: the automatic sweeps that update and merge pending changes now leave one alone while a run is already updating it, instead of throwing that run\'s work away.',

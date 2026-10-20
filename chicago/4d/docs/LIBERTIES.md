@@ -27245,6 +27245,11 @@ bright-green colour claim, source-image pixels or baked directional shadows are
 used. Dining-bay seam stock and low laps follow the existing hip and apron,
 without changing their roof geometry, windows or the owner's dark-glass default.
 
+**Revised 2026-10-20 (T-2861):** native sheet 4 ends the hood's copper on the bow wall's drawn face (S38.62,
+plan 39.27; docs/RESEARCH/glessner-hood-T-2861/), so the hood no longer oversails the wall by 0.20 m. Its eave is
+set 0.05 ft past the built wall face, a reconstructed allowance (within the ±0.05 ft reading) that keeps the 45 mm
+drip apron clear of the brick and inside the trough below. The rise, apex and copper stock are unchanged.
+
 **Ticket:** T-2220.
 **Recorded:** 2026-10-14 (T-2220).
 
@@ -27293,6 +27298,13 @@ The shared near-black iron made the head relief unreadable in the first web
 close-up; the separate finish keeps other ironwork unchanged and costs one
 additional material primitive per tier. Light keeps the paths, heads,
 straps and apertures, simplifying only small rolled lips and curved sampling.
+
+**Revised 2026-10-20 (T-2861):** the bow's trough takes native sheet 4's section in place of the shared box:
+its face 0.094 m out from the bow wall and 0.11 m deep (read 0.31 ft out at the drawn south end and 0.35 ft at the
+cut north end, foot at 27.0-27.04 ft under the 27.38 ft eave), with no fascia board under it because none is drawn.
+The section's outline is the drawing's. Its moulding, its 3 mm stock, its back set 35 mm into the wall top and its
+outlet moved to the narrower trough's middle are reconstructed. The court-bow leader under it is unchanged and is
+compared with sheet 4 by T-2939.
 
 **Ticket:** T-2221.
 **Recorded:** 2026-10-14 (T-2221).
