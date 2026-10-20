@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2109, ts: '2026-10-20T08:22:59.372Z', date: 'Oct 20, 2026, 3:22 AM CT', title: '1811 Prairie\'s roofs raised to its 1888 photograph', kind: 'feature',
+    items: [
+      'The Ames house at 1811 Prairie Avenue now has its roofline from the 1888 Inland Architect photograph. Over the north bay stands a stone gable with a finial, a pinnacle at each corner and three lights for the top storey.',
+      'Over the entrance arch, the oriel now ends in a steep slate pyramid with a finial, as in the photograph.',
+      'The main roof is steep, as the photograph shows it, and climbs to about 16 m. The top storey is under the slates, so the stone cornice now runs across the front at the bay\'s height rather than a storey higher.',
+      'Not yet built: the gable\'s arched recess and carving, the pierced balcony on the bay and the open porch. The photograph\'s roof is also more broken than this single ridge. Liberty L-k01-1811-ames-front-2541 records all of these.',
+    ] },
   { v: 2108, ts: '2026-10-20T07:19:11.559Z', date: 'Oct 20, 2026, 2:19 AM CT', title: '1801 Prairie gains its corner porch and sweeping front stair', kind: 'feature',
     items: [
       'The Kimball house\'s open corner porch now stands at the 18th Street end of the front, as J. W. Taylor\'s photograph of about 1895 shows: a round stone arch on each face, the double door inside, and a small stone balcony under the 18th Street arch.',
