@@ -28676,7 +28676,7 @@ the light is on the crown and the bow deeper. The bow's top, 8.7 m, 0.6 m past t
 (the photograph's cornice stands over the build's along the whole front; T-2540 reads it), its back
 closed by the mansard's lower face; the cornice's section is K10's moulded stone one. The balustrade
 0.6 m high in square stone balusters at 0.17 m (1637's south bay's), where the print shows pierced
-quatrefoil panels between posts; T-2922 carves them. The pair's lights are K06's plate-glass casements
+panels between posts; T-2930 pierced them (L-kimball-1801-bow-lattice-2930). The pair's lights are K06's plate-glass casements
 2.0 m clear on a 0.18 m mullion; the print's small leaded glazing in the transom lights is not built.
 **What is not built.** The carved pilasters beside the bay and the pavilion, the windows' moulded
 surrounds and the carved frieze over the principal storey: plain stone here (T-2922). The sheet's
@@ -28686,6 +28686,30 @@ bow's rise and the lights' place round it; a measured drawing would replace ever
 **Ticket:** T-2921 (piece 1 of T-2911).
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-20 (T-2921).
+
+### L-kimball-1801-bow-lattice-2930 — 1801 Prairie's bow balustrade: the print's pierced panels built as a diagonal stone lattice, its straps' section and count reconstructed
+
+**Decision:** the stone balustrade on 1801 Prairie's bowed bay (T-2930, piece 1 of T-2922) takes the
+pierced panels J. W. Taylor's c. 1895 photograph shows (`taylor_c1895_kimball_residence_1801`) in
+place of the square balusters T-2921 stood there. **What is read, not invented.** The panels' posts:
+the print shows one post between the north wall's end (x 1132) and the pavilion's pilaster (x 1231),
+at x 1186-1190, which is where a post a quarter of the way round the bow falls through the solved
+camera (x 1191) and not where one on its crown would (x 1247); so four panels between five posts, the
+southern two hidden from this camera behind the pavilion's pilaster. Each panel is pierced right
+through in a diagonal lattice, two staggered rows of upright diamonds with half-diamonds against the
+coping and the base, about five across a panel (the right one at x 1191-1226, y 537-560 on the
+1600 px print); the coping, the lattice and the base course take about 8, 22 and 6 px of the
+balustrade's 36, so 0.13, 0.37 and 0.10 m of its 0.6 m. **What is invented.** The straps' square
+0.05 m section and their 0.16 m pitch along the bow (chosen so a panel holds the print's five
+diamonds), the posts' plain faces and 0.2 m section, and the panels' depth: the print gives each
+piercing about 5-6 px, which shows the lattice and not its mouldings. T-2922's title called the panels
+quatrefoils; at that size the print cannot tell a quatrefoil piercing from a diamond, and the lattice
+it does show is what is built. The two hidden panels are built as the two seen ones.
+**How to resolve:** a nearer photograph of the front, or a measured
+drawing of the balustrade, would give the piercing's true shape and the straps' section.
+**Ticket:** T-2930 (piece 1 of T-2922).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-20 (T-2930).
 
 ### L-k01-1621-last-drawn-2531 — 1621 Prairie's last drawn differences: the door's ring turned to a curved extrados under a band in a deep recess, the light over it stood on a moulded shelf, and splayed voussoirs over the basement lights, their places read and their sections reconstructed
 
