@@ -35,6 +35,7 @@
 import * as THREE from 'three';
 import { spatialPiecesAsync } from './spatial-batch.js';
 import { castOnlyTowardView } from './shadow-casters.js';
+import { coalesceRuns, COALESCE_ON } from './batch-coalesce.js';
 import { backingTriangles } from './view-occlusion.js';
 import { opaqueConfidenceRange, programKeyOf } from './confidence.js';
 import { seasonPreservesSurface } from './season.js';
@@ -465,6 +466,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   /** T-2600: the building cells being cut on the job pool, awaited after the loop. */
   const partitions = [];
   let totalTris = 0;
+  /** T-2927: whether this build cuts meshes into cells (below), and so joins the
+   *  drawn cells of one mesh back into one draw; and how many draws that saved. */
+  const cutsCells = !!spatialCells || preserveMaterials;
+  const coalesce = { on: cutsCells && COALESCE_ON, joined: 0 };
 
   let completed = 0;
   onProgress(0, registry.size);
@@ -757,6 +762,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // T-2529: at `light`, a piece whose shadow cannot reach the view is left
     // out of the sun's pass (shadow-casters.js); the colour pass is untouched.
     if (shadowCasters) castOnlyTowardView(batch, shadowCasters);
+    // T-2927: where meshes are cut into cells, the drawn cells of one mesh that
+    // touch are drawn as one (batch-coalesce.js): aloft, every cell is in view.
+    if (cutsCells) coalesceRuns(batch, coalesce);
     batch.userData.batchIndex = [];
     // Each instance's dequantize scale, for a reader that needs the structure's
     // frame back off the batch (tools/drawn_placement_census.mjs).
@@ -972,6 +980,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   return {
     group,
     batches,
+    coalesce,
     viewOccluders,
     problems,
     triangles: totalTris,

@@ -160,6 +160,8 @@ step "The black box keeps the page's last steps in local storage, and the next p
   node tools/test_blackbox.mjs
 step "A pick draws only the building batches its ray meets, and a phone's look-around answers from the parts' boxes without drawing (T-2827)" \
   node tools/test_pick_boxes.mjs
+step "The drawn cells of one structure mesh join into one draw, drawing the same triangles with the same instance data (T-2927)" \
+  node tools/test_batch_coalesce.mjs
 step "Read frame pacing is offered only on the dev preview or with ?pacing=read, and reads sd and p95 as measure_walk_frames --live does (T-2732)" \
   node tools/test_pacing_read.mjs
 
@@ -280,6 +282,8 @@ step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
 step "Street travel keeps each pace on its surface and clears buildings (T-2496)" \
   node tools/test_street_travel.mjs
+step "a visitor walks through a building's modelled passage where it clears the eye (T-2943)" \
+  node tools/test_walker_passage.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \
   node tools/test_daybook.mjs
 step "loading library: 160 sourced, phase-local cards (T-1275)" \

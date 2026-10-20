@@ -14,7 +14,9 @@ const source = await readFile(path.join(web, 'js/spatial-batch.js'), 'utf8');
 const jobsURL = pathToFileURL(path.join(web, 'js/jobs/')).href;
 const { spatialBatch, spatialPieces, spatialBatchAsync, spatialPiecesAsync } = await import(
   'data:text/javascript;base64,' + Buffer.from(source.replace("from 'three'", `from '${threeURL}'`)
-    .replaceAll("from './jobs/", `from '${jobsURL}`)).toString('base64'));
+    .replaceAll("from './jobs/", `from '${jobsURL}`)
+    .replace("from './batch-coalesce.js'", `from '${pathToFileURL(path.join(web, 'js/batch-coalesce.js')).href}'`))
+    .toString('base64'));
 
 function triangles(geometry) {
   const attrs = Object.entries(geometry.attributes).sort(([a], [b]) => a.localeCompare(b));
@@ -258,7 +260,8 @@ console.log(`PASS spatial kernel parity: ${fixtures.length} fixtures, ${samples}
   }
   globalThis.Worker = PageWorker;
   const pooledSource = source.replace("from 'three'", `from '${threeURL}'`)
-    .replace("from './jobs/pool.js'", `from '${jobsURL}pool.js?workers'`).replaceAll("from './jobs/", `from '${jobsURL}`);
+    .replace("from './jobs/pool.js'", `from '${jobsURL}pool.js?workers'`).replaceAll("from './jobs/", `from '${jobsURL}`)
+    .replace("from './batch-coalesce.js'", `from '${pathToFileURL(path.join(web, 'js/batch-coalesce.js')).href}'`);
   const pooled = await import('data:text/javascript;base64,' + Buffer.from(pooledSource).toString('base64'));
   const pool = await import(jobsURL + 'pool.js?workers');
   for (const [name, g, cells] of fixtures) {

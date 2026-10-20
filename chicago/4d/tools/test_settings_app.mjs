@@ -12,7 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  TEXT_SCALES, normalTextScale, applyTextScale, SOUND_DEFAULTS, normalVolume, volumeReadout,
+  TEXT_SCALES, normalTextScale, applyTextScale, SOUND_DEFAULTS, soundLevelsFrom, normalVolume, volumeReadout,
   autoChoice, autoLine, onAuto, useAuto, themeOf, wireSettingsApp,
 } from '../renderers/web/js/settings-app.js';
 import { decide } from '../renderers/web/js/device-profile.js';
@@ -94,7 +94,21 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   assert.equal(normalTextScale('1.4'), 1.4);
   assert.equal(normalTextScale(1.5), 1);
   assert.equal(normalTextScale(undefined), 1);
-  assert.deepEqual(SOUND_DEFAULTS, { soundMaster: 1, soundEffects: 1, soundAmbience: 1 }, 'sound is on by default (owner, 2026-10-16)');
+  assert.deepEqual(SOUND_DEFAULTS, { soundMaster: 0, soundEffects: 1, soundAmbience: 1 }, 'sound is off by default: Master at 0 (owner, 2026-10-20, T-2941)');
+  // T-2941: a first visit is silent; the old all-on defaults a whole-object save stored are not
+  // a choice; a level moved off them, or any level once `soundChosen`, is kept.
+  const silent = { soundChosen: false, soundMaster: 0, soundEffects: 1, soundAmbience: 1 };
+  assert.deepEqual(soundLevelsFrom({}), silent, 'a first visit starts muted');
+  assert.deepEqual(soundLevelsFrom(null), silent);
+  assert.deepEqual(soundLevelsFrom({ soundMaster: 1, soundEffects: 1, soundAmbience: 1, fov: 70 }), silent,
+    'the old defaults stored beside another setting are no sound choice');
+  assert.deepEqual(soundLevelsFrom({ soundMaster: 0.5, soundEffects: 1, soundAmbience: 1 }),
+    { soundChosen: true, soundMaster: 0.5, soundEffects: 1, soundAmbience: 1 }, 'a moved Master is kept');
+  assert.deepEqual(soundLevelsFrom({ soundMaster: 1, soundEffects: 1, soundAmbience: 0 }),
+    { soundChosen: true, soundMaster: 1, soundEffects: 1, soundAmbience: 0 }, 'a moved Ambience keeps every level');
+  assert.deepEqual(soundLevelsFrom({ soundChosen: true, soundMaster: 1, soundEffects: 1, soundAmbience: 1 }),
+    { soundChosen: true, soundMaster: 1, soundEffects: 1, soundAmbience: 1 }, 'sound turned on in Settings is remembered');
+  assert.deepEqual(soundLevelsFrom({ soundChosen: true }), { soundChosen: true, ...SOUND_DEFAULTS });
   assert.equal(normalVolume('0.35'), 0.35);
   assert.equal(normalVolume(7), 1);
   assert.equal(normalVolume('x', 0.5), 0.5);
@@ -213,8 +227,15 @@ function fakePage() {
   $('s-detail').fire('change');
   assert.equal($('s-perf-auto').textContent, 'Use Auto');
   // Sound: the levels are read, defaulted and stored; their readouts say Off at nothing.
-  assert.equal($('s-sound-master').value, '1');
+  assert.equal($('s-sound-master').value, '0', 'Master starts at Off (T-2941)');
+  assert.equal($('v-sound-master').textContent, 'Off');
   assert.equal($('v-sound-effects').textContent, '40 %');
+  assert.notEqual(settings.soundChosen, true, 'reading the levels is not choosing them');
+  $('s-sound-master').value = '1';
+  $('s-sound-master').fire('input');
+  assert.equal(settings.soundMaster, 1);
+  assert.equal(JSON.parse(saved.at(-1)).soundChosen, true, 'turning sound on is stored as the visitor\'s choice');
+  assert.deepEqual(soundLevelsFrom(JSON.parse(saved.at(-1))).soundMaster, 1, 'and read back on the next visit');
   $('s-sound-ambience').value = '0';
   $('s-sound-ambience').fire('input');
   assert.equal(settings.soundAmbience, 0);

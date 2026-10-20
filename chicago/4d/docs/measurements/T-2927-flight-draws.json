@@ -1,0 +1,831 @@
+{
+ "ticket": "T-2927",
+ "measured": {
+  "on": "2026-10-20",
+  "build_before": "e9a5bccce",
+  "build_after": "this change (uncommitted at reading)",
+  "machine": "AMD EPYC 7763 \u00d74, Chromium 1194 headless, SwiftShader",
+  "method": "tools/measure_pose_draws.mjs on the published mirror: Read frame pacing's own poses (pacing-read.js SCENE_POSES, poseFrom at t seconds), 375x636 touch viewport, ratio 1 (the owner's Sharpness Low), Scene detail light, Fixed pacing; each frame the page's step(); draws and triangles counted at the WebGL2 call (a multi-draw counted per entry); per layer by hiding its group for one frame and by clearing its casters for one frame. SwiftShader ms are not a phone's and are kept only as relative readings."
+ },
+ "phone_reading_before": {
+  "source": "T-2719, the owner's Read frame pacing, 2026-10-20T12:54:42Z and T-2898 12:59:36Z, iPhone, Chrome iOS, 375x636 at ratio 3, Light, Sharpness Low",
+  "1904_flight_median_ms": {
+   "fixed": 80,
+   "adaptive": 73
+  },
+  "1904_flight_p95_ms": {
+   "fixed": 85,
+   "adaptive": 90
+  },
+  "1904_walk_median_ms": {
+   "fixed": 43,
+   "adaptive": 40
+  },
+  "1835_flight_median_ms": {
+   "fixed": 37,
+   "adaptive": 35
+  }
+ },
+ "before": {
+  "1904_flight": {
+   "scene": "1904",
+   "detail": "light",
+   "rows": [
+    {
+     "t_s": 0,
+     "camera": {
+      "local_e": 1330,
+      "local_n": -3330,
+      "yaw_deg": 0,
+      "altitude_m": 120,
+      "pitch_deg": -30
+     },
+     "gl_draws": 27895,
+     "gl_triangles": 1838360,
+     "canvas_draws": 22413,
+     "sun_map_draws": 5482,
+     "sun_map_triangles": 314080,
+     "renderer_info_calls": 339,
+     "main_thread_step_ms_swiftshader": 76.5,
+     "frame_finish_ms_swiftshader": 4263.2,
+     "joined_entries_since_boot": null,
+     "layers": {
+      "sky": {
+       "draws": 1,
+       "triangles": 12,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "terrain": {
+       "draws": 1442,
+       "triangles": 144924,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "structures": {
+       "draws": 25309,
+       "triangles": 1217299,
+       "sun_draws": 5480,
+       "sun_triangles": 303066
+      },
+      "street-grid": {
+       "draws": 16,
+       "triangles": 50951,
+       "sun_draws": 1,
+       "sun_triangles": 6454
+      },
+      "context": {
+       "draws": 6,
+       "triangles": 82598,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "street-trees": {
+       "draws": 397,
+       "triangles": 16582,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "railway": {
+       "draws": 724,
+       "triangles": 325994,
+       "sun_draws": 1,
+       "sun_triangles": 4560
+      }
+     }
+    }
+   ]
+  },
+  "1904_walk": {
+   "scene": "1904",
+   "detail": "light",
+   "rows": [
+    {
+     "t_s": 0,
+     "camera": {
+      "local_e": 1410.67,
+      "local_n": -3218.2,
+      "yaw_deg": 179.42
+     },
+     "gl_draws": 18389,
+     "gl_triangles": 794833,
+     "canvas_draws": 13941,
+     "sun_map_draws": 4448,
+     "sun_map_triangles": 107334,
+     "renderer_info_calls": 144,
+     "main_thread_step_ms_swiftshader": 59.1,
+     "frame_finish_ms_swiftshader": 3014.2,
+     "joined_entries_since_boot": null,
+     "layers": {
+      "sky": {
+       "draws": 1,
+       "triangles": 12,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "terrain": {
+       "draws": 488,
+       "triangles": 45411,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "structures": {
+       "draws": 15366,
+       "triangles": 122864,
+       "sun_draws": 4418,
+       "sun_triangles": 77196
+      },
+      "street-grid": {
+       "draws": 15,
+       "triangles": 51131,
+       "sun_draws": 1,
+       "sun_triangles": 6454
+      },
+      "context": {
+       "draws": 7,
+       "triangles": 82602,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "street-trees": {
+       "draws": 798,
+       "triangles": 48748,
+       "sun_draws": 28,
+       "sun_triangles": 19124
+      },
+      "railway": {
+       "draws": 749,
+       "triangles": 353772,
+       "sun_draws": 1,
+       "sun_triangles": 4560
+      }
+     }
+    },
+    {
+     "t_s": 8,
+     "camera": {
+      "local_e": 1410.78,
+      "local_n": -3229.4,
+      "yaw_deg": 179.42
+     },
+     "gl_draws": 17707,
+     "gl_triangles": 761587,
+     "canvas_draws": 13750,
+     "sun_map_draws": 3957,
+     "sun_map_triangles": 86767,
+     "renderer_info_calls": 113,
+     "main_thread_step_ms_swiftshader": 58.4,
+     "frame_finish_ms_swiftshader": 3084,
+     "joined_entries_since_boot": null,
+     "layers": {
+      "sky": {
+       "draws": 1,
+       "triangles": 12,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "terrain": {
+       "draws": 509,
+       "triangles": 47511,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "structures": {
+       "draws": 14700,
+       "triangles": 91564,
+       "sun_draws": 3927,
+       "sun_triangles": 56875
+      },
+      "street-grid": {
+       "draws": 15,
+       "triangles": 51131,
+       "sun_draws": 1,
+       "sun_triangles": 6454
+      },
+      "context": {
+       "draws": 7,
+       "triangles": 82602,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "street-trees": {
+       "draws": 781,
+       "triangles": 49394,
+       "sun_draws": 28,
+       "sun_triangles": 18878
+      },
+      "railway": {
+       "draws": 742,
+       "triangles": 350148,
+       "sun_draws": 1,
+       "sun_triangles": 4560
+      }
+     }
+    }
+   ]
+  },
+  "1835_flight": {
+   "scene": "1835",
+   "detail": "light",
+   "rows": [
+    {
+     "t_s": 0,
+     "camera": {
+      "local_e": 60,
+      "local_n": -330,
+      "yaw_deg": 0,
+      "altitude_m": 175,
+      "pitch_deg": -30
+     },
+     "gl_draws": 3485,
+     "gl_triangles": 530131,
+     "canvas_draws": 3418,
+     "sun_map_draws": 67,
+     "sun_map_triangles": 49182,
+     "renderer_info_calls": 74,
+     "main_thread_step_ms_swiftshader": 22.2,
+     "frame_finish_ms_swiftshader": 1822,
+     "joined_entries_since_boot": null,
+     "layers": {
+      "sky": {
+       "draws": 1,
+       "triangles": 12,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "terrain": {
+       "draws": 920,
+       "triangles": 26197,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "structures": {
+       "draws": 524,
+       "triangles": 80585,
+       "sun_draws": 61,
+       "sun_triangles": 12292
+      },
+      "streets": {
+       "draws": 132,
+       "triangles": 36751,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "enclosures": {
+       "draws": 12,
+       "triangles": 34644,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "signage": {
+       "draws": 2,
+       "triangles": 39408,
+       "sun_draws": 1,
+       "sun_triangles": 19704
+      },
+      "yard": {
+       "draws": 4,
+       "triangles": 13906,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "frontage": {
+       "draws": 9,
+       "triangles": 127920,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "wharves": {
+       "draws": 1,
+       "triangles": 1380,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "working_bank": {
+       "draws": 1,
+       "triangles": 3712,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "boats": {
+       "draws": 1,
+       "triangles": 1600,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "flora": {
+       "draws": 12,
+       "triangles": 41897,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "trees": {
+       "draws": 1866,
+       "triangles": 122119,
+       "sun_draws": 5,
+       "sun_triangles": 17186
+      }
+     }
+    }
+   ]
+  }
+ },
+ "after": {
+  "1904_flight": {
+   "scene": "1904",
+   "detail": "light",
+   "rows": [
+    {
+     "t_s": 0,
+     "camera": {
+      "local_e": 1330,
+      "local_n": -3330,
+      "yaw_deg": 0,
+      "altitude_m": 120,
+      "pitch_deg": -30
+     },
+     "gl_draws": 2853,
+     "gl_triangles": 1838360,
+     "canvas_draws": 2455,
+     "sun_map_draws": 398,
+     "sun_map_triangles": 314080,
+     "renderer_info_calls": 339,
+     "main_thread_step_ms_swiftshader": 66.7,
+     "frame_finish_ms_swiftshader": 3840.8,
+     "joined_entries_since_boot": 226997,
+     "layers": {
+      "sky": {
+       "draws": 1,
+       "triangles": 12,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "terrain": {
+       "draws": 74,
+       "triangles": 144924,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "structures": {
+       "draws": 2315,
+       "triangles": 1217299,
+       "sun_draws": 396,
+       "sun_triangles": 303066
+      },
+      "street-grid": {
+       "draws": 16,
+       "triangles": 50951,
+       "sun_draws": 1,
+       "sun_triangles": 6454
+      },
+      "context": {
+       "draws": 6,
+       "triangles": 82598,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "street-trees": {
+       "draws": 397,
+       "triangles": 16582,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "railway": {
+       "draws": 44,
+       "triangles": 325994,
+       "sun_draws": 1,
+       "sun_triangles": 4560
+      }
+     }
+    },
+    {
+     "t_s": 7.5,
+     "camera": {
+      "local_e": 1420,
+      "local_n": -3330,
+      "yaw_deg": 0,
+      "altitude_m": 120,
+      "pitch_deg": -30
+     },
+     "gl_draws": 2931,
+     "gl_triangles": 2022788,
+     "canvas_draws": 2555,
+     "sun_map_draws": 376,
+     "sun_map_triangles": 410759,
+     "renderer_info_calls": 364,
+     "main_thread_step_ms_swiftshader": 72.9,
+     "frame_finish_ms_swiftshader": 3846.2,
+     "joined_entries_since_boot": 1146919,
+     "layers": {
+      "sky": {
+       "draws": 1,
+       "triangles": 12,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "terrain": {
+       "draws": 70,
+       "triangles": 146647,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "structures": {
+       "draws": 2434,
+       "triangles": 1371654,
+       "sun_draws": 358,
+       "sun_triangles": 389469
+      },
+      "street-grid": {
+       "draws": 15,
+       "triangles": 50941,
+       "sun_draws": 1,
+       "sun_triangles": 6454
+      },
+      "context": {
+       "draws": 6,
+       "triangles": 82598,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "street-trees": {
+       "draws": 360,
+       "triangles": 26874,
+       "sun_draws": 16,
+       "sun_triangles": 10276
+      },
+      "railway": {
+       "draws": 45,
+       "triangles": 344062,
+       "sun_draws": 1,
+       "sun_triangles": 4560
+      }
+     }
+    },
+    {
+     "t_s": 15,
+     "camera": {
+      "local_e": 1510,
+      "local_n": -3330,
+      "yaw_deg": 0,
+      "altitude_m": 120,
+      "pitch_deg": -30
+     },
+     "gl_draws": 2143,
+     "gl_triangles": 1380351,
+     "canvas_draws": 1902,
+     "sun_map_draws": 241,
+     "sun_map_triangles": 79537,
+     "renderer_info_calls": 280,
+     "main_thread_step_ms_swiftshader": 56.1,
+     "frame_finish_ms_swiftshader": 3373.1,
+     "joined_entries_since_boot": 2111514,
+     "layers": {
+      "sky": {
+       "draws": 1,
+       "triangles": 12,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "terrain": {
+       "draws": 67,
+       "triangles": 149930,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "structures": {
+       "draws": 1752,
+       "triangles": 717271,
+       "sun_draws": 221,
+       "sun_triangles": 56237
+      },
+      "street-grid": {
+       "draws": 15,
+       "triangles": 50941,
+       "sun_draws": 1,
+       "sun_triangles": 6454
+      },
+      "context": {
+       "draws": 6,
+       "triangles": 82598,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "street-trees": {
+       "draws": 255,
+       "triangles": 24102,
+       "sun_draws": 18,
+       "sun_triangles": 12286
+      },
+      "railway": {
+       "draws": 47,
+       "triangles": 355497,
+       "sun_draws": 1,
+       "sun_triangles": 4560
+      }
+     }
+    }
+   ]
+  },
+  "1904_walk": {
+   "scene": "1904",
+   "detail": "light",
+   "rows": [
+    {
+     "t_s": 0,
+     "camera": {
+      "local_e": 1410.67,
+      "local_n": -3218.2,
+      "yaw_deg": 179.42
+     },
+     "gl_draws": 2406,
+     "gl_triangles": 794833,
+     "canvas_draws": 1996,
+     "sun_map_draws": 410,
+     "sun_map_triangles": 107334,
+     "renderer_info_calls": 144,
+     "main_thread_step_ms_swiftshader": 54.8,
+     "frame_finish_ms_swiftshader": 2647.6,
+     "joined_entries_since_boot": 169333,
+     "layers": {
+      "sky": {
+       "draws": 1,
+       "triangles": 12,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "terrain": {
+       "draws": 115,
+       "triangles": 45411,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "structures": {
+       "draws": 1467,
+       "triangles": 122864,
+       "sun_draws": 380,
+       "sun_triangles": 77196
+      },
+      "street-grid": {
+       "draws": 15,
+       "triangles": 51131,
+       "sun_draws": 1,
+       "sun_triangles": 6454
+      },
+      "context": {
+       "draws": 7,
+       "triangles": 82602,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "street-trees": {
+       "draws": 798,
+       "triangles": 48748,
+       "sun_draws": 28,
+       "sun_triangles": 19124
+      },
+      "railway": {
+       "draws": 54,
+       "triangles": 353772,
+       "sun_draws": 1,
+       "sun_triangles": 4560
+      }
+     }
+    },
+    {
+     "t_s": 8,
+     "camera": {
+      "local_e": 1410.78,
+      "local_n": -3229.4,
+      "yaw_deg": 179.42
+     },
+     "gl_draws": 2230,
+     "gl_triangles": 761587,
+     "canvas_draws": 1883,
+     "sun_map_draws": 347,
+     "sun_map_triangles": 86767,
+     "renderer_info_calls": 113,
+     "main_thread_step_ms_swiftshader": 48.2,
+     "frame_finish_ms_swiftshader": 3001.8,
+     "joined_entries_since_boot": 689967,
+     "layers": {
+      "sky": {
+       "draws": 1,
+       "triangles": 12,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "terrain": {
+       "draws": 115,
+       "triangles": 47511,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "structures": {
+       "draws": 1310,
+       "triangles": 91564,
+       "sun_draws": 317,
+       "sun_triangles": 56875
+      },
+      "street-grid": {
+       "draws": 15,
+       "triangles": 51131,
+       "sun_draws": 1,
+       "sun_triangles": 6454
+      },
+      "context": {
+       "draws": 7,
+       "triangles": 82602,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "street-trees": {
+       "draws": 781,
+       "triangles": 49394,
+       "sun_draws": 28,
+       "sun_triangles": 18878
+      },
+      "railway": {
+       "draws": 50,
+       "triangles": 350148,
+       "sun_draws": 1,
+       "sun_triangles": 4560
+      }
+     }
+    }
+   ]
+  },
+  "1835_flight": {
+   "scene": "1835",
+   "detail": "light",
+   "rows": [
+    {
+     "t_s": 0,
+     "camera": {
+      "local_e": 60,
+      "local_n": -330,
+      "yaw_deg": 0,
+      "altitude_m": 175,
+      "pitch_deg": -30
+     },
+     "gl_draws": 2591,
+     "gl_triangles": 530131,
+     "canvas_draws": 2524,
+     "sun_map_draws": 67,
+     "sun_map_triangles": 49182,
+     "renderer_info_calls": 74,
+     "main_thread_step_ms_swiftshader": 13.5,
+     "frame_finish_ms_swiftshader": 1527.1,
+     "joined_entries_since_boot": 0,
+     "layers": {
+      "sky": {
+       "draws": 1,
+       "triangles": 12,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "terrain": {
+       "draws": 60,
+       "triangles": 26197,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "structures": {
+       "draws": 524,
+       "triangles": 80585,
+       "sun_draws": 61,
+       "sun_triangles": 12292
+      },
+      "streets": {
+       "draws": 98,
+       "triangles": 36751,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "enclosures": {
+       "draws": 12,
+       "triangles": 34644,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "signage": {
+       "draws": 2,
+       "triangles": 39408,
+       "sun_draws": 1,
+       "sun_triangles": 19704
+      },
+      "yard": {
+       "draws": 4,
+       "triangles": 13906,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "frontage": {
+       "draws": 9,
+       "triangles": 127920,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "wharves": {
+       "draws": 1,
+       "triangles": 1380,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "working_bank": {
+       "draws": 1,
+       "triangles": 3712,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "boats": {
+       "draws": 1,
+       "triangles": 1600,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "flora": {
+       "draws": 12,
+       "triangles": 41897,
+       "sun_draws": 0,
+       "sun_triangles": 0
+      },
+      "trees": {
+       "draws": 1866,
+       "triangles": 122119,
+       "sun_draws": 5,
+       "sun_triangles": 17186
+      }
+     }
+    }
+   ]
+  }
+ },
+ "after_with_coalesce_0": {
+  "1904_flight": {
+   "scene": "1904",
+   "detail": "light",
+   "rows": [
+    {
+     "t_s": 0,
+     "camera": {
+      "local_e": 1330,
+      "local_n": -3330,
+      "yaw_deg": 0,
+      "altitude_m": 120,
+      "pitch_deg": -30
+     },
+     "gl_draws": 27895,
+     "gl_triangles": 1838360,
+     "canvas_draws": 22413,
+     "sun_map_draws": 5482,
+     "sun_map_triangles": 314080,
+     "renderer_info_calls": 339,
+     "main_thread_step_ms_swiftshader": 57.1,
+     "frame_finish_ms_swiftshader": 4139.5,
+     "joined_entries_since_boot": 0,
+     "layers": {}
+    },
+    {
+     "t_s": 7.5,
+     "camera": {
+      "local_e": 1420,
+      "local_n": -3330,
+      "yaw_deg": 0,
+      "altitude_m": 120,
+      "pitch_deg": -30
+     },
+     "gl_draws": 32824,
+     "gl_triangles": 2022788,
+     "canvas_draws": 24850,
+     "sun_map_draws": 7974,
+     "sun_map_triangles": 410759,
+     "renderer_info_calls": 364,
+     "main_thread_step_ms_swiftshader": 86.4,
+     "frame_finish_ms_swiftshader": 5096.8,
+     "joined_entries_since_boot": 0,
+     "layers": {}
+    },
+    {
+     "t_s": 15,
+     "camera": {
+      "local_e": 1510,
+      "local_n": -3330,
+      "yaw_deg": 0,
+      "altitude_m": 120,
+      "pitch_deg": -30
+     },
+     "gl_draws": 19993,
+     "gl_triangles": 1380351,
+     "canvas_draws": 18074,
+     "sun_map_draws": 1919,
+     "sun_map_triangles": 79537,
+     "renderer_info_calls": 280,
+     "main_thread_step_ms_swiftshader": 49.8,
+     "frame_finish_ms_swiftshader": 3852,
+     "joined_entries_since_boot": 0,
+     "layers": {}
+    }
+   ]
+  }
+ }
+}
