@@ -439,6 +439,30 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         a1 = math.atan2(fr.y(bow["to"][1]) - cy, fr.x(bow["to"][0]) - cx)
         hb = val("hall_bow_height") or {}
         roof = val("hall_bow_roof") or {}
+        lo_a, hi_a = sorted((a0, a1))
+        if hi_a - lo_a > math.pi:
+            lo_a, hi_a = hi_a, lo_a + 2 * math.pi
+
+        def on_arc(s):
+            # T-2925: an elevation draws a light on the bow as its extent along S, so
+            # a reading [S0, S1] is carried back onto the arc it was projected from.
+            t = (fr.y(s) - cy) / (float(bow["r_ft"]) * FT)
+            if abs(t) > 1:
+                raise ParamError(f"hall bow: S {s} lies beyond the bow's radius")
+            for a in (math.asin(t), math.pi - math.asin(t)):
+                for k in (-1, 0, 1):
+                    if lo_a - 1e-6 <= a + 2 * math.pi * k <= hi_a + 1e-6:
+                        return a + 2 * math.pi * k
+            raise ParamError(f"hall bow: S {s} is not on the bow's arc")
+
+        def span(s0, s1):
+            return sorted((round(on_arc(s0), 5), round(on_arc(s1), 5)))
+        light_spans = [[dict(zip(("a0", "a1"), span(*l["S"])), door=bool(l.get("door")))
+                        for l in row] for row in hb.get("lights_S", [])]
+        if light_spans and len(light_spans) != len(hb.get("light_rows", [])):
+            raise ParamError("hall bow: lights_S needs one row of lights per light row")
+        courses = [dict(zip(("a0", "a1"), span(*c["S"])), z0=fr.zval(c["z"][0]), z1=fr.zval(c["z"][1]))
+                   for c in hb.get("stone_courses", [])]
         p.bows.append({
             "name": "hall_bow", "cx": cx, "cy": cy,
             "r": round(float(bow["r_ft"]) * FT, 4),
@@ -446,6 +470,8 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             "wall_top_z": fr.zval(hb.get("wall_top", 0.0)),
             "light_rows": [[fr.zval(r[0]), fr.zval(r[1])] for r in hb.get("light_rows", [])],
             "lights_per_row": int(hb.get("lights_per_row", 0)),
+            "light_spans": light_spans,
+            "courses": courses,
             "roof_rise_m": round(float(roof.get("rise_ft", 4.0)) * FT, 4),
             "roof_colour": roof.get("colour", "copper"),
             "conf_wall": cf("hall_bow", "hall_bow_height"),
@@ -926,6 +952,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 for w in tw.get("slits", []) + tw.get("lantern", [])],
                 "bands": [[fr.z(v) for v in tw[key]] for key in
                           ("lantern_sill_band_z", "lantern_lintel_band_z") if key in tw]}
+            if tw.get("slit_stones_ft"):
+                st = tw["slit_stones_ft"]
+                p.detail["tower_stair_windows"]["slit_stones_m"] = tuple(
+                    round(float(st[k]) * FT, 4) for k in ("head", "sill", "side"))
         bt = raw.get("bow_terrace")
         if bt:
             p.detail["bow_terrace"] = {"cx": fr.x(bt["centre_W"]), "cy": fr.y(bt["centre_S"]),
