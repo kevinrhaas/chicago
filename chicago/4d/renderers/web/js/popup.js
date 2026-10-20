@@ -976,11 +976,13 @@ function headHtml(s, record, called, p, place) {
   if (s.review_required === true) flags.push(heldFlagHtml(s));
   const flagBlock = flags.length ? `<div class="pop-flags">${flags.join('')}</div>` : '';
 
-  return `<div class="pop-head">
-    <div class="pop-title-row">
+  // The title row sits outside .pop-head so it can stay pinned for the card's whole
+  // scroll (T-2954): a sticky box only sticks inside its own parent.
+  return `<div class="pop-title-row">
       <h2>${escapeHtml(opening.title)}</h2>
       <button class="pop-close" type="button" data-close aria-label="Close" title="Close (Esc)"><span class="pop-close-x" aria-hidden="true">×</span><span class="pop-close-label">Close</span><kbd class="pop-close-key" aria-hidden="true">Esc</kbd></button>
     </div>
+    <div class="pop-head">
     ${s.id === 'glessner_house' ? `<p><a href="${new URL('../glessner-baseline.html', import.meta.url).href}" target="_blank" rel="noopener">Photographic comparison baseline ↗</a></p>` : ''}
     ${aka}
     ${kindLine}
