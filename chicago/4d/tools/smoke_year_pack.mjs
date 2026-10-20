@@ -11,7 +11,7 @@
  * laid out: production at /4d/ and the dev preview at /4d/dev/ (the same tree,
  * as deploy.yml copies it). Every part fails on any page error.
  *
- *   keep    a visitor taps "Keep 1835 on this device" on the welcome; every file
+ *   keep    a visitor opens "Offline copy" on the welcome and downloads; every file
  *           of the pack is fetched once and kept. Then the browser goes offline
  *           AND the server stops answering, the page reloads, the town boots and
  *           walks — with zero requests reaching the server. A dev-preview file is
@@ -32,7 +32,7 @@ import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { hashOf, swText } from './write_year_packs.mjs';
+import { hashOf, swText, NETWORK_FIRST } from './write_year_packs.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const SITE = path.resolve(here, '../../../site/4d');
@@ -113,6 +113,8 @@ const keep = async (page, label) => {
   if (SHOTS) await page.screenshot({ path: path.join(SHOTS, `${label}-offer.png`) });
   const before = hits.length;
   const t = Date.now();
+  // T-2947: the control is a small line that opens its explanation; the download is inside.
+  await page.click('.welcome-pack-toggle');
   await page.click('.welcome-pack-keep');
   if (SHOTS) {
     await page.waitForFunction(() => document.getElementById('welcome-pack').dataset.state === 'downloading');
@@ -181,9 +183,13 @@ try {
     const state = await page.evaluate(() => window.__chicago4d.pack.ready.then((s) => s.status));
     check(`${label} offline: the welcome says the year is kept`, state === 'kept', state);
     await enterAndWalk(page, `${label} offline`);
-    // The one request allowed out is the browser's own check for a newer sw.js, made
-    // on navigation whatever the page does; it fails, and the kept worker carries on.
-    const out = hits.slice(before).filter((u) => u.split('?')[0] !== '/4d/sw.js');
+    // The requests allowed out: the browser's own check for a newer sw.js, made on
+    // navigation whatever the page does, and the NETWORK_FIRST files (build.json carries
+    // the kill switch), which sw.js tries online before answering from the pack. Both
+    // fail here and the kept pack carries on. (The worker's fetches are not covered by
+    // setOffline, so the server sees the attempt; it was red on dev for this, T-2947.)
+    const allowed = new Set(['/4d/sw.js', ...NETWORK_FIRST.map((rel) => `/4d/${rel}`)]);
+    const out = hits.slice(before).filter((u) => !allowed.has(u.split('?')[0]));
     check(`${label} offline: no request for the town reached the server`, out.length === 0,
       `${out.length} did: ${out.slice(0, 5).join(', ')}`);
     const devServed = await page.evaluate(async () => {

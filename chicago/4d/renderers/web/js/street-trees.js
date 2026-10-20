@@ -14,7 +14,7 @@
  * would drift from the first — at the height a planted street elm grows to. A
  * few crowns are grown once and INSTANCED (tree-instances.js: each tree turned
  * and scaled on its own spot, at three levels by distance, culled per tree in
- * the view and the sun, shadows only within 100 m), because a
+ * the view and the sun, every one in the sun's box casting, T-2948), because a
  * street file of planted elms is a few hundred trees of one age and a merged
  * buffer of four hundred unique crowns costs a phone tens of megabytes for no
  * difference anyone can see at a walk.
@@ -101,8 +101,17 @@ const STREET_LEVELS = {
 const CONTEXT_LOD_K = 1.5;
 /** The parkway elm's middle height: a background tree's own height scales it. */
 const ELM_MID_H = 20;
-/** Only the elms this close cast shadows (the T-2493 ring was 100 m). */
-const SHADOW_NEAR_M = 32;
+/**
+ * T-2948 — EVERY ELM IN THE SUN'S BOX CASTS, and a level change dissolves.
+ * T-2743 let only the elms within 32 m cast, and the owner walking south down
+ * Prairie (2026-10-20) saw the street's shade stop 32 m ahead and pop in as he
+ * came on; past it the far set now casts too, with its coarse crowns, out to the
+ * sun's own box (world.js SHADOW_REACH_M). The fine set's edge is put on the mid
+ * ring's, so a stem changes set and level in one step, and every step is a
+ * FADE_S dissolve (tree-instances.js) rather than the frame where a crown's
+ * leaves popped in.
+ */
+const FADE_S = 0.8;
 
 /** T-2743: the Season setting's crowns, as the grown elm's leaf cover. Spring is
  *  just leafing (a few small pale tufts), fall a thinner yellow crown, winter bare
@@ -191,7 +200,7 @@ export async function createStreetTrees({
   const uWind = { value: 0 };
   const mats = await createGrownTreeMaterials({
     assetBase: resolveBases().assetBase, uWind, confidence, patchWind: patchTreeWind,
-    lowSpec: lowSpec || detail === 'light', alphaCutoff: TREE_ALPHA_CUTOFF, problems,
+    lowSpec: lowSpec || detail === 'light', alphaCutoff: TREE_ALPHA_CUTOFF, problems, fade: true,
   });
 
   /* ---- where each tree stands ------------------------------------------- */
@@ -212,8 +221,9 @@ export async function createStreetTrees({
     // them at its record's smaller scale. Each variant is a megabyte and more of
     // geometry, and a parkway of one age is the case where siblings read true.
     const spec = elmSpec(wantMode);
-    const grown = new TreeInstances({ level: wantDetail, shadowM: SHADOW_NEAR_M, name: 'street-trees',
-      variants: () => Math.min(variants, 3), levels: STREET_LEVELS });
+    const rings = STREET_LEVELS[wantDetail] ?? STREET_LEVELS.full;
+    const grown = new TreeInstances({ level: wantDetail, shadowM: rings.mid, name: 'street-trees',
+      variants: () => Math.min(variants, 3), levels: STREET_LEVELS, fadeS: FADE_S, castFar: true });
     for (const p of placed) {
       const sc = p.t.scale ?? 1;
       p.h = grown.add(spec, p.t.e, p.y, -p.t.n, sc,
@@ -237,10 +247,12 @@ export async function createStreetTrees({
   out.update = (dt, camera = null) => {
     wind += dt || 0; uWind.value = wind;
     if (camera && forest) {
-      forest.update(camera.position);
+      forest.update(camera.position, dt || 0);
       stats.triangles = forest.stats.triangles;
     }
   };
+  /** Finish every dissolve at once (a still frame for a reading or a shot). */
+  out.settle = () => { forest?.settle(); };
   out.setMode = async (m) => {
     if (!STREET_TREE_MODES.includes(m) || m === current.mode) return;
     await build(m, current.detail);

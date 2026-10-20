@@ -137,7 +137,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       } else {
         // T-2631: the outing in progress, pinned on top — where you are and what comes next.
         const stops = session.jaunt.stops ?? [], at = session.stopIndex, next = stops[at + 1];
-        const label = stop => destinations.byId(stop.destination.kind, stop.destination.id)?.label || 'the next stop';
+        const label = stop => session.jaunt.places?.[stop.destination.id] || destinations.byId(stop.destination.kind, stop.destination.id)?.label || 'the next stop';
         note.classList.add('jaunt-continue'); note.dataset.continue = session.jaunt.id;
         const go = button('Continue', () => { menu.capture(); onResume(); }); go.dataset.action = 'continue';
         note.append(node('p', `Continue · Stop ${at + 1} of ${stops.length || at + 1}`, 'jaunt-continue-k'), node('h3', session.jaunt.title),
@@ -178,7 +178,8 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       for (const stop of content.stops) {
         const item = node('li', '');
         const place = destinations.byId(stop.destination.kind, stop.destination.id);
-        item.append(node('h4', place?.label || stop.destination.id), node('p', stop.text));
+        // T-2946: the jaunt's own name for the stop, as its panel and road notes give it.
+        item.append(node('h4', content.places?.[stop.destination.id] || place?.label || stop.destination.id), node('p', stop.text));
         if (stop.choices?.length) item.append(node('p', `Optional preference: ${stop.choices.map(c => c.label).join(' / ')}. You may also skip it.`, 'jaunt-meta'));
         const evidence = node('div', '', 'jaunt-evidence'); evidence.hidden = true;
         for (const id of stop.evidence) {
