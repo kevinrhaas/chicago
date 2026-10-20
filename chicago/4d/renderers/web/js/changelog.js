@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2124, ts: '2026-10-20T15:10:09.291Z', date: 'Oct 20, 2026, 10:10 AM CT', title: 'Nothing you can see changed: how smoothly 1904 runs on a phone', kind: 'chore',
+    items: [
+      'Nothing you can see changed. We timed a walk down Prairie Avenue in 1904 on a real phone, at the lightest detail.',
+      'Walking draws about 23 to 25 frames a second there. Flying over 1904 is the slowest part, at about 13, and making it faster is now on the list.',
+    ] },
   { v: 2123, ts: '2026-10-20T14:52:18.198Z', date: 'Oct 20, 2026, 9:52 AM CT', title: 'Glessner\'s courtyard: the wing over the carriage passage, built to its drawing', kind: 'change',
     items: [
       'The four windows above the passage out of the courtyard now stand where the 1963 measured drawing puts them. They are paired under long stone courses, not small separate lintels and sills.',
