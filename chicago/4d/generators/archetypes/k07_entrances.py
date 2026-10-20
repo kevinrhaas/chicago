@@ -476,6 +476,55 @@ class Entrance(Opening):
             self._terrace(q, side, deck + (p["cheek"]["thickness_m"] if cheeks else 0.0), deck, L, R)
         if st.get("balustrade"):
             self._stoop_balustrade(st["balustrade"], psides, half, L, F, n, r, g, R, c)
+        if st.get("veranda"):
+            spans = [(c - half, c + half)] + [
+                (c + half, q["to_s_m"]) if side > 0 else (-q["to_s_m"], c - half)
+                for q, side in zip(porches, psides)]
+            if any(q.get("out_m", L) > L for q in porches):
+                raise ValueError("a veranda stands on a deck one depth: its terraces take no out_m")
+            self._veranda(st["veranda"], spans, c, half, L)
+
+    # T-2933: a timber veranda over the landing and its terraces (1736's, the c. 1890 photograph)
+    def _veranda(self, V, spans, c, half, L):
+        """Square posts on the deck's front edge at `posts_s_m` (from the door's centre), a
+        beam over them the deck's whole run, and a hipped lean-to roof from the wall out past
+        the beam: its soffit flat at the beam's top, a fascia round its three open sides and
+        its top rising `rise_m` to a ridge on the wall, hipped at both ends at the front's
+        pitch. A post stands on the deck (a terrace or the landing) and never in the flight's
+        mouth, so the stair comes up between two of them."""
+        ps, ph, inset = V["post_m"], V["height_m"], V["inset_m"]
+        bw, bh = V["beam_m"]
+        ov, rise, t = V["roof"]["overhang_m"], V["roof"]["rise_m"], V["roof"]["thickness_m"]
+        sa, sb = min(a for a, _ in spans), max(b for _, b in spans)
+        oc = L - inset - ps / 2
+        for i, x in enumerate(V["posts_s_m"]):
+            a, b = x - ps / 2, x + ps / 2
+            if not any(s0 - 1e-6 <= a and b <= s1 + 1e-6 for s0, s1 in spans):
+                raise ValueError(f"veranda post {i + 1} at s {x:+.3f} does not stand on the deck {spans}")
+            if a < c + half - 1e-6 and b > c - half + 1e-6:
+                raise ValueError(f"veranda post {i + 1} at s {x:+.3f} stands in the flight's mouth "
+                                 f"(s {c - half:+.3f}..{c + half:+.3f})")
+            self._box("post", a, b, 0.0, ph, oc - ps / 2, oc + ps / 2, skip=("bottom", "top"))
+            self.probe(x, ph / 2, oc + ps / 2, ("post",), f"veranda post {i + 1}")
+        yb0, yb1 = ph, ph + bh
+        self._box("beam", sa, sb, yb0, yb1, oc - bw / 2, oc + bw / 2, skip=("top",))
+        # the roof: soffit, fascia, the front slope and a hip at each end, closed on the wall
+        Lo = oc + bw / 2 + ov
+        ra, rb = sa - ov, sb + ov
+        if rb - ra < 2 * Lo:
+            raise ValueError(f"a veranda {rb - ra:.2f} m long and {Lo:.2f} m deep has no ridge to hip")
+        ye, yt, yr = yb1, yb1 + t, yb1 + t + rise
+        down = (0.0, -1.0, 0.0)
+        self.quad("porch_roof", [(ra, ye, 0), (rb, ye, 0), (rb, ye, Lo), (ra, ye, Lo)], down)
+        self.quad("porch_roof", [(ra, ye, Lo), (rb, ye, Lo), (rb, yt, Lo), (ra, yt, Lo)], OUT)
+        for xx, hx in ((ra, -1.0), (rb, 1.0)):
+            self.quad("porch_roof", [(xx, ye, 0), (xx, ye, Lo), (xx, yt, Lo), (xx, yt, 0)], (hx, 0.0, 0.0))
+        self.quad("porch_roof", [(ra, yt, Lo), (rb, yt, Lo), (rb - Lo, yr, 0), (ra + Lo, yr, 0)], (0.0, Lo, rise))
+        self.quad("porch_roof", [(ra, yt, 0), (ra, yt, Lo), (ra + Lo, yr, 0)], (-rise, Lo, 0.0))
+        self.quad("porch_roof", [(rb, yt, 0), (rb, yt, Lo), (rb - Lo, yr, 0)], (rise, Lo, 0.0))
+        self.probe((ra + rb) / 2, ye, Lo / 2, ("porch_roof",), "the veranda's soffit")
+        self.meta["veranda"] = {"posts_s_m": list(V["posts_s_m"]), "post_top_m": ph, "beam_y_m": [yb0, yb1],
+                                "roof_y_m": [ye, yr], "extent_s": [ra, rb], "extent_out_m": round(Lo, 4)}
 
     # T-2530: a side stoop (1621's, the Building Budget drawing's) ------------------------
     def _side_stoop(self):
