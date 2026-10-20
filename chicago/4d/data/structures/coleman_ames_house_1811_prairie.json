@@ -606,14 +606,6 @@
             },
             "v_m": 3.6,
             "wall_gable": {
-              "voussoirs": {
-                "ring_m": 0.15,
-                "proud_m": 0.04
-              },
-              "panel": {
-                "inset_m": 0.25,
-                "depth_m": 0.08
-              },
               "pinnacles": {
                 "at_m": 1.85,
                 "shaft_m": 0.3,
@@ -625,6 +617,49 @@
               "finial": {
                 "height_m": 0.6,
                 "radius_m": 0.1
+              },
+              "face_fabric": "front_stone",
+              "arch": {
+                "radius_m": 1.15,
+                "drop_m": 0.3,
+                "ring_m": 0.16,
+                "proud_m": 0.05,
+                "depth_m": 0.1,
+                "stones": 15,
+                "lights": [
+                  {
+                    "at_m": -0.72,
+                    "sill_m": 0.06,
+                    "width_m": 0.34,
+                    "height_m": 0.38
+                  },
+                  {
+                    "at_m": 0.0,
+                    "sill_m": 0.06,
+                    "width_m": 0.36,
+                    "height_m": 0.52
+                  },
+                  {
+                    "at_m": 0.72,
+                    "sill_m": 0.06,
+                    "width_m": 0.34,
+                    "height_m": 0.38
+                  }
+                ],
+                "colonnettes": {
+                  "at_m": [
+                    -1.39,
+                    -0.525,
+                    0.525,
+                    1.39
+                  ],
+                  "radius_m": 0.055
+                },
+                "crown_light": {
+                  "sill_m": 1.15,
+                  "width_m": 0.24,
+                  "height_m": 0.36
+                }
               }
             }
           },
@@ -632,7 +667,7 @@
           "sources": [
             "inland_architect_1888_10_ames_residence"
           ],
-          "note": "T-2542: the north bay's STONE GABLE, read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json), built as K01's wall gable (T-2428) on the street wall's plane over the bay, behind the balcony on its deck: centred on the bay (v 3.6); its rake's foot at about 10.2 m and its apex at about 13.2 m with a finial (x 192 px), so a face standing 1.95 m over the 9.14 m eave datum, 3.0 m across and pitched 55 degrees: its pediment's cornice at about 10.1-10.3 m and its apex at about 13.1 m; the third storey's three lights between their colonnettes, about 9.0-9.9 m and about 0.45 m wide on the plate, built at the wall gable's narrowest sash (0.5 m) 1.05 m apart, at T-2541's centres, 9.39-10.29 m (0.4 m high: a wall gable's face stands on the eave datum and its lights 0.25 m over it); a pinnacle either side at the bay's corners (x about 120 and 285 px, 3.7 m apart) rising to about 12 m under a pyramid. Reconstructed: the face's 3.0 m width (the plate's rake runs past the pinnacles' inner faces; K01 keeps each shaft clear of the face's cornice return), the pinnacles' square plan and pyramid tops (the plate's are carved and scaled), the panel, the lights' sash, and the voussoirs over flat heads where the plate shows plain lintels under the gable's great arched recess with its three small round-arched lights, which stays open on the match record for T-1892 (L-k01-1811-ames-front-2541)."
+          "note": "T-2542: the north bay's STONE GABLE, read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json), built as K01's wall gable (T-2428) on the street wall's plane over the bay, behind the balcony on its deck: centred on the bay (v 3.6); its rake's foot at about 10.2 m and its apex at about 13.2 m with a finial (x 192 px), so a face standing 1.95 m over the 9.14 m eave datum, 3.0 m across and pitched 55 degrees: its pediment's cornice at about 10.1-10.3 m and its apex at about 13.1 m; the third storey's three lights between their colonnettes, about 9.0-9.9 m and about 0.45 m wide on the plate, built at the wall gable's narrowest sash (0.5 m) 1.05 m apart, at T-2541's centres, 9.39-10.29 m (0.4 m high: a wall gable's face stands on the eave datum and its lights 0.25 m over it); a pinnacle either side at the bay's corners (x about 120 and 285 px, 3.7 m apart) rising to about 12 m under a pyramid. T-2936: the face is the plate's GREAT ARCH (`arch`): a ring of fifteen voussoirs rising from the pediment's horizontal cornice, which reads as the plate's lintel over the lights, its centre 0.3 m under the cornice's top because the plate's ring is still curving where the lintel meets it (half-span about 1.2 m and rise about 0.9 m over the lintel on the plate); a 1.15 m intrados and a 0.16 m ring, the most the raking cornice leaves room for on a 3.0 m face; the tympanum recessed 0.1 m with three round-arched lights, the middle one taller (the plate's at x about 163, 199 and 235 px, about 0.82 m apart and 0.42 m wide at the plate's 4 m width, built 0.72 m apart and 0.34-0.36 m wide to stand inside the narrower arch); four colonnettes beside and between the flat-headed lights, which carry no voussoirs; a small round-arched light over the crown (the plate's at about 195, 262-282 px); and the face in the front's own brown sandstone, dressed smooth (`face_fabric`). Reconstructed: the face's 3.0 m width (the plate's rake runs past the pinnacles' inner faces; K01 keeps each shaft clear of the face's cornice return; T-2937), the ring's depth and its plain voussoirs (the plate's archivolt is moulded), the colonnettes' 0.055 m radius and square caps (the plate's are stouter, with carved capitals), the lights' sizes scaled to the narrower face, the pinnacles' square plan and pyramid tops (the plate's are carved and scaled), the lower lights' sash, and the carving over the arch, not built (L-k01-1811-ames-front-2541)."
         }
       }
     }
