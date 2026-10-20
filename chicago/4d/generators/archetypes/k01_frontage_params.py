@@ -929,6 +929,15 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
         raise ParamError("shaped_gable.lights.variant: a flat- or segment-headed K06 variant")
     lw, lh, sill = float(li["width_m"]), float(li["height_m"]), float(li["sill_m"])
     at = sorted(float(x) for x in li["at_m"])
+    # T-2951: a grid window — `rows` of the variant stacked over one another, a stone
+    # `transom_m` between each row and the next, and optionally its `panes` per light
+    rows, tr = int(li.get("rows", 1)), float(li.get("transom_m", 0.0))
+    if not 1 <= rows <= 4 or (rows > 1 and not 0.05 <= tr <= 0.3):
+        raise ParamError("shaped_gable.lights: 1-4 rows, a 0.05-0.3 m stone transom between them")
+    panes = li.get("panes")
+    if panes is not None and (len(panes) != 2 or not all(1 <= int(n) <= 4 for n in panes)):
+        raise ParamError("shaped_gable.lights.panes: [across, up], 1-4 each")
+    lh_all = rows * lh + (rows - 1) * tr
     ledge = ye + 0.12
     ledge_m = None
     if sg.get("ledge_m") is not None:   # T-2865: the front carried up full width past the eave
@@ -945,7 +954,7 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
     q = {"profile_m": pr}
     for x in at:
         need = abs(x) + lw / 2 + 0.15
-        if need > ksg.half_width(q, sill + lh + 0.15) or need > ksg.half_width(q, sill):
+        if need > ksg.half_width(q, sill + lh_all + 0.15) or need > ksg.half_width(q, sill):
             raise ParamError("shaped_gable.lights: every light stands 0.15 m inside the outline")
     cp, kn, fn = sg["coping"], sg.get("kneelers"), sg.get("finial")
     coping = {"width_m": float(cp["width_m"]), "proud_m": float(cp["proud_m"])}
@@ -957,6 +966,14 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
         hb, hl = width / 2 + overhang + 0.02, ksg.half_width(q, ledge)
         if not hl + kne["shaft_m"] / 2 <= kne["at_m"] <= hb - kne["shaft_m"] / 2 or kne["top_m"] <= ledge + 0.2:
             raise ParamError("shaped_gable.kneelers: each pinnacle stands on its ledge and rises from it")
+        if kn.get("scroll"):   # T-2951: a carved scroll console under each, at the front's corner
+            sc = {k_: float(kn["scroll"][k_]) for k_ in ("bed_m", "width_m", "radius_m", "proud_m")}
+            if not 0.1 <= sc["radius_m"] <= sc["width_m"] / 2 + 1e-9 or not 0.2 <= sc["width_m"] <= 0.8:
+                raise ParamError("shaped_gable.kneelers.scroll: 0.2-0.8 m wide, its roll 0.1 m to half that in radius")
+            if not 0.05 <= sc["proud_m"] <= 0.4 or not foot - 1.5 <= sc["bed_m"] <= foot - 2 * sc["radius_m"] - 0.1:
+                raise ParamError("shaped_gable.kneelers.scroll: 0.05-0.4 m proud, its roll under the slab's foot "
+                                 "and its bed within 1.5 m of it")
+            kne["scroll"] = sc
     fin = {}
     if fn:
         fin = {"height_m": float(fn["height_m"]), "radius_m": float(fn["radius_m"])}
@@ -976,12 +993,25 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
         top, low = oc["centre_m"] + oc["height_m"] / 2 + oc["ring_m"], oc["centre_m"] - oc["height_m"] / 2 - oc["ring_m"]
         if oc["width_m"] / 2 + oc["ring_m"] + 0.15 > ksg.half_width(q, top) or low < sill + lh + 0.3:
             raise ParamError("shaped_gable.oculus: its ring stands 0.15 m inside the outline and 0.3 m over the lights")
+    sho = {}
+    if sg.get("shoulders"):   # T-2951: a square stone block on the outline each side, through the slab
+        s_ = sg["shoulders"]
+        sho = {k_: float(s_[k_]) for k_ in ("inner_m", "outer_m", "bed_m", "top_m", "proud_m")}
+        if not 0.2 <= sho["outer_m"] - sho["inner_m"] <= 1.2 or not 0.2 <= sho["top_m"] - sho["bed_m"] <= 1.2:
+            raise ParamError("shaped_gable.shoulders: a block 0.2-1.2 m across and high")
+        if not 0.0 < sho["proud_m"] <= 0.15 or sho["outer_m"] > ksg.half_width(q, sho["bed_m"]) + 1e-9:
+            raise ParamError("shaped_gable.shoulders: 0-0.15 m proud, its foot inside the outline")
+        if sho["bed_m"] < sill + lh_all + 0.15 and sho["inner_m"] < max(abs(x) for x in at) + lw / 2 + 0.05:
+            raise ParamError("shaped_gable.shoulders: clear of the lights")
     tg = sg.get("takes_gutter", False)
     if not isinstance(tg, bool):
         raise ParamError("shaped_gable.takes_gutter: true or false (T-2889)")
     return {"profile_m": pr, "foot_m": foot, "thickness_m": t, "proud_m": proud,
             **({"takes_gutter": True} if tg else {}),
-            "lights": {"variant": li["variant"], "sill_m": sill, "width_m": lw, "height_m": lh, "at_m": at},
+            "lights": {"variant": li["variant"], "sill_m": sill, "width_m": lw, "height_m": lh, "at_m": at,
+                       **({"rows": rows, "transom_m": tr} if rows > 1 else {}),
+                       **({"panes": [int(n) for n in panes]} if panes is not None else {})},
+            **({"shoulders": sho} if sho else {}),
             "coping": coping, "kneelers": kne, "finial": fin, "fabric": fabric, "oculus": oc,
             **({"ledge_m": ledge_m} if ledge_m is not None else {})}
 
