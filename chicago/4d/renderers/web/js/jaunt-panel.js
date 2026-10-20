@@ -5,6 +5,9 @@ import { formatEstimate } from './travel-estimate.js';
 
 /** The scrollable story and persistent controls have separate layout ownership. */
 export function createJauntPanel({ destinations, actions }) {
+  // T-2946: a stop is headed by the jaunt's own name for it, the one its road notes use.
+  const stopName = (state, stop) => state.jaunt.places?.[stop.destination.id]
+    || destinations.byId(stop.destination.kind, stop.destination.id)?.label || stop.destination.id;
   const sheet = document.createElement('link'); sheet.rel = 'stylesheet';
   sheet.href = new URL('../css/jaunt.css', import.meta.url); document.head.append(sheet);
   const node = (tag, text, className) => {
@@ -24,7 +27,6 @@ export function createJauntPanel({ destinations, actions }) {
     buttons[id] = button(label, () => id === 'next' ? goNext() : actions[id]()); buttons[id].dataset.action = id; controls.append(buttons[id]);
   }
   const mode = node('select'); mode.setAttribute('aria-label', 'Jaunt travel mode');
-  mode.title = 'Fly is a viewing convenience, not 1835 transport.';
   mode.addEventListener('change', () => actions.setMode(mode.value));
   const straight = button('Go straight to next stop', actions.straight); straight.dataset.action = 'straight';
   controls.prepend(mode, straight);
@@ -121,11 +123,15 @@ export function createJauntPanel({ destinations, actions }) {
     parent.append(chips);
   }
   function contextLines(parent) {
-    for (const line of state.context?.lines || []) {
-      if (line.generated) {
-        const row = node('p', line.text); row.append(node('small', ' [MAP] Reconstruction route', 'jaunt-map-note')); parent.append(row);
-      } else prose(parent, line.text, line.evidence, line.evidence?.every(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'));
+    const lines = state.context?.lines || [];
+    for (const line of lines) {
+      if (line.generated) parent.append(node('p', line.text));
+      else prose(parent, line.text, line.evidence, line.evidence?.every(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'));
     }
+    // T-2956: a "Passing …" note is read off this model's map, not from a period source.
+    // Said once, in words; "[MAP] Reconstruction route" after every line read like a
+    // label missing its text.
+    if (lines.some(line => line.generated)) parent.append(node('p', '[MAP] From the model’s map, not a historical source.', 'jaunt-map-note'));
   }
   function render(next) {
     const old = state;
@@ -144,7 +150,7 @@ export function createJauntPanel({ destinations, actions }) {
     straight.hidden = !['travelling', 'paused'].includes(state.phase);
     mode.classList.toggle('jaunt-mode-wide', straight.hidden);
     const scroll = same ? (overlayView?.scroll ?? body.scrollTop) : 0, focused = document.activeElement?.dataset.choice;
-    const heading = node('h2', destinations.byId(stop.destination.kind, stop.destination.id)?.label || stop.destination.id);
+    const heading = node('h2', stopName(state, stop));
     heading.tabIndex = -1;
     const progress = node('p', `${state.jaunt.title} · Stop ${state.stopIndex + 1} of ${state.jaunt.stops.length}`, 'jaunt-progress');
     progress.setAttribute('aria-live', 'polite'); body.replaceChildren(progress, heading);
@@ -156,7 +162,6 @@ export function createJauntPanel({ destinations, actions }) {
     if (state.estimate) {
       const eta = node('p', `${formatEstimate(state.estimate)} remaining`, 'jaunt-progress'); eta.dataset.jauntRemaining = ''; body.append(eta);
     }
-    if (state.mode === 'fly') body.append(node('p', 'Fly is a viewing convenience, not 1835 transport.', 'jaunt-progress'));
     const travelling = ['travelling', 'paused'].includes(state.phase) || (state.phase === 'detail' && ['travelling', 'paused'].includes(state.detailPhase));
     if (travelling) {
       body.append(node('p', state.phase === 'paused' ? 'Ride paused. Explore here, or resume when you are ready.' : state.error || 'On the way to the next stop…'));
@@ -175,7 +180,9 @@ export function createJauntPanel({ destinations, actions }) {
       if (stop.narrative) prose(body, stop.narrative, stop.evidence.filter(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'), true);
       if (state.context?.lines.length) {
         const notes = node('details', '', 'jaunt-road-history'); notes.append(node('summary', 'On the way')); contextLines(notes);
-        if (state.context.passed.length) notes.append(node('p', `Along this route: ${state.context.passed.map(p => p.label).join(' · ')}`));
+        // T-2946: a long block reads as a list, not a wall of twenty addresses.
+        const passed = state.context.passed, more = passed.length - 6;
+        if (passed.length) notes.append(node('p', `Along this route: ${passed.slice(0, 6).map(p => p.label).join(' · ')}${more > 0 ? ` · and ${more} more` : ''}`));
         body.append(notes);
       }
       const visit = state.visited[state.stopIndex];
@@ -204,7 +211,7 @@ export function createJauntPanel({ destinations, actions }) {
     needsChoice = state.phase === 'atStop' && !canNext(state) && !here.committed && choicesFor(state).length > 0;
     buttons.prev.disabled = state.stopIndex === 0; buttons.next.disabled = barNext.disabled = !canNext(state) && !needsChoice;
     for (const b of [buttons.next, barNext]) { b.textContent = needsChoice ? 'Choose an Option' : 'Next Stop'; b.classList.toggle('jaunt-needs-choice', needsChoice); }
-    const place = destinations.byId(stop.destination.kind, stop.destination.id)?.label || stop.destination.id;
+    const place = stopName(state, stop);
     barLabel.replaceChildren(node('span', `▴ ${['travelling', 'paused'].includes(state.phase) ? 'On the way to ' : ''}${place}`),
       node('small', `Stop ${state.stopIndex + 1} of ${state.jaunt.stops.length}`));
     barLabel.setAttribute('aria-label', `Open the outing panel: ${place}, stop ${state.stopIndex + 1} of ${state.jaunt.stops.length}`);
