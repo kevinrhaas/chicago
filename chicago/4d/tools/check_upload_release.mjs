@@ -22,7 +22,8 @@
  *     triangles still exist, the GPU pick answers a fixed list of taps on the
  *     plank walks, fences, yard goods and buildings exactly as the old raycast
  *     does (`pickAtRaycast`, the oracle): the same id, at the same distance
- *     (T-2572, T-2573);
+ *     (T-2572, T-2573), and the gaze target's read-later pick (`pickAtAsync`)
+ *     answers each of those taps exactly as the tap's own read does (T-2723);
  *  5. a phone boots the /1904/ door too, and its far ground is batched. 1835
  *     hides a re-read of released arrays that 1904 does not: the frontage there
  *     hands the far base a fresh geometry before `batchDistantGround()` cuts it,
@@ -161,8 +162,8 @@ async function gpuAgainstRaycast({ layer, api }) {
       && !o.userData.farMerged && !o.userData.farWalkTops && o.visible
       && (layer !== 'enclosures' || o.userData.pickId)) meshes.push(o);
   });
-  let compared = 0;
-  const differ = [];
+  let compared = 0, laterCompared = 0;
+  const differ = [], laterDiffer = [];
   for (let k = 0; k < 80 && compared < 12 && meshes.length; k += 1) {
     const m = meshes[(k * 7919) % meshes.length];
     const pos = m.geometry.attributes.position;
@@ -190,8 +191,16 @@ async function gpuAgainstRaycast({ layer, api }) {
     if (!gpu || gpu.id !== cast.id || Math.abs(gpu.distance - cast.distance) > tolerance) {
       differ.push({ k, cast: [cast.id, cast.distance], gpu: gpu ? [gpu.id, gpu.distance] : null });
     }
+    // T-2723: the gaze target's read, answered later, answers what the tap's did.
+    if (a[api].pickAtAsync) {
+      const later = await a[api].pickAtAsync({ x: ndc.x, y: ndc.y }, cam);
+      laterCompared += 1;
+      if ((later?.id ?? null) !== (gpu?.id ?? null) || (gpu && later.distance !== gpu.distance)) {
+        laterDiffer.push({ k, gpu: gpu ? [gpu.id, gpu.distance] : null, later: later ? [later.id, later.distance] : null });
+      }
+    }
   }
-  return { compared, differ };
+  return { compared, differ, laterCompared, laterDiffer };
 }
 
 /**
@@ -249,8 +258,8 @@ async function batchGpuAgainstRaycast({ layer, api }) {
   a.scene3d.getObjectByName(layer)?.traverse((o) => {
     if (o.isBatchedMesh && o.geometry.attributes.position.array && o.geometry.index?.array?.length) batches.push(o);
   });
-  let compared = 0;
-  const differ = [];
+  let compared = 0, laterCompared = 0;
+  const differ = [], laterDiffer = [];
   for (let k = 0; k < 120 && compared < 16 && batches.length; k += 1) {
     const b = batches[(k * 7919) % batches.length];
     const ids = Object.keys(b.userData.batchIndex ?? {}).map(Number).filter((i) => b.getVisibleAt(i));
@@ -284,8 +293,16 @@ async function batchGpuAgainstRaycast({ layer, api }) {
     if (!gpu || gpu.id !== cast.id || Math.abs(gpu.distance - cast.distance) > tolerance) {
       differ.push({ k, cast: [cast.id, cast.distance], gpu: gpu ? [gpu.id, gpu.distance] : null });
     }
+    // T-2723: the gaze target's read, answered later, answers what the tap's did.
+    if (a[api].pickAtAsync) {
+      const later = await a[api].pickAtAsync({ x: ndc.x, y: ndc.y }, cam);
+      laterCompared += 1;
+      if ((later?.id ?? null) !== (gpu?.id ?? null) || (gpu && later.distance !== gpu.distance)) {
+        laterDiffer.push({ k, gpu: gpu ? [gpu.id, gpu.distance] : null, later: later ? [later.id, later.distance] : null });
+      }
+    }
   }
-  return { compared, differ };
+  return { compared, differ, laterCompared, laterDiffer };
 }
 
 /* ---- 1–3: the phone ---------------------------------------------------- */
@@ -414,11 +431,17 @@ if (part('desktop')) {
     const r = await page.evaluate(gpuAgainstRaycast, { layer, api });
     check(`desktop: the GPU pick answers ${r.compared} fixed taps on ${layer} as the raycast does`,
       r.compared >= 8 && r.differ.length === 0, JSON.stringify(r.differ.slice(0, 3)));
+    if (layer !== 'yard') { // the gaze target's layers (T-2723)
+      check(`desktop: the gaze target's read-later pick answers the same ${r.laterCompared} taps on ${layer} as the tap's`,
+        r.laterCompared === r.compared && r.laterDiffer.length === 0, JSON.stringify(r.laterDiffer.slice(0, 3)));
+    }
   }
   {
     const r = await page.evaluate(batchGpuAgainstRaycast, { layer: 'structures', api: 'buildings' });
     check(`desktop: the GPU pick answers ${r.compared} fixed taps on structures as the raycast does`,
       r.compared >= 10 && r.differ.length === 0, JSON.stringify(r.differ.slice(0, 3)));
+    check(`desktop: the gaze target's read-later pick answers the same ${r.laterCompared} taps on structures as the tap's`,
+      r.laterCompared === r.compared && r.laterDiffer.length === 0, JSON.stringify(r.laterDiffer.slice(0, 3)));
   }
   await ctx.close();
 }

@@ -977,6 +977,14 @@ step "a K01 rear wing takes a slated hip or gable, its junction with the host cl
 step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed over its wall top (T-2842)" \
   python3 tools/test_k01_wing_tower.py
 
+# T-2843. ...and what 1801 Prairie's move onto K01 needed, held on its record: a mansard face
+# holding two storeys rises 4.5-7.5 m (one stays the attic's 2.0-4.5 m), a K08 projection
+# carried past the main eave is closed on the wall plane behind it and at its cap's end (one
+# at the eave, 1812's, gains nothing), and a wing slated in the main roof's slate keeps its
+# own material, so the publish path's dedup cannot merge its name away.
+step "a mansard face holds two storeys; a K08 pavilion past the eave is closed behind it (T-2843)" \
+  python3 tools/test_k01_pavilion_past_eave.py
+
 # T-2788. ...and what an all-stone house is. A K01 record naming `construction: "stone"`
 # lays its K02 stone_front round every face, not a stone front on a brick box. No record
 # names it yet (1801 Prairie, T-2789, is the first), so this builds four houses that carry

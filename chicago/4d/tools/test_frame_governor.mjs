@@ -9,6 +9,12 @@
  * unpaced when 30 fails too; `light` refreshes the shadow every second moving
  * frame; and every one of those is neutral again the moment the camera rests,
  * or always under Fixed. No browser.
+ *
+ * T-2829: a device that draws at a rate of its own between 60 and 30 (a 120 Hz
+ * display's every third vsync) is never paced to 30, a pace is earned over
+ * `paceAfter` windows, and a step down that bought nothing stops the ladder —
+ * then the owner's turn, modelled (tools/model_governor_phone.mjs), reads no
+ * worse under Adaptive than under Fixed.
  */
 import assert from 'node:assert/strict';
 import path from 'node:path';
@@ -90,7 +96,8 @@ ok('paced, it probes 60 again after probeMs of moving, and paces again when 60 s
   for (let i = 1; i < f.length; i++) if (f[i - 1].pace === 2 && f[i].pace === 1) back += 1;
   // 900 frames, most at 33 ms ≈ 29 s of moving: a probe every 8 s or so.
   assert.ok(back >= 2 && back <= 5, `probes ${back}`);
-  assert.equal(f.filter((x) => x.pace === 1 && x.scale === GOVERNOR.floor).length < 60, true, 'a probe lasts about one window');
+  const first = f.findIndex((x) => x.pace === 2);
+  assert.ok(f.slice(first).filter((x) => x.pace === 1).length < 60, 'a probe lasts about one window');
 });
 
 ok('a device that gets faster is stepped back up to the ceiling', () => {
@@ -186,6 +193,91 @@ ok('the state reports what it did, and Settings can say it', () => {
   assert.match(describeGovernor(s, 0.67), /steady 30/);
   assert.match(describeGovernor(g.state, 1), /^Adaptive: at the sharpness chosen/);
   assert.match(describeGovernor({ ...g.state, mode: 'fixed' }, 1), /^Fixed/);
+});
+
+// ---- T-2829 ------------------------------------------------------------- //
+
+const HZ120 = 1000 / 120;
+const changes = (f, k) => f.slice(1).filter((x, i) => x[k] !== f[i][k]).length;
+
+ok('a 120 Hz device drawing every third vsync (25 ms) is never paced to 30', () => {
+  const g = createFrameGovernor({ tier: 'light' });
+  // 22 ms whatever the scale: not fill-bound, on the 25 ms rung of a 120 Hz grid.
+  const f = drive(g, { frames: 600, costMs: () => 22, vsync: HZ120 });
+  assert.ok(f.every((x) => x.pace === 1), 'pacing would hold every 25 ms frame back to 33 ms');
+  const gaps = f.slice(1).map((x, i) => x.t - f[i].t);
+  assert.ok(gaps.every((d) => Math.abs(d - 25) < 0.1), `gaps ${[...new Set(gaps.map((d) => d.toFixed(1)))]}`);
+});
+
+ok('a step down that bought nothing stops the ladder: one resize, not three', () => {
+  const g = createFrameGovernor({ tier: 'light' });
+  const f = drive(g, { frames: 600, costMs: () => 22, vsync: HZ120 });
+  assert.equal(changes(f, 'scale'), 1, 'one step down, and no more');
+  assert.ok(g.scale < 1 && g.scale > GOVERNOR.floor);
+  assert.equal(g.state.scaleHeld, true);
+  // A device that IS fill-bound still walks the whole ladder (the T-2555 check above
+  // holds it to the floor); here, the same at 60 Hz with cost falling with the pixels.
+  const h = createFrameGovernor();
+  drive(h, { frames: 400, costMs: (s) => 60 * s * s });
+  assert.equal(h.scale, GOVERNOR.floor, 'each step that paid was followed by the next');
+});
+
+ok('the held ladder is kept across a rest, and let go on a tier or setting change', () => {
+  const g = createFrameGovernor({ tier: 'light' });
+  drive(g, { frames: 300, costMs: () => 22, vsync: HZ120 });
+  drive(g, { frames: 5, costMs: () => 22, vsync: HZ120, moving: () => false });
+  assert.equal(g.scale, 1, 'a rest is still neutral');
+  const again = drive(g, { frames: 300, costMs: () => 22, vsync: HZ120 });
+  assert.ok(again.every((x) => x.scale === 1 && x.pace === 1), 'the next move does not resize again');
+  g.setTier('light');
+  assert.equal(g.state.scaleHeld, true, 'the same tier is not a change');
+  g.setTier('balanced');
+  assert.equal(g.state.scaleHeld, false);
+  drive(g, { frames: 300, costMs: () => 22, vsync: HZ120 });
+  assert.equal(g.state.scaleHeld, true);
+  g.setEnabled(true);
+  assert.equal(g.state.scaleHeld, false);
+});
+
+ok('the 60/30 alternation T-2555 paces is still paced, at 60 Hz', () => {
+  const g = createFrameGovernor();
+  let n = 0;
+  // Every other frame misses a 60 Hz vsync, whatever the scale.
+  const f = drive(g, { frames: 400, costMs: () => (n++ % 2 ? 20 : 12) });
+  assert.equal(g.pace, 2);
+  const paced = f.filter((x) => x.pace === 2).length;
+  assert.ok(paced > 250, `paced ${paced} of ${f.length}`);
+});
+
+ok('one window whose median lands on 33 ms is not a pace; three in a row are', () => {
+  const g = createFrameGovernor();
+  let t = 0;
+  const feed = (ms) => { for (const d of ms) { t += d; g.frameDrawn(t, true); } };
+  const win = (slow) => Array.from({ length: 10 }, (_, i) => (i < slow ? 1000 / 30 : 25));
+  feed([25]);
+  feed(win(3)); // p80 33 ms: a step down
+  feed(win(3)); // the same p80: the step bought nothing, the ladder is held
+  assert.equal(g.state.scaleHeld, true);
+  feed(win(6)); feed(win(3)); feed(win(6)); feed(win(3));
+  assert.equal(g.pace, 1, 'a window that asks, then one that does not, is not a pace');
+  feed(win(6)); feed(win(6));
+  assert.equal(g.pace, 1);
+  feed(win(6));
+  assert.equal(g.pace, 2);
+});
+
+const { PHONE, OWNER, meanOf } = await import(pathToFileURL(path.join(root, 'tools/model_governor_phone.mjs')).href);
+ok("the owner's turn, modelled: Adaptive no worse than Fixed in sd, p95 or rate", () => {
+  const fixed = meanOf({ ...PHONE.turn, adaptive: false });
+  // The model is his Fixed turn first: within a millisecond on mean, sd, median and p95.
+  const [draws, mean, sd, median, p95] = OWNER.turn[0];
+  assert.ok(Math.abs(fixed.mean - mean) < 1 && Math.abs(fixed.sd - sd) < 1 && Math.abs(fixed.median - median) < 1
+    && Math.abs(fixed.p95 - p95) < 1.5 && Math.abs(fixed.draws - draws) < 6, JSON.stringify(fixed));
+  const adaptive = meanOf({ ...PHONE.turn, adaptive: true });
+  assert.ok(adaptive.sd <= fixed.sd + 0.1, `sd ${fixed.sd.toFixed(2)} -> ${adaptive.sd.toFixed(2)}`);
+  assert.ok(adaptive.p95 <= fixed.p95 + 0.2, `p95 ${fixed.p95.toFixed(2)} -> ${adaptive.p95.toFixed(2)}`);
+  assert.ok(adaptive.mean <= fixed.mean + 0.5, `mean ${fixed.mean.toFixed(2)} -> ${adaptive.mean.toFixed(2)}`);
+  assert.ok(adaptive.resizes <= 1.5, `resizes ${adaptive.resizes}`);
 });
 
 console.log(`PASS — ${passed} frame-governor checks`);
