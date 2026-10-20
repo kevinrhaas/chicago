@@ -58,6 +58,10 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
                             round sash in a round hole the wall cuts (a rectangle to the
                             spring, strips from the head's curve over it), under the kit's
                             arch band as its hood, with a key block on the crown
+  k01.opening.sash_round_plain
+                            a side wall's round-headed light whose picture shows its head
+                            plain (T-2884, 1625's lower lights): the same round hole and
+                            K06 sash, under no hood and no brick arch
   k08.*                     a K08 bay (T-2308): `generators/archetypes/k08_bays.py`
                             builds it in its own wall frame and `bay` lays it on
                             its host wall, which carries no opening behind it; a
@@ -108,7 +112,7 @@ from . import k09_frontage
 from . import k10_frontage
 from . import k11_frontage
 from . import k14_yard
-from .k01_frontage_params import EAVE_FASCIA_M, ROUND_HOODED, STREET_WINDOW, STRIP_FABRICS, wing_walls
+from .k01_frontage_params import EAVE_FASCIA_M, ROUND_CUT, ROUND_HOODED, STREET_WINDOW, STRIP_FABRICS, wing_walls
 
 ROOT = Path(__file__).resolve().parents[2]
 LIBRARY = ROOT / "assets" / "textures" / "glessner-v4"
@@ -200,8 +204,11 @@ MATERIALS = {
     "slate_covering": {"fabric": "slate_pennsylvania", "color": (1.0, 1.0, 1.0), "roughness": 0.62},
     # T-2406: a mansard's lower faces when they are slated over a metal upper hip (1620)
     "mansard_slate": {"fabric": "slate_pennsylvania", "color": (1.0, 1.0, 1.0), "roughness": 0.62},
-    # T-2841: a rear wing's hipped or gabled roof, in its own K04 slate (rear_wings[].roof)
-    "wing_slate": {"fabric": "slate_pennsylvania", "color": (1.0, 1.0, 1.0), "roughness": 0.62},
+    # T-2841: a rear wing's hipped or gabled roof, in its own K04 slate (rear_wings[].roof).
+    # T-2843: a shade rougher than the main roof's, as dormer_stone is off the trim: where
+    # a wing is slated in the main roof's own slate (1801's, under its mansard faces) the two
+    # were one material in all but name, and the publish path's dedup merged the name away
+    "wing_slate": {"fabric": "slate_pennsylvania", "color": (1.0, 1.0, 1.0), "roughness": 0.64},
     # the dormer face: dressed stone a shade off the trim, and a name outside the
     # envelope materials, since the envelope is the walls and not what stands on the roof
     "dormer_stone": {"fabric": "limestone", "color": (0.96, 0.93, 0.86), "roughness": 0.8},
@@ -1018,6 +1025,11 @@ class Assembly:
                 self.proud_box(stone_trim, frame, op.s_m - k["width_m"] / 2, op.s_m + k["width_m"] / 2,
                                y1, y1 + k["height_m"], k["proud_m"], seed, conf)
             return
+        if getattr(op, "plain", False):
+            # T-2884: a head its picture shows plain (1625's south wall): the light, its hole cut
+            # square or round, and nothing laid over it — no hood, no K03 arch, no lintel
+            self.glaze(op, frame, body_mat, stone_trim, seed, max(conf, p.conf("north_bays")))
+            return
         if not door:
             # T-2298: a window is a K06 opening — reveal, sill, frame, sashes, glass,
             # blind, curtain and an enclosed room — built about this hole's sill socket
@@ -1763,6 +1775,8 @@ class Assembly:
         entry = self.p.window_kit[op.component]
         v = dict(next(x for x in self._kit["variants"] if x["id"] == entry["variant"]))
         v["clear_width_m"], v["clear_height_m"] = op.width_m, op.height_m
+        if getattr(op, "narrow", False):   # T-2884: a light under the ordinary sash's width is one light a sash
+            v["panes"] = [1, 1]
         if not entry["well"]:
             v["well"] = False
         return v
@@ -1910,18 +1924,27 @@ class Assembly:
         # it, facing the roof behind: from the wall head to the tower's wall top across the
         # ring's junctions, and on to its eave across its eaves' (K08 closes its cap from
         # there). A millimetre behind the plane, so no face lies on the kit's cut ends
-        if v["kind"] == "tower":
+        # T-2843: a pavilion carried up past the main eave (1801's south pavilion and its flank
+        # section, three storeys to 13.9 m against an 8.1 m cornice, in the Taylor photograph)
+        # is closed the same way, and so is its hipped cap's end on the plane, which K08
+        # leaves open on a projection (a projection's cap otherwise dies into the wall over it)
+        past = v["kind"] == "projection" and built.meta["wall_top_m"] > p.eave_m + 1e-6
+        if v["kind"] == "tower" or past:
             back = _mul(N, -1)
             wall_top, eave = built.meta["wall_top_m"], built.meta["eave_m"]
             on = [q[0] for q in built.prims["soffit"].pos if abs(q[2]) < 1e-6]
             pr = self.prim(body)
             bb = self.basis(body, O, R, Y, seed)
+            snap = lambda x, y: tuple(round(c * 1000) / 1000 for c in W((x, y, -0.001)))
             # T-2842: on a rear wing's wall it is closed from the wing's wall top (`eave_m`)
             for (x0, x1), (y0, y1) in (((b["span_m"][0] - b["s_m"], b["span_m"][1] - b["s_m"]),
                                         (b.get("eave_m", p.eave_m), wall_top)),
                                        ((min(on), max(on)), (wall_top, eave))):
-                pr.face([tuple(round(c * 1000) / 1000 for c in W((x, y, -0.001)))
-                         for x, y in ((x0, y0), (x1, y0), (x1, y1), (x0, y1))], back, bb, conf)
+                pr.face([snap(x, y) for x, y in ((x0, y0), (x1, y0), (x1, y1), (x0, y1))], back, bb, conf)
+            if past:
+                cap = sorted({(round(q[0], 6), round(q[1], 6)) for q in built.prims["roof"].pos
+                              if abs(q[2]) < 1e-6})
+                pr.face([snap(x, y) for x, y in cap], back, bb, conf)
         # T-2289: everything the bay stands against its wall with, junctions to roof
         self.seat(frame, [(b["s_m"] + q[0], q[1], 0.0 if q[2] < 0.02 else -1.0)
                           for pr in built.prims.values() for q in pr.pos], "k08")
@@ -3318,7 +3341,7 @@ def hole(o):
     """An opening's hole in its wall: (s0, s1, sill, head), or for a round-headed one (T-2410)
     (s0, s1, sill, spring, its head right -> left) on K06's own curve for that span."""
     s0, s1 = o.s_m - o.width_m / 2, o.s_m + o.width_m / 2
-    if o.component != ROUND_HOODED:
+    if o.component not in ROUND_CUT:
         return (s0, s1, o.sill_m, o.head_m)
     from . import k06_windows
     spring = o.head_m - o.width_m / 2

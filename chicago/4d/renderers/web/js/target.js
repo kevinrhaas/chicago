@@ -25,13 +25,23 @@
  * `{ e, n, bearingDeg, pitchDeg }`. A listener hears `(target, previous)` when the id
  * IT sees changes, null included. No DOM, no THREE: tools/test_navigator.mjs drives it with
  * fakes.
+ *
+ * `pickAsync()`, where given, is the same answer as a promise, and the look a moving
+ * eye takes (T-2723): `pick()` read the GPU's pixel back on the spot, which waits for
+ * the GPU to finish the frame, so every 500 ms of walking was a stalled frame. A look
+ * waits for its answer before the next is asked, and an answer that lands after the
+ * eye was told to look again (`invalidate`, `clear`, or an asked `current()`) is
+ * dropped. `current()` after `invalidate()` still asks `pick()` at once: an asked
+ * question is answered now, a rhythm is not.
  */
-export function createTarget({ pick, pose, reach = 150, interval = 500, moveM = 0.5, turnDeg = 3 } = {}) {
+export function createTarget({ pick, pickAsync = null, pose, reach = 150, interval = 500, moveM = 0.5, turnDeg = 3 } = {}) {
   if (typeof pick !== 'function' || typeof pose !== 'function') throw new Error('createTarget needs pick() and pose()');
   let current = null;
   let lastAt = -Infinity;
   let lastPose = null;
   let dirty = true;
+  let waiting = null; // the look in flight, while one is
+  let latest = null; // the look whose answer will be heard
   const listeners = new Map(); // fn → { within, seen }
   const near = (t, within) => (t && t.distance <= within ? t : null);
 
@@ -42,7 +52,25 @@ export function createTarget({ pick, pose, reach = 150, interval = 500, moveM = 
 
   function look() {
     let hit = null;
+    latest = null;
     try { hit = pick(); } catch { hit = null; }
+    return hear(hit);
+  }
+
+  /** The look without the wait: drawn now, heard when it lands, unless overtaken. */
+  function lookLater() {
+    const mine = {};
+    waiting = latest = mine;
+    let asked;
+    try { asked = Promise.resolve(pickAsync()); } catch { asked = Promise.resolve(null); }
+    asked.catch(() => null).then((hit) => {
+      if (waiting === mine) waiting = null;
+      if (latest === mine) { latest = null; hear(hit); }
+    });
+    return current;
+  }
+
+  function hear(hit) {
     const next = hit && hit.id && Number.isFinite(hit.distance) && hit.distance <= reach
       ? { id: hit.id, record: hit.record ?? null, distance: hit.distance } : null;
     current = next;
@@ -59,21 +87,23 @@ export function createTarget({ pick, pose, reach = 150, interval = 500, moveM = 
   /** Called once a frame (main.js) while the visitor is in the town. */
   function tick(now) {
     if (!listeners.size) return current;
-    if (now - lastAt < interval) return current;
+    if (now - lastAt < interval || waiting) return current;
     const p = pose();
     if (!dirty && !moved(p)) return current;
     lastAt = now;
     lastPose = { ...p };
     dirty = false;
-    return look();
+    return pickAsync ? lookLater() : look();
   }
 
   return {
     tick,
-    /** The last answer within `within` metres; look again first if the eye has moved since. */
+    /** The last answer within `within` metres; look again first if the eye has moved since
+     *  (with `pickAsync`, a moved eye's look is heard when it lands; a told one is looked at now). */
     current(within = reach) {
       const p = pose();
-      if (dirty || moved(p)) { lastPose = { ...p }; dirty = false; look(); }
+      if (dirty || (moved(p) && !pickAsync)) { lastPose = { ...p }; dirty = false; look(); }
+      else if (moved(p) && !waiting) { lastPose = { ...p }; lookLater(); }
       return near(current, within);
     },
     on(fn, { within = reach } = {}) {
@@ -82,9 +112,9 @@ export function createTarget({ pick, pose, reach = 150, interval = 500, moveM = 
       return () => listeners.delete(fn);
     },
     /** The world moved under the eye (a teleport, a scene change): look again next tick. */
-    invalidate() { dirty = true; lastAt = -Infinity; },
+    invalidate() { dirty = true; lastAt = -Infinity; latest = null; },
     /** Forget the answer without telling anyone (the visitor left the town). */
-    clear() { current = null; lastPose = null; dirty = true; },
+    clear() { current = null; lastPose = null; dirty = true; latest = null; },
     get reach() { return reach; },
   };
 }

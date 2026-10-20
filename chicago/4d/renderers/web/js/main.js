@@ -4372,18 +4372,23 @@ async function boot() {
   // boxes (gpu-pick.js `boxPick`): the pick it drew twice a second while you
   // walked is where an iPhone stopped the page (Kevin's black-box records). A tap
   // still draws its pick, now of only the batches its ray meets.
+  // T-2723: elsewhere the look is drawn in the frame and read back when the GPU has
+  // got to it (`pickAtAsync`): reading it on the spot waited for the whole frame.
+  const probed = () => (coarse ? [buildings] : [buildings, enclosures, frontage]); // read at each look: a detail switch rebuilds them
+  const nearestRecord = (hits) => {
+    let best = null;
+    for (const hit of hits) {
+      if (!hit) continue;
+      const record = loaded.registry.get(hit.id) ?? hit.record ?? null;
+      if (!record) continue;
+      if (!best || hit.distance < best.distance) best = { id: hit.id, record, distance: hit.distance };
+    }
+    return best;
+  };
   target = createTarget({
-    pick: () => {
-      let best = null;
-      for (const layer of coarse ? [buildings] : [buildings, enclosures, frontage]) {
-        const hit = coarse ? layer?.pickAtBox?.(null, camera) : layer?.pickAt?.(null, camera);
-        if (!hit) continue;
-        const record = loaded.registry.get(hit.id) ?? hit.record ?? null;
-        if (!record) continue;
-        if (!best || hit.distance < best.distance) best = { id: hit.id, record, distance: hit.distance };
-      }
-      return best;
-    },
+    pick: () => nearestRecord(probed().map((layer) => (coarse ? layer?.pickAtBox?.(null, camera) : layer?.pickAt?.(null, camera)))),
+    pickAsync: coarse ? null
+      : () => Promise.all(probed().map((layer) => layer?.pickAtAsync?.(null, camera) ?? null)).then(nearestRecord),
     pose: () => ({ e: walker.state.e, n: walker.state.n, bearingDeg: walker.bearingDeg, pitchDeg: walker.state.pitch * 180 / Math.PI }),
   });
   api.target = target;

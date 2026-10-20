@@ -5,6 +5,7 @@
  *                                      [--moves walk,turn,flight] [--year 1835]
  *                                      [--throttle 4] [--source] [--json f]
  *                                      [--sync] [--verify] [--gate] [--xray]
+ *                                      [--sward grid|scan|both] [--profile N]
  *   node tools/measure_walk_frames.mjs --live [--only mobile] [--tiers light]
  *                                      [--seconds 12] [--stills] [--json f]
  *                                      [--gl swiftshader|llvmpipe] [--no-gaze] [--profile N]
@@ -51,6 +52,8 @@
  * each one's main-thread ms, and where the GPU draws the near ring (T-2716), its
  * deal passes, tile builds and uploads (`flora.nearDraw.stats`) — so the near
  * ring's share of a moving frame is read on its own (docs/RENDERING.md App. B).
+ * T-2774: and the read-backs its heads and census are reaped from, with the
+ * main thread's ms asking and reaping them.
  *
  * T-2106: the moves are driven with the flora rebuild SPREAD over frames, as
  * the animation loop runs it (`setFloraSpread`); `--sync` reads the one-frame
@@ -64,6 +67,20 @@
  * T-2696: and so are the water, floor, verge band and height those workers
  * answer beside the zones (flora-ground.js), at the same points and as many
  * again near footprints and street lines, the height to the last bit.
+ *
+ *
+ * T-2606 `--sward`: which of the yards' two sward tests the page's slots ask
+ * while a move is driven (the tier's own rebuild included). `grid`, the
+ * default, is the page as it ships: the 16 m cells T-2696 filed the yards in
+ * (yards.js `swardGrid`). `scan` puts back the full walk over every interior's
+ * box (`suppressesSwardScan`), so `--profile` can read the test's cost before
+ * and after on the same tree. `both` asks the two at EVERY slot the moves ask,
+ * hands the page the grid's answer, and fails the run if any slot is answered
+ * differently — where `--verify`'s 20,000 points are a sample over the boxes.
+ * It doubles the test's cost, so its frame times are not a reading.
+ * Readings: docs/measurements/t-2606-sward-test-mobile.json (the scan 14.9 and
+ * 18.3 s of a walk and turn's profile at 4x/390x780, the grid 0.13 and 0.18 s;
+ * 2,215,145 slots asked over every tier and move, 0 answered differently).
  *
  * Defaults to the PUBLISHED mirror, as every renderer measurement here does.
  * `--gate` holds the result: `FLORA_MOVE_CEILING_MS` and `FLORA_MOVE_P95_MS`
@@ -114,7 +131,10 @@
  *     from gpu-pick.js through target.js's look: the gaze target's one-pixel
  *     pick waits for the GPU to finish the frame before it, on the main thread,
  *     every 500 ms of movement. That is the runner's multi-second frame, and on
- *     any device a stall the governor cannot remove (T-2723).
+ *     any device a stall the governor cannot remove (T-2723). T-2723 reads that
+ *     pick back behind a fence instead (gpu-pick.js `gpuPickAsync`): on the
+ *     desktop profile `readPixels` went from 41 s of the moves to none, and the
+ *     frame interval did not move — the software draw is the floor here.
  *   - The pick's own `renderer.render` calls into its 1x1 target were counted
  *     as frames until this: only a draw to the canvas is one now, and the rest
  *     are reported as `offscreen`.
@@ -165,6 +185,9 @@ const RENDER = process.argv.includes('--render');
 const PROFILE = Number(argAt('--profile') || 0);
 const SYNC = process.argv.includes('--sync');
 const VERIFY = process.argv.includes('--verify');
+/** T-2606 `--sward grid|scan|both` (see the header). */
+const SWARD = argAt('--sward') || 'grid';
+if (!['grid', 'scan', 'both'].includes(SWARD)) throw new Error(`--sward ${SWARD}: one of grid, scan, both`);
 const LIVE = process.argv.includes('--live');
 const STILLS = process.argv.includes('--stills');
 const SECONDS = Number(argAt('--seconds') || 12);
@@ -251,8 +274,29 @@ await new Promise((r) => server.listen(PORT, r));
 console.log(`serving ${ROOT} — ${wantSource ? 'source tree' : 'PUBLISHED mirror'}, year ${YEAR}`);
 
 /** Runs in the page: drive one move at one tier and time every frame of it. */
-async function driveMove({ move, tier, render, profile, sync, verify, xray }) {
+async function driveMove({ move, tier, render, profile, sync, verify, xray, sward }) {
   const a = window.__chicago4d;
+  // T-2606 `--sward`: which sward test the slots ask, installed before the tier
+  // change so its rebuild asks it too. main.js reads `yards.suppressesSward`
+  // at every slot, so swapping the property is enough.
+  const yards = a.yards;
+  const swardShipped = yards?.suppressesSward;
+  const scan = yards?.suppressesSwardScan;
+  const swardEvery = sward === 'both' && scan ? { asked: 0, suppressed: 0, differ: 0, first: [] } : null;
+  if (sward === 'scan' && scan) yards.suppressesSward = scan;
+  if (swardEvery) {
+    yards.suppressesSward = (e, n) => {
+      const got = swardShipped(e, n);
+      const want = scan(e, n);
+      swardEvery.asked++;
+      if (want) swardEvery.suppressed++;
+      if (got !== want) {
+        swardEvery.differ++;
+        if (swardEvery.first.length < 5) swardEvery.first.push({ e, n, got, want });
+      }
+      return got;
+    };
+  }
   // A tier change REPLACES the flora and trees rigs (main.js applyDetail), so
   // the hooks are wrapped on the objects that exist once it has settled.
   await a.setDetail(tier);
@@ -432,6 +476,8 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray }) {
   if (profile) console.profileEnd(`${tier}/${move}`);
   a.flora.settle?.();
   digests.push(digest());
+  // Put back before the checks below: `checkSwardGrid` asks the property too.
+  if (yards && swardShipped) yards.suppressesSward = swardShipped;
   // T-2106 `--verify`: each pass's last spread landing, dealt again in ONE
   // frame from the camera it started at, must put the same plants in the same
   // slots — the near rings (`rebuildAll`) and the far shrubs with their carries
@@ -467,6 +513,9 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray }) {
     // dropped pass, a flight's step) would be compared with the wrong pose.
     const kinds = ['near', 'far'].filter((k) => sp.last[k]?.camera
       && sp.last[k].pass === sp.passes[k]);
+    // T-2774: the near heads hang off a read-back the frame loop does not wait
+    // for; the landed pass's own is taken now, as the one-frame pass takes it.
+    a.flora.nearDraw?.flush?.();
     const spreadDigests = Object.fromEntries(kinds.map((k) => [k, passDigest(k)]));
     verified = {};
     for (const k of kinds) {
@@ -536,7 +585,7 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray }) {
   // spent, which is the part of the frame this runner can honestly read.
   const scripted = rows.map((r) => r.frame - (r['renderer.render'] ?? 0)).sort((x, y) => x - y);
   return {
-    frames: rows.length, rebuilds, digests, spread, near, verified, heldZones, swardGrid, longs,
+    frames: rows.length, rebuilds, digests, spread, near, verified, heldZones, swardGrid, swardEvery, longs,
     scripted: describe(scripted),
     layers: Object.fromEntries(Object.keys(t).map((k) => [k, describe(col(k))])),
     heapMB: performance.memory ? performance.memory.usedJSHeapSize / 1048576 : null,
@@ -823,7 +872,7 @@ for (const vp of VIEWPORTS) {
   for (const tier of TIERS) {
     for (const move of MOVES) {
       const r = await page.evaluate(driveMove, { move, tier, render: RENDER, profile: PROFILE > 0,
-        sync: SYNC, verify: VERIFY, xray: XRAY });
+        sync: SYNC, verify: VERIFY, xray: XRAY, sward: SWARD });
       const f = (x) => x.toFixed(1).padStart(5);
       const n = (x) => String(x).padStart(3);
       const L = r.layers;
@@ -845,6 +894,12 @@ for (const vp of VIEWPORTS) {
           + ` ${r.near.max.toFixed(1)} max on the main thread (${r.near.ms.toFixed(0)} ms in all)`
           + (g ? ` | GPU near ring: ${g.passes} deal passes ${g.passMs.toFixed(0)} ms, ${g.builds} tile builds`
             + ` ${g.buildMs.toFixed(0)} ms, ${g.uploads} uploads, ${g.readBacks} read-backs`
+            // T-2774: the read-backs the near heads and census are reaped from,
+            // and the main thread's ms asking and reaping them (a reap that lands
+            // between frames is in no frame's flora ms, so it is printed here).
+            + (g.reaps != null ? `, ${g.reads} reads asked without waiting and ${g.syncReads} in the frame`
+              + ` ${g.readMs.toFixed(0)} ms, collected ${(g.collectMs ?? 0).toFixed(0)} ms,`
+              + ` ${g.reaps} reaped ${g.reapMs.toFixed(0)} ms, ${g.stale} stale` : '')
             : ' | near tufts drawn by the CPU'));
       }
       for (const l of r.longs ?? []) {
@@ -869,6 +924,12 @@ for (const vp of VIEWPORTS) {
         console.log(`  verify yards: ${y.asked} points over the yards' boxes (${y.suppressed} without sward),`
           + ` ${y.differ} answered differently by the grid than by the full walk${y.differ ? ` ${JSON.stringify(y.first)}` : ''}`);
         if (y.differ) failed++;
+      }
+      if (r.swardEvery) {
+        const y = r.swardEvery;
+        console.log(`  verify yards, every slot: ${y.asked} slots asked (${y.suppressed} without sward),`
+          + ` ${y.differ} answered differently by the grid than by the full walk${y.differ ? ` ${JSON.stringify(y.first)}` : ''}`);
+        if (y.differ || !y.asked) failed++;
       }
       for (const [k, v] of Object.entries(r.verified ?? {})) {
         console.log(`  verify ${k}: the spread pass ${v.same ? 'IS' : 'IS NOT'} the one-frame pass (${v.spread} / ${v.sync})`);
@@ -904,6 +965,10 @@ server.close();
 if (jsonOut) console.log(`\nwrote ${jsonOut}`);
 if (LIVE) {
   console.log(failed ? `\nFAIL — ${failed} live reading(s) did not hold` : '\nPASS — governed moves steadier, still frames unchanged');
+  process.exit(failed ? 1 : 0);
+}
+if (SWARD === 'both' && !VERIFY && !GATE) {
+  console.log(failed ? `\nFAIL — ${failed} move(s) answered a slot's sward differently or threw` : '\nPASS — every slot answered the same by the grid and the full walk');
   process.exit(failed ? 1 : 0);
 }
 if (VERIFY && !GATE) {

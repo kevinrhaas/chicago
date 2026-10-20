@@ -80,6 +80,10 @@ class Opening:
     meeting_rail: bool = True
     # T-2866: a light over a door's leaf in the top of its hole (1625's rear section door), 0 for none
     transom_m: float = 0.0
+    # T-2884: a side light whose picture shows its head plain (1625's south wall): no K03 head
+    # or lintel is drawn over it, and a light narrower than the ordinary sash is one light a sash
+    plain: bool = False
+    narrow: bool = False
 
     @property
     def head_m(self) -> float:
@@ -254,6 +258,11 @@ STRIP_FABRICS = {"stone": "dress_stone", "painted_timber": "bay_strip_paint"}
 #: T-2410: the component a brick street front's round-headed window is cut as — K06's round
 #: sash in a round hole through the K03 wall, under the kit's own arch band as its hood
 ROUND_HOODED = "k01.opening.sash_round_hooded"
+#: T-2884: a side wall's round-headed light whose picture shows its head plain (1625's lower
+#: lights): K06's round sash in the same round hole, under no hood and no brick arch
+ROUND_PLAIN = "k01.opening.sash_round_plain"
+#: the K01 components whose hole the wall cuts round over the spring
+ROUND_CUT = (ROUND_HOODED, ROUND_PLAIN)
 #: T-2752: the street windows a stone front read off a photograph names one by one
 #: (`street_front_windows`), each a component the record's window_kit glazes
 STREET_WINDOW = "k01.opening.street_"
@@ -475,8 +484,16 @@ def _mansard_roof(m: dict, depth: float, width: float, eave: float, pitch: float
     _within(lower, k5["ranges"]["mansard_lower_deg"], "mansard.lower_pitch_deg")
     _within(pitch, k5["ranges"]["mansard_upper_deg"], "roof_pitch_deg (a mansard's upper hip)")
     rise = float(m["lower_rise_m"])
-    if not 2.0 <= rise <= 4.5:
-        raise ParamError(f"mansard.lower_rise_m {rise}: an attic storey's face rises 2.0-4.5 m")
+    # T-2843: a face may hold two storeys — the house's top storey and its attic over it, as
+    # 1801's steep slate faces do in the Taylor photograph, cornice 8.1 m to deck about 17 m —
+    # and says so (`storeys: 2`); it then rises 4.5-7.5 m. One storey is the default and the
+    # attic storey's 2.0-4.5 m
+    held = m.get("storeys", 1)
+    if held not in (1, 2):
+        raise ParamError(f"mansard.storeys {held!r}: a face holds 1 storey (an attic) or 2")
+    lo, hi = (2.0, 4.5) if held == 1 else (4.5, 7.5)
+    if not lo <= rise <= hi:
+        raise ParamError(f"mansard.lower_rise_m {rise}: a face holding {held} storey(s) rises {lo}-{hi} m")
     if not 0.3 <= overhang <= 1.0:
         raise ParamError(f"eave_overhang_m {overhang}: a mansard's cornice projects 0.3-1.0 m")
     f = k5["parts"]["eave"]["fascia_depth_m"]
@@ -1309,6 +1326,17 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                          f"lights_m (0.2-1.0 m each) on a K06 transom sash, leaving at least "
                                          f"1.0 m of sash under them, not {t}")
                     w["tiers"] = {"bar_m": bar, "lights_m": lights}
+                # T-2886: a light set between a bay's columns under a narrower band than the
+                # kit's (1637's south bay's cheeks, from the Grosvenor photograph): only over an
+                # arched head, never wider than the kit's own band nor thinner than a moulding
+                if "head_band_m" in w:
+                    k06 = json.loads(WINDOW_KIT.read_text())
+                    v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
+                    hb, hb_kit = float(w["head_band_m"]), k06["parts"]["head_band"]["width_m"]
+                    if v6.get("head", "flat") == "flat" or not 0.03 <= hb <= hb_kit:
+                        raise ParamError(f"bays: {e['id']}'s head_band_m {hb} needs an arched K06 head "
+                                         f"(not {w['opening']}) and a band 0.03-{hb_kit} m broad")
+                    w["head_band_m"] = hb
                 # T-2883: a narrow light in a shallow cheek (1625's oriel, from its print): one light
                 # a sash on a double-hung K06 opening, under half a metre, and it says why
                 if "narrow" in w:
@@ -2257,12 +2285,31 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if not isinstance(e, dict):
             continue
         what = f"north_bays[{j}]"
-        if set(e) != {"s_m", "sill_m", "width_m", "height_m"}:
-            raise ParamError(f"{what}: a window read off a picture takes s_m, sill_m, width_m and height_m")
+        if not {"s_m", "sill_m", "width_m", "height_m"} <= set(e) <= {"s_m", "sill_m", "width_m", "height_m",
+                                                                     "head", "why_not_ordinary"}:
+            raise ParamError(f"{what}: a window read off a picture takes s_m, sill_m, width_m and height_m, "
+                             f"and may take head and why_not_ordinary")
         s, sill, wd, h = (float(e[x]) for x in ("s_m", "sill_m", "width_m", "height_m"))
-        _within(wd, cw, f"{what}.width_m")
-        if not 1.0 <= h <= 3.2 or sill < 0.3:
-            raise ParamError(f"{what}: a sash read off a picture stands 1.0-3.2 m, its sill at least 0.3 m up")
+        # T-2884: its head as the picture draws it — `plain`, a square hole with nothing laid
+        # over it, or `round`, a round-headed hole under no hood or arch (1625's lower lights);
+        # absent, K01 lays the brick wall's own head. A light narrower than the ordinary sash
+        # (a basement light's, a slit's) says why, and may stand lower and shorter
+        head = e.get("head")
+        if head not in (None, "plain", "round"):
+            raise ParamError(f"{what}.head is plain or round, not {head!r}")
+        narrow = "why_not_ordinary" in e
+        if narrow:
+            if not e["why_not_ordinary"] or not 0.25 <= wd < cw[0] or head is None:
+                raise ParamError(f"{what}: a light narrower than the ordinary sash is 0.25-{cw[0]} m across, "
+                                 f"its head read (plain or round), and says why (why_not_ordinary)")
+            if not 0.5 <= h <= 3.2 or sill < 0.15:
+                raise ParamError(f"{what}: a narrow light read off a picture stands 0.5-3.2 m, its sill at least 0.15 m up")
+        else:
+            _within(wd, cw, f"{what}.width_m")
+            if not 1.0 <= h <= 3.2 or sill < 0.3:
+                raise ParamError(f"{what}: a sash read off a picture stands 1.0-3.2 m, its sill at least 0.3 m up")
+        if head == "round" and h < wd / 2 + 0.2:
+            raise ParamError(f"{what}: a round head's spring stands at least 0.2 m over its sill")
         if sill + h + 0.30 > soffit - 0.05:
             raise ParamError(f"{what}'s lintel runs into the soffit at {soffit:.2f} m")
         if s - wd / 2 < 0.45 or s + wd / 2 > depth - 0.45:
@@ -2271,7 +2318,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             if s - wd / 2 < a1 + 0.3 and s + wd / 2 > a0 - 0.3 and sill < b1 + 0.45 and sill + h > b0 - 0.45:
                 raise ParamError(f"{what} meets another read window, or its lintel")
         read.append((s - wd / 2, s + wd / 2, sill, sill + h))
-        openings.append(Opening("k01.opening.sash_flat", "k01.wall.side.north", s, round(sill, 4), wd, h))
+        openings.append(Opening(ROUND_PLAIN if head == "round" else "k01.opening.sash_flat", "k01.wall.side.north",
+                                s, round(sill, 4), wd, h, head != "round", plain=head is not None, narrow=narrow))
     # T-2821: a door whose height its picture reads (1625's, 2.48 m clear over its one step);
     # K07 hangs its leaf in the K01 hole, so the hole is the door's. K01's 2.70 m otherwise
     door_w, door_h = 1.20, 2.70
@@ -2474,6 +2522,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 raise ParamError(f"street_front_round_heads.key: {key['width_m']} x {key['height_m']} m, "
                                  f"{key['proud_m']} m proud, does not stand on the hood's crown (over its "
                                  f"{band['width_m']} m band and {band['proud_m']} m proud, inside 0.30 m and half the sash)")
+        elif comp == ROUND_PLAIN:
+            # T-2884: the side wall cuts this one's round hole as it cuts ROUND_HOODED's
+            if v["head"] != "round" or v.get("bays", 1) != 1:
+                raise ParamError(f"window_kit: {comp} is cut as one round hole, and {vid} is not a single round-headed sash")
         elif v["head"] != "flat" and not (comp in arched_rows and val("stone_front")) and not (
                 comp.startswith(STREET_WINDOW) and v["head"] == "segmental"):
             # T-2752: the coursed stone front fills a named street window's segmental head
