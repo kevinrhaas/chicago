@@ -1,0 +1,31 @@
+{
+ "id": "glessner_blog_1736_mcbirney_c1890_photo",
+ "type": "photograph",
+ "citation": "[The Ingraham/McBirney house, 1736 S. Prairie Avenue, as it appeared circa 1890.] Photograph from the east side of Prairie Avenue looking west across the street; photographer and original holder not named. Reproduced by the Glessner House Museum, 'The Early History of Prairie Avenue - Part IV', The Story of a House (blog), 7 July 2020.",
+ "author": "unknown photographer",
+ "date": "c. 1890 (the Prairie library's dating; earliest 1885, latest 1895)",
+ "describes_date": "c. 1890",
+ "repository": "Glessner House Museum blog 'The Story of a House' (secondary reproduction; the original holder is not named). Prairie library image a16-ghm-blog-1736-mcbirney-c1890, 'Ingraham/McBirney house as it appeared circa 1890', recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a16-ghm-blog-1736-mcbirney-c1890.jpg), committed since T-2933 at data/sources/assets/mcbirney_1736_photo_t2933/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://glessnerhouse.blogspot.com/2020/07/the-early-history-of-prairie-avenue.html",
+ "locator": "The whole photograph: the house's street front square to the camera behind three street trees, its full-width veranda with the stair at the north end, the two storeys of windows over it, the bracketed cornice and the mansard with its dormers; a lower set-back front to the left; J. P. Smith & Co.'s ice wagon at the curb on the right.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction with no rights statement (the Prairie library's ruling: 'unknown - link only'; the c. 1890 photograph is likely public domain by age, but its holder and the reproduction's terms are not established). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-2933) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-20 (T-2933) from the image store's reference copy, 900 x 611 px greyscale, sha256 c3b9a67372ccd09aea1798b29b39dc484d5e4d3c13ea10e2afe03df2d2b16062; the store's fetch is of the blog's s1600 image '1736 PA front.jpg'.",
+ "note": "The only picture of 1736 Prairie this project reads. It shows the street front of a light-walled house two tall storeys over a raised basement: a veranda the front's whole width on four slender posts, a turned balustrade at the principal floor and a deep frieze under its roof, its stair rising at the north end between cheek walls; three windows in the upper storey under arched heads and eared hoods; a bracketed cornice; a steep mansard with two round-headed dormers on the street face; and a low pale wall along the street line. Left of the front, behind a tree, stands a lower front set back about 3 m with a one-storey canted bay and a dormer over it, which the 1911 sheet does not draw at 1736 (data/reference_views/house_1736_prairie/mcbirney_c1890_photo.match.json weighs it). It is evidence of c. 1890, not of 1904.",
+ "what_it_supplies": [
+  "the veranda across the front: its four posts, balustrade, frieze and roof, and the stair at its north end",
+  "three upper-storey windows and their heights, arched under eared hoods",
+  "the bracketed cornice's height, about 9.9 m over grade through its camera",
+  "the mansard, its curb about 12.7 m over grade, and its two street dormers",
+  "the principal floor about 1.85 m over grade (the veranda's deck)"
+ ],
+ "what_it_does_not_supply": [
+  "the 1904 state: the photograph is c. 1890",
+  "colour: the photograph is monochrome",
+  "the south flank on 18th Street, the north wall, the rear and the roof behind the street face",
+  "the principal-storey windows' heads, hidden under the veranda's frieze"
+ ]
+}

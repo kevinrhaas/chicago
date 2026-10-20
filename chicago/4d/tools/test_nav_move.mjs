@@ -67,7 +67,7 @@ const fly = moveView(base, { flying: true });
 assert.equal(fly.mode, 'fly');
 assert.equal(fly.pace, 'walk', 'the ground pace waits for you to land');
 assert.equal(fly.slider.shown, false, 'Fly has no slider');
-assert.match(fly.note, /not a way anyone got about/);
+assert.match(fly.note, /The higher you are, the faster you go/);
 
 // ---- Go to's choice under the picker ------------------------------------------------
 assert.deepEqual(['instantly', 'walk', 'run', 'wagon', 'horse', 'fly', 'nonsense', undefined].map(arriveOf),
