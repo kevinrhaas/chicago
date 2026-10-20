@@ -968,7 +968,11 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
         top, low = oc["centre_m"] + oc["height_m"] / 2 + oc["ring_m"], oc["centre_m"] - oc["height_m"] / 2 - oc["ring_m"]
         if oc["width_m"] / 2 + oc["ring_m"] + 0.15 > ksg.half_width(q, top) or low < sill + lh + 0.3:
             raise ParamError("shaped_gable.oculus: its ring stands 0.15 m inside the outline and 0.3 m over the lights")
+    tg = sg.get("takes_gutter", False)
+    if not isinstance(tg, bool):
+        raise ParamError("shaped_gable.takes_gutter: true or false (T-2889)")
     return {"profile_m": pr, "foot_m": foot, "thickness_m": t, "proud_m": proud,
+            **({"takes_gutter": True} if tg else {}),
             "lights": {"variant": li["variant"], "sill_m": sill, "width_m": lw, "height_m": lh, "at_m": at},
             "coping": coping, "kneelers": kne, "finial": fin, "fabric": fabric, "oculus": oc,
             **({"ledge_m": ledge_m} if ledge_m is not None else {})}
@@ -1794,6 +1798,37 @@ def _street_dress(sfw, openings, floors, width) -> dict:
     return out
 
 
+def _voussoirs(vs, k, variant, s, sill, h, sgr, overhang, eave) -> dict:
+    """T-2889: a named street window's arch turned in voussoirs (1812 Prairie's photograph: a
+    ring of dressed stones round each third-storey arch, a keystone at the crown): `ring_m`
+    deep from the head's curve, `stones` of them (odd, the middle one the keystone), standing
+    `proud_m` before the wall, the keystone `key_m` [width at its top, height over the crown].
+    Where the ring rises past a shaped gable's foot it stands before the gable's face too."""
+    what = f"street_front_windows.windows[{k}].voussoirs"
+    if set(vs) != {"ring_m", "stones", "proud_m", "key_m"}:
+        raise ParamError(f"{what} takes ring_m, stones, proud_m and key_m [width, height]")
+    if variant["head"] not in ("round", "segmental"):
+        raise ParamError(f"{what}: a ring is turned over a round or segmental head, not a {variant['head']} one")
+    ring, n, proud = float(vs["ring_m"]), int(vs["stones"]), float(vs["proud_m"])
+    kw, kh = (float(x) for x in vs["key_m"])
+    if not 0.15 <= ring <= 0.6 or n % 2 == 0 or not 5 <= n <= 25 or not 0.02 <= proud <= 0.15:
+        raise ParamError(f"{what}: a 0.15-0.6 m ring of 5-25 stones (odd, the keystone in the middle), "
+                         f"0.02-0.15 m proud")
+    if not 0.15 <= kw <= 0.6 or not ring <= kh <= ring + 0.6:
+        raise ParamError(f"{what}.key_m: a keystone 0.15-0.6 m across its top, rising at least the ring's depth "
+                         f"and at most 0.6 m past it")
+    top = sill + h + kh
+    if sgr and top > float(sgr["foot_m"]):
+        face = overhang + float(sgr["proud_m"])
+        if proud < face + 0.02:
+            raise ParamError(f"{what}: the ring rises past the gable's foot, so it stands at least 0.02 m "
+                             f"before the gable's face ({face + 0.02:.2f} m proud)")
+    elif top > eave - 0.05:
+        raise ParamError(f"{what}: the keystone runs into the wall head")
+    return {"s_m": round(s, 4), "sill_m": round(sill, 4), "ring_m": ring, "stones": n, "proud_m": proud,
+            "key_m": (kw, kh)}
+
+
 def _street_frontispiece(fp, openings, dress, floors, width) -> dict:
     """T-2753: the frontispiece of a named-window front (1625's, its photograph): the front from
     `s_m` to its south end and from grade to the hood mould's bed stands `proud_m` out, its
@@ -2372,10 +2407,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if sfw:
         kit_ids = {v["id"]: v for v in json.loads(WINDOW_KIT.read_text())["variants"]}
         door = (door_s - 0.60 - 0.30, door_s + 0.60 + 0.30, door_floor + door_h + 0.30)
-        laid = []
+        laid, rings = [], []
         for k, w in enumerate(sfw["windows"]):
-            if set(w) != {"component", "storey", "s_m", "width_m", "sill_m", "height_m"}:
-                raise ParamError(f"street_front_windows.windows[{k}] takes component, storey, s_m, width_m, sill_m and height_m")
+            if set(w) - {"voussoirs"} != {"component", "storey", "s_m", "width_m", "sill_m", "height_m"}:
+                raise ParamError(f"street_front_windows.windows[{k}] takes component, storey, s_m, width_m, sill_m and height_m"
+                                 f" (and, T-2889, voussoirs)")
             comp, st = w["component"], int(w["storey"])
             s, wd, sill, h = (float(w[x]) for x in ("s_m", "width_m", "sill_m", "height_m"))
             entry = (val("window_kit") or {}).get(comp)
@@ -2401,11 +2437,16 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 if s0 < a1 + 0.24 and s1 > a0 - 0.24 and sill < b1 + 0.30 and sill + h > b0 - 0.30:
                     raise ParamError(f"street_front_windows.windows[{k}] meets windows[{j}] or its flat arch")
             laid.append((s0, s1, sill, sill + h))
+            if w.get("voussoirs") is not None:
+                rings.append(_voussoirs(w["voussoirs"], k, kit_ids[vid], s, sill, h, sgr,
+                                        float(val("eave_overhang_m")), eave))
             dh = kit_ids[vid]["operation"].startswith("double_hung")
             openings.append(Opening(comp, "k01.wall.street_front", round(s, 4), round(sill, 4), wd, h, dh))
     street_dress, frontispiece = {}, {}
     if sfw:
         street_dress = _street_dress(sfw, openings, floors, width)
+        if rings:   # T-2889: the named windows' voussoir rings
+            street_dress["voussoirs"] = tuple(rings)
     if val("street_front_frontispiece"):
         if not sfw:
             raise ParamError("street_front_frontispiece dresses a front laid by street_front_windows")
@@ -2551,8 +2592,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             if v["head"] != "round" or v.get("bays", 1) != 1:
                 raise ParamError(f"window_kit: {comp} is cut as one round hole, and {vid} is not a single round-headed sash")
         elif v["head"] != "flat" and not (comp in arched_rows and val("stone_front")) and not (
-                comp.startswith(STREET_WINDOW) and v["head"] == "segmental"):
+                comp.startswith(STREET_WINDOW) and v["head"] in ("segmental", "round")):
             # T-2752: the coursed stone front fills a named street window's segmental head
+            # (T-2889: and its round one, 1812's small arched window)
             raise ParamError(f"window_kit: {vid} has a {v['head']} head, and a K01 wall cuts "
                              f"a rectangular hole")
         # T-2818: a single light may stand under a segmental arch (1623's broad basement light)
