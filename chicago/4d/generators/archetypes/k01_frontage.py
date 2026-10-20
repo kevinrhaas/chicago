@@ -2527,8 +2527,19 @@ class Assembly:
                 nn = _unit(_add(_mul(N, hr), _mul(Y, hy)))
                 quad([P(a0, y0 + q0, r0), P(a0 + t, y0 + q0, r0), P(a0 + t, y0 + q1, r1), P(a0, y0 + q1, r1)],
                      nn, bh)
+        # T-2963: a porch's columns, under the soffit at the deck's front corners (built
+        # before the railing, which may change the material the boxes are laid in)
+        cols = h.get("columns")
+        if cols:
+            self._hood_columns(cols, op, P, quad, box, bf, bh, be, s0, s1, out, y0)
+        tri_fascia = len(pr.idx) // 3 - tri0
         # the railing on the slab: posts at the front corners and against the wall, a rail
-        # over square balusters along the front and both returns
+        # over square balusters along the front and both returns. T-2963: in iron if the
+        # record says so (1816's balcony), the K01 iron every other railing wears
+        if h.get("railing_fabric") == "iron":
+            pr = self.prim("iron")
+            tri1 = len(pr.idx) // 3
+            bf, bh, be = (self.basis("iron", O, a, b, seed) for a, b in ((R, Y), (R, N), (N, Y)))
         pm, bm = rl["post_m"], rl["baluster_m"]
         rw, rd = rl["rail_m"]
         e = 0.04                                   # the railing's line in from the slab's edge
@@ -2558,9 +2569,42 @@ class Assembly:
         nb = balusters(L + pm, Rs - pm, True, mid(*fr))
         for a in (L, Rs - pm):
             nb += balusters(pm, F - pm, False, mid(a, a + pm))
-        self.trim_triangles["k01.hood.door_bracketed"] = len(pr.idx) // 3 - tri0
+        self.trim_triangles["k01.hood.door_bracketed"] = (
+            tri_fascia + len(pr.idx) // 3 - tri1 if h.get("railing_fabric") == "iron" else len(pr.idx) // 3 - tri0)
         self.seat(frame, [(s, y, 0.0) for s in (S0, S1) for y in (y0 - Dd, y3)], "k01.hood")
-        self.hood_meta = {"modillions": n, "consoles": 2, "balusters": nb, "top_m": round(y3, 4)}
+        self.hood_meta = {"modillions": n, "consoles": 2, "balusters": nb, "top_m": round(y3, 4),
+                          **({"columns": 2} if cols else {})}
+
+    def _hood_columns(self, co, op, P, quad, box, bf, bh, be, s0, s1, out, y0):
+        """T-2963: two turned columns carrying a door hood as a porch (1816's): each a square
+        plinth on the stoop's landing, a twelve-sided shaft and a square capital block under
+        the soffit, at the deck's front corners, and a flat respond against the wall behind
+        it. In the hood's own painted joinery."""
+        dia, (pw, ph), cap, rsp = co["diameter_m"], co["plinth_m"], co["capital_m"], co["respond_m"]
+        yl = op.sill_m                                   # the landing, the door's own sill
+        r, seg = dia / 2, 12
+        cd = out - pw / 2 - 0.05
+        for cs in (s0 + pw / 2 + 0.05, s1 - pw / 2 - 0.05):
+            box(cs - pw / 2, cs + pw / 2, yl, yl + ph, cd - pw / 2, cd + pw / 2, skip=("bottom",))
+            cw = min(pw, dia + 0.14) / 2
+            box(cs - cw, cs + cw, y0 - cap, y0, cd - cw, cd + cw, skip=("top",))
+            ya, yb = yl + ph, y0 - cap
+            for k in range(seg):
+                a0, a1 = 2 * math.pi * k / seg, 2 * math.pi * (k + 1) / seg
+                am = (a0 + a1) / 2
+                q = [(cs + r * math.cos(a), cd + r * math.sin(a)) for a in (a0, a1)]
+                quad([P(q[0][0], ya, q[0][1]), P(q[1][0], ya, q[1][1]), P(q[1][0], yb, q[1][1]), P(q[0][0], yb, q[0][1])],
+                     self._hood_dir(P, am), bf)
+            # the respond: a flat pilaster on the wall behind the column, landing to soffit
+            box(cs - pw / 2 + 0.05, cs + pw / 2 - 0.05, yl, y0, 0.0, rsp, skip=("back", "bottom", "top"))
+
+    @staticmethod
+    def _hood_dir(P, a):
+        """The outward unit normal of a column face at angle `a` in the hood's (s, d) plane."""
+        o, e, n = P(0.0, 0.0, 0.0), P(1.0, 0.0, 0.0), P(0.0, 0.0, 1.0)
+        R_ = tuple(x - y for x, y in zip(e, o))
+        N_ = tuple(x - y for x, y in zip(n, o))
+        return _unit(_add(_mul(R_, math.cos(a)), _mul(N_, math.sin(a))))
 
     # -- k01.roof.hip, built from the K05 roof-construction kit (T-2302) -------------
     def roof(self):

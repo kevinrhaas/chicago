@@ -24073,7 +24073,7 @@ once.
 
 ### L-draft-prairie-18-20-west-2329 — The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie.draft_1904.form.draft_elevation`, `house_1828_prairie.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
+**Covers:** `edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie.draft_1904.form.draft_elevation`, `house_1828_prairie.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
 **Decision:** the owner's district pass (2026-10-08) drafts the whole of Prairie Avenue as a
 serviceable first model that the per-building tickets then refine in place. On the west side of
 the 18th-20th block (Sanborn 1911 sheet 28) it stands nine houses and nine alley buildings —
@@ -24124,6 +24124,7 @@ the house, its posts and roof left to the house's own pass.
 **How to resolve:** each house's own per-building ticket (named on its card and in its record's
 `draft.replaceable_by`) replaces its attributes in place, under the same id, from a photograph,
 plate, plan or measured drawing; the alley buildings are T-1935's.
+**Retired in part:** 1816 Henderson's house by T-2963 (piece 1 of T-1886), which refined it in place on the K01 frontage kit under `L-k01-1816-henderson-2963`; its stable is still this draft's.
 **Ticket:** T-2329 (piece 1 of T-2159, the district draft's 18th-20th block).
 **Review:** `docs/RESEARCH/prairie-draft-west-2329/README.md`.
 **Recorded:** 2026-10-10 (T-2329).
@@ -26129,6 +26130,38 @@ ingested as a source, says what changed by 1904.
 **Ticket:** T-2933 (piece 1 of T-1874).
 **Review:** `docs/RESEARCH/k01-1736-mcbirney-2933/README.md`.
 **Recorded:** 2026-10-20 (T-2933).
+
+### L-k01-1816-henderson-2963 — 1816 Prairie refined from the district draft to a K01 brick house under a mansard, its canted bays and columned porch read off its photograph
+
+**Decision:** the house at 1816 Prairie Avenue, Charles M. Henderson's (T-2963, piece 1 of T-1886),
+is no longer a district draft. It stands, under the draft's own id `henderson_house_1816_prairie`, as
+a `k01_frontage` record built by `generators/k01_emit.py`, against its one photograph
+(`chicagology_1816_henderson_photo`, undated, after 1873; rights check_required: forms and
+proportions only): brick walls two tall storeys over a rusticated stone basement, a canted bay at the
+street front's south corner with the cornice carried round it, a canted bay on the south flank, a
+porch on two turned columns carrying an iron balcony, a bracketed cornice and a slated mansard with
+dormers, and an iron fence on a stone curb.
+**What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1816-b1, census
+s28-1816-front): the front block's place and plan (14.82 by 12.0 m), both canted bays' widths and
+projections, the porch's place and size, the rear range ('rear2B'), brick. From the photograph,
+through its solved camera (`data/reference_views/henderson_house_1816_prairie/chicagology_photo.json`):
+the principal floor, the storey heights and the wall head, the windows' heights and the flank's one
+window, the porch's columns, entablature and balcony, the mansard and its dormers' faces, the fence.
+Every height rests on the camera's distance (its `solve`).
+**What is invented.** The walls' thickness and the brick's tone (the print is monochrome); the
+mansard's deck and its pitch; the eave's overhang; the treads; the rear and north walls' windows
+(no picture sees them); the stacks' places; the rainwater; the sash pattern; the rear range's storeys,
+windows and flat deck.
+**What is not built.** The raised crown over the front's south end, the south bay's own mansard and
+dormers, the cresting, the pedimented dormers, the carved hoods and capitals, the balcony's pierced
+panels, the fence's scrolled panels, and the porch's place about 1 m south of the trace's in the
+print: open on the match record for T-2964.
+**How to resolve:** T-2964 builds those, reads the 1874 Land Owner engraving through a camera of its
+own, and brings both match records to `matches`.
+**Covers:** `henderson_house_1816_prairie.as_mapped_1904.form.wall_thickness_front_m`, `henderson_house_1816_prairie.as_mapped_1904.form.wall_thickness_side_m`, `henderson_house_1816_prairie.as_mapped_1904.form.service_wall_brick`, `henderson_house_1816_prairie.as_mapped_1904.form.roof_pitch_deg`, `henderson_house_1816_prairie.as_mapped_1904.form.eave_overhang_m`, `henderson_house_1816_prairie.as_mapped_1904.form.stair_tread_m`, `henderson_house_1816_prairie.as_mapped_1904.form.rear_bays`, `henderson_house_1816_prairie.as_mapped_1904.form.north_bays`, `henderson_house_1816_prairie.as_mapped_1904.form.chimneys`, `henderson_house_1816_prairie.as_mapped_1904.form.rainwater`, `henderson_house_1816_prairie.as_mapped_1904.form.window_kit`
+**Ticket:** T-2963 (piece 1 of T-1886).
+**Review:** `docs/RESEARCH/k01-1816-henderson-2963/README.md`.
+**Recorded:** 2026-10-20 (T-2963).
 
 ### L-k01-1625-mcbirney-tudor-2432 — 1625 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1890 photograph, its steep wall gable stood in for by a dormer until K01 can raise one
 
