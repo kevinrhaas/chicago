@@ -63,9 +63,16 @@ for reduced in (False,True):
             assert target['mouth']-cfg['heads'][target['head']]['height_m']<q[2]<target['mouth']
         else:
             assert min(distance_to_segment(q,a,c) for a,c in zip(target['path'],target['path'][1:]))<.001
+    # T-2861: a trough with its own section (the bow's, off sheet 4) keeps its own floor.
+    trough={k:r.get('section',{}) for r in net['gutters'] for k in r['drains']}
     for row in leaders.values():
         assert row['spout'][0][2]>row['spout'][1][2]
-        floor=row['inlet'][2]-cfg['gutter_depth_m']-.012
+        floor=row['inlet'][2]-trough.get(row['name'],{}).get('depth_m',cfg['gutter_depth_m'])-.012
+        if trough.get(row['name']):
+            # The outlet stands wholly inside the trough, between its back and its face.
+            u=math.dist(row['inlet'][:2],next(r for r in net['gutters'] if row['name'] in r['drains'])['edge'][0][:2])
+            reach=row.get('depth_m',row.get('width_m',cfg['pipe_width_m']))/2
+            assert -.035<u-reach and u+reach<trough[row['name']]['width_m']-.035,(row['name'],'outlet overhangs its trough')
         assert row['spout'][0][2]>floor>row['spout'][1][2]
         assert row['path'][-1][2]<=.07,(row['name'],'floating discharge')
         if isinstance(row['wall'],dict):continue
