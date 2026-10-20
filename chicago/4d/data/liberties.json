@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 664,
+  "count": 665,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -459,7 +459,7 @@
     },
     {
       "id": "henderson_house_1816_prairie",
-      "name": "1816 Prairie Avenue — Henderson Second Empire"
+      "name": "1816 Prairie Avenue — Charles M. Henderson house"
     },
     {
       "id": "henderson_house_1816_prairie_coach_house",
@@ -34516,18 +34516,6 @@
         },
         {
           "domain": "structure",
-          "structure": "henderson_house_1816_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft"
-        },
-        {
-          "domain": "structure",
-          "structure": "henderson_house_1816_prairie",
-          "phase": "draft_1904",
-          "aspect": "form.draft_elevation"
-        },
-        {
-          "domain": "structure",
           "structure": "henderson_house_1816_prairie_coach_house",
           "phase": "draft_1904",
           "aspect": "form.draft"
@@ -34676,7 +34664,7 @@
       "fields": [
         {
           "label": "Covers",
-          "text": "`edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie.draft_1904.form.draft_elevation`, `house_1828_prairie.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
+          "text": "`edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie.draft_1904.form.draft_elevation`, `house_1828_prairie.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`."
         },
         {
           "label": "Decision",
@@ -34689,6 +34677,10 @@
         {
           "label": "How to resolve",
           "text": "each house's own per-building piece of work (named on its card and in its record's draft.replaceable by) replaces its attributes in place, under the same id, from a photograph, plate, plan or measured drawing; the alley buildings are earlier work's."
+        },
+        {
+          "label": "Retired in part",
+          "text": "1816 Henderson's house by later work, which refined it in place on the K01 frontage kit under `“1816 Prairie refined from the district draft to a K01 brick house under a mansard, its canted bays and columned porch read off its photograph”`; its stable is still this draft's."
         },
         {
           "label": "Review",
@@ -34708,6 +34700,8 @@
         "T-2738",
         "T-2543",
         "T-1935",
+        "T-1886",
+        "T-2963",
         "T-2329",
         "T-2159"
       ]
@@ -40560,6 +40554,111 @@
         "T-2960",
         "T-2961",
         "T-2962"
+      ]
+    },
+    {
+      "id": "L-k01-1816-henderson-2963",
+      "title": "1816 Prairie refined from the district draft to a K01 brick house under a mansard, its canted bays and columned porch read off its photograph",
+      "section": "per_subject",
+      "subjects": [
+        "henderson_house_1816_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "henderson_house_1816_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "henderson_house_1816_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "henderson_house_1816_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "henderson_house_1816_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "henderson_house_1816_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "henderson_house_1816_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "henderson_house_1816_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "henderson_house_1816_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "henderson_house_1816_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "henderson_house_1816_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "henderson_house_1816_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        }
+      ],
+      "recorded": "2026-10-20",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the house at 1816 Prairie Avenue, Charles M. Henderson's, is no longer a district draft. It stands, under the draft's own id 1816 Prairie Avenue — Charles M. Henderson house, as a k01 frontage record built by the k01 emit generator, against its one photograph ([1816 S. Prairie Ave. (Charles M. Henderson house).] Photograph of the house…, undated, after 1873; rights check required: forms and proportions only): brick walls two tall storeys over a rusticated stone basement, a canted bay at the street front's south corner with the cornice carried round it, a canted bay on the south flank, a porch on two turned columns carrying an iron balcony, a bracketed cornice and a slated mansard with dormers, and an iron fence on a stone curb. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1816-b1, census s28-1816-front): the front block's place and plan (14.82 by 12.0 m), both canted bays' widths and projections, the porch's place and size, the rear range ('rear2B'), brick. From the photograph, through its solved camera (the chicagology photo data): the principal floor, the storey heights and the wall head, the windows' heights and the flank's one window, the porch's columns, entablature and balcony, the mansard and its dormers' faces, the fence. Every height rests on the camera's distance (its `solve`). **What is invented.** The walls' thickness and the brick's tone (the print is monochrome); the mansard's deck and its pitch; the eave's overhang; the treads; the rear and north walls' windows (no picture sees them); the stacks' places; the rainwater; the sash pattern; the rear range's storeys, windows and flat deck. **What is not built.** The raised crown over the front's south end, the south bay's own mansard and dormers, the cresting, the pedimented dormers, the carved hoods and capitals, the balcony's pierced panels, the fence's scrolled panels, and the porch's place about 1 m south of the trace's in the print: open on the match record for later work."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work builds those, reads the 1874 Land Owner engraving through a camera of its own, and brings both match records to `matches`."
+        },
+        {
+          "label": "Covers",
+          "text": "`henderson_house_1816_prairie.as_mapped_1904.form.wall_thickness_front_m`, `henderson_house_1816_prairie.as_mapped_1904.form.wall_thickness_side_m`, `henderson_house_1816_prairie.as_mapped_1904.form.service_wall_brick`, `henderson_house_1816_prairie.as_mapped_1904.form.roof_pitch_deg`, `henderson_house_1816_prairie.as_mapped_1904.form.eave_overhang_m`, `henderson_house_1816_prairie.as_mapped_1904.form.stair_tread_m`, `henderson_house_1816_prairie.as_mapped_1904.form.rear_bays`, `henderson_house_1816_prairie.as_mapped_1904.form.north_bays`, `henderson_house_1816_prairie.as_mapped_1904.form.chimneys`, `henderson_house_1816_prairie.as_mapped_1904.form.rainwater`, `henderson_house_1816_prairie.as_mapped_1904.form.window_kit`"
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on 1816 henderson."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-20 (T-2963)."
+        }
+      ],
+      "work_refs": [
+        "T-2963",
+        "T-1886",
+        "T-2964"
       ]
     },
     {
