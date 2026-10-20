@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2091, ts: '2026-10-20T02:27:15.448Z', date: 'Oct 19, 2026, 9:27 PM CT', title: 'Finished houses reach the town faster when two land together', kind: 'improvement',
+    items: [
+      'Nothing you can see changes in the scene itself. Two building changes that rebuilt different houses no longer hold each other up: the build loop now merges the town\'s asset list entry by entry, where before a second house waited a whole extra run to catch up with the first.',
+      'When a shared recipe moved on both sides, the affected houses are rebuilt on the combined version and kept only if they come out identical; anything that would look different still goes back to a full run.',
+    ] },
+  { v: 2090, ts: '2026-10-20T02:27:15.448Z', date: 'Oct 19, 2026, 9:27 PM CT', title: '1625 Prairie\'s south wall gets its low windows', kind: 'change',
+    items: [
+      'In 1904, the south wall of 1625 Prairie now has the three low windows the 1890 photograph shows: a small round-topped one near the ground, a tall narrow round-topped one under the oriel, and a narrow slit just before the rear wing.',
+      'Its ground-floor window and its stair window lose the fan of brick over their tops. The photograph shows plain heads there.',
+      'All five are measured from the photograph through its matched camera. The wall is seen at a steep angle, so their widths are estimates, good to about half a foot.',
+    ] },
   { v: 2089, ts: '2026-10-20T01:24:01.867Z', date: 'Oct 19, 2026, 8:24 PM CT', title: 'Nothing you can see changed: towers can stand on rear wings', kind: 'chore',
     items: [
       'Nothing you can see changed yet. The kit the Prairie Avenue houses are built from can now stand a round or eight-sided tower on a rear wing\'s wall, rising past the wing\'s roof with its cone above it.',
