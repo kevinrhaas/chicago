@@ -8284,13 +8284,15 @@ for (const [label, viewport, touch] of [
       }));
     });
     const rungOf = (re) => rungs.find((r) => re.test(r.cite))?.tier ?? '(no such citation)';
+    // ---- T-2825: the rung in words alone; "tier N" is the ladder's number, not a reader's word
     check(`${label}: every citation says what rung it is on`,
-      rungs.length > 0 && rungs.every((r) => /^tier \d+ · \S/.test(r.tier)),
+      rungs.length > 0 && rungs.every((r) => /\S/.test(r.tier) && !/\btier\b|\d/.test(r.tier)),
       JSON.stringify(rungs.map((r) => r.tier)));
     check(`${label}: the rung belongs to its own citation`,
-      /^tier 2 · near-primary recollection$/.test(rungOf(/Wau-Bun/))
-      && /^tier 1 · period\/eyewitness$/.test(rungOf(/Wright/))
-      && /^tier 5 · modern retrospective/.test(rungOf(/Kurz/)),
+      /^near-primary recollection$/.test(rungOf(/Wau-Bun/))
+      && /^period\/eyewitness$/.test(rungOf(/Wright/))
+      && /^modern retrospective/.test(rungOf(/Kurz/)),
+    // ---- end T-2825
       `Wau-Bun "${rungOf(/Wau-Bun/)}" · Wright "${rungOf(/Wright/)}" · Kurz "${rungOf(/Kurz/)}"`);
     // --- and WHY a citation is on that rung, and what it cannot be used for --
     // A rung is a judgement about a document, and on ten of these records the
@@ -8565,8 +8567,10 @@ for (const [label, viewport, touch] of [
           present: !!sec,
           text: sec?.textContent?.replace(/\s+/g, ' ').trim() ?? '',
           refused: !!document.querySelector('#popup .pop-agency .agency-refused'),
-          cites: [...document.querySelectorAll('#popup .pop-agency .agency-cites code')]
+          // ---- T-2825: each printing by its paper and date, never its claim id
+          cites: [...document.querySelectorAll('#popup .pop-agency .agency-cites .agency-printing')]
             .map((n) => n.textContent.trim()),
+          // ---- end T-2825
         };
       };
       return {
@@ -8587,8 +8591,11 @@ for (const [label, viewport, touch] of [
       popAgency.hubbard.text.slice(0, 400));
     // Every other line on this card cites its source; so does this one.
     check(`${label}: the holding cites the printings it rests on`,
-      popAgency.hubbard.cites.includes('chicago_democrat_1834_07_02#c048')
-      && popAgency.hubbard.cites.length === 3,
+      // ---- T-2825: the notice of 2 July 1834 by its paper and date, and no claim id
+      popAgency.hubbard.cites.includes('the Chicago Democrat of 1834-07-02')
+      && popAgency.hubbard.cites.length === 3
+      && popAgency.hubbard.cites.every((c) => !/_|#c\d/.test(c)),
+      // ---- end T-2825
       `got [${popAgency.hubbard.cites.join(', ')}]`);
     // THE CAVEAT IS THE ACCEPTANCE CLAUSE. "Nothing on the card implies the holder
     // traded in the principal's line, held a roof for it, or was a partner in any
@@ -8771,20 +8778,29 @@ for (const [label, viewport, touch] of [
     // feet twice — and the Sauganash's is the placeholder its own note calls the
     // central unresolved question of the record. A card stamping one grade on all
     // eight outlines would pass any check for "there is a chip".
-    const shape = await page.evaluate(() => {
+    const shape = await page.evaluate(async () => {
+      // ---- T-2825: the card says a record through the scene's reader overlay (no ticket,
+      // record id or file path in it), so "the record's words" are the record AS SAID by
+      // that overlay: the same edits, applied here to the raw sidecar, independently of the card.
+      const overlay = await window.__chicago4d.readerText();
+      const { say } = await import(window.__MODULE_BASE + 'reader-text.js');
+      const said = (text, key) => say(text, overlay, key);
+      // ---- end T-2825
       const read = (id) => {
         window.__chicago4d.pick(id);
         const sec = [...document.querySelectorAll('#popup .pop-sec')]
           .find((s) => /Was it this shape/i.test(s.querySelector('h3')?.textContent ?? ''));
         const row = sec?.querySelector('table.attrs tr');
+        const raw = window.__chicago4d.registry.get(id)?.sidecar?.footprint?.note ?? '';
         return {
           present: !!sec,
           conf: row?.querySelector('.conf')?.textContent.trim() ?? '',
           shown: row?.querySelector('[data-note]')?.textContent ?? '',
-          recorded: window.__chicago4d.registry.get(id)?.sidecar?.footprint?.note ?? '',
+          recorded: said(raw, 'note'),
+          raw,
         };
       };
-      const pair = { hogan: read('hogan_store'), saug: read('sauganash_hotel') };
+      const pair = { hogan: read('hogan_store'), saug: read('sauganash_hotel'), overlay: !!overlay?.edits };
       // Every building, because the omission below is a rule and not a property
       // of the two buildings the pair happens to name.
       let valued = [];
@@ -8799,7 +8815,10 @@ for (const [label, viewport, touch] of [
       && shape.hogan.conf === 'attested' && shape.saug.conf === 'reconstructed',
       `hogan ${shape.hogan.conf}, sauganash ${shape.saug.conf}`);
     check(`${label}: the footprint's reasoning is the record's, verbatim`,
-      shape.saug.shown === shape.saug.recorded && shape.saug.recorded.length > 300
+      // ---- T-2825: verbatim against the record as the overlay says it, and the overlay is in
+      shape.overlay && shape.saug.raw.length > 300
+      // ---- end T-2825
+      && shape.saug.shown === shape.saug.recorded && shape.saug.recorded.length > 300
       && /PLACEHOLDER/.test(shape.saug.shown)
       && shape.hogan.shown === shape.hogan.recorded
       && shape.hogan.shown !== shape.saug.shown,
@@ -8975,7 +8994,10 @@ for (const [label, viewport, touch] of [
     // stood there.
     check(`${label}: a source on an invention is named as a bound, not as attribution`,
       /^Bounded by:/.test(row(basis.anon, 'reconstructed').from)
-      && /reconstruction_spec/.test(row(basis.anon, 'reconstructed').from)
+      // ---- T-2825: the spec by its title (its citation's opening words), never its id
+      && /Building Inventory/.test(row(basis.anon, 'reconstructed').from)
+      && !/_/.test(row(basis.anon, 'reconstructed').from + row(basis.saug, 'attested').from)
+      // ---- end T-2825
       && /^From:/.test(row(basis.saug, 'attested').from),
       `invention "${row(basis.anon, 'reconstructed').from.slice(0, 70)}", `
       + `attested "${row(basis.saug, 'attested').from.slice(0, 70)}"`);
@@ -9116,7 +9138,14 @@ for (const [label, viewport, touch] of [
     // The control is the other half. A held notice on a building that is not held
     // would be a worse fault than a missing one: it would put a consultation claim
     // on a record nobody made it for.
-    const held = await page.evaluate(() => {
+    const held = await page.evaluate(async () => {
+      // ---- T-2825: the card says a record through the scene's reader overlay (no ticket,
+      // record id or file path in it), so "the record's words" are the record AS SAID by
+      // that overlay: the same edits, applied here to the raw sidecar, independently of the card.
+      const overlay = await window.__chicago4d.readerText();
+      const { say } = await import(window.__MODULE_BASE + 'reader-text.js');
+      const said = (text, key) => say(text, overlay, key);
+      // ---- end T-2825
       const read = (id) => {
         window.__chicago4d.pick(id);
         const flag = document.querySelector('#popup .pop-flag-held');
@@ -9124,7 +9153,8 @@ for (const [label, viewport, touch] of [
           id,
           notice: !!flag && /held pending consultation/i.test(flag.textContent),
           why: flag?.querySelector('.pop-held-why')?.textContent?.trim() ?? '',
-          recorded: window.__chicago4d.registry.get(id)?.sidecar?.review_reason ?? '',
+          recorded: said(window.__chicago4d.registry.get(id)?.sidecar?.review_reason ?? '', 'review_reason').trim(),
+          overlay: !!overlay?.edits,
           // Folded sections are not an answer to "without unfolding anything":
           // the reason lived inside a 400-word note behind a disclosure before
           // this, and that is the state the ticket was opened about.
@@ -9146,7 +9176,7 @@ for (const [label, viewport, touch] of [
     // Verbatim, and for the same reason the account below is: this is the record's
     // sentence, not a gloss of it, and a renderer that trimmed it to a first clause
     // would pass any substring check written here.
-    const whyDrift = held.flagged.filter((h) => !h.recorded || h.why !== h.recorded);
+    const whyDrift = held.flagged.filter((h) => !h.overlay || !h.recorded || h.why !== h.recorded);
     check(`${label}: and says what it is held for, in the record's own words`,
       held.flagged.length > 0 && whyDrift.length === 0,
       whyDrift.map((h) => `${h.id}: shown ${JSON.stringify(h.why.slice(0, 40))}`
@@ -9169,31 +9199,46 @@ for (const [label, viewport, touch] of [
     // about the limit of the evidence is the last text on this card that should be
     // trimmed or summarised, and a renderer that showed a first sentence and an
     // ellipsis would pass every looser check written here.
-    const account = await page.evaluate(() => {
+    const account = await page.evaluate(async () => {
+      // ---- T-2825: the card says a record through the scene's reader overlay (no ticket,
+      // record id or file path in it), so "the record's words" are the record AS SAID by
+      // that overlay: the same edits, applied here to the raw sidecar, independently of the card.
+      const overlay = await window.__chicago4d.readerText();
+      const { say } = await import(window.__MODULE_BASE + 'reader-text.js');
+      const said = (text, key) => say(text, overlay, key);
+      // ---- end T-2825
       const read = (id) => {
         window.__chicago4d.pick(id);
         const sec = [...document.querySelectorAll('#popup .pop-sec')]
           .find((s) => /own account/i.test(s.querySelector('h3')?.textContent ?? ''));
         const body = sec?.querySelector('.research-body');
+        const raw = window.__chicago4d.registry.get(id)?.sidecar?.research_note ?? '';
         return {
           present: !!sec,
           shown: body?.textContent ?? '',
-          recorded: window.__chicago4d.registry.get(id)?.sidecar?.research_note ?? '',
+          recorded: said(raw, 'research_note'),
+          raw,
         };
       };
-      return { hogan: read('hogan_store'), saug: read('sauganash_hotel') };
+      return { hogan: read('hogan_store'), saug: read('sauganash_hotel'), overlay: !!overlay?.edits };
     });
     check(`${label}: the record's own account reaches the card`,
       account.hogan.present && /THE BUILDING WHERE CHICAGO'S MAIL BEGAN/.test(account.hogan.shown),
       `present ${account.hogan.present}, "${account.hogan.shown.slice(0, 90)}"`);
     check(`${label}: it is the record's words, unabridged`,
-      account.hogan.shown === account.hogan.recorded && account.hogan.recorded.length > 500,
+      // ---- T-2825: the account as the overlay says it, the overlay in hand, nothing trimmed
+      account.overlay && account.hogan.raw.length > 500
+      // ---- end T-2825
+      && account.hogan.shown === account.hogan.recorded && account.hogan.recorded.length > 500,
       `${account.hogan.shown.length} chars shown of ${account.hogan.recorded.length} recorded`);
     // The discriminating case, as everywhere else on this card: a second building
     // gets its own account. A section rendering one fixed block of prose — or the
     // scene's, or the previous pick's — would pass both checks above.
     check(`${label}: another building gets its own account, not this one's`,
       account.saug.shown === account.saug.recorded
+      // ---- T-2825: and it is said from ITS record: the raw notes differ, and so do the saids
+      && account.saug.raw !== account.hogan.raw
+      // ---- end T-2825
       && account.saug.shown !== account.hogan.shown
       && /MILESTONE 0 REFERENCE RECORD/.test(account.saug.shown),
       `sauganash "${account.saug.shown.slice(0, 90)}"`);
@@ -14999,7 +15044,9 @@ for (const [label, viewport, touch] of [
       && /on nothing its record says/.test(people.policyOnly.label)
       && /^No source places this household anywhere/.test(people.policyOnly.words)
       && /BOTH halves of this band are dealt rather than read/.test(people.policyOnly.words)
-      && /reconstruction order book's own household target by division/.test(people.policyOnly.words)
+      // ---- T-2825: the order book is the reconstruction plan to a reader (readable_text's rule)
+      && /reconstruction plan's own household target by division/.test(people.policyOnly.words)
+      // ---- end T-2825
       && /town model's employment distribution/.test(people.policyOnly.words),
       JSON.stringify(people.policyOnly));
     // TWO ASSERTIONS THE FIRST DRAFT CARRIED ARE GONE, AND SAYING SO IS THE POINT:
@@ -15428,7 +15475,9 @@ for (const [label, viewport, touch] of [
         grades: seg('.gc-seg-att, .gc-seg-inf, .gc-seg-rec'),
         keys: [...city.querySelectorAll('.gc-key li')].map((el) => el.textContent.trim()),
         targetDate: city.querySelector('.city-meta time')?.getAttribute('datetime') || '',
-        derivedBy: city.querySelector('.city-meta code')?.textContent.trim() || '',
+        // ---- T-2825: the derivation is said as a tool, never as its path
+        derivedBy: city.querySelector('.city-meta .city-derived')?.textContent.trim() || '',
+        // ---- end T-2825
         build: city.querySelector('.city-meta > div:last-child dd')?.textContent.trim() || '',
         data: api.census,
         oldMount: !!document.getElementById('gate-census'),
@@ -15623,7 +15672,12 @@ for (const [label, viewport, touch] of [
       hub.city.text);
     check(`${label}: City identifies its date, derivation and published build`,
       hub.city.targetDate === hub.city.data?.target_date
-      && hub.city.derivedBy === hub.city.data?.derived_by && /^build\s+\S+/.test(hub.city.build),
+      // ---- T-2825: "the town census tool", and no path or file name in it
+      && hub.city.derivedBy === `the ${String(hub.city.data?.derived_by ?? '').split('/').pop()
+        .replace(/\.[A-Za-z0-9]+$/, '').replace(/[_-]+/g, ' ').trim()} tool`
+      && !/[/.]|_/.test(hub.city.derivedBy)
+      // ---- end T-2825
+      && /^build\s+\S+/.test(hub.city.build),
       JSON.stringify({ date: hub.city.targetDate, derivedBy: hub.city.derivedBy, build: hub.city.build }));
     check(`${label}: City fits a phone-width topic and scrolls inside the sheet`,
       hub.city.fits && hub.city.scrollsInSheet,
@@ -17980,9 +18034,12 @@ for (const [label, viewport, touch] of [
       check(`${label}: a drawn family member says they were drawn, and how to redraw them`,
         /Why this person is in the town/.test(residents.namedKinText)
         && /Nobody a source names/.test(residents.namedKinText)
-        && /modelled_families/.test(residents.namedKinText)
+        // ---- T-2825: the stage by its words, and the seed kept on the record, not printed
+        && /modelled families/.test(residents.namedKinText)
         && /How this person is named/.test(residents.namedKinText)
-        && /Redrawn with the seed/.test(residents.namedKinText),
+        && /drawn again exactly, from the seed kept on its record/.test(residents.namedKinText)
+        && !/modelled_families|Redrawn with the seed/.test(residents.namedKinText),
+        // ---- end T-2825
         residents.namedKinText.slice(0, 300));
     }
     // The nine the sources actually date, with the reasoning that says which of

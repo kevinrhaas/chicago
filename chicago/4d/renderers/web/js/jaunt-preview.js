@@ -4,6 +4,8 @@ import { createJournal, presentKeepsake } from './jaunt-journal.js';
 import { icon } from './menu-icons.js';
 import { t } from './strings/index.js';
 import './strings/license.js';
+import { loadReaderText, readerCopy } from './reader-text.js';
+
 export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null, estimate = () => null, storage, plateFor = () => null, preferredMode = () => null, modeNote = () => '', license = null }) {
   const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
   let catalogPromise, daybookPromise, journal = null, serial = 0;
@@ -155,6 +157,9 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     if (!content) {
       content = await json(`${id}.json`, options);
       if (content.scene !== String(scene) || content.id !== id || content.review_required || !content.stops?.length) throw new Error('Invalid jaunt');
+      // T-2825: a stop's evidence (its locator, its reasoning, its citations) said for a
+      // reader, by the overlay the gate lints; the story itself is already a visitor's text.
+      content = readerCopy(content, await loadReaderText(dataBase, `jaunts_${scene}`));
       contents.set(id, content);
     }
     return content;

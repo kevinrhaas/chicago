@@ -680,8 +680,12 @@ export async function createContext({
           },
         },
         citations: [],
-        research_note: `Context city, ${doc.ticket}${doc.extended_by ? ` and ${doc.extended_by}` : ''} (data/context/${sceneId}.json); `
-          + `docs/LIBERTIES.md ${doc.liberty}${doc.liberty_streets ? ` and ${doc.liberty_streets}` : ''}.`,
+        // T-2825: said for a reader — no ticket, file or liberty id; the liberty is the
+        // register's, where it is found under the context city.
+        research_note: 'The context city: the faded city around Prairie Avenue, traced off the maps '
+          + 'where they reach and projected on the street grid past them. Every part of it is a '
+          + 'liberty this project takes, recorded in the liberties register'
+          + `${doc.liberty_streets ? ', its streets with it' : ''}.`,
       },
     };
   };
