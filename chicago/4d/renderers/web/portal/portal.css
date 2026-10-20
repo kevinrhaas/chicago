@@ -263,3 +263,27 @@ html.booting .era:not(.resolved) .era-hold b{color:var(--ink-faint)}
 [data-skin="brass"] .era-feed,[data-skin="brass"] .era-feed-blocks{filter:grayscale(1) sepia(.55) contrast(1.1) brightness(.86)}
 [data-skin="deep-space"] .era-feed,[data-skin="deep-space"] .era-feed-blocks{filter:grayscale(1) contrast(1.2) brightness(.8)}
 @media(prefers-reduced-motion:reduce){.era-feed,.era-feed-blocks{display:none}.era-plate img{opacity:.9!important}}
+/* T-2901: This device — the console's one real instrument (device-meter.js). Twenty lit segments
+   in five grades, red to green; the bar hovers around the measured score and dips with the page's
+   own late frames. It leads the telemetry strip so it sits on the first screen at both widths. */
+.device-meter{--dm-poor:#F0504A;--dm-low:#F5922E;--dm-fair:#E9CC3F;--dm-good:#9ADF5A;--dm-peak:#3FDD86;flex:2.4 1 340px;gap:5px;padding:9px 16px 8px}
+[data-theme="light"] .device-meter{--dm-poor:#D7322C;--dm-low:#E07A12;--dm-fair:#C9A50E;--dm-good:#5FAE22;--dm-peak:#14995A}
+.telemetry{align-items:stretch}.telemetry-cell{align-content:center}
+.dm-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;min-width:0}
+.dm-read{white-space:nowrap}.dm-read output{font:inherit;color:var(--ink)}
+.dm-read em{font:600 10px/1 var(--font-mono);letter-spacing:.14em;margin-left:6px;color:var(--ink-dim);text-transform:uppercase}
+.device-meter[data-grade="poor"] .dm-read em{color:var(--dm-poor)}.device-meter[data-grade="low"] .dm-read em{color:var(--dm-low)}.device-meter[data-grade="fair"] .dm-read em{color:var(--dm-fair)}.device-meter[data-grade="good"] .dm-read em{color:var(--dm-good)}.device-meter[data-grade="peak"] .dm-read em{color:var(--dm-peak)}
+.dm-bar{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:3px;height:13px;padding:2px;border-radius:3px;background:color-mix(in srgb,var(--screen) 70%,transparent);box-shadow:var(--inset-bezel)}
+.dm-bar i{--seg:var(--dm-peak);border-radius:1.5px;background:var(--seg);opacity:.14;transition:opacity .14s,box-shadow .14s}
+.dm-bar i:nth-child(-n+4){--seg:var(--dm-poor)}.dm-bar i:nth-child(n+5):nth-child(-n+8){--seg:var(--dm-low)}.dm-bar i:nth-child(n+9):nth-child(-n+12){--seg:var(--dm-fair)}.dm-bar i:nth-child(n+13):nth-child(-n+16){--seg:var(--dm-good)}
+.dm-bar i:nth-child(4n+5){margin-left:3px}
+.dm-bar i.on{opacity:1;box-shadow:0 0 6px color-mix(in srgb,var(--seg) 60%,transparent)}
+.dm-bar i.top{box-shadow:0 0 11px var(--seg),0 0 2px var(--seg)}
+.device-meter[data-state="assessing"] .dm-bar i{animation:dm-scan 1.2s calc(var(--i) * 45ms) ease-out infinite}
+@keyframes dm-scan{0%,100%{opacity:.14}12%{opacity:.95}}
+.dm-scale{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:0;padding:0 2px;font:8px/1.2 var(--font-mono);letter-spacing:.12em;color:var(--ink-faint)}
+.device-meter[data-grade="poor"] .dm-scale small:nth-child(1){color:var(--dm-poor)}.device-meter[data-grade="low"] .dm-scale small:nth-child(2){color:var(--dm-low)}.device-meter[data-grade="fair"] .dm-scale small:nth-child(3){color:var(--dm-fair)}.device-meter[data-grade="good"] .dm-scale small:nth-child(4){color:var(--dm-good)}.device-meter[data-grade="peak"] .dm-scale small:nth-child(5){color:var(--dm-peak)}
+.dm-note{margin:0;font:10px/1.35 var(--font-mono);letter-spacing:.04em;color:var(--ink-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.device-meter[data-state="failed"] .dm-bar i{animation:none}
+@media(max-width:620px){.machine-page .telemetry .device-meter{flex:1 1 100%;border-right:0;border-bottom:1px solid var(--edge);padding:9px 12px 8px}.machine-page .telemetry-cell:nth-child(n+5){display:none}.machine-page .telemetry-cell:nth-child(4){display:grid;border-right:0}.machine-page .telemetry-cell:nth-child(3){border-right:1px solid var(--edge)}.device-meter .dm-read b,.device-meter .dm-read{font-size:14px}}
+@media(prefers-reduced-motion:reduce){.device-meter[data-state="assessing"] .dm-bar i{animation:none}}

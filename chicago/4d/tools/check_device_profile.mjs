@@ -142,5 +142,40 @@ check('a stored choice is read before the profile, so the visitor keeps the last
   assert.ok(main.indexOf('await profileDevice(') < main.indexOf('await loadScene('), 'profile before the scene fetch');
 });
 
+// T-2901: the front door's device meter scores the same profile, inside its class's band.
+const meter = await readFile(path.join(web, 'portal/device-meter.js'), 'utf8');
+const portalHtml = await readFile(path.join(web, 'portal/index.html'), 'utf8');
+check('the meter score stays inside the band of the class the town boots on', () => {
+  const band = { weak: [8, 39], standard: [40, 79], strong: [76, 99] };
+  for (const cls of dp.DEVICE_CLASSES) {
+    for (const fill of [0.05, 0.6, 2, 4, 40]) {
+      for (const verts of [0.005, 0.05, 0.2, 0.4, 4]) {
+        for (const signals of [GPU, { ...GPU, cores: 2, memoryGB: 2 }, { webgl2: true }]) {
+          const { score, grade } = dp.scoreProfile({ cls, signals, bench: { fill, verts } });
+          assert.ok(score >= band[cls][0] && score <= band[cls][1], `${cls} ${fill}/${verts} scored ${score}`);
+          assert.equal(grade, dp.gradeOf(score));
+        }
+      }
+    }
+  }
+});
+check('a strong desktop reads near peak, a weak phone low, a software rasteriser on its resources', () => {
+  const strong = dp.scoreProfile({ cls: 'strong', signals: { ...GPU, cores: 12 }, bench: { fill: 20, verts: 2 } });
+  assert.ok(strong.score >= 95 && strong.grade.id === 'peak' && strong.basis === 'measured', JSON.stringify(strong));
+  const weak = dp.scoreProfile({ cls: 'weak', signals: { webgl2: true, cores: 4, memoryGB: 2 }, bench: { fill: 0.4, verts: 0.03 } });
+  assert.ok(weak.score >= 20 && weak.score < 40 && weak.grade.id === 'low', JSON.stringify(weak));
+  const soft = dp.scoreProfile({ cls: 'standard', signals: { renderer: 'SwiftShader', cores: 4 }, bench: null });
+  assert.equal(soft.basis, 'resources');
+  assert.equal(dp.scoreProfile({ cls: 'weak', signals: {}, bench: null }).score, 24, 'no reading at all: the middle of its band');
+  assert.deepEqual(dp.GRADES.map(g => g.id), ['poor', 'low', 'fair', 'good', 'peak']);
+  assert.equal(dp.gradeOf(79.9).id, 'good'); assert.equal(dp.gradeOf(80).id, 'peak'); assert.equal(dp.gradeOf(0).id, 'poor');
+});
+check('the front door measures with the town\'s profile and never writes the town\'s cache', () => {
+  assert.match(meter, /import \{[^}]*profileDevice[^}]*scoreProfile[^}]*\} from '\.\.\/js\/device-profile\.js'/);
+  assert.match(meter, /profileDevice\(\{ touch, storage: null,/);
+  assert.match(portalHtml, /<script type="module" src="walk\/portal\/device-meter\.js"><\/script>/);
+  assert.equal((portalHtml.match(/<i style="--i:\d+"><\/i>/g) || []).length, 20, 'twenty segments, four per grade');
+});
+
 console.log(`check_device_profile: ${checks.length} checks passed`);
 for (const c of checks) console.log(`  ok  ${c}`);
