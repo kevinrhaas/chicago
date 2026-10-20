@@ -64,7 +64,7 @@ const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
 const pageErrors = [];
 page.on('pageerror', (e) => pageErrors.push(String(e)));
 await page.goto(`http://127.0.0.1:${PORT}/walk/?year=1835`);
-await page.waitForFunction(() => window.__chicago4d?.ready === true, { timeout: 60000 });
+await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 60000 });
 
 const s = await page.evaluate(() => {
   const t = window.__chicago4d.trees;
