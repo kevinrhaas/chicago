@@ -2,7 +2,7 @@
  * Guide › For teachers: the teacher handout (T-2666, NAV-806; design doc section 11,
  * "Teacher mode ... shows the same 7 steps as a printable one-page handout").
  *
- * One page a teacher prints for a class: the Field Check's seven steps, read from the tour
+ * One page a teacher prints for a class: the Field Check's eight steps, read from the tour
  * engine's own STEPS (js/tour.js) and never copied, and three suggested Jaunts for each
  * destination, read from that destination's compiled Jaunt catalog. The suggestion is one
  * stated rule, printed on the page and pinned by tools/test_teacher_handout.mjs:

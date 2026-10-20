@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2142, ts: '2026-10-20T22:51:33.054Z', date: 'Oct 20, 2026, 5:51 PM CT', title: 'An open building card holds you until you close it', kind: 'improvement',
+    items: [
+      'Clicking a building frees the mouse and pauses walking, so the card can be read and clicked.',
+      'Close it with Esc, its Close key, or a click on the street. One Esc, not two.',
+      'Close stays pinned at the top of the card as it scrolls. On a phone it is a full-size key.',
+      'The 60-second tour now teaches select and release, then the Move and Settings menus.',
+      'The tour no longer asks you to turn on the Confidence view.',
+    ] },
+  { v: 2141, ts: '2026-10-20T22:51:33.054Z', date: 'Oct 20, 2026, 5:51 PM CT', title: '1812 Prairie\'s gable, from the Levy photograph', kind: 'feature',
+    items: [
+      '1812 Prairie\'s shaped gable now follows the outline in Albert Levy\'s photograph: its sides curve in to a square stone block at each shoulder, and the head rises as a rounded bell to the finial\'s plinth instead of a sharp point',
+      'The gable\'s grid window is the photograph\'s nine small lights, three rows of three between stone mullions and transoms, where three tall lights stood',
+      'Each corner of the gable sits on a carved scroll under a small pinnacle, in place of a plain square one',
+    ] },
   { v: 2140, ts: '2026-10-20T21:28:13.117Z', date: 'Oct 20, 2026, 4:28 PM CT', title: '1816 Prairie, the Henderson house, rebuilt from its photograph', kind: 'feature',
     items: [
       '1816 Prairie Avenue is no longer a plain draft block. It now stands as Charles M. Henderson\'s brick house: two tall storeys over a stone basement, under a slated mansard with dormers.',

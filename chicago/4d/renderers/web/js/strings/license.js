@@ -6,7 +6,7 @@ import { register } from './index.js';
 export default register('license', {
   title: 'Navigator License',
   form: 'License · Field check passed',
-  text: 'You looked around, walked, opened a building and asked how sure we are.',
+  text: 'You looked around, walked, opened a building, let it go and found the menus.',
   issued: 'Issued {date} · Good in every year',
   held: 'Good in every year',
   awarded: 'Navigator License earned. It is kept with your keepsakes in Jaunts.',
