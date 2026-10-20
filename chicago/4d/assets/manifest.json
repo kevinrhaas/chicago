@@ -7823,9 +7823,9 @@
     "spalding_house_1637_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 5215768,
+      "bytes": 5361308,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "1df959fa83a7091ef93de94594a5b429aebb8d77b65033a9ed37ca262f5e08b5",
+      "inputs_sha256": "94714db23bd73b33420320ea9670364a1d6c385342d7d6cd41a6cd201eedb00a",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "spalding_house_1637_prairie"

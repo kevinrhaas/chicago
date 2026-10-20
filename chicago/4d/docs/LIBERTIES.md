@@ -30313,6 +30313,26 @@ own curl and leaves; a measured photograph square to the fan would split the two
 **Review:** `docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg`.
 **Recorded:** 2026-10-20 (T-2912).
 
+### L-k01-1637-stack-pots-2782 — 1637 Prairie's three stacks crowned with clay pots where the engraving draws a dark hooded crown over each cap
+
+**Decision:** T-2782 (piece 3 of T-2756) builds the crowns the engraving of Jesse Spalding's remodel
+(`glessner_blog_1637_spalding_remodel_engraving`) draws over the caps of `spalding_house_1637_prairie`'s three
+stacks: a clay pot of the K15 kit's plain profile on each stack's two flues (`chimneys.k15.pot`), and each cap
+lowered 0.56 m so the pots' lips stand at the tops T-2441 and T-2781 read.
+**What is read, not invented.** Through the engraving's solved camera, each crown's height (20-27 px on the
+plate, about 0.5-0.6 m at the stacks' 41-45 px a metre), its top (y 24, 104 and 113 px) and the shoulder where
+it meets the stack (y 51-53, 128 and 133-137 px); each about as wide as the stack's head, and dark.
+**What is invented.** That the crowns are pots: the plate draws each as one dark mass turned over to one side,
+which is a cowl's outline or a pot's under a hood, and its scale does not settle which. The pots' profile, their
+bore and their terracotta are the kit's; two to a stack follows the two flues the stacks were already given
+(T-2471), and the pair spans about the drawn crown's width.
+**What is not built.** The hood's turn: no kit part builds a cowl.
+**How to resolve:** a photograph of the remodelled house showing its stacks against the sky would say pot or cowl
+and their number.
+**Ticket:** T-2782 (piece 3 of T-2756).
+**Review:** `data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`.
+**Recorded:** 2026-10-20 (T-2782).
+
 ## T-2804: named resident seated-driver and supported W01 studies (2026-10-19)
 
 This is an additive seated-study declaration under existing L418. Existing reconstructed 1835 residents Otis Bardwell (`rc_bardwell_otis`), Joseph Dufresne (`rc_dufresne_joseph`) and Martin Flynn (`rc_flynn_martin`) retain their record identity, date and reconstruction basis. The static seated pose, age/body fit, hand targets and staged driving action are original engineering reconstructions, not portraits, recorded driving assignments or observed actions. No new anonymous person or biography is introduced. The optional canonical `sit_drive` authoring uses the existing portable export and HumanActor; actual exported garment/bench/shoe contact and palm/rein grip require inspection, and source-body pose calculations alone do not establish them.
