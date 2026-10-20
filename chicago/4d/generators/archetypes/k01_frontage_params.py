@@ -2374,6 +2374,16 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError(f"front_bays_by_storey[{key}] sets its centres closer than a {sw} m sash and its "
                              f"lintels' horns")
         fbs[k] = xs
+    # T-2910: a loggia's side arch on the 18th Street (south) wall takes the principal storey's
+    # window in its span, as the door takes its bay's; the storeys over it keep theirs
+    lsa = (((val("entrance_kit") or {}).get("k01.opening.door_leaf") or {}).get("loggia") or {})
+    lsa = lsa.get("side_arch") if abs(float(sorted(lsa.get("v_m", [-1.0]))[0]) - st) < 1e-6 else None
+
+    def _in_side_arch(s, w):
+        if not lsa:
+            return False
+        reach = float(lsa["clear_width_m"]) / 2 + float(lsa["ring_m"]) + w / 2
+        return abs(s - (depth - float(lsa["centre_m"]))) < reach
     for k, row in enumerate(sash):
         sill = floors[k] + float(row["sill_above_floor_m"])
         w, h = float(row["width_m"]), float(row["height_m"])
@@ -2394,6 +2404,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             comp = ROUND_HOODED if rh and k in rh["storeys"] else "k01.opening.sash_flat"
             openings.append(Opening(comp, "k01.wall.street_front", s, round(sill, 4), w, h))
         for s in val("side_bays"):
+            if k == 0 and _in_side_arch(float(s), w):   # T-2910: the loggia's arch stands there
+                continue
             openings.append(Opening("k01.opening.sash_flat", "k01.wall.side.south", float(s), round(sill, 4), w, h))
         for s in val("rear_bays"):
             openings.append(Opening("k01.opening.sash_flat", "k01.wall.rear_service", float(s), round(sill, 4), w, h))
@@ -2830,13 +2842,89 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError(f"entrance_kit.porch_door takes {sorted(need)} and optionally glazed_rows, at the back "
                              f"of a round-arched door's (`arch`) deep reveal (`reveal_depth_m`)")
         wd, off, hd = float(pd["width_m"]), float(pd["offset_m"]), float(pd["height_m"])
-        if not 0.8 <= wd <= door_w - 0.3 or abs(off) + wd / 2 > door_w / 2 - 0.1 or not 2.0 <= hd < door_h:
+        if "loggia" in door_kit_in:   # T-2910: the door stands in the loggia's back wall, checked there
+            pass
+        elif not 0.8 <= wd <= door_w - 0.3 or abs(off) + wd / 2 > door_w / 2 - 0.1 or not 2.0 <= hd < door_h:
             raise ParamError(f"entrance_kit.porch_door: a {wd} m door {off:+.2f} m off the axis, {hd} m high, does "
                              f"not stand 0.1 m inside the {door_w} m arch under its {door_h} m crown")
         door_kit["porch_door"] = {"width_m": wd, "offset_m": off, "height_m": hd, "leaves": int(pd["leaves"]),
                                   "panels": [int(x) for x in pd["panels"]], "transom_m": float(pd["transom_m"]),
                                   **({"glazed_rows": [int(x) for x in pd["glazed_rows"]]}
                                      if "glazed_rows" in pd else {})}
+    # T-2910: a loggia behind the arch (1801's, the Taylor photograph): a room `v_m` [from, to]
+    # along the front and `depth_m` behind its face, its floor the door's, a flat ceiling
+    # `ceiling_m` over it, the porch door in its back wall; and `side_arch`, a round arch
+    # through the end wall the room stands against, onto the street round the corner
+    if "loggia" in door_kit_in:
+        lg = door_kit_in["loggia"]
+        need = {"v_m", "depth_m", "ceiling_m"}
+        if not door_arch or "porch_door" not in door_kit_in or not need <= set(lg) <= need | {"side_arch"}:
+            raise ParamError(f"entrance_kit.loggia takes {sorted(need)} and optionally side_arch, behind a "
+                             f"round-arched door's (`arch`) mouth with its porch_door at the back")
+        v0, v1 = sorted(float(x) for x in lg["v_m"])
+        D, Hc = float(lg["depth_m"]), float(lg["ceiling_m"])
+        pd = door_kit["porch_door"]
+        if not (st - 1e-9 <= v0 < door_s - door_w / 2 - 0.1 and door_s + door_w / 2 + 0.1 < v1 <= width - st + 1e-9):
+            raise ParamError(f"entrance_kit.loggia.v_m {lg['v_m']}: the room holds the {door_w} m arch at v "
+                             f"{door_s} with 0.1 m each side, inside the side walls")
+        if not ft + 1.0 <= D <= depth / 2 or not door_h + 0.1 <= Hc <= heights[0] - 0.3:
+            raise ParamError(f"entrance_kit.loggia: {D} m deep (at least 1.0 m behind the {ft} m front wall, at "
+                             f"most half the house) under a {Hc} m ceiling (over the arch's {door_h} m crown, "
+                             f"0.3 m under the floor above)")
+        a_, b_ = door_s + pd["offset_m"] - pd["width_m"] / 2, door_s + pd["offset_m"] + pd["width_m"] / 2
+        if not (v0 + 0.15 <= a_ and b_ <= v1 - 0.15 and 0.8 <= pd["width_m"] and 2.0 <= pd["height_m"] <= Hc - 0.2):
+            raise ParamError(f"entrance_kit.porch_door: a {pd['width_m']} m door {pd['height_m']} m high does not "
+                             f"stand 0.15 m inside the loggia's back wall (v {v0}-{v1}) under its {Hc} m ceiling")
+        loggia = {"front_wall_m": ft, "depth_m": D, "ceiling_m": Hc, "s_m": [v0 - door_s, v1 - door_s]}
+        sa = lg.get("side_arch")
+        if sa is not None:
+            need = {"centre_m", "clear_width_m", "clear_height_m", "ring_m", "keystone_top_m", "keystone_m"}
+            if not need <= set(sa) <= need | {"balcony"}:
+                raise ParamError(f"entrance_kit.loggia.side_arch takes {sorted(need)} and optionally balcony")
+            if abs(v0 - st) < 1e-6:
+                side, wall = "left", "k01.wall.side.south"
+            elif abs(v1 - (width - st)) < 1e-6:
+                side, wall = "right", "k01.wall.side.north"
+            else:
+                raise ParamError("entrance_kit.loggia.side_arch opens an end wall: the room stands against one "
+                                 "(v_m from the side wall's thickness, or to the front's width less it)")
+            c, w, h = float(sa["centre_m"]), float(sa["clear_width_m"]), float(sa["clear_height_m"])
+            if not 1.0 <= w <= 2.2 or not w / 2 + 1.0 <= h <= Hc - 0.1 or not ft + 0.1 <= c - w / 2 \
+                    or not c + w / 2 <= D - 0.1:
+                raise ParamError(f"entrance_kit.loggia.side_arch: a {w} m arch {h} m to its crown, centred {c} m "
+                                 f"behind the front, does not stand in the loggia's side wall ({ft}-{D} m, "
+                                 f"ceiling {Hc} m)")
+            ring, ktop = float(sa["ring_m"]), float(sa["keystone_top_m"])
+            if not 0.15 <= ring <= 0.6 or not ktop >= door_floor + h + ring:
+                raise ParamError("entrance_kit.loggia.side_arch: a voussoir ring 0.15-0.6 m, its keystone "
+                                 "above the ring's top")
+            arch = {"side": side, "wall": wall, "centre_m": c, "clear_width_m": w, "clear_height_m": h,
+                    "wall_m": st, "ring_m": ring, "keystone_top_m": ktop,
+                    "keystone_m": [float(x) for x in sa["keystone_m"]]}
+            if "balcony" in sa:
+                bl = sa["balcony"]
+                if set(bl) != {"span_m", "out_m", "height_m", "corbel_m"}:
+                    raise ParamError("entrance_kit.loggia.side_arch.balcony takes span_m, out_m, height_m, corbel_m")
+                e0, e1 = sorted(float(x) for x in bl["span_m"])
+                if not 0.0 <= e0 < c - w / 2 and c + w / 2 < e1 <= depth or not 0.1 <= float(bl["out_m"]) <= 1.0 \
+                        or float(bl["height_m"]) + float(bl["corbel_m"]) >= door_floor:
+                    raise ParamError("entrance_kit.loggia.side_arch.balcony: under the arch along the wall, "
+                                     "0.1-1.0 m out, its corbel clear of grade")
+                arch["balcony"] = {"span_m": [e0, e1], "out_m": float(bl["out_m"]),
+                                   "height_m": float(bl["height_m"]), "corbel_m": float(bl["corbel_m"])}
+            loggia["side_arch"] = arch
+        door_kit["loggia"] = loggia
+    # T-2910: a stoop's cheeks swept down from the landing to a block at the foot
+    if "cheek_form" in door_kit_in:
+        cf = door_kit_in["cheek_form"]
+        if not isinstance(cf, dict) or cf.get("kind") != "swept" or set(cf) != {"kind", "head_m", "foot_m", "block_m"} \
+                or {"terrace", "side_stoop"} & set(door_kit_in) or door_kit_in.get("cheeks") is False:
+            raise ParamError("entrance_kit.cheek_form is {kind: 'swept', head_m, foot_m, block_m}, on a "
+                             "stoop's own cheeks (no terrace or side stoop)")
+        if not 0.0 <= float(cf["head_m"]) <= 0.6 or not 0.3 <= float(cf["foot_m"]) <= 1.2 or not 0.2 <= float(cf["block_m"]) <= 1.0:
+            raise ParamError("entrance_kit.cheek_form: head_m 0-0.6 m over the landing, foot_m 0.3-1.2 m over "
+                             "grade, block_m 0.2-1.0 m")
+        door_kit["cheek_form"] = {k: (v if k == "kind" else float(v)) for k, v in cf.items()}
     # T-2369: a stoop between iron rails has no stone cheeks, and a door in a vestibule's
     # mouth stands deeper in its wall than the kit's outer leaf
     if "cheeks" in door_kit_in:

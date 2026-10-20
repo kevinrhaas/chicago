@@ -28615,6 +28615,43 @@ openings, roof and flank to the photographs; T-1890 finishes the architecture an
 **Ticket:** T-2843 (piece 3 of T-2789).
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-20 (T-2843).
+**Revised:** 2026-10-20 (T-2910) — T-2790 was split: T-2910 builds the corner loggia and its stair
+(`L-kimball-1801-loggia-2910`), so the deep-arched door standing for the loggia above is retired;
+the bowed bay, the carved openings and frieze and the corbel table are T-2911's.
+
+### L-kimball-1801-loggia-2910 — 1801 Prairie's corner loggia: a room 2.3 m square behind its two arches under a flat ceiling, its door's leaves, plain stone for the carving, and the stair's cheeks swept on a reconstructed curve
+
+**Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.entrance_kit`, `kimball_house_1801_prairie.as_mapped_1904.form.stair_landing_depth_m`, `kimball_house_1801_prairie.as_mapped_1904.form.stair_tread_m`, `kimball_house_1801_prairie.as_mapped_1904.form.stoop_width_m`
+**Decision:** the W. W. Kimball house at 1801 Prairie (T-2910, piece 1 of T-2790) takes the corner
+entrance J. W. Taylor's c. 1895 photograph shows (`taylor_c1895_kimball_residence_1801`), read through
+its solved camera: an open loggia at the front's 18th Street end with a round arch on each face, and a
+broad stair coming down the front out of the front arch between swept cheek walls. **What is read, not
+invented.** Each arch's place and size: about 1.9 m across, centred about 1.6 m from the corner (the
+front's void v 0.5-2.7, the 18th Street face's u 18.1-19.5 inside its surround), springing about
+2.65 m over grade and crowned about 3.6 m; the loggia's floor at the 1.45 m principal floor; a door
+frame on the loggia's back wall, seen through the 18th Street arch about on the front arch's axis;
+a stone balcony under the 18th Street arch, its top about the arch's sill, its underside corbelled
+back into the wall; nine risers coming down about 2.5 m in front of the front arch, as broad as the
+arch's piers, between cheeks that run level by the arch and sweep down to a block at the foot about
+0.7-0.85 m over grade. **What is invented.** The room behind the arches: 2.3 m square (from the 18th
+Street wall's inner face to 2.75 m along the front, and 2.75 m behind the front), its floor the
+door's, a flat ceiling 3.2 m over it; the photograph shows only its back wall, and the room's
+depth is what puts that wall where the door frame is seen. The door: a pair of panelled leaves 1.5 m
+across under a 0.45 m transom, 2.75 m to its head, K07's deep-arch variant's joinery. The voussoir
+rings (0.4 m) and keystones, K01's arched door group, standing for the photograph's moulded
+archivolts; the balcony 0.4 m out, its face 0.5 m deep and its corbel 0.35 m; the cheeks 0.3 m thick
+(the kit's), level 0.1 m over the landing and swept down in one reversed cosine curve to a 0.5 m block
+0.85 m over grade (the photograph's left block reads 0.68-0.70 m over the camera's grade, which stands
+about 0.2 m under the lot's); the landing 0.3 m at the arch's mouth and the treads 0.28 m.
+**What is not built.** The carving on the piers, round the arches, on the cheeks' blocks and on the
+balcony's face, and the carved frieze over the loggia: plain stone here (T-2911 and T-2540). The
+principal storey's window the K01 build had at 18.9 m on the 18th Street wall is gone: the
+photograph's arch stands there.
+**How to resolve:** a photograph or drawing of the loggia's inside, or a plan of the principal floor,
+would replace the room's plan, ceiling and the door; T-2911 carves the openings and their surrounds.
+**Ticket:** T-2910 (piece 1 of T-2790).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-20 (T-2910).
 
 ### L-k01-1621-last-drawn-2531 — 1621 Prairie's last drawn differences: the door's ring turned to a curved extrados under a band in a deep recess, the light over it stood on a moulded shelf, and splayed voussoirs over the basement lights, their places read and their sections reconstructed
 
