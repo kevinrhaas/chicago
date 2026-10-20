@@ -29972,6 +29972,37 @@ parapet; the print's dormer may stand closer to it than the kit allows.
 **Ticket:** T-2902 (piece 1 of T-2885).
 **Recorded:** 2026-10-20 (T-2902).
 
+### L-k01-1625-rear-area-door-2903 — 1625 Prairie's rear section's door ruled an area's door, its foot 0.6 m under the walk, and its area reconstructed
+
+**Decision:** the door at the foot of 1625's rear section's street face, which T-2846 ruled a
+door at grade, is an area's door: its hole runs from 0.6 m under the walk to its 2.1 m head
+(2.7 m), so the leaf under its 0.65 m transom is 2.05 m tall, and it opens on an area (K01's
+`rear_section.openings[].area`): the K06 area well's box (k06_windows.json `parts.well`) grown to
+a door's, from the street face's corner on the main south wall's plane to 0.2 m past the door's
+right jamb (1.255 m), a 0.9 m landing at the door's foot and a straight flight of four 0.15 m
+risers on 0.28 m treads climbing toward the street to the walk 1.74 m out, its outer side's
+0.1 m wall capped flush over grade with K06's 0.05 m coping. **What is read, not invented.**
+From the 1890 Inland Architect plate (`inland_architect_1890_01_mcbirney_residence`) through
+the camera T-2846 re-solved (inland_architect_front.json): the hole's head at y 729-730 px and
+the transom's bar at y 745-746, which T-2866 built at 2.1 m and 1.45-1.53 m. Under the bar the
+leaf stands about 1.45 m over the walk's grade on this camera (1.3-1.6 m for the eye's soft
+height), and no leaf that short is a door, so carried down to a door's height its foot stands
+about 0.5-0.7 m under the walk; it is built at the middle of that band. None of what the print
+fixes moves: the re-rendered side-by-side differs from the last by 2 px, the coping's end at
+grade. **What is invented.** The foot's depth is the transom's reading alone: under the fence's
+top rail (y 782 px) the door's column and the lit south end beside it read alike, a median grey
+of 45-55 at y 794-810 through the fence's shadow, so the print does not show the foot. The area
+is not seen either: from an eye 0.5-1.3 m high about 40 m off, its own near edge hides its floor.
+So its plan (where it stands along the face, its landing, its flight running toward the street
+rather than along the wall), its depth in whole risers of the front stoop's 0.15 m, its treads,
+its brick and its stone floor, steps and coping are reconstructed. An area this size is what a
+service door under a walk needs and no more; a flight running along the wall, or a rail round
+the area's mouth, would fit the print as well.
+**How to resolve:** a view of 1625's south side over the fence, the house's plans, or a Sanborn
+sheet that marks an area.
+**Ticket:** T-2903 (piece 2 of T-2885).
+**Recorded:** 2026-10-20 (T-2903).
+
 ### L-k08-1812-projection-balcony-2888 — 1812 Prairie's south projection given its photographed balcony rail: its height and baluster spacing read, its sections and inset reconstructed, its stone middle panel built as iron
 
 **Decision:** the flat top of the south projection on George H. Wheeler's house at 1812 Prairie

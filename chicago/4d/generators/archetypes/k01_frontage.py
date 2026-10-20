@@ -262,6 +262,10 @@ MATERIALS["chimney_pot"] = {"color": (0.66, 0.36, 0.22), "roughness": 0.8}
 # sunk 0.10 m in it would move the house's origin and stretch its envelope to the street.
 MATERIALS["k11_wall_brick"] = dict(k03_brick.MATERIALS["brick"],
                                    roughness=round(k03_brick.MATERIALS["brick"]["roughness"] + 0.04, 2))
+# T-2903: an area's walls under grade (k01_rear_section.area), K03 brick under a name outside
+# the wall-base materials, for the boundary wall's reason: the brick's lowest vertex is grade
+MATERIALS["area_brick"] = dict(k03_brick.MATERIALS["brick"],
+                               roughness=round(k03_brick.MATERIALS["brick"]["roughness"] + 0.06, 2))
 # T-2360: the K14 yard's ground (k14_yard.py). Glessner's own turf and gravel maps, the
 # cinder darker than its drive; the bare earth a flat colour, the K14 study's (104, 90, 70)
 # in linear. The front walk's flags are the stoop's stone and take no slot of their own.

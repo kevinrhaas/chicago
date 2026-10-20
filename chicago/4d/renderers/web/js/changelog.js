@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2106, ts: '2026-10-20T06:09:57.960Z', date: 'Oct 20, 2026, 1:09 AM CT', title: '1625 Prairie\'s back door steps down to a sunken entry', kind: 'change',
+    items: [
+      'In 1904, the door at the foot of 1625 Prairie\'s tall rear wing is now a full-height door whose sill sits about 0.6 m below the sidewalk. The 1890 photograph shows too short a door above the sidewalk for it to sit at street level.',
+      'It opens on a small sunken entry with four steps down from the walk, hidden behind the fence in the photograph and drawn as our best reconstruction.',
+    ] },
+  { v: 2105, ts: '2026-10-20T05:19:14.737Z', date: 'Oct 20, 2026, 12:19 AM CT', title: '1637 Prairie\'s south bay carved, and shutters at the window above', kind: 'feature',
+    items: [
+      'The stone bay on 1637\'s south side is dressed the way its 1870s photograph shows it. Its column capitals are carved as leaves, and an oval panel sits in the frieze over each window.',
+      'Under the balcony, the cornice now steps out in moulded courses. Its corner brackets end in scrolls.',
+      'The arched window over the bay has open louvred shutters, painted dark green.',
+      'The photograph is grainy, so the carving\'s detail, the shutters\' colour and the ovals on the sides it cannot see are reconstructed, and marked as such.',
+    ] },
   { v: 2104, ts: '2026-10-20T04:53:21.838Z', date: 'Oct 19, 2026, 11:53 PM CT', title: 'Glessner\'s garden light in its stone panel, above two steps', kind: 'improve',
     items: [
       'The barred basement light beside the stair tower in Glessner House\'s courtyard now sits in the broad dressed-stone panel the HABS terrace section draws, running from the terrace\'s end post to the tower.',
