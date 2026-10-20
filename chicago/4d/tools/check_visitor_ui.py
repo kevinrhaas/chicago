@@ -51,9 +51,12 @@ WHAT IT READS — the surfaces, and why each is one:
   destination (T-2667) renders in its four cards, the order book among them behind
   `data-researcher`. A records string is read with the visitor's rules in every mode: the
   ruling of 2026-10-18 is that no mode shows a ticket number or a record id, so whether a
-  card is Researcher mode's does not change what its text may carry. Not read yet: the
-  plants and wildlife topics and a person's card, which their renderers fill from authored
-  files no compiler rewrites, and the rest of the Shops & work card; T-2825 says which.
+  card is Researcher mode's does not change what its text may carry. The records a page
+  reads as authored — the plants and wildlife topics, a person's card and the household
+  browser, the Shops & work card, a building's card and Inspect — are read through the
+  reader's overlay (tools/compile_reader_text.py, the families it lists), exactly as
+  js/reader-text.js applies it, every sentence of every file; with the names a card prints
+  for a bare id, and each named building's title, held to readable_text.plain_name's rule.
   What's New (js/changelog.js) is the release history Manager and the launcher parse,
   held by its own length budget, and is not rewritten after the fact.
 
@@ -269,7 +272,7 @@ SIDECARS = ROOT / "data" / "sidecars"
 NOT_PRINTED = re.compile(r"^(Recorded|Revised|Covers)$", re.IGNORECASE)
 
 
-def record_strings(liberties=None, sidecars=None):
+def record_strings(liberties=None, sidecars=None, with_overlay=True):
     """What the research records print (T-2825): the liberties, and each scene's ground,
     exclusions and open questions, at the fields their renderers show."""
     from readable_text import SIDECAR_PATHS, strings_at
@@ -341,6 +344,8 @@ def record_strings(liberties=None, sidecars=None):
             for text in texts:
                 if isinstance(text, str) and text.strip():
                     yield where, text
+    if with_overlay:
+        yield from overlay_strings()
     if sidecars is None:
         sidecars = {}
         for name in SIDECAR_PATHS:
@@ -351,12 +356,68 @@ def record_strings(liberties=None, sidecars=None):
             yield f"sidecars/{rel} {where}", text
 
 
+# The where-suffix of a named building's title, which is also held to plain_name's rule.
+BUILDING_TITLE = "building title"
+
+
+def name_problems(where, text):
+    """A named building's title that still says the production step it was modelled in."""
+    if not where.endswith(BUILDING_TITLE):
+        return []
+    import readable_text as rt
+    m = rt.NAME_MACHINERY.search(text)
+    return [f"the production step `{m.group(0)}` in a building's name"] if m else []
+
+
+def overlay_strings(families=None, overlays=None, root=ROOT):
+    """What a page shows of the records it reads as authored (T-2825, second half): the plant
+    and wildlife communities, the household records and a person's card, a firm's record and
+    a building's card. Each file of each family (tools/compile_reader_text.py) is read the way
+    the page reads it once its reader's overlay is applied (js/reader-text.js), and every
+    sentence of it is yielded, with the names a card prints for a bare id and, for a building,
+    the title the card, the target tag and Go to lead with.
+
+    By default the records are said by the compiler's own Reader, the rewrite the overlay is
+    the edits of (the overlay is derived at publish and never committed, and
+    test_reader_text.mjs holds the page's JavaScript to it). `overlays` — {family: overlay
+    document} — reads them through given overlays instead, the page's exact step, which is how
+    the self-test plants a page whose overlay lacks a sentence."""
+    import readable_text as rt
+    from compile_reader_text import Reader, families as fams
+    if families is None:
+        families = fams()
+    reader = Reader(root) if overlays is None else None
+    for family, paths in families.items():
+        disk = [p for p in paths if not isinstance(p, tuple)]
+        if overlays is None:
+            names = reader.names_for(family, disk)
+            say = reader.copy
+        else:
+            ov = overlays.get(family) or {}
+            names = ov.get("names") or {}
+            say = (lambda edits: (lambda doc: rt.reader_copy(doc, edits)))(ov.get("edits") or {})
+        for tok, name in names.items():
+            yield f"reader/{family} names.{tok}", str(name)
+        for path in paths:
+            if isinstance(path, tuple):
+                rel, doc = path
+            else:
+                rel, doc = str(Path(path).relative_to(root)), json.loads(Path(path).read_text(encoding="utf-8"))
+            said = say(doc)
+            for text in rt.prose_strings(said):
+                yield rel, text
+            if family.startswith("structures_") and isinstance(said, dict) and said.get("name"):
+                # The title a named building leads with: its compiled plain name (display-name.js).
+                if (said.get("reconstruction") or {}).get("status") != "inferred_anonymous":
+                    yield f"{rel} {BUILDING_TITLE}", str(said.get("called") or said["name"])
+
+
 def lint(surfaces, allowlist=ALLOWLIST):
     """(failures, allowed, stale): each failure "surface | where: problem — in 'text'"."""
     failures, allowed, used = [], [], set()
     for surface, strings in surfaces:
         for where, text, *flag in strings:
-            found = problems(text, researcher=bool(flag and flag[0]))
+            found = problems(text, researcher=bool(flag and flag[0])) + name_problems(where, text)
             if not found:
                 continue
             subject = f"{where}: {text}"
@@ -403,7 +464,9 @@ def self_test():
     from check_strings import read_table
     dump = read_table()
     index = json.loads(BUSINESSES.read_text(encoding="utf-8")) if BUSINESSES.is_file() else {"businesses": []}
-    records = list(record_strings())
+    # The records a page reads through its overlay are --check's to read in full (half a
+    # minute of rewriting); the planted cases below read them on fixtures.
+    records = list(record_strings(with_overlay=False))
     base = surfaces(dump, PAGES, index, records)
     f, _, stale = lint(base)
     f += ticket_link_errors()
@@ -497,7 +560,7 @@ def self_test():
     # ---- T-2825: the research records, and the narrowed Researcher-mode exemption
     def planted_records(liberties=None, sidecars=None):
         lib = liberties if liberties is not None else {"liberties": []}
-        return lint([("records", list(record_strings(lib, sidecars or {})))], allowlist=[])[0]
+        return lint([("records", list(record_strings(lib, sidecars or {}, with_overlay=False)))], allowlist=[])[0]
 
     def liberty(text, label="Decision", title="A liberty"):
         return {"liberties": [{"id": "L999", "title": title, "fields": [{"label": label, "text": text}]}]}
@@ -521,6 +584,31 @@ def self_test():
     expect(not planted_records(sidecars={"1835/terrain.json": {"claims": [{"id": "swales.west_prairie_swale_a"}]}}),
            "a claim's id is the data's, not a sentence, and is not read")
 
+    # ---- T-2825, second half: the records a page reads as authored, through the overlay
+    import readable_text as rt
+    note = "Seated by T-1433 off hh_rc_bacon_betsey; see data/residents/directories.json."
+    hh = ("data/residents/households/hh_planted.json", {"id": "hh_planted", "persons": [{"note": note}]})
+
+    def planted_overlay(edits=None, names=None, family="residents", doc=hh):
+        ov = {family: {"edits": edits or {}, "names": names or {}}}
+        return lint([("records", list(overlay_strings({family: [doc]}, ov)))], allowlist=[])[0]
+
+    expect(any("ticket number" in e for e in planted_overlay()),
+           "a household note naming a ticket, read with no overlay, is refused")
+    fixed, _ = rt.rewrite(note, rt.Names(extra={"hh_rc_bacon_betsey": "the Bacon household"}))
+    good = {rt.reader_key(note): rt.edits_between(note, fixed)}
+    expect(not planted_overlay(good), f"…and read through its overlay it passes ({fixed!r})")
+    expect(any("ticket number" in e for e in planted_overlay({"00000000:1": [[0, 1, "x"]]})),
+           "an overlay with no edit for the sentence leaves the leak in place, and it is refused")
+    expect(any("names." in e for e in planted_overlay(good, names={"hh_x": "hh_x"})),
+           "a bare id's name that is still an id is refused")
+    title = ("data/sidecars/1904/house_planted.json",
+             {"id": "house_planted", "phase": "p", "attributes": {}, "name": "1600 Prairie Avenue — brick corner house, K01 frontage assembly"})
+    expect(any("production step" in e for e in planted_overlay(family="structures_1904", doc=title)),
+           "a named building whose title says its production step is refused")
+    title[1]["called"] = rt.plain_name(title[1]["name"])
+    expect(not planted_overlay(family="structures_1904", doc=title),
+           f"…and its compiled plain name passes ({title[1]['called']!r})")
     # ---- end T-2825
 
     f2, _, stale2 = lint(base, allowlist=ALLOWLIST + [{"surface": "page", "match": "^nothing-here$",
