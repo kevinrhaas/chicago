@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 664,
+  "count": 665,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -47997,6 +47997,38 @@
         "T-2782",
         "T-2441",
         "T-2781"
+      ]
+    },
+    {
+      "id": "L-glessner-colonnettes-2965",
+      "title": "Glessner's seven Prairie colonnettes: their capitals' carving cut from sheet 6 and three close-ups",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-20",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the second-floor colonnettes on the John J. Glessner House Prairie front are rebuilt from HABS sheets 3 and 6 and the owner's photographs: a splayed square base, a straight-tapered round shaft, the round front of a stone mullion flush with the wall's face, and a cushion block capital, all in the front's granite. Each capital carries its own carving, south to north (prairie colonnette capitals in the record). **What is read.** Sheet 6 (75.5 px/ft) draws all seven and their bases, shafts and capitals' outlines; sheet 3 cuts each as a round-fronted mullion about 0.95 x 1.5 ft; the Glessner House Museum's 2013 post \"The stone capitals on Glessner House\" (three close-ups held as `a18-ghm-blog-capital-*`) says the capitals were carved in place by John Evans's carvers from August 1887, every one different, the one over the door carrying Richardson's monogram, and shows that one and its two neighbours; the c. 1888 front (`a18-gh-glessner-front-with-keith`) shows the taper and the base joint; Taylor 2135 the granite. **What is invented.** Every cut, depth and stem path; the bodies of the four capitals no close-up shows, read off the sheet's small, stippled drawing (a slotted band over crossing straps; a zigzag band over a leaf roundel; discs over a boss; discs over basket weave); the leaf tips and volutes repeated on all but the monogram capital; the letterforms of the monogram. The heights are shares of the record's 4.5-ft opening (the sheet draws 5.0 ft; not taken up here). **What is not changed.** The openings, the sashes, the carved string's own carving (now granite), the north gable pair's colonnettes."
+        },
+        {
+          "label": "How to resolve",
+          "text": "close photographs of the other four capitals, and a square one of each of the seven, would let every band and body be cut as carved."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on glessner colonnettes this work/."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-20 (T-2965)."
+        }
+      ],
+      "work_refs": [
+        "T-2965"
       ]
     },
     {

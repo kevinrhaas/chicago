@@ -1,0 +1,22 @@
+{
+  "structure_id": "glessner_house",
+  "photo": "HABS ILL-1015 sheet 6 (prairie_1904_v1/research/public/glessner-habs-sheet-6.png), the four-light group over the door (crop)",
+  "image_px": [
+    1200,
+    620
+  ],
+  "principal_px": [
+    567.7,
+    234.5
+  ],
+  "focal_px": 19816,
+  "eye": [
+    129.149,
+    12.5,
+    7.0
+  ],
+  "yaw_deg": 270,
+  "near_m": 50,
+  "sky": "overcast",
+  "solve": "near-orthographic elevation matched to HABS sheet 6 at 75.5 px/ft"
+}
