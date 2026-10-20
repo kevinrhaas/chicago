@@ -28734,8 +28734,17 @@ gable's great arched recess with its three small round-arched lights and carving
 the bay's deck, the roof's own shape (the plate's is a steep hipped mass over the bay with a lower roof
 to the south; K01 lays one ridge along the front), the stacks' corbelled caps and the range's second
 stack, and everything T-2541 listed for T-1892.
-**How to resolve:** T-1892 finishes the gable's recess and carving, the balcony, the porch and the
-ironwork, and brings the match record to `matches`.
+**Revised:** 2026-10-20 (T-2916, piece 1 of T-1892). The north bay's two basement lights and its
+balcony are built. The bay is now three K08 storeys, a 1.75 m basement storey under the ground and first
+floors, so its string course stands on the plate's smooth sill course; under each window a light 0.95 m
+by 1.0 m from 0.22 m, its head read off the plate through its camera, on a 0.1 m plinth where the kit's
+0.6 m would have covered the lights (the sill stands about 0.16 m over the plate's, on the plinth). On the bay's flat deck, a 0.7 m stone balustrade round its cheeks and front. What
+that build invents: the grilles' pattern (the plate's are scrolled panels; K08 draws five bars and one
+scroll ring), the balustrade's close-set stone bars at 0.12 m for the plate's pierced fretwork panels, whose
+interlace is not carved, its 0.3 m posts and 0.22 m coping, and the basement storey's 1.75 m, set so the
+string course lands on the plate's sill course.
+**How to resolve:** T-2917 to T-2920 (the split of T-1892) finish the gable's recess and carving, the
+porch, the front's fabric and the roof, and bring the match record to `matches`.
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.chimneys`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.gable_roof`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
