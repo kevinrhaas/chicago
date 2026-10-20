@@ -2247,6 +2247,19 @@ class Assembly:
             v["stair"]["cheeks"] = p.entrance_kit["cheeks"]
         if "reveal_depth_m" in p.entrance_kit:
             v["reveal_depth_m"] = p.entrance_kit["reveal_depth_m"]
+        # T-2910: a loggia behind the arch, its door in the back wall, and a stoop's swept cheeks
+        lg = p.entrance_kit.get("loggia")
+        if lg:
+            v["loggia"] = {k: x for k, x in lg.items() if k != "side_arch"}
+            sa = lg.get("side_arch")
+            if sa:
+                v["loggia"]["side_arch"] = {k: sa[k] for k in ("side", "centre_m", "clear_width_m", "clear_height_m",
+                                                                "wall_m", "balcony") if k in sa}
+            v["reveal_depth_m"] = lg["depth_m"]
+        if p.entrance_kit.get("cheek_form"):
+            cf = p.entrance_kit["cheek_form"]
+            v["stair"]["cheek_form"] = cf["kind"]
+            v["stair"]["swept"] = {k: cf[k] for k in ("head_m", "foot_m", "block_m")}
         # T-2530: a side stoop's landing, from the front's s into run coordinates about the door
         ss = p.entrance_kit.get("side_stoop")
         if ss:
@@ -3527,6 +3540,26 @@ def hole(o):
     return (s0, s1, o.sill_m, spring, k06_windows.Head("round", s0, s1, spring).curve(0.0, s1, s0))
 
 
+def loggia_side_arch(p):
+    """T-2910: the loggia's side arch as an arched group on its end wall's own s (the side
+    wall's s runs from the rear to the front, so the arch `centre_m` behind the front stands
+    at depth - centre_m), or None."""
+    sa = ((p.entrance_kit or {}).get("loggia") or {}).get("side_arch")
+    if not sa:
+        return None
+    c = p.depth_m - sa["centre_m"] if sa["wall"] == "k01.wall.side.south" else sa["centre_m"]
+    w, h, ring = sa["clear_width_m"], sa["clear_height_m"], sa["ring_m"]
+    floor = p.door_floor_m
+    spring = round(floor + h - w / 2, 5)
+    s0, s1 = round(c - w / 2, 5), round(c + w / 2, 5)
+    top = round(spring + w / 2 + ring, 5)
+    return {"wall": sa["wall"], "group": {
+        "component": "k01.opening.loggia_side_arch", "lights": ((s0, s1, spring, round(w / 2, 5), floor),),
+        "sill_m": floor, "spring_m": spring, "top_m": top, "cuts": (round(s0 - ring, 5), round(s1 + ring, 5)),
+        "piers": (), "keystone": {"s_m": round(c, 5), "bed_m": round(spring + w / 2, 5),
+                                  "top_m": sa["keystone_top_m"], "width_m": tuple(sa["keystone_m"])}}}
+
+
 def build(params, structure_id: str):
     """The assembly: walls with their openings cut, the entrance and its stoop, the roof."""
     p = params
@@ -3551,9 +3584,17 @@ def build(params, structure_id: str):
         # T-2343: where a rear wing stands on this wall, the wall is behind it and not drawn
         finish_gap = [(0., p.stone_finish["stone_return_m"], p.floors_m[2]+.1, E)] if p.stone_finish and wall_id == "k01.wall.side.north" else []
         # T-2820: and where the rear section stands beside it, to the wall head
+        if side_arch and side_arch["wall"] == wall_id:
+            g = side_arch["group"]
+            finish_gap = finish_gap + [(g["lights"][0][0], g["lights"][0][1], g["sill_m"], g["spring_m"]),
+                                       (g["cuts"][0], g["cuts"][-1], g["spring_m"], g["top_m"])]
         return finish_gap, [(*w["host_span_m"], 0.0, w["deck_m"]) for w in p.rear_wings if w["host_wall"] == wall_id] + \
                ([(*p.rear_section["host_span_m"], 0.0, E)] if p.rear_section and p.rear_section["host_wall"] == wall_id
                 else [])
+
+    # T-2910: the loggia's side arch, an arched group on its end wall: the courses stop at its
+    # clear hole and its voussoir block, and k01_arched_front lays the block's stones
+    side_arch = loggia_side_arch(p)
 
     def holes(wall_id):
         finish_gap, wings = stops(wall_id)
@@ -3614,6 +3655,8 @@ def build(params, structure_id: str):
                 # kit stands and stopped where a rear wing stands on it
                 a.stone_front(cid, O, R, length, E, yf, t, [o for o in p.openings if o.wall == cid],
                               a.front_course_beds, [*stops(cid)[0], *stops(cid)[1]])
+                if side_arch and side_arch["wall"] == cid:
+                    k01_arched_front.side_arch(a, frames[cid][0][0], side_arch["group"])
                 continue
             breaks, cols = breaks_of(cid, mat)
             # the south corner's quoins are cut out of the brick they return into
