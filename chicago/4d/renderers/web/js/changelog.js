@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2107, ts: '2026-10-20T06:58:57.825Z', date: 'Oct 20, 2026, 1:58 AM CT', title: 'Sources and records now read in plain words, without work numbers', kind: 'change',
+    items: [
+      'Sources › Liberties: every entry is rewritten for a reader. Work numbers are gone, a building is named rather than given its record code, and a file is said as what it is, such as "the liberties register" or "the research notes on the Glessner frontage".',
+      'A cross-reference to another liberty now gives that liberty\'s title, so you can find it in the list. Each source an entry rests on is still named, by its title.',
+      'The ground\'s claims, the buildings researched and left out, and the open questions read the same way, in every year. An open question names its research note by topic, not by file name.',
+      'Sources › a source: each use names the building, person or walk it supplied, and says where in the source it was read, in words.',
+      'The town\'s people, the town in numbers and the order book drop their work numbers and record codes too; the order book\'s tables no longer carry a ticket column.',
+      'Shops & work: a firm\'s location lines name the building by its name, and a newspaper notice by its paper and date.',
+    ] },
   { v: 2106, ts: '2026-10-20T06:09:57.960Z', date: 'Oct 20, 2026, 1:09 AM CT', title: '1625 Prairie\'s back door steps down to a sunken entry', kind: 'change',
     items: [
       'In 1904, the door at the foot of 1625 Prairie\'s tall rear wing is now a full-height door whose sill sits about 0.6 m below the sidewalk. The 1890 photograph shows too short a door above the sidewalk for it to sit at street level.',
