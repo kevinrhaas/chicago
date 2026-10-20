@@ -497,6 +497,10 @@ def audit(inputs: dict) -> dict:
     # never re-derives a gap and cannot disagree with this file.
     doc["joins"] = [{"join": key, "label": label, "open": gap(doc), "what_keeps_it_open": what}
                     for key, label, gap, what in JOINS]
+    # The sentences the Sources hub prints, said for a reader (T-2825): no ticket number or
+    # record id; the tickets they named are kept beside them as `work_refs`.
+    import readable_text
+    readable_text.rewrite_paths(doc, readable_text.COMPLETION_PATHS)
     return doc
 
 

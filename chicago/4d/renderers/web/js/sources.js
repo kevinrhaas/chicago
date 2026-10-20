@@ -65,6 +65,13 @@ export function terrainCardId(edge, claims) {
   if(material)return claims.filter(c=>c.id.startsWith('surface_materials.'))[Number(material[1])]?.id;
   return claims.find(c=>id===c.id || id.startsWith(c.id+'.') || (id.startsWith('features.') && c.id.endsWith('.'+id.slice(9))))?.id;
 }
+/** A claim path as the attribute it names: `phases[frame_1834].attributes.roof_type.value` →
+ *  "roof type". The path is the record's address, not a word for a reader (T-2825). */
+export function claimWords(claim) {
+  const segs = String(claim ?? '').replace(/\[[^\]]*\]/g, '').split('.')
+    .filter((x) => x && !['value', 'sources', 'source_ids', 'source_id', 'attributes', 'form', 'properties'].includes(x));
+  return words(segs[segs.length - 1] || 'record');
+}
 function chip(grade) { const i=GRADES.indexOf(grade);return `<span class="src-grade src-g${i}">${TERMS[i] || 'No grade'}</span>`; }
 function counts(row) {
   const [c,e] = row.counts.grades || [];
@@ -130,10 +137,13 @@ export async function mountSources({root, dataBase, scene='1835', onTitle, onBac
     state.scroll=scroll.scrollTop;
     if(scroll.scrollTop+scroll.clientHeight>=scroll.scrollHeight-80 && !root.querySelector('[data-more]').hidden){state.limit+=40;renderRows();}
   },{passive:true});
+  // T-2825: a use is named by the thing's name and located in words — the compiled `names`
+  // and `locator_text` — never by its record id, claim path or raw locator object.
   function edgeHtml(edge,index){
-    const label=words(edge.entity_id),locator=typeof edge.locator==='string'?edge.locator:edge.locator?JSON.stringify(edge.locator):'No locator recorded';
+    const named=cache.get(state.detail)?.names||{};
+    const label=named[edge.entity_id]||words(edge.entity_id),locator=edge.locator_text||(typeof edge.locator==='string'?edge.locator:edge.locator?JSON.stringify(edge.locator):'No locator recorded');
     const supported=canOpen(edge) ?? ['structure','person','business','flora','fauna','terrain','exclusion','liberty'].includes(edge.entity_type);
-    return `<li>${supported?`<button type="button" data-edge="${index}">${esc(label)}</button>`:`<b>${esc(label)} — decision summary</b>`} ${chip(edge.confidence)}<span>${esc(words(edge.claim))} · ${esc(words(edgeUse(edge,scene)))} · ${esc(locator)}</span></li>`;
+    return `<li>${supported?`<button type="button" data-edge="${index}">${esc(label)}</button>`:`<b>${esc(label)} — decision summary</b>`} ${chip(edge.confidence)}<span>${esc(claimWords(edge.claim))} · ${esc(words(edgeUse(edge,scene)))} · ${esc(locator)}</span></li>`;
   }
   function edgeList(edges,all){
     const list=document.createElement('ul');list.className='src-edges';let limit=0;
