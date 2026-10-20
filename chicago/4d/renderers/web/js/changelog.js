@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2093, ts: '2026-10-20T03:02:52.370Z', date: 'Oct 19, 2026, 10:02 PM CT', title: 'Glessner\'s courtyard terrace drawn on the plan\'s own frame', kind: 'fix',
+    items: [
+      'The terrace coping, its two barred lights and the garden light beside the stair tower now stand where the house plan puts the courtyard: the section drawing they were read from sits 0.65 ft north of it.',
+      'The coping now meets the terminal post where the drawing has it meet, instead of running past it over the court.',
+    ] },
   { v: 2092, ts: '2026-10-20T02:40:37.444Z', date: 'Oct 19, 2026, 9:40 PM CT', title: '1637 Prairie\'s south bay gains the lights in its sides', kind: 'improvement',
     items: [
       'Each angled side of the stone bay on 1637\'s south flank now has a tall arched window between its two columns, with a small light below it, as the old photograph of the house shows.',
