@@ -24,6 +24,11 @@ GABLE in the front's stone (`fabric: "front"`), its lights segment-headed and st
 the eave, no kneeler pinnacles and no finial, and an oval `oculus` in a stone ring near the
 apex, cut like a light and glazed here behind a cross of bars.
 L-k01-1625-mcbirney-wall-gable-2730 says which numbers are read and which are not.
+
+T-2889: 1812's front runs up into its gable with no gutter across it, so `takes_gutter`
+stops the eave's gutter where the gable stands: its street run is not built, its two side
+runs die into the slab's base at the base's back, and the base runs out past the side walls
+far enough to take their lips (k01_frontage.rainwater; L-k01-1812-wheeler-third-storey-2889).
 """
 
 from __future__ import annotations
@@ -52,6 +57,15 @@ def half_width(sg, y):
     return 0.0
 
 
+def gutter_lip(p):
+    """T-2889: how far the eave's gutter's outer lip stands off the wall (k01_frontage.rainwater:
+    its axis a radius and 6 mm off the fascia, the fascia `eave_overhang_m` out)."""
+    if not p.rainwater:
+        return p.eave_overhang_m
+    ro = p.rainwater["gutter_diameter_m"] / 2 + 0.004
+    return p.eave_overhang_m + 2 * ro + 0.006
+
+
 def geometry(p, ye):
     """The slab's numbers in the K01 frame (x = u toward the street, z = -v): its face and
     back, the ledge, the base's half-width and the outline as (z, y) points, counter-clockwise
@@ -63,6 +77,8 @@ def geometry(p, ye):
     zc = -W / 2
     ledge = sg.get("ledge_m") or ye + LEDGE_OVER_FASCIA_M   # T-2865: a ledge over the eave
     hb = W / 2 + o + 0.02             # the base covers the eave's corners
+    if sg.get("takes_gutter"):        # T-2889: and the gutter's two side runs, which die into it
+        hb = max(hb, W / 2 + gutter_lip(p) + 0.02)
     hl = half_width(sg, ledge)
     up = [(w, y) for w, y in sg["profile_m"] if y > ledge + 1e-6]
     right = [(hl, ledge)] + up        # foot to apex, the last on the centre line

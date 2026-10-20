@@ -30,6 +30,16 @@ try {
   assert.equal(await page.locator('.era .era-hold b').count(),3,'a hold reading on each destination control');
   assert.equal(await page.locator('.core .coord.found').count(),3,'each coordinate is marked on the chronometer');
   assert.equal(await page.locator('html.booting').count(),0,'the cold start has finished');
+  // T-2901: This device — read during the cold start, scored 0-100, lit on twenty segments,
+  // and on the first screen at both widths.
+  await page.waitForFunction(()=>document.getElementById('device-meter')?.dataset.state==='ready',null,{timeout:8000});
+  const dm=await page.evaluate(()=>{const m=document.getElementById('device-meter'),r=m.getBoundingClientRect(),bar=m.querySelector('.dm-bar');
+   return {score:+m.dataset.score,grade:m.dataset.grade,lit:m.querySelectorAll('.dm-bar i.on').length,segs:m.querySelectorAll('.dm-bar i').length,
+    now:+bar.getAttribute('aria-valuenow'),label:m.querySelector('.dm-read em').textContent,note:m.querySelector('.dm-note').textContent,bottom:r.bottom+scrollY,vh:innerHeight};});
+  assert.equal(dm.segs,20);assert(dm.score>=0&&dm.score<=100,`device score ${dm.score}`);assert.equal(dm.now,dm.score);
+  assert(['poor','low','fair','good','peak'].includes(dm.grade));assert.equal(dm.label.toLowerCase(),dm.grade);
+  assert(dm.lit>=1,'the bar is lit');assert.match(dm.note,/^Fits (Full|Balanced|Light) detail/);
+  assert(dm.bottom<=dm.vh,`the device meter is on the first screen (${dm.bottom} > ${dm.vh})`);
   if(width===1280){
    const before=await page.locator('#machine-log li').allInnerTexts();
    await page.waitForFunction(b=>[...document.querySelectorAll('#machine-log li')].map(l=>l.textContent).join('|')!==b,before.join('|'),{timeout:8000});

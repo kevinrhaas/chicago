@@ -2064,11 +2064,15 @@
                     ],
                     [
                       32.805118,
-                      52.674541
+                      53.9
                     ],
                     [
-                      31.799869,
-                      51.799869
+                      31.58,
+                      53.03
+                    ],
+                    [
+                      33.75026,
+                      47.05792
                     ],
                     [
                       33.863189,
@@ -2093,7 +2097,7 @@
             "habs_glessner_house_il_1015_drawings",
             "habs_glessner_house_il_1015_data_pages"
           ],
-          "note": "T-2224 independently reconstructs circulation from the cleared HABS sheet 2 gate, passage and stair positions. The drive is a straight ruled connection between the gate and passage jambs, replacing the earlier photograph-based intermediate bend; no new geometry is derived from rights-uncleared HABS05. The measured plan does not draw a 1904 paving layout. The 4-foot pedestrian approaches, their outlines, pale compacted gravel surface, cut lawn edge and shallow falls away from the west masonry are RECONSTRUCTED functional choices, not a traced historical garden. Path and material choices are separate: gravel is a permeable period-plausible surface, not material identified in the plan. HABS data printed p2 records complete parking paving in September 1946; that surface is excluded. West access allows for the separate court-side stair whose chronology and final geometry remain T-2228. Solid building/step footprints and all hard surfaces are cut out of turf. Gate and passage connections retain the 0.12-ft surface datum. L-glessner-court-ground-2224."
+          "note": "T-2224 independently reconstructs circulation from the cleared HABS sheet 2 gate, passage and stair positions. The drive is a straight ruled connection between the gate and passage jambs, replacing the earlier photograph-based intermediate bend; no new geometry is derived from rights-uncleared HABS05. The measured plan does not draw a 1904 paving layout. The 4-foot pedestrian approaches, their outlines, pale compacted gravel surface, cut lawn edge and shallow falls away from the west masonry are RECONSTRUCTED functional choices, not a traced historical garden. Path and material choices are separate: gravel is a permeable period-plausible surface, not material identified in the plan. HABS data printed p2 records complete parking paving in September 1946; that surface is excluded. West access allows for the separate court-side stair whose chronology and final geometry remain T-2228. Solid building/step footprints and all hard surfaces are cut out of turf. Gate and passage connections retain the 0.12-ft surface datum. L-glessner-court-ground-2224. T-2906: the terrace approach's stair-side edge follows the lowest tread's foot where sheet 4's section re-seats it, (W31.58, S53.03) on the drum to (W33.75, S47.06) at the newel, so the step still lands on the walk."
         },
         "porte_cochere_doors": {
           "value": "two oak leaves, each three panels wide and six high, every square panel sunk in a circular moulding; a horizontal iron strap two rows up with a lock plate and two ring pulls; scroll-ended strap hinges",
@@ -2964,8 +2968,20 @@
                 ],
                 [
                   [
+                    26.8,
+                    50.85
+                  ],
+                  [
                     28.2,
-                    49.4
+                    50.91
+                  ],
+                  [
+                    29.6,
+                    51.36
+                  ],
+                  [
+                    30.95,
+                    52.3
                   ],
                   [
                     33.07229,
@@ -2974,8 +2990,8 @@
                 ],
                 [
                   [
-                    31.8,
-                    51.8
+                    31.58,
+                    53.03
                   ],
                   [
                     33.75026,
@@ -3126,7 +3142,17 @@
                     3.39386
                   ]
                 ]
-              }
+              },
+              "low_tread_tops_z": [
+                [
+                  1.57,
+                  "ng"
+                ],
+                [
+                  0.88,
+                  "ng"
+                ]
+              ]
             },
             "bow_first_floor_central_door": true,
             "underpass": {
@@ -3447,7 +3473,13 @@
               "frame_m": 0.025,
               "head_m": 0.12,
               "sill_m": 0.05,
-              "bar_radius_m": 0.009
+              "bar_radius_m": 0.009,
+              "surround_ft": {
+                "u0": 0.23,
+                "u1": 1.34,
+                "below": 1.03,
+                "above": 1.29
+              }
             },
             "light_hidden_stair_wall": true,
             "court_dormer_union": true,
