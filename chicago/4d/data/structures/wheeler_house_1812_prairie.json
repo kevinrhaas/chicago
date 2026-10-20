@@ -576,40 +576,72 @@
           "value": {
             "profile_m": [
               [
-                4.07,
-                11.63
+                3.9,
+                12.3
               ],
               [
-                3.42,
-                12.88
+                3.62,
+                12.6
               ],
               [
-                2.8,
-                13.78
+                3.4,
+                12.8
               ],
               [
-                2.12,
-                14.57
+                2.98,
+                13.0
               ],
               [
-                1.7,
-                14.97
+                2.66,
+                13.5
               ],
               [
-                1.24,
-                15.14
+                2.39,
+                14.0
               ],
               [
-                0.85,
-                15.59
+                2.13,
+                14.3
               ],
               [
-                0.51,
-                16.15
+                1.79,
+                14.5
               ],
               [
-                0.23,
-                16.61
+                1.61,
+                14.62
+              ],
+              [
+                1.05,
+                15.25
+              ],
+              [
+                0.99,
+                15.5
+              ],
+              [
+                0.87,
+                15.75
+              ],
+              [
+                0.7,
+                16.0
+              ],
+              [
+                0.49,
+                16.25
+              ],
+              [
+                0.31,
+                16.5
+              ],
+              [
+                0.24,
+                16.65
+              ],
+              [
+                0.24,
+                16.95
               ],
               [
                 0.0,
@@ -623,9 +655,15 @@
               "variant": "k06.opening.attic_group_3",
               "sill_m": 13.33,
               "width_m": 1.64,
-              "height_m": 1.26,
+              "height_m": 0.373,
               "at_m": [
                 0.0
+              ],
+              "rows": 3,
+              "transom_m": 0.07,
+              "panes": [
+                1,
+                1
               ]
             },
             "coping": {
@@ -633,11 +671,24 @@
               "proud_m": 0.04
             },
             "kneelers": {
-              "at_m": 4.07,
+              "at_m": 3.85,
               "shaft_m": 0.3,
-              "top_m": 12.9,
-              "cap_m": 0.08,
-              "spire_m": 0.35
+              "top_m": 12.85,
+              "cap_m": 0.06,
+              "spire_m": 0.2,
+              "scroll": {
+                "bed_m": 11.35,
+                "width_m": 0.4,
+                "radius_m": 0.2,
+                "proud_m": 0.2
+              }
+            },
+            "shoulders": {
+              "inner_m": 0.9,
+              "outer_m": 1.62,
+              "bed_m": 14.6,
+              "top_m": 15.22,
+              "proud_m": 0.06
             },
             "finial": {
               "height_m": 0.5,
@@ -650,7 +701,7 @@
           "sources": [
             "levy_1812_prairie_photo"
           ],
-          "note": "The front's shaped gable, read through the photograph's camera at the front's 88.5 px a metre about its centre (695 px, v 4.24 m): the outline's half-width and height over the walk at ten points from the kneelers (4.07 m out at 11.63 m) up the swell (its four lower points drawn in 0.15-0.2 m after the first render was laid over the print), the shoulder stone (1.24 m at 15.14 m) and the drawn-in head to the apex block at 17.0 m, the finial over it to about 17.5 m; the grid window 1.64 m across, its sill 13.33 m and its head 14.59 m over the walk. T-2889: its face brought onto the wall's own plane, as the photograph's is: the eave under it is 0.05 m (eave_overhang_m), so the slab stands 0.02 m before the street fascia and 0.07 m before the wall below, and its foot is set at 12.08 m, just over the third storey's two arched windows (crowns at 12.05 and 12.0 m), whose voussoirs run on up its face; the kneelers stand 4.07 m out, where the print's are, on a ledge at 12.55 m, 0.15 m over the street fascia; and it takes the eave's gutter (takes_gutter), as the print shows no gutter across the front: the gutter's street run is not built and its side runs die into the base, which runs out past the side walls to take them. Built otherwise: K06's attic group of three lights stands for the photograph's nine (three by three); under the curves the base runs out square to the eave's corners and up to that ledge, where the photograph's outline leaves the wall at the kneelers, about 11.6-11.7 m; the slab is the side walls' brick where the print shows brick dressed in stone (L-k01-1812-wheeler-front-2543; L-k01-1812-wheeler-third-storey-2889)."
+          "note": "The front's shaped gable, read through the photograph's camera at the front's 88.5 px a metre about its centre (695 px, v 4.24 m): the outline's half-width and height over the walk at ten points from the kneelers (4.07 m out at 11.63 m) up the swell (its four lower points drawn in 0.15-0.2 m after the first render was laid over the print), the shoulder stone (1.24 m at 15.14 m) and the drawn-in head to the apex block at 17.0 m, the finial over it to about 17.5 m; the grid window 1.64 m across, its sill 13.33 m and its head 14.59 m over the walk. T-2889: its face brought onto the wall's own plane, as the photograph's is: the eave under it is 0.05 m (eave_overhang_m), so the slab stands 0.02 m before the street fascia and 0.07 m before the wall below, and its foot is set at 12.08 m, just over the third storey's two arched windows (crowns at 12.05 and 12.0 m), whose voussoirs run on up its face; the kneelers stand 4.07 m out, where the print's are, on a ledge at 12.55 m, 0.15 m over the street fascia; and it takes the eave's gutter (takes_gutter), as the print shows no gutter across the front: the gutter's street run is not built and its side runs die into the base, which runs out past the side walls to take them. Built otherwise: under the curves the base runs out square to the eave's corners and up to that ledge, where the photograph's outline leaves the wall at the kneelers, about 11.6-11.7 m; the slab is the side walls' brick where the print shows brick dressed in stone (L-k01-1812-wheeler-front-2543; L-k01-1812-wheeler-third-storey-2889). T-2951: the outline re-read against the print with the render's silhouette laid over it, both sides at a tenth of a metre (the south side reads about 0.25 m wider than the north all the way up, the print's crinkle or a slight roll, so the build takes the mean): the swell 2.98 m out at 13.0 m, 2.43 at 14.0 and 1.83 at 14.5 (built 0.04 m inside each, which the coping's projection gives back in the render), a convex curve swinging in to the shoulder, where the draft stood 0.3-0.5 m wide of it, and the head a bell drawn in from the shoulders (1.10 m at 15.3, 0.92 at 15.75, 0.75 at 16.0, 0.54 at 16.25, 0.35 at 16.5, built 0.05 m inside each) to the finial's square plinth, 0.48 m across from 16.65 m to the apex block at 17.0 m, which the draft drew as a point; the shoulder stones square blocks 0.9-1.62 m out from 14.6 to 15.22 m (the print's south 0.90-1.62 at 14.68-15.3, its north 0.92-1.60 about 0.15 lower), standing over the outline through the slab; the grid window three rows of three lights in the same 1.64 by 1.26 m opening, each light about 0.44 m across between 0.16 m stone mullions and 0.37 m high over a 0.07 m stone transom, one pane each, as the print's dark lights show no bars; and each kneeler a carved scroll console at the front's corner, its roll 0.4 m across from 11.35 m and its body up to a cap under the slab's foot, under a small pinnacle on the ledge 3.85 m out (the print's kneeler stone stands about 3.6-3.95 m out and rises to about 12.85 m). Not built: the window's quoined side stones and the wavy hood over it, the sunk panel in each shoulder stone and the scroll's carving beyond its roll and eye (L-k01-1812-wheeler-gable-2951)."
         },
         "street_front_windows": {
           "value": {
