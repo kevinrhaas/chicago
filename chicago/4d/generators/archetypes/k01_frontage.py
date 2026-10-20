@@ -49,6 +49,10 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
   k01.opening.gable_light   a WALL GABLE's light (T-2428, `k01_wall_gable`): the dormer's
                             face on the wall's plane, K06 lights cut to their own heads
   k01.opening.segmental_arch  the radiating voussoirs over a wall gable's light
+  k01.opening.gable_arch    a wall gable's GREAT ARCH (T-2917): its ring of voussoirs on
+                            the cornice, the tympanum recessed under it and its round-
+                            headed lights cut through that
+  k01.wall.gable_colonnette a colonnette between or beside the lights under the great arch
   k01.roof.gable_pinnacle   a wall gable's pinnacle: square shaft, cap and pyramid
   k01.roof.gable_finial     a wall gable's turned finial on the ridge at its apex
   k01.opening.sash_round    a mansard crown's round-headed dormer sash (T-2404): K06's
@@ -508,6 +512,14 @@ class Assembly:
             if st.get("all_round") or any(b["fabric"] == "front_stone" for b in params.bays):
                 self.fabric["bay_stone"] = st["fabric"]
                 self.spec["bay_stone"] |= {"color": (1.0, 1.0, 1.0), "roughness": round(st["fabric_roughness"] + 0.02, 3)}
+        # T-2917: a wall gable the record lays in the front's stone (1811's, smooth ashlar on
+        # the plate) wears the front's K02 fabric, a shade rougher than the walling's own slot
+        if params.dormer and params.dormer.get("wall_gable", {}).get("face_fabric") == "front_stone":
+            if not params.stone:
+                raise ValueError("a wall gable in the front's stone needs a stone front")
+            self.fabric["dormer_stone"] = params.stone["fabric"]
+            self.spec["dormer_stone"] = dict(self.spec["dormer_stone"], fabric=params.stone["fabric"], color=(1.0, 1.0, 1.0),
+                                             roughness=round(params.stone["fabric_roughness"] + 0.01, 3))
         # T-2289: what each kit seats on a wall, as (s0, s1, y0, y1, kind) in that wall's
         # frame, keyed by the frame's origin: the coursed front dresses the stone under it
         if params.stone_finish:
