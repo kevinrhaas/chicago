@@ -2,6 +2,68 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13); on 2026-10-11 T-2337 halved part 10 again (11-14 -> 12-15). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 155,
+      "takenAt": "2026-10-20T16:36:21.088Z",
+      "ref": "steward/t2931-1801-pilasters",
+      "commit": "c26de927e3f0",
+      "devCommit": "057355579681",
+      "treeHash": "sha256:fcfe99394b75d3b8",
+      "treeDirty": false,
+      "changelogHash": "sha256:03d3ca5f141577af",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.5,
+          4.4,
+          3.9
+        ]
+      },
+      "source": "/tmp/t2931/smoke-m3.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 358,
+      "takenAt": "2026-10-20T16:36:20.982Z",
+      "ref": "steward/t2931-1801-pilasters",
+      "commit": "c26de927e3f0",
+      "devCommit": "057355579681",
+      "treeHash": "sha256:fcfe99394b75d3b8",
+      "treeDirty": false,
+      "changelogHash": "sha256:03d3ca5f141577af",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.5,
+          4.4,
+          3.9
+        ]
+      },
+      "source": "/tmp/t2931/smoke-d3.log"
+    },
+    {
       "viewport": "desktop",
       "stage": "1",
       "parts": [
@@ -1645,74 +1707,6 @@
       },
       "source": "docs/RESEARCH/glessner-courtyard-windows-2183/published-smoke-desktop-interrupted.log",
       "provenanceNote": "Workspace restart interrupted stage 14 after all stage 13 assertions, including Glessner, passed. No final page-error summary; not a completed passing run. Dev integration occurred during the run; exact start-tree digest unavailable."
-    },
-    {
-      "viewport": "mobile",
-      "stage": "13-14",
-      "parts": [
-        13,
-        14
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 137,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-10-08T19:14:44Z",
-      "ref": "steward/recover-t-2183",
-      "commit": "9657b2a2aa58",
-      "devCommit": "2649aaf0de00",
-      "treeHash": null,
-      "treeDirty": true,
-      "changelogHash": "sha256:78ced790a8569fd7",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          4.4,
-          5.6,
-          5.9
-        ]
-      },
-      "source": "docs/RESEARCH/glessner-courtyard-windows-2183/published-smoke-initial.log",
-      "provenanceNote": "Recovery measurement before dev 2649aaf integration; exact start-tree digest was not captured. Canonical Glessner assets and renderer are unchanged by integration. Do not reuse as an exact-tree reading."
-    },
-    {
-      "viewport": "desktop",
-      "stage": "13-14",
-      "parts": [
-        13,
-        14
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 5,
-      "failed": 1,
-      "failures": [
-        "desktop 1280x800: scene reaches ready — timed out | agency_striker_log_house: review_required is set — this scene cannot be released | beaubien_barn: review_required is set — this scene cannot be released | beaubien_trading_post: review_required is set — this scene cannot be released"
-      ],
-      "wallSeconds": null,
-      "takenAt": "2026-10-08T19:14:44Z",
-      "ref": "steward/recover-t-2183",
-      "commit": "9657b2a2aa58",
-      "devCommit": "2649aaf0de00",
-      "treeHash": null,
-      "treeDirty": true,
-      "changelogHash": "sha256:78ced790a8569fd7",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          4.4,
-          5.6,
-          5.9
-        ]
-      },
-      "source": "docs/RESEARCH/glessner-courtyard-windows-2183/published-smoke-initial.log",
-      "provenanceNote": "Recovery measurement before dev 2649aaf integration; exact start-tree digest was not captured. Canonical Glessner assets and renderer are unchanged by integration. Do not reuse as an exact-tree reading."
     },
     {
       "viewport": "desktop",
