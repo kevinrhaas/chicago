@@ -195,7 +195,8 @@
 
 .pop-tabs {
   position: sticky;
-  top: 0;
+  /* Under the pinned title row (T-2954); popup.js measures it as each card opens. */
+  top: var(--pop-pin, 0px);
   z-index: 2;
   display: flex;
   gap: 2px;
