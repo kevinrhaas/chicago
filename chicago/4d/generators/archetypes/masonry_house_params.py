@@ -473,6 +473,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             "light_spans": light_spans,
             "courses": courses,
             "roof_rise_m": round(float(roof.get("rise_ft", 4.0)) * FT, 4),
+            # T-2861: the hood's eave radius. Sheet 4 ends the copper at the bow's wall
+            # face; absent, the old 0.20 m overhang stands.
+            "eave_r": round(float(bow["r_ft"]) * FT + (float(roof["eave_overhang_ft"]) * FT
+                            if "eave_overhang_ft" in roof else .20), 4),
             "roof_colour": roof.get("colour", "copper"),
             "conf_wall": cf("hall_bow", "hall_bow_height"),
             "conf_roof": cf("hall_bow_roof"),
