@@ -204,8 +204,11 @@ MATERIALS = {
     "slate_covering": {"fabric": "slate_pennsylvania", "color": (1.0, 1.0, 1.0), "roughness": 0.62},
     # T-2406: a mansard's lower faces when they are slated over a metal upper hip (1620)
     "mansard_slate": {"fabric": "slate_pennsylvania", "color": (1.0, 1.0, 1.0), "roughness": 0.62},
-    # T-2841: a rear wing's hipped or gabled roof, in its own K04 slate (rear_wings[].roof)
-    "wing_slate": {"fabric": "slate_pennsylvania", "color": (1.0, 1.0, 1.0), "roughness": 0.62},
+    # T-2841: a rear wing's hipped or gabled roof, in its own K04 slate (rear_wings[].roof).
+    # T-2843: a shade rougher than the main roof's, as dormer_stone is off the trim: where
+    # a wing is slated in the main roof's own slate (1801's, under its mansard faces) the two
+    # were one material in all but name, and the publish path's dedup merged the name away
+    "wing_slate": {"fabric": "slate_pennsylvania", "color": (1.0, 1.0, 1.0), "roughness": 0.64},
     # the dormer face: dressed stone a shade off the trim, and a name outside the
     # envelope materials, since the envelope is the walls and not what stands on the roof
     "dormer_stone": {"fabric": "limestone", "color": (0.96, 0.93, 0.86), "roughness": 0.8},
@@ -1921,18 +1924,27 @@ class Assembly:
         # it, facing the roof behind: from the wall head to the tower's wall top across the
         # ring's junctions, and on to its eave across its eaves' (K08 closes its cap from
         # there). A millimetre behind the plane, so no face lies on the kit's cut ends
-        if v["kind"] == "tower":
+        # T-2843: a pavilion carried up past the main eave (1801's south pavilion and its flank
+        # section, three storeys to 13.9 m against an 8.1 m cornice, in the Taylor photograph)
+        # is closed the same way, and so is its hipped cap's end on the plane, which K08
+        # leaves open on a projection (a projection's cap otherwise dies into the wall over it)
+        past = v["kind"] == "projection" and built.meta["wall_top_m"] > p.eave_m + 1e-6
+        if v["kind"] == "tower" or past:
             back = _mul(N, -1)
             wall_top, eave = built.meta["wall_top_m"], built.meta["eave_m"]
             on = [q[0] for q in built.prims["soffit"].pos if abs(q[2]) < 1e-6]
             pr = self.prim(body)
             bb = self.basis(body, O, R, Y, seed)
+            snap = lambda x, y: tuple(round(c * 1000) / 1000 for c in W((x, y, -0.001)))
             # T-2842: on a rear wing's wall it is closed from the wing's wall top (`eave_m`)
             for (x0, x1), (y0, y1) in (((b["span_m"][0] - b["s_m"], b["span_m"][1] - b["s_m"]),
                                         (b.get("eave_m", p.eave_m), wall_top)),
                                        ((min(on), max(on)), (wall_top, eave))):
-                pr.face([tuple(round(c * 1000) / 1000 for c in W((x, y, -0.001)))
-                         for x, y in ((x0, y0), (x1, y0), (x1, y1), (x0, y1))], back, bb, conf)
+                pr.face([snap(x, y) for x, y in ((x0, y0), (x1, y0), (x1, y1), (x0, y1))], back, bb, conf)
+            if past:
+                cap = sorted({(round(q[0], 6), round(q[1], 6)) for q in built.prims["roof"].pos
+                              if abs(q[2]) < 1e-6})
+                pr.face([snap(x, y) for x, y in cap], back, bb, conf)
         # T-2289: everything the bay stands against its wall with, junctions to roof
         self.seat(frame, [(b["s_m"] + q[0], q[1], 0.0 if q[2] < 0.02 else -1.0)
                           for pr in built.prims.values() for q in pr.pos], "k08")

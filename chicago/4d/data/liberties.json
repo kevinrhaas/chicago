@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 648,
+  "count": 649,
   "liberties": [
     {
       "id": "L1",
@@ -39666,7 +39666,7 @@
       ],
       "covers": [],
       "recorded": "2026-10-16",
-      "revised": null,
+      "revised": "2026-10-20",
       "fields": [
         {
           "label": "Decision",
@@ -39687,6 +39687,156 @@
         {
           "label": "Recorded",
           "text": "2026-10-16 (T-2538)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-20 (T-2843) — **1801 Kimball is no longer on the draft builder.** It stands on K01 in Bedford stone at the massing this entry read, and the builder's own inventions it listed (the 72-degree mansard's stand-in, the eight-sided rings, the flat stone and its tint, the builder's sash, dormers and stoop) are retired with the draft's GLB. What the K01 build invents in their place is `L-kimball-1801-k01-2843`."
+        }
+      ]
+    },
+    {
+      "id": "L-kimball-1801-k01-2843",
+      "title": "1801 Prairie on K01: the main block widened to the sheet's south wall, both pavilions stood 0.6 m proud, the flank section cut to K08's 6.0 m, the tower's centre 0.1 m out of the wall, and the east range stopped at its host's 6 m",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.basement_lights"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.eave_overhang_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.entrance_kit"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.front_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.north_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rainwater"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.rear_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.service_wall_brick"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.side_bays"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_landing_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stair_tread_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.stoop_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.street_front_trim"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_front_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_thickness_side_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.window_kit"
+        }
+      ],
+      "recorded": "2026-10-20",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`kimball_house_1801_prairie.as_mapped_1904.form.basement_lights`, `kimball_house_1801_prairie.as_mapped_1904.form.chimneys`, `kimball_house_1801_prairie.as_mapped_1904.form.eave_overhang_m`, `kimball_house_1801_prairie.as_mapped_1904.form.entrance_kit`, `kimball_house_1801_prairie.as_mapped_1904.form.front_bays`, `kimball_house_1801_prairie.as_mapped_1904.form.north_bays`, `kimball_house_1801_prairie.as_mapped_1904.form.rainwater`, `kimball_house_1801_prairie.as_mapped_1904.form.rear_bays`, `kimball_house_1801_prairie.as_mapped_1904.form.roof_pitch_deg`, `kimball_house_1801_prairie.as_mapped_1904.form.service_wall_brick`, `kimball_house_1801_prairie.as_mapped_1904.form.side_bays`, `kimball_house_1801_prairie.as_mapped_1904.form.stair_landing_depth_m`, `kimball_house_1801_prairie.as_mapped_1904.form.stair_tread_m`, `kimball_house_1801_prairie.as_mapped_1904.form.stoop_width_m`, `kimball_house_1801_prairie.as_mapped_1904.form.street_front_trim`, `kimball_house_1801_prairie.as_mapped_1904.form.wall_thickness_front_m`, `kimball_house_1801_prairie.as_mapped_1904.form.wall_thickness_side_m`, `kimball_house_1801_prairie.as_mapped_1904.form.window_kit`"
+        },
+        {
+          "label": "Decision",
+          "text": "the W. W. Kimball house at 1801 Prairie Avenue (T-2843, piece 3 of T-2789) moves off the draft builder onto K01 as an all-stone house (`construction: \"stone\"`, T-2788) in K02's `limestone_bedford`, the frontage register's material for it (pa-1801-23), at the massing `L-kimball-1801-massing-2538` read off J. W. Taylor's c. 1895 photograph and the 1911 sheet 28 trace, in the same frame, so the Taylor camera stands unchanged. **What is read, not invented.** The main block's front (u 20.5) and its south wall (v 11.0, the trace's own line from the front back to u 6.9); the gabled section's and the east range's rectangles on the trace's lines (r3 from the 18th Street wall to v 6.0, r2 back to the trace's rear at u -17.9, where the camera's bearing also puts the flank's east end); the south pavilion flush with the south corner and about 3.6-3.9 m wide (x 1235 to the corner's x 1345 on the print); the storey heights, the cornice at 8.1 m, the pavilion and the flank section to about 13.9 m, the tower's place, radius, eaves and cone, and the mansard's steep faces, 72 degrees to a curb 7.2 m over the cornice, all T-2538's readings. **What is invented.** The block's south wall carried straight back from u 6.9 to the rear, where the trace steps in to v 9.5-10.9 on a side no picture shows (about 5 m2 more than the sheet draws). Both pavilions stand 0.6 m proud, K08's own pavilion depth and the least its window recesses fit in, where the trace draws the south pavilion at 0-0.4 m and the flank section at about 0.1 m; the main cornice's 0.3 m eave and its gutter die behind their faces, and over the eave each is closed on the wall plane. The south pavilion's lights are paired, as the photograph's are, at K08's places. The flank section is 6.0 m wide, K08's widest pavilion, against the photograph's about 7.8 m, kept against the tower and short of the gabled section by about 2.9 m. The tower's centre stands 0.1 m out of the wall's face (the least that keeps its finial clear of the wall), so it is 1.55 m proud where the sheet draws its bump 1.2-1.3 m out, and its one radius stands for the photograph's slimmer shaft under a corbelled upper stage. The mansard's deck behind the cresting is a low tin hip at 15 degrees; the house's window sash is K01's widest ordinary 1.15 m where the photograph reads about 1.2 m; every opening's place on the side and rear walls, the wings' 45-degree slate hips, the one chimney on the south wall, the downpipes on the south and rear walls and the deep-arched door standing for the loggia are the kit's, reconstructed. **What is not built.** The east range's south 12 m (the trace runs it to v 18.3; a K01 wing stands inside its host wall's length, and its host, the gabled section, is 6 m wide) and its north-east turret (turned round the wing's corner with its eaves at the range's own, which K08's tower past a wing's eave cannot carry): both T-2900. The pavilion's coped stone gable (apex about 17 m), carried as K08's low hip; the moulded stone cornice (K10's stands only under a flat or gable roof); the hooded dormers, cresting and finials, the flank's gable and balcony, the tall stacks: T-2540. The loggia, the curved stair, the bowed bay, the carved openings and frieze and the corbel table: T-2790."
+        },
+        {
+          "label": "How to resolve",
+          "text": "T-2900 builds the range whole and its turret; T-2790 and T-2540 bring the openings, roof and flank to the photographs; T-1890 finishes the architecture and the match record to `matches`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2843 (piece 3 of T-2789)."
+        },
+        {
+          "label": "Review",
+          "text": "`data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-20 (T-2843)."
         }
       ]
     },
