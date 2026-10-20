@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2123, ts: '2026-10-20T14:52:18.198Z', date: 'Oct 20, 2026, 9:52 AM CT', title: 'Glessner\'s courtyard: the wing over the carriage passage, built to its drawing', kind: 'change',
+    items: [
+      'The four windows above the passage out of the courtyard now stand where the 1963 measured drawing puts them. They are paired under long stone courses, not small separate lintels and sills.',
+      'The passage now has its stone lintel and the two rounded corbels under it, at the drawn width and height.',
+      'The downpipe on that wall moves to the corner where the drawing shows it, with its hopper head.',
+    ] },
   { v: 2122, ts: '2026-10-20T14:42:44.069Z', date: 'Oct 20, 2026, 9:42 AM CT', title: '1625 Prairie\'s oriel stands on a darker stone base', kind: 'change',
     items: [
       'In 1904, the panel under the small bay window on 1625 Prairie\'s south wall is now the house front\'s rough brownstone rather than the bay\'s pale smooth stone. In the 1890 photograph it reads darker and rougher than the wall beside it, in the same sunlight, so it is the stone and not a shadow.',
