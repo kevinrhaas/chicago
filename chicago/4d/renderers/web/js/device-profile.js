@@ -157,6 +157,59 @@ export function describeProfile(profile) {
   return `Your device: ${CLASS_LABEL[profile.cls] ?? profile.cls} ${kind}, chosen ${d} detail at ${s} sharpness.`;
 }
 
+/**
+ * T-2901: the front door's device meter — one 0-100 number and five grades.
+ *
+ * Read from the SAME profile the town boots on, and clamped into the band of
+ * the class that profile chose, so the meter never promises more than the
+ * town will draw: weak 8-39 (Poor, Low), standard 40-79 (Fair, Good), strong
+ * 76-99 (Good, Peak). Inside its band a device is placed by what was measured:
+ * the benchmark's fill and vertex rates on a log scale (each class floor in
+ * THRESHOLDS reads 40, each ceiling 80, so the two scales meet the bands), then
+ * cores and memory. A software rasteriser, or a browser that gave no
+ * benchmark, is placed on cores and memory alone.
+ */
+export const GRADES = Object.freeze([
+  { id: 'poor', label: 'Poor', min: 0 },
+  { id: 'low', label: 'Low', min: 20 },
+  { id: 'fair', label: 'Fair', min: 40 },
+  { id: 'good', label: 'Good', min: 60 },
+  { id: 'peak', label: 'Peak', min: 80 },
+]);
+const CLASS_BAND = Object.freeze({ weak: [8, 39], standard: [40, 79], strong: [76, 99] });
+
+const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+function logScore(rate, floor, ceiling) {
+  return Number.isFinite(rate) && rate > 0 ? 40 + 40 * Math.log(rate / floor) / Math.log(ceiling / floor) : null;
+}
+
+/** The grade a 0-100 score falls in. */
+export function gradeOf(score) {
+  let grade = GRADES[0];
+  for (const g of GRADES) if (score >= g.min) grade = g;
+  return grade;
+}
+
+/** { score, grade, basis: 'measured' | 'resources' } for a profile. Pure. */
+export function scoreProfile(profile) {
+  const cls = DEVICE_CLASSES.includes(profile?.cls) ? profile.cls : 'standard';
+  const s = profile?.signals || {};
+  const fill = logScore(profile?.bench?.fill, THRESHOLDS.fill.weak, THRESHOLDS.fill.strong);
+  const verts = logScore(profile?.bench?.verts, THRESHOLDS.verts.weak, THRESHOLDS.verts.strong);
+  // The slower of the two passes is the one a frame waits on, so it weighs more.
+  const gpu = fill != null && verts != null
+    ? clamp(0.6 * Math.min(fill, verts) + 0.4 * Math.max(fill, verts), 0, 100) : null;
+  const cores = s.cores ? clamp(s.cores * 10, 10, 100) : null;
+  // deviceMemory is Chromium's hint and stops at 8 GB, so 8 reads full.
+  const memory = s.memoryGB ? clamp(s.memoryGB * 12.5, 10, 100) : null;
+  const parts = [[gpu, 0.65], [cores, 0.2], [memory, 0.15]].filter(([v]) => v != null);
+  const [lo, hi] = CLASS_BAND[cls];
+  const weight = parts.reduce((a, [, w]) => a + w, 0);
+  const raw = weight ? parts.reduce((a, [v, w]) => a + v * w, 0) / weight : (lo + hi) / 2;
+  const score = Math.round(clamp(raw, lo, hi));
+  return { score, grade: gradeOf(score), basis: gpu != null ? 'measured' : 'resources' };
+}
+
 /** The cache key: renderer string and build, so a new GPU or a new build re-measures. */
 export function cacheKey(renderer, build) {
   return `${String(renderer || '?')}|${String(build || '?')}`;

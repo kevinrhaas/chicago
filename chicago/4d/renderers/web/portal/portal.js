@@ -186,6 +186,11 @@
     if (Date.now() > nextDrift && !slipping) { nextDrift = Date.now() + MD.nextDriftIn(false); drift(); }
   }
 
+  // T-2901: device-meter.js reads this device during the cold start and reports on the log.
+  document.addEventListener('c4d:device', ({ detail: d }) => {
+    if (d.phase === 'start') say('ASSESSING LOCAL DEVICE…');
+    else if (d.phase === 'done') say(`LOCAL DEVICE ${d.score} · ${d.grade.toUpperCase()} · ${d.detail.toUpperCase()} DETAIL`);
+  });
   if (!reduced.matches) boot(); else finish();
   reduced.addEventListener('change', finish);
   cards.forEach(card => {

@@ -1,3 +1,26 @@
+## T-2901 — the front door measures this device: a live performance meter (2026-10-20)
+
+The owner asked for a meter on the Temporal Observatory that reads the device during the Wolf
+Point opening and hovers, red to green, around how well the town will run. `portal/device-meter.js`
+runs `profileDevice()` from `js/device-profile.js` — the same reading the town boots on — 300 ms
+into the cold start, and holds the reveal to at least 1.7 s so it reads as part of the opening.
+`scoreProfile()` (new, pure, in device-profile.js) turns the profile into 0-100 in five grades
+(Poor, Low, Fair, Good, Peak, 20 points each): fill and vertex rates on a log scale with each class
+floor in `THRESHOLDS` at 40 and each ceiling at 80, weighted 0.65 against cores 0.2 and memory 0.15,
+then **clamped into the band of the class the town will choose** (weak 8-39, standard 40-79, strong
+76-99), so the meter cannot promise more than the town draws. The hover is ±~3 of smoothed noise
+plus a real dip of up to 18 points for the share of this page's last 40 frames that arrived late.
+
+- **The front door never writes the town's cache** (`storage: null`), so it cannot change what
+  the town chooses; it benchmarks afresh on every load (the same ≤ 0.9 s ceiling the town pays).
+- **What is not known, said plainly.** The score inherits T-2559's thresholds, which are a first
+  setting and not a calibration. On the runner's SwiftShader the profile is not benchmarked, so the
+  meter places it on cores and memory alone: 4 cores and 8 GB read 66, Good, inside `standard`.
+  No reading from real phone or laptop silicon has been taken.
+- `check_device_profile.mjs` holds every class's score inside its band over a grid of benchmark
+  rates and resources; `test_temporal_menu_browser.mjs` holds the meter ready, lit, and on the first
+  screen at 1280×800 and 390×844. The manual gains 07 This device.
+
 ## T-2783 — 1812 and 1835: the far prairie past the near ring (2026-10-19)
 
 The plain past the near grass ring now reads as grass. A third far-card band, the mid ring,
