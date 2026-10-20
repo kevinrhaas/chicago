@@ -33,6 +33,11 @@
 
 import * as THREE from 'three';
 
+/** T-2784: the open plain's shrubs draw their stems with fewer sides at the
+ *  near level (the trunk's, the stems', the twigs'), since a cane is a few
+ *  millimetres to a centimetre thick; the coarser levels are the shared ones. */
+const PRAIRIE_SIDES = { near: [5, 4, 3, 0] };
+
 /* -------------------------------------------------------------------------- */
 /* the species' habits                                                         */
 /* -------------------------------------------------------------------------- */
@@ -273,6 +278,60 @@ export const ARCH = {
     stemSplay: 26, limbAngle: 16, rise: 0.02, twist: 0.30, order2: [3, 40], order3: [0, 0],
     droop: 0.18, clump: 0.26, clumpMin: 0.20, density: 1.30, gaps: 0.20, leaf: 'maple', bark: 'smooth',
     farBins: [4, 2],
+  },
+  // T-2784 — THE OPEN PLAIN'S SHRUBS. The prairie's own are knee- to waist-high
+  // and resprout from the root after every fire, so each is a low clump of
+  // canes rather than a bush with a stem: wild rose a loose colony of thin
+  // arching canes with pinnate leaves; New Jersey tea a tight dome of many
+  // slender stems off a woody crown; leadplant a few grey wands. The slough
+  // edge's are taller: pussy willow a clump of upright stems that branch, the
+  // slender willow a sheaf of thin straight wands, buttonbush a rounded bush of
+  // crooked spreading stems with broad glossy leaves, meadowsweet a stand of
+  // upright wands. Small clumps (`clumpMin`) so a knee-high shrub's leaf is not
+  // a tree's. Habits, not measurements (docs/LIBERTIES.md L-prairie-woody-2784).
+  // `sides` (PRAIRIE_SIDES): a cane a centimetre thick is a few pixels at any
+  // range a visitor stands from it, so the near level's wood is cut sides.
+  rosa_spp: {
+    crown: 'round', crownBase: 0.12, fork: 'decurrent', stems: [5, 8], scaffolds: [0, 0],
+    stemSplay: 28, limbAngle: 20, rise: 0.0, twist: 0.35, order2: [3, 46], order3: [0, 0],
+    droop: 0.22, clump: 0.30, clumpMin: 0.12, density: 1.20, gaps: 0.26, leaf: 'compound', bark: 'smooth',
+    farBins: [3, 2], sides: PRAIRIE_SIDES,
+  },
+  ceanothus_americanus: {
+    crown: 'round', crownBase: 0.16, fork: 'decurrent', stems: [7, 11], scaffolds: [0, 0],
+    stemSplay: 20, limbAngle: 18, rise: 0.03, twist: 0.25, order2: [3, 42], order3: [0, 0],
+    droop: 0.06, clump: 0.30, clumpMin: 0.12, density: 1.30, gaps: 0.18, leaf: 'elm', bark: 'smooth',
+    farBins: [3, 2], sides: PRAIRIE_SIDES,
+  },
+  amorpha_canescens: {
+    crown: 'round', crownBase: 0.20, fork: 'decurrent', stems: [4, 7], scaffolds: [0, 0],
+    stemSplay: 16, limbAngle: 14, rise: 0.04, twist: 0.20, order2: [2, 40], order3: [0, 0],
+    droop: 0.04, clump: 0.32, clumpMin: 0.10, density: 1.20, gaps: 0.24, leaf: 'compound', bark: 'smooth',
+    farBins: [3, 2], sides: PRAIRIE_SIDES,
+  },
+  salix_discolor: {
+    crown: 'irregular', crownBase: 0.10, fork: 'decurrent', stems: [4, 7], scaffolds: [0, 0],
+    stemSplay: 16, limbAngle: 16, rise: 0.06, twist: 0.30, order2: [4, 36], order3: [0, 0],
+    droop: 0.12, clump: 0.24, clumpMin: 0.30, density: 1.15, gaps: 0.24, leaf: 'willow', bark: 'smooth',
+    farBins: [4, 2], sides: PRAIRIE_SIDES,
+  },
+  salix_petiolaris: {
+    crown: 'round', crownBase: 0.08, fork: 'decurrent', stems: [8, 12], scaffolds: [0, 0],
+    stemSplay: 13, limbAngle: 12, rise: 0.06, twist: 0.20, order2: [3, 30], order3: [0, 0],
+    droop: 0.14, clump: 0.26, clumpMin: 0.24, density: 1.25, gaps: 0.20, leaf: 'willow', bark: 'smooth',
+    farBins: [4, 2], sides: PRAIRIE_SIDES,
+  },
+  cephalanthus_occidentalis: {
+    crown: 'round', crownBase: 0.14, fork: 'decurrent', stems: [3, 6], scaffolds: [0, 0],
+    stemSplay: 24, limbAngle: 30, rise: 0.0, twist: 0.60, order2: [4, 50], order3: [0, 0],
+    droop: 0.08, clump: 0.26, clumpMin: 0.28, density: 1.20, gaps: 0.26, leaf: 'heart', bark: 'smooth',
+    farBins: [4, 2], sides: PRAIRIE_SIDES,
+  },
+  spiraea_alba: {
+    crown: 'column', crownBase: 0.14, fork: 'decurrent', stems: [8, 13], scaffolds: [0, 0],
+    stemSplay: 10, limbAngle: 10, rise: 0.04, twist: 0.15, order2: [2, 36], order3: [0, 0],
+    droop: 0.04, clump: 0.28, clumpMin: 0.12, density: 1.30, gaps: 0.20, leaf: 'willow', bark: 'smooth',
+    farBins: [3, 2], sides: PRAIRIE_SIDES,
   },
 };
 
@@ -625,6 +684,11 @@ const FOLIAGE_K = 4.2;
  *  foliage's reflectance; the vertex colour carries the record's colour over
  *  the atlas's mean so the two multiply back to the record. */
 const LEAF_GAIN = 2.0;
+/** T-2784: the leaf atlas's mean opaque texel is a pale green (sRGB 145, 165,
+ *  125, measured over all twenty tiles, alpha over half), and a flower drawn
+ *  on a leaf tile multiplies that cast in. This is its mean over each channel,
+ *  so a bloom's vertex colour comes back to the record's. */
+const BLOOM_CAST = [1.02, 0.77, 1.40];
 const SHELL_K = 7.0;
 
 // `distant` (T-2808): the trunk alone, three-sided, under a crown of a few masses.
@@ -734,17 +798,24 @@ function card(buf, at, dir, size, tile, colour, outward, flex, rnd, facing = nul
  *             crownR: number, trunkR: number }}
  */
 export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skeleton = null, leafCover = 1, leafScale = 1 } = {}) {
+  if (spec.form === 'vine_drape') return buildVineTemplate(spec, seed, lod, { conf });
   const rnd = mulberry32(seed);
   const arch = archFor(spec);
-  const sk = skeleton ?? growSkeleton(spec, arch, rnd);
+  // T-2810: a dead tree is its species' skeleton, grown whole and then broken.
+  const sk = skeleton ?? (spec.dead
+    ? deadSkeleton(growSkeleton(spec, arch, rnd), spec.dead, mulberry32(seed ^ 0x2810))
+    : growSkeleton(spec, arch, rnd));
   const lrnd = mulberry32(seed ^ 0x9e3779b9);
   const wood = new Buf();
   const leaves = new Buf();
-  const sides = SIDES[lod] ?? SIDES.near;
+  const sides = arch.sides?.[lod] ?? SIDES[lod] ?? SIDES.near;
   const barkTile = BARK_TILES[arch.bark] ?? 0;
   const barkTint = barkLinear(spec.bark ?? 0x5a5246, arch.bark);
   const barkUpper = spec.barkUpper != null ? barkLinear(spec.barkUpper, arch.bark) : barkTint;
-  const flexOf = (p) => clamp01((p[1] / Math.max(1, sk.H)) * 0.55 + Math.hypot(p[0], p[2]) / Math.max(1, sk.R) * 0.25) * 0.6;
+  // Dead wood does not sway in the wind as a leafy crown does, and a log on the
+  // ground does not move at all (T-2810).
+  const stiff = spec.dead === 'log' ? 0 : spec.dead ? 0.35 : 1;
+  const flexOf = (p) => clamp01((p[1] / Math.max(1, sk.H)) * 0.55 + Math.hypot(p[0], p[2]) / Math.max(1, sk.R) * 0.25) * 0.6 * stiff;
   // Coarser levels walk every second (mid) or fourth (far) node of a limb:
   // the same limb, in fewer, longer segments.
   const stride = lod === 'near' ? 1 : lod === 'mid' ? 2 : lod === 'far' ? 4 : 8;
@@ -847,6 +918,37 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
       }
     }
   }
+  // T-2784 — A PRAIRIE SHRUB IN FLOWER (`bloom`, its record's July
+  // inflorescence: the rose's pink, New Jersey tea's and meadowsweet's white,
+  // the leadplant's violet, the buttonbush's cream balls), hung on the outer
+  // clumps of the upper crown at the two near levels, blossoms a few
+  // centimetres across that the far levels could not resolve. The leaf atlas
+  // is a pale green, so the colour is set against its cast (`BLOOM_CAST`) to
+  // come out the record's and not a green-grey.
+  const bloom = spec.bloom;
+  if (bloom && Array.isArray(bloom.rgb) && (lod === 'near' || lod === 'mid') && clumps.length) {
+    const brnd = mulberry32(seed ^ 0x2784b);
+    const [br, bg, bb] = bloom.rgb;
+    const bc = linearRGB((br << 16) | (bg << 8) | bb).map((v, j) => v * LEAF_GAIN * BLOOM_CAST[j]);
+    const low = clamp01((bloom.height_frac ?? 0.8) - 0.35);
+    const size = ((bloom.size_m?.[0] ?? 0.04) + (bloom.size_m?.[1] ?? 0.08)) * (lod === 'near' ? 1.3 : 2.2);
+    let alt = 0;
+    for (const c of clumps) {
+      if (c.at[1] < sk.H * low || brnd() > 0.55) continue;
+      if (lod === 'mid' && (alt++ & 1)) continue;
+      const rel = sub(c.at, centre);
+      const outward = norm(add(norm([rel[0], rel[1] * 0.6, rel[2]]), [0, 0.6, 0]));
+      const at = add(c.at, mul(outward, c.r * 0.55));
+      card(leaves, at, outward, size, sunTile, bc, outward, 0.5, brnd, outward);
+    }
+  }
+  // A bare template (a dead tree, a winter crown) still hands the leaf batch
+  // one triangle, of no area, at its foot: a batch entry of no vertices is one
+  // the drawn-timber census cannot read back (tools/drawn_timber_census.mjs).
+  if (!leaves.count) {
+    for (let i = 0; i < 3; i++) leaves.vert([0, 0.05, 0], [0, 1, 0], [0, 0, 0], [0.5, 0.5], 0);
+    leaves.tri(0, 1, 2);
+  }
   return {
     wood: wood.build(0, conf),
     leaves: leaves.build(1, conf),
@@ -855,6 +957,172 @@ export function buildTreeTemplate(spec, seed, lod = 'near', { conf = 0.5, skelet
     trunkR: sk.dbh / 2,
     clumps: sk.clumps.length,
     skeleton: sk,
+  };
+}
+
+/* -------------------------------------------------------------------------- */
+/* dead wood and vines (T-2810)                                                */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * T-2810 — A DEAD TREE, STANDING (`snag`) OR DOWN (`log`), from its species'
+ * own grown skeleton: the twigs gone, most of the small limbs gone, the big
+ * limbs broken off short, and the stem snapped below its top. A log is the same
+ * wreck laid along +X on the ground, its root end at the origin, with the limbs
+ * that would have gone into the ground broken off by the fall. What a dead tree
+ * of 1812 or 1835 looked like is no witness's; the breakage is this file's
+ * (docs/LIBERTIES.md L-deadwood-vines-2810).
+ *
+ * The skeleton's `H` is the height the template is scaled by: the snapped
+ * stem's top for a snag, and the length on the ground for a log.
+ */
+function deadSkeleton(sk, kind, rnd) {
+  const fallen = kind === 'log';
+  const cutY = sk.H * (fallen ? lerp(0.45, 0.70, rnd()) : lerp(0.55, 0.85, rnd()));
+  // How much of a limb is left, by order: a snag keeps stubs of its scaffolds
+  // and a few of their branches; a log keeps short stubs only.
+  const keepOf = { 1: fallen ? [0.15, 0.40] : [0.30, 0.75], 2: [0.35, 0.70] };
+  const branches = [];
+  for (const b of sk.branches) {
+    if (b.order >= 3) continue;
+    if (b.order === 2 && (fallen || rnd() > 0.30)) continue;
+    let n = b.pts.length;
+    if (b.order > 0) {
+      const [lo, hi] = keepOf[b.order];
+      n = Math.max(2, Math.round(n * lerp(lo, hi, rnd())));
+    }
+    // Nothing stands above the break.
+    const over = b.pts.findIndex((p, i) => i < n && p[1] > cutY);
+    if (over === 0 || over === 1) continue;
+    if (over > 1) n = over;
+    branches.push({ ...b, pts: b.pts.slice(0, n), rad: b.rad.slice(0, n) });
+  }
+  // `H` stays the living tree's height: the planter scales a stem by its height
+  // over the template's, and a snag of a 20 m tree is that tree's girth, not a
+  // 14 m tree's stretched to 20.
+  if (!fallen) return { ...sk, branches, clumps: [] };
+  // Down: the stem's axis (+Y) laid along +X, lifted so the trunk rests on the
+  // ground, and every limb that would now be under it broken off in the fall.
+  const lift = sk.dbh * 0.42;
+  const down = [];
+  for (const b of branches) {
+    const pts = b.pts.map((p) => [p[1], lift - p[0], p[2]]);
+    if (b.order > 0 && pts.some((p) => p[1] < -0.15)) continue;
+    down.push({ ...b, pts });
+  }
+  return { ...sk, branches: down, clumps: [] };
+}
+
+/** Per level of detail: how many anchors to step over, and the card's size
+ *  against the anchor spacing. Coarser levels carry the same curtain on fewer,
+ *  larger cards, as a tree's levels do. */
+const VINE_LOD = { near: [1, 1.5], mid: [2, 2.6], far: [4, 4.6], distant: [8, 8.6] };
+
+/**
+ * T-2810 — A VINE ON AN EDGE TREE, built in the tree's frame with its open
+ * side to +X (trees.js turns +X toward the water or the shade).
+ *
+ * `habit` 'curtain' is the riverbank grape (z05: "heavy curtain vine on the
+ * river-facing edge trees"): a sheet of leaf hung over the crown's edge from
+ * near the top to a ragged hem, curving back into the crown at its sides.
+ * 'trunk' is the Virginia creeper ("climbing the trunks on the shaded side"):
+ * a narrow column on the bole. The anchors are laid out once from the seed, so
+ * every level hangs the same curtain and only the grain changes.
+ */
+export function buildVineTemplate(spec, seed, lod = 'near', { conf = 0.5 } = {}) {
+  const rnd = mulberry32(seed);
+  const lrnd = mulberry32(seed ^ 0x9e3779b9);
+  const curtain = spec.habit !== 'trunk';
+  const H = (spec.h[0] + spec.h[1]) / 2;
+  const W = curtain ? H * (0.42 + rnd() * 0.20) : Math.max(1.0, H * 0.10);
+  const s0 = curtain ? 0.75 : 0.45;
+  const cols = Math.max(2, Math.round(W / s0));
+  // The hem, a smooth random walk across the curtain: festoons and gaps, never
+  // a ruled bottom edge.
+  const hem = [];
+  let hv = rnd();
+  for (let c = 0; c <= cols; c++) { hv = clamp01(hv + (rnd() - 0.5) * 0.45); hem.push(hv); }
+  const anchors = [];
+  for (let c = 0; c <= cols; c++) {
+    const u = (c / cols) * 2 - 1;
+    const z = u * W * 0.5;
+    const x = curtain ? -u * u * W * 0.32 : 0;
+    const yTop = H * (curtain ? 1 - 0.20 * u * u : 0.62 + 0.10 * rnd());
+    const yBot = curtain ? lerp(0.5, H * 0.50, hem[c]) : lerp(0.3, H * 0.20, hem[c]);
+    const rows = Math.max(1, Math.round((yTop - yBot) / s0));
+    for (let r = 0; r <= rows; r++) {
+      const y = yTop - (r / rows) * (yTop - yBot);
+      // Alternate rows sit half a column over, so the sheet has no vertical slots.
+      const zr = z + (r % 2 ? s0 * 0.5 : 0) + (rnd() - 0.5) * s0 * 0.4;
+      anchors.push({ c, r, at: [x + (rnd() - 0.5) * 0.35, y, zr], up: (y - yBot) / Math.max(0.5, yTop - yBot) });
+    }
+  }
+  const [stride, k] = VINE_LOD[lod] ?? VINE_LOD.near;
+  const leaves = new Buf();
+  const wood = new Buf();
+  const [sunTile, clumpTile] = LEAF_TILES[spec.leaf] ?? LEAF_TILES.heart;
+  const dark = linearRGB(spec.dark ?? 0x56763c);
+  const light = linearRGB(spec.light ?? 0x7f9b5a);
+  for (const a of anchors) {
+    if (a.c % stride || a.r % stride) continue;
+    // Brighter high on the curtain and on its outer face, as a crown's shell is.
+    // A curtain is one leaf deep and hangs in its host's shade: it takes less of
+    // the light colour than a crown's shell does.
+    const lit = clamp01(0.15 + 0.45 * a.up);
+    const tint = 0.86 + lrnd() * 0.26;
+    const colour = dark.map((v, j) => lerp(v, light[j], 0.25 + lit * 0.7) * lerp(0.72, 1, lit) * tint * LEAF_GAIN);
+    const facing = norm([1, (lrnd() - 0.5) * 0.3, (lrnd() - 0.5) * 0.5]);
+    const tile = lod === 'near' && lrnd() < 0.5 ? sunTile : clumpTile;
+    // Hung from the anchor: the card's length runs down, the way the sprays fall.
+    card(leaves, a.at, [0, -1, 0], s0 * k, tile, colour, norm([1, 0.25, 0]), 0.25 + 0.35 * a.up, lrnd, facing);
+  }
+  // The record's July fruit (the grape's "hard green fruit"), hung in its band
+  // of the curtain at the two near levels: clusters a hand long, which the far
+  // levels could not resolve.
+  const bunch = spec.berries;
+  if (bunch && Array.isArray(bunch.rgb) && (lod === 'near' || lod === 'mid')) {
+    const frnd = mulberry32(seed ^ 0x2810f);
+    const [fr, fg, fb] = bunch.rgb;
+    const fc = linearRGB((fr << 16) | (fg << 8) | fb).map((v) => v * LEAF_GAIN);
+    const band = bunch.height_frac ?? 0.6;
+    const fs = ((bunch.size_m?.[0] ?? 0.06) + (bunch.size_m?.[1] ?? 0.12)) * (lod === 'near' ? 1.4 : 2.4);
+    for (const a of anchors) {
+      if (a.c % stride || a.r % stride) continue;
+      if (Math.abs(a.at[1] / H - band) > 0.17 || frnd() > 0.45) continue;
+      card(leaves, add(a.at, [0.12, -0.2, 0]), [0, -1, 0], fs, clumpTile, fc, [1, 0, 0], 0.3, frnd, [1, 0, 0]);
+    }
+  }
+  // The vine's own stems: a few ropes hung from the top of the curtain (one at
+  // the coarse levels, so the wood batch is never empty).
+  const strands = lod === 'near' ? 4 : lod === 'mid' ? 2 : 1;
+  const barkTile = BARK_TILES.shaggy_strips;
+  const barkTint = barkLinear(spec.bark ?? 0x6b5a48, 'shaggy');
+  for (let i = 0; i < strands; i++) {
+    const c = Math.round(((i + 0.5) / strands) * cols);
+    const u = (c / cols) * 2 - 1;
+    const z = u * W * 0.5;
+    const x0 = curtain ? -u * u * W * 0.32 : 0;
+    const yTop = H * (curtain ? 0.92 - 0.20 * u * u : 0.6);
+    const yBot = curtain ? Math.max(0.2, lerp(0.5, H * 0.5, hem[c]) - 0.6) : 0.1;
+    const pts = [];
+    const rad = [];
+    for (let j = 0; j <= 5; j++) {
+      const t = j / 5;
+      // A slack rope bellies out from the curtain.
+      // Hung just behind the leaf, so the ropes show through the gaps, not as poles.
+      pts.push([x0 - 0.2 + Math.sin(t * Math.PI) * 0.45, lerp(yTop, yBot, t), z + Math.sin(t * Math.PI * 2) * 0.3]);
+      rad.push(lerp(0.035, 0.025, t));
+    }
+    tube(wood, { pts, rad, order: 1 }, lod === 'near' ? 5 : 3, barkTile, barkTint, () => 0.2);
+  }
+  return {
+    wood: wood.build(0, conf),
+    leaves: leaves.build(1, conf),
+    height: H,
+    crownR: W / 2,
+    trunkR: 0.035,
+    clumps: anchors.length,
+    skeleton: { vine: true },
   };
 }
 

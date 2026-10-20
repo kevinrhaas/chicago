@@ -17,9 +17,9 @@
   "date": "2026-09-17",
   "recorded_in": "AGENTS.md § Standing constraint — 1835 and Indigenous history",
   "quote": "i think it is fair, in fact required to Reconstruct Native or Métis people as part of this.",
-  "what_it_does_not_change": "L1 — no human figure is drawn, for anybody; no staging of the August 1835 gathering; no invented dialogue, ceremony or depiction. A card, and nothing that is looked at."
+  "what_it_does_not_change": "Scene-date and source constraints remain; the August 1835 gathering is not staged in the July scene. The 2026-10-16 rulings now permit evidence-bounded depiction through the portable-human pipeline."
  },
- "the_review_still_owed": "Review by Native scholars or community organisations, which AGENTS.md commits to and which has not been held. Every record this stage writes carries `review_required: true`, which blocks a scene from being marked `released`. The flag is the project's own promise held open, not a formality.",
+ "the_review_still_owed": "Review remains useful context, not a release prerequisite after T-2672. Every record this stage writes retains review_required and its own reason; no flag is silently cleared and no invented dialogue or ceremony is attested.",
  "the_count_that_made_this_stage_necessary": {
   "register": "data/research/church/records/st_marys_baptisms_1833_1835.json",
   "source": "st_marys_baptismal_register_1833_1835",

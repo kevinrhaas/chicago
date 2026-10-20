@@ -1,0 +1,164 @@
+{
+  "run_id": 39192083053,
+  "head_sha": "9cc7b9ac8a2fe304ce844ed266677af786f541bc",
+  "conclusion": "failure",
+  "audit": {
+    "asset_id": "bardwell_otis_1835",
+    "mesh": "bardwell_otis_1835_body_0_lod0",
+    "corners": 80268,
+    "max_vector_delta": 0.0012906586516286988,
+    "mean_vector_delta": 2.20187695657428e-05,
+    "bad_corner_count": 21,
+    "tolerance": 0.001,
+    "status": "failed",
+    "source_uv_seam_disagreement": {
+      "scope": "actual corner normal pair spread across distinct UV-split vertices sharing source ID; diagnostic only",
+      "duplicate_source_groups": 1122,
+      "max_pair_vector_delta": 0.0010821582746079709,
+      "groups_over_1e_3": 1,
+      "top_groups": [
+        {
+          "source_vertex_id": 9902,
+          "duplicate_vertices": 2,
+          "actual_normal_variants": 2,
+          "maximum_pair_vector_delta": 0.0010821582746079709
+        },
+        {
+          "source_vertex_id": 7554,
+          "duplicate_vertices": 2,
+          "actual_normal_variants": 2,
+          "maximum_pair_vector_delta": 0.0004507189339740036
+        },
+        {
+          "source_vertex_id": 4374,
+          "duplicate_vertices": 3,
+          "actual_normal_variants": 3,
+          "maximum_pair_vector_delta": 0.00014415290918777543
+        },
+        {
+          "source_vertex_id": 4215,
+          "duplicate_vertices": 2,
+          "actual_normal_variants": 2,
+          "maximum_pair_vector_delta": 0.00014106732234674376
+        },
+        {
+          "source_vertex_id": 2169,
+          "duplicate_vertices": 2,
+          "actual_normal_variants": 2,
+          "maximum_pair_vector_delta": 0.0001300817589099326
+        }
+      ]
+    },
+    "top_corners": [
+      {
+        "loop_index": 70649,
+        "vertex_index": 13077,
+        "source_vertex_id": 12036,
+        "vector_delta": 0.0012906586516286988,
+        "expected_normal": [
+          0.8370997905731201,
+          -0.5257850289344788,
+          0.15104332566261292
+        ],
+        "actual_normal": [
+          0.8365452885627747,
+          -0.5268201231956482,
+          0.15050768852233887
+        ]
+      },
+      {
+        "loop_index": 70674,
+        "vertex_index": 13077,
+        "source_vertex_id": 12036,
+        "vector_delta": 0.0012906586516286988,
+        "expected_normal": [
+          0.8370997905731201,
+          -0.5257850289344788,
+          0.15104332566261292
+        ],
+        "actual_normal": [
+          0.8365452885627747,
+          -0.5268201231956482,
+          0.15050768852233887
+        ]
+      },
+      {
+        "loop_index": 70677,
+        "vertex_index": 13077,
+        "source_vertex_id": 12036,
+        "vector_delta": 0.0012906586516286988,
+        "expected_normal": [
+          0.8370997905731201,
+          -0.5257850289344788,
+          0.15104332566261292
+        ],
+        "actual_normal": [
+          0.8365452885627747,
+          -0.5268201231956482,
+          0.15050768852233887
+        ]
+      },
+      {
+        "loop_index": 72641,
+        "vertex_index": 13077,
+        "source_vertex_id": 12036,
+        "vector_delta": 0.0012906586516286988,
+        "expected_normal": [
+          0.8370997905731201,
+          -0.5257850289344788,
+          0.15104332566261292
+        ],
+        "actual_normal": [
+          0.8365452885627747,
+          -0.5268201231956482,
+          0.15050768852233887
+        ]
+      },
+      {
+        "loop_index": 72644,
+        "vertex_index": 13077,
+        "source_vertex_id": 12036,
+        "vector_delta": 0.0012906586516286988,
+        "expected_normal": [
+          0.8370997905731201,
+          -0.5257850289344788,
+          0.15104332566261292
+        ],
+        "actual_normal": [
+          0.8365452885627747,
+          -0.5268201231956482,
+          0.15050768852233887
+        ]
+      }
+    ],
+    "scope": "local LOD0 BPy readback before modifiers/export; bounded diagnostics only, not emitted GLB/morph/decimated normal acceptance"
+  },
+  "jobs": [
+    {
+      "name": "humans",
+      "conclusion": "success",
+      "failed_steps": [],
+      "skipped_steps": []
+    },
+    {
+      "name": "teamster-studies",
+      "conclusion": "failure",
+      "failed_steps": [
+        "Build three canonical masters and export through the portable path"
+      ],
+      "skipped_steps": [
+        "Build same-new-master parented hierarchy controls (test artifacts only)",
+        "Install Playwright",
+        "Audit declared resident animation time bounds before browser loading",
+        "Check actual resident hair material, embedded PNG and source/web LOD dimensions",
+        "Validate the actual new GLB containers",
+        "Validate hierarchy control warnings with exact node pointers",
+        "Measure all human exports and inspect the workwear studies",
+        "Post Restore the verified fixture worker's Blender",
+        "Post Run actions/setup-node@v4",
+        "Post Run actions/setup-python@v5"
+      ]
+    }
+  ],
+  "scope": "Bounded local LOD0 BPy custom-normal readback before export. No new resident GLB, morph, decimated normal, loaded contact, framing or photographic acceptance."
+}

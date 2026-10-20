@@ -149,6 +149,8 @@ step "The Confidence view's overlays — street names, building labels, people p
   node tools/test_confidence_overlays.mjs
 step "The Confidence view's per-grade rows — four swatches with a colour-blind-safe set, Tint/Ghost/Dither, opacity 0-100 and a count per grade, none rebuilding the scene (T-2648)" \
   node tools/test_confidence_rows.mjs
+step "The Confidence view persists in one record and carries to the next page and year; its HUD legend shows while the view is not Normal (T-2649)" \
+  node tools/test_confidence_persist.mjs
 
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
@@ -196,6 +198,9 @@ step "Settings › About's field log counts landings, first inspects, tabs, Show
 # T-2657: Researcher mode, the Settings › About switch.
 step "Researcher mode is off by default and remembered per device, and shows research prose in place while on (T-2657)" \
   node tools/test_researcher_mode.mjs
+# T-2658: Short "Why?" — a one-line hint and a bubble of 40 words at most per researched setting.
+step "Every 'Why this default' is one line and a 'Why?' bubble of 40 words at most that opens by tap, click or key and closes on Escape or an outside tap; the full essay is Researcher mode's (T-2658)" \
+  node tools/test_short_why.mjs
 step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
   node tools/test_nav_jump.mjs
 # T-2643: Inspect's Story tab.
@@ -261,6 +266,8 @@ step "The building card prints no '[object Object]' and no other year's law (T-2
   node tools/test_claim_value.mjs
 step "A smoke oracle a sparse bake leg lacks is read from the commit under test (T-2331)" \
   node tools/test_repo_file.mjs
+step "Recovered display diagnostics preserve actual previous-reset records and strict smoke assertions (T-2793)" \
+  node tools/test_recovered_display_diagnostic.mjs
 step "Drawn placement rejects shifted, mirrored and rotated camps (T-1805)" \
   node tools/test_drawn_placement_census.mjs
 step "Jaunt session history, cancellation and replacement (T-1279)" \
@@ -281,6 +288,74 @@ step "loading evidence refuses promoted or unrelated facts (T-1275)" \
   python3 tools/test_loading_content.py
 step "loading cards: seeded bags, dwell, stop and humor cap (T-1275)" \
   node tools/test_loading_content.mjs
+step "Restoration baseline waits for observed scene readiness; after capture stays immediate" \
+  node tools/test_capture_restore_state.mjs
+# Real source geometry/UV/rig checks; stdlib, no Blender or browser here.
+step "CC0 adult preparation preserves source UVs, metric frame and bounded rig weights (T-1789)" \
+  python3 tools/test_human_base_prepare.py
+
+step "Resident hair preserves verified source pixels, fitted UVs and existing skin bindings (T-1789)" \
+  python3 tools/test_human_hair_short04.py
+
+step "Resident body normals share exact source seams without welding geometry or UVs (T-1789)" \
+  python3 tools/test_human_source_normals.py
+
+step "Packed normal frame recovery preserves raw target limits and refuses invalid frames" \
+  python3 tools/test_human_normal_probe_math.py
+
+step "Packed normal Mesh adapter restores original data on every rejected experiment" \
+  python3 tools/test_human_normal_probe_adapter.py
+
+step "Normal authoring experiments require explicit isolated receipt arguments" \
+  python3 tools/test_human_normal_probe_optin.py
+
+step "Headstrap unsigned triangle distance preserves analytic contact and piercing cases" \
+  node tools/test_head_fit_distances.mjs
+
+step "Human morph inspection spans meshes and restores each mesh's exact defaults" \
+  node tools/test_human_morph_measure.mjs
+
+# C02 actual source/export mapping and15 discrete rigid angles; approximately 10 s on one CPU, no browser.
+step "C02 door preserves actual exported surfaces at discrete study endpoints (T-2794)" \
+  python3 tools/test_carriage_c02_door.py
+
+# Cheap actual-CLI rejection controls, owned temporary outputs; root measures isolation after install.
+step "C02 actual door hierarchy refuses closed-preserving detachment (T-2794)" \
+  python3 tools/test_carriage_c02_door_hierarchy.py
+
+step "Harness body fit reproduces original crossings and enforces 5 mm bind-pose clearance" \
+  python3 tools/transport/test_harness_body_fit.py
+
+step "Resident hair export rejects missing alpha, embedded images and skin bindings (T-1789)" \
+  python3 tools/test_human_hair.py
+
+step "Resident hair validates decoded runtime geometry, texture and skin attributes (T-1789)" \
+  node tools/test_human_hair_runtime.mjs
+
+step "Authored humans preserve exact skin bindings when consolidating equivalent palettes" \
+  python3 tools/test_human_skin_canonicalize.py
+
+step "Rigid authored human frames reject real scaling and preserve binary data" \
+  python3 tools/test_human_frame_residue.py
+
+step "Human inspection preserves decoded morph defaults and compares actual CPU-skinned surfaces" \
+  node tools/test_human_inspection.mjs
+
+step "Resident mechanical gait holds prepared-source contact without stretching joints" \
+  python3 tools/test_human_grounded_gait.py
+
+step "Resident inspection camera fits geometry below the header without moving the subject" \
+  node tools/test_human_camera_fit.mjs
+
+step "Loaded human sole contacts preserve named limb identity and require gait metadata" \
+  node tools/test_human_sole_contact.mjs
+
+step "Authored human serialized animation bounds reject malformed metadata and nonzero origins" \
+  python3 tools/test_human_animation_times.py
+
+step "Hierarchy control refuses nonidentity frames and object animation before mutation" \
+  python3 tools/test_human_hierarchy_control.py
+
 step "Portable human contract holds; every human GLB and instance is held to it (T-1786)" \
   python3 tools/human_contract.py --check
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
@@ -881,6 +956,26 @@ selftest "…and a window off its run, a recess through the wall, a faceted curv
 # refused.
 step "a K01 frontage carries a K08 tower past its eave, closed above the wall head and the wall head stopped at it (T-2787)" \
   python3 tools/test_k01_tower.py
+
+# T-2841. ...and a K01 rear wing takes a hipped or gabled roof in K04's slate, where it was
+# decked flat in tin (the kit piece 1801 Prairie's gabled section and east range need).
+# Built on 1604's two wings and on 1811 as all-stone with its range raised over the main
+# eave: the slate's eave and ridge, the ridge across the wing into the host wall or along
+# it, the gable's walling, the junction closed above the host's top and the host wall
+# drawn from the wing's wall top; a slate cut short for its pitch, a hip in tin, a gable
+# facing no side and two slates on one house refused; every committed wing still flat.
+step "a K01 rear wing takes a slated hip or gable, its junction with the host closed above the host's top (T-2841)" \
+  python3 tools/test_k01_wing_roof.py
+
+# T-2842. ...and a K08 tower stands on a K01 rear wing's wall, past the wing's own eave (the
+# kit piece 1801 Prairie's north-east turret on its east range needs). Built on 1604's
+# brick range under its flat deck and on 1811 as all-stone with its rear section hipped in
+# slate: the cap over the wing's roof, the ring closed over the wing's wall top in its
+# wall's plane, the wing's wall open behind it and its lights there dropped; a tower under
+# the wing's eave, a bay or an oriel on a wing, a gable end, a later wing's junction, a
+# corner and a wall no wing has refused.
+step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed over its wall top (T-2842)" \
+  python3 tools/test_k01_wing_tower.py
 
 # T-2788. ...and what an all-stone house is. A K01 record naming `construction: "stone"`
 # lays its K02 stone_front round every face, not a stone front on a brick box. No record
@@ -3558,6 +3653,18 @@ step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
 step "Glessner north gable pairs stand where HABS 13 and 14 read them (T-2850)" \
   python3 tools/glessner_north_pairs.py --check
 
+# Taylor 2135 is refitted on the Prairie front's first-floor jambs with the stacks withheld,
+# and the front's lights stand at HABS sheet 6's places and widths, so a pick, camera or
+# opening that moves without the reading being re-written is caught here (T-2858).
+step "Glessner's Prairie lights stand on HABS sheet 6, Taylor 2135 refitted on them (T-2858)" \
+  python3 tools/glessner_prairie_front.py --check
+
+# The north tower's finial is read through both north cameras, and the cone's size off
+# its silhouette, so a plan moved to HABS 14's tip alone (which that camera cannot hold
+# off the wall's plane) or a camera that moves without the reading is caught (T-2872).
+step "Glessner north tower stands where HABS 01's tip and silhouette read it (T-2872)" \
+  python3 tools/glessner_north_finial_read.py --check
+
 step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)" \
   python3 tools/test_compile_source_use.py
 
@@ -4235,6 +4342,15 @@ step "the tickets repo: claim is a pushed lock, done waits on the merge, ask sta
 # READING. It reaches no network.
 step "every held or resumable pull request reaches the board with its reason, and an unread list says so" \
   node tools/test_ticket_parked.mjs
+
+# ONE RUN PER HOUSE AT A TIME (owner, 2026-10-19). Three slices held Glessner at once
+# (#1090, #1091, #1094): each rebaked the house, each conflicted with the others' bakes,
+# and their full smokes queued three hours and were cancelled. `claim` refuses a ticket
+# whose house has a live claim, a ticket in review, or an open PR titled with a ticket of
+# the same house, and `list --workable` marks the row HOUSE BUSY. Run for real against a
+# tickets repository of its own; it reaches no network.
+step "claim and list hold a 1904 house to one run at a time" \
+  node tools/test_ticket_house_serial.mjs
 
 # A GATED WRITER BELONGS IN THE MANIFEST (T-1282, owner 2026-09-18). A tool this gate runs
 # with --check, and that can also write, produces DERIVED content by definition — so if

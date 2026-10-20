@@ -7,7 +7,7 @@
      GLB, and proves what docs/HUMAN-ASSET-CONTRACT.md § 13 asks of T-1788: load by person id,
      safe clones, terrain placement, idle/walk/gesture, morphs and their degradation, LOD by
      distance and tier, what a far figure is spared, pick/select/approach, disposal with no
-     leak, and the scene path's refusals. L1 stands: this page is an instrument, not a scene. -->
+     leak, and the scene path's refusals. This page is an instrument, not a scene; it also tests an explicit synthetic L1 gate. -->
 <style>html,body{margin:0;height:100%;background:#1a1b19;overflow:hidden}canvas{display:block;width:100%;height:100%}</style>
 <script type="importmap">{"imports":{
   "three":"../renderers/web/vendor/three-0.185.1/three.module.js",
@@ -305,9 +305,10 @@ try {
 
   // 8. The scene path: mountHumans reads the scene's records and draws only what it may.
   const contract = await fetch(new URL('humans/contract.json', DATA)).then((r) => r.json());
-  const mount = async ({ base = 'https://x.invalid/data/', records = [], lifted = false, sceneId = '1835' } = {}) => {
+  const mount = async ({ base = 'https://x.invalid/data/', records = [], lifted = false, emergency = false, sceneId = '1835', profiles = [] } = {}) => {
     const calls = [];
     const files = new Map(records.map((r) => [`humans/instances/${sceneId}/${r.id}.json`, r]));
+    for (const profile of profiles) files.set(`humans/role_profiles/${profile.id}.json`, profile);
     files.set(`humans/instances/${sceneId}/index.json`, { instances: records.map((r) => r.id) });
     const fetchImpl = async (u) => {
       const rel = String(u).replace(base, '');
@@ -316,7 +317,8 @@ try {
     };
     const problems = [];
     const l = await mountHumans({ dataBase: base, assetBase: ASSETS, assets, sceneId, people, problems, fetchImpl,
-      contract: lifted ? { ...contract, l1: { ...contract.l1, in_force: false } } : contract });
+      contract: emergency ? { ...contract, l1: { ...contract.l1, in_force: true } }
+        : lifted ? { ...contract, l1: { ...contract.l1, in_force: false } } : contract });
     // A frame near the spot every record stands on: a figure that was let through loads here.
     const asked = fetched.length;
     at(4);
@@ -328,21 +330,57 @@ try {
   check('a scene that does not list `humans`: nothing fetched, nobody drawn', none.calls.length === 0 && none.l.count === 0, none.calls);
   const withheld = await mount({ records: [instance()] });
   check('a withheld record is kept and draws nothing', withheld.l.count === 0 && withheld.l.withheld.length === 1 && !withheld.problems.length, withheld.l.withheld);
-  const l1 = await mount({ records: [instance({ display: 'shown' })] });
+  const l1 = await mount({ records: [instance({ display: 'shown' })], emergency: true });
   check('L1 in force: a record asking to be shown is refused, with the reason', l1.l.count === 0 && /L1 is in force/.test(l1.problems[0] ?? ''), l1.problems);
   const ghost = await mount({ records: [instance({ display: 'shown', person_id: 'nobody_at_all', id: 'hi_nobody_at_all_1835' })], lifted: true });
   check('a record whose person is not in the directory is refused', ghost.l.count === 0 && /is not in sidecars\/1835\/people.json/.test(ghost.problems[0] ?? ''), ghost.problems);
-  const review = await mount({ records: [instance({ display: 'shown', review_required: true })], lifted: true });
-  check('a review_required person is refused even with L1 lifted', review.l.count === 0 && /standing review/.test(review.problems[0] ?? ''), review.problems);
+  const flaggedPerson = people.people.find((p) => p.review_required || p.touches_removal);
+  const flaggedInstance = { display: 'shown', person_id: flaggedPerson.id, id: `hi_${flaggedPerson.id}_1835` };
+  const review = await mount({ records: [instance({ ...flaggedInstance, review_required: true })] });
+  check('current owner policy renders a flagged person while preserving review metadata', review.l.count === 1 && !review.problems.length, review.problems);
+  review.l.dispose();
+  const dropped = await mount({ records: [instance({ ...flaggedInstance, review_required: false })] });
+  check('a person review flag cannot be dropped by an instance', dropped.l.count === 0 && /metadata.*dropped/.test(dropped.problems[0] ?? ''), dropped.problems);
   const twice = await mount({ records: [instance({ display: 'shown' }), instance({ display: 'shown', id: 'hi_beaubien_mark_1835_b' })], lifted: true });
   check('one person stands in a scene once', twice.l.count === 1 && /already stands/.test(twice.problems[0] ?? ''), twice.problems);
   twice.l.dispose();
-  const glbs = [none, withheld, l1, ghost, review].map((m) => m.glbs);
+  const glbs = [none, withheld, l1, ghost, dropped].map((m) => m.glbs);
   check('no human GLB is asked for by an unlisted scene or a withheld or refused record', glbs.every((n) => n === 0), glbs);
   const lifted = await mount({ records: [instance({ display: 'shown' })], lifted: true });
-  check('with L1 lifted (a test copy of the contract only), the same record stands and loads its figure',
+  check('with the portable path enabled, the same record stands and loads its figure',
     lifted.l.count === 1 && lifted.l.get('beaubien_mark')?.lod === 0 && lifted.glbs === 1, { problems: lifted.problems, glbs: lifted.glbs });
   lifted.l.dispose();
+
+  // T-2823: an explicit synthetic qualification exercises fallback mechanics only.
+  const roleProfile = await fetch(new URL('humans/role_profiles/anonymous_adult_1835.json', DATA)).then(r => r.json());
+  roleProfile.eligible_assets = [{ asset_id: 'c4d_fixture', period: { earliest_year: 1835, latest_year: 1835 }, wardrobe_basis: 'Unpublished synthetic mechanical fixture qualification only, not production wardrobe acceptance.' }];
+  const anonymous = (id = 'hi_anonymous_driver_01', over = {}) => {
+    const r = instance({ id, display: 'shown', anonymous_profile_id: roleProfile.id, role: 'driver',
+      fallback_basis: 'Unpublished mechanical test only; no historical resident is portrayed by this fixture.', considered_person_ids: [],
+      interaction: { selectable: true, opens: 'role_card' }, ...over });
+    delete r.person_id; return r;
+  };
+  const pair = await mount({ profiles: [roleProfile], records: [anonymous(), anonymous('hi_anonymous_driver_02')] });
+  const roleEvents = [], personEvents = [];
+  pair.l.on('role_open', d => roleEvents.push(d)).on('open', d => personEvents.push(d));
+  const selectedRole = pair.l.select('hi_anonymous_driver_01');
+  check('anonymous profile may be reused by separate instances without a shared resident identity', pair.l.count === 2 && pair.l.get('hi_anonymous_driver_02')?.personId === null, pair.problems);
+  check('anonymous selection opens a reconstructed role card and never a resident card', selectedRole?.personId === null && selectedRole?.identityKind === 'anonymous' && roleEvents.length === 1 && personEvents.length === 0 && roleEvents[0].roleCard.title === 'Anonymous adult driver', roleEvents);
+  const { showHumanRoleCard } = await import('../renderers/web/js/human-role-card.js');
+  showHumanRoleCard(selectedRole.roleCard);
+  const roleDialog = document.getElementById('human-role-card');
+  check('role card explicitly denies historical identification and supplies no person links', roleDialog.open && /not an identified historical resident/.test(roleDialog.textContent) && !roleDialog.querySelector('a'), roleDialog.textContent);
+  roleDialog.close(); roleDialog.remove(); pair.l.dispose();
+  const duplicateRole = await mount({ profiles: [roleProfile], records: [anonymous(), anonymous()] });
+  check('anonymous duplicate instance ID is refused even though profiles may repeat', duplicateRole.l.count === 1 && /already stands/.test(duplicateRole.problems[0] ?? ''), duplicateRole.problems); duplicateRole.l.dispose();
+  const wrongRoleDate = await mount({ profiles: [roleProfile], sceneId: '1904', records: [anonymous('hi_anonymous_wrong_date', { scene: '1904' })] });
+  check('anonymous date-ineligible profile is refused before loading a figure', wrongRoleDate.l.count === 0 && wrongRoleDate.glbs === 0 && /not eligible.*date/.test(wrongRoleDate.problems[0] ?? ''), wrongRoleDate.problems);
+  const wrongWardrobe = await mount({ profiles: [roleProfile], records: [anonymous('hi_anonymous_wrong_wardrobe', { appearance: { asset_id: 'worker_1904' } })] });
+  check('anonymous asset without period-qualified wardrobe acceptance is refused', wrongWardrobe.l.count === 0 && wrongWardrobe.glbs === 0 && /asset\/wardrobe/.test(wrongWardrobe.problems[0] ?? ''), wrongWardrobe.problems);
+  const fakeResident = await mount({ profiles: [roleProfile], records: [anonymous('hi_anonymous_fake', { interaction: { selectable: true, opens: 'resident_card' } })] });
+  check('anonymous roles cannot request resident cards', fakeResident.l.count === 0 && fakeResident.glbs === 0 && /cannot open a resident card/.test(fakeResident.problems[0] ?? ''), fakeResident.problems);
+  const noFallback = await mount({ profiles: [roleProfile], records: [anonymous('hi_anonymous_no_fallback', { fallback_basis: 'generic' })] });
+  check('anonymous use requires a documented no-suitable-person fallback', noFallback.l.count === 0 && noFallback.glbs === 0 && /fallback requires/.test(noFallback.problems[0] ?? ''), noFallback.problems);
 
   window.__actor = { ready: true, results, frame_ms_median: +times[times.length >> 1].toFixed(2), fetched };
 } catch (err) {

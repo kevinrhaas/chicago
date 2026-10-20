@@ -87,6 +87,9 @@ import { resolveBases } from './scene-loader.js';
 const TIMBER_ZONES = [
   'z05_riverbank_timber', 'z06_dense_forest', 'z07_bur_oak_savanna', 'z08_lakeshore',
   'z10_settled_town',
+  // T-2784: the prairie and slough zones, read for their shrubs only (none of
+  // them records a tree or a thicket): PRAIRIE_WOODY draws them on the open plain.
+  'z01_wet_prairie', 'z02_mesic_prairie', 'z03_sedge_meadow', 'z04_marsh',
 ];
 
 /**
@@ -985,6 +988,142 @@ const EDGE_THICKET = {
 };
 
 /**
+ * T-2810 — THE RIVER WOODS' DEAD WOOD: STANDING SNAGS AND FALLEN LOGS.
+ *
+ * A floodplain wood is full of dead wood: elms and ashes killed by standing
+ * water, cottonwoods and willows broken by ice and wind, and the trunks they
+ * drop lying where they fell, since nobody yet hauled them out. No witness of
+ * 1812 or 1835 describes the dead wood on this river, so the shares here are
+ * this file's, kept modest (the ecology analysis in the trees report grades
+ * the dead wood "near-certain ecologically but no 1830s witness mentions it").
+ * `snag` is the share of the canopy stems a community deals that stand dead
+ * instead; `log` the chance a stem has a fallen trunk lying near it. The wet
+ * woods take more of both: it is the swampy, waterlogged wood (the 1821 Walls
+ * note) where trees drown. Both deal from their own position-seeded generator,
+ * so no living stem moves, and both thin with the detail level as the stems
+ * they ride on do. docs/LIBERTIES.md L-deadwood-vines-2810.
+ */
+const DEAD_WOOD = {
+  shares: { gallery: { snag: 0.05, log: 0.06 }, wet_woods: { snag: 0.07, log: 0.08 } },
+  // Weathered: the bark goes grey and silver as it dries and sloughs.
+  bark: { snag: 0x8a8378, log: 0x6f675d },
+  // A log lies within this many metres of the stem it rides on, in any direction.
+  logOffsetM: [2, 7],
+  // A log is drawn small at the levels a log is a few pixels at: it is
+  // treated as standing this many times further off (tree-instances `lodK`).
+  logLodK: 2.5,
+  confidence: 'reconstructed',
+  sources: [],
+};
+
+/**
+ * T-2810 — WILD GRAPE CURTAINS AND VIRGINIA CREEPER ON THE RIVER-FACING EDGE.
+ *
+ * ZONE 5 records both vines (z05_riverbank_timber): the riverbank grape as a
+ * "heavy curtain vine on the river-facing edge trees" that "drapes 10-20% of
+ * the edge trees", and the Virginia creeper's "five-fingered leaves climbing
+ * the trunks on the shaded side". So a gallery tree standing within `edgeM` of
+ * the water carries a grape curtain on `grape` of the time, hung over its crown
+ * edge on the water side, or failing that a creeper on `creeper` of the time,
+ * up the north (shaded) side of its trunk. 0.15 is the middle of the record's
+ * 10-20 %; the creeper's share, the edge's depth and the curtain's shape are
+ * this file's (L-deadwood-vines-2810). Position-seeded, like DEAD_WOOD.
+ */
+const VINE_EDGE = {
+  edgeM: 32,
+  grape: 0.15,
+  creeper: 0.08,
+  // How far up the host the vine reaches, of the host's height.
+  reach: { vitis_riparia: [0.78, 0.95], parthenocissus_quinquefolia: [0.45, 0.70] },
+  habit: { vitis_riparia: 'curtain', parthenocissus_quinquefolia: 'trunk' },
+  // The leaf atlas family: the grape's broad lobed heart, the creeper's five leaflets.
+  leaf: { vitis_riparia: 'heart', parthenocissus_quinquefolia: 'compound' },
+  zone: 'z05_riverbank_timber',
+  confidence: 'inferred',
+  sources: ['swink_wilhelm_1994'],
+};
+
+/**
+ * T-2784 — THE WOODY PLANTS OF THE OPEN PLAIN, 1812 AND 1835.
+ *
+ * The prairie west and south of the river is treeless, and rightly so: fires
+ * ran over it every year or two before the west and south-west wind. It was
+ * not bare of woody plants. The trees report's ecology analysis (sections 2.4
+ * and 2.5) reads three things on it, and this draws all three wherever
+ * `communityAt` plants no wood, the water and the dry floor allow, and the
+ * sward's zone is prairie, sedge meadow or marsh (`grounds`):
+ *
+ *   dry    the fire-tolerant shrubs scattered through the grass: wild rose
+ *          everywhere, New Jersey tea and leadplant on the drier ground, each
+ *          resprouting from its root after a burn. Thinned on wet ground
+ *          (`wetCut`) and dealt on a mean-one clump field, so they come in
+ *          little colonies with open grass between.
+ *   wet    the slough edge: pussy and slender willow in clumps, meadowsweet in
+ *          the wet prairie, and buttonbush in the wettest ground nearest the
+ *          water (`wettest`). The survey's willow thickets of Cook County
+ *          (McBride and Bowles, through the flora dossier's ZONE 6) are the
+ *          evidence the thickets were here at all. On the modelled ground the
+ *          sloughs are the wet prairie and sedge meadow of the low South
+ *          Division and the river's margin, so wetness is the zone and the
+ *          ground's height (`wetY`), and the slough's edge is the water's
+ *          (`edgeM`, the share of the density kept far from it in `inland`).
+ *   lone   now and then a bur oak or a cottonwood standing alone where the
+ *          fire passed it by: within `upwindM` east or north-east of water,
+ *          the water lying upwind of it on a bearing the fire ran from
+ *          (`fireFrom`, degrees; 270 is a west wind). McBride and Bowles found
+ *          the trees denser, and the fire-intolerant ones gathered, on the east
+ *          sides of watercourses, which broke the fires running west to east
+ *          (the flora dossier's ZONE 6). The bur oak is the savanna's open-grown tree
+ *          (z07), the cottonwood the river's (z05), the one on drier ground and
+ *          the other on wetter. Andreas's "good stretch of level grass" south
+ *          of the town is why they stay in the shadow band and do not stray
+ *          over the open plain.
+ *
+ * Species and heights are the zone records' own; the rose, New Jersey tea and
+ * the two willows are records this ticket added at a density of zero, so the
+ * sward deals none of them and every stem is this file's. Every density, band
+ * and weight here is invented and none is a count: docs/LIBERTIES.md
+ * L-prairie-woody-2784. The same in 1812 and 1835, ground for ground: each
+ * stand is dealt from a generator seeded by where it stands, off the shared
+ * stream, so the 1835 town's ground (which is not prairie, `grounds`) takes
+ * none and every other place takes the same. The phone's tier thins the
+ * shrubs further (`keepK`), and a shrub under `smallM` tall is drawn at the
+ * levels it would take `smallLodK` times further off. The lone trees are a few
+ * dozen stems over the whole field, so every tier keeps as many of them
+ * (`lone.keep`, full's own keep): a phone that thins the lone trees loses the
+ * landmarks and saves nothing it could measure.
+ */
+const PRAIRIE_WOODY = {
+  label: 'Prairie shrubs, slough-edge willows and buttonbush, and lone trees in the fire shadow',
+  grounds: ['z01_wet_prairie', 'z02_mesic_prairie', 'z03_sedge_meadow', 'z04_marsh', 'z05_riverbank_timber'],
+  dry: { perHa: [16, 36], clumpM: 26, wetCut: 0.65,
+    mix: [['rosa_spp', 46], ['ceanothus_americanus', 24], ['amorpha_canescens', 30]] },
+  wet: { perHa: [6, 16], clumpM: 30, edgeM: [24, 170], inland: 0.45, wetY: [1.24, 0.74],
+    mix: [['salix_petiolaris', 40], ['salix_discolor', 30], ['spiraea_alba', 22]],
+    wettest: [['cephalanthus_occidentalis', 40], ['salix_petiolaris', 32], ['salix_discolor', 14]],
+    wettestEdgeM: 70 },
+  lone: { perHa: [2.0, 3.6], keep: 0.7, upwindM: [60, 280], fireFrom: [205, 230, 255, 280], stepM: 7,
+    mix: [['quercus_macrocarpa', 55], ['populus_deltoides', 45]], scale: [0.72, 1.0] },
+  zones: {
+    rosa_spp: 'z02_mesic_prairie', ceanothus_americanus: 'z02_mesic_prairie',
+    amorpha_canescens: 'z02_mesic_prairie', salix_discolor: 'z03_sedge_meadow',
+    salix_petiolaris: 'z03_sedge_meadow', spiraea_alba: 'z01_wet_prairie',
+    cephalanthus_occidentalis: 'z04_marsh',
+    quercus_macrocarpa: 'z07_bur_oak_savanna', populus_deltoides: 'z05_riverbank_timber',
+  },
+  // The records carry no bark; these are this file's, as EDGE_THICKET's are:
+  // rose and leadplant brown canes, New Jersey tea grey-brown, the willows'
+  // grey and red-brown wands, buttonbush and meadowsweet brown.
+  bark: { rosa_spp: 0x6a4a3c, ceanothus_americanus: 0x6c6258, amorpha_canescens: 0x6e6450,
+    salix_discolor: 0x787068, salix_petiolaris: 0x6b4a3a, cephalanthus_occidentalis: 0x6a5a4a,
+    spiraea_alba: 0x6e5444 },
+  keepK: { full: 1, balanced: 0.85, light: 0.55 },
+  smallM: 1.3, smallLodK: 1.35,
+  confidence: 'reconstructed',
+  sources: ['mcbride_bowles_2007', 'andreas_1884_v1'],
+};
+
+/**
  * T-2808 — THE NORTH SIDE WOOD ON THE SAND, EAST OF STATE STREET. The timber's
  * east limit north of the river is State Street (TIMBER_EAST_LIMIT_STREETS),
  * read off Andreas's exception for "the sandy hills near the lake". Two
@@ -1253,6 +1392,8 @@ const FORM_OF = {
   tree_leaning: 'lean',
   tree_columnar: 'columnar',
   thicket_clonal: 'thicket',
+  // T-2810: the two vines, drawn on the river woods' edge trees (VINE_EDGE).
+  vine_drape: 'vine_drape',
 };
 
 const CONFIDENCE_VALUE = { attested: 0.0, inferred: 0.5, reconstructed: 1.0 };
@@ -1455,6 +1596,7 @@ async function loadTimberZones(dataBase, problems = [], sceneId = null) {
   const specs = {};
   const byZone = {};
   const shrubByZone = {};
+  const vineByZone = {};
   const bands = {};
   const woody = {};
   const unimplemented = new Set();
@@ -1483,8 +1625,14 @@ async function loadTimberZones(dataBase, problems = [], sceneId = null) {
       // That path draws no head, so the July berry cluster the record carries
       // is NOT drawn — the planting record says so rather than leaving the
       // drop silent.
-      if (sp.role === 'shrub_low' && sp.form === 'shrub_low') {
+      // T-2784: every `shrub_low` record, whatever form flora.js draws it in
+      // (the leadplant is its `forb_spike`), since PRAIRIE_WOODY grows it as a
+      // shrub; and its open July flower or fruit as `flower`, which only
+      // PRAIRIE_WOODY hangs on its shrubs (as `bloom`, tree-model.js), so no
+      // other shrub here changes.
+      if (sp.role === 'shrub_low') {
         const dark = rgbHex(sp.july?.foliage_rgb);
+        const open = sp.july?.inflorescence && !VEGETATIVE_PHASES.includes(sp.july?.phenology);
         shrubByZone[id] = shrubByZone[id] ?? {};
         shrubByZone[id][sp.id] = {
           speciesId: sp.id,
@@ -1502,6 +1650,14 @@ async function loadTimberZones(dataBase, problems = [], sceneId = null) {
           conf: Math.max(0.5, CONFIDENCE_VALUE[sp.confidence] ?? 0.5),
           july: sp.july?.appearance ?? null,
           head: null,
+          // The four fields the bloom draws, and not the record's `fruit`
+          // flag (see `headOf` on why that one stays unread).
+          flower: open ? {
+            shape: sp.july.inflorescence.shape,
+            rgb: sp.july.inflorescence.rgb,
+            height_frac: sp.july.inflorescence.height_frac,
+            size_m: sp.july.inflorescence.size_m,
+          } : null,
           fromRecord: true,
         };
         continue;
@@ -1509,6 +1665,31 @@ async function loadTimberZones(dataBase, problems = [], sceneId = null) {
       if (sp.role !== 'tree' && sp.role !== 'thicket') continue;
       const form = FORM_OF[sp.form];
       if (!form) { unimplemented.add(sp.form); continue; }
+      // T-2810 — A VINE is neither a stem a community deals nor a thicket: it
+      // hangs on a tree the wood already stands, so it is held apart, as the
+      // dooryard shrubs are, and only VINE_EDGE reads it. Its recorded band is
+      // the height it climbs to; the drawing caps it at its host's crown. The
+      // grape's July fruit (hard green clusters a few centimetres across) is
+      // hung in the curtain by the vine's own template (`berries`), not by the
+      // head path.
+      if (form === 'vine_drape') {
+        const dark = rgbHex(sp.july?.foliage_rgb);
+        vineByZone[id] = vineByZone[id] ?? {};
+        vineByZone[id][sp.id] = {
+          speciesId: sp.id,
+          common: sp.common ?? sp.id,
+          form,
+          h: Array.isArray(sp.height_m) && sp.height_m.length === 2 ? sp.height_m : [4, 12],
+          dark: dark ?? 0x56763c,
+          light: dark != null ? lighten(dark) : 0x7f9b5a,
+          conf: Math.max(0.5, CONFIDENCE_VALUE[sp.confidence] ?? 0.5),
+          july: sp.july?.appearance ?? null,
+          head: null,
+          berries: sp.july?.phenology === 'fruiting' ? sp.july?.inflorescence ?? null : null,
+          fromRecord: true,
+        };
+        continue;
+      }
       // The recorded band, kept PER ZONE. It is the constraint a community's
       // hand weight is checked against (ROADMAP K46) and no longer a value
       // that replaces one: collapsing it to a first-zone-wins midpoint is
@@ -1580,7 +1761,7 @@ async function loadTimberZones(dataBase, problems = [], sceneId = null) {
     if (!floraInScene(entry, sceneId)) continue;
     plantings.push(await fetchOk(new URL(entry.file, manifestUrl)));
   }
-  return { specs, byZone, shrubByZone, bands, woody, unimplemented: [...unimplemented],
+  return { specs, byZone, shrubByZone, vineByZone, bands, woody, unimplemented: [...unimplemented],
     zonesRead, heads, plantings };
 }
 
@@ -2386,6 +2567,12 @@ export async function createTrees({
     sandHills: { offered: 0, reachFade: 0, belowBand: 0, planted: 0, swale: 0 },
     /** T-2807: the woods' edge thicket and the savanna hazel. */
     edgeThicket: { offered: 0, planted: 0, savanna: 0 },
+    /** T-2810: the river woods' dead wood and the vines on their edge trees. */
+    deadWood: { snags: 0, logs: 0, logsRefused: 0, grape: 0, creeper: 0, vinesRefused: 0 },
+    /** T-2784: the open plain's shrubs, slough-edge clumps and lone trees. */
+    prairie: { dry: 0, wet: 0, wettest: 0, lone: 0, shaded: 0, species: {},
+      /** Where a few of each stand, spread along the sweep, for a shot or a check. */
+      samples: { dry: [], wet: [], lone: [] } },
     sandWood: { offered: 0, planted: 0, mesic: 0 },
     paths: { lines: {}, cleared: 0, shrubs: 0 },
     /** T-2807: stems the clump field set in an opening, grown young. */
@@ -2904,8 +3091,9 @@ export async function createTrees({
    * stands after it does not move when a tree's shape changes.
    */
   const plant = (spec, e, gy, n, r, scale = 1) => {
-    if (isGrownForm(spec)) grown.add(spec, e, gy, worldZ(n), scale);
-    else addTree(chunkOf(e, n), spec, e, gy, worldZ(n), r, scale);
+    if (isGrownForm(spec)) return grown.add(spec, e, gy, worldZ(n), scale);
+    addTree(chunkOf(e, n), spec, e, gy, worldZ(n), r, scale);
+    return null;
   };
 
   // Scene detail sets how many stems are drawn and how coarsely the ground is
@@ -3023,10 +3211,16 @@ export async function createTrees({
    * stems at `full`, which the T-2766 cap of 3800 would have cut off partway
    * north. The keep fractions do not move.
    */
+  /*
+   * T-2784 adds `prairie`, the backstop on the open plain's shrubs and lone
+   * trees (PRAIRIE_WOODY), which deal from their own rolls and never count
+   * against `trees` or `shrubs`. Set at about a fifth over what each level
+   * plants in 1812, which has the most open ground.
+   */
   const STEMS = {
-    full:     { step: 4.0, keep: 0.700, trees: 4700, thickets: 1550, shrubs: 3000 },
-    balanced: { step: 4.7, keep: 0.500, trees: 3800, thickets: 1000, shrubs: 2200 },
-    light:    { step: 5.6, keep: 0.300, trees: 2100, thickets: 630, shrubs: 1300 },
+    full:     { step: 4.0, keep: 0.700, trees: 4700, thickets: 1550, shrubs: 3000, prairie: 14000 },
+    balanced: { step: 4.7, keep: 0.500, trees: 3800, thickets: 1000, shrubs: 2200, prairie: 9000 },
+    light:    { step: 5.6, keep: 0.300, trees: 2100, thickets: 630, shrubs: 1300, prairie: 3600 },
   };
   const stems = STEMS[level] ?? STEMS.full;
   const step = stems.step;
@@ -3035,6 +3229,7 @@ export async function createTrees({
   const maxTrees = stems.trees;
   const maxThickets = stems.thickets;
   const maxShrubs = stems.shrubs;
+  const maxPrairie = stems.prairie;
   stats.keep = keep;
 
   /**
@@ -3444,6 +3639,269 @@ export async function createTrees({
     addTree(scratchBuf, spec, e, gy, worldZ(n), rnd, scale);
   };
 
+  /* ---- T-2810: dead wood and vines in the river woods -------------------- */
+
+  /** A generator seeded by where a stem stands, so nothing here takes a draw
+   *  from the shared stream and no living stem moves. */
+  const seededAt = (px, pz, salt) =>
+    mulberry32(Math.floor(hash2(Math.round(px * 8), Math.round(pz * 8)) * 4294967296) ^ salt);
+  const deadSpecs = new Map();
+  /** The species' own tree, dead: standing (`snag`) or down (`log`). */
+  const deadSpecOf = (spec, kind) => {
+    const key = `${spec.speciesId}|${kind}`;
+    let d = deadSpecs.get(key);
+    if (!d) {
+      d = { ...spec, dead: kind, head: null, bark: DEAD_WOOD.bark[kind], barkUpper: DEAD_WOOD.bark[kind],
+        common: `${spec.common} (dead, ${kind === 'log' ? 'down' : 'standing'})`,
+        conf: CONFIDENCE_VALUE[DEAD_WOOD.confidence] };
+      deadSpecs.set(key, d);
+    }
+    return d;
+  };
+  const vineSpecs = records.vineByZone?.[VINE_EDGE.zone] ?? {};
+  /** The way to the nearest water from (px, pz): down the distance field. */
+  const towardWater = (px, pz) => {
+    const g = cellM * 2;
+    const at = (de, dn) => { const j = cellAt(px + de, pz + dn); return j < 0 ? NaN : dw[j]; };
+    const we = at(-g, 0) - at(g, 0);
+    const wn = at(0, -g) - at(0, g);
+    const m = Math.hypot(we, wn);
+    return m > 0 ? [we / m, wn / m] : null;
+  };
+  /**
+   * A vine on a gallery tree within VINE_EDGE.edgeM of the water: a grape
+   * curtain at its crown's edge on the water side, or a creeper up the north
+   * side of its trunk. `hostH` is the height the host was grown to.
+   */
+  const dressEdgeTree = (px, pz, gy, hostH, bank) => {
+    if (!(bank <= VINE_EDGE.edgeM) || !(hostH > 0)) return;
+    const vr = seededAt(px, pz, 0x28101);
+    const roll = vr();
+    const id = roll < VINE_EDGE.grape ? 'vitis_riparia'
+      : roll < VINE_EDGE.grape + VINE_EDGE.creeper ? 'parthenocissus_quinquefolia' : null;
+    const rec = id && vineSpecs[id];
+    if (!rec) return;
+    const [r0, r1] = VINE_EDGE.reach[id];
+    const vh = Math.min(rec.h[1], hostH * lerp(r0, r1, vr()));
+    const habit = VINE_EDGE.habit[id];
+    let e = px;
+    let n = pz;
+    let yaw;
+    if (habit === 'curtain') {
+      const w = towardWater(px, pz);
+      if (!w) { stats.deadWood.vinesRefused++; return; }
+      // At the crown's drip line on the water side, and never out past the bank.
+      const off = Math.min(hostH * 0.30, Math.max(0, bank - 2));
+      e = px + w[0] * off;
+      n = pz + w[1] * off;
+      // The template's open side is +X; world +X turned by `yaw` about the
+      // vertical is (cos, 0, -sin), which is (e, n) = (cos, sin).
+      yaw = Math.atan2(w[1], w[0]);
+    } else {
+      n = pz + 0.45;
+      yaw = Math.PI / 2;
+    }
+    if (terrain.isWater(e, n)) { stats.deadWood.vinesRefused++; return; }
+    grown.add({ ...rec, h: [vh, vh], habit, leaf: VINE_EDGE.leaf[id] }, e, gy, worldZ(n), 1, { yaw });
+    noteStation(e, n, gy);
+    stats.deadWood[id === 'vitis_riparia' ? 'grape' : 'creeper']++;
+  };
+  /**
+   * A fallen trunk of the stem's species, lying a few metres from it. Refused
+   * (and counted) where any of its length would lie in water, under the dry
+   * floor, on a footprint or a track, in a cleared plot, or across a slope it
+   * could not lie flat on.
+   */
+  const plantLog = (spec, px, pz, dr) => {
+    const a = dr() * Math.PI * 2;
+    const d = lerp(DEAD_WOOD.logOffsetM[0], DEAD_WOOD.logOffsetM[1], dr());
+    const e = px + Math.cos(a) * d;
+    const n = pz + Math.sin(a) * d;
+    const yaw = dr() * Math.PI * 2;
+    // The trunk is grown at the living tree's height `hh` and broken at up to
+    // 0.70 of it (tree-model.js deadSkeleton), so its whole length is checked.
+    const hh = lerp(spec.h[0], spec.h[1], dr());
+    const L = hh * 0.70;
+    const pts = [0, 0.5, 1].map((t) => [e + Math.cos(yaw) * L * t, n + Math.sin(yaw) * L * t]);
+    const ys = [];
+    for (const [qe, qn] of pts) {
+      if (terrain.isWater(qe, qn) || !standsDry(qe, qn) || blocked(qe, qn) || inClearedPlot(qe, qn)) {
+        stats.deadWood.logsRefused++;
+        return;
+      }
+      ys.push(terrain.surfaceHeight(qe, qn));
+    }
+    if (Math.max(...ys) - Math.min(...ys) > 1.2) { stats.deadWood.logsRefused++; return; }
+    const gy = Math.min(...ys);
+    grown.add({ ...deadSpecOf(spec, 'log'), h: [hh, hh] }, e, gy, worldZ(n), 1,
+      { yaw, lodK: DEAD_WOOD.logLodK });
+    noteStation(pts[1][0], pts[1][1], gy);
+    stats.deadWood.logs++;
+  };
+
+  /* ---- T-2784: the woody plants of the open plain ------------------------ */
+
+  const PW = PRAIRIE_WOODY;
+  const loneIds = new Set(PW.lone.mix.map(([id]) => id));
+  /** The records' own species: the shrubs grown as clumps of stems, hanging
+   *  their July flower (`bloom`); the lone trees as their zone's tree. */
+  const prairieSpecs = {};
+  for (const [id, zone] of Object.entries(PW.zones)) {
+    const rec = loneIds.has(id) ? records.byZone?.[zone]?.[id] : records.shrubByZone?.[zone]?.[id];
+    if (!rec) {
+      problems.push(`trees: the open plain's woody plants take ${id} from ${zone} and that record `
+        + 'did not load — the plain is drawn without it');
+      continue;
+    }
+    prairieSpecs[id] = loneIds.has(id) ? rec
+      : { ...rec, form: 'edge_shrub', bark: PW.bark[id] ?? rec.bark, bloom: rec.flower ?? null };
+  }
+  const sampleStand = (kind, id, e, n) => {
+    const list = stats.prairie.samples[kind];
+    const count = kind === 'lone' ? stats.prairie.lone : stats.prairie[kind];
+    if (list.length < 16 && count % (kind === 'lone' ? 2 : 97) === 1) {
+      list.push({ id, e: Math.round(e * 10) / 10, n: Math.round(n * 10) / 10 });
+    }
+  };
+  /** A weighted pick by one draw, off no shared state, so a stand's species is
+   *  its own whatever was dealt before it. */
+  const pickOf = (list, r) => {
+    let total = 0;
+    for (const [id, w] of list) if (prairieSpecs[id]) total += w;
+    let a = r * total;
+    for (const [id, w] of list) {
+      if (!prairieSpecs[id]) continue;
+      a -= w;
+      if (a < 0) return id;
+    }
+    return null;
+  };
+  const prairieKeep = keep * (PW.keepK[level] ?? 1);
+  const groundsOk = new Set(PW.grounds);
+  // The most either roll can ask for (the clump fields peak at two), so a cell
+  // that cannot take a stem is refused on its first draw, before any ground is read.
+  const shrubRollMax = ((PW.dry.perHa[1] + PW.wet.perHa[1]) * 2 * cellArea * prairieKeep) / 10000;
+  const loneRollMax = (PW.lone.perHa[1] * cellArea * PW.lone.keep) / 10000;
+  const fireDirs = PW.lone.fireFrom.map((deg) => {
+    const a = (deg * Math.PI) / 180;
+    // A bearing clockwise from north, as (e, n): the way TO the fire's side.
+    return [Math.sin(a), Math.cos(a)];
+  });
+  /**
+   * The open plain at (e, n), or null: no wood stands there (`communityAt`),
+   * nothing blocks it, and the sward's zone is one of `grounds`. `wet` is 1 in
+   * the sedge meadow and the marsh and follows the ground's height in the wet
+   * prairie (and the river woods' outer reach); the mesic prairie is dry.
+   */
+  const prairieSite = (e, n) => {
+    if (terrain.isWater(e, n)) return null;
+    const gy = terrain.surfaceHeight(e, n);
+    if (gy < dryFloorY) return null;
+    if (communityAt(e, n) !== null) return null;
+    const zone = zoneAt?.(e, n) ?? null;
+    if (!groundsOk.has(zone)) return null;
+    if (blocked(e, n) || inClearedPlot(e, n)) return null;
+    const i = cellAt(e, n);
+    const bank = i < 0 ? Infinity : dw[i];
+    const wet = zone === 'z03_sedge_meadow' || zone === 'z04_marsh' ? 1
+      : zone === 'z02_mesic_prairie' ? 0
+        : smoothstep(PW.wet.wetY[0], PW.wet.wetY[1], gy);
+    const cleared = clearedFactor(e, n);
+    return { gy, zone, wet, bank, cleared: cleared * cleared };
+  };
+  /**
+   * How far the fire's shadow reaches here, 0..1: 1 where water lies within
+   * `upwindM[0]` upwind on any bearing the fire ran from, fading to 0 at
+   * `upwindM[1]`. Asked only of the few cells the lone trees' first roll lets
+   * through.
+   */
+  const fireShadow = (e, n) => {
+    const [d0, d1] = PW.lone.upwindM;
+    let near = Infinity;
+    for (const [de, dn] of fireDirs) {
+      for (let d = PW.lone.stepM; d <= d1 && d < near; d += PW.lone.stepM) {
+        if (terrain.isWater(e + de * d, n + dn * d)) { near = d; break; }
+      }
+    }
+    return near === Infinity ? 0 : 1 - smoothstep(d0, d1, near);
+  };
+  /**
+   * One cell of the sweep's lattice (e0, n0), offered to the open plain. Its
+   * own generators, seeded by the lattice point and never by the shared
+   * stream's jitter, so the same ground deals the same stems in 1812 and 1835.
+   */
+  const plantPrairie = (e0, n0) => {
+    if (stats.prairie.dry + stats.prairie.wet + stats.prairie.lone >= maxPrairie) return;
+    let site;
+    const sr = seededAt(e0, n0, 0x2784);
+    const roll = sr();
+    if (roll < shrubRollMax) {
+      const qe = e0 + (sr() - 0.5) * step * 0.92;
+      const qn = n0 + (sr() - 0.5) * step * 0.92;
+      const clumpD = 2 * smoothstep(0.30, 0.78, noise2(qe, qn, PW.dry.clumpM, 71));
+      const clumpW = 2 * smoothstep(0.30, 0.78, noise2(qe, qn, PW.wet.clumpM, 79));
+      const dryN = lerp(PW.dry.perHa[0], PW.dry.perHa[1], noise2(qe, qn, 58, 13)) * clumpD;
+      const ci = cellAt(qe, qn);
+      const edge = 1 - smoothstep(PW.wet.edgeM[0], PW.wet.edgeM[1], ci < 0 ? Infinity : dw[ci]);
+      const wetN = lerp(PW.wet.perHa[0], PW.wet.perHa[1], noise2(qe, qn, 58, 17))
+        * (PW.wet.inland + (1 - PW.wet.inland) * edge) * clumpW;
+      // The most this point can take whatever its ground (the dry share falls and
+      // the wet share rises with `wet`, and `cleared` is at most 1), so the ground
+      // and the sward's zone, the dear questions, are asked only of a point whose
+      // roll that leaves standing, and the open grass between colonies asks nothing.
+      site = roll < ((dryN + wetN) * cellArea * prairieKeep) / 10000 ? prairieSite(qe, qn) : null;
+      if (site) {
+        const { gy, wet, bank, cleared } = site;
+        const dry = dryN * (1 - PW.dry.wetCut * wet);
+        const wetD = wetN * wet;
+        const p = ((dry + wetD) * cleared * cellArea * prairieKeep) / 10000;
+        if (roll < p) {
+          // `roll / p` is uniform on [0, 1) here: it chooses the stratum by its share.
+          const isWet = roll / p < wetD / (dry + wetD);
+          const wettest = isWet && wet >= 0.9 && bank <= PW.wet.wettestEdgeM;
+          const id = isWet ? pickOf(wettest ? PW.wet.wettest : PW.wet.mix, sr())
+            : pickOf(PW.dry.mix.map(([k, w]) => [k, k === 'rosa_spp' ? w : w * (1 - wet)]), sr());
+          const spec = id && prairieSpecs[id];
+          if (spec) {
+            const small = spec.h[1] <= PW.smallM;
+            grown.add(spec, qe, gy, worldZ(qn), 0.85 + sr() * 0.30,
+              { lodK: small ? PW.smallLodK : 1 });
+            noteStation(qe, qn, gy);
+            stats.prairie[wettest ? 'wettest' : isWet ? 'wet' : 'dry']++;
+            if (wettest) stats.prairie.wet++;
+            bump(stats.prairie.species, id);
+            sampleStand(isWet ? 'wet' : 'dry', id, qe, qn);
+          }
+        }
+      }
+    }
+    // The lone trees, on their own roll.
+    const lr = seededAt(e0, n0, 0x27841);
+    const lroll = lr();
+    if (lroll >= loneRollMax) return;
+    const le = e0 + (lr() - 0.5) * step * 0.92;
+    const ln = n0 + (lr() - 0.5) * step * 0.92;
+    const ls = prairieSite(le, ln);
+    if (!ls || ls.wet >= 0.95) return;
+    const shade = fireShadow(le, ln);
+    if (shade <= 0) return;
+    stats.prairie.shaded++;
+    const lp = (lerp(PW.lone.perHa[0], PW.lone.perHa[1], noise2(le, ln, 90, 19)) * shade * ls.cleared
+      * cellArea * PW.lone.keep) / 10000;
+    if (lroll >= lp) return;
+    // The bur oak on the drier ground, the cottonwood on the wetter.
+    const oak = PW.lone.mix[0][1] * (1 - ls.wet);
+    const cot = PW.lone.mix[1][1] * (0.35 + ls.wet);
+    const id = lr() * (oak + cot) < oak ? PW.lone.mix[0][0] : PW.lone.mix[1][0];
+    const spec = prairieSpecs[id];
+    if (!spec) return;
+    grown.add(spec, le, ls.gy, worldZ(ln), lerp(PW.lone.scale[0], PW.lone.scale[1], lr()));
+    noteStation(le, ln, ls.gy);
+    stats.prairie.lone++;
+    bump(stats.prairie.species, id);
+    sampleStand('lone', id, le, ln);
+  };
+
   const sweepE0 = originE + step;
   const sweepE1 = originE + (cols - 1) * cellM - step;
   const sweepN0 = originN + step;
@@ -3455,6 +3913,8 @@ export async function createTrees({
   for (let n = sweepN0; n <= sweepN1; n += step) {
     const pause = checkpoint(); if (pause) await pause;
     for (let e = sweepE0; e <= sweepE1; e += step) {
+      // T-2784: the open plain's woody plants, off the shared stream entirely.
+      plantPrairie(e, n);
       const px = e + (rnd() - 0.5) * step * 0.92;
       const pz = n + (rnd() - 0.5) * step * 0.92;
       if (terrain.isWater(px, pz)) continue;
@@ -3612,7 +4072,17 @@ export async function createTrees({
       const young = wc && ct < 0.35 ? lerp(wc.young, 1, ct / 0.35) : 1;
       if (cut) { dryPlant(spec, px, gy, pz, young); stats.paths.cleared++; continue; }
       if (young < 1) stats.youngInOpenings++;
-      plant(spec, px, gy, pz, rnd, young);
+      // T-2810: in the river woods some stems stand dead, some have a fallen
+      // trunk beside them, and the gallery's edge trees carry the vines.
+      const dead = DEAD_WOOD.shares[key] && isGrownForm(spec) ? DEAD_WOOD.shares[key] : null;
+      const dr = dead ? seededAt(px, pz, 0x2810) : null;
+      const snag = dr ? dr() < dead.snag : false;
+      const hostH = plant(snag ? deadSpecOf(spec, 'snag') : spec, px, gy, pz, rnd, young);
+      if (dr) {
+        if (snag) stats.deadWood.snags++;
+        else if (key === 'gallery') dressEdgeTree(px, pz, gy, hostH, bank);
+        if (dr() < dead.log) plantLog(spec, px, pz, dr);
+      }
       noteStation(px, pz, gy);
       stats.trees++;
       if (spec.head) {
@@ -3738,6 +4208,10 @@ export async function createTrees({
       + 'the bank scrub stops partway north rather than thinning — raise the budget; the '
       + 'point-bar screen is deliberately not thinned by detail');
   }
+  if (stats.prairie.dry + stats.prairie.wet + stats.prairie.lone >= maxPrairie) {
+    problems.push(`trees: the ${level} open-plain budget bound at ${maxPrairie} stems, so the `
+      + 'prairie shrubs stop partway north rather than thinning — raise the budget');
+  }
   if (stats.edgeThicket.planted >= maxShrubs) {
     problems.push(`trees: the ${level} edge-thicket budget bound at ${maxShrubs} shrubs, so `
       + 'the woods\' edge stops partway north rather than thinning — raise the budget');
@@ -3850,18 +4324,21 @@ export async function createTrees({
   // tree-instances.js for the levels and the shadow ring. `stats.grown` is live:
   // its level counts and triangles are re-read as the visitor walks.
   let forest = null;
+  let grownMats = null;
   if (grown.count) {
-    const mats = await createGrownTreeMaterials({
+    grownMats = await createGrownTreeMaterials({
       assetBase: resolveBases().assetBase, uWind, confidence, patchWind: patchTreeWind,
       lowSpec: lowSpec || level === 'light', alphaCutoff: TREE_ALPHA_CUTOFF, problems,
     });
-    disposables.push(mats);
-    forest = await grown.build({ ...mats, checkpoint });
+    disposables.push(grownMats);
+    forest = await grown.build({ ...grownMats, checkpoint });
     group.add(forest.group);
-    disposables.push(forest);
     stats.drawCalls += forest.stats.drawCalls;
   }
   stats.grown = forest?.stats ?? { stems: 0 };
+  // T-2864: the crown the Season setting asks for (tree-model.js leafCover and
+  // leafScale), and the materials that take its colour.
+  let crownNow = '{}';
 
   /* ---- 5. the horizon ---------------------------------------------------- */
 
@@ -4477,8 +4954,27 @@ uniform float uBandUp;
       }
     },
 
+    /**
+     * T-2864 — the Season setting. `crown` is tree-model.js's season crown
+     * ({} summer, leafCover/leafScale otherwise): the grown trees are re-grown from
+     * the same stems with it, so spring is first leaf, fall a thinner crown and
+     * winter bare limbs. The leaves', thickets' and far band's colour is the
+     * shared season uniforms' (season.js chiFoliage), installed on first use.
+     */
+    async setSeason(crown = {}, { foliage = null } = {}) {
+      if (foliage) for (const [m, role] of [[grownMats?.leafMat, 0], [nearMat, 0], [farMat, 2]]) foliage(m, role);
+      const key = JSON.stringify(crown);
+      if (!grownMats || key === crownNow) return;
+      crownNow = key;
+      if (forest) { group.remove(forest.group); forest.dispose(); forest = null; }
+      forest = await grown.build({ ...grownMats, checkpoint, season: crown });
+      group.add(forest.group);
+      stats.grown = forest.stats;
+    },
+
     dispose() {
       for (const d of disposables) d?.dispose?.();
+      forest?.dispose();
     },
   };
 }

@@ -1483,16 +1483,17 @@ def dormer(b,d):
     # HABS photo05 shows one undivided light in timber, not the masonry
     # reveals, granite sill and meeting rail used by a house-wall window.
     la,lc=op['u0'],op['u1'];outline=aperture(op);normal=legacy._plane_dir(pl)
+    k=d.get('frame_stock_m',.055)  # T-2859: HABS4 draws the frame stock about 0.22 ft
     for p,q in zip(outline,outline[1:]+outline[:1]):
         b.raw([legacy._plane_point(pl,*p,.016),legacy._plane_point(pl,*p,-.20),
                legacy._plane_point(pl,*q,-.20),legacy._plane_point(pl,*q,.016)],reconstructed,PAINTED_WOOD)
-    interior_recess(b,[(la+.055,lo+.055),(lc-.055,lo+.055),(lc-.055,hi-.055),(la+.055,hi-.055)],
+    interior_recess(b,[(la+k,lo+k),(lc-k,lo+k),(lc-k,hi-k),(la+k,hi-k)],
                     lambda u,z,off:legacy._plane_point(pl,u,z,off),normal,front=-.206,back=-.60)
     glass_pane(b,[legacy._plane_point(pl,u,z,-.20) for u,z in
-                  [(la+.055,lo+.055),(lc-.055,lo+.055),(lc-.055,hi-.055),(la+.055,hi-.055)]],
+                  [(la+k,lo+k),(lc-k,lo+k),(lc-k,hi-k),(la+k,hi-k)]],
                normal,reconstructed)
-    for u0,u1,z0_,z1_ in [(la,la+.055,lo,hi),(lc-.055,lc,lo,hi),
-                          (la,lc,lo,lo+.055),(la,lc,hi-.055,hi)]:
+    for u0,u1,z0_,z1_ in [(la,la+k,lo,hi),(lc-k,lc,lo,hi),
+                          (la,lc,lo,lo+k),(la,lc,hi-k,hi)]:
         slab(b,pl,u0,u1,z0_,z1_,-.195,-.13,reconstructed,PAINTED_WOOD)
     slab(b,pl,la-.065,lc+.065,lo-.055,lo+.012,-.07,.09,reconstructed,PAINTED_WOOD)
     linen_shade(b,la,lc,lo,hi,lambda u,z,off:legacy._plane_point(pl,u,z,off),
@@ -1502,15 +1503,16 @@ def dormer(b,d):
     # foot and narrow side projection. Hidden depth and clay hip stock remain
     # reconstructions; the record keeps their uncertainty separate.
     ring,kick,apex,patches=dormer_roof(d)
+    fascia=d.get('fascia_m',.075)  # T-2859: HABS4's apron fascia is about 0.10 ft
     for index,poly in enumerate(patches):
         poly=visible(poly)
         if poly:legacy._up(b,poly,reconstructed if index%2==0 else conf,ROOF)
     for p,q in zip(ring,ring[1:]+ring[:1]):
-        lowp=(p[0],p[1],ze-.075);lowq=(q[0],q[1],ze-.075)
+        lowp=(p[0],p[1],ze-fascia);lowq=(q[0],q[1],ze-fascia)
         facing=norm((p[0]+q[0]-2*apex[0],p[1]+q[1]-2*apex[1],0))
         poly=visible([lowp,lowq,q,p])
         if poly:b.raw(poly,reconstructed,PAINTED_WOOD,facing)
-    poly=visible([(p[0],p[1],ze-.075) for p in ring])
+    poly=visible([(p[0],p[1],ze-fascia) for p in ring])
     if poly:b.raw(poly,reconstructed,PAINTED_WOOD,(0,0,-1))
 
     def hip_cap(p,q):
@@ -1524,7 +1526,7 @@ def dormer(b,d):
                 else:q=intersection
         if b.params.detail.get('roof_edges'):
             from archetypes.masonry_house_v4_roof_edges import hip_caps
-            return hip_caps(b,p,q)
+            return hip_caps(b,p,q,d.get('hip_cover_radius_m',.047))
         # Small overlapping half-round clay covers make each actual hip
         # readable against the equally pitched red roof behind the dormer.
         tangent=norm(sub(q,p));across=norm(cross(tangent,(0,0,1)))
@@ -1541,8 +1543,16 @@ def dormer(b,d):
                 aa,cc=angles
                 want=tuple(across[h]*math.cos((aa+cc)/2)+outward[h]*math.sin((aa+cc)/2) for h in range(3))
                 b.raw([P(t0,aa),P(t1,aa),P(t1,cc),P(t0,cc)],reconstructed,19+k%3,want)
+    # T-2859: HABS sheet 4 draws each hip as one line that dies under the
+    # finial's bell, so the cover stops inside the bell's lowest ring instead
+    # of running on through it to the apex and burying the bell.
+    spec=b.params.detail.get('court_finial');rim=None
+    if spec:rim=.85*spec.get('dormer_profile_ft',spec['profile_ft'])[0][1]*.3048
     for p,v in zip(ring,kick):
-        hip_cap(p,v);hip_cap(v,apex)
+        hip_cap(p,v);top=apex
+        reach=math.hypot(v[0]-apex[0],v[1]-apex[1])
+        if rim and reach>rim:top=tuple(v[h]+(apex[h]-v[h])*(1-rim/reach) for h in range(3))
+        hip_cap(v,top)
     # HABS05 shows the cap/finial form; owner image(10) confirms their clay
     # material. A green copper vent was not supported by either comparison.
     if b.params.detail.get('court_finial'):court_finial(b,apex[0],apex[1],'dormer',ROOF)
@@ -1746,6 +1756,35 @@ def underpass(b,params):
 
 
 
+def date_device(b,stone,a,c,z0,z1,right,off,mat,conf):
+    """A monogram drawn as its strokes, not set in a font (T-2869).
+
+    HABS photograph 14 reads the north stack's upper stone as one joined device:
+    two bowls facing outward, each closed by a stem, and a bar between the stems at
+    mid-height. `device` gives the stems' places as shares of the device's width,
+    the bar's height as a share of its height, and the stroke as a share of its
+    height; `fill` and `height_fill` its share of the stone.
+    """
+    d=stone['device'];w=stone['fill']*(c-a);h=stone['height_fill']*(z1-z0)
+    t=d['stroke']*h;cu,cz=(a+c)/2,(z0+z1)/2
+    s1,s2=(-w/2+u*w for u in d['stems_u']);bar=-h/2+d['bar_z']*h
+
+    def quad(pts):
+        b.raw([legacy._plane_point(stone,cu+right*u,cz+v,off) for u,v in pts],conf,mat,legacy._plane_dir(stone))
+    for s in (s1,s2):
+        quad([(s-t/2,-h/2),(s+t/2,-h/2),(s+t/2,h/2),(s-t/2,h/2)])
+    quad([(s1,bar-t/2),(s2,bar-t/2),(s2,bar+t/2),(s1,bar+t/2)])
+    # Each bowl a half-ellipse from its stem's centre line out to the device's edge.
+    for s,rx,side in ((s1,s1+w/2,-1),(s2,w/2-s2,1)):
+        n=12
+        for i in range(n):
+            ring=[]
+            for k,r in ((i,0),(i+1,0),(i+1,t),(i,t)):
+                q=math.pi*(k/n-.5)
+                ring.append((s+side*(rx-r)*math.cos(q),(h/2-r)*math.sin(q)))
+            quad(ring)
+
+
 def date_stones(b,params):
     """The north-gable chimney's 1886 and AD stones, as HABS photograph 4 reads them.
 
@@ -1765,6 +1804,10 @@ def date_stones(b,params):
         slab(b,stone,a,c,z0,z1,0,proud,conf,GRANITE)
         incised=stone.get('incised')
         right=-stone['sign'] if stone['axis']=='y' else stone['sign']
+        if stone.get('device'):
+            date_device(b,stone,a,c,z0,z1,right,(proud+.002) if incised else .064,
+                        DARK_GLASS if incised else TRIM,conf)
+            continue
         curve=bpy.data.curves.new('glessner_datestone_lettering','FONT')
         curve.body=stone['text'];curve.align_x='CENTER';curve.align_y='CENTER'
         curve.size=(z1-z0)*.82

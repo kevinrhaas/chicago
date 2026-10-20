@@ -540,7 +540,9 @@ def self_test() -> int:
     """Break each assertion in memory, against the real tree."""
     state = classify()
     bank = read_bank()
-    if not state["records"] or not bank["records"]:
+    # An empty bank of unrouted records is the goal, not a broken measurement
+    # (T-2810 emptied it); the cases below build their own unrouted records.
+    if not state["records"] or not state["figures"]:
         print("SELF-TEST FAIL: nothing measured, so no assertion can be exercised")
         return 1
     clean = evaluate(state, bank)
@@ -567,10 +569,15 @@ def self_test() -> int:
     b3["records"]["z01_wet_prairie/a_record_that_left"] = {"reason": "zone-not-read"}
     cases.append(("3 a banked unrouted record that has left the data", state, b3))
 
+    # Built on a synthetic record, banked and unrouted for different reasons: since
+    # T-2810 routed the two vines, the repository has no unrouted record to borrow.
+    s3r = copy.deepcopy(state)
+    s3r["unrouted"]["z02_mesic_prairie/invented_sp"] = {
+        "role": "tree", "form": "tree_gallery", "reason": "zone-not-read"}
     b3r = copy.deepcopy(bank)
-    first = sorted(state["unrouted"])[0]
-    b3r["records"][first] = {**b3r["records"][first], "reason": "role-unrouted"}
-    cases.append(("3 a banked record whose reason moved", state, b3r))
+    b3r["records"]["z02_mesic_prairie/invented_sp"] = {
+        "role": "tree", "form": "tree_gallery", "reason": "role-unrouted"}
+    cases.append(("3 a banked record whose reason moved", s3r, b3r))
 
     s4 = copy.deepcopy(state)
     s4["figures"]["species[].substrate"] = {
@@ -658,8 +665,11 @@ def self_test() -> int:
         ("a woody record outside TIMBER_ZONES reaches nothing",
          route("z09_sand_prairie", {"role": "tree", "form": "tree_columnar"}, coh)
          == (None, "zone-not-read")),
+        # Asked of a form no reader draws. It named `vine_drape` until T-2810
+        # gave trees.js a vine archetype; the case needs a form outside both
+        # dispatch tables, not a real record.
         ("an unimplemented form reaches nothing",
-         route("z05_riverbank_timber", {"role": "thicket", "form": "vine_drape"}, coh)
+         route("z05_riverbank_timber", {"role": "thicket", "form": "moss_cushion"}, coh)
          == (None, "form-not-implemented")),
         ("a role in no cohort reaches nothing",
          route("z01_wet_prairie", {"role": "liana", "form": "vine_drape"}, coh)

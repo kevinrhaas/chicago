@@ -1,0 +1,9 @@
+# Loaded hair diagnostic after the all-mesh expression reader repair
+
+Canonical diagnostic [39211997787](https://github.com/kevinrhaas/chicago/actions/runs/39211997787) at `48b1cc8891e1e90f032ab4d60cc0c59b3103c1e6` failed after progressing beyond the earlier expression-reader issue. All 32 actual source/web human GLBs opened at desktop and mobile and passed fixture measurement, including three required moving expressions at LOD0/1. The generic-human job passed. All six supplied hierarchy/raw-to-cleaned surface comparisons passed their unchanged 0.1 mm tolerance; worst vertex difference was 0.001016 mm. All 24 resident Khronos reports had zero errors/warnings; informational findings remain preserved in central evidence.
+
+The published resident inspector completed 24 cases and listed only `hair_export_contract` failures. The source/master inspector was not reached. The preceding container/image hair checks passed all 24 files. Those container checks and the loaded attribute checks have different scopes: the latter also reads decoded UVs, weights and normals. The normal job log omitted the failing hair subcondition, so this does not establish a geometric or material defect, or an inspection defect.
+
+The follow-up adds bounded ordinary validation-log diagnostics: exact file SHA, viewport, error count and first eight errors, loaded material/image state, attribute formats, UV/weight/normal extrema, bone counts and up to eight invalid vertex samples. Every acceptance predicate and tolerance is unchanged. Full inspection reports retain all errors. No images or asset payloads are relayed through logs. Actual corrected CI and independent image review remain required. A suspected UV transform explanation is unproven and is not bundled as a fix.
+
+Canonical Blender remains CI-only. Artifact downloads are unavailable under the current unapplied environment policy; this diagnostic does not bypass it or establish photographic quality.

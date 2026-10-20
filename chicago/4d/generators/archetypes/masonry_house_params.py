@@ -488,6 +488,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "light_margin_fraction": dm.get("light_margin_fraction", .22),
                 "side_overhang_m": dm.get("side_overhang_m", .26),
                 "side_apron_inset_m": dm.get("side_apron_inset_m", .18),
+                # T-2859: HABS sheet 4's hip line, fascia and frame, read at its grain.
+                "hip_cover_radius_m": dm.get("hip_cover_radius_m", .047),
+                "fascia_m": dm.get("fascia_m", .075),
+                "frame_stock_m": dm.get("frame_stock_m", .055),
                 "conf": cf("dormers", "dormer_depth"),
             })
 
@@ -722,6 +726,9 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         p.detail["roof_edges"] = raw.get("roof_edges")
         p.detail["court_dormer_union"] = raw.get("court_dormer_union", False)
         p.detail["court_finial"] = raw.get("court_finial")
+        nc = raw.get("north_pair_colonnette")
+        p.detail["north_pair_colonnette"] = ({"capital_m": nc["capital_ft"] * FT, "base_m": nc["base_ft"] * FT}
+                                             if nc else None)
         p.detail["north_tower_roof"] = dict(raw["north_tower_roof"]) if raw.get("north_tower_roof") else None
         if p.detail["north_tower_roof"] and 'connector_ridge_ft' in p.detail["north_tower_roof"]:
             p.detail["north_tower_roof"]['connector_ridge_z']=fr.zval(p.detail["north_tower_roof"]['connector_ridge_ft'])
@@ -983,6 +990,11 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 stones.append({"axis": "y", "sign": 1, "at": fr.y(face),
                     "u0": a, "u1": b, "z0": fr.z(en[zkey][0]), "z1": fr.z(en[zkey][1]),
                     "text": en[tkey], "fill": en.get(fkey), "incised": bool(en.get("incised"))})
+                # T-2869: a stone may carry a monogram drawn as strokes ("ad_device").
+                dev = en.get(tkey.replace("_text", "_device"))
+                if dev:
+                    stones[-1].update({"device": {k: dev[k] for k in ("stems_u", "bar_z", "stroke")},
+                                       "height_fill": dev["height_fill"]})
             p.detail["date_stones"] = stones
             p.detail["date_crosses"] = [{"axis": "y", "sign": 1, "at": fr.y(face),
                 "u": fr.x(c["W"]), "z": fr.z(c["z"]), "size": en["cross_ft"] * FT,

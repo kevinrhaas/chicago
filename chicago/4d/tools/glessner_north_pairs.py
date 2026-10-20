@@ -18,6 +18,15 @@ The picks are T-2200's (HABS 13, observations.json) and T-2470's (HABS 14, the c
 aperture_controls_W_z_px); none is re-picked here, so the reading cannot have been
 steered by its own answer. The ruling stands on both photographs agreeing.
 
+T-2868 adds the pairs' JAMBS. Each pair is two lights either side of a colonnette, and
+the record had the inner jambs at the plan's 1.9-ft pier (sheet 3, +/-0.4 ft). The
+photographs' stone-face edges (JAMB_PICKS, read off column-brightness profiles across
+the upper sash) are carried through each solved camera onto the wall face (S 0); and,
+because the solve itself took the inner corners at their plan W, they are read again
+through a camera re-solved WITHOUT the inner corners, so the reading cannot be the
+solve's own assumption handed back. The record's inner jambs must stand within
+JAMB_TOLERANCE_FT of the photographs' mean.
+
   python3 tools/glessner_north_pairs.py           write data/comparisons/glessner/north-pairs.json
   python3 tools/glessner_north_pairs.py --cameras also write both solved cameras into
                                                   data/reference_views/glessner_house/
@@ -44,6 +53,22 @@ VIEWS = ROOT / "data/reference_views/glessner_house"
 FT = 0.3048
 RECESS_FT = 1.0  # glass set back in the wall, as T-2200 associates its window picks
 TOLERANCE_FT = 0.5  # the record's pair bounds must sit within this of the reading
+JAMB_TOLERANCE_FT = 0.15  # the record's inner jambs against the photographs' mean
+INNER_W = (10.1, 12.0, 28.1, 30.0)  # the plan's inner jambs, which the solve takes as controls
+
+# T-2868: x px of each jamb's STONE FACE edge across the upper sash (row_px), east pair
+# then west pair, each in W order [outer, inner, inner, outer] (W rises westward from Prairie);
+# None where a pole hides the edge. The inner edges are the colonnette
+# capital's edges, which stand at the wall face: on the east pair each print shows the
+# capital about 27 px wide over a shaft about 21 px wide, with a dark strip of shadow
+# between shaft and sash. The west pair's pier is crossed by a utility pole in both
+# prints: HABS 13 shows the capital either side of it, HABS 14 only its east edge.
+JAMB_PICKS = {
+    "habs-13-north-level": {"row_px": 222, "east": [829.5, 897.5, 925.5, 990.0],
+                            "west": [None, 1277.0, 1303.0, None]},
+    "habs-14-north-inclined": {"row_px": 682, "east": [765.5, 826.0, 851.5, 911.5],
+                               "west": [None, None, 1206.5, None]},
+}
 
 
 def metric(w, s, z):
@@ -130,6 +155,44 @@ def solve(image, seed_m, fixed, pairs, offset=(0.0, 0.0), focal=None, free_princ
     return opt, err, f, c
 
 
+def face_w(camera, x, y, s=0.0):
+    """The W at which pixel (x, y) meets the north wall's plane at depth S s."""
+    b = np.array(camera["basis_right_up_forward"])
+    f, c, eye = camera["focal_px"], camera["principal_px"], np.array(camera["eye"])
+    d = (x - c[0]) / f * b[0] + (c[1] - y) / f * b[1] + b[2]
+    t = ((74 - s) * FT - eye[1]) / d[1]
+    return 161.25 - (eye + t * d)[0] / FT
+
+
+def read_jambs(camera, view):
+    picks = JAMB_PICKS[view]
+    return {pair: [None if x is None else round(float(face_w(camera, x, picks["row_px"])), 2) for x in picks[pair]]
+            for pair in ("east", "west")}
+
+
+def jambs(views, ctl, focal14):
+    """T-2868: each pick through the solved camera and through one solved without the inner corners."""
+    out = {}
+    for name, v in views.items():
+        image, seed, fixed, pairs = ctl[name]
+        outer = [p for p in pairs if p[1] not in INNER_W]
+        if name == "habs-14-north-inclined":
+            opt, _, f, c = solve(image, seed, fixed + DEPTH14, outer, free_principal=True)
+        else:
+            opt, _, f, c = solve(image, seed, fixed, outer, focal=focal14)
+        alt = {"eye": opt.x[:3].tolist(), "basis_right_up_forward": basis(*opt.x[3:6]).tolist(),
+               "focal_px": float(f), "principal_px": [float(v) for v in c]}
+        out[name] = {"solved_camera": read_jambs(v["camera"], name), "without_inner_corners": read_jambs(alt, name)}
+    reading = {}
+    for pair in ("east", "west"):
+        inner = []
+        for k in (1, 2):
+            vals = [r[pair][k] for v in out.values() for r in v.values() if r[pair][k] is not None]
+            inner.append(round(float(np.mean(vals)), 2))
+        reading[pair] = {"inner_jambs_W": inner, "pier_ft": round(inner[1] - inner[0], 2)}
+    return {"picks": JAMB_PICKS, "views": out, "reading": reading, "tolerance_ft": JAMB_TOLERANCE_FT}
+
+
 def derive():
     ctl = controls()
     views, solved = {}, {}
@@ -172,7 +235,16 @@ def derive():
         "reading_ft": {"sill": round(float(np.mean(sills)), 2), "head": round(float(np.mean(heads)), 2),
                        "views_disagree_by": {"sill": round(float(np.ptp(sills)), 2), "head": round(float(np.ptp(heads)), 2)}},
         "tolerance_ft": TOLERANCE_FT,
+        "jambs": jambs(views, controls(), solved["habs-14-north-inclined"]),
     }
+
+
+def record_jambs():
+    """The record's inner jambs, east pair then west pair."""
+    form = json.loads(RECORD.read_text())["phases"][0]["form"]
+    pairs = sorted((it["at"] for it in form["openings_18th"]["value"]["items"] if it.get("style") == "north_gable_pair"),
+                   key=lambda at: at[0][0])
+    return {"east": [pairs[0][0][1], pairs[0][1][0]], "west": [pairs[1][0][1], pairs[1][1][0]]}
 
 
 def record_pairs():
@@ -261,6 +333,15 @@ def main():
         print(f"FAIL: the record builds the north gable pairs at {bad}, outside {TOLERANCE_FT} ft of the "
               f"photographs' sill {reading['sill']} / head {reading['head']} ft")
         return 1
+    jr = result["jambs"]["reading"]
+    off = {pair: w for pair, w in record_jambs().items()
+           if any(abs(a - b) > JAMB_TOLERANCE_FT for a, b in zip(w, jr[pair]["inner_jambs_W"]))}
+    if off:
+        print(f"FAIL: the record builds the pairs' inner jambs at {off}, outside {JAMB_TOLERANCE_FT} ft of the "
+              f"photographs' {({p: r['inner_jambs_W'] for p, r in jr.items()})} (T-2868)")
+        return 1
+    print(f"PASS: the pairs' inner jambs stand within {JAMB_TOLERANCE_FT} ft of the photographs' "
+          f"{({p: r['inner_jambs_W'] for p, r in jr.items()})} (T-2868)")
     print(f"PASS: the north gable pairs stand within {TOLERANCE_FT} ft of the photographs' reading "
           f"(sill {reading['sill']}, head {reading['head']} ft)")
     return 0

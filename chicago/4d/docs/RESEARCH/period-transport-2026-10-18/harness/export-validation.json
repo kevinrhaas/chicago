@@ -1,0 +1,16 @@
+{
+  "glb_parse": "pass",
+  "finite_accessors": "pass",
+  "unit_scales": "pass",
+  "unique_nodes": "pass",
+  "required_components": "pass",
+  "trace_width_25_4mm": "pass",
+  "sha256": "d47c850a913de8b21aae66c00310b188556859af9b3bc94d64998a30a4025ac5",
+  "not_tested": [
+    "historical photographic fidelity",
+    "body collision and fit",
+    "animated reins and trace tension",
+    "mouthpiece correctness",
+    "LOD budgets"
+  ]
+}

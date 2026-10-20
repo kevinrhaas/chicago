@@ -41,13 +41,16 @@ import { createBuildings } from './buildings.js';
 import { readGlassRequest, glassForDetail } from './glass.js';
 import { createConfidenceView } from './confidence.js';
 import { toggleByGrade, restoreLooks } from './confidence-presets.js';
+import { createConfidenceLegend } from './confidence-legend.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { createWalker, footprintsFrom, decksFrom, WALK } from './walker.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
+import { grownGroupName } from './tree-instances.js';
 import { createPopup } from './popup.js';
+import { showHumanRoleCard } from './human-role-card.js';
 import { createWelcome } from './welcome.js';
 import { createYearPack } from './year-pack.js';
 import { createDestinations } from './destinations.js';
@@ -85,7 +88,8 @@ import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
 import { jobsState } from './jobs/pool.js';
 import { createStreetTrees } from './street-trees.js';
-import { SEASONS, SEASON_TREE_MODE, seasonDate, applySeasonLook, patchSeason } from './season.js';
+import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, applySeasonLook, patchSeason, patchFoliage }
+  from './season.js';
 import { createContext } from './context.js';
 import { createRailway } from './railway.js';
 import { createViewOcclusion } from './view-occlusion.js';
@@ -108,6 +112,7 @@ import { parseNavLink, createNavHistory } from './nav-link.js';
 import { createNavigator } from './navigator.js';
 import { paintAbout } from './about.js';
 import { createResearcherMode } from './researcher.js';
+import { wireWhyTips } from './why-tips.js';
 import { createTour } from './tour.js';
 import { createTourOverlay } from './tour-overlay.js';
 import { markTerms } from './term-tips.js';
@@ -794,7 +799,28 @@ const DETAIL_DECLARED = {
   // the next parcel. `light` is NOT moved here: it is the floor, its raises
   // have only ever been the owner's (T-2015, T-2035), and T-2339 puts that
   // question to the owner. Draw calls are unchanged (worst 317, mobile prairie).
-  full:     { triangles: 3400000, shadowReachM: 240, furnitureCastsShadow: true,
+  // Period transport integration, 2026-10-19: fresh production-step pricing
+  // after upstream T-2807's visible woods/tree integration. The tree parcel
+  // changed the scene; separately, the corrected measurement takes two forced
+  // production steps before reading renderer.info, rather than relying on two
+  // RAF callbacks to have rendered a fresh, fully stepped scene. The difference
+  // from earlier unforced CI samples is not attributed wholly to new trees.
+  // At measured source379e7d3d, trees.js/tree-model.js match frozen e5e726ba8;
+  // main.js differs only by the human role-card import/listener, with no actors.
+  // This is the pricing snapshot, before the later a369c613 UI/dev merge.
+  // Six stands x three tiers x both release viewports,
+  // keep-geometry=1, two production steps and GPU finish: initial 27 rows plus
+  // continuation 9 rows, validated as 36 unique measurements. This is split
+  // diagnostic pricing, not one completed CI smoke run. Exact readings:
+  // docs/measurements/period-transport-fresh-detail-2026-10-19.json.
+  // Both full/balanced maxima are desktop West prairie:
+  // full:     3,449,919 + 18,059 = 3,467,978 -> 3,470,000 (20,081 clear)
+  // balanced: 2,607,952 + 16,806 = 2,624,758 -> 2,625,000 (17,048 clear)
+  // Preserve T-0672's absolute margins, rounded up to 5,000. Light remains
+  // 1,190,000 (measured 1,154,091). General draw-call cap stays 330; the
+  // separate light floor stays 90 (measured 89: only one call clear). Earlier notes
+  // and measured strings below are retained as the history of these rungs.
+  full:     { triangles: 3470000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
@@ -803,7 +829,16 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '3,400,000 set 2026-10-11 (T-2338): published dev 0a2491b51 after '
+              measured: '3,470,000 set 2026-10-19: fresh production-step split diagnostic '
+                + 'pricing after T-2807 tree integration; 36 unique rows, six stands '
+                + 'at both viewports and all tiers, 27 initial plus 9 continuation. '
+                + 'At measured379e7d3d, tree modules match e5e726ba8; main differs by human '
+                + 'role-card import/listener, with no human actors placed. Worst 3,449,919 at '
+                + 'desktop West prairie, +18,059 rounded up to 5,000. Measurement '
+                + 'freshness correction is separate from the visible tree parcel; '
+                + 'the whole increase is not attributed to trees. '
+                + 'docs/measurements/period-transport-fresh-detail-2026-10-19.json. '
+                + 'Previously 3,400,000 set 2026-10-11 (T-2338): published dev 0a2491b51 after '
                 + 'the owner-requested openings kit (T-2278) and chained signs (T-2281), '
                 + 'six stands at both viewports: worst 3,379,890 at desktop West prairie; '
                 + '+18,059 rounded up to 5,000. docs/measurements/t-2338-detail-ceilings.json. '
@@ -932,11 +967,16 @@ const DETAIL_DECLARED = {
   // the rule are in the block above `full`.
   // T-2338, 2026-10-11: 2,290,000 -> 2,535,000 with `full` — the reading and
   // the rule are in the block above `full`.
-  balanced: { triangles: 2535000, shadowReachM: 240, furnitureCastsShadow: true,
+  balanced: { triangles: 2625000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '2,535,000 set 2026-10-11 (T-2338): same published six-stand, '
+              measured: '2,625,000 set 2026-10-19: same fresh production-step split '
+                + 'diagnostic pricing (27 initial plus 9 continuation rows), six '
+                + 'stands at both viewports and all tiers; worst 2,607,952 at '
+                + 'desktop West prairie, +16,806 rounded up to 5,000. '
+                + 'docs/measurements/period-transport-fresh-detail-2026-10-19.json. '
+                + 'Previously 2,535,000 set 2026-10-11 (T-2338): same published six-stand, '
                 + 'two-viewport sweep of dev 0a2491b51, worst 2,515,971 at desktop West '
                 + 'prairie; +16,806 rounded up to 5,000. Previously '
                 + '2,290,000 set 2026-10-07 (PR #498 integration): same published '
@@ -1353,6 +1393,20 @@ const safeStorage = () => { try { return window.localStorage; } catch { return n
 const FURNITURE_LAYERS = ['enclosures', 'yard', 'frontage', 'wharves', 'boats', 'wells'];
 
 /**
+ * T-2863 — THE GROWN WOOD GHOSTS AS A DITHER TOO, which is a draw-budget ruling and
+ * not a claim that the trees are furniture (they keep their own shadow and reach).
+ * Its four batches (`tree-instances.js`: shade and far, wood and leaves) held only
+ * Inferred stems until T-2809 stood young apple, sour cherry and peach among them
+ * at Reconstructed, so with Reconstructed set to Ghost every batch carried a ghosted
+ * grade AND another one and was drawn in both passes: six more calls in the ghost
+ * pass (each leaf batch twice, as a double-sided transparent material is), measured
+ * at Hogan's store at 1280x800 as 320 -> 326, and read by the desktop smoke's
+ * T-2648 frame as 331 of 330. Named here, a ghosted stem is screen-door dithered at
+ * its opacity in the opaque pass instead, and the ghost pass never draws the wood.
+ */
+const GROWN_TIMBER_LAYER = grownGroupName('timber');
+
+/**
  * THE NEAR PLANE, AND WHY IT MOVES WITH ALTITUDE — ROADMAP R-BUG1.
  *
  * The owner reported the river's edge flickering when flying, and it is the
@@ -1582,6 +1636,10 @@ if (document.documentElement.dataset.transfer === 'true') void loadSound(true);
 Object.defineProperty(api, 'audio', { get: () => gesture.audio, enumerable: true, configurable: true });
 // T-2624: the page's static words from the string table, before anything paints over them.
 applyStrings(document);
+// T-2658: each researched setting's "Why?" opens its bubble of 40 words at most; Researcher
+// mode, which puts the button away for the full essay, closes an open one.
+api.whyTips = wireWhyTips(document);
+api.researcher?.onChange(() => api.whyTips.close());
 const arrival = createArrival({
   boot: bootController,
   journey,
@@ -1937,7 +1995,9 @@ async function boot() {
   const confidence = createConfidenceView();
   // T-2647: the furniture ghosts as a dither in the opaque pass, not in a second draw —
   // X-RAY one tap away has to fit the draw budget (confidence.js § setGhostAsDither).
-  confidence.setGhostAsDither(FURNITURE_LAYERS);
+  // T-2863: and so does the grown wood, since its batches hold a Reconstructed grade
+  // (T-2809's fruit trees) beside the Inferred one and were drawn in both passes.
+  confidence.setGhostAsDither([...FURNITURE_LAYERS, GROWN_TIMBER_LAYER]);
   // T-2647: the looks the visitor last chose (X-RAY's ghosts), before anything is drawn coloured.
   restoreLooks(confidence, safeStorage());
 
@@ -2187,13 +2247,15 @@ async function boot() {
       allow:()=>buildings.group.visible && api.season?.current==='summer'});
   }
 
-  // T-2481 — the Season setting, offered where there are street trees (1904): the
-  // ground's snow, sward and leaves (season.js uniforms), the elms, the context
-  // city's crowns and the sun's date. A viewing choice; the scene stays 1 July.
-  const seasonal = streetTrees.records.length > 0;
+  // T-2481 — the Season setting: the ground's snow, sward and leaves (season.js
+  // uniforms), the elms, the context city's crowns and the sun's date. A viewing
+  // choice; the scene keeps its own date. T-2864 offers it in every year, and the
+  // woods and the prairie take it too (`seasonPlants`, set once they are planted).
+  const seasonal = true;
   const seasonState = { season: 'summer', treesShown: seasonPref.treesShown };
   let structuresSeasoned = false;
-  const applySeason = (season) => {
+  let seasonPlants = () => null;
+  const applySeason = async (season) => {
     const s = seasonal && SEASONS.includes(season) ? season : 'summer';
     // The lawns, steps and roofs inside the building GLBs take the season too.
     // Their materials learn it the first time a season other than summer is
@@ -2209,10 +2271,15 @@ async function boot() {
         if (!o.isMesh || /crowns/.test(o.name)) return;
         for (const m of [].concat(o.material)) if (m && !m.transparent) patchSeason(m, /street/.test(o.name) ? 0.3 : 1);
       });
+      // T-2864: the earth roads of 1812 and 1835 (streets.js), as a travelled roadway.
+      streets.group.traverse((o) => {
+        if (o.isMesh) for (const m of [].concat(o.material)) patchSeason(m, 0.3);
+      });
     }
     seasonState.season = applySeasonLook(s);
     world.setSunDate(seasonDate(s, loaded.scene.target_date));
     contextCity.setSeason?.(s);
+    await seasonPlants(s);
     return streetTrees.setMode(streetTreeMode(s, seasonState.treesShown));
   };
   if (seasonal && seasonPref.season !== 'summer') await applySeason(seasonPref.season);
@@ -2738,6 +2805,27 @@ async function boot() {
   });
   scene3d.add(trees.group);
   settleOnGpu(trees.group);
+  /**
+   * T-2864 — the Season on the plants: the sward and its forbs (flora.js, one
+   * Lambert family) and the woods (trees.js setSeason: the grown trees re-grown
+   * with the season's crown, the thickets' and far band's leaves recoloured). The
+   * colour is installed only once a season other than summer is chosen, so a
+   * summer visit compiles and draws what it did. Read through `flora` and `trees`
+   * as they stand, so a detail rebuild's new layers take it the same way.
+   */
+  seasonPlants = (s) => {
+    const on = s !== 'summer';
+    if (on) {
+      flora.group.traverse((o) => {
+        if (!o.isMesh) return;
+        for (const m of [].concat(o.material)) {
+          if (m?.isMeshLambertMaterial && m.vertexColors) patchFoliage(m, FOLIAGE.grass, { xz: 'vChiPW.xz' });
+        }
+      });
+    }
+    return trees.setSeason?.(SEASON_CROWN[s] ?? {}, { foliage: on ? (m, role) => patchFoliage(m, role) : null });
+  };
+  if (seasonState.season !== 'summer') await seasonPlants(seasonState.season);
   await flora.prepare?.(camera, bootCheckpoint, plantingProgress);
   bootController.end('flora');
   bootController.start('interaction');
@@ -2885,6 +2973,7 @@ async function boot() {
       previousTrees.dispose?.();
       api.flora = flora;
       api.trees = trees;
+      if (seasonState.season !== 'summer') void seasonPlants(seasonState.season).then(() => gateFrame.invalidate());
       detailLevel = level;
       blackbox.log('detail', { to: level });
       residency?.setTier(level);
@@ -2989,6 +3078,7 @@ async function boot() {
       if (coarse) releaseAfterUpload(scene3d);
       api.flora = flora;
       api.trees = trees;
+      if (seasonState.season !== 'summer') void seasonPlants(seasonState.season).then(() => gateFrame.invalidate());
       confidence.set(confidence.enabled);
     });
     detailPending = run.catch(() => {});
@@ -3164,6 +3254,7 @@ async function boot() {
     if (!api.people) return;
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });
+  api.humans.on('role_open', ({ roleCard }) => showHumanRoleCard(roleCard));
   scene3d.add(api.humans.group);
 
   /** A structure's ground position in local ENU metres — footprint centroid where
@@ -3343,6 +3434,15 @@ async function boot() {
   // The Trees setting is offered only where there are parkway trees to set (T-2473).
   document.getElementById('row-street-trees')?.toggleAttribute('hidden', !streetTrees.records.length);
   document.getElementById('row-season')?.toggleAttribute('hidden', !seasonal);
+  // T-2864: every year has its own day, so the choice says which one it is.
+  const seasonDay = String(loaded.scene.target_date ?? '').match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (seasonDay) {
+    const day = new Date(Date.UTC(+seasonDay[1], +seasonDay[2] - 1, +seasonDay[3]))
+      .toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+    document.getElementById('s-season')?.setAttribute('title', `A viewing choice: the scene is dated ${day}`);
+    const summer = document.querySelector('#s-season option[value="summer"]');
+    if (summer) summer.textContent = `Summer — ${day.replace(/ \d{4}$/, '')}, full leaf`;
+  }
   document.getElementById('row-lot-lines')?.toggleAttribute('hidden', !streetGrid.lotLines);
   api.evidenceHub = createEvidenceHub({
     root: hudRoot.querySelector('[data-panel="evidence"]'),
@@ -3567,6 +3667,12 @@ async function boot() {
   // The visitor's stored level choices, before the first frame — otherwise a
   // returning visitor who had hidden the reconstructed town sees it flash in.
   hud.applyHidden();
+  // T-2649 (§09, §10): the Confidence view's legend chip under the year chip, shown while the
+  // view is not Normal; a tap opens the app. It paints from the HUD and the renderer's view
+  // each time either says the view moved, so after the colouring is restored on the way in
+  // it is already right.
+  api.confidenceLegend = createConfidenceLegend({ el: document.getElementById('conf-legend'), hud, view: confidence,
+    open: () => { void navigatorUi?.select('confidence'); } });
 
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();

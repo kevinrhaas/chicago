@@ -75,6 +75,11 @@ const variantsForLight = (n) => (n >= 150 ? 2 : 1);
  *  carrying a July head (that file draws the head). */
 export const isGrownForm = (spec) => spec.form !== 'thicket' && spec.form !== 'shrub' && !spec.head;
 
+/** The name of the group a wood's batches stand in (`TreeInstances.build`), so a
+ *  caller can find them by it: the 1835 timber's is `grownGroupName('timber')`,
+ *  which main.js hands the Confidence view to ghost as a dither (T-2863). */
+export const grownGroupName = (name) => `${name}s-grown`;
+
 function archetypeKey(spec) {
   return [spec.speciesId ?? spec.common, spec.form, spec.common, spec.dark, spec.light, spec.bark,
     spec.conf ?? 0.5].join('|');
@@ -129,7 +134,7 @@ export class TreeInstances {
   async build({ woodMat, leafMat, woodDepth, leafDepth, woodDistance, leafDistance, checkpoint = () => null,
     season = {} }) {
     const group = new THREE.Group();
-    group.name = `${this.name}s-grown`;
+    group.name = grownGroupName(this.name);
     const stats = { stems: this.stems.length, archetypes: this.kinds.size, variants: 0,
       triangles: 0, templateTriangles: 0, near: 0, mid: 0, far: 0, shade: 0, drawCalls: 0 };
     if (!this.stems.length) return { group, stats, update() {}, dispose() {} };
@@ -261,6 +266,8 @@ export class TreeInstances {
       batches.shade.leaves.setVisibleAt(s.inst.shade.leaves, false);
       s.level = sets.far[sets.far.length - 1];
       s.shade = false;
+      // A re-build (trees.js setSeason, T-2864) starts every stem drawn, so none is culled yet.
+      s.culled = false;
     }
     for (const set of Object.values(batches)) {
       for (const b of Object.values(set)) {
