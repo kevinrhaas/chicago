@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2114, ts: '2026-10-20T11:26:03.556Z', date: 'Oct 20, 2026, 6:26 AM CT', title: '1637 Prairie\'s south bay reshaped to its photograph', kind: 'feature',
+    items: [
+      'The stone bay on 1637\'s south side now stands deeper, as its 1870s photograph shows it. Its side windows and corner columns sit where the picture has them, and the big arched window is centred on the front.',
+      'Below that window, the bay\'s base has a broad oval stone panel in a moulded ring, where a small window stood before.',
+      'The arched window above the bay, with its shutters, has moved a little east to match the photograph.',
+      'The 1911 fire map draws the bay shallower. The extra depth, the panel\'s carving and the window\'s offset come from one cropped photograph, and are marked as such.',
+    ] },
   { v: 2113, ts: '2026-10-20T10:39:38.830Z', date: 'Oct 20, 2026, 5:39 AM CT', title: 'Nothing you can see changed: release checks wait honestly for the town', kind: 'chore',
     items: [
       'Nothing you can see changes. The automated walk-through that checks each release now waits for the town to finish loading for as long as it says it does, a limit set from load times measured on this project\'s own test machines, so a slow machine no longer fails it for no fault of the page.',
