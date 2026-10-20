@@ -2672,8 +2672,10 @@ class Assembly:
         for b in self.p.bays:
             if not b.get("through_eave"):
                 continue
-            if b["wall"] != "k01.wall.street_front" or self.p.mansard or self.p.gable or self.p.roof_form != "hip":
-                raise ValueError(f"{b['id']}: an oriel is carried through a hip's eave on the street front")
+            # T-2542: or a gable's (1811's): its street eave box is the hip's, out `o` past the
+            # wall from the same soffit, so the same prism cuts it
+            if b["wall"] != "k01.wall.street_front" or self.p.mansard or self.p.roof_form not in ("hip", "gable"):
+                raise ValueError(f"{b['id']}: an oriel is carried through a hip's or a gable's eave on the street front")
             D = self.p.depth_m
             plan = [(D + z, s) for s, z in self.through_eave_plan(b, self.THROUGH_EAVE_INSET_M)]
             # (a, b) = (u, s): K05's world is (u, y, -s); the prism stands from under the soffit
