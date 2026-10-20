@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2092, ts: '2026-10-20T02:40:37.444Z', date: 'Oct 19, 2026, 9:40 PM CT', title: '1637 Prairie\'s south bay gains the lights in its sides', kind: 'improvement',
+    items: [
+      'Each angled side of the stone bay on 1637\'s south flank now has a tall arched window between its two columns, with a small light below it, as the old photograph of the house shows.',
+      'The bay\'s front window, and the small light under it, have moved about a quarter of a metre east, closer to where the photograph places them.',
+    ] },
   { v: 2091, ts: '2026-10-20T02:27:15.448Z', date: 'Oct 19, 2026, 9:27 PM CT', title: 'Finished houses reach the town faster when two land together', kind: 'improvement',
     items: [
       'Nothing you can see changes in the scene itself. Two building changes that rebuilt different houses no longer hold each other up: the build loop now merges the town\'s asset list entry by entry, where before a second house waited a whole extra run to catch up with the first.',
