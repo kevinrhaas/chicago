@@ -16,7 +16,7 @@ import { createRail, railOrder, capped, MAX_ICONS } from '../renderers/web/js/na
 import { APPS } from '../renderers/web/js/apps/index.js';
 import { install as installDrawerHost, SECTION_HOME, APP_SECTIONS, goToPick } from '../renderers/web/js/apps/drawer-host.js';
 import * as mapView from '../renderers/web/js/apps/map-view.js';
-import { createTargetTag, tagWords, DWELL_MS, TAG_WITHIN_M, HOLD_MS, FADE_MS } from '../renderers/web/js/target-tag.js';
+import { createTargetTag, tagWords, DWELL_MS, TAG_WITHIN_M, HOLD_MS, FADE_MS, TAG_PLACES, TAG_HOLDS, normalTagPlace, normalTagHold, addressKey, sameAddress } from '../renderers/web/js/target-tag.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const json = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
@@ -833,6 +833,91 @@ for (const phone of [true, false]) {
   assert.equal(offEl.hidden, true, 'a visitor who turned it off never sees it after a reload');
 }
 
+// ---- T-2942 (owner, 2026-10-20): the tag docks on the right under the address by default,
+// moves to the centre or the bottom, fades by default or stays, and never repeats the address --
+{
+  assert.deepEqual(TAG_PLACES, ['right', 'centre', 'bottom'], 'right is the default place');
+  assert.deepEqual(TAG_HOLDS, ['fade', 'always'], 'fading is the default');
+  assert.equal(normalTagPlace(undefined), 'right'); assert.equal(normalTagPlace('bottom'), 'bottom'); assert.equal(normalTagPlace('x'), 'right');
+  assert.equal(normalTagHold(undefined), 'fade'); assert.equal(normalTagHold('always'), 'always');
+  assert.equal(addressKey('1800 S. Prairie Ave.'), addressKey('1800 Prairie Avenue'));
+  assert.ok(sameAddress('1800 Prairie Avenue', ['1800 Prairie Avenue', '1800 S Prairie Ave']));
+  assert.ok(sameAddress('1801 Prairie Avenue', ['Prairie Avenue', '1801 S Prairie Ave']), 'today\'s spelling counts too');
+  assert.ok(sameAddress('2100 Prairie Avenue — Sherman Victorian Gothic', ['2100 Prairie Avenue']), 'a name led by the address');
+  assert.equal(sameAddress('Glessner House', ['1800 Prairie Avenue']), false, 'a real name is not the address');
+  assert.equal(sameAddress('1801 Prairie Avenue', ['1800 Prairie Avenue']), false, 'the house across the way is another address');
+  assert.equal(sameAddress('Prairie Avenue', ['Prairie Avenue']), false, 'a street alone is not a house\'s address');
+
+  let clock = 0;
+  const timers = [];
+  const wait = (fn, ms) => { const t = { at: clock + ms, fn, live: true }; timers.push(t); return t; };
+  const cancel = (t) => { t.live = false; };
+  const advance = (ms) => { const end = clock + ms; for (;;) {
+    const due = timers.filter((x) => x.live && x.at <= end).sort((a, b) => a.at - b.at)[0];
+    if (!due) break; clock = due.at; due.live = false; due.fn(); } clock = end; };
+  let hear = null, now = null;
+  const target = { on: (fn) => { hear = fn; return () => {}; }, current: () => now };
+  // A parent that records what is put in it, and an element that knows its parent.
+  const parent = (name) => ({ name, kids: [], insertBefore(el, before) {
+    if (el.parentNode) el.parentNode.kids = el.parentNode.kids.filter((k) => k !== el);
+    const at = before ? this.kids.indexOf(before) : -1;
+    if (at < 0) this.kids.push(el); else this.kids.splice(at, 0, el);
+    el.parentNode = this; } });
+  const el = () => { const cls = new Set(); return { hidden: true, textContent: '', dataset: {}, parentNode: null, get nextSibling() {
+    const k = this.parentNode?.kids ?? []; return k[k.indexOf(this) + 1] ?? null; }, setAttribute() {}, addEventListener() {},
+    classList: { add: (c) => cls.add(c), remove: (c) => cls.delete(c), contains: (c) => cls.has(c) } }; };
+  const right = parent('right'), centre = parent('centre'), bottom = parent('bottom');
+  const hint = el(); bottom.insertBefore(hint, null);
+  const tagEl = el(), keyEl = el();
+  centre.insertBefore(tagEl, null);
+  let card = ['1800 Prairie Avenue', '1800 S Prairie Ave'];
+  const tag = createTargetTag({ target, tagEl, keyEl, wait, cancel, addresses: () => card, place: 'right', holdMode: 'fade',
+    slots: { right: { parent: right }, centre: { parent: centre }, bottom: { parent: bottom, before: hint } } });
+  assert.equal(tag.place, 'right'); assert.equal(tag.hold, 'fade');
+  assert.equal(tagEl.parentNode, right, 'by default the tag stands in the right-hand column');
+  assert.equal(tagEl.dataset.place, 'right');
+  const glessner = { id: 'glessner_house', record: { sidecar: { name: 'Glessner House' } }, distance: 11.6 };
+  const numbered = { id: 'house_1800', record: { sidecar: { name: '1800 Prairie Avenue' } }, distance: 8 };
+  now = glessner; hear(glessner); advance(DWELL_MS);
+  assert.equal(tagEl.hidden, false, 'docked, a named building shows');
+  assert.equal(tagEl.textContent, 'Glessner House · 38 ft');
+  advance(HOLD_MS - 1);
+  assert.equal(tagEl.classList.contains('is-fading'), false, 'the choice of fading does not shorten the hold');
+  advance(1 + FADE_MS);
+  assert.equal(tagEl.hidden, true, 'and fades by default');
+  // A building named by the very address the card shows: docked, the tag would repeat it.
+  now = numbered; hear(numbered); advance(DWELL_MS);
+  assert.equal(tagEl.hidden, true, 'docked, a name that only repeats the card\'s address is not shown');
+  assert.equal(keyEl.hidden, false, 'the Inspect key still offers it');
+  card = ['1700 Prairie Avenue'];
+  hear({ ...numbered, distance: 9 });
+  assert.equal(tagEl.hidden, false, 'once the card names another address, the tag says the house\'s');
+  card = ['1800 Prairie Avenue'];
+  // Centre and bottom keep the name whatever the card says.
+  tag.setPlace('centre');
+  assert.equal(tagEl.parentNode, centre); assert.equal(tagEl.dataset.place, 'centre');
+  assert.equal(tagEl.hidden, false, 'in the centre the full name shows, as it always did');
+  tag.setPlace('bottom');
+  assert.equal(tagEl.parentNode, bottom); assert.equal(bottom.kids[0], tagEl, 'at the bottom it stands above the hint');
+  assert.equal(tagEl.hidden, false);
+  // Always shown: no fade, for as long as the building is in the reticle; a new one replaces it.
+  tag.setHold('always');
+  now = glessner; hear(glessner); advance(DWELL_MS + HOLD_MS * 5);
+  assert.equal(tagEl.hidden, false, 'always shown does not fade');
+  assert.equal(tagEl.classList.contains('is-fading'), false);
+  now = null; hear(null);
+  assert.equal(tagEl.hidden, true, 'it still goes when the reticle leaves the building');
+  // Back to fading: a tag already spent comes back when the choice changes, then fades again.
+  now = glessner; hear(glessner); advance(DWELL_MS);
+  tag.setHold('fade');
+  assert.equal(tagEl.hidden, false);
+  advance(HOLD_MS + FADE_MS);
+  assert.equal(tagEl.hidden, true, 'fading again');
+  tag.setPlace('right');
+  assert.equal(tagEl.parentNode, right);
+  assert.equal(tagEl.hidden, false, 'moving it shows it afresh where it now stands');
+}
+
 // ---- T-2619: the dock — closed, it shows the lamp, the label, the year and the icon of the
 // app it opens to; one tap (or a swipe up) opens that last app at HALF -------------------
 {
@@ -1109,7 +1194,12 @@ for (const phone of [true, false]) {
   const quick = html.slice(html.indexOf('<div class="quick-column"'), html.indexOf('</div>', html.indexOf('<div class="quick-column"')));
   assert.equal((quick.match(/<button\b/g) ?? []).length, 2, 'the quick column never holds more than two buttons');
   assert.match(quick, /id="btn-fly"/); assert.match(quick, /id="btn-inspect"[^>]*hidden/);
-  assert.match(html, /<button type="button" class="target-tag" id="target-tag" hidden><\/button>/);
+  assert.match(html, /<button type="button" class="target-tag" id="target-tag" data-place="centre" data-label="Ahead" hidden><\/button>/);
+  // T-2942: Settings › Show › where the name shows (right first: the default) and whether it fades.
+  assert.match(html, /<select id="s-look-tag-place">\s*<option value="right">[^<]+<\/option>\s*<option value="centre">[^<]+<\/option>\s*<option value="bottom">/);
+  assert.match(html, /<select id="s-look-tag-hold">\s*<option value="fade">Fades after a few seconds<\/option>\s*<option value="always">Always shown<\/option>/);
+  assert.match(html, /<div class="instrument-below" id="instrument-below">\s*<div id="street-readout"/, 'the docked tag\'s column starts with the address');
+  assert.match(html, /<div class="hud-bottom" id="hud-bottom">/);
   assert.match(html, /<input type="checkbox" id="s-look-tag">/, 'T-2736: Settings › Show offers the look-at tag');
   // T-2619: the closed device's year and app icon, and the pill on a phone.
   assert.match(section, /id="nav-dock-app" aria-hidden="true"/);

@@ -9655,10 +9655,16 @@ for (const [label, viewport, touch] of [
       for (let i = 0; i < 150 && seen === null; i++) await new Promise((r) => setTimeout(r, 100));
       watch.disconnect();
       return { shown: seen !== null, text: seen ?? tag.textContent, upper: getComputedStyle(tag).textTransform,
+        place: tag.dataset.place, docked: tag.parentElement?.id ?? null, label: getComputedStyle(tag, '::before').content,
         ...(withIt ?? quickNow()) };
     });
-    check(`${label}: resting the reticle on a building shows its name and distance, with an Inspect key (T-2627)`,
-      tagShown.shown && tagShown.current === 'sauganash_hotel' && /^[^_]+ · \d+ (ft|yd|m)$/.test(tagShown.text) && tagShown.upper === 'uppercase'
+    // T-2942: by default the tag is docked under the address, in the card's own case with an
+    // AHEAD label; under the crosshair (Settings › Show) it is T-2627's mono caps.
+    check(`${label}: resting the reticle on a building shows its name and distance, with an Inspect key (T-2627; docked under the address by default, T-2942)`,
+      tagShown.shown && tagShown.current === 'sauganash_hotel' && /^[^_]+ · \d+ (ft|yd|m)$/.test(tagShown.text)
+      && (tagShown.place === 'right'
+        ? tagShown.docked === 'instrument-below' && tagShown.upper === 'none' && /Ahead/.test(tagShown.label)
+        : tagShown.upper === 'uppercase')
       && tagShown.buttons <= 2 && tagShown.visible.includes('btn-inspect') && tagShown.visible.includes('btn-fly'),
       JSON.stringify(tagShown));
     if (tagShown.shown) {
@@ -9696,6 +9702,66 @@ for (const [label, viewport, touch] of [
       });
       check(`${label}: a tap on the target tag opens Inspect on that building (T-2627)`,
         tagOpened.app === 'inspect' && tagOpened.open === 'sauganash_hotel', JSON.stringify(tagOpened));
+      // >>> T-2942: the tag's three places and two holds, chosen in Settings › Show. Right (the
+      // default) stands under the address card, inside the screen, clear of the round map and
+      // the quick column; Centre is under the crosshair as T-2627 placed it; Bottom is low on
+      // the screen, centred. Always shown outlasts the fade; each choice is stored.
+      const places = await page.evaluate(async () => {
+        const api = window.__chicago4d;
+        const tag = document.getElementById('target-tag');
+        const pick = (id, v) => { const el = document.getElementById(id); el.value = v; el.dispatchEvent(new Event('change', { bubbles: true })); };
+        const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+        const showAgain = async () => {
+          api.targetTag.setEnabled(false); api.targetTag.setEnabled(true);
+          for (let i = 0; i < 150 && (tag.hidden || tag.classList.contains('is-fading')); i++) await wait(50);
+        };
+        const box = (el) => { const b = el?.getBoundingClientRect(); return b ? { l: Math.round(b.left), t: Math.round(b.top), r: Math.round(b.right), b: Math.round(b.bottom) } : null; };
+        const overlap = (a, b) => !!a && !!b && a.l < b.r && b.l < a.r && a.t < b.b && b.t < a.b;
+        const W = innerWidth, H = innerHeight;
+        const out = { H, defaults: { place: document.getElementById('s-look-tag-place')?.value, hold: document.getElementById('s-look-tag-hold')?.value,
+          stored: [api.hud.settings.lookTagPlace, api.hud.settings.lookTagHold] } };
+        for (const place of ['right', 'centre', 'bottom']) {
+          pick('s-look-tag-place', place);
+          await showAgain();
+          const t = box(tag);
+          const map = box(document.getElementById('overview-map'));
+          const street = document.getElementById('street-readout');
+          const quick = [...document.querySelectorAll('#quick-column > button')].filter((b) => !b.hidden).map(box);
+          const at = tag.hidden ? null : document.elementFromPoint((t.l + t.r) / 2, (t.t + t.b) / 2);
+          out[place] = { shown: !tag.hidden, box: t, place: tag.dataset.place, parent: tag.parentElement?.id ?? null,
+            inside: !!t && t.l >= 0 && t.t >= 0 && t.r <= W && t.b <= H, onTop: !!at && (at === tag || tag.contains(at)),
+            clearOfMap: !overlap(t, map), clearOfQuick: quick.every((q) => !overlap(t, q)),
+            underStreet: street.hidden || (box(street).b <= t.t + 1 && Math.abs(box(street).r - t.r) <= 1),
+            stored: api.hud.settings.lookTagPlace, saved: JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').lookTagPlace };
+        }
+        // Always shown: the tag outlasts the fade's hold; back to Fades, it fades again.
+        pick('s-look-tag-hold', 'always');
+        await showAgain();
+        await wait(3900);
+        out.always = { shown: !tag.hidden && !tag.classList.contains('is-fading'), stored: api.hud.settings.lookTagHold };
+        pick('s-look-tag-hold', 'fade');
+        await showAgain();
+        // Timed on the clock, not by a fixed wait: on a runner drawing one frame a second the
+        // page's timers run late, so the tag is followed until it goes (up to 20 s) and the
+        // check is that it held at least its 3 s first.
+        const t0 = performance.now();
+        while (!tag.hidden && performance.now() - t0 < 20000) await wait(100);
+        out.fadeAfterMs = Math.round(performance.now() - t0);
+        out.fades = tag.hidden && out.fadeAfterMs >= 2900;
+        pick('s-look-tag-place', 'right');
+        out.back = api.hud.settings.lookTagPlace === 'right' && api.hud.settings.lookTagHold === 'fade';
+        return out;
+      });
+      const okPlace = (p) => p?.shown && p.inside && p.onTop && p.stored === p.saved;
+      check(`${label}: the look-at tag docks under the address by default, clear of the map and the quick column; Centre and Bottom move it, each choice stored (T-2942)`,
+        places.defaults.place === 'right' && places.defaults.hold === 'fade'
+        && okPlace(places.right) && places.right.parent === 'instrument-below' && places.right.clearOfMap && places.right.clearOfQuick && places.right.underStreet
+        && okPlace(places.centre) && places.centre.place === 'centre' && places.centre.box.t > places.H * 0.45 && places.centre.box.t < places.H * 0.62
+        && okPlace(places.bottom) && places.bottom.parent === 'hud-bottom' && places.bottom.box.t > places.centre.box.b,
+        JSON.stringify(places));
+      check(`${label}: the look-at tag can be always shown, and fades after a few seconds by default (T-2942)`,
+        places.always?.shown && places.always.stored === 'always' && places.fades === true && places.back, JSON.stringify({ always: places.always, fades: places.fades, fadeAfterMs: places.fadeAfterMs, back: places.back }));
+      // <<< T-2942
     }
 
     // T-2639 (here, in the town: the device is hidden behind the welcome gate). Inspect's tabs
@@ -9842,6 +9908,10 @@ for (const [label, viewport, touch] of [
     // every update must restore exact standing clearance, not approach it.
     const terrainLock = await page.evaluate(() => {
       const a = window.__chicago4d;
+      // T-2945: the same 37.7 m of slope as at the old 1.45 m/s walk, in finer steps at
+      // today's faster default — further along, the path reaches the plank walk's deck,
+      // which is not terrain and is not what this check is about.
+      const dt = 0.05 * 1.45 / a.walkBudget.speed;
       const run = (n, bearing) => {
         a.walker.teleport({ local_e: 140, local_n: n, yaw_deg: bearing });
         a.walker.state.eyeY += 0.9;
@@ -9850,7 +9920,7 @@ for (const [label, viewport, touch] of [
         let maxGround = -Infinity;
         a.intent.forward = 1;
         for (let i = 0; i < 520; i++) {
-          a.walker.update(0.05, a.intent);
+          a.walker.update(dt, a.intent);
           const s = a.walker.state;
           const ground = a.terrain.walkHeight(s.e, s.n);
           minGround = Math.min(minGround, ground);
@@ -13876,7 +13946,7 @@ for (const [label, viewport, touch] of [
       && /^Confidence view Recolor the world by grade/.test(guideWords.tap.text) && guideWords.tap.inView && guideWords.tap.away,
       JSON.stringify(guideWords));
     // ---- end T-2662
-    // >>> T-2666: Guide › For teachers — the Field Check's seven steps, read from the tour
+    // >>> T-2666: Guide › For teachers — the Field Check's eight steps, read from the tour
     // itself, and three suggested Jaunts per destination, printed as one page at Letter and
     // at A4. window.print is stubbed for the click (a real dialog would hold the page); the
     // print stylesheet's layout is then printed by the browser itself to PDF and its pages
@@ -13898,7 +13968,7 @@ for (const [label, viewport, touch] of [
       return {
         teachers: !!document.querySelector('#nav-app-guide #guide-teachers'),
         print: document.getElementById('guide-handout-print')?.textContent.trim() ?? null,
-        stepsFromTour: !!steps && steps.length === 7 && rows.length === 7 && rows.every((r, i) =>
+        stepsFromTour: !!steps && steps.length === 8 && rows.length === 8 && rows.every((r, i) =>
           r.querySelector('.handout-task')?.textContent === steps[i].task
           && r.querySelector('.handout-bubble')?.textContent === steps[i].bubble({ scene, front: null })),
         scene,
@@ -13945,14 +14015,14 @@ for (const [label, viewport, touch] of [
     });
     // page.pdf is Chromium-headless only; anywhere else it is reported, not counted.
     const pdfUnsupported = Object.values(sheets).every((s) => s.pages === null && /not supported|headless/i.test(s.error ?? ''));
-    check(`${label}: Guide › For teachers prints the seven tour steps and three Jaunts per destination on one page at Letter and A4 (T-2666)`,
+    check(`${label}: Guide › For teachers prints the eight tour steps and three Jaunts per destination on one page at Letter and A4 (T-2666)`,
       handoutRead.teachers && handoutRead.print === 'Print the handout' && handoutRead.stepsFromTour
       && handoutRead.dests.map((d) => d.name).join('|') === '1835 · Chicago|1904 · Prairie Avenue|1812 · Fort Dearborn'
       && handoutRead.dests.filter((d) => d.year !== '1812').every((d) => d.jaunts === 3)
       && handoutRead.dests.find((d) => d.year === '1812')?.empty === 'No Jaunts here yet.'
       && !handoutRead.snake && !handoutRead.lore
       && printedLayout.shown.join() === 'handout-print'
-      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 7 && s.jaunts === 6)
+      && Object.values(sheets).every((s) => s.printed === 1 && s.copy && s.steps === 8 && s.jaunts === 6)
       && (pdfUnsupported || Object.values(sheets).every((s) => s.pages === 1 && s.after)),
       JSON.stringify({ handoutRead, printedLayout, sheets }));
     // <<< T-2666
@@ -14553,7 +14623,7 @@ for (const [label, viewport, touch] of [
       for (const m of ['walk', 'run', 'wagon', 'horse']) { pick(m); ranges[m] = one(); }
       pick('horse');
       const before = api.hud.settings.horseSpeed;
-      const gaits = { canter: drag(6.5), gallop: drag(10), top: drag(26.82) };
+      const gaits = { canter: drag(6.5), gallop: drag(10), top: drag(35.76) };
       const atTop = { speed: WALK.speed, sprint: WALK.sprintSpeed };
       drag(before);
       const afterDrag = { speed: WALK.speed, sprint: WALK.sprintSpeed, others: [api.hud.settings.speed, api.hud.settings.wagonSpeed] };
@@ -14609,36 +14679,36 @@ for (const [label, viewport, touch] of [
     // constants; each pace now has its own slider, so the claim is that WALK
     // follows THAT pace's stored value — sprint = value × factor (2.28 on foot,
     // 1 by wagon, 1.7 in the saddle) capped at the slider's top — and the seats
-    // are unchanged. The defaults (1.45 / 3.6 / 6.5) are asserted where the store
-    // is fresh, which it is in this run.
+    // are unchanged. The defaults (4.47 / 6.71 / 7.15 / 11.18 since T-2945; they were
+    // 1.45 / 3.4 / 3.6 / 6.5) are asserted where the store is fresh, which it is in this run.
     const near = (a, b) => Math.abs(a - b) < 0.01;
     const sp = travelUi.sliders;
     check(`${label}: each pace sets the walker to its own slider, its Shift factor and its seat`,
-      near(travelUi.paces.horse.speed, sp.horse) && near(travelUi.paces.horse.sprint, Math.min(sp.horse * 1.7, 26.82))
+      near(travelUi.paces.horse.speed, sp.horse) && near(travelUi.paces.horse.sprint, Math.min(sp.horse * 1.7, 35.76))
       && Math.abs(travelUi.paces.horse.eye - (travelUi.eyeSetting + 0.75)) < 0.01
       && near(travelUi.paces.wagon.speed, sp.wagon) && near(travelUi.paces.wagon.sprint, sp.wagon)
       && Math.abs(travelUi.paces.wagon.eye - (travelUi.eyeSetting + 0.5)) < 0.01
-      && near(travelUi.paces.walk.speed, sp.walk) && near(travelUi.paces.walk.sprint, Math.min(sp.walk * 2.28, 8.94))
+      && near(travelUi.paces.walk.speed, sp.walk) && near(travelUi.paces.walk.sprint, Math.min(sp.walk * 2.28, 13.41))
       && Math.abs(travelUi.paces.walk.eye - travelUi.eyeSetting) < 0.01
-      && near(travelUi.paces.run.speed, sp.run) && near(travelUi.paces.run.sprint, Math.min(sp.run * 1.6, 8.94))
+      && near(travelUi.paces.run.speed, sp.run) && near(travelUi.paces.run.sprint, Math.min(sp.run * 1.6, 13.41))
       && Math.abs(travelUi.paces.run.eye - travelUi.eyeSetting) < 0.01
-      && sp.walk === 1.45 && sp.run === 3.4 && sp.wagon === 3.6 && sp.horse === 6.5
+      && sp.walk === 4.47 && sp.run === 6.71 && sp.wagon === 7.15 && sp.horse === 11.18
       && travelUi.paces.horse.chip === 'horse' && travelUi.paces.walk.chip === 'walk',
       JSON.stringify({ ...travelUi.paces, sliders: sp, eye: travelUi.eyeSetting }));
     // ---- T-2651: the one slider takes each mode's range (T-0823's ceilings, Run's jog
     // floor) and names the speed as it moves; dragging it moves that mode alone.
     const rg = travelUi.ranges;
-    check(`${label}: the one slider takes the picked mode's range, 20, 20, 30 and 60 mph, and names the speed as it moves`,
-      rg.walk?.min === 0.5 && rg.walk?.max === 8.94 && rg.run?.min === 2.6 && rg.run?.max === 8.94
-      && rg.wagon?.max === 13.41 && rg.horse?.max === 26.82
+    check(`${label}: the one slider takes the picked mode's range, 30, 30, 40 and 80 mph (T-2945), and names the speed as it moves`,
+      rg.walk?.min === 0.5 && rg.walk?.max === 13.41 && rg.run?.min === 2.6 && rg.run?.max === 13.41
+      && rg.wagon?.max === 17.88 && rg.horse?.max === 35.76
       && rg.walk.label === 'Walk speed' && rg.run.label === 'Run speed' && rg.wagon.label === 'Wagon speed' && rg.horse.label === 'Horse speed'
       && near(rg.walk.value, sp.walk) && near(rg.run.value, sp.run) && near(rg.wagon.value, sp.wagon) && near(rg.horse.value, sp.horse)
       && /^canter · /.test(travelUi.gaits.canter) && /^gallop · /.test(travelUi.gaits.gallop)
-      && /^beyond any horse · /.test(travelUi.gaits.top) && /60\.0 mph|96\.5 km\/h/.test(travelUi.gaits.top)
-      && /^walk · /.test(travelUi.gaits.walkWord) && /^jog · /.test(travelUi.gaits.runWord)
-      && /^rattling along · /.test(travelUi.gaits.rattling) && /^steady roll · /.test(travelUi.gaits.wagonWord)
-      && travelUi.atTop.speed === 26.82 && travelUi.atTop.sprint === 26.82
-      && near(travelUi.afterDrag.speed, 6.5) && near(travelUi.afterDrag.sprint, 11.05)
+      && /^beyond any horse · /.test(travelUi.gaits.top) && /80\.0 mph|128\.7 km\/h/.test(travelUi.gaits.top)
+      && /^run · /.test(travelUi.gaits.walkWord) && /^sprint · /.test(travelUi.gaits.runWord)
+      && /^rattling along · /.test(travelUi.gaits.rattling) && /^rattling along · /.test(travelUi.gaits.wagonWord)
+      && travelUi.atTop.speed === 35.76 && travelUi.atTop.sprint === 35.76
+      && near(travelUi.afterDrag.speed, 11.18) && near(travelUi.afterDrag.sprint, 19.01)
       && near(travelUi.afterDrag.others[0], sp.walk) && near(travelUi.afterDrag.others[1], sp.wagon),
       JSON.stringify({ ranges: rg, gaits: travelUi.gaits, atTop: travelUi.atTop, afterDrag: travelUi.afterDrag }));
     // ---- end T-2651 (the slider)
@@ -16194,11 +16264,20 @@ for (const [label, viewport, touch] of [
       out.running = await until(() => sound.state.context === 'running', 15000);
       out.graph = !!sound.nodes?.master && !!sound.nodes?.effects && !!sound.nodes?.ambience;
       out.year = String(api.scene?.target_date ?? '').slice(0, 4);
-      out.hum = await until(() => sound.state.hum, 10000);
-      out.bed = await until(() => sound.state.ambience === out.year, 10000);
-      out.clunked = sound.state.clunked;
       const was = { master: slider('master').value, effects: slider('effects').value, ambience: slider('ambience').value };
       out.was = was;
+      // T-2941: sound is off by default. A fresh visitor's Master reads Off, and with the
+      // context running and the device open there is still no hum, no bed and no click.
+      await wait(600);
+      out.mutedAtFirst = was.master === '0' && sound.state.silent === true && !sound.state.hum && sound.state.ambience === null
+        && near(gain('master') ?? 0, 0) && document.getElementById('v-sound-master')?.textContent.trim() === 'Off';
+      out.mutedState = { silent: sound.state.silent, hum: sound.state.hum, ambience: sound.state.ambience, master: gain('master') };
+      // Master alone turns every sound on.
+      slide('master', 1);
+      out.hum = await until(() => sound.state.hum, 10000);
+      out.bed = await until(() => sound.state.ambience === out.year, 10000);
+      out.clunked = await until(() => sound.state.clunked, 5000);
+      out.storedChoice = stored().soundChosen === true && stored().soundMaster === 1;
       for (const k of ['master', 'effects', 'ambience']) slide(k, 1);
       out.full = await until(() => near(gain('master'), 1) && near(gain('effects'), 1) && near(gain('ambience'), 1), 10000);
       await wait(60);
@@ -16237,7 +16316,10 @@ for (const [label, viewport, touch] of [
       out.state = sound.state;
       return out;
     });
-    check(`${label}: after a tap the Navigator's sound graph runs, the open device hums, the destination plays its bed tone, and a relay click and a ticker tick play (T-2659)`,
+    check(`${label}: sound is off by default — Master reads Off and the running graph makes no hum, bed or click until Master is raised, and that choice is stored (T-2941)`,
+      soundRead.loaded && soundRead.mutedAtFirst && soundRead.storedChoice,
+      JSON.stringify({ was: soundRead.was, muted: soundRead.mutedState, storedChoice: soundRead.storedChoice }));
+    check(`${label}: after a tap and Master raised, the Navigator's sound graph runs, the open device hums, the destination plays its bed tone, and a relay click and a ticker tick play (T-2659)`,
       !soundTap.miss && soundRead.loaded && soundRead.running && soundRead.graph && soundRead.hum && soundRead.bed && soundRead.clunked
       && soundRead.relay && soundRead.tick,
       JSON.stringify({ tap: soundTap, gestured: soundRead.gestured, loaded: soundRead.loaded, running: soundRead.running, graph: soundRead.graph, hum: soundRead.hum, bed: soundRead.bed,
@@ -17076,13 +17158,57 @@ for (const [label, viewport, touch] of [
       && restored.list === 'welcome-jaunts-region' && restored.picker === 'welcome' && restored.pickerHidden === true,
       JSON.stringify({ segGoto, segJaunts, viaRail, roamed, restored }));
 
+    // >>> T-2954: an open card holds the visitor (the owner, 2026-10-20: "the focus should be
+    // on the card until i either close the card or click on the main display"). The card takes
+    // the keyboard focus; its Close stays in view when the card is scrolled to its foot and
+    // carries the Esc keycap with a mouse, 44 px and no keycap on touch. With a keyboard, W
+    // walks nothing while the card is up, and one Esc closes it.
+    await page.evaluate(() => { window.__chicago4d.navigator.dock(); window.__chicago4d.popup.close(); });
+    const hold = await page.evaluate(async (isTouch) => {
+      const api = window.__chicago4d;
+      api.pick('sauganash_hotel');
+      await new Promise((r) => setTimeout(r, 200));
+      const root = document.getElementById('popup');
+      const close = root.querySelector('.pop-close');
+      const focused = root.contains(document.activeElement);
+      root.scrollTop = root.scrollHeight;
+      await new Promise((r) => requestAnimationFrame(() => r()));
+      const rb = root.getBoundingClientRect(); const cb = close?.getBoundingClientRect();
+      const inView = !!cb && cb.height > 0 && cb.top >= rb.top - 1 && cb.bottom <= rb.bottom + 1;
+      const atClose = cb ? document.elementFromPoint(cb.x + cb.width / 2, cb.y + cb.height / 2) : null;
+      const key = close?.querySelector('.pop-close-key');
+      return { open: !!api.popup.openId, focused, scrolled: root.scrollTop > 0, inView, onTop: !!atClose && close.contains(atClose),
+        label: close?.querySelector('.pop-close-label')?.textContent ?? '', tall: Math.round(cb?.height ?? 0),
+        keycap: !!key && getComputedStyle(key).display !== 'none', touch: isTouch };
+    }, touch);
+    let keys = null;
+    if (!touch) {
+      const at = () => page.evaluate(() => { const w = window.__chicago4d.walker.state; return { e: w.e, n: w.n }; });
+      const was = await at();
+      await page.keyboard.down('KeyW');
+      await page.evaluate(() => { const a = window.__chicago4d; a.step(); a.step(); });
+      await page.waitForTimeout(400);
+      await page.evaluate(() => window.__chicago4d.step());
+      await page.keyboard.up('KeyW');
+      const now = await at();
+      await page.keyboard.press('Escape');
+      keys = { held: Math.hypot(now.e - was.e, now.n - was.n), closedByOneEsc: !(await page.evaluate(() => window.__chicago4d.popup.openId)) };
+    }
+    await page.evaluate(() => window.__chicago4d.popup.close());
+    check(`${label}: an open card holds the visitor — focus on the card, Close pinned in view${touch ? ', 44 px with no Esc keycap' : ' with its Esc keycap, W walks nothing behind it, one Esc closes it'} (T-2954)`,
+      hold.open && hold.focused && hold.scrolled && hold.inView && hold.onTop && hold.label === 'Close'
+      && (touch ? hold.tall >= 44 && !hold.keycap : hold.keycap && keys.held < 0.05 && keys.closedByOneEsc),
+      JSON.stringify({ hold, keys }));
+    // <<< T-2954
+
     // ---- T-2663: Tour mode, the Field Check (QA-16, and QA-19's second half). Started from
     // the section Guide opens; each step moves on only on its own action. Step 02's turn is
     // a real drag on the touch build; with a mouse, pointer lock cannot be driven headless,
     // so the camera is turned directly, as step 03's walk moves the walker directly (the
     // engine reads the camera and the walker either way; tools/test_tour.mjs holds the
     // thresholds). Reload at 4 is read from storage here and resumed; Skip at 6 ends it
-    // cleanly; Replay starts again, and a full pass ends on Finish.
+    // cleanly; Replay starts again, and a full pass ends on Finish. T-2954: step 05 is the
+    // release (Esc with a keyboard, the card's Close on touch), 06 opens Move, 07 Settings.
     await page.evaluate(() => { window.__chicago4d.navigator.dock(); window.__chicago4d.popup.close(); });
     // T-2620: the drawer's Guide section opens in the Navigator's Guide, under its sheet.
     await openSection('controls');
@@ -17095,7 +17221,7 @@ for (const [label, viewport, touch] of [
     // reads its starting point when it is entered (where the visitor stands, the counters),
     // and it is entered on the tour's tick, a 250 ms timer that on the desktop runner runs
     // only between frames of 8-10 s (T-2412). An 8 s wait could give up first, the next
-    // action (the walk, the pick, the tab, the preset) then landed before its step began,
+    // action (the walk, the pick, the release, the app) then landed before its step began,
     // was read into that step's starting point, and the step waited for ever: the tour
     // stood on a waiting step with Next hidden, and the last Next below aborted the part
     // with "clickChrome: #tour-next has no box (0x0)" (#971, #984). Bounded, and the
@@ -17129,18 +17255,22 @@ for (const [label, viewport, touch] of [
     const stored = await page.evaluate(() => JSON.parse(localStorage.getItem('chicago4d.tour') || 'null'));
     // Reload at 4: what a reload reads, resumed.
     const resumed = await page.evaluate(() => window.__chicago4d.tour.resume() && window.__chicago4d.tour.step);
-    // 04: open a building's record. 05: go deeper (a card tab).
+    // 04: select a building. 05: release it, as a visitor does — Esc, or the card's Close.
     await page.evaluate(() => window.__chicago4d.pick('sauganash_hotel'));
     await tourWait(4);
     const inspected = await tourView();
-    await page.evaluate(() => document.querySelector('#popup .pop-tab[data-pop-tab="record"]')?.click());
+    const releaseRing = await page.evaluate(() => { const h = document.querySelector('#tour .tour-hole'); const c = document.querySelector('#popup .pop-close');
+      const a = h?.getBoundingClientRect(); const b = c?.getBoundingClientRect();
+      return !!a && !!b && !h.hidden && a.left <= b.left && a.right >= b.right && a.top <= b.top && a.bottom >= b.bottom; });
+    if (touch) await clickChrome('#popup .pop-close'); else await page.keyboard.press('Escape');
     await tourWait(5);
-    const deeper = await tourView();
+    const released = await tourView();
+    const releasedCard = await page.evaluate(() => window.__chicago4d.popup.openId);
     // Skip at 6.
     await clickChrome('#tour-skip');
     const skipped = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, shown: !document.getElementById('tour').hidden,
       dim: document.documentElement.hasAttribute('data-tour'), stored: JSON.parse(localStorage.getItem('chicago4d.tour') || 'null') }));
-    // Replay, and a full pass to Finish: 06 on the Confidence view chip, 07 on Finish.
+    // Replay, and a full pass to Finish: 06 on Move, 07 on Settings, 08 on Finish.
     await page.evaluate(() => { window.__chicago4d.popup.close(); window.__chicago4d.tour.start(); });
     await clickChrome('#tour-next');
     await page.evaluate(() => { const w = window.__chicago4d.walker; w.teleport({ local_e: w.state.e, local_n: w.state.n, yaw_deg: 200 }); });
@@ -17149,20 +17279,18 @@ for (const [label, viewport, touch] of [
     await tourWait(3);
     await page.evaluate(() => window.__chicago4d.pick('sauganash_hotel'));
     await tourWait(4);
-    await page.evaluate(() => document.querySelector('#popup .pop-tab[data-pop-tab="images"]')?.click());
-    await tourWait(5);
     await page.evaluate(() => window.__chicago4d.popup.close());
-    const confWas = await page.evaluate(() => window.__chicago4d.hud.confidenceOn);
-    // T-2647: the Confidence view is the Navigator's app now; a preset other than Normal is
-    // the step's action.
-    await page.evaluate(async () => { await window.__chicago4d.navigator.select('confidence'); });
-    await clickChrome('#navigator .nav-preset[data-preset="bygrade"]');
+    await tourWait(5);
+    const moveStep = await tourView();
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('move'); });
     await tourWait(6);
+    const settingsStep = await tourView();
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('settings'); });
+    await tourWait(7);
     const last = await tourView();
     await clickChrome('#tour-next');
     const done = await page.evaluate(() => ({ running: window.__chicago4d.tour.running, finished: window.__chicago4d.tour.finished,
       shown: !document.getElementById('tour').hidden }));
-    if (!confWas) await page.evaluate(() => window.__chicago4d.hud.setConfidence(false, { announce: false }));
     // Back as it was found: no card, Home the Navigator's app, docked (the dock reopens its
     // last app, and later parts expect Home).
     await page.evaluate(async () => {
@@ -17171,14 +17299,17 @@ for (const [label, viewport, touch] of [
       await api.navigator.select('home');
       api.navigator.dock();
     });
-    check(`${label}: the Field Check moves on only on each step's own action, resumes at 4, skips cleanly at 6, replays and finishes (T-2663)`,
-      t1.shown && t1.count === 'Field check · 1 / 7' && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
-      && t2.step === 1 && t2.waiting && turned.step === 2 && walked.step === 3 && /^Tap the /.test(walked.bubble ?? '')
+    check(`${label}: the Field Check moves on only on each step's own action — select, release, Move, Settings — resumes at 4, skips cleanly at 6, replays and finishes (T-2663, T-2954)`,
+      t1.shown && t1.count === 'Field check · 1 / 8' && t1.ring && !t1.waiting && /^This is your Navigator/.test(t1.bubble ?? '')
+      && t2.step === 1 && t2.waiting && turned.step === 2 && walked.step === 3
+      && new RegExp(`^${touch ? 'Tap' : 'Click'} the `).test(walked.bubble ?? '')
       && stored?.active === true && stored?.step === 3 && resumed === 3
-      && inspected.step === 4 && deeper.step === 5 && /Confidence view/.test(deeper.bubble ?? '')
+      && inspected.step === 4 && (touch ? /Tap Close/ : /Press Esc/).test(inspected.bubble ?? '') && releaseRing
+      && released.step === 5 && releasedCard === null && /^Open (the Navigator, then )?Move/.test(released.bubble ?? '')
       && !skipped.running && !skipped.shown && !skipped.dim && skipped.stored?.active === false
-      && last.step === 6 && /^Ready\./.test(last.bubble ?? '') && !done.running && done.finished && !done.shown,
-      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, deeper, skipped, last, done }));
+      && moveStep.step === 5 && settingsStep.step === 6 && /Settings/.test(settingsStep.bubble ?? '')
+      && last.step === 7 && /^Ready\./.test(last.bubble ?? '') && !done.running && done.finished && !done.shown,
+      JSON.stringify({ t1, t2, turned, walked, stored, resumed, inspected, releaseRing, released, releasedCard, skipped, moveStep, settingsStep, last, done }));
     // ---- end T-2663
     // >>> T-2664: Home offers the Field Check once per device after the landing; taking it
     // goes into the town and starts step 01 (without Free roam's tip); Home does not offer it
@@ -17252,7 +17383,7 @@ for (const [label, viewport, touch] of [
       JSON.stringify({ offerSeen: { ...offerSeen, tourWas: undefined }, offerClick, offerTaken, skipClick, offerAfter }));
     // <<< T-2664
     // >>> T-2665: the Navigator License. The Field Check's Finish above (T-2663) awarded it,
-    // which is read first. Then, the license set aside, the Field Check is put back at step 07
+    // which is read first. Then, the license set aside, the Field Check is put back at step 08 (its last since T-2954)
     // as a reload finds it, and Finish is pressed: the hint line says it was earned (watched
     // for, since on the desktop runner its few seconds can pass inside one frame). A second
     // Finish keeps the one license and says nothing. Then the Jaunts app's daybook shows it
@@ -17272,7 +17403,7 @@ for (const [label, viewport, touch] of [
       };
       window.__licenseObs = new MutationObserver(look);
       window.__licenseObs.observe(h, { attributes: true, childList: true, characterData: true, subtree: true });
-      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 6, done: true }));
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 7, done: true }));
       const resumed = api.tour.resume() && api.tour.step;
       return { first: (() => { try { return JSON.parse(first); } catch { return null; } })(), tourWas, resumed, heldAfterForget: api.license.held };
     });
@@ -17289,7 +17420,7 @@ for (const [label, viewport, touch] of [
       const seen = window.__licenseSeen.slice();
       window.__licenseSeen.length = 0;
       api.hints.hide();
-      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 6, done: true }));
+      localStorage.setItem('chicago4d.tour', JSON.stringify({ active: true, step: 7, done: true }));
       api.tour.resume();
       return { seen: seen[0] ?? null, held: api.license.held, stored: localStorage.getItem('chicago4d.navigatorLicense') };
     });
@@ -17331,7 +17462,7 @@ for (const [label, viewport, touch] of [
       return out;
     }, licenseFirst);
     check(`${label}: finishing the Field Check awards the Navigator License once, says so once, and Jaunts' daybook shows it with the keepsakes (T-2665)`,
-      typeof licenseFirst.first?.earned === 'string' && licenseFirst.resumed === 6 && !licenseClick
+      typeof licenseFirst.first?.earned === 'string' && licenseFirst.resumed === 7 && !licenseClick
       && licenseAwarded.seen?.text === 'Navigator License earned. It is kept with your keepsakes in Jaunts.'
       && licenseAwarded.seen.inView && licenseAwarded.seen.pointer === 'none' && licenseAwarded.held && !!licenseAwarded.stored
       && licenseAgain.seen === 0 && licenseAgain.stored === licenseAwarded.stored

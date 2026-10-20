@@ -30446,6 +30446,46 @@ as drawn; the jamb caps are a K08 dress piece of their own.
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-20 (T-2915).
 
+### L-k01-1812-wheeler-gable-2951 — 1812 Prairie's gable outline, shoulder stones, nine-light grid window and scroll kneelers, read off the photograph
+
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-2951, piece 1 of T-2891) takes the
+shaped gable Albert Levy's photograph shows: its outline re-read and redrawn, a square stone block
+standing over the outline at each shoulder, the grid window as the print's nine lights (three by
+three) between stone mullions and transoms in place of K06's three tall lights, and each kneeler a
+carved scroll console at the front's corner under a small pinnacle. The kit learns this in
+`shaped_gable`: `lights.rows` and `transom_m` stack the K06 group into a grid, `lights.panes` sets
+its lights' panes, and a grid lays its transoms and mullions in stone; `shoulders` builds the
+blocks through the slab; `kneelers.scroll` builds the consoles. Every other K01 house re-emits
+byte-identical.
+**What is read, not invented.** Through the camera T-2543 solved
+(`data/reference_views/wheeler_house_1812_prairie/levy_front.json`; 88.5 px a metre at the main
+front, the walk at y 1549.6), on 4x crops of the print with the render's silhouette laid over it
+and a tenth-metre grid: the outline's half-width at 13.0, 13.5, 14.0 and 14.5 m (3.13, 2.83, 2.55,
+2.11 m on the south side; 2.83, 2.58, 2.32, about 1.6-1.9 m on the north), the head's at 15.3,
+15.5, 15.75, 16.0, 16.25 and 16.5 m (1.10, 1.04, 0.92, 0.75, 0.54, 0.35 m, the two sides' mean),
+the finial's plinth about 0.28 m out from about 16.65 m; the shoulder blocks 0.90-1.62 m out from
+14.68 to 15.3 m (south) and 0.92-1.60 m about 0.15 m lower (north); the grid window's lights
+about 0.42 m across between mullions about 0.13 m wide, in three rows about 0.36-0.39 m high over
+ledges about 0.07 m deep, the whole in the 1.64 by 1.26 m opening T-2543 read; and the scroll at
+each corner about 0.4 m across from about 11.35 to 12.1 m, its roll at its foot.
+**What is invented.** The mean of the two sides for a symmetric gable, where the print's south
+side reads about 0.25 m wider than its north all the way up (its crinkle, or a slight roll); the
+outline built 0.04-0.05 m inside the reading, which the coping's projection gives back in the
+render; the blocks' 0.06 m proud and plain faces; the transoms' and mullions' 0.02 m proud; the
+lights' single pane (the print's lights read dark, no bar is seen); the scroll's roll 0.2 m in
+radius and 0.2 m proud, its raised eye, its body and its cap; the pinnacles' 0.3 m shaft to
+12.85 m and 0.2 m spire, set 3.85 m out where the print's kneeler stone stands about 3.6-3.95 m.
+**What is built otherwise than read.** The shoulder blocks' sunk panels, the grid window's
+quoined side stones and the wavy hood over it, the deep moulded shelf under it and the carving on
+the scrolls beyond their roll and eye are not built; the lights are K06's casement sash, whose
+frame reads heavier at this size than the print's dark lights. These stay open in the match
+record.
+**How to resolve:** A sharper print, or a drawing of the gable, settles the outline's two sides
+and lets the panels, the hood and the scrolls be carved as drawn.
+**Ticket:** T-2951 (piece 1 of T-2891).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-20 (T-2951).
+
 ### L-glessner-fan-stilt-2912 — Glessner's Prairie door fan stilted to HABS sheet 5 and its tympanum's field laid as the sheet's eight rings
 
 **Decision:** the Prairie Avenue door's fan on the `glessner_house` is a STILTED head (T-2912,
@@ -30496,6 +30536,32 @@ and their number.
 **Ticket:** T-2782 (piece 3 of T-2756).
 **Review:** `data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`.
 **Recorded:** 2026-10-20 (T-2782).
+
+### L-glessner-colonnettes-2965 — Glessner's seven Prairie colonnettes: their capitals' carving cut from sheet 6 and three close-ups
+
+**Decision:** the second-floor colonnettes on the `glessner_house` Prairie front (T-2965) are
+rebuilt from HABS sheets 3 and 6 and the owner's photographs: a splayed square base, a
+straight-tapered round shaft, the round front of a stone mullion flush with the wall's face, and a
+cushion block capital, all in the front's granite. Each capital carries its own carving, south to
+north (`prairie_colonnette.capitals` in the record). **What is read.** Sheet 6 (75.5 px/ft) draws
+all seven and their bases, shafts and capitals' outlines; sheet 3 cuts each as a round-fronted
+mullion about 0.95 x 1.5 ft; the Glessner House Museum's 2013 post "The stone capitals on Glessner
+House" (three close-ups held as `a18-ghm-blog-capital-*`) says the capitals were carved in place by
+John Evans's carvers from August 1887, every one different, the one over the door carrying
+Richardson's monogram, and shows that one and its two neighbours; the c. 1888 front
+(`a18-gh-glessner-front-with-keith`) shows the taper and the base joint; Taylor 2135 the granite.
+**What is invented.** Every cut, depth and stem path; the bodies of the four capitals no close-up
+shows, read off the sheet's small, stippled drawing (a slotted band over crossing straps; a
+zigzag band over a leaf roundel; discs over a boss; discs over basket weave); the leaf tips and
+volutes repeated on all but the monogram capital; the letterforms of the monogram. The
+heights are shares of the record's 4.5-ft opening (the sheet draws 5.0 ft; not taken up here).
+**What is not changed.** The openings, the sashes, the carved string's own carving (now granite),
+the north gable pair's colonnettes.
+**How to resolve:** close photographs of the other four capitals, and a square one of each of
+the seven, would let every band and body be cut as carved.
+**Ticket:** T-2965.
+**Review:** `docs/RESEARCH/glessner-colonnettes-T-2965/`.
+**Recorded:** 2026-10-20 (T-2965).
 
 ## T-2804: named resident seated-driver and supported W01 studies (2026-10-19)
 

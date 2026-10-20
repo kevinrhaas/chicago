@@ -1621,7 +1621,7 @@ recallHome?.onReturn(() => journey.recall());
 api.recall = recallHome;
 // T-2614: with no gate to tap, the first tap after landing on a Home choice, the scene or a
 // Navigator control is the gesture audio needs; the page's AudioContext exists only after it.
-// T-2659: the Navigator's sounds (js/sound.js), on by default. The module is fetched with the
+// T-2659: the Navigator's sounds (js/sound.js), off by default since T-2941. The module is fetched with the
 // first gesture, or on the way in when the jump that opened the page lets audio play
 // (sound.js § mayStartEarly), so it is never part of the boot payload.
 const loadSound = (early = false) => (api.soundReady ??= import('./sound.js')
@@ -3094,19 +3094,29 @@ async function boot() {
   // own card in the drawer (T-1325). Late-bound on purpose — `openBusiness` is
   // declared with the business index, several hundred lines below, and only ever
   // runs on a tap.
-  // T-2663: what the Field Check reads — how often a building's record opened, and how
-  // often a deeper layer of one (the card from Inspect's Full record, or a card tab).
-  const tourCounts = { opens: 0, deeper: 0, confChanges: 0 };
+  // T-2663: what the Field Check reads — how often a building's record opened, and (T-2954)
+  // how often each Navigator app opened.
+  const tourCounts = { opens: 0, apps: {} };
   const popup = createPopup(popupRoot, {
     onBusiness: (id) => openBusiness(id),
     onShow: (record) => {
-      tourCounts.opens++; tourCounts.deeper++;
+      tourCounts.opens++;
       countField('inspect'); // T-2660: the first since landing is the field log's
       // T-2664: the first Reconstructed building's card says, once, what the word means.
       if (isReconstructed(record?.sidecar)) api.hints?.show('reconstructed');
       void ensureLiberties(); void ensureHouseholdNotes(record); void ensurePictures(); void ensureReaderText();
     },
+    // T-2954 (the owner, 2026-10-20: "the focus should be on the card until i either close
+    // the card or click on the main display"). An open card holds the pointer and the
+    // keyboard: the mouse is let go so the card can be read and clicked, nothing walks or
+    // turns behind it (pointerlock.js `holding`), and the keys land on the card, where the
+    // arrows scroll it. Esc, the card's Close, or a click or tap on the scene lets go.
+    onShown: () => {
+      if (document.pointerLockElement) { cardTookPointer = true; document.exitPointerLock?.(); }
+      if (!popupRoot.contains(document.activeElement)) popupRoot.focus?.({ preventScroll: true });
+    },
   });
+  let cardTookPointer = false;
   // T-2825. The scene's reader overlay: the edits that say each research note on a building's
   // card without a ticket number, a record id or a file path (tools/compile_reader_text.py).
   // Off the boot path, like the liberties: the first card asks for it and is redrawn when it
@@ -3118,7 +3128,6 @@ async function boot() {
     popup.setReader(doc);
     return doc;
   }));
-  popupRoot.addEventListener('click', (e) => { if (e.target.closest?.('[data-pop-tab]')) tourCounts.deeper++; });
   // The pictures of each building, for the card's Images tab (T-2389). Off the boot path
   // for the liberties' reason: only the card reads it, so it is fetched the first time a
   // card is drawn. publish.sh writes it (tools/compile_pictures.py); a failure leaves the
@@ -3363,13 +3372,13 @@ async function boot() {
     lowered: crashBoot.lowered,
     device,
     structureVersion: loaded.versionState,
-    onConfidence: (on) => { confidence.set(on); tourCounts.confChanges++; },
+    onConfidence: (on) => { confidence.set(on); },
     // T-2647: C toggles the BY GRADE preset (confidence-presets.js).
     onConfidenceKey: () => toggleByGrade({ hud, view: confidence, storage: safeStorage() }),
     onFly: (on) => { intent.flying = !!on; },
     onGoTo: (target) => goToTarget(target),
     // Hiding a level removes it from the view outright — see confidence.setHidden.
-    onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); tourCounts.confChanges++; api.welcome?.refresh?.(); },
+    onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); api.welcome?.refresh?.(); },
     onSetting: (key, value) => {
       api.sound?.setting(key); // T-2659: Settings › Sound's levels, live
       // A setting can write a value no material owns (a patched shader's
@@ -3414,6 +3423,10 @@ async function boot() {
         navigation.setStreetVisible(value);
       } else if (key === 'lookTag') {
         api.targetTag?.setTagShown(value);
+      } else if (key === 'lookTagPlace') {
+        api.targetTag?.setPlace(value);
+      } else if (key === 'lookTagHold') {
+        api.targetTag?.setHold(value);
       } else if (key === 'season') {
         void applySeason(value).then(() => gateFrame.invalidate());
       } else if (key === 'streetTrees') {
@@ -3745,8 +3758,11 @@ async function boot() {
     onLockChange: (locked) => {
       hud.setLocked(locked);
       gesture.setLook({ locked });
-      if (!locked) hud.say('Pointer released — click the view to look around again');
+      // A card opening lets the pointer go on purpose (T-2954): the card is the message.
+      if (!locked && !cardTookPointer) hud.say('Pointer released — click the view to look around again');
+      cardTookPointer = false;
     },
+    holding: () => !!popup.openId && !gateOpen,
   });
 
   const touch = createTouchBackend({
@@ -3785,12 +3801,17 @@ async function boot() {
     if (gateOpen || isTyping(e.target) || e.target.closest?.('#jaunt-panel')) return;
     if (!e.metaKey && !e.ctrlKey) {
       backends.activate(pointerlock);
-      if (/^(Key[WASD]|Arrow(Up|Down|Left|Right))$/.test(e.code)) pointerlock.lock();
+      // Not while a card holds the keyboard (T-2954): the arrows scroll the card.
+      if (/^(Key[WASD]|Arrow(Up|Down|Left|Right))$/.test(e.code) && !popup.openId) pointerlock.lock();
     }
   }, { capture: true });
 
   canvas.addEventListener('click', () => {
-    if (backends.active === pointerlock && !pointerlock.isLocked && !gateOpen) pointerlock.lock();
+    if (backends.active !== pointerlock || gateOpen) return;
+    // A click on the scene with a card open is the release (T-2954): the card goes and
+    // the same click takes the look back.
+    if (popup.openId) popup.close();
+    if (!pointerlock.isLocked) pointerlock.lock();
   });
 
   // Escape closes an open inspection card (T-0108). Escape is ALSO the
@@ -4438,6 +4459,24 @@ async function boot() {
     keyEl: document.getElementById('btn-inspect'),
     units: () => hud.settings.units,
     tagShown: hud.settings.lookTag !== false,
+    // T-2942: right under the address by default, or the centre (its first place) or the
+    // bottom row; fading by default. Docked, it never repeats the address the card shows.
+    place: hud.settings.lookTagPlace,
+    holdMode: hud.settings.lookTagHold,
+    slots: (() => {
+      const tagHome = document.getElementById('target-tag');
+      const bottom = document.getElementById('hud-bottom');
+      return {
+        right: { parent: document.getElementById('instrument-below') },
+        centre: { parent: tagHome?.parentNode ?? null, before: tagHome?.nextSibling ?? null },
+        bottom: { parent: bottom, before: bottom?.firstElementChild ?? null },
+      };
+    })(),
+    addresses: () => {
+      const card = document.getElementById('street-readout');
+      if (!card || card.hidden) return [];
+      return ['street-historic', 'street-modern'].map((id) => document.getElementById(id)?.textContent ?? '');
+    },
     onInspect: (t) => {
       // Inspect opens on what is selected first, so a card left open on another
       // building is put away before the tag hands over its own.
@@ -4685,10 +4724,17 @@ async function boot() {
   }
 
   // ---- T-2663: Tour mode, the Field Check ------------------------------------------
-  // Seven steps (js/tour.js), each completing on its real action, read here every quarter
+  // Eight steps (js/tour.js), each completing on its real action, read here every quarter
   // second while it runs; replayed from the section Guide opens (#tour-start); a reload
   // mid-tour resumes at the same step once the visitor is back in the town.
   let tourTimer = null, tourApp = null;
+  // T-2954: each Navigator app opened, counted as it opens (Move and Settings are steps).
+  let navOpenWas = null;
+  navigatorUi?.onChange?.(({ app, level }) => {
+    const now = level > 0 ? app : null;
+    if (now && now !== navOpenWas) tourCounts.apps[now] = (tourCounts.apps[now] ?? 0) + 1;
+    navOpenWas = now;
+  });
   const tourOverlay = createTourOverlay({ onNext: () => tour.press(), onSkip: () => tour.skip() });
   const tour = createTour({
     probe: () => {
@@ -4696,8 +4742,10 @@ async function boot() {
       const app = navigatorUi?.app ?? null;
       if (app === 'inspect' && tourApp !== 'inspect') tourCounts.opens++;
       tourApp = app;
-      return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, ...tourCounts,
-        confidence: hud.confidenceOn || hud.hiddenLevels.length > 0,
+      const level = navigatorUi?.level ?? 0;
+      return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, opens: tourCounts.opens,
+        apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level,
+        selected: !!popup.openId || (app === 'inspect' && level > 0),
         scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null };
     },
     render: (v) => {
@@ -4809,9 +4857,10 @@ async function boot() {
     const asked = intent.takeInteract();
     if (asked && !gateOpen) travel.stop('input');
     // The inspect KEY toggles: the reach that opened the card also closes it
-    // (T-0108). A click or tap always re-inspects — aiming at a second
-    // building with a card open should open that building, not shut the first.
-    if (asked && asked.source === 'key' && popup.openId) popup.close();
+    // (T-0108). Since T-2954 a click or tap on the scene does too: an open card
+    // holds the visitor until it is closed or the town is touched again (the owner,
+    // 2026-10-20), so a second building is one more click away, not one less.
+    if (asked && popup.openId) popup.close();
     else if (asked) inspect(asked.point ? new THREE.Vector2(asked.point.x, asked.point.y) : null);
     const walkSteps = Math.max(1, Math.ceil(frameDt / 0.05));
     const walkDt = frameDt / walkSteps;

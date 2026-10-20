@@ -244,7 +244,43 @@
       "sanborn_1911_vol3_sheet_28",
       "inland_architect_1888_02_glessner_exterior"
     ],
-    "note": "The ground-floor masonry outline, courtyard excluded: 34 points, about 7,054 sq ft, from HABS sheet 2's dimension strings (sheet 3 for the 99'-3\" courtyard), checked against Sanborn 1911 sheet 28 (the house drawn as a stone courtyard plan with the coach house at the alley) and the 1888 photograph — T-1731's outline (data/research/glessner_house_1904_spec.json § footprint), converted from the building frame to metres: x = (161.25 - W) * 0.3048, y = (74 - S) * 0.3048. The courtyard projections (stair tower, hall bow, dining bay) are measured, +/- 0.5 ft; printed runs +/- 0.1 ft."
+    "note": "The ground-floor masonry outline, courtyard excluded: 34 points, about 7,054 sq ft, from HABS sheet 2's dimension strings (sheet 3 for the 99'-3\" courtyard), checked against Sanborn 1911 sheet 28 (the house drawn as a stone courtyard plan with the coach house at the alley) and the 1888 photograph — T-1731's outline (data/research/glessner_house_1904_spec.json § footprint), converted from the building frame to metres: x = (161.25 - W) * 0.3048, y = (74 - S) * 0.3048. The courtyard projections (stair tower, hall bow, dining bay) are measured, +/- 0.5 ft; printed runs +/- 0.1 ft.",
+    "passages": [
+      {
+        "kind": "carriage passage",
+        "polygon": [
+          [
+            49.149,
+            3.5418
+          ],
+          [
+            49.149,
+            1.1704
+          ],
+          [
+            41.0718,
+            0.6218
+          ],
+          [
+            41.0718,
+            3.365
+          ]
+        ],
+        "open_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "floor_m": 0.064,
+        "clear_m": 2.1367,
+        "note": "The model's own opening through the footprint (the underpass), carried from the generator's parameters: its plan, its lower soffit above its higher paving. Walking through it is how the scene is visited, not a claim about who passed there."
+      }
+    ]
   },
   "attributes": {
     "frame_ft": {
@@ -3897,6 +3933,67 @@
         "north_pair_colonnette": {
           "capital_ft": 1.1,
           "base_ft": 0.5
+        },
+        "prairie_colonnette": {
+          "shaft_neck_ft": 0.68,
+          "shaft_foot_ft": 0.9,
+          "base_foot_ft": 1.15,
+          "abacus_ft": 1.4,
+          "base_share": 0.13,
+          "capital_share": 0.3,
+          "mullion_depth_ft": 1.5,
+          "capitals": [
+            {
+              "band": "slots",
+              "body": "interlace",
+              "volutes": true,
+              "leaves": true,
+              "read": "sheet 6: a slotted band over crossing straps"
+            },
+            {
+              "band": "chevron",
+              "body": "roundel",
+              "volutes": true,
+              "leaves": true,
+              "read": "sheet 6: a zigzag band over a ring of radiating leaves"
+            },
+            {
+              "band": "diamonds",
+              "body": "lattice",
+              "volutes": true,
+              "leaves": true,
+              "read": "sheet 6 and the museum's 2013 close-up 'capital 2' (a18-ghm-blog-capital-2-2013): a band of diamonds, a square block under it, corner volutes and a basket-weave body"
+            },
+            {
+              "band": "checker",
+              "body": "monogram",
+              "volutes": false,
+              "leaves": true,
+              "read": "over the front door: the museum's 2013 close-up (a18-ghm-blog-capital-hhr-2013) and blog text, Richardson's monogram (two mirrored R's on an H, boxed) in a large ring under a checkerboard band; sheet 6 draws the band and the box"
+            },
+            {
+              "band": "discs",
+              "body": "crossing",
+              "volutes": true,
+              "leaves": true,
+              "read": "sheet 6 and the museum's 2013 close-up 'capital 1' (a18-ghm-blog-capital-1-2013): a band of discs, two stems crossing in a V up to corner volutes, a lozenge between"
+            },
+            {
+              "band": "discs",
+              "body": "boss",
+              "volutes": true,
+              "leaves": true,
+              "read": "sheet 6: a band of discs over a round boss between scrolls"
+            },
+            {
+              "band": "discs",
+              "body": "lattice",
+              "volutes": true,
+              "leaves": true,
+              "read": "sheet 6: a band of discs over a cross-hatched (basket-weave) body"
+            }
+          ],
+          "note": "T-2965 (owner, 2026-10-20: 'the columns ... have a tapered look, and they fit with the stone color of the building and the top is ornamented and the bottom is an angular base'; 'the top of each colonette is different, make sure you render those photographic correct'). HABS sheet 6 (the 1965 photogrammetric Prairie elevation, 75.5 px/ft on its scale bar) draws all seven second-floor colonnettes: a straight-tapered round shaft, a splayed square base about 1.1-1.15 ft at the sill rising 0.13 of the opening, and a block capital about 1.4 ft across, every one carved differently (capitals runs south to north, as the sheet reads left to right). The museum's 2013 post 'The stone capitals on Glessner House' (glessnerhouse.blogspot.com, 2013-02-11; three close-ups held as a18-ghm-blog-capital-*) records nine capitals, front and north, carved in place from August 1887 by John Evans of Evans & Tomb, each different, the one over the front door carrying Richardson's monogram; its close-ups give the block's form (straight-sided under the band, rounded in to the shaft below), the neck at about 0.55 of the block's width and the capital about 0.9 of its width tall. Shaft: 0.68 ft at the neck and 0.9 ft at the foot, between the sheet's outlines (0.63 / 0.9) and the close-ups' neck-to-block ratio, its taper what the c. 1888 front (a18-gh-glessner-front-with-keith) shows. Heights are shares of the record's opening, because the sheet draws the openings 5.0 ft tall where the record builds 4.5 ft (an open question, not taken up here). Sheet 3 (second-floor plan, 37.3 px/ft on its 161'-3\") cuts each as a round-fronted stone mullion about 0.95 ft wide and 1.5 ft deep, its round face on the wall's face and the sashes meeting its back. Taylor 2135 and the close-ups show the colonnettes in the walls' own granite. The motifs are read from the pictures; their cuts, depths and the four capitals no close-up shows are reconstructed (LIBERTIES)."
         }
       },
       "confidence": "reconstructed",
