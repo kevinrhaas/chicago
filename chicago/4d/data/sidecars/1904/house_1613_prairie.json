@@ -9,6 +9,11 @@
   "asset": "gltf/house_1613_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -20,14 +25,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1424.632,
-    "local_n": -2982.244,
+    "local_e": 1425.762,
+    "local_n": -2980.854,
     "rotation_deg": 179.611,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 15.250, v -2.650 m from the middle of the rear lot line): the draft's rear wall, kept, and the traced main part's world-north wall (the trace runs v -2.69 to -2.56 there), 0.9 m north of where the draft's fit stopped. Through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.611 degrees turns the plan's u axis onto the lot's own rear-to-street line, so K01's local south is the world's north on this side of the avenue.",
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 15.250, v -2.650 m from the middle of the rear lot line): the draft's rear wall, kept, and the traced main part's world-north wall (the trace runs v -2.69 to -2.56 there), 0.9 m north of where the draft's fit stopped. Through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.611 degrees turns the plan's u axis onto the lot's own rear-to-street line, so K01's local south is the world's north on this side of the avenue.",
     "symbolic_location": "1613 S. Prairie Avenue, parcel prairie_1613 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -352,5 +357,6 @@
   ],
   "research_note": "T-2417 (piece 1 of T-1868) refines the district draft (T-2335) in place under the same id: the main body is rebuilt from the K01 frontage assembly and its kits — K03 brick on all four walls, K06 sash, K07 door and stoop, K09 window heads, K10 bracketed cornice, K01's flat roof (K05's parapet deck, T-2350) and two plain stacks — the first K01 house on the east side of Prairie, its plan turned 180 degrees so K01's local south wall faces the world's north. What is read: the 1911 Sanborn sheet 20 (four storeys, brick, the north half of a pair attached to 1615, the traced main body and the one-storey frame rear porch) through the T-1840 census. Its world-south wall is the party wall with 1615 and is built blank; its world-north wall, over the side passage to 1611, is windowed. The rear porch stands on K01's rear wings in the new `frame` fabric. Everything else is reconstructed and recorded as L-k01-1613-brick-flat-2417. No photograph, plate or description of 1613 has been read; a later reading that finds one replaces the kit's choices here.",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1613 Prairie Avenue — four-storey brick house, the north half of the pair with 1615"
 }

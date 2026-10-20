@@ -9,6 +9,11 @@
   "asset": "gltf/house_1634_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -20,14 +25,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1364.241,
-    "local_n": -3062.934,
+    "local_e": 1365.376,
+    "local_n": -3061.544,
     "rotation_deg": -0.58,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The south-west corner of the K01 footprint: the rear corner of the main body on the party line with 1636 (lot frame u 30.750, v -3.700 m from the middle of the rear lot line), where T-2392 re-read the line once for the pair: the traced shared edge of s20fp-1634-b1 and s20fp-1636-b1 stands at v -0.70 in this record's former frame (its median vertex -0.695), so the origin moved 0.70 m south of the draft's corner and 1636's north wall stands on the same line. Through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed; the pair's relative place is the trace's, about 0.1 m. Rotation -0.58 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The south-west corner of the K01 footprint: the rear corner of the main body on the party line with 1636 (lot frame u 30.750, v -3.700 m from the middle of the rear lot line), where T-2392 re-read the line once for the pair: the traced shared edge of s20fp-1634-b1 and s20fp-1636-b1 stands at v -0.70 in this record's former frame (its median vertex -0.695), so the origin moved 0.70 m south of the draft's corner and 1636's north wall stands on the same line. Through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed; the pair's relative place is the trace's, about 0.1 m. Rotation -0.58 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1634 S. Prairie Avenue, parcel prairie_1634 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -492,5 +497,6 @@
   ],
   "research_note": "T-2350 (piece 2 of T-2346) refines the district draft (T-2334) in place under the same id: the main body is rebuilt from the K01 frontage assembly and its kits — a K02 stone street front, K03 brick side and rear walls, K06 sash, K07 door and stoop, K08 canted stone front bay, K10 bracketed street cornice — under the flat roof K05 learned for the stone-front rowhouse (T-2349), which K01 now builds as k01.roof.flat. What is read: the 1911 Sanborn sheet 20 (storeys '3B', brick with a stone front, attached to 1636, the traced main body and the canted stone bay at the north end of the front) through the T-1840 census. Its south wall is the party wall it shares with 1636 and is built blank. Everything else is reconstructed and recorded as L-k01-1634-stone-front-flat-2350. T-2347 stands the sheet's '2B' rear wing and its one-storey end behind the rear wall on K01's rear wings (the draft had drawn the wing three storeys by its own rule). No photograph, plate or description of 1634 has been read; a later reading that finds one replaces the kit's choices here. T-2392 re-read the pair's lines once for both: the main body now stands on the party line with 1636 and its front on the traced outline, 15.4 m deep and 7.45 m wide, with the canted bay at the north end where the sheet draws it and the door beside the party wall.",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1634 Prairie Avenue — stone-front house, the north half of the pair with 1636"
 }

@@ -17,6 +17,12 @@
     1800,
     1289
   ],
+  "sky": "sun",
+  "sun_uvy": [
+    0.852,
+    0.31,
+    0.423
+  ],
   "solve": {
     "method": "Re-read north-east eave (158,638): the old (169,608) mark lay on the gable slope. Fit level shifted camera to grade/eave and plan-based horizontal window-group/street controls, excluding tower and gable apex. Eye height1.8m is reconstructed; focal length solved, not assumed from a nominal lens.",
     "controls": [
@@ -65,6 +71,7 @@
     ],
     "units": "W and z in feet, observed u/v pixels; null vertical controls omitted",
     "rms_coordinate_px": 2.6042764600911092,
-    "limitations": "Plan windows +/-0.4 ft and hand picks several pixels. Level camera omits slight image lean. Other roof controls are checks, not fitted."
+    "limitations": "Plan windows +/-0.4 ft and hand picks several pixels. Level camera omits slight image lean. Other roof controls are checks, not fitted.",
+    "light": "T-2848, read off the photograph: hard sun. The long north wall along 18th Street is raked at a grazing angle (every rusticated block throws its shadow), the downpipe beside the stable's east door throws its shadow to the right (west), the arch's inner west reveal is lit and its east reveal dark, and the stable's west end at the right of the frame is in shade; the trees at the far left are in leaf. So the sun stands east-north-east of the wall's normal, low: a summer morning. Azimuth about 70 degrees is read from those cues; the elevation (25 degrees) is the plausible height of a summer sun at that azimuth, not a measured shadow length. No date is recorded for the exposure beyond HABS's 1963."
   }
 }

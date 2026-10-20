@@ -1,0 +1,103 @@
+{
+  "id": "richardsonian_romanesque",
+  "name": "Richardsonian Romanesque",
+  "description": {
+    "text": "Named for H. H. Richardson, the architect of Glessner House. On Prairie Avenue it means rough stone and round arches.",
+    "grade": "inferred",
+    "sources": [
+      "hmdb_prairie_heritage_preserved",
+      "inland_architect_1888_10_ames_residence",
+      "habs_glessner_photo_13_north_1965"
+    ],
+    "note": "The district marker gives the style its name and gives Richardson as the architect. That the style is named for him is read from the name itself. The second line is what the two houses the marker calls Romanesque, 1800 and 1811 Prairie, have in common."
+  },
+  "cues": [
+    {
+      "text": "Rough-faced stone on the street",
+      "grade": "inferred",
+      "sources": [
+        "hmdb_prairie_heritage_preserved",
+        "inland_architect_1888_10_ames_residence",
+        "habs_glessner_photo_13_north_1965",
+        "nrhp_1972_prairie_avenue_district"
+      ],
+      "note": "Both houses the marker calls Romanesque show it. The marker says 1811 Prairie is built of rough-faced brown sandstone, and its 1888 photograph shows the front. A 1965 survey photograph shows rock-faced stone on 1800 Prairie. The 1972 National Register form says the same house is faced with heavily rusticated granite."
+    },
+    {
+      "text": "Round arches over doors and windows",
+      "grade": "inferred",
+      "sources": [
+        "inland_architect_1888_10_ames_residence",
+        "glessner_story_of_a_house_1923",
+        "habs_glessner_house_il_1015_drawings",
+        "hmdb_prairie_heritage_preserved",
+        "nrhp_1972_prairie_avenue_district"
+      ],
+      "note": "Both houses the marker calls Romanesque show it. The 1888 photograph of 1811 Prairie shows a deep round arch over the front stair and round-topped windows. At 1800 Prairie, John Glessner wrote of the great arch on 18th Street, and the survey drawings measure it. The 1972 National Register form names a round arch motif there."
+    },
+    {
+      "text": "A stone gable facing the street",
+      "grade": "inferred",
+      "sources": [
+        "inland_architect_1888_02_glessner_exterior",
+        "inland_architect_1888_10_ames_residence",
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "note": "The 1888 photographs of both houses show one. At 1800 Prairie it faces 18th Street. At 1811 Prairie it tops the front bay."
+    },
+    {
+      "text": "Steep roofs above the stone",
+      "grade": "inferred",
+      "sources": [
+        "habs_glessner_house_il_1015_data_pages",
+        "inland_architect_1888_10_ames_residence",
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "note": "The 1963 survey of 1800 Prairie tells of steep gabled roofs. The 1888 photograph of 1811 Prairie shows steep slate roofs."
+    }
+  ],
+  "plate": {
+    "picture": "dw-rb-inland-ames-coleman-1811-plate",
+    "structure": "coleman_ames_house_1811_prairie",
+    "scene": "1904",
+    "record": "inland_architect_1888_10_ames_residence",
+    "caption": "1811 Prairie Avenue in 1888, another Romanesque house",
+    "grade": "attested",
+    "sources": [
+      "inland_architect_1888_10_ames_residence",
+      "hmdb_prairie_heritage_preserved"
+    ]
+  },
+  "compare": [
+    {
+      "name": "Second Empire",
+      "style": "second_empire",
+      "text": "Ruled the street by the 1880s. See 1900 Prairie, built 1870.",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ]
+    },
+    {
+      "name": "Italianate",
+      "style": "italianate",
+      "text": "Older, with deep eaves on brackets. See 1834 Prairie.",
+      "grade": "inferred",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west",
+        "glessner_blog_2015_08_van_osdel",
+        "glessner_blog_2022_01_burley_tyrrell"
+      ],
+      "note": "The marker calls 1834 Prairie Italianate and dates it 1866. The deep eaves on brackets are what its photograph shares with 1720 Prairie, the other house a source calls Italianate."
+    },
+    {
+      "name": "French Chateauesque",
+      "style": "chateauesque",
+      "text": "See the Kimball house at 1801 Prairie, built 1890.",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ]
+    }
+  ]
+}

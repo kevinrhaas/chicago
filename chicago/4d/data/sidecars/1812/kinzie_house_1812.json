@@ -11,6 +11,19 @@
   "asset": "gltf/kinzie_house_1812__kinzie_1804.glb",
   "scene": "1812",
   "target_date": "1812-08-14",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 7 of the pictures on the Images tab show it.",
+    "pictures": [
+      "chicago_magazine_1857_kinzie_house_engraving",
+      "cram_1893_old_kinzie_mansion_1832_engraving",
+      "eastman_schoolcraft_chicago_1820_engraving",
+      "gemmell_chicago_in_1820_lithograph",
+      "lossing_1869_kinzie_mansion_engraving",
+      "sarony_kinzie_residence_currey_1912_plate",
+      "teich_old_kinzie_house_postcard"
+    ]
+  },
   "documented_range": {
     "from": "1804-10-01",
     "to": "1833-12-31",
@@ -363,7 +376,8 @@
         "Kinzie's work on it: 'he repaired it, added a veranda, and planted four Lombardy poplars at the foot of the slope on which the house stood'",
         "its orientation: 'The house faced toward the south, having the river directly in front and the lake a short distance to the east'",
         "that it 'escaped the general destruction at the time of the massacre' and 'was finally demolished in the early thirties'",
-        "Ouilmette's cabin 'close in the rear of the Kinzie house' and Pettell's 'small cabin near the Kinzie house'"
+        "Ouilmette's cabin 'close in the rear of the Kinzie house' and Pettell's 'small cabin near the Kinzie house'",
+        "the lake shore south of the river mouth before 1812, in the same chapter: 'mostly devoid of trees, a scanty growth of cottonwoods and pines, however, maintaining a precarious existence among the sand-dunes', the low sand-hills 'the predominant feature of the landscape' a mile or two south of the mouth (used by T-2768 for the pines on the south sand hills)"
       ],
       "what_it_does_not_supply": [
         "any dimension of the house, the piazza or the green",

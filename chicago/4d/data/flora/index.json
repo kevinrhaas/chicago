@@ -998,10 +998,40 @@
       "note": "The relict stand outside Fort Dearborn's west wall (T-0098), dealt by the rule in tools/generate_fort_trees.py off the palisade's own committed footprint and its apron, and re-derived on every commit. The plate settles the SIDE and the crown height and nothing else: tools/measure_fort_trees_plate.py measures the mass on the frame-RIGHT of the drawn stockade, which from p4_0's own stand is WEST — the ticket and T-0044's row 8 both said east, by eye. It does NOT settle the date: p4_0's flagstaff is excluded as first-fort and T-0095 reads its two tall works the same way, so existence here is reconstructed with empty sources and the stand is open where the plate's canopy closes."
     },
     {
+      "id": "kinzie_cottonwoods_1835",
+      "file": "plantings/kinzie_cottonwoods_1835.json",
+      "scenes": ["1835"],
+      "note": "The two cottonwoods behind the Kinzie house (T-2766), standing in 1835 without the house: Wau-Bun's 'two immense cotton-wood trees', Hurlbut's 'great cotton-wood trees' of 1836, one of them alive until 1856. At the 1812 record's positions; existence inferred, positions reconstructed (L-kinzie-house-1812-2497)."
+    },
+    {
+      "id": "shore_cottonwood_grove_1835",
+      "file": "plantings/shore_cottonwood_grove_1835.json",
+      "scenes": ["1835"],
+      "note": "Robert G. Clarke's grove of 'perhaps fifty to seventy-five large cottonwoods' on the shore from a little north of Sixteenth to a little south of Eighteenth Street, with its clump of eight or nine (T-2766). Sixty stems dealt by tools/generate_shore_grove_1835.py and re-derived on every commit; existence inferred, positions reconstructed (L-shore-grove-1835-2766)."
+    },
+    {
+      "id": "fort_company_garden_1835",
+      "file": "plantings/fort_company_garden_1835.json",
+      "scenes": ["1835"],
+      "note": "The fort's company gardens 'well filled with currant-bushes and young fruit-trees' (Wau-Bun, 1831), planted inside the garrison garden's committed footprint (T-2809): a border row of young apple and sour cherry and long rows of currants between the vegetable beds. Written by tools/generate_fruit_plantings_1835.py and re-derived on every commit; existence attested, species and positions reconstructed (L-fruit-trees-1835-2809)."
+    },
+    {
+      "id": "harmon_orchard_1835",
+      "file": "plantings/harmon_orchard_1835.json",
+      "scenes": ["1835"],
+      "note": "Dr. Harmon's orchard from 'fruit stones of all descriptions' planted in 1831 inside a sod fence near the lake (Wau-Bun), four seasons on: rows of peach and sour cherry seedlings south of the Sixteenth Street line, west of the shore cottonwood grove (T-2809). Written by tools/generate_fruit_plantings_1835.py; existence inferred, place, species and positions reconstructed (L-fruit-trees-1835-2809). The sod fence is not drawn."
+    },
+    {
       "id": "massacre_cottonwoods_1812",
       "file": "plantings/massacre_cottonwoods_1812.json",
       "scenes": ["1812"],
       "note": "The 1812 scene's one planting (T-0471): the two cottonwood saplings a family tradition, recorded by Moses and Kirkland in 1895, remembered as marking the ground of 15 August 1812. Scoped to scene 1812 so it stands in no other year, and kept out of the zone records so a remembered tree is never read as reconstructed cover. Existence inferred, positions reconstructed; the record says why."
+    },
+    {
+      "id": "shore_cottonwood_grove_1812",
+      "file": "plantings/shore_cottonwood_grove_1812.json",
+      "scenes": ["1812"],
+      "note": "The 1835 shore cottonwood grove at Sixteenth to Eighteenth Street as the young trees it grew from (T-2745): Moses and Kirkland's 'scattered cottonwoods, and here and there a small group or a single tree' on the 1812 shore. The 1835 record's positions at half its heights, z08's dune cottonwood, without the two massacre trees, which massacre_cottonwoods_1812 already stands. Written by tools/generate_shore_grove_1812.py; existence inferred, positions and heights reconstructed (L-woods-1812-2745)."
     },
     {
       "id": "kinzie_house_1812_trees",
@@ -1080,11 +1110,10 @@
       "tree_gallery",
       "tree_columnar",
       "tree_leaning",
-      "thicket_clonal"
-    ],
-    "forms_unimplemented": [
+      "thicket_clonal",
       "vine_drape"
     ],
+    "forms_unimplemented": [],
     "substrates": [
       "soil",
       "saturated_soil",

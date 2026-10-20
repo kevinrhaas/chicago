@@ -33,6 +33,7 @@ import re
 import struct
 import sys
 import tempfile
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -474,6 +475,36 @@ def people_of(scene: str):
     return _people_cache[scene]
 
 
+ROLE_PROFILES = ROOT / "data/humans/role_profiles"
+ROLE_PROFILE_SCHEMA = ROOT / "data/humans/human_role_profile.schema.json"
+
+
+def check_role_profile(profile, where=""):
+    from jsonschema import Draft202012Validator
+    out = [Finding("profile.schema", e.message) for e in Draft202012Validator(load_json(ROLE_PROFILE_SCHEMA)).iter_errors(profile)]
+    if out:
+        return out
+    if where and Path(where).stem != profile["id"]:
+        out.append(Finding("profile.location", "profile filename must equal its id"))
+    seen = set()
+    for period in [profile["period"]] + [a["period"] for a in profile["eligible_assets"]]:
+        if period["earliest_year"] > period["latest_year"]:
+            out.append(Finding("profile.period", "earliest_year is after latest_year"))
+    for asset in profile["eligible_assets"]:
+        if asset["asset_id"] in seen:
+            out.append(Finding("profile.duplicate_asset", "asset eligibility is repeated"))
+        seen.add(asset["asset_id"])
+    return out
+
+
+def role_profiles():
+    return {r["id"]: r for p in sorted(ROLE_PROFILES.glob("*.json")) if isinstance(r := load_json(p), dict) and "id" in r}
+
+
+def period_contains(period, year):
+    return period.get("earliest_year", 9999) <= year <= period.get("latest_year", -9999)
+
+
 def check_instance(rec, c: dict, schema: dict, where: str = "", ctx: dict | None = None) -> list[Finding]:
     from jsonschema import Draft202012Validator
     out: list[Finding] = []
@@ -491,22 +522,43 @@ def check_instance(rec, c: dict, schema: dict, where: str = "", ctx: dict | None
                                f"{p.parent.name}/{p.name} must be instances/{scene}/{rec['id']}.json"))
     if not (SCENES / f"{scene}.json").exists():
         out.append(Finding("instance.unknown_scene", f"scene {scene!r} has no data/scenes/{scene}.json"))
-    people = people_of(scene)
     person = None
-    if people is None:
-        out.append(Finding("instance.no_people_layer",
-                           f"scene {scene!r} has no people layer (data/sidecars/{scene}/people.json) to bind to"))
+    instance_key = (scene, rec["id"])
+    instance_seen = ctx.setdefault("instances", set())
+    if instance_key in instance_seen:
+        out.append(Finding("instance.duplicate_id", "two instances use the same scene/id"))
+    instance_seen.add(instance_key)
+    if "anonymous_profile_id" in rec:
+        available_people = people_of(scene) or {}
+        for candidate in rec["considered_person_ids"]:
+            if candidate not in available_people:
+                out.append(Finding("instance.fallback_person", "considered person does not resolve in this scene"))
+        profiles = ctx.get("profiles") if "profiles" in ctx else ctx.setdefault("profiles", role_profiles())
+        profile = profiles.get(rec["anonymous_profile_id"])
+        if not profile:
+            out.append(Finding("instance.unknown_profile", "anonymous profile does not resolve; do not invent a resident"))
+        else:
+            out.extend(check_role_profile(profile))
+            if rec["role"] not in profile["roles"]:
+                out.append(Finding("instance.profile_role", "role is not allowed by anonymous profile"))
+            if not period_contains(profile["period"], int(scene)):
+                out.append(Finding("instance.profile_date", "anonymous profile is not eligible for this scene date"))
+            asset = next((a for a in profile["eligible_assets"] if a["asset_id"] == rec["appearance"]["asset_id"] and period_contains(a["period"], int(scene))), None)
+            if asset is None:
+                out.append(Finding("instance.profile_asset", "asset/wardrobe has not been accepted for this profile and scene date"))
     else:
-        person = people.get(rec["person_id"])
-        if person is None:
-            out.append(Finding("instance.unknown_person",
-                               f"person {rec['person_id']!r} is not in data/sidecars/{scene}/people.json; this file never mints a person"))
-    key = (scene, rec["person_id"])
-    seen = ctx.setdefault("persons", {})
-    if key in seen:
-        out.append(Finding("instance.duplicate_person",
-                           f"{rec['person_id']!r} already stands in {scene} as {seen[key]!r}"))
-    seen[key] = rec["id"]
+        people = people_of(scene)
+        if people is None:
+            out.append(Finding("instance.no_people_layer", f"scene {scene!r} has no people layer to bind to"))
+        else:
+            person = people.get(rec["person_id"])
+            if person is None:
+                out.append(Finding("instance.unknown_person", f"person {rec['person_id']!r} does not resolve; this file never mints a person"))
+        key = (scene, rec["person_id"])
+        seen = ctx.setdefault("persons", {})
+        if key in seen:
+            out.append(Finding("instance.duplicate_person", f"{rec['person_id']!r} already stands in {scene} as {seen[key]!r}"))
+        seen[key] = rec["id"]
     flagged = bool(person and (person.get("review_required") or person.get("touches_removal")))
     if flagged and not rec["review_required"]:
         out.append(Finding("instance.review_dropped",
@@ -515,9 +567,6 @@ def check_instance(rec, c: dict, schema: dict, where: str = "", ctx: dict | None
         if c["l1"]["in_force"]:
             out.append(Finding("instance.l1",
                                "display `shown` while L1 stands: no human figure is drawn, for anyone (AGENTS.md)"))
-        if rec["review_required"]:
-            out.append(Finding("instance.review_unmet",
-                               "a review_required person is shown before any review is recorded"))
     slots = set(c["materials"]["required"]) | set(c["materials"]["optional"])
     for s in (rec["appearance"].get("variants") or {}):
         if s not in slots:
@@ -794,11 +843,19 @@ def self_test() -> int:
         return check_instance(rec, c, schema, ctx={})
 
     expect(f"a withheld 1835 instance bound to {plain}", ci(inst()), None)
+    shown = inst(display="shown", appearance={"asset_id": "c4d_fixture"})
+    expect("current owner policy permits a shown portable instance", ci(shown), None)
+    reviewed = inst(display="shown", person_id=flagged, id=f"hi_{flagged}_1835",
+                    review_required=True, appearance={"asset_id": "c4d_fixture"})
+    expect("current policy preserves review metadata without blocking display", ci(reviewed), None)
+    expect("shown instance may not drop its person review metadata",
+           ci({**reviewed, "review_required": False}), "instance.review_dropped")
+    emergency = {**c, "l1": {**c["l1"], "in_force": True}}
+    expect("explicit synthetic L1 gate still refuses shown",
+           check_instance(shown, emergency, schema, ctx={}), "instance.l1")
     for label, rec, code in [
-        ("display shown while L1 stands", inst(display="shown"), "instance.l1"),
         ("a person the residents layer does not hold", inst(person_id="nobody_at_all"), "instance.unknown_person"),
         (f"review dropped for {flagged}", inst(person_id=flagged, id=f"hi_{flagged}_1835"), "instance.review_dropped"),
-        ("a scene with no people layer", inst(scene="1904"), "instance.no_people_layer"),
         ("a variant on no contract slot", inst(appearance={"asset_id": "x", "variants": {"cloak": "red"}}),
          "instance.unknown_slot"),
         ("a clip with no contract verb", inst(animation={"clip": "dance"}), "instance.unknown_verb"),
@@ -812,11 +869,19 @@ def self_test() -> int:
          "instance.liberty_missing"),
     ]:
         expect(label, ci(rec), code)
+    # Keep the absent-directory control independent of production scene growth.
+    # 1812 now has the sourced Kinzie elder record, just as1904 has the Glessners.
+    from unittest.mock import patch
+    with patch.dict(_people_cache, {"1812": None}):
+        expect("a scene with no people layer", ci(inst(scene="1812")), "instance.no_people_layer")
     ctx: dict = {}
     check_instance(inst(), c, schema, ctx=ctx)
     expect("the same person standing twice in one scene",
            check_instance(inst(id=f"hi_{plain}_1835_b"), c, schema, ctx=ctx), "instance.duplicate_person")
 
+    anonymous_test = subprocess.run([sys.executable, str(ROOT / "tools/test_human_anonymous.py")], check=False)
+    if anonymous_test.returncode:
+        fails += 1
     print(f"human_contract self-test: {'FAIL' if fails else 'OK'} ({fails} assertion(s) did not fire as required)")
     return 1 if fails else 0
 
@@ -836,6 +901,11 @@ def main(argv: list[str]) -> int:
         for x in f:
             print(f"FAIL contract: {x}")
         bad += len(f)
+        for profile_file in sorted(ROLE_PROFILES.glob("*.json")):
+            findings = check_role_profile(load_json(profile_file), str(profile_file))
+            for finding in findings:
+                print(f"FAIL {profile_file.name}: {finding}")
+            bad += len(findings)
         nb = len(c["skeleton"]["bones"])
         print(f"contract v{c['version']}: skeleton {c['skeleton']['id']} ({nb} bones), "
               f"{len(c['materials']['required'])}+{len(c['materials']['optional'])} material slots, "

@@ -1,8 +1,8 @@
 {
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
-  "glb": "assets/gltf/kimball_house_1801_prairie__draft_1904.glb",
-  "glb_sha256": "bba79601398bcc60d759d2225bf26f4ea0c91590c4de71caa1e67302a321055f",
+  "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
+  "glb_sha256": "10598f977a910354d1fd09b240a53a0d89d89164e55536b83201dd03c73b18ce",
   "camera_sha256": "d89ca0a91bccddd25a0ffa04ea98ff95ec08faec3913c2588f95f158db8cedf3",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
   "verdict": "differs",
@@ -10,47 +10,62 @@
     {
       "what": "the round tower: the photograph's stands on the 18th Street flank about 8 m back from the front, where the 1911 sheet draws a bump in the north wall, its eaves about 12.9 m and its cone to about 18.7 m; the draft put it at the front's north-west corner under an eave about 16 m up",
       "status": "fixed",
-      "how": "T-2538: the tower stood at u 12.6 on the flank, 1.1 m proud as the sheet draws it, eaves 12.9 m, cone 5.8 m; its axis within about 20 px of the photograph's x 698, its apex within about 25 px"
+      "how": "T-2538: the tower stood at u 12.6 on the flank, 1.1 m proud as the sheet draws it, eaves 12.9 m, cone 5.8 m; its axis within about 20 px of the photograph's x 698, its apex within about 25 px; T-2843: carried onto K01 as a K08 tower on the 18th Street wall, axis u 12.6, r 1.45 m, its centre 0.1 m out of the wall, eaves 12.9 m, cone to about 18.8 m; its apex within about 20 px of the photograph's"
     },
     {
       "what": "the main block's height: two storeys of wall to a heavy cornice at about 8.1 m (principal floor 1.45 m up a stair of nine risers), the third storey in the roof; the draft stood three full storeys to an eave at about 12 m",
       "status": "fixed",
-      "how": "T-2538: principal floor 1.45 m, storeys 3.55 and 3.1 m to the cornice at 8.1 m"
+      "how": "T-2538: principal floor 1.45 m, storeys 3.55 and 3.1 m to the cornice at 8.1 m; T-2843: K01's principal floor 1.45 m and storeys 3.55 and 3.1 m, the cornice line within about 10 px of the photograph's along the front"
     },
     {
       "what": "the roof: very steep slate faces rising from the cornice to a flat deck ringed with cresting at about 16-19 m; the draft had a hip about 56 degrees off a 12 m eave",
       "status": "fixed",
-      "how": "T-2538: the builder's 72-degree mansard with a 7.2 m lower face and a low deck, its deck line within about 25 px of the photograph's"
+      "how": "T-2538: the builder's 72-degree mansard with a 7.2 m lower face and a low deck, its deck line within about 25 px of the photograph's; T-2843: a K05 mansard whose straight 72-degree faces hold two storeys (lower rise 7.2 m), a low tin deck over them; its faces within about 15 px of the photograph's and its peak about 1 m over the deck's line"
     },
     {
       "what": "the south pavilion: three storeys of wall at the south end of the front under a steep coped stone gable, its apex about 17 m",
       "status": "fixed",
-      "how": "T-2538: part p_south, three storeys to 13.9 m under a 58-degree gable facing the avenue; its gable within about 30 px of the photograph's"
+      "how": "T-2538: part p_south, three storeys to 13.9 m under a 58-degree gable facing the avenue; its gable within about 30 px of the photograph's; T-2843: a K08 projection flush with the south corner, three storeys to 13.9 m with paired lights, its face within about 15 px of the photograph's x 1235-1345 (its gable is open below)"
     },
     {
       "what": "the 18th Street flank: a three-storey section east of the tower and a gabled section beyond it, then a lower two-storey east range; the draft ran the whole flank at one height",
       "status": "fixed",
-      "how": "T-2538: parts p_flank and r3 at three storeys, r2 at two, eaves 13.9 and 8.1 m"
+      "how": "T-2538: parts p_flank and r3 at three storeys, r2 at two, eaves 13.9 and 8.1 m; T-2843: the section on a K08 projection to 13.9 m (6.0 m wide, against the tower), the gabled section and the east range as slated K01 wings at three and two storeys"
     },
     {
       "what": "the east turret: a small round turret under a cone at the flank's north-east corner, its eaves about 8 m and its apex about 12.7 m; the draft had none",
-      "status": "fixed",
-      "how": "T-2538: a 1.3 m turret on the sheet's second bump, eaves 8.1 m, cone to 12.8 m; its axis within about 20 px of the photograph's"
+      "status": "open",
+      "how": "T-2900: the photograph shows the turret's eaves level with the range's (about 8.0 m), a turret turned round the wing's corner; K08's tower on a wing's wall must stand 1.0 m past the wing's eave (T-2842), so the K01 build has none where the draft had one"
     },
     {
       "what": "the corner entrance: an open loggia at the front's north-west corner, one round arch on each face, and a broad stair of about nine risers between curved cheek walls coming down the front; the build has a flat door and a straight stoop",
-      "status": "open",
-      "how": "T-2539"
+      "status": "fixed",
+      "how": "T-2910: a loggia behind two round arches, one on each face, each 1.9 m across centred 1.6 m from the corner and crowned 3.6 m (2.15 m over the 1.45 m floor) under a voussoir ring and keystone, within about 10 px of the photograph's arches; the room behind them with its double door in the back wall, seen through the 18th Street arch where the photograph shows the door frame; the stone balcony corbelled under the 18th Street arch; nine risers of 0.161 m coming down the front out of the front arch, 2.3 m broad, between cheeks that run level by the arch and sweep down to blocks at the foot, the foot within about 15 px of the photograph's"
     },
     {
-      "what": "the bowed bay in the middle of the front, two storeys under a balcony, and the front's openings: paired and mullioned windows in carved surrounds, the carved frieze over the principal storey; the build has the draft's evenly spaced sash. The sheet's bulge (v 4.8-10.2) and the photograph's bay (about 60 px further north) disagree about where it stands",
+      "what": "the loggia's carving: the archivolts' mouldings, the carved piers and panels beside and over both arches, the carved blocks at the cheeks' foot and the balcony's carved face; the build lays them in plain stone under a voussoir ring",
       "status": "open",
-      "how": "T-2539"
+      "how": "T-2923"
+    },
+    {
+      "what": "the front's carving: the carved pilasters beside the bow and the pavilion, the moulded surrounds of the bow's lights and the pavilion's pairs, and the carved frieze over the principal storey over the loggia; the build lays them in plain stone",
+      "status": "open",
+      "how": "T-2931 (the pilasters and surrounds), T-2932 (the frieze)"
+    },
+    {
+      "what": "the bow balcony's pierced panels: the print's balustrade on the bow is pierced in a diagonal lattice of diamonds between posts, one post showing a quarter of the way round from the north wall; the build had square stone balusters",
+      "status": "fixed",
+      "how": "T-2930: K08's stone balustrade with four pierced panels between five posts, each a diagonal lattice of 0.05 m straps crossing at 0.16 m in two staggered rows of diamonds, on a 0.10 m base course under a 0.13 m coping; the seen post within about 5 px of the print's (x 1191 against 1186-1190), about five diamonds across a panel as the print shows, the coping within about 10 px of the print's. The balustrade runs on past the print's pilaster at x 1231 to x 1270, where the pavilion's carved pilaster (T-2931) is not built to hide it"
+    },
+    {
+      "what": "the bowed bay in the middle of the front, two storeys under a balcony, and the front's openings: paired and mullioned windows; the build has the draft's evenly spaced sash. The sheet's bulge (v 4.8-10.2) and the photograph's bay (about 60 px further north) disagree about where it stands",
+      "status": "fixed",
+      "how": "T-2921: a K08 bow 3.4 m on its chord centred at v 5.05 and 0.8 m out, where the photograph has it (its outline within about 5 px of the print's at the north junction, x 1130, and at the pavilion's pilaster, x 1245); one transomed light a storey, 1.5 m clear, turned 20 degrees toward 18th Street so each fills the face the print shows (x 1153-1230 against the render's 1155-1225), the principal storey's 2.4 m from 1.75 m and the second's 2.15 m from 5.4 m, their heads within about 5 px; the bow carried to 8.7 m under K10's moulded stone cornice, which the print wraps round it over a frieze, and a 0.6 m stone balustrade on it, its coping within about 8 px of the print's; the pavilion's windows one mullioned and transomed pair a storey, 2.0 m clear, centred on its face, their heads within about 10 px"
     },
     {
       "what": "all-stone walls: Bedford stone laid in courses on the front and the flank alike, with string courses and the corbel table; the build is the draft's flat stand-in stone",
-      "status": "open",
-      "how": "T-2539"
+      "status": "fixed",
+      "how": "T-2843: an all-stone K01 house in K02's Bedford stone, coursed round every face; the string courses and the corbel table stay open under T-2790 and T-2540"
     },
     {
       "what": "the tower's form: a shaft about 2.4 m across under a corbelled upper stage about 3.6 m across, its cone flaring from the stage; the build is one eight-sided prism 2.9 m across",
@@ -76,6 +91,26 @@
       "what": "colour: the stone's tone and the slate's",
       "status": "not shown",
       "how": "a monochrome print"
+    },
+    {
+      "what": "the south pavilion's coped stone gable over its third storey, its apex about 17 m with a carved panel and finial; the build caps the pavilion with K08's low hip at its 13.9 m wall top, where the draft had a steep gable",
+      "status": "open",
+      "how": "T-2540"
+    },
+    {
+      "what": "the main cornice: a heavy moulded stone cornice under the roof's faces; the build's eave is K05's plain fascia and soffit (K10's moulded stone cornice stands only under a flat or gable roof)",
+      "status": "open",
+      "how": "T-2540"
+    },
+    {
+      "what": "the pavilion and the flank section stand about 0-0.4 m proud on the sheet; the build stands both 0.6 m proud (K08's pavilion depth, the least its window recesses fit in), and the main eave dies behind their faces, and the flank section is 6.0 m wide (K08's widest) against the photograph's about 7.8 m, short of the gabled section",
+      "status": "open",
+      "how": "L-kimball-1801-k01-2843; T-2540 reads the flank's sections"
+    },
+    {
+      "what": "the east range runs on south behind the gabled section to v 18.3 on the sheet; the build stops it at the gabled section's 6 m (a K01 wing stands inside its host wall); not seen from this camera",
+      "status": "not shown",
+      "how": "T-2900"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -9,6 +9,11 @@
   "asset": "gltf/house_1628_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -20,14 +25,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1367.031,
-    "local_n": -3046.179,
+    "local_e": 1368.161,
+    "local_n": -3044.789,
     "rotation_deg": -0.579,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 33.750, v -2.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation -0.579 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 33.750, v -2.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation -0.579 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1628 S. Prairie Avenue, parcel prairie_1628 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -372,5 +377,6 @@
   ],
   "research_note": "T-2355 (piece 1 of T-1862) refines the district draft (T-2334) in place under the same id: the main body is rebuilt from the K01 frontage assembly and its kits — K03 brick on all four walls, K06 sash, K07 door and stoop, K09 window heads, K10 bracketed cornice, a K04/K05 hip — instead of the draft builder, as T-2353 built 1616. What is read: the 1911 Sanborn sheet 20 (storeys '3B', brick, the south half of a pair attached to 1626, the traced main body) through the T-1840 census. Its north wall is the party wall it shares with 1626 and is built blank. Everything else is reconstructed and recorded as L-k01-1628-brick-front-2355. T-2391 stands the piece the sheet draws behind the north part of the rear wall on K01's rear wings (T-2343): the census row s20-1628-a1 reads it '1B brick rear piece', one storey over a basement, where the draft had drawn it three storeys by its own rule. No photograph, plate or description of 1628 has been read; a later reading that finds one replaces the kit's choices here.",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1628 Prairie Avenue — brick house, the south half of the pair with 1626"
 }

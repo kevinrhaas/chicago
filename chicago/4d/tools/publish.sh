@@ -265,6 +265,15 @@ for sheet in props/signboard_weathered timber/heavy_timber_weathered; do
         "$dst/"
 done
 
+# The grown trees' leaf and bark atlases (T-2743). `renderers/web/js/tree-instances.js`
+# resolves them against the asset base as the roof relief above does. Missing here, every
+# tree in every year draws untextured, with a recorded problem.
+mkdir -p "$SITE/data/textures/trees"
+# Each with its .ktx2 beside it: a visitor downloads one of the pair (js/ktx2.js).
+for map in leaf_atlas bark_basecolor bark_normal; do
+  cp -f "assets/textures/trees/$map.webp" "assets/textures/trees/$map.ktx2" "$SITE/data/textures/trees/"
+done
+
 # scenes, sidecars, datum (the renderer needs the origin for sun position).
 # Keep the scenes/ subdirectory — the renderer fetches data/scenes/<year>.json,
 # and flattening it here 404s the published build while the source tree works.
@@ -272,12 +281,25 @@ mkdir -p "$SITE/data/scenes"
 cp -f data/scenes/*.json "$SITE/data/scenes/" 2>/dev/null || true
 rm -f "$SITE"/data/[0-9]*.json
 cp -f data/datum.json "$SITE/data/"
+# T-2741: today's streets (the City of Chicago's centrelines, clipped by
+# tools/build_modern_streets.py), which the compass readout and the maps show in every year.
+mkdir -p "$SITE/data/modern"
+cp -f data/modern/streets.json "$SITE/data/modern/"
 # T-2200 frozen metric/photo comparison, consumed by the isolated review page.
 mkdir -p "$SITE/data/comparisons/glessner"
 cp -f data/comparisons/glessner/*.json "$SITE/data/comparisons/glessner/"
 # The liberties list the Evidence panel reads. Derived from docs/LIBERTIES.md,
 # which itself stays out of the payload.
 cp -f data/liberties.json "$SITE/data/"
+# The reader's overlay (T-2825): the edits that say each research note of the records a page
+# reads as authored — plants, wildlife, households and a person's card, a firm's record, a
+# building's card — without a ticket number, a record id or a file path. DERIVED HERE, not
+# committed (data/reader/ is ignored), from the records as they stand, so it never lags a
+# note; js/reader-text.js fetches a family's file the first time one of its records opens.
+# A failure stops the publish: a page without its overlay shows the builders' notes.
+python3 tools/compile_reader_text.py >/dev/null
+mkdir -p "$SITE/data/reader"
+cp -f data/reader/*.json "$SITE/data/reader/"
 # The pictures of each building, for the card's Images tab (T-2389). DERIVED HERE, not
 # committed: the Prairie library and data/sources/ change under other tickets, so the
 # file is made from what this tree holds at the moment it ships. Fetched by the card on
@@ -285,6 +307,14 @@ cp -f data/liberties.json "$SITE/data/"
 python3 tools/compile_pictures.py >/dev/null
 mkdir -p "$SITE/data/pictures"
 cp -f data/pictures/*.json "$SITE/data/pictures/"
+# The building summaries the Inspect app reads (T-2635): one file per scene, compiled from
+# the authored data/summaries/ records by the same gate check.sh runs, so a record the gate
+# refuses stops the publish rather than reaching a visitor. DERIVED HERE, not committed
+# (data/inspect/ is ignored): it resolves source citations and the people directory, which
+# other tickets change. Every scene gets a file, empty or not, so the app's fetch never 404s.
+python3 tools/compile_summaries.py --build >/dev/null
+mkdir -p "$SITE/data/inspect"
+cp -f data/inspect/*.json "$SITE/data/inspect/"
 # The town census the gate screen shows — buildings standing and people housed
 # (T-0036). Derived by tools/town_census.py and re-derived by tools/check.sh; the
 # gate fetches it, so leaving it out of the mirror is a 404 on the deployed site
@@ -560,10 +590,28 @@ fi
 # T-1275: compact optional loading library, never research assets.
 mkdir -p "$SITE/data/loading"
 cp data/loading/statuses.json "$SITE/data/loading/statuses.json"
+# T-2611: the arrival's time-stream decks, one per destination. js/time-stream.js fetches
+# data/timestream/<year>.json while the scene loads; tools/check_timestream.py gates them.
+mkdir -p "$SITE/data/timestream"
+cp -f data/timestream/*.json "$SITE/data/timestream/"
+# T-2662: the Guide's glossary and questions, data/guide/ (tools/check_guide.py gates them);
+# the Guide reads faq.json the first time it opens.
+mkdir -p "$SITE/data/guide"
+cp -f data/guide/*.json "$SITE/data/guide/"
 
 if [ -d data/flora ]; then
   rm -rf "$SITE/data/flora"
   cp -a data/flora "$SITE/data/flora"
+fi
+
+# Portable humans use the same data/ asset base as other renderer layers.
+# Only compressed deliveries travel here; authored Blender/input files and GLB
+# masters stay in the repository. No human layer or placement is enabled by this.
+rm -rf "$SITE/data/humans"
+mkdir -p "$SITE/data/humans/web"
+cp -a data/humans/. "$SITE/data/humans/"
+if [ -d assets/humans/web ]; then
+  cp -a assets/humans/web/. "$SITE/data/humans/web/"
 fi
 
 # The animal layer (ROADMAP K51). Same argument as the residents above, and it
@@ -618,6 +666,16 @@ if meta not in s or not vs:
 s = s.replace(meta, f'<meta name="c4d-releases" content="{releases}">')
 p.write_text(s)
 PYEOF
+  # THE DEVELOPER NOTES STAY IN THE SOURCE. renderers/web/index.html carries about
+  # 13 KB of HTML comments — why each line is the way it is, for the next editor —
+  # and the doors below ship this page five times over. They are byte-identical on
+  # purpose, so validate.py's site check (T-0722) refuses them once they reach its
+  # 64 KB floor, which PR #1030's markup did. The shipped page drops its comments
+  # instead: placeholders and conditional comments stay, and nothing inside
+  # <script>, <style>, <textarea> or <pre> is touched. It runs after the stamp and
+  # before the doors, so every door is a copy of the stripped page.
+  # `strip_page_comments.mjs --check` (check.sh) holds the shipped form to the source.
+  node tools/strip_page_comments.mjs "$SITE/walk/index.html"
 fi
 # THE FRONT DOORS (chicago.polecat.live). The renderer lives at walk/, but nobody is
 # sent there: /4d/ and /4d/<year>/ are copies of the STAMPED walk/index.html carrying a
@@ -643,6 +701,25 @@ cat > "$SITE/build.json" <<JSON
   "built_ct": "$BUILD_CT"
 }
 JSON
+
+# THE TOWN'S TIMBER, PREBUILT (T-2677). Laying the frontage's boards over the
+# terrain was one main-thread task at every boot — 3.3 s at the steward runner's
+# 4x CPU throttle — with the same answer for every visitor. The page's own
+# builder runs here instead, in Node (byte-equal to the page's build, T-2676),
+# and the page uploads data/prebuilt/<year>/frontage.bin when the index carries
+# THIS build's id and the records it read hash to the ones listed. Everything
+# else, and any page whose check fails, builds in the browser as before.
+# check_published.mjs refuses a prebuild whose inputs have since moved.
+rm -rf "$SITE/data/prebuilt"
+# T-2693: and the ground's tiles, cut into the page's 40 m pieces, which the page
+# uploads in place of the ground GLB (terrain.js § THE GROUND, PREBUILT).
+# T-2709: and the distant base, laid over frontage's crossings and cut into its
+# pieces, which createTerrain batches in place of its own grid and cut.
+# T-2710: and the streets' surfaces, one buffer per layout, which the page batches
+# instead of laying the road (streets.js § THE STREETS, PREBUILT).
+# T-2711: and the yards' five surfaces, which the page uploads in place of laying
+# them (yards.js § THE YARDS, PREBUILT).
+node tools/prebuild_layers.mjs --out "$SITE/data/prebuilt" --build "$BUILD_VERSION" --gzip --layer frontage,ground,base,streets,yards
 
 echo "   build $BUILD_VERSION  $BUILD_CT"
 

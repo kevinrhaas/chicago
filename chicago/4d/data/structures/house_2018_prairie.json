@@ -28,15 +28,15 @@
         "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1842 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
       },
       "position": {
-        "utm_e": 448433.934,
-        "utm_n": 4633854.256,
+        "utm_e": 448433.935,
+        "utm_n": 4633854.131,
         "rotation_deg": -0.593,
         "symbolic_location": "2018 S. Prairie Avenue, parcel prairie_2000 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 20th to 22nd Street (Sanborn 1911 vol. 3 sheet 35).",
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "The rear corner of the main body's rectangle (lot frame u 20.250, v -28.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.593 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The rear corner of the main body's rectangle (lot frame u 20.250, v -28.625 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.593 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
@@ -54,18 +54,18 @@
           ],
           [
             21.25,
-            5.25
+            5.5
           ],
           [
             0.0,
-            5.25
+            5.5
           ]
         ],
         "confidence": "inferred",
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front), widened to 5.5 m along the front because the fitted strip was narrower than any house of the avenue (T-2690). The building's other rectangles are in draft_plan."
       },
       "form": {
         "stories": {
@@ -96,7 +96,7 @@
                   0.0,
                   0.0,
                   21.25,
-                  5.25
+                  5.5
                 ],
                 "from": "s35fp-2000-b3 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 62% of its fill"
               },
@@ -106,17 +106,17 @@
                 "storeys": 3,
                 "roof": "flat",
                 "rect": [
-                  23.0,
-                  0.5,
+                  21.25,
+                  0.625,
                   24.5,
-                  4.75
+                  4.875
                 ],
                 "from": "s35fp-2000-b3 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 79% of its fill"
               }
             ],
             "lot_v": [
-              -1.915,
-              58.915
+              -1.79,
+              59.04
             ],
             "street_u": 33.878
           },

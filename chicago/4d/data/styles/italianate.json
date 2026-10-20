@@ -1,0 +1,93 @@
+{
+  "id": "italianate",
+  "name": "Italianate",
+  "description": {
+    "text": "Built on Prairie Avenue in the 1860s, before mansard roofs took over. Look up at the deep eaves.",
+    "grade": "inferred",
+    "sources": [
+      "hmdb_prairie_lost_houses_1800_1900_west",
+      "glessner_blog_2015_08_van_osdel",
+      "glessner_blog_2022_01_burley_tyrrell",
+      "hmdb_prairie_heritage_preserved"
+    ],
+    "note": "The two houses a source calls Italianate were built in 1866 and 1868. The marker says 1834 Prairie got its mansard in 1886. That was to keep in fashion with its neighbors. Another marker says Second Empire ruled the street by the 1880s."
+  },
+  "cues": [
+    {
+      "text": "Deep eaves on carved brackets",
+      "grade": "inferred",
+      "sources": [
+        "glessner_blog_2015_08_van_osdel",
+        "glessner_blog_2022_01_burley_tyrrell",
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "note": "Both houses a source calls Italianate show them. One is 1834 Prairie, in a photograph from before 1886. The other is 1720 Prairie, in an undated photograph."
+    },
+    {
+      "text": "A low gable over the middle",
+      "grade": "inferred",
+      "sources": [
+        "glessner_blog_2015_08_van_osdel",
+        "glessner_blog_2022_01_burley_tyrrell",
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "note": "Both houses a source calls Italianate show one. It sits over the middle of the front. At 1834 Prairie it holds a round window."
+    },
+    {
+      "text": "Tall windows with curved hoods",
+      "grade": "inferred",
+      "sources": [
+        "glessner_blog_2015_08_van_osdel",
+        "glessner_blog_2022_01_burley_tyrrell",
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "note": "Both houses a source calls Italianate show them. 1834 Prairie has stone hoods. 1720 Prairie has hoods over its round-topped windows."
+    },
+    {
+      "text": "A bay window at one corner",
+      "grade": "inferred",
+      "sources": [
+        "glessner_blog_2015_08_van_osdel",
+        "glessner_blog_2022_01_burley_tyrrell",
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "note": "Both houses a source calls Italianate show one. 1834 Prairie has a low angled bay. 1720 Prairie has a tall one."
+    }
+  ],
+  "plate": {
+    "picture": "a16-cgy-tribune-1898-prairie-widows",
+    "structure": "walker_house_1720_prairie",
+    "scene": "1904",
+    "record": "chicago_tribune_1898_01_09_prairie_widows",
+    "caption": "Five Prairie Avenue fronts in 1898. The middle one, 1720, is Italianate.",
+    "grade": "attested",
+    "sources": [
+      "chicago_tribune_1898_01_09_prairie_widows",
+      "glessner_blog_2022_01_burley_tyrrell"
+    ]
+  },
+  "compare": [
+    {
+      "name": "Second Empire",
+      "style": "second_empire",
+      "text": "Came next. 1834 Prairie got a mansard in 1886 to keep up.",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west",
+        "hmdb_prairie_heritage_preserved"
+      ]
+    },
+    {
+      "name": "Richardsonian Romanesque",
+      "style": "richardsonian_romanesque",
+      "text": "Rough stone and round arches. See Glessner House, built 1887.",
+      "grade": "inferred",
+      "sources": [
+        "hmdb_prairie_heritage_preserved",
+        "inland_architect_1888_10_ames_residence",
+        "habs_glessner_photo_13_north_1965"
+      ],
+      "note": "The district marker calls Glessner House Romanesque and dates it 1887. Rough stone and round arches are what the two houses it calls Romanesque share, as that style's own card says."
+    }
+  ]
+}

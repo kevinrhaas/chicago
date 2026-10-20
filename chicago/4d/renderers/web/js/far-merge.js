@@ -79,6 +79,9 @@
  * merged layers' vertex data.
  */
 import * as THREE from 'three';
+import { compactStreams } from './compact-streams.js';
+
+const { boxedPositionAt } = compactStreams(THREE);
 
 /**
  * How far a cluster may reach, in metres. Bigger clusters save more calls and
@@ -115,7 +118,12 @@ function signatureOf(mesh) {
   if (geo.groups && geo.groups.length > 1) return null;
   const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
   if (mats.length !== 1 || !mats[0]) return null;
-  return `${mats[0].uuid}|${geo.index ? 'i' : 'n'}|${attrs.join(',')}`;
+  // A boxed mesh (T-2700) is a mesh too wide for one box, so its sphere spans
+  // more of the town than a cluster does, and in a bucket beside chunks of the
+  // same streams it would hold their cluster out of every merge it could take.
+  // It buckets with boxed meshes only, as it did beside the float chunks it was.
+  const boxed = geo.userData?.positionBoxes ? '|boxed' : '';
+  return `${mats[0].uuid}|${geo.index ? 'i' : 'n'}|${attrs.join(',')}${boxed}`;
 }
 
 /** The relative transform from a mesh's own space into its parent group's. */
@@ -155,10 +163,16 @@ function mergeGeometries(members, group) {
   const dst = {};
   for (const name of names) {
     const src = first.attributes[name];
-    const array = new src.array.constructor(verts * src.itemSize);
+    // A quantized position (Int16 x 4 over each member's own box, T-2687, or over each piece's, T-2700) is
+    // written out as float32 metres in the group's frame: the members are on
+    // different grids and the merged mesh has no matrix of its own.
+    const asFloat = name === 'position' && src.normalized;
+    const size = asFloat ? 3 : src.itemSize;
+    const array = asFloat ? new Float32Array(verts * 3) : new src.array.constructor(verts * size);
     // Written through an attribute so a compact normal (Int8 x 4 normalized,
     // T-2569) is re-encoded at its own stride, not overwritten as float xyz.
-    dst[name] = { array, at: 0, src, attr: new THREE.BufferAttribute(array, src.itemSize, src.normalized) };
+    dst[name] = { array, at: 0, src, size,
+      attr: new THREE.BufferAttribute(array, size, asFloat ? false : src.normalized) };
   }
   const idx = indexed
     ? (verts > 65535 ? new Uint32Array(indices) : new Uint16Array(indices))
@@ -171,23 +185,31 @@ function mergeGeometries(members, group) {
     const geo = mesh.geometry;
     const rel = relativeMatrix(mesh, group);
     const moved = !rel.equals(_identity);
-    if (moved) nrm.getNormalMatrix(rel);
+    // A quantized chunk's matrix (T-2687) is a move and a uniform scale and
+    // turns nothing, so its normals are copied as they are rather than turned
+    // through the identity and re-rounded.
+    const e = rel.elements;
+    const turned = moved && !(e[1] === 0 && e[2] === 0 && e[4] === 0 && e[6] === 0
+      && e[8] === 0 && e[9] === 0 && e[0] > 0 && e[0] === e[5] && e[0] === e[10]);
+    if (turned) nrm.getNormalMatrix(rel);
     const count = geo.attributes.position.count;
     for (const name of names) {
       const src = geo.attributes[name];
       const slot = dst[name];
       if (!src || src.itemSize !== slot.src.itemSize) return null;
-      if (moved && (name === 'position' || name === 'normal')) {
+      // A quantized position is decoded even where its matrix happens to be identity.
+      if ((name === 'position' && (moved || slot.size !== src.itemSize))
+        || (name === 'normal' && turned)) {
         for (let i = 0; i < count; i++) {
-          p.fromBufferAttribute(src, i);
-          if (name === 'position') p.applyMatrix4(rel);
-          else p.applyMatrix3(nrm).normalize();
-          slot.attr.setXYZ(slot.at / src.itemSize + i, p.x, p.y, p.z);
+          // A boxed member (T-2700) reads each vertex through its own box first.
+          if (name === 'position') boxedPositionAt(geo, i, p).applyMatrix4(rel);
+          else p.fromBufferAttribute(src, i).applyMatrix3(nrm).normalize();
+          slot.attr.setXYZ(slot.at / slot.size + i, p.x, p.y, p.z);
         }
       } else {
         slot.array.set(src.array.subarray(0, count * src.itemSize), slot.at);
       }
-      slot.at += count * src.itemSize;
+      slot.at += count * slot.size;
     }
     if (indexed) {
       const src = geo.index;
@@ -201,6 +223,14 @@ function mergeGeometries(members, group) {
     out.setAttribute(name, slot.attr);
   }
   if (indexed) out.setIndex(new THREE.BufferAttribute(idx, 1));
+  // Where the members keep their confidence when it is not a float stream
+  // (T-2689, compact-streams.js): the colour's fourth lane, or one grade for the
+  // whole geometry. Carried when every member agrees, so `confidenceOf` reads
+  // the merged mesh as it read its members.
+  for (const key of ['confidenceLane', 'confidence']) {
+    const v = first.userData?.[key];
+    if (v !== undefined && members.every((m) => m.geometry.userData?.[key] === v)) out.userData[key] = v;
+  }
   out.computeBoundingSphere();
   out.computeBoundingBox();
   return out;

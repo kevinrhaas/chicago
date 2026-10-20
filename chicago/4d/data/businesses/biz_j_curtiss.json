@@ -94,8 +94,8 @@
       "from": "1835-05-20",
       "to": null,
       "tier": "inferred",
-      "basis": "Placeable against the committed town. The landmark is another documented business (business_jones_king_co), which places this one exactly as well as that one is placed.",
-      "limit_reason": "The register places this house against business_jones_king_co and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "basis": "Placeable against the committed town. The landmark is another documented business (business jones king co), which places this one exactly as well as that one is placed.",
+      "limit_reason": "The register places this house against Jones, King & Co. and the town holds no roof of its own for it, so the landmark is as far as the reading goes.",
       "anchor": {
         "kind": "business",
         "id": "biz_jones_king_co",

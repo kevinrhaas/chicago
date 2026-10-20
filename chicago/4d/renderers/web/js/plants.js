@@ -35,6 +35,7 @@
  */
 
 import { citationItems, escapeHtml } from './citations.js';
+import { loadReaderText, readerCopy } from './reader-text.js';
 
 /** A closed-set token as a reader should see it: `shrub_low` → `shrub low`. */
 function words(token) {
@@ -269,7 +270,7 @@ function zoneHtml(zone, vocab, clampByZone, ceilingPerM2, citationsById) {
 
   return `<details class="lib fauna-zone plant-zone" data-source-entity="${escapeHtml(zone.id)}">
     <summary>
-      <span class="lib-id">${escapeHtml(String(zone.id || ''))}</span>
+      ${'' /* T-2825: the zone's record id is not a word for a reader; its name follows */}
       <span class="lib-title">${escapeHtml(zone.name || zone.id)}</span>
       <span class="lib-scope">${species.length} species</span>
       ${clampChip}
@@ -337,8 +338,7 @@ export async function mountPlants({ mount, noteMount = null, sceneId, dataBase, 
   const fail = (message) => {
     problems.push(`plants: ${message} — what grows in 1835 is not shown`);
     if (mount) {
-      mount.innerHTML = '<p class="legend-note">The plant records could not be loaded. '
-        + 'They are committed at <code>data/flora/</code>.</p>';
+      mount.innerHTML = '<p class="legend-note">The plant records could not be loaded.</p>';
       mount.removeAttribute('aria-busy');
     }
     if (noteMount) {
@@ -348,10 +348,13 @@ export async function mountPlants({ mount, noteMount = null, sceneId, dataBase, 
     return { zones: 0, species: 0, clamped: 0, error: message };
   };
 
+  // T-2825: every record below is said for a reader, by the overlay the gate lints
+  // (reader-text.js), as it arrives. A missing overlay shows the records as authored.
+  const reader = loadReaderText(dataBase, 'flora', problems);
   const getJson = async (rel) => {
     const res = await fetch(new URL(rel, dataBase), { cache: 'no-cache' });
     if (!res.ok) throw new Error(`${rel}: ${res.status} ${res.statusText}`);
-    return res.json();
+    return readerCopy(await res.json(), await reader);
   };
 
   let index;

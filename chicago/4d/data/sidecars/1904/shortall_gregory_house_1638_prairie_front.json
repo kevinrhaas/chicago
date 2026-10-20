@@ -12,6 +12,15 @@
   "asset": "gltf/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 3 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a16-cgy-1638-gothic-photo",
+      "a16-cgy-1700-1706-townhouses",
+      "a16-ghm-blog-1700-1706-construction-1901"
+    ]
+  },
   "documented_range": {
     "from": "1868-01-01",
     "to": "1944-12-31",
@@ -23,14 +32,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1378.215,
-    "local_n": -3079.055,
+    "local_e": 1379.347,
+    "local_n": -3077.663,
     "rotation_deg": -0.815,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The south end of the house's front wall, read off the committed sheet 20 raster at pixel (3103.3, 3722.7) — the front wall line (column 3103.3) meeting the south wall line (row 3722.7) — and carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json, 2.46 m RMS): local E 1378.215, N -3079.055. The front stands 10.8 m behind the Prairie Avenue line (column 3316, the parcel's street corner) and its north wall 0.36 m inside the lot's north line, as the sheet draws. The bearing is the sheet's own rotation in that fit (0.815 degrees), so the front runs along the sheet's ruled lines.",
+    "position_note": "The south end of the house's front wall, read off the committed sheet 20 raster at pixel (3103.3, 3722.7) — the front wall line (column 3103.3) meeting the south wall line (row 3722.7) — and carried to the local frame by the sheet's fitted similarity (data/traces/gcp/sanborn_1911_v3_sheet_20_gcps.json, 3.08 m RMS): local E 1379.347, N -3077.663. The front stands 10.8 m behind the Prairie Avenue line (column 3316, the parcel's street corner) and its north wall 0.36 m inside the lot's north line, as the sheet draws. The bearing is the sheet's own rotation in that fit (0.815 degrees; T-2691 joined it to sheet 28 at 18th Street by a shift alone), so the front runs along the sheet's ruled lines.",
     "symbolic_location": "1638 S. Prairie Avenue: west side of Prairie between 16th and 18th Streets, parcel prairie_1638 (data/street_grid/1904.json), Lot 1, block 2 of E. L. Sherman's Sub.; the front's south end, on its wall line, at grade.",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -977,5 +986,6 @@
   ],
   "research_note": "T-2323 — the first house built in the scene from the K16 timber kit (data/components/prairie_1904/k16_timber.json, T-2322): piece 2 of T-1858. It is the street front's timber fabric — the Gothic gable with its pierced bargeboards and shingle bands, the clapboard wall beside it with its corner, and the porch — closed behind it since T-2395 (a piece of T-1864's envelope) in the kit's timber: both ranges' clapboard flanks, a rear gable, the main roof carried back on the front gable's rake and a lean-to over the north range. The sheet's rear pieces stand against it since T-2397: the rear range widened to 6.49 m, a two-storey projection on the south flank and three one-storey pieces on decks. The corner tower stands since T-2396. Since T-2423 (a piece of T-1865) the gable carries what the photograph shows on it — two pointed lights under an ogee hood and finial, the blind oval, and clapboard to the rake — read through the camera solved for it in data/reference_views/; since T-2425 its entrance under the tower is the print's — a pointed arch on broad posts with pierced quatrefoil spandrels, a glazed double door and a stoop between cheek walls; since T-2456 (piece 1 of T-2426) its street line carries the print's fence — two gate piers with pierced caps and iron finials either side of an open gateway, iron bars on a stone base; since T-2523 it stands on its basement, the floor 1.55 m over the walk and the stoop ten risers, matched through a camera re-solved on those steps, the porch and tower re-read through it; T-2160's district draft keeps this record's id.",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "Shortall-Gregory house (1638 Prairie Avenue): the timber house"
 }

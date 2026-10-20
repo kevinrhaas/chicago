@@ -105,10 +105,34 @@ async function measure() {
   });
   try {
     const context = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+    // T-2693's before: the ground prebuild refused, so the page fetches and cuts
+    // the ground GLB itself, as dev did. Refused here, so never counted or failed.
+    if (process.argv.includes('--no-prebuilt-ground')) {
+      await context.route('**/data/prebuilt/*/ground.*', (route) => route.fulfill({ status: 404, body: '' }));
+    }
+    // T-2709's before: the distant base's prebuild refused, so the page lays and cuts its own.
+    if (process.argv.includes('--no-prebuilt-base')) {
+      await context.route('**/data/prebuilt/*/base.*', (route) => route.fulfill({ status: 404, body: '' }));
+    }
+    // T-2710's before: the streets prebuild refused, so the page lays its own road.
+    if (process.argv.includes('--no-prebuilt-streets')) {
+      await context.route('**/data/prebuilt/*/streets.*', (route) => route.fulfill({ status: 404, body: '' }));
+    }
+    // T-2711's before, the same way: the yards refused, so the page lays its own.
+    if (process.argv.includes('--no-prebuilt-yards')) {
+      await context.route('**/data/prebuilt/*/yards.*', (route) => route.fulfill({ status: 404, body: '' }));
+    }
     const page = await context.newPage();
     const failures = [];
-    page.on('requestfailed', (r) => failures.push(`${r.url()} ${r.failure()?.errorText}`));
-    page.on('response', (r) => { if (r.status() >= 400) failures.push(`${r.url()} HTTP ${r.status()}`); });
+    // A layer refused above is the before being measured, not a failure.
+    const refused = (url) => [['--no-prebuilt-ground', 'ground'], ['--no-prebuilt-base', 'base'], ['--no-prebuilt-streets', 'streets'], ['--no-prebuilt-yards', 'yards']]
+      .some(([flag, layer]) => process.argv.includes(flag) && new RegExp(`/data/prebuilt/\\d{4}/${layer}\\.`).test(url));
+    page.on('requestfailed', (r) => { if (!refused(r.url())) failures.push(`${r.url()} ${r.failure()?.errorText}`); });
+    page.on('response', (r) => {
+      if (r.status() >= 400 && !refused(r.url())) {
+        failures.push(`${r.url()} HTTP ${r.status()}`);
+      }
+    });
     await page.goto(`http://127.0.0.1:${port}/walk/?year=1835`, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 90000 });
     await page.waitForTimeout(SETTLE_MS);

@@ -1,9 +1,9 @@
 /** Destination-scoped arrival copy. Historical cards cite the existing research layer. */
 import { EARLY_ENTRIES } from './loading-early.js';
+import { t } from './strings/index.js';
+import './strings/arrival.js';
 export function arrivalTitles(year) {
-  return ['Preparing your arrival', 'Setting temporal coordinates', 'Establishing the selected scene',
-    'Targeting selected year', 'Resolving your destination', `Destination acquired: Chicago, ${year}`,
-    `Approaching Chicago, ${year}`, 'Locating your destination'];
+  return Array.from({ length: 8 }, (_, i) => t(`arrival.title.${i}`, { year }));
 }
 const glessnerSource = 'glessner_story_of_a_house_1923';
 const prairieCards = [
@@ -23,13 +23,19 @@ export function scenePresentation(value, targetDate) {
   const summer = date ? ['06', '07', '08'].includes(date.slice(5, 7)) : [1835, 1904].includes(year);
   const when = `${summer ? 'summer ' : ''}${year}`;
   const dated = date ? new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${date}T12:00:00Z`)) : when;
-  return { year,
-    arrivalLine: `You have arrived in Chicago, ${when}.`,
-    welcomeTitle: `Welcome to Chicago, ${when}.`,
-    eyebrow: year === 1835 ? 'A town at the water’s edge' : year === 1904 ? 'Prairie Avenue' : year === 1812 ? 'The first Fort Dearborn' : 'Chicago through time',
-    intro: `Destination locked: ${year === 1904 ? 'Prairie Avenue' : 'Chicago'}, ${dated}. Reconstructed from the sources under Evidence.`,
+  // T-2613: where the Navigator lands, said the same way on its Home, in its ARRIVED
+  // stamp and in the line a screen reader hears.
+  const place = year === 1904 ? 'Prairie Avenue' : year === 1812 ? 'Fort Dearborn' : 'Chicago';
+  const where = year === 1904 ? `on ${place}` : year === 1812 ? `at ${place}` : `in ${place}`;
+  return { year, place,
+    arrivalLine: t('arrival.arrived', { when }),
+    welcomeTitle: t('arrival.welcome.title', { where, when }),
+    announce: t('arrival.announce', { place, dated }),
+    stamp: t('arrival.stamp', { date: date ? date.replace(/-/g, '.') : year }),
+    eyebrow: t(`arrival.eyebrow.${[1835, 1904, 1812].includes(year) ? year : 'other'}`),
+    intro: t('arrival.intro', { place: year === 1904 ? 'Prairie Avenue' : 'Chicago', dated }),
     entries: year === 1835 ? EARLY_ENTRIES : year === 1904 ? prairieCards :
       ['assess', 'collect', 'prepare', 'resolve'].map(phase => ({ id: `scene_${year}_${phase}`, phase,
-        kind: 'operational', text: `Preparing Chicago, ${year}`, weight: 1, min_dwell_ms: 2400 })),
+        kind: 'operational', text: t('arrival.preparing', { year }), weight: 1, min_dwell_ms: 2400 })),
   };
 }

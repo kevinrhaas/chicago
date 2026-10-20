@@ -1,0 +1,44 @@
+{
+  "_doc": "A PLANTING RECORD for the 1835 scene (T-2766): the two cottonwoods that stood behind the Kinzie house, read by renderers/web/js/trees.js through data/flora/index.json and scoped there to scene 1835. The house is gone from this scene (its record is dated 1804-1833) and the trees are not. Zone z10_settled_town is named because it is the record that describes the grown cottonwood standing in the town, the same zone the 1812 record names for the same two trees.",
+  "id": "kinzie_cottonwoods_1835",
+  "name": "The two Kinzie cottonwoods, standing without the house",
+  "kind": "planting",
+  "scene": "1835",
+  "target_date": "1835-07-01",
+  "zone": "z10_settled_town",
+  "existence": {
+    "value": true,
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "hurlbut_chicago_antiquities",
+      "chicago_magazine_1857_kinzie_house_engraving"
+    ],
+    "note": "Wau-Bun (1856, describing 1831): 'Two immense cotton-wood trees stood in the rear of the building, one of which still remains as an ancient landmark.' Hurlbut (1881), quoting an account of the Lake House of 1836: 'there was nothing between it and the shore of Lake Michigan ... excepting the great cotton-wood trees that had sheltered the pioneer Kinzie house.' The Chicago Magazine (March 1857): 'one of which still remains, though seared and dry, as it died last year.' Immense in 1831, great in 1836 and one alive until 1856: both stood on 1 July 1835. Inferred rather than attested because no picture of 1835 draws them; the 1857 engraving draws the house as it was about 1833, with a big broad-crowned tree behind it."
+  },
+  "stems": [
+    {
+      "id": "kinzie_cottonwood_west",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        1146.0,
+        349.0
+      ],
+      "height_m": 25,
+      "confidence": "reconstructed",
+      "note": "ONE OF THE TWO KINZIE COTTONWOODS, standing in 1835 without the house (data/exclusions.json kinzie_house: 'the TREES belong in the 1835 scene even though the house does not'). Wau-Bun, of 1831: 'Two immense cotton-wood trees stood in the rear of the building, one of which still remains as an ancient landmark'; Hurlbut (1881, IA p. 569) has 'the great cotton-wood trees that had sheltered the pioneer Kinzie house' between the Lake House site and the lake in 1836; the Chicago Magazine of March 1857 says the survivor died in 1856, so both stood in 1835. POSITION: the 1812 record's (kinzie_house_1812_trees), so the tree stands where it stood in 1812, and that place is reconstructed (L-kinzie-house-1812-2497). HEIGHT 25 m: four years past 'immense', near the top of z10's 18-26 m band and 4 m over the 1812 record's 21 m, the growth of a cottonwood in its prime over 23 seasons."
+    },
+    {
+      "id": "kinzie_cottonwood_east",
+      "species": "populus_deltoides",
+      "at_local_enu_m": [
+        1162.0,
+        352.0
+      ],
+      "height_m": 24,
+      "confidence": "reconstructed",
+      "note": "ONE OF THE TWO KINZIE COTTONWOODS, standing in 1835 without the house (data/exclusions.json kinzie_house: 'the TREES belong in the 1835 scene even though the house does not'). Wau-Bun, of 1831: 'Two immense cotton-wood trees stood in the rear of the building, one of which still remains as an ancient landmark'; Hurlbut (1881, IA p. 569) has 'the great cotton-wood trees that had sheltered the pioneer Kinzie house' between the Lake House site and the lake in 1836; the Chicago Magazine of March 1857 says the survivor died in 1856, so both stood in 1835. POSITION: the 1812 record's (kinzie_house_1812_trees), so the tree stands where it stood in 1812, and that place is reconstructed (L-kinzie-house-1812-2497). HEIGHT 24 m, inside z10's 18-26 m band, 4 m over the 1812 record's 20 m."
+    }
+  ],
+  "research_note": "WHAT WOULD MOVE THESE. The Sarony lithograph after Mrs. John H. Kinzie's sketch, or any plan of the Kinzie lot or the Lake House block, would place them. Until then they stand where the 1812 record put them."
+}

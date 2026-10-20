@@ -2228,6 +2228,21 @@
       ]
     },
     {
+      "why": "T-2747: the 1904 built-so-far walk is WRITTEN from the compiled 1904 records and their image-gate verdicts, never by hand, so every refine PR that changes a building's detail rewrites it; two such PRs conflict on it, and a rebuild is the only right resolution. It reads the sidecars compile_scene writes and feeds compile_jaunts, so it sits between them.",
+      "command": [
+        "python3",
+        "tools/jaunt_built_so_far.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/jaunts/prairie-built-so-far.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/jaunt_built_so_far.py",
+        "--check"
+      ]
+    },
+    {
       "why": "T-1253: jaunts resolve compiled scene destinations and business premises, then source-use registers their evidence. Bare regeneration reproduced both staged output files byte-for-byte. Run after compile_scene and before compile_source_use.",
       "command": [
         "python3",
@@ -2235,7 +2250,14 @@
       ],
       "resolves": [
         "chicago/4d/data/sidecars/1835/jaunts/catalog.json",
-        "chicago/4d/data/sidecars/1835/jaunts/new-in-chicago.json"
+        "chicago/4d/data/sidecars/1835/jaunts/new-in-chicago.json",
+        "chicago/4d/data/sidecars/1904/jaunts/catalog.json",
+        "chicago/4d/data/sidecars/1904/jaunts/prairie-architects.json",
+        "chicago/4d/data/sidecars/1904/jaunts/prairie-built-so-far.json",
+        "chicago/4d/data/sidecars/1904/jaunts/prairie-famous-names.json",
+        "chicago/4d/data/sidecars/1904/jaunts/prairie-style-italianate.json",
+        "chicago/4d/data/sidecars/1904/jaunts/prairie-style-romanesque.json",
+        "chicago/4d/data/sidecars/1904/jaunts/prairie-style-second-empire.json"
       ],
       "verify": [
         "python3",
@@ -2250,6 +2272,7 @@
         "tools/compile_source_use.py"
       ],
       "resolves": [
+        "chicago/4d/data/sidecars/1812/sources/uses.json",
         "chicago/4d/data/sidecars/1835/sources/andreas_1884_chicago_1830_map.json",
         "chicago/4d/data/sidecars/1835/sources/andreas_1884_dearborn_drawbridge_plate.json",
         "chicago/4d/data/sidecars/1835/sources/andreas_1884_green_tree_hotel_plate.json",
@@ -2361,6 +2384,7 @@
         "chicago/4d/data/sidecars/1835/sources/fpdcc_ecosystems.json",
         "chicago/4d/data/sidecars/1835/sources/geneanet_cook_baumgarten_1836.json",
         "chicago/4d/data/sidecars/1835/sources/gifford_tremont_house_no_1.json",
+        "chicago/4d/data/sidecars/1835/sources/glessner_house_prairie_avenue_page.json",
         "chicago/4d/data/sidecars/1835/sources/goodman_history_cook_county_early.json",
         "chicago/4d/data/sidecars/1835/sources/goodman_history_cook_county_hamilton.json",
         "chicago/4d/data/sidecars/1835/sources/greene_history_william_holliday_1834.json",
@@ -2371,6 +2395,11 @@
         "chicago/4d/data/sidecars/1835/sources/hathaway_1834.json",
         "chicago/4d/data/sidecars/1835/sources/history_medicine_chicago_kimberly_maxwell.json",
         "chicago/4d/data/sidecars/1835/sources/hmdb_butterfield_trail.json",
+        "chicago/4d/data/sidecars/1835/sources/hmdb_prairie_heritage_preserved.json",
+        "chicago/4d/data/sidecars/1835/sources/hmdb_prairie_lost_houses_1600_1700.json",
+        "chicago/4d/data/sidecars/1835/sources/hmdb_prairie_lost_houses_1800_1900_east.json",
+        "chicago/4d/data/sidecars/1835/sources/hmdb_prairie_lost_houses_1800_1900_west.json",
+        "chicago/4d/data/sidecars/1835/sources/hmdb_prairie_lost_houses_2000_2100.json",
         "chicago/4d/data/sidecars/1835/sources/hubbard_autobiography_1911.json",
         "chicago/4d/data/sidecars/1835/sources/hubbard_letter_1827_07_25.json",
         "chicago/4d/data/sidecars/1835/sources/hurlbut_chicago_antiquities.json",
@@ -2544,7 +2573,6 @@
         "chicago/4d/data/sidecars/1835/sources/wright_1834_nara_hup.json",
         "chicago/4d/data/sidecars/1835/sources/wright_in_memoriam_1885.json",
         "chicago/4d/data/sidecars/1835/sources/wttw_ira_couch.json",
-        "chicago/4d/data/sidecars/1812/sources/uses.json",
         "chicago/4d/data/sidecars/1904/sources/uses.json",
         "chicago/4d/docs/measurements/source_use_coverage.md"
       ],
@@ -2721,6 +2749,45 @@
       "verify": [
         "python3",
         "tools/generate_planted_rows.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "SCENE FURNITURE DEALT FROM THE TOWN — signs, fences, plantings, infill. It reads a settled town and writes geometry nothing else reads back. PLACED BY LAYER, NOT BY A DERIVED DEPENDENCY (T-1302 batch 2, 2026-09-18). A dependency graph was built for this — write-sets MEASURED by running all 142 tools on a clean tree, reads taken from their source — and it was rejected by its own validation: against the 54 steps already here, an order people reached by hitting real failures, the graph contradicted 127 of 349 edges (36%; 32% at the finest granularity tried). These tools overwhelmingly read and write the same shared directories, so the graph saturates and cannot tell a real dependency from co-location. Only 6 of the 89 could be placed with evidence. A clean-tree `--run` goes green in ANY order because every one of them reproduces, so greenness is not evidence here either. This position is reasoned from what the tool reads and writes; it is not measured, and the honest test is the first time a change upstream of one of these fails to propagate. WRITES, BUT DOES NOT CLAIM, ITS OUTPUTS. `resolves` is not documentation: it declares that the manifest OWNS a file, so the lap settles a conflict there by REBUILDING rather than merging. Listing what these 89 tools touch took the owned set from 72 files to 1,899 — including 1,261 household cards — and a conflict in any of them would then be rebuilt over whatever a branch had actually written. Being run by the manifest and owning your outputs are separate decisions; this is the first, and the second is not taken here. rederive.mjs's own self-test caught it, on the assertion that `hh_taylor_c.json` is a file nobody derives.",
+      "command": [
+        "python3",
+        "tools/generate_shore_grove_1835.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/generate_shore_grove_1835.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "SCENE FURNITURE DEALT FROM THE TOWN — signs, fences, plantings, infill. It reads a settled town and writes geometry nothing else reads back. PLACED BY LAYER, NOT BY A DERIVED DEPENDENCY (T-1302 batch 2, 2026-09-18). A dependency graph was built for this — write-sets MEASURED by running all 142 tools on a clean tree, reads taken from their source — and it was rejected by its own validation: against the 54 steps already here, an order people reached by hitting real failures, the graph contradicted 127 of 349 edges (36%; 32% at the finest granularity tried). These tools overwhelmingly read and write the same shared directories, so the graph saturates and cannot tell a real dependency from co-location. Only 6 of the 89 could be placed with evidence. A clean-tree `--run` goes green in ANY order because every one of them reproduces, so greenness is not evidence here either. This position is reasoned from what the tool reads and writes; it is not measured, and the honest test is the first time a change upstream of one of these fails to propagate. WRITES, BUT DOES NOT CLAIM, ITS OUTPUTS. `resolves` is not documentation: it declares that the manifest OWNS a file, so the lap settles a conflict there by REBUILDING rather than merging. Listing what these 89 tools touch took the owned set from 72 files to 1,899 — including 1,261 household cards — and a conflict in any of them would then be rebuilt over whatever a branch had actually written. Being run by the manifest and owning your outputs are separate decisions; this is the first, and the second is not taken here. rederive.mjs's own self-test caught it, on the assertion that `hh_taylor_c.json` is a file nobody derives.",
+      "command": [
+        "python3",
+        "tools/generate_fruit_plantings_1835.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/generate_fruit_plantings_1835.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "SCENE FURNITURE DEALT FROM THE TOWN — signs, fences, plantings, infill. It reads a settled town and writes geometry nothing else reads back. PLACED BY LAYER, NOT BY A DERIVED DEPENDENCY (T-1302 batch 2, 2026-09-18). A dependency graph was built for this — write-sets MEASURED by running all 142 tools on a clean tree, reads taken from their source — and it was rejected by its own validation: against the 54 steps already here, an order people reached by hitting real failures, the graph contradicted 127 of 349 edges (36%; 32% at the finest granularity tried). These tools overwhelmingly read and write the same shared directories, so the graph saturates and cannot tell a real dependency from co-location. Only 6 of the 89 could be placed with evidence. A clean-tree `--run` goes green in ANY order because every one of them reproduces, so greenness is not evidence here either. This position is reasoned from what the tool reads and writes; it is not measured, and the honest test is the first time a change upstream of one of these fails to propagate. WRITES, BUT DOES NOT CLAIM, ITS OUTPUTS. `resolves` is not documentation: it declares that the manifest OWNS a file, so the lap settles a conflict there by REBUILDING rather than merging. Listing what these 89 tools touch took the owned set from 72 files to 1,899 — including 1,261 household cards — and a conflict in any of them would then be rebuilt over whatever a branch had actually written. Being run by the manifest and owning your outputs are separate decisions; this is the first, and the second is not taken here. rederive.mjs's own self-test caught it, on the assertion that `hh_taylor_c.json` is a file nobody derives.",
+      "command": [
+        "python3",
+        "tools/generate_shore_grove_1812.py"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/generate_shore_grove_1812.py",
         "--check"
       ]
     },

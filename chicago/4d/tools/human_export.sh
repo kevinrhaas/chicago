@@ -19,7 +19,9 @@
 #      setting the contract depends on is written there with its reason.
 #   2. gltf-transform, THE SAME PIN as tools/web_derivatives.sh (read from that file,
 #      so there is one pin and not two), writes `meshopt` derivatives. Meshopt is the
-#      only compression the renderer decodes; KTX2 and Draco are refused by the
+#      authored MODE=master first caps textures by LOD and converts audited opaque
+#      color maps to native JPEG quality 92; fixture/verify bytes keep their old path.
+#      Meshopt is the only geometry compression the renderer decodes; KTX2 and Draco are refused by the
 #      contract, so nothing here asks for either.
 #   3. tools/human_contract.py --glb gates the masters and the derivatives. A
 #      derivative's quantised frame is read beside its master (check_glb's `master`).
@@ -32,13 +34,25 @@ cd "$(dirname "$0")/.."
 
 MODE=fixture
 MASTER=""
+OUTPUT_OVERRIDE=""
 while [ $# -gt 0 ]; do
   case "$1" in
     --verify) MODE=verify; shift ;;
-    --master) MODE=master; MASTER="$2"; shift 2 ;;
+    --master)
+      [ $# -ge 2 ] && [ -n "$2" ] && [[ "$2" != --* ]] || { echo "--master requires a file" >&2; exit 2; }
+      MODE=master; MASTER="$2"; shift 2 ;;
+    --output-dir)
+      [ $# -ge 2 ] && [ -n "$2" ] && [[ "$2" = /* ]] || { echo "--output-dir requires an absolute fresh directory" >&2; exit 2; }
+      OUTPUT_OVERRIDE="$2"; shift 2 ;;
     *) echo "unknown argument: $1" >&2; exit 2 ;;
   esac
 done
+
+if [ -n "$OUTPUT_OVERRIDE" ]; then
+  [ "$MODE" = master ] || { echo "--output-dir requires explicit --master mode" >&2; exit 2; }
+  [ -f "$MASTER" ] || { echo "--master file does not exist" >&2; exit 2; }
+  [ ! -e "$OUTPUT_OVERRIDE" ] || { echo "--output-dir must be fresh; preserving prior artifacts" >&2; exit 2; }
+fi
 
 # shellcheck disable=SC1091
 source generators/blender.pin
@@ -66,6 +80,7 @@ GT_NPX=(npx --yes
 SCRATCH="$(mktemp -d -t humanexport.XXXXXX)"
 trap 'rm -rf "$SCRATCH"' EXIT
 OUT=assets/humans
+[ -n "$OUTPUT_OVERRIDE" ] && OUT="$OUTPUT_OVERRIDE"
 [ "$MODE" = "verify" ] && OUT="$SCRATCH/out"
 
 if [ "$MODE" != "master" ]; then
@@ -78,14 +93,45 @@ fi
 
 echo "== export: tools/human_export.py"
 mkdir -p "$SCRATCH/lods"
+if [ "$MODE" = "master" ]; then
+  "$BIN" -b -noaudio "$MASTER" --python-exit-code 1 --python tools/human_export.py -- "$SCRATCH/lods" \
+    | grep -E '^(wrote |rigid-frame receipt )' | sed "s#$SCRATCH/lods/##"
+else
 "$BIN" -b -noaudio "$MASTER" --python-exit-code 1 --python tools/human_export.py -- "$SCRATCH/lods" \
   | grep -E '^wrote ' | sed "s#$SCRATCH/lods/##"
+fi
 mkdir -p "$OUT/web"
 written=()
 for f in "$SCRATCH"/lods/*.glb; do
   name="$(basename "$f")"
+  if [ "$MODE" = "master" ]; then
+    # Exact binding equality only. A distinct palette fails instead of being
+    # hidden by the derivative guard; canonical Blender data stays untouched.
+    python3 tools/human_skin_canonicalize.py "$f" "$SCRATCH/canonical-$name" --diagnostics "$SCRATCH/${name%.glb}.skin-diagnostics.json"
+    cp "$SCRATCH/canonical-$name" "$OUT/$name"
+  else
   cp "$f" "$OUT/$name"
+  fi
+  if [ "$MODE" = "master" ]; then
+    # Native JPEG requires no decoder/extension. Preserve alpha maps and non-color
+    # slots; cap every texture before compression. Source image bytes are preserved.
+    case "$name" in
+      *.lod0.glb) cap=2048 ;;
+      *.lod1.glb) cap=1024 ;;
+      *.lod2.glb) cap=512 ;;
+      *.lod3.glb) cap=256 ;;
+      *) echo "unrecognized authored LOD: $name" >&2; exit 1 ;;
+    esac
+    python3 tools/human_web_texture_inputs.py "$OUT/$name" "$SCRATCH/labeled.glb"
+    "${GT_NPX[@]}" gltf-transform resize "$SCRATCH/labeled.glb" "$SCRATCH/resized.glb" --width "$cap" --height "$cap"
+    "${GT_NPX[@]}" gltf-transform jpeg "$SCRATCH/resized.glb" "$SCRATCH/color.glb" --formats '*' --quality 92 --pattern 'c4d_web_opaque_*' --slots '{baseColorTexture,emissiveTexture}'
+    # High mode caps normals at 8 bits even with --quantize-normal 16.
+    # Preserve unit hair normals under the loaded runtime contract.
+    "${GT_NPX[@]}" gltf-transform meshopt "$SCRATCH/color.glb" "$OUT/web/$name" --quantization-volume scene --level medium --quantize-normal 16
+    echo "authored web $name: texture cap ${cap}px; opaque color JPEG quality 92; $(wc -c < "$OUT/web/$name") bytes"
+  else
   "${GT_NPX[@]}" gltf-transform meshopt "$OUT/$name" "$OUT/web/$name" 2>&1 | grep -E '→' | sed 's/^info: //' || true
+  fi
   written+=("$OUT/$name" "$OUT/web/$name")
 done
 

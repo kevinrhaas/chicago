@@ -34,6 +34,8 @@ FRIEZE_RECESS_M = 0.12       # a frieze light's glass behind the frieze's face
 FILLET = (0.08, 0.04)        # the frieze's foot: a fillet this high, this proud
 IRON_BAR_M = 0.018           # a guard's or grille's square bar
 SHAFT_SIDES = 16
+SCROLL_SEGMENTS = 18         # T-2818: one grille scroll's volute, in straight runs of bar
+BELT_PROUD_M = 0.05          # T-2819: a belt course's face before the wall (k01_frontage.stone_front's F)
 
 
 def _k01():
@@ -195,6 +197,43 @@ def wedges(cx, cy, r, L, R, top, merge_crown=True):
     return out
 
 
+def wedges_segmental(cx, spring, rise, radius, L, R, top):
+    """T-2818: the block L..R x spring..top over a segmental head cut into stones radiating
+    from the arc's centre (`radius` under the crown, below the spring) along K06's own head
+    vertices (k06_windows.Head.curve: 8 segments over the arc), the two at the crown one
+    stone, and at each end a skewback: the stone between the springing line, the block's
+    side and the first joint, which a round head has no need of. Each as wedges() gives it."""
+    cy = spring + rise - radius
+    t0 = math.acos(max(-1.0, min(1.0, math.sqrt(max(radius * radius - (rise - radius) ** 2, 0.0)) / radius)))
+    n = 8
+    angs = [t0 + (math.pi - 2 * t0) * i / n for i in range(n + 1)]
+    angs = angs[:n // 2] + angs[n // 2 + 1:]
+    corners = [(math.atan2(top - cy, R - cx), (R, top)), (math.atan2(top - cy, L - cx), (L, top))]
+    P = lambda t: (cx + radius * math.cos(t), cy + radius * math.sin(t))
+    out = []
+    # the skewbacks, right then left: spring line, side, (the block's top corner), the joint
+    hr, hl = _hit(cx, cy, angs[0], L, R, top), _hit(cx, cy, angs[-1], L, R, top)
+    right = [P(angs[0]), (R, spring)] + ([(R, top)] if hr[1] > top - 1e-6 and hr[0] < R - 1e-6 else []) + [hr]
+    left = [(L, spring), P(angs[-1]), hl] + ([(L, top)] if hl[1] > top - 1e-6 and hl[0] > L + 1e-6 else [])
+    for pts in (right, left):
+        clean = []
+        for q in pts:
+            if not clean or math.dist(clean[-1], q) > 1e-6:
+                clean.append(q)
+        out.append((clean, ["spring"] + ["side"] * (len(clean) - 2) + ["radial"], math.pi / 2))
+    for a0, a1 in zip(angs, angs[1:]):
+        A, B = P(a0), P(a1)
+        pts = [A, _hit(cx, cy, a0, L, R, top)]
+        pts += [q for ang, q in corners if a0 + 1e-6 < ang < a1 - 1e-6]
+        pts += [_hit(cx, cy, a1, L, R, top), B]
+        clean = []
+        for q in pts:
+            if not clean or math.dist(clean[-1], q) > 1e-6:
+                clean.append(q)
+        out.append((clean, ["radial"] * (len(clean) - 1) + ["intrados"], (a0 + a1) / 2))
+    return out
+
+
 def _keystone(a, frame, k, seed, conf):
     s, y0, y1 = k["s_m"], k["bed_m"], k["top_m"]
     w0, w1 = (x / 2 for x in k["width_m"])
@@ -257,7 +296,9 @@ def _voussoirs(a, frame, g, conf, recess):
     for i, (s0, s1, spring, r, sill) in enumerate(g["lights"] if g.get("extrados") != "curved" else ()):
         cx = (s0 + s1) / 2
         L, Rr = g["cuts"][i], g["cuts"][i + 1]
-        for pts, kinds, mid in wedges(cx, spring, r, L, Rr, g["top_m"]):
+        sg = g.get("segmental")
+        for pts, kinds, mid in (wedges_segmental(cx, spring, r, sg["radius_m"], L, Rr, g["top_m"]) if sg
+                                else wedges(cx, spring, r, L, Rr, g["top_m"])):
             bed = k._unit(k._add(k._mul(R, math.cos(mid)), k._mul(k.Y, math.sin(mid))))
             a.stone(frame, pts, [hj] * len(pts), "rough_stone_trim", a._stone_seed(cid, inst, j), conf,
                     recess=recess, bevel=wk["bevel_m"], F=0.0, bed=bed)
@@ -436,14 +477,61 @@ def _guards(a, frame, af, conf):
         if gr and g["component"] == gr["component"]:
             seed = a.instance("k01.opening.grille", "opening", {"bars": gr["bars"]},
                               {"sill": _P(frame, g["keystone"]["s_m"], g["sill_m"], 0.0)})
+            sc = gr.get("scrolls")
             for (s0, s1, spring, r, sill) in g["lights"]:
                 cx, d = (s0 + s1) / 2, -gr["set_back_m"]
+                # T-2818: under a segmental head the bars stop on its arc, centred below the spring
+                sg = g.get("segmental")
+                rad, cy = (sg["radius_m"], spring + r - sg["radius_m"]) if sg else (r, spring)
+                foot = sc["foot_m"] if sc else None
                 for i in range(1, gr["bars"] + 1):
                     x = s0 + (s1 - s0) * i / (gr["bars"] + 1)
-                    yt = spring + math.sqrt(max(r * r - (x - cx) ** 2, 0.0)) - 0.03
+                    yt = foot if sc else cy + math.sqrt(max(rad * rad - (x - cx) ** 2, 0.0)) - 0.03
                     _bar(a, frame, x - b / 2, x + b / 2, sill + 0.02, yt, d - b, d, seed, conf)
-                for yy in (sill + 0.25, spring - 0.15):
+                for yy in ((sill + 0.25, foot - b) if sc else (sill + 0.25, spring - 0.15)):
                     _bar(a, frame, s0 + 0.02, s1 - 0.02, yy, yy + b, d - 2 * b, d - b, seed, conf)
+                if sc:
+                    _scrolls(a, frame, sc, s0 + 0.02, s1 - 0.02, foot, spring, d - b, d, seed, conf)
+
+
+def _rod(a, frame, p0, p1, w, d0, d1, seed, conf):
+    """An iron bar `w` wide in the wall's plane from (s, y) p0 to p1, d0..d1 deep: its face,
+    its back and its two edges (its ends meet the next rod's)."""
+    ds, dy = p1[0] - p0[0], p1[1] - p0[1]
+    L = math.hypot(ds, dy)
+    if L < 1e-6:
+        return
+    ns, ny = -dy / L * w / 2, ds / L * w / 2
+    lo = [(p0[0] - ns, p0[1] - ny), (p1[0] - ns, p1[1] - ny)]
+    hi = [(p0[0] + ns, p0[1] + ny), (p1[0] + ns, p1[1] + ny)]
+    quad = [lo[0], lo[1], hi[1], hi[0]]
+    _face(a, "iron", frame, [(x, y, d1) for x, y in quad], (0, 0, 1), seed, conf)
+    _face(a, "iron", frame, [(x, y, d0) for x, y in quad], (0, 0, -1), seed, conf)
+    for (e, f), hint in (((lo[0], lo[1]), (-ns, -ny, 0)), ((hi[0], hi[1]), (ns, ny, 0))):
+        _face(a, "iron", frame, [(e[0], e[1], d0), (f[0], f[1], d0), (f[0], f[1], d1), (e[0], e[1], d1)], hint, seed, conf)
+
+
+def _scrolls(a, frame, sc, s0, s1, foot, spring, d0, d1, seed, conf):
+    """T-2818: a grille's band of scrolls, as 1623's drawing draws over its uprights: `count`
+    volutes side by side between the band's foot bar and the springing, each a flat iron bar
+    curled from the cell's edge into its centre, turned alternately, so the band reads as
+    the drawing's row of C-scrolls."""
+    n = int(sc["count"])
+    w = (s1 - s0) / n
+    hb = spring - foot
+    rc = min(w, hb) / 2 - 0.012
+    turns, seg = 1.5, SCROLL_SEGMENTS
+    for i in range(n):
+        cx, cy = s0 + w * (i + 0.5), foot + hb / 2
+        hand = 1 if i % 2 == 0 else -1
+        pts = []
+        for j in range(seg + 1):
+            t = j / seg
+            ang = math.pi / 2 * (1 - hand) + hand * (math.pi * 0.25 + 2 * math.pi * turns * t)
+            rr = rc * (1 - 0.65 * t)
+            pts.append((cx + rr * math.cos(ang), cy + rr * math.sin(ang)))
+        for p0, p1 in zip(pts, pts[1:]):
+            _rod(a, frame, p0, p1, IRON_BAR_M, d0, d1, seed, conf)
 
 
 def _beam(a, mat, frame, s, w, p0, p1, h, seed, conf):
@@ -485,14 +573,18 @@ def _rails(a, frame, sr, conf):
     nose = lambda d: y0 - (d - L) * r / g                # the nosing line
     tread = lambda d: y0 - min(n, max(0, math.floor((d - L) / g) + 1)) * r if d > L else y0
     H, nm, bm, rm, rw = R["height_m"], R["newel_m"], R["baluster_m"], R["rail_m"], R["rail_width_m"]
+    # T-2817: on the stoop's own axis, which 1623's stands north of its door's
+    cs = p.stoop_s_m(door.s_m)
     seed = a.instance("k11.rail.stoop_rail", "stair", {"risers": n, "rail_height_m": H, "sides": 2,
                                                        "balusters_per_tread": R["per_tread"],
                                                        "scroll_m": sr["scroll_m"]},
-                      {"top": _P(frame, door.s_m, y0 + H, L), "foot": _P(frame, door.s_m, r + H, F)})
+                      {"top": _P(frame, cs, y0 + H, L), "foot": _P(frame, cs, r + H, F)})
     d_top, d_foot = L - 0.12, F - g / 2
     sc = sr["scroll_m"]
+    if sr.get("guard"):
+        _landing_guard(a, frame, sr["guard"], cs, R, y0, d_top, g, seed, conf)
     for sg in (-1, 1):
-        x = door.s_m + sg * (p.stoop_width_m / 2 - R["inset_m"])
+        x = cs + sg * (p.stoop_width_m / 2 - R["inset_m"])
         rail_top = lambda d: nose(min(max(d, L), F)) + H
         for d in (d_top, d_foot):
             yt = rail_top(d) + 0.1
@@ -514,10 +606,168 @@ def _rails(a, frame, sr, conf):
             _beam(a, "iron", frame, x, rw, p0, p1, rm * 0.8, seed, conf)
 
 
+def _landing_guard(a, frame, gd, cs, R, y0, d, g, seed, conf):
+    """T-2817: the landing's guard, as 1623's drawing draws it at the stoop's head: from the
+    stoop rail's head newel along the landing's street edge to `to_v_m`, where a newel ends
+    it — the stoop rail's height, newel, handrail and baluster pitch, a foot bar, and between
+    `panel_v_m` an ornamental panel in place of the balusters: a lozenge of flat bar on a
+    ring, framed by two posts (the drawing's panel of iron ornament, there too small to read)."""
+    p = a.p
+    H, nm, bm, rm, rw = R["height_m"], R["newel_m"], R["baluster_m"], R["rail_m"], R["rail_width_m"]
+    b = IRON_BAR_M
+    side = 1.0 if gd["to_v_m"] > cs else -1.0
+    xa = cs + side * (p.stoop_width_m / 2 - R["inset_m"])        # the stoop rail's head newel
+    xb = gd["to_v_m"] - side * nm / 2                             # the guard's own end newel
+    lo, hi = sorted((xa + side * nm / 2, xb - side * nm / 2))
+    top, foot = y0 + H, y0 + 0.06
+    _box(a, "iron", frame, xb - nm / 2, xb + nm / 2, y0, top + 0.1, d - nm / 2, d + nm / 2, seed, conf, skip=("bottom",))
+    _box(a, "iron", frame, lo, hi, top - rm, top, d - rw / 2, d + rw / 2, seed, conf)
+    _box(a, "iron", frame, lo, hi, foot, foot + b, d - b / 2, d + b / 2, seed, conf)
+    pa, pb = sorted(gd["panel_v_m"])
+    pitch = g / R["per_tread"]
+    n = max(1, round((hi - lo) / pitch))
+    for i in range(1, n):
+        x = lo + (hi - lo) * i / n
+        if pa - pitch / 2 < x < pb + pitch / 2:
+            continue
+        _box(a, "iron", frame, x - bm / 2, x + bm / 2, foot + b, top - rm, d - bm / 2, d + bm / 2, seed, conf)
+    for x in (pa, pb):      # the panel's posts
+        _box(a, "iron", frame, x - b, x + b, foot + b, top - rm, d - b, d + b, seed, conf)
+    y_lo, y_hi = foot + b, top - rm
+    cx, cy = (pa + pb) / 2, (y_lo + y_hi) / 2
+    hx, hy = (pb - pa) / 2 - b, (y_hi - y_lo) / 2
+    lz = [(cx, y_lo), (cx + hx, cy), (cx, y_hi), (cx - hx, cy)]
+    for p0, p1 in zip(lz, lz[1:] + lz[:1]):
+        _rod(a, frame, p0, p1, b, d - b / 2, d + b / 2, seed, conf)
+    rr = min(hx, hy) * 0.45
+    ring = [(cx + rr * math.cos(2 * math.pi * j / 16), cy + rr * math.sin(2 * math.pi * j / 16)) for j in range(17)]
+    for p0, p1 in zip(ring, ring[1:]):
+        _rod(a, frame, p0, p1, b, d - b / 2, d + b / 2, seed, conf)
+
+
+def _carved_band(a, frame, af, length, conf):
+    """T-2819: the carving on a carved band (1623's drawing: a band of carving across the front
+    at the arches' springing, on the piers between and beside them). The band is a belt course
+    `k01_frontage.stone_front` lays, its face BELT_PROUD_M before the wall; on every run of it
+    between the lights it crosses, the oriel's guilloche (k08_bays._guilloche): rings of
+    `ring_width_m` along the run's middle at `pitch` of their radius, every other one standing
+    `ring_proud_m` and the rest half that, so where two cross one passes over the other; each
+    ring is sunk 0.01 m into the band's face, so none stands off it."""
+    cb = af["carved_band"]
+    b0, b1, g = cb["bed_m"], cb["top_m"], cb["guilloche"]
+    seed = a.instance("k01.wall.carved_band", "wall", {"bed_m": b0, "top_m": b1},
+                      {"bed": _P(frame, 0.0, b0, 0.0), "top": _P(frame, 0.0, b1, 0.0)})
+    cuts = sorted((q[0], q[1]) for gr in af["groups"] for q in gr["lights"] if q[4] < b1 and q[2] > b0)
+    runs, x = [], 0.0
+    for c0, c1 in cuts:
+        if c0 > x:
+            runs.append((x, c0))
+        x = max(x, c1)
+    if x < length:
+        runs.append((x, length))
+    for s0, s1 in runs:
+        n = _guilloche_run(a, frame, s0, s1, b0, b1, g, seed, conf)
+        if n:
+            a.components["k01.wall.carved_band"]["instances"][-1]["params"].setdefault("rings", 0)
+            a.components["k01.wall.carved_band"]["instances"][-1]["params"]["rings"] += n
+
+
+def _guilloche_run(a, frame, s0, s1, b0, b1, g, seed, conf):
+    """T-2819's guilloche on one run [s0, s1] of a belt [b0, b1]; returns its rings (0 where
+    a sliver of pier holds none)."""
+    w, rp, k, mg = g["ring_width_m"], g["ring_proud_m"], int(g["segments"]), g["margin_m"]
+    d0 = BELT_PROUD_M - 0.01
+    yc = (b0 + b1) / 2
+    R = min(g["radius_m"], (b1 - b0) / 2 - mg, (s1 - s0) / 2 - mg)
+    if R < 2 * w:
+        return 0
+    pitch = g["pitch"] * R
+    n = max(1, math.floor((s1 - s0 - 2 * R - 2 * mg) / pitch + 1e-9) + 1)
+    sc = (s0 + s1) / 2 - (n - 1) * pitch / 2
+    for j in range(n):
+        d1 = BELT_PROUD_M + (rp if j % 2 == 0 else rp / 2)
+        cs = sc + j * pitch
+        ring = lambda r, t: (cs + r * math.cos(2 * math.pi * t / k), yc + r * math.sin(2 * math.pi * t / k))
+        for t in range(k):
+            o0, o1, i0, i1 = ring(R, t), ring(R, t + 1), ring(R - w, t), ring(R - w, t + 1)
+            mo = ((o0[0] + o1[0]) / 2 - cs, (o0[1] + o1[1]) / 2 - yc, 0.0)
+            _face(a, "limestone_trim", frame, [(*o0, d1), (*o1, d1), (*i1, d1), (*i0, d1)], (0, 0, 1), seed, conf)
+            _face(a, "limestone_trim", frame, [(*o0, d0), (*o1, d0), (*o1, d1), (*o0, d1)], mo, seed, conf)
+            _face(a, "limestone_trim", frame, [(*i1, d0), (*i0, d0), (*i0, d1), (*i1, d1)],
+                  (-mo[0], -mo[1], 0.0), seed, conf)
+    return n
+
+
+def _panel_run(a, frame, s0, s1, b0, b1, pa, seed, conf):
+    """T-2915: a band of sunk panels on one run of a belt: raised ribs on the belt's face, one
+    along its bed, one along its top and one between each two rows, and in each row upright
+    ribs `length_m` apart, every other row's set off half a panel so the joints break as a
+    bond's. Each rib stands `proud_m` before the belt and is sunk 0.005 m into it. Returns
+    the panels."""
+    rows, ln, rib, pr = pa["rows"], pa["length_m"], pa["rib_m"], pa["proud_m"]
+    d0, d1 = BELT_PROUD_M - 0.005, BELT_PROUD_M + pr
+    h = (b1 - b0 - rib) / rows
+
+    def box(x0, x1, y0, y1):
+        for (p0, p1, p2, p3), nrm in (
+                (((x0, y0, d1), (x1, y0, d1), (x1, y1, d1), (x0, y1, d1)), (0, 0, 1)),
+                (((x0, y1, d0), (x1, y1, d0), (x1, y1, d1), (x0, y1, d1)), (0, 1, 0)),
+                (((x0, y0, d0), (x0, y0, d1), (x1, y0, d1), (x1, y0, d0)), (0, -1, 0)),
+                (((x0, y0, d0), (x0, y1, d0), (x0, y1, d1), (x0, y0, d1)), (-1, 0, 0)),
+                (((x1, y0, d0), (x1, y0, d1), (x1, y1, d1), (x1, y1, d0)), (1, 0, 0))):
+            _face(a, "limestone_trim", frame, [p0, p1, p2, p3], nrm, seed, conf)
+
+    count = 0
+    for r in range(rows + 1):          # the long ribs
+        y = b0 + r * h
+        box(s0, s1, y, y + rib)
+    for r in range(rows):              # the upright ribs, each row's set off half a panel
+        ya, yb = b0 + r * h + rib, b0 + (r + 1) * h
+        n = max(1, round((s1 - s0 - rib) / ln))
+        step = (s1 - s0 - rib) / n
+        xs = [s0 + step * (i + (0.5 if r % 2 else 0.0)) for i in range(n + 1)]
+        xs = ([s0] if r % 2 else []) + [x for x in xs if x <= s1 - rib + 1e-9] + ([s1 - rib] if r % 2 else [])
+        for x in xs:
+            box(x, x + rib, ya, yb)
+        count += len(xs) - 1
+    return count
+
+
+def street_carved_bands(a, frame, bands, conf):
+    """T-2915: the carved belts of a named-window front (1812's photograph: the carved
+    interlace over the second storey's north window, the band of sunk panels over it), each a
+    belt course `k01_frontage.stone_front` lays, its face BELT_PROUD_M before the wall, carved
+    from `s_m` [from, to] along the front with T-2819's guilloche or with sunk panels."""
+    for cb in bands:
+        b0, b1 = cb["bed_m"], cb["top_m"]
+        s0, s1 = cb["s_m"]
+        kind = "guilloche" if "guilloche" in cb else "panels"
+        seed = a.instance("k01.wall.carved_band", "wall",
+                          {"bed_m": b0, "top_m": b1, "from_s_m": s0, "to_s_m": s1, "carving": kind},
+                          {"bed": _P(frame, s0, b0, 0.0), "top": _P(frame, s1, b1, 0.0)})
+        if kind == "guilloche":
+            n = _guilloche_run(a, frame, s0, s1, b0, b1, cb["guilloche"], seed, conf)
+            a.components["k01.wall.carved_band"]["instances"][-1]["params"]["rings"] = n
+        else:
+            n = _panel_run(a, frame, s0, s1, b0, b1, cb["panels"], seed, conf)
+            a.components["k01.wall.carved_band"]["instances"][-1]["params"]["panels"] = n
+
+
+def side_arch(a, frame, g):
+    """T-2910: the loggia's side arch on its end wall, laid as a door's arched group is: the
+    voussoir block's stones radiating from the arch's centre, and its keystone."""
+    k = a.p.stone
+    conf = a.p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "stone_front",
+                          "entrance_kit")
+    _voussoirs(a, frame, g, conf, k["wall"]["recess_m"])
+
+
 def lay(a, frame, yf, length, conf, recess):
     af = a.p.arched_front
     for g in af["groups"]:
         _voussoirs(a, frame, g, conf, recess)
+    if af.get("carved_band"):
+        _carved_band(a, frame, af, length, conf)
     if af["frieze"]:
         _frieze(a, frame, af, yf, length, conf)
     if af["frontispiece"]:

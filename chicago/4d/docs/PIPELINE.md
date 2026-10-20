@@ -42,8 +42,8 @@ a queue with nobody in it.
 | `.github/workflows/chicago-4d-check.yml` | **the dev gate.** Runs on PRs into `dev` and on pushes to `dev` and `main`. The push trigger was unfiltered until T-1288 measured what that cost: a steward branch with an open PR satisfies BOTH triggers, so every push started the suite twice on one commit and the PR waited on the slower of the pair. |
 | `.github/workflows/chicago-4d-promote-to-prod.yml` | **dispatch-only.** Back-merges `main`→`dev`, merges `dev`→`main` `--no-ff`, tags `release-vNNN`, then dispatches the deploy. |
 | `.github/workflows/chicago-4d-bake.yml` | the content bake. **Builds the ref it was started on, and PRs into that same ref** — `tools/bake_ref.py` decides, and `check.sh` asserts it. The nightly and any run whose ref is `main` build `dev` and PR into `dev`, because the schedule has no tree of its own to speak for and nothing may PR into production. A bake dispatched against a branch builds THAT branch: until T-0454 it silently rebuilt `dev` instead, which is how the staleness gate and the bake came to disagree about one asset while both were right. **A branch bake is a REMEDY, not a proof** (T-1668): `tools/bake_warranted.py` decides whether one is worth starting, and it skips when the branch's own tree is FRESH. The path filter can only say a branch might have staled a mesh; the freshness register — the same one `check.sh` refuses a tree with — says whether it did, in half a second. Until T-1668 every PR touching `generators/` became a `resume` PR by arithmetic: a full bake is 25 minutes and two `pr-automerge` laps are 18, so a green, foreground-gated PR could never merge inside its own run (measured on T-1652/PR #104, whose three files could not move a vertex and whose staleness gate said so). "A rebake proves the generator still runs" is a real claim and a DIFFERENT one — the NIGHTLY on `dev` makes it, daily, on the authoritative tree. Everything unanswerable still bakes. |
-| `.github/workflows/chicago-4d-pr-lap.yml` | **the un-sticker.** On every push to `dev`, merges `dev` into every open non-draft, non-`hold` PR using this repo's merge drivers, regenerates what a tool owns, and pushes. It does not gate and it does not merge the PR. It exists because GitHub's server-side merge never runs a custom merge driver (T-0857), so a branch that merges `dev` with zero conflicts in a clone is reported CONFLICTING by the platform. |
-| `.github/workflows/chicago-4d-merge-ready.yml` | **the merger.** On every push to `dev`, merges every open PR GitHub itself calls `clean` — the branch merges AND every required check passed. Nothing else in this repository merges a finished pull request. |
+| `.github/workflows/chicago-4d-pr-lap.yml` | **the un-sticker.** On every push to `dev`, merges `dev` into every open non-draft, non-`hold` PR using this repo's merge drivers, regenerates what a tool owns, and pushes — except a PR whose `lap/pr-<N>` lock a live run holds, read before it starts and again at the push (T-2929). It does not gate and it does not merge the PR. It exists because GitHub's server-side merge never runs a custom merge driver (T-0857), so a branch that merges `dev` with zero conflicts in a clone is reported CONFLICTING by the platform. |
+| `.github/workflows/chicago-4d-merge-ready.yml` | **the merger.** On every push to `dev`, merges every open PR GitHub itself calls `clean` — the branch merges AND every required check passed — unless a live run holds its `lap/pr-<N>` lock (T-2929). Nothing else in this repository merges a finished pull request. |
 | `.github/workflows/chicago-4d-pr-stuck.yml` | **the reporter** (T-1368). Labels and comments on a PR that none of the three above can move. It merges, pushes and resolves nothing. See below. |
 | `.github/pipeline.json` | the manifest. Declares the shape — tiers, publish paths, workflow names — to anything that reads it. A **data file**: editing it is a sanctioned direct commit to `main`, same as the pilot's. |
 
@@ -125,9 +125,13 @@ introduced, this stops being true and the preview script needs the pilot's rewri
 
 **3. The service worker keeps the two tiers apart by scope, not by a stub** (T-2561; until
 then there was none). The pilot replaces `sw.js` with a self-unregistering stub so a preview
-never installs offline caching. This app registers its worker only when a visitor taps "Keep
-<year> on this device", and the mirrored tree carries its own copy, so the two tiers stay
+never installs offline caching. This app registers its worker only when a visitor downloads the
+welcome's "Offline copy" (T-2947), and the mirrored tree carries its own copy, so the two tiers stay
 separate by construction:
+
+- **the packs are listed again after every rewrite** (T-2947). A pack lists each file's hash,
+  and deploy.yml's stamp and the preview script both rewrite the pages and `build.json` after
+  publish.sh listed them; until the re-list, every download stopped at the year's own door.
 
 - production's worker is `/4d/sw.js` (scope `/4d/`); the preview's is `/4d/dev/sw.js` (scope
   `/4d/dev/`), and the browser gives a page to the narrower scope that has one;
@@ -218,6 +222,13 @@ When the file reaches `dev`, `.github/workflows/chicago-4d-changelog-fold.yml` p
 to `renderers/web/js/changelog.js`, stamps it, deletes the file and pushes one commit,
 which starts the dev deploy. Two PRs never write the same entry file, so they stop
 conflicting on the changelog's top line, which used to cost every open PR a lap per landing.
+
+**A group PR still adds ONE file** (T-2938; AGENTS.md § A RUN MAY TAKE A GROUP). A run that
+claims one to five related tickets with `ticket.mjs claim T-A T-B T-C` ships them on one
+branch as one PR titled `T-A, T-B, T-C: …` and closes them with `done T-A T-B T-C --pr N`.
+Its entry is `changelog.d/<anchor>.json` with one item per ticket: one entry per PR keeps
+the visible-progress count in runs, and the gate here asks for at least one entry file, not
+one per ticket. A member the run could not finish is `release`d, never shipped half-done.
 
 The older way still passes the gate, and the notes below are about it: prepend one entry
 to `renderers/web/js/changelog.js` with all three authored fields blank — `v: null, ts: '',

@@ -33,6 +33,11 @@
       checks: [...card.querySelectorAll('.era-checks b')] };
   });
   const rand = (a, b) => a + Math.random() * (b - a);
+  // walk/js/machine-drift.js, loaded before this script: the telemetry numbers and drift
+  // cadence, defined once for this console and the Navigator's strip (T-2623).
+  const MD = globalThis.chicagoMachineDrift || {
+    readings: () => ({ coherence: .998, drift: .4, reactor: 87.2 }), nextDriftIn: (first) => (first ? 6500 : 11500),
+    format: { coherence: v => v.toFixed(3), drift: v => `±${v.toFixed(1)} d`, reactor: v => `${v.toFixed(1)}%` } };
   let timers = [], booted = false, leaving = false, ticker = 0, ticks = 0, nextDrift = 0, lastLine = -1, checkCard = 0;
 
   function later(ms, fn) { timers.push(setTimeout(fn, ms)); }
@@ -87,13 +92,13 @@
     });
     if (monitor) monitor.classList.remove('noisy');
     cards.forEach((c, i) => found(i));
-    status.textContent = '3 coordinates online · 1 nominal · 2 calibrating'; count.textContent = '03 / 03';
+    status.textContent = '3 destinations online · 1 nominal · 2 calibrating'; count.textContent = '03 / 03';
     station.textContent = 'HOLDING'; setAperture('open', 'OPEN');
     lamp('time', true); lamp('map', true); lamp('archive', true, true); lamp('field', true); lamp('recall', true, true); lamp('drift', false);
     gauge('flux', .72); gauge('coherence', .86); gauge('drift', .28);
     root.classList.remove('booting'); document.body.classList.remove('acquiring'); document.body.classList.add('resolved');
     booted = true;
-    if (!reduced.matches && !ticker) { nextDrift = Date.now() + rand(5000, 8000); ticker = setInterval(tick, 800); }
+    if (!reduced.matches && !ticker) { nextDrift = Date.now() + MD.nextDriftIn(true); ticker = setInterval(tick, 800); }
     if (reduced.matches) { clearInterval(ticker); ticker = 0; }
   }
 
@@ -170,15 +175,22 @@
       if (h.calibrating && !h.drifting && Math.random() < .2) h.target = h.base + rand(-4, 4);
       paintHold(h);
     });
-    telemetry('reactor', `${rand(86.4, 88.1).toFixed(1)}%`);
-    telemetry('coherence', slipping ? rand(.962, .981).toFixed(3) : rand(.994, .999).toFixed(3), slipping ? 'warn' : 'ok');
-    telemetry('drift', slipping ? `±${rand(1.2, 2.1).toFixed(1)} d` : `±${rand(.3, .5).toFixed(1)} d`, 'warn');
+    // The numbers are the machine's, shared with the Navigator's telemetry strip (T-2623).
+    const read = MD.readings(slipping);
+    telemetry('reactor', MD.format.reactor(read.reactor));
+    telemetry('coherence', MD.format.coherence(read.coherence), slipping ? 'warn' : 'ok');
+    telemetry('drift', MD.format.drift(read.drift), 'warn');
     gauge('flux', rand(.64, .8)); gauge('coherence', slipping ? rand(.5, .65) : rand(.82, .92)); gauge('drift', slipping ? rand(.8, .93) : rand(.2, .36));
     recheck();
     if (ticks % 3 === 0 && !slipping) chatter();
-    if (Date.now() > nextDrift && !slipping) { nextDrift = Date.now() + rand(9000, 14000); drift(); }
+    if (Date.now() > nextDrift && !slipping) { nextDrift = Date.now() + MD.nextDriftIn(false); drift(); }
   }
 
+  // T-2901: device-meter.js reads this device during the cold start and reports on the log.
+  document.addEventListener('c4d:device', ({ detail: d }) => {
+    if (d.phase === 'start') say('ASSESSING LOCAL DEVICE…');
+    else if (d.phase === 'done') say(`LOCAL DEVICE ${d.score} · ${d.grade.toUpperCase()} · ${d.detail.toUpperCase()} DETAIL`);
+  });
   if (!reduced.matches) boot(); else finish();
   reduced.addEventListener('change', finish);
   cards.forEach(card => {

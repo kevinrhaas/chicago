@@ -10,6 +10,13 @@
   "asset": "gltf/mark_kimball_house_2108_prairie_coach_house__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "a20-glessner-rees-coach-house-2014"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -194,5 +201,6 @@
   ],
   "research_note": "A DISTRICT DRAFT (T-2351, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1937 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2108-b2 and s35fp-2110-b2, filled as one building), the T-1842 census (s35-2108-rear, s35-2110-rear) and the T-1837 register row frontage-35-065; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-west-2351).",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "2108 S. Prairie Avenue — the coach house of 2108 and 2110, one building divided on their lot line"
 }

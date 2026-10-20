@@ -2,7 +2,7 @@
  "structure_id": "wheeler_house_1812_prairie",
  "view": "levy_front",
  "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
- "glb_sha256": "3aedf664ef20e7db3bab1c6843bb2fca7a846734f64ec8f302c13bf4b8644b3f",
+ "glb_sha256": "df6491aeb4d88006da6e17c4872a4d1db17987e88b099460e1398800abc964cf",
  "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
  "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
  "verdict": "differs",
@@ -24,8 +24,8 @@
    "status": "open"
   },
   {
-   "what": "Gable: its face is the wall's own plane in the photograph; here it stands 0.5 m proud of the wall below on a square base, so the hip's eave dies into it",
-   "status": "open"
+   "what": "Gable: its face on the wall's own plane, as the print's: the eave under it plain and 0.05 m deep, so the slab stands 0.07 m before the wall below, its foot just over the third storey's arches, with no eave, fascia or gutter across the front (T-2889)",
+   "status": "fixed"
   },
   {
    "what": "Gable: the kneelers are carved scrolls under small pinnacles; built as plain square pinnacles",
@@ -44,15 +44,43 @@
    "status": "open"
   },
   {
-   "what": "Balcony: the iron balcony on the projection's top",
+   "what": "Balcony: the iron balcony on the projection's top, round its cheeks and front, its rail about 0.5 m over the cornice as the print's (47 px both) and its balusters 0.24 m apart (T-2888)",
+   "status": "fixed"
+  },
+  {
+   "what": "Balcony: the middle of its front run (x 390-680 px) is a solid stone panel rising to a central pedestal, with iron scrolls against it; built as more of the iron rail, its balusters plain square bars without the print's roundels",
    "status": "open"
   },
   {
-   "what": "Third storey: the large round-arched window with its fanlight over the balcony and the smaller arched window to its north, with their voussoirs; built flat-headed and smaller",
+   "what": "South projection: its top, K08's 0.2 m fascia over the 9.45 m wall head, renders about 25-30 px over the print's cornice, and the balcony stands on it, about as high again",
    "status": "open"
   },
   {
-   "what": "Second storey: the north pair is one wide window (1.66 m) under a transom; built as K01's widest single sash (1.15 m)",
+   "what": "Third storey: the large window over the balcony under its flat segmental arch (2.78 m across, crown 12.05 m) with its fanlight, and the small round-arched window to its north (1.2 m, crown 12.0 m), each in a ring of voussoirs running up into the gable's face, the large one under its keystone (T-2889)",
+   "status": "fixed"
+  },
+  {
+   "what": "Second storey: the north window one wide window, 1.64 m across on a stone mullion, under a transom (T-2889)",
+   "status": "fixed"
+  },
+  {
+   "what": "Third storey: the large window's middle light is wider than the two beside it and carries an arched head of its own, and its fanlight has a concentric bar as well as radial ones; built as three equal lights under a radial fanlight",
+   "status": "open"
+  },
+  {
+   "what": "Third storey: the small arched window is filled with a patterned light or panel; built as a round fanlight sash",
+   "status": "open"
+  },
+  {
+   "what": "Third storey: the voussoirs alternate long and short into the brick; built as a ring of equal stones standing 0.1 m before the wall",
+   "status": "open"
+  },
+  {
+   "what": "Second storey: the north window's transom lights are glazed in small squares; built as one plate light each",
+   "status": "open"
+  },
+  {
+   "what": "Gable: from the kneelers (about 11.6-11.7 m) to the ledge (12.55 m) the slab's base runs out square past the side walls, where the print's outline is already drawing in",
    "status": "open"
   },
   {
@@ -64,7 +92,27 @@
    "status": "open"
   },
   {
-   "what": "Fabric: rock-faced stone basement and a stone first storey under brick upper storeys banded and dressed in stone, the carved frieze and bosses; the whole street front is built in stone",
+   "what": "Fabric: a rock-faced stone basement to a smooth water table, the entrance bay's first storey in coursed stone up to the second floor's belt, and brick over it, banded and dressed in stone (the belts, sills, flat arches, voussoirs, the north window's quoined surround); the south projection brick over its rock-faced basement, its bands, sills, heads and reveals stone (T-2914)",
+   "status": "fixed"
+  },
+  {
+   "what": "Fabric: over the second storey's north window, from the projection's north face to the corner, the carved frieze (8.55-8.95 m) under a moulded band and the patterned band of sunk panels (9.15-9.63 m) under a ledge, and the carved bosses under the projection's second-storey jambs (T-2915)",
+   "status": "fixed"
+  },
+  {
+   "what": "Fabric: the projection's windows in quoined stone jambs, short and long in turn, and the band at the arched window's spring running from each corner to the arch (T-2915)",
+   "status": "fixed"
+  },
+  {
+   "what": "Carving: the frieze is an interlace of crossing straps and leaves and the bosses carved shields; built as T-2819's guilloche of rings and plain oval bosses in a moulded ring",
+   "status": "open"
+  },
+  {
+   "what": "South projection: the second storey's jamb stones rise past the window's head to small carved caps under the projection's cornice; built stopping at the head",
+   "status": "open"
+  },
+  {
+   "what": "Tone: the print's stone reads lighter than its brick; the built brown sandstone renders darker than the buff brick beside it (the colours are not shown, the relation is)",
    "status": "open"
   },
   {

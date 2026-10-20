@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chicago4d/schemas/style.schema.json",
+  "title": "4D Chicago Style Guide Module",
+  "description": "One architectural style's guide card for the Inspect app's Design tab (T-2641; design doc 'Field Navigator Mk II' section 08 'Design' and section 12 'Style library'): data/styles/<id>.json, where <id> is the style id a building's summary record names in its `style`. AUTHORED from graded, sourced facts. tools/compile_summaries.py gates it with the summary records and carries every module into each scene's data/inspect/<scene>.json at publish. Beyond this schema it refuses: an `attested` fact with no source; an `inferred` or `reconstructed` fact with no `note`; a source id that does not resolve in data/sources/; a cue over 8 words, a description over 30 words or 2 sentences, a compare line over 12 words; a plate whose picture record does not carry a public-domain or no-known-restrictions rights status (AGENTS.md hard rule 6), or whose structure does not stand in its scene; and any id, snake_case word, file path, link or ticket number in a string a visitor reads. A cue the sources do not support is left out, never written from general knowledge: a module may carry fewer than four.",
+  "type": "object",
+  "required": ["id", "name", "description", "cues", "compare"],
+  "additionalProperties": false,
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "text": { "type": "string", "minLength": 1, "description": "Shown to a visitor exactly as written." },
+    "fact": {
+      "type": "object",
+      "required": ["text", "grade"],
+      "properties": {
+        "text": { "$ref": "#/$defs/text" },
+        "grade": { "type": "string", "enum": ["attested", "inferred", "reconstructed"] },
+        "sources": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "note": { "type": "string", "minLength": 1, "description": "What an inferred fact rests on, or what bounded a reconstructed one. Linted like every visitor string." },
+        "liberty": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "id": { "$ref": "#/$defs/id" },
+    "name": { "$ref": "#/$defs/text", "description": "The style's name as a visitor reads it." },
+    "description": { "$ref": "#/$defs/fact", "description": "Two short lines: at most 30 words and 2 sentences." },
+    "cues": {
+      "type": "array",
+      "description": "'How to spot it': up to four cues, each at most 8 words, each graded.",
+      "minItems": 1,
+      "maxItems": 4,
+      "items": { "$ref": "#/$defs/fact" }
+    },
+    "plate": {
+      "type": "object",
+      "description": "A credited reference plate: a picture in the scene's pictures file (compiled by tools/compile_pictures.py), shown only where that file holds a copy whose rights allow display.",
+      "required": ["picture", "structure", "scene", "record", "caption", "grade", "sources"],
+      "properties": {
+        "picture": { "type": "string", "minLength": 1, "description": "The picture's id in the pictures file. Data, never shown." },
+        "structure": { "$ref": "#/$defs/id", "description": "The structure the picture is filed under. Data, never shown." },
+        "scene": { "type": "string", "pattern": "^[0-9]{4}$" },
+        "record": { "$ref": "#/$defs/id", "description": "The picture's own source record, whose rights_status must allow display. Data, never shown." },
+        "caption": { "$ref": "#/$defs/text" },
+        "grade": { "type": "string", "enum": ["attested", "inferred", "reconstructed"] },
+        "sources": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+        "note": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "compare": {
+      "type": "array",
+      "description": "'Compare styles': up to three other styles, one line each (at most 12 words), each graded.",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["name", "text", "grade"],
+        "properties": {
+          "name": { "$ref": "#/$defs/text" },
+          "style": { "$ref": "#/$defs/id", "description": "That style's module id, where one exists or is planned. Data, never shown. Where the module exists, the Design tab opens its two lines and cues in place under this line, and tools/compile_summaries.py refuses a line that points at its own module or calls that module by another name (T-2642)." },
+          "text": { "$ref": "#/$defs/text" },
+          "grade": { "type": "string", "enum": ["attested", "inferred", "reconstructed"] },
+          "sources": { "type": "array", "items": { "$ref": "#/$defs/id" }, "uniqueItems": true },
+          "note": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Architectural style",
+  "featured": false,
+  "review_required": false,
+  "id": "prairie-style-italianate",
+  "scene": "1904",
+  "title": "Style walk: Italianate",
+  "premise": "Round-headed windows, bracketed cornices and high stoops: five Italianate houses from 1612 to 2031 Prairie, among the street's older fronts.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "opening": {
+    "text": "STYLE WALK: ITALIANATE. Look for tall round-headed windows, deep bracketed cornices and eaves, and high stoops. Five houses, 1612 to 2031 Prairie, on foot. Three are still first rough models, read from the district register.",
+    "read_s": 14
+  },
+  "stops": [
+    {
+      "id": "goodman",
+      "destination": {
+        "kind": "structure",
+        "id": "goodman_house_1612_prairie"
+      },
+      "text": "1612 Prairie. Joseph Goodman's house of 1869, read as Italianate. Its photograph shows a three-bay stone front, every window round-headed under a long keystone, a belt course at the principal floor, and an arched portico on columns at the head of a high stoop.",
+      "read_s": 18,
+      "evidence": [
+        "goodman-marker",
+        "goodman-photo",
+        "goodman-style",
+        "tour"
+      ],
+      "next": "hibbard"
+    },
+    {
+      "id": "hibbard",
+      "destination": {
+        "kind": "structure",
+        "id": "hibbard_house_1701_prairie"
+      },
+      "text": "1701 Prairie. William G. Hibbard's house of 1869, by William Le Baron Jenney, read by the district register as an Italianate mansion: a low hipped roof on bracketed eaves over a stone-based body, with a rear range added in 1874.",
+      "read_s": 17,
+      "evidence": [
+        "hibbard-marker",
+        "hibbard-draft",
+        "tour"
+      ],
+      "next": "walker"
+    },
+    {
+      "id": "walker",
+      "destination": {
+        "kind": "structure",
+        "id": "walker_house_1720_prairie"
+      },
+      "text": "1720 Prairie. The Tyrrell and Walker house, read by the district register as an Italianate house built of wood: a low hip on deep bracketed eaves, a central gable, a canted bay and a full-width porch. Compare it with the brick and stone fronts around it.",
+      "read_s": 19,
+      "evidence": [
+        "walker-draft",
+        "tour"
+      ],
+      "next": "jones"
+    },
+    {
+      "id": "jones",
+      "destination": {
+        "kind": "structure",
+        "id": "jones_house_1834_prairie"
+      },
+      "text": "1834 Prairie. Fernando Jones's house of 1866, by John M. Van Osdel, which the district marker calls Italianate. In 1886 it was given a mansard addition to keep up with its neighbours, so here the Italianate house wears a newer roof.",
+      "read_s": 17,
+      "evidence": [
+        "jones-marker",
+        "tour"
+      ],
+      "next": "tolman"
+    },
+    {
+      "id": "tolman",
+      "destination": {
+        "kind": "structure",
+        "id": "tolman_house_2031_prairie"
+      },
+      "text": "2031 Prairie. The north house of a row of three built in 1869 with Lemont limestone fronts, read by the district register as Italianate: a flat roof behind a bracketed cornice over three storeys. The row shares one cornice line, but its doors differ.",
+      "read_s": 18,
+      "evidence": [
+        "tolman-draft",
+        "tour"
+      ],
+      "next": "finish"
+    }
+  ],
+  "endings": [
+    {
+      "id": "finish",
+      "text": "End of the Italianate walk. Brackets under the eaves and round-headed windows are the marks to look for on the older fronts of the avenue.",
+      "read_s": 10,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "prairie-italianate-note",
+    "title": "Italianate field note",
+    "text": "A modern field note on the style's brackets and round heads, not a period document."
+  },
+  "evidence": [
+    {
+      "id": "goodman-marker",
+      "text": "Joseph Goodman Residence. Built 1869; architect unknown.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1612 S. Prairie Avenue entry's name line."
+    },
+    {
+      "id": "goodman-photo",
+      "text": "The photograph shows a three-bay stone front, every window round-headed under voussoirs with a long keystone, a belt course at the principal floor, and an arched portico on columns at the head of a high stoop.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "locator": "The whole print: the stone street front from its south corner to its north corner, the stoop and the portico."
+    },
+    {
+      "id": "goodman-style",
+      "text": "The front is read as Italianate.",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_1612_prairie_photo"
+      ],
+      "reasoning": "Round-headed windows under keystoned voussoirs, a belt course and an arched portico on a high stoop are the Italianate vocabulary of an 1869 stone front; the T-1837 register files the house Italianate stone-front masonry."
+    },
+    {
+      "id": "hibbard-draft",
+      "text": "The district draft reads the Hibbard house from the T-1837 register as an Italianate mansion with a rear addition: a low hip on bracketed eaves over a stone-based body, and the 1874 rear range.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-draft-prairie-16-18-east-2335"
+    },
+    {
+      "id": "hibbard-marker",
+      "text": "William G. Hibbard Residence. Built 1869; William Le Baron Jenney, architect; Hibbard was president of a large wholesale hardware firm (read in paraphrase).",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "locator": "The 1701 S. Prairie Avenue entry: its name line, and its description as read in paraphrase."
+    },
+    {
+      "id": "jones-marker",
+      "text": "Fernando Jones Residence. Built 1866; John M. Van Osdel, architect. In 1886, the Italianate residence received a mansard addition to bring it into fashion with many of its neighbors.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "locator": "The 1834 S. Prairie Avenue entry."
+    },
+    {
+      "id": "tolman-draft",
+      "text": "The district draft reads 2031 Prairie as the north house of an 1869 Lemont-limestone row: an Italianate flat roof behind a bracketed cornice over three storeys; the row shares one cornice line, and its doors differ.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-draft-prairie-20-22-east-2352"
+    },
+    {
+      "id": "tour",
+      "text": "The route, its order, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on 1 July 1904 is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-prairie-walks"
+    },
+    {
+      "id": "walker-draft",
+      "text": "The district draft reads the Tyrrell/Walker house from the T-1837 register as an Italianate frame house: a low hip on deep bracketed eaves, with a central gable, a canted bay and a full-width porch.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-draft-prairie-16-18-west-2334"
+    }
+  ],
+  "liberties": [
+    "L-draft-prairie-16-18-east-2335",
+    "L-draft-prairie-16-18-west-2334",
+    "L-draft-prairie-20-22-east-2352",
+    "L-jaunt-prairie-walks"
+  ]
+}

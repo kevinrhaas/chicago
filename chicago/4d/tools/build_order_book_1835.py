@@ -4065,6 +4065,31 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
     }
     if len(doc["bucket_families"]) != 5:
         raise Fault("the order book is five bucket families; fewer is a book with a hole in it")
+    return reader_copy(doc)
+
+
+# THE SENTENCES THE CARD PRINTS ARE SAID FOR A READER (T-2825). The owner, 2026-10-18: no
+# internal ticket number or record id in anything a person reads, Researcher mode included.
+# js/orderbook.js prints these fields and nothing else of the book's prose; the ticket
+# numbers they named go onto their record as `work_refs`. The work orders themselves
+# (`owning_ticket`, `owning_tickets`, `ground_waits_on`, a re-family step's `ticket`) are
+# the book's data and are not touched: the live-owner gate and ticket_liveness read them.
+def _reader_paths():
+    import readable_text
+    return readable_text.ORDER_BOOK_PATHS
+
+
+def reader_copy(doc: dict) -> dict:
+    import readable_text
+    readable_text.rewrite_paths(doc, _reader_paths())
+    for family in doc.get("bucket_families") or []:
+        summary = family.get("summary") or {}
+        for key, value in list(summary.items()):
+            if isinstance(value, str):
+                summary[key], refs = readable_text.rewrite(value)
+                if refs:
+                    have = family.setdefault("work_refs", [])
+                    have.extend(r for r in refs if r not in have)
     return doc
 
 

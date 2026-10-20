@@ -20,7 +20,7 @@ parts=patches(p);faces,holes=surface(p)
 assert len(holes)==1
 assert 1.6<bow['roof_rise_m']/.3048<2.,'HABS low hood replaced by a high canopy'
 apex=(e['x0'],n['y0'],bow['wall_top_z']+bow['roof_rise_m'])
-radius=bow['r']+.20
+radius=bow['eave_r']
 
 def contains(poly,x,y):
     return all((b[0]-a[0])*(y-a[1])-(b[1]-a[1])*(x-a[0])>=-1e-8
@@ -177,6 +177,8 @@ assert abs(east_height(e['x0']-.20)/.3048-27.33)<.015
 for reduced in (False,True):
     b=d.DetailBuilder('court-finial',p);b.reduced_sash=reduced
     court_finial(b,0,0,'dormer',3)
-    assert abs(max(v[2] for v in b.verts)/.3048-38.83)<1e-7
+    # T-2859: the dormer bell is re-read on native HABS4 at its own grain - foot 37.03,
+    # cap top 38.80-38.90 ft (was 36.99/38.83) - and carries its own drawn profile.
+    assert abs(max(v[2] for v in b.verts)/.3048-38.90)<1e-7
     assert all(math.isfinite(v) for pt in b.verts for v in pt)
 print('PASS:',probe_count,'independent dormer host samples, clear glazing, section eave and Full/Light bell silhouette')

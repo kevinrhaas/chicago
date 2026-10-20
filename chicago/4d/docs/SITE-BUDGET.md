@@ -134,6 +134,19 @@ app imports, which is the entire reason the changelog lives inside the app.
 Measured: **31.999 MB → 30.69 MB**, and the growth rate of the changelog on the payload is
 halved.
 
+**The front doors are the one deliberate copy, and they stay under the floor by shipping
+less, not by differing (2026-10-18).** `/4d/<year>/index.html` (1812, 1835, 1880, 1904) is
+the stamped `walk/index.html` plus one `<base href>`, so the four doors are byte-identical
+on purpose and `validate.py`'s duplicate check refuses them once they reach 64 KB. On `dev`
+the door was 64,208 bytes, and PR #1030's markup put it over. About 13 KB of that page was
+HTML comments: developer notes, shipped to every visitor once per door. `publish.sh` now
+strips them from the published page only (`tools/strip_page_comments.mjs`; the source keeps
+every one, and placeholders and `<script>`/`<style>`/`<textarea>`/`<pre>` bodies pass
+through byte for byte, which `--check` asserts against the source). Measured on the
+publish that landed it: the door went from **64,208 to 50,407 bytes**, and walk/ plus the
+four doors ship about 69 KB less. The floor was not moved and the doors were not made to
+differ by a byte; either would have kept the check green by defeating it.
+
 ## 4. The boot payload, measured — and what the whole-tree cap is now for
 
 The recommendation at the foot of the old §4 was: measure what a visitor
@@ -159,7 +172,10 @@ BOOT PAYLOAD — first visit stands in the 1835 street
 Three consecutive runs produced byte-identical totals — the measurement is a
 property of the tree, not of the run.
 
-**The boot payload budget is 13 MB**, re-set on 2026-10-02 by T-1973 for the reasons in
+**The boot payload budget is 36.2 MB**, re-set on 2026-10-17 by T-2711 for the prebuilt
+yards (§ 4j). T-2710 had set it at 33.7 MB the same day for the prebuilt streets (§ 4i), and
+T-2693 at 29 MB for the prebuilt ground (§ 4g). T-2677 had set it at 20 MB on 2026-10-16 for the prebuilt frontage timber
+(§ 4f). T-1973 had set it at 13 MB on 2026-10-02 for the reasons in
 § 4a. It was set at 12 MB, 1.66× the measured 7.223 MB:
 tight enough that a careless import into `walk/js/` or an unmetered new boot
 fetches cannot accumulate silently (each is visible against 60 % spent), and
@@ -170,7 +186,7 @@ Re-measure and check with:
 ```
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
-node tools/measure_boot_payload.mjs --check  # exit 1 past the 13 MB budget
+node tools/measure_boot_payload.mjs --check  # exit 1 past the 36.2 MB budget
 ```
 
 The nightly `chicago-4d-bake.yml` enforces this with `--check` in the desktop
@@ -426,10 +442,268 @@ own records, and that atlas is the layer's GPU cost before and after. No sheet's
 bytes fell, so `tools/memory_ceilings.json` is left where it stands; its lowering is the
 wall-relief and frontage pieces' (T-2588, T-2589), which do upload their sheets.
 
+### 4f. The frontage timber ships prebuilt, re-measured 2026-10-16 (T-2677) — and the budget is 20 MB
+
+The owner, on T-2560: *"a big package app download that happens up front so the app is
+lightning fast rendering when you are walking or flying"*; that ticket's acceptance asks for
+this budget re-measured with the prebuilt files counted. Laying the frontage's boards (1.95 million vertices)
+over the terrain was one main-thread task at every boot, the same for every visitor.
+`tools/publish.sh` now runs the page's own `createFrontage` in Node
+(`tools/prebuild_layers.mjs`, byte-equal to the page since T-2676) and writes
+`data/prebuilt/1835/frontage.json` (the index: 0.28 MB) and `frontage.bin.gz`; the page
+uploads those buffers instead of building them (frontage.js § THE TOWN'S TIMBER, PREBUILT).
+
+**What the visitor downloads.** Measured with `tools/measure_boot_payload.mjs` on this
+branch and on `dev` @ `2bcd059fe`, the same runner: **12.311 MB → 19.010 MB**, 981 → 984
+requests; the prebuilt folder is 6.695 MB of it. The buffer is 74.5 MiB raw. It is
+gzipped TWICE on disk, because deflate's 32 KB window is far shorter than the runs the timber
+repeats over: one pass is 10.76 MB, the second 6.93 MB, a third no smaller. GitHub Pages
+serves `.gz` as it is, so 6.65 MB is also what the live origin sends. That is half again what
+a first visit carried, on purpose. On the measure tools' slow-phone network (1.6 Mbit/s) it
+is about 35 s more download, started as the scene phase ends so it runs under terrain and
+buildings, which take 15 s at the phone profile's CPU.
+
+**What it buys**, `tools/measure_boot_phases.mjs --quick --phone` (4x CPU throttle, network
+unthrottled, steward runner, one reading per cell; `--no-prebuilt` is the before):
+
+| mobile · light | frontage | longest task in it | boot's longest task | ready |
+|---|---|---|---|---|
+| cold, built in the browser | 3,209 ms | 3,318 ms | 16,187 ms | 84.3 s |
+| cold, prebuilt | 796 ms | 914 ms | 15,816 ms | 80.2 s |
+| warm, built in the browser | 3,318 ms | 3,360 ms | 15,805 ms | 85.8 s |
+| warm, prebuilt | 753 ms | 884 ms | 15,421 ms | 82.0 s |
+
+The boot's longest task is not frontage's and did not move (it is in `ground`, about
+16 s here). The frontage's share is now 0.9 s where it was 3.3 s. The first cut inflated
+the buffer on the main thread and gave about a second of that back to `terrain`;
+it inflates on a job-pool worker now (`jobs/inflate-kernel.js`).
+
+**The tree.** 74.5 MiB raw would have taken the published tree to 373.7 MiB of its 320.
+Gzipped twice it is 6.65 MiB, and the tree reads 305.9 MiB of 320.
+
+**Why 20 MB.** 19.010 MB measured plus about the 0.7 MB of room the 13 MB budget left over
+12.3 MB. The rule § 4b set still holds for everything else: a careless import or an
+unmetered boot fetch still shows against under 1 MB of room. The next prebuilt layer
+(T-2678, the spatial-batch chunks) has to measure its own bytes against this number and
+argue its own re-set.
+
+### 4g. The ground ships prebuilt, re-measured 2026-10-17 (T-2693) — and the budget is 29 MB
+
+T-2678's second piece. The 1835 ground was loaded, conformed to the heightfield, cut into
+223 tiles and partitioned into 9,405 pieces at every boot. That came to 3.0 s of the
+terrain phase at the phone profile (T-2692's reading). `tools/publish.sh` now runs those
+same functions in Node (`tools/prebuild_layers.mjs --layer ground`) and writes
+`data/prebuilt/1835/ground.json` (the index, 0.80 MB) and `ground.bin.gz` (27.6 MB raw,
+10.63 MB gzipped twice). The page batches the pieces and does **not** fetch the ground GLB
+(terrain.js § THE GROUND, PREBUILT). Read on the published page, 669 of 669 ground
+attributes over 223 tiles are byte-equal to the Node build
+(`prebuild_layers.mjs --layer ground --parity --root ../../site/4d`), with zero page errors.
+
+**What it buys**, `tools/measure_boot_phases.mjs --published --quick --phone` (4x CPU
+throttle, network unthrottled, steward runner, one reading per cell).
+`--no-prebuilt-ground` is the before: the frontage still comes prebuilt and the page cuts
+its own ground, which is what dev did.
+
+| mobile · light | terrain | longest task in it | boot's longest task |
+|---|---|---|---|
+| cold, ground cut in the browser | 8,760 ms | 4,100 ms | 16,504 ms |
+| cold, ground prebuilt | 6,172 ms | 4,021 ms | 17,229 ms |
+| warm, ground cut in the browser | 8,812 ms | 3,946 ms | 15,775 ms |
+| warm, ground prebuilt | 6,050 ms | 4,038 ms | 16,690 ms |
+
+The terrain phase is **2.6 s shorter cold and 2.8 s shorter warm**. Its longest task did not
+move: that task is not the ground's cut, which mostly ran on the job pool already (T-2599).
+The boot's longest task is not terrain's at all. Its spread between rows (15.8 to 17.2 s)
+is the runner's noise on a single reading.
+
+**What the visitor downloads.** `tools/measure_boot_payload.mjs`, the same published tree,
+with and without `--no-prebuilt-ground`: **19.109 MB → 28.195 MB**, 992 → 993 requests.
+The `.gz` files go 6.694 → 16.831 MB and the `.json` files gain the 0.21 MB index on the
+wire. The `.glb` files go 4.885 → 3.628 MB: the published ground GLB is meshopt-packed and
+costs only **1.26 MB** on the wire. (T-2692's reading guessed the prebuild could replace a
+30.5 MB GLB. That figure was the source GLB in `assets/`, and the page never fetches it.)
+So this is a trade of about **9.1 MB more on a first visit for 2.6 s less CPU** at the phone
+profile. On the measure tools' slow-phone network (1.6 Mbit/s) that is about 48 s more
+download. The download starts before the scene phase, so it runs under scene and buildings.
+A warm visit, or a kept year (T-2561's pack holds `data/prebuilt/1835/`), pays nothing.
+
+**Where the trade is refused.** A visitor who has asked to save data, or whose browser rates
+the connection 3G or slower (`navigator.connection`), is never offered the prebuild. The
+page fetches the 1.3 MB GLB and cuts the ground itself.
+
+**The tree.** `tools/site_budget.py`: 289.730 MB of 320, 30.270 MB of headroom, with the
+ground's 11.42 MB in it.
+
+**Why 29 MB.** The owner, on T-2560, asked for *"a big package app download that happens
+up front so the app is lightning fast rendering when you are walking or flying"*. The
+ground was the next 3 s of that boot (T-2692). The number is the 28.195 MB measured plus
+about the 0.8 MB of room the 20 MB budget left. § 4b's rule still holds for everything
+else: a careless import or an unmetered boot fetch shows against under 1 MB of room.
+**The next lever is bytes, not CPU.** The prebuild ships every vertex as float32 because
+batching copies them as they are. A format that ships only the partition and lets the page
+gather from the 1.26 MB GLB it already conforms would give most of the 9.1 MB back. That is
+written up on T-2694, the town's other spatial-batch callers, which has to measure its own
+bytes against this number and argue its own re-set.
+
+### 4h. The distant base ships prebuilt, measured 2026-10-17 (T-2709) — inside the 29 MB
+
+T-2705's first piece. The distant base is the field gridded every 6 m, laid again over
+frontage's 105 crossing footprints and cut into 7,503 pieces of 40 m at every boot.
+`tools/publish.sh` now runs those same functions in Node (`tools/prebuild_layers.mjs
+--layer base`) and writes `data/prebuilt/1835/base.json` (the index, 53 KB) and
+`base.bin.gz` (3.9 MB raw, 0.73 MB gzipped twice). createTerrain batches the file's
+pieces in place of its own grid (terrain.js § THE DISTANT BASE, PREBUILT). Frontage is
+built after the terrain, so the index carries the key of the footprints it was laid over,
+and protectGroundUnder lays and cuts its own base if frontage publishes others. Read on
+the published page at `light` and at `full`, 6 of 6 base attributes over 7,503 pieces are
+byte-equal to the Node build, the page reports the base as prebuilt, and there are zero
+page errors (`docs/measurements/T-2709-base-prebuilt.json`).
+
+**The bytes, against § 4g's 29 MB.** `tools/measure_boot_payload.mjs`, the same published
+tree with and without `--no-prebuilt-base`: **28.226 → 28.923 MB**, 999 → 1,001
+requests, 77 KB of room left. The first reading was **29.037 MB**, 37 KB over the budget.
+That index listed every piece's spans, 0.54 MB raw and about 0.12 MB on the wire. The base
+tile now carries each piece's vertex and index counts, and the page derives the spans with
+the packer's own alignment rule (`prebuiltPieceSpans`). The packer refuses to write a tile
+those counts do not reproduce. That brought the index to 53 KB, and the budget is not re-set.
+**The next two pieces need room this one did not have.** The streets (T-2710) are 7.1 MB
+gzipped across both layouts, and the yards (T-2711) are 3.2 MB. The ground's own 0.80 MB
+index would shrink the same way.
+
+**What it buys**, `tools/measure_boot_phases.mjs --published --quick --phone` (4x CPU
+throttle, network unthrottled, steward runner, one reading per cell). `--no-prebuilt-base`
+is the before: the page lays and cuts its own base, as dev does.
+
+| mobile · light | terrain | frontage | distant base, after frontage | the three |
+|---|---|---|---|---|
+| cold, base laid in the browser | 3,212 ms | 585 ms | 448 ms | 4,245 ms |
+| cold, base prebuilt | 3,362 ms | 395 ms | 1 ms | 3,758 ms |
+| warm, base laid in the browser | 3,311 ms | 504 ms | 475 ms | 4,290 ms |
+| warm, base prebuilt | 3,441 ms | 401 ms | 0 ms | 3,842 ms |
+
+The base's step after frontage is gone. Frontage is about 0.15 s shorter because it no
+longer has to lay the protected grid. Terrain is about 0.14 s longer because it batches
+the 7,503 pieces from the file. Net, the three are **0.49 s shorter cold and 0.45 s shorter
+warm**. T-2703 quoted the base at 0.8 s on the source tree; on the published tree, where the
+frontage and ground already come prebuilt, the cut measured 0.45 s, and that is what this
+piece removed. The boot's ready time moved inside the runner's noise (47.2 → 47.8 s cold,
+46.3 → 46.5 s warm), so no claim is made about it.
+
+### 4i. The streets ship prebuilt, one layout at a time, re-measured 2026-10-17 (T-2710) — and the budget is 33.7 MB
+
+T-2705's second piece (the base, § 4h, was its first). The road was laid over the heightfield and its three surfaces cut into
+40 m pieces at every boot, the same for every visitor. `tools/publish.sh` now lays them in
+Node with streets.js's own `streetLayoutOf` (`tools/prebuild_layers.mjs --layer streets`,
+byte-equal to the page since T-2703) and writes `data/prebuilt/1835/streets.json` (the index,
+0.17 MB, with each layout's counters and a hash of the records) and **one buffer per layout**:
+`streets.light.bin.gz` (unridged, 10.2 MB raw, 2.86 MB gzipped twice) and
+`streets.full.bin.gz` (ridged, 20.1 MB raw, 3.90 MB). A visitor fetches only the buffer
+their detail draws; a change of detail across `light` lays the road in the browser as
+before (streets.js § THE STREETS, PREBUILT). Read on the published page at `light` and at
+`full`, 42 of 42 street attributes are byte-equal to the Node build, each batched from the
+published buffer, with zero page errors (`prebuild_layers.mjs --layer streets --parity
+--root ../../site/4d`).
+
+**What it buys**, `tools/measure_boot_phases.mjs --published --quick --phone` (4x CPU
+throttle, network unthrottled, steward runner, one reading per cell).
+`--no-prebuilt-streets` is the before: the frontage and the ground still come prebuilt. Read
+before T-2709's base landed; the road does not depend on the base, so the payload and the
+gate below were re-read after merging it, and these were not.
+
+| mobile · light | streets | ground phase | boot's longest task |
+|---|---|---|---|
+| cold, road laid in the browser | 1,575 ms | 33.66 s | 15,976 ms |
+| cold, road prebuilt | 360 ms | 31.36 s | 16,144 ms |
+| warm, road laid in the browser | 1,539 ms | 31.99 s | 15,711 ms |
+| warm, road prebuilt | 304 ms | 30.73 s | 15,420 ms |
+
+The streets layer is **1.2 s shorter cold and warm**. It runs inside the `ground` phase,
+which moved by about as much; the boot's longest task is not the road's.
+
+**What the visitor downloads.** `tools/measure_boot_payload.mjs`, the same published tree,
+with and without `--no-prebuilt-streets`, with § 4h's base in it: **28.949 MB → 32.907 MB**,
+1,008 → 1,010 requests (before the base: 28.227 → 32.185 MB, the same 3.96 MB).
+That reading is the tool's 1280×800 desktop, which boots at `full` and so fetches the ridged
+buffer (3.90 MB) and the index; a phone at `light` fetches the 2.86 MB unridged one instead.
+A data-saving or 3G connection is never offered the prebuild and lays its own road, as for
+the ground.
+
+**The tree.** `tools/site_budget.py` (check.sh): 297.62 MB of 320, 22.38 MB of headroom, with
+both street buffers in it (6.94 MB).
+
+**Why 33.7 MB.** The owner's T-2560 ruling, as in § 4f and § 4g: a bigger download up front
+for a town that renders fast once you are in it. The number is the 32.907 MB measured plus
+the 0.8 MB of room § 4g set (the base had used all but 0.05 MB of it), so a careless import
+or an unmetered boot fetch still shows against under 1 MB. **Shipping one layout, not both, is what kept this to
+3.96 MB:** the two buffers are 6.94 MB together. The yards (T-2711) and the distant base
+(T-2709) still have to measure their own bytes against this number. The lever § 4g names —
+ship the partition, not the float32 vertices — applies here too.
+
+### 4j. The yards ship prebuilt, re-measured 2026-10-17 (T-2711) — and the budget is 36.2 MB
+
+T-2705's third piece. The yards' five surfaces (worn and trodden earth, the dooryard green,
+the garden beds and the road earth at the doors: 1,155 fenced interiors, 86,738 cells) were
+laid on the heightfield, given normals and cut into 932 pieces at every boot.
+`tools/publish.sh` now runs yards.js's own `createFencedGround` in Node over enclosures.js's
+own records (`tools/prebuild_layers.mjs --layer yards`, byte-equal to the page since T-2704)
+and writes `data/prebuilt/1835/yards.json` (the index, 0.09 MB) and `yards.bin.gz` (28.1 MB
+raw, 3.22 MB gzipped twice). The page batches the pieces when every enclosure record and the
+heightfield it read hash to what the index lists, and lays its own otherwise (yards.js § THE
+YARDS, PREBUILT). The fenced interiors themselves, which the sward and the gates ask, are
+still the page's own. Read on the published page, 25 of 25 attributes over the 5 surfaces are
+byte-equal to the Node build (`prebuild_layers.mjs --layer yards --parity --root ../../site/4d`),
+with zero page errors.
+
+The phase readings below are of one published tree: dev after T-2709, with this piece on it.
+
+**What it buys**, `tools/measure_boot_phases.mjs --published --quick --phone` (4x CPU
+throttle, network unthrottled, steward runner, one reading per cell). The row's `yards` is
+the layer's own wall time (`performance.measure('yards')` in main.js, new here).
+`--no-prebuilt-yards` is the before: everything else still comes prebuilt and the page lays
+its own yards, which is what dev did.
+
+| mobile · light | yards | longest task overlapping it | ground phase | ready |
+|---|---|---|---|---|
+| cold, yards laid in the browser | 4,140 ms | 6,057 ms | 33.5 s | 81.8 s |
+| cold, yards prebuilt | 1,709 ms | 4,326 ms | 30.9 s | 79.6 s |
+| warm, yards laid in the browser | 4,046 ms | 5,835 ms | 31.7 s | 80.3 s |
+| warm, yards prebuilt | 1,737 ms | 4,000 ms | 28.7 s | 77.6 s |
+
+The layer is **2.4 s shorter cold and 2.3 s shorter warm**, and the ground phase it sits in
+moves by about as much. What is left of the layer is the interiors (each one's openest point
+is a grid search) and the batching itself. The longest task overlapping it starts before
+the layer, so it is not the yards' alone; it fell by about 1.8 s. The boot's own longest task
+(15.2-15.8 s) is elsewhere and did not move.
+
+**What the visitor downloads.** `tools/measure_boot_payload.mjs`, with and without
+`--no-prebuilt-yards`, first read on dev after T-2709: **28.950 MB → 32.055 MB**, 1,008 →
+1,010 requests. The `.gz` files go 17.524 → 20.597 MB (the buffer, 3.07 MB on the wire) and
+the `.json` files gain the index's 0.03 MB on the wire. Re-read after merging T-2710's
+streets (§ 4i) and the Navigator pieces that landed beside them, one published tree:
+**32.935 MB → 36.040 MB**, 1,023 → 1,025 requests, the same 3.1 MB. So this is a trade of
+about **3.1 MB more on a first visit for 2.4 s less CPU** at the phone profile, 1.3 MB per
+second saved, against the ground's 3.5 (§ 4g) and the frontage's 2.8 (§ 4f): the cheapest
+second the prebuild has bought. On the measure tools' slow-phone network (1.6 Mbit/s) it is
+about 16 s more download. It starts before the scene phase and runs under scene, terrain and
+buildings. A warm visit, or a kept year (T-2561's pack holds `data/prebuilt/1835/`), pays
+nothing, and a visitor saving data or on a 3G or slower connection is never offered it.
+
+**The tree.** `tools/site_budget.py`, on the merged tree: 300.869 MB of 320, 19.131 MB of
+headroom, with the yards' 3.31 MB and both street buffers in it.
+
+**Why 36.2 MB.** The owner's T-2560 ask is the same as § 4g's and § 4i's, and § 4i's 33.7 MB
+left 0.77 MB of room, which the yards' 3.1 MB cannot fit inside. The number is the 36.040 MB
+measured plus about 0.16 MB. Two readings of one tree here differed by 0.03 MB, so a little
+more than that is kept, enough that the next run on this tree does not go red on noise.
+§ 4b's rule still holds: a careless import or an unmetered boot fetch shows against well
+under 1 MB of room. With the frontage, ground, base, streets and yards all prebuilt, T-2705's
+pieces are in; the next byte this budget gives up should come from § 4g's lever (ship the
+partition, not the float32 vertices) before another re-set.
+
 ## 5. What the gate does now
 
 - **Refuses** over 320 MiB (T-2595; measured re-budgets in §8 and §9) — the repository-hygiene guard, not the visitor-cost
-  budget; the visitor-cost budget is the 13 MB boot payload budget in § 4,
+  budget; the visitor-cost budget is the 36.2 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
   the report again.
@@ -536,9 +810,13 @@ why the encode is a tool of ours: through the CLI the same 20 houses came to 67.
 The whole-tree **repository-hygiene** allowance is now **320 MiB**, with **22.032 MiB**
 of headroom. Two 320 MiB app allowances plus the 129.136 MiB of other site content total
 **769.136 MiB**, below the 1 GiB platform limit. The 13 MB boot payload is untouched: no
-textured house is in the 1835 boot. T-2596 (the Glessner v4 set in KTX2) is expected to
-hand some of this back, since its 28 PNG maps are larger than their UASTC equivalents —
-expected, not measured.
+textured house is in the 1835 boot. T-2596 (the Glessner v4 set in KTX2) has handed
+some of it back, measured: the full derivative 59,126,156 → 43,829,952 B and the light
+32,534,812 → 15,521,960 B (its 37 textures capped at 1024), 32,309,056 B (30.81 MiB) off
+the published tree, which then read 268.87 MiB of 320 (51.13 MiB headroom). The
+three-file recovery package went 152,421,884 → 120,457,725 B (25 parts → 20). Rendered
+from the five reference cameras, old files against new, the re-encode reads 36.7–45.4 dB
+PSNR, texture grain only (docs/RESEARCH/ktx2-v4/glessner-v4-ktx2.json).
 
 ## 10. Texture residency — T-2598
 
@@ -570,6 +848,55 @@ The budgets come from the Prairie Avenue walk
 Captures (`--captures`, `T-2598-captures-mobile.json`): at four Glessner stands on
 the phone, the frame with every picture forced resident differs from the working
 frames by less than the scene's own motion between them (2.8 / 21.1 / 11.8 / 17.5 %
-of pixels against 3.7 / 30.4 / 17.5 / 22.3 %). The aerial stand, the street-eye
-stands and the moving p95 frame time are not yet read; the steward runner's
-SwiftShader draws one frame in seconds, so the p95 needs a GPU.
+of pixels against 3.7 / 30.4 / 17.5 / 22.3 %).
+
+**The other four stands, read 2026-10-17 (T-2718,** `T-2718-captures-mobile-a.json`,
+`-b.json`, phone): the same holds at all four. Residency against motion:
+
+| stand | resident | C against A or D | A against D (motion) |
+|---|---|---|---|
+| glessner-aloft-ne (60 m, -30°) | 40/63 | 10.96 % | 16.09 % |
+| street-prairie-1600-south | 24/63 | 34.13 % | 43.28 % |
+| street-prairie-1800-north | 56/63 | 30.94 % | 41.63 % |
+| street-18th-east | 53/63 | 22.75 % | 34.46 % |
+
+The aerial stand had never been read aloft: `--captures` teleported the walker to
+60 m with the HUD's intent still on foot, and the next frame put the eye back on the
+road, pitched 30° down at the asphalt. Its first reading was 0 px against 0 px,
+which is a frame with no house in it and not evidence. The tool now flies through the
+HUD first, as `goTo` does, and fails an aloft stand whose eye is not aloft when it is
+read. The moving p95 frame time could not be read here: the steward runner's
+SwiftShader draws one frame in seconds, so it was taken on a GPU (T-2719, below).
+
+**The moving p95 on Prairie Avenue, read on the owner's phone 2026-10-20 (T-2719,**
+`t-2719-owner-phone-1904.txt`, iPhone, Chrome for iOS, Light, Sharpness Low, 15 s a mode,
+1904's walk south along Prairie Avenue's east walk). Milliseconds between draws:
+
+| move | mode | draws | median | sd | p95 | >33 ms | >50 ms |
+|---|---|---|---|---|---|---|---|
+| walk | Fixed | 346 | 43 | 3.6 | **50** | 345 | 14 |
+| walk | Adaptive | 378 | 40 | 4.8 | **48** | 339 | 10 |
+| turn | Fixed | 430 | 32 | 10.0 | 53 | 199 | 57 |
+| turn | Adaptive | 499 | 26 | 10.3 | 51 | 166 | 26 |
+| flight | Fixed | 194 | 80 | 6.6 | 85 | 193 | 193 |
+| flight | Adaptive | 202 | 73 | 8.1 | 90 | 201 | 201 |
+
+T-2598's scripted walk held its texture budget on this runner; on the phone the same street
+does not hold 30 fps: the walk's p95 is 48-50 ms and nearly every draw is over 33 ms. The 1835 walk on the same phone read p95 41-43 ms
+(T-2733). The 1904 flight, at median 73-80 ms, is the largest cost here (T-2927).
+
+**The 1904 memory ceilings, re-read at spawn with residency (T-2718).** The spawn
+reading now lets residency finish its paced uploads before it reads (it was already
+settled at both viewports: 0 pending after 3 frames + 1 s). `tools/memory_ceilings.json`
+lowered to the readings by its own rule (reading + 10 %, up to 25 MiB):
+
+| 1904 | before (T-2595) | GPU textures | now | GPU textures | ceiling |
+|---|---|---|---|---|---|
+| phone (light) | 1105.6 MB | 384.0 | **850.1 MB** | 117.4 | 1225 → **950 MiB** |
+| desktop (full) | 1587.5 MB | 524.4 | **1393.3 MB** | 283.7 | 1750 → **1550 MiB** |
+
+At spawn the phone holds 56 of 63 house pictures resident (62.7 of 256 MiB) and
+desktop 59 of 61 (96.7 of 512 MiB). Arraybuffers rose (phone 358.5 → 372.4, desktop
+710.9 → 757.2 MB); no heap snapshot was taken, so whose they are is not read here.
+These stand on the GL meter that T-2558's H0 run found may read WebGL textures about
+40 MiB low on one page (T-2720).

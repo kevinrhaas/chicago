@@ -61,6 +61,9 @@ export const RELEASE_KEEP = {
   // buildings' INSTANCE colours, which are not vertex attributes (T-2568), and
   // no vertex colour reaches a batch (T-2570), so nothing is kept for it either.
   structures: [],
+  // T-2775: the 1904 lakefront railway. Its pick marches the ray to the ground and
+  // tests the strips' stations (railway.js), so no triangle is read back.
+  railway: [],
 };
 
 function dropArray() { this.array = null; }
@@ -79,7 +82,15 @@ const KEEP_ARRAYS = (() => {
 
 const census = { geometries: 0, attributes: 0, bytes: 0, keptForHarness: KEEP_ARRAYS,
   // T-2548: the buildings' source glTF geometry, and their decoded images.
-  sources: 0, sourceBytes: 0, images: 0, imageBytes: 0 };
+  sources: 0, sourceBytes: 0, images: 0, imageBytes: 0,
+  // T-2828: a GLB KTX2's transcoded levels, let go by texture residency once uploaded.
+  compressed: 0, compressedBytes: 0 };
+
+/** T-2828: texture-residency.js let go of one source's transcoded levels (`bytes`). */
+export function noteReleasedLevels(bytes) {
+  census.compressed += 1;
+  census.compressedBytes += bytes;
+}
 
 function release(attr, drop = dropArray) {
   if (!attr || !attr.array || attr.userData?.uploadReleased) return;
@@ -108,6 +119,19 @@ function markLayer(layer, keep) {
     if (!geo.boundingBox) geo.computeBoundingBox();
     if (o.isBatchedMesh) batchBounds(o);
     census.geometries += 1;
+    // T-2646: the Confidence view's ghost pass reads which grades a geometry
+    // holds off its `_confidence` channel; once the channel's page copy is gone,
+    // it reads the range kept here instead.
+    const conf = geo.attributes._confidence;
+    if (conf?.array && conf.itemSize === 1 && !keep.includes('_confidence')) {
+      let lo = Infinity, hi = -Infinity;
+      for (let i = 0; i < conf.count; i += 1) {
+        const v = conf.getX(i);
+        if (v < lo) lo = v;
+        if (v > hi) hi = v;
+      }
+      if (conf.count && Number.isFinite(lo) && Number.isFinite(hi)) geo.userData.confidenceRange = [lo, hi];
+    }
     for (const [attrName, attr] of Object.entries(geo.attributes)) {
       if (!keep.includes(attrName)) release(attr);
     }
@@ -179,19 +203,53 @@ export function releaseAfterUpload(scene, keepByLayer = RELEASE_KEEP) {
 
 const _scissor = new THREE.Vector4();
 
+const DRAWS = ['drawArrays', 'drawElements', 'drawArraysInstanced', 'drawElementsInstanced'];
+const MULTI_DRAWS = ['multiDrawArraysWEBGL', 'multiDrawElementsWEBGL',
+  'multiDrawArraysInstancedWEBGL', 'multiDrawElementsInstancedWEBGL'];
+const noDraw = () => {};
+
+/** Hold the context's draw calls (an own property over each); the returned call lifts them. */
+function holdDraws(gl) {
+  const held = [];
+  const hold = (target, names) => {
+    for (const name of names) {
+      if (!target || typeof target[name] !== 'function') continue;
+      held.push([target, name, Object.prototype.hasOwnProperty.call(target, name), target[name]]);
+      target[name] = noDraw;
+    }
+  };
+  hold(gl, DRAWS);
+  hold(gl.getExtension('WEBGL_multi_draw'), MULTI_DRAWS);
+  return () => {
+    for (const [target, name, own, fn] of held.reverse()) {
+      if (own) target[name] = fn; else delete target[name];
+    }
+  };
+}
+
 /**
  * HAND A LAYER TO THE GPU AS SOON AS IT IS BUILT, on a phone, so its page
  * arrays go while the next layer is still being laid rather than all at once
  * under the first frame — where every layer's page copy and its GPU copy were
  * alive together, which is the moment iOS killed the tab.
  *
- * The layer is drawn once, alone (its siblings hidden, the lights kept, so the
+ * The layer is rendered once, alone (siblings hidden, the lights kept, so the
  * programs are the ones the real frame uses), into one scissored pixel of the
  * canvas the loader still covers, with frustum culling off so every chunk that
  * is shown is uploaded, and with the sun's pass held so nothing else is drawn.
  * `hide(o)` keeps back what this tier never shows (the cross-street walks and
  * the woodpiles at `light`), so the GPU is not handed what it will never draw.
  * Everything touched is put back exactly as it was.
+ *
+ * T-2824. THE PASS UPLOADS AND DOES NOT DRAW. Every upload it exists for — the
+ * buffers, the textures, the programs — happens before three's draw call, and the
+ * draw itself never ran: with the sun's pass held, no shadow map exists yet, three
+ * binds a colour texture to the `sampler2DShadow`, and every draw was refused
+ * (GL_INVALID_OPERATION, 267 on a 1904 phone boot). Lending the sun a 1×1
+ * comparing map let those draws through, and drawing every chunk unculled cost
+ * +67-74 MB in the GPU process (SwiftShader, 1904 phone), still held once the
+ * town had settled (docs/measurements/t-2824-boot-upload-pass.json). So the draw
+ * calls are held for the length of the pass: the same uploads as before, no errors.
  */
 export function uploadLayerNow(renderer, scene, camera, layer, { hide = () => false } = {}) {
   const keep = RELEASE_KEEP[layer?.name];
@@ -217,9 +275,11 @@ export function uploadLayerNow(renderer, scene, camera, layer, { hide = () => fa
   shadow.needsUpdate = false;
   renderer.setScissorTest(true);
   renderer.setScissor(0, 0, 1, 1);
+  const lift = holdDraws(renderer.getContext());
   try {
     renderer.render(scene, camera);
   } finally {
+    lift();
     renderer.setScissor(_scissor);
     renderer.setScissorTest(scissorTest);
     shadow.autoUpdate = auto;

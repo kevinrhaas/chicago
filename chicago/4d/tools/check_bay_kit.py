@@ -152,8 +152,8 @@ def rule_data(v, data, b):
                     and not w.get("why_not_ordinary"):
                 fails.append(f"ordinary: a {w['clear_width_m']} x {w['clear_height_m']} m sash is outside the "
                              f"reconstruction rules' range and must say why (why_not_ordinary)")
-    if v["base"] != "grade" and not v.get("corbel"):
-        fails.append("support: a bay off grade must say what carries it (corbel)")
+    if v["base"] != "grade" and not v.get("corbel") and not v.get("apron"):
+        fails.append("support: a bay off grade must say what carries it (corbel or apron)")
     return fails
 
 
@@ -338,6 +338,8 @@ def rule_support(b, v, data):
                 or h <= 0:
             return ["foundation: a bay on grade stands on no plinth from grade"]
         return []
+    if v.get("apron"):
+        return rule_apron(b, b.prims.get("apron"))   # T-2904: the apron's own role
     cb = b.prims.get("corbel")
     meta = b.meta.get("corbel")
     if not cb or not meta:
@@ -358,6 +360,29 @@ def rule_support(b, v, data):
         prev = z
     if prev < K.part(v, data, "corbel")["min_bearing_m"] - 1e-6:
         fails.append(f"bearing: the lowest corbel course bears on the wall by {prev:.3f} m only")
+    return fails
+
+
+def rule_apron(b, cb):
+    """T-2883: an apron is the bay's own plan carried down to its foot: its face stands from the
+    floor to the foot's moulding on every run, and the foot's underside closes it back to the wall."""
+    meta = b.meta.get("apron")
+    if not cb or not meta:
+        return ["support: an oriel on an apron has no apron under it"]
+    y0, foot, fh = b.meta["base_m"], meta["foot_m"], meta["foot_height_m"]
+    fails = []
+    if not foot + fh < y0:
+        fails.append(f"apron: its foot at {foot} m leaves no face under the floor at {y0} m")
+    under = [i for i, p in enumerate(cb.pos) if abs(p[1] - foot) < 1e-6 and cb.nrm[i][1] < -0.99]
+    if not under:
+        fails.append(f"apron: nothing closes the apron under its foot at {foot} m")
+    for i, run in enumerate(b.runs):
+        mid = run.world(run.L / 2, 0.0, 0.0)
+        face = [p for k, p in enumerate(cb.pos) if abs(cb.nrm[k][1]) < 1e-6
+                and abs((p[0] - mid[0]) * run.n[0] + (p[2] - mid[2]) * run.n[1]) < 1e-6] if run.kind == "line" else cb.pos
+        ys = [p[1] for p in face]
+        if not ys or min(ys) > foot + fh + 1e-6 or max(ys) < y0 - 1e-6:
+            fails.append(f"apron: run {i}'s face does not stand from the foot's moulding to the floor at {y0} m")
     return fails
 
 
@@ -500,6 +525,11 @@ def self_test(data) -> int:
     def m_plinth(d):
         d["parts"]["plinth"]["height_m"] = 0.0
 
+    def m_apron(d):   # T-2883: an apron whose foot stands no lower than its own floor
+        v = _v(d, "k08.oriel.canted_corbelled")
+        v.pop("corbel")
+        v["apron"] = {"foot_m": v["base"] - 0.05}
+
     def m_budget(d):
         d["costs"]["max_triangles"]["full"] = 900
 
@@ -519,6 +549,7 @@ def self_test(data) -> int:
         ("a curve cut into 12 degree facets", m_facet, "k08.bay.bowed", "facet:"),
         ("an oriel on one deep corbel course", m_corbel, "k08.oriel.canted_corbelled", "oversail:"),
         ("a bay on grade with no plinth", m_plinth, "k08.bay.canted", "foundation:"),
+        ("an oriel on an apron with no face under its floor", m_apron, "k08.oriel.canted_corbelled", "leaves no face"),
         ("a bay over its budget", m_budget, "k08.bay.bowed", "costs:"),
         ("a light tier as heavy as the full", m_light, "k08.bay.canted", "light:"),
         ("a light tier cut so coarse it loses the silhouette", m_coarse, "k08.bay.bowed", "facet: the light tier"),

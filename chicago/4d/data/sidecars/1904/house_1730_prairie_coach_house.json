@@ -9,6 +9,11 @@
   "asset": "gltf/house_1730_prairie_coach_house__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -20,14 +25,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1336.114,
-    "local_n": -3190.184,
+    "local_e": 1337.244,
+    "local_n": -3188.794,
     "rotation_deg": -0.582,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 1.000, v -8.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation -0.582 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 1.000, v -8.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation -0.582 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1730 S. Prairie Avenue, parcel prairie_1730 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -201,5 +206,6 @@
   ],
   "research_note": "A DISTRICT DRAFT (T-2334, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1932 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1730-b2), the T-1840 census (s20-1730-r1) and the T-1837 register row frontage-20-020; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-west-2334).",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1730 S. Prairie Avenue — the alley building of the house at 1730"
 }

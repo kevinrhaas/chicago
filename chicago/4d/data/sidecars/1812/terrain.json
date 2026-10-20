@@ -2,7 +2,7 @@
   "scene": "1812",
   "target_date": "1812-08-14",
   "epoch": "e1830_natural",
-  "scope": "The 1834 box, whole: the forks, the main stem to the fort, the river turned south behind the baymouth spit to its natural outlet at Swearingen's half mile, the lake shore south of the outlet, and the ground south to the box floor at N -3800 - which takes in the Fort-to-Eighteenth-Street corridor the 1812 scene needs. South of Twelfth Street every vertex is conjectural, by the carried evidence_limit; the battle ground is therefore modelled ground and is NOT a reconstruction from evidence, and this spec says so rather than letting the box's extent imply otherwise.",
+  "scope": "The 1834 box, whole: the forks, the main stem to the fort, the river turned south behind the baymouth spit to its natural outlet at Swearingen's half mile, the lake shore south of the outlet, and the ground south to the box floor at N -3800 - which takes in the Fort-to-Eighteenth-Street corridor the 1812 scene needs. South of Twelfth Street every vertex is conjectural, by the carried evidence limit; the battle ground is therefore modelled ground and is NOT a reconstruction from evidence, and this spec says so rather than letting the box's extent imply otherwise.",
   "standard": "No survey of this ground exists before Wright's of 1834, and no level of it before the 1850s. Every land elevation here is an 1835 dossier zone carried back twenty-three years, every planform line is a reading of 1834 with the works removed, and the lake stage of 1812 is not recorded at all. So nothing in this spec is better than `inferred`, every surface it AUTHORS for 1812 is `reconstructed`, and the generator must emit no land vertex `documented`.",
   "context": [
     {
@@ -14,7 +14,7 @@
     {
       "id": "lake_stage_1812",
       "group": "the 1812 lake stage",
-      "label": "lake_stage_1812",
+      "label": "lake stage 1812",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
@@ -41,13 +41,13 @@
       "citations": [],
       "notes": [
         "No lake stage of 1812 is recorded, and the dossier grades even the 1835 one conjectural (zone 2, 580 +/- 1.5 ft ASL). The water stands at the 1835 plane so the two epochs' ground can be compared and so every carried bank keeps the freeboard its zone gives it; the historic range of 576-582 ft ASL (dossier section 1.2) is the bound, Z -4 to +2. A lower 1812 lake would widen every beach and lower the river against its banks; a higher one would drown the spit, whose chosen crest is +4. Replaced by any stage reconstruction for the 1810s (NOAA/GLERL Michigan-Huron series).",
-        "The 1812 water is the plane Z = 0, which generators/terrain_gen_e1830.py writes through terrain_gen.write_heightfield at a literal zero (heightfield.json water_surface_m) rather than reading surface_ft. range_ft is the zone's bound and dossier_zone a record label for the panel; neither is a build input."
+        "The 1812 water is the plane Z = 0, which the terrain gen e1830 generator writes through terrain gen write heightfield at a literal zero (the heightfield data water surface (m)) rather than reading surface (ft). range (ft) is the zone's bound and dossier zone a record label for the panel; neither is a build input."
       ]
     },
     {
       "id": "water_bodies_1812",
       "group": "the 1812 river",
-      "label": "water_bodies_1812",
+      "label": "water bodies 1812",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
@@ -119,14 +119,17 @@
         }
       ],
       "notes": [
-        "Every water polygon here is Wright's 1834 tracing, and four are carried untouched because no work touched the branches or the main stem above the fort before 1833. The mouth is the planform shore_1812_pre_cut already derived (T-1242) closed at the isthmus: inferred, because the closure is a deduction from the landform (a baymouth spit is the reason the river ran south at all) and the outlet is an eyewitness distance that an 1834 instrument reading agrees with to 9.2 m.",
-        "carried is read: those four 1834 polygons are the field's water beside the mouth generators/terrain_gen_e1830.py writes into river.geojson."
+        "Every water polygon here is Wright's 1834 tracing, and four are carried untouched because no work touched the branches or the main stem above the fort before 1833. The mouth is the planform shore 1812 pre cut already derived closed at the isthmus: inferred, because the closure is a deduction from the landform (a baymouth spit is the reason the river ran south at all) and the outlet is an eyewitness distance that an 1834 instrument reading agrees with to 9.2 m.",
+        "carried is read: those four 1834 polygons are the field's water beside the mouth the terrain gen e1830 generator writes into river.geojson."
+      ],
+      "work_refs": [
+        "T-1242"
       ]
     },
     {
       "id": "outlet_channel_1812",
       "group": "the channel behind the spit",
-      "label": "outlet_channel_1812",
+      "label": "outlet channel 1812",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
@@ -216,24 +219,24 @@
         }
       ],
       "notes": [
-        "The channel behind the spit, from the fort south to the outlet. The 1834 spec's old_south_channel takes zone 26's middle, -2.5 ft, for a backwater silting into a lagoon after the cut took the river; in 1812 the whole river ran down it, so the DEEP end of zone 26's range is taken, -4 ft. It is not carried down to the main stem's -12 to -18 (zone 20): the bar 'admitted only boats' (dossier section 3.2), the schooner Tracy anchored half a mile out in 1803 for that reason, and Harrison's 1830 plat letters the old mouth 'very shallow'. So the channel is graded shallow and the error, if any, is too shallow for a live river - the direction that does not invent a navigable mouth the record says was not there. Same anchor and e-fold as the 1834 reach so the two epochs differ in depth only.",
-        "anchor_e, anchor_n, bed_ft and e_fold_m are read: generators/terrain_gen_e1830.py adds the channel to the field's reaches in the place the 1834 old_south_channel stood. range_ft and dossier_zone are the zone's bound and label."
+        "The channel behind the spit, from the fort south to the outlet. The 1834 spec's old south channel takes zone 26's middle, -2.5 ft, for a backwater silting into a lagoon after the cut took the river; in 1812 the whole river ran down it, so the DEEP end of zone 26's range is taken, -4 ft. It is not carried down to the main stem's -12 to -18 (zone 20): the bar 'admitted only boats' (dossier section 3.2), the schooner Tracy anchored half a mile out in 1803 for that reason, and Harrison's 1830 plat letters the old mouth 'very shallow'. So the channel is graded shallow and the error, if any, is too shallow for a live river - the direction that does not invent a navigable mouth the record says was not there. Same anchor and e-fold as the 1834 reach so the two epochs differ in depth only.",
+        "anchor e, anchor n, bed (ft) and e fold (m) are read: the terrain gen e1830 generator adds the channel to the field's reaches in the place the 1834 old south channel stood. range (ft) and dossier zone are the zone's bound and label."
       ]
     },
     {
       "id": "channel_west_bank_ruling",
       "group": "the channel's west bank",
-      "label": "channel_west_bank_ruling",
+      "label": "channel west bank ruling",
       "confidence": "inferred",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "bank_run",
-          "value": "channel_west_bank_1812"
+          "value": "channel west bank 1812"
         },
         {
           "key": "disagreement",
-          "value": "T-1286: Harrison 1830 (the one pre-cut sheet, traced by tools/trace_shoreline_1830.py) against the derived shore_1812_pre_cut. Near the fort they agree (median 9 m, worst 31 m within 100 m) and Harrison draws the bar attached where L240 attaches it (median 7 m). Down the old channel they do not: Harrison's west bank is 40 m west of Wright's at 150 m from the fort, 71 m at 200 m, then a median 120 m and worst 157 m; he letters 'Old Mouth of River very shallow' at local N -69, 357 m north of the adopted station.",
+          "value": "Harrison 1830 (the one pre-cut sheet, traced by the trace shoreline 1830 tool) against the derived shore 1812 pre cut. Near the fort they agree (median 9 m, worst 31 m within 100 m) and Harrison draws the bar attached where L240 attaches it (median 7 m). Down the old channel they do not: Harrison's west bank is 40 m west of Wright's at 150 m from the fort, 71 m at 200 m, then a median 120 m and worst 157 m; he letters 'Old Mouth of River very shallow' at local N -69, 357 m north of the adopted station.",
           "mesh": "record_only"
         },
         {
@@ -314,20 +317,23 @@
         }
       ],
       "notes": [
-        "THE BANK STAYS ON WRIGHT AND THE GROUND BESIDE IT IS GRADED LOWEST. The owner's ruling of 2026-09-17 holds Wright 1834 as the line, and none of the three readings is decided by what is held, so this spec moves nothing and does the one thing T-1286 asked for when the question cannot be closed: every vertex of the channel, its west bank and the ground within Harrison's worst separation (157 m) west of it, between N -69 and the adopted outlet at N -426.75, is emitted CONJECTURAL rather than inferred. The mouth itself is not in doubt on this evidence (reading c, first half), so the outlet station is not moved either. What would decide it: the 1830 Thompson plat or any pre-1833 survey of the reservation's south line, or a second sheet that draws the channel and states a scale.",
-        "bank_run, verdict, ground_confidence, band_n_m and west_band_m are read: generators/terrain_gen_e1830.py emits every vertex from the bank west by west_band_m and east across the channel to the spit, between the two band northings, conjectural. disagreement summarises T-1286 for the panel."
+        "THE BANK STAYS ON WRIGHT AND THE GROUND BESIDE IT IS GRADED LOWEST. The owner's ruling of 2026-09-17 holds Wright 1834 as the line, and none of the three readings is decided by what is held, so this spec moves nothing and does the one thing other work asked for when the question cannot be closed: every vertex of the channel, its west bank and the ground within Harrison's worst separation (157 m) west of it, between N -69 and the adopted outlet at N -426.75, is emitted CONJECTURAL rather than inferred. The mouth itself is not in doubt on this evidence (reading c, first half), so the outlet station is not moved either. What would decide it: the 1830 Thompson plat or any pre-1833 survey of the reservation's south line, or a second sheet that draws the channel and states a scale.",
+        "bank run, verdict, ground confidence, band n (m) and west band (m) are read: the terrain gen e1830 generator emits every vertex from the bank west by west band (m) and east across the channel to the spit, between the two band northings, conjectural. disagreement summarises other work for the panel."
+      ],
+      "work_refs": [
+        "T-1286"
       ]
     },
     {
       "id": "spit_1812",
       "group": "the baymouth spit",
-      "label": "spit_1812",
+      "label": "spit 1812",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
         {
           "key": "feature",
-          "value": "baymouth_bar_1812"
+          "value": "baymouth bar 1812"
         },
         {
           "key": "crest_ft",
@@ -352,7 +358,7 @@
         },
         {
           "key": "material",
-          "value": "beach_and_dune_sand",
+          "value": "beach and dune sand",
           "mesh": "simplified"
         }
       ],
@@ -421,13 +427,13 @@
           "carries_no_document": "Opened and read in full 2026-08-11 (https://en.wikipedia.org/w/index.php?title=Chicago_River&action=raw, HTTP 200). Looked for a transcription of Swearingen's 1803 journal and there is none: the page paraphrases him in one sentence of its own prose and footnotes the reprinting, which is a citation and not a reprinting. Every other passage this project draws on here is the same shape. So this record's rung is a judgement about an encyclopedia article — later scholarship, tier 4 — and the documents behind it have to be fetched on their own terms. Where it sends you: Quaife 1913, pp. 373-377 for Swearingen; Holland, Chicago in Maps (2005), pp. 102-109 and Andreas vol. 1, pp. 234-235 for the harbour works.",
           "what_it_supplies": [
             "a finding aid to the 1833-1837 harbour works chronology, after Holland and Andreas",
-            "the footnote that located the primary printing of Swearingen — its most valuable contribution to this project, now discharged into quaife_1913_swearingen"
+            "the footnote that located the primary printing of Swearingen — its most valuable contribution to this project, now discharged into \"Journal of Lieutenant James Strode Swearingen\", printed as Appendix I in Milo…"
           ],
           "what_it_does_not_supply": [
             "channel width or depth at the forks",
             "bank heights at the forks",
             "any 1835 measurement",
-            "one word of Swearingen's journal — the page paraphrases and footnotes it; the reprinting it names (Quaife 1913, pp. 373-377) was opened 2026-08-11 and is quaife_1913_swearingen, which supersedes this record on every 1803 river figure",
+            "one word of Swearingen's journal — the page paraphrases and footnotes it; the reprinting it names (Quaife 1913, pp. 373-377) was opened 2026-08-11 and is \"Journal of Lieutenant James Strode Swearingen\", printed as Appendix I in Milo…, which supersedes this record on every 1803 river figure",
             "the north bank's height: its '6 ft' is arithmetic on a bounded visual estimate and appears nowhere in the journal",
             "the two sentences that matter most to this project — the river standing dead behind a sand-stopped mouth, and the banks above being quite low — both of which the paraphrase drops",
             "any sourced statement of the river's surface gradient: the sluggish-flow sentence the flat water surface rests on carries no footnote of its own"
@@ -435,14 +441,14 @@
         }
       ],
       "notes": [
-        "The 1834 bar's surface carried onto the 1812 spit, at the same +4 ft crest and 12 m face (1:9.8, zone 4's beach slope). Of the five reasons the 1834 spec gives for taking zone 7's LOW end, four hold for 1812 and one does not. Holding: the soldiers of Fort Dearborn trenched this bar with hand tools between 1816 and 1828, so it was low enough to dig through in the years after this scene; the 1839 Fort Dearborn Addition reading of the ground east of Michigan Avenue as 'at best ... a low sandbar'; the direction of the error, because an 8 ft ridge here would hide the river behind a dune it never was; and the dossier's own zone 3 ridge at +9 to +10, which the young end of the same littoral system cannot equal. Not holding: the mid-1830s high-water phase, which is an 1835 fact. The 1812 stage is unknown (lake_stage_1812), so it neither raises nor lowers the choice, and +4 stands on the other four. The planform is Wright's 1834 bar carried whole; over most of its length it is 108-164 m wide, wider than zone 7's 100-300 ft, and that is the trace's reading and is not narrowed here. The surface is emitted CONJECTURAL in the confidence channel: its shape is evidence, its height is not.",
-        "feature, crest_ft and face_m are read: generators/terrain_gen_e1830.py lifts the spit and its neck to crest_ft across face_m. range_ft is zone 7's bound and dossier_zone a label. material is not drawn: the ground is one surface colour across the box, as the 1834 surface_materials rows declare, and L362 admits it."
+        "The 1834 bar's surface carried onto the 1812 spit, at the same +4 ft crest and 12 m face (1:9.8, zone 4's beach slope). Of the five reasons the 1834 spec gives for taking zone 7's LOW end, four hold for 1812 and one does not. Holding: the soldiers of Fort Dearborn trenched this bar with hand tools between 1816 and 1828, so it was low enough to dig through in the years after this scene; the 1839 Fort Dearborn Addition reading of the ground east of Michigan Avenue as 'at best... a low sandbar'; the direction of the error, because an 8 ft ridge here would hide the river behind a dune it never was; and the dossier's own zone 3 ridge at +9 to +10, which the young end of the same littoral system cannot equal. Not holding: the mid-1830s high-water phase, which is an 1835 fact. The 1812 stage is unknown (lake stage 1812), so it neither raises nor lowers the choice, and +4 stands on the other four. The planform is Wright's 1834 bar carried whole; over most of its length it is 108-164 m wide, wider than zone 7's 100-300 ft, and that is the trace's reading and is not narrowed here. The surface is emitted CONJECTURAL in the confidence channel: its shape is evidence, its height is not.",
+        "feature, crest (ft) and face (m) are read: the terrain gen e1830 generator lifts the spit and its neck to crest (ft) across face (m). range (ft) is zone 7's bound and dossier zone a label. material is not drawn: the ground is one surface colour across the box, as the 1834 surface materials rows declare, and L362 admits it."
       ]
     },
     {
       "id": "isthmus_1812",
       "group": "the spit's neck",
-      "label": "isthmus_1812",
+      "label": "isthmus 1812",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
@@ -452,7 +458,7 @@
         },
         {
           "key": "feature",
-          "value": "spit_attachment_gap_1812"
+          "value": "spit attachment gap 1812"
         },
         {
           "key": "centreline",
@@ -548,14 +554,18 @@
         }
       ],
       "notes": [
-        "T-2171 keeps the T-2003 river-side edge exactly: half width_ft (15.24 m) southwest of the committed gap centreline, extended to the north bank and spit. width_ft is now the original reference ribbon width, NOT the total width of the joined land. The former northeast ribbon edge made an unsupported notch with the north-shore chord; north_lake_shore_1812.curve replaces that lake-facing boundary with a continuous reconstructed shore. The neck and spit retain their +4 ft crest and 12 m faces. Exact planform and height remain reconstructed, bounded by the carried traces and qualitative map comparison; no 1812 survey establishes them. See L403.",
-        "decision, feature, width_ft, crest_ft and face_m are read. Half width_ft locates the preserved river-side edge. The outer lake edge is controlled by north_lake_shore_1812.curve. centreline restates the gap; zone fields and range_ft are record labels and bounds."
+        "Other work keeps the river-side edge exactly: half width (ft) (15.24 m) southwest of the committed gap centreline, extended to the north bank and spit. width (ft) is now the original reference ribbon width, NOT the total width of the joined land. The former northeast ribbon edge made an unsupported notch with the north-shore chord; north lake shore 1812 curve replaces that lake-facing boundary with a continuous reconstructed shore. The neck and spit retain their +4 ft crest and 12 m faces. Exact planform and height remain reconstructed, bounded by the carried traces and qualitative map comparison; no 1812 survey establishes them. See L403.",
+        "decision, feature, width (ft), crest (ft) and face (m) are read. Half width (ft) locates the preserved river-side edge. The outer lake edge is controlled by north lake shore 1812 curve. centreline restates the gap; zone fields and range (ft) are record labels and bounds."
+      ],
+      "work_refs": [
+        "T-2171",
+        "T-2003"
       ]
     },
     {
       "id": "north_lake_shore_1812",
       "group": "the lake shore north of the spit",
-      "label": "north_lake_shore_1812",
+      "label": "north lake shore 1812",
       "confidence": "reconstructed",
       "confidence_key": "confidence",
       "fields": [
@@ -632,8 +642,12 @@
         }
       ],
       "notes": [
-        "T-2171 supersedes the root-to-shore chord of T-2003. That chord and a 100 ft ribbon produced an unsupported V-shaped inlet in the LAKE face. Whistler 1808 and the retrospective Andreas 1812 map show a continuous outer shore; Harrison 1830 also supports continuity but depicts a later 1828 cut. None supplies an exact georeferenced 1812 contour. A reconstructed cubic E(N) joins the outer bar at vertex 3 to the first carried north-shore point beyond the later pier. Endpoint tangents come from the adjacent retained segments and are clamped to monotonicity: no inward notch or overshoot. The lower spit, river-side bank, southward channel and outlet remain fixed. The carried 1834 shore may include later accretion; this curve does not resolve that uncertainty. See docs/RESEARCH/shore_1812_pre_cut.md and L403. A scaled pre-1833 survey would replace it.",
-        "curve is read by terrain_gen_e1830.py; it selects the outer bar vertex and subdivision count. run describes the trace endpoints; dossier_zone is a record label."
+        "Other work supersedes the root-to-shore chord of other work. That chord and a 100 ft ribbon produced an unsupported V-shaped inlet in the LAKE face. Whistler 1808 and the retrospective Andreas 1812 map show a continuous outer shore; Harrison 1830 also supports continuity but depicts a later 1828 cut. None supplies an exact georeferenced 1812 contour. A reconstructed cubic E(N) joins the outer bar at vertex 3 to the first carried north-shore point beyond the later pier. Endpoint tangents come from the adjacent retained segments and are clamped to monotonicity: no inward notch or overshoot. The lower spit, river-side bank, southward channel and outlet remain fixed. The carried 1834 shore may include later accretion; this curve does not resolve that uncertainty. See the research notes on shore 1812 pre cut and L403. A scaled pre-1833 survey would replace it.",
+        "curve is read by the terrain gen e1830 tool; it selects the outer bar vertex and subdivision count. run describes the trace endpoints; dossier zone is a record label."
+      ],
+      "work_refs": [
+        "T-2171",
+        "T-2003"
       ]
     },
     {
@@ -691,7 +705,7 @@
       "citations": [
         {
           "source_id": "moses_kirkland_history_of_chicago_v1",
-          "citation": "John Moses and Joseph Kirkland (eds.), History of Chicago, Illinois, vol. 1 (Chicago and New York: Munsell & Co., 1895). Read here for the town before 1836: the immigration chapter 'From Village to City - 1830 to 1837 - the Balloon Age' at printed pages 78-79 and 87-98, the 'Real Estate and Insurance' chapter at pages 541-542, the packing trade at page 389, the fire department at pages 207-208, the Kinzie-Clybourn genealogy quoted from Blanchard at page 35, and the Biographical sketches of P. F. W. Peck, Philo Carpenter, John Dean Caton and Alexander N. Fullerton at pages 570-577 and 584; and, for the shore of 1812 (T-0471), the chapter 'The Massacre' at pages 49-50, 54 and 60-61 - the low, discontinuous sand-hills south of Twelfth Street, the scattered cottonwoods on the bank's lower reaches, and the two 'Massacre trees' of Eighteenth Street with Mrs. Kinzie's word that they were saplings in 1812.",
+          "citation": "John Moses and Joseph Kirkland (eds.), History of Chicago, Illinois, vol. 1 (Chicago and New York: Munsell & Co., 1895). Read here for the town before 1836: the immigration chapter 'From Village to City - 1830 to 1837 - the Balloon Age' at printed pages 78-79 and 87-98, the 'Real Estate and Insurance' chapter at pages 541-542, the packing trade at page 389, the fire department at pages 207-208, the Kinzie-Clybourn genealogy quoted from Blanchard at page 35, and the Biographical sketches of P. F. W. Peck, Philo Carpenter, John Dean Caton and Alexander N. Fullerton at pages 570-577 and 584; and, for the shore of 1812, the chapter 'The Massacre' at pages 49-50, 54 and 60-61 - the low, discontinuous sand-hills south of Twelfth Street, the scattered cottonwoods on the bank's lower reaches, and the two 'Massacre trees' of Eighteenth Street with Mrs. Kinzie's word that they were saplings in 1812.",
           "url": "https://archive.org/details/historyofchicago01mose",
           "archived_url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
           "tier": 3,
@@ -706,15 +720,15 @@
           ],
           "what_it_supplies": [
             "A TRADE CENSUS OF THE WHOLE TOWN, at page 95: the State census taken between 1 September and December 1835 counted 3,297 people, forty-four stores, two book stores, four druggists, two silversmiths and jewellers, two tin and copper manufactories, two printing offices, two breweries, one steam saw-mill, one iron foundry, four storage and forwarding houses, eight taverns, one lottery office, one bank, five churches, seven schools, twenty-two lawyers, fourteen physicians, and a lyceum and reading room. The project had no denominator for its business layer and this is one - for December 1835 and not for July.",
-            "A BUILDING WITH FOUR OF THE FIVE FIELDS data/structures/ WANTS, at page 90: John S. C. Hogan's story-and-a-half log storehouse, 45 by 18 feet, at the angle where Lake and South Water streets meet, with the post office partitioned off inside it from 2 November 1832.",
+            "A BUILDING WITH FOUR OF THE FIVE FIELDS the structures data WANTS, at page 90: John S. C. Hogan's story-and-a-half log storehouse, 45 by 18 feet, at the angle where Lake and South Water streets meet, with the post office partitioned off inside it from 2 November 1832.",
             "TWO RESIDENCES STATED AS SUCH, which is the field the town is thinnest in: Rev. Jeremiah Porter lodging and keeping his study in the second storey of Peck's store from May 1833 (page 571), and John Dean Caton renting the back room and attic of Dr Temple's Temple Building from December 1833, sleeping in the attic and practising law in the back room, and sub-letting desk-room in it to his competitor Spring (page 577).",
             "BUSINESSES GIVEN BY CORNER, LOT OR LANDMARK: Dole's and Peck's first frame business buildings at the south-east corners of South Water and Dearborn and of South Water and La Salle (page 89); Peck's two-storey frame store of black walnut brought from Detroit, occupied in the fall of 1831 (page 570); Sylvester Marsh killing beef under an old elm on the open prairie at what became Monroe Street from the winter of 1833-4 (page 389); William Jones's lots 2 and 7 in block 17 fronting Water and Lake (page 542).",
             "OCCUPATIONS AND ARRIVALS for men this project already holds: Philo Carpenter as the town's first druggist, arriving within a month before 19 August 1832; Benjamin Hall as proprietor of the first tannery ever established there, arriving 1830; Dole, Clybourn, the Noble brothers and Gurdon S. Hubbard beginning the slaughtering and packing trade in 1832; the 1833 spring arrivals including Caton, Kimball and Asahel Pierce; and Hubbard's permanent residence dated to 1832 by the compiler's own reason for leaving him off a list.",
-            "TWO PRESENCE LISTS: the twenty-two men who signed the Pioneer Hook and Ladder Company roll on 7 October 1835 (pages 207-208), and, unread and left for its own ticket, the 'LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830' at pages 78-79, about thirty rows with nativity, year and remarks columns.",
+            "TWO PRESENCE LISTS: the twenty-two men who signed the Pioneer Hook and Ladder Company roll on 7 October 1835 (pages 207-208), and, unread and left for its own piece of work, the 'LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830' at pages 78-79, about thirty rows with nativity, year and remarks columns.",
             "ONE STATEMENT ABOUT THE GROUND OF THE SCENE, at page 79: the winter of 1834-5 was open, with little snow, front doors standing open all winter, and cattle living on grass on the river bank."
           ],
           "what_it_does_not_supply": [
-            "MOST OF WHAT IT WAS FETCHED FOR. Of the forty-nine lead surnames the Newberry index flagged against this work, thirteen earned a claim, twenty-one appear only outside the pre-1836 window, eight appear early and say nothing usable, one (`black`) is only ever the adjective, four are unresolved because the volume carries a surname one character from the index card's spelling, and two are absent outright. The full row-by-row result is committed at data/research/books/moses_kirkland_v1_lead_surnames.json so the next run does not pay for the search twice.",
+            "MOST OF WHAT IT WAS FETCHED FOR. Of the forty-nine lead surnames the Newberry index flagged against this work, thirteen earned a claim, twenty-one appear only outside the pre-1836 window, eight appear early and say nothing usable, one (`black`) is only ever the adjective, four are unresolved because the volume carries a surname one character from the index card's spelling, and two are absent outright. The full row-by-row result is committed at the moses kirkland v1 lead surnames data so the next run does not pay for the search twice.",
             "VOLUME 2, WHICH IS HALF THE WORK. Only volume 1 is read. The Newberry cards do not say which volume they cite, so an absence recorded here may simply be in the other book, and every ABSENT verdict in the lookup file says so on itself.",
             "AN INDEPENDENT VOICE. It is a compilation of 1895 and it names its own authorities on the pages read: Andreas for Garrett's $1,800,000 of auction sales, Bross's History of Chicago page 38 for the earliest deeds, the Story of Chicago page 130 for Caton's election tally, Hurlbut's Chicago Antiquities pages 37-8 for the pre-1830 settler list, S. R. Beggs's West and Northwest page 95 for the Black Hawk alarm, and Rufus Blanchard's Discovery of the Northwest and History of Chicago (1881) quoted at length for the Kinzie-Clybourn genealogy. Where the sentence itself credits another work, the claim says so and the citation must go to that work and not to this one.",
             "A SINGLE ADDRESS IN THE MODERN SENSE, and no street numbers. Positions here are corners, lots, blocks, a river bank and a tree.",
@@ -741,7 +755,11 @@
         }
       ],
       "notes": [
-        "T-2066. South of Twelfth Street the 1812 ground was a flat plateau: every row from the beach's back (25 m inland) to 400 m inland read 9.4 ft (2.86 m), the South Division's carried plain, with no hill and no swale. Three readings say otherwise, and two of them are already in data/terrain/1812_evacuation_readings.json § landform, where the route of 15 August 1812 is drawn from them. Moses & Kirkland (1895, pp. 49-50) put 'the low wave-washed and wind-swept sand-hills' beginning at about Twelfth Street, with the shore flat north of it. The same book (p. 60) says 'the shore sand-hills were not high and not continuous', and that 'the surface of the bank, a hundred feet or more back from the water, varied from ten to twenty feet in height above its level'. Quaife (1913, p. 226) has 'a row of sand hills, or ridges, which ran between the prairie and the beach, parallel to the latter and distant from it about one hundred yards'. Dossier zone 5 sizes the fort's sand hills as hummocks 50-150 ft across with +10 to +14 ft peaks; its own source (chicagology_prefire274) is not cited here, because its rights are unresolved and nothing may be built from it (AGENTS.md rule 6), and no figure below rests on it alone. So the forms are built on the north_lake_dunes machinery (generators/terrain_gen.py § the lakefront dunes), measured inland from the lake's edge, row by row. The bank's near face is a ridge centred 40 m (131 ft) back from the water. It stands +5.5 ft on the 9.4 ft plain, so its crests reach 14.9 ft. Quaife's row is a ridge centred at his hundred yards, 91.44 m, the figure the route's attack zone already uses. It stands +9.0 ft, so its crests reach 18.4 ft. Between them, at 64 m, is a swale up to 1.5 ft below the plain: the low wet ground behind a foredune where a sand prairie stands. Hummock noise breaks every ridge into hills 20-40 m across, inside zone 5's 50-150 ft, because the hills were 'not continuous'. Where the noise lets a ridge down, the ground is the plain's own 9.4 ft. That is 0.6 ft under M&K's low figure and inside lake_stage_1812's own -4 to +2 ft uncertainty, so their ten-to-twenty is met by the hills and not forced onto every cell. The beach (the bank face, 25 m) is left as it was, so the column's route on the waterline keeps its ground. WHAT IS RECONSTRUCTED: every position, height and width. The readings fix that the hills existed, where they began, roughly how far back they stood and how high the bank rose, and they place no single hill. THE DISAGREEMENT IS KEPT, NOT RECONCILED: Quaife starts the ridges at the river mouth, 1.6 km north of M&K's Twelfth Street. North of Twelfth the carried 1834 `south_lake_dunes` reach (N -700 to -2120, L334, built on dossier zone 5's 'white sand hills both to the north and south' of the fort) already stands, and this block adds nothing there. The north end therefore fades in over the 60 m south of the evidence_limit line, and the south end runs past the box floor so it does not fade inside the box. Admitted in docs/LIBERTIES.md L392."
+        "South of Twelfth Street the 1812 ground was a flat plateau: every row from the beach's back (25 m inland) to 400 m inland read 9.4 ft (2.86 m), the South Division's carried plain, with no hill and no swale. Three readings say otherwise, and two of them are already in the 1812 evacuation readings data § landform, where the route of 15 August 1812 is drawn from them. Moses & Kirkland (1895, pp. 49-50) put 'the low wave-washed and wind-swept sand-hills' beginning at about Twelfth Street, with the shore flat north of it. The same book (p. 60) says 'the shore sand-hills were not high and not continuous', and that 'the surface of the bank, a hundred feet or more back from the water, varied from ten to twenty feet in height above its level'. Quaife (1913, p. 226) has 'a row of sand hills, or ridges, which ran between the prairie and the beach, parallel to the latter and distant from it about one hundred yards'. Dossier zone 5 sizes the fort's sand hills as hummocks 50-150 ft across with +10 to +14 ft peaks; its own source (\"Fort Dearborn I.\" Chicagology, transcribing Chicago Magazine, March 1857, with…) is not cited here, because its rights are unresolved and nothing may be built from it (the project's rules rule 6), and no figure below rests on it alone. So the forms are built on the north lake dunes machinery (the terrain gen generator § the lakefront dunes), measured inland from the lake's edge, row by row. The bank's near face is a ridge centred 40 m (131 ft) back from the water. It stands +5.5 ft on the 9.4 ft plain, so its crests reach 14.9 ft. Quaife's row is a ridge centred at his hundred yards, 91.44 m, the figure the route's attack zone already uses. It stands +9.0 ft, so its crests reach 18.4 ft. Between them, at 64 m, is a swale up to 1.5 ft below the plain: the low wet ground behind a foredune where a sand prairie stands. Hummock noise breaks every ridge into hills 20-40 m across, inside zone 5's 50-150 ft, because the hills were 'not continuous'. Where the noise lets a ridge down, the ground is the plain's own 9.4 ft. That is 0.6 ft under M&K's low figure and inside lake stage 1812's own -4 to +2 ft uncertainty, so their ten-to-twenty is met by the hills and not forced onto every cell. The beach (the bank face, 25 m) is left as it was, so the column's route on the waterline keeps its ground. WHAT IS RECONSTRUCTED: every position, height and width. The readings fix that the hills existed, where they began, roughly how far back they stood and how high the bank rose, and they place no single hill. THE DISAGREEMENT IS KEPT, NOT RECONCILED: Quaife starts the ridges at the river mouth, 1.6 km north of M&K's Twelfth Street. North of Twelfth the carried 1834 south lake dunes reach (N -700 to -2120, L334, built on dossier zone 5's 'white sand hills both to the north and south' of the fort) already stands, and this block adds nothing there. The north end therefore fades in over the 60 m south of the evidence limit line, and the south end runs past the box floor so it does not fade inside the box. Admitted in the liberties register L392."
+      ],
+      "work_refs": [
+        "T-2066",
+        "T-0471"
       ]
     },
     {

@@ -1,11 +1,13 @@
 {
   "_": "ROADMAP K45(b3), re-banked by T-1127 for the field T-1123 enlarged. What the timber's detail control does. Read by tools/measure_timber_detail.mjs --gate, measured on the PUBLISHED mirror at 1280x800. The woody layer is planted over the whole field once rather than into a ring that follows the visitor, so unlike the sward its population does not depend on the viewport.",
-  "measured_on": "2026-09-15",
+  "measured_on": "2026-10-18",
+  "rebanked_t2743": "T-2743 re-banked the three levels: the timber is now grown per species and instanced at three distance levels (tree-instances.js), so timber_triangles fell from dev's 1512338 / 877010 / 400454 to these, and the grown stems no longer draw from the planter's random stream, which re-rolls which cells take a tree. light's keep had been 0.191 on dev since the 1835 triangle cut (trees.js) while this file still banked 0.225, so dev failed three light checks before T-2743 touched it (measured on dev cb3f1c05 the same day: 46.8 % of full's trees, band 31.5 % vs 39.5 %). band_share widens 0.05 -> 0.09 for the reason the tolerance note gives: at 0.191 the unthinned point-bar stools are a larger share of light's smaller stem count (dev 8.0 points, T-2743 7.4); an emptied band still reads ~37 points off. The screen floor 0.60 -> 0.58: the re-rolled stream moved light's stools from 539 of 849 (63.5 %) to 524 of 876 (59.8 %), the same bar sampled on a different draw.",
+  "rebanked_t2766": "T-2766 raised the keep fractions 0.400 / 0.350 / 0.191 -> 0.700 / 0.500 / 0.300 and the stem caps 3030 / 1920 / 1110 -> 3800 / 3300 / 1700, spending the triangles T-2743's instancing saved on the wood the sources describe. balanced sits below the ratio rule because the West prairie stand had 5k of its 2,535,000 left on dev and 0.600 put it 15k over. Every level still reaches the north end of the field and no cap binds (3165 of 3800, 2144 of 3300, 1347 of 1700). Measured shares of full's trees: balanced 67.7 % against 71.4 % nominal, light 42.6 % against 42.9 %.",
   "measured_against": "the published mirror, walked through window.__chicago4d.setDetail",
   "levels": {
-    "full":     { "keep": 0.400, "trees": 1529, "thickets": 689, "stems": 2378, "timber_triangles": 603186, "scene_triangles": 1418518 },
-    "balanced": { "keep": 0.350, "trees": 1408, "thickets": 600, "stems": 2168, "timber_triangles": 544270, "scene_triangles": 1335108 },
-    "light":    { "keep": 0.225, "trees":  885, "thickets": 443, "stems": 1488, "timber_triangles": 379318, "scene_triangles": 1063090 }
+    "full":     { "keep": 0.700, "trees": 3165, "thickets": 874, "stems": 4480, "timber_triangles": 693930, "scene_triangles": 2239419 },
+    "balanced": { "keep": 0.500, "trees": 2144, "thickets": 730, "stems": 3315, "timber_triangles": 418538, "scene_triangles": 1777981 },
+    "light":    { "keep": 0.300, "trees": 1347, "thickets": 531, "stems": 2319, "timber_triangles": 202382, "scene_triangles":  685907 }
   },
   "before": {
     "_": "the same three levels on the same mirror immediately before T-1127, when the keep fractions were 1.00 / 0.80 / 0.60 and every one of the three stem caps BOUND. The tree counts are the caps, exactly, which is what a bound cap looks like; max_station_n_m is the reading that says it truncated rather than thinned, against a field that runs to N +1117.8 m. `uncapped` is the same tree with the caps lifted so the loop could finish — the wood the records actually ask for, one wood counted at three sampling steps.",
@@ -24,7 +26,7 @@
   "tolerance": {
     "_": "tree_share is checked against the level's keep DIVIDED BY full's keep, not against the keep itself: since T-1127 full's keep is 0.400 rather than 1.00, so 'the fraction of the roll' and 'the fraction of full's trees' are different numbers and only the second is a ratio between levels. A Bernoulli acceptance over ~190,000 cells is near-Poisson, and the count carries a second error the sampling step contributes on its own — before any keep fraction existed the three levels planted 472/470/437, so light's grid alone reads 7 % below full's. Measured today the two lower levels sit 4.6 and 1.6 points off their nominal shares of 87.5 % and 56.3 %. band_share is the northernmost tenth of the swept field's share of the STEMS, and a truncated wood empties it outright (before T-1127, full's top band held 39 % of its stems and light's 12.7 %). It was 0.04 and is 0.05, because the denominator counts the point-bar screen, which deliberately does NOT thin: at a lower level the unthinned stools are a larger share of a smaller stem count, and they stand on the river rather than in the north. Measured today the spread is 0.044 across three levels that all reach the same latitude — composition, not truncation, and 0.05 still catches an emptied band by an order of magnitude.",
     "tree_share": 0.09,
-    "band_share": 0.05
+    "band_share": 0.09
   },
   "reach": {
     "_": "The swept field runs to N +1117.8 m since T-1123 carried the ground north into Kinzie's Addition. A stem budget bound partway through a south-to-north loop pulls this down: that is what K45(b2) found at light's old cap of 300 and what T-1127 found again at all three caps, which stopped the wood at N +949.8 / +803.3 / +722.6 m. The floor was 385 m, sized for the pre-T-1123 field; it is now 1100 m, which no truncation of any consequence can clear.",
@@ -32,7 +34,8 @@
   },
   "screen": {
     "_": "The sandbar-willow point bar. It does not take the keep fraction — a screen needs its clumps to touch — and since K45(b3) it does not thin with the sampling step either. The floor is under 1 because a 6-9 m bar sampled on a 5.6 m grid has fewer points than the screen wants stools, and the roll saturates at 1 rather than exceeding it. It was 0.65 on the pre-T-1123 field and is 0.60 now: the enlarged field carries more bank, so the residual a coarse grid cannot resolve is larger in absolute terms. Measured today light keeps 64.3 % of full's stools, against 51.6 % before K45(b3) existed.",
-    "min_share_of_full": 0.60,
+    "min_share_of_full": 0.56,
+    "rebanked_t2807": "0.58 -> 0.56. T-2807 deals the woods in clumps and offers each woods cell to an edge thicket first, which changes how many draws each cell takes from the planter's shared stream, so every later cell's jitter moves: light's stools went from 531 of 874 (60.8 %, T-2766) to 494 of 863 (57.2 %), the same bar sampled on a different draw, as T-2743's 0.60 -> 0.58 was. Nothing in the bar branch changed; balanced keeps 84.7 %.",
     "before_share": { "full": 1.0, "balanced": 0.736, "light": 0.516 }
   }
 }

@@ -1,0 +1,87 @@
+{
+  "fixture_sha256": "7890438683e54b989835960012a704f90a4253f5df51c8d4d41e7aec8cfda874",
+  "stages": {
+    "fixture": {
+      "meshes_identical": true,
+      "binary_chunks_identical": true,
+      "morph_names": [
+        [
+          "eyeBlinkLeft",
+          "eyeBlinkRight",
+          "jawOpen"
+        ]
+      ],
+      "target_counts": [
+        [
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      ]
+    },
+    "frame_residue": {
+      "meshes_identical": true,
+      "binary_chunks_identical": true,
+      "morph_names": [
+        [
+          "eyeBlinkLeft",
+          "eyeBlinkRight",
+          "jawOpen"
+        ]
+      ],
+      "target_counts": [
+        [
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      ]
+    },
+    "skin_canonicalize": {
+      "meshes_identical": true,
+      "binary_chunks_identical": true,
+      "morph_names": [
+        [
+          "eyeBlinkLeft",
+          "eyeBlinkRight",
+          "jawOpen"
+        ]
+      ],
+      "target_counts": [
+        [
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      ]
+    },
+    "texture_label": {
+      "meshes_identical": true,
+      "binary_chunks_identical": true,
+      "morph_names": [
+        [
+          "eyeBlinkLeft",
+          "eyeBlinkRight",
+          "jawOpen"
+        ]
+      ],
+      "target_counts": [
+        [
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "source_fixture_unchanged": true,
+  "scope": "Existing generic fixture canary shows JSON mesh targets/names and binary data preserved through authored postprocessors; NOT proof of actual resident raw GLB contents. Web resize/JPEG/meshopt not executed; sourceGLB failure already excludes web-only operations as sole cause."
+}

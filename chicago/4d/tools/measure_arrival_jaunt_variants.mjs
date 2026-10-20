@@ -5,14 +5,14 @@
  * not always arrive that way, so this boots the published town (`site/4d`, run
  * `tools/publish.sh` first) eight more ways and asks, of each, the same three things:
  * the arrival never reads 1835 before the scene is ready and never counts back up;
- * the welcome is reached, or a failure says so and offers Retry; and a jaunt then
+ * the welcome is reached, or a failure says so and offers Try again; and a jaunt then
  * starts at its first stop (or, where the catalog is the thing that failed, the town
  * can still be entered on your own). Zero page errors throughout.
  *
  *   warm          a second visit in the same browser: assets from the HTTP cache,
  *                 the first visit's timing history read back
  *   slow          CPU 4x and Fast 3G (1.6 Mbps, 150 ms)
- *   essential     terrain.js throws: Retry, no welcome; Retry then arrives
+ *   essential     terrain.js throws: Try again, no welcome; Try again then arrives
  *   optional      people.json 503: the town still arrives
  *   reduced       prefers-reduced-motion: at most five years shown, no digit flips
  *   background    the tab hidden mid-boot and again mid-jaunt, then brought back
@@ -285,19 +285,21 @@ const VARIANTS = {
     await page.waitForTimeout(500);
     const failed = await page.evaluate(() => ({ welcome: window.__chicago4d.welcome.state,
       year: window.__chicago4d.arrival.state.year, copy: document.getElementById('gate-sub').textContent,
+      detail: document.getElementById('gate-detail').textContent, folded: !document.getElementById('gate-details').open,
       button: document.getElementById('gate-btn').textContent, disabled: document.getElementById('gate-btn').disabled,
       hint: [...document.querySelectorAll('.gate-keys')].filter(el => getComputedStyle(el).display !== 'none')
         .map(el => (el.classList.contains('gate-touch') ? 'touch' : 'keys')).join('+') }));
-    check(v, 'an essential failure says what failed, offers Retry, and does not arrive',
-      failed.welcome !== 'welcome' && failed.year >= 1836 && /forced terrain failure/.test(failed.copy)
-      && failed.button === 'Retry' && !failed.disabled, JSON.stringify(failed));
+    check(v, 'an essential failure says where the jump stalled, folds what failed, offers Try again, and does not arrive',
+      failed.welcome !== 'welcome' && failed.year >= 1836 && failed.copy === `The jump stalled somewhere around ${failed.year}.`
+      && /forced terrain failure/.test(failed.detail) && failed.folded
+      && failed.button === 'Try again' && !failed.disabled, JSON.stringify(failed));
     check(v, 'the failure screen shows the hints this device will use', failed.hint === (VIEW.touch ? 'touch' : 'keys'), `shows ${failed.hint}`);
     await yearsCheck(v, page, 'the failed arrival');
     await still(page, 'essential-failed');
     await page.unroute('**/terrain.js');
     await Promise.all([page.waitForNavigation({ waitUntil: 'domcontentloaded' }), tap(page, '#gate-btn')]);
     await arrived(page);
-    check(v, 'Retry reloads and, the fault gone, the town arrives', true);
+    check(v, 'Try again reloads and, the fault gone, the town arrives', true);
     await startJaunt(v, page);
     await finish(v, run);
   },
@@ -460,7 +462,9 @@ const VARIANTS = {
       catalogs > 0 && await page.locator('#welcome-jaunts-content button', { hasText: 'Try again' }).isVisible(), `${catalogs} refused`);
     await still(page, 'catalog-failed');
     await exploreOnMyOwn(v, page);
-    await tap(page, '#btn-start');
+    // T-2625: Start / Jaunts left the HUD (its choices are the Navigator's Jaunts app), so
+    // the Welcome card is shown again the way that button did.
+    await page.evaluate(() => window.__chicago4d.welcome.show());
     await until(page, () => window.__chicago4d.welcome.state === 'welcome');
     refuseCatalog = false;
     await tap(page, '#welcome-jaunts');

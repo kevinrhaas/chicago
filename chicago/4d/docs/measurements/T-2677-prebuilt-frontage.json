@@ -1,0 +1,284 @@
+{
+ "ticket": "T-2677",
+ "parent": "T-2560",
+ "measured": "2026-10-16",
+ "machine": "steward runner, 4 cores, no GPU (SwiftShader), 156.0.8078.4",
+ "base": "dev @ 2bcd059fe, published with this branch's tools/publish.sh",
+ "phone_profile": {
+  "tool": "node tools/measure_boot_phases.mjs --quick --phone [--no-prebuilt] --json",
+  "conditions": "mobile 390x780 touch, detail light, 4x CPU throttle, network unthrottled, cold = fresh context, warm = repeat navigation; one reading per cell",
+  "before_built_in_browser": [
+   {
+    "cache": "cold",
+    "frontage_ms": 3209,
+    "frontage_longest_task_ms": 3318,
+    "prebuilt": {
+     "used": false,
+     "why": "no prebuilt frontage (404)"
+    },
+    "boot_longest_task_ms": 16187,
+    "ready_s": 84.3,
+    "phases": {
+     "scene": {
+      "seconds": 4.363,
+      "long_tasks_ms": 2217,
+      "longest_task_ms": 706
+     },
+     "terrain": {
+      "seconds": 8.789,
+      "long_tasks_ms": 6874,
+      "longest_task_ms": 4302
+     },
+     "buildings": {
+      "seconds": 7.034,
+      "long_tasks_ms": 1752,
+      "longest_task_ms": 772
+     },
+     "ground": {
+      "seconds": 34.682,
+      "long_tasks_ms": 33026,
+      "longest_task_ms": 16187
+     },
+     "flora": {
+      "seconds": 24.679,
+      "long_tasks_ms": 9883,
+      "longest_task_ms": 540
+     },
+     "people": {
+      "seconds": 1.459,
+      "long_tasks_ms": 1166,
+      "longest_task_ms": 467
+     },
+     "census": {
+      "seconds": null,
+      "long_tasks_ms": 0,
+      "longest_task_ms": 0
+     },
+     "interaction": {
+      "seconds": 4.168,
+      "long_tasks_ms": 9023,
+      "longest_task_ms": 7118
+     }
+    }
+   },
+   {
+    "cache": "warm",
+    "frontage_ms": 3318,
+    "frontage_longest_task_ms": 3360,
+    "prebuilt": {
+     "used": false,
+     "why": "no prebuilt frontage (404)"
+    },
+    "boot_longest_task_ms": 15805,
+    "ready_s": 85.8,
+    "phases": {
+     "scene": {
+      "seconds": 4.128,
+      "long_tasks_ms": 2100,
+      "longest_task_ms": 660
+     },
+     "terrain": {
+      "seconds": 8.569,
+      "long_tasks_ms": 6723,
+      "longest_task_ms": 4236
+     },
+     "buildings": {
+      "seconds": 7.056,
+      "long_tasks_ms": 1886,
+      "longest_task_ms": 826
+     },
+     "ground": {
+      "seconds": 34.408,
+      "long_tasks_ms": 32119,
+      "longest_task_ms": 15805
+     },
+     "flora": {
+      "seconds": 25.525,
+      "long_tasks_ms": 10608,
+      "longest_task_ms": 513
+     },
+     "people": {
+      "seconds": 1.438,
+      "long_tasks_ms": 1124,
+      "longest_task_ms": 459
+     },
+     "census": {
+      "seconds": null,
+      "long_tasks_ms": 0,
+      "longest_task_ms": 0
+     },
+     "interaction": {
+      "seconds": 5.52,
+      "long_tasks_ms": 11076,
+      "longest_task_ms": 9215
+     }
+    }
+   }
+  ],
+  "after_prebuilt": [
+   {
+    "cache": "cold",
+    "frontage_ms": 796,
+    "frontage_longest_task_ms": 914,
+    "prebuilt": {
+     "used": true,
+     "why": null,
+     "build": "2bcd059fe",
+     "bytes": 78093120
+    },
+    "boot_longest_task_ms": 15816,
+    "ready_s": 80.2,
+    "phases": {
+     "scene": {
+      "seconds": 4.236,
+      "long_tasks_ms": 2226,
+      "longest_task_ms": 725
+     },
+     "terrain": {
+      "seconds": 8.807,
+      "long_tasks_ms": 6983,
+      "longest_task_ms": 4228
+     },
+     "buildings": {
+      "seconds": 6.751,
+      "long_tasks_ms": 1723,
+      "longest_task_ms": 828
+     },
+     "ground": {
+      "seconds": 31.459,
+      "long_tasks_ms": 29900,
+      "longest_task_ms": 15816
+     },
+     "flora": {
+      "seconds": 23.912,
+      "long_tasks_ms": 9201,
+      "longest_task_ms": 522
+     },
+     "people": {
+      "seconds": 1.404,
+      "long_tasks_ms": 1105,
+      "longest_task_ms": 457
+     },
+     "census": {
+      "seconds": null,
+      "long_tasks_ms": 0,
+      "longest_task_ms": 0
+     },
+     "interaction": {
+      "seconds": 4.442,
+      "long_tasks_ms": 8773,
+      "longest_task_ms": 6995
+     }
+    }
+   },
+   {
+    "cache": "warm",
+    "frontage_ms": 753,
+    "frontage_longest_task_ms": 884,
+    "prebuilt": {
+     "used": true,
+     "why": null,
+     "build": "2bcd059fe",
+     "bytes": 78093120
+    },
+    "boot_longest_task_ms": 15421,
+    "ready_s": 82.0,
+    "phases": {
+     "scene": {
+      "seconds": 3.755,
+      "long_tasks_ms": 1918,
+      "longest_task_ms": 631
+     },
+     "terrain": {
+      "seconds": 8.784,
+      "long_tasks_ms": 6919,
+      "longest_task_ms": 4141
+     },
+     "buildings": {
+      "seconds": 6.654,
+      "long_tasks_ms": 1691,
+      "longest_task_ms": 800
+     },
+     "ground": {
+      "seconds": 30.068,
+      "long_tasks_ms": 28611,
+      "longest_task_ms": 15421
+     },
+     "flora": {
+      "seconds": 24.997,
+      "long_tasks_ms": 9764,
+      "longest_task_ms": 504
+     },
+     "people": {
+      "seconds": 2.056,
+      "long_tasks_ms": 1646,
+      "longest_task_ms": 547
+     },
+     "census": {
+      "seconds": null,
+      "long_tasks_ms": 0,
+      "longest_task_ms": 0
+     },
+     "interaction": {
+      "seconds": 7.158,
+      "long_tasks_ms": 10342,
+      "longest_task_ms": 8111
+     }
+    }
+   }
+  ]
+ },
+ "unthrottled_mobile_light": {
+  "before_ms": {
+   "cold": 968,
+   "warm": 860
+  },
+  "after_ms": {
+   "cold": 292,
+   "warm": 283
+  },
+  "note": "frontage wall time read the same way with no CPU throttle"
+ },
+ "first_cut_main_thread_inflate": {
+  "terrain_long_tasks_ms": {
+   "cold": 7850,
+   "warm": 8300
+  },
+  "before_ms": {
+   "cold": 6870,
+   "warm": 6720
+  },
+  "note": "inflating 78 MB with DecompressionStream on the main thread put about a second of long tasks into terrain; it runs on a pool worker now (jobs/inflate-kernel.js), and terrain reads 6,980 / 6,920 ms"
+ },
+ "payload": {
+  "tool": "node tools/measure_boot_payload.mjs",
+  "before_mb": 12.311,
+  "before_requests": 981,
+  "after_mb": 19.01,
+  "after_requests": 984,
+  "prebuilt_folder_mb": 6.695,
+  "units": "MiB, gzip on the wire, as the tool prints them"
+ },
+ "file": {
+  "raw_bytes": 78093120,
+  "gzip_one_pass_bytes": 10761354,
+  "gzip_two_passes_bytes": 6969459,
+  "gzip_three_passes_bytes": 6934057,
+  "index_bytes": 277926
+ },
+ "tree": {
+  "tool": "python3 tools/site_budget.py",
+  "raw_bin_mib": 373.731,
+  "gzipped_twice_mib": 305.909,
+  "budget_mib": 320
+ },
+ "parity": {
+  "tool": "node tools/prebuild_layers.mjs --parity --root ../../site/4d",
+  "meshes": 128,
+  "attributes": 768,
+  "matched": 768,
+  "pageerrors": 0,
+  "note": "the published page's buffers, uploaded from the prebuild, against a fresh Node build"
+ },
+ "reading": "At the phone profile the frontage layer falls from 3.2-3.3 s to 0.75-0.8 s and its longest task from 3.3 s to 0.9 s, cold and warm. The boot's longest task is not frontage's (about 16 s in ground) and did not move. Ready fell 4.1 s cold and 3.8 s warm, in one reading each, so treat that as direction rather than size. The cost is 6.7 MB more on every first visit, which is why docs/SITE-BUDGET.md section 4f re-sets the boot payload budget to 20 MB."
+}

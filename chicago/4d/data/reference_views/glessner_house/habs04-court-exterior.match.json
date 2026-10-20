@@ -2,8 +2,8 @@
   "structure_id": "glessner_house",
   "view": "habs04-court-exterior",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
-  "camera_sha256": "7ccd4571592b31439e969f77d078d8e835fd8b2ba0e963b25dbd8b2ecc5346b3",
+  "glb_sha256": "ef60e946008b3242884615f80baea34c35ee832c4b760be6de5ebab8372e4da4",
+  "camera_sha256": "c9d413f7fa89d5c38c8cbd3f61c5f6ab8dd56819095405939ad9717c94923f5a",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-court-exterior-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -16,11 +16,43 @@
       "status": "fixed"
     },
     {
-      "what": "Exact apron/finial silhouette, frame stock and local section correspondence still require reconciliation with the licensed photographic references.",
-      "status": "open"
+      "what": "T-2859: the three dormers re-read on native sheet 4. Centres move to the drawing's S32.1 and S67.8 (built 32.3 and 66.8; the third stood a foot west of the drawn one), 45.0 kept. The hip covers are slimmed from 47 to 20 mm and stop under the finial's bell, which they had buried; the bell now reads as drawn, on its own drawn profile (foot 37.03, top 38.90 ft). Frame stock 0.067 m and apron fascia 0.03 m follow the drawing's lines. Pyramid slope, eave, body and light already agreed within 0.04-0.08 ft. Close-ups at the drawing's grain: docs/RESEARCH/glessner-court-dormers-T-2859/.",
+      "status": "fixed"
     },
     {
-      "what": "Stair tower retains the independently read HABS2 plan centre/radius; HABS4 differs by about0.63ft in S and about0.30ft in radius. Terminal coping return and remaining local aperture/trim correspondence still differ.",
+      "what": "T-2859: at the drawing's grain the outer dormers render about 0.18 ft toward the picture's centre - the far-field camera's 1% depth residual, the dormers standing about 5.5 m behind its nominal face; the record puts them where the orthographic drawing does.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2925: the bow's lights, door and stone courses are built to native sheet 4, carried onto the plan's frame by +0.65 ft. Above, two broad lights at S29.08-32.56 and 34.27-36.83 and a narrow one at 37.80-38.69; below, a broad light, the garden door and a narrow light at 29.10-32.59, 34.38-36.83 and 37.86-38.69. Openings 9.05-14.20 and 19.45-24.29 ft. The lintels and the upper sill run as continuous stone courses to the bow's south flank. On the render at the drawing's grain the frames, door and courses fall within about 3 px (0.1 ft) of the drawn lines. The narrow lights, about 63 degrees round the curve from the view, show their deep south reveal and so read as a dark strip about half the drawn width; the opening is set from the drawn edges, and a section drawing does not show a reveal.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2925: the stair tower's lights to sheet 4. Its four slits stand at the drawn heights (north 7.52-12.78 and 18.78-22.46 ft, south 4.70-9.10 and 16.58-20.53), 0.75 ft wide under 1.25-ft head stones and over 0.65-ft sills, and the three lantern lights at 28.2-31.9 ft between a stone sill course at 27.05-28.2 and a lintel course rising to the eave (they stood about a foot low, with a brick strip under the eave). Ruled, not built to this view (T-2879): the tower stays on the plan's drum, so here it renders about 1.1-1.3 ft north of the drawn drum and 0.34 ft narrower each side, which sheet 4 draws 11.09 ft across against sheet 2's printed 10'-0\" mass; each light is therefore placed by its angle on the drum (the fraction of the drawn drum's half-width), not by its drawn S. The terrace coping's terminal at the post is the habs04-terrace-section view's (matches since T-2906).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2925 carried the three dormers onto the plan's frame (+0.65 ft, T-2879): S32.75, 45.65 and 68.45. On the render at the drawing's grain the middle dormer's finial falls on the drawn one, and the outer two stand about 7 px (0.23 ft) toward the picture's centre, the far-field camera's 1% depth residual T-2859 recorded (they stand about 5.5 m behind its nominal face); the record puts them where the orthographic drawing does.",
+      "status": "fixed"
+    },
+    {
+      "what": "Found by T-2862's split: the east wing's court face south of the stair tower (S 63-73) is drawn with the upper storey's two windows in one continuous lintel and sill course and the middle storey's two framed windows in theirs; the build has four separate double-hung lights under their own small lintels - T-2926. T-2926 built it to native sheet 4 (readings: docs/RESEARCH/glessner-court-face-T-2926/).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2926: the court face south of the stair tower to native sheet 4, carried onto the plan's frame by +0.65 ft. Over the underpass two lights 3.0 ft wide (S64.34-67.35 and 69.83-72.90, 12.1-15.5 ft) on one sill course (11.3-12.1) under one lintel course (15.5-16.76), run 64.03-73.26; under the eave two lights 2.05 ft wide (64.84-66.88 and 70.31-72.36, 21.2-24.9 ft) on one sill course (20.45-21.2) under one lintel course (24.9-26.1), run 64.51-72.65. Before, four equal lights 2.5 ft wide stood about 2.5 ft north of these, each under its own small lintel and on its own sill, the lower pair 1.4 ft too tall. On the render at the drawing's grain every frame and course edge falls within about 0.2 ft of the drawn line, the offset being toward the picture's centre: the far-field camera's 1% depth residual T-2859 recorded.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2926: the underpass exit to sheet 4: 9.0 ft wide (S62.96-71.96, was 63.3-72.9) and 7.22 ft clear (was 8.1) under a stone lintel 7.22-8.9 ft that runs to the wing's south end, with a stone corbel standing 0.5 ft in from each jamb at 6.0-7.22 ft, its lower inner corner rounded. The passage's court-end ceiling and the drive's outline follow the new mouth. How far a corbel runs into the passage is not drawn (1.5 ft, reconstructed).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2926: sheet 4 draws the east court's south leader at the wing's south end under a hopper head, not beside the stair tower: the leader moves from S61.61 to 73.68 and takes a hopper head 0.47 m across, hung under the gutter with its top at the drawn 26.87 ft. The pipe keeps the existing stock, about 0.04 m narrower than drawn.",
+      "status": "fixed"
+    },
+    {
+      "what": "Found by T-2926: between the bow and the stair tower the first-floor window (drawn about 9.6-14.2 ft under a lintel stone about 14.2-15.3, built 9.5-14.6 under a thin one), the narrow second-floor light and its stones (drawn about 20.0-25.0 under a stone at 25.0-26.2), the garden-level light's grille at S47-50, and the court-east-north leader at S42.4, which sheet 4 does not draw - T-2928.",
       "status": "open"
     },
     {

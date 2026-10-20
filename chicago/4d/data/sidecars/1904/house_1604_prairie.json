@@ -9,6 +9,11 @@
   "asset": "gltf/house_1604_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -20,14 +25,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1366.982,
-    "local_n": -2973.04,
+    "local_e": 1368.112,
+    "local_n": -2971.65,
     "rotation_deg": -0.578,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the three-storey main body's rectangle (lot frame u 34.650, v -3.850 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation -0.578 degrees turns the plan's u axis onto the lot's own rear-to-street line. T-2343 moved it 8.40 m toward the street and 0.60 m south of the district draft's corner (T-2334): the draft read the whole traced outline as one three-storey body 20.5 m deep, and the sheet prints '3B' only on the front 12.2 m, behind a yellow entry strip, with '2B' and '2' on the pieces behind it (see rear_wings).",
+    "position_note": "The rear corner of the three-storey main body's rectangle (lot frame u 34.650, v -3.850 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation -0.578 degrees turns the plan's u axis onto the lot's own rear-to-street line. T-2343 moved it 8.40 m toward the street and 0.60 m south of the district draft's corner (T-2334): the draft read the whole traced outline as one three-storey body 20.5 m deep, and the sheet prints '3B' only on the front 12.2 m, behind a yellow entry strip, with '2B' and '2' on the pieces behind it (see rear_wings).",
     "symbolic_location": "1604 S. Prairie Avenue, parcel prairie_1604 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -427,5 +432,6 @@
   ],
   "research_note": "T-2343 (piece 3 of T-1859) refines the district draft (T-2334) in place under the same id: 1604 is rebuilt from the K01 frontage assembly and its kits - K03 brick on every wall, K06 sash, K07 door and stoop, K09 window heads, K10 bracketed cornice, K04/K05 hip roof over the three-storey block - and, behind it, the two pieces the sheet draws, built on K01's rear wings (taught by this ticket): a two-storey brick range over a basement and a two-storey brick block at the west end. What is read: the 1911 Sanborn sheet 20 (storeys '3B', '2B' and '2', brick, a yellow frame entry strip, the traced outline) through the T-1840 census. Everything else is reconstructed and recorded as L-k01-1604-rear-range-2343. No photograph, plate or description of 1604 has been read; a later reading that finds one replaces the kit's choices here.",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1604 Prairie Avenue - brick house with its rear range"
 }

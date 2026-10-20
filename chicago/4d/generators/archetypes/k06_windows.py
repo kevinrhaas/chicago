@@ -122,6 +122,12 @@ def box(s0, s1, y0, y1):
     return [(s0, y0), (s1, y0), (s1, y1), (s0, y1)]
 
 
+def rise_over_span(v: dict, data: dict) -> float:
+    """A segmental head's rise over its span: the kit's working figure, or (T-2818) the
+    variant's own, where a drawing reads a flatter head (1623's broad basement light)."""
+    return float(v.get("rise_over_span", data["arch"]["segmental"]["working_rise_over_span"]))
+
+
 class Head:
     """The top of a clear opening s0..s1 whose jambs rise to `spring`."""
 
@@ -195,6 +201,15 @@ class Region:
             top = [(xa, self.top_y - t), (xb, self.top_y - t)]
         else:
             top = self.head.curve(self.head_inset + t, xa, xb)
+            if self.head.kind == "segmental" and top[0][1] < self.y0 + b - 1e-9:
+                # T-2889: a region that starts on a segmental head's spring (a fanlight's):
+                # the arc, inset, meets the spring line inside the jambs, so the region is
+                # the segment over that line, its corners where the inset arc crosses it
+                r_ = self.head.R - self.head_inset - t
+                dx = math.sqrt(max(0.0, r_ * r_ - (self.y0 + b - self.head.cy) ** 2))
+                xa, xb = self.head.cx + dx, self.head.cx - dx
+                top = self.head.curve(self.head_inset + t, xa, xb)
+                top[0], top[-1] = (xa, self.y0 + b), (xb, self.y0 + b)   # on the line exactly
         return [(xb, self.y0 + b), (xa, self.y0 + b)] + top
 
 
@@ -221,8 +236,9 @@ class Opening:
         # T-2366: a round head's region that starts on its own spring (a fanlight's, a
         # fixed light's upper pane) repeats a corner; a repeated point is no vertex
         # (kept to round heads, whose regions alone do it: the flat and segmental
-        # variants' meshes, which committed houses carry, stay their bytes)
-        if self.v.get("head") == "round":
+        # variants' meshes, which committed houses carry, stay their bytes). T-2889: a
+        # segmental fanlight's region starts on its spring the same way
+        if self.v.get("head") == "round" or self.v.get("operation") == "double_hung_fanlight":
             pts = [q for i, q in enumerate(pts) if math.dist(q, pts[i - 1]) > 1e-6]
             if len(pts) < 3:
                 return
@@ -289,7 +305,7 @@ class Opening:
             if kind == "flat":
                 head = Head("flat", s0, s1, H)
             else:
-                ros = self.data["arch"]["segmental"]["working_rise_over_span"]
+                ros = rise_over_span(v, self.data)
                 rr = v.get("head_radius_ratio", 1.0)    # T-2457: a drop head, its radius under the span
                 h0 = Head(kind, s0, s1, 0.0, ros, rr)
                 head = Head(kind, s0, s1, H - h0.rise, ros, rr)
@@ -305,7 +321,10 @@ class Opening:
             daylight = self._frame(s0, s1, head, rev, y_frame, fr)
             self._glaze(daylight, head, rev, fr, sa, mu, s0, s1)
         self._sill(holes, rev, run, sill)
-        self._head_band(holes, p["head_band"])
+        # T-2886: a light set between columns takes a narrower band over its head than the
+        # kit's, so it fits the run between their shafts (1637's south bay's cheeks)
+        hb = {**p["head_band"], **({"width_m": ov["head_band_m"]} if "head_band_m" in ov else {})}
+        self._head_band(holes, hb)
         if v.get("well"):
             self._well(holes, p["well"])
         return self
@@ -420,6 +439,13 @@ class Opening:
             for a, b, key in ((day.s0, mid, "leaf_left"), (mid, day.s1, "leaf_right")):
                 inner_glass = self._sash("sash_outer", Region(a, b, day.y0, top_y=sash_top), d_out, sa, mu,
                                          panes, (st, st, br, tr), key)
+        elif op == "casement_transom":
+            # T-2752: a casement under a transom bar and its fixed light, in each light of a
+            # mullioned group (1625 Prairie's photograph: two or four lights, the transom about
+            # a third down)
+            sash_top = self._transom(day, rev, stop, fr, sa, mu, d_out)
+            inner_glass = self._sash("sash_outer", Region(day.s0, day.s1, day.y0, top_y=sash_top), d_out, sa, mu,
+                                     panes, (st, st, br, tr), "casement")
         else:  # fixed, casement, fixed_leaded: one sash in the outer track
             inner_glass = self._sash("sash_outer", day, d_out, sa, mu, panes, (st, st, br, tr), "fixed")
             if op == "fixed_leaded":
@@ -430,6 +456,8 @@ class Opening:
         """A transom bar `transom_m` under the daylight's top and the fixed light over it;
         returns the top of what opens under the bar."""
         v, st = self.v, sa["stile_m"]
+        if v.get("tiers"):
+            return self._tiers(day, rev, fr, sa, mu, d_out)
         tb = 0.06
         t_bot = day.top_y - v["transom_m"]
         sash_top = t_bot - tb
@@ -441,6 +469,33 @@ class Opening:
                    (v.get("transom_lights", 3), 1), (st, st, st, st), "transom")
         return sash_top
 
+    def _tiers(self, day: Region, rev, fr, sa, mu, d_out):
+        """T-2815: fixed lights in tiers over the sash, each on a stone bar across the hole
+        (Keith's bow on the 1888 plate: a main sash, a light over it and a top light).
+        `tiers` names the bar's depth and each light's clear height, bottom up, measured on
+        the hole as the picture's stone reveals draw them; the top light runs to the head.
+        Each bar is the wall's stone, its face on the wall's face, back to the frame's back;
+        returns the top of the sash under the lowest bar."""
+        v, st = self.v, sa["stile_m"]
+        bar, lights = float(v["tiers"]["bar_m"]), [float(h) for h in v["tiers"]["lights_m"]]
+        H, d_back = v["clear_height_m"], rev + fr["depth_m"]
+        top = H
+        for n, h in reversed(list(enumerate(lights, 1))):
+            lo = top - h
+            b0, b1 = lo - bar, lo
+            self.plane("mullion", box(day.s0 - fr["face_m"], day.s1 + fr["face_m"], b0, b1), 0.0)
+            for y, hy in ((b0, -1.0), (b1, 1.0)):
+                self.face("mullion", [self.P(day.s0 - fr["face_m"], y, 0.0), self.P(day.s1 + fr["face_m"], y, 0.0),
+                                      self.P(day.s1 + fr["face_m"], y, d_back),
+                                      self.P(day.s0 - fr["face_m"], y, d_back)], (0.0, hy, 0.0))
+            self._sash("sash_outer", Region(day.s0, day.s1, b1, top_y=min(top, day.top_y)), d_out, sa, mu,
+                       (v.get("transom_lights", 3), 1), (st, st, st, st), f"tier{n}")
+            top = b0
+        if top - day.y0 < 0.6:
+            raise ValueError(f"{v['id']}: its tiers leave a {top - day.y0:.2f} m sash under them")
+        self.meta["tiers_m"] = round(top, 4)
+        return top
+
     def _fanlight(self, fan: Region, head, d, bars, mu):
         outer = fan.outline()
         st = self.data["parts"]["sash"]["stile_m"]
@@ -450,6 +505,9 @@ class Opening:
         self.tube("sash_outer", inner, d, g)
         cx, cy = head.cx, head.spring
         r = head.R - fan.head_inset - st
+        if self.v.get("fanlight_grid_m"):
+            self._fanlight_grid(inner, d, g, cx, cy, r, mu)
+            return
         # sectors between radial bar centre-lines, each a convex wedge
         angles = [math.pi * k / (bars + 1) for k in range(bars + 2)]
         for k in range(bars + 1):
@@ -475,6 +533,28 @@ class Opening:
             if area2(bar) < 0:
                 bar = bar[::-1]
             self.plane("sash_outer", bar, d)
+
+    def _fanlight_grid(self, inner, d, g, cx, cy, r, mu):
+        """T-2819: a fanlight glazed as a lattice of square lights (1623 Prairie's drawing: a
+        grid of small square panes in its window's round head) — one glass behind a grid of
+        muntin bars `fanlight_grid_m` [across, up] apart, centred on the head's axis and
+        laid up from the spring, each bar clipped to the head; the upright bars stand a
+        millimetre before the level ones, so their crossings are never coplanar."""
+        self.plane("glass_outer", inner, g)
+        self.panes.append({"sash": "fanlight", "poly": inner, "depth_m": g, "col": 0, "row": 0})
+        qw, qh = self.v["fanlight_grid_m"]
+        hw = mu["width_m"] / 2
+        n = int(r / qw + 0.5)
+        bars = [[(cx + k * qw - hw, cy), (cx + k * qw + hw, cy), (cx + k * qw + hw, cy + r), (cx + k * qw - hw, cy + r)]
+                for k in range(-n, n + 1) if abs(k * qw) < r - hw]
+        bars += [[(cx - r, cy + k * qh - hw), (cx + r, cy + k * qh - hw), (cx + r, cy + k * qh + hw), (cx - r, cy + k * qh + hw)]
+                 for k in range(1, int(r / qh) + 1) if k * qh < r - hw]
+        for i, bar in enumerate(bars):
+            piece = clip(bar, inner)
+            if len(piece) >= 3 and abs(area2(piece)) > 1e-7:
+                if area2(piece) < 0:
+                    piece = piece[::-1]
+                self.plane("sash_outer", piece, d - (0.001 if bar[0][1] == cy else 0.0))
 
     def _cames(self, day: Region, rails, g):
         """Diamond quarries on lead cames, the two diagonal families a millimetre apart
@@ -573,7 +653,8 @@ class Opening:
         w, out = hb["width_m"], hb["proud_m"]
         s0, s1, head = holes[0][0], holes[-1][1], holes[0][2]
         if head.kind == "flat":
-            self.proud("head", box(s0 - 0.12, s1 + 0.12, head.spring, head.spring + w), out)
+            ear = hb.get("ear_m", 0.12)     # T-2883: a narrow K08 light's lintel stops at its jambs
+            self.proud("head", box(s0 - ear, s1 + ear, head.spring, head.spring + w), out)
             return
         inner = head.curve(0.0, s1, s0)
         outer = head.curve(-w, s1 + w, s0 - w)

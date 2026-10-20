@@ -68,7 +68,7 @@ import { GRIT_TILE_M } from './ground-strip-mask.js';
 import { DIRT_TONES, linearTone, roadGrit } from './streets.js';
 import { swardTexture, swardUniforms } from './terrain.js';
 import { ditherHash } from './lakeshore.js';
-import { spatialBatchAsync } from './spatial-batch.js';
+import { spatialBatchAsync, batchPieces } from './spatial-batch.js';
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, inferred: 0.5, reconstructed: 1 };
@@ -211,6 +211,36 @@ function featherCover(ring, width, e, n) {
   const ramp = width * 0.14;
   const t = Math.min(1, Math.max(0, (s - (mid - ramp)) / (2 * ramp)));
   return 1 - t * t * (3 - 2 * t);
+}
+
+/**
+ * T-2696. The yards' interiors and feathers filed on a world grid by their
+ * bounding boxes, in their own order, so `suppressesSward` asks only those that
+ * can contain the point. A point inside a box is in a cell that box was filed
+ * in (both ends of each range are inclusive, as the box test is), and each
+ * cell keeps the lists' order, so the first interior that answers is the one
+ * the full walk would have reached first: the answer is the same, and only the
+ * misses are no longer paid for.
+ */
+const SWARD_CELL_M = 16;
+function swardGrid(interiors, featherList) {
+  const cells = new Map();
+  const key = (i, j) => (i + 32768) * 65536 + (j + 32768);
+  const file = (b, item, list) => {
+    for (let i = Math.floor(b.minE / SWARD_CELL_M); i <= Math.floor(b.maxE / SWARD_CELL_M); i++) {
+      for (let j = Math.floor(b.minN / SWARD_CELL_M); j <= Math.floor(b.maxN / SWARD_CELL_M); j++) {
+        const k = key(i, j);
+        let cell = cells.get(k);
+        if (!cell) { cell = { interiors: [], feathers: [] }; cells.set(k, cell); }
+        cell[list].push(item);
+      }
+    }
+  };
+  for (const i of interiors) file(i.bbox, i, 'interiors');
+  for (const f of featherList) file(f.bbox, f, 'feathers');
+  return {
+    at: (e, n) => cells.get(key(Math.floor(e / SWARD_CELL_M), Math.floor(n / SWARD_CELL_M))),
+  };
 }
 
 /** A ring, with any repeated closing vertex dropped. */
@@ -733,13 +763,16 @@ function rectRing(frame, u0, u1, v0, v1) {
 
 /**
  * @param {object} o records (the enclosure records) · terrain · confidence ·
- *                   problems
+ *                   problems · prebuilt (T-2711: `{ index, bin }` from
+ *                   `fetchPrebuiltYards`, or a promise of it) · recordHashes
+ *                   (the Map createEnclosures hashed the records into)
  * @returns {Promise<{group: THREE.Group, interiors: object[], census: object,
- *            suppressesSward: function, treatmentAt: function, dispose: function}>}
+ *            suppressesSward: function, treatmentAt: function, dispose: function,
+ *            prebuilt: object}>}
  *          async since T-2600: its surfaces are partitioned on the job pool
  */
 export async function createFencedGround({
-  records = [], terrain, confidence = null, problems = [],
+  records = [], terrain, confidence = null, problems = [], prebuilt = null, recordHashes = null,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'yard-ground';
@@ -750,6 +783,8 @@ export async function createFencedGround({
     suppressesSward: () => false,
     treatmentAt: () => null,
     dispose: () => {},
+    /** T-2711: whether the surfaces came prebuilt, and if not, why not. */
+    prebuilt: { used: false, why: prebuilt ? null : 'none offered' },
   };
   if (!terrain || !records.length) return out;
 
@@ -794,13 +829,45 @@ export async function createFencedGround({
   }
   // An array, not the map's iterator: the sward asks this of every slot.
   const featherList = [...feathers.values()].filter(Boolean);
+  const swardCells = swardGrid(out.interiors, featherList);
 
   /** Is this point inside a fenced interior — the question `flora.js` asks
    *  through `main.js`'s block-list composition, and the question the smoke asks
    *  through `plantableAt`. Cheap rejection on the bounding box first: this runs
-   *  once per lattice slot per frame rebuild. */
+   *  once per lattice slot per frame rebuild.
+   *
+   *  T-2696: and only the interiors and feathers whose box reaches the point's
+   *  cell are asked (`swardGrid`). Every one of them was walked for every slot,
+   *  and it was the largest single cost of a spread pass's deal on the main
+   *  thread at the throttled phone profile (a CPU profile of the turn put 3.4 s
+   *  of its 7 s in here). `suppressesSwardScan` keeps the full walk, and
+   *  `checkSwardGrid` holds the two to the same answer. */
   out.suppressesSward = (e, n) => {
-    for (const i of out.interiors) {
+    const cell = swardCells.at(e, n);
+    return cell ? swardAnswer(cell.interiors, cell.feathers, e, n) : false;
+  };
+  out.suppressesSwardScan = (e, n) => swardAnswer(out.interiors, featherList, e, n);
+  /** T-2696: `count` points over the yards' own boxes, the bucketed answer
+   *  against the full walk. `differ` must be 0. */
+  out.checkSwardGrid = (count = 20000) => {
+    const boxes = [...out.interiors.map((i) => i.bbox), ...featherList.map((f) => f.bbox)];
+    let s = 0x2696;
+    const rnd = () => { s ^= s << 13; s >>>= 0; s ^= s >>> 17; s ^= s << 5; s >>>= 0; return s / 4294967296; };
+    const res = { asked: 0, suppressed: 0, differ: 0, first: [] };
+    for (let k = 0; k < count && boxes.length; k++) {
+      const b = boxes[Math.floor(rnd() * boxes.length)];
+      const e = b.minE - 3 + rnd() * (b.maxE - b.minE + 6);
+      const n = b.minN - 3 + rnd() * (b.maxN - b.minN + 6);
+      const got = out.suppressesSward(e, n);
+      const want = out.suppressesSwardScan(e, n);
+      res.asked++;
+      if (want) res.suppressed++;
+      if (got !== want) { res.differ++; if (res.first.length < 5) res.first.push({ e, n, got, want }); }
+    }
+    return res;
+  };
+  function swardAnswer(interiors, feathersOf, e, n) {
+    for (const i of interiors) {
       const b = i.bbox;
       if (e < b.minE || e > b.maxE || n < b.minN || n > b.maxN) continue;
       if (pointInPolygon(i.pts, e, n)) {
@@ -809,8 +876,8 @@ export async function createFencedGround({
         return i.feather ? i.feather.cover(e, n) > ditherHash(e, n) : true;
       }
     }
-    for (let k = 0; k < featherList.length; k++) {
-      const f = featherList[k];
+    for (let k = 0; k < feathersOf.length; k++) {
+      const f = feathersOf[k];
       const b = f.bbox;
       if (e < b.minE || e > b.maxE || n < b.minN || n > b.maxN) continue;
       if (pointInPolygon(f.outer, e, n) && !pointInPolygon(f.ring, e, n)) {
@@ -818,7 +885,7 @@ export async function createFencedGround({
       }
     }
     return false;
-  };
+  }
   /** Which treatment covers this point, or null — so a gate can ask "is the
    *  ground here a working yard" rather than "is something drawn here". */
   out.treatmentAt = (e, n) => {
@@ -830,6 +897,17 @@ export async function createFencedGround({
     return null;
   };
 
+  // T-2711: the five surfaces, prebuilt at publish, stand in for laying and
+  // cutting them when they were built from exactly what this page read (THE
+  // YARDS, PREBUILT, below). The interiors above are the page's own either way:
+  // the sward and the gates ask them, and they cost almost nothing.
+  let replay = null;
+  if (prebuilt) {
+    const offered = await prebuilt;
+    out.prebuilt.why = await prebuiltYardsRefusal(offered, { terrain, recordHashes });
+    if (!out.prebuilt.why) replay = offered;
+  }
+
   // ---- geometry ---------------------------------------------------------- //
 
   const buffers = new Map();
@@ -838,7 +916,9 @@ export async function createFencedGround({
     return buffers.get(surface);
   };
 
-  for (const interior of out.interiors) {
+  // Prebuilt, nothing is laid here: the file's census is the build's.
+  if (replay) Object.assign(out.census, structuredClone(replay.index.census));
+  for (const interior of replay ? [] : out.interiors) {
     const spec = TREATMENTS[interior.treatment];
     const pts = interior.pts;
     const b = interior.bbox;
@@ -967,42 +1047,29 @@ export async function createFencedGround({
     buf.pos = buf.uv = buf.col = buf.conf = null;
     geo.computeVertexNormals();
     geo.computeBoundingSphere();
-    // Every surface draws the shared tiles (T-2013, T-2090); only the bed keeps
-    // a canvas, for its drills.
-    const map = surface === 'garden_bed' ? bedTexture() : null;
-    const mat = new THREE.MeshStandardMaterial({
-      map,
-      vertexColors: true,
-      transparent: true,
-      alphaTest: 0.02,
-      depthWrite: false,
-      roughness: 1,
-      metalness: 0,
-      polygonOffset: true,
-      // The road ribbon's own offset, and for the road's own reason: a surface
-      // draped on the terrain it is drawn against loses the depth test in
-      // patches once precision has degraded, and one unit is nothing at that
-      // range. The vertices are untouched — the drape is the terrain's.
-      polygonOffsetFactor: -8,
-      polygonOffsetUnits: -32,
-    });
-    mat.name = `yard-${surface}`;
-    yardGround(mat, surface, tiles);
-    confidence?.patch(mat);
-    // This layer's own program, for the reason enclosures.js records at length:
-    // `customProgramCacheKey` defaults to the SOURCE TEXT of `onBeforeCompile`,
-    // which every material `confidence.patch()` touches shares, so two patched
-    // materials that agree on their other program parameters share a compiled
-    // program and one of them is drawn by the other's shader.
-    mat.customProgramCacheKey = () => `chicago4d-yard-${surface}`;
+    const { mat, map } = surfaceMaterial(surface, tiles, confidence);
     laid.push({ surface, geo, mat, map, mesh: spatialBatchAsync(geo, mat) });
+  }
+  if (replay) {
+    // The same materials over the file's pieces, batched as spatialBatchAsync
+    // batches the page's own (byte-equal: prebuild_layers.mjs --layer yards).
+    for (const s of replay.index.surfaces) {
+      const surface = s.name.replace(/^yard-/, '');
+      const { mat, map } = surfaceMaterial(surface, tiles, confidence);
+      laid.push({ surface, geo: null, mat, map, mesh: batchPieces(prebuiltPieces(s, replay.bin), mat) });
+    }
+    Object.assign(out.prebuilt, { used: true, why: null, build: replay.index.build, bytes: replay.index.bytes,
+      surfaces: replay.index.surfaces.length });
+    // The batches hold copies; the resolved promise must not keep the buffer alive.
+    replay.bin = null;
+    replay.index = null;
   }
   // T-2600: every surface's cells are cut on the job pool at once, and the
   // meshes join the group in the order they were laid, so the layer is the same.
   const meshes = await Promise.all(laid.map((l) => l.mesh));
   laid.forEach(({ surface, geo, mat, map }, i) => {
     const mesh = meshes[i];
-    geo.dispose();
+    geo?.dispose();
     mesh.name = `yard-${surface}`;
     // A ground treatment lies ON the ground: it receives what the town casts
     // over it and casts nothing itself, which is also why it is not in the
@@ -1024,8 +1091,156 @@ export async function createFencedGround({
 }
 
 /* -------------------------------------------------------------------------- */
+/* THE YARDS, PREBUILT (T-2711)                                                */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * T-2711, the third piece of T-2705. Laying the five surfaces — every cell of
+ * 1,155 interiors draped on the heightfield, its normals, and the cut into 40 m
+ * pieces — is the same answer for every visitor. `tools/publish.sh` runs this
+ * file's own createFencedGround in Node over enclosures.js's own records
+ * (`tools/prebuild_layers.mjs --layer yards`, byte-equal to the page's batches
+ * since T-2704) and writes `data/prebuilt/<year>/yards.{json,bin.gz}`: each
+ * surface's pieces. The page then only batches them (`batchPieces`). The trade
+ * is bytes for CPU: about 3.2 MB on the wire (docs/SITE-BUDGET.md § 4i).
+ *
+ * WHEN IT IS USED. Only when every one of these holds; otherwise the surfaces
+ * are laid and cut in the browser exactly as before (the source tree always is):
+ *   - the page carries a build stamp and the prebuild was written by the same
+ *     publish (`index.build`), so the code that laid it is the page's own;
+ *   - it is this scene's (`index.year`) and the format this page reads;
+ *   - every enclosure record and the heightfield this page fetched hash
+ *     (SHA-256) to what the index lists, and the page read no record it does
+ *     not list: the yards were laid from exactly these records on this ground;
+ *   - the buffer is the length the index says;
+ *   - the visitor has not asked to save data and the browser does not rate the
+ *     connection 3G or slower (`navigator.connection`, where there is one).
+ * `tools/check_published.mjs` refuses a published prebuild whose inputs have
+ * moved, so the page's check is the second line, as it is for the ground.
+ */
+export const PREBUILT_YARDS_FORMAT = 1;
+
+/**
+ * Fetch `data/prebuilt/<year>/yards.{json,bin}`, or say why not. Started by
+ * main.js before the scene phase, so the download runs under it. Resolves
+ * `{ index, bin }` or `{ why }`; it never rejects.
+ */
+export async function fetchPrebuiltYards({ dataBase, year, build }) {
+  if (!dataBase || !year) return { why: 'no scene year to fetch yards for' };
+  if (!build) return { why: 'this page carries no build stamp, so it lays its own yards (the source tree)' };
+  // About 3.2 MB on the wire for a layout every phone can make for itself: a
+  // trade a visitor saving data, or on a 3G or slower connection, should not make.
+  const link = globalThis.navigator?.connection;
+  if (link?.saveData || /(^|-)(2g|3g)$/.test(link?.effectiveType ?? '')) {
+    return { why: `a ${link.saveData ? 'data-saving' : link.effectiveType} connection lays its own yards` };
+  }
+  // Ask only for what publish wrote (prebuilt-index.js), as the ground, base and
+  // streets do. Imported here, not at the top: the node harnesses that load this file
+  // as a data: URL never reach the fetch.
+  const { prebuiltAbsent } = await import('./prebuilt-index.js');
+  const absent = await prebuiltAbsent({ dataBase, year, build, layer: 'yards' });
+  if (absent) return { why: `${absent}, so the page lays its own yards` };
+  const base = new URL(`prebuilt/${year}/`, dataBase);
+  try {
+    const res = await fetch(new URL('yards.json', base));
+    if (!res.ok) return { why: `no prebuilt yards (${res.status})` };
+    const index = await res.json();
+    if (index.format !== PREBUILT_YARDS_FORMAT) {
+      return { why: `prebuilt yards format ${index.format}, this page reads ${PREBUILT_YARDS_FORMAT}` };
+    }
+    if (index.build !== build) return { why: `prebuilt by build ${index.build}, this page is build ${build}` };
+    if (String(index.year) !== String(year)) return { why: `prebuilt for ${index.year}, this scene is ${year}` };
+    const binRes = await fetch(new URL(index.bin, base));
+    if (!binRes.ok) return { why: `no prebuilt yards buffer (${binRes.status})` };
+    let bin = await binRes.arrayBuffer();
+    // Gzipped twice on disk (prebuild_layers.mjs); a server that sent it with
+    // Content-Encoding has inflated the outer pass, so read the magic bytes.
+    const head = new Uint8Array(bin, 0, Math.min(2, bin.byteLength));
+    if (index.encoding === 'gzip' && head[0] === 0x1f && head[1] === 0x8b) {
+      if (typeof DecompressionStream !== 'function') return { why: 'this browser cannot inflate the prebuilt yards' };
+      // On a pool worker, as the ground's is (jobs/inflate-kernel.js).
+      const { runJob } = await import('./jobs/pool.js');
+      const { bytes } = await runJob('inflateGzip', { bytes: new Uint8Array(bin), passes: index.passes ?? 1 },
+        { transfer: [bin] });
+      bin = bytes.byteOffset === 0 && bytes.byteLength === bytes.buffer.byteLength
+        ? bytes.buffer : bytes.slice().buffer;
+    }
+    if (bin.byteLength !== index.bytes) {
+      return { why: `prebuilt yards buffer is ${bin.byteLength} bytes, its index says ${index.bytes}` };
+    }
+    return { index, bin };
+  } catch (err) {
+    return { why: `prebuilt yards did not load: ${err.message}` };
+  }
+}
+
+/** Why `offered` may not stand for this page's yards, or null when it may. */
+async function prebuiltYardsRefusal(offered, { terrain, recordHashes }) {
+  const { index } = offered ?? {};
+  if (!index) return offered?.why ?? 'none offered';
+  if (!recordHashes) return 'the enclosure records were not hashed as they were read';
+  const field = await terrain.heightfieldHashes?.();
+  if (!field) return 'the heightfield was not hashed as it was read';
+  const read = new Map([...recordHashes, ...field]);
+  const built = index.inputs.files.filter((f) => f.path.startsWith('data/'));
+  const moved = built.filter((f) => read.get(f.path) !== f.sha256).map((f) => f.path)
+    .concat([...read.keys()].filter((p) => !built.some((f) => f.path === p)));
+  if (moved.length) return `built from other records or another ground (${moved.slice(0, 3).join(', ')})`;
+  return null;
+}
+
+/** One prebuilt surface's pieces: geometries over typed-array views of the buffer. */
+function prebuiltPieces(surface, bin) {
+  const view = (type, offset, byteLength) => new globalThis[type](bin, offset,
+    byteLength / globalThis[type].BYTES_PER_ELEMENT);
+  return surface.pieces.map(([arrays, ix]) => {
+    const geo = new THREE.BufferGeometry();
+    if (ix) geo.setIndex(new THREE.BufferAttribute(view(...ix), 1));
+    surface.attributes.forEach((a, i) => {
+      geo.setAttribute(a.name, new THREE.BufferAttribute(view(a.type, ...arrays[i]), a.itemSize, a.normalized));
+    });
+    return geo;
+  });
+}
+
+/* -------------------------------------------------------------------------- */
 /* helpers used above                                                          */
 /* -------------------------------------------------------------------------- */
+
+/** One surface's material: the shared tiles, the bed's drills, the confidence
+ *  patch and this layer's own program. The same whether the surface was laid
+ *  here or came prebuilt (T-2711). */
+function surfaceMaterial(surface, tiles, confidence) {
+  // Every surface draws the shared tiles (T-2013, T-2090); only the bed keeps
+  // a canvas, for its drills.
+  const map = surface === 'garden_bed' ? bedTexture() : null;
+  const mat = new THREE.MeshStandardMaterial({
+    map,
+    vertexColors: true,
+    transparent: true,
+    alphaTest: 0.02,
+    depthWrite: false,
+    roughness: 1,
+    metalness: 0,
+    polygonOffset: true,
+    // The road ribbon's own offset, and for the road's own reason: a surface
+    // draped on the terrain it is drawn against loses the depth test in
+    // patches once precision has degraded, and one unit is nothing at that
+    // range. The vertices are untouched — the drape is the terrain's.
+    polygonOffsetFactor: -8,
+    polygonOffsetUnits: -32,
+  });
+  mat.name = `yard-${surface}`;
+  yardGround(mat, surface, tiles);
+  confidence?.patch(mat);
+  // This layer's own program, for the reason enclosures.js records at length:
+  // `customProgramCacheKey` defaults to the SOURCE TEXT of `onBeforeCompile`,
+  // which every material `confidence.patch()` touches shares, so two patched
+  // materials that agree on their other program parameters share a compiled
+  // program and one of them is drawn by the other's shader.
+  mat.customProgramCacheKey = () => `chicago4d-yard-${surface}`;
+  return { mat, map };
+}
 
 /** Clip one convex ring to another (possibly L-shaped) ring, by gridding the
  *  first against the second's cells. Used for a bed and a path, both of which

@@ -1,0 +1,771 @@
+/* navigator.css — the Navigator, the handheld that knows where you are (T-2617, NAV-201;
+   DESIGN §06, mockups M3 and M4).
+
+   One device on every machine: it reads only the skin tokens skins.css and walk.css
+   define (panel, edge, ink, accent, signal, lamp, screen, fonts, radii, the detent and
+   machine easings), so Control Room, Precision Brass, Retro Future and Deep Space each
+   dress it without a rule of their own.
+
+   It is a sibling of #hud and follows the HUD's state from there: hidden before the
+   visitor enters, out of reach while the arrival device is back up (#hud[inert]), and
+   on a phone out of the way while the drawer's sheet is open.
+
+   Phone (≤ 620 px): a bottom sheet with three heights, `data-detent` dock (64 px),
+   half (48 % of the screen, the world still in view above it) and full (82 %, for
+   reading). Desktop: a 400 px panel down the left edge that collapses to its 56 px
+   rail. Height and width change over 280 ms on the detent easing; with reduced motion,
+   at once. */
+
+/* ---- the design system's small parts, ported as plain CSS (DS components.css) --- */
+.c4d-label { font: var(--label-weight, 400) var(--fs-label, 10px)/1.5 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: var(--label-tracking, .14em); text-transform: uppercase; color: var(--ink-dim); }
+.c4d-mono { font-family: var(--font-mono, ui-monospace, monospace); font-variant-numeric: tabular-nums; }
+.c4d-lamp { --lamp-c: var(--ok, #8CF5A8); display: inline-flex; align-items: center; gap: 8px; }
+.c4d-lamp-bulb { width: var(--lamp-size, 9px); height: var(--lamp-size, 9px); border-radius: 50%; flex: none;
+  background: color-mix(in srgb, var(--lamp-c) 22%, #000); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .6); }
+.c4d-lamp[data-on="true"] .c4d-lamp-bulb {
+  background: radial-gradient(circle at 35% 30%, #fff 0, var(--lamp-c) 45%, color-mix(in srgb, var(--lamp-c) 70%, #000) 100%);
+  box-shadow: 0 0 10px var(--lamp-c), 0 0 2px var(--lamp-c); }
+
+/* ---- the device ------------------------------------------------------------- */
+.navigator {
+  position: fixed;
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  color: var(--ink);
+  background: var(--panel-solid, var(--panel));
+  border: 1px solid var(--edge-strong, var(--edge));
+  border-radius: 18px;
+  box-shadow: var(--shadow), var(--inset-bezel, none);
+  font-family: var(--font-body, inherit);
+  overflow: hidden;
+  outline: none;
+  pointer-events: auto;
+}
+.hud[hidden] ~ .navigator { display: none; }
+.hud[inert] ~ .navigator { visibility: hidden; pointer-events: none; }
+/* Open, it reads above a Jaunt's panel (z 31); docked, it sits under it. */
+.navigator:not([data-detent="dock"]):not([data-detent="rail"]) { z-index: 33; }
+
+.nav-screw { position: absolute; width: 7px; height: 7px; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--ink) 40%, var(--edge-strong, var(--edge))) 0 1.4px, var(--edge-strong, var(--edge)) 2px 3.5px);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .35); }
+.nav-screw-tl { top: 7px; left: 7px; } .nav-screw-tr { top: 7px; right: 7px; }
+.nav-screw-bl { bottom: 7px; left: 7px; } .nav-screw-br { bottom: 7px; right: 7px; }
+
+.nav-grip { display: none; }
+
+.nav-head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 0 22px 0 20px;
+  border-bottom: 1px solid var(--edge);
+  font: 400 10px/1 var(--font-mono, ui-monospace, monospace);
+  letter-spacing: .18em;
+  color: var(--ink-dim);
+  white-space: nowrap;
+}
+.nav-label { color: var(--ink); }
+.nav-code { margin-left: auto; overflow: hidden; text-overflow: ellipsis; }
+.nav-date { color: var(--accent); font-variant-numeric: tabular-nums; }
+/* T-2619: the closed device's year and the icon of the app it opens to; open, the
+   header's date and screen code say the same and these stand down. */
+.nav-dock-app, .nav-dock-year { display: none; }
+.nav-dock-year { color: var(--accent); font-variant-numeric: tabular-nums; }
+.nav-dock-app { color: var(--accent); }
+.nav-dock-app svg { display: block; width: 16px; height: 16px; }
+
+.nav-body { flex: 1; min-height: 0; display: flex; }
+
+.nav-rail {
+  flex: none;
+  width: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0 14px;
+  border-right: 1px solid var(--edge);
+  background: color-mix(in srgb, #000 22%, transparent);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.nav-app {
+  position: relative;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink-faint, var(--ink-dim));
+  cursor: pointer;
+  transition: background .12s, color .12s;
+}
+.nav-app svg { width: 20px; height: 20px; }
+.nav-app:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 7%, transparent); }
+.nav-app:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.nav-app.is-on { color: var(--accent); background: var(--wash, color-mix(in srgb, var(--accent) 16%, transparent));
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+.nav-app[hidden] { display: none; }
+.nav-collapse { margin-top: 4px; }
+/* The rail's foot: Guide and Settings (T-2618), with the collapse key under them. */
+.nav-app-foot-first { margin-top: auto; }
+.nav-rail:not(:has(.nav-app-foot-first:not([hidden]))) .nav-collapse { margin-top: auto; }
+/* T-2742: the header's close key, the collapse arrow's twin: the same ink, stroke, hover
+   wash, radius and focus ring, from the skin's tokens, so each appearance dresses both
+   alike. The key is 30 px; its hit area reaches 44 px (::after), clear of the screw. */
+.nav-close {
+  position: relative;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink-faint, var(--ink-dim));
+  cursor: pointer;
+  transition: background .12s, color .12s;
+}
+.nav-close::after { content: ""; position: absolute; inset: -7px; }
+.nav-close svg { width: 20px; height: 20px; }
+.nav-close:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 7%, transparent); }
+.nav-close:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* ---- the contextual rail (T-2618): slide + glint in, slide out, both 240 ms ---- */
+.nav-app.is-entering { animation: nav-app-in .24s var(--ease-machine, ease) both; }
+.nav-app.is-entering::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, color-mix(in srgb, var(--accent) 55%, transparent) 50%, transparent 70%);
+  background-size: 260% 100%; animation: nav-glint .24s linear both;
+}
+.nav-app.is-leaving { animation: nav-app-out .24s var(--ease-machine, ease) both; pointer-events: none; }
+@keyframes nav-app-in { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: none; } }
+@keyframes nav-app-out { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateX(-12px); } }
+@keyframes nav-glint { from { background-position: 100% 0; } to { background-position: 0 0; } }
+/* A lamp-amber dot: a contextual app's first appearance, or an app's own badge. */
+.nav-app-dot { position: absolute; top: 6px; right: 6px; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--lamp, #F3A43B); box-shadow: 0 0 6px var(--lamp, #F3A43B); opacity: 0; transform: scale(.4);
+  transition: opacity .16s, transform .16s; pointer-events: none; }
+.nav-app.is-new .nav-app-dot, .nav-app.is-badged .nav-app-dot { opacity: 1; transform: none; }
+/* The Confidence view's icon glows while the view is on. */
+.nav-app.is-glowing { color: var(--lamp, #F3A43B); box-shadow: 0 0 12px color-mix(in srgb, var(--lamp, #F3A43B) 45%, transparent); }
+
+/* ---- switching apps: the 160 ms tube warm-up, or a crossfade with reduced motion ---- */
+.nav-screen { position: relative; }
+.nav-screen[hidden] { display: none; }
+.nav-screen.is-warming { animation: nav-warm .16s steps(4, end) both; }
+.nav-screen.is-warming::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 30%; pointer-events: none;
+  background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent) 22%, transparent) 60%, transparent);
+  animation: nav-sweep .16s linear both;
+}
+.nav-code.is-warming { animation: nav-flicker .16s steps(2, end) both; }
+.nav-screen.is-fading { animation: nav-fade .16s ease both; }
+@keyframes nav-warm { 0% { opacity: .2; filter: brightness(1.8); } 60% { opacity: .85; } 100% { opacity: 1; filter: none; } }
+@keyframes nav-sweep { from { transform: translateY(-100%); } to { transform: translateY(340%); } }
+@keyframes nav-flicker { 0%, 50% { opacity: .35; } 100% { opacity: 1; } }
+@keyframes nav-fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* Jump (SCR 08). */
+.nav-jump-list { display: grid; gap: 10px; }
+a.nav-jump { color: inherit; text-decoration: none; }
+a.nav-jump:hover { border-color: var(--accent); }
+a.nav-jump:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-recall { display: inline-flex; align-items: center; text-decoration: none; }
+/* T-2655: the era mini-cards — the Observatory's plate, the year, HERE on the one you are
+   in — and RECALL, the screen's one signal-red key (it is the only .nav-key here). */
+.nav-jump { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; align-items: center; }
+.nav-jump-plate { width: 64px; height: 64px; object-fit: cover; border-radius: 6px; filter: grayscale(1) contrast(1.05);
+  border: 1px solid var(--edge); background: color-mix(in srgb, var(--ink) 6%, transparent); }
+.nav-jump-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.nav-jump[aria-current="page"] { border-color: color-mix(in srgb, var(--accent) 55%, transparent); }
+.nav-jump .nav-here { color: var(--accent); letter-spacing: .16em; text-transform: uppercase; }
+.nav-recall { margin-top: 14px; min-height: 44px; gap: 12px; justify-content: space-between; width: 100%; }
+.nav-recall span { opacity: .82; font-size: 10px; letter-spacing: .12em; }
+
+/* The in-world jump: the transfer ring closes over the town, then the page goes. */
+.nav-jump-ring {
+  position: fixed; inset: 0; z-index: 2000; display: grid; place-items: center; align-content: center; gap: 18px;
+  background: color-mix(in srgb, var(--page, #05070d) 82%, transparent); color: var(--ink);
+  animation: nav-fade .2s ease both;
+}
+.nav-jump-ring i { position: absolute; left: 50%; top: 50%; width: 70vmin; height: 70vmin; margin: -35vmin 0 0 -35vmin;
+  border: 1px solid var(--accent); border-radius: 50%; pointer-events: none;
+  box-shadow: 0 0 0 30px var(--skin-glow, transparent), 0 0 0 100px var(--skin-glow, transparent);
+  animation: nav-crossing 1.2s var(--ease-machine, ease) both; }
+.nav-jump-ring .nav-jump-ring-b { border-style: dashed; animation-delay: .3s; }
+.nav-jump-ring-label { position: relative; margin: 0; font: 500 12px/1 var(--font-mono, ui-monospace, monospace);
+  letter-spacing: .16em; text-transform: uppercase; }
+.nav-jump-abort { position: relative; min-height: 44px; padding: 0 16px; border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
+  background: none; color: var(--accent); font: 400 11px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .14em;
+  text-transform: uppercase; cursor: pointer; }
+.nav-jump-abort:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@keyframes nav-crossing { from { transform: scale(1.6); opacity: 0; } 40% { opacity: .5; } to { transform: scale(.05); opacity: 0; } }
+
+.nav-screen {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 16px 22px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.nav-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px 14px;
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--ink) 3%, transparent);
+}
+.nav-block[hidden] { display: none; }
+.nav-k { font: var(--label-weight, 400) 10px/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint, var(--ink-dim)); }
+.nav-k-row { display: flex; justify-content: space-between; gap: 10px; }
+.nav-step { color: var(--accent); font-variant-numeric: tabular-nums; }
+.nav-place { font: 500 19px/1.2 var(--font-display, inherit); letter-spacing: var(--display-tracking, 0); overflow-wrap: anywhere; }
+.nav-front .nav-place { font-size: 17px; }
+.nav-sub { font-size: 14px; line-height: 1.45; color: var(--ink-dim); }
+.nav-jaunt-title { font-size: 16px; font-weight: 600; line-height: 1.3; }
+.nav-meter { display: block; height: 4px; margin-top: 6px; border-radius: 2px; background: color-mix(in srgb, #000 55%, transparent); overflow: hidden; }
+.nav-meter i { display: block; height: 100%; width: 0; border-radius: 2px; background: var(--accent); transition: width .28s var(--ease-machine, ease); }
+
+/* The one signal-red key on this screen (DESIGN §06 "Bezel & keys"). */
+.nav-key {
+  align-self: flex-start;
+  margin-top: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--signal-deep, #8E1F18);
+  border-radius: var(--r-control, 4px);
+  background: var(--signal, #D6352B);
+  color: var(--signal-ink, #FFF1EC);
+  box-shadow: var(--shadow-button, 0 2px 0 rgba(0, 0, 0, .45));
+  font: 500 12px/1 var(--font-mono, ui-monospace, monospace);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform .12s var(--ease-machine, ease), box-shadow .12s;
+}
+.nav-key:active { transform: translateY(2px); box-shadow: none; }
+.nav-key:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-key[hidden] { display: none; }
+
+.nav-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.nav-tile { display: flex; flex-direction: column; gap: 3px; padding: 10px 12px; border: 1px solid var(--edge);
+  border-radius: 10px; font-size: 15px; }
+
+/* ---- desktop: the left panel and its rail ------------------------------------ */
+@media (min-width: 621px) {
+  .navigator {
+    left: 10px;
+    top: calc(20px + var(--hud-row) + var(--safe-t));
+    bottom: calc(10px + var(--safe-b));
+    width: 400px;
+    max-width: calc(100vw - 20px);
+    transition: width .28s var(--ease-detent, ease);
+  }
+  .navigator[data-detent="rail"] { width: 58px; }
+  .navigator[data-detent="rail"] .nav-head > :not(.nav-lamp):not(.nav-label):not(.nav-dock-year),
+  .navigator[data-detent="rail"] .nav-screen { display: none; }
+  .navigator[data-detent="rail"] .nav-head { justify-content: center; padding: 0; }
+  /* T-2619: the closed rail reads top-down — lamp, NAVIGATOR MK II on its side, the year —
+     and the lit rail icon under it is the app a tap opens to. */
+  .navigator[data-detent="rail"] .nav-head { flex-direction: column; justify-content: flex-start; gap: 10px;
+    padding: 14px 0 12px; cursor: pointer; }
+  .navigator[data-detent="rail"] .nav-label { writing-mode: vertical-rl; transform: rotate(180deg); letter-spacing: .16em; }
+  .navigator[data-detent="rail"] .nav-dock-year { display: block; letter-spacing: .08em; }
+  .navigator[data-detent="rail"] .nav-screw { display: none; }
+  .navigator[data-detent="rail"] .nav-collapse svg { transform: rotate(180deg); }
+  /* The compass, the map and the street readout move over for the rail or the panel. */
+  body.has-navigator .navigation-stack { left: 78px; transition: left .28s var(--ease-detent, ease); }
+  html[data-navigator="open"] .navigation-stack { left: 420px; }
+  /* A Jaunt's panel keeps clear of the rail. */
+  html[data-navigator] .jaunt-panel, html[data-navigator] .jaunt-context-card { left: 76px; }
+}
+@media (min-width: 621px) and (max-width: 900px) {
+  html[data-navigator] .jaunt-panel { left: 76px; right: 8px; }
+}
+
+/* ---- phone: the bottom sheet --------------------------------------------------- */
+@media (max-width: 620px) {
+  .navigator {
+    left: 8px;
+    right: 8px;
+    bottom: calc(8px + var(--safe-b));
+    height: 64px;
+    border-radius: 20px;
+    transition: height .28s var(--ease-detent, ease), left .28s var(--ease-detent, ease), right .28s var(--ease-detent, ease);
+    touch-action: none;
+    --dock-w: 136px;
+  }
+  /* T-2619 (DOCK · 64 px): closed, the device is a pill at the bottom centre — lamp and
+     label over the icon of the app it opens to and the year — and the bottom-left corner
+     a resting left thumb walks from stays clear of it (navigator.js JOYSTICK_CLEAR_PX).
+     A drag lifts it to the full width at once. */
+  .navigator[data-detent="dock"]:not(.is-dragging) { left: calc(50% - var(--dock-w) / 2); right: calc(50% - var(--dock-w) / 2); }
+  .navigator[data-detent="dock"] .nav-grip { height: 14px; }
+  .navigator[data-detent="dock"] .nav-grip i { width: 28px; margin-top: 5px; }
+  .navigator[data-detent="dock"] .nav-head {
+    display: grid; grid-template-columns: 16px auto; grid-auto-rows: 18px; align-items: center; justify-content: center;
+    column-gap: 7px; row-gap: 2px; min-height: 0; padding: 0 10px 6px; font-size: 9px; letter-spacing: .02em;
+  }
+  .navigator[data-detent="dock"] .nav-lamp { justify-self: center; }
+  .navigator[data-detent="dock"] :is(.nav-code, .nav-date, .nav-screw, .nav-close) { display: none; }
+  .navigator[data-detent="dock"] .nav-dock-app { display: grid; place-items: center; }
+  .navigator[data-detent="dock"] .nav-dock-year { display: block; font-size: 12px; letter-spacing: .14em; }
+  .navigator[data-detent="half"] { height: calc(var(--vh, 100vh) * .48); }
+  .navigator[data-detent="full"] { height: calc(var(--vh, 100vh) * .82); }
+  .navigator.is-dragging { transition: none; }
+  .navigator .nav-screen { touch-action: pan-y; }
+  .nav-grip {
+    display: block;
+    flex: none;
+    width: 100%;
+    height: 18px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: grab;
+    touch-action: none;
+  }
+  .nav-grip i { display: block; width: 40px; height: 4px; margin: 7px auto 0; border-radius: 2px; background: var(--edge-strong, var(--edge)); }
+  .nav-grip:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .nav-head { min-height: 38px; gap: 8px; padding: 0 16px; letter-spacing: .1em; border-bottom-color: transparent; touch-action: none; cursor: grab; }
+  .navigator:not([data-detent="dock"]) .nav-head { border-bottom-color: var(--edge); }
+  .nav-rail { width: 52px; }
+  .nav-collapse { display: none; }
+  .navigator[data-detent="dock"] .nav-body { visibility: hidden; }
+  .nav-screw-bl, .nav-screw-br { display: none; }
+  /* The hint and the ride's banner (with its Stop) stand above the device at every detent
+     (T-2620). They sat at the foot of the HUD's column, 82 px up, which clears only the
+     docked pill: a ride started with the device open (Move, Jaunts' Go to) put Stop under
+     the open sheet, and under the sheet still sliding down to the dock. So they ride the
+     sheet's top edge instead, on the device's own timing, so it never passes over them. */
+  body.has-navigator .hud-bottom { position: absolute; left: 10px; right: 10px; margin: 0;
+    bottom: calc(82px + var(--safe-b)); transition: bottom .28s var(--ease-detent, ease); }
+  html[data-sheet="half"] body.has-navigator .hud-bottom { bottom: calc(var(--vh, 100vh) * .48 + 18px + var(--safe-b)); }
+  html[data-sheet="full"] body.has-navigator .hud-bottom { bottom: calc(var(--vh, 100vh) * .82 + 18px + var(--safe-b)); }
+  body.has-navigator .rise-pad { bottom: calc(92px + var(--safe-b)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-jump-ring, .nav-jump-ring i { animation: none; }
+  .nav-jump-ring i { display: none; }
+  .navigator, .nav-meter i, body.has-navigator .navigation-stack, body.has-navigator .hud-bottom { transition: none !important; }
+  .nav-app.is-entering, .nav-app.is-leaving, .nav-app.is-entering::before, .nav-screen.is-warming, .nav-screen.is-warming::before, .nav-code.is-warming { animation: none !important; }
+  .nav-app-dot { transition: none; }
+}
+
+/* ---- the arrival device's back face wears the Navigator's screen code --------- */
+.gate-code { display: none; }
+.gate[data-state="welcome"] .gate-code {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: -8px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--edge);
+  font: 400 10px/1 var(--font-mono, ui-monospace, monospace);
+  letter-spacing: .18em;
+  color: var(--ink-dim);
+  white-space: nowrap;
+}
+@media (max-height: 500px) { .gate[data-state="welcome"] .gate-code { display: none; } }
+
+/* People (SCR 04), where it is the Navigator's own screen (1904). */
+.nav-person { display: flex; flex-direction: column; gap: 2px; width: 100%; margin-top: 8px; padding: 10px 12px;
+  border: 1px solid var(--edge); border-radius: 10px; background: transparent; color: inherit; font: inherit; text-align: left; }
+button.nav-person { cursor: pointer; min-height: 44px; }
+button.nav-person:hover { border-color: var(--accent); }
+button.nav-person:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-person-name { font-size: 16px; font-weight: 600; }
+
+/* ---- T-2620: the drawer's sections inside a Navigator app ---------------------------
+   The one #panel (head, section tabs, scroll column) moves into the open app's screen
+   (apps/drawer-host.js); here it loses the drawer's frame and fills the screen, and shows
+   only that app's own tabs — never more than two, so no tab row scrolls sideways. */
+.nav-screen:has(> .hud-panel) { padding: 0; gap: 0; overflow: hidden; }
+/* Guide (T-2661 + T-2620): the controls sheet, then the drawer's Guide · Sources under it;
+   the screen scrolls as one, so the sheet never squeezes the sections out of a phone's HALF. */
+.nav-screen:has(> .nav-guide-sheet) { overflow-y: auto; }
+.nav-screen:has(> .nav-guide-sheet) > .hud-panel { flex: none; }
+.nav-screen:has(> .nav-guide-sheet) .panel-scroll { overflow: visible; }
+.nav-guide-sheet { padding: 12px 16px 8px; }
+.navigator .hud-panel {
+  position: static;
+  inset: auto;
+  flex: 1;
+  width: auto;
+  height: auto;
+  min-height: 0;
+  display: grid;
+  grid-template: "head" auto "nav" auto "scroll" 1fr / 1fr;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+  visibility: visible;
+  transition: none;
+}
+.navigator .hud-panel[hidden] { display: none; }
+.navigator .panel-tabs {
+  flex-direction: row;
+  align-items: stretch;
+  gap: 4px;
+  padding: 0 12px;
+  border-right: 0;
+  border-bottom: 1px solid var(--edge);
+  background: none;
+  overflow: visible;
+}
+.navigator .panel-tab { flex: 1 1 0; min-width: 0; min-height: 44px; flex-direction: row; gap: 8px; justify-content: center;
+  border-radius: 8px 8px 0 0; font-size: 12px; }
+.navigator .panel-tab svg { width: 18px; height: 18px; }
+.navigator .panel-tab.is-on::before { left: 8px; right: 8px; top: auto; bottom: 0; width: auto; height: 3px; border-radius: 3px 3px 0 0; }
+.navigator .panel-tab.is-elsewhere { display: none; }
+.navigator .hud-panel.has-one-section .panel-tabs { display: none; }
+.navigator .panel-head { padding-left: 16px; }
+/* On a laptop the card and the Navigator stand on opposite edges: the card stays put. */
+@media (min-width: 621px) {
+  #hud.panel-open ~ #popup { transform: none; visibility: visible; pointer-events: auto; transition: none; }
+}
+/* During a Jaunt its panel keeps the top of the stack, so its controls stay in reach
+   while a section it opened (a stop's source, a card's evidence) shows in the Navigator;
+   on a wide screen it stands clear of the open Navigator. Interim, until Jaunts moves into
+   the device (E4). */
+html[data-jaunt-active] .navigator:not([data-detent="dock"]):not([data-detent="rail"]) { z-index: 25; }
+@media (min-width: 901px) {
+  html[data-jaunt-active][data-navigator="open"] .jaunt-panel,
+  html[data-jaunt-active][data-navigator="open"] .jaunt-context-card { left: 424px; }
+}
+
+/* ---- the Confidence view app (T-2647, apps/confidence-view.js) ------------------
+   Four presets, one tap each, as a row of machine keys (the pressed one lit in the
+   accent); a row per grade with its show switch, swatch, look and count (T-2648 opens
+   its colour, look and opacity); and the
+   GRADE MASK / MESHES / FRAME CLK readout in the screen's phosphor. */
+.nav-presets { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 0 0 12px; }
+.nav-preset {
+  min-height: 44px; padding: 6px 4px; border-radius: var(--r-control, 8px);
+  border: 1px solid var(--edge-strong, var(--edge)); background: transparent; color: var(--ink);
+  font: 500 10.5px/1.15 var(--font-mono, ui-monospace, monospace); letter-spacing: .08em; text-transform: uppercase;
+  cursor: pointer; overflow-wrap: normal; word-break: normal; hyphens: none;
+}
+.nav-preset:hover { border-color: var(--accent); }
+.nav-preset:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-preset[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink, var(--panel-solid)); }
+.nav-grades { display: grid; gap: 6px; }
+/* T-2648: a grade is a card — its head (Show, swatch, name · the look, which opens the
+   row · the count) and, one row at a time, its colour, look and opacity. */
+.nav-grade { border: 1px solid var(--edge); border-radius: 10px; font-size: 14px; }
+.nav-grade.is-open { border-color: var(--edge-strong, var(--edge)); }
+.nav-grade-head { display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; min-height: 44px; padding: 0 12px 0 0; }
+.nav-grade-show { display: flex; flex: 1 0 auto; align-items: center; gap: 10px; min-height: 44px; padding: 0 0 0 12px; cursor: pointer; }
+/* The look and the count: right-aligned, and wrapped below the name together when the row is too narrow. */
+.nav-grade-meta { display: flex; align-items: center; gap: 8px; margin-left: auto; padding: 4px 0; }
+.nav-grade input[type="checkbox"] { width: 18px; height: 18px; margin: 0; flex: none; accent-color: var(--accent); }
+.nav-grade-sw { --c: var(--ink-dim); width: 14px; height: 14px; border-radius: 3px; flex: none; background: var(--c); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .25); }
+.nav-grade-sw[data-look="dither"] { background: repeating-linear-gradient(45deg, var(--c) 0 2px, transparent 2px 4px); box-shadow: inset 0 0 0 1px var(--c); }
+.nav-grade-sw[data-look="ghost"] { opacity: .55; }
+.nav-grade-sw[data-look="none"] { background: transparent; box-shadow: inset 0 0 0 1.5px var(--c); }
+.nav-grade-name { font-weight: 600; white-space: nowrap; }
+.nav-grade-look {
+  min-height: 32px; padding: 4px 8px; border-radius: 6px; border: 1px solid var(--edge); background: transparent; color: var(--ink-dim);
+  font: 400 10.5px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .08em; text-transform: uppercase; cursor: pointer; white-space: nowrap;
+}
+.nav-grade-look::after { content: ""; display: inline-block; width: 5px; height: 5px; margin-left: 6px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-2px) rotate(45deg); transition: transform .15s; }
+.nav-grade-look[aria-expanded="true"] { color: var(--ink); border-color: var(--accent); }
+.nav-grade-look[aria-expanded="true"]::after { transform: translateY(1px) rotate(-135deg); }
+.nav-grade-look:hover { border-color: var(--accent); }
+.nav-grade-look:focus-visible, .nav-swatch:focus-visible, .nav-look:focus-visible, .nav-safe:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-grade-count { color: var(--ink-dim); font-size: 12px; font-variant-numeric: tabular-nums; min-width: 3ch; text-align: right; }
+.nav-grade.is-off .nav-grade-name, .nav-grade.is-off .nav-grade-count, .nav-grade.is-off .nav-grade-look { opacity: .55; }
+.nav-grade.is-off .nav-grade-sw { opacity: .3; }
+.nav-grade-controls { display: grid; gap: 10px; padding: 4px 12px 12px; }
+.nav-grade-controls[hidden] { display: none; }
+.nav-swatches { display: flex; gap: 10px; }
+.nav-swatch {
+  --c: transparent; position: relative; width: 36px; height: 36px; flex: none; padding: 0; border-radius: 50%; cursor: pointer;
+  border: 2px solid var(--panel-solid, transparent); background: var(--c); box-shadow: 0 0 0 1px var(--edge-strong, var(--edge));
+}
+.nav-swatch[aria-checked="true"] { box-shadow: 0 0 0 2px var(--accent); }
+/* The colour-blind-safe swatch carries a small ring at its foot, so it is found by shape, not hue. */
+.nav-swatch[data-safe]::after { content: ""; position: absolute; right: -3px; bottom: -3px; width: 12px; height: 12px; border-radius: 50%; background: var(--panel-solid, var(--ink)); box-shadow: inset 0 0 0 3px var(--ink-dim); }
+.nav-looks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.nav-look {
+  min-height: 40px; padding: 4px; border-radius: var(--r-control, 8px); border: 1px solid var(--edge-strong, var(--edge)); background: transparent; color: var(--ink);
+  font: 500 10.5px/1.15 var(--font-mono, ui-monospace, monospace); letter-spacing: .08em; text-transform: uppercase; cursor: pointer;
+}
+.nav-look:hover { border-color: var(--accent); }
+.nav-look[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink, var(--panel-solid)); }
+.nav-opacity { display: grid; grid-template-columns: auto minmax(0, 1fr) 4.5ch; align-items: center; gap: 10px; min-height: 44px; }
+.nav-opacity-k, .nav-opacity-value { color: var(--ink-dim); font: 400 10.5px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .08em; text-transform: uppercase; }
+.nav-opacity-value { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+.nav-opacity-range { width: 100%; min-width: 0; height: 32px; margin: 0; accent-color: var(--accent); }
+.nav-safe {
+  margin-top: 10px; width: 100%; min-height: 44px; border-radius: 10px; border: 1px dashed var(--edge-strong, var(--edge)); background: transparent; color: var(--ink);
+  font: inherit; font-size: 13px; cursor: pointer;
+}
+.nav-safe:hover { border-color: var(--accent); }
+.nav-safe[aria-pressed="true"] { border-style: solid; border-color: var(--accent); }
+.nav-showall { margin-top: 10px; width: 100%; min-height: 44px; border-radius: 10px; border: 1px solid var(--edge); background: transparent; color: var(--ink); font: inherit; cursor: pointer; }
+.nav-showall:hover { border-color: var(--accent); }
+.nav-cm-note { margin: 8px 0 0; font-size: 12px; line-height: 1.45; }
+.nav-readout {
+  margin-top: 12px; padding: 7px 10px; border-radius: 6px;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .18) 0 1px, transparent 1px 3px), var(--screen, #07130f);
+  color: var(--screen-ink, #8cf5a8); font: 400 10px/1.3 var(--font-mono, ui-monospace, monospace); letter-spacing: .1em;
+  display: flex; flex-wrap: wrap; gap: 4px 16px; font-variant-numeric: tabular-nums;
+}
+.nav-readout span { white-space: nowrap; }
+@media (max-width: 380px) { .nav-presets { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---- the telemetry strip (T-2623, nav-telemetry.js) ------------------------------
+   A thin phosphor footer: FIELD, DRIFT, SIG and the RECALL lamp, on the machine's own
+   screen colours (--screen / --screen-ink, skins.css), so each of the four machines
+   draws it in its own phosphor. Decorative and aria-hidden. Shown only while the device
+   is open: docked on a phone, or folded to its rail on a desktop, it is not drawn, and
+   nav-telemetry.js stops ticking whenever it cannot be seen. */
+.nav-telemetry {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 24px;
+  padding: 0 24px;
+  overflow: hidden;
+  border-top: 1px solid var(--edge);
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, .18) 0 1px, transparent 1px 3px),
+    var(--screen, #07130f);
+  color: var(--screen-ink, #8cf5a8);
+  font: 400 9.5px/1 var(--font-mono, ui-monospace, monospace);
+  letter-spacing: .12em;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 6px color-mix(in srgb, var(--screen-ink, #8cf5a8) 55%, transparent);
+  pointer-events: none;
+  user-select: none;
+}
+.nav-tm-cell { display: inline-flex; align-items: center; gap: 5px; }
+.nav-tm-k { opacity: .62; }
+.nav-tm-cell b { font-weight: 400; }
+.nav-telemetry[data-state="drift"] .nav-tm-cell[data-t="drift"] b { color: var(--lamp, #f3a43b); }
+.nav-tm-recall { margin-left: auto; }
+.nav-tm-lamp { width: 7px; height: 7px; border-radius: 50%; background: var(--signal, #d6352b);
+  box-shadow: 0 0 6px var(--signal, #d6352b); }
+.navigator[data-detent="dock"] .nav-telemetry,
+.navigator[data-detent="rail"] .nav-telemetry { display: none; }
+@media (max-width: 620px) {
+  .nav-telemetry { min-height: 22px; gap: 10px; padding: 0 14px; letter-spacing: .08em; }
+}
+
+/* Map (SCR 05, T-2654): the whole field in a scope panel — a dark CRT well with 1 px
+   scanlines (DESIGN §06 "Scope panels") — a legend toggle in the Confidence view colours,
+   and the preview of a tapped building with its Go key. */
+.nav-scope {
+  position: relative; display: grid; place-items: center; padding: 8px;
+  border: 1px solid var(--edge); border-radius: 12px;
+  background: var(--screen, #07130F);
+  box-shadow: inset 0 0 18px rgba(0, 0, 0, .55);
+}
+.nav-scope::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: repeating-linear-gradient(180deg, rgba(255, 255, 255, .035) 0 1px, transparent 1px 3px);
+}
+.nav-map-canvas { display: block; border-radius: 4px; cursor: crosshair; touch-action: manipulation; }
+.nav-map-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.nav-map-toggle {
+  min-height: 36px; padding: 0 12px; border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
+  background: transparent; color: var(--ink-dim); cursor: pointer;
+  font: var(--label-weight, 400) 10px/1 var(--font-label, var(--font-mono, ui-monospace, monospace)); letter-spacing: .14em; text-transform: uppercase;
+}
+.nav-map-toggle[aria-pressed="true"] { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, var(--edge)); }
+.nav-map-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-map-legend { display: flex; flex-wrap: wrap; gap: 6px 12px; margin: 0; padding: 0; list-style: none; font-size: 13px; color: var(--ink-dim); }
+.nav-map-legend[hidden] { display: none; }
+.nav-map-swatch { display: inline-flex; align-items: center; gap: 6px; }
+.nav-map-swatch i { width: 12px; height: 12px; border-radius: 3px; border: 1px solid rgba(0, 0, 0, .35); }
+.nav-map-swatch.is-attested i { background: var(--grade-attested, #d4ae38); }
+.nav-map-swatch.is-inferred i { background: var(--grade-inferred, #c9d0d8); }
+.nav-map-swatch.is-reconstructed i { background: var(--grade-reconstructed, #a86a3a); }
+.nav-map-preview[hidden] { display: none; }
+.nav-map-foot { margin: 0; font-size: 13px; }
+
+/* ---- T-2630: Home's three choices and the Jaunts app's segments ------------------ */
+.nav-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.nav-choice { display: flex; flex-direction: column; gap: 3px; min-height: 52px; padding: 9px 10px; text-align: left;
+  border: 1px solid var(--edge); border-radius: 10px; background: transparent; color: var(--ink); cursor: pointer;
+  font: inherit;
+  /* A choice shrinks with its column and never spills onto its neighbour. While the
+     panel grows — the desktop's from its 58 px rail, the phone's from its dock pill — the
+     columns start near zero, and a grid item's default min-width (its longest word) and
+     a fixed 10 px of inline padding each set a floor wider than the column, so Go to and
+     Free roam drew over one another until it settled. The inline padding is a share of
+     the grid area (12 %, which is 10 px or more in any column at rest: about 90 px on a
+     phone, 98 px on a desktop), so at rest it is the same 10 px and while narrow it
+     shrinks with the column; only the 1 px borders remain, inside the 8 px gap. */
+  padding-inline: min(10px, 12%);
+  min-width: 0; overflow: hidden; overflow-wrap: anywhere; }
+.nav-choice strong { font-size: 14px; font-weight: 600; }
+.nav-choice span { font-size: 11px; color: var(--ink-dim); line-height: 1.25; }
+.nav-choice:hover { border-color: var(--accent); }
+.nav-choice:focus-visible, .nav-segment:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-segments { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 4px; margin-bottom: 12px;
+  border: 1px solid var(--edge); border-radius: 10px; }
+.nav-segment { min-height: 40px; border: 0; border-radius: 7px; background: transparent; color: var(--ink-dim); cursor: pointer;
+  font: 500 11px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .12em; text-transform: uppercase; }
+.nav-segment.is-on { background: var(--wash, color-mix(in srgb, var(--accent) 16%, transparent)); color: var(--accent); }
+.nav-seg-panel[hidden] { display: none; }
+.nav-seg-panel .welcome-region { margin-top: 0; }
+.nav-roam-line { margin: 4px 0 14px; font-size: 15px; }
+.nav-roam { width: 100%; min-height: 44px; }
+@media (max-width: 420px) { .nav-choice span { display: none; } .nav-choice { min-height: 44px; } }
+/* Signal red stays Recall's (Jump); Free roam is a plain accent key. */
+.nav-key.nav-roam { border-color: var(--accent); background: transparent; color: var(--accent); box-shadow: none; }
+.nav-key.nav-roam:hover { background: var(--wash, color-mix(in srgb, var(--accent) 16%, transparent)); }
+/* T-2622: the rail's tabs sit in a wrapper of their own (role="tablist"), laid out by the
+   rail as if it were not there. Focus is always visible: on a tab, on an app's screen when
+   focus moves into it on open, and on Home's heading. */
+.nav-tabs { display: contents; }
+.nav-screen:focus { outline: none; }
+.nav-screen:focus-visible, .nav-screen > h2:focus-visible, #nav-home-title:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: -3px; border-radius: 8px;
+}
+
+/* ---- Guide's controls sheet (T-2661): touch or keyboard, as the visitor is using -- */
+.nav-guide-seg { display: flex; width: 100%; margin: 10px 0 8px; }
+.nav-guide-seg .seg-btn { min-height: 44px; }
+.nav-guide-keys { margin-top: 10px; gap: 9px 14px; }
+.nav-guide-keys dt { white-space: normal; max-width: 10em; color: var(--ink-dim); font-size: 13px; }
+.nav-guide-keys dd { font-size: 14px; line-height: 1.4; }
+.nav-guide-keys kbd { margin: 0 2px 2px 0; }
+
+/* ---- Guide's glossary and questions (T-2662) --------------------------------------- */
+.nav-guide-glossary, .nav-guide-faq { margin-top: 12px; }
+.nav-glossary { display: grid; grid-template-columns: minmax(0, 9.5em) minmax(0, 1fr); gap: 8px 14px; margin: 10px 0 0; }
+.nav-glossary dt { font-weight: 600; color: var(--ink); font-size: 14px; }
+.nav-glossary dd { margin: 0; font-size: 14px; line-height: 1.4; color: var(--ink-dim); }
+@media (max-width: 420px) { .nav-glossary { grid-template-columns: minmax(0, 1fr); gap: 2px 0; } .nav-glossary dd { margin-bottom: 8px; } }
+.nav-faq { margin-top: 8px; display: grid; gap: 6px; }
+.nav-faq-item { border: 1px solid var(--edge); border-radius: 10px; padding: 0 12px; }
+.nav-faq-item > summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 600; font-size: 14px; }
+.nav-faq-item > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-faq-item > p { margin: 0 0 12px; }
+
+/* ---- Guide › About this destination (T-2667) -------------------------------------- */
+.nav-guide-about { margin-top: 12px; }
+.nav-about-cards { display: grid; gap: 8px; margin-top: 8px; }
+.nav-about-card { display: grid; gap: 2px; min-height: 44px; padding: 10px 12px; border: 1px solid var(--edge);
+  border-radius: 10px; background: transparent; color: var(--ink); font: inherit; text-align: left; cursor: pointer;
+  transition: background .12s; }
+.nav-about-card:hover { background: color-mix(in srgb, var(--ink) 6%, transparent); }
+.nav-about-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.nav-about-title { font-size: 15px; font-weight: 600; line-height: 1.3; }
+@media (prefers-reduced-motion: reduce) { .nav-about-card { transition: none; } }
+
+/* T-2625 (§10 "In-world HUD"): Start / Jaunts left the HUD. It waits here out of sight,
+   its id and listener intact; its choices are the Jaunts app's (T-2630). */
+.hud-moved, .hud-moved[hidden] { display: none; }
+/* Settings › Display: light or dark, moved from the HUD (T-2625), a two-way choice (T-2656). */
+.theme-row { align-items: center; justify-content: space-between; gap: 12px; }
+.theme-row .seg { flex: 0 1 auto; min-width: 0; }
+.theme-row .seg-btn { min-height: 36px; padding: 0 14px; }
+
+/* ---- T-2656: legible on every panel (QA-21) -----------------------------------------
+   Inside the Navigator every reading and label colour clears 4.5:1 on its panel in all
+   four machines and both tones; tools/check_navigator_contrast.mjs measures it. Three
+   machine tokens fall short there and are deepened for the device alone: the faint ink
+   (a label colour, 3.0-3.7:1) becomes the dim ink, the light-tone accents of Retro Future
+   (3.8:1) and Deep Space (4.0:1 on its wash) a deeper teal and blue, and the words on the signal keys
+   of Control Room (4.3:1) and Retro Future (3.2:1) a white and a near-black ink. The key
+   itself stays the machine's own signal colour: RECALL is that red (T-2655). The wash under
+   a chosen segment is mixed again here, at 10 %, from the device's own accent: skins.css
+   mixes it on the page, from the accent before these. */
+/* contrast:begin */
+.navigator { --ink-faint: var(--ink-dim); --wash: color-mix(in srgb, var(--accent) 10%, transparent); }
+html[data-skin="worlds-fair"]:not([data-theme="dark"]) .navigator { --accent: #0F7178; }
+html[data-skin="deep-space"][data-theme="light"] .navigator { --accent: #0B6386; }
+html[data-skin="control-room"] .navigator { --signal-ink: #FFFFFF; }
+html[data-skin="worlds-fair"] .navigator { --signal-ink: #1A1006; }
+/* contrast:end */
+
+/* ---- T-2656: text size 100-140 % (QA-18) ---------------------------------------------
+   Settings › Display › Text size sets --text-scale on the page (js/settings-app.js), and
+   every Navigator screen scales by it and reflows inside the device: the screen keeps its
+   width and its rows wrap rather than run past the edge. */
+.nav-screen { zoom: var(--text-scale, 1); }
+.navigator .field.row { flex-wrap: wrap; }
+.navigator .field.row > span { flex: 1 1 8em; min-width: 0; }
+.navigator .field select { max-width: 100%; min-width: 0; }
+.navigator .jump-pills { flex-wrap: wrap; overflow: visible; margin: 0 0 10px; padding: 0; }
+/* Above 100 % nothing in the device is cut short or pushed off its edge: a line that ends in
+   an ellipsis at 100 % wraps, a strip of chips or tabs that scrolls sideways wraps onto a
+   second row, a Go to name is no longer held to two lines, and a Jaunt's start keys move
+   under its words. Breaking is `anywhere`, as css/evidence.css sets it: `break-word`
+   leaves an unbroken run's min-content width whole and lets it push its column wider. The map is a picture sized
+   from its own box, so its scope is zoomed back to 100 % (--text-unscale). */
+html[data-text-scale] .navigator :is(.jaunt-card h3, .jaunt-premise, .jaunt-credit, .panel-title, .person-name, .person-sub,
+  .jump-result small.jump-sub, .pop-pic-tile-kind, .pop-pic-tile-credit, .welcome-action strong) {
+  white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; }
+/* Go to's names wrap to two lines at 100 % (T-2632); above it a long name is shown whole. */
+html[data-text-scale] .navigator .welcome-destination strong { display: block; -webkit-line-clamp: unset; line-clamp: none; overflow: visible; }
+html[data-text-scale] .navigator :is(.insp-tabs, .jaunt-categories, .welcome-kinds, .people-fgroup, .pills) {
+  flex-wrap: wrap; overflow-x: visible; }
+/* People's filter pills (css/people.css): a row of them is a sideways strip with a fade, and
+   a short question's row does not shrink (flex: none), so on the desktop panel a raised
+   size pushed its pills past the edge: the filters' grid track grew to the row's min-content
+   (its label beside its widest pill). Above 100 % the track holds the panel's width, the row
+   takes the line, and its label and pills wrap. */
+html[data-text-scale] .navigator .pills { padding-right: 1px; mask-image: none; -webkit-mask-image: none; }
+html[data-text-scale] .navigator .people-fgroup .people-frow { flex: 1 1 100%; min-width: 0; }
+html[data-text-scale] .navigator .people-filters { grid-template-columns: minmax(0, 1fr); }
+html[data-text-scale] .navigator .people-frow { flex-wrap: wrap; }
+html[data-text-scale] .navigator .jaunt-card { grid-template-columns: 38px minmax(0, 1fr); }
+html[data-text-scale] .navigator .jaunt-card .jaunt-actions { grid-column: 1 / -1; justify-content: flex-end; }
+/* A two-column list of keys or terms stacks into one at 130 % and above, so its words keep a line's width. */
+html[data-text-scale="1.3"] .navigator :is(.keys, .nav-glossary), html[data-text-scale="1.4"] .navigator :is(.keys, .nav-glossary) {
+  grid-template-columns: minmax(0, 1fr); row-gap: 2px; }
+html[data-text-scale="1.3"] .navigator :is(.keys dd, .nav-glossary dd), html[data-text-scale="1.4"] .navigator :is(.keys dd, .nav-glossary dd) {
+  margin-bottom: 8px; }
+html[data-text-scale="1.3"] .navigator .nav-guide-keys dt, html[data-text-scale="1.4"] .navigator .nav-guide-keys dt { max-width: none; }
+.navigator .nav-map-scope { zoom: var(--text-unscale, 1); }
+
+/* ---- T-2656: Settings › Machine, the four machines as preview tiles (js/skin.js) ----- */
+.skin-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 4px; }
+.skin-tile { display: flex; flex-direction: column; align-items: stretch; gap: 6px; min-height: 44px; padding: 6px;
+  border: 1px solid var(--edge); border-radius: 12px; background: transparent; color: var(--ink); font: inherit;
+  font-size: 14px; text-align: left; cursor: pointer; }
+.skin-tile:hover { border-color: var(--edge-strong, var(--edge)); }
+.skin-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.skin-tile.is-on { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+/* The face is the machine itself, in its own panel and colours, whatever the one in use. */
+.skin-tile-face { position: relative; display: block; height: 46px; border-radius: 8px; overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(127, 127, 127, .4); }
+.skin-tile-face i { position: absolute; display: block; }
+.skin-tile-bar { left: 8px; top: 9px; width: 36%; height: 5px; border-radius: 3px; }
+.skin-tile-lines { left: 8px; right: 30px; top: 21px; height: 14px; opacity: .55;
+  background: repeating-linear-gradient(180deg, currentColor 0 2px, transparent 2px 6px); }
+.skin-tile-key { right: 8px; bottom: 8px; width: 14px; height: 14px; border-radius: 50%; }
+.skin-tile-name { padding: 0 4px 2px; font-weight: 600; line-height: 1.25; }
+.skin-tile.is-on .skin-tile-name { color: var(--accent); }
+
+/* Settings › Performance › Auto: the line says what Auto picks; its key, when you are on it, says so. */
+.perf-auto .setting-button[disabled] { opacity: 1; cursor: default; color: var(--ink-dim); }

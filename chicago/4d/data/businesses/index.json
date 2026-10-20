@@ -835,7 +835,7 @@
         "tier": "inferred",
         "from": "1834-10-29",
         "to": null,
-        "limit_reason": "The register places this house against tremont_house_1 and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Tremont House (the first) and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-10-29",
@@ -850,7 +850,7 @@
     },
     {
       "id": "biz_andrus_thomas_carpenter",
-      "file": "biz_andrus_thomas_carpenter.json",
+      "file": "authored/biz_andrus_thomas_carpenter.json",
       "name": "Thomas Andrus, carpenter",
       "register_id": null,
       "provenance": "authored",
@@ -883,7 +883,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -1017,7 +1017,7 @@
     },
     {
       "id": "biz_beaubien_jean_baptiste_merchant",
-      "file": "biz_beaubien_jean_baptiste_merchant.json",
+      "file": "authored/biz_beaubien_jean_baptiste_merchant.json",
       "name": "Col. Jean Baptiste Beaubien, merchant and trader",
       "register_id": null,
       "provenance": "authored",
@@ -1050,7 +1050,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -1063,7 +1063,7 @@
     },
     {
       "id": "biz_beaubien_madore_merchant",
-      "file": "biz_beaubien_madore_merchant.json",
+      "file": "authored/biz_beaubien_madore_merchant.json",
       "name": "Madore Benjamin Beaubien, merchant",
       "register_id": null,
       "provenance": "authored",
@@ -1109,7 +1109,7 @@
     },
     {
       "id": "biz_blodgett_tyler_k_brickmaker",
-      "file": "biz_blodgett_tyler_k_brickmaker.json",
+      "file": "authored/biz_blodgett_tyler_k_brickmaker.json",
       "name": "Tyler K. Blodgett, Henry S. Lampman, brickmaker",
       "register_id": null,
       "provenance": "authored",
@@ -1296,7 +1296,7 @@
         "tier": "inferred",
         "from": "1833-12-03",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_03_04#c010 (notice, 1834-03-04), chicago_democrat_1834_06_11#c001 (business, 1834-06-11). No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by the Chicago Democrat of 1834-03-04 (notice, 1834-03-04), the Chicago Democrat of 1834-06-11 (business, 1834-06-11). No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1833-12-03",
@@ -1377,7 +1377,7 @@
     },
     {
       "id": "biz_brown_lemuel_blacksmith",
-      "file": "biz_brown_lemuel_blacksmith.json",
+      "file": "authored/biz_brown_lemuel_blacksmith.json",
       "name": "Lemuel Brown, blacksmith",
       "register_id": null,
       "provenance": "authored",
@@ -1410,7 +1410,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -1478,7 +1478,7 @@
     },
     {
       "id": "biz_brown_rufus_boarding_house_keeper",
-      "file": "biz_brown_rufus_boarding_house_keeper.json",
+      "file": "authored/biz_brown_rufus_boarding_house_keeper.json",
       "name": "Rufus Brown, Mrs Rufus Brown, boarding house keeper",
       "register_id": null,
       "provenance": "authored",
@@ -1721,7 +1721,7 @@
         "tier": "inferred",
         "from": "1835-08-12",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: chicago_democrat_1835_08_12#c007 announces this house opening on 1835-08-17, after the scene date — “The first te[rm] will co[m]mence Monday August 17”. The paper names the date in full. Hunt 'proposes to establish' the school and asks for names to be left beforehand, so nothing was teaching on 1 July 1835. No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: the Chicago Democrat of 1835-08-12 announces this house opening on 1835-08-17, after the scene date — “The first te[rm] will co[m]mence Monday August 17”. The paper names the date in full. Hunt 'proposes to establish' the school and asks for names to be left beforehand, so nothing was teaching on 1 July 1835. No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1835-08-17",
@@ -1768,7 +1768,7 @@
         "tier": "inferred",
         "from": "1834-06-04",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_06_04#c008 (business, 1834-06-04). No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by the Chicago Democrat of 1834-06-04 (business, 1834-06-04). No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1834-06-04",
@@ -1968,7 +1968,7 @@
     },
     {
       "id": "biz_chicago_post_office",
-      "file": "biz_chicago_post_office.json",
+      "file": "authored/biz_chicago_post_office.json",
       "name": "The Post Office at Chicago",
       "register_id": null,
       "provenance": "authored",
@@ -2001,7 +2001,7 @@
         "tier": "attested",
         "from": "1834-07",
         "to": null,
-        "limit_reason": "THE BUILDING IS NOT MODELLED AND WOULD BE ALMOST ENTIRELY INVENTION. hogan_store's research note puts it about 100 m east of that building and says that nothing reached describes its construction, its size or its side of either street; docs/RESEARCH/hogan_store.md § 4 states the same refusal. AND THE CORNER ITSELF CARRIES A LIVE CONFLICT (T-0859): eight printings of Hogan's standing card, from 13 August 1834 through the issue of 1 July 1835, put his South Water store 'one door [… of] the Post Office', and one door is not four blocks from Franklin. The conflict is recorded and not resolved here; the street is what both readings agree on, so the street is as far as this location goes."
+        "limit_reason": "THE BUILDING IS NOT MODELLED AND WOULD BE ALMOST ENTIRELY INVENTION. The research note on Hogan's Store puts it about 100 m east of that building and says that nothing reached describes its construction, its size or its side of either street; section 4 of the project's research notes on Hogan's Store states the same refusal. AND THE CORNER ITSELF CARRIES A LIVE CONFLICT: eight printings of Hogan's standing card, from 13 August 1834 through the issue of 1 July 1835, put his South Water store 'one door [… of] the Post Office', and one door is not four blocks from Franklin. The conflict is recorded and not resolved here; the street is what both readings agree on, so the street is as far as this location goes."
       },
       "locations": 1,
       "opened": "1831-03-31",
@@ -2118,7 +2118,7 @@
     },
     {
       "id": "biz_church_thomas_merchant",
-      "file": "biz_church_thomas_merchant.json",
+      "file": "authored/biz_church_thomas_merchant.json",
       "name": "Thomas Church, merchant",
       "register_id": null,
       "provenance": "authored",
@@ -2218,7 +2218,7 @@
         "tier": "inferred",
         "from": "1834-05-28",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of randolph and names nothing narrower.",
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of Randolph Street and names nothing narrower.",
         "housed_in": {
           "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
           "by": "street_face_adoption",
@@ -2239,7 +2239,7 @@
     },
     {
       "id": "biz_collett_j_a_refectory_keeper",
-      "file": "biz_collett_j_a_refectory_keeper.json",
+      "file": "authored/biz_collett_j_a_refectory_keeper.json",
       "name": "J. A. Collett, refectory keeper",
       "register_id": null,
       "provenance": "authored",
@@ -2272,7 +2272,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -2338,7 +2338,7 @@
         "tier": "inferred",
         "from": "1834-01-28",
         "to": null,
-        "limit_reason": "The register places this house against business_brewster_hogan_co and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Brewster, Hogan & Co. and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-01-28",
@@ -2351,7 +2351,7 @@
     },
     {
       "id": "biz_cook_county_offices",
-      "file": "biz_cook_county_offices.json",
+      "file": "authored/biz_cook_county_offices.json",
       "name": "The Cook County offices, in Richard J. Hamilton's own room",
       "register_id": null,
       "provenance": "authored",
@@ -2384,7 +2384,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "NO SOURCE REACHED NAMES THE ROOM. The county building is dated out of the scene and the log jail on the north-west corner of the square is a jail; nothing puts the clerk's desk at an address. The record stops at 'not on the square, and not in a building of the county's own'. THE TOWN'S OWN OFFICES STOP HERE TOO, and for a stronger reason than silence: the town of Chicago had no ground at all — its fire company had to ask the COUNTY for leave to build on the county's square, and the town polled its elections in taverns — so `chicago_town_hall` stands in data/exclusions.json as a kind guard with no date, and no town premises is written here or anywhere."
+        "limit_reason": "NO SOURCE REACHED NAMES THE ROOM. The county building is dated out of the scene and the log jail on the north-west corner of the square is a jail; nothing puts the clerk's desk at an address. The record stops at 'not on the square, and not in a building of the county's own'. THE TOWN'S OWN OFFICES STOP HERE TOO, and for a stronger reason than silence: the town of Chicago had no ground at all — its fire company had to ask the COUNTY for leave to build on the county's square, and the town polled its elections in taverns — so a town hall is recorded among the project's researched exclusions, with no date, so that none is ever built, and no town premises is written here or anywhere."
       },
       "locations": 1,
       "opened": null,
@@ -2441,7 +2441,7 @@
         "tier": "inferred",
         "from": "1834-11-05",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_11_05#c009 (business, 1834-11-05). No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by the Chicago Democrat of 1834-11-05 (business, 1834-11-05). No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1834-11-05",
@@ -2627,7 +2627,7 @@
     },
     {
       "id": "biz_couch_ira_hotel_keeper",
-      "file": "biz_couch_ira_hotel_keeper.json",
+      "file": "authored/biz_couch_ira_hotel_keeper.json",
       "name": "Ira Couch, James Couch, hotel keeper",
       "register_id": null,
       "provenance": "authored",
@@ -2708,7 +2708,7 @@
         "tier": "inferred",
         "from": "1835-08-05",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: chicago_democrat_1835_08_05#c013 announces this house opening on 1835-08-14, after the scene date — “open a [Branch] of their House in this [place …] from the [Manhattan?] Ho[u]se[…] on the [1]4th inst.”. 'the 14th inst.' in the Democrat of 5 August 1835 is the fourteenth of the current month, 14 August 1835. The New York house is announcing a branch it has not opened yet, six weeks after the scene date. No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: the Chicago Democrat of 1835-08-05 announces this house opening on 1835-08-14, after the scene date — “open a [Branch] of their House in this [place …] from the [Manhattan?] Ho[u]se[…] on the [1]4th inst.”. 'the 14th inst.' in the Democrat of 5 August 1835 is the fourteenth of the current month, 14 August 1835. The New York house is announcing a branch it has not opened yet, six weeks after the scene date. No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1835-08-14",
@@ -2844,7 +2844,7 @@
         "tier": "inferred",
         "from": "1834-03-25",
         "to": null,
-        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against George W. Dole's Warehouse and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-03-25",
@@ -3170,7 +3170,7 @@
     },
     {
       "id": "biz_davis_john_hotel_keeper",
-      "file": "biz_davis_john_hotel_keeper.json",
+      "file": "authored/biz_davis_john_hotel_keeper.json",
       "name": "John Davis, hotel keeper",
       "register_id": null,
       "provenance": "authored",
@@ -3261,7 +3261,7 @@
         "tier": "inferred",
         "from": "1834-07-23",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_07_23#c005 (notice, 1834-07-23). No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by the Chicago Democrat of 1834-07-23 (notice, 1834-07-23). No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1834-07-23",
@@ -3321,7 +3321,7 @@
         "tier": "inferred",
         "from": "1835-06-04",
         "to": null,
-        "limit_reason": "The register places this house against new_york_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against New York House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-06-04",
@@ -3899,7 +3899,7 @@
         "tier": "inferred",
         "from": "1834-04-16",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_10_08#c006 (business, 1834-10-08). No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by the Chicago Democrat of 1834-10-08 (business, 1834-10-08). No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1834-04-16",
@@ -4085,7 +4085,7 @@
     },
     {
       "id": "biz_egan_william_b_physician",
-      "file": "biz_egan_william_b_physician.json",
+      "file": "authored/biz_egan_william_b_physician.json",
       "name": "Dr William Bradshaw Egan, physician",
       "register_id": null,
       "provenance": "authored",
@@ -4118,7 +4118,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -4264,7 +4264,7 @@
     },
     {
       "id": "biz_first_baptist_church",
-      "file": "biz_first_baptist_church.json",
+      "file": "authored/biz_first_baptist_church.json",
       "name": "The First Baptist Church Society of Chicago",
       "register_id": null,
       "provenance": "authored",
@@ -4312,7 +4312,7 @@
     },
     {
       "id": "biz_first_presbyterian_church",
-      "file": "biz_first_presbyterian_church.json",
+      "file": "authored/biz_first_presbyterian_church.json",
       "name": "The First Presbyterian Church of Chicago",
       "register_id": null,
       "provenance": "authored",
@@ -4560,7 +4560,7 @@
         "tier": "inferred",
         "from": "1834-10-08",
         "to": null,
-        "limit_reason": "The paper names Lake Street and nothing narrower; the anchor is a reach of lake and names nothing narrower.",
+        "limit_reason": "The paper names Lake Street and nothing narrower; the anchor is a reach of Lake Street and names nothing narrower.",
         "housed_in": {
           "structure_id": "recon_1835_blk_lake_clark_c2_02",
           "by": "street_face_adoption",
@@ -4622,7 +4622,7 @@
         "tier": "inferred",
         "from": "1835-05-20",
         "to": null,
-        "limit_reason": "The register places this house against tremont_house_1 and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Tremont House (the first) and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 2,
       "opened": "1833-12-17",
@@ -4679,7 +4679,7 @@
         "tier": "inferred",
         "from": "1834-07-02",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_07_02#c049 (notice, 1834-07-02). No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by the Chicago Democrat of 1834-07-02 (notice, 1834-07-02). No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1834-07-02",
@@ -4692,7 +4692,7 @@
     },
     {
       "id": "biz_gale_stephen_f_merchant",
-      "file": "biz_gale_stephen_f_merchant.json",
+      "file": "authored/biz_gale_stephen_f_merchant.json",
       "name": "Stephen F. Gale, merchant",
       "register_id": null,
       "provenance": "authored",
@@ -4725,7 +4725,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -4934,7 +4934,7 @@
         "tier": "inferred",
         "from": "1833-11-26",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_american_1835_06_08#c006 (notice, 1835-06-08), chicago_american_1835_06_13#c015 (notice, 1835-06-13). No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by the Chicago American of 1835-06-08 (notice, 1835-06-08), the Chicago American of 1835-06-13 (notice, 1835-06-13). No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1833-11-26",
@@ -4985,7 +4985,7 @@
         "tier": "inferred",
         "from": "1834-12-10",
         "to": null,
-        "limit_reason": "The register places this house against tremont_house_1 and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Tremont House (the first) and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-12-10",
@@ -5051,7 +5051,7 @@
         "tier": "inferred",
         "from": "1834-05-28",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of south_water and names nothing narrower.",
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of South Water Street and names nothing narrower.",
         "housed_in": {
           "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
           "by": "street_face_adoption",
@@ -5072,7 +5072,7 @@
     },
     {
       "id": "biz_handy_major_mason",
-      "file": "biz_handy_major_mason.json",
+      "file": "authored/biz_handy_major_mason.json",
       "name": "Major Handy, mason",
       "register_id": null,
       "provenance": "authored",
@@ -5105,7 +5105,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -5118,7 +5118,7 @@
     },
     {
       "id": "biz_harmon_elijah_d_physician",
-      "file": "biz_harmon_elijah_d_physician.json",
+      "file": "authored/biz_harmon_elijah_d_physician.json",
       "name": "Dr Elijah Dewey Harmon, physician",
       "register_id": null,
       "provenance": "authored",
@@ -5151,7 +5151,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -5364,7 +5364,7 @@
         "tier": "inferred",
         "from": "1835-08-05",
         "to": null,
-        "limit_reason": "The register places this house against jh_kinzie_forwarding_store and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against J. H. Kinzie's Store and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-08-05",
@@ -5412,7 +5412,7 @@
         "tier": "inferred",
         "from": "1835-08-12",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: chicago_democrat_1835_08_12#c006 announces this house opening on 1835-08-10, after the scene date — “he will [open a] HIGH SCHOOL for Young Gentlemen [on] the 10th of the present month”. The advertisement is dated 5 August 1835, so 'the present month' is August and the school opens on 10 August 1835 — and only 'should sufficient encouragement be offered'. It was not open on 1 July. No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: the Chicago Democrat of 1835-08-12 announces this house opening on 1835-08-10, after the scene date — “he will [open a] HIGH SCHOOL for Young Gentlemen [on] the 10th of the present month”. The advertisement is dated 5 August 1835, so 'the present month' is August and the school opens on 10 August 1835 — and only 'should sufficient encouragement be offered'. It was not open on 1 July. No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1835-08-10",
@@ -5594,7 +5594,7 @@
     },
     {
       "id": "biz_indian_agency_chicago",
-      "file": "biz_indian_agency_chicago.json",
+      "file": "authored/biz_indian_agency_chicago.json",
       "name": "The United States Indian Agency at Chicago",
       "register_id": null,
       "provenance": "authored",
@@ -5683,7 +5683,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "A LANDMARK AND NO OFFICE. Nothing this project holds says where the agent's business was transacted on any date in 1835, and the agency's own buildings had been lent to other uses by 1832. The anchor is the Agency House because that is the thing every source in this cluster measures from, and `structure_id` stays null because the house is what the establishment stood beside and not a roof of the establishment's own."
+        "limit_reason": "A LANDMARK AND NO OFFICE. Nothing this project holds says where the agent's business was transacted on any date in 1835, and the agency's own buildings had been lent to other uses by 1832. The anchor is the Agency House because that is the thing every source in this cluster measures from, and no building is given to the agency as its own because the house is what the establishment stood beside and not a roof of the establishment's own."
       },
       "locations": 2,
       "opened": null,
@@ -5696,7 +5696,7 @@
     },
     {
       "id": "biz_inf_cooper_north_04_cooper",
-      "file": "biz_inf_cooper_north_04_cooper.json",
+      "file": "authored/biz_inf_cooper_north_04_cooper.json",
       "name": "J. Garland, cooper",
       "register_id": null,
       "provenance": "authored",
@@ -5729,7 +5729,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -5742,7 +5742,7 @@
     },
     {
       "id": "biz_inf_joiner_north_02_joiner",
-      "file": "biz_inf_joiner_north_02_joiner.json",
+      "file": "authored/biz_inf_joiner_north_02_joiner.json",
       "name": "J. W. Reed, joiner",
       "register_id": null,
       "provenance": "authored",
@@ -5775,7 +5775,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -5788,7 +5788,7 @@
     },
     {
       "id": "biz_inf_physician_south_01_physician",
-      "file": "biz_inf_physician_south_01_physician.json",
+      "file": "authored/biz_inf_physician_south_01_physician.json",
       "name": "Dr. Josiah C. Goodhue, physician",
       "register_id": null,
       "provenance": "authored",
@@ -5821,7 +5821,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -5947,7 +5947,7 @@
         "tier": "inferred",
         "from": "1834-11-19",
         "to": null,
-        "limit_reason": "The register places this house against exchange_coffee_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Exchange Coffee House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-11-19",
@@ -6018,7 +6018,7 @@
         "tier": "inferred",
         "from": "1834-07-02",
         "to": null,
-        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against George W. Dole's Warehouse and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-07-02",
@@ -6194,7 +6194,7 @@
         "tier": "inferred",
         "from": "1835-05-20",
         "to": null,
-        "limit_reason": "The register places this house against business_jones_king_co and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Jones, King & Co. and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-05-20",
@@ -6532,7 +6532,7 @@
         "tier": "inferred",
         "from": "1834-02-18",
         "to": null,
-        "limit_reason": "The register places this house against mansion_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Mansion House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-02-18",
@@ -6595,7 +6595,7 @@
         "tier": "inferred",
         "from": "1834-08-13",
         "to": null,
-        "limit_reason": "The register places this house against dearborn+lake and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against the corner of Dearborn Street and Lake Street and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-08-13",
@@ -6868,7 +6868,7 @@
         "tier": "inferred",
         "from": "1834-03-04",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_03_04#c011 (notice, 1834-03-04), chicago_democrat_1834_03_25#c004 (notice, 1834-03-25), chicago_democrat_1834_04_08#c013 (notice, 1834-04-08). No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by the Chicago Democrat of 1834-03-04 (notice, 1834-03-04), the Chicago Democrat of 1834-03-25 (notice, 1834-03-25), the Chicago Democrat of 1834-04-08 (notice, 1834-04-08). No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1834-03-04",
@@ -7795,7 +7795,7 @@
     },
     {
       "id": "biz_keeney_g_w_founder",
-      "file": "biz_keeney_g_w_founder.json",
+      "file": "authored/biz_keeney_g_w_founder.json",
       "name": "G. W. Keeney, founder",
       "register_id": null,
       "provenance": "authored",
@@ -7828,7 +7828,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -7907,7 +7907,7 @@
     },
     {
       "id": "biz_kimberly_edmund_s_physician",
-      "file": "biz_kimberly_edmund_s_physician.json",
+      "file": "authored/biz_kimberly_edmund_s_physician.json",
       "name": "Dr Edmund Stoughton Kimberly, physician",
       "register_id": null,
       "provenance": "authored",
@@ -7940,7 +7940,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -7996,7 +7996,7 @@
         "tier": "inferred",
         "from": "1834-07-02",
         "to": null,
-        "limit_reason": "The register places this house against chicago_democrat_office and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against The Chicago Democrat Office and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-07-02",
@@ -8048,7 +8048,7 @@
         "tier": "inferred",
         "from": "1834-06-25",
         "to": null,
-        "limit_reason": "The register places this house against canal+lake and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against the corner of Canal Street and Lake Street and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-06-25",
@@ -8063,7 +8063,7 @@
     },
     {
       "id": "biz_kinzie_james_merchant",
-      "file": "biz_kinzie_james_merchant.json",
+      "file": "authored/biz_kinzie_james_merchant.json",
       "name": "James Kinzie, merchant",
       "register_id": null,
       "provenance": "authored",
@@ -8096,7 +8096,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -8147,7 +8147,7 @@
         "tier": "inferred",
         "from": "1835-07-22",
         "to": null,
-        "limit_reason": "The register places this house against mansion_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Mansion House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-07-22",
@@ -8209,7 +8209,7 @@
         "tier": "inferred",
         "from": "1835-08-05",
         "to": null,
-        "limit_reason": "The register places this house against mansion_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Mansion House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-08-05",
@@ -8317,7 +8317,7 @@
         "tier": "inferred",
         "from": "1835-06-27",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_american_1835_06_27#c006 (notice, 1835-06-27). No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by the Chicago American of 1835-06-27 (notice, 1835-06-27). No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1835-06-27",
@@ -8565,7 +8565,7 @@
         "tier": "inferred",
         "from": "1834-08-13",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_08_13#c008 (notice, 1834-08-13). No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by the Chicago Democrat of 1834-08-13 (notice, 1834-08-13). No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1834-08-13",
@@ -8647,7 +8647,7 @@
     },
     {
       "id": "biz_meeker_joseph_carpenter",
-      "file": "biz_meeker_joseph_carpenter.json",
+      "file": "authored/biz_meeker_joseph_carpenter.json",
       "name": "Joseph Meeker, carpenter",
       "register_id": null,
       "provenance": "authored",
@@ -8680,7 +8680,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -8693,7 +8693,7 @@
     },
     {
       "id": "biz_methodist_episcopal_congregation",
-      "file": "biz_methodist_episcopal_congregation.json",
+      "file": "authored/biz_methodist_episcopal_congregation.json",
       "name": "The Methodist Episcopal congregation at Chicago",
       "register_id": null,
       "provenance": "authored",
@@ -8731,7 +8731,7 @@
     },
     {
       "id": "biz_miller_john_tanner",
-      "file": "biz_miller_john_tanner.json",
+      "file": "authored/biz_miller_john_tanner.json",
       "name": "John Miller, Benjamin Hall, tanner",
       "register_id": null,
       "provenance": "authored",
@@ -8828,7 +8828,7 @@
         "tier": "inferred",
         "from": "1834-07-23",
         "to": null,
-        "limit_reason": "The paper names Randolph Street and nothing narrower; the anchor is a reach of dearborn and names nothing narrower.",
+        "limit_reason": "The paper names Randolph Street and nothing narrower; the anchor is a reach of Dearborn Street and names nothing narrower.",
         "housed_in": {
           "structure_id": "recon_1835_blk_lake_market_d2_04",
           "by": "street_face_adoption",
@@ -8905,7 +8905,7 @@
         "tier": "inferred",
         "from": "1834-12-03",
         "to": null,
-        "limit_reason": "The register places this house against mansion_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Mansion House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-12-03",
@@ -8976,7 +8976,7 @@
         "tier": "inferred",
         "from": "1834-11-26",
         "to": null,
-        "limit_reason": "The register places this house against mansion_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Mansion House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-11-26",
@@ -8991,7 +8991,7 @@
     },
     {
       "id": "biz_murphy_john_tavern_keeper",
-      "file": "biz_murphy_john_tavern_keeper.json",
+      "file": "authored/biz_murphy_john_tavern_keeper.json",
       "name": "John Murphy, Harriet Murphy, tavern keeper",
       "register_id": null,
       "provenance": "authored",
@@ -9091,7 +9091,7 @@
         "tier": "inferred",
         "from": "1835-06-08",
         "to": null,
-        "limit_reason": "The register places this house against tremont_house_1 and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Tremont House (the first) and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-06-08",
@@ -9552,7 +9552,7 @@
         "tier": "inferred",
         "from": "1834-07-09",
         "to": null,
-        "limit_reason": "The register places this house against business_eagle_tavern and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Eagle Tavern and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-07-09",
@@ -9623,7 +9623,7 @@
         "tier": "inferred",
         "from": "1833-11-26",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of south_water and names nothing narrower.",
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of South Water Street and names nothing narrower.",
         "housed_in": {
           "structure_id": "recon_1835_blk_south_water_dearborn_c3_02",
           "by": "street_face_adoption",
@@ -9829,7 +9829,7 @@
         "tier": "inferred",
         "from": "1834-02-04",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_06_11#c003 (business, 1834-06-11). No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by the Chicago Democrat of 1834-06-11 (business, 1834-06-11). No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1834-02-04",
@@ -10110,7 +10110,7 @@
     },
     {
       "id": "biz_robinson_trading_house_wolf_point",
-      "file": "biz_robinson_trading_house_wolf_point.json",
+      "file": "authored/biz_robinson_trading_house_wolf_point.json",
       "name": "Alexander Robinson's store or trading-house at Wolf Point",
       "register_id": null,
       "provenance": "authored",
@@ -10409,7 +10409,7 @@
         "tier": "inferred",
         "from": "1835-05-27",
         "to": null,
-        "limit_reason": "The register places this house against franklin+lake and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against the corner of Franklin Street and Lake Street and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-05-27",
@@ -10930,7 +10930,7 @@
     },
     {
       "id": "biz_smith_george_coffee_house_keeper",
-      "file": "biz_smith_george_coffee_house_keeper.json",
+      "file": "authored/biz_smith_george_coffee_house_keeper.json",
       "name": "George Smith, coffee house keeper",
       "register_id": null,
       "provenance": "authored",
@@ -10963,7 +10963,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -10976,7 +10976,7 @@
     },
     {
       "id": "biz_st_marys_church",
-      "file": "biz_st_marys_church.json",
+      "file": "authored/biz_st_marys_church.json",
       "name": "St. Mary's, the Catholic congregation of Chicago",
       "register_id": null,
       "provenance": "authored",
@@ -11024,7 +11024,7 @@
     },
     {
       "id": "biz_stow_william_h_hotel_keeper",
-      "file": "biz_stow_william_h_hotel_keeper.json",
+      "file": "authored/biz_stow_william_h_hotel_keeper.json",
       "name": "William H. Stow, hotel keeper",
       "register_id": null,
       "provenance": "authored",
@@ -11116,7 +11116,7 @@
     },
     {
       "id": "biz_taylor_anson_h_carpenter",
-      "file": "biz_taylor_anson_h_carpenter.json",
+      "file": "authored/biz_taylor_anson_h_carpenter.json",
       "name": "Anson H. Taylor, carpenter",
       "register_id": null,
       "provenance": "authored",
@@ -11149,7 +11149,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -11162,7 +11162,7 @@
     },
     {
       "id": "biz_taylor_augustine_carpenter",
-      "file": "biz_taylor_augustine_carpenter.json",
+      "file": "authored/biz_taylor_augustine_carpenter.json",
       "name": "Augustine Deodat Taylor, carpenter",
       "register_id": null,
       "provenance": "authored",
@@ -11195,7 +11195,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -11250,7 +11250,7 @@
         "tier": "inferred",
         "from": "1834-03-18",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_03_18#c008 (notice, 1834-03-18). No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by the Chicago Democrat of 1834-03-18 (notice, 1834-03-18). No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1834-03-18",
@@ -11263,7 +11263,7 @@
     },
     {
       "id": "biz_temple_john_t_physician",
-      "file": "biz_temple_john_t_physician.json",
+      "file": "authored/biz_temple_john_t_physician.json",
       "name": "Dr John Taylor Temple, physician",
       "register_id": null,
       "provenance": "authored",
@@ -11296,7 +11296,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -11309,7 +11309,7 @@
     },
     {
       "id": "biz_temple_peter_dentist",
-      "file": "biz_temple_peter_dentist.json",
+      "file": "authored/biz_temple_peter_dentist.json",
       "name": "Dr Peter Temple, dentist",
       "register_id": null,
       "provenance": "authored",
@@ -11342,7 +11342,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -11547,7 +11547,7 @@
         "tier": "inferred",
         "from": "1834-08-06",
         "to": null,
-        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against George W. Dole's Warehouse and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-08-06",
@@ -11693,7 +11693,7 @@
         "tier": "inferred",
         "from": "1833-11-26",
         "to": null,
-        "limit_reason": "The register places this house against clark+south_water and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against the corner of Clark Street and South Water Street and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 2,
       "opened": "1833-11-26",
@@ -11968,7 +11968,7 @@
         "tier": "inferred",
         "from": "1833-12-10",
         "to": null,
-        "limit_reason": "The register places this house against sauganash_hotel and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Sauganash Hotel and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1833-12-10",
@@ -12376,7 +12376,7 @@
         "tier": "inferred",
         "from": "1834-06-04",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by chicago_democrat_1834_06_25#c006 (business, 1834-06-25). No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: Contradicted on or before the scene date by the Chicago Democrat of 1834-06-25 (business, 1834-06-25). No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1834-06-04",
@@ -12613,7 +12613,7 @@
         "tier": "inferred",
         "from": "1834-07-09",
         "to": null,
-        "limit_reason": "The register places this house against business_newberry_dole and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Newberry & Dole and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-07-09",
@@ -12700,7 +12700,7 @@
         "tier": "inferred",
         "from": "1834-07-02",
         "to": null,
-        "limit_reason": "The register places this house against mansion_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Mansion House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-07-02",
@@ -12845,7 +12845,7 @@
         "tier": "inferred",
         "from": "1834-05-28",
         "to": null,
-        "limit_reason": "No street the model holds. The anchor is a reach of lake and names nothing narrower."
+        "limit_reason": "No street the model holds. The anchor is a reach of Lake Street and names nothing narrower."
       },
       "locations": 1,
       "opened": "1834-05-28",
@@ -12992,7 +12992,7 @@
         "tier": "inferred",
         "from": "1835-08-05",
         "to": null,
-        "limit_reason": "No street the model holds. The anchor is a reach of lake and names nothing narrower."
+        "limit_reason": "No street the model holds. The anchor is a reach of Lake Street and names nothing narrower."
       },
       "locations": 1,
       "opened": "1835-08-05",
@@ -13007,7 +13007,7 @@
     },
     {
       "id": "biz_us_land_office_chicago",
-      "file": "biz_us_land_office_chicago.json",
+      "file": "authored/biz_us_land_office_chicago.json",
       "name": "The United States Land Office at Chicago",
       "register_id": null,
       "provenance": "authored",
@@ -13049,7 +13049,7 @@
         "tier": "attested",
         "from": null,
         "to": null,
-        "limit_reason": "A STREET AND NO HOUSE, and the source says why in its own next breath: 'the office of the Registers and Receivers were usually at their private offices' (scan p. 313). Nothing reached describes a building, a size or a lot, and the civic dossier's enumeration is explicit that this is a public FUNCTION and not a public building — `us_land_office_1835` stands in data/exclusions.json as a kind guard so that no roof is ever dealt to it."
+        "limit_reason": "A STREET AND NO HOUSE, and the source says why in its own next breath: 'the office of the Registers and Receivers were usually at their private offices' (scan p. 313). Nothing reached describes a building, a size or a lot, and the civic dossier's enumeration is explicit that this is a public FUNCTION and not a public building — the United States Land Office at Chicago stands in the project's list of researched exclusions so that no roof is ever given to it."
       },
       "locations": 1,
       "opened": "1835-05",
@@ -13163,7 +13163,7 @@
         "tier": "inferred",
         "from": "1834-05-28",
         "to": null,
-        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against George W. Dole's Warehouse and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-05-28",
@@ -13221,7 +13221,7 @@
         "tier": "inferred",
         "from": "1834-11-05",
         "to": null,
-        "limit_reason": "The register places this house against business_newberry_dole and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Newberry & Dole and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-11-05",
@@ -13283,7 +13283,7 @@
         "tier": "inferred",
         "from": "1834-05-07",
         "to": null,
-        "limit_reason": "The register places this house against business_newberry_dole and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Newberry & Dole and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-05-07",
@@ -13576,7 +13576,7 @@
     },
     {
       "id": "biz_walters_william_tavern_keeper",
-      "file": "biz_walters_william_tavern_keeper.json",
+      "file": "authored/biz_walters_william_tavern_keeper.json",
       "name": "William Walters, tavern keeper",
       "register_id": null,
       "provenance": "authored",
@@ -13755,7 +13755,7 @@
         "tier": "inferred",
         "from": "1835-08-19",
         "to": null,
-        "limit_reason": "Excluded from the scene-date town: chicago_democrat_1835_08_19#c015 announces this house opening on 1835-09-01, after the scene date — “will receive and offer for sale on the first of September”. Dated August 1835, so 'the first of September' is 1 September 1835 — two months after the scene date, and the stock is not in the store yet. No action; the record is kept so the exclusion can be argued with."
+        "limit_reason": "Excluded from the scene-date town: the Chicago Democrat of 1835-08-19 announces this house opening on 1835-09-01, after the scene date — “will receive and offer for sale on the first of September”. Dated August 1835, so 'the first of September' is 1 September 1835 — two months after the scene date, and the stock is not in the store yet. No action; the record is kept so the exclusion can be argued with."
       },
       "locations": 1,
       "opened": "1835-09-01",
@@ -13806,7 +13806,7 @@
         "tier": "inferred",
         "from": "1834-06-18",
         "to": null,
-        "limit_reason": "The register places this house against business_eagle_tavern and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Eagle Tavern and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-06-18",
@@ -13861,7 +13861,7 @@
         "tier": "inferred",
         "from": "1835-06-24",
         "to": null,
-        "limit_reason": "The register places this house against exchange_coffee_house and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against Exchange Coffee House and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-06-24",
@@ -13934,7 +13934,7 @@
         "tier": "inferred",
         "from": "1835-05-20",
         "to": null,
-        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against George W. Dole's Warehouse and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-05-20",
@@ -13993,7 +13993,7 @@
         "tier": "inferred",
         "from": "1835-08-05",
         "to": null,
-        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
+        "limit_reason": "The register places this house against George W. Dole's Warehouse and the town holds no roof of its own for it, so the landmark is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-07-08",
@@ -14158,7 +14158,7 @@
     },
     {
       "id": "biz_woodworth_james_h_dry_goods_merchant",
-      "file": "biz_woodworth_james_h_dry_goods_merchant.json",
+      "file": "authored/biz_woodworth_james_h_dry_goods_merchant.json",
       "name": "James H. Woodworth, dry goods merchant",
       "register_id": null,
       "provenance": "authored",
@@ -14191,7 +14191,7 @@
         "tier": "inferred",
         "from": null,
         "to": null,
-        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+        "limit_reason": "The source names the trade and not the premises. Each attested and inferred house is seated on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits for that seating."
       },
       "locations": 1,
       "opened": null,
@@ -14204,7 +14204,7 @@
     },
     {
       "id": "rcb_bardwell_boarding_house",
-      "file": "rcb_bardwell_boarding_house.json",
+      "file": "authored/rcb_bardwell_boarding_house.json",
       "name": "Bardwell's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
@@ -14250,7 +14250,7 @@
     },
     {
       "id": "rcb_barnes_boarding_house",
-      "file": "rcb_barnes_boarding_house.json",
+      "file": "authored/rcb_barnes_boarding_house.json",
       "name": "Ezra Barnes's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
@@ -14296,7 +14296,7 @@
     },
     {
       "id": "rcb_barnes_refectory",
-      "file": "rcb_barnes_refectory.json",
+      "file": "authored/rcb_barnes_refectory.json",
       "name": "Hannah Barnes, refectory",
       "register_id": null,
       "provenance": "reconstructed",
@@ -14344,7 +14344,7 @@
     },
     {
       "id": "rcb_beaubien_boarding_house",
-      "file": "rcb_beaubien_boarding_house.json",
+      "file": "authored/rcb_beaubien_boarding_house.json",
       "name": "Mark Beaubien's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
@@ -14390,7 +14390,7 @@
     },
     {
       "id": "rcb_brady_barbers_shop",
-      "file": "rcb_brady_barbers_shop.json",
+      "file": "authored/rcb_brady_barbers_shop.json",
       "name": "Daniel Brady, barber",
       "register_id": null,
       "provenance": "reconstructed",
@@ -14438,7 +14438,7 @@
     },
     {
       "id": "rcb_canal_lyman_lemuel",
-      "file": "rcb_canal_lyman_lemuel.json",
+      "file": "authored/rcb_canal_lyman_lemuel.json",
       "name": "Lemuel Lyman, blacksmith shop",
       "register_id": null,
       "provenance": "reconstructed",
@@ -14486,7 +14486,7 @@
     },
     {
       "id": "rcb_canal_mahoney_martin",
-      "file": "rcb_canal_mahoney_martin.json",
+      "file": "authored/rcb_canal_mahoney_martin.json",
       "name": "Martin Mahoney, grocery and provision store",
       "register_id": null,
       "provenance": "reconstructed",
@@ -14534,7 +14534,7 @@
     },
     {
       "id": "rcb_canal_pratt_seth",
-      "file": "rcb_canal_pratt_seth.json",
+      "file": "authored/rcb_canal_pratt_seth.json",
       "name": "Seth Pratt, grocery and provision store",
       "register_id": null,
       "provenance": "reconstructed",
@@ -14582,7 +14582,7 @@
     },
     {
       "id": "rcb_canal_stebbins_horace",
-      "file": "rcb_canal_stebbins_horace.json",
+      "file": "authored/rcb_canal_stebbins_horace.json",
       "name": "Horace Stebbins, carpenter shop",
       "register_id": null,
       "provenance": "reconstructed",
@@ -14630,7 +14630,7 @@
     },
     {
       "id": "rcb_cavanagh_boarding_house",
-      "file": "rcb_cavanagh_boarding_house.json",
+      "file": "authored/rcb_cavanagh_boarding_house.json",
       "name": "Cavanagh's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
@@ -14676,7 +14676,7 @@
     },
     {
       "id": "rcb_chapin_boarding_house",
-      "file": "rcb_chapin_boarding_house.json",
+      "file": "authored/rcb_chapin_boarding_house.json",
       "name": "Chapin's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
@@ -14722,7 +14722,7 @@
     },
     {
       "id": "rcb_chapin_millinery",
-      "file": "rcb_chapin_millinery.json",
+      "file": "authored/rcb_chapin_millinery.json",
       "name": "E. Chapin, millinery and dress making",
       "register_id": null,
       "provenance": "reconstructed",
@@ -14770,7 +14770,7 @@
     },
     {
       "id": "rcb_chevalier_silversmith_jeweller",
-      "file": "rcb_chevalier_silversmith_jeweller.json",
+      "file": "authored/rcb_chevalier_silversmith_jeweller.json",
       "name": "L. Chevalier, watches, jewelry, engravings and fancy goods",
       "register_id": null,
       "provenance": "reconstructed",
@@ -14818,7 +14818,7 @@
     },
     {
       "id": "rcb_cobb_millinery",
-      "file": "rcb_cobb_millinery.json",
+      "file": "authored/rcb_cobb_millinery.json",
       "name": "Maria Cobb, millinery",
       "register_id": null,
       "provenance": "reconstructed",
@@ -14866,7 +14866,7 @@
     },
     {
       "id": "rcb_crandall_druggist",
-      "file": "rcb_crandall_druggist.json",
+      "file": "authored/rcb_crandall_druggist.json",
       "name": "B. Crandall, drugs, medicines and dye stuffs",
       "register_id": null,
       "provenance": "reconstructed",
@@ -14914,7 +14914,7 @@
     },
     {
       "id": "rcb_crandall_land_office",
-      "file": "rcb_crandall_land_office.json",
+      "file": "authored/rcb_crandall_land_office.json",
       "name": "William Crandall, land agent",
       "register_id": null,
       "provenance": "reconstructed",
@@ -14962,7 +14962,7 @@
     },
     {
       "id": "rcb_dufresne_livery_stable",
-      "file": "rcb_dufresne_livery_stable.json",
+      "file": "authored/rcb_dufresne_livery_stable.json",
       "name": "J. Dufresne, livery stable",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15010,7 +15010,7 @@
     },
     {
       "id": "rcb_fairbanks_land_office",
-      "file": "rcb_fairbanks_land_office.json",
+      "file": "authored/rcb_fairbanks_land_office.json",
       "name": "S. Fairbanks, land agent",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15058,7 +15058,7 @@
     },
     {
       "id": "rcb_fb_barbers_shop",
-      "file": "rcb_fb_barbers_shop.json",
+      "file": "authored/rcb_fb_barbers_shop.json",
       "name": "Benjamin Anderson, barber",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15091,7 +15091,7 @@
         "tier": "reconstructed",
         "from": null,
         "to": null,
-        "limit_reason": "Nothing places this house. The cohort it belongs to is unplaced for the same reason — no reading puts a free Black household or business on any street of this town — and T-1199 seats the reconstructed layer when the placement policy is written."
+        "limit_reason": "Nothing places this house. The cohort it belongs to is unplaced for the same reason — no reading puts a free Black household or business on any street of this town — and the reconstructed layer is seated when the placement policy is written."
       },
       "locations": 1,
       "opened": null,
@@ -15104,7 +15104,7 @@
     },
     {
       "id": "rcb_fb_washing_and_ironing",
-      "file": "rcb_fb_washing_and_ironing.json",
+      "file": "authored/rcb_fb_washing_and_ironing.json",
       "name": "Eliza Anderson, washing and ironing",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15137,7 +15137,7 @@
         "tier": "reconstructed",
         "from": null,
         "to": null,
-        "limit_reason": "Nothing places this house. The cohort it belongs to is unplaced for the same reason — no reading puts a free Black household or business on any street of this town — and T-1199 seats the reconstructed layer when the placement policy is written."
+        "limit_reason": "Nothing places this house. The cohort it belongs to is unplaced for the same reason — no reading puts a free Black household or business on any street of this town — and the reconstructed layer is seated when the placement policy is written."
       },
       "locations": 1,
       "opened": null,
@@ -15150,7 +15150,7 @@
     },
     {
       "id": "rcb_fitzgerald_boarding_house",
-      "file": "rcb_fitzgerald_boarding_house.json",
+      "file": "authored/rcb_fitzgerald_boarding_house.json",
       "name": "Martin Fitzgerald's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15196,7 +15196,7 @@
     },
     {
       "id": "rcb_gilbert_boarding_house",
-      "file": "rcb_gilbert_boarding_house.json",
+      "file": "authored/rcb_gilbert_boarding_house.json",
       "name": "Gilbert's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15242,7 +15242,7 @@
     },
     {
       "id": "rcb_goodrich_millinery",
-      "file": "rcb_goodrich_millinery.json",
+      "file": "authored/rcb_goodrich_millinery.json",
       "name": "S. Goodrich, millinery and dress making",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15290,7 +15290,7 @@
     },
     {
       "id": "rcb_hubbard_lumber_yard",
-      "file": "rcb_hubbard_lumber_yard.json",
+      "file": "authored/rcb_hubbard_lumber_yard.json",
       "name": "A. Hubbard, lumber yard and store house",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15338,7 +15338,7 @@
     },
     {
       "id": "rcb_ingalls_refectory",
-      "file": "rcb_ingalls_refectory.json",
+      "file": "authored/rcb_ingalls_refectory.json",
       "name": "H. Ingalls, refectory",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15386,7 +15386,7 @@
     },
     {
       "id": "rcb_kellogg_millinery",
-      "file": "rcb_kellogg_millinery.json",
+      "file": "authored/rcb_kellogg_millinery.json",
       "name": "A. Kellogg, millinery",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15434,7 +15434,7 @@
     },
     {
       "id": "rcb_kellogg_soap_and_candle_manufactory",
-      "file": "rcb_kellogg_soap_and_candle_manufactory.json",
+      "file": "authored/rcb_kellogg_soap_and_candle_manufactory.json",
       "name": "J. Kellogg, soap and candle manufactory",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15482,7 +15482,7 @@
     },
     {
       "id": "rcb_laframboise_boarding_house",
-      "file": "rcb_laframboise_boarding_house.json",
+      "file": "authored/rcb_laframboise_boarding_house.json",
       "name": "Laframboise's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15528,7 +15528,7 @@
     },
     {
       "id": "rcb_leland_livery_stable",
-      "file": "rcb_leland_livery_stable.json",
+      "file": "authored/rcb_leland_livery_stable.json",
       "name": "W. Leland, livery stable",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15576,7 +15576,7 @@
     },
     {
       "id": "rcb_mccarthy_boarding_house",
-      "file": "rcb_mccarthy_boarding_house.json",
+      "file": "authored/rcb_mccarthy_boarding_house.json",
       "name": "Edward McCarthy's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15622,7 +15622,7 @@
     },
     {
       "id": "rcb_mcguire_physician",
-      "file": "rcb_mcguire_physician.json",
+      "file": "authored/rcb_mcguire_physician.json",
       "name": "Dr. J. McGuire, physician",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15670,7 +15670,7 @@
     },
     {
       "id": "rcb_metcalf_druggist",
-      "file": "rcb_metcalf_druggist.json",
+      "file": "authored/rcb_metcalf_druggist.json",
       "name": "George Metcalf, drugs, medicines and dye stuffs",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15718,7 +15718,7 @@
     },
     {
       "id": "rcb_metcalf_land_office",
-      "file": "rcb_metcalf_land_office.json",
+      "file": "authored/rcb_metcalf_land_office.json",
       "name": "Hiram Metcalf, land agent",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15766,7 +15766,7 @@
     },
     {
       "id": "rcb_murphy_land_office",
-      "file": "rcb_murphy_land_office.json",
+      "file": "authored/rcb_murphy_land_office.json",
       "name": "H. Murphy, house and land agent",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15814,7 +15814,7 @@
     },
     {
       "id": "rcb_newell_boarding_house",
-      "file": "rcb_newell_boarding_house.json",
+      "file": "authored/rcb_newell_boarding_house.json",
       "name": "Lydia Newell's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15860,7 +15860,7 @@
     },
     {
       "id": "rcb_nichols_auction_room",
-      "file": "rcb_nichols_auction_room.json",
+      "file": "authored/rcb_nichols_auction_room.json",
       "name": "J. Nichols, auction and commission",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15908,7 +15908,7 @@
     },
     {
       "id": "rcb_nolan_brickyard",
-      "file": "rcb_nolan_brickyard.json",
+      "file": "authored/rcb_nolan_brickyard.json",
       "name": "Thomas Nolan, brickmaker",
       "register_id": null,
       "provenance": "reconstructed",
@@ -15956,7 +15956,7 @@
     },
     {
       "id": "rcb_pelletier_boarding_house",
-      "file": "rcb_pelletier_boarding_house.json",
+      "file": "authored/rcb_pelletier_boarding_house.json",
       "name": "Victoire Pelletier's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
@@ -16002,7 +16002,7 @@
     },
     {
       "id": "rcb_pratt_refectory",
-      "file": "rcb_pratt_refectory.json",
+      "file": "authored/rcb_pratt_refectory.json",
       "name": "Hannah Pratt, refectory",
       "register_id": null,
       "provenance": "reconstructed",
@@ -16050,7 +16050,7 @@
     },
     {
       "id": "rcb_quinn_brewery",
-      "file": "rcb_quinn_brewery.json",
+      "file": "authored/rcb_quinn_brewery.json",
       "name": "M. Quinn, brewery",
       "register_id": null,
       "provenance": "reconstructed",
@@ -16098,7 +16098,7 @@
     },
     {
       "id": "rcb_quinn_millinery",
-      "file": "rcb_quinn_millinery.json",
+      "file": "authored/rcb_quinn_millinery.json",
       "name": "Honora Quinn, millinery",
       "register_id": null,
       "provenance": "reconstructed",
@@ -16146,7 +16146,7 @@
     },
     {
       "id": "rcb_robillard_boarding_house",
-      "file": "rcb_robillard_boarding_house.json",
+      "file": "authored/rcb_robillard_boarding_house.json",
       "name": "Robillard's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
@@ -16192,7 +16192,7 @@
     },
     {
       "id": "rcb_robillard_lawyer",
-      "file": "rcb_robillard_lawyer.json",
+      "file": "authored/rcb_robillard_lawyer.json",
       "name": "B. Robillard, attorney and counsellor at law, and solicitor in chancery",
       "register_id": null,
       "provenance": "reconstructed",
@@ -16240,7 +16240,7 @@
     },
     {
       "id": "rcb_sawyer_dress_making_shop",
-      "file": "rcb_sawyer_dress_making_shop.json",
+      "file": "authored/rcb_sawyer_dress_making_shop.json",
       "name": "Almira Sawyer, dress, cloak and habit making",
       "register_id": null,
       "provenance": "reconstructed",
@@ -16288,7 +16288,7 @@
     },
     {
       "id": "rcb_shea_millinery",
-      "file": "rcb_shea_millinery.json",
+      "file": "authored/rcb_shea_millinery.json",
       "name": "Mary Shea, millinery",
       "register_id": null,
       "provenance": "reconstructed",
@@ -16336,7 +16336,7 @@
     },
     {
       "id": "rcb_stebbins_boarding_house",
-      "file": "rcb_stebbins_boarding_house.json",
+      "file": "authored/rcb_stebbins_boarding_house.json",
       "name": "Stebbins's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
@@ -16382,7 +16382,7 @@
     },
     {
       "id": "rcb_sullivan_millinery",
-      "file": "rcb_sullivan_millinery.json",
+      "file": "authored/rcb_sullivan_millinery.json",
       "name": "Mary Sullivan, millinery",
       "register_id": null,
       "provenance": "reconstructed",
@@ -16430,7 +16430,7 @@
     },
     {
       "id": "rcb_sweet_boarding_house",
-      "file": "rcb_sweet_boarding_house.json",
+      "file": "authored/rcb_sweet_boarding_house.json",
       "name": "Sweet's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
@@ -16476,7 +16476,7 @@
     },
     {
       "id": "rcb_trottier_boarding_house",
-      "file": "rcb_trottier_boarding_house.json",
+      "file": "authored/rcb_trottier_boarding_house.json",
       "name": "Baptiste Trottier's boarding house",
       "register_id": null,
       "provenance": "reconstructed",
@@ -16522,7 +16522,7 @@
     },
     {
       "id": "rcb_tuttle_physician",
-      "file": "rcb_tuttle_physician.json",
+      "file": "authored/rcb_tuttle_physician.json",
       "name": "Dr. J. Tuttle",
       "register_id": null,
       "provenance": "reconstructed",
@@ -16570,7 +16570,7 @@
     },
     {
       "id": "rcb_vieau_mill",
-      "file": "rcb_vieau_mill.json",
+      "file": "authored/rcb_vieau_mill.json",
       "name": "T. Vieau, miller",
       "register_id": null,
       "provenance": "reconstructed",
@@ -16618,7 +16618,7 @@
     },
     {
       "id": "rcb_walsh_millinery",
-      "file": "rcb_walsh_millinery.json",
+      "file": "authored/rcb_walsh_millinery.json",
       "name": "H. Walsh, millinery and dress making",
       "register_id": null,
       "provenance": "reconstructed",
@@ -16666,7 +16666,7 @@
     },
     {
       "id": "rcb_woodruff_lumber_yard",
-      "file": "rcb_woodruff_lumber_yard.json",
+      "file": "authored/rcb_woodruff_lumber_yard.json",
       "name": "Woodruff's lumber yard",
       "register_id": null,
       "provenance": "reconstructed",
@@ -16714,7 +16714,7 @@
     },
     {
       "id": "rcb_woodruff_millinery",
-      "file": "rcb_woodruff_millinery.json",
+      "file": "authored/rcb_woodruff_millinery.json",
       "name": "Hannah Woodruff, millinery and dress making",
       "register_id": null,
       "provenance": "reconstructed",

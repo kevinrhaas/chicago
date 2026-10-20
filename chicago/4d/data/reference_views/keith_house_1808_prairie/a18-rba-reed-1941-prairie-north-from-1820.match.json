@@ -2,8 +2,8 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-rba-reed-1941-prairie-north-from-1820",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "728083c8d5edd353cd13fe7997b5b7a40d496b059e6d15244351dfd1a008f559",
-  "camera_sha256": "9ba76d2aa82e2c89e8877ec4e1881c55de03d6a2d06f6c89b7165d0a1572457d",
+  "glb_sha256": "de3cee807da75aba0f47e2abb24d30c30656c8846f3163549c765c804fb85ba4",
+  "camera_sha256": "482684ed8d4b491c02678a2bd7c6f647abc4e4bf566c851c9cd4a588b8887b13",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-rba-reed-1941-prairie-north-from-1820-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -29,6 +29,34 @@
     },
     {
       "what": "T-2679: re-read after the crown changed: at this distance the band, the lattice head and the north-east boss are a few pixels and the picture cannot tell the old crown from the new.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2680: both front pinnacle apexes read within about 1 px of the lowered crown. Left of the south-east pier, the print shows dark coursed wall up to the coping's line (y 158), where the render's south side stops at y 182. The isolated render has no neighbours, so this is either Keith's south parapet or the house in front of it at 1812, and this distant view cannot say which.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2681: the loggia's columns 0.2 m taller and its balcony 0.3 m higher move it 4-6 px here, inside this camera's 4.6 px RMS; this view cannot tell the old heights from the new.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2714: the checker band's units are pitched 0.28 m along their rows (0.336 m before), with 0.07 m of ground between neighbours, as the 1888 Keith plate lays them; the rows are unchanged. Not judged here: Keith's front is not seen from this side; the band is not in the frame.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2813: re-rendered with Keith's crown 0.16 m lower (the moulded course under the lattice 0.20 m deep where it was 0.36 m, the checker and head bands unmoved); its camera re-solved on the moved crown controls (3.28 to 3.39 px RMS, tools/keith_crown_resolve.py). Read again at the crown beside the previous render: the lattice, coping and pinnacles move a few pixels at this picture's scale and nothing it shows opens a difference; the verdict stands as it was (matches).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2876: re-rendered on the GLB in the tree, T-2845's loggia (0.6 m pedestals at the first-floor plan's place, each pair's shafts 0.36 m apart, the flight 1.8 m clear and the stoop 0.15 m south), and read again beside the previous render and the picture: the render changes only at the loggia (x 318-420, y 187-524), which the 1941 view sees end-on behind 1812's front and trees; nothing it shows of Keith moved. Nothing it shows opens a difference; the verdict returns to matches.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2881: re-rendered on the loggia with its rear row built (a pedestal 0.6 m square against the wall behind each front one, carrying a pair of turned shafts 0.39 m off the wall at a 0.28 m pitch, their radii 0.78 of the front's, under a paired capital; tools/keith_loggia_rear_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-rear-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 348-359, y 417-465), which the 1941 view sees end-on behind 1812's front and trees; the rear north pair stands inside the loggia's dark, where this view shows nothing of it. Nothing it shows opens a difference; the verdict returns to matches.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2882: re-rendered on the loggia with a respond on the wall behind each rear pair (a flat pier the rear pedestal's width, 0.25 m deep, from the pedestal's top to the ceiling; tools/keith_loggia_respond_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-respond-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 348-350, y 421-461); the rear row stands behind the respond's face, and this picture does not read the rear row, for the reason T-2881's item above gives, so it does not read the respond either. Nothing it shows opens a difference; the verdict stands (matches).",
       "status": "not shown"
     }
   ],

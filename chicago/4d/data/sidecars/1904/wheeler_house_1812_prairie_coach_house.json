@@ -11,6 +11,11 @@
   "asset": "gltf/wheeler_house_1812_prairie_coach_house__as_standing_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1884-01-01",
     "to": "1911-12-31",
@@ -244,5 +249,6 @@
   ],
   "research_note": "T-2321 — the first coach house built in the scene from the K12 kit (data/components/prairie_1904/k12_coach_house.json, T-2320): piece 2 of T-1854. 1812 is the lot south of the 1808 Keith house already standing in the scene; the house itself (the Wheeler house, T-1884/T-1885) is not built yet, so the workyard walk stops at the line the sheet draws its rear wall on and joins it when it lands. The sheet census (chicago/prairie_1904_v1/data/sheet_census/sheet-28.json, polygon s28-1812-rear) carries the building into 1904; its package there is T-1935, whose 1812 rear this record now is.",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "Wheeler house (1812 Prairie Avenue): the coach house on the alley"
 }

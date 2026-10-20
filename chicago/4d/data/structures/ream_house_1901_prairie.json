@@ -116,12 +116,12 @@
               {
                 "id": "r3",
                 "role": "range",
-                "storeys": 2,
+                "storeys": 1,
                 "roof": "flat",
                 "rect": [
                   -4.75,
                   5.0,
-                  -3.25,
+                  -2.75,
                   14.0
                 ],
                 "from": "s28fp-1901-b1 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill"
@@ -129,7 +129,7 @@
               {
                 "id": "r4",
                 "role": "range",
-                "storeys": 2,
+                "storeys": 1,
                 "roof": "flat",
                 "rect": [
                   -1.75,
@@ -145,7 +145,7 @@
                 "storeys": 3,
                 "roof": "flat",
                 "rect": [
-                  21.75,
+                  20.75,
                   5.75,
                   23.75,
                   9.75
@@ -155,13 +155,13 @@
               {
                 "id": "r6",
                 "role": "range",
-                "storeys": 2,
+                "storeys": 1,
                 "roof": "flat",
                 "rect": [
                   3.75,
                   -2.25,
                   8.75,
-                  -1.0
+                  0.0
                 ],
                 "from": "s28fp-1901-b1 p3 (range, stone), rectangle 1 of that part; the part's rectangles cover 72% of its fill"
               }

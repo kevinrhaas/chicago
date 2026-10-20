@@ -1,7 +1,13 @@
-/** T-1276: on-demand public source catalog; no research files or derived assets. */
+/** T-1276: on-demand public source catalog; no research files or derived assets.
+ * T-2667 (design doc section 12): a source says what kind it is — "from the time", or its
+ * rung in the evidence ladder's own words (inspect-sources.js sourceTag, T-2644) — never a
+ * tier number, and a grade is named by its locked term, Attested, Inferred or Reconstructed. */
 import { escapeHtml as esc } from './citations.js';
+import { sourceTag } from './inspect-sources.js';
 export const GRADES = ['attested', 'inferred', 'reconstructed'];
-const ALIASES = ['DOC', 'INF', 'CONJ'];
+const TERMS = ['Attested', 'Inferred', 'Reconstructed'];
+/** The kind of source a tier is, in words (no date, so never "from the time"). */
+const kindOf = (tier) => sourceTag(tier, null, null);
 const TYPES = ['book','newspaper','map','website','dataset','manuscript','illustration','photograph','legal','article'];
 const USES = ['scene','other_scene','exclusion','research','unused'];
 const words = s => String(s ?? '').replaceAll('_', ' ');
@@ -59,7 +65,14 @@ export function terrainCardId(edge, claims) {
   if(material)return claims.filter(c=>c.id.startsWith('surface_materials.'))[Number(material[1])]?.id;
   return claims.find(c=>id===c.id || id.startsWith(c.id+'.') || (id.startsWith('features.') && c.id.endsWith('.'+id.slice(9))))?.id;
 }
-function chip(grade) { const i=GRADES.indexOf(grade);return `<span class="src-grade src-g${i}" title="${esc(grade)}">[${ALIASES[i] || '?'}]</span>`; }
+/** A claim path as the attribute it names: `phases[frame_1834].attributes.roof_type.value` →
+ *  "roof type". The path is the record's address, not a word for a reader (T-2825). */
+export function claimWords(claim) {
+  const segs = String(claim ?? '').replace(/\[[^\]]*\]/g, '').split('.')
+    .filter((x) => x && !['value', 'sources', 'source_ids', 'source_id', 'attributes', 'form', 'properties'].includes(x));
+  return words(segs[segs.length - 1] || 'record');
+}
+function chip(grade) { const i=GRADES.indexOf(grade);return `<span class="src-grade src-g${i}">${TERMS[i] || 'No grade'}</span>`; }
 function counts(row) {
   const [c,e] = row.counts.grades || [];
   const figures = a => a?.map((v,i)=>`${chip(GRADES[i])} ${v}`).join(' · ') || 'Confidence breakdown unavailable';
@@ -87,22 +100,22 @@ export async function mountSources({root, dataBase, scene='1835', onTitle, onBac
     root.dataset.count=String(rows.length);root.removeAttribute('aria-busy');renderList();
   } catch {
     // Keep the tile unknown: failed transport is not a source count of zero.
-    root.innerHTML='<p role="status">The source catalog could not be loaded. Other Evidence topics remain available.</p><button type="button" data-retry>Retry Sources</button>';
+    root.innerHTML='<p role="status">The source catalog could not be loaded. Other Sources topics remain available.</p><button type="button" data-retry>Retry Sources</button>';
     root.querySelector('[data-retry]').onclick=loadIndex;
   }}
   await loadIndex();
   function title(){onTitle(state.detail ? 'Source details' : 'Sources',state.detail ? back : onBack);}
   function show(){title();const top=state.detail ? state.detailScroll : state.scroll;requestAnimationFrame(()=>{scroll.scrollTop=top;});}
   function back(){const top=state.scroll;sequence++;state.detail=null;renderList();requestAnimationFrame(()=>{scroll.scrollTop=top;});}
-  function pills(key,values,label){return `<fieldset class="src-pills"><legend>${label}</legend>${['',...values].map(v=>`<button type="button" data-filter="${key}" data-value="${v}" aria-pressed="${String(String(state[key])===String(v))}">${esc(v ? words(v) : 'All')}</button>`).join('')}</fieldset>`;}
-  function rowHtml(r){return `<article class="src-row" data-source-id="${esc(r.source_id)}"><button type="button" class="src-open" data-source="${esc(r.source_id)}">${esc(r.citation)}</button><p class="src-meta">${esc(r.date || 'Date not recorded')} · ${esc(r.type || 'Type not recorded')} · tier ${esc(r.tier ?? 'not recorded')} <span class="src-use">${esc(words(r.use))}</span></p>${counts(r)}</article>`;}
+  function pills(key,values,label,name=words){return `<fieldset class="src-pills"><legend>${label}</legend>${['',...values].map(v=>`<button type="button" data-filter="${key}" data-value="${v}" aria-pressed="${String(String(state[key])===String(v))}">${esc(v ? name(v) : 'All')}</button>`).join('')}</fieldset>`;}
+  function rowHtml(r){return `<article class="src-row" data-source-id="${esc(r.source_id)}"><button type="button" class="src-open" data-source="${esc(r.source_id)}">${esc(r.citation)}</button><p class="src-meta">${esc(r.date || 'Date not recorded')} · ${esc(r.type || 'Type not recorded')} · ${esc(sourceTag(r.tier, r.date, scene) || 'kind of source unknown')} <span class="src-use">${esc(words(r.use))}</span></p>${counts(r)}</article>`;}
   function renderRows(){
     const chosen=selectSources(rows,state);root.querySelector('.src-status').textContent=`${chosen.length} sources · ${Math.min(chosen.length,state.limit)} shown`;
     root.querySelector('.src-rows').innerHTML=chosen.slice(0,state.limit).map(rowHtml).join('') || '<p>No sources match these filters.</p>';
     root.querySelector('[data-more]').hidden=chosen.length<=state.limit;
   }
   function renderList(){
-    title();root.innerHTML=`<div class="src-controls"><label>Search citation or author<input type="search" class="src-search" value="${esc(state.query)}"></label><label class="src-all"><input type="checkbox" ${state.all?'checked':''}> All registered sources</label><details class="src-filters" ${state.filtersOpen?'open':''}><summary>Filter and sort${state.type || state.tier || state.use ? ' · filtered' : ''}</summary><p>Default: sources used in this scene. Counts cover each source’s recorded uses.</p>${pills('type',TYPES,'Type')}${pills('tier',[1,2,3,4,5,6],'Source tier')}${pills('use',USES,'Use')}<label>Sort<select class="src-sort">${['claims','entities','date','title'].map(s=>`<option ${state.sort===s?'selected':''}>${s}</option>`).join('')}</select></label><p class="src-key">[DOC] attested · [INF] inferred · [CONJ] reconstructed. Each entity is counted once at its strongest confidence; each distinct claim is counted separately.</p></details></div><p class="src-status" role="status"></p><div class="src-rows"></div><button type="button" data-more>Show 40 more sources</button>`;
+    title();root.innerHTML=`<div class="src-controls"><label>Search citation or author<input type="search" class="src-search" value="${esc(state.query)}"></label><label class="src-all"><input type="checkbox" ${state.all?'checked':''}> All registered sources</label><details class="src-filters" ${state.filtersOpen?'open':''}><summary>Filter and sort${state.type || state.tier || state.use ? ' · filtered' : ''}</summary><p>Default: sources used in this scene. Counts cover each source’s recorded uses.</p>${pills('type',TYPES,'Type')}${pills('tier',[1,2,3,4,5,6],'Kind of source',kindOf)}${pills('use',USES,'Use')}<label>Sort<select class="src-sort">${['claims','entities','date','title'].map(s=>`<option ${state.sort===s?'selected':''}>${s}</option>`).join('')}</select></label><p class="src-key">Each entity is counted once, at its strongest grade: Attested, Inferred or Reconstructed. Each distinct claim is counted separately.</p></details></div><p class="src-status" role="status"></p><div class="src-rows"></div><button type="button" data-more>Show 40 more sources</button>`;
     renderRows();
     root.querySelector('.src-filters').ontoggle=e=>{state.filtersOpen=e.target.open;};
     root.querySelector('.src-search').oninput=e=>{state.query=e.target.value;state.limit=40;renderRows();};
@@ -124,10 +137,13 @@ export async function mountSources({root, dataBase, scene='1835', onTitle, onBac
     state.scroll=scroll.scrollTop;
     if(scroll.scrollTop+scroll.clientHeight>=scroll.scrollHeight-80 && !root.querySelector('[data-more]').hidden){state.limit+=40;renderRows();}
   },{passive:true});
+  // T-2825: a use is named by the thing's name and located in words — the compiled `names`
+  // and `locator_text` — never by its record id, claim path or raw locator object.
   function edgeHtml(edge,index){
-    const label=words(edge.entity_id),locator=typeof edge.locator==='string'?edge.locator:edge.locator?JSON.stringify(edge.locator):'No locator recorded';
+    const named=cache.get(state.detail)?.names||{};
+    const label=named[edge.entity_id]||words(edge.entity_id),locator=edge.locator_text||(typeof edge.locator==='string'?edge.locator:edge.locator?JSON.stringify(edge.locator):'No locator recorded');
     const supported=canOpen(edge) ?? ['structure','person','business','flora','fauna','terrain','exclusion','liberty'].includes(edge.entity_type);
-    return `<li>${supported?`<button type="button" data-edge="${index}">${esc(label)}</button>`:`<b>${esc(label)} — decision summary</b>`} ${chip(edge.confidence)}<span>${esc(words(edge.claim))} · ${esc(words(edgeUse(edge,scene)))} · ${esc(locator)}</span></li>`;
+    return `<li>${supported?`<button type="button" data-edge="${index}">${esc(label)}</button>`:`<b>${esc(label)} — decision summary</b>`} ${chip(edge.confidence)}<span>${esc(claimWords(edge.claim))} · ${esc(words(edgeUse(edge,scene)))} · ${esc(locator)}</span></li>`;
   }
   function edgeList(edges,all){
     const list=document.createElement('ul');list.className='src-edges';let limit=0;
@@ -143,7 +159,7 @@ export async function mountSources({root, dataBase, scene='1835', onTitle, onBac
       if(!cache.has(id)){const res=await fetcher(new URL(`sidecars/1835/sources/${encodeURIComponent(id)}.json`,dataBase));if(!res.ok)throw Error();cache.set(id,await res.json());}
       if(token!==sequence || signal?.aborted)return false;
       const data=cache.get(id),s=data.source,row=rows.find(r=>r.source_id===id);
-      const prose=value=>(Array.isArray(value)?value:[value]).filter(Boolean).map(v=>`<li>${esc(v)}</li>`).join('') || '<li>Not recorded.</li>';
+      const prose=value=>(Array.isArray(value)?value:[value]).filter(Boolean).map(v=>`<li>${esc(v)}</li>`).join('') || '<li>Unknown.</li>';
       root.innerHTML=`<div class="src-detail" data-source-id="${esc(id)}"><h4>${esc(s.citation)}</h4>${counts(row)}<h4>What it supplies</h4><ul>${prose(s.what_it_supplies)}</ul><h4>What it does not supply</h4><ul>${prose(s.what_it_does_not_supply)}</ul><p>${urlLink(s.url,'Original') || 'No original link on record'} · ${urlLink(s.archived_url,'Archive copy') || 'no archive copy on record'}</p><div class="src-issues"></div><h4>Used for</h4><p>Claims are grouped by kind of record. Links open existing cards; other records remain decision summaries.</p><div class="src-groups"></div></div>`;
       if(row.type==='newspaper'){
         const box=root.querySelector('.src-issues');const groups=issueGroups(data.edges);
@@ -193,7 +209,7 @@ export function attachSources({api,registry,hud,popup,dataBase,root,scene}) {
         const targetId = edge.entity_type === 'terrain' ? terrainCardId(edge,api.ground?.claims || []) : edge.entity_id;
         const entry = [...mount.querySelectorAll('[data-source-entity]')].find(el => el.dataset.sourceEntity === targetId);
         if (entry) { entry.open=true; entry.scrollIntoView({block:'start'}); }
-        hud.setTitle('Evidence from this source', returnToSource);
+        hud.setTitle('What this source supplied', returnToSource);
         return true;
       },
   });

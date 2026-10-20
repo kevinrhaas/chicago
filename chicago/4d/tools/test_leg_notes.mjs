@@ -15,7 +15,21 @@ const points = [[green.point.e, green.point.n], [wolf.point.e + 10, wolf.point.n
 const passed = passingPlaces(points, ids.map(place), { exclude: [green.id, sauganash.id] });
 assert.deepEqual(passed.map(p => p.id), [wolf.id, bridge.id]);
 assert.deepEqual(passed.map(p => p.side), ['on your left', 'on your left']);
-assert.deepEqual(passingPlaces([[0, 0], [100, 0]], [{ id: 'edge', point: { e: 50, n: -25 } }, { id: 'far', point: { e: 50, n: 25.01 } }]).map(p => [p.id, p.side]), [['edge', 'on your right']]);
+assert.deepEqual(passingPlaces([[0, 0], [100, 0]], [{ id: 'edge', point: { e: 50, n: -20 } }, { id: 'far', point: { e: 50, n: 20.01 } }]).map(p => [p.id, p.side]), [['edge', 'on your right']]);
+// T-2946: walking south on the west walk of Prairie past Glessner. Its walls are 6 m west of
+// the walk (on the right); the spot a ride frames it from is across the avenue, east of the
+// walk, which used to read "on your left". The coach house on the alley is 45 m back and is
+// a minor building: never a road note. A house across the avenue is 30 m off: not passed.
+const south = [[0, 40], [0, -40]];
+const box = (e0, n0, e1, n1) => [[e0, n0], [e1, n0], [e1, n1], [e0, n1]];
+const glessner = { id: 'glessner_house', label: 'Glessner House, 1800 Prairie', point: { e: -21, n: 0 }, outline: box(-36, -15, -6, 15), stand: { e: 12, n: 0 } };
+const coach = { id: 'coach', label: 'Coach house', point: { e: -55, n: 0 }, outline: box(-60, -5, -50, 5), minor: true };
+const across = { id: 'across', label: 'Across', point: { e: 45, n: 0 }, outline: box(30, -10, 60, 10) };
+assert.deepEqual(passingPlaces(south, [glessner, coach, across]).map(p => [p.id, p.side, Math.round(p.distance)]), [['glessner_house', 'on your right', 6]]);
+assert.deepEqual(passingPlaces(south, [{ ...glessner, point: glessner.stand, outline: undefined }]).map(p => p.side), ['on your left'], 'the old framing point would read left');
+assert.deepEqual(passingPlaces([[-50, 20], [50, 20]], [{ ...glessner, outline: box(-36, -15, -6, 15) }]).map(p => p.side), ['on your right'], 'eastbound on its north street, the house is on the right');
+const note = legContext({ stops: [{ id: 'a' }, { id: 'b' }] }, 'a', 'b', south, [glessner], []);
+assert.equal(note.lines[0].text, 'Passing Glessner House, 1800 Prairie, on your right.');
 assert.equal(passingPlaces([[0, 0], [0, 0]], ids.map(place)).length, 0);
 assert.equal(new Set(passed.map(p => p.id)).size, passed.length);
 const doc = read('data/jaunts/_fixtures/fixture-walk.json');

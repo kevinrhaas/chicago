@@ -67,6 +67,7 @@ can we actually place?" is a query rather than a re-reading.
 
 import argparse
 import json
+import re
 import shutil
 import sys
 import tempfile
@@ -407,6 +408,29 @@ def anchor_of(target, structures, businesses, streets):
     }
 
 
+REACH = re.compile(r"\breach of ([a-z0-9_]+(?: and [a-z0-9_]+)*) and names nothing narrower")
+
+
+def street_words(note, names):
+    """The register's street-only note with its street ids read as the town named them
+    ("a reach of south_water" -> "a reach of South Water Street"), because the Go to row and
+    the card print the note verbatim (T-2668). The register keeps its ids."""
+    if not note:
+        return note
+    return REACH.sub(lambda m: "reach of %s and names nothing narrower"
+                     % " and ".join(names.get(i, i) for i in m.group(1).split(" and ")), note)
+
+
+def landmark_words(anchor):
+    """The landmark as a visitor reads it: its title, a corner as "the corner of X and Y",
+    and never its id (T-2668)."""
+    if not anchor or not anchor.get("title"):
+        return "a landmark it names"
+    if anchor.get("kind") == "corner":
+        return "the corner of %s" % anchor["title"]
+    return anchor["title"]
+
+
 def fold_printed_styles(people):
     """ONE ROW A PARTNER, NOT ONE ROW A PRINTING.
 
@@ -475,6 +499,7 @@ def locations_for(entry, gaz, anchors=None):
         # Placeable, and not placed: the paper anchors the house against a landmark the
         # town holds, but the town holds no roof of this house's own. That is a location
         # with a limit on it, not a premises.
+        anchor = anchor_of(target, *anchors) if anchors else None
         out.append({
             "kind": "anchored",
             "structure_id": None,
@@ -485,10 +510,13 @@ def locations_for(entry, gaz, anchors=None):
             "to": None,
             "tier": "inferred",
             "basis": note or "Placeable against the committed town.",
+            # The sentence names the landmark as a visitor reads it (T-2668): the Go to
+            # row and the card print it verbatim, and `tremont_house_1` or the register's
+            # action code there is an id in front of a visitor. The id is `anchor.id`.
             "limit_reason": ("The register places this house against %s and the town holds no roof "
-                             "of its own for it (action: new_building), so the anchor is as far as "
-                             "the reading goes." % (target or "a landmark it names")),
-            "anchor": anchor_of(target, *anchors) if anchors else None,
+                             "of its own for it, so the landmark is as far as the reading goes."
+                             % landmark_words(anchor)),
+            "anchor": anchor,
         })
     elif action == "street_only":
         out.append({
@@ -501,7 +529,8 @@ def locations_for(entry, gaz, anchors=None):
             "to": None,
             "tier": "inferred",
             "basis": "The paper names a street and no house on it.",
-            "limit_reason": note or "The anchor names nothing the committed town holds.",
+            "limit_reason": (street_words(note, anchors[2] if anchors else {})
+                             or "The anchor names nothing the committed town holds."),
         })
     else:
         out.append({
@@ -514,7 +543,8 @@ def locations_for(entry, gaz, anchors=None):
             "to": None,
             "tier": "inferred",
             "basis": "The register resolved no place for this house at the scene date.",
-            "limit_reason": note or "The paper gives no anchor.",
+            "limit_reason": (street_words(note, anchors[2] if anchors else {})
+                             or "The paper gives no anchor."),
         })
 
     # A HOUSE THAT MOVED (T-1402, of T-1182, audited with the sources in front of it).
@@ -946,16 +976,21 @@ def housed_in(where, adoption):
     }
 
 
-def index_row(record, streets, adoptions=None):
+def index_row(record, streets, adoptions=None, authored=False):
     """One business as a directory row: everything the list, its filters and its
-    counts read, and nothing the card alone needs — the card fetches the record."""
+    counts read, and nothing the card alone needs — the card fetches the record.
+
+    `file` is the record's path under data/businesses/, which is what the card fetches
+    (js/businesses.js reads `businesses/${file}`): a compiled record sits at the top, an
+    authored one in authored/. It was written "<id>.json" for both until T-2832, so the
+    94 authored firms' cards fetched a file that does not exist and opened on a 404."""
     where = primary_location(record, streets)
     housed = housed_in(where, (adoptions or {}).get(record.get("register_id")))
     if housed:
         where["housed_in"] = housed
     return {
         "id": record["id"],
-        "file": "%s.json" % record["id"],
+        "file": ("authored/%s.json" if authored else "%s.json") % record["id"],
         "name": record["name"],
         "register_id": record.get("register_id"),
         "provenance": record["provenance"],
@@ -1006,7 +1041,8 @@ def build_index(records, authored, rows):
     counts_by_community = {}
     streets = street_names()
     adoptions = street_face_adoptions()
-    directory = [index_row(r, streets, adoptions)
+    authored_ids = {id(r) for r in authored}
+    directory = [index_row(r, streets, adoptions, authored=id(r) in authored_ids)
                  for r in sorted(everything, key=lambda r: r["id"])]
     for row in directory:
         counts_by_grade[row["grade"]] = counts_by_grade.get(row["grade"], 0) + 1
@@ -1360,7 +1396,34 @@ def compiled_docs(residents_dir=None):
     records = apply_reconstructed_overlay(records, read_reconstructed_overlay())
     records = apply_contested_readings(records, read_contested_readings())
     authored = read_authored()
+    reader_copy(records + authored)
     return records, authored, build_index(records, authored, works_at_rows(residents_dir))
+
+
+# THE CARD'S LOCATION LINES ARE SAID FOR A READER (T-2825). The owner, 2026-10-18: the
+# records a person opens name no internal ticket number and no internal record id, in any
+# mode. A location's `basis` and `limit_reason` are what the Shops & work card prints
+# under each place and the Go to row says aloud, and they were composed from the register's
+# own words — "the committed structure new_york_house", "chicago_democrat_1834_03_04#c010",
+# "(T-0305)". They are rewritten here, by the rule every research surface shares
+# (tools/readable_text.py): a structure by its name, a newspaper notice by its paper and
+# date, a ticket dropped. The ids themselves stay in their own fields (`structure_id`,
+# `anchor`, the notices), which is where the gates and the card's links read them.
+READER_FIELDS = ("basis", "limit_reason")
+_NAMES = None
+
+
+def reader_copy(records):
+    global _NAMES
+    import readable_text
+    if _NAMES is None:
+        _NAMES = readable_text.Names(ROOT)
+    for record in records:
+        for loc in record.get("locations") or []:
+            for key in READER_FIELDS:
+                if isinstance(loc.get(key), str) and loc[key]:
+                    loc[key], _ = readable_text.rewrite(loc[key], _NAMES)
+    return records
 
 
 def build():
@@ -1678,6 +1741,7 @@ def check():
                        "gazetteer or the dataset, not this file" % path.name)
     if INDEX.exists() and INDEX.read_text(encoding="utf-8") != dumps(index):
         bad.append("data/businesses/index.json differs from a rebuild")
+    bad += unresolved_files(load_json(INDEX) if INDEX.exists() else index)   # what the card reads
 
     for record in authored:
         if record.get("provenance") == "compiled_from_register":
@@ -1699,6 +1763,19 @@ def check():
         elif pointed not in have:
             bad.append("register business %s points at %s, which the layer does not hold"
                        % (entry["id"], pointed))
+    return bad
+
+
+def unresolved_files(index, root=None):
+    """EVERY ROW'S `file` RESOLVES (T-2832). The card fetches it, so a row naming a file
+    that is not under data/businesses/ is a card that opens on a 404 — which is what all
+    94 authored firms' were, because the index named them where compiled records sit."""
+    root = root or BUSINESSES
+    bad = []
+    for row in index["businesses"]:
+        if not (root / row["file"]).is_file():
+            bad.append("data/businesses/index.json: %s's file %s is not under data/businesses/ "
+                       "— its card would fetch a 404" % (row["id"], row["file"]))
     return bad
 
 
@@ -2135,6 +2212,21 @@ def self_test():
     if [(r["name"], r["person_id"], r["link"]["tier"]) for r in rows] != \
             [("Botsford", "fixture_a", "inferred")]:
         failures.append("a partner the style names was not added and linked: %r" % rows)
+
+    # T-2832: a row naming a file that is not there is refused; the built index names none.
+    fired.append("an index row whose file is missing")
+    built_index = compiled_docs()[2]
+    lost = json.loads(json.dumps(built_index))
+    authored_row = next((r for r in lost["businesses"] if r["file"].startswith("authored/")), None)
+    if authored_row is None:
+        failures.append("the index files no authored record under authored/")
+    else:
+        authored_row["file"] = "%s.json" % authored_row["id"]
+        if not any(authored_row["id"] in p for p in unresolved_files(lost)):
+            failures.append("an authored row filed where compiled records sit was not refused")
+    if unresolved_files(built_index):
+        failures.append("the built index names a file that is not there: %r"
+                        % unresolved_files(built_index)[:3])
 
     # The build is deterministic: two compiles of the same input agree byte for byte.
     first, _, index_a = compiled_docs()

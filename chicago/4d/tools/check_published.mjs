@@ -49,10 +49,17 @@ const COPIES = [
   ['tickets.json', 'tickets/tickets.json'],
   ['data/scenes/', 'data/scenes/'],
   ['data/datum.json', 'data/datum.json'],
+  // T-2741: today's streets, for the compass readout and the maps in every year.
+  ['data/modern/', 'data/modern/'],
   ['data/comparisons/glessner/', 'data/comparisons/glessner/'],
   ['data/liberties.json', 'data/liberties.json'],
   // Written into the tree by tools/compile_pictures.py just before the copy (T-2389).
   ['data/pictures/', 'data/pictures/'],
+  // Written into the tree by tools/compile_reader_text.py just before the copy (T-2825):
+  // the reader's overlay, derived and ignored like data/pictures/, copied byte for byte (T-2924).
+  ['data/reader/', 'data/reader/'],
+  // Written into the tree by tools/compile_summaries.py just before the copy (T-2635).
+  ['data/inspect/', 'data/inspect/'],
   ['data/town_census.json', 'data/town_census.json'],
   ['data/render/town_completion_1835.json', 'data/render/town_completion_1835.json'],
   ['data/reconstruction/1835_hay_limits.json', 'data/reconstruction/1835_hay_limits.json'],
@@ -63,6 +70,11 @@ const COPIES = [
   ['data/terrain/', 'data/terrain/'],
   ['data/sidecars/', 'data/sidecars/'],
   ['data/loading/statuses.json', 'data/loading/statuses.json'],
+  // The arrival's time-stream decks (T-2611); js/time-stream.js fetches them on arrival.
+  ['data/timestream/', 'data/timestream/'],
+  // The Guide's glossary and questions (T-2662), copied verbatim; tools/check_guide.py gates
+  // the source, and the Guide reads faq.json the first time it opens.
+  ['data/guide/', 'data/guide/'],
   ['data/residents/', 'data/residents/'],
   ['data/enclosures/', 'data/enclosures/'],
   ['data/signage/', 'data/signage/'],
@@ -78,6 +90,8 @@ const COPIES = [
   ['data/railway/', 'data/railway/'],
   ['data/frontage/', 'data/frontage/'],
   ['data/flora/', 'data/flora/'],
+  ['data/humans/web/', 'assets/humans/web/'],
+  ['data/humans/', 'data/humans/'],
   ['data/fauna/', 'data/fauna/'],
   ['data/businesses/', 'data/businesses/'],
   // The two roof coverings' relief maps (T-1488). The mirror's asset base is
@@ -145,9 +159,31 @@ const TRANSFORMED = [
         + 'way it arrived); tools/test_changelog_mirror.mjs asserts the shim is what lands here and '
         + 'that it names the file it re-exports; and the smoke\'s What\'s-new leg loads the tab out of '
         + 'the published tree, which is the shim resolving or not.' },
+  { re: /^data\/prebuilt\/(?:index\.json|\d{4}\/(?:(?:frontage|ground|base|yards)\.(?:json|bin\.gz)|streets\.(?:json|(?:light|full)\.bin\.gz)))$/,
+    what: 'tools/prebuild_layers.mjs (run by publish.sh) writes the frontage layer\'s finished buffers, built '
+        + 'in Node by the page\'s own createFrontage, with a hash of every file they were built from and the '
+        + 'build id the page is stamped with, the buffer gzipped for the tree budget; the page inflates and '
+        + 'uploads them instead of building them (T-2677); and the ground\'s tiles, cut into the page\'s 40 m '
+        + 'pieces by terrain.js\'s and spatial-batch.js\'s own functions, uploaded in the ground GLB\'s place (T-2693); '
+        + 'and the distant base, laid over frontage\'s crossing footprints and cut the same way, batched in place of '
+        + 'the page\'s own grid and cut (T-2709); and the streets\' surfaces laid by streets.js\'s own '
+        + 'streetLayoutOf, one buffer per layout, batched in place of laying the road (T-2710); '
+        + 'and the yards\' five surfaces, laid by yards.js\'s own createFencedGround and cut the same way, uploaded '
+        + 'in place of laying them (T-2711); and index.json, '
+        + 'the list of every year and layer it wrote, which the page reads before asking for any of them '
+        + '(js/prebuilt-index.js), so a year with no prebuild costs no 404',
+    gate: 'this file refuses a prebuild whose inputs no longer hash to its index, or whose buffer is not the '
+        + 'one its index hashed (prebuild_layers.mjs stale(), below); prebuild_layers.mjs --self-test '
+        + '(check.sh) proves two builds byte-identical and the page\'s replay of one equal to its own build; '
+        + '--parity reads the live page\'s buffers against it.' },
   { re: /^walk\/index\.html$/,
-    what: 'publish.sh stamps the build commit and its Central-time date into the gate overlay',
-    gate: 'tools/test_dev_preview.mjs asserts the stamp on the PUBLISHED form' },
+    what: 'publish.sh stamps the build commit and its Central-time date into the gate overlay and the '
+        + 'release numbers into the c4d-releases meta, then tools/strip_page_comments.mjs takes the '
+        + 'source\'s developer comments out (about 13 KB, shipped once per door; placeholders, conditional '
+        + 'comments and every <script>/<style>/<textarea>/<pre> body pass through untouched)',
+    gate: 'tools/strip_page_comments.mjs --check (check.sh) asserts the PUBLISHED page is the source with '
+        + 'exactly those two transforms and nothing else, byte for byte, and that every year door is it plus '
+        + 'its <base>; tools/test_dev_preview.mjs asserts the stamp the dev preview rewrites' },
   { re: /^data\/residents\/letter_list\/[^/]+\.json$/,
     what: 'tools/pack_letter_list.py packs the letter-list cohort into a roster of the strings it '
         + 'repeats and a shard per initial, and takes those households\' own files out (T-0438)',
@@ -265,6 +301,37 @@ if (unmapped.length) {
     + `so nothing checks what ships in them: ${unmapped.slice(0, 8).join(', ')}`
     + `${unmapped.length > 8 ? ` (+${unmapped.length - 8} more)` : ''}. Add the publish.sh copy rule `
     + 'to COPIES, or declare the transform and name the gate that measures its shipped form.');
+}
+// T-2677: a prebuilt layer ships only while it is current. Its index lists every
+// file it was built from by hash; the copies above prove the published copies equal
+// their sources, and this proves those sources are still what the buffers came from.
+// A mirror with no data/prebuilt/ is not stale — the page builds its own timber —
+// and the sandboxes that publish one file (test_ticket_mirror.mjs) have none.
+if (existsSync(path.join(SITE, 'data/prebuilt'))) {
+  const { stale, PREBUILT_LAYERS } = await import('./prebuild_layers.mjs');
+  for (const why of PREBUILT_LAYERS.flatMap((layer) => stale(path.join(SITE, 'data/prebuilt'), layer))) {
+    problems.push(`data/prebuilt is stale — ${why}. publish.sh rebuilds it; a stale prebuild would hand `
+      + 'the page timber built from other records or other code.');
+  }
+  // The page asks only for what index.json lists (js/prebuilt-index.js), so the list
+  // must be exactly what is on disk: a layer it omits is never used, and one it names
+  // that is missing is the 404 the list exists to prevent.
+  const listFile = path.join(SITE, 'data/prebuilt/index.json');
+  if (!existsSync(listFile)) {
+    problems.push('data/prebuilt has no index.json, so the page cannot tell which years were prebuilt '
+      + 'and would ask for, and 404 on, every year\'s layers.');
+  } else {
+    const list = JSON.parse(readFileSync(listFile, 'utf8'));
+    const onDisk = {};
+    for (const year of readdirSync(path.join(SITE, 'data/prebuilt'))) {
+      if (!/^\d{4}$/.test(year)) continue;
+      onDisk[year] = PREBUILT_LAYERS.filter((layer) => existsSync(path.join(SITE, 'data/prebuilt', year, `${layer}.json`))).sort();
+    }
+    const sorted = (o) => JSON.stringify(Object.fromEntries(Object.entries(o).map(([y, ls]) => [y, [...ls].sort()]).sort()));
+    if (sorted(onDisk) !== sorted(list.layers ?? {})) {
+      problems.push(`data/prebuilt/index.json lists ${sorted(list.layers ?? {})} and the mirror holds ${sorted(onDisk)}.`);
+    }
+  }
 }
 if (problems.length) {
   console.error('published mirror FAILED:');

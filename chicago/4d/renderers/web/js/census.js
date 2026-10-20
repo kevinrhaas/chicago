@@ -78,6 +78,12 @@ function attr(s) {
   return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 }
 
+/** A tool's path as what it is: `tools/town_census.py` → "the town census tool". */
+export function toolWords(path) {
+  const stem = String(path ?? '').split('/').pop().replace(/\.[A-Za-z0-9]+$/, '');
+  return stem ? `the ${stem.replace(/[_-]+/g, ' ').trim()} tool` : '';
+}
+
 /** `title="…"`, or nothing at all when there is no title to carry. */
 function titleAttr(s) {
   return s ? ` title="${attr(s)}"` : '';
@@ -243,7 +249,9 @@ export async function mountCityCensus({ dataBase, root, buildStamp = '', onError
     const rowLabel = population ? 'people in the town'
       : (scene ? 'residents in the town' : 'named on a card');
     // WHICH QUESTION THIS NUMBER ANSWERS, in the census's own words.
-    const namedTitle = population?.question || residents?._doc;
+    // T-2825: never the residents manifest's own `_doc`, which is a note to the next builder
+    // (tool paths, tickets, field names) and not a question a reader asked.
+    const namedTitle = population?.question || scene?.question || '';
     const of = Number.isFinite(modelled)
       ? `of roughly ${group(modelled)} here on 1 July 1835`
       : '';
@@ -404,8 +412,10 @@ export async function mountCityCensus({ dataBase, root, buildStamp = '', onError
   const meta = census ? '<dl class="city-meta">'
     + `<div><dt>Target date</dt><dd><time datetime="${targetDate}">`
     + `${targetDate || 'not recorded'}</time></dd></div>`
-    + '<div><dt>Derived by</dt><dd><code>'
-    + `${attr(census.derived_by || 'not recorded')}</code></dd></div>`
+    // T-2667: the tool that derived the census, for researchers only — and since T-2825
+    // said as what it is ("the town census tool"), never as its file path.
+    + '<div data-researcher><dt>Derived by</dt><dd class="city-derived">'
+    + `${attr(toolWords(census.derived_by) || 'not recorded')}</dd></div>`
     + `<div><dt>Build</dt><dd>${attr(buildStamp || 'development build')}</dd></div>`
     + '</dl>' : '';
   host.innerHTML = meta + rows.join('');

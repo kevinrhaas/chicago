@@ -9,6 +9,18 @@
   "asset": "gltf/elbridge_keith_house_1900_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 6 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a19-cgy-1900-keith-2024",
+      "a19-cgy-1900-keith-exterior",
+      "a19-cgy-1906-keith-photo",
+      "a19-gh-keith-1900-historic",
+      "a19-gh-prairie-1800-1900-elevations",
+      "a19-nrhp-keith-1972-photo"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -46,11 +58,11 @@
       ],
       [
         19.75,
-        10.75
+        12.0
       ],
       [
         0.0,
-        10.75
+        12.0
       ]
     ],
     "confidence": "inferred",
@@ -88,32 +100,19 @@
               0.0,
               0.0,
               19.75,
-              10.75
+              12.0
             ],
             "from": "s28fp-1900-b1 p3 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill"
           },
           {
             "id": "r2",
-            "role": "wing",
-            "storeys": 3,
-            "roof": "flat",
-            "rect": [
-              6.75,
-              10.75,
-              19.75,
-              12.0
-            ],
-            "from": "s28fp-1900-b1 p3 (main, brick), rectangle 2 of that part; the part's rectangles cover 89% of its fill"
-          },
-          {
-            "id": "r3",
             "role": "porch",
             "storeys": 1,
             "roof": "flat",
             "rect": [
               -2.0,
               3.25,
-              -0.5,
+              0.0,
               9.5
             ],
             "from": "s28fp-1900-b1 p4 (porch, frame), rectangle 1 of that part; the part's rectangles cover 81% of its fill"
@@ -129,7 +128,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1900-b1 p3 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill; s28fp-1900-b1 p3 (main, brick), rectangle 2 of that part; the part's rectangles cover 89% of its fill; s28fp-1900-b1 p4 (porch, frame), rectangle 1 of that part; the part's rectangles cover 81% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1900-b1 p3 (main, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill; s28fp-1900-b1 p4 (porch, frame), rectangle 1 of that part; the part's rectangles cover 81% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {
@@ -144,7 +143,7 @@
         ],
         "roof_pitch_deg": 18,
         "mansard_lower_m": 3.0,
-        "front_bays": 4,
+        "front_bays": 5,
         "entrance": "south",
         "side_spacing_m": 2.6,
         "chimneys": 2,
@@ -216,5 +215,6 @@
   ],
   "research_note": "A DISTRICT DRAFT (T-2329, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1897 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1900-b1), the T-1841 census (s28-1900-front, s28-1900-wing) and the T-1837 register row frontage-28-043 (Elbridge Keith Second Empire); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-west-2329).",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1900 Prairie Avenue — Elbridge Keith Second Empire"
 }

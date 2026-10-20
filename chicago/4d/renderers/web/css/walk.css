@@ -11,9 +11,31 @@
   --edge: rgba(244, 241, 234, 0.16);
   --accent: #d8a24a;
   --brass: #b8925a;
-  --doc: #cfd8c5;
-  --inf: #e2a63f;
-  --con: #9aa3ad;
+  /* THE GRADE COLOURS (T-2671), one set for every place a grade shows: card and
+     dossier dots, people chips, the legend, the HUD's Confidence chip and menu, the
+     census bars. Attested is gold, Inferred silver, Reconstructed bronze — and bronze
+     is BROWN, apart from gold in hue and a clear step down in lightness, so the two
+     never read as one colour (or as one colour to a deuteranope, protanope or
+     tritanope: the lightness step carries them). Each grade has two roles:
+       --grade-*      a fill: dots, swatches, bars, borders. 3:1 on every panel.
+       --grade-*-ink  grade text, chips and marks. 4.5:1 on every panel and on the
+                      chip's own 12% wash.
+     The light theme has its own pair below. The same hexes, and the scene's tint,
+     live in js/confidence.js `GRADE_COLORS`; tools/check_grade_colors.mjs holds the
+     two in step and re-measures every contrast against all four machines' panels. */
+  --grade-attested: #d4ae38;
+  --grade-attested-ink: #e2c25a;
+  --grade-inferred: #c9d0d8;
+  --grade-inferred-ink: #d3d9e0;
+  --grade-reconstructed: #a86a3a;
+  --grade-reconstructed-ink: #d29262;
+  /* The old names, kept as aliases of the fills for any rule that still says them. */
+  --doc: var(--grade-attested);
+  --inf: var(--grade-inferred);
+  --con: var(--grade-reconstructed);
+  /* The loading bar's and the drawer rail's warm amber, which used to borrow --inf.
+     It was never a grade, so it keeps its colour when the grades change theirs. */
+  --amber: #e2a63f;
   --shadow: 0 10px 34px rgba(0, 0, 0, 0.5);
   /* Behind the canvas. It should never be visible — but headless Chromium's
      compositor occasionally paints the page ground behind a fixed, rounded,
@@ -42,6 +64,12 @@ body:is(.is-touch, .touch-first) { --hud-row: 44px; }
   --brass: #806238;
   --shadow: 0 10px 30px rgba(40, 34, 20, 0.24);
   --page: #dfe7ec;
+  --grade-attested: #a07c10;
+  --grade-attested-ink: #775a08;
+  --grade-inferred: #737d88;
+  --grade-inferred-ink: #4e5761;
+  --grade-reconstructed: #8a5228;
+  --grade-reconstructed-ink: #633819;
 }
 
 * { box-sizing: border-box; }
@@ -200,7 +228,7 @@ html, body {
 }
 .gate-bar > i {
   display: block; height: 100%; width: 0%;
-  background: var(--inf); border-radius: 2px;
+  background: var(--amber); border-radius: 2px;
   transition: width .25s ease;
 }
 .gate-bar.done { opacity: 0; transition: opacity .4s ease .2s; }
@@ -226,6 +254,18 @@ html, body {
 }
 .gate-btn:disabled { opacity: .45; cursor: progress; }
 .gate-btn:not(:disabled):hover { filter: brightness(1.08); }
+/* T-2616: the stalled jump — TRY AGAIN above, the way home below, the detail folded. */
+.gate-btn-secondary {
+  display: block; box-sizing: border-box; margin-top: 10px; text-align: center; text-decoration: none;
+  color: var(--ink); background: transparent; border: 1px solid var(--edge-strong, var(--edge));
+}
+.gate-btn-secondary[hidden], .gate-details[hidden] { display: none; }
+.gate-details { margin: 12px 0 0; text-align: left; font-size: 13px; color: var(--ink-dim); }
+.gate-details summary { cursor: pointer; text-align: center; }
+.gate-details p {
+  margin: 8px 0 0; padding: 8px 10px; border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
+  font: 400 12px/1.45 var(--font-mono, ui-monospace, monospace); overflow-wrap: anywhere;
+}
 
 .gate-keys { margin: 14px 0 0; font-size: 12px; color: var(--ink-dim); }
 .gate-keys .k {
@@ -326,6 +366,9 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 .arrival-lamps li[data-state="active"] i::after { animation: arrival-blink .7s steps(1, end) infinite; }
 .arrival-lamps li[data-state="done"] { --lc: var(--ok, var(--accent)); }
 .arrival-lamps li[data-state="fault"] { --lc: var(--alert, #E0457B); }
+/* T-2612: some of a lamp's phases done and none running (STREETS before the ground). */
+.arrival-lamps li[data-state="partial"] { --lc: var(--lamp, #F3A43B); }
+.arrival-lamps li[data-state="partial"] i::after { opacity: .45; }
 
 .arrival-screen {
   position: relative; overflow: hidden; display: grid;
@@ -383,9 +426,39 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 /* A failed boot hides the card; its row keeps its height so the device does not jump. */
 .arrival-card[hidden] { display: -webkit-box; visibility: hidden; }
 .arrival-card[data-loading-kind="error"] { color: var(--alert, #E0457B); }
+/* T-2611: the time-stream caption. It lies over the headline and log rows (top = the
+   screen's padding + the 12 px head + its 6 px gap; height = the 22 px headline, a gap
+   and the three 16 px log rows), so the screen cuts to it and back without a reflow.
+   Reading text, so the body face and never mono (design doc section 13). A 70-character
+   caption takes two lines at 16 px on a 390 px phone; the clamp allows a third (3 x 20 px
+   plus the label fits the 76 px) for the wider faces, Saira in Deep Space. */
+.arrival-timestream {
+  position: absolute; left: 14px; right: 14px; top: calc(11px + 12px + 6px); height: calc(22px + 6px + 3 * 16px);
+  display: grid; align-content: start; gap: 4px; margin: 0; pointer-events: none;
+  opacity: 0; visibility: hidden; transform: translateY(4px);
+  transition: opacity .18s var(--ease-machine, ease-out), transform .18s var(--ease-machine, ease-out), visibility 0s linear .18s;
+}
+.arrival-timestream[data-state="on"] {
+  opacity: 1; visibility: visible; transform: none;
+  transition: opacity .18s var(--ease-machine, ease-out), transform .18s var(--ease-machine, ease-out), visibility 0s;
+}
+.arrival-screen[data-timestream="on"] :is(.arrival-headline, .arrival-log) { visibility: hidden; }
+.arrival-timestream p { margin: 0; min-width: 0; }
+.arrival-timestream-head {
+  display: flex; gap: 10px; align-items: baseline; overflow: hidden; white-space: nowrap;
+  font-size: 9px; line-height: 12px; letter-spacing: .18em; text-transform: uppercase; opacity: .78;
+}
+.arrival-timestream-head b { font-weight: 500; letter-spacing: .12em; opacity: 1; }
+.arrival-timestream-head [data-ts="grade"] { margin-left: auto; opacity: .85; }
+.arrival-timestream-text {
+  overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3;
+  font: 500 17px/20px var(--font-body, system-ui, sans-serif); letter-spacing: .005em; text-transform: none;
+  text-shadow: 0 0 10px color-mix(in srgb, var(--screen-ink, #8CF5A8) 40%, transparent);
+}
 
 .arrival-readout {
-  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr); margin: 0;
+  /* T-2612: a fourth cell, YEARS TO GO; two rows of two on a phone (below). */
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); margin: 0;
   border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
   background: color-mix(in srgb, var(--panel-raised, var(--panel)) 55%, transparent);
 }
@@ -400,6 +473,11 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
   font: 500 13px/16px var(--font-mono, ui-monospace, monospace); font-variant-numeric: tabular-nums; color: var(--ink);
 }
 .arrival-readout dd[data-read="eta"] { color: var(--lamp, var(--accent)); }
+.arrival-readout dd[data-telemetry="years"] { color: var(--lamp, var(--accent)); }
+/* T-2612: the log's line for a phase still running ends in an ellipsis, not OK. */
+.arrival-log li.run::after { content: "…"; }
+.arrival-log li.fault::after { content: "FAULT"; color: var(--alert, #E0457B); }
+.arrival-log li.skip::after { content: "SKIP"; opacity: .55; }
 
 @keyframes arrival-blink { 50% { opacity: .15; } }
 @keyframes arrival-roll { to { transform: translateY(420%); } }
@@ -407,17 +485,24 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 @media (prefers-reduced-motion: reduce) {
   .arrival-screen::before, .arrival-live i, .arrival-headline::after,
   .arrival-lamps li[data-state="active"] i::after, .arrival-log li.fresh { animation: none; }
+  .arrival-timestream, .arrival-timestream[data-state="on"] { transition: none; transform: none; }
 }
 @media (max-width: 520px) {
   .gate:not([data-state="welcome"]) .gate-card { padding: 16px 14px 12px; }
   .arrival-instrument { gap: 8px; margin: 10px 0 8px; }
   .arrival-deck { gap: 12px; padding: 9px 10px 10px; }
   .arrival-window .arrival-year { width: min(156px, 40vw); }
-  .arrival-lamps { gap: 8px 6px; }
+  /* T-2612: four named lamps stack in one column, so BUILDINGS is never clipped. */
+  .arrival-lamps { grid-template-columns: minmax(0, 1fr); gap: 7px; }
   .arrival-lamps li { gap: 5px; font-size: 8.5px; letter-spacing: .1em; }
   .arrival-screen { padding: 10px 12px 11px; font-size: 10.5px; }
   .arrival-headline { font-size: 13.5px; }
+  .arrival-timestream { left: 12px; right: 12px; top: calc(10px + 12px + 6px); }
+  .arrival-timestream-text { font-size: 16px; line-height: 20px; }
+  .arrival-readout { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
   .arrival-readout > div { padding: 6px 7px 7px; }
+  .arrival-readout > div:nth-child(odd) { border-left: 0; }
+  .arrival-readout > div:nth-child(n + 3) { border-top: 1px solid var(--edge); }
   .arrival-readout dd { font-size: 11.5px; }
 }
 
@@ -481,10 +566,59 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 .badge-version[data-tone="notice"] {
   color: var(--ink);
   font-style: italic;
-  text-decoration: underline dotted var(--inf);
+  text-decoration: underline dotted var(--amber);
   text-underline-offset: 3px;
 }
 .badge-version[hidden] { display: none; }
+/* T-2626 (§10): the year chip — amber LED digits in a dark well, 1904 · 07.01, on every
+   machine and in both themes (an LED is lit on a dark face). A tap opens Jump. */
+.year-chip {
+  font: inherit; color: var(--amber, #E2A63F); cursor: pointer; align-items: center; gap: 6px; padding: 6px 12px;
+  background: var(--screen, #0B0A07); border-color: color-mix(in srgb, var(--amber, #E2A63F) 38%, var(--edge));
+  -webkit-appearance: none; appearance: none; text-align: left;
+}
+.year-chip :is(.badge-year, .badge-dot, .badge-sub) {
+  font-family: var(--font-mono, ui-monospace, monospace); font-variant-numeric: tabular-nums; color: var(--amber, #E2A63F);
+  text-shadow: 0 0 6px color-mix(in srgb, var(--amber, #E2A63F) 55%, transparent);
+}
+.year-chip .badge-year { font-size: 17px; font-weight: 500; letter-spacing: .1em; }
+.year-chip .badge-sub { font-size: 13px; letter-spacing: .1em; }
+.year-chip .badge-dot { font-size: 13px; opacity: .7; }
+.year-chip :is(.badge-alt, .badge-version, .badge-version[data-tone]) { color: var(--amber, #E2A63F); border-left-color: rgba(255, 255, 255, .16); }
+.year-chip:hover { border-color: var(--amber, #E2A63F); }
+.year-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.year-chip:active { transform: translateY(1px); }
+/* T-2649 (§09, §10): the Confidence view's legend chip, under the year chip while the view
+   is not Normal; a tap opens the app. The year chip's LED well, smaller: a dot per grade in
+   the colour it wears (see-through for a ghost, an empty ring for a hidden grade, plain
+   with the colouring off), then CONF. On a desktop the Navigator's rail stands under the
+   year chip, so there the legend sits beside it. */
+.hud-chips { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; min-width: 0; }
+.conf-legend {
+  pointer-events: auto; display: inline-flex; align-items: center; gap: 6px; padding: 3px 8px; min-height: 22px;
+  font: inherit; font-family: var(--font-mono, ui-monospace, monospace); font-size: 9.5px; letter-spacing: .14em;
+  color: var(--amber, #E2A63F); background: var(--screen, #0B0A07); cursor: pointer;
+  border: 1px solid color-mix(in srgb, var(--amber, #E2A63F) 30%, var(--edge)); border-radius: var(--r);
+  box-shadow: var(--shadow); -webkit-appearance: none; appearance: none;
+}
+.conf-legend[hidden] { display: none; }
+.conf-legend:hover { border-color: var(--amber, #E2A63F); }
+.conf-legend:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.conf-legend:active { transform: translateY(1px); }
+.conf-legend-dots { display: inline-flex; gap: 4px; }
+.conf-legend-dots i {
+  width: 7px; height: 7px; border-radius: 50%; box-sizing: border-box;
+  background: var(--c, rgba(236, 230, 216, .8)); opacity: var(--a, 1);
+}
+.conf-legend-dots i[data-state="plain"] { background: rgba(236, 230, 216, .8); }
+.conf-legend-dots i[data-state="hidden"] { background: transparent; border: 1px solid rgba(236, 230, 216, .55); }
+.conf-legend-dots i[data-state="dither"] {
+  background: radial-gradient(circle, var(--c) 45%, transparent 50%) 0 0 / 2.5px 2.5px, color-mix(in srgb, var(--c) 35%, transparent);
+}
+.conf-legend-mark { text-shadow: 0 0 6px color-mix(in srgb, var(--amber, #E2A63F) 55%, transparent); }
+@media (min-width: 621px) {
+  .hud-chips { flex-direction: row; align-items: center; gap: 6px; }
+}
 .fly-glyph { font-size: 10px; opacity: .85; }
 
 .hud-actions { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
@@ -517,31 +651,6 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 .compass[hidden], .overview-map[hidden], .street-readout[hidden] { display: none; }
 .compass strong { min-width: 29px; color: var(--ink); font-size: 11.5px; }
 .compass > span:last-child { color: var(--ink-dim); }
-.compass-dial {
-  position: relative;
-  width: 26px;
-  height: 26px;
-  flex: none;
-  border: 1px solid var(--edge);
-  border-radius: 50%;
-  color: var(--ink-dim);
-  font-size: 6px;
-  line-height: 1;
-}
-.compass-n, .compass-e, .compass-s, .compass-w { position: absolute; }
-.compass-n { top: 2px; left: 50%; transform: translateX(-50%); color: var(--accent); }
-.compass-e { top: 50%; right: 2px; transform: translateY(-50%); }
-.compass-s { bottom: 2px; left: 50%; transform: translateX(-50%); }
-.compass-w { top: 50%; left: 2px; transform: translateY(-50%); }
-.compass-needle {
-  position: absolute;
-  top: 50%; left: 50%;
-  color: var(--accent);
-  font-size: 17px;
-  line-height: 1;
-  transform-origin: 50% 88%;
-  transform: translate(-50%, -88%);
-}
 .overview-map {
   position: relative;
   overflow: hidden;
@@ -633,39 +742,118 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 }
 .overview-north { top: 4px; right: 4px; color: #f4b54f; font-weight: 700; }
 .overview-caption { right: 4px; bottom: 4px; color: #d5d0c4; }
-.street-readout {
+
+/* T-2626 (§10): the compass and the mini map as one round instrument, top right. The map
+   (north up, your arrow on it) is cut round inside a compass ring; the ring's tick turns
+   with your heading, and the heading in degrees sits under the face. A tap opens Map. */
+.hud-instrument {
+  /* The last item of the chip row, on a line of its own, so it stands under the chips
+     however many rows they wrap to; one max-content column pushed to the right edge. */
+  flex: 0 0 100%;
   display: grid;
-  width: 248px;
+  grid-template-columns: max-content;
+  justify-content: end;
+  justify-items: center;
+  gap: 5px;
+  margin-top: 4px;
+  pointer-events: none;
+}
+.hud-instrument .overview-map {
+  border-radius: 50%;
+  border: 2px solid var(--edge-strong, var(--edge));
+  background: var(--panel-solid, #16150F);
+}
+.hud-instrument .overview-map canvas { border-radius: 50%; }
+.hud-instrument :is(.overview-north, .overview-caption) { display: none; }
+.instrument-ring {
+  position: absolute; inset: 0; border-radius: 50%; pointer-events: none;
+  box-shadow: inset 0 0 0 13px color-mix(in srgb, var(--panel-solid, #16150F) 84%, transparent),
+    inset 0 0 0 14px var(--edge);
+  font: 600 8px/1 var(--font-mono, ui-monospace, monospace); color: var(--ink-dim);
+}
+.instrument-ring :is(.compass-n, .compass-e, .compass-s, .compass-w) { position: absolute; }
+.instrument-ring .compass-n { top: 3px; left: 50%; transform: translateX(-50%); color: var(--accent); }
+.instrument-ring .compass-e { top: 50%; right: 4px; transform: translateY(-50%); }
+.instrument-ring .compass-s { bottom: 3px; left: 50%; transform: translateX(-50%); }
+.instrument-ring .compass-w { top: 50%; left: 4px; transform: translateY(-50%); }
+.instrument-ring .compass-needle { position: absolute; inset: 0; border-radius: 50%; transform-origin: 50% 50%; }
+.instrument-ring .compass-needle::before {
+  content: ""; position: absolute; left: 50%; top: -1px; transform: translateX(-50%);
+  border: 5px solid transparent; border-top: 8px solid var(--amber, #E2A63F); border-bottom: 0;
+  filter: drop-shadow(0 0 3px color-mix(in srgb, var(--amber, #E2A63F) 60%, transparent));
+}
+.hud-instrument .compass { min-height: 22px; padding: 3px 10px; gap: 6px; font-family: var(--font-mono, ui-monospace, monospace); }
+.hud-instrument .compass strong { min-width: 0; color: var(--accent); }
+.hud-instrument { position: relative; }
+.compass-row { display: flex; align-items: center; gap: 4px; }
+/* T-2741: the street readout's own switch, beside the heading. The instrument is a
+   readout (pointer-events: none), so the button claims them back. */
+.street-toggle {
+  pointer-events: auto;
+  display: inline-grid; place-items: center;
+  width: 24px; height: 24px; padding: 0;
+  border: 1px solid var(--edge); border-radius: 999px;
+  background: var(--panel); color: var(--ink-dim);
+  box-shadow: var(--shadow); cursor: pointer;
+}
+.street-toggle[aria-pressed="true"] { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
+.street-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* T-2741: where you stand, then and today, hung under the instrument's right edge so its
+   width never shifts the round face. Terse machine status: a year tag, the era street;
+   a TODAY tag, today's street, corner or house number. */
+.street-readout {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 5px;
+  display: grid;
+  width: max-content;
+  max-width: 248px;
   gap: 2px;
-  padding: 8px 10px 9px;
+  padding: 6px 9px 7px;
   border: 1px solid var(--edge);
   border-radius: 10px;
   background: var(--panel);
   box-shadow: var(--shadow);
   line-height: 1.25;
+  text-align: left;
 }
-.street-readout strong {
-  overflow: hidden;
-  color: var(--ink);
-  font-size: 12px;
-  text-overflow: ellipsis;
+.street-line {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  min-width: 0;
   white-space: nowrap;
 }
-.street-mode {
+.street-line b {
+  flex: 0 0 auto;
+  min-width: 3.4em;
   color: var(--accent);
-  font-size: 8px;
-  font-weight: 700;
+  font: 700 8px/1 var(--font-mono, ui-monospace, monospace);
   letter-spacing: .09em;
   text-transform: uppercase;
 }
-.street-modern, .street-approach {
+.street-today b { color: #60cdeb; }
+/* A long corner ("Prairie Avenue & East Eighteenth Street") wraps to a second line
+   rather than losing its cross street to an ellipsis on a phone. */
+.street-line strong, .street-line .street-modern {
+  overflow: hidden;
+  min-width: 0;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+.street-line strong { color: var(--ink); font-size: 12px; font-weight: 600; }
+.street-modern { color: var(--ink); font-size: 11px; }
+.street-approach {
   overflow: hidden;
   color: var(--ink-dim);
   font-size: 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.street-approach { color: var(--ink); }
 
 .chip {
   pointer-events: auto;
@@ -701,7 +889,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 .chip-dot[hidden] { display: none; }
 .chip .dot {
   width: 9px; height: 9px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--doc) 0 33%, var(--inf) 33% 66%, var(--con) 66%);
+  background: linear-gradient(135deg, var(--grade-attested) 0 33%, var(--grade-inferred) 33% 66%, var(--grade-reconstructed) 66%);
 }
 
 .hud-legend {
@@ -721,15 +909,15 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 .hud-legend ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
 .hud-legend li { display: grid; grid-template-columns: 14px 1fr; gap: 8px; align-items: start; color: var(--ink-dim); }
 .sw { width: 12px; height: 12px; border-radius: 3px; margin-top: 3px; display: block; }
-.sw-doc { background: var(--doc); }
-.sw-inf { background: var(--inf); }
-.sw-rec { background: repeating-linear-gradient(45deg, var(--con) 0 2px, transparent 2px 4px); border: 1px solid var(--con); }
+.sw-doc { background: var(--grade-attested); }
+.sw-inf { background: var(--grade-inferred); }
+.sw-rec { background: repeating-linear-gradient(45deg, var(--grade-reconstructed) 0 2px, transparent 2px 4px); border: 1px solid var(--grade-reconstructed); }
 /* T-1158. The fourth tier, and it is deliberately the emptiest thing on the card:
    `unknown` means nothing is asserted, so the chip is an empty outline rather than a
    colour. It has to be distinguishable from `reconstructed` at a glance, because most
    of this town's attributes are not recorded and the hatched chip used to say we had
    invented them. Dashed reads as "nothing here" in both themes without adding a hue. */
-.sw-unk { background: transparent; border: 1px dashed var(--con); opacity: .7; }
+.sw-unk { background: transparent; border: 1px dashed var(--ink-dim); opacity: .7; }
 .legend-note { margin: 10px 0 0; color: var(--ink-dim); font-size: 11.5px; }
 .legend-note code { font-size: 11px; }
 
@@ -803,7 +991,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
    read as the conjectural swatch does, since that is what it is describing. */
 .lib-covers {
   padding: 1px 6px;
-  border: 1px dashed var(--con); border-radius: 999px;
+  border: 1px dashed var(--grade-reconstructed); border-radius: 999px;
   color: var(--ink); font-size: 10px; white-space: nowrap;
 }
 .lib-covers em { font-style: normal; color: var(--ink-dim); }
@@ -836,7 +1024,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 /* A value outside its own closed set. It cannot happen while tools/validate.py
    holds the vocabulary, which is exactly why it is worth drawing: a card that
    silently prints an unknown word is a card that hides a broken gate. */
-.fauna-unknown { border-color: var(--con); color: var(--con); }
+.fauna-unknown { border-color: var(--grade-reconstructed); color: var(--grade-reconstructed-ink); }
 
 /* The plants section (T-0281) reuses the wildlife's box for the fifth time, and
    deliberately reuses its CLASSES too rather than cloning them under a new
@@ -861,7 +1049,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
    takes the conjectural colour on purpose — not because the RECORD is weak, but
    because what a visitor sees there is the lattice's answer and not the
    evidence's, and this panel's colours already mean exactly that. */
-.plant-clamped { border-color: var(--con); color: var(--con); }
+.plant-clamped { border-color: var(--grade-reconstructed); color: var(--grade-reconstructed-ink); }
 
 /* The people section (ROADMAP K52) reuses the same box for the fourth time, and
    the nesting is the wildlife section's exactly: a household is a liberty-shaped
@@ -907,19 +1095,16 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
    chip is. The year is tabular so the column of bounds lines up. */
 .res-roles { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 8px; }
 .res-role-row { border-left: 2px solid var(--edge); padding-left: 9px; }
-.res-role-row.res-role-at { border-left-color: var(--doc); }
+.res-role-row.res-role-at { border-left-color: var(--grade-attested); }
 .res-role-when {
   display: block; color: var(--ink); font-size: 11.5px;
   font-variant-numeric: tabular-nums; letter-spacing: 0.01em;
 }
-.res-role-scene { border-color: color-mix(in srgb, var(--doc) 58%, transparent); color: var(--doc); }
-.res-role-off { border-color: var(--con); color: var(--con); }
+.res-role-scene { border-color: color-mix(in srgb, var(--grade-attested) 58%, transparent); color: var(--grade-attested-ink); }
+.res-role-off { border-color: var(--grade-reconstructed); color: var(--grade-reconstructed-ink); }
 /* `--doc` is the pale sage the dark panel needs and is near-invisible on the
    light one, so the scene-date mark is mixed toward the ink there — the same
    correction the census gate makes for the same swatch. */
-[data-theme="light"] .res-role-row.res-role-at,
-[data-theme="light"] .res-role-scene { border-color: color-mix(in srgb, var(--doc) 40%, var(--ink)); }
-[data-theme="light"] .res-role-scene { color: color-mix(in srgb, var(--doc) 30%, var(--ink)); }
 /* The houses a person is named in (T-1432). Built on the roles timeline above
    because it is the same idea read from the other end — one rule down the left
    edge a row, and the rule is the GRADE here rather than the scene date, since a
@@ -935,7 +1120,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
    conjectural colour rather than the dim one. It is NOT drawn inside the
    letter-list group, where having no building is the definition rather than a
    finding — see residents.js § letterListGroupHtml. */
-.res-orphan { border-color: var(--con); color: var(--con); }
+.res-orphan { border-color: var(--grade-reconstructed); color: var(--grade-reconstructed-ink); }
 /* T-1476: which UNIT the row is. A house the sources evidence reads in the ordinary
    chip colour; a record that is a person still awaiting a household is dimmed, because
    it is not a finding against the record — it is the town's remaining work, and 1,175
@@ -944,7 +1129,7 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 /* The letter-list cohort (T-0379), which is most of the town's people and none of
    its evidence. One closed group, marked in the conjectural colour the same way a
    single thin claim is, so the split is visible before it is opened. */
-.res-ll-group { border-left: 2px solid var(--con); padding-left: 9px; }
+.res-ll-group { border-left: 2px solid var(--grade-reconstructed); padding-left: 9px; }
 .res-ll-group > summary .lib-title { color: var(--ink-dim); }
 .res-hh summary { display: flex; flex-wrap: wrap; align-items: baseline; }
 .res-hh .lib-title { text-transform: capitalize; }
@@ -971,6 +1156,51 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 }
 body.is-locked .crosshair { opacity: 1; }
 body.is-touch .crosshair { display: none; }
+/* T-2614 (§14): CLICK TO ENGAGE LOOK, under the crosshair on a pointer-lock device until
+   the first click on the scene takes the pointer. Clicks pass through it to the scene. */
+.look-tag {
+  position: absolute; left: 50%; top: calc(50% + 18px); transform: translateX(-50%);
+  margin: 0; padding: 5px 10px; white-space: nowrap; pointer-events: none;
+  font: 600 11px/1.2 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--ink); background: var(--panel); border: 1px solid var(--edge);
+  border-radius: var(--r-control, 999px); box-shadow: var(--shadow);
+  animation: look-tag-in .24s ease-out both;
+}
+.look-tag[hidden], body.is-touch .look-tag { display: none; }
+@keyframes look-tag-in { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .look-tag { animation: none; } }
+/* T-2627 (§10): the target tag — under the crosshair (below CLICK TO ENGAGE LOOK) once
+   the reticle has rested on a building for 400 ms: its name and distance in mono caps.
+   It is a button: a tap opens Inspect. */
+.target-tag {
+  position: absolute; left: 50%; top: calc(50% + 46px); transform: translateX(-50%);
+  /* T-2736: the whole name and distance, wrapped to a second line when it is long — never
+     cut off. A pill on one line, a rounded box on two. */
+  width: max-content; max-width: min(440px, calc(100vw - 120px)); white-space: normal; overflow-wrap: break-word;
+  text-align: center; text-wrap: balance;
+  margin: 0; padding: 6px 12px; pointer-events: auto; cursor: pointer;
+  font: 600 11px/1.35 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink); background: var(--panel); border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--edge));
+  border-radius: min(var(--r-control, 999px), 14px); box-shadow: var(--shadow);
+  animation: look-tag-in .2s ease-out both;
+  transition: opacity .6s ease;
+}
+.target-tag[hidden] { display: none; }
+/* T-2736: it holds a few seconds, then fades (target-tag.js FADE_MS matches). */
+.target-tag.is-fading { opacity: 0; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .target-tag { animation: none; transition: none; } }
+.target-tag:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* T-2627: the quick column — Walk/Fly and, with a target, Inspect. Right edge, centred;
+   two buttons at most. */
+.quick-column {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  display: grid; gap: 8px; justify-items: end; pointer-events: none;
+}
+.quick-column > [hidden] { display: none; }
+.quick-inspect { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, var(--edge)); }
+@media (prefers-reduced-motion: reduce) { .target-tag { animation: none; } }
 
 .hud-bottom { margin-top: auto; display: flex; justify-content: center; }
 .hint {
@@ -987,6 +1217,32 @@ body.is-touch .crosshair { display: none; }
   text-align: center;
 }
 .hint.on { opacity: 1; }
+/* T-2634: Free roam's one-time tip — a pill above the docked Navigator, gone on a tap or
+   after a few seconds. */
+.roam-tip {
+  position: fixed; left: 50%; bottom: calc(92px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%);
+  z-index: 2; pointer-events: auto; max-width: calc(100vw - 32px);
+  margin: 0; padding: 10px 16px; min-height: 44px; cursor: pointer;
+  font: 600 13px/1.3 var(--font-ui, inherit); color: var(--ink); text-align: center;
+  background: var(--panel-solid); border: 1px solid var(--accent); border-radius: 999px; box-shadow: var(--shadow);
+  animation: roam-tip-in .24s ease-out both;
+}
+.roam-tip[hidden] { display: none; }
+@keyframes roam-tip-in { from { opacity: 0; transform: translate(-50%, 6px); } }
+@media (prefers-reduced-motion: reduce) { .roam-tip { animation: none; } }
+/* T-2664: the one-time hints after the tour — a pill under the HUD's top row, above a
+   building card (30) and under the arrival (40); it takes no pointer events, so it never
+   sits between a visitor and a control, and it goes in a few seconds. */
+.nav-hint {
+  position: fixed; left: 50%; top: calc(64px + env(safe-area-inset-top, 0px)); transform: translateX(-50%);
+  z-index: 35; pointer-events: none; width: max-content; max-width: min(420px, calc(100vw - 32px));
+  margin: 0; padding: 10px 16px; box-sizing: border-box;
+  font: 600 13px/1.35 var(--font-ui, inherit); color: var(--ink); text-align: center;
+  background: var(--panel-solid); border: 1px solid var(--accent); border-radius: 14px; box-shadow: var(--shadow);
+  animation: roam-tip-in .24s ease-out both;
+}
+.nav-hint[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) { .nav-hint { animation: none; } }
 
 /* T-2547: the crash guard's card — detail lowered after a memory crash, or a lost
    display. Above the gate (40) so it reads during the arrival too; hung below the
@@ -1029,6 +1285,11 @@ body.is-touch .crosshair { display: none; }
 body:is(.is-touch, .touch-first) .crash-notice button { min-height: 44px; }
 .crash-notice-reload { padding: 0 14px; font-weight: 600; color: var(--accent); }
 .crash-notice-reload[hidden] { display: none; }
+/* T-2826: the black box's line after a reset is long, so the card wraps and Copy sits under it. */
+.crash-notice:has(.crash-notice-copy:not([hidden])) { flex-wrap: wrap; align-items: flex-start; }
+.crash-notice:has(.crash-notice-copy:not([hidden])) .crash-notice-text { flex: 1 1 calc(100% - 90px); overflow-wrap: anywhere; }
+.crash-notice-copy { padding: 0 14px; font-weight: 600; color: var(--accent); margin-left: 30px; }
+.crash-notice-copy[hidden] { display: none; }
 .crash-notice-close { width: 36px; display: grid; place-items: center; border-color: transparent; }
 body:is(.is-touch, .touch-first) .crash-notice-close { width: 44px; }
 .crash-notice-close svg { width: 16px; height: 16px; }
@@ -1143,19 +1404,22 @@ table.attrs td .val { font-variant-numeric: tabular-nums; }
   vertical-align: 1px;
   white-space: nowrap;
 }
-.conf-attested  { background: rgba(160, 200, 140, .2); color: #a9cf93; border: 1px solid rgba(160, 200, 140, .4); }
-.conf-inferred     { background: rgba(226, 166, 63, .18); color: var(--inf); border: 1px solid rgba(226, 166, 63, .45); }
-.conf-reconstructed    { background: rgba(154, 163, 173, .16); color: var(--con); border: 1px solid rgba(154, 163, 173, .4); }
-[data-theme="light"] .conf-attested { color: #3f6a2c; }
-[data-theme="light"] .conf-inferred { color: #8a5a12; }
-[data-theme="light"] .conf-reconstructed    { color: #4d5560; }
+/* The chip is its grade's ink on a 12% wash of its fill, in both themes, from the
+   :root tokens alone (T-2671) — no per-theme hex left here to drift from them. */
+.conf-attested { --g: var(--grade-attested); --g-ink: var(--grade-attested-ink); }
+.conf-inferred { --g: var(--grade-inferred); --g-ink: var(--grade-inferred-ink); }
+.conf-reconstructed { --g: var(--grade-reconstructed); --g-ink: var(--grade-reconstructed-ink); }
+.conf-attested, .conf-inferred, .conf-reconstructed {
+  background: color-mix(in srgb, var(--g) 12%, transparent);
+  color: var(--g-ink);
+  border: 1px solid color-mix(in srgb, var(--g) 50%, transparent);
+}
 
 /* WHO WAS HERE. A person's `grade` is a different axis from an attribute's
    confidence — it says how much of a PERSON is reconstructed, not how sure we
-   are of a value — so it gets its own chip shape (square-ish, outlined) and
-   never borrows the confidence palette's meaning. `derived` has no equivalent
-   on the confidence scale at all, which is the clearest argument for keeping
-   the two apart. */
+   are of a value — so it gets its own chip SHAPE (square-ish, outlined). Its
+   colours are the one grade palette (T-2671, owner: gold, silver, bronze
+   everywhere a grade shows), so Attested reads as Attested wherever it is met. */
 .grade {
   display: inline-block;
   margin-left: 6px;
@@ -1169,12 +1433,9 @@ table.attrs td .val { font-variant-numeric: tabular-nums; }
   border: 1px solid currentColor;
   background: transparent;
 }
-.grade-attested { color: #a9cf93; }
-.grade-inferred    { color: #8fb8d6; }
-.grade-reconstructed   { color: var(--inf); }
-[data-theme="light"] .grade-attested { color: #3f6a2c; }
-[data-theme="light"] .grade-inferred { color: #2f5f80; }
-[data-theme="light"] .grade-reconstructed { color: #8a5a12; }
+.grade.grade-attested { color: var(--grade-attested-ink); }
+.grade.grade-inferred { color: var(--grade-inferred-ink); }
+.grade.grade-reconstructed { color: var(--grade-reconstructed-ink); }
 
 /* The per-level summary, above every table on the card. It is read first and
    skimmed, so the three rows are separated by the residents' own hairline rather
@@ -1415,48 +1676,13 @@ ol.cites ul.cite-lim-not li { opacity: .95; }
    css/drawer.css; this file keeps the base pieces the sections share
    (.field, .check-field, kbd, .keys, .legend-*). */
 
-.control-help {
-  pointer-events: auto;
-  position: absolute;
-  top: 54px;
-  right: 0;
-  width: min(330px, calc(100vw - 24px));
-  padding: 14px 14px 12px;
-  border: 1px solid var(--edge);
-  border-radius: var(--r);
-  background: var(--panel-solid);
-  color: var(--ink);
-  box-shadow: var(--shadow);
-  font-size: 12px;
-}
-.control-help[hidden], .control-help-grid[hidden] { display: none; }
-.control-help > strong { display: block; margin: 0 28px 10px 0; font-size: 14px; }
-.control-help-close {
-  position: absolute; top: 7px; right: 8px;
-  width: 28px; height: 28px; border: 0; border-radius: 8px;
-  background: transparent; color: var(--ink-dim); font-size: 18px; cursor: pointer;
-}
-.control-help-close:hover { color: var(--ink); background: rgb(255 255 255 / 8%); }
-.control-help-grid {
-  display: grid;
-  grid-template-columns: auto 1fr auto 1fr;
-  align-items: center;
-  gap: 7px 9px;
-}
-.control-help-grid kbd { margin: 0; white-space: nowrap; }
-.control-help-gotit, .setting-button {
+.setting-button {
   border: 1px solid var(--edge); border-radius: 8px;
   background: rgb(255 255 255 / 8%); color: var(--ink);
   font: inherit; cursor: pointer;
+  padding: 5px 9px;
 }
-.control-help-gotit { width: 100%; margin-top: 12px; padding: 7px 10px; }
-.setting-button { padding: 5px 9px; }
-.control-help-gotit:hover, .setting-button:hover { background: rgb(255 255 255 / 14%); }
-
-@media (max-width: 520px) {
-  .control-help { top: 92px; right: 0; width: min(310px, calc(100vw - 16px)); }
-  .control-help-grid { grid-template-columns: auto 1fr; }
-}
+.setting-button:hover { background: rgb(255 255 255 / 14%); }
 
 .keys { display: grid; grid-template-columns: auto 1fr; gap: 7px 13px; margin: 0; }
 /* [hidden] is display:none at UA-stylesheet strength; any display rule on the
@@ -1482,6 +1708,7 @@ kbd {
 .field > span b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
 .field.row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .field.row > span { margin: 0; }
+.field[hidden] { display: none; }
 .field input[type="range"] { width: 100%; accent-color: var(--accent); }
 .field select {
   padding: 5px 8px; border-radius: 8px;
@@ -1593,20 +1820,26 @@ kbd {
      meaning; both keep their title and aria-label, and the Evidence tab
      explains the dot at length. */
   .chip-label { display: none; }
-  #btn-fly, #btn-confidence { width: var(--hud-row); justify-content: center; padding: 8px; }
+  #btn-fly, #btn-confidence, #btn-inspect { width: var(--hud-row); justify-content: center; padding: 8px; }
   /* And when an altitude is showing, it says more than a date that never
      changes — so the date yields rather than the badge growing. */
   .badge.has-alt .badge-sub { display: none; }
   /* The version chip (T-1727) outranks the date too: it is the one fact that tells two
      phone screenshots apart. */
   .badge.has-version .badge-sub { display: none; }
+  .badge:is(.has-alt, .has-version) .badge-dot { display: none; }
   .badge-version { max-width: 9.5em; }
   .navigation-stack { top: calc(17px + var(--hud-row) + var(--safe-t)); }
-  .street-readout { width: 188px; }
+  /* T-2626: the compass no longer stands above it, so it rides up beside the chips' second row; it stays clear of them. */
+  .street-readout { max-width: min(206px, calc(100vw - 24px)); padding: 5px 8px 6px; }
+  .street-line strong { font-size: 11px; }
+  .street-modern { font-size: 10.5px; }
+  /* A phone has room for where you are, not for what is coming. */
+  .street-approach { display: none; }
   /* The mobile panel spans the same left edge as the navigation readouts. Hide
      them while it is open instead of letting its translucent surface mix the
      map into sliders and search results. Desktop keeps both columns visible. */
-  .hud.panel-open .navigation-stack { visibility: hidden; }
+  .hud.panel-open :is(.navigation-stack, .hud-instrument, .quick-column, .target-tag) { visibility: hidden; }
 }
 
 /* ---- the confidence control's second half ------------------------------- */
@@ -1653,7 +1886,7 @@ body:is(.is-touch, .touch-first) .chip-group > .chip-more { width: var(--hud-row
   align-items: center; padding: 5px 0; cursor: pointer; font-size: 13px;
 }
 .cm-sw { width: 12px; height: 12px; border-radius: 3px; display: block; }
-.sw-att { background: var(--doc); }
+.sw-att { background: var(--grade-attested); }
 .cm-count { color: var(--ink-dim); font-size: 11.5px; font-variant-numeric: tabular-nums; }
 .cm-row input { accent-color: var(--accent); width: 15px; height: 15px; margin: 0; }
 /* An unticked row is what is NOT in the view, so it reads as absent. */
@@ -1736,6 +1969,48 @@ body:is(.is-touch, .touch-first) .chip-group > .chip-more { width: var(--hud-row
   .arrival-digit-half span { height: 62px; line-height: 62px; }
 }
 
+/* T-2613 (§05 "Landing, not Tap to enter"). No Tap to enter: #gate-btn shows only as
+   TRY AGAIN on a stalled jump. The scene behind the device is blurred during the trip
+   and comes into focus as the device turns over to Home, with the scrim easing off. */
+#gate-btn:not([data-arrival-retry]) { display: none; }
+.gate {
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  transition: backdrop-filter .52s var(--ease-machine, ease), -webkit-backdrop-filter .52s var(--ease-machine, ease), background .52s ease;
+}
+.gate[data-state="welcome"] {
+  -webkit-backdrop-filter: blur(0); backdrop-filter: blur(0);
+  background: radial-gradient(120% 90% at 50% 0%, rgba(8, 10, 14, 0.12), rgba(8, 10, 14, 0.5));
+}
+.gate-card { perspective: 1200px; }
+/* The ARRIVED stamp and phosphor flash (180 ms), then the turn: the front face goes
+   edge-on (260 ms), Home comes round from the far side (260 ms) — 520 ms in all. */
+.gate-card[data-landing="flash"] .arrival-window { position: relative; }
+.gate-card[data-landing="flash"] .arrival-window::after {
+  content: 'Arrived'; position: absolute; inset: 0; display: grid; place-items: center;
+  font: 600 22px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .28em; text-transform: uppercase;
+  color: var(--ok, #8CF5A8); text-shadow: 0 0 12px var(--ok, #8CF5A8);
+  background: color-mix(in srgb, var(--ok, #8CF5A8) 18%, var(--screen, #07130F)); border-radius: var(--r-control, 4px);
+  animation: landing-flash 180ms ease-out both; pointer-events: none;
+}
+.gate .gate-card[data-landing="flip-out"] { animation: landing-flip-out 260ms var(--ease-machine, ease-in) both; }
+.gate[data-state] .gate-card[data-landing="flip-in"] { animation: landing-flip-in 260ms var(--ease-machine, ease-out) both; }
+.gate .gate-card[data-landing="fade-out"] { animation: landing-fade-out 120ms linear both; }
+.gate[data-state] .gate-card[data-landing="fade-in"] { animation: landing-fade-in 120ms linear both; }
+@keyframes landing-flash { 0% { opacity: 0; } 30% { opacity: 1; } 100% { opacity: .85; } }
+@keyframes landing-flip-out { from { transform: rotateY(0deg); } to { transform: rotateY(90deg); } }
+@keyframes landing-flip-in { from { transform: rotateY(-90deg); } to { transform: rotateY(0deg); } }
+@keyframes landing-fade-out { to { opacity: 0; } }
+@keyframes landing-fade-in { from { opacity: 0; } }
+/* On landing the ticker's digits turn from amber to phosphor green. */
+html[data-skin] .arrival-year.is-arrived .arrival-digit,
+html[data-skin] .arrival-year.is-arrived .arrival-digit-flap,
+.arrival-year.is-arrived .arrival-digit { color: var(--ok, #8CF5A8); text-shadow: 0 0 8px color-mix(in srgb, var(--ok, #8CF5A8) 70%, transparent); }
+/* Precision Brass prints its digits on ivory: the arrived green is its verdigris ink. */
+html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit-flap { color: #2F6B3A; text-shadow: none; }
+@media (prefers-reduced-motion: reduce) {
+  .gate { transition: none; }
+}
+
 /* T-1278: the same arrival dialog becomes a quiet, bounded welcome.
    T-2120: three equal choices at the top level; inside a choice the three shrink to one
    row of tabs led by a back arrow, and the choice's own list scrolls inside the card. */
@@ -1776,27 +2051,37 @@ body:is(.is-touch, .touch-first) .chip-group > .chip-more { width: var(--hud-row
 .welcome-action[aria-expanded="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--panel)); }
 .welcome-back { display: none; }
 .welcome-link { padding: 9px 12px; background: none; }
+/* T-2664: the tour offer — one quiet line under the three choices, gone in a sub-view. */
+.welcome-tour-offer { align-self: center; margin-top: 8px; border-color: transparent; color: var(--accent);
+  font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.welcome-tour-offer:hover { border-color: var(--accent); }
+.welcome-tour-offer[hidden], .gate[data-region] .welcome-tour-offer { display: none; }
+.gate.welcome-compact .welcome-tour-offer { margin-top: 2px; padding: 4px 12px; }
 .welcome-region { margin-top: 10px; min-height: 0; flex: 1 1 auto; }
-/* T-2561: keep the year on this device — one quiet line under the three choices. */
-.welcome-pack { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px;
-  margin-top: 10px; padding: 0 0 6px; }
+/* T-2561, quieted by T-2947: the offline copy is one small mono line at the right under
+   the choices, in the same voice as the choices' captions. Tapping it opens a short
+   explanation with the download in it, so the phone (no hover) still gets the tooltip. */
+.welcome-pack { position: relative; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; margin-top: 4px; }
 .welcome-pack[hidden], .gate[data-region] .welcome-pack { display: none; }
-.welcome-pack-keep { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px 0 8px;
-  font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); cursor: pointer;
-  background: none; border: 1px solid var(--edge); border-radius: 10px; transition: border-color .15s ease; }
-.welcome-pack-keep .menu-icon { color: var(--accent); flex: none; }
-.welcome-pack-keep:not(:disabled):hover { border-color: var(--accent); }
-.welcome-pack-keep:disabled { cursor: default; opacity: 1; }
-.welcome-pack[data-state="kept"] .welcome-pack-keep { border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
-.welcome-pack-note { flex: 1 1 12em; font-size: 12px; line-height: 1.35; color: var(--ink-dim); }
-.welcome-pack-remove { min-height: 44px; padding: 0 10px; font: inherit; font-size: 12px; color: var(--ink-dim);
-  background: none; border: 0; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
-.welcome-pack-remove[hidden] { display: none; }
-.welcome-pack-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; border-radius: 2px;
-  background: linear-gradient(90deg, var(--accent) calc(var(--f, 0) * 100%), var(--edge) 0); visibility: hidden; }
+.welcome-pack-toggle { display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 4px;
+  font: 400 9.5px/1.3 var(--font-mono, ui-monospace, monospace); letter-spacing: .12em; text-transform: uppercase;
+  color: var(--ink-dim); background: none; border: 0; cursor: pointer; transition: color .15s ease; }
+.welcome-pack-toggle .menu-icon { flex: none; }
+.welcome-pack-toggle:hover, .welcome-pack-toggle[aria-expanded="true"],
+.welcome-pack[data-state="kept"] .welcome-pack-toggle .menu-icon { color: var(--accent); }
+.welcome-pack-info { position: relative; align-self: stretch; display: flex; flex-wrap: wrap; align-items: center;
+  gap: 6px 10px; padding: 8px 10px; border: 1px solid var(--edge); border-radius: 8px; background: var(--panel); overflow: hidden; }
+.welcome-pack-info[hidden] { display: none; }
+.welcome-pack-note { flex: 1 1 14em; margin: 0; font-size: 12px; line-height: 1.4; color: var(--ink-dim); }
+.welcome-pack-keep, .welcome-pack-remove { min-height: 36px; padding: 0 12px; font: inherit; font-size: 12px; font-weight: 600;
+  color: var(--ink); cursor: pointer; background: none; border: 1px solid var(--edge); border-radius: 8px; transition: border-color .15s ease; }
+.welcome-pack-keep:hover, .welcome-pack-remove:hover { border-color: var(--accent); }
+.welcome-pack-keep[hidden], .welcome-pack-remove[hidden] { display: none; }
+.welcome-pack-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+  background: linear-gradient(90deg, var(--accent) calc(var(--f, 0) * 100%), transparent 0); visibility: hidden; }
 .welcome-pack[data-state="downloading"] .welcome-pack-bar { visibility: visible; }
-.gate.welcome-compact .welcome-pack { margin-top: 6px; }
-.gate.welcome-compact .welcome-pack-note { display: none; }
+.gate.welcome-compact .welcome-pack { margin-top: 0; }
+.gate.welcome-compact .welcome-pack-toggle { min-height: 30px; }
 /* Inside a choice: eyebrow and intro step aside, the title shrinks, the choices become tabs. */
 .gate[data-region] .gate-eyebrow, .gate[data-region] .welcome-intro { display: none; }
 .gate[data-state="welcome"][data-region] h1 { font-size: 17px; margin: 0 0 10px; }
@@ -1829,10 +2114,38 @@ body:is(.is-touch, .touch-first) .chip-group > .chip-more { width: var(--hud-row
 .welcome-kinds { display: flex; flex-shrink: 0; overflow-x: auto; gap: 5px; scrollbar-width: none; }
 .welcome-kinds button { min-height: 34px; padding: 0 11px; font-size: 12px; min-width: 44px; flex: none; border-radius: 999px; color: var(--ink-dim); background: none; }
 .welcome-kinds button[aria-pressed="true"] { border-color: var(--accent); color: var(--ink); background: color-mix(in srgb, var(--accent) 16%, transparent); }
+/* T-2740: the kinds scroll sideways; the order sits at the row's end, quiet, always in reach. */
+.welcome-filters { display: flex; align-items: center; gap: 6px; flex-shrink: 0; min-width: 0; }
+.welcome-filters .welcome-kinds { flex: 1 1 auto; min-width: 0; }
+.welcome-sort { position: relative; flex: none; display: inline-flex; align-items: center; color: var(--ink-dim); }
+.welcome-sort select {
+  appearance: none; -webkit-appearance: none; min-height: 34px; max-width: 8.5em; padding: 0 24px 0 11px;
+  font: inherit; font-size: 12px; color: inherit; cursor: pointer;
+  background: none; border: 1px solid var(--edge); border-radius: 999px;
+}
+.welcome-sort::after { content: ''; position: absolute; right: 11px; top: 50%; width: 5px; height: 5px; pointer-events: none;
+  border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: translateY(-70%) rotate(45deg); }
+.welcome-sort select:hover, .welcome-sort select:focus-visible { border-color: var(--accent); color: var(--ink); outline: none; }
+.welcome-sort select option { color: var(--ink); background: var(--panel-solid); }
 .welcome-results { overflow-y: auto; overscroll-behavior: contain; min-height: 96px; flex: 1 1 auto; }
 .welcome-destination { width: 100%; text-align: left; padding: 8px 10px; margin-bottom: 5px; min-height: 44px; }
 .welcome-destination strong, .welcome-destination span { display: block; }
 .welcome-destination strong { font-size: 14px; }
+/* T-2632: in Go to a long name wraps to two lines, and every row says how far and which way. */
+.welcome-destination { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0 10px; align-items: center; }
+.welcome-destination strong { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2;
+  overflow: hidden; white-space: normal; overflow-wrap: anywhere; line-height: 1.25; }
+.welcome-destination .welcome-dest-text { min-width: 0; }
+.welcome-destination .welcome-dist { display: inline-flex; align-items: center; gap: 4px; font: 400 11px/1.2 var(--font-mono, ui-monospace, monospace);
+  color: var(--ink-dim); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.welcome-destination .welcome-dist i { display: inline-grid; width: 14px; height: 14px; transform: rotate(var(--turn, 0deg)); }
+.welcome-destination .welcome-dist i svg { width: 14px; height: 14px; }
+
+.welcome-kinds button[hidden] { display: none; }
+/* T-2633: dimmed while the Confidence view hides its grade, with the reason. */
+.welcome-destination.is-hidden-grade strong, .welcome-destination.is-hidden-grade .welcome-dest-text > span,
+.welcome-destination.is-hidden-grade .welcome-dist { opacity: .5; }
+.welcome-destination .welcome-why { display: block; margin-top: 2px; font-size: 11px; font-style: italic; color: var(--ink-dim); }
 .welcome-destination span { font-size: 12px; color: var(--ink-dim); margin-top: 2px; }
 .welcome-destination:disabled { opacity: .6; cursor: default; }
 #welcome-message { font-size: 13px; margin: 0; }
@@ -1923,6 +2236,19 @@ body:is(.is-touch, .touch-first) .chip-group > .chip-more { width: var(--hud-row
 .jaunt-length[data-size="l"] { --g2: currentColor; --g3: currentColor; }
 .jaunt-length:empty { display: none; }
 .jaunt-held { color: var(--ink-dim); border: 1px dashed var(--edge); border-radius: 999px; padding: 0 6px; }
+/* T-2631: a route's plate (a credited picture of its stops), its keepsake, and the outing
+   in progress pinned on top with Continue. */
+.jaunt-type.has-plate { overflow: hidden; padding: 0; background: var(--step); }
+.jaunt-plate { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.05); }
+.jaunt-credit { margin: 2px 0 0; font: 400 9.5px/1.3 var(--font-mono, ui-monospace, monospace); color: var(--ink-dim);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.jaunt-kept { color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent); border-radius: 999px; padding: 0 6px; }
+.jaunt-continue { border-color: var(--accent); }
+.jaunt-continue-k { margin: 0; font: 400 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); }
+.jaunt-continue h3 { margin: 2px 0 0; }
+.jaunt-continue-next { margin: 2px 0 8px; color: var(--ink-dim); }
+.jaunt-continue [data-action="continue"] { min-height: 44px; font-weight: 600; }
 .jaunt-actions { display: flex; align-items: center; gap: 4px; }
 .jaunt-start { width: 40px; height: 40px; display: grid; place-items: center; padding: 0 0 0 2px; cursor: pointer;
   color: var(--accent-ink, var(--panel-solid)); border: 0; border-radius: 50%; background: var(--accent);
@@ -1953,3 +2279,71 @@ body:is(.is-touch, .touch-first) .chip-group > .chip-more { width: var(--hud-row
 .jaunt-stops li { padding: 10px 0; }
 .jaunt-evidence { border-left: 2px solid var(--brass); padding-left: 10px; }
 .jaunt-window-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+
+/* T-2662: a locked term's first appearance, tappable for its one plain line. */
+.locked-term { all: unset; cursor: help; color: inherit; border-bottom: 1px dotted currentColor; }
+.locked-term:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+.term-tip { position: fixed; z-index: 60; pointer-events: auto; padding: 10px 12px; font-size: 13px; line-height: 1.4;
+  color: var(--ink); background: var(--panel-solid); border: 1px solid var(--accent); border-radius: 10px; box-shadow: var(--shadow); }
+.term-tip[hidden] { display: none; }
+.term-tip strong { margin-right: 4px; }
+/* T-2658: the bubble a setting's "Why?" opens (js/why-tips.js) — one element on <body>,
+   placed beside its button and kept 16 px inside the window; the skin's own panel, ink,
+   accent and corner. It scales with Settings › Text size, scrolls if it ever outgrows the
+   window, and fades in only when motion is welcome. */
+.why-tip { position: fixed; z-index: 60; box-sizing: border-box; overflow: auto; pointer-events: auto;
+  padding: 10px 12px; font: 400 calc(13px * var(--text-scale, 1))/1.45 var(--font-body, inherit);
+  color: var(--ink); background: var(--panel-solid); border: 1px solid var(--accent);
+  border-radius: var(--r-screen, 10px); box-shadow: var(--shadow); overflow-wrap: anywhere;
+  animation: why-tip-in .14s var(--ease-machine, ease-out); }
+.why-tip[hidden] { display: none; }
+@keyframes why-tip-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+.why-tip[data-side="above"] { animation-name: why-tip-up; }
+@keyframes why-tip-up { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .why-tip { animation: none; } }
+
+/* T-2629 (NAV-305): Settings › About — the build stamp, and on a dev build the DEV mark
+   in the preview banner's own amber. On a phone the dev chrome is not drawn on the town:
+   the preview's banner and DEV pill (injected into the dev tree only) covered the HUD's
+   top row, so they are hidden at the Navigator's phone width (navigator.js PHONE_MAX_PX),
+   and the arrival card keeps its build stamp only when the arrival has stalled — the
+   moment the stamp is for. About says both. A desktop is unchanged. */
+.about-build { margin: 4px 0 0; font-size: 12px; line-height: 1.5; color: var(--ink-dim);
+  font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.about-dev { display: inline-block; margin-right: 6px; padding: 1px 8px; border-radius: 999px;
+  font-weight: 800; font-size: 10px; letter-spacing: .06em; vertical-align: 1px;
+  color: #1a1503; background: linear-gradient(135deg, #fbbf24, #d97706); }
+.about-dev[hidden], #s-about-dev-note[hidden] { display: none; }
+#s-about-dev-note a { color: var(--accent); }
+/* T-2660: Settings › About › Field log — the counts this device keeps, label and number on
+   one line, the number in tabular figures so the column reads down. A long label wraps. */
+.field-log { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--edge); }
+.field-log > h5 { margin: 0 0 6px; font-size: 10.5px; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--accent); }
+.field-log-rows { display: grid; grid-template-columns: minmax(0, 1fr) fit-content(55%); gap: 4px 12px; margin: 8px 0 10px;
+  font-size: 12.5px; line-height: 1.4; }
+.field-log-rows dt { color: var(--ink-dim); min-width: 0; overflow-wrap: anywhere; }
+.field-log-rows dd { margin: 0; color: var(--ink); text-align: right; font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere; min-width: 0; }
+#s-field-log-status:empty { display: none; }
+/* T-2785 (owner, 2026-10-18: "the dev marker tag and date time stamp for dev is now gone
+   so that should come back"): on a phone the DEV pill always shows in place of the
+   full-width banner, which is the piece that covered the HUD's top row, and the arrival
+   card prints its build stamp again. Production draws neither. */
+@media (max-width: 620px) {
+  #__dev { display: none !important; }
+  #__devpill { display: inline-block !important; }
+}
+/* T-2657 — Researcher mode. Its label is an item of the HUD's top row, between the year chip
+   and the instrument, so the row's own layout keeps it clear of both; level with the chip's
+   middle, it takes no pointer, and it is drawn only while the mode is on (css/skins.css).
+   A full essay it brings back is set off by a dashed rule in the skin's accent. */
+.research-badge {
+  flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  align-self: flex-start; margin-top: 10px; pointer-events: none; padding: 3px 9px; border-radius: 999px;
+  font: 500 9px/1.2 var(--font-mono, ui-monospace, monospace); letter-spacing: .16em;
+  color: var(--accent); background: var(--panel, rgba(16, 32, 58, .94));
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+}
+.why-full { border-left: 2px dashed color-mix(in srgb, var(--accent) 70%, transparent); padding-left: 8px; }
+.research-link { color: var(--accent); }

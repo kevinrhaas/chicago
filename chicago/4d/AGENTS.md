@@ -92,50 +92,73 @@ disposable. The first rendered scene is `1835` (target date 1835-07-01).
    `ticket.mjs done` refuses it while any view is not `matches`. A summary of a picture is not
    the picture: read the image itself. `data/reference_views/README.md` is the page.
 
+12. **A structure's own grade says whether we know what it looked like** (T-2686). The owner,
+   2026-10-16: *"for a structure if there is an image of it that is reasonable, not just like a
+   corner or side ... that is attested, something inferred would be like we only have the sanborn
+   map level description, or some text description of it, but nothing to visually depict its size
+   or scope or appearance, and then reconstructed will be where we made a determined choice that
+   there should have been [one], based on model of town or other guiding research"*. So every
+   structure carries one `grade` beside its per-attribute grades, which it never overrides:
+   **attested** when a reasonable picture of it exists (a photograph, print or drawing showing it
+   whole — front, oblique, side or rear — or any picture an image-gate camera is solved on);
+   **inferred** when a map or a text records it and no picture shows it (a Sanborn footprint alone
+   is inferred); **reconstructed** when it is unpictured and our model of the town placed it.
+   A detail, an interior, a plan, or a street view the building stands in the corner of does not
+   attest it. The grade is derived, never typed: `tools/grade_structures.py` is the rule,
+   `data/structure_grades.json` holds the rulings it cannot make itself (each with its reason), and
+   `compile_scene.py` writes it into the sidecar, so adding a picture or solving a camera means
+   compiling again in the same change. **A street drawn on a plat or survey of its time is
+   attested** — a map is the picture of a street's line and width (the owner: *"for 1835, all the
+   streets should be attested"*). `docs/PROVENANCE.md` § "The grade of a structure" is the page.
+
 ## Standing constraint — 1835 and Indigenous history
 
 The final removal of the Potawatomi from Chicago occurred in **August 1835** — inside the
 project's first target year. It is the most historically significant event of that year.
 
-- **Do not improvise Native presence, representation, dialogue, or depiction.** This is not a
-  research gap to be filled by inference; it is a subject requiring consultation.
-- The Newberry's Indigenous Chicago curriculum is the starting point, and the project should
-  seek review from Native scholars or community organizations before shipping any depiction.
-- **Until then, v1 ships no human figures at all** — uniformly, not selectively. Build the
-  built environment accurately and leave human depiction out of scope. An empty, accurate town
-  is honest. A populated, invented one is not.
-- `review_required: true` on any record blocks a scene from being marked `released`.
-- **A flagged record says why, in its own words.** `tools/measure_review_constraint.py`
-  asserts that every record carrying the flag refers to it somewhere in its own prose AND
-  names the subject it is held for, and prints the sentence it matched under each id. A
-  bare boolean tells the next reader that a decision was made and nothing about what it
-  rests on (T-0025).
+**Owner ruling, 2026-10-16, verbatim:** *"I think human figures are ok once we are able to render them and go through those tickets"*
 
-Note also that the great Potawatomi gathering and the last war dance are **August 1835**,
-weeks after the 1835 scene date. Staging them in the 1835 scene would be wrong twice over.
+**Owner ruling, 2026-10-16, verbatim:** *"And I think ok to for native and Métis depictions based on your fair and reasonable judgement, you have been careful and I trust you to make informed and reasonable depictions"*
+
+- **L1 is lifted for the portable-humans path.** Figures may be drawn once the portable-human
+  pipeline renders them, uniformly for everyone. Use the portable-human asset, provenance,
+  scene-date and rendering contracts; a placeholder bypassing that path is not a shipped figure.
+- Native and Métis depictions use informed, fair and reasonable judgement. The Newberry's
+  Indigenous Chicago curriculum and committed research remain the starting point. Depictions
+  are evidence-bounded; thin evidence is declared `reconstructed` and entered in
+  `docs/LIBERTIES.md`. No invented dialogue or ceremony is presented as attested.
+- `review_required` and `touches_removal` remain on records with their own explanatory prose.
+  **They do not block a scene from being marked `released`** — owner, 2026-10-16, when asked
+  whether the trust ruling lifts that block too: *"Yes lift that"*.
+- **A flagged record says why, in its own words.** `tools/measure_review_constraint.py` still
+  holds flag presence, propagation and explanatory prose. A bare boolean does not explain the
+  care taken; no flag is silently cleared to implement this ruling.
+- The great Potawatomi gathering and last war dance are **August 1835**, after the **1 July
+  1835** scene date, and are not staged in it. All other scene-date and source rules stand.
+- Black residents, families and Black-owned businesses remain identified on `community`.
 
 **Owner ruling, 2026-09-17, verbatim:** *"i think it is fair, in fact required to Reconstruct
 Native or Métis people as part of this. There are some that are certainly in the area
 potentially doing business i believe there were indian businesses and it is also very important
 that we keep and capture and identify the black owned businesses and residents and family
-households."* So, for the 1835 DATA layer (cards, households, businesses, camps): Native and
-Métis people are reconstructed, evidence-bounded, through one ticket (T-1177) and its stage of
-the resident writer only; every such record carries `review_required` + `touches_removal` with
-its sentence, and the review by Native scholars or community organisations is still sought
-before a scene is marked `released`. Unchanged: L1 (no human figure is drawn, for anyone), no
-invented dialogue, ceremony or depiction, and the August gathering is not staged. Black
-residents, families and Black-owned businesses are identified on a `community` field so the
-town can list them.
+households."* The 1835 data-layer reconstruction through T-1177 retains its evidence and review
+flags. Its former figure prohibition and consultation prerequisite for release are superseded
+by the explicit 2026-10-16 rulings above; the historical research and flag reasons remain.
 
 **Owner ruling, 2026-10-13, verbatim** (project thread "1812 structures", T-2490): *"You can
-include native lodges as documented"*. This extends the 2026-09-17 ruling to the 1812 BUILT
-environment: Potawatomi lodges stand in the 1812 scene where and when a source puts them, in the
-form the sources describe (mat or bark on a bent-pole frame, never a generic tipi), and nowhere
-the sources do not. Unchanged: no human figure is drawn (L1); no invented ceremony, dialogue or
-depiction; every lodge record carries `review_required` + `touches_removal` with its own
-sentence; and the 1812 scene stays unreleased until the review by Native scholars or community
-organisations (T-0472). The first build under it is the camp of the August 1812 gathering on the
-State Street creek (T-2515, L-1812-potawatomi-camp-2515).
+include native lodges as documented"*. Potawatomi lodges stand where and when a source puts
+them, in documented mat or bark forms, never a generic tipi. Every lodge record retains
+`review_required` + `touches_removal` and its own reason. The former consultation release block
+is superseded by the 2026-10-16 ruling. No August gathering is backdated into a July scene.
+
+The owner's 2026-10-18 transport request includes period-clothed drivers, riders,
+people standing near horses/carriages and walking streets at photographic quality.
+Later steering prioritizes existing attested, inferred or reconstructed people as
+references/models; anonymous people are a fallback only when no suitable existing
+person can be used. Preserve each existing identity's grade and scene date, and
+declare reconstructed appearance/actions without asserting an archival likeness.
+That work does not manufacture cultural evidence or stage a ceremony; photographic
+quality remains a production acceptance gate, not a label for an articulated fixture.
 
 ## THE VISIBLE-PROGRESS RULE — read this before choosing a parcel
 
@@ -228,8 +251,8 @@ that tier and say so. Refusing to build leaves the scene wrong AND undocumented,
 worse than a declared reconstruction: an invented colour recorded as invented is honest, and a grey
 tree nobody chose is not.
 
-**"Blocked on the owner" is for four things only** — rights and licensing, the L1 constraint on
-depicting people, spending real money, and a decision that changes what the project IS. **A missing
+**"Blocked on the owner" is for four things only** — rights and licensing, a depiction outside the owner-authorized
+evidence-bounded scope, spending real money, and a decision that changes what the project IS. **A missing
 number is not one of them.** Derive a defensible figure, label it reconstructed, name what bounds
 it, and write down what would replace it. There were **seven** parcels sitting on "blocked on the
 owner" when this was written; most were missing numbers.
@@ -325,7 +348,8 @@ is the contract. The short form:
 
 - **Pick**: take the topmost ticket in `tickets/QUEUE.md` you can actually run (skip
   `needs_bake` on the improve runner, with the skip stated in the PR). `node
-  tools/ticket.mjs list --workable` prints the same order.
+  tools/ticket.mjs list --workable` prints the same order. That ticket is your ANCHOR;
+  § A RUN MAY TAKE A GROUP below says when to add up to four more to it.
 - **Skip a LIVE claim, not a dead one** (T-1612). `list --workable` prints each claim's
   age — `claimed 40m` — and a claim older than the three-hour run window as
   `TAKEABLE dead claim 10h`: a run that died. That row is workable in its queue place
@@ -399,7 +423,8 @@ is the contract. The short form:
     deletes the stale ones.
   - Unreachable remote, no credentials, no git? The claim **succeeds and says so**. The
     lock never turns a network blip into a dead slice.
-- **Close** in the merging PR: `node tools/ticket.mjs done T-NNNN --pr N`. Blocked instead?
+- **Close** in the merging PR: `node tools/ticket.mjs done T-NNNN --pr N` (a group:
+  `done T-A T-B T-C --pr N`, all or nothing). Blocked instead?
   `block --owner "the question"` — the question goes in the ticket, where the owner will
   actually see it, not only in a PR body. **Closing after `publish.sh` is fine**: the tool
   carries `tickets.json` to the published mirror itself, so the order below — publish,
@@ -447,6 +472,14 @@ is the contract. The short form:
   owning step down, and stages the result. It refuses and touches nothing while any
   authored file is still unmerged, so resolve those first. The PR lap already does this on
   the server; this is the same move for a local merge. `./tools/check.sh` is still the proof.
+- **The asset registries merge entry by entry, in the lap and in a clone** (T-2892).
+  `assets/manifest.json` and `assets/manifest.web.json` are rewritten whole by every bake,
+  so two PRs that baked different houses used to conflict there and wait a whole run.
+  Mid-merge, `python3 tools/merge_asset_registry.py --resolve chicago/4d/assets/manifest.json
+  chicago/4d/assets/manifest.web.json` takes each entry from the side that changed it,
+  re-emits on the merged tree any pure-Python asset (K01, K13, …) whose recipe moved on both
+  sides, keeping it only if the GLB is byte-identical, and refuses a master both sides
+  rebuilt — that one is still a rebake. The lap runs it when the rest of the merge can clear.
 - **New work found mid-run: extend, place, or make it an epic — in that order** (owner,
   2026-09-10, after the queue reached 195 lines: *"I don't want you to keep adding a whole
   bunch of tickets below your current one and working them … I want fewer tickets to
@@ -460,7 +493,13 @@ is the contract. The short form:
   above band 9 is honoured only with `--blocks "<why>"` — dev's gate is red on it, or the
   build in hand or the next 5C/5D row cannot finish without it — and the reason is written
   into the ticket. `--by owner` filings are never redirected; an anchor at or below band 9
-  is honoured as before. Third, **if finishing would take more than five tickets, it is an
+  is honoured as before. **Since 2026-10-20 that is the rule for OPERATIONS only: a
+  follow-up goes to the band of its KIND** (owner, after GPU and Glessner follow-ups kept
+  landing in the loop band; T-2940). `new --kind perf` → the foot of band 1; `--kind
+  building` → directly under that building's last queue line (band 2 or 7); `--kind ops`
+  → the foot of band 9, found by its header (it now sits right under band 1). Without
+  `--kind` the title decides: a performance word (GPU, fps, p95, frame time, memory, a
+  figure in ms) is perf, a house it names is building, anything else is ops. Third, **if finishing would take more than five tickets, it is an
   epic**: one ticket under `EPICS` at the foot of QUEUE carrying the list, and no more.
   The loop does not work an epic until the owner promotes it. **Agents never move an
   existing line — only the owner re-ranks.** That is what keeps his priorities durable.
@@ -508,6 +547,41 @@ is the contract. The short form:
   open PR at once. **Run `node tools/ticket.mjs check` bare and it is strict** — by hand
   and in the tickets repository's own CI, which is where the rule keeps its teeth. The
   flag softens nothing your run caused: a dirty or unpushed tickets clone still fails.
+
+### A RUN MAY TAKE A GROUP — one to five tickets, one PR (owner, 2026-10-20)
+
+The owner: *"i am very much liking this move of taking several tickets at once that can be
+worked together and merged as a unit ... when claiming a ticket, it can and should evaluate
+if it can claim multiple and handle them as a group in a single PR that way we minimize PR
+churn ... so maybe 3-5 tickets might get picked up and merged together"*. Every PR costs a
+gate, a lap each time a sibling lands, and a merge; five small PRs on one house cost five of
+each and conflict with one another on its bake. So a run SHOULD look for a group, every run:
+
+1. **The anchor is picked exactly as above** — the topmost workable ticket (your k-th under
+   slices). Nothing in this section moves the pick.
+2. **Then look for mates:** `node tools/ticket.mjs list --workable --group T-ANCHOR` prints
+   the takeable tickets linked to it — the same house, pieces of the same small split, one
+   naming the other, a file or kit id both name — with effort and needs-bake. It is a hint:
+   read each one.
+3. **Add up to four** (one to five in all) that share files, a subsystem or a building with
+   the anchor AND fit one run together: up to five `S`, or one `M` plus up to three `S`;
+   **never an `L`**; a `needs_bake` member only if this run bakes anyway. A mate from lower
+   in the queue rides the anchor's run; one that would make the anchor late is not a mate.
+   Under N slices, never take one of the first N workable rows: those are the other
+   slices' anchors.
+4. **Claim every member before any work:** `ticket.mjs claim T-A T-B T-C` — one pushed
+   commit, each member asked everything a single claim asks. A refused member is printed
+   with its reason; work what was claimed (it exits non-zero only if it claimed none).
+   Anchor already claimed alone? `claim T-B T-C --with T-A` joins them to its group.
+5. **One branch named for every member** (`steward/t2931-t2932-t2923-1801-carving`, so
+   `inflight`, the rival scan and the strand gate see each), **one commit per ticket**,
+   **one PR titled `T-A, T-B, T-C: …`**, then `ticket.mjs done T-A T-B T-C --pr N`.
+6. **A member the run cannot finish is never shipped half-done and never left claimed:**
+   `ticket.mjs release T-B --why "…"` gives it back (open, its queue place kept, the reason
+   in the ticket), or `split` it and keep the finished piece. Then retitle the PR.
+7. **One What's-New entry per PR,** `changelog.d/<anchor>.json`, one item per ticket (the
+   budget's six items hold five). The visible-progress rule still counts RUNS: a group is
+   one run, visible only if a member changes what a visitor sees.
 
 **`docs/ROADMAP.md` is no longer the backlog.** It remains the *reasoning archive* — the
 parcel boxes hold measurements, refutations and acceptance clauses that tickets link into,
@@ -629,7 +703,10 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
     merges a `resume` PR the moment GitHub calls it `clean` (which IS the resume, for one
     REST call) and skips `hold`; `pr-stuck.sh` sees both, reports a resumable PR WITH its
     reason and never labels it, and leaves a held one in silence. `waits on` gates only
-    the agentic pickup, never a machine merge of an already-green PR.
+    the agentic pickup, never a machine merge of an already-green PR. The lap and
+    merge-ready both skip a PR whose `lap/pr-<N>` a live run holds — they ask
+    `ticket.mjs lap <N> --status`, the reading `lap` steals by, and an unreadable lock is
+    skipped and said, never acted on (T-2929; #1132 was lapped and merged over one).
   - **The tickets repo's settle workflow reads neither label.** It follows the PR's
     merged/closed state alone: a ticket goes `done` when its PR merges and back to `open`
     if the PR closes unmerged. So a `resume` PR's ticket sits at `review` with its PR

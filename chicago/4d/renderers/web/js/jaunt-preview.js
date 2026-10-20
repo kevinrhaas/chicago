@@ -2,11 +2,16 @@
 import { createJauntMenu } from './jaunt-menu.js';
 import { createJournal, presentKeepsake } from './jaunt-journal.js';
 import { icon } from './menu-icons.js';
-export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null, estimate = () => null, storage }) {
+import { t } from './strings/index.js';
+import './strings/license.js';
+import { loadReaderText, readerCopy } from './reader-text.js';
+
+export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null, estimate = () => null, storage, plateFor = () => null, preferredMode = () => null, modeNote = () => '', license = null }) {
   const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
   let catalogPromise, daybookPromise, journal = null, serial = 0;
   const contents = new Map();
-  const menu = createJauntMenu({ root, estimate, onStart, onPreview: select });
+  const menu = createJauntMenu({ root, estimate, onStart, onPreview: select, plateFor,
+    kept: row => !!journal?.keepsakes.some(e => e.jaunt === row.id), preferredMode, modeNote });
   const node = (tag, text, className) => {
     const el = document.createElement(tag); el.textContent = text;
     if (className) el.className = className;
@@ -49,6 +54,17 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       node('p', k.secondary ? `${k.family} · ${k.secondary}` : k.family, 'jaunt-keepsake-family'));
     return card;
   }
+  // T-2665: the Navigator License, finishing the Field Check's keepsake (js/license.js), on the
+  // shelf with the Jaunt keepsakes in every year's daybook. It is not a jaunt's, so it has no
+  // family, moves no count or rank, and Reset daybook leaves it.
+  function licenseCard() {
+    const k = license?.card?.();
+    if (!k) return null;
+    const card = node('article', '', 'jaunt-keepsake jaunt-keepsake-license');
+    card.dataset.keepsake = 'navigator-license';
+    card.append(node('p', k.form, 'jaunt-keepsake-form'), node('h4', k.title), node('p', k.text), node('p', k.line, 'jaunt-keepsake-family'));
+    return card;
+  }
   function counters(counts, moved = new Set()) {
     const row = node('ul', '', 'jaunt-daybook-families'); row.setAttribute('aria-label', 'Keepsakes by family');
     for (const family of journal.book.families) {
@@ -72,13 +88,17 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     view.append(title, node('p', journal.book.disclaimer, 'jaunt-meta'));
     if (journal.notice) view.append(node('p', journal.notice, 'jaunt-session-note'));
     view.append(rankLine(), counters(journal.counts()));
-    const items = journal.keepsakes;
-    if (!items.length) view.append(node('p', 'No keepsakes yet. Finish a jaunt and its memento is kept here.'));
-    else { const shelf = node('div', '', 'jaunt-keepsakes'); shelf.append(...items.reverse().map(keepsakeCard)); view.append(shelf); }
+    const items = journal.keepsakes, held = licenseCard();
+    if (!items.length) view.append(node('p', held ? t('license.no-jaunt-keepsakes') : 'No keepsakes yet. Finish a jaunt and its memento is kept here.'));
+    if (items.length || held) {
+      const shelf = node('div', '', 'jaunt-keepsakes');
+      shelf.append(...items.reverse().map(keepsakeCard), ...(held ? [held] : []));
+      view.append(shelf);
+    }
     if (items.length) {
       const reset = button('Reset daybook', () => {
         if (reset.dataset.confirm) { journal.reset(); showDaybook(returnId); return; }
-        reset.dataset.confirm = 'true'; reset.textContent = 'Tap again to clear every keepsake';
+        reset.dataset.confirm = 'true'; reset.textContent = held ? t('license.reset-confirm') : 'Tap again to clear every keepsake';
       });
       reset.dataset.action = 'daybook-reset'; view.append(reset);
     }
@@ -100,7 +120,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
   function list(rows, returnId, focusStart = false) {
     const prefix = [];
     if (journal) {
-      const entry = button(`${journal.level().title} · ${journal.keepsakes.length} kept`, () => showDaybook(returnId));
+      const entry = button(`${journal.level().title} · ${journal.keepsakes.length + (license?.held ? 1 : 0)} kept`, () => showDaybook(returnId));
       entry.title = 'Daybook'; entry.setAttribute('aria-label', `Daybook · ${entry.textContent}`);
       entry.dataset.action = 'daybook'; entry.classList.add('jaunt-daybook-chip'); entry.prepend(icon('News & Knowledge', 15)); prefix.push(entry);
     }
@@ -114,8 +134,18 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
         if (awarded) note.append(awarded);
         else if (!session.outcome.fallback) note.append(node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));
         if (journal) note.append(button('Open your daybook', () => showDaybook(session.jaunt.id)));
-      } else note.append(node('h3', `Resume ${session.jaunt.title}`), node('p', `Stop ${session.stopIndex + 1}`), button('Resume Jaunt', () => { menu.capture(); onResume(); }));
-      note.append(button('Restart Jaunt', () => { menu.capture(); onStart(session.jaunt.id, { mode: session.mode }); })); prefix.push(note);
+      } else {
+        // T-2631: the outing in progress, pinned on top — where you are and what comes next.
+        const stops = session.jaunt.stops ?? [], at = session.stopIndex, next = stops[at + 1];
+        const label = stop => session.jaunt.places?.[stop.destination.id] || destinations.byId(stop.destination.kind, stop.destination.id)?.label || 'the next stop';
+        note.classList.add('jaunt-continue'); note.dataset.continue = session.jaunt.id;
+        const go = button('Continue', () => { menu.capture(); onResume(); }); go.dataset.action = 'continue';
+        note.append(node('p', `Continue · Stop ${at + 1} of ${stops.length || at + 1}`, 'jaunt-continue-k'), node('h3', session.jaunt.title),
+          node('p', next ? `Next: ${label(next)}` : 'Next: the end of the outing', 'jaunt-continue-next'), go);
+      }
+      note.append(button('Restart Jaunt', () => { menu.capture(); onStart(session.jaunt.id, { mode: session.mode }); }));
+      // In progress, it leads the list; an outcome follows the daybook chip as before.
+      if (session.phase === 'menu') prefix.unshift(note); else prefix.push(note);
     }
     menu.show(rows, prefix, returnId, focusStart);
   }
@@ -127,6 +157,9 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     if (!content) {
       content = await json(`${id}.json`, options);
       if (content.scene !== String(scene) || content.id !== id || content.review_required || !content.stops?.length) throw new Error('Invalid jaunt');
+      // T-2825: a stop's evidence (its locator, its reasoning, its citations) said for a
+      // reader, by the overlay the gate lints; the story itself is already a visitor's text.
+      content = readerCopy(content, await loadReaderText(dataBase, `jaunts_${scene}`));
       contents.set(id, content);
     }
     return content;
@@ -145,7 +178,8 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       for (const stop of content.stops) {
         const item = node('li', '');
         const place = destinations.byId(stop.destination.kind, stop.destination.id);
-        item.append(node('h4', place?.label || stop.destination.id), node('p', stop.text));
+        // T-2946: the jaunt's own name for the stop, as its panel and road notes give it.
+        item.append(node('h4', content.places?.[stop.destination.id] || place?.label || stop.destination.id), node('p', stop.text));
         if (stop.choices?.length) item.append(node('p', `Optional preference: ${stop.choices.map(c => c.label).join(' / ')}. You may also skip it.`, 'jaunt-meta'));
         const evidence = node('div', '', 'jaunt-evidence'); evidence.hidden = true;
         for (const id of stop.evidence) {
@@ -156,7 +190,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
           const locators = [claim.locator, claim.reasoning, claim.liberty ? 'Declared narrative reconstruction.' : null, ...sources].filter(Boolean);
           evidence.append(node('p', locators.join(' · '), 'jaunt-meta'));
         }
-        const toggle = button('Evidence for this stop', () => {
+        const toggle = button('Sources for this stop', () => {
           evidence.hidden = !evidence.hidden; toggle.setAttribute('aria-expanded', String(!evidence.hidden));
         });
         toggle.setAttribute('aria-expanded', 'false'); item.append(toggle, evidence); stops.append(item);

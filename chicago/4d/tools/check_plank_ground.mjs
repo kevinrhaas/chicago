@@ -47,7 +47,8 @@ const frontage=await import(modURL(frontageSource.replace("from 'three'",`from '
  .replace("from './compact-streams.js'",`from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/compact-streams.js')).href}'`)
  // T-2572: the pick module, loaded as itself with its own `three` import pointed home.
  .replace("from './gpu-pick.js'", `from 'data:text/javascript;base64,${Buffer.from(
-   readFileSync(path.join(sourceRoot,'renderers/web/js/gpu-pick.js'), 'utf8').replace("from 'three'", `from '${threeURL}'`))
+   readFileSync(path.join(sourceRoot,'renderers/web/js/gpu-pick.js'), 'utf8').replace("from 'three'", `from '${threeURL}'`)
+      .replace("from './compact-streams.js'", `from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/compact-streams.js')).href}'`))
    .toString('base64')}'`)
  +'\nexport {timberBuf,plainTimber,buildWalk,buildCrossing};'));
 globalThis.fetch=async(url)=>{const file=fileURLToPath(url);if(!file.startsWith(path.join(sourceRoot,'data/')))return {ok:false,status:404};
@@ -185,7 +186,7 @@ await check('repeated terrain replacement disposes each geometry once',()=>{
  const body=terrainSource.match(/protectGroundUnder\(footprints\) \{([\s\S]*?)\n    \},/)?.[1];
  assert.ok(body,'the terrain API exists');
  const run=new Function('groundBase','heightfield','gridGeometry','GROUND_BASE_STEP','disposables',
-  `return function(footprints){${body}}`)(groundBase,{loaded:true},make,baseStride,disposables);
+  `let baseReplay=null;return function(footprints){${body}}`)(groundBase,{loaded:true},make,baseStride,disposables);
  run([]);run([]);
  assert.equal(disposables.length,1);assert.equal(disposables[0],groundBase.geometry);
  for(const d of disposables)d.dispose();
@@ -207,7 +208,7 @@ await check('batching and repeated crossing protection preserve placement and re
  const build=(geometry,mat)=>{const mesh=spatialBatch(geometry,mat);track(mesh.geometry);return mesh;};
  const buildAsync=async(geometry,mat)=>{const mesh=await spatialBatchAsync(geometry,mat);track(mesh.geometry);return mesh;};
  const api=new Function('groundBase','heightfield','gridGeometry','GROUND_BASE_STEP','disposables','spatialBatch','spatialBatchAsync','group',
-  `return {protect(footprints){${protect}},async batch(){${batch}},current:()=>groundBase};`)(initial,{loaded:true},make,baseStride,disposables,build,buildAsync,group);
+  `let baseReplay=null;return {protect(footprints){${protect}},async batch(){${batch}},current:()=>groundBase};`)(initial,{loaded:true},make,baseStride,disposables,build,buildAsync,group);
  api.protect([]);assert.equal(await api.batch(),true);assert.equal(await api.batch(),false);
  api.protect([]);api.protect([]);
  const current=api.current();

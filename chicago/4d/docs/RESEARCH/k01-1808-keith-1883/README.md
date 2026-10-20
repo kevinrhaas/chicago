@@ -334,3 +334,151 @@ south-east pinnacle (T-2581); and Keith's slice not fitting one level camera wit
 Glessner's front as the two models are placed. The 1965 porch view's bow lights,
 which read "shorter" at the old 18 px fit, land within 2.5 px of the model at head
 and sill. No geometry changed; the GLB is the one T-2577 shipped.
+
+## T-2712 — the hall stack stopped under the return's coping (piece 1 of T-2586)
+
+T-2578 left the hall stack standing 0.8 m over the return's coping beside the cowl, where the
+1887 construction view, Taylor 2135, the rotated 1888 Glessner plate and the c. 1888 view
+looking SW all show sky. A flat roof's stack may now carry its own `top_m` (K01 params; it must
+clear the deck it stands on, the stone finish's 1.45 m drop taken, by 0.6 m), and the hall stack
+tops at 16.1 m, 0.14 m under the coping: hidden from every street camera, with the cowl's pipe
+rising 0.05 m clear of its cap before it bends over the coping (L-k01-keith-hall-stack-2586).
+All sixteen views were re-rendered and each new render diffed against the reviewed one: four are
+pixel-identical, four front views change by a sliver seen through the lattice's north openings,
+and the rest change only where the stack stood. The 1887 view, the 1888 Glessner plate and both
+Taylor 2135 records had the stack as their last open difference and now read `matches`; the
+c. 1888 SW view keeps its cap-height reading open, and the Glessner-front view its cap over the
+coping. The 1948 view's low stub at the cowl's foot is later fabric and is not read back.
+
+## T-2713 — the cowl's cap ruled (piece 2 of T-2586)
+
+T-2712 left two readings of the cowl's cap open, and they pull opposite ways: the c. 1888 view
+looking SW reads the cap higher over the coping than the render, and the undated Glessner-front
+view shows clean sky over the whole coping. Through T-2579's re-fitted Glessner-front camera
+(0.74 px) no cowl inside the record's bounds hides behind the return: at the 0.6 m set-back the
+cap clears the return's skyline by 45-129 px across the whole 0.4-1.6 m height range, and only at
+the 1.5 m limit, with the cap at 0.95 m or lower, does it drop behind, and then against the
+front's crown. Every other picture of 1887-89 shows the cowl, and by 1948 only its stub is
+left, so the Glessner-front view (probably 1890s-1920s, T-2216) is read as later than the
+cowl's removal and its cap item reads `not shown`.
+
+The height is taken from the best camera that sees the cap: T-2579's re-fit on the 1888 Glessner
+plate, where the photograph's cap top stood 3.5 px (0.1 m at 37 px/m) beyond the render's. The
+cap now stands 1.05 m over the coping (0.95 before), and on the plate the two tops agree to
+1-2 px. The c. 1888 SW view reads more again (about 0.94 m apparent over the coping against
+the render's 0.64 m, measured against the return's own courses under it), but its T-1883 camera
+puts the rear pinnacle about 60 px right of and 40 px below the photograph's, so the return's
+run and fall there are the camera's; that view keeps a new open item for its re-fit, which the
+print's faint apexes make a job of its own. All sixteen views were re-rendered; the verdicts
+stand where they were (the 1887 view, the plate and both Taylor 2135 records still read
+`matches`: on the plate the cap now agrees to 1-2 px, and in the two older registrations it moves
+toward the photograph's, which still reads it a little higher).
+
+## T-2811 — the cowl's set-back read on two cameras (piece 1 of T-2751)
+
+T-2748's re-fit of the c. 1888 view looking SW (4.1 px RMS, the rear pinnacle held to 1.5 px
+across) read the cowl's cap 11 px left of and 7 px under the print's, and put both on the cowl's
+reconstructed depth behind the return's face. Rendered at a 0.3 m set-back the cap's centre
+stands at x 1241 against the print's 1242.5 and its top at y 108 against 106: in this low view a
+cowl nearer the face also stands higher, so the height excess was the set-back's, not the cap's.
+
+The 1888 Glessner plate disagrees. Its T-2579 camera holds both return pinnacles to 1-4 px, and
+it read the cap where it was built (centre y 630.5 against the plate's 629.5 at 0.6 m); at 0.3 m
+it reads 10.5 px off. Measured sensitivities, per 0.3 m (cap centre, then cap top):
+
+| move | c. 1888 SW (x, y) | 1888 plate (y, x) |
+|---|---|---|
+| 0.3 m nearer the face | +9, -5 | +9.5, +1 |
+| 0.3 m further back along the return | +10.5, +4 | +6, -3 |
+
+Both cameras see a move along the return almost as a change of set-back, so a place that meets
+both prints needs the cowl 0.75 m further back and 0.5 m deeper, with its cap raised 0.25 m by the
+plate's reading and 0.54 m by the photograph's — fitting the cameras' residuals, not the cowl.
+Least squares over the four readings gives a set-back of 0.42 m alone, or 0.41 m with the place
+along the return free (which then moves 0.01 m, to 3.29 m). The cowl is built at **0.45 m**; its
+place (3.3 m) and its cap's height (1.05 m) stand. The c. 1888 view's cap now reads 6 px across
+and 5 px high from the print's, the plate's 5.5 px along the return and 0 px in height: the two
+cameras' disagreement, which no placement of the cowl removes. The c. 1888 view's cowl item is
+closed on that; the view still differs on its stoop (T-2812).
+
+All seventeen views were re-rendered. Every changed pixel sits in one cluster at the cowl, and
+four views (the 1965 porch, the mid-1950s, the owner's crop and Reed 1941) are unchanged to the
+pixel. The verdicts stand where they were, and the plate, Taylor 2135 and the 1887 view still
+read `matches`.
+
+## T-2815 — the 1888 plate's bow lights, bow cap band and south pedestal side (piece 5 of T-2751)
+
+Three items the 1888 plate (inland-1888, native 1559 px) drew and the model did not:
+
+- **The principal bow lights in three tiers.** T-2765 read them on the south light's column
+  with no camera (heights fitted to one scale, 77.8 px/m): the main sash's head at y 1480
+  (4.05 m), the lower bar's top at 1468 (4.21 m), the upper bar at 1418 (4.85 m) and the head at
+  1382 (5.32 m). The K06 transom sash learns `tiers` (`generators/archetypes/k06_windows.py`
+  `_tiers`): each fixed light stands on a bar in the wall's own stone (the `mullion` role), its
+  face on the wall's face, back to the frame's back. Keith's bow takes two 0.15 m bars under a
+  0.5 m light and a 0.45 m top light, so the sash runs from the 2.35 m sill to 4.05 m. In the
+  render the three tiers and their bars stand where the print's do.
+- **The carved band under the bow's cap.** Median intensity down the bow at x 400-640 puts the
+  print's dark band from y 1006 to 1054 and the cap's light top over it (975-1005, a fillet's
+  shadow at 993); the band's foot is about 9.54 m on T-2765's scale, 27 px over the second-storey
+  heads (y 1081). The model had plain coursed wall from the heads to the cap's seat at 9.8 m.
+  K08 learns `cap_band` (`generators/archetypes/k08_bays.py` `_cap_band`, sharing T-2778's
+  guilloche through `_guilloche`, so 1623's frieze keeps its bytes): Keith's bow carries a
+  dressed band 0.26 m deep, 0.045 m proud (clear of the 0.036 m rock face) under the seat, its
+  top 2 mm under the seat's underside, which the mitred moulding already draws. In the render
+  its foot stands 33 px over the heads against the print's 27. The print draws the carving
+  only as dark texture through the street tree, so the guilloche is reconstructed, and the
+  neutral review render lights the band where the print holds it in shadow (its own `not shown`
+  item in the match record).
+- **The south pedestal's side field.** The plate sees the south pedestal's south face (x
+  872-886, y 1590-1650) and draws a field in a border like its front's; K07's loggia now lays the
+  same 35 mm bead on that face, 0.1 m in from its arrises. No picture shows the north
+  pedestal's north side, so it stays plain.
+
+`inland-1888` now reads `matches`: every difference is fixed, or not shown (the colonnettes'
+capitals, the head bands' sections, the rear, the colour and the band's carving). The kit
+code is an input to every K01, K13 and K16 master, so all of them were re-emitted; only
+Keith's bytes changed. All sixteen views were re-rendered. In the three that see the bow's
+front (mid-1950s, Nickel 1967, the owner's view looking SW) the print shows the principal lights
+tiered as now built, and the verdicts stand where they were.
+
+## T-2882 — the image gate closed, and this package's acceptance checked off
+
+T-2882 (piece 2 of T-2877) built the last thing a picture showed and the model did not.
+That is a respond on the wall behind each of the loggia's rear pairs: a flat pier 0.25 m
+deep, from the rear pedestal's top to the ceiling. The 1888 plate's lit upright beside the
+north rear pair is its south face, and the first-floor plan's 0.27 m block at the wall is the
+respond with the pair standing on it. The reading is in
+[`keith-loggia-respond-read.json`](../photo-match/keith_house_1808_prairie/keith-loggia-respond-read.json),
+written by `tools/keith_loggia_respond_read.py`; the liberty is `L-k07-1808-loggia-2500`'s
+T-2882 revision. All sixteen reference views were then re-rendered and read again. Every one
+now reads **matches**, with no difference left `open`.
+
+The c. 1888 view looking south-west had been left at `differs` with nothing open on it. Its
+verdict is now settled: every item on the record is fixed or `not shown`, with its reason,
+and the print shows only Keith's crown, upper front, north return and stoop beside Glessner.
+The stoop is the item T-2812 ruled the print cannot place.
+
+Acceptance 1 (T-1883), item by item:
+
+- [x] **Close street views:** `inland-1888` and its three reproductions, the 1965 slide
+  (`a18-gh-1808-porch-1965`) and `nickel-1967` all read matches.
+- [x] **Corner views:** Florian 1948 NE, both Taylor 2135 NE copies, Reed 1941, the
+  mid-1950s view, the c. 1888 and owner's south-west views, the Glessner front, the 1887
+  construction view and the 1888 Glessner plate all read matches.
+- [x] **Aerial / roof:** no picture looks down on the house. Its roof stays reconstructed
+  (`L-k01-keith-finish-1883`). The browser's roof and rear stands are this package's own
+  `after-*-roof` / `after-*-rear` captures above.
+- [x] **Register features accounted for:** the flat top, bow, loggia (front and rear rows,
+  responds), stair, openings, stone and boundary, each fixed or ruled on the match records.
+- [x] **Liberties filed:** `L-k01-keith-finish-1883` and `L-k07-1808-loggia-2500`, revised
+  through T-2882. `compile_liberties.py --check` and `validate.py`'s Covers matching run in
+  `check.sh`.
+- [x] **Licences:** each reference image keeps its library credit and rights statement
+  ([credits](../../../data/sources/assets/inland_architect_1888_02_keith/README.md)). The
+  owner approved the 1888 plate on 2026-10-16. `check.sh`'s dataset step (licences) and its
+  rights-derivation gate pass.
+- [x] **Compressed browser asset:** re-measured by
+  `node tools/k01_contract.mjs --measure-asset keith_house_1808_prairie`. The master is
+  **69,838 triangles**, 26 primitives, 8,128,000 bytes; the web derivative is 3,706,548
+  bytes. Scale, origin and metric-UV checks pass, with zero coincident faces in either tier.

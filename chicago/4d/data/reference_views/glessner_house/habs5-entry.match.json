@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs5-entry",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
+  "glb_sha256": "8febcc7455b381caa3599a59a832091d001c32601394143ae6902e1e6bd08b7b",
   "camera_sha256": "527197a4970943eaadca69f2b69ee0d464337acabbca3b9db2ca7122d4e8029d",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg",
   "verdict": "differs",
@@ -24,7 +24,27 @@
       "status": "fixed"
     },
     {
-      "what": "Exact HABS arch proportion, individual carved leaves, stone joints, and door leaf/hardware correspondence. Depth remains bounded reconstruction, not determined by the elevation.",
+      "what": "T-2912, arch proportion: the sheet draws the head STILTED, not a semicircle on the spring line. Read at 100 px a foot, the extrados is 6.48 ft across and stands 7.06 ft over the spring (centre 0.58 ft up), the tympanum's ring 2.51 ft across and 2.93 ft high (centre 0.47 ft up), and both run plumb down to the spring; the office's doorway No. 23A draws the same. Built: centre 0.5 ft over the spring, extrados 6.5 ft, springers and the tympanum's fillets, billet channel, archivolt floor and rolls carried plumb to the spring. Residual: the fan's crown sits within 0.06 ft of the sheet's, the tympanum ring's about 0.1 ft high.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2912, the fan's joints: fifteen voussoirs keyed at the crown, radiating from the stilted centre, the two springers' outer and inner faces plumb to the spring line as the sheet draws its lowest stones.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2912, the carving at the drawing's grain: the sheet draws eight stems bent into rings in the field, unequal and not mirrored, four low and four high, rising from a boss at the foot; the build had five on a mirrored trunk. Built: the sheet's eight at its places and sizes (docs/RESEARCH/glessner-entry-T-2853/), on stems from the foot boss. The leaves inside each ring are below the sheet's stipple and stay the owner's photographs' rosettes (reconstructed carving, LIBERTIES).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2912, door leaf and hardware: the sheet draws the leaf of 1963 (a seven-by-seven grille with spear tips and no figures, no strap, a knob at the left stile, one lower panel). The period photograph a18-gh-glessner-front-with-keith shows the figures 1800 a fifth of the way down the leaf and a knob at mid-height on its centre line, where the office's sheet No. 95 puts the grille's number row and the strap's boss, and neither is on the 1963 leaf; so the sheet records a later leaf, not the 1904 one, and the build keeps sheet No. 95 (L-glessner-front-door-2216). This picture cannot show the 1904 leaf.",
+      "status": "not shown"
+    },
+    {
+      "what": "Ivy beside the door: the 1963 drawing draws no planting; the vine is the period photographs' (T-2225) and is not carried forward or back from this sheet.",
+      "status": "not shown"
+    },
+    {
+      "what": "Wall at the entry (T-2913): the sheet's course lines either side of the door (about 7.1, 5.8, 4.7, 3.8, 2.5 and 1.0 ft over the door datum) do not fall on the build's (7.3, 6.7, 6.1, 5.5, 4.4, 3.6, 2.3, 0.8), and its header stone's joints (S 27.7 and 36.0) against the build's 10 ft stone, which the period photograph supports at about 10.6 ft.",
       "status": "open"
     }
   ],

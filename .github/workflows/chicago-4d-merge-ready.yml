@@ -70,6 +70,16 @@ jobs:
 
       - uses: actions/checkout@v4
 
+      # NODE, BECAUSE A `clean` PR IS MERGED ONLY ONCE ITS LAP LOCK IS READ (T-2929).
+      # merge-ready.sh asks `chicago/4d/tools/ticket.mjs lap <N> --status` whether a live
+      # run holds `lap/pr-<N>`, and leaves the PR to it if so — #1132 was merged at 13:37Z
+      # on 2026-10-20 over a lock taken at 13:00Z. Pinned to the lap's version so the two
+      # sweeps read the lock with the same runtime. The checkout's origin (GITHUB_TOKEN,
+      # contents: read) is enough to ls-remote and fetch the marker.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
       # WHY THIS WATCHES RATHER THAN LOOKS ONCE. A push to `dev` starts the lap,
       # the lap re-pushes every open PR, and each of those gates for 6-11 minutes.
       # A single pass here would run while all of them read `blocked` and merge

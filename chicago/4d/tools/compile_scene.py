@@ -25,6 +25,7 @@ import argparse
 import datetime as dt
 import json
 import math
+import re
 import sys
 from pathlib import Path
 
@@ -38,10 +39,23 @@ from exclusion_scope import ruled_for  # noqa: E402
 from associations import HOME_KINDS, WORK_KINDS, read_bounds  # noqa: E402
 sys.path.insert(0, str(ROOT / "generators"))
 from common.materials import fabric_tone  # noqa: E402
+from grade_structures import grade_street  # noqa: E402
+import readable_text  # noqa: E402
 
 
 CHECK = False
 DRIFT: list[str] = []
+
+_GRADER = None
+
+
+def structure_grader():
+    """The structure grade (AGENTS.md rule 12, T-2686): one picture join for the whole run."""
+    global _GRADER
+    if _GRADER is None:
+        from grade_structures import grader
+        _GRADER = grader()
+    return _GRADER
 
 # Which write-up a reconstructed building's card points at, by the programme that
 # raised it. A record with no reconstruction block is a researched building and
@@ -139,6 +153,8 @@ def emit(path: Path, doc, *, compact: bool = False) -> None:
     the indentation is for that reader. `people.json` has 1,400 rows and no
     reader of that kind — it is a directory the browser filters — and indented it
     is 1.6 MB against 0.7 MB compact, so it is the one file written this way."""
+    if isinstance(doc, dict):
+        doc = reader_copy(path.name, doc)
     text = (json.dumps(doc, separators=(",", ":"), ensure_ascii=False) if compact
             else json.dumps(doc, indent=2, ensure_ascii=False)) + "\n"
     if not CHECK:
@@ -149,6 +165,44 @@ def emit(path: Path, doc, *, compact: bool = False) -> None:
         DRIFT.append(f"{rel} is missing")
     elif path.read_text() != text:
         DRIFT.append(f"{rel} is not what the dataset compiles to")
+
+
+# ---------------------------------------------------------------- the reader's copy (T-2825)
+#
+# The owner, 2026-10-18: the research records a person opens name no internal ticket
+# number and no internal record id, in any mode. The ground's claims and the open
+# questions are research prose written for the people building the town, compiled here
+# into the two sidecars the Sources hub reads, so they are rewritten here, by the rule
+# every research surface shares (tools/readable_text.py). The paths are the fields the
+# renderer prints (js/ground.js, js/exclusions.js, js/citations.js), and nothing else:
+# ids, keys and grades are the data's and stay as they are.
+READER_PATHS = readable_text.SIDECAR_PATHS
+_NAMES = None
+
+
+def reader_copy(name: str, doc: dict) -> dict:
+    """`doc` with every string READER_PATHS lists for `name` rewritten for a reader."""
+    global _NAMES
+    paths = READER_PATHS.get(name)
+    if not paths:
+        return doc
+    if _NAMES is None:
+        _NAMES = readable_text.Names(ROOT)
+    # A copy: the citations in it are the joined source records every other sidecar of
+    # the scene shares, and a building's card is not this rewrite's to change.
+    doc = json.loads(json.dumps(doc))
+    readable_text.rewrite_paths(doc, paths, _NAMES)
+    for u in doc.get("uncertain") or []:
+        # The claim that carries an open question, and the research note it is argued in,
+        # said as words: the renderer printed both as code.
+        if u.get("carried_by"):
+            u["carried_by_label"] = readable_text.words(str(u["carried_by"]).split(".")[-1])
+        dossier = u.get("dossier")
+        if isinstance(dossier, dict) and dossier.get("file"):
+            dossier["label"] = readable_text.path_words(dossier["file"], _NAMES)
+            if dossier.get("anchor"):
+                dossier["anchor"], _ = readable_text.rewrite(dossier["anchor"], _NAMES)
+    return doc
 
 
 def vertical_anchor(archetype: str) -> str:
@@ -832,6 +886,104 @@ def role_row_view(person: dict) -> dict:
     }
 
 
+#: The scene whose households live in `data/residents/` itself, and the manifest
+#: `tools/rebuild_resident_index.py` derives there. Every other scene keeps its own
+#: households apart, in `data/residents_<scene>/` (T-2702), so no 1835 card can reach a
+#: later town's directory and no later card can move a figure the 1835 town model reads.
+LEGACY_RESIDENTS_SCENE = "1835"
+
+
+def residents_root(scene_id: str) -> Path:
+    """Where a scene's household records live."""
+    if scene_id == LEGACY_RESIDENTS_SCENE:
+        return DATA / "residents"
+    return DATA / f"residents_{scene_id}"
+
+
+def has_own_people(scene_id: str) -> bool:
+    """A scene other than 1835 that holds household records of its own (T-2702). Its
+    directory is compiled whether or not the scene lists the `residents` layer: that
+    layer is the drawer's People, City, Population and Order book, which read the 1835
+    town's files (T-1740), while the directory is read by the summary records and,
+    later, the Navigator's People app."""
+    return (scene_id != LEGACY_RESIDENTS_SCENE
+            and (residents_root(scene_id) / "households").is_dir())
+
+
+def scene_people_manifest(scene_id: str, root: Path) -> dict | None:
+    """The household manifest `compile_people` walks, or None when there is none.
+
+    1835's is `data/residents/index.json`, derived by tools/rebuild_resident_index.py.
+    A later scene's is its `households/` directory itself, in file order, and every card
+    in it is held here to the rules a card is held to before it can enter a directory:
+    its id is its file's name; every person has an id, a name and a grade on the ladder;
+    an attested person and an attested place cite sources that resolve in data/sources/;
+    a home or workplace names a structure that stands in the scene; and nobody arrives
+    after the scene date. A card that fails stops the build — a person no source puts
+    under a roof is not a person this directory can carry.
+    """
+    if scene_id == LEGACY_RESIDENTS_SCENE:
+        index_path = root / "index.json"
+        return load(index_path) if index_path.exists() else None
+    hdir = root / "households"
+    if not hdir.is_dir():
+        return None
+    scene_doc = load(DATA / "scenes" / f"{scene_id}.json")
+    scene_date = scene_doc["target_date"]
+    on_date = dt.date.fromisoformat(scene_date)
+    standing = {p.stem for p in (DATA / "sidecars" / scene_id).glob("*.json")}
+    known_sources = {p.stem for p in (DATA / "sources").glob("*.json")}
+    grades = ("attested", "inferred", "reconstructed")
+    faults = []
+    households = []
+    seen_people = set()
+    for path in sorted(hdir.glob("*.json")):
+        rel = f"households/{path.name}"
+        hh = load(path)
+        where = f"{root.relative_to(ROOT) if root.is_relative_to(ROOT) else root}/{rel}"
+        if hh.get("id") != path.stem:
+            faults.append(f"{where}: id `{hh.get('id')}` is not the file's name")
+        if hh.get("scene") != scene_id:
+            faults.append(f"{where}: scene `{hh.get('scene')}` is not {scene_id}")
+        arrival = (hh.get("arrival") or {}).get("value")
+        m = re.match(r"^\s*(\d{4})", str(arrival or ""))
+        if m and int(m.group(1)) > on_date.year:
+            faults.append(f"{where}: arrives {arrival}, after the scene date {scene_date}")
+        for r in hh.get("associated_with") or []:
+            if r.get("resolves_to") == "structure" and r.get("place_or_structure_id") not in standing:
+                faults.append(f"{where}: `{r.get('place_or_structure_id')}` does not stand in the "
+                              f"{scene_id} scene")
+            cited = [s for s in [r.get("source_id"), *(r.get("also_sources") or [])] if s]
+            if r.get("tier") == "attested" and not cited:
+                faults.append(f"{where}: an attested place with no source")
+            faults += [f"{where}: source `{s}` does not resolve" for s in cited if s not in known_sources]
+        persons = hh.get("persons") or []
+        if not persons:
+            faults.append(f"{where}: a household with nobody in it")
+        for person in persons:
+            pid = person.get("id")
+            if not pid or not person.get("name"):
+                faults.append(f"{where}: a person with no id or no name")
+                continue
+            if pid in seen_people:
+                faults.append(f"{where}: person `{pid}` is in two households")
+            seen_people.add(pid)
+            if person.get("grade") not in grades:
+                faults.append(f"{where}: {pid} has grade `{person.get('grade')}`, not one of "
+                              f"{', '.join(grades)}")
+            srcs = person.get("sources") or []
+            if person.get("grade") == "attested" and not srcs:
+                faults.append(f"{where}: {pid} is attested and cites no source")
+            if person.get("grade") in ("inferred", "reconstructed") and not person.get("note"):
+                faults.append(f"{where}: {pid} is {person.get('grade')} with no note saying why")
+            faults += [f"{where}: {pid} cites `{s}`, which does not resolve"
+                       for s in srcs if s not in known_sources]
+        households.append({"id": hh.get("id"), "file": rel})
+    if faults:
+        raise SystemExit("people directory for " + scene_id + " refused:\n  " + "\n  ".join(faults))
+    return {"scene_date": scene_date, "vocabulary": {}, "counts": {}, "households": households}
+
+
 def compile_people(scene_id: str, outdir: Path) -> int:
     """One row per PERSON, flattened from the 1,380 household records, so the
     drawer's People section and its Go-to list can search a town of 1,404 without
@@ -874,10 +1026,10 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     """
     import unicodedata
 
-    index_path = DATA / "residents" / "index.json"
-    if not index_path.exists():
+    root = residents_root(scene_id)
+    index = scene_people_manifest(scene_id, root)
+    if index is None:
         return 0
-    index = load(index_path)
     scene = dt.date.fromisoformat(index["scene_date"])
     vocab = index.get("vocabulary", {}) or {}
     manifest_counts = index.get("counts", {}) or {}
@@ -895,7 +1047,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     # card the research left `uncertain`, and a minted card joins the town as its own
     # row. Nothing here reaches back into data/residents/households/ — the inferred
     # value the ruling stands beside travels with the row so a reader sees both.
-    readmissions_path = DATA / "reconstruction" / "1835_readmissions.json"
+    readmissions_path = DATA / "reconstruction" / f"{scene_id}_readmissions.json"
     readmissions = load(readmissions_path) if readmissions_path.exists() else {}
     ruling_for = {r["household_id"]: r for r in readmissions.get("presence_rulings", [])}
     minted_rows = readmissions.get("minted", [])
@@ -909,12 +1061,12 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     # SEATS it gave people the layer already holds. A seat writes nothing into a research
     # card — `data/residents/households/` is re-derived by the mint writers — so the seat
     # is carried here, the same way T-1172's presence rulings are.
-    lodgers_path = DATA / "reconstruction" / "1835_lodgers_seated.json"
+    lodgers_path = DATA / "reconstruction" / f"{scene_id}_lodgers_seated.json"
     lodgers = load(lodgers_path) if lodgers_path.exists() else {}
     lodger_rows_minted = lodgers.get("minted", [])
     seat_for = {s["person"]: s for s in lodgers.get("seats", [])}
 
-    trades_path = DATA / "reconstruction" / "1835_trade_households.json"
+    trades_path = DATA / "reconstruction" / f"{scene_id}_trade_households.json"
     trades = load(trades_path) if trades_path.exists() else {}
     trade_rows_minted = trades.get("minted", [])
 
@@ -924,7 +1076,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     # house Watkins taught in, whose own record's function is domestic. The other seven
     # roofs are refused by name in `1835_institutional_lodging.json`. Outside the mints'
     # directory for the reason the three above are.
-    institutional_path = DATA / "reconstruction" / "1835_institutional_households.json"
+    institutional_path = DATA / "reconstruction" / f"{scene_id}_institutional_households.json"
     institutional = load(institutional_path) if institutional_path.exists() else {}
     institutional_rows_minted = institutional.get("minted", [])
 
@@ -957,9 +1109,9 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     # show, so an unlisted cohort here is not a tidy-up — it is the record failing to
     # carry what it holds. The gate below is why it cannot happen a third time.
     underdocumented_reports = [
-        DATA / "reconstruction" / "1835_native_and_metis.json",   # T-1376, hh_um_
-        DATA / "reconstruction" / "1835_church_register.json",    # T-1504, hh_cr_
-        DATA / "reconstruction" / "1835_free_black.json",         # T-1377, hh_fb_
+        DATA / "reconstruction" / f"{scene_id}_native_and_metis.json",   # T-1376, hh_um_
+        DATA / "reconstruction" / f"{scene_id}_church_register.json",    # T-1504, hh_cr_
+        DATA / "reconstruction" / f"{scene_id}_free_black.json",         # T-1377, hh_fb_
     ]
     underdocumented_rows_minted = []
     underdocumented_sub_stages = []
@@ -977,7 +1129,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     # for as long as the list was short. What the directory holds and what the reports
     # mint are now required to be the same set of files, prefix by prefix, and a card no
     # listed report accounts for is a build failure rather than a discovery on the site.
-    ud_dir = DATA / "residents" / "underdocumented"
+    ud_dir = root / "underdocumented"
     if ud_dir.is_dir():
         on_disk = {f"underdocumented/{p.name}" for p in ud_dir.glob("*.json")}
         minted_files = {m["file"] for m in underdocumented_rows_minted if m.get("file")}
@@ -1006,7 +1158,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
                 f"in data/residents/underdocumented/: {', '.join(stranded[:5])}"
                 f"{' …' if len(stranded) > 5 else ''}")
 
-    transients_path = DATA / "reconstruction" / "1835_transient_persons.json"
+    transients_path = DATA / "reconstruction" / f"{scene_id}_transient_persons.json"
     transients_doc = load(transients_path) if transients_path.exists() else {}
     transient_rows_minted = transients_doc.get("minted", [])
 
@@ -1018,8 +1170,8 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     # stated by a parentage sentence are not the same kind of claim and the card says so.
     # The vocabulary is the rules file's, in the rules file's order, so the filter's pills
     # read in a stated order rather than by count.
-    community_path = DATA / "residents" / "community.json"
-    community_rules_path = DATA / "residents" / "community_rules.json"
+    community_path = root / "community.json"
+    community_rules_path = root / "community_rules.json"
     community = load(community_path).get("persons", {}) if community_path.exists() else {}
     community_vocab = (load(community_rules_path).get("vocabulary", [])
                        if community_rules_path.exists() else [])
@@ -1045,7 +1197,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     # stage cannot be renamed in one place and not the other. A stage found on a card
     # that the programme does not declare is appended rather than dropped: a filter that
     # silently hid a cohort would be the exact failure this row exists to prevent.
-    programme_path = DATA / "reconstruction" / "1835_resident_reconstruction_programme.json"
+    programme_path = DATA / "reconstruction" / f"{scene_id}_resident_reconstruction_programme.json"
     programme_stages = (load(programme_path).get("stages", [])
                         if programme_path.exists() else [])
     stage_title = {s.get("key"): s.get("title") for s in programme_stages if s.get("key")}
@@ -1264,7 +1416,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     households = 0
     for entry in index.get("households", []):
         rel = entry.get("file", "")
-        path = DATA / "residents" / rel
+        path = root / rel
         if not path.exists():
             continue
         hh = load(path)
@@ -1275,7 +1427,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
 
     readmitted_households = 0
     for minted in minted_rows:
-        path = DATA / "residents" / minted["file"]
+        path = root / minted["file"]
         if not path.exists():
             continue
         hh = load(path)
@@ -1287,7 +1439,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
 
     trade_households = 0
     for minted in trade_rows_minted:
-        path = DATA / "residents" / minted["file"]
+        path = root / minted["file"]
         if not path.exists():
             continue
         hh = load(path)
@@ -1299,7 +1451,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
 
     lodging_households = 0
     for minted in lodger_rows_minted:
-        path = DATA / "residents" / minted["file"]
+        path = root / minted["file"]
         if not path.exists():
             continue
         hh = load(path)
@@ -1311,7 +1463,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
 
     institutional_households = 0
     for minted in institutional_rows_minted:
-        path = DATA / "residents" / minted["file"]
+        path = root / minted["file"]
         if not path.exists():
             continue
         hh = load(path)
@@ -1323,7 +1475,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
 
     underdocumented_households = 0
     for minted in underdocumented_rows_minted:
-        path = DATA / "residents" / minted["file"]
+        path = root / minted["file"]
         if not path.exists():
             continue
         hh = load(path)
@@ -1335,7 +1487,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
 
     transient_households = 0
     for minted in transient_rows_minted:
-        path = DATA / "residents" / minted["file"]
+        path = root / minted["file"]
         if not path.exists():
             continue
         hh = load(path)
@@ -1431,6 +1583,10 @@ def compile_people(scene_id: str, outdir: Path) -> int:
 
     emit(outdir / "people.json", {
         "scene": scene_id,
+        # T-2702. A later scene's rows point into its own records, so the `file` a row
+        # carries is relative to this root rather than to data/residents/.
+        **({"residents_root": str(root.relative_to(ROOT))}
+           if scene_id != LEGACY_RESIDENTS_SCENE else {}),
         "standard": "One row per person in data/residents/, flattened from the household "
                     "records so the People section and the Go-to list can search the town "
                     "without a fetch each; the row points at its household file, and the "
@@ -2060,6 +2216,9 @@ def compile_streets(scene_id: str, target_date: str,
             "surface": raw["surface"],
             "traffic": raw["traffic"],
             "geometry_confidence": raw.get("geometry_confidence", "reconstructed"),
+            # The street's own grade (T-2686): attested where a plat or survey of the
+            # time draws it, else its line's. The ribbon stands on this one.
+            "grade": grade_street(raw, scene_id, structure_grader()[1], sources),
             "surface_confidence": raw.get("surface_confidence", "reconstructed"),
             "wear_confidence": raw.get("wear_confidence", "reconstructed"),
             "note": raw.get("note", ""),
@@ -2788,6 +2947,12 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                      else f"gltf/{st['id']}__{phase['id']}.glb",
             "scene": scene_id,
             "target_date": scene["target_date"],
+            # THE STRUCTURE'S OWN GRADE (T-2686, AGENTS.md rule 12): attested when a
+            # reasonable picture of it exists, inferred when maps or text record it and
+            # nothing shows it, reconstructed when our model of the town placed it. One
+            # word for the building, beside the per-attribute grades below, which it
+            # neither replaces nor overrides. tools/grade_structures.py is the rule.
+            "grade": structure_grader()[0](scene_id, st["id"], rng.get("confidence", "reconstructed")),
             # Was it here at all? The scene date falls inside this span by
             # construction — resolve_phase would not have returned the phase
             # otherwise — so what the card has to show is not the fact but the
@@ -2879,6 +3044,14 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
         # they share, and re-derived against these bytes by assertion 7. Written only on
         # the records that carry the flag, like `drawn_by` below: nine files rather than
         # 330 saying nothing in a mirror that is published byte-for-byte.
+        # T-2825. What the card, the target tag and Go to call a named building, where its
+        # name carries the production step it was modelled in ("…, K01 frontage assembly",
+        # "(district draft; refined by T-1908)", "map-led"): the name with that taken off,
+        # by readable_text.plain_name, every word left the record's own. Written only where
+        # it differs, like `drawn_by`; `name` stays what the generators and the GLB read.
+        called = readable_text.plain_name(sidecar.get("name") or "")
+        if called and called != sidecar.get("name"):
+            sidecar["called"] = called
         if sidecar["review_required"]:
             reason = record_reason(st)
             if reason:
@@ -2940,7 +3113,11 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
     # T-1739. The directory is the 1835 town's — every row is a household of 1 July
     # 1835 — so only a scene that lists `residents` gets one; the renderer asks for
     # none otherwise. Without this the 1904 scene carried 3,308 people of 1835.
-    people = compile_people(scene_id, outdir) if "residents" in scene.get("layers", []) else 0
+    # T-2702. …and a later scene that holds household records of its own gets ITS
+    # directory, from its own records (data/residents_<scene>/), whether or not it lists
+    # the layer: the layer is the drawer's 1835 People, City, Population and Order book.
+    people = (compile_people(scene_id, outdir)
+              if "residents" in scene.get("layers", []) or has_own_people(scene_id) else 0)
 
     # A SIDECAR WHOSE STRUCTURE HAS GONE IS NOT INERT, which is why this sweeps
     # rather than leaves them. The compiler only ever wrote sidecars, so a record

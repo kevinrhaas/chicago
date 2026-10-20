@@ -51,10 +51,10 @@
   {
    "face": "west",
    "record": "v4_detail",
-   "what": "east-wing courtyard barred basement light beside the stair tower, native HABS sheet4 clear aperture",
+   "what": "east-wing courtyard barred basement light beside the stair tower, native HABS sheet4 clear aperture re-zeroed onto the plan (T-2880: north jamb S46.48+0.65; south jamb held 0.23 ft, the drawn clearance, short of the plan's tower drum at S50.91, since the re-zeroed S51.63 falls inside it)",
    "at_ft": [
-    46.48,
-    50.98
+    47.13,
+    50.68
    ],
    "z_ft": [
     2.6,
@@ -65,7 +65,7 @@
    "kind": "window",
    "style": "court_garden_grille",
    "sash": null,
-   "built_as": "recessed dark light behind 6 vertical iron bars and 2 rails, narrow frame, stone head and sill",
+   "built_as": "recessed dark light behind 6 vertical iron bars and 2 rails, narrow frame, stone head and sill, in a broad dressed-stone panel to the post and the drum",
    "confidence": "reconstructed",
    "sources": [
     "habs_glessner_house_il_1015_drawings",
@@ -82,62 +82,14 @@
   {
    "face": "west",
    "record": "openings_court",
-   "what": "windows over the underpass",
-   "at_ft": [
-    62.0,
-    64.5
-   ],
-   "z_ft": [
-    12.3,
-    16.9
-   ],
-   "z_from": "item",
-   "lights": 1,
-   "kind": "window",
-   "style": "courtyard_sash",
-   "sash": "two_over_two",
-   "built_as": "two-over-two double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
-   "confidence": "inferred",
-   "sources": [
-    "habs_glessner_house_il_1015_drawings",
-    "habs_glessner_photo_05_court_c1923"
-   ]
-  },
-  {
-   "face": "west",
-   "record": "openings_court",
-   "what": "windows under the eave over the underpass",
-   "at_ft": [
-    62.0,
-    64.5
-   ],
-   "z_ft": [
-    21.0,
-    24.8
-   ],
-   "z_from": "item",
-   "lights": 1,
-   "kind": "window",
-   "style": "courtyard_sash",
-   "sash": "two_over_two",
-   "built_as": "two-over-two double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
-   "confidence": "inferred",
-   "sources": [
-    "habs_glessner_house_il_1015_drawings",
-    "habs_glessner_photo_05_court_c1923"
-   ]
-  },
-  {
-   "face": "west",
-   "record": "openings_court",
    "what": "underpass exit into the courtyard",
    "at_ft": [
-    63.3,
-    72.9
+    62.96,
+    71.96
    ],
    "z_ft": [
     0.0,
-    8.1
+    7.22
    ],
    "z_from": "item",
    "lights": 1,
@@ -154,14 +106,182 @@
   {
    "face": "west",
    "record": "openings_court",
-   "what": "windows over the underpass",
+   "what": "stone lintel over the underpass exit, to the wing's south end",
    "at_ft": [
-    67.5,
-    70.0
+    62.96,
+    74.0
    ],
    "z_ft": [
-    12.3,
-    16.9
+    7.22,
+    8.9
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "band",
+   "style": "rough_course",
+   "sash": null,
+   "built_as": "carved stone (band)",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "sill course under the windows over the underpass",
+   "at_ft": [
+    64.03,
+    73.26
+   ],
+   "z_ft": [
+    11.3,
+    12.1
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "band",
+   "style": "rough_course",
+   "sash": null,
+   "built_as": "carved stone (band)",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "lintel course over the windows over the underpass",
+   "at_ft": [
+    64.03,
+    73.26
+   ],
+   "z_ft": [
+    15.5,
+    16.76
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "band",
+   "style": "rough_course",
+   "sash": null,
+   "built_as": "carved stone (band)",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "windows over the underpass",
+   "at_ft": [
+    64.34,
+    67.35
+   ],
+   "z_ft": [
+    12.1,
+    15.5
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": "two_over_two",
+   "built_as": "two-over-two double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "sill course under the windows under the eave",
+   "at_ft": [
+    64.51,
+    72.65
+   ],
+   "z_ft": [
+    20.45,
+    21.2
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "band",
+   "style": "rough_course",
+   "sash": null,
+   "built_as": "carved stone (band)",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "lintel course over the windows under the eave",
+   "at_ft": [
+    64.51,
+    72.65
+   ],
+   "z_ft": [
+    24.9,
+    26.1
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "band",
+   "style": "rough_course",
+   "sash": null,
+   "built_as": "carved stone (band)",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "windows under the eave over the underpass",
+   "at_ft": [
+    64.84,
+    66.88
+   ],
+   "z_ft": [
+    21.2,
+    24.9
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": "two_over_two",
+   "built_as": "two-over-two double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "inferred",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923"
+   ]
+  },
+  {
+   "face": "west",
+   "record": "openings_court",
+   "what": "windows over the underpass",
+   "at_ft": [
+    69.83,
+    72.9
+   ],
+   "z_ft": [
+    12.1,
+    15.5
    ],
    "z_from": "item",
    "lights": 1,
@@ -180,12 +300,12 @@
    "record": "openings_court",
    "what": "windows under the eave over the underpass",
    "at_ft": [
-    67.5,
-    70.0
+    70.31,
+    72.36
    ],
    "z_ft": [
-    21.0,
-    24.8
+    21.2,
+    24.9
    ],
    "z_from": "item",
    "lights": 1,
@@ -882,14 +1002,14 @@
   {
    "face": "east",
    "record": "v4_detail",
-   "what": "stable courtyard door beside the north-range junction",
+   "what": "stable courtyard door beside the north-range junction, at grade: its head course with the first-floor window sills and the opening about 34 brick courses tall in the 2024 courtyard photograph (T-2760)",
    "at_ft": [
     26.9,
     29.4
    ],
    "z_ft": [
-    5.8,
-    14.0
+    0.35,
+    7.85
    ],
    "z_from": "item",
    "lights": 1,
@@ -1197,8 +1317,8 @@
    "what": "first-floor lights either side of the garden door",
    "count": 2,
    "z_ft": [
-    9.3,
-    14.5
+    9.05,
+    14.2
    ],
    "built_as": "one-over-one double-hung on the curved face",
    "confidence": "inferred",
@@ -1213,8 +1333,8 @@
    "what": "garden door at the centre of the first floor",
    "count": 1,
    "z_ft": [
-    9.3,
-    14.5
+    9.05,
+    14.2
    ],
    "built_as": "door: four glazed lights over a raised panel",
    "confidence": "inferred",
@@ -1229,8 +1349,8 @@
    "what": "second-floor lights",
    "count": 3,
    "z_ft": [
-    19.5,
-    24.0
+    19.45,
+    24.29
    ],
    "built_as": "one-over-one double-hung on the curved face",
    "confidence": "inferred",
@@ -1322,11 +1442,11 @@
   {
    "where": "stair tower",
    "record": "v4_detail",
-   "what": "slit at azimuth 145 degrees",
+   "what": "slit at azimuth 136 degrees",
    "count": 1,
    "z_ft": [
-    7.6,
-    12.5
+    7.52,
+    12.78
    ],
    "built_as": "single light in a flat frame with a meeting rail",
    "confidence": "reconstructed",
@@ -1345,11 +1465,11 @@
   {
    "where": "stair tower",
    "record": "v4_detail",
-   "what": "slit at azimuth 145 degrees",
+   "what": "slit at azimuth 136 degrees",
    "count": 1,
    "z_ft": [
-    17.8,
-    22.0
+    18.78,
+    22.46
    ],
    "built_as": "single light in a flat frame with a meeting rail",
    "confidence": "reconstructed",
@@ -1368,11 +1488,11 @@
   {
    "where": "stair tower",
    "record": "v4_detail",
-   "what": "slit at azimuth 215 degrees",
+   "what": "slit at azimuth 225 degrees",
    "count": 1,
    "z_ft": [
-    4.5,
-    9.2
+    4.7,
+    9.1
    ],
    "built_as": "single light in a flat frame with a meeting rail",
    "confidence": "reconstructed",
@@ -1391,11 +1511,11 @@
   {
    "where": "stair tower",
    "record": "v4_detail",
-   "what": "slit at azimuth 215 degrees",
+   "what": "slit at azimuth 225 degrees",
    "count": 1,
    "z_ft": [
-    15.7,
-    19.8
+    16.58,
+    20.53
    ],
    "built_as": "single light in a flat frame with a meeting rail",
    "confidence": "reconstructed",
@@ -1414,11 +1534,11 @@
   {
    "where": "stair tower",
    "record": "v4_detail",
-   "what": "lantern light at azimuth 135 degrees",
+   "what": "lantern light at azimuth 140 degrees",
    "count": 1,
    "z_ft": [
-    27.0,
-    31.0
+    28.2,
+    31.9
    ],
    "built_as": "fixed sash, 2 x 3 lights",
    "confidence": "reconstructed",
@@ -1440,8 +1560,8 @@
    "what": "lantern light at azimuth 180 degrees",
    "count": 1,
    "z_ft": [
-    27.0,
-    31.0
+    28.2,
+    31.9
    ],
    "built_as": "fixed sash, 2 x 3 lights",
    "confidence": "reconstructed",
@@ -1460,11 +1580,11 @@
   {
    "where": "stair tower",
    "record": "v4_detail",
-   "what": "lantern light at azimuth 225 degrees",
+   "what": "lantern light at azimuth 219 degrees",
    "count": 1,
    "z_ft": [
-    27.0,
-    31.0
+    28.2,
+    31.9
    ],
    "built_as": "fixed sash, 2 x 3 lights",
    "confidence": "reconstructed",
@@ -1483,7 +1603,7 @@
   {
    "where": "east wing courtyard slope",
    "record": "dormers",
-   "what": "pyramid-roofed dormers, centres S 32.3, 45, 66.8",
+   "what": "pyramid-roofed dormers, centres S 32.75, 45.65, 68.45",
    "count": 3,
    "z_ft": [
     30.63,

@@ -8,31 +8,31 @@
     900
   ],
   "principal_px": [
-    395.06024919337614,
-    481.8618651639006
+    176.607,
+    802.634
   ],
-  "focal_px": 1406.3572802675737,
+  "focal_px": 1117.496,
   "eye": [
-    47.672462621342696,
-    -0.549256780892961,
-    0.5000000000000001
+    40.883,
+    -2.97,
+    0.746
   ],
-  "yaw_deg": 270,
+  "yaw_deg": 282.519,
   "basis_right_up_forward": [
     [
-      0.2380135357998944,
-      0.9709139388458468,
-      -0.02599384794284357
+      0.209343,
+      0.977777,
+      -0.011348
     ],
     [
-      0.20466473337729485,
-      -0.023974314469717945,
-      0.9785384914030248
+      -0.009364,
+      0.013609,
+      0.999864
     ],
     [
-      -0.949453476315524,
-      0.23822543021380055,
-      0.20441805378150046
+      -0.977798,
+      0.209208,
+      -0.012005
     ]
   ],
   "sun_uvy": [
@@ -40,5 +40,6 @@
     -0.7,
     1.4
   ],
-  "solve": "T-1883: this is another reproduction/crop of the same 1888 photograph. SIFT/RANSAC registration to inland-1888: 322/347 accepted feature pairs. Intrinsic/rotation fit to the registered reference camera over front and loggia control points: 2.71px coordinate RMS. The underlying camera retains the primary view's approximate manually read controls and their 14.19px RMS uncertainty; registration is not an independent survey. Homography [[0.6156660033428157, 0.01192573131228232, -111.26807300133997], [-0.010062233618072364, 0.6040669672432777, -259.7077310170418], [-4.136359863304692e-06, 6.434535938250102e-06, 0.9999999999999999]]. Monochrome: colour not shown."
+  "solve": "T-1883: this is another reproduction/crop of the same 1888 photograph. SIFT/RANSAC registration to inland-1888: 322/347 accepted feature pairs. Intrinsic/rotation fit to the registered reference camera over front and loggia control points: 2.71px coordinate RMS. The underlying camera retains the primary view's approximate manually read controls and their 14.19px RMS uncertainty; registration is not an independent survey. Homography [[0.6156660033428157, 0.01192573131228232, -111.26807300133997], [-0.010062233618072364, 0.6040669672432777, -259.7077310170418], [-4.136359863304692e-06, 6.434535938250102e-06, 0.9999999999999999]]. Monochrome: colour not shown. T-2876: re-derived from the plate's camera as it now stands (inland-1888.json, re-fitted by T-2845, eye [40.883, -2.97, 0.746]) through the homography above, closed form: the copy's camera is H K R, RQ-decomposed into its own intrinsics and rotation (tools/keith_copy_cameras.py). Focal 1117.50 px, pixel aspect 1.0292, the decomposition's 7.08 px skew dropped, which shifts no point on the front by more than 4.81 px. T-1883's camera had been fitted to the plate's camera of its day (eye about [47.67, -0.55, 0.5]); against it the front moves up to 35.3 px. The registration's own residual (above) is unchanged, and so is the plate's uncertainty: this view adds no independent survey.",
+  "pixel_aspect": 1.02924
 }

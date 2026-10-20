@@ -2,10 +2,10 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "nickel-1967",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "728083c8d5edd353cd13fe7997b5b7a40d496b059e6d15244351dfd1a008f559",
+  "glb_sha256": "de3cee807da75aba0f47e2abb24d30c30656c8846f3163549c765c804fb85ba4",
   "camera_sha256": "4cde10e103c3052890d4f2945bb1b9bd504261479d28aa56d46004171c482fff",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/nickel-1967-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "The flat top now has real two-row openings, corner pinnacles, a checker band and five colonnettes dividing six upper windows.",
@@ -44,8 +44,32 @@
       "status": "fixed"
     },
     {
-      "what": "Found in T-2577's re-review: the checker band under the cornice reads here as a narrower band of finer, diagonal (lozenge) units than the build's staggered rock blocks, about two-thirds of the build's band height; T-2580 reads it against the 1888 plate.",
-      "status": "open"
+      "what": "Found in T-2577's re-review: the checker band under the cornice reads here as a narrower band of finer, diagonal (lozenge) units than the build's staggered rock blocks, about two-thirds of the build's band height; T-2580 reads it against the 1888 plate. T-2679 laid the band as diamond points in a checker; T-2714 pitched them 0.28 m along their rows, read off the 1888 plate. Here the photograph's band repeats every 6 px along a row and so does this render's (about 8 px at the old 0.336 m), and its depth reads 15 px against the render's 18, where it was about two-thirds of the T-2566 build's. The remaining 3 px (about 0.13 m at this view's 23 px/m) is at this picture's grain, against two sharper cameras (Florian 1948, the 1888 Glessner plate) that read the band 0.8-0.9 m deep, so it is not moved.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2765: the bow's principal storey has four lights standing plumb under the second storey's four, the fourth beside the loggia's south column, as this view shows them square to the front with no tree in the way; the model had three at different bearings.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2830: read by luminance profile at x 339-346, the loggia's south pair stands its capital top at y 623.5 and its pedestal's cap at 696.5, where this camera draws the as-built loggia's at 642.4 and 703.7: the column reads 73 px against 61. Beside it the bow's string course foot registers (y 620 against 621, the 1888 plate's 5.83 m) and its principal sill reads 9 px high (701.5 against 710, the plate's 2.29 m), so against the bow's sill-to-string-course span the column stands 1.30 times the model's proportion, the factor the 1965 close view reads (T-2764's k 1.29; tools/keith_1965_cause_fit.py). Also read: the bow's principal glass begins 27.5 px under the string course where a 5.30 m head would draw 13 px under it and the plate's upper transom bar (4.85 m) 25, and the band between reads as pale as the piers, so by 1967 the upper transoms read blind. Which height the loggia is built to is T-2831's to rule. T-2831: re-read, and closed. The y 623.5 edge is the top of the beam, not the capital's: down x 339-346 the cornice's shadow lies at 618-623, the beam's lit face at 624-639 and the shadow under it at 640-643 (darkest 642), where this camera draws the record's beam top at 618.1 and its capital top at 642.4, and the carved balcony front stands above them at 598-617 (its top drawn at 597.6). Read at the beam's soffit (y 639.5) the column is 57 px over the bow's 81.5 px sill-to-string-course span, 0.699, where the camera draws the as-built 0.703 (factor 0.994, a 2.19 m column). The 1888 plate reads 1.057 on the same ruler and the 1965 slide 1.04 once its heads are paired at the glass it shows, so the column stands at its built 2.2 m (docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-column-rule.json).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2831: by 1967 the bow's principal top lights (4.85-5.30 m over their stone bar, as the 1888 plate glazes them) read blind: down the 11 degree light the glass stops at 0.663 of the sill-to-string-course span (y 647.5 between the sill at 701.5 and the course's foot at 620), 4.66 m, the middle light's head (4.70 m), with stone-pale wall above it. The 1965 slide reads the same 0.664. The reconstructed 1886 and 1904 states keep the top lights glazed, as the plate shows them.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2813: re-rendered with Keith's crown 0.16 m lower (the moulded course under the lattice 0.20 m deep where it was 0.36 m, the checker and head bands unmoved); its camera does not use the crown and is unchanged. Read again at the crown beside the previous render: the lattice, coping and pinnacles move a few pixels at this picture's scale and nothing it shows opens a difference; the verdict stands as it was (differs, on T-2830's open loggia item, which the crown does not touch).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2876: re-rendered on the GLB in the tree, T-2845's loggia (0.6 m pedestals at the first-floor plan's place, each pair's shafts 0.36 m apart, the flight 1.8 m clear and the stoop 0.15 m south): the pairs and flight move a few pixels at this picture's scale and stand on the photograph's front pairs (the south pair at about x 335-350, the north at 410-425). But between them, against the dark interior, this 1967 view shows a lit shaft at about x 362-371, rows 640-700, where the render draws the lit house wall: the plate's rear row (inland-1888, T-2876), not built. T-2881: built, and read again: the lit shaft the photograph shows between the front pairs (its light at x 355-373, rows 650-690) is the rear south pair, which the render now draws at x 349-365. Every pair here stands 6-12 px left of the photograph's, the front pairs too (photograph 335-347 and 411-425, render 325-337 and 401-413), which this ticket did not move: that is this camera's place at the loggia (T-1883's six controls all on the front's plane), not the rear row's, which the plate rules. Nothing else it shows opens a difference; the verdict is matches.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2882: re-rendered on the loggia with a respond on the wall behind each rear pair (a flat pier the rear pedestal's width, 0.25 m deep, from the pedestal's top to the ceiling; tools/keith_loggia_respond_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-respond-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 362-443, y 640-690); the change is the north respond's face beside the door, in shade, where the photograph's interior reads dark; the lit rear south shaft between the front pairs is unmoved. Nothing new opens; the verdict stays matches.",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

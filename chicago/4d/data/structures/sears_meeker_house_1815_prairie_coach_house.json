@@ -49,11 +49,11 @@
             0.0
           ],
           [
-            6.0,
+            8.25,
             0.0
           ],
           [
-            6.0,
+            8.25,
             8.75
           ],
           [
@@ -95,26 +95,13 @@
                 "rect": [
                   0.0,
                   0.0,
-                  6.0,
+                  8.25,
                   8.75
                 ],
                 "from": "s28fp-1815-b2 p4 (main, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill"
               },
               {
                 "id": "r2",
-                "role": "wing",
-                "storeys": 2,
-                "roof": "flat",
-                "rect": [
-                  6.0,
-                  0.0,
-                  8.25,
-                  4.25
-                ],
-                "from": "s28fp-1815-b2 p4 (main, brick), rectangle 2 of that part; the part's rectangles cover 90% of its fill"
-              },
-              {
-                "id": "r3",
                 "role": "stone_front",
                 "storeys": 2,
                 "roof": "flat",
@@ -127,7 +114,7 @@
                 "from": "s28fp-1815-b2 p1 (stone_front, stone), rectangle 1 of that part; the part's rectangles cover 96% of its fill"
               },
               {
-                "id": "r4",
+                "id": "r3",
                 "role": "range",
                 "storeys": 1,
                 "roof": "flat",
@@ -140,30 +127,17 @@
                 "from": "s28fp-1815-b2 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill"
               },
               {
-                "id": "r5",
+                "id": "r4",
                 "role": "range",
                 "storeys": 1,
                 "roof": "flat",
                 "rect": [
                   1.5,
                   9.75,
-                  6.25,
+                  8.25,
                   15.75
                 ],
                 "from": "s28fp-1815-b2 p5 (range, frame), rectangle 1 of that part; the part's rectangles cover 90% of its fill"
-              },
-              {
-                "id": "r6",
-                "role": "range",
-                "storeys": 1,
-                "roof": "flat",
-                "rect": [
-                  6.25,
-                  9.75,
-                  7.5,
-                  13.5
-                ],
-                "from": "s28fp-1815-b2 p5 (range, frame), rectangle 2 of that part; the part's rectangles cover 90% of its fill"
               }
             ],
             "lot_v": [
@@ -176,7 +150,7 @@
           "sources": [
             "sanborn_1911_chicago_v3_sheet_28"
           ],
-          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1815-b2 p4 (main, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill; s28fp-1815-b2 p4 (main, brick), rectangle 2 of that part; the part's rectangles cover 90% of its fill; s28fp-1815-b2 p1 (stone_front, stone), rectangle 1 of that part; the part's rectangles cover 96% of its fill; s28fp-1815-b2 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill; s28fp-1815-b2 p5 (range, frame), rectangle 1 of that part; the part's rectangles cover 90% of its fill; s28fp-1815-b2 p5 (range, frame), rectangle 2 of that part; the part's rectangles cover 90% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1815-b2 p4 (main, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill; s28fp-1815-b2 p1 (stone_front, stone), rectangle 1 of that part; the part's rectangles cover 96% of its fill; s28fp-1815-b2 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 90% of its fill; s28fp-1815-b2 p5 (range, frame), rectangle 1 of that part; the part's rectangles cover 90% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
         },
         "draft_elevation": {
           "value": {

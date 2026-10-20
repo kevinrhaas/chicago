@@ -9,6 +9,17 @@
   "asset": "gltf/sears_meeker_house_1815_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 5 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a18-cgy-1815-sears-two-views",
+      "a18-gh-1815-office-building-1981",
+      "a18-gh-sears-house-exterior",
+      "a18-gh-sears-interpretive-panel",
+      "cgn-1815-sears-log-cabin-playhouse"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -190,5 +201,6 @@
   ],
   "research_note": "A DISTRICT DRAFT (T-2330, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1893 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1815-b1), the T-1841 census (s28-1815-front) and the T-1837 register row frontage-28-051 (Sears/Meeker stone mansion); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-east-2330).",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1815 Prairie Avenue — Sears/Meeker stone mansion"
 }

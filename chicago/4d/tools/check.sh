@@ -64,11 +64,35 @@ step "The flora lattice walk on a worker hands the deal the slots the in-frame w
 selftest "the flora walk's parity gate refuses a kernel one ulp, one slot or one row off" \
   node tools/check_lattice_kernel.mjs --self-test
 
+# T-2697. The same walk as GLSL (flora-gpu-lattice.js), the first piece of T-2557's
+# GPU near grass. This step needs no browser: it holds the shader's constants to
+# flora.js's. The slot-for-slot readback is `--gpu`, in Chromium, and is filed at
+# docs/measurements/t-2697-flora-gpu-lattice.json.
+step "The flora walk in GLSL carries flora.js's own walk constants (T-2697)" \
+  node tools/check_flora_gpu_lattice.mjs
+
+selftest "the shader walk's constant check refuses a seed, salt or block shift one bit off" \
+  node tools/check_flora_gpu_lattice.mjs --self-test
+
+# T-2707. The near field tile (near-field.js) is kept around the walker a strip at a
+# time — a toroidal tile, its strips asked of the job pool — and must stay the tile
+# `buildField` asks whole. No browser: a synthetic field, a walk over every kind of
+# re-centre. The town's own tile, asked of the pool, is read in Chromium by
+# `tools/measure_near_field.mjs --walk` (docs/measurements/t-2707-near-field-keeper.json).
+step "The kept near field tile is the built one after every re-centre, a strip at a time (T-2707)" \
+  node tools/check_near_field_keeper.mjs
+
+selftest "the kept-tile gate refuses a texel centre off, a wrap off and a strip not asked" \
+  node tools/check_near_field_keeper.mjs --self-test
+
 step "The structures batch stores normals, uvs and tones compact and aligned, each within its format's bound (T-2568)" \
   node tools/check_compact_attributes.mjs
 
 step "Plankwalk subpixel gaps preserve geometry and material contracts (T-2037)" \
   node tools/check_plank_gap_filter.mjs
+
+step "Frontage, yard and enclosure confidence keep 0, 0.5 and 1 exact in the colour lane or as one grade, and nothing else is squeezed in (T-2689)" \
+  node tools/check_confidence_lane.mjs
 
 step "Emitted plank crossings remain above the distant terrain (T-2037)" \
   node tools/check_plank_ground.mjs
@@ -76,8 +100,23 @@ step "Emitted plank crossings remain above the distant terrain (T-2037)" \
 step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
   node tools/check_far_plank_tops.mjs
 
+step "A mesh too wide for one box stays one draw: each vertex boxed by its padding lane, read back within the millimetre, faces in order, raycast and bounds in metres (T-2700)" \
+  node tools/check_position_boxes.mjs
+
 selftest "Frontage built in Node is byte-identical build to build, and a prebuild from changed inputs is refused (T-2676)" \
   node tools/prebuild_layers.mjs --self-test
+
+selftest "The ground's tiles cut in Node are byte-identical build to build, batch exactly as the page's own spatialBatch does, and a prebuild from changed inputs is refused (T-2692)" \
+  node tools/prebuild_layers.mjs --self-test --layer ground
+
+selftest "The distant base and the streets' surfaces cut in Node are byte-identical build to build, batch exactly as the page's own spatialBatch does, the street trig is portable-math.js's, the base carries the key of the footprints it was laid over in the format the page reads (T-2709), and a prebuild from changed inputs is refused (T-2703)" \
+  node tools/prebuild_layers.mjs --self-test --layer base,streets
+
+selftest "The yards' five surfaces laid and cut in Node are byte-identical build to build, batch exactly as createFencedGround's own do, and a prebuild from changed inputs is refused (T-2704)" \
+  node tools/prebuild_layers.mjs --self-test --layer yards
+
+step "The page asks only for the prebuilt layers publish listed: a year with no prebuild makes no 404 request (dev mobile smoke fix)" \
+  node tools/test_prebuilt_index.mjs
 
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
@@ -97,28 +136,138 @@ step "The device profile chooses per device, and a stored choice still wins (T-2
 step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
   node tools/test_program_cache_key.mjs
 
+step "The grade colours are one set — gold, silver, bronze — legible on every machine's panel and apart under colour-vision deficiency (T-2671)" \
+  node tools/check_grade_colors.mjs
+selftest "…and a bronze that is a darker gold, a drifted token or an unreadable ink is refused (T-2671)" \
+  node tools/check_grade_colors.mjs --self-test
+
+step "Each grade's look — tint, dither or ghost at an opacity — and the ghost pass drawn last with depthWrite off (T-2646)" \
+  node tools/test_confidence_looks.mjs
+step "The Confidence view's presets — NORMAL, BY GRADE, ATTESTED ONLY (exactly the two grades hidden by hand), X-RAY — and C toggling BY GRADE (T-2647)" \
+  node tools/test_confidence_presets.mjs
+step "The Confidence view's overlays — street names, building labels, people pins and the Jaunt route, each on its own switch, only what each destination has, and no frame loop while off (T-2650)" \
+  node tools/test_confidence_overlays.mjs
+step "The Confidence view's per-grade rows — four swatches with a colour-blind-safe set, Tint/Ghost/Dither, opacity 0-100 and a count per grade, none rebuilding the scene (T-2648)" \
+  node tools/test_confidence_rows.mjs
+step "The Confidence view persists in one record and carries to the next page and year; its HUD legend shows while the view is not Normal (T-2649)" \
+  node tools/test_confidence_persist.mjs
+
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 step "Crash-aware boot: a dead session steps down once, a lost context reloads at most once (T-2547)" \
   node tools/test_crash_guard.mjs
+step "The black box keeps the page's last steps in local storage, and the next page shows a cut-off page's on the crash card (T-2826)" \
+  node tools/test_blackbox.mjs
+step "A pick draws only the building batches its ray meets, and a phone's look-around answers from the parts' boxes without drawing (T-2827)" \
+  node tools/test_pick_boxes.mjs
+step "Read frame pacing is offered only on the dev preview or with ?pacing=read, and reads sd and p95 as measure_walk_frames --live does (T-2732)" \
+  node tools/test_pacing_read.mjs
 
 step "boot-weights.js re-derives from the reference reading and its calibration receipt (T-2060)" \
   node tools/calibrate_boot_weights.mjs --check
 
 step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)" \
   node tools/test_arrival.mjs
+step "The Navigator docks, opens and snaps between its heights, Home reads the street, the target and the Jaunt, and its rail registers ten apps at most that come and go with their context (T-2617, T-2618)" \
+  node tools/test_navigator.mjs
+step "Settings lays out Display, Machine, Performance with Auto, Sound, Units and About & What's new, every id kept, every choice stored (T-2656)" \
+  node tools/test_settings_app.mjs
+step "The Navigator's sounds: a tick per flipped digit at most 12 a second, nothing before the first tap, Master at 0 silent, a hidden tab stops the hum and the ambience, and Settings › Sound's levels reach the graph (T-2659)" \
+  node tools/test_sound.mjs
+step "Every Navigator app is legible at 4.5:1 or better in all four machines and both tones (T-2656, QA-21)" \
+  node tools/check_navigator_contrast.mjs
+selftest "…and a token drifted toward its panel, or the device's overrides removed, is refused (T-2656)" \
+  node tools/check_navigator_contrast.mjs --self-test
+step "The Navigator's telemetry strip ticks every 800 ms only while the device is open and seen, never with the tab hidden or under reduced motion, on the portal's own numbers (T-2623)" \
+  node tools/test_nav_telemetry.mjs
+# T-2663: Tour mode, the Field Check.
+step "The Field Check's seven steps each move on only on their own action, resume after a reload, skip and replay, in bubbles of 14 words or fewer (T-2663)" \
+  node tools/test_tour.mjs
+# T-2664: the tour offered once per device, and the one-time hints after it.
+step "Home offers the Field Check once per device, declining or finishing never re-prompts, and the first Jaunt, Jump and Reconstructed building each hint once (T-2664)" \
+  node tools/test_tour_offer.mjs
+# T-2665: the Navigator License keepsake.
+step "Finishing the Field Check awards the Navigator License once per device, never on Skip, with storage refused safely, and the Jaunts daybook shows it after a reload (T-2665)" \
+  node tools/test_license.mjs
+# T-2629: Settings › About.
+step "Settings › About shows the build stamp, and the DEV mark on a dev build only (T-2629)" \
+  node tools/test_about.mjs
+# T-2660: the field log, on the device only.
+step "Settings › About's field log counts landings, first inspects, tabs, Show me, Jaunts, Tour steps and presets in localStorage only, clears, and never sends (T-2660)" \
+  node tools/test_field_log.mjs
+# T-2657: Researcher mode, the Settings › About switch.
+step "Researcher mode is off by default and remembered per device, and shows research prose in place while on (T-2657)" \
+  node tools/test_researcher_mode.mjs
+# T-2658: Short "Why?" — a one-line hint and a bubble of 40 words at most per researched setting.
+step "Every 'Why this default' is one line and a 'Why?' bubble of 40 words at most that opens by tap, click or key and closes on Escape or an outside tap; the full essay is Researcher mode's (T-2658)" \
+  node tools/test_short_why.mjs
+step "Navigator Jump: three era cards with HERE, the in-world ring and transfer stamp, Escape aborts, RECALL the one signal-red key (T-2655)" \
+  node tools/test_nav_jump.mjs
+# T-2643: Inspect's Story tab.
+step "Inspect's Story runs from design to today with BUILT, YOU ARE HERE and TODAY, another era's content filtered out and later facts marked after your visit (T-2643)" \
+  node tools/test_nav_story.mjs
+step "The way home: All destinations and Recall ask first, Cancel/Esc stay put, Return runs the reverse ring and stamps the trip, reduced motion skips the ring (T-2735)" \
+  node tools/test_recall.mjs
+step "Navigator Jaunts app: Jaunts · Go to · Free roam, the Welcome card's list and search lent and handed back, Home's choices open their segment (T-2630)" \
+  node tools/test_nav_jaunts.mjs
+# T-2632: Go to cleanup.
+step "Go to offers All, Places, People, Shops & work and Viewpoints with no empty chip, names on two lines, and each row's distance and bearing (T-2632)" \
+  node tools/test_goto_cleanup.mjs
+# T-2633: Go to follows the Confidence view.
+step "Go to has no reconstructed-roofs checkbox; what the Confidence view hides is listed dimmed with its reason and restored when shown (T-2633)" \
+  node tools/test_goto_confidence.mjs
+# T-2634: Free roam's one-time tip.
+step "Free roam docks the Navigator and says how to inspect a building once per device, with storage refused safely (T-2634)" \
+  node tools/test_roam_tip.mjs
+# T-2631: Jaunt cards and Continue.
+step "Each Jaunt card shows a credited plate of its own stops or none, its keepsake once earned, and an outing in progress pinned on top with Continue (T-2631)" \
+  node tools/test_nav_jaunt_cards.mjs
+step "Navigator deep links (?nav=app[:id]&tab=) and Back closing the open app before the page (T-2621)" \
+  node tools/test_nav_link.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
   node tools/test_boot_forecast.mjs
 step "The welcome draws the town only when the town changed (T-2113)" \
   node tools/test_gate_frame.mjs
 step "The frame governor holds a moving frame steady and leaves a still one alone (T-2555)" \
   node tools/test_frame_governor.mjs
+# T-2651: Move — one picker and one slider.
+step "Move offers one picker, Walk, Run, Wagon, Horse or Fly, and one slider whose range and named speeds follow the mode (T-2651)" \
+  node tools/test_nav_move.mjs
+# T-2661: Guide's controls sheet.
+step "Guide's controls sheet shows touch on a phone and the keyboard on a laptop, from the controls in use, and lists every key the page binds (T-2661)" \
+  node tools/test_nav_guide.mjs
+# T-2644: Inspect's Sources tab.
+step "Inspect's Sources tab groups every fact by grade with real counts, names each source by its own citation with no id or tier label, folds the full citation, and lists Liberties by name (T-2644)" \
+  node tools/test_nav_sources.mjs
+# T-2645: Inspect's Photos tab.
+step "Inspect's Photos tab shows each picture's year, caption and credit by date, the 12 best first and All N, and From this spot only where a solved camera stood (T-2645)" \
+  node tools/test_nav_photos.mjs
+# T-2662: the Guide's glossary and questions, and first appearances explained on tap.
+step "Guide lists the seven locked terms with their lines and answers its two questions in 60 words or fewer, and a locked term's first appearance shows its line on tap (T-2662)" \
+  node tools/test_guide_glossary.mjs
+# T-2641: Inspect's Design tab.
+step "Inspect's Design tab shows the building's style card from its sourced module, numbered On this house hotspots each with its grade in place of the attribute table, and Compare styles; a building with neither falls back to its own graded sidecar (T-2641)" \
+  node tools/test_nav_design.mjs
+# T-2666: Guide › For teachers, the teacher handout.
+step "Guide › For teachers prints the Field Check's seven steps from the tour itself and three Jaunts per destination by one stated rule, as one top-level copy the print stylesheet keeps (T-2666)" \
+  node tools/test_teacher_handout.mjs
+# T-2667: Guide › About this destination, the old research hub as four cards.
+step "Guide › About this destination folds every research topic into one of four cards, How we grade, Sources, Liberties and What lived and grew here, in every destination, with the order book behind Researcher mode and every id kept (T-2667)" \
+  node tools/test_guide_about.mjs
+# T-2652: getting there — one choice for Go to, the Map and Jaunts.
+step "Getting there is one choice, Teleport, Ride there or Fly over, and a Jaunt rides between its stops at it where it may (T-2652)" \
+  node tools/test_getting_there.mjs
+# T-2653: Move's comfort settings.
+step "Move's Comfort holds the head bob, the eye height at its researched default with its Why, and snap-turn on touch (T-2653)" \
+  node tools/test_move_comfort.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
 step "The building card prints no '[object Object]' and no other year's law (T-2609)" \
   node tools/test_claim_value.mjs
 step "A smoke oracle a sparse bake leg lacks is read from the commit under test (T-2331)" \
   node tools/test_repo_file.mjs
+step "Recovered display diagnostics preserve actual previous-reset records and strict smoke assertions (T-2793)" \
+  node tools/test_recovered_display_diagnostic.mjs
 step "Drawn placement rejects shifted, mirrored and rotated camps (T-1805)" \
   node tools/test_drawn_placement_census.mjs
 step "Jaunt session history, cancellation and replacement (T-1279)" \
@@ -139,6 +288,74 @@ step "loading evidence refuses promoted or unrelated facts (T-1275)" \
   python3 tools/test_loading_content.py
 step "loading cards: seeded bags, dwell, stop and humor cap (T-1275)" \
   node tools/test_loading_content.mjs
+step "Restoration baseline waits for observed scene readiness; after capture stays immediate" \
+  node tools/test_capture_restore_state.mjs
+# Real source geometry/UV/rig checks; stdlib, no Blender or browser here.
+step "CC0 adult preparation preserves source UVs, metric frame and bounded rig weights (T-1789)" \
+  python3 tools/test_human_base_prepare.py
+
+step "Resident hair preserves verified source pixels, fitted UVs and existing skin bindings (T-1789)" \
+  python3 tools/test_human_hair_short04.py
+
+step "Resident body normals share exact source seams without welding geometry or UVs (T-1789)" \
+  python3 tools/test_human_source_normals.py
+
+step "Packed normal frame recovery preserves raw target limits and refuses invalid frames" \
+  python3 tools/test_human_normal_probe_math.py
+
+step "Packed normal Mesh adapter restores original data on every rejected experiment" \
+  python3 tools/test_human_normal_probe_adapter.py
+
+step "Normal authoring experiments require explicit isolated receipt arguments" \
+  python3 tools/test_human_normal_probe_optin.py
+
+step "Headstrap unsigned triangle distance preserves analytic contact and piercing cases" \
+  node tools/test_head_fit_distances.mjs
+
+step "Human morph inspection spans meshes and restores each mesh's exact defaults" \
+  node tools/test_human_morph_measure.mjs
+
+# C02 actual source/export mapping and15 discrete rigid angles; approximately 10 s on one CPU, no browser.
+step "C02 door preserves actual exported surfaces at discrete study endpoints (T-2794)" \
+  python3 tools/test_carriage_c02_door.py
+
+# Cheap actual-CLI rejection controls, owned temporary outputs; root measures isolation after install.
+step "C02 actual door hierarchy refuses closed-preserving detachment (T-2794)" \
+  python3 tools/test_carriage_c02_door_hierarchy.py
+
+step "Harness body fit reproduces original crossings and enforces 5 mm bind-pose clearance" \
+  python3 tools/transport/test_harness_body_fit.py
+
+step "Resident hair export rejects missing alpha, embedded images and skin bindings (T-1789)" \
+  python3 tools/test_human_hair.py
+
+step "Resident hair validates decoded runtime geometry, texture and skin attributes (T-1789)" \
+  node tools/test_human_hair_runtime.mjs
+
+step "Authored humans preserve exact skin bindings when consolidating equivalent palettes" \
+  python3 tools/test_human_skin_canonicalize.py
+
+step "Rigid authored human frames reject real scaling and preserve binary data" \
+  python3 tools/test_human_frame_residue.py
+
+step "Human inspection preserves decoded morph defaults and compares actual CPU-skinned surfaces" \
+  node tools/test_human_inspection.mjs
+
+step "Resident mechanical gait holds prepared-source contact without stretching joints" \
+  python3 tools/test_human_grounded_gait.py
+
+step "Resident inspection camera fits geometry below the header without moving the subject" \
+  node tools/test_human_camera_fit.mjs
+
+step "Loaded human sole contacts preserve named limb identity and require gait metadata" \
+  node tools/test_human_sole_contact.mjs
+
+step "Authored human serialized animation bounds reject malformed metadata and nonzero origins" \
+  python3 tools/test_human_animation_times.py
+
+step "Hierarchy control refuses nonidentity frames and object animation before mutation" \
+  python3 tools/test_human_hierarchy_control.py
+
 step "Portable human contract holds; every human GLB and instance is held to it (T-1786)" \
   python3 tools/human_contract.py --check
 selftest "…incompatible skeletons, missing slots and morphs, duplicate clips, non-metric scale, missing provenance and L1 refused by name" \
@@ -605,6 +822,16 @@ step "the 1904 context city and its streets re-derive and keep off Prairie Avenu
 selftest "…and a stand-in put on a Prairie Avenue lot or in the lake, or a street across Prairie, still fails it" \
   python3 tools/build_context_1904.py --self-test
 
+# T-2741. Today's streets under every year: the City of Chicago's centrelines clipped to the
+# scenes' ground (data/modern/streets.json), each with its block's address ranges, so the compass
+# says the street and house number you stand at today. The check holds the clip's shape, its
+# source record, and three corners this project already holds OSM control for.
+step "today's streets clip holds its shape and lands on the OSM control corners (T-2741)" \
+  python3 tools/build_modern_streets.py --check
+
+step "today's street and house number read off the City's block ranges, both sides' parity (T-2741)" \
+  node tools/test_modern_streets.mjs
+
 # T-1728. ...and what that grid is paved with. data/street_surfaces/1904.json is AUTHORED:
 # every carriageway, alley and sidewalk band names a material, a tier, its sources and a
 # range that bounds 1 July 1904. The contract holds it to the grid (nothing drawn without
@@ -720,6 +947,57 @@ step "the K08 bay kit builds every bay, oriel and tower closed against its wall,
 
 selftest "…and a window off its run, a recess through the wall, a faceted curve, an oriel on one deep course or a roof with a hole still fails it" \
   python3 tools/check_bay_kit.py --self-test
+
+# T-2787. ...and a K01 frontage carries a K08 tower past its eave (the kit piece 1801
+# Prairie's move needs). Built on two committed records with a tower added, a hip and a
+# mansard: the cap over the main roof, the ring closed above the wall head in the wall's
+# plane, the wall head's brackets and bed moulding stopped at its junctions, the lights
+# behind it dropped; a tower under the eave, out of its size range or in front of a door
+# refused.
+step "a K01 frontage carries a K08 tower past its eave, closed above the wall head and the wall head stopped at it (T-2787)" \
+  python3 tools/test_k01_tower.py
+
+# T-2841. ...and a K01 rear wing takes a hipped or gabled roof in K04's slate, where it was
+# decked flat in tin (the kit piece 1801 Prairie's gabled section and east range need).
+# Built on 1604's two wings and on 1811 as all-stone with its range raised over the main
+# eave: the slate's eave and ridge, the ridge across the wing into the host wall or along
+# it, the gable's walling, the junction closed above the host's top and the host wall
+# drawn from the wing's wall top; a slate cut short for its pitch, a hip in tin, a gable
+# facing no side and two slates on one house refused; every committed wing still flat.
+step "a K01 rear wing takes a slated hip or gable, its junction with the host closed above the host's top (T-2841)" \
+  python3 tools/test_k01_wing_roof.py
+
+# T-2842. ...and a K08 tower stands on a K01 rear wing's wall, past the wing's own eave (the
+# kit piece 1801 Prairie's north-east turret on its east range needs). Built on 1604's
+# brick range under its flat deck and on 1811 as all-stone with its rear section hipped in
+# slate: the cap over the wing's roof, the ring closed over the wing's wall top in its
+# wall's plane, the wing's wall open behind it and its lights there dropped; a tower under
+# the wing's eave, a bay or an oriel on a wing, a gable end, a later wing's junction, a
+# corner and a wall no wing has refused.
+step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed over its wall top (T-2842)" \
+  python3 tools/test_k01_wing_tower.py
+
+# T-2843. ...and what 1801 Prairie's move onto K01 needed, held on its record: a mansard face
+# holding two storeys rises 4.5-7.5 m (one stays the attic's 2.0-4.5 m), a K08 projection
+# carried past the main eave is closed on the wall plane behind it and at its cap's end (one
+# at the eave, 1812's, gains nothing), and a wing slated in the main roof's slate keeps its
+# own material, so the publish path's dedup cannot merge its name away.
+step "a mansard face holds two storeys; a K08 pavilion past the eave is closed behind it (T-2843)" \
+  python3 tools/test_k01_pavilion_past_eave.py
+
+# T-2788. ...and what an all-stone house is. A K01 record naming `construction: "stone"`
+# lays its K02 stone_front round every face, not a stone front on a brick box. No record
+# names it yet (1801 Prairie, T-2789, is the first), so this builds four houses that carry
+# a K02 front as all-stone, in memory, and measures them: every wall coursed in the
+# record's stone, no brick under the eave, every course on the front's beds (level round
+# each corner), a stone flat arch over every opening off the front, no coincident face;
+# a quoin bond, a brick bay or a missing stone_front refused; every record as committed
+# still brick on its flanks.
+step "the K01 kit lays an all-stone house in its K02 stone round every face (T-2788)" \
+  python3 tools/check_stone_house_kit.py --check
+
+selftest "…and flanks left in brick, a corner off the front's beds, a headless opening, a doubled face or a refused record built anyway still fails it" \
+  python3 tools/check_stone_house_kit.py --self-test
 
 # T-2303. ...and what the 1904 entrances are. The K07 kit's parts are sized in
 # data/components/prairie_1904/k07_entrances.json and built by
@@ -1879,6 +2157,24 @@ step "the settled town's ground re-derives from the plat and every standing roof
 # the twelve stems and the refusal beside them stay auditable (T-0117).
 step "the planted poplar rows re-derive from the rule that chose their greens" \
   python3 tools/generate_planted_rows.py --check
+
+# Robert G. Clarke's 1835 shore grove, "perhaps fifty to seventy-five large cottonwoods"
+# from a little north of Sixteenth to a little south of Eighteenth Street, with its
+# clump of eight or nine on Wirt Dexter's lot end. The count, the strip's depth and every
+# stem's place but the clump's are a rule's, re-derived here (T-2766,
+# L-shore-grove-1835-2766).
+step "the 1835 shore cottonwood grove re-derives from the rule that dealt it" \
+  python3 tools/generate_shore_grove_1835.py --check
+
+# The same grove in 1812, twenty-three years younger: the 1835 record's positions at
+# half its heights as z08's dune cottonwood (T-2745, L-woods-1812-2745).
+step "the 1812 shore cottonwoods re-derive from the 1835 grove" \
+  python3 tools/generate_shore_grove_1812.py --check
+
+# The fort's company gardens and Dr. Harmon's orchard (Wau-Bun, 1831): which fruit,
+# how many and where are a rule's, re-derived here (T-2809, L-fruit-trees-1835-2809).
+step "the 1835 company-garden and Harmon orchard plantings re-derive from their rule" \
+  python3 tools/generate_fruit_plantings_1835.py --check
 
 # The business signboards are the same shape of claim one layer over: exactly one record
 # in this dataset ATTESTS a sign, and the boards on the other two dozen frontages are a
@@ -3317,6 +3613,11 @@ selftest "…and its own assertions still fire when broken" \
 step "sidecars derived from data/" \
   python3 tools/compile_scene.py --all --check
 
+# T-2747: the 1904 built-so-far walk is written from the building records, so a building
+# that gains detail without the walk being rewritten is red here, and the walk stays current.
+step "1904 built-so-far walk matches the building records (T-2747)" \
+  python3 tools/jaunt_built_so_far.py --check
+
 step "Jaunt schema, destinations and reachable state graph (T-1253)" \
   python3 tools/compile_jaunts.py --check
 
@@ -3348,11 +3649,41 @@ step "Source-use backlinks match authored claims (T-1248)" \
 step "Glessner street and stable opening schedule matches its record (T-2211)" \
   python3 tools/glessner_opening_schedule.py --check
 
+# The stable-roof reading re-solves two committed cameras and reads the roof
+# through them, so a camera, pick or record height that moves without the report
+# being re-written and re-read is caught here (T-2758).
+step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
+  python3 tools/glessner_stable_roof_read.py --check
+
+# Both north cameras are re-solved with the gable pairs' sill and head left free, so
+# a pick, camera or record height that moves without the reading being re-written,
+# or a record that builds the pairs outside it, is caught here (T-2850).
+step "Glessner north gable pairs stand where HABS 13 and 14 read them (T-2850)" \
+  python3 tools/glessner_north_pairs.py --check
+
+# Taylor 2135 is refitted on the Prairie front's first-floor jambs with the stacks withheld,
+# and the front's lights stand at HABS sheet 6's places and widths, so a pick, camera or
+# opening that moves without the reading being re-written is caught here (T-2858).
+step "Glessner's Prairie lights stand on HABS sheet 6, Taylor 2135 refitted on them (T-2858)" \
+  python3 tools/glessner_prairie_front.py --check
+
+# The north tower's finial is read through both north cameras, and the cone's size off
+# its silhouette, so a plan moved to HABS 14's tip alone (which that camera cannot hold
+# off the wall's plane) or a camera that moves without the reading is caught (T-2872).
+step "Glessner north tower stands where HABS 01's tip and silhouette read it (T-2872)" \
+  python3 tools/glessner_north_finial_read.py --check
+
 step "Source-use fixtures preserve joins, counts and public boundaries (T-1248)" \
   python3 tools/test_compile_source_use.py
 
 step "source browser counts and filters" \
   node tools/test_sources_view.mjs
+
+# The home page's destination clips (T-2685): every clip a card names ships in both
+# formats, nothing ships unnamed, and the weight stays capped. `--browser` drives the
+# page itself; no smoke part loads the Observatory.
+step "home page destination clips: named, in both formats, inside the cap (T-2685)" \
+  node tools/test_portal_clips.mjs
 
 step "shared destinations and safe stand-offs (T-1277)" \
   node tools/test_destinations.mjs
@@ -3668,6 +3999,18 @@ step "the boot sidecars rehydrate to the records at their own URLs (T-2315)" \
 step "publish.sh produces a mirror that matches its source" \
   node tools/check_published.mjs
 
+# The frontage's timber ships prebuilt (T-2677): publish.sh builds it in Node with the
+# page's own createFrontage and the page uploads it. This refuses a prebuild whose
+# inputs — the records, the heightfield, every module the build loaded — have moved
+# since it was written, or a buffer its index did not hash. check_published.mjs asks
+# the same of the mirror; this is the tool's own --check, run where the mirror is.
+# T-2693: and the ground's tiles, which the page uploads in the ground GLB's place.
+# T-2709: and the distant base, which createTerrain batches in place of its own cut.
+# T-2710: and the streets' two layouts, which the page batches instead of laying.
+# T-2711: and the yards' five surfaces, which the page uploads in place of laying them.
+step "the published prebuilt frontage, ground, distant base, streets and yards are current against every file they were built from (T-2677, T-2693, T-2709, T-2710, T-2711)" \
+  node tools/prebuild_layers.mjs --check ../../site/4d/data/prebuilt --layer frontage,ground,base,streets,yards
+
 # T-2561: a kept year is served from the device, so its pack has to list exactly
 # what ships — every entry the file at its hash — or an offline visitor gets a
 # file the site no longer has. The self-test holds who is in which year's pack,
@@ -3684,6 +4027,17 @@ step "year packs: every file a pack lists ships at the hash it lists (T-2561)" \
 # no door.
 selftest "front doors: /4d/ and /4d/<year>/ carry a <base> into walk/" \
   node tools/write_entry_pages.mjs --self-test
+
+# …and the page those doors copy ships without the source's developer notes, which is
+# what keeps five identical copies of it under validate.py's 64 KB duplicate floor
+# (T-0722) without moving the floor. The self-test holds the rules (placeholders,
+# conditional comments, raw elements and attribute values untouched); --check holds
+# the shipped page to the source byte for byte, less exactly its comments and stamp.
+selftest "the shipped walk page: developer comments out, placeholders and raw text untouched" \
+  node tools/strip_page_comments.mjs --self-test
+
+step "the published walk page and its doors are the source less its comments (T-0722)" \
+  node tools/strip_page_comments.mjs --check ../../site/4d
 
 # The reference browsers' asset directories leave the mirror only when the site root
 # already ships every byte of them (T-1828) — never a directory with new work in it.
@@ -3857,6 +4211,41 @@ step "a lap that cannot check out a branch says which step failed, and why" \
 step "a branch level with dev but red is re-derived, not called current" \
   node tools/test_pr_lap_current.mjs
 
+# ...AND TWO BAKES OF DIFFERENT STRUCTURES ARE NOT A CONFLICT (T-2892, owner 2026-10-19).
+# assets/manifest.json and assets/manifest.web.json are one object each for the whole
+# town, rewritten whole by every bake, so two PRs that baked different houses conflicted
+# there and the lap left them alone as a REAL CONFLICT — #1104 on 2026-10-19, conflicting
+# on manifest.json and nothing else, until a steward run paid a whole lap. The merger
+# takes each entry from the side that changed it, re-emits on the merged tree any
+# pure-emitter asset whose recipe moved on both sides (byte-identical or refused), and
+# refuses a master both sides rebuilt. Its self-test merges in scratch repositories; the
+# lap test runs the REAL lap over a REAL bare remote, then again with the step cut out,
+# which must leave the PR alone.
+selftest "the asset registries merge entry by entry, and refuse a master both sides rebuilt" \
+  python3 tools/merge_asset_registry.py --self-test
+step "the lap clears a registry-only conflict, and still leaves a real one alone" \
+  node tools/test_pr_lap_registry.mjs
+
+# ...AND THE LAP UNPACKS THE GLESSNER PACKAGE AGAIN AFTER MERGING (T-2907). Its clone laps
+# every PR in turn and the unpacked v4 GLBs are IGNORED files, so after dev repacks the
+# archive the copy on disk is the old one and publish.sh refuses it — #1114 was left alone
+# for exactly that on 2026-10-19, right after its registries merged. REAL lap, REAL bare
+# remote, a stub publish that refuses a stale output as the real one does; and again with
+# the refresh cut out, which must leave the PR alone.
+step "the lap unpacks the Glessner package from the merged tree before it publishes" \
+  node tools/test_pr_lap_package.mjs
+
+# ...AND NEITHER THE LAP NOR THE MERGER TOUCHES A PR A LIVE RUN IS LAPPING (T-2929). A run
+# takes `lap/pr-<N>` before it laps a `resume` PR (T-1721), and every RUN honoured it; the two
+# server sweeps never read it. #1132's lock was taken at 13:00Z on 2026-10-20, the lap pushed
+# df6ae544a over it at 13:19Z and merge-ready merged that at 13:37Z — the holding run's merge,
+# re-derive, check.sh and smoke all thrown away. Both now ask `ticket.mjs lap <N> --status`,
+# the same reading `lap` steals by. REAL scripts, REAL ticket.mjs, REAL bare remotes: held is
+# left alone, stale is not, unreadable is reported and not acted on, a lock taken mid-lap stops
+# the push; and each script again with its read cut out, which must touch the held PR.
+step "the lap and the merger leave a PR whose lap lock a live run holds" \
+  node tools/test_pr_lap_lock.mjs
+
 # AND THE THING THAT ACTUALLY MERGES A FINISHED PULL REQUEST, which for most of
 # this repository's life was NOBODY. The lap's header said auto-merge did it; the
 # fleet janitor said the lap plus auto-merge did it, while excluding `custom`
@@ -3996,6 +4385,28 @@ step "the tickets repo: claim is a pushed lock, done waits on the merge, ask sta
 # READING. It reaches no network.
 step "every held or resumable pull request reaches the board with its reason, and an unread list says so" \
   node tools/test_ticket_parked.mjs
+
+# ONE RUN PER HOUSE AT A TIME (owner, 2026-10-19). Three slices held Glessner at once
+# (#1090, #1091, #1094): each rebaked the house, each conflicted with the others' bakes,
+# and their full smokes queued three hours and were cancelled. `claim` refuses a ticket
+# whose house has a live claim, a ticket in review, or an open PR titled with a ticket of
+# the same house, and `list --workable` marks the row HOUSE BUSY. Run for real against a
+# tickets repository of its own; it reaches no network.
+step "claim and list hold a 1904 house to one run at a time" \
+  node tools/test_ticket_house_serial.mjs
+
+# A RUN MAY TAKE A GROUP (T-2938, owner 2026-10-20: "when claiming a ticket, it can and
+# should evaluate if it can claim multiple and handle them as a group in a single PR").
+# `claim A B C` asks every member the single claim's questions, claims what passes in ONE
+# pushed commit, reports each refusal and exits non-zero only when none was claimed; a
+# member taken mid-push is reported and the rest re-claimed. `done A B --pr N` is all or
+# nothing; `--with T-A` grows a held group (never inferred from a shared run URL);
+# `release` gives back a claim the run will not finish; `list --group` is the shortlist.
+# T-2940 rides the same sandbox: `new` files a follow-up into the band of its KIND (perf to
+# band 1's foot, a building beside its own lines, ops to band 9's foot found by header).
+# Run for real against a tickets repository of its own; it reaches no network.
+step "a run claims, closes and releases a group of tickets as one unit" \
+  node tools/test_ticket_group.mjs
 
 # A GATED WRITER BELONGS IN THE MANIFEST (T-1282, owner 2026-09-18). A tool this gate runs
 # with --check, and that can also write, produces DERIVED content by definition — so if
@@ -5321,6 +5732,13 @@ selftest "a spatial filter still cannot bias the sward's rank deal" \
 # safe to follow (T-0235).
 selftest "the smoke's change-to-parts map still matches the tree" \
   node tools/smoke_budget.mjs --self-test
+
+# T-2899. `waitForFunction(fn, arg, options)` takes its options THIRD; written second
+# they become the page function's argument and the page default applies, silently. The
+# smoke's boot wait read 30 s and waited 90 for that reason, and four other tools
+# had the same slip five times. The test proves it sees the mistake before it reads the tree.
+step "Every waitForFunction passes its options in the third slot, not as the page function's argument (T-2899)" \
+  node tools/test_wait_for_function_args.mjs
 
 # The 1833-1835 newspaper corpus is the PAPERS epic's foundation: eighty-six issues
 # that the project could not cite until they had a register to resolve against. The
@@ -7112,6 +7530,133 @@ step "the cards' pictures join the library and the sources to their buildings" \
 
 selftest "…and the joins still keep out what is not a picture of this building" \
   python3 tools/compile_pictures.py --self-test
+
+# T-2686, AGENTS.md rule 12. A structure's own grade: attested when a reasonable picture of it
+# exists, inferred when maps or text record it and nothing shows it, reconstructed when our
+# model of the town placed it. compile_scene writes it into each sidecar (its --check above
+# holds the committed grades to the rule); this holds the rulings file — every entry names its
+# structure, its picture and why — and the self-test breaks each branch of the rule.
+step "every structure's grade follows its pictures, and every ruling says why (T-2686)" \
+  python3 tools/grade_structures.py --check
+
+selftest "…and a picture, a camera, a ruling or an invention still decides what it should" \
+  python3 tools/grade_structures.py --self-test
+
+# T-2635. The building summary record: data/summaries/<id>.json, the authored front page
+# the Inspect app reads (design doc section 12), shaped by data/summary.schema.json and
+# compiled into data/inspect/<scene>.json at publish (GENERATED, not committed, like the
+# pictures above). The app shows these strings exactly as written, so this refuses a fact
+# with no grade, an Attested fact with no source, an Inferred or Reconstructed one with no
+# note, any id that does not resolve (source, person, liberty, the structure in its scene),
+# a string over its length limit, and an id, snake_case word, path, link or ticket number
+# in anything a visitor reads. It gates the Inspect app (T-2638) and its fallback (T-2636).
+step "every building summary record is graded, sourced, within its lengths and free of ids" \
+  python3 tools/compile_summaries.py --check
+
+selftest "…and each planted fault (no grade, unsourced Attested, too long, a snake_case id, an unknown source) is refused" \
+  python3 tools/compile_summaries.py --self-test
+
+# T-2636. And the buildings nobody has written a summary for, which is most of them: the
+# card's head and lead are templated from the sidecar (renderers/web/js/fallback-summary.js),
+# never printed from a raw field. This runs the card's own composition over every structure
+# in every scene and refuses an id, snake_case word, path, link or ticket number anywhere in
+# the title, address, other names, kind line or lead, an address given twice, and a templated
+# lead over three sentences or sixty words; it also holds the card's lint to the gate's above.
+step "every building's card opens with its address once and no id, path or snake_case (T-2636)" \
+  node tools/test_fallback_summary.mjs
+
+# T-2662 (prepared ahead of its claim). The Guide's glossary and FAQ, data/guide/: the seven
+# locked terms of design doc section 03 with one-line meanings, and "Is this real?" and "What
+# does Reconstructed mean?". Exactly the locked terms, in order; a meaning at most 15 words, an
+# answer at most 60, a sentence at most 20, reading grade 9 or lower; no lower-case grade word or
+# retired term; the summary records' lint; and every claim names the files that make it true.
+step "the Guide's glossary and FAQ use the locked terms exactly, within their lengths and grade 9" \
+  python3 tools/check_guide.py --check
+
+selftest "…and each planted fault (a missing term, a long answer, a retired word, a claim resting on nothing) is refused" \
+  python3 tools/check_guide.py --self-test
+
+# T-2702. The 1904 people directory: data/sidecars/1904/people.json, compiled by the 1835
+# generator from 1904's own household cards in data/residents_1904/ (compile_scene.py's
+# --check above holds the file itself). This holds what it must mean: exactly its own
+# cards' people and none of 1835's (the T-1739 fault), each in a 1904 structure, the
+# Glessner summary's residents among them — and T-1740 still true, 1904 listing no
+# `residents` layer, so the drawer's 1835-shaped People section stays off.
+step "the 1904 people directory is its own, and the drawer still offers no People section (T-2702)" \
+  python3 tools/test_people_scene.py
+
+selftest "…and a card with no source, no grade, a home not in the scene or a late arrival is refused" \
+  python3 tools/test_people_scene.py --self-test
+
+# T-2611. The arrival's time-stream decks: data/timestream/<scene>.json, 8 to 12 landmark
+# years each, captioned as the ticker passes them (design doc section 05). The page shows
+# the strings as written, so this refuses a caption with no grade, no source, a source
+# that does not resolve, no note, more than 70 characters or 20 words, an id, path or
+# ticket number (T-2635's lint, imported), a year the ticker never passes, a tie in
+# importance (the fast-load pick), and Native history without its review flags and reason.
+step "every time-stream caption is graded, sourced, at most 70 characters and free of ids" \
+  python3 tools/check_timestream.py --check
+selftest "…and each planted fault (no grade, no source, an invented source, too long, an id, a removal caption unflagged) is refused" \
+  python3 tools/check_timestream.py --self-test
+step "time-stream: shown only as the ticker passes, about 2 s each, 3 fast and 8 slow, once each (T-2611)" \
+  node tools/test_time_stream.mjs
+# T-2612. The arrival telemetry: YEARS TO GO, the four lamps named for what a visitor sees
+# (STREETS, BUILDINGS, TREES, PEOPLE) on the real boot phases, and the log's lines from the
+# destination's deck — held against the real boot controller for all three destinations.
+step "arrival telemetry: four named lamps on their boot phases, YEARS TO GO to 0, the deck's log lines (T-2612)" \
+  node tools/test_arrival_telemetry.mjs
+# T-2624. The Navigator string table (js/strings/, one section per app; each Navigator
+# app's manifest carries its own name and screen code). Refuses a locked term spelled any
+# other way, a retired or renamed word of design doc section 03, an id, path or ticket
+# number (compile_summaries.lint_string), page markup whose first paint is not the
+# table's, and drift from the Guide's locked list and glossary (T-2662) when both are in.
+step "every Navigator, HUD and arrival string is in the table, the locked terms exact and section 03's renames applied (T-2624)" \
+  python3 tools/check_strings.py --check
+selftest "…and a misspelt locked term, a retired or renamed word, an id and a page that paints otherwise are each refused" \
+  python3 tools/check_strings.py --self-test
+step "string table: sections register and extend, placeholders fill, no key ever shown (T-2624)" \
+  node tools/test_strings.mjs
+
+# T-2668 (NAV-1003). The visitor-UI lint: no file path, link, id, snake_case word, ticket
+# number, or the words "tier", "ticket" or "order book" in what a visitor reads — the string
+# table, the static pages' visible text, the Go to list's business rows from
+# data/businesses/index.json and the Shops & work card's location lines (T-2657, which holds
+# a record sentence that fails for Researcher mode where the page gates it). Researcher-mode strings are exempt (a `researcher` key segment;
+# a [data-researcher] element, which css/skins.css hides until Researcher mode is on), and a
+# leak another ticket owns sits on the tool's allowlist with that ticket, failing once stale.
+step "no path, id, snake_case, 'tier', 'ticket' or 'order book' in what a visitor reads (T-2668)" \
+  python3 tools/check_visitor_ui.py --check
+selftest "…and a planted path, snake_case id, 'tier', 'ticket', 'order book' and a stale allowlist entry are each refused" \
+  python3 tools/check_visitor_ui.py --self-test
+step "visitor-UI lint: the faults, the Researcher exemption, the Go to rows and the allowlist, on fixtures (T-2668)" \
+  python3 tools/test_check_visitor_ui.py
+# T-2825. The research records a person opens (liberties, ground, open questions, the Shops &
+# work card's location lines) are rewritten for a reader at their compile step, by one rule:
+# no ticket number, record id or file path in a sentence; the ticket kept as `work_refs`.
+selftest "…and the reader's rewrite drops a ticket, names an id and says a path in words (T-2825)" \
+  python3 tools/readable_text.py --self-test
+# T-2825, second half. The records a page reads as authored (plants, wildlife, households and a
+# person's card, a firm's record, a building's card) are said for a reader by an overlay of
+# edits that publish.sh compiles by the same rule (tools/compile_reader_text.py); the page
+# applies it (js/reader-text.js), and the visitor-UI lint above reads every one of those
+# records through the same rewrite. Here: the overlay, compiled to a scratch folder, is found
+# and applied by the page's own JavaScript exactly as the gate reads it, and then every
+# household card, every building card of every scene and the plants and wildlife topics are
+# rendered by the page's own functions and read as a person reads them, tooltips included —
+# the one place a bare id a renderer prints itself can be seen. About forty seconds, in the
+# pool; it replaces a smoke pass over 2,300 cards that no runner could afford.
+step "the page says every record as the gate reads it, and no card it renders leaks (T-2825)" \
+  node tools/test_reader_text.mjs --all
+
+# T-2669. Section 03's voice rule, in the gate: every summary, fact, time-stream caption and
+# tour bubble a visitor reads is held to Flesch-Kincaid grade 9 or lower and 20 words a
+# sentence (a bubble to 14 words, section 11). A string under 12 words is scored in its
+# file's pool rather than alone, because the formula is a passage measure; the tool's
+# header has the syllable rules and the measurement behind that floor.
+step "every summary, fact, caption and bubble reads at Flesch-Kincaid grade 9 or lower, 20 words a sentence (T-2669)" \
+  python3 tools/check_reading_level.py --check
+selftest "…and a planted grade-12 sentence, a 21-word sentence, a 15-word bubble and a file of short hard lines are refused (T-2669)" \
+  python3 tools/check_reading_level.py --self-test
 
 # T-1238. `associated_with[]` is the plural, dated form of `lives_at`/`works_at`, and
 # its coverage file is how the migration's remaining distance stays a number rather than

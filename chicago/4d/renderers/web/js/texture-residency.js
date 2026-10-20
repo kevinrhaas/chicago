@@ -39,8 +39,15 @@
  * picture's ENCODED bytes (shared-images.js, `keepEncoded`) it is decoded again from
  * them through the GLB's own image loader, uploaded, and closed again; the encoded
  * bytes are what the page holds meanwhile, a JPEG's or PNG's size rather than four
- * bytes a texel. A picture with no encoded copy is never closed here. A KTX2's
- * transcoded levels stay in the page as they always have, so it re-uploads directly.
+ * bytes a texel. A picture with no encoded copy is never closed here.
+ * A PHONE LETS GO OF A KTX2's TRANSCODED LEVELS TOO (T-2828). They stayed in the page
+ * after upload, so every GLB KTX2 was held twice, as image bitmaps were before T-2548:
+ * 63 MB of the 1904 phone's 124 MB of ArrayBuffers at the Glessner front, beside the
+ * same 63 MB on the GPU. Once every texture of a source is uploaded — or at once, for a
+ * source that is distant and drawn by its stand-in — each level's bytes are replaced by
+ * an empty array, and the source leaves the shared cache (a GLB parsed later transcodes
+ * its own). Coming back, the source is transcoded again from the KTX2 file its GLB
+ * carried (`keepEncoded`, about a tenth of the levels), uploaded, and let go again.
  *
  * WHAT DOES NOT CHANGE. Placement, picking (gpu-pick.js reads ids, not textures), the
  * card and the confidence view never read residency. Doctrine 5: a tier does not
@@ -51,6 +58,7 @@
 
 import * as THREE from 'three';
 import { glbImageSource, retireSharedImage } from './shared-images.js';
+import { noteReleasedLevels } from './upload-release.js';
 
 const MiB = 1048576;
 
@@ -84,6 +92,9 @@ function sourceBytes(texture) {
   const h = image?.height ?? 0;
   return Math.round(w * h * 4 * (texture.generateMipmaps ? 4 / 3 : 1));
 }
+
+/** What a released KTX2 level holds: nothing, and an upload of it is a GL error, not a throw. */
+const RELEASED = new Uint8Array(0);
 
 const isBitmap = (image) => typeof ImageBitmap !== 'undefined' && image instanceof ImageBitmap;
 /** A closed ImageBitmap reports 0 × 0: three cannot upload from it. */
@@ -131,7 +142,9 @@ function redecode(encoded) {
   return new Promise((resolve, reject) => {
     const url = URL.createObjectURL(new Blob([encoded.view], { type: encoded.mimeType }));
     const done = (fn) => (value) => { URL.revokeObjectURL(url); fn(value); };
-    encoded.imageLoader.load(url, done((got) => resolve(got?.isTexture ? got.image : got)),
+    // A KTX2 comes back as the texture its loader transcoded: the caller takes its levels.
+    encoded.imageLoader.load(url, done((got) => resolve(got?.isCompressedTexture ? got
+      : got?.isTexture ? got.image : got)),
       undefined, done(reject));
   });
 }
@@ -143,7 +156,8 @@ function redecode(encoded) {
  * @param {string} o.tier                'full' | 'balanced' | 'light'
  * @param {boolean} o.closeImages        a phone: close a distant source's bitmap when
  *                                       its encoded bytes were kept, and close a
- *                                       re-decoded one once it is uploaded again
+ *                                       re-decoded one once it is uploaded again; let
+ *                                       go of a KTX2's transcoded levels likewise
  */
 export function createTextureResidency({ group, renderer, tier = 'full', closeImages = false,
   settings = null } = {}) {
@@ -225,6 +239,7 @@ export function createTextureResidency({ group, renderer, tier = 'full', closeIm
     tier, ...cfg, sources: entries.size, resident: entries.size, residentBytes: 0,
     allBytes: 0, peakResidentBytes: 0, pending: 0, uploads: 0, evictions: 0, redecodes: 0,
     standIns: 0, standInBytes: 0, encodedBytes: 0, wantedBytes: 0, overBudget: 0, problems,
+    released: 0, releasedBytes: 0, retranscodes: 0,
   };
   for (const entry of entries.values()) {
     state.allBytes += entry.bytes;
@@ -235,6 +250,64 @@ export function createTextureResidency({ group, renderer, tier = 'full', closeIm
   // (closeUploadedImages), and a stand-in cannot be drawn from a closed bitmap, so
   // there every stand-in is made now, while every picture is still open.
   if (closeImages) for (const entry of entries.values()) ensureStandIns(entry);
+
+  // T-2828: the KTX2 sources whose transcoded levels a phone still holds, and can let
+  // go of because the file is kept to transcode them from again.
+  const holding = new Set();
+  if (closeImages) {
+    for (const entry of entries.values()) if (entry.compressed && entry.encoded) holding.add(entry);
+  }
+  const uploaded = (tex) => {
+    const p = renderer.properties.get(tex);
+    return p.__webglTexture !== undefined && p.__version === tex.version;
+  };
+
+  /** Let go of every held source the GPU no longer needs the levels of. */
+  function releaseLevels() {
+    for (const entry of holding) {
+      // Loading is about to upload; resident waits for every texture to be up.
+      if (entry.state === 'loading' || entry.decoding) continue;
+      if (entry.state === 'resident' && ![...entry.textures.keys()].every(uploaded)) continue;
+      let bytes = 0;
+      // What each texture's levels were, kept for a reader pricing the GPU copy
+      // (resident-estimate.js, the memory meter's layer table).
+      for (const tex of entry.textures.keys()) {
+        tex.userData.releasedBytes = (tex.mipmaps ?? []).reduce((s, m) => s + (m?.data?.byteLength ?? 0), 0)
+          || tex.userData.releasedBytes || 0;
+      }
+      for (const tex of entry.textures.keys()) {
+        for (const level of tex.mipmaps ?? []) {
+          if (!level?.data?.byteLength) continue;
+          bytes += level.data.byteLength;
+          level.data = RELEASED;
+        }
+      }
+      retireSharedImage(entry.source.data);
+      entry.released = true;
+      holding.delete(entry);
+      state.released += 1;
+      state.releasedBytes += bytes;
+      noteReleasedLevels(bytes);
+    }
+  }
+
+  /** A released source's levels, transcoded again, put back where three reads them. */
+  function refill(entry, fresh) {
+    const levels = fresh?.mipmaps ?? [];
+    let ok = true;
+    for (const tex of entry.textures.keys()) {
+      (tex.mipmaps ?? []).forEach((level, i) => {
+        const got = levels[i];
+        if (got && got.width === level.width && got.height === level.height) level.data = got.data;
+        else ok = false;
+      });
+    }
+    fresh?.dispose?.();
+    if (!ok) problems.push('texture residency: a KTX2 transcoded again to different levels');
+    entry.released = false;
+    holding.add(entry);
+    state.retranscodes += 1;
+  }
 
   function distanceOf(entry, eye, flat) {
     const s = entry.spheres;
@@ -291,11 +364,16 @@ export function createTextureResidency({ group, renderer, tier = 'full', closeIm
   /** True when the source can be uploaded now; otherwise starts its decode. */
   function ready(entry) {
     const image = entry.source.data;
-    if (entry.compressed || !isClosed(image)) return true;
+    if (entry.compressed ? !entry.released : !isClosed(image)) return true;
     if (!entry.encoded) return false;
     if (!entry.decoding) {
       entry.decoding = redecode(entry.encoded).then((fresh) => {
         entry.decoding = null;
+        if (entry.compressed) {
+          if (entry.state === 'loading') refill(entry, fresh);
+          else fresh?.dispose?.();
+          return;
+        }
         if (entry.state !== 'loading') { if (isBitmap(fresh)) fresh.close(); return; }
         entry.source.data = fresh;
         entry.source.needsUpdate = true;
@@ -385,6 +463,7 @@ export function createTextureResidency({ group, renderer, tier = 'full', closeIm
     prime(eye, { flat = false } = {}) {
       evaluate(eye, flat);
       pump(true);
+      if (holding.size) releaseLevels();
       lastEye.copy(eye);
       tally();
     },
@@ -397,6 +476,7 @@ export function createTextureResidency({ group, renderer, tier = 'full', closeIm
         lastEye.copy(eye);
       }
       if (queue.length) pump(false);
+      if (holding.size) releaseLevels();
       tally();
     },
     /** The detail tier changed: its reach and budget apply from the next frame. */

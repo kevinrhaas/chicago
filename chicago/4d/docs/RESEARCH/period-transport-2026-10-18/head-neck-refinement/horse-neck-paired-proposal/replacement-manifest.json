@@ -1,0 +1,59 @@
+{
+  "baseline_HEAD": "c4f6e5424f13efae19a675187541fd6e2bf3f8cf",
+  "files": [
+    {
+      "path": "chicago/4d/tools/transport/horse_geometry.py",
+      "old_sha256": "dabacec4b7d9899e589ca7ddcd7ceac579fc3e60ad249b31c91dba73a140dbe5",
+      "new_sha256": "89d7874bc95e48bed7dcf42957d514175398a66cd687d833984ba6c6f9b090e2",
+      "bytes": 15672
+    },
+    {
+      "path": "chicago/4d/tools/transport/generate_horse.py",
+      "old_sha256": "81748a630316d2b70acc5ad8c5adb7d1945063abd4a02fa96c3451b1e85928ee",
+      "new_sha256": "890ddda0852b2fd0714ceb19fa08d2b6defffe65c705b62493fb06ac69ec2791",
+      "bytes": 8803
+    },
+    {
+      "path": "chicago/4d/tools/transport/generate_harness.py",
+      "old_sha256": "c619448760bc68a79289afb6e851c9d061a159d27c0b63dd1536374044c5db14",
+      "new_sha256": "ef019b99e39f106994ea1cb1c39358df98318bc682095bf1a52b80dea36b2954",
+      "bytes": 13131
+    },
+    {
+      "path": "chicago/4d/data/transport/studies/harness.json",
+      "old_sha256": "f6ab9883014a0b1132512708f5d6f3a221a6a198ea13d5ad7dc22df450047f69",
+      "new_sha256": "7473be06e127388b07cd67af69db671bcc134999fa66849a5866f40c0794d85d",
+      "bytes": 3524
+    },
+    {
+      "path": "chicago/4d/renderers/web/transport/horse/equine_light_harness_skinned_prototype_01.glb",
+      "old_sha256": "da8b89ccfefb6fb19751cbfc6fb6ce18854215da4855ae7454f0f330ee7dee18",
+      "new_sha256": "6e9b37b755ae3eda7b5cf2f492d1781b0e507664a99c88a2e6dee086f77c2296",
+      "bytes": 654848
+    },
+    {
+      "path": "chicago/4d/renderers/web/transport/horse/manifest.json",
+      "old_sha256": "4a3d0eccfd98f0be96d3fff37f4f548310ecb978f27784574b5794b6e8a3172d",
+      "new_sha256": "f2b4710e2d65037ad84dd059c21d1bfb3ae6f1f751b9c794931dc73397d6d094",
+      "bytes": 16181
+    },
+    {
+      "path": "chicago/4d/renderers/web/transport/harness/light_breastcollar_harness_reconstructed_01.glb",
+      "old_sha256": "eb4dd12f9537aa46a394ec96de41b20c10d146a47b33850e0a0015d76e931812",
+      "new_sha256": "b4a7318053e8508617a24fff64f02beb7eee77684db689dc04771d209a54fa8b",
+      "bytes": 569564
+    },
+    {
+      "path": "chicago/4d/renderers/web/transport/harness/manifest.json",
+      "old_sha256": "4b4f41fc062d42219d64a4b7a22b895bfd8a5dd1f27e3e826d6d74ad4d9c0912",
+      "new_sha256": "d97d6b4328b234939dfe320d7174553a42de4c40317523ca288b18c51e62428a",
+      "bytes": 5370
+    },
+    {
+      "path": "chicago/4d/renderers/web/transport/harness/geometry-stats.json",
+      "old_sha256": "7f495b1bfba48f2f26e7710b7d6d7187d3d74670f9ade0c7f096839b5ca5b0d6",
+      "new_sha256": "87c1ca510d6a9d0351a9aa1239a2f64ff45e5f0ce72fa1a11a8b270f7416113b",
+      "bytes": 2989
+    }
+  ]
+}

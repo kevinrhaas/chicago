@@ -178,6 +178,8 @@ const COVERAGE = [
   ['renderers/web/glessner-baseline.html', NONE, 'isolated page: qa_glessner_t2200.mjs'],
   ['renderers/web/js/glessner-baseline.js', NONE, 'isolated page: qa_glessner_t2200.mjs'],
   ['renderers/web/css/glessner-baseline.css', NONE, 'isolated page: qa_glessner_t2200.mjs'],
+  // T-2685: the Observatory home page is not the walk; no smoke part loads it.
+  ['renderers/web/portal/', NONE, 'the Observatory home page: test_portal_clips.mjs --browser, write_entry_pages --self-test'],
   ['data/comparisons/glessner/', NONE, 'isolated comparison data: qa_glessner_t2200.mjs'],
   // T-2265: the K01 component contract and the Glessner baseline measured against it.
   // Read by tools/k01_contract.mjs in check.sh; neither published nor fetched.
@@ -186,6 +188,30 @@ const COVERAGE = [
   // exemplar, and moves this row to the parts that draw it then); publish.sh ships none
   // of it. tools/k02_stone_study.mjs captures it at both viewports on its own page.
   ['assets/textures/prairie_1904_stone/', NONE, 'K02 stone library, bound by no scene yet: k02_stone_study.mjs'],
+  // T-2635: the building summary records' schema. No module fetches the compiled
+  // data/inspect/ yet (T-2638's Inspect app will, and moves this row to the part that
+  // draws it then); tools/compile_summaries.py --check and --self-test hold it in check.sh.
+  // data/summaries/ gets its row with the first record in it (T-2637): a row for a path
+  // the tree does not hold is refused as rot.
+  ['data/summary.schema.json', NONE, 'the shape those records are refused against: compile_summaries.py'],
+  // T-2662 (prepared): the Guide's glossary and FAQ. No module reads them until the Navigator
+  // Guide (T-2661) lands; check_guide.py holds them in check.sh.
+  ['data/guide/', NONE, 'the Guide glossary and FAQ, read by no module yet: check_guide.py'],
+  // T-2637: the first record. Compiled into data/inspect/ at publish, which no module reads yet.
+  ['data/summaries/', NONE, 'authored summary records, read by no module until the Inspect app: compile_summaries.py'],
+  // T-2641: the style library, compiled with the records into inspect/<scene>.json at publish
+  // and drawn by Inspect's Design tab, which part 14 reads on Glessner House. Its schema is held
+  // by compile_summaries.py in check.sh and fetched by no module.
+  ['data/styles/', [14], 'the style guide modules Inspect\'s Design tab shows (T-2641)'],
+  ['data/style.schema.json', NONE, 'the shape a style module is refused against: compile_summaries.py'],
+  // T-2702: 1904's own household cards and the directory compiled from them. main.js
+  // fetches a people.json only for a scene that draws `residents`, which 1904 does not
+  // (T-1740), so no module reads either; test_people_scene.py holds them in check.sh.
+  ['data/residents_1904/', NONE, '1904 household cards, read by no module: test_people_scene.py'],
+  ['data/sidecars/1904/people.json', NONE, 'the 1904 directory, fetched by no module (1904 draws no residents): test_people_scene.py'],
+  // Which files git tracks. What publish.sh writes into the untracked mirror is held by
+  // check_published.mjs in check.sh, not by the renderer.
+  ['.gitignore', NONE, 'which files git tracks — the mirror is held by check_published.mjs'],
   // The licence register is prose a gate reads (validate.py); no module fetches it.
   ['assets/LICENSES.md', NONE, 'the licence register: validate.py, not the renderer'],
   // --- read by no part of the scene: the gate's own tooling, the backlog, the
@@ -217,6 +243,11 @@ const COVERAGE = [
   // and on the PR `changelog-entries.mjs --check` holds its shape and budget. Without
   // this row every PR, which now always carries one, would price at the whole gate.
   ['changelog.d/', NONE, 'changelog entry files — folded into changelog.js on dev, not served'],
+  // T-2558: the H0 WebGPU spike (RENDERING.md section 8). publish.sh copies
+  // renderers/web/ alone, so nothing here reaches the mirror, and walk/ imports nothing
+  // from it (it reads walk/'s published files, never the reverse). The smoke body cannot
+  // load it; tools/measure_hd_spike.mjs is the instrument that boots it.
+  ['renderers/web-hd/', NONE, 'the unpublished H0 spike — booted by measure_hd_spike.mjs, never by walk/'],
   ['tools/smoke_renderer.mjs', ALL, 'the gate itself'],
 
   // --- the whole scene: geometry, the scene graph, the boot chain, the mirror
@@ -250,6 +281,21 @@ const COVERAGE = [
   // priced on the source it changed, which is the only thing it changes now.
 
   // --- PART 1: the enclosure layer, the plantings inside it, and the signs
+  // T-2638: Inspect, the Navigator's Overview front page. Part 3 reads it on a fallback
+  // building (Hogan's store), part 14 on the Glessner summary record and the 1904 tabs, part 4
+  // the 1835 tabs once in the town (T-2639); part 13 the rail.
+  ['renderers/web/js/apps/inspect.js', [3, 4, 13, 14], 'the Inspect app: its rail entry and its lazy screen'],
+  ['renderers/web/js/apps/inspect-view.js', [3, 4, 14], 'Inspect\'s Overview front page (M7) and its tabs (T-2639)'],
+  ['renderers/web/js/inspect-sources.js', [4, 14], 'Inspect\'s Sources tab: facts by grade, Liberties, folded citations (T-2644)'],
+  // T-2645: the Photos tab. Part 14 reads it on Glessner House (pictures, All N, From this
+  // spot); part 4 opens every tab of an 1835 building, Photos included.
+  ['renderers/web/js/photos-tab.js', [4, 14], 'Inspect\'s Photos tab (T-2645)'],
+  ['renderers/web/css/photos.css', [4, 14], 'Inspect\'s Photos tab, its grid and tiles (T-2645)'],
+  // T-2643: Inspect's Story timeline; part 4 reads it on an 1835 building, part 14 on Glessner.
+  ['renderers/web/js/inspect-story.js', [4, 14], 'Inspect\'s Story tab: BUILT, YOU ARE HERE and TODAY (T-2643)'],
+  // T-2641: Inspect's Design tab; part 14 reads Glessner's style card, hotspots and Show me,
+  // part 4 an 1835 building with no record or module, which falls back to its own sidecar.
+  ['renderers/web/js/inspect-design.js', [4, 14], 'Inspect\'s Design tab: the style card, On this house, Compare styles (T-2641)'],
   ['renderers/web/js/enclosures.js', [1], 'the enclosure layer (T-0038)'],
   ['renderers/web/js/yards.js', [1], "the town's lot-line yard fences (T-0068)"],
   ['renderers/web/js/signage.js', [1], 'the business signs (T-0039, T-0066)'],
@@ -274,6 +320,9 @@ const COVERAGE = [
   // --- PART 3: the ground you stand on, and the card that says why
   ['renderers/web/js/ground.js', [3], 'the ground faces the sky (R-BUG3c)'],
   ['renderers/web/js/terrain.js', [3], 'the ground the town stands on'],
+  // What publish prebuilt, read before the ground, the distant base and the frontage ask
+  // for theirs; every part boots through it, and the zero-page-errors check reads its 404s.
+  ['renderers/web/js/prebuilt-index.js', ALL, 'the list of prebuilt layers the boot reads first'],
   // T-2599. The job pool and the spatial partition its workers run. Only terrain's
   // boot ground tiles go through the pool so far, so part 3 is where it is read;
   // T-2600 moves the other spatialBatch callers and widens this with them.
@@ -296,7 +345,7 @@ const COVERAGE = [
   // and holds it to zero pageerrors, which is the claim "not imported" rests on.
   ['renderers/web/js/ground-strip.js', [1], 'the ground-strip proof (T-1797), drawn only under ?proof=ground'],
   ['renderers/web/js/ground-strip-mask.js', [1], 'the ground-strip proof\'s layout and mask pixels (T-1797)'],
-  ['renderers/web/js/citations.js', [3], 'pick -> provenance, and what kind of source'],
+  ['renderers/web/js/citations.js', [3, 4, 14], 'pick -> provenance, and what kind of source; Inspect\'s Sources tab folds them (T-2644)'],
   ['renderers/web/js/liberties.js', [3, 14], 'the liberties on the card, and in the panel'],
   // T-1519. The People directory's person card is `householdHtml` from this module, and
   // that card is opened and read in PART 12 — so 12 joins the building card (3) and the
@@ -326,6 +375,8 @@ const COVERAGE = [
   // panel's letter-list group, whose body the smoke reads (14). No building card holds
   // a letter-list name, so part 3 never reaches it.
   ['renderers/web/js/letter-list-roster.js', [13, 14], 'how a letter-list household is read from the published roster'],
+  // T-2825: the reader's overlay every card, topic and jaunt applies to what it fetches.
+  ['renderers/web/js/reader-text.js', [3, 4, 10, 11, 12, 13, 14, 15], "a record's research prose said for a reader: the card, Inspect, the topics, people, firms and jaunts"],
   ['data/reconstruction/1835_agencies.json', [3, 14], 'the compiled relation both cards read'],
   // T-1959. The placement policy is the seating and yard generators' rule book: what
   // it decides reaches the scene only through the records those generators write (the
@@ -336,7 +387,9 @@ const COVERAGE = [
   // T-1160. The Evidence hub is asserted in PART 12 (ten tiles since T-1292, each
   // counting its own mount) and its mounts are stress-measured for overflow in PART 13, so the
   // population profile and the hub itself are read by both and by nothing else.
-  ['renderers/web/js/evidence.js', [13, 14], 'the Evidence hub and its tiles'],
+  // T-2667: the hub is Guide › About this destination; its four cards are opened from
+  // Guide's own block in PART 12, and the 1904 hub's cards are read in PART 14.
+  ['renderers/web/js/evidence.js', [12, 13, 14], 'Guide › About this destination: the four cards and their tiles'],
   ['renderers/web/js/population.js', [13, 14], 'the town\u2019s people, profiled'],
   ['data/reconstruction/1835_population_profile.json', [13, 14], 'the profile the panel renders'],
   // T-1166. The order book's panel is the ninth tile, asserted in the same PART 12
@@ -360,7 +413,9 @@ const COVERAGE = [
   ['data/businesses/', [3, 13], 'the compiled business records and their index'],
   ['data/businesses.schema.json', [3, 13], 'the shape those records are refused against'],
   ['renderers/web/js/display-name.js', [3], 'the prose may not name a level the record is not'],
-  ['renderers/web/js/popup.js', [3], 'the card a visitor opens'],
+  ['renderers/web/js/popup.js', [3, 4, 14], 'the card a visitor opens, and its sections in Inspect\'s tabs (parts 4, 14; T-2639)'],
+  // T-2636: the card's templated head and lead; part 14 reads the 1904 Glessner card's.
+  ['renderers/web/js/fallback-summary.js', [3, 14], 'the card\'s opening when no summary is written'],
   ['renderers/web/js/census.js', [13], 'the town census in Evidence → City'],
   ['data/terrain/', [3], 'the heightfield'],
   ['data/liberties.json', [3, 14], 'the liberties taken on THAT building'],
@@ -379,6 +434,10 @@ const COVERAGE = [
   // --- and the batch merge out of part 7 into part 8.
   ['renderers/web/js/navigation.js', [7], 'navigation and its readouts'],
   ['renderers/web/js/hud.js', [7], 'the readouts a visitor navigates by'],
+  // T-2741: today's street and house number under the compass, and the street names'
+  // record of where you are in the scene's year, read where the street readout is.
+  ['renderers/web/js/modern-streets.js', [7], 'today\'s street and house number, under the compass'],
+  ['data/modern/', [7], 'today\'s streets (the City\'s centrelines), under the compass and on the maps'],
 
   // --- PART 9: what the light does to the town
   ['renderers/web/js/facades.js', [9], 'T-0002, the facade tones'],
@@ -392,16 +451,46 @@ const COVERAGE = [
   // --- PARTS 10-12: what grows, what moves, and the streets a visitor reads
   // (T-2337 cut old part 10 into 10 + 11, so a row that named 10 names both)
   ['renderers/web/js/flora.js', [10, 11, 12], 'the flora census, and the boundary it fades at'],
+  // T-2698: the near deal's field tile. flora.js is its only importer (the
+  // `nearField` handle), so it is read where the flora census is.
+  ['renderers/web/js/near-field.js', [10, 11, 12], 'the near field tile, built through flora.js'],
+  // T-2706: the near deal's species and placement as GLSL, and the slot codes
+  // flora.js's `dealNearSlot` answers in. flora.js is its only importer.
+  ['renderers/web/js/flora-gpu-deal.js', [10, 11, 12], 'the near deal as GLSL, read through flora.js'],
+  // T-2716: the deal pass and the tuft's fetch that draw the near ring. flora.js
+  // is its only importer.
+  ['renderers/web/js/flora-gpu-near.js', [10, 11, 12], 'the near ring drawn from the shader, through flora.js'],
+  // T-2894: the mid ring's deal pass, reaped into the mid cards. flora.js is its
+  // only importer.
+  ['renderers/web/js/flora-gpu-mid.js', [10, 11, 12], "the mid ring's cards dealt on the GPU, through flora.js"],
+  // T-2895: the forb ring's two walks dealt in the mid pass, reaped into the
+  // forbs, rosettes and shrubs. flora.js is its only importer.
+  ['renderers/web/js/flora-gpu-forb.js', [10, 11, 12], "the forbs, rosettes and shrubs dealt on the GPU, through flora.js"],
   // T-2604. The flora lattice walk a spread pass runs on a worker: the census parts
   // read what the deal planted from it.
   ['renderers/web/js/jobs/lattice-kernel.js', [10, 11, 12], 'the flora lattice walk a spread pass sends to the job pool'],
+  // T-2695. The zone finder, moved out of flora.js so a worker can run it, and the
+  // job that answers a spread pass's slots with it: the census parts read both.
+  ['renderers/web/js/flora-zones.js', [10, 11, 12], 'which community the flora census asks at a point'],
+  ['renderers/web/js/jobs/zone-kernel.js', [10, 11, 12], 'the zone answers a spread pass brings home from the job pool'],
+  // T-2696. The rest of a slot's ground, answered beside its zone on that worker,
+  // and the corridor bands both sides ask: the census parts read what they plant.
+  ['renderers/web/js/flora-ground.js', [10, 11, 12], "the water, floor, verge and height a spread pass's slots bring home"],
+  ['renderers/web/js/street-verge.js', [10, 11, 12], 'where in a street corridor the flora census asks a turf plant'],
   ['renderers/web/js/zone-blend.js', [10, 11, 12], 'where the flora census asks a community, and its blended edge'],
   ['renderers/web/js/plants.js', [10, 11, 12], 'the sward, and its ragged edge'],
   ['renderers/web/js/trees.js', [10, 11], 'the horizon timber'],
   ['renderers/web/js/tree-surface.js', [10, 11], 'the trees\' leaf-and-bark atlas and their shader patch (T-2110), drawn in the part trees.js is'],
+  // T-2743: every tree in 1812, 1835 and the 1904 parkway is grown and instanced by these two.
+  ['renderers/web/js/tree-model.js', [10, 11, 14], 'the grown species trees: the timber parts and the 1904 parkway elms'],
+  ['renderers/web/js/tree-instances.js', [10, 11, 14], 'the grown trees\' instancing, levels and shadow ring: the timber parts and the 1904 elms'],
+  ['assets/textures/trees/', [10, 11, 14], 'the grown trees\' leaf and bark atlases'],
+  ['tools/generate_tree_atlas.py', NONE, 'writes assets/textures/trees/, read by no renderer itself'],
   ['renderers/web/js/shrub-grain.js', [10, 11, 12], 'the sward\'s grain'],
   ['renderers/web/js/fauna.js', [10, 11, 14], 'the wildlife, drawn and in the panel'],
   ['renderers/web/js/streets.js', [2, 7, 8, 10, 11, 12], 'the street edge, the roads read from two stations in part 7 and one in part 8 with the aid, and the street names'],
+  // T-2703: the trig streets.js lays its road with, and nothing else imports it.
+  ['renderers/web/js/portable-math.js', [2, 7, 8, 10, 11, 12], 'the trig streets.js lays the road with (imported by nothing else), so the street parts'],
   ['data/flora/', [10, 11, 12, 14], 'what grows here'],
   ['data/fauna/', [10, 11, 14], 'the wildlife'],
   ['data/streets/', [2, 7, 8, 10, 11, 12], 'the street records'],
@@ -427,6 +516,9 @@ const COVERAGE = [
   ['data/research/', [14], 'researched, and still open — the third category'],
   // T-0474. The 1904 street grid is drawn only at the /1904/ door, which part 14 boots.
   ['renderers/web/js/street-grid.js', [14], 'the 1904 Prairie Avenue street grid (T-0474)'],
+  // T-2833. The 1904 context city is drawn only at the /1904/ door too.
+  ['renderers/web/js/context.js', [14], 'the 1904 context city: its stand-ins, their facades and its trees (T-2477, T-2833)'],
+  ['data/context/', [14], 'the 1904 context city\'s rows, read by context.js at the /1904/ door'],
   // T-2109/T-2213. Only a transmissive pane is replaced, and only Glessner's GLB carries one: /1904/.
   ['renderers/web/js/glass.js', [14], "Glessner's dark panes, their blinds and sheen (T-2213)"],
   ['data/street_grid/', [14], 'the 1904 carriageways, block faces, alleys and parcels'],
@@ -553,6 +645,17 @@ const COVERAGE = [
   ['renderers/web/js/travel-estimate.js', [15], 'the estimate a change of mode moves'],
   ['data/jaunts/', [15], 'the authored jaunts'],
   ['data/sidecars/1835/jaunts/', [15], 'the compiled jaunts and their catalog'],
+  // T-2611: the time-stream captions part 15 watches come up on the arrival it boots
+  // fresh (every other part waves the arrival through); tools/check_timestream.py and
+  // tools/test_time_stream.mjs hold the decks and the pick in check.sh.
+  ['renderers/web/js/time-stream.js', [15], 'the arrival\u2019s time-stream captions (T-2611)'],
+  ['data/timestream/', [15], 'the time-stream decks the arrival fetches (T-2611)'],
+  // T-2612: the lamps, YEARS TO GO and the log part 15 reads on the arrival it boots fresh.
+  ['renderers/web/js/arrival-telemetry.js', [15], 'the arrival\u2019s lamps, YEARS TO GO and log (T-2612)'],
+  // T-2624: the string table. Every visible word of the arrival, the HUD and the Navigator
+  // reads from it, and parts all over the body assert those words, so a change to it is
+  // priced at the whole gate. tools/check_strings.py holds it in check.sh.
+  ['renderers/web/js/strings/', ALL, 'the words every panel and part reads (T-2624)'],
 ];
 
 /** T-1519 — WHERE A MODULE'S CHECKS ACTUALLY ARE, read off the gate rather than
@@ -566,16 +669,17 @@ const COVERAGE = [
  *  ceiling — a row may name parts its anchors do not reach — and an anchor found
  *  in no part at all has rotted, which also fails. */
 const ANCHORS = [
-  ['renderers/web/js/people.js', ['data-tab="people"', 'people-filters', 'people-card']],
-  ['renderers/web/js/businesses.js', ['data-tab="businesses"']],
+  // T-2620: a section is reached through its Navigator app (`openSection(tab)` in the smoke).
+  ['renderers/web/js/people.js', ["openSection('people')", 'people-filters', 'people-card']],
+  ['renderers/web/js/businesses.js', ["openSection('businesses')"]],
   ['renderers/web/js/seat.js', ['people-seat']],
   // householdHtml is the body of the People directory's person card (13) and of the
   // Evidence panel's household cards, mounted at #residents (14).
   ['renderers/web/js/residents.js', ['people-card', "getElementById('residents')"]],
   ['renderers/web/js/attribute-tiers.js', ['T-1158', 'people-card', "getElementById('residents')"]],
   ['renderers/web/js/agencies.js', ['.pop-agency']],
-  ['renderers/web/js/evidence.js', ['data-tab="evidence"']],
-  ['renderers/web/js/whatsnew.js', ['data-tab="whatsnew"']],
+  ['renderers/web/js/evidence.js', ["openSection('evidence')"]],
+  ['renderers/web/js/whatsnew.js', ["openSection('whatsnew')"]],
 ];
 
 /** The parts whose `if (stageOn(N)) {` … `} // end PART N` block contains `needle`. */

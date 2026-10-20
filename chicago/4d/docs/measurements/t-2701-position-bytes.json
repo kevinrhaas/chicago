@@ -1,0 +1,89 @@
+{
+  "ticket": "T-2701",
+  "measured": {
+    "on": "2026-10-17",
+    "method": "published 1835 door, phone 390x780 ratio 1, ?keep-geometry=1, after ready: every mesh under the frontage, enclosures and yard groups, its position stream's array type, item size and bytes"
+  },
+  "branch": {
+    "frontage": {
+      "meshes": {
+        "frontage Int16Arrayx4 boxed": 1,
+        "frontage-chunk Int16Arrayx4": 106,
+        "frontage-chunk Int16Arrayx4 boxed": 21,
+        "frontage-far-walk-tops Int16Arrayx4 boxed": 1
+      },
+      "verticesByKind": {
+        "frontage Int16Arrayx4 boxed": 61392,
+        "frontage-chunk Int16Arrayx4": 1298382,
+        "frontage-chunk Int16Arrayx4 boxed": 592554,
+        "frontage-far-walk-tops Int16Arrayx4 boxed": 334416
+      },
+      "positionBytes": 18293952,
+      "vertices": 2286744,
+      "bytesPerVertex": 8,
+      "tableRows": [
+        106
+      ]
+    },
+    "enclosures": {
+      "meshes": {
+        "enclosure-chunk Int16Arrayx4": 198
+      },
+      "verticesByKind": {
+        "enclosure-chunk Int16Arrayx4": 1723908
+      },
+      "positionBytes": 13791264,
+      "vertices": 1723908,
+      "bytesPerVertex": 8,
+      "tableRows": []
+    },
+    "yard": {
+      "meshes": {
+        "yard-chunk Int16Arrayx4": 78,
+        "yard-woodpile-chunk Int16Arrayx4 boxed": 1
+      },
+      "verticesByKind": {
+        "yard-chunk Int16Arrayx4": 578112,
+        "yard-woodpile-chunk Int16Arrayx4 boxed": 139476
+      },
+      "positionBytes": 5740704,
+      "vertices": 717588,
+      "bytesPerVertex": 8,
+      "tableRows": [
+        90
+      ]
+    },
+    "pageErrors": []
+  },
+  "dev_before": {
+    "frontage": {
+      "positionBytes": 22001832,
+      "floatMeshes": "21 frontage-chunk and frontage-far-walk-tops, Float32 x 3 (Node build, the same layer builder)"
+    },
+    "enclosures": {
+      "positionBytes": 13791264,
+      "note": "already Int16 x 4 on dev (T-2687); unchanged"
+    },
+    "yard": {
+      "positionBytes": 6298608,
+      "floatMeshes": "yard-woodpile-chunk, Float32 x 3"
+    }
+  },
+  "saved_bytes": {
+    "frontage": 3707880,
+    "yard": 557904,
+    "total": 4265784
+  },
+  "stage5_mobile_worst_calls": {
+    "branch": {
+      "full": 289,
+      "balanced": 263,
+      "light": 78
+    },
+    "dev_control_same_runner": {
+      "full": 289,
+      "balanced": 263,
+      "light": 78
+    }
+  }
+}

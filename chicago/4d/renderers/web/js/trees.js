@@ -76,6 +76,8 @@
 import * as THREE from 'three';
 import { floraInScene } from './flora.js';
 import { createTreeAtlasSliced, leafFamily, treeAtlasUV, TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
+import { TreeInstances, createGrownTreeMaterials, isGrownForm } from './tree-instances.js';
+import { resolveBases } from './scene-loader.js';
 
 /**
  * The zone records this module reads, by the CONTRACT's `z<NN>_<slug>` id. Only
@@ -85,6 +87,9 @@ import { createTreeAtlasSliced, leafFamily, treeAtlasUV, TREE_ALPHA_CUTOFF, patc
 const TIMBER_ZONES = [
   'z05_riverbank_timber', 'z06_dense_forest', 'z07_bur_oak_savanna', 'z08_lakeshore',
   'z10_settled_town',
+  // T-2784: the prairie and slough zones, read for their shrubs only (none of
+  // them records a tree or a thicket): PRAIRIE_WOODY draws them on the open plain.
+  'z01_wet_prairie', 'z02_mesic_prairie', 'z03_sedge_meadow', 'z04_marsh',
 ];
 
 /**
@@ -105,6 +110,9 @@ const DUNE_ZONE = 'z08_lakeshore';
  *  block that binds only `shrub_low` (flora.js's stratum) does not silently
  *  thin the timber this loop plants. T-1056. */
 const DUNE_WOODY_ROLES = ['tree', 'thicket'];
+/** T-2768: the sand prairie the North Division's sand hills stand on, east of
+ *  the timber's limit. */
+const SAND_PRAIRIE_ZONE = 'z09_sand_prairie';
 
 /* -------------------------------------------------------------------------- */
 /* the physical constants this file reasons with                               */
@@ -185,6 +193,9 @@ const CHANNEL_Y = -0.60;
  * along and the North Division's was 510 m short of the sand.
  */
 const TIMBER_EAST_LIMIT_STREETS = { south: 'wells', north: 'state' };
+/** T-2745: the same two lines for a scene with no streets, at the mean eastings
+ *  of `data/streets/1835.json`'s Wells and State centrelines (Wright 1834). */
+const LANDFORM_EAST_M = { south: 328.7, north: 825.1 };
 
 /** Earth radius corrected for standard atmospheric refraction (k = 0.13). */
 const R_EFF = 6371000 / 0.87;
@@ -599,6 +610,19 @@ const ARCHETYPE_BY_ZONE = {
       form: 'columnar', h: [6, 12], dbh: [0.12, 0.28], spreadK: 0.42, boleK: 0.54, puffs: 5,
       dark: 0x58743e, light: 0x8a9c66, bark: 0x5d5748,
     },
+    // T-2768 — THE SAND HILLS' CEDAR AND PINE. Shape is tree-model.js's ARCH;
+    // these carry what the old archetype path still reads. The cedar's bark is
+    // the reddish brown of its shredding strips, the pine's a dark grey-brown;
+    // no record states either. `dbh` is stout for the height, as a wind-cut
+    // tree on sand is. docs/LIBERTIES.md L-sand-hills-2768.
+    juniperus_virginiana: { common: 'eastern red cedar (dune form)', dossier: 'ZONE 8c',
+      form: 'columnar', h: [1.5, 6], dbh: [0.08, 0.26], spreadK: 0.55, boleK: 0.04, puffs: 6,
+      dark: 0x3a5238, light: 0x5c7254, bark: 0x7a5c48,
+    },
+    pinus_banksiana: { common: 'jack pine', dossier: 'ZONE 8c',
+      form: 'open', h: [3, 9], dbh: [0.12, 0.30], spreadK: 0.62, boleK: 0.28, puffs: 6,
+      dark: 0x4a6236, light: 0x7a8e56, bark: 0x4c4238,
+    },
   },
   z10_settled_town: {
     // THE LOMBARDY POPLAR (T-0117), and it is here rather than in `SPECIES` for
@@ -631,6 +655,25 @@ const ARCHETYPE_BY_ZONE = {
     populus_nigra_italica: { common: 'Lombardy poplar', dossier: 'ZONE 10',
       form: 'columnar', h: [12, 18], dbh: [0.24, 0.42], spreadK: 0.14, boleK: 0.12, puffs: 14,
       dark: 0x426036, light: 0x7a9260, bark: 0x5f5849,
+    },
+    // T-2809 — THE YOUNG FRUIT TREES of the fort's company gardens and Dr.
+    // Harmon's orchard. Here for the poplar's reason: each is recorded at a
+    // density of zero, so no community deals one and the planting records are
+    // the only way in. Shape is tree-model.js's ARCH; these carry what the old
+    // path still reads. `dbh` is young nursery stock, a few centimetres; the
+    // barks are invented (apple grey-brown and scaly, cherry red-brown, peach
+    // dark). docs/LIBERTIES.md L-fruit-trees-1835-2809.
+    malus_domestica: { common: 'apple (young, planted)', dossier: 'ZONE 10',
+      form: 'open', h: [2.5, 6], dbh: [0.07, 0.16], spreadK: 0.95, boleK: 0.30, puffs: 5,
+      dark: 0x3e5a2e, light: 0x7f9757, bark: 0x5e564a,
+    },
+    prunus_cerasus: { common: 'sour cherry (young, planted)', dossier: 'ZONE 10',
+      form: 'open', h: [2, 5.5], dbh: [0.05, 0.13], spreadK: 0.80, boleK: 0.32, puffs: 5,
+      dark: 0x355229, light: 0x76914a, bark: 0x5a3f36,
+    },
+    prunus_persica: { common: 'peach (seedling, planted)', dossier: 'ZONE 10',
+      form: 'open', h: [2, 4.5], dbh: [0.05, 0.12], spreadK: 0.90, boleK: 0.24, puffs: 5,
+      dark: 0x4a6b33, light: 0x8ba75a, bark: 0x4f3c34,
     },
   },
 };
@@ -794,7 +837,370 @@ const COMMUNITIES = {
     confidence: 'inferred',
     sources: ['mnfi_open_dunes', 'cowles_1901'],
   },
+  /**
+   * T-2768 — THE SAND HILLS, where the witnesses put a woody scrub on the same
+   * ZONE 8 ground the dune poplars stand on, beyond the poplars' reach.
+   *
+   * Three reaches, each its own community because each witness describes a
+   * different cover, and each held to its `reachN` (local N metres, faded over
+   * `reachFadeM`):
+   *
+   *   north  Wau-Bun (1856): between the Kinzie house and the lake, "a vast
+   *          range of sand-hills, covered with stunted cedars, pines, and
+   *          dwarf-willow trees". From the house's northing to the field's edge.
+   *   south  Clarke (1890): from about Twelfth to Twenty-Fifth Street, "covered
+   *          with low cedar trees, ground pine, and sand cherry bushes". No pine
+   *          tree: his "ground pine" is a mat, and the sand cherry and the dune
+   *          willows are flora.js's shrub stratum on this zone already.
+   *   scanty Currey (1912): south of the mouth to about Twelfth Street, "a
+   *          scanty growth of cottonwoods and pines ... maintaining a precarious
+   *          existence among the sand-dunes".
+   *
+   * WHERE NO WITNESS GOES: the positions, the density each word is read as, and
+   * where one reach gives way to the next (Twelfth Street, by the 16th-22nd
+   * Street anchors). docs/LIBERTIES.md L-sand-hills-2768.
+   *
+   * PLANTED IN CLUMPS. A dune scrub is thickets with sand between them, not an
+   * even scatter, so the roll is weighted by a clump field (`clumpM`) with a
+   * mean of one: the count is the record's, the pattern is clumped.
+   *
+   * THE SWALES. Where the modelled sand hills have a hollow (the dune fields'
+   * `hollow` in terrain_spec.json), the ground stands lower than its
+   * surroundings, and Cowles (1901, p. 153): "Seedlings of the Cottonwood, as
+   * well as the long-leaved and glaucous willows, germinate in these wet
+   * depressions." A hollow takes `swaleMix` instead: no cedar, which wants the
+   * dry crest.
+   *
+   * These communities deal from their own position-seeded generator, not the
+   * shared stream, so the rest of the wood stands exactly where it stood.
+   */
+  sand_hills_north: {
+    label: 'Sand-hill cedar, pine and willow scrub north of the river (Wau-Bun)',
+    dossier: 'ZONE 8c — stabilised back-dune; Wau-Bun 1856',
+    zones: ['z08_lakeshore'],
+    perHa: [40, 64],
+    mix: [['juniperus_virginiana', 44], ['pinus_banksiana', 10], ['populus_deltoides', 6]],
+    swaleMix: [['populus_deltoides', 9], ['populus_balsamifera', 5]],
+    reachN: [330, 1200], reachFadeM: 60, clumpM: 24,
+    // "Between the house and the lake": the sand hills run inland of the
+    // lakeshore zone's band to the Kinzie house, so here the reach also takes
+    // the sand prairie east of it (`inlandFromE`, just east of the house's two
+    // cottonwoods at E 1146-1162).
+    inlandFromE: 1175, inlandBeltM: 200,
+    specsFrom: 'z08_lakeshore',
+    confidence: 'inferred',
+    sources: ['kinzie_waubun_1856', 'cowles_1901'],
+  },
+  sand_hills_south: {
+    label: 'Sand-hill red cedar south of Twelfth Street (Clarke)',
+    dossier: 'ZONE 8c — stabilised back-dune; Clarke 1890',
+    zones: ['z08_lakeshore'],
+    perHa: [40, 64],
+    mix: [['juniperus_virginiana', 52]],
+    swaleMix: [['populus_deltoides', 9], ['populus_balsamifera', 5]],
+    reachN: [-4000, -2410], reachFadeM: 120, clumpM: 26,
+    // Clarke gives the sand hills' length and not their depth; a belt of
+    // 140 m behind the shore is the lakeshore band and as much again.
+    inlandBeltM: 140,
+    specsFrom: 'z08_lakeshore',
+    confidence: 'inferred',
+    sources: ['kirkland_1893_chicago_massacre_appendix_k', 'cowles_1901'],
+  },
+  sand_hills_scanty: {
+    label: 'Scanty cottonwoods and pines on the dunes south of the mouth (Currey)',
+    dossier: 'ZONE 8c — stabilised back-dune; Currey 1912',
+    zones: ['z08_lakeshore'],
+    perHa: [3, 9],
+    mix: [['pinus_banksiana', 3], ['populus_deltoides', 3]],
+    swaleMix: [['populus_deltoides', 9], ['populus_balsamifera', 5]],
+    reachN: [-2410, -400], reachFadeM: 0, clumpM: 30,
+    specsFrom: 'z08_lakeshore',
+    confidence: 'inferred',
+    sources: ['currey_1912_story_of_old_fort_dearborn', 'cowles_1901'],
+  },
 };
+/** T-2768 — the sand-hill communities, in the order a point is offered to them. */
+const SAND_HILLS = ['sand_hills_north', 'sand_hills_south', 'sand_hills_scanty'];
+
+/**
+ * T-2807 — THE WOOD IN CLUMPS. Dealt at one density per community, the wood read
+ * from the air as an orchard: an even scatter of the same-sized trees. A wood on
+ * the lake plain is a mosaic of patches: dense where the canopy closed, small
+ * openings where a tree fell or a fire got in, and younger trees coming up in
+ * those openings. So each woods community's density is multiplied by a clump
+ * field with a mean of one: `floor` in an opening, `2 - floor` in a patch, on
+ * value noise of `cellM` metres. The count each community plants is the
+ * record's; only where its stems stand is changed. A stem in an opening is
+ * grown smaller (`young`, the scale at the opening's heart).
+ *
+ * Every number here is invented: the records give a stand density and the
+ * dossier says "mosaic", and nothing gives a patch size. docs/LIBERTIES.md
+ * L-woods-structure-2807.
+ */
+const WOOD_CLUMP = {
+  gallery: { cellM: 34, floor: 0.20, young: 0.62 },
+  wet_woods: { cellM: 30, floor: 0.15, young: 0.58 },
+  mesic_pocket: { cellM: 40, floor: 0.30, young: 0.66 },
+  ridge_oak: { cellM: 48, floor: 0.10, young: 0.60 },
+};
+
+/**
+ * T-2807 — THE THICKET AT THE WOODS' PRAIRIE EDGE. Where a wood meets the
+ * prairie the fires that run before the west wind stop, and the shrubs that
+ * resprout after them crowd the edge: the survey notes for these woodlands give
+ * hazel as the commonest undergrowth and "thorn" as a term (McBride and Bowles
+ * 2007, in `z06_dense_forest`), with wild plum, and gray dogwood on the river
+ * woods' margins (`z05_riverbank_timber`). Two edges face open prairie in the
+ * scene:
+ *
+ *   - the river woods' outer reach in the South and West Divisions, where the
+ *     gallery thins into "a free and boundless prospect of open prairie"
+ *     (`galleryBand`: the outer part of the gallery's width, as a fraction);
+ *   - the North Side wood's east end, against the sand prairie at the State
+ *     Street break of slope (`eastBandM` metres inside the east limit).
+ *
+ * In the oak ridges (the savanna) the same hazel stands scattered through the
+ * grass at `savannaPerHa`.
+ *
+ * The shrubs are the zone records' own (`shrub_low`: height, width, July
+ * colour) drawn as grown, instanced clumps of stems (tree-model.js ARCH), so a
+ * thicket reads at the distance a tree does and costs a tree's few cards past
+ * the near ring. They deal from their own position-seeded generator, like the
+ * sand hills. The weights follow the records' cover fractions, with hawthorn,
+ * plum and dogwood raised against hazel because the edge is where they stand;
+ * the band widths and densities are this file's. docs/LIBERTIES.md
+ * L-woods-structure-2807.
+ */
+const EDGE_THICKET = {
+  label: "Hazel, plum, hawthorn and dogwood thicket at the woods' prairie edge",
+  perHa: [320, 520], clumpM: 14, galleryBand: [0.66, 0.90], eastBandM: [12, 34],
+  mix: [['corylus_americana', 35], ['crataegus_spp', 9], ['prunus_americana', 7], ['cornus_racemosa', 8]],
+  savannaPerHa: [5, 12],
+  savannaMix: [['corylus_americana', 30], ['crataegus_spp', 4], ['prunus_americana', 2]],
+  zones: { corylus_americana: 'z06_dense_forest', crataegus_spp: 'z06_dense_forest',
+    prunus_americana: 'z06_dense_forest', cornus_racemosa: 'z05_riverbank_timber' },
+  // The records carry no bark; this file's, as every bark in SPECIES is. Hazel
+  // and dogwood smooth grey-brown stems, plum dark, hawthorn grey and scaly.
+  bark: { corylus_americana: 0x76675a, crataegus_spp: 0x6f6a60,
+    prunus_americana: 0x4e4038, cornus_racemosa: 0x7c7870 },
+  confidence: 'inferred',
+  sources: ['mcbride_bowles_2007', 'swink_wilhelm_1994'],
+};
+
+/**
+ * T-2810 — THE RIVER WOODS' DEAD WOOD: STANDING SNAGS AND FALLEN LOGS.
+ *
+ * A floodplain wood is full of dead wood: elms and ashes killed by standing
+ * water, cottonwoods and willows broken by ice and wind, and the trunks they
+ * drop lying where they fell, since nobody yet hauled them out. No witness of
+ * 1812 or 1835 describes the dead wood on this river, so the shares here are
+ * this file's, kept modest (the ecology analysis in the trees report grades
+ * the dead wood "near-certain ecologically but no 1830s witness mentions it").
+ * `snag` is the share of the canopy stems a community deals that stand dead
+ * instead; `log` the chance a stem has a fallen trunk lying near it. The wet
+ * woods take more of both: it is the swampy, waterlogged wood (the 1821 Walls
+ * note) where trees drown. Both deal from their own position-seeded generator,
+ * so no living stem moves, and both thin with the detail level as the stems
+ * they ride on do. docs/LIBERTIES.md L-deadwood-vines-2810.
+ */
+const DEAD_WOOD = {
+  shares: { gallery: { snag: 0.05, log: 0.06 }, wet_woods: { snag: 0.07, log: 0.08 } },
+  // Weathered: the bark goes grey and silver as it dries and sloughs.
+  bark: { snag: 0x8a8378, log: 0x6f675d },
+  // A log lies within this many metres of the stem it rides on, in any direction.
+  logOffsetM: [2, 7],
+  // A log is drawn small at the levels a log is a few pixels at: it is
+  // treated as standing this many times further off (tree-instances `lodK`).
+  logLodK: 2.5,
+  confidence: 'reconstructed',
+  sources: [],
+};
+
+/**
+ * T-2810 — WILD GRAPE CURTAINS AND VIRGINIA CREEPER ON THE RIVER-FACING EDGE.
+ *
+ * ZONE 5 records both vines (z05_riverbank_timber): the riverbank grape as a
+ * "heavy curtain vine on the river-facing edge trees" that "drapes 10-20% of
+ * the edge trees", and the Virginia creeper's "five-fingered leaves climbing
+ * the trunks on the shaded side". So a gallery tree standing within `edgeM` of
+ * the water carries a grape curtain on `grape` of the time, hung over its crown
+ * edge on the water side, or failing that a creeper on `creeper` of the time,
+ * up the north (shaded) side of its trunk. 0.15 is the middle of the record's
+ * 10-20 %; the creeper's share, the edge's depth and the curtain's shape are
+ * this file's (L-deadwood-vines-2810). Position-seeded, like DEAD_WOOD.
+ */
+const VINE_EDGE = {
+  edgeM: 32,
+  grape: 0.15,
+  creeper: 0.08,
+  // How far up the host the vine reaches, of the host's height.
+  reach: { vitis_riparia: [0.78, 0.95], parthenocissus_quinquefolia: [0.45, 0.70] },
+  habit: { vitis_riparia: 'curtain', parthenocissus_quinquefolia: 'trunk' },
+  // The leaf atlas family: the grape's broad lobed heart, the creeper's five leaflets.
+  leaf: { vitis_riparia: 'heart', parthenocissus_quinquefolia: 'compound' },
+  zone: 'z05_riverbank_timber',
+  confidence: 'inferred',
+  sources: ['swink_wilhelm_1994'],
+};
+
+/**
+ * T-2784 — THE WOODY PLANTS OF THE OPEN PLAIN, 1812 AND 1835.
+ *
+ * The prairie west and south of the river is treeless, and rightly so: fires
+ * ran over it every year or two before the west and south-west wind. It was
+ * not bare of woody plants. The trees report's ecology analysis (sections 2.4
+ * and 2.5) reads three things on it, and this draws all three wherever
+ * `communityAt` plants no wood, the water and the dry floor allow, and the
+ * sward's zone is prairie, sedge meadow or marsh (`grounds`):
+ *
+ *   dry    the fire-tolerant shrubs scattered through the grass: wild rose
+ *          everywhere, New Jersey tea and leadplant on the drier ground, each
+ *          resprouting from its root after a burn. Thinned on wet ground
+ *          (`wetCut`) and dealt on a mean-one clump field, so they come in
+ *          little colonies with open grass between.
+ *   wet    the slough edge: pussy and slender willow in clumps, meadowsweet in
+ *          the wet prairie, and buttonbush in the wettest ground nearest the
+ *          water (`wettest`). The survey's willow thickets of Cook County
+ *          (McBride and Bowles, through the flora dossier's ZONE 6) are the
+ *          evidence the thickets were here at all. On the modelled ground the
+ *          sloughs are the wet prairie and sedge meadow of the low South
+ *          Division and the river's margin, so wetness is the zone and the
+ *          ground's height (`wetY`), and the slough's edge is the water's
+ *          (`edgeM`, the share of the density kept far from it in `inland`).
+ *   lone   now and then a bur oak or a cottonwood standing alone where the
+ *          fire passed it by: within `upwindM` east or north-east of water,
+ *          the water lying upwind of it on a bearing the fire ran from
+ *          (`fireFrom`, degrees; 270 is a west wind). McBride and Bowles found
+ *          the trees denser, and the fire-intolerant ones gathered, on the east
+ *          sides of watercourses, which broke the fires running west to east
+ *          (the flora dossier's ZONE 6). The bur oak is the savanna's open-grown tree
+ *          (z07), the cottonwood the river's (z05), the one on drier ground and
+ *          the other on wetter. Andreas's "good stretch of level grass" south
+ *          of the town is why they stay in the shadow band and do not stray
+ *          over the open plain.
+ *
+ * Species and heights are the zone records' own; the rose, New Jersey tea and
+ * the two willows are records this ticket added at a density of zero, so the
+ * sward deals none of them and every stem is this file's. Every density, band
+ * and weight here is invented and none is a count: docs/LIBERTIES.md
+ * L-prairie-woody-2784. The same in 1812 and 1835, ground for ground: each
+ * stand is dealt from a generator seeded by where it stands, off the shared
+ * stream, so the 1835 town's ground (which is not prairie, `grounds`) takes
+ * none and every other place takes the same. The phone's tier thins the
+ * shrubs further (`keepK`), and a shrub under `smallM` tall is drawn at the
+ * levels it would take `smallLodK` times further off. The lone trees are a few
+ * dozen stems over the whole field, so every tier keeps as many of them
+ * (`lone.keep`, full's own keep): a phone that thins the lone trees loses the
+ * landmarks and saves nothing it could measure.
+ */
+const PRAIRIE_WOODY = {
+  label: 'Prairie shrubs, slough-edge willows and buttonbush, and lone trees in the fire shadow',
+  grounds: ['z01_wet_prairie', 'z02_mesic_prairie', 'z03_sedge_meadow', 'z04_marsh', 'z05_riverbank_timber'],
+  dry: { perHa: [16, 36], clumpM: 26, wetCut: 0.65,
+    mix: [['rosa_spp', 46], ['ceanothus_americanus', 24], ['amorpha_canescens', 30]] },
+  wet: { perHa: [6, 16], clumpM: 30, edgeM: [24, 170], inland: 0.45, wetY: [1.24, 0.74],
+    mix: [['salix_petiolaris', 40], ['salix_discolor', 30], ['spiraea_alba', 22]],
+    wettest: [['cephalanthus_occidentalis', 40], ['salix_petiolaris', 32], ['salix_discolor', 14]],
+    wettestEdgeM: 70 },
+  lone: { perHa: [2.0, 3.6], keep: 0.7, upwindM: [60, 280], fireFrom: [205, 230, 255, 280], stepM: 7,
+    mix: [['quercus_macrocarpa', 55], ['populus_deltoides', 45]], scale: [0.72, 1.0] },
+  zones: {
+    rosa_spp: 'z02_mesic_prairie', ceanothus_americanus: 'z02_mesic_prairie',
+    amorpha_canescens: 'z02_mesic_prairie', salix_discolor: 'z03_sedge_meadow',
+    salix_petiolaris: 'z03_sedge_meadow', spiraea_alba: 'z01_wet_prairie',
+    cephalanthus_occidentalis: 'z04_marsh',
+    quercus_macrocarpa: 'z07_bur_oak_savanna', populus_deltoides: 'z05_riverbank_timber',
+  },
+  // The records carry no bark; these are this file's, as EDGE_THICKET's are:
+  // rose and leadplant brown canes, New Jersey tea grey-brown, the willows'
+  // grey and red-brown wands, buttonbush and meadowsweet brown.
+  bark: { rosa_spp: 0x6a4a3c, ceanothus_americanus: 0x6c6258, amorpha_canescens: 0x6e6450,
+    salix_discolor: 0x787068, salix_petiolaris: 0x6b4a3a, cephalanthus_occidentalis: 0x6a5a4a,
+    spiraea_alba: 0x6e5444 },
+  keepK: { full: 1, balanced: 0.85, light: 0.55 },
+  smallM: 1.3, smallLodK: 1.35,
+  confidence: 'reconstructed',
+  sources: ['mcbride_bowles_2007', 'andreas_1884_v1'],
+};
+
+/**
+ * T-2808 — THE NORTH SIDE WOOD ON THE SAND, EAST OF STATE STREET. The timber's
+ * east limit north of the river is State Street (TIMBER_EAST_LIMIT_STREETS),
+ * read off Andreas's exception for "the sandy hills near the lake". Two
+ * witnesses put woods further east than that, over the sand prairie of the
+ * beach ridges, and stop them at the shore's own sand hills:
+ *
+ *   - Juliette Kinzie, spring 1831 (Wau-Bun, 1856): "through the woods on the
+ *     north side of the river ... a little bridle-path took us along what is
+ *     now Rush street. The thick boughs of the trees arched over our heads, and
+ *     we were often compelled ... to break away the projecting branches of the
+ *     shrubs which impeded our path." Rush Street is E 1054 here, 230 m east of
+ *     State.
+ *   - Judge Blodgett, 1831-32 (reported by Kirkland, 1893; the research notes'
+ *     B5, not yet a source record): "the thick, tangled underbrush which filled
+ *     the woods, covering almost all the North Side west of the shore
+ *     sand-hills".
+ *
+ * So from `fromN` north the wood runs on east of State to `toE`, short of the
+ * Wau-Bun sand hills (`sand_hills_north.inlandFromE`). On dry sand ridges the
+ * lake plain's wood is oak: the ridge-oak community, open, with the mesic
+ * pocket's closed canopy in a band either side of the Rush Street path
+ * (`PATHS`), which is the one place a witness says the boughs met. The band is
+ * kept narrow on purpose: the mesic pocket's basswood carries its July flower
+ * and is drawn on the chunked path at full detail at any distance, which is the
+ * dearest stem in the wood (T-2808 measured it). Its east end faces the sand hills with the same
+ * edge thicket as the woods' other prairie edges. Dealt from a position-seeded
+ * generator, so the shared stream and every other stem stand where they stood.
+ *
+ * Read, not invented: woods here at all, and a closed canopy and shrubs along
+ * Rush Street. Invented: `toE`, `fromN`, the oak, the band.
+ * docs/LIBERTIES.md L-north-side-paths-2808.
+ */
+const SAND_WOOD = {
+  label: 'The North Side wood on the beach-ridge sand, east of State Street',
+  fromN: 300, fadeN: 40, toE: 1140, wobbleM: 36,
+  confidence: 'inferred',
+  sources: ['kinzie_waubun_1856'],
+};
+
+/**
+ * T-2808 — THE TWO WAYS THROUGH THE NORTH SIDE WOOD, each on a street line the
+ * scene already holds:
+ *
+ *   rush   Kinzie's "little bridle-path ... along what is now Rush street"
+ *          (Wau-Bun, 1831): a bare tread `clearM` either side of the platted
+ *          line, the closed wood `closeBandM` either side of it (SAND_WOOD), and
+ *          the shrubs she broke away crowding its margins (`shrubM`).
+ *   green  "The northern, or Green Bay road ... was surveyed in 1833, stakes
+ *          driven and trees blazed along the line. It was somewhat improved as
+ *          far as Milwaukee in 1834, by ... cutting out the trees to the width of
+ *          two rods" (Andreas, vol. 1, p. 299 of the IA index). Two rods is
+ *          10.06 m. Drawn on the Clark Street line north of the town's Clark
+ *          Street, the later N. Clark Street that carries the road's name in
+ *          the histories; nobody traced the 1834 line. A year after the cut its
+ *          margins carry stump sprouts and hazel (`shrubM`) and its middle is
+ *          bare.
+ *
+ * No trunk stands within `treeClearM` of either line, a little wider than the
+ * tread, so the edge trees' crowns leave the cut open to the sky the way a cut
+ * through grown wood is.
+ *
+ * Neither is a street record: no wheel track is graded or drawn (the State road
+ * to Vincennes is, T-1702, and that regraded the terrain). Here the woods give
+ * way and the ground is the sward's. The lines are the street records'
+ * centrelines, carried past their platted ends (`fromN` / `toN`, null for the
+ * field's edge). docs/LIBERTIES.md L-north-side-paths-2808.
+ */
+const PATHS = [
+  { id: 'rush_bridle_path', street: 'rush', label: "Kinzie's bridle path along the Rush Street line",
+    fromN: 300, toN: null, clearM: 1.3, treeClearM: 1.8, shrubM: [1.3, 4.5], shrubPerHa: [300, 480],
+    closeBandM: 22,
+    sources: ['kinzie_waubun_1856'] },
+  { id: 'green_bay_road_cut', street: 'clark_north', label: 'The Green Bay road, cut two rods wide (1834)',
+    fromN: 'end', toN: null, clearM: 3.2, treeClearM: 8.5, shrubM: [3.2, 8.5], shrubPerHa: [160, 300],
+    closeBandM: 0,
+    sources: ['andreas_1884_v1'] },
+];
 
 /* -------------------------------------------------------------------------- */
 /* the timber beyond the modelled ground                                       */
@@ -986,6 +1392,8 @@ const FORM_OF = {
   tree_leaning: 'lean',
   tree_columnar: 'columnar',
   thicket_clonal: 'thicket',
+  // T-2810: the two vines, drawn on the river woods' edge trees (VINE_EDGE).
+  vine_drape: 'vine_drape',
 };
 
 const CONFIDENCE_VALUE = { attested: 0.0, inferred: 0.5, reconstructed: 1.0 };
@@ -1148,6 +1556,23 @@ function woodyHeadOf(sp, zoneId, problems) {
  */
 function timberEastLimits(streetRecords, problems = []) {
   const fallback = { south: 316, north: 316, streets: {} };
+  // T-2745 — A SCENE THAT DRAWS NO STREETS (1812) STILL HAS THE LAND THEY
+  // FOLLOWED. The limits are landforms first: Andreas's east end of the river
+  // timber and the State Street break of slope where the clay gives way to the
+  // beach-ridge sand (generators/terrain_gen.py builds it off the two State
+  // Street control points). An empty street list is a scene before the
+  // streets, not a failed load, so it takes those lines at the eastings the
+  // 1835 records survey them at, and the North Side wood runs to the sand in
+  // 1812 as it does in 1835. A list that lacks the street is still the failure
+  // below.
+  if (Array.isArray(streetRecords) && streetRecords.length === 0) {
+    const out = { south: LANDFORM_EAST_M.south, north: LANDFORM_EAST_M.north, streets: {} };
+    for (const [side, id] of Object.entries(TIMBER_EAST_LIMIT_STREETS)) {
+      out.streets[side] = { id, name: `the line ${id} later took`, east_m: LANDFORM_EAST_M[side],
+        landform: true };
+    }
+    return out;
+  }
   const out = { south: 0, north: 0, streets: {} };
   for (const [side, id] of Object.entries(TIMBER_EAST_LIMIT_STREETS)) {
     const st = (streetRecords ?? []).find((s) => s.id === id);
@@ -1171,6 +1596,7 @@ async function loadTimberZones(dataBase, problems = [], sceneId = null) {
   const specs = {};
   const byZone = {};
   const shrubByZone = {};
+  const vineByZone = {};
   const bands = {};
   const woody = {};
   const unimplemented = new Set();
@@ -1199,8 +1625,14 @@ async function loadTimberZones(dataBase, problems = [], sceneId = null) {
       // That path draws no head, so the July berry cluster the record carries
       // is NOT drawn — the planting record says so rather than leaving the
       // drop silent.
-      if (sp.role === 'shrub_low' && sp.form === 'shrub_low') {
+      // T-2784: every `shrub_low` record, whatever form flora.js draws it in
+      // (the leadplant is its `forb_spike`), since PRAIRIE_WOODY grows it as a
+      // shrub; and its open July flower or fruit as `flower`, which only
+      // PRAIRIE_WOODY hangs on its shrubs (as `bloom`, tree-model.js), so no
+      // other shrub here changes.
+      if (sp.role === 'shrub_low') {
         const dark = rgbHex(sp.july?.foliage_rgb);
+        const open = sp.july?.inflorescence && !VEGETATIVE_PHASES.includes(sp.july?.phenology);
         shrubByZone[id] = shrubByZone[id] ?? {};
         shrubByZone[id][sp.id] = {
           speciesId: sp.id,
@@ -1218,6 +1650,14 @@ async function loadTimberZones(dataBase, problems = [], sceneId = null) {
           conf: Math.max(0.5, CONFIDENCE_VALUE[sp.confidence] ?? 0.5),
           july: sp.july?.appearance ?? null,
           head: null,
+          // The four fields the bloom draws, and not the record's `fruit`
+          // flag (see `headOf` on why that one stays unread).
+          flower: open ? {
+            shape: sp.july.inflorescence.shape,
+            rgb: sp.july.inflorescence.rgb,
+            height_frac: sp.july.inflorescence.height_frac,
+            size_m: sp.july.inflorescence.size_m,
+          } : null,
           fromRecord: true,
         };
         continue;
@@ -1225,6 +1665,31 @@ async function loadTimberZones(dataBase, problems = [], sceneId = null) {
       if (sp.role !== 'tree' && sp.role !== 'thicket') continue;
       const form = FORM_OF[sp.form];
       if (!form) { unimplemented.add(sp.form); continue; }
+      // T-2810 — A VINE is neither a stem a community deals nor a thicket: it
+      // hangs on a tree the wood already stands, so it is held apart, as the
+      // dooryard shrubs are, and only VINE_EDGE reads it. Its recorded band is
+      // the height it climbs to; the drawing caps it at its host's crown. The
+      // grape's July fruit (hard green clusters a few centimetres across) is
+      // hung in the curtain by the vine's own template (`berries`), not by the
+      // head path.
+      if (form === 'vine_drape') {
+        const dark = rgbHex(sp.july?.foliage_rgb);
+        vineByZone[id] = vineByZone[id] ?? {};
+        vineByZone[id][sp.id] = {
+          speciesId: sp.id,
+          common: sp.common ?? sp.id,
+          form,
+          h: Array.isArray(sp.height_m) && sp.height_m.length === 2 ? sp.height_m : [4, 12],
+          dark: dark ?? 0x56763c,
+          light: dark != null ? lighten(dark) : 0x7f9b5a,
+          conf: Math.max(0.5, CONFIDENCE_VALUE[sp.confidence] ?? 0.5),
+          july: sp.july?.appearance ?? null,
+          head: null,
+          berries: sp.july?.phenology === 'fruiting' ? sp.july?.inflorescence ?? null : null,
+          fromRecord: true,
+        };
+        continue;
+      }
       // The recorded band, kept PER ZONE. It is the constraint a community's
       // hand weight is checked against (ROADMAP K46) and no longer a value
       // that replaces one: collapsing it to a first-zone-wins midpoint is
@@ -1296,7 +1761,7 @@ async function loadTimberZones(dataBase, problems = [], sceneId = null) {
     if (!floraInScene(entry, sceneId)) continue;
     plantings.push(await fetchOk(new URL(entry.file, manifestUrl)));
   }
-  return { specs, byZone, shrubByZone, bands, woody, unimplemented: [...unimplemented],
+  return { specs, byZone, shrubByZone, vineByZone, bands, woody, unimplemented: [...unimplemented],
     zonesRead, heads, plantings };
 }
 
@@ -2098,6 +2563,20 @@ export async function createTrees({
      *  reportable rather than a difference somebody has to notice. */
     rejectedBelowWoodyBand: 0,
     rejectedOutsideDuneReach: 0,
+    /** T-2768: the sand-hill scrub's own tally. */
+    sandHills: { offered: 0, reachFade: 0, belowBand: 0, planted: 0, swale: 0 },
+    /** T-2807: the woods' edge thicket and the savanna hazel. */
+    edgeThicket: { offered: 0, planted: 0, savanna: 0 },
+    /** T-2810: the river woods' dead wood and the vines on their edge trees. */
+    deadWood: { snags: 0, logs: 0, logsRefused: 0, grape: 0, creeper: 0, vinesRefused: 0 },
+    /** T-2784: the open plain's shrubs, slough-edge clumps and lone trees. */
+    prairie: { dry: 0, wet: 0, wettest: 0, lone: 0, shaded: 0, species: {},
+      /** Where a few of each stand, spread along the sweep, for a shot or a check. */
+      samples: { dry: [], wet: [], lone: [] } },
+    sandWood: { offered: 0, planted: 0, mesic: 0 },
+    paths: { lines: {}, cleared: 0, shrubs: 0 },
+    /** T-2807: stems the clump field set in an opening, grown young. */
+    youngInOpenings: 0,
     rejectedBelowWaterline: 0, lowestStationY: null,
     // ROADMAP K45(c). `headSpecies` is which records carry a July
     // inflorescence this file draws; `headStems` is how many stems actually
@@ -2137,6 +2616,41 @@ export async function createTrees({
   // is a question that gets asked at every cell rather than never.
   const eastLimit = timberEastLimits(streetRecords, problems);
   stats.eastLimits = eastLimit.streets;
+  // T-2808: the wood on the sand east of State, wherever the north limit is
+  // the State Street line (read off the 1835 streets, or T-2745's landform for
+  // 1812); a fallback line has no sand wood.
+  const sandWood = eastLimit.streets.north ? SAND_WOOD : null;
+  // T-2808: the two ways through the North Side wood, on their street lines.
+  const pathLines = [];
+  for (const p of PATHS) {
+    const pts = (streetRecords ?? []).find((s) => s.id === p.street)?.path_local_enu_m;
+    if (!Array.isArray(pts) || pts.length < 2) continue;
+    const a = pts.reduce((m, q) => (q[1] < m[1] ? q : m));
+    const b = pts.reduce((m, q) => (q[1] > m[1] ? q : m));
+    const k = (b[0] - a[0]) / Math.max(1e-6, b[1] - a[1]);
+    const fromN = p.fromN === 'end' ? b[1] : p.fromN;
+    const toN = p.toN ?? Infinity;
+    pathLines.push({ ...p, fromN, toN, eAt: (n) => a[0] + (n - a[1]) * k });
+    stats.paths.lines[p.id] = { street: p.street, fromN: Math.round(fromN), clearM: p.clearM };
+  }
+  /**
+   * The path whose bare tread (e, n) is on, or null; with `trunks`, the wider
+   * strip no tree stands in, so the edge trees' crowns leave the cut open.
+   */
+  const pathCutAt = (e, n, trunks = false) => {
+    for (const l of pathLines) {
+      if (n < l.fromN || n > l.toN) continue;
+      if (Math.abs(e - l.eAt(n)) < (trunks ? l.treeClearM : l.clearM)) return l;
+    }
+    return null;
+  };
+  /** T-2808: where the sand wood ends in the east at northing n, wobbling. */
+  const sandWoodEndE = (n) => SAND_WOOD.toE + (noise2(SAND_WOOD.toE, n, 120, 83) - 0.5) * SAND_WOOD.wobbleM;
+  /** Distance from (e, n) to the path `id`'s line, Infinity off its reach. */
+  const pathDist = (id, e, n) => {
+    const l = pathLines.find((q) => q.id === id);
+    return l && n >= l.fromN && n <= l.toN ? Math.abs(e - l.eAt(n)) : Infinity;
+  };
 
   stats.zoneRecords = records.zonesRead;
   stats.unimplementedForms = records.unimplemented;
@@ -2216,7 +2730,11 @@ export async function createTrees({
       }
       return [id, weight];
     });
-    mixes[key] = { mix: w(c.mix, 'mix'), edgeMix: c.edgeMix ? w(c.edgeMix, 'edgeMix') : null };
+    mixes[key] = {
+      mix: w(c.mix, 'mix'),
+      edgeMix: c.edgeMix ? w(c.edgeMix, 'edgeMix') : null,
+      swaleMix: c.swaleMix ? w(c.swaleMix, 'swaleMix') : null,
+    };
   }
 
   /* ---- 1. read the ground ------------------------------------------------ */
@@ -2404,12 +2922,17 @@ export async function createTrees({
     let e = 0;
     let n = 0;
     for (const p of f.pts) { e += p[0]; n += p[1]; }
-    return { pts: f.pts, e: e / f.pts.length, n: n / f.pts.length };
+    return { id: f.id ?? null, pts: f.pts, e: e / f.pts.length, n: n / f.pts.length };
   });
   const CLEAR_MARGIN = 4.5;
-  function blocked(e, n) {
+  // `insideId` names the one footprint a stem may stand in (T-2809): the fort's
+  // company garden is a committed footprint, its fence's, and a planting record
+  // that says its stems stand IN that garden is asking past that one polygon
+  // and no other.
+  function blocked(e, n, insideId = null) {
     if (growthBlocked(e, n)) return true;
     for (const f of fps) {
+      if (insideId !== null && f.id === insideId) continue;
       if (Math.abs(e - f.e) > 60 || Math.abs(n - f.n) > 60) continue;
       const pts = f.pts;
       let inside = false;
@@ -2423,6 +2946,14 @@ export async function createTrees({
     }
     return false;
   }
+  // T-2809 — A PLOT A PLANTING RECORD CLEARS. Dr. Harmon's orchard stands in
+  // the sand hills' ground, and a cedar the dealer drops among his rows is a
+  // tree nobody would have left inside a fenced orchard. Asked only by the
+  // position-seeded dealers (sand hills, edge thicket, sand wood), never by the
+  // shared-stream sweep, so no stem outside a plot moves.
+  const clearedPlots = (records.plantings ?? []).map((r) => r.clears_local_enu_m).filter(Boolean);
+  const inClearedPlot = (e, n) => clearedPlots.some((p) =>
+    e >= p.west_e && e <= p.east_e && n <= p.north_n && n >= p.south_n);
   function clearedFactor(e, n) {
     // The factor only rises with distance, so the nearest building decides it:
     // the same value as taking the least over every building, without boxing
@@ -2470,6 +3001,18 @@ export async function createTrees({
     // TIMBER_EAST_LIMIT_STREETS. Ground east of the limit carries no woody
     // community in this build: the open-dune poplars that belong on the sand are
     // recorded, archetyped and not yet placed (ROADMAP K45(b) change one).
+    // T-2768: the "sandy hills near the lake" are not an absence of woody
+    // growth either. Wau-Bun's cedars, pines and dwarf willows stand on them
+    // north of the river and Clarke's low cedars south of Twelfth Street;
+    // `plantSandHill` holds each reach to its own belt behind the shore.
+    // T-2808: north of `fromN` the North Side wood runs on east of State over
+    // the sand, to short of the shore's sand hills (SAND_WOOD).
+    if (sandWood && d === NORTH && e > eastLimit.north && e < sandWoodEndE(n)) {
+      const t = smoothstep(sandWood.fromN - sandWood.fadeN, sandWood.fromN, n);
+      if (t >= 1 || (t > 0 && noise2(e, n, 8, 47) < t)) return 'sand_wood';
+    }
+    const pastTimber = e > (d === NORTH ? eastLimit.north : eastLimit.south);
+    if (pastTimber && zoneAt?.(e, n) === SAND_PRAIRIE_ZONE) return 'sand_hill_inland';
     if (e > (d === NORTH ? eastLimit.north : eastLimit.south)) return null;
 
     const bank = dw[i];
@@ -2539,12 +3082,26 @@ export async function createTrees({
     if (!b) { b = new MeshBuf(level); buffers.set(k, b); }
     return b;
   };
+  /**
+   * T-2743 — A TREE IS GROWN ONCE PER SPECIES AND STOOD AS AN INSTANCE. Every
+   * tree-form stem goes to `grown` (tree-instances.js), which draws it from its
+   * species' grown model; thickets, dooryard shrubs and the stems carrying a
+   * July head stay on the chunked path above. `grown` takes no draw from `rnd`:
+   * a grown stem's height, turn and variant come from its own position, so what
+   * stands after it does not move when a tree's shape changes.
+   */
+  const plant = (spec, e, gy, n, r, scale = 1) => {
+    if (isGrownForm(spec)) return grown.add(spec, e, gy, worldZ(n), scale);
+    addTree(chunkOf(e, n), spec, e, gy, worldZ(n), r, scale);
+    return null;
+  };
 
   // Scene detail sets how many stems are drawn and how coarsely the ground is
   // sampled for them. It does NOT touch the species mix, the zone rules or the
   // waterline margin: fewer of the same trees in the same places, never a
   // different wood. `lowSpec` is the device guess; an explicit choice outranks it.
   const level = lowSpec && detail === 'full' ? 'light' : detail;
+  const grown = new TreeInstances({ level, cull: true });
   /**
    * The stem budget, scaled to the ground the loop now sweeps (ROADMAP K45(b2)).
    *
@@ -2638,11 +3195,32 @@ export async function createTrees({
    * `keep = 1`. What changed at T-1127 is that `full` is no longer that stand —
    * it is 40 % of it — because the enlarged field's wood does not fit the
    * geometry any level of this renderer is for. Recorded in docs/LIBERTIES.md.
+   *
+   * T-2766 RAISES ALL THREE, because the instrument L238 asked for now exists.
+   * Since T-2743 every tree-form stem is an instance of a grown species tree at
+   * three levels, so a far stem costs a few crossed cards rather than a whole
+   * crown, and 1835's trees at the town_backyard stand fell from 994k triangles
+   * to 418k. That saving is spent on the wood the sources describe ("all wooded"
+   * north of the river): 0.700 / 0.500 / 0.300. `balanced` is held below the
+   * ratio rule because the West prairie stand was 5k under its 2,535,000 on dev
+   * and 0.600 put it 15k over; the caps are raised so the backstop still has
+   * about a fifth of headroom at each level.
+   *
+   * T-2768 raises the caps again, and only the caps: the sand hills' cedars
+   * and pines are dealt by the same roll and the same `keep`, about 700 more
+   * stems at `full`, which the T-2766 cap of 3800 would have cut off partway
+   * north. The keep fractions do not move.
+   */
+  /*
+   * T-2784 adds `prairie`, the backstop on the open plain's shrubs and lone
+   * trees (PRAIRIE_WOODY), which deal from their own rolls and never count
+   * against `trees` or `shrubs`. Set at about a fifth over what each level
+   * plants in 1812, which has the most open ground.
    */
   const STEMS = {
-    full:     { step: 4.0, keep: 0.400, trees: 3030, thickets: 1550 },
-    balanced: { step: 4.7, keep: 0.350, trees: 1920, thickets: 1000 },
-    light:    { step: 5.6, keep: 0.191, trees: 1110, thickets: 630 },
+    full:     { step: 4.0, keep: 0.700, trees: 4700, thickets: 1550, shrubs: 3000, prairie: 14000 },
+    balanced: { step: 4.7, keep: 0.500, trees: 3800, thickets: 1000, shrubs: 2200, prairie: 9000 },
+    light:    { step: 5.6, keep: 0.300, trees: 2100, thickets: 630, shrubs: 1300, prairie: 3600 },
   };
   const stems = STEMS[level] ?? STEMS.full;
   const step = stems.step;
@@ -2650,6 +3228,8 @@ export async function createTrees({
   const keep = stems.keep;
   const maxTrees = stems.trees;
   const maxThickets = stems.thickets;
+  const maxShrubs = stems.shrubs;
+  const maxPrairie = stems.prairie;
   stats.keep = keep;
 
   /**
@@ -2787,6 +3367,7 @@ export async function createTrees({
     pickers[key] = {
       mix: pickerFor(key, 'mix', m.mix),
       edgeMix: m.edgeMix ? pickerFor(key, 'edgeMix', m.edgeMix) : null,
+      swaleMix: m.swaleMix ? pickerFor(key, 'swaleMix', m.swaleMix) : null,
     };
   }
   const bump = (obj, key) => { obj[key] = (obj[key] ?? 0) + 1; };
@@ -2843,6 +3424,484 @@ export async function createTrees({
    * ROADMAP box and in `stats`. What may GROW on the ground newly reached is
    * `communityAt`'s answer, not this loop's: see TIMBER_EAST_LIMIT_STREETS.
    */
+  /**
+   * T-2768 — one offered point on the sand hills: which reach it is in, whether
+   * the woody band and the clump field let a stem stand, and which species.
+   * Every draw is from a generator seeded by the point itself, so planting the
+   * sand hills moves no other stem in the scene. Returns true when the point
+   * belonged to a sand-hill reach (planted or not).
+   */
+  /** T-2768 — the shore's easting per heightfield row: the easternmost cell of
+   *  the row standing a metre above the water, read once. */
+  const shoreRow = new Float32Array(rows).fill(NaN);
+  for (let j = 0; j < rows; j++) {
+    for (let i = cols - 1; i >= 0; i--) {
+      if (data[j * cols + i] > waterY + 1.0) { shoreRow[j] = originE + i * cellM; break; }
+    }
+  }
+  const shoreE = (n) => {
+    const j = Math.round((n - originN) / cellM);
+    const v = j >= 0 && j < rows ? shoreRow[j] : NaN;
+    return Number.isNaN(v) ? null : v;
+  };
+  const sandHillReach = (n) => {
+    for (const key of SAND_HILLS) {
+      const c = COMMUNITIES[key];
+      const [n0, n1] = c.reachN;
+      const f = c.reachFadeM ?? 0;
+      const r = smoothstep(n0 - f, n0, n) * (1 - smoothstep(n1, n1 + f, n));
+      if (r > 0) return { key, c, r };
+    }
+    return null;
+  };
+  const plantSandHill = (px, pz, gy, w, inland = false) => {
+    const hit = sandHillReach(pz);
+    if (!hit) return false;
+    const { key, c, r } = hit;
+    if (inland) {
+      // Inland of the lakeshore band only within the reach's belt behind the
+      // shore, and (north) east of the Kinzie house.
+      if (!c.inlandBeltM) return true;
+      const shore = shoreE(pz);
+      if (shore == null || px < shore - c.inlandBeltM) return true;
+      if (c.inlandFromE != null && px < c.inlandFromE) return true;
+    }
+    stats.sandHills.offered++;
+    const hr = mulberry32(Math.floor(hash2(Math.round(px * 8), Math.round(pz * 8)) * 4294967296) ^ 0x2768);
+    if (r < 1 && hr() >= r) { stats.sandHills.reachFade++; return true; }
+    // The woody band, exactly as the dune's: nothing woody on ground the lake reworks.
+    const band = w?.establishes_m;
+    if (band) {
+      const t = smoothstep(band[0], band[1], gy);
+      if (t <= 0 || (t < 1 && noise2(px, pz, 8, 41) >= t)) { stats.sandHills.belowBand++; return true; }
+    }
+    // A hollow: the point stands 0.12 m or more below the mean of a ring 9 m out.
+    let ring = 0;
+    for (let k = 0; k < 6; k++) {
+      const a = (k / 6) * Math.PI * 2;
+      ring += terrain.surfaceHeight(px + Math.cos(a) * 9, pz + Math.sin(a) * 9);
+    }
+    const swale = c.swaleMix && gy < ring / 6 - 0.12;
+    // The clump field: mean one, so the record's density is kept and its pattern
+    // is thickets and openings.
+    const clump = 2 * smoothstep(0.30, 0.78, noise2(px, pz, c.clumpM ?? 24, 61));
+    const perHa = lerp(c.perHa[0], c.perHa[1], noise2(px, pz, 58, 7)) * clump * clearedFactor(px, pz);
+    if (hr() > (perHa * cellArea * keep) / 10000) return true;
+    if (stats.trees >= maxTrees || blocked(px, pz) || inClearedPlot(px, pz)) return true;
+    const p = pickers[key];
+    const id = (swale ? p.swaleMix : p.mix)(hr());
+    const spec = communitySpecs[key][id];
+    if (!spec) return true;
+    plant(spec, px, gy, pz, hr);
+    noteStation(px, pz, gy);
+    stats.trees++;
+    stats.sandHills.planted++;
+    if (swale) stats.sandHills.swale++;
+    bump(stats.communities, key);
+    bump(stats.species, id);
+    return true;
+  };
+
+  /** T-2807 — the edge thicket's shrubs: the zone records' own, grown. */
+  const edgeSpecs = {};
+  for (const [id, zone] of Object.entries(EDGE_THICKET.zones)) {
+    const rec = records.shrubByZone?.[zone]?.[id];
+    if (!rec) {
+      problems.push(`trees: the woods' edge thicket plants ${id} from ${zone} and that record `
+        + 'did not load — the thicket is drawn without it');
+      continue;
+    }
+    // `form` 'edge_shrub' is a grown form (tree-instances.js isGrownForm): the
+    // record's shrub drawn as a clump of stems from tree-model.js's ARCH, not
+    // as the dooryard planting's three-puff clump.
+    edgeSpecs[id] = { ...rec, form: 'edge_shrub', bark: EDGE_THICKET.bark[id] ?? rec.bark };
+  }
+  const edgePick = {
+    mix: pickerFor('edge_thicket', 'mix', EDGE_THICKET.mix.filter(([id]) => edgeSpecs[id])),
+    savanna: pickerFor('edge_thicket', 'savannaMix',
+      EDGE_THICKET.savannaMix.filter(([id]) => edgeSpecs[id])),
+  };
+  /**
+   * T-2807. Offer a woods cell to the edge thicket before the tree roll: true
+   * when a shrub took the cell. `key` is the community, `d` the division,
+   * `bank` the distance to water. Deals from its own position-seeded generator,
+   * as the sand hills do.
+   */
+  const plantEdgeThicket = (px, pz, gy, key, d, bank) => {
+    const t = EDGE_THICKET;
+    let band = 0;
+    if (key === 'gallery' && d !== NORTH) {
+      const width = lerp(30, 74, noise2(px, pz, 130, 11));
+      band = smoothstep(t.galleryBand[0], t.galleryBand[1], bank / width);
+    } else if (d === NORTH && key !== 'gallery') {
+      // T-2808: on the sand east of State the wood's own east end is the edge.
+      const endE = sandWood && px > eastLimit.north ? sandWoodEndE(pz) : eastLimit.north;
+      const inside = endE - px;
+      band = 1 - smoothstep(t.eastBandM[0], t.eastBandM[1], inside);
+    }
+    const savanna = key === 'ridge_oak' && band <= 0;
+    if (band <= 0 && !savanna) return false;
+    stats.edgeThicket.offered++;
+    const hr = mulberry32(Math.floor(hash2(Math.round(px * 8), Math.round(pz * 8)) * 4294967296) ^ 0x2807);
+    const range = savanna ? t.savannaPerHa : t.perHa;
+    // Thickets with gaps between, on the same mean-one clump field as the sand hills.
+    const clump = savanna ? 1 : 2 * smoothstep(0.30, 0.78, noise2(px, pz, t.clumpM, 67));
+    const cleared = clearedFactor(px, pz);
+    const perHa = lerp(range[0], range[1], noise2(px, pz, 58, 9)) * (savanna ? 1 : band)
+      * clump * cleared * cleared;
+    if (hr() > (perHa * cellArea * keep) / 10000) return false;
+    if (stats.edgeThicket.planted >= maxShrubs || blocked(px, pz) || inClearedPlot(px, pz)) return false;
+    const id = (savanna ? edgePick.savanna : edgePick.mix)(hr());
+    const spec = edgeSpecs[id];
+    if (!spec) return false;
+    plant(spec, px, gy, pz, hr, 0.85 + hr() * 0.30);
+    noteStation(px, pz, gy);
+    stats.edgeThicket.planted++;
+    if (savanna) stats.edgeThicket.savanna++;
+    bump(stats.species, id);
+    return true;
+  };
+
+  /**
+   * T-2808. The shrubs at a path's margins (PATHS `shrubM`: the bridle path's
+   * crowding shrubs, the road cut's sprouts), from the edge thicket's mix and
+   * their own position-seeded generator. True when a shrub took the cell.
+   */
+  const plantPathShrub = (px, pz, gy) => {
+    for (const l of pathLines) {
+      if (pz < l.fromN || pz > l.toN) continue;
+      const dist = Math.abs(px - l.eAt(pz));
+      if (dist < l.shrubM[0] || dist >= l.shrubM[1]) continue;
+      const hr = mulberry32(Math.floor(hash2(Math.round(px * 8), Math.round(pz * 8)) * 4294967296) ^ 0x28080);
+      const clump = 2 * smoothstep(0.30, 0.78, noise2(px, pz, EDGE_THICKET.clumpM, 67));
+      const perHa = lerp(l.shrubPerHa[0], l.shrubPerHa[1], noise2(px, pz, 58, 9)) * clump
+        * clearedFactor(px, pz);
+      if (hr() > (perHa * cellArea * keep) / 10000) return false;
+      if (stats.edgeThicket.planted >= maxShrubs || blocked(px, pz) || inClearedPlot(px, pz)) return false;
+      const id = edgePick.mix(hr());
+      const spec = edgeSpecs[id];
+      if (!spec) return false;
+      plant(spec, px, gy, pz, hr, 0.80 + hr() * 0.30);
+      noteStation(px, pz, gy);
+      stats.edgeThicket.planted++;
+      stats.paths.shrubs++;
+      bump(stats.species, id);
+      return true;
+    }
+    return false;
+  };
+  /**
+   * T-2808. A cell of the wood on the sand east of State (SAND_WOOD): the Rush
+   * Street path's tread and margins first, then the edge thicket and the
+   * savanna hazel, then a tree. Its own position-seeded generator throughout.
+   */
+  const closeBandOf = (id) => PATHS.find((p) => p.id === id)?.closeBandM ?? 0;
+  const plantSandWood = (px, pz, gy) => {
+    stats.sandWood.offered++;
+    if (pathCutAt(px, pz)) { stats.paths.cleared++; return; }
+    if (plantPathShrub(px, pz, gy)) return;
+    const near = pathDist('rush_bridle_path', px, pz) < closeBandOf('rush_bridle_path');
+    const key = near ? 'mesic_pocket' : 'ridge_oak';
+    if (plantEdgeThicket(px, pz, gy, key, NORTH, Infinity)) return;
+    if (pathCutAt(px, pz, true)) return;
+    const c = COMMUNITIES[key];
+    const wc = WOOD_CLUMP[key];
+    const hr = mulberry32(Math.floor(hash2(Math.round(px * 8), Math.round(pz * 8)) * 4294967296) ^ 0x2808);
+    const ct = smoothstep(0.28, 0.72, noise2(px, pz, wc.cellM, 73));
+    // Along the path the boughs met: no openings in the band, the patches' density.
+    const clumpK = near ? 1 + 0.6 * ct : wc.floor + (2 - 2 * wc.floor) * ct;
+    const perHa = lerp(c.perHa[0], c.perHa[1], noise2(px, pz, 58, 7)) * clearedFactor(px, pz) * clumpK;
+    if (hr() > (perHa * cellArea * keep) / 10000) return;
+    if (stats.trees >= maxTrees || blocked(px, pz) || inClearedPlot(px, pz)) return;
+    const id = pickers[key].mix(hr());
+    const spec = communitySpecs[key][id];
+    if (!spec) return;
+    const young = !near && ct < 0.35 ? lerp(wc.young, 1, ct / 0.35) : 1;
+    if (young < 1) stats.youngInOpenings++;
+    plant(spec, px, gy, pz, hr, young);
+    noteStation(px, pz, gy);
+    stats.trees++;
+    stats.sandWood.planted++;
+    if (key === 'mesic_pocket') stats.sandWood.mesic++;
+    bump(stats.communities, key);
+    bump(stats.species, id);
+  };
+  /**
+   * T-2808. A stem the shared stream dealt onto a path's bare tread is grown
+   * nowhere, but its draws are still taken, so every stem after it stands where
+   * it stood: a grown tree takes none, the chunked path's into a buffer that is
+   * thrown away.
+   */
+  let scratchBuf = null;
+  const dryPlant = (spec, e, gy, n, scale) => {
+    if (isGrownForm(spec)) return;
+    scratchBuf = scratchBuf ?? new MeshBuf(level);
+    addTree(scratchBuf, spec, e, gy, worldZ(n), rnd, scale);
+  };
+
+  /* ---- T-2810: dead wood and vines in the river woods -------------------- */
+
+  /** A generator seeded by where a stem stands, so nothing here takes a draw
+   *  from the shared stream and no living stem moves. */
+  const seededAt = (px, pz, salt) =>
+    mulberry32(Math.floor(hash2(Math.round(px * 8), Math.round(pz * 8)) * 4294967296) ^ salt);
+  const deadSpecs = new Map();
+  /** The species' own tree, dead: standing (`snag`) or down (`log`). */
+  const deadSpecOf = (spec, kind) => {
+    const key = `${spec.speciesId}|${kind}`;
+    let d = deadSpecs.get(key);
+    if (!d) {
+      d = { ...spec, dead: kind, head: null, bark: DEAD_WOOD.bark[kind], barkUpper: DEAD_WOOD.bark[kind],
+        common: `${spec.common} (dead, ${kind === 'log' ? 'down' : 'standing'})`,
+        conf: CONFIDENCE_VALUE[DEAD_WOOD.confidence] };
+      deadSpecs.set(key, d);
+    }
+    return d;
+  };
+  const vineSpecs = records.vineByZone?.[VINE_EDGE.zone] ?? {};
+  /** The way to the nearest water from (px, pz): down the distance field. */
+  const towardWater = (px, pz) => {
+    const g = cellM * 2;
+    const at = (de, dn) => { const j = cellAt(px + de, pz + dn); return j < 0 ? NaN : dw[j]; };
+    const we = at(-g, 0) - at(g, 0);
+    const wn = at(0, -g) - at(0, g);
+    const m = Math.hypot(we, wn);
+    return m > 0 ? [we / m, wn / m] : null;
+  };
+  /**
+   * A vine on a gallery tree within VINE_EDGE.edgeM of the water: a grape
+   * curtain at its crown's edge on the water side, or a creeper up the north
+   * side of its trunk. `hostH` is the height the host was grown to.
+   */
+  const dressEdgeTree = (px, pz, gy, hostH, bank) => {
+    if (!(bank <= VINE_EDGE.edgeM) || !(hostH > 0)) return;
+    const vr = seededAt(px, pz, 0x28101);
+    const roll = vr();
+    const id = roll < VINE_EDGE.grape ? 'vitis_riparia'
+      : roll < VINE_EDGE.grape + VINE_EDGE.creeper ? 'parthenocissus_quinquefolia' : null;
+    const rec = id && vineSpecs[id];
+    if (!rec) return;
+    const [r0, r1] = VINE_EDGE.reach[id];
+    const vh = Math.min(rec.h[1], hostH * lerp(r0, r1, vr()));
+    const habit = VINE_EDGE.habit[id];
+    let e = px;
+    let n = pz;
+    let yaw;
+    if (habit === 'curtain') {
+      const w = towardWater(px, pz);
+      if (!w) { stats.deadWood.vinesRefused++; return; }
+      // At the crown's drip line on the water side, and never out past the bank.
+      const off = Math.min(hostH * 0.30, Math.max(0, bank - 2));
+      e = px + w[0] * off;
+      n = pz + w[1] * off;
+      // The template's open side is +X; world +X turned by `yaw` about the
+      // vertical is (cos, 0, -sin), which is (e, n) = (cos, sin).
+      yaw = Math.atan2(w[1], w[0]);
+    } else {
+      n = pz + 0.45;
+      yaw = Math.PI / 2;
+    }
+    if (terrain.isWater(e, n)) { stats.deadWood.vinesRefused++; return; }
+    grown.add({ ...rec, h: [vh, vh], habit, leaf: VINE_EDGE.leaf[id] }, e, gy, worldZ(n), 1, { yaw });
+    noteStation(e, n, gy);
+    stats.deadWood[id === 'vitis_riparia' ? 'grape' : 'creeper']++;
+  };
+  /**
+   * A fallen trunk of the stem's species, lying a few metres from it. Refused
+   * (and counted) where any of its length would lie in water, under the dry
+   * floor, on a footprint or a track, in a cleared plot, or across a slope it
+   * could not lie flat on.
+   */
+  const plantLog = (spec, px, pz, dr) => {
+    const a = dr() * Math.PI * 2;
+    const d = lerp(DEAD_WOOD.logOffsetM[0], DEAD_WOOD.logOffsetM[1], dr());
+    const e = px + Math.cos(a) * d;
+    const n = pz + Math.sin(a) * d;
+    const yaw = dr() * Math.PI * 2;
+    // The trunk is grown at the living tree's height `hh` and broken at up to
+    // 0.70 of it (tree-model.js deadSkeleton), so its whole length is checked.
+    const hh = lerp(spec.h[0], spec.h[1], dr());
+    const L = hh * 0.70;
+    const pts = [0, 0.5, 1].map((t) => [e + Math.cos(yaw) * L * t, n + Math.sin(yaw) * L * t]);
+    const ys = [];
+    for (const [qe, qn] of pts) {
+      if (terrain.isWater(qe, qn) || !standsDry(qe, qn) || blocked(qe, qn) || inClearedPlot(qe, qn)) {
+        stats.deadWood.logsRefused++;
+        return;
+      }
+      ys.push(terrain.surfaceHeight(qe, qn));
+    }
+    if (Math.max(...ys) - Math.min(...ys) > 1.2) { stats.deadWood.logsRefused++; return; }
+    const gy = Math.min(...ys);
+    grown.add({ ...deadSpecOf(spec, 'log'), h: [hh, hh] }, e, gy, worldZ(n), 1,
+      { yaw, lodK: DEAD_WOOD.logLodK });
+    noteStation(pts[1][0], pts[1][1], gy);
+    stats.deadWood.logs++;
+  };
+
+  /* ---- T-2784: the woody plants of the open plain ------------------------ */
+
+  const PW = PRAIRIE_WOODY;
+  const loneIds = new Set(PW.lone.mix.map(([id]) => id));
+  /** The records' own species: the shrubs grown as clumps of stems, hanging
+   *  their July flower (`bloom`); the lone trees as their zone's tree. */
+  const prairieSpecs = {};
+  for (const [id, zone] of Object.entries(PW.zones)) {
+    const rec = loneIds.has(id) ? records.byZone?.[zone]?.[id] : records.shrubByZone?.[zone]?.[id];
+    if (!rec) {
+      problems.push(`trees: the open plain's woody plants take ${id} from ${zone} and that record `
+        + 'did not load — the plain is drawn without it');
+      continue;
+    }
+    prairieSpecs[id] = loneIds.has(id) ? rec
+      : { ...rec, form: 'edge_shrub', bark: PW.bark[id] ?? rec.bark, bloom: rec.flower ?? null };
+  }
+  const sampleStand = (kind, id, e, n) => {
+    const list = stats.prairie.samples[kind];
+    const count = kind === 'lone' ? stats.prairie.lone : stats.prairie[kind];
+    if (list.length < 16 && count % (kind === 'lone' ? 2 : 97) === 1) {
+      list.push({ id, e: Math.round(e * 10) / 10, n: Math.round(n * 10) / 10 });
+    }
+  };
+  /** A weighted pick by one draw, off no shared state, so a stand's species is
+   *  its own whatever was dealt before it. */
+  const pickOf = (list, r) => {
+    let total = 0;
+    for (const [id, w] of list) if (prairieSpecs[id]) total += w;
+    let a = r * total;
+    for (const [id, w] of list) {
+      if (!prairieSpecs[id]) continue;
+      a -= w;
+      if (a < 0) return id;
+    }
+    return null;
+  };
+  const prairieKeep = keep * (PW.keepK[level] ?? 1);
+  const groundsOk = new Set(PW.grounds);
+  // The most either roll can ask for (the clump fields peak at two), so a cell
+  // that cannot take a stem is refused on its first draw, before any ground is read.
+  const shrubRollMax = ((PW.dry.perHa[1] + PW.wet.perHa[1]) * 2 * cellArea * prairieKeep) / 10000;
+  const loneRollMax = (PW.lone.perHa[1] * cellArea * PW.lone.keep) / 10000;
+  const fireDirs = PW.lone.fireFrom.map((deg) => {
+    const a = (deg * Math.PI) / 180;
+    // A bearing clockwise from north, as (e, n): the way TO the fire's side.
+    return [Math.sin(a), Math.cos(a)];
+  });
+  /**
+   * The open plain at (e, n), or null: no wood stands there (`communityAt`),
+   * nothing blocks it, and the sward's zone is one of `grounds`. `wet` is 1 in
+   * the sedge meadow and the marsh and follows the ground's height in the wet
+   * prairie (and the river woods' outer reach); the mesic prairie is dry.
+   */
+  const prairieSite = (e, n) => {
+    if (terrain.isWater(e, n)) return null;
+    const gy = terrain.surfaceHeight(e, n);
+    if (gy < dryFloorY) return null;
+    if (communityAt(e, n) !== null) return null;
+    const zone = zoneAt?.(e, n) ?? null;
+    if (!groundsOk.has(zone)) return null;
+    if (blocked(e, n) || inClearedPlot(e, n)) return null;
+    const i = cellAt(e, n);
+    const bank = i < 0 ? Infinity : dw[i];
+    const wet = zone === 'z03_sedge_meadow' || zone === 'z04_marsh' ? 1
+      : zone === 'z02_mesic_prairie' ? 0
+        : smoothstep(PW.wet.wetY[0], PW.wet.wetY[1], gy);
+    const cleared = clearedFactor(e, n);
+    return { gy, zone, wet, bank, cleared: cleared * cleared };
+  };
+  /**
+   * How far the fire's shadow reaches here, 0..1: 1 where water lies within
+   * `upwindM[0]` upwind on any bearing the fire ran from, fading to 0 at
+   * `upwindM[1]`. Asked only of the few cells the lone trees' first roll lets
+   * through.
+   */
+  const fireShadow = (e, n) => {
+    const [d0, d1] = PW.lone.upwindM;
+    let near = Infinity;
+    for (const [de, dn] of fireDirs) {
+      for (let d = PW.lone.stepM; d <= d1 && d < near; d += PW.lone.stepM) {
+        if (terrain.isWater(e + de * d, n + dn * d)) { near = d; break; }
+      }
+    }
+    return near === Infinity ? 0 : 1 - smoothstep(d0, d1, near);
+  };
+  /**
+   * One cell of the sweep's lattice (e0, n0), offered to the open plain. Its
+   * own generators, seeded by the lattice point and never by the shared
+   * stream's jitter, so the same ground deals the same stems in 1812 and 1835.
+   */
+  const plantPrairie = (e0, n0) => {
+    if (stats.prairie.dry + stats.prairie.wet + stats.prairie.lone >= maxPrairie) return;
+    let site;
+    const sr = seededAt(e0, n0, 0x2784);
+    const roll = sr();
+    if (roll < shrubRollMax) {
+      const qe = e0 + (sr() - 0.5) * step * 0.92;
+      const qn = n0 + (sr() - 0.5) * step * 0.92;
+      const clumpD = 2 * smoothstep(0.30, 0.78, noise2(qe, qn, PW.dry.clumpM, 71));
+      const clumpW = 2 * smoothstep(0.30, 0.78, noise2(qe, qn, PW.wet.clumpM, 79));
+      const dryN = lerp(PW.dry.perHa[0], PW.dry.perHa[1], noise2(qe, qn, 58, 13)) * clumpD;
+      const ci = cellAt(qe, qn);
+      const edge = 1 - smoothstep(PW.wet.edgeM[0], PW.wet.edgeM[1], ci < 0 ? Infinity : dw[ci]);
+      const wetN = lerp(PW.wet.perHa[0], PW.wet.perHa[1], noise2(qe, qn, 58, 17))
+        * (PW.wet.inland + (1 - PW.wet.inland) * edge) * clumpW;
+      // The most this point can take whatever its ground (the dry share falls and
+      // the wet share rises with `wet`, and `cleared` is at most 1), so the ground
+      // and the sward's zone, the dear questions, are asked only of a point whose
+      // roll that leaves standing, and the open grass between colonies asks nothing.
+      site = roll < ((dryN + wetN) * cellArea * prairieKeep) / 10000 ? prairieSite(qe, qn) : null;
+      if (site) {
+        const { gy, wet, bank, cleared } = site;
+        const dry = dryN * (1 - PW.dry.wetCut * wet);
+        const wetD = wetN * wet;
+        const p = ((dry + wetD) * cleared * cellArea * prairieKeep) / 10000;
+        if (roll < p) {
+          // `roll / p` is uniform on [0, 1) here: it chooses the stratum by its share.
+          const isWet = roll / p < wetD / (dry + wetD);
+          const wettest = isWet && wet >= 0.9 && bank <= PW.wet.wettestEdgeM;
+          const id = isWet ? pickOf(wettest ? PW.wet.wettest : PW.wet.mix, sr())
+            : pickOf(PW.dry.mix.map(([k, w]) => [k, k === 'rosa_spp' ? w : w * (1 - wet)]), sr());
+          const spec = id && prairieSpecs[id];
+          if (spec) {
+            const small = spec.h[1] <= PW.smallM;
+            grown.add(spec, qe, gy, worldZ(qn), 0.85 + sr() * 0.30,
+              { lodK: small ? PW.smallLodK : 1 });
+            noteStation(qe, qn, gy);
+            stats.prairie[wettest ? 'wettest' : isWet ? 'wet' : 'dry']++;
+            if (wettest) stats.prairie.wet++;
+            bump(stats.prairie.species, id);
+            sampleStand(isWet ? 'wet' : 'dry', id, qe, qn);
+          }
+        }
+      }
+    }
+    // The lone trees, on their own roll.
+    const lr = seededAt(e0, n0, 0x27841);
+    const lroll = lr();
+    if (lroll >= loneRollMax) return;
+    const le = e0 + (lr() - 0.5) * step * 0.92;
+    const ln = n0 + (lr() - 0.5) * step * 0.92;
+    const ls = prairieSite(le, ln);
+    if (!ls || ls.wet >= 0.95) return;
+    const shade = fireShadow(le, ln);
+    if (shade <= 0) return;
+    stats.prairie.shaded++;
+    const lp = (lerp(PW.lone.perHa[0], PW.lone.perHa[1], noise2(le, ln, 90, 19)) * shade * ls.cleared
+      * cellArea * PW.lone.keep) / 10000;
+    if (lroll >= lp) return;
+    // The bur oak on the drier ground, the cottonwood on the wetter.
+    const oak = PW.lone.mix[0][1] * (1 - ls.wet);
+    const cot = PW.lone.mix[1][1] * (0.35 + ls.wet);
+    const id = lr() * (oak + cot) < oak ? PW.lone.mix[0][0] : PW.lone.mix[1][0];
+    const spec = prairieSpecs[id];
+    if (!spec) return;
+    grown.add(spec, le, ls.gy, worldZ(ln), lerp(PW.lone.scale[0], PW.lone.scale[1], lr()));
+    noteStation(le, ln, ls.gy);
+    stats.prairie.lone++;
+    bump(stats.prairie.species, id);
+    sampleStand('lone', id, le, ln);
+  };
+
   const sweepE0 = originE + step;
   const sweepE1 = originE + (cols - 1) * cellM - step;
   const sweepN0 = originN + step;
@@ -2854,6 +3913,8 @@ export async function createTrees({
   for (let n = sweepN0; n <= sweepN1; n += step) {
     const pause = checkpoint(); if (pause) await pause;
     for (let e = sweepE0; e <= sweepE1; e += step) {
+      // T-2784: the open plain's woody plants, off the shared stream entirely.
+      plantPrairie(e, n);
       const px = e + (rnd() - 0.5) * step * 0.92;
       const pz = n + (rnd() - 0.5) * step * 0.92;
       if (terrain.isWater(px, pz)) continue;
@@ -2866,6 +3927,17 @@ export async function createTrees({
       if (gy < dryFloorY) { stats.rejectedBelowWaterline++; continue; }
       const comm = communityAt(px, pz);
       if (!comm) continue;
+      // T-2768: the sand hills inland of the lakeshore band. Nothing above drew
+      // from `rnd` for this point, and `plantSandHill` does not either.
+      if (comm === 'sand_hill_inland') {
+        plantSandHill(px, pz, gy, records.woody?.[DUNE_ZONE], true);
+        continue;
+      }
+      // T-2808: the wood on the sand east of State, likewise off the stream.
+      if (comm === 'sand_wood') {
+        plantSandWood(px, pz, gy);
+        continue;
+      }
       // T-1056 — THE DUNE'S POPLARS STAND ON THE SANDY HILLS, NOT ON THE BAR.
       //
       // `communityAt` answers 'dune' for the whole of z08_lakeshore's box, and
@@ -2898,6 +3970,10 @@ export async function createTrees({
           const r = smoothstep(reach[0] - fade, reach[0], pz)
             * (1 - smoothstep(reach[1], reach[1] + fade, pz));
           if (r <= 0 || (r < 1 && noise2(px, pz, 8, 43) >= r)) {
+            // T-2768: beyond the poplars' reach the same sand carries the
+            // witnesses' sand-hill scrub. Nothing above this line drew from
+            // `rnd` for this point, and `plantSandHill` does not either.
+            if (plantSandHill(px, pz, gy, w)) continue;
             stats.rejectedOutsideDuneReach++;
             continue;
           }
@@ -2962,8 +4038,19 @@ export async function createTrees({
       const edgeFade = key === 'gallery'
         ? 1 - smoothstep(0.5, 1.0, bank / lerp(30, 74, noise2(px, pz, 130, 11))) * 0.74
         : 1;
+      // T-2807: the woods' prairie edge is a thicket, offered the cell first.
+      if (comm !== 'gallery_edge' && plantEdgeThicket(px, pz, gy, key, div[i], bank)) continue;
+      // T-2808: on a path's tread (the Green Bay road cut) the margins take the
+      // sprouts, from their own generator; the stream's stem is dealt dry below.
+      const cut = pathLines.length ? pathCutAt(px, pz, true) : null;
+      if (cut) plantPathShrub(px, pz, gy);
+      // T-2807: patches and openings, mean one (WOOD_CLUMP).
+      const wc = WOOD_CLUMP[key];
+      const ct = wc && comm !== 'gallery_edge'
+        ? smoothstep(0.28, 0.72, noise2(px, pz, wc.cellM, 73)) : 0.5;
+      const clumpK = wc && comm !== 'gallery_edge' ? wc.floor + (2 - 2 * wc.floor) * ct : 1;
       const perHa = lerp(range[0], range[1], noise2(px, pz, 58, 7))
-        * clearedFactor(px, pz) * edgeFade;
+        * clearedFactor(px, pz) * edgeFade * clumpK;
       // `keep` is the detail level's thinning and the ONLY thing here that is a
       // rendering decision: `perHa` is the community's recorded density and
       // `cellArea` is the ground this cell stands for, so the roll without it is
@@ -2981,7 +4068,21 @@ export async function createTrees({
       // cottonwood is not the gallery cottonwood. See `communitySpecs`.
       const spec = communitySpecs[key][id];
       if (!spec) continue;
-      addTree(chunkOf(px, pz), spec, px, gy, worldZ(pz), rnd);
+      // In an opening the stem is a young one: smaller toward the opening's heart.
+      const young = wc && ct < 0.35 ? lerp(wc.young, 1, ct / 0.35) : 1;
+      if (cut) { dryPlant(spec, px, gy, pz, young); stats.paths.cleared++; continue; }
+      if (young < 1) stats.youngInOpenings++;
+      // T-2810: in the river woods some stems stand dead, some have a fallen
+      // trunk beside them, and the gallery's edge trees carry the vines.
+      const dead = DEAD_WOOD.shares[key] && isGrownForm(spec) ? DEAD_WOOD.shares[key] : null;
+      const dr = dead ? seededAt(px, pz, 0x2810) : null;
+      const snag = dr ? dr() < dead.snag : false;
+      const hostH = plant(snag ? deadSpecOf(spec, 'snag') : spec, px, gy, pz, rnd, young);
+      if (dr) {
+        if (snag) stats.deadWood.snags++;
+        else if (key === 'gallery') dressEdgeTree(px, pz, gy, hostH, bank);
+        if (dr() < dead.log) plantLog(spec, px, pz, dr);
+      }
       noteStation(px, pz, gy);
       stats.trees++;
       if (spec.head) {
@@ -3070,12 +4171,17 @@ export async function createTrees({
           + 'below the planter\'s own dry floor — not drawn');
         continue;
       }
-      if (blocked(pe, pn)) {
+      if (blocked(pe, pn, rec.in_structure ?? null)) {
         problems.push(`trees: planting ${where} stands inside a committed footprint or on `
           + 'the travelled track — not drawn');
         continue;
       }
-      addTree(chunkOf(pe, pn), { ...spec, h: [h, h] }, pe, gy, worldZ(pn), rnd);
+      // A stated shrub is drawn grown (T-2809), as the woods' edge thicket is
+      // (T-2807): the record's own currant as a clump of stems from
+      // tree-model.js's ARCH rather than the dooryard's three-puff clump. Its
+      // July berries were never drawn on either path (`head` is null).
+      const grownSpec = spec.form === 'shrub' ? { ...spec, form: 'edge_shrub' } : spec;
+      plant({ ...grownSpec, h: [h, h] }, pe, gy, pn, rnd);
       noteStation(pe, pn, gy);
       stats.planted++;
       stats.plantedStems.push({ id: stem.id, record: rec.id, e: pe, n: pn,
@@ -3102,11 +4208,27 @@ export async function createTrees({
       + 'the bank scrub stops partway north rather than thinning — raise the budget; the '
       + 'point-bar screen is deliberately not thinned by detail');
   }
+  if (stats.prairie.dry + stats.prairie.wet + stats.prairie.lone >= maxPrairie) {
+    problems.push(`trees: the ${level} open-plain budget bound at ${maxPrairie} stems, so the `
+      + 'prairie shrubs stop partway north rather than thinning — raise the budget');
+  }
+  if (stats.edgeThicket.planted >= maxShrubs) {
+    problems.push(`trees: the ${level} edge-thicket budget bound at ${maxShrubs} shrubs, so `
+      + 'the woods\' edge stops partway north rather than thinning — raise the budget');
+  }
 
   /* ---- 4. the material --------------------------------------------------- */
 
   const uWind = { value: 0 };
   const surfaceAtlas = await createTreeAtlasSliced(checkpoint);
+  // T-2743: since the grown trees took the tree-form stems, this atlas draws only
+  // the bank thickets and the dooryard shrubs, so a phone keeps it from its
+  // second level down, as the parkway elms did (T-2158, PR 773): a quarter of
+  // its memory.
+  if ((lowSpec || level === 'light') && surfaceAtlas.mipmaps?.length > 1) {
+    surfaceAtlas.mipmaps = surfaceAtlas.mipmaps.slice(1);
+    surfaceAtlas.image = surfaceAtlas.mipmaps[0];
+  }
   const nearMat = new THREE.MeshStandardMaterial({
     vertexColors: true, map: surfaceAtlas, bumpMap: surfaceAtlas, bumpScale: 0.015,
     roughness: 0.92, metalness: 0,
@@ -3195,6 +4317,28 @@ export async function createTrees({
   stats.foliageRepresentation = 'species-alpha-sprays';
   stats.surfaceAtlasSize = 2048;
   for (const b of chunks) stats.heads += b.heads;
+
+  /* ---- 4b. the grown trees (T-2743) ------------------------------------- */
+
+  // Every tree-form stem, drawn from its species' grown model: see
+  // tree-instances.js for the levels and the shadow ring. `stats.grown` is live:
+  // its level counts and triangles are re-read as the visitor walks.
+  let forest = null;
+  let grownMats = null;
+  if (grown.count) {
+    grownMats = await createGrownTreeMaterials({
+      assetBase: resolveBases().assetBase, uWind, confidence, patchWind: patchTreeWind,
+      lowSpec: lowSpec || level === 'light', alphaCutoff: TREE_ALPHA_CUTOFF, problems,
+    });
+    disposables.push(grownMats);
+    forest = await grown.build({ ...grownMats, checkpoint });
+    group.add(forest.group);
+    stats.drawCalls += forest.stats.drawCalls;
+  }
+  stats.grown = forest?.stats ?? { stems: 0 };
+  // T-2864: the crown the Season setting asks for (tree-model.js leafCover and
+  // leafScale), and the materials that take its colour.
+  let crownNow = '{}';
 
   /* ---- 5. the horizon ---------------------------------------------------- */
 
@@ -3768,6 +4912,7 @@ uniform float uBandUp;
       wind += (dt || 0);
       uWind.value = wind;
       if (!camera) return;
+      forest?.update(camera.position);
       // T-1631. A turn in place moves the haze and moves nothing else, so the
       // band's own re-solve trigger — which is distance walked — would never
       // fire and the band would sit at the colour of a bearing the visitor has
@@ -3809,8 +4954,27 @@ uniform float uBandUp;
       }
     },
 
+    /**
+     * T-2864 — the Season setting. `crown` is tree-model.js's season crown
+     * ({} summer, leafCover/leafScale otherwise): the grown trees are re-grown from
+     * the same stems with it, so spring is first leaf, fall a thinner crown and
+     * winter bare limbs. The leaves', thickets' and far band's colour is the
+     * shared season uniforms' (season.js chiFoliage), installed on first use.
+     */
+    async setSeason(crown = {}, { foliage = null } = {}) {
+      if (foliage) for (const [m, role] of [[grownMats?.leafMat, 0], [nearMat, 0], [farMat, 2]]) foliage(m, role);
+      const key = JSON.stringify(crown);
+      if (!grownMats || key === crownNow) return;
+      crownNow = key;
+      if (forest) { group.remove(forest.group); forest.dispose(); forest = null; }
+      forest = await grown.build({ ...grownMats, checkpoint, season: crown });
+      group.add(forest.group);
+      stats.grown = forest.stats;
+    },
+
     dispose() {
       for (const d of disposables) d?.dispose?.();
+      forest?.dispose();
     },
   };
 }

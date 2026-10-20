@@ -1,0 +1,54 @@
+/**
+ * People (SCR 04) as its own screen, loaded the first time it opens (T-2618).
+ *
+ * Used where a scene has a people directory but not the drawer's People section: 1904,
+ * whose directory (`sidecars/1904/people.json`, T-2702) is the Glessner household and
+ * which deliberately lists no `residents` layer (T-1740 keeps the drawer's People, City,
+ * Population and Order book on 1835's files). The directory is fetched here, on first
+ * open, never at boot. Each person names their household, their place in it and the
+ * grade of the record; a tap takes you to the house they live in.
+ */
+const GRADES = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
+const PLACE = { head: 'Head of the household', wife: 'Wife', husband: 'Husband', son: 'Son', daughter: 'Daughter' };
+const placeIn = (r) => PLACE[r] ?? (r ? r.charAt(0).toUpperCase() + r.slice(1).replace(/_/g, ' ') : '');
+
+export async function mount(el, ctx = {}) {
+  const doc = el.ownerDocument;
+  el.replaceChildren(Object.assign(doc.createElement('p'), { className: 'nav-sub', textContent: 'Reading the directory…' }));
+  let dir = null;
+  try { dir = await ctx.actions?.peopleDirectory?.(); } catch { dir = null; }
+  el.replaceChildren();
+  const rows = dir?.people ?? [];
+  if (!rows.length) {
+    el.append(Object.assign(doc.createElement('p'), { className: 'nav-sub', textContent: 'The people directory for this scene could not be read.' }));
+    return;
+  }
+  const byHouse = new Map();
+  for (const p of rows) {
+    const key = p.household_name || 'A household';
+    if (!byHouse.has(key)) byHouse.set(key, []);
+    byHouse.get(key).push(p);
+  }
+  for (const [house, people] of byHouse) {
+    const block = Object.assign(doc.createElement('section'), { className: 'nav-block' });
+    block.append(Object.assign(doc.createElement('span'), { className: 'nav-k', textContent: 'Household' }),
+      Object.assign(doc.createElement('strong'), { className: 'nav-place', textContent: house }));
+    const order = (p) => (p.relationship === 'head' ? 0 : 1);
+    for (const p of [...people].sort((a, b) => order(a) - order(b) || a.name.localeCompare(b.name))) {
+      const row = doc.createElement(p.lives_at ? 'button' : 'div');
+      row.className = 'nav-person';
+      if (p.lives_at) {
+        row.type = 'button';
+        row.addEventListener('click', () => { ctx.navigator?.dock?.(); ctx.actions?.inspect?.(p.lives_at); });
+      }
+      const name = Object.assign(doc.createElement('span'), { className: 'nav-person-name', textContent: p.name });
+      const sub = Object.assign(doc.createElement('span'), { className: 'nav-sub',
+        textContent: [placeIn(p.relationship), GRADES[p.grade]].filter(Boolean).join(' · ') });
+      row.append(name, sub);
+      block.append(row);
+    }
+    el.append(block);
+  }
+}
+
+export function unmount(el) { el.replaceChildren(); }

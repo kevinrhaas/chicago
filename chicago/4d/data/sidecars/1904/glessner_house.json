@@ -10,6 +10,66 @@
   "asset": "gltf/glessner_house__as_built_1887.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 54 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a18-cgy-1800-glessner-2135",
+      "a18-cgy-1800-glessner-tribune-1965",
+      "a18-commons-wlemay-glessner-east-court-2024",
+      "a18-commons-wlemay-glessner-hall-bow-2024",
+      "a18-commons-wlemay-glessner-north-court-stacks-2024",
+      "a18-commons-wlemay-glessner-overview-2024",
+      "a18-commons-wlemay-glessner-service-stack-2024",
+      "a18-commons-wlemay-glessner-service-stairs-2024",
+      "a18-commons-wlemay-glessner-stair-tower-2024",
+      "a18-cornell-adw-glessner",
+      "a18-gh-chicago-herald-1887-illustration",
+      "a18-gh-cornell-glessner-front-c1887",
+      "a18-gh-cornell-glessner-rear-c1887",
+      "a18-gh-courtyard-watercolor",
+      "a18-gh-florian-1948-northeast-overall",
+      "a18-gh-glessner-exterior-historic",
+      "a18-gh-glessner-front-with-keith",
+      "a18-gh-glessner-wpa-model-east",
+      "a18-gh-glessner-wpa-model-north",
+      "a18-gho-house-under-construction-1887",
+      "a18-glessner-habs-photo-01",
+      "a18-glessner-habs-photo-02",
+      "a18-glessner-habs-photo-12",
+      "a18-glessner-habs-photo-13",
+      "a18-glessner-habs-photo-14",
+      "a18-glessner-habs-photo-15",
+      "a18-glessner-habs-photo-16",
+      "a18-glessner-habs-photo-17",
+      "a18-glessner-habs-sheet-4",
+      "a18-glessner-habs-sheet-5",
+      "a18-glessner-habs-sheet-6",
+      "a18-glessner-houghton-gle-b1",
+      "a18-glessner-houghton-gle-b2",
+      "a18-glessner-houghton-gle-b6",
+      "a18-glessner-houghton-gle-b7",
+      "a18-glessner-houghton-gle-b9",
+      "a18-glessner-houghton-gle-f1",
+      "a18-iit-glessner-prairie-facade-1945",
+      "a18-inland-architect-1888-02-glessner-plate",
+      "a18-rba-barford-glessner-courtyard",
+      "a18-rba-barford-glessner-exterior",
+      "a18-rba-casc-glessner-1920s",
+      "a18-rba-florian-1948-glessner-court",
+      "a18-rba-glessner-prelim-elevation-slide",
+      "a18-rba-ia-1888-glessner",
+      "a18-rba-mf-glessner-f27-prairie-elevation",
+      "a18-rba-nickel-glessner-ne-1",
+      "a18-rba-nickel-glessner-ne-2",
+      "a18-rba-taylor-2135-glessner-ne",
+      "a18-rba-taylor-2135-glessner-ne-print2",
+      "cgn-1800-glessner-1887-construction-copy",
+      "cgn-1804-landowner-1874-double-house",
+      "habs_glessner_photo_01_nw_1963",
+      "habs_glessner_photo_14_north_inclined_1965"
+    ]
+  },
   "documented_range": {
     "from": "1887-12-01",
     "to": "1946-08-31",
@@ -573,7 +633,7 @@
         "habs_glessner_house_il_1015_drawings",
         "habs_glessner_photo_05_court_c1923"
       ],
-      "note": "The round stair tower on the east wing's courtyard face: centre and radius measured on sheet 2 (+/- 0.5 ft), wall top 32.5 and cone apex 42.3 ft above north grade on sheet 4. HABS photograph 5 (c. 1923, the court) shows it: brick, conical roof, finial. The eave's half-foot overhang is the drawing's (sheet 4). T-2228 uses the independently rectified HABS2 plan centreS56.0989ft, rounded56.1, superseding55.0. W27.3/r5.25 remain. HABS4 suggestsS56.73/r5.55; this cross-sheet disagreement is retained rather than claiming identical dimensions. Roof heights remain under section review. T-2228 supersedes old roof heights with HABS4 grade5858/97.7px per ft: eavey2613=33.214ft, bell base1858=40.942ft and top1683=42.733ft. Hidden cone apex41.60ft extrapolates straight side slopes beneath the bell and is reconstructed. Court-specific finial silhouette replaces the generic finial; plan/section disagreement remains explicit."
+      "note": "The round stair tower on the east wing's courtyard face: centre and radius measured on sheet 2 (+/- 0.5 ft), wall top 32.5 and cone apex 42.3 ft above north grade on sheet 4. HABS photograph 5 (c. 1923, the court) shows it: brick, conical roof, finial. The eave's half-foot overhang is the drawing's (sheet 4). T-2228 uses the independently rectified HABS2 plan centreS56.0989ft, rounded56.1, superseding55.0. W27.3/r5.25 remain. T-2879 ruled the plan against sheet 4: the printed court chain on sheet 2 puts the tower's 10'-0\" mass at S51.33-61.33, and r5.25 at W27.3 meets the W26.5 face at S50.91-61.29. Sheet 4's 11.09-ft drum, re-zeroed +0.65 ft on the printed court face, runs S51.86-62.95 and overruns that mass, so sheet 4 draws the drum wide; its S56.73/r5.55 is not adopted for position or radius, and its tower heights are unaffected (docs/RESEARCH/glessner-court-ruling-T-2879/). Roof heights remain under section review. T-2228 supersedes old roof heights with HABS4 grade5858/97.7px per ft: eavey2613=33.214ft, bell base1858=40.942ft and top1683=42.733ft. Hidden cone apex41.60ft extrapolates straight side slopes beneath the bell and is reconstructed. Court-specific finial silhouette replaces the generic finial."
     },
     "tower_north": {
       "value": {
@@ -636,7 +696,7 @@
       "sources": [
         "habs_glessner_house_il_1015_drawings"
       ],
-      "note": "T-2218: HABS sheet 2's printed 161 ft 3 in / 74 ft envelope calibrates the scan independently. Its printed 9 ft 6 in radius is the INSIDE bow; the measured outer wall is about 10.6 ft (±0.2 ft), centred W27.8/S28.8 (±0.25 ft). The previous W28/S27.7, R10.1 reading displaced the terrace/stair interface. This corrects that shared boundary without changing the approved central door, threshold height or light rows. Measured 1963 fabric is inferred for 1904; HABS photo 05 is a qualitative cross-check only. See docs/RESEARCH/glessner-courtyard-steps-T-2218.md."
+      "note": "T-2218: HABS sheet 2's printed 161 ft 3 in / 74 ft envelope calibrates the scan independently. Its printed 9 ft 6 in radius is the INSIDE bow; the measured outer wall is about 10.6 ft (±0.2 ft), centred W27.8/S28.8 (±0.25 ft). The previous W28/S27.7, R10.1 reading displaced the terrace/stair interface. This corrects that shared boundary without changing the approved central door, threshold height or light rows. Measured 1963 fabric is inferred for 1904; HABS photo 05 is a qualitative cross-check only. T-2879: sheet 2 prints 12'-6\" from the range's court face (26'-10\", S26.83) to the bow's tangent on the east wing face (S39.33), which places the bow where it is built; sheet 4 draws it 12.45 ft across, shifted 0.65 ft north with the court face, not rescaled. See docs/RESEARCH/glessner-courtyard-steps-T-2218.md and docs/RESEARCH/glessner-court-ruling-T-2879/."
     },
     "hall_bow_height": {
       "value": {
@@ -646,34 +706,130 @@
         ],
         "light_rows": [
           [
-            9.3,
-            14.5
+            9.05,
+            14.2
           ],
           [
-            19.5,
-            24.0
+            19.45,
+            24.29
           ]
         ],
-        "lights_per_row": 3
+        "lights_per_row": 3,
+        "lights_S": [
+          [
+            {
+              "S": [
+                29.1,
+                32.59
+              ]
+            },
+            {
+              "S": [
+                34.38,
+                36.83
+              ],
+              "door": true
+            },
+            {
+              "S": [
+                37.86,
+                38.69
+              ]
+            }
+          ],
+          [
+            {
+              "S": [
+                29.08,
+                32.56
+              ]
+            },
+            {
+              "S": [
+                34.27,
+                36.83
+              ]
+            },
+            {
+              "S": [
+                37.8,
+                38.69
+              ]
+            }
+          ]
+        ],
+        "stone_courses": [
+          {
+            "z": [
+              8.43,
+              9.05
+            ],
+            "S": [
+              28.76,
+              32.89
+            ]
+          },
+          {
+            "z": [
+              8.43,
+              9.05
+            ],
+            "S": [
+              37.63,
+              39.27
+            ]
+          },
+          {
+            "z": [
+              14.2,
+              15.49
+            ],
+            "S": [
+              28.76,
+              39.27
+            ]
+          },
+          {
+            "z": [
+              18.72,
+              19.45
+            ],
+            "S": [
+              28.76,
+              39.27
+            ]
+          },
+          {
+            "z": [
+              24.29,
+              25.62
+            ],
+            "S": [
+              28.76,
+              39.27
+            ]
+          }
+        ]
       },
       "confidence": "inferred",
       "sources": [
         "habs_glessner_house_il_1015_drawings",
         "habs_glessner_photo_05_court_c1923"
       ],
-      "note": "Two storeys to the courtyard eave (26.5 ft, sheet 4): sheet 4 draws the bow beyond its section plane with its wall top at the eave line, and HABS photograph 5 (c. 1923) shows it, brick with stone lintels and sills, three lights to a storey, rising to the eave of the east wing's courtyard slope. The light rows are the house's own first- and second-floor window heights (sheets 4-5). T-2228 re-reading of native HABS4 at the fixed shared ground datum places the bow eave at (5858-3188)/97.7=27.33ft ng, superseding26.5. This is a scaled1963fabric reading inferred for1904, ±0.15ft, not a printed height. Light rows and door threshold stay at their independent controls."
+      "note": "Two storeys to the courtyard eave (26.5 ft, sheet 4): sheet 4 draws the bow beyond its section plane with its wall top at the eave line, and HABS photograph 5 (c. 1923) shows it, brick with stone lintels and sills, three lights to a storey, rising to the eave of the east wing's courtyard slope. The light rows are the house's own first- and second-floor window heights (sheets 4-5). T-2228 re-reading of native HABS4 at the fixed shared ground datum places the bow eave at (5858-3188)/97.7=27.33ft ng, superseding26.5. This is a scaled1963fabric reading inferred for1904, ±0.15ft, not a printed height. Light rows and door threshold stay at their independent controls. T-2925 reads the bow's lights, door and stone courses on the native sheet-4 scan (grade y 5858, north wall x 1165, 100.6/97.7 px/ft; docs/RESEARCH/glessner-court-exterior-T-2925/) and carries their S onto the plan's frame by T-2879's +0.65 ft, which puts the drawn bow's flanks (S26.21-38.66) on the built ones. Sheet 4 draws a light by its extent along S, so each is set on the arc where its edges project there (lights_S): above, two broad lights at S29.08-32.56 and 34.27-36.83 and a narrow one at 37.80-38.69; below, a broad light at 29.10-32.59, the garden door at 34.38-36.83 and a narrow light at 37.86-38.69 - the door one storey under the middle light, as before, and no longer three equal lights spread evenly round the arc. Openings run from sill to lintel: 9.05-14.20 ft below (was 9.3-14.5) and 19.45-24.29 above (was 19.5-24.0); the door's foot stays on the terrace deck, behind the coping the section draws at 8.43 ft. The lintels and the upper sill are drawn as continuous stone courses from S28.76 to the bow's south flank (S39.27): 14.20-15.49 and 24.29-25.62 ft lintels, an 18.72-19.45 ft sill; the lower sills are two stones under the lights either side of the door (stone_courses). Each edge +/-0.05 ft (about 5 px). A 1963 measured drawing carried to 1904 fabric, so the confidence stays inferred."
     },
     "hall_bow_roof": {
       "value": {
         "rise_ft": 1.8,
-        "colour": "copper"
+        "colour": "copper",
+        "eave_overhang_ft": 0.05
       },
       "confidence": "reconstructed",
       "sources": [
         "habs_glessner_house_il_1015_data_pages",
         "habs_glessner_house_il_1015_drawings"
       ],
-      "note": "HABS data p. 21 (1963): 'The roof of the bow of the entrance hall in the ell of the house is covered with copper sheathing' — the material is carried to 1904 (nothing records a change). Its full roof plan is not drawn: sheet 4 shows a short low roof over the bow meeting the main slopes. The earlier 3.5-ft cone-sector reconstruction (L295) is superseded by T-2220: the native sheet-4 section gives approximately 174 px at 97.7 px/ft, a relative hood rise of 1.78 ft (+/- 0.17 ft). Use 1.8 ft above the retained 26.5-ft bow eave, with its high point at the actual courtyard ell W26.5/S26.83 (the section reads S26.81 +/- 0.12 ft). Clip the low hood into both adjoining tiled slopes; there is no broad copper rectangle over the north windows. The absolute section/eave datum disagreement remains in the T-2228 comparison. Individual seams and 1904 patina remain reconstructed, not measured original sheet stock. See L-glessner-copper-2220. Modern surviving-form cross-checks only: wlemay_glessner_courtyard_2024_159537053, wlemay_glessner_courtyard_2024_159537081 and wlemay_glessner_courtyard_2024_159537087; no later colour or fitting is promoted to a 1904 fact. T-2228 raises only the shared bow eave to27.33ft ng from the native section; relative1.8ft rise is retained and both host intersections are regenerated."
+      "note": "HABS data p. 21 (1963): 'The roof of the bow of the entrance hall in the ell of the house is covered with copper sheathing' — the material is carried to 1904 (nothing records a change). Its full roof plan is not drawn: sheet 4 shows a short low roof over the bow meeting the main slopes. The earlier 3.5-ft cone-sector reconstruction (L295) is superseded by T-2220: the native sheet-4 section gives approximately 174 px at 97.7 px/ft, a relative hood rise of 1.78 ft (+/- 0.17 ft). Use 1.8 ft above the retained 26.5-ft bow eave, with its high point at the actual courtyard ell W26.5/S26.83 (the section reads S26.81 +/- 0.12 ft). Clip the low hood into both adjoining tiled slopes; there is no broad copper rectangle over the north windows. The absolute section/eave datum disagreement remains in the T-2228 comparison. Individual seams and 1904 patina remain reconstructed, not measured original sheet stock. See L-glessner-copper-2220. Modern surviving-form cross-checks only: wlemay_glessner_courtyard_2024_159537053, wlemay_glessner_courtyard_2024_159537081 and wlemay_glessner_courtyard_2024_159537087; no later colour or fitting is promoted to a 1904 fact. T-2228 raises only the shared bow eave to27.33ft ng from the native section; relative1.8ft rise is retained and both host intersections are regenerated. T-2861: sheet 4's section (native scan, T-2228's controls) ends the hood's copper at S38.62, plan S39.27 after T-2879's +0.65 ft, on the bow wall's drawn face (S38.66, plan 39.31; built 39.4): the hood does not oversail the wall. The eave is set 0.05 ft past the built wall face (was 0.20 m, which ended the hood at about S39.9), so its 45 mm drip apron stands clear of the brick and inside the trough. The hood's silhouette on habs04-hood-section now ends at the bow wall's, 0.09 ft south of the drawn line, which is T-2925's carried bow-radius difference, not the hood's."
     },
     "bay_dining": {
       "value": {
@@ -753,9 +909,9 @@
       "value": {
         "face": "west",
         "centres_S": [
-          32.3,
-          45.0,
-          66.8
+          32.75,
+          45.65,
+          68.45
         ],
         "width_ft": 4.4,
         "eave": [
@@ -778,7 +934,10 @@
         ],
         "light_margin_fraction": 0.166,
         "side_overhang_m": 0.144,
-        "side_apron_inset_m": 0.085
+        "side_apron_inset_m": 0.085,
+        "hip_cover_radius_m": 0.02,
+        "fascia_m": 0.03,
+        "frame_stock_m": 0.067
       },
       "confidence": "reconstructed",
       "sources": [
@@ -786,7 +945,7 @@
         "habs_glessner_photo_05_court_c1923",
         "inland_architect_1888_02_glessner_exterior"
       ],
-      "note": "Three small pyramid-roofed dormers with finials on the east wing's courtyard slope (sheet 4: centres S 32.3, 45.0, 66.8; 4.4 ft wide; eave 32.9, apex 37.0 ft above north grade), one square light each. HABS photograph 5 (c. 1923) shows them. None on the Prairie slope (sheet 6; the 1888 photograph). T-2228 re-reads HABS4 using grade5858/97.7px per ft: visible roof eave2598, body foot2904, light frame2647..2865. The4.4ft body contains a2.94ft frame (margin.166 each side). Hidden pyramid apex37.74ft is extrapolated from the roof slopes underneath the bell finial; finial base36.99/top38.83ft follows the native silhouette, +/-0.15ft. These supersede earlier picks; the finial profile/stock are reconstructed from cleared measured drawing, not derived from rights-unresolved HABS05. The native HABS4 body spans about445px and roof540px at100.6px/ft, bounding each side projection near0.144m (about+/-0.03m). The lower apron uses a reconstructed85mm inward run over130mm rise, preserving the gently flared slope seen in the cleared drawing and licensed modern court views. The front/back projection remains independently reconstructed; it is not measured by this frontal section."
+      "note": "Three small pyramid-roofed dormers with finials on the east wing's courtyard slope (sheet 4: centres S 32.3, 45.0, 66.8; 4.4 ft wide; eave 32.9, apex 37.0 ft above north grade), one square light each. HABS photograph 5 (c. 1923) shows them. None on the Prairie slope (sheet 6; the 1888 photograph). T-2228 re-reads HABS4 using grade5858/97.7px per ft: visible roof eave2598, body foot2904, light frame2647..2865. The4.4ft body contains a2.94ft frame (margin.166 each side). Hidden pyramid apex37.74ft is extrapolated from the roof slopes underneath the bell finial; finial base36.99/top38.83ft follows the native silhouette, +/-0.15ft. These supersede earlier picks; the finial profile/stock are reconstructed from cleared measured drawing, not derived from rights-unresolved HABS05. The native HABS4 body spans about445px and roof540px at100.6px/ft, bounding each side projection near0.144m (about+/-0.03m). The lower apron uses a reconstructed85mm inward run over130mm rise, preserving the gently flared slope seen in the cleared drawing and licensed modern court views. The front/back projection remains independently reconstructed; it is not measured by this frontal section. T-2859 re-reads the three dormers on the native sheet-4 scan (grade 5858, north wall x1165, 100.6/97.7 px/ft): the first dormer's pyramid diagonals are symmetric about S32.10 (+/-0.02 ft at sixteen rows; its cheeks and frame give S32.12-32.15), so its centre moves from 32.3 to 32.1; the second reads S45.06, inside the reading's tolerance, and stays; the third's diagonals are symmetric about S67.81 (sixteen rows) and its cheeks and frame give S67.83, so it moves from 66.8 to 67.8 - a full foot, visible in the court view as the built dormer standing west of the drawn one. The diagonals' slope (0.621 ft/ft, half-width 0.49 ft at 36.93 ft) agrees with the built pyramid within 0.04 ft, so the apex and apron are unchanged. The drawing gives the body 4.43-4.51 ft and the light's frame 2.93-2.98 ft across, sill 30.63-30.67 and head 32.86-32.88 ft, as built; its frame stock is about 0.22 ft (0.067 m, built 0.055 m) and its apron fascia two lines at 33.39 and 33.29 ft, about 0.10 ft (0.03 m, built 0.075 m). Each hip is drawn as one line about 0.06 ft thick that dies under the finial's bell: the 47 mm covers read as a 0.31-ft roll and ran through the bell to the apex, burying it, so the covers are slimmed to a reconstructed 20 mm radius (a 0.13-ft line) and stop inside the bell's lowest ring. Cover stock, fascia and frame sections remain reconstructed readings of a 1963 drawing, not measured fittings. The bell's foot is drawn at 37.03-37.05 ft and the cap's top at 38.80-38.90 ft, so the dormer finial stands on 37.03 ft (was 36.99) with its own drawn profile, a fuller bell (0.65 ft at its shoulder, 0.59 at 0.31 ft up, 0.45 at 0.55 ft) and a 1.87-ft height (was 1.84); the stair finial keeps the shared profile. T-2925 carries the three centres onto the plan's frame by T-2879's +0.65 ft, as T-2906 did the court cameras: S32.1, 45.0 and 67.8 read on sheet 4's own S become 32.75, 45.65 and 68.45. Heights, widths and the pyramid are unchanged."
     },
     "dormer_depth": {
       "value": {
@@ -813,15 +972,15 @@
           "ng"
         ],
         "body_top": [
-          38.9,
+          41.0,
           "ng"
         ],
         "louvre": [
-          36.8,
-          38.5
+          39.1,
+          40.8
         ],
         "apex": [
-          43.3,
+          47.0,
           "ng"
         ],
         "finial_ft": 0.55,
@@ -830,23 +989,26 @@
           "tiers": 2,
           "per_face": 3,
           "opening_width_ft": 0.75,
-          "perch_projection_ft": 0.3
+          "perch_projection_ft": 0.3,
+          "ledge_ft": 0.25
         },
         "eave": {
           "overhang_ft": 1.25,
           "drop_ft": 0.1,
           "flare_run_ft": 0.75,
           "flare_pitch": 0.55
-        }
+        },
+        "body_material": "granite"
       },
       "confidence": "reconstructed",
       "sources": [
         "inland_architect_1888_02_glessner_exterior",
         "habs_glessner_photo_01_nw_1963",
         "owner_glessner_v4_reconstruction_brief_2026",
-        "habs_glessner_photo_17_ne_angled_1965"
+        "habs_glessner_photo_17_ne_angled_1965",
+        "cornell_adw_glessner_stable_1887"
       ],
-      "note": "A small square louvred turret with a pyramidal roof and finial rides the stable's ridge — the FORM is attested by the 1888 photograph and HABS photograph 1 (1963). Every number is reconstructed from photograph 1's proportions against the printed carriage doorway: about 6 ft square, its body about 2.5 ft clear of the ridge with a louvred band, a pyramid about 5.6 ft high; set on the ridge just behind the gable (S 8, from the print's parallax). Its 1904 presence is inferred — no source reports a removal. docs/LIBERTIES.md L295. T-1999 supersedes the S8 placement: centre_S18.4 aligns the turret with the rebuilt west gable peak in an orthographic west view, as expressly requested 2026-10-02 (Untitled.png). The body top38.9 and apex43.3 ft preserve a mostly cap-only silhouette behind that gable; these are owner-directed photographic proportions, not measured heights. T-2016 moves the turret with the corrected straight E-W ridge to S14.6, preserving the north stable ridge W141 and its silhouette. T-2231 aligns the cupola with the corrected west-gable apex at S18.4 again; its heights and north stable axis remain unchanged.. T-2207 replaces the slatted louvres with what HABS photograph 1 (1963, committed web copy, read at 5x on the cupola) shows in that band: two tiers of round-headed pigeon holes, each tier standing on a projecting landing board, under a pyramid whose foot kicks out over a deep eave (photograph 17, 1965, shows the same flared pyramid from the north-east). The FORM is read from the photographs; the count (three holes a face a tier), the 0.75 ft hole width, the 0.3 ft landing boards, the 1.25 ft eave with its 0.75 ft flare at 0.55 pitch are bounded reconstructions against the photograph's proportions, not measurements. That the 1963 dovecote stood in 1904 is inferred: no source records work on the cupola, and the 1946 alteration list (HABS data p. 2) does not name it. Body top, apex, plan and centre are unchanged. docs/LIBERTIES.md L-glessner-cupola-2207 T-2228 owner overhead priority2026-10-15 supersedes the isolated west-study apexS18.4: the west cross-gable peak and dovecote align with the retained north-range ridge atS14.6, a3.8ft northward move. The long north ridge and the west cross ridge therefore share one plan axis and meet the retained W141 north-south ridge at right angles. Heights38.6ft west/34.1ft north remain distinct; the higher crossing locally occludes the lower ridge. The north stable doorway/loft axis, corrected service openings, rear ridge and courtyard overhang remain. This is owner-directed reconstructed alignment, corroborated qualitatively by the supplied modern aerial and bounded by the existing HABS plan/section; it is not a newly surveyed roof coordinate. The prior west-study apex remains documented as superseded."
+      "note": "A small square louvred turret with a pyramidal roof and finial rides the stable's ridge — the FORM is attested by the 1888 photograph and HABS photograph 1 (1963). Every number is reconstructed from photograph 1's proportions against the printed carriage doorway: about 6 ft square, its body about 2.5 ft clear of the ridge with a louvred band, a pyramid about 5.6 ft high; set on the ridge just behind the gable (S 8, from the print's parallax). Its 1904 presence is inferred — no source reports a removal. docs/LIBERTIES.md L295. T-1999 supersedes the S8 placement: centre_S18.4 aligns the turret with the rebuilt west gable peak in an orthographic west view, as expressly requested 2026-10-02 (Untitled.png). The body top38.9 and apex43.3 ft preserve a mostly cap-only silhouette behind that gable; these are owner-directed photographic proportions, not measured heights. T-2016 moves the turret with the corrected straight E-W ridge to S14.6, preserving the north stable ridge W141 and its silhouette. T-2231 aligns the cupola with the corrected west-gable apex at S18.4 again; its heights and north stable axis remain unchanged.. T-2207 replaces the slatted louvres with what HABS photograph 1 (1963, committed web copy, read at 5x on the cupola) shows in that band: two tiers of round-headed pigeon holes, each tier standing on a projecting landing board, under a pyramid whose foot kicks out over a deep eave (photograph 17, 1965, shows the same flared pyramid from the north-east). The FORM is read from the photographs; the count (three holes a face a tier), the 0.75 ft hole width, the 0.3 ft landing boards, the 1.25 ft eave with its 0.75 ft flare at 0.55 pitch are bounded reconstructions against the photograph's proportions, not measurements. That the 1963 dovecote stood in 1904 is inferred: no source records work on the cupola, and the 1946 alteration list (HABS data p. 2) does not name it. Body top, apex, plan and centre are unchanged. docs/LIBERTIES.md L-glessner-cupola-2207 T-2228 owner overhead priority2026-10-15 supersedes the isolated west-study apexS18.4: the west cross-gable peak and dovecote align with the retained north-range ridge atS14.6, a3.8ft northward move. The long north ridge and the west cross ridge therefore share one plan axis and meet the retained W141 north-south ridge at right angles. Heights38.6ft west/34.1ft north remain distinct; the higher crossing locally occludes the lower ridge. The north stable doorway/loft axis, corrected service openings, rear ridge and courtyard overhang remain. This is owner-directed reconstructed alignment, corroborated qualitatively by the supplied modern aerial and bounded by the existing HABS plan/section; it is not a newly surveyed roof coordinate. The prior west-study apex remains documented as superseded. T-2228 cupola body: HABS photograph 1 (1963) and the Cornell A. D. White northwest view (c. 1887) both show the dovecote body standing clear of the stable ridge, its two tiers of pigeon holes in open air under a tall pyramid; the cap-only silhouette (body top 38.9, apex 43.3 ft ng) hid the band below the ridge and put the apex level with the north gable's, where both photographs show it well above. Read through photograph 1's solved camera, anchored on the north gable apex and the W141 ridge crest (the camera reads that roof about 28 px, roughly 2 ft, low at this depth, so the cupola is measured against the roof rather than absolutely), the eave stands about 2.3 ft clear of the ridge and the pyramid about 6.0 ft from eave to apex; the Cornell view, whose camera was solved on the west windows and is about 50 px off at the roof, gives a 5.9 ft pyramid and at least as much exposed body. So the body top is 41.0 ft ng (eave 40.9 with the 0.1 ft drop), the pigeon-hole band 39.1-40.8 clear of the 38.6 ridge and its cap, and the apex 47.0 ft ng; these agree with the first reading of photograph 1 (body about 2.5 ft clear of the ridge, pyramid about 5.6 ft) before T-1999 lowered it. They are photographic proportions through hand-solved cameras, about +/-1 ft, not measurements. Plan, centre S14.6 (owner-directed), eave, flare, finial and the dovecote counts are unchanged; photograph 1's parallax would put the centre about 4 ft further north, which is recorded and not acted on. See L-glessner-cupola-body-2228. T-2849: the cupola body is granite, not boarding. The c. 1887 Cornell northwest view (cornell_adw_glessner_stable_1887), read at 3x on the cupola, shows the body below the pyramid as coursed stone continuous with the gable, from the roof up through both pigeon-hole tiers, each tier standing on a projecting stone ledge about 0.25-0.35 ft deep; HABS photograph 1 (1963) shows the same coursed shaft below the band. So the body, its pigeon-hole band and the two landing ledges are built in the house's granite and each ledge is 0.25 ft thick (it was a 0.08 ft board). The material is read from the photographs; the ledge thickness is a bounded reconstruction against the Cornell print's proportions, not a measurement, and the coursing itself is not modelled block by block. See L-glessner-cupola-stone-2849."
     },
     "chimneys": {
       "value": {
@@ -902,8 +1064,8 @@
       "value": {
         "north_gable": {
           "W": [
-            16.25,
-            21.35
+            15.25,
+            22.35
           ],
           "base": [
             40.0,
@@ -947,7 +1109,7 @@
         "taylor_2135_glessner_exterior_1887_1889",
         "owner_glessner_v4_reconstruction_brief_2026"
       ],
-      "note": "V4 retains HABS sheet 6's N-S positions, the printed north-stack top of 48.62 ft above door datum and the two measured 48.5-ft tops. E-W plan depths are reconstructed within the HABS plan envelope: north gable 5.1 ft, middle 4.0 ft, south 7.5 ft, great 4.4 ft. The south stack is deliberately broader in the transverse direction, bounded by the broad multiple-flue form the owner's overview flags; no screenshot is traced. These widths are not HABS dimensions. The default incorrectly gave every stack the same 4-ft depth. Bases stay buried in the roof. Coursed faces, tapered cap stones, flue mouths and roof flashings are v4_detail refinements. See docs/RESEARCH/glessner_house_v4.md and docs/LIBERTIES.md v4 entry. T-2470: the north-gable stack moves with the photographically reconciled crest from W13.25 to W18.8; its 5.1-ft width, north face and height remain unchanged. T-2222 supersedes ONLY the middle/south transverse positions and buried base: both straddle the retained W18.8 ridge. Native HABS sheet 6 east flashing toes at about 42.49 and 41.13 ft above door datum, transferred through the retained east roof plane, give W15.55 and W14.18. Sheet 4 reverse toes lie about 0.39 of the way from ridge to court eave, giving W21.8 for both west faces. These are reconstructed readings, approximately +/-0.3 ft, not surveyed hundredths. The unchanged early Taylor camera independently supports the direction of the move. Bases move to 37 ft above door solely to remain buried below the reverse pitch and admit its roof-following flashing. Stack count, N-S extents, top heights, north-gable integration and other stack plans are retained. Inland 1888 remains a textual historical cross-check in chimneys, not a source of these new dimensions or assets. See L-glessner-stacks-2222."
+      "note": "V4 retains HABS sheet 6's N-S positions, the printed north-stack top of 48.62 ft above door datum and the two measured 48.5-ft tops. E-W plan depths are reconstructed within the HABS plan envelope: north gable 5.1 ft, middle 4.0 ft, south 7.5 ft, great 4.4 ft. The south stack is deliberately broader in the transverse direction, bounded by the broad multiple-flue form the owner's overview flags; no screenshot is traced. These widths are not HABS dimensions. The default incorrectly gave every stack the same 4-ft depth. Bases stay buried in the roof. Coursed faces, tapered cap stones, flue mouths and roof flashings are v4_detail refinements. See docs/RESEARCH/glessner_house_v4.md and docs/LIBERTIES.md v4 entry. T-2470: the north-gable stack moves with the photographically reconciled crest from W13.25 to W18.8; its 5.1-ft width, north face and height remain unchanged. T-2222 supersedes ONLY the middle/south transverse positions and buried base: both straddle the retained W18.8 ridge. Native HABS sheet 6 east flashing toes at about 42.49 and 41.13 ft above door datum, transferred through the retained east roof plane, give W15.55 and W14.18. Sheet 4 reverse toes lie about 0.39 of the way from ridge to court eave, giving W21.8 for both west faces. These are reconstructed readings, approximately +/-0.3 ft, not surveyed hundredths. The unchanged early Taylor camera independently supports the direction of the move. Bases move to 37 ft above door solely to remain buried below the reverse pitch and admit its roof-following flashing. Stack count, N-S extents, top heights, north-gable integration and other stack plans are retained. Inland 1888 remains a textual historical cross-check in chimneys, not a source of these new dimensions or assets. See L-glessner-stacks-2222. T-2873: the north-gable stack's face is 7.1 ft wide (W 15.25-22.35), not 5.1. HABS photograph 14 (1965), whose camera is solved on the north wall's own plane, the plane the stack's face stands flush in (T-2214), reads the stack's silhouette 128-137 px across through the date stones' rows (x 909-1041) against the 91 px the 5.1-ft face projects; solved through that camera with the stack's 3.1-ft depth it is W 15.0-22.3 (7.3 ft), less about 0.2 ft for the rock faces' reach at the two edges, and centred within 0.15 ft of the gable apex. HABS photograph 1 (1963), a level camera that reads this roof about 2 ft low, gives about 6.3 ft (W 16.2-22.5); photograph 4 (c. 1923) has no camera and agrees in proportion, its stones filling about 0.6 of the face. Sheet 6 draws the stack edge-on and sheet 3 only the corner fireplace whose flue it carries (about W 16-21), so neither gives the width. The width is HABS 14's, kept centred on the apex at W 18.8; a reading through a hand-solved camera, about +/-0.4 ft, not a measurement. Depth, top and base are unchanged. See L-glessner-stack-width-2873."
     },
     "chimney_dining_room": {
       "value": {
@@ -1016,20 +1178,20 @@
             "what": "first-floor windows",
             "at": [
               [
-                54.4,
-                58.3
+                53.98,
+                58.4
               ],
               [
-                45.1,
-                49.0
+                44.87,
+                49.21
               ],
               [
-                16.9,
-                20.8
+                16.28,
+                20.67
               ],
               [
-                8.1,
-                12.0
+                7.19,
+                11.65
               ]
             ],
             "z": [
@@ -1055,20 +1217,20 @@
             "what": "basement lights, 3 x 3",
             "at": [
               [
-                54.4,
-                58.3
+                54.24,
+                58.14
               ],
               [
-                45.1,
-                49.0
+                45.09,
+                48.99
               ],
               [
-                16.9,
-                20.8
+                16.53,
+                20.43
               ],
               [
-                8.1,
-                12.0
+                7.47,
+                11.37
               ]
             ],
             "z": [
@@ -1136,8 +1298,8 @@
           {
             "what": "second-floor group of three",
             "at": [
-              9.3,
-              19.4
+              8.98,
+              19.12
             ],
             "z": [
               19.8,
@@ -1156,7 +1318,7 @@
         "artic_glessner_sheet_95_main_entrance_door",
         "artic_glessner_sheet_23a_entrance_detail"
       ],
-      "note": "The Prairie Avenue front, opening for opening: sheet 6 (1965), confirmed by the 1888 photograph. Positions here are S (= 74 - d, the spec's feet north of the south end); heights above the door datum. The second-floor heads are the printed 24.30; the rest measured, +/- 0.3 ft horizontally and 0.5 ft vertically. The door's fan: tympanum radius 2.6 ft inside radiating voussoirs to 6.4 ft, springing at 9.3 ft (sheet 5). Fifteen voussoirs, keyed at the crown, and a rock-faced lintel about 10 ft long (three quarters of the fan's span), counted and scaled off the owner's photographs of the door (2026-10-12); the previous 11 voussoirs and 5.6 ft dressed lintel had no source. The porte-cochere is drawn closed by its oak leaves (the c. 1888 photograph; HABS data p. 21), their panels and straps reconstructed in T-2217 — see porte_cochere_doors. T-2216: the front door's LEAF is drawn as Richardson's office drew it on sheet No. 95 (Art Institute of Chicago, mqc 69517; its 'Copy' No. 95A agrees): a studded oak border round two fields with cusped corners; a square iron grille of six bars each way, knobbed where they run past its frame, its centre three cells by four filled with the house number 1800 over three rows of scrolls; an iron strap on the middle rail with a central boss and knob, a ring-handled latch at its left end and iron corners; two fielded panels below. The other No. 95A, a floral grille endorsed 'Not Correct', is not drawn. An undated photograph of the front (Prairie library a18-gh-glessner-front-with-keith, cited only) shows 1800 and a knob on the leaf where sheet 95 puts them. Positions are the sheet's shares of sheet 5's leaf; every depth, the corner irons' and scrolls' forms and the numerals' letterforms are reconstructed (docs/LIBERTIES.md L-glessner-front-door-2216). T-2228: the fan spring lowers0.3ft to9.0ft door datum while retaining both radii; the header rises from9.0ft shoulders to9.3ft centre, matching the shallow shaped upper edge in HABS5 and the owner close-up. This is an approximate built-profile reconstruction, not an ideal regular trapezoid. Door aperture5x7.75ft and its sill datum remain fixed."
+      "note": "The Prairie Avenue front, opening for opening: sheet 6 (1965), confirmed by the 1888 photograph. Positions here are S (= 74 - d, the spec's feet north of the south end); heights above the door datum. The second-floor heads are the printed 24.30; the rest measured, +/- 0.3 ft horizontally and 0.5 ft vertically. The door's fan: tympanum radius 2.6 ft inside radiating voussoirs to 6.5 ft, springing at 9.0 ft and stilted 0.5 ft, its centre at 9.5 ft and both rings run plumb down to the spring (T-2853: sheet 5 measured at 100 px a foot gives the extrados 6.48 ft across and 7.06 ft high over the spring, the tympanum's ring 2.51 ft across and 2.93 ft high; the office's doorway No. 23A draws the same stilt). Fifteen voussoirs, keyed at the crown, and a rock-faced lintel about 10 ft long (three quarters of the fan's span), counted and scaled off the owner's photographs of the door (2026-10-12); the previous 11 voussoirs and 5.6 ft dressed lintel had no source. The porte-cochere is drawn closed by its oak leaves (the c. 1888 photograph; HABS data p. 21), their panels and straps reconstructed in T-2217 — see porte_cochere_doors. T-2216: the front door's LEAF is drawn as Richardson's office drew it on sheet No. 95 (Art Institute of Chicago, mqc 69517; its 'Copy' No. 95A agrees): a studded oak border round two fields with cusped corners; a square iron grille of six bars each way, knobbed where they run past its frame, its centre three cells by four filled with the house number 1800 over three rows of scrolls; an iron strap on the middle rail with a central boss and knob, a ring-handled latch at its left end and iron corners; two fielded panels below. The other No. 95A, a floral grille endorsed 'Not Correct', is not drawn. An undated photograph of the front (Prairie library a18-gh-glessner-front-with-keith, cited only) shows 1800 and a knob on the leaf where sheet 95 puts them. Positions are the sheet's shares of sheet 5's leaf; every depth, the corner irons' and scrolls' forms and the numerals' letterforms are reconstructed (docs/LIBERTIES.md L-glessner-front-door-2216). T-2228: the fan spring lowers0.3ft to9.0ft door datum while retaining both radii; the header rises from9.0ft shoulders to9.3ft centre, matching the shallow shaped upper edge in HABS5 and the owner close-up. This is an approximate built-profile reconstruction, not an ideal regular trapezoid. Door aperture5x7.75ft and its sill datum remain fixed. T-2858: the four first-floor lights are sheet 6's outer lines (A 7.19-11.65, B 16.28-20.67, C 44.87-49.21, D 53.98-58.40; they were 3.9 ft wide, 0.3-0.65 ft south at the north end), the basement grilles centred under them at 3.9 ft (sheet 6 draws them about 4.0 ft, centred), and the second-floor north group of three 0.3 ft north to the sheet's 8.98-19.12. The 3.9 ft had fitted the two oblique NE photographs because from there each light's south reveal faces the camera and the glass edge is the sash, about 0.6 ft behind the arris; with that reveal projected, sheet 6 fits all three street photographs at least as well, and the frontal HABS 16 much better (tools/glessner_prairie_front.py; data/comparisons/glessner/prairie-front.json). The door stays at 30.4-35.4: the sheet gives only its fan's centre (32.53), and the photographs split on it."
     },
     "openings_18th": {
       "value": {
@@ -1234,16 +1396,16 @@
             "at": [
               [
                 7.2,
-                10.1
+                10.55
               ],
               [
-                12.0,
+                11.85,
                 14.7
               ]
             ],
             "z": [
-              20,
-              25.25
+              19.6,
+              24.3
             ],
             "style": "north_gable_pair"
           },
@@ -1295,16 +1457,16 @@
             "at": [
               [
                 25.8,
-                28.1
+                28.45
               ],
               [
-                30.0,
+                29.8,
                 32.9
               ]
             ],
             "z": [
-              20,
-              25.25
+              19.6,
+              24.3
             ],
             "style": "north_gable_pair"
           }
@@ -1320,7 +1482,7 @@
         "habs_glessner_photo_14_north_inclined_1965",
         "habs_glessner_photo_13_north_1965"
       ],
-      "note": "No HABS elevation of 18th Street exists: positions are read as gaps in the granite on the first- and second-floor plans (sheets 2-3, +/- 0.4 ft). The great arch (12'-0\" clear at 96'-6\", sheet 2; springing 4.6, crown 10.8, voussoir ring 19 ft across, sheet 5) and the 12-ft window over it (19.25-22.25 ft, sheet 5 printed stone-course sum re-read for T-1999) carry their own heights. HABS photograph 1 (1963) shows the same rhythm of narrow slit windows along the range. The 'narrow windows in its north side along 18th Street, just enough to light the narrow corridors' are Glessner's (1923). Items without a height take opening_heights. V4: the opening at W 122.8-125.2 is a full-height service door, not a first-floor slit window: sheet 2 shows a doorway, and HABS photograph 15 shows its sill at street grade. Its head at 10.4 ft is a photographic reading (+/- 1 ft). T-2470: the two gable pairs retain sheet-3 plan positions but receive their own z20.0-25.25-ft bounds, read proportionally from HABS 01/13/14 (+/-0.5 ft). The 3-ft corridor apertures are not a valid height for these visibly tall sashes. The flat gable facade extends west into the tower and carries the second pair above the lower range eave. T-2219: high-resolution sheet 2 shows the service doorway wider than the former 2.4-ft slit; sheet 3 shows the upper stair window about the same width as its 4.1-ft neighbour. Re-read bounds are W122.8–126.7 (door) and W122.8–127.0 (upper window), +/-0.3 ft. The doorway sill at0.85 ft ng is a bounded reconstruction from the two exposed steps in HABS01, not a printed level; the earlier at-grade reading of photo15 was obscured by a car."
+      "note": "No HABS elevation of 18th Street exists: positions are read as gaps in the granite on the first- and second-floor plans (sheets 2-3, +/- 0.4 ft). The great arch (12'-0\" clear at 96'-6\", sheet 2; springing 4.6, crown 10.8, voussoir ring 19 ft across, sheet 5) and the 12-ft window over it (19.25-22.25 ft, sheet 5 printed stone-course sum re-read for T-1999) carry their own heights. HABS photograph 1 (1963) shows the same rhythm of narrow slit windows along the range. The 'narrow windows in its north side along 18th Street, just enough to light the narrow corridors' are Glessner's (1923). Items without a height take opening_heights. V4: the opening at W 122.8-125.2 is a full-height service door, not a first-floor slit window: sheet 2 shows a doorway, and HABS photograph 15 shows its sill at street grade. Its head at 10.4 ft is a photographic reading (+/- 1 ft). T-2470: the two gable pairs retain sheet-3 plan positions but receive their own z20.0-25.25-ft bounds, read proportionally from HABS 01/13/14 (+/-0.5 ft). The 3-ft corridor apertures are not a valid height for these visibly tall sashes. The flat gable facade extends west into the tower and carries the second pair above the lower range eave. T-2219: high-resolution sheet 2 shows the service doorway wider than the former 2.4-ft slit; sheet 3 shows the upper stair window about the same width as its 4.1-ft neighbour. Re-read bounds are W122.8–126.7 (door) and W122.8–127.0 (upper window), +/-0.3 ft. The doorway sill at0.85 ft ng is a bounded reconstruction from the two exposed steps in HABS01, not a printed level; the earlier at-grade reading of photo15 was obscured by a car. T-2850: both pairs re-read at z19.6-24.3 ft. T-2470's 20.0-25.25 was a proportional reading, and both north cameras had been fitted with the pairs' heights ASSUMED (T-2200 at the corridor rows' 19.25-22.25, T-2470 at 20.0-25.25), so neither photograph had been asked. tools/glessner_north_pairs.py refits each camera with the pairs' sill and head left free, from the corner at grade, the narrow first-floor light's printed course interval and every pair corner at its plan W: HABS 13 reads 19.64-24.14, HABS 14 19.61-24.45 (data/comparisons/glessner/north-pairs.json), +/-0.4 ft. The head stood about a foot too high. T-2868: the pairs' inner jambs read through both north cameras. Each pair is two lights either side of a colonnette whose capital stands at the wall face, and the plan's 1.9-ft pier (sheet 3, +/-0.4 ft) is read in both photographs at about 1.3 ft: the capital's edges, carried through each solved camera onto the wall face, stand at W 10.48-10.53 and 11.77-11.83 on the east pair (HABS 13 and 14 agree within 0.06 ft), and at 28.37 and 29.63-29.86 on the west pair, where a utility pole crosses the pier in both prints (HABS 13 shows the capital either side of it, HABS 14 only its east edge). Read again through cameras re-solved without the inner corners (which the solve had taken at their plan W), every edge moves 0.03-0.12 ft east, so the reading is not the solve's assumption handed back. The inner jambs are rebuilt at the mean: W 10.55/11.85 and 28.45/29.8 (data/comparisons/glessner/north-pairs.json#jambs, tools/glessner_north_pairs.py), +/-0.15 ft. The outer jambs read 0.1-0.3 ft east of the plan on the east pair, inside its +/-0.4 ft, and are not moved; the lights are therefore about 3.35 and 2.85 ft (east pair) and 2.65 and 3.1 ft (west pair)."
     },
     "openings_18th_photo": {
       "value": {
@@ -1513,14 +1675,23 @@
             "what": "underpass exit into the courtyard",
             "kind": "dark",
             "at": [
-              63.3,
-              72.9
+              62.96,
+              71.96
             ],
             "z": [
               0.0,
-              8.1
+              7.22
             ],
-            "style": "courtyard_sash"
+            "style": "courtyard_sash",
+            "corbels": {
+              "z": [
+                6.0,
+                7.22
+              ],
+              "inset_ft": 0.5,
+              "round_ft": 0.45,
+              "depth_ft": 1.5
+            }
           },
           {
             "what": "first-floor window",
@@ -1550,39 +1721,106 @@
             "what": "windows over the underpass",
             "at": [
               [
-                62.0,
-                64.5
+                64.34,
+                67.35
               ],
               [
-                67.5,
-                70.0
+                69.83,
+                72.9
               ]
             ],
             "z": [
-              12.3,
-              16.9
+              12.1,
+              15.5
             ],
             "style": "courtyard_sash",
-            "sash": "two_over_two"
+            "sash": "two_over_two",
+            "courses": true
           },
           {
             "what": "windows under the eave over the underpass",
             "at": [
               [
-                62.0,
-                64.5
+                64.84,
+                66.88
               ],
               [
-                67.5,
-                70.0
+                70.31,
+                72.36
               ]
             ],
             "z": [
-              21.0,
-              24.8
+              21.2,
+              24.9
             ],
             "style": "courtyard_sash",
-            "sash": "two_over_two"
+            "sash": "two_over_two",
+            "courses": true
+          },
+          {
+            "what": "stone lintel over the underpass exit, to the wing's south end",
+            "kind": "band",
+            "at": [
+              62.96,
+              74.0
+            ],
+            "z": [
+              7.22,
+              8.9
+            ],
+            "style": "rough_course"
+          },
+          {
+            "what": "sill course under the windows over the underpass",
+            "kind": "band",
+            "at": [
+              64.03,
+              73.26
+            ],
+            "z": [
+              11.3,
+              12.1
+            ],
+            "style": "rough_course"
+          },
+          {
+            "what": "lintel course over the windows over the underpass",
+            "kind": "band",
+            "at": [
+              64.03,
+              73.26
+            ],
+            "z": [
+              15.5,
+              16.76
+            ],
+            "style": "rough_course"
+          },
+          {
+            "what": "sill course under the windows under the eave",
+            "kind": "band",
+            "at": [
+              64.51,
+              72.65
+            ],
+            "z": [
+              20.45,
+              21.2
+            ],
+            "style": "rough_course"
+          },
+          {
+            "what": "lintel course over the windows under the eave",
+            "kind": "band",
+            "at": [
+              64.51,
+              72.65
+            ],
+            "z": [
+              24.9,
+              26.1
+            ],
+            "style": "rough_course"
           }
         ]
       },
@@ -1591,7 +1829,7 @@
         "habs_glessner_house_il_1015_drawings",
         "habs_glessner_photo_05_court_c1923"
       ],
-      "note": "The east wing's courtyard face, read off sheet 4's elevation beyond the section plane (99 px/ft at full scale, read at 19.5 px/ft, +/- 1 ft; the sheet's horizontal origin is about 2.8 ft off the plan's, and positions are aligned to the stair tower the plan fixes) and checked against HABS photograph 5 (c. 1923). The underpass exit is 9.6 ft wide and 8.1 ft clear (sheet 4). T-2212: the four lights over the underpass are two-over-two (\"sash\": \"two_over_two\"), as HABS photograph 5 shows three of them plainly (both under the eave and the south one below); the fourth, the north one of the lower pair, has its blind drawn and is given its neighbours' pattern."
+      "note": "The east wing's courtyard face, read off sheet 4's elevation beyond the section plane (99 px/ft at full scale, read at 19.5 px/ft, +/- 1 ft; the sheet's horizontal origin is about 2.8 ft off the plan's, and positions are aligned to the stair tower the plan fixes) and checked against HABS photograph 5 (c. 1923). The underpass exit is 9.6 ft wide and 8.1 ft clear (sheet 4). T-2212: the four lights over the underpass are two-over-two (\"sash\": \"two_over_two\"), as HABS photograph 5 shows three of them plainly (both under the eave and the south one below); the fourth, the north one of the lower pair, has its blind drawn and is given its neighbours' pattern. T-2926: the face south of the stair tower re-read on native sheet 4 (T-2228's section controls, 100.6/97.7 px/ft, each edge good to about 0.05 ft) and carried onto the plan's frame by T-2879's +0.65 ft: the four lights stood about 2.5 ft north of the drawn ones, each under its own small lintel and on its own sill. As drawn, the lights over the underpass are 3.0 ft wide at S64.34-67.35 and 69.83-72.90, 12.1-15.5 ft, and those under the eave 2.05 ft wide at 64.84-66.88 and 70.31-72.36, 21.2-24.9 ft; each pair stands on one sill course (11.3-12.1, 20.45-21.2) under one lintel course (15.5-16.76, 24.9-26.1), run 64.03-73.26 and 64.51-72.65 (\"courses\": the lights lay no stones of their own). The underpass exit is 9.0 ft wide (62.96-71.96) under a stone lintel 7.22-8.9 ft that runs to the wing's south end, with a stone corbel 0.5 ft deep standing in from each jamb at 6.0-7.22 ft, its lower inner corner rounded (about 0.45 ft). How far a corbel runs into the passage is not drawn: 1.5 ft is reconstructed. Readings: docs/RESEARCH/glessner-court-face-T-2926/."
     },
     "openings_court_north": {
       "value": {
@@ -1977,7 +2215,7 @@
             "outline": [
               [
                 26.5,
-                63.3
+                62.96
               ],
               [
                 161.25,
@@ -1989,7 +2227,7 @@
               ],
               [
                 26.5,
-                72.9
+                71.96
               ]
             ]
           }
@@ -2051,11 +2289,15 @@
                 ],
                 [
                   32.805118,
-                  52.674541
+                  53.9
                 ],
                 [
-                  31.799869,
-                  51.799869
+                  31.58,
+                  53.03
+                ],
+                [
+                  33.75026,
+                  47.05792
                 ],
                 [
                   33.863189,
@@ -2080,7 +2322,7 @@
         "habs_glessner_house_il_1015_drawings",
         "habs_glessner_house_il_1015_data_pages"
       ],
-      "note": "T-2224 independently reconstructs circulation from the cleared HABS sheet 2 gate, passage and stair positions. The drive is a straight ruled connection between the gate and passage jambs, replacing the earlier photograph-based intermediate bend; no new geometry is derived from rights-uncleared HABS05. The measured plan does not draw a 1904 paving layout. The 4-foot pedestrian approaches, their outlines, pale compacted gravel surface, cut lawn edge and shallow falls away from the west masonry are RECONSTRUCTED functional choices, not a traced historical garden. Path and material choices are separate: gravel is a permeable period-plausible surface, not material identified in the plan. HABS data printed p2 records complete parking paving in September 1946; that surface is excluded. West access allows for the separate court-side stair whose chronology and final geometry remain T-2228. Solid building/step footprints and all hard surfaces are cut out of turf. Gate and passage connections retain the 0.12-ft surface datum. L-glessner-court-ground-2224."
+      "note": "T-2224 independently reconstructs circulation from the cleared HABS sheet 2 gate, passage and stair positions. The drive is a straight ruled connection between the gate and passage jambs, replacing the earlier photograph-based intermediate bend; no new geometry is derived from rights-uncleared HABS05. The measured plan does not draw a 1904 paving layout. The 4-foot pedestrian approaches, their outlines, pale compacted gravel surface, cut lawn edge and shallow falls away from the west masonry are RECONSTRUCTED functional choices, not a traced historical garden. Path and material choices are separate: gravel is a permeable period-plausible surface, not material identified in the plan. HABS data printed p2 records complete parking paving in September 1946; that surface is excluded. West access allows for the separate court-side stair whose chronology and final geometry remain T-2228. Solid building/step footprints and all hard surfaces are cut out of turf. Gate and passage connections retain the 0.12-ft surface datum. L-glessner-court-ground-2224. T-2906: the terrace approach's stair-side edge follows the lowest tread's foot where sheet 4's section re-seats it, (W31.58, S53.03) on the drum to (W33.75, S47.06) at the newel, so the step still lands on the walk."
     },
     "porte_cochere_doors": {
       "value": "two oak leaves, each three panels wide and six high, every square panel sunk in a circular moulding; a horizontal iron strap two rows up with a lock plate and two ring pulls; scroll-ended strap hinges",
@@ -2240,15 +2482,15 @@
                 "style": "courtyard_sash"
               },
               {
-                "what": "stable courtyard door beside the north-range junction",
+                "what": "stable courtyard door beside the north-range junction, at grade: its head course with the first-floor window sills and the opening about 34 brick courses tall in the 2024 courtyard photograph (T-2760)",
                 "kind": "door",
                 "at": [
                   26.9,
                   29.4
                 ],
                 "z": [
-                  5.8,
-                  14.0
+                  0.35,
+                  7.85
                 ],
                 "style": "courtyard_sash"
               }
@@ -2307,10 +2549,10 @@
             "datum": "ng",
             "items": [
               {
-                "what": "east-wing courtyard barred basement light beside the stair tower, native HABS sheet4 clear aperture",
+                "what": "east-wing courtyard barred basement light beside the stair tower, native HABS sheet4 clear aperture re-zeroed onto the plan (T-2880: north jamb S46.48+0.65; south jamb held 0.23 ft, the drawn clearance, short of the plan's tower drum at S50.91, since the re-zeroed S51.63 falls inside it)",
                 "at": [
-                  46.48,
-                  50.98
+                  47.13,
+                  50.68
                 ],
                 "z": [
                   2.6,
@@ -2356,14 +2598,14 @@
                 "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
                 "kind": "arch",
                 "at": [
-                  136.75,
-                  137.25
+                  137.74,
+                  138.14
                 ],
                 "z": [
-                  31.0,
-                  31.85
+                  31.65,
+                  32.1
                 ],
-                "spring": 31.6,
+                "spring": 31.9,
                 "ring_ft": 0.25,
                 "voussoirs": 0,
                 "style": "pigeon_vent"
@@ -2372,14 +2614,14 @@
                 "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
                 "kind": "arch",
                 "at": [
-                  138.75,
-                  139.25
+                  139.27,
+                  139.67
                 ],
                 "z": [
-                  31.0,
-                  31.85
+                  31.65,
+                  32.1
                 ],
-                "spring": 31.6,
+                "spring": 31.9,
                 "ring_ft": 0.25,
                 "voussoirs": 0,
                 "style": "pigeon_vent"
@@ -2388,14 +2630,14 @@
                 "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
                 "kind": "arch",
                 "at": [
-                  140.75,
-                  141.25
+                  140.8,
+                  141.2
                 ],
                 "z": [
-                  31.0,
-                  31.85
+                  31.65,
+                  32.1
                 ],
-                "spring": 31.6,
+                "spring": 31.9,
                 "ring_ft": 0.25,
                 "voussoirs": 0,
                 "style": "pigeon_vent"
@@ -2404,14 +2646,14 @@
                 "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
                 "kind": "arch",
                 "at": [
-                  142.75,
-                  143.25
+                  142.33,
+                  142.73
                 ],
                 "z": [
-                  31.0,
-                  31.85
+                  31.65,
+                  32.1
                 ],
-                "spring": 31.6,
+                "spring": 31.9,
                 "ring_ft": 0.25,
                 "voussoirs": 0,
                 "style": "pigeon_vent"
@@ -2420,14 +2662,14 @@
                 "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
                 "kind": "arch",
                 "at": [
-                  144.75,
-                  145.25
+                  143.86,
+                  144.26
                 ],
                 "z": [
-                  31.0,
-                  31.85
+                  31.65,
+                  32.1
                 ],
-                "spring": 31.6,
+                "spring": 31.9,
                 "ring_ft": 0.25,
                 "voussoirs": 0,
                 "style": "pigeon_vent"
@@ -2436,14 +2678,14 @@
                 "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
                 "kind": "arch",
                 "at": [
-                  138.75,
-                  139.25
+                  139.27,
+                  139.67
                 ],
                 "z": [
                   33.0,
-                  34.2
+                  33.65
                 ],
-                "spring": 33.95,
+                "spring": 33.45,
                 "ring_ft": 0.25,
                 "voussoirs": 0,
                 "style": "pigeon_vent"
@@ -2452,14 +2694,14 @@
                 "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
                 "kind": "arch",
                 "at": [
-                  140.75,
-                  141.25
+                  140.8,
+                  141.2
                 ],
                 "z": [
                   33.0,
-                  34.2
+                  33.65
                 ],
-                "spring": 33.95,
+                "spring": 33.45,
                 "ring_ft": 0.25,
                 "voussoirs": 0,
                 "style": "pigeon_vent"
@@ -2468,14 +2710,14 @@
                 "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
                 "kind": "arch",
                 "at": [
-                  142.75,
-                  143.25
+                  142.33,
+                  142.73
                 ],
                 "z": [
                   33.0,
-                  34.2
+                  33.65
                 ],
-                "spring": 33.95,
+                "spring": 33.45,
                 "ring_ft": 0.25,
                 "voussoirs": 0,
                 "style": "pigeon_vent"
@@ -2484,14 +2726,14 @@
                 "what": "stable north-gable pigeon opening, 5-3-1 arrangement visible in HABS photo 15",
                 "kind": "arch",
                 "at": [
-                  140.75,
-                  141.25
+                  140.8,
+                  141.2
                 ],
                 "z": [
-                  35.2,
-                  36.4
+                  34.55,
+                  35.0
                 ],
-                "spring": 36.15,
+                "spring": 34.8,
                 "ring_ft": 0.25,
                 "voussoirs": 0,
                 "style": "pigeon_vent"
@@ -2525,11 +2767,12 @@
                 ],
                 "z": [
                   9.0,
-                  15.4
+                  16.0
                 ],
                 "spring": 9.0,
+                "stilt_ft": 0.5,
                 "inner_ft": 2.6,
-                "ring_ft": 6.4,
+                "ring_ft": 6.5,
                 "voussoirs": 15,
                 "style": "prairie_sash"
               }
@@ -2648,12 +2891,12 @@
             "centre_W": 18.8,
             "on_chimney": "north_gable",
             "date_stone_W": [
-              17.25,
-              20.35
+              16.6,
+              21.0
             ],
             "ad_stone_W": [
-              17.4,
-              20.2
+              16.65,
+              20.95
             ],
             "date_stone_z": [
               43.6,
@@ -2667,14 +2910,23 @@
             "ad_text": "AD",
             "incised": true,
             "date_fill": 0.58,
-            "ad_fill": 0.46,
+            "ad_fill": 0.43,
+            "ad_device": {
+              "stems_u": [
+                0.33,
+                0.73
+              ],
+              "bar_z": 0.5,
+              "stroke": 0.16,
+              "height_fill": 0.53
+            },
             "crosses": [
               {
-                "W": 16.75,
+                "W": 15.9,
                 "z": 44.15
               },
               {
-                "W": 20.85,
+                "W": 21.7,
                 "z": 44.95
               }
             ],
@@ -2683,14 +2935,26 @@
           },
           "stable_north": {
             "pigeon_ledge_W": [
-              135.9,
-              146.1
+              137.15,
+              144.85
             ],
             "pigeon_ledge_z": [
-              30.4,
-              30.8
+              31.25,
+              31.55
             ],
-            "projection_ft": 0.8
+            "projection_ft": 0.8,
+            "corbels_W": [
+              [
+                138.2,
+                139.2
+              ],
+              [
+                142.8,
+                143.8
+              ]
+            ],
+            "corbel_drop_ft": 0.45,
+            "corbel_projection_ft": 0.5
           }
         },
         "joinery": {
@@ -2735,76 +2999,81 @@
           "angle_convention": "degrees from mesh +x east towards +y north",
           "slits": [
             {
-              "azimuth_deg": 145,
-              "width_ft": 1.0,
+              "azimuth_deg": 136,
+              "width_ft": 0.75,
               "z": [
-                7.6,
-                12.5
+                7.52,
+                12.78
               ]
             },
             {
-              "azimuth_deg": 145,
-              "width_ft": 1.0,
+              "azimuth_deg": 136,
+              "width_ft": 0.75,
               "z": [
-                17.8,
-                22.0
+                18.78,
+                22.46
               ]
             },
             {
-              "azimuth_deg": 215,
-              "width_ft": 1.0,
+              "azimuth_deg": 225,
+              "width_ft": 0.75,
               "z": [
-                4.5,
-                9.2
+                4.7,
+                9.1
               ]
             },
             {
-              "azimuth_deg": 215,
-              "width_ft": 1.0,
+              "azimuth_deg": 225,
+              "width_ft": 0.75,
               "z": [
-                15.7,
-                19.8
+                16.58,
+                20.53
               ]
             }
           ],
           "lantern": [
             {
-              "azimuth_deg": 135,
-              "width_ft": 2.2,
+              "azimuth_deg": 140,
+              "width_ft": 2.55,
               "z": [
-                27.0,
-                31.0
+                28.2,
+                31.9
               ]
             },
             {
               "azimuth_deg": 180,
-              "width_ft": 2.2,
+              "width_ft": 2.3,
               "z": [
-                27.0,
-                31.0
+                28.2,
+                31.9
               ]
             },
             {
-              "azimuth_deg": 225,
-              "width_ft": 2.2,
+              "azimuth_deg": 219,
+              "width_ft": 2.55,
               "z": [
-                27.0,
-                31.0
+                28.2,
+                31.9
               ]
             }
           ],
           "lantern_sill_band_z": [
-            25.8,
-            27.0
+            27.05,
+            28.2
           ],
           "lantern_lintel_band_z": [
-            31.0,
-            32.5
+            31.9,
+            33.21
           ],
           "lantern_panes": [
             2,
             3
-          ]
+          ],
+          "slit_stones_ft": {
+            "head": 1.25,
+            "sill": 0.65,
+            "side": 0.54
+          }
         },
         "bow_terrace": {
           "centre_W": 27.8,
@@ -2829,19 +3098,19 @@
           ],
           "window_S": [
             [
-              30.37,
-              34.05
+              31.02,
+              34.7
             ],
             [
-              34.71,
-              38.35
+              35.36,
+              39.0
             ]
           ],
           "newel_WS": [
-            33.7,
-            46.05
+            33.81,
+            46.2
           ],
-          "newel_radius_ft": 0.75,
+          "newel_radius_ft": 0.9,
           "newel_top_z": [
             5.1,
             "ng"
@@ -2924,28 +3193,40 @@
                 46.4
               ],
               [
-                32.99076,
-                46.09076
+                32.95675,
+                46.09245
               ]
             ],
             [
+              [
+                26.8,
+                50.85
+              ],
               [
                 28.2,
-                49.4
+                50.91
               ],
               [
-                33.21087,
-                46.56359
+                29.6,
+                51.36
+              ],
+              [
+                30.95,
+                52.3
+              ],
+              [
+                33.07229,
+                46.64203
               ]
             ],
             [
               [
-                31.8,
-                51.8
+                31.58,
+                53.03
               ],
               [
-                33.86304,
-                46.7837
+                33.75026,
+                47.05792
               ]
             ]
           ],
@@ -2962,59 +3243,59 @@
           "cap_section_profile": {
             "upper_S_zft": [
               [
-                40.99155,
+                41.64155,
                 8.41295
               ],
               [
-                42.3335,
+                42.9835,
                 8.41295
               ],
               [
-                42.66899,
+                43.31899,
                 8.3794
               ],
               [
-                43.00447,
+                43.65447,
                 8.27876
               ],
               [
-                43.33996,
+                43.98996,
                 8.12779
               ],
               [
-                43.67545,
+                44.32545,
                 7.90972
               ],
               [
-                44.01093,
+                44.66093,
                 7.60778
               ],
               [
-                44.34642,
+                44.99642,
                 7.2052
               ],
               [
-                44.68191,
+                45.33191,
                 6.66842
               ],
               [
-                44.84965,
+                45.49965,
                 6.24906
               ],
               [
-                45.0174,
+                45.6674,
                 5.79615
               ],
               [
-                45.18514,
+                45.83514,
                 5.39357
               ],
               [
-                45.30256,
+                45.95256,
                 4.95743
               ],
               [
-                45.35288,
+                46.00288,
                 4.77292
               ],
               [
@@ -3024,67 +3305,67 @@
             ],
             "lower_S_zft": [
               [
-                40.99155,
+                41.64155,
                 7.80907
               ],
               [
-                42.16576,
+                42.81576,
                 7.80907
               ],
               [
-                42.50124,
+                43.15124,
                 7.75875
               ],
               [
-                42.83673,
+                43.48673,
                 7.64133
               ],
               [
-                43.17222,
+                43.82222,
                 7.44004
               ],
               [
-                43.5077,
+                44.1577,
                 7.18842
               ],
               [
-                43.84319,
+                44.49319,
                 6.80261
               ],
               [
-                44.01093,
+                44.66093,
                 6.46712
               ],
               [
-                44.17868,
+                44.82868,
                 6.06454
               ],
               [
-                44.34642,
+                44.99642,
                 5.62841
               ],
               [
-                44.44707,
+                45.09707,
                 5.15873
               ],
               [
-                44.51417,
+                45.16417,
                 4.72259
               ],
               [
-                44.59804,
+                45.24804,
                 4.3871
               ],
               [
-                44.76578,
+                45.41578,
                 4.16904
               ],
               [
-                45.0174,
+                45.6674,
                 3.98452
               ],
               [
-                45.35288,
+                46.00288,
                 3.81678
               ],
               [
@@ -3092,7 +3373,17 @@
                 3.39386
               ]
             ]
-          }
+          },
+          "low_tread_tops_z": [
+            [
+              1.57,
+              "ng"
+            ],
+            [
+              0.88,
+              "ng"
+            ]
+          ]
         },
         "bow_first_floor_central_door": true,
         "underpass": {
@@ -3107,11 +3398,11 @@
             ],
             [
               26.5,
-              72.9
+              71.96
             ],
             [
               26.5,
-              63.3
+              62.96
             ]
           ],
           "ceiling_prairie": [
@@ -3119,7 +3410,7 @@
             "door"
           ],
           "ceiling_court": [
-            8.1,
+            7.22,
             "ng"
           ],
           "floor": [
@@ -3160,7 +3451,7 @@
         "stable_north_gable": {
           "W": [
             127.75,
-            156.25
+            154.25
           ],
           "eave": [
             23.1,
@@ -3320,7 +3611,7 @@
             ],
             "z": [
               26.45,
-              27.45
+              28.15
             ],
             "projection_ft": 1.75,
             "hook_drop_ft": 0.9
@@ -3413,7 +3704,13 @@
           "frame_m": 0.025,
           "head_m": 0.12,
           "sill_m": 0.05,
-          "bar_radius_m": 0.009
+          "bar_radius_m": 0.009,
+          "surround_ft": {
+            "u0": 0.23,
+            "u1": 1.34,
+            "below": 1.03,
+            "above": 1.29
+          }
         },
         "light_hidden_stair_wall": true,
         "court_dormer_union": true,
@@ -3460,8 +3757,82 @@
               0
             ]
           ],
-          "dormer_base_ft": 36.99,
-          "stair_base_ft": 40.94
+          "dormer_base_ft": 37.03,
+          "stair_base_ft": 40.94,
+          "dormer_profile_ft": [
+            [
+              0,
+              0.55
+            ],
+            [
+              0.05,
+              0.63
+            ],
+            [
+              0.15,
+              0.65
+            ],
+            [
+              0.31,
+              0.59
+            ],
+            [
+              0.43,
+              0.52
+            ],
+            [
+              0.55,
+              0.45
+            ],
+            [
+              0.68,
+              0.38
+            ],
+            [
+              0.8,
+              0.33
+            ],
+            [
+              0.92,
+              0.28
+            ],
+            [
+              1.04,
+              0.23
+            ],
+            [
+              1.17,
+              0.18
+            ],
+            [
+              1.29,
+              0.15
+            ],
+            [
+              1.41,
+              0.11
+            ],
+            [
+              1.52,
+              0.11
+            ],
+            [
+              1.56,
+              0.19
+            ],
+            [
+              1.67,
+              0.21
+            ],
+            [
+              1.78,
+              0.2
+            ],
+            [
+              1.87,
+              0
+            ]
+          ]
         },
         "north_copper_cladding": {
           "outline_WS_ft": [
@@ -3522,6 +3893,10 @@
           ],
           "threshold_front_W": -0.6,
           "threshold_back_W": 0.95
+        },
+        "north_pair_colonnette": {
+          "capital_ft": 1.1,
+          "base_ft": 0.5
         }
       },
       "confidence": "reconstructed",
@@ -3536,7 +3911,7 @@
         "habs_glessner_photo_01_nw_1963",
         "artic_glessner_sheet_23a_entrance_detail"
       ],
-      "note": "V4 detail schedule. The 24 ashlar course heights are TRANSCRIBED IN INCHES, bottom-to-top, from HABS sheet 5's dimension string, totalling 271 in (22.5833 ft); carrying the sequence around other granite faces and repeating that measured course vocabulary above it is reconstructed. Stable courtyard and south upper opening horizontal bounds are measurements from sheets 2-3, rounded to half-foot-scale accuracy; their heights and the unrecorded garden/south lower lights are reconstructed. East court garden light and bow basement pair are visible on sheet 4; dining garden lights are visible in photograph 5. Cross-gable roof dimensions use the canonical ranges and the HABS footprint; the smaller alley dormer, the copper return and chimney-flue layouts are reconstructed forms, bounded by the owner's requested omissions and surviving fabric comparisons without tracing modern imagery. T-2220 supersedes the former pitched north-range return with a low copper hood intersected with both tiled roof slopes; the unused rectangular-return controls are removed. Full per-feature evidence and uncertainty: docs/RESEARCH/glessner_house_v4.md. Surface joint width and relief are artistic reconstructions; they are not survey measurements. docs/LIBERTIES.md v4 entry. HABS photographs 14-15 also supply the omitted east-wing high arched slit and the stable gable's 5-3-1 pigeon-hole arrangement and ledge. Their dimensions are reconstructed photographic proportions (+/- 1 ft), not survey labels. Joinery recesses, sash widths, carved detail depths and grille thicknesses are reconstructed; the Prairie basement 3-by-3 stone grilles and the porte-cochere's two leaves with 3-by-6 panels each are attested by sheets 5-6 and the c.1888 door photograph. The 7-by-7 front door iron grid is a simplified reconstruction of the denser grille shown on sheet 5. The stair tower has four staggered slit windows and an upper three-light front lantern row, heights measured from sheet 4 (+/-1 ft); angles/widths are reconstructed on the measured drum. A low projecting bowed terrace carries TWO basement grilles and a main-level central door, as sheet 4/photo 5 show. Terrace radius 14 ft and coping dimensions are reconstructed. The underpass is an actual opening through the east range with stone returns, its plan bounds from sheet 2 and entrance heads from sheets 4/6; it is not an opaque dark panel. Later owner views image(9), image(10), and the courtyard westward view received 2026-09-29 confirm those distinctions qualitatively. That westward view also resolves the stable upper windows as nearly square, not transoms: z18–22.5 with the sheet3 widths; lower narrow lights z7.5–13.5. These unprinted heights remain reconstructed. The historical paired porte-cochere leaves are posed 82 degrees inward, a reconstructed momentary operating position chosen to reveal the full passage; their documented construction is retained. Modern images inform feature arrangement, counts and material boundaries where explicitly named; no photographed pixels are reused. The modern courtyard image(9) refines the reconstructed bow-terrace grille height to z 1–3.8 ft ng (beneath a 6.1-ft platform) and dining garden lights to z 1–5 ft ng; these are proportion estimates, not HABS dimensions. Image(10) also supports a parapet above the walking platform that partly hides the central door. Its 2.2-ft height (about 0.67 m, bounded 0.55–0.8 m) is a proportional reconstruction; nine risers are reconstructed from the 1.68-m rise, not counted in the partially visible photograph. The doorway threshold aligns with the platform. HABS photograph 5 and supplied courtyard image(9) show garden grilles alternating beneath the principal dining-bay sash: three openings on normalized principal facets 0, 2 and 4, with brick beneath facets 1 and 3. The tower lantern retains the six-pane (2 columns by 3 rows) lights visible in HABS photograph 5, rather than the replacement 1-over-1 sash in modern views. The raised north-court service door has the landing and south-descending stair drawn on HABS sheet 2. Plan bounds are scaled against the four-foot door, approximately +/- 0.5 ft; the ten risers and three-foot rail are reconstructed. Stone slab/treads, two slender brick landing supports, a brick stair cheek and iron rail are bounded by the supplied tunnel-facing courtyard photograph, not claimed as measured original details. This is separate from the later wooden stairs outside the stable south wall. T-1805: HABS photographs 1 and 15 show the stable north gable returning to the north-range eave BEFORE the alley corner. The former full-width asymmetric triangle was a misreading. The north gable is reconstructed between W 125.75 and 156.25, centered on the existing W 141 loft/door/pigeon axis, with both feet at the north-range eave z 23.1 ft ng. The remaining 5 ft to W 161.25 continues that eave. These feet have about 1 ft photographic uncertainty. The rear tie-in to the unchanged stable roof is a bounded continuous reconstruction inside the crossing north-range roof; it is not a surveyed roof plan. No opening is moved to accommodate the old incorrect slope. T-1830 supersedes T-1805's continuous interpolated roof and unchanged rear profile. The full west-facing northern gable returns to the lower alley eave at S32; the rear range is asymmetric with a hipped south end. Cross ridge 34.1, rear ridge 31, west eave 15.5, east/south eaves 23.1 ft ng are bounded reconstructions, about +/-1.5 ft where not measured. The measured north-range section is preserved at the east join with a planar valley connector. The west dormer is timber with tile cheeks and a hipped projecting hood, not a stone miniature gable. Roof planes are clipped at their actual intersections. The north porch is a 12-ft arch, 6-ft-deep reconstructed recess, 3 front risers and 8 left-turn risers to the 6-ft raised threshold; plan footprint and side-door arrangement are checked against sheets 2–3, unprinted tread heights and window heights remain reconstructed. Modern references bound feature arrangement, not 1904 testimony. See docs/RESEARCH/glessner-west-wing-alcove/work.md and LIBERTIES L331. T-1833 supersedes the T-1830 reconstructed south hip and asymmetric rear eaves following the owner's 2026-10-01 south-gable sketch and two model screenshots. The south end is a solid centered gable, ridge W143.5 at 38.6 ft ng and equal 26.5-ft shoulders. The ridge stays at the north gable height while moving 2.5 ft in plan between S14.6 and S26.83 to preserve the north door/loft axis and center the rear gable. The rear eaves share the north-court roof's 5.7-ft, 26.6-degree kick. These shapes/heights are owner-directed reconstructions, not an attested south elevation; the HABS footprint and window positions remain unchanged. The raised rear roof carries the existing west dormer 7 ft higher (eave 33, apex 37 ft ng) to keep its sash and tile cheeks clear of the host roof; its footprint and hood proportions stay fixed. The courtyard overhang matches the north range at 0.20 m. T-1999: north corridor and over-arch upper windows are corrected to the HABS sheet 5 printed-course heads at 22.25 ft ng. The porch cheek uses course boundaries at 51.5/61 inches for its body/coping and a rounded exposed coping corner, with the surveyed 12-ft arch and left-turn stair retained. Stable north lintels, a shallow relieving arch with projecting central hoist stone, recessed timber loft frame and glazed-over-board carriage leaves are reconstructed from the owner-supplied historical northwest view of 2026-10-02. The stable opening widths/heights stay fixed. Lintel projection, voussoir geometry, upper-pane subdivisions and coping depth/radius are proportional reconstructions, not measured historical dimensions. The T-1999 dormer hood eave is reconstructed at 21.8 ft ng with its back at W154.5 to clear the lower rear host roof, maintaining the 26.2-ft apex and open central light. T-1999 supersedes the T-1833 rear-height assumptions: the high west cross-gable peak is S18.4/z38.6 ft ng, its lower south foot is S35/z16.5, the rear ridge is W149.25/z25.5 with west/east eaves 16.5/23.1 ft, and the south end remains a solid gable. These owner-directed reconstructed dimensions preserve the surveyed footprint and measured north-range section while allowing upper courtyard windows to remain below the roof. The west sill datum follows the owner elevation proportions and is shared by all six lower openings; it is not a transcription of a HABS west course boundary. The current low rear gable has unequal west/east shoulders and explicitly supersedes T-1833's balanced higher south-gable reconstruction. T-2016 supersedes the lowered rear and skewed crossing roof from T-1999: the north range keeps its S14.6/z34.1 straight ridge through to the alley, locally occluded by the taller crossing stable ridge and turret; the stable ridge W141/z38.6 extends level to its south gable. The stable north-gable roof section is extruded south without a plan jog or hip. Its west roof continues the north gable slope to the alley; the courtyard slope is complete. The west dormer is lifted to eave25.5/apex29.9 ft ng and its level decorated ridge runs into the host roof. Copper continues through the hall-bow inside corner, and the dining bay receives two tiled rear facets joined at the north ridge. Prior west windows/stone courses, north openings and north stable gable/door axis remain. New service stacks are reconstructed; historical presence is not independently confirmed. T-2231: the owner west/northwest references supersede T-2016 at the west stable only. Reconstruct the west front gable at S18.4/z38.6, north-west shoulder z25.2, and south foot S35/z16.5 ft; retain the 59.75-ft measured total frontage, giving 24.75 ft to the lower rear section. The rear ridge returns to W149.25/z25.5, and the low dormer to z21.8 eave/z26.2 apex. The north-range and courtyard controls remain unchanged. These photograph-bounded proportions carry approximately +/-1 ft uncertainty and are not survey measurements; see L-glessner-west-profile-2231 and the comparison report. T-2235 supersedes T-2231's lowered rear roof and courtyard join. The owner reaffirms the earlier connected-roof diagram: one straight W141/z38.6-ft stable ridge from front to rear, with a solid gable at each end. The west-facing cross-gable retains the owner elevation controls but does not determine the north-south roof section. A complete planar courtyard slope extends 2.36 ft beyond the west-wing wall to a 24-ft outer eave, meeting the north courtyard awning at the same height. The wall-line ordinate and north gable east shoulder follow that plane. The west dormer returns to its connected 25.5/29.9-ft hood so its back enters the restored host. These dimensions are reconstructed from the owner's explicit roof topology, prior diagrams, existing front peak and courtyard-eave controls; not new surveyed measurements. See L-glessner-courtyard-ridge-2235. T-2203 roof tiles: HABS IL-1015 data printed p. 21 (PDF p. 22) records six-inch width and five-inch exposure. Retaining this module in 1904 is inferred from the fine continuous courses in Taylor 2135 (c.1887–89), not measured from that photograph. Glessner 1923, as quoted in the reviewed HABS written data on printed p. 13, specifies red baked unglazed tiles. The later tar coating is excluded. Joint width, stagger and exposed lap relief are reconstructed; concealed headlap and total tile length are not established. T-2205: closed ridge caps, moulded terminal seats, eave fascia/soffit stock and valley/abutment flashing are reconstructed sections. Ridge repetition uses the existing HABS sheet-6 reading of about 1.16 ft centres, cross-checked against Taylor 2135 and HABS photographs 14-15; the later photographs confirm surviving form, not a new 1904 date. The 140mm cap radius is retained, with an 80mm raised collar and 50mm axial width; these sections, 60mm fascia and 160mm valley flashing are bounded construction estimates, not surveyed dimensions. Heights, roof pitches and repaired connections remain controlled by the earlier roof records. T-2207 loft fittings: the loft door's two board leaves (six boards a leaf, 0.13 ft stock, strap hinges) stand open inward against the reveals, and an iron eye and hook hang 0.9 ft under the hoist stone's nose. HABS data p. 2 records the loft door 'closed up' in 1946, so a door hung in the opening before; HABS photographs 1 and 15 show the 1946 boarding with its vent, which is not carried back. Leaves, boards, hinges and the ironwork are reconstructed; no source shows a hay hood or a timber hoist beam, so neither is built. See L-glessner-cupola-2207. T-2211 street and stable sash: HABS photograph 14 shows the east-wing gable's high light as a glazed round head in its own arched frame, a stone transom, and a one-over-one sash below (the c. 1923 HABS photograph 4, cited as a cross-check only, agrees). The record's outer bounds are kept; the transom at z 33.14-33.88 ft ng divides the height below the spring by the two photographs' mean proportions (straight 0.10, transom 0.14, sash 0.76), so it is a photographic proportion (+/- 0.3 ft), not a survey label. Street and stable windows are drawn as one-over-one double-hung sash in two planes (HABS sheet 5's Prairie entrance window; photograph 14's north pairs) and the narrow north lights as single sashes with horizontal bars (sheet 5's corridor slits); member sizes, sill weathering and the drip nib are reconstructed joinery. See L-glessner-sash-2211. T-2214: the 18th Street stack's AD monogram over 1886 is read from HABS photograph 4 (c. 1923 copy; cited, nothing derived): both are incised, read left to right from the street (the glyphs had advanced eastward, which from the street is right to left: a mirrored date), and two incised crosses flank the date. The stones stand 0.06 m proud of the stack's own face, now flush with the gable (see chimneys), at the heights sheet 6 draws them (43.6-45.5 and 45.8-47.2 ft ng, about 0.2 ft proud); their widths (W 11.7-14.8 and 11.85-14.65) are photograph 4's shares of the stack's 5.1-ft face, the lettering spans its read share of each stone, and the crosses sit midway in the margins, the east one 28 % and the west 70 % up the date stone's height, about 0.6 ft across (+/- 0.3 ft: an upward view). Letterforms are a generic face standing in for the carver's, and the cut is drawn as a dark stroke on the face. See L-glessner-datestone-2214. T-2470: the north tower's flared eave profile,35-mm dark metal edge and 88-mm short downpipe are reconstructed from HABS 01/14's silhouette; the photographs attest surviving form after 1904, not fitting dimensions or alloy. The pipe ends 40 mm above the unchanged north roof, and its inlet follows the new cone eave. L295 addendum. T-2470 north facade: the gable axis, north stack, incised date and arched light move together to W18.8. Two tall paired apertures receive open round colonnettes; their small foliate capitals are bounded stock reconstructions from HABS13, not replicas of individual carved leaves. Continuous staggered rock-faced courses wrap the curved drum, using the adjoining wall's finish; their individual joints are reconstructed. The cone connector ends behind the sloping north coping rather than projecting across it. The former north-range roof is removed inside the integrated facade below its eave, with the remaining roof entering the drum to avoid an open seam. T-2219: the north gable foot W127.75 is independently reconciled to HABS01/15; it is not the courtyard wing boundary W125.75. The roof transition and service steps are reconstructed as recorded in north_service_junction. T-2217: the HABS sheet-6 carriage leaves now have circular recesses surrounding square fields, three straps and one ring plate per leaf. Panel centre shares, 35-mm relief, 90-mm thickness, hidden pivot hardware, fixed oak linings and unseen boarded reverses are bounded reconstructions; see L-glessner-porte-cochere-2217. Moving leaves clear the existing passage paving by at least 15 mm. Light retains the panel pattern and operating hardware with reduced curves. T-2218: HABS sheets 2 and 4 independently control the widened curved terrace, stair footprint, paired grille positions and descending brick cheek with closed limestone coping. The upper seven tread boundaries are scan readings; three obscured lower boundaries, nine equal rises to the retained threshold, cap interpolation, rounded newel and stone noses are bounded reconstructions. The shared hall-bow plan is recalibrated to the same measured drawing. Later courtyard parking pavement is excluded. See L-glessner-courtyard-steps-2218. T-2228: the pointed north cone is united with a lower pitched connector rather than extruding the apex to the main roof. The 39.2-ft north-grade connector ridge is reconstructed from approximate HABS14 crest-foot readings through the existing inclined camera and an assumed transverse ridge plane; it is not a survey height, and HABS01 independently bounds only the silhouette. Host-plane intersections retain the gable coping and existing flat facade. Full keeps closed flashing stock. Light retains the exposed ridge-collar profile and flashing top surfaces while omitting buried collar corners and 2.5-mm flashing stock sides/undersides; no scene or asset budget is raised. See L-glessner-final-roof-2228. T-2228: native HABS4 clear garden aperture x5841..6294/y5374..5604 at fixed origins1165/5858 and scales100.6/97.7 gives S46.48..50.98,z2.60..4.95ft (±12px). Six intermediate bars and two rails follow the section; exact stock is reconstructed. The terrace retains every traced cap knot and descends behind the rounded terminal to its4.35ft crown spring atS46.8, replacing the unmeasured flat tail. Light omits only stair-drum wall faces inside an inset, unpierced portion of the opaque east-wing envelope below both eaves; exposed faces and Full remain. T-2228 owner overhead priority2026-10-15 supersedes the isolated west-study apexS18.4: the west cross-gable peak and dovecote align with the retained north-range ridge atS14.6, a3.8ft northward move. The long north ridge and the west cross ridge therefore share one plan axis and meet the retained W141 north-south ridge at right angles. Heights38.6ft west/34.1ft north remain distinct; the higher crossing locally occludes the lower ridge. The north stable doorway/loft axis, corrected service openings, rear ridge and courtyard overhang remain. This is owner-directed reconstructed alignment, corroborated qualitatively by the supplied modern aerial and bounded by the existing HABS plan/section; it is not a newly surveyed roof coordinate. The prior west-study apex remains documented as superseded. T-2228 owner aerial follow-up (2026-10-15): restore the chamfered copper return on the existing north courtyard roof plane, from approximately W55/S22 to W50/S19 and the east-wing junction W26.5. Its south outline runs past the overhang and is clipped to the actual eave. These bounds are reconstructed from the owner aerial with the unchanged diagnostic camera (approximately +/-1 ft), not a height survey or a modern patina specification. Tile is removed only under the replacement copper, and the low radial hood remains intact. See L-glessner-copper-return-2228. T-2228 entrance pass: HABS5 section/elevation and original doorway23A establish an outward-sloping lower wall surrounding a cutback entrance, one integral threshold, a shaped header and a recessed foliate field behind a hollow archivolt. Batter0.6ft at grade tapering to zero5.6ft above the sill; cutback widths10.7ft at top/9.1ft at sill; recess field0.27m with backing45mm behind it are bounded reconstructions, approximately +/-0.15ft in elevation and +/-0.08m in depth, not an exact1904 survey. Only Prairie face and short closing returns receive this measured-section treatment. See L-glessner-entry-section-2228."
+      "note": "V4 detail schedule. The 24 ashlar course heights are TRANSCRIBED IN INCHES, bottom-to-top, from HABS sheet 5's dimension string, totalling 271 in (22.5833 ft); carrying the sequence around other granite faces and repeating that measured course vocabulary above it is reconstructed. Stable courtyard and south upper opening horizontal bounds are measurements from sheets 2-3, rounded to half-foot-scale accuracy; their heights and the unrecorded garden/south lower lights are reconstructed. East court garden light and bow basement pair are visible on sheet 4; dining garden lights are visible in photograph 5. Cross-gable roof dimensions use the canonical ranges and the HABS footprint; the smaller alley dormer, the copper return and chimney-flue layouts are reconstructed forms, bounded by the owner's requested omissions and surviving fabric comparisons without tracing modern imagery. T-2220 supersedes the former pitched north-range return with a low copper hood intersected with both tiled roof slopes; the unused rectangular-return controls are removed. Full per-feature evidence and uncertainty: docs/RESEARCH/glessner_house_v4.md. Surface joint width and relief are artistic reconstructions; they are not survey measurements. docs/LIBERTIES.md v4 entry. HABS photographs 14-15 also supply the omitted east-wing high arched slit and the stable gable's 5-3-1 pigeon-hole arrangement and ledge. Their dimensions are reconstructed photographic proportions (+/- 1 ft), not survey labels. Joinery recesses, sash widths, carved detail depths and grille thicknesses are reconstructed; the Prairie basement 3-by-3 stone grilles and the porte-cochere's two leaves with 3-by-6 panels each are attested by sheets 5-6 and the c.1888 door photograph. The 7-by-7 front door iron grid is a simplified reconstruction of the denser grille shown on sheet 5. The stair tower has four staggered slit windows and an upper three-light front lantern row, heights measured from sheet 4 (+/-1 ft); angles/widths are reconstructed on the measured drum. A low projecting bowed terrace carries TWO basement grilles and a main-level central door, as sheet 4/photo 5 show. Terrace radius 14 ft and coping dimensions are reconstructed. The underpass is an actual opening through the east range with stone returns, its plan bounds from sheet 2 and entrance heads from sheets 4/6; it is not an opaque dark panel. Later owner views image(9), image(10), and the courtyard westward view received 2026-09-29 confirm those distinctions qualitatively. That westward view also resolves the stable upper windows as nearly square, not transoms: z18–22.5 with the sheet3 widths; lower narrow lights z7.5–13.5. These unprinted heights remain reconstructed. The historical paired porte-cochere leaves are posed 82 degrees inward, a reconstructed momentary operating position chosen to reveal the full passage; their documented construction is retained. Modern images inform feature arrangement, counts and material boundaries where explicitly named; no photographed pixels are reused. The modern courtyard image(9) refines the reconstructed bow-terrace grille height to z 1–3.8 ft ng (beneath a 6.1-ft platform) and dining garden lights to z 1–5 ft ng; these are proportion estimates, not HABS dimensions. Image(10) also supports a parapet above the walking platform that partly hides the central door. Its 2.2-ft height (about 0.67 m, bounded 0.55–0.8 m) is a proportional reconstruction; nine risers are reconstructed from the 1.68-m rise, not counted in the partially visible photograph. The doorway threshold aligns with the platform. HABS photograph 5 and supplied courtyard image(9) show garden grilles alternating beneath the principal dining-bay sash: three openings on normalized principal facets 0, 2 and 4, with brick beneath facets 1 and 3. The tower lantern retains the six-pane (2 columns by 3 rows) lights visible in HABS photograph 5, rather than the replacement 1-over-1 sash in modern views. The raised north-court service door has the landing and south-descending stair drawn on HABS sheet 2. Plan bounds are scaled against the four-foot door, approximately +/- 0.5 ft; the ten risers and three-foot rail are reconstructed. Stone slab/treads, two slender brick landing supports, a brick stair cheek and iron rail are bounded by the supplied tunnel-facing courtyard photograph, not claimed as measured original details. This is separate from the later wooden stairs outside the stable south wall. T-1805: HABS photographs 1 and 15 show the stable north gable returning to the north-range eave BEFORE the alley corner. The former full-width asymmetric triangle was a misreading. The north gable is reconstructed between W 125.75 and 156.25, centered on the existing W 141 loft/door/pigeon axis, with both feet at the north-range eave z 23.1 ft ng. The remaining 5 ft to W 161.25 continues that eave. These feet have about 1 ft photographic uncertainty. The rear tie-in to the unchanged stable roof is a bounded continuous reconstruction inside the crossing north-range roof; it is not a surveyed roof plan. No opening is moved to accommodate the old incorrect slope. T-1830 supersedes T-1805's continuous interpolated roof and unchanged rear profile. The full west-facing northern gable returns to the lower alley eave at S32; the rear range is asymmetric with a hipped south end. Cross ridge 34.1, rear ridge 31, west eave 15.5, east/south eaves 23.1 ft ng are bounded reconstructions, about +/-1.5 ft where not measured. The measured north-range section is preserved at the east join with a planar valley connector. The west dormer is timber with tile cheeks and a hipped projecting hood, not a stone miniature gable. Roof planes are clipped at their actual intersections. The north porch is a 12-ft arch, 6-ft-deep reconstructed recess, 3 front risers and 8 left-turn risers to the 6-ft raised threshold; plan footprint and side-door arrangement are checked against sheets 2–3, unprinted tread heights and window heights remain reconstructed. Modern references bound feature arrangement, not 1904 testimony. See docs/RESEARCH/glessner-west-wing-alcove/work.md and LIBERTIES L331. T-1833 supersedes the T-1830 reconstructed south hip and asymmetric rear eaves following the owner's 2026-10-01 south-gable sketch and two model screenshots. The south end is a solid centered gable, ridge W143.5 at 38.6 ft ng and equal 26.5-ft shoulders. The ridge stays at the north gable height while moving 2.5 ft in plan between S14.6 and S26.83 to preserve the north door/loft axis and center the rear gable. The rear eaves share the north-court roof's 5.7-ft, 26.6-degree kick. These shapes/heights are owner-directed reconstructions, not an attested south elevation; the HABS footprint and window positions remain unchanged. The raised rear roof carries the existing west dormer 7 ft higher (eave 33, apex 37 ft ng) to keep its sash and tile cheeks clear of the host roof; its footprint and hood proportions stay fixed. The courtyard overhang matches the north range at 0.20 m. T-1999: north corridor and over-arch upper windows are corrected to the HABS sheet 5 printed-course heads at 22.25 ft ng. The porch cheek uses course boundaries at 51.5/61 inches for its body/coping and a rounded exposed coping corner, with the surveyed 12-ft arch and left-turn stair retained. Stable north lintels, a shallow relieving arch with projecting central hoist stone, recessed timber loft frame and glazed-over-board carriage leaves are reconstructed from the owner-supplied historical northwest view of 2026-10-02. The stable opening widths/heights stay fixed. Lintel projection, voussoir geometry, upper-pane subdivisions and coping depth/radius are proportional reconstructions, not measured historical dimensions. The T-1999 dormer hood eave is reconstructed at 21.8 ft ng with its back at W154.5 to clear the lower rear host roof, maintaining the 26.2-ft apex and open central light. T-1999 supersedes the T-1833 rear-height assumptions: the high west cross-gable peak is S18.4/z38.6 ft ng, its lower south foot is S35/z16.5, the rear ridge is W149.25/z25.5 with west/east eaves 16.5/23.1 ft, and the south end remains a solid gable. These owner-directed reconstructed dimensions preserve the surveyed footprint and measured north-range section while allowing upper courtyard windows to remain below the roof. The west sill datum follows the owner elevation proportions and is shared by all six lower openings; it is not a transcription of a HABS west course boundary. The current low rear gable has unequal west/east shoulders and explicitly supersedes T-1833's balanced higher south-gable reconstruction. T-2016 supersedes the lowered rear and skewed crossing roof from T-1999: the north range keeps its S14.6/z34.1 straight ridge through to the alley, locally occluded by the taller crossing stable ridge and turret; the stable ridge W141/z38.6 extends level to its south gable. The stable north-gable roof section is extruded south without a plan jog or hip. Its west roof continues the north gable slope to the alley; the courtyard slope is complete. The west dormer is lifted to eave25.5/apex29.9 ft ng and its level decorated ridge runs into the host roof. Copper continues through the hall-bow inside corner, and the dining bay receives two tiled rear facets joined at the north ridge. Prior west windows/stone courses, north openings and north stable gable/door axis remain. New service stacks are reconstructed; historical presence is not independently confirmed. T-2231: the owner west/northwest references supersede T-2016 at the west stable only. Reconstruct the west front gable at S18.4/z38.6, north-west shoulder z25.2, and south foot S35/z16.5 ft; retain the 59.75-ft measured total frontage, giving 24.75 ft to the lower rear section. The rear ridge returns to W149.25/z25.5, and the low dormer to z21.8 eave/z26.2 apex. The north-range and courtyard controls remain unchanged. These photograph-bounded proportions carry approximately +/-1 ft uncertainty and are not survey measurements; see L-glessner-west-profile-2231 and the comparison report. T-2235 supersedes T-2231's lowered rear roof and courtyard join. The owner reaffirms the earlier connected-roof diagram: one straight W141/z38.6-ft stable ridge from front to rear, with a solid gable at each end. The west-facing cross-gable retains the owner elevation controls but does not determine the north-south roof section. A complete planar courtyard slope extends 2.36 ft beyond the west-wing wall to a 24-ft outer eave, meeting the north courtyard awning at the same height. The wall-line ordinate and north gable east shoulder follow that plane. The west dormer returns to its connected 25.5/29.9-ft hood so its back enters the restored host. These dimensions are reconstructed from the owner's explicit roof topology, prior diagrams, existing front peak and courtyard-eave controls; not new surveyed measurements. See L-glessner-courtyard-ridge-2235. T-2203 roof tiles: HABS IL-1015 data printed p. 21 (PDF p. 22) records six-inch width and five-inch exposure. Retaining this module in 1904 is inferred from the fine continuous courses in Taylor 2135 (c.1887–89), not measured from that photograph. Glessner 1923, as quoted in the reviewed HABS written data on printed p. 13, specifies red baked unglazed tiles. The later tar coating is excluded. Joint width, stagger and exposed lap relief are reconstructed; concealed headlap and total tile length are not established. T-2205: closed ridge caps, moulded terminal seats, eave fascia/soffit stock and valley/abutment flashing are reconstructed sections. Ridge repetition uses the existing HABS sheet-6 reading of about 1.16 ft centres, cross-checked against Taylor 2135 and HABS photographs 14-15; the later photographs confirm surviving form, not a new 1904 date. The 140mm cap radius is retained, with an 80mm raised collar and 50mm axial width; these sections, 60mm fascia and 160mm valley flashing are bounded construction estimates, not surveyed dimensions. Heights, roof pitches and repaired connections remain controlled by the earlier roof records. T-2207 loft fittings: the loft door's two board leaves (six boards a leaf, 0.13 ft stock, strap hinges) stand open inward against the reveals, and an iron eye and hook hang 0.9 ft under the hoist stone's nose. HABS data p. 2 records the loft door 'closed up' in 1946, so a door hung in the opening before; HABS photographs 1 and 15 show the 1946 boarding with its vent, which is not carried back. Leaves, boards, hinges and the ironwork are reconstructed; no source shows a hay hood or a timber hoist beam, so neither is built. See L-glessner-cupola-2207. T-2211 street and stable sash: HABS photograph 14 shows the east-wing gable's high light as a glazed round head in its own arched frame, a stone transom, and a one-over-one sash below (the c. 1923 HABS photograph 4, cited as a cross-check only, agrees). The record's outer bounds are kept; the transom at z 33.14-33.88 ft ng divides the height below the spring by the two photographs' mean proportions (straight 0.10, transom 0.14, sash 0.76), so it is a photographic proportion (+/- 0.3 ft), not a survey label. Street and stable windows are drawn as one-over-one double-hung sash in two planes (HABS sheet 5's Prairie entrance window; photograph 14's north pairs) and the narrow north lights as single sashes with horizontal bars (sheet 5's corridor slits); member sizes, sill weathering and the drip nib are reconstructed joinery. See L-glessner-sash-2211. T-2214: the 18th Street stack's AD monogram over 1886 is read from HABS photograph 4 (c. 1923 copy; cited, nothing derived): both are incised, read left to right from the street (the glyphs had advanced eastward, which from the street is right to left: a mirrored date), and two incised crosses flank the date. The stones stand 0.06 m proud of the stack's own face, now flush with the gable (see chimneys), at the heights sheet 6 draws them (43.6-45.5 and 45.8-47.2 ft ng, about 0.2 ft proud); their widths (W 11.7-14.8 and 11.85-14.65) are photograph 4's shares of the stack's 5.1-ft face, the lettering spans its read share of each stone, and the crosses sit midway in the margins, the east one 28 % and the west 70 % up the date stone's height, about 0.6 ft across (+/- 0.3 ft: an upward view). Letterforms are a generic face standing in for the carver's, and the cut is drawn as a dark stroke on the face. See L-glessner-datestone-2214. T-2870: HABS photograph 14 (1965; no known restrictions, so derived from) reads the upper stone's monogram as one joined device, not two letters: two bowls facing outward, each closed by a stem, with a bar between the stems at mid-height. It is now drawn as those strokes (ad_device), not set in a font: about 0.43 of the stone's width and 0.53 of its height, centred, the stems at 0.33 and 0.73 of its width and the stroke 0.16 of its height, read at the photograph's grain (the device is about 32 px across). That the device is the carver's A and D, as photograph 4 reads it, is the earlier reading; its interlacing finer than the print shows is not drawn. T-2873: with the stack's face widened to HABS 14's 7.1 ft, its two stones are read through the same camera too: the 1886 stone 78 px (W 16.5-20.9, 4.4 ft) and the device's stone 75 px (W 16.5-20.8, 4.3 ft), against 3.1 and 2.8 ft built. Both are kept centred on the apex (W 16.6-21.0 and 16.65-20.95), so they fill 0.62 and 0.61 of the face, the 0.60-0.63 the photograph shows. The two crosses read at about W 15.6 and 21.6, each about 0.65 ft inside the face's edge, and stand 0.65 ft inside the new edges (W 15.9 and 21.7); their heights are unchanged. Every height on the stack was already the photograph's. See L-glessner-stack-width-2873. T-2470: the north tower's flared eave profile,35-mm dark metal edge and 88-mm short downpipe are reconstructed from HABS 01/14's silhouette; the photographs attest surviving form after 1904, not fitting dimensions or alloy. The pipe ends 40 mm above the unchanged north roof, and its inlet follows the new cone eave. L295 addendum. T-2470 north facade: the gable axis, north stack, incised date and arched light move together to W18.8. Two tall paired apertures receive open round colonnettes; their small foliate capitals are bounded stock reconstructions from HABS13, not replicas of individual carved leaves. Continuous staggered rock-faced courses wrap the curved drum, using the adjoining wall's finish; their individual joints are reconstructed. The cone connector ends behind the sloping north coping rather than projecting across it. The former north-range roof is removed inside the integrated facade below its eave, with the remaining roof entering the drum to avoid an open seam. T-2219: the north gable foot W127.75 is independently reconciled to HABS01/15; it is not the courtyard wing boundary W125.75. The roof transition and service steps are reconstructed as recorded in north_service_junction. T-2217: the HABS sheet-6 carriage leaves now have circular recesses surrounding square fields, three straps and one ring plate per leaf. Panel centre shares, 35-mm relief, 90-mm thickness, hidden pivot hardware, fixed oak linings and unseen boarded reverses are bounded reconstructions; see L-glessner-porte-cochere-2217. Moving leaves clear the existing passage paving by at least 15 mm. Light retains the panel pattern and operating hardware with reduced curves. T-2218: HABS sheets 2 and 4 independently control the widened curved terrace, stair footprint, paired grille positions and descending brick cheek with closed limestone coping. The upper seven tread boundaries are scan readings; three obscured lower boundaries, nine equal rises to the retained threshold, cap interpolation, rounded newel and stone noses are bounded reconstructions. The shared hall-bow plan is recalibrated to the same measured drawing. Later courtyard parking pavement is excluded. See L-glessner-courtyard-steps-2218. T-2228: the pointed north cone is united with a lower pitched connector rather than extruding the apex to the main roof. The 39.2-ft north-grade connector ridge is reconstructed from approximate HABS14 crest-foot readings through the existing inclined camera and an assumed transverse ridge plane; it is not a survey height, and HABS01 independently bounds only the silhouette. Host-plane intersections retain the gable coping and existing flat facade. Full keeps closed flashing stock. Light retains the exposed ridge-collar profile and flashing top surfaces while omitting buried collar corners and 2.5-mm flashing stock sides/undersides; no scene or asset budget is raised. See L-glessner-final-roof-2228. T-2228: native HABS4 clear garden aperture x5841..6294/y5374..5604 at fixed origins1165/5858 and scales100.6/97.7 gives S46.48..50.98,z2.60..4.95ft (±12px). Six intermediate bars and two rails follow the section; exact stock is reconstructed. The terrace retains every traced cap knot and descends behind the rounded terminal to its4.35ft crown spring atS46.8, replacing the unmeasured flat tail. T-2880 carries the sheet-4 readings onto the plan's frame by T-2879's +0.65 ft re-zero on the printed 26'-10\" court face: the coping's traced knots, the two terrace grilles' clears (now S31.02-34.70 and 35.36-39.00) and the east-court garden light's north jamb (S47.13) move south together, and habs04-terrace-section's camera moves with them. The traced coping now ends at S46.0, at the post's drawn north edge; the reconstructed shoulder to the 4.35-ft crown spring stays at the wall's end at S46.8, on the post's centre, so it is built into the post rather than over open court. The garden light's re-zeroed south jamb (S51.63) would fall inside the plan's tower drum (S50.91 at the face), which sheet 4 draws wide, so it is held 0.23 ft, the drawn clearance, short of the drum at S50.68. Light omits only stair-drum wall faces inside an inset, unpierced portion of the opaque east-wing envelope below both eaves; exposed faces and Full remain. T-2228 owner overhead priority2026-10-15 supersedes the isolated west-study apexS18.4: the west cross-gable peak and dovecote align with the retained north-range ridge atS14.6, a3.8ft northward move. The long north ridge and the west cross ridge therefore share one plan axis and meet the retained W141 north-south ridge at right angles. Heights38.6ft west/34.1ft north remain distinct; the higher crossing locally occludes the lower ridge. The north stable doorway/loft axis, corrected service openings, rear ridge and courtyard overhang remain. This is owner-directed reconstructed alignment, corroborated qualitatively by the supplied modern aerial and bounded by the existing HABS plan/section; it is not a newly surveyed roof coordinate. The prior west-study apex remains documented as superseded. T-2228 owner aerial follow-up (2026-10-15): restore the chamfered copper return on the existing north courtyard roof plane, from approximately W55/S22 to W50/S19 and the east-wing junction W26.5. Its south outline runs past the overhang and is clipped to the actual eave. These bounds are reconstructed from the owner aerial with the unchanged diagnostic camera (approximately +/-1 ft), not a height survey or a modern patina specification. Tile is removed only under the replacement copper, and the low radial hood remains intact. See L-glessner-copper-return-2228. T-2228 entrance pass: HABS5 section/elevation and original doorway23A establish an outward-sloping lower wall surrounding a cutback entrance, one integral threshold, a shaped header and a recessed foliate field behind a hollow archivolt. Batter0.6ft at grade tapering to zero5.6ft above the sill; cutback widths10.7ft at top/9.1ft at sill; recess field0.27m with backing45mm behind it are bounded reconstructions, approximately +/-0.15ft in elevation and +/-0.08m in depth, not an exact1904 survey. Only Prairie face and short closing returns receive this measured-section treatment. See L-glessner-entry-section-2228. T-2760 west-court door: the stable courtyard door beside the north-range junction was drawn at the main-floor landing datum (sill 5.8 ft, head 14.0 ft) with no stair to it. The 2024 courtyard photograph (wlemay 159537058) shows it as a grade-level opening whose stone lintel courses with the first-floor window sills; counted in brick courses it is about 7.5 ft tall, so it is now 0.35-7.85 ft above grade. HABS sheet 2 (1963) draws a narrow flight descending north toward this door, which also puts the door low, not high; the flight's rise, date and areaway are unrecorded and are not built. See L-glessner-west-court-door-2760. T-2849: the stable's north gable is recentred on its own W 141 axis at W 127.75-154.25. T-2219 moved the east foot to W 127.75 and left the west foot at T-1805's W 156.25, so the gable stood centred on W 142.0, a foot west of the ridge, carriage doorway, loft, pigeon holes and cupola it was set out from, with a 15.25 ft west run against a 13.25 ft east run. HABS photograph 15 (1965), square to the gable, has the coping's feet (x 918 and 1407 in the print), the doorway, the loft opening, the pigeon holes and the ledge all centred within 2 px of x 1162. Its width was read two ways: against the doorway and the flanking windows' own jambs in the print (about 17.6 px a foot at that height), a half-width of 13.9 ft; and against the render from the same camera, after subtracting that camera's own offset at the loft windows (13-20 px, growing westward; the frozen camera carries about 1.2 degrees of roll), 13.6 ft. The east foot stays at T-2219's W 127.75, which keeps the upper service window (west edge W 127.0) whole as test_glessner_service_junction.py requires, and the west foot comes in 2.0 ft to W 154.25, 13.25 ft either side of W 141.0: the print's centring holds to about 0.1 ft, and its width readings (13.6-13.9 ft) are 0.35-0.65 ft wider, inside the 1 ft photographic uncertainty T-1805 and T-2219 both state; that disagreement is recorded, not resolved. The same print sets the gable's pigeon holes and ledge: five holes over the ledge, three over them and one at the top, all on W 141 at 1.53 ft centres (27 px), each about 0.4 ft wide, the rows' sills at about 31.65, 33.0 and 34.55 ft and heads at 32.1, 33.65 and 35.0 ft ng; the ledge 7.7 ft long (W 137.15-144.85), 0.3 ft thick with its top at 31.55 ft, carried on two corbels about 1 ft wide and 0.45 ft deep centred 2.3 ft either side of the axis. Heights are read through the ledge, whose front edge the render and the print both show, 13 px higher in the print than the record's 30.8 ft. The holes were 2 ft apart, 0.5 ft wide and 0.85-1.2 ft tall with the ledge at 30.4-30.8 ft and 10.2 ft long; the corbels are new, their 0.5 ft projection reconstructed. The hoist stone under the relieving arch's crown rises to 28.15 ft (from 27.45): its top reads 12 px higher in the print than in the render, where the arch's extrados agrees within 3 px, so it stands into the crown voussoir as a keystone. Its foot and projection are unchanged. Eave heights, the ridge and every other opening are unchanged; all of these are photographic readings of about +/-0.3 ft, not survey. T-2868 north pairs' colonnettes: with the inner jambs at the photographs' 1.3-ft pier (openings_18th), the round shaft is about 1.0 ft across, as both prints show it (HABS 13: about 21 px under a 27-px capital). The capital's height is read through the re-solved north cameras: from the head to its foot, z 24.15-23.05 ft in HABS 13 and about 24.3-23.2 in HABS 14, so 1.1 ft (it was drawn 0.64 ft); the base block under the shaft reads about 0.5 ft over the sill in HABS 13 (z 19.6-20.1; HABS 14 does not resolve it), drawn 0.25 ft. Both +/-0.15 ft (about 3 px). The capital's leaves are lengthened to its height; their carving remains a bounded stock reconstruction. T-2925 reads the stair tower's lights on the native sheet-4 scan (docs/RESEARCH/glessner-court-exterior-T-2925/). Sheet 4 draws the drum wide (T-2879: 11.09 ft across against the plan's 10.5, so the plan's drum is kept), so a light's place is carried by its fraction of the drawn drum's half-width, as an angle, not by its S: the four slits sit 44-45 degrees either side of due west (azimuth 136 to the north, 225 to the south; built 145 and 215), their openings 7.52-12.78 and 18.78-22.46 ft on the north side and 4.70-9.10 and 16.58-20.53 ft on the south (built 7.6-12.5, 17.8-22.0, 4.5-9.2 and 15.7-19.8), each about 0.53 ft across in projection, so 0.75 ft on the drum (was 1.0), under a 1.25-ft head stone and over a 0.65-ft sill stone about 1.8 ft wide (slit_stones_ft). The three lantern lights stand 28.2-31.9 ft (built 27.0-31.0) between a stone sill course at 27.05-28.2 ft and a lintel course from 31.9 ft to the eave at 33.21 (built 25.8-27.0 and 31.0-32.5, which left a brick strip under the eave the drawing does not have); the side lights at 40 and 39 degrees off west (azimuth 140 and 219, built 135 and 225), 2.55 ft on the drum, the middle one 2.3 ft. Heights +/-0.05 ft; angles +/-2 degrees."
     },
     "chimney_service_east": {
       "value": {
@@ -3692,6 +4067,12 @@
             "depth_m": 0.19,
             "height_m": 0.3,
             "neck_m": 0.112
+          },
+          "hopper": {
+            "width_m": 0.47,
+            "depth_m": 0.24,
+            "height_m": 0.24,
+            "neck_m": 0.112
           }
         },
         "leader_profiles": {
@@ -3731,8 +4112,18 @@
           "metallic": 0.15
         },
         "court_east_leaders_S_ft": {
-          "court-east-south": 61.61,
+          "court-east-south": 73.68,
           "court-east-north": 42.4
+        },
+        "court_east_leader_heads": {
+          "court-east-south": "hopper"
+        },
+        "court_east_leader_head_drop_m": {
+          "court-east-south": 0.15
+        },
+        "bow_gutter": {
+          "projection_m": 0.094,
+          "depth_m": 0.11
         }
       },
       "confidence": "reconstructed",
@@ -3743,7 +4134,7 @@
         "wlemay_glessner_courtyard_2024_159537087",
         "wlemay_glessner_courtyard_2024_159537053"
       ],
-      "note": "T-2221 / L-glessner-rainwater-2221: early Taylor shows framed Prairie rainwater heads and broad wall straps; unrestricted HABS01/14 locate the small service collector and ribbed north-tower bowl. Later fabric corroborates routing, not exact 1904 fittings. Head dimensions, unreadable low-relief ornament, 3 mm stock, 105 mm rectangular leaders, 180 by 140 mm box gutters, concealed court branches and discharge fittings are bounded reconstructions. Licensed modern courtyard photos constrain box sections only; bright green patina and modern inspection caps are excluded. Upper tower leader enters the lower bowl rather than ending above the roof; all gutter edges inherit existing roof planes. Head camera fit is relative to retained geometry, not independent survey. Unresolved absolute eave/grade correspondence remains T-2228. Prairie strap centres at 1.74, 4.07 and 6.30 m fit the fixed Taylor camera at display y825,700,580; they are model-based estimates (about +/-0.08 m), not surveyed elevations. Bow and dining leaders alone use 160 by 100 mm fluted box stock with broad 400 mm straps, bounded by licensed modern courtyard close-ups relative to brick courses; their precise 1904 profiles remain reconstructed. Other concealed outlets retain plainer sections. Close-up comparison requires a separate matte grey-green oxidised/coated rainwater finish (linear RGB 0.085/0.095/0.090, roughness 0.72, metallic 0.15): this is bounded reconstruction, not a sampled 1904 colour or identified alloy. Existing iron hardware remains unchanged. The framed panel has 14 mm raised stock, 24 mm bead diameter and a plain boss 38 percent of head width; these resolve the early scan's broad relief without inventing a legible emblem. T-2228 locates the two east-court straight leaders at S61.61 and S42.4 ft, bounded reconstructions within the retained gutter fragments and the clear wall strips beside the revised tower and garden light. These are clearance-driven placements, not measurements of historic downpipes. They retain the existing stock and avoid both glazing and carriage openings; the south strip is narrow, with the existing straps checked independently."
+      "note": "T-2221 / L-glessner-rainwater-2221: early Taylor shows framed Prairie rainwater heads and broad wall straps; unrestricted HABS01/14 locate the small service collector and ribbed north-tower bowl. Later fabric corroborates routing, not exact 1904 fittings. Head dimensions, unreadable low-relief ornament, 3 mm stock, 105 mm rectangular leaders, 180 by 140 mm box gutters, concealed court branches and discharge fittings are bounded reconstructions. Licensed modern courtyard photos constrain box sections only; bright green patina and modern inspection caps are excluded. Upper tower leader enters the lower bowl rather than ending above the roof; all gutter edges inherit existing roof planes. Head camera fit is relative to retained geometry, not independent survey. Unresolved absolute eave/grade correspondence remains T-2228. Prairie strap centres at 1.74, 4.07 and 6.30 m fit the fixed Taylor camera at display y825,700,580; they are model-based estimates (about +/-0.08 m), not surveyed elevations. Bow and dining leaders alone use 160 by 100 mm fluted box stock with broad 400 mm straps, bounded by licensed modern courtyard close-ups relative to brick courses; their precise 1904 profiles remain reconstructed. Other concealed outlets retain plainer sections. Close-up comparison requires a separate matte grey-green oxidised/coated rainwater finish (linear RGB 0.085/0.095/0.090, roughness 0.72, metallic 0.15): this is bounded reconstruction, not a sampled 1904 colour or identified alloy. Existing iron hardware remains unchanged. The framed panel has 14 mm raised stock, 24 mm bead diameter and a plain boss 38 percent of head width; these resolve the early scan's broad relief without inventing a legible emblem. T-2228 locates the two east-court straight leaders at S61.61 and S42.4 ft, bounded reconstructions within the retained gutter fragments and the clear wall strips beside the revised tower and garden light. These are clearance-driven placements, not measurements of historic downpipes. They retain the existing stock and avoid both glazing and carriage openings; the south strip is narrow, with the existing straps checked independently. T-2926: sheet 4 draws the east court's south leader at the wing's south end, not beside the stair tower: its pipe at sheet S72.80-73.27, so S73.68 on the plan's frame (T-2879's +0.65 ft), under a hopper head 0.47 m across its top (S72.26-73.80) and 0.24 m deep in elevation (26.1-26.87 ft), tapering to the pipe. It hangs under the gutter, not up to its rim as the photographed heads do: its top is dropped 0.15 m, which the render read 0.5 ft above the drawn one. The hopper's depth off the wall is not drawn and is reconstructed at its width's half; the pipe keeps the existing stock (sheet 4 draws about 0.14 m against the built 0.105). Sheet 4 draws no leader at the north one's S42.4; it stays as T-2228 set it until T-2928 reads that strip. T-2861: sheet 4 draws the bow's trough end-on at the bow's south end: its top at the hood's eave (27.38 ft), its face 0.31 ft (0.094 m) out from the wall line, its foot at 27.0-27.04 ft, so 0.34-0.38 ft (0.11 m) deep, and no separate fascia board under it - the brick runs up to the trough. bow_gutter carries that section on the bow only, its outlet at the trough's middle; the trough's moulding and stock stay reconstructed. Was the shared 0.18 m x 0.14 m box hung outside a 0.20 m hood overhang, its face about 1.13 ft out from the wall."
     },
     "stack_finish": {
       "value": {

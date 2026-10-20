@@ -2,10 +2,10 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gho-house-under-construction-1887",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "728083c8d5edd353cd13fe7997b5b7a40d496b059e6d15244351dfd1a008f559",
+  "glb_sha256": "de3cee807da75aba0f47e2abb24d30c30656c8846f3163549c765c804fb85ba4",
   "camera_sha256": "58459d896bcda17e77a1d65e99b5f75388ece26d2bfab249167f85a0beaabbe2",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gho-house-under-construction-1887-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "T-2564: the north return is laid in large dressed courses (about 0.46 m) with staggered joints, 5.5 m long as the course counts in the 1887-89 and 1948 views give it, where it was a smooth 2.8 m slab.",
@@ -36,12 +36,32 @@
       "status": "fixed"
     },
     {
-      "what": "T-2578: the hall stack stands over the coping beside the ventilator, where this picture shows sky; the stack should stop below the coping, the cowl pipe plausibly being its flue's termination (left for T-2580).",
-      "status": "open"
+      "what": "T-2578: the hall stack stands over the coping beside the ventilator, where this picture shows sky; the stack should stop below the coping, the cowl pipe plausibly being its flue's termination (left for T-2580). T-2712: fixed — the hall stack now stops at 16.1 m, under the return's coping, and the render shows sky over the coping beside the cowl as the picture does; the cowl's pipe rises from the stack's top.",
+      "status": "fixed"
     },
     {
       "what": "T-2578: the ventilator's pipe reads pale beside the granite, as the print shows it (the colour itself is reconstructed: the print is monochrome).",
       "status": "fixed"
+    },
+    {
+      "what": "T-2714: the checker band's units are pitched 0.28 m along their rows (0.336 m before), with 0.07 m of ground between neighbours, as the 1888 Keith plate lays them; the rows are unchanged. Not judged here: only the north return's crown shows here, edge-on.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2813: re-rendered with Keith's crown 0.16 m lower (the moulded course under the lattice 0.20 m deep where it was 0.36 m, the checker and head bands unmoved); its camera does not use the crown and is unchanged. Read again at the crown beside the previous render: the lattice, coping and pinnacles move a few pixels at this picture's scale and nothing it shows opens a difference; the verdict stands as it was (matches).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2876: re-rendered on the GLB in the tree, T-2845's loggia (0.6 m pedestals at the first-floor plan's place, each pair's shafts 0.36 m apart, the flight 1.8 m clear and the stoop 0.15 m south), and read again beside the previous render and the picture: the render changes only at the frame's left edge (x 12-74), where the 1887 picture shows Glessner's scaffolded front, not Keith's loggia. Nothing it shows opens a difference; the verdict returns to matches.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2881: re-rendered on the loggia with its rear row built (a pedestal 0.6 m square against the wall behind each front one, carrying a pair of turned shafts 0.39 m off the wall at a 0.28 m pitch, their radii 0.78 of the front's, under a paired capital; tools/keith_loggia_rear_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-rear-read.json), and read again beside the previous render and the picture: the render changes only at x 30-57, y 620-726, the frame's left edge, where the 1887 picture shows Glessner's scaffolded front, not Keith's loggia. Nothing it shows opens a difference; the verdict returns to matches.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2882: re-rendered on the loggia with a respond on the wall behind each rear pair (a flat pier the rear pedestal's width, 0.25 m deep, from the pedestal's top to the ceiling; tools/keith_loggia_respond_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-respond-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 50-62, y 620-696); the rear row stands behind the respond's face, and this picture does not read the rear row, for the reason T-2881's item above gives, so it does not read the respond either. Nothing it shows opens a difference; the verdict stands (matches).",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

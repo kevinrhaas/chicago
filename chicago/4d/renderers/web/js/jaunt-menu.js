@@ -14,7 +14,9 @@ export function filterJaunts(rows, query = '', family = '') {
     .sort((a, b) => a.title.localeCompare(b.title) || a.id.localeCompare(b.id));
 }
 
-export function createJauntMenu({ root, estimate, onStart, onPreview }) {
+// T-2631: `plateFor(row)` gives a credited picture of the route's stops, or null; `kept(row)`
+// says the visitor holds this outing's keepsake.
+export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor = () => null, kept = () => false, preferredMode = () => null, modeNote = () => '' }) {
   const scroll = root.closest('.welcome-region') || root;
   const modes = new Map(), estimates = new Map(), open = new Set();
   let query = '', family = '', offset = 0, savedScroll = 0, focusKey = null;
@@ -33,6 +35,14 @@ export function createJauntMenu({ root, estimate, onStart, onPreview }) {
     const el = node('article', '', `jaunt-card jaunt-type-${slot}`); el.dataset.jaunt = row.id; el.dataset.section = section;
     const badge = node('span', '', 'jaunt-type'); badge.append(icon(FAMILIES.includes(row.primary_family) ? row.primary_family : 'view', 20));
     badge.title = row.primary_family;
+    // T-2631: a credited picture of the route's own stops, where the project holds one.
+    // Never a stand-in: with none, the family icon stays.
+    const plate = plateFor(row);
+    if (plate?.src) {
+      const img = document.createElement('img');
+      img.className = 'jaunt-plate'; img.alt = plate.alt; img.loading = 'lazy'; img.decoding = 'async'; img.src = plate.src;
+      badge.replaceChildren(img); badge.classList.add('has-plate'); badge.title = plate.full;
+    }
     const body = node('div', '', 'jaunt-row-body'), head = node('div', '', 'jaunt-head');
     const title = node('h3', row.title);
     if (row.featured) title.append(node('span', '★', 'jaunt-star'));
@@ -40,7 +50,10 @@ export function createJauntMenu({ root, estimate, onStart, onPreview }) {
     const length = node('span', '', 'jaunt-length'); length.dataset.jauntLength = row.id;
     const meta = node('p', '', 'jaunt-tags');
     meta.append(node('span', SHORT[row.primary_family] || row.primary_family, 'jaunt-family'), node('span', `${row.stop_count} stops`), length);
+    // T-2631: the keepsake, once earned, on the outing's own card.
+    if (kept(row)) meta.append(node('span', 'Keepsake earned', 'jaunt-kept'));
     body.append(head, node('p', row.premise, 'jaunt-premise'), meta);
+    if (plate?.src) { const credit = node('p', `Picture: ${plate.credit}`, 'jaunt-credit'); credit.title = plate.full; body.append(credit); }
     const actions = node('div', '', 'jaunt-actions');
     const details = node('div', '', 'jaunt-details'); details.id = `jaunt-more-${section}-${row.id}`;
     const toggle = button('', () => {
@@ -53,12 +66,14 @@ export function createJauntMenu({ root, estimate, onStart, onPreview }) {
     toggle.setAttribute('aria-expanded', 'false');
     // Travel mode: a row of small icon toggles instead of a full-width select.
     const mode = node('div', '', 'jaunt-modes'); mode.setAttribute('role', 'radiogroup');
-    mode.setAttribute('aria-label', `Travel mode for ${row.title}`); mode.dataset.action = 'mode';
+    mode.setAttribute('aria-label', `How to move for ${row.title}`); mode.dataset.action = 'mode';
     const duration = node('p', '', 'jaunt-meta'); duration.dataset.jauntEstimate = row.id;
     duration.setAttribute('aria-live', 'polite');
-    let current = modes.get(row.id) || row.default_mode || 'walk';
+    // T-2652/T-2727: a mode picked here by hand; else the visitor's getting-there choice,
+    // where Jaunts use it and this outing allows it; else its own. Only a hand pick is
+    // remembered, so turning Jaunts use my choice on or off reaches every card.
+    let current = modes.get(row.id) || preferredMode(row) || row.default_mode || 'walk';
     const price = () => {
-      modes.set(row.id, current);
       const key = JSON.stringify([current, row.destinations, row.timing, row.stops]);
       if (!estimates.has(key)) { const e = estimate(row, current); estimates.set(key, { text: formatEstimate(e), s: e?.seconds }); }
       const { text, s } = estimates.get(key);
@@ -68,7 +83,7 @@ export function createJauntMenu({ root, estimate, onStart, onPreview }) {
       for (const b of mode.children) b.setAttribute('aria-checked', String(b.dataset.mode === current));
     };
     for (const id of row.allowed_modes || ['walk']) {
-      const b = button('', () => { if (b.disabled) return; current = id; price(); }, 'jaunt-mode-pick');
+      const b = button('', () => { if (b.disabled) return; current = id; modes.set(row.id, id); price(); }, 'jaunt-mode-pick');
       b.dataset.mode = id; b.setAttribute('role', 'radio'); b.append(icon(id, 18));
       b.setAttribute('aria-label', PACES[id]?.label || id); b.title = PACES[id]?.label || id;
       mode.append(b);
@@ -82,6 +97,9 @@ export function createJauntMenu({ root, estimate, onStart, onPreview }) {
     } else {
       const pace = node('div', '', 'jaunt-pace'); pace.append(mode, duration);
       details.append(pace, node('p', `Recommended: ${PACES[row.default_mode || 'walk']?.label || row.default_mode}. Fly is a viewing convenience, not historical transport.`, 'jaunt-meta'));
+      // T-2727: with Jaunts use my choice on, an outing that cannot go the visitor's way says so.
+      const keeps = modeNote(row);
+      if (keeps) { const p = node('p', keeps, 'jaunt-meta jaunt-keeps'); p.dataset.jauntKeeps = row.id; details.append(p); }
       if (onStart) {
         const start = button('', async () => {
           remember(row.id, 'start', section); start.disabled = true;

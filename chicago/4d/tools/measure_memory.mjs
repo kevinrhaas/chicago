@@ -18,7 +18,9 @@
  *
  * WHAT IS READ, per year × viewport, from the published year door (`/1835/`, as a
  * visitor arrives), after the welcome is entered at spawn, a few frames are drawn
- * so every layer is on the GPU, and two forced GCs:
+ * so every layer is on the GPU, texture residency is let finish its uploads
+ * (T-2718: it paces them, so a reading taken before could read low), and two
+ * forced GCs:
  *
  *   js heap ....... `Runtime.getHeapUsage().usedSize`: the V8 heap after GC.
  *   arraybuffers .. `Runtime.getHeapUsage().backingStorageSize`: the bytes behind
@@ -108,6 +110,11 @@ const ONLY = argAt('--only') || 'both';
 const WALK = argAt('--walk');
 const RESIDENCY_OFF = has('--residency-off');
 const CAPTURES = has('--captures');
+// T-2828: `--picks N` aims the gaze probe (target.js, every 500 ms on a walk) N times at
+// each station and reads what the picks left behind: GL textures, framebuffers (render
+// targets), renderbuffers and programs, three's own counts and the pick module's
+// materials, and the heap they leave once collected. A pick that allocates fails the walk.
+const PICKS = Number(argAt('--picks') || 0);
 /** T-2598's stands: Glessner from five sides and three street eyes, on foot unless aloft. */
 const STANDS = [
   { id: 'glessner-ne-corner', local_e: 1410, local_n: -3200, yaw_deg: 225 },
@@ -128,6 +135,28 @@ const STANDS = [
 const WALKS = {
   prairie: { year: '1904', stations: Array.from({ length: 8 }, (_, i) => ({
     local_e: 1402, local_n: -3270 + 40 * i, yaw_deg: 0 })) },
+  // T-2775: the owner's crash, 2026-10-18 — free roam, "navigate down the street" on
+  // an iPhone. The same centreline from north of 16th to south of 22nd, every 40 m,
+  // looking south, so every block's houses, trees and the lakefront come and go.
+  'prairie-street': { year: '1904', stations: Array.from({ length: 26 }, (_, i) => ({
+    local_e: 1402, local_n: -2940 - 40 * i, yaw_deg: 180 })) },
+  // T-2806: the owner's third report — down the street from Glessner, then back north
+  // past where he started. Every 40 m, facing the way he walked, so whatever streams in
+  // on the way south has to be let go of (or not) on the way north.
+  'prairie-there-and-back': { year: '1904', stations: [
+    ...Array.from({ length: 9 }, (_, i) => ({ local_e: 1402, local_n: -3230 - 40 * i, yaw_deg: 180 })),
+    ...Array.from({ length: 21 }, (_, i) => ({ local_e: 1402, local_n: -3510 + 40 * i, yaw_deg: 0 })),
+  ] },
+  // T-2828: the owner's phone killed walking from 1904's spawn (glessner_house: the east
+  // sidewalk at E 18th, 1410.12,-3218.01, facing west) straight across Prairie Avenue;
+  // its last sample was 1390,-3220. Every 4 m along that line, then the stop 3 m from
+  // the Glessner front (its east face at E 1387.6), then back to the spawn.
+  'glessner-approach': { year: '1904', stations: [
+    ...Array.from({ length: 5 }, (_, i) => ({ local_e: 1410 - 4 * i, local_n: -3218 - 0.4 * i, yaw_deg: 265 })),
+    { local_e: 1390.6, local_n: -3220, yaw_deg: 265 },
+    { local_e: 1390.6, local_n: -3220, yaw_deg: 265 },
+    { local_e: 1410, local_n: -3218, yaw_deg: 265 },
+  ] },
 };
 if (WALK && !WALKS[WALK]) { console.error(`no walk named ${WALK}: ${Object.keys(WALKS).join(', ')}`); process.exit(2); }
 const YEARS = SELF_TEST ? ['1835'] : WALK ? [WALKS[WALK].year]
@@ -198,7 +227,8 @@ async function loadPlaywright() {
 }
 const { chromium } = await loadPlaywright();
 
-const root = path.resolve(ROOT4D, '../../site/4d');
+// `--root <dir>`: a published site other than this checkout's (an A/B copy, say).
+const root = argAt('--root') ? path.resolve(argAt('--root')) : path.resolve(ROOT4D, '../../site/4d');
 if (!fs.existsSync(path.join(root, '1835', 'index.html'))) {
   console.error(`no published mirror at ${root} — run tools/publish.sh first`);
   process.exit(2);
@@ -238,6 +268,7 @@ const PORT = server.address().port;
  */
 function installGlMeter() {
   const buffers = new Map(); const textures = new Map(); const renderbuffers = new Map();
+  const framebuffers = new Set(); const programs = new Set();
   const mipped = new WeakSet();
   const BPP = {
     0x8058: 4, 0x8C43: 4, 0x8051: 4, 0x8C41: 4, 0x881A: 8, 0x8814: 16, 0x881B: 8, 0x8815: 16,
@@ -306,10 +337,12 @@ function installGlMeter() {
       const bytes = typeof data === 'number' ? (srcOffset || 0) : (srcLength || data?.byteLength || 0);
       setLevel(bound2d(gl, target), `${target}:${level}`, bytes || w * h);
     });
+    // `levels` is a GLsizei, so WebGL truncates a fractional count: three passes
+    // log2(n) + 1 for a non-power-of-two image, 11.29 for a 1254 px one (T-2720).
     wrap('texStorage2D', (gl, [target, levels, internal, w, h]) => {
       const tex = bound2d(gl, target);
       const faces = target === gl.TEXTURE_CUBE_MAP ? 6 : 1;
-      for (let l = 0; l < levels; l += 1) {
+      for (let l = 0; l < Math.trunc(levels); l += 1) {
         const lw = Math.max(1, w >> l); const lh = Math.max(1, h >> l);
         setLevel(tex, `${target}:${l}`, faces * (BLOCK[internal]
           ? blocks(lw) * blocks(lh) * BLOCK[internal] : lw * lh * bpp(internal)));
@@ -321,7 +354,7 @@ function installGlMeter() {
     });
     wrap('texStorage3D', (gl, [target, levels, internal, w, h, d]) => {
       const tex = bound2d(gl, target);
-      for (let l = 0; l < levels; l += 1) {
+      for (let l = 0; l < Math.trunc(levels); l += 1) {
         setLevel(tex, `${target}:${l}`, Math.max(1, w >> l) * Math.max(1, h >> l)
           * (target === 0x8C1A ? d : Math.max(1, d >> l)) * bpp(internal));
       }
@@ -335,6 +368,12 @@ function installGlMeter() {
     wrap('renderbufferStorage', (gl, [, internal, w, h]) => rbStore(gl, internal, w, h, 1));
     wrap('renderbufferStorageMultisample', (gl, [, samples, internal, w, h]) => rbStore(gl, internal, w, h, samples));
     wrap('deleteRenderbuffer', (gl, [rb]) => renderbuffers.delete(rb));
+    // T-2828: what a pick may make and never let go of — a render target is a
+    // framebuffer, a new material a program.
+    wrap('createFramebuffer', (gl, args, fb) => { if (fb) framebuffers.add(fb); });
+    wrap('deleteFramebuffer', (gl, [fb]) => framebuffers.delete(fb));
+    wrap('createProgram', (gl, args, prog) => { if (prog) programs.add(prog); });
+    wrap('deleteProgram', (gl, [prog]) => programs.delete(prog));
   }
   window.__memoryMeter = () => {
     let gpuBuffers = 0; let gpuTextures = 0; let gpuRenderbuffers = 0;
@@ -346,7 +385,8 @@ function installGlMeter() {
     }
     for (const r of renderbuffers.values()) gpuRenderbuffers += r;
     return { gpuBuffers, gpuTextures, gpuRenderbuffers,
-      liveBuffers: buffers.size, liveTextures: textures.size, liveRenderbuffers: renderbuffers.size };
+      liveBuffers: buffers.size, liveTextures: textures.size, liveRenderbuffers: renderbuffers.size,
+      liveFramebuffers: framebuffers.size, livePrograms: programs.size };
   };
 }
 
@@ -376,7 +416,8 @@ function readLayers() {
   const texBytes = (t) => {
     // A compressed texture (a KTX2 sheet) is its transcoded blocks, every level it holds.
     if (t.isCompressedTexture && t.mipmaps?.length) {
-      return t.mipmaps.reduce((sum, m) => sum + (m.data?.byteLength ?? 0), 0);
+      // T-2828: a phone's GLB KTX2 lets go of its levels once uploaded; residency records them.
+      return t.mipmaps.reduce((sum, m) => sum + (m.data?.byteLength ?? 0), 0) || t.userData?.releasedBytes || 0;
     }
     const img = t.image || t.source?.data;
     const w = img?.width || img?.videoWidth || 0; const h = img?.height || img?.videoHeight || 0;
@@ -556,6 +597,42 @@ async function takeSnapshot(cdp, file) {
   fs.closeSync(out);
 }
 
+// ---------------------------------------------------------------- the pick probe
+
+/** N gaze picks where the eye stands; what they made and kept (T-2828). */
+async function pickProbe(page, cdp, n) {
+  const read = () => page.evaluate(() => {
+    const api = window.__chicago4d;
+    const gl = window.__memoryMeter();
+    const s = api.stats();
+    return { textures: gl.liveTextures, framebuffers: gl.liveFramebuffers, renderbuffers: gl.liveRenderbuffers,
+      programs: gl.livePrograms, gpuTextures: gl.gpuTextures + gl.gpuRenderbuffers, gpuBuffers: gl.gpuBuffers,
+      threeTextures: s.textures, threeGeometries: s.geometries, threePrograms: s.programs,
+      ...(api.pickResources?.() ?? {}) };
+  });
+  const look = (k) => page.evaluate((count) => {
+    const api = window.__chicago4d;
+    let hit = null;
+    const t0 = performance.now();
+    for (let i = 0; i < count; i += 1) { api.target.invalidate(); hit = api.target.current(); }
+    return { ms: (performance.now() - t0) / count, hit: hit?.id ?? null, distance: hit?.distance ?? null };
+  }, k);
+  const gc = async () => {
+    await cdp.send('HeapProfiler.collectGarbage');
+    return cdp.send('Runtime.getHeapUsage');
+  };
+  await look(1); // the first pick makes the pick's one target and materials: those are kept on purpose
+  const heap0 = await gc();
+  const before = await read();
+  const timed = await look(n);
+  const after = await read();
+  const heap1 = await gc();
+  const made = {};
+  for (const k of Object.keys(before)) if (typeof before[k] === 'number' && after[k] !== before[k]) made[k] = after[k] - before[k];
+  return { n, msPerPick: +timed.ms.toFixed(1), hit: timed.hit, distance: timed.distance, before, made,
+    heapKept: (heap1.usedSize + (heap1.backingStorageSize ?? 0)) - (heap0.usedSize + (heap0.backingStorageSize ?? 0)) };
+}
+
 // ---------------------------------------------------------------- one reading
 
 const browser = await chromium.launch({ executablePath: process.env.PW_EXECUTABLE || undefined });
@@ -632,8 +709,29 @@ for (const year of YEARS) {
       const only = argAt('--stands')?.split(',');
       for (const stand of STANDS.filter((st) => !only || only.includes(st.id))) {
         const { id, ...at } = stand;
-        await page.evaluate((x) => window.__chicago4d.walker.teleport(x), at);
+        // T-2718: an aloft stand flies through the HUD first, as `goTo` does — a
+        // walker teleported aloft with the HUD's intent still on foot is put back on
+        // the ground the next frame, and the shot is of the road at -30°.
+        const aloft = await page.evaluate((x) => {
+          const api = window.__chicago4d;
+          api.setFly(typeof x.altitude_m === 'number');
+          api.walker.teleport(x);
+          return { flying: api.walker.state.flying, altitude: api.walker.state.altitude };
+        }, at);
         const working = await settle();
+        if (typeof at.altitude_m === 'number') {
+          // The walker's own state: `api.flying` / `api.altitude` are copied once
+          // by Object.assign and read false / 0 whatever the eye is doing.
+          const now = await page.evaluate(() => {
+            const { flying, altitude } = window.__chicago4d.walker.state;
+            return { flying, altitude };
+          });
+          if (!now.flying || now.altitude < at.altitude_m / 2) {
+            console.log(`::error::${id}: asked for ${at.altitude_m} m aloft, the eye is ${now.flying ? 'flying' : 'on foot'} at ${now.altitude.toFixed(1)} m — this stand did not frame what it names`);
+            process.exitCode = 1;
+          }
+          Object.assign(aloft, { settled: now });
+        }
         const a = await shoot();
         await page.evaluate(() => window.__chicago4d.textureResidency?.everything());
         const all = await settle();
@@ -642,7 +740,7 @@ for (const year of YEARS) {
         await settle();
         const d = await shoot();
         const diff = await compare({ a, c, d });
-        results.push({ id, working, all, ...diff });
+        results.push({ id, working, all, ...(typeof at.altitude_m === 'number' ? { aloft } : {}), ...diff });
         // Each stand is written as it is read: a phone stand costs minutes under
         // SwiftShader, and a run cut off at its clock keeps what it finished.
         if (jsonOut) fs.writeFileSync(jsonOut, `${JSON.stringify({ ticket: 'T-2598', partial: true, viewport: vp.id, captures: results }, null, 2)}\n`);
@@ -665,6 +763,9 @@ for (const year of YEARS) {
     }
     if (WALK) {
       const steps = [];
+      // T-2775: what the whole tab holds at each station, garbage and all (no forced
+      // GC: iOS kills on what is resident, collected or not).
+      const walkCdp = await ctx.newCDPSession(page);
       for (const station of WALKS[WALK].stations) {
         const step = await page.evaluate(async (at) => {
           const api = window.__chicago4d;
@@ -676,17 +777,27 @@ for (const year of YEARS) {
           await frame();
           const gl = window.__memoryMeter();
           const r = api.residency;
-          return { ...at, gpuTextures: gl.gpuTextures + gl.gpuRenderbuffers,
+          return { ...at, gpuTextures: gl.gpuTextures + gl.gpuRenderbuffers, gpuBuffers: gl.gpuBuffers,
             residency: r && { resident: r.resident, sources: r.sources, residentBytes: r.residentBytes,
               budgetBytes: r.budgetBytes, wantedBytes: r.wantedBytes, pending: r.pending, uploads: r.uploads,
               evictions: r.evictions, redecodes: r.redecodes, overBudget: r.overBudget } };
         }, station);
+        const heap = await walkCdp.send('Runtime.getHeapUsage');
+        step.jsHeap = heap.usedSize; step.arrayBuffers = heap.backingStorageSize ?? 0;
+        step.total = step.jsHeap + step.arrayBuffers + step.gpuBuffers + step.gpuTextures;
+        if (PICKS) step.picks = await pickProbe(page, walkCdp, PICKS);
         steps.push(step);
-        console.log(`  N ${step.local_n}: gpu textures ${MB(step.gpuTextures)} MB`
+        console.log(`  N ${step.local_n}: total ${MB(step.total)} MB (heap ${MB(step.jsHeap)}`
+          + ` + arraybuffers ${MB(step.arrayBuffers)} + gpu buffers ${MB(step.gpuBuffers)}) · gpu textures ${MB(step.gpuTextures)} MB`
           + (step.residency ? ` · resident ${step.residency.resident}/${step.residency.sources}`
             + ` = ${MB(step.residency.residentBytes)} of ${MB(step.residency.budgetBytes)} MB`
             + ` (reach asks ${MB(step.residency.wantedBytes)}, ${step.residency.overBudget} turned away)`
             + ` (pending ${step.residency.pending})` : ' · residency off'));
+        if (step.picks) {
+          const p = step.picks;
+          console.log(`    ${p.n} picks: ${p.msPerPick} ms each, hit ${p.hit ?? 'nothing'}${p.distance != null ? ` at ${p.distance.toFixed(1)} m` : ''}`
+            + ` · made ${Object.keys(p.made).length ? JSON.stringify(p.made) : 'nothing'} · heap kept ${MB(p.heapKept)} MB`);
+        }
       }
       const residency = await page.evaluate(() => {
         const r = window.__chicago4d.residency;
@@ -696,12 +807,33 @@ for (const year of YEARS) {
       rows.push({ year, viewport: vp.id, label: vp.label, walk: WALK, residencyOff: RESIDENCY_OFF,
         steps, residency, errors, over: over.length,
         maxGpuTextures: Math.max(...steps.map((st) => st.gpuTextures)),
+        maxTotal: Math.max(...steps.map((st) => st.total)),
         maxResidentBytes: Math.max(...steps.map((st) => st.residency?.residentBytes ?? 0)),
         seconds: { walk: Math.round((Date.now() - t0) / 1000) } });
-      console.log(`walk ${WALK} ${vp.id}: max gpu textures ${MB(rows.at(-1).maxGpuTextures)} MB, `
+      console.log(`walk ${WALK} ${vp.id}: max total ${MB(rows.at(-1).maxTotal)} MB, max gpu textures ${MB(rows.at(-1).maxGpuTextures)} MB, `
         + `${over.length} station(s) over budget, ${errors.length} page error(s)`);
       await ctx.close();
       continue;
+    }
+    // T-2718: texture residency paces its uploads (4 MiB a frame on a phone), so 3
+    // frames + 1 s can read the spawn mid-upload — low, and a ceiling set on it
+    // too tight. Settle it as the walk does, and record what it held.
+    const spawnResidency = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      const frame = () => new Promise((r) => requestAnimationFrame(r));
+      const t0 = Date.now();
+      const before = api.residency?.pending ?? 0;
+      while ((api.residency?.pending ?? 0) > 0 && Date.now() - t0 < 120_000) await frame();
+      await frame();
+      const r = api.residency;
+      return r && { pendingAtRead: before, settleMs: Date.now() - t0, resident: r.resident, sources: r.sources,
+        residentBytes: r.residentBytes, budgetBytes: r.budgetBytes, wantedBytes: r.wantedBytes,
+        pending: r.pending, uploads: r.uploads, evictions: r.evictions, overBudget: r.overBudget };
+    });
+    if (spawnResidency) {
+      console.log(`  residency at spawn: ${spawnResidency.pendingAtRead} pending after 3 frames + 1 s, settled in `
+        + `${spawnResidency.settleMs} ms · resident ${spawnResidency.resident}/${spawnResidency.sources} = `
+        + `${MB(spawnResidency.residentBytes)} of ${MB(spawnResidency.budgetBytes)} MB (pending ${spawnResidency.pending})`);
     }
     const cdp = await ctx.newCDPSession(page);
     await cdp.send('HeapProfiler.enable');
@@ -725,13 +857,13 @@ for (const year of YEARS) {
         textureBytes: scene.layers.reduce((s, l) => s + l.textureBytes, 0),
         cpuNeverUploaded: scene.layers.reduce((s, l) => s + l.cpuNeverUploaded, 0),
       },
-      uploadRelease: scene.uploadRelease, ktx2: await page.evaluate(() => window.__chicago4d.ktx2 ?? null), errors, seconds: { boot: Math.round((Date.now() - t0) / 1000) } };
+      uploadRelease: scene.uploadRelease, residency: spawnResidency, ktx2: await page.evaluate(() => window.__chicago4d.ktx2 ?? null), errors, seconds: { boot: Math.round((Date.now() - t0) / 1000) } };
     if (heap.backingStorageSize === undefined) row.note = 'this Chromium reports no backingStorageSize; arraybuffers read 0';
     if (SNAPSHOT) {
       const ts = Date.now();
       const file = path.join(os.tmpdir(), `memory-${year}-${vp.id}-${process.pid}.heapsnapshot`);
       await takeSnapshot(cdp, file);
-      const r = retainersFrom(parseSnapshot(file));
+      const r = retainersFrom(parseSnapshot(file), Number(argAt('--retainers') || 10));
       fs.rmSync(file, { force: true });
       row.snapshot = { arrayBufferBytes: r.arrayBufferBytes, arrayBuffers: r.arrayBuffers };
       row.retainers = r.top;
@@ -752,7 +884,7 @@ const reading = {
     on: new Date().toISOString(), build,
     machine: `${os.cpus()[0]?.model?.trim()} ×${os.cpus().length}`,
     seconds: Math.round((Date.now() - started) / 1000),
-    method: 'published year door, welcome entered at spawn, 3 frames + 1 s, two forced GCs; '
+    method: 'published year door, welcome entered at spawn, 3 frames + 1 s, texture residency let finish its uploads, two forced GCs; '
       + 'heap and backing store from Runtime.getHeapUsage; GPU from a WebGL allocation meter',
   },
   rows,
@@ -767,10 +899,19 @@ if (WALK) {
   for (const row of rows) {
     if (row.over) { red += 1; console.log(`::error::${row.viewport}: residency held more than its budget at ${row.over} station(s)`); }
     if (row.errors.length) { red += 1; console.log(`::error::${row.viewport}: ${row.errors.length} pageerror(s): ${row.errors[0]}`); }
+    // A pick may make nothing that lasts: no texture, render target, renderbuffer,
+    // program or material, and no GPU byte (heap is read, not held — V8's own churn).
+    const PICK_HELD = ['textures', 'framebuffers', 'renderbuffers', 'programs', 'gpuTextures', 'gpuBuffers',
+      'threeTextures', 'threeGeometries', 'threePrograms', 'materials', 'targets', 'pool'];
+    for (const st of row.steps ?? []) {
+      const kept = PICK_HELD.filter((k) => st.picks?.made?.[k] > 0);
+      if (kept.length) { red += 1; console.log(`::error::${row.viewport}: ${st.picks.n} picks at ${st.local_e},${st.local_n} made ${kept.map((k) => `${k} +${st.picks.made[k]}`).join(', ')}`); }
+    }
     if (row.residency?.problems?.length) console.log(`::warning::${row.viewport}: ${row.residency.problems.join('; ')}`);
   }
   console.log(`\n${rows.length} walk(s) in ${reading.measured.seconds} s`);
-  process.exit(red ? 1 : 0);
+  // An aloft stand that did not get aloft has already set exitCode (T-2718).
+  process.exit(red ? 1 : (process.exitCode ?? 0));
 }
 printReading(reading);
 console.log(`\n${rows.length} reading(s) in ${reading.measured.seconds} s`);

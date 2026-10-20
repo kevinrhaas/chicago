@@ -6,8 +6,11 @@
  */
 import { partitionTriangles } from './spatial-kernel.js';
 import { latticeSlots } from './lattice-kernel.js';
+import { inflateGzip } from './inflate-kernel.js';
+import { slotZones, holdGround, dropGround, fieldRect } from './zone-kernel.js';
 
-export const KERNELS = { partitionTriangles, latticeSlots };
+export const KERNELS = { partitionTriangles, latticeSlots, inflateGzip, slotZones, holdGround, dropGround,
+  fieldRect };
 
 /** The distinct ArrayBuffers under every typed array in a job's result. */
 export function transferablesOf(value, out = new Set()) {

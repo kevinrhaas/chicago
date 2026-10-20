@@ -196,6 +196,7 @@ def rects_for(poly, fit, front_from_u=None, keep_out=(), close=0):
         cells = close_cells(cells, close)
     for k in keep_out:
         cells -= scanfill(k, cell)
+    fill = frozenset(cells)
     total = len(cells)
     out = []
     while cells and len(out) < fit["max_rects"]:
@@ -213,11 +214,90 @@ def rects_for(poly, fit, front_from_u=None, keep_out=(), close=0):
         cells -= {(i, j) for i in range(i0, i1 + 1) for j in range(j0, j1 + 1)}
         if 1 - len(cells) / total >= fit["coverage"]:
             break
-    return out, (1 - len(cells) / total) if total else 0.0
+    covered = 1 - len(cells) / total if total else 0.0
+    if fit.get("sliver_m"):
+        out = merge_slivers(out, fill, cell, fit)
+    return out, covered
+
+
+def merge_slivers(rects, fill, cell, fit):
+    """Fold each thin rectangle into the one it lies against (T-2690, the owner's sweep of
+    2026-10-16: "this is not a sensible structure, there are several tall towers").
+
+    A part traced a little off the lot's square, or with a shallow step in a wall, fills as
+    its largest rectangle plus strips one to two metres thick along its sides. Each strip
+    was built as a full-height piece under its own cornice, so a house stood flanked by
+    slabs that read from the street as freestanding towers. A rectangle thinner than
+    `sliver_m` is joined to a neighbour it touches when the box over both is at least
+    `sliver_fill` inside the traced fill (so a notch the Sanborn draws stays a notch) and
+    reaches no further than `sliver_overlap` into any other rectangle. Order is kept: a
+    strip folded into the first rectangle widens the main body; the strip is gone."""
+    rs = [tuple(r) for r in rects]
+
+    def cells_of(r):
+        return [(i, j) for i in range(round(r[0] / cell), round(r[2] / cell))
+                for j in range(round(r[1] / cell), round(r[3] / cell))]
+
+    def touches(a, b):
+        eps = cell * 0.5
+        gap_u = max(a[0], b[0]) - min(a[2], b[2])
+        gap_v = max(a[1], b[1]) - min(a[3], b[3])
+        return (gap_u <= eps and gap_v < -eps) or (gap_v <= eps and gap_u < -eps)
+
+    while True:
+        best = None
+        for i, a in enumerate(rs):
+            if min(a[2] - a[0], a[3] - a[1]) >= fit["sliver_m"]:
+                continue
+            for j, b in enumerate(rs):
+                if j == i or not touches(a, b):
+                    continue
+                u = (min(a[0], b[0]), min(a[1], b[1]), max(a[2], b[2]), max(a[3], b[3]))
+                cs = cells_of(u)
+                share = len([c for c in cs if c in fill]) / len(cs)
+                if share < fit["sliver_fill"]:
+                    continue
+                if any(_inside_share(r, u) > fit.get("sliver_overlap", 0.25) for k, r in enumerate(rs)
+                       if k not in (i, j)):
+                    continue
+                key = (share, _area(b))
+                if best is None or key > best[0]:
+                    best = (key, i, j, u)
+        if best is None:
+            return [tuple(round(x, 3) for x in r) for r in rs]
+        _, i, j, u = best
+        rs[min(i, j)] = u
+        del rs[max(i, j)]
 
 
 def _area(r):
     return (r[2] - r[0]) * (r[3] - r[1])
+
+
+def _gap(r, s):
+    """Clear distance between two rectangles (0 when they touch or overlap)."""
+    du = max(r[0] - s[2], s[0] - r[2], 0.0)
+    dv = max(r[1] - s[3], s[1] - r[3], 0.0)
+    return math.hypot(du, dv)
+
+
+def _close_gap(r, s):
+    """`r` stretched across the clear strip to meet `s` on each axis it stands apart on."""
+    u0, v0, u1, v1 = r
+    if r[0] > s[2]:
+        u0 = s[2]
+    elif r[2] < s[0]:
+        u1 = s[0]
+    if r[1] > s[3]:
+        v0 = s[3]
+    elif r[3] < s[1]:
+        v1 = s[1]
+    return (u0, v0, u1, v1)
+
+
+def _touches(r, s, eps=0.3):
+    """Two plan rectangles that share an edge or overlap (within `eps` metres)."""
+    return max(r[0], s[0]) - min(r[2], s[2]) <= eps and max(r[1], s[1]) - min(r[3], s[3]) <= eps
 
 
 def _inside_share(r, s):
@@ -474,6 +554,15 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
         kept.append(p)
     main = kept[0]
     mu0, mv0, mu1, mv1 = main["rect"]
+    narrow = fit.get("min_body_m")
+    if kind == "house" and narrow and mv1 - mv0 < narrow:
+        # a street body narrower than any house of the avenue (the fit kept a 4 m strip of a
+        # skewed outline, and three storeys of it stood like a tower) is widened about its
+        # middle to the narrowest row house the drafts build, inside its own lot (T-2690)
+        mid = min(max((mv0 + mv1) / 2, lot_v[0] + narrow / 2), lot_v[1] - narrow / 2)
+        mv0, mv1 = round(mid - narrow / 2, 3), round(mid + narrow / 2, 3)
+        main = kept[0] = {**main, "rect": (mu0, mv0, mu1, mv1), "widened": True}
+        kept = [main] + [q for q in kept[1:] if _inside_share(q["rect"], main["rect"]) < fit["swallowed"]]
 
     # ---- storeys and family
     notation = row.get("raw_story_notation", "") if kind == "house" else ""
@@ -502,6 +591,11 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
             role, st, rf = "porch", 1, "flat"
         elif p["trace_role"] == "stone_front":
             role, st, rf = "stone_front", full, "flat"
+        elif kind == "house" and fit.get("detached_front_m") is not None and r[0] >= mu1 + fit["detached_front_m"]:
+            # a piece standing clear in front of the street wall is the entrance porch or
+            # portico the sheet draws there (1729's Prairie portico), never a storeyed bay
+            # standing free on the lawn like a tower (T-2690)
+            role, st, rf = "porch", 1, "flat"
         elif r[0] >= mu1 - 4.0 and depth <= 4.0 and kind == "house":
             role, st, rf = "bay", (full if p["trace_role"] == "main" or p["material"] == "stone" else 1), "flat"
         elif p["trace_role"] == "main":
@@ -515,12 +609,40 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
             rf = "flat"
         if kind == "service" and role in ("main", "wing", "range"):
             st = min(st, full) if role != "main" else full
+        if (kind == "house" and fit.get("detached_front_m") is not None and mu1 < r[0] and r[1] < mv1 and r[3] > mv0
+                and (role == "stone_front" or (role in ("bay", "porch") and r[0] < mu1 + fit["detached_front_m"]))):
+            # a bay or porch the fit left a strip of lawn short of the street wall stands
+            # against it, and a stone front IS that wall's face: the gap is the rectangles',
+            # not the sheet's, and a veneer standing clear of its house is a slab (T-2690)
+            r = (mu1, r[1], r[2], r[3])
+            depth = r[2] - r[0]
+        if role in ("wing", "bay", "range") and fit.get("sliver_m") and min(depth, r[3] - r[1]) < fit["sliver_m"]:
+            # a strip no neighbour could take (merge_slivers) stands one storey under a flat
+            # roof, a side entry or lean-to against the wall, never a full-height slab (T-2690)
+            st, rf = 1, "flat"
+        if (role in ("wing", "bay", "range") and st > 1 and fit.get("stray_m2") and _area(r) < fit["stray_m2"]
+                and not any(_touches(r, q["rect"]) for q in kept if q is not p)):
+            # a small piece touching nothing of its building (1729's 4 x 2.5 m range standing
+            # 2 m off the side wall) is an outbuilding of one storey, not a two-storey shaft
+            st, rf = 1, "flat"
+        if n and fit.get("snap_gap_m") and role in ("wing", "bay", "range", "porch"):
+            others = [q["rect"] for q in kept if q is not p]
+            near = min(others, key=lambda s: _gap(r, s)) if others else None
+            if near is not None and not _touches(r, near) and _gap(r, near) <= fit["snap_gap_m"]:
+                # a piece left a few metres clear of everything else of its building (1729's
+                # 5 m stone range 2.5 m off the south wall) reads as a tower on the lawn: the
+                # sheet draws one building, so it stands against its nearest wall (T-2738)
+                r = _close_gap(r, near)
+                depth = r[2] - r[0]
         parts.append({"id": f"r{n + 1}", "role": role, "storeys": st, "roof": rf,
-                      "rect": [round(r[0] - mu0, 3), round(r[1] - mv0, 3), round(r[2] - mu0, 3), round(r[3] - mv0, 3)],
+                      "rect": [round(r[0] - mu0, 3) + 0.0, round(r[1] - mv0, 3) + 0.0,
+                               round(r[2] - mu0, 3) + 0.0, round(r[3] - mv0, 3) + 0.0],
                       "from": f"{b['id']} {p['trace_part']} ({p['trace_role']}, {p['material']}), "
                               f"rectangle {p['k'] + 1} of that part; the part's rectangles cover "
                               f"{p['coverage']:.0%} of its fill"})
-    lot_v_local = [round(lot_v[0] - mv0, 3), round(lot_v[1] - mv0, 3)]
+    # `+ 0.0`: a body widened against its lot line would write -0.0, which JSON readers
+    # in the browser take as 0 and the boot packer then refuses as a different record
+    lot_v_local = [round(lot_v[0] - mv0, 3) + 0.0, round(lot_v[1] - mv0, 3) + 0.0]
     street_local = round(street_u - mu0, 3)
 
     # ---- identity
@@ -686,7 +808,10 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
                             [0.0, round(mv1 - mv0, 3)]],
                 "confidence": "inferred", "sources": [src],
                 "note": ("The main body: the largest rectangle that fits inside the traced main part (u toward the "
-                         "street, v along the front). The building's other rectangles are in draft_plan.")},
+                         "street, v along the front)"
+                         + (f", widened to {fit['min_body_m']} m along the front because the fitted strip was "
+                            f"narrower than any house of the avenue (T-2690)" if main.get("widened") else "")
+                         + ". The building's other rectangles are in draft_plan.")},
             "form": {
                 "stories": _attr(plate["stories"], "reconstructed", plate["stories_note"]) if plate else _attr(
                                  full, "attested",
@@ -789,6 +914,15 @@ def self_test() -> int:
     rs, cov = rects_for([(0, 0), (8, 0), (8, 5), (0, 5)], fit)
     if rs != [(0.0, 0.0, 8.0, 5.0)]:
         fails.append(f"an 8 x 5 rectangle fits as {rs}")
+    # T-2690: a skewed outline's side strip folds into the body; a real notch stays a notch
+    sk = [(0, 0), (12, 0), (12, 6), (7, 6), (7, 7.5), (0, 7.5)]
+    sfit = {**fit, "sliver_m": 2.5, "sliver_fill": 0.9, "sliver_overlap": 0.25}
+    rs, cov = rects_for(sk, sfit)
+    if not rs or min(r[3] - r[1] for r in rs[:1]) < 7.5 or any(min(r[2] - r[0], r[3] - r[1]) < 2.5 for r in rs):
+        fails.append(f"a body with a 1.5 m strip along one side fits as {rs}, not one body with no strip")
+    rs, cov = rects_for(L, sfit)
+    if len(rs) != 2:
+        fails.append(f"the sliver fold swallowed an L's real notch: {rs}")
     # the notation
     for txt, want in (("3B", (3, False, None, None)), ("2½S.B.; bay4B; rear2B", (2, True, 2, 4)),
                       ("3S.B.; rear2B", (3, False, 2, None))):
@@ -809,7 +943,7 @@ def self_test() -> int:
             fails.append("--check accepts a drafted building with no record")
     for f in fails:
         print(f"  self-test | FAIL {f}")
-    print(f"draft_prairie_1904 --self-test: {'ok' if not fails else 'FAIL'} ({6 - min(6, len(fails))} of 6 cases)")
+    print(f"draft_prairie_1904 --self-test: {'ok' if not fails else 'FAIL'} ({8 - min(8, len(fails))} of 8 cases)")
     return 1 if fails else 0
 
 

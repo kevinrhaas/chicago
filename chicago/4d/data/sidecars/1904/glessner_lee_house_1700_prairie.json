@@ -9,6 +9,16 @@
   "asset": "gltf/glessner_lee_house_1700_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 4 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a16-cgy-1700-1706-townhouses",
+      "a16-ghm-blog-1700-1706-construction-1901",
+      "a16-ghm-blog-1708-1706-1700-christmas",
+      "st-ghm-1700-1706-under-construction-1901"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -20,14 +30,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1366.908,
-    "local_n": -3094.166,
+    "local_e": 1368.038,
+    "local_n": -3092.776,
     "rotation_deg": -0.58,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 33.000, v 0.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation -0.58 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 33.000, v 0.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation -0.58 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1700 S. Prairie Avenue, parcel prairie_1700 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -202,5 +212,6 @@
   ],
   "research_note": "A DISTRICT DRAFT (T-2334, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1871 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1700-b1/p2), the T-1840 census (s20-1700-f) and the T-1837 register row frontage-20-013 (Glessner-Lee Georgian townhouse); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-west-2334).",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1700 Prairie Avenue — Glessner-Lee Georgian townhouse"
 }

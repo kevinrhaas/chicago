@@ -9,6 +9,13 @@
   "asset": "gltf/stone_house_2035_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "cgs-tribune-1898-01-09-death-strip"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -100,7 +107,7 @@
             "rect": [
               -8.75,
               0.5,
-              -1.25,
+              0.0,
               6.5
             ],
             "from": "s35fp-2035-b1 p3 (range, frame), rectangle 1 of that part; the part's rectangles cover 82% of its fill"
@@ -108,20 +115,7 @@
           {
             "id": "r3",
             "role": "range",
-            "storeys": 2,
-            "roof": "flat",
-            "rect": [
-              -1.25,
-              0.75,
-              0.0,
-              4.75
-            ],
-            "from": "s35fp-2035-b1 p3 (range, frame), rectangle 2 of that part; the part's rectangles cover 82% of its fill"
-          },
-          {
-            "id": "r4",
-            "role": "range",
-            "storeys": 2,
+            "storeys": 1,
             "roof": "flat",
             "rect": [
               -6.25,
@@ -132,12 +126,12 @@
             "from": "s35fp-2035-b1 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 82% of its fill"
           },
           {
-            "id": "r5",
-            "role": "bay",
-            "storeys": 3,
+            "id": "r4",
+            "role": "porch",
+            "storeys": 1,
             "roof": "flat",
             "rect": [
-              16.0,
+              14.0,
               3.0,
               17.5,
               5.5
@@ -155,7 +149,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2035-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 70% of its fill; s35fp-2035-b1 p3 (range, frame), rectangle 1 of that part; the part's rectangles cover 82% of its fill; s35fp-2035-b1 p3 (range, frame), rectangle 2 of that part; the part's rectangles cover 82% of its fill; s35fp-2035-b1 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 82% of its fill; s35fp-2035-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 64% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35fp-2035-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 70% of its fill; s35fp-2035-b1 p3 (range, frame), rectangle 1 of that part; the part's rectangles cover 82% of its fill; s35fp-2035-b1 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 82% of its fill; s35fp-2035-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 64% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {
@@ -241,5 +235,6 @@
   ],
   "research_note": "A DISTRICT DRAFT (T-2352, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1918 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35 trace (s35fp-2035-b1), the T-1842 census (s35-2035-front) and the T-1837 register row frontage-35-083 (Corner of limestone row); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-20-22-east-2352).",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "2035 Prairie Avenue — Corner of limestone row"
 }

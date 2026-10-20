@@ -450,9 +450,12 @@ class DetailBuilder(MeshBuilder):
             if o['kind']=='fan':
                 # Carved stone is seated inside the masonry, not overlaid on
                 # rock faces. Its recessed bed closes the radial stone joints.
-                centre=(o['u0']+o['u1'])/2;radius=o['r_out']
+                centre=(o['u0']+o['u1'])/2;radius=o['r_out'];stilt=o.get('stilt',0.)
                 cut=[(centre+radius*math.cos(math.pi*i/80),
-                      o['spring_z']+radius*math.sin(math.pi*i/80)) for i in range(81)]
+                      o['spring_z']+stilt+radius*math.sin(math.pi*i/80)) for i in range(81)]
+                if stilt>0:
+                    # T-2853: the stilted fan's springers run plumb to the spring line.
+                    cut=[(centre+radius,o['spring_z'])]+cut+[(centre-radius,o['spring_z'])]
             elif o['kind']=='band':
                 if o.get('style')=='rock_faced_lintel':
                     from archetypes.masonry_house_v4_entry import lintel_outline,settings
@@ -821,6 +824,9 @@ def opening(b,o,courtyard=False):
     if kind=='band':
         if o.get('style')=='rock_faced_lintel':
             rock_lintel(b,o)
+        elif o.get('style')=='rough_course':
+            # T-2926: a continuous rock-faced lintel or sill course over several lights.
+            rough_lintel(b,o,a,c,z0,z1,conf)
         elif o.get('face')=='east' and c-a>3 and z0>5:
             ornament.sill(b,o)
         else:
@@ -831,6 +837,8 @@ def opening(b,o,courtyard=False):
         return
     if kind=='dark' and o.get('face')=='west' and o.get('at',0)>30 and z0<.1 and c-a>2:
         # The porte-cochere is a through passage, not a panel of black glazing.
+        if o.get('corbels'):
+            passage_corbels(b,o)
         return
     if o.get('style')=='north_entry_alcove':
         ring(b,o,(a+c)/2,o['spring_z'],(c-a)/2,o['r_out'],o.get('voussoirs') or 15,conf)
@@ -904,7 +912,8 @@ def opening(b,o,courtyard=False):
             sash.slit_sash(b,o,a,c,z0,z1,conf,sill_mat=sill_mat)
             return
         if not small:
-            sash.double_hung(b,o,a,c,z0,z1,conf,divided=o.get('sash')=='two_over_two',sill_mat=sill_mat)
+            sash.double_hung(b,o,a,c,z0,z1,conf,divided=o.get('sash')=='two_over_two',sill_mat=sill_mat,
+                             sill=not o.get('courses'))
             if courtyard and z1<1.8:
                 # HABS photograph 05: the court's garden-level lights are barred.
                 sash.garden_bars(b,o,a,c,z0,z1,conf)
@@ -912,7 +921,7 @@ def opening(b,o,courtyard=False):
                 linen_shade(b,a,c,z0,z1,lambda u,z,off:legacy._plane_point(o,u,z,off),
                             legacy._plane_dir(o),conf,int((a*17+c*31+o['at']*7+z0)*10003),
                             prairie_colonnade=(not courtyard and o.get('face')=='east' and z0>5))
-            if courtyard:
+            if courtyard and not o.get('courses'):
                 rough_lintel(b,o,a-.24,c+.24,z1+.006,z1+.21,conf)
             return
     frame=.025 if small else .062
@@ -944,6 +953,24 @@ def opening(b,o,courtyard=False):
         # Courtyard photographs show brick jambs with rock-faced limestone
         # heads and sills. Full stone jambs belong to the dining bay only.
         rough_lintel(b,o,a-.24,c+.24,z1+.006,z1+.21,conf)
+
+
+def passage_corbels(b,o):
+    """T-2926: the two stone corbels that narrow a passage mouth under its lintel.
+
+    Sheet 4 draws each as a block standing in from its jamb, its lower inner corner
+    rounded. How far it runs into the passage is not drawn (`depth`, reconstructed).
+    """
+    cb=o['corbels'];a,c=o['u0'],o['u1'];z0,z1=cb['z0'],cb['z1']
+    w,r=cb['inset'],min(cb['round'],cb['inset'],z1-cb['z0'])
+    arc=[(r*math.cos(math.pi*i/16),r*math.sin(math.pi*i/16)) for i in range(9)]
+    for jamb,inward in ((a,1),(c,-1)):
+        edge=jamb+inward*w
+        # The quarter round's centre stands r in from the corbel's face and r above its foot.
+        cu,cz=edge-inward*r,z0+r
+        poly=[(jamb,z0),(cu,z0)]+[(cu+inward*dx,cz-dz) for dz,dx in arc[1:]]+[(edge,z1),(jamb,z1)]
+        if inward<0:poly.reverse()
+        solid_polygon(b,o,poly,-cb['depth'],.02,o['conf'],ROUGH_TRIM)
 
 
 def detailed_door(b,o,style):
@@ -985,7 +1012,7 @@ def voussoir_outline(uc,zs,rin,rout,a,c,chord=False):
                     for k in range(inner_steps+1)]
 
 
-def rock_voussoirs(b,pl,uc,zs,rin,rout,count,conf,seed):
+def rock_voussoirs(b,pl,uc,zs,rin,rout,count,conf,seed,stilt=0.):
     """Radiating granite voussoirs, each pitched and bowed like the wall's ashlar.
 
     Owner, 2026-10-12, with photographs of the Prairie Avenue door: "the front
@@ -995,6 +1022,10 @@ def rock_voussoirs(b,pl,uc,zs,rin,rout,count,conf,seed):
     arris and crown, a little fuller than a wall stone of the same breadth,
     which is how the long radiating stones read in the photographs. The reduced
     tier, which cannot afford the lattice, keeps one flat proud face per stone.
+
+    With a `stilt` (T-2853) zs is the raised centre, and the two springers run
+    plumb down to the spring line that far below it, as HABS sheet 5 and the
+    office's doorway No. 23A both draw the Prairie fan.
     """
     rel=ornament.Relief(b,pl,conf)
     reduced=not getattr(b,'smooth_rock_faces',True)
@@ -1005,8 +1036,10 @@ def rock_voussoirs(b,pl,uc,zs,rin,rout,count,conf,seed):
         bed=[(uc+rout*math.cos(a+(c-a)*k/outer),zs+rout*math.sin(a+(c-a)*k/outer)) for k in range(outer+1)]
         bed+=([(uc+rin*math.cos(c-(c-a)*k/inner),zs+rin*math.sin(c-(c-a)*k/inner)) for k in range(inner+1)]
               if rin>1e-6 else [(uc,zs)])
-        rel.face([(*q,-.012) for q in bed],MORTAR)
         poly=voussoir_outline(uc,zs,rin,rout,a,c,chord=reduced)
+        if stilt>0 and rin>1e-6 and i in (0,count-1):
+            bed,poly=_stilted(bed,uc,zs,rin,rout,stilt,i==0,0.),_stilted(poly,uc,zs,rin,rout,stilt,i==0,VOUSSOIR_JOINT/2)
+        rel.face([(*q,-.012) for q in bed],MORTAR)
         mat=12+i%4
         if reduced:
             solid_polygon(b,pl,poly,-.02,.065,conf,mat)
@@ -1018,6 +1051,22 @@ def rock_voussoirs(b,pl,uc,zs,rin,rout,count,conf,seed):
                                    [rel.vector(*p[3:]) for p in facet],conf,mat,rel.vector(0,0,1))
             else:
                 rel.face(facet,mat,None)
+
+
+def _stilted(poly,uc,zs,rin,rout,stilt,first,joint):
+    """A springer: one end stone of a stilted ring, run plumb down by `stilt`.
+
+    Outlines run along the extrados and back along the intrados, so the first
+    stone (from angle 0) starts and ends at the centre's level on the right and
+    the last stone (to angle pi) turns from extrados to intrados on the left;
+    the plumb faces go in at those two places, `joint` clear of the spring line.
+    """
+    low=zs-stilt+joint
+    if first:
+        return [(uc+rout,low)]+list(poly)+[(uc+rin,low)]
+    # The extrados is the run of points on rout; the intrados starts after it.
+    turn=max(j for j,q in enumerate(poly) if abs(math.hypot(q[0]-uc,q[1]-zs)-rout)<1e-6)
+    return list(poly[:turn+1])+[(uc-rout,low),(uc-rin,low)]+list(poly[turn+1:])
 
 
 def rock_lintel(b,o):
@@ -1127,22 +1176,33 @@ def bow(b,w):
     a0,a1=sorted((w['a0'],w['a1']))
     if a1-a0>math.pi:a0,a1=a1,a0+2*math.pi
     n=w['lights_per_row'];r=w['r'];cx,cy=w['cx'],w['cy'];conf=w['conf_wall']
-    window_angles=[]
-    for i in range(n):
-        a=a0+(a1-a0)*(i+.5)/n;half=(a1-a0)/n*.28
-        window_angles.append((a-half,a+half))
     windows=[]
-    for wi,(a,c) in enumerate(window_angles):
-        for ri,(lo,hi) in enumerate(w['light_rows']):
-            isdoor=ri==0 and wi==n//2 and b.params.detail.get('bow_first_floor_central_door')
-            if isdoor and b.params.detail.get('bow_terrace'):
-                lo=b.params.detail['bow_terrace']['z1']-.18
-            windows.append({'a0':a,'a1':c,'z0':lo,'z1':hi,'door':isdoor})
+    if w.get('light_spans'):
+        # T-2925: each light at the extent the drawing gives it, the door named
+        for (lo,hi),row in zip(w['light_rows'],w['light_spans']):
+            for s in row:
+                z0=b.params.detail['bow_terrace']['z1']-.18 if s['door'] and b.params.detail.get('bow_terrace') else lo
+                windows.append({'a0':s['a0'],'a1':s['a1'],'z0':z0,'z1':hi,'door':s['door']})
+    else:
+        window_angles=[]
+        for i in range(n):
+            a=a0+(a1-a0)*(i+.5)/n;half=(a1-a0)/n*.28
+            window_angles.append((a-half,a+half))
+        for wi,(a,c) in enumerate(window_angles):
+            for ri,(lo,hi) in enumerate(w['light_rows']):
+                isdoor=ri==0 and wi==n//2 and b.params.detail.get('bow_first_floor_central_door')
+                if isdoor and b.params.detail.get('bow_terrace'):
+                    lo=b.params.detail['bow_terrace']['z1']-.18
+                windows.append({'a0':a,'a1':c,'z0':lo,'z1':hi,'door':isdoor})
     curved_masonry(b,cx,cy,r,0,w['wall_top_z'],conf,BRICK,windows,a0,a1)
+    courses=w.get('courses') or []
     for op in windows:
         a,c=op['a0'],op['a1'];mid=(a+c)/2
         p=(cx+r*math.cos(a),cy+r*math.sin(a));q=(cx+r*math.cos(c),cy+r*math.sin(c))
-        facet_window(b,p,q,op['z0'],op['z1'],(math.cos(mid),math.sin(mid),0),conf,stone_jambs=False,door=op['door'],sash=True)
+        facet_window(b,p,q,op['z0'],op['z1'],(math.cos(mid),math.sin(mid),0),conf,stone_jambs=False,door=op['door'],sash=True,
+                     surrounds=not courses)
+    for course in courses:
+        arc_course(b,cx,cy,r,course['a0'],course['a1'],course['z0'],course['z1'],conf)
     if b.params.detail.get('continuous_copper_corner'):
         return  # One joined fan and return are emitted in supplemental().
     z=w['wall_top_z'];zr=z+w['roof_rise_m'];ro=r+.20
@@ -1156,8 +1216,25 @@ def bow(b,w):
 
 
 
+def arc_course(b,cx,cy,r,a0,a1,z0,z1,conf,proud=.05,bed=.03):
+    """A stone course laid round part of a curved wall (T-2925: the hall bow's lintel and
+    sill courses, which sheet 4 draws running unbroken past its lights)."""
+    count=max(2,math.ceil((a1-a0)/math.radians(2)))
+    angles=[a0+(a1-a0)*i/count for i in range(count+1)]
+    def P(a,rad,z):return (cx+rad*math.cos(a),cy+rad*math.sin(a),z)
+    ro,ri=r+proud,r-bed
+    for a,c in zip(angles,angles[1:]):
+        mid=(a+c)/2;out=(math.cos(mid),math.sin(mid),0)
+        b.raw([P(a,ro,z0),P(c,ro,z0),P(c,ro,z1),P(a,ro,z1)],conf,ROUGH_TRIM,out)
+        b.raw([P(a,ri,z1),P(c,ri,z1),P(c,ro,z1),P(a,ro,z1)],conf,ROUGH_TRIM,(0,0,1))
+        b.raw([P(a,ri,z0),P(c,ri,z0),P(c,ro,z0),P(a,ro,z0)],conf,ROUGH_TRIM,(0,0,-1))
+    for a,side in ((a0,-1),(a1,1)):
+        tangent=(-math.sin(a)*side,math.cos(a)*side,0)
+        b.raw([P(a,ri,z0),P(a,ro,z0),P(a,ro,z1),P(a,ri,z1)],conf,ROUGH_TRIM,tangent)
+
+
 def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False,panes=None,surrounds=True,
-                 sash=False):
+                 sash=False,stones_m=None):
     """Recessed sash on an arbitrarily oriented planar bay facet.
 
     `sash` draws T-2212's one-over-one double-hung in two planes in place of the
@@ -1270,7 +1347,9 @@ def facet_window(b,p,q,z0,z1,normal,conf,small=False,stone_jambs=True,door=False
             z=z0+(z1-z0)*row/rows;frames.append((0,width,z-.022,z+.022))
         for ua,ub,za,zb in frames:
             box(ua,ub,za,zb,-.285,-.18,PAINTED_WOOD)
-    stones=[(-.20,width+.20,z0-.1,z0),(-.20,width+.20,z1,z1+.18)] if surrounds else []
+    # `stones_m` (head, sill, side) sizes a surround the drawing measures (T-2925)
+    head,sill,side=stones_m or (.18,.1,.20)
+    stones=[(-side,width+side,z0-sill,z0),(-side,width+side,z1,z1+head)] if surrounds else []
     if stone_jambs:stones += [(-.27,0,z0,z1),(width,width+.27,z0,z1)]
     for ua,ub,za,zb in stones:
         box(ua,ub,za,zb,-.03,.05,ROUGH_TRIM)
@@ -1360,10 +1439,15 @@ def dovecote_band(b,t,x0,x1,y0,y1):
     projecting landing board, in place of the slatted louvres the band carried
     before. The form is read from the photograph; counts and stock sizes are
     bounded reconstruction (docs/LIBERTIES.md L-glessner-cupola-2207).
+
+    A `body_material` of granite builds the body, band and ledges in stone, as
+    the c. 1887 Cornell view shows them, and `ledge_m` sets the ledge's depth
+    (T-2849, L-glessner-cupola-stone-2849); without either it is boarding.
     """
     lo,hi=t['louvre'];conf=t['conf'];v=t['vent'];reconstructed=1.0
     tiers,per_face=v['tiers'],v['per_face'];width=v['opening_width_m']
-    perch=v['perch_projection_m'];board=.025
+    perch=v['perch_projection_m'];board=v.get('ledge_m',.025)
+    body=GRANITE if t.get('body_material')=='granite' else WOOD
     segments=3 if getattr(b,'reduced_roof_details',False) else 6
     step=(hi-lo)/tiers
     for pl,(a,c) in (({'axis':'x','sign':1,'at':x1},(y0,y1)),
@@ -1380,10 +1464,10 @@ def dovecote_band(b,t,x0,x1,y0,y1):
                 holes.append(_arched_hole(mid-width/2,mid+width/2,sill,spring,segments))
             # The landing board the birds alight on, one per tier and face;
             # it stops short of the corner so two faces' boards never meet.
-            slab(b,pl,ua,uc,base,base+board,-.04,perch,reconstructed,WOOD)
+            slab(b,pl,ua,uc,base,base+board,-.04,perch,reconstructed,body)
         wall=[(a,t['z0']),(c,t['z0']),(c,t['top_z']),(a,t['top_z'])]
         for fragment in subtract(wall,holes):
-            solid_polygon(b,pl,fragment,-.08,0,conf,WOOD)
+            solid_polygon(b,pl,fragment,-.08,0,conf,body)
         # The dark cote behind the holes: one closing card per face.
         b.raw([legacy._plane_point(pl,u,z,-.17) for u,z in
                [(ua,lo),(uc,lo),(uc,hi),(ua,hi)]],reconstructed,DARK_GLASS,n)
@@ -1478,16 +1562,17 @@ def dormer(b,d):
     # HABS photo05 shows one undivided light in timber, not the masonry
     # reveals, granite sill and meeting rail used by a house-wall window.
     la,lc=op['u0'],op['u1'];outline=aperture(op);normal=legacy._plane_dir(pl)
+    k=d.get('frame_stock_m',.055)  # T-2859: HABS4 draws the frame stock about 0.22 ft
     for p,q in zip(outline,outline[1:]+outline[:1]):
         b.raw([legacy._plane_point(pl,*p,.016),legacy._plane_point(pl,*p,-.20),
                legacy._plane_point(pl,*q,-.20),legacy._plane_point(pl,*q,.016)],reconstructed,PAINTED_WOOD)
-    interior_recess(b,[(la+.055,lo+.055),(lc-.055,lo+.055),(lc-.055,hi-.055),(la+.055,hi-.055)],
+    interior_recess(b,[(la+k,lo+k),(lc-k,lo+k),(lc-k,hi-k),(la+k,hi-k)],
                     lambda u,z,off:legacy._plane_point(pl,u,z,off),normal,front=-.206,back=-.60)
     glass_pane(b,[legacy._plane_point(pl,u,z,-.20) for u,z in
-                  [(la+.055,lo+.055),(lc-.055,lo+.055),(lc-.055,hi-.055),(la+.055,hi-.055)]],
+                  [(la+k,lo+k),(lc-k,lo+k),(lc-k,hi-k),(la+k,hi-k)]],
                normal,reconstructed)
-    for u0,u1,z0_,z1_ in [(la,la+.055,lo,hi),(lc-.055,lc,lo,hi),
-                          (la,lc,lo,lo+.055),(la,lc,hi-.055,hi)]:
+    for u0,u1,z0_,z1_ in [(la,la+k,lo,hi),(lc-k,lc,lo,hi),
+                          (la,lc,lo,lo+k),(la,lc,hi-k,hi)]:
         slab(b,pl,u0,u1,z0_,z1_,-.195,-.13,reconstructed,PAINTED_WOOD)
     slab(b,pl,la-.065,lc+.065,lo-.055,lo+.012,-.07,.09,reconstructed,PAINTED_WOOD)
     linen_shade(b,la,lc,lo,hi,lambda u,z,off:legacy._plane_point(pl,u,z,off),
@@ -1497,15 +1582,16 @@ def dormer(b,d):
     # foot and narrow side projection. Hidden depth and clay hip stock remain
     # reconstructions; the record keeps their uncertainty separate.
     ring,kick,apex,patches=dormer_roof(d)
+    fascia=d.get('fascia_m',.075)  # T-2859: HABS4's apron fascia is about 0.10 ft
     for index,poly in enumerate(patches):
         poly=visible(poly)
         if poly:legacy._up(b,poly,reconstructed if index%2==0 else conf,ROOF)
     for p,q in zip(ring,ring[1:]+ring[:1]):
-        lowp=(p[0],p[1],ze-.075);lowq=(q[0],q[1],ze-.075)
+        lowp=(p[0],p[1],ze-fascia);lowq=(q[0],q[1],ze-fascia)
         facing=norm((p[0]+q[0]-2*apex[0],p[1]+q[1]-2*apex[1],0))
         poly=visible([lowp,lowq,q,p])
         if poly:b.raw(poly,reconstructed,PAINTED_WOOD,facing)
-    poly=visible([(p[0],p[1],ze-.075) for p in ring])
+    poly=visible([(p[0],p[1],ze-fascia) for p in ring])
     if poly:b.raw(poly,reconstructed,PAINTED_WOOD,(0,0,-1))
 
     def hip_cap(p,q):
@@ -1519,7 +1605,7 @@ def dormer(b,d):
                 else:q=intersection
         if b.params.detail.get('roof_edges'):
             from archetypes.masonry_house_v4_roof_edges import hip_caps
-            return hip_caps(b,p,q)
+            return hip_caps(b,p,q,d.get('hip_cover_radius_m',.047))
         # Small overlapping half-round clay covers make each actual hip
         # readable against the equally pitched red roof behind the dormer.
         tangent=norm(sub(q,p));across=norm(cross(tangent,(0,0,1)))
@@ -1536,8 +1622,16 @@ def dormer(b,d):
                 aa,cc=angles
                 want=tuple(across[h]*math.cos((aa+cc)/2)+outward[h]*math.sin((aa+cc)/2) for h in range(3))
                 b.raw([P(t0,aa),P(t1,aa),P(t1,cc),P(t0,cc)],reconstructed,19+k%3,want)
+    # T-2859: HABS sheet 4 draws each hip as one line that dies under the
+    # finial's bell, so the cover stops inside the bell's lowest ring instead
+    # of running on through it to the apex and burying the bell.
+    spec=b.params.detail.get('court_finial');rim=None
+    if spec:rim=.85*spec.get('dormer_profile_ft',spec['profile_ft'])[0][1]*.3048
     for p,v in zip(ring,kick):
-        hip_cap(p,v);hip_cap(v,apex)
+        hip_cap(p,v);top=apex
+        reach=math.hypot(v[0]-apex[0],v[1]-apex[1])
+        if rim and reach>rim:top=tuple(v[h]+(apex[h]-v[h])*(1-rim/reach) for h in range(3))
+        hip_cap(v,top)
     # HABS05 shows the cap/finial form; owner image(10) confirms their clay
     # material. A green copper vent was not supported by either comparison.
     if b.params.detail.get('court_finial'):court_finial(b,apex[0],apex[1],'dormer',ROOF)
@@ -1584,7 +1678,8 @@ def tower(b,t,params):
         a,c=w['a0'],w['a1'];p=(cx+r*math.cos(a),cy+r*math.sin(a));q=(cx+r*math.cos(c),cy+r*math.sin(c))
         lantern=w['z0']>=data['bands'][0][0]
         facet_window(b,p,q,w['z0'],w['z1'],(math.cos(w['angle']),math.sin(w['angle']),0),conf,stone_jambs=False,
-                     panes=data['lantern_panes'] if lantern else None,surrounds=not lantern)
+                     panes=data['lantern_panes'] if lantern else None,surrounds=not lantern,
+                     stones_m=None if lantern else data.get('slit_stones_m'))
     from archetypes.masonry_house_v4_rough_bands import add_rough_band
     for z0,z1 in data['bands']:
         add_rough_band(b,cx,cy,r+.06,z0,z1,conf)
@@ -1741,6 +1836,35 @@ def underpass(b,params):
 
 
 
+def date_device(b,stone,a,c,z0,z1,right,off,mat,conf):
+    """A monogram drawn as its strokes, not set in a font (T-2869).
+
+    HABS photograph 14 reads the north stack's upper stone as one joined device:
+    two bowls facing outward, each closed by a stem, and a bar between the stems at
+    mid-height. `device` gives the stems' places as shares of the device's width,
+    the bar's height as a share of its height, and the stroke as a share of its
+    height; `fill` and `height_fill` its share of the stone.
+    """
+    d=stone['device'];w=stone['fill']*(c-a);h=stone['height_fill']*(z1-z0)
+    t=d['stroke']*h;cu,cz=(a+c)/2,(z0+z1)/2
+    s1,s2=(-w/2+u*w for u in d['stems_u']);bar=-h/2+d['bar_z']*h
+
+    def quad(pts):
+        b.raw([legacy._plane_point(stone,cu+right*u,cz+v,off) for u,v in pts],conf,mat,legacy._plane_dir(stone))
+    for s in (s1,s2):
+        quad([(s-t/2,-h/2),(s+t/2,-h/2),(s+t/2,h/2),(s-t/2,h/2)])
+    quad([(s1,bar-t/2),(s2,bar-t/2),(s2,bar+t/2),(s1,bar+t/2)])
+    # Each bowl a half-ellipse from its stem's centre line out to the device's edge.
+    for s,rx,side in ((s1,s1+w/2,-1),(s2,w/2-s2,1)):
+        n=12
+        for i in range(n):
+            ring=[]
+            for k,r in ((i,0),(i+1,0),(i+1,t),(i,t)):
+                q=math.pi*(k/n-.5)
+                ring.append((s+side*(rx-r)*math.cos(q),(h/2-r)*math.sin(q)))
+            quad(ring)
+
+
 def date_stones(b,params):
     """The north-gable chimney's 1886 and AD stones, as HABS photograph 4 reads them.
 
@@ -1760,6 +1884,10 @@ def date_stones(b,params):
         slab(b,stone,a,c,z0,z1,0,proud,conf,GRANITE)
         incised=stone.get('incised')
         right=-stone['sign'] if stone['axis']=='y' else stone['sign']
+        if stone.get('device'):
+            date_device(b,stone,a,c,z0,z1,right,(proud+.002) if incised else .064,
+                        DARK_GLASS if incised else TRIM,conf)
+            continue
         curve=bpy.data.curves.new('glessner_datestone_lettering','FONT')
         curve.body=stone['text'];curve.align_x='CENTER';curve.align_y='CENTER'
         curve.size=(z1-z0)*.82
@@ -1794,6 +1922,11 @@ def date_stones(b,params):
     ledge=params.detail.get('pigeon_ledge')
     if ledge:
         slab(b,ledge,ledge['u0'],ledge['u1'],ledge['z0'],ledge['z1'],0,ledge['projection_m'],params.detail['conf'],GRANITE)
+        # The two corbels HABS photograph 15 shows under it (T-2849); their
+        # projection is reconstructed (L-glessner-stable-gable-2849).
+        for u0,u1 in ledge.get('corbels',[]):
+            slab(b,ledge,u0,u1,ledge['z0']-ledge['corbel_drop_m'],ledge['z0'],0,
+                 ledge['corbel_projection_m'],1.0,GRANITE)
 
 def north_entry(b,p):
     """Open vaulted porch, west-facing door up the left-turn stair (HABS 2–3)."""

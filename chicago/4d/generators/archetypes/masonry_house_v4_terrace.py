@@ -46,13 +46,19 @@ def cap_height(data,a,lower=False):
     return _profile(data['cap_section_profile'][key],-(data['r']+.055)*math.sin(a))
 
 def _solid(b,outline,z0,z1,conf,mat):
-    """A closed prism; no stair relies on the view hiding its side or underside."""
+    """A closed prism; no stair relies on the view hiding its side or underside.
+
+    T-2906: a tread that runs along the drum is not convex, so its top and
+    underside are laid in convex pieces and each side faces out of the outline.
+    """
     if len(outline)<3:return
-    centre=tuple(sum(p[k] for p in outline)/len(outline) for k in range(2))
-    b.raw([(*p,z1) for p in outline],conf,mat,(0,0,1))
-    b.raw([(*p,z0) for p in outline],conf,mat,(0,0,-1))
+    from archetypes.masonry_house_v4_ground import parts
+    turn=sum(p[0]*q[1]-q[0]*p[1] for p,q in zip(outline,outline[1:]+outline[:1]))
+    for piece in parts(outline):
+        b.raw([(*p[:2],z1) for p in piece],conf,mat,(0,0,1))
+        b.raw([(*p[:2],z0) for p in piece],conf,mat,(0,0,-1))
     for p,q in zip(outline,outline[1:]+outline[:1]):
-        want=((p[0]+q[0])/2-centre[0],(p[1]+q[1])/2-centre[1],0)
+        want=((q[1]-p[1])*turn,(p[0]-q[0])*turn,0)
         b.raw([(*p,z0),(*q,z0),(*q,z1),(*p,z1)],conf,mat,want)
 
 def _newel(b,data,conf,reduced):
@@ -76,6 +82,15 @@ def _newel(b,data,conf,reduced):
             b.raw_with_normals(pts,ns,conf,TRIM,(math.cos((a+c)/2),math.sin((a+c)/2),.2 if j else 0))
     b.raw([(x+r*math.cos(2*math.pi*i/count),y+r*math.sin(2*math.pi*i/count),-.04) for i in range(count)],conf,TRIM,(0,0,-1))
 
+def tread_tops(data,floor,n):
+    """Each tread's top. Even risers from the deck, unless the record carries
+    the drawn tops of the lowest treads; the treads above them then share the
+    rest of the rise evenly (T-2906: HABS sheet 4 draws the two at the foot)."""
+    low=list(data.get('low_tread_tops') or [])
+    k=len(low);m=n-k
+    if not k:return [floor*(n-i)/n for i in range(n)]
+    return [floor-i*(floor-low[0])/m for i in range(m)]+low
+
 def build(b,params):
     from archetypes.masonry_house_v4_detail import facet_window,cylinder
     data=params.detail.get('bow_terrace',{})
@@ -87,13 +102,14 @@ def build(b,params):
     floor=data['z1']-.18
     boundaries=[[tuple(p) for p in edge] for edge in data['stair_boundaries']]
     lo,hi=data['window_z']
-    step_angles=[math.atan2(edge[1][1]-data['cy'],edge[1][0]-data['cx']) % (2*math.pi)
+    step_angles=[math.atan2(edge[-1][1]-data['cy'],edge[-1][0]-data['cx']) % (2*math.pi)
                  for edge in boundaries]
+    tops=tread_tops(data,floor,len(boundaries)-1)
     def hidden_inner(a):
         # Below the solid landing/treads, close the foundation with one face;
         # individual brick relief there can never be seen from the courtyard.
         index=max([0]+[i for i,t in enumerate(step_angles) if a>=t])
-        return max(0.,floor*(len(boundaries)-1-index)/(len(boundaries)-1)-.13)
+        return max(0.,(tops+[0.])[index]-.13)
     windows=[]
     for near,far in data['window_distance']:
         windows.append((math.pi+math.asin(near/r),math.pi+math.asin(far/r)))
@@ -206,6 +222,9 @@ def build(b,params):
     # A single raised threshold covers that overlap, as a real stone threshold
     # does, instead of leaving two visible surfaces fighting for the same depth.
     mid=(ba0+ba1)/2;half=(ba1-ba0)/bow['lights_per_row']*.28
+    door=next((s for row in bow.get('light_spans') or [] for s in row if s['door']),None)
+    if door:  # T-2925: the door where the drawing puts it
+        mid=(door['a0']+door['a1'])/2;half=(door['a1']-door['a0'])/2
     radius=bow['r']*math.cos(half);width=2*bow['r']*math.sin(half)
     normal=(math.cos(mid),math.sin(mid));tangent=(-normal[1],normal[0])
     def threshold_point(u,offset):
@@ -219,9 +238,12 @@ def build(b,params):
     # Solid fan treads, including their visible side faces and shallow noses.
     n=len(boundaries)-1
     for i,(edge,next_edge) in enumerate(zip(boundaries,boundaries[1:])):
-        inner,outer=edge;ni,no=next_edge
-        top=floor*(n-i)/n
-        _solid(b,[inner,outer,no,ni],-.04,top,conf,TRIM)
+        # A boundary is [*points along the wall or drum, inner, outer]: its last
+        # segment is the riser; any points before it close the tread above it
+        # against the wall and the drum, and are no riser (T-2906).
+        inner,outer=edge[-2:];ni,no=next_edge[-2:]
+        top=tops[i]
+        _solid(b,[inner,outer,*reversed(next_edge)],-.04,top,conf,TRIM)
         centre=((inner[0]+outer[0])/2,(inner[1]+outer[1])/2)
         front=((ni[0]+no[0])/2,(ni[1]+no[1])/2)
         length=math.dist(centre,front);v=tuple((front[k]-centre[k])/length for k in range(2))

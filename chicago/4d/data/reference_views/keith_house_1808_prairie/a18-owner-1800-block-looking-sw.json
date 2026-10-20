@@ -7,37 +7,21 @@
     328
   ],
   "principal_px": [
-    316.43730244933994,
-    252.26856263164333
+    324.965,
+    247.848
   ],
-  "focal_px": 698.5867385611342,
+  "focal_px": 732.17,
+  "pixel_aspect": 0.8504,
   "eye": [
-    34.82354424470775,
-    42.638504117926416,
+    40.3185,
+    40.6067,
     1.7
   ],
-  "yaw_deg": 270,
-  "basis_right_up_forward": [
-    [
-      -0.903958027253998,
-      0.4201583974757439,
-      0.07954122197750434
-    ],
-    [
-      0.06963047899936167,
-      -0.038901467073698855,
-      0.9968140610233349
-    ],
-    [
-      -0.42191406868861253,
-      -0.9066165655281887,
-      -0.0059094629613869396
-    ]
-  ],
+  "yaw_deg": 212.393,
   "sun_uvy": [
     1,
     -0.7,
     1.4
   ],
-  "solve": "Owner reproduction of c1888 street photo; 1101 SIFT/RANSAC inliers; camera transfer coordinate RMS 0.32px. Inherits the level c1888 camera and its 9.11px control uncertainty. Original owner file unchanged; rights not reinterpreted. Monochrome colour not shown."
+  "solve": "T-2748: carried onto the re-fitted c. 1888 camera (a18-gh-1800-block-looking-sw-c1888.json, T-2748; read its solve). This file is the owner's reproduction of that photograph, a crop of the same image: 1135 SIFT/RANSAC inliers map it onto the blog copy by x' = 2.9369 x + 41.77, y' = 2.8971 y + 233.87 (axis-aligned; transfer RMS 0.41 px here, max 1.46), so the camera keeps that one's eye, heading and level pose and takes its focal length, principal point and pixel aspect through the map (aspect 0.8851 x 2.8971/2.9369). It inherits that camera's 4.1 px RMS there, about 1.4 px at this file's scale. Original owner file unchanged; rights not reinterpreted. Monochrome colour not shown. T-2813 re-solve: carried again onto the c. 1888 camera as re-solved on the crown at a wall head of 14.84 m, through the same map (tools/keith_crown_resolve.py)."
 }

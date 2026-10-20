@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "content_version": 1,
+  "category": "Architectural style",
+  "featured": false,
+  "review_required": false,
+  "id": "prairie-style-romanesque",
+  "scene": "1904",
+  "title": "Style walk: Romanesque",
+  "premise": "Rough-faced stone, deep round arches, turrets: four Romanesque fronts from Eighteenth Street to Twenty-first.",
+  "default_mode": "walk",
+  "allowed_modes": [
+    "walk",
+    "fly",
+    "instantly"
+  ],
+  "opening": {
+    "text": "STYLE WALK: ROMANESQUE. Look for heavy rough-faced stone, deep round arches and turrets. Four houses, 1800 to 2110 Prairie, on foot. Two are still first rough models, read from the district register.",
+    "read_s": 13
+  },
+  "stops": [
+    {
+      "id": "glessner",
+      "destination": {
+        "kind": "structure",
+        "id": "glessner_house"
+      },
+      "text": "1800 Prairie. The district marker calls Glessner's house Richardsonian Romanesque, after its architect, Henry Hobson Richardson. Look at its granite street walls and its roof of unglazed red tiles, and at how the house wraps around a courtyard behind them.",
+      "read_s": 17,
+      "evidence": [
+        "glessner-marker",
+        "glessner-fabric",
+        "tour"
+      ],
+      "next": "ames"
+    },
+    {
+      "id": "ames",
+      "destination": {
+        "kind": "structure",
+        "id": "coleman_ames_house_1811_prairie"
+      },
+      "text": "1811 Prairie. Cobb and Frost were known for Romanesque work and built this front in 1886 of rough-faced brown sandstone. The 1888 plate shows a deep round arch on clustered columns over a broad stair, with a corbelled oriel above it.",
+      "read_s": 17,
+      "evidence": [
+        "ames-marker",
+        "ames-plate",
+        "tour"
+      ],
+      "next": "r2011"
+    },
+    {
+      "id": "r2011",
+      "destination": {
+        "kind": "structure",
+        "id": "house_2011_prairie"
+      },
+      "text": "2011 Prairie. The district register reads this house, a neighbour of the Mayer house, as Romanesque: a rough ashlar front, a round-arched entrance and a rounded corner turret under a conical cap.",
+      "read_s": 13,
+      "evidence": [
+        "r2011-draft",
+        "tour"
+      ],
+      "next": "rees"
+    },
+    {
+      "id": "rees",
+      "destination": {
+        "kind": "structure",
+        "id": "rees_house_2110_prairie"
+      },
+      "text": "2110 Prairie. Harriet Rees's narrow house, read by the district register as Cobb and Frost's work of 1888 and as Romanesque: a limestone front under a tall gable that faces the avenue.",
+      "read_s": 13,
+      "evidence": [
+        "rees-draft",
+        "tour"
+      ],
+      "next": "finish"
+    }
+  ],
+  "endings": [
+    {
+      "id": "finish",
+      "text": "End of the Romanesque walk. The style's marks are rough stone, round arches and towers; you can find them on other fronts along the avenue.",
+      "read_s": 10,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "prairie-romanesque-note",
+    "title": "Romanesque field note",
+    "text": "A modern field note on the style's marks, not a period document."
+  },
+  "evidence": [
+    {
+      "id": "ames-marker",
+      "text": "Joseph G. Coleman Residence. Built 1886; Cobb & Frost, architects. Cobb & Frost were well known for their designs in the Romanesque style, executed here in rough-faced brown sandstone.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1811 S. Prairie Avenue entry."
+    },
+    {
+      "id": "ames-plate",
+      "text": "The 1888 plate shows a rock-faced brown-stone front with a deep round arch on clustered columns over a broad stair, and a corbelled oriel over the arch.",
+      "confidence": "attested",
+      "sources": [
+        "inland_architect_1888_10_ames_residence"
+      ],
+      "locator": "The whole plate: the street front and south flank from the roadway south-west of the house."
+    },
+    {
+      "id": "glessner-fabric",
+      "text": "Glessner describes unglazed red roof tiles and granite street walls as part of the house's construction.",
+      "confidence": "attested",
+      "sources": [
+        "glessner_story_of_a_house_1923"
+      ],
+      "locator": "HABS transcription, data pages 13-15; construction description, not the 1923 garage conversion."
+    },
+    {
+      "id": "glessner-marker",
+      "text": "John Glessner Residence. Built 1887; Henry Hobson Richardson, architect. Designed in the Richardsonian Romanesque style, the house is wrapped around a spacious light-filled courtyard.",
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "locator": "The 1800 S. Prairie Avenue entry."
+    },
+    {
+      "id": "r2011-draft",
+      "text": "The district draft reads 2011 Prairie from the T-1837 register as Romanesque: a rough ashlar front, a round-arched entrance and a rounded corner turret under a conical cap.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-draft-prairie-20-22-east-2352"
+    },
+    {
+      "id": "rees-draft",
+      "text": "The district draft reads the Harriet Rees house (Cobb & Frost, 1888) from the T-1837 register as Romanesque: a limestone front under a tall gable facing the avenue; its carved tympanum, loggia and bowed oriel are later refinements.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-draft-prairie-20-22-west-2351"
+    },
+    {
+      "id": "tour",
+      "text": "The route, its order, its reading times, its keepsake and its framing are modern interpretation; no historical visit, conversation or occupant on 1 July 1904 is asserted.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-prairie-walks"
+    }
+  ],
+  "liberties": [
+    "L-draft-prairie-20-22-east-2352",
+    "L-draft-prairie-20-22-west-2351",
+    "L-jaunt-prairie-walks"
+  ]
+}

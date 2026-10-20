@@ -6,7 +6,8 @@
    sits under it as "Browse by household" and is untouched here.
 
    Tokens from walk.css :root / [data-theme="light"]: --ink, --ink-dim, --edge,
-   --accent, --doc / --inf / --con (the three grades), --r. Surface steps
+   --accent, --grade-attested / -inferred / -reconstructed (the three grades, each
+   with an -ink for text), --r. Surface steps
    (--step, --step-2, --wash) and the two eases come from drawer.css. A pill is
    a control (`aria-pressed`; ON = accent fill), a mark is a static label, and
    the grade dot carries the grade's own colour and nothing else. */
@@ -210,9 +211,11 @@
   justify-self: center;
   vertical-align: middle;
 }
-.grade-attested { background: var(--doc); }
-.grade-inferred { background: var(--inf); }
-.grade-reconstructed { background: transparent; border: 1px solid var(--con); }
+/* Scoped to the dot: unscoped, these filled the card's `.grade` text chips too
+   (walk.css), and an ATTESTED chip read as gold text on a gold slab. */
+.grade-dot.grade-attested { background: var(--grade-attested); }
+.grade-dot.grade-inferred { background: var(--grade-inferred); }
+.grade-dot.grade-reconstructed { background: transparent; border: 1px solid var(--grade-reconstructed); }
 
 /* A static mark saying which KIND of person a row is. The letter-list and
    projected marks take the conjectural colour, the same way the household
@@ -227,7 +230,7 @@
   font-size: 10px;
   white-space: nowrap;
 }
-.mark-letter_list, .mark-projected { border-color: color-mix(in srgb, var(--con) 60%, transparent); color: var(--con); }
+.mark-letter_list, .mark-projected { border-color: color-mix(in srgb, var(--grade-reconstructed) 60%, transparent); color: var(--grade-reconstructed-ink); }
 .mark-civic_mint { border-color: color-mix(in srgb, var(--accent) 55%, transparent); color: var(--accent); }
 /* T-1353. A visitor of the season is not a weaker kind of resident, so the mark is not a
    weaker version of the resident marks: it reads in the dim ink with a dashed edge, which
@@ -240,8 +243,8 @@
    never replaces it. */
 .mark-reconstructed {
   border-style: dashed;
-  border-color: color-mix(in srgb, var(--con) 60%, transparent);
-  color: var(--con);
+  border-color: color-mix(in srgb, var(--grade-reconstructed) 60%, transparent);
+  color: var(--grade-reconstructed-ink);
 }
 
 .people-empty {

@@ -83,6 +83,10 @@ const CLASSES = {
  *  roadways' mostly trodden and the walks swept. */
 const SEASON_KIND = { carriageway: 0.3, alley: 0.5, margin: 1, parkway: 1, walk: 0.15, curb: 0.2 };
 const PRIORITY_LIFT_M = 0.003;
+/** T-2692: how far a roadway runs on under one ranked above it, which stands a few
+ *  millimetres higher. Cut off flush, the step between them showed what lies under
+ *  the higher one's edge, a dark hairline seen from low down along every such cut. */
+const TUCK_M = 0.15;
 /** The ground cut's raster, metres a pixel: fine enough that its edge, which sits
  *  under the walk's inner edge where the fall is under a centimetre, never shows. */
 const CUT_RES_M = 0.5;
@@ -223,18 +227,68 @@ function clipLeft(poly, p, q) {
 
 /** A piece left beside a roadway thinner than this (2 x area / perimeter) joins it. */
 const SLIVER_M = 0.6;
+/** T-2692: a piece of one, cut by a roadway crossing it, shorter than this is left out. */
+const SLIVER_STUB_M = 6.0;
 /** Square metres below which a clipped piece is a rounding sliver, not a surface. */
 const PIECE_EPS_M2 = 0.01;
 
 /**
  * T-2475: a convex plan polygon minus the convex polygon `h` laid over it, as the
  * convex pieces outside `h` (none, when `h` covers it). `h` is counter-clockwise.
+ *
+ * T-2691: the edge cutting off the most is taken first. Each cut runs the edge's
+ * whole line across what is left, so a side edge cut first split a roadway running
+ * on past `h` lengthwise for its full length (Prairie Avenue's 16th-18th block, by
+ * the 18th-20th roadway's west edge, 1.5 m in from its curb), and the two long pieces
+ * drew a hairline seam up the block. The end edge first leaves the side edges only
+ * the stretch beside `h`.
  */
+function perimeterOf(poly) {
+  let p = 0;
+  for (let j = 0; j < poly.length; j += 1) p += len(sub(poly[(j + 1) % poly.length], poly[j]));
+  return p;
+}
+
+/** A convex counter-clockwise polygon with every edge moved `d` out. */
+function growConvex(poly, d) {
+  const lines = poly.map((p, i) => {
+    const q = poly[(i + 1) % poly.length];
+    const t = sub(q, p); const L = len(t) || 1;
+    const n = [t[1] / L * d, -t[0] / L * d];
+    return [[p[0] + n[0], p[1] + n[1]], t];
+  });
+  return lines.map(([a, ta], i) => {
+    const [b, tb] = lines[(i + lines.length - 1) % lines.length];
+    const den = tb[0] * ta[1] - tb[1] * ta[0];
+    if (Math.abs(den) < 1e-12) return a;
+    const k = ((a[0] - b[0]) * ta[1] - (a[1] - b[1]) * ta[0]) / den;
+    return [b[0] + tb[0] * k, b[1] + tb[1] * k];
+  });
+}
+
+/** A convex counter-clockwise polygon with every edge moved `d` in. */
+function insetConvex(poly, d) {
+  let out = poly;
+  for (let i = 0; i < poly.length && out.length >= 3; i += 1) {
+    const p = poly[i]; const q = poly[(i + 1) % poly.length];
+    const t = sub(q, p); const L = len(t) || 1;
+    const n = [-t[1] / L * d, t[0] / L * d];
+    out = clipLeft(out, [p[0] + n[0], p[1] + n[1]], [q[0] + n[0], q[1] + n[1]]);
+  }
+  return out;
+}
+
 function minusConvex(poly, h) {
   const pieces = [];
   let rest = poly;
-  for (let i = 0; i < h.length && rest.length >= 3; i += 1) {
-    const p = h[i]; const q = h[(i + 1) % h.length];
+  const edges = h.map((p, i) => [p, h[(i + 1) % h.length]]);
+  while (edges.length && rest.length >= 3) {
+    let best = 0; let bestArea = -1;
+    edges.forEach(([p, q], i) => {
+      const a = Math.abs(area2(clipLeft(rest, q, p)));
+      if (a > bestArea) { best = i; bestArea = a; }
+    });
+    const [p, q] = edges.splice(best, 1)[0];
     const outside = clipLeft(rest, q, p);
     if (outside.length >= 3 && Math.abs(area2(outside)) / 2 > PIECE_EPS_M2) pieces.push(outside);
     rest = clipLeft(rest, p, q);
@@ -574,6 +628,7 @@ export async function createStreetGrid({
     surfaces: null,
     census: { carriageways: 0, faces: 0, alleys: 0, parcels: 0, triangles: 0, surfaced: 0, textured: 0 },
     parcelAt: () => null,
+    setLotLines: () => {},
     pickAt: () => null,
     dispose: () => {},
   };
@@ -821,6 +876,9 @@ export async function createStreetGrid({
     w.extra = [];
   });
   const above = [];   // every piece of the roadways ranked higher: { poly (ccw), box, way }
+  // T-2692: the hair-thin pieces handed to the roadway above, which give way in turn to
+  // any lower roadway crossing them: { polys (ccw), box }.
+  const slivers = [];
   out.census.seams = 0; out.census.cuts = 0; out.census.slivers = 0;
   for (const w of [...ways].sort((x, y) => y.stacking - x.stacking)) {
     let items = w.items;
@@ -830,8 +888,12 @@ export async function createStreetGrid({
         const shape = it.poly ?? it.quad;
         const box = bboxOf(shape);
         if (box[2] < h.box[0] || box[0] > h.box[2] || box[3] < h.box[1] || box[1] > h.box[3]) { next.push(it); continue; }
-        const { pieces, covered } = minusConvex(ccwOf(shape), h.poly);
-        if (!covered) { next.push(it); continue; }
+        // Under a roadway ranked higher (and so laid higher), this one runs on TUCK_M.
+        const cutBy = h.way.priority > w.priority ? (h.tucked ??= insetConvex(h.poly, TUCK_M)) : h.poly;
+        const { pieces, covered: under } = cutBy.length >= 3 ? minusConvex(ccwOf(shape), cutBy) : { pieces: [shape], covered: null };
+        if (!under) { next.push(it); continue; }
+        // The fading margin still starts at the higher roadway's own edge.
+        const covered = cutBy === h.poly ? under : (minusConvex(ccwOf(shape), h.poly).covered ?? under);
         out.census.cuts += 1;
         for (const poly of pieces) {
           // A hair-thin piece left beside the roadway above (two segments of one
@@ -841,8 +903,15 @@ export async function createStreetGrid({
           let perim = 0;
           for (let j = 0; j < poly.length; j += 1) perim += len(sub(poly[(j + 1) % poly.length], poly[j]));
           if (a > 0 && (2 * a) / perim < SLIVER_M) {
-            h.way.extra.push({ poly, frame: h.frame });
-            above.push({ poly: ccwOf(poly), box: bboxOf(poly), way: h.way, frame: h.frame });
+            // T-2692: it is not laid over the roadways ranked below, as the roadway
+            // above's own pieces are: one running across it (East 18th through the
+            // crossing, where Prairie's 16th-18th segment is 0.35 m a side wider than
+            // its 18th-20th one) keeps its paving there, and fades into the roadway
+            // above from that roadway's own edge, with no strip of the other paving
+            // left between them.
+            const sl = { polys: [ccwOf(poly)], box: bboxOf(poly) };
+            h.way.extra.push({ sliver: sl, frame: h.frame });
+            slivers.push(sl);
             out.census.slivers += 1;
             continue;
           }
@@ -860,7 +929,16 @@ export async function createStreetGrid({
           const past = Math.max(0, ...outside.map((x) => (t[0] * (p0[1] - x[1]) - t[1] * (p0[0] - x[0])) / L));
           if (outside.length < 3 || past < SEAM_M / 2) continue;
           const inward = [-t[1] / L * SEAM_M, t[0] / L * SEAM_M];
-          let strip = clipLeft(covered, p0, p1);
+          // Under a higher roadway the fade starts TUCK_M out over this one's own
+          // paving, so its first, part-covered pixels blend this paving with itself
+          // and not with the darker one beneath the edge.
+          let strip;
+          if (cutBy !== h.poly) {
+            const grown = (h.grown ??= growConvex(h.poly, TUCK_M));
+            const out0 = [p0[0] - (inward[0] / SEAM_M) * TUCK_M, p0[1] - (inward[1] / SEAM_M) * TUCK_M];
+            const out1 = [p1[0] - (inward[0] / SEAM_M) * TUCK_M, p1[1] - (inward[1] / SEAM_M) * TUCK_M];
+            strip = clipLeft(minusConvex(ccwOf(shape), grown).covered ?? covered, out0, out1);
+          } else strip = clipLeft(covered, p0, p1);
           strip = clipLeft(strip, [p1[0] + inward[0], p1[1] + inward[1]], [p0[0] + inward[0], p0[1] + inward[1]]);
           if (strip.length < 3 || Math.abs(area2(strip)) / 2 <= PIECE_EPS_M2) continue;
           w.margins.push({ poly: strip, frame: it.frame, edge: [p0, p1] });
@@ -871,12 +949,23 @@ export async function createStreetGrid({
     w.items = items;
     for (const it of items) {
       const poly = ccwOf(it.poly ?? it.quad);
-      above.push({ poly, box: bboxOf(poly), way: w, frame: it.frame });
+      const box = bboxOf(poly);
+      above.push({ poly, box, way: w, frame: it.frame });
+      for (const sl of slivers) {
+        if (sl.box[2] < box[0] || sl.box[0] > box[2] || sl.box[3] < box[1] || sl.box[1] > box[3]) continue;
+        // What is left past the crossing's far side is a stub a few metres long standing
+        // out over the corner's gutter and curb, where neither roadway is: dropped.
+        sl.polys = sl.polys.flatMap((q) => {
+          const { pieces, covered } = minusConvex(q, poly);
+          return covered ? pieces.filter((x) => perimeterOf(x) / 2 >= SLIVER_STUB_M).map(ccwOf) : [q];
+        });
+      }
     }
   }
   for (const w of ways) {
     const quads = w.items.filter((it) => it.quad).map((it) => it.quad);
-    const polys = [...w.items.filter((it) => it.poly), ...w.extra];
+    const polys = [...w.items.filter((it) => it.poly),
+      ...w.extra.flatMap((x) => (x.sliver ? x.sliver.polys.map((poly) => ({ poly, frame: x.frame })) : [x]))];
     if (quads.length || polys.length) {
       push('carriageway', w.id, quads, w.tier, w.surface, { priority: w.priority, pieceOf: w.pieceOf, polys });
     }
@@ -1174,8 +1263,13 @@ export async function createStreetGrid({
     lineMat.name = 'street-grid-lot-lines';
     const lines = new THREE.LineSegments(lineGeo, lineMat);
     lines.name = 'street-grid-lot-lines';
+    // T-2692: off unless Settings > Lot lines shows them; drawn over the paving and the
+    // lawns they read as marks on the ground, not as anything standing in 1904.
+    lines.visible = false;
     group.add(lines);
+    out.lotLines = lines;
   }
+  out.setLotLines = (shown) => { if (out.lotLines) out.lotLines.visible = !!shown; };
   group.userData.census = out.census;
 
   const faceById = new Map((grid.faces ?? []).map((f) => [f.id, f]));

@@ -2,18 +2,42 @@
   "structure_id": "glessner_house",
   "view": "taylor-2135-ne",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
-  "camera_sha256": "c194faa26abdb9b7aa27f3946e795205a7856e80a6d59d10f5b4d46c2d51c6f9",
+  "glb_sha256": "905a3dd4947991bdd4d4d8c27c45b0b9e1cf4fe320bb4e6682d29a09a2b780e3",
+  "camera_sha256": "9eabf3e71a78ab9e598afc4b1e3fc1ba7fbe88b94f0edda25318a1808517fe92",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/taylor-2135-ne-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
-      "what": "Actual master reviewed: the early photograph still differs in street opening/entry alignment, roof/stack silhouette and stone/course lighting. The new north-cone/courtyard corrections do not constitute full photographic acceptance.",
+      "what": "T-2857 openings: the jambs of the four first-floor windows and the door fit the model's opening spacing camera-free (one-dimensional projective fit along the course, 10 jambs, 1.50 px rms). The openings are right relative to one another (docs/RESEARCH/glessner-prairie-front-T-2857/).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2858 north-end openings: first-floor A and B and the second-floor north group built at sheet 6's places and the four first-floor lights at its outer lines (4.36-4.46 ft). Camera-free, with the far jamb seen at the sash 0.6 ft behind the arris, the jambs fit sheet 6 to 0.98 px rms against 2.24 for the old schedule; the side-by-side shows A, B, the door and the grilles on the photograph's to a few px. The door stays: the sheet gives only its fan's centre, and this photograph prefers the built place (tools/glessner_prairie_front.py; data/comparisons/glessner/prairie-front.json; docs/RESEARCH/glessner-prairie-front-T-2858/).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2858 camera: refitted on the ten first-floor jambs with the corners' heights and the gable foot (the corner x picks are the downspouts, whose standoff no source gives, so they control height only): 1.36 px rms, jambs within 3.6 px, where the old camera put them 20.5 px left. The stacks, withheld, moved from 14.5 to 6.5 px rms; their tops stay within 2 px.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2858 south stack: through the refitted camera its north face still reads 14.6 px left of the photograph (the middle stack 7-8 px, the north within 4 px), a gradient along the roof that the jambs below do not show. Its plan place (W 14.18-21.8, S 57.2-61.2) is not read here.",
+      "status": "open"
+    },
+    {
+      "what": "T-2857 roof and stacks: the three stack tops are within 2 px of the photograph (south +2, middle -1, north +1 px) and the ridge within 4-8 px; the main roof and stack heights agree.",
+      "status": "fixed"
+    },
+    {
+      "what": "Stone/course relief: the photograph's rock-faced courses alternate deep and shallow more strongly than the render's.",
       "status": "open"
     },
     {
       "what": "The early streetscape and neighbor geometry are separate context work; monochrome/sepia reproduction does not establish exact1904 RGB, and the courtyard is not visible.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2848 light: hazy, shadowless light, the Prairie front a little brighter than the 18th Street flank; the render now uses the overcast sky with its soft key from the east (camera solve.light), replacing a sun carried over with the camera and no reading behind it.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

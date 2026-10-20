@@ -13,8 +13,8 @@ from exclusion_scope import ruled_for
 ROOT = Path(__file__).resolve().parents[1]
 USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # The raw index.json ceiling (bytes). 120 000 from T-1248; 128 000 from T-1728; 136 000 from
-# T-2334; 144 000 from T-2473; 152 000 from T-2498 — see outputs().
-INDEX_BUDGET = 152_000
+# T-2334; 144 000 from T-2473; 152 000 from T-2498; 160 000 from T-2747 — see outputs().
+INDEX_BUDGET = 160_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}
@@ -285,6 +285,81 @@ class Compiler:
             if card.get('citations') and row['id'] not in reached:
                 raise ValueError(f"cited current structure has no edge: {row['id']}")
 
+    # ---- T-2825: the source's detail view said for a reader -------------------------------
+    # The owner, 2026-10-18: no internal ticket number or record id in anything a person
+    # opens, in any mode. Sources › a source printed each use by its record id in words
+    # ("recon 1835 west 002"), its claim path and its raw locator (a JSON object, a ticket, a
+    # file path). The ids and locators stay as they are, for the links and the issue groups;
+    # beside them each file now carries the thing's NAME (`names`, by entity id) and each
+    # located edge a `locator_text`, both through the rule every research surface shares
+    # (tools/readable_text.py), and the source's own prose is said the same way.
+    def _reader(self):
+        if getattr(self, '_names', None) is None:
+            import readable_text
+            self._rt = readable_text
+            self._names = readable_text.Names(self.root)
+            libs = read(self.data / 'liberties.json', {}) or {}
+            self._extra = {l['id']: l.get('title') for l in libs.get('liberties', []) if l.get('title')}
+            for path in sorted((self.data / 'jaunts').glob('*.json')):
+                doc = read(path, {}) or {}
+                if isinstance(doc, dict) and doc.get('id') and doc.get('title'):
+                    self._extra[doc['id']] = doc['title']
+        return self._rt, self._names
+
+    def say(self, text):
+        rt, names = self._reader()
+        return rt.rewrite(text, names)[0] if isinstance(text, str) else text
+
+    def entity_name(self, kind, eid):
+        rt, names = self._reader()
+        hit = self._extra.get(eid) or names.get(eid)
+        if hit:
+            return hit
+        if kind == 'terrain':
+            return rt.words(str(eid).split('.')[-1])
+        return rt.words(str(eid))
+
+    def locator_text(self, loc):
+        if isinstance(loc, str):
+            return self.say(loc)
+        if not isinstance(loc, dict):
+            return None
+        if loc.get('publication') or loc.get('issue_date'):
+            parts = [str(loc.get('publication') or ''), str(loc.get('issue_date') or '')]
+            if loc.get('page') is not None:
+                parts.append(f"p. {loc['page']}")
+            if loc.get('column') is not None:
+                parts.append(f"col. {loc['column']}")
+            return self.say(', '.join(p for p in parts if p))
+        rt, names = self._reader()
+        bits = []
+        for key, value in loc.items():
+            if key in ('issue_id', 'claim_id') or value in (None, '', [], {}):
+                continue
+            if isinstance(value, str):
+                bits.append(self._extra.get(value) or names.get(value) or self.say(rt.words(value) if ' ' not in value else value))
+            elif isinstance(value, (int, float)):
+                bits.append(f"{rt.words(key)} {value}")
+        return ' · '.join(b for b in bits if b) or None
+
+    def reader_detail(self, citation, uses, edges):
+        source = json.loads(json.dumps(citation))
+        for key in ('citation', 'what_it_supplies', 'what_it_does_not_supply'):
+            value = source.get(key)
+            if isinstance(value, list):
+                source[key] = [self.say(v) for v in value]
+            elif isinstance(value, str):
+                source[key] = self.say(value)
+        out, named = [], {}
+        for edge in edges:
+            e = dict(edge)
+            text = self.locator_text(edge.get('locator'))
+            if text:
+                e['locator_text'] = text
+            out.append(e)
+            named.setdefault(edge['entity_id'], self.entity_name(edge['entity_type'], edge['entity_id']))
+        return {'source': source, 'uses': uses, 'edges': out, 'names': dict(sorted(named.items()))}
+
     def outputs(self):
         outputs, index = {}, []
         for sid, source in sorted(self.sources.items()):
@@ -306,10 +381,10 @@ class Compiler:
             counts['grades'] = [[sum(v == i for v in group.values()) for i in range(3)]
                                 for group in (claims, entities)]
             # Full, unabridged citation/link/limits live beside the edges, fetched on demand.
-            index.append(dict(source_id=sid, citation=citation['citation'], type=source.get('type'),
+            index.append(dict(source_id=sid, citation=self.say(citation['citation']), type=source.get('type'),
                               date=source.get('date'), tier=source.get('tier'), use=uses[0] if uses else 'unused',
                               counts=counts, has_archive_link=bool(source.get('archived_url'))))
-            outputs[f'{sid}.json'] = packed({'source': citation, 'uses': uses, 'edges': edges})
+            outputs[f'{sid}.json'] = packed(self.reader_detail(citation, uses, edges))
         outputs['index.json'] = packed({'schema_version': 1, 'scene': '1835', 'sources': index})
         size = len(outputs['index.json'].encode())
         # THE BUDGET WAS 120 000 BYTES (T-1248) AND IS 128 000 SINCE 2026-09-29 (T-1728). A
@@ -334,6 +409,11 @@ class Compiler:
         # card's Images tab need, took it to 144 165 bytes with every citation kept whole. Same
         # bargain: about twenty sources of room, the gzipped first open still held at 120 KB by
         # measure_sources.mjs; this is the raw file only.
+        # 160 000 SINCE 2026-10-17 (T-2747): the owner's 1904 walking jaunts cite the district's
+        # five interpretive markers and the house museum's history of the street, six source
+        # records the walks' claims need, which took it to 152 941 bytes with every citation kept
+        # whole. Same bargain: about twenty sources of room, the gzipped first open still held at
+        # 120 KB by measure_sources.mjs.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs

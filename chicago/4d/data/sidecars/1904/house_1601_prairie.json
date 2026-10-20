@@ -9,6 +9,11 @@
   "asset": "gltf/house_1601_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -20,14 +25,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1425.786,
-    "local_n": -2940.289,
-    "rotation_deg": 179.615,
+    "local_e": 1426.915,
+    "local_n": -2938.895,
+    "rotation_deg": 179.601,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 2.000, v -5.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.615 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 2.000, v -5.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.615 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1601 S. Prairie Avenue, parcel prairie_1601 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -415,5 +420,6 @@
   ],
   "research_note": "T-2398 (piece 1 of T-1866) refines the district draft (T-2335) in place under the same id: the whole house is rebuilt from the K16 timber kit — clapboard walls built board by board on a water table, cased two-over-two sash and a panelled door, a bracketed boxed eave, a 40-degree gable standing on that eave as a closed pediment front and rear with an attic sash in each, one brick stack, a small kit entrance porch with its steps — instead of the draft builder. What is read: the 1911 Sanborn sheet 20 (storeys '2', frame, use 'D', the traced main body and the two-storey wing on its 16th Street side) through the T-1840 census and the T-2328 trace. Everything else is reconstructed and recorded as L-k16-1601-frame-house-2398. No photograph, plate or description of 1601 has been read; a later reading that finds one replaces the kit's choices here.",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1601 Prairie Avenue — frame dwelling at the 16th Street corner"
 }

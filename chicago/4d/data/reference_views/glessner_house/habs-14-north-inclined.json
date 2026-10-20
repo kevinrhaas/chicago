@@ -7,35 +7,41 @@
     1269
   ],
   "principal_px": [
-    694.8800048237268,
-    405.0185589778554
+    862.19,
+    362.43
   ],
-  "focal_px": 1870.5479248020251,
+  "focal_px": 1475.661,
   "eye": [
-    47.829106456489924,
-    51.83549800397528,
-    1.8
+    45.6838,
+    45.4461,
+    2.5
   ],
   "yaw_deg": 179.41968657282453,
   "basis_right_up_forward": [
     [
-      -0.9996672286136042,
-      -0.0015072700689051904,
-      0.025751896492013187
+      -0.9998739422,
+      0.0145154087,
+      0.0064344918
     ],
     [
-      0.0239412206913869,
-      0.31748545920603705,
-      0.9479608647747744
+      0.0116019513,
+      0.3912706389,
+      0.9202025222
     ],
     [
-      0.009604685721161639,
-      -0.9482619423606914,
-      0.31734372324425536
+      -0.010839488,
+      -0.9201611761,
+      0.3913897232
     ]
   ],
+  "sky": "sun",
+  "sun_uvy": [
+    -0.262,
+    -0.72,
+    0.643
+  ],
   "solve": {
-    "method": "Inclined pinhole fit to north window apertures, north-gable stack crest and great chimney crest. Eye1.8m reconstructed; focal length, principal point, yaw, pitch and roll fitted. Tower tip excluded. Upper-window z20-25.25ft reconciled in independent HABS01; lower course interval9.25-14.4583ft retained. These model-based controls do not constitute an independent survey.",
+    "method": "T-2850: re-solved by tools/glessner_north_pairs.py with the north gable pairs' sill and head left free (solved, principal point free). Fixed controls: 8; pair corners at plan W: 16. The pairs read sill 19.61 ft, head 24.45 ft.",
     "aperture_controls_W_z_px": [
       [
         7.2,
@@ -206,8 +212,8 @@
         ]
       ]
     ],
-    "coordinate_rms_px": 5.681231181974966,
-    "limitations": "Hand-picked aperture edges partly obscured by poles; plan spacings +/-0.4ft. This camera is a photographic fit, not a surveyed exposure station. North stack and great chimney are model-derived depth/height controls. The free principal point is weakly constrained; the tower residual remains about34px. Not a whole-view exact match.",
+    "coordinate_rms_px": 8.77,
+    "limitations": "Hand-picked aperture edges partly obscured by poles; plan spacings +/-0.4ft. This camera is a photographic fit, not a surveyed exposure station. The north stack crest and the tower depth control are model-derived off-plane controls (residuals 15.33 and 14.68 px); the east eave reads 23.68 px. The free principal point is weakly constrained. Not a whole-view exact match.",
     "depth_control_WS_z_px": [
       40,
       18.5,
@@ -216,6 +222,10 @@
         1258,
         372
       ]
-    ]
+    ],
+    "light": "T-2848, read off the photograph: the north gable and tower are a silhouette against a bright sky, with glare up and to the right of the gable (south-south-west, behind the house), the poles in front are backlit, and nothing on the north face throws a shadow. So the sun stands behind the building and the face the camera sees is lit only by the sky. Azimuth about 200 degrees is read from the glare; the elevation (40 degrees) is not readable here and is set so the north face falls in shade, which is the reading.",
+    "record": "data/comparisons/glessner/north-pairs.json#habs-14-north-inclined",
+    "max_residual_px": 23.68,
+    "picks_note": "T-2850: aperture_controls_W_z_px are T-2470's picks. Their z column is the height T-2470 assumed (20.0 / 25.25 ft); T-2850's solve uses only each pick's W and row and solves the pair's sill and head."
   }
 }

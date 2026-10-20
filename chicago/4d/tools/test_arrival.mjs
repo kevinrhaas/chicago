@@ -54,6 +54,9 @@ assert.match(index, /id="gate-sub"[^>]*aria-live="polite"/,
   'the phase/arrival line is the gate\'s one live announcement');
 assert.match(index, /id="arrival-card"/, 'the source/status card slot must exist');
 
+assert.match(index, /id="gate-observatory"[^>]*href="\.\.\/"[^>]*hidden/, 'the way back to the Observatory waits, hidden, for a failure');
+assert.match(index, /<details id="gate-details"[^>]*hidden><summary[^>]*>Details for your teacher<\/summary><p id="gate-detail"><\/p><\/details>/,
+  'the failure detail is folded under "Details for your teacher"');
 console.log('ARRIVAL A11Y PASS — year hidden, phase line polite, card slot present');
 
 // T-2610: two lines. The small line names where you are going from first paint (the
@@ -102,15 +105,16 @@ function fixture(reducedMotion = false) {
   const phaseEl = { textContent: '', setAttribute() {} };
   const buttonEl = { disabled: true, dataset: {}, addEventListener(_, fn) { this.click = fn; } };
   const barEl = { setAttribute(_, v) { this.percent = v; }, firstElementChild: { style: {} }, classList: { add() {} } };
+  const detailEl = { textContent: '' }, detailsEl = { hidden: true, open: true }, observatoryEl = { hidden: true };
   const boot = createBoot({ now: () => clock });
   // Fixed phase weights make the controller scenarios independent of device benchmarks.
   for (const p of boot.phases) boot.expected[p.id] = 1;
-  const arrival = createArrival({ boot, phaseEl, buttonEl, barEl, currentYear: 2026, reducedMotion,
+  const arrival = createArrival({ boot, phaseEl, buttonEl, barEl, detailEl, detailsEl, observatoryEl, currentYear: 2026, reducedMotion,
     now: () => clock, requestFrame: fn => { frames.set(++id, fn); return id; },
     cancelFrame: id => frames.delete(id), reload: () => { reloaded = true; } });
   const step = ms => { clock += ms; const pending = [...frames.values()]; frames.clear(); pending.forEach(fn => fn()); };
   const complete = () => { for (const p of boot.phases.filter(p => p.essential)) { boot.start(p.id); boot.end(p.id); } boot.frameRendered(); assert.ok(boot.finish()); };
-  return { boot, arrival, phaseEl, buttonEl, barEl, frames, step, complete, get reloaded() { return reloaded; } };
+  return { boot, arrival, phaseEl, buttonEl, barEl, detailEl, detailsEl, observatoryEl, frames, step, complete, get reloaded() { return reloaded; } };
 }
 const slow = fixture();
 slow.boot.start('scene');
@@ -127,7 +131,9 @@ assert.ok(slow.arrival.state.year >= 1836);
 assert.doesNotMatch(slow.phaseEl.textContent, /arrived/);
 slow.step(100);
 assert.equal(slow.arrival.state.year, 1835);
-assert.equal(slow.buttonEl.disabled, false);
+// T-2613: no Tap to enter — on success #gate-btn is never offered; Home opens instead.
+assert.equal(slow.buttonEl.disabled, true, 'the gate button is not offered on a successful landing');
+assert.notEqual(slow.buttonEl.dataset.arrivalRetry, 'true');
 assert.equal(slow.barEl.percent, '100');
 assert.equal(slow.frames.size, 0, 'no ticker remains after arrival');
 const arrived = slow.phaseEl.textContent;
@@ -157,13 +163,26 @@ const stopped = failed.arrival.state.year;
 failed.step(10000);
 assert.equal(failed.arrival.state.year, stopped);
 assert.ok(stopped >= 1836);
-assert.match(failed.phaseEl.textContent, /ground unavailable/);
-assert.doesNotMatch(failed.phaseEl.textContent, /arrived/);
-assert.equal(failed.buttonEl.textContent, 'Retry');
+// T-2616: the visitor reads where the jump stalled, at the ticker's own year; what
+// failed sits in the details, folded, beside TRY AGAIN and the way home.
+assert.equal(failed.phaseEl.textContent, `The jump stalled somewhere around ${stopped}.`);
+assert.doesNotMatch(failed.phaseEl.textContent, /ground unavailable|arrived/);
+assert.match(failed.detailEl.textContent, /ground unavailable/);
+assert.equal(failed.detailsEl.hidden, false);
+assert.equal(failed.detailsEl.open, false, 'the details start folded');
+assert.equal(failed.observatoryEl.hidden, false, 'the way back to the Observatory shows');
+assert.equal(failed.buttonEl.textContent, 'Try again');
 assert.equal(failed.frames.size, 0);
 failed.buttonEl.click({ preventDefault() {}, stopImmediatePropagation() {} });
 assert.ok(failed.reloaded);
 assert.ok(!failed.boot.finish());
+// A later, more specific report (main.js's catch) replaces the detail, never the stall year;
+// a headline replaces the stall sentence only when the failure is not a stall.
+failed.arrival.fail(new Error('404 Not Found: data/scenes/1835.json'), { message: 'Could not load the scene — 404 Not Found: data/scenes/1835.json' });
+assert.equal(failed.phaseEl.textContent, `The jump stalled somewhere around ${stopped}.`);
+assert.match(failed.detailEl.textContent, /scenes\/1835\.json/);
+failed.arrival.fail(null, { message: 'x', headline: '1880 has not been reconstructed yet.' });
+assert.equal(failed.phaseEl.textContent, '1880 has not been reconstructed yet.');
 console.log('ARRIVAL CONTROLLER PASS — real events, smooth ticks, monotone corrections, instant fast/reduced, optional/essential failure and retry');
 
 
@@ -221,7 +240,8 @@ assert.equal(phaseEl.textContent, essentialLabel,
 
 boot.fail('scene', new Error('essential unavailable'));
 assert.equal(integrated.state.failed, true, 'an essential failure stops arrival');
-assert.equal(buttonEl.textContent, 'Retry');
+assert.equal(buttonEl.textContent, 'Try again');
+assert.match(phaseEl.textContent, /^The jump stalled somewhere around \d{4}\.$/);
 assert.equal(buttonEl.disabled, false);
 
 const main = readFileSync(path.join(here, '../renderers/web/js/main.js'), 'utf8');
@@ -231,3 +251,123 @@ assert.doesNotMatch(main, /gateBtn\.disabled\s*=\s*false[^\n]*Tap to enter/,
   'main.js must not enable entry before the arrival ready/settle path');
 
 console.log('ARRIVAL CONTROLLER PASS — elapsed tick, optional isolation, failure and sole presenter');
+
+
+/* T-2613: the journey and the landing. Every transition once, in order; the device
+ * flashes, turns over to Home at the flip's midpoint, and lands inside 900 ms. */
+{
+  const { createJourney, JOURNEY_STATES } = await import('../renderers/web/js/journey.js');
+  assert.deepEqual(JOURNEY_STATES, ['observatory', 'locking', 'jumping', 'time-stream', 'landing', 'landed',
+    'exploring', 'inspecting', 'on-jaunt', 'touring', 'recall']);
+  const root = { dataset: {} };
+  const j = createJourney({ root });
+  const seen = [];
+  j.on(({ from, to }) => seen.push(`${from}>${to}`));
+  assert.equal(j.state, 'time-stream'); assert.equal(root.dataset.journey, 'time-stream');
+  assert.equal(j.landed(), false, 'landed before landing is refused');
+  assert.equal(j.explore(), false, 'exploring before landing is refused');
+  assert.ok(j.land()); assert.ok(j.land(), 'the same state again is a no-op');
+  assert.ok(j.landed()); assert.ok(j.go('on-jaunt')); assert.ok(j.explore()); assert.ok(j.go('inspecting'));
+  assert.ok(j.explore()); assert.equal(j.go('landing'), false, 'no landing twice');
+  assert.ok(j.recall()); assert.equal(j.explore(), false, 'nothing after recall');
+  assert.deepEqual(seen, ['time-stream>landing', 'landing>landed', 'landed>on-jaunt', 'on-jaunt>exploring',
+    'exploring>inspecting', 'inspecting>exploring', 'exploring>recall']);
+  assert.equal(root.dataset.journey, 'recall');
+  assert.throws(() => j.go('nowhere'));
+
+  for (const reducedMotion of [false, true]) {
+    let clock = 0;
+    const timers = [];
+    const wait = (fn, ms) => timers.push({ at: clock + ms, fn });
+    const run = () => { timers.sort((a, b) => a.at - b.at); const t = timers.shift(); clock = t.at; t.fn(); };
+    const journey = createJourney({ root: null });
+    const states = []; journey.on(({ to }) => states.push(to));
+    const deviceEl = { dataset: {} }, destinationEl = { textContent: 'Destination 1904 · Prairie Ave' };
+    const announceEl = { textContent: '' };
+    let welcomedAt = null, buzz = 0;
+    const steps = [];
+    const boot = createBoot({ now: () => clock });
+    for (const p of boot.phases) boot.expected[p.id] = 1;
+    createArrival({ boot, journey, deviceEl, destinationEl, announceEl, wait, targetYear: 1904,
+      targetDate: () => '1904-07-01', currentYear: 2026, reducedMotion, now: () => clock, requestFrame: null,
+      vibrate: () => { buzz++; }, onWelcome: () => { welcomedAt = clock; steps.push(`home@${deviceEl.dataset.landing}`); } });
+    for (const p of boot.phases.filter(p => p.essential)) { boot.start(p.id); boot.end(p.id); }
+    boot.frameRendered(); assert.ok(boot.finish());
+    const readyAt = clock;
+    assert.equal(destinationEl.textContent, 'Arrived · 1904.07.01');
+    assert.equal(announceEl.textContent, 'Arrived: Prairie Avenue, 1 July 1904');
+    assert.equal(buzz, 1, 'the last digit lands with one buzz');
+    steps.push(deviceEl.dataset.landing);
+    while (timers.length) { run(); steps.push(deviceEl.dataset.landing ?? 'done'); }
+    assert.deepEqual(states, ['landing', 'landed']);
+    assert.deepEqual(steps, reducedMotion
+      ? ['fade-out', 'home@fade-out', 'fade-in', 'done']
+      : ['flash', 'flip-out', 'home@flip-out', 'flip-in', 'done']);
+    assert.ok(welcomedAt - readyAt <= 900, `Home takes taps ${welcomedAt - readyAt} ms after ready`);
+    assert.equal(clock - readyAt, reducedMotion ? 240 : 700, 'flash 180 ms + turn 520 ms (crossfade 240 ms)');
+  }
+  // The pieces the landing writes to are in the page, and the gate button is retry-only.
+  assert.match(index, /id="arrival-announce"[^>]*role="status"[^>]*aria-live="polite"/);
+  assert.match(index, /id="home-roam"[^>]*><strong>Free roam<\/strong>/);
+  assert.match(index, /id="gate-btn"[^>]*>Try again</);
+  assert.doesNotMatch(index, /Tap to enter/);
+}
+console.log('JOURNEY PASS — every transition once and in order; landing flash, flip to Home, inside 900 ms; reduced-motion crossfade');
+
+/* T-2614 (§14 "Gesture gating without a gate"): audio waits for the first trusted tap
+ * after landing on a Home choice, the scene or a Navigator control; the CLICK TO ENGAGE
+ * LOOK tag shows on the desktop backend only, in the town, until the pointer first locks. */
+{
+  const { createGestureGate, lookTagVisible, GESTURE_EVENTS } = await import('../renderers/web/js/gesture-gate.js');
+  const { createJourney } = await import('../renderers/web/js/journey.js');
+  const made = [];
+  class FakeContext {
+    constructor() { this.state = 'suspended'; this.played = 0; this.resumes = 0; this.destination = {}; made.push(this); }
+    createBuffer() { return {}; }
+    createBufferSource() { const ctx = this; return { connect() {}, start() { ctx.played++; } }; }
+    resume() { this.resumes++; this.state = 'running'; return Promise.resolve(); }
+  }
+  const listeners = {};
+  const target = { addEventListener(type, fn) { (listeners[type] ??= []).push(fn); }, removeEventListener(type) { delete listeners[type]; } };
+  const fire = (type, el, { isTrusted = true, key } = {}) => { for (const fn of listeners[type] ?? []) fn({ type, isTrusted, key, target: el }); };
+  // An element stand-in: closest() answers for the one place it sits.
+  const at = place => ({ closest: sel => (sel.split(', ').some(s => s.startsWith(place)) ? {} : null) });
+  const home = at('#welcome'), scene = at('#view'), navigator = at('#navigator'), elsewhere = at('#gate-observatory');
+  const journey = createJourney({ root: null });
+  const tagEl = { hidden: true };
+  let firsts = 0;
+  const gate = createGestureGate({ target, journey, AudioContext: FakeContext, tagEl, onGesture: () => firsts++ });
+  assert.deepEqual(Object.keys(listeners).sort(), [...GESTURE_EVENTS].sort(), 'the gate hears every activating event');
+  // In the time-stream nothing is a gesture yet: no context is even made.
+  fire('click', home); fire('touchend', scene);
+  assert.equal(gate.audio, null); assert.equal(made.length, 0);
+  journey.land(); journey.landed();
+  // A synthetic click, a tap on something that is not Home/scene/Navigator, a stray key: none count.
+  fire('click', home, { isTrusted: false }); fire('click', elsewhere); fire('keydown', home, { key: 'w' });
+  assert.equal(gate.audio, null, 'no AudioContext before a real gesture on Home, the scene or the Navigator');
+  // The first tap on a Home choice (iOS: touchend) makes and resumes the context.
+  fire('touchend', home);
+  assert.equal(made.length, 1); assert.equal(gate.audio.state, 'running'); assert.equal(made[0].played, 1, 'iOS unlock: one silent sample');
+  assert.equal(firsts, 1); assert.ok(gate.gestured);
+  // A context iOS suspends again is resumed by the next qualifying tap, and never remade.
+  gate.audio.state = 'interrupted'; fire('pointerup', scene);
+  assert.equal(gate.audio.state, 'running'); assert.equal(made.length, 1); assert.equal(firsts, 1);
+  fire('keydown', navigator, { key: 'Enter' }); assert.equal(made[0].resumes, 2, 'a running context is not resumed again');
+  // The look tag: desktop, in the town, until first lock — and never on touch.
+  assert.equal(lookTagVisible({ inWorld: true, backend: 'touch' }), false);
+  assert.equal(lookTagVisible({ inWorld: false, backend: 'pointerlock' }), false);
+  gate.setLook({ backend: 'pointerlock' }); assert.equal(tagEl.hidden, true, 'not on Home');
+  gate.setLook({ inWorld: true }); assert.equal(tagEl.hidden, false, 'CLICK TO ENGAGE LOOK in the town');
+  gate.setLook({ backend: 'touch' }); assert.equal(tagEl.hidden, true, 'a touch backend never shows it');
+  gate.setLook({ backend: 'pointerlock' }); assert.equal(tagEl.hidden, false);
+  gate.setLook({ locked: true }); assert.equal(tagEl.hidden, true, 'gone once the pointer locks');
+  gate.setLook({ locked: false }); assert.equal(tagEl.hidden, true, 'and it does not come back after Esc');
+  assert.ok(gate.engaged);
+  // No audio API at all (an old browser) is not an error.
+  const silent = createGestureGate({ target: null, journey: null, AudioContext: null });
+  assert.equal(silent.unlockAudio(), null);
+  // The page carries the tag, and main.js makes no AudioContext of its own any more.
+  assert.match(index, /id="look-tag"[^>]*hidden>Click to engage look</);
+  assert.doesNotMatch(main, /new Ctx\(\)|new (window\.)?(webkit)?AudioContext/, 'main.js must not make audio outside the gesture gate');
+}
+console.log('GESTURE GATE PASS — audio only on the first real tap after landing; look tag desktop-only until lock');

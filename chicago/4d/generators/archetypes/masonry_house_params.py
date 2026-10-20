@@ -439,6 +439,30 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         a1 = math.atan2(fr.y(bow["to"][1]) - cy, fr.x(bow["to"][0]) - cx)
         hb = val("hall_bow_height") or {}
         roof = val("hall_bow_roof") or {}
+        lo_a, hi_a = sorted((a0, a1))
+        if hi_a - lo_a > math.pi:
+            lo_a, hi_a = hi_a, lo_a + 2 * math.pi
+
+        def on_arc(s):
+            # T-2925: an elevation draws a light on the bow as its extent along S, so
+            # a reading [S0, S1] is carried back onto the arc it was projected from.
+            t = (fr.y(s) - cy) / (float(bow["r_ft"]) * FT)
+            if abs(t) > 1:
+                raise ParamError(f"hall bow: S {s} lies beyond the bow's radius")
+            for a in (math.asin(t), math.pi - math.asin(t)):
+                for k in (-1, 0, 1):
+                    if lo_a - 1e-6 <= a + 2 * math.pi * k <= hi_a + 1e-6:
+                        return a + 2 * math.pi * k
+            raise ParamError(f"hall bow: S {s} is not on the bow's arc")
+
+        def span(s0, s1):
+            return sorted((round(on_arc(s0), 5), round(on_arc(s1), 5)))
+        light_spans = [[dict(zip(("a0", "a1"), span(*l["S"])), door=bool(l.get("door")))
+                        for l in row] for row in hb.get("lights_S", [])]
+        if light_spans and len(light_spans) != len(hb.get("light_rows", [])):
+            raise ParamError("hall bow: lights_S needs one row of lights per light row")
+        courses = [dict(zip(("a0", "a1"), span(*c["S"])), z0=fr.zval(c["z"][0]), z1=fr.zval(c["z"][1]))
+                   for c in hb.get("stone_courses", [])]
         p.bows.append({
             "name": "hall_bow", "cx": cx, "cy": cy,
             "r": round(float(bow["r_ft"]) * FT, 4),
@@ -446,7 +470,13 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             "wall_top_z": fr.zval(hb.get("wall_top", 0.0)),
             "light_rows": [[fr.zval(r[0]), fr.zval(r[1])] for r in hb.get("light_rows", [])],
             "lights_per_row": int(hb.get("lights_per_row", 0)),
+            "light_spans": light_spans,
+            "courses": courses,
             "roof_rise_m": round(float(roof.get("rise_ft", 4.0)) * FT, 4),
+            # T-2861: the hood's eave radius. Sheet 4 ends the copper at the bow's wall
+            # face; absent, the old 0.20 m overhang stands.
+            "eave_r": round(float(bow["r_ft"]) * FT + (float(roof["eave_overhang_ft"]) * FT
+                            if "eave_overhang_ft" in roof else .20), 4),
             "roof_colour": roof.get("colour", "copper"),
             "conf_wall": cf("hall_bow", "hall_bow_height"),
             "conf_roof": cf("hall_bow_roof"),
@@ -488,6 +518,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "light_margin_fraction": dm.get("light_margin_fraction", .22),
                 "side_overhang_m": dm.get("side_overhang_m", .26),
                 "side_apron_inset_m": dm.get("side_apron_inset_m", .18),
+                # T-2859: HABS sheet 4's hip line, fascia and frame, read at its grain.
+                "hip_cover_radius_m": dm.get("hip_cover_radius_m", .047),
+                "fascia_m": dm.get("fascia_m", .075),
+                "frame_stock_m": dm.get("frame_stock_m", .055),
                 "conf": cf("dormers", "dormer_depth"),
             })
 
@@ -512,6 +546,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "tiers": int(v["tiers"]), "per_face": int(v["per_face"]),
                 "opening_width_m": float(v["opening_width_ft"]) * FT,
                 "perch_projection_m": float(v["perch_projection_ft"]) * FT}
+            if "ledge_ft" in v:
+                p.turrets[-1]["vent"]["ledge_m"] = float(v["ledge_ft"]) * FT
+            if t.get("body_material"):
+                p.turrets[-1]["body_material"] = t["body_material"]
             p.turrets[-1]["eave"] = {
                 "overhang_m": float(e["overhang_ft"]) * FT,
                 "drop_m": float(e["drop_ft"]) * FT,
@@ -595,11 +633,26 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 if it.get("sash"):
                     # T-2212: a sash pattern read off a photograph (two_over_two).
                     op["sash"] = it["sash"]
+                if it.get("courses"):
+                    # T-2926: the light stands in continuous lintel and sill courses
+                    # (their own `band` items), so it lays no stones of its own.
+                    op["courses"] = True
+                if it.get("corbels"):
+                    # T-2926: a passage mouth narrowed by two stone corbels under its lintel.
+                    cb = it["corbels"]
+                    op["corbels"] = {"z0": fr.z(cb["z"][0], datum), "z1": fr.z(cb["z"][1], datum),
+                                     "inset": round(float(cb["inset_ft"]) * FT, 4),
+                                     "round": round(float(cb["round_ft"]) * FT, 4),
+                                     "depth": round(float(cb["depth_ft"]) * FT, 4)}
                 if kind in ("arch", "fan"):
                     op["spring_z"] = fr.z(it["spring"], datum)
                     op["r_out"] = round(float(it.get("ring_ft", 0.0)) * FT, 4)
                     op["r_in"] = round(float(it.get("inner_ft", 0.0)) * FT, 4)
                     op["voussoirs"] = int(it.get("voussoirs", 0))
+                    if it.get("stilt_ft"):
+                        # T-2853: a stilted arch, its centre this far above the
+                        # spring line and its rings run down plumb to it.
+                        op["stilt"] = round(float(it["stilt_ft"]) * FT, 4)
                     if it.get("transom"):
                         # T-2211: a stone transom dividing a round head from the sash below.
                         op["transom_z"] = (fr.z(it["transom"][0], datum), fr.z(it["transom"][1], datum))
@@ -718,6 +771,9 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         p.detail["roof_edges"] = raw.get("roof_edges")
         p.detail["court_dormer_union"] = raw.get("court_dormer_union", False)
         p.detail["court_finial"] = raw.get("court_finial")
+        nc = raw.get("north_pair_colonnette")
+        p.detail["north_pair_colonnette"] = ({"capital_m": nc["capital_ft"] * FT, "base_m": nc["base_ft"] * FT}
+                                             if nc else None)
         p.detail["north_tower_roof"] = dict(raw["north_tower_roof"]) if raw.get("north_tower_roof") else None
         if p.detail["north_tower_roof"] and 'connector_ridge_ft' in p.detail["north_tower_roof"]:
             p.detail["north_tower_roof"]['connector_ridge_z']=fr.zval(p.detail["north_tower_roof"]['connector_ridge_ft'])
@@ -911,6 +967,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 for w in tw.get("slits", []) + tw.get("lantern", [])],
                 "bands": [[fr.z(v) for v in tw[key]] for key in
                           ("lantern_sill_band_z", "lantern_lintel_band_z") if key in tw]}
+            if tw.get("slit_stones_ft"):
+                st = tw["slit_stones_ft"]
+                p.detail["tower_stair_windows"]["slit_stones_m"] = tuple(
+                    round(float(st[k]) * FT, 4) for k in ("head", "sill", "side"))
         bt = raw.get("bow_terrace")
         if bt:
             p.detail["bow_terrace"] = {"cx": fr.x(bt["centre_W"]), "cy": fr.y(bt["centre_S"]),
@@ -929,7 +989,8 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                     window_distance=[[(v-bt["centre_S"])*FT for v in edge] for edge in bt["window_S"]],
                     newel_xy=fr.xy(bt["newel_WS"]), newel_r=bt["newel_radius_ft"]*FT,
                     newel_top=fr.zval(bt["newel_top_z"]), newel_crown=bt["newel_crown_ft"]*FT,
-                    stair_boundaries=[[fr.xy(q) for q in edge] for edge in bt["stair_boundaries_WS"]])
+                    stair_boundaries=[[fr.xy(q) for q in edge] for edge in bt["stair_boundaries_WS"]],
+                    low_tread_tops=[fr.zval(v) for v in bt.get("low_tread_tops_z", [])])
         p.detail["dining_roof_junction"] = raw.get("dining_roof_junction", False)
         p.detail["dining_crested_connection"] = raw.get("dining_crested_connection", False)
         p.detail["continuous_copper_corner"] = raw.get("continuous_copper_corner", False)
@@ -979,6 +1040,11 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 stones.append({"axis": "y", "sign": 1, "at": fr.y(face),
                     "u0": a, "u1": b, "z0": fr.z(en[zkey][0]), "z1": fr.z(en[zkey][1]),
                     "text": en[tkey], "fill": en.get(fkey), "incised": bool(en.get("incised"))})
+                # T-2869: a stone may carry a monogram drawn as strokes ("ad_device").
+                dev = en.get(tkey.replace("_text", "_device"))
+                if dev:
+                    stones[-1].update({"device": {k: dev[k] for k in ("stems_u", "bar_z", "stroke")},
+                                       "height_fill": dev["height_fill"]})
             p.detail["date_stones"] = stones
             p.detail["date_crosses"] = [{"axis": "y", "sign": 1, "at": fr.y(face),
                 "u": fr.x(c["W"]), "z": fr.z(c["z"]), "size": en["cross_ft"] * FT,
@@ -989,6 +1055,11 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             p.detail["pigeon_ledge"] = {"axis": "y", "sign": 1, "at": fr.y(0),
                 "u0": a, "u1": b, "z0": fr.z(sn["pigeon_ledge_z"][0]),
                 "z1": fr.z(sn["pigeon_ledge_z"][1]), "projection_m": sn["projection_ft"] * FT}
+            if sn.get("corbels_W"):
+                p.detail["pigeon_ledge"]["corbels"] = [sorted(fr.x(w) for w in c)
+                                                       for c in sn["corbels_W"]]
+                p.detail["pigeon_ledge"]["corbel_drop_m"] = sn["corbel_drop_ft"] * FT
+                p.detail["pigeon_ledge"]["corbel_projection_m"] = sn["corbel_projection_ft"] * FT
         p.detail["joinery"] = {k: (float(v)*FT if k.endswith("_ft") else v)
                                for k,v in raw.get("joinery", {}).items()}
         if raw.get("bow_garden_window_z") and not bt:

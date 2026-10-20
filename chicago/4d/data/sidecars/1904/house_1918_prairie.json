@@ -9,6 +9,11 @@
   "asset": "gltf/house_1918_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -46,11 +51,11 @@
       ],
       [
         16.5,
-        14.75
+        17.0
       ],
       [
         0.0,
-        14.75
+        17.0
       ]
     ],
     "confidence": "inferred",
@@ -88,7 +93,7 @@
               0.0,
               0.0,
               16.5,
-              14.75
+              17.0
             ],
             "from": "s28fp-1918-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill"
           },
@@ -107,24 +112,11 @@
           },
           {
             "id": "r3",
-            "role": "wing",
-            "storeys": 2,
-            "roof": "flat",
-            "rect": [
-              1.0,
-              14.75,
-              7.0,
-              17.0
-            ],
-            "from": "s28fp-1918-b1 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 85% of its fill"
-          },
-          {
-            "id": "r4",
             "role": "porch",
             "storeys": 1,
             "roof": "flat",
             "rect": [
-              17.0,
+              16.5,
               1.5,
               18.25,
               4.25
@@ -142,7 +134,7 @@
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1918-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s28fp-1918-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill; s28fp-1918-b1 p1 (main, brick), rectangle 3 of that part; the part's rectangles cover 85% of its fill; s28fp-1918-b1 p2 (porch, frame), rectangle 1 of that part; the part's rectangles cover 66% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s28fp-1918-b1 p1 (main, brick), rectangle 1 of that part; the part's rectangles cover 85% of its fill; s28fp-1918-b1 p1 (main, brick), rectangle 2 of that part; the part's rectangles cover 85% of its fill; s28fp-1918-b1 p2 (porch, frame), rectangle 1 of that part; the part's rectangles cover 66% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {
@@ -172,7 +164,7 @@
             "cap_m": 4.5,
             "at": [
               15.87,
-              14.12
+              16.37
             ]
           }
         ],
@@ -242,5 +234,6 @@
   ],
   "research_note": "A DISTRICT DRAFT (T-2329, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1901, T-1902 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1918-b1), the T-1841 census (s28-1918-front, s28-1936-wing) and the T-1837 register row frontage-28-047 (Identity conflict beside Allerton); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-west-2329).",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1916 (1930) Prairie Avenue — Identity conflict beside Allerton"
 }

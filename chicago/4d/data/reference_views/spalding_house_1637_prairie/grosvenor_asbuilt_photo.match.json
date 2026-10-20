@@ -1,0 +1,107 @@
+{
+  "structure_id": "spalding_house_1637_prairie",
+  "view": "grosvenor_asbuilt_photo",
+  "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
+  "glb_sha256": "c083d213d144456fde6a6ced72daa96ce2b96abcda733c3585b6ea0348d3a12a",
+  "camera_sha256": "856a15ff71693396f8e7a7b8f4b66bfb786f6d3fff3e7bae180a916a561f4a8b",
+  "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/grosvenor_asbuilt_photo-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "massing at the south-west corner: a brick block two tall storeys over a raised basement, the front to the left and the south flank running back to the right; the corner's arris behind the tree's trunk, the lit south wall beginning at x 121 px",
+      "status": "fixed",
+      "how": "T-2441's K01 body on the 1911 sheet's plan, the wing's front at u 12.0: through this camera the corner lands at x 121 px, and the front's band under the second-storey window at y 457 px against the photograph's 460, which no line of the solve was fitted to"
+    },
+    {
+      "what": "the front's second-storey window nearest the corner (x 0-40 px, y 280-420), in the column and at the height of the build's wing window (x 0-45, y 290-415)",
+      "status": "fixed",
+      "how": "T-2537's paired sash on the wing, its place from the engraving. The crop and the shade show too little of the c. 1870 sash to say whether the remodel changed it; the engraving's form stands"
+    },
+    {
+      "what": "the front's principal-storey window nearest the corner: a round-headed light (x 0-25 px, its head at about y 520) under the band",
+      "status": "not shown",
+      "how": "replaced by the remodel: the engraving (glessner_blog_1637_spalding_remodel_engraving), drawn after the remodel, draws the wing's principal storey as a French window under a four-light transom over a bowed balcony, and the build carries that (T-2534). The round head is the c. 1870 front's and not 1904's"
+    },
+    {
+      "what": "the south wall blank brick from the corner to the projection (x 121-322 px, about u 12.0 to 3.9-5.2 m), no opening in either storey",
+      "status": "fixed",
+      "how": "the build's south wall carries no opening over that run (form.side_bays are the north flank's), so the render's wall is blank as the photograph's"
+    },
+    {
+      "what": "a pale stone band along the foot of the south wall (y 712-726 px), the wall's water table or a low coping before it; the build's front band (y about 731 px through this camera) returns about 0.5 m round the corner and stops",
+      "status": "fixed",
+      "how": "T-2781: a course on the wall, not a coping: the brick runs on below it in the same plane to the fence and it throws a line of shadow along its underside. Built as K01's side belt (form.side_belts) in the trim limestone, 2.3-2.5 m and 0.05 m proud, along the whole south wall and stopped against the bay and the rear range: through this camera at y 712-725 px from the corner to the bay's base, against the photograph's 712-726. Its foot is the line the camera was fitted to, so this photograph places it in the wall and does not measure its height; at the corner it stands 0.07 m over the wing's string course, a corner no picture shows after the remodel (L-k01-1637-south-flank-2781)"
+    },
+    {
+      "what": "an ornate stone-dressed projection on the south wall from x 322 px (about u 3.9-5.2 m) to past the frame's edge: its front through the principal storey in tall round-arched lights between columns under a bracketed entablature, small round lights in its base (y 690-730 px), and on its top a balcony behind a balustrade (y 355-420 px)",
+      "status": "fixed",
+      "how": "T-2780: the 1911 sheet's canted bay (s20fp-1637-b1, its junctions at x 1427.06 and 1430.61 m in the trace frame, so u 4.34 to 0.79, 0.75 m out on 45-degree cheeks) built on the south wall as a K08 canted bay in dressed stone: a base to 2.95 m with a small round-headed light under the front's principal light, a principal storey to 8.0 m with the front's round-arched light (1.35 m wide, 3.15-5.65 m), a bracketed entablature (consoles 0.6 m under a soffit 0.35 m out and a 0.25 m fascia to 8.25 m) and on its flat top a stone balustrade 0.7 m high round all three faces. Through this camera the bay's west junction lands at x 338 px against the photograph's 322-340, its balustrade's coping at about y 345 against 345, and its entablature at y 385-410 against 385-435. What of it is not yet built is listed below for T-2781. T-2909: the bay stands 0.95 m out on the sheet's junctions and front, where the photograph's cheek and angle column put it (L-k01-1637-bay-plan-2909)"
+    },
+    {
+      "what": "the projection's columns: a column at each corner of the bay and between its lights, from the sill band to the capitals under the entablature (x 350-362 and 395-405 px, y 505-690)",
+      "status": "fixed",
+      "how": "T-2781: engaged stone columns 0.2 m across on the bay (bays[south_flank].columns), at each front angle on its bisector and on each cheek 0.3 m from the wall, from the base's string course at 3.03 m to 6.15 m, each on a square base 0.15 m tall under a square capital 0.2 m tall: through this camera the cheek's column at x 351-362 px and the angle's at x 391-402, against the photograph's 350-362 and 395-405, from y 690 to the capitals at 505-520 against 505-515. The capitals stand plain, as square blocks; their carving is the dress item below. T-2909: on the deeper plan the angle's column lands at x 396-404 against the photograph's 397-407, where the sheet's 0.75 m bay stood it at 387-396; the cheek's is unmoved"
+    },
+    {
+      "what": "the projection's carved dress: the oval lights or medallions in the frieze over the arches (y 470-500), the capitals' band (y 505-515), the consoles' scrolls and the corona's mouldings",
+      "status": "fixed",
+      "how": "T-2908: the bay's dress (bays[south_flank].dress). The capitals are carved as two tiers of scalloped leaves under a 0.06 m abacus, in place of T-2781's square blocks. Over them a mitred architrave runs round the three faces at 6.15-6.3 m. In the frieze, an oval panel 0.38 by 0.42 m, dark inside a moulded ring, is centred at 6.55 m over each light. Under the soffit, four stepped bed-mould courses run from 7.3 to 8.0 m (0.04-0.22 m proud). The corona's cymatium caps the fascia at 8.21-8.3 m, and each corner console has a roll at its foot and head, the scroll. Through this camera the west cheek's oval lands at x 366-384 px, y 473-492, against the photograph's 365-385, 472-495. The capitals' band lands at y 505-520, as the photograph's. The bed mouldings reach down to about y 430, against the photograph's dark zone to 435, where T-2780's plain fascia stopped at 410. The carving is a silhouette at this photograph's grain, not a modelled acanthus. The front's and the east cheek's ovals are by symmetry (L-k01-1637-bay-dress-2908)"
+    },
+    {
+      "what": "the cheeks' lights: a round-arched light in the west cheek between its columns (x 362-398 px, y 515-680) over a small light in its base (y 690-730), and the east cheek's, out of the frame, by symmetry",
+      "status": "fixed",
+      "how": "T-2886: a round-arched light in each cheek between its two columns, 0.65 m along the 1.002 m cheek from the wall, 0.38 m clear from the sill band at 3.15 m to 5.8 m under a 0.05 m band (K06's head band named per window, so the light fits between the shafts), its recess the kit's 0.33 m minimum so it clears the front's; under it a round-headed light 0.3 by 0.55 m from 2.2 m. Through this camera the west cheek's glass lands at x 365-384 px against the photograph's 373-397, its crown at about y 527 against 517-520, and the base light at x 367-382, y 700-730 against 367-383, 693-723. The light stands about 8 px left with the cheek's angle column: the photograph's cheek is longer than the sheet's (the plan item below), so its width and place are the sheet's cheek's and not yet the photograph's (L-k01-1637-cheek-lights-2886). T-2909: on the deeper plan the cheek runs 1.16 m and its light stands 0.79 m along it: its glass lands at x 374-392 px against the photograph's 374-392, and the base light, 0.635 m along under the frieze's oval, at x 367-384 against 367-383. On the steeper cheek the camera file's reconstructed sun (sun_uvy) strikes the cheek at a grazing angle, so the render's cheek reads a shade darker than the print's, which lights cheek and wall alike; the tone is the reconstructed sun's, the cheek's place and its openings are the photograph's"
+    },
+    {
+      "what": "the front's round-arched light stands about 15-20 px left of the photograph's (x 406-436 px against 420-458) and its base light with it; under it the photograph shows a broad roundel (x 411-452, y 688-729), not a small light",
+      "status": "fixed",
+      "how": "T-2909: the bay's plan, which T-2886 found the light's offset to be. Between the same two columns the photograph's west cheek spans about 47 px against the sheet's 37, so the bay is built 0.95 m out on the sheet's junctions and 2.22 m front (cheeks 1.16 m at about 55 degrees). The front then lands at x 405-462 and the photograph's light is on its centre, so the light is centred: its frame lands at x 415-452 against the photograph's 413-453. The roundel is a moulded ring round a mid-grey field (60-100 on the print, the stone about 150, the cheek's base glass 7-30), so a sunk stone panel. Round on the print, it is 1.45 m by about 0.7 m on the foreshortened front, and is built so (an oval with a stone field, 0.08 m proud, centred at 2.6 m): it lands at x 416-453, y 693-729. T-2886's small round-headed light there is retired. The render's ring throws its shadow along its foot and west side only, where the print's dark line runs all the way round; the ring's profile is reconstructed (L-k01-1637-bay-plan-2909)"
+    },
+    {
+      "what": "the window over the bay's open shutters (x 352-375 and 425-445 px)",
+      "status": "fixed",
+      "how": "T-2908: open louvred shutters either side of the window over the bay (bays[south_flank].dress.shutters). Each leaf is 0.7 m wide, from the sill at 8.4 m to 9.68 m, a little under the 9.8 m crown as the photograph's heads stand, slatted on a 0.07 m pitch and painted a reconstructed deep green. T-2909 moved them with the window, 0.55 m east (item below): through this camera the leaves land at x 364-382 and 420-436 px against the photograph's 353-378 and 418-448, their heads at about y 305-310 against 310. Each leaf is about 18 px across against the photograph's 25-30. A leaf wider than half the 1.4 m window could not close over it, so the photograph's leaves are read as standing open off the wall or folded, which a flat leaf here does not model (L-k01-1637-bay-dress-2908, L-k01-1637-bay-plan-2909)"
+    },
+    {
+      "what": "a second-storey window over the projection's balcony (x 350-445 px, y 305-355), round-headed between open shutters, the balcony's door or window",
+      "status": "fixed",
+      "how": "T-2780: a round-headed light cut in the south wall over the bay's balustrade (K08 window_over), 1.4 m wide and 1.4 m tall on a sill at 8.4 m, so its crown stands at 9.8 m: through this camera its arch tops out at about y 300 px against the photograph's 305, between x 845 and 885 of the render (x 361-401) against the photograph's opening at about x 375-425. Its shutters are dress, open below. T-2909: the light stands 0.55 m east of the bay's centre line (window_over.offset_m): the photograph's glass is dark at x 379-418 px between its shutters, where the centred light stood at 370-404; it now lands at 383-419. The bay's junctions and the sheet's width keep the bay where it is, so it is the light that stands off centre"
+    },
+    {
+      "what": "a tall panelled stack with a corbelled cap rising behind the eave (x 245-345 px, its cap's top at y 30): on the south wall's line it stands at about u 6.0, its top about 14.2 m over grade",
+      "status": "fixed",
+      "how": "T-2781: the photograph's ray through the stack's middle (x 295 px) and the engraving's through its drawn stack (x 690) meet in plan at u 6.47, v 13.37, on the south wall's line, so the two pictures show one stack, raised by the remodel past its mansard. Built there on the cornice (chimneys.stacks, u 6.5, v 13.2, 1.2 by 0.75 m, panelled and capped as the north stacks are), and the stack T-2465 had stood over the wing on the engraving's ray alone (u 10.2, v 11.2) retired. Through this camera its shaft rises behind the eave at x 251-321 px against the photograph's 245-345 (the cap's spread to 251-345); its top, at 15.85 m where the engraving draws it, stands over the frame, where the photograph's cap (y 30 px, about 14.2 m) is the stack before the remodel raised it, which this photograph predates as it predates the mansard T-2782 lowered the remodel's cap 0.56 m to 15.29 m under a clay pot on each flue, the engraving's crowns; both stand above this frame's top, so nothing here moves"
+    },
+    {
+      "what": "the cornice: a deep dark band round the eave on the front and the south flank, its top against the sky on the build's slope through this camera (0.19 on the flank, 0.21 on the front)",
+      "status": "fixed",
+      "how": "K10's bracketed cornice on both faces (T-2441, T-2467). Its brackets are too dark here to count, and this photograph cannot measure the eave's height (the camera's solve: the band's height sets it, and the fence hides the ground), so the engraving's storey-line item, open in its own record, stays the place the eave's height is argued (T-2782 argues it there, on the band over the swell bay)"
+    },
+    {
+      "what": "the roof: low and hipped behind the cornice, only a pale sliver of it above the eave",
+      "status": "not shown",
+      "how": "replaced by the remodel: the engraving (glessner_blog_1637_spalding_remodel_engraving), drawn after the remodel, draws a steep slated mansard with dormers on its street and north faces and a level top line at 14.1 m, which the build carries (T-2441, T-2452)"
+    },
+    {
+      "what": "a cast-iron fence of scrolled pickets on a stone curb across the frame's foot (y 750-860 px), before the south flank",
+      "status": "not shown",
+      "how": "replaced for 1904: the engraving (glessner_blog_1637_spalding_remodel_engraving), drawn after the remodel, draws a brick garden wall before the north flank and an iron spear fence before the wing, which the build carries on K11 (T-2447); what stood along the south yard in 1904 neither later picture shows, and the build's fence stops at the lot line"
+    },
+    {
+      "what": "a street tree before the corner, its trunk across x 70-130 px",
+      "status": "not shown",
+      "how": "not the house's: the 1904 street's trees are their own records"
+    },
+    {
+      "what": "the rear range behind the main body and the roof behind the eave",
+      "status": "not shown",
+      "how": "the frame ends at about u 0 (x 460 px), where the 1911 sheet's rear range begins; built on the sheet at the reconstructed tier (L-k01-1637-spalding-remodel-2441)"
+    },
+    {
+      "what": "colour: the photograph is monochrome",
+      "status": "not shown",
+      "how": "the brick and trim colours stay reconstructed"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

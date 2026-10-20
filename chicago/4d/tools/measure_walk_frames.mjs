@@ -4,9 +4,11 @@
  *   node tools/measure_walk_frames.mjs [--only desktop|mobile] [--tiers full,balanced,light]
  *                                      [--moves walk,turn,flight] [--year 1835]
  *                                      [--throttle 4] [--source] [--json f]
- *                                      [--sync] [--verify] [--gate]
+ *                                      [--sync] [--verify] [--gate] [--xray]
+ *                                      [--sward grid|scan|both] [--profile N]
  *   node tools/measure_walk_frames.mjs --live [--only mobile] [--tiers light]
  *                                      [--seconds 12] [--stills] [--json f]
+ *                                      [--gl swiftshader|llvmpipe] [--no-gaze] [--profile N]
  *
  * Every other frame budget in this project is read at a STAND: T-0135's five
  * cameras, T-1975's triangle ceilings, T-1976's light trim. A stand is a still
@@ -46,12 +48,52 @@
  * phone. An iPhone's core is faster than that preset assumes, so 4× is a
  * pessimistic stand-in and is chosen as one; `--throttle 1` reads it bare.
  *
+ * T-2717: each move also prints its `near re-deal` line — the near passes and
+ * each one's main-thread ms, and where the GPU draws the near ring (T-2716), its
+ * deal passes, tile builds and uploads (`flora.nearDraw.stats`) — so the near
+ * ring's share of a moving frame is read on its own (docs/RENDERING.md App. B).
+ * T-2774: and the read-backs its heads and census are reaped from, with the
+ * main thread's ms asking and reaping them.
+ * T-2894: its pass count agrees with the move's near rebuilds. It used to count
+ * a pass only when one landed inside a frame this tool drove (`a.step()`), but
+ * the page's own animation loop goes on ticking while the clock is held — its
+ * `tick()` runs whenever a frame falls due in the gaps this tool yields for the
+ * workers — and it lands passes too, between the driven frames, where nothing
+ * here saw them: T-2774's turn counted 5-7 passes before and 35-39 after, of 59
+ * near rebuilds in every run, so the medians compared different passes. The
+ * line now reads every near pass off flora's own log (`stats.spread.log`: each
+ * pass's number, its main thread ms wherever it was dealt, and how it ended),
+ * prints how many landed in the held loop's frames, and holds passes + the ones
+ * dropped after their ground was dealt to the rebuild count (a disagreement is
+ * printed, and fails the run). The held loop's own `flora.update` calls and ms
+ * are printed with it: they are main-thread time no driven frame's row carries.
+ *
  * T-2106: the moves are driven with the flora rebuild SPREAD over frames, as
  * the animation loop runs it (`setFloraSpread`); `--sync` reads the one-frame
  * pass every rebuild was before, and is the "before" of T-2106's reading.
  * `--verify` checks, after every move, that the pass the move left in flight
  * lands EXACTLY the plants a one-frame pass deals from the same camera: the
  * rebuild was spread, not changed.
+ * T-2695: and that the zone answers the job pool's workers give a spread pass
+ * (jobs/zone-kernel.js) are the page's own finder's, at 20,000 points over the
+ * measured grid and its edge (`flora.checkHeldZones`).
+ * T-2696: and so are the water, floor, verge band and height those workers
+ * answer beside the zones (flora-ground.js), at the same points and as many
+ * again near footprints and street lines, the height to the last bit.
+ *
+ *
+ * T-2606 `--sward`: which of the yards' two sward tests the page's slots ask
+ * while a move is driven (the tier's own rebuild included). `grid`, the
+ * default, is the page as it ships: the 16 m cells T-2696 filed the yards in
+ * (yards.js `swardGrid`). `scan` puts back the full walk over every interior's
+ * box (`suppressesSwardScan`), so `--profile` can read the test's cost before
+ * and after on the same tree. `both` asks the two at EVERY slot the moves ask,
+ * hands the page the grid's answer, and fails the run if any slot is answered
+ * differently — where `--verify`'s 20,000 points are a sample over the boxes.
+ * It doubles the test's cost, so its frame times are not a reading.
+ * Readings: docs/measurements/t-2606-sward-test-mobile.json (the scan 14.9 and
+ * 18.3 s of a walk and turn's profile at 4x/390x780, the grid 0.13 and 0.18 s;
+ * 2,215,145 slots asked over every tier and move, 0 answered differently).
  *
  * Defaults to the PUBLISHED mirror, as every renderer measurement here does.
  * `--gate` holds the result: `FLORA_MOVE_CEILING_MS` and `FLORA_MOVE_P95_MS`
@@ -80,6 +122,43 @@
  * T-2592 — the loop's own still frames put the ratio back at the ceiling with a
  * shadow every frame, and the held frame captured under Adaptive is the same
  * signature as the one captured under Fixed.
+ *
+ * ## `--gl llvmpipe`: a software stand-in weighed, and rejected (T-2721)
+ *
+ * T-2592 asked for the governor's moving reading and found this runner's
+ * SwiftShader frames seconds apart. Mesa's llvmpipe is the other software
+ * rasteriser here (`--gl llvmpipe` = ANGLE on EGL; every reading now prints and
+ * records the rasteriser that drew it), multithreaded and usually the faster,
+ * so it was read as a stand-in before anything was read with it
+ * (docs/measurements/t-2721-live-llvmpipe-mobile*.json, phone profile, light):
+ *
+ *   - A live frame comes about every 1.0 to 1.5 s, and still every 0.9 to
+ *     1.3 s with the gaze target's pick held off (`--no-gaze`). The governor
+ *     acts between 18 and 38 ms and reads any interval over 250 ms as a gap, so
+ *     every frame here is a gap: it made no decision in any of the twelve
+ *     readings (ratio held at 1.00), and whatever Adaptive against Fixed shows
+ *     is noise at 8 to 14 frames a move (sd and p95 "fell" on one move of three
+ *     with the pick on, two with it off). Rejected: the reading needs hardware
+ *     whose frame costs tens of milliseconds, which is T-2722.
+ *   - `--profile` over the live moves put 63 s of 72 in `readPixels`, called
+ *     from gpu-pick.js through target.js's look: the gaze target's one-pixel
+ *     pick waits for the GPU to finish the frame before it, on the main thread,
+ *     every 500 ms of movement. That is the runner's multi-second frame, and on
+ *     any device a stall the governor cannot remove (T-2723). T-2723 reads that
+ *     pick back behind a fence instead (gpu-pick.js `gpuPickAsync`): on the
+ *     desktop profile `readPixels` went from 41 s of the moves to none, and the
+ *     frame interval did not move — the software draw is the floor here.
+ *   - The pick's own `renderer.render` calls into its 1x1 target were counted
+ *     as frames until this: only a draw to the canvas is one now, and the rest
+ *     are reported as `offscreen`.
+ *
+ * ## The same reading on a phone (T-2732)
+ *
+ * The owner chose to take T-2722's reading on his own phone (T-2733). The page
+ * carries it as Settings → Performance → Read frame pacing on the dev preview
+ * (or with `?pacing=read`): `renderers/web/js/pacing-read.js` drives the moves
+ * `driveLive` below drives, with its poses, tier and arithmetic (`summarise`),
+ * and prints a block to copy back. Change one and change the other.
  */
 import http from 'node:http';
 import fs from 'node:fs';
@@ -119,9 +198,26 @@ const RENDER = process.argv.includes('--render');
 const PROFILE = Number(argAt('--profile') || 0);
 const SYNC = process.argv.includes('--sync');
 const VERIFY = process.argv.includes('--verify');
+/** T-2606 `--sward grid|scan|both` (see the header). */
+const SWARD = argAt('--sward') || 'grid';
+if (!['grid', 'scan', 'both'].includes(SWARD)) throw new Error(`--sward ${SWARD}: one of grid, scan, both`);
 const LIVE = process.argv.includes('--live');
 const STILLS = process.argv.includes('--stills');
 const SECONDS = Number(argAt('--seconds') || 12);
+/** T-2646 `--xray`: every move driven with the Confidence view on at X-RAY —
+ *  Inferred ghosted at 50 %, Reconstructed at 25 % — so its two-pass draw is
+ *  in the frame the moves time. */
+const XRAY = process.argv.includes('--xray');
+/** T-2721 `--no-gaze` (with `--live`): the gaze target's GPU pick held off. */
+const NO_GAZE = process.argv.includes('--no-gaze');
+/** T-2592 `--gl llvmpipe`: draw with Mesa's llvmpipe (ANGLE on EGL) instead of
+ *  SwiftShader. See § `--gl llvmpipe` above for why it is the stand-in. */
+const GL = argAt('--gl') || 'swiftshader';
+const GL_ARGS = {
+  swiftshader: ['--enable-unsafe-swiftshader'],
+  llvmpipe: ['--use-angle=gl-egl', '--ignore-gpu-blocklist'],
+};
+if (!GL_ARGS[GL]) throw new Error(`--gl ${GL}: one of ${Object.keys(GL_ARGS).join(', ')}`);
 
 /**
  * THE CEILINGS, T-2096 § 3, per tier, on the desktop viewport unthrottled —
@@ -191,11 +287,37 @@ await new Promise((r) => server.listen(PORT, r));
 console.log(`serving ${ROOT} — ${wantSource ? 'source tree' : 'PUBLISHED mirror'}, year ${YEAR}`);
 
 /** Runs in the page: drive one move at one tier and time every frame of it. */
-async function driveMove({ move, tier, render, profile, sync, verify }) {
+async function driveMove({ move, tier, render, profile, sync, verify, xray, sward }) {
   const a = window.__chicago4d;
+  // T-2606 `--sward`: which sward test the slots ask, installed before the tier
+  // change so its rebuild asks it too. main.js reads `yards.suppressesSward`
+  // at every slot, so swapping the property is enough.
+  const yards = a.yards;
+  const swardShipped = yards?.suppressesSward;
+  const scan = yards?.suppressesSwardScan;
+  const swardEvery = sward === 'both' && scan ? { asked: 0, suppressed: 0, differ: 0, first: [] } : null;
+  if (sward === 'scan' && scan) yards.suppressesSward = scan;
+  if (swardEvery) {
+    yards.suppressesSward = (e, n) => {
+      const got = swardShipped(e, n);
+      const want = scan(e, n);
+      swardEvery.asked++;
+      if (want) swardEvery.suppressed++;
+      if (got !== want) {
+        swardEvery.differ++;
+        if (swardEvery.first.length < 5) swardEvery.first.push({ e, n, got, want });
+      }
+      return got;
+    };
+  }
   // A tier change REPLACES the flora and trees rigs (main.js applyDetail), so
   // the hooks are wrapped on the objects that exist once it has settled.
   await a.setDetail(tier);
+  if (xray) {
+    a.setConfidenceView(true);
+    a.confidence.setGrade('inferred', { mode: 'ghost', opacity: 0.5 });
+    a.confidence.setGrade('reconstructed', { mode: 'ghost', opacity: 0.25 });
+  }
   // T-2106: `step()` spreads the near rebuild as the animation loop does, or
   // with `--sync` pays for each pass in the frame that needs it.
   const spreading = !sync && a.setFloraSpread?.(true) === true;
@@ -205,13 +327,21 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
     ['terrain', 'updateGroundReach'], ['world', 'aim'], ['terrain', 'setHaze'],
     ['renderer', 'render']];
   const t = {};
+  // T-2894: the hooks the page's own loop calls between the driven frames —
+  // it keeps ticking while the clock is held — counted apart (`held`).
+  let driving = false;
+  const held = { calls: 0, ms: 0 };
   const wrap = (obj, key, slot) => {
     const orig = obj?.[key];
     if (typeof orig !== 'function') return () => {};
     t[slot] = 0;
     obj[key] = function wrapped(...args) {
       const t0 = now();
-      try { return orig.apply(this, args); } finally { t[slot] += now() - t0; }
+      try { return orig.apply(this, args); } finally {
+        const ms = now() - t0;
+        t[slot] += ms;
+        if (!driving && slot === 'flora.update') { held.calls++; held.ms += ms; }
+      }
     };
     return () => { obj[key] = orig; };
   };
@@ -270,8 +400,28 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
   // Let the tier's own rebuild and any first-sight upload land before reading.
   for (let i = 0; i < 4; i++) a.step();
   await new Promise((r) => setTimeout(r, 300));
+  // T-2894: and nothing in flight when the window opens. The page's held loop
+  // ticks through that wait and can start a spread pass there; once the near
+  // pass's ground is cheap (the mid ring on the GPU) its rebuild is counted
+  // before the window and its landing inside it, one pass over the rebuilds.
+  a.flora.settle?.();
   const rebuilds0 = a.flora.stats?.rebuilds ?? 0;
   const spread0 = { ...(a.flora.stats?.spread ?? {}) };
+  if (spread0.slots) spread0.slots = { ...spread0.slots }; // T-2696: counted in place
+  spread0.passes = { ...(spread0.passes ?? {}) }; // counted in place, so copied
+  // T-2717: the near ring's own re-deal. Each near pass's main-thread ms (a
+  // spread pass's from its landing record, a one-frame pass's as the frame's
+  // flora ms, which is all it can be told apart by), and where the GPU draws the
+  // near tufts (T-2716) what its deal pass, tile builds and uploads spent.
+  const nearStats = a.flora.nearDraw?.stats;
+  const nearDraw0 = nearStats ? { ...nearStats } : null;
+  const nearMs = [];
+  // T-2894: the near passes flora counted before the move, and the ones it
+  // dropped after their ground was dealt; and which pass numbers landed inside
+  // a frame this tool drove.
+  const nearPass0 = spread0.passes?.near ?? 0;
+  const dropped0 = spread0.droppedDealt ?? 0;
+  const drivenPasses = new Set();
   // T-2096 § acceptance, "no visible change in where plants stand": a digest of
   // every instance buffer the flora layer holds, taken along the move, so two
   // builds can be compared plant for plant (`--json` keeps them).
@@ -318,17 +468,40 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
     // the frame — so a driven move yields between frames too. Outside the timing.
     if (a.jobs?.mode === 'workers') await new Promise((r) => setTimeout(r, 0));
     for (const k in t) t[k] = 0;
+    const sp0 = a.flora.stats?.spread;
+    const before = sp0 && [sp0.passes.near + sp0.passes.far, sp0.landings, sp0.drained];
+    const sp0Near = sp0?.passes.near ?? 0;
     const t0 = now();
+    driving = true;
     a.step();
+    driving = false;
+    const sp1 = a.flora.stats?.spread;
+    // T-2683: what kind of pass a frame finished, so a long one can be named:
+    // `one-frame` (dealt where it was needed), `drained` (a spread pass
+    // finished late) or `landed` (a spread pass landing on time).
+    const kind = !before ? null
+      : sp1.drained > before[2] ? 'drained'
+        : sp1.landings > before[1] ? 'landed'
+          : sp1.passes.near + sp1.passes.far > before[0] ? 'one-frame' : null;
     rows.push({ frame: now() - t0, ...t });
+    if (before && sp1.passes.near > sp0Near) {
+      // The T-2717 reading, kept only where flora keeps no log (a tree before
+      // T-2894): such a tree's line counts the driven frames' passes alone.
+      if (!sp1.log) {
+        const last = sp1.last?.near;
+        nearMs.push(sp1.landings > before[1] && last?.pass === sp1.passes.near ? last.ms
+          : (t['flora.update'] ?? 0));
+      }
+      for (let k = sp0Near + 1; k <= sp1.passes.near; k++) drivenPasses.add(k);
+    }
     // T-2605: a frame over 50 ms is named — its index along the move, its flora
     // milliseconds and what the spread passes had done by then — because a count
     // of them cannot say WHICH pass it was. That is how the walk's grade-change
     // re-deal was told apart from its right turn's.
     if (rows[rows.length - 1].frame > 50) {
-      const sp = a.flora.stats?.spread ?? {};
+      const sp = sp1 ?? {};
       longs.push({ frame: i, ms: Math.round(rows[rows.length - 1].frame * 10) / 10,
-        flora: Math.round((t['flora.update'] ?? 0) * 10) / 10,
+        flora: Math.round((t['flora.update'] ?? 0) * 10) / 10, pass: kind,
         landings: sp.landings, drained: sp.drained, abandoned: sp.abandoned });
     }
     if (rows.length % 150 === 0) digestDue = true;
@@ -341,12 +514,33 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
   }
   if (profile) console.profileEnd(`${tier}/${move}`);
   a.flora.settle?.();
+  // T-2894: the near passes and rebuilds are read here, where the move ends —
+  // `--verify` below deals passes of its own.
+  const spEnd = a.flora.stats?.spread;
+  const rebuilds = (a.flora.stats?.rebuilds ?? 0) - rebuilds0;
+  const heldEnd = { ...held };
+  const nearLog = (spEnd?.log?.near ?? []).filter((x) => x.pass > nearPass0);
+  if (spEnd?.log) for (const x of nearLog) nearMs.push(x.ms);
+  const nearCount = spEnd?.log ? {
+    passes: (spEnd.passes?.near ?? 0) - nearPass0,
+    logged: nearLog.length,
+    driven: nearLog.filter((x) => drivenPasses.has(x.pass)).length,
+    dropped: (spEnd.droppedDealt ?? 0) - dropped0,
+    kinds: nearLog.reduce((o, x) => { o[x.kind] = (o[x.kind] ?? 0) + 1; return o; }, {}),
+  } : null;
   digests.push(digest());
+  // Put back before the checks below: `checkSwardGrid` asks the property too.
+  if (yards && swardShipped) yards.suppressesSward = swardShipped;
   // T-2106 `--verify`: each pass's last spread landing, dealt again in ONE
   // frame from the camera it started at, must put the same plants in the same
   // slots — the near rings (`rebuildAll`) and the far shrubs with their carries
   // (`rebuildFarShrubs`) each against their own sets.
   let verified = null;
+  // T-2695: and the zone answers a spread pass's walks bring home from the job
+  // pool, held against the page's own finder over the whole measured grid.
+  const heldZones = verify ? a.flora.checkHeldZones?.(20000) ?? null : null;
+  // T-2696: and the yards' bucketed sward test against its full walk.
+  const swardGrid = verify ? a.yards?.checkSwardGrid?.(20000) ?? null : null;
   const FAR = ['flora-shrub-far', 'flora-near-carry', 'flora-mid-carry'];
   const ofPass = { near: (o) => !FAR.includes(o.name), far: (o) => FAR.includes(o.name) };
   const passDigest = (kind) => {
@@ -372,6 +566,9 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
     // dropped pass, a flight's step) would be compared with the wrong pose.
     const kinds = ['near', 'far'].filter((k) => sp.last[k]?.camera
       && sp.last[k].pass === sp.passes[k]);
+    // T-2774: the near heads hang off a read-back the frame loop does not wait
+    // for; the landed pass's own is taken now, as the one-frame pass takes it.
+    a.flora.nearDraw?.flush?.();
     const spreadDigests = Object.fromEntries(kinds.map((k) => [k, passDigest(k)]));
     verified = {};
     for (const k of kinds) {
@@ -401,8 +598,34 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
     msPerPass: ((s1.ms ?? 0) - (spread0.ms ?? 0))
       / Math.max(1, (s1.landings ?? 0) - (spread0.landings ?? 0)),
     waits: (s1.waits ?? 0) - (spread0.waits ?? 0),
+    // T-2696: of the slots the passes dealt off the pool, the share whose
+    // worker answers (zones; water, floor, verge and height) were home in time.
+    slots: s1.slots ? {
+      dealt: s1.slots.dealt - (spread0.slots?.dealt ?? 0),
+      zoned: s1.slots.zoned - (spread0.slots?.zoned ?? 0),
+      grounded: s1.slots.grounded - (spread0.slots?.grounded ?? 0),
+    } : null,
+    // T-2683: the passes a snap turn or an arrival started, dealt over frames
+    // where they used to be dealt in one.
+    jumps: (s1.jumps ?? 0) - (spread0.jumps ?? 0),
+    jumpFrames: (s1.jumpFrames ?? 0) - (spread0.jumpFrames ?? 0),
+    // And the passes still dealt whole in the frame that needed them: every
+    // pass counted that did not land as a spread or jump pass.
+    oneFrame: ((s1.passes?.near ?? 0) + (s1.passes?.far ?? 0))
+      - ((spread0.passes?.near ?? 0) + (spread0.passes?.far ?? 0))
+      - ((s1.landings ?? 0) - (spread0.landings ?? 0)),
   } : null;
-  const rebuilds = (a.flora.stats?.rebuilds ?? 0) - rebuilds0;
+  const nearSorted = nearMs.slice().sort((x, y) => x - y);
+  const near = {
+    passes: nearMs.length,
+    count: nearCount,
+    held: heldEnd,
+    median: nearSorted[Math.floor(nearSorted.length / 2)] ?? 0,
+    max: nearSorted[nearSorted.length - 1] ?? 0,
+    ms: nearMs.reduce((x, y) => x + y, 0),
+    gpu: nearDraw0 ? Object.fromEntries(Object.keys(nearDraw0)
+      .map((k) => [k, nearStats[k] - nearDraw0[k]])) : null,
+  };
   a.setAnimationHold(false);
   for (const u of undo) u();
   const col = (k) => rows.map((r) => r[k] ?? 0).sort((x, y) => x - y);
@@ -416,7 +639,7 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
   // spent, which is the part of the frame this runner can honestly read.
   const scripted = rows.map((r) => r.frame - (r['renderer.render'] ?? 0)).sort((x, y) => x - y);
   return {
-    frames: rows.length, rebuilds, digests, spread, verified, longs,
+    frames: rows.length, rebuilds, digests, spread, near, verified, heldZones, swardGrid, swardEvery, longs,
     scripted: describe(scripted),
     layers: Object.fromEntries(Object.keys(t).map((k) => [k, describe(col(k))])),
     heapMB: performance.memory ? performance.memory.usedJSHeapSize / 1048576 : null,
@@ -425,10 +648,15 @@ async function driveMove({ move, tier, render, profile, sync, verify }) {
 
 /** Runs in the page (T-2555): one move through the animation loop itself, for
  *  `seconds` of wall clock, with Frame pacing at `mode`, timing every draw. */
-async function driveLive({ move, tier, mode, seconds }) {
+async function driveLive({ move, tier, mode, seconds, xray, profile, noGaze }) {
   const a = window.__chicago4d;
   await a.setDetail(tier);
   a.setGovernor(mode === 'adaptive');
+  if (xray) {
+    a.setConfidenceView(true);
+    a.confidence.setGrade('inferred', { mode: 'ghost', opacity: 0.5 });
+    a.confidence.setGrade('reconstructed', { mode: 'ghost', opacity: 0.25 });
+  }
   const anchors = new Map((a.scene?.anchors ?? []).map((x) => [x.id, x]));
   const pick = (...ids) => ids.map((id) => anchors.get(id)).find(Boolean) ?? a.scene?.anchors?.[0];
   const rad = (d) => d * Math.PI / 180;
@@ -457,13 +685,24 @@ async function driveLive({ move, tier, mode, seconds }) {
   // At rest first, so both modes start from the same neutral state.
   await new Promise((r) => setTimeout(r, 800));
   const draws = [];
+  // T-2721: only a draw to the canvas is a frame. The gaze target's pick
+  // (gpu-pick.js) calls renderer.render too, once per layer into its 1x1
+  // target, and counted as frames those put intervals of a millisecond or two
+  // into every reading taken while it looked.
+  let offscreen = 0;
   const render = a.renderer.render;
   a.renderer.render = function timed(...args) {
+    if (a.renderer.getRenderTarget() !== null) { offscreen += 1; return render.apply(this, args); }
     const t = performance.now();
     try { return render.apply(this, args); } finally {
       draws.push([t, a.renderer.getPixelRatio(), performance.now() - t]);
     }
   };
+  // T-2721 `--no-gaze`: the gaze target's look (target.js) held off for the
+  // move, so a reading can say what its one-pixel GPU pick costs the loop.
+  const gazeTick = a.target?.tick;
+  if (noGaze && gazeTick) a.target.tick = () => null;
+  if (profile) console.profile(`${tier}/${move}/${mode}`);
   const t0 = performance.now();
   let paced = 0;
   await new Promise((resolve) => {
@@ -476,6 +715,8 @@ async function driveLive({ move, tier, mode, seconds }) {
     };
     requestAnimationFrame(frame);
   });
+  if (profile) console.profileEnd(`${tier}/${move}/${mode}`);
+  if (noGaze && gazeTick) a.target.tick = gazeTick;
   a.renderer.render = render;
   const g = a.governor;
   a.setGovernor(true);
@@ -491,7 +732,7 @@ async function driveLive({ move, tier, mode, seconds }) {
   return { draws: draws.length, mean, sd, median: q(0.5), p95: q(0.95), max: sorted[sorted.length - 1],
     over33: iv.filter((x) => x > 33.4).length, over50: iv.filter((x) => x > 50).length,
     ratioMin: ratios[0], ratioMedian: ratios[Math.floor(ratios.length / 2)], ceiling: g.ceiling,
-    pacedRafs: paced, decisions: g.decisions, renderMs };
+    pacedRafs: paced, decisions: g.decisions, renderMs, offscreen };
 }
 
 /** Runs in the page (T-2555): at one anchor, put the governor where a slow
@@ -535,12 +776,52 @@ async function stillAt({ id }) {
     pace: rested.pace, moving: rested.moving, shadowAuto }, same: sig(adaptive) === sig(fixed) };
 }
 
+/** Prints what `--profile N` collected over a viewport's moves. */
+async function printProfile(prof, vpId) {
+  await new Promise((r) => setTimeout(r, 500));
+  const self = new Map();
+  const incl = new Map();
+  for (const profile of prof.profiles) {
+    const dt = profile.timeDeltas;
+    const byId = new Map(profile.nodes.map((nd) => [nd.id, nd]));
+    const parent = new Map();
+    for (const nd of profile.nodes) for (const c of nd.children ?? []) parent.set(c, nd.id);
+    const keyOf = (id) => {
+      const cf = byId.get(id).callFrame;
+      return `${cf.functionName || '(anon)'} ${path.basename(cf.url)}:${cf.lineNumber + 1}`;
+    };
+    profile.samples.forEach((id, i) => {
+      const ms = (dt[i] ?? 0) / 1000;
+      self.set(keyOf(id), (self.get(keyOf(id)) ?? 0) + ms);
+      const seen = new Set();
+      for (let at = id; at !== undefined; at = parent.get(at)) {
+        const key = keyOf(at);
+        if (seen.has(key) || key.startsWith('(root)')) continue;
+        seen.add(key);
+        incl.set(key, (incl.get(key) ?? 0) + ms);
+      }
+    });
+  }
+  console.log(`\nself time, top ${PROFILE} (ms, over every move above):`);
+  for (const [k, ms] of [...self].sort((x, y) => y[1] - x[1]).slice(0, PROFILE)) {
+    console.log(`  ${ms.toFixed(0).padStart(7)}  ${k}`);
+  }
+  // T-2721: and with its callers, so a native call (readPixels) says who made it.
+  const top = (m) => [...m].sort((x, y) => y[1] - x[1]).slice(0, PROFILE).map(([k, ms]) => [k, Math.round(ms)]);
+  (out.profiles ??= {})[vpId] = { selfMs: top(self), totalMs: top(incl) };
+  if (jsonOut) writeJson();
+  console.log(`\ntotal time with callees, top ${PROFILE} (ms):`);
+  for (const [k, ms] of [...incl].sort((x, y) => y[1] - x[1]).slice(0, PROFILE)) {
+    console.log(`  ${ms.toFixed(0).padStart(7)}  ${k}`);
+  }
+}
+
 const browser = await chromium.launch({
   executablePath: process.env.PW_EXECUTABLE || undefined,
-  args: ['--enable-unsafe-swiftshader'],
+  args: GL_ARGS[GL],
 });
 const out = { year: YEAR, source: wantSource ? 'source' : 'published', throttle: THROTTLE,
-  rebuild: SYNC ? 'sync' : 'spread',
+  rebuild: SYNC ? 'sync' : 'spread', gl: GL, ...(LIVE ? { noGaze: NO_GAZE } : {}),
   ceilingMs: FLORA_MOVE_CEILING_MS, p95CeilingMs: FLORA_MOVE_P95_MS, readings: [] };
 let failed = 0;
 function writeJson() {
@@ -560,8 +841,15 @@ for (const vp of VIEWPORTS) {
   await page.waitForFunction(() => window.__chicago4d?.ready === true, null, { timeout: 480_000 });
   const gateBtn = await page.$('#gate button, .gate button');
   if (gateBtn) { await gateBtn.click(); await page.waitForTimeout(800); }
+  // T-2721: every reading names the rasteriser that drew it.
+  const rasteriser = await page.evaluate(() => {
+    const gl = window.__chicago4d.renderer?.getContext?.();
+    const ext = gl?.getExtension('WEBGL_debug_renderer_info');
+    return gl ? String(gl.getParameter(ext ? ext.UNMASKED_RENDERER_WEBGL : gl.RENDERER)) : null;
+  });
+  (out.rasterisers ??= {})[vp.id] = rasteriser;
   console.log(`\n${vp.id} ${vp.width}x${vp.height} — ready in ${((Date.now() - t0) / 1000).toFixed(0)} s` +
-    (vp.throttle > 1 ? `, CPU throttled ${vp.throttle}×` : ''));
+    (vp.throttle > 1 ? `, CPU throttled ${vp.throttle}×` : '') + `\n  drawn by ${rasteriser}`);
   if (vp.throttle > 1) {
     const cdp = await ctx.newCDPSession(page);
     await cdp.send('Emulation.setCPUThrottlingRate', { rate: vp.throttle });
@@ -593,13 +881,14 @@ for (const vp of VIEWPORTS) {
       for (const move of MOVES.filter((m) => !['travel', 'none'].includes(m))) {
         const pair = {};
         for (const mode of ['fixed', 'adaptive']) {
-          const r = await page.evaluate(driveLive, { move, tier, mode, seconds: SECONDS });
+          const r = await page.evaluate(driveLive, { move, tier, mode, seconds: SECONDS, xray: XRAY,
+            profile: PROFILE > 0, noGaze: NO_GAZE });
           pair[mode] = r;
           const f = (x) => x.toFixed(1).padStart(5);
           console.log(`${tier.padEnd(9)} ${move.padEnd(7)} ${mode.padEnd(9)} ${String(r.draws).padStart(5)} |`
             + ` ${f(r.mean)}${f(r.sd)}${f(r.median)}${f(r.p95)}${f(r.max)} ${String(r.over33).padStart(4)}${String(r.over50).padStart(4)} |`
             + ` ${r.ratioMin.toFixed(2)}/${r.ratioMedian.toFixed(2)} (${r.ceiling.toFixed(2)}) | ${r.pacedRafs}`
-            + ` | draw median ${r.renderMs?.toFixed(0)} ms`);
+            + ` | draw median ${r.renderMs?.toFixed(0)} ms | ${r.offscreen} offscreen`);
           out.readings.push({ viewport: vp.id, throttle: vp.throttle, live: true, tier, move, mode, ...r });
           if (jsonOut) writeJson();
         }
@@ -625,6 +914,7 @@ for (const vp of VIEWPORTS) {
         if (!rested || !r.same) failed++;
       }
     }
+    if (prof) await printProfile(prof, vp.id);
     if (errors.length) {
       console.log(`pageerrors: ${JSON.stringify(errors.slice(0, 5))}`);
       failed++;
@@ -636,7 +926,7 @@ for (const vp of VIEWPORTS) {
   for (const tier of TIERS) {
     for (const move of MOVES) {
       const r = await page.evaluate(driveMove, { move, tier, render: RENDER, profile: PROFILE > 0,
-        sync: SYNC, verify: VERIFY });
+        sync: SYNC, verify: VERIFY, xray: XRAY, sward: SWARD });
       const f = (x) => x.toFixed(1).padStart(5);
       const n = (x) => String(x).padStart(3);
       const L = r.layers;
@@ -647,10 +937,76 @@ for (const vp of VIEWPORTS) {
         + ` ${f(r.scripted.median)} ${f(r.scripted.p95)} ${f(r.scripted.max)} ${n(r.scripted.over16)} ${n(r.scripted.over33)} ${n(r.scripted.over50)} |`
         + ` ${f(L['flora.update'].p95)} ${f(L['flora.update'].max)} | ${f(L['trees.update'].p95)} ${f(L['trees.update'].max)} | ${others || '-'}`
         + (r.spread ? ` | spread ${r.spread.landings} passes, ${r.spread.framesPerPass.toFixed(1)} frames each, ${r.spread.drained} finished early, ${r.spread.abandoned} dropped`
-          + `, ${r.spread.msPerPass.toFixed(1)} ms each on the main thread, ${r.spread.waits} frames waiting on a worker` : ''));
+          + `, ${r.spread.msPerPass.toFixed(1)} ms each on the main thread, ${r.spread.waits} frames waiting on a worker`
+          + `, ${r.spread.oneFrame} dealt in one frame, ${r.spread.jumps} after a jump`
+          + (r.spread.slots?.dealt ? `, ${(100 * r.spread.slots.grounded / r.spread.slots.dealt).toFixed(0)} % of`
+            + ` ${r.spread.slots.dealt} pool slots dealt off the workers' ground` : '')
+          + (r.spread.jumps ? ` (landing in ${r.spread.jumpFrames} frames between them)` : '') : ''));
+      if (r.near?.passes) {
+        const g = r.near.gpu;
+        // T-2894: the passes against the move's near rebuilds. Every rebuild
+        // is a pass that landed (or was dealt in one frame) or one dropped after
+        // its ground was dealt; anything else is the instrument miscounting.
+        const c = r.near.count;
+        const agree = c ? c.passes === c.logged && c.passes + c.dropped === r.rebuilds : null;
+        if (agree === false) failed++;
+        console.log(`  near re-deal: ${r.near.passes} passes, ${r.near.median.toFixed(1)} ms median and`
+          + ` ${r.near.max.toFixed(1)} max on the main thread (${r.near.ms.toFixed(0)} ms in all)`
+          + (c ? ` | of ${r.rebuilds} near rebuilds: ${c.passes} passes`
+            + ` (${Object.entries(c.kinds).map(([k, v]) => `${v} ${k}`).join(', ') || 'none'};`
+            + ` ${c.passes - c.driven} landed outside the driven frames) + ${c.dropped} dropped after`
+            + ` their ground was dealt ${agree ? '= the rebuilds' : `!= the rebuilds — the count DISAGREES (${c.logged} logged)`}`
+            + ` | the page's held loop between them: flora.update ${r.near.held.calls} times, ${r.near.held.ms.toFixed(0)} ms`
+            : ' | counted in the driven frames only (no pass log on this tree)')
+          + (g ? ` | GPU near ring: ${g.passes} deal passes ${g.passMs.toFixed(0)} ms, ${g.builds} tile builds`
+            + ` ${g.buildMs.toFixed(0)} ms, ${g.uploads} uploads, ${g.readBacks} read-backs`
+            // T-2774: the read-backs the near heads and census are reaped from,
+            // and the main thread's ms asking and reaping them (a reap that lands
+            // between frames is in no frame's flora ms, so it is printed here).
+            + (g.reaps != null ? `, ${g.reads} reads asked without waiting and ${g.syncReads} in the frame`
+              + ` ${g.readMs.toFixed(0)} ms, collected ${(g.collectMs ?? 0).toFixed(0)} ms,`
+              + ` ${g.reaps} reaped ${g.reapMs.toFixed(0)} ms, ${g.stale} stale` : '')
+            // T-2894: the mid ring's cards on the GPU's deal — its deal passes,
+            // the passes whose mid ring the CPU still walked (the kept mid tile
+            // not home), and the reaps that set the cards out.
+            + (g.midPasses != null ? ` | GPU mid ring: ${g.midPasses} deal passes ${g.midPassMs.toFixed(0)} ms,`
+              + ` ${g.midCpu} walked by the CPU, ${g.midMissed} missed, ${g.midUploads} uploads,`
+              + ` ${g.midReaps} reaped ${g.midReapMs.toFixed(0)} ms` : '')
+            // T-2895: the forbs, rosettes and shrubs, dealt in the mid pass
+            // (its passes and the CPU's walks above are theirs too) and reaped
+            // beside the mid cards; the slots a kept yard re-seated.
+            + (g.forbReaps != null ? ` | GPU forb ring: ${g.forbReaps} reaped ${g.forbReapMs.toFixed(0)} ms,`
+              + ` ${g.forbSeated} re-seated` : '')
+            : ' | near tufts drawn by the CPU'));
+      }
       for (const l of r.longs ?? []) {
-        console.log(`  over 50 ms: frame ${l.frame} of the ${move}, ${l.ms} ms (flora ${l.flora}),`
+        console.log(`  over 50 ms: frame ${l.frame} of the ${move}, ${l.ms} ms (flora ${l.flora}, ${l.pass ?? 'no'} pass),`
           + ` after ${l.landings} spread landings, ${l.drained} finished early, ${l.abandoned} dropped`);
+      }
+      if (r.heldZones?.held) {
+        const z = r.heldZones;
+        console.log(`  verify zones: ${z.asked} points asked of the workers' ground, ${z.unasked} left to the page,`
+          + ` ${z.differ} answered differently${z.differ ? ` ${JSON.stringify(z.first)}` : ''}`);
+        if (z.differ) failed++;
+        // T-2696: the slots' water, floor, verge and height from the same ground.
+        if (z.ground) {
+          const g = z.ground;
+          console.log(`  verify ground: ${g.asked} points asked (${g.wet} wet, ${g.floor} on a floor, ${g.trodden} trodden,`
+            + ` ${g.keep} kept verge), ${g.differ} answered differently${g.differ ? ` ${JSON.stringify(g.first)}` : ''}`);
+          if (g.differ) failed++;
+        }
+      }
+      if (r.swardGrid) {
+        const y = r.swardGrid;
+        console.log(`  verify yards: ${y.asked} points over the yards' boxes (${y.suppressed} without sward),`
+          + ` ${y.differ} answered differently by the grid than by the full walk${y.differ ? ` ${JSON.stringify(y.first)}` : ''}`);
+        if (y.differ) failed++;
+      }
+      if (r.swardEvery) {
+        const y = r.swardEvery;
+        console.log(`  verify yards, every slot: ${y.asked} slots asked (${y.suppressed} without sward),`
+          + ` ${y.differ} answered differently by the grid than by the full walk${y.differ ? ` ${JSON.stringify(y.first)}` : ''}`);
+        if (y.differ || !y.asked) failed++;
       }
       for (const [k, v] of Object.entries(r.verified ?? {})) {
         console.log(`  verify ${k}: the spread pass ${v.same ? 'IS' : 'IS NOT'} the one-frame pass (${v.spread} / ${v.sync})`);
@@ -674,23 +1030,7 @@ for (const vp of VIEWPORTS) {
       }
     }
   }
-  if (prof) {
-    await new Promise((r) => setTimeout(r, 500));
-    const self = new Map();
-    for (const profile of prof.profiles) {
-      const dt = profile.timeDeltas;
-      const byId = new Map(profile.nodes.map((nd) => [nd.id, nd]));
-      profile.samples.forEach((id, i) => {
-        const cf = byId.get(id).callFrame;
-        const key = `${cf.functionName || '(anon)'} ${path.basename(cf.url)}:${cf.lineNumber + 1}`;
-        self.set(key, (self.get(key) ?? 0) + (dt[i] ?? 0) / 1000);
-      });
-    }
-    console.log(`\nself time, top ${PROFILE} (ms, over every move above):`);
-    for (const [k, ms] of [...self].sort((x, y) => y[1] - x[1]).slice(0, PROFILE)) {
-      console.log(`  ${ms.toFixed(0).padStart(7)}  ${k}`);
-    }
-  }
+  if (prof) await printProfile(prof, vp.id);
   if (errors.length) {
     console.log(`pageerrors: ${JSON.stringify(errors.slice(0, 5))}`);
     failed++;
@@ -702,6 +1042,10 @@ server.close();
 if (jsonOut) console.log(`\nwrote ${jsonOut}`);
 if (LIVE) {
   console.log(failed ? `\nFAIL — ${failed} live reading(s) did not hold` : '\nPASS — governed moves steadier, still frames unchanged');
+  process.exit(failed ? 1 : 0);
+}
+if (SWARD === 'both' && !VERIFY && !GATE) {
+  console.log(failed ? `\nFAIL — ${failed} move(s) answered a slot's sward differently or threw` : '\nPASS — every slot answered the same by the grid and the full walk');
   process.exit(failed ? 1 : 0);
 }
 if (VERIFY && !GATE) {

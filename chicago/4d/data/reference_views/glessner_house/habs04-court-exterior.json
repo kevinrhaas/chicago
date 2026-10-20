@@ -14,7 +14,7 @@
   "focal_px": 47724.360541888775,
   "eye": [
     -400,
-    7.3454982107355855,
+    7.147378211,
     6.654436028659161
   ],
   "yaw_deg": 90,
@@ -34,5 +34,5 @@
       "constant": -33.4518
     }
   ],
-  "solve": "T-2228 expanded exterior-only HABS4 section diagnostic. Native crop [3770,1500,8600,5950] rectified100.6/97.7 and resized1600x1518. Same independent north-wall origin1165, grade5858 and scales as frozen hood/terrace views. Far-field400mwest with nominal x36.5m; finite depth residual about1%. Retains source sectionW51.5ft and near350m. Model-control discrepancies are not fitted away; this is not a new survey or independent1904witness."
+  "solve": "T-2228 expanded exterior-only HABS4 section diagnostic. Native crop [3770,1500,8600,5950] rectified100.6/97.7 and resized1600x1518. Same independent north-wall origin1165, grade5858 and scales as frozen hood/terrace views. Far-field400mwest with nominal x36.5m; finite depth residual about1%. Retains source sectionW51.5ft and near350m. Model-control discrepancies are not fitted away; this is not a new survey or independent1904witness. T-2906 re-zeroes it on the plan's frame as T-2880 did habs04-terrace-section (T-2879): sheet 4 reads 0.65 ft north of sheet 2's printed court chain, a shift and not a scale, so the eye moves 0.198 m south, from v 7.3455 to v 7.1474. Scale, cut line and heights are unchanged."
 }

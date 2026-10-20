@@ -43,6 +43,28 @@ function heldOf(doc, id) {
   return (picturesFor(doc, id) ?? []).filter((p) => p.held && storeUrl(doc, p.held.t));
 }
 
+/**
+ * A plate for a Jaunt's card (T-2631): the first held picture of the first of `ids` (its
+ * stops' buildings, in order) that has one, with its credit — a picture is never shown
+ * without it. Null where none of them has a held picture: the card keeps its family
+ * icon, never a stand-in picture.
+ */
+export function plateFor(doc, ids = []) {
+  for (const id of ids) {
+    const p = heldOf(doc, id)[0];
+    if (!p) continue;
+    const holder = String(p.holder ?? '').split(' — ')[0].trim();
+    return {
+      src: storeUrl(doc, p.held.t),
+      alt: `${p.kind ?? 'Picture'}: ${p.title ?? p.id}`,
+      credit: holder || 'holder not recorded',
+      full: [p.title, p.creator, [p.holder, p.collection].filter(Boolean).join(' · '), rightsLabel(p)].filter(Boolean).join(' — '),
+      structure: id,
+    };
+  }
+  return null;
+}
+
 /** The rights line, in the card's terse register. */
 function rightsLabel(p) {
   const r = String(p.rights ?? '').toLowerCase();

@@ -1,0 +1,219 @@
+{
+  "passed": true,
+  "revision": "185",
+  "unchanged_required_names": [
+    "eyeBlinkLeft",
+    "eyeBlinkRight",
+    "jawOpen"
+  ],
+  "unchanged_threshold_mm": 1,
+  "original_hairfirst": {
+    "r": {
+      "morphs": [],
+      "morph_max_mm": {}
+    },
+    "before": [
+      null,
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "after": [
+      null,
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "error": null
+  },
+  "patched_hairfirst": {
+    "r": {
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "morph_max_mm": {
+        "eyeBlinkLeft": 5,
+        "eyeBlinkRight": 6,
+        "jawOpen": 7
+      }
+    },
+    "before": [
+      null,
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "after": [
+      null,
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "error": null
+  },
+  "patched_bodyfirst": {
+    "r": {
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "morph_max_mm": {
+        "eyeBlinkLeft": 5,
+        "eyeBlinkRight": 6,
+        "jawOpen": 7
+      }
+    },
+    "before": [
+      [
+        0,
+        0,
+        0
+      ],
+      null
+    ],
+    "after": [
+      [
+        0,
+        0,
+        0
+      ],
+      null
+    ],
+    "error": null
+  },
+  "negative_missing": {
+    "r": {
+      "morphs": [],
+      "morph_max_mm": {}
+    },
+    "before": [
+      null
+    ],
+    "after": [
+      null
+    ],
+    "error": null
+  },
+  "negative_nomovement": {
+    "r": {
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "morph_max_mm": {
+        "eyeBlinkLeft": 0,
+        "eyeBlinkRight": 0,
+        "jawOpen": 0
+      }
+    },
+    "before": [
+      null,
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "after": [
+      null,
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "error": null
+  },
+  "differing_nonzero_defaults": {
+    "r": {
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "morph_max_mm": {
+        "eyeBlinkLeft": 4,
+        "eyeBlinkRight": 5.4,
+        "jawOpen": 5.25
+      }
+    },
+    "before": [
+      null,
+      [
+        0.2,
+        0.3,
+        0.4
+      ],
+      [
+        0.6,
+        0.1,
+        0.25
+      ]
+    ],
+    "after": [
+      null,
+      [
+        0.2,
+        0.3,
+        0.4
+      ],
+      [
+        0.6,
+        0.1,
+        0.25
+      ]
+    ],
+    "error": null
+  },
+  "injected_failure_restores": {
+    "r": {
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "morph_max_mm": {}
+    },
+    "before": [
+      null,
+      [
+        0.2,
+        0.3,
+        0.4
+      ],
+      [
+        0.6,
+        0.1,
+        0.25
+      ]
+    ],
+    "after": [
+      null,
+      [
+        0.2,
+        0.3,
+        0.4
+      ],
+      [
+        0.6,
+        0.1,
+        0.25
+      ]
+    ],
+    "error": "injected surface failure"
+  },
+  "actual_proposed_block": "  r.morphs = [...new Set(skinned.flatMap((o) => Object.keys(o.morphTargetDictionary || {})))].sort();\n  r.morph_max_mm = {};\n  const weigh = (m, w) => skinned.forEach((o) => { const k = o.morphTargetDictionary?.[m]; if (k !== undefined) o.morphTargetInfluences[k] = w; });\n  const morphDefaults = skinned.map((o) => o.morphTargetInfluences?.slice() ?? null);\n  const restoreMorphDefaults = () => skinned.forEach((o, i) => {\n    if (morphDefaults[i]) morphDefaults[i].forEach((weight, k) => { o.morphTargetInfluences[k] = weight; });\n  });\n  try {\n    for (const m of r.morphs) {\n      restoreMorphDefaults();\n      weigh(m, 1);\n      r.morph_max_mm[m] = +(maxMove(rest, positions(skinned)) * 1000).toFixed(2);\n    }\n  } finally {\n    restoreMorphDefaults();\n  }\n\n",
+  "scope": "Actual source block, actual vendoredThree CPU skinning; no resident artifact/BPy/browser/export acceptance."
+}

@@ -69,6 +69,16 @@ def garden_light(b,o,spec):
         slab(b,o,lo,hi,bottom,top,-.29,-.24,conf,PAINTED_WOOD)
     slab(b,o,a-.04,c+.04,z1,z1+spec['head_m'],-.02,.08,conf,TRIM)
     slab(b,o,a-.04,c+.04,z0-spec['sill_m'],z0,-.02,.08,conf,TRIM)
+    # T-2906: sheet 4 sets the light in a broad dressed-stone panel running to
+    # the post and the drum, from the upper step to above the head.
+    s=spec.get('surround_ft')
+    if s:
+        lo,hi=a-s['u0']*.3048,c+s['u1']*.3048
+        bottom,top=z0-s['below']*.3048,z1+s['above']*.3048
+        for u0,u1,zb,zt in ((lo,hi,bottom,z0-spec['sill_m']),(lo,hi,z1+spec['head_m'],top),
+                            (lo,a,z0-spec['sill_m'],z1+spec['head_m']),
+                            (c,hi,z0-spec['sill_m'],z1+spec['head_m'])):
+            slab(b,o,u0,u1,zb,zt,-.02,.03,conf,TRIM)
     count=spec['bars'];segments=4 if getattr(b,'reduced_sash',False) else 6
     for i in range(1,count+1):
         x,y,_=legacy._plane_point(o,a+(c-a)*i/(count+1),0,-.08)
@@ -130,7 +140,8 @@ def dormer_host(points,params):
 def court_finial(b,x,y,kind,material):
     """Closed revolved bell silhouette; only courtyard components opt in."""
     spec=b.params.detail['court_finial'];base=spec[kind+'_base_ft']*.3048
-    profile=[(base+z*.3048,r*.3048) for z,r in spec['profile_ft']]
+    # T-2859: a kind may carry its own drawn silhouette; the stair keeps the shared one.
+    profile=[(base+z*.3048,r*.3048) for z,r in spec.get(kind+'_profile_ft',spec['profile_ft'])]
     count=12 if getattr(b,'reduced_sash',False) else 24
     for i in range(count):
         a,c=[2*math.pi*j/count for j in (i,i+1)]

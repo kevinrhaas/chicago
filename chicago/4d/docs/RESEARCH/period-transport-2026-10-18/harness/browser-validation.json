@@ -1,0 +1,18 @@
+{
+  "desktop": {
+    "errors": [],
+    "meshes": 32,
+    "positions": 15564,
+    "draws": 56,
+    "head_binding": "runtime world transform copied; no tension validation",
+    "loaded": true
+  },
+  "mobile": {
+    "errors": [],
+    "meshes": 32,
+    "positions": 15564,
+    "draws": 56,
+    "head_binding": "runtime world transform copied; no tension validation",
+    "loaded": true
+  }
+}

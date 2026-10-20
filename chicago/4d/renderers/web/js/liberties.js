@@ -119,7 +119,9 @@ export function libertyEntryHtml(lib, { names = new Map(), showSubjects = true, 
     const token = ground
       ? ['terrain', c.epoch, c.claim].join('.')
       : [c.structure, c.phase, c.aspect].filter(Boolean).join('.');
-    return `<span class="lib-covers" title="admitted for ${escapeHtml(token)}">`
+    // The token is the gate's, so it rides in a data attribute: a tooltip is text a
+    // person reads, and it named the record id (T-2825).
+    return `<span class="lib-covers" data-token="admitted for ${escapeHtml(token)}">`
       + `${escapeHtml(who)}${who ? ' ' : ''}<em>${escapeHtml(what)}</em></span>`;
   }).join('');
 
@@ -127,9 +129,10 @@ export function libertyEntryHtml(lib, { names = new Map(), showSubjects = true, 
     ? `recorded ${escapeHtml(lib.recorded)} · revised ${escapeHtml(lib.revised)}`
     : `recorded ${escapeHtml(lib.recorded || '—')}`;
 
-  return `<details class="lib" data-source-entity="${escapeHtml(lib.id)}">
+  // The entry's id is the register's key, not a word for a reader (T-2825): it stays on
+  // the element for the links and the tests, and the title is what the row says.
+  return `<details class="lib" data-source-entity="${escapeHtml(lib.id)}" data-lib-id="${escapeHtml(lib.id)}">
     <summary>
-      <span class="lib-id">${escapeHtml(lib.id)}</span>
       <span class="lib-title">${escapeHtml(lib.title)}</span>
       ${scope}
     </summary>
@@ -210,12 +213,24 @@ export async function mountLiberties({ mount, noteMount = null, dataBase,
     noteMount.removeAttribute('aria-busy');
   }
 
+  // The compiled names (T-2825) for every building a liberty names that this scene has not
+  // loaded, so a subject or a covers chip never falls back to its record id.
+  for (const nm of Array.isArray(doc.names) ? doc.names : []) if (!names.has(nm.id)) names.set(nm.id, nm.name);
+
   const liberties = Array.isArray(doc.liberties) ? doc.liberties : [];
-  if (mount) {
+  // T-2834: the list is drawn when the Liberties topic is first shown, not when it
+  // loads. A building card loads it too, for that building's few entries, and
+  // drawing every scene's entries then put ~28k nodes into a hidden panel at the
+  // moment the card opened (1812, +49 MB on a phone profile); an iPhone stopped
+  // the page right there.
+  let rendered = false;
+  function render() {
+    if (rendered || !mount) return;
+    rendered = true;
     mount.innerHTML = liberties.map((lib) => libertyEntryHtml(lib, { names })).join('')
       || '<p class="legend-note">No liberties recorded.</p>';
     mount.removeAttribute('aria-busy');
   }
   return { count: liberties.length, liberties, standard: doc.standard, note: doc.note,
-           error: null };
+           error: null, render };
 }

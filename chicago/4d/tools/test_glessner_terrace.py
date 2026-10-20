@@ -30,12 +30,14 @@ for reduced in (False,True):
  b=B('terrace',p);b.decorate=False;b.smooth_rock_faces=not reduced;m.build(b,p)
  heights=[]
  for i,(edge,nxt) in enumerate(zip(bt['stair_boundaries'],bt['stair_boundaries'][1:])):
-  x,y=[sum(q[k] for q in edge+nxt)/4 for k in range(2)]
+  x,y=[sum(q[k] for q in edge[-2:]+nxt[-2:])/4 for k in range(2)]
   hit=rays(b,x,y,2)
   assert hit,('missing tread',i)
   heights.append(max(hit))
   if i>0:assert not rays(b,x,y,8),('landing protrudes over tread',i)
- expected=[1.68,1.49,1.31,1.12,.93,.75,.56,.37,.19]
+ # T-2906: the two treads at the foot stand at sheet 4's drawn 1.57 and 0.88 ft;
+ # the seven above them share the rest of the rise to the deck evenly.
+ expected=[1.68,1.51,1.34,1.17,.99,.82,.65,.479,.268]
  assert all(abs(a-c)<.015 for a,c in zip(heights,expected)),heights
  print('nine independent walk-line ray heights',reduced,[round(h,3) for h in heights])
  for face,mat in zip(b.faces,b.mat_index):
@@ -52,6 +54,9 @@ for reduced in (False,True):
  angle=(a0+a1)/2
  # The leaf is recessed behind the opening's straight chord, not its outer arc.
  half=(a1-a0)/bow['lights_per_row']*.28
+ door=next((s for row in bow.get('light_spans') or [] for s in row if s['door']),None)
+ if door:  # T-2925: the door where sheet 4 draws it
+  angle=(door['a0']+door['a1'])/2;half=(door['a1']-door['a0'])/2
  radius=bow['r']*math.cos(half)-.25
  for delta in (-half*.8,0,half*.8):
   x=bow['cx']+radius*math.cos(angle+delta);y=bow['cy']+radius*math.sin(angle+delta)
@@ -70,8 +75,10 @@ for reduced in (False,True):
    assert hit and abs(max(hit)-(bt['z1']-.18+.006))<.0001,('threshold depth separation',reduced,u,off,hit)
  print('stone threshold covers the coplanar reveal and sill',reduced)
  # Independently read section ordinates, metres over grade, on the exposed cap.
+ # They are sheet 4's S; T-2880 builds them on the plan's frame, 0.65 ft south
+ # (T-2879's re-zero on the printed 26'-10" court face), so ask there.
  for south,upper,lower in ((43,2.52,2.30),(44,2.32,1.98),(44.5,2.13,1.46),(45,1.78,1.22)):
-  a=math.pi+math.asin((south-28.8)*.3048/(bt['r']+.055))
+  a=math.pi+math.asin((south+.65-28.8)*.3048/(bt['r']+.055))
   x=bt['cx']+(bt['r']+.054)*math.cos(a);y=bt['cy']+(bt['r']+.054)*math.sin(a)
   hits=rays(b,x,y,2)
   assert hits and abs(max(hits)-upper)<.04 and abs(min(hits)-lower)<.04,('coping section edges',reduced,south,hits)

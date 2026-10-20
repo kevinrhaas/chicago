@@ -142,6 +142,8 @@ html[data-skin="worlds-fair"] .gate:not([data-state="welcome"]) .gate-btn { bord
 html[data-skin="deep-space"] .gate-card { clip-path:polygon(var(--chamfer) 0,100% 0,100% calc(100% - var(--chamfer)),calc(100% - var(--chamfer)) 100%,0 100%,0 var(--chamfer)); }
 html[data-skin="deep-space"] .gate:not([data-state="welcome"]) .gate-btn { background:color-mix(in srgb,var(--signal) 10%,transparent);color:var(--signal);border-color:var(--signal);box-shadow:inset 0 0 18px color-mix(in srgb,var(--signal) 25%,transparent);letter-spacing:.24em; }
 html[data-skin="deep-space"] .gate:not([data-state="welcome"]) .gate-btn:not(:disabled):hover { background:var(--signal);color:var(--signal-ink); }
+/* T-2616: BACK TO THE OBSERVATORY is the second way out of a stalled jump — an outline, so TRY AGAIN stays the one signal. */
+html[data-skin] .gate:not([data-state="welcome"]) .gate-btn.gate-btn-secondary { background:transparent;color:var(--ink);border-color:var(--edge-strong);box-shadow:none;text-shadow:none; }
 
 /* The appearance dial (T-2057) — the portal masthead, the arrival card and the settings
    panel. One quiet button: a small dial whose hand turns a quarter per machine, four dots
@@ -172,4 +174,18 @@ html[data-transfer] .gate-card { animation:skin-arrival .7s ease-out both; }
    (z-index -1 inside the gate's own stacking context), never clickable, gone in 1.4 s. */
 html[data-transfer] .gate::before { content:'';position:absolute;left:50%;top:50%;z-index:-1;width:70vmin;height:70vmin;margin:-35vmin 0 0 -35vmin;border:1px dashed var(--accent);border-radius:50%;pointer-events:none;opacity:0;box-shadow:0 0 0 30px var(--skin-glow),0 0 0 100px var(--skin-glow);animation:transfer-tail 1.4s var(--ease-machine) both; }
 @keyframes transfer-tail { from{transform:scale(1.6);opacity:.45} to{transform:scale(3);opacity:0} }
-@media (prefers-reduced-motion:reduce) { html[data-transfer] .gate-card{animation:none} html[data-transfer] .gate::before{content:none} .machine-dial,.machine-dial *,.gate-btn{transition:none!important} }
+/* T-2735: the way home. The renderer's reverse ring closes from 2.8x to .6x (recall.css); the
+   Observatory picks it up there and lets it close to a point, fading, so the trip home reads as one shot. */
+html[data-recall]::after { content:'';position:fixed;left:50%;top:50%;z-index:200;width:70vmin;height:70vmin;margin:-35vmin 0 0 -35vmin;border:1px dashed var(--accent);border-radius:50%;pointer-events:none;opacity:0;box-shadow:0 0 0 30px var(--skin-glow),0 0 0 100px var(--skin-glow);animation:recall-tail 1s var(--ease-machine) both; }
+@keyframes recall-tail { from{transform:scale(.6);opacity:.45} to{transform:scale(.02);opacity:0} }
+@media (prefers-reduced-motion:reduce) { html[data-recall]::after{content:none} html[data-transfer] .gate-card{animation:none} html[data-transfer] .gate::before{content:none} .machine-dial,.machine-dial *,.gate-btn{transition:none!important} }
+/* T-2668 — Researcher mode's contract, on every page this sheet dresses. An element marked
+   [data-researcher] is research-only (the order book, the full essays; never an id, a path or a
+   ticket number, owner 2026-10-18 — a ticket reaches a researcher only as a link): it
+   stays off the visitor's screen until Researcher mode (T-2657) sets <html
+   data-researcher-mode>, and tools/check_visitor_ui.py exempts it from the visitor-UI lint
+   for exactly that reason. */
+html:not([data-researcher-mode]) [data-researcher] { display: none !important; }
+/* T-2657 — and the other half: a visitor's stand-in for something Researcher mode shows in
+   full (the short "Why" hint) steps aside while it is on, so the full text is read once. */
+html[data-researcher-mode] [data-visitor-only] { display: none !important; }

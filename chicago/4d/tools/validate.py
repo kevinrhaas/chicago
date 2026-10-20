@@ -228,8 +228,8 @@ WIDE_RANGE_YEARS = 12
 # Two 320 MiB app allowances plus the 129.136 MiB of other site content total
 # 769.136 MiB, below the 1 GiB platform ceiling. Storage hygiene only, as above: the
 # boot payload is untouched (no textured house is in the 1835 boot). §9 of
-# docs/SITE-BUDGET.md has the numbers; T-2596 (Glessner v4 in KTX2) is expected to
-# hand some back, since its 28 PNG maps are larger than their UASTC equivalents.
+# docs/SITE-BUDGET.md has the numbers; T-2596 (Glessner v4 in KTX2) handed 30.81 MiB
+# back, and the tree then read 268.87 MiB.
 SITE_BUDGET_MB = 320
 # Warn at 90 % of it. See run_site_check for why this band exists (T-0722).
 SITE_WARN_FRACTION = 0.90
@@ -518,7 +518,7 @@ def validate_scene(scene: dict, structures: dict, epochs: dict, exclusions: dict
             rep.error(where, f"terrain_epoch '{ep_id}' covers {frm}..{to}, "
                              f"which does not include target_date {target}")
 
-    included, excluded, blocked = [], [], []
+    included, excluded = [], []
     for path, st in structures.items():
         covering = []
         for ph in st.get("phases", []):
@@ -532,39 +532,12 @@ def validate_scene(scene: dict, structures: dict, epochs: dict, exclusions: dict
                       f"exactly one must")
         elif len(covering) == 1:
             included.append(f"{st.get('id')}:{covering[0]}")
-            if st.get("review_required"):
-                blocked.append(st.get("id"))
         else:
             excluded.append(st.get("id"))
 
-    # The people carry the same flag as the buildings, and until 2026-08-16 this list
-    # was built out of data/structures/ alone — so a household flagged for AGENTS.md's
-    # standing constraint blocked nothing, while the error this validator prints on the
-    # household side promised that "any record touching it blocks a scene from being
-    # marked released" (ROADMAP K34). The seven flagged households were covered anyway,
-    # by the coincidence that every one of them lives or works in a building that is
-    # also flagged; nothing required that, and tools/measure_review_constraint.py now
-    # does. A household is not date-gated the way a phase is: the residents layer runs
-    # its own scene-date gate, and a record flagged for consultation is not made safe
-    # to release by being absent from one year of it.
-    for hid, h in sorted((households or {}).items()):
-        if h.get("review_required"):
-            blocked.append(hid)
-        for p in h.get("persons", []):
-            if p.get("review_required"):
-                blocked.append(hid)
-                break
-
-    # A scene's own interpretive cards (T-0472) carry the same flag: a card naming an
-    # event the standing constraint covers holds the scene back exactly as a building
-    # would, and a card is never made safe to release by being prose rather than mesh.
-    for card in scene.get("cards", []) or []:
-        if isinstance(card, dict) and card.get("review_required"):
-            blocked.append(f"card {card.get('id')}")
-
-    if scene.get("released") and blocked:
-        rep.error(where, f"released is true but these records carry review_required: "
-                         f"{sorted(set(blocked))}")
+    # T-2672: the owner lifted review_required as a release block on 2026-10-16.
+    # Keep flags, source confidence, review reasons and scene-date checks intact.
+    # Review annotations describe care taken; released does not erase them.
 
     rep.note(f"scene {sid} ({target}): {len(included)} structure(s) included, "
              f"{len(excluded)} excluded by date"
@@ -3315,6 +3288,10 @@ DERIVED_DOCUMENTS = [
             "not_modelled.dossier_zone": "the terrain dossier's zone number, a pointer "
                                          "into a file no visitor has; `why` says it in "
                                          "words",
+            "work_refs": "the work records (ticket numbers) the prose named, taken out of every sentence by tools/readable_text.py (T-2825) and kept for Researcher mode's link behind plain words; never printed as text",
+            "claims.work_refs": "as `work_refs`",
+            "context.work_refs": "as `work_refs`",
+            "not_modelled.work_refs": "as `work_refs`",
         },
     },
     {
@@ -3324,17 +3301,22 @@ DERIVED_DOCUMENTS = [
         "internal": {
             "scene": "as above — the id this file was fetched by",
             "target_date": "as above",
+            "excluded.work_refs": "the work records (ticket numbers) the prose named, taken out of "
+                                  "every sentence by tools/readable_text.py (T-2825) and kept for "
+                                  "Researcher mode's link behind plain words; never printed as text",
+            "uncertain.work_refs": "as `work_refs`",
         },
     },
     {
         "doc": "liberties.json",
         "module": "renderers/web/js/liberties.js",
         "roots": {"doc": "", "lib": "liberties", "f": "liberties.fields",
-                  "c": "liberties.covers"},
+                  "c": "liberties.covers", "nm": "names"},
         "internal": {
             "_doc": "the do-not-hand-edit banner, addressed to whoever opens the file",
             "source": "docs/LIBERTIES.md, the path the list was derived from",
             "count": "the length of the list the visitor is already scrolling",
+            "liberties.work_refs": "the work records (ticket numbers) the prose named, taken out of every sentence by tools/readable_text.py (T-2825) and kept for Researcher mode's link behind plain words; never printed as text",
             "liberties.scope.enumeration": "which derived population a `Scope:` "
                 "entry admits to, as the key tools/compile_liberties.py re-counts "
                 "it by; the visitor reads the field's own prose, which names the "
@@ -6093,9 +6075,9 @@ def check_residents(source_ids: set, structure_ids: set, rep: Report, tally: dic
         if h.get("touches_removal") and not h.get("review_required"):
             rep.error(where, "touches_removal is true but review_required is false. AGENTS.md's "
                              "standing constraint: the final removal of the Potawatomi is the "
-                             "most historically significant event of this target year and any "
-                             "record touching it blocks a scene from being marked released "
-                             "until the consultation the project has committed to has happened")
+                             "most historically significant event of this target year; records "
+                             "touching it retain review_required and their reason even though "
+                             "the owner lifted the release block on 2026-10-16")
         if not (h.get("research_note") or "").strip():
             rep.error(where, "research_note is required - a household is an argument about "
                              "people and the argument has to be written down")

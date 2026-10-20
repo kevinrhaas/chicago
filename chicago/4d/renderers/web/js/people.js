@@ -38,12 +38,14 @@
  * untouched, under "Browse by household".
  */
 
+import { gradeTerm } from './strings/terms.js';
 import { TIER_TITLE } from './attribute-tiers.js';
 import { escapeHtml } from './citations.js';
 import { displayName } from './display-name.js';
-import { householdHtml, loadResidentJoins, words } from './residents.js';
+import { householdHtml, loadResidentJoins, sayJoins, words } from './residents.js';
 import { seatHtml, goTarget } from './seat.js';
 import { readHouseholdRecord } from './letter-list-roster.js';
+import { loadReaderText, readerCopy } from './reader-text.js';
 
 const PAGE = 80;
 
@@ -62,7 +64,8 @@ function n(x) {
 
 /** How a row is known, in the words the mark and the card use. */
 const KNOWN_LABEL = {
-  documented: 'documented',
+  // T-2624: "documented" is a retired word (section 03); the mark says what it means.
+  documented: 'named in a source',
   letter_list: 'letter list',
   civic_mint: 'civic record',
   projected: 'projected',
@@ -105,7 +108,7 @@ const KNOWN_TITLE = {
   documented: 'Named by a source outside the post-office lists and the civic-list consolidation',
   letter_list: 'Known only from the post office’s lists of uncalled-for letters — a name, and nothing else',
   civic_mint: 'Minted by the evidence consolidation from a poll, tax or muster list, or a contemporary paper',
-  projected: 'A projected resident: documented once or twice and placed by nothing',
+  projected: 'A projected resident: named once or twice and placed by nothing',
   // T-1353. Not a rung on the four above: those grade how well the town knew a
   // RESIDENT, and this person was not one. The town census counts them on a row of
   // their own for the same reason.
@@ -248,7 +251,7 @@ function filterSpecs(people) {
     },
     {
       key: 'known', label: 'How known',
-      options: [['documented', 'documented'], ['letter_list', 'letter list only'],
+      options: [['documented', 'named in a source'], ['letter_list', 'letter list only'],
         ['civic_mint', 'civic record'], ['projected', 'projected resident'],
         // T-1353. The one pill here that is not about a resident's evidence: it is
         // about whether this person lived in the town at all.
@@ -258,7 +261,7 @@ function filterSpecs(people) {
     // T-1400. The tier, out of the cramped `facts` line and under the vocabulary's own
     // name, with the card's three sentences on the pills.
     {
-      key: 'grade', label: 'Tier',
+      key: 'grade', label: 'Grade', // T-2825: a grade, never the ladder's word tier
       options: grades.map((v) => [v, v]),
       title: (v) => TIER_TITLE[v] || '',
       test: (v) => (r) => r.grade === v,
@@ -341,18 +344,20 @@ export async function mountPeople({
   if (!mount) return { people: 0, error: 'no mount', ...idle };
   if (!people || !Array.isArray(people.people)) {
     // An honest note, not an empty list: the household browser below still works.
-    mount.innerHTML = '<p class="legend-note" id="people-note">The people directory did not load '
-      + `(<code>sidecars/${escapeHtml(String(sceneId))}/people.json</code>). The town's households `
-      + 'are still listed below.</p>';
+    mount.innerHTML = '<p class="legend-note" id="people-note">The people directory did not load. '
+      + 'The town\'s households are still listed below.</p>';
     return { people: 0, error: 'people.json missing', ...idle };
   }
 
   const section = mount.closest('.panel-body');
   if (typeof onTitle === 'function') section?.classList.add('has-head-back');
+  // T-2825: what a card reads is said for a reader as it arrives (reader-text.js). The
+  // overlay is fetched with the first card, never with the directory.
   const getJson = async (rel) => {
     const res = await fetch(new URL(rel, dataBase), { cache: 'no-cache' });
     if (!res.ok) throw new Error(`${rel}: ${res.status} ${res.statusText}`);
-    return res.json();
+    const doc = await res.json();
+    return readerCopy(doc, await loadReaderText(dataBase, 'residents', problems));
   };
   // The citation join on its own — 159 records, a few kilobytes — so a card can
   // quote its sources the moment the household record arrives rather than after
@@ -827,9 +832,9 @@ export async function mountPeople({
         All people</button>
       <h3 class="people-card-name">${escapeHtml(r.name)}</h3>
       <p class="people-card-meta">
-        <i class="grade-dot grade-${escapeHtml(r.grade)}"></i>${escapeHtml(r.grade)}
+        <i class="grade-dot grade-${escapeHtml(r.grade)}"></i>${escapeHtml(gradeTerm(r.grade).label || r.grade)}
         · <span class="person-mark mark-${escapeHtml(r.how_known)}" title="${escapeHtml(knownTitle)}">${
-          escapeHtml(r.how_known === 'documented' ? 'documented' : KNOWN_LABEL[r.how_known])}</span>${
+          escapeHtml(KNOWN_LABEL[r.how_known] ?? r.how_known)}</span>${
         r.occupation ? ` · ${escapeHtml(words(r.occupation))}` : ''}
         <br><span class="people-card-hh">${escapeHtml(words(r.relationship))} of <b>${escapeHtml(r.household_name)}</b>${
           r.division && r.division !== 'unplaced'
@@ -840,8 +845,7 @@ export async function mountPeople({
       </p>
       <div class="people-card-actions">${actionsHtml(r)}</div>
       <p class="people-card-what">${escapeHtml(knownTitle)}.</p>
-      ${readmissionHtml(r)}
-      ${transientHtml(r)}
+      <div class="people-card-row-notes"></div>
       ${firmsHtml(r.id)}
       <div class="people-card-body" aria-busy="true"><p class="legend-note">Loading the household record…</p></div>`;
     home.hidden = true;
@@ -859,9 +863,10 @@ export async function mountPeople({
     const render = (hh, joins) => {
       const wasOpen = new Set([...body.querySelectorAll('details[open] > summary')]
         .map((s) => s.textContent.replace(/\s+/g, ' ').trim()));
+      const said = sayJoins(joins, reader);
       body.innerHTML = '<h4 class="people-card-h">The household record</h4>'
-        + householdHtml(hh, joins.citationsById, joins.researchByPerson, joins.directoryByPerson, joins.ladderRules,
-          joins.agencies, joins.withheldByPerson);
+        + householdHtml(hh, said.citationsById, said.researchByPerson, said.directoryByPerson, said.ladderRules,
+          said.agencies, said.withheldByPerson);
       for (const det of body.querySelectorAll('details')) {
         const summary = det.querySelector(':scope > summary')?.textContent.replace(/\s+/g, ' ').trim() || '';
         const title = det.querySelector(':scope > summary .lib-title')?.textContent?.trim();
@@ -869,8 +874,20 @@ export async function mountPeople({
         if (title === r.name || wasOpen.has(summary)) det.open = true;
       }
     };
+    let reader = null;
+    // T-2825: the row's own notes (a re-admission, a visitor's season) are research prose
+    // too, and are drawn once the household overlay is in hand, said for a reader.
+    const rowNotes = cardEl.querySelector('.people-card-row-notes');
+    const fillRowNotes = (overlay) => {
+      if (!rowNotes?.isConnected || seq !== openSeq) return;
+      const said = readerCopy(r, overlay);
+      rowNotes.outerHTML = `${readmissionHtml(said)}${transientHtml(said)}`;
+    };
     try {
-      const [hh, citationsById] = await Promise.all([readHouseholdRecord(dataBase, r.file, { cohort: !!r.letter_list_only }), citations()]);
+      const [hh, citationsById, overlay] = await Promise.all([readHouseholdRecord(dataBase, r.file, { cohort: !!r.letter_list_only }), citations(),
+        loadReaderText(dataBase, 'residents', problems)]);
+      reader = overlay;
+      fillRowNotes(overlay);
       if (seq !== openSeq || signal?.aborted) return false; // a later open won
       render(hh, { citationsById, researchByPerson: new Map(), directoryByPerson: new Map(),
         withheldByPerson: new Map(), ladderRules: [] });
@@ -906,7 +923,7 @@ export async function mountPeople({
       // scene already raises. `goTarget` offers THAT where the ladder offers nothing,
       // with a verb naming the policy and a line saying the roof is substitutable, so
       // a band's card can be walked to without the band having become a place.
-      const seatRow = joins.seatByHousehold?.get(r.household);
+      const seatRow = sayJoins(joins, reader).seatByHousehold?.get(r.household);
       if (seatRow) {
         const actions = cardEl.querySelector('.people-card-actions');
         actions?.querySelector('.people-noaddr')?.remove();
@@ -921,9 +938,9 @@ export async function mountPeople({
       }
     } catch (err) {
       if (seq !== openSeq || signal?.aborted) return false;
+      fillRowNotes(await loadReaderText(dataBase, 'residents', problems));
       problems.push(`people: ${err.message} — one household record is missing`);
-      body.innerHTML = `No card yet. <p class="legend-note">This household's record could not be loaded. It is committed at
-        <code>data/residents/${escapeHtml(r.file || '')}</code>.</p>`;
+      body.innerHTML = 'No card yet. <p class="legend-note">This household\'s record could not be loaded.</p>';
     } finally {
       if (seq === openSeq && !signal?.aborted) body.removeAttribute('aria-busy');
     }

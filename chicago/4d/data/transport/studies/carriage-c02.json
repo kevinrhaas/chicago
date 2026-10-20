@@ -1,0 +1,15 @@
+{
+  "cabin_envelope_m": [
+    1.32,
+    1.7,
+    1.44
+  ],
+  "wheelbase_m": 1.9,
+  "track_m": 1.4,
+  "wheel_radius_front_m": 0.45,
+  "wheel_radius_rear_m": 0.55,
+  "shaft_length_m": 2.2,
+  "shaft_inner_spacing_tip_m": 0.773,
+  "steering_limit_deg": 8,
+  "operable_door_study": true
+}

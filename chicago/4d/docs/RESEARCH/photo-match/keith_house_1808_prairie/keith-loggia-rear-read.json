@@ -1,0 +1,80 @@
+{
+ "ticket": "T-2881",
+ "camera": "data/reference_views/keith_house_1808_prairie/inland-1888.json",
+ "plate": {
+  "south_shafts_x": [
+   [
+    816.7,
+    829.7
+   ],
+   [
+    837.3,
+    846.2
+   ]
+  ],
+  "north_shafts_x": [
+   [
+    1019.5,
+    1032.2
+   ],
+   [
+    1043.9,
+    1049.5
+   ]
+  ],
+  "south_pedestal_face_x": [
+   817.3,
+   860.2
+  ]
+ },
+ "shaft_middles_x": [
+  823.2,
+  841.8,
+  1025.8,
+  1046.7
+ ],
+ "fit_at_front_pairs_v": {
+  "axis_m": 0.39,
+  "pitch_m": 0.2775,
+  "rms_px": 1.14,
+  "residuals_px": [
+   0.1,
+   1.7,
+   0.1,
+   -1.6
+  ]
+ },
+ "south_pedestal_face_depth_m_from_each_edge": [
+  0.575,
+  0.54
+ ],
+ "plan": {
+  "south_block_front_x": 666.1,
+  "south_block_back_x": 671,
+  "south_block_depth_m": 0.21,
+  "south_block_rows": [
+   2204.5,
+   2216.5
+  ],
+  "south_block_v_m": [
+   6.82,
+   7.34
+  ]
+ },
+ "built": {
+  "axis_m": 0.39,
+  "pitch_m": 0.28,
+  "middles_x": [
+   823.2,
+   843.5,
+   1025.9,
+   1045.2
+  ],
+  "minus_print_px": [
+   -0.0,
+   1.7,
+   0.1,
+   -1.5
+  ]
+ }
+}

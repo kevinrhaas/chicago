@@ -1,0 +1,121 @@
+{
+  "id": "wagon_w01_driver_bench_resident_study",
+  "scene": "1835",
+  "grade": "reconstructed",
+  "status": "Opt-in named1835 static seated canonical authoring study; source-body contact only, actual exported clothes/contact pending",
+  "vehicle_variant": "wagon_w01_driver_bench_study",
+  "vehicle_parameters": "data/transport/studies/wagon-driver-bench.json",
+  "furniture_attested": false,
+  "pose_kind": "sit_drive",
+  "coordinate_frame": "metres +Yup +Zforward",
+  "canonical_pose_status": "Source LBS global rest-to-pose matrices only; must convert/validate against canonical Blender rest axes",
+  "resident_bindings": [
+    {
+      "asset_id": "bardwell_otis_1835",
+      "person_reference_id": "rc_bardwell_otis",
+      "person_reference_grade": "reconstructed",
+      "body_sha256": "e7b088b88ea18bb309ca990ef6c0cafea9420ac152d42d1351c1a9795daa9269",
+      "pose_draft_file": "bardwell_otis_1835-triangle-corrected-pose.json",
+      "pose_draft_sha256": "f68233e814e084fd53a3f3cb30909c44b80558867e3d497b8f470b48f852e723",
+      "pelvis_head_m": [
+        0.0,
+        1.6697398418267082,
+        0.65
+      ],
+      "seat_surface_m": [
+        0,
+        1.58,
+        0.65
+      ],
+      "wrist_targets_m": {
+        "l": [
+          0.19999999999999993,
+          1.92,
+          1.04
+        ],
+        "r": [
+          -0.19999999999999993,
+          1.92,
+          1.04
+        ]
+      },
+      "grip_status": "wrist heads, not yet palm grip sockets; finger closure unimplemented"
+    },
+    {
+      "asset_id": "dufresne_joseph_1835",
+      "person_reference_id": "rc_dufresne_joseph",
+      "person_reference_grade": "reconstructed",
+      "body_sha256": "ef5eb3ca282b29c482a67af4e3e50d1ed29a8055eed0230ee2a58ec36dddbba9",
+      "pose_draft_file": "dufresne_joseph_1835-triangle-corrected-pose.json",
+      "pose_draft_sha256": "06ea75d314c4a4aad07f479fad2076480d246962595aabcb4bd07696bd3c3ba7",
+      "pelvis_head_m": [
+        0.0,
+        1.6710574350146667,
+        0.65
+      ],
+      "seat_surface_m": [
+        0,
+        1.58,
+        0.65
+      ],
+      "wrist_targets_m": {
+        "l": [
+          0.20000000000000018,
+          1.92,
+          1.04
+        ],
+        "r": [
+          -0.20000000000000018,
+          1.92,
+          1.04
+        ]
+      },
+      "grip_status": "wrist heads, not yet palm grip sockets; finger closure unimplemented"
+    },
+    {
+      "asset_id": "flynn_martin_1835",
+      "person_reference_id": "rc_flynn_martin",
+      "person_reference_grade": "reconstructed",
+      "body_sha256": "ef5eb3ca282b29c482a67af4e3e50d1ed29a8055eed0230ee2a58ec36dddbba9",
+      "pose_draft_file": "flynn_martin_1835-triangle-corrected-pose.json",
+      "pose_draft_sha256": "06ea75d314c4a4aad07f479fad2076480d246962595aabcb4bd07696bd3c3ba7",
+      "pelvis_head_m": [
+        0.0,
+        1.6710574350146667,
+        0.65
+      ],
+      "seat_surface_m": [
+        0,
+        1.58,
+        0.65
+      ],
+      "wrist_targets_m": {
+        "l": [
+          0.20000000000000018,
+          1.92,
+          1.04
+        ],
+        "r": [
+          -0.20000000000000018,
+          1.92,
+          1.04
+        ]
+      },
+      "grip_status": "wrist heads, not yet palm grip sockets; finger closure unimplemented"
+    }
+  ],
+  "open_gates": [
+    "1835 furniture construction evidence",
+    "fastener/support strength",
+    "canonical Blender and final GLB pose equivalence",
+    "garment/shoe triangle contact",
+    "hands/palm grip and rein endpoints",
+    "continuous steering sweep",
+    "photographic quality and likeness"
+  ],
+  "contact_basis": "All actual source-body LBS triangle footprints registered to decodedGLBbench with reconstructed1micrometre positive clearance; feet IK re-solved to actual decoded board top. Canonical clothing/export pending.",
+  "vehicle_provenance": {
+    "candidate_glb_sha256": "f415e6fb79c9df9372c5b2ec6cb77c9a305117de3fa8e9c704c87d5c09a6aeb0",
+    "scope": "Original reconstructed supported W01 furniture; no historic ownership or actual seated presence attested"
+  }
+}

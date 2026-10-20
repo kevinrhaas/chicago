@@ -1,3 +1,5 @@
+import { t } from './strings/index.js';
+import './strings/arrival.js';
 import { createLoadingContent } from './loading-content.js';
 import { arrivalTitles, scenePresentation } from './scene-presentation.js';
 /** Arrival presentation over the real boot controller (T-1247). */
@@ -82,6 +84,11 @@ function setDigits(host, year, animate) {
   host.dataset.year = text;
 }
 
+/** T-2616: the failure sentence, at the year the ticker stalled on. */
+export function stalledLine(year) {
+  return t('arrival.stalled', { year: Math.round(year) });
+}
+
 const MB = 1e6;
 /** The readout's figures: fixed-width, so the device never reflows as they change. */
 export function formatReadout({ bytes = 0, total = 0, rate = null, eta = null } = {}, ready = false) {
@@ -90,7 +97,7 @@ export function formatReadout({ bytes = 0, total = 0, rate = null, eta = null } 
   return {
     bytes: `${mb(bytes)} / ${mb(Math.max(bytes, total))} MB`,
     rate: rate == null ? '— MB/s' : `${(rate / MB).toFixed(rate >= 10 * MB ? 0 : 1)} MB/s`,
-    eta: ready ? 'LOCKED' : `T-${String(Math.floor(secs / 60)).padStart(2, '0')}:${String(secs % 60).padStart(2, '0')}`,
+    eta: ready ? t('arrival.readout.locked') : `T-${String(Math.floor(secs / 60)).padStart(2, '0')}:${String(secs % 60).padStart(2, '0')}`,
   };
 }
 
@@ -113,6 +120,8 @@ export function createArrival({
   targetYear = 1835,
   titleEl,
   onWelcome = () => {},
+  // T-2611: told each year the ticker shows, as it shows it (the time-stream captions).
+  onYear = () => {},
   currentYear = new Date().getFullYear(),
   reducedMotion = typeof matchMedia === 'function'
     ? matchMedia('(prefers-reduced-motion: reduce)').matches : false,
@@ -127,6 +136,20 @@ export function createArrival({
   logEl = null,
   lampsEl = null,
   readoutEl = null,
+  // T-2616: the failure state's way home and its folded detail. Optional, like the rest.
+  observatoryEl = null,
+  detailsEl = null,
+  detailEl = null,
+  // T-2613: the landing. `journey` hears landing › landed; the device turns over to its
+  // Home (onWelcome) halfway through the flip. All optional: without a device the Home
+  // opens at once, as before.
+  journey = null,
+  deviceEl = null,
+  destinationEl = null,
+  announceEl = null,
+  targetDate = () => null,
+  wait = (fn, ms) => setTimeout(fn, ms),
+  vibrate = () => { try { globalThis.navigator?.vibrate?.(30); } catch { /* optional */ } },
 } = {}) {
   if (!boot) throw new Error('createArrival requires api.boot');
   const presentation = scenePresentation(targetYear);
@@ -178,7 +201,7 @@ export function createArrival({
   if (phaseEl) phaseEl.setAttribute('aria-live', 'polite');
   if (yearEl) yearEl.setAttribute('aria-hidden', 'true');
   if (cardEl && !cardEl.textContent.trim()) {
-    cardEl.textContent = 'Drawing on previously researched sources';
+    cardEl.textContent = t('arrival.card.default');
   }
 
   const firstStartedAt = () => {
@@ -193,6 +216,7 @@ export function createArrival({
     if (rounded === lastShown || (lastShown != null && rounded > lastShown)) return;
     lastShown = rounded;
     setDigits(yearEl, rounded, animate && !reducedMotion);
+    try { onYear(rounded); } catch { /* optional presentation never stops the ticker */ }
   }
 
   function sync(event) {
@@ -242,7 +266,10 @@ export function createArrival({
     tickerRaf = null;
   }
 
-  function fail(error, { message } = {}) {
+  /** T-2616: a stall reads as a stall, at the year the ticker stopped on. What failed to
+   * load (a file name, an error) is for an adult, so it sits in the folded details;
+   * `headline` replaces the stall sentence when the failure is not one (an unbuilt year). */
+  function fail(error, { message, headline } = {}) {
     if (ready) return;
     failed = true;
     if (phaseEl) phaseEl.hidden = false;
@@ -250,13 +277,18 @@ export function createArrival({
     content?.stop(true);
     stopTicker();
     if (settleRaf != null) cancelFrame(settleRaf);
-    const msg = message || (error ? `Could not finish the reconstruction — ${String(error.message || error)}`
-      : 'Could not finish the reconstruction.');
-    if (phaseEl) phaseEl.textContent = msg;
+    const detail = message || (error ? t('arrival.fail.detail', { error: String(error.message || error) })
+      : t('arrival.fail.plain'));
+    if (phaseEl) phaseEl.textContent = headline || stalledLine(lastShown ?? displayedYear);
+    if (headlineEl) headlineEl.textContent = t('arrival.stalled.title');
+    if (titleEl) titleEl.textContent = t('arrival.stalled.title');
+    if (detailEl) detailEl.textContent = detail;
+    if (detailsEl) { detailsEl.open = false; detailsEl.hidden = false; }
+    if (observatoryEl) observatoryEl.hidden = false;
     lampsEl?.querySelectorAll('[data-state="active"]').forEach(el => { el.dataset.state = 'fault'; });
     if (buttonEl) {
       buttonEl.disabled = false;
-      buttonEl.textContent = 'Retry';
+      buttonEl.textContent = t('arrival.retry');
       buttonEl.dataset.arrivalRetry = 'true';
     }
   }
@@ -272,20 +304,17 @@ export function createArrival({
     });
     const from = Math.max(targetYear + 1, lastShown ?? Math.round(yearForProgress(
       bootProgress(boot.phases, boot.expected, event?.at ?? now()), currentYear, false, targetYear)));
-    if (buttonEl && duration > 0) buttonEl.disabled = true;
     const finish = () => {
-      showYear(targetYear, false);
+      // T-2613: the last digit drops into place (a flap and a buzz, no Tap to enter).
+      showYear(targetYear, true);
+      vibrate();
       content?.land();
       setBar(barEl, 1);
       barEl?.classList.add('done');
       paintReadout(now(), true);
-      if (phaseEl) phaseEl.textContent = content ? 'Ready to explore.'
+      if (phaseEl) phaseEl.textContent = content ? t('arrival.ready')
         : presentation.arrivalLine;
-      if (buttonEl) {
-        buttonEl.textContent = 'Tap to enter';
-        buttonEl.disabled = false;
-      }
-      onWelcome();
+      land();
     };
     if (!duration || !requestFrame) {
       finish();
@@ -303,12 +332,39 @@ export function createArrival({
     settleRaf = requestFrame(frame);
   }
 
+  /** T-2613 (§05 "Landing, not Tap to enter"): the ARRIVED stamp and phosphor flash
+   * (180 ms), then the device turns over (520 ms, rotateY; a crossfade with reduced
+   * motion) and its back face is Home. Home takes taps from the flip's midpoint, so
+   * the scene is interactive well inside 900 ms of ready. */
+  const LANDING_MS = { flash: 180, half: 260, fade: 120 };
+  function land() {
+    const arrived = scenePresentation(targetYear, targetDate?.());
+    if (destinationEl) destinationEl.textContent = arrived.stamp;
+    yearEl?.classList?.add('is-arrived');
+    if (announceEl) announceEl.textContent = arrived.announce;
+    journey?.land();
+    const done = () => { if (deviceEl) delete deviceEl.dataset.landing; journey?.landed(); };
+    if (!deviceEl) { onWelcome(); done(); return; }
+    const half = reducedMotion ? LANDING_MS.fade : LANDING_MS.half;
+    const turn = () => {
+      deviceEl.dataset.landing = reducedMotion ? 'fade-out' : 'flip-out';
+      wait(() => {
+        onWelcome();
+        deviceEl.dataset.landing = reducedMotion ? 'fade-in' : 'flip-in';
+        wait(done, half);
+      }, half);
+    };
+    if (reducedMotion) { turn(); return; }
+    deviceEl.dataset.landing = 'flash';
+    wait(turn, LANDING_MS.flash);
+  }
+
   for (const type of ['phasestart', 'phaseprogress', 'phaseend']) boot.on(type, sync);
   boot.on('phasestart', ({ phase }) => { if (phase?.essential) setLamp(phase.id, 'active'); });
   boot.on('phaseend', ({ phase }) => { if (phase?.essential) setLamp(phase.id, phase.error ? 'fault' : 'done'); });
   boot.on('error', event => {
     if (event.phase?.essential !== false) fail(event.phase?.error || 'Boot failed',
-      { message: `${event.phase?.label || 'Reconstruction'} failed — ${event.phase?.error || 'unknown error'}` });
+      { message: t('arrival.fail.phase', { phase: event.phase?.label || 'Reconstruction', error: event.phase?.error || 'unknown error' }) });
   });
   boot.on('ready', settle);
 
@@ -324,7 +380,7 @@ export function createArrival({
   showYear(displayedYear, false);
   setBar(barEl, 0);
   if (cardEl) cardEl.textContent = cardEl.textContent.trim()
-    || 'Drawing on previously researched sources';
+    || t('arrival.card.default');
 
   if (requestFrame) tickerRaf = requestFrame(tick);
 

@@ -2,10 +2,10 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-rba-ia-1888-keith-1808",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "728083c8d5edd353cd13fe7997b5b7a40d496b059e6d15244351dfd1a008f559",
-  "camera_sha256": "827bd615261d24c09a5bfec80f4afc053a3c779ab36e02d99e83fd5f2f6ebd8f",
+  "glb_sha256": "de3cee807da75aba0f47e2abb24d30c30656c8846f3163549c765c804fb85ba4",
+  "camera_sha256": "f34af55731a67c89639243bec900cf4973e3ec364784c36b702cdcb5d44b395c",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-rba-ia-1888-keith-1808-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "The flat top now has real two-row openings, corner pinnacles, a checker band and five colonnettes dividing six upper windows.",
@@ -28,16 +28,28 @@
       "status": "fixed"
     },
     {
-      "what": "The bow's principal and basement lights sit within the camera fit's error of the plate and are not confirmed closer than that.",
-      "status": "open"
+      "what": "T-2765: the bow's principal storey has four lights under the second storey's four, at its bearings, and the basement's three under the first three, read at the plate's native resolution (inland-1888's record says how); this copy shows the same.",
+      "status": "fixed"
     },
     {
       "what": "T-2566: the street front's granite runs a deep rock-faced course and a thin one in turn up to the third floor, then even, shallower-faced courses, and the checker band is laid in staggered rows of rough lumps standing out by differing amounts between stepped head bands, as this photograph shows.",
       "status": "fixed"
     },
     {
-      "what": "The bow still runs even courses where the photographs' bow alternates deep and thin ones; the individual joints, the upper capitals' carving and the head bands' exact sections are drawn to the photograph's shadows rather than read.",
-      "status": "open"
+      "what": "T-2714: the bow alternates deep and thin courses as the photographs' bow does: T-2584 laid it 0.49 m and 0.195 m in turn, and this render shows the rhythm on the bow's piers between the lights. The record had kept T-2566's 'even courses' after T-2584 built them.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2772: the joints, read on inland-1888, the plate itself at its native 1559 px (about 80 px/m on the lower storeys); this reproduction of the same photograph draws them at about 39 px/m and adds no reading (tools/keith_plate_grain_read.py, its table in docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-grain-read.json). The print resolves the beds below the principal storey's transoms, where the street tree's branches thin. On the front's south strip and the bow's south flank the beds lie level with each other (7 of 8 front beds have a bow bed within 3 px), where the model courses the bow from its own bed (1 of 7 in the render). Up from the principal sill the print lays seven courses deep and thin in turn, as the model does, and at the model's pitch (a deep and a thin course together 50.7 px in print, 51.4 in render). But it splits them 33 / 18 px (about 0.44 / 0.24 m) where the model's 0.49 / 0.195 m render 36.8 / 14.7. From the sill down the print lays 3 even courses of 35, 37, 36 px (about 0.47-0.49 m) over a 49 px foot, with no thin one, where the render lays thin and deep in turn (16, 36, 15, 36 px) over two base courses (27, 26). Above the principal storey the courses are washed out and crossed by branches, so they are not read. T-2773 builds what the print reads, and the re-render reads it back (tools/keith_plate_grain_read.py on the new GLB, docs/RESEARCH/photo-match/keith_house_1808_prairie/inland-1888-grain-read.json): the bow is laid on the front's own beds, so 6 of 7 front beds over the sill have a bow bed within 3 px in the render (7 of 8 in print, 1 of 7 before); up from the principal sill the render's seven courses run 33, 18, 33, 19, 33, 18, 34 px against the print's 32, 17, 34, 18, 32, 18, 34, every one within 2 px (deep 33.2 / thin 18.3 px against 33.0 / 17.7, the model's pair 0.418 / 0.226 m at the pitch it had); and from the sill down the render lays three even courses of 35, 36, 34 px against the print's 35, 37, 36, with no thin one. Under them the render's foot is the rusticated base and coping (27, 26 px, 1.05 m up to the area lights' heads) where the print reads one 49 px course: the print's sill stands about 157 px over the pavement and the render's about 198, which is the basement's height, T-2765's question, not the joints'.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2772: the upper capitals' carving is not shown. In the plate at its native 1559 px (about 76 px/m at the third storey's heads; this reproduction draws them at about 33 px/m) each of the five colonnettes' capitals is about 20 px tall and 16 px across. All five stand in the shadow band under the third storey's head, crossed by the street tree's branches: the print holds the shafts below them, and no tone in the capitals to read a bell, a neck ring or carving from. They stay the model's neck ring under a flaring bell (T-2566), reconstructed.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-2772: the head bands' sections are not shown. Read along the crown's own courses at the plate's native 1559 px (about 76 px/m there; this reproduction draws it at about 33 px/m), the head band under the checker band stands where the print's does. Its shadow line lies 143.5 px under the lattice's lower openings in print, and 155.0 in render (145.2 at the print's scale, from the lattice's row pitch, 29.5 px against 31.5). The band reads as one light fillet a few px tall over its shadow, which is 16.5 px deep in print against 13.1 at scale in render. A moulding's steps of a few centimetres are 2-4 px here, finer than the print resolves through the branches, so the band keeps its built section. T-2773 weighs the few px of extra shadow.",
+      "status": "not shown"
     },
     {
       "what": "Hidden rear elevations and concealed roof surfaces cannot be accepted from this front photograph.",
@@ -57,6 +69,38 @@
     },
     {
       "what": "T-2577: the cornice box under the lattice is laid in the front's dressed stone, so the crown reads as one stone mass from the wall head to the lattice, as the photographs show it; the brown band is gone in this render.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2680: with the front and loggia in register, the lattice rows and coping stood 7-10 px (about 0.25 m) high over the checker band. With the crown 0.2 m lower, both rows and the coping read within about 2 px of the plate.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2681: the loggia raised from the 1965 close view: columns 2.25 -> 2.45 m, the beam and cornice 0.65 -> 0.9 m, the balcony's front 0.9 -> 0.75 m. Here (read in inland-1888 at full size) the beam and cornice now read 62 px against the print's 62 and the front 60 against 63, where the model's were plainly too shallow and too deep before. The columns now read 198 px from pedestal to capital top against the print's 180 (182 before), about 0.2 m too long at this camera, while the 1965 view still reads them 0.3 m too short. The two pictures disagree by about 0.5 m on the column; which camera errs at the loggia is not settled. T-2725: ruled. Both pictures stand the column at about 2.45 times its pedestal (the plate 190.5 px over about 77, the 1965 view 100 px over about 41), so they disagree only on scale. Read in the plate against the front's own ruler at the same image column (the third storey's north light, 10.41-12.70 m, 159.5 px) and corrected for the loggia standing nearer the camera, the column reads 2.51 m (south pair) and 2.50 m (north pair), the pedestal 1.02 m. Built at 2.5 m (from 2.45); what each camera still shows at the loggia is its own scale there, stated as its own item.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2714: the checker band's units are pitched 0.28 m along their rows (0.336 m before), with 0.07 m of ground between neighbours, as the 1888 Keith plate lays them; the rows are unchanged. This is a reproduction of the same 1888 photograph, registered to inland-1888, where the pitch was read at full size (21 px along a row in print and render alike); this smaller copy agrees with it and adds no reading of its own.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2813: re-rendered with Keith's crown 0.16 m lower (the moulded course under the lattice 0.20 m deep where it was 0.36 m, the checker and head bands unmoved); its camera does not use the crown and is unchanged. Read again at the crown beside the previous render: the lattice, coping and pinnacles move a few pixels at this picture's scale and nothing it shows opens a difference; the verdict stands as it was (differs).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2876: the camera re-derived from the plate's camera as it now stands (T-2845's re-fit), through this copy's own registration to the plate (tools/keith_copy_cameras.py; the solve says how), and re-rendered on the GLB in the tree, T-2845's loggia (0.6 m pedestals at the first-floor plan's place, each pair's shafts 0.36 m apart, the flight 1.8 m clear and the stoop 0.15 m south). T-1883's camera, fitted to the plate's camera of its day, drew the front pairs about 25-35 px left of this copy's shafts on the rebuilt loggia; on the re-derived camera each pair stands on the copy's shafts, the capitals and pedestal caps on its rows, the balcony's front and pinnacle on its, as inland-1888 reads them at full size. Nothing else this copy shows moved.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2876: the loggia has a REAR ROW of paired columns that the model does not build. Read on the plate (this is a reproduction of it) at its native 1559 px (inland-1888): behind and left of the south front pair (whose shafts stand at x 875-927) two shafts in shadow at x 818-828 and 839-845, rows 1480-1540; and through the opening between the front pairs (875-927 and 1094-1146) three lit shafts at x 998-1004, 1020-1032 and 1044-1050 standing on the parapet's line at rows 1550-1570. On this camera a point deeper in the loggia (further west) draws nearer the principal point (x 450), so both sets are a second row of pairs behind the front ones, at the house wall or a bay deeper. The render draws the front pairs only, with the lit house wall and door close behind them where the print is dark to the back. Its depth and whether the rear pairs are free or engaged are for the build to rule (T-2877). This copy shows both sets the same. T-2881: built. Read on the plate at its native 1559 px (inland-1888) at half-max, the rear shafts' middles stand at x 823.2 and 841.8 (the south pair, in shade, rows 1440-1520) and 1025.8 and 1046.7 (the north pair's lit feet, rows 1540-1560); with each pair at its front pair's v (7.05 and 9.9) they fit at 1.14 px RMS 0.39 m off the wall at a 0.28 m pitch (0.2775), so both pairs stand behind the front ones, free of the wall, closer set and slighter than the front's 0.36 m (shafts 0.24 m across, from 0.31). The south rear pedestal's lit face (x 817-860, rows 1600-1630) reads 0.54-0.58 m off the wall for a 0.6 m pedestal. Built so, the row draws the four middles within 1.7 px of the print's. In this reproduction, whose camera is the plate's re-derived (T-2876), the rear pairs stand on the print's: the south pair in shade behind the south front pair, the north pair's lit feet between the front pairs.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2881: beside the north rear pair the plate (inland-1888, of which this is a reproduction, read at its native 1559 px) draws a third lit upright at x 997-1009, rows 1522-1587, standing over the pedestals' line where the render draws the house wall just south of the north rear pedestal; and the first-floor plan under the plate draws a block at the wall behind each front pedestal only about 0.21 m deep (x 666-671 at 23.17 px/m; the south one at v 6.82-7.34), where the rear pedestals are built 0.6 m deep to carry their pairs, as the plate reads the south one's face. Whether the upright is a respond on the wall, the door's lit reveal or a third shaft, and what the plan's thin block is, are T-2882's to rule. T-2882: ruled and built (on the plate, of which this is a reproduction): the plate's lit upright at x 997-1009 is the north respond's south face: lit across x 997.8-1004.8 with a dim strip to x 1010, from the front parapet's coping to 3.82 m over grade (0.9 m over the rear pedestal's top, so not the pedestal), square-edged with no base (not a third shaft), on the line of the north rear pedestal's south side and running 0.27 m off the wall; the door's north reveal projects at x 963-979 and is not it. The plan's block at the wall (0.27 m deep to the light line it draws against the wall's own dark, at v 6.84-7.33 and 9.56-10.24) is the respond, the rear pair standing on its face (0.254 m off the wall) so the plan draws the two as one block; the 0.6 m rear pedestal under them stands below what the plan draws, held by the plate's lit face of the south one (T-2881).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2882: re-rendered on the loggia with a respond on the wall behind each rear pair (a flat pier the rear pedestal's width, 0.25 m deep, from the pedestal's top to the ceiling; tools/keith_loggia_respond_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-respond-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 367-469, y 616-695); this copy reads the upright as the plate does at its own scale (the plate is read at its native 1559 px; inland-1888). Nothing opens; the verdict is matches.",
       "status": "fixed"
     }
   ],

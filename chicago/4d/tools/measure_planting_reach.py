@@ -86,7 +86,10 @@ FIVE ASSERTIONS.
     lies east of the documented limits and is therefore swept and refused. The
     east limits themselves are banked with the street each is read from, and
     that `communityAt` still applies them: a limit that is loaded and consulted
-    by nothing is the loss K45(a) measured one level out.
+    by nothing is the loss K45(a) measured one level out. The area "swept and
+    refused" is east of the street limits and counts ground two later
+    communities plant past them anyway: the sand hills (T-2768) and, north of
+    N +300, the North Side wood on the sand out to about E +1140 (T-2808).
 
 3.  **(absolute, banked both ways) Every woody species a `TIMBER_ZONE`
     contributes, whose form has an archetype, that no community mix and no
@@ -245,9 +248,12 @@ def community_blocks(src: str) -> list[tuple[str, str]]:
 
 
 def mix_entries(block: str, key: str) -> dict[str, list[tuple[str, float]]]:
-    """`{ 'mix': [(species, weight), ...], 'edgeMix': [...] }` for one community."""
+    """`{ 'mix': [(species, weight), ...], 'edgeMix': [...] }` for one community.
+
+    T-2768: `swaleMix`, the sand hills' wet-hollow list, is read the same way —
+    `pick()` draws from it as it does from the other two."""
     lists: dict[str, list[tuple[str, float]]] = {}
-    for name in ("mix", "edgeMix"):
+    for name in ("mix", "edgeMix", "swaleMix"):
         lm = re.search(rf"\b{name}:\s*\[", block)
         if lm:
             inner = bracketed(block, lm.end() - 1)
@@ -311,7 +317,7 @@ def mix_weights(src: str) -> dict[str, dict]:
         out[key] = {
             "dossier_zones": dossier_zones,
             "zones": zones,
-            "departures": sorted(re.findall(r"'((?:mix|edgeMix)\.\w+)':", block)),
+            "departures": sorted(re.findall(r"'((?:mix|edgeMix|swaleMix)\.\w+)':", block)),
             "lists": mix_entries(block, key),
         }
     return out
@@ -443,7 +449,8 @@ def record_density_rule(src: str) -> None:
 def direct_call_sites(src: str) -> tuple[int, set[str]]:
     """How many `addTree` call sites the module has, and the ids named at them.
 
-    THREE paths select a spec today. Two are in the source and this function can
+    THREE paths select a spec today (through `addTree` or, since T-2743, through
+    `plant`, which passes the stem on). Two are in the source and this function can
     read them: `specs.salix_interior` at the point-bar thicket, and `specs[id]`
     where `id` came from `pick()`. The third is T-0091's planting pass, which
     selects `table[stem.species]` out of a RECORD — so the ids it can draw are
@@ -451,10 +458,56 @@ def direct_call_sites(src: str) -> tuple[int, set[str]]:
     `placed_species()` below. The COUNT is banked because a fourth path is
     exactly how this gate would go quietly wrong: an unselectable species drawn
     by a call site nobody told this file about.
+
+    T-2768 adds a fourth `plant(` site, `plantSandHill`, and it is not a new kind
+    of selection: it draws `communitySpecs[key][id]` with `id` from the same
+    `pickers[key]` the dealt path uses, so every id it can reach is a community
+    mix entry this gate already reads.
+
+    T-2807 adds a fifth, `plantEdgeThicket`, and it selects nothing this gate
+    banks: it draws `edgeSpecs[id]`, built from the zone records' `shrub_low`
+    entries (flora.js's stratum, which is not routed to this file's woody
+    population), with `id` from `EDGE_THICKET`'s own lists. No `tree` or
+    `thicket` record can be reached through it, so it neither selects a routed
+    record nor hides one.
+
+    T-2808 adds three. `plantSandWood` draws `communitySpecs[key][id]` with `id`
+    from `pickers[key]`, as `plantSandHill` does, for two communities this gate
+    already reads (`ridge_oak`, `mesic_pocket`). `plantPathShrub` draws
+    `edgeSpecs[id]` from `EDGE_THICKET`'s mix, as `plantEdgeThicket` does. And
+    `dryPlant` calls `addTree` into a buffer that is thrown away, with the spec
+    the dealt path already selected, so the shared stream keeps its draws for a
+    stem that stands on a path: it selects nothing and draws nothing.
+
+    T-2810 adds a selection that is neither `addTree` nor `plant`: `dressEdgeTree`
+    hangs the z05 vines on gallery trees straight into the grown trees, and the
+    ids it can draw are the keys of `VINE_EDGE.reach`, read by `vine_ids()` below,
+    so the two `vine_drape` records count as selected only while the table that
+    selects them names them. (Its
+    dead wood, `deadSpecOf`, is the dealt stem's own species and selects nothing.)
     """
     sites = len(re.findall(r"\baddTree\(", src)) - len(re.findall(r"function addTree\(", src))
+    # T-2743: the two dealt paths call `plant()`, which hands a tree-form stem to
+    # the grown trees and anything else to `addTree` — one `addTree` inside it
+    # that selects nothing of its own. So a `plant(` call is a call site and the
+    # delegation inside it is not.
+    if re.search(r"\bconst plant = \(", src):
+        sites += len(re.findall(r"(?<![.\w])plant\(", src)) - 1
     named = set(re.findall(r"\bspecs\.(\w+)\b", src))
     return sites, named
+
+
+def vine_ids(src: str) -> set[str]:
+    """The vine records `dressEdgeTree` can hang (T-2810): `VINE_EDGE.reach`'s keys.
+
+    Kept apart from the named ids because a vine is built by tree-model.js
+    `buildVineTemplate` from its own record, never from a `SPECIES` archetype,
+    so it cannot be drawn wearing another species' bark."""
+    vine = re.search(r"const VINE_EDGE = \{.*?\breach: \{([^}]*)\}", src, re.S)
+    if not vine:
+        raise LookupError(f"{TREES_JS} no longer declares `VINE_EDGE.reach` — the vines it "
+                          f"names are how the two `vine_drape` records are selected")
+    return set(re.findall(r"(\w+):\s*\[", vine.group(1)))
 
 
 def placed_species() -> dict[str, list[str]]:
@@ -647,7 +700,7 @@ def declarations() -> dict:
         "placed": placed,
         # A placed stem is a selection like any other — by a record rather than
         # by a mix, and just as drawn.
-        "selectable": selectable | named | set(placed),
+        "selectable": selectable | named | set(placed) | vine_ids(trees),
         "planter": planter_bounds(trees, heightfield()),
         "east_limits": east_limits(trees),
     }
@@ -1333,9 +1386,12 @@ def self_test() -> int:
     # species unselectable and bank the lot.
     src = dec["source"]
     checks = [
-        ("the community scanner finds the five mixes",
+        ("the community scanner finds the eight mixes",
          set(dec["communities"]) == {"gallery", "wet_woods", "mesic_pocket", "ridge_oak",
-                                     "dune"}),
+                                     "dune", "sand_hills_north", "sand_hills_south",
+                                     "sand_hills_scanty"}),
+        ("…and reads a sand hill's swale mix as well as its mix",
+         "populus_balsamifera" in dec["communities"]["sand_hills_south"]["swaleMix"]),
         ("…and reads the gallery's edge mix as well as its mix",
          "salix_nigra" in dec["communities"]["gallery"]["edgeMix"]),
         ("…and reads a multi-line mix to its END, not to its second entry",

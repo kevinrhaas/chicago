@@ -9,6 +9,11 @@
   "asset": "gltf/walker_house_1720_prairie_coach_house__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -20,14 +25,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1334.884,
-    "local_n": -3153.882,
+    "local_e": 1336.024,
+    "local_n": -3152.492,
     "rotation_deg": -0.581,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 0.250, v -12.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation -0.581 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 0.250, v -12.250 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation -0.581 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1720 S. Prairie Avenue, parcel prairie_1720 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -90,7 +95,7 @@
               4.0,
               6.5
             ],
-            "from": "s20fp-1720-b2 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 70% of its fill"
+            "from": "s20fp-1720-b2 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 71% of its fill"
           },
           {
             "id": "r2",
@@ -101,25 +106,12 @@
               2.5,
               7.5,
               7.25,
-              11.25
+              13.25
             ],
-            "from": "s20fp-1720-b2 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 70% of its fill"
+            "from": "s20fp-1720-b2 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 71% of its fill"
           },
           {
             "id": "r3",
-            "role": "wing",
-            "storeys": 2,
-            "roof": "flat",
-            "rect": [
-              3.75,
-              11.25,
-              6.0,
-              13.25
-            ],
-            "from": "s20fp-1720-b2 p2 (main, brick), rectangle 3 of that part; the part's rectangles cover 70% of its fill"
-          },
-          {
-            "id": "r4",
             "role": "range",
             "storeys": 1,
             "roof": "flat",
@@ -132,7 +124,7 @@
             "from": "s20fp-1720-b2 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 69% of its fill"
           },
           {
-            "id": "r5",
+            "id": "r4",
             "role": "range",
             "storeys": 1,
             "roof": "flat",
@@ -145,6 +137,19 @@
             "from": "s20fp-1720-b2 p3 (range, brick), rectangle 2 of that part; the part's rectangles cover 69% of its fill"
           },
           {
+            "id": "r5",
+            "role": "range",
+            "storeys": 1,
+            "roof": "flat",
+            "rect": [
+              6.0,
+              11.0,
+              9.75,
+              19.25
+            ],
+            "from": "s20fp-1720-b2 p1 (range, brick), rectangle 1 of that part; the part's rectangles cover 66% of its fill"
+          },
+          {
             "id": "r6",
             "role": "range",
             "storeys": 1,
@@ -152,10 +157,10 @@
             "rect": [
               0.0,
               10.75,
-              2.5,
+              3.75,
               19.0
             ],
-            "from": "s20fp-1720-b2 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 69% of its fill"
+            "from": "s20fp-1720-b2 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 72% of its fill"
           },
           {
             "id": "r7",
@@ -163,77 +168,25 @@
             "storeys": 1,
             "roof": "flat",
             "rect": [
-              2.5,
-              12.75,
-              3.75,
-              17.0
-            ],
-            "from": "s20fp-1720-b2 p4 (range, brick), rectangle 2 of that part; the part's rectangles cover 69% of its fill"
-          },
-          {
-            "id": "r8",
-            "role": "range",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
               -0.25,
-              8.75,
-              1.25,
-              10.75
+              19.0,
+              1.0,
+              21.25
             ],
-            "from": "s20fp-1720-b2 p4 (range, brick), rectangle 3 of that part; the part's rectangles cover 69% of its fill"
-          },
-          {
-            "id": "r9",
-            "role": "range",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              7.25,
-              11.0,
-              9.75,
-              19.25
-            ],
-            "from": "s20fp-1720-b2 p1 (range, brick), rectangle 1 of that part; the part's rectangles cover 70% of its fill"
-          },
-          {
-            "id": "r10",
-            "role": "range",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              6.0,
-              13.0,
-              7.25,
-              17.0
-            ],
-            "from": "s20fp-1720-b2 p1 (range, brick), rectangle 2 of that part; the part's rectangles cover 70% of its fill"
-          },
-          {
-            "id": "r11",
-            "role": "range",
-            "storeys": 1,
-            "roof": "flat",
-            "rect": [
-              8.75,
-              8.5,
-              10.0,
-              10.5
-            ],
-            "from": "s20fp-1720-b2 p1 (range, brick), rectangle 3 of that part; the part's rectangles cover 70% of its fill"
+            "from": "s20fp-1720-b2 p4 (range, brick), rectangle 2 of that part; the part's rectangles cover 72% of its fill"
           }
         ],
         "lot_v": [
           -0.106,
           24.606
         ],
-        "street_u": 54.978
+        "street_u": 54.968
       },
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1720-b2 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 70% of its fill; s20fp-1720-b2 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 70% of its fill; s20fp-1720-b2 p2 (main, brick), rectangle 3 of that part; the part's rectangles cover 70% of its fill; s20fp-1720-b2 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 69% of its fill; s20fp-1720-b2 p3 (range, brick), rectangle 2 of that part; the part's rectangles cover 69% of its fill; s20fp-1720-b2 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 69% of its fill; s20fp-1720-b2 p4 (range, brick), rectangle 2 of that part; the part's rectangles cover 69% of its fill; s20fp-1720-b2 p4 (range, brick), rectangle 3 of that part; the part's rectangles cover 69% of its fill; s20fp-1720-b2 p1 (range, brick), rectangle 1 of that part; the part's rectangles cover 70% of its fill; s20fp-1720-b2 p1 (range, brick), rectangle 2 of that part; the part's rectangles cover 70% of its fill; s20fp-1720-b2 p1 (range, brick), rectangle 3 of that part; the part's rectangles cover 70% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1720-b2 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 71% of its fill; s20fp-1720-b2 p2 (main, brick), rectangle 2 of that part; the part's rectangles cover 71% of its fill; s20fp-1720-b2 p3 (range, brick), rectangle 1 of that part; the part's rectangles cover 69% of its fill; s20fp-1720-b2 p3 (range, brick), rectangle 2 of that part; the part's rectangles cover 69% of its fill; s20fp-1720-b2 p1 (range, brick), rectangle 1 of that part; the part's rectangles cover 66% of its fill; s20fp-1720-b2 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 72% of its fill; s20fp-1720-b2 p4 (range, brick), rectangle 2 of that part; the part's rectangles cover 72% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {
@@ -319,5 +272,6 @@
   ],
   "research_note": "A DISTRICT DRAFT (T-2334, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1932 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1720-b2), the T-1840 census (s20-1720-r1, s20-1720-r2) and the T-1837 register row frontage-20-018; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-west-2334).",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1720 S. Prairie Avenue — the alley building of the house at 1720"
 }

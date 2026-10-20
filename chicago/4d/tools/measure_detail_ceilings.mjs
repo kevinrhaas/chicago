@@ -550,7 +550,7 @@ async function sweep(browser, root, entry, port, treeLabel) {
         const gate = document.getElementById('gate');
         if (gate && !gate.hasAttribute('hidden')) {
           if (window.__chicago4d.welcome) window.__chicago4d.welcome.enter('spawn');
-          else document.getElementById('gate-btn')?.click();
+          else document.getElementById('home-roam')?.click();
           await new Promise((r) => setTimeout(r, 150));
         }
         const help = document.getElementById('control-help');

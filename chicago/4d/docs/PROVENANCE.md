@@ -48,6 +48,58 @@ total — is exactly what makes the invention defensible rather than arbitrary. 
 never be is silent: the bottom tier owes its reasoning just as the middle tier does, which is
 the gate that stops an invention nobody can defend from shipping as a reconstruction.
 
+## The grade of a structure (T-2686, 2026-10-16)
+
+Per-attribute grading is the dataset. A visitor, a student and the owner also ask one question
+of a building as a whole, and until T-2686 the answer was `documented_range.confidence` — *did a
+source say it stood here?* Under that reading a Sanborn footprint made a Prairie Avenue house
+attested and its photograph added nothing. The owner's rule (AGENTS.md rule 12) asks a different
+question: **do we know what it looked like?**
+
+| grade | when | what the card says |
+|---|---|---|
+| `attested` | a reasonable picture of it exists | *Pictured: N of the pictures on the Images tab show it.* |
+| `inferred` | not pictured; a map or a text records that it stood | *Known from maps or written records; no picture of it has been found.* |
+| `reconstructed` | not pictured; its existence is reconstructed — our model of the town, or other guiding research, placed it | *Placed by our reconstruction of the town; no source pictures or records it here.* |
+
+**What a reasonable picture is.** Of the pictures the Images tab joins to the building
+(`tools/compile_pictures.py`), one that shows it whole: a library record whose view is a front
+elevation, an oblique front, a side elevation or a rear view; any picture an image-gate camera has
+been solved on for it (fitting a camera is the proof the building is in the picture well enough to
+match); or one `data/structure_grades.json` rules in with its reason. A detail, an interior, a plan
+or section, or a street view, aerial or bird's-eye view the building only stands in is "just a
+corner or side", and does not attest it by itself; a street view that does show the house well is
+ruled in by name or gets its camera solved. A retrospective drawing counts — the owner's own
+example is Robert Law's house at 1620 Prairie, built to an 1874 engraving — and the picture's
+date and authority stay on the Images tab and in its source record, where they always were.
+
+**It is derived, and it moves with its pictures.** `compile_scene.py` writes `grade` into every
+sidecar (`{value, why, pictures}`), so `compile_scene.py --check` holds the committed grade to the
+rule: a picture added to the library or a camera solved changes the grade, and the sidecar is
+compiled again in the same change. The Confidence menu's counts, Go to's rows and the dithering of
+invented massing read it; every attribute row on the card keeps its own grade.
+
+**Streets.** A street's form is its line and its width, and a plat or survey that draws it is the
+picture of exactly that. So a street whose record cites one of the maps `data/structure_grades.json`
+lists for its scene is attested — in 1835, the 1830 Thompson plat and the 1834 Wright and Hathaway
+surveys, which draw 77 of the 80 street records. The three no map draws (the fort road, the track
+down the bank from the north gate, the State road south) keep the grade of their line,
+`reconstructed`. `geometry_confidence` still grades where the line is; the street's grade is what
+its ribbon stands on.
+
+**The regrade, 2026-10-16.**
+
+| scene | attested | inferred | reconstructed | before (stood-here grade) |
+|---|---:|---:|---:|---|
+| 1904 | 59 | 92 | 0 | 1 attested, 150 inferred |
+| 1835 | 3 | 103 | 580 | 12 attested, 94 inferred, 580 reconstructed |
+| 1812 | 4 | 38 | 7 | 40 inferred, 9 reconstructed |
+
+1835's three are the Sauganash, the Green Tree and the Dearborn Street drawbridge; ten
+documented buildings (the Tremont, the Mansion House and others) are recorded only in text and are
+inferred. 1812's four are the Kinzie house and its green, and Lee's Place's cabin and field fence,
+both drawn on the Hardscrabble plate.
+
 ## The tier of an attribute, and the fourth one (T-1158, 2026-09-18)
 
 The owner, 17 September 2026: *"note for each attribute of each person what is attested,

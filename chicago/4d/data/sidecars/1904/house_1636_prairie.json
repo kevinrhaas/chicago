@@ -9,6 +9,11 @@
   "asset": "gltf/house_1636_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -20,14 +25,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1364.336,
-    "local_n": -3070.618,
+    "local_e": 1365.476,
+    "local_n": -3069.228,
     "rotation_deg": -0.58,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The south-west corner of the K01 footprint: the draft's rear corner of its main rectangle (lot frame u 22.500, v -1.000 m from the middle of the rear lot line) moved 8.25 m toward the street and 2.75 m south, onto the rear corner of the wide front body (lot frame u 30.750, v -3.750 m), so that the narrow rear part becomes a rear wing behind it. Through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation -0.58 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The south-west corner of the K01 footprint: the draft's rear corner of its main rectangle (lot frame u 22.500, v -1.000 m from the middle of the rear lot line) moved 8.25 m toward the street and 2.75 m south, onto the rear corner of the wide front body (lot frame u 30.750, v -3.750 m), so that the narrow rear part becomes a rear wing behind it. Through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation -0.58 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1636 S. Prairie Avenue, parcel prairie_1636 (data/street_grid/1904.json), west side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -461,5 +466,6 @@
   ],
   "research_note": "T-2348 (piece 3 of T-1863) refines the district draft (T-2334) in place under the same id: the main body is rebuilt from the K01 frontage assembly and its kits — a K02 stone street front, K03 brick side and rear walls, K06 sash, K07 door and stoop, K08 canted stone front bay, K10 bracketed street cornice — under the flat roof K01 builds as k01.roof.flat (T-2350), and the sheet's narrow three-storey rear part stands on K01's rear wings (T-2343). What is read: the 1911 Sanborn sheet 20 (storeys '3B', brick with a stone front, attached to 1634, the traced plan: a 7.685 m front body (T-2392: on the party line with 1634, its front on the traced outline), the narrower rear part behind its north side, the canted stone bay at the south end of the front) through the T-1840 census. Its north wall is the party wall it shares with 1634 and is built blank. Everything else is reconstructed and recorded as L-k01-1636-stone-front-flat-2348. No photograph, plate or drawing of 1636's front has been found; the Prairie library holds only the Robinson 1886 site-plan crop (cgn-1636-robinson-1886), and the 1638 photograph (a16-cgy-1638-gothic-photo) shows at its right edge only a sliver of dark brick wall. A later reading that finds one replaces the kit's choices here.",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1636 Prairie Avenue — stone-front house, the south half of the pair with 1634"
 }

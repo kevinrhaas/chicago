@@ -2,8 +2,8 @@
   "structure_id": "glessner_house",
   "view": "cornell-northwest-west-windows",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "8aa944555ecb48438908df5f700406ee1ac30c20474330994442bf483b41ed1d",
-  "camera_sha256": "0594fb5e78cce8ce5dddef6754b10f2d8b1fffd0868e596be904ffb32bf04fb1",
+  "glb_sha256": "1e6d2ef4a16c3d232cc250d8cf713b97547971b97200d7cd39308c20aaa70f5e",
+  "camera_sha256": "98341850e0c29a9e5841d5ef17833ecdc7c3c14a11ff76aa740c3aa84f82f4f4",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -12,12 +12,24 @@
       "status": "fixed"
     },
     {
-      "what": "West/north gable, cupola, portal, framing and surface/lighting residuals remain. The west-plane camera uses retained reconstructed eaves, so height/camera uncertainty is not mistaken for independently surveyed geometry.",
+      "what": "T-2228 cupola body: raised so its body shows above the ridge; the cupola apex now stands about 23 px over the west gable apex (was 10 px under). The photograph shows about 80 px, which would put the apex up to about 3 ft higher still; this camera was solved on the west windows and is about 50 px off at the roof, so HABS photograph 1 sets the height and this disagreement stays open. T-2758: it was this camera. Its west-wall homography stands on two reconstructed eave heights and sees one plane, so it reads the north gable's coping apex at 42.3 ft and the cupola's apex at 51.2 ft (model 39.6 and 47.0). Re-solved at the roof on measured controls only (both corners at grade and up their arrises, the carriage doorway's east jamb and its 12.6 ft soffit, the loft opening's sheet-3 jambs; 3.7 px RMS pitched, 4.8 px level), it reads the coping apex at 38.3-39.5 ft and the cupola apex at 46.5-47.8 ft, agreeing with HABS photograph 1's doorway re-solve, and puts the cupola's centre at S13.0-13.2. The same fits leave the west windows where this camera reads them (the upper south slit at S19.8 pitched, S18.7 level), so this camera stays for the west wall. The re-solved camera is in data/comparisons/glessner/stable-roof-heights.json.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2849, reviewed from the rebaked master: the cupola body, its two pigeon-hole tiers and their landing ledges are granite as this print shows them (coursed stone continuous with the gable, read at 3x), not pale boarding; the gable's pigeon ledge is shortened to 7.7 ft on the two corbels this print and HABS photograph 15 both show, under 5-3-1 holes.",
+      "status": "fixed"
+    },
+    {
+      "what": "West/north gable, cupola, portal and framing residuals remain. The west-plane camera uses retained reconstructed eaves, so height/camera uncertainty is not mistaken for independently surveyed geometry. T-2849 leaves open here: the hoist projects as a large block well beyond its modelled 1.75 ft; the cupola ledges run unbroken round its corners in the print where the model stops them short; the stone shaft below the band stands taller in the print; the pyramid's covering reads slate against the model's red tile; and the coursing of the cupola's stone is not modelled block by block.",
       "status": "open"
     },
     {
       "what": "The Cornell scan and museum reproduction are one exposure. Monochrome tones do not establish1904 RGB; street poles, temporary pavement and neighbors are not house geometry.",
       "status": "not shown"
+    },
+    {
+      "what": "T-2848 light: the photograph is overcast (both faces lit almost equally, no shadow from the pole or the tree); the render now uses the overcast sky (camera solve.light) instead of the review sun.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

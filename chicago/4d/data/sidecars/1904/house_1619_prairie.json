@@ -9,6 +9,13 @@
   "asset": "gltf/house_1619_prairie__as_mapped_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "cgn-1619-1625-building-budget-hamline-farwell"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -20,14 +27,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1425.478,
-    "local_n": -2997.109,
+    "local_e": 1426.608,
+    "local_n": -2995.719,
     "rotation_deg": 179.607,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the K01 main body at its north (low-v) side, on the 1911 sheet's traced main part (s20fp-1619-b1) through the T-1250 fit of the sheet, the corner T-2420 read off the same trace (the draft's origin moved 5.9 m toward the street and 2.87 m north along its own frame): the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.607 degrees turns the plan's u axis onto the lot's own rear-to-street line, so v runs south.",
+    "position_note": "The rear corner of the K01 main body at its north (low-v) side, on the 1911 sheet's traced main part (s20fp-1619-b1) through the T-1250 fit of the sheet, the corner T-2420 read off the same trace (the draft's origin moved 5.9 m toward the street and 2.87 m north along its own frame): the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.607 degrees turns the plan's u axis onto the lot's own rear-to-street line, so v runs south.",
     "symbolic_location": "1619 S. Prairie Avenue, parcel prairie_1619 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -527,5 +534,6 @@
   ],
   "research_note": "T-2434 (piece 3 of T-1869) refines the district draft (T-2335) in place under the same id. 1619 has no picture: the Building Budget drawing once built here is Hamline's house at 1621 (T-2439, moved by T-2440), and the 1886 Robinson plate draws an earlier house on the lot (Joseph L. McBirney's), not this one. What stands is the 1911 Sanborn sheet 20's house, read through the T-2328 trace and the T-1840 census: four storeys, brick, a stone (blue) street front with a broad curved bay, a brick rear block behind its south part and a two-storey frame half-round piece at that block's east end. Built on the K01 frontage assembly: a K02 rock-faced Lemont limestone front on K03 brick sides and rear, the swell bay on K08's bow at the sheet's own chord and rise rising the full four storeys, the door in the north strip on a K07 stoop, K10's moulded stone cornice carried round the bow under K01's flat roof, and the rear block and frame piece on K01's rear wings. Its own, and not a copy of either neighbour: 1615 is plain brick under a bracketed timber cornice, 1621 smooth limestone two storeys under a gable. Everything not read is reconstructed and recorded as L-k01-1619-stone-front-2434; a photograph, plate or description of 1619 replaces the kits' choices in place.",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1619 Prairie Avenue — four-storey stone-front house with its full-height swell bay"
 }

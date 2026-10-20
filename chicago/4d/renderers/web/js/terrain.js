@@ -47,7 +47,7 @@
  */
 
 import * as THREE from 'three';
-import { spatialBatch, spatialBatchAsync } from './spatial-batch.js';
+import { spatialBatch, spatialBatchAsync, batchPieces } from './spatial-batch.js';
 import { adaptiveGroundGrid } from './terrain-base.js';
 import { contextSample, replaceApron } from './coast-extension.js';
 import { apronGeometry, apronCut } from './terrain-apron.js';
@@ -409,6 +409,12 @@ export class Heightfield {
 export async function createTerrain({
   dataBase, assetBase, epochId, substrateBase = dataBase, confidence = null, problems = [],
   sceneId = null, apronPath = null,
+  /** T-2693: `{ index, bin }` from `fetchPrebuiltGround` (or a promise of it),
+   *  used in place of the ground GLB when it is current (THE GROUND, PREBUILT). */
+  prebuilt = null,
+  /** T-2709: `{ index, bin }` from `fetchPrebuiltBase` (or a promise of it), the
+   *  distant base's pieces used in place of its grid and cut (THE DISTANT BASE, PREBUILT). */
+  prebuiltBase = null,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'terrain';
@@ -416,12 +422,23 @@ export async function createTerrain({
   const disposables = [];
 
   let meta = null;
+  // The bytes as fetched, so a prebuilt ground can be held to them (T-2693).
+  let metaBytes = null;
+  let binBytes = null;
+  let fieldHashes = null;
   if (dataBase && epochId) {
     const metaUrl = new URL(`terrain/epochs/${epochId}/heightfield.json`, dataBase);
     try {
-      meta = await (await fetchOk(metaUrl)).json();
+      metaBytes = await (await fetchOk(metaUrl)).arrayBuffer();
+      meta = JSON.parse(new TextDecoder().decode(metaBytes));
       const bin = await (await fetchOk(new URL(meta.bin, metaUrl))).arrayBuffer();
       heightfield.adopt(meta, bin);
+      binBytes = bin;
+      if (prebuilt && globalThis.crypto?.subtle) {
+        fieldHashes = Promise.all([metaBytes, bin].map(sha256Hex)).then(([json, raw]) => new Map([
+          [`data/terrain/epochs/${epochId}/heightfield.json`, json],
+          [`data/terrain/epochs/${epochId}/${meta.bin}`, raw]]), () => null);
+      }
     } catch (err) {
       problems.push(`terrain ${epochId}: no heightfield (${err.message}) — `
         + 'the ground is a flat plane at the datum and the walker will not climb a bank');
@@ -441,7 +458,9 @@ export async function createTerrain({
   // T-2085: the town's turf, one uniform set for both ground materials, filled
   // when the sward hands over where it stopped drawing cards (`setTurf`).
   const turf = turfGround();
-  const groundMat = groundMaterial(zones, lakeShore, { turf });
+  // T-2783: the far sward's colour map, filled by flora.js (`setFarSward`).
+  const farSward = farSwardGround();
+  const groundMat = groundMaterial(zones, lakeShore, { turf, farSward });
   let walkOffset = null;
   /** The radius around the eye inside which the 15 m base is not drawn. See
    *  the base below, and `baseHoleM()` for how it follows the reach. */
@@ -449,12 +468,28 @@ export async function createTerrain({
   // `.map` is null here — the prairie tile is bound as a shader uniform, not as
   // the standard material map, so disposing `.map` disposed nothing and leaked
   // the canvas texture on every epoch change.
-  disposables.push(groundMat, groundMat.userData.groundTex, groundMat.userData.swardTex, turf);
+  disposables.push(groundMat, groundMat.userData.groundTex, groundMat.userData.swardTex, turf,
+    farSward);
   confidence?.patch(groundMat);
 
   let ground = null;
   const groundPath = meta?.glb?.ground;
-  if (groundPath && assetBase) {
+  // T-2693: the ground's tiles prebuilt at publish stand in for the GLB, which
+  // is then not fetched at all. Any refusal is recorded and the GLB loads.
+  const prebuiltGround = { used: false, why: prebuilt ? null : 'none offered' };
+  let replay = null;
+  if (prebuilt && groundPath && assetBase && heightfield.loaded) {
+    const offered = await prebuilt;
+    const field = {};
+    prebuiltGround.why = await prebuiltGroundRefusal(offered,
+      { sceneId, epochId, meta, metaBytes, binBytes, groundPath, field });
+    // T-2710: the SHA-256 of each heightfield file read, by path, when it was hashed.
+    if (Object.keys(field).length) prebuiltGround.field = field;
+    if (!prebuiltGround.why) replay = offered;
+  } else if (prebuilt) {
+    prebuiltGround.why = 'this epoch names no ground GLB or no heightfield loaded';
+  }
+  if (groundPath && assetBase && !replay) {
     ground = await loadGlbMesh(new URL(groundPath, assetBase))
       .catch((err) => {
         problems.push(`terrain ${epochId}: ${groundPath} (${err.message}) — `
@@ -463,7 +498,10 @@ export async function createTerrain({
       });
   }
   let groundFit = null;
-  if (ground) {
+  if (replay) {
+    // Conformed in Node by the same function, against the field just hashed.
+    groundFit = { ...replay.index.conform };
+  } else if (ground) {
     confidence?.ensureAttribute(ground.geometry, `terrain ${epochId} ground`);
     // BEFORE tiling, which splits this geometry into the meshes that are drawn.
     // See conformGroundToField: the published GLB's heights are quantised onto a
@@ -486,7 +524,7 @@ export async function createTerrain({
   }
   // T-2495: replace the straight extrusion outside Prairie Avenue with the
   // generated historical-map apron. Adopt its sampler only once both files load.
-  if (sceneId === '1904' && heightfield.loaded) {
+  if (sceneId === '1904' && heightfield.loaded && !replay) {
     try {
       const url = new URL(`terrain/epochs/${epochId}/context.json`, dataBase);
       const coast = await (await fetchOk(url)).json();
@@ -512,7 +550,7 @@ export async function createTerrain({
       const bin = await (await fetchOk(new URL(apronMeta.bin, url))).arrayBuffer();
       const apron = new Heightfield().adopt(apronMeta, bin);
       const mat = groundMaterial(zones, lakeShore, { groundTex: groundMat.userData.groundTex,
-        swardTex: groundMat.userData.swardTex, turf });
+        swardTex: groundMat.userData.swardTex, turf, farSward });
       confidence?.patch(mat);
       apronMesh = new THREE.Mesh(apronGeometry(apron, apronMeta.skirt_to_n_m ?? apron.originN), mat);
       apronMesh.name = `terrain_apron__${apronPath.replace(/\W+/g, '_')}`;
@@ -528,15 +566,17 @@ export async function createTerrain({
       apronGroundCut = null;
     }
   }
-  ground.material = groundMat;
-  ground.receiveShadow = true;
-  ground.castShadow = false;
+  if (ground) {
+    ground.material = groundMat;
+    ground.receiveShadow = true;
+    ground.castShadow = false;
+  }
   // The ground was `frustumCulled = false` because one mesh wrapped around the
   // camera always intersects the frustum, so testing it could only ever cost time
   // or throw the floor away by mistake. True of one mesh; not true of the ground.
   // Cut it into tiles and the half of the world behind you stops being drawn —
   // see tileGround() for the measurements behind the grid below.
-  const sourceTiles = tileGround(ground, groundTileGrid);
+  const sourceTiles = replay ? null : tileGround(ground, groundTileGrid);
   // Keep each source tile's draw call, but give its dense ground 40 m pieces
   // with independently tested bounds. The 240 m Light reach used to retain a
   // whole ~235 m tile when only its nearest corner was in range. Batching keeps
@@ -546,7 +586,17 @@ export async function createTerrain({
   // T-2599: the tiles are partitioned on the job pool, all at once, so the
   // densest ground in the town is cut into pieces off the main thread and on as
   // many cores as the pool has; the batches are the same, in the same order.
-  const tiles = sourceTiles && await Promise.all(sourceTiles.map(async (tile) => {
+  // T-2693: or, prebuilt, the same pieces read off the file and batched here.
+  let tiles = null;
+  if (replay) {
+    tiles = prebuiltGroundTiles(replay.index, replay.bin, groundMat);
+    lastGroundTiling = { ...replay.index.tiling };
+    Object.assign(prebuiltGround, { used: true, why: null, build: replay.index.build, bytes: replay.index.bytes,
+      tiles: tiles.length });
+    // The batches hold copies; the resolved promise must not keep the buffer alive.
+    replay.bin = null;
+    replay.index = null;
+  } else tiles = sourceTiles && await Promise.all(sourceTiles.map(async (tile) => {
     if (tile.name.endsWith('__tthin')) return tile;
     const batch = await spatialBatchAsync(tile.geometry, tile.material);
     batch.name = tile.name;
@@ -565,7 +615,7 @@ export async function createTerrain({
       disposables.push(tile.isBatchedMesh ? tile : tile.geometry);
     }
     // The source mesh is never added to the scene, so nothing else will dispose it.
-    ground.geometry.dispose();
+    ground?.geometry.dispose();
     ground = tiles[0];
   } else {
     // A ground too coarse to tile is small enough not to need it.
@@ -601,23 +651,49 @@ export async function createTerrain({
   // inside the radius where the detail tiles are drawn, which is the only
   // place it was ever hidden anyway (see NEAR_HOLE_MARGIN_M).
   let groundBase = null;
+  // T-2709: the base prebuilt at publish, already laid over frontage's crossing
+  // footprints and cut into its pieces; protectGroundUnder holds it to the
+  // footprints frontage then publishes, and lays and cuts its own if they differ.
+  const prebuiltDistant = { used: false, why: prebuiltBase ? null : 'none offered' };
+  let baseReplay = null;
   if (heightfield.loaded) {
     const baseMat = groundMaterial(zones, lakeShore,
       { nearHole: baseHole, groundTex: groundMat.userData.groundTex,
-        swardTex: groundMat.userData.swardTex, turf });
+        swardTex: groundMat.userData.swardTex, turf, farSward });
     disposables.push(baseMat);
     confidence?.patch(baseMat);
-    groundBase = new THREE.Mesh(gridGeometry(heightfield, GROUND_BASE_STEP), baseMat);
-    groundBase.name = `terrain_base__${epochId ?? 'field'}`;
+    const baseName = `terrain_base__${epochId ?? 'field'}`;
+    if (prebuiltBase) {
+      const offered = await prebuiltBase;
+      prebuiltDistant.why = await prebuiltRefusal(offered, { sceneId, epochId, meta, metaBytes, binBytes })
+        ?? (offered.index.tiles?.[0]?.name !== baseName ? `prebuilt as ${offered.index.tiles?.[0]?.name}, this base is ${baseName}` : null);
+      if (!prebuiltDistant.why) baseReplay = offered;
+    }
+    if (baseReplay) {
+      const { index } = baseReplay;
+      groundBase = prebuiltGroundTiles(index, baseReplay.bin, baseMat)[0];
+      Object.assign(prebuiltDistant, { used: true, why: null, build: index.build,
+        bytes: index.bytes, pieces: groundBase.userData.spatialBatch.pieces });
+      // The batch holds copies; the resolved promise must not keep the buffer alive.
+      baseReplay.bin = null;
+      baseReplay.index = null;
+      baseReplay = { footprints: index.footprints_key, adaptive: index.adaptive };
+      disposables.push(groundBase);
+    } else {
+      groundBase = new THREE.Mesh(gridGeometry(heightfield, GROUND_BASE_STEP), baseMat);
+      disposables.push(groundBase.geometry);
+      // batchDistantGround() re-reads these arrays after a phone has already
+      // uploaded the terrain layer, so they must outlive that upload (T-2180).
+      groundBase.geometry.userData.rereadBeforeRelease = true;
+    }
+    groundBase.name = baseName;
     groundBase.position.y = -0.03;
     groundBase.receiveShadow = true;
     groundBase.castShadow = false;
     groundBase.frustumCulled = true;
     group.add(groundBase);
-    disposables.push(groundBase.geometry);
-    // batchDistantGround() re-reads these arrays after a phone has already
-    // uploaded the terrain layer, so they must outlive that upload (T-2180).
-    groundBase.geometry.userData.rereadBeforeRelease = true;
+  } else if (prebuiltBase) {
+    prebuiltDistant.why = 'no heightfield loaded';
   }
 
   // ---- the water --------------------------------------------------------- //
@@ -727,12 +803,23 @@ export async function createTerrain({
     /** T-2085. Paint the short turf where the sward has stopped drawing cards.
      *  Called by flora.js with its own mask; false if the spec is unusable. */
     setTurf(spec) { return turf.set(spec); },
+    /** T-2783. Paint the far sward's colour past the near rings. Called by
+     *  flora.js with its own map; false if the spec is unusable. */
+    setFarSward(spec) { return farSward.set(spec); },
     waterMaterial: waterMat,
     /** Keep the far base below emitted crossing decks without moving timber.
      * One replacement per frontage load; the current geometry has exactly one
      * disposal entry even if a caller rebuilds the protection later. */
     protectGroundUnder(footprints) {
       if (!groundBase || !heightfield.loaded) return null;
+      if (baseReplay) {
+        // T-2709: the prebuilt base was laid over these footprints, or it was not.
+        const { footprints: key, adaptive } = baseReplay;
+        baseReplay = null;
+        if (key === footprintsKey(footprints)) return adaptive;
+        Object.assign(prebuiltDistant, { used: false,
+          why: 'frontage published other crossing footprints than the base was prebuilt over' });
+      }
       const geometry = gridGeometry(heightfield, GROUND_BASE_STEP, footprints);
       if (groundBase.isBatchedMesh) {
         const next = spatialBatch(geometry, groundBase.material);
@@ -815,9 +902,21 @@ export async function createTerrain({
      * belongs to the compressor and not to this renderer. */
     groundFit,
 
+    /** T-2693: whether the ground's tiles came prebuilt, and if not, why not. */
+    prebuilt: prebuiltGround,
+    /** T-2709: whether the distant base came prebuilt, and if not, why not. */
+    prebuiltBase: prebuiltDistant,
+
+    /** T-2711: the SHA-256 of the heightfield.json and .bin this page read, keyed
+     *  as a prebuild's inputs are (`data/terrain/epochs/<epoch>/…`), for a layer
+     *  whose prebuild was laid on this field (yards.js § THE YARDS, PREBUILT).
+     *  A promise, started as the field is read whenever a prebuilt ground is
+     *  offered (main.js always offers one), so the bytes are not kept; null otherwise. */
+    heightfieldHashes: () => fieldHashes,
+
     /** The lake's edge as E per 40 m of N, read off this epoch's heightfield
      * (lakeshore.js) — the line the beach is measured from, by the ground
-     * shader and, through flora.js's extent matcher, by the sward and the
+     * shader and, through flora-zones.js's extent matcher, by the sward and the
      * trees. Null without a heightfield. T-1819. */
     lakeShore,
 
@@ -927,6 +1026,9 @@ export async function createTerrain({
 
     /** True where the terrain is below the water surface. */
     isWater(e, n) { return heightfield.sample(e, n) < SHORE_Y; },
+    /** The height below which `isWater` answers true (T-2695: flora's worker
+     *  ground asks the same question of the same grid). */
+    shoreY: SHORE_Y,
 
     /** True where (e, n) is on the measured grid — where `surfaceHeight()` is
      * a sample rather than the out-of-bounds fallback (T-0110). */
@@ -986,7 +1088,9 @@ async function fetchOk(url) {
  * surface. Every attribute travels with it — `_confidence` included, which the
  * confidence view reads, and which a naive position-only split would silently drop.
  */
-function tileGround(mesh, grid) {
+// Exported for tools/prebuild_layers.mjs (T-2692), which tiles the ground in Node
+// with this same function so its pieces can be built ahead of the visit.
+export function tileGround(mesh, grid) {
   const geo = mesh.geometry;
   const pos = geo.attributes.position;
   if (!pos) return null;
@@ -1142,8 +1246,257 @@ export function dequantizeGeometry(geo) {
   return geo;
 }
 
-/** Load a GLB and hand back its first mesh, detached from the loaded scene. */
-async function loadGlbMesh(url) {
+/* -------------------------------------------------------------------------- */
+/* THE GROUND, PREBUILT (T-2693)                                               */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * T-2693, the second piece of T-2678. The 1835 ground's load, conform, tiling and
+ * partition cost 3.0 s of the terrain phase at the phone profile (T-2692's
+ * measurement), with the same answer for every visitor. `tools/publish.sh` runs
+ * this file's own loadGlbMesh, conformGroundToField and tileGround, and
+ * spatial-batch.js's spatialPieces, in Node (`tools/prebuild_layers.mjs --layer
+ * ground`, byte-equal to the page's batches since T-2692) and writes
+ * `data/prebuilt/<year>/ground.{json,bin.gz}`: every tile's 40 m pieces. The page
+ * then has only to batch them (`batchPieces`), and does not fetch the ground GLB.
+ * The trade is bytes for CPU: the published GLB is meshopt-packed, 1.3 MB on the
+ * wire, and the prebuild is 10.8 MB, so the first visit carries about 9 MB more
+ * for about 2.6 s less terrain at the phone profile (docs/SITE-BUDGET.md § 4g).
+ *
+ * WHEN IT IS USED. Only when every one of these holds; otherwise the ground is
+ * loaded and cut in the browser exactly as before (the source tree always is):
+ *   - the page carries a build stamp and the prebuild was written by the same
+ *     publish (`index.build`), so the GLB and the code that cut it are the
+ *     page's own — the GLB is the one input the page does not read itself;
+ *   - it is this scene's (`index.year`), and the scene lays no 1904 context
+ *     coast, which rewrites the ground after loading and is never prebuilt;
+ *   - the heightfield.json and heightfield.bin this page fetched hash (SHA-256)
+ *     to what the index lists for them, and the GLB the heightfield names is the
+ *     one the index was built from: the field it was conformed to is this one;
+ *   - the buffer is the length the index says;
+ *   - the visitor has not asked to save data and the browser does not rate the
+ *     connection 3G or slower (`navigator.connection`, where there is one).
+ * `tools/check_published.mjs` refuses a published prebuild whose inputs have
+ * moved, so the page's check is the second line, as it is for the frontage.
+ */
+export const PREBUILT_GROUND_FORMAT = 1;
+
+/**
+ * Fetch `data/prebuilt/<year>/ground.{json,bin}`, or say why not. Started by
+ * main.js before the scene phase, so the download runs under it. Resolves
+ * `{ index, bin }` or `{ why }`; it never rejects.
+ */
+export async function fetchPrebuiltGround({ dataBase, year, build }) {
+  return fetchPrebuiltPieces({ dataBase, year, build, layer: 'ground', format: PREBUILT_GROUND_FORMAT,
+    own: 'cuts its own ground', instead: 'loads the 1.3 MB ground GLB instead' });
+}
+
+/**
+ * `data/prebuilt/<year>/<layer>.{json,bin}`, inflated and held to its index's
+ * format, build and length: the ground's fetch, shared with the distant base's
+ * (T-2709). Resolves `{ index, bin }` or `{ why }`; it never rejects.
+ */
+async function fetchPrebuiltPieces({ dataBase, year, build, layer, format, own, instead }) {
+  if (!dataBase || !year) return { why: `no scene year to fetch a ${layer} for` };
+  if (!build) return { why: `this page carries no build stamp, so it ${own} (the source tree)` };
+  // The prebuild is about 10 MB on the wire against the ground GLB's 1.3 MB: a
+  // trade of bytes for the phone's CPU, which a visitor asking to save data, or on
+  // a connection the browser rates 3G or slower, is better off not making.
+  const link = globalThis.navigator?.connection;
+  if (link?.saveData || /(^|-)(2g|3g)$/.test(link?.effectiveType ?? '')) {
+    return { why: `a ${link.saveData ? 'data-saving' : link.effectiveType} connection ${instead}` };
+  }
+  // Ask only for what publish wrote (prebuilt-index.js): it prebuilds the scenes that
+  // draw a frontage, and a request for any other year's layer was a 404 on every boot.
+  // Imported here, not at the top: the node harnesses that load this file as a data:
+  // URL never reach the fetch, as with jobs/pool.js below.
+  const { prebuiltAbsent } = await import('./prebuilt-index.js');
+  const absent = await prebuiltAbsent({ dataBase, year, build, layer });
+  if (absent) return { why: `${absent}, so the page ${own}` };
+  const base = new URL(`prebuilt/${year}/`, dataBase);
+  try {
+    const res = await fetch(new URL(`${layer}.json`, base));
+    if (!res.ok) return { why: `no prebuilt ${layer} (${res.status})` };
+    const index = await res.json();
+    if (index.format !== format) {
+      return { why: `prebuilt ${layer} format ${index.format}, this page reads ${format}` };
+    }
+    if (index.build !== build) return { why: `prebuilt by build ${index.build}, this page is build ${build}` };
+    const binRes = await fetch(new URL(index.bin, base));
+    if (!binRes.ok) return { why: `no prebuilt ${layer} buffer (${binRes.status})` };
+    let bin = await binRes.arrayBuffer();
+    // Gzipped twice on disk (prebuild_layers.mjs); a server that sent it with
+    // Content-Encoding has inflated the outer pass, so read the magic bytes.
+    const head = new Uint8Array(bin, 0, Math.min(2, bin.byteLength));
+    if (index.encoding === 'gzip' && head[0] === 0x1f && head[1] === 0x8b) {
+      if (typeof DecompressionStream !== 'function') return { why: `this browser cannot inflate the prebuilt ${layer}` };
+      // On a pool worker, as the frontage's is (jobs/inflate-kernel.js). Imported
+      // here: the Node harnesses that load this file never reach it.
+      const { runJob } = await import('./jobs/pool.js');
+      const { bytes } = await runJob('inflateGzip', { bytes: new Uint8Array(bin), passes: index.passes ?? 1 },
+        { transfer: [bin] });
+      bin = bytes.byteOffset === 0 && bytes.byteLength === bytes.buffer.byteLength
+        ? bytes.buffer : bytes.slice().buffer;
+    }
+    if (bin.byteLength !== index.bytes) {
+      return { why: `prebuilt ${layer} buffer is ${bin.byteLength} bytes, its index says ${index.bytes}` };
+    }
+    return { index, bin };
+  } catch (err) {
+    return { why: `prebuilt ${layer} did not load: ${err.message}` };
+  }
+}
+
+async function sha256Hex(bytes) {
+  const digest = new Uint8Array(await crypto.subtle.digest('SHA-256', bytes));
+  return Array.from(digest, (b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+/** Why `offered` may not stand for this page's ground, or null when it may. */
+async function prebuiltGroundRefusal(offered, { sceneId, epochId, meta, metaBytes, binBytes, groundPath, field = null }) {
+  const why = await prebuiltRefusal(offered, { sceneId, epochId, meta, metaBytes, binBytes, field });
+  if (why) return why;
+  if (!offered.index.inputs.files.some((f) => f.path === `assets/${groundPath}`)) {
+    return `built from another ground GLB than ${groundPath}`;
+  }
+  return null;
+}
+
+/**
+ * Why `offered` (the ground's tiles or the distant base's pieces) may not stand
+ * for this page's, or null when it may: this scene's, and built against the
+ * heightfield this page fetched, by hash. The build stamp has already been held
+ * to the page's (fetchPrebuiltPieces).
+ */
+async function prebuiltRefusal(offered, { sceneId, epochId, meta, metaBytes, binBytes, field = null }) {
+  const { index } = offered;
+  if (!index) return offered.why ?? 'none offered';
+  if (String(index.year) !== String(sceneId)) return `prebuilt for ${index.year}, this scene is ${sceneId}`;
+  if (String(sceneId) === '1904') return 'the 1904 context coast rewrites the ground after loading';
+  if (!metaBytes || !binBytes) return 'no heightfield was read, so there is nothing to hold it to';
+  if (!globalThis.crypto?.subtle) return 'this page cannot hash what it read (no SubtleCrypto)';
+  const dir = `data/terrain/epochs/${epochId}/`;
+  const listed = new Map(index.inputs.files.map((f) => [f.path, f.sha256]));
+  const read = [[`${dir}heightfield.json`, metaBytes], [`${dir}${meta.bin}`, binBytes]];
+  for (const [file, bytes] of read) {
+    const sha256 = await sha256Hex(bytes);
+    // T-2710: kept, so the streets' prebuild is held to the field this page read.
+    if (field) field[file] = sha256;
+    if (listed.get(file) !== sha256) return `built from another heightfield (${file})`;
+  }
+  return null;
+}
+
+/**
+ * A prebuilt tile's pieces, each `[[offset, byteLength] per attribute, [indexType,
+ * offset, byteLength] | null]`. The ground lists them so. T-2709: the distant
+ * base's 7,503 pieces would make that list 0.54 MB of index, so its tile carries
+ * `at` (where its first array lies) and `counts` (each piece's vertex and index
+ * count, -1 for none) instead, and the spans follow from the packer's own rule:
+ * every array 4-byte aligned, a piece's attributes then its index, in order, and
+ * the index 16-bit unless a local index reaches 65535 (jobs/spatial-kernel.js).
+ * tools/prebuild_layers.mjs replays through this function and refuses to write a
+ * tile it does not reproduce.
+ */
+export function prebuiltPieceSpans(t) {
+  if (!t.counts) return t.pieces;
+  const spans = [];
+  let offset = t.at;
+  const take = (byteLength) => {
+    offset += (4 - (offset % 4)) % 4;
+    const at = offset;
+    offset += byteLength;
+    return [at, byteLength];
+  };
+  for (let i = 0; i < t.counts.length; i += 2) {
+    const vertices = t.counts[i];
+    const indices = t.counts[i + 1];
+    const arrays = t.attributes.map((a) => take(vertices * a.itemSize * globalThis[a.type].BYTES_PER_ELEMENT));
+    const type = vertices - 1 >= 65535 ? 'Uint32Array' : 'Uint16Array';
+    spans.push([arrays, indices < 0 ? null : [type, ...take(indices * globalThis[type].BYTES_PER_ELEMENT)]]);
+  }
+  return spans;
+}
+
+/** The prebuild's tiles: each tile's pieces batched, the thin remainder as itself. */
+function prebuiltGroundTiles(index, bin, material) {
+  const view = (type, offset, byteLength) => new globalThis[type](bin, offset,
+    byteLength / globalThis[type].BYTES_PER_ELEMENT);
+  const geometry = (t, [arrays, ix], own) => {
+    const geo = new THREE.BufferGeometry();
+    // A batch copies its pieces' arrays; the thin tile is drawn from its own, so
+    // it takes copies and the 27 MB buffer can go once the batches are made.
+    const read = (type, offset, byteLength) => (own ? view(type, offset, byteLength).slice()
+      : view(type, offset, byteLength));
+    if (ix) geo.setIndex(new THREE.BufferAttribute(read(...ix), 1));
+    t.attributes.forEach((a, i) => {
+      geo.setAttribute(a.name, new THREE.BufferAttribute(read(a.type, ...arrays[i]), a.itemSize, a.normalized));
+    });
+    return geo;
+  };
+  return index.tiles.map((t) => {
+    const pieces = prebuiltPieceSpans(t);
+    let mesh;
+    if (t.thin) {
+      const geo = geometry(t, pieces[0], true);
+      geo.computeBoundingSphere();
+      mesh = new THREE.Mesh(geo, material);
+      mesh.frustumCulled = true;
+    } else {
+      mesh = batchPieces(pieces.map((p) => geometry(t, p, false)), material);
+    }
+    mesh.name = t.name;
+    mesh.receiveShadow = true;
+    mesh.castShadow = false;
+    return mesh;
+  });
+}
+
+/* -------------------------------------------------------------------------- */
+/* THE DISTANT BASE, PREBUILT (T-2709)                                         */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * T-2709, the first piece of T-2705. The distant base is the field gridded every
+ * GROUND_BASE_STEP metres, laid again over frontage's crossing footprints
+ * (protectGroundUnder) and cut into 40 m pieces (batchDistantGround): 0.8 s of
+ * boot at the phone profile (T-2703's reading), the same for every visitor.
+ * `tools/publish.sh` runs distantBaseGeometry and spatialPieces in Node over the
+ * footprints the Node frontage build publishes (`tools/prebuild_layers.mjs
+ * --layer base`, byte-equal to the page's batch since T-2703) and writes
+ * `data/prebuilt/<year>/base.{json,bin.gz}`. createTerrain batches those pieces
+ * in place of the bare grid, so neither the grid, the protected grid nor the cut
+ * is made here.
+ *
+ * WHEN IT IS USED: every condition the prebuilt ground is held to (the build
+ * stamp, the scene, the heightfield by hash, the buffer's length, no data-saving
+ * or 3G connection), and one of its own. The base is laid over the footprints
+ * frontage publishes, and frontage is built after the terrain, so the file
+ * carries `footprints_key` (footprintsKey, below) and protectGroundUnder holds
+ * the footprints it is handed to it. If they differ it lays and cuts its own
+ * base, as it would on a second publication, and `prebuiltBase.why` says so.
+ */
+export const PREBUILT_BASE_FORMAT = 2;
+
+/** `fetchPrebuiltGround` for the distant base. Resolves `{ index, bin }` or `{ why }`. */
+export function fetchPrebuiltBase({ dataBase, year, build }) {
+  return fetchPrebuiltPieces({ dataBase, year, build, layer: 'base', format: PREBUILT_BASE_FORMAT,
+    own: 'lays its own distant base', instead: 'lays the distant base in the browser instead' });
+}
+
+/** The crossing footprints a base was laid over, as one FNV-1a word of their JSON:
+ *  what the Node build writes and protectGroundUnder compares. */
+export function footprintsKey(footprints = []) {
+  const text = JSON.stringify(footprints);
+  let h = 0x811c9dc5;
+  for (let i = 0; i < text.length; i++) h = Math.imul(h ^ text.charCodeAt(i), 0x01000193);
+  return `${(h >>> 0).toString(16).padStart(8, '0')}:${footprints.length}`;
+}
+
+/** Load a GLB and hand back its first mesh, detached from the loaded scene.
+ *  Exported for tools/prebuild_layers.mjs (T-2692): the ground built in Node is
+ *  read through this loader, not a copy of it. */
+export async function loadGlbMesh(url) {
   const buffer = await (await fetchOk(url)).arrayBuffer();
   const loader = registerKTX2(new GLTFLoader());
   // THE GROUND AND THE RIVER ARE COMPRESSED TOO, and this loader is not the one
@@ -1368,6 +1721,17 @@ export function conformGroundToField(geometry, hf) {
  * missing; identical surface, more triangles, and it means a missing asset
  * degrades to "slower" rather than to "no ground".
  */
+/**
+ * T-2703. The distant base as protectGroundUnder lays it over frontage's crossing
+ * footprints (the same call; tools/check_plank_ground.mjs reads that method's own
+ * source, so it calls gridGeometry itself): the geometry batchDistantGround cuts
+ * into spatial-batch pieces at boot, and the one tools/prebuild_layers.mjs
+ * --layer base cuts in Node, whose --parity read holds the two equal.
+ */
+export function distantBaseGeometry(hf, footprints = []) {
+  return gridGeometry(hf, GROUND_BASE_STEP, footprints);
+}
+
 function gridGeometry(hf, step = 1, footprints = []) {
   if (!hf.loaded) {
     const g = new THREE.PlaneGeometry(2400, 2400, 1, 1);
@@ -2013,6 +2377,110 @@ function turfGround() {
 }
 
 /**
+ * T-2783 — THE FAR SWARD, painted by the ground where the plants thin out.
+ *
+ * Past the near ring the sward is a few cards a metre apart, then the far band's
+ * aggregates, then nothing; and the ground under them was the prairie TILE, whose
+ * colour is a reading of litter and soil between the stems — right at the walker's
+ * feet, where the stems are drawn, and wrong at forty metres, where a July sward
+ * seen almost edge-on is nothing but stems. So the plain past the near ring read
+ * as a lighter, yellower paint than the grass standing on it, and the line where
+ * the tufts stop was the line where the colour changed.
+ *
+ * WHAT IT PAINTS: from `start` metres out to `full` (the tier's own near and mid
+ * rings, handed over by flora.js), the ground eases from the tile toward the
+ * sward's own colour — the mean of the grass records the placer deals at that
+ * point, the same `matColor` its cards are tinted with — at the share of the
+ * ground the community's record says its grass covers (`matrix_fraction`). And it
+ * carries the grass grain once more, at a coarse scale, which perspective lays
+ * down into the long horizontal streaks a distant sward shows; the variation map
+ * and the dry lean move it as they move the prairie.
+ *
+ * WHERE: a map flora.js rasterises off its own zone finder over the heightfield
+ * (`setFarSward`), so the ground takes the grass colour exactly where the placer
+ * would stand grass, and none on water, on the town's turf (which paints itself
+ * after this) or where no community grows grass. Until it arrives the map is a
+ * 1x1 texel of zero weight and nothing moves.
+ *
+ * WHAT IT COSTS: no draw call, no mesh; two fetches on the ground (the map, at
+ * level 0 of a texture with no mips, and the grain), and one 16 m texel map of a
+ * few hundred kilobytes. The colour is read from the records; the ramp, the
+ * gain and the streaks are reconstructed (docs/LIBERTIES.md L-far-sward-2783).
+ */
+const FAR_SWARD_HEAD = /* glsl */`
+uniform sampler2D uFarSwMap;
+uniform vec4 uFarSwBox;
+uniform vec4 uFarSwRamp;
+uniform vec3 uFarSwGain;
+`;
+
+const FAR_SWARD_FRAGMENT = /* glsl */`
+  // ---- T-2783, the far sward ---------------------------------------------- //
+  {
+    vec2 chiFsEN = vec2(vChiWorld.x, -vChiWorld.z);
+    vec2 chiFsQ = (chiFsEN - uFarSwBox.xy) * uFarSwBox.zw;
+    // Square-root encoded (linear = stored squared), so the dark greens keep
+    // their steps in eight bits. The map's own rim is weightless and it clamps
+    // to its edge, so off the map the weight ramps to nothing over a texel.
+    vec4 chiFs = textureLod(uFarSwMap, chiFsQ, 0.0);
+    float chiFsW = chiFs.a
+                 * smoothstep(uFarSwRamp.x, uFarSwRamp.y, distance(vChiWorld, cameraPosition))
+                 * (1.0 - 0.6 * chiWet);
+    // The grass grain again, coarse and turned off the fine read's axes so the
+    // two never line up: blade strokes a few metres long, which a grazing view
+    // compresses into streaks across the plain.
+    vec2 chiFsUv = mat2(0.6157, 0.7880, -0.7880, 0.6157) * chiFsEN / uFarSwRamp.w;
+    float chiFsGrain = texture2D(uSward, chiFsUv).r / max(uSwardMean, 1e-6);
+    vec3 chiFsC = chiFs.rgb * chiFs.rgb * uFarSwGain
+                * (1.0 + mix(0.18, 0.30, chiFar) * chiPatch)
+                * (vec3(1.0) + vec3(0.07, 0.035, -0.13) * chiMacro.a)
+                * mix(1.0, chiFsGrain, uFarSwRamp.z);
+    chiPrairie = mix(chiPrairie, diffuseColor.rgb * min(vec3(1.0), chiFsC), chiFsW);
+  }
+`;
+
+/** The far sward's uniforms and the call that fills them (T-2783). One object
+ *  for both ground materials, as the turf's is. Inert until `set`. */
+function farSwardGround() {
+  const blank = new THREE.DataTexture(new Uint8Array([0, 0, 0, 0]), 1, 1, THREE.RGBAFormat);
+  blank.needsUpdate = true;
+  const uniforms = {
+    uFarSwMap: { value: blank },
+    uFarSwBox: { value: new THREE.Vector4(0, 0, 0, 0) },
+    uFarSwRamp: { value: new THREE.Vector4(1e6, 2e6, 0, 7.2) },
+    uFarSwGain: { value: new THREE.Vector3(1, 1, 1) },
+  };
+  let map = null;
+  return {
+    uniforms,
+    /** `spec`: { box: {e0,e1,n0,n1}, map: {data (RGBA, rgb = sqrt of linear),
+     *  w, h}, start, full, streak, grainM, gain: [r,g,b] } — see flora.js. */
+    set(spec) {
+      if (!spec?.box || !spec.map?.data) return false;
+      map?.dispose();
+      map = new THREE.DataTexture(spec.map.data, spec.map.w, spec.map.h, THREE.RGBAFormat);
+      map.name = 'far-sward';
+      map.colorSpace = THREE.NoColorSpace;
+      map.magFilter = map.minFilter = THREE.LinearFilter;
+      map.generateMipmaps = false;
+      const m = map;
+      m.onUpdate = () => { m.image.data = null; };
+      map.needsUpdate = true;
+      uniforms.uFarSwMap.value = map;
+      const { e0, e1, n0, n1 } = spec.box;
+      uniforms.uFarSwBox.value.set(e0, n0, 1 / (e1 - e0), 1 / (n1 - n0));
+      uniforms.uFarSwRamp.value.set(spec.start, spec.full, spec.streak ?? 0, spec.grainM ?? 7.2);
+      if (Array.isArray(spec.gain)) uniforms.uFarSwGain.value.set(...spec.gain);
+      return true;
+    },
+    dispose() {
+      map?.dispose();
+      blank.dispose();
+    },
+  };
+}
+
+/**
  * Ground: a procedural prairie sampled in WORLD space, darkening to wet mud as
  * the surface approaches the water.
  *
@@ -2046,7 +2514,7 @@ function turfGround() {
  * point falls in belongs here — and the ground stops being one green.
  */
 function groundMaterial(zones = [], lakeShore = null,
-  { nearHole = null, groundTex = null, swardTex = null, turf = null } = {}) {
+  { nearHole = null, groundTex = null, swardTex = null, turf = null, farSward = null } = {}) {
   const mat = new THREE.MeshStandardMaterial({
     color: 0xffffff, roughness: 1, metalness: 0,
   });
@@ -2077,6 +2545,7 @@ function groundMaterial(zones = [], lakeShore = null,
     if (lakeShore) shader.uniforms.uChiShore = { value: shoreUniform(lakeShore, THREE) };
     if (nearHole) shader.uniforms.uChiNearHole = nearHole;
     if (turf) Object.assign(shader.uniforms, turf.uniforms);
+    if (farSward) Object.assign(shader.uniforms, farSward.uniforms);
     seasonShaderUniforms(shader);
     shader.vertexShader = 'varying vec3 vChiWorld;\n' + shader.vertexShader.replace(
       '#include <begin_vertex>', '#include <begin_vertex>' + WORLD_POS_VERT,
@@ -2093,11 +2562,13 @@ uniform sampler2D uChiCut;
 uniform vec4 uChiCutBox;
 ${zones.length ? shoreGlslHead(lakeShore) : ''}
 ${turf ? TURF_HEAD : ''}
+${farSward ? FAR_SWARD_HEAD : ''}
 ` + shader.fragmentShader.replace('#include <clipping_planes_fragment>', `#include <clipping_planes_fragment>
 ${nearHole ? '  if (distance(vChiWorld, cameraPosition) < uChiNearHole) discard;' : ''}
 ${GROUND_CUT_FRAGMENT}`)
       .replace('#include <map_fragment>', /* glsl */`${PRAIRIE_FRAGMENT}
 ${zoneGlsl(zones, lakeShore)}
+${farSward ? FAR_SWARD_FRAGMENT : ''}
 ${turf ? TURF_FRAGMENT : ''}
   diffuseColor.rgb = chiPrairie;
   diffuseColor.rgb = chiSeason(diffuseColor.rgb, vChiWorld.xz, 1.0, 1.0);

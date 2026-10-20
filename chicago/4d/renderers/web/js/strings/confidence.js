@@ -1,0 +1,46 @@
+/** The Confidence view app (T-2647 presets, T-2648 per-grade rows, T-2649 the HUD legend; DESIGN §09, M9).
+ * The grade names themselves are the locked terms (terms.js). */
+import { register } from './index.js';
+
+export default register('confidence', {
+  'look.tint': 'Tint',
+  'look.ghost': 'Ghost',
+  'look.dither': 'Dither',
+  'look.tint.note': 'Recolour toward the swatch. Opacity is how far.',
+  'look.ghost.note': 'See-through. Opacity is how solid it stays.',
+  'look.dither.note': 'Screen-door massing. Opacity is how much is kept.',
+  'look.off': 'Off',
+  'row.summary': '{look} · {percent}%',
+  'row.more': '{grade}: colour, look and opacity',
+  'row.colour': '{grade} colour',
+  'row.look': 'Look',
+  'row.opacity': 'Opacity',
+  'row.opacity.label': '{grade} opacity',
+  'swatch.label': '{name} for {grade}',
+  'swatch.safe': '{name} for {grade}, from the colour-blind-safe set',
+  'swatch.gold': 'Gold',
+  'swatch.silver': 'Silver',
+  'swatch.bronze': 'Bronze',
+  'swatch.green': 'Green',
+  'swatch.sky': 'Sky',
+  'swatch.plum': 'Plum',
+  'swatch.cream': 'Cream',
+  'swatch.amber': 'Amber',
+  'swatch.brick': 'Brick',
+  'swatch.blue': 'Blue',
+  'swatch.yellow': 'Yellow',
+  'swatch.vermilion': 'Vermilion',
+  'safe.set': 'Colour-blind-safe colours',
+  'safe.note': 'Blue, yellow and vermilion: told apart with the common kinds of colour blindness.',
+  'safe.on': 'Colour-blind-safe colours on',
+  'show.all': 'Show everything',
+  'note': 'Turning a grade off removes it from the view entirely, with the colouring on or off.',
+  // T-2649: the legend chip under the year chip while the view is not Normal. The mark is
+  // the year chip's mono caps; the label says the dots in words.
+  'legend.mark': 'CONF',
+  'legend.label': 'Confidence view on: {grades}. Tap to open it.',
+  'legend.grade': '{grade} {colour}',
+  'legend.grade.shown': '{grade} shown',
+  'legend.grade.hidden': '{grade} hidden',
+  'legend.colour.own': 'own colour',
+});

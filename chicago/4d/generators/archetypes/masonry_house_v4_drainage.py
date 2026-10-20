@@ -32,13 +32,14 @@ def layout(p,reduced=False):
     def gutter(name, edge, normals, drains):
         gutters.append(dict(name=name, edge=edge, normals=normals, drains=drains))
 
-    def leader(name, inlet, xy, normal, wall, head='plain', shoe=False):
+    def leader(name, inlet, xy, normal, wall, head='plain', shoe=False, drop=0.0):
         family=cfg.get('leader_profiles',{}).get('prairie' if name.startswith('prairie-') else
                    'court_feature' if name in ('court-dining','court-bow') else 'plain',{})
         head_h = cfg['heads'][head]['height_m'] if head != 'none' else 0
         # Photographed heads rise to the gutter rim; the trough discharges
         # inside their upper body. Do not hang the entire head below the floor.
-        mouth = inlet[2] + .025 if head!='none' else inlet[2]-depth-.035
+        # `drop` hangs a drawn head that far under the rim instead (T-2926).
+        mouth = inlet[2] + .025 - drop if head!='none' else inlet[2]-depth-.035
         top = mouth - head_h + .025
         upper = (inlet[0], inlet[1], top)
         shoulder = min(top-.18, mouth-head_h-.12)
@@ -129,7 +130,7 @@ def layout(p,reduced=False):
     gutter('court-north-west',[(wx,cy,cz),(d0[0],cy,cz)],[corner,normals[0]],['court-dining'])
     a0,a1=sorted((bow['a0'],bow['a1']))
     if a1-a0>math.pi:a0,a1=a1,a0+2*math.pi
-    radius=bow['r']+.20
+    radius=bow['eave_r']
     count=24 if reduced else 48
     angles=[a0+(a1-a0)*i/count for i in range(count+1)]
     edge=[(bow['cx']+radius*math.cos(a),bow['cy']+radius*math.sin(a),bow['wall_top_z']) for a in angles]
@@ -138,9 +139,17 @@ def layout(p,reduced=False):
     bn=_unit((bx-bow['cx'],by-bow['cy'],0))
     # Radial wall coordinate used by collars; the circular masonry surface is
     # intersected explicitly instead of attaching to an imaginary flat plane.
-    leader('court-bow',(edge[0][0]+.045*math.cos(a0),edge[0][1]+.045*math.sin(a0),bow['wall_top_z']),
+    section,mid={},.045
+    if 'bow_gutter' in cfg:
+        # T-2861: sheet 4's trough, its face set out from the bow's wall, not the hood;
+        # its outlet at the narrower trough's middle.
+        g=cfg['bow_gutter']
+        section=dict(width_m=g['projection_m']-(radius-bow['r'])+.035,depth_m=g['depth_m'])
+        mid=section['width_m']/2-.035
+    leader('court-bow',(edge[0][0]+mid*math.cos(a0),edge[0][1]+mid*math.sin(a0),bow['wall_top_z']),
            (bx,by),bn,{'centre':(bow['cx'],bow['cy']),'r':bow['r']},'none',True)
     gutter('bow',edge,[(math.cos(a),math.sin(a),0) for a in angles],['court-bow'])
+    if section:gutters[-1]['section']=section
     right=bow['cx']-math.sqrt(radius*radius-(cy-bow['cy'])**2)
     gutter('court-north-east',[(d1[0],cy,cz),(right,cy,cz)],[normals[-1],(0,-1,0)],[])
     branches.append(dict(name='court-north-bow', target='court-bow', width=cfg['pipe_width_m'],
@@ -157,7 +166,10 @@ def layout(p,reduced=False):
         # clear wall strips than the earlier tangent-based reconstruction.
         # Explicit record anchors keep both leaders and their straps off glass.
         y=cfg.get('court_east_leaders_y',{}).get(name,y)
-        leader(name,(ex-.045,y,ez),(e['x0']-.13,y),(-1,0,0),e['x0'],'none',True)
+        # T-2926: sheet 4 draws the south one under a hopper head.
+        head=cfg.get('court_east_leader_heads',{}).get(name,'none')
+        leader(name,(ex-.045,y,ez),(e['x0']-.13,y),(-1,0,0),e['x0'],head,True,
+               cfg.get('court_east_leader_head_drop_m',{}).get(name,0.0))
         gutter(name,[(ex,a,ez),(ex,c,ez)],[(-1,0,0)]*2,[name])
     open_ends={'court-west':[1],'dining':[0,1],'court-north-west':[0,1],'court-north-east':[0]}
     for row in gutters:row['open_ends']=open_ends.get(row['name'],[])
@@ -294,7 +306,9 @@ def _attachments(b,row,cfg):
 
 def _gutter(b,row,cfg,outlets):
     """Thin box trough with rolled front edge and open floor at each outlet."""
-    edge,normals=row['edge'],row['normals'];depth=cfg['gutter_depth_m'];width=cfg['gutter_width_m'];s=cfg['stock_m']
+    edge,normals=row['edge'],row['normals'];s=cfg['stock_m']
+    depth=row.get('section',{}).get('depth_m',cfg['gutter_depth_m'])
+    width=row.get('section',{}).get('width_m',cfg['gutter_width_m'])
     # Two-dimensional section in outward/up coordinates. Both surfaces and
     # rolled lip have stock; no black zero-thickness planes at close range.
     back,front=-.035,width-.035

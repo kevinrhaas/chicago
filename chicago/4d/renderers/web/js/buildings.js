@@ -134,7 +134,9 @@ function collectMeshes(structureNode) {
  * grade, unclamped. What changes is only what the SHAPE in front of you claims.
  */
 function existenceFloor(record) {
-  const grade = record?.sidecar?.documented_range?.confidence;
+  // The structure's own grade where it has one (T-2686): a building a picture shows
+  // is not dithered as an invention, whatever its stood-here grade says.
+  const grade = record?.sidecar?.grade?.value ?? record?.sidecar?.documented_range?.confidence;
   if (grade === 'reconstructed') return { force: 1.0 };
   if (grade === 'attested' || grade === 'inferred') return { ceiling: 0.5 };
   // No stated existence grade: leave the channel exactly as authored rather
@@ -759,6 +761,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // Each instance's dequantize scale, for a reader that needs the structure's
     // frame back off the batch (tools/drawn_placement_census.mjs).
     batch.userData.positionScale = [];
+    // T-2646: each instance's confidence range, as the shader decodes it, so the
+    // Confidence view can leave a wholly ghosted structure out of the opaque pass
+    // and a structure with nothing ghosted out of the ghost pass.
+    batch.userData.confidenceRanges = [];
     let backingPositionVersion, backingIndexVersion, backingConfidenceVersion;
 
     for (const { record, geo, base, factors, occludesView } of bucket.entries) {
@@ -809,12 +815,13 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
             && batch.geometry.attributes.position.version===backingPositionVersion
             && batch.geometry.index.version===backingIndexVersion
             && batch.geometry.attributes[SCALARS].version===backingConfidenceVersion
-            && ([m.onBeforeCompile,m.onBeforeRender,m.customProgramCacheKey].every((fn,i)=>fn===hooks[i])
+            // T-2806: compared without building an array: this runs every frame on a phone
+            && ((m.onBeforeCompile===hooks[0] && m.onBeforeRender===hooks[1] && m.customProgramCacheKey===hooks[2])
               || seasonPreservesSurface(m,hooks))
             && m.visible && m.opacity===1 && !m.transparent && !m.transmission && m.depthWrite && m.depthTest
             && m.colorWrite && !m.wireframe && !m.alphaTest && !m.alphaHash && !m.alphaMap
             && !m.displacementMap && !m.polygonOffset && !m.stencilWrite
-            && [THREE.LessDepth,THREE.LessEqualDepth].includes(m.depthFunc)
+            && (m.depthFunc===THREE.LessDepth || m.depthFunc===THREE.LessEqualDepth)
             && !m.clippingPlanes?.length;
         };
         const ranges=new Map();
@@ -848,13 +855,17 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       {
         let seen = channels.get(record.id);
         if (!seen) { seen = { min: Infinity, max: -Infinity, dithered: 0, total: 0 }; channels.set(record.id, seen); }
+        let lo = Infinity, hi = -Infinity;
         for (let i = 0; i < count; i += 1) {
           const v = scalar('_confidence', i);
-          seen.min = Math.min(seen.min, v);
-          seen.max = Math.max(seen.max, v);
+          if (v < lo) lo = v;
+          if (v > hi) hi = v;
           seen.total += 1;
           if (v > 0.75) seen.dithered += 1;
         }
+        seen.min = Math.min(seen.min, lo);
+        seen.max = Math.max(seen.max, hi);
+        if (count) batch.userData.confidenceRanges[instanceId] = [lo, hi];
       }
       geo.dispose();
     }
@@ -865,6 +876,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     batch.computeBoundingSphere();
     group.add(batch);
     batches.push(batch);
+    // T-2786: every entry's geometry is in the batch now. `dispose()` above frees
+    // nothing in the page, and `groups` lives as long as the layer (its closures
+    // keep this scope), so the 37k source geometries stayed reachable: about
+    // 50 MB of arrays and 25 MB of heap in 1904 on a phone.
+    bucket.entries = [];
   }
 
   /**
@@ -1068,6 +1084,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
      * @param {THREE.Camera} camera
      */
     pickAt: pick.pickAt,
+    /** The same, answered when the GPU has got to it: the gaze target's look (T-2723). */
+    pickAtAsync: pick.pickAtAsync,
+    /** The structure whose part's box the ray meets first: no draw (gpu-pick.js
+     *  `boxPick`, T-2827). A phone's target probe asks this. */
+    pickAtBox: pick.pickAtBox,
     /** The raycast it replaced, kept as the oracle (tools/check_upload_release.mjs). */
     pickAtRaycast: pick.pickAtRaycast,
 

@@ -1,0 +1,244 @@
+/* inspect.css — the Navigator's Inspect app, the Overview front page (T-2638; DESIGN §08, M7).
+   Reading text is the body face at 16 px on phones (§13); labels stay mono-caps; the page
+   reflows with the Text size setting because every size here is in rem or follows the page.
+   Every colour is a skin token, so all four skins draw it. */
+
+.insp-page { display: flex; flex-direction: column; gap: 12px; padding-bottom: 8px; }
+
+/* 1. The plate, through the CRT treatment: scanlines and a little lift, nothing that moves. */
+.insp-plate { position: relative; margin: 0; border: 1px solid var(--edge); border-radius: 6px; overflow: hidden;
+  background: var(--panel-solid, #000); }
+.insp-plate img { display: block; width: 100%; max-height: 42vh; object-fit: cover;
+  filter: contrast(1.08) saturate(.85) sepia(.12); }
+.insp-plate::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(to bottom, rgba(0,0,0,.16) 0 1px, transparent 1px 3px);
+  box-shadow: inset 0 0 42px rgba(0,0,0,.45); }
+.insp-credit { position: relative; z-index: 1; padding: 4px 8px; font: 400 0.6875rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  color: var(--ink-dim); background: var(--panel); }
+
+/* 2. Address, name, chips. */
+.insp-address { margin: 0; font: var(--label-weight, 400) 0.6875rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+.insp-name { margin: 0; font: 500 1.75rem/1.1 var(--font-display, inherit); letter-spacing: var(--display-tracking, 0);
+  overflow-wrap: anywhere; color: var(--ink); }
+.insp-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.insp-chip { padding: 3px 8px; border: 1px solid var(--edge-strong, var(--edge)); border-radius: 4px;
+  font: var(--label-weight, 400) 0.6875rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .06em; text-transform: uppercase; color: var(--ink); }
+
+/* 3. Summary. */
+.insp-summary { margin: 0; font: 400 1rem/1.55 var(--font-body, inherit); color: var(--ink); max-width: 65ch; }
+
+/* 4. Key facts. */
+.insp-key { display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 8px 12px; margin: 0; }
+.insp-key-row { min-width: 0; }
+.insp-key dt { font: var(--label-weight, 400) 0.625rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+.insp-key dd { margin: 2px 0 0; font: 500 1rem/1.35 var(--font-body, inherit); color: var(--ink); overflow-wrap: anywhere; }
+
+/* 5-7. Sections. */
+.insp-sec { padding-top: 10px; border-top: 1px solid var(--edge); }
+.insp-h { margin: 0 0 6px; font: var(--label-weight, 400) 0.6875rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+.insp-list { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.insp-person { display: flex; flex-direction: column; gap: 1px; }
+.insp-person strong { font: 500 1rem/1.35 var(--font-body, inherit); color: var(--ink); }
+.insp-look-item { font: 400 1rem/1.45 var(--font-body, inherit); color: var(--ink); }
+.insp-more { margin: 6px 0 0; }
+.insp-swipe { display: grid; grid-auto-flow: column; grid-auto-columns: 86%; gap: 10px; overflow-x: auto;
+  scroll-snap-type: x mandatory; overscroll-behavior-x: contain; padding-bottom: 4px; }
+.insp-fact { margin: 0; padding: 10px 12px; scroll-snap-align: start; border: 1px solid var(--edge); border-radius: 6px;
+  font: 400 1rem/1.5 var(--font-body, inherit); color: var(--ink); background: var(--panel-raised, transparent); }
+.insp-swipe-hint { margin: 4px 0 0; }
+
+/* 8. The Confidence meter. */
+.insp-meter { display: flex; flex-direction: column; gap: 6px; width: 100%; min-height: 44px; padding: 10px 12px; text-align: left;
+  border: 1px solid var(--edge); border-radius: 6px; background: transparent; color: var(--ink); cursor: pointer; font: inherit; }
+.insp-meter-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--edge); }
+.insp-seg { display: block; min-width: 4px; background: currentColor; }
+.insp-meter-words { font: 400 0.875rem/1.4 var(--font-body, inherit); color: var(--ink-dim); }
+.insp-full { align-self: flex-start; min-height: 44px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .insp-swipe { scroll-behavior: auto; }
+}
+.insp-full { background: transparent; color: var(--ink); font: 500 0.9375rem/1.2 var(--font-body, inherit); cursor: pointer; }
+
+/* The tabs (T-2639): Overview · People · Design · Story · Photos · Sources. One row that
+   scrolls sideways on a phone rather than wrapping, each tab a 44 px target. */
+.insp-tabs { display: flex; gap: 4px; margin: 0 0 12px; overflow-x: auto; overscroll-behavior-x: contain;
+  border-bottom: 1px solid var(--edge); scrollbar-width: none; }
+.insp-tabs::-webkit-scrollbar { display: none; }
+.insp-tab { flex: 0 0 auto; min-height: 44px; padding: 0 12px; border: 0; border-bottom: 2px solid transparent;
+  background: transparent; color: var(--ink-dim); cursor: pointer;
+  font: var(--label-weight, 400) 0.75rem/1 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; }
+.insp-tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent, currentColor); }
+.insp-tab:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: -2px; }
+.insp-pane[hidden] { display: none; }
+
+/* The card's own sections, shown in Inspect's other tabs: the few rules card.css scopes to
+   the floating card, repeated here so they read the same. */
+.insp-card { font-size: 0.875rem; line-height: 1.5; color: var(--ink); overflow-wrap: anywhere; }
+.insp-card .pop-residents, .insp-card .pop-lodging { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--edge); }
+.insp-card > .pop-sec:first-child, .insp-card > .pop-flags:first-child { margin-top: 0; }
+.insp-card table.attrs { table-layout: fixed; }
+.insp-people-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.insp-person-link { cursor: pointer; text-align: left; background: transparent; color: var(--ink); font: inherit; min-height: 44px; }
+.insp-timeline { display: flex; flex-direction: column; gap: 8px; margin: 0 0 12px; padding: 0; list-style: none; }
+.insp-when { display: grid; grid-template-columns: 3.2rem 1fr; gap: 8px; align-items: baseline; }
+.insp-date { font: var(--label-weight, 400) 0.75rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace)); color: var(--ink-dim); }
+.insp-what { font: 400 1rem/1.45 var(--font-body, inherit); }
+
+/* T-2643: the Story timeline. A rail runs down beside the dates; BUILT, YOU ARE HERE and
+   TODAY are its marks, kicked in mono-caps; what came after the visit hangs off a dashed
+   rail and says so in words, not only in colour. Static: nothing here moves. */
+.insp-story-lead { margin: 0 0 10px; }
+.insp-story-line { gap: 0; }
+.insp-story-line .insp-when { position: relative; grid-template-columns: 3.2rem minmax(0, 1fr); gap: 10px; padding: 0 0 12px; }
+.insp-story-line .insp-when::before { content: ''; position: absolute; left: calc(3.2rem + 11px); top: 0; bottom: 0;
+  border-left: 2px solid var(--edge); }
+.insp-story-line .insp-when.is-after::before { border-left-style: dashed; }
+.insp-story-line .insp-when:last-child::before { bottom: auto; height: .9em; }
+.insp-story-body { position: relative; display: flex; flex-direction: column; gap: 2px; min-width: 0; padding-left: 14px;
+  overflow-wrap: anywhere; }
+.insp-story-body::before { content: ''; position: absolute; left: -2px; top: .45em; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--ink-dim); }
+.insp-kicker { font: var(--label-weight, 400) 0.6875rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+.insp-story-line [data-mark="built"] .insp-story-body::before,
+.insp-story-line [data-mark="today"] .insp-story-body::before { background: var(--ink); }
+.insp-story-line [data-mark="built"] .insp-kicker,
+.insp-story-line [data-mark="today"] .insp-kicker { color: var(--ink); font-size: 0.75rem; font-weight: 600; }
+.insp-story-line [data-mark="built"] .insp-story-body::before,
+.insp-story-line [data-mark="today"] .insp-story-body::before { left: -3px; width: 10px; height: 10px; border-radius: 2px; }
+.insp-story-line .insp-mark-here .insp-story-body { margin-left: -4px; padding: 6px 10px 6px 18px; border: 1px solid var(--accent, currentColor);
+  border-radius: 6px; background: color-mix(in srgb, var(--accent, currentColor) 12%, transparent); }
+.insp-story-line .insp-mark-here .insp-story-body::before { left: 1px; top: .8em; width: 10px; height: 10px;
+  background: var(--accent, currentColor); }
+.insp-story-line .insp-mark-here .insp-kicker { color: var(--accent, currentColor); }
+.insp-story-line .insp-mark-here .insp-date { color: var(--ink); padding-top: 6px; }
+.insp-story-line .is-missing .insp-what { color: var(--ink-dim); font-style: italic; }
+.insp-after { align-self: flex-start; margin-top: 2px; padding: 1px 6px; border: 1px dashed var(--edge-strong, var(--edge)); border-radius: 4px;
+  font: var(--label-weight, 400) 0.625rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+/* T-2641: the Design tab. The style card (kicker, name, two lines, a plate through the same
+   CRT treatment as the front page's, and the cues as chips), the numbered "On this house"
+   hotspots — each a 44 px row, a button where Show me can aim, its number in a ring — and
+   Compare styles. Static: nothing here moves, so reduced motion needs nothing of its own.
+   Every colour is a skin token. */
+.insp-design { display: flex; flex-direction: column; gap: 14px; color: var(--ink); overflow-wrap: anywhere; }
+.insp-style { display: flex; flex-direction: column; gap: 8px; padding: 12px; border: 1px solid var(--edge); border-radius: 6px;
+  background: var(--panel-raised, transparent); }
+.insp-style .insp-kicker { margin: 0; }
+.insp-style-name { margin: 0; font: 500 1.375rem/1.15 var(--font-display, inherit); letter-spacing: var(--display-tracking, 0); color: var(--ink); }
+.insp-style-desc { margin: 0; font: 400 1rem/1.55 var(--font-body, inherit); max-width: 65ch; }
+.insp-style-plate img { max-height: 32vh; }
+.insp-style-cap { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 2px; padding: 6px 8px 0;
+  background: var(--panel); font: 400 0.875rem/1.4 var(--font-body, inherit); color: var(--ink); }
+.insp-style-cap .insp-credit { padding: 0 0 4px; background: transparent; }
+.insp-cues { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.insp-cue, .insp-compare-cue { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 4px 10px;
+  border: 1px solid var(--edge-strong, var(--edge)); border-radius: 16px; font: 400 0.9375rem/1.3 var(--font-body, inherit);
+  min-width: 0; max-width: 100%; }
+.insp-style > *, .insp-design > * { min-width: 0; max-width: 100%; }
+.insp-hotspots { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.insp-hotspots > li + li { border-top: 1px solid var(--edge); }
+.insp-hot-row { display: grid; grid-template-columns: 1.75rem minmax(0, 1fr); gap: 10px; align-items: start; width: 100%;
+  min-height: 44px; padding: 10px 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; }
+button.insp-hot-row { cursor: pointer; padding-right: 22px; position: relative; }
+button.insp-hot-row::after { content: '\2192'; position: absolute; right: 4px; top: 10px; color: var(--accent, currentColor);
+  font: 400 1rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace)); }
+button.insp-hot-row:hover .insp-hot-n { border-color: var(--accent, currentColor); }
+button.insp-hot-row:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+.insp-hot-n { display: inline-flex; align-items: center; justify-content: center; width: 1.75rem; height: 1.75rem;
+  border: 1px solid var(--edge-strong, var(--edge)); border-radius: 50%; color: var(--accent, var(--ink));
+  font: 500 0.8125rem/1 var(--font-label, var(--font-mono, ui-monospace, monospace)); }
+.insp-hot-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.insp-hot-text { font: 500 1rem/1.4 var(--font-body, inherit); color: var(--ink); }
+.insp-hot-text .fact-dot { margin-left: 6px; }
+.insp-hot-detail { font: 400 0.9375rem/1.45 var(--font-body, inherit); color: var(--ink-dim); }
+.insp-hot-lib { font-style: italic; }
+.insp-compare-item { display: flex; flex-direction: column; gap: 1px; }
+.insp-compare-name { font: 500 1rem/1.35 var(--font-body, inherit); color: var(--ink); }
+.insp-style-none { margin: 0; }
+/* T-2642: a Compare line that points at another style opens that style's lines and cues in
+   place — a native <details>, so it needs no script and nothing moves with reduced motion. */
+.insp-compare-more { margin-top: 4px; }
+.insp-compare-more[open] { padding-bottom: 8px; }
+.insp-compare-more > summary { display: flex; align-items: center; min-height: 44px; cursor: pointer; list-style: none;
+  color: var(--accent, var(--ink)); font: 500 0.9375rem/1.3 var(--font-body, inherit); }
+.insp-compare-more > summary::-webkit-details-marker { display: none; }
+.insp-compare-more > summary::after { content: '+'; margin-left: 8px; font: 400 1rem/1 var(--font-label, var(--font-mono, ui-monospace, monospace)); }
+.insp-compare-more[open] > summary::after { content: '\2212'; }
+.insp-compare-more > summary:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+.insp-compare-desc { margin: 0 0 8px; font: 400 0.9375rem/1.5 var(--font-body, inherit); max-width: 65ch; }
+.insp-compare-more > * { min-width: 0; max-width: 100%; }
+/* T-2640: Show me — a small key at the end of each Look for line the record gives a camera,
+   and the outline it pulses on the building for 2 s (still, with reduced motion). */
+.insp-look-item { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.insp-showme {
+  margin-left: auto; min-height: 36px; padding: 0 12px; border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
+  background: transparent; color: var(--accent); cursor: pointer;
+  font: var(--label-weight, 400) 10px/1 var(--font-label, var(--font-mono, ui-monospace, monospace)); letter-spacing: .14em; text-transform: uppercase;
+}
+.insp-showme:hover { border-color: var(--accent); }
+.insp-showme:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.show-me-outline {
+  position: fixed; z-index: 21; pointer-events: none; border-radius: 6px;
+  border: 2px solid var(--amber, #E2A63F);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .35), 0 0 16px color-mix(in srgb, var(--amber, #E2A63F) 55%, transparent);
+}
+.show-me-outline[hidden] { display: none; }
+.show-me-outline.is-pulsing { animation: show-me-pulse .5s ease-in-out 4 alternate both; }
+@keyframes show-me-pulse { from { opacity: 1; } to { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .show-me-outline.is-pulsing { animation: none; } }
+
+/* T-2644: the Sources tab — every fact grouped by grade, Liberties as a section, a human title
+   on each source, and the full citation folded under each fact. Native <details>, so every row
+   opens by touch, mouse or keyboard with no script, and nothing animates (reduced motion is
+   the default here). Every colour is a skin token. */
+.insp-sources { display: flex; flex-direction: column; gap: 14px; color: var(--ink); overflow-wrap: anywhere; }
+.src-page { display: flex; flex-direction: column; gap: 14px; }
+.src-lead { margin: 0; font: 500 1rem/1.5 var(--font-body, inherit); max-width: 65ch; }
+.src-grade, .src-liberties { padding-top: 10px; border-top: 1px solid var(--edge); }
+.src-grade-h { display: flex; align-items: center; gap: 6px; }
+.src-count { margin-left: auto; color: var(--ink); }
+.src-gloss { margin: 0 0 8px; }
+.src-facts { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.src-facts > li + li { border-top: 1px solid var(--edge); }
+.src-fact > summary, .src-lib > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 8px;
+  min-height: 44px; padding: 10px 24px 10px 0; position: relative; cursor: pointer; list-style: none; }
+.src-fact > summary::-webkit-details-marker, .src-lib > summary::-webkit-details-marker,
+.src-cites > summary::-webkit-details-marker { display: none; }
+.src-fact > summary::after, .src-lib > summary::after { content: '+'; position: absolute; right: 4px; top: 10px;
+  font: 400 1rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace)); color: var(--ink-dim); }
+.src-fact[open] > summary::after, .src-lib[open] > summary::after { content: '−'; }
+.src-fact > summary:focus-visible, .src-lib > summary:focus-visible, .src-cites > summary:focus-visible {
+  outline: 2px solid var(--accent, currentColor); outline-offset: 2px; }
+.src-fact > summary .fact-dot { align-self: center; }
+.src-label { font: 500 1rem/1.4 var(--font-body, inherit); color: var(--ink); }
+.src-value { flex: 1 1 12rem; min-width: 0; font: 400 0.9375rem/1.45 var(--font-body, inherit); color: var(--ink-dim); }
+.src-body { display: flex; flex-direction: column; gap: 6px; padding: 0 0 12px; }
+.src-body p, .src-lib-body { margin: 0; }
+.src-long, .src-why { font: 400 0.9375rem/1.5 var(--font-body, inherit); max-width: 65ch; }
+.src-why-later, .src-absent, .src-none { font: 400 0.875rem/1.45 var(--font-body, inherit); color: var(--ink-dim); }
+.src-k { font: var(--label-weight, 400) 0.625rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+.src-why .src-k { margin-right: 4px; }
+.src-titles { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.src-title { font: 400 0.9375rem/1.4 var(--font-body, inherit); color: var(--ink); }
+.src-when { display: inline-block; margin-left: 4px; padding: 0 6px; border: 1px solid var(--edge); border-radius: 4px;
+  font: var(--label-weight, 400) 0.625rem/1.6 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .06em; text-transform: uppercase; color: var(--ink-dim); white-space: nowrap; }
+.src-cites > summary { min-height: 36px; display: flex; align-items: center; cursor: pointer; list-style: none;
+  font: 400 0.875rem/1.4 var(--font-body, inherit); color: var(--accent, var(--ink)); }
+.src-cites .cites { margin: 4px 0 0; padding-left: 1.2rem; font-size: 0.8125rem; line-height: 1.5; color: var(--ink-dim); }
+.src-cites .cites a { color: var(--accent, var(--ink)); }
+.src-lib-body { display: grid; gap: 2px 0; padding: 0 0 12px; font: 400 0.9375rem/1.5 var(--font-body, inherit); }
+.src-lib-body dt { margin-top: 6px; font: var(--label-weight, 400) 0.625rem/1.4 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); }
+.src-lib-body dd { margin: 0; max-width: 65ch; }
+.src-open .cites { margin: 0 0 12px; padding-left: 1.2rem; font-size: 0.8125rem; color: var(--ink-dim); }
+.src-foot { margin: 0; font-size: 0.875rem; color: var(--ink-dim); }
+.src-foot a { color: var(--accent, var(--ink)); }

@@ -375,13 +375,29 @@ def build(params, structure_id: str):
         u0, v0, u1, v1 = p["rect"]
         role = p["role"]
         if role == "porch":
+            # a solid stone stoop up to the principal floor with its steps down on the face
+            # away from the house: the draft's deck on four posts read as a slab hovering on
+            # the lawn (T-2738); the refine pass builds the porch the photographs show
             deck = pf if is_house else 0.3
-            m.box("trim", u0, u1, v0, v1, max(0.0, deck - 0.25), deck)
-            top = deck + 3.0
-            for (pu, pv) in ((u0 + 0.15, v0 + 0.15), (u1 - 0.15, v0 + 0.15), (u0 + 0.15, v1 - 0.15), (u1 - 0.15, v1 - 0.15)):
-                m.box("trim", pu - 0.11, pu + 0.11, pv - 0.11, pv + 0.11, deck, top)
-            m.box("cornice", u0 - 0.15, u1 + 0.15, v0 - 0.15, v1 + 0.15, top, top + 0.3)
-            m.box("roof", u0 - 0.1, u1 + 0.1, v0 - 0.1, v1 + 0.1, top + 0.3, top + 0.38)
+            m.box(stone if is_house else "trim", u0, u1, v0, v1, 0.0, deck)
+            if deck >= 0.4:
+                face = ("u1" if u0 >= mu1 - 0.1 else "v0" if v1 <= mv0 + 0.1 else "v1" if v0 >= mv1 - 0.1
+                        else "u0" if u1 <= mu0 + 0.1 else "u1")
+                n_st, tread = 4, 0.3
+                rh = deck / (n_st + 1)
+                mid = (v0 + v1) / 2 if face[0] == "u" else (u0 + u1) / 2
+                half = min(0.9, ((v1 - v0) if face[0] == "u" else (u1 - u0)) / 2)
+                for k in range(n_st):
+                    a, b = k * tread, (k + 1) * tread
+                    y = deck - (k + 1) * rh
+                    if face == "u1":
+                        m.box(stone, u1 + a, u1 + b, mid - half, mid + half, 0.0, y)
+                    elif face == "u0":
+                        m.box(stone, u0 - b, u0 - a, mid - half, mid + half, 0.0, y)
+                    elif face == "v1":
+                        m.box(stone, mid - half, mid + half, v1 + a, v1 + b, 0.0, y)
+                    else:
+                        m.box(stone, mid - half, mid + half, v0 - b, v0 - a, 0.0, y)
             continue
         eave = eave_of(p)
         mat = wall_range if role in ("range",) else wall_main

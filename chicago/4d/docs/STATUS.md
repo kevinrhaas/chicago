@@ -1,3 +1,387 @@
+## T-2719 — Prairie Avenue's moving p95 on a real phone: 48-50 ms (2026-10-20)
+
+Nothing you can see changed. This files the last reading T-2598 left (piece 2 of T-2602),
+taken by the owner on his iPhone with Read frame pacing in 1904, Light, Sharpness Low, 15 s
+a mode. The runner cannot take it: SwiftShader draws one frame in seconds.
+
+- **The reading:** walking Prairie Avenue, p95 **50 ms Fixed / 48 ms Adaptive** (median 43 /
+  40 ms, about 23-25 fps). 345 of 346 Fixed walk draws are over 33 ms, so 1904 does not hold
+  30 fps on this phone. The 1835 walk on the same phone read p95 41-43 ms (T-2733).
+- **Flight is the largest cost:** median 73-80 ms, every draw over 50 ms in both modes. That
+  is T-2927, filed when the reading came in.
+- **The governor on 1904:** by T-2592's rule (sd AND p95 fall) no move fell. Adaptive lowered
+  every median and drew more frames in each move, and lowered p95 on walk and turn, but sd
+  rose in all three and flight's p95 rose 85 → 90. Two of the >50 ms draws came on a ratio
+  switch in walk and in flight, so a resize can be a hitch on this phone (T-2829's open
+  question).
+- **The tab did not die**, so T-2828's fix holds on the owner's phone.
+- **Unverified:** T-2829's own acceptance is the 1835 repeat, which this is not. One phone,
+  one 15 s sample a mode. `docs/measurements/t-2719-owner-phone-1904.txt` and `.json`;
+  SITE-BUDGET § 10 has the table.
+
+## T-2901 — the front door measures this device: a live performance meter (2026-10-20)
+
+The owner asked for a meter on the Temporal Observatory that reads the device during the Wolf
+Point opening and hovers, red to green, around how well the town will run. `portal/device-meter.js`
+runs `profileDevice()` from `js/device-profile.js` — the same reading the town boots on — 300 ms
+into the cold start, and holds the reveal to at least 1.7 s so it reads as part of the opening.
+`scoreProfile()` (new, pure, in device-profile.js) turns the profile into 0-100 in five grades
+(Poor, Low, Fair, Good, Peak, 20 points each): fill and vertex rates on a log scale with each class
+floor in `THRESHOLDS` at 40 and each ceiling at 80, weighted 0.65 against cores 0.2 and memory 0.15,
+then **clamped into the band of the class the town will choose** (weak 8-39, standard 40-79, strong
+76-99), so the meter cannot promise more than the town draws. The hover is ±~3 of smoothed noise
+plus a real dip of up to 18 points for the share of this page's last 40 frames that arrived late.
+
+- **The front door never writes the town's cache** (`storage: null`), so it cannot change what
+  the town chooses; it benchmarks afresh on every load (the same ≤ 0.9 s ceiling the town pays).
+- **What is not known, said plainly.** The score inherits T-2559's thresholds, which are a first
+  setting and not a calibration. On the runner's SwiftShader the profile is not benchmarked, so the
+  meter places it on cores and memory alone: 4 cores and 8 GB read 66, Good, inside `standard`.
+  No reading from real phone or laptop silicon has been taken.
+- `check_device_profile.mjs` holds every class's score inside its band over a grid of benchmark
+  rates and resources; `test_temporal_menu_browser.mjs` holds the meter ready, lit, and on the first
+  screen at 1280×800 and 390×844. The manual gains 07 This device.
+
+## T-2829 — why Adaptive pacing made turning less steady on the owner's phone (2026-10-19)
+
+Nothing you can see in a still frame changed. This changes how frames come while
+moving on a phone with a 120 Hz screen. It fixes the regression in the owner's own
+reading (T-2733).
+
+- **Cause, from the code:** the phone draws on a 120 Hz grid. His Fixed turn fits a
+  25 ms rung (every third vsync), and nothing on a 60 Hz grid fits it. At the build he
+  read, Adaptive stepped the scale three times, three drawing-buffer resizes that bought
+  nothing, and then paced to 30. That held 25 ms frames back to 33 ms: median 27 → 32,
+  draws 186 → 157. The model (`tools/model_governor_phone.mjs`) predicts that from his
+  Fixed row alone.
+- **Fix:** no pace when a window's median lies between 21 ms and the paced interval (60 Hz
+  displays never land there, so T-2555's 60/30 case is unchanged). A pace takes three
+  windows in a row. The ladder stops at a step that does not lower the p80, and stays
+  stopped across rests. Read frame pacing now prints each row's ratio switches, the
+  >50 ms draws that came on one, and the paced share.
+- **Model, not reading:** the Adaptive turn now reads sd 4.8 / p95 35.9 against Fixed's
+  4.8 / 35.9 (5 s, no resize hitch assumed). Flight's p95 still rises 0.6 ms.
+  `docs/measurements/T-2829-pacing-model.md` has the tables.
+- **Unverified:** everything on the phone itself. Whether a resize is a hitch there (the
+  73 ms frame) is for the new readout to say. Adaptive stays the default. The
+  acceptance is his 15 s repeat at `/4d/dev/1835/` (Settings → Performance → Read frame
+  pacing): the turn's Adaptive sd and p95 at or under Fixed's.
+
+## T-2783 — 1812 and 1835: the far prairie past the near ring (2026-10-19)
+
+The plain past the near grass ring now reads as grass. A third far-card band, the mid ring,
+uses narrow cards with no seed heads: 22-88 m at full, 16-64 m balanced, 12-44 m on the phone.
+It draws inside the far band's existing draw call. Past the cards, the ground shader eases
+toward each grass community's own `matColor`, weighted by `matrixShare` and streaked with the
+sward grain at 18 m. The colour comes from a 16 m map that flora.js rasterises off its zone
+finder. It skips water, the z10 town turf and grassless zones, so the 1835 town's short
+turf is unchanged. Liberty L-far-sward-2783.
+
+- **Cost, open prairie** (south-branch stand at pitch -12, settled; desktop):
+  - 1835: full 1,282,420 → 1,296,166 (+13.7k), balanced 873,499 → 877,099 (+3.6k),
+    light 261,276 → 262,074 (+0.8k).
+  - 1812: full +3.4k, balanced +3.6k, light +0.8k.
+  - Draw calls are unchanged at every stand and tier.
+  - Ground shader: two more texture fetches per fragment.
+- **Ceilings, desktop** (`measure_detail_ceilings.mjs`, against the base tree): every tier
+  inside its ceiling in both years.
+  - 1835 worst (West prairie): full 3,321,419 (+306), balanced 2,490,805 (+112),
+    light 1,102,885.
+  - The ceiling stands barely move because they stand in or look over the town. The mid
+    ring's cost lands on the open plain, where the stands above read it.
+- **Memory** (`measure_memory.mjs`): +0.3 to +0.5 MB per reading, desktop and phone, both years.
+- **Flora commit latency after a teleport** is unchanged within noise (9-32 s on this host,
+  base and change alternating).
+- **The "flat untextured plain" in the eco-shot *south-branch* is not the scene.** It is
+  SwiftShader mis-interpolating a ground triangle that has a vertex exactly in the camera
+  plane. It appears when the stand is at whole-metre coordinates with a cardinal yaw and
+  zero pitch. Moving the stand 0.4 m, or turning it 1°, removes it. It also shows at the
+  whole-metre west-prairie and mid-field-north stands. The shots in
+  `/mnt/project-files/trees-1812-1835/T-2783-shots/` include offset stands. Whether a hardware GPU ever
+  shows it is unverified.
+- **Smoke, by parts:**
+  - Mobile 3,10 and 11-12 pass.
+  - Mobile 14 fails only on the proxy's chicago-images thumbnails.
+  - Desktop 3, 10, 11, 12 and 14 did not reach `ready` inside the smoke's 90 s on this host.
+    The base tree boots in 103-106 s here and the change in 101-102 s, so the desktop parts
+    are unverified on this host, not red from this change.
+- **Unverified:** the 1835 still-frame time (not taken; triangles, calls and memory stand in
+  for it), and any hardware-GPU view of the shader. The 1835 *west-prairie* stand is inside
+  the platted town's turf. Its tan patches are the turf's own bare and dust tones, which this
+  ticket leaves alone.
+
+## T-2672 / T-1789 — resident transport adults (2026-10-18)
+
+The owner requested adults for driving, riding, standing near transport and walking,
+with period-specific clothing and photographic quality, then directed us to use existing
+attested, inferred or reconstructed people; anonymous figures are a last resort. The standing human
+policy now reflects the explicit October 16 rulings; record flags, reasons, rights and
+scene dates remain. No figure is added by clearing a flag or inventing a resident.
+
+A pinned CC0 human graphical base, hash-verified adult male shape targets, a
+verified original 2K CC0 skin atlas, engine-neutral preparation and an original
+1835 workwear canonical-master builder are under integration. The first studies reference existing reconstructed residents Otis Bardwell, Joseph
+Dufresne and Martin Flynn. Their appearances remain reconstructed assembly proofs. Blender runs on CI, not this runner. Canonical exports and
+close desktop/mobile review must precede any scene use; canonical skin/cloth rendering, clothing
+detail, hair, reliable gait, seated driver/rein contact and riding tack remain open.
+The primitive portable-human fixture remains a test artifact. T-1789 is not complete
+on a single base or flat-color outfit. See L418 and the authored source manifest.
+
+Canonical CI now reproduces all three prepared inputs on Python 3.11. It built
+Otis Bardwell's master and all four source/web LODs, then the unchanged contract
+rejected tiny exported joint-scale residue and a skin-palette count change during
+quantization. The authored-only export repair verifies the actual Blender rig is
+unscaled, bounds numerical cleanup, consolidates only exactly equal bindings and
+uses one quantization volume. Existing fixture bytes and contract tolerances stay
+unchanged. Corrected canonical CI and actual visual/deformation review remain open;
+artifact download also requires publishing the saved environment network draft.
+
+## T-2737 — dev's still-frame ceiling: the trip blur the instrument froze on (2026-10-18)
+
+Nothing you can see changed. This gate blocks a visible parcel: PR #992 (T-2728, 1623's
+entrance) waits on T-2737 and was refused only on this ceiling.
+
+- **The landing found by bisection** (steward runner, EPYC 7763, full, town_backyard):
+  15368 ms at c9df69f71, 18658 ms at be5fdccc1, which is **T-2613**, the Navigator
+  landing. The triangles did not change, but every layer and the empty frame got
+  slower. `docs/measurements/T-2737-gate-backdrop.md` has the CI record, the bisection
+  and the A/B tests.
+- **Cause:** T-2613's gate blurs the town at 12 px during the trip, up from 2 px.
+  `measure_still_frame.mjs` stopped the page at `ready`, the first instant of the
+  trip, so every stand was timed under that blur. It cost 3.1 to 3.6 s of a 19 s
+  frame at full.
+- **Fix, in the instrument:** the tool waits for Home (or the gate down) and for the
+  gate's transitions to finish before timing. Each reading records the state it was
+  timed under. Dev's full went 19280 → 15730 ms on this runner. Home's `blur(0)` was
+  tested against `none` and costs nothing (15737 vs 15730), so walk.css is unchanged.
+- **Unverified here:** the CI host's new numbers (this runner reads 16 % slower than CI's
+  7763 at the same commit, so its milliseconds cannot set that entry). Balanced and
+  light grew from content, not the blur: +91k and +23k triangles since 48fa0caf8. The
+  PR's own frame-time run is the reading for them. The trip blur's cost on a phone GPU
+  is unmeasured.
+
+## T-2718 — texture residency's last capture stands and the 1904 memory ceilings (2026-10-17)
+
+Nothing you can see changed. Piece 1 of T-2602, which was split three ways because one
+of its readings needs a GPU (T-2719) and one is a question about the meter (T-2720).
+
+- **Captures at the four stands T-2598 left** (phone, `docs/measurements/T-2718-captures-mobile-a.json`, `-b.json`):
+  aloft over Glessner and three street eyes. At each, forcing every picture resident
+  changes fewer pixels than the scene's own motion does (10.96 / 34.13 / 30.94 / 22.75 %
+  against 16.09 / 43.28 / 41.63 / 34.46 %). SITE-BUDGET § 10 has the table.
+- **The aloft stand was never aloft.** `measure_memory.mjs --captures` teleported the
+  walker to 60 m without flying the HUD, so the next frame dropped the eye onto the road.
+  Its first reading was 0 px against 0 px, a frame with no house in it. The tool now flies
+  through the HUD as `goTo` does, and fails a stand whose eye is not aloft when it is read.
+- **1904 memory ceilings lowered** to readings taken with residency, which the spawn
+  reading now lets finish its uploads (both were already settled): phone 1105.6 → 850.1 MB
+  (ceiling 1225 → 950 MiB), desktop 1587.5 → 1393.3 MB (1750 → 1550 MiB).
+- **Unverified:** the moving p95 frame time (needs a GPU, T-2719); whether the GL meter
+  under these ceilings reads WebGL textures low (T-2720); who owns the arraybuffer rise
+  (phone +13.9 MB, desktop +46.3 MB since T-2595) — no heap snapshot was taken.
+
+## T-2639 — Inspect's tabs over the card's content (2026-10-17)
+
+Design doc §08 "Tabs". Inspect now carries Overview · People · Design · Story · Photos · Sources.
+A newly inspected building opens on Overview; the same building keeps its tab. The five new
+tabs are the building card's own content, rendered by a new `popup.js` `sections(record)`.
+It uses the same section renderers and the same lazily loaded state (liberties, pictures,
+household notes, agencies) as the card, so the two cannot describe one building two ways
+while both exist. Each pane is built the first time its tab opens.
+
+- **People:** the card's "who was here" exactly as the card shows it. That includes how many
+  slept here, the agencies, and the held-pending-consultation flag, now one helper shared with
+  the card's head. Each household gets an "in People" button, resolved through the people
+  directory by household and head. A building whose sidecar seats nobody (1904) lists the
+  directory's residents instead: John and Frances Glessner, each opening the People app.
+- **Design:** the card's shape section and attribute table.
+- **Story:** the summary record's timeline where there is one, then the card's "Was it here" section.
+- **Photos:** the card's Images pane, hydrated when the tab opens.
+- **Sources:** the basis, the position's argument, the fire limit, the citations (headed "Sources",
+  the locked term), Liberties, open questions and the record's research. The dossier link says
+  "Read the research dossier" instead of printing the file path.
+- **The Confidence meter** now opens the Sources tab rather than the card.
+- **On a phone, opening Inspect closes the card,** so the sheet and the card do not stack. main.js
+  holds the inspected building (`selected` falls back to it) for as long as Inspect stays open.
+
+**The card is still not retired, and its keyboard handlers are kept.** Space and E open the card
+and Escape closes it, as part 14's checks assert; they move onto Inspect when the card is
+retired. Design, Story, Photos and Sources become their own pages in T-2642, T-2643, T-2645
+and T-2644.
+
+**Verified:**
+- **Part 4, in the town** (the device is hidden behind the welcome gate before that): all six
+  1835 tabs open and fill on Hogan's store. Its People tab lists the household with a link,
+  the Sources tab carries no path, and a held record (the McKee log house) shows its note.
+- **Part 14:** People lists the Glessners, a new building opens on Overview, and the same
+  building keeps its tab.
+
+## T-2638 — Inspect, the Overview front page (2026-10-17)
+
+Design doc §08, mockup M7. The Navigator's `inspect` app is no longer a stub that opened the card:
+it loads `js/apps/inspect-view.js` and draws the building in hand (`ctx.selected`, else the 40 m
+`ctx.target`) top to bottom in M7's order. The order is: plate, address line, name, status
+chips, summary, key facts, who lives here, Look for, notable facts (swipeable), and the
+Confidence meter.
+
+- **A building with a summary record** (Glessner House) reads `inspect/<scene>.json`, compiled at
+  publish by `compile_summaries.py` (T-2635). It is fetched once, the first time a target
+  appears (§14), never at boot. Its residents come from the 1904 directory (T-2702). Its meter
+  uses the compiler's own counts by grade (30 facts).
+- **Every other building** takes T-2636's opening: the address once, the title, and the
+  building's own account when it fits the front page's 3 sentences and 60 words, else the
+  templated summary. Its chips, households and meter show only what its sidecar states.
+- **The plate** is the first picture in the card's pictures file whose rights allow display (public
+  domain, no known restrictions) and that the image store holds, under a static CRT treatment.
+  A building with none has no plate yet; the render "from the Show me angle" is T-2640's.
+- **Every fact line carries its grade dot** (the card's `fact-dot`, named for a screen reader). The
+  use chip's dot is the grade of the building's own `function`.
+
+**Not done here, and why:** the floating card is not retired. Its Evidence, Images, Liberties and
+Record tabs are still the card, opened from Inspect's "Full record" and from the meter (on
+Evidence, where a fact's Sources are today), until the Inspect tabs land (T-2639). The keyboard
+inspect (Space, E, Escape) and the arrival framing still open and make room for the card, and
+the smoke's 79 `#popup` reads in parts 3 and 14 hold it unchanged. Look for has no SHOW ME
+button yet: the camera move is T-2640's, and a button that did nothing would be worse than none.
+
+**Verified:** two new smoke checks. Part 3 checks a building without a record (Hogan's store, on
+its fallback). Part 14 checks Glessner House from its record, in M7's exact order: the summary
+word for word, every line dotted, the address once, no ids, and no overflow.
+
+## T-2636 — a building's card opens with its address once, in plain words (2026-10-16)
+
+Design doc "Field Navigator Mk II" §12, the fallback for a structure with no summary record;
+fixes the owner's IMG_6942, where the 1904 Glessner card opened with the address three times
+and "parcel prairie_1800 (data/street_grid/1904.json)" twice. `renderers/web/js/fallback-summary.js`
+templates the head and lead from the sidecar and lints every phrase before it goes in (the
+JavaScript twin of `compile_summaries.py`'s lint — no id, snake_case, path, link or ticket
+number); a phrase that fails is left out, never shown cleaned. The address line is the first
+short clean phrase of `symbolic_location` (or a source's `lot_address`), given once: other
+names that restate it are dropped, a title that opens with it loses the prefix, and a title
+that already holds it takes the line's place. A title's bracketed aside carrying a ticket
+number ("(district draft; refined by T-1894)") is dropped. The lead is the phase's own
+account verbatim when it is clean, else at most three templated sentences: what it was
+(storeys, material, use), how long it had stood like this, and who lived here or what it is
+today, marked `data-composed`. `tools/test_fallback_summary.mjs` (in `check.sh`) runs the
+card's own `cardOpening` over all 886 structures in 1812, 1835 and 1904 and finds none of
+those problems; the smoke's composed-lead check is restated (it no longer repeats the
+location) and part 14 gains QA-08 on the Glessner card.
+
+**Not changed here:** 35 phase accounts that carry a ticket number, id or path now fall back to
+the template rather than print; their words are still in the sidecar and should be cleaned at
+the source. The Go to list and other surfaces still print the raw names with their working
+asides — that is NAV-1003's lint, not this card.
+
+## T-2702 — the 1904 people directory, starting with the Glessners (2026-10-17)
+
+Owner ruling 2026-10-17: "File it in band 3." The pilot for this is T-2637, and this PR fills
+its empty `residents`. `data/sidecars/1904/people.json` is compiled by the same generator as
+1835 (`compile_scene.py` `compile_people`), from 1904's own household cards in
+`data/residents_1904/households/`.
+
+- **The change to the generator.** Each scene has its own residents root: 1835 keeps
+  `data/residents/`, and a later scene has `data/residents_<scene>/`. The 1835 overlays
+  are named by scene id (`data/reconstruction/<scene>_*.json`), so they are simply absent
+  for 1904. A later scene's directory is compiled whenever it holds cards of its own,
+  whether or not it lists the `residents` layer.
+  - Before a later scene's card enters the directory, `scene_people_manifest` requires:
+    - every person graded, and every attested person with a source that resolves;
+    - every home a structure that stands in the scene;
+    - no arrival after the scene date.
+  - 1835's `people.json` is byte-identical (3,878 people).
+- **The Glessner household.** John J. and Frances M. Glessner, both attested, at
+  `glessner_house` from 1 December 1887. They are placed in the house in 1904 by Frances's
+  basement silversmith's workbench of that year (the museum's family page), and by HABS for
+  the ownership and their deaths in 1936 and 1932.
+  - Left out, as the card says: the grown children (both married in 1898; the daughter
+    moved to 1700 Prairie) and the staff, whom no source read names.
+- **The T-1740 rule is kept, not changed.** 1904 still lists no `residents` layer, so the
+  drawer offers no People section. That layer drives the drawer's People, City, Population
+  and Order book, which read the 1835 town's files and would show that apparatus with two
+  people in it. The directory is read by the summary records and, later, by the Navigator's
+  People app. So the smoke's assertion stays true, and it is unchanged.
+  - `tools/test_people_scene.py` (in `check.sh`) holds the directory to its cards and the
+    rule to its reason. Its `--self-test` plants eight faults and requires each one refused.
+
+## T-2637 — the Glessner House summary record, the pilot (2026-10-16)
+
+`data/summaries/glessner_house.json`, the first authored front page (design doc §08/§12), for
+the owner to approve as the pattern for every other building. It passes T-2635's gate: 28
+graded facts, every one Attested and sourced. Every line was checked against a source read
+for it: the HABS data pages and Glessner's 1923 *Story of a House* (transcribed in them), and the
+museum's own pages. The three facts §08's editorial note flagged now each have a real record.
+**The Nutshell Studies** come from the new `glessner_house_family_page`. **Richardson's death
+before construction** comes from the new `glessner_house_richardson_page` (26 April 1886), read
+against HABS and Glessner (digging began 1 June 1886). **The 1966 rescue** comes from
+`glessner_house_current_status`, re-read 2026-10-16: the foundation bought the house for
+$35,000 in December 1966. Nothing reads the record yet; the Inspect app (T-2638) will. Visitors
+see only the two new sources in the Sources list.
+
+**Left out, and why:**
+
+- **Residents are empty.** No 1904 people directory exists. The 1835 one is compiled by
+  `compile_scene.py` from the 1835 households in `data/residents/`, and only for a scene whose
+  layers list residents. 1904 lists none, and the smoke holds it to having no People section
+  (T-1740). The Glessners are named in the summary, the key facts and the story instead. The
+  grown children are not placed in the house: the museum's family page puts the daughter at
+  1700 Prairie within a few years of her 1898 marriage.
+- **`style` is null.** No style library module exists yet.
+- **The granite's name** is disputed (Wellesley or Braggville) and is not printed.
+- **Look for points at features the model does not separate.** The three features are drawn
+  (the street granite, the 18th Street arch, the narrow corridor windows), but the house is
+  one merged mesh. The feature ids are names Show me (NAV-505) will have to resolve. The
+  camera is a compass bearing in the scene's `yaw_deg` convention (0 = north, clockwise):
+  265 from the Prairie walk, 175 from 18th Street.
+
+## T-2558 — H0, the WebGPU bake-off, measured (2026-10-16)
+
+Nothing in the town changed. RENDERING.md's H0 spike ran for the first time: three's
+WebGPURenderer with the confidence view as a TSL node, on the eleven 1904 structures within
+60 m of Glessner House, against walk/'s own engine (WebGLRenderer + `confidence.js`) on the
+identical block, at the phone profile and desktop. The kill criteria were committed to
+RENDERING.md § 8 before the spike code; the memo answers them there.
+
+**Verdict: NO-GO for H1 as measured, on K5 (memory) alone.** Boots, assets, the confidence
+view's pixels, capture parity, the WebGL2 fallback and the moving frame time all pass. At
+the phone profile the WebGPU page held 494.0 MiB against the baseline's 447.7 MiB: a 2048²
+colour attachment on the shadow map (16 MiB), a half-float MSAA output pipeline (17 MiB),
+and a 39.5 MiB shortfall in the GL meter's reading of the baseline that is not explained
+(written onto T-2602, since walk/'s own memory ceilings stand on that meter).
+**T-2720 (2026-10-17) answered the meter question: none of the 39.5 MiB is the meter's.** It
+reads the page's WebGL calls to the byte; the baseline holds less because three's
+WebGLRenderer shares one GL texture per image Source, and 11 of the block's maps share 2
+(58.66 MiB). The shadow colour attachment and a half-float MSAA output are on the baseline
+too, so K5's 46 MiB is mostly WebGPURenderer uploading those 9 shared maps again
+(`docs/RENDERING.md` § 8, `docs/measurements/t-2720-gl-meter.json`). walk/'s memory
+ceilings do not move.
+
+**Unverified, said plainly:** every millisecond here is SwiftShader, a software rasteriser,
+so K6's 0.31× is a ratio on the steward runner and not a phone's frame time. TRAA under
+motion was not built and is moved to H1's entry. The spike (`renderers/web-hd/`) is not
+published. [The memo](RENDERING.md#h0--the-bake-off-memo-t-2558-2026-10-16) ·
+[the reading](measurements/t-2558-h0-bakeoff.json).
+
+## T-2635 — the building summary record and its gate (2026-10-16)
+
+Design doc "Field Navigator Mk II" §12. `data/summary.schema.json` shapes the authored
+front page of a notable structure, `data/summaries/<id>.json`; `tools/compile_summaries.py`
+gates every record and compiles them into `data/inspect/<scene>.json` (one per scene, empty
+ones included, generated at publish and never committed, mirrored by `publish.sh` and held
+byte for byte by `check_published.mjs`). The compiled form adds the resident's name from the
+scene's people directory, ranks notable facts by impact (surprising ×3, person ×2, visible from
+the street ×2, Attested ×1.5), sorts the story by date, counts facts by grade and resolves each
+cited source to its citation. `check.sh` runs `--check` and a `--self-test` that plants each
+fault and requires it refused by name: no grade, an unsourced Attested fact, an Inferred fact
+with no note, over-length summary / role / Look-for / notable, more than 3 sentences, a
+snake_case id, a file path, a link or a ticket number in a visitor string, and an unresolved
+source, person, liberty, era or structure-in-scene.
+
+Invisible on purpose: it is the gate blocking the Inspect app (T-2638), the fallback summary
+(T-2636) and the Glessner pilot record (T-2637). **No real record ships yet**; the self-test's
+record is a fixture held in the tool. **Open for T-2637:** the 1904 scene has no people
+directory (`data/sidecars/1904/people.json` does not exist), so a 1904 record cannot name a
+resident until one does — the gate refuses the id rather than guess. Reading level is T-2669.
+
 ## T-2228 — Glessner photographic corrections (2026-10-16)
 
 The north ridge now runs straight through the west crossing; its cross-gable and
@@ -23732,3 +24116,154 @@ T-2228 entrance follow-up: the current master preserves the recessed doorway whi
 
 
 T-2228 published entrance validation: three Full desktop and three Light mobile views pass existing scene budgets and were directly reviewed. Thirteen ground contacts per viewport verify the single inset threshold and clear approach. No page/asset errors; all 124 held mobile image tiles load with credits, and doorway23A’s full archive credit and the entrance liberty are reviewed. Current asset and remaining photographic differences are in docs/RESEARCH/glessner-entry-2228/. Latest dev integration preserves all 890 other root asset entries. Fresh full preflight and exact-commit CI govern the pending dev merge; T-2228 remains open.
+
+
+## Period transport studies — T-2793 / T-2794 / T-2800 (2026-10-18)
+
+Original wagon, open-carriage and horse GLBs are now inspectable in the development transport collection, with data-driven regeneration and separately articulated wheels/gear or horse limb clips. This is the first visible engineering checkpoint; photographic fidelity, continuous skinned anatomy, period gear, LOD qualification, town traffic and riding remain open. The existing scene wagons and human policy are unchanged. See [recovery instructions and current limitations](RESEARCH/period-transport-2026-10-18/README.md). Research and claims remain authoritative in chicago-tickets bands 8D/8E.
+
+Period transport follow-up (T-2795/T-2800/T-2801, 2026-10-18): skinned horse silhouettes and contact transitions refined; actual sole drift 0.020 mm. Metadata-driven wheel/stride motion and finite shaft tugs replace the 45 mm coupling mismatch (6.49 mm measured radial section clearance). Breastcollar route/width fit checked against actual torso vertices over 21 walk phases. Photographic matching, forelimb/full collision, holdbacks/forces, LODs, occupied traffic and riding remain open; see period transport recovery notes.
+
+Transport integration validation (2026-10-18): the original full mobile smoke failed and desktop timed out; neither is a green merge result. Current-dev integration preserves its Guide readiness fix. Far-merge sampling now compares fresh on/off/on frames with strict geometry/restoration assertions; yard/confidence checks record state fingerprints with unchanged thresholds. Replacement complete desktop/mobile stage coverage remains required. See period transport recovery notes for retained failures and exact-head evidence.
+
+Transport integration validation (2026-10-18): the original full mobile smoke failed and desktop timed out; neither is a green merge result. Current-dev integration preserves its Guide readiness fix. Far-merge sampling now compares fresh on/off/on frames with strict geometry/restoration assertions; yard/confidence checks record state fingerprints with unchanged thresholds. Replacement complete desktop/mobile stage coverage remains required. See period transport recovery notes for retained failures and exact-head evidence.
+
+
+## Transport integration repair — 2026-10-19
+
+Dev a369c613 is integrated, preserving its Guide, Inspect, crash-card and 1904 building changes. Four conflicted source-use outputs were rebuilt with the manifest resolver: 50 steps, two laps, final lap unchanged. No derived JSON was merged by hand.
+
+The earlier e5 desktop confidence restoration failed while flora pending state and geometry changed. Baseline capture now waits for four unchanged semantic observations with no active near/far flora placement or pending texture loads, bounded by 120 animation callbacks and 60 seconds. It uses normal rendering and does not force-drain the scene. The after image still captures immediately; the same pixel thresholds, grids, scenarios and failure behavior remain. Deterministic tests execute the actual helper and cover pending work, late changes, both deadlines and unchanged after capture. This is bounded readiness, not universal future asynchronous quiescence.
+
+Stage5 now forces a production step after its existing two animation callbacks before reading last-frame renderer counters. Fresh pricing captured 36 unique stand/tier/viewport rows, split into 27 rows before a diagnostic timeout and nine continuation rows. It is not canonical smoke coverage. At measured379e7d3d, tree modules match e5 and main differs by resident role-card wiring without actors. The later dev merge is qualified separately by new exact-head coverage.
+
+Conscious measured repricing follows the standing rule: full 3,449,919 +18,059 rounded to 5,000 gives 3,470,000; balanced 2,607,952 +16,806 gives 2,625,000. These maxima are desktop West prairie. Upstream T2807 tree integration and the measurement freshness correction are distinct; the whole change is not attributed to new trees. Historical notes remain. Light stays at 1,190,000 triangles, measured 1,154,091. General draw calls stay at 330; Light's separate 90-call limit stays strict, measured 89. No future actors are prepaid. See docs/measurements/period-transport-fresh-detail-2026-10-19.json.
+
+Full preflight and complete published desktop/mobile coverage of this corrected merged head are required before merge. Photographic fidelity, anatomy/material refinement, harness forces, traffic, boarding, riders and driver occupation remain open production work.
+
+
+Transport recovery validation: current dev43d8f0a04 merges cleanly into9a84, retaining the Researcher mode UI. The frozen9a84 mobile6-7 failure was an outdated notice===null expectation: T-2826 deliberately retains the prior display-reset diagnostic after a clean reload. Smoke assertions now require its readable exact text, no Reload prompt, Copy bytes matching the actual previous blackbox record, and the previous-page ID matching the exact page that just reset. Existing navigation counts, single autoreload and lowered-tier checks remain; the manual reload additionally requires watching/session-loss state. Actual blackbox records across two navigation sequences and eleven refusal cases pass without a browser. New complete published desktop/mobile coverage remains pending. Older failures and logs stay retained; no dev merge yet.
+Resident movement checkpoint (T-1789, 2026-10-18): canonical CI39173614006 at0577792dc passed three masters,24GLB contracts and24mechanical browser inspections; visual/photographic acceptance remains open. The next canonical build must validate new source-frame flat-foot walking, independently decoded source/web sole contacts, dormant facial morph preservation, decoded skin bindings and geometry-fitted inspection cameras. Existing reconstructed resident references are preserved. No scene driver, rider or anonymous person is added; saved hair and seated-driver proposals remain unapplied. See docs/RESEARCH/resident-teamsters-2026-10-18/README.md for engineering thresholds and limits.
+
+
+## Resident authored walk time origin — 2026-10-19
+
+Canonical run39177201156 at379e7d3d failed before the first sole-contact result: the loaded walk did not satisfy the unchanged1.2s duration guard. No resident time inputs were recovered from its inaccessible artifact. Official pinned Blender4.5.3 exporter source defaults positive-start animation sliding off; the existing legacy fixture's decoded time inputs start at1/30s. The authored37keys at frames1..37 have a1.2s span but, without sliding, can end at37/30s.
+
+Only independently verified authored rigid rigs now request the supported export_anim_slide_to_zero option. Legacy fixture kwargs are frozen byte-for-byte in an actual-call AST regression and omit the option. The loaded duration/contact guards stay strict; errors now include actual clip names/durations/track endpoints. A pre-browser CI audit records declared accessor bounds and motion extras for every resident source/web GLB, explicitly metadata evidence rather than decoded motion. The browser CPU sampler remains the motion/contact authority.
+
+Sixteen frame/wiring tests, ten declared-time audit tests and twelve actual Three CPU sole-sampler regressions pass locally without Blender. New canonical exports and completed inspections must prove the fix; photographic appearance, clothing/hair refinement, driver/rider poses and scene placements remain open. Existing Otis Bardwell, Joseph Dufresne and Martin Flynn references and evidence grades are retained; no new anonymous identity is introduced.
+
+
+Resident surface refinement: prior human canonical run39179622053 at45bb1933e passed all24 source and24 published-web mechanical inspections, including walk duration and sampled contact. Photographic acceptance remains OPEN. The new unbaked revision adds hash-verified CC0 short04 hair fitted to the existing Otis Bardwell, Joseph Dufresne and Martin Flynn studies, plus area-weighted custom body normals shared by exact source vertex IDs. Six real-source hair tests and five normal tests pass without Blender. A viewed controlled source preview removed the sharp neck triangle by changing only normals; crown faceting, hair-card gaps and nape appearance remain unfinished. Actual Blender custom-normal export, MASK/0.4/double-sided hair material, resized web textures, morph shading and all LOD appearances require new canonical verification. No occupied transport or new town person is enabled. See docs/RESEARCH/resident-teamsters-2026-10-18/README.md.
+
+
+Resident export qualification now includes temporary same-master parented controls for the authored root-mesh hierarchy, exact Khronos warning/node pointers, unchanged 0.1 mm loaded motion/morph comparison, actual source/web embedded hair image and material checks, and decoded hair geometry/skin checks. Five control tests, four embedded-container test methods and eleven synthetic decoded-runtime cases pass locally. LOD0 BPy custom-normal readback will report corner counts and maximum/mean differences under an explicit 0.001 vector tolerance accounting for short2 storage; actual execution remains pending CI. Neither hierarchy warning removal nor normal preservation in final GLBs is accepted before that run and actual visual review. Earlier fixture behavior is retained.
+
+
+## Combined transport and resident checkpoint — 2026-10-19
+
+Transport c4f6e5424 passed full preflight985/0 and postcommit changelog checks. Resident2679d6c98 passed local991/0, but canonical CI39184480142 failed during the first resident LOD0 body custom-normal readback. The guard raised before printing errors, so neither magnitude nor seam disagreement is yet known; no resident master/export/hair/hierarchy/browser proof followed. Legacy fixture checks passed separately. The combined source adds bounded diagnostics before the unchanged1e-3 guard. Pinned Blender codec analysis supplies a conditional counterexample to a universal1e-3 bound, but no complete floating-point/fallback bound or actual resident metrics; it does not authorize relaxing acceptance.
+
+W01 now has original reconstructed tapered octagonal spokes,1.2mm board/stave chamfers and less board-color contrast. Reviewed controlled close/clay/mobile comparisons show a slimmer taper, with modest full-view gain. It increases9000 to10792 triangles, retaining22 meshes,47nodes, wheel bounds and proposed socket frames. Determinism and Khronos0errors/0warnings were measured outside the application; combined integration gates remain required. These dimensions are engineering liberties. Historical joinery, photographic surfaces, occupied traffic, boarding and riding remain open. Horse-head and strap candidates remain outside the application pending visual refinement; intersection checks alone do not establish fit or photographic quality.
+
+The frozen9a84 batch currently has16 accepted successes, one preserved mobile6-7 recovery-predicate failure and desktop13 still running. It cannot qualify this combined revision. Full local preflight, canonical resident authoring and complete published desktop/mobile coverage must pass on the final same head before dev merge.
+
+
+Combined merge derivation qualification: full `rederive --resolve` failed at unchanged North Branch raster reread (IIIF HTTP403); this is retained as a failed attempt, not a successful full rebuild. All44 tracked terrain/traces and river readers/baseline were byte-identical to both parents. A separate cycle audit found22 selected readers/outputs/declared inputs byte-identical to both parents and mergebase; changed resident data outside human metadata consists only of incoming prose, with no seating/population/placement field change. The supported `--tail tools/compile_liberties.py` route rebuilds the actual liberties conflict and every downstream step, with a final unchanged lap required. Complete earlier verifiers remain required in full preflight. That bounded route does not claim a fresh raster measurement or equivalent full second-pass orchestration.
+
+
+## Refined transport studies and strict resident experiment — 2026-10-19
+
+Combined9cc7b9ac8 passed998 local checks and postcommit checks, but canonical39192083053 failed the first resident normal audit: maximum0.00129066,21bad corners and one UV-seam group above the unchanged0.001 limit. No new resident export, hair, hierarchy or browser qualification followed. The next source activates an explicit isolated-CI Short2 fan-probe experiment, preserving raw target/seam limits, original topology/UV/weights and fail-closed restoration. Thirteen portable math/API-mock/argument tests pass; actual Blender repair and downstream exported visual quality remain unverified.
+
+The current development models have rounded C01 cushions, a continuous shared-weight horse neck/head join, revised paired headstraps and an additive grounded diagonal trot. Source/data regenerate all ten outputs identically in two runs. Independent container validation reports zero errors/warnings, with informational/hint diagnostics retained. Existing horse geometry, sockets,15joints and idle/walk animation tracks stay unchanged by the additive trot; the earlier ear revision raises rest bounds19.200087mm and adds one inner-ear draw batch. No actor capacity is prepaid.
+
+Fresh browser checks before trot passed all isolated desktop/mobile specimens,35coupled states per viewport, actual100hoofsole vertices over1,001walk poses, selected torso/forelimb checks and21full headstrap surface tests. These receipts identify their exact input revision. Subsequent actual trot tests against the new GLB passed1,001poses/clip,8.026micrometre trot stance drift,21headstrap poses with zero SAT crossings and2.406431mm unsigned minimum,24shared-boundary pairs with zero gaps, and101selected upper-forelimb poses with zero collar crossings. The forelimb nearest-face sign minimum−0.137m remains a diagnostic, not containment. Torso evidence remains a vertex nearest-face criterion, not full torso SAT. No pressure, continuous motion, biological gait or load acceptance is inferred.
+
+Actual viewed bare-horse and coupled/mobile images show improvement, but anatomy, rigid ears, eyelids/muzzle, segmented limbs, materials and photographic quality remain primitive. Trotting is isolated bare-horse playback; distance-matched transitions, trotting hitch, dynamic reins, riders, boarding and town traffic remain open.120desktop synchronous samples give0.6ms p95 update/render submission only; no GPU completion, phone performance or town budget acceptance. Final portable walk/trot head-measurement execution and full combined preflight remain required before the next commit. All production tickets stay open.
+
+Portable installed head-fit verification completed for current walk and trot: 21 sampled poses each, zero tested strap/head triangle intersections, zero paired neck-boundary separation, unsigned minimum 2.406431169 mm. Actual input hashes and bounded receipts are in RESEARCH/period-transport-2026-10-18/head-neck-refinement/. This does not establish containment, continuous collision, riding or photographic acceptance. Full preflight follows after freezing authored inputs.
+
+Current dev5c83a1854590ed2c1e4c77e925fc7bda5f3532e3 is combined with the refined transport batch. Both black-box notice and exact prior-reset record assertions survive the smoke merge. The actual loss callback now captures its page identity before restoring; a caller-level regression catches the former missing return field. Travel-grid preview distance accumulates across gait loops and respects pause and reduced grid motion; geometry/clip data are unchanged by that viewer repair. Earlier trot-inputs.json remains its original stage receipt, superseded for demo.js only by travel-grid-repair.json. Derived owning tail and full preflight follow.
+
+Post-checkpoint integration: dev ffd4cd34c307c563a586c286d12a03cfd2208f8f adds fruit plantings, period context ends and the local field log. The generated source-index conflict was canonically rebuilt by --resolve from step149,51steps/two laps, final unchanged. The canonical liberties check found the automatic record merge stale, so its complete owning tail is rebuilt before full preflight. All21 audited cycle inputs/readers/outputs and104 river dependencies match both parents and their merge base byte-for-byte. The manifest differs solely by one downstream fruit-planting step; cycle/second-pass clauses and every other ordered step are identical. No blocked image host was retried. The resident normal diagnostic remains queued on9e25f2d73; the final integrated head still needs canonical and published smoke qualification.
+
+
+2026-10-19 T-1789 actual canonical9e25 trial39196464162: generic fixture PASS; all3 LOD0 body raw-normal and UV-seam guards PASS at unchanged1e-3, maxima6.96794e-5/5.86337e-5/5.86337e-5. Canonical master/export steps completed. Pipeline FAILED later at hierarchy-control sibling import human_export under Blender script execution; bounded explicit script-directory import repair and isolated CLI regression follow. No normal algorithm/tolerance change; no hierarchy/browser/Khronos/photo acceptance. Central terminal logs preserved, final18 still held pending corrected canonical.
+
+
+## Harness chest repair — 2026-10-19
+
+Harness chest repair: four reconstructed gear meshes now avoid the unchanged horse in 63 discrete idle/walk/trot samples (zero surface intersections, 5.113260 mm minimum against a declared 5 mm). Installed stdlib regression reproduces 100 original proper crossings and requires zero repaired crossings plus 5 mm bind-pose clearance. Eight actual desktop/mobile comparison images inspected; engineering leather and photographic/anatomical/pressure/continuous-motion quality remain open. Merge acceptance requires full preflight and final-head remote qualification; exact results are recorded in the central ticket checkpoint. No production ticket is closed.
+
+
+## Whole-figure morph measurement — 2026-10-19
+
+Canonical e1 resident run passed normals, hierarchy, hair and container checks but reported36missing facial findings. The reader inspected only the first hair mesh. Its union-of-skinned-mesh repair and actual-source Three.js regression now preserve required names, >1mm movement and exact defaults; corrected canonical exports and detailed resident inspection remain unverified. This repairs measurement and does not prove the actual body target arrays or photographic quality.
+
+
+T-1789 loaded-hair diagnostic (2026-10-19): actual canonical run39211997787/48b1cc889 passed all32 source/web fixture measurements and six hierarchy/raw surface comparisons, then published24-case inspection failed only hair_export_contract. Source inspection not reached; actual failing subcondition was absent from logs. Bounded loaded-attribute/material/invalid-vertex receipts added without changing any guard; corrected CI, independent images and photographic acceptance remain pending. No local Blender or artifact-policy bypass.
+
+
+### 2026-10-19 — Authored resident hair web-normal precision
+
+Diagnostic d7b944d86 / canonical 39215214430 identifies 8-bit decoded hair normals just beyond the unchanged 0.005 length-error guard. Pinned real glTFTransform 4.5.0 canary reproduces the exact failure; authored-only medium mode with 16-bit normals passes it (precision flag alone fails because high mode caps eight bits). Generic fixture export stays unchanged. See RESEARCH/resident-teamsters-2026-10-18/hair-normal-precision/. Actual corrected resident CI, full smoke and photographic/production acceptance remain open. Incoming dev c7770e99 merges without conflicts; the full combined gate is next.
+
+
+2026-10-19 transport integration: reconciled new dev fb6a77579 after the exact-f97 qualification. Only the generated source-use index conflicted; it is rebuilt by its owning compiler through the liberties/source-use tail. Human and transport sources remain unchanged. Validation receipts stay revision-specific in PR1041 and central tickets; photographic appearance, independent CI image review, seated/riding interaction and production acceptance remain open.
+
+## T-2794 — separate C02 enclosed carriage study (2026-10-19)
+
+An isolated roofed carriage specimen adds a repaired cabin aperture and reconstructed rigid door, with accessible closed/open endpoints. It is1904 development-only; C01, W01, horse, harness, hitch and scene placements are unchanged. Actual source checkpoints have zero SAT contacts at15 discrete door angles and eight matched desktop/mobile views; these do not establish continuous collision safety, passengers, real boarding, historic ownership/subtype/materials or photographic quality. Installed-head/fullgate checks remain required at integration. T-2794 stays open; optional paint/studio studies are separate, not baseline claims.
+
+
+**Metadata and articulation qualification:** The pre-door project scope quotation is preserved separately with its original branch and explicit non-period origin; the enabled branch now describes reconstructed rigid door/hinge geometry and endpoint transforms. Current model metadata hash is 93d4020036e5c685ce95010fe64b26c55a1561db4517405f0590f7a398253331 (860956 bytes). Corrected checks bind all 424 actual moving triangles to the unique active exported door and compose actual hierarchy transforms at each angle; closed-world shape alone cannot qualify detached geometry. Old closed-mapping/source-posed receipts are retained only as limited historical checkpoints. No continuous/occupant/photographic acceptance or installed-head gate is implied.
+
+
+2026-10-19 installed C02 follow-up: the minimal enclosed-carriage study now loads from project-relative files with a reconstructed rigid door. Root actual source/export15-angle and five semantic negative controls pass; eight desktop/mobile keyboard/touch/framing captures pass. Both flat gate entrypoints were actually isolation-measured, with raw nested child rows separately inspected. Engineering appearance, continuous/occupant collision, boarding and photographic acceptance remain open. See c02-enclosed-door/root-installed-fb6-validation; merged-tree full preflight and remote qualification follow separately.
+
+
+2026-10-19 transport qualification follow-up: published desktop stage13 exposed a missing Navigator dock-settle precondition in the HUD instrument, consistent with closing-transition sampling. The footprint measurement now waits, after the hint, for the actual visible in-viewport dock and native animations to settle, and requires that readiness for baseline and both planted controls. The 10 percent union limit and all original exclusions/grid/positive controls are unchanged. Fourteen extracted-source readiness controls and nine aggregate controls pass; actual browser confirmation and final exact-head qualification remain pending. The separate 331 versus 330 draw failure is still under actual tracing; no draw ceiling change.
+
+
+2026-10-19 installed desktop qualification repair: only flat grass cardMat now uses the documented single transparent pass; controlled tint287/287, row ghost327/325 and X-RAY316/313 preserve exact full-frame pixels, coverage and all other draws, with exact restoration. All three HUD baseline/planted CSS-layout cases and both actual refusal controls passed; final state restored. Historical331 is not reproduced, generic ghost triangle overages remain, and photographic/genuine-touch acceptance is not implied. No330/10%/triangle ceiling changed. See docs/RESEARCH/period-transport-2026-10-18/desktop-qualification-repair-2026-10-19.md. Installed-source preflight and final exact-head CI are required; central recovery receipts record their outcome.
+
+
+## T-2857 — Glessner's Prairie front read (2026-10-19)
+
+Nothing in the scene changed. T-2851 was split into this reading and T-2858, which builds what it found. The Prairie openings were read camera-free, with a one-dimensional projective fit along each course, on Taylor 2135, HABS 16 and HABS 17. They fit the model's spacing to 1.5, 3.3 and 1.6 px rms. HABS sheet 6 was re-measured off its scale bar, and its front measures 73.98 ft against the printed 74'-0". Against it, first-floor A, B and the door, and the second-floor north group, are built 0.30-0.63 ft too far south. The sheet also draws the first-floor lights 4.3-4.45 ft wide where 3.9 ft is built. Taylor's camera has its corner controls on the downspouts, and through it the openings and the stacks register 15-22 px left together. That is the camera, not the building. The stack tops agree with that photograph within 2 px. The match records' generic front items are now specific, and all three views still read `differs`. See docs/RESEARCH/glessner-prairie-front-T-2857/.
+
+## T-2858 — Glessner's Prairie lights on HABS sheet 6 (2026-10-19)
+
+The four first-floor Prairie lights are now built at sheet 6's outer lines (4.36-4.46 ft wide;
+A and B 0.38-0.63 ft further north). The basement grilles are centred under them, and the
+second-floor north group is 0.30 ft north. The NE photographs had read the lights narrower
+because, seen obliquely, the far jamb is the sash behind the reveal. With that projected (no free
+parameter), sheet 6 fits all three street photographs better than the old 3.9 ft. The door stays
+where it was: the sheet gives only its fan's centre, and the photographs split on it. The corner
+picks read on the downspouts, so the piers stand. Taylor 2135 is refitted on the jambs at 1.36 px
+rms, against 20.5 px off before. Its withheld stacks fall from 14.5 to 6.5 px rms, and the south
+stack's face is still 14.6 px off and open. Rebaked; the three front views are re-rendered and
+their front items closed, and all still read `differs`. See
+docs/RESEARCH/glessner-prairie-front-T-2858/.
+
+## T-2804 supported bench and opt-in named seated authoring (2026-10-19)
+
+A separate W01 driver-bench variant now has actual generated timber seat, rail bearings, cleats/fasteners and floor-supported footboard. Its regenerated GLB matches reviewed f415e6fb79c9df9372c5b2ec6cb77c9a305117de3fa8e9c704c87d5c09a6aeb0. Existing W01/hitch geometry is preserved. Geometry checks cover decoded support planes/material ownership and five steering samples; they do not prove occupied safety or historical construction.
+
+Optional canonical sit_drive authoring and named runtime inspection reference existing reconstructed1835 residents Otis Bardwell, Joseph Dufresne and Martin Flynn. Actual canonical seated/clothed export, garment/shoe/seat contact, rein grips and photographic quality remain unverified until the manual CI export and actual render inspection. No production scene population, mounted rider, boarding/riding or anonymous replacement is supplied. All full smoke and portable-human gates remain required before dev merge.
+
+
+**Installed published bench verification (2026-10-19):** The actual published mirror passed the supported-W01 browser probe at1280x800 and390x780, including steering, wheel travel/reset, touch view controls, actualf415GLB hash, all eight declared framing checks, zero page/console/GL errors, and owned browser/server cleanup. This verifies the unoccupied bench study only; named canonical seated clothing/contact remains pending CI.
+
+
+## T-1789 / T-2804 — named1812 and1904 canonical authoring studies (2026-10-19)
+
+Added opt-in canonical source composition for inferred John Kinzie the elder on1812-08-14 and existing attested John Jacob Glessner on the1904 scene date. Their identity grades and source citations remain distinct from reconstructed age49/61 bodies, wholly conjectural civilian garment shells, hair, eyes, color maps and actions. L419 records the choices. The1812 household and card make its inferred identity available; no figure placement or driver/rider assignment is added.
+
+Source arrays, exact source-index shoe/body derivations, provenance, required shared rig/LODs/morphs/sockets/actions and the optional existing-export output directory passed independent source-only review. The opt-in workflow can self-test when its own file is pushed and otherwise takes explicit dispatch; it reuses pinned fixture verification and unchanged actual master/container/normal/animation/source/published sole checks. New canonical masters, portable exports, fit, age-appropriate skin, anatomical and clothing detail, source/published render review and photographic acceptance have NOT passed. No Blender was run on this improve runner. Existing1835 authoring/default export behavior remains.
+
+Actual CI39314363829 passed fixture verification, era identity/source checks and exact body reproduction, then failed during canonical authoring/export. The exception is not yet known. The next revision emits the actual caught authoring traceback as a bounded CI annotation and a fresh failure receipt, then rethrows the original exception; the custom-normal threshold and all export gates remain unchanged. This diagnostic revision also includes the validated transport/dev merge25b92c950. A successful canonical build and actual source/published visual inspection are still required.
+
+**2026-10-20 — the canonical build passes.** Era-studies run 39414040843 (both eras, L419) built both masters, exported all sixteen LOD containers (zero Khronos validator errors), passed the hair contract, and passed the source and published browser inspections, sole contact included (16 inspections each, `mechanical_passed: true`). Three changes got it there, none moving a tolerance: the era builder runs the teamsters' packed-normal adapter before the unchanged RAW1e-3 readback (Kinzie read 0.0019 through the plain setter); the hair check reads the era ids instead of the teamsters'; and footwear is never decimated, as the teamster builder never does it, while sole contact reads a shoe's side from its whole leg and still requires the soles themselves to be foot-bound. The figures are not placed in the town; photographic, likeness, period-wardrobe and fit acceptance remain open.

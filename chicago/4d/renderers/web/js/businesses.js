@@ -45,6 +45,7 @@ import { escapeHtml } from './citations.js';
 import { displayName } from './display-name.js';
 import { loadResidentJoins, words } from './residents.js';
 import { seatHtml, goTarget } from './seat.js';
+import { loadReaderText, nameOf, readerCopy } from './reader-text.js';
 
 /** Diacritics folded, lower-cased, one space between words — the same reduction
  *  people.js applies, so the two directories answer a query the same way. */
@@ -182,8 +183,8 @@ const GRADE_TITLE = {
 
 /** The two liberties a compiled business can owe, in the schema's own words. */
 const LIBERTY = {
-  survival_required: 'Documented before 1 July 1835 and assumed still trading on it.',
-  backdating_required: 'Documented only after 1 July 1835 and assumed already open on it.',
+  survival_required: 'Attested before 1 July 1835 and assumed still trading on it.',
+  backdating_required: 'Attested only after 1 July 1835 and assumed already open on it.',
 };
 
 /** A date as a card prints it: the ISO day where there is one, the year alone
@@ -287,9 +288,8 @@ export async function mountBusinesses({
   };
   if (!mount) return { businesses: 0, error: 'no mount', ...idle };
   if (!index || !Array.isArray(index.businesses)) {
-    mount.innerHTML = '<p class="legend-note">The businesses directory did not load '
-      + '(<code>data/businesses/index.json</code>). The firms with a roof are still on their '
-      + 'building cards.</p>';
+    mount.innerHTML = '<p class="legend-note">The businesses directory did not load. '
+      + 'The firms with a roof are still on their building cards.</p>';
     return { businesses: 0, error: 'businesses/index.json missing', ...idle };
   }
 
@@ -561,10 +561,20 @@ export async function mountBusinesses({
 
   // ---- the business card ------------------------------------------------ //
 
+  // T-2825: a firm's record is said for a reader as it arrives, by the overlay the gate
+  // lints (reader-text.js): no ticket number, record id or file path in what the card prints.
+  let reader = null;
   const getJson = async (rel) => {
     const res = await fetch(new URL(rel, dataBase), { cache: 'no-cache' });
     if (!res.ok) throw new Error(`${rel}: ${res.status} ${res.statusText}`);
-    return res.json();
+    const doc = await res.json();
+    reader = await loadReaderText(dataBase, 'businesses', problems);
+    return readerCopy(doc, reader);
+  };
+  /** The notices and books a record was read from, by name, once each. */
+  const claimsHtml = (ids) => {
+    const said = [...new Set((ids || []).map((c) => nameOf(c, reader)).filter(Boolean))];
+    return said.length ? `<ul class="biz-claims">${said.map((c) => `<li>${escapeHtml(c)}</li>`).join('')}</ul>` : '';
   };
 
   /** One dated location, in the ladder's own words. A premises offers the way to
@@ -626,11 +636,10 @@ export async function mountBusinesses({
     // row: "journeyman" of what, or "baker" on whose account.
     const trade = p.occupation && p.occupation !== p.role
       ? ` <span class="biz-role">${escapeHtml(words(p.occupation))}</span>` : '';
-    // A DRAWN HAND SAYS IT WAS DRAWN, and hands a reader the seed that drew it. The
-    // grade dot alone is a claim; the seed is what makes it unpickable, which is the
-    // same bargain "Why this house is here" strikes for a reconstructed firm.
+    // A DRAWN HAND SAYS IT WAS DRAWN. The seed that drew it is a record id, and since
+    // T-2825 no card prints one: it stays on the record for the tools that redraw it.
     const seed = p.tier === 'reconstructed' && p.seed
-      ? `<span class="biz-drawn" title="${escapeHtml(p.replaceable_by || 'a source naming who worked here')}">drawn · <code>${escapeHtml(p.seed)}</code></span>`
+      ? `<span class="biz-drawn" title="${escapeHtml(p.replaceable_by || 'a source naming who worked here')}">drawn</span>`
       : '';
     return `<li><i class="grade-dot grade-${escapeHtml(p.tier || 'inferred')}" title="${escapeHtml(p.tier || '')}"></i>
       ${name} <span class="biz-role">${escapeHtml(words(p.role || 'proprietor'))}</span>${trade}${dates}${
@@ -701,9 +710,8 @@ export async function mountBusinesses({
         invention rather than as a finding.</p>
       ${basis.note ? `<p class="legend-note">${escapeHtml(basis.note)}</p>` : ''}
       <ul class="biz-claims">
-        <li>ordered by <code>${escapeHtml(block.bucket || '')}</code> of the 1835 reconstruction order book</li>
-        <li>written by <code>${escapeHtml(block.group || '')}</code> (${escapeHtml(block.ticket || '')})</li>
-        <li>redraw it from the seed <code>${escapeHtml(block.seed || '')}</code></li>
+        ${block.bucket ? `<li>ordered under ${escapeHtml(words(String(block.bucket).split('/').pop()))} in the 1835 reconstruction plan</li>` : ''}
+        ${block.group ? `<li>written in the ${escapeHtml(words(block.group))} group of trades</li>` : ''}
       </ul>
       ${block.withdrawn_if ? `<p class="legend-note">Withdrawn if ${escapeHtml(block.withdrawn_if)}.</p>` : ''}`;
   }
@@ -723,9 +731,7 @@ export async function mountBusinesses({
   block.tier ? ` <span class="biz-role">${escapeHtml(block.tier)}</span>` : ''}</p>
       ${block.reads ? `<p class="legend-note">${escapeHtml(block.reads)}</p>` : ''}
       ${block.basis ? `<p class="legend-note">${escapeHtml(block.basis)}</p>` : ''}
-      ${(block.claim_ids || []).length
-    ? `<ul class="biz-claims">${block.claim_ids.map((c) => `<li><code>${escapeHtml(c)}</code></li>`).join('')}</ul>`
-    : ''}`;
+      ${claimsHtml(block.claim_ids)}`;
   }
 
   function recordHtml(rec, row) {
@@ -769,7 +775,7 @@ export async function mountBusinesses({
         : `<h4 class="people-card-h">The printings that attest it</h4>
        <p class="legend-note">First printed ${escapeHtml(day(ev.first_issue))}, last ${escapeHtml(day(ev.last_issue))}${
   (rec.claim_ids || []).length ? ` · ${n(rec.claim_ids.length)} claim${rec.claim_ids.length === 1 ? '' : 's'}` : ''}.</p>
-       ${(rec.claim_ids || []).length ? `<ul class="biz-claims">${rec.claim_ids.map((c) => `<li><code>${escapeHtml(c)}</code></li>`).join('')}</ul>` : ''}`,
+       ${claimsHtml(rec.claim_ids)}`,
       liberties.length
         ? `<h4 class="people-card-h">Liberties</h4><ul class="biz-liberties">${
           liberties.map(([k]) => `<li>${escapeHtml(LIBERTY[k] || words(k))}</li>`).join('')}</ul>`
@@ -834,8 +840,7 @@ export async function mountBusinesses({
     } catch (err) {
       if (seq !== openSeq || signal?.aborted) return false;
       problems.push(`businesses: ${err.message} — one business record is missing`);
-      body.innerHTML = `No card yet. <p class="legend-note">This firm's record could not be loaded. It is committed at
-        <code>data/businesses/${escapeHtml(r.file || '')}</code>.</p>`;
+      body.innerHTML = 'No card yet. <p class="legend-note">This firm\'s record could not be loaded.</p>';
     } finally {
       if (seq === openSeq && !signal?.aborted) body.removeAttribute('aria-busy');
     }
@@ -849,7 +854,8 @@ export async function mountBusinesses({
   async function seatSlot(card, r) {
     if (!r.register_id) return;
     const joins = await loadResidentJoins(dataBase, sceneId, problems);
-    const row = joins.seatByBusiness?.get(r.register_id);
+    const raw = joins.seatByBusiness?.get(r.register_id);
+    const row = raw ? readerCopy(raw, reader ?? await loadReaderText(dataBase, 'businesses', problems)) : raw;
     const slot = card.querySelector('.biz-seat-slot');
     if (!row || !slot || card.hidden) return;
     // The ladder's seat first, and the policy's dealt roof where the ladder

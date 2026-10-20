@@ -9,6 +9,33 @@
   "asset": "gltf/pullman_house_1729_prairie__draft_1904.glb",
   "scene": "1904",
   "target_date": "1904-07-01",
+  "grade": {
+    "value": "attested",
+    "why": "Pictured: 21 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a16-aic-lowe-pullman-conservatory-c1897",
+      "a16-aic-taylor-album-pullman-p69",
+      "a16-aic-taylor-pullman-from-nw",
+      "a16-aic-taylor-pullman-from-sw-palm-house",
+      "a16-albertype-1890-pullman-residence",
+      "a16-cgy-1729-beman-addition",
+      "a16-cgy-1729-dailynews-photo",
+      "a16-cgy-tribune-1922-pullman-wrecked",
+      "a16-chm-clark-i70232-pullman-addition",
+      "a16-chm-clark-ichi-071913-pullman-1905",
+      "a16-ghm-blog-pullman-completed",
+      "a16-ghm-blog-pullman-terrace",
+      "a16-inland-1891-dexter-residence",
+      "a16-inland-1894-pullman-conservatory",
+      "a16-inland-1894-pullman-palm-house-stable",
+      "a16-kirkland-1893-massacre-tree-pullman-house",
+      "a16-pullman-det-4a08065",
+      "a16-pullman-det-4a08066",
+      "cgn-1729-pullman-1901-detroit-copy",
+      "cgn-1729-pullman-1902",
+      "st-randmcnally-1910-pullman-corner-18th"
+    ]
+  },
   "documented_range": {
     "from": "1904-07-01",
     "to": "1911-12-31",
@@ -20,14 +47,14 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1455.296,
-    "local_n": -3171.171,
-    "rotation_deg": 179.61,
+    "local_e": 1456.387,
+    "local_n": -3169.972,
+    "rotation_deg": 179.611,
     "position_confidence": "inferred",
     "position_sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "position_note": "The rear corner of the main body's rectangle (lot frame u 43.500, v -3.000 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 2.46 m RMS on its control crossings, is all that is claimed. Rotation 179.61 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 43.750, v -3.500 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation 179.611 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
     "symbolic_location": "1729 S. Prairie Avenue, parcel prairie_1729 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
     "uncertainty_m": 20,
     "placement_provisional": false,
@@ -41,16 +68,16 @@
         0.0
       ],
       [
-        27.5,
+        27.75,
         0.0
       ],
       [
-        27.5,
-        15.75
+        27.75,
+        15.5
       ],
       [
         0.0,
-        15.75
+        15.5
       ]
     ],
     "confidence": "inferred",
@@ -87,8 +114,8 @@
             "rect": [
               0.0,
               0.0,
-              27.5,
-              15.75
+              27.75,
+              15.5
             ],
             "from": "s20fp-1729-b1 p3 (main, stone), rectangle 1 of that part; the part's rectangles cover 76% of its fill"
           },
@@ -98,10 +125,10 @@
             "storeys": 2,
             "roof": "mansard",
             "rect": [
-              -32.0,
+              -32.25,
               -6.0,
               -21.5,
-              14.5
+              14.25
             ],
             "from": "s20fp-1729-b1 p3 (main, stone), rectangle 2 of that part; the part's rectangles cover 76% of its fill"
           },
@@ -112,7 +139,7 @@
             "roof": "mansard",
             "rect": [
               1.0,
-              -6.5,
+              -6.75,
               9.5,
               0.0
             ],
@@ -121,41 +148,28 @@
           {
             "id": "r4",
             "role": "range",
-            "storeys": 2,
+            "storeys": 1,
             "roof": "flat",
             "rect": [
+              15.25,
               15.5,
-              18.0,
               19.75,
-              20.5
+              20.25
             ],
-            "from": "s20fp-1729-b1 p4 (range, stone), rectangle 1 of that part; the part's rectangles cover 73% of its fill"
-          },
-          {
-            "id": "r5",
-            "role": "bay",
-            "storeys": 3,
-            "roof": "flat",
-            "rect": [
-              31.25,
-              0.5,
-              32.5,
-              2.75
-            ],
-            "from": "s20fp-1729-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 58% of its fill"
+            "from": "s20fp-1729-b1 p4 (range, stone), rectangle 1 of that part; the part's rectangles cover 70% of its fill"
           }
         ],
         "lot_v": [
-          -18.43,
-          24.43
+          -18.621,
+          25.621
         ],
-        "street_u": 44.871
+        "street_u": 44.832
       },
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1729-b1 p3 (main, stone), rectangle 1 of that part; the part's rectangles cover 76% of its fill; s20fp-1729-b1 p3 (main, stone), rectangle 2 of that part; the part's rectangles cover 76% of its fill; s20fp-1729-b1 p3 (main, stone), rectangle 3 of that part; the part's rectangles cover 76% of its fill; s20fp-1729-b1 p4 (range, stone), rectangle 1 of that part; the part's rectangles cover 73% of its fill; s20fp-1729-b1 p1 (range, stone), rectangle 1 of that part; the part's rectangles cover 58% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20fp-1729-b1 p3 (main, stone), rectangle 1 of that part; the part's rectangles cover 76% of its fill; s20fp-1729-b1 p3 (main, stone), rectangle 2 of that part; the part's rectangles cover 76% of its fill; s20fp-1729-b1 p3 (main, stone), rectangle 3 of that part; the part's rectangles cover 76% of its fill; s20fp-1729-b1 p4 (range, stone), rectangle 1 of that part; the part's rectangles cover 70% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
     },
     "draft_elevation": {
       "value": {
@@ -246,5 +260,6 @@
   ],
   "research_note": "A DISTRICT DRAFT (T-2335, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1880, T-1881 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20 trace (s20fp-1729-b1), the T-1840 census (s20-1729-f, s20-1729-a1, s20-1729-a2) and the T-1837 register row frontage-20-035 (Pullman Second Empire estate); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-16-18-east-2335).",
   "research_doc": "",
-  "review_required": false
+  "review_required": false,
+  "called": "1729 Prairie Avenue — Pullman Second Empire estate"
 }
