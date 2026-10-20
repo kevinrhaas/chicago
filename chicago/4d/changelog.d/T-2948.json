@@ -1,9 +1,0 @@
-{
-  "title": "Prairie Avenue's elms no longer pop as you walk",
-  "kind": "fix",
-  "items": [
-    "A street elm changing detail now dissolves over a moment instead of snapping, so leaf clumps no longer pop in overhead or down the street.",
-    "Every elm in the sun's reach now casts its shade, so the dappled shadow runs the length of the street instead of stopping about 30 m ahead.",
-    "A tree on the edge of a detail ring holds its look a few metres longer, so standing still never sets it flickering."
-  ]
-}

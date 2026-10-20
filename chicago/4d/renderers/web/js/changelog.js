@@ -1,4 +1,22 @@
 export const CHANGELOG = [ // newest first
+  { v: 2134, ts: '2026-10-20T17:48:18.654Z', date: 'Oct 20, 2026, 12:48 PM CT', title: 'Nothing you can see changed: related tickets ship together, filed by kind', kind: 'chore',
+    items: [
+      'A run can now claim up to five related tickets at once and ship them in a single pull request, so fewer, larger changes land in the town.',
+      'A ticket a run cannot finish is handed back to the queue with its reason, instead of being left claimed.',
+      'New performance tickets now join the performance group, and a building\'s follow-up sits beside that building\'s own work, instead of all landing in the loop\'s band.',
+    ] },
+  { v: 2133, ts: '2026-10-20T17:48:18.654Z', date: 'Oct 20, 2026, 12:48 PM CT', title: 'Prairie Avenue\'s elms no longer pop as you walk', kind: 'fix',
+    items: [
+      'A street elm changing detail now dissolves over a moment instead of snapping, so leaf clumps no longer pop in overhead or down the street.',
+      'Every elm in the sun\'s reach now casts its shade, so the dappled shadow runs the length of the street instead of stopping about 30 m ahead.',
+      'A tree on the edge of a detail ring holds its look a few metres longer, so standing still never sets it flickering.',
+    ] },
+  { v: 2132, ts: '2026-10-20T17:48:18.654Z', date: 'Oct 20, 2026, 12:48 PM CT', title: 'Offline copy is a quiet line, and its download finishes', kind: 'fix',
+    items: [
+      'The welcome\'s big "Keep this year on this device" button is now a small "Offline copy" line under the choices; tapping it explains what it does before anything downloads.',
+      'Downloads no longer stop on the first page: the deploy rewrote each year\'s door after its file list was made, so every copy failed its own check.',
+      'A deploy that lands mid-download is followed: the list is read again and the download carries on from what it already has.',
+    ] },
   { v: 2131, ts: '2026-10-20T17:24:39.633Z', date: 'Oct 20, 2026, 12:24 PM CT', title: 'Jaunt road notes name the right side and the right buildings', kind: 'fix',
     items: [
       'Road notes now measure from a building\'s walls, so Glessner House reads on your right when you walk south past it on its own side of Prairie.',
