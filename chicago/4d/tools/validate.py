@@ -230,16 +230,24 @@ WIDE_RANGE_YEARS = 12
 # boot payload is untouched (no textured house is in the 1835 boot). §9 of
 # docs/SITE-BUDGET.md has the numbers; T-2596 (Glessner v4 in KTX2) handed 30.81 MiB
 # back, and the tree then read 268.87 MiB.
-# T-2934, 2026-10-20: 320 -> 328 MiB, measured. dev's tree read 318.39 MiB; 1726 and
-# 1730 Prairie leave the draft for K01 and their two web GLBs add 3.85 MiB (1.92 + 2.00,
-# less the 0.07 of the drafts they retire), 322.17 MiB. About 80 % of a K01 house's web
-# GLB is the K03/K04/K02 texture sheets every K01 house embeds again (1726's: 1.54 of
-# 1.92 MB, its limestone sheet alone 0.64), so every house that leaves the draft for K01
-# now pays about 1.5 MiB the tree already holds; sharing those sheets is the durable fix
-# and is ticketed (T-2934's follow-up), and it hands back far more than this raise.
-# Two 328 MiB app allowances plus the 129.136 MiB of other site content total
-# 785.136 MiB, below the 1 GiB platform ceiling. Storage hygiene only, as above.
-SITE_BUDGET_MB = 328
+# T-2958/T-2959, 2026-10-20: measured whole-tree re-budget, 320 -> 384 MiB. dev read
+# 319.988 MiB (0.012 left), so every PR adding a byte to site/4d failed here: #1152
+# (1812's gable, +19 KB) and #1144 (1801's pilasters) were green on all else. T-2596's
+# landing commit (363579fc5), published on the same runner, reads 279.024 MiB; the
+# 40.964 MiB since is the town, not waste: prebuilt 1835 layers 21.715 (ground 10.13,
+# streets full + light 6.76, yards 3.07, base 0.69 - the boot cost T-2693..T-2711 moved
+# to publish time), house GLBs 5.136 (1801 and 1736 new), period transport 4.468, grown-
+# tree atlases 3.105 (KTX2 + WebP, one fetched per GPU), reader indexes 2.563, rest
+# 3.977. Glessner's web GLB did not regress: 43,829,952 -> 43,894,180 B (+64 KB); its
+# 41.9 is MiB of the same file T-2596 shipped. No identical files over 64 KiB; the
+# prebuilt bins are already gzipped twice. Two 384 MiB app allowances (production
+# and the /4d/dev/ preview each publish a tree) plus 129.136 MiB of other site content
+# total 897.136 MiB, under the 1 GiB Pages ceiling with 126.864 to spare. Storage
+# hygiene only: boot payload, frame/Light limits, the 90 % warning and the duplicate
+# guard are unchanged. What exhausts it next: a prebuilt layer set for a second year
+# (1835's is 28.7 MiB), each new textured Prairie house (1.5-3.5 MiB web GLB), and more
+# transport. docs/SITE-BUDGET.md section 11 has the table.
+SITE_BUDGET_MB = 384
 # Warn at 90 % of it. See run_site_check for why this band exists (T-0722).
 SITE_WARN_FRACTION = 0.90
 # Identical files smaller than this are not worth a merge refusal (T-0722).

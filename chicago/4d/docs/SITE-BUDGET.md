@@ -702,7 +702,7 @@ partition, not the float32 vertices) before another re-set.
 
 ## 5. What the gate does now
 
-- **Refuses** over 320 MiB (T-2595; measured re-budgets in §8 and §9) — the repository-hygiene guard, not the visitor-cost
+- **Refuses** over 384 MiB (T-2958/T-2959; measured re-budgets in §8, §9 and §11) — the repository-hygiene guard, not the visitor-cost
   budget; the visitor-cost budget is the 36.2 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
@@ -710,7 +710,7 @@ partition, not the float32 vertices) before another re-set.
 - **Warns at 90 %**, with the headroom in MB. Until T-0722 nothing said a word until the
   tree was already a wall, and the run that discovered it was a run whose finished work
   could not merge. The warning is advisory by design: it is meant to reach the queue while
-  there is still room to answer it. It fires today, at 95.9 %, and it should.
+  there is still room to answer it. At 384 MiB it is quiet until 345.6 MiB; on 2026-10-20 the tree reads 83.3 % (§11).
 - **Refuses any two files in the mirror with identical content over 64 KB.** A duplicate is
   not a judgement call the way a large file is — one of the two is the file and the other
   is waste, and the answer is always a re-export, a redirect or a deletion. This class of
@@ -901,13 +901,63 @@ desktop 59 of 61 (96.7 of 512 MiB). Arraybuffers rose (phone 358.5 → 372.4, de
 These stand on the GL meter that T-2558's H0 run found may read WebGL textures about
 40 MiB low on one page (T-2720).
 
-## 10. 1726 and 1730 Prairie on K01 — measured storage allowance, T-2934
+## 11. Where the 41 MiB since T-2596 went — measured storage allowance, T-2958/T-2959
+
+On 2026-10-20 `dev` published **319.988 MiB** of the 320 MiB allowance, 0.012 MiB
+left, and every PR that adds a byte to `site/4d/` failed the dataset step: #1152
+(T-2951, 1812 Prairie's gable, +19 KB) and #1144 (T-2931, 1801 Prairie's pilasters)
+were green on everything else. So, as T-0722 asked first: where are the bytes?
+
+T-2596's landing commit (`363579fc5`) and `dev` at `5f787d3a7` were each published
+with `tools/publish.sh` on the same runner and compared file by file. T-2596's own
+reading, 268.87 MiB, was taken on its branch; its landing commit publishes at
+**279.024 MiB** (292,577,925 B, 4,886 files). `dev` publishes **319.988 MiB**
+(335,532,030 B, 5,118 files): **+40.964 MiB**.
+
+| where | grew | what it is |
+|---|---:|---|
+| `data/prebuilt/1835/` | 21.715 MiB | ground 10.134, streets full 3.901 + light 2.860, yards 3.073, base 0.693, indexes — T-2693, T-2709, T-2710 and T-2711 moving the 1835 boot's mesh work from a phone to publish time (§4g-4j) |
+| `data/gltf/` | 5.136 MiB | 1801 Prairie (3.473) and 1736 Prairie (1.501) new; the rest refinements |
+| `walk/transport/` | 4.468 MiB | the period carriages, wagons, horse and harness, new |
+| `data/textures/trees/` | 3.105 MiB | the grown trees' bark and leaf atlases, KTX2 and WebP — a visitor fetches one of each pair (`tree-instances.js` tries the KTX2 first) |
+| `data/reader/` | 2.563 MiB | the reader overlay's indexes, new |
+| everything else | 3.977 MiB | sidecars 1.153, `walk/js` 1.041, humans 0.487, liberties 0.448, the rest under 0.2 each |
+
+**Glessner did not regress.** Its web GLB reads 41.9 in the report because the report
+counts MiB: 43,829,952 B at T-2596, 43,894,180 B now (+64 KB, the entry and court
+passes since); the light one 15,521,960 → 15,565,620 B.
+
+**Nothing to hand back at this size.** `site_budget.py --dupes` finds no identical file
+over 64 KiB. The prebuilt bins are already gzipped twice (`prebuild_layers.mjs`,
+`GZIP_PASSES`). The tree atlases' two formats are the §4c pair, not a copy. Minifying
+JSON stays refused (§6). What grew is the town and the time a phone no longer spends
+building it.
+
+**The allowance is now 384 MiB**, 64.012 MiB of headroom on this tree. Production and
+the `/4d/dev/` preview each publish a tree into one Pages site (`deploy.yml`), so two
+384 MiB allowances plus the **129.136 MiB** of other site content in this checkout total
+**897.136 MiB**, under the 1 GiB platform limit by 126.864 MiB. That is a capacity
+calculation, not a claim that both branches were deployed from here. Storage hygiene
+only: the boot payload budget, frame and Light limits, the 90 % warning and the
+duplicate guard are unchanged.
+
+**What will exhaust it next, named.** The tree grew about 10 MiB a day for four days.
+A prebuilt layer set for a second year is the largest single item (1835's folder is
+28.7 MiB); each new textured Prairie house adds 1.5-3.5 MiB of web GLB; transport and
+the reader grow with the town. When this one is spent, the arithmetic above leaves room
+for raises up to about 447 MiB before the two allowances reach the Pages limit;
+past that the lever is splitting the dev preview out of the production site, not a
+bigger number. Byte counts: `docs/RESEARCH/site-budget-T-2958/growth.json`.
+
+## 12. 1726 and 1730 Prairie on K01 — measured, inside §11's allowance, T-2934
 
 T-2934 moves 1726 and 1730 Prairie from the district draft to the K01 frontage kit. Their
 two web derivatives are 1,923,648 and 1,997,992 bytes against the drafts' 31,116 and
-42,220, and the published tree goes from 318.39 MiB on dev to 322.17 MiB, over the 320 MiB
-budget. The budget goes to **328 MiB**: two 328 MiB app allowances and the 129.136 MiB of
-other site content total 785.136 MiB, below the 1 GiB platform ceiling.
+42,220: about 3.85 MiB onto the published tree. When this PR was cut that took the tree
+over the then 320 MiB budget, and it raised the budget to 328 MiB; T-2958/T-2959 (§11)
+landed first and set 384 MiB on the whole-tree arithmetic, so this PR asks for no raise
+of its own and spends its 3.85 MiB of §11's headroom — the "each new textured Prairie
+house adds 1.5-3.5 MiB" item §11 names.
 
 Where the bytes are: of 1726's 1,923,648 bytes, 1,540,977 (80 %) are the eleven KTX2
 texture sheets the K01 kit embeds in every house it builds — the K03 common brick
@@ -916,5 +966,6 @@ texture sheets the K01 kit embeds in every house it builds — the K03 common br
 common buff brick (149,650) and the painted timber (176,122). The 21 K01 houses already
 standing carry the same sheets each, so the tree ships them over and over. Sharing them
 across houses (one copy of each sheet, the GLBs referring to it) is the durable fix and
-hands back far more than this raise; it is ticketed as T-2934's follow-up.
-
+would hand back far more than any one house costs. It is not yet a ticket: the queue stood at
+its ceiling when this landed (`ticket.mjs new` refused), so the next run that frees a line
+should file it from here.
