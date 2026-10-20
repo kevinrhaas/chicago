@@ -72,8 +72,10 @@ import { NEAR_DEAL, DEAL_GLSL, dealTable } from './flora-gpu-deal.js';
 // T-2716: the near ring drawn from the shader — the lattice walk and the deal
 // pass that writes the tufts' instances, and the tuft's fetch of them.
 import { LATTICE_GLSL, latticeUniforms } from './flora-gpu-lattice.js';
-import { nearPassShaders, nearSlotsMax, nearTarget, NEAR_FETCH_GLSL, NEAR_STREAM_DRAWS }
-  from './flora-gpu-near.js';
+import { nearPassShaders, nearSlotsMax, nearTarget, NEAR_FETCH_GLSL, NEAR_STREAM_DRAWS,
+  NEAR_RING_GLSL } from './flora-gpu-near.js';
+// T-2894: the mid ring's cards on the GPU's deal, against a kept tile of its own.
+import { midPassShaders, midFieldSpec, MID_TARGET_WIDTH, MID_STREAM_DRAWS } from './flora-gpu-mid.js';
 import { latticeSlots } from './jobs/lattice-kernel.js';
 
 /** docs/PROVENANCE.md's three levels, as the shader reads them. */
@@ -1461,6 +1463,10 @@ export async function createFlora({
    *  read-back that lands then leaves its heads to that pass's commit. */
   let nearSync = true;
   let nearDealing = false;
+  /** T-2894. Bumped whenever a pass deals the mid ring on the CPU (its kept
+   *  tile not home), so a GPU read-back of an earlier placement that lands
+   *  meanwhile leaves the mid cards to that pass. */
+  let midGen = 0;
   /** T-2774. Each head set as the pass left it, before the near ring's heads. */
   const headMarks = {};
   /**
@@ -1547,6 +1553,41 @@ export async function createFlora({
     // tufts under this pose's heads — or none at all.
     const renderPass = placementRender ?? renderer.render.bind(renderer);
 
+    // T-2894 — THE MID CARDS ON THE GPU'S DEAL (flora-gpu-mid.js). The mid
+    // ring's lattice is dealt by a second point pass, against the MID FIELD —
+    // a tile of its own, the near tile's texel over the mid ring's reach — into
+    // one float target that `read` takes with the near ring's and `reapMid`
+    // turns into the `flora-mid` cards. Only where the job pool keeps that tile
+    // a strip at a time: without workers it would be built on the main thread,
+    // and the CPU mid walk deals as it always has.
+    const midWalk = { cell: tune.mid.cell, perCell: tune.mid.perCell, radius: rings.mid.lattice.outer,
+      inner: rings.mid.lattice.inner, salt: 0x9e3779, draw: 'strata' };
+    const midOn = !!groundKey;
+    const midSpec = midFieldSpec(midWalk.radius);
+    const MW = MID_TARGET_WIDTH;
+    const midMax = midOn ? nearSlotsMax(midWalk) : 1;
+    const MH = Math.max(1, Math.ceil(midMax / MW));
+    const midRt = new THREE.WebGLRenderTarget(MW, MH, { type: THREE.FloatType,
+      format: THREE.RGBAFormat, minFilter: THREE.NearestFilter, magFilter: THREE.NearestFilter,
+      depthBuffer: false, generateMipmaps: false });
+    const midPass = {
+      uTarget: { value: new THREE.Vector2(MW, MH) },
+      uFieldClass: { value: null }, uFieldHeight: { value: null },
+      uFieldOrigin: { value: new THREE.Vector2() }, uFieldTexel: { value: midSpec.texel },
+      uFieldSize: { value: midSpec.size }, uFieldWrap: { value: [0, 0] },
+      uLatGrid: { value: [0, 0, 0, 0] }, uLatDeal: { value: [0, 0, 0, 0] }, uLatMode: { value: 0 },
+      uLatRing: { value: new THREE.Vector4() }, uLatCell: { value: new THREE.Vector2() },
+      uDealTable: { value: tab }, uDealLayout: { value: [table.width, table.itemBase] },
+    };
+    const midMat = new THREE.RawShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: midPass,
+      ...midPassShaders({ lattice: LATTICE_GLSL, field: FIELD_GLSL, deal: DEAL_GLSL, ring: NEAR_RING_GLSL }) });
+    const midGeo = new THREE.BufferGeometry();
+    midGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(midMax * 3), 3));
+    const midPoints = new THREE.Points(midGeo, midMat);
+    midPoints.frustumCulled = false;
+    const midScene = new THREE.Scene();
+    midScene.add(midPoints);
+
     // The drawn tufts: the near set's own archetype, one instance per slot.
     const source = nearTuft();
     const tuftGeo = new THREE.InstancedBufferGeometry().copy(source);
@@ -1581,10 +1622,12 @@ export async function createFlora({
       set(v) { recordCount = v; },
     });
     group.add(record.mesh);
-    disposables.push(rt, tab, passMat, passGeo, tuftGeo, mat, record.mesh.geometry,
-      { dispose() { for (const b of pbos) renderer.getContext().deleteBuffer(b); } });
+    disposables.push(rt, tab, passMat, passGeo, tuftGeo, mat, record.mesh.geometry, midRt, midMat, midGeo,
+      { dispose() { for (const b of pbos) if (b) renderer.getContext().deleteBuffer(b); } });
 
     let nf = null, keeper = null, uploaded = null, clsTex = null, hgtTex = null;
+    // T-2894: the mid field's keeper, the tile last uploaded and its textures.
+    let midKeeper = null, midUploaded = null, midCls = null, midHgt = null;
     let count = 0, placed = false, lastE = null, lastN = null;
     // T-2774: the last placement (its centre, cone, lattice and census), which
     // the read-back reaps; and the newest read-back asked for, so a slower one
@@ -1598,11 +1641,20 @@ export async function createFlora({
       // thread's ms asking them (in the frame), collecting the ones asked
       // without waiting and reaping them (between frames, when the fence has
       // signalled), and the ones a newer read made stale before they landed.
-      reads: 0, syncReads: 0, readMs: 0, collectMs: 0, reaps: 0, reapMs: 0, stale: 0, failed: 0 };
+      reads: 0, syncReads: 0, readMs: 0, collectMs: 0, reaps: 0, reapMs: 0, stale: 0, failed: 0,
+      // T-2894: the mid ring's deal passes and their ms, the mid field's
+      // uploads, the near passes whose mid ring the CPU walked because the kept
+      // mid tile did not cover it (`midCpu`) or that found it gone by the time
+      // they placed (`midMissed`), and the reaps' share and cards.
+      midPasses: 0, midPassMs: 0, midUploads: 0, midCpu: 0, midMissed: 0, midReaps: 0, midReapMs: 0,
+      midCards: 0 };
     const bufs = [0, 1, 2, 3].map(() => new Float32Array(W * H * 4));
     // T-2774: the read-back's pixel-pack buffers, and where they land (`read`).
     const pbos = [];
     const landed = [0, 1, 2].map(() => new Float32Array(W * H * 4));
+    // T-2894: the mid target's, read in the frame and between frames.
+    const midBuf = new Float32Array(MW * MH * 4);
+    const midLanded = new Float32Array(MW * MH * 4);
     const _rec = [0, 0, 0, 0];
     const _slotRing = [0, 0, 0, 0];
     const { items } = table;
@@ -1672,6 +1724,43 @@ export async function createFlora({
       stats.passes++;
       stats.passMs += performance.now() - t0;
     }
+    /** T-2894: the mid field's tile, into the mid pass's own two textures. */
+    function uploadMid(tile) {
+      if (!midCls) {
+        midCls = nearest(new THREE.DataTexture(tile.cls, tile.size, tile.size, THREE.RGIntegerFormat,
+          THREE.UnsignedByteType));
+        midCls.internalFormat = 'RG8UI';
+        midHgt = nearest(new THREE.DataTexture(tile.height, tile.size, tile.size, THREE.RedFormat,
+          THREE.FloatType));
+        midHgt.internalFormat = 'R32F';
+        midPass.uFieldClass.value = midCls;
+        midPass.uFieldHeight.value = midHgt;
+        disposables.push(midCls, midHgt);
+      } else {
+        midCls.image.data = tile.cls;
+        midHgt.image.data = tile.height;
+        midCls.needsUpdate = true;
+        midHgt.needsUpdate = true;
+      }
+      midPass.uFieldOrigin.value.set(tile.e0, tile.n0);
+      midPass.uFieldTexel.value = tile.texel;
+      midPass.uFieldSize.value = tile.size;
+      midPass.uFieldWrap.value = [tile.wi ?? 0, tile.wj ?? 0];
+      midUploaded = tile;
+      stats.midUploads++;
+    }
+    /** T-2894: the mid ring's deal pass, as `dealPass` draws the near one's. */
+    function midDealPass() {
+      const t0 = performance.now();
+      const prev = renderer.getRenderTarget();
+      renderer.setRenderTarget(midRt);
+      renderPass(midScene, passCam);
+      renderer.setRenderTarget(prev);
+      const gl = renderer.getContext();
+      for (let k = 0; k < 3; k++) renderer.state.bindTexture(gl.TEXTURE_2D, null, gl.TEXTURE0 + k);
+      stats.midPasses++;
+      stats.midPassMs += performance.now() - t0;
+    }
     function readBack() {
       readGen = gen;
       record.reset();
@@ -1717,11 +1806,13 @@ export async function createFlora({
       const rec = at;
       const ticket = ++reading;
       waiting = !sync;
+      const midRows = rec.mid ? Math.ceil(rec.mid.count / MW) : 0;
       if (sync) {
         for (const k of [0, 1, 3]) renderer.readRenderTargetPixels(rt, 0, 0, W, rows, bufs[k], undefined, k);
+        if (midRows) renderer.readRenderTargetPixels(midRt, 0, 0, MW, midRows, midBuf);
         stats.syncReads++;
         stats.readMs += performance.now() - t0;
-        nearReaped(reap(bufs[0], bufs[1], bufs[3], rec), true);
+        nearReaped(reap(bufs[0], bufs[1], bufs[3], rec, midBuf), true);
         return;
       }
       // Not three's `readRenderTargetPixelsAsync`: it asks
@@ -1741,6 +1832,18 @@ export async function createFlora({
         gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pbos[i]);
         gl.readBuffer(gl.COLOR_ATTACHMENT0 + [0, 1, 3][i]);
         gl.readPixels(0, 0, W, rows, gl.RGBA, gl.FLOAT, 0);
+      }
+      // T-2894: and the mid target, into a fourth buffer behind the same fence.
+      if (midRows) {
+        renderer.state.bindFramebuffer(gl.FRAMEBUFFER, renderer.properties.get(midRt).__webglFramebuffer);
+        if (!pbos[3]) {
+          pbos[3] = gl.createBuffer();
+          gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pbos[3]);
+          gl.bufferData(gl.PIXEL_PACK_BUFFER, MW * MH * 16, gl.STREAM_READ);
+        }
+        gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pbos[3]);
+        gl.readBuffer(gl.COLOR_ATTACHMENT0);
+        gl.readPixels(0, 0, MW, midRows, gl.RGBA, gl.FLOAT, 0);
       }
       gl.bindBuffer(gl.PIXEL_PACK_BUFFER, null);
       const cur = renderer.getRenderTarget();
@@ -1762,9 +1865,13 @@ export async function createFlora({
           gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pbos[i]);
           gl.getBufferSubData(gl.PIXEL_PACK_BUFFER, 0, landed[i], 0, W * rows * 4);
         }
+        if (midRows) {
+          gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pbos[3]);
+          gl.getBufferSubData(gl.PIXEL_PACK_BUFFER, 0, midLanded, 0, MW * midRows * 4);
+        }
         gl.bindBuffer(gl.PIXEL_PACK_BUFFER, null);
         stats.collectMs += performance.now() - t1;
-        nearReaped(reap(landed[0], landed[1], landed[2], rec), false);
+        nearReaped(reap(landed[0], landed[1], landed[2], rec, midLanded), false);
       };
       setTimeout(collect, 4);
     }
@@ -1792,7 +1899,7 @@ export async function createFlora({
      * is still the census open (a later pass has not reset it). Returns whether
      * it counted it.
      */
-    function reap(b0, b1, b3, rec) {
+    function reap(b0, b1, b3, rec, bm) {
       const t0 = performance.now();
       const { camE, camN, cone } = rec;
       const census = !rec.counted && rec.census === censusGen;
@@ -1828,20 +1935,95 @@ export async function createFlora({
         }
       }
       nearSet.commit();
+      // T-2894: and the mid cards, unless a pass has since dealt them on the CPU.
+      if (rec.mid && rec.midGen === midGen) reapMid(bm, rec, census);
       stats.reaps++;
       stats.reapMs += performance.now() - t0;
       return census;
+    }
+
+    /**
+     * T-2894 — THE MID CARDS, OFF THE GPU'S DEAL. What the CPU mid walk did
+     * per slot (`rebuildGround`), in slot order — which is `scatter`'s — on the
+     * deal pass's word: the slot's own point, recomputed in doubles from its
+     * cell and index as `scatter` computes it, held to the lattice's ring and
+     * the placement's view cone; the FRINGE (`fringeOf`: a slot past its own
+     * ragged edge is dropped before anything is counted); the matrix census as
+     * the walk counted it; and for a placed slot the INNER HANDOVER
+     * (`slotRing`) and its card (`placeCard`, on the slot's own stream past the
+     * jitter's two draws, rooted on the terrain or the water as `station`
+     * roots it), with the stand's tone the GPU read off the ground.
+     */
+    function reapMid(b, rec, census) {
+      const t0 = performance.now();
+      const { camE, camN, cone } = rec;
+      const [c0, r0, cols, perCell] = rec.mid.grid;
+      const { cell, salt } = midWalk;
+      const sub = Math.max(1, Math.round(Math.sqrt(perCell)));
+      const rr = midWalk.radius * midWalk.radius;
+      const ri = midWalk.inner * midWalk.inner;
+      const mid = rings.mid;
+      midSet.reset();
+      for (let id = 0; id < rec.mid.count; id++) {
+        const o = 4 * id;
+        const w = b[o + 3] | 0;
+        const code = w & 7;
+        // Not kept, or no community, short turf or no deal: the walk counted
+        // nothing for any of these wherever the slot stood, so they are passed
+        // over before its point is even recomputed.
+        if (code < NEAR_DEAL.station) continue;
+        const k = id % perCell;
+        const cellIdx = (id - k) / perCell;
+        const ci = cellIdx % cols;
+        const c = c0 + ci;
+        const r = r0 + (cellIdx - ci) / cols;
+        const rng = rngFrom(hash3(hash3(c, r, salt), k, 0x68bc21eb));
+        const je = rng(), jn = rng();
+        const e = (c + (k % sub + je) / sub) * cell;
+        const n = (r + (((k / sub) | 0) + jn) / sub) * cell;
+        const d2 = (e - camE) ** 2 + (n - camN) ** 2;
+        if (d2 > rr || d2 < ri) continue;
+        const d = Math.sqrt(d2);
+        if (cone && d > CONE_KEEP_M
+          && ((e - camE) * cone.fe + (n - camN) * cone.fn) < d * cone.cos - 2 * (cone.margin ?? 0)) continue;
+        if (cone?.planes && outsideFrustum(cone, e, n, d)) continue;
+        const off = fringeOf(e, n, mid.fringe);
+        if (d > mid.fade[0] + off + step) continue;
+        const { zone, sp } = items[(w >> 4) - 1];
+        const wet = (w & 8) !== 0;
+        const cz = census ? zone.census?.matrix : null;
+        countDealt(cz, sp, wet);
+        // `station`'s first question is the page's (the streets' track, the
+        // yards, the ground strip, the worked bank), which the mid field does
+        // not hold: asked here, at the slot, as the walk asked it.
+        if (code === NEAR_DEAL.station || growthBlocked(e, n)) { if (cz) cz.row.rejStation++; continue; }
+        countDraw(cz, sp, wet);
+        midSet.ring(slotRing(mid, e, n, off, _ring));
+        placeCard(midSet, sp, zone, e, wet ? waterY : terrain.surfaceHeight(e, n), n, rng, b[o + 1]);
+      }
+      midSet.commit();
+      stats.midReaps++;
+      stats.midCards += midSet.mesh.count;
+      stats.midReapMs += performance.now() - t0;
     }
     return {
       mesh,
       stats,
       /** T-2774: the near ring's heads as the last reap hung them, by kind. */
       heads: recorders,
-      bind(field) { nf = field; keeper = nf.keeper(); },
+      bind(field) {
+        nf = field;
+        keeper = nf.keeper();
+        // T-2894: the mid field, kept by the pool alone (see `reapMid`).
+        if (midOn) midKeeper = nf.keeper({ spec: midSpec, page: false });
+      },
       /** The kept tile, home around (e, n) before the first deal. */
       async prime(e, n) {
         if (!keeper) return;
         keeper.update(e, n);
+        // T-2894: the mid field starts on the pool now and is not waited for:
+        // until it is home the mid ring is the CPU's, as it always was.
+        midKeeper?.update(e, n);
         await keeper.settled();
         this.keep(e, n, true);
       },
@@ -1869,6 +2051,13 @@ export async function createFlora({
           stats.builds++;
           stats.buildMs += performance.now() - t0;
         }
+        // T-2894: the mid field follows the walker too, and is only uploaded:
+        // a placement it did not wholly cover was dealt by the CPU, so there
+        // is nothing to deal again when a strip lands.
+        if (midKeeper) {
+          const mt = midKeeper.update(e, n);
+          if (mt && mt !== midUploaded) uploadMid(mt);
+        }
         if (tile && tile !== uploaded) {
           upload(tile);
           // T-2774: only a placement the tile did not wholly cover is dealt
@@ -1885,7 +2074,7 @@ export async function createFlora({
        * The near walk's centre and cone: the deal pass, and its read-back —
        * in the frame when `sync`, else collected when the GPU has finished.
        */
-      place(camE, camN, cone, sync) {
+      place(camE, camN, cone, sync, mid = false) {
         const u = latticeUniforms({ camE, camN, ...walk });
         pass.uLatGrid.value = u.grid;
         pass.uLatDeal.value = u.deal;
@@ -1901,12 +2090,43 @@ export async function createFlora({
         tuftGeo.instanceCount = count;
         placed = true;
         at = { camE, camN, cone, grid: u.grid, count, census: censusGen, counted: false,
-          whole: !!uploaded && covers(uploaded, camE, camN, walk.radius) };
+          whole: !!uploaded && covers(uploaded, camE, camN, walk.radius), mid: null, midGen };
+        // T-2894: the mid ring's deal, where this pass left it to the GPU
+        // (`midCovers` at its start) and the uploaded mid tile still covers it.
+        if (mid && uploaded && this.midCovers(camE, camN)) {
+          const m = latticeUniforms({ camE, camN, ...midWalk });
+          midPass.uLatGrid.value = m.grid;
+          midPass.uLatDeal.value = m.deal;
+          midPass.uLatMode.value = m.mode;
+          midPass.uLatRing.value.set(...m.ring);
+          midPass.uLatCell.value.set(...m.cell);
+          const mc = Math.min(m.count, midMax);
+          midGeo.setDrawRange(0, mc);
+          at.mid = { grid: m.grid, count: mc };
+          midDealPass();
+        } else if (mid) stats.midMissed++;
         if (uploaded) {
           dealPass();
           read(sync);
         }
       },
+      /**
+       * T-2894: whether a near pass at (e, n) can leave its mid ring to the
+       * GPU — the kept mid tile, uploaded, covers the mid lattice's whole
+       * square. Asked when the pass starts; `place` asks again when it ends.
+       */
+      midCovers(e, n) {
+        return !!(midKeeper && midUploaded && covers(midUploaded, e, n, midWalk.radius));
+      },
+      /** T-2894: a near pass whose mid ring the CPU walked. */
+      midByCpu() { if (midKeeper) stats.midCpu++; },
+      /** T-2894: resolves when neither kept tile has a re-centre in flight. */
+      async settled() {
+        await keeper?.settled();
+        await midKeeper?.settled();
+      },
+      /** T-2894: the mid field's spec, or null where the CPU deals the mid ring. */
+      midSpec: midOn ? midSpec : null,
       /** T-2774: a read-back still on its way is taken now, in the frame. */
       flush() {
         if (waiting) read(true);
@@ -2146,11 +2366,17 @@ export async function createFlora({
   }
   const _nearDealt = { code: 0, zone: null, sp: null, y: 0, h: 0, wet: false };
 
-  function* rebuildGround(camE, camN, cone) {
+  function* rebuildGround(camE, camN, cone, midOnGpu = false) {
     // T-2774: where the GPU deals the near ring, the sink holds the last reap's
     // count until the next one lands, and there is no near walk below.
     if (!gpuNear) nearSet.reset();
-    midSet.reset();
+    // T-2894: and where it deals the mid ring, the mid cards are the last
+    // reap's until this pass's lands (`reapMid`), and there is no mid walk.
+    if (!midOnGpu) {
+      midSet.reset();
+      midGen++;
+      gpuNear?.midByCpu();
+    }
     for (const k in heads) heads[k].reset();
 
     const near = rings.near;
@@ -2202,7 +2428,12 @@ export async function createFlora({
     // out of reach are dropped here rather than pushed at zero height: the
     // lattice grew by `fringe` to carry the ones it pushes IN, and paying for
     // the whole annulus would be paying for the amplitude twice.
-    yield* scatter(camE, camN, tune.mid.cell, tune.mid.perCell,
+    //
+    // T-2894: only where the GPU's deal does not reach it — no pool to keep the
+    // mid field, or its tile not yet home after a boot, a tier change or a
+    // jump. Where it does, the mid pass deals this lattice in GLSL and
+    // `reapMid` does the rest of what this walk does, slot for slot.
+    if (!midOnGpu) yield* scatter(camE, camN, tune.mid.cell, tune.mid.perCell,
       mid.lattice.outer, mid.lattice.inner, 0x9e3779, 'strata', cone,
       (e, n, r, rng, _cellSeed, u, z) => {
         const off = fringeOf(e, n, mid.fringe);
@@ -2617,7 +2848,9 @@ export async function createFlora({
   function* rebuildAll(camE, camN, cone) {
     nearDealing = true;
     openCensus();
-    yield* rebuildGround(camE, camN, cone);
+    // T-2894: whether this pass's mid ring is the GPU's, decided as it starts.
+    const midOnGpu = gpuNear?.midCovers(camE, camN) ?? false;
+    yield* rebuildGround(camE, camN, cone, midOnGpu);
     yield* rebuildForbs(camE, camN, cone);
     yield* rebuildFar(camE, camN, cone);
     // T-2716: the near ring's tufts dealt by the GPU at this pass's centre.
@@ -2625,11 +2858,15 @@ export async function createFlora({
     // a caller that reads the buffers straight after, which counts them into
     // this census before it closes; otherwise collected when the GPU is done,
     // and until then the sets carry the last placement's near heads.
-    gpuNear?.place(camE, camN, cone, nearSync);
+    // T-2894: and the mid ring with them, where the GPU deals it.
+    gpuNear?.place(camE, camN, cone, nearSync, midOnGpu);
     closeCensus();
     hangNearHeads();
-    // The far shrubs commit themselves, on their own step.
-    for (const s of sets) if (s !== farShrubSet && s !== nearCarry && s !== midCarry) s.commit();
+    // The far shrubs commit themselves, on their own step; a mid ring the GPU
+    // dealt, when its read-back is reaped.
+    for (const s of sets) {
+      if (s !== farShrubSet && s !== nearCarry && s !== midCarry && !(midOnGpu && s === midSet)) s.commit();
+    }
     nearDealing = false;
     tally();
   }
@@ -2963,7 +3200,11 @@ export async function createFlora({
      * placement's heads and not the one before.
      */
     nearDraw: gpuNear ? { stats: gpuNear.stats, groundAt: (e, n) => gpuNear.groundAt(e, n),
-      flush: () => gpuNear.flush() } : null,
+      flush: () => gpuNear.flush(),
+      // T-2894: the mid field's spec (null where the CPU deals the mid ring),
+      // and both kept tiles home — a tool waits on it before reading the GPU's
+      // mid cards, which a pass deals only where the mid tile covers it.
+      midSpec: gpuNear.midSpec, settled: () => gpuNear.settled() } : null,
     nearField: {
       spec: FIELD_SPEC,
       flags: FIELD_FLAGS,
@@ -3010,8 +3251,13 @@ export async function createFlora({
        * the yards, the ground strip and the worked bank, which live here — and
        * asks `at` whole for a texel the worker could not answer. `pool: false`
        * asks every texel here, for the tool's before.
+       *
+       * T-2894: `page: false` leaves the page's `growthBlocked` out of the
+       * tile altogether (the mid field's keeper): its deal asks it at the slot
+       * itself, on the page, for the few slots the GPU places (`reapMid`), so
+       * a re-centre's main-thread share is the copy of the worker's answers.
        */
-      keeper({ spec = FIELD_SPEC, pool = true } = {}) {
+      keeper({ spec = FIELD_SPEC, pool = true, page = true } = {}) {
         const at = this.at;
         const table = new Uint8Array(zones.length + 1);
         zones.forEach((z, i) => {
@@ -3028,7 +3274,7 @@ export async function createFlora({
             if (got) keeper.stats.pooled += w * h;
             // The strip's corner lattice, asked once and shared by the four
             // texels round each corner (see `atTexel`).
-            const corner = edgeLattice(e0 + i0 * texel, n0 + j0 * texel, w, h, texel);
+            const corner = page ? edgeLattice(e0 + i0 * texel, n0 + j0 * texel, w, h, texel) : null;
             const edged = (i, j) => corner !== null && (corner[j * (w + 1) + i]
               || corner[j * (w + 1) + i + 1] || corner[(j + 1) * (w + 1) + i]
               || corner[(j + 1) * (w + 1) + i + 1]);
@@ -3051,7 +3297,7 @@ export async function createFlora({
                 // a band that reaches the centre reaches a corner, and asking the
                 // track at both doubled the page's share of a re-centre (T-2715's
                 // walk reading: 0.59 -> 1.07 ms a metre, worst step 29 -> 55 ms).
-                const blocked = corner === null ? growthBlocked(e, n)
+                const blocked = !page ? false : corner === null ? growthBlocked(e, n)
                   : edged(i, j) || (growthPatch !== null && growthPatch(e, n));
                 cls[2 * k + 1] = !(f & FIELD_FLAGS.BLOCKED) && blocked ? f | FIELD_FLAGS.BLOCKED : f;
                 height[k] = got.y[k];
@@ -5649,7 +5895,9 @@ function placeGraminoid(set, sp, e, y, n, rng) {
     sp.shape.arch * (0.7 + rng() * 0.7), col[0], col[1], col[2], sp.conf) ? h : 0;
 }
 
-function placeCard(set, sp, zone, e, y, n, rng) {
+/** T-2894: `tone` is the stand's, when the GPU's deal brought it (flora-gpu-mid.js);
+ *  it is the one number here asked of the ground, and it draws nothing. */
+function placeCard(set, sp, zone, e, y, n, rng, tone = patchOf(e, n) * vigourTone(vigourOf(e, n))) {
   const u = rng();
   const h = (sp.height[0] + (sp.height[1] - sp.height[0]) * u) * 0.92;
   // A clump, not a hoarding. Width 1.25-2.15 x height made 2.5 m billboards
@@ -5658,7 +5906,6 @@ function placeCard(set, sp, zone, e, y, n, rng) {
   // The stand's tone, not its height (T-1825): the mid ring's OUTER edge is the
   // boundary the sward's reach is read off (part 11), so the cards' heights
   // stay exactly as drawn and only the near tufts stand taller or lower.
-  const tone = patchOf(e, n) * vigourTone(vigourOf(e, n));
   const c = tint(sp, rng(), rng()).map((x) => x * tone);
   // Mid-distance clumps carry a little of the zone's own mean, so the sea reads
   // as one community rather than as a spray of unrelated colours.

@@ -966,6 +966,12 @@ for (const vp of VIEWPORTS) {
             + (g.reaps != null ? `, ${g.reads} reads asked without waiting and ${g.syncReads} in the frame`
               + ` ${g.readMs.toFixed(0)} ms, collected ${(g.collectMs ?? 0).toFixed(0)} ms,`
               + ` ${g.reaps} reaped ${g.reapMs.toFixed(0)} ms, ${g.stale} stale` : '')
+            // T-2894: the mid ring's cards on the GPU's deal — its deal passes,
+            // the passes whose mid ring the CPU still walked (the kept mid tile
+            // not home), and the reaps that set the cards out.
+            + (g.midPasses != null ? ` | GPU mid ring: ${g.midPasses} deal passes ${g.midPassMs.toFixed(0)} ms,`
+              + ` ${g.midCpu} walked by the CPU, ${g.midMissed} missed, ${g.midUploads} uploads,`
+              + ` ${g.midReaps} reaped ${g.midReapMs.toFixed(0)} ms` : '')
             : ' | near tufts drawn by the CPU'));
       }
       for (const l of r.longs ?? []) {
