@@ -1287,3 +1287,26 @@ All cabin/hardware/color dimensions are reconstructed. Reference catalog wording
 `renderers/web/transport/wagon-driver/wagon-w01.glb` and its JSON sidecar are original GPL-3.0-or-later procedural geometry produced by `tools/transport/generate_wagon.py` from `data/transport/studies/wagon-driver-bench.json`. The unoccupied variant is separate from the existing W01 and introduces no external image/model/texture derivation. Bench/hardware dimensions and construction are reconstructed engineering choices; license provenance does not establish period accuracy.
 
 Optional seated resident pose data in `data/humans/poses/w01/` is original reconstructed CC0-1.0 numerical authoring based on the already-cleared CC0 human inputs. Helper, viewer and authoring code remains GPL-3.0-or-later. Existing MakeHuman graphical-base, skin, hair, canonical-master and human-export provenance continues unchanged. Existing L418 records these residents' reconstructed appearance and actions. New seated canonical export hashes and garment/contact/photographic acceptance must be measured after the actual CI export; no new master hash or likeness is invented here.
+
+
+## Named era authoring studies (1812/1904), unaccepted prototypes
+
+New files under assets/authored/humans/era_studies/{1812,1904} contain CC0-source prepared MakeHuman software bodies and original project-authored conjectural garment arrays/recipes. Body source metadata preserves the existing cleared source hashes and license; exact age target recipes accompany each immutable body. Original garment arrays, canonical composition adapters and engineering derivations are authored for this repository under its applicable original-work license. Garment_sources is empty: no photograph, museum garment, personal outfit, portrait or unknown-rights image was used to derive these garments.
+
+The canonical caller reuses existing cleared skin_toigo_bronze and hair_short04 inputs under their existing unchanged SOURCE.json license evidence and exact file hashes. It does not relicense those assets. The source atlas is labeled young; using it on mature software bodies is an unaccepted engineering color-map choice, not an age-specific or personal complexion claim. Historical OCR citations remain identity/text evidence only and do not confer appearance rights or likeness provenance.
+
+Exact body/garment hashes and derivations are in data/humans/recipes/era_studies/{1812,1904}.json and actual master metadata. No output is photographic, source-matched, period-wardrobe accepted, deformation accepted or scene eligible solely because this source is integrated.
+
+
+Exact asset registrations for the named era studies (CC0-1.0 software graphical
+inputs retain their existing source records; original numerical authoring below
+is dedicated to CC0-1.0 alongside those inputs):
+
+| path relative to assets/ | license | provenance |
+| --- | --- | --- |
+| `authored/humans/era_studies/1812/body-target.json` | CC0-1.0 | Original reconstructed age49/height parameters; existing cleared MakeHuman graphical targets, not application code. |
+| `authored/humans/era_studies/1812/body.json` | CC0-1.0 | Prepared existing cleared hm08 graphical body; exact source and target hashes remain in this file. |
+| `authored/humans/era_studies/1812/garments.json` | CC0-1.0 | Original project-authored conjectural garment arrays; no external garment or picture derived. |
+| `authored/humans/era_studies/1904/body-target.json` | CC0-1.0 | Original reconstructed age61/height parameters; existing cleared MakeHuman graphical targets, not application code. |
+| `authored/humans/era_studies/1904/glessner_john_j_1904.prepared.json` | CC0-1.0 | Prepared existing cleared hm08 graphical body; exact source and target hashes remain in this file. |
+| `authored/humans/era_studies/1904/glessner_john_j_1904.garments.json` | CC0-1.0 | Original project-authored conjectural garment arrays; no external garment or picture derived. |

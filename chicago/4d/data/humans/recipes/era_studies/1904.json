@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "asset_id": "glessner_john_j_1904_study",
+  "scene_date": "1904-07-01",
+  "person_reference_scene": "1904",
+  "appearance_grade": "reconstructed",
+  "roles": [
+    "standing",
+    "walking",
+    "passenger"
+  ],
+  "production_eligible": false,
+  "body_path": "assets/authored/humans/era_studies/1904/glessner_john_j_1904.prepared.json",
+  "body_sha256": "8459b40305b07ad1a481958736160dabe43bf53f4fdc95d8503b6fe103483625",
+  "garment_path": "assets/authored/humans/era_studies/1904/glessner_john_j_1904.garments.json",
+  "garment_sha256": "5ee0032745a683d81cbd6baceda2394e7580046b42299cf9c099a3fd017c2482",
+  "body_age_years": 61,
+  "historical_age_bound_years": [
+    60,
+    61
+  ],
+  "body_height_m": 1.75,
+  "basis": "Original reconstructed mature body and plain1904 civilian coat/waistcoat/shirt-front/collar/trousers/lowshoes. All cuts, dimensions, materials, color, height, body shape and actions are conjectural; no source-matched wardrobe, historical personal outfit or likeness. Existing identity is attested; depiction remains reconstructed.",
+  "garment_sources": [],
+  "canonical_composition_module": "tools/human_era_study_1904.py",
+  "canonical_status": "SOURCE_ONLY_BPY_UNEXECUTED",
+  "format": "chicago4d_era_study_master_v1",
+  "scene": "1904",
+  "person_id": "glessner_john_j",
+  "identity_grade": "attested",
+  "household_path": "data/residents_1904/households/hh_glessner_john_j.json",
+  "household_sha256": "fd56391bb4664ea392d210203ac16d054a89008d2f1ea6bf53983fcb9bd1c3de",
+  "material_names": {
+    "coat_dark_plain_reconstructed": "garment_outer__civilian_coat_plain_1904",
+    "waistcoat_plain_reconstructed": "garment_outer__civilian_waistcoat_plain_1904",
+    "shirt_plain_reconstructed": "garment_upper__civilian_shirt_plain_1904",
+    "trousers_plain_reconstructed": "garment_lower__civilian_trousers_plain_1904",
+    "shoes_plain_reconstructed": "footwear__civilian_low_shoes_plain_1904"
+  },
+  "liberty_assignment": "integrator_required_after_rebase",
+  "canonical_derivations": {
+    "policy": "canonical-footwear-visibility-1904-v1",
+    "shoe_grounding": "translate each reviewed shoe by negative source minY",
+    "body_visibility": "mask source body faces crossing below grounded shoe top; prune unused vertices",
+    "reverse_source_parts": [
+      "civilian_coat_sleeve_l",
+      "civilian_lapel_r",
+      "civilian_shirt_collar",
+      "civilian_straight_trouser_l",
+      "civilian_straight_trouser_r"
+    ]
+  },
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png",
+    "sha256": "5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding.",
+    "source_manifest_path": "assets/authored/humans/skin_toigo_bronze/SOURCE.json",
+    "source_manifest_sha256": "521bf036b07a060d34107d052bb7dcd6fd3d66ac9661243b8a23a4e0a77674ae",
+    "age_limit": "The selected atlas is labeled young by its source; used only as a cleared reusable engineering color map. It is not age-matched mature skin, measured complexion or a named likeness."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 source fitted to the actual mature-body engineering input; hair, part and color are reconstructed choices. No period hairstyle attestation, age-specific hair acceptance or individual likeness.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "body_target_recipe_path": "assets/authored/humans/era_studies/1904/body-target.json",
+  "body_target_recipe_sha256": "5e4dc1c7726b1750caaa64aec91da50873e4a1469024069f444232b95fbe4e7a"
+}

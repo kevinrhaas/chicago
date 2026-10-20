@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2118, ts: '2026-10-20T12:54:29.405Z', date: 'Oct 20, 2026, 7:54 AM CT', title: '1812 Prairie\'s front in stone and brick, as its photograph shows', kind: 'improvement',
+    items: [
+      'The Wheeler house at 1812 Prairie is no longer stone from the walk to the gable. Its basement and the entrance bay\'s first storey stay stone; over the second floor\'s belt the front is brick, banded and dressed in stone, as Albert Levy\'s photograph shows it.',
+      'The south projection is brick over its rock-faced basement, its bands, sills and window heads still stone, and the second storey\'s north window stands in a quoined stone surround.',
+      'Houses built on the same kit can now stop their stone at a floor line and carry brick above it.',
+    ] },
+  { v: 2117, ts: '2026-10-20T12:50:36.351Z', date: 'Oct 20, 2026, 7:50 AM CT', title: 'Named people: 1812 and 1904 authoring studies', kind: 'feature',
+    items: [
+      'Added an inferred household card for John Kinzie the elder in 1812, with the sources for his identity and presence.',
+      'The named 1812 and 1904 figures (Kinzie and John J. Glessner) now build and pass their export and walking checks, but they are not placed in the town yet; their faces, clothing detail and likeness still await visual review.',
+    ] },
   { v: 2116, ts: '2026-10-20T12:18:08.863Z', date: 'Oct 20, 2026, 7:18 AM CT', title: '1811 Prairie\'s bay gains its balcony and grilled basement lights', kind: 'feature',
     items: [
       'The north bay of the Ames house at 1811 Prairie Avenue now has a stone balcony around its flat top, under the stone gable, as in the 1888 Inland Architect photograph.',

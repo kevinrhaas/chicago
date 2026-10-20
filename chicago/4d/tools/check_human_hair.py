@@ -61,8 +61,14 @@ def check(path,web=False,lod=0):
  return {'file':str(path),'sha256':hashlib.sha256(raw).hexdigest(),'hair_primitives':prims,'decoded_size':actual,'alpha_extrema':alpha,'embedded_image_sha256':hashlib.sha256(payload).hexdigest(),'scope':'container + actual PNG decode; loaded skin/UV/weight decoding remains separate runtime check; photographic open'}
 
 def main():
- ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--assets',type=pathlib.Path,default=pathlib.Path('assets/humans'));args=ap.parse_args();fail=[]
- for asset in IDS:
+ ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--assets',type=pathlib.Path,default=pathlib.Path('assets/humans'))
+ # The era studies (T-1789) export their own ids with the same hair component; the
+ # default stays the three teamster residents, so that workflow is unchanged.
+ ap.add_argument('--asset-ids',default=','.join(IDS),help='comma list of asset ids (default: the three teamster residents)')
+ args=ap.parse_args();fail=[]
+ ids=[a for a in args.asset_ids.split(',') if a]
+ if not ids:ap.error('--asset-ids names no asset')
+ for asset in ids:
   for web in [False,True]:
    for lod in range(4):
     file=args.assets/('web'if web else'')/f'{asset}.lod{lod}.glb'

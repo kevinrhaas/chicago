@@ -1,0 +1,74 @@
+{
+  "format": "chicago4d_era_study_master_v1",
+  "scene": "1812",
+  "scene_date": "1812-08-14",
+  "asset_id": "kinzie_john_elder_1812_study",
+  "person_id": "kinzie_john_elder",
+  "identity_grade": "inferred",
+  "appearance_grade": "reconstructed",
+  "production_eligible": false,
+  "roles": [
+    "standing",
+    "walking"
+  ],
+  "body_path": "assets/authored/humans/era_studies/1812/body.json",
+  "body_sha256": "8dfb1a536eac2e505c5192093fb63ec03906d464ff3321380c862543d668570e",
+  "garment_path": "assets/authored/humans/era_studies/1812/garments.json",
+  "garment_sha256": "1396fbb000806bee7384ac4c302cae5929faf7cbd38fc00468e1a080de8d806c",
+  "household_path": "data/residents_1812/households/hh_kinzie_john_elder.json",
+  "household_sha256": "1564ff5cde6e89282d3b0b59bc906bc586837fc9d0ff6f79a6bff8973932df22",
+  "body_age_years": 49,
+  "body_height_m": 1.75,
+  "material_names": {
+    "plain_linen_conjectural": "garment_upper__plain_shirt_1812",
+    "plain_wool_dark_conjectural": "garment_outer__plain_waistcoat_1812",
+    "plain_wool_trousers_conjectural": "garment_lower__plain_trousers_1812",
+    "plain_leather_conjectural": "footwear__plain_low_shoes_1812"
+  },
+  "canonical_derivations": {
+    "policy": "canonical-footwear-visibility-1812-v1"
+  },
+  "garment_sources": [],
+  "canonical_status": "SOURCE_ONLY_BPY_UNEXECUTED",
+  "liberty_assignment": "integrator_required_after_rebase",
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png",
+    "sha256": "5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding.",
+    "source_manifest_path": "assets/authored/humans/skin_toigo_bronze/SOURCE.json",
+    "source_manifest_sha256": "521bf036b07a060d34107d052bb7dcd6fd3d66ac9661243b8a23a4e0a77674ae",
+    "age_limit": "The selected atlas is labeled young by its source; used only as a cleared reusable engineering color map. It is not age-matched mature skin, measured complexion or a named likeness."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 source fitted to the actual mature-body engineering input; hair, part and color are reconstructed choices. No period hairstyle attestation, age-specific hair acceptance or individual likeness.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "body_target_recipe_path": "assets/authored/humans/era_studies/1812/body-target.json",
+  "body_target_recipe_sha256": "397ef87b24cba9b545657fc3e07ad1ad7bbf8c5fe9d56674506c7d846b2013e0"
+}

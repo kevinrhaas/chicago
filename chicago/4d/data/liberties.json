@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 657,
+  "count": 659,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -47662,6 +47662,41 @@
       ]
     },
     {
+      "id": "L-k01-1812-wheeler-fabric-2914",
+      "title": "1812 Prairie's street front stone to the second floor's belt and brick over it, the south projection brick over its basement, read off the photograph",
+      "section": "per_subject",
+      "subjects": [
+        "wheeler_house_1812_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-20",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "George H. Wheeler's house at 1812 Prairie has its street front laid as Albert Levy's photograph shows it, stone below and brick above, where K01 had faced the whole front in its K02 stone. The kit learns a brick line: a stone front's brick above (m), one of the upper storeys' floor lines, over which the walling courses are the K03 brick (its bond turned at the corner as the brick side wall's), while the belts, sills, flat arches, voussoirs and the dressed surround cells stay stone; and a stone bay's brick above (m), one of its storey lines, over which the K08 wall is the bay's brick and its plinth, bands, sills, heads and reveals stay stone. Every other K01 house re-emits byte-identical. 1812 takes the line at 5.6 m, the top of the belt under the second storey, and its south projection at 1.65 m, the principal floor; the second storey's north window takes the kit's quoined surround. **What is read, not invented.** Through the camera earlier work solved (the levy front data, 88.5 px a metre at the main front) and on 3x crops of the print: the basement rock-faced to a smooth water table at the principal floor; beside the porch arch (x 1100-1180 px) a coursed ashlar of smooth stone up to the second floor's belt; brick, its light mortar showing where the surface has weathered, in the projection's first storey either side of the arched window and over it (x 300-560, y 1030-1370 px), in its second storey either side of the paired window, and over the belt on the main wall round the north window and up into the gable; and the north window's jambs a stone about 15 and 28 px (0.17 and 0.32 m) out from the frame in turn, under a lintel course about 0.17 m deep. **What is invented.** The surround's stone heights, which are the kit's courses and not the print's joints; that the brick line stands exactly at the belt's top; the brick's bond, which the print does not resolve. **What is built otherwise than read.** The projection's windows stand in quoined stone jambs with a band at the arched window's spring, built as plain brick round the K08 reveals; the carved frieze and patterned panel band over the north window and the carved bosses under the projection's second-storey jambs are not built (both); and the stone, the K02 brown sandstone earlier work chose, renders darker than the buff brick, where the print's stone reads lighter than its brick. Each is open in the match record."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work builds or argues the carved pieces and the projection's dressings; a colour source for 1812's stone and brick, or a ruling on the print's tones, settles the fabrics."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-20 (T-2914)."
+        }
+      ],
+      "work_refs": [
+        "T-2914",
+        "T-2890",
+        "T-2915",
+        "T-2543"
+      ]
+    },
+    {
       "id": "L-glessner-fan-stilt-2912",
       "title": "Glessner's Prairie door fan stilted to HABS sheet 5 and its tympanum's field laid as the sheet's eight rings",
       "section": "per_subject",
@@ -47694,6 +47729,34 @@
         "T-2853",
         "T-2913"
       ]
+    },
+    {
+      "id": "L419",
+      "title": "Opt-in Kinzie1812 and Glessner1904 authoring studies",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-19",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Create isolated unaccepted canonical-authoring studies for the inferred John Kinzie elder identity at1812-08-14 and attested John Jacob Glessner identity in the existing1904 scene. Identity citations support identity/presence only. Reconstructed age49/61 software bodies, original wholly conjectural civilian garments, engineering eyes and cleared reusable generic skin/hair do not establish likeness, measured complexion, personal clothing, age-appropriate skin or a historical action. No driver/rider/event assignment or scene placeholder is added. Canonical source composition may apply explicitly recorded shoe registration, source-index barefoot masks and identified winding corrections while preserving immutable original body/garment inputs. These operations are engineering derivations, not fit acceptance. Existing source/normal/published sole-contact, animation, skeleton, LOD, material, morphology and container gates remain required. The manual opted-in workflow retains failed and successful evidence; no source-only, array-only or canonical-build result is photographic or production acceptance. Existing1835 builder/default paths remain unchanged."
+        },
+        {
+          "label": "Applies to",
+          "text": "the 1812 model, the 1904 model, both era recipes and canonical studies, and the inferred Kinzie elder household. No structure or portrait claim is discharged."
+        },
+        {
+          "label": "How to resolve",
+          "text": "actual canonical exports and source/published images, independently reviewed period garments and anatomy, fit and source licenses. Unverified studies remain unaccepted."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-19 (T-1789, T-2804)."
+        }
+      ],
+      "work_refs": []
     },
     {
       "id": "L46",
