@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 659,
+  "count": 660,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -45277,7 +45277,7 @@
         },
         {
           "label": "Decision",
-          "text": "the W. W. Kimball house at 1801 Prairie takes the bowed bay and the paired windows J. W. Taylor's c. 1895 photograph shows on its Prairie Avenue front (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…), read through its solved camera. **What is read, not invented.** The bay's place: its north junction at x 1130 and its silhouette's south edge at the pavilion's pilaster, x 1245, so a bow 3.4 m on its chord centred at v 5.05; the build's outline falls within about 5 px of the print's at both edges. Its storeys: the principal and the second, one broad light a storey with a transom light over a bar (the principal storey's bar about 0.8 m under its head, the second's about 0.7 m), the light filling the face the camera sees; a frieze about 1.2 m deep over the second storey's heads to a moulded cornice that wraps the bow, and a stone balustrade on it. The pavilion's windows: one pair a storey on a stone mullion under a stone transom, about 2.4 m across between its pilasters, centred, the principal storey's sill about 0.3 m over the floor. **What is invented.** The bow's rise, 0.8 m: the camera looks along the front, so a bay's depth and its place along the wall trade against each other on the print, and 0.8 m is the depth at which the render's outline meets the print's at both edges with the lights where the print draws them. The lights' turn, 20 degrees toward 18th Street: the print shows each light filling the face it sees, where a light on the bow's crown would stand about 30 px south of it; a camera from the south-west would settle whether the light is on the crown and the bow deeper. The bow's top, 8.7 m, 0.6 m past the house's 8.1 m eave (the photograph's cornice stands over the build's along the whole front; reads it), its back closed by the mansard's lower face; the cornice's section is K10's moulded stone one. The balustrade 0.6 m high in square stone balusters at 0.17 m (1637's south bay's), where the print shows pierced quatrefoil panels between posts; later work carves them. The pair's lights are K06's plate-glass casements 2.0 m clear on a 0.18 m mullion; the print's small leaded glazing in the transom lights is not built. **What is not built.** The carved pilasters beside the bay and the pavilion, the windows' moulded surrounds and the carved frieze over the principal storey: plain stone here. The sheet's bulge (v 4.8-10.2) is wider and further south than the photograph's bay; the photograph is followed."
+          "text": "the W. W. Kimball house at 1801 Prairie takes the bowed bay and the paired windows J. W. Taylor's c. 1895 photograph shows on its Prairie Avenue front (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…), read through its solved camera. **What is read, not invented.** The bay's place: its north junction at x 1130 and its silhouette's south edge at the pavilion's pilaster, x 1245, so a bow 3.4 m on its chord centred at v 5.05; the build's outline falls within about 5 px of the print's at both edges. Its storeys: the principal and the second, one broad light a storey with a transom light over a bar (the principal storey's bar about 0.8 m under its head, the second's about 0.7 m), the light filling the face the camera sees; a frieze about 1.2 m deep over the second storey's heads to a moulded cornice that wraps the bow, and a stone balustrade on it. The pavilion's windows: one pair a storey on a stone mullion under a stone transom, about 2.4 m across between its pilasters, centred, the principal storey's sill about 0.3 m over the floor. **What is invented.** The bow's rise, 0.8 m: the camera looks along the front, so a bay's depth and its place along the wall trade against each other on the print, and 0.8 m is the depth at which the render's outline meets the print's at both edges with the lights where the print draws them. The lights' turn, 20 degrees toward 18th Street: the print shows each light filling the face it sees, where a light on the bow's crown would stand about 30 px south of it; a camera from the south-west would settle whether the light is on the crown and the bow deeper. The bow's top, 8.7 m, 0.6 m past the house's 8.1 m eave (the photograph's cornice stands over the build's along the whole front; reads it), its back closed by the mansard's lower face; the cornice's section is K10's moulded stone one. The balustrade 0.6 m high in square stone balusters at 0.17 m (1637's south bay's), where the print shows pierced panels between posts; later work pierced them (“1801 Prairie's bow balustrade: the print's pierced panels built as a diagonal stone lattice, its straps' section and count reconstructed”). The pair's lights are K06's plate-glass casements 2.0 m clear on a 0.18 m mullion; the print's small leaded glazing in the transom lights is not built. **What is not built.** The carved pilasters beside the bay and the pavilion, the windows' moulded surrounds and the carved frieze over the principal storey: plain stone here. The sheet's bulge (v 4.8-10.2) is wider and further south than the photograph's bay; the photograph is followed."
         },
         {
           "label": "How to resolve",
@@ -45296,7 +45296,42 @@
         "T-2921",
         "T-2911",
         "T-2540",
-        "T-2922"
+        "T-2922",
+        "T-2930"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-bow-lattice-2930",
+      "title": "1801 Prairie's bow balustrade: the print's pierced panels built as a diagonal stone lattice, its straps' section and count reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-20",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the stone balustrade on 1801 Prairie's bowed bay takes the pierced panels J. W. Taylor's c. 1895 photograph shows (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…) in place of the square balusters earlier work stood there. **What is read, not invented.** The panels' posts: the print shows one post between the north wall's end (x 1132) and the pavilion's pilaster (x 1231), at x 1186-1190, which is where a post a quarter of the way round the bow falls through the solved camera (x 1191) and not where one on its crown would (x 1247); so four panels between five posts, the southern two hidden from this camera behind the pavilion's pilaster. Each panel is pierced right through in a diagonal lattice, two staggered rows of upright diamonds with half-diamonds against the coping and the base, about five across a panel (the right one at x 1191-1226, y 537-560 on the 1600 px print); the coping, the lattice and the base course take about 8, 22 and 6 px of the balustrade's 36, so 0.13, 0.37 and 0.10 m of its 0.6 m. **What is invented.** The straps' square 0.05 m section and their 0.16 m pitch along the bow (chosen so a panel holds the print's five diamonds), the posts' plain faces and 0.2 m section, and the panels' depth: the print gives each piercing about 5-6 px, which shows the lattice and not its mouldings. Earlier work's title called the panels quatrefoils; at that size the print cannot tell a quatrefoil piercing from a diamond, and the lattice it does show is what is built. The two hidden panels are built as the two seen ones."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer photograph of the front, or a measured drawing of the balustrade, would give the piercing's true shape and the straps' section."
+        },
+        {
+          "label": "Review",
+          "text": "the taylor c1895 northwest match data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-20 (T-2930)."
+        }
+      ],
+      "work_refs": [
+        "T-2930",
+        "T-2922",
+        "T-2921"
       ]
     },
     {

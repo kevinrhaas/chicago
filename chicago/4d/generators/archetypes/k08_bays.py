@@ -1337,8 +1337,16 @@ class Bay:
         r0 = sa + pm / 2 if first or not square else sa + tuck
         r1 = sb - pm / 2 if not square or last else sb - tuck
         # the rails run into the posts' middles, so no end of theirs lies in a post's face
-        for ya, yb in ((y3 - rd, y3 - 0.004), (y0 + bl["foot_rail_m"], y0 + bl["foot_rail_m"] + rd / 2)):
+        pn = bl.get("panels")
+        # T-2930: a stone balustrade of pierced panels lays its foot rail on the roof as a
+        # base course to `foot_rail_m`, where an open balustrade lifts it clear; its bed 3 mm
+        # over the posts' own, so the posts it runs into do not share its underside
+        foot = (y0 + 0.003, y0 + bl["foot_rail_m"]) if pn else (y0 + bl["foot_rail_m"], y0 + bl["foot_rail_m"] + rd / 2)
+        for ya, yb in ((y3 - rd, y3 - 0.004), foot):
             prism(flat, role, rect(r0, r1, ya, yb), -z - rw / 2, -z + rw / 2)
+        if pn:
+            self._pierced_panels(flat, role, pn, e0, e1, foot[1], y3 - rd, z, y0, y3)
+            return
         n = max(1, math.floor((e1 - e0) / bl["pitch_m"]))
         step = (e1 - e0) / (n + 1)
         # the light tier keeps the posts and rails, the rail's outline, and drops the bars
@@ -1346,6 +1354,54 @@ class Bay:
             m = e0 + i * step
             prism(flat, role, rect(m - bm / 2, m + bm / 2, y0, y3 - rd / 2), -z - bm / 2, -z + bm / 2)   # into the rail
         self.meta["balcony"] = {"bars": n, "top_m": round(y3, 4), "line_out_m": round(z, 4)}
+
+    def _pierced_panels(self, flat, role, pn, e0, e1, lo, hi, z, y0, y3):
+        """T-2930: a stone balustrade's pierced panels (1801's bow, from the Taylor print), in
+        place of its bars: the run between its end posts cut into `count` panels by posts of
+        the same stone, and in each panel a diagonal lattice of square-cut straps `bar_m`
+        thick, two families of them crossing at `pitch_m` along the run, so the stone between
+        them is pierced through in diamonds `rows` to the panel's height (and halves of them
+        against the rails). Every strap is clipped to its panel and carried 4 mm into the
+        rails and posts round it (the second family 6 mm), so no end of one lies in another's face;
+        the second family stands 4 mm inside the first's faces where they cross, so no two faces coincide.
+        The light tier keeps the posts and rails and drops the straps, as it drops bars."""
+        bl = self.v["balcony"]
+        pm, bm, p = bl["post_m"], bl["bar_m"], bl["pitch_m"]
+        cnt, rows = int(pn["count"]), int(pn["rows"])
+        d0, d1 = -z - pm / 2, -z + pm / 2
+        w = (e1 - e0 - (cnt - 1) * pm) / cnt
+        h = hi - lo
+        m = h / (rows * p)                         # the straps' rise along the run
+        wh = bm * math.sqrt(1 + m * m) / m         # a strap's width measured along the run
+        straps = 0
+        for i in range(cnt):
+            s0 = e0 + i * (w + pm)
+            s1 = s0 + w
+            if i:
+                prism(flat, role, rect(s0 - pm, s0, y0, y3), d0, d1)
+            if self.tier != "full":
+                continue
+            mid = (s0 + s1) / 2               # the lattice centred on its panel, a crossing on its axis
+            reach = math.ceil((w / 2 + rows * p + wh) / p) + 1
+            # the second family runs 6 mm into the rails and posts, the first 4 mm, so where
+            # two straps cross on a rail their buried ends never share a plane
+            for sg, (t0, t1), e in ((1, (-z - bm / 2, -z + bm / 2), 0.004),
+                                    (-1, (-z - bm / 2 + 0.004, -z + bm / 2 - 0.004), 0.006)):
+                c0, c1, b0, b1 = s0 - e, s1 + e, lo - e, hi + e
+                for k in range(-reach, reach + 1):
+                    a = mid + k * p           # where the strap's axis meets the foot rail
+                    at = lambda y, o: a + o + sg * (y - lo) / m
+                    poly = [(at(b0, -wh / 2), b0), (at(b0, wh / 2), b0), (at(b1, wh / 2), b1), (at(b1, -wh / 2), b1)]
+                    for f in (lambda q: q[0] - c0, lambda q: c1 - q[0], lambda q: q[1] - b0, lambda q: b1 - q[1]):
+                        poly = clip_half(poly, f) if poly else poly
+                    poly = [q for n_, q in enumerate(poly) if math.dist(q, poly[n_ - 1]) > 1e-6]
+                    if len(poly) < 3:
+                        continue
+                    area = sum(q[0] * r[1] - r[0] * q[1] for q, r in zip(poly, poly[1:] + poly[:1])) / 2
+                    if abs(area) > 2e-5:
+                        prism(flat, role, poly if area > 0 else poly[::-1], t0, t1)
+                        straps += 1
+        self.meta["balcony"] = {"panels": cnt, "straps": straps, "top_m": round(y3, 4), "line_out_m": round(z, 4)}
 
     def _floor_balcony(self, flat, s_c, cv):
         """T-2534: a balcony on a projection's floor, out from its front run under the window it
