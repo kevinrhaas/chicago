@@ -976,11 +976,13 @@ function headHtml(s, record, called, p, place) {
   if (s.review_required === true) flags.push(heldFlagHtml(s));
   const flagBlock = flags.length ? `<div class="pop-flags">${flags.join('')}</div>` : '';
 
-  return `<div class="pop-head">
-    <div class="pop-title-row">
+  // The title row sits outside .pop-head so it can stay pinned for the card's whole
+  // scroll (T-2954): a sticky box only sticks inside its own parent.
+  return `<div class="pop-title-row">
       <h2>${escapeHtml(opening.title)}</h2>
-      <button class="pop-close" type="button" data-close aria-label="Close">×</button>
+      <button class="pop-close" type="button" data-close aria-label="Close" title="Close (Esc)"><span class="pop-close-x" aria-hidden="true">×</span><span class="pop-close-label">Close</span><kbd class="pop-close-key" aria-hidden="true">Esc</kbd></button>
     </div>
+    <div class="pop-head">
     ${s.id === 'glessner_house' ? `<p><a href="${new URL('../glessner-baseline.html', import.meta.url).href}" target="_blank" rel="noopener">Photographic comparison baseline ↗</a></p>` : ''}
     ${aka}
     ${kindLine}
@@ -1308,8 +1310,10 @@ export const DOSSIER_BASE = 'https://github.com/kevinrhaas/chicago/blob/main/chi
  * @param {function} [opts.onShow]  told each time a card is drawn, so a file
  *   only the card reads (the liberties, T-2058; a record's household notes,
  *   T-2151) can be fetched on first need rather than at boot
+ * @param {function} [opts.onShown]  told once a card is on screen (T-2954: the card
+ *   takes the pointer and the keyboard from the town)
  */
-export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, onShow = null } = {}) {
+export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, onShow = null, onShown = null } = {}) {
   let currentId = null;
   /** Null until the derived list loads; never faked to an empty list. */
   let liberties = null;
@@ -1644,6 +1648,10 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
       // the strip above it (T-0824); the map and compass would cover that strip.
       document.documentElement.classList.add('card-open');
       root.scrollTop = 0;
+      // The tab strip pins under the title row, whatever height a long name wraps it to.
+      const pinned = root.querySelector?.('.pop-title-row');
+      root.style?.setProperty?.('--pop-pin', `${pinned?.offsetHeight ?? 0}px`);
+      onShown?.(record);
       return true;
     },
   };

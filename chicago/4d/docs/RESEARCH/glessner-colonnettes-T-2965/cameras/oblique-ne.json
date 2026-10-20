@@ -1,0 +1,21 @@
+{
+  "structure_id": "glessner_house",
+  "photo": "a18-gh-glessner-front-with-keith (crop of the second-floor colonnade)",
+  "image_px": [
+    1260,
+    600
+  ],
+  "principal_px": [
+    630,
+    300
+  ],
+  "focal_px": 2200,
+  "eye": [
+    55.149,
+    15.07,
+    6.95
+  ],
+  "yaw_deg": 246.3706222693432,
+  "near_m": 1,
+  "solve": "oblique close-up from the north-east, framed by eye, not fitted"
+}

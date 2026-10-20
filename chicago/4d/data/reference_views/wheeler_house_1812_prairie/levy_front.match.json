@@ -2,7 +2,7 @@
  "structure_id": "wheeler_house_1812_prairie",
  "view": "levy_front",
  "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
- "glb_sha256": "df6491aeb4d88006da6e17c4872a4d1db17987e88b099460e1398800abc964cf",
+ "glb_sha256": "56d8c2f41a3224d436bd7d8b803c473a380186527a301a87e3063069b5f8c753",
  "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
  "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
  "verdict": "differs",
@@ -16,19 +16,39 @@
    "status": "fixed"
   },
   {
-   "what": "Gable: the outline's swell still stands 10-20 px wide of the print's below the shoulders, and its shoulder stones are not built as blocks",
-   "status": "open"
+   "what": "Gable: the outline re-read on both sides at a tenth of a metre and redrawn: the swell a convex curve from 2.98 m out at 13.0 m to 1.83 at 14.5 m swinging in to the shoulders, where the draft stood 0.3-0.5 m wide of it, and the head a bell from 1.10 m at 15.3 m to 0.35 at 16.5 m on the finial's square plinth (0.48 m across from 16.65 m), which the draft drew as a point; the print's south side reads about 0.25 m wider than its north all the way up and the build takes the mean (T-2951)",
+   "status": "fixed"
   },
   {
-   "what": "Gable: the grid window is nine lights (three by three) between stone mullions and transoms; K06's attic group builds three tall lights",
-   "status": "open"
+   "what": "Gable: the grid window nine lights, three rows of three about 0.44 by 0.37 m between stone mullions and over stone transoms, in the 1.64 by 1.26 m opening (T-2951)",
+   "status": "fixed"
   },
   {
    "what": "Gable: its face on the wall's own plane, as the print's: the eave under it plain and 0.05 m deep, so the slab stands 0.07 m before the wall below, its foot just over the third storey's arches, with no eave, fascia or gutter across the front (T-2889)",
    "status": "fixed"
   },
   {
-   "what": "Gable: the kneelers are carved scrolls under small pinnacles; built as plain square pinnacles",
+   "what": "Gable: each kneeler a carved scroll console at the front's corner (its roll from about 11.35 m, its body up to a cap under the slab's foot) under a small pinnacle on the ledge 3.85 m out, where the draft stood a plain square pinnacle (T-2951)",
+   "status": "fixed"
+  },
+  {
+   "what": "Gable: the shoulder stones square blocks 0.9-1.62 m out from 14.6 to 15.22 m, standing over the outline through the slab (T-2951)",
+   "status": "fixed"
+  },
+  {
+   "what": "Gable: each shoulder stone carries a sunk panel; built plain",
+   "status": "open"
+  },
+  {
+   "what": "Gable: the grid window stands in quoined side stones under a moulded hood with a wavy upper edge, over a deep moulded shelf; built with K06's own sill and no surround or hood",
+   "status": "open"
+  },
+  {
+   "what": "Gable: the grid window's lights read as dark openings; K06's casement frame reads heavier at 0.44 by 0.37 m",
+   "status": "open"
+  },
+  {
+   "what": "Gable: the kneelers' scrolls are carved; built as a plain roll with a raised eye",
    "status": "open"
   },
   {
