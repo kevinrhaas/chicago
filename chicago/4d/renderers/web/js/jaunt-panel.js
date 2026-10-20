@@ -27,7 +27,6 @@ export function createJauntPanel({ destinations, actions }) {
     buttons[id] = button(label, () => id === 'next' ? goNext() : actions[id]()); buttons[id].dataset.action = id; controls.append(buttons[id]);
   }
   const mode = node('select'); mode.setAttribute('aria-label', 'Jaunt travel mode');
-  mode.title = 'Fly is a viewing convenience, not 1835 transport.';
   mode.addEventListener('change', () => actions.setMode(mode.value));
   const straight = button('Go straight to next stop', actions.straight); straight.dataset.action = 'straight';
   controls.prepend(mode, straight);
@@ -163,7 +162,6 @@ export function createJauntPanel({ destinations, actions }) {
     if (state.estimate) {
       const eta = node('p', `${formatEstimate(state.estimate)} remaining`, 'jaunt-progress'); eta.dataset.jauntRemaining = ''; body.append(eta);
     }
-    if (state.mode === 'fly') body.append(node('p', 'Fly is a viewing convenience, not 1835 transport.', 'jaunt-progress'));
     const travelling = ['travelling', 'paused'].includes(state.phase) || (state.phase === 'detail' && ['travelling', 'paused'].includes(state.detailPhase));
     if (travelling) {
       body.append(node('p', state.phase === 'paused' ? 'Ride paused. Explore here, or resume when you are ready.' : state.error || 'On the way to the next stop…'));

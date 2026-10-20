@@ -96,7 +96,7 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
       details.append(node('p', `Unavailable — ${row.reason || 'Awaiting review.'}`, 'jaunt-meta'));
     } else {
       const pace = node('div', '', 'jaunt-pace'); pace.append(mode, duration);
-      details.append(pace, node('p', `Recommended: ${PACES[row.default_mode || 'walk']?.label || row.default_mode}. Fly is a viewing convenience, not historical transport.`, 'jaunt-meta'));
+      details.append(pace, node('p', `Recommended: ${PACES[row.default_mode || 'walk']?.label || row.default_mode}.`, 'jaunt-meta'));
       // T-2727: with Jaunts use my choice on, an outing that cannot go the visitor's way says so.
       const keeps = modeNote(row);
       if (keeps) { const p = node('p', keeps, 'jaunt-meta jaunt-keeps'); p.dataset.jauntKeeps = row.id; details.append(p); }
