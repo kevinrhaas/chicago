@@ -1,0 +1,27 @@
+{
+ "structure_id": "henderson_house_1816_prairie",
+ "source_id": "chicagology_1816_henderson_photo",
+ "library_image": "a18-cgy-1816-henderson-photo",
+ "photo": "../../sources/assets/henderson_1816_photo_t2963/henderson_1816_photo.jpg",
+ "image_px": [
+  1444,
+  1148
+ ],
+ "principal_px": [
+  400,
+  852
+ ],
+ "focal_px": 2477,
+ "eye": [
+  43.5,
+  -27.5,
+  1.6
+ ],
+ "yaw_deg": -53.22,
+ "sun_uvy": [
+  0.6,
+  -1.0,
+  1.2
+ ],
+ "solve": "Fitted by T-2963 to the photograph alone, the image store's 1444 x 1148 px copy, against the 1911 sheet's plan (s28fp-1816-b1). The footprint frame's u runs toward Prairie Avenue (east) and v north; the front block is u 0-12.0, v 0-14.82. The camera is LEVEL: the house's verticals are vertical in the print (a view camera's rising front), so the principal point stands low and left of the image's centre. HORIZONTAL: the photograph's columns were matched to plan points: the front's south-east corner (x 588 px), the south flank's canted bay where it leaves the flank (x 327) and its south face's far corner (x 182), the porch's two front columns (x 900 and 1020) and its south rear column (x 835), the front's north end where 1812's south wall cuts it (about x 1160). No pinhole puts all of them within 20 px: the porch and the front's canted bay stand about 1 m further south in the photograph than on the 1911 trace, and the front's north end is half hidden. The committed camera keeps the south-east corner on x 588 and splits the rest: the flank bay within 25 px, the north end within 15, the porch's columns about 60-75 px right of the print's. DISTANCE AND HEIGHT: rendered against the print three times (eye 32-50 m from the corner), and kept where the front's width and the corner's height both read within about 5%: the eye at u 43.5, v -27.5, the east walk of Prairie Avenue south-east of the house, 1.6 m over grade (the stone basement's top runs level along the front, at y 885-890 px at both ends, which only an eye near its own height gives), f 2477 px. Through it the brackets' foot at the corner is about 11.9 m over grade and the principal floor 2.0. UNCERTAINTY: the distance trades against the heights; at 10% nearer every height reads 10% lower. The porch's place is the larger open question (the match record). LIGHT: the front and the flank are both lit, the sun high in the south-east (sun_uvy)."
+}

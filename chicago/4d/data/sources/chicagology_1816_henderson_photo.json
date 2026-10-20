@@ -1,0 +1,29 @@
+{
+ "id": "chicagology_1816_henderson_photo",
+ "type": "photograph",
+ "citation": "[1816 S. Prairie Ave. (Charles M. Henderson house).] Photograph of the house from the walk south-east of it, its street front and south flank, with the shaped gable of 1812 Prairie beyond it to the north; unknown photographer, undated (after 1873). Reproduced on chicagology.com, Prairie Avenue, 1816 S. Prairie.",
+ "author": "unknown photographer",
+ "date": "undated (the Prairie library's dating: after 1873)",
+ "describes_date": "undated, after 1873",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library image a18-cgy-1816-henderson-photo, '1816 S. Prairie Ave. (Charles M. Henderson house), historic photograph', recorded there as 'link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a18-cgy-1816-henderson-photo.jpg), committed since T-2963 at data/sources/assets/henderson_1816_photo_t2963/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1816prairie/",
+ "locator": "The whole print: the street front from its south corner to where 1812's south wall hides its north end, the south flank back to its canted bay, the roofs over both, the iron front fence and the walk in the foreground.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-2963) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-20 (T-2963) from the image store's reference copy, 1444 x 1148 px greyscale, sha256 6cf57cac7e3076af06121b104b57a02b9a25ac3830f01ddafe9ac2f27eb96ca8.",
+ "note": "The one photograph of 1816 Prairie this project reads. It shows a brick house two tall storeys over a rusticated stone basement under a slated mansard: on the street front a canted bay at the south corner, a porch on turned columns just north of it carrying an iron balcony on its entablature, its stair straight down to the walk, and windows under carved stone hoods; on the south flank a canted bay near the rear, carried up through the cornice into its own mansard with dormers; pedimented dormers in the main mansard; iron cresting on every roof deck; a raised mansard crown with its own cresting over the front's south end; and an iron fence on a stone curb along the street line. It is undated and later than 1873, so it is evidence of its own date: the house stood in 1904 (the 1911 sheet draws it) and nothing recorded changes its front, so its forms are carried to 1904 as inferred.",
+ "what_it_supplies": [
+  "the canted bay at the street front's south corner and the canted bay on the south flank, against the 1911 sheet's plan",
+  "the porch: turned columns on the stoop's landing, an entablature over them and an iron balcony on it",
+  "the storeys: a rusticated stone basement, two tall brick storeys, a bracketed cornice and a slated mansard with dormers",
+  "the windows: tall sash on the principal floor and shorter above, under carved hoods"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome",
+  "a date: undated, later than 1873",
+  "the north wall, the rear and the rear range"
+ ]
+}
