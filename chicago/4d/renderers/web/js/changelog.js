@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2088, ts: '2026-10-20T00:43:54.857Z', date: 'Oct 19, 2026, 7:43 PM CT', title: '1812 Prairie\'s south projection gets its balcony', kind: 'improvement',
+    items: [
+      'George H. Wheeler\'s house at 1812 Prairie now has the iron balcony that Albert Levy\'s photograph shows on the flat top of its south projection, where it had a bare tin deck.',
+      'The rail\'s height and baluster spacing are read off the photograph through its solved camera; the solid stone panel in the middle of the photographed rail is not built yet, and is listed as open on the house\'s match record.',
+    ] },
+  { v: 2087, ts: '2026-10-20T00:43:54.857Z', date: 'Oct 19, 2026, 7:43 PM CT', title: '1812 and 1835: the open prairie stays grass all the way out', kind: 'feature',
+    items: [
+      'Past the grass at your feet, a ring of light grass cards now carries the sward outward, so the near grass no longer stops at a visible line.',
+      'Beyond the cards, the ground on the open prairie takes each plant community\'s own grass colour, with a faint streak, instead of the pale tile it used to show.',
+      'The town\'s short turf in 1835 is unchanged; the colours and strengths are tuned by eye under a new liberty.',
+    ] },
   { v: 2086, ts: '2026-10-19T23:52:55.555Z', date: 'Oct 19, 2026, 6:52 PM CT', title: 'Glessner\'s north windows: slimmer columns between the paired lights', kind: 'improvement',
     items: [
       'On the 18th Street side of Glessner House, the stone column between each pair of upstairs windows is now as slim as the 1965 survey photographs show it: about 1.3 feet at the capital rather than 1.9, with a taller carved capital and a low base block.',
