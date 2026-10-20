@@ -123,11 +123,15 @@ export function createJauntPanel({ destinations, actions }) {
     parent.append(chips);
   }
   function contextLines(parent) {
-    for (const line of state.context?.lines || []) {
-      if (line.generated) {
-        const row = node('p', line.text); row.append(node('small', ' [MAP] Reconstruction route', 'jaunt-map-note')); parent.append(row);
-      } else prose(parent, line.text, line.evidence, line.evidence?.every(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'));
+    const lines = state.context?.lines || [];
+    for (const line of lines) {
+      if (line.generated) parent.append(node('p', line.text));
+      else prose(parent, line.text, line.evidence, line.evidence?.every(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'));
     }
+    // T-2956: a "Passing …" note is read off this model's map, not from a period source.
+    // Said once, in words; "[MAP] Reconstruction route" after every line read like a
+    // label missing its text.
+    if (lines.some(line => line.generated)) parent.append(node('p', '[MAP] From the model’s map, not a historical source.', 'jaunt-map-note'));
   }
   function render(next) {
     const old = state;
