@@ -20,6 +20,8 @@
  * is deep-equal to its source.
  */
 
+import { loadReaderText, readerCopy } from './reader-text.js';
+
 const MARK = '$s';
 const ROSTER = 'residents/letter_list/roster.json';
 
@@ -79,6 +81,14 @@ async function fromRoster(dataBase, file) {
  * @param {{cohort?: boolean}} [o] true for a letter-list row — the roster is asked first
  */
 export async function readHouseholdRecord(dataBase, file, { cohort = false } = {}) {
+  // T-2825: the record as a reader gets it — its notes said without a ticket, a record id or
+  // a file path, by the overlay the gate lints. The packed and the per-file record are the
+  // same record, so both are said the same way.
+  const reader = loadReaderText(dataBase, 'residents');
+  return readerCopy(await readRaw(dataBase, file, cohort), await reader);
+}
+
+async function readRaw(dataBase, file, cohort) {
   const direct = () => fetchJson(`residents/${file}`, dataBase);
   const viaRoster = () => fromRoster(dataBase, file).catch(() => null);
   if (cohort) return (await viaRoster()) ?? direct();

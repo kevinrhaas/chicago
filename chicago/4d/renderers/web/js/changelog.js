@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 2111, ts: '2026-10-20T08:55:50.289Z', date: 'Oct 20, 2026, 3:55 AM CT', title: 'Building cards, people, plants and wildlife read in plain words too', kind: 'change',
+    items: [
+      'A building\'s card: the reasoning behind each value, the record\'s own account and the households who lived there are said without work numbers, record codes or file names. Each value\'s sources are listed by title, and the dossier link reads "the research notes on this building".',
+      'Prairie Avenue, 1904: a house\'s card, its tag and Go to call it by its name alone, so "1600 Prairie Avenue — brick corner house" no longer ends in "K01 frontage assembly" and no title carries "district draft" or "map-led".',
+      'A person\'s card and Browse by household: notes, research reviews, seatings and the family the model drew name households, stages and sources in words. A newspaper notice is its paper and date.',
+      'Sources › Plants and Sources › Wildlife: each community\'s notes, extent and research notes read the same way.',
+      'Shops & work: the rest of a firm\'s card reads in words too, from how a reconstructed house was ordered to the notices that attest a firm.',
+      'Every citation says what kind of source it is, such as "period/eyewitness" or "later scholarship", without the ladder\'s number. A Jaunt\'s sources and the City card\'s notes read in plain words.',
+    ] },
+  { v: 2110, ts: '2026-10-20T08:28:33.157Z', date: 'Oct 20, 2026, 3:28 AM CT', title: 'Glessner\'s front door arch stands as tall as the measured drawing', kind: 'improvement',
+    items: [
+      'The fan of stones over Glessner\'s Prairie Avenue door is now stilted, as the 1963 measured drawing and the architect\'s own detail both draw it: its centre stands half a foot above the springing, so the crown rises to 16 ft and the lowest stones run straight down to the lintel.',
+      'The carved field inside the arch now has the drawing\'s eight curling rings, unequal and not mirrored, growing on stems from a small boss at the foot, in place of a symmetrical tree.',
+      'The drawing\'s door is a later one: a photograph of about the 1890s-1920s shows the house number and a centre knob where Richardson\'s office drew them, so the door stays the office\'s.',
+    ] },
   { v: 2109, ts: '2026-10-20T08:22:59.372Z', date: 'Oct 20, 2026, 3:22 AM CT', title: '1811 Prairie\'s roofs raised to its 1888 photograph', kind: 'feature',
     items: [
       'The Ames house at 1811 Prairie Avenue now has its roofline from the 1888 Inland Architect photograph. Over the north bay stands a stone gable with a finial, a pinnacle at each corner and three lights for the top storey.',

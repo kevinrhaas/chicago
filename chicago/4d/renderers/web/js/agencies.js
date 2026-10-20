@@ -23,6 +23,7 @@
  * returns null, and null means "not loaded" — which the cards treat as a reason to say
  * nothing, never as a reason to say a house held nothing.
  */
+import { nameOf } from './reader-text.js';
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
   'July', 'August', 'September', 'October', 'November', 'December'];
@@ -110,7 +111,7 @@ export function holdingHtml({ agency, holding, refused }, escape) {
     ${lead}
     ${why ? `<details class="agency-why"><summary>why</summary><p>${e(why)}</p></details>` : ''}
     <p class="agency-cites">${holding.witnesses.length} printing(s):
-      ${holding.witnesses.map((w) => `<code>${e(w)}</code>`).join(' ')}</p>
+      ${holding.witnesses.map((w) => `<span class="agency-printing">${e(nameOf(w))}</span>`).join(' · ')}</p>
   </article>`;
 }
 

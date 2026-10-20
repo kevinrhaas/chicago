@@ -30161,6 +30161,37 @@ eave (T-2891's swell).
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-20 (T-2889).
 
+### L-glessner-fan-stilt-2912 — Glessner's Prairie door fan stilted to HABS sheet 5 and its tympanum's field laid as the sheet's eight rings
+
+**Decision:** the Prairie Avenue door's fan on the `glessner_house` is a STILTED head (T-2912,
+a piece of T-2853): its centre stands 0.5 ft over the 9.0 ft spring line, the extrados is 6.5 ft
+(it was 6.4, a semicircle on the spring), and the two springing voussoirs, the wall's cut, the
+carving bed and every ring of the tympanum (the outer fillet, the billet channel and its
+billets, the archivolt's floor, the torus and the inner fillet) run plumb down from the centre
+to the spring. The tympanum's field is eight stems bent into rings at HABS sheet 5's places
+and sizes, rising on stems from the boss at the foot, in place of a straight trunk carrying two
+mirrored pairs of roundels and a crowning one. **What is read.** HABS sheet 5 (IL-1015,
+`habs_glessner_house_il_1015_drawings`), on the rectified crop the `habs5-entry` camera is
+solved on at 100 px a foot: the extrados 6.48 ft across and 7.06 ft over the spring, the
+tympanum's ring 2.51 ft across and 2.93 ft high, both plumb below their widest points; the
+eight rings' centres and radii (`docs/RESEARCH/glessner-entry-T-2853/`); the boss at the foot.
+The office's doorway No. 23A agrees on the stilt and the scrolling field; the period photograph
+`a18-gh-glessner-front-with-keith` shows the tympanum's sides plumb on the lintel.
+**What is invented.** One stilt for both rings, where the sheet reads 0.58 and 0.47 ft; the
+stems' paths and which ring each grows from; the leafy rosette inside every ring, which is the
+owner's photographs' and below the sheet's stipple; the leaves at each stem's middle; every
+depth. The billets on the plumb legs keep the arc's pitch. Each ring is left open by a hair at
+its foot, under its stem, so the tube does not cap back on itself.
+**What is not changed.** The spring line, the tympanum's radius, the fifteen voussoirs keyed at
+the crown, the lintel, the door and its leaf. The sheet's leaf is a later one: the period
+photograph shows the figures 1800 and a central knob where sheet No. 95 puts them and the 1963
+leaf has neither (L-glessner-front-door-2216 stands).
+**How to resolve:** the owner's close photographs, read ring by ring, would place each ring's
+own curl and leaves; a measured photograph square to the fan would split the two rings' stilts.
+**Ticket:** T-2912 (piece of T-2853; T-2913 holds the wall's courses and the header stone).
+**Review:** `docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg`.
+**Recorded:** 2026-10-20 (T-2912).
+
 ## T-2804: named resident seated-driver and supported W01 studies (2026-10-19)
 
 This is an additive seated-study declaration under existing L418. Existing reconstructed 1835 residents Otis Bardwell (`rc_bardwell_otis`), Joseph Dufresne (`rc_dufresne_joseph`) and Martin Flynn (`rc_flynn_martin`) retain their record identity, date and reconstruction basis. The static seated pose, age/body fit, hand targets and staged driving action are original engineering reconstructions, not portraits, recorded driving assignments or observed actions. No new anonymous person or biography is introduced. The optional canonical `sit_drive` authoring uses the existing portable export and HumanActor; actual exported garment/bench/shoe contact and palm/rein grip require inspection, and source-body pose calculations alone do not establish them.

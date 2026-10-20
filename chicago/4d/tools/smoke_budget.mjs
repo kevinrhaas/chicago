@@ -375,6 +375,8 @@ const COVERAGE = [
   // panel's letter-list group, whose body the smoke reads (14). No building card holds
   // a letter-list name, so part 3 never reaches it.
   ['renderers/web/js/letter-list-roster.js', [13, 14], 'how a letter-list household is read from the published roster'],
+  // T-2825: the reader's overlay every card, topic and jaunt applies to what it fetches.
+  ['renderers/web/js/reader-text.js', [3, 4, 10, 11, 12, 13, 14, 15], "a record's research prose said for a reader: the card, Inspect, the topics, people, firms and jaunts"],
   ['data/reconstruction/1835_agencies.json', [3, 14], 'the compiled relation both cards read'],
   // T-1959. The placement policy is the seating and yard generators' rule book: what
   // it decides reaches the scene only through the records those generators write (the
