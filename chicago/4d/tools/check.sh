@@ -967,6 +967,16 @@ step "a K01 frontage carries a K08 tower past its eave, closed above the wall he
 step "a K01 rear wing takes a slated hip or gable, its junction with the host closed above the host's top (T-2841)" \
   python3 tools/test_k01_wing_roof.py
 
+# T-2842. ...and a K08 tower stands on a K01 rear wing's wall, past the wing's own eave (the
+# kit piece 1801 Prairie's north-east turret on its east range needs). Built on 1604's
+# brick range under its flat deck and on 1811 as all-stone with its rear section hipped in
+# slate: the cap over the wing's roof, the ring closed over the wing's wall top in its
+# wall's plane, the wing's wall open behind it and its lights there dropped; a tower under
+# the wing's eave, a bay or an oriel on a wing, a gable end, a later wing's junction, a
+# corner and a wall no wing has refused.
+step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed over its wall top (T-2842)" \
+  python3 tools/test_k01_wing_tower.py
+
 # T-2788. ...and what an all-stone house is. A K01 record naming `construction: "stone"`
 # lays its K02 stone_front round every face, not a stone front on a brick box. No record
 # names it yet (1801 Prairie, T-2789, is the first), so this builds four houses that carry
