@@ -29020,6 +29020,15 @@ its offset from the drawn drum's centre over the drawn half-width (slits 136 and
 219). The bow's continuous lintel and sill courses take the drawing's heights and extents; their 50 mm projection,
 30 mm bed and the absence of joints are reconstructed, as are the slit stones' depth and the slits' 0.75-ft width
 on the drum (0.53 ft drawn in projection at about 45 degrees).
+**Revised 2026-10-20 (T-2926):** the east wing's court face south of the stair tower is read on native sheet 4
+(docs/RESEARCH/glessner-court-face-T-2926/) and carried onto the plan's frame by T-2879's +0.65 ft: its four lights,
+their two continuous sill courses and two continuous lintel courses, the underpass exit and its stone lintel and
+corbels, and the south leader with its hopper head. Their extents and heights are the drawing's. Reconstructed: the
+courses' rock face, projection and the absence of joints (the courtyard's rough lintel stock, carried along each
+course); how far each corbel runs into the passage (1.5 ft; an elevation does not draw it); the hopper's depth off
+the wall (0.24 m, half its drawn width); and the leader's stock, which stays the court's existing 0.105 m against
+about 0.14 m drawn. The hopper hangs under the gutter, as drawn, rather than up to its rim as the photographed
+heads elsewhere on the house do.
 **Recorded:** 2026-10-15.
 
 ### L-glessner-court-roof-2228 — courtyard eave, dormers and bell finials
@@ -30110,6 +30119,32 @@ sheet that marks an area.
 **Ticket:** T-2903 (piece 2 of T-2885).
 **Recorded:** 2026-10-20 (T-2903).
 
+### L-k01-1625-oriel-apron-2904 — 1625 Prairie's oriel's apron laid in the front's rock-faced stone, the print's darker stippled face
+
+**Decision:** the apron under 1625's oriel (K08's `apron`, T-2883) is laid in the front's own
+rock-faced K02 brownstone instead of the oriel's pale dressed stone: K08's apron is a role of its
+own (`apron`, its face, its moulded foot and its underside), and the bay entry's `apron.fabric`
+`front_stone` hands it to K01's `bay_apron` slot, which wears the front's walling fabric, a shade
+rougher so the web derivative keeps the slot its own. An apron that names no fabric wears the
+bay's stone, as it did.
+**What is read, not invented.** From the 1890 Inland Architect plate
+(`inland_architect_1890_01_mcbirney_residence`), on the pixels: the apron's south face, in the
+same sun as the south wall beside it (both face south), reads 120 against the wall's 183 (mean
+grey, x 520-526 and 490-500 px, y 684-712), so the darkness is the face's own and not the
+light's; both its faces are stippled (a standard deviation of 13-17 against the smooth wall's 3),
+where a face in shadow would be smooth; and its west cheek reads 87 against the front's
+rock-faced stone's 126 in the same west light. Laid in the front's stone with no factor of its
+own, the re-rendered apron reads 0.62 of the south wall on its south face (the print's 0.66) and
+0.63 of the front on its west cheek (the print's 0.69).
+**What is invented.** The material: the print shows a darker, rough face and cannot tell
+rock-faced stone from rough-cast or shingle; the front's brownstone is the reading that needs no
+new fabric and no tone the print cannot give. The foot and its underside are laid in it with the
+face (the print's foot reads dark, but in its own shadow).
+**How to resolve:** a nearer view of 1625's south side, or the oriel's own drawing.
+**Ticket:** T-2904 (piece 3 of T-2885).
+**Review:** `docs/RESEARCH/photo-match/house_1625_prairie/inland_architect_front-side-by-side.jpg`.
+**Recorded:** 2026-10-20 (T-2904).
+
 ### L-k08-1812-projection-balcony-2888 — 1812 Prairie's south projection given its photographed balcony rail: its height and baluster spacing read, its sections and inset reconstructed, its stone middle panel built as iron
 
 **Decision:** the flat top of the south projection on George H. Wheeler's house at 1812 Prairie
@@ -30286,6 +30321,26 @@ own curl and leaves; a measured photograph square to the fan would split the two
 **Ticket:** T-2912 (piece of T-2853; T-2913 holds the wall's courses and the header stone).
 **Review:** `docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg`.
 **Recorded:** 2026-10-20 (T-2912).
+
+### L-k01-1637-stack-pots-2782 — 1637 Prairie's three stacks crowned with clay pots where the engraving draws a dark hooded crown over each cap
+
+**Decision:** T-2782 (piece 3 of T-2756) builds the crowns the engraving of Jesse Spalding's remodel
+(`glessner_blog_1637_spalding_remodel_engraving`) draws over the caps of `spalding_house_1637_prairie`'s three
+stacks: a clay pot of the K15 kit's plain profile on each stack's two flues (`chimneys.k15.pot`), and each cap
+lowered 0.56 m so the pots' lips stand at the tops T-2441 and T-2781 read.
+**What is read, not invented.** Through the engraving's solved camera, each crown's height (20-27 px on the
+plate, about 0.5-0.6 m at the stacks' 41-45 px a metre), its top (y 24, 104 and 113 px) and the shoulder where
+it meets the stack (y 51-53, 128 and 133-137 px); each about as wide as the stack's head, and dark.
+**What is invented.** That the crowns are pots: the plate draws each as one dark mass turned over to one side,
+which is a cowl's outline or a pot's under a hood, and its scale does not settle which. The pots' profile, their
+bore and their terracotta are the kit's; two to a stack follows the two flues the stacks were already given
+(T-2471), and the pair spans about the drawn crown's width.
+**What is not built.** The hood's turn: no kit part builds a cowl.
+**How to resolve:** a photograph of the remodelled house showing its stacks against the sky would say pot or cowl
+and their number.
+**Ticket:** T-2782 (piece 3 of T-2756).
+**Review:** `data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`.
+**Recorded:** 2026-10-20 (T-2782).
 
 ## T-2804: named resident seated-driver and supported W01 studies (2026-10-19)
 

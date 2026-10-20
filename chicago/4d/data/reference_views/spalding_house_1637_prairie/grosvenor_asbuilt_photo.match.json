@@ -2,7 +2,7 @@
   "structure_id": "spalding_house_1637_prairie",
   "view": "grosvenor_asbuilt_photo",
   "glb": "assets/gltf/spalding_house_1637_prairie__as_mapped_1904.glb",
-  "glb_sha256": "05b9f3ab31a9e78c8831f791ad41e58ac348bd715733bd2a87a1d9c84db4e89d",
+  "glb_sha256": "c083d213d144456fde6a6ced72daa96ce2b96abcda733c3585b6ea0348d3a12a",
   "camera_sha256": "856a15ff71693396f8e7a7b8f4b66bfb786f6d3fff3e7bae180a916a561f4a8b",
   "side_by_side": "docs/RESEARCH/photo-match/spalding_house_1637_prairie/grosvenor_asbuilt_photo-side-by-side.jpg",
   "verdict": "matches",
@@ -70,12 +70,12 @@
     {
       "what": "a tall panelled stack with a corbelled cap rising behind the eave (x 245-345 px, its cap's top at y 30): on the south wall's line it stands at about u 6.0, its top about 14.2 m over grade",
       "status": "fixed",
-      "how": "T-2781: the photograph's ray through the stack's middle (x 295 px) and the engraving's through its drawn stack (x 690) meet in plan at u 6.47, v 13.37, on the south wall's line, so the two pictures show one stack, raised by the remodel past its mansard. Built there on the cornice (chimneys.stacks, u 6.5, v 13.2, 1.2 by 0.75 m, panelled and capped as the north stacks are), and the stack T-2465 had stood over the wing on the engraving's ray alone (u 10.2, v 11.2) retired. Through this camera its shaft rises behind the eave at x 251-321 px against the photograph's 245-345 (the cap's spread to 251-345); its top, at 15.85 m where the engraving draws it, stands over the frame, where the photograph's cap (y 30 px, about 14.2 m) is the stack before the remodel raised it, which this photograph predates as it predates the mansard"
+      "how": "T-2781: the photograph's ray through the stack's middle (x 295 px) and the engraving's through its drawn stack (x 690) meet in plan at u 6.47, v 13.37, on the south wall's line, so the two pictures show one stack, raised by the remodel past its mansard. Built there on the cornice (chimneys.stacks, u 6.5, v 13.2, 1.2 by 0.75 m, panelled and capped as the north stacks are), and the stack T-2465 had stood over the wing on the engraving's ray alone (u 10.2, v 11.2) retired. Through this camera its shaft rises behind the eave at x 251-321 px against the photograph's 245-345 (the cap's spread to 251-345); its top, at 15.85 m where the engraving draws it, stands over the frame, where the photograph's cap (y 30 px, about 14.2 m) is the stack before the remodel raised it, which this photograph predates as it predates the mansard T-2782 lowered the remodel's cap 0.56 m to 15.29 m under a clay pot on each flue, the engraving's crowns; both stand above this frame's top, so nothing here moves"
     },
     {
       "what": "the cornice: a deep dark band round the eave on the front and the south flank, its top against the sky on the build's slope through this camera (0.19 on the flank, 0.21 on the front)",
       "status": "fixed",
-      "how": "K10's bracketed cornice on both faces (T-2441, T-2467). Its brackets are too dark here to count, and this photograph cannot measure the eave's height (the camera's solve: the band's height sets it, and the fence hides the ground), so the engraving's storey-line item, open in its own record, stays the place the eave's height is argued"
+      "how": "K10's bracketed cornice on both faces (T-2441, T-2467). Its brackets are too dark here to count, and this photograph cannot measure the eave's height (the camera's solve: the band's height sets it, and the fence hides the ground), so the engraving's storey-line item, open in its own record, stays the place the eave's height is argued (T-2782 argues it there, on the band over the swell bay)"
     },
     {
       "what": "the roof: low and hipped behind the cornice, only a pale sliver of it above the eave",
