@@ -45461,8 +45461,12 @@
           "text": "2026-10-20 (T-2542, piece 2 of T-1891). The plate's roof storey is IN the roof: its street slope comes down behind the bay and the oriel to about 8.5-8.8 m, not to T-2541's 11.7 m eave. So the front block is two walled storeys (the eave datum at 9.14 m: fascia top 8.50 m, the moulded stone cornice's top at 8.30 m, the plate's bay cornice), the third storey stands in a slated gable pitched 61.2 degrees to a ridge at 16.0 m (read off the plate, `inferred`, in the K01 contract's steep band, which a gable read off a source may now take), and it is lit by the bay's stone gable: K01's wall gable (T-2428) on the street wall over the bay, with a finial, a pinnacle each side at the bay's corners and the three lights. The oriel is carried through the eave (T-2778) under K08's spire with a finial. What that build invents: the wall gable's 3.0 m width (the plate's rake runs wider), its 55-degree pediment, its lights' flat heads under voussoirs, the pinnacles' square plan and pyramid tops, the face's dressing stone; the oriel's wall top 0.4 m over the plate's (K01 carries an oriel through the eave only 0.3 m past its datum); the ridge's depth (half the front block's, as T-2541 set it). What is still not built: the gable's great arched recess with its three small round-arched lights and carving, the pierced balcony on the bay's deck, the roof's own shape (the plate's is a steep hipped mass over the bay with a lower roof to the south; K01 lays one ridge along the front), the stacks' corbelled caps and the range's second stack, and everything T-2541 listed for T-1892."
         },
         {
+          "label": "Revised",
+          "text": "2026-10-20 (T-2916, piece 1 of T-1892). The north bay's two basement lights and its balcony are built. The bay is now three K08 storeys, a 1.75 m basement storey under the ground and first floors, so its string course stands on the plate's smooth sill course; under each window a light 0.95 m by 1.0 m from 0.22 m, its head read off the plate through its camera, on a 0.1 m plinth where the kit's 0.6 m would have covered the lights (the sill stands about 0.16 m over the plate's, on the plinth). On the bay's flat deck, a 0.7 m stone balustrade round its cheeks and front. What that build invents: the grilles' pattern (the plate's are scrolled panels; K08 draws five bars and one scroll ring), the balustrade's close-set stone bars at 0.12 m for the plate's pierced fretwork panels, whose interlace is not carved, its 0.3 m posts and 0.22 m coping, and the basement storey's 1.75 m, set so the string course lands on the plate's sill course."
+        },
+        {
           "label": "How to resolve",
-          "text": "Earlier work finishes the gable's recess and carving, the balcony, the porch and the ironwork, and brings the match record to `matches`."
+          "text": "Later work (the split) finish the gable's recess and carving, the porch, the front's fabric and the roof, and bring the match record to `matches`."
         },
         {
           "label": "Covers",
@@ -45482,7 +45486,9 @@
         "T-2541",
         "T-1891",
         "T-1837",
-        "T-1892"
+        "T-1892",
+        "T-2917",
+        "T-2920"
       ]
     },
     {
@@ -45954,6 +45960,10 @@
           "text": "ruled. The light is bounded by the post and the built drum, and that end stays at S50.68. Sheet 4 draws the drum 11.09 ft across against sheet 2's printed 10'-0\" mass, and later work kept the plan's drum. So the drawn light's extra 0.96 ft belongs to the drum the drawing draws wide; the light keeps the drawing's own 0.23 ft stone margin to it. The light now sits in the broad dressed-stone panel sheet 4 draws: from behind the post (S45.79) to the drum, and from the upper step's 1.57 ft to 6.24 ft (court garden grille surround (ft)). The panel's stone, depth (30 mm proud) and joints are reconstructed; its extent is the drawing's."
         },
         {
+          "label": "Revised 2026-10-20",
+          "text": "the bow's lights and door, and the stair tower's slits and lantern lights, are read on native sheet 4 (the research notes on glessner court exterior). Two transfers are ours. The bow's lights are drawn as extents along S, so each is set on the plan's arc where its drawn edges project, after later work's +0.65 ft; the arc, not the drawing, decides how far round the curve a light faces. The tower's lights cannot be carried by S at all, because the drawing's drum is wide, so each is set at its angle on the plan's drum: its offset from the drawn drum's centre over the drawn half-width (slits 136 and 225 degrees, lantern 140, 180 and 219). The bow's continuous lintel and sill courses take the drawing's heights and extents; their 50 mm projection, 30 mm bed and the absence of joints are reconstructed, as are the slit stones' depth and the slits' 0.75-ft width on the drum (0.53 ft drawn in projection at about 45 degrees)."
+        },
+        {
           "label": "Recorded",
           "text": "2026-10-15."
         }
@@ -45962,7 +45972,8 @@
         "T-2228",
         "T-2880",
         "T-2879",
-        "T-2906"
+        "T-2906",
+        "T-2925"
       ]
     },
     {
@@ -46004,12 +46015,19 @@
           "text": "`glessner_house.as_built_1887.form.ridge_east_wing`, `glessner_house.as_built_1887.form.dormers`, `glessner_house.as_built_1887.form.rainwater_details`."
         },
         {
+          "label": "Revised 2026-10-20",
+          "text": "the dormer centres later work read in sheet 4's own S (32.1, 45.0, 67.8) are carried onto the plan's frame by later work's +0.65 ft: S32.75, 45.65 and 68.45. Nothing else about them moves."
+        },
+        {
           "label": "Recorded",
           "text": "2026-10-15."
         }
       ],
       "work_refs": [
-        "T-2228"
+        "T-2228",
+        "T-2925",
+        "T-2859",
+        "T-2879"
       ]
     },
     {

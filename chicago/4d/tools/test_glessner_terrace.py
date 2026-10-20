@@ -54,6 +54,9 @@ for reduced in (False,True):
  angle=(a0+a1)/2
  # The leaf is recessed behind the opening's straight chord, not its outer arc.
  half=(a1-a0)/bow['lights_per_row']*.28
+ door=next((s for row in bow.get('light_spans') or [] for s in row if s['door']),None)
+ if door:  # T-2925: the door where sheet 4 draws it
+  angle=(door['a0']+door['a1'])/2;half=(door['a1']-door['a0'])/2
  radius=bow['r']*math.cos(half)-.25
  for delta in (-half*.8,0,half*.8):
   x=bow['cx']+radius*math.cos(angle+delta);y=bow['cy']+radius*math.sin(angle+delta)

@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs04-court-exterior",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6acac3d5247a71c2ca7bd3deb02d4f9cf88f8e8b9957d3867f79663380ae9e96",
+  "glb_sha256": "a13c91336b1a9e41b7e644ba4879832e39e96c7b3597505ecf73b053aa0346a5",
   "camera_sha256": "c9d413f7fa89d5c38c8cbd3f61c5f6ab8dd56819095405939ad9717c94923f5a",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-court-exterior-side-by-side.jpg",
   "verdict": "differs",
@@ -24,15 +24,19 @@
       "status": "not shown"
     },
     {
-      "what": "Found by T-2859: the bow's lights and door do not match the section (sheet 4 draws two broad lights and a narrow one above, and a broad light, the door and a narrow light below, at sizes the build does not have) - T-2862.",
-      "status": "open"
+      "what": "T-2925: the bow's lights, door and stone courses are built to native sheet 4, carried onto the plan's frame by +0.65 ft. Above, two broad lights at S29.08-32.56 and 34.27-36.83 and a narrow one at 37.80-38.69; below, a broad light, the garden door and a narrow light at 29.10-32.59, 34.38-36.83 and 37.86-38.69. Openings 9.05-14.20 and 19.45-24.29 ft. The lintels and the upper sill run as continuous stone courses to the bow's south flank. On the render at the drawing's grain the frames, door and courses fall within about 3 px (0.1 ft) of the drawn lines. The narrow lights, about 63 degrees round the curve from the view, show their deep south reveal and so read as a dark strip about half the drawn width; the opening is set from the drawn edges, and a section drawing does not show a reveal.",
+      "status": "fixed"
     },
     {
-      "what": "Stair tower retains the independently read HABS2 plan centre/radius; HABS4 differs by about0.63ft in S and about0.30ft in radius. Terminal coping return and remaining local aperture/trim correspondence still differ.",
-      "status": "open"
+      "what": "T-2925: the stair tower's lights to sheet 4. Its four slits stand at the drawn heights (north 7.52-12.78 and 18.78-22.46 ft, south 4.70-9.10 and 16.58-20.53), 0.75 ft wide under 1.25-ft head stones and over 0.65-ft sills, and the three lantern lights at 28.2-31.9 ft between a stone sill course at 27.05-28.2 and a lintel course rising to the eave (they stood about a foot low, with a brick strip under the eave). Ruled, not built to this view (T-2879): the tower stays on the plan's drum, so here it renders about 1.1-1.3 ft north of the drawn drum and 0.34 ft narrower each side, which sheet 4 draws 11.09 ft across against sheet 2's printed 10'-0\" mass; each light is therefore placed by its angle on the drum (the fraction of the drawn drum's half-width), not by its drawn S. The terrace coping's terminal at the post is the habs04-terrace-section view's (matches since T-2906).",
+      "status": "fixed"
     },
     {
-      "what": "T-2906 re-zeroed this camera on the plan's frame (+0.65 ft; eye v 7.3455 to 7.1474), as T-2880 did habs04-terrace-section. The terrace steps and the garden light's stone panel now follow sheet 4's terrace section. In this frame, every reading T-2859 took at sheet 4's own S shows 0.65 ft north of the drawn one: the three dormers render about 0.45-0.75 ft north of the drawn dormers (under T-2879 they belong at about S32.75, 45.65 and 68.45). The stair tower reads about 1 ft north of the drawn one, which is T-2879's wide-drum disagreement (the plan governs). T-2862 owns these.",
+      "what": "T-2925 carried the three dormers onto the plan's frame (+0.65 ft, T-2879): S32.75, 45.65 and 68.45. On the render at the drawing's grain the middle dormer's finial falls on the drawn one, and the outer two stand about 7 px (0.23 ft) toward the picture's centre, the far-field camera's 1% depth residual T-2859 recorded (they stand about 5.5 m behind its nominal face); the record puts them where the orthographic drawing does.",
+      "status": "fixed"
+    },
+    {
+      "what": "Found by T-2862's split: the east wing's court face south of the stair tower (S 63-73) is drawn with the upper storey's two windows in one continuous lintel and sill course and the middle storey's two framed windows in theirs; the build has four separate double-hung lights under their own small lintels - T-2926.",
       "status": "open"
     },
     {

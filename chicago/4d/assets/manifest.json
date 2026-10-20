@@ -225,9 +225,9 @@
     "coleman_ames_house_1811_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 4632288,
+      "bytes": 4785636,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "cb1ab1d04246773e9ff3ef64d1cf09f66ebb18cc7c82d81bcaac819198c73d50",
+      "inputs_sha256": "c159d12c2011a77d1cf7ef52ddf09d25690f4b6c7fe54d31c900f7d0c7639d76",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "coleman_ames_house_1811_prairie"
@@ -948,24 +948,24 @@
       "structure_id": "george_glessner_house_1706_prairie"
     },
     "glessner_house__as_built_1887.glb": {
-      "ao_occlusion_mean": 0.558682,
+      "ao_occlusion_mean": 0.555422,
       "archetype": "masonry_house",
       "baked_ao": true,
-      "bytes": 198495680,
-      "inputs_sha256": "e22be8fd557f7058becb1e7443996806c05be6171f7164e22381c6df7830af96",
+      "bytes": 198665988,
+      "inputs_sha256": "0e0039011c1356fad687420811390b8991e8c3866341ff67f8c2872fd7406365",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "web_lods": {
         "light": {
           "asset": "glessner_house__as_built_1887.light.glb",
-          "master_sha256": "8febcc7455b381caa3599a59a832091d001c32601394143ae6902e1e6bd08b7b",
-          "output_sha256": "9d3b4c3478e68c6905e5055e8a606b3f19b219d0513e9a9a174742975a9d0c8a",
-          "recipe_sha256": "bf16f01c10cb665a09784af62a47a9b6a9b94f3d6782b24c718f34a4f2e6aeeb",
-          "triangles": 194466
+          "master_sha256": "a13c91336b1a9e41b7e644ba4879832e39e96c7b3597505ecf73b053aa0346a5",
+          "output_sha256": "916d74f5522a9e54cb749a8475c500c93e373912314c1b445bc27f8c9270eca6",
+          "recipe_sha256": "f88102fb471e6a43303b25c1762b3b3c2243b3c327f062277ade0f7fadceae56",
+          "triangles": 196566
         }
       },
-      "web_master_sha256": "8febcc7455b381caa3599a59a832091d001c32601394143ae6902e1e6bd08b7b"
+      "web_master_sha256": "a13c91336b1a9e41b7e644ba4879832e39e96c7b3597505ecf73b053aa0346a5"
     },
     "glessner_lee_house_1700_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
