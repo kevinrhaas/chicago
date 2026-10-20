@@ -441,3 +441,44 @@ code is an input to every K01, K13 and K16 master, so all of them were re-emitte
 Keith's bytes changed. All sixteen views were re-rendered. In the three that see the bow's
 front (mid-1950s, Nickel 1967, the owner's view looking SW) the print shows the principal lights
 tiered as now built, and the verdicts stand where they were.
+
+## T-2882 — the image gate closed, and this package's acceptance checked off
+
+T-2882 (piece 2 of T-2877) built the last thing a picture showed and the model did not.
+That is a respond on the wall behind each of the loggia's rear pairs: a flat pier 0.25 m
+deep, from the rear pedestal's top to the ceiling. The 1888 plate's lit upright beside the
+north rear pair is its south face, and the first-floor plan's 0.27 m block at the wall is the
+respond with the pair standing on it. The reading is in
+[`keith-loggia-respond-read.json`](../photo-match/keith_house_1808_prairie/keith-loggia-respond-read.json),
+written by `tools/keith_loggia_respond_read.py`; the liberty is `L-k07-1808-loggia-2500`'s
+T-2882 revision. All sixteen reference views were then re-rendered and read again. Every one
+now reads **matches**, with no difference left `open`.
+
+The c. 1888 view looking south-west had been left at `differs` with nothing open on it. Its
+verdict is now settled: every item on the record is fixed or `not shown`, with its reason,
+and the print shows only Keith's crown, upper front, north return and stoop beside Glessner.
+The stoop is the item T-2812 ruled the print cannot place.
+
+Acceptance 1 (T-1883), item by item:
+
+- [x] **Close street views:** `inland-1888` and its three reproductions, the 1965 slide
+  (`a18-gh-1808-porch-1965`) and `nickel-1967` all read matches.
+- [x] **Corner views:** Florian 1948 NE, both Taylor 2135 NE copies, Reed 1941, the
+  mid-1950s view, the c. 1888 and owner's south-west views, the Glessner front, the 1887
+  construction view and the 1888 Glessner plate all read matches.
+- [x] **Aerial / roof:** no picture looks down on the house. Its roof stays reconstructed
+  (`L-k01-keith-finish-1883`). The browser's roof and rear stands are this package's own
+  `after-*-roof` / `after-*-rear` captures above.
+- [x] **Register features accounted for:** the flat top, bow, loggia (front and rear rows,
+  responds), stair, openings, stone and boundary, each fixed or ruled on the match records.
+- [x] **Liberties filed:** `L-k01-keith-finish-1883` and `L-k07-1808-loggia-2500`, revised
+  through T-2882. `compile_liberties.py --check` and `validate.py`'s Covers matching run in
+  `check.sh`.
+- [x] **Licences:** each reference image keeps its library credit and rights statement
+  ([credits](../../../data/sources/assets/inland_architect_1888_02_keith/README.md)). The
+  owner approved the 1888 plate on 2026-10-16. `check.sh`'s dataset step (licences) and its
+  rights-derivation gate pass.
+- [x] **Compressed browser asset:** re-measured by
+  `node tools/k01_contract.mjs --measure-asset keith_house_1808_prairie`. The master is
+  **69,838 triangles**, 26 primitives, 8,128,000 bytes; the web derivative is 3,706,548
+  bytes. Scale, origin and metric-UV checks pass, with zero coincident faces in either tier.
