@@ -1,4 +1,25 @@
 export const CHANGELOG = [ // newest first
+  { v: 2124, ts: '2026-10-20T15:10:09.291Z', date: 'Oct 20, 2026, 10:10 AM CT', title: 'Nothing you can see changed: how smoothly 1904 runs on a phone', kind: 'chore',
+    items: [
+      'Nothing you can see changed. We timed a walk down Prairie Avenue in 1904 on a real phone, at the lightest detail.',
+      'Walking draws about 23 to 25 frames a second there. Flying over 1904 is the slowest part, at about 13, and making it faster is now on the list.',
+    ] },
+  { v: 2123, ts: '2026-10-20T14:52:18.198Z', date: 'Oct 20, 2026, 9:52 AM CT', title: 'Glessner\'s courtyard: the wing over the carriage passage, built to its drawing', kind: 'change',
+    items: [
+      'The four windows above the passage out of the courtyard now stand where the 1963 measured drawing puts them. They are paired under long stone courses, not small separate lintels and sills.',
+      'The passage now has its stone lintel and the two rounded corbels under it, at the drawn width and height.',
+      'The downpipe on that wall moves to the corner where the drawing shows it, with its hopper head.',
+    ] },
+  { v: 2122, ts: '2026-10-20T14:42:44.069Z', date: 'Oct 20, 2026, 9:42 AM CT', title: '1625 Prairie\'s oriel stands on a darker stone base', kind: 'change',
+    items: [
+      'In 1904, the panel under the small bay window on 1625 Prairie\'s south wall is now the house front\'s rough brownstone rather than the bay\'s pale smooth stone. In the 1890 photograph it reads darker and rougher than the wall beside it, in the same sunlight, so it is the stone and not a shadow.',
+      'With that, the house matches its photograph in everything the photograph shows.',
+    ] },
+  { v: 2121, ts: '2026-10-20T14:18:16.801Z', date: 'Oct 20, 2026, 9:18 AM CT', title: '1637 Prairie\'s bow and chimneys, closer to the engraving', kind: 'change',
+    items: [
+      'The rounded bay at the north end of 1637 Prairie Avenue now stops just under the main cornice with a cap of its own, and the cornice runs straight across above it, as the old engraving of Jesse Spalding\'s remodel draws it. Before, the cornice swept round the top of the bay.',
+      'Each of the house\'s three chimneys now has clay pots on top, standing where the engraving draws a dark crown over each one. The engraving is too small to show whether they were plain pots or hooded cowls, so the pots are a reconstruction. Liberty L-k01-1637-stack-pots-2782 records it.',
+    ] },
   { v: 2120, ts: '2026-10-20T13:43:02.123Z', date: 'Oct 20, 2026, 8:43 AM CT', title: 'Nothing you can see changed: graphics card now deals the middle-distance grass', kind: 'chore',
     items: [
       'Nothing you can see changed. The clumps of grass a few metres out to the edge of the meadow stand on the same plants, in the same places, as before.',

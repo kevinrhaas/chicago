@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs04-court-exterior",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "a13c91336b1a9e41b7e644ba4879832e39e96c7b3597505ecf73b053aa0346a5",
+  "glb_sha256": "77e420fa54c1b3af9ab7f57ad0b6fceb3552c03c9df34a7c51d186be17186587",
   "camera_sha256": "c9d413f7fa89d5c38c8cbd3f61c5f6ab8dd56819095405939ad9717c94923f5a",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-court-exterior-side-by-side.jpg",
   "verdict": "differs",
@@ -36,7 +36,23 @@
       "status": "fixed"
     },
     {
-      "what": "Found by T-2862's split: the east wing's court face south of the stair tower (S 63-73) is drawn with the upper storey's two windows in one continuous lintel and sill course and the middle storey's two framed windows in theirs; the build has four separate double-hung lights under their own small lintels - T-2926.",
+      "what": "Found by T-2862's split: the east wing's court face south of the stair tower (S 63-73) is drawn with the upper storey's two windows in one continuous lintel and sill course and the middle storey's two framed windows in theirs; the build has four separate double-hung lights under their own small lintels - T-2926. T-2926 built it to native sheet 4 (readings: docs/RESEARCH/glessner-court-face-T-2926/).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2926: the court face south of the stair tower to native sheet 4, carried onto the plan's frame by +0.65 ft. Over the underpass two lights 3.0 ft wide (S64.34-67.35 and 69.83-72.90, 12.1-15.5 ft) on one sill course (11.3-12.1) under one lintel course (15.5-16.76), run 64.03-73.26; under the eave two lights 2.05 ft wide (64.84-66.88 and 70.31-72.36, 21.2-24.9 ft) on one sill course (20.45-21.2) under one lintel course (24.9-26.1), run 64.51-72.65. Before, four equal lights 2.5 ft wide stood about 2.5 ft north of these, each under its own small lintel and on its own sill, the lower pair 1.4 ft too tall. On the render at the drawing's grain every frame and course edge falls within about 0.2 ft of the drawn line, the offset being toward the picture's centre: the far-field camera's 1% depth residual T-2859 recorded.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2926: the underpass exit to sheet 4: 9.0 ft wide (S62.96-71.96, was 63.3-72.9) and 7.22 ft clear (was 8.1) under a stone lintel 7.22-8.9 ft that runs to the wing's south end, with a stone corbel standing 0.5 ft in from each jamb at 6.0-7.22 ft, its lower inner corner rounded. The passage's court-end ceiling and the drive's outline follow the new mouth. How far a corbel runs into the passage is not drawn (1.5 ft, reconstructed).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2926: sheet 4 draws the east court's south leader at the wing's south end under a hopper head, not beside the stair tower: the leader moves from S61.61 to 73.68 and takes a hopper head 0.47 m across, hung under the gutter with its top at the drawn 26.87 ft. The pipe keeps the existing stock, about 0.04 m narrower than drawn.",
+      "status": "fixed"
+    },
+    {
+      "what": "Found by T-2926: between the bow and the stair tower the first-floor window (drawn about 9.6-14.2 ft under a lintel stone about 14.2-15.3, built 9.5-14.6 under a thin one), the narrow second-floor light and its stones (drawn about 20.0-25.0 under a stone at 25.0-26.2), the garden-level light's grille at S47-50, and the court-east-north leader at S42.4, which sheet 4 does not draw - T-2928.",
       "status": "open"
     },
     {

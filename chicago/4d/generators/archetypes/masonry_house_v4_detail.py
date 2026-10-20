@@ -824,6 +824,9 @@ def opening(b,o,courtyard=False):
     if kind=='band':
         if o.get('style')=='rock_faced_lintel':
             rock_lintel(b,o)
+        elif o.get('style')=='rough_course':
+            # T-2926: a continuous rock-faced lintel or sill course over several lights.
+            rough_lintel(b,o,a,c,z0,z1,conf)
         elif o.get('face')=='east' and c-a>3 and z0>5:
             ornament.sill(b,o)
         else:
@@ -834,6 +837,8 @@ def opening(b,o,courtyard=False):
         return
     if kind=='dark' and o.get('face')=='west' and o.get('at',0)>30 and z0<.1 and c-a>2:
         # The porte-cochere is a through passage, not a panel of black glazing.
+        if o.get('corbels'):
+            passage_corbels(b,o)
         return
     if o.get('style')=='north_entry_alcove':
         ring(b,o,(a+c)/2,o['spring_z'],(c-a)/2,o['r_out'],o.get('voussoirs') or 15,conf)
@@ -907,7 +912,8 @@ def opening(b,o,courtyard=False):
             sash.slit_sash(b,o,a,c,z0,z1,conf,sill_mat=sill_mat)
             return
         if not small:
-            sash.double_hung(b,o,a,c,z0,z1,conf,divided=o.get('sash')=='two_over_two',sill_mat=sill_mat)
+            sash.double_hung(b,o,a,c,z0,z1,conf,divided=o.get('sash')=='two_over_two',sill_mat=sill_mat,
+                             sill=not o.get('courses'))
             if courtyard and z1<1.8:
                 # HABS photograph 05: the court's garden-level lights are barred.
                 sash.garden_bars(b,o,a,c,z0,z1,conf)
@@ -915,7 +921,7 @@ def opening(b,o,courtyard=False):
                 linen_shade(b,a,c,z0,z1,lambda u,z,off:legacy._plane_point(o,u,z,off),
                             legacy._plane_dir(o),conf,int((a*17+c*31+o['at']*7+z0)*10003),
                             prairie_colonnade=(not courtyard and o.get('face')=='east' and z0>5))
-            if courtyard:
+            if courtyard and not o.get('courses'):
                 rough_lintel(b,o,a-.24,c+.24,z1+.006,z1+.21,conf)
             return
     frame=.025 if small else .062
@@ -947,6 +953,24 @@ def opening(b,o,courtyard=False):
         # Courtyard photographs show brick jambs with rock-faced limestone
         # heads and sills. Full stone jambs belong to the dining bay only.
         rough_lintel(b,o,a-.24,c+.24,z1+.006,z1+.21,conf)
+
+
+def passage_corbels(b,o):
+    """T-2926: the two stone corbels that narrow a passage mouth under its lintel.
+
+    Sheet 4 draws each as a block standing in from its jamb, its lower inner corner
+    rounded. How far it runs into the passage is not drawn (`depth`, reconstructed).
+    """
+    cb=o['corbels'];a,c=o['u0'],o['u1'];z0,z1=cb['z0'],cb['z1']
+    w,r=cb['inset'],min(cb['round'],cb['inset'],z1-cb['z0'])
+    arc=[(r*math.cos(math.pi*i/16),r*math.sin(math.pi*i/16)) for i in range(9)]
+    for jamb,inward in ((a,1),(c,-1)):
+        edge=jamb+inward*w
+        # The quarter round's centre stands r in from the corbel's face and r above its foot.
+        cu,cz=edge-inward*r,z0+r
+        poly=[(jamb,z0),(cu,z0)]+[(cu+inward*dx,cz-dz) for dz,dx in arc[1:]]+[(edge,z1),(jamb,z1)]
+        if inward<0:poly.reverse()
+        solid_polygon(b,o,poly,-cb['depth'],.02,o['conf'],ROUGH_TRIM)
 
 
 def detailed_door(b,o,style):

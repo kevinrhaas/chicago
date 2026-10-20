@@ -865,8 +865,25 @@ The aerial stand had never been read aloft: `--captures` teleported the walker t
 road, pitched 30° down at the asphalt. Its first reading was 0 px against 0 px,
 which is a frame with no house in it and not evidence. The tool now flies through the
 HUD first, as `goTo` does, and fails an aloft stand whose eye is not aloft when it is
-read. The moving p95 frame time is still not read; the steward runner's SwiftShader
-draws one frame in seconds, so it needs a GPU (T-2719).
+read. The moving p95 frame time could not be read here: the steward runner's
+SwiftShader draws one frame in seconds, so it was taken on a GPU (T-2719, below).
+
+**The moving p95 on Prairie Avenue, read on the owner's phone 2026-10-20 (T-2719,**
+`t-2719-owner-phone-1904.txt`, iPhone, Chrome for iOS, Light, Sharpness Low, 15 s a mode,
+1904's walk south along Prairie Avenue's east walk). Milliseconds between draws:
+
+| move | mode | draws | median | sd | p95 | >33 ms | >50 ms |
+|---|---|---|---|---|---|---|---|
+| walk | Fixed | 346 | 43 | 3.6 | **50** | 345 | 14 |
+| walk | Adaptive | 378 | 40 | 4.8 | **48** | 339 | 10 |
+| turn | Fixed | 430 | 32 | 10.0 | 53 | 199 | 57 |
+| turn | Adaptive | 499 | 26 | 10.3 | 51 | 166 | 26 |
+| flight | Fixed | 194 | 80 | 6.6 | 85 | 193 | 193 |
+| flight | Adaptive | 202 | 73 | 8.1 | 90 | 201 | 201 |
+
+T-2598's scripted walk held its texture budget on this runner; on the phone the same street
+does not hold 30 fps: the walk's p95 is 48-50 ms and nearly every draw is over 33 ms. The 1835 walk on the same phone read p95 41-43 ms
+(T-2733). The 1904 flight, at median 73-80 ms, is the largest cost here (T-2927).
 
 **The 1904 memory ceilings, re-read at spawn with residency (T-2718).** The spawn
 reading now lets residency finish its paced uploads before it reads (it was already
