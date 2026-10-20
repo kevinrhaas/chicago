@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2110, ts: '2026-10-20T08:28:33.157Z', date: 'Oct 20, 2026, 3:28 AM CT', title: 'Glessner\'s front door arch stands as tall as the measured drawing', kind: 'improvement',
+    items: [
+      'The fan of stones over Glessner\'s Prairie Avenue door is now stilted, as the 1963 measured drawing and the architect\'s own detail both draw it: its centre stands half a foot above the springing, so the crown rises to 16 ft and the lowest stones run straight down to the lintel.',
+      'The carved field inside the arch now has the drawing\'s eight curling rings, unequal and not mirrored, growing on stems from a small boss at the foot, in place of a symmetrical tree.',
+      'The drawing\'s door is a later one: a photograph of about the 1890s-1920s shows the house number and a centre knob where Richardson\'s office drew them, so the door stays the office\'s.',
+    ] },
   { v: 2109, ts: '2026-10-20T08:22:59.372Z', date: 'Oct 20, 2026, 3:22 AM CT', title: '1811 Prairie\'s roofs raised to its 1888 photograph', kind: 'feature',
     items: [
       'The Ames house at 1811 Prairie Avenue now has its roofline from the 1888 Inland Architect photograph. Over the north bay stands a stone gable with a finial, a pinnacle at each corner and three lights for the top storey.',
