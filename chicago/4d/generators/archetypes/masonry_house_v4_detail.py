@@ -348,6 +348,7 @@ class DetailBuilder(MeshBuilder):
                 self.openings.append({**a,'u0':a['u1']-.001,'u1':c['u0']+.001,
                                       'z0':a['z0']+.06,'z1':a['z1']-.035})
         self.course_schedule = params.detail.get('ashlar_courses_m') or [0.4572,0.4572,0.3937,0.2413,0.3429,0.3683,0.1905,0.3683,0.1905,0.2921]
+        self.ashlar_base = params.detail.get('ashlar_base_m', 0.0)
         self.masonry_blocks = self.roof_tiles = 0
         self.roof_uvs = {}
         self.roof_detail = {}
@@ -486,9 +487,15 @@ class DetailBuilder(MeshBuilder):
         x0,z0,x1,z1 = bounds(polygon)
         courses = []
         z = getattr(self, 'course_origin', 0.0)
+        # T-2913: the schedule's first bed joint stands on the record's base, so
+        # the granite's lowest course runs from grade up past it (a chimney's own
+        # origin keeps its single course).
+        lift = 0.0 if mat == BRICK or hasattr(self, 'course_origin') else getattr(self, 'ashlar_base', 0.0)
         idx = 0
         while z < z1+1e-6:
             height = .066675 if mat == BRICK else self.course_schedule[idx%len(self.course_schedule)]
+            if idx == 0:
+                height += lift
             if z+height > z0:
                 courses.append((idx,max(z,z0),min(z+height,z1)))
             z += height

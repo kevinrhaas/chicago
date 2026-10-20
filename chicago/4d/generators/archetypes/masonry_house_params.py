@@ -798,6 +798,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                                       chimney_foot(p,chimney['x1']))
         p.detail["ashlar_courses_m"] = [round(float(h) * 0.0254, 6)
                                           for h in raw.get("ashlar_courses_in", [])]
+        # T-2913: the height the granite's first course rises from (sheet 5's Prairie
+        # base line); without it the courses rise from grade.
+        if "ashlar_base" in raw:
+            p.detail["ashlar_base_m"] = fr.zval(raw["ashlar_base"])
         p.detail["ashlar_relief_m"] = [float(v) * FT for v in
                                         raw.get("ashlar_relief_ft", [0.025,0.15])]
         p.detail["conf"] = cf("v4_detail")
