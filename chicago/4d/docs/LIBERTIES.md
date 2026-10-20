@@ -28856,6 +28856,12 @@ Light omits only stair-drum wall patches inside the east-wing envelope, inset40m
 
 **Covers:** `glessner_house.as_built_1887.form.tower_stair`, `glessner_house.as_built_1887.form.v4_detail`.
 **Ticket:** T-2228.
+**Revised 2026-10-20 (T-2880):** the garden light's bounds are sheet 4's frame. Re-zeroed onto the plan (+0.65 ft,
+T-2879) its north jamb is S47.13. Its re-zeroed south jamb, S51.63, falls inside the plan's stair drum, which meets the
+W26.5 face at S50.91 and which sheet 4 draws wide, so the jamb is held the drawing's 0.23 ft clearance short of the
+drum, at S50.68. The light is 3.55 ft clear against the drawing's 4.5. Which of the drawn light and the drawn drum is
+right about that end is not settled by either sheet. T-2879 also settles the tower: its S56.73/r5.55 is the drum drawn
+wide, not a second position.
 **Recorded:** 2026-10-15.
 
 ### L-glessner-court-roof-2228 — courtyard eave, dormers and bell finials
@@ -29448,6 +29454,12 @@ solved camera) can move the junction along S.
 **Applies to:** `data/structures/glessner_house.json` (`v4_detail.bow_terrace.newel_WS`, `newel_radius_ft`,
 the last three `stair_boundaries_WS`); see `docs/RESEARCH/glessner-terrace-terminal-T-2759/`.
 **Recorded:** 2026-10-18 (T-2759).
+**Revised 2026-10-20 (T-2880):** T-2879 found the datum shift this entry's Bounds said did not exist: sheet 4 reads
+the whole court 0.65 ft north of sheet 2's printed chain (a shift, not a scale), and the tower's opposite 0.63 ft was
+its drum drawn wide (`docs/RESEARCH/glessner-court-ruling-T-2879/`). So the coping's traced knots and the two grilles,
+read on sheet 4, are built 0.65 ft south, and the traced coping now ends at S46.0, on the drawn post's re-zeroed north
+edge. The reconstructed shoulder keeps its 4.35 ft crown spring at the wall's end, S46.8, on the post's centre, so it
+now runs 0.8 ft inside the post instead of 1.45 ft over the open court. The post itself does not move.
 
 ### L-glessner-stable-roof-camera-2758 — Glessner's stable roof kept at its heights: the 2 ft was the camera (2026-10-18)
 
