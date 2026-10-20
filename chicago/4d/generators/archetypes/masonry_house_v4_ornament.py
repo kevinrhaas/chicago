@@ -382,7 +382,8 @@ def fan(b, o):
 
 def sill(b, o):
     """Egg-and-dart, bead-and-reel, and two carved terminal blocks."""
-    r=Relief(b,o,b.params.detail.get('conf',o['conf']))
+    # T-2965: the carved string is the front's granite, as the colonnettes over it.
+    r=Relief(b,o,b.params.detail.get('conf',o['conf']),CARVED_GRANITE)
     a,c,z0,z1=o['u0'],o['u1'],o['z0'],o['z1'];height=z1-z0
     r.box(a,c,z0-.018,z1+.014,-.015,.069)
     # Two continuous rails frame the U-shaped eggs, with a bead row below.
@@ -425,88 +426,242 @@ def _shaft(r,u,z0,z1,gap):
                normal=(math.cos((a+c)/2),0,math.sin((a+c)/2)))
 
 
-def _capital(r,u,z1,gap,variant):
-    half=gap*.88;low=z1-.31;high=z1-.035;height=high-low
-    # Tapered bell: broad shoulders over a narrower round column neck.
-    for j in range(16):
-        a,c=2*math.pi*j/16,2*math.pi*(j+1)/16
-        for k in range(7):
-            p,q=k/7,(k+1)/7
-            def P(t,th):
-                rad=gap*(.61+.25*math.sin(math.pi*t/2))
-                return u+rad*math.cos(th),low+height*t,.055+rad*math.sin(th)
-            r.face([P(p,a),P(p,c),P(q,c),P(q,a)],
-                   normal=(math.cos((a+c)/2),.15,math.sin((a+c)/2)))
-    r.box(u-half,u+half,high-.018,z1-.012,-.075,.198)
-    for side in (-1,1):
-        _scroll(r,u+side*half*.51,low+height*.71,half*.48,.224,
-                -side,math.pi*.15 if side>0 else math.pi*.85)
-    # Three hanging acanthus blades define deep eye-shaped undercuts.
-    for j in range(3):
-        x=u+(j-1)*half*.65
-        r.leaf(x,low+.018,math.pi*.5+(j-1)*.14,height*.68,
-               half*.77,.178,.050,(j-1)*.15,True,j*.4,16)
-    if variant==1:
-        # The middle capital has a small woven field above its central leaf.
+def _taper(r,u,z0,z1,r0,r1,depth=.07,sides=28):
+    """T-2965: a straight-tapered round shaft, radius r0 at z0 narrowing to r1 at z1."""
+    rise=(r0-r1)/max(1e-6,z1-z0)
+    for j in range(sides):
+        a,c=2*math.pi*j/sides,2*math.pi*(j+1)/sides;m=(a+c)/2
+        r.face([(u+r0*math.cos(a),z0,depth+r0*math.sin(a)),
+                (u+r0*math.cos(c),z0,depth+r0*math.sin(c)),
+                (u+r1*math.cos(c),z1,depth+r1*math.sin(c)),
+                (u+r1*math.cos(a),z1,depth+r1*math.sin(a))],
+               normal=(math.cos(m),rise,math.sin(m)))
+
+
+def _splayed_base(r,u,z0,z1,w0,w1,depth=.07,fillet=.015):
+    """T-2965: sheet 6's angular base, a square block splayed out to the sill.
+
+    A short upright fillet at the sill, then four flat faces leaning in to a square
+    top a little wider than the shaft's foot (the joint sheet 6 and the c. 1888 front
+    show where shaft and base meet)."""
+    rings=((z0,w0),(z0+fillet,w0),(z1,w1))
+    corners=((-1,-1),(1,-1),(1,1),(-1,1))
+    for (za,wa),(zb,wb) in zip(rings,rings[1:]):
+        lean=(wa-wb)/max(1e-6,zb-za)
+        for (sa,ta),(sc,tc) in zip(corners,corners[1:]+corners[:1]):
+            nu,nd=(sa+sc)/2,(ta+tc)/2
+            r.face([(u+sa*wa,za,depth+ta*wa),(u+sc*wa,za,depth+tc*wa),
+                    (u+sc*wb,zb,depth+tc*wb),(u+sa*wb,zb,depth+ta*wb)],
+                   normal=(nu,lean,nd))
+    r.face([(u+s*w1,z1,depth+t*w1) for s,t in corners],normal=(0,1,0))
+
+
+def cushion(neck,half,t):
+    """T-2965: the block capital's section at height t (0 at the neck, 1 at the top).
+
+    The museum's 2013 close-ups show a cubic block, its upper half straight-sided
+    under the carved band and its lower half rounded in to the round shaft (a
+    cushion). Returns (half-size, superellipse exponent): a circle of the neck's
+    radius at the foot, a near-square of the block's half-width from 0.6 up."""
+    t=min(1.,max(0.,t));e=math.sin(math.pi/2*min(1.,t/.60))
+    # A slight belly under the band, as capital 2's close-up shows.
+    return (neck+(half-neck)*e)*(1+.05*math.sin(math.pi*min(1.,t/.85))),2.+8.*e**2
+
+
+def _section(size,power,th):
+    c,s=math.cos(th),math.sin(th)
+    return (size*math.copysign(abs(c)**(2/power),c),size*math.copysign(abs(s)**(2/power),s))
+
+
+def _block(r,u,low,z1,neck,half,depth,sides=32,rows=10):
+    """The capital's block, lofted from the neck's circle to its square top."""
+    rings=[]
+    for k in range(rows+1):
+        t=k/rows;size,power=cushion(neck,half,t)
+        rings.append([(u+x,low+(z1-low)*t,depth+y) for x,y in
+                      (_section(size,power,2*math.pi*(j+.5)/sides) for j in range(sides))])
+    for k in range(rows):
+        for j in range(sides):
+            n=(j+1)%sides;th=2*math.pi*(j+1)/sides
+            r.face([rings[k][j],rings[k][n],rings[k+1][n],rings[k+1][j]],
+                   normal=(math.cos(th),.2,math.sin(th)))
+    r.face(rings[-1],normal=(0,1,0))
+
+
+def _volute(r,x,z,radius,mirror,depth,turns=1.5,thick=.019):
+    """A flat spiral scroll, coiling inward, as the corners of the 2013 close-ups."""
+    path=[]
+    for i in range(41):
+        t=i/40;th=math.pi*.5+mirror*2*math.pi*turns*t
+        rr=radius*(1-.82*t)
+        path.append((x+rr*math.cos(th),z+rr*math.sin(th),depth))
+    r.tube(path,lambda t:thick*(1-.4*t),7)
+
+
+def _band(r,u,z0,z1,half,motif,front):
+    """The carved band across the block's top (the 2013 close-ups and sheet 6)."""
+    h=z1-z0;zc=(z0+z1)/2;w=half*.92
+    if motif=='discs':
         for j in range(5):
-            x=u+(j-2)*half*.34
-            r.tube([(x,high-.045,.235),(x+half*.13,high+.005,.229)],.009,8)
-        for j in range(3):
-            zz=high-.045+j*.026
-            r.tube([(u-half*.79,zz,.232),(u+half*.79,zz,.232)],.008,8)
-        r.arc(u,low+height*.65,half*.28,.247,.012,0,2*math.pi,32)
+            r.bead(u+w*(j-2)/2.4,zc,front,h*.36,1)
         for j in range(4):
-            th=math.pi/4+j*math.pi/2
-            r.leaf(u,low+height*.65,th,half*.24,half*.15,.248,.012,
-                   .04,False,steps=8)
-    else:
-        # Unlike top treatments are plainly visible in the supplied closeup.
+            x=u+w*(j-1.5)/2.4
+            r.solid([(x-h*.10,zc),(x,zc-h*.26),(x+h*.10,zc),(x,zc+h*.26)],front-.01,front+.012)
+    elif motif=='checker':
+        n=8;step=2*w/n
+        for row in range(2):
+            for j in range(n):
+                if (j+row)%2:continue
+                x0=u-w+j*step;zb=z0+h*(.12+.44*row)
+                r.box(x0+step*.08,x0+step*.92,zb,zb+h*.38,front-.012,front+.014)
+    elif motif=='diamonds':
         for j in range(5):
-            x=u+(j-2)*half*.36
-            if variant==0:
-                r.tube([(x-half*.13,high-.012,.224),(x,high+.019,.230),
-                        (x+half*.13,high-.012,.224)],.008,8)
-            else:
-                r.arc(x,high-.001,half*.13,.222,.008,0,2*math.pi,16)
+            x=u+w*(j-2)/2.4
+            r.solid([(x-w*.19,zc),(x,z0+h*.08),(x+w*.19,zc),(x,z1-h*.08)],front-.012,front+.016)
+    elif motif=='chevron':
+        pts=[(u-w+2*w*i/10,(z0+h*.18) if i%2 else (z1-h*.18),front+.008) for i in range(11)]
+        r.tube(pts,.011,7)
+        r.tube([(u-w,z0+h*.06,front+.004),(u+w,z0+h*.06,front+.004)],.007,6)
+    else:  # 'slots': a dentil row of upright blocks
+        n=9;step=2*w/n
+        for j in range(n):
+            x0=u-w+j*step
+            r.box(x0+step*.18,x0+step*.82,z0+h*.10,z1-h*.10,front-.012,front+.014)
+
+
+def _monogram(r,u,z,radius,d):
+    """Richardson's monogram, as the museum records it on the capital over the door:
+    two mirrored R's back to back on an H, boxed, inside a large ring."""
+    t=.014
+    r.arc(u,z,radius,d,t*1.3,0,2*math.pi,48)
+    bw,bh=radius*.62,radius*.50
+    r.tube([(u-bw,z-bh,d),(u+bw,z-bh,d),(u+bw,z+bh,d),(u-bw,z+bh,d),(u-bw,z-bh,d)],t,6)
+    r.tube([(u,z-bh*.85,d+.004),(u,z+bh*.85,d+.004)],t,6)
+    r.tube([(u-bw*.8,z+bh*.05,d+.004),(u+bw*.8,z+bh*.05,d+.004)],t*.85,6)
+    for m in (-1,1):
+        x=u+m*bw*.42
+        r.tube([(x,z-bh*.85,d+.004),(x,z+bh*.85,d+.004)],t,6)
+        a0,a1=(-math.pi/2,math.pi/2) if m>0 else (math.pi/2,3*math.pi/2)
+        r.arc(x+m*bw*.20,z+bh*.45,bw*.22,d+.004,t*.85,a0,a1,12)
+        r.tube([(x,z+bh*.05,d+.004),(x+m*bw*.42,z-bh*.85,d+.004)],t*.85,6)
+
+
+def _lattice(r,u,z,rx,rz,d,pitch):
+    """Basket weave inside an oval: two crossing families of straps, over and under."""
+    for fam in (-1,1):
+        k=-int(2*(rx+rz)/pitch)
+        while k*pitch<2*(rx+rz):
+            pts=[]
+            for i in range(25):
+                x=-1.5*rx+3*rx*i/24;zz=fam*(x-k*pitch)*.7
+                if (x/rx)**2+(zz/rz)**2<=1:
+                    weave=.004*math.sin(math.pi*(i+k)/3)
+                    pts.append((u+x,z+zz,d+.006+fam*weave))
+            if len(pts)>2:r.tube(pts,.015,6)
+            k+=1
+    r.tube([(u+rx*math.cos(2*math.pi*i/40),z+rz*math.sin(2*math.pi*i/40),d+.008) for i in range(41)],.016,6)
+
+
+def _capital(r,u,low,z1,neck,half,spec,depth=.07):
+    """T-2965: one Prairie capital, carved to its own picture.
+
+    The block is the 2013 close-ups' cushion; ``spec`` (one of the record's
+    prairie_colonnette.capitals, which run south to north) names what each one
+    carries, read off HABS sheet 6, which draws all seven, and the museum's three
+    2013 close-ups (the monogram capital over the door and its two neighbours): the
+    top band (discs, checker, diamonds, chevron or slots), the body (monogram,
+    lattice, interlace, roundel, crossing stems or boss), the corner volutes and
+    the row of drilled leaf tips. The carving's own cuts are reconstructed."""
+    h=z1-.012-low;top=z1-.012
+    _block(r,u,low,top,neck,half,depth)
+    def face(x,z):
+        size,power=cushion(neck,half,(z-low)/h)
+        q=min(abs(x-u),size*.999)
+        return depth+(size**power-q**power)**(1/power)
+    rb=Relief(r.b,r.p,r.conf,r.mat,profile=face)
+    F=lambda fx,fz:(u+fx*half,low+fz*h)
+    band0=low+h*.80
+    front=depth+half
+    _band(r,u,band0,top-.006,half,spec.get('band','discs'),front)
+    r.tube([(u-half*.96,band0-.004,front+.004),(u+half*.96,band0-.004,front+.004)],.007,6)
+    body=spec.get('body','boss')
+    if spec.get('volutes',True):
+        for m in (-1,1):
+            x,z=F(m*.66,.64)
+            _volute(rb,x,z,half*.27,-m,.014)
+            # The stem that ends in each volute rises from the block's foot.
+            rb.tube([(*F(m*.12,.30),.006),(*F(m*.40,.46),.010),(*F(m*.62,.58),.010),
+                     (x+m*half*.02,z+half*.25,.014)],.016,7)
+    x,z=F(0,.56)
+    if body=='monogram':
+        _monogram(rb,x,z,half*.46,.012)
+    elif body=='lattice':
+        _lattice(rb,x,F(0,.50)[1],half*.60,h*.26,.006,half*.22)
+    elif body=='interlace':
+        for m in (-1,1):
+            rb.tube([(*F(-.55*m,.74),.010),(*F(-.2*m,.56),.016),(*F(.25*m,.40),.010),
+                     (*F(.5*m,.30),.006)],.020,7)
+        rb.arc(x,z,half*.16,.016,.011,0,2*math.pi,24)
+    elif body=='roundel':
+        zr=F(0,.52)[1]
+        rb.arc(x,zr,half*.46,.014,.018,0,2*math.pi,48)
+        for j in range(8):
+            th=math.pi*j/4+math.pi/8
+            rb.leaf(x+.014*math.cos(th),zr+.014*math.sin(th),th,half*.38,half*.22,.012,.022,
+                    .05,False,steps=6)
+    elif body=='crossing':
+        for m in (-1,1):
+            rb.tube([(*F(.45*m,.30),.006),(*F(.05*m,.52),.016),(*F(-.35*m,.70),.014)],.019,7)
+        rb.solid([(x-half*.10,z+h*.12),(x,z+h*.02),(x+half*.10,z+h*.12),(x,z+h*.22)],.004,.022)
+    else:  # 'boss': a round boss between the stems
+        rb.bead(x,z,.010,half*.18,1)
+        rb.arc(x,z,half*.26,.012,.014,0,2*math.pi,32)
+    if spec.get('leaves',True):
+        # Stiff blades rising off the neck, each tip turned over into a curl (the
+        # close-ups' lower halves).
+        for j in range(4):
+            fx=(j-1.5)*.34;m=1 if fx>0 else -1
+            x0,z0=F(fx*.55,.10);x1,z1=F(fx,.44)
+            rb.leaf(x0,z0,math.atan2(z1-z0,x1-x0),math.hypot(x1-x0,z1-z0),half*.24,.006,.030,
+                    -m*.10,False,j*.7,10)
+            # The curl stops coiling while its turn is still wider than the tube is
+            # thick: tighter, the tube's rings fold into faces K01 counts twice.
+            cx,cz,R=x1+m*half*.07,z1-half*.02,half*.08
+            rb.tube([(cx+R*(1-.5*t)*math.cos(math.pi*.5+m*2.2*math.pi*t),
+                      cz+R*(1-.5*t)*math.sin(math.pi*.5+m*2.2*math.pi*t),.012)
+                     for t in (i/16 for i in range(17))],lambda t:.009*(1-.3*t),7)
 
 
 def columns(b, params):
-    """Retain all Prairie shafts; give the entry's three capitals distinct carving."""
+    """T-2965: every Prairie colonnette to HABS sheets 3 and 6 and the photographs.
+
+    A splayed square base, a straight-tapered round shaft and a carved block capital,
+    the round front of a stone mullion flush with the wall's face (sheet 3), cut in
+    the house's granite. Each capital carries its own carving, from the record's
+    prairie_colonnette.capitals (south to north)."""
+    spec=params.detail.get('prairie_colonnette') or {}
+    caps=spec.get('capitals') or []
     ops=sorted([o for o in params.openings if o['kind']=='window' and
                 o['face']=='east' and o['z0']>5],
                key=lambda o:(round(o['at'],3),round(o['z0'],2),o['u0']))
-    bands=[o for o in params.openings if o['kind']=='band' and
-           o['face']=='east' and o['z0']>5 and o['u1']-o['u0']>3]
+    n=0
     for a,c in zip(ops,ops[1:]):
         gap=c['u0']-a['u1']
         if not .12<gap<.3 or abs(a['z0']-c['z0'])>.05 or abs(a['at']-c['at'])>.05:
             continue
-        u=(c['u0']+a['u1'])/2;z0,z1=a['z0'],a['z1']
-        r=Relief(b,a,params.detail.get('conf',max(a['conf'],c['conf'])))
-        _shaft(r,u,z0+.05,z1-.29,gap)
-        r.box(u-gap*.78,u+gap*.78,z0,z0+.075,-.08,.16)
-        _shaft(r,u,z0+.075,z0+.094,gap*1.08)
-        band=next((o for o in bands if o['u0']<u<o['u1'] and abs(o['at']-a['at'])<.05),None)
-        if band:
-            variant=min(2,max(0,int(3*(u-band['u0'])/(band['u1']-band['u0']))))
-            _capital(r,u,z1,gap,variant)
-        else:
-            # Preserve the prior alternate's coarse treatment outside the
-            # photographed entry instead of borrowing the entry's motifs.
-            r.box(u-gap*.88,u+gap*.88,z1-.19,z1-.035,-.07,.18)
-            for j in range(5):
-                dx=(j-2)*gap*.29
-                r.solid([(u+dx-.022,z1-.13),(u+dx,z1-.195),
-                         (u+dx+.022,z1-.13),(u+dx,z1-.055)],.17,.185)
-            for j in range(8):
-                theta=2*math.pi*j/8
-                for k in range(4):
-                    def P(t,side):
-                        rad=gap*(.60+.22*math.sin(math.pi*t))
-                        aa=theta+side*.27*math.sin(math.pi*t)
-                        return u+rad*math.cos(aa),z1-.29+.25*t,.07+rad*math.sin(aa)
-                    r.face([P(k/4,-1),P(k/4,1),P((k+1)/4,1),P((k+1)/4,-1)],
-                           normal=(math.cos(theta),0,math.sin(theta)))
+        u=(c['u0']+a['u1'])/2;z0,z1=a['z0'],a['z1'];h=z1-z0
+        r=Relief(b,a,params.detail.get('conf',max(a['conf'],c['conf'])),CARVED_GRANITE)
+        foot=spec.get('shaft_foot_m',gap*1.24)/2;neck=spec.get('shaft_neck_m',gap*.98)/2
+        base=z0+h*spec.get('base_share',.13);low=z1-h*spec.get('capital_share',.33)
+        depth=-foot
+        r.box(u-gap*.5-.004,u+gap*.5+.004,base,low,-spec.get('mullion_depth_m',.46),depth)
+        _splayed_base(r,u,z0,base,spec.get('base_foot_m',gap*1.8)/2,foot+.008,depth)
+        _taper(r,u,base,low,foot,neck,depth)
+        # The openings run north to south along u (u grows northward); the record
+        # lists the capitals south to north, so they are taken in the same order.
+        _capital(r,u,low,z1,neck,spec.get('abacus_m',gap*2.3)/2,
+                 caps[n] if n<len(caps) else {},depth)
+        n+=1
 
 
 def build_entry_ornament(b, params, part='all'):

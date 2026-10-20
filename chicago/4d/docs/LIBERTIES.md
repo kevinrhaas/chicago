@@ -30532,6 +30532,32 @@ and their number.
 **Review:** `data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`.
 **Recorded:** 2026-10-20 (T-2782).
 
+### L-glessner-colonnettes-2965 — Glessner's seven Prairie colonnettes: their capitals' carving cut from sheet 6 and three close-ups
+
+**Decision:** the second-floor colonnettes on the `glessner_house` Prairie front (T-2965) are
+rebuilt from HABS sheets 3 and 6 and the owner's photographs: a splayed square base, a
+straight-tapered round shaft, the round front of a stone mullion flush with the wall's face, and a
+cushion block capital, all in the front's granite. Each capital carries its own carving, south to
+north (`prairie_colonnette.capitals` in the record). **What is read.** Sheet 6 (75.5 px/ft) draws
+all seven and their bases, shafts and capitals' outlines; sheet 3 cuts each as a round-fronted
+mullion about 0.95 x 1.5 ft; the Glessner House Museum's 2013 post "The stone capitals on Glessner
+House" (three close-ups held as `a18-ghm-blog-capital-*`) says the capitals were carved in place by
+John Evans's carvers from August 1887, every one different, the one over the door carrying
+Richardson's monogram, and shows that one and its two neighbours; the c. 1888 front
+(`a18-gh-glessner-front-with-keith`) shows the taper and the base joint; Taylor 2135 the granite.
+**What is invented.** Every cut, depth and stem path; the bodies of the four capitals no close-up
+shows, read off the sheet's small, stippled drawing (a slotted band over crossing straps; a
+zigzag band over a leaf roundel; discs over a boss; discs over basket weave); the leaf tips and
+volutes repeated on all but the monogram capital; the letterforms of the monogram. The
+heights are shares of the record's 4.5-ft opening (the sheet draws 5.0 ft; not taken up here).
+**What is not changed.** The openings, the sashes, the carved string's own carving (now granite),
+the north gable pair's colonnettes.
+**How to resolve:** close photographs of the other four capitals, and a square one of each of
+the seven, would let every band and body be cut as carved.
+**Ticket:** T-2965.
+**Review:** `docs/RESEARCH/glessner-colonnettes-T-2965/`.
+**Recorded:** 2026-10-20 (T-2965).
+
 ## T-2804: named resident seated-driver and supported W01 studies (2026-10-19)
 
 This is an additive seated-study declaration under existing L418. Existing reconstructed 1835 residents Otis Bardwell (`rc_bardwell_otis`), Joseph Dufresne (`rc_dufresne_joseph`) and Martin Flynn (`rc_flynn_martin`) retain their record identity, date and reconstruction basis. The static seated pose, age/body fit, hand targets and staged driving action are original engineering reconstructions, not portraits, recorded driving assignments or observed actions. No new anonymous person or biography is introduced. The optional canonical `sit_drive` authoring uses the existing portable export and HumanActor; actual exported garment/bench/shoe contact and palm/rein grip require inspection, and source-body pose calculations alone do not establish them.

@@ -196,7 +196,8 @@ def _construct(root, *, roof_details_reduced=True):
             elif o.get('face')=='east' and o['u1']-o['u0']>3 and o['z0']>5:
                 # The full wall's carved-sill recess includes both foliate ends.
                 # Its reduced stone back must close that whole same aperture.
-                d.slab(b,o,o['u0']-.435,o['u1']+.435,o['z0']-.025,o['z1']+.045,-.02,.095,o['conf'],d.TRIM)
+                # T-2965: granite, as the full tier's carved string.
+                d.slab(b,o,o['u0']-.435,o['u1']+.435,o['z0']-.025,o['z1']+.045,-.02,.095,o['conf'],d.GRANITE)
             else:d.slab(b,o,o['u0'],o['u1'],o['z0'],o['z1'],0,.095,o['conf'],d.TRIM)
         else:
             d.opening(b,o,courtyard)
@@ -357,18 +358,30 @@ def _fan(b,o,d):
 
 
 def _columns(b,params,d):
+    # T-2965: the full tier's colonnettes (ornament.columns) at fewer facets: splayed
+    # base, tapered shaft, cushion block, its carved band as one raised course and
+    # the leaf tips; the bodies' fine carving is the master's alone.
+    orn=d.ornament;spec=params.detail.get('prairie_colonnette') or {}
     ops=sorted([o for o in params.openings if o['kind']=='window' and o['face']=='east' and o['z0']>5],
                key=lambda o:(round(o['at'],3),round(o['z0'],2),o['u0']))
     for a,c in zip(ops,ops[1:]):
         gap=c['u0']-a['u1']
         if not .12<gap<.3 or abs(a['z0']-c['z0'])>.05 or abs(a['at']-c['at'])>.05:continue
-        u=(c['u0']+a['u1'])/2;z0,z1=a['z0'],a['z1']
-        r=d.ornament.Relief(b,a,params.detail.get('conf',max(a['conf'],c['conf'])))
-        d.ornament._shaft(r,u,z0+.05,z1-.29,gap)
-        r.box(u-gap*.78,u+gap*.78,z0,z0+.075,-.08,.16)
-        r.box(u-gap*.88,u+gap*.88,z1-.29,z1-.012,-.075,.198)
+        u=(c['u0']+a['u1'])/2;z0,z1=a['z0'],a['z1'];h=z1-z0
+        r=orn.Relief(b,a,params.detail.get('conf',max(a['conf'],c['conf'])),orn.CARVED_GRANITE)
+        foot=spec.get('shaft_foot_m',gap*1.24)/2;neck=spec.get('shaft_neck_m',gap*.98)/2
+        half=spec.get('abacus_m',gap*2.3)/2
+        base=z0+h*spec.get('base_share',.13);low=z1-h*spec.get('capital_share',.33)
+        dep=-foot
+        r.box(u-gap*.5-.004,u+gap*.5+.004,base,low,-spec.get('mullion_depth_m',.46),dep)
+        orn._splayed_base(r,u,z0,base,spec.get('base_foot_m',gap*1.8)/2,foot+.008,dep)
+        orn._taper(r,u,base,low,foot,neck,dep,12)
+        top=z1-.012;ch=top-low
+        orn._block(r,u,low,top,neck,half,dep,16,5)
+        r.box(u-half*.92,u+half*.92,low+ch*.82,top-.01,dep+half-.01,dep+half+.012)
         for j in range(3):
-            r.leaf(u+(j-1)*gap*.5,z1-.27,math.pi/2,.20,gap*.6,.18,.05,0,False,steps=5)
+            r.leaf(u+(j-1)*half*.45,low+ch*.12,math.pi*.5+(j-1)*.15,ch*.30,half*.28,
+                   dep+neck+(half-neck)*.30,.02,0,False,steps=4)
 
 
 def _ridges(b,params,d):

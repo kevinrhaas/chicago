@@ -774,6 +774,12 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         nc = raw.get("north_pair_colonnette")
         p.detail["north_pair_colonnette"] = ({"capital_m": nc["capital_ft"] * FT, "base_m": nc["base_ft"] * FT}
                                              if nc else None)
+        pc = raw.get("prairie_colonnette")
+        # T-2965: the Prairie colonnettes' stock, read off HABS sheet 6 (record note).
+        p.detail["prairie_colonnette"] = ({**{k[:-3] + "_m": v * FT for k, v in pc.items() if k.endswith("_ft")},
+                                           **{k: v for k, v in pc.items() if k.endswith("_share")},
+                                           "capitals": list(pc.get("capitals") or [])}
+                                          if pc else None)
         p.detail["north_tower_roof"] = dict(raw["north_tower_roof"]) if raw.get("north_tower_roof") else None
         if p.detail["north_tower_roof"] and 'connector_ridge_ft' in p.detail["north_tower_roof"]:
             p.detail["north_tower_roof"]['connector_ridge_z']=fr.zval(p.detail["north_tower_roof"]['connector_ridge_ft'])
