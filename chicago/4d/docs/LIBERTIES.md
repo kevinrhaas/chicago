@@ -28653,6 +28653,40 @@ would replace the room's plan, ceiling and the door; T-2911 carves the openings 
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-20 (T-2910).
 
+### L-kimball-1801-front-bow-2921 — 1801 Prairie's bowed bay and pavilion pair: the bow's depth, its lights' turn, its cornice carried past the eave, square balusters for the pierced balustrade, and the pair's plate lights
+
+**Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.front_bays`
+**Decision:** the W. W. Kimball house at 1801 Prairie (T-2921, piece 1 of T-2911) takes the bowed bay
+and the paired windows J. W. Taylor's c. 1895 photograph shows on its Prairie Avenue front
+(`taylor_c1895_kimball_residence_1801`), read through its solved camera. **What is read, not
+invented.** The bay's place: its north junction at x 1130 and its silhouette's south edge at the
+pavilion's pilaster, x 1245, so a bow 3.4 m on its chord centred at v 5.05; the build's outline falls
+within about 5 px of the print's at both edges. Its storeys: the principal and the second, one broad
+light a storey with a transom light over a bar (the principal storey's bar about 0.8 m under its head,
+the second's about 0.7 m), the light filling the face the camera sees; a frieze about 1.2 m deep over
+the second storey's heads to a moulded cornice that wraps the bow, and a stone balustrade on it.
+The pavilion's windows: one pair a storey on a stone mullion under a stone transom, about 2.4 m across
+between its pilasters, centred, the principal storey's sill about 0.3 m over the floor. **What is
+invented.** The bow's rise, 0.8 m: the camera looks along the front, so a bay's depth and its place
+along the wall trade against each other on the print, and 0.8 m is the depth at which the render's
+outline meets the print's at both edges with the lights where the print draws them. The lights' turn,
+20 degrees toward 18th Street: the print shows each light filling the face it sees, where a light on
+the bow's crown would stand about 30 px south of it; a camera from the south-west would settle whether
+the light is on the crown and the bow deeper. The bow's top, 8.7 m, 0.6 m past the house's 8.1 m eave
+(the photograph's cornice stands over the build's along the whole front; T-2540 reads it), its back
+closed by the mansard's lower face; the cornice's section is K10's moulded stone one. The balustrade
+0.6 m high in square stone balusters at 0.17 m (1637's south bay's), where the print shows pierced
+quatrefoil panels between posts; T-2922 carves them. The pair's lights are K06's plate-glass casements
+2.0 m clear on a 0.18 m mullion; the print's small leaded glazing in the transom lights is not built.
+**What is not built.** The carved pilasters beside the bay and the pavilion, the windows' moulded
+surrounds and the carved frieze over the principal storey: plain stone here (T-2922). The sheet's
+bulge (v 4.8-10.2) is wider and further south than the photograph's bay; the photograph is followed.
+**How to resolve:** a second photograph of the front, from the south-west or straight on, would fix the
+bow's rise and the lights' place round it; a measured drawing would replace every number here.
+**Ticket:** T-2921 (piece 1 of T-2911).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-20 (T-2921).
+
 ### L-k01-1621-last-drawn-2531 — 1621 Prairie's last drawn differences: the door's ring turned to a curved extrados under a band in a deep recess, the light over it stood on a moulded shelf, and splayed voussoirs over the basement lights, their places read and their sections reconstructed
 
 **Decision:** John H. Hamline's house at 1621 Prairie (T-2531, piece 2 of T-2527) takes the three
