@@ -43,6 +43,8 @@ import sys
 import zlib
 from pathlib import Path
 
+import jaunt_names
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'
 OUT = DATA / 'jaunts/prairie-built-so-far.json'
@@ -55,10 +57,9 @@ LEVELS = {
     4: 'a kit build matched to its picture',
     3: 'a kit build checked against its picture, not matching yet',
     2: 'a kit build, no picture solved against it yet',
-    1: 'the district draft, reshaped from a picture',
+    1: 'a first rough model, reshaped from a picture',
 }
-PARTS = {'coach_house': 'coach house', 'conservatory': 'conservatory', 'rear_building': 'rear building',
-         'alley_building': 'alley building', 'front': ''}
+NAMES = jaunt_names.table(SCENE)
 
 
 def read(path):
@@ -82,24 +83,8 @@ def level(row):
 
 
 def label(record):
-    """'1808 Prairie, the Keith house' from the record's own name and id."""
-    text = ' '.join([record.get('name', '')] + list(record.get('aka') or [])
-                    + [(record.get('placement') or {}).get('symbolic_location', '')])
-    number = re.search(r'\b(\d{4})\s+(?:S\.\s+)?Prairie', text)
-    stem = re.sub(r'_?\d{4}_prairie', '', record['id'])
-    part = ''
-    for key, word in PARTS.items():
-        if stem.endswith('_' + key) or stem.endswith(key):
-            stem, part = stem[: -len(key)].rstrip('_'), word
-            break
-    owner = stem.replace('_house', '').replace('house', '').strip('_')
-    owner = '-'.join(w.capitalize() for w in owner.split('_') if w)
-    where = f'{number.group(1)} Prairie' if number else record['name']
-    if owner and part:
-        return f'{where}, the {owner} {part}'
-    if owner:
-        return f'{where}, the {owner} house'
-    return f'{where}, its {part}' if part else where
+    """'Osborn Keith House, 1808 Prairie': the one name every jaunt gives it (T-2946)."""
+    return jaunt_names.name(record, NAMES) or record['name']
 
 
 def centre(record):
@@ -121,7 +106,7 @@ def rows():
         e, n = centre(record)
         row = dict(id=record['id'], record=record, archetype=record['archetype'], views=len(verdicts),
                    matches=verdicts.count('matches'), attrs=len(record.get('attributes', {})), e=e, n=n,
-                   label=label(record), number=int(m.group(1)) if (m := re.match(r'(\d{4})', label(record))) else 0)
+                   label=label(record), number=int(jaunt_names.number(record) or 0))
         row['level'] = level(row)
         out.append(row)
     return out
@@ -225,7 +210,7 @@ def build():
                           links=[dict(kind='structure', id=row['id'], label='About this building')],
                           next=f'stop-{n + 1}' if n < count else 'finish'))
         evidence.append(claim(n, row))
-    opening = (f'WALK: BUILT SO FAR. Every Prairie Avenue building modelled past the district draft: {plural(count, "building")} in '
+    opening = (f'WALK: BUILT SO FAR. Every Prairie Avenue building modelled past its first rough model: {plural(count, "building")} in '
                f'{plural(area_count, "area")}. Most detailed first, one area at a time, so the route does not double back. '
                'It is rewritten from the building records whenever one gains detail.')
     ending = 'End of the walk so far. As more buildings are built out they join it, in their place by detail and area.'
