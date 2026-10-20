@@ -45794,7 +45794,7 @@
         },
         {
           "label": "Decision",
-          "text": "the W. W. Kimball house at 1801 Prairie takes the bowed bay and the paired windows J. W. Taylor's c. 1895 photograph shows on its Prairie Avenue front (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…), read through its solved camera. **What is read, not invented.** The bay's place: its north junction at x 1130 and its silhouette's south edge at the pavilion's pilaster, x 1245, so a bow 3.4 m on its chord centred at v 5.05; the build's outline falls within about 5 px of the print's at both edges. Its storeys: the principal and the second, one broad light a storey with a transom light over a bar (the principal storey's bar about 0.8 m under its head, the second's about 0.7 m), the light filling the face the camera sees; a frieze about 1.2 m deep over the second storey's heads to a moulded cornice that wraps the bow, and a stone balustrade on it. The pavilion's windows: one pair a storey on a stone mullion under a stone transom, about 2.4 m across between its pilasters, centred, the principal storey's sill about 0.3 m over the floor. **What is invented.** The bow's rise, 0.8 m: the camera looks along the front, so a bay's depth and its place along the wall trade against each other on the print, and 0.8 m is the depth at which the render's outline meets the print's at both edges with the lights where the print draws them. The lights' turn, 20 degrees toward 18th Street: the print shows each light filling the face it sees, where a light on the bow's crown would stand about 30 px south of it; a camera from the south-west would settle whether the light is on the crown and the bow deeper. The bow's top, 8.7 m, 0.6 m past the house's 8.1 m eave (the photograph's cornice stands over the build's along the whole front; reads it), its back closed by the mansard's lower face; the cornice's section is K10's moulded stone one. The balustrade 0.6 m high in square stone balusters at 0.17 m (1637's south bay's), where the print shows pierced panels between posts; later work pierced them (“1801 Prairie's bow balustrade: the print's pierced panels built as a diagonal stone lattice, its straps' section and count reconstructed”). The pair's lights are K06's plate-glass casements 2.0 m clear on a 0.18 m mullion; the print's small leaded glazing in the transom lights is not built. **What is not built.** The carved pilasters beside the bay and the pavilion, the windows' moulded surrounds and the carved frieze over the principal storey: plain stone here. The sheet's bulge (v 4.8-10.2) is wider and further south than the photograph's bay; the photograph is followed."
+          "text": "the W. W. Kimball house at 1801 Prairie takes the bowed bay and the paired windows J. W. Taylor's c. 1895 photograph shows on its Prairie Avenue front (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…), read through its solved camera. **What is read, not invented.** The bay's place: its north junction at x 1130 and its silhouette's south edge at the pavilion's pilaster, x 1245, so a bow 3.4 m on its chord centred at v 5.05; the build's outline falls within about 5 px of the print's at both edges. Its storeys: the principal and the second, one broad light a storey with a transom light over a bar (the principal storey's bar about 0.8 m under its head, the second's about 0.7 m), the light filling the face the camera sees; a frieze about 1.2 m deep over the second storey's heads to a moulded cornice that wraps the bow, and a stone balustrade on it. The pavilion's windows: one pair a storey on a stone mullion under a stone transom, about 2.4 m across between its pilasters, centred, the principal storey's sill about 0.3 m over the floor. **What is invented.** The bow's rise, 0.8 m: the camera looks along the front, so a bay's depth and its place along the wall trade against each other on the print, and 0.8 m is the depth at which the render's outline meets the print's at both edges with the lights where the print draws them. The lights' turn, 20 degrees toward 18th Street: the print shows each light filling the face it sees, where a light on the bow's crown would stand about 30 px south of it; a camera from the south-west would settle whether the light is on the crown and the bow deeper. The bow's top, 8.7 m, 0.6 m past the house's 8.1 m eave (the photograph's cornice stands over the build's along the whole front; reads it), its back closed by the mansard's lower face; the cornice's section is K10's moulded stone one. The balustrade 0.6 m high in square stone balusters at 0.17 m (1637's south bay's), where the print shows pierced panels between posts; later work pierced them (“1801 Prairie's bow balustrade: the print's pierced panels built as a diagonal stone lattice, its straps' section and count reconstructed”). The pair's lights are K06's plate-glass casements 2.0 m clear on a 0.18 m mullion; the print's small leaded glazing in the transom lights is not built. **What is not built.** The carved frieze over the principal storey: plain stone here; the carved pilasters beside the bay and the pavilion and the windows' moulded surrounds are later work's (“1801 Prairie's carved pilasters and moulded window surrounds: their places and storeys read off the Taylor print, their sections and carving reconstructed”). The sheet's bulge (v 4.8-10.2) is wider and further south than the photograph's bay; the photograph is followed."
         },
         {
           "label": "How to resolve",
@@ -45813,8 +45813,9 @@
         "T-2921",
         "T-2911",
         "T-2540",
-        "T-2922",
-        "T-2930"
+        "T-2932",
+        "T-2930",
+        "T-2931"
       ]
     },
     {
@@ -45849,6 +45850,42 @@
         "T-2930",
         "T-2922",
         "T-2921"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-pilasters-2931",
+      "title": "1801 Prairie's carved pilasters and moulded window surrounds: their places and storeys read off the Taylor print, their sections and carving reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-20",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the bowed bay and the south pavilion on 1801 Prairie's front take the carved pilasters and the moulded window surrounds J. W. Taylor's c. 1895 photograph shows (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…), where earlier work laid plain stone. **What is read, not invented.** Where the pilasters stand: one at the bow's north junction with the front (x 1127-1137 on the 1600 px print), one at each corner of the pavilion's face (x 1232-1250 and 1322-1340, the north one beside the bow's south edge); one a storey, each under its own capital just below the floor band or the cornice over it (the principal storey's capitals at y 828-848, the second's at 632-680, the pavilion's third's at about 437-455), each shaft a narrow strip with a chain of carved lozenges down it, and the principal storey's starting at the windows' sill course on a corbel that hangs below it (the pavilion's at y 995-1018). Every light of the bow and every pair of the pavilion, on all three of its storeys, sits in a moulded frame proud of the wall under a projecting head. **What is invented.** Every size: the shafts 0.22 m (the bow's) and 0.30 m (the pavilion's) broad and 0.07 and 0.08 m proud, on bases 0.15 m tall standing 0.02 m wider and prouder and under capitals 0.30 and 0.35 m tall standing 0.045 m so, the lowest base at 1.75 m (the windows' sill) on a two-step corbel 0.40 and 0.45 m deep; the lozenges 0.015 m proud on a 0.42 m pitch; the surrounds' jambs 0.12 m (the bow) and 0.20 m (the pavilion) broad and 0.04 m proud in two steps, the reveal's third half as proud, under hoods 0.22 and 0.20 m tall and 0.07 and 0.08 m proud that the sill's horns and the lintel's ears are carried out to. The print gives each pilaster 10-18 px across and its capital about 20 px tall, which shows where they are and not their mouldings: the capitals, carved foliate blocks in the print, are built as plain blocks, and the lozenges stand for carving the print cannot resolve. The bow's pilaster at its south junction, hidden from this camera behind the pavilion, is built as the north one. **Not changed here.** The pavilion's face renders about 30 px south of the print's at its north corner and about 55 px at its south, so the pavilion's pilasters stand that much south of the print's; the envelope is earlier work's and it is a difference in the match record, not a liberty of this entry."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer photograph of the front, or a measured drawing of the bay and the pavilion, would give the pilasters' and the surrounds' sections and the capitals' carving."
+        },
+        {
+          "label": "Review",
+          "text": "the taylor c1895 northwest match data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-20 (T-2931)."
+        }
+      ],
+      "work_refs": [
+        "T-2931",
+        "T-2922",
+        "T-2921",
+        "T-2843",
+        "T-2540"
       ]
     },
     {

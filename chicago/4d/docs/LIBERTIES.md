@@ -28811,8 +28811,9 @@ closed by the mansard's lower face; the cornice's section is K10's moulded stone
 0.6 m high in square stone balusters at 0.17 m (1637's south bay's), where the print shows pierced
 panels between posts; T-2930 pierced them (L-kimball-1801-bow-lattice-2930). The pair's lights are K06's plate-glass casements
 2.0 m clear on a 0.18 m mullion; the print's small leaded glazing in the transom lights is not built.
-**What is not built.** The carved pilasters beside the bay and the pavilion, the windows' moulded
-surrounds and the carved frieze over the principal storey: plain stone here (T-2922). The sheet's
+**What is not built.** The carved frieze over the principal storey: plain stone here (T-2932); the
+carved pilasters beside the bay and the pavilion and the windows' moulded surrounds are T-2931's
+(L-kimball-1801-pilasters-2931). The sheet's
 bulge (v 4.8-10.2) is wider and further south than the photograph's bay; the photograph is followed.
 **How to resolve:** a second photograph of the front, from the south-west or straight on, would fix the
 bow's rise and the lights' place round it; a measured drawing would replace every number here.
@@ -28843,6 +28844,39 @@ drawing of the balustrade, would give the piercing's true shape and the straps' 
 **Ticket:** T-2930 (piece 1 of T-2922).
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-20 (T-2930).
+
+### L-kimball-1801-pilasters-2931 — 1801 Prairie's carved pilasters and moulded window surrounds: their places and storeys read off the Taylor print, their sections and carving reconstructed
+
+**Decision:** the bowed bay and the south pavilion on 1801 Prairie's front (T-2931, piece 2 of
+T-2922) take the carved pilasters and the moulded window surrounds J. W. Taylor's c. 1895 photograph
+shows (`taylor_c1895_kimball_residence_1801`), where T-2921 and T-2843 laid plain stone. **What is
+read, not invented.** Where the pilasters stand: one at the bow's north junction with the front (x
+1127-1137 on the 1600 px print), one at each corner of the pavilion's face (x 1232-1250 and 1322-1340,
+the north one beside the bow's south edge); one a storey, each under its own capital just below the
+floor band or the cornice over it (the principal storey's capitals at y 828-848, the second's at
+632-680, the pavilion's third's at about 437-455), each shaft a narrow strip with a chain of carved
+lozenges down it, and the principal storey's starting at the windows' sill course on a corbel that
+hangs below it (the pavilion's at y 995-1018). Every light of the bow and every pair of the pavilion,
+on all three of its storeys, sits in a moulded frame proud of the wall under a projecting head. **What
+is invented.** Every size: the shafts 0.22 m (the bow's) and 0.30 m (the pavilion's) broad and 0.07
+and 0.08 m proud, on bases 0.15 m tall standing 0.02 m wider and prouder and under capitals 0.30 and
+0.35 m tall standing 0.045 m so, the lowest base at 1.75 m (the windows' sill) on a two-step corbel
+0.40 and 0.45 m deep; the lozenges 0.015 m proud on a 0.42 m pitch; the surrounds' jambs 0.12 m (the
+bow) and 0.20 m (the pavilion) broad and 0.04 m proud in two steps, the reveal's third half as proud,
+under hoods 0.22 and 0.20 m tall and 0.07 and 0.08 m proud that the sill's horns and the lintel's ears
+are carried out to. The print gives each pilaster 10-18 px across and its capital about 20 px tall,
+which shows where they are and not their mouldings: the capitals, carved foliate blocks in the
+print, are built as plain blocks, and the lozenges stand for carving the print cannot resolve. The
+bow's pilaster at its south junction, hidden from this camera behind the pavilion, is built as the
+north one. **Not changed here.** The pavilion's face renders about 30 px south of the print's at its
+north corner and about 55 px at its south, so the pavilion's pilasters stand that much south of the
+print's; the envelope is T-2540's and it is a difference in the match record, not a liberty of this
+entry.
+**How to resolve:** a nearer photograph of the front, or a measured drawing of the bay and the
+pavilion, would give the pilasters' and the surrounds' sections and the capitals' carving.
+**Ticket:** T-2931 (piece 2 of T-2922).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-20 (T-2931).
 
 ### L-k01-1621-last-drawn-2531 — 1621 Prairie's last drawn differences: the door's ring turned to a curved extrados under a band in a deep recess, the light over it stood on a moulded shelf, and splayed voussoirs over the basement lights, their places read and their sections reconstructed
 

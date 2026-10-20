@@ -1493,6 +1493,28 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                      f"0.08 m) and ring_radius_m, not {g}")
                 w["grille"] = {"bars": int(g["bars"]), "set_back_m": float(g["set_back_m"]),
                                "ring_radius_m": float(g["ring_radius_m"])}
+        # T-2931: a light's moulded surround, jambs on its sill's horns under its lintel as a
+        # hood (1801's bow and pavilion, from the Taylor photograph): on a flat-headed stone
+        # light, never beside voussoirs, the jambs less proud than the sill and under the hood
+        for st in v["storeys"]:
+            for w in st["windows"]:
+                su = w.get("surround")
+                if su is None:
+                    continue
+                k06 = json.loads(WINDOW_KIT.read_text())
+                v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
+                sill6 = k06["parts"]["sill"]["projection_m"]
+                keys = {"band_m", "proud_m", "head_m", "head_proud_m"}
+                if not isinstance(su, dict) or set(su) != keys or v6.get("head", "flat") != "flat" \
+                        or "voussoirs" in w or w.get("narrow") or e.get("fabric", "stone") == "frame" \
+                        or not 0.06 <= float(su["band_m"]) <= 0.25 or not 0.01 <= float(su["proud_m"]) < sill6 \
+                        or not 0.1 <= float(su["head_m"]) <= 0.4 \
+                        or not float(su["proud_m"]) < float(su["head_proud_m"]) <= 0.12:
+                    raise ParamError(f"bays: {e['id']}'s surround takes band_m (0.06-0.25 m), proud_m (0.01 m, short "
+                                     f"of the sill's {sill6} m), head_m (0.1-0.4 m) and head_proud_m (prouder "
+                                     f"than the jambs, at most 0.12 m), on a flat-headed stone light without "
+                                     f"voussoirs, not {su}")
+                w["surround"] = {k: float(su[k]) for k in sorted(keys)}
         # T-2531: a light's dressed head of splayed voussoirs, up to the string course over it
         for st in v["storeys"]:
             for w in st["windows"]:
@@ -1528,6 +1550,49 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                  f"and a guilloche of {sorted(gk)}, not {cb}")
             v["cap_band"] = {"height_m": float(cb["height_m"]), "proud_m": float(cb["proud_m"]),
                              "guilloche": {k: (int(g[k]) if k == "segments" else float(g[k])) for k in sorted(gk)}}
+        if "pilasters" in e:
+            # T-2931: carved pilasters at the ends of a stone bay's runs (1801's bow and its south
+            # pavilion, from the Taylor photograph), one a storey on a base, under a capital
+            pl = e["pilasters"]
+            keys = {"at", "width_m", "proud_m", "base_m", "capital_m"}
+            lk = {"pitch_m", "gap_m", "margin_m", "relief_m"}
+            runs_n = len(v["plan"]["points"]) - 1 if v["plan"]["kind"] == "polyline" else 1
+            ok = isinstance(pl, dict) and set(pl) - {"lozenges", "foot_m", "corbel_m"} == keys and e.get("fabric", "stone") != "frame" \
+                and v["base"] == "grade" and isinstance(pl["at"], list) and pl["at"] \
+                and all(set(q) == {"run", "at"} and 0 <= int(q["run"]) < runs_n
+                        and q["at"] in ("start", "end", "both") for q in pl["at"])
+            if ok:
+                w, d, hb, hc = (float(pl[k]) for k in ("width_m", "proud_m", "base_m", "capital_m"))
+                ok = 0.1 <= w <= 0.6 and 0.02 <= d <= 0.15 and 0.05 <= hb <= 0.4 and 0.1 <= hc <= 0.6
+            lz = pl.get("lozenges") if ok else None
+            if lz is not None:
+                ok = isinstance(lz, dict) and set(lz) == lk and 0.1 <= float(lz["pitch_m"]) <= 1.0 \
+                    and 0.0 <= float(lz["gap_m"]) < float(lz["pitch_m"]) / 2 \
+                    and 0.01 <= float(lz["margin_m"]) < w / 2 - 0.02 and 0.005 <= float(lz["relief_m"]) <= 0.04
+            if not ok:
+                raise ParamError(f"bays: {e['id']}'s pilasters take at (runs of its plan and start, end or "
+                                 f"both), width_m (0.1-0.6 m), proud_m (0.02-0.15 m), base_m (0.05-0.4 m), "
+                                 f"capital_m (0.1-0.6 m) and optional lozenges ({sorted(lk)}), on a stone bay on grade")
+            ft, cm = pl.get("foot_m"), pl.get("corbel_m")
+            if ok and ft is not None:
+                ft = float(ft)
+                ok = 0.0 < ft <= v["storeys"][0]["height_m"] - hb - hc - 0.5
+            if ok and cm is not None:
+                cm = float(cm)
+                ok = ft is not None and 0.1 <= cm <= min(0.6, ft - 0.1)
+            if not ok:
+                raise ParamError(f"bays: {e['id']}'s pilasters' foot_m stands the lowest base over grade, half "
+                                 f"a metre of shaft under its first storey's top, and corbel_m (0.1-0.6 m, under "
+                                 f"a foot_m) hangs a corbel under it")
+            for st in v["storeys"]:
+                if st["height_m"] < hb + hc + 0.5:
+                    raise ParamError(f"bays: {e['id']}'s pilasters need half a metre of shaft in every storey "
+                                     f"over their base and capital, not {st['height_m']} m")
+            v["pilasters"] = {"at": [{"run": int(q["run"]), "at": q["at"]} for q in pl["at"]],
+                              "width_m": w, "proud_m": d, "base_m": hb, "capital_m": hc,
+                              **({"foot_m": ft} if ft is not None else {}),
+                              **({"corbel_m": cm} if cm is not None else {}),
+                              **({"lozenges": {k: float(lz[k]) for k in sorted(lk)}} if lz else {})}
         if "eaves" in e:
             # T-2369: a hood read off a picture sizes the kit's soffit and fascia, never its shape
             ev = e["eaves"]
