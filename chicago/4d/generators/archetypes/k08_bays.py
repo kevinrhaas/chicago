@@ -29,7 +29,8 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                distance in from the eaves on every plane, so the hips stay shared
   balcony      (T-2525) a bow's iron balcony rail on its eaves, round the plan from wall to
                wall: a post at each end against the wall, square bars between a foot rail
-               and a top rail (T-2780: or a stone balustrade round a canted bay's flat top); and a window entry's `grille`, iron bars in its reveal
+               and a top rail (T-2780: or a stone balustrade round a canted bay's flat top; T-2888: or
+               an iron rail round a projection's flat top); and a window entry's `grille`, iron bars in its reveal
                clipped to its head, with an arch ring over them as 1621's drawing draws
   heads        (T-2531) a window entry's `voussoirs`: a block of splayed stones over the
                light from its head to the string course, their joints fanned, as 1621's
@@ -1305,22 +1306,36 @@ class Bay:
         and a top rail between them, and square bars at `pitch_m` under the top rail. Only a
         bow, one arc from the wall to the wall, takes it (k01_frontage_params refuses others);
         T-2780: or a canted bay's flat top, a post at each end of each run, in the bay's dressed
-        stone where the balcony names `fabric: stone` (1637's south bay, its balustrade)."""
+        stone where the balcony names `fabric: stone` (1637's south bay, its balustrade);
+        T-2888: or a projection's flat top the same way, round its cheeks and front (1812's)."""
         bl = self.v["balcony"]
         role = "band" if bl.get("fabric") == "stone" else "iron"
         z = ov - bl["inset_m"]
         pm, bm, (rw, rd) = bl["post_m"], bl["bar_m"], bl["rail_m"]
-        # a stone balustrade's feet stand on a 2 mm bed over the flat roof, not in its plane
-        y0, y3 = y_e + (0.002 if role == "band" else 0.0), y_e + bl["height_m"]
+        # T-2888: a projection's runs meet square, where a post ending at the corner would
+        # stand its face in the next run's rail end; there the corner post stands centred on
+        # the corner and the rails run into it, stopping short of the corner by half their
+        # width and half the post's together, halved, so the two runs' rails never meet
+        square = self.v["kind"] == "projection"
+        tuck = (rw + pm) / 4
+        # a stone balustrade's feet stand on a 2 mm bed over the flat roof, not in its plane,
+        # and so does an iron rail on a projection's flat top (T-2888)
+        y0, y3 = y_e + (0.002 if role == "band" or square else 0.0), y_e + bl["height_m"]
         d0, d1 = -z - pm / 2, -z + pm / 2
         sa, sb = run.s_start(z), run.s_end(z)
+        last = run is self.runs[-1]
+        p0 = sa if first else None
+        p1 = sb - pm if not square or last else sb - pm / 2
         # a canted top's runs meet at its corners, where the run before stood its end post
-        for a in ((sa, sb - pm) if first else (sb - pm,)):
+        for a in (a for a in (p0, p1) if a is not None):
             prism(flat, role, rect(a, a + pm, y0, y3), d0, d1)
-        e0, e1 = sa + pm, sb - pm
+        e0 = sa + pm if first or not square else sa + pm / 2
+        e1 = sb - pm if not square or last else sb - pm / 2
+        r0 = sa + pm / 2 if first or not square else sa + tuck
+        r1 = sb - pm / 2 if not square or last else sb - tuck
         # the rails run into the posts' middles, so no end of theirs lies in a post's face
         for ya, yb in ((y3 - rd, y3 - 0.004), (y0 + bl["foot_rail_m"], y0 + bl["foot_rail_m"] + rd / 2)):
-            prism(flat, role, rect(sa + pm / 2, sb - pm / 2, ya, yb), -z - rw / 2, -z + rw / 2)
+            prism(flat, role, rect(r0, r1, ya, yb), -z - rw / 2, -z + rw / 2)
         n = max(1, math.floor((e1 - e0) / bl["pitch_m"]))
         step = (e1 - e0) / (n + 1)
         # the light tier keeps the posts and rails, the rail's outline, and drops the bars
