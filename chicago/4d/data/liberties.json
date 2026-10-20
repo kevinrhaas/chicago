@@ -45925,12 +45925,6 @@
           "domain": "structure",
           "structure": "glessner_house",
           "phase": "as_built_1887",
-          "aspect": "form.hall_bow_height"
-        },
-        {
-          "domain": "structure",
-          "structure": "glessner_house",
-          "phase": "as_built_1887",
           "aspect": "form.tower_stair"
         },
         {
@@ -45949,7 +45943,7 @@
         },
         {
           "label": "Covers",
-          "text": "`glessner_house.as_built_1887.form.tower_stair`, `glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.hall_bow_height`."
+          "text": "`glessner_house.as_built_1887.form.tower_stair`, `glessner_house.as_built_1887.form.v4_detail`."
         },
         {
           "label": "Revised 2026-10-20",

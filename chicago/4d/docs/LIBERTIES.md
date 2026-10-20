@@ -28954,7 +28954,7 @@ Every previously traced terrace coping knot is retained. Beyond the last visible
 
 Light omits only stair-drum wall patches inside the east-wing envelope, inset40mm from its faces and below both eaves. The omitted volume stops before adjacent aperture corridors, and refuses a centrally pierced wall. Full retains the interior patches; both retain all exterior wall points. This is a declared removal of concealed detail within the existing200,000-triangle ceiling.
 
-**Covers:** `glessner_house.as_built_1887.form.tower_stair`, `glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.hall_bow_height`.
+**Covers:** `glessner_house.as_built_1887.form.tower_stair`, `glessner_house.as_built_1887.form.v4_detail`.
 **Ticket:** T-2228.
 **Revised 2026-10-20 (T-2880):** the garden light's bounds are sheet 4's frame. Re-zeroed onto the plan (+0.65 ft,
 T-2879) its north jamb is S47.13. Its re-zeroed south jamb, S51.63, falls inside the plan's stair drum, which meets the
