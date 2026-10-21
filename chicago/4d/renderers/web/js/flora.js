@@ -1500,6 +1500,24 @@ export async function createFlora({
    *  read-back stays behind its fence, and a pass that has to land before it
    *  comes home leaves the reap to the carries' tail (`carryPass`). */
   let farSync = true;
+  /**
+   * T-2966. Which of a pass's GPU-dealt rings the GPU dealt, as the pass
+   * decided it: the near pass's mid ring (with its forbs, rosettes and shrubs,
+   * `midCovers` at its start) and the far pass's carries (`carryCovers`, or the
+   * CPU's walk when the kept carry tile stopped covering while it waited). Set
+   * by each pass's generator and booked on its log entry (`onGpu`; a NEXT the
+   * carries' tail later walks on the CPU sets it false there). The two deals differ by the kept tile's own class (T-2698: the
+   * texel centre's community, water or floor is not the slot's, about one slot
+   * in 400), and which one a pass takes is the tile's timing: a re-centre that
+   * lands after a pass started serves the pass after it. So a tool that deals a
+   * landed pass again in one frame to compare the two plant for plant
+   * (`measure_walk_frames.mjs --verify`) deals it on the same side
+   * (`dealOnCpu`), or it compares the tile's class and not the spreading.
+   */
+  const dealtOnGpu = { near: null, far: null };
+  /** T-2966. A tool's re-deal of a pass whose rings the CPU walked: while set,
+   *  every pass walks them on the CPU (`api.dealOnCpu`). */
+  let dealOnCpu = false;
   let nearDealing = false;
   /** T-2894. Bumped whenever a pass deals the mid ring on the CPU (its kept
    *  tile not home), so a GPU read-back of an earlier placement that lands
@@ -1848,7 +1866,10 @@ export async function createFlora({
       // thread ms (polling the fence and reaping, a slice a frame), the ones
       // a CPU walk replaced before they landed, and the passes that found an
       // earlier pass's tail still holding the buffer and waited their turn.
-      carryTails: 0, carryTailFrames: 0, carryTailMs: 0, carryTailDropped: 0, carryQueued: 0 };
+      carryTails: 0, carryTailFrames: 0, carryTailMs: 0, carryTailDropped: 0, carryQueued: 0,
+      // T-2966: the NEXTs the kept tile no longer covered, walked on the CPU as
+      // the tail rather than dropped (they are in `carryCpu` too).
+      carryTailCpu: 0 };
     const bufs = [0, 1, 2, 3].map(() => new Float32Array(W * H * 4));
     // T-2774: the read-back's pixel-pack buffers, and where they land (`read`).
     const pbos = [];
@@ -2173,18 +2194,38 @@ export async function createFlora({
      * read-backs take; only a CPU walk, which writes the carry sets itself,
      * replaces it (`carryByCpu`). A pose the kept tile no longer covers when
      * its turn comes is not dealt: a waiting pass walks its carries on the CPU
-     * (`carryPass` returns false), and a NEXT is dropped for the pass after.
+     * (`carryPass` returns false), and so does a NEXT (below).
      * A caller with no budget (`settle`, a tool's `step()`) finishes the tail
      * in the frame.
+     *
+     * T-2966 — A LANDED PASS'S CARRIES ARE OWED UNTIL A NEWER PASS LANDS. The
+     * far shrubs of a pass that left a NEXT or a tail are already on screen, so
+     * its carries must follow them; only a NEWER pass that LANDS takes that
+     * debt over (`carryOwned`), because a pass still in flight may be dropped.
+     * The full turn read the last landed pass's carries as the pass BEFORE it
+     * (`verify far ... IS NOT`, both on the GPU): the pass had waited on a tail
+     * that landed in the frame's own `carryTailStep`, was then resumed with
+     * DRAIN, and left a NEXT behind no tail — and a NEXT was dealt only when a
+     * tail landed, so it never was, not even by `settle`. A pass that finds the
+     * target free on DRAIN now deals as the tail itself (`carryPass`), and a
+     * NEXT with no tail ahead of it is dealt by the next `carryTailStep`. And:
+     * a NEXT the kept tile no longer covers is walked on the CPU as the tail
+     * (`walkCarry`), never dropped; a starting pass no longer clears a NEXT —
+     * a pass that is itself in its carries (`carryBusy`: waiting on the target,
+     * or walking them) only defers it, and a dropped one hands it back
+     * (`carryDropped`); and a CPU walk that has to take the sets from a tail
+     * keeps the tail's pose as NEXT, dealt again if that walk is dropped.
      */
     let carryTail = null;
     let carryNext = null;
+    /** T-2966: a far pass is in its carries now (waiting on the target, or
+     *  walking them on the CPU): a NEXT waits for it to land or be dropped. */
+    let carryBusy = false;
     function carryCoversAt(e, n) {
       return !!(carryWarm && carryKeeper && carryUploaded && covers(carryUploaded, e, n, carryReach));
     }
     /** The far pass's carry job: dealt now, unless a tail holds the target. */
     function carryStart(camE, camN) {
-      carryNext = null;
       if (carryTail) return null;
       return carryDeal(camE, camN, farSync);
     }
@@ -2194,7 +2235,9 @@ export async function createFlora({
     function* carryPass(camE, camN, cone, job) {
       if (!job) stats.carryQueued++;
       while (!job) {
+        carryBusy = true;
         if (!carryTail) {
+          carryBusy = false;
           if (!carryCoversAt(camE, camN)) return false;
           job = carryDeal(camE, camN, farSync);
           break;
@@ -2202,6 +2245,17 @@ export async function createFlora({
         const r = yield WALK_WAIT;
         if (r === MAY_WAIT) continue;
         if (r === DRAIN) {
+          // This pass lands now, so its pose replaces an older NEXT. T-2966:
+          // and the tail it waited on may have landed since it yielded (the
+          // frame's own `carryTailStep` runs before the pass resumes): then
+          // nothing is ahead of it, and it deals now as the tail. A NEXT left
+          // with no tail used to wait for a tail that never came, so the pass
+          // landed with the carries of the pass before it.
+          carryBusy = false;
+          if (!carryTail && carryCoversAt(camE, camN)) {
+            toTail(carryDeal(camE, camN, farSync), camE, camN, cone, null);
+            return;
+          }
           carryNext = { e: camE, n: camN, cone, ms: 0, frames: 0, entry: null };
           return;
         }
@@ -2220,7 +2274,7 @@ export async function createFlora({
       return true;
     }
     function toTail(job, e, n, cone, reap) {
-      carryTail = { job, e, n, cone, reap, ms: 0, frames: 0, entry: null };
+      carryTail = { job, e, n, cone, reap, ms: 0, frames: 0, entry: null, cpu: false };
       stats.carryTails++;
     }
     /**
@@ -2229,9 +2283,11 @@ export async function createFlora({
      * it). Returns the main thread's ms.
      */
     function carryTailStep(slice) {
-      if (!carryTail) return 0;
+      if (!carryTail && !(carryNext && !carryBusy)) return 0;
       const t0 = performance.now();
       const sync = slice === Infinity;
+      // A NEXT with no tail ahead of it: one a dropped pass handed back.
+      if (!carryTail) nextToTail(sync);
       while (carryTail) {
         const t = carryTail;
         const s0 = performance.now();
@@ -2245,21 +2301,32 @@ export async function createFlora({
         tailSpent(t, s0);
         if (!done) break;
         carryTail = null;
-        if (carryNext) {
-          // The pose a pass left while this tail held the target: dealt now,
-          // and the tail in its turn.
-          const x = carryNext;
-          carryNext = null;
-          if (!carryCoversAt(x.e, x.n)) { stats.carryTailDropped++; break; }
-          const d0 = performance.now();
-          const job = carryDeal(x.e, x.n, sync);
-          toTail(job, x.e, x.n, x.cone, null);
-          Object.assign(carryTail, { ms: x.ms, frames: x.frames, entry: x.entry });
-          tailSpent(carryTail, d0);
-        }
+        // The pose a pass left while this tail held the target: dealt now, and
+        // the tail in its turn — unless a pass is in its carries, which takes
+        // the target first (and the NEXT over, once it lands).
+        if (carryNext && !carryBusy) nextToTail(sync);
         if (!sync) break;
       }
       return performance.now() - t0;
+    }
+    /** T-2966: the NEXT made the tail — dealt on the GPU where the kept tile
+     *  covers its pose, else walked on the CPU (`walkCarry`), its pass's log
+     *  entry told so. */
+    function nextToTail(sync) {
+      const x = carryNext;
+      carryNext = null;
+      const d0 = performance.now();
+      if (carryCoversAt(x.e, x.n)) {
+        toTail(carryDeal(x.e, x.n, sync), x.e, x.n, x.cone, null);
+      } else {
+        toTail(null, x.e, x.n, x.cone, walkCarry(x.e, x.n, x.cone));
+        stats.carryCpu++;
+        stats.carryTailCpu++;
+        x.cpu = true;
+        if (x.entry) x.entry.onGpu = false;
+      }
+      Object.assign(carryTail, { ms: x.ms, frames: x.frames, entry: x.entry, cpu: !!x.cpu });
+      tailSpent(carryTail, d0);
     }
     /** A tail's ms go to the far pass it belongs to, once that has logged. */
     function tailSpent(t, s0) {
@@ -2788,17 +2855,36 @@ export async function createFlora({
        *  writes the carry sets itself, so a tail (and a NEXT) is replaced. */
       carryByCpu() {
         if (carryKeeper) stats.carryCpu++;
-        if (carryTail || carryNext) stats.carryTailDropped++;
-        carryTail = null;
-        carryNext = null;
+        // T-2966: the walk takes the sets from a tail in hand, whose pose is
+        // kept as NEXT (an older one's, unless a NEXT is newer): this pass's
+        // landing drops it (`carryOwned`), and dropping this pass deals it.
+        if (carryTail) {
+          stats.carryTailDropped++;
+          const t = carryTail;
+          if (!carryNext) carryNext = { e: t.e, n: t.n, cone: t.cone, ms: t.ms, frames: t.frames, entry: t.entry };
+          carryTail = null;
+        }
+        carryBusy = true;
       },
+      /** T-2966: a far pass dropped in flight; a NEXT it deferred is dealt. */
+      carryDropped() { carryBusy = false; },
+      /** T-2966: a far pass's CPU walk has committed the carry sets. */
+      carryWalked() { carryBusy = false; },
       /** T-2966: whether carries are still to land after their pass. */
       carryInFlight() { return carryTail !== null || carryNext !== null; },
       /** T-2966: the log entry of the far pass that just landed; a tail (or a
        *  NEXT) it left books its ms there from now on. */
       carryOwned(entry) {
+        carryBusy = false;
+        // T-2966: a NEXT an earlier landed pass left, never dealt: this pass's
+        // carries are in hand (reaped, a tail, a NEXT or walked) and newer.
+        if (carryNext?.entry) carryNext = null;
         for (const t of [carryNext, carryTail]) {
-          if (t && !t.entry) { t.entry = entry; entry.ms += t.ms; t.ms = 0; return; }
+          if (t && !t.entry) {
+            t.entry = entry; entry.ms += t.ms; t.ms = 0;
+            if (t.cpu) entry.onGpu = false;
+            return;
+          }
         }
       },
       /** T-2894: resolves when no kept tile has a re-centre in flight. */
@@ -3454,7 +3540,7 @@ export async function createFlora({
     // covers them, so the read-back is on its way while the far shrubs walk.
     // T-2966: read in the frame only for a caller with no budget (`farSync`);
     // and not dealt yet while an earlier pass's tail holds the target.
-    const carryGpu = gpuNear?.carryCovers(camE, camN) ?? false;
+    const carryGpu = !dealOnCpu && (gpuNear?.carryCovers(camE, camN) ?? false);
     const carryJob = carryGpu ? gpuNear.carryStart(camE, camN) : null;
     farShrubSet.reset();
     const f = rings.forb;
@@ -3499,8 +3585,18 @@ export async function createFlora({
     // by a resumption that may not wait — and reaped in slot order.
     // T-2966: except one that must land now (DRAIN), which leaves the read-back
     // and the reap to the carries' tail (`carryPass`).
-    if (onGpu && (yield* gpuNear.carryPass(camE, camN, cone, job)) !== false) return;
+    if (onGpu && (yield* gpuNear.carryPass(camE, camN, cone, job)) !== false) {
+      dealtOnGpu.far = true;
+      return;
+    }
+    dealtOnGpu.far = false;
     gpuNear?.carryByCpu();
+    yield* walkCarry(camE, camN, cone);
+    gpuNear?.carryWalked();
+  }
+  /** The carries' CPU walk (T-2035's, as it always was). T-2966: also a NEXT's,
+   *  as the carries' tail, where the kept tile no longer covers its pose. */
+  function* walkCarry(camE, camN, cone) {
     const margin = carryMargin;
     for (const { kind, target, original, radius, band, carryFringe, walk } of carryWalks) {
       target.reset();
@@ -3550,7 +3646,8 @@ export async function createFlora({
     nearDealing = true;
     openCensus();
     // T-2894: whether this pass's mid ring is the GPU's, decided as it starts.
-    const midOnGpu = gpuNear?.midCovers(camE, camN) ?? false;
+    const midOnGpu = !dealOnCpu && (gpuNear?.midCovers(camE, camN) ?? false);
+    dealtOnGpu.near = midOnGpu;
     yield* rebuildGround(camE, camN, cone, midOnGpu);
     // T-2895: and its forbs, rosettes and shrubs with it: dealt in the mid
     // pass and reaped beside the mid cards (`reapForbs`), or walked here.
@@ -3623,7 +3720,8 @@ export async function createFlora({
   const PASS_LOG_KEEP = 4096;
   function logPass(p, pass, ms, kind) {
     const log = stats.spread.log[p.name];
-    const entry = { pass, ms, kind };
+    // T-2966: and which side dealt its GPU rings (`dealtOnGpu`).
+    const entry = { pass, ms, kind, onGpu: dealtOnGpu[p.name] };
     log.push(entry);
     if (log.length > PASS_LOG_KEEP) log.splice(0, log.length - PASS_LOG_KEEP);
     // T-2966: a far pass's carries' tail books its ms on the pass.
@@ -3631,6 +3729,8 @@ export async function createFlora({
   }
   /** T-2894: a pass in flight dropped; counted if its ground was dealt. */
   function dropPass(p) {
+    // T-2966: a far pass dropped in its carries hands a deferred NEXT back.
+    if (p === farPass) gpuNear?.carryDropped();
     if (p.name === 'near' && stats.rebuilds > p.pending.rebuilds0) stats.spread.droppedDealt++;
     p.pending = null;
     stats.spread.abandoned++;
@@ -4411,6 +4511,11 @@ export async function createFlora({
       return nearPass.pending !== null || farPass.pending !== null
         || (gpuNear?.carryInFlight() ?? false);
     },
+    /** T-2966. While on, every pass walks its GPU rings (the mid ring, the
+     *  carries) on the CPU, so a tool dealing a landed pass again in one frame
+     *  deals it on the side the pass took (`onGpu` on its log entry).
+     *  Never set by the page. Returns the setting. */
+    dealOnCpu(on) { dealOnCpu = !!on; return dealOnCpu; },
 
     dispose() {
       if (groundKey) runJob('dropGround', { key: groundKey }, { worker: groundWorker }).catch(() => {});

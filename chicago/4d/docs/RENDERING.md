@@ -1657,3 +1657,40 @@ correction). Every number quotes its anchor and viewport.
       `docs/measurements/t-2966-carries-tail.json` holds the readings. The carry
       keeper's whole landing (T-2969) lands between frames, outside `flora.update`, and
       is not what the gate read; it stays T-2969's.
+    - **`--verify` deals a pass again on the side the pass took.** CI's moving-frames
+      gate read `verify far: the spread pass IS NOT the one-frame pass` once, on the
+      first move after `full`'s rig was built, with every frame ceiling met. Read with
+      every carry set digested apart and each far pass's side recorded: the move's last
+      far pass had walked its carries on the CPU (the 1240-texel carry tile, 4.4 m of
+      slack past its 8 m re-centre line, had not landed the re-centre the walker had
+      crossed), the re-centre landed before `--verify` ran, and the re-deal dealt them
+      on the GPU. The far shrubs matched; the spread pass's carry sets were the CPU walk
+      of the same pose dealt in one frame, to the bit (and CI's one-frame digest,
+      `51aaca4b`, is this machine's GPU-dealt spread pass at that pose). At the walk's
+      last pose the GPU's deal and the CPU's walk differ at 17 of 3,870 carry slots,
+      every one a texel centre in another community than its slot — the tile's own
+      class above, not the spreading. So each pass books which
+      side dealt its GPU rings (`onGpu` on its log entry: the near pass's mid ring, the
+      far pass's carries), the re-deal walks them on the CPU
+      when the pass did (`flora.dealOnCpu`, which the page never sets), and the line
+      names both sides. Nothing the page places changed by that half.
+    - **A landed pass's carries are owed until a newer pass lands.** With the re-deal on
+      its own side, one full run here read the full turn's last far pass `IS NOT` its
+      one-frame pass with both on the GPU, and with `1 replaced by a CPU walk`. That one
+      was the page's: the pass had waited on the previous pass's tail, the tail landed in
+      the frame's own `carryTailStep`, and the pass, resumed with DRAIN, left its pose as
+      NEXT with no tail ahead of it. A NEXT was dealt only as a tail landed, so it never
+      was — not by `settle` either — and the turn ended on the far shrubs of one pass and
+      the carries of the pass before it (the `replaced` was `--verify`'s own CPU walk
+      finding that NEXT still waiting). Reproduced on demand by making the carry tile
+      read as not covering at a quarter of the turn's asks (a debug patch to the
+      mirror, not shipped): `IS NOT` in a few turns, with the event log showing the
+      NEXT left behind a tail already landed. Now a pass that finds the target free on
+      DRAIN deals as the tail itself; a NEXT with no tail is dealt by the next frame's
+      tail step, and `settle` deals it too; a NEXT the kept tile no longer covers is
+      walked on the CPU as the tail (`walkCarry`, counted as `walked by the CPU after
+      their pass`, its pass's `onGpu` set false) instead of being dropped; a starting
+      pass no longer throws an older NEXT away, since it may yet be dropped — a pass in
+      its own carries only defers the NEXT (`carryBusy`), its landing supersedes it
+      (`carryOwned`) and dropping it deals it (`carryDropped`); and a CPU walk that has
+      to stop a tail keeps that tail's pose as NEXT the same way.

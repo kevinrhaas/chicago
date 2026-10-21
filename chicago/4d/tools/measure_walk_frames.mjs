@@ -83,6 +83,11 @@
  * `--verify` checks, after every move, that the pass the move left in flight
  * lands EXACTLY the plants a one-frame pass deals from the same camera: the
  * rebuild was spread, not changed.
+ * T-2966: dealt on the side the pass dealt its GPU rings — the near pass's
+ * mid ring, the far pass's carries (`onGpu` on the pass's log entry): a pass
+ * whose kept tile was not home walked them on the CPU, and the GPU's deal
+ * differs from that walk by the tile's own class (T-2698), so the one-frame
+ * pass walks them too (`flora.dealOnCpu`). The line names both sides.
  * T-2695: and that the zone answers the job pool's workers give a spread pass
  * (jobs/zone-kernel.js) are the page's own finder's, at 20,000 points over the
  * measured grid and its edge (`flora.checkHeldZones`).
@@ -597,6 +602,15 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
     for (const k of kinds) {
       const cam = a.camera.clone();
       const [x, y, z, qx, qy, qz, qw] = sp.last[k].camera;
+      // T-2966: on the side the spread pass dealt its GPU rings (the near
+      // pass's mid ring, the far pass's carries; flora.js `dealtOnGpu`). The
+      // GPU's deal and the CPU's walk differ by the kept tile's own class (one
+      // slot in about 400, T-2698), and which one a pass takes is the tile's
+      // timing: CI's walk at `full` read its last far pass walked by the CPU,
+      // the carry tile's 8 m re-centre landing after that pass started, and
+      // this re-deal on the GPU — the tile's class, not the spreading.
+      const onGpu = sp.log?.[k]?.find((x) => x.pass === sp.last[k].pass)?.onGpu;
+      a.flora.dealOnCpu?.(onGpu === false);
       cam.quaternion.set(qx, qy, qz, qw);
       cam.position.set(x + 500, y, z);
       cam.updateMatrixWorld(true);
@@ -604,8 +618,13 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
       cam.position.set(x, y, z);
       cam.updateMatrixWorld(true);
       a.flora.update(0, cam);
+      a.flora.dealOnCpu?.(false);
       const one = passDigest(k);
-      verified[k] = { spread: spreadDigests[k], sync: one, same: spreadDigests[k] === one };
+      // And the side the one-frame pass took: a spread pass the GPU dealt whose
+      // kept tile no longer covers it cannot be dealt again on its side here.
+      const oneGpu = sp.log?.[k]?.at(-1)?.onGpu;
+      verified[k] = { spread: spreadDigests[k], sync: one, same: spreadDigests[k] === one,
+        onGpu: onGpu ?? null, oneGpu: oneGpu ?? null };
     }
   }
   if (spreading) a.setFloraSpread(false);
@@ -1017,7 +1036,9 @@ for (const vp of VIEWPORTS) {
             // T-2966: the carries a pass that had to land left to their tail.
             + (g.carryTails != null ? `, ${g.carryTails} left to land after their pass`
               + ` (${g.carryTailFrames} tail frames, ${g.carryTailMs.toFixed(0)} ms; ${g.carryQueued} passes`
-              + ` waited on one, ${g.carryTailDropped} replaced by a CPU walk)` : '')
+              + ` waited on one, ${g.carryTailDropped} replaced by a CPU walk`
+              // T-2966: and the NEXTs the kept tile no longer covered, walked on the CPU.
+              + (g.carryTailCpu != null ? `, ${g.carryTailCpu} walked by the CPU after their pass` : '') + ')' : '')
             + (g.carryKeepMs != null ? `, the carry tile's keeper ${g.carryKeepMs.toFixed(0)} ms`
               + ` between frames (its worst landing since the tier's rig was built ${r.near.carryKeepWorst?.toFixed(0)} ms)` : ''))(r.near.gpu) : ''));
       }
@@ -1051,7 +1072,13 @@ for (const vp of VIEWPORTS) {
         if (y.differ || !y.asked) failed++;
       }
       for (const [k, v] of Object.entries(r.verified ?? {})) {
-        console.log(`  verify ${k}: the spread pass ${v.same ? 'IS' : 'IS NOT'} the one-frame pass (${v.spread} / ${v.sync})`);
+        // T-2966: the side each dealt its GPU rings on (the mid ring, the carries).
+        const side = (g) => (g === true ? 'GPU' : g === false ? 'CPU' : null);
+        const ring = k === 'near' ? 'mid ring' : 'carries';
+        const sides = side(v.onGpu) && side(v.oneGpu) ? (v.onGpu === v.oneGpu
+          ? `; its ${ring} the ${side(v.onGpu)}'s, as the one-frame pass's`
+          : `; its ${ring} the ${side(v.onGpu)}'s, the one-frame pass's the ${side(v.oneGpu)}'s`) : '';
+        console.log(`  verify ${k}: the spread pass ${v.same ? 'IS' : 'IS NOT'} the one-frame pass (${v.spread} / ${v.sync}${sides})`);
         if (!v.same) failed++;
       }
       out.readings.push({ viewport: vp.id, throttle: vp.throttle, tier, move, ...r });
