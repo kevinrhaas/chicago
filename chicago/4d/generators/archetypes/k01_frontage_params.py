@@ -871,7 +871,16 @@ def _wall_gable(d: dict, wg: dict, dormer: dict, width: float) -> dict:
         raise ParamError("dormer.sash.at_m: a light's voussoirs run off the wall gable's face")
     pn, fn = wg["pinnacles"], wg["finial"]
     pin = {k: float(pn[k]) for k in ("at_m", "shaft_m", "foot_m", "top_m", "cap_m", "spire_m")}
-    if pin["at_m"] - pin["shaft_m"] / 2 < wd / 2 + 0.13 + 0.02:
+    if pn.get("engage"):
+        # T-2937: the shafts TAKE the gable's ends, as 1811 Prairie's 1888 plate draws them: the
+        # face's edge stands inside each shaft and its raking cornice, horizontal cornice and K05
+        # eave (0.15 m past the face) all die into it, so the rake runs out past the shaft's inner
+        # face and nothing of it shows outside the outer one
+        if not pin["at_m"] - pin["shaft_m"] / 2 < wd / 2 < pin["at_m"] + pin["shaft_m"] / 2 - 0.15 - 0.02:
+            raise ParamError("dormer.wall_gable.pinnacles.engage: each shaft stands across the face's edge "
+                             "and 0.17 m past it, so the rake and its eave die into it")
+        pin["engage"] = True
+    elif pin["at_m"] - pin["shaft_m"] / 2 < wd / 2 + 0.13 + 0.02:
         raise ParamError("dormer.wall_gable.pinnacles: a shaft stands in the face's cornice return")
     if not pin["foot_m"] < 0.0 < dormer["face_height_m"] < pin["top_m"]:
         raise ParamError("dormer.wall_gable.pinnacles: a shaft rises from under the wall head past the face's eave")
@@ -947,6 +956,12 @@ def _wall_gable_arch(ar: dict, at: list, dormer: dict) -> dict:
             raise ParamError("dormer.wall_gable.arch.colonnettes: a colonnette stands in a light")
     out = {"radius_m": R, "drop_m": drop, "ring_m": ring, "proud_m": proud, "depth_m": depth, "stones": stones,
            "lights": lights, "colonnettes": {"at_m": cat, "radius_m": cr, "block_m": round(block, 4)}}
+    if "hood" in ar:   # T-2937: the archivolt's moulded outer order, round the voussoirs' extrados
+        hd = {k: float(ar["hood"][k]) for k in ("ring_m", "proud_m")}
+        if not 0.05 <= hd["ring_m"] <= 0.25 or not proud < hd["proud_m"] <= 0.15:
+            raise ParamError("dormer.wall_gable.arch.hood: a 0.05-0.25 m order standing prouder than the "
+                             "voussoirs, at most 0.15 m")
+        out["hood"] = hd
     if "crown_light" in ar:   # a round-headed light in the pediment over the arch, on the face's centre
         cl = {k: float(ar["crown_light"][k]) for k in ("sill_m", "width_m", "height_m")}
         if not 0.15 <= cl["width_m"] <= 0.6 or cl["height_m"] < cl["width_m"] / 2 + 0.05:
