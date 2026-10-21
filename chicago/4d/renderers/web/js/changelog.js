@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2158, ts: '2026-10-21T13:45:51.124Z', date: 'Oct 21, 2026, 8:45 AM CT', title: 'Nothing you can see changed: graphics card deals the far bushes', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The far bushes, out past the flowers to the edge of the meadow, stand on the same spots, at the same size and lean, as before.',
+      'The page no longer walks every far bush spot itself every few steps. The graphics card decides which bush stands in each far spot, against a small map that holds the ground\'s answer for each spot exactly, in the same pass that already deals the far grass clumps.',
+      'The page reads that answer back a little at a time over the next frames, as it already does for those clumps, so a quick turn does not hold a frame up.',
+      'Just after you arrive somewhere, change detail, or jump across the town, the page still walks the far bushes itself for a moment, until the card has the ground around you.',
+    ] },
   { v: 2157, ts: '2026-10-21T08:05:50.417Z', date: 'Oct 21, 2026, 3:05 AM CT', title: 'Draw budgets now count every draw the graphics driver receives', kind: 'fix',
     items: [
       'The page counted each batch of buildings as one draw, but the graphics driver receives one draw per piece in the batch. Over 1904 the counter read 360 while the driver got 3,288.',
