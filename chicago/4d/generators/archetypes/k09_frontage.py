@@ -92,6 +92,8 @@ def head(params, op) -> str:
         return FLAT
     if op.component == "k01.opening.door_leaf":
         return t.get("entrance") or FLAT
+    if op.component == "k01.opening.sash_round_hooded":   # T-2960: the hood its round_heads name
+        return ((getattr(params, "round_heads", None) or {}).get("hood") or {}).get("variant") or FLAT
     if op.component != "k01.opening.sash_flat":
         return FLAT
     return t["by_storey"][_storey(params, op)]
@@ -159,8 +161,13 @@ def dress(a, op, frame, conf):
         _entrance(a, kit, data, op, frame, conf)
         return True
     v = dict(_variant(kit, data, kind), clear_width_m=op.width_m, clear_height_m=op.height_m)
+    # T-2960: a round_heads hood's block stands its own distance past the jambs
+    ov = ((getattr(p, "round_heads", None) or {}).get("hood") or {}).get("overhang_m") \
+        if op.component == "k01.opening.sash_round_hooded" else None
+    if ov is not None:
+        v["overhang_m"] = ov
     seed = a.instance(kind, "trim", {"clear_width_m": op.width_m, "clear_height_m": op.height_m,
-                                     "storey": _storey(p, op)},
+                                     "storey": _storey(p, op), **({"overhang_m": ov} if ov is not None else {})},
                       {"sill": sock(op.s_m, op.sill_m), "head": sock(op.s_m, op.head_m)})
     t = spec(p)
     aproned = bool(t.get("apron")) and _storey(p, op) in t.get("apron_storeys", [])
