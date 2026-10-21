@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2153, ts: '2026-10-21T03:58:48.562Z', date: 'Oct 20, 2026, 10:58 PM CT', title: '1801 Prairie\'s carved loggia', kind: 'feature',
+    items: [
+      'Over both arches, the carved frieze and the cartouche band under the windows above now stand as in the print: a relief band on the capitals\' line under a moulded course, and over it an oval cartouche between two roundels.',
+      'Both arches of the Kimball house\'s corner loggia now carry the carving J. W. Taylor photographed: a moulded archivolt round each arch and down its jambs, a carved pier on either side under a capital, a rosette in each spandrel, carved panels on the stair\'s foot blocks and on the balcony\'s face.',
+    ] },
   { v: 2152, ts: '2026-10-21T03:12:51.240Z', date: 'Oct 20, 2026, 10:12 PM CT', title: '1811 Prairie\'s stone gable at the 1888 plate\'s full width', kind: 'improvement',
     items: [
       'The Ames house\'s stone gable at 1811 Prairie now spans the full width of its bay, as the 1888 Inland Architect plate shows. Its sloping edges run into the corner pinnacles, and its peak stands as high as the plate\'s.',
