@@ -485,12 +485,19 @@ class DetailBuilder(MeshBuilder):
                 self.raw([mapper(q[:2],q[2]) for q in piece],max(confidence,getattr(mapper,'confidence',confidence)),MORTAR,n)
         x0,z0,x1,z1 = bounds(polygon)
         courses = []
-        z = getattr(self, 'course_origin', 0.0)
+        # The granite string starts at its own origin (T-2955: north grade); a caller's
+        # course_origin (a chimney's single course) and brick keep theirs.
+        own = hasattr(self, 'course_origin')
+        z = getattr(self, 'course_origin', 0.0 if mat == BRICK else
+                    self.params.detail.get('ashlar_origin_m', 0.0))
+        # The bottom course runs down to the model's grade, so a raised origin leaves no
+        # uncoursed strip at the foot of a wall.
+        floor = z if own else min(z, 0.0)
         idx = 0
         while z < z1+1e-6:
             height = .066675 if mat == BRICK else self.course_schedule[idx%len(self.course_schedule)]
             if z+height > z0:
-                courses.append((idx,max(z,z0),min(z+height,z1)))
+                courses.append((idx,max(floor if idx == 0 else z,z0),min(z+height,z1)))
             z += height
             idx += 1
         for row,za,zb in courses:

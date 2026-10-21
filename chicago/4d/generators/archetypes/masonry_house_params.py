@@ -421,7 +421,9 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             "cx": fr.x(cw), "cy": fr.y(cs),
             "r": round(float(r_drum) * FT, 4),
             "eave_r": round(float(eave_r) * FT, 4),
-            "z0": fr.zval(t.get("base", 0.0)),
+            # A drum with no base stands on the model's grade, not on north grade: the
+            # walls start there, and T-2955's north-grade offset must not lift it off it.
+            "z0": fr.zval(t["base"]) if "base" in t else 0.0,
             "wall_top_z": fr.zval(t["wall_top"]),
             "apex_z": fr.zval(t["apex"]),
             "finial_m": round(float(t.get("finial_ft", 0.0)) * FT, 4),
@@ -807,6 +809,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                                       chimney_foot(p,chimney['x1']))
         p.detail["ashlar_courses_m"] = [round(float(h) * 0.0254, 6)
                                           for h in raw.get("ashlar_courses_in", [])]
+        # T-2955: the string is laid from north grade, so the beds run level round the NE
+        # corner and stay registered on the 18th Street apertures (set on its sums above
+        # north grade); on the Prairie face that is sheet 5's base line, 0.20 ft over the walk.
+        p.detail["ashlar_origin_m"] = fr.z(0.0, "ng")
         p.detail["ashlar_relief_m"] = [float(v) * FT for v in
                                         raw.get("ashlar_relief_ft", [0.025,0.15])]
         p.detail["conf"] = cf("v4_detail")
@@ -877,7 +883,9 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                     "door_x": sorted(fr.x(v) for v in junction["service_door_W"]),
                     "step_x": sorted(fr.x(v) for v in junction["step_width_W"]),
                     "step_runs": [v * FT for v in junction["step_runs_ft"]],
-                    "step_heights": [v * FT for v in junction["step_heights_ft"]],
+                    # On 18th Street, so read from north grade like the service door's
+                    # sill they climb to (T-2955): the top tread stays at the threshold.
+                    "step_heights": [fr.z(v, "ng") for v in junction["step_heights_ft"]],
                     "wall_y": north["y1"],
                     "gable_foot_x": west["stable_roof"]["front_x1"],
                     "eave_z": north["eave_hi_z"],
