@@ -28776,8 +28776,9 @@ archivolts; the balcony 0.4 m out, its face 0.5 m deep and its corbel 0.35 m; th
 (the kit's), level 0.1 m over the landing and swept down in one reversed cosine curve to a 0.5 m block
 0.85 m over grade (the photograph's left block reads 0.68-0.70 m over the camera's grade, which stands
 about 0.2 m under the lot's); the landing 0.3 m at the arch's mouth and the treads 0.28 m.
-**What is not built.** The carving on the piers, round the arches, on the cheeks' blocks and on the
-balcony's face, and the carved frieze over the loggia: plain stone here (T-2911 and T-2540). The
+**What is not built.** The carved frieze over the loggia: plain stone here (T-2932); the carving on
+the piers, round the arches, on the cheeks' blocks and on the balcony's face is T-2923's
+(L-kimball-1801-loggia-carving-2923), which also takes the keystones off. The
 principal storey's window the K01 build had at 18.9 m on the 18th Street wall is gone: the
 photograph's arch stands there.
 **How to resolve:** a photograph or drawing of the loggia's inside, or a plan of the principal floor,
@@ -28877,6 +28878,37 @@ pavilion, would give the pilasters' and the surrounds' sections and the capitals
 **Ticket:** T-2931 (piece 2 of T-2922).
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-20 (T-2931).
+
+### L-kimball-1801-loggia-carving-2923 — 1801 Prairie's loggia carving: archivolts, carved piers, spandrel rosettes, the stair's foot blocks and the balcony's face placed off the Taylor print, their sections and carving reconstructed
+
+**Decision:** the corner loggia on 1801 Prairie (T-2923, piece 3 of T-2911) takes the carving J. W.
+Taylor's c. 1895 photograph shows round both its arches (`taylor_c1895_kimball_residence_1801`),
+where T-2910 laid plain stone under a voussoir ring and keystone. **What is read, not invented.**
+Each arch, on the front and on 18th Street alike, is framed by a moulded archivolt that turns round
+its head and runs down both jambs to the loggia's floor, about 0.2 m broad (its crown at about 3.8 m
+over the intrados' 3.6), with no keystone; a carved pier stands each side of it, a strip about
+0.3 m broad (the front's at v 0.1-0.4 and 2.84-3.15, the 18th Street face's at u 17.0-17.3 and
+19.6-20.0, read through the solved camera) from a base at the floor to a capital at about
+3.7-3.95 m, its shaft carved down its length; the spandrels between the archivolt and the piers
+are carved; each foot block of the stair's swept cheeks is carved with arched panels on its front
+and its outer face; and the 18th Street arch's balcony carries a row of carved panels on its face.
+**What is invented.** Every size and every carving's form: the archivolt's two faces 0.07 and
+0.11 m broad, 0.035 and 0.07 m proud; the piers 0.22 m outside the intrados, 0.30 m broad and
+0.05 m proud, on 0.35 m bases standing 0.03 m wider and prouder, under 0.17 m capitals standing
+0.04 m so, their tops at 3.92 m; a chain of lozenges 0.14 by 0.24 m standing 0.02 m off each shaft,
+for the print's carving, which at about 2.7 cm a pixel shows that the shafts are carved and not
+what with; one rosette 0.1 m in radius in each spandrel, for the print's leafage; on each foot
+block a round-headed tablet on its front and two on its outer face, each 0.015 m proud with its
+field raised again, for the print's small arched tracery; the balcony's face in four panels between
+raised ribs 0.05 m broad, a lozenge in each. The capitals are plain blocks where the print's are
+carved. **Not changed here.** Both arches render about 15-20 px south (the front's) and east (the
+18th Street face's) of the print's, so their carving does; the arches' places are T-2910's and it
+is a difference in the match record.
+**How to resolve:** a nearer photograph of the loggia, or a measured drawing of its arches, would
+give the archivolt's section, the piers' and the capitals' carving and the tracery on the blocks.
+**Ticket:** T-2923 (piece 3 of T-2911).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-21 (T-2923).
 
 ### L-k01-1621-last-drawn-2531 — 1621 Prairie's last drawn differences: the door's ring turned to a curved extrados under a band in a deep recess, the light over it stood on a moulded shelf, and splayed voussoirs over the basement lights, their places read and their sections reconstructed
 

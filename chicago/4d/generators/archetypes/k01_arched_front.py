@@ -308,7 +308,113 @@ def _voussoirs(a, frame, g, conf, recess):
         a.stone(frame, [(p0, g["sill_m"]), (p1, g["sill_m"]), (p1, g["spring_m"]), (p0, g["spring_m"])], [hj] * 4,
                 "rough_stone_trim", a._stone_seed(cid, inst, j), conf, recess=recess, bevel=wk["bevel_m"], F=0.0)
         j += 1
+    cv = loggia_carving(a.p, g)
+    if cv:   # T-2923: the loggia's carving stands where the keystone would (the print has none)
+        _loggia_carving(a, frame, g, cv, conf)
+        return
     _keystone(a, frame, g["keystone"], a._stone_seed(cid, inst, j), conf)
+
+
+# -- T-2923: 1801's loggia carving ----------------------------------------------------------
+
+LOGGIA_ARCHES = ("k01.opening.door_leaf", "k01.opening.loggia_side_arch")
+
+
+def loggia_carving(p, g) -> dict:
+    """The loggia's carving (`entrance_kit.loggia.carving`) where `g` is one of its two arches,
+    else an empty dict."""
+    if g["component"] not in LOGGIA_ARCHES:
+        return {}
+    return (((p.entrance_kit or {}).get("loggia") or {}).get("carving")) or {}
+
+
+def _raised(a, frame, poly, d0, d1, seed, conf, mat="dress_stone"):
+    """A raised piece on a wall's face: the convex outline `poly` ((s, y), counter-clockwise),
+    its face `d1` before the wall, its sides down to `d0` (at or under the face it stands on,
+    so no side ends in the air); no back."""
+    _face(a, mat, frame, [(s, y, d1) for s, y in poly], (0, 0, 1), seed, conf)
+    for i in range(len(poly)):
+        (s0, y0), (s1, y1) = poly[i], poly[(i + 1) % len(poly)]
+        _face(a, mat, frame, [(s0, y0, d0), (s1, y1, d0), (s1, y1, d1), (s0, y0, d1)], (y1 - y0, s0 - s1, 0.0),
+              seed, conf)
+
+
+def _disc(cx, cy, rx, ry, n=12):
+    return [(cx + rx * math.cos(2 * math.pi * i / n), cy + ry * math.sin(2 * math.pi * i / n)) for i in range(n)]
+
+
+def _archivolt(a, frame, c, spring, r, floor, av, seed, conf):
+    """The arch's moulded archivolt: two faces stepped out from the intrados (`steps_m` broad,
+    `proud_m` before the wall), turned round the head and run down both jambs to the floor."""
+    (w1, w2), (p1, p2) = av["steps_m"], av["proud_m"]
+    n = ROUND_SEGMENTS
+
+    def path(rho):
+        return ([(c - rho, floor)] + [(c + rho * math.cos(math.pi * (n - i) / n), spring + rho * math.sin(math.pi * (n - i) / n))
+                                      for i in range(n + 1)] + [(c + rho, floor)])
+    r1, r2 = r + w1, r + w1 + w2
+    # the section from the intrados out, (radius, proud); each step's riser faces the arch
+    sec = [(r, 0.0), (r, p1), (r1, p1), (r1, p2), (r2, p2), (r2, 0.0)]
+    rings = {rho: path(rho) for rho in (r, r1, r2)}
+    for (ra, da), (rb, db) in zip(sec, sec[1:]):
+        A, B = rings[ra], rings[rb]
+        for i in range(len(A) - 1):
+            pts = [(*A[i], da), (*A[i + 1], da), (*B[i + 1], db), (*B[i], db)]
+            if ra == rb:   # a riser: it faces in (toward the arch) or, the outermost, out
+                m = ((A[i][0] + A[i + 1][0]) / 2, (A[i][1] + A[i + 1][1]) / 2)
+                k = 1.0 if ra == r2 else -1.0
+                o = (m[0] - c, m[1] - spring) if m[1] > spring + 1e-9 else (m[0] - c, 0.0)
+                hint = (k * o[0], k * o[1], 0.0)
+            else:
+                hint = (0, 0, 1)
+            _face(a, "dress_stone", frame, pts, hint, seed, conf)
+    for sg in (-1, 1):   # the feet, on the floor
+        for (ra, rb, d) in ((r, r1, p1), (r1, r2, p2)):
+            sa, sb = sorted((c + sg * ra, c + sg * rb))
+            _face(a, "dress_stone", frame, [(sa, floor, 0.0), (sb, floor, 0.0), (sb, floor, d), (sa, floor, d)],
+                  (0, -1, 0), seed, conf)
+
+
+def _loggia_carving(a, frame, g, cv, conf):
+    """T-2923: 1801's loggia carving (J. W. Taylor's c. 1895 photograph), on each of its two
+    arches' faces: the archivolt (`_archivolt`); a carved pier each side, `off_m` outside the
+    intrados and `width_m` broad, from the floor on a base to a capital under `top_m`, a
+    chain of raised lozenges down its shaft; and a rosette in each spandrel, where the print
+    shows carved leafage. The print's carving is finer than its 2.7 cm a pixel; what stands
+    for it is reconstructed (docs/LIBERTIES.md L-kimball-1801-loggia-carving-2923)."""
+    (s0, s1, spring, r, floor), = g["lights"]
+    c = (s0 + s1) / 2
+    av, pi = cv["archivolt"], cv["piers"]
+    e1 = r + pi["off_m"] + pi["width_m"]
+    seed = a.instance("k01.wall.loggia_carving", "wall",
+                      {"of": g["component"], "archivolt_m": sum(av["steps_m"]), "piers_s_m": [c - e1, c + e1],
+                       "piers_top_m": pi["top_m"],
+                       "carving": "lozenge chains, spandrel rosettes and an archivolt standing for the print's"},
+                      {"crown": _P(frame, c, spring + r, 0.0)})
+    _archivolt(a, frame, c, spring, r, floor, av, seed, conf)
+    e0 = r + pi["off_m"]
+    e1 = e0 + pi["width_m"]
+    pr, bh, ch, top = pi["proud_m"], pi["base_m"], pi["capital_m"], pi["top_m"]
+    wl, hl = pi["lozenge_m"]
+    ya, yb = floor + bh, top - ch
+    n = max(1, math.floor((yb - ya - 0.08) / hl))
+    y0 = (ya + yb) / 2 - n * hl / 2
+    for sg in (-1, 1):
+        pa, pb = sorted((c + sg * e0, c + sg * e1))
+        _box(a, "dress_stone", frame, pa - 0.03, pb + 0.03, floor, ya, 0.0, pr + 0.03, seed, conf, skip=("back",))
+        _box(a, "dress_stone", frame, pa, pb, ya, yb, 0.0, pr, seed, conf, skip=("back", "top", "bottom"))
+        _box(a, "dress_stone", frame, pa - 0.04, pb + 0.04, yb, top, 0.0, pr + 0.04, seed, conf, skip=("back",))
+        m = (pa + pb) / 2
+        for k in range(n):
+            yc = y0 + (k + 0.5) * hl
+            _raised(a, frame, [(m, yc - hl / 2), (m + wl / 2, yc), (m, yc + hl / 2), (m - wl / 2, yc)],
+                    pr - 0.005, pr + 0.02, seed, conf)
+        # the spandrel's rosette, on the 45-degree line outside the archivolt
+        rr = cv["rosette_m"]
+        rho = r + sum(av["steps_m"]) + rr + 0.05
+        sx, sy = c + sg * rho * math.sqrt(0.5), spring + rho * math.sqrt(0.5)
+        _raised(a, frame, _disc(sx, sy, rr, rr), -0.005, 0.03, seed, conf)
+        _raised(a, frame, _disc(sx, sy, rr * 0.45, rr * 0.45), 0.025, 0.05, seed, conf)
 
 
 # -- the frieze ------------------------------------------------------------------------

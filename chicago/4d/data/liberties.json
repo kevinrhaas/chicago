@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 669,
+  "count": 670,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -45748,7 +45748,7 @@
         },
         {
           "label": "Decision",
-          "text": "the W. W. Kimball house at 1801 Prairie takes the corner entrance J. W. Taylor's c. 1895 photograph shows (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…), read through its solved camera: an open loggia at the front's 18th Street end with a round arch on each face, and a broad stair coming down the front out of the front arch between swept cheek walls. **What is read, not invented.** Each arch's place and size: about 1.9 m across, centred about 1.6 m from the corner (the front's void v 0.5-2.7, the 18th Street face's u 18.1-19.5 inside its surround), springing about 2.65 m over grade and crowned about 3.6 m; the loggia's floor at the 1.45 m principal floor; a door frame on the loggia's back wall, seen through the 18th Street arch about on the front arch's axis; a stone balcony under the 18th Street arch, its top about the arch's sill, its underside corbelled back into the wall; nine risers coming down about 2.5 m in front of the front arch, as broad as the arch's piers, between cheeks that run level by the arch and sweep down to a block at the foot about 0.7-0.85 m over grade. **What is invented.** The room behind the arches: 2.3 m square (from the 18th Street wall's inner face to 2.75 m along the front, and 2.75 m behind the front), its floor the door's, a flat ceiling 3.2 m over it; the photograph shows only its back wall, and the room's depth is what puts that wall where the door frame is seen. The door: a pair of panelled leaves 1.5 m across under a 0.45 m transom, 2.75 m to its head, K07's deep-arch variant's joinery. The voussoir rings (0.4 m) and keystones, K01's arched door group, standing for the photograph's moulded archivolts; the balcony 0.4 m out, its face 0.5 m deep and its corbel 0.35 m; the cheeks 0.3 m thick (the kit's), level 0.1 m over the landing and swept down in one reversed cosine curve to a 0.5 m block 0.85 m over grade (the photograph's left block reads 0.68-0.70 m over the camera's grade, which stands about 0.2 m under the lot's); the landing 0.3 m at the arch's mouth and the treads 0.28 m. **What is not built.** The carving on the piers, round the arches, on the cheeks' blocks and on the balcony's face, and the carved frieze over the loggia: plain stone here. The principal storey's window the K01 build had at 18.9 m on the 18th Street wall is gone: the photograph's arch stands there."
+          "text": "the W. W. Kimball house at 1801 Prairie takes the corner entrance J. W. Taylor's c. 1895 photograph shows (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…), read through its solved camera: an open loggia at the front's 18th Street end with a round arch on each face, and a broad stair coming down the front out of the front arch between swept cheek walls. **What is read, not invented.** Each arch's place and size: about 1.9 m across, centred about 1.6 m from the corner (the front's void v 0.5-2.7, the 18th Street face's u 18.1-19.5 inside its surround), springing about 2.65 m over grade and crowned about 3.6 m; the loggia's floor at the 1.45 m principal floor; a door frame on the loggia's back wall, seen through the 18th Street arch about on the front arch's axis; a stone balcony under the 18th Street arch, its top about the arch's sill, its underside corbelled back into the wall; nine risers coming down about 2.5 m in front of the front arch, as broad as the arch's piers, between cheeks that run level by the arch and sweep down to a block at the foot about 0.7-0.85 m over grade. **What is invented.** The room behind the arches: 2.3 m square (from the 18th Street wall's inner face to 2.75 m along the front, and 2.75 m behind the front), its floor the door's, a flat ceiling 3.2 m over it; the photograph shows only its back wall, and the room's depth is what puts that wall where the door frame is seen. The door: a pair of panelled leaves 1.5 m across under a 0.45 m transom, 2.75 m to its head, K07's deep-arch variant's joinery. The voussoir rings (0.4 m) and keystones, K01's arched door group, standing for the photograph's moulded archivolts; the balcony 0.4 m out, its face 0.5 m deep and its corbel 0.35 m; the cheeks 0.3 m thick (the kit's), level 0.1 m over the landing and swept down in one reversed cosine curve to a 0.5 m block 0.85 m over grade (the photograph's left block reads 0.68-0.70 m over the camera's grade, which stands about 0.2 m under the lot's); the landing 0.3 m at the arch's mouth and the treads 0.28 m. **What is not built.** The carved frieze over the loggia: plain stone here; the carving on the piers, round the arches, on the cheeks' blocks and on the balcony's face is later work's (“1801 Prairie's loggia carving: archivolts, carved piers, spandrel rosettes, the stair's foot blocks and the balcony's face placed off the Taylor print, their sections and carving reconstructed”), which also takes the keystones off. The principal storey's window the K01 build had at 18.9 m on the 18th Street wall is gone: the photograph's arch stands there."
         },
         {
           "label": "How to resolve",
@@ -45766,8 +45766,9 @@
       "work_refs": [
         "T-2910",
         "T-2790",
-        "T-2911",
-        "T-2540"
+        "T-2932",
+        "T-2923",
+        "T-2911"
       ]
     },
     {
@@ -45886,6 +45887,40 @@
         "T-2921",
         "T-2843",
         "T-2540"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-loggia-carving-2923",
+      "title": "1801 Prairie's loggia carving: archivolts, carved piers, spandrel rosettes, the stair's foot blocks and the balcony's face placed off the Taylor print, their sections and carving reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-21",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the corner loggia on 1801 Prairie takes the carving J. W. Taylor's c. 1895 photograph shows round both its arches (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…), where earlier work laid plain stone under a voussoir ring and keystone. **What is read, not invented.** Each arch, on the front and on 18th Street alike, is framed by a moulded archivolt that turns round its head and runs down both jambs to the loggia's floor, about 0.2 m broad (its crown at about 3.8 m over the intrados' 3.6), with no keystone; a carved pier stands each side of it, a strip about 0.3 m broad (the front's at v 0.1-0.4 and 2.84-3.15, the 18th Street face's at u 17.0-17.3 and 19.6-20.0, read through the solved camera) from a base at the floor to a capital at about 3.7-3.95 m, its shaft carved down its length; the spandrels between the archivolt and the piers are carved; each foot block of the stair's swept cheeks is carved with arched panels on its front and its outer face; and the 18th Street arch's balcony carries a row of carved panels on its face. **What is invented.** Every size and every carving's form: the archivolt's two faces 0.07 and 0.11 m broad, 0.035 and 0.07 m proud; the piers 0.22 m outside the intrados, 0.30 m broad and 0.05 m proud, on 0.35 m bases standing 0.03 m wider and prouder, under 0.17 m capitals standing 0.04 m so, their tops at 3.92 m; a chain of lozenges 0.14 by 0.24 m standing 0.02 m off each shaft, for the print's carving, which at about 2.7 cm a pixel shows that the shafts are carved and not what with; one rosette 0.1 m in radius in each spandrel, for the print's leafage; on each foot block a round-headed tablet on its front and two on its outer face, each 0.015 m proud with its field raised again, for the print's small arched tracery; the balcony's face in four panels between raised ribs 0.05 m broad, a lozenge in each. The capitals are plain blocks where the print's are carved. **Not changed here.** Both arches render about 15-20 px south (the front's) and east (the 18th Street face's) of the print's, so their carving does; the arches' places are earlier work's and it is a difference in the match record."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer photograph of the loggia, or a measured drawing of its arches, would give the archivolt's section, the piers' and the capitals' carving and the tracery on the blocks."
+        },
+        {
+          "label": "Review",
+          "text": "the taylor c1895 northwest match data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-21 (T-2923)."
+        }
+      ],
+      "work_refs": [
+        "T-2923",
+        "T-2911",
+        "T-2910"
       ]
     },
     {

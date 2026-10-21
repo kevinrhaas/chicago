@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "4a852c1ce76047fb84e996d8a4328b90b6355e04f31ad96ae7df1e5c0e01df99",
+  "glb_sha256": "baf41484efd258905ee1cba285360cc66e8de2882d93d012c94311ce9cb66856",
   "camera_sha256": "d89ca0a91bccddd25a0ffa04ea98ff95ec08faec3913c2588f95f158db8cedf3",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
   "verdict": "differs",
@@ -44,8 +44,13 @@
     },
     {
       "what": "the loggia's carving: the archivolts' mouldings, the carved piers and panels beside and over both arches, the carved blocks at the cheeks' foot and the balcony's carved face; the build lays them in plain stone under a voussoir ring",
+      "status": "fixed",
+      "how": "T-2923: each arch's archivolt in two faces (0.07 and 0.11 m, 0.035 and 0.07 m proud) round its head and down both jambs, the keystone gone as the print has none; a carved pier each side, 0.30 m broad 0.22 m outside the intrados, on a base and under a capital at 3.75-3.92 m, a chain of lozenges down its shaft; a rosette in each spandrel; a round-headed tablet on each foot block's front and two on its outer face; the balcony's face in four raised panels with a lozenge each. The front's corner pier within about 5 px of the print's (x 1000-1012 against 995-1007) and its capitals at the print's height within about 10 px; the shafts' carving, the capitals' (plain blocks here) and the blocks' tracery are reconstructed (L-kimball-1801-loggia-carving-2923)"
+    },
+    {
+      "what": "both loggia arches, and their carving with them, render about 15-20 px south (the front's, x 1025-1105 against the print's 1010-1080) and east (the 18th Street face's, its corner pier at x 980-995 against the print's 955-974) of the print's",
       "status": "open",
-      "how": "T-2923"
+      "how": "T-1890 (seen by T-2923; the arches' places are T-2910's)"
     },
     {
       "what": "the carved frieze over the principal storey over the loggia; the build lays it in plain stone",
