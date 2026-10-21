@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "10598f977a910354d1fd09b240a53a0d89d89164e55536b83201dd03c73b18ce",
+  "glb_sha256": "4a852c1ce76047fb84e996d8a4328b90b6355e04f31ad96ae7df1e5c0e01df99",
   "camera_sha256": "d89ca0a91bccddd25a0ffa04ea98ff95ec08faec3913c2588f95f158db8cedf3",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
   "verdict": "differs",
@@ -48,9 +48,19 @@
       "how": "T-2923"
     },
     {
-      "what": "the front's carving: the carved pilasters beside the bow and the pavilion, the moulded surrounds of the bow's lights and the pavilion's pairs, and the carved frieze over the principal storey over the loggia; the build lays them in plain stone",
+      "what": "the carved frieze over the principal storey over the loggia; the build lays it in plain stone",
       "status": "open",
-      "how": "T-2931 (the pilasters and surrounds), T-2932 (the frieze)"
+      "how": "T-2932"
+    },
+    {
+      "what": "the front's carved pilasters and moulded window surrounds: a carved pilaster a storey at the bow's north junction and at each corner of the pavilion's face, each under a capital below the band over it with a chain of carved lozenges down its shaft, the principal storey's on a corbel under the sill course; every light of the bow and pair of the pavilion in a moulded frame under a projecting head; the build laid them in plain stone",
+      "status": "fixed",
+      "how": "T-2931: K08 pilasters at the bow's ends (0.22 m, 0.07 m proud) and the pavilion face's corners (0.30 m, 0.08 m proud), one a storey on a base and under a capital, a chain of lozenges on each shaft, the lowest from the 1.75 m sill line on a two-step corbel; K08 surrounds round the bow's lights (0.12 m jambs) and the pavilion's pairs (0.20 m) in two steps under a hood. The bow's north pilaster within about 5 px of the print's (x 1127-1137); the capitals and corbels at the print's heights within about 20 px. The capitals are plain blocks where the print's are carved, and the pavilion's two stand as far south as its face does (the next difference)"
+    },
+    {
+      "what": "the south pavilion's face renders about 30 px south of the print's at its north corner (the print's pilaster at x 1232-1250, the build's face from about x 1265) and about 55 px at its south corner (x 1340 against about 1395), its pairs of lights and its pilasters with it",
+      "status": "open",
+      "how": "T-2540 (the envelope's match records); seen while T-2931 read the pilasters on the pavilion's corners"
     },
     {
       "what": "the bow balcony's pierced panels: the print's balustrade on the bow is pierced in a diagonal lattice of diamonds between posts, one post showing a quarter of the way round from the north wall; the build had square stone balusters",

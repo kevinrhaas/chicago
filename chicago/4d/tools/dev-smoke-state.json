@@ -12,25 +12,25 @@
       "passed": 107,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 176,
-      "takenAt": "2026-10-20T16:11:29.191Z",
-      "ref": "steward/t2936-1811-gable-arch",
-      "commit": "35f75a78685e",
-      "devCommit": "ef4f19ead49c",
-      "treeHash": "sha256:792e8b63dee594ba",
+      "wallSeconds": 155,
+      "takenAt": "2026-10-20T16:36:21.088Z",
+      "ref": "steward/t2931-1801-pilasters",
+      "commit": "c26de927e3f0",
+      "devCommit": "057355579681",
+      "treeHash": "sha256:fcfe99394b75d3b8",
       "treeDirty": false,
-      "changelogHash": "sha256:6ec7928d70c0a51c",
+      "changelogHash": "sha256:03d3ca5f141577af",
       "host": {
         "kind": "steward-runner",
         "cpus": 4,
         "memGB": 15.6,
         "loadavg": [
-          4.8,
-          4.7,
-          4.3
+          3.5,
+          4.4,
+          3.9
         ]
       },
-      "source": "/tmp/w/smoke_m3.log"
+      "source": "/tmp/t2931/smoke-m3.log"
     },
     {
       "viewport": "desktop",
@@ -43,25 +43,25 @@
       "passed": 107,
       "failed": 0,
       "failures": [],
-      "wallSeconds": 418,
-      "takenAt": "2026-10-20T16:11:29.077Z",
-      "ref": "steward/t2936-1811-gable-arch",
-      "commit": "35f75a78685e",
-      "devCommit": "ef4f19ead49c",
-      "treeHash": "sha256:792e8b63dee594ba",
+      "wallSeconds": 358,
+      "takenAt": "2026-10-20T16:36:20.982Z",
+      "ref": "steward/t2931-1801-pilasters",
+      "commit": "c26de927e3f0",
+      "devCommit": "057355579681",
+      "treeHash": "sha256:fcfe99394b75d3b8",
       "treeDirty": false,
-      "changelogHash": "sha256:6ec7928d70c0a51c",
+      "changelogHash": "sha256:03d3ca5f141577af",
       "host": {
         "kind": "steward-runner",
         "cpus": 4,
         "memGB": 15.6,
         "loadavg": [
-          4.8,
-          4.7,
-          4.3
+          3.5,
+          4.4,
+          3.9
         ]
       },
-      "source": "/tmp/w/smoke_d3.log"
+      "source": "/tmp/t2931/smoke-d3.log"
     },
     {
       "viewport": "desktop",
@@ -1905,6 +1905,68 @@
         "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
       },
       "source": "gh-run:37157020341 https://github.com/kevinrhaas/chicago/actions/runs/37157020341"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 176,
+      "takenAt": "2026-10-20T16:11:29.191Z",
+      "ref": "steward/t2936-1811-gable-arch",
+      "commit": "35f75a78685e",
+      "devCommit": "ef4f19ead49c",
+      "treeHash": "sha256:792e8b63dee594ba",
+      "treeDirty": false,
+      "changelogHash": "sha256:6ec7928d70c0a51c",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.8,
+          4.7,
+          4.3
+        ]
+      },
+      "source": "/tmp/w/smoke_m3.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 418,
+      "takenAt": "2026-10-20T16:11:29.077Z",
+      "ref": "steward/t2936-1811-gable-arch",
+      "commit": "35f75a78685e",
+      "devCommit": "ef4f19ead49c",
+      "treeHash": "sha256:792e8b63dee594ba",
+      "treeDirty": false,
+      "changelogHash": "sha256:6ec7928d70c0a51c",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.8,
+          4.7,
+          4.3
+        ]
+      },
+      "source": "/tmp/w/smoke_d3.log"
     }
   ]
 }

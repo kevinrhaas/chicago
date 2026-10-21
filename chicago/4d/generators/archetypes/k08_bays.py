@@ -87,6 +87,7 @@ Y = (0.0, 1.0, 0.0)
 ROLE_MATERIAL = {
     "wall": "masonry", "masonry_relief": "masonry", "reveal": "masonry", "mullion": "masonry", "roof_back": "masonry",
     "plinth": "dressed_stone", "band": "dressed_stone", "corbel": "dressed_stone",
+    "carving": "dressed_stone",   # T-2931: the carved relief on a pilaster's shaft
     "apron": "dressed_stone",   # T-2904: its own role, so a host may lay it in a stone of its own
     "sill": "sill_stone", "head": "head_stone",
     "soffit": "trim", "fascia": "trim", "bracket": "trim",
@@ -693,6 +694,42 @@ def voussoir_head(o, vs: dict, s0: float, s1: float, y0: float, y1: float):
         o.tube("head", poly, 0.001, -(pr - bv), inward=False)
 
 
+def surround(o, su: dict, op, s: float, tier: str) -> list:
+    """T-2931: a window's moulded surround (1801's lights, from the Taylor photograph): a jamb
+    `band_m` broad each side of the light (of a grouped window, of the whole group), from the
+    sill's top up into the lintel, which K06 has widened over it and stood proud of it as the
+    hood (see `window`). Each jamb is moulded in two faces: its outer two thirds `proud_m` out,
+    the third beside the reveal half that, so the light reads set back in a stepped frame.
+    A jamb has no back (it stands on the wall's face) and buries its foot in the sill and its
+    head in the lintel, so no end of it lies on another face. Returns the jambs' (s0, s1, y0,
+    y1) for a coursed wall's cells; the light tier keeps one plain face per jamb."""
+    pts = [(q[0] + s, q[1] + op.O[1]) for h in op.holes for q in h]
+    x0, x1 = min(q[0] for q in pts), max(q[0] for q in pts)
+    y_head = max(q[1] for q in pts)
+    b, d = su["band_m"], su["proud_m"]
+    # the sill's top falls outward; under the jamb's front it is at most `fall_m` down
+    y0, y1 = op.O[1] - 0.016, y_head + 0.004
+    out = []
+    for a0, a1, inner in ((x0 - b, x0, 1), (x1, x1 + b, 0)):
+        out.append((a0, a1, y0, y1))
+        if tier != "full":
+            o.proud("band", rect(a0, a1, y0, y1), d)
+            continue
+        # the section, (s, out) from the wall at the jamb's outer edge round to the reveal's
+        cut = a0 + b * 2 / 3 if inner else a1 - b * 2 / 3
+        sec = [(a0, 0.0), (a0, d), (cut, d), (cut, d / 2), (a1, d / 2), (a1, 0.0)] if inner else \
+              [(a0, 0.0), (a0, d / 2), (cut, d / 2), (cut, d), (a1, d), (a1, 0.0)]
+        for (s0_, n0), (s1_, n1) in zip(sec, sec[1:]):
+            # the section runs up, over and down, so its outside is to the left of each step
+            o.face("band", [o.P(s0_, y0, -n0), o.P(s1_, y0, -n1), o.P(s1_, y1, -n1), o.P(s0_, y1, -n0)],
+                   (n0 - n1, 0.0, s1_ - s0_))
+        # its ends, buried in the sill and the lintel: each a convex piece of the section
+        for y, hy in ((y0, -1.0), (y1, 1.0)):
+            for p0, p1, dd in ((a0, cut, d if inner else d / 2), (cut, a1, d / 2 if inner else d)):
+                o.face("band", [o.P(p0, y, 0.0), o.P(p1, y, 0.0), o.P(p1, y, -dd), o.P(p0, y, -dd)], (0.0, hy, 0.0))
+    return out
+
+
 # -- a window: a K06 opening, its recess cut to the bay ------------------------------------------
 
 def k06_variant(w: dict) -> dict:
@@ -726,6 +763,15 @@ def window(w: dict, s: float, y_sill: float, recess: float):
         data6["parts"]["head_band"]["ear_m"] = 0.0
         # and its sashes take K06's least stile, so the glass is most of a light so narrow
         data6["parts"]["sash"]["stile_m"] = data6["parts"]["sash"]["range_stile_m"][0]
+    if w.get("surround"):
+        # T-2931: a moulded surround's jambs stand on the sill's horns and run up into the
+        # lintel's ears, so the sill and the lintel reach as far out as the surround does and
+        # the lintel stands proud of it as its hood (1801's lights, from the Taylor photograph)
+        su = w["surround"]
+        # (a centimetre past the jambs, so a jamb's side never lies on the sill's end)
+        data6["parts"]["sill"]["horn_m"] = su["band_m"] + 0.01
+        data6["parts"]["head_band"].update({"ear_m": su["band_m"] + 0.01, "width_m": su["head_m"],
+                                             "proud_m": su["head_proud_m"]})
     probe = K6.Opening(v6, data6).build()
     inner_glass = probe.meta["depth_backing_m"] - data6["parts"]["backing"]["depth_m"]
     data6["parts"]["backing"]["depth_m"] = recess - inner_glass
@@ -795,6 +841,10 @@ class Bay:
                             raise ValueError(f"no room for a voussoir head over the light at s = {s:.3f}")
                         voussoir_head(flat, w["voussoirs"], min(q[0] for q in sh), max(q[0] for q in sh),
                                       max(q[1] for q in sh), y_hi)
+                    if w.get("surround"):
+                        jambs = surround(flat, w["surround"], o, s, self.tier)
+                        if v.get("masonry"):
+                            trim_holes += [(a - .002, b + .002, c - .002, d + .002, (), True) for a, b, c, d in jambs]
                     if v.get("masonry"):
                         for role in ("sill", "head"):
                             pts = o.prims[role].pos
@@ -822,6 +872,8 @@ class Bay:
                 if 0 < k:
                     yb = levels[k]
                     proud(flat, "band", run, yb - band["height_m"] / 2, yb + band["height_m"] / 2, band["proud_m"])
+            if v.get("pilasters"):
+                self._pilasters(flat, run, i, levels, y_wall0, band["height_m"])
             if grade:
                 proud(flat, "plinth", run, 0.0, plinth["height_m"], plinth["proud_m"], bottom=False)
             # the eaves: a soffit out to the fascia, the fascia's top the roof's eaves line
@@ -1356,6 +1408,68 @@ class Bay:
             m = e0 + i * step
             prism(flat, role, rect(m - bm / 2, m + bm / 2, y0, y3 - rd / 2), -z - bm / 2, -z + bm / 2)   # into the rail
         self.meta["balcony"] = {"bars": n, "top_m": round(y3, 4), "line_out_m": round(z, 4)}
+
+    def _pilasters(self, flat, run, i, levels, y_wall0, band_h):
+        """T-2931: carved pilasters at a run's ends (1801's bow and its south pavilion, from the
+        Taylor photograph): in every storey a shaft `width_m` broad and `proud_m` out, from the
+        plinth or the floor band under it to the band or the eaves over it, on a base and under a
+        capital that each stand wider and prouder than the shaft (the capital the more) (the lowest from `foot_m`, on a
+        stepped corbel `corbel_m` tall where the record gives one); on the shaft's face a chain of
+        carved lozenges `relief_m` proud between them. At a corner of the plan the shaft wraps
+        it (its side stands `proud_m` off the next run's face, as a mitred band does); at a
+        junction with the wall it starts where its face meets the wall's plane. The base and
+        the capital bury their backs in the wall; the lozenges bury theirs 4 mm in the shaft,
+        so no face lies on another. The light tier keeps the shafts, bases and capitals."""
+        pl = self.v["pilasters"]
+        ends = [q["at"] for q in pl["at"] if q["run"] == i]
+        if not ends:
+            return
+        w, d, hc, hb = pl["width_m"], pl["proud_m"], pl["capital_m"], pl["base_m"]
+        lz = pl.get("lozenges")
+        n = len(levels) - 1
+        count = 0
+        for at in ends:
+            for side in (("start", "end") if at == "both" else (at,)):
+                for k in range(n):
+                    lo = pl.get("foot_m", y_wall0) if k == 0 else levels[k] + band_h / 2
+                    hi = levels[k + 1] - band_h / 2 if k + 1 < n else levels[k + 1]
+                    # each piece runs 4 mm into what it stands on and what stands on it (the
+                    # band, the plinth, the soffit, the base and the capital)
+                    for ya, yb, grow in ((lo - 0.004, lo + hb, 0.02), (hi - hc, hi + 0.004, 0.045),
+                                         (lo + hb - 0.004, hi - hc + 0.004, 0.0)):
+                        dz = d + grow
+                        if side == "start":
+                            a0, a1, c0, c1 = run.s_start(dz), run.s_start(0.0) + w + grow, run.s_start(dz), run.s_start(0.0)
+                        else:
+                            a0, a1, c0, c1 = run.s_end(0.0) - w - grow, run.s_end(dz), run.s_end(0.0), run.s_end(dz)
+                        flat.proud("band", rect(a0, a1, ya, yb), dz)
+                        if c1 - c0 > 1e-6:
+                            # round a corner: its back where it oversails the next run, over its
+                            # own height alone, so the pieces' backs do not overlap where they meet
+                            yc0, yc1 = {0.02: (ya, lo + hb), 0.0: (lo + hb, hi - hc)}.get(grow, (hi - hc, yb))
+                            flat.plane("band", rect(c0, c1, yc0, yc1)[::-1], 0.0, (0.0, 0.0, -1.0))
+                    if k == 0 and pl.get("corbel_m"):
+                        # under the lowest base, a corbel of two stepped courses, the upper as
+                        # broad and proud as the shaft, the lower narrower and half as proud
+                        cm, mid_ = pl["corbel_m"], (run.s_start(0.0) + w / 2 if side == "start" else run.s_end(0.0) - w / 2)
+                        for ya, yb, hw, dz in ((lo - cm / 2, lo + 0.004, w / 2, d), (lo - cm, lo - cm / 2 + 0.004, w / 3, d / 2)):
+                            a0, a1 = max(mid_ - hw, run.s_start(dz)), min(mid_ + hw, run.s_end(dz))
+                            flat.proud("band", rect(a0, a1, ya, yb), dz)
+                    if lz and self.tier == "full":
+                        mid = run.s_start(0.0) + w / 2 if side == "start" else run.s_end(0.0) - w / 2
+                        lw = w - 2 * lz["margin_m"]
+                        span = hi - hc - lo - hb - 2 * lz["margin_m"]
+                        m = max(1, int(span // lz["pitch_m"]))
+                        step = span / m
+                        for j in range(m):
+                            cy = lo + hb + lz["margin_m"] + step * (j + 0.5)
+                            hh = (step - lz["gap_m"]) / 2
+                            prism(flat, "carving", [(mid, cy - hh), (mid + lw / 2, cy), (mid, cy + hh), (mid - lw / 2, cy)],
+                                  -d - lz["relief_m"], -d + 0.004)
+                            count += 1
+        self.meta.setdefault("pilasters", {"shafts": 0, "lozenges": 0})
+        self.meta["pilasters"]["shafts"] += n * sum(2 if a == "both" else 1 for a in ends)
+        self.meta["pilasters"]["lozenges"] += count
 
     def _pierced_panels(self, flat, role, pn, e0, e1, lo, hi, z, y0, y3):
         """T-2930: a stone balustrade's pierced panels (1801's bow, from the Taylor print), in
