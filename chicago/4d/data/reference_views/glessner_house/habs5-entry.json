@@ -2,20 +2,20 @@
   "structure_id": "glessner_house",
   "source_id": "habs_glessner_house_il_1015_drawings",
   "library_image": "a18-glessner-habs-sheet-5",
-  "photo": "../../../docs/RESEARCH/glessner-entry-2228/habs5-entry.png",
+  "photo": "../../../docs/RESEARCH/glessner-entry-T-2853/habs5-entry-T-2950.png",
   "image_px": [
     1620,
-    1788
+    1730
   ],
   "principal_px": [
     810.0,
-    894.0
+    865.0
   ],
   "focal_px": 131233.59580052493,
   "eye": [
     449.149,
     12.277344000000001,
-    2.728976
+    2.648712
   ],
   "yaw_deg": 270,
   "near_m": 350,
@@ -24,5 +24,5 @@
     -0.4,
     1
   ],
-  "solve": "Diagnostic entry elevation; HABS5 native crop5650,4170,7270,5900 (expanded laterally to include the complete arch). Camera scale from retained5ft door opening x6292..6792; 7.75ft height y5080..5830 rectifies scan anisotropy (100px/ft horizontal,96.7742vertical). Door centreS32.9ft and0.74ft above grade anchor. Header, fan, jamb profiles and step are withheld observations, not controls. Approximate pixel picks +/-5px; later1963surviving fabric, not independent1904witness. Far-field400m,near350; depth cannot be inferred from this frontal elevation."
+  "solve": "T-2950 re-solve. HABS5 native crop 5650,4170,7270,5900 at the scan's own pixels, NOT stretched: the door opening x 6292..6792 (5 ft) and y 5080..5830 (7.50 ft) give 100 px a foot both ways, so the door's height no longer rectifies a scan anisotropy (the T-2228 solve forced sheet 6's former 7.75 ft onto these 750 px, which stretched the crop 3.3 % upright; T-2913 found the scan square at the sheet's own scale bar). Door centre S 32.9 ft and the sill 0.74 ft over grade anchor (grade row 1734, eye 8.69 ft over grade at the principal row 865). Header, fan, jamb profiles, courses and step are withheld observations, not controls. Approximate pixel picks +/-5 px; later 1963 surviving fabric, not independent 1904 witness. Far-field 400 m, near 350; depth cannot be inferred from this frontal elevation."
 }
