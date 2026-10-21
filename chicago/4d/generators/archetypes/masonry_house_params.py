@@ -731,6 +731,9 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                       for q in finish["walks"]],
             **{k.removesuffix("_ft") + "_m": float(finish[k]) * FT for k in
                ("path_lift_ft", "wall_fall_ft", "wall_fall_run_ft", "turf_lift_ft")},
+            # T-2976: the carriage way's ramp up out of the sunk passage, if the record has one.
+            **({"passage_ramp_run_m": float(finish["passage_ramp_run_ft"]) * FT}
+               if "passage_ramp_run_ft" in finish else {}),
             "conf": cf("courtyard_ground"),
             "wall_fall_start_y": fr.y(finish["wall_fall_start_S"]),
         }
