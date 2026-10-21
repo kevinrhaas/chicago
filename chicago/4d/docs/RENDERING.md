@@ -1826,8 +1826,8 @@ correction). Every number quotes its anchor and viewport.
   by then) is the likeliest; SwiftShader's run-to-run spread on that pass is nearly as
   wide as the difference. The far reap costs the main thread 1.0-1.2 ms a pass on the phone
   tier, 1.8 balanced and 3.5 at `full`, between frames, in 3 ms slices (one task a pass at
-  `light`, 1.4 at `full`); the longest slice read 3.1-11 ms (a slice checks its clock
-  every 64 slots and ends with the landing). The moving p95 (scripted ms) falls or holds
+  `light`, 1.4 at `full`); the longest slice read 3.1-11 ms (a slice checked its clock
+  every 64 slots and ended with the landing; see the merge below). The moving p95 (scripted ms) falls or holds
   at every tier and move: walk 10.2-12.9 -> 9.7-11.5, turn 12.4-19.8 -> 10.9-15.4.
   `--verify` (mobile, every tier, walk and turn): every spread pass lands the one-frame
   pass, near and far, and the workers' zones and ground answer as the page does; in that
@@ -1843,3 +1843,21 @@ correction). Every number quotes its anchor and viewport.
   (failing balanced flight 59.3, light walk 150.1 with full turn's p95 16.2, full turn
   60.8 against its 60) — each a single frame, a different one each run, and the light
   walk's the tier change's first pass, which fails the before tree too.
+  **Merged with T-2966 and T-2969.** T-2966's carry tail is reaped in `flora.update`, in
+  4 ms of a frame, out of `carryRt`; this far reap runs between frames out of `midRt`,
+  into its own staging and far sets, and neither pushes the other's heads, so they share
+  only the main thread. The merge renamed this entry's synchronous reap `farReapNow`
+  (it was `farSync`, and shadowed T-2966's `farSync` flag, so every carry pass read back
+  in the frame: desktop frames of 100-245 ms until the rename). The far draws now ride the
+  build's warm draw (`warmMid`, and so `carryWarm`'s `compileAsync` of `midScene`) off a
+  slot texture made at the tile's size when the field is built. A reap slice checks its
+  clock every eight slots, and the landing takes a slice of its own when the deal's last
+  slice spent half the budget. **Readings after the merge**: the desktop `--gate` passed
+  both runs (flora max 6.0-28.3 ms over every tier and move); the phone profile's worst
+  near pass is the tier change's first (a CPU far walk, its fields not yet home): `full`
+  walk 42.3-46.0 ms against the dev tree's 40.7-42.1, so the first pass is no dearer than
+  before; `--verify` lands every spread pass. The longest reap slice read 3.1-12.3 ms in
+  every run since (eight moves at `full`, six at the other tiers), where runs at `full`
+  before had now and then one slice of 90-120 ms; timed slot by slot, a long slice is one slot's iteration (6-11 ms
+  at the 4x throttle, a collection or a recompile between two clock checks), which no
+  clock check can split.

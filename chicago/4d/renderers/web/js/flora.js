@@ -1874,7 +1874,7 @@ export async function createFlora({
     group.add(record.mesh);
     disposables.push(rt, tab, passMat, passGeo, tuftGeo, mat, record.mesh.geometry, midRt, midMat, midGeo,
       ...forbDraws.flatMap((d) => [d.mat, d.geo]), ...farDraws.flatMap((d) => [d.mat, d.geo]),
-      carryRt, ...carryDraws.flatMap((d) => [d.mat, d.geo]),
+      carryRt, ...carryDraws.flatMap((d) => [d.mat, d.geo]), ...farFields.map((f) => f.tex),
       { dispose() { for (const b of pbos) if (b) renderer.getContext().deleteBuffer(b); } });
 
     let nf = null, keeper = null, uploaded = null, clsTex = null, hgtTex = null;
@@ -2100,8 +2100,15 @@ export async function createFlora({
       const reach = farSlotReach(walk);
       const uniforms = { uFarClass: { value: null }, uFarIdx0: { value: [0, 0] },
         uFarSize: { value: spec.size }, uFarWrap: { value: [0, 0] } };
-      let tex = null;
-      const sf = { spec, reach, uniforms, keeper: null, tile: null, uploads: 0, bytes: farSlotBytes(spec),
+      // Made at the tile's size now (every tile of the keeper is `spec.size`
+      // a side), so the build's warm draw (`warmMid`) binds a real integer
+      // texture; a landed tile only swaps its data in.
+      const tex = nearest(new THREE.DataTexture(new Uint8Array(spec.size * spec.size * 2), spec.size,
+        spec.size, THREE.RGIntegerFormat, THREE.UnsignedByteType));
+      tex.internalFormat = 'RG8UI';
+      tex.needsUpdate = true;
+      uniforms.uFarClass.value = tex;
+      const sf = { spec, reach, uniforms, tex, keeper: null, tile: null, uploads: 0, bytes: farSlotBytes(spec),
         bind(field) {
           sf.keeper = field.keeper({ spec, page: false, unasked: FAR_UNASKED,
             slot: { salt: walk.salt, cell: walk.cell, sub: spec.sub, wild: walk.draw === 'wild' } });
@@ -2110,16 +2117,8 @@ export async function createFlora({
         keep(e, n) {
           const t = sf.keeper?.update(e, n);
           if (!t || t === sf.tile) return false;
-          if (!tex) {
-            tex = nearest(new THREE.DataTexture(t.cls, t.size, t.size, THREE.RGIntegerFormat,
-              THREE.UnsignedByteType));
-            tex.internalFormat = 'RG8UI';
-            uniforms.uFarClass.value = tex;
-            disposables.push(tex);
-          } else {
-            tex.image.data = t.cls;
-            tex.needsUpdate = true;
-          }
+          tex.image.data = t.cls;
+          tex.needsUpdate = true;
           uniforms.uFarIdx0.value = [Math.round(t.e0 / t.texel), Math.round(t.n0 / t.texel)];
           uniforms.uFarSize.value = t.size;
           uniforms.uFarWrap.value = [t.wi ?? 0, t.wj ?? 0];
@@ -2520,6 +2519,9 @@ export async function createFlora({
       midTextures(new Uint8Array(n * 2), new Float32Array(n), midSpec.size);
       midGeo.setDrawRange(0, 1);
       for (const fd of forbDraws) fd.geo.setDrawRange(0, 1);
+      // T-2967: and the far band's walks, off their slot fields' empty
+      // textures: the far program's first draw paid here too.
+      for (const fd of farDraws) { fd.geo.setDrawRange(0, 1); fd.points.visible = true; }
       try {
         const prev = renderer.getRenderTarget();
         renderer.setRenderTarget(midRt);
@@ -2952,8 +2954,12 @@ export async function createFlora({
       }
       if (!job) return;
       const t0 = performance.now();
-      const done = farRun(job, FAR_REAP_SLICE_MS);
-      if (done) {
+      // The landing (the far set filled from the stage, the heads hung again)
+      // takes a slice of its own when the deal's last slice has spent half
+      // the budget, so no slice is the deal's budget AND the landing.
+      const done = job.dealt || farRun(job, FAR_REAP_SLICE_MS);
+      if (done && !job.dealt && performance.now() - t0 > FAR_REAP_SLICE_MS / 2) job.dealt = true;
+      else if (done) {
         farReap.job = farReap.next;
         farReap.next = null;
         farLand(job, false);
@@ -3036,7 +3042,10 @@ export async function createFlora({
         const rMin = Math.floor((camN - radius) / cell), rMax = Math.ceil((camN + radius) / cell);
         const halfDiag = cell * Math.SQRT1_2;
         for (; job.id < part.count; job.id++) {
-          if ((job.id & 63) === 0 && performance.now() - t0 > budget) return false;
+          // The clock every eight slots: a slot dealt whole on the page
+          // (`farSlot`) is the dearest, and eight of them stay well inside
+          // a slice at the throttled phone profile.
+          if ((job.id & 7) === 0 && performance.now() - t0 > budget) return false;
           const o = 4 * (part.slot0 - base + job.id);
           const word = b[o + 3] | 0;
           const code = word & 7;
@@ -3337,6 +3346,7 @@ export async function createFlora({
        *  bound once the near field is; its owner calls `keep(e, n)` a frame. */
       slotField(walk) {
         const f = makeSlotField(walk);
+        disposables.push(f.tex);
         if (nf) f.bind(nf);
         return f;
       },
