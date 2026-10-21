@@ -490,6 +490,8 @@ class Entrance(Opening):
                 self.sockets[f"handrail_{'left' if sgn < 0 else 'right'}"] = [top, foot]
                 for pt in (top, foot):
                     self.probe(*pt, ("cheek",), "a handrail socket on its cheek")
+        # T-2960: a veranda open under its deck (1736's) faces its terraces with a skirt over a void
+        self._open_under = (st.get("veranda") or {}).get("open_under")
         for q, side in zip(porches, psides):
             deck = half + side * c       # the landing's edge, measured from the door away from the stoop
             self._terrace(q, side, deck + (p["cheek"]["thickness_m"] if cheeks else 0.0), deck, L, R)
@@ -516,6 +518,15 @@ class Entrance(Opening):
         ov, rise, t = V["roof"]["overhang_m"], V["roof"]["rise_m"], V["roof"]["thickness_m"]
         sa, sb = min(a for a, _ in spans), max(b for _, b in spans)
         oc = L - inset - ps / 2
+        # T-2960: open under the deck, each post runs on down past it to grade, the pier the
+        # deck stands on, clear in front of the void the terrace's face is set back to
+        ou = V.get("open_under")
+        y_foot = -self.v["stair"]["floor_m"] if ou else 0.0
+        if ou and not 0.0 < ou["skirt_m"] < -y_foot:
+            raise ValueError(f"the deck's skirt is {ou['skirt_m']} m, and the deck stands {-y_foot:.3f} m high")
+        if ou and oc - ps / 2 <= L - ou["recess_m"] + 1e-6:
+            raise ValueError(f"the void under the deck is set back {ou['recess_m']} m, behind posts "
+                             f"{L - oc + ps / 2:.3f} m deep: it must clear them")
         for i, x in enumerate(V["posts_s_m"]):
             a, b = x - ps / 2, x + ps / 2
             if not any(s0 - 1e-6 <= a and b <= s1 + 1e-6 for s0, s1 in spans):
@@ -523,8 +534,10 @@ class Entrance(Opening):
             if a < c + half - 1e-6 and b > c - half + 1e-6:
                 raise ValueError(f"veranda post {i + 1} at s {x:+.3f} stands in the flight's mouth "
                                  f"(s {c - half:+.3f}..{c + half:+.3f})")
-            self._box("post", a, b, 0.0, ph, oc - ps / 2, oc + ps / 2, skip=("bottom", "top"))
+            self._box("post", a, b, y_foot, ph, oc - ps / 2, oc + ps / 2, skip=("bottom", "top"))
             self.probe(x, ph / 2, oc + ps / 2, ("post",), f"veranda post {i + 1}")
+            if ou:
+                self.probe(x, y_foot / 2, oc + ps / 2, ("post",), f"veranda post {i + 1}'s pier")
         yb0, yb1 = ph, ph + bh
         self._box("beam", sa, sb, yb0, yb1, oc - bw / 2, oc + bw / 2, skip=("top",))
         # the roof: soffit, fascia, the front slope and a hip at each end, closed on the wall
@@ -543,7 +556,8 @@ class Entrance(Opening):
         self.quad("porch_roof", [(rb, yt, 0), (rb, yt, Lo), (rb - Lo, yr, 0)], (rise, Lo, 0.0))
         self.probe((ra + rb) / 2, ye, Lo / 2, ("porch_roof",), "the veranda's soffit")
         self.meta["veranda"] = {"posts_s_m": list(V["posts_s_m"]), "post_top_m": ph, "beam_y_m": [yb0, yb1],
-                                "roof_y_m": [ye, yr], "extent_s": [ra, rb], "extent_out_m": round(Lo, 4)}
+                                "roof_y_m": [ye, yr], "extent_s": [ra, rb], "extent_out_m": round(Lo, 4),
+                                **({"post_foot_m": y_foot, "open_under": dict(ou)} if ou else {})}
 
     # T-2530: a side stoop (1621's, the Building Budget drawing's) ------------------------
     def _side_stoop(self):
@@ -640,8 +654,20 @@ class Entrance(Opening):
                 raise ValueError(f"terrace step {a:.3f}..{b:.3f} m at {back} m is not a strip in front of the wall")
             self.quad("terrace", [(m(a), 0, back), (m(b), 0, back), (m(b), 0, L), (m(a), 0, L)], Y)
         lg = porch.get("loggia")
+        ou = getattr(self, "_open_under", None)
         if lg and lg.get("arch"):
             self._arch_face(lg["arch"], m, s_face, S, (s_deck + S) / 2, R, L)
+        elif ou:
+            # T-2960: a timber deck on its posts, open beneath (1736's veranda, the c. 1890
+            # photograph): a skirt board the deck's front, its underside closed back to the
+            # void, and the dark of the space under the deck `recess_m` behind the front
+            sk, rc = ou["skirt_m"], ou["recess_m"]
+            a_, b_ = sorted((m(s_face), m(S)))
+            self.quad("skirt", [(m(s_face), -sk, L), (m(S), -sk, L), (m(S), 0, L), (m(s_face), 0, L)], OUT)
+            self.quad("skirt", [(a_, -sk, L - rc), (b_, -sk, L - rc), (b_, -sk, L), (a_, -sk, L)], (0.0, -1.0, 0.0))
+            self.quad("arch_back", [(m(s_face), -R, L - rc), (m(S), -R, L - rc), (m(S), -sk, L - rc),
+                                    (m(s_face), -sk, L - rc)], OUT)
+            self.probe(m((s_face + S) / 2), -sk / 2, L, ("skirt",), "the deck's skirt")
         else:
             self.quad("terrace_face", [(m(s_face), -R, L), (m(S), -R, L), (m(S), 0, L), (m(s_face), 0, L)], OUT)
         last = steps[-1][1]
