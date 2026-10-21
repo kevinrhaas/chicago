@@ -29044,8 +29044,20 @@ T-2937), so the arch's span, the 0.16 m ring (the most the raking cornice leaves
 lights' sizes are scaled down to it; plain voussoirs for the plate's moulded archivolt; 0.055 m
 colonnettes with square bases and capitals for the plate's stouter carved ones; the round-arched lights
 as dark openings without sash; and the carving over the arch, not built.
-**How to resolve:** T-2937 (the gable's width, its archivolt's depth and its carving), T-2918 to T-2920
-(the porch, the front's fabric and the roof) bring the match record to `matches`.
+**Revised:** 2026-10-21 (T-2937, piece 2 of T-2917, of T-1892). The gable is the plate's width: its face
+3.6 m, its raking cornice reaching the foot about 1.95 m either side and running out past the pinnacles'
+inner faces into the shafts, which K01's wall gable now lets its pinnacles do (`pinnacles.engage`), so the
+apex stands with the plate's; the pinnacles 0.5 m lower. The great arch is the plate's: a 1.4 m intrados
+centred 0.6 m under the cornice, 0.2 m voussoirs and a moulded hood order 0.12 m wide and 0.1 m proud
+outside them (`arch.hood`), 0.32 m of archivolt where the plate reads 0.32-0.36 m; the tympanum's lights
+and the flat-headed lights under the cornice at the plate's spacing. What that build invents: the face's
+3.6 m and the 55-degree pediment within the plate's reading; the archivolt's two flat orders for a
+moulding whose profile the plate does not resolve; the pinnacles' square plan and pyramid tops (the plate's
+are carved, one under a scaled dome); and the gable's centre, about 0.25 m south of the plate's with its
+pinnacles, where T-2542 set it. The carving over the arch is argued away, not invented: at the plate's
+resolution the pediment there reads as coursed rock-faced stone with no carved panel legible.
+**How to resolve:** T-2918 to T-2920 (the porch, the front's fabric and the roof, and the gable's centre
+and carved pinnacles under T-2920) bring the match record to `matches`.
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.chimneys`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.gable_roof`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.

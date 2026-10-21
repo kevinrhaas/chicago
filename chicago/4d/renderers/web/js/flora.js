@@ -1800,19 +1800,22 @@ export async function createFlora({
       stats.passes++;
       stats.passMs += performance.now() - t0;
     }
+    /** T-2894: the mid pass's two field textures, made once at the tile's size. */
+    function midTextures(cls, height, size) {
+      midCls = nearest(new THREE.DataTexture(cls, size, size, THREE.RGIntegerFormat,
+        THREE.UnsignedByteType));
+      midCls.internalFormat = 'RG8UI';
+      midHgt = nearest(new THREE.DataTexture(height, size, size, THREE.RedFormat,
+        THREE.FloatType));
+      midHgt.internalFormat = 'R32F';
+      midPass.uFieldClass.value = midCls;
+      midPass.uFieldHeight.value = midHgt;
+      disposables.push(midCls, midHgt);
+    }
     /** T-2894: the mid field's tile, into the mid pass's own two textures. */
     function uploadMid(tile) {
-      if (!midCls) {
-        midCls = nearest(new THREE.DataTexture(tile.cls, tile.size, tile.size, THREE.RGIntegerFormat,
-          THREE.UnsignedByteType));
-        midCls.internalFormat = 'RG8UI';
-        midHgt = nearest(new THREE.DataTexture(tile.height, tile.size, tile.size, THREE.RedFormat,
-          THREE.FloatType));
-        midHgt.internalFormat = 'R32F';
-        midPass.uFieldClass.value = midCls;
-        midPass.uFieldHeight.value = midHgt;
-        disposables.push(midCls, midHgt);
-      } else {
+      if (!midCls) midTextures(tile.cls, tile.height, tile.size);
+      else {
         midCls.image.data = tile.cls;
         midHgt.image.data = tile.height;
         midCls.needsUpdate = true;
@@ -1837,6 +1840,34 @@ export async function createFlora({
       stats.midPasses++;
       stats.midPassMs += performance.now() - t0;
     }
+    /**
+     * T-2969: the mid deal pass drawn once as the rig is built, one point a
+     * walk into its own target, off an empty tile of the mid field's size. The
+     * programs are compiled above, but a pass's FIRST draw still pays the rest
+     * of its first use — the target and the field textures allocated, the
+     * driver's draw state for this tier's target and buffers — and that was
+     * 36-44 ms at the light tier, the frame of the first near pass whose mid
+     * ring was the GPU's: a walking frame after every tier change (balanced's
+     * read 4 ms, light's differently sized target and slot buffers did not
+     * share it). It is paid here, in the tier change's own build. What it
+     * writes is nothing anyone reads: a real pass draws its own slots over it
+     * before any read-back of the target, and `place` sets every draw range.
+     */
+    function warmMid() {
+      const n = midSpec.size * midSpec.size;
+      midTextures(new Uint8Array(n * 2), new Float32Array(n), midSpec.size);
+      midGeo.setDrawRange(0, 1);
+      for (const fd of forbDraws) fd.geo.setDrawRange(0, 1);
+      try {
+        const prev = renderer.getRenderTarget();
+        renderer.setRenderTarget(midRt);
+        renderPass(midScene, passCam);
+        renderer.setRenderTarget(prev);
+        const gl = renderer.getContext();
+        for (let k = 0; k < 3; k++) renderer.state.bindTexture(gl.TEXTURE_2D, null, gl.TEXTURE0 + k);
+      } catch { /* drawn as before: its first use pays */ }
+    }
+    if (midOn) warmMid();
     function readBack() {
       readGen = gen;
       record.reset();
@@ -2338,6 +2369,8 @@ export async function createFlora({
       },
       /** T-2894: the mid field's spec, or null where the CPU deals the mid ring. */
       midSpec: midOn ? midSpec : null,
+      /** T-2969: the kept tiles' keepers (their stats, and a tool's budget). */
+      keepers() { return { near: keeper, mid: midKeeper }; },
       /** T-2774: a read-back still on its way is taken now, in the frame. */
       flush() {
         if (waiting) read(true);
@@ -3429,7 +3462,9 @@ export async function createFlora({
       // T-2894: the mid field's spec (null where the CPU deals the mid ring),
       // and both kept tiles home — a tool waits on it before reading the GPU's
       // mid cards, which a pass deals only where the mid tile covers it.
-      midSpec: gpuNear.midSpec, settled: () => gpuNear.settled() } : null,
+      midSpec: gpuNear.midSpec, settled: () => gpuNear.settled(),
+      // T-2969: the near and mid keepers, whose landings a tool reads.
+      keepers: () => gpuNear.keepers() } : null,
     nearField: {
       spec: FIELD_SPEC,
       flags: FIELD_FLAGS,
