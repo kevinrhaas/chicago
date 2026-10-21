@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2162, ts: '2026-10-21T19:09:10.253Z', date: 'Oct 21, 2026, 2:09 PM CT', title: 'Glessner\'s granite courses and front door set to the survey', kind: 'change',
+    items: [
+      'Glessner\'s granite courses now start where the 1963 survey drawings start them, about two inches higher along Prairie Avenue. Running the courses level round the corner shows the 18th Street ground stands that much above the Prairie Avenue walk.',
+      'The front door is three inches shorter, 7.5 feet, so its top sits on a course line as both survey drawings and the 1888 photograph show it. The stone above it comes down to meet it.',
+    ] },
   { v: 2161, ts: '2026-10-21T16:37:42.638Z', date: 'Oct 21, 2026, 11:37 AM CT', title: 'Glessner\'s carriage passage stands at its drawn height', kind: 'fix',
     items: [
       'The porte-cochère floor now sits 1.2 ft below the sidewalk, as the HABS drawings show.',
