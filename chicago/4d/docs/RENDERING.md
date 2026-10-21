@@ -1694,3 +1694,56 @@ correction). Every number quotes its anchor and viewport.
       its own carries only defers the NEXT (`carryBusy`), its landing supersedes it
       (`carryOwned`) and dropping it deals it (`carryDropped`); and a CPU walk that has
       to stop a tail keeps that tail's pose as NEXT the same way.
+- **A kept tile's whole landing, a band at a time** (T-2969, T-2896's fourth slice). The
+  kept field tiles (near-field.js `fieldKeeper`: the near tile, the mid tile, and the carry
+  tile T-2966 keeps the same way) land a strip at a time, but the FIRST tile after a boot, a
+  tier change or a jump of a tile or more is every texel at once, and its finish (the
+  pool's answers copied, and the page's own share asked) and its wrapped write were one
+  main-thread task: the carry tile's read 85-101 ms on the phone profile. A whole landing
+  now finishes and writes `LAND_BAND_ROWS` (16) rows at a time into a second pair of
+  arrays, hands the thread back (`setTimeout`) once a slice has run `LAND.sliceMs` (6 ms;
+  a slice ends at the first band past it), and moves the tile to the new arrays only when
+  the last band is in — until then `tile` is the old one, untouched, as a strip in flight
+  leaves it. Each band reaches `finish` as a rect of its own with its rows of the pool's
+  reply. A tile `adopt`ed while a whole one is still landing drops the landing, as a strip
+  already did. Strips still land in one task, in place (a quarter of the tile or less).
+  **Equivalence**: `tools/check_near_field_keeper.mjs` walks its route three ways — one
+  slice a landing (the before), a band a slice, and the page's budget — with the heights
+  carried in the pool's reply, so a band read from the wrong rows differs; the kept tile is
+  the built one, byte for byte, after every landing in all three, a whole landing takes
+  exactly size / 16 slices at a band a slice and one at Infinity, and a tile adopted
+  mid-landing is the adopted tile. **Reading** (`tools/measure_tile_landing.mjs`,
+  `docs/measurements/t-2969-tile-landing-mobile.json`): the phone profile (390x780, 4x
+  throttle), `--source`, the walker set down 600 m away eight times, west and east, the
+  before (`LAND.sliceMs = Infinity`, set in the page) and the after interleaved with the
+  order flipped each rep so each lands at both places. The mid tile (368 texels a side,
+  the one dev keeps from the pool alone; the carry tile is not on dev yet):
+
+  | | slices a whole landing | longest slice, ms |
+  |---|---|---|
+  | before | 1, 1, 1, 1 | 25.8, 25.2, 10.6, 20.2 |
+  | after | 3, 3, 2, 3 | 6.4, 7.0, 8.4, 6.6 |
+
+  At the same budget the carry tile's 85-101 ms becomes about fifteen slices of 6-8 ms. What
+  the reading also shows, and this does not touch: the near tile on a jump is not landed
+  but BUILT in the frame (`keeper.adopt(nf.build(..))`), 450-520 ms west of Lake at Canal
+  and 640-690 east of it, in either mode; and the jump's own longest task is 3.2-4.1 s.
+  **The mid pass's first draw, warmed at the build.** Landing the mid tile across frames
+  moved it home later after a tier change, and with it the first near pass whose mid ring
+  is the GPU's: on `chicago-4d-moving-frames.yml` that pass now fell inside the light walk
+  (the first move after balanced) and read 27-46 ms against light's 21 ms ceiling, three
+  runs of three. Split on the page (`--tiers balanced,light --moves walk`, which reproduces
+  it every time; light alone does not, there is no tier change before it): the pass's
+  `setRenderTarget` 0.1 ms, its one draw 36-38 ms, no program built (T-2895's
+  `renderer.compile` had built it). The first draw of the pass still pays the rest of its
+  first use: the target, the field textures, and the driver's draw state for this tier's
+  target and slot buffers. Balanced's reads 4 ms. Light's target is 14 rows to balanced's
+  23, and its slot buffers 1,936 to 3,600, so it does not get the cached state. The one-task
+  landing had only hidden this by bringing the tile home inside the tool's 300 ms settle.
+  So `warmMid` (flora.js) draws the mid deal pass once as the rig is built: one point per
+  walk into its own target, off an empty tile at the mid field's size. That cost is now
+  paid in the tier change's own build. A real pass draws its slots over that point before
+  the target is read back, and `place` sets every draw range. Read on that sequence, the
+  light walk's worst frame went from 34.4 and 44.4 ms to 6.6, 9.9 and 6.8 ms. The mid
+  ring's deal passes went from 61 ms to 15-17 ms in all (the one-task control's 17). The
+  workflow's own command (`--only desktop --verify --gate`) passes, with light walk at 6.6 ms.

@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 2152, ts: '2026-10-21T03:12:51.240Z', date: 'Oct 20, 2026, 10:12 PM CT', title: '1811 Prairie\'s stone gable at the 1888 plate\'s full width', kind: 'improvement',
+    items: [
+      'The Ames house\'s stone gable at 1811 Prairie now spans the full width of its bay, as the 1888 Inland Architect plate shows. Its sloping edges run into the corner pinnacles, and its peak stands as high as the plate\'s.',
+      'Its great arch has the plate\'s deep, two-part moulded ring, and the small windows above and below it are spaced as the plate spaces them.',
+    ] },
+  { v: 2151, ts: '2026-10-21T03:12:51.240Z', date: 'Oct 20, 2026, 10:12 PM CT', title: 'Smoother arrival after a jump or a detail change', kind: 'fix',
+    items: [
+      'When you jump across town or change the detail level, the ground the meadow plants stand on is now loaded in short pieces between frames instead of in one go, so the walk no longer catches on it.',
+      'After a detail change, the first step of a walk no longer stalls while the mid-distance meadow is drawn for the first time; that work now happens while the new detail level loads.',
+    ] },
+  { v: 2150, ts: '2026-10-21T02:35:45.806Z', date: 'Oct 20, 2026, 9:35 PM CT', title: '1736 Prairie\'s arched windows and open veranda match its photograph', kind: 'improvement',
+    items: [
+      'The three upstairs windows now have gently arched heads under flat moulded hoods on little brackets, as the c. 1890 photograph shows them.',
+      'The veranda is painted wood with a light rail, and its posts run down to the ground, leaving the dark space under the deck open between them.',
+    ] },
   { v: 2149, ts: '2026-10-21T01:39:29.011Z', date: 'Oct 20, 2026, 8:39 PM CT', title: '1812 Prairie\'s porch, stair and south front, from the Levy photograph', kind: 'feature',
     items: [
       '1812 Prairie\'s entrance is now the photograph\'s broad porch arch: a low curved head with a glazed fanlight over the double door, a stone pier and a tall side light',
