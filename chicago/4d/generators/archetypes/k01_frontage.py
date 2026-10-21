@@ -2327,6 +2327,12 @@ class Assembly:
         v = dict(next(x for x in self._entrances["variants"] if x["id"] == p.entrance_kit["variant"]))
         door = next(o for o in p.openings if o.component == "k01.opening.door_leaf")
         v["clear_width_m"], v["clear_height_m"] = door.width_m, door.height_m
+        # T-2952: a segmental porch arch, and a side light beside the door under its transom
+        ros = (p.entrance_kit.get("arch") or {}).get("rise_over_span")
+        if ros:
+            v["head"], v["rise_over_span"] = "segmental", ros
+        if p.entrance_kit.get("side_light"):
+            v["side_light"] = p.entrance_kit["side_light"]
         # T-2817: a porch's door at the back of the arch, off its axis
         pd = p.entrance_kit.get("porch_door")
         if pd:
@@ -2350,6 +2356,7 @@ class Assembly:
                             # T-2500: a terrace deeper than the landing, and the loggia standing on it
                             **({"out_m": q["out_m"]} if "out_m" in q else {}),
                             **({"loggia": q["loggia"]} if "loggia" in q else {}),
+                            **({"parapet": q["parapet"]} if "parapet" in q else {}),
                             **({"balustrade": p.entrance_kit["balustrade"]}
                                if p.entrance_kit.get("balustrade") else {})})
         if porches:
