@@ -1,4 +1,35 @@
 export const CHANGELOG = [ // newest first
+  { v: 2148, ts: '2026-10-21T00:01:06.040Z', date: 'Oct 20, 2026, 7:01 PM CT', title: '1801 Prairie\'s carved pilasters and framed windows', kind: 'feature',
+    items: [
+      'The Kimball house\'s bowed bay and its south pavilion now carry the carved pilasters J. W. Taylor photographed: one to each storey, a chain of lozenges down its shaft, under a capital and on a corbel at the foot.',
+      'Every window of the bay and every pair in the pavilion now sits in a moulded stone frame under a projecting head, as in the print.',
+      'The carved frieze over the principal storey is still plain stone, and comes next.',
+    ] },
+  { v: 2147, ts: '2026-10-21T00:01:06.040Z', date: 'Oct 20, 2026, 7:01 PM CT', title: '1726 and 1730 Prairie stand as two distinct brick houses', kind: 'feature',
+    items: [
+      '1726 Prairie Avenue is no longer a draft box: a two-and-a-half-storey brick house with a canted bay across its front, a second canted bay down its south side, a high stone stoop to the door on the north, hooded window heads, a bracketed cornice and a tin hip with a dormer lighting the attic.',
+      '1730 Prairie Avenue, next door, now stands under a slate mansard with two dormers over two tall brick storeys: a small timber bay window on its front, a one-storey vestibule and a projecting wing on its south side, plain stone lintels, and a two-storey brick range and timber back porch behind it.',
+      'Both plans are read from the 1911 Sanborn map, down to the bays, the back porches and the dashed outline that puts a mansard on 1730; no picture of either house is known, so every height, window and roof shape is reconstructed, and each house\'s card says which parts.',
+    ] },
+  { v: 2146, ts: '2026-10-20T23:10:37.302Z', date: 'Oct 20, 2026, 6:10 PM CT', title: '1811 Prairie\'s stone gable gains its great arch', kind: 'feature',
+    items: [
+      'The stone gable over the north bay of the Ames house at 1811 Prairie Avenue now has the great round arch from the 1888 Inland Architect photograph. The arch rises from the cornice, with three small round-arched windows inside it.',
+      'The three square-headed windows under the arch now stand between stone colonnettes. A small arched window sits over the arch\'s crown, and the gable is in the front\'s brown sandstone, dressed smooth, as the photograph shows.',
+      'Not yet as wide as the photograph\'s: the gable is 3 m across, not about 4 m, so the arch is smaller and its moulding plainer, and the carving over it isn\'t built yet. Liberty L-k01-1811-ames-front-2541 records this.',
+    ] },
+  { v: 2145, ts: '2026-10-20T23:06:16.326Z', date: 'Oct 20, 2026, 6:06 PM CT', title: 'Quieter and quicker: sound off, faster walks, clearer names', kind: 'change',
+    items: [
+      'Sound starts off: the ticker, clicks, hum and each destination\'s tone stay quiet until you raise Master in Settings › Sound, and your choice is remembered. Levels you had already changed stay as you set them.',
+      'The name of the building in front of you now sits top right in a small card under the address, styled like it, and is not shown when it would only repeat that address. Settings › Show moves it back under the crosshair or to the bottom, and lets it stay instead of fading after a few seconds.',
+      'You move faster: walking now starts at 10 mph, and running, the wagon and the horse are each quicker again (15, 16 and 25 mph), with higher tops on every slider. Speeds you had set yourself are kept.',
+      'Jaunts read at a glance: titles lead with what makes each one different, such as Italianate style walk or Famous names of Prairie Avenue, long names wrap to a second line instead of being cut off, and the list keeps each kind of outing together.',
+      'You can walk through Glessner House\'s carriage passage, from Prairie Avenue into the courtyard, as a carriage would have gone. On horseback you would hit the ceiling, so riders still go round.',
+    ] },
+  { v: 2144, ts: '2026-10-20T23:06:16.326Z', date: 'Oct 20, 2026, 6:06 PM CT', title: 'Flying over 1904 Prairie Avenue asks far less of a phone', kind: 'change',
+    items: [
+      'Flying over 1904 Prairie Avenue asks a phone for about a tenth of the drawing work it did, because each house\'s pieces are now drawn together.',
+      'Nothing in the scene looks different: every building draws exactly as before.',
+    ] },
   { v: 2143, ts: '2026-10-20T22:59:22.200Z', date: 'Oct 20, 2026, 5:59 PM CT', title: 'Glessner\'s window colonnettes, carved to their photographs', kind: 'improvement',
     items: [
       'The seven little stone columns between the Prairie Avenue upstairs windows now taper, stand on angular splayed bases and sit flush with the wall, as the 1965 survey drawings show.',

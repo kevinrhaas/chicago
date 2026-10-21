@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "718d56d7a333c9f44ce9cd8e8531df534f4d6167e8aa16cc63b969ce3b5a73d3",
+  "glb_sha256": "0c2d9852eaafa90ba89a9f11f32e472e817025a160564f08cc1da82cd59adc4a",
   "camera_sha256": "8f67a67f5a407ad30522085a1ab67f9c29ddc0bae6ceb1a979db9ea1accdc2b4",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/inland_architect_plate-side-by-side.jpg",
   "verdict": "differs",
@@ -79,6 +79,11 @@
     },
     {
       "what": "the bay's stone gable's face: the plate lights its third storey through three flat-headed lights between colonnettes under a great round arch whose tympanum holds three small round-arched lights, with carving over it, the gable about 4 m across (its rake running out past the pinnacles' inner faces); the build's wall gable is 3.0 m across, its three lights flat-headed under voussoirs in a plain recessed panel, its face in the buff dressing stone (the plate's reads smooth ashlar of the front's stone) (T-1892)",
+      "status": "fixed",
+      "how": "T-2936: K01's wall gable learns a GREAT ARCH. Its ring of fifteen voussoirs (1.15 m intrados, 0.16 m deep, 0.05 m proud) rises from the pediment's horizontal cornice, which reads as the plate's lintel over the lights below, its centre 0.3 m under the cornice's top so the ring springs as the plate's does, already curving; its intrados crown lands at about y 312 px with the plate's, its extrados about 10 px under the plate's. The tympanum is recessed 0.1 m and holds three round-arched lights, the middle one the taller (tops about y 323 and 330 px against the plate's 328 and 340); the three flat-headed lights below stand between four colonnettes with square bases and capitals under the cornice, and carry no voussoirs; a small round-arched light stands over the arch's crown (top about y 279 px against the plate's 262: the build's pediment is lower, being narrower); and the face, its ring and colonnettes are in the front's own brown sandstone, dressed smooth, not the buff dressing stone. What the plate still shows otherwise is the difference below (the gable's width, the archivolt's depth, the carving)"
+    },
+    {
+      "what": "the bay's stone gable's width: the plate's gable is about 4 m across, its rake running out past the pinnacles' inner faces, so its great arch spans about 145 px with a deep moulded archivolt and carved stone over it; the build's face is 3.0 m (K01 keeps each pinnacle clear of the K10 cornice's 0.13 m return), so its arch spans about 106 px and its ring is 0.16 m, the most the raking cornice leaves room for, and the carving is not built (T-2937)",
       "status": "open"
     },
     {
