@@ -125,6 +125,10 @@ assert.equal(drawNotes({ draws: 186, switches: 1, slowAtSwitch: 0, paced: 0 }), 
 assert.equal(drawNotes({ draws: 186, switches: 0, slowAtSwitch: 0, paced: 0 }), '');
 assert.equal(drawNotes({ draws: 186 }), '');
 assert.equal(drawNotes(undefined), '');
+// T-2970: the driver's draws a frame, median and worst, where the page counted them.
+assert.equal(drawNotes({ draws: 186, switches: 0, slowAtSwitch: 0, paced: 0, driverDraws: { median: 2548, max: 3288 } }),
+  ', driver draws 2548 (max 3288)');
+assert.equal(drawNotes({ draws: 186, switches: 0, slowAtSwitch: 0, paced: 0, driverDraws: null }), '');
 {
   const r = { draws: 157, mean: 32, sd: 6.5, median: 32, p95: 41, max: 73, over33: 56, over50: 3,
     ratio: { min: 0.67, max: 1 }, switches: 3, slowAtSwitch: 3, paced: 118 };

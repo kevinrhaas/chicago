@@ -1,0 +1,245 @@
+{
+  "ticket": "T-2970",
+  "measured": {
+    "on": "2026-10-20",
+    "build": "dev @ 55ff1e357 with this change (published mirror, tools/publish.sh)",
+    "machine": "GitHub Actions runner, Chromium headless, SwiftShader",
+    "meter": "__chicago4d.stats().drawCalls = renderer.info.render.calls + each WEBGL_multi_draw call's (drawcount - 1), reset with renderer.info (renderers/web/js/driver-draws.js)"
+  },
+  "audit": {
+    "method": "tools/measure_pose_draws.mjs --year 1904 --pose flight --t 0 --no-layers: every draw counted on the WebGL2 context (a multi-draw per entry), beside the page meter for the same frame",
+    "1904_flight_t0_light_375x636": {
+      "gl_draws": 3288,
+      "page_meter": 3288,
+      "renderer_info_calls": 360,
+      "to_sun_map": 740,
+      "to_canvas": 2548
+    }
+  },
+  "six_stands": {
+    "method": "tools/measure_detail_ceilings.mjs --only <viewport> (normal animation loop, the gate's own stands and levels)",
+    "desktop_1280x800": {
+      "full": {
+        "lake_at_canal": {
+          "triangles": 3051943,
+          "driver_draws": 6432
+        },
+        "the_forks": {
+          "triangles": 2513844,
+          "driver_draws": 6613
+        },
+        "from_above": {
+          "triangles": 2044265,
+          "driver_draws": 7358
+        },
+        "lake_and_market": {
+          "triangles": 2814090,
+          "driver_draws": 3697
+        },
+        "prairie_west": {
+          "triangles": 3321493,
+          "driver_draws": 7037
+        },
+        "sauganash_26": {
+          "triangles": 2053231,
+          "driver_draws": 2511
+        }
+      },
+      "balanced": {
+        "lake_at_canal": {
+          "triangles": 2391596,
+          "driver_draws": 6129
+        },
+        "the_forks": {
+          "triangles": 2006307,
+          "driver_draws": 5935
+        },
+        "from_above": {
+          "triangles": 1628023,
+          "driver_draws": 5861
+        },
+        "lake_and_market": {
+          "triangles": 2274926,
+          "driver_draws": 3598
+        },
+        "prairie_west": {
+          "triangles": 2518276,
+          "driver_draws": 6685
+        },
+        "sauganash_26": {
+          "triangles": 1686476,
+          "driver_draws": 2348
+        }
+      },
+      "light": {
+        "lake_at_canal": {
+          "triangles": 991819,
+          "driver_draws": 5066
+        },
+        "the_forks": {
+          "triangles": 893547,
+          "driver_draws": 4494
+        },
+        "from_above": {
+          "triangles": 568898,
+          "driver_draws": 3223
+        },
+        "lake_and_market": {
+          "triangles": 816257,
+          "driver_draws": 2564
+        },
+        "prairie_west": {
+          "triangles": 1114734,
+          "driver_draws": 5541
+        },
+        "sauganash_26": {
+          "triangles": 640073,
+          "driver_draws": 1278
+        }
+      }
+    },
+    "mobile_390x780": {
+      "full": {
+        "lake_at_canal": {
+          "triangles": 2615652,
+          "driver_draws": 4800
+        },
+        "the_forks": {
+          "triangles": 2042449,
+          "driver_draws": 4853
+        },
+        "from_above": {
+          "triangles": 1925026,
+          "driver_draws": 5898
+        },
+        "lake_and_market": {
+          "triangles": 2238765,
+          "driver_draws": 2743
+        },
+        "prairie_west": {
+          "triangles": 2911171,
+          "driver_draws": 5369
+        },
+        "sauganash_26": {
+          "triangles": 1494236,
+          "driver_draws": 1656
+        }
+      },
+      "balanced": {
+        "lake_at_canal": {
+          "triangles": 2092745,
+          "driver_draws": 4726
+        },
+        "the_forks": {
+          "triangles": 1667735,
+          "driver_draws": 4448
+        },
+        "from_above": {
+          "triangles": 1519628,
+          "driver_draws": 4649
+        },
+        "lake_and_market": {
+          "triangles": 1837399,
+          "driver_draws": 2724
+        },
+        "prairie_west": {
+          "triangles": 2227107,
+          "driver_draws": 5242
+        },
+        "sauganash_26": {
+          "triangles": 1270687,
+          "driver_draws": 1654
+        }
+      },
+      "light": {
+        "lake_at_canal": {
+          "triangles": 831594,
+          "driver_draws": 3882
+        },
+        "the_forks": {
+          "triangles": 731894,
+          "driver_draws": 3413
+        },
+        "from_above": {
+          "triangles": 522949,
+          "driver_draws": 2388
+        },
+        "lake_and_market": {
+          "triangles": 646285,
+          "driver_draws": 1756
+        },
+        "prairie_west": {
+          "triangles": 941358,
+          "driver_draws": 4347
+        },
+        "sauganash_26": {
+          "triangles": 434172,
+          "driver_draws": 731
+        }
+      }
+    },
+    "worst": {
+      "full": {
+        "desktop": [
+          7358,
+          "from_above"
+        ],
+        "mobile": [
+          5898,
+          "from_above"
+        ]
+      },
+      "light": {
+        "desktop": [
+          5541,
+          "prairie_west"
+        ],
+        "mobile": [
+          4347,
+          "prairie_west"
+        ]
+      }
+    }
+  },
+  "glessner_full_inspection": {
+    "method": "tools/qa_glessner_t2217.mjs, QA_VIEWPORT=desktop (1904, Full, the five carriage-door stands)",
+    "desktop_1280x800": {
+      "porte": {
+        "driver_draws": 4555,
+        "renderer_info_calls": 290
+      },
+      "passage": {
+        "driver_draws": 4586,
+        "renderer_info_calls": 279
+      },
+      "north-leaf": {
+        "driver_draws": 3321,
+        "renderer_info_calls": 492
+      },
+      "south-leaf": {
+        "driver_draws": 4609,
+        "renderer_info_calls": 370
+      },
+      "passage-out": {
+        "driver_draws": 2650,
+        "renderer_info_calls": 311
+      }
+    }
+  },
+  "ceilings": {
+    "BUDGET.drawCalls": {
+      "before": 330,
+      "after": 7800,
+      "reason": "worst 7,358 (full, the open aerial, desktop) + about 5 %, rounded up to 100"
+    },
+    "LIGHT_CALL_FLOOR": {
+      "before": 90,
+      "after": 5900,
+      "reason": "worst 5,541 (light, West prairie, desktop) + about 5 %, rounded up to 100"
+    },
+    "GLESSNER_V4_FULL_DRAW_CALLS": {
+      "before": 360,
+      "after": "retired: worst 4,609 driver draws at Full sits under the town's 7,800"
+    }
+  }
+}

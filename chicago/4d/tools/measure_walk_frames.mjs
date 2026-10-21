@@ -741,7 +741,9 @@ async function driveLive({ move, tier, mode, seconds, xray, profile, noGaze }) {
     if (a.renderer.getRenderTarget() !== null) { offscreen += 1; return render.apply(this, args); }
     const t = performance.now();
     try { return render.apply(this, args); } finally {
-      draws.push([t, a.renderer.getPixelRatio(), performance.now() - t]);
+      // T-2970: and what the driver received for it (driver-draws.js), the figure
+      // the draw budgets read — three's `info.render.calls` takes a batch as one.
+      draws.push([t, a.renderer.getPixelRatio(), performance.now() - t, a.driverDraws?.draws ?? null]);
     }
   };
   // T-2721 `--no-gaze`: the gaze target's look (target.js) held off for the
@@ -775,7 +777,9 @@ async function driveLive({ move, tier, mode, seconds, xray, profile, noGaze }) {
   const ratios = draws.map((d) => d[1]).sort((x, y) => x - y);
   // What the draw itself cost, so a slow interval says whose it is.
   const renderMs = draws.map((d) => d[2]).sort((x, y) => x - y)[Math.floor(draws.length / 2)] ?? null;
-  return { draws: draws.length, mean, sd, median: q(0.5), p95: q(0.95), max: sorted[sorted.length - 1],
+  const gl = draws.map((d) => d[3]).filter(Number.isFinite).sort((x, y) => x - y);
+  const driverDraws = gl.length ? { median: gl[Math.floor(gl.length / 2)], max: gl[gl.length - 1] } : null;
+  return { draws: draws.length, driverDraws, mean, sd, median: q(0.5), p95: q(0.95), max: sorted[sorted.length - 1],
     over33: iv.filter((x) => x > 33.4).length, over50: iv.filter((x) => x > 50).length,
     ratioMin: ratios[0], ratioMedian: ratios[Math.floor(ratios.length / 2)], ceiling: g.ceiling,
     pacedRafs: paced, decisions: g.decisions, renderMs, offscreen };
@@ -934,7 +938,8 @@ for (const vp of VIEWPORTS) {
           console.log(`${tier.padEnd(9)} ${move.padEnd(7)} ${mode.padEnd(9)} ${String(r.draws).padStart(5)} |`
             + ` ${f(r.mean)}${f(r.sd)}${f(r.median)}${f(r.p95)}${f(r.max)} ${String(r.over33).padStart(4)}${String(r.over50).padStart(4)} |`
             + ` ${r.ratioMin.toFixed(2)}/${r.ratioMedian.toFixed(2)} (${r.ceiling.toFixed(2)}) | ${r.pacedRafs}`
-            + ` | draw median ${r.renderMs?.toFixed(0)} ms | ${r.offscreen} offscreen`);
+            + ` | draw median ${r.renderMs?.toFixed(0)} ms | ${r.offscreen} offscreen`
+            + (r.driverDraws ? ` | driver draws ${r.driverDraws.median}/${r.driverDraws.max} med/max` : ''));
           out.readings.push({ viewport: vp.id, throttle: vp.throttle, live: true, tier, move, mode, ...r });
           if (jsonOut) writeJson();
         }

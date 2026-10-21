@@ -25,6 +25,10 @@
  * triangles each submitted. `--qs coalesce=0` reads the same build without T-2927's
  * joined runs (batch-coalesce.js).
  *
+ * T-2970: `page meter` is `__chicago4d.stats().drawCalls`, the driver-draw count every
+ * draw budget now reads (driver-draws.js), printed beside the GL's own count of the
+ * same frame so the meter is audited by an instrument that does not share its code.
+ *
  * A measurement, not a gate.
  */
 import http from 'node:http';
@@ -160,7 +164,10 @@ const out = await page.evaluate(async ({ tier, pose, ts, layers, brk }) => {
     const px = new Uint8Array(4); gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);
     const t2 = performance.now();
     const info = a.renderer.info.render;
+    // T-2970: the page's own driver-draw meter (driver-draws.js), the figure the draw
+    // budgets read, beside the GL's count of the same frame — it is right when they agree.
     return { gl: sub(snap(), s0), perFb: [...T.perFb.entries()], info: { calls: info.calls, tris: info.triangles },
+      page: a.stats().drawCalls,
       stepMs: t1 - t0, finishMs: t2 - t1 };
   };
   const settleFrames = async (n = 3) => { let f; for (let i = 0; i < n; i += 1) f = frame(); return f; };
@@ -238,7 +245,7 @@ const num = (n) => (n ?? 0).toLocaleString('en-US');
 console.log(`scene ${out.scene} detail ${out.detail} pose ${POSE} viewport ${W}x${H}`);
 for (const r of out.results) {
   console.log(`\nt=${r.t}s pose ${JSON.stringify(r.pose)} cam ${r.cam} ratio ${r.ratio} canvas ${r.size} shadow ${JSON.stringify(r.shadow)}`);
-  console.log(`  frame: gl draws ${r.base.gl.draws} tris ${num(r.base.gl.tris)} (to FBOs ${r.base.gl.fbDraws}/${num(r.base.gl.fbTris)}) clears ${r.base.gl.clears} binds ${r.base.gl.binds}; three info calls ${r.base.info.calls} tris ${num(r.base.info.tris)}; step ${r.base.stepMs.toFixed(1)} ms finish ${r.base.finishMs.toFixed(1)} ms`);
+  console.log(`  frame: gl draws ${r.base.gl.draws} tris ${num(r.base.gl.tris)} (to FBOs ${r.base.gl.fbDraws}/${num(r.base.gl.fbTris)}) clears ${r.base.gl.clears} binds ${r.base.gl.binds}; three info calls ${r.base.info.calls} tris ${num(r.base.info.tris)}; page meter ${r.base.page} draws (${r.base.page === r.base.gl.draws ? 'agrees with the GL' : `GL ${r.base.gl.draws - r.base.page > 0 ? '+' : ''}${r.base.gl.draws - r.base.page}`}); step ${r.base.stepMs.toFixed(1)} ms finish ${r.base.finishMs.toFixed(1)} ms`);
   console.log(`  coalesce ${JSON.stringify(r.coalesce)}`);
   console.log(`  per framebuffer: ${JSON.stringify(r.base.perFb)}`);
   console.log(`  sun: ${r.sun.draws} draws ${num(r.sun.tris)} tris finish ${r.sun.finishMs} ms`);

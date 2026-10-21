@@ -585,6 +585,22 @@ visual phase in the whole program.
   open). **Flight is the cost**: median 73-80 ms, every draw over 50 ms, which is T-2927.
   T-2829's acceptance is still its 1835 repeat. `docs/measurements/t-2719-owner-phone-1904.txt`
   and `.json`.*
+  *T-2970, 2026-10-20: **the draw budgets count the driver's draws.** `stats().drawCalls`
+  was three's `renderer.info.render.calls`, which takes a BatchedMesh's multi-draw as one
+  call where the driver receives one draw per kept instance — 360 against 3,288 at the
+  1904 flight after T-2927's coalescing. It is now that count plus each multi-draw's
+  entries past the first (`renderers/web/js/driver-draws.js`), audited draw for draw by
+  `tools/measure_pose_draws.mjs`; `rendererCalls` keeps three's figure. Re-based on it at
+  the six stands: `BUDGET` 330 → 7,800 (worst 7,358, full, the aerial, 1280x800), light's
+  floor 90 → 5,900 (worst 5,541, West prairie), Glessner's Full-inspection 360 retired
+  (worst 4,609 under the town's ceiling). A change of unit, not a raise: these are what the
+  town draws today, the ratchet the batching work is read against. Read frame pacing and
+  `measure_walk_frames.mjs` print the driver's draws a frame. `docs/measurements/T-2970-driver-draws.json`.
+  The counter never enables `WEBGL_multi_draw` itself: it wraps the extension when three
+  first asks the context for it (at its first BatchedMesh). Asking for it at boot, with
+  nothing wrapped, put one 52-57 ms flora pass on the first walk after a tier change and
+  turned the moving-frames gate red at balanced and light; left to three, both read under
+  9 ms again and the page meter still agrees with the GL (3,387 = 3,387, 1904 flight).*
 
 **Milestones**
 - W5.1 — seam merged with zero behavior change at default tiers (capture-identical), smoke

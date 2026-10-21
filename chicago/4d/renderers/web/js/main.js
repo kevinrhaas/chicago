@@ -74,6 +74,7 @@ import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
 import { compactStreams } from './compact-streams.js';
 import { createTextureResidency } from './texture-residency.js';
 import { createCrashGuard } from './crash-guard.js';
+import { countDriverDraws } from './driver-draws.js';
 import { createBlackbox, wasCut, summary as blackboxSummary, report as blackboxReport } from './blackbox.js';
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
@@ -1259,7 +1260,11 @@ const GLESSNER_V4_FULL_TRIANGLES = 4600000;
 // This is a declared Full-only re-budget, not a mesh or rendering change.
 // Balanced, Light and non-inspection scenes retain BUDGET.drawCalls (330).
 // Receipts: docs/RESEARCH/glessner-porte-cochere-T-2217/.
-const GLESSNER_V4_FULL_DRAW_CALLS = 360;
+// T-2970, 2026-10-20: RETIRED. Counted at the driver, the five carriage-door
+// stands read 2,650-4,609 draws at Full (south leaf the worst; three's own
+// counter said 279-492 there, so north leaf already stood over this 360), and
+// the town's re-based ceiling below carries them, so Glessner's Full inspection
+// is held to the ceiling every other scene is. Its 4.6M triangles stand.
 // T-2218: the new courtyard stair-bottom stand already renders 1,224,656
 // triangles / 213 calls in Light before the geometry change, exceeding the
 // older 1.19M allowance. Price this Glessner inspection at 1.27M (3.7% margin),
@@ -1360,7 +1365,26 @@ const GLESSNER_V4_LIGHT_TRIANGLES = 1270000;
 // ground batching peak at 313 calls (mobile West prairie, full). The defended
 // 15-call margin, rounded up to five, moves 295 -> 330. Light's separate 90
 // remains unchanged; the complete normal-loop smoke rechecks both ceilings.
-const BUDGET = { drawCalls: 330, triangles: DETAIL.full.triangles };
+//
+// T-2970, 2026-10-20: 330 -> 7,800, AND THE UNIT CHANGED, NOT THE SCENE. Every
+// figure above was `renderer.info.render.calls`, which counts a BatchedMesh as ONE
+// call while three submits it as a multi-draw with one driver draw per instance it
+// kept; at the 1904 flight that read 339 where the GL received 27,895 (T-2927),
+// so no ceiling here ever saw what a phone pays. `stats().drawCalls` is now the
+// driver's count (driver-draws.js), audited draw for draw against a GL-level tally
+// by tools/measure_pose_draws.mjs (3,288 = 3,288 at the 1904 flight, three: 360).
+// Re-read at the gate's six stands after T-2927's coalescing, published mirror,
+// tools/measure_detail_ceilings.mjs (receipts: docs/measurements/T-2970-driver-draws.json):
+//
+//                       full worst              light worst
+//   desktop 1280x800    7,358 (the open aerial)  5,541 (West prairie)
+//   mobile   390x780    5,898 (the open aerial)  4,347 (West prairie)
+//
+// The same principle as every raise above, in the new unit: the measured worst
+// and about five per cent, rounded up to a hundred — 7,358 -> 7,800. It is a
+// ratchet on what the town draws today, and NOT a claim that 7,800 draws is a
+// cost a phone can carry; the tiers' triangle ceilings are unchanged.
+const BUDGET = { drawCalls: 7800, triangles: DETAIL.full.triangles };
 
 /** localStorage, or null where the page may not have it (a private window, a sandbox). */
 const safeStorage = () => { try { return window.localStorage; } catch { return null; } };
@@ -1818,6 +1842,13 @@ async function boot() {
    */
   const placementRender = renderer.render.bind(renderer);
   /**
+   * T-2970. What the GL driver receives, which is what every draw budget is held
+   * to: `renderer.info.render.calls` counts a BatchedMesh's multi-draw as one call
+   * where the driver gets one draw per kept instance (driver-draws.js).
+   */
+  const driverDraws = countDriverDraws(renderer);
+  api.driverDraws = driverDraws;
+  /**
    * The boot-time ratio. Note that this is superseded a few hundred lines below
    * by `renderer.setPixelRatio(Math.min(dpr, quality))` once the visitor's
    * stored settings are read. Until T-2110 the shipped default of `quality` was
@@ -1876,7 +1907,7 @@ async function boot() {
     const pose = api.walker?.state;
     // T-2828: the bytes behind those counts, as far as the page can read them (MB).
     const est = residentEstimate(scene3d, renderer);
-    return { calls: render.calls, tris: render.triangles, geo: memory.geometries, tex: memory.textures,
+    return { calls: render.calls, draws: driverDraws.draws, tris: render.triangles, geo: memory.geometries, tex: memory.textures,
       geoMB: Math.round(est.geometry / 1048576), texMB: Math.round(est.textures / 1048576),
       w: blackboxSize.x, h: blackboxSize.y, ratio: +renderer.getPixelRatio().toFixed(2),
       heap: performance.memory ? Math.round(performance.memory.usedJSHeapSize / 1048576) : null,
@@ -5090,10 +5121,15 @@ async function boot() {
     setGroundReach(m) { return terrain.setGroundReach(m); },
     stats() {
       const info = renderer.info;
-      const budget = inspectionLod && detailLevel === 'full'
-        ? { ...BUDGET, drawCalls: GLESSNER_V4_FULL_DRAW_CALLS } : BUDGET;
+      const budget = BUDGET;
+      // T-2970: `drawCalls` is the driver's draws, the figure the budgets are held
+      // to; `rendererCalls` is three's own count, which takes a BatchedMesh's whole
+      // multi-draw as one and is kept so the readings before T-2970 stay comparable.
+      const drawCalls = driverDraws.draws;
       return {
-        drawCalls: info.render.calls,
+        drawCalls,
+        rendererCalls: info.render.calls,
+        multiDraw: driverDraws.native,
         triangles: info.render.triangles,
         programs: info.programs?.length ?? 0,
         geometries: info.memory.geometries,
@@ -5112,7 +5148,7 @@ async function boot() {
         // why an edge is or is not stable can read the number that decides it.
         cameraNear: camera.near,
         budget,
-        withinBudget: info.render.calls <= budget.drawCalls
+        withinBudget: drawCalls <= budget.drawCalls
           && info.render.triangles <= budget.triangles,
       };
     },
