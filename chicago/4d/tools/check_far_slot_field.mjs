@@ -36,6 +36,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { latticeSlots, hash3 } from '../renderers/web/js/jobs/lattice-kernel.js';
 import { farSlotSpec, FAR_LATTICE_PAD_M, FAR_SLOT_GLSL } from '../renderers/web/js/flora-gpu-far.js';
+import { FARSHRUB_LATTICE_PAD_M, FARSHRUB_SALT } from '../renderers/web/js/flora-gpu-farshrub.js';
 import { fieldOrigin } from '../renderers/web/js/near-field.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -72,8 +73,10 @@ const WALKS = [
   ...bands.map((b, j) => ({ name: `far band ${(j % 3) + 1} (${['full', 'light', 'balanced'][Math.floor(j / 3)]})`,
     cell: b.cell, perCell: b.perCell, radius: b.radius + STEP + FAR_LATTICE_PAD_M,
     inner: Math.max(0, b.inner - STEP - FAR_LATTICE_PAD_M), salt: farSalt(j % 3), draw: 'lattice' })),
-  { name: 'far shrubs (full)', cell: forbCell, perCell: forbPerCell, radius: farShrubRadius, inner: 0,
-    salt: 0x7b5c1d, draw: 'wild' },
+  // T-2968: the walk the far shrubs' deal pass and slot field are built on
+  // (flora-gpu-farshrub.js `farShrubWalks().gpu`), padded as the far bands are.
+  { name: 'far shrubs (full)', cell: forbCell, perCell: forbPerCell,
+    radius: farShrubRadius + FARSHRUB_LATTICE_PAD_M, inner: 0, salt: FARSHRUB_SALT, draw: 'wild' },
 ];
 
 function xorshift(s) {
