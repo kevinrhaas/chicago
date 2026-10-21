@@ -74,6 +74,18 @@ step "The flora walk in GLSL carries flora.js's own walk constants (T-2697)" \
 selftest "the shader walk's constant check refuses a seed, salt or block shift one bit off" \
   node tools/check_flora_gpu_lattice.mjs --self-test
 
+# T-2967. The near pass's far band is dealt on the GPU against a SLOT FIELD per far
+# lattice (flora-gpu-far.js): one texel per slot, asked by the pool at the slot's own
+# point (jobs/zone-kernel.js `slotPoint`). No browser: every slot of every tier's far
+# bands and the far shrubs' walk is its texel's point to the bit, on a texel of its
+# own, inside the kept tile. The classes and cards against the CPU are read in
+# Chromium by tools/measure_far_field.mjs (docs/measurements/t-2967-far-field.json).
+step "The far band's slot field asks every far slot at the slot itself (T-2967)" \
+  node tools/check_far_slot_field.mjs
+
+selftest "the slot field check refuses a stream salt one bit off, a swapped sub-grid and a narrow tile" \
+  node tools/check_far_slot_field.mjs --self-test
+
 # T-2707. The near field tile (near-field.js) is kept around the walker a strip at a
 # time — a toroidal tile, its strips asked of the job pool — and must stay the tile
 # `buildField` asks whole. No browser: a synthetic field, a walk over every kind of

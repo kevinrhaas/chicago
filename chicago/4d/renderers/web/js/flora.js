@@ -59,7 +59,7 @@ import { GROUND_WET, GROUND_FLOOR, GROUND_TRODDEN, GROUND_KEEP, GROUND_UNASKED, 
 import { vergeRecords } from './street-verge.js';
 // T-2707: the near field tile kept a strip at a time, its strips asked of the pool.
 import { FIELD_UNASKED, fieldKeeper } from './near-field.js';
-import { FIELD_TABLE_TURF, FIELD_TABLE_CEILING } from './jobs/zone-kernel.js';
+import { FIELD_TABLE_TURF, FIELD_TABLE_CEILING, slotPoint } from './jobs/zone-kernel.js';
 import { foliageAtlas, foliageFamily } from './foliage-atlas.js';
 // T-2085: which community is short turf, and the box its extent can reach.
 import { isTurfCommunity, extentBounds } from './turf-tile.js';
@@ -78,6 +78,9 @@ import { nearPassShaders, nearSlotsMax, nearTarget, NEAR_FETCH_GLSL, NEAR_STREAM
 import { midPassShaders, midFieldSpec, MID_TARGET_WIDTH, MID_STREAM_DRAWS } from './flora-gpu-mid.js';
 // T-2895: the forbs, rosettes and shrubs on the GPU's deal, against the mid tile.
 import { forbPassShaders } from './flora-gpu-forb.js';
+import { FAR_DEAL, FAR_UNASKED, FAR_LATTICE_PAD_M, farFieldSpec, farSlotSpec, farSlotReach, farSlotBytes,
+  farPassShaders }
+  from './flora-gpu-far.js';
 import { latticeSlots } from './jobs/lattice-kernel.js';
 
 /** docs/PROVENANCE.md's three levels, as the shader reads them. */
@@ -1469,6 +1472,10 @@ export async function createFlora({
    *  tile not home), so a GPU read-back of an earlier placement that lands
    *  meanwhile leaves the mid cards to that pass. */
   let midGen = 0;
+  /** T-2967. And bumped whenever a pass deals the far band on the CPU (its kept
+   *  far tile not home), so a GPU far reap of an earlier placement that lands
+   *  meanwhile leaves the far cards to that pass. */
+  let farGen = 0;
   /** T-2774. Each head set as the pass left it, before the near ring's heads. */
   const headMarks = {};
   /**
@@ -1484,8 +1491,10 @@ export async function createFlora({
       const set = heads[k];
       headMarks[k] = set.mark();
       // T-2895: the forb ring's heads first, then the near ring's, so where a
-      // set fills it is still a near head that waits.
-      for (const rows of [gpuNear.forbHeads[k].rows, gpuNear.heads[k].rows]) {
+      // set fills it is still a near head that waits. T-2967: and before
+      // both the far band's, which a pass that walks it used to push before
+      // anything else, so a full set refuses the heads it always refused.
+      for (const rows of [gpuNear.farHeads[k].rows, gpuNear.forbHeads[k].rows, gpuNear.heads[k].rows]) {
         for (let i = 0; i < rows.length; i += 2) {
           set.ring(rows[i]);
           set.push(...rows[i + 1]);
@@ -1518,6 +1527,9 @@ export async function createFlora({
    *  GPU near ring hangs them after the mark, with the reap's): handed over to
    *  `gpuNear` when the pass lands, so one dropped half-way leaves the last. */
   const forbHeadsCpu = gpuNearOn ? headRecorders() : null;
+  /** T-2967. Where a pass whose far band the CPU walks records its heads, on
+   *  the same terms: handed over (`takeFarHeads`) when the pass lands. */
+  const farHeadsCpu = gpuNearOn ? headRecorders() : null;
   /** T-2774. A read-back reaped: its heads go up now unless a pass is dealing
    *  (it hangs them when it commits), and a census it counted is closed again.
    *  The set figures (`tally`) are redone only for a read taken in the frame,
@@ -1608,7 +1620,15 @@ export async function createFlora({
     // The mid slots' rows, then the forb walk's and the shrub walk's, each
     // starting on a row of its own (`uSlot0`, set per placement to just past
     // the walk before it).
-    const MH = Math.max(1, Math.ceil(midMax / MW)) + 2 * Math.max(1, Math.ceil(forbMax / MW));
+    // T-2967: and then the far band's three lattices, each on rows of its own.
+    const farOn = midOn;
+    const farBands = farOn ? tune.far.bands.map((band, i) => {
+      const walk = { cell: band.cell, perCell: band.perCell, radius: band.radius + step + FAR_LATTICE_PAD_M,
+        inner: Math.max(0, band.inner - step - FAR_LATTICE_PAD_M), salt: farSalt(i), draw: 'lattice' };
+      return { band, i, walk, max: nearSlotsMax(walk) };
+    }) : [];
+    const MH = Math.max(1, Math.ceil(midMax / MW)) + 2 * Math.max(1, Math.ceil(forbMax / MW))
+      + farBands.reduce((a, b) => a + Math.max(1, Math.ceil(b.max / MW)), 0);
     const midRt = new THREE.WebGLRenderTarget(MW, MH, { type: THREE.FloatType,
       format: THREE.RGBAFormat, minFilter: THREE.NearestFilter, magFilter: THREE.NearestFilter,
       depthBuffer: false, generateMipmaps: false });
@@ -1653,7 +1673,41 @@ export async function createFlora({
       const points = new THREE.Points(geo, mat);
       points.frustumCulled = false;
       midScene.add(points);
-      return { walk: w, shrub: !!shrub, u, mat, geo };
+      return { walk: w, shrub: !!shrub, u, mat, geo, points };
+    });
+    // T-2967 — THE FAR BAND ON THE GPU'S DEAL (flora-gpu-far.js). The far band's
+    // three lattices, dealt in the same render, each against its own SLOT FIELD
+    // — one texel per lattice slot, holding the pool's answer at the slot's
+    // own point (`makeSlotField`) — into the rows after the forb walks, and
+    // reaped by `farRun` a slice at a time between frames.
+    const farFields = farBands.map((fb) => makeSlotField(fb.walk));
+    const farShaders = farOn ? farPassShaders({ lattice: LATTICE_GLSL, field: FIELD_GLSL, deal: DEAL_GLSL,
+      ring: NEAR_RING_GLSL }) : null;
+    const farDraws = farBands.map((fb) => {
+      const { band } = fb;
+      const u = {
+        uTarget: midPass.uTarget, uSlot0: { value: 0 }, ...farFields[fb.i].uniforms,
+        // FIELD_GLSL's, which the shader declares and does not read.
+        uFieldClass: midPass.uFieldClass, uFieldHeight: midPass.uFieldHeight,
+        uFieldOrigin: midPass.uFieldOrigin, uFieldTexel: midPass.uFieldTexel,
+        uFieldSize: midPass.uFieldSize, uFieldWrap: midPass.uFieldWrap,
+        uLatGrid: { value: [0, 0, 0, 0] }, uLatDeal: { value: [0, 0, 0, 0] }, uLatMode: { value: 0 },
+        uLatRing: { value: new THREE.Vector4() }, uLatCell: { value: new THREE.Vector2() },
+        uDealTable: midPass.uDealTable, uDealLayout: midPass.uDealLayout,
+        uForbLayout: { value: [table.forbBase, table.forbItemBase] }, uFarBase: { value: table.farBase },
+        uFarBand: { value: new THREE.Vector4(band.radius, band.ramp, band.inner, band.innerRamp) },
+        uFarKeep: { value: new THREE.Vector2(band.keep, step) },
+        uFarSalt: { value: (0x1b9f31c7 ^ (fb.i * 0x9e3779b9)) >>> 0 },
+        uFarCam: { value: new THREE.Vector2() }, uFarCone: { value: new THREE.Vector4(0, 0, -2, 0) },
+      };
+      const mat = new THREE.RawShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: u, ...farShaders });
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(fb.max * 3), 3));
+      geo.setDrawRange(0, 0);
+      const points = new THREE.Points(geo, mat);
+      points.frustumCulled = false;
+      midScene.add(points);
+      return { ...fb, u, mat, geo, points };
     });
     // T-2895: the deal passes' programs compiled as the rig is built, and not
     // waited for: the driver links them while the page goes on, so the first
@@ -1701,12 +1755,14 @@ export async function createFlora({
     });
     group.add(record.mesh);
     disposables.push(rt, tab, passMat, passGeo, tuftGeo, mat, record.mesh.geometry, midRt, midMat, midGeo,
-      ...forbDraws.flatMap((d) => [d.mat, d.geo]),
+      ...forbDraws.flatMap((d) => [d.mat, d.geo]), ...farDraws.flatMap((d) => [d.mat, d.geo]),
       { dispose() { for (const b of pbos) if (b) renderer.getContext().deleteBuffer(b); } });
 
     let nf = null, keeper = null, uploaded = null, clsTex = null, hgtTex = null;
     // T-2894: the mid field's keeper, the tile last uploaded and its textures.
     let midKeeper = null, midUploaded = null, midCls = null, midHgt = null;
+    // T-2967: whether the far band may be dealt on the GPU (the tool's switch).
+    let farGpu = true;
     let count = 0, placed = false, lastE = null, lastN = null;
     // T-2774: the last placement (its centre, cone, lattice and census), which
     // the read-back reaps; and the newest read-back asked for, so a slower one
@@ -1730,7 +1786,20 @@ export async function createFlora({
       // T-2895: the forb ring's reaps (forbs, rosettes and shrubs, dealt in the
       // mid pass), their ms and plants, and the forb slots re-seated by a kept
       // yard (`forbSeat`), whose station the page asks whole at the new foot.
-      forbReaps: 0, forbReapMs: 0, forbPlants: 0, forbSeated: 0 };
+      forbReaps: 0, forbReapMs: 0, forbPlants: 0, forbSeated: 0,
+      // T-2967: the far band — the placements whose far band the GPU dealt
+      // (`farDeals`), the far field's uploads, the near passes whose far band
+      // the CPU walked because the kept far tile did not cover it (`farCpu`)
+      // or that found it gone by the time they placed (`farMissed`); the
+      // reaps landed, their main-thread ms and the slices they were spread
+      // over (and the longest), the reaps a newer one overtook before they
+      // began (`farSkipped`) or that a pass on the CPU made stale
+      // (`farStale`); the cards placed, the slots the page dealt whole (one
+      // the pool did not answer, or a draw on a deal threshold: `farAsked`), and the
+      // placed slots whose deal the doubles did not confirm (`farRedealt`).
+      farDeals: 0, farUploads: 0, farCpu: 0, farMissed: 0, farReaps: 0, farReapMs: 0,
+      farSlices: 0, farSliceMaxMs: 0, farSkipped: 0, farStale: 0, farCards: 0, farAsked: 0,
+      farRedealt: 0 };
     const bufs = [0, 1, 2, 3].map(() => new Float32Array(W * H * 4));
     // T-2774: the read-back's pixel-pack buffers, and where they land (`read`).
     const pbos = [];
@@ -1738,6 +1807,10 @@ export async function createFlora({
     // T-2894: the mid target's, read in the frame and between frames.
     const midBuf = new Float32Array(MW * MH * 4);
     const midLanded = new Float32Array(MW * MH * 4);
+    // T-2967: the far band's rows of it, collected between frames into one of
+    // two buffers — one being reaped, the newest waiting behind it.
+    const farSlots = farBands.reduce((a, b) => a + Math.max(1, Math.ceil(b.max / MW)) * MW, 0);
+    const farBufs = farOn ? [new Float32Array(farSlots * 4), new Float32Array(farSlots * 4)] : [];
     const _rec = [0, 0, 0, 0];
     const _slotRing = [0, 0, 0, 0];
     const { items, forbItems } = table;
@@ -1753,6 +1826,49 @@ export async function createFlora({
     /** T-2895. And the forb ring's heads, the last forb deal's — the reap's, or
      *  a pass's whose forbs the CPU walked (`takeForbHeads`) — hung with them. */
     const forbRecorders = headRecorders();
+    /** T-2967. And the far band's, the last far reap's or the last pass's that
+     *  walked it (`takeFarHeads`), hung before them; and the ones a far reap
+     *  in progress records, handed over when it lands. */
+    const farRecorders = headRecorders();
+    const farStageHeads = headRecorders();
+    /** T-2967. A far reap's cards, kept until the whole reap is in and then
+     *  put into the far set in one go: the set is never seen half-reaped, and
+     *  a reap a newer one overtakes leaves it as it was. It refuses past the
+     *  set's own cap as the set would, so a card refused is refused here
+     *  first and hangs no flower. */
+    const farStage = (() => {
+      const max = farSet.max;
+      const rings = new Float64Array(max * 4);
+      const args = new Float64Array(max * 11);
+      const ring4 = [0, 0, 0, 0];
+      let n = 0, want = 0, ringNow = ring4;
+      return {
+        get count() { return n; },
+        reset() { n = 0; want = 0; },
+        ring(r) { ringNow = r; },
+        skip(k) { want += k; },
+        push(...a) {
+          want++;
+          if (n >= max) return false;
+          for (let j = 0; j < 4; j++) rings[4 * n + j] = ringNow[j];
+          for (let j = 0; j < 11; j++) args[11 * n + j] = a[j];
+          n++;
+          return true;
+        },
+        into(set) {
+          set.reset();
+          for (let i = 0; i < n; i++) {
+            for (let j = 0; j < 4; j++) ring4[j] = rings[4 * i + j];
+            set.ring(ring4);
+            const o = 11 * i;
+            set.push(args[o], args[o + 1], args[o + 2], args[o + 3], args[o + 4], args[o + 5], args[o + 6],
+              args[o + 7], args[o + 8], args[o + 9], args[o + 10]);
+          }
+          set.skip(want - n);
+          set.commit();
+        },
+      };
+    })();
 
     function covers(tile, e, n, reach) {
       const span = tile.texel * tile.size;
@@ -1825,6 +1941,50 @@ export async function createFlora({
       midUploaded = tile;
       stats.midUploads++;
     }
+    /**
+     * T-2967 — A SLOT FIELD for one lattice walk (flora-gpu-far.js): kept by the
+     * pool a strip at a time (`nf.keeper` with `slot`, jobs/zone-kernel.js
+     * `slotPoint`), one texel per slot, and only its class uploaded (RG8UI) —
+     * the deal reads no height. `uniforms` are FAR_SLOT_GLSL's four; `covers`
+     * whether the uploaded tile holds every cell the walk visits round (e, n).
+     * T-2968's far shrubs build theirs with `gpuNear.slotField(walk)`.
+     */
+    function makeSlotField(walk) {
+      const spec = farSlotSpec(walk);
+      const reach = farSlotReach(walk);
+      const uniforms = { uFarClass: { value: null }, uFarIdx0: { value: [0, 0] },
+        uFarSize: { value: spec.size }, uFarWrap: { value: [0, 0] } };
+      let tex = null;
+      const sf = { spec, reach, uniforms, keeper: null, tile: null, uploads: 0, bytes: farSlotBytes(spec),
+        bind(field) {
+          sf.keeper = field.keeper({ spec, page: false, unasked: FAR_UNASKED,
+            slot: { salt: walk.salt, cell: walk.cell, sub: spec.sub, wild: walk.draw === 'wild' } });
+        },
+        /** Follow the walker; upload a tile that has landed. True when it did. */
+        keep(e, n) {
+          const t = sf.keeper?.update(e, n);
+          if (!t || t === sf.tile) return false;
+          if (!tex) {
+            tex = nearest(new THREE.DataTexture(t.cls, t.size, t.size, THREE.RGIntegerFormat,
+              THREE.UnsignedByteType));
+            tex.internalFormat = 'RG8UI';
+            uniforms.uFarClass.value = tex;
+            disposables.push(tex);
+          } else {
+            tex.image.data = t.cls;
+            tex.needsUpdate = true;
+          }
+          uniforms.uFarIdx0.value = [Math.round(t.e0 / t.texel), Math.round(t.n0 / t.texel)];
+          uniforms.uFarSize.value = t.size;
+          uniforms.uFarWrap.value = [t.wi ?? 0, t.wj ?? 0];
+          sf.tile = t;
+          sf.uploads++;
+          return true;
+        },
+        covers(e, n) { return !!(sf.tile && covers(sf.tile, e, n, reach)); },
+      };
+      return sf;
+    }
     /** T-2894: the mid ring's deal pass, as `dealPass` draws the near one's. */
     function midDealPass() {
       const t0 = performance.now();
@@ -1883,14 +2043,27 @@ export async function createFlora({
       const ticket = ++reading;
       waiting = !sync;
       // T-2895: and the forb and shrub walks' slots after them, where it dealt them.
-      const midRows = rec.mid ? Math.ceil((rec.shrub ? rec.shrub.slot0 + rec.shrub.count : rec.mid.count) / MW)
-        : 0;
+      const midEnd = rec.mid ? (rec.shrub ? rec.shrub.slot0 + rec.shrub.count : rec.mid.count) : 0;
+      // T-2967: and the far band's after those, unless its rows are already
+      // reaped (a strip landing re-reads a placement's targets, and the far
+      // band's are no different for it).
+      const far = rec.far && !rec.farTaken ? rec.far : null;
+      const farStart = far ? far[0].slot0 : 0;
+      const farEnd = far ? far[far.length - 1].slot0 + far[far.length - 1].count : 0;
+      const midRows = Math.ceil(Math.max(midEnd, farEnd) / MW);
       if (sync) {
         for (const k of [0, 1, 3]) renderer.readRenderTargetPixels(rt, 0, 0, W, rows, bufs[k], undefined, k);
         if (midRows) renderer.readRenderTargetPixels(midRt, 0, 0, MW, midRows, midBuf);
         stats.syncReads++;
         stats.readMs += performance.now() - t0;
-        nearReaped(reap(bufs[0], bufs[1], bufs[3], rec, midBuf), true);
+        const census = reap(bufs[0], bufs[1], bufs[3], rec, midBuf);
+        // T-2967: a caller that reads the buffers straight after gets the far
+        // band reaped whole, now, before the heads are hung.
+        if (far) {
+          rec.farTaken = true;
+          farSync(midBuf, 0, rec);
+        }
+        nearReaped(census, true);
         return;
       }
       // Not three's `readRenderTargetPixelsAsync`: it asks
@@ -1943,13 +2116,25 @@ export async function createFlora({
           gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pbos[i]);
           gl.getBufferSubData(gl.PIXEL_PACK_BUFFER, 0, landed[i], 0, W * rows * 4);
         }
-        if (midRows) {
+        // T-2967: the far band's rows into a buffer of their own, which its
+        // reap reads a slice at a time while later reads land behind it.
+        let farBuf = null;
+        if (midEnd) {
           gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pbos[3]);
-          gl.getBufferSubData(gl.PIXEL_PACK_BUFFER, 0, midLanded, 0, MW * midRows * 4);
+          gl.getBufferSubData(gl.PIXEL_PACK_BUFFER, 0, midLanded, 0, Math.ceil(midEnd / MW) * MW * 4);
+        }
+        if (far && !rec.farTaken && rec.farGen === farGen) {
+          farBuf = farReap.job?.buf === 0 ? 1 : 0;
+          gl.bindBuffer(gl.PIXEL_PACK_BUFFER, pbos[3]);
+          gl.getBufferSubData(gl.PIXEL_PACK_BUFFER, farStart * 16, farBufs[farBuf], 0, (farEnd - farStart) * 4);
         }
         gl.bindBuffer(gl.PIXEL_PACK_BUFFER, null);
         stats.collectMs += performance.now() - t1;
         nearReaped(reap(landed[0], landed[1], landed[2], rec, midLanded), false);
+        if (farBuf !== null) {
+          rec.farTaken = true;
+          farQueue({ b: farBufs[farBuf], base: farStart, rec, buf: farBuf });
+        }
       };
       setTimeout(collect, 4);
     }
@@ -2189,6 +2374,207 @@ export async function createFlora({
         }
       }
     }
+    /**
+     * T-2967 — THE FAR BAND, OFF THE GPU'S DEAL, A SLICE AT A TIME. What
+     * `rebuildFar` did per slot, in slot order (`scatter`'s, band by band), on
+     * the deal pass's word (flora-gpu-far.js): the slot's point recomputed in
+     * doubles from its cell and index, `scatter`'s own ring and cone tests on it,
+     * and then either the CPU's own `farSlot` whole — for a slot the shader
+     * answered `ask` (one the pool did not answer, or a draw within FAR_U_EPS
+     * of a threshold), or one
+     * whose species the deal's draw in doubles does not confirm — or, for a
+     * slot the GPU placed, what the far field cannot answer to the bit: the
+     * band's rank and the slot's own ring, `growthBlocked`, the ground's own
+     * height and the woody band; then the card and its flower, on the slot's
+     * own stream past the jitter's two draws. Into `farStage` and the staged
+     * head recorders, which become the far set and its heads only when the
+     * whole reap is in (`farLand`).
+     *
+     * Between frames it is spread over tasks of FAR_REAP_SLICE_MS (`farTick`),
+     * and never runs inside `flora.update`: T-2966 put its far pass's read-backs
+     * in the frame that drained it and read flora's worst moving frame over
+     * every tier's ceiling. One reap runs at a time and the newest waits behind
+     * it (`next`), so a walker who outpaces the reap still gets every other
+     * placement's far band, never none. A caller that reads the buffers
+     * straight after (`farSync`, `flush`) takes the whole reap in the frame.
+     */
+    const FAR_REAP_SLICE_MS = 3;
+    const farReap = { job: null, next: null, timer: 0 };
+    for (const fb of farBands) fb.globalShift = hash3(fb.walk.salt, STRAT_SALT, 0x9e3779b9) / 4294967296;
+    function farQueue(job) {
+      if (farReap.job) {
+        if (farReap.next) stats.farSkipped++;
+        farReap.next = job;
+      } else farReap.job = job;
+      if (!farReap.timer) farReap.timer = setTimeout(farTick, 0);
+    }
+    function farTick() {
+      farReap.timer = 0;
+      let job = farReap.job;
+      // Made stale by a pass that has since dealt the far band on the CPU.
+      while (job && job.rec.farGen !== farGen) {
+        stats.farStale++;
+        job = farReap.job = farReap.next;
+        farReap.next = null;
+      }
+      if (!job) return;
+      const t0 = performance.now();
+      const done = farRun(job, FAR_REAP_SLICE_MS);
+      if (done) {
+        farReap.job = farReap.next;
+        farReap.next = null;
+        farLand(job, false);
+      }
+      const ms = performance.now() - t0;
+      stats.farSlices++;
+      stats.farReapMs += ms;
+      if (ms > stats.farSliceMaxMs) stats.farSliceMaxMs = ms;
+      if (farReap.job) farReap.timer = setTimeout(farTick, 0);
+    }
+    /** The whole reap of `rec`'s far band from `b`, now (`read` in the frame). */
+    function farSync(b, base, rec) {
+      farReap.job = null;
+      farReap.next = null;
+      if (farReap.timer) { clearTimeout(farReap.timer); farReap.timer = 0; }
+      if (rec.farGen !== farGen) { stats.farStale++; return; }
+      const job = { b, base, rec, buf: -1 };
+      const t0 = performance.now();
+      farRun(job, Infinity);
+      farLand(job, true);
+      stats.farReapMs += performance.now() - t0;
+    }
+    /** Every reap still to land, now (`flush`). True if one landed. */
+    function farDrain() {
+      if (farReap.timer) { clearTimeout(farReap.timer); farReap.timer = 0; }
+      let landed = false;
+      while (farReap.job) {
+        const job = farReap.job;
+        farReap.job = farReap.next;
+        farReap.next = null;
+        if (job.rec.farGen !== farGen) { stats.farStale++; continue; }
+        const t0 = performance.now();
+        farRun(job, Infinity);
+        farLand(job, true);
+        stats.farReapMs += performance.now() - t0;
+        landed = true;
+      }
+      return landed;
+    }
+    /** A reap run to its end: its cards become the far set, its heads the far
+     *  recorders, and the heads are hung again unless a pass is dealing (it
+     *  hangs them when it commits) or the caller hangs them next (`sync`). */
+    function farLand(job, sync) {
+      farStage.into(farSet);
+      for (const k in farRecorders) {
+        const rows = farRecorders[k].rows;
+        rows.length = 0;
+        for (const x of farStageHeads[k].rows) rows.push(x);
+      }
+      stats.farReaps++;
+      stats.farCards += farSet.mesh.count;
+      if (!sync) nearReaped(false, false);
+    }
+    /** Deal `job`'s slots until its end (true) or until `budget` ms have gone. */
+    function farRun(job, budget) {
+      const t0 = performance.now();
+      if (!job.started) {
+        job.started = true;
+        job.part = 0;
+        job.id = 0;
+        farStage.reset();
+        for (const k in farStageHeads) farStageHeads[k].reset();
+      }
+      const { b, base, rec } = job;
+      const { camE, camN, cone } = rec;
+      for (; job.part < rec.far.length; job.part++, job.id = 0) {
+        const part = rec.far[job.part];
+        const fb = farBands[part.k];
+        const { band, i } = fb;
+        const { cell, perCell } = band;
+        const salt = fb.walk.salt;
+        const [c0, r0, cols] = part.grid;
+        const sub = Math.max(1, Math.round(Math.sqrt(perCell)));
+        // `scatter`'s own lattice, not the shader's padded one.
+        const radius = band.radius + step;
+        const innerR = Math.max(0, band.inner - step);
+        const rr = radius * radius;
+        const ri = innerR * innerR;
+        const cMin = Math.floor((camE - radius) / cell), cMax = Math.ceil((camE + radius) / cell);
+        const rMin = Math.floor((camN - radius) / cell), rMax = Math.ceil((camN + radius) / cell);
+        const halfDiag = cell * Math.SQRT1_2;
+        for (; job.id < part.count; job.id++) {
+          if ((job.id & 63) === 0 && performance.now() - t0 > budget) return false;
+          const o = 4 * (part.slot0 - base + job.id);
+          const word = b[o + 3] | 0;
+          const code = word & 7;
+          if (code !== FAR_DEAL.placed && code !== FAR_DEAL.ask) continue;
+          const id = job.id;
+          const k = id % perCell;
+          const cellIdx = (id - k) / perCell;
+          const ci = cellIdx % cols;
+          const c = c0 + ci;
+          const r = r0 + (cellIdx - ci) / cols;
+          // `scatter`'s cell tests, where it skips a cell before hashing it.
+          if (c < cMin || c > cMax || r < rMin || r > rMax) continue;
+          const nx0 = c * cell - camE, nx1 = (c + 1) * cell - camE;
+          const ny0 = r * cell - camN, ny1 = (r + 1) * cell - camN;
+          const nx = nx0 > 0 ? nx0 : nx1 < 0 ? -nx1 : 0;
+          const ny = ny0 > 0 ? ny0 : ny1 < 0 ? -ny1 : 0;
+          if (nx * nx + ny * ny > rr) continue;
+          const fx = Math.max(Math.abs(nx0), Math.abs(nx1));
+          const fy = Math.max(Math.abs(ny0), Math.abs(ny1));
+          if (fx * fx + fy * fy < ri) continue;
+          if (cone) {
+            const ce = (c + 0.5) * cell - camE, cn = (r + 0.5) * cell - camN;
+            const cd = Math.hypot(ce, cn);
+            if (cd - halfDiag > CONE_KEEP_M) {
+              const low = cone.cos >= 0 ? (cd - halfDiag) * cone.cos : (cd + halfDiag) * cone.cos;
+              if (ce * cone.fe + cn * cone.fn + halfDiag
+                < low - 2 * (cone.margin ?? 0) - 1e-6) continue;
+            }
+          }
+          const rng = rngFrom(hash3(hash3(c, r, salt), k, 0x68bc21eb));
+          const je = rng(), jn = rng();
+          const e = (c + (k % sub + je) / sub) * cell;
+          const n = (r + (((k / sub) | 0) + jn) / sub) * cell;
+          const d2 = (e - camE) ** 2 + (n - camN) ** 2;
+          if (d2 > rr || d2 < ri) continue;
+          const d = Math.sqrt(d2);
+          if (cone && d > CONE_KEEP_M
+            && ((e - camE) * cone.fe + (n - camN) * cone.fn) < d * cone.cos - 2 * (cone.margin ?? 0)) continue;
+          if (cone?.planes && outsideFrustum(cone, e, n, d)) continue;
+          const u = frac(k / perCell + blockPhase(c, r, perCell, fb.globalShift));
+          if (code === FAR_DEAL.ask) {
+            stats.farAsked++;
+            farSlot(i, band, e, n, d, rng, u, undefined, farStage, farStageHeads);
+            continue;
+          }
+          const rank = farRank(e, n, i) / band.keep;
+          if (rank >= 1) continue;
+          const outer = band.radius - band.ramp * rank;
+          const inner = band.inner + band.innerRamp * rank;
+          const feather = Math.min(8, band.innerRamp, band.ramp);
+          if (d > outer + step || d < inner - step) continue;
+          const forb = (word & 16) !== 0;
+          const { zone, sp } = (forb ? forbItems : items)[(word >> 5) - 1];
+          const wet = (word & 8) !== 0;
+          // The deal's one draw in doubles: a float32 `u` the shader did not
+          // see near a threshold still has to give the species it gave.
+          if (forb !== (u >= (wet ? zone.farSplit.wet : zone.farSplit.dry)) || farDealt(zone, wet, u) !== sp) {
+            stats.farRedealt++;
+            farSlot(i, band, e, n, d, rng, u, undefined, farStage, farStageHeads);
+            continue;
+          }
+          // `station`'s questions the far field does not answer to the bit.
+          if (growthBlocked(e, n)) continue;
+          const y = wet ? waterY : terrain.surfaceHeight(e, n);
+          if (!wet && woodyRefuses(zone, sp, e, n, y)) continue;
+          farStage.ring([outer, feather, inner, feather]);
+          farPlace(band, sp, zone, forb, e, y, n, d, rng, outer, inner, feather, farStage, farStageHeads);
+        }
+      }
+      return true;
+    }
     return {
       mesh,
       stats,
@@ -2196,6 +2582,16 @@ export async function createFlora({
       heads: recorders,
       /** T-2895: and the forb ring's, the last forb deal's. */
       forbHeads: forbRecorders,
+      /** T-2967: and the far band's, the last far reap's or CPU walk's. */
+      farHeads: farRecorders,
+      /** T-2967: a pass whose far band the CPU walked hands its heads over here. */
+      takeFarHeads(from) {
+        for (const k in farRecorders) {
+          const rows = farRecorders[k].rows;
+          rows.length = 0;
+          for (const x of from[k].rows) rows.push(x);
+        }
+      },
       /** T-2895: a pass whose forbs the CPU walked hands its heads over here. */
       takeForbHeads(from) {
         for (const k in forbRecorders) {
@@ -2209,6 +2605,10 @@ export async function createFlora({
         keeper = nf.keeper();
         // T-2894: the mid field, kept by the pool alone (see `reapMid`).
         if (midOn) midKeeper = nf.keeper({ spec: midSpec, page: false });
+        // T-2967: the far band's slot fields, by the pool alone, and a texel
+        // the pool did not answer marked for the deal to hand back
+        // (`FAR_UNASKED`), never asked on the page.
+        for (const f of farFields) f.bind(nf);
       },
       /** The kept tile, home around (e, n) before the first deal. */
       async prime(e, n) {
@@ -2217,6 +2617,7 @@ export async function createFlora({
         // T-2894: the mid field starts on the pool now and is not waited for:
         // until it is home the mid ring is the CPU's, as it always was.
         midKeeper?.update(e, n);
+        for (const f of farFields) f.keeper?.update(e, n);
         await keeper.settled();
         this.keep(e, n, true);
       },
@@ -2251,6 +2652,8 @@ export async function createFlora({
           const mt = midKeeper.update(e, n);
           if (mt && mt !== midUploaded) uploadMid(mt);
         }
+        // T-2967: and the far band's slot fields, on the same terms.
+        for (const f of farFields) if (f.keep(e, n)) stats.farUploads++;
         if (tile && tile !== uploaded) {
           upload(tile);
           // T-2774: only a placement the tile did not wholly cover is dealt
@@ -2267,7 +2670,7 @@ export async function createFlora({
        * The near walk's centre and cone: the deal pass, and its read-back —
        * in the frame when `sync`, else collected when the GPU has finished.
        */
-      place(camE, camN, cone, sync, mid = false) {
+      place(camE, camN, cone, sync, mid = false, far = false) {
         const u = latticeUniforms({ camE, camN, ...walk });
         pass.uLatGrid.value = u.grid;
         pass.uLatDeal.value = u.deal;
@@ -2284,10 +2687,14 @@ export async function createFlora({
         placed = true;
         at = { camE, camN, cone, grid: u.grid, count, census: censusGen, counted: false,
           whole: !!uploaded && covers(uploaded, camE, camN, walk.radius), mid: null, forb: null,
-          shrub: null, midGen };
+          shrub: null, midGen, far: null, farGen, farTaken: false };
+        // T-2967: the rows the shared render writes this time (a part it does
+        // not deal is drawn as nothing, so no stale slot lands in its rows).
+        let slot0 = 0;
         // T-2894: the mid ring's deal, where this pass left it to the GPU
         // (`midCovers` at its start) and the uploaded mid tile still covers it.
-        if (mid && uploaded && this.midCovers(camE, camN)) {
+        const midDeal = mid && uploaded && this.midCovers(camE, camN);
+        if (midDeal) {
           const m = latticeUniforms({ camE, camN, ...midWalk });
           midPass.uLatGrid.value = m.grid;
           midPass.uLatDeal.value = m.deal;
@@ -2299,7 +2706,7 @@ export async function createFlora({
           at.mid = { grid: m.grid, count: mc };
           // T-2895: the forb and shrub walks, into the rows after the mid
           // slots, in the same render.
-          let slot0 = Math.ceil(mc / MW) * MW;
+          slot0 = Math.ceil(mc / MW) * MW;
           for (const fd of forbDraws) {
             const l = latticeUniforms({ camE, camN, ...fd.walk });
             fd.u.uLatGrid.value = l.grid;
@@ -2313,8 +2720,36 @@ export async function createFlora({
             at[fd.shrub ? 'shrub' : 'forb'] = { grid: l.grid, count: fc, slot0 };
             slot0 += Math.ceil(fc / MW) * MW;
           }
-          midDealPass();
         } else if (mid) stats.midMissed++;
+        // A part this render does not deal is not drawn at all (T-2967: the
+        // render may now deal the far band alone).
+        midPoints.visible = midDeal;
+        for (const fd of forbDraws) fd.points.visible = midDeal;
+        // T-2967: the far band's three lattices, where this pass left it to
+        // the GPU (`farCovers` at its start) and the far tile still covers it.
+        const farDeal = far && uploaded && this.farCovers(camE, camN);
+        if (farDeal) {
+          at.far = [];
+          for (const fd of farDraws) {
+            const l = latticeUniforms({ camE, camN, ...fd.walk });
+            fd.u.uLatGrid.value = l.grid;
+            fd.u.uLatDeal.value = l.deal;
+            fd.u.uLatMode.value = l.mode;
+            fd.u.uLatRing.value.set(...l.ring);
+            fd.u.uLatCell.value.set(...l.cell);
+            fd.u.uSlot0.value = slot0;
+            fd.u.uFarCam.value.set(camE, camN);
+            if (cone) fd.u.uFarCone.value.set(cone.fe, cone.fn, cone.cos, cone.margin ?? 0);
+            else fd.u.uFarCone.value.set(0, 0, -2, 0);
+            const fc = Math.min(l.count, fd.max);
+            fd.geo.setDrawRange(0, fc);
+            at.far.push({ k: at.far.length, grid: l.grid, count: fc, slot0 });
+            slot0 += Math.ceil(fc / MW) * MW;
+          }
+          stats.farDeals++;
+        } else if (far) stats.farMissed++;
+        for (const fd of farDraws) fd.points.visible = farDeal;
+        if (midDeal || farDeal) midDealPass();
         if (uploaded) {
           dealPass();
           read(sync);
@@ -2331,16 +2766,48 @@ export async function createFlora({
       },
       /** T-2894: a near pass whose mid ring the CPU walked. */
       midByCpu() { if (midKeeper) stats.midCpu++; },
+      /**
+       * T-2967: whether a near pass at (e, n) can leave its far band to the GPU
+       * — every band's slot field, uploaded, holds every cell its lattice
+       * visits round (e, n).
+       */
+      farCovers(e, n) {
+        return !!(farFields.length && uploaded && farGpu && farFields.every((f) => f.covers(e, n)));
+      },
+      /** T-2967: a near pass whose far band the CPU walked. */
+      farByCpu() { if (farFields.length) stats.farCpu++; },
+      /** T-2967: a tool's switch (`nearDraw.setFarOnGpu`). */
+      setFarOnGpu(on) { farGpu = !!on; },
+      /**
+       * T-2967: the far band's slot fields, one a band (`makeSlotField`: its
+       * spec, FAR_SLOT_GLSL's four uniforms bound to the uploaded tile, the
+       * tile, the keeper, `covers(e, n)` and its bytes), and their bytes in all.
+       */
+      farField: farOn ? {
+        bands: farFields,
+        bytes: farFields.reduce((a, f) => ({ gpu: a.gpu + f.bytes.gpu, page: a.page + f.bytes.page,
+          texels: a.texels + f.bytes.texels }), { gpu: 0, page: 0, texels: 0 }),
+      } : null,
+      /** T-2967: a slot field for another lattice walk (T-2968's far shrubs):
+       *  bound once the near field is; its owner calls `keep(e, n)` a frame. */
+      slotField(walk) {
+        const f = makeSlotField(walk);
+        if (nf) f.bind(nf);
+        return f;
+      },
       /** T-2894: resolves when neither kept tile has a re-centre in flight. */
       async settled() {
         await keeper?.settled();
         await midKeeper?.settled();
+        for (const f of farFields) await f.keeper?.settled();
       },
       /** T-2894: the mid field's spec, or null where the CPU deals the mid ring. */
       midSpec: midOn ? midSpec : null,
       /** T-2774: a read-back still on its way is taken now, in the frame. */
       flush() {
         if (waiting) read(true);
+        // T-2967: and a far reap still being dealt between frames, whole.
+        else if (farDrain()) nearReaped(false, true);
       },
       /** The kept tile's ground at (e, n) — what a drawn tuft roots on — or null. */
       groundAt(e, n) {
@@ -2810,148 +3277,173 @@ export async function createFlora({
    */
   function* rebuildFar(camE, camN, cone) {
     farSet.reset();
+    // T-2967: a pass that deals the far band here leaves no GPU reap of an
+    // earlier placement to land over it, and records its heads for the GPU
+    // near ring to hang first (`hangNearHeads`), as the reap's would be.
+    farGen++;
+    gpuNear?.farByCpu();
+    const hs = farHeadsCpu ?? heads;
+    if (farHeadsCpu) for (const k in hs) hs[k].reset();
     // Each slot now carries a continuous ring instead of changing presence
     // only on a CPU rebuild (T-2035).
     for (const [i, band] of tune.far.bands.entries()) {
       yield* scatter(camE, camN, band.cell, band.perCell, band.radius + step, Math.max(0, band.inner - step),
-        0x3a91c7 ^ (i * 0x85ebca6b), 'lattice', cone,
-        (e, n, r, rng, _cellSeed, u, z) => {
-          const rank = farRank(e, n, i) / band.keep;
-          if (rank >= 1) return;
-          const outer = band.radius - band.ramp * rank;
-          const inner = band.inner + band.innerRamp * rank;
-          const feather = Math.min(8, band.innerRamp, band.ramp);
-          if (r > outer + step || r < inner - step) return;
-          farSet.ring([outer, feather, inner, feather]);
-          const zone = zoneOf(e, n, z);
-          if (!zone || !zone.graminoids.length) return;
-          if (zone.turf) return;
-          const wet = wetAt(e, n);
-          // T-0209. THE FAR BAND DEALS THE WHOLE COMMUNITY, not just its grass.
-          // Until this it dealt `graminoids` alone, so every flowering
-          // community past the mid ring was a hundred per cent matrix however
-          // its record read — and no card the far band drew could carry a
-          // flower because no card the far band drew was a plant that has one.
-          //
-          // The split is made INSIDE the band this slot was already occupied
-          // on, not beside it: the slot is used when `u < matrixShare` exactly
-          // as before, and the forbs take their own recorded share OF that
-          // range. So the card count, the instance count, the triangles and the
-          // draw calls are what they were, and what changes is which plant a
-          // card stands for. Widening the occupied band instead would have
-          // bought the bloom with geometry, which is the budget the whole
-          // ticket was told not to spend.
-          //
-          // T-0280. AND THE SHARE IT TAKES IS A COVER AGAINST A COVER.
-          //
-          // The split above was dealt on `forbShare`, and `forbShare` is the
-          // FORB RING's lattice occupancy — `min(1, density × cell² / perCell)`
-          // at one plant per 2.89 m² slot. Two things were wrong with it here,
-          // and they compound.
-          //
-          // It is CLAMPED, and the clamp belongs to a different lattice. Nine of
-          // the ten populated forb layers sit on that 1.000 ceiling
-          // (`tools/forb_clamp_baseline.json`), so for nine communities the far
-          // band's species mix was decided by the number 1.000 and not by
-          // anything their records say: `z06_dense_forest` asks 66.381 plants
-          // per m² and `z01_wet_prairie` asks 0.407, and the band split both as
-          // though they had asked for the same thing. The far band is dealt on
-          // its own lattice at 3.4 m and 9.5 m with `perCell: 1`, and nothing
-          // about the forb ring's slot size bounds a PROPORTION drawn on it.
-          //
-          // And it is the wrong KIND of number even unclamped. `matrixShare` is
-          // `cover.matrix_fraction`, a fraction of GROUND COVERED; `forbShare`
-          // is a slot-occupancy chance derived from stem density. Dividing one
-          // by the sum of both added an area to a probability — K49(a)'s unit
-          // error, one stratum further out — so raising the clamp would have
-          // replaced a wrong constant with a wrong quantity. At 66.381 plants
-          // per m² the unclamped share is ~1 and every far card in the dense
-          // forest would have been a flower.
-          //
-          // So both sides are now the AREAL COVER of their stratum.
-          // `subsetOn().cover` sums `stems × π·clump²` over the subset that may
-          // actually stand on this side of the waterline, which for a
-          // cover-recorded species is its own `cover_fraction` returned intact;
-          // the matrix side stays the record's own `matrix_fraction`, which is
-          // that same quantity already written down. The ratio is then a mix of
-          // two ground shares, which is what an aggregate card standing for
-          // several square metres of ground is a mix of — the reading T-0225 is
-          // in, arrived at here.
-          //
-          // THE CLUMP IS THE DRAWN ONE, and it has to be. Fifty of the sward
-          // records state no `width_m` — every forb of the wet prairie, the
-          // mesic prairie and the sand prairie, and both marsh forbs — so a sum
-          // over recorded widths alone would not make those strata small, it
-          // would make them ABSENT, and the far band would deal the sand
-          // prairie as pure grass on the strength of a missing field. `coverOf`
-          // falls back to `clumpRadiusOf`, which is the footprint the placer is
-          // ALREADY giving those plants and has given them since the walker
-          // clearance was written. `forbCoverFallbacks` on `communities()` says
-          // how many of a community's forbs were measured that way.
-          //
-          // MIDPOINT, not `coverHigh`. T-0034 deals the forb RING off the top of
-          // each recorded range because that ring is a slot COUNT and the count
-          // had headroom; `matrix_fraction` is a single recorded central figure
-          // with no upper end to match, and dividing a high end by a midpoint
-          // would tilt the mix toward flowers by the width of the forb records'
-          // ranges alone. Both sides central, or the ratio is an artefact of
-          // which end each was read at.
-          //
-          // T-1106. AND THE COVER IS A FLOOR, WHILE THIS BAND IS A WALL.
-          //
-          // Ground cover is the honest mix for ground, and everything above
-          // stands. It is not the honest mix for THIS band. The nearest far card
-          // is 34 m out and the furthest 95; at fifty metres a 1.7 m eye looks
-          // 1.9 degrees below horizontal, the sward is seen edge-on, and the
-          // plant that fills a pixel is the first element the ray meets. That is
-          // governed by silhouette area per element times elements per m² of
-          // ground — `silhouetteOf` — and the depth of the wall cancels out of a
-          // ratio between two strata standing in it.
-          //
-          // The two quantities disagree exactly where the strata differ in
-          // SHAPE. A compass plant 1.8 m tall in 1.2 m grass stands up more wall
-          // per square metre of floor than its footprint says, and under the
-          // cover reading the band could not know it: T-0280's change cost
-          // `prairie_west` every drawn head past 26.4 m, down from 135.7 m,
-          // because the tall narrow stratum was priced as though the visitor
-          // were looking down at it. `tools/measure_far_split.mjs` §1 carries all
-          // three columns and the per-community move.
-          //
-          // THIS IS THE MODEL THE MODULE ALREADY USES ONE FIELD OVER.
-          // `tools/measure_far_bloom.mjs` §1 has priced the bloom share on this
-          // same edge-on `n x a` since T-0209 and states its liberty for it, so
-          // until now the split and the bloom were two readings of one wall in
-          // two different units.
-          //
-          // The card count does not move. This decides what a card stands for,
-          // exactly as T-0209 above left it, and the boundary itself is summed
-          // off `data/flora` once per community in `farSplitOf` — no constant
-          // enters it here.
-          const forbs = wet ? zone.wet.forbs : zone.dry.forbs;
-          const split = wet ? zone.farSplit.wet : zone.farSplit.dry;
-          const forb = u >= split;
-          const sp = forb
-            ? dealt(forbs, zone.matrixShare - split, u - split)
-            : dealt(wet ? zone.wet.graminoids : zone.dry.graminoids, split, u);
-          if (!sp) return;
-          const y = station(e, n, zone, sp, wet);
-          if (y === null) return;
-          const h = placeFarCard(farSet, sp, zone, e, y, n, rng, band);
-          // ...and a flowering forb's far card carries the flower, out to the
-          // distance the record's own head size stays one pixel wide — see
-          // `farHeadReach`. The head sets and their material are the ones the
-          // forb ring already uses, so this is instances on a mesh that is
-          // drawn either way, never a new draw call.
-          if (forb && h > 0 && sp.head && tune.far.minPx && band.heads !== false
-            && r <= farHeadReach(sp, tune.far.minPx) + step) {
-            const hr = farHeadRing(sp, tune.far.minPx, _headRing);
-            hr[0] = Math.min(hr[0], outer - HEAD_FADE_AT * feather);
-            hr[1] = Math.max(hr[1], (1 - HEAD_FADE_AT) * feather);
-            hr[2] = inner + HEAD_FADE_AT * feather;
-            hr[3] = (1 - HEAD_FADE_AT) * feather;
-            maybeHead(heads, sp, e, y, n, rng, h, hr);
-          }
-        });
+        farSalt(i), 'lattice', cone,
+        (e, n, r, rng, _cellSeed, u, z) => farSlot(i, band, e, n, r, rng, u, z, farSet, hs));
+    }
+  }
+  /** The far band's lattice salt for band `i` (`scatter`'s, and the GPU deal's). */
+  function farSalt(i) { return 0x3a91c7 ^ (i * 0x85ebca6b); }
+
+  /**
+   * ONE FAR SLOT, as `rebuildFar` deals it (T-2967: out of the walk, so the GPU
+   * far deal's reap asks the very same code at a slot it hands back whole —
+   * `FAR_DEAL.ask`). `set` takes the card and `hs` the head.
+   */
+  function farSlot(i, band, e, n, r, rng, u, z, set, hs) {
+    const rank = farRank(e, n, i) / band.keep;
+    if (rank >= 1) return;
+    const outer = band.radius - band.ramp * rank;
+    const inner = band.inner + band.innerRamp * rank;
+    const feather = Math.min(8, band.innerRamp, band.ramp);
+    if (r > outer + step || r < inner - step) return;
+    set.ring([outer, feather, inner, feather]);
+    const zone = zoneOf(e, n, z);
+    if (!zone || !zone.graminoids.length) return;
+    if (zone.turf) return;
+    const wet = wetAt(e, n);
+    // T-0209. THE FAR BAND DEALS THE WHOLE COMMUNITY, not just its grass.
+    // Until this it dealt `graminoids` alone, so every flowering
+    // community past the mid ring was a hundred per cent matrix however
+    // its record read — and no card the far band drew could carry a
+    // flower because no card the far band drew was a plant that has one.
+    //
+    // The split is made INSIDE the band this slot was already occupied
+    // on, not beside it: the slot is used when `u < matrixShare` exactly
+    // as before, and the forbs take their own recorded share OF that
+    // range. So the card count, the instance count, the triangles and the
+    // draw calls are what they were, and what changes is which plant a
+    // card stands for. Widening the occupied band instead would have
+    // bought the bloom with geometry, which is the budget the whole
+    // ticket was told not to spend.
+    //
+    // T-0280. AND THE SHARE IT TAKES IS A COVER AGAINST A COVER.
+    //
+    // The split above was dealt on `forbShare`, and `forbShare` is the
+    // FORB RING's lattice occupancy — `min(1, density × cell² / perCell)`
+    // at one plant per 2.89 m² slot. Two things were wrong with it here,
+    // and they compound.
+    //
+    // It is CLAMPED, and the clamp belongs to a different lattice. Nine of
+    // the ten populated forb layers sit on that 1.000 ceiling
+    // (`tools/forb_clamp_baseline.json`), so for nine communities the far
+    // band's species mix was decided by the number 1.000 and not by
+    // anything their records say: `z06_dense_forest` asks 66.381 plants
+    // per m² and `z01_wet_prairie` asks 0.407, and the band split both as
+    // though they had asked for the same thing. The far band is dealt on
+    // its own lattice at 3.4 m and 9.5 m with `perCell: 1`, and nothing
+    // about the forb ring's slot size bounds a PROPORTION drawn on it.
+    //
+    // And it is the wrong KIND of number even unclamped. `matrixShare` is
+    // `cover.matrix_fraction`, a fraction of GROUND COVERED; `forbShare`
+    // is a slot-occupancy chance derived from stem density. Dividing one
+    // by the sum of both added an area to a probability — K49(a)'s unit
+    // error, one stratum further out — so raising the clamp would have
+    // replaced a wrong constant with a wrong quantity. At 66.381 plants
+    // per m² the unclamped share is ~1 and every far card in the dense
+    // forest would have been a flower.
+    //
+    // So both sides are now the AREAL COVER of their stratum.
+    // `subsetOn().cover` sums `stems × π·clump²` over the subset that may
+    // actually stand on this side of the waterline, which for a
+    // cover-recorded species is its own `cover_fraction` returned intact;
+    // the matrix side stays the record's own `matrix_fraction`, which is
+    // that same quantity already written down. The ratio is then a mix of
+    // two ground shares, which is what an aggregate card standing for
+    // several square metres of ground is a mix of — the reading T-0225 is
+    // in, arrived at here.
+    //
+    // THE CLUMP IS THE DRAWN ONE, and it has to be. Fifty of the sward
+    // records state no `width_m` — every forb of the wet prairie, the
+    // mesic prairie and the sand prairie, and both marsh forbs — so a sum
+    // over recorded widths alone would not make those strata small, it
+    // would make them ABSENT, and the far band would deal the sand
+    // prairie as pure grass on the strength of a missing field. `coverOf`
+    // falls back to `clumpRadiusOf`, which is the footprint the placer is
+    // ALREADY giving those plants and has given them since the walker
+    // clearance was written. `forbCoverFallbacks` on `communities()` says
+    // how many of a community's forbs were measured that way.
+    //
+    // MIDPOINT, not `coverHigh`. T-0034 deals the forb RING off the top of
+    // each recorded range because that ring is a slot COUNT and the count
+    // had headroom; `matrix_fraction` is a single recorded central figure
+    // with no upper end to match, and dividing a high end by a midpoint
+    // would tilt the mix toward flowers by the width of the forb records'
+    // ranges alone. Both sides central, or the ratio is an artefact of
+    // which end each was read at.
+    //
+    // T-1106. AND THE COVER IS A FLOOR, WHILE THIS BAND IS A WALL.
+    //
+    // Ground cover is the honest mix for ground, and everything above
+    // stands. It is not the honest mix for THIS band. The nearest far card
+    // is 34 m out and the furthest 95; at fifty metres a 1.7 m eye looks
+    // 1.9 degrees below horizontal, the sward is seen edge-on, and the
+    // plant that fills a pixel is the first element the ray meets. That is
+    // governed by silhouette area per element times elements per m² of
+    // ground — `silhouetteOf` — and the depth of the wall cancels out of a
+    // ratio between two strata standing in it.
+    //
+    // The two quantities disagree exactly where the strata differ in
+    // SHAPE. A compass plant 1.8 m tall in 1.2 m grass stands up more wall
+    // per square metre of floor than its footprint says, and under the
+    // cover reading the band could not know it: T-0280's change cost
+    // `prairie_west` every drawn head past 26.4 m, down from 135.7 m,
+    // because the tall narrow stratum was priced as though the visitor
+    // were looking down at it. `tools/measure_far_split.mjs` §1 carries all
+    // three columns and the per-community move.
+    //
+    // THIS IS THE MODEL THE MODULE ALREADY USES ONE FIELD OVER.
+    // `tools/measure_far_bloom.mjs` §1 has priced the bloom share on this
+    // same edge-on `n x a` since T-0209 and states its liberty for it, so
+    // until now the split and the bloom were two readings of one wall in
+    // two different units.
+    //
+    // The card count does not move. This decides what a card stands for,
+    // exactly as T-0209 above left it, and the boundary itself is summed
+    // off `data/flora` once per community in `farSplitOf` — no constant
+    // enters it here.
+    const forb = u >= (wet ? zone.farSplit.wet : zone.farSplit.dry);
+    const sp = farDealt(zone, wet, u);
+    if (!sp) return;
+    const y = station(e, n, zone, sp, wet);
+    if (y === null) return;
+    farPlace(band, sp, zone, forb, e, y, n, r, rng, outer, inner, feather, set, hs);
+  }
+  /** The far split and the species deal off the slot's one draw (T-1106,
+   *  above), or null. */
+  function farDealt(zone, wet, u) {
+    const split = wet ? zone.farSplit.wet : zone.farSplit.dry;
+    return u >= split
+      ? dealt(wet ? zone.wet.forbs : zone.dry.forbs, zone.matrixShare - split, u - split)
+      : dealt(wet ? zone.wet.graminoids : zone.dry.graminoids, split, u);
+  }
+  /** A far slot's card, and its flower — what `farSlot` does once `station`
+   *  has given it ground, and the GPU deal's reap once the page has. */
+  function farPlace(band, sp, zone, forb, e, y, n, r, rng, outer, inner, feather, set, hs) {
+    const h = placeFarCard(set, sp, zone, e, y, n, rng, band);
+    // ...and a flowering forb's far card carries the flower, out to the
+    // distance the record's own head size stays one pixel wide — see
+    // `farHeadReach`. The head sets and their material are the ones the
+    // forb ring already uses, so this is instances on a mesh that is
+    // drawn either way, never a new draw call.
+    if (forb && h > 0 && sp.head && tune.far.minPx && band.heads !== false
+      && r <= farHeadReach(sp, tune.far.minPx) + step) {
+      const hr = farHeadRing(sp, tune.far.minPx, _headRing);
+      hr[0] = Math.min(hr[0], outer - HEAD_FADE_AT * feather);
+      hr[1] = Math.max(hr[1], (1 - HEAD_FADE_AT) * feather);
+      hr[2] = inner + HEAD_FADE_AT * feather;
+      hr[3] = (1 - HEAD_FADE_AT) * feather;
+      maybeHead(hs, sp, e, y, n, rng, h, hr);
     }
   }
 
@@ -3072,7 +3564,11 @@ export async function createFlora({
     // T-2895: and its forbs, rosettes and shrubs with it: dealt in the mid
     // pass and reaped beside the mid cards (`reapForbs`), or walked here.
     if (!midOnGpu) yield* rebuildForbs(camE, camN, cone);
-    yield* rebuildFar(camE, camN, cone);
+    // T-2967: and its far band, dealt by the GPU against the far field and
+    // reaped between frames (`reapFar`), or walked here when the kept far
+    // tile does not cover the far lattice (a boot, a tier change, a jump).
+    const farOnGpu = gpuNear?.farCovers(camE, camN) ?? false;
+    if (!farOnGpu) yield* rebuildFar(camE, camN, cone);
     // T-2716: the near ring's tufts dealt by the GPU at this pass's centre.
     // T-2774: and read back for their heads and the census — in this frame for
     // a caller that reads the buffers straight after, which counts them into
@@ -3083,14 +3579,17 @@ export async function createFlora({
     // first, so a read-back reaped in this frame (it hangs none: the pass is
     // dealing) and the pass's own hanging below both find them.
     if (!midOnGpu && forbHeadsCpu) gpuNear?.takeForbHeads(forbHeadsCpu);
-    gpuNear?.place(camE, camN, cone, nearSync, midOnGpu);
+    if (!farOnGpu && farHeadsCpu) gpuNear?.takeFarHeads(farHeadsCpu);
+    gpuNear?.place(camE, camN, cone, nearSync, midOnGpu, farOnGpu);
     closeCensus();
     hangNearHeads();
     // The far shrubs commit themselves, on their own step; a mid ring and a
     // forb ring the GPU dealt, when its read-back is reaped.
-    const reaped = midOnGpu ? new Set([midSet, forbSet, rosetteSet, shrubSet]) : null;
+    const reaped = new Set(midOnGpu ? [midSet, forbSet, rosetteSet, shrubSet] : []);
+    // T-2967: and the far band's, when its reap lands.
+    if (farOnGpu) reaped.add(farSet);
     for (const s of sets) {
-      if (s !== farShrubSet && s !== nearCarry && s !== midCarry && !reaped?.has(s)) s.commit();
+      if (s !== farShrubSet && s !== nearCarry && s !== midCarry && !reaped.has(s)) s.commit();
     }
     nearDealing = false;
     tally();
@@ -3429,7 +3928,65 @@ export async function createFlora({
       // T-2894: the mid field's spec (null where the CPU deals the mid ring),
       // and both kept tiles home — a tool waits on it before reading the GPU's
       // mid cards, which a pass deals only where the mid tile covers it.
-      midSpec: gpuNear.midSpec, settled: () => gpuNear.settled() } : null,
+      midSpec: gpuNear.midSpec, settled: () => gpuNear.settled(),
+      // T-2967: the far band's slot fields (`bands` and their `bytes`, or
+      // null where the CPU deals the far band), and a tool's switch: false
+      // deals the far band on the CPU at every pass, as before this slice —
+      // the before of `tools/measure_far_field.mjs`'s placed-card reading.
+      farField: gpuNear.farField, setFarOnGpu: (on) => gpuNear.setFarOnGpu(on) } : null,
+    /**
+     * T-2967. The far band's ground as the far field asks it, for
+     * `tools/measure_far_field.mjs`: `at` is the CPU's answer at one point in
+     * the far field's terms — community, WET, TURF, BLOCKED for a FLOOR only
+     * (the pool's half: the far field holds no `growthBlocked`, which the reap
+     * asks at the slot) and TRODDEN, and the height; `spec(texel)` the spec of
+     * the TEXEL-CENTRE field the slot fields replaced, at `texel` (the tool's
+     * argument for them); `slots` every slot of the
+     * three far lattices (no cone) — east, north, band, distance, and whether
+     * the band's rank and the slot's own ring keep it (a slot a card can
+     * stand on), and its cell (c, r); `slotPoint(i, I, J)` the point band
+     * `i`'s slot field asks its texel (I, J) at (jobs/zone-kernel.js).
+     */
+    farField: {
+      slotPoint(i, I, J) {
+        const band = tune.far.bands[i];
+        return slotPoint({ salt: farSalt(i), cell: band.cell, sub: Math.round(Math.sqrt(band.perCell)),
+          wild: false }, I, J);
+      },
+      spec(texel) {
+        const reach = Math.max(...tune.far.bands.map((b) => b.radius)) + step + FAR_LATTICE_PAD_M;
+        return farFieldSpec(reach, texel ? { texel } : undefined);
+      },
+      at(e, n, out = [0, 0, 0]) {
+        const zone = finder(e, n);
+        let f = 0;
+        if (water.isWater(e, n)) f |= FIELD_FLAGS.WET;
+        if (zone?.turf) f |= FIELD_FLAGS.TURF;
+        if (onFloor(blocks, e, n)) f |= FIELD_FLAGS.BLOCKED;
+        if (zone && trodden(e, n, zone, TALLEST)) f |= FIELD_FLAGS.TRODDEN;
+        out[0] = zone ? zoneIndex.get(zone) + 1 : 0;
+        out[1] = f;
+        out[2] = terrain.surfaceHeight(e, n);
+        return out;
+      },
+      /** Whether community `z` (1-based, the class texel's) is ground the far
+       *  band deals on: grass, and not short turf. */
+      deals(z) { const zone = zones[z - 1]; return !!zone && zone.graminoids.length > 0 && !zone.turf; },
+      slots(camE, camN) {
+        const out = [];
+        for (const [i, band] of tune.far.bands.entries()) {
+          const gen = scatter(camE, camN, band.cell, band.perCell, band.radius + step,
+            Math.max(0, band.inner - step), farSalt(i), 'lattice', null, (e, n, d) => {
+              const rank = farRank(e, n, i) / band.keep;
+              const keep = rank < 1 && d <= band.radius - band.ramp * rank + step
+                && d >= band.inner + band.innerRamp * rank - step;
+              out.push(e, n, i, d, keep ? 1 : 0, Math.floor(e / band.cell), Math.floor(n / band.cell));
+            });
+          for (const _ of gen) { /* drained */ }
+        }
+        return Float64Array.from(out);
+      },
+    },
     nearField: {
       spec: FIELD_SPEC,
       flags: FIELD_FLAGS,
@@ -3481,8 +4038,18 @@ export async function createFlora({
        * tile altogether (the mid field's keeper): its deal asks it at the slot
        * itself, on the page, for the few slots the GPU places (`reapMid`), so
        * a re-centre's main-thread share is the copy of the worker's answers.
+       *
+       * T-2967: `unasked` (a class value, the far field's FAR_UNASKED) writes
+       * that into a texel the pool did not answer instead of asking `at` for it
+       * on the page — off the measured grid a far tile can be tens of
+       * thousands of texels, and its deal hands such a slot back whole.
+       *
+       * T-2967: `slot` (`{salt, cell, sub, wild}`) makes it a SLOT field: each
+       * texel asked at the lattice slot it stands for (zone-kernel.js
+       * `slotPoint`) rather than at its centre — pool only, so with `unasked`.
        */
-      keeper({ spec = FIELD_SPEC, pool = true, page = true } = {}) {
+      keeper({ spec = FIELD_SPEC, pool = true, page = true, unasked: mark = null, slot = null } = {}) {
+        if (slot && mark === null) throw new Error('a slot field marks what the pool did not answer');
         const at = this.at;
         const table = new Uint8Array(zones.length + 1);
         zones.forEach((z, i) => {
@@ -3492,7 +4059,7 @@ export async function createFlora({
         const keeper = fieldKeeper({
           spec,
           ask: (r, e0, n0, texel) => (pool && groundKey
-            ? runJob('fieldRect', { ground: groundKey, e0, n0, texel, ...r, table },
+            ? runJob('fieldRect', { ground: groundKey, e0, n0, texel, ...r, table, slot },
               { worker: groundWorker })
             : null),
           finish(got, { i0, j0, w, h }, e0, n0, texel, cls, height) {
@@ -3511,6 +4078,9 @@ export async function createFlora({
                 const f = got ? got.flags[k] : FIELD_UNASKED;
                 if (f === FIELD_UNASKED) {
                   if (got) keeper.stats.unasked++;
+                  // T-2967: a keeper that marks them (the far field's) leaves
+                  // the texel to the deal, which hands its slots back whole.
+                  if (mark !== null) { cls[2 * k] = mark; cls[2 * k + 1] = 0; height[k] = 0; continue; }
                   // `atTexel`, with the strip's own corners.
                   at(e, n, o);
                   cls[2 * k] = o[0]; height[k] = o[2];
