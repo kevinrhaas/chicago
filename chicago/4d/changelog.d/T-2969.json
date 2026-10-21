@@ -1,8 +1,0 @@
-{
-  "title": "Smoother arrival after a jump or a detail change",
-  "kind": "fix",
-  "items": [
-    "When you jump across town or change the detail level, the ground the meadow plants stand on is now loaded in short pieces between frames instead of in one go, so the walk no longer catches on it.",
-    "After a detail change, the first step of a walk no longer stalls while the mid-distance meadow is drawn for the first time; that work now happens while the new detail level loads."
-  ]
-}
