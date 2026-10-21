@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2150, ts: '2026-10-21T02:35:45.806Z', date: 'Oct 20, 2026, 9:35 PM CT', title: '1736 Prairie\'s arched windows and open veranda match its photograph', kind: 'improvement',
+    items: [
+      'The three upstairs windows now have gently arched heads under flat moulded hoods on little brackets, as the c. 1890 photograph shows them.',
+      'The veranda is painted wood with a light rail, and its posts run down to the ground, leaving the dark space under the deck open between them.',
+    ] },
   { v: 2149, ts: '2026-10-21T01:39:29.011Z', date: 'Oct 20, 2026, 8:39 PM CT', title: '1812 Prairie\'s porch, stair and south front, from the Levy photograph', kind: 'feature',
     items: [
       '1812 Prairie\'s entrance is now the photograph\'s broad porch arch: a low curved head with a glazed fanlight over the double door, a stone pier and a tall side light',
