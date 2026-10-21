@@ -14,7 +14,7 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling (D) at the 18th Street corner'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "T-2933 (piece 1 of T-1874) refines the district draft (T-2334) in place under the same id from the c. 1890 photograph of the house the Glessner House Museum reproduces (glessner_blog_1736_mcbirney_c1890_photo), read against the 1911 Sanborn sheet 20, which controls the plan. The draft's 5.5 m strip becomes the sheet's own main body, 23.3 m deep and 6.75 m along the street, on K01: two storeys over a raised basement under a slated mansard with two round-headed dormers on the street face, a bracketed cornice, three arched upper windows, and the photograph's timber veranda the front's whole width (the sheet's frame porch) on K07's terrace, with its stair at the north end. The camera is solved into data/reference_views/house_1736_prairie/mcbirney_c1890_photo.json; what the picture still shows differently is on its match record. The south flank's two projections and side porch, the service wing and the coach house are T-2935's. docs/RESEARCH/k01-1736-mcbirney-2933/README.md.",
+  "research_note": "T-2933 (piece 1 of T-1874) refines the district draft (T-2334) in place under the same id from the c. 1890 photograph of the house the Glessner House Museum reproduces (glessner_blog_1736_mcbirney_c1890_photo), read against the 1911 Sanborn sheet 20, which controls the plan. The draft's 5.5 m strip becomes the sheet's own main body, 23.3 m deep and 6.75 m along the street, on K01: two storeys over a raised basement under a slated mansard with two round-headed dormers on the street face, a bracketed cornice, three arched upper windows, and the photograph's timber veranda the front's whole width (the sheet's frame porch) on K07's terrace, with its stair at the north end. The camera is solved into data/reference_views/house_1736_prairie/mcbirney_c1890_photo.json; what the picture still shows differently is on its match record. T-2960 (piece 1 of T-2935) builds the upper windows' segmental heads under K09 cornice hoods on consoles, and the veranda's deck open beneath on its posts carried to grade, in painted timber with its balustrade. The street wall and the set-back front left of the house are T-2961's; the south flank's two projections and side porch, the service wing, the coach house and the mansard's date are T-2962's. docs/RESEARCH/k01-1736-mcbirney-2933/README.md.",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -152,17 +152,18 @@
             "storeys": [
               1
             ],
-            "key": {
-              "width_m": 0.24,
-              "height_m": 0.28,
-              "proud_m": 0.07
+            "head": "segmental",
+            "rise_over_span": 0.22,
+            "hood": {
+              "variant": "k09.trim.lintel_cornice_hood",
+              "overhang_m": 0.25
             }
           },
           "confidence": "inferred",
           "sources": [
             "glessner_blog_1736_mcbirney_c1890_photo"
           ],
-          "note": "The upper storey's three street windows arched under moulded hoods with eared ends: the photograph draws each head rounded at its corners under a hood whose ends turn down. Built on K01's round-headed hooded window (the head's segmental curve and the hood's ears are open on the match record)."
+          "note": "T-2960: the upper storey's three street windows read off the photograph at 32 px/m: each light's head a segmental arch rising about 7 px (0.22 m) from rounded springs to its crown over a 28 px (0.95 m) span, so 0.22 of the span, and over each a flat moulded cornice hood about 54 px (1.7 m) across, its underside about 2 px over the crown, with a drop under each end standing just outside the jambs about 11 px (0.35 m) deep: the ends that turn down. Built as K09's cornice hood on its two scrolled consoles over a segmental hole cut to that rise, the block 0.25 m past each jamb so that with its cornice's 0.115 m return the hood stands about 1.7 m across. The hood's profile and the consoles' carving are the kit's (the print is too small to read them); a print at higher resolution would set both."
         },
         "wall_head": {
           "value": {
@@ -274,7 +275,7 @@
           "sources": [
             "glessner_blog_1736_mcbirney_c1890_photo"
           ],
-          "note": "The UPPER storey's sash read off the photograph through the camera: sills at y 300 px (6.6 m over grade) and heads at y 240 px (8.6 m), 28 px wide at 32 px/m. The principal storey's are long openings behind the veranda whose heads the frieze hides (RECONSTRUCTED at 2.9 m from a 0.45 m sill)."
+          "note": "The UPPER storey's sash read off the photograph through the camera: sills at y 300 px (6.6 m over grade) and heads (the arches' crowns) at y 240 px (8.6 m), 28 px wide at 32 px/m. The principal storey's are long openings behind the veranda whose heads the frieze hides (RECONSTRUCTED at 2.9 m from a 0.45 m sill)."
         },
         "basement_lights": {
           "value": {
@@ -345,14 +346,14 @@
         "window_kit": {
           "value": {
             "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
-            "k01.opening.sash_round_hooded": "k06.opening.sash_round_fanlight",
+            "k01.opening.sash_round_hooded": "k06.opening.sash_1over1_segmental",
             "k01.opening.area_light": {
               "variant": "k06.opening.area_light",
               "well": false
             }
           },
           "confidence": "reconstructed",
-          "note": "RECONSTRUCTED: the K06 two-over-two sash and area lights 1620 wears, and its round-headed sash for the hooded upper windows."
+          "note": "RECONSTRUCTED: the K06 two-over-two sash and area lights 1620 wears; for the arched upper windows (T-2960) K06's one-over-one segmental sash, the photograph showing each light's two sashes with no bars to read."
         },
         "entrance_kit": {
           "value": {
@@ -372,60 +373,45 @@
               ],
               "balustrade": {
                 "height_m": 0.85,
-                "pitch_m": 0.2,
-                "newel_m": 0.2,
-                "newel_cap_m": 0.1,
+                "pitch_m": 0.14,
+                "newel_m": 0.14,
+                "newel_cap_m": 0.06,
                 "rail_m": [
-                  0.12,
-                  0.08
+                  0.1,
+                  0.06
                 ],
-                "segments": 8,
+                "segments": 6,
                 "profile": [
                   [
-                    0.06,
+                    0.035,
                     0.0
                   ],
                   [
-                    0.06,
-                    0.06
+                    0.035,
+                    0.08
                   ],
                   [
-                    0.045,
-                    0.1
+                    0.024,
+                    0.16
                   ],
                   [
-                    0.04,
-                    0.18
+                    0.03,
+                    0.5
                   ],
                   [
-                    0.06,
-                    0.35
+                    0.024,
+                    0.84
                   ],
                   [
-                    0.065,
-                    0.45
+                    0.035,
+                    0.92
                   ],
                   [
-                    0.045,
-                    0.65
-                  ],
-                  [
-                    0.032,
-                    0.78
-                  ],
-                  [
-                    0.045,
-                    0.86
-                  ],
-                  [
-                    0.055,
-                    0.94
-                  ],
-                  [
-                    0.055,
+                    0.035,
                     1.0
                   ]
-                ]
+                ],
+                "fabric": "painted_timber"
               },
               "veranda": {
                 "posts_v_m": [
@@ -445,6 +431,10 @@
                   "overhang_m": 0.25,
                   "rise_m": 0.35,
                   "thickness_m": 0.2
+                },
+                "open_under": {
+                  "skirt_m": 0.2,
+                  "recess_m": 0.5
                 }
               }
             }
@@ -454,7 +444,7 @@
             "glessner_blog_1736_mcbirney_c1890_photo",
             "sanborn_1911_chicago_v3_sheet_20"
           ],
-          "note": "The photograph's veranda (T-2933), the 1911 sheet's frame porch (s20fp-1736-b1 p1/p2) 1.8 m deep across the whole front: a deck at the principal floor (the stoop's landing and K07's terraces either side of it, south to the front's corner and north to its end), a turned balustrade along its front, four slender posts (x 337, 412, 484 and 535 px at the deck's front through the camera, 34 px/m there: v 0.15, 2.85, 4.9 and 6.6 m), a beam and a deep frieze over them (its soffit y 335 px, 5.25 m over grade, and its fascia y 300 px, about 1 m deep with the roof edge), and a low hipped roof from the wall. The stair rises at the north end between the last two posts (stoop_v_m 5.65 for the 1.2 m flight), straight out toward the walk, as the photograph draws its cheeks. front_yard_m is the street grid's: the front stands 9.07 m behind the Prairie Avenue street line (the draft's street_u 32.374 less the 23.3 m body) and the walk begins 1 ft further out. The deck and balustrade are K07's stone where the photograph's are painted timber, the frieze is one beam, and the posts are plain (their turned or chamfered profile is not read): open on the match record."
+          "note": "The photograph's veranda (T-2933), the 1911 sheet's frame porch (s20fp-1736-b1 p1/p2) 1.8 m deep across the whole front: a deck at the principal floor (the stoop's landing and K07's terraces either side of it, south to the front's corner and north to its end), a turned balustrade along its front, four slender posts (x 337, 412, 484 and 535 px at the deck's front through the camera, 34 px/m there: v 0.15, 2.85, 4.9 and 6.6 m), a beam and a deep frieze over them (its soffit y 335 px, 5.25 m over grade, and its fascia y 300 px, about 1 m deep with the roof edge), and a low hipped roof from the wall. The stair rises at the north end between the last two posts (stoop_v_m 5.65 for the 1.2 m flight), straight out toward the walk, as the photograph draws its cheeks. front_yard_m is the street grid's: the front stands 9.07 m behind the Prairie Avenue street line (the draft's street_u 32.374 less the 23.3 m body) and the walk begins 1 ft further out. T-2960: the deck stands open beneath, as the photograph shows it: each post runs on down past the deck to grade (the posts' lower lengths stand at the same x 337-535 px, a pier under each), and between them the raised basement's front reads dark; built as K07's veranda `open_under`, the deck's skirt 0.2 m deep (the deck's front edge, y 450-457 px, 7 px at 34 px/m) and the void behind it set 0.5 m back (RECONSTRUCTED: how far back the basement's front stands under the deck is not seen). The balustrade is painted timber with the walls, a top rail at y 425 px (0.8 m over the deck) and slender balusters at about 0.14 m (the print shows the infill as a light pierced band, too small to read its pattern; RECONSTRUCTED). The frieze is one beam and the posts are plain square sections."
         },
         "mansard": {
           "value": {

@@ -714,7 +714,7 @@ class Variant:
     def _cornice_hood(self):
         v, P = self.v, self.data["parts"]
         W, H = v["clear_width_m"], v["clear_height_m"]
-        ov = P["hood_block"]["overhang_m"]
+        ov = v.get("overhang_m", P["hood_block"]["overhang_m"])   # T-2960: a hood its house sets wider
         hw = W / 2 + ov + 0.7
         self.board(-hw, hw, H + 1.1, door=doorway(None, -W / 2, W / 2, H), recess=P["opening"]["recess_m"])
         self.cornice_hood(-W / 2 - ov, W / 2 + ov, H)
