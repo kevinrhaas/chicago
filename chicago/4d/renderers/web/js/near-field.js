@@ -465,14 +465,20 @@ export function fieldKeeper({ ask, finish, spec = FIELD_SPEC, now = () => perfor
       const f0 = now();
       finish(gots[r], rects[r], o.e0, o.n0, texel, rc, rh);
       stats.finishMs += now() - f0;
+      // T-2896: a row at a time, in at most two runs (the wrap), by typed-array
+      // copies: the same texels in the same places as the texel-by-texel loop,
+      // which read 29 ms a re-centre of the carry field's 864-texel strips on
+      // the phone profile, on the main thread, between frames.
+      const a0 = (i0 + wi) % size;
+      const run = Math.min(w, size - a0);
       for (let j = 0; j < h; j++) {
         const row = ((j0 + j + wj) % size) * size;
-        for (let i = 0; i < w; i++) {
-          const k = row + (i0 + i + wi) % size;
-          const q = j * w + i;
-          cls[2 * k] = rc[2 * q];
-          cls[2 * k + 1] = rc[2 * q + 1];
-          height[k] = rh[q];
+        const q = j * w;
+        cls.set(rc.subarray(2 * q, 2 * (q + run)), 2 * (row + a0));
+        height.set(rh.subarray(q, q + run), row + a0);
+        if (run < w) {
+          cls.set(rc.subarray(2 * (q + run), 2 * (q + w)), 2 * row);
+          height.set(rh.subarray(q + run, q + w), row);
         }
       }
       texels += w * h;

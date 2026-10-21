@@ -25,7 +25,7 @@
 import * as THREE from 'three';
 import { spatialBatchAsync, batchPieces } from './spatial-batch.js';
 import { GRIT_TILE_PX, GRIT_TILE_M, gritTilePixels } from './ground-strip-mask.js';
-import { vergeAt } from './street-verge.js';
+import { vergeAt, trackAt } from './street-verge.js';
 // T-2703: the road's geometry turns through these, not Math's, so every engine —
 // and tools/prebuild_layers.mjs in Node — lays the same bits (portable-math.js).
 import { acos, atan2, cos, sin, exponentOf } from './portable-math.js';
@@ -428,6 +428,10 @@ function prepare(raw) {
     },
   };
 }
+
+/** T-2896: `blocksGrowth`'s bins, in metres, and their key. */
+const GROWTH_BIN_M = 16;
+function growthBinKey(i, j) { return (i + 32768) * 65536 + (j + 32768); }
 
 function nearestOn(record, e, n) {
   const b = record.bounds;
@@ -2232,14 +2236,30 @@ export async function createStreets({ terrain, records = [], confidence = null, 
       : null;
   }
 
+  // T-2896: the streets whose padded box reaches each GROWTH_BIN_M square, so
+  // `blocksGrowth` asks only those. A street whose box does not hold the point
+  // was never a hit (`nearestOn` returns null outside it), so the answer is the
+  // whole list's; the flora profile read the whole list, asked at every slot
+  // of every pass, as the largest single flora entry of a move.
+  const growthBins = new Map();
+  for (const street of prepared) {
+    const b = street.bounds;
+    for (let i = Math.floor(b.e0 / GROWTH_BIN_M); i <= Math.floor(b.e1 / GROWTH_BIN_M); i++) {
+      for (let j = Math.floor(b.n0 / GROWTH_BIN_M); j <= Math.floor(b.n1 / GROWTH_BIN_M); j++) {
+        const k = growthBinKey(i, j);
+        const list = growthBins.get(k);
+        if (list) list.push(street); else growthBins.set(k, [street]);
+      }
+    }
+  }
   function blocksGrowth(e, n) {
     // A small shoulder clears roots/blades off the visibly worn track while
     // preserving the grassy remainder of the 80-foot corridor.
-    for (const street of prepared) {
-      const hit = nearestOn(street, e, n);
-      if (hit && hit.distance <= street.track_width_m * 0.5 + 0.65) return true;
-    }
-    return false;
+    // T-2896: street-verge.js `trackAt`, the same test (the box, then the
+    // nearest segment by `pointSegment`'s arithmetic), which flora's job-pool
+    // worker asks of the same records.
+    const near = growthBins.get(growthBinKey(Math.floor(e / GROWTH_BIN_M), Math.floor(n / GROWTH_BIN_M)));
+    return near !== undefined && trackAt(near, e, n);
   }
 
   /**
