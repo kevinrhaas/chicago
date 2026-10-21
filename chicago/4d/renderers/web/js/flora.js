@@ -1495,6 +1495,11 @@ export async function createFlora({
    *  the frame; and whether a near pass is dealing into the sets now, so a
    *  read-back that lands then leaves its heads to that pass's commit. */
   let nearSync = true;
+  /** T-2966. The same for the far pass's carries: a caller with no budget
+   *  gets them dealt, read back and reaped in the frame; every other caller's
+   *  read-back stays behind its fence, and a pass that has to land before it
+   *  comes home leaves the reap to the carries' tail (`carryPass`). */
+  let farSync = true;
   let nearDealing = false;
   /** T-2894. Bumped whenever a pass deals the mid ring on the CPU (its kept
    *  tile not home), so a GPU read-back of an earlier placement that lands
@@ -1735,6 +1740,31 @@ export async function createFlora({
       renderer.compile(midScene, passCam);
       if (carryOn) renderer.compile(carryScene, passCam);
     } catch { /* drawn as before: compiled on first use */ }
+    // T-2966: and their first use taken BEFORE the first carry deal, between
+    // frames. three's first use of a program asks the driver for its link
+    // status and uniforms (`onFirstUse`), and every such question waits for
+    // the GPU to finish whatever is queued ahead of it — on SwiftShader a
+    // carry deal is tens of ms of it. The gate read the first mid deal after
+    // a tier change at 48-57 ms in a walking frame where a carry deal was in
+    // flight (10 ms with none). So the carries stay the CPU's (`carryWarm`)
+    // until every deal program has linked (`compileAsync`, which asks without
+    // blocking) and has been used once here, with nothing of ours queued.
+    let carryWarm = !carryOn;
+    if (carryOn) {
+      const scenes = [passScene, midScene, carryScene];
+      const firstUse = () => {
+        for (const sc of scenes) {
+          sc.traverse((o) => {
+            if (!o.material) return;
+            try { renderer.properties.get(o.material).currentProgram?.getUniforms(); } catch { /* used when drawn */ }
+          });
+        }
+        carryWarm = true;
+      };
+      try {
+        Promise.all(scenes.map((sc) => renderer.compileAsync(sc, passCam))).then(firstUse, firstUse);
+      } catch { firstUse(); }
+    }
 
     // The drawn tufts: the near set's own archetype, one instance per slot.
     const source = nearTuft();
@@ -1812,7 +1842,13 @@ export async function createFlora({
       // reaps' ms and plants.
       carryPasses: 0, carryPassMs: 0, carryUploads: 0, carryCollected: 0, carrySync: 0,
       carryCpu: 0, carryReaps: 0, carryReapMs: 0, carryPlants: 0, carryKeepMs: 0,
-      carryKeepWorst: 0 };
+      carryKeepWorst: 0,
+      // T-2966: the carries left to their tail by a pass that had to land
+      // first (`carryTails`), the frames the tails ran over and their main
+      // thread ms (polling the fence and reaping, a slice a frame), the ones
+      // a CPU walk replaced before they landed, and the passes that found an
+      // earlier pass's tail still holding the buffer and waited their turn.
+      carryTails: 0, carryTailFrames: 0, carryTailMs: 0, carryTailDropped: 0, carryQueued: 0 };
     const bufs = [0, 1, 2, 3].map(() => new Float32Array(W * H * 4));
     // T-2774: the read-back's pixel-pack buffers, and where they land (`read`).
     const pbos = [];
@@ -2107,6 +2143,132 @@ export async function createFlora({
         stats.carryPlants += target.mesh.count;
       }
       stats.carryReapMs += performance.now() - t;
+    }
+
+    /**
+     * T-2966 — THE CARRIES' TAIL. A spread far pass that runs out of margin is
+     * finished in one frame (`advance`, late), and so is a cheap pass the
+     * animation loop deals whole (`runPass`). Both used to take the carries'
+     * read-back in that frame and reap every slot of it there: CI's moving
+     * frames read the full turn's worst flora frame at 73.3 ms, every spike a
+     * drained pass (on SwiftShader the read-back taken in the frame waits for
+     * the deal itself, 15-85 ms at `full`, and the reap is 8-25 ms more).
+     *
+     * So a pass resumed with DRAIN — one that must land now — never takes the
+     * read-back and never reaps more than it already has: it lands its far
+     * shrubs, and its carries become the TAIL, which `carryTailStep` runs a
+     * slice a frame after it, polling the same fence and then reaping in slot
+     * order exactly as the pass would have. The carry sets keep the last whole
+     * carries until the tail commits them (a few frames: the read-back's
+     * latency, then the reap at the frame's slice). Nothing about which plants
+     * stand where changes — the deal, the read-back and the reap are the
+     * pass's own, only later.
+     *
+     * One carry target, one pack buffer, one `carryBuf`: a pass that starts
+     * while a tail still holds them does not deal (`carryStart`) and waits for
+     * the tail to land as it waits for a walk on the pool; one that must land
+     * while waiting leaves its pose as NEXT, dealt the moment the tail lands
+     * (a newer pass replaces a NEXT that was never dealt). A tail is never
+     * dropped for a newer GPU deal, so carries keep landing however long the
+     * read-backs take; only a CPU walk, which writes the carry sets itself,
+     * replaces it (`carryByCpu`). A pose the kept tile no longer covers when
+     * its turn comes is not dealt: a waiting pass walks its carries on the CPU
+     * (`carryPass` returns false), and a NEXT is dropped for the pass after.
+     * A caller with no budget (`settle`, a tool's `step()`) finishes the tail
+     * in the frame.
+     */
+    let carryTail = null;
+    let carryNext = null;
+    function carryCoversAt(e, n) {
+      return !!(carryWarm && carryKeeper && carryUploaded && covers(carryUploaded, e, n, carryReach));
+    }
+    /** The far pass's carry job: dealt now, unless a tail holds the target. */
+    function carryStart(camE, camN) {
+      carryNext = null;
+      if (carryTail) return null;
+      return carryDeal(camE, camN, farSync);
+    }
+    /** Wait for the tail to land, deal, wait for the read-back, reap — or, on
+     *  DRAIN, leave whatever is left to the tail (above). False if the kept
+     *  tile stopped covering the pass while it waited: the CPU walks it. */
+    function* carryPass(camE, camN, cone, job) {
+      if (!job) stats.carryQueued++;
+      while (!job) {
+        if (!carryTail) {
+          if (!carryCoversAt(camE, camN)) return false;
+          job = carryDeal(camE, camN, farSync);
+          break;
+        }
+        const r = yield WALK_WAIT;
+        if (r === MAY_WAIT) continue;
+        if (r === DRAIN) {
+          carryNext = { e: camE, n: camN, cone, ms: 0, frames: 0, entry: null };
+          return;
+        }
+        carryTailStep(Infinity);
+      }
+      while (!job.ready()) {
+        const r = yield WALK_WAIT;
+        if (r === MAY_WAIT) continue;
+        if (r === DRAIN) { toTail(job, camE, camN, cone, null); return; }
+        job.take();
+      }
+      const reap = job.reap(camE, camN, cone);
+      for (let s = reap.next(); !s.done; s = reap.next()) {
+        if ((yield s.value) === DRAIN) { toTail(job, camE, camN, cone, reap); return; }
+      }
+      return true;
+    }
+    function toTail(job, e, n, cone, reap) {
+      carryTail = { job, e, n, cone, reap, ms: 0, frames: 0, entry: null };
+      stats.carryTails++;
+    }
+    /**
+     * One frame of the tail: poll its read-back, then reap for `slice` ms;
+     * `Infinity` takes the read-back now and reaps it whole (and a NEXT after
+     * it). Returns the main thread's ms.
+     */
+    function carryTailStep(slice) {
+      if (!carryTail) return 0;
+      const t0 = performance.now();
+      const sync = slice === Infinity;
+      while (carryTail) {
+        const t = carryTail;
+        const s0 = performance.now();
+        if (!t.reap) {
+          if (sync) t.job.take();
+          else if (!t.job.ready()) { tailSpent(t, s0); break; }
+          t.reap = t.job.reap(t.e, t.n, t.cone);
+        }
+        let done = false;
+        do { done = t.reap.next().done; } while (!done && (sync || performance.now() - t0 < slice));
+        tailSpent(t, s0);
+        if (!done) break;
+        carryTail = null;
+        if (carryNext) {
+          // The pose a pass left while this tail held the target: dealt now,
+          // and the tail in its turn.
+          const x = carryNext;
+          carryNext = null;
+          if (!carryCoversAt(x.e, x.n)) { stats.carryTailDropped++; break; }
+          const d0 = performance.now();
+          const job = carryDeal(x.e, x.n, sync);
+          toTail(job, x.e, x.n, x.cone, null);
+          Object.assign(carryTail, { ms: x.ms, frames: x.frames, entry: x.entry });
+          tailSpent(carryTail, d0);
+        }
+        if (!sync) break;
+      }
+      return performance.now() - t0;
+    }
+    /** A tail's ms go to the far pass it belongs to, once that has logged. */
+    function tailSpent(t, s0) {
+      const ms = performance.now() - s0;
+      t.frames++;
+      stats.carryTailFrames++;
+      stats.carryTailMs += ms;
+      if (t.entry) t.entry.ms += ms;
+      else t.ms += ms;
     }
 
     function readBack() {
@@ -2616,13 +2778,29 @@ export async function createFlora({
       /** T-2894: a near pass whose mid ring the CPU walked. */
       midByCpu() { if (midKeeper) stats.midCpu++; },
       /** T-2896: whether a far pass at (e, n) can leave its carries to the GPU
-       *  — the kept carry tile, uploaded, covers both carry walks' squares. */
-      carryCovers(e, n) {
-        return !!(carryKeeper && carryUploaded && covers(carryUploaded, e, n, carryReach));
+       *  — the kept carry tile, uploaded, covers both carry walks' squares.
+       *  T-2966: and the deal programs have had their first use (`carryWarm`). */
+      carryCovers: carryCoversAt,
+      carryStart,
+      carryPass,
+      carryTailStep,
+      /** T-2896: a far pass whose carries the CPU walked. T-2966: its walk
+       *  writes the carry sets itself, so a tail (and a NEXT) is replaced. */
+      carryByCpu() {
+        if (carryKeeper) stats.carryCpu++;
+        if (carryTail || carryNext) stats.carryTailDropped++;
+        carryTail = null;
+        carryNext = null;
       },
-      carryDeal,
-      /** T-2896: a far pass whose carries the CPU walked. */
-      carryByCpu() { if (carryKeeper) stats.carryCpu++; },
+      /** T-2966: whether carries are still to land after their pass. */
+      carryInFlight() { return carryTail !== null || carryNext !== null; },
+      /** T-2966: the log entry of the far pass that just landed; a tail (or a
+       *  NEXT) it left books its ms there from now on. */
+      carryOwned(entry) {
+        for (const t of [carryNext, carryTail]) {
+          if (t && !t.entry) { t.entry = entry; entry.ms += t.ms; t.ms = 0; return; }
+        }
+      },
       /** T-2894: resolves when no kept tile has a re-centre in flight. */
       async settled() {
         await keeper?.settled();
@@ -3274,9 +3452,10 @@ export async function createFlora({
     cone = cone ? { ...cone, margin: tune.farShrub.step } : null;
     // T-2896: the carries dealt by the GPU first, where the kept carry tile
     // covers them, so the read-back is on its way while the far shrubs walk.
-    // A pass dealt in one frame (no job pool on its cone) reads it in the frame.
-    const carryJob = gpuNear?.carryCovers(camE, camN)
-      ? gpuNear.carryDeal(camE, camN, !cone?.jobs) : null;
+    // T-2966: read in the frame only for a caller with no budget (`farSync`);
+    // and not dealt yet while an earlier pass's tail holds the target.
+    const carryGpu = gpuNear?.carryCovers(camE, camN) ?? false;
+    const carryJob = carryGpu ? gpuNear.carryStart(camE, camN) : null;
     farShrubSet.reset();
     const f = rings.forb;
     const fs = tune.farShrub;
@@ -3308,23 +3487,19 @@ export async function createFlora({
         placeShrub(farShrubSet, sp, e, y, n, rng);
       });
     farShrubSet.commit();
-    yield* rebuildCarry(camE, camN, cone, carryJob);
+    yield* rebuildCarry(camE, camN, cone, carryGpu, carryJob);
   }
 
   /** Same-slot sward continuity. The detailed tufts/card geometry and this
    * lower-cost geometry are dealt from identical keys and receive identical
    * transforms. Coverage fades only beyond the nine-metre close verge. */
-  function* rebuildCarry(camE, camN, cone, job = null) {
+  function* rebuildCarry(camE, camN, cone, onGpu = false, job = null) {
     // T-2896: dealt by the GPU (flora-gpu-carry.js) — waited for while the
     // read-back is on its way, as a walk on the pool is, and taken in the frame
     // by a resumption that may not wait — and reaped in slot order.
-    if (job) {
-      while (!job.ready()) {
-        if ((yield WALK_WAIT) !== MAY_WAIT) job.take();
-      }
-      yield* job.reap(camE, camN, cone);
-      return;
-    }
+    // T-2966: except one that must land now (DRAIN), which leaves the read-back
+    // and the reap to the carries' tail (`carryPass`).
+    if (onGpu && (yield* gpuNear.carryPass(camE, camN, cone, job)) !== false) return;
     gpuNear?.carryByCpu();
     const margin = carryMargin;
     for (const { kind, target, original, radius, band, carryFringe, walk } of carryWalks) {
@@ -3448,8 +3623,11 @@ export async function createFlora({
   const PASS_LOG_KEEP = 4096;
   function logPass(p, pass, ms, kind) {
     const log = stats.spread.log[p.name];
-    log.push({ pass, ms, kind });
+    const entry = { pass, ms, kind };
+    log.push(entry);
     if (log.length > PASS_LOG_KEEP) log.splice(0, log.length - PASS_LOG_KEEP);
+    // T-2966: a far pass's carries' tail books its ms on the pass.
+    if (p === farPass) gpuNear?.carryOwned(entry);
   }
   /** T-2894: a pass in flight dropped; counted if its ground was dealt. */
   function dropPass(p) {
@@ -3501,7 +3679,11 @@ export async function createFlora({
           return advance(p, f, jumpSlice(p, f));
         }
         const t0 = performance.now();
-        for (const _ of p.make(e, n, f.cone)) { /* runtime synchronous path */ }
+        // T-2966: dealt whole in this frame — but under a budget its carries'
+        // read-back is not waited for in it (DRAIN: they land as a tail).
+        const g = p.make(e, n, f.cone);
+        const token = Number.isFinite(f.budgetMs) ? DRAIN : undefined;
+        while (!g.next(token).done) { /* runtime synchronous path */ }
         p.cost = performance.now() - t0;
         logPass(p, ++stats.spread.passes[p.name], p.cost, 'one-frame');
         centres[p.at] = { e, n };
@@ -3580,7 +3762,9 @@ export async function createFlora({
     // T-2604: a walk still on a worker ends the slice, and is collected next
     // frame; a late pass is never told it may wait, so it walks in this one.
     do {
-      const s = p.pending.gen.next(late ? undefined : MAY_WAIT);
+      // T-2966: a late pass is told DRAIN, which every walk takes as "may not
+      // wait" and the carries as "leave the rest to the tail".
+      const s = p.pending.gen.next(late ? DRAIN : MAY_WAIT);
       done = s.done;
       if (s.value === WALK_WAIT) { p.pending.waits++; break; }
     } while (!done && performance.now() - t0 < slice);
@@ -4135,6 +4319,7 @@ export async function createFlora({
       const n = -tmpV.z;
       // T-2774: such a caller reads the near ring's heads back in the frame too.
       nearSync = !Number.isFinite(budgetMs);
+      farSync = nearSync;
       // T-2716: the drawn near ring's field tile follows the walker on the pool;
       // a caller that reads the buffers straight after gets it whole, now.
       gpuNear?.keep(e, n, nearSync);
@@ -4179,6 +4364,9 @@ export async function createFlora({
       const frame = { e, n, yaw, cone, pace, turnRate, budgetMs, camera, dealt: 0,
         spread: Number.isFinite(budgetMs) && !coneChanged
           && centres.near !== null && centres.farShrub !== null };
+      // T-2966: the carries a far pass left to land after it, a slice of this
+      // frame (all of it for a caller with no budget).
+      if (gpuNear) frame.dealt += gpuNear.carryTailStep(budgetMs);
       // The far shrubs and the carries first, on their own step, as before.
       const farLanded = runPass(farPass, frame, coneChanged || turnedFar
         || moved(centres.farShrub, e, n, tune.farShrub.step, pace));
@@ -4199,6 +4387,7 @@ export async function createFlora({
       // T-2774: and the near heads with it — a pass landed here reads back in
       // the frame, and a read-back still on its way is taken now.
       nearSync = true;
+      farSync = true;
       if (!nearPass.pending) gpuNear?.flush();
       for (const p of [farPass, nearPass]) {
         if (!p.pending) continue;
@@ -4208,11 +4397,20 @@ export async function createFlora({
         land(p, true);
         landed = true;
       }
+      // T-2966: and the carries' tail, taken and reaped now.
+      if (gpuNear?.carryInFlight()) {
+        gpuNear.carryTailStep(Infinity);
+        landed = true;
+      }
       if (landed) tally();
       return landed;
     },
-    /** T-2106. Whether a spread rebuild is under way, its sets uncommitted. */
-    inFlight() { return nearPass.pending !== null || farPass.pending !== null; },
+    /** T-2106. Whether a spread rebuild is under way, its sets uncommitted.
+     *  T-2966: or a far pass's carries' tail. */
+    inFlight() {
+      return nearPass.pending !== null || farPass.pending !== null
+        || (gpuNear?.carryInFlight() ?? false);
+    },
 
     dispose() {
       if (groundKey) runJob('dropGround', { key: groundKey }, { worker: groundWorker }).catch(() => {});
@@ -6065,6 +6263,10 @@ const WALK_WAIT = Object.freeze({ waiting: true });
  *  (`at`, `{flags, y}`) and its place in it; `at` is null between slots. */
 const HELD_SLOT = { at: null, i: 0, e: NaN, n: NaN };
 const MAY_WAIT = Symbol('may wait');
+/** T-2966. And a late pass, or one the animation loop deals whole, is resumed
+ *  with DRAIN: as good as "may not wait" to every walk, and to the far pass's
+ *  carries "land without me" — their read-back and reap go on as a tail. */
+const DRAIN = Symbol('drain');
 
 /**
  * T-2604. `scatter` with its walk on the job pool: the same slots, dealt to `emit`

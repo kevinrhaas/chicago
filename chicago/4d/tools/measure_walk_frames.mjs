@@ -72,6 +72,9 @@
  * the carries, on their own 4 m step) off the same log, and where the GPU deals
  * the carries (flora-gpu-carry.js) its deals, the CPU walks, the read-backs, the
  * reaps and the carry tile's keeper, whose strips land between frames.
+ * T-2966: and the carries a pass that had to land in one frame left to their
+ * tail (flora.js `carryPass`), with the tail's frames and ms — which the far
+ * pass's own ms on the log include.
  * `--long-ms N` lists the frames over N ms (50 by default) with their pass.
  *
  * T-2106: the moves are driven with the flora rebuild SPREAD over frames, as
@@ -1011,6 +1014,10 @@ for (const vp of VIEWPORTS) {
             + ` ${g.carryPassMs.toFixed(0)} ms, ${g.carryCpu} walked by the CPU, ${g.carryUploads} uploads,`
             + ` ${g.carryCollected} read-backs collected and ${g.carrySync} taken in the frame,`
             + ` ${g.carryReaps} reaped ${g.carryReapMs.toFixed(0)} ms`
+            // T-2966: the carries a pass that had to land left to their tail.
+            + (g.carryTails != null ? `, ${g.carryTails} left to land after their pass`
+              + ` (${g.carryTailFrames} tail frames, ${g.carryTailMs.toFixed(0)} ms; ${g.carryQueued} passes`
+              + ` waited on one, ${g.carryTailDropped} replaced by a CPU walk)` : '')
             + (g.carryKeepMs != null ? `, the carry tile's keeper ${g.carryKeepMs.toFixed(0)} ms`
               + ` between frames (its worst landing since the tier's rig was built ${r.near.carryKeepWorst?.toFixed(0)} ms)` : ''))(r.near.gpu) : ''));
       }
