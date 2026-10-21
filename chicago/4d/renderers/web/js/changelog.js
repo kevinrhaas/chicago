@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2154, ts: '2026-10-21T04:02:36.383Z', date: 'Oct 20, 2026, 11:02 PM CT', title: 'Nothing you can see changed: graphics card deals the distant grass', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The low grass that carries on past the detailed meadow around you stands on the same clumps, in the same places, as before.',
+      'The page no longer walks that wide ring of grass itself every few steps. The graphics card decides which grass stands in each spot, against a map of the ground it keeps around you, and the page reads its answer back and sets the clumps out. When a turn or a step has to be finished at once, the page sets those clumps out over the next few frames rather than all in one, so turning stays smooth; once they are out they are the same clumps.',
+      'Asking whether a spot lies on a cart track is quicker too: the page now asks only the streets near that spot, with the same answer.',
+      'Just after you arrive somewhere, or jump across the town, the page still deals that ring itself for a few moments, until the card has the ground around you.',
+    ] },
   { v: 2153, ts: '2026-10-21T03:58:48.562Z', date: 'Oct 20, 2026, 10:58 PM CT', title: '1801 Prairie\'s carved loggia', kind: 'feature',
     items: [
       'Over both arches, the carved frieze and the cartouche band under the windows above now stand as in the print: a relief band on the capitals\' line under a moulded course, and over it an oval cartouche between two roundels.',
