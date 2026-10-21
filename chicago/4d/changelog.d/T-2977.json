@@ -1,0 +1,9 @@
+{
+  "title": "Fly key moves to the compass; Inspect fades in and out",
+  "kind": "improvement",
+  "items": [
+    "Fly is a small round key beside the heading, under the map. Its arrow turns down while you fly, to walk again. F still toggles it.",
+    "Inspect has the right edge to itself and fades in and out instead of popping, so nothing beside it moves.",
+    "Phone held sideways: Inspect drops to the lower right corner, clear of the map, the heading and the street names. While flying, the rise and descend keys sit in a row beside it."
+  ]
+}

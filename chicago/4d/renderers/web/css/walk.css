@@ -619,7 +619,6 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 @media (min-width: 621px) {
   .hud-chips { flex-direction: row; align-items: center; gap: 6px; }
 }
-.fly-glyph { font-size: 10px; opacity: .85; }
 
 .hud-actions { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
 
@@ -798,6 +797,28 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 }
 .street-toggle[aria-pressed="true"] { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
 .street-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* T-2977 (owner, 2026-10-21): the Walk/Fly key, moved here from the right-edge column, where
+   the Inspect key appearing over it pushed it up and down. A small round key left of the
+   heading, a size up from the street switch: its arrow points up to fly, and down to the
+   ground, in the accent, while flying. */
+.fly-key {
+  position: relative;
+  pointer-events: auto;
+  display: inline-grid; place-items: center;
+  width: 28px; height: 28px; padding: 0;
+  border: 1px solid var(--edge); border-radius: 999px;
+  background: var(--panel); color: var(--ink);
+  box-shadow: var(--shadow); cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.fly-key .fly-down, .fly-key[aria-pressed="true"] .fly-up { display: none; }
+.fly-key[aria-pressed="true"] .fly-down { display: block; }
+.fly-key[aria-pressed="true"] { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
+.fly-key:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
+.fly-key:active { transform: translateY(1px); }
+.fly-key:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* A thumb still gets the 44 px touch floor: the key draws at 28, and answers 8 px past its rim. */
+body:is(.is-touch, .touch-first) .fly-key::before { content: ""; position: absolute; inset: -8px; border-radius: 50%; }
 /* T-2741: where you stand, then and today, hung under the instrument's right edge so its
    width never shifts the round face. Terse machine status: a year tag, the era street;
    a TODAY tag, today's street, corner or house number. */
@@ -1242,14 +1263,42 @@ body.is-touch .crosshair { display: none; }
 /* T-2942: Bottom — the centre's own pill, at the top of the HUD's bottom row (above the hint
    and the travel banner, which ride above the Navigator's sheet on a phone). */
 .target-tag[data-place="bottom"] { position: static; left: auto; top: auto; transform: none; }
-/* T-2627: the quick column — Walk/Fly and, with a target, Inspect. Right edge, centred;
-   two buttons at most. */
+/* T-2627: the quick column — with a target, the Inspect key. Right edge, centred. Walk/Fly
+   left it for the instrument's heading row (T-2977). */
 .quick-column {
   position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
   display: grid; gap: 8px; justify-items: end; pointer-events: none;
 }
 .quick-column > [hidden] { display: none; }
 .quick-inspect { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, var(--edge)); }
+/* T-2977 (owner, 2026-10-21: "fade in and out reasonably quickly ... not so jarring"): the
+   Inspect key keeps its place while hidden and fades, 200 ms in and 250 ms out, sliding a
+   few pixels from the edge. Hidden, it is invisible to the pointer, the tab order and a
+   screen reader (visibility), which flips only once the fade is done. A target lost and
+   found again inside the fade just turns the fade round. */
+.quick-column > .quick-inspect {
+  transition: opacity .2s ease-out, transform .2s ease-out, visibility 0s linear 0s;
+}
+.quick-column > .quick-inspect[hidden] {
+  display: inline-flex;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transform: translateX(8px);
+  transition: opacity .25s ease-in, transform .25s ease-in, visibility 0s linear .25s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .quick-column > .quick-inspect, .quick-column > .quick-inspect[hidden] { transition: none; transform: none; }
+}
+/* T-2977 (owner, 2026-10-21: "that button overlaps on mobile landscape"): a phone on its side
+   is too short for a key at mid-height — the instrument, its heading row and the street
+   readout reach past the middle. So Inspect drops to the lower right corner, under the
+   right thumb. The rise / descend pad (free-fly) stood its two keys one above the other up
+   the same edge, over the street readout, so on its side it lays them in a row along the
+   foot, and Inspect steps left of it while it shows. */
+@media (max-height: 500px) and (orientation: landscape) {
+  .quick-column { top: auto; transform: none; bottom: calc(14px + var(--safe-b)); }
+  .touch-layer .rise-pad { grid-auto-flow: column; bottom: calc(14px + var(--safe-b)); }
+  body:has(#rise-pad:not([hidden])) .quick-column { right: 152px; }
+}
 @media (prefers-reduced-motion: reduce) { .target-tag { animation: none; } }
 
 .hud-bottom { margin-top: auto; display: flex; justify-content: center; }
@@ -1885,7 +1934,7 @@ kbd {
      meaning; both keep their title and aria-label, and the Evidence tab
      explains the dot at length. */
   .chip-label { display: none; }
-  #btn-fly, #btn-confidence, #btn-inspect { width: var(--hud-row); justify-content: center; padding: 8px; }
+  #btn-confidence, #btn-inspect { width: var(--hud-row); justify-content: center; padding: 8px; }
   /* And when an altitude is showing, it says more than a date that never
      changes — so the date yields rather than the badge growing. */
   .badge.has-alt .badge-sub { display: none; }
