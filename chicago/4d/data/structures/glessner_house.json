@@ -210,13 +210,13 @@
         },
         "grade_datum": {
           "value": {
-            "north_grade_above_grade_ft": 0.0
+            "north_grade_above_grade_ft": 0.2
           },
           "confidence": "inferred",
           "sources": [
             "habs_glessner_house_il_1015_drawings"
           ],
-          "note": "Sheet 4's 18th Street grade is taken as level with the Prairie Avenue sidewalk (sheet 6's -0.74). The offset between the two datums is not measured by any sheet; T-1731 found them agreeing within about a foot where they overlap (the east wing's eave and ridge), and the committed heightfield is flat across the lot to 2 cm (e1871_postfire, 4.32-4.34 m), so the two grades are one ground here."
+          "note": "Sheet 4's 18th Street grade stands 0.20 ft over the Prairie Avenue sidewalk (sheet 6's -0.74), read off sheet 5 with its courses run level round the NE corner (T-2955): the Prairie elevation draws the printed course string (18, 18, 15.5 ... in) up from a base line 0.54 ft under the door sill, 0.20 ft over the walk, its beds at 0.92-7.58 ft against the string's 0.96-7.50 (T-2949, docs/RESEARCH/glessner-entry-T-2853/T-2913.md), and the 1888 photograph a18-gh-glessner-front-with-keith shows the same joints; the 18th Street elevation sets its apertures on that string's sums above its own grade (L305). One coursing serves both faces and its beds meet at the corner, so its base is one height: the 18th Street grade, 0.20 ft over the walk. No sheet prints the offset; it is inferred from the two elevations' coursing, inside T-1731's agreement of about a foot where they overlap. The committed heightfield is flat across the lot to 2 cm (e1871_postfire, 4.32-4.34 m) and is not re-cut for 6 cm: the walls still start at the walk, and the bottom course runs down to it."
         },
         "construction": {
           "value": "stone",
