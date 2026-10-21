@@ -367,6 +367,20 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
         pipes.append({"wall": x["wall"], "s_m": float(x["s_m"])})
     if not pipes:
         raise ParamError("every gutter outlet leads to a pipe: rainwater.downpipes is empty")
+    # T-2953: a pipe down the street front from a rainwater head of its own, where no eave gutter
+    # runs to it (1812's shaped gable, its pipes at both ends of the front in the Levy print):
+    # `s_m` along the front from the south corner, the head's top `head_m` over grade, standing
+    # `proud_m` before the main front (a projection's face), down to `foot_m` (0: grade, its shoe
+    # over a splash stone; else a lower roof it discharges onto)
+    front = []
+    for x in rain.get("front_pipes", []):
+        if set(x) != {"s_m", "head_m", "foot_m", "proud_m"}:
+            raise ParamError("rainwater.front_pipes take s_m, head_m, foot_m and proud_m")
+        q = {k: float(x[k]) for k in ("s_m", "head_m", "foot_m", "proud_m")}
+        if not 0.0 <= q["proud_m"] <= 2.0 or not 0.0 <= q["foot_m"] <= q["head_m"] - 0.5 or q["head_m"] > 20.0:
+            raise ParamError(f"rainwater.front_pipes {x}: a head at most 20 m up, at least 0.5 m over its foot, "
+                             f"standing 0-2 m before the front")
+        front.append(q)
     rainwater = {
         "fabric": rain["fabric"], "ends_at": rain["ends_at"],
         "gutter_diameter_m": g["kinds"][gk]["diameter_m"], "fall": g["fall"],
@@ -377,6 +391,7 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
         "shoe_kick_deg": d["shoe"]["kick_deg"], "shoe_length_m": d["shoe"]["length_m"],
         "shoe_end_above_grade_m": d["shoe"]["end_above_grade_m"],
         "downpipes": pipes,
+        **({"front_pipes": front} if front else {}),
     }
     return roof, rainwater
 
