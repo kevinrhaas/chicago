@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 674,
+  "count": 675,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -48708,6 +48708,40 @@
         "T-2979",
         "T-2793",
         "T-2794"
+      ]
+    },
+    {
+      "id": "L-workwear-coverage-1789",
+      "title": "Source-owned work clothes, closed shoes and reconstructed eyes",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-21",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The original 1835 worker authoring uses full-body source-shared normal ease, source-triangle garment boundaries, a collar joined to the shirt before reduction, a closed shoe loft and original opaque sclera/iris/pupil surfaces. These are reconstructed construction choices, not recorded garments or individual likenesses. Existing “Resident workwear studies on a licensed human base”/source and resident identity limits remain."
+        },
+        {
+          "label": "What is invented",
+          "text": "Seven millimetres of trouser normal ease; the shirt collar-base plane; assigning only new neckline head/jaw influence to the existing neck bone; a collar 12 mm high in front and 23 mm at the side/back; a continuous shoulder ease field measured from the source upper-arm axis/radial extent within the previous 13 mm displacement envelope; four-millimetre horizontal shoe support margin; eye dimensions, brown procedural iris and restrained procedural textile. Source UVs/weights are interpolated at garment cuts. Body geometry, skin and rig are unchanged; no skin visibility mask is used."
+        },
+        {
+          "label": "Evidence and limits",
+          "text": "Independent source controls and actual runtime source-swap previews show a closed trouser seam, joined collar, straighter waistcoat hem, enclosed toes, improved eyes and repair of two observed shoulder skin holes. The former collar separation is removed at the shared source boundary. These are not canonical export, sole, photographic or town-placement acceptance. Forty inherited negative face projections remain in the defined idle sample; comprehensive garment fit, independent head/jaw movement, actual reduced-LOD fit and period tailoring remain open. Original raw-normal and two-millimetre exported sole guards remain required."
+        },
+        {
+          "label": "Sources",
+          "text": "The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12… supplies text terminology only with the recipe's date caveat; it does not attest garment pattern, dimensions or eye color. The anonymous cleared source body/skin and existing reconstructed residents retain their current license/provenance records. New helper geometry and procedural iris are original CC0 work."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-21."
+        }
+      ],
+      "work_refs": [
+        "T-1789"
       ]
     },
     {

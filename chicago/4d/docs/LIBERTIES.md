@@ -30850,3 +30850,13 @@ setback or in the court before 1946, when the court was paved for parking.
 **Recorded:**2026-10-21.
 
 The parked1904 carriage also has an original small timber shaft-rest. Its crossbar top follows the actual model shaft undersides, while its timber sizes, feet and splay are an authored support hypothesis, not an attested personal accessory or force calculation. The carriage geometry is unchanged.
+
+
+### L-workwear-coverage-1789 — Source-owned work clothes, closed shoes and reconstructed eyes
+
+**Decision:** The original 1835 worker authoring uses full-body source-shared normal ease, source-triangle garment boundaries, a collar joined to the shirt before reduction, a closed shoe loft and original opaque sclera/iris/pupil surfaces. These are reconstructed construction choices, not recorded garments or individual likenesses. Existing L418/source and resident identity limits remain.
+**What is invented:** Seven millimetres of trouser normal ease; the shirt collar-base plane; assigning only new neckline head/jaw influence to the existing neck bone; a collar 12 mm high in front and 23 mm at the side/back; a continuous shoulder ease field measured from the source upper-arm axis/radial extent within the previous 13 mm displacement envelope; four-millimetre horizontal shoe support margin; eye dimensions, brown procedural iris and restrained procedural textile. Source UVs/weights are interpolated at garment cuts. Body geometry, skin and rig are unchanged; no skin visibility mask is used.
+**Evidence and limits:** Independent source controls and actual runtime source-swap previews show a closed trouser seam, joined collar, straighter waistcoat hem, enclosed toes, improved eyes and repair of two observed shoulder skin holes. The former collar separation is removed at the shared source boundary. These are not canonical export, sole, photographic or town-placement acceptance. Forty inherited negative face projections remain in the defined idle sample; comprehensive garment fit, independent head/jaw movement, actual reduced-LOD fit and period tailoring remain open. Original raw-normal and two-millimetre exported sole guards remain required.
+**Sources:** `chicago_american_1835` supplies text terminology only with the recipe's date caveat; it does not attest garment pattern, dimensions or eye color. The anonymous cleared source body/skin and existing reconstructed residents retain their current license/provenance records. New helper geometry and procedural iris are original CC0 work.
+**Ticket:** T-1789.
+**Recorded:** 2026-10-21.
