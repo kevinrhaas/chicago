@@ -20,8 +20,16 @@
  * `autoReset` off (gpu-pick.js, confidence.js) — and the two cannot drift.
  *
  * It wraps the extension's four entry points, which are called once per BatchedMesh
- * drawn (hundreds a frame, not the thousands of draws inside them), and nothing on
- * the GL context itself.
+ * drawn (hundreds a frame, not the thousands of draws inside them).
+ *
+ * It NEVER ENABLES the extension itself: it waits for three to ask the context for
+ * it, and wraps what three is handed. three enables `WEBGL_multi_draw` lazily, at the
+ * first BatchedMesh it draws, and the first version of this asked for it at boot
+ * (`extensions.has`) — which on its own, nothing wrapped, put one 52-57 ms flora pass
+ * on the first walk after a tier change (frame 8 of the moving-frames gate's balanced
+ * and light walks, on CI and locally; the gate's ceilings are 32 and 21 ms). So the
+ * one thing it puts on the GL context is a pass-through `getExtension` that notices
+ * that name go by.
  */
 
 /** Each entry point, and where its `drawcount` sits (the WEBGL_multi_draw spec). */
@@ -31,15 +39,19 @@ const MULTI_DRAW = { multiDrawArraysWEBGL: 5, multiDrawElementsWEBGL: 6,
 /**
  * Count the driver's draws on `renderer`. Returns `{ draws, multiDrawExtra, native }`
  * as live readings: `draws` is the figure every draw budget is held to, and
- * `native` says whether the extension was there to count at all.
+ * `native` says whether three has taken the extension and it is being counted.
+ * Call it before the first BatchedMesh is drawn (main.js does, at boot), or the
+ * extension three already holds goes uncounted.
  */
 export function countDriverDraws(renderer) {
   // One tally per renderer: a second caller reads the first's rather than wrapping twice.
   if (renderer.__driverDraws) return renderer.__driverDraws;
   const info = renderer.info;
   let extra = 0;
-  const ext = renderer.extensions.has('WEBGL_multi_draw') ? renderer.extensions.get('WEBGL_multi_draw') : null;
-  if (ext) {
+  let native = false;
+  const wrap = (ext) => {
+    if (!ext || native) return ext;
+    native = true;
     for (const [name, at] of Object.entries(MULTI_DRAW)) {
       const fn = ext[name];
       if (typeof fn !== 'function') continue;
@@ -49,12 +61,20 @@ export function countDriverDraws(renderer) {
         return fn.apply(ext, arguments);
       };
     }
-  }
+    return ext;
+  };
+  // Wrapped when three (or upload-release.js's hold) asks for it, never asked for here.
+  const gl = renderer.getContext();
+  const getExtension = gl.getExtension;
+  gl.getExtension = function getExtensionNoticed(name) {
+    const ext = getExtension.call(this, name);
+    return name === 'WEBGL_multi_draw' ? wrap(ext) : ext;
+  };
   const reset = info.reset;
   info.reset = function resetWithDriverDraws() { extra = 0; return reset.call(this); };
   return (renderer.__driverDraws = {
     get draws() { return info.render.calls + extra; },
     get multiDrawExtra() { return extra; },
-    native: !!ext,
+    get native() { return native; },
   });
 }
