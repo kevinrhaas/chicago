@@ -260,11 +260,49 @@ export function storageRects(r, wi, wj, size) {
  * `stats.mainMs` is the main thread's share — `update`, the asks being sent,
  * and the finishes and the writes — and nothing the pool spent; `written` is
  * where the last re-centre wrote, in the arrays' own texels (`storageRects`).
+ *
+ * T-2969 — A WHOLE TILE LANDS A BAND AT A TIME. The first tile, and the one
+ * after a tier change or a jump of a tile or more, is every texel at once, and
+ * its finish and write were one main-thread task: on the phone profile the
+ * kept tiles' whole landings read as single long tasks, the carry tile's
+ * 85-101 ms. So a landing of the whole tile is finished and written
+ * `LAND_BAND_ROWS` rows at a time into a SECOND pair of arrays, handing the
+ * thread back (`defer`) whenever a slice has run `sliceMs`, and the tile moves
+ * to it only when the last band is in: until then `tile` is the old one,
+ * untouched, exactly as a strip in flight leaves it. Every band is handed to
+ * `finish` as a rect of its own with its rows of `got`, so a band is the same
+ * texels a whole finish would have written (`check_near_field_keeper.mjs`
+ * holds it byte for byte). A strip is still landed in one task, in place: it
+ * is a quarter of the tile or less, and writing it over the strip that fell
+ * off is what keeps it cheap. `sliceMs` (else `LAND.sliceMs`) = Infinity lands
+ * the whole tile in one slice, as before — the tool's before. `stats.slices` and `stats.sliceMaxMs`
+ * count the landings' slices and the longest one (strips included).
  */
-export function fieldKeeper({ ask, finish, spec = FIELD_SPEC, now = () => performance.now() }) {
+export const LAND_BAND_ROWS = 16;
+/** The page's budget for one slice of a whole landing, read at every slice of
+ *  a keeper not given its own; `tools/measure_tile_landing.mjs` sets it to
+ *  Infinity in the page for its before. */
+export const LAND = { sliceMs: 6 };
+
+/** One band of rows of a pool reply: every per-texel array cut to the band's
+ *  rows (`got` is row by row northward, `w` texels a row). */
+function gotRows(got, w, h, j, hb) {
+  if (!got) return got;
+  const out = {};
+  for (const key of Object.keys(got)) {
+    const v = got[key];
+    if (!ArrayBuffer.isView(v) || v.length % (w * h)) { out[key] = v; continue; }
+    const per = (v.length / (w * h)) * w;
+    out[key] = v.subarray(j * per, (j + hb) * per);
+  }
+  return out;
+}
+
+export function fieldKeeper({ ask, finish, spec = FIELD_SPEC, now = () => performance.now(),
+  defer = (f) => setTimeout(f, 0), sliceMs }) {
   const { texel, size } = spec;
-  const cls = new Uint8Array(size * size * 2);
-  const height = new Float32Array(size * size);
+  let cls = new Uint8Array(size * size * 2);
+  let height = new Float32Array(size * size);
   let tile = null;
   let target = null;
   let want = null;
@@ -272,8 +310,9 @@ export function fieldKeeper({ ask, finish, spec = FIELD_SPEC, now = () => perfor
   let waiters = [];
   // T-2716: bumped by `adopt`, so a re-centre started before it lands as nothing.
   let generation = 0;
-  const stats = { mainMs: 0, finishMs: 0, recentres: 0, texels: 0, whole: 0, lastMs: 0, adopted: 0 };
-  const keeper = { stats, spec, written: [],
+  const stats = { mainMs: 0, finishMs: 0, recentres: 0, texels: 0, whole: 0, lastMs: 0, adopted: 0,
+    slices: 0, sliceMaxMs: 0 };
+  const keeper = { stats, spec, written: [], sliceMs,
     get tile() { return tile; },
     update(camE, camN) {
       const t0 = now();
@@ -326,23 +365,95 @@ export function fieldKeeper({ ask, finish, spec = FIELD_SPEC, now = () => perfor
     const rects = exposedRects(tile, o.e0, o.n0, spec);
     const asked = rects.map((r) => Promise.resolve(ask(r, o.e0, o.n0, texel)).catch(() => null));
     const g = generation;
-    pending = Promise.all(asked).then((gots) => land(o, rects, gots, g));
+    pending = Promise.all(asked).then((gots) => (rects.length === 1 && rects[0].w * rects[0].h === size * size
+      ? landWhole(o, rects[0], gots[0], g) : land(o, rects, gots, g)));
+  }
+  function stale(o) {
+    // Asked against a tile `adopt` has since replaced: its strips are not
+    // this tile's, so nothing is written.
+    pending = null;
+    if (target === o) target = null;
+    if (want && tile && (want.e0 !== tile.e0 || want.n0 !== tile.n0)) start();
+    else want = null;
+    if (!pending) {
+      const w = waiters;
+      waiters = [];
+      for (const r of w) r(tile);
+    }
+  }
+  function slice(ms) {
+    stats.slices++;
+    if (ms > stats.sliceMaxMs) stats.sliceMaxMs = ms;
+    stats.mainMs += ms;
+  }
+  /** T-2969: the whole tile, a band of rows at a time, into new arrays. */
+  function landWhole(o, rect, got, g) {
+    const { wi, wj } = fieldWrap(o.e0, o.n0, spec);
+    const nc = new Uint8Array(size * size * 2);
+    const nh = new Float32Array(size * size);
+    const rc = new Uint8Array(size * LAND_BAND_ROWS * 2);
+    const rh = new Float32Array(size * LAND_BAND_ROWS);
+    let j = 0;
+    let total = 0;
+    return new Promise((resolve) => {
+      const run = () => {
+        if (g !== generation) { stale(o); resolve(); return; }
+        const s0 = now();
+        do {
+          const hb = Math.min(LAND_BAND_ROWS, size - j);
+          const bc = hb === LAND_BAND_ROWS ? rc : rc.subarray(0, size * hb * 2);
+          const bh = hb === LAND_BAND_ROWS ? rh : rh.subarray(0, size * hb);
+          const f0 = now();
+          finish(gotRows(got, size, size, j, hb), { i0: 0, j0: j, w: size, h: hb }, o.e0, o.n0, texel, bc, bh);
+          stats.finishMs += now() - f0;
+          for (let b = 0; b < hb; b++) {
+            const row = ((j + b + wj) % size) * size;
+            for (let i = 0; i < size; i++) {
+              const k = row + (i + wi) % size;
+              const q = b * size + i;
+              nc[2 * k] = bc[2 * q];
+              nc[2 * k + 1] = bc[2 * q + 1];
+              nh[k] = bh[q];
+            }
+          }
+          j += hb;
+        } while (j < size && now() - s0 < (keeper.sliceMs ?? LAND.sliceMs));
+        if (j < size) {
+          const ms = now() - s0;
+          slice(ms);
+          total += ms;
+          defer(run);
+          return;
+        }
+        cls = nc;
+        height = nh;
+        tile = { e0: o.e0, n0: o.n0, wi, wj, texel, size, cls, height };
+        keeper.written = storageRects(rect, wi, wj, size);
+        stats.texels += size * size;
+        stats.whole++;
+        landed(o);
+        const ms = now() - s0;
+        slice(ms);
+        stats.lastMs = total + ms;
+        resolve();
+      };
+      run();
+    });
+  }
+  function landed(o) {
+    stats.recentres++;
+    target = null;
+    pending = null;
+    if (want && (want.e0 !== o.e0 || want.n0 !== o.n0)) start();
+    else want = null;
+    if (!pending) {
+      const w = waiters;
+      waiters = [];
+      for (const r of w) r(tile);
+    }
   }
   function land(o, rects, gots, g = generation) {
-    if (g !== generation) {
-      // Asked against a tile `adopt` has since replaced: its strips are not
-      // this tile's, so nothing is written.
-      pending = null;
-      if (target === o) target = null;
-      if (want && tile && (want.e0 !== tile.e0 || want.n0 !== tile.n0)) start();
-      else want = null;
-      if (!pending) {
-        const w = waiters;
-        waiters = [];
-        for (const r of w) r(tile);
-      }
-      return;
-    }
+    if (g !== generation) { stale(o); return; }
     const t0 = now();
     const { wi, wj } = fieldWrap(o.e0, o.n0, spec);
     const written = [];
@@ -369,20 +480,11 @@ export function fieldKeeper({ ask, finish, spec = FIELD_SPEC, now = () => perfor
     }
     tile = { e0: o.e0, n0: o.n0, wi, wj, texel, size, cls, height };
     keeper.written = written;
-    stats.recentres++;
     stats.texels += texels;
     if (texels === size * size) stats.whole++;
-    target = null;
-    pending = null;
-    if (want && (want.e0 !== o.e0 || want.n0 !== o.n0)) start();
-    else want = null;
+    landed(o);
     stats.lastMs = now() - t0;
-    stats.mainMs += stats.lastMs;
-    if (!pending) {
-      const w = waiters;
-      waiters = [];
-      for (const r of w) r(tile);
-    }
+    slice(stats.lastMs);
   }
   return keeper;
 }
