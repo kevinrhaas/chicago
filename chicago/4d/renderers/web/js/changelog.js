@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2159, ts: '2026-10-21T15:31:46.895Z', date: 'Oct 21, 2026, 10:31 AM CT', title: 'Name of what you look at switches off again', kind: 'fix',
+    items: [
+      'Settings › Show › Name of what you look at, switched off, now hides the name of the building in front of you. Since the name moved under the address it kept showing anyway. The Inspect key stays.',
+      'With it on, the name under the address now goes when it fades, or when you look away, instead of coming straight back.',
+      'The Settings checkboxes are drawn plainly on a phone: off is an empty box, on is filled with a tick, in every appearance.',
+    ] },
   { v: 2158, ts: '2026-10-21T13:45:51.124Z', date: 'Oct 21, 2026, 8:45 AM CT', title: 'Nothing you can see changed: graphics card deals the far bushes', kind: 'chore',
     items: [
       'Nothing you can see changed. The far bushes, out past the flowers to the edge of the meadow, stand on the same spots, at the same size and lean, as before.',
