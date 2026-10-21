@@ -295,6 +295,7 @@ K08_ROLES = {"wall": "body", "masonry_relief": "body", "reveal": "body", "mullio
              "glass_outer": "glass", "glass_inner": "glass", "blind": "blind",
              "curtain": "curtain", "backing": "backing", "roof": "cover", "finial": "cover",
              "bracket": "fascia",   # T-2408: a hood's consoles and modillions, the eaves' joinery
+             "carving": "carved_trim",   # T-2931: a pilaster's carved lozenges
              "iron": "iron"}        # T-2525: a bow's balcony rail and a light's grille
 SLIVER_M = 0.0025   # T-2308: a bay triangle with an edge shorter than this is a sliver
 #: T-2914: the cells a coursed front dresses in stone by intent, kept stone over a brick line

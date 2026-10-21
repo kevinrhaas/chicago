@@ -948,3 +948,24 @@ the reader grow with the town. When this one is spent, the arithmetic above leav
 for raises up to about 447 MiB before the two allowances reach the Pages limit;
 past that the lever is splitting the dev preview out of the production site, not a
 bigger number. Byte counts: `docs/RESEARCH/site-budget-T-2958/growth.json`.
+
+## 12. 1726 and 1730 Prairie on K01 — measured, inside §11's allowance, T-2934
+
+T-2934 moves 1726 and 1730 Prairie from the district draft to the K01 frontage kit. Their
+two web derivatives are 1,923,648 and 1,997,992 bytes against the drafts' 31,116 and
+42,220: about 3.85 MiB onto the published tree. When this PR was cut that took the tree
+over the then 320 MiB budget, and it raised the budget to 328 MiB; T-2958/T-2959 (§11)
+landed first and set 384 MiB on the whole-tree arithmetic, so this PR asks for no raise
+of its own and spends its 3.85 MiB of §11's headroom — the "each new textured Prairie
+house adds 1.5-3.5 MiB" item §11 names.
+
+Where the bytes are: of 1726's 1,923,648 bytes, 1,540,977 (80 %) are the eleven KTX2
+texture sheets the K01 kit embeds in every house it builds — the K03 common brick
+(208,511 with its normal map), the limestone of its sills, lintels and foundation
+(639,980), the K04 tin, copper and painted-tin roofing (366,904 in six sheets), the
+common buff brick (149,650) and the painted timber (176,122). The 21 K01 houses already
+standing carry the same sheets each, so the tree ships them over and over. Sharing them
+across houses (one copy of each sheet, the GLBs referring to it) is the durable fix and
+would hand back far more than any one house costs. It is not yet a ticket: the queue stood at
+its ceiling when this landed (`ticket.mjs new` refused), so the next run that frees a line
+should file it from here.
