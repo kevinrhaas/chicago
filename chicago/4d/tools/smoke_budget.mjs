@@ -469,6 +469,9 @@ const COVERAGE = [
   // T-2895: the forb ring's two walks dealt in the mid pass, reaped into the
   // forbs, rosettes and shrubs. flora.js is its only importer.
   ['renderers/web/js/flora-gpu-forb.js', [10, 11, 12], "the forbs, rosettes and shrubs dealt on the GPU, through flora.js"],
+  // T-2896: the far pass's two carry walks dealt on the GPU against a kept tile
+  // of their own, reaped into the carry sets. flora.js is its only importer.
+  ['renderers/web/js/flora-gpu-carry.js', [10, 11, 12], "the near and mid carries dealt on the GPU, through flora.js"],
   // T-2604. The flora lattice walk a spread pass runs on a worker: the census parts
   // read what the deal planted from it.
   ['renderers/web/js/jobs/lattice-kernel.js', [10, 11, 12], 'the flora lattice walk a spread pass sends to the job pool'],

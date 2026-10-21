@@ -1,4 +1,37 @@
 export const CHANGELOG = [ // newest first
+  { v: 2154, ts: '2026-10-21T04:02:36.383Z', date: 'Oct 20, 2026, 11:02 PM CT', title: 'Nothing you can see changed: graphics card deals the distant grass', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The low grass that carries on past the detailed meadow around you stands on the same clumps, in the same places, as before.',
+      'The page no longer walks that wide ring of grass itself every few steps. The graphics card decides which grass stands in each spot, against a map of the ground it keeps around you, and the page reads its answer back and sets the clumps out. When a turn or a step has to be finished at once, the page sets those clumps out over the next few frames rather than all in one, so turning stays smooth; once they are out they are the same clumps.',
+      'Asking whether a spot lies on a cart track is quicker too: the page now asks only the streets near that spot, with the same answer.',
+      'Just after you arrive somewhere, or jump across the town, the page still deals that ring itself for a few moments, until the card has the ground around you.',
+    ] },
+  { v: 2153, ts: '2026-10-21T03:58:48.562Z', date: 'Oct 20, 2026, 10:58 PM CT', title: '1801 Prairie\'s carved loggia', kind: 'feature',
+    items: [
+      'Over both arches, the carved frieze and the cartouche band under the windows above now stand as in the print: a relief band on the capitals\' line under a moulded course, and over it an oval cartouche between two roundels.',
+      'Both arches of the Kimball house\'s corner loggia now carry the carving J. W. Taylor photographed: a moulded archivolt round each arch and down its jambs, a carved pier on either side under a capital, a rosette in each spandrel, carved panels on the stair\'s foot blocks and on the balcony\'s face.',
+    ] },
+  { v: 2152, ts: '2026-10-21T03:12:51.240Z', date: 'Oct 20, 2026, 10:12 PM CT', title: '1811 Prairie\'s stone gable at the 1888 plate\'s full width', kind: 'improvement',
+    items: [
+      'The Ames house\'s stone gable at 1811 Prairie now spans the full width of its bay, as the 1888 Inland Architect plate shows. Its sloping edges run into the corner pinnacles, and its peak stands as high as the plate\'s.',
+      'Its great arch has the plate\'s deep, two-part moulded ring, and the small windows above and below it are spaced as the plate spaces them.',
+    ] },
+  { v: 2151, ts: '2026-10-21T03:12:51.240Z', date: 'Oct 20, 2026, 10:12 PM CT', title: 'Smoother arrival after a jump or a detail change', kind: 'fix',
+    items: [
+      'When you jump across town or change the detail level, the ground the meadow plants stand on is now loaded in short pieces between frames instead of in one go, so the walk no longer catches on it.',
+      'After a detail change, the first step of a walk no longer stalls while the mid-distance meadow is drawn for the first time; that work now happens while the new detail level loads.',
+    ] },
+  { v: 2150, ts: '2026-10-21T02:35:45.806Z', date: 'Oct 20, 2026, 9:35 PM CT', title: '1736 Prairie\'s arched windows and open veranda match its photograph', kind: 'improvement',
+    items: [
+      'The three upstairs windows now have gently arched heads under flat moulded hoods on little brackets, as the c. 1890 photograph shows them.',
+      'The veranda is painted wood with a light rail, and its posts run down to the ground, leaving the dark space under the deck open between them.',
+    ] },
+  { v: 2149, ts: '2026-10-21T01:39:29.011Z', date: 'Oct 20, 2026, 8:39 PM CT', title: '1812 Prairie\'s porch, stair and south front, from the Levy photograph', kind: 'feature',
+    items: [
+      '1812 Prairie\'s entrance is now the photograph\'s broad porch arch: a low curved head with a glazed fanlight over the double door, a stone pier and a tall side light',
+      'Its stair runs to the walk between solid stone balustrades that sweep down to a block at the foot, and the landing runs on north behind a stone panel pierced with two rows of square holes',
+      'The south projection now stands flush with the house\'s south corner, its barred basement light comes down almost to the walk, and a downpipe runs down each end of the front',
+    ] },
   { v: 2148, ts: '2026-10-21T00:01:06.040Z', date: 'Oct 20, 2026, 7:01 PM CT', title: '1801 Prairie\'s carved pilasters and framed windows', kind: 'feature',
     items: [
       'The Kimball house\'s bowed bay and its south pavilion now carry the carved pilasters J. W. Taylor photographed: one to each storey, a chain of lozenges down its shaft, under a capital and on a corbel at the foot.',

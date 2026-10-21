@@ -61,7 +61,9 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
                             a brick street front's round-headed window (T-2410): K06's
                             round sash in a round hole the wall cuts (a rectangle to the
                             spring, strips from the head's curve over it), under the kit's
-                            arch band as its hood, with a key block on the crown
+                            arch band as its hood, with a key block on the crown; or
+                            (T-2960) cut segmental on its K06 sash's rise, under K09's
+                            cornice hood on two consoles in place of band and key
   k01.opening.sash_round_plain
                             a side wall's round-headed light whose picture shows its head
                             plain (T-2884, 1625's lower lights): the same round hole and
@@ -1068,6 +1070,12 @@ class Assembly:
             # block unless the street front's round heads name one
             street = op.wall == "k01.wall.street_front"
             conf = max(conf, p.conf("street_front_round_heads" if street else "bays"))
+            if street and p.round_heads.get("hood"):
+                # T-2960: K09's cornice hood on its two consoles over the head (1736's upper
+                # lights, the c. 1890 photograph), which dresses it in place of the arch band
+                self.glaze(op, frame, body_mat, stone_trim, seed, conf)
+                k09_frontage.dress(self, op, frame, max(conf, p.conf("street_front_trim")))
+                return
             self.glaze(op, frame, body_mat, stone_trim, seed, conf, head=True)
             k = p.round_heads.get("key") if street else None
             if k:
@@ -1889,6 +1897,8 @@ class Assembly:
         entry = self.p.window_kit[op.component]
         v = dict(next(x for x in self._kit["variants"] if x["id"] == entry["variant"]))
         v["clear_width_m"], v["clear_height_m"] = op.width_m, op.height_m
+        if getattr(op, "rise_over_span", 0.0):   # T-2960: the sash to the hole's own segmental rise
+            v["rise_over_span"] = op.rise_over_span
         if getattr(op, "narrow", False):   # T-2884: a light under the ordinary sash's width is one light a sash
             v["panes"] = [1, 1]
         if not entry["well"]:
@@ -2311,11 +2321,13 @@ class Assembly:
                  "arch_back": "backing",
                  # T-2933: a timber veranda's posts, beam and roof, painted with the walls (as a
                  # K08 frame bay's walls are the body's)
-                 "post": None, "beam": None, "porch_roof": None}
+                 "post": None, "beam": None, "porch_roof": None,
+                 # T-2960: and the skirt of a deck open beneath it, over the void's dark
+                 "skirt": None}
     STAIR_ROLES = frozenset({"landing", "tread", "riser", "stair_end", "cheek",
                              "terrace", "terrace_face", "baluster", "newel", "rail",
                              "pedestal", "column", "entablature", "loggia_wall", "balcony", "arch_reveal",
-                             "post", "beam", "porch_roof"})
+                             "post", "beam", "porch_roof", "skirt"})
 
     def door_variant(self) -> dict:
         """The record's K07 variant at this house's own door and stoop: the K01 hole's clear
@@ -2327,6 +2339,12 @@ class Assembly:
         v = dict(next(x for x in self._entrances["variants"] if x["id"] == p.entrance_kit["variant"]))
         door = next(o for o in p.openings if o.component == "k01.opening.door_leaf")
         v["clear_width_m"], v["clear_height_m"] = door.width_m, door.height_m
+        # T-2952: a segmental porch arch, and a side light beside the door under its transom
+        ros = (p.entrance_kit.get("arch") or {}).get("rise_over_span")
+        if ros:
+            v["head"], v["rise_over_span"] = "segmental", ros
+        if p.entrance_kit.get("side_light"):
+            v["side_light"] = p.entrance_kit["side_light"]
         # T-2817: a porch's door at the back of the arch, off its axis
         pd = p.entrance_kit.get("porch_door")
         if pd:
@@ -2350,6 +2368,7 @@ class Assembly:
                             # T-2500: a terrace deeper than the landing, and the loggia standing on it
                             **({"out_m": q["out_m"]} if "out_m" in q else {}),
                             **({"loggia": q["loggia"]} if "loggia" in q else {}),
+                            **({"parapet": q["parapet"]} if "parapet" in q else {}),
                             **({"balustrade": p.entrance_kit["balustrade"]}
                                if p.entrance_kit.get("balustrade") else {})})
         if porches:
@@ -2432,6 +2451,12 @@ class Assembly:
                                        for k, ends in sorted(o.sockets.items())
                                        for end, q in zip(("top", "foot"), ends)}})
         roles = {r: (m or body_mat) for r, m in self.K07_ROLES.items()}
+        # T-2960: a painted timber balustrade, and the deck of a veranda open beneath, in the
+        # walls' paint as the veranda's posts are
+        if (p.entrance_kit.get("balustrade") or {}).get("fabric") == "painted_timber":
+            roles.update(baluster=body_mat, newel=body_mat, rail=body_mat)
+        if (p.entrance_kit.get("veranda") or {}).get("open_under"):
+            roles["terrace"] = body_mat
         self.graft(o, "K07", roles, frame, op,
                    lambda role: (stair_seed, stair_conf) if role in self.STAIR_ROLES else (seed, conf))
 
@@ -3570,6 +3595,62 @@ class Assembly:
             be = self.basis("stoop_stone", Q(l0, s0, 0), N, Y, seed)
             st.face([Q(l0, s0, 0), Q(l1, s0, 0), Q(l1, s0, h), Q(l0, s0, h)], _mul(R, -1), be, conf)
             st.face([Q(l0, s1, 0), Q(l1, s1, 0), Q(l1, s1, h), Q(l0, s1, h)], R, be, conf)
+        for x in r.get("front_pipes", []):
+            self.front_pipe(x, mat, rp, kick, conf, seed)
+
+    def front_pipe(self, x, mat, rp, kick, conf, seed):
+        """T-2953: a pipe down the street front from its own rainwater head (no eave gutter
+        reaches it): a box head `head_m` up, the pipe straight down the face `proud_m` before
+        the main front, strapped, to a shoe kicked out over a splash stone at grade, or (a
+        `foot_m` over grade) over the lower roof it discharges onto."""
+        p, r = self.p, self.p.rainwater
+        R, N = (0.0, 0.0, -1.0), (1.0, 0.0, 0.0)
+        lat = p.depth_m + x["proud_m"] + r["pipe_offset_from_wall_m"] + 0.05 + rp
+        at_wall = lambda l, y: (l, y, -x["s_m"])
+        hw, hh, hd = 0.14, 0.24, 0.09               # the head: half its width, its height, half its depth
+        y_head = x["head_m"] - hh
+        y4 = x["foot_m"] + r["shoe_end_above_grade_m"] + rp * math.cos(kick)
+        y3 = y4 + r["shoe_length_m"] * math.sin(kick)
+        self.tube(mat, [at_wall(lat, y_head + 0.02), at_wall(lat, y3),
+                        at_wall(lat + r["shoe_length_m"] * math.cos(kick), y4)], rp, R, seed, conf, cap_end=True)
+        hp = self.prim(mat)
+        c0 = at_wall(lat, y_head)
+        lo, hi = (c0[0] - hd, c0[0] + hd), (y_head, x["head_m"])
+        z0, z1 = c0[2] - hw, c0[2] + hw
+        bx = lambda l, y, z: (l, y, z)
+        b = self.basis(mat, c0, R, Y, seed)
+        hp.face([bx(lo[1], hi[0], z1), bx(lo[1], hi[0], z0), bx(lo[1], hi[1], z0), bx(lo[1], hi[1], z1)], N, b, conf)
+        hp.face([bx(lo[0], hi[0], z0), bx(lo[1], hi[0], z0), bx(lo[1], hi[1], z0), bx(lo[0], hi[1], z0)], R, b, conf)
+        hp.face([bx(lo[1], hi[0], z1), bx(lo[0], hi[0], z1), bx(lo[0], hi[1], z1), bx(lo[1], hi[1], z1)],
+                _mul(R, -1), b, conf)
+        hp.face([bx(lo[0], hi[0], z0), bx(lo[0], hi[0], z1), bx(lo[1], hi[0], z1), bx(lo[1], hi[0], z0)],
+                (0.0, -1.0, 0.0), b, conf)
+        hp.face([bx(lo[0], hi[1], z1), bx(lo[0], hi[1], z0), bx(lo[1], hi[1], z0), bx(lo[1], hi[1], z1)], Y, b, conf)
+        iron = self.prim("iron")
+        yy = y_head - 0.4
+        while yy > y3 + 0.3:
+            c = at_wall(lat, yy)
+            band = [_add(c, _add(_mul(R, math.cos(a) * (rp + 0.004)), _mul(N, math.sin(a) * (rp + 0.004))))
+                    for a in [2 * math.pi * j / 8 for j in range(9)]]
+            for j in range(8):
+                mo = _sub(_mul(_add(band[j], band[j + 1]), 0.5), c)
+                iron.quad(band[j], band[j + 1], _add(band[j + 1], (0.0, 0.03, 0.0)), _add(band[j], (0.0, 0.03, 0.0)),
+                          mo, self.basis("iron", band[j], _unit(_sub(band[j + 1], band[j])), Y, seed), conf)
+            yy -= r["strap_spacing_m"]
+        if x["foot_m"] > 0.0:
+            return
+        st = self.prim("stoop_stone")
+        l0, l1 = lat + 0.05, lat + r["shoe_length_m"] * math.cos(kick) + 0.30
+        s0, s1, h = -0.17, 0.17, 0.04
+        Q = lambda l, s, y: _add(at_wall(l, y), _mul(R, s))
+        bt = self.basis("stoop_stone", Q(l0, s0, h), R, N, seed)
+        st.face([Q(l0, s0, h), Q(l0, s1, h), Q(l1, s1, h), Q(l1, s0, h)], Y, bt, conf)
+        bs = self.basis("stoop_stone", Q(l0, s0, 0), R, Y, seed)
+        st.face([Q(l1, s0, 0), Q(l1, s1, 0), Q(l1, s1, h), Q(l1, s0, h)], N, bs, conf)
+        st.face([Q(l0, s0, 0), Q(l0, s1, 0), Q(l0, s1, h), Q(l0, s0, h)], _mul(N, -1), bs, conf)
+        be = self.basis("stoop_stone", Q(l0, s0, 0), N, Y, seed)
+        st.face([Q(l0, s0, 0), Q(l1, s0, 0), Q(l1, s0, h), Q(l0, s0, h)], _mul(R, -1), be, conf)
+        st.face([Q(l0, s1, 0), Q(l1, s1, 0), Q(l1, s1, h), Q(l0, s1, h)], R, be, conf)
 
     def tube(self, mat, path, rad, ref, seed, conf, cap_end=False, sides=8):
         """A round pipe along a polyline lying in a plane normal to `ref`: rings mitred
@@ -3702,6 +3783,10 @@ def hole(o):
     if o.component not in ROUND_CUT:
         return (s0, s1, o.sill_m, o.head_m)
     from . import k06_windows
+    if o.rise_over_span:   # T-2960: cut segmental, on its K06 sash's own rise
+        spring = o.head_m - o.width_m * o.rise_over_span
+        head = k06_windows.Head("segmental", s0, s1, spring, o.rise_over_span)
+        return (s0, s1, o.sill_m, spring, head.curve(0.0, s1, s0))
     spring = o.head_m - o.width_m / 2
     return (s0, s1, o.sill_m, spring, k06_windows.Head("round", s0, s1, spring).curve(0.0, s1, s0))
 

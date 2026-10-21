@@ -26168,21 +26168,26 @@ the mansard's curb and its two street dormers, the veranda's four posts, frieze 
 the stair's place. Every height rests on the camera's distance, which the photograph bounds only to
 about 25-31 m (its `solve`).
 **What is invented.** The paint's colour (the print is monochrome); the walls' thickness and brick;
-the principal storey's window heads and heights, hidden by the veranda; the deck and balustrade in
-K07's stone where the photograph's are painted timber, and the plain posts; the veranda roof's pitch;
+the principal storey's window heads and heights, hidden by the veranda; the veranda's plain square
+posts (the print's 6 px posts do not show a turned or chamfered section), the balustrade's pattern
+(T-2960 builds it in painted timber with slender balusters at 0.14 m, the print showing only a light
+pierced band) and how far back the dark under the deck stands (0.5 m); the upper windows' hood
+profile and consoles, which are K09's (the print shows a flat moulded hood with drops at its ends,
+too small to read their mouldings); the veranda roof's pitch;
 the mansard's deck and its two south dormers over 18th Street; the stacks' places; every window of
 the south, north and rear walls (no picture sees them); the rainwater; the treads.
 **What is not built.** The south wall's two small projections and its side porch on 18th Street, the
-lower set-back front the photograph shows left of the house (not on the 1911 sheet), the arched
-heads' segmental curve and eared hoods, the basement openings under the deck, and the low wall at the
-street line: open on the match record for T-2935.
-**How to resolve:** T-2935 builds the flank, the service wing and the rear, argues the mansard's date
-and the set-back front, and brings the match record to `matches`; a later picture of the house,
-ingested as a source, says what changed by 1904.
+lower set-back front the photograph shows left of the house (not on the 1911 sheet), and the low
+wall at the street line: open on the match record for T-2961. (The arched heads' segmental curve
+under their hoods, the basement's dark openings between the posts' piers under the deck, and the
+painted timber deck and balustrade were built by T-2960.)
+**How to resolve:** T-2961 builds the street wall, argues the set-back front and brings the match
+record to `matches`; T-2962 builds the flank, the service wing and the rear and argues the mansard's
+date; a later picture of the house, ingested as a source, says what changed by 1904.
 **Covers:** `house_1736_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1736_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1736_prairie.as_mapped_1904.form.service_wall_brick`, `house_1736_prairie.as_mapped_1904.form.street_front_trim`, `house_1736_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1736_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1736_prairie.as_mapped_1904.form.stair_tread_m`, `house_1736_prairie.as_mapped_1904.form.side_bays`, `house_1736_prairie.as_mapped_1904.form.rear_bays`, `house_1736_prairie.as_mapped_1904.form.north_bays`, `house_1736_prairie.as_mapped_1904.form.basement_lights`, `house_1736_prairie.as_mapped_1904.form.chimneys`, `house_1736_prairie.as_mapped_1904.form.rainwater`, `house_1736_prairie.as_mapped_1904.form.window_kit`
-**Ticket:** T-2933 (piece 1 of T-1874).
+**Ticket:** T-2933 (piece 1 of T-1874); T-2960 (the upper windows' heads and the veranda).
 **Review:** `docs/RESEARCH/k01-1736-mcbirney-2933/README.md`.
-**Recorded:** 2026-10-20 (T-2933).
+**Recorded:** 2026-10-20 (T-2933; amended by T-2960).
 
 ### L-k01-1816-henderson-2963 — 1816 Prairie refined from the district draft to a K01 brick house under a mansard, its canted bays and columned porch read off its photograph
 
@@ -28776,8 +28781,10 @@ archivolts; the balcony 0.4 m out, its face 0.5 m deep and its corbel 0.35 m; th
 (the kit's), level 0.1 m over the landing and swept down in one reversed cosine curve to a 0.5 m block
 0.85 m over grade (the photograph's left block reads 0.68-0.70 m over the camera's grade, which stands
 about 0.2 m under the lot's); the landing 0.3 m at the arch's mouth and the treads 0.28 m.
-**What is not built.** The carving on the piers, round the arches, on the cheeks' blocks and on the
-balcony's face, and the carved frieze over the loggia: plain stone here (T-2911 and T-2540). The
+**What is not built.** Nothing of the carving now: the carving on the piers, round the arches, on
+the cheeks' blocks and on the balcony's face is T-2923's (L-kimball-1801-loggia-carving-2923), which
+also takes the keystones off, and the carved frieze and cartouche band over the loggia are T-2932's
+(L-kimball-1801-loggia-frieze-2932). The
 principal storey's window the K01 build had at 18.9 m on the 18th Street wall is gone: the
 photograph's arch stands there.
 **How to resolve:** a photograph or drawing of the loggia's inside, or a plan of the principal floor,
@@ -28811,7 +28818,8 @@ closed by the mansard's lower face; the cornice's section is K10's moulded stone
 0.6 m high in square stone balusters at 0.17 m (1637's south bay's), where the print shows pierced
 panels between posts; T-2930 pierced them (L-kimball-1801-bow-lattice-2930). The pair's lights are K06's plate-glass casements
 2.0 m clear on a 0.18 m mullion; the print's small leaded glazing in the transom lights is not built.
-**What is not built.** The carved frieze over the principal storey: plain stone here (T-2932); the
+**What is not built.** The carved frieze over the principal storey stands over the loggia, not the
+bay, and is T-2932's (L-kimball-1801-loggia-frieze-2932); the
 carved pilasters beside the bay and the pavilion and the windows' moulded surrounds are T-2931's
 (L-kimball-1801-pilasters-2931). The sheet's
 bulge (v 4.8-10.2) is wider and further south than the photograph's bay; the photograph is followed.
@@ -28877,6 +28885,62 @@ pavilion, would give the pilasters' and the surrounds' sections and the capitals
 **Ticket:** T-2931 (piece 2 of T-2922).
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-20 (T-2931).
+
+### L-kimball-1801-loggia-carving-2923 — 1801 Prairie's loggia carving: archivolts, carved piers, spandrel rosettes, the stair's foot blocks and the balcony's face placed off the Taylor print, their sections and carving reconstructed
+
+**Decision:** the corner loggia on 1801 Prairie (T-2923, piece 3 of T-2911) takes the carving J. W.
+Taylor's c. 1895 photograph shows round both its arches (`taylor_c1895_kimball_residence_1801`),
+where T-2910 laid plain stone under a voussoir ring and keystone. **What is read, not invented.**
+Each arch, on the front and on 18th Street alike, is framed by a moulded archivolt that turns round
+its head and runs down both jambs to the loggia's floor, about 0.2 m broad (its crown at about 3.8 m
+over the intrados' 3.6), with no keystone; a carved pier stands each side of it, a strip about
+0.3 m broad (the front's at v 0.1-0.4 and 2.84-3.15, the 18th Street face's at u 17.0-17.3 and
+19.6-20.0, read through the solved camera) from a base at the floor to a capital at about
+3.7-3.95 m, its shaft carved down its length; the spandrels between the archivolt and the piers
+are carved; each foot block of the stair's swept cheeks is carved with arched panels on its front
+and its outer face; and the 18th Street arch's balcony carries a row of carved panels on its face.
+**What is invented.** Every size and every carving's form: the archivolt's two faces 0.07 and
+0.11 m broad, 0.035 and 0.07 m proud; the piers 0.22 m outside the intrados, 0.30 m broad and
+0.05 m proud, on 0.35 m bases standing 0.03 m wider and prouder, under 0.17 m capitals standing
+0.04 m so, their tops at 3.92 m; a chain of lozenges 0.14 by 0.24 m standing 0.02 m off each shaft,
+for the print's carving, which at about 2.7 cm a pixel shows that the shafts are carved and not
+what with; one rosette 0.1 m in radius in each spandrel, for the print's leafage; on each foot
+block a round-headed tablet on its front and two on its outer face, each 0.015 m proud with its
+field raised again, for the print's small arched tracery; the balcony's face in four panels between
+raised ribs 0.05 m broad, a lozenge in each. The capitals are plain blocks where the print's are
+carved. **Not changed here.** Both arches render about 15-20 px south (the front's) and east (the
+18th Street face's) of the print's, so their carving does; the arches' places are T-2910's and it
+is a difference in the match record.
+**How to resolve:** a nearer photograph of the loggia, or a measured drawing of its arches, would
+give the archivolt's section, the piers' and the capitals' carving and the tracery on the blocks.
+**Ticket:** T-2923 (piece 3 of T-2911).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-21 (T-2923).
+
+### L-kimball-1801-loggia-frieze-2932 — 1801 Prairie's carved frieze and cartouche band over the loggia: their heights and runs read off the Taylor print, their carving reconstructed
+
+**Decision:** over both of 1801 Prairie's loggia arches (T-2932, piece 3 of T-2922) stand the two
+carved bands J. W. Taylor's c. 1895 photograph shows over the principal storey there
+(`taylor_c1895_kimball_residence_1801`), where the build laid plain coursed stone. **What is read,
+not invented.** Their heights through the solved camera, on the front and on 18th Street alike: a
+carved relief frieze from the piers' capitals at about 3.9 m to about 4.5 m (y 822-857 on the 1600 px
+print over the front arch), under a moulded course to about 4.7 m; over that a band to the second
+storey's sill at about 5.4 m (y 767-815), carved with a cartouche under the window over the arch and
+scrolled frames either side of it; both run from capital to capital across the arch's bay. **What is
+invented.** The frieze 0.08 m proud and its carving: the print's relief, leafage with what may be
+figures, is finer than its 2.7 cm a pixel, and it stands as T-2819's guilloche (rings 0.2 m in
+radius, 0.04 m broad and 0.025 m proud, every other one half that); the course 0.18 m in a fillet
+and a face 0.12 m proud; the cartouche band 0.06 m proud, its cartouche an oval 0.6 by 0.5 m raised
+in two steps on the arch's axis, and for each scrolled frame a roundel 0.14 m in radius. On 18th
+Street the window over the arch stands 0.2 m off the arch's axis, so the cartouche, which is
+laid on the arch's, does not centre under it. **Not changed here.** The house's belt at 4.8-5.0 m
+runs on behind the cartouche band; the print's course stands about 0.3 m lower, at 4.5-4.7 m, and
+the band over the rest of the front is T-2540's.
+**How to resolve:** a nearer photograph of the loggia would give the frieze's relief and the
+cartouche band's frames.
+**Ticket:** T-2932 (piece 3 of T-2922).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-21 (T-2932).
 
 ### L-k01-1621-last-drawn-2531 — 1621 Prairie's last drawn differences: the door's ring turned to a curved extrados under a band in a deep recess, the light over it stood on a moulded shelf, and splayed voussoirs over the basement lights, their places read and their sections reconstructed
 
@@ -28980,8 +29044,20 @@ T-2937), so the arch's span, the 0.16 m ring (the most the raking cornice leaves
 lights' sizes are scaled down to it; plain voussoirs for the plate's moulded archivolt; 0.055 m
 colonnettes with square bases and capitals for the plate's stouter carved ones; the round-arched lights
 as dark openings without sash; and the carving over the arch, not built.
-**How to resolve:** T-2937 (the gable's width, its archivolt's depth and its carving), T-2918 to T-2920
-(the porch, the front's fabric and the roof) bring the match record to `matches`.
+**Revised:** 2026-10-21 (T-2937, piece 2 of T-2917, of T-1892). The gable is the plate's width: its face
+3.6 m, its raking cornice reaching the foot about 1.95 m either side and running out past the pinnacles'
+inner faces into the shafts, which K01's wall gable now lets its pinnacles do (`pinnacles.engage`), so the
+apex stands with the plate's; the pinnacles 0.5 m lower. The great arch is the plate's: a 1.4 m intrados
+centred 0.6 m under the cornice, 0.2 m voussoirs and a moulded hood order 0.12 m wide and 0.1 m proud
+outside them (`arch.hood`), 0.32 m of archivolt where the plate reads 0.32-0.36 m; the tympanum's lights
+and the flat-headed lights under the cornice at the plate's spacing. What that build invents: the face's
+3.6 m and the 55-degree pediment within the plate's reading; the archivolt's two flat orders for a
+moulding whose profile the plate does not resolve; the pinnacles' square plan and pyramid tops (the plate's
+are carved, one under a scaled dome); and the gable's centre, about 0.25 m south of the plate's with its
+pinnacles, where T-2542 set it. The carving over the arch is argued away, not invented: at the plate's
+resolution the pediment there reads as coursed rock-faced stone with no carved panel legible.
+**How to resolve:** T-2918 to T-2920 (the porch, the front's fabric and the roof, and the gable's centre
+and carved pinnacles under T-2920) bring the match record to `matches`.
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.chimneys`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.gable_roof`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
@@ -30679,3 +30755,48 @@ Canonical source composition may apply explicitly recorded shoe registration, so
 **How to resolve:** actual canonical exports and source/published images, independently reviewed period garments and anatomy, fit and source licenses. Unverified studies remain unaccepted.
 
 **Recorded:** 2026-10-19 (T-1789, T-2804).
+
+### L-k01-1812-wheeler-porch-2952 — 1812 Prairie's porch arch, side light, swept stair, pierced parapet, flush projection and front downpipes, read off the photograph
+
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-2952 and T-2953, pieces 2 and 3 of
+T-2891) takes the front's lower half as Albert Levy's photograph shows it. The entrance is a broad
+porch arch whose head is a segment, its transom at the spring and the segment over it glazed,
+with the double door, a stone pier and a side light under it; the stair runs straight to the walk
+between solid stone cheeks swept down to a block at the foot, and the landing runs on north to a
+stone parapet pierced in two rows of square holes. The south projection stands flush with the
+south corner, its barred basement light comes down to the walk, and a downpipe runs down each end
+of the front from a rainwater head of its own. The kits learn this: K01's door arch takes
+`rise_over_span` (a segmental head in its voussoir block) and a porch mouth up to 3.2 m across
+under it; K07 takes `side_light` (leaves, pier, light under a transom at the spring and a glazed
+segment over it), swept cheeks beside a terrace, and a terrace `parapet` pierced in rows of holes;
+K01's rainwater takes `front_pipes`, each from its own head. Every other K01 house re-emits
+byte-identical.
+**What is read, not invented.** Through the camera T-2543 solved
+(`data/reference_views/wheeler_house_1812_prairie/levy_front.json`; 88.5 px a metre at the main
+front, the walk at y 1549.6), on 3x crops of the print: the arch's north jamb at x 1020 px (7.9 m
+out), its crown at y 1100 (5.07 m over the walk) under a ring to y 1088 (5.21 m), its spring about
+y 1170 (4.28 m); the transom from 4.03 to 4.28 m; the door from about x 752 to 898, the pier to
+923 (0.29 m), the side light to 1015 (1.04 m), its sill at y 1353 (0.56 m over the 1.65 m floor);
+the cheeks' level tops at about y 1355 (0.5 m over the landing) and the foot blocks' about 1.1 m
+over the walk; the parapet from the north cheek to about x 1097, its two rows of holes about 0.08 m
+square; the stair about 2 m between its cheeks; the projection's south corner at the front's own
+(x 305 px), its basement light from about y 1450 to the walk line at 1550 (1.08 m to about 0.05 m),
+1.86 m across; the north pipe's top at y 647 (10.2 m) at x 1057-1080, and the south pipe at x
+293-300 from the top of the front to the walk.
+**What is invented.** The segment for the print's flatter curve; the arch's mouth 2.7 m across,
+started 0.15 m clear of the projection's north face where the print's moulding runs down the
+projection's corner; the ring 0.15 m and a keystone the ring's height; the fanlight's three plain
+lights and K07's transom bar; the door's two leaves and panels and the side light's single pane;
+the stair 2.05 m wide on v 6.1, its left cheek against the projection; the cheeks' 0.3 m thickness,
+the sweep's curve and the block's 0.45 m; the terrace to 8.2 m and the parapet's 0.2 m thickness,
+six holes a row; the plinth's 0.1 m and the light's sill stone; the rainwater heads' size, the
+south pipe split at the projection's top (the print's pipe runs on past the balcony), and the
+north pipe kept straight where the print's turns north at about 6 m.
+**What is built otherwise than read.** The arch's moulded ring (built a voussoir block), its south
+jamb in the projection's corner, the heavy transom, the fanlight's columns of small panes, the
+north cheek's flare and the newels' carving and caps are open items on the match record.
+**How to resolve:** A sharper print, a drawing or a building permit for the porch settles the
+arch's curve and its south jamb; a second photograph of the stair settles its width and newels.
+**Ticket:** T-2952, T-2953 (pieces 2 and 3 of T-2891).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-21 (T-2952, T-2953).
