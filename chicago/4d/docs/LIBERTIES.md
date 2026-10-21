@@ -28776,9 +28776,10 @@ archivolts; the balcony 0.4 m out, its face 0.5 m deep and its corbel 0.35 m; th
 (the kit's), level 0.1 m over the landing and swept down in one reversed cosine curve to a 0.5 m block
 0.85 m over grade (the photograph's left block reads 0.68-0.70 m over the camera's grade, which stands
 about 0.2 m under the lot's); the landing 0.3 m at the arch's mouth and the treads 0.28 m.
-**What is not built.** The carved frieze over the loggia: plain stone here (T-2932); the carving on
-the piers, round the arches, on the cheeks' blocks and on the balcony's face is T-2923's
-(L-kimball-1801-loggia-carving-2923), which also takes the keystones off. The
+**What is not built.** Nothing of the carving now: the carving on the piers, round the arches, on
+the cheeks' blocks and on the balcony's face is T-2923's (L-kimball-1801-loggia-carving-2923), which
+also takes the keystones off, and the carved frieze and cartouche band over the loggia are T-2932's
+(L-kimball-1801-loggia-frieze-2932). The
 principal storey's window the K01 build had at 18.9 m on the 18th Street wall is gone: the
 photograph's arch stands there.
 **How to resolve:** a photograph or drawing of the loggia's inside, or a plan of the principal floor,
@@ -28812,7 +28813,8 @@ closed by the mansard's lower face; the cornice's section is K10's moulded stone
 0.6 m high in square stone balusters at 0.17 m (1637's south bay's), where the print shows pierced
 panels between posts; T-2930 pierced them (L-kimball-1801-bow-lattice-2930). The pair's lights are K06's plate-glass casements
 2.0 m clear on a 0.18 m mullion; the print's small leaded glazing in the transom lights is not built.
-**What is not built.** The carved frieze over the principal storey: plain stone here (T-2932); the
+**What is not built.** The carved frieze over the principal storey stands over the loggia, not the
+bay, and is T-2932's (L-kimball-1801-loggia-frieze-2932); the
 carved pilasters beside the bay and the pavilion and the windows' moulded surrounds are T-2931's
 (L-kimball-1801-pilasters-2931). The sheet's
 bulge (v 4.8-10.2) is wider and further south than the photograph's bay; the photograph is followed.
@@ -28909,6 +28911,31 @@ give the archivolt's section, the piers' and the capitals' carving and the trace
 **Ticket:** T-2923 (piece 3 of T-2911).
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-21 (T-2923).
+
+### L-kimball-1801-loggia-frieze-2932 — 1801 Prairie's carved frieze and cartouche band over the loggia: their heights and runs read off the Taylor print, their carving reconstructed
+
+**Decision:** over both of 1801 Prairie's loggia arches (T-2932, piece 3 of T-2922) stand the two
+carved bands J. W. Taylor's c. 1895 photograph shows over the principal storey there
+(`taylor_c1895_kimball_residence_1801`), where the build laid plain coursed stone. **What is read,
+not invented.** Their heights through the solved camera, on the front and on 18th Street alike: a
+carved relief frieze from the piers' capitals at about 3.9 m to about 4.5 m (y 822-857 on the 1600 px
+print over the front arch), under a moulded course to about 4.7 m; over that a band to the second
+storey's sill at about 5.4 m (y 767-815), carved with a cartouche under the window over the arch and
+scrolled frames either side of it; both run from capital to capital across the arch's bay. **What is
+invented.** The frieze 0.08 m proud and its carving: the print's relief, leafage with what may be
+figures, is finer than its 2.7 cm a pixel, and it stands as T-2819's guilloche (rings 0.2 m in
+radius, 0.04 m broad and 0.025 m proud, every other one half that); the course 0.18 m in a fillet
+and a face 0.12 m proud; the cartouche band 0.06 m proud, its cartouche an oval 0.6 by 0.5 m raised
+in two steps on the arch's axis, and for each scrolled frame a roundel 0.14 m in radius. On 18th
+Street the window over the arch stands 0.2 m off the arch's axis, so the cartouche, which is
+laid on the arch's, does not centre under it. **Not changed here.** The house's belt at 4.8-5.0 m
+runs on behind the cartouche band; the print's course stands about 0.3 m lower, at 4.5-4.7 m, and
+the band over the rest of the front is T-2540's.
+**How to resolve:** a nearer photograph of the loggia would give the frieze's relief and the
+cartouche band's frames.
+**Ticket:** T-2932 (piece 3 of T-2922).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-21 (T-2932).
 
 ### L-k01-1621-last-drawn-2531 — 1621 Prairie's last drawn differences: the door's ring turned to a curved extrados under a band in a deep recess, the light over it stood on a moulded shelf, and splayed voussoirs over the basement lights, their places read and their sections reconstructed
 

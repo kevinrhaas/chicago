@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "baf41484efd258905ee1cba285360cc66e8de2882d93d012c94311ce9cb66856",
+  "glb_sha256": "1248ea3419c66d30c3feff77858484f58d204403ee54845d1585f42f1c396df5",
   "camera_sha256": "d89ca0a91bccddd25a0ffa04ea98ff95ec08faec3913c2588f95f158db8cedf3",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
   "verdict": "differs",
@@ -54,8 +54,8 @@
     },
     {
       "what": "the carved frieze over the principal storey over the loggia; the build lays it in plain stone",
-      "status": "open",
-      "how": "T-2932"
+      "status": "fixed",
+      "how": "T-2932: over each arch from capital to capital, the relief frieze from 3.92 to 4.49 m under a moulded course to 4.67 m, its rendered band within about 10 px of the print's (y 815-850 against 822-857), carved with T-2819's guilloche for the print's leafage; and the cartouche band from the course to 5.40 m under the sill (y 767-810 against the print's 767-815), an oval cartouche on the arch's axis and a roundel each side for the print's scrolled frames; the carving's forms are reconstructed (L-kimball-1801-loggia-frieze-2932)"
     },
     {
       "what": "the front's carved pilasters and moulded window surrounds: a carved pilaster a storey at the bow's north junction and at each corner of the pavilion's face, each under a capital below the band over it with a chain of carved lozenges down its shaft, the principal storey's on a corbel under the sill course; every light of the bow and pair of the pavilion in a moulded frame under a projecting head; the build laid them in plain stone",

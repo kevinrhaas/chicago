@@ -415,6 +415,44 @@ def _loggia_carving(a, frame, g, cv, conf):
         sx, sy = c + sg * rho * math.sqrt(0.5), spring + rho * math.sqrt(0.5)
         _raised(a, frame, _disc(sx, sy, rr, rr), -0.005, 0.03, seed, conf)
         _raised(a, frame, _disc(sx, sy, rr * 0.45, rr * 0.45), 0.025, 0.05, seed, conf)
+    if cv.get("frieze"):
+        _loggia_frieze(a, frame, c, e1 + 0.04, top, cv["frieze"], cv["cartouche_band"], seed, conf)
+
+
+def _loggia_frieze(a, frame, c, half, bed, fr, cb, seed, conf):
+    """T-2932: over each of the loggia's arches, from capital to capital (`half` each side of the
+    arch's axis), the Taylor print's two carved bands: the relief frieze on the capitals'
+    line, its carving T-2819's guilloche standing for the print's leafage and figures, under a
+    moulded course; and over that the cartouche band under the second storey's sill, an oval
+    cartouche on the axis of the window over the arch and a roundel each side of it, where
+    the print's scrolled frames stand. The print's carving is finer than its 2.7 cm a pixel;
+    what stands for it is reconstructed (docs/LIBERTIES.md L-kimball-1801-loggia-frieze-2932)."""
+    O, R, N = frame
+    s0, s1 = c - half, c + half
+    top, pf = fr["top_m"], fr["proud_m"]
+    _box(a, "dress_stone", frame, s0, s1, bed, top, 0.0, pf, seed, conf, skip=("back",))
+    # the guilloche on the frieze's face: _guilloche_run lays it on a belt BELT_PROUD_M out
+    lift = _k01()._mul(N, pf - BELT_PROUD_M)
+    gframe = (_k01()._add(O, lift), R, N)
+    rings = _guilloche_run(a, gframe, s0, s1, bed, top, fr["guilloche"], seed, conf)
+    # the moulded course over it: a fillet, then its face stepped out
+    c0, c1 = top + fr["course_m"] * 0.35, top + fr["course_m"]
+    _box(a, "dress_stone", frame, s0, s1, top, c0, 0.0, pf + 0.02, seed, conf, skip=("back", "bottom"))
+    _box(a, "dress_stone", frame, s0, s1, c0, c1, 0.0, fr["course_proud_m"], seed, conf, skip=("back",))
+    # the cartouche band, from the course to under the sill
+    ct, pk = cb["top_m"], cb["proud_m"]
+    _box(a, "dress_stone", frame, s0, s1, c1, ct, 0.0, pk, seed, conf, skip=("back", "bottom"))
+    cw, chh = cb["cartouche_m"]
+    yc = (c1 + ct) / 2
+    _raised(a, frame, _disc(c, yc, cw / 2, chh / 2, 20), pk - 0.005, pk + 0.03, seed, conf)
+    _raised(a, frame, _disc(c, yc, cw / 2 - 0.07, chh / 2 - 0.07, 20), pk + 0.025, pk + 0.05, seed, conf)
+    rr = cb["roundel_m"]
+    for sg in (-1, 1):
+        sx = c + sg * (cw / 2 + (half - cw / 2) / 2)
+        _raised(a, frame, _disc(sx, yc, rr, rr, 16), pk - 0.005, pk + 0.025, seed, conf)
+        _raised(a, frame, _disc(sx, yc, rr * 0.5, rr * 0.5, 12), pk + 0.02, pk + 0.045, seed, conf)
+    comp = a.components["k01.wall.loggia_carving"]["instances"][-1]["params"]
+    comp.update({"frieze_m": [bed, top], "cartouche_band_m": [c1, ct], "frieze_rings": rings})
 
 
 # -- the frieze ------------------------------------------------------------------------

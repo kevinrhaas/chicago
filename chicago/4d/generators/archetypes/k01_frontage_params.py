@@ -2277,8 +2277,9 @@ def _loggia_carving(cv, w, h, floor) -> dict:
     (`foot_blocks`, panels `proud_m` before their faces) and the side arch's balcony face in
     `balcony_panels` panels."""
     need = {"archivolt", "piers", "rosette_m", "foot_blocks", "balcony_panels"}
-    if not isinstance(cv, dict) or set(cv) != need:
-        raise ParamError(f"entrance_kit.loggia.carving takes {sorted(need)}")
+    if not isinstance(cv, dict) or not need <= set(cv) <= need | {"frieze", "cartouche_band"} \
+            or ("frieze" in cv) != ("cartouche_band" in cv):
+        raise ParamError(f"entrance_kit.loggia.carving takes {sorted(need)}, and frieze with cartouche_band")
     av, pi = cv["archivolt"], cv["piers"]
     if set(av) != {"steps_m", "proud_m"} or len(av["steps_m"]) != 2 or len(av["proud_m"]) != 2:
         raise ParamError("entrance_kit.loggia.carving.archivolt takes steps_m [inner, outer] and proud_m [inner, outer]")
@@ -2312,7 +2313,34 @@ def _loggia_carving(cv, w, h, floor) -> dict:
     nb = int(cv["balcony_panels"])
     if not 1 <= nb <= 8:
         raise ParamError("entrance_kit.loggia.carving.balcony_panels: 1-8 panels")
-    return {"archivolt": {"steps_m": [w1, w2], "proud_m": [p1, p2]},
+    out = {}
+    if "frieze" in cv:
+        # T-2932: the relief frieze on the capitals' line under a moulded course, and the
+        # cartouche band from that course to `top_m`, under the second storey's sill
+        fr, cb = cv["frieze"], cv["cartouche_band"]
+        fneed = {"top_m", "proud_m", "course_m", "course_proud_m", "guilloche"}
+        if set(fr) != fneed or set(cb) != {"top_m", "proud_m", "cartouche_m", "roundel_m"}:
+            raise ParamError(f"entrance_kit.loggia.carving.frieze takes {sorted(fneed)}, and cartouche_band "
+                             f"top_m, proud_m, cartouche_m [width, height] and roundel_m")
+        ft, fp, cm, cp = (float(fr[k]) for k in ("top_m", "proud_m", "course_m", "course_proud_m"))
+        g_ = fr["guilloche"]
+        if not 0.3 <= ft - top <= 0.8 or not pp < fp < cp <= 0.2 or not 0.1 <= cm <= 0.3 or fp <= p2 \
+                or set(g_) != {"radius_m", "ring_width_m", "ring_proud_m", "margin_m", "pitch", "segments"} \
+                or not 0.05 <= float(g_["radius_m"]) <= (ft - top) / 2 or not 0.0 < float(g_["ring_proud_m"]) <= 0.05:
+            raise ParamError("entrance_kit.loggia.carving.frieze: 0.3-0.8 m deep over the capitals, prouder than "
+                             "the piers and the archivolt and under its 0.1-0.3 m course, and T-2819's guilloche "
+                             "(radius_m at most half the frieze)")
+        ct, cpk = float(cb["top_m"]), float(cb["proud_m"])
+        cw, chh = (float(x) for x in cb["cartouche_m"])
+        rr_ = float(cb["roundel_m"])
+        if not 0.3 <= ct - ft - cm <= 1.0 or not 0.02 <= cpk < cp or not 0.2 <= chh <= ct - ft - cm - 0.06 \
+                or not 0.2 <= cw <= 1.2 or not 0.04 <= rr_ <= chh / 2:
+            raise ParamError("entrance_kit.loggia.carving.cartouche_band: 0.3-1.0 m deep over the course and "
+                             "less proud than it, its cartouche inside it and its roundels no taller")
+        out = {"frieze": {"top_m": ft, "proud_m": fp, "course_m": cm, "course_proud_m": cp,
+                          "guilloche": {k: float(v) for k, v in g_.items()}},
+               "cartouche_band": {"top_m": ct, "proud_m": cpk, "cartouche_m": [cw, chh], "roundel_m": rr_}}
+    return {**out, "archivolt": {"steps_m": [w1, w2], "proud_m": [p1, p2]},
             "piers": {"off_m": off, "width_m": pw, "proud_m": pp, "base_m": bh, "capital_m": ch, "top_m": top,
                       "lozenge_m": [wl, hl]},
             "rosette_m": rr, "foot_blocks": {"proud_m": float(fb["proud_m"])}, "balcony_panels": nb}
