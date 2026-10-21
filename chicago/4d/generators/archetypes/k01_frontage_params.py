@@ -2304,6 +2304,85 @@ def _street_frontispiece(fp, openings, dress, floors, width) -> dict:
             "door_surround": {"band_m": band, "top_m": stop}, "panel": pa}
 
 
+def _loggia_carving(cv, w, h, floor) -> dict:
+    """T-2923: the carving on both of a loggia's arches (1801's, the Taylor photograph), laid
+    by k01_arched_front._loggia_carving: the archivolt's two stepped faces, `steps_m` broad
+    and `proud_m` before the wall from the intrados out; a carved pier each side `off_m`
+    outside the intrados and `width_m` broad, from the floor on a `base_m` base to a
+    `capital_m` capital under `top_m`, a chain of `lozenge_m` [width, height] lozenges down
+    its shaft; a `rosette_m` rosette in each spandrel; the stair's foot blocks carved
+    (`foot_blocks`, panels `proud_m` before their faces) and the side arch's balcony face in
+    `balcony_panels` panels."""
+    need = {"archivolt", "piers", "rosette_m", "foot_blocks", "balcony_panels"}
+    if not isinstance(cv, dict) or not need <= set(cv) <= need | {"frieze", "cartouche_band"} \
+            or ("frieze" in cv) != ("cartouche_band" in cv):
+        raise ParamError(f"entrance_kit.loggia.carving takes {sorted(need)}, and frieze with cartouche_band")
+    av, pi = cv["archivolt"], cv["piers"]
+    if set(av) != {"steps_m", "proud_m"} or len(av["steps_m"]) != 2 or len(av["proud_m"]) != 2:
+        raise ParamError("entrance_kit.loggia.carving.archivolt takes steps_m [inner, outer] and proud_m [inner, outer]")
+    (w1, w2), (p1, p2) = ((float(x) for x in av[k]) for k in ("steps_m", "proud_m"))
+    if not (0.03 <= w1 <= 0.2 and 0.03 <= w2 <= 0.2 and 0.01 <= p1 < p2 <= 0.12):
+        raise ParamError("entrance_kit.loggia.carving.archivolt: steps 0.03-0.2 m broad, the outer prouder, "
+                         "at most 0.12 m")
+    pneed = {"off_m", "width_m", "proud_m", "base_m", "capital_m", "top_m", "lozenge_m"}
+    if set(pi) != pneed:
+        raise ParamError(f"entrance_kit.loggia.carving.piers takes {sorted(pneed)}")
+    off, pw, pp, bh, ch, top = (float(pi[k]) for k in ("off_m", "width_m", "proud_m", "base_m", "capital_m", "top_m"))
+    wl, hl = (float(x) for x in pi["lozenge_m"])
+    if not w1 + w2 + 0.02 <= off <= 0.6 or not 0.15 <= pw <= 0.5 or not 0.02 <= pp <= 0.1:
+        raise ParamError("entrance_kit.loggia.carving.piers: clear of the archivolt and at most 0.6 m off the "
+                         "intrados, 0.15-0.5 m broad, 0.02-0.1 m proud")
+    if not floor + h + w1 + w2 + 0.05 <= top or not 0.1 <= bh <= 0.5 or not 0.08 <= ch <= 0.4 \
+            or top - ch - (floor + bh) < 2 * hl or not 0.05 <= wl <= pw - 0.06 or not 0.08 <= hl <= 0.5:
+        raise ParamError("entrance_kit.loggia.carving.piers: the capitals' top over the archivolt's crown, a "
+                         "0.1-0.5 m base and 0.08-0.4 m capital, and lozenges narrower than the shaft, two "
+                         "at least to it")
+    rr = float(cv["rosette_m"])
+    if not 0.04 <= rr <= 0.25:
+        raise ParamError("entrance_kit.loggia.carving.rosette_m: a spandrel's rosette 0.04-0.25 m in radius")
+    rho = w / 2 + w1 + w2 + rr + 0.05
+    if rho * math.sqrt(0.5) + rr > w / 2 + off - 0.02 or floor + h - w / 2 + rho * math.sqrt(0.5) + rr > top - 0.02:
+        raise ParamError("entrance_kit.loggia.carving.rosette_m: the spandrel's rosette runs into its pier or "
+                         "the capitals' line")
+    fb = cv["foot_blocks"]
+    if not isinstance(fb, dict) or set(fb) != {"proud_m"} or not 0.005 <= float(fb["proud_m"]) <= 0.04:
+        raise ParamError("entrance_kit.loggia.carving.foot_blocks takes proud_m, 0.005-0.04 m")
+    nb = int(cv["balcony_panels"])
+    if not 1 <= nb <= 8:
+        raise ParamError("entrance_kit.loggia.carving.balcony_panels: 1-8 panels")
+    out = {}
+    if "frieze" in cv:
+        # T-2932: the relief frieze on the capitals' line under a moulded course, and the
+        # cartouche band from that course to `top_m`, under the second storey's sill
+        fr, cb = cv["frieze"], cv["cartouche_band"]
+        fneed = {"top_m", "proud_m", "course_m", "course_proud_m", "guilloche"}
+        if set(fr) != fneed or set(cb) != {"top_m", "proud_m", "cartouche_m", "roundel_m"}:
+            raise ParamError(f"entrance_kit.loggia.carving.frieze takes {sorted(fneed)}, and cartouche_band "
+                             f"top_m, proud_m, cartouche_m [width, height] and roundel_m")
+        ft, fp, cm, cp = (float(fr[k]) for k in ("top_m", "proud_m", "course_m", "course_proud_m"))
+        g_ = fr["guilloche"]
+        if not 0.3 <= ft - top <= 0.8 or not pp < fp < cp <= 0.2 or not 0.1 <= cm <= 0.3 or fp <= p2 \
+                or set(g_) != {"radius_m", "ring_width_m", "ring_proud_m", "margin_m", "pitch", "segments"} \
+                or not 0.05 <= float(g_["radius_m"]) <= (ft - top) / 2 or not 0.0 < float(g_["ring_proud_m"]) <= 0.05:
+            raise ParamError("entrance_kit.loggia.carving.frieze: 0.3-0.8 m deep over the capitals, prouder than "
+                             "the piers and the archivolt and under its 0.1-0.3 m course, and T-2819's guilloche "
+                             "(radius_m at most half the frieze)")
+        ct, cpk = float(cb["top_m"]), float(cb["proud_m"])
+        cw, chh = (float(x) for x in cb["cartouche_m"])
+        rr_ = float(cb["roundel_m"])
+        if not 0.3 <= ct - ft - cm <= 1.0 or not 0.02 <= cpk < cp or not 0.2 <= chh <= ct - ft - cm - 0.06 \
+                or not 0.2 <= cw <= 1.2 or not 0.04 <= rr_ <= chh / 2:
+            raise ParamError("entrance_kit.loggia.carving.cartouche_band: 0.3-1.0 m deep over the course and "
+                             "less proud than it, its cartouche inside it and its roundels no taller")
+        out = {"frieze": {"top_m": ft, "proud_m": fp, "course_m": cm, "course_proud_m": cp,
+                          "guilloche": {k: float(v) for k, v in g_.items()}},
+               "cartouche_band": {"top_m": ct, "proud_m": cpk, "cartouche_m": [cw, chh], "roundel_m": rr_}}
+    return {**out, "archivolt": {"steps_m": [w1, w2], "proud_m": [p1, p2]},
+            "piers": {"off_m": off, "width_m": pw, "proud_m": pp, "base_m": bh, "capital_m": ch, "top_m": top,
+                      "lozenge_m": [wl, hl]},
+            "rosette_m": rr, "foot_blocks": {"proud_m": float(fb["proud_m"])}, "balcony_panels": nb}
+
+
 def door_arch_of(entrance_kit) -> dict:
     """T-2526: the record's voussoir block round a round-headed door, or {}."""
     return dict(((entrance_kit or {}).get("k01.opening.door_leaf") or {}).get("arch") or {})
@@ -3303,8 +3382,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if "loggia" in door_kit_in:
         lg = door_kit_in["loggia"]
         need = {"v_m", "depth_m", "ceiling_m"}
-        if not door_arch or "porch_door" not in door_kit_in or not need <= set(lg) <= need | {"side_arch"}:
-            raise ParamError(f"entrance_kit.loggia takes {sorted(need)} and optionally side_arch, behind a "
+        if not door_arch or "porch_door" not in door_kit_in or not need <= set(lg) <= need | {"side_arch", "carving"}:
+            raise ParamError(f"entrance_kit.loggia takes {sorted(need)} and optionally side_arch and carving, behind a "
                              f"round-arched door's (`arch`) mouth with its porch_door at the back")
         v0, v1 = sorted(float(x) for x in lg["v_m"])
         D, Hc = float(lg["depth_m"]), float(lg["ceiling_m"])
@@ -3358,6 +3437,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 arch["balcony"] = {"span_m": [e0, e1], "out_m": float(bl["out_m"]),
                                    "height_m": float(bl["height_m"]), "corbel_m": float(bl["corbel_m"])}
             loggia["side_arch"] = arch
+        if "carving" in lg:
+            loggia["carving"] = _loggia_carving(lg["carving"], door_w, door_h, door_floor)
         door_kit["loggia"] = loggia
     # T-2910: a stoop's cheeks swept down from the landing to a block at the foot
     if "cheek_form" in door_kit_in:
