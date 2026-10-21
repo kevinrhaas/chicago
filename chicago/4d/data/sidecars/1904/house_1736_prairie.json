@@ -425,12 +425,12 @@
             "inset_m": 0.1,
             "beam_m": [
               0.2,
-              0.6
+              0.1
             ],
             "roof": {
               "overhang_m": 0.25,
-              "rise_m": 0.35,
-              "thickness_m": 0.2
+              "rise_m": 1.0,
+              "thickness_m": 0.08
             },
             "open_under": {
               "skirt_m": 0.2,
@@ -444,7 +444,41 @@
         "glessner_blog_1736_mcbirney_c1890_photo",
         "sanborn_1911_chicago_v3_sheet_20"
       ],
-      "note": "The photograph's veranda (T-2933), the 1911 sheet's frame porch (s20fp-1736-b1 p1/p2) 1.8 m deep across the whole front: a deck at the principal floor (the stoop's landing and K07's terraces either side of it, south to the front's corner and north to its end), a turned balustrade along its front, four slender posts (x 337, 412, 484 and 535 px at the deck's front through the camera, 34 px/m there: v 0.15, 2.85, 4.9 and 6.6 m), a beam and a deep frieze over them (its soffit y 335 px, 5.25 m over grade, and its fascia y 300 px, about 1 m deep with the roof edge), and a low hipped roof from the wall. The stair rises at the north end between the last two posts (stoop_v_m 5.65 for the 1.2 m flight), straight out toward the walk, as the photograph draws its cheeks. front_yard_m is the street grid's: the front stands 9.07 m behind the Prairie Avenue street line (the draft's street_u 32.374 less the 23.3 m body) and the walk begins 1 ft further out. T-2960: the deck stands open beneath, as the photograph shows it: each post runs on down past the deck to grade (the posts' lower lengths stand at the same x 337-535 px, a pier under each), and between them the raised basement's front reads dark; built as K07's veranda `open_under`, the deck's skirt 0.2 m deep (the deck's front edge, y 450-457 px, 7 px at 34 px/m) and the void behind it set 0.5 m back (RECONSTRUCTED: how far back the basement's front stands under the deck is not seen). The balustrade is painted timber with the walls, a top rail at y 425 px (0.8 m over the deck) and slender balusters at about 0.14 m (the print shows the infill as a light pierced band, too small to read its pattern; RECONSTRUCTED). The frieze is one beam and the posts are plain square sections."
+      "note": "The photograph's veranda (T-2933), the 1911 sheet's frame porch (s20fp-1736-b1 p1/p2) 1.8 m deep across the whole front: a deck at the principal floor (the stoop's landing and K07's terraces either side of it, south to the front's corner and north to its end), a turned balustrade along its front, four slender posts (x 337, 412, 484 and 535 px at the deck's front through the camera, 34 px/m there: v 0.15, 2.85, 4.9 and 6.6 m), a beam and a deep frieze over them (its soffit y 335 px, 5.25 m over grade, and its fascia y 300 px, about 1 m deep with the roof edge), and a low hipped roof from the wall. The stair rises at the north end between the last two posts (stoop_v_m 5.65 for the 1.2 m flight), straight out toward the walk, as the photograph draws its cheeks. front_yard_m is the street grid's: the front stands 9.07 m behind the Prairie Avenue street line (the draft's street_u 32.374 less the 23.3 m body) and the walk begins 1 ft further out. T-2960: the deck stands open beneath, as the photograph shows it: each post runs on down past the deck to grade (the posts' lower lengths stand at the same x 337-535 px, a pier under each), and between them the raised basement's front reads dark; built as K07's veranda `open_under`, the deck's skirt 0.2 m deep (the deck's front edge, y 450-457 px, 7 px at 34 px/m) and the void behind it set 0.5 m back (RECONSTRUCTED: how far back the basement's front stands under the deck is not seen). The balustrade is painted timber with the walls, a top rail at y 425 px (0.8 m over the deck) and slender balusters at about 0.14 m (the print shows the infill as a light pierced band, too small to read its pattern; RECONSTRUCTED). The frieze is one beam and the posts are plain square sections. T-2961: the roof's slope. In the print the band over the posts is a lit strip about 5 px deep along its foot (y 331-336, 0.15 m at 34 px/m) under a darker, textured band (y 306-331) that runs up to the upper wall, whose sills show over it at y 300-304. The strip is the fascia and the band the roof itself: a slope rising away from the camera shows from the walk whenever it rises steeper than the eye's line to it, and T-2933's (0.35 m over the roof's 2 m) rose at about the line's own 0.17, so it was seen edge-on and the beam's 0.6 m face stood where the print draws roof. Built now as the print draws it: the beam 0.1 m deep under a 0.08 m roof edge, 5.25-5.43 m over grade (y 336-330 px through the camera), and the roof rising 1.0 m to the wall, its ridge there at 6.43 m (y 306 px at the wall's 28.25 m), under the upper sills at 6.6. The texture (shingles or standing seams) is not readable at this scale and is the roof's own covering; nor is what the darker mark in the band over three of the posts is (x 340, 412 and 485 px against the posts' 337, 412 and 484), and nothing is built for it. The pitch is read through the camera's distance, like every height here (RECONSTRUCTED within it: L-k01-1736-mcbirney-veranda-2933)."
+    },
+    "boundary": {
+      "value": {
+        "layout": "stone_coping_wall",
+        "street_line_m": 9.07,
+        "lot_s_m": [
+          -0.65,
+          7.79
+        ],
+        "thickness_m": 0.35,
+        "chamfer_m": 0.06,
+        "runs": [
+          {
+            "to_s_m": 4.3,
+            "height_m": 0.74
+          },
+          {
+            "to_s_m": 7.79,
+            "height_m": 0.95
+          }
+        ],
+        "stair_pier": {
+          "side": "left",
+          "section_m": 0.6,
+          "height_m": 1.55,
+          "cap_m": 0.06
+        }
+      },
+      "confidence": "inferred",
+      "sources": [
+        "glessner_blog_1736_mcbirney_c1890_photo",
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "T-2961: the photograph's low pale wall along the street line, read through its camera (data/reference_views/house_1736_prairie/mcbirney_c1890_photo.json), where the Prairie Avenue street line stands 18.9 m from the eye at 47.4 px/m and grade on it at y 536 px (the walk's own edge reads at y 535-537, which checks the camera). Its top reads at y 501 px from x 212 to 440 (0.74 m) and at y 491 px from x 476 to 628 (0.95 m); the step lies behind the street tree at x 456-472, s 4.2-4.6 m on the line, built at 4.3. The taller run ends at x 628 px, s 7.79, which is where the 1904 parcel's north lot line (data/street_grid/1904.json prairie_1736) meets the street line in this frame: the photograph and the parcel agree there without being fitted to each other. The line is the street grid's: the front stands 9.07 m behind it, and the lot runs s -0.65 to 7.79 along it (the parcel's corners taken into the house's frame). The wall's material is the Glessner House Museum's 2015 photograph of the McBirney curbstone still in place on the lot line (Prairie library a16-ghm-blog-1736-mcbirney-curbstone-2015, read 2026-10-21 from the image store's copy, sha256 e00ecb6a…; link only, so forms only are read): squared limestone blocks with a chamfered top arris, stepping up at one block, as the c. 1890 wall steps up. The wall reads continuous across the stair's line in the print (x 490-540 and 562-600 px), so no opening is cut; whatever gave onto the walk is hidden behind the tree or the ice wagon, and nothing is built for it. Nothing turns the 18th Street corner: no picture shows a return. The pier is the stair's: at the foot of its south cheek, whose top rakes down to it, x 475-507 px, its top at y 462, 1.55 m over grade at the foot's distance (and 1.56 m were it on the street line, so the height does not rest on where it stands); its lower part is hidden behind the street wall. RECONSTRUCTED: the wall's thickness (0.35 m) and the chamfer (0.06 m), the pier's section (0.6 m under a 0.06 m cap; the print's 32 px include its cap's shadow), and that the stone is limestone in c. 1890 as in 2015 (L-k01-1736-mcbirney-veranda-2933)."
     },
     "mansard": {
       "value": {

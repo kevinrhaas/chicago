@@ -1,87 +1,100 @@
 {
- "structure_id": "house_1736_prairie",
- "view": "mcbirney_c1890_photo",
- "glb": "assets/gltf/house_1736_prairie__as_mapped_1904.glb",
- "glb_sha256": "d401529d942256c34dec354ea5e895af05d8e8353f6c59090c1249f6e9d852a9",
- "camera_sha256": "d924f0ee0e92dcf7693117ec8a43053a5929bcb7664a34b41590391a6964b6dd",
- "side_by_side": "docs/RESEARCH/photo-match/house_1736_prairie/mcbirney_c1890_photo-side-by-side.jpg",
- "verdict": "differs",
- "differences": [
-  {
-   "what": "massing: a narrow front two storeys over a raised basement under a mansard, 216 px across at the upper storey (x 321-537)",
-   "status": "fixed",
-   "how": "T-2933: the 1911 sheet's 6.75 m main body on K01; the render's upper wall stands at x 319-536"
-  },
-  {
-   "what": "the bracketed cornice across the front, its bracket band at y 186-196 px",
-   "status": "fixed",
-   "how": "T-2933: K10's bracketed timber cornice at the 9.9 m wall head"
-  },
-  {
-   "what": "the mansard's steep slated lower faces to a curb at y 103 px, and two round-headed dormers on the street face at x 383-398 and 478-493 px",
-   "status": "fixed",
-   "how": "T-2933: K05's mansard 2.7 m over the eave with two round-headed dormers at v 2.12 and 5.18 m"
-  },
-  {
-   "what": "three upper-storey windows at x 357, 423 and 496 px, sills y 300 and heads y 240",
-   "status": "fixed",
-   "how": "T-2933: front_bays 1.12, 3.20, 5.47 m and the upper sash 6.6-8.6 m over grade"
-  },
-  {
-   "what": "the walls' tone: near white against the dark sash and cornice shadow",
-   "status": "fixed",
-   "how": "T-2933: wall_finish paints the brick opaque in a pale colour (the colour itself is reconstructed)"
-  },
-  {
-   "what": "a veranda the front's whole width: slender posts, a deep frieze over them (soffit y 335 px), a low roof, its deck at the principal floor (y 452 px) behind a balustrade",
-   "status": "fixed",
-   "how": "T-2933: K07's veranda on the stoop's landing and terraces, posts at v 0.15, 2.85, 4.9 and 6.6 m, 3.4 m high, a 0.6 m beam and a hipped lean-to roof"
-  },
-  {
-   "what": "the stair at the veranda's north end between cheek walls and between the two north posts, straight out toward the walk",
-   "status": "fixed",
-   "how": "T-2933: the 1.2 m stoop at v 5.65"
-  },
-  {
-   "what": "the upper windows' heads: segmental arches under moulded hoods whose ends turn down (eared); built round-headed under a hood ring",
-   "status": "fixed",
-   "how": "T-2960: each light cut to a segmental head rising 0.22 of its span, K06's one-over-one segmental sash in it, and K09's flat cornice hood over the crown with a scrolled console under each end standing just outside the jambs (street_front_round_heads head, rise_over_span and hood); the hood 0.25 m past each jamb, about 1.7 m across with its cornice, the photograph's 54 px"
-  },
-  {
-   "what": "the veranda's balustrade a lighter rail with a pierced infill and its deck, painted timber; built K07's turned stone balustrade on a stone deck",
-   "status": "fixed",
-   "how": "T-2960: the balustrade's rail, newels and slender balusters (0.14 m pitch) and the deck painted with the walls (entrance_kit balustrade fabric painted_timber, veranda open_under)"
-  },
-  {
-   "what": "the veranda posts' section: turned or chamfered, or plain",
-   "status": "not shown",
-   "how": "T-2960: each post is about 6 px across in the print, too few to show a chamfer or a turning; built plain square (docs/LIBERTIES.md L-k01-1736-mcbirney-veranda-2933)"
-  },
-  {
-   "what": "under the deck the photograph shows the raised basement's dark openings between piers; the render stands the terrace's solid face to grade",
-   "status": "fixed",
-   "how": "T-2960: the deck open beneath (K07 veranda open_under): each post carried on down past the deck to grade as a pier, a 0.2 m skirt along the deck's front, and the dark of the space under it 0.5 m back between them"
-  },
-  {
-   "what": "the veranda roof's slope shows as a textured band over the fascia (y 300-328 px); the render's roof reads as a plain fascia",
-   "status": "open"
-  },
-  {
-   "what": "a lower front set back about 3 m left of the house, with a one-storey canted bay and a dormer over it, which the 1911 sheet does not draw at 1736: whether it was 1736's own south part in c. 1890 (and gone or altered by 1911), or a neighbour, is T-2961's to argue",
-   "status": "open"
-  },
-  {
-   "what": "the low pale wall along the street line and its pier at the stair's foot; no boundary is built",
-   "status": "open"
-  },
-  {
-   "what": "colour: the print is monochrome",
-   "status": "not shown"
-  },
-  {
-   "what": "the south flank on 18th Street, the north wall, the rear and the roof behind the street face: the camera stands square to the front",
-   "status": "not shown"
-  }
- ],
- "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "structure_id": "house_1736_prairie",
+  "view": "mcbirney_c1890_photo",
+  "glb": "assets/gltf/house_1736_prairie__as_mapped_1904.glb",
+  "glb_sha256": "c379544a67f4f9bd151af450f56dbd76c8bea8deb6959a5627110345c13684d9",
+  "camera_sha256": "d924f0ee0e92dcf7693117ec8a43053a5929bcb7664a34b41590391a6964b6dd",
+  "side_by_side": "docs/RESEARCH/photo-match/house_1736_prairie/mcbirney_c1890_photo-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "massing: a narrow front two storeys over a raised basement under a mansard, 216 px across at the upper storey (x 321-537)",
+      "status": "fixed",
+      "how": "T-2933: the 1911 sheet's 6.75 m main body on K01; the render's upper wall stands at x 319-536"
+    },
+    {
+      "what": "the bracketed cornice across the front, its bracket band at y 186-196 px",
+      "status": "fixed",
+      "how": "T-2933: K10's bracketed timber cornice at the 9.9 m wall head"
+    },
+    {
+      "what": "the mansard's steep slated lower faces to a curb at y 103 px, and two round-headed dormers on the street face at x 383-398 and 478-493 px",
+      "status": "fixed",
+      "how": "T-2933: K05's mansard 2.7 m over the eave with two round-headed dormers at v 2.12 and 5.18 m"
+    },
+    {
+      "what": "three upper-storey windows at x 357, 423 and 496 px, sills y 300 and heads y 240",
+      "status": "fixed",
+      "how": "T-2933: front_bays 1.12, 3.20, 5.47 m and the upper sash 6.6-8.6 m over grade"
+    },
+    {
+      "what": "the walls' tone: near white against the dark sash and cornice shadow",
+      "status": "fixed",
+      "how": "T-2933: wall_finish paints the brick opaque in a pale colour (the colour itself is reconstructed)"
+    },
+    {
+      "what": "a veranda the front's whole width: slender posts, a deep frieze over them (soffit y 335 px), a low roof, its deck at the principal floor (y 452 px) behind a balustrade",
+      "status": "fixed",
+      "how": "T-2933: K07's veranda on the stoop's landing and terraces, posts at v 0.15, 2.85, 4.9 and 6.6 m, 3.4 m high, a 0.6 m beam and a hipped lean-to roof"
+    },
+    {
+      "what": "the stair at the veranda's north end between cheek walls and between the two north posts, straight out toward the walk",
+      "status": "fixed",
+      "how": "T-2933: the 1.2 m stoop at v 5.65"
+    },
+    {
+      "what": "the upper windows' heads: segmental arches under moulded hoods whose ends turn down (eared); built round-headed under a hood ring",
+      "status": "fixed",
+      "how": "T-2960: each light cut to a segmental head rising 0.22 of its span, K06's one-over-one segmental sash in it, and K09's flat cornice hood over the crown with a scrolled console under each end standing just outside the jambs (street_front_round_heads head, rise_over_span and hood); the hood 0.25 m past each jamb, about 1.7 m across with its cornice, the photograph's 54 px"
+    },
+    {
+      "what": "the veranda's balustrade a lighter rail with a pierced infill and its deck, painted timber; built K07's turned stone balustrade on a stone deck",
+      "status": "fixed",
+      "how": "T-2960: the balustrade's rail, newels and slender balusters (0.14 m pitch) and the deck painted with the walls (entrance_kit balustrade fabric painted_timber, veranda open_under)"
+    },
+    {
+      "what": "the veranda posts' section: turned or chamfered, or plain",
+      "status": "not shown",
+      "how": "T-2960: each post is about 6 px across in the print, too few to show a chamfer or a turning; built plain square (docs/LIBERTIES.md L-k01-1736-mcbirney-veranda-2933)"
+    },
+    {
+      "what": "under the deck the photograph shows the raised basement's dark openings between piers; the render stands the terrace's solid face to grade",
+      "status": "fixed",
+      "how": "T-2960: the deck open beneath (K07 veranda open_under): each post carried on down past the deck to grade as a pier, a 0.2 m skirt along the deck's front, and the dark of the space under it 0.5 m back between them"
+    },
+    {
+      "what": "the veranda roof's slope shows as a textured band over the fascia (y 300-328 px); the render's roof reads as a plain fascia",
+      "status": "fixed",
+      "how": "T-2961: the slope was built nearly edge-on to this camera (0.35 m over the roof's 2 m, about the eye's own line to it) under a 0.6 m beam whose painted face stood where the print draws roof; now a 0.1 m beam under a 0.08 m edge, 5.25-5.43 m over grade (y 336-330 px), and the roof rising 1.0 m to the wall under the upper sills, its slopes in the house's roof covering: the render's dark slope runs y 305-327 over the fascia, the print's y 306-331"
+    },
+    {
+      "what": "a lower front set back about 3 m left of the house, with a one-storey canted bay and a dormer over it, which the 1911 sheet does not draw at 1736: whether it was 1736's own south part in c. 1890 (and gone or altered by 1911), or a neighbour, is T-2961's to argue",
+      "status": "fixed",
+      "how": "T-2961, ruled: neither 1736's own nor a neighbour's, on the lot as it stood. The 1904 parcel's south line meets the street line 0.65 m south of the house's south wall, and 18th Street lies beyond it. Through the camera this front spans x 185-320 px; on any plane parallel to the front between 25 and 35 m from the eye, and for any principal point the crop allows, its south end falls 3.6-5.1 m south of the house's south wall: in 18th Street's walk and roadway. A neighbour south of 18th Street would have to stand about 180 m off to fall in that angle, and its cornice (y 210 px against the house's 186-196) reads at the house's own scale. The print is c. 1890; what it shows there is not settled by this camera. Nothing is built for it in 1904, where the 1911 sheet draws the corner open"
+    },
+    {
+      "what": "the low pale wall along the street line and its pier at the stair's foot; no boundary is built",
+      "status": "fixed",
+      "how": "T-2961: K11's stone_coping_wall on the street line, 0.74 m high from the lot's south line to s 4.3 (the print's top at y 501 px, x 212-440) and 0.95 m from there to the north lot line (y 491, x 476-628: the taller run ends where the 1904 parcel's north line meets the street, s 7.79, unfitted), 0.35 m through with its top's street arris chamfered, as the McBirney curbstone photographed in place in 2015 (Prairie library a16-ghm-blog-1736-mcbirney-curbstone-2015) is cut; and a 1.55 m stone pier under a cap at the foot of the stair's south cheek (the print's x 475-507 px, its top at y 462), whose lower part the wall hides. The render's wall stands at x 231-626, its two tops at y 500 and 490, the pier's top at y 462. No opening is cut: the print draws the wall continuous across the stair's line but for 0.4 m behind a tree"
+    },
+    {
+      "what": "in the roof's band, a darker mark over three of the posts (x 340, 412 and 485 px against the posts' 337, 412 and 484), each about 8 px across",
+      "status": "not shown",
+      "how": "T-2961: at 34 px/m the print does not show whether a mark is a bracket's shadow, a drop or a seam, so nothing is built for it"
+    },
+    {
+      "what": "the street wall's tone: pale in the print, as pale as the house's painted walls",
+      "status": "not shown",
+      "how": "T-2961: the print is monochrome; the wall is built in the stoop's stone, limestone as the 2015 curbstone is"
+    },
+    {
+      "what": "colour: the print is monochrome",
+      "status": "not shown"
+    },
+    {
+      "what": "the south flank on 18th Street, the north wall, the rear and the roof behind the street face: the camera stands square to the front",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

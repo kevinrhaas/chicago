@@ -26173,21 +26173,28 @@ posts (the print's 6 px posts do not show a turned or chamfered section), the ba
 (T-2960 builds it in painted timber with slender balusters at 0.14 m, the print showing only a light
 pierced band) and how far back the dark under the deck stands (0.5 m); the upper windows' hood
 profile and consoles, which are K09's (the print shows a flat moulded hood with drops at its ends,
-too small to read their mouldings); the veranda roof's pitch;
+too small to read their mouldings); the veranda roof's covering (T-2961 lays its slopes in the
+house's roof covering; the print shows them textured and darker than the fascia, not what they are);
+the street wall's thickness (0.35 m), its top's chamfer (0.06 m) and its stone, limestone as the
+McBirney curbstone photographed in place in 2015 is, and the section of the stair's foot pier (0.6 m
+under a 0.06 m cap);
 the mansard's deck and its two south dormers over 18th Street; the stacks' places; every window of
 the south, north and rear walls (no picture sees them); the rainwater; the treads.
-**What is not built.** The south wall's two small projections and its side porch on 18th Street, the
-lower set-back front the photograph shows left of the house (not on the 1911 sheet), and the low
-wall at the street line: open on the match record for T-2961. (The arched heads' segmental curve
-under their hoods, the basement's dark openings between the posts' piers under the deck, and the
-painted timber deck and balustrade were built by T-2960.)
-**How to resolve:** T-2961 builds the street wall, argues the set-back front and brings the match
-record to `matches`; T-2962 builds the flank, the service wing and the rear and argues the mansard's
-date; a later picture of the house, ingested as a source, says what changed by 1904.
+**What is not built.** The south wall's two small projections and its side porch on 18th Street
+(T-2962). The lower set-back front the photograph shows left of the house: T-2961 ruled it neither
+1736's own nor a neighbour's on the lot as it stood, since through the camera it falls 3.6-5.1 m
+south of the house's south wall, in 18th Street, where the 1911 sheet draws the corner open. Any
+opening in the street wall (the print draws the wall continuous across the stair's line but for
+0.4 m behind a tree) and any return of the wall along 18th Street (no picture shows one). (T-2961
+built the street wall at the print's two heights with the stair's foot pier, and the veranda roof
+rising 1.0 m to the wall over a thin fascia where T-2933's had risen 0.35 m behind a 0.6 m beam.)
+**How to resolve:** T-2962 builds the flank, the service wing and the rear and argues the mansard's
+date; a later picture of the house, ingested as a source, says what changed by 1904, and a picture
+of the corner says what stood south of the house in c. 1890.
 **Covers:** `house_1736_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1736_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1736_prairie.as_mapped_1904.form.service_wall_brick`, `house_1736_prairie.as_mapped_1904.form.street_front_trim`, `house_1736_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1736_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1736_prairie.as_mapped_1904.form.stair_tread_m`, `house_1736_prairie.as_mapped_1904.form.side_bays`, `house_1736_prairie.as_mapped_1904.form.rear_bays`, `house_1736_prairie.as_mapped_1904.form.north_bays`, `house_1736_prairie.as_mapped_1904.form.basement_lights`, `house_1736_prairie.as_mapped_1904.form.chimneys`, `house_1736_prairie.as_mapped_1904.form.rainwater`, `house_1736_prairie.as_mapped_1904.form.window_kit`
-**Ticket:** T-2933 (piece 1 of T-1874); T-2960 (the upper windows' heads and the veranda).
+**Ticket:** T-2933 (piece 1 of T-1874); T-2960 (the upper windows' heads and the veranda); T-2961 (the street wall, the veranda roof's slope and the set-back front).
 **Review:** `docs/RESEARCH/k01-1736-mcbirney-2933/README.md`.
-**Recorded:** 2026-10-20 (T-2933; amended by T-2960).
+**Recorded:** 2026-10-20 (T-2933; amended by T-2960 and T-2961).
 
 ### L-k01-1816-henderson-2963 — 1816 Prairie refined from the district draft to a K01 brick house under a mansard, its canted bays and columned porch read off its photograph
 

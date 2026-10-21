@@ -2323,11 +2323,13 @@ class Assembly:
                  # K08 frame bay's walls are the body's)
                  "post": None, "beam": None, "porch_roof": None,
                  # T-2960: and the skirt of a deck open beneath it, over the void's dark
-                 "skirt": None}
+                 "skirt": None,
+                 # T-2961: and its roof's slopes in the house's roof covering
+                 "porch_roof_top": "slate_covering"}
     STAIR_ROLES = frozenset({"landing", "tread", "riser", "stair_end", "cheek",
                              "terrace", "terrace_face", "baluster", "newel", "rail",
                              "pedestal", "column", "entablature", "loggia_wall", "balcony", "arch_reveal",
-                             "post", "beam", "porch_roof", "skirt"})
+                             "post", "beam", "porch_roof", "skirt", "porch_roof_top"})
 
     def door_variant(self) -> dict:
         """The record's K07 variant at this house's own door and stoop: the K01 hole's clear

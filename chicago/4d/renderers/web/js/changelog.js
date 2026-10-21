@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 2157, ts: '2026-10-21T08:05:50.417Z', date: 'Oct 21, 2026, 3:05 AM CT', title: 'Draw budgets now count every draw the graphics driver receives', kind: 'fix',
+    items: [
+      'The page counted each batch of buildings as one draw, but the graphics driver receives one draw per piece in the batch. Over 1904 the counter read 360 while the driver got 3,288.',
+      'The draw budgets, the light tier\'s floor and the frame-pacing reading now use the driver\'s count, so the gate sees what a phone actually pays. The ceilings were re-measured at the six test stands.',
+    ] },
+  { v: 2156, ts: '2026-10-21T08:05:50.417Z', date: 'Oct 21, 2026, 3:05 AM CT', title: '1736 Prairie gets its street wall and a proper veranda roof', kind: 'improvement',
+    items: [
+      'A low limestone wall now runs along 1736\'s street line, stepping up north of the stair as in the c. 1890 photograph, with a tall stone pier at the foot of the stair.',
+      'The veranda\'s roof now slopes up to the house in its covering over a thin fascia, where a deep painted beam stood before.',
+    ] },
+  { v: 2155, ts: '2026-10-21T08:05:50.417Z', date: 'Oct 21, 2026, 3:05 AM CT', title: 'Nothing you can see changed: graphics card deals the far meadow', kind: 'chore',
+    items: [
+      'Nothing you can see changed. The far sward, out to the edge of the meadow, stands on the same clumps and flowers, in the same places, as before.',
+      'The page no longer walks that whole far band itself every few steps. The graphics card decides which plant stands in each far spot, against a small map that holds the ground\'s answer for each spot exactly, and the page reads its answer back and sets the clumps out a little at a time between frames.',
+      'On a phone each step\'s re-deal of the plants around you now takes about a third less time, and about two thirds less at the highest detail.',
+      'Just after you arrive somewhere, change detail, or jump across the town, the page still deals the far band itself for a moment, until the card has the ground around you.',
+    ] },
   { v: 2154, ts: '2026-10-21T04:02:36.383Z', date: 'Oct 20, 2026, 11:02 PM CT', title: 'Nothing you can see changed: graphics card deals the distant grass', kind: 'chore',
     items: [
       'Nothing you can see changed. The low grass that carries on past the detailed meadow around you stands on the same clumps, in the same places, as before.',

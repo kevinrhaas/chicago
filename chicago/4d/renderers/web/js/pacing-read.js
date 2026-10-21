@@ -108,7 +108,8 @@ export function ratioRange(r) {
 }
 
 /** T-2829: a drive's ratio switches, the draws over 50 ms that came on one, and the
- *  share of its draws paced to 30 — nothing when the drive carries no such count. */
+ *  share of its draws paced to 30 — nothing when the drive carries no such count.
+ *  T-2970: and the driver's draws a frame, where the page could count them. */
 export function drawNotes(r) {
   if (!r || !Number.isFinite(r.switches)) return '';
   const parts = [];
@@ -116,6 +117,9 @@ export function drawNotes(r) {
     parts.push(`${r.switches} switch${r.switches === 1 ? '' : 'es'} (${r.slowAtSwitch ?? 0} of the >50 on one)`);
   }
   if (r.paced) parts.push(`paced ${Math.round((100 * r.paced) / Math.max(1, r.draws))} %`);
+  // T-2970: what the GPU driver received for a frame, median and worst — the
+  // figure the draw budgets read, where three's own counter takes a batch as one.
+  if (r.driverDraws) parts.push(`driver draws ${r.driverDraws.median} (max ${r.driverDraws.max})`);
   return parts.length ? `, ${parts.join(', ')}` : '';
 }
 
@@ -240,6 +244,7 @@ async function driveOne(a, move, mode, seconds) {
   const notes = { switches: 0, slowAtSwitch: 0, paced: 0 };
   let lastRatio = null;
   let sinceSwitch = Infinity;
+  const driver = [];
   const render = a.renderer.render;
   a.renderer.render = function timed(...args) {
     if (a.renderer.getRenderTarget() === null) {
@@ -252,6 +257,10 @@ async function driveOne(a, move, mode, seconds) {
       starts.push(now);
       if (r < ratio.min) ratio.min = r;
       if (r > ratio.max) ratio.max = r;
+      const out = render.apply(this, args);
+      const n = a.driverDraws?.draws;
+      if (Number.isFinite(n)) driver.push(n);
+      return out;
     }
     return render.apply(this, args);
   };
@@ -269,7 +278,9 @@ async function driveOne(a, move, mode, seconds) {
   } finally {
     a.renderer.render = render;
   }
-  return { ...summarise(starts), ratio, ...notes };
+  driver.sort((x, y) => x - y);
+  const driverDraws = driver.length ? { median: driver[Math.floor(driver.length / 2)], max: driver[driver.length - 1] } : null;
+  return { ...summarise(starts), ratio, ...notes, driverDraws };
 }
 
 /**

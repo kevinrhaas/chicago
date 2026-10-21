@@ -59,6 +59,8 @@ ROLE_MATERIAL = {
     "hardware": "iron", "backing": "backing",
     "deck": "porch_timber", "skirt": "porch_timber", "post": "porch_timber", "beam": "porch_timber",
     "porch_roof": "porch_timber", "step_timber": "porch_timber",
+    # T-2961: a veranda roof's slopes, which a house lays in its own roof covering
+    "porch_roof_top": "porch_timber",
     "terrace": "stone", "terrace_face": "stone", "baluster": "stone", "newel": "stone", "rail": "stone",
     # T-2500: a stone loggia on the terrace (1808's), its basement arch's void behind the hall's backing
     "pedestal": "stone", "column": "stone", "entablature": "stone", "loggia_wall": "stone",
@@ -551,9 +553,11 @@ class Entrance(Opening):
         self.quad("porch_roof", [(ra, ye, Lo), (rb, ye, Lo), (rb, yt, Lo), (ra, yt, Lo)], OUT)
         for xx, hx in ((ra, -1.0), (rb, 1.0)):
             self.quad("porch_roof", [(xx, ye, 0), (xx, ye, Lo), (xx, yt, Lo), (xx, yt, 0)], (hx, 0.0, 0.0))
-        self.quad("porch_roof", [(ra, yt, Lo), (rb, yt, Lo), (rb - Lo, yr, 0), (ra + Lo, yr, 0)], (0.0, Lo, rise))
-        self.quad("porch_roof", [(ra, yt, 0), (ra, yt, Lo), (ra + Lo, yr, 0)], (-rise, Lo, 0.0))
-        self.quad("porch_roof", [(rb, yt, 0), (rb, yt, Lo), (rb - Lo, yr, 0)], (rise, Lo, 0.0))
+        # T-2961: the slopes are the roof's covering, not its painted joinery (1736's photograph
+        # draws its slope textured and darker than the fascia under it)
+        self.quad("porch_roof_top", [(ra, yt, Lo), (rb, yt, Lo), (rb - Lo, yr, 0), (ra + Lo, yr, 0)], (0.0, Lo, rise))
+        self.quad("porch_roof_top", [(ra, yt, 0), (ra, yt, Lo), (ra + Lo, yr, 0)], (-rise, Lo, 0.0))
+        self.quad("porch_roof_top", [(rb, yt, 0), (rb, yt, Lo), (rb - Lo, yr, 0)], (rise, Lo, 0.0))
         self.probe((ra + rb) / 2, ye, Lo / 2, ("porch_roof",), "the veranda's soffit")
         self.meta["veranda"] = {"posts_s_m": list(V["posts_s_m"]), "post_top_m": ph, "beam_y_m": [yb0, yb1],
                                 "roof_y_m": [ye, yr], "extent_s": [ra, rb], "extent_out_m": round(Lo, 4),
