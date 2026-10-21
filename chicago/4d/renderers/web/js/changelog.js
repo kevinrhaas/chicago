@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2149, ts: '2026-10-21T01:39:29.011Z', date: 'Oct 20, 2026, 8:39 PM CT', title: '1812 Prairie\'s porch, stair and south front, from the Levy photograph', kind: 'feature',
+    items: [
+      '1812 Prairie\'s entrance is now the photograph\'s broad porch arch: a low curved head with a glazed fanlight over the double door, a stone pier and a tall side light',
+      'Its stair runs to the walk between solid stone balustrades that sweep down to a block at the foot, and the landing runs on north behind a stone panel pierced with two rows of square holes',
+      'The south projection now stands flush with the house\'s south corner, its barred basement light comes down almost to the walk, and a downpipe runs down each end of the front',
+    ] },
   { v: 2148, ts: '2026-10-21T00:01:06.040Z', date: 'Oct 20, 2026, 7:01 PM CT', title: '1801 Prairie\'s carved pilasters and framed windows', kind: 'feature',
     items: [
       'The Kimball house\'s bowed bay and its south pavilion now carry the carved pilasters J. W. Taylor photographed: one to each storey, a chain of lozenges down its shaft, under a capital and on a corbel at the foot.',
