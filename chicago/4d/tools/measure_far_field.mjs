@@ -3,7 +3,8 @@
  *
  *   node tools/measure_far_field.mjs [--source] [--tiers light,balanced,full]
  *                                    [--stations a,b] [--bearings 4] [--texels 0.5,1,2]
- *                                    [--gate] [--self-test] [--write]
+ *                                    [--gate] [--self-test] [--write] [--out path]
+ *                                    [--shrubs-only]
  *
  * THE QUESTION. T-2967 deals the near pass's far band (`rebuildFar`: three
  * lattices out to 120 m on the phone, 150 balanced, 175 at `full`) on the GPU
@@ -36,15 +37,29 @@
  *      the same card to the bit (every instance attribute), a card only one
  *      side has, or a card at the same root that differs. The flower heads and
  *      every other flora set are held to the bit as wholes.
+ *   4. T-2968, THE FAR SHRUBS, at the same bearings: a fresh FAR pass (the far
+ *      pass runs on its own 4 m step, so 5 m east and back, each read in the
+ *      frame, then `settle()`) with the far shrubs walked on the CPU
+ *      (`nearDraw.setFarShrubOnGpu(false)`) and one with them dealt in the
+ *      carry job against their own slot field and reaped. Every
+ *      `flora-shrub-far` bush is matched by its root, as the cards are; the
+ *      carries and every other flora set are held to the bit as wholes.
+ *      `--shrubs-only` reads this part alone.
  *
  * `--gate` holds the slot field's class differences and slot points at
  * SLOT_BOUND, and the cards at CARD_BOUND (no card differs, none on one side
  * only, heads and other sets the same, every pose dealt on the GPU).
  * `--self-test` reads the slot field one texel off (each slot against its
  * east neighbour's texel) and must find differences over SLOT_BOUND, so a green
- * run is a reading and not a comparison that cannot see a wrong texel.
+ * run is a reading and not a comparison that cannot see a wrong texel. For the
+ * far shrubs it deals each pose a third time with their slot field read one
+ * texel east on the GPU (uFarIdx0 + 1) and must find bushes that differ.
+ * The gate holds the far shrubs at CARD_BOUND: none differs, none on one side
+ * only, every other set the same, every pose dealt on the GPU (and walked on
+ * the CPU when asked to).
  *
- * `--write` keeps the reading at docs/measurements/t-2967-far-field.json. It
+ * `--write` keeps the reading at docs/measurements/t-2967-far-field.json (or
+ * `--out`, relative to chicago/4d). It
  * renders, so it needs Playwright and is not part of `tools/check.sh`.
  */
 import http from 'node:http';
@@ -77,12 +92,14 @@ const SELF_TEST = argv.includes('--self-test');
 const TIERS = (flag('--tiers') || 'light,balanced,full').split(',').filter(Boolean);
 const PICK = (flag('--stations') || '').split(',').filter(Boolean);
 const BEARINGS = Number(flag('--bearings') || 4);
+/** T-2968: part 4 alone (the far shrubs), for a quicker reading. */
+const SHRUBS_ONLY = argv.includes('--shrubs-only');
 const TEXELS = (flag('--texels') || '0.5,1,2').split(',').map(Number);
 const ROOT = wantSource ? APP : path.resolve(APP, '../../site/4d');
 const ENTRY = wantSource ? '/renderers/web/index.html' : '/walk/';
 const PORT = Number(process.env.FAR_FIELD_PORT || 4203);
 const YEAR = process.env.FAR_FIELD_YEAR || '1835';
-const OUT = path.join(APP, 'docs/measurements/t-2967-far-field.json');
+const OUT = path.join(APP, flag('--out') || 'docs/measurements/t-2967-far-field.json');
 
 /**
  * THE BOUNDS. Zero, both. A slot field's texel is asked at the slot's own
@@ -308,14 +325,85 @@ async function pageCards({ st, bearing }) {
     redealt: d('farRedealt') };
 }
 
+/**
+ * T-2968. Runs in the page: the far shrubs dealt on the CPU and on the GPU at
+ * one pose. The far pass runs on its own step (`tune.farShrub.step`, 4 m), so
+ * each deal is a far pass from here: STEP metres east, then back, each read in
+ * the frame (no budget), then `settle()` takes any tail. `shift` is the
+ * self-test: the far shrubs' slot field read one texel east (uFarIdx0 + 1),
+ * every slot asked at its neighbour's answer.
+ */
+async function pageShrubs({ st, bearing, shift }) {
+  const a = window.__chicago4d;
+  const nd = a.flora.nearDraw;
+  const sf = nd.farShrubField;
+  a.walker.teleport({ local_e: st.local_e, local_n: st.local_n, yaw_deg: bearing });
+  const cam = a.camera.clone();
+  cam.updateMatrixWorld(true);
+  const STEP = 5;
+  // The counters of the pass back at the pose only: the one 5 m east may stand
+  // where the kept tiles do not reach yet, and is not the pass compared.
+  const deal = () => {
+    const c = cam.clone();
+    c.position.x += STEP;
+    c.updateMatrixWorld(true);
+    a.flora.update(0, c);
+    a.flora.settle();
+    const s0 = { ...nd.stats };
+    a.flora.update(0, cam);
+    a.flora.settle();
+    nd?.flush?.();
+    const s1 = nd.stats;
+    const d = (k) => (s1[k] ?? 0) - (s0[k] ?? 0);
+    return { parts: d('farShrubParts'), walked: d('farShrubCpu'), asked: d('farShrubAsked'),
+      redealt: d('farShrubRedealt') };
+  };
+  const dump = () => {
+    const sets = {};
+    a.flora.group.traverse((o) => {
+      if (!o.isInstancedMesh) return;
+      const attrs = [o.instanceMatrix, o.instanceColor, ...Object.values(o.geometry.attributes)
+        .filter((x) => x.isInstancedBufferAttribute && x !== o.instanceMatrix && x !== o.instanceColor)]
+        .filter(Boolean);
+      sets[o.name] = { count: o.count, attrs: attrs.map((x) => ({ size: x.itemSize,
+        data: Array.from(x.array.subarray(0, o.count * x.itemSize)) })) };
+    });
+    return sets;
+  };
+  a.flora.update(0, cam);
+  await nd?.settled?.();
+  a.flora.update(0, cam);
+  a.flora.settle();
+  nd.setFarShrubOnGpu(false);
+  const x = deal();
+  const cpu = dump();
+  nd.setFarShrubOnGpu(true);
+  let shifted = null;
+  if (shift && sf) {
+    const was = sf.uniforms.uFarIdx0.value;
+    shifted = [was[0] + 1, was[1]];
+    sf.uniforms.uFarIdx0.value = shifted;
+  }
+  const y = deal();
+  const gpu = dump();
+  // A tile that landed meanwhile set its own origin; else put it back.
+  let held = null;
+  if (shifted) {
+    held = sf.uniforms.uFarIdx0.value === shifted;
+    if (held) sf.uniforms.uFarIdx0.value = [shifted[0] - 1, shifted[1]];
+  }
+  return { cpu, gpu, held, cpuWalked: x.walked, cpuParts: x.parts, gpuParts: y.parts,
+    gpuWalked: y.walked, asked: y.asked, redealt: y.redealt };
+}
+
 /** The far cards of two dumps, matched by root. */
-function compareCards(cpu, gpu) {
+function compareCards(cpu, gpu, name = 'flora-far') {
   const card = (set, i) => set.attrs.map((x) => x.data.slice(i * x.size, (i + 1) * x.size)).flat();
   const key = (set, i) => {
     const m = set.attrs[0].data;
     return `${m[16 * i + 12]},${m[16 * i + 14]}`;
   };
-  const c = cpu['flora-far'], g = gpu['flora-far'];
+  const c = cpu[name], g = gpu[name];
   const gm = new Map();
   for (let i = 0; i < g.count; i++) gm.set(key(g, i), i);
   let same = 0, differ = 0, cpuOnly = 0;
@@ -336,12 +424,12 @@ function compareCards(cpu, gpu) {
     && card(c, 0).length === card(g, 0).length
     && c.attrs.every((x, q) => x.data.every((v, r) => Object.is(v, g.attrs[q].data[r])));
   const others = {};
-  for (const name of Object.keys(cpu)) {
-    if (name === 'flora-far') continue;
-    const x = cpu[name], y = gpu[name];
+  for (const set of Object.keys(cpu)) {
+    if (set === name) continue;
+    const x = cpu[set], y = gpu[set];
     const eq = y && x.count === y.count
       && x.attrs.every((at, q) => at.data.every((v, r) => Object.is(v, y.attrs[q].data[r])));
-    if (!eq) others[name] = { cpu: x.count, gpu: y?.count ?? null };
+    if (!eq) others[set] = { cpu: x.count, gpu: y?.count ?? null };
   }
   return { cpu: c.count, gpu: g.count, same, differ, cpuOnly, gpuOnly, order, firsts, others };
 }
@@ -350,7 +438,7 @@ const browser = await chromium.launch({
   executablePath: process.env.PW_EXECUTABLE || undefined,
   args: ['--enable-unsafe-swiftshader'],
 });
-const report = { ticket: 'T-2967', year: YEAR, measured: new Date().toISOString(),
+const report = { ticket: SHRUBS_ONLY ? 'T-2968' : 'T-2967, T-2968', year: YEAR, measured: new Date().toISOString(),
   source: wantSource ? 'working tree' : 'published mirror', bounds: { slot: SLOT_BOUND,
     cards: CARD_BOUND }, texels: TEXELS, bearings: BEARINGS, tiers: [] };
 let failed = false;
@@ -384,6 +472,9 @@ for (const tier of TIERS) {
   const cards = { cpu: 0, gpu: 0, same: 0, differ: 0, cpuOnly: 0, gpuOnly: 0, unordered: 0, poses: 0,
     uncovered: 0, others: 0, asked: 0, redealt: 0 };
   const firstCards = [];
+  const shrubs = { cpu: 0, gpu: 0, same: 0, differ: 0, cpuOnly: 0, gpuOnly: 0, unordered: 0, poses: 0,
+    uncovered: 0, notWalked: 0, others: 0, asked: 0, redealt: 0, selfPoses: 0, selfHeld: 0, selfOff: 0 };
+  const firstShrubs = [];
   for (const st of STATIONS) {
     // The station's own tiles home first: the kept far tile is read with it.
     await page.evaluate(async (s) => {
@@ -393,6 +484,38 @@ for (const tier of TIERS) {
       await a.flora.nearDraw?.settled?.();
       a.flora.update(0, a.camera);
     }, st);
+    // T-2968, part 4: the far shrubs, at the same bearings.
+    for (let b = 0; b < BEARINGS; b++) {
+      const bearing = (360 / BEARINGS) * b;
+      const got = await page.evaluate(pageShrubs, { st, bearing, shift: false });
+      const cmp = compareCards(got.cpu, got.gpu, 'flora-shrub-far');
+      shrubs.poses++;
+      if (got.gpuParts < 1 || got.gpuWalked > 0) {
+        shrubs.uncovered++;
+        if (firstShrubs.length < 8) firstShrubs.push({ st: st.id, bearing, uncovered: [got.gpuParts, got.gpuWalked] });
+      }
+      if (got.cpuWalked < 1 || got.cpuParts > 0) shrubs.notWalked++;
+      for (const k of ['cpu', 'gpu', 'same', 'differ', 'cpuOnly', 'gpuOnly']) shrubs[k] += cmp[k];
+      if (!cmp.order) shrubs.unordered++;
+      shrubs.asked += got.asked;
+      shrubs.redealt += got.redealt;
+      if (Object.keys(cmp.others).length) {
+        shrubs.others++;
+        if (firstShrubs.length < 8) firstShrubs.push({ st: st.id, bearing, others: cmp.others });
+      }
+      if ((cmp.differ || cmp.cpuOnly || cmp.gpuOnly || got.gpuParts < 1) && firstShrubs.length < 8) {
+        firstShrubs.push({ st: st.id, bearing, gpuParts: got.gpuParts, gpuWalked: got.gpuWalked,
+          ...cmp.firsts.length ? { firsts: cmp.firsts } : {} });
+      }
+      if (SELF_TEST) {
+        const off = await page.evaluate(pageShrubs, { st, bearing, shift: true });
+        const x = compareCards(off.cpu, off.gpu, 'flora-shrub-far');
+        shrubs.selfPoses++;
+        if (off.held) shrubs.selfHeld++;
+        shrubs.selfOff += x.differ + x.cpuOnly + x.gpuOnly;
+      }
+    }
+    if (SHRUBS_ONLY) continue;
     const r = await page.evaluate(pageClasses, { st, texels: TEXELS });
     rows.push(r);
     for (const t of TEXELS) {
@@ -426,39 +549,62 @@ for (const tier of TIERS) {
   }
   const pct = (x, y) => (y ? (100 * x / y).toFixed(3) : '-');
   const k = (x) => sum[`kept.${x}`] ?? 0;
-  console.log(`  THE SLOT FIELD: ${k('slots')} far slots (${k('cand')} candidates); ${k('pointDiffer')} asked at`
-    + ` another point than scatter's; classes that differ from the CPU's at the slot: zone ${k('zone')}, wet`
-    + ` ${k('wet')}, turf ${k('turf')}, blocked ${k('blocked')}, trodden ${k('trodden')} — ${k('differ')} slots`
-    + ` (${k('differCand')} candidates); ${k('unasked')} on texels the pool did not answer, ${k('outside')}`
-    + ` outside their band's tile`);
-  console.log('  the texel-centre field it replaced, over every far slot / the candidates, % that'
-    + ' disagree with the slot\'s own answer:');
-  console.log('  texel   bytes      zone    wet  turf blocked trodden  height p95/max mm | asked (all/cand)'
-    + ' | residual (all/cand) | residual with no edge test (cand)');
-  for (const t of TEXELS) {
-    const g = (k) => sum[`${t}.${k}`] ?? 0;
-    const bytes = rows[0]?.texels[t]?.bytes ?? 0;
-    const hp95 = Math.max(...rows.map((r) => r.texels[t].heightMm.p95));
-    console.log(`  ${String(t).padEnd(6)} ${String(bytes).padStart(8)}  ${pct(g('zone'), g('slots')).padStart(7)}`
-      + ` ${pct(g('wet'), g('slots')).padStart(6)} ${pct(g('turf'), g('slots')).padStart(5)}`
-      + ` ${pct(g('blocked'), g('slots')).padStart(7)} ${pct(g('trodden'), g('slots')).padStart(7)}`
-      + `  ${hp95.toFixed(0)} / ${g('hmax').toFixed(0)}`
-      + ` | ${pct(g('ask'), g('slots'))} / ${pct(g('askCand'), g('cand'))}`
-      + ` | ${g('residual')} (${pct(g('residual'), g('slots'))} %) / ${g('residualCand')} of ${g('cand')}`
-      + ` (${pct(g('residualCand'), g('cand'))} %) | ${g('residualNoEdgeCand')} (${pct(g('residualNoEdgeCand'), g('cand'))} %)`);
+  if (!SHRUBS_ONLY) {
+    console.log(`  THE SLOT FIELD: ${k('slots')} far slots (${k('cand')} candidates); ${k('pointDiffer')} asked at`
+      + ` another point than scatter's; classes that differ from the CPU's at the slot: zone ${k('zone')}, wet`
+      + ` ${k('wet')}, turf ${k('turf')}, blocked ${k('blocked')}, trodden ${k('trodden')} — ${k('differ')} slots`
+      + ` (${k('differCand')} candidates); ${k('unasked')} on texels the pool did not answer, ${k('outside')}`
+      + ` outside their band's tile`);
+    console.log('  the texel-centre field it replaced, over every far slot / the candidates, % that'
+      + ' disagree with the slot\'s own answer:');
+    console.log('  texel   bytes      zone    wet  turf blocked trodden  height p95/max mm | asked (all/cand)'
+      + ' | residual (all/cand) | residual with no edge test (cand)');
+    for (const t of TEXELS) {
+      const g = (k) => sum[`${t}.${k}`] ?? 0;
+      const bytes = rows[0]?.texels[t]?.bytes ?? 0;
+      const hp95 = Math.max(...rows.map((r) => r.texels[t].heightMm.p95));
+      console.log(`  ${String(t).padEnd(6)} ${String(bytes).padStart(8)}  ${pct(g('zone'), g('slots')).padStart(7)}`
+        + ` ${pct(g('wet'), g('slots')).padStart(6)} ${pct(g('turf'), g('slots')).padStart(5)}`
+        + ` ${pct(g('blocked'), g('slots')).padStart(7)} ${pct(g('trodden'), g('slots')).padStart(7)}`
+        + `  ${hp95.toFixed(0)} / ${g('hmax').toFixed(0)}`
+        + ` | ${pct(g('ask'), g('slots'))} / ${pct(g('askCand'), g('cand'))}`
+        + ` | ${g('residual')} (${pct(g('residual'), g('slots'))} %) / ${g('residualCand')} of ${g('cand')}`
+        + ` (${pct(g('residualCand'), g('cand'))} %) | ${g('residualNoEdgeCand')} (${pct(g('residualNoEdgeCand'), g('cand'))} %)`);
+    }
+    console.log(`  cards, ${cards.poses} poses (${cards.uncovered} not dealt on the GPU): CPU ${cards.cpu}, GPU`
+      + ` ${cards.gpu}; ${cards.same} the same card to the bit, ${cards.differ} differ at the same root,`
+      + ` ${cards.cpuOnly} only on the CPU, ${cards.gpuOnly} only on the GPU; ${cards.unordered} poses out of`
+      + ` order; ${cards.others} poses where another flora set (the heads) differs; ${cards.asked} slots`
+      + ` dealt whole on the page, ${cards.redealt} re-dealt in doubles`);
+    for (const f of firstCards) console.log(`    ${JSON.stringify(f)}`);
   }
-  console.log(`  cards, ${cards.poses} poses (${cards.uncovered} not dealt on the GPU): CPU ${cards.cpu}, GPU`
-    + ` ${cards.gpu}; ${cards.same} the same card to the bit, ${cards.differ} differ at the same root,`
-    + ` ${cards.cpuOnly} only on the CPU, ${cards.gpuOnly} only on the GPU; ${cards.unordered} poses out of`
-    + ` order; ${cards.others} poses where another flora set (the heads) differs; ${cards.asked} slots`
-    + ` dealt whole on the page, ${cards.redealt} re-dealt in doubles`);
-  for (const f of firstCards) console.log(`    ${JSON.stringify(f)}`);
+  console.log(`  far shrubs, ${shrubs.poses} poses (${shrubs.uncovered} not dealt on the GPU, ${shrubs.notWalked}`
+    + ` not walked on the CPU when asked to): CPU ${shrubs.cpu}, GPU ${shrubs.gpu}; ${shrubs.same} the same bush`
+    + ` to the bit, ${shrubs.differ} differ at the same root, ${shrubs.cpuOnly} only on the CPU, ${shrubs.gpuOnly}`
+    + ` only on the GPU; ${shrubs.unordered} poses out of order; ${shrubs.others} poses where another flora set`
+    + ` differs; ${shrubs.asked} slots dealt whole on the page, ${shrubs.redealt} re-dealt in doubles`);
+  for (const f of firstShrubs) console.log(`    ${JSON.stringify(f)}`);
   for (const r of rows) {
     if (r.kept?.first?.length) console.log(`    slot field differs at ${r.id}: ${JSON.stringify(r.kept.first)}`);
   }
   const slotRate = k('slots') ? (k('differ') + k('pointDiffer')) / k('slots') : 1;
   const cardRate = cards.cpu ? (cards.cpuOnly + cards.gpuOnly) / cards.cpu : 0;
-  if (GATE) {
+  const shrubRate = shrubs.cpu ? (shrubs.cpuOnly + shrubs.gpuOnly) / shrubs.cpu : 0;
+  if (GATE && (shrubs.differ || shrubRate > CARD_BOUND || shrubs.others || shrubs.uncovered
+    || shrubs.notWalked || !shrubs.cpu)) {
+    console.log(`  FAIL ${tier}: the far shrubs — ${shrubs.differ} differ, ${shrubs.cpuOnly + shrubs.gpuOnly} on one`
+      + ` side (bound ${CARD_BOUND}), ${shrubs.others} poses with another set differing, ${shrubs.uncovered} poses`
+      + ` not dealt on the GPU, ${shrubs.notWalked} not walked on the CPU, ${shrubs.cpu} read`);
+    failed = true;
+  }
+  if (SELF_TEST) {
+    const bites = shrubs.selfPoses > 0 && shrubs.selfOff / Math.max(1, shrubs.cpu) > CARD_BOUND;
+    console.log(`  self-test ${tier}: the far shrubs' slot field read one texel east (held at`
+      + ` ${shrubs.selfHeld} of ${shrubs.selfPoses} poses), ${shrubs.selfOff} bushes differ or stand on one side,`
+      + ` ${bites ? 'over' : 'NOT over'} the bound — the gate ${bites ? 'bites' : 'DOES NOT BITE'}`);
+    if (!bites) failed = true;
+  }
+  if (GATE && !SHRUBS_ONLY) {
     if (!k('slots') || slotRate > SLOT_BOUND || k('outside')) {
       console.log(`  FAIL ${tier}: the slot field — ${k('differ')} classes and ${k('pointDiffer')} points differ`
         + ` (bound ${SLOT_BOUND}), ${k('outside')} slots outside their tile, ${k('slots')} read`);
@@ -471,13 +617,13 @@ for (const tier of TIERS) {
       failed = true;
     }
   }
-  if (SELF_TEST) {
+  if (SELF_TEST && !SHRUBS_ONLY) {
     const bites = k('slots') > 0 && k('shifted') / k('slots') > SLOT_BOUND;
     console.log(`  self-test ${tier}: read one texel east, the slot field differs at ${k('shifted')} of`
       + ` ${k('slots')} slots, ${bites ? 'over' : 'NOT over'} the bound — the gate ${bites ? 'bites' : 'DOES NOT BITE'}`);
     if (!bites) failed = true;
   }
-  report.tiers.push({ tier, bands: meta.bands, bytes: meta.bytes, sums: sum, cards, firstCards,
+  report.tiers.push({ tier, bands: meta.bands, bytes: meta.bytes, sums: sum, cards, firstCards, shrubs, firstShrubs,
     stations: rows.map((r) => ({ id: r.id, slots: r.slots, cand: r.cand,
       texels: Object.fromEntries(Object.entries(r.texels).map(([t, x]) => [t, { ...x }])),
       kept: r.kept ? { ...r.kept } : null })) });

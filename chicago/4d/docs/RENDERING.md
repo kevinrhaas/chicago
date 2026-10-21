@@ -1877,3 +1877,100 @@ correction). Every number quotes its anchor and viewport.
   before had now and then one slice of 90-120 ms; timed slot by slot, a long slice is one slot's iteration (6-11 ms
   at the 4x throttle, a collection or a recompile between two clock checks), which no
   clock check can split.
+- **The far pass's far shrubs on the GPU's deal, in the carries' job** (T-2968, the third
+  slice of T-2896).
+  **Acceptance** (written before the work, not weakened): (1) the far pass no longer walks
+  the far shrubs where their slot field covers the walk; (2) the far shrubs the GPU deals
+  are the CPU walk's to the bit, `tools/measure_far_field.mjs` part 3's comparison (its
+  part 4, the far shrubs; `--gate`, bound 0, and `--self-test` must fire); (3) the `far
+  pass` line, before (`origin/claude/project-thread-x1ue4m`, 21e0f1804) against after, on
+  the phone profile (`--only mobile --throttle 4`), walk and turn, every tier,
+  interleaved; (4)
+  `--only desktop --verify --gate` PASS twice (CI runs it; watch the full turn); (5) mobile
+  `--verify` clean; (6) `./tools/check.sh` CHECK PASS; (7) smoke parts 10-12, both
+  viewports, `--published`.
+  **What moved.** `rebuildFarShrubs` walked T-2014's far shrubs on the CPU at every far
+  pass: the forb cell's four slots a cell (salt 0x7b5c1d, the `'wild'` draw) from inside
+  the forb ring's handover out to 70 m on the phone, 105 balanced and 140 at `full`, each
+  slot asked its fringe, rank, community, water and deal. Where the far shrubs' own slot
+  field covers the walk, that walk is now one more point draw in the far pass's CARRY
+  deal render (`flora-gpu-farshrub.js`; rows after the carries' slots, one point per four
+  slots), against a slot field made by T-2967's `makeSlotField` (one texel per slot, 2 x 2
+  a forb cell, 1.7 m a texel: 106, 148 and 190 texels a side), and dealt with the forb
+  section of `dealTable` T-2895 already packs: the community, the shrub share and the
+  weight walk off the slot's draw, and the ground's half of `station`. The far shrubs ride
+  T-2966's carry job whole — one render, one fence, one read-back, reaped after the
+  carries in `reapCarry`, so a pass resumed with `DRAIN` leaves them to the carries' tail
+  (`carryTailStep`, a slice of the frame's budget), a NEXT carries them, `settle()` drains
+  them, and nothing about T-2966's worst-frame repair is new here. The page re-asks what
+  the field does not answer: the slot's point, ring, cone, handover and outer edge in
+  doubles, the deal's draw in doubles (a species the doubles do not confirm is dealt
+  whole), `growthBlocked`, the ground's height and the woody band, then `placeShrub` on
+  the slot's own stream. The far shrubs go to the GPU only when the carries do (`carryWarm`,
+  the carry tile home) AND the slot field covers the walk; otherwise the pass walks them on
+  the CPU as before (`farShrubCpu`). `check_far_slot_field.mjs` now reads the far shrubs'
+  walk at the padded radius the GPU deals (`FARSHRUB_LATTICE_PAD_M`, 1 cm out and in, so
+  a float32 ring test never drops a slot the doubles keep).
+  **Equivalence** (`docs/measurements/t-2968-far-field.json`, 22 stations x 4 bearings a
+  tier, a far pass from each pose with the far shrubs walked on the CPU and one dealt on
+  the GPU and reaped, each read in the frame): light 967 bushes, balanced 2,014, full
+  3,518, every one the same bush to the bit at the same root, in the same order, 0 on one
+  side; the carries, the far band's cards (2,376 / 6,805 / 17,259, T-2967's part 3, still
+  0 differ) and every other flora set identical; every pose dealt on the GPU and walked on
+  the CPU when asked; 0 re-dealt in doubles. 900 / 3,578 / 8,072 slots were handed to the
+  page whole (code 7) — the texels the pool did not answer; of the 18 anchors only
+  `cermak_prairie`'s tile holds any (13,238 of 36,100 at `full`, off the measured grid).
+  `--self-test` reads the far shrubs' slot field one texel east on the GPU (`uFarIdx0` + 1)
+  and finds 252 / 555 / 1,240 bushes that differ or stand on one side: the gate bites.
+  T-2967's slot-field classes still differ at 0 of 23,797 / 58,859 / 140,706 far slots.
+  **Readings** (`docs/measurements/t-2968-far-shrubs-on-gpu-mobile.json`): the phone
+  profile, `--source`, before and after interleaved, one tier a run, two rounds. The
+  `far pass` line, a far pass's main-thread ms (its tail's included), median / worst / all
+  the move's passes summed:
+
+  | | walk, before | walk, after | turn, before | turn, after |
+  |---|---|---|---|---|
+  | light | 24.0-25.4 / 102-108 / 574-644 | 16.7-17.4 / 136-152 / 527-560 | 40.0-44.0 / 88-285 / 2534-2681 | 34.2-37.1 / 126-194 / 1967-2391 |
+  | balanced | 37.7-39.0 / 152-234 / 1000-1194 | 19.4-20.0 / 135-166 / 701-757 | 55.7-56.3 / 208-283 / 3853-4024 | 42.1-42.9 / 148-269 / 2973-3488 |
+  | full | 63.8-65.1 / 250-631 / 1981-2420 | 30.4-37.8 / 416-427 / 1585-1717 | 84.3-97.7 / 341-414 / 7230-7508 | 57.9-61.5 / 246-288 / 4057-4473 |
+
+  A far pass's median falls by 15-30 % at `light` and by a quarter to a half at `balanced`
+  and `full` (most on the walks, where the far shrubs were most of a pass); a move's far ms
+  in all by a tenth at `light`'s walk to over two fifths at `full`'s turn. The far shrubs
+  went to the GPU in 16-17 of a walk's 18-21 far passes and 35-53 of a turn's 47-59; the
+  rest are a move's first passes, whose carries both trees walk on the CPU too (`carryCpu`
+  counts the same passes, 2-5 a walk and 6-13 a turn, before and after). Their reap costs
+  25-47 ms a move at `light`, 36-69 balanced, 57-108 at `full` (1-3 ms a pass), inside the
+  carries' job. **The worst
+  far pass did not fall at every tier**, and is not this change's to move: it is one of
+  those first CPU passes, in both trees. Read pass by pass with a throwaway copy of the
+  tool (one more run a side), a far pass whose carries the GPU dealt read a median 10.5 ms
+  at `light`'s walk against 26.5 before, 27.2 against 57.8 at `full`'s walk and 52.8
+  against 77.2 at `full`'s turn; the passes walked on the CPU (the first 2 of `light`'s
+  walk, 4 of `full`'s, 11-13 of `full`'s turn) 60-75 ms against 75-98, 156-233 against
+  219-402, and 158-289 against 128-437. SwiftShader's spread on those is wider than any
+  difference: `light`'s walk read its worst at 136-152 after against 102-108 before in the
+  interleaved runs, and 75 against 98 in this one. What a turn's far passes still cost is
+  the carries' reap (1.2-2.6 s a turn), T-2896's remainder. The page's heap after the move
+  read 368-415 MB before and 391-441 after, in `performance.memory`'s coarse steps; this
+  change adds 8-28 rows to the carry target (0.03-0.11 MB of read-back) and a 22-72 KB
+  slot field.
+  `--verify` on the phone profile (every tier and move): every spread pass is the one-frame
+  pass, near and far (its carries and far shrubs the GPU's, as the one-frame pass's), and
+  the workers' zones, ground and yards answer as the page does.
+  **The desktop** (`--only desktop --verify --gate --source`): PASS in three runs of three.
+  Flora's worst moving frame, full walk / turn / flight / travel 12.1 / 25.0 / 10.4 /
+  15.5, 12.0 / 53.4 / 17.0 / 16.1 and 22.6 / 27.8 / 10.9 / 12.8 ms (ceiling 60); balanced
+  6.9 / 22.4 / 11.0 / 18.4, 6.9 / 17.3 / 9.2 / 10.9 and 9.6 / 20.1 / 8.1 / 11.1 (32); light
+  5.3 / 7.5 / 9.6 / 6.4, 6.0 / 13.1 / 13.3 / 9.6 and 4.7 / 19.1 / 8.3 / 13.9 (21). The full
+  turn's 53.4 is one frame of one run (frame 259, no pass landing in it; the carries' tail
+  averaged 0.5 ms a frame in that move, the far shrubs' reap 9 ms in all); the third run
+  read 27.8. The before tree, read once between them, FAILED (light turn 32.3, light flight
+  22.6; its full turn 25.5): neither tree's single worst frames are steady on this machine.
+  The desktop's moves walk most far passes' carries on the CPU in both trees (the before
+  tree 15-62 of a move's passes, this one 8-62; none of a flight's or a ride's dealt on
+  the GPU), so it deals the far shrubs on the GPU in 0-17 passes a move: the phone
+  profile is where this change runs.
+  **Gate**: `./tools/check.sh` CHECK PASS; smoke parts 10-12, mobile and desktop,
+  `--published`, SMOKE PASS (55 of 55 each; the desktop run took 33 m 07 s, the before
+  tree's 30 m 59 s on this machine).

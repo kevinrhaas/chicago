@@ -75,6 +75,9 @@
  * T-2966: and the carries a pass that had to land in one frame left to their
  * tail (flora.js `carryPass`), with the tail's frames and ms — which the far
  * pass's own ms on the log include.
+ * T-2968: and the far shrubs dealt in the carries' job (flora-gpu-farshrub.js):
+ * its deals, the passes that walked them on the CPU, their slot field's
+ * uploads, the reaps and their ms, the bushes, the slots dealt whole.
  * `--long-ms N` lists the frames over N ms (50 by default) with their pass.
  *
  * T-2106: the moves are driven with the flora rebuild SPREAD over frames, as
@@ -1058,7 +1061,12 @@ for (const vp of VIEWPORTS) {
               // T-2966: and the NEXTs the kept tile no longer covered, walked on the CPU.
               + (g.carryTailCpu != null ? `, ${g.carryTailCpu} walked by the CPU after their pass` : '') + ')' : '')
             + (g.carryKeepMs != null ? `, the carry tile's keeper ${g.carryKeepMs.toFixed(0)} ms`
-              + ` between frames (its worst landing since the tier's rig was built ${r.near.carryKeepWorst?.toFixed(0)} ms)` : ''))(r.near.gpu) : ''));
+              + ` between frames (its worst landing since the tier's rig was built ${r.near.carryKeepWorst?.toFixed(0)} ms)` : '')
+            // T-2968: the far shrubs, dealt in the carries' job against their slot field.
+            + (g.farShrubParts != null ? ` | GPU far shrubs: ${g.farShrubParts} dealt with the carries,`
+              + ` ${g.farShrubCpu} walked by the CPU, ${g.farShrubUploads} uploads, ${g.farShrubReaps} reaped`
+              + ` ${g.farShrubReapMs.toFixed(0)} ms, ${g.farShrubBushes} bushes, ${g.farShrubAsked} slots dealt`
+              + ` whole on the page, ${g.farShrubRedealt} re-dealt` : ''))(r.near.gpu) : ''));
       }
       for (const l of r.longs ?? []) {
         console.log(`  over ${LONG_MS} ms: frame ${l.frame} of the ${move}, ${l.ms} ms (flora ${l.flora}, ${l.pass ?? 'no'} pass),`
