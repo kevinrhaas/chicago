@@ -237,6 +237,13 @@
             aria-label="Open the map"></button>
         </div>
         <div class="compass-row">
+          <!-- T-2977 (owner, 2026-10-21): the Walk/Fly key, out of the right-edge column and
+               into the instrument, a small round key left of the heading. Its arrow points
+               up to fly and down, while flying, to walk again; F still toggles it. -->
+          <button type="button" id="btn-fly" class="fly-key" aria-pressed="false" title="Free-fly — rise above the town (F)"><svg
+            class="fly-up" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg><svg
+            class="fly-down" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v13"/><path d="M6 10l6 6 6-6"/><path d="M5 21h14"/></svg><span
+            class="visually-hidden" id="fly-label">Fly</span></button>
           <div id="compass" class="compass" aria-label="Heading north, 0 degrees">
             <strong id="compass-direction">N</strong><span id="compass-bearing">000°</span>
           </div>
@@ -858,12 +865,10 @@
        by default target-tag.js docks it under the address (#instrument-below), and Bottom
        puts it at the top of .hud-bottom. -->
   <button type="button" class="target-tag" id="target-tag" data-place="centre" data-label="Ahead" hidden></button>
-  <!-- T-2627: the quick column — the Walk/Fly toggle, and an Inspect key that appears with
-       a target. Never more than two buttons; everything else is in the Navigator's Move. -->
+  <!-- T-2627: the quick column — the Inspect key, which appears with a target. T-2977: the
+       Walk/Fly key moved into the instrument's heading row, so this holds one key, and it
+       fades in and out (css/walk.css) rather than popping; nothing beside it moves. -->
   <div class="quick-column" id="quick-column" role="group" aria-label="Quick controls">
-    <button id="btn-fly" class="chip" aria-pressed="false" title="Free-fly — rise above the town (F)">
-      <span class="fly-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></span> <span class="chip-label" id="fly-label">Fly</span>
-    </button>
     <button id="btn-inspect" class="chip quick-inspect" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/><path d="M4 21h16"/></svg> <span class="chip-label">Inspect</span></button>
   </div>
   <!-- T-2640: Show me pulses this outline on the building for 2 s. -->

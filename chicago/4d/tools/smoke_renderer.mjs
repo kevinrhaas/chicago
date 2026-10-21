@@ -9641,7 +9641,8 @@ for (const [label, viewport, touch] of [
       // 2026-10-18: the tag seen, then "current":null and the Inspect key gone).
       const quickNow = () => {
         const quick = [...document.querySelectorAll('#quick-column > button')];
-        return { current: api.targetTag?.current?.id ?? null, buttons: quick.length, visible: quick.filter((b) => !b.hidden).map((b) => b.id) };
+        return { current: api.targetTag?.current?.id ?? null, buttons: quick.length, visible: quick.filter((b) => !b.hidden).map((b) => b.id),
+          fly: !!document.querySelector('#hud-instrument .compass-row > #btn-fly') };
       };
       let seen = null, withIt = null;
       const look = () => { if (!tag.hidden && seen === null) { seen = tag.textContent; withIt = quickNow(); } };
@@ -9665,7 +9666,7 @@ for (const [label, viewport, touch] of [
       && (tagShown.place === 'right'
         ? tagShown.docked === 'instrument-below' && tagShown.upper === 'none' && /Ahead/.test(tagShown.label)
         : tagShown.upper === 'uppercase')
-      && tagShown.buttons <= 2 && tagShown.visible.includes('btn-inspect') && tagShown.visible.includes('btn-fly'),
+      && tagShown.buttons <= 2 && tagShown.visible.includes('btn-inspect') && tagShown.fly,
       JSON.stringify(tagShown));
     if (tagShown.shown) {
       // T-2736: the tag holds 3 s, then fades and stays gone for that building. On a runner
