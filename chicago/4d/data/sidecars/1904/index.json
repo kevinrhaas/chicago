@@ -157,9 +157,9 @@
     },
     {
       "id": "henderson_house_1816_prairie",
-      "name": "1816 Prairie Avenue — Henderson Second Empire (district draft; refined by T-1886)",
+      "name": "1816 Prairie Avenue — Charles M. Henderson house",
       "sidecar": "sidecars/1904/henderson_house_1816_prairie.json",
-      "asset": "gltf/henderson_house_1816_prairie__draft_1904.glb"
+      "asset": "gltf/henderson_house_1816_prairie__as_mapped_1904.glb"
     },
     {
       "id": "henderson_house_1816_prairie_coach_house",
@@ -343,9 +343,9 @@
     },
     {
       "id": "house_1726_prairie",
-      "name": "1726 Prairie Avenue — Brick masonry (district draft; refined by T-1874)",
+      "name": "1726 Prairie Avenue — brick house of two and a half storeys with its canted bays, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1726_prairie.json",
-      "asset": "gltf/house_1726_prairie__draft_1904.glb"
+      "asset": "gltf/house_1726_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1726_prairie_coach_house",
@@ -355,9 +355,9 @@
     },
     {
       "id": "house_1730_prairie",
-      "name": "1730 Prairie Avenue — Brick masonry (district draft; refined by T-1874)",
+      "name": "1730 Prairie Avenue — brick house under a mansard with its two-storey rear range, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1730_prairie.json",
-      "asset": "gltf/house_1730_prairie__draft_1904.glb"
+      "asset": "gltf/house_1730_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1730_prairie_coach_house",
@@ -367,9 +367,9 @@
     },
     {
       "id": "house_1736_prairie",
-      "name": "1736 Prairie Avenue — Ingraham/McBirney map-led altered house (district draft; refined by T-1874)",
+      "name": "1736 Prairie Avenue — the Ingraham/McBirney house, its veranda front from the c. 1890 photograph, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1736_prairie.json",
-      "asset": "gltf/house_1736_prairie__draft_1904.glb"
+      "asset": "gltf/house_1736_prairie__as_mapped_1904.glb"
     },
     {
       "id": "house_1736_prairie_coach_house",

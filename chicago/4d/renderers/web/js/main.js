@@ -46,6 +46,7 @@ import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { createWalker, footprintsFrom, decksFrom, WALK } from './walker.js';
+import { passageGroundFrom } from './passage-ground.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
 import { grownGroupName } from './tree-instances.js';
@@ -74,6 +75,7 @@ import { releaseAfterUpload, uploadLayerNow, uploadReleaseState, releaseSources,
 import { compactStreams } from './compact-streams.js';
 import { createTextureResidency } from './texture-residency.js';
 import { createCrashGuard } from './crash-guard.js';
+import { countDriverDraws } from './driver-draws.js';
 import { createBlackbox, wasCut, summary as blackboxSummary, report as blackboxReport } from './blackbox.js';
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
@@ -1259,7 +1261,11 @@ const GLESSNER_V4_FULL_TRIANGLES = 4600000;
 // This is a declared Full-only re-budget, not a mesh or rendering change.
 // Balanced, Light and non-inspection scenes retain BUDGET.drawCalls (330).
 // Receipts: docs/RESEARCH/glessner-porte-cochere-T-2217/.
-const GLESSNER_V4_FULL_DRAW_CALLS = 360;
+// T-2970, 2026-10-20: RETIRED. Counted at the driver, the five carriage-door
+// stands read 2,650-4,609 draws at Full (south leaf the worst; three's own
+// counter said 279-492 there, so north leaf already stood over this 360), and
+// the town's re-based ceiling below carries them, so Glessner's Full inspection
+// is held to the ceiling every other scene is. Its 4.6M triangles stand.
 // T-2218: the new courtyard stair-bottom stand already renders 1,224,656
 // triangles / 213 calls in Light before the geometry change, exceeding the
 // older 1.19M allowance. Price this Glessner inspection at 1.27M (3.7% margin),
@@ -1360,7 +1366,26 @@ const GLESSNER_V4_LIGHT_TRIANGLES = 1270000;
 // ground batching peak at 313 calls (mobile West prairie, full). The defended
 // 15-call margin, rounded up to five, moves 295 -> 330. Light's separate 90
 // remains unchanged; the complete normal-loop smoke rechecks both ceilings.
-const BUDGET = { drawCalls: 330, triangles: DETAIL.full.triangles };
+//
+// T-2970, 2026-10-20: 330 -> 7,800, AND THE UNIT CHANGED, NOT THE SCENE. Every
+// figure above was `renderer.info.render.calls`, which counts a BatchedMesh as ONE
+// call while three submits it as a multi-draw with one driver draw per instance it
+// kept; at the 1904 flight that read 339 where the GL received 27,895 (T-2927),
+// so no ceiling here ever saw what a phone pays. `stats().drawCalls` is now the
+// driver's count (driver-draws.js), audited draw for draw against a GL-level tally
+// by tools/measure_pose_draws.mjs (3,288 = 3,288 at the 1904 flight, three: 360).
+// Re-read at the gate's six stands after T-2927's coalescing, published mirror,
+// tools/measure_detail_ceilings.mjs (receipts: docs/measurements/T-2970-driver-draws.json):
+//
+//                       full worst              light worst
+//   desktop 1280x800    7,358 (the open aerial)  5,541 (West prairie)
+//   mobile   390x780    5,898 (the open aerial)  4,347 (West prairie)
+//
+// The same principle as every raise above, in the new unit: the measured worst
+// and about five per cent, rounded up to a hundred — 7,358 -> 7,800. It is a
+// ratchet on what the town draws today, and NOT a claim that 7,800 draws is a
+// cost a phone can carry; the tiers' triangle ceilings are unchanged.
+const BUDGET = { drawCalls: 7800, triangles: DETAIL.full.triangles };
 
 /** localStorage, or null where the page may not have it (a private window, a sandbox). */
 const safeStorage = () => { try { return window.localStorage; } catch { return null; } };
@@ -1621,7 +1646,7 @@ recallHome?.onReturn(() => journey.recall());
 api.recall = recallHome;
 // T-2614: with no gate to tap, the first tap after landing on a Home choice, the scene or a
 // Navigator control is the gesture audio needs; the page's AudioContext exists only after it.
-// T-2659: the Navigator's sounds (js/sound.js), on by default. The module is fetched with the
+// T-2659: the Navigator's sounds (js/sound.js), off by default since T-2941. The module is fetched with the
 // first gesture, or on the way in when the jump that opened the page lets audio play
 // (sound.js § mayStartEarly), so it is never part of the boot payload.
 const loadSound = (early = false) => (api.soundReady ??= import('./sound.js')
@@ -1818,6 +1843,13 @@ async function boot() {
    */
   const placementRender = renderer.render.bind(renderer);
   /**
+   * T-2970. What the GL driver receives, which is what every draw budget is held
+   * to: `renderer.info.render.calls` counts a BatchedMesh's multi-draw as one call
+   * where the driver gets one draw per kept instance (driver-draws.js).
+   */
+  const driverDraws = countDriverDraws(renderer);
+  api.driverDraws = driverDraws;
+  /**
    * The boot-time ratio. Note that this is superseded a few hundred lines below
    * by `renderer.setPixelRatio(Math.min(dpr, quality))` once the visitor's
    * stored settings are read. Until T-2110 the shipped default of `quality` was
@@ -1876,7 +1908,7 @@ async function boot() {
     const pose = api.walker?.state;
     // T-2828: the bytes behind those counts, as far as the page can read them (MB).
     const est = residentEstimate(scene3d, renderer);
-    return { calls: render.calls, tris: render.triangles, geo: memory.geometries, tex: memory.textures,
+    return { calls: render.calls, draws: driverDraws.draws, tris: render.triangles, geo: memory.geometries, tex: memory.textures,
       geoMB: Math.round(est.geometry / 1048576), texMB: Math.round(est.textures / 1048576),
       w: blackboxSize.x, h: blackboxSize.y, ratio: +renderer.getPixelRatio().toFixed(2),
       heap: performance.memory ? Math.round(performance.memory.usedJSHeapSize / 1048576) : null,
@@ -2135,6 +2167,10 @@ async function boot() {
   // drawn them and know how high they stood them. The walker holds it BY
   // REFERENCE and reads whatever is in it.
   const decks = decksFrom(loaded.registry);
+  // T-2976 — ground a building lays below the field (Glessner's sunk carriage way):
+  // the field is cut out over it and the walk steps down onto its paving.
+  const passageGround = passageGroundFrom(loaded.registry);
+  terrain.setPassageGround?.(passageGround);
   // T-1797 — the ground-strip proof, drawn only under `?proof=ground`. Its
   // module is not imported otherwise, so the walk without the flag is untouched.
   // Its three vantage points join the scene's anchors for this run.
@@ -2484,6 +2520,8 @@ async function boot() {
     // planting layer now refuses them too, so nothing grows up between the
     // planks of a bridge deck either.
     decks,
+    // The sunk carriage way (T-2976): paving under the field, which nothing grows through.
+    passageGround.map((g) => ({ id: g.id, pts: g.pts })),
     // The camps' ground (T-1803), which the walker crosses and the sward does not:
     // a bush rooting between the tents, or a tree through a wall tent, was the
     // first thing the bank showed once the canvas stood on it.
@@ -3094,19 +3132,29 @@ async function boot() {
   // own card in the drawer (T-1325). Late-bound on purpose — `openBusiness` is
   // declared with the business index, several hundred lines below, and only ever
   // runs on a tap.
-  // T-2663: what the Field Check reads — how often a building's record opened, and how
-  // often a deeper layer of one (the card from Inspect's Full record, or a card tab).
-  const tourCounts = { opens: 0, deeper: 0, confChanges: 0 };
+  // T-2663: what the Field Check reads — how often a building's record opened, and (T-2954)
+  // how often each Navigator app opened.
+  const tourCounts = { opens: 0, apps: {} };
   const popup = createPopup(popupRoot, {
     onBusiness: (id) => openBusiness(id),
     onShow: (record) => {
-      tourCounts.opens++; tourCounts.deeper++;
+      tourCounts.opens++;
       countField('inspect'); // T-2660: the first since landing is the field log's
       // T-2664: the first Reconstructed building's card says, once, what the word means.
       if (isReconstructed(record?.sidecar)) api.hints?.show('reconstructed');
       void ensureLiberties(); void ensureHouseholdNotes(record); void ensurePictures(); void ensureReaderText();
     },
+    // T-2954 (the owner, 2026-10-20: "the focus should be on the card until i either close
+    // the card or click on the main display"). An open card holds the pointer and the
+    // keyboard: the mouse is let go so the card can be read and clicked, nothing walks or
+    // turns behind it (pointerlock.js `holding`), and the keys land on the card, where the
+    // arrows scroll it. Esc, the card's Close, or a click or tap on the scene lets go.
+    onShown: () => {
+      if (document.pointerLockElement) { cardTookPointer = true; document.exitPointerLock?.(); }
+      if (!popupRoot.contains(document.activeElement)) popupRoot.focus?.({ preventScroll: true });
+    },
   });
+  let cardTookPointer = false;
   // T-2825. The scene's reader overlay: the edits that say each research note on a building's
   // card without a ticket number, a record id or a file path (tools/compile_reader_text.py).
   // Off the boot path, like the liberties: the first card asks for it and is redrawn when it
@@ -3118,7 +3166,6 @@ async function boot() {
     popup.setReader(doc);
     return doc;
   }));
-  popupRoot.addEventListener('click', (e) => { if (e.target.closest?.('[data-pop-tab]')) tourCounts.deeper++; });
   // The pictures of each building, for the card's Images tab (T-2389). Off the boot path
   // for the liberties' reason: only the card reads it, so it is fetched the first time a
   // card is drawn. publish.sh writes it (tools/compile_pictures.py); a failure leaves the
@@ -3363,13 +3410,13 @@ async function boot() {
     lowered: crashBoot.lowered,
     device,
     structureVersion: loaded.versionState,
-    onConfidence: (on) => { confidence.set(on); tourCounts.confChanges++; },
+    onConfidence: (on) => { confidence.set(on); },
     // T-2647: C toggles the BY GRADE preset (confidence-presets.js).
     onConfidenceKey: () => toggleByGrade({ hud, view: confidence, storage: safeStorage() }),
     onFly: (on) => { intent.flying = !!on; },
     onGoTo: (target) => goToTarget(target),
     // Hiding a level removes it from the view outright — see confidence.setHidden.
-    onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); tourCounts.confChanges++; api.welcome?.refresh?.(); },
+    onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); api.welcome?.refresh?.(); },
     onSetting: (key, value) => {
       api.sound?.setting(key); // T-2659: Settings › Sound's levels, live
       // A setting can write a value no material owns (a patched shader's
@@ -3414,6 +3461,10 @@ async function boot() {
         navigation.setStreetVisible(value);
       } else if (key === 'lookTag') {
         api.targetTag?.setTagShown(value);
+      } else if (key === 'lookTagPlace') {
+        api.targetTag?.setPlace(value);
+      } else if (key === 'lookTagHold') {
+        api.targetTag?.setHold(value);
       } else if (key === 'season') {
         void applySeason(value).then(() => gateFrame.invalidate());
       } else if (key === 'streetTrees') {
@@ -3745,8 +3796,11 @@ async function boot() {
     onLockChange: (locked) => {
       hud.setLocked(locked);
       gesture.setLook({ locked });
-      if (!locked) hud.say('Pointer released — click the view to look around again');
+      // A card opening lets the pointer go on purpose (T-2954): the card is the message.
+      if (!locked && !cardTookPointer) hud.say('Pointer released — click the view to look around again');
+      cardTookPointer = false;
     },
+    holding: () => !!popup.openId && !gateOpen,
   });
 
   const touch = createTouchBackend({
@@ -3785,12 +3839,17 @@ async function boot() {
     if (gateOpen || isTyping(e.target) || e.target.closest?.('#jaunt-panel')) return;
     if (!e.metaKey && !e.ctrlKey) {
       backends.activate(pointerlock);
-      if (/^(Key[WASD]|Arrow(Up|Down|Left|Right))$/.test(e.code)) pointerlock.lock();
+      // Not while a card holds the keyboard (T-2954): the arrows scroll the card.
+      if (/^(Key[WASD]|Arrow(Up|Down|Left|Right))$/.test(e.code) && !popup.openId) pointerlock.lock();
     }
   }, { capture: true });
 
   canvas.addEventListener('click', () => {
-    if (backends.active === pointerlock && !pointerlock.isLocked && !gateOpen) pointerlock.lock();
+    if (backends.active !== pointerlock || gateOpen) return;
+    // A click on the scene with a card open is the release (T-2954): the card goes and
+    // the same click takes the look back.
+    if (popup.openId) popup.close();
+    if (!pointerlock.isLocked) pointerlock.lock();
   });
 
   // Escape closes an open inspection card (T-0108). Escape is ALSO the
@@ -4438,6 +4497,24 @@ async function boot() {
     keyEl: document.getElementById('btn-inspect'),
     units: () => hud.settings.units,
     tagShown: hud.settings.lookTag !== false,
+    // T-2942: right under the address by default, or the centre (its first place) or the
+    // bottom row; fading by default. Docked, it never repeats the address the card shows.
+    place: hud.settings.lookTagPlace,
+    holdMode: hud.settings.lookTagHold,
+    slots: (() => {
+      const tagHome = document.getElementById('target-tag');
+      const bottom = document.getElementById('hud-bottom');
+      return {
+        right: { parent: document.getElementById('instrument-below') },
+        centre: { parent: tagHome?.parentNode ?? null, before: tagHome?.nextSibling ?? null },
+        bottom: { parent: bottom, before: bottom?.firstElementChild ?? null },
+      };
+    })(),
+    addresses: () => {
+      const card = document.getElementById('street-readout');
+      if (!card || card.hidden) return [];
+      return ['street-historic', 'street-modern'].map((id) => document.getElementById(id)?.textContent ?? '');
+    },
     onInspect: (t) => {
       // Inspect opens on what is selected first, so a card left open on another
       // building is put away before the tag hands over its own.
@@ -4685,10 +4762,17 @@ async function boot() {
   }
 
   // ---- T-2663: Tour mode, the Field Check ------------------------------------------
-  // Seven steps (js/tour.js), each completing on its real action, read here every quarter
+  // Eight steps (js/tour.js), each completing on its real action, read here every quarter
   // second while it runs; replayed from the section Guide opens (#tour-start); a reload
   // mid-tour resumes at the same step once the visitor is back in the town.
   let tourTimer = null, tourApp = null;
+  // T-2954: each Navigator app opened, counted as it opens (Move and Settings are steps).
+  let navOpenWas = null;
+  navigatorUi?.onChange?.(({ app, level }) => {
+    const now = level > 0 ? app : null;
+    if (now && now !== navOpenWas) tourCounts.apps[now] = (tourCounts.apps[now] ?? 0) + 1;
+    navOpenWas = now;
+  });
   const tourOverlay = createTourOverlay({ onNext: () => tour.press(), onSkip: () => tour.skip() });
   const tour = createTour({
     probe: () => {
@@ -4696,8 +4780,10 @@ async function boot() {
       const app = navigatorUi?.app ?? null;
       if (app === 'inspect' && tourApp !== 'inspect') tourCounts.opens++;
       tourApp = app;
-      return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, ...tourCounts,
-        confidence: hud.confidenceOn || hud.hiddenLevels.length > 0,
+      const level = navigatorUi?.level ?? 0;
+      return { yawDeg: walker.bearingDeg, e: walker.state.e, n: walker.state.n, opens: tourCounts.opens,
+        apps: { ...tourCounts.apps }, touch: backends.name === 'touch', level,
+        selected: !!popup.openId || (app === 'inspect' && level > 0),
         scene: loaded.scene?.id ?? YEAR, front: navigatorUi?.snapshot?.()?.front?.name ?? null };
     },
     render: (v) => {
@@ -4809,9 +4895,10 @@ async function boot() {
     const asked = intent.takeInteract();
     if (asked && !gateOpen) travel.stop('input');
     // The inspect KEY toggles: the reach that opened the card also closes it
-    // (T-0108). A click or tap always re-inspects — aiming at a second
-    // building with a card open should open that building, not shut the first.
-    if (asked && asked.source === 'key' && popup.openId) popup.close();
+    // (T-0108). Since T-2954 a click or tap on the scene does too: an open card
+    // holds the visitor until it is closed or the town is touched again (the owner,
+    // 2026-10-20), so a second building is one more click away, not one less.
+    if (asked && popup.openId) popup.close();
     else if (asked) inspect(asked.point ? new THREE.Vector2(asked.point.x, asked.point.y) : null);
     const walkSteps = Math.max(1, Math.ceil(frameDt / 0.05));
     const walkDt = frameDt / walkSteps;
@@ -5041,10 +5128,15 @@ async function boot() {
     setGroundReach(m) { return terrain.setGroundReach(m); },
     stats() {
       const info = renderer.info;
-      const budget = inspectionLod && detailLevel === 'full'
-        ? { ...BUDGET, drawCalls: GLESSNER_V4_FULL_DRAW_CALLS } : BUDGET;
+      const budget = BUDGET;
+      // T-2970: `drawCalls` is the driver's draws, the figure the budgets are held
+      // to; `rendererCalls` is three's own count, which takes a BatchedMesh's whole
+      // multi-draw as one and is kept so the readings before T-2970 stay comparable.
+      const drawCalls = driverDraws.draws;
       return {
-        drawCalls: info.render.calls,
+        drawCalls,
+        rendererCalls: info.render.calls,
+        multiDraw: driverDraws.native,
         triangles: info.render.triangles,
         programs: info.programs?.length ?? 0,
         geometries: info.memory.geometries,
@@ -5063,7 +5155,7 @@ async function boot() {
         // why an edge is or is not stable can read the number that decides it.
         cameraNear: camera.near,
         budget,
-        withinBudget: info.render.calls <= budget.drawCalls
+        withinBudget: drawCalls <= budget.drawCalls
           && info.render.triangles <= budget.triangles,
       };
     },

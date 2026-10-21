@@ -29,6 +29,13 @@ T-2889: 1812's front runs up into its gable with no gutter across it, so `takes_
 stops the eave's gutter where the gable stands: its street run is not built, its two side
 runs die into the slab's base at the base's back, and the base runs out past the side walls
 far enough to take their lips (k01_frontage.rainwater; L-k01-1812-wheeler-third-storey-2889).
+
+T-2951: 1812's gable to the Levy photograph's. Its grid window is `rows` of the K06 group
+stacked over one another on stone transoms (`row_sills`), each light one pane (`panes`); its
+outline steps over a square stone `shoulders` block each side, laid through the slab so it
+stands over the outline as the print's do; and each kneeler's pinnacle stands over a carved
+`scroll` console at the front's corner, under the slab's foot: a moulded roll at the console's
+foot, a raised eye in it, and a cap under the slab. L-k01-1812-wheeler-gable-2951.
 """
 
 from __future__ import annotations
@@ -110,7 +117,16 @@ def _variant(sg, k6):
     li = sg["lights"]
     v = dict(next(x for x in k6.load()["variants"] if x["id"] == li["variant"]))
     v["clear_width_m"], v["clear_height_m"] = li["width_m"], li["height_m"]
+    if li.get("panes"):   # T-2951: the grid's lights are one pane each
+        v["panes"] = list(li["panes"])
     return v
+
+
+def row_sills(li) -> list:
+    """T-2951: each row's sill over grade, the lowest first — `rows` of the lights stacked on
+    stone transoms `transom_m` deep (one row, the record's sill, when it names none)."""
+    n, t = li.get("rows", 1), li.get("transom_m", 0.0)
+    return [li["sill_m"] + r * (li["height_m"] + t) for r in range(n)]
 
 
 def cutters(a, k5) -> list:
@@ -125,9 +141,10 @@ def cutters(a, k5) -> list:
     out = []
     for at in li["at_m"]:
         c = g["zc"] - at               # R runs -z along the street front
-        for hole in o.holes:           # a grouped variant cuts one hole a bay
-            rec = [(c - q[0], li["sill_m"] + q[1]) for q in hole]
-            out.append(k5.extrude(rec, g["xf"] - rev, g["xf"] + 0.05, k5.frame("x"), "reveal", "window", "reveal"))
+        for sill in row_sills(li):     # T-2951: a grid window cuts every row
+            for hole in o.holes:       # a grouped variant cuts one hole a bay
+                rec = [(c - q[0], sill + q[1]) for q in hole]
+                out.append(k5.extrude(rec, g["xf"] - rev, g["xf"] + 0.05, k5.frame("x"), "reveal", "window", "reveal"))
     oc = sg.get("oculus")
     if oc:   # T-2730: the oval light's recess, to the lights' reveal depth
         ry = oc["centre_m"]
@@ -137,6 +154,67 @@ def cutters(a, k5) -> list:
 
 
 OVAL_SIDES = 24             # the oculus's polygon
+TRANSOM_PROUD_M = 0.02      # T-2951: a grid window's stone transoms, before the face
+SHOULDER_BACK_M = 0.01      # a shoulder block's back, this far before the slab's back
+SCROLL_SIDES = 20           # a scroll's roll
+SCROLL_EYE = 0.55           # its eye's radius, of the roll's
+SCROLL_EYE_PROUD_M = 0.03   # the eye standing before the roll
+SCROLL_CAP_M = (0.08, 0.03)  # the console's cap: its height, and how far it overhangs all round
+
+
+def _back(a, mat, frame, poly, d, seed, conf):
+    """The face a block shows behind it, at depth d (poly counter-clockwise in (s, y))."""
+    _af()._face(a, mat, frame, [(s, y, d) for s, y in reversed(poly)], (0, 0, -1), seed, conf)
+
+
+def _shoulders(a, frame, sg, gseed, conf):
+    """T-2951: the square stone block the outline steps over each side, at its shoulders —
+    laid through the slab from just before its back to `proud_m` before its face, so it
+    stands over the outline as the print's blocks do, and its back is drawn where it does."""
+    sh = sg["shoulders"]
+    W = a.p.width_m
+    d0 = -(sg["thickness_m"] - SHOULDER_BACK_M)
+    seed = a.instance("k01.roof.gable_shoulder", "roof",
+                      {k_: sh[k_] for k_ in ("inner_m", "outer_m", "bed_m", "top_m", "proud_m")},
+                      {"bed": (a.shaped_gable_geom["xf"], sh["bed_m"], a.shaped_gable_geom["zc"])})
+    for sgn in (-1, 1):
+        s0, s1 = sorted((W / 2 + sgn * sh["inner_m"], W / 2 + sgn * sh["outer_m"]))
+        poly = [(s0, sh["bed_m"]), (s1, sh["bed_m"]), (s1, sh["top_m"]), (s0, sh["top_m"])]
+        _prism(a, "limestone_trim", frame, poly, d0, sh["proud_m"], seed, conf)
+        _back(a, "limestone_trim", frame, poly, d0, seed, conf)
+
+
+def _circle(sc, yc, r):
+    return [(sc + r * math.cos(2 * math.pi * i / SCROLL_SIDES), yc + r * math.sin(2 * math.pi * i / SCROLL_SIDES))
+            for i in range(SCROLL_SIDES)]
+
+
+def _scroll(a, frame, sg, W, sgn, conf):
+    """T-2951: the carved scroll console under a kneeler, at the front's corner: a roll at its
+    foot (`radius_m`, `proud_m` before the wall), a raised eye in it, the console's body over
+    it up to a cap under the slab's foot, all inside the front's corner."""
+    sc = sg["kneelers"]["scroll"]
+    w, r, pr = sc["width_m"], sc["radius_m"], sc["proud_m"]
+    s0 = 0.0 if sgn < 0 else W - w
+    s1 = s0 + w
+    yc = sc["bed_m"] + r
+    ch, co = SCROLL_CAP_M
+    top = sg["foot_m"]
+    xs = s0 + w / 2
+    seed = a.instance("k01.roof.gable_scroll", "roof", dict(sc),
+                      {"foot": (a.shaped_gable_geom["xf"], round(sc["bed_m"], 4), round(-xs, 4))})
+    d = -(a.p.eave_overhang_m + sg["proud_m"])   # the wall's face under the slab, behind its face
+    _prism(a, "limestone_trim", frame, _circle(xs, yc, r), d, d + pr, seed, conf)
+    _prism(a, "limestone_trim", frame, _circle(xs, yc, r * SCROLL_EYE), d + pr, d + pr + SCROLL_EYE_PROUD_M,
+           seed, conf)
+    bw = r * 0.8                       # the body, narrower than the roll, from its axis up
+    _prism(a, "limestone_trim", frame, [(xs - bw, yc), (xs + bw, yc), (xs + bw, top - ch), (xs - bw, top - ch)],
+           d, d + pr * 0.8, seed, conf)
+    _prism(a, "limestone_trim", frame, [(max(0.0, s0 - co) if sgn < 0 else s0 - co, top - ch),
+                                        (s1 + co if sgn < 0 else min(W, s1 + co), top - ch),
+                                        (s1 + co if sgn < 0 else min(W, s1 + co), top),
+                                        (max(0.0, s0 - co) if sgn < 0 else s0 - co, top)],
+           d, d + pr + co, seed, conf)
 
 
 def _oval():
@@ -209,14 +287,32 @@ def dress(a, roof_seed):
     roles = {r: ("limestone_trim" if m == "stone" else (m or "dormer_stone")) for r, m in a.K06_ROLES.items()}
     for at in li["at_m"]:
         s = W / 2 + at
-        op = Opening("k01.opening.gable_light", "k01.wall.shaped_gable", s, li["sill_m"], li["width_m"], li["height_m"])
-        seed = a.instance(op.component, "opening", {"clear_width_m": li["width_m"], "clear_height_m": li["height_m"],
-                                                    "k06_variant": v["id"], "wall": op.wall},
-                          {"sill": k._add(O, k._add(k._mul(R, s), k._mul(k.Y, li["sill_m"])))})
-        o = k6.Opening(v, a._kit)
-        o.seed = seed
-        o.build()
-        a.graft(o, "K06", roles, frame, op, lambda role, sd=seed: (sd, conf), ("reveal",))
+        for sill in row_sills(li):
+            op = Opening("k01.opening.gable_light", "k01.wall.shaped_gable", s, sill, li["width_m"], li["height_m"])
+            seed = a.instance(op.component, "opening", {"clear_width_m": li["width_m"], "clear_height_m": li["height_m"],
+                                                        "k06_variant": v["id"], "wall": op.wall},
+                              {"sill": k._add(O, k._add(k._mul(R, s), k._mul(k.Y, sill)))})
+            o = k6.Opening(v, a._kit)
+            o.seed = seed
+            o.build()
+            a.graft(o, "K06", roles, frame, op, lambda role, sd=seed: (sd, conf), ("reveal",))
+        if li.get("rows", 1) < 2:
+            continue
+        # T-2951: a grid window's stone — the transom between each row and the one over it,
+        # across the window, and the group's mullions up its whole height
+        hw = li["width_m"] / 2
+        rs = row_sills(li)
+        for y0 in rs[1:]:
+            y1 = y0 - li["transom_m"]
+            _prism(a, "limestone_trim", frame, [(s - hw, y1), (s + hw, y1), (s + hw, y0), (s - hw, y0)],
+                   0.0, TRANSOM_PROUD_M, gseed, conf)
+        n, m = v.get("bays", 1), v.get("mullion_m", 0.0)
+        bw = (li["width_m"] - (n - 1) * m) / n
+        yb, yt = rs[0], rs[-1] + li["height_m"]
+        for i in range(n - 1):
+            m0 = s - hw + (i + 1) * bw + i * m
+            _prism(a, "limestone_trim", frame, [(m0, yb), (m0 + m, yb), (m0 + m, yt), (m0, yt)],
+                   0.0, TRANSOM_PROUD_M, gseed, conf)
     # the coping band: a dressed stone strip on the face along the outline, both sides
     cw, cp = sg["coping"]["width_m"], sg["coping"]["proud_m"]
     right = g["right"]
@@ -237,6 +333,8 @@ def dress(a, roof_seed):
             _prism(a, "limestone_trim", frame, poly, 0.0, cp, gseed, conf)
     if sg.get("oculus"):
         _oculus(a, frame, sg, g, gseed, conf)
+    if sg.get("shoulders"):
+        _shoulders(a, frame, sg, gseed, conf)
     # the kneelers: a square pinnacle on each ledge, a cap and a pyramid over it
     kn = sg["kneelers"]
     xm = g["xf"] - sg["thickness_m"] / 2
@@ -254,6 +352,8 @@ def dress(a, roof_seed):
         from . import k01_wall_gable
         k01_wall_gable._pyramid(a, "limestone_trim", Fr, s, 0.0, y1 + kn["cap_m"], hw,
                                 y1 + kn["cap_m"] + kn["spire_m"], pseed, conf)
+        if kn.get("scroll"):
+            _scroll(a, frame, sg, W, sgn, conf)
     # the finial: a turned stone on the apex, let into it
     fn = sg["finial"]
     if not fn:

@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "718d56d7a333c9f44ce9cd8e8531df534f4d6167e8aa16cc63b969ce3b5a73d3",
+  "glb_sha256": "69bd8cfad81ad31e3a89cd6240f0edee7346de1efba0623201791a067c8c5ba8",
   "camera_sha256": "8f67a67f5a407ad30522085a1ab67f9c29ddc0bae6ceb1a979db9ea1accdc2b4",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/inland_architect_plate-side-by-side.jpg",
   "verdict": "differs",
@@ -79,6 +79,16 @@
     },
     {
       "what": "the bay's stone gable's face: the plate lights its third storey through three flat-headed lights between colonnettes under a great round arch whose tympanum holds three small round-arched lights, with carving over it, the gable about 4 m across (its rake running out past the pinnacles' inner faces); the build's wall gable is 3.0 m across, its three lights flat-headed under voussoirs in a plain recessed panel, its face in the buff dressing stone (the plate's reads smooth ashlar of the front's stone) (T-1892)",
+      "status": "fixed",
+      "how": "T-2936: K01's wall gable learns a GREAT ARCH. Its ring of fifteen voussoirs (1.15 m intrados, 0.16 m deep, 0.05 m proud) rises from the pediment's horizontal cornice, which reads as the plate's lintel over the lights below, its centre 0.3 m under the cornice's top so the ring springs as the plate's does, already curving; its intrados crown lands at about y 312 px with the plate's, its extrados about 10 px under the plate's. The tympanum is recessed 0.1 m and holds three round-arched lights, the middle one the taller (tops about y 323 and 330 px against the plate's 328 and 340); the three flat-headed lights below stand between four colonnettes with square bases and capitals under the cornice, and carry no voussoirs; a small round-arched light stands over the arch's crown (top about y 279 px against the plate's 262: the build's pediment is lower, being narrower); and the face, its ring and colonnettes are in the front's own brown sandstone, dressed smooth, not the buff dressing stone. What the plate still shows otherwise is the difference below (the gable's width, the archivolt's depth, the carving)"
+    },
+    {
+      "what": "the bay's stone gable's width: the plate's gable is about 4 m across, its rake running out past the pinnacles' inner faces, so its great arch spans about 145 px with a deep moulded archivolt and carved stone over it; the build's face is 3.0 m (K01 keeps each pinnacle clear of the K10 cornice's 0.13 m return), so its arch spans about 106 px and its ring is 0.16 m, the most the raking cornice leaves room for, and the carving is not built (T-2937)",
+      "status": "fixed",
+      "how": "T-2937: the face 3.6 m across, its raking cornice's outer edge reaching the foot about 1.95 m either side, running out past the pinnacles' inner faces and dying into the shafts, which K01 now lets a wall gable's pinnacles do (`pinnacles.engage`: each shaft stands across the face's edge and 0.17 m past it); the apex at about y 213 px against the plate's 207, where T-2542's stood about 25 px under it; the pinnacles 0.5 m lower, their caps at y 293-300 px with the plate's right-hand cap at 293. The archivolt at the plate's depth across that width: a 1.4 m intrados centred 0.6 m under the cornice's top (its crown at about y 312 px against 315-318), 0.2 m voussoirs and a moulded hood order outside them 0.12 m wide and 0.1 m proud (`arch.hood`), 0.32 m in all against the plate's 14-16 px (0.32-0.36 m), its outer edge springing about 1.6 m either side (x about 140-280 px, the plate's about 128-270) and cresting at y 298 against 300-302. The tympanum's three lights at the plate's 0.8 m spacing and 0.4-0.42 m width; the flat-headed lights under the cornice at its 0.82 m spacing and 0.55 m width between their colonnettes. The carving over the arch is argued, not built: at the plate's resolution the pediment between the archivolt and the crown light reads as coursed rock-faced stone, its joints and shadows those of the courses, with no carved panel legible; the dark mass right of the crown is the tree's branches crossing it"
+    },
+    {
+      "what": "the bay's stone gable's centre: its apex, its lights and its pinnacles stand about 10 px (0.25 m) south of the plate's (the apex at x about 209 px against 196, the flat-headed lights' centre at 208 against 197), as T-2542 placed the gable on the bay's centre; and the plate's pinnacles are carved, the right-hand one capped by a scaled dome, the left by a moulded block, where the build's are square shafts under pyramids (T-2920)",
       "status": "open"
     },
     {

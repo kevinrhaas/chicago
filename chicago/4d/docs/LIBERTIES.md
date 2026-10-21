@@ -24073,7 +24073,7 @@ once.
 
 ### L-draft-prairie-18-20-west-2329 — The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed
 
-**Covers:** `edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie.draft_1904.form.draft_elevation`, `house_1828_prairie.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
+**Covers:** `edson_keith_house_1906_prairie.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie.draft_1904.form.draft`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft_elevation`, `edson_keith_house_1906_prairie_coach_house.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie.draft_1904.form.draft`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft_elevation`, `elbridge_keith_house_1900_prairie_coach_house.draft_1904.form.draft`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft_elevation`, `henderson_house_1816_prairie_coach_house.draft_1904.form.draft`, `house_1828_prairie.draft_1904.form.draft_elevation`, `house_1828_prairie.draft_1904.form.draft`, `house_1828_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1828_prairie_coach_house.draft_1904.form.draft`, `house_1918_prairie.draft_1904.form.draft_elevation`, `house_1918_prairie.draft_1904.form.draft`, `house_1918_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1918_prairie_coach_house.draft_1904.form.draft`, `jones_house_1834_prairie.draft_1904.form.draft_elevation`, `jones_house_1834_prairie.draft_1904.form.draft`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft_elevation`, `jones_house_1834_prairie_coach_house.draft_1904.form.draft`, `marsh_house_1824_prairie.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie.draft_1904.form.draft`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft_elevation`, `marsh_house_1824_prairie_coach_house.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie.draft_1904.form.draft`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft_elevation`, `moulton_lowden_house_1912_prairie_coach_house.draft_1904.form.draft`, `shed_1834_1900_prairie.draft_1904.form.draft_elevation`, `shed_1834_1900_prairie.draft_1904.form.draft`.
 **Decision:** the owner's district pass (2026-10-08) drafts the whole of Prairie Avenue as a
 serviceable first model that the per-building tickets then refine in place. On the west side of
 the 18th-20th block (Sanborn 1911 sheet 28) it stands nine houses and nine alley buildings —
@@ -24124,6 +24124,7 @@ the house, its posts and roof left to the house's own pass.
 **How to resolve:** each house's own per-building ticket (named on its card and in its record's
 `draft.replaceable_by`) replaces its attributes in place, under the same id, from a photograph,
 plate, plan or measured drawing; the alley buildings are T-1935's.
+**Retired in part:** 1816 Henderson's house by T-2963 (piece 1 of T-1886), which refined it in place on the K01 frontage kit under `L-k01-1816-henderson-2963`; its stable is still this draft's.
 **Ticket:** T-2329 (piece 1 of T-2159, the district draft's 18th-20th block).
 **Review:** `docs/RESEARCH/prairie-draft-west-2329/README.md`.
 **Recorded:** 2026-10-10 (T-2329).
@@ -24167,7 +24168,7 @@ gone, and its stable keeps `coleman_ames_house_1811_prairie_coach_house` here.
 
 ### L-draft-prairie-16-18-west-2334 — The west side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and 1620 read off the 1886 plate
 
-**Covers:** `george_glessner_house_1706_prairie.draft_1904.form.draft_elevation`, `george_glessner_house_1706_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1708_prairie.draft_1904.form.draft_elevation`, `house_1708_prairie.draft_1904.form.draft`, `house_1712_prairie.draft_1904.form.draft_elevation`, `house_1712_prairie.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie.draft_1904.form.draft_elevation`, `house_1726_prairie.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie.draft_1904.form.draft_elevation`, `house_1730_prairie.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `house_1736_prairie.draft_1904.form.draft_elevation`, `house_1736_prairie.draft_1904.form.draft`, `house_1736_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1736_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie.draft_1904.form.draft_elevation`, `walker_house_1720_prairie.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
+**Covers:** `george_glessner_house_1706_prairie.draft_1904.form.draft_elevation`, `george_glessner_house_1706_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1708_prairie.draft_1904.form.draft_elevation`, `house_1708_prairie.draft_1904.form.draft`, `house_1712_prairie.draft_1904.form.draft_elevation`, `house_1712_prairie.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `house_1736_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1736_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie.draft_1904.form.draft_elevation`, `walker_house_1720_prairie.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
 **Decision:** the district draft's 16th-18th block (T-2160, split to T-2334 for the west side
 and T-2335 for the east), run by the builder and under the rules of
 `L-draft-prairie-18-20-west-2329`, whose "What is invented" and "What is not" hold here word for
@@ -24209,6 +24210,13 @@ house under K01's flat roof, the sheet's canted stone bay on K08 and its narrow 
 rear wings, under `L-k01-1636-stone-front-flat-2348`, under the same id; its draft attributes are
 gone. Its door moves from the south end to the north: the sheet's bay fills the south half of its
 front, so the 1634/1636 pair repeats rather than mirrors.
+**1726 and 1730 retired from this liberty by T-2934 (2026-10-20):** both now stand as K01 brick
+frontages under `L-k01-1726-1730-map-led-2934`, under the same ids, their plans read off the sheet
+(1726's canted bays, side projections and rear pieces; 1730's front block under a mansard, its
+frame bay, south projection and vestibule, and its two-storey rear range); their draft attributes
+are gone, and their stables keep `house_1726_prairie_coach_house` and `house_1730_prairie_coach_house`
+here. The rule above that drew 1730 flat beside 1726 is retired with them: the sheet's own dashed
+line puts a mansard on 1730.
 1720 Walker's Italianate
 frame is a low bracketed hip, its central gable, canted bay and full-width porch left to T-1873.
 The pairs the sheet attests (1626/1628, 1634/1636, 1700/1706) mirror their entrances to their
@@ -24227,7 +24235,7 @@ which household it served is not read.
 **How to resolve:** each house's per-building ticket (T-1859 to T-1874, named on its card and in
 its record's `draft.replaceable_by`) replaces its attributes in place, under the same id; the alley
 buildings are T-1932's.
-**Retired in part:** 1612 Goodman's front house by T-2344 (piece 1 of T-1860), which refined it in place on the K01 frontage kit under `L-k01-1612-goodman-2344`; its stable is still this draft's. 1620 Law's house by T-1861, which refined it in place on the K01 frontage kit under `L-k01-1620-law-1861`; its stable is still this draft's.
+**Retired in part:** 1612 Goodman's front house by T-2344 (piece 1 of T-1860), which refined it in place on the K01 frontage kit under `L-k01-1612-goodman-2344`; its stable is still this draft's. 1620 Law's house by T-1861, which refined it in place on the K01 frontage kit under `L-k01-1620-law-1861`; its stable is still this draft's. 1736's house by T-2933 (piece 1 of T-1874), which refined it in place on the K01 frontage kit under `L-k01-1736-mcbirney-veranda-2933`; its stable is still this draft's.
 **Ticket:** T-2334 (piece 1 of T-2160, the district draft's 16th-18th block).
 **Review:** `docs/RESEARCH/prairie-draft-16-18-west-2334/README.md`.
 **Recorded:** 2026-10-11 (T-2334).
@@ -24988,6 +24996,52 @@ source, replaces the kits' choices in place.
 **Ticket:** T-2355 (piece 1 of T-1862); T-2391 (the rear piece).
 **Review:** `docs/RESEARCH/k01-1628-brick-2355/README.md`, `docs/RESEARCH/k01-1628-rear-piece-2391/README.md`.
 **Recorded:** 2026-10-11 (T-2355); 2026-10-12 (T-2391).
+
+### L-k01-1726-1730-map-led-2934 — 1726 and 1730 Prairie refined from the district draft to bounded map-led K01 brick houses, their plans the 1911 sheet's and everything above the plan the kits'
+
+**Decision:** the two brick houses at 1726 and 1730 Prairie Avenue (T-2934, piece 2 of T-1874)
+are no longer district drafts. Each stands, under the draft's own id, as a `k01_frontage` record
+built by `generators/k01_emit.py`. No photograph, plate or description of either is known, so
+each is a BOUNDED design: the plan is read off the sheet and every elevation is the kits', chosen
+so the two fronts do not read as one.
+**What is read, not invented.** From sheet 20 of the 1911 Sanborn through the T-2328 trace and the
+T-1840 census: for 1726 ('2½B', brick, 'D'), the main body (21.6 m by 8.4 m, where the
+draft's fill had found 7.25 m), the canted bay across the front's south part and the open porch
+beside it on the north, where the entrance is; the canted bay on the south side and the wider rear
+section behind it; the small projection on the north side; the two-storey brick rear piece and the
+frame porch behind the rear wall; and the '12 12' printed against its side walls, two brick
+storeys, which puts the half storey in the roof. For 1730 ('3B', rear '2B', brick, 'D'), the wall
+the sheet draws across the house between the front block (12.5 m by 7.9 m) and the rear range
+(10.3 m), the north wall on the lot line, the frame bay on the front, the south projection and the
+one-storey vestibule at its front end, the frame porch behind the rear range; and the '12 12'
+against the front block's walls with the dashed line the sheet draws inside them, diagonals to
+each corner: the plan of a mansard's curb and hips, so the '3' is the roof storey. 1736 next door
+carries the same dashed line and is a mansard in its photograph (T-2933).
+**What is invented.** Every height (1726's 1.7 m principal floor and 3.9/3.7 m storeys, 1730's
+1.8 m and 4.1/3.7 m); the walls' thickness; the brick's colour, bond and grime (the one K03
+panel); every window's kind, size and place and every head (K09 cornice hoods on 1726, flat stone
+lintels on 1730); the doors, the stoops and their widths; the K10 bracketed cornices; 1726's hip
+(the sheet draws no roof), its 38-degree pitch and its street dormer for the attic; 1730's
+mansard's section, slate and two gabled dormers; the chimney stacks; the gutters and downpipes;
+every bay's and projection's storey heights, windows and roof; the rear wings' floors, decks and
+windows.
+**What the kit could not hold, and how it is bounded.** K08 holds a sheet's canted bay to 1.2 m
+out and a projection to 6.0 m wide and 1.2 m proud. 1726's front bay (1.4 m out) and south bay
+(1.6 m) are built 1.2 m out on the sheet's widths; of 1726's rear section, 9.7 m along the wall
+and 1.7 m further south on the sheet, 6.0 m from the rear corner are built 1.2 m proud and the
+rest, with its canted end, is not. 1730's south projection and vestibule stand 2.1 m out on the
+sheet and are built 1.2 m out. 1726's north projection is built square where the sheet cants its
+front end. Where 1726's '2B' rear piece runs 2.9 m into the main body's rectangle, it is built at
+the main body's height. Not built: the frame porch the sheet draws north of 1726's rear piece,
+past the main body's north wall (a K01 wing stands inside its host wall's length); the open porch
+in front of 1726's entrance is the K07 stoop alone, with no roof.
+**How to resolve:** a photograph, plate or description of either house, ingested as a source,
+replaces the kits' choices in place; a K08 that holds a deeper bay rebuilds the four bays and
+projections to the sheet's depths.
+**Covers:** `house_1726_prairie.as_mapped_1904.form.basement_lights`, `house_1726_prairie.as_mapped_1904.form.chimneys`, `house_1726_prairie.as_mapped_1904.form.dormer`, `house_1726_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1726_prairie.as_mapped_1904.form.entrance_kit`, `house_1726_prairie.as_mapped_1904.form.north_bays`, `house_1726_prairie.as_mapped_1904.form.principal_floor_m`, `house_1726_prairie.as_mapped_1904.form.rainwater`, `house_1726_prairie.as_mapped_1904.form.rear_bays`, `house_1726_prairie.as_mapped_1904.form.roof_covering`, `house_1726_prairie.as_mapped_1904.form.roof_form`, `house_1726_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1726_prairie.as_mapped_1904.form.sash_by_storey`, `house_1726_prairie.as_mapped_1904.form.service_wall_brick`, `house_1726_prairie.as_mapped_1904.form.side_bays`, `house_1726_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1726_prairie.as_mapped_1904.form.stair_tread_m`, `house_1726_prairie.as_mapped_1904.form.stoop_width_m`, `house_1726_prairie.as_mapped_1904.form.storey_heights_m`, `house_1726_prairie.as_mapped_1904.form.street_front_trim`, `house_1726_prairie.as_mapped_1904.form.wall_head`, `house_1726_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1726_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1726_prairie.as_mapped_1904.form.window_kit`, `house_1730_prairie.as_mapped_1904.form.basement_lights`, `house_1730_prairie.as_mapped_1904.form.chimneys`, `house_1730_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1730_prairie.as_mapped_1904.form.entrance_kit`, `house_1730_prairie.as_mapped_1904.form.mansard`, `house_1730_prairie.as_mapped_1904.form.principal_floor_m`, `house_1730_prairie.as_mapped_1904.form.rainwater`, `house_1730_prairie.as_mapped_1904.form.rear_bays`, `house_1730_prairie.as_mapped_1904.form.roof_covering`, `house_1730_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1730_prairie.as_mapped_1904.form.sash_by_storey`, `house_1730_prairie.as_mapped_1904.form.service_wall_brick`, `house_1730_prairie.as_mapped_1904.form.side_bays`, `house_1730_prairie.as_mapped_1904.form.stair_landing_depth_m`, `house_1730_prairie.as_mapped_1904.form.stair_tread_m`, `house_1730_prairie.as_mapped_1904.form.stoop_width_m`, `house_1730_prairie.as_mapped_1904.form.storey_heights_m`, `house_1730_prairie.as_mapped_1904.form.street_front_trim`, `house_1730_prairie.as_mapped_1904.form.wall_head`, `house_1730_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1730_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1730_prairie.as_mapped_1904.form.window_kit`
+**Ticket:** T-2934 (piece 2 of T-1874).
+**Review:** `docs/RESEARCH/k01-1726-1730-map-led-2934/README.md`.
+**Recorded:** 2026-10-20 (T-2934).
 
 ### L-k01-1626-brick-frame-bay-2356 — 1626 Prairie's main body refined from the district draft to a three-storey K01 brick house with a two-storey frame bay, the north half of the pair with 1628, everything but the plan, the bay's place and its timber the kits'
 
@@ -26094,6 +26148,85 @@ built as drawn.
 **Ticket:** T-2433 (piece 2 of T-1869).
 **Review:** `docs/RESEARCH/k01-1623-farwell-2433/README.md`.
 **Recorded:** 2026-10-13 (T-2433).
+
+### L-k01-1736-mcbirney-veranda-2933 — 1736 Prairie refined from the district draft to a K01 painted-brick house under a mansard, its veranda front read off the c. 1890 photograph
+
+**Decision:** the house at 1736 Prairie Avenue (T-2933, piece 1 of T-1874) is no longer a district
+draft. It stands, under the draft's own id `house_1736_prairie`, as a `k01_frontage` record built by
+`generators/k01_emit.py`, against its one picture: the c. 1890 photograph of the Ingraham/McBirney
+house the Glessner House Museum reproduces (`glessner_blog_1736_mcbirney_c1890_photo`, rights
+check_required: forms and proportions only). Painted brick walls two storeys over a raised basement,
+a bracketed cornice, a slated mansard with two round-headed dormers on the street face, three arched
+and hooded upper windows, and a timber veranda the front's whole width on K07's terrace with the
+stair at its north end.
+**What is read, not invented.** From the 1911 Sanborn sheet 20 (trace s20fp-1736-b1, census
+s20-1736-f): the main body's place and plan (23.3 m deep by 6.75 m, the trace's own width where the
+draft's fit had stopped at 5.5 m), brick, the frame porch 1.8 m deep across the front. From the
+photograph, through its solved camera (`data/reference_views/house_1736_prairie/mcbirney_c1890_photo.json`):
+the walls' pale tone, the principal floor, the wall head, the upper windows' places, sills and heads,
+the mansard's curb and its two street dormers, the veranda's four posts, frieze and balustrade, and
+the stair's place. Every height rests on the camera's distance, which the photograph bounds only to
+about 25-31 m (its `solve`).
+**What is invented.** The paint's colour (the print is monochrome); the walls' thickness and brick;
+the principal storey's window heads and heights, hidden by the veranda; the veranda's plain square
+posts (the print's 6 px posts do not show a turned or chamfered section), the balustrade's pattern
+(T-2960 builds it in painted timber with slender balusters at 0.14 m, the print showing only a light
+pierced band) and how far back the dark under the deck stands (0.5 m); the upper windows' hood
+profile and consoles, which are K09's (the print shows a flat moulded hood with drops at its ends,
+too small to read their mouldings); the veranda roof's covering (T-2961 lays its slopes in the
+house's roof covering; the print shows them textured and darker than the fascia, not what they are);
+the street wall's thickness (0.35 m), its top's chamfer (0.06 m) and its stone, limestone as the
+McBirney curbstone photographed in place in 2015 is, and the section of the stair's foot pier (0.6 m
+under a 0.06 m cap);
+the mansard's deck and its two south dormers over 18th Street; the stacks' places; every window of
+the south, north and rear walls (no picture sees them); the rainwater; the treads.
+**What is not built.** The south wall's two small projections and its side porch on 18th Street
+(T-2962). The lower set-back front the photograph shows left of the house: T-2961 ruled it neither
+1736's own nor a neighbour's on the lot as it stood, since through the camera it falls 3.6-5.1 m
+south of the house's south wall, in 18th Street, where the 1911 sheet draws the corner open. Any
+opening in the street wall (the print draws the wall continuous across the stair's line but for
+0.4 m behind a tree) and any return of the wall along 18th Street (no picture shows one). (T-2961
+built the street wall at the print's two heights with the stair's foot pier, and the veranda roof
+rising 1.0 m to the wall over a thin fascia where T-2933's had risen 0.35 m behind a 0.6 m beam.)
+**How to resolve:** T-2962 builds the flank, the service wing and the rear and argues the mansard's
+date; a later picture of the house, ingested as a source, says what changed by 1904, and a picture
+of the corner says what stood south of the house in c. 1890.
+**Covers:** `house_1736_prairie.as_mapped_1904.form.wall_thickness_front_m`, `house_1736_prairie.as_mapped_1904.form.wall_thickness_side_m`, `house_1736_prairie.as_mapped_1904.form.service_wall_brick`, `house_1736_prairie.as_mapped_1904.form.street_front_trim`, `house_1736_prairie.as_mapped_1904.form.roof_pitch_deg`, `house_1736_prairie.as_mapped_1904.form.eave_overhang_m`, `house_1736_prairie.as_mapped_1904.form.stair_tread_m`, `house_1736_prairie.as_mapped_1904.form.side_bays`, `house_1736_prairie.as_mapped_1904.form.rear_bays`, `house_1736_prairie.as_mapped_1904.form.north_bays`, `house_1736_prairie.as_mapped_1904.form.basement_lights`, `house_1736_prairie.as_mapped_1904.form.chimneys`, `house_1736_prairie.as_mapped_1904.form.rainwater`, `house_1736_prairie.as_mapped_1904.form.window_kit`
+**Ticket:** T-2933 (piece 1 of T-1874); T-2960 (the upper windows' heads and the veranda); T-2961 (the street wall, the veranda roof's slope and the set-back front).
+**Review:** `docs/RESEARCH/k01-1736-mcbirney-2933/README.md`.
+**Recorded:** 2026-10-20 (T-2933; amended by T-2960 and T-2961).
+
+### L-k01-1816-henderson-2963 — 1816 Prairie refined from the district draft to a K01 brick house under a mansard, its canted bays and columned porch read off its photograph
+
+**Decision:** the house at 1816 Prairie Avenue, Charles M. Henderson's (T-2963, piece 1 of T-1886),
+is no longer a district draft. It stands, under the draft's own id `henderson_house_1816_prairie`, as
+a `k01_frontage` record built by `generators/k01_emit.py`, against its one photograph
+(`chicagology_1816_henderson_photo`, undated, after 1873; rights check_required: forms and
+proportions only): brick walls two tall storeys over a rusticated stone basement, a canted bay at the
+street front's south corner with the cornice carried round it, a canted bay on the south flank, a
+porch on two turned columns carrying an iron balcony, a bracketed cornice and a slated mansard with
+dormers, and an iron fence on a stone curb.
+**What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1816-b1, census
+s28-1816-front): the front block's place and plan (14.82 by 12.0 m), both canted bays' widths and
+projections, the porch's place and size, the rear range ('rear2B'), brick. From the photograph,
+through its solved camera (`data/reference_views/henderson_house_1816_prairie/chicagology_photo.json`):
+the principal floor, the storey heights and the wall head, the windows' heights and the flank's one
+window, the porch's columns, entablature and balcony, the mansard and its dormers' faces, the fence.
+Every height rests on the camera's distance (its `solve`).
+**What is invented.** The walls' thickness and the brick's tone (the print is monochrome); the
+mansard's deck and its pitch; the eave's overhang; the treads; the rear and north walls' windows
+(no picture sees them); the stacks' places; the rainwater; the sash pattern; the rear range's storeys,
+windows and flat deck.
+**What is not built.** The raised crown over the front's south end, the south bay's own mansard and
+dormers, the cresting, the pedimented dormers, the carved hoods and capitals, the balcony's pierced
+panels, the fence's scrolled panels, and the porch's place about 1 m south of the trace's in the
+print: open on the match record for T-2964.
+**How to resolve:** T-2964 builds those, reads the 1874 Land Owner engraving through a camera of its
+own, and brings both match records to `matches`.
+**Covers:** `henderson_house_1816_prairie.as_mapped_1904.form.wall_thickness_front_m`, `henderson_house_1816_prairie.as_mapped_1904.form.wall_thickness_side_m`, `henderson_house_1816_prairie.as_mapped_1904.form.service_wall_brick`, `henderson_house_1816_prairie.as_mapped_1904.form.roof_pitch_deg`, `henderson_house_1816_prairie.as_mapped_1904.form.eave_overhang_m`, `henderson_house_1816_prairie.as_mapped_1904.form.stair_tread_m`, `henderson_house_1816_prairie.as_mapped_1904.form.rear_bays`, `henderson_house_1816_prairie.as_mapped_1904.form.north_bays`, `henderson_house_1816_prairie.as_mapped_1904.form.chimneys`, `henderson_house_1816_prairie.as_mapped_1904.form.rainwater`, `henderson_house_1816_prairie.as_mapped_1904.form.window_kit`
+**Ticket:** T-2963 (piece 1 of T-1886).
+**Review:** `docs/RESEARCH/k01-1816-henderson-2963/README.md`.
+**Recorded:** 2026-10-20 (T-2963).
 
 ### L-k01-1625-mcbirney-tudor-2432 — 1625 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1890 photograph, its steep wall gable stood in for by a dormer until K01 can raise one
 
@@ -28655,8 +28788,10 @@ archivolts; the balcony 0.4 m out, its face 0.5 m deep and its corbel 0.35 m; th
 (the kit's), level 0.1 m over the landing and swept down in one reversed cosine curve to a 0.5 m block
 0.85 m over grade (the photograph's left block reads 0.68-0.70 m over the camera's grade, which stands
 about 0.2 m under the lot's); the landing 0.3 m at the arch's mouth and the treads 0.28 m.
-**What is not built.** The carving on the piers, round the arches, on the cheeks' blocks and on the
-balcony's face, and the carved frieze over the loggia: plain stone here (T-2911 and T-2540). The
+**What is not built.** Nothing of the carving now: the carving on the piers, round the arches, on
+the cheeks' blocks and on the balcony's face is T-2923's (L-kimball-1801-loggia-carving-2923), which
+also takes the keystones off, and the carved frieze and cartouche band over the loggia are T-2932's
+(L-kimball-1801-loggia-frieze-2932). The
 principal storey's window the K01 build had at 18.9 m on the 18th Street wall is gone: the
 photograph's arch stands there.
 **How to resolve:** a photograph or drawing of the loggia's inside, or a plan of the principal floor,
@@ -28690,8 +28825,10 @@ closed by the mansard's lower face; the cornice's section is K10's moulded stone
 0.6 m high in square stone balusters at 0.17 m (1637's south bay's), where the print shows pierced
 panels between posts; T-2930 pierced them (L-kimball-1801-bow-lattice-2930). The pair's lights are K06's plate-glass casements
 2.0 m clear on a 0.18 m mullion; the print's small leaded glazing in the transom lights is not built.
-**What is not built.** The carved pilasters beside the bay and the pavilion, the windows' moulded
-surrounds and the carved frieze over the principal storey: plain stone here (T-2922). The sheet's
+**What is not built.** The carved frieze over the principal storey stands over the loggia, not the
+bay, and is T-2932's (L-kimball-1801-loggia-frieze-2932); the
+carved pilasters beside the bay and the pavilion and the windows' moulded surrounds are T-2931's
+(L-kimball-1801-pilasters-2931). The sheet's
 bulge (v 4.8-10.2) is wider and further south than the photograph's bay; the photograph is followed.
 **How to resolve:** a second photograph of the front, from the south-west or straight on, would fix the
 bow's rise and the lights' place round it; a measured drawing would replace every number here.
@@ -28722,6 +28859,95 @@ drawing of the balustrade, would give the piercing's true shape and the straps' 
 **Ticket:** T-2930 (piece 1 of T-2922).
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-20 (T-2930).
+
+### L-kimball-1801-pilasters-2931 — 1801 Prairie's carved pilasters and moulded window surrounds: their places and storeys read off the Taylor print, their sections and carving reconstructed
+
+**Decision:** the bowed bay and the south pavilion on 1801 Prairie's front (T-2931, piece 2 of
+T-2922) take the carved pilasters and the moulded window surrounds J. W. Taylor's c. 1895 photograph
+shows (`taylor_c1895_kimball_residence_1801`), where T-2921 and T-2843 laid plain stone. **What is
+read, not invented.** Where the pilasters stand: one at the bow's north junction with the front (x
+1127-1137 on the 1600 px print), one at each corner of the pavilion's face (x 1232-1250 and 1322-1340,
+the north one beside the bow's south edge); one a storey, each under its own capital just below the
+floor band or the cornice over it (the principal storey's capitals at y 828-848, the second's at
+632-680, the pavilion's third's at about 437-455), each shaft a narrow strip with a chain of carved
+lozenges down it, and the principal storey's starting at the windows' sill course on a corbel that
+hangs below it (the pavilion's at y 995-1018). Every light of the bow and every pair of the pavilion,
+on all three of its storeys, sits in a moulded frame proud of the wall under a projecting head. **What
+is invented.** Every size: the shafts 0.22 m (the bow's) and 0.30 m (the pavilion's) broad and 0.07
+and 0.08 m proud, on bases 0.15 m tall standing 0.02 m wider and prouder and under capitals 0.30 and
+0.35 m tall standing 0.045 m so, the lowest base at 1.75 m (the windows' sill) on a two-step corbel
+0.40 and 0.45 m deep; the lozenges 0.015 m proud on a 0.42 m pitch; the surrounds' jambs 0.12 m (the
+bow) and 0.20 m (the pavilion) broad and 0.04 m proud in two steps, the reveal's third half as proud,
+under hoods 0.22 and 0.20 m tall and 0.07 and 0.08 m proud that the sill's horns and the lintel's ears
+are carried out to. The print gives each pilaster 10-18 px across and its capital about 20 px tall,
+which shows where they are and not their mouldings: the capitals, carved foliate blocks in the
+print, are built as plain blocks, and the lozenges stand for carving the print cannot resolve. The
+bow's pilaster at its south junction, hidden from this camera behind the pavilion, is built as the
+north one. **Not changed here.** The pavilion's face renders about 30 px south of the print's at its
+north corner and about 55 px at its south, so the pavilion's pilasters stand that much south of the
+print's; the envelope is T-2540's and it is a difference in the match record, not a liberty of this
+entry.
+**How to resolve:** a nearer photograph of the front, or a measured drawing of the bay and the
+pavilion, would give the pilasters' and the surrounds' sections and the capitals' carving.
+**Ticket:** T-2931 (piece 2 of T-2922).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-20 (T-2931).
+
+### L-kimball-1801-loggia-carving-2923 — 1801 Prairie's loggia carving: archivolts, carved piers, spandrel rosettes, the stair's foot blocks and the balcony's face placed off the Taylor print, their sections and carving reconstructed
+
+**Decision:** the corner loggia on 1801 Prairie (T-2923, piece 3 of T-2911) takes the carving J. W.
+Taylor's c. 1895 photograph shows round both its arches (`taylor_c1895_kimball_residence_1801`),
+where T-2910 laid plain stone under a voussoir ring and keystone. **What is read, not invented.**
+Each arch, on the front and on 18th Street alike, is framed by a moulded archivolt that turns round
+its head and runs down both jambs to the loggia's floor, about 0.2 m broad (its crown at about 3.8 m
+over the intrados' 3.6), with no keystone; a carved pier stands each side of it, a strip about
+0.3 m broad (the front's at v 0.1-0.4 and 2.84-3.15, the 18th Street face's at u 17.0-17.3 and
+19.6-20.0, read through the solved camera) from a base at the floor to a capital at about
+3.7-3.95 m, its shaft carved down its length; the spandrels between the archivolt and the piers
+are carved; each foot block of the stair's swept cheeks is carved with arched panels on its front
+and its outer face; and the 18th Street arch's balcony carries a row of carved panels on its face.
+**What is invented.** Every size and every carving's form: the archivolt's two faces 0.07 and
+0.11 m broad, 0.035 and 0.07 m proud; the piers 0.22 m outside the intrados, 0.30 m broad and
+0.05 m proud, on 0.35 m bases standing 0.03 m wider and prouder, under 0.17 m capitals standing
+0.04 m so, their tops at 3.92 m; a chain of lozenges 0.14 by 0.24 m standing 0.02 m off each shaft,
+for the print's carving, which at about 2.7 cm a pixel shows that the shafts are carved and not
+what with; one rosette 0.1 m in radius in each spandrel, for the print's leafage; on each foot
+block a round-headed tablet on its front and two on its outer face, each 0.015 m proud with its
+field raised again, for the print's small arched tracery; the balcony's face in four panels between
+raised ribs 0.05 m broad, a lozenge in each. The capitals are plain blocks where the print's are
+carved. **Not changed here.** Both arches render about 15-20 px south (the front's) and east (the
+18th Street face's) of the print's, so their carving does; the arches' places are T-2910's and it
+is a difference in the match record.
+**How to resolve:** a nearer photograph of the loggia, or a measured drawing of its arches, would
+give the archivolt's section, the piers' and the capitals' carving and the tracery on the blocks.
+**Ticket:** T-2923 (piece 3 of T-2911).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-21 (T-2923).
+
+### L-kimball-1801-loggia-frieze-2932 — 1801 Prairie's carved frieze and cartouche band over the loggia: their heights and runs read off the Taylor print, their carving reconstructed
+
+**Decision:** over both of 1801 Prairie's loggia arches (T-2932, piece 3 of T-2922) stand the two
+carved bands J. W. Taylor's c. 1895 photograph shows over the principal storey there
+(`taylor_c1895_kimball_residence_1801`), where the build laid plain coursed stone. **What is read,
+not invented.** Their heights through the solved camera, on the front and on 18th Street alike: a
+carved relief frieze from the piers' capitals at about 3.9 m to about 4.5 m (y 822-857 on the 1600 px
+print over the front arch), under a moulded course to about 4.7 m; over that a band to the second
+storey's sill at about 5.4 m (y 767-815), carved with a cartouche under the window over the arch and
+scrolled frames either side of it; both run from capital to capital across the arch's bay. **What is
+invented.** The frieze 0.08 m proud and its carving: the print's relief, leafage with what may be
+figures, is finer than its 2.7 cm a pixel, and it stands as T-2819's guilloche (rings 0.2 m in
+radius, 0.04 m broad and 0.025 m proud, every other one half that); the course 0.18 m in a fillet
+and a face 0.12 m proud; the cartouche band 0.06 m proud, its cartouche an oval 0.6 by 0.5 m raised
+in two steps on the arch's axis, and for each scrolled frame a roundel 0.14 m in radius. On 18th
+Street the window over the arch stands 0.2 m off the arch's axis, so the cartouche, which is
+laid on the arch's, does not centre under it. **Not changed here.** The house's belt at 4.8-5.0 m
+runs on behind the cartouche band; the print's course stands about 0.3 m lower, at 4.5-4.7 m, and
+the band over the rest of the front is T-2540's.
+**How to resolve:** a nearer photograph of the loggia would give the frieze's relief and the
+cartouche band's frames.
+**Ticket:** T-2932 (piece 3 of T-2922).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-21 (T-2932).
 
 ### L-k01-1621-last-drawn-2531 — 1621 Prairie's last drawn differences: the door's ring turned to a curved extrados under a band in a deep recess, the light over it stood on a moulded shelf, and splayed voussoirs over the basement lights, their places read and their sections reconstructed
 
@@ -28813,8 +29039,32 @@ that build invents: the grilles' pattern (the plate's are scrolled panels; K08 d
 scroll ring), the balustrade's close-set stone bars at 0.12 m for the plate's pierced fretwork panels, whose
 interlace is not carved, its 0.3 m posts and 0.22 m coping, and the basement storey's 1.75 m, set so the
 string course lands on the plate's sill course.
-**How to resolve:** T-2917 to T-2920 (the split of T-1892) finish the gable's recess and carving, the
-porch, the front's fabric and the roof, and bring the match record to `matches`.
+**Revised:** 2026-10-20 (T-2936, piece 1 of T-2917, of T-1892). The bay's stone gable is the plate's
+great arch: K01's wall gable learns an arched face, its ring of fifteen voussoirs rising from the
+pediment's horizontal cornice (which reads as the plate's lintel over the lights), its centre 0.3 m under
+the cornice's top, a 1.15 m intrados and a 0.16 m ring; the tympanum recessed 0.1 m with three round-
+arched lights, the middle one taller; four colonnettes beside and between the three flat-headed lights
+under it, which lose their voussoirs; a small round-arched light over the crown; and the face, ring and
+colonnettes in the front's brown sandstone dressed smooth, where the buff dressing stone stood. What that
+build invents: the face's 3.0 m width, kept (the plate's gable is about 4 m, its rake past the pinnacles;
+T-2937), so the arch's span, the 0.16 m ring (the most the raking cornice leaves room for) and the
+lights' sizes are scaled down to it; plain voussoirs for the plate's moulded archivolt; 0.055 m
+colonnettes with square bases and capitals for the plate's stouter carved ones; the round-arched lights
+as dark openings without sash; and the carving over the arch, not built.
+**Revised:** 2026-10-21 (T-2937, piece 2 of T-2917, of T-1892). The gable is the plate's width: its face
+3.6 m, its raking cornice reaching the foot about 1.95 m either side and running out past the pinnacles'
+inner faces into the shafts, which K01's wall gable now lets its pinnacles do (`pinnacles.engage`), so the
+apex stands with the plate's; the pinnacles 0.5 m lower. The great arch is the plate's: a 1.4 m intrados
+centred 0.6 m under the cornice, 0.2 m voussoirs and a moulded hood order 0.12 m wide and 0.1 m proud
+outside them (`arch.hood`), 0.32 m of archivolt where the plate reads 0.32-0.36 m; the tympanum's lights
+and the flat-headed lights under the cornice at the plate's spacing. What that build invents: the face's
+3.6 m and the 55-degree pediment within the plate's reading; the archivolt's two flat orders for a
+moulding whose profile the plate does not resolve; the pinnacles' square plan and pyramid tops (the plate's
+are carved, one under a scaled dome); and the gable's centre, about 0.25 m south of the plate's with its
+pinnacles, where T-2542 set it. The carving over the arch is argued away, not invented: at the plate's
+resolution the pediment there reads as coursed rock-faced stone with no carved panel legible.
+**How to resolve:** T-2918 to T-2920 (the porch, the front's fabric and the roof, and the gable's centre
+and carved pinnacles under T-2920) bring the match record to `matches`.
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.chimneys`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.gable_roof`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
@@ -30373,6 +30623,46 @@ as drawn; the jamb caps are a K08 dress piece of their own.
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-20 (T-2915).
 
+### L-k01-1812-wheeler-gable-2951 — 1812 Prairie's gable outline, shoulder stones, nine-light grid window and scroll kneelers, read off the photograph
+
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-2951, piece 1 of T-2891) takes the
+shaped gable Albert Levy's photograph shows: its outline re-read and redrawn, a square stone block
+standing over the outline at each shoulder, the grid window as the print's nine lights (three by
+three) between stone mullions and transoms in place of K06's three tall lights, and each kneeler a
+carved scroll console at the front's corner under a small pinnacle. The kit learns this in
+`shaped_gable`: `lights.rows` and `transom_m` stack the K06 group into a grid, `lights.panes` sets
+its lights' panes, and a grid lays its transoms and mullions in stone; `shoulders` builds the
+blocks through the slab; `kneelers.scroll` builds the consoles. Every other K01 house re-emits
+byte-identical.
+**What is read, not invented.** Through the camera T-2543 solved
+(`data/reference_views/wheeler_house_1812_prairie/levy_front.json`; 88.5 px a metre at the main
+front, the walk at y 1549.6), on 4x crops of the print with the render's silhouette laid over it
+and a tenth-metre grid: the outline's half-width at 13.0, 13.5, 14.0 and 14.5 m (3.13, 2.83, 2.55,
+2.11 m on the south side; 2.83, 2.58, 2.32, about 1.6-1.9 m on the north), the head's at 15.3,
+15.5, 15.75, 16.0, 16.25 and 16.5 m (1.10, 1.04, 0.92, 0.75, 0.54, 0.35 m, the two sides' mean),
+the finial's plinth about 0.28 m out from about 16.65 m; the shoulder blocks 0.90-1.62 m out from
+14.68 to 15.3 m (south) and 0.92-1.60 m about 0.15 m lower (north); the grid window's lights
+about 0.42 m across between mullions about 0.13 m wide, in three rows about 0.36-0.39 m high over
+ledges about 0.07 m deep, the whole in the 1.64 by 1.26 m opening T-2543 read; and the scroll at
+each corner about 0.4 m across from about 11.35 to 12.1 m, its roll at its foot.
+**What is invented.** The mean of the two sides for a symmetric gable, where the print's south
+side reads about 0.25 m wider than its north all the way up (its crinkle, or a slight roll); the
+outline built 0.04-0.05 m inside the reading, which the coping's projection gives back in the
+render; the blocks' 0.06 m proud and plain faces; the transoms' and mullions' 0.02 m proud; the
+lights' single pane (the print's lights read dark, no bar is seen); the scroll's roll 0.2 m in
+radius and 0.2 m proud, its raised eye, its body and its cap; the pinnacles' 0.3 m shaft to
+12.85 m and 0.2 m spire, set 3.85 m out where the print's kneeler stone stands about 3.6-3.95 m.
+**What is built otherwise than read.** The shoulder blocks' sunk panels, the grid window's
+quoined side stones and the wavy hood over it, the deep moulded shelf under it and the carving on
+the scrolls beyond their roll and eye are not built; the lights are K06's casement sash, whose
+frame reads heavier at this size than the print's dark lights. These stay open in the match
+record.
+**How to resolve:** A sharper print, or a drawing of the gable, settles the outline's two sides
+and lets the panels, the hood and the scrolls be carved as drawn.
+**Ticket:** T-2951 (piece 1 of T-2891).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-20 (T-2951).
+
 ### L-glessner-fan-stilt-2912 — Glessner's Prairie door fan stilted to HABS sheet 5 and its tympanum's field laid as the sheet's eight rings
 
 **Decision:** the Prairie Avenue door's fan on the `glessner_house` is a STILTED head (T-2912,
@@ -30424,6 +30714,32 @@ and their number.
 **Review:** `data/reference_views/spalding_house_1637_prairie/spalding_remodel_engraving.match.json`.
 **Recorded:** 2026-10-20 (T-2782).
 
+### L-glessner-colonnettes-2965 — Glessner's seven Prairie colonnettes: their capitals' carving cut from sheet 6 and three close-ups
+
+**Decision:** the second-floor colonnettes on the `glessner_house` Prairie front (T-2965) are
+rebuilt from HABS sheets 3 and 6 and the owner's photographs: a splayed square base, a
+straight-tapered round shaft, the round front of a stone mullion flush with the wall's face, and a
+cushion block capital, all in the front's granite. Each capital carries its own carving, south to
+north (`prairie_colonnette.capitals` in the record). **What is read.** Sheet 6 (75.5 px/ft) draws
+all seven and their bases, shafts and capitals' outlines; sheet 3 cuts each as a round-fronted
+mullion about 0.95 x 1.5 ft; the Glessner House Museum's 2013 post "The stone capitals on Glessner
+House" (three close-ups held as `a18-ghm-blog-capital-*`) says the capitals were carved in place by
+John Evans's carvers from August 1887, every one different, the one over the door carrying
+Richardson's monogram, and shows that one and its two neighbours; the c. 1888 front
+(`a18-gh-glessner-front-with-keith`) shows the taper and the base joint; Taylor 2135 the granite.
+**What is invented.** Every cut, depth and stem path; the bodies of the four capitals no close-up
+shows, read off the sheet's small, stippled drawing (a slotted band over crossing straps; a
+zigzag band over a leaf roundel; discs over a boss; discs over basket weave); the leaf tips and
+volutes repeated on all but the monogram capital; the letterforms of the monogram. The
+heights are shares of the record's 4.5-ft opening (the sheet draws 5.0 ft; not taken up here).
+**What is not changed.** The openings, the sashes, the carved string's own carving (now granite),
+the north gable pair's colonnettes.
+**How to resolve:** close photographs of the other four capitals, and a square one of each of
+the seven, would let every band and body be cut as carved.
+**Ticket:** T-2965.
+**Review:** `docs/RESEARCH/glessner-colonnettes-T-2965/`.
+**Recorded:** 2026-10-20 (T-2965).
+
 ## T-2804: named resident seated-driver and supported W01 studies (2026-10-19)
 
 This is an additive seated-study declaration under existing L418. Existing reconstructed 1835 residents Otis Bardwell (`rc_bardwell_otis`), Joseph Dufresne (`rc_dufresne_joseph`) and Martin Flynn (`rc_flynn_martin`) retain their record identity, date and reconstruction basis. The static seated pose, age/body fit, hand targets and staged driving action are original engineering reconstructions, not portraits, recorded driving assignments or observed actions. No new anonymous person or biography is introduced. The optional canonical `sit_drive` authoring uses the existing portable export and HumanActor; actual exported garment/bench/shoe contact and palm/rein grip require inspection, and source-body pose calculations alone do not establish them.
@@ -30446,3 +30762,76 @@ Canonical source composition may apply explicitly recorded shoe registration, so
 **How to resolve:** actual canonical exports and source/published images, independently reviewed period garments and anatomy, fit and source licenses. Unverified studies remain unaccepted.
 
 **Recorded:** 2026-10-19 (T-1789, T-2804).
+
+### L-k01-1812-wheeler-porch-2952 — 1812 Prairie's porch arch, side light, swept stair, pierced parapet, flush projection and front downpipes, read off the photograph
+
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-2952 and T-2953, pieces 2 and 3 of
+T-2891) takes the front's lower half as Albert Levy's photograph shows it. The entrance is a broad
+porch arch whose head is a segment, its transom at the spring and the segment over it glazed,
+with the double door, a stone pier and a side light under it; the stair runs straight to the walk
+between solid stone cheeks swept down to a block at the foot, and the landing runs on north to a
+stone parapet pierced in two rows of square holes. The south projection stands flush with the
+south corner, its barred basement light comes down to the walk, and a downpipe runs down each end
+of the front from a rainwater head of its own. The kits learn this: K01's door arch takes
+`rise_over_span` (a segmental head in its voussoir block) and a porch mouth up to 3.2 m across
+under it; K07 takes `side_light` (leaves, pier, light under a transom at the spring and a glazed
+segment over it), swept cheeks beside a terrace, and a terrace `parapet` pierced in rows of holes;
+K01's rainwater takes `front_pipes`, each from its own head. Every other K01 house re-emits
+byte-identical.
+**What is read, not invented.** Through the camera T-2543 solved
+(`data/reference_views/wheeler_house_1812_prairie/levy_front.json`; 88.5 px a metre at the main
+front, the walk at y 1549.6), on 3x crops of the print: the arch's north jamb at x 1020 px (7.9 m
+out), its crown at y 1100 (5.07 m over the walk) under a ring to y 1088 (5.21 m), its spring about
+y 1170 (4.28 m); the transom from 4.03 to 4.28 m; the door from about x 752 to 898, the pier to
+923 (0.29 m), the side light to 1015 (1.04 m), its sill at y 1353 (0.56 m over the 1.65 m floor);
+the cheeks' level tops at about y 1355 (0.5 m over the landing) and the foot blocks' about 1.1 m
+over the walk; the parapet from the north cheek to about x 1097, its two rows of holes about 0.08 m
+square; the stair about 2 m between its cheeks; the projection's south corner at the front's own
+(x 305 px), its basement light from about y 1450 to the walk line at 1550 (1.08 m to about 0.05 m),
+1.86 m across; the north pipe's top at y 647 (10.2 m) at x 1057-1080, and the south pipe at x
+293-300 from the top of the front to the walk.
+**What is invented.** The segment for the print's flatter curve; the arch's mouth 2.7 m across,
+started 0.15 m clear of the projection's north face where the print's moulding runs down the
+projection's corner; the ring 0.15 m and a keystone the ring's height; the fanlight's three plain
+lights and K07's transom bar; the door's two leaves and panels and the side light's single pane;
+the stair 2.05 m wide on v 6.1, its left cheek against the projection; the cheeks' 0.3 m thickness,
+the sweep's curve and the block's 0.45 m; the terrace to 8.2 m and the parapet's 0.2 m thickness,
+six holes a row; the plinth's 0.1 m and the light's sill stone; the rainwater heads' size, the
+south pipe split at the projection's top (the print's pipe runs on past the balcony), and the
+north pipe kept straight where the print's turns north at about 6 m.
+**What is built otherwise than read.** The arch's moulded ring (built a voussoir block), its south
+jamb in the projection's corner, the heavy transom, the fanlight's columns of small panes, the
+north cheek's flare and the newels' carving and caps are open items on the match record.
+**How to resolve:** A sharper print, a drawing or a building permit for the porch settles the
+arch's curve and its south jamb; a second photograph of the stair settles its width and newels.
+**Ticket:** T-2952, T-2953 (pieces 2 and 3 of T-2891).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-21 (T-2952, T-2953).
+
+### L-glessner-passage-floor-2976 — Glessner's carriage passage sunk to its drawn floor, with an approach and a court ramp
+
+**Decision:** the porte-cochère passage through the `glessner_house` Prairie range (T-2976) lays
+its paving where both HABS sheets put the floor, under the ground at both mouths, instead of on
+the display-lifted sidewalk. **What is read.** Sheet 6, read at its own printed 0.00 and 24.30
+(75.3 px/ft), runs the opening and both oak leaves down to 1.9 ft under the door datum, 1.16 ft
+under the sidewalk it prints at -0.74, the sidewalk line returning down into the opening at both
+jambs; the street head stays at 7.0 over the door datum, so the passage clears 8.9 ft there.
+Sheet 4 draws the court mouth's floor 103 px (1.05 ft at 97.7 px/ft) under the ground it draws
+beside the mouth, with rounded stones at the jambs' feet; laid that far under the model's 0.12-ft
+court drive the floor is at -0.93 ft, and the passage clears 8.15 ft under the court lintel. The
+c. 1888 photograph's leaves run down past the rounded stones at the jambs' feet, which agrees.
+**What is invented.** The approach's fall from the walk to the sunk mouth (1.37 ft over about
+15 ft, straight), the court ramp's 10-ft run up to the drive along the drive's own edges, the
+dressed stone retaining edges along both sides of each, and the floor's straight rise between
+the two mouths; no sheet or photograph shows how the 1904 carriage way fell to and rose from the
+passage. **What is not changed.** The opening's plan, both heads, the corbels, the leaves'
+panels and hardware (the leaves are longer, so each panel is taller in proportion, as sheet 6
+draws them), and the courtyard's level. **Open.** Sheet 4's court lintel stands 8.5 ft over the
+ground drawn beside the mouth, but the record reads it at 7.22 ft on T-2228's section datum
+(y 5858), which lies about 1.3 ft over the ground the sheet draws at the north wall and the court
+mouth; reconciling that datum would raise the court-end clearance toward the sheet's 9.6 ft and
+is filed as T-2978. **How to resolve:** a photograph or drawing of the carriage way across the
+setback or in the court before 1946, when the court was paved for parking.
+**Ticket:** T-2976.
+**Review:** `docs/RESEARCH/glessner-passage-floor-T-2976/`.
+**Recorded:** 2026-10-21 (T-2976).

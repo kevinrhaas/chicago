@@ -29,6 +29,8 @@ JOINT_M = 0.008            # half a voussoir joint
 PIN_CAP_PROUD_M = 0.04     # a pinnacle's cap before its shaft, all round
 PIN_SIDES = 4              # a pinnacle's spire: a square pyramid
 FINIAL_SINK_M = 0.06       # the finial's foot let into the ridge
+TYMPANUM_LIGHT_M = 0.08    # T-2917: a tympanum light's reveal, behind the tympanum's recess
+COLONNETTE_BLOCK_M = 0.08  # T-2917: a colonnette's square base and capital, each this high
 
 
 def _k01():
@@ -92,6 +94,8 @@ def cutters(a, k5, P, xf, ys, zc) -> list:
         rec = [(c - q[0], sill + q[1]) for q in hole]
         out.append(k5.extrude(rec, xf - rev, xf + 0.05, P, "reveal", "window", "reveal"))
     g = a.dormer_geom
+    if "arch" in d["wall_gable"]:
+        return out + arch_cutters(a, k5, P, xf, zc)
     pd, pa = pediment(d, g), d["wall_gable"]["panel"]
     m = pa["inset_m"]
     y0, y1 = pd["foot"] + m, pd["inner"] - m * pd["cq"]
@@ -102,6 +106,113 @@ def cutters(a, k5, P, xf, ys, zc) -> list:
     out.append(k5.extrude(tri, xf - pa["depth_m"], xf + 0.05, P, "dormer_face", "dormer_face", "hidden"))
     a.wall_gable = {"panel_m": [round(y0, 4), round(y1, 4), round(2 * hw, 4)]}
     return out
+
+
+def arch(d, g) -> dict:
+    """T-2917: the great arch's circle in the face's frame (x across it from its centre, y
+    up from the face's foot), and the angles at which its intrados and extrados leave the
+    pediment's foot, which is the cornice's top the ring stands on. T-2937: `Ro` is the
+    archivolt's outermost edge, its hood's where it has one, and `to` that edge's angle."""
+    ar = d["wall_gable"]["arch"]
+    R, Re = ar["radius_m"], ar["radius_m"] + ar["ring_m"]
+    Ro = Re + (ar["hood"]["ring_m"] if "hood" in ar else 0.0)
+    cy = g["dhs"] - g["ys"] - ar["drop_m"]
+    return {"R": R, "Re": Re, "Ro": Ro, "cy": cy, "ti": math.asin(ar["drop_m"] / R),
+            "te": math.asin(ar["drop_m"] / Re), "to": math.asin(ar["drop_m"] / Ro)}
+
+
+def _round_head(x, sill, w, h, n=8):
+    """A round-headed light's outline (x across, y up), counter-clockwise from its sill."""
+    r = w / 2
+    spring = sill + h - r
+    return [(x - r, sill), (x + r, sill)] + [(x + r * math.cos(math.pi * k / n), spring + r * math.sin(math.pi * k / n))
+                                             for k in range(n + 1)]
+
+
+def arch_cutters(a, k5, P, xf, zc) -> list:
+    """The tympanum under the great arch, recessed `depth_m`, and its round-headed lights cut
+    on through it to a dark back, and the crown light over the arch where the record has one.
+    Refuses an arch whose ring, or a crown light, would run into the raking cornice."""
+    d, g = a.p.dormer, a.dormer_geom
+    ar, A = d["wall_gable"]["arch"], arch(d, g)
+    pd = pediment(d, g)
+    clear = (pd["inner"] - (g["ys"] + A["cy"])) / pd["cq"]    # the centre to the raking cornice's inner edge
+    if A["Ro"] > clear - 0.03:
+        raise ValueError("the wall gable's arch runs into its raking cornice")
+    ys, n = g["ys"], 24
+    curve = [A["ti"] + (math.pi - 2 * A["ti"]) * k / n for k in range(n + 1)]
+    tym = [(zc - A["R"] * math.cos(t), ys + A["cy"] + A["R"] * math.sin(t)) for t in curve]
+    out = [k5.extrude(tym, xf - ar["depth_m"], xf + 0.05, P, "dormer_face", "dormer_face", "hidden")]
+    foot = g["dhs"] - ys
+    for lt in ar["lights"]:
+        pts = _round_head(lt["at_m"], foot + lt["sill_m"], lt["width_m"], lt["height_m"])
+        out.append(k5.extrude([(zc - x, ys + y) for x, y in pts], xf - ar["depth_m"] - TYMPANUM_LIGHT_M,
+                              xf + 0.05, P, "reveal", "backing", "reveal"))
+    cl = ar.get("crown_light")
+    if cl:   # the small light in the pediment over the arch's crown
+        top = foot + cl["sill_m"] + cl["height_m"]
+        if foot + cl["sill_m"] < A["cy"] + A["Ro"] + 0.05:
+            raise ValueError("the wall gable's crown light stands on its arch's ring")
+        if cl["width_m"] / 2 > (pd["inner"] - ys - top) / g["dt"] - 0.05:
+            raise ValueError("the wall gable's crown light runs into its raking cornice")
+        pts = _round_head(0.0, foot + cl["sill_m"], cl["width_m"], cl["height_m"])
+        out.append(k5.extrude([(zc - x, ys + y) for x, y in pts], xf - TYMPANUM_LIGHT_M, xf + 0.05, P,
+                              "reveal", "backing", "reveal"))
+    a.wall_gable = {"arch_m": [round(A["R"], 4), round(A["Re"], 4), round(ys + A["cy"], 4)]}
+    if "hood" in ar:
+        a.wall_gable["hood_m"] = round(A["Ro"], 4)
+    return out
+
+
+def _arch_dress(a, frame, O, conf):
+    """The great arch's ring of voussoirs standing on the cornice, and the colonnettes
+    between and beside the flat-headed lights under it, in the face's own stone."""
+    k, af = _k01(), _af()
+    d, g = a.p.dormer, a.dormer_geom
+    ar, A = d["wall_gable"]["arch"], arch(d, g)
+    wd, sc, cy, n = d["width_m"], d["width_m"] / 2, A["cy"], ar["stones"]
+    ang = [A["ti"] + (math.pi - 2 * A["ti"]) * i / n for i in range(n + 1)]
+    out = list(ang)
+    out[0], out[-1] = A["te"], math.pi - A["te"]      # the springers' beds lie on the cornice
+    aseed = a.instance("k01.opening.gable_arch", "opening",
+                       {"radius_m": ar["radius_m"], "ring_m": ar["ring_m"], "proud_m": ar["proud_m"],
+                        "stones": n, "lights": len(ar["lights"])},
+                       {"crown": k._add(O, k._add(k._mul(frame[1], sc), k._mul(k.Y, cy + A["Re"])))})
+    for i in range(n):
+        poly = [(sc + A["R"] * math.cos(ang[i]), cy + A["R"] * math.sin(ang[i])),
+                (sc + A["Re"] * math.cos(out[i]), cy + A["Re"] * math.sin(out[i])),
+                (sc + A["Re"] * math.cos(out[i + 1]), cy + A["Re"] * math.sin(out[i + 1])),
+                (sc + A["R"] * math.cos(ang[i + 1]), cy + A["R"] * math.sin(ang[i + 1]))]
+        _prism(a, "dormer_stone", frame, k._inset(poly, [JOINT_M] * 4), 0.0, ar["proud_m"], aseed, conf)
+    hd = ar.get("hood")
+    if hd:
+        # T-2937: the archivolt's outer order, the plate's moulded hood round the ring: cut on
+        # the voussoirs' own joints, standing prouder than they do, its ends on the cornice
+        hang = list(ang)
+        hang[0], hang[-1] = A["to"], math.pi - A["to"]
+        for i in range(n):
+            poly = [(sc + A["Re"] * math.cos(out[i]), cy + A["Re"] * math.sin(out[i])),
+                    (sc + A["Ro"] * math.cos(hang[i]), cy + A["Ro"] * math.sin(hang[i])),
+                    (sc + A["Ro"] * math.cos(hang[i + 1]), cy + A["Ro"] * math.sin(hang[i + 1])),
+                    (sc + A["Re"] * math.cos(out[i + 1]), cy + A["Re"] * math.sin(out[i + 1]))]
+            _prism(a, "dormer_stone", frame, k._inset(poly, [JOINT_M] * 4), 0.0, hd["proud_m"], aseed, conf)
+    # the colonnettes: a square base on the lights' sill line, a round shaft and a square
+    # capital under the cornice, each standing out of the face by its own radius
+    co = ar["colonnettes"]
+    r, b = co["radius_m"], co["block_m"]
+    y0 = g["ys"] + d["sash"]["sill_m"]
+    y1 = pediment(d, g)["cornice_low"]
+    Fr = ((O[0], 0.0, O[2]), frame[1], frame[2])
+    for c in co["at_m"]:
+        s = sc + c
+        cseed = a.instance("k01.wall.gable_colonnette", "wall", {"radius_m": r, "height_m": round(y1 - y0, 4)},
+                           {"foot": k._add(O, k._add(k._mul(frame[1], s), k._mul(k.Y, y0 - g["ys"])))})
+        af._box(a, "dormer_stone", Fr, s - b, s + b, y0, y0 + COLONNETTE_BLOCK_M, r - b, r + b, cseed, conf,
+                skip=("back", "bottom"))
+        af._frustum(a, "dormer_stone", Fr, s, r, y0 + COLONNETTE_BLOCK_M, y1 - COLONNETTE_BLOCK_M, r, r * 0.9,
+                    cseed, conf)
+        af._box(a, "dormer_stone", Fr, s - b, s + b, y1 - COLONNETTE_BLOCK_M, y1, r - b, r + b, cseed, conf,
+                skip=("back", "top"))
 
 
 def _wedges(cx, cy, r, a0, a1, L, R, top):
@@ -166,14 +277,14 @@ def dress(a, roof_seed):
     hd = head(d, k6)
     a.instance("k01.wall.dormer_face", "wall", {"length_m": wd, "height_m": hf, "thickness_m": d["face_thickness_m"],
                                                 "construction": "masonry", "openings": len(ats), "head": hd.kind,
-                                                "wall_gable": True, "panel_m": a.wall_gable["panel_m"]},
+                                                "wall_gable": True, **a.wall_gable},
                {"base": O, "top": k._add(O, k._mul(k.Y, hf))})
     if not hasattr(a, "_kit"):
         a._kit = k6.load()
     v = _variant(d, k6)
     sw, sh, sill = d["sash"]["width_m"], d["sash"]["height_m"], d["sash"]["sill_m"]
-    vs = wg["voussoirs"]
-    top = sill + hd.apex() + vs["ring_m"]
+    vs = wg.get("voussoirs")     # T-2917: under a great arch the lights stand between colonnettes
+    top = sill + hd.apex() + (vs["ring_m"] if vs else 0.0)
     if g["ys"] + top > pediment(d, g)["cornice_low"] - 0.02:
         raise ValueError("the wall gable's voussoirs run into its cornice")
     roles = {r: ("limestone_trim" if m == "stone" else (m or "dormer_stone")) for r, m in a.K06_ROLES.items()}
@@ -187,6 +298,8 @@ def dress(a, roof_seed):
         o.seed = seed
         o.build()
         a.graft(o, "K06", roles, frame, op, lambda role, sd=seed: (sd, conf), ("reveal",))
+        if not vs:
+            continue
         # the voussoirs: the head's block, the light's width and `side_m` either side of it
         # up to `ring_m` over the crown, cut radially from the head's own centre
         vseed = a.instance("k01.opening.segmental_arch", "opening",
@@ -202,10 +315,18 @@ def dress(a, roof_seed):
             stones = [[(L, sill + hd.spring), (Rr, sill + hd.spring), (Rr, top), (L, top)]]
         for poly in stones:
             _prism(a, "limestone_trim", frame, k._inset(poly, [JOINT_M] * len(poly)), 0.0, vs["proud_m"], vseed, conf)
+    if "arch" in wg:
+        _arch_dress(a, frame, O, conf)
     # the pinnacles: square shafts either side of the face's foot, from under the wall
     # head (through the eave) past the face's eave, a cap and a pyramid over each
     pn = wg["pinnacles"]
     hw = pn["shaft_m"] / 2
+    if pn.get("engage"):
+        # T-2937: a shaft that takes the rake's end must stand clear over the rake where the
+        # rake enters it, at its inner face, or the raking cornice would run over its cap
+        pd = pediment(d, g)
+        if g["ys"] + pn["top_m"] < pd["apex"] - (pn["at_m"] - hw) * g["dt"] + 0.25:
+            raise ValueError("the wall gable's rake runs over its pinnacles' caps")
     for i, sg in enumerate((-1, 1)):
         s = wd / 2 + sg * pn["at_m"]
         y0, y1 = g["ys"] + pn["foot_m"], g["ys"] + pn["top_m"]

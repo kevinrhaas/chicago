@@ -19,7 +19,7 @@ const THREE=await import(threeURL);
 const modURL=s=>'data:text/javascript;base64,'+Buffer.from(s).toString('base64');
 const spatialSource=await readFile(path.join(sourceRoot,'renderers/web/js/spatial-batch.js'),'utf8');
 const jobsURL=pathToFileURL(path.join(sourceRoot,'renderers/web/js/jobs/')).href;
-const {spatialBatch,spatialBatchAsync}=await import(modURL(spatialSource.replace("from 'three'",`from '${threeURL}'`).replaceAll("from './jobs/",`from '${jobsURL}`)));
+const {spatialBatch,spatialBatchAsync}=await import(modURL(spatialSource.replace("from 'three'",`from '${threeURL}'`).replaceAll("from './jobs/",`from '${jobsURL}`).replace("from './batch-coalesce.js'",`from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/batch-coalesce.js')).href}'`)));
 const terrainSource=await readFile(path.join(sourceRoot,'renderers/web/js/terrain.js'),'utf8');
 const baseStride=Number(terrainSource.match(/const GROUND_BASE_STEP = (\d+)/)[1]);
 const baseOffset=Number(terrainSource.match(/groundBase\.position\.y = (-?[\d.]+)/)[1]);

@@ -5,7 +5,7 @@
  *                                      [--moves walk,turn,flight] [--year 1835]
  *                                      [--throttle 4] [--source] [--json f]
  *                                      [--sync] [--verify] [--gate] [--xray]
- *                                      [--sward grid|scan|both] [--profile N]
+ *                                      [--sward grid|scan|both] [--profile N] [--long-ms N]
  *   node tools/measure_walk_frames.mjs --live [--only mobile] [--tiers light]
  *                                      [--seconds 12] [--stills] [--json f]
  *                                      [--gl swiftshader|llvmpipe] [--no-gaze] [--profile N]
@@ -68,12 +68,29 @@
  * printed, and fails the run). The held loop's own `flora.update` calls and ms
  * are printed with it: they are main-thread time no driven frame's row carries.
  *
+ * T-2896: and a `far pass` line beside it — the far passes (the far shrubs and
+ * the carries, on their own 4 m step) off the same log, and where the GPU deals
+ * the carries (flora-gpu-carry.js) its deals, the CPU walks, the read-backs, the
+ * reaps and the carry tile's keeper, whose strips land between frames.
+ * T-2966: and the carries a pass that had to land in one frame left to their
+ * tail (flora.js `carryPass`), with the tail's frames and ms — which the far
+ * pass's own ms on the log include.
+ * T-2968: and the far shrubs dealt in the carries' job (flora-gpu-farshrub.js):
+ * its deals, the passes that walked them on the CPU, their slot field's
+ * uploads, the reaps and their ms, the bushes, the slots dealt whole.
+ * `--long-ms N` lists the frames over N ms (50 by default) with their pass.
+ *
  * T-2106: the moves are driven with the flora rebuild SPREAD over frames, as
  * the animation loop runs it (`setFloraSpread`); `--sync` reads the one-frame
  * pass every rebuild was before, and is the "before" of T-2106's reading.
  * `--verify` checks, after every move, that the pass the move left in flight
  * lands EXACTLY the plants a one-frame pass deals from the same camera: the
  * rebuild was spread, not changed.
+ * T-2966: dealt on the side the pass dealt its GPU rings — the near pass's
+ * mid ring, the far pass's carries (`onGpu` on the pass's log entry): a pass
+ * whose kept tile was not home walked them on the CPU, and the GPU's deal
+ * differs from that walk by the tile's own class (T-2698), so the one-frame
+ * pass walks them too (`flora.dealOnCpu`). The line names both sides.
  * T-2695: and that the zone answers the job pool's workers give a spread pass
  * (jobs/zone-kernel.js) are the page's own finder's, at 20,000 points over the
  * measured grid and its edge (`flora.checkHeldZones`).
@@ -197,6 +214,9 @@ const RENDER = process.argv.includes('--render');
  *  spent the most self time — which line of the rebuild the time is in. */
 const PROFILE = Number(argAt('--profile') || 0);
 const SYNC = process.argv.includes('--sync');
+/** T-2896 `--long-ms N`: the frames over N ms (default 50) are listed, with the
+ *  pass that landed in them. */
+const LONG_MS = Number(argAt('--long-ms') || 50);
 const VERIFY = process.argv.includes('--verify');
 /** T-2606 `--sward grid|scan|both` (see the header). */
 const SWARD = argAt('--sward') || 'grid';
@@ -287,7 +307,7 @@ await new Promise((r) => server.listen(PORT, r));
 console.log(`serving ${ROOT} — ${wantSource ? 'source tree' : 'PUBLISHED mirror'}, year ${YEAR}`);
 
 /** Runs in the page: drive one move at one tier and time every frame of it. */
-async function driveMove({ move, tier, render, profile, sync, verify, xray, sward }) {
+async function driveMove({ move, tier, render, profile, sync, verify, xray, sward, longMs = 50 }) {
   const a = window.__chicago4d;
   // T-2606 `--sward`: which sward test the slots ask, installed before the tier
   // change so its rebuild asks it too. main.js reads `yards.suppressesSward`
@@ -414,12 +434,16 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
   // flora ms, which is all it can be told apart by), and where the GPU draws the
   // near tufts (T-2716) what its deal pass, tile builds and uploads spent.
   const nearStats = a.flora.nearDraw?.stats;
+  // T-2967: the longest far reap slice is a running maximum: read per move.
+  if (nearStats && 'farSliceMaxMs' in nearStats) nearStats.farSliceMaxMs = 0;
   const nearDraw0 = nearStats ? { ...nearStats } : null;
   const nearMs = [];
   // T-2894: the near passes flora counted before the move, and the ones it
   // dropped after their ground was dealt; and which pass numbers landed inside
   // a frame this tool drove.
   const nearPass0 = spread0.passes?.near ?? 0;
+  // T-2896: and the far passes (the far shrubs and the carries), off the same log.
+  const farPass0 = spread0.passes?.far ?? 0;
   const dropped0 = spread0.droppedDealt ?? 0;
   const drivenPasses = new Set();
   // T-2096 § acceptance, "no visible change in where plants stand": a digest of
@@ -498,7 +522,7 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
     // milliseconds and what the spread passes had done by then — because a count
     // of them cannot say WHICH pass it was. That is how the walk's grade-change
     // re-deal was told apart from its right turn's.
-    if (rows[rows.length - 1].frame > 50) {
+    if (rows[rows.length - 1].frame > longMs) {
       const sp = sp1 ?? {};
       longs.push({ frame: i, ms: Math.round(rows[rows.length - 1].frame * 10) / 10,
         flora: Math.round((t['flora.update'] ?? 0) * 10) / 10, pass: kind,
@@ -527,6 +551,15 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
     driven: nearLog.filter((x) => drivenPasses.has(x.pass)).length,
     dropped: (spEnd.droppedDealt ?? 0) - dropped0,
     kinds: nearLog.reduce((o, x) => { o[x.kind] = (o[x.kind] ?? 0) + 1; return o; }, {}),
+  } : null;
+  const farLog = (spEnd?.log?.far ?? []).filter((x) => x.pass > farPass0);
+  const farSorted = farLog.map((x) => x.ms).sort((x, y) => x - y);
+  const far = spEnd?.log ? {
+    passes: farLog.length,
+    median: farSorted[Math.floor(farSorted.length / 2)] ?? 0,
+    max: farSorted[farSorted.length - 1] ?? 0,
+    ms: farSorted.reduce((x, y) => x + y, 0),
+    kinds: farLog.reduce((o, x) => { o[x.kind] = (o[x.kind] ?? 0) + 1; return o; }, {}),
   } : null;
   digests.push(digest());
   // Put back before the checks below: `checkSwardGrid` asks the property too.
@@ -574,6 +607,15 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
     for (const k of kinds) {
       const cam = a.camera.clone();
       const [x, y, z, qx, qy, qz, qw] = sp.last[k].camera;
+      // T-2966: on the side the spread pass dealt its GPU rings (the near
+      // pass's mid ring, the far pass's carries; flora.js `dealtOnGpu`). The
+      // GPU's deal and the CPU's walk differ by the kept tile's own class (one
+      // slot in about 400, T-2698), and which one a pass takes is the tile's
+      // timing: CI's walk at `full` read its last far pass walked by the CPU,
+      // the carry tile's 8 m re-centre landing after that pass started, and
+      // this re-deal on the GPU — the tile's class, not the spreading.
+      const onGpu = sp.log?.[k]?.find((x) => x.pass === sp.last[k].pass)?.onGpu;
+      a.flora.dealOnCpu?.(onGpu === false);
       cam.quaternion.set(qx, qy, qz, qw);
       cam.position.set(x + 500, y, z);
       cam.updateMatrixWorld(true);
@@ -581,8 +623,13 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
       cam.position.set(x, y, z);
       cam.updateMatrixWorld(true);
       a.flora.update(0, cam);
+      a.flora.dealOnCpu?.(false);
       const one = passDigest(k);
-      verified[k] = { spread: spreadDigests[k], sync: one, same: spreadDigests[k] === one };
+      // And the side the one-frame pass took: a spread pass the GPU dealt whose
+      // kept tile no longer covers it cannot be dealt again on its side here.
+      const oneGpu = sp.log?.[k]?.at(-1)?.onGpu;
+      verified[k] = { spread: spreadDigests[k], sync: one, same: spreadDigests[k] === one,
+        onGpu: onGpu ?? null, oneGpu: oneGpu ?? null };
     }
   }
   if (spreading) a.setFloraSpread(false);
@@ -623,6 +670,8 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
     median: nearSorted[Math.floor(nearSorted.length / 2)] ?? 0,
     max: nearSorted[nearSorted.length - 1] ?? 0,
     ms: nearMs.reduce((x, y) => x + y, 0),
+    // T-2896: the carry keeper's worst landing (a max, so not differenced).
+    carryKeepWorst: nearStats?.carryKeepWorst ?? null,
     gpu: nearDraw0 ? Object.fromEntries(Object.keys(nearDraw0)
       .map((k) => [k, nearStats[k] - nearDraw0[k]])) : null,
   };
@@ -639,7 +688,7 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
   // spent, which is the part of the frame this runner can honestly read.
   const scripted = rows.map((r) => r.frame - (r['renderer.render'] ?? 0)).sort((x, y) => x - y);
   return {
-    frames: rows.length, rebuilds, digests, spread, near, verified, heldZones, swardGrid, swardEvery, longs,
+    frames: rows.length, rebuilds, digests, spread, near, far, verified, heldZones, swardGrid, swardEvery, longs,
     scripted: describe(scripted),
     layers: Object.fromEntries(Object.keys(t).map((k) => [k, describe(col(k))])),
     heapMB: performance.memory ? performance.memory.usedJSHeapSize / 1048576 : null,
@@ -695,7 +744,9 @@ async function driveLive({ move, tier, mode, seconds, xray, profile, noGaze }) {
     if (a.renderer.getRenderTarget() !== null) { offscreen += 1; return render.apply(this, args); }
     const t = performance.now();
     try { return render.apply(this, args); } finally {
-      draws.push([t, a.renderer.getPixelRatio(), performance.now() - t]);
+      // T-2970: and what the driver received for it (driver-draws.js), the figure
+      // the draw budgets read — three's `info.render.calls` takes a batch as one.
+      draws.push([t, a.renderer.getPixelRatio(), performance.now() - t, a.driverDraws?.draws ?? null]);
     }
   };
   // T-2721 `--no-gaze`: the gaze target's look (target.js) held off for the
@@ -729,7 +780,9 @@ async function driveLive({ move, tier, mode, seconds, xray, profile, noGaze }) {
   const ratios = draws.map((d) => d[1]).sort((x, y) => x - y);
   // What the draw itself cost, so a slow interval says whose it is.
   const renderMs = draws.map((d) => d[2]).sort((x, y) => x - y)[Math.floor(draws.length / 2)] ?? null;
-  return { draws: draws.length, mean, sd, median: q(0.5), p95: q(0.95), max: sorted[sorted.length - 1],
+  const gl = draws.map((d) => d[3]).filter(Number.isFinite).sort((x, y) => x - y);
+  const driverDraws = gl.length ? { median: gl[Math.floor(gl.length / 2)], max: gl[gl.length - 1] } : null;
+  return { draws: draws.length, driverDraws, mean, sd, median: q(0.5), p95: q(0.95), max: sorted[sorted.length - 1],
     over33: iv.filter((x) => x > 33.4).length, over50: iv.filter((x) => x > 50).length,
     ratioMin: ratios[0], ratioMedian: ratios[Math.floor(ratios.length / 2)], ceiling: g.ceiling,
     pacedRafs: paced, decisions: g.decisions, renderMs, offscreen };
@@ -888,7 +941,8 @@ for (const vp of VIEWPORTS) {
           console.log(`${tier.padEnd(9)} ${move.padEnd(7)} ${mode.padEnd(9)} ${String(r.draws).padStart(5)} |`
             + ` ${f(r.mean)}${f(r.sd)}${f(r.median)}${f(r.p95)}${f(r.max)} ${String(r.over33).padStart(4)}${String(r.over50).padStart(4)} |`
             + ` ${r.ratioMin.toFixed(2)}/${r.ratioMedian.toFixed(2)} (${r.ceiling.toFixed(2)}) | ${r.pacedRafs}`
-            + ` | draw median ${r.renderMs?.toFixed(0)} ms | ${r.offscreen} offscreen`);
+            + ` | draw median ${r.renderMs?.toFixed(0)} ms | ${r.offscreen} offscreen`
+            + (r.driverDraws ? ` | driver draws ${r.driverDraws.median}/${r.driverDraws.max} med/max` : ''));
           out.readings.push({ viewport: vp.id, throttle: vp.throttle, live: true, tier, move, mode, ...r });
           if (jsonOut) writeJson();
         }
@@ -926,7 +980,7 @@ for (const vp of VIEWPORTS) {
   for (const tier of TIERS) {
     for (const move of MOVES) {
       const r = await page.evaluate(driveMove, { move, tier, render: RENDER, profile: PROFILE > 0,
-        sync: SYNC, verify: VERIFY, xray: XRAY, sward: SWARD });
+        sync: SYNC, verify: VERIFY, xray: XRAY, sward: SWARD, longMs: LONG_MS });
       const f = (x) => x.toFixed(1).padStart(5);
       const n = (x) => String(x).padStart(3);
       const L = r.layers;
@@ -977,10 +1031,45 @@ for (const vp of VIEWPORTS) {
             // beside the mid cards; the slots a kept yard re-seated.
             + (g.forbReaps != null ? ` | GPU forb ring: ${g.forbReaps} reaped ${g.forbReapMs.toFixed(0)} ms,`
               + ` ${g.forbSeated} re-seated` : '')
+            // T-2967: the far band, dealt in the same render against the far
+            // field and reaped between frames a slice at a time — the passes
+            // whose far band the CPU still walked (the kept far tile not home),
+            // the reaps and their slices (the longest is one task's main
+            // thread, in no frame's flora ms), the reaps a newer one overtook
+            // or a CPU pass made stale, and the slots the page dealt whole.
+            + (g.farDeals != null ? ` | GPU far band: ${g.farDeals} dealt, ${g.farCpu} walked by the CPU,`
+              + ` ${g.farMissed} missed, ${g.farUploads} uploads, ${g.farReaps} reaped`
+              + ` ${g.farReapMs.toFixed(0)} ms in ${g.farSlices} slices (longest ${g.farSliceMaxMs.toFixed(1)} ms),`
+              + ` ${g.farSkipped} overtaken, ${g.farStale} stale, ${g.farCards} cards,`
+              + ` ${g.farAsked} slots dealt whole on the page, ${g.farRedealt} re-dealt` : '')
             : ' | near tufts drawn by the CPU'));
       }
+      // T-2896: the far passes — the far shrubs and the carries — on their own
+      // 4 m step, read off the same log as the near line.
+      if (r.far?.passes) {
+        console.log(`  far pass: ${r.far.passes} passes (${Object.entries(r.far.kinds).map(([k, v]) => `${v} ${k}`).join(', ')}),`
+          + ` ${r.far.median.toFixed(1)} ms median and ${r.far.max.toFixed(1)} max on the main thread`
+          + ` (${r.far.ms.toFixed(0)} ms in all)`
+          + (r.near?.gpu?.carryPasses != null ? ((g) => ` | GPU carries: ${g.carryPasses} deal passes`
+            + ` ${g.carryPassMs.toFixed(0)} ms, ${g.carryCpu} walked by the CPU, ${g.carryUploads} uploads,`
+            + ` ${g.carryCollected} read-backs collected and ${g.carrySync} taken in the frame,`
+            + ` ${g.carryReaps} reaped ${g.carryReapMs.toFixed(0)} ms`
+            // T-2966: the carries a pass that had to land left to their tail.
+            + (g.carryTails != null ? `, ${g.carryTails} left to land after their pass`
+              + ` (${g.carryTailFrames} tail frames, ${g.carryTailMs.toFixed(0)} ms; ${g.carryQueued} passes`
+              + ` waited on one, ${g.carryTailDropped} replaced by a CPU walk`
+              // T-2966: and the NEXTs the kept tile no longer covered, walked on the CPU.
+              + (g.carryTailCpu != null ? `, ${g.carryTailCpu} walked by the CPU after their pass` : '') + ')' : '')
+            + (g.carryKeepMs != null ? `, the carry tile's keeper ${g.carryKeepMs.toFixed(0)} ms`
+              + ` between frames (its worst landing since the tier's rig was built ${r.near.carryKeepWorst?.toFixed(0)} ms)` : '')
+            // T-2968: the far shrubs, dealt in the carries' job against their slot field.
+            + (g.farShrubParts != null ? ` | GPU far shrubs: ${g.farShrubParts} dealt with the carries,`
+              + ` ${g.farShrubCpu} walked by the CPU, ${g.farShrubUploads} uploads, ${g.farShrubReaps} reaped`
+              + ` ${g.farShrubReapMs.toFixed(0)} ms, ${g.farShrubBushes} bushes, ${g.farShrubAsked} slots dealt`
+              + ` whole on the page, ${g.farShrubRedealt} re-dealt` : ''))(r.near.gpu) : ''));
+      }
       for (const l of r.longs ?? []) {
-        console.log(`  over 50 ms: frame ${l.frame} of the ${move}, ${l.ms} ms (flora ${l.flora}, ${l.pass ?? 'no'} pass),`
+        console.log(`  over ${LONG_MS} ms: frame ${l.frame} of the ${move}, ${l.ms} ms (flora ${l.flora}, ${l.pass ?? 'no'} pass),`
           + ` after ${l.landings} spread landings, ${l.drained} finished early, ${l.abandoned} dropped`);
       }
       if (r.heldZones?.held) {
@@ -992,7 +1081,7 @@ for (const vp of VIEWPORTS) {
         if (z.ground) {
           const g = z.ground;
           console.log(`  verify ground: ${g.asked} points asked (${g.wet} wet, ${g.floor} on a floor, ${g.trodden} trodden,`
-            + ` ${g.keep} kept verge), ${g.differ} answered differently${g.differ ? ` ${JSON.stringify(g.first)}` : ''}`);
+            + ` ${g.keep} kept verge${g.trackHeld ? `, ${g.track} on a street's track` : ''}), ${g.differ} answered differently${g.differ ? ` ${JSON.stringify(g.first)}` : ''}`);
           if (g.differ) failed++;
         }
       }
@@ -1009,7 +1098,13 @@ for (const vp of VIEWPORTS) {
         if (y.differ || !y.asked) failed++;
       }
       for (const [k, v] of Object.entries(r.verified ?? {})) {
-        console.log(`  verify ${k}: the spread pass ${v.same ? 'IS' : 'IS NOT'} the one-frame pass (${v.spread} / ${v.sync})`);
+        // T-2966: the side each dealt its GPU rings on (the mid ring, the carries).
+        const side = (g) => (g === true ? 'GPU' : g === false ? 'CPU' : null);
+        const ring = k === 'near' ? 'mid ring' : 'carries';
+        const sides = side(v.onGpu) && side(v.oneGpu) ? (v.onGpu === v.oneGpu
+          ? `; its ${ring} the ${side(v.onGpu)}'s, as the one-frame pass's`
+          : `; its ${ring} the ${side(v.onGpu)}'s, the one-frame pass's the ${side(v.oneGpu)}'s`) : '';
+        console.log(`  verify ${k}: the spread pass ${v.same ? 'IS' : 'IS NOT'} the one-frame pass (${v.spread} / ${v.sync}${sides})`);
         if (!v.same) failed++;
       }
       out.readings.push({ viewport: vp.id, throttle: vp.throttle, tier, move, ...r });

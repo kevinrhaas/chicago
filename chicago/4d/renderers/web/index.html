@@ -237,6 +237,13 @@
             aria-label="Open the map"></button>
         </div>
         <div class="compass-row">
+          <!-- T-2977 (owner, 2026-10-21): the Walk/Fly key, out of the right-edge column and
+               into the instrument, a small round key left of the heading. Its arrow points
+               up to fly and down, while flying, to walk again; F still toggles it. -->
+          <button type="button" id="btn-fly" class="fly-key" aria-pressed="false" title="Free-fly — rise above the town (F)"><svg
+            class="fly-up" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg><svg
+            class="fly-down" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v13"/><path d="M6 10l6 6 6-6"/><path d="M5 21h14"/></svg><span
+            class="visually-hidden" id="fly-label">Fly</span></button>
           <div id="compass" class="compass" aria-label="Heading north, 0 degrees">
             <strong id="compass-direction">N</strong><span id="compass-bearing">000°</span>
           </div>
@@ -250,10 +257,14 @@
              1812) over today's street, corner or house number, read off the City's own
              centrelines (data/modern/streets.json). "Then", not the year: "1904 Prairie
              Avenue" read as a house number. -->
+        <!-- T-2942: the column under the instrument — the street readout, then (by default)
+             the name of what you look at, docked here from under the crosshair. -->
+        <div class="instrument-below" id="instrument-below">
         <div id="street-readout" class="street-readout" aria-live="polite" hidden>
           <span class="street-line street-era"><b>Then</b><strong id="street-historic"></strong></span>
           <span class="street-line street-today"><b>Today</b><span class="street-modern" id="street-modern"></span></span>
           <span class="street-approach" id="street-approach" hidden></span>
+        </div>
         </div>
       </div>
     </div>
@@ -328,7 +339,7 @@
           <button type="button" class="seg-btn" data-mode="fly" role="radio" aria-checked="false">Fly</button>
         </div></div>
       <label class="field" id="move-speed-field"><span><span id="move-speed-label">Walk speed</span> <b id="v-speed"></b></span>
-        <input type="range" id="s-speed" min="0.5" max="8.94" step="0.01"></label>
+        <input type="range" id="s-speed" min="0.5" max="13.41" step="0.01"></label>
       <p class="legend-note" id="travel-note"></p>
       <!-- How you are taken to a place you picked, from Go to, the map or a Jaunt
            (T-2652). Ride there goes along the streets at the mode above. -->
@@ -345,8 +356,8 @@
       <!-- T-2652: one choice for every way of picking a place. The map's own Go (T-2654) goes
            by goToTarget like Go to, so it takes this choice too. -->
       <p class="legend-note" id="arrive-note" data-str="hud.move.arrive.note">Go to and the map use this choice. Jaunts keep the way each recommends, unless Jaunts use my choice is on. Then they use yours where they can.</p>
-      <p class="legend-note">These are ways of moving the camera, not claims about the past: a
-        run, a light wagon, a horse, and a burst of speed on <kbd>Shift</kbd>. The slider sets the
+      <p class="legend-note">Walk, run, take a light wagon or a horse, and put on a burst of speed
+        with <kbd>Shift</kbd>. The slider sets the
         speed of the mode you picked and names it. Ride there takes you to a place you choose
         along the streets where they run; Fly over lifts you over the town and sets you down at
         the door. Any movement of your own stops the ride; where no walkable route exists you are
@@ -677,6 +688,18 @@
           <input type="checkbox" id="s-street-names"></label>
         <label class="field row check-field"><span>Name of what you look at</span>
           <input type="checkbox" id="s-look-tag"></label>
+        <!-- T-2942: where that name shows, and whether it fades. -->
+        <label class="field row" id="row-look-tag-place"><span>Where the name shows</span>
+          <select id="s-look-tag-place">
+            <option value="right">Right, under the address</option>
+            <option value="centre">Centre, under the crosshair</option>
+            <option value="bottom">Bottom of the screen</option>
+          </select></label>
+        <label class="field row" id="row-look-tag-hold"><span>The name</span>
+          <select id="s-look-tag-hold">
+            <option value="fade">Fades after a few seconds</option>
+            <option value="always">Always shown</option>
+          </select></label>
         <label class="field row" id="row-season" hidden><span>Season</span>
           <select id="s-season" title="A viewing choice: the scene keeps its own date">
             <option value="summer">Summer — the scene's own day, full leaf</option>
@@ -760,7 +783,7 @@
           <input type="range" id="s-sound-effects" min="0" max="1" step="0.05"></label>
         <label class="field"><span><span data-str="settings.sound.ambience">Ambience</span> <b id="v-sound-ambience"></b></span>
           <input type="range" id="s-sound-ambience" min="0" max="1" step="0.05"></label>
-        <p class="legend-note" id="s-sound-note" data-str="settings.sound.note">Effects are the year ticker, the landing, and the Navigator's clicks and hum. Ambience is a quiet tone for each destination, made up for mood: it is not a recording of the past. Sound starts with your first tap, and Master at Off is silence.</p>
+        <p class="legend-note" id="s-sound-note" data-str="settings.sound.note">Effects are the year ticker, the landing, and the Navigator's clicks and hum. Ambience is a quiet tone for each destination, made up for mood: it is not a recording of the past. Sound is off until you raise Master. It starts with your first tap, and Master at Off is silence.</p>
       </div>
       <div class="settings-group">
         <h4>Units</h4>
@@ -838,20 +861,20 @@
   <!-- T-2614: desktop only, until the first click on the scene takes the pointer. -->
   <p class="look-tag" id="look-tag" aria-hidden="true" hidden>Click to engage look</p>
   <!-- T-2627 (§10): the target tag — after the reticle rests on a building for 400 ms, its
-       name and distance; a tap opens Inspect (so does E). -->
-  <button type="button" class="target-tag" id="target-tag" hidden></button>
-  <!-- T-2627: the quick column — the Walk/Fly toggle, and an Inspect key that appears with
-       a target. Never more than two buttons; everything else is in the Navigator's Move. -->
+       name and distance; a tap opens Inspect (so does E). T-2942: this is its Centre place;
+       by default target-tag.js docks it under the address (#instrument-below), and Bottom
+       puts it at the top of .hud-bottom. -->
+  <button type="button" class="target-tag" id="target-tag" data-place="centre" data-label="Ahead" hidden></button>
+  <!-- T-2627: the quick column — the Inspect key, which appears with a target. T-2977: the
+       Walk/Fly key moved into the instrument's heading row, so this holds one key, and it
+       fades in and out (css/walk.css) rather than popping; nothing beside it moves. -->
   <div class="quick-column" id="quick-column" role="group" aria-label="Quick controls">
-    <button id="btn-fly" class="chip" aria-pressed="false" title="Free-fly — rise above the town (F)">
-      <span class="fly-glyph" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M6 11l6-6 6 6"/></svg></span> <span class="chip-label" id="fly-label">Fly</span>
-    </button>
     <button id="btn-inspect" class="chip quick-inspect" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/><path d="M4 21h16"/></svg> <span class="chip-label">Inspect</span></button>
   </div>
   <!-- T-2640: Show me pulses this outline on the building for 2 s. -->
   <div class="show-me-outline" id="show-me-outline" aria-hidden="true" hidden></div>
 
-  <div class="hud-bottom">
+  <div class="hud-bottom" id="hud-bottom">
     <div class="travel-banner" id="travel-banner" role="status" hidden>
       <span class="tb-verb" id="travel-verb">Walking to</span> <strong id="travel-dest"></strong>
       <span class="tb-dist" id="travel-dist"></span>
@@ -946,7 +969,7 @@
   </div>
 </section>
 
-<aside id="popup" class="popup" hidden aria-live="polite"></aside>
+<aside id="popup" class="popup" hidden aria-live="polite" tabindex="-1"></aside>
 
 <noscript><p class="noscript">This walkthrough needs JavaScript and WebGL 2.</p></noscript>
 

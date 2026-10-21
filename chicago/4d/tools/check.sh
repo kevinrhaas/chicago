@@ -74,6 +74,18 @@ step "The flora walk in GLSL carries flora.js's own walk constants (T-2697)" \
 selftest "the shader walk's constant check refuses a seed, salt or block shift one bit off" \
   node tools/check_flora_gpu_lattice.mjs --self-test
 
+# T-2967. The near pass's far band is dealt on the GPU against a SLOT FIELD per far
+# lattice (flora-gpu-far.js): one texel per slot, asked by the pool at the slot's own
+# point (jobs/zone-kernel.js `slotPoint`). No browser: every slot of every tier's far
+# bands and the far shrubs' walk is its texel's point to the bit, on a texel of its
+# own, inside the kept tile. The classes and cards against the CPU are read in
+# Chromium by tools/measure_far_field.mjs (docs/measurements/t-2967-far-field.json).
+step "The far band's slot field asks every far slot at the slot itself (T-2967)" \
+  node tools/check_far_slot_field.mjs
+
+selftest "the slot field check refuses a stream salt one bit off, a swapped sub-grid and a narrow tile" \
+  node tools/check_far_slot_field.mjs --self-test
+
 # T-2707. The near field tile (near-field.js) is kept around the walker a strip at a
 # time — a toroidal tile, its strips asked of the job pool — and must stay the tile
 # `buildField` asks whole. No browser: a synthetic field, a walk over every kind of
@@ -160,6 +172,10 @@ step "The black box keeps the page's last steps in local storage, and the next p
   node tools/test_blackbox.mjs
 step "A pick draws only the building batches its ray meets, and a phone's look-around answers from the parts' boxes without drawing (T-2827)" \
   node tools/test_pick_boxes.mjs
+step "The drawn cells of one structure mesh join into one draw, drawing the same triangles with the same instance data (T-2927)" \
+  node tools/test_batch_coalesce.mjs
+step "Draw budgets read the driver's draws: a BatchedMesh multi-draw counts one draw per kept entry, reset with renderer.info (T-2970)" \
+  node tools/test_driver_draws.mjs
 step "Read frame pacing is offered only on the dev preview or with ?pacing=read, and reads sd and p95 as measure_walk_frames --live does (T-2732)" \
   node tools/test_pacing_read.mjs
 
@@ -280,6 +296,8 @@ step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
 step "Street travel keeps each pace on its surface and clears buildings (T-2496)" \
   node tools/test_street_travel.mjs
+step "a visitor walks through a building's modelled passage where it clears the eye (T-2943)" \
+  node tools/test_walker_passage.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \
   node tools/test_daybook.mjs
 step "loading library: 160 sourced, phase-local cards (T-1275)" \

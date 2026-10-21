@@ -2,8 +2,8 @@
   "structure_id": "glessner_house",
   "view": "habs5-entry",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "8febcc7455b381caa3599a59a832091d001c32601394143ae6902e1e6bd08b7b",
-  "camera_sha256": "527197a4970943eaadca69f2b69ee0d464337acabbca3b9db2ca7122d4e8029d",
+  "glb_sha256": "2a5292b00b167daee5f9310bca1f83a1b0d29db1e3df476c55c853ef54d9476a",
+  "camera_sha256": "8912fa320f417bc61deeba8add0324e7cd2467ee644ef5c2fafef05eaba759a1",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -44,7 +44,19 @@
       "status": "not shown"
     },
     {
-      "what": "Wall at the entry (T-2913): the sheet's course lines either side of the door (about 7.1, 5.8, 4.7, 3.8, 2.5 and 1.0 ft over the door datum) do not fall on the build's (7.3, 6.7, 6.1, 5.5, 4.4, 3.6, 2.3, 0.8), and its header stone's joints (S 27.7 and 36.0) against the build's 10 ft stone, which the period photograph supports at about 10.6 ft.",
+      "what": "T-2949 (of T-2913) read the courses beside the door; T-2955 owns building them. At the sheet's own scale (the door's outer frame 494 by 751 px on the 400-dpi scan, 98.8 px a foot; this crop is rectified on sheet 6's 7.75 ft door and runs about 3 % tall), the Prairie elevation draws sheet 5's printed string (18, 18, 15.5, 9.5, 13.5, 14.5, 7.5 in) up from its base line 0.54 ft under the sill: its first seven beds at 0.92, 2.40, 3.70, 4.56, 5.70, 6.94 and 7.58 ft against the string's 0.96 ... 7.50 from that line, and the 1888 photograph a18-gh-glessner-front-with-keith shows the same joints. The ticket's 6.1 was not a bed. The build lays the same string from the walk 0.74 ft under the sill (beds 0.76, 2.26, 3.55, 4.34, 5.47, 6.68, 7.30), 0.20 ft low everywhere. It is not raised here: one coursing serves every granite face, and on 18th Street the apertures are set on the string's sums from north grade (L305), so raising the beds alone pulls them off those windows, and raising the Prairie face alone breaks the NE corner's returns. Read as level courses round the corner, the sheet measures the 18th Street grade 0.20 ft over the Prairie walk, the offset grade_datum takes as zero; T-2955 sets it and carries both. Above the head the sheet's drawn courses run long against the printed inches, as its 18th Street elevation does against the string printed beside it; the printed inches govern there (docs/RESEARCH/glessner-entry-T-2853/T-2913.md). T-2955 set it: grade_datum's north grade 0.20 ft over the walk and the granite string laid from it, its bottom course run down to the walk. On the re-solved camera (T-2971) the render's beds beside the door fall at 1.00, 2.49, 3.79, 4.58, 5.70, 6.91 and 7.53 ft over the sill, against the string's 0.96 ... 7.50 and the drawing's own lines at 0.94, 2.41, 5.66 and 7.53 read in the same strip: every bed within 0.05 ft, the base line at -0.55 against the drawing's -0.51.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2949 (of T-2913), the header stone: the sheet draws it one course high from the door head to the spring, its end joints 5.09 ft left and 5.08 ft right of the door's centre line, a stone about 10.17 ft long (S 27.8-38.0); nothing falls at S 36.0. Built: S 27.8-38.0, from 27.9-37.9.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2950, the door's height against the seventh bed: sheet 6 gives the door 7.75 ft and the build keeps it, so the head stands 0.25 ft over the seventh bed joint (7.50); sheet 5 draws the door 7.60 ft at its own scale and puts the head on that joint, and the 1888 photograph's door (about 1.49 times as high as wide) agrees. Settling it moves the leaf, the header and this view's camera, which is solved on 7.75 ft. T-2971 (of T-2950) built it 7.50 ft, the head on the seventh bed: no sheet prints the height; sheet 6 read at its own printed 0.00 and 24.30 draws the frame 5.05 by 7.60 ft, sheet 5 7.60, the photograph about 7.4, and both sheets put the head on the bed the printed string sets at 7.50. The header's foot follows the head to 7.50. The camera is re-solved on the scan's own pixels, 100 px a foot both ways, no longer stretched 3.3 % to force 7.75 (habs5-entry-T-2950.png).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2972, found by T-2971: on the re-solved camera the sheet draws the header one course high, from the door head (7.50) to bed 8 at about 8.75 ft, its top flat, with the fan springing from bed 8; the build springs the fan at 9.0 and raises the header's centre to 9.3, so the header stands about 0.25 ft too tall at its ends and 0.55 at its centre. T-2912's spring, stilt (0.5) and crown were read on the old crop, 3.3 % tall, so all read high (spring about 8.78, stilt about 0.35 unstretched); the raised centre is the owner's close-up's (T-2228) and has to be argued against the flat-topped drawing.",
       "status": "open"
     }
   ],

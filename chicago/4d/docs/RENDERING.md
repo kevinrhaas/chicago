@@ -585,6 +585,22 @@ visual phase in the whole program.
   open). **Flight is the cost**: median 73-80 ms, every draw over 50 ms, which is T-2927.
   T-2829's acceptance is still its 1835 repeat. `docs/measurements/t-2719-owner-phone-1904.txt`
   and `.json`.*
+  *T-2970, 2026-10-20: **the draw budgets count the driver's draws.** `stats().drawCalls`
+  was three's `renderer.info.render.calls`, which takes a BatchedMesh's multi-draw as one
+  call where the driver receives one draw per kept instance — 360 against 3,288 at the
+  1904 flight after T-2927's coalescing. It is now that count plus each multi-draw's
+  entries past the first (`renderers/web/js/driver-draws.js`), audited draw for draw by
+  `tools/measure_pose_draws.mjs`; `rendererCalls` keeps three's figure. Re-based on it at
+  the six stands: `BUDGET` 330 → 7,800 (worst 7,358, full, the aerial, 1280x800), light's
+  floor 90 → 5,900 (worst 5,541, West prairie), Glessner's Full-inspection 360 retired
+  (worst 4,609 under the town's ceiling). A change of unit, not a raise: these are what the
+  town draws today, the ratchet the batching work is read against. Read frame pacing and
+  `measure_walk_frames.mjs` print the driver's draws a frame. `docs/measurements/T-2970-driver-draws.json`.
+  The counter never enables `WEBGL_multi_draw` itself: it wraps the extension when three
+  first asks the context for it (at its first BatchedMesh). Asking for it at boot, with
+  nothing wrapped, put one 52-57 ms flora pass on the first walk after a tier change and
+  turned the moving-frames gate red at balanced and light; left to three, both read under
+  9 ms again and the page meter still agrees with the GL (3,387 = 3,387, 1904 flight).*
 
 **Milestones**
 - W5.1 — seam merged with zero behavior change at default tiers (capture-identical), smoke
@@ -1486,3 +1502,475 @@ correction). Every number quotes its anchor and viewport.
   largest remaining walk (`rebuildFar`, 588 ms); moving a deal to the GPU gains only what
   the page then stops asking per slot, and a reap that asks `growthBlocked` and the fringe
   for every dealt slot costs what the walk did.
+- **The far pass's carries on the GPU's deal** (T-2896, T-2774's fourth slice, the part of
+  it that landed). The far pass (`rebuildFarShrubs`, every 4 m walked or a turn) walked
+  three lattices: the far shrubs and T-2035's two carries, `flora-near-carry` and
+  `flora-mid-carry` (the near and mid rings' own slots, drawn cheaper past the detailed
+  ring's handover, out to 18.6 and 45.6 m on the phone, 35 and 69 m at `full`). The
+  T-2895 profile put 3.9 s of the far pass's 4.7 in the carries, and this run's own
+  before profile showed where: not the walk but the page answering it — a third to more
+  than half of a spread pass's pool slots reached the deal before the workers' zone and
+  ground answers for them came home (`63 %` of the walk's, `43-44 %` of the turn's and flight's were
+  dealt off the workers' ground), so the page asked its own zone finder (`find`, 1.3 s)
+  and `station` (0.9 s, the streets' track most of it) for the rest.
+  - **The deal on the GPU** (`flora-gpu-carry.js`). Both carry walks are dealt in GLSL
+    at the far pass's start, one point per slot, the near carry's rows then the mid
+    carry's, in one render, against the CARRY FIELD: a third kept tile on the mid
+    field's 0.125 m texel grid over the mid carry's reach (`midFieldSpec`: 864 texels on
+    the phone, 1072 balanced, 1240 at `full`), kept by the pool a strip at a time and
+    holding only the workers' answers (`keeper({ page: false })`), like the mid field.
+    The deal is the mid deal's matrix questions (community, short turf, the matrix
+    share and the weight walk off the slot's one draw) and the ground's half of
+    `station` (floor, trodden verge, water substrates), without the woody band and the
+    tone. The read-back goes into a pixel-pack buffer behind a fence while the far
+    shrubs walk, and the pass's generator waits for it as it waits for a walk on the
+    pool (a caller with no budget — the boot, `settle`, a tool's `step()` — reads it in
+    the frame; a pass that must land before it is home leaves it to the carries' tail,
+    T-2966 below). `reapCarry` then does what the walk did, in slot order, a slice at
+    a time: the point in doubles from cell and index, ring and cone, the slot's own
+    handover (the detailed ring's `slotRing`, fringe included) and edge (the carry
+    fringe), the page's half of `station` — `growthBlocked`, and the woody band at
+    `terrain.surfaceHeight` — and `placeGraminoid` / `placeCard` on the slot's own
+    stream past the jitter's two draws, the card's tone computed there in doubles. A
+    far pass the kept tile does not wholly cover (after a boot, a tier change or a
+    jump, until the pool's tile is home) walks the carries on the CPU exactly as
+    before, counted (`carryCpu`). The carry program is compiled with the others as the
+    rig is built.
+  - **The streets' track asked per bin, and by the workers.** `streets.blocksGrowth`
+    walked every opened street's box for every slot of every pass; it now asks only the
+    streets whose padded box reaches the slot's 16 m bin (a street whose box does not
+    hold the point never answered true), by street-verge.js `trackAt`, the same test as
+    `nearestOn` without its allocations. The job pool's ground answers carry the same
+    test (`GROUND_TRACK`, over the same records with `track_width_m` added), so a slot
+    whose worker answer is home asks the page only `growthPatch` (the yards, the ground
+    strip, the worked bank); `checkHeldZones` holds the bit to the page's answer
+    (`--verify`: 5210 of 39478 points on a track, 0 answered differently). The answer
+    is the old one at every point, so no plant moves; it helps every caller — the
+    reaps, the one-frame passes, the near keeper's corner lattice, the trees.
+  - **Equivalence**, every flora instance set at the 18 anchors x 4 bearings on the
+    phone at `light`, a fresh one-frame pass at each pose with the kept tiles home,
+    `10751c7e9` (T-2895) against this: 137,791 carry instances
+    against 137,783 (70,787 mid-carry cards and 67,004 near-carry tufts on `10751c7e9`);
+    137,562 at the same slot with every attribute bit-identical, colour included, and 333
+    instance-poses over 136 distinct slots that differ, every one shown at the slot to be
+    the tile's own class (T-2698's, at the near and mid tiles' same 0.125 m texel): 104
+    where the texel centre's community is not the slot's (93 present on one side only, 11
+    another species or the other community's mean colour), 29 where the texel centre's
+    water test is not the slot's (the clump rooted at the waterline on one side and on the
+    ground on the other), 2 where a floor's edge crosses the texel, and 1 slot standing
+    0.2 mm south of its texel's edge, whose float32 position lands in the texel north of
+    it, in the lakeshore (`battle_reach_1812`, the same mid-carry card at two bearings).
+    Every other flora set — the near, mid, forb, rosette and shrub rings, the far band, the
+    far shrubs and the nine head sets — is bit-identical at all 72 poses, colour included,
+    and no census row differs (the carries were never counted). Zero page errors. One
+    `full`-tier stand (`sixteenth_prairie`, 1280x800, four bearings, where the mid carry
+    reaches 69 m): the mid carry's 21,515 cards bit-identical; the near carry 31,438
+    against 31,434 tufts, 8 slots differing, 6 at a texel centre in the other community
+    and 2 near-carry slots standing on a texel's edge (`e` 1410.75 and 1426.25), whose
+    float32 position lands in the neighbouring texel. The far shrubs, the far band and the
+    near pass are untouched by this slice and match to the bit there too.
+  - **Readings** (`docs/measurements/t-2896-carries-on-gpu-mobile.json`): the phone
+    profile, `light`, SwiftShader, `--source`, `10751c7e9` against this, interleaved.
+    `measure_walk_frames.mjs` now prints a `far pass` line (its passes off the same log
+    as the near line, and the GPU carries' deals, CPU walks, read-backs and reaps):
+
+  | | far pass, median main-thread ms, walk / turn / flight | far passes' ms in all, walk / turn / flight | held loop's `flora.update` ms, walk / turn / flight | near pass median ms, walk / turn | moving p95, scripted ms, walk / turn |
+  |---|---|---|---|---|---|
+  | before | 31.8 / 40.8 / 35.5, 36.7 / 42.9 / 38.6, 28.4 / 44.5 / 38.4, 39.7 / 51.4 / 42.1 (profiled) | 512 / 2457 / 1196, 557 / 2691 / 1227, 521 / 2849 / 1225, 613 / 3425 / 1452 | 1773 / 2868 / 1854, 2073 / 3007 / 1810, 2184 / 3390 / 2058, 2176 / 3781 / 2336 | 4.8 / 3.9, 5.2 / 3.8, 4.6 / 4.0, 5.4 / 4.5 | 5.5 / 8.3, 5.6 / 9.2, 5.7 / 11.3, 5.9 / 10.3 |
+  | after | 13.0 / 25.5 / 15.8, 16.7 / 24.6 / 12.3, 17.6 / 27.2 / 13.8 (profiled) | 253 / 1863 / 847, 266 / 1576 / 524, 288 / 1665 / 468 | 1413 / 2091 / 1666, 1481 / 1840 / 1221, 1550 / 2024 / 1319 | 4.4 / 3.8, 4.5 / 3.2, 5.2 / 4.3 | 4.8 / 9.4, 5.0 / 8.4, 5.4 / 9.6 |
+
+  (Three earlier after runs, before three exact refinements of the reap and the keeper,
+  read the same: far pass medians 17.9 / 24.8 / 14.2, 15.4 / 24.3 / 12.6, 15.4 / 28.8 /
+  13.5.) A far pass's main thread falls by about half on the walk and the turn and by
+  two thirds in the flight, and the far passes of a move by 45-60 % in all; the turn,
+  whose far pass re-deals every 0.2 rad, drains far fewer of them in a frame (2-20 of 59
+  against 12-27). The page's own loop between the driven frames spends a quarter to a
+  third less in `flora.update`. In the CPU profile over the three moves `flora.update`
+  goes 7302 -> 4390 ms, `rebuildFarShrubs` 4938 -> 2358 and `rebuildCarry` 4135 -> 1535,
+  of which the reap is 1443; the deal passes add 234 (the carry tile's uploads inside
+  them, 7-9 a move); the page's zone finder 1491 -> 247, `station` 908 -> 52,
+  `blocksGrowth` 880 -> 337 and `scatterOnPool` 5155 -> 846. The moving p95 does not move
+  outside the runs' noise; the worst flora frames DID (these readings held medians only),
+  which CI's moving-frames gate caught and T-2966 below repairs. No far pass walked the carries on the
+  CPU on the walk; the turn and the flight, each starting on a fresh tier rig, walked 0-9
+  before the 864-texel tile was home (`carryCpu`).
+  **What it costs.** The carry tile's keeper lands its strips on the main thread between
+  frames, outside every driven frame and outside `flora.update`: 5-11 ms a re-centre on
+  the phone profile, 138-172 ms over a walk with the first landing (the keeper now writes
+  a strip a row at a time with typed-array copies, an exact change every keeper takes;
+  texel by texel the same walk read 203), and the whole tile once after a tier change or
+  a jump, 85-101 ms — one long task, for a tile five times the mid tile's. The reap is now what the far pass
+  spends (about 17 ms a turn's pass): the fringe, the handover, `growthBlocked`, the
+  woody band and the placing, per placed slot, as the walk spent them.
+  **The near re-deal is not at the GPU pass's own cost.** This slice moved the far
+  pass, and the near pass's line moves only by what the streets' bins took off it (walk
+  4.6-5.4 -> 4.4-5.2 ms median, turn 3.8-4.5 -> 3.2-4.3): its largest remaining walk is
+  still the far band (`rebuildFar`, 445-553 ms over the moves, three lattices out to 120
+  m on the phone and 175 m at `full`), and the far shrubs (70-140 m) are still the
+  far pass's CPU walk. Neither fits a 0.125 m tile — the carry tile is already 1240
+  texels a side at `full` — and a coarser texel trades the tile's class of difference
+  (one slot in 400 here) for many more; they are T-2896's remainder, with the carry
+  tile's whole landing after a jump.
+  - **The worst frames: the carries' tail** (T-2966, the slice's own repair after CI's
+    moving-frames gate failed it on #1161: flora's worst moving frame 73.3 ms at `full`'s
+    turn against a 60 ms ceiling, 48.1 at `balanced`'s turn against 32, 43.6 on `light`'s
+    ride against 21, while the medians fell). Read on this machine first, every spike
+    was one of two things. (1) A far pass finished in one frame — a spread pass out of
+    margin (`advance`, late; a turn drains most of its far passes, `dev`'s too) or a cheap
+    pass the animation loop deals whole — took the carries' read-back in that frame and
+    reaped every slot of it there: on SwiftShader a read-back taken in the frame waits
+    for the deal itself (15-85 ms at `full`), and the reap is 8-25 ms more. (2) The first
+    mid deal after a tier change, 48-57 ms at `light` in 3 of 3 walks (9-10 ms at
+    `balanced`), because three's first use of a program (`onFirstUse`: link status,
+    uniforms) is a question the driver answers only after everything queued ahead of it,
+    and with this slice a carry deal was queued ahead of it. So:
+    - **A pass that must land never takes the read-back and never reaps.** It is resumed
+      with `DRAIN` (`advance` when late; `runPass`'s one-frame pass under a budget); every
+      walk takes that as "may not wait", as before, and the carries as "land without
+      me": `carryPass` hands the job — its fence still pending, or its reap part-way —
+      to the CARRIES' TAIL, which `carryTailStep` runs at the start of each later
+      frame, a slice of the frame's budget at a time, polling the same fence and then
+      reaping in slot order exactly as the pass would have. The far shrubs land on time;
+      the carry sets keep the last whole carries until the tail commits (on this runner
+      4-11 frames a tail on average: the read-back's latency, then the reap at the frame's 4 ms slice). A
+      tail is never dropped for a newer GPU deal (one target, one pack buffer, one
+      `carryBuf`): a pass that starts while a tail holds them waits its turn as for a
+      walk on the pool, and one that must land meanwhile leaves its pose as NEXT, dealt
+      the moment the tail lands; only a CPU walk, which writes the carry sets itself,
+      replaces a tail. A caller with no budget (the boot, `settle`, a tool's `step()`,
+      `--verify`'s one-frame pass) still deals, reads and reaps in the frame
+      (`farSync`), and `inFlight()` counts a tail. The tail's ms are booked on its own
+      far pass's log entry, so the `far pass` line's medians include them.
+    - **The deal programs are used once before the first carry deal.** At rig build
+      `compileAsync` waits, without blocking, for the near, mid and carry programs to
+      link, then takes each one's first use there, between frames, with nothing of ours
+      queued; until then the carries are the CPU's (`carryWarm`). The first mid deal
+      after a tier change no longer reaches 8 ms in a walking frame (3 of 3 walks).
+    - **What it holds.** `measure_walk_frames.mjs --only desktop --verify --gate`, this
+      machine, flora's worst moving frame (ms) walk / turn / flight / ride: before the
+      repair full 48.1 / 184.9 / 15.5 / 23.5, balanced 11.7 / 58.6 / 11.5 / 11.1, light
+      47.3 / 50.4 / 46.6 / 36.0 (7 over the ceilings); after full 12.1 / 45.3 / 4.9 / 13.9,
+      balanced 4.1 / 17.6 / 13.5 / 13.8, light 4.1 / 5.9 / 5.8 / 6.6 (PASS); `dev` read
+      11.8 / 27.3 / 13.2 / 19.2, 5.5 / 15.4 / 13.0 / 6.2 and 4.7 / 9.0 / 4.4 / 7.3 in one
+      run and 7.3 / 37.4 / 19.6 / 34.0, 4.7 / 8.9 / 20.2 / 5.0, 4.1 / 8.6 / 4.7 / 8.5 in
+      another (this machine is noisier and slower than the CI runner, which read `dev`'s
+      full turn at 19.0). What remains at `full`'s turn is the CPU's own carry walk,
+      drained, in the turn's first seconds before the 1240-texel carry tile is home —
+      `dev`'s code path. The far pass's median (ms, the tail's included) against `dev`:
+      full 11.1 / 23.5 / 6.9 / 22.7 against 24.8 / 27.5 / 8.1 / 24.4, balanced 5.5 / 13.8
+      / 4.4 / 14.0 against 13.2 / 14.6 / 4.6 / 14.3, light 3.0 / 7.8 / 3.5 / 3.4 against
+      8.5 / 9.5 / 3.6 / 7.8 (the flight and the ride move the carry tile faster than the
+      pool keeps it, so they are mostly the CPU's, as before). The phone profile, `light`,
+      walk / turn / flight, `--source`: the far pass's median 12.5 / 23.4 / 10.7 against
+      `dev`'s 26.8 / 40.0 / 34.3, the worst flora frame 13.0 / 18.8 / 10.2 against 25.5 / 13.8 /
+      8.0 (the phone reading is not gated). `--verify`: every far pass the
+      moves left landed IS the one-frame pass. Equivalence (the T-2896 dump, 6 anchors x
+      4 bearings on the phone at `light`, a fresh one-frame pass at each pose): every
+      flora set bit-identical to the slice before this repair (33,666 carry instances,
+      every other set, colour included, 0 census rows differ), and against `dev` the
+      slice's own class of difference unchanged (33,519 carry instances bit-identical,
+      312 instance rows differing, every other set identical).
+      `docs/measurements/t-2966-carries-tail.json` holds the readings. The carry
+      keeper's whole landing (T-2969) lands between frames, outside `flora.update`, and
+      is not what the gate read; it stays T-2969's.
+    - **`--verify` deals a pass again on the side the pass took.** CI's moving-frames
+      gate read `verify far: the spread pass IS NOT the one-frame pass` once, on the
+      first move after `full`'s rig was built, with every frame ceiling met. Read with
+      every carry set digested apart and each far pass's side recorded: the move's last
+      far pass had walked its carries on the CPU (the 1240-texel carry tile, 4.4 m of
+      slack past its 8 m re-centre line, had not landed the re-centre the walker had
+      crossed), the re-centre landed before `--verify` ran, and the re-deal dealt them
+      on the GPU. The far shrubs matched; the spread pass's carry sets were the CPU walk
+      of the same pose dealt in one frame, to the bit (and CI's one-frame digest,
+      `51aaca4b`, is this machine's GPU-dealt spread pass at that pose). At the walk's
+      last pose the GPU's deal and the CPU's walk differ at 17 of 3,870 carry slots,
+      every one a texel centre in another community than its slot — the tile's own
+      class above, not the spreading. So each pass books which
+      side dealt its GPU rings (`onGpu` on its log entry: the near pass's mid ring, the
+      far pass's carries), the re-deal walks them on the CPU
+      when the pass did (`flora.dealOnCpu`, which the page never sets), and the line
+      names both sides. Nothing the page places changed by that half.
+    - **A landed pass's carries are owed until a newer pass lands.** With the re-deal on
+      its own side, one full run here read the full turn's last far pass `IS NOT` its
+      one-frame pass with both on the GPU, and with `1 replaced by a CPU walk`. That one
+      was the page's: the pass had waited on the previous pass's tail, the tail landed in
+      the frame's own `carryTailStep`, and the pass, resumed with DRAIN, left its pose as
+      NEXT with no tail ahead of it. A NEXT was dealt only as a tail landed, so it never
+      was — not by `settle` either — and the turn ended on the far shrubs of one pass and
+      the carries of the pass before it (the `replaced` was `--verify`'s own CPU walk
+      finding that NEXT still waiting). Reproduced on demand by making the carry tile
+      read as not covering at a quarter of the turn's asks (a debug patch to the
+      mirror, not shipped): `IS NOT` in a few turns, with the event log showing the
+      NEXT left behind a tail already landed. Now a pass that finds the target free on
+      DRAIN deals as the tail itself; a NEXT with no tail is dealt by the next frame's
+      tail step, and `settle` deals it too; a NEXT the kept tile no longer covers is
+      walked on the CPU as the tail (`walkCarry`, counted as `walked by the CPU after
+      their pass`, its pass's `onGpu` set false) instead of being dropped; a starting
+      pass no longer throws an older NEXT away, since it may yet be dropped — a pass in
+      its own carries only defers the NEXT (`carryBusy`), its landing supersedes it
+      (`carryOwned`) and dropping it deals it (`carryDropped`); and a CPU walk that has
+      to stop a tail keeps that tail's pose as NEXT the same way.
+- **A kept tile's whole landing, a band at a time** (T-2969, T-2896's fourth slice). The
+  kept field tiles (near-field.js `fieldKeeper`: the near tile, the mid tile, and the carry
+  tile T-2966 keeps the same way) land a strip at a time, but the FIRST tile after a boot, a
+  tier change or a jump of a tile or more is every texel at once, and its finish (the
+  pool's answers copied, and the page's own share asked) and its wrapped write were one
+  main-thread task: the carry tile's read 85-101 ms on the phone profile. A whole landing
+  now finishes and writes `LAND_BAND_ROWS` (16) rows at a time into a second pair of
+  arrays, hands the thread back (`setTimeout`) once a slice has run `LAND.sliceMs` (6 ms;
+  a slice ends at the first band past it), and moves the tile to the new arrays only when
+  the last band is in — until then `tile` is the old one, untouched, as a strip in flight
+  leaves it. Each band reaches `finish` as a rect of its own with its rows of the pool's
+  reply. A tile `adopt`ed while a whole one is still landing drops the landing, as a strip
+  already did. Strips still land in one task, in place (a quarter of the tile or less).
+  **Equivalence**: `tools/check_near_field_keeper.mjs` walks its route three ways — one
+  slice a landing (the before), a band a slice, and the page's budget — with the heights
+  carried in the pool's reply, so a band read from the wrong rows differs; the kept tile is
+  the built one, byte for byte, after every landing in all three, a whole landing takes
+  exactly size / 16 slices at a band a slice and one at Infinity, and a tile adopted
+  mid-landing is the adopted tile. **Reading** (`tools/measure_tile_landing.mjs`,
+  `docs/measurements/t-2969-tile-landing-mobile.json`): the phone profile (390x780, 4x
+  throttle), `--source`, the walker set down 600 m away eight times, west and east, the
+  before (`LAND.sliceMs = Infinity`, set in the page) and the after interleaved with the
+  order flipped each rep so each lands at both places. The mid tile (368 texels a side,
+  the one dev keeps from the pool alone; the carry tile is not on dev yet):
+
+  | | slices a whole landing | longest slice, ms |
+  |---|---|---|
+  | before | 1, 1, 1, 1 | 25.8, 25.2, 10.6, 20.2 |
+  | after | 3, 3, 2, 3 | 6.4, 7.0, 8.4, 6.6 |
+
+  At the same budget the carry tile's 85-101 ms becomes about fifteen slices of 6-8 ms. What
+  the reading also shows, and this does not touch: the near tile on a jump is not landed
+  but BUILT in the frame (`keeper.adopt(nf.build(..))`), 450-520 ms west of Lake at Canal
+  and 640-690 east of it, in either mode; and the jump's own longest task is 3.2-4.1 s.
+  **The mid pass's first draw, warmed at the build.** Landing the mid tile across frames
+  moved it home later after a tier change, and with it the first near pass whose mid ring
+  is the GPU's: on `chicago-4d-moving-frames.yml` that pass now fell inside the light walk
+  (the first move after balanced) and read 27-46 ms against light's 21 ms ceiling, three
+  runs of three. Split on the page (`--tiers balanced,light --moves walk`, which reproduces
+  it every time; light alone does not, there is no tier change before it): the pass's
+  `setRenderTarget` 0.1 ms, its one draw 36-38 ms, no program built (T-2895's
+  `renderer.compile` had built it). The first draw of the pass still pays the rest of its
+  first use: the target, the field textures, and the driver's draw state for this tier's
+  target and slot buffers. Balanced's reads 4 ms. Light's target is 14 rows to balanced's
+  23, and its slot buffers 1,936 to 3,600, so it does not get the cached state. The one-task
+  landing had only hidden this by bringing the tile home inside the tool's 300 ms settle.
+  So `warmMid` (flora.js) draws the mid deal pass once as the rig is built: one point per
+  walk into its own target, off an empty tile at the mid field's size. That cost is now
+  paid in the tier change's own build. A real pass draws its slots over that point before
+  the target is read back, and `place` sets every draw range. Read on that sequence, the
+  light walk's worst frame went from 34.4 and 44.4 ms to 6.6, 9.9 and 6.8 ms. The mid
+  ring's deal passes went from 61 ms to 15-17 ms in all (the one-task control's 17). The
+  workflow's own command (`--only desktop --verify --gate`) passes, with light walk at 6.6 ms.
+- **The near pass's far band on the GPU's deal, against a slot field** (T-2967, the second
+  slice of T-2896). `rebuildFar` dealt the sward past the detailed rings on every near
+  pass — three lattices (`TUNE.far.bands`, the sparse `'lattice'` draw, one slot a cell)
+  out to 120 m on the phone, 150 m balanced and 175 m at `full` — and was the near pass's
+  largest remaining walk. Wherever the far band's kept fields cover its lattices it is now
+  dealt in GLSL (`flora-gpu-far.js`) as one more point draw per band in the mid deal
+  pass's own render (rows after the forb walks, `uSlot0`; no target or read-back of its
+  own): the community, short turf, the far split (T-1106), the graminoid or forb pick off
+  the slot's one draw, and the ground's half of `station` (a floor, the water
+  substrates). `farRun` reaps it between frames, a slice of 3 ms a task (never in
+  `flora.update`, never the whole reap in a drained pass — T-2966's failure), into a
+  staging set that becomes the far set only when the whole band is in; the page asks
+  what the field does not answer — the point, rank, ring and cone in doubles, the deal's
+  draw in doubles (a slot whose species the doubles do not confirm is dealt whole),
+  `growthBlocked`, the ground's height and the woody band — and places the card and its
+  head on the slot's own stream. A pass whose far fields are not home (a boot, a tier
+  change, a jump) walks the far band on the CPU as before (`farCpu`).
+  **The field is a SLOT FIELD, not a texel-centre tile.** The first cut was the plain
+  near-field tile on a 1 m texel over the band's reach (280-392 texels a side, 0.47-0.92
+  MB on the page and as much uploaded) with an eight-texel edge test sending a slot near
+  a boundary back to the page. `tools/measure_far_field.mjs` read it against the CPU's
+  answer at every far slot from the 18 anchors and four critic poses: a slot's community
+  differed from its 1 m texel centre's at 3.6-4.0 % of slots (0.5 m: 3.1-3.4 %, 2 m:
+  5.4-5.6 %), the edge test handed 17.5-18.5 % of slots back, and 0.31-0.46 % of the
+  slots a card can stand on still differed past it (0.08-0.13 % at 0.5 m, four times the
+  bytes). The cause is zone-blend.js (T-2125): across a ~100 m band at every community
+  edge, membership is dithered per plant on a 0.5 m grain, so no texel centre answers for
+  a point half a metre off. So each far lattice keeps ONE TEXEL PER SLOT — texel (c, r) of
+  a band is its cell (c, r), the texel the band's own cell (3.9, 11 and 3.8 m on the
+  phone; 3.4, 9.5 and 2.3 at `full`) — and the pool asks it at the slot's own jittered
+  point (`jobs/zone-kernel.js` `slotPoint`, `scatter`'s jitter to the bit, in
+  `fieldRect`); the shader finds a slot's texel by its integer cell index and `k`
+  (`FAR_SLOT_GLSL`), with no float position in the lookup. A slot's class is the CPU's
+  answer at that slot by construction: **measured, 0 class differences** (community, WET,
+  TURF, BLOCKED, TRODDEN) over 223,362 far slots at the three tiers (100,217 candidates),
+  0 slots asked at another point than `scatter`'s, 0 outside their tile; 2,500 on texels
+  off the measured grid, dealt whole on the page. **The cards**: 13,465 far cards at 44
+  poses a tier (22 stations x 2 bearings), the far band dealt on the CPU against the GPU
+  and reaped, every one the same card to the bit, in the same order, heads and every
+  other flora set identical; bounds 0 and 0 (`--gate`), and `--self-test` reads each slot
+  against the next texel east and must find differences (5,619-22,689 a tier). The
+  reading is `docs/measurements/t-2967-far-field.json`; `tools/check_far_slot_field.mjs`
+  (check.sh, no browser) holds `slotPoint` to `latticeSlots` to the bit and every slot on
+  a texel of its own inside its tile, for every tier's bands and the far shrubs' walk.
+  **Bytes**: 28-94 texels a side a band; 3,104 texels on the phone, 6,424 balanced, 13,272
+  at `full` — 6.2, 12.8 and 26.5 KB of class on the GPU (RG8UI; no height uploaded) and
+  18.6, 38.5 and 79.6 KB on the page (the keeper's arrays) — against 0.47-0.92 MB a side
+  for the 1 m tile. The heap the moves read did not move (563-823 MB before, 568-822
+  after, every tier and move within a run's noise).
+  **For T-2968** (the far shrubs): `gpuNear.slotField(walk)` builds a slot field for any
+  lattice whose `perCell` is a square, the `wild` draw included (the far shrubs' forb
+  cell, four a cell, is a 2 x 2 texel block a cell: 190 texels a side at `full`).
+  **Readings** (`docs/measurements/t-2967-far-band-on-gpu-mobile.json`): the phone profile
+  (`--only mobile --throttle 4`, SwiftShader, `--source`), `abb6cfd2f` against this,
+  interleaved — every tier twice, `light` twice more. The near re-deal line, a near pass's
+  main-thread ms, median / worst / all the move's passes summed:
+
+  | | walk, before | walk, after | turn, before | turn, after |
+  |---|---|---|---|---|
+  | light | 6.3-6.7 / 39-49 / 973-1035 | 4.0-4.3 / 37-48 / 531-581 | 4.7-5.3 / 10-26 / 233-319 | 3.7-4.0 / 7-16 / 118-157 |
+  | balanced | 7.7-8.0 / 100-110 / 1289-1340 | 4.4-4.5 / 145-178 / 669-730 | 6.7-7.5 / 12-166 / 380-631 | 3.7-3.9 / 7 / 120-138 |
+  | full | 11.9-12.5 / 113-119 / 1853-2007 | 3.9 / 103-145 / 600-602 | 11.2-12.2 / 26-33 / 650-759 | 3.8-4.2 / 14-17 / 144-163 |
+
+  The near pass no longer walks the far band where its fields are home: 0-2 passes a move
+  walked it on the CPU (`farCpu`: the first after the tier change, a jump), against every
+  pass before. A near pass's median falls by a third on the phone tier and by two thirds
+  at `full`, where the far band was most of it, and a move's near ms in all by a half to
+  three quarters; the walk also takes fewer near passes (106-120 against 138-145), as
+  T-2895 found, because a cheaper pass fits the slice and is dealt in one frame. **The
+  worst near pass of a balanced or full walk did not fall** (103-178 ms against 100-119):
+  it is the first or second pass after the tier change that starts the walk, in both
+  trees (named by pass with a throwaway copy of the tool: full 160 against 125 ms,
+  balanced 154 against 113; every later pass of the walk at most 16 ms after against
+  29-54 before, and on the desktop the same first pass 132 against 89 ms, landing outside
+  the driven frames). That first pass is 30-45 ms dearer here, and which part of it was not
+  read: the far deal program's first draw (one more program for the driver to have linked
+  by then) is the likeliest; SwiftShader's run-to-run spread on that pass is nearly as
+  wide as the difference. The far reap costs the main thread 1.0-1.2 ms a pass on the phone
+  tier, 1.8 balanced and 3.5 at `full`, between frames, in 3 ms slices (one task a pass at
+  `light`, 1.4 at `full`); the longest slice read 3.1-11 ms (a slice checked its clock
+  every 64 slots and ended with the landing; see the merge below). The moving p95 (scripted ms) falls or holds
+  at every tier and move: walk 10.2-12.9 -> 9.7-11.5, turn 12.4-19.8 -> 10.9-15.4.
+  `--verify` (mobile, every tier, walk and turn): every spread pass lands the one-frame
+  pass, near and far, and the workers' zones and ground answer as the page does; in that
+  run one far reap slice at `full` read 105 ms (a task between frames, in no driven
+  frame's flora ms), the only slice over 14 ms in any run. **The desktop** (`--only
+  desktop --verify --gate`, every tier and move): a near pass's median falls (full 2.9-3.1
+  -> 0.8-1.1 ms, balanced 1.7-2.2 -> 0.7-1.0, light 1.0-1.2 -> 0.7-0.9) and flora's moving
+  p95 stays inside the runs' spread (full turn 11.4-16.2 against 13.1-14.0, full travel
+  5.7-6.1 against 5.4-5.5, light walk 2.5-3.9 against 2.5; every other reading within
+  0.5 ms either way).
+  `--gate` is not steady on this shared machine for either tree: the before tree failed
+  both its runs (light walk 64.8 ms, balanced travel 46.9), this one passed one of four
+  (failing balanced flight 59.3, light walk 150.1 with full turn's p95 16.2, full turn
+  60.8 against its 60) — each a single frame, a different one each run, and the light
+  walk's the tier change's first pass, which fails the before tree too.
+  **Merged with T-2966 and T-2969.** T-2966's carry tail is reaped in `flora.update`, in
+  4 ms of a frame, out of `carryRt`; this far reap runs between frames out of `midRt`,
+  into its own staging and far sets, and neither pushes the other's heads, so they share
+  only the main thread. The merge renamed this entry's synchronous reap `farReapNow`
+  (it was `farSync`, and shadowed T-2966's `farSync` flag, so every carry pass read back
+  in the frame: desktop frames of 100-245 ms until the rename). The far draws now ride the
+  build's warm draw (`warmMid`, and so `carryWarm`'s `compileAsync` of `midScene`) off a
+  slot texture made at the tile's size when the field is built. A reap slice checks its
+  clock every eight slots, and the landing takes a slice of its own when the deal's last
+  slice spent half the budget. **Readings after the merge**: the desktop `--gate` passed
+  both runs (flora max 6.0-28.3 ms over every tier and move); the phone profile's worst
+  near pass is the tier change's first (a CPU far walk, its fields not yet home): `full`
+  walk 42.3-46.0 ms against the dev tree's 40.7-42.1, so the first pass is no dearer than
+  before; `--verify` lands every spread pass. The longest reap slice read 3.1-12.3 ms in
+  every run since (eight moves at `full`, six at the other tiers), where runs at `full`
+  before had now and then one slice of 90-120 ms; timed slot by slot, a long slice is one slot's iteration (6-11 ms
+  at the 4x throttle, a collection or a recompile between two clock checks), which no
+  clock check can split.
+- **The far pass's far shrubs on the GPU's deal, in the carries' job** (T-2968, the third
+  slice of T-2896).
+  **Acceptance** (written before the work, not weakened): (1) the far pass no longer walks
+  the far shrubs where their slot field covers the walk; (2) the far shrubs the GPU deals
+  are the CPU walk's to the bit, `tools/measure_far_field.mjs` part 3's comparison (its
+  part 4, the far shrubs; `--gate`, bound 0, and `--self-test` must fire); (3) the `far
+  pass` line, before (`origin/claude/project-thread-x1ue4m`, 21e0f1804) against after, on
+  the phone profile (`--only mobile --throttle 4`), walk and turn, every tier,
+  interleaved; (4)
+  `--only desktop --verify --gate` PASS twice (CI runs it; watch the full turn); (5) mobile
+  `--verify` clean; (6) `./tools/check.sh` CHECK PASS; (7) smoke parts 10-12, both
+  viewports, `--published`.
+  **What moved.** `rebuildFarShrubs` walked T-2014's far shrubs on the CPU at every far
+  pass: the forb cell's four slots a cell (salt 0x7b5c1d, the `'wild'` draw) from inside
+  the forb ring's handover out to 70 m on the phone, 105 balanced and 140 at `full`, each
+  slot asked its fringe, rank, community, water and deal. Where the far shrubs' own slot
+  field covers the walk, that walk is now one more point draw in the far pass's CARRY
+  deal render (`flora-gpu-farshrub.js`; rows after the carries' slots, one point per four
+  slots), against a slot field made by T-2967's `makeSlotField` (one texel per slot, 2 x 2
+  a forb cell, 1.7 m a texel: 106, 148 and 190 texels a side), and dealt with the forb
+  section of `dealTable` T-2895 already packs: the community, the shrub share and the
+  weight walk off the slot's draw, and the ground's half of `station`. The far shrubs ride
+  T-2966's carry job whole — one render, one fence, one read-back, reaped after the
+  carries in `reapCarry`, so a pass resumed with `DRAIN` leaves them to the carries' tail
+  (`carryTailStep`, a slice of the frame's budget), a NEXT carries them, `settle()` drains
+  them, and nothing about T-2966's worst-frame repair is new here. The page re-asks what
+  the field does not answer: the slot's point, ring, cone, handover and outer edge in
+  doubles, the deal's draw in doubles (a species the doubles do not confirm is dealt
+  whole), `growthBlocked`, the ground's height and the woody band, then `placeShrub` on
+  the slot's own stream. The far shrubs go to the GPU only when the carries do (`carryWarm`,
+  the carry tile home) AND the slot field covers the walk; otherwise the pass walks them on
+  the CPU as before (`farShrubCpu`). `check_far_slot_field.mjs` now reads the far shrubs'
+  walk at the padded radius the GPU deals (`FARSHRUB_LATTICE_PAD_M`, 1 cm out and in, so
+  a float32 ring test never drops a slot the doubles keep).
+  **Equivalence** (`docs/measurements/t-2968-far-field.json`, 22 stations x 4 bearings a
+  tier, a far pass from each pose with the far shrubs walked on the CPU and one dealt on
+  the GPU and reaped, each read in the frame): light 967 bushes, balanced 2,014, full
+  3,518, every one the same bush to the bit at the same root, in the same order, 0 on one
+  side; the carries, the far band's cards (2,376 / 6,805 / 17,259, T-2967's part 3, still
+  0 differ) and every other flora set identical; every pose dealt on the GPU and walked on
+  the CPU when asked; 0 re-dealt in doubles. 900 / 3,578 / 8,072 slots were handed to the
+  page whole (code 7) — the texels the pool did not answer; of the 18 anchors only
+  `cermak_prairie`'s tile holds any (13,238 of 36,100 at `full`, off the measured grid).
+  `--self-test` reads the far shrubs' slot field one texel east on the GPU (`uFarIdx0` + 1)
+  and finds 252 / 555 / 1,240 bushes that differ or stand on one side: the gate bites.
+  T-2967's slot-field classes still differ at 0 of 23,797 / 58,859 / 140,706 far slots.
+  **Readings** (`docs/measurements/t-2968-far-shrubs-on-gpu-mobile.json`): the phone
+  profile, `--source`, before and after interleaved, one tier a run, two rounds. The
+  `far pass` line, a far pass's main-thread ms (its tail's included), median / worst / all
+  the move's passes summed:
+
+  | | walk, before | walk, after | turn, before | turn, after |
+  |---|---|---|---|---|
+  | light | 24.0-25.4 / 102-108 / 574-644 | 16.7-17.4 / 136-152 / 527-560 | 40.0-44.0 / 88-285 / 2534-2681 | 34.2-37.1 / 126-194 / 1967-2391 |
+  | balanced | 37.7-39.0 / 152-234 / 1000-1194 | 19.4-20.0 / 135-166 / 701-757 | 55.7-56.3 / 208-283 / 3853-4024 | 42.1-42.9 / 148-269 / 2973-3488 |
+  | full | 63.8-65.1 / 250-631 / 1981-2420 | 30.4-37.8 / 416-427 / 1585-1717 | 84.3-97.7 / 341-414 / 7230-7508 | 57.9-61.5 / 246-288 / 4057-4473 |
+
+  A far pass's median falls by 15-30 % at `light` and by a quarter to a half at `balanced`
+  and `full` (most on the walks, where the far shrubs were most of a pass); a move's far ms
+  in all by a tenth at `light`'s walk to over two fifths at `full`'s turn. The far shrubs
+  went to the GPU in 16-17 of a walk's 18-21 far passes and 35-53 of a turn's 47-59; the
+  rest are a move's first passes, whose carries both trees walk on the CPU too (`carryCpu`
+  counts the same passes, 2-5 a walk and 6-13 a turn, before and after). Their reap costs
+  25-47 ms a move at `light`, 36-69 balanced, 57-108 at `full` (1-3 ms a pass), inside the
+  carries' job. **The worst
+  far pass did not fall at every tier**, and is not this change's to move: it is one of
+  those first CPU passes, in both trees. Read pass by pass with a throwaway copy of the
+  tool (one more run a side), a far pass whose carries the GPU dealt read a median 10.5 ms
+  at `light`'s walk against 26.5 before, 27.2 against 57.8 at `full`'s walk and 52.8
+  against 77.2 at `full`'s turn; the passes walked on the CPU (the first 2 of `light`'s
+  walk, 4 of `full`'s, 11-13 of `full`'s turn) 60-75 ms against 75-98, 156-233 against
+  219-402, and 158-289 against 128-437. SwiftShader's spread on those is wider than any
+  difference: `light`'s walk read its worst at 136-152 after against 102-108 before in the
+  interleaved runs, and 75 against 98 in this one. What a turn's far passes still cost is
+  the carries' reap (1.2-2.6 s a turn), T-2896's remainder. The page's heap after the move
+  read 368-415 MB before and 391-441 after, in `performance.memory`'s coarse steps; this
+  change adds 8-28 rows to the carry target (0.03-0.11 MB of read-back) and a 22-72 KB
+  slot field.
+  `--verify` on the phone profile (every tier and move): every spread pass is the one-frame
+  pass, near and far (its carries and far shrubs the GPU's, as the one-frame pass's), and
+  the workers' zones, ground and yards answer as the page does.
+  **The desktop** (`--only desktop --verify --gate --source`): PASS in three runs of three.
+  Flora's worst moving frame, full walk / turn / flight / travel 12.1 / 25.0 / 10.4 /
+  15.5, 12.0 / 53.4 / 17.0 / 16.1 and 22.6 / 27.8 / 10.9 / 12.8 ms (ceiling 60); balanced
+  6.9 / 22.4 / 11.0 / 18.4, 6.9 / 17.3 / 9.2 / 10.9 and 9.6 / 20.1 / 8.1 / 11.1 (32); light
+  5.3 / 7.5 / 9.6 / 6.4, 6.0 / 13.1 / 13.3 / 9.6 and 4.7 / 19.1 / 8.3 / 13.9 (21). The full
+  turn's 53.4 is one frame of one run (frame 259, no pass landing in it; the carries' tail
+  averaged 0.5 ms a frame in that move, the far shrubs' reap 9 ms in all); the third run
+  read 27.8. The before tree, read once between them, FAILED (light turn 32.3, light flight
+  22.6; its full turn 25.5): neither tree's single worst frames are steady on this machine.
+  The desktop's moves walk most far passes' carries on the CPU in both trees (the before
+  tree 15-62 of a move's passes, this one 8-62; none of a flight's or a ride's dealt on
+  the GPU), so it deals the far shrubs on the GPU in 0-17 passes a move: the phone
+  profile is where this change runs.
+  **Gate**: `./tools/check.sh` CHECK PASS; smoke parts 10-12, mobile and desktop,
+  `--published`, SMOKE PASS (55 of 55 each; the desktop run took 33 m 07 s, the before
+  tree's 30 m 59 s on this machine).

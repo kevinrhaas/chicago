@@ -35,7 +35,9 @@ class Leaf:
         self.hinge=o['u0']+.085 if side==0 else o['u1']-.085
         self.w=abs(self.meeting-self.outer)
         fg=b.params.detail.get('prairie_frontage',{})
-        self.bottom=max(o['z0']+.02,fg.get('passage_front_z',o['z0'])+.015)
+        # T-2976: the leaves hang down to the sunk passage floor (sheet 6 draws them to
+        # 1.9 ft under the door datum), clearing it as they swing in over its rise.
+        self.bottom=fg['passage_front_z']+.03 if 'passage_front_z' in fg else o['z0']+.02
         self.top=o['z1']-.02;self.h=self.top-self.bottom
         self.member=0
 

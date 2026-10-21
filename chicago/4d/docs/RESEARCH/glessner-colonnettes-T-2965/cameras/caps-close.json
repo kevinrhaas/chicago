@@ -1,0 +1,22 @@
+{
+  "structure_id": "glessner_house",
+  "photo": "a18-ghm-blog-capital-1-2013, a18-ghm-blog-capital-hhr-2013, a18-ghm-blog-capital-2-2013 (side by side, south to north)",
+  "image_px": [
+    1800,
+    600
+  ],
+  "principal_px": [
+    900,
+    415.52727999999985
+  ],
+  "focal_px": 43595.200000000004,
+  "eye": [
+    129.149,
+    12.5,
+    7.0
+  ],
+  "yaw_deg": 270,
+  "near_m": 50,
+  "sky": "overcast",
+  "solve": "near-orthographic on the three capitals around the door; framed by eye, not fitted to the close-ups"
+}

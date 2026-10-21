@@ -1,0 +1,1158 @@
+{
+ "ticket": "T-2967",
+ "tool": "tools/measure_walk_frames.mjs --source --only mobile --throttle 4 --tiers light,balanced,full --moves walk,turn (rounds 1-2); --tiers light (rounds 3-4)",
+ "profile": "390x780 touch, CPU throttled 4x, SwiftShader, draw skipped; a shared 4-core machine, one run at a time",
+ "trees": {
+  "before": "origin/dev abb6cfd2f (the far band walked on the CPU in every near pass), measured with this change's copy of the tool",
+  "after": "this change (the far band dealt on the GPU against per-band slot fields, reaped between frames)"
+ },
+ "order": [
+  "before-1",
+  "after-1",
+  "before-2",
+  "after-2",
+  "lt-after-3",
+  "lt-before-3",
+  "lt-after-4",
+  "lt-before-4"
+ ],
+ "notes": {
+  "nearMedianMs": "the near re-deal line: a near pass's main-thread ms, median over the move",
+  "nearMaxMs": "its worst pass",
+  "nearMsAll": "every near pass of the move, summed",
+  "far": "the GPU far band's counters (after only): passes dealt on the GPU, walked by the CPU, reaps, their ms between frames and the longest slice, cards",
+  "heapMB": "the page heap after the move"
+ },
+ "runs": {
+  "before-1": [
+   {
+    "tier": "light",
+    "move": "walk",
+    "frames": 725,
+    "rebuilds": 139,
+    "nearPasses": 139,
+    "kinds": {
+     "landed": 48,
+     "drained": 80,
+     "one-frame": 10,
+     "jump": 1
+    },
+    "nearMedianMs": 6.3,
+    "nearMaxMs": 39,
+    "nearMsAll": 1000.4,
+    "scripted": {
+     "median": 5.9,
+     "p95": 10.9,
+     "max": 60.7
+    },
+    "flora": {
+     "p95": 4.9,
+     "max": 54.5
+    },
+    "heapMB": 563.26,
+    "far": {},
+    "longs": 1
+   },
+   {
+    "tier": "light",
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 46,
+    "nearPasses": 46,
+    "kinds": {
+     "landed": 34,
+     "one-frame": 12
+    },
+    "nearMedianMs": 5.1,
+    "nearMaxMs": 10.3,
+    "nearMsAll": 232.6,
+    "scripted": {
+     "median": 6.8,
+     "p95": 12.4,
+     "max": 29.5
+    },
+    "flora": {
+     "p95": 5.8,
+     "max": 24.8
+    },
+    "heapMB": 581.53,
+    "far": {},
+    "longs": 0
+   },
+   {
+    "tier": "balanced",
+    "move": "walk",
+    "frames": 725,
+    "rebuilds": 145,
+    "nearPasses": 145,
+    "kinds": {
+     "landed": 59,
+     "drained": 85,
+     "jump": 1
+    },
+    "nearMedianMs": 8,
+    "nearMaxMs": 100.5,
+    "nearMsAll": 1340.1,
+    "scripted": {
+     "median": 6.1,
+     "p95": 11.2,
+     "max": 62.9
+    },
+    "flora": {
+     "p95": 5.2,
+     "max": 56.2
+    },
+    "heapMB": 817.32,
+    "far": {},
+    "longs": 1
+   },
+   {
+    "tier": "balanced",
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 56,
+    "nearPasses": 56,
+    "kinds": {
+     "landed": 53,
+     "one-frame": 3
+    },
+    "nearMedianMs": 6.7,
+    "nearMaxMs": 11.7,
+    "nearMsAll": 380,
+    "scripted": {
+     "median": 7,
+     "p95": 13.2,
+     "max": 74.1
+    },
+    "flora": {
+     "p95": 6.8,
+     "max": 64.7
+    },
+    "heapMB": 692.25,
+    "far": {},
+    "longs": 3
+   },
+   {
+    "tier": "full",
+    "move": "walk",
+    "frames": 725,
+    "rebuilds": 144,
+    "nearPasses": 144,
+    "kinds": {
+     "landed": 52,
+     "drained": 90,
+     "one-frame": 1,
+     "jump": 1
+    },
+    "nearMedianMs": 11.9,
+    "nearMaxMs": 113,
+    "nearMsAll": 1853.2,
+    "scripted": {
+     "median": 6.3,
+     "p95": 12.9,
+     "max": 82.7
+    },
+    "flora": {
+     "p95": 6.2,
+     "max": 76.3
+    },
+    "heapMB": 797.82,
+    "far": {},
+    "longs": 11
+   },
+   {
+    "tier": "full",
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 57,
+    "nearPasses": 57,
+    "kinds": {
+     "drained": 1,
+     "landed": 54,
+     "one-frame": 2
+    },
+    "nearMedianMs": 11.2,
+    "nearMaxMs": 26.1,
+    "nearMsAll": 649.7,
+    "scripted": {
+     "median": 6.5,
+     "p95": 16.5,
+     "max": 78.9
+    },
+    "flora": {
+     "p95": 9.4,
+     "max": 73.6
+    },
+    "heapMB": 799.74,
+    "far": {},
+    "longs": 13
+   }
+  ],
+  "after-1": [
+   {
+    "tier": "light",
+    "move": "walk",
+    "frames": 725,
+    "rebuilds": 111,
+    "nearPasses": 111,
+    "kinds": {
+     "landed": 54,
+     "one-frame": 57
+    },
+    "nearMedianMs": 4,
+    "nearMaxMs": 42.6,
+    "nearMsAll": 531,
+    "scripted": {
+     "median": 5.1,
+     "p95": 9.7,
+     "max": 15
+    },
+    "flora": {
+     "p95": 4.5,
+     "max": 6.9
+    },
+    "heapMB": 568.05,
+    "far": {
+     "farDeals": 111,
+     "farCpu": 0,
+     "farMissed": 0,
+     "farUploads": 7,
+     "farReaps": 110,
+     "farReapMs": 108,
+     "farSlices": 111,
+     "farSliceMaxMs": 5.1,
+     "farSkipped": 0,
+     "farStale": 0,
+     "farCards": 767,
+     "farAsked": 0,
+     "farRedealt": 0
+    },
+    "longs": 0
+   },
+   {
+    "tier": "light",
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 32,
+    "nearPasses": 32,
+    "kinds": {
+     "landed": 9,
+     "one-frame": 23
+    },
+    "nearMedianMs": 3.7,
+    "nearMaxMs": 6.8,
+    "nearMsAll": 118.1,
+    "scripted": {
+     "median": 6.6,
+     "p95": 12.1,
+     "max": 97.5
+    },
+    "flora": {
+     "p95": 5.8,
+     "max": 54.9
+    },
+    "heapMB": 577.95,
+    "far": {
+     "farDeals": 32,
+     "farCpu": 0,
+     "farMissed": 0,
+     "farUploads": 0,
+     "farReaps": 32,
+     "farReapMs": 37.4,
+     "farSlices": 33,
+     "farSliceMaxMs": 3.1,
+     "farSkipped": 0,
+     "farStale": 0,
+     "farCards": 553,
+     "farAsked": 0,
+     "farRedealt": 0
+    },
+    "longs": 2
+   },
+   {
+    "tier": "balanced",
+    "move": "walk",
+    "frames": 725,
+    "rebuilds": 120,
+    "nearPasses": 120,
+    "kinds": {
+     "landed": 79,
+     "one-frame": 41
+    },
+    "nearMedianMs": 4.5,
+    "nearMaxMs": 178.2,
+    "nearMsAll": 730.3,
+    "scripted": {
+     "median": 5.6,
+     "p95": 10.9,
+     "max": 40.7
+    },
+    "flora": {
+     "p95": 5,
+     "max": 34.3
+    },
+    "heapMB": 813.34,
+    "far": {
+     "farDeals": 120,
+     "farCpu": 0,
+     "farMissed": 0,
+     "farUploads": 12,
+     "farReaps": 119,
+     "farReapMs": 210.2,
+     "farSlices": 124,
+     "farSliceMaxMs": 11,
+     "farSkipped": 0,
+     "farStale": 0,
+     "farCards": 4556,
+     "farAsked": 0,
+     "farRedealt": 0
+    },
+    "longs": 0
+   },
+   {
+    "tier": "balanced",
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 34,
+    "nearPasses": 34,
+    "kinds": {
+     "landed": 13,
+     "one-frame": 21
+    },
+    "nearMedianMs": 3.7,
+    "nearMaxMs": 6.5,
+    "nearMsAll": 120.1,
+    "scripted": {
+     "median": 6,
+     "p95": 11.5,
+     "max": 59.1
+    },
+    "flora": {
+     "p95": 5.5,
+     "max": 54.3
+    },
+    "heapMB": 693.79,
+    "far": {
+     "farDeals": 34,
+     "farCpu": 0,
+     "farMissed": 0,
+     "farUploads": 3,
+     "farReaps": 34,
+     "farReapMs": 64.3,
+     "farSlices": 36,
+     "farSliceMaxMs": 3.3,
+     "farSkipped": 0,
+     "farStale": 0,
+     "farCards": 1450,
+     "farAsked": 0,
+     "farRedealt": 0
+    },
+    "longs": 1
+   },
+   {
+    "tier": "full",
+    "move": "walk",
+    "frames": 725,
+    "rebuilds": 110,
+    "nearPasses": 110,
+    "kinds": {
+     "drained": 1,
+     "landed": 50,
+     "one-frame": 58,
+     "jump": 1
+    },
+    "nearMedianMs": 3.9,
+    "nearMaxMs": 102.8,
+    "nearMsAll": 600.2,
+    "scripted": {
+     "median": 5.3,
+     "p95": 10.6,
+     "max": 111.6
+    },
+    "flora": {
+     "p95": 5.2,
+     "max": 105.6
+    },
+    "heapMB": 782.52,
+    "far": {
+     "farDeals": 109,
+     "farCpu": 1,
+     "farMissed": 0,
+     "farUploads": 12,
+     "farReaps": 107,
+     "farReapMs": 372,
+     "farSlices": 144,
+     "farSliceMaxMs": 5.1,
+     "farSkipped": 0,
+     "farStale": 0,
+     "farCards": 14555,
+     "farAsked": 0,
+     "farRedealt": 0
+    },
+    "longs": 10
+   },
+   {
+    "tier": "full",
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 37,
+    "nearPasses": 37,
+    "kinds": {
+     "drained": 1,
+     "landed": 20,
+     "one-frame": 16
+    },
+    "nearMedianMs": 4.2,
+    "nearMaxMs": 17,
+    "nearMsAll": 162.6,
+    "scripted": {
+     "median": 6,
+     "p95": 15.4,
+     "max": 103.9
+    },
+    "flora": {
+     "p95": 9.1,
+     "max": 97.6
+    },
+    "heapMB": 786.24,
+    "far": {
+     "farDeals": 37,
+     "farCpu": 0,
+     "farMissed": 0,
+     "farUploads": 3,
+     "farReaps": 37,
+     "farReapMs": 103.4,
+     "farSlices": 45,
+     "farSliceMaxMs": 3.7,
+     "farSkipped": 0,
+     "farStale": 0,
+     "farCards": 2739,
+     "farAsked": 0,
+     "farRedealt": 0
+    },
+    "longs": 18
+   }
+  ],
+  "before-2": [
+   {
+    "tier": "light",
+    "move": "walk",
+    "frames": 725,
+    "rebuilds": 139,
+    "nearPasses": 139,
+    "kinds": {
+     "landed": 58,
+     "drained": 72,
+     "one-frame": 9
+    },
+    "nearMedianMs": 6.3,
+    "nearMaxMs": 47.7,
+    "nearMsAll": 972.8,
+    "scripted": {
+     "median": 5.5,
+     "p95": 10.2,
+     "max": 19.4
+    },
+    "flora": {
+     "p95": 4.9,
+     "max": 14.6
+    },
+    "heapMB": 567.15,
+    "far": {},
+    "longs": 0
+   },
+   {
+    "tier": "light",
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 46,
+    "nearPasses": 46,
+    "kinds": {
+     "landed": 34,
+     "one-frame": 12
+    },
+    "nearMedianMs": 4.8,
+    "nearMaxMs": 13.1,
+    "nearMsAll": 234,
+    "scripted": {
+     "median": 6.7,
+     "p95": 13.1,
+     "max": 42.1
+    },
+    "flora": {
+     "p95": 6.2,
+     "max": 36.6
+    },
+    "heapMB": 574,
+    "far": {},
+    "longs": 0
+   },
+   {
+    "tier": "balanced",
+    "move": "walk",
+    "frames": 725,
+    "rebuilds": 144,
+    "nearPasses": 144,
+    "kinds": {
+     "drained": 89,
+     "landed": 53,
+     "one-frame": 1,
+     "jump": 1
+    },
+    "nearMedianMs": 7.7,
+    "nearMaxMs": 110.2,
+    "nearMsAll": 1289.1,
+    "scripted": {
+     "median": 6.1,
+     "p95": 11.3,
+     "max": 38.3
+    },
+    "flora": {
+     "p95": 5.3,
+     "max": 32.7
+    },
+    "heapMB": 823.49,
+    "far": {},
+    "longs": 0
+   },
+   {
+    "tier": "balanced",
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 59,
+    "nearPasses": 59,
+    "kinds": {
+     "landed": 58,
+     "drained": 1
+    },
+    "nearMedianMs": 7.5,
+    "nearMaxMs": 165.5,
+    "nearMsAll": 631.5,
+    "scripted": {
+     "median": 7.1,
+     "p95": 13.5,
+     "max": 170.4
+    },
+    "flora": {
+     "p95": 7.3,
+     "max": 161.6
+    },
+    "heapMB": 689.58,
+    "far": {},
+    "longs": 7
+   },
+   {
+    "tier": "full",
+    "move": "walk",
+    "frames": 725,
+    "rebuilds": 144,
+    "nearPasses": 144,
+    "kinds": {
+     "drained": 80,
+     "landed": 62,
+     "one-frame": 1,
+     "jump": 1
+    },
+    "nearMedianMs": 12.5,
+    "nearMaxMs": 118.7,
+    "nearMsAll": 2006.8,
+    "scripted": {
+     "median": 6.2,
+     "p95": 13,
+     "max": 216.9
+    },
+    "flora": {
+     "p95": 6.6,
+     "max": 211.2
+    },
+    "heapMB": 776.84,
+    "far": {},
+    "longs": 11
+   },
+   {
+    "tier": "full",
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 59,
+    "nearPasses": 59,
+    "kinds": {
+     "landed": 58,
+     "drained": 1
+    },
+    "nearMedianMs": 12.2,
+    "nearMaxMs": 33,
+    "nearMsAll": 759.2,
+    "scripted": {
+     "median": 6.4,
+     "p95": 19.8,
+     "max": 192.9
+    },
+    "flora": {
+     "p95": 11.8,
+     "max": 174.1
+    },
+    "heapMB": 688.03,
+    "far": {},
+    "longs": 17
+   }
+  ],
+  "after-2": [
+   {
+    "tier": "light",
+    "move": "walk",
+    "frames": 725,
+    "rebuilds": 116,
+    "nearPasses": 116,
+    "kinds": {
+     "landed": 66,
+     "one-frame": 50
+    },
+    "nearMedianMs": 4.3,
+    "nearMaxMs": 47.9,
+    "nearMsAll": 581.4,
+    "scripted": {
+     "median": 5.1,
+     "p95": 10,
+     "max": 20.5
+    },
+    "flora": {
+     "p95": 4.5,
+     "max": 12.9
+    },
+    "heapMB": 570.1,
+    "far": {
+     "farDeals": 116,
+     "farCpu": 0,
+     "farMissed": 0,
+     "farUploads": 7,
+     "farReaps": 115,
+     "farReapMs": 138.1,
+     "farSlices": 119,
+     "farSliceMaxMs": 8.6,
+     "farSkipped": 0,
+     "farStale": 0,
+     "farCards": 830,
+     "farAsked": 0,
+     "farRedealt": 0
+    },
+    "longs": 0
+   },
+   {
+    "tier": "light",
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 35,
+    "nearPasses": 35,
+    "kinds": {
+     "landed": 17,
+     "one-frame": 18
+    },
+    "nearMedianMs": 4,
+    "nearMaxMs": 7.8,
+    "nearMsAll": 130.7,
+    "scripted": {
+     "median": 6.3,
+     "p95": 11.5,
+     "max": 101.7
+    },
+    "flora": {
+     "p95": 5.8,
+     "max": 91.1
+    },
+    "heapMB": 583.48,
+    "far": {
+     "farDeals": 35,
+     "farCpu": 0,
+     "farMissed": 0,
+     "farUploads": 0,
+     "farReaps": 35,
+     "farReapMs": 56.8,
+     "farSlices": 38,
+     "farSliceMaxMs": 9.4,
+     "farSkipped": 0,
+     "farStale": 0,
+     "farCards": 610,
+     "farAsked": 0,
+     "farRedealt": 0
+    },
+    "longs": 2
+   },
+   {
+    "tier": "balanced",
+    "move": "walk",
+    "frames": 725,
+    "rebuilds": 118,
+    "nearPasses": 118,
+    "kinds": {
+     "landed": 73,
+     "one-frame": 45
+    },
+    "nearMedianMs": 4.4,
+    "nearMaxMs": 145.3,
+    "nearMsAll": 668.9,
+    "scripted": {
+     "median": 5.5,
+     "p95": 10.4,
+     "max": 53
+    },
+    "flora": {
+     "p95": 5.1,
+     "max": 47
+    },
+    "heapMB": 821.75,
+    "far": {
+     "farDeals": 118,
+     "farCpu": 0,
+     "farMissed": 0,
+     "farUploads": 12,
+     "farReaps": 116,
+     "farReapMs": 202.9,
+     "farSlices": 122,
+     "farSliceMaxMs": 4.9,
+     "farSkipped": 0,
+     "farStale": 0,
+     "farCards": 4509,
+     "farAsked": 0,
+     "farRedealt": 0
+    },
+    "longs": 1
+   },
+   {
+    "tier": "balanced",
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 34,
+    "nearPasses": 34,
+    "kinds": {
+     "landed": 13,
+     "one-frame": 21
+    },
+    "nearMedianMs": 3.9,
+    "nearMaxMs": 7,
+    "nearMsAll": 138.4,
+    "scripted": {
+     "median": 6.2,
+     "p95": 10.9,
+     "max": 56
+    },
+    "flora": {
+     "p95": 5.5,
+     "max": 51.3
+    },
+    "heapMB": 687.5,
+    "far": {
+     "farDeals": 34,
+     "farCpu": 0,
+     "farMissed": 0,
+     "farUploads": 1,
+     "farReaps": 34,
+     "farReapMs": 60.2,
+     "farSlices": 35,
+     "farSliceMaxMs": 3.5,
+     "farSkipped": 0,
+     "farStale": 0,
+     "farCards": 1457,
+     "farAsked": 0,
+     "farRedealt": 0
+    },
+    "longs": 1
+   },
+   {
+    "tier": "full",
+    "move": "walk",
+    "frames": 725,
+    "rebuilds": 106,
+    "nearPasses": 106,
+    "kinds": {
+     "drained": 1,
+     "landed": 42,
+     "one-frame": 63
+    },
+    "nearMedianMs": 3.9,
+    "nearMaxMs": 145.4,
+    "nearMsAll": 602.4,
+    "scripted": {
+     "median": 5.2,
+     "p95": 11.5,
+     "max": 92.6
+    },
+    "flora": {
+     "p95": 5.2,
+     "max": 83.6
+    },
+    "heapMB": 769.84,
+    "far": {
+     "farDeals": 104,
+     "farCpu": 2,
+     "farMissed": 0,
+     "farUploads": 12,
+     "farReaps": 103,
+     "farReapMs": 375,
+     "farSlices": 141,
+     "farSliceMaxMs": 5.7,
+     "farSkipped": 0,
+     "farStale": 0,
+     "farCards": 13882,
+     "farAsked": 0,
+     "farRedealt": 0
+    },
+    "longs": 9
+   },
+   {
+    "tier": "full",
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 34,
+    "nearPasses": 34,
+    "kinds": {
+     "drained": 1,
+     "landed": 11,
+     "one-frame": 22
+    },
+    "nearMedianMs": 3.8,
+    "nearMaxMs": 13.7,
+    "nearMsAll": 144.1,
+    "scripted": {
+     "median": 5.8,
+     "p95": 12.2,
+     "max": 238.2
+    },
+    "flora": {
+     "p95": 6.4,
+     "max": 192.8
+    },
+    "heapMB": 778.54,
+    "far": {
+     "farDeals": 34,
+     "farCpu": 0,
+     "farMissed": 0,
+     "farUploads": 3,
+     "farReaps": 34,
+     "farReapMs": 90.2,
+     "farSlices": 37,
+     "farSliceMaxMs": 3.8,
+     "farSkipped": 0,
+     "farStale": 0,
+     "farCards": 2503,
+     "farAsked": 0,
+     "farRedealt": 0
+    },
+    "longs": 13
+   }
+  ],
+  "lt-after-3": [
+   {
+    "tier": "light",
+    "move": "walk",
+    "frames": 725,
+    "rebuilds": 111,
+    "nearPasses": 111,
+    "kinds": {
+     "landed": 56,
+     "one-frame": 55
+    },
+    "nearMedianMs": 4,
+    "nearMaxMs": 48.3,
+    "nearMsAll": 570.4,
+    "scripted": {
+     "median": 5.5,
+     "p95": 10.3,
+     "max": 15.3
+    },
+    "flora": {
+     "p95": 4.7,
+     "max": 13.3
+    },
+    "heapMB": 567.16,
+    "far": {
+     "farDeals": 111,
+     "farCpu": 0,
+     "farMissed": 0,
+     "farUploads": 7,
+     "farReaps": 110,
+     "farReapMs": 124.4,
+     "farSlices": 112,
+     "farSliceMaxMs": 5.3,
+     "farSkipped": 0,
+     "farStale": 0,
+     "farCards": 769,
+     "farAsked": 0,
+     "farRedealt": 0
+    },
+    "longs": 0
+   },
+   {
+    "tier": "light",
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 35,
+    "nearPasses": 35,
+    "kinds": {
+     "landed": 17,
+     "one-frame": 18
+    },
+    "nearMedianMs": 4,
+    "nearMaxMs": 13.4,
+    "nearMsAll": 156.9,
+    "scripted": {
+     "median": 7.1,
+     "p95": 14.5,
+     "max": 51.9
+    },
+    "flora": {
+     "p95": 6.8,
+     "max": 46.8
+    },
+    "heapMB": 585.98,
+    "far": {
+     "farDeals": 35,
+     "farCpu": 0,
+     "farMissed": 0,
+     "farUploads": 0,
+     "farReaps": 35,
+     "farReapMs": 50.6,
+     "farSlices": 37,
+     "farSliceMaxMs": 6.5,
+     "farSkipped": 0,
+     "farStale": 0,
+     "farCards": 602,
+     "farAsked": 0,
+     "farRedealt": 0
+    },
+    "longs": 1
+   }
+  ],
+  "lt-before-3": [
+   {
+    "tier": "light",
+    "move": "walk",
+    "frames": 725,
+    "rebuilds": 138,
+    "nearPasses": 138,
+    "kinds": {
+     "drained": 71,
+     "landed": 56,
+     "one-frame": 10,
+     "jump": 1
+    },
+    "nearMedianMs": 6.7,
+    "nearMaxMs": 49.4,
+    "nearMsAll": 1020.7,
+    "scripted": {
+     "median": 5.9,
+     "p95": 10.8,
+     "max": 29
+    },
+    "flora": {
+     "p95": 4.9,
+     "max": 20.6
+    },
+    "heapMB": 568.9,
+    "far": {},
+    "longs": 0
+   },
+   {
+    "tier": "light",
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 48,
+    "nearPasses": 48,
+    "kinds": {
+     "landed": 38,
+     "one-frame": 10
+    },
+    "nearMedianMs": 4.7,
+    "nearMaxMs": 15.6,
+    "nearMsAll": 243.3,
+    "scripted": {
+     "median": 6.2,
+     "p95": 12.5,
+     "max": 34.7
+    },
+    "flora": {
+     "p95": 6.6,
+     "max": 26.5
+    },
+    "heapMB": 571.87,
+    "far": {},
+    "longs": 0
+   }
+  ],
+  "lt-after-4": [
+   {
+    "tier": "light",
+    "move": "walk",
+    "frames": 725,
+    "rebuilds": 115,
+    "nearPasses": 115,
+    "kinds": {
+     "landed": 64,
+     "one-frame": 50,
+     "jump": 1
+    },
+    "nearMedianMs": 4.1,
+    "nearMaxMs": 36.8,
+    "nearMsAll": 552,
+    "scripted": {
+     "median": 5.4,
+     "p95": 10.4,
+     "max": 31.7
+    },
+    "flora": {
+     "p95": 4.6,
+     "max": 25.1
+    },
+    "heapMB": 565.75,
+    "far": {
+     "farDeals": 115,
+     "farCpu": 0,
+     "farMissed": 0,
+     "farUploads": 7,
+     "farReaps": 114,
+     "farReapMs": 118.3,
+     "farSlices": 114,
+     "farSliceMaxMs": 5.1,
+     "farSkipped": 0,
+     "farStale": 0,
+     "farCards": 814,
+     "farAsked": 0,
+     "farRedealt": 0
+    },
+    "longs": 0
+   },
+   {
+    "tier": "light",
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 35,
+    "nearPasses": 35,
+    "kinds": {
+     "landed": 18,
+     "one-frame": 17
+    },
+    "nearMedianMs": 4,
+    "nearMaxMs": 16.4,
+    "nearMsAll": 134.4,
+    "scripted": {
+     "median": 6.2,
+     "p95": 12.3,
+     "max": 103.4
+    },
+    "flora": {
+     "p95": 6,
+     "max": 93.1
+    },
+    "heapMB": 578.34,
+    "far": {
+     "farDeals": 35,
+     "farCpu": 0,
+     "farMissed": 0,
+     "farUploads": 1,
+     "farReaps": 35,
+     "farReapMs": 37.3,
+     "farSlices": 35,
+     "farSliceMaxMs": 3.2,
+     "farSkipped": 0,
+     "farStale": 0,
+     "farCards": 605,
+     "farAsked": 0,
+     "farRedealt": 0
+    },
+    "longs": 1
+   }
+  ],
+  "lt-before-4": [
+   {
+    "tier": "light",
+    "move": "walk",
+    "frames": 725,
+    "rebuilds": 141,
+    "nearPasses": 141,
+    "kinds": {
+     "landed": 48,
+     "drained": 87,
+     "one-frame": 5,
+     "jump": 1
+    },
+    "nearMedianMs": 6.6,
+    "nearMaxMs": 45.3,
+    "nearMsAll": 1035.2,
+    "scripted": {
+     "median": 6,
+     "p95": 11.4,
+     "max": 31.9
+    },
+    "flora": {
+     "p95": 4.9,
+     "max": 25.1
+    },
+    "heapMB": 565.49,
+    "far": {},
+    "longs": 0
+   },
+   {
+    "tier": "light",
+    "move": "turn",
+    "frames": 480,
+    "rebuilds": 53,
+    "nearPasses": 53,
+    "kinds": {
+     "landed": 47,
+     "one-frame": 6
+    },
+    "nearMedianMs": 5.3,
+    "nearMaxMs": 26.2,
+    "nearMsAll": 319.2,
+    "scripted": {
+     "median": 7,
+     "p95": 14.1,
+     "max": 150.7
+    },
+    "flora": {
+     "p95": 6.8,
+     "max": 145.1
+    },
+    "heapMB": 581.95,
+    "far": {},
+    "longs": 1
+   }
+  ]
+ },
+ "desktopGate": {
+  "tool": "tools/measure_walk_frames.mjs --source --only desktop --gate (--verify on all but the first before run)",
+  "before": [
+   "FAIL light walk flora 64.8 ms (frame 8, the tier change's first pass)",
+   "FAIL balanced travel flora 46.9 ms"
+  ],
+  "after": [
+   "FAIL balanced flight flora 59.3 ms",
+   "FAIL light walk flora 150.1 ms (frame 8, the tier change's first pass) and full turn p95 16.2 ms",
+   "FAIL full turn flora 60.8 ms (ceiling 60)",
+   "PASS"
+  ],
+  "verify": "every after run: every spread pass IS the one-frame pass, near and far; workers' zones and ground 0 answered differently"
+ },
+ "worstNearPass": {
+  "note": "the walk's worst near pass, named by pass number with a throwaway copy of the tool (near.top)",
+  "mobile": {
+   "full": {
+    "after": "pass 2 of the walk, 159.9 ms (landed); later passes <= 16 ms",
+    "before": "pass 1, 124.6 ms (drained); later passes up to 32 ms"
+   },
+   "balanced": {
+    "after": "pass 1, 153.7 ms (landed); later <= 10 ms",
+    "before": "pass 1, 112.5 ms; later up to 54 ms"
+   }
+  },
+  "desktop": {
+   "light": {
+    "after": "pass 1, 132.4 ms (landed)",
+    "before": "pass 1, 89.2 ms (one-frame)"
+   },
+   "balanced": {
+    "after": "worst 12.6 ms",
+    "before": "worst 18.7 ms"
+   }
+  }
+ }
+}

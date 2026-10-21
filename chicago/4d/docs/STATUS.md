@@ -1,3 +1,120 @@
+## T-2943 — a visitor walks through Glessner's carriage passage (2026-10-20)
+
+The owner, 2026-10-20, in Glessner's carriage passage on /4d/dev/1904/: *"i find it odd that i
+cant walk through the glessner house here … i would think this is where a horse and others
+could pass through right?"* The walker held every footprint solid (walker.js `pushOut`), so the
+open porte-cochere led nowhere: a scripted walk west from Prairie Avenue stopped at E 1388.15,
+WALK.radius off the façade (E 1387.81), and slid along it.
+
+- **Generic mechanism.** A sidecar's `footprint.passages[]` declares an opening through the
+  footprint: `polygon` (footprint frame), `open_edges` (its walk-in ends), `floor_m`, `clear_m`.
+  `footprintsFrom` turns each into a lane (`passageLane`): the open ends reach LANE_REACH_M
+  (1 m) past the walls so the lane takes over before the façade's push-out, and the other
+  edges are side walls. Inside a lane whose `clear_m` ≥ WALK.eyeHeight + 0.1 m (the seat
+  included), `pushOut` holds the capsule WALK.radius off the side walls instead of out of the
+  building. Every other footprint, the router, the planting keep-outs and the gaze probe are
+  unchanged.
+- **From the committed data, at the compile step.** `compile_scene.py walk_passages()` reads
+  the resolved masonry parameters the way `walk_surface_m` reads a deck: Glessner's
+  `underpass` (`plan_WS` → the generator's own frame, 2.37 m wide at Prairie, 2.74 m at the
+  court, 8.08 m long), the lower soffit (court, 2.2007 m) above the higher paving
+  (`passage_front_z` 0.064 m) = **clear 2.137 m**. Nothing is invented: the open ends are the
+  generator's (it builds reveals p-s and r-q and leaves p-q and r-s open).
+- **Gates.** The porte-cochere leaves are modelled open at 82° (`porte_cochere_open_deg`); their
+  free edges stand about 0.16 m off the reveals, inside the 0.34 m the capsule keeps, so nothing
+  in the model blocks the opening and no geometry moved. The boarded court gates (closed, L295)
+  are at the court's other exit, not on this walk. Walking through is an interaction choice of
+  the reconstructed tier, not a claim about who passed.
+- **Who fits.** On foot (eye 1.68 + 0.1 ≤ 2.137) you pass; on horseback (eye 2.43) or the wagon
+  seat (2.18) you would strike the soffit, so riders go round, as a rider would duck or dismount.
+- **Ground.** The walker stands on the terrain, which reads 4.326-4.335 m along the passage; the
+  drawn paving is the building's base (the lowest ground under the footprint) + 0.04-0.06 m, so
+  the eye is at most about 6 cm below standing on the paving. No fall or float.
+- **Proof.** `tools/test_walker_passage.mjs` (in check.sh): a box with and without a passage, the
+  reveals held, the façade beside the mouth still a wall, a rider stopped, and the real 1904
+  Glessner sidecar from Prairie Avenue into the court (a solid footprint refuses the same walk).
+  In the page, the walker's own update from E 1391.8 at bearing 267° reached the court at
+  desktop and 390×780; before the change it stopped at E 1388.15.
+- **Left:** the structure VERSION sidecars (`versions/glessner_house/v3`) carry no passage; the
+  router does not route rides through passages.
+
+## T-2944 — Jaunt names that read in the list (2026-10-20)
+
+The owner, 2026-10-20, on Navigator › Jaunts: titles cut off with "…", "Prairie Avenue: …"
+four times so "its hard so see whats there"; put the important words first and keep related
+ones together. The seven 1904 titles now lead with their subject: Meet the Glessner House
+(was A corner of Prairie Avenue — its premise is meeting the Glessner House from the street),
+Every building modelled so far (Prairie Avenue: built so far; `jaunt_built_so_far.py` writes
+it), Famous names of Prairie Avenue, Architects of Prairie Avenue, Italianate / Romanesque /
+Second Empire style walk. 1835's 26 titles already lead with their subject and are unchanged;
+1812 has no jaunts. Sidecars recompiled (`compile_jaunts.py`); the reader overlay
+(`compile_reader_text.py`) had no edits on titles and is unchanged.
+
+- **Two lines before an ellipsis:** `.jaunt-card h3` clamps at two lines (was one, nowrap).
+- **Order (`jauntOrder`, jaunt-menu.js):** by kind in the pills' order (Wayfinding,
+  Provisions, Neighbors, Livelihood, News & Knowledge), featured first WITHIN a kind, then by
+  name without a leading A/An/The. The old list sorted by title and then pulled every featured
+  outing to the top, which split each kind in two; featured still leads, inside its group.
+
+## T-2945 — faster paces: walk 10 mph by default (2026-10-20)
+
+The owner, 2026-10-20: *"can you default the walk speed to much faster like 10mph and increase
+the relative speeds on everthing so its a bit faster"*. `PACES` (travel-settings.js) defaults:
+walk 1.45 → **4.47 m/s** (10 mph), run 3.4 → **6.71** (15 mph), wagon 3.6 → **7.15** (16 mph),
+horse 6.5 → **11.18** (25 mph). Walk < run < wagon < horse holds; sprint factors unchanged
+(Shift: walk 10.2, run 10.7, horse 19.0 m/s). Slider tops 20/20/30/60 mph → **30/30/40/80
+mph** (13.41 / 13.41 / 17.88 / 35.76 m/s), so each default sits at a third to a half of its
+slider and the walk's sprint is no longer capped. Flight (14 m/s, scaled by height) is left as
+is: still three times the new walk.
+
+- **Gait names are unchanged and now say what the speeds are:** 10 mph on foot reads "run",
+  the run's default "sprint", the wagon's "rattling along", the horse's "gallop".
+- **Stored speeds:** the HUD stores its whole settings object, so almost every returning
+  visitor carries 1.45 / 3.4 / 3.6 / 6.5 without having touched a slider. The first read under
+  the new defaults (`migratePaceDefaults`, marker `paceDefaults: 2`) drops a speed EXACTLY equal
+  to its old default and keeps every other stored speed; after that any figure is kept.
+- **Measurements move with it:** `pacing-read.js` and `measure_walk_frames.mjs --live` drive the
+  walk at the walker's own `WALK.speed`, so from this change they walk at 4.47 m/s (about 3x
+  further per second, more flora near-ring re-deals) and `driveLive`'s fixed 54 m walk lasts
+  about 12 s instead of 37 s. Walk readings before and after 2026-10-20 are not comparable
+  without saying so. `test_pacing_read.mjs` now holds every scene's walk to 15 s at the default
+  walk (67 m) rather than at the old 3.3 m/s jog.
+
+## T-2942 — the look-at tag docks under the address (2026-10-20)
+
+The owner, 2026-10-20, asked for the name of what you look at "on the right side and make it
+smaller, so it fits with the navigation below the address and its not duplicative with the
+address … the tags should have a consistency", the centre kept as an option, maybe bottom, and
+a choice of always shown or fading (the default). `target-tag.js` now takes a place
+(`right` default / `centre` / `bottom`, setting `lookTagPlace`) and a hold (`fade` default /
+`always`, `lookTagHold`), both in Settings › Show. Right reparents the one `#target-tag` into
+`#instrument-below`, the grid now holding the street readout, and styles it as that card
+(panel, edge, 10 px radius, an AHEAD mono label from `data-label`, 12 px name, dim distance,
+two-line clamp; the phone's 206 px width). Centre is T-2627's place unchanged; Bottom is the
+first child of `#hud-bottom`, above the hint, so it rides above the Navigator's sheet.
+
+- **The duplicate rule:** docked, the tag is hidden when the building's name (or the part before
+  a dash) is one of the addresses the card shows now, compared without direction words and with
+  Avenue/Ave folded (`sameAddress`). The Inspect key still offers it. Centre and bottom always
+  show the name.
+- Tests: `test_navigator.mjs` (places, holds, the rule); smoke T-2942 block (default place,
+  boxes inside the screen, clear of the round map and the quick column, under the readout).
+
+## T-2941 — sound starts off (2026-10-20)
+
+The owner, 2026-10-20: *"the sound is a bit much, can you default that to off for now"*.
+`SOUND_DEFAULTS` (settings-app.js) is now Master 0, Effects and Ambience 1, so raising Master
+alone turns every sound on. The HUD stores its whole settings object on any change, so most
+returning visitors carry the old all-on levels without ever having chosen them;
+`soundLevelsFrom()` reads those as no choice (silent) and keeps stored levels only when
+`soundChosen` is set (a slider moved since this change) or any level differs from the old
+default 1. Both readers use it: the HUD's `readSettings` and sound.js's early read.
+
+- **Known edge:** a visitor who had moved a slider and put every level back to 100 % before
+  this change is read as having no choice and starts muted. Raising Master once fixes it for
+  good.
+- `test_settings_app.mjs`, `test_sound.mjs` and the smoke's T-2659 block assert the default.
+
 ## T-2719 — Prairie Avenue's moving p95 on a real phone: 48-50 ms (2026-10-20)
 
 Nothing you can see changed. This files the last reading T-2598 left (piece 2 of T-2602),
@@ -18,6 +135,37 @@ a mode. The runner cannot take it: SwiftShader draws one frame in seconds.
 - **Unverified:** T-2829's own acceptance is the 1835 repeat, which this is not. One phone,
   one 15 s sample a mode. `docs/measurements/t-2719-owner-phone-1904.txt` and `.json`;
   SITE-BUDGET § 10 has the table.
+
+## T-2927 — 1904's flight: the cells of a house drawn as one (2026-10-20)
+
+Nothing you can see changed: every triangle, colour and shadow is drawn as before. This is
+the owner's own reading (T-2719: 1904's flight at 73–80 ms on his iPhone at Light, against
+the walk's 40–43 and 1835's flight at 35–37).
+
+- **Where the 1904 aerial's frame went.** Counted at the WebGL call
+  (`tools/measure_pose_draws.mjs`, Read frame pacing's own poses, 375×636 at ratio 1, Light):
+  the flight sent **27,895 draws and 1.84 M triangles** a frame, the 1904 walk 18,389 and
+  0.79 M, the 1835 flight 3,485 and 0.53 M. `renderer.info` said 339, 144 and 74 calls,
+  because three counts a BatchedMesh's multi-draw as one call while each entry it keeps
+  is a draw to the driver. 25,309 of the flight's draws (19,829 colour, 5,480 sun) were
+  the structures: in a scene with Glessner's inspection model, `light` and `balanced` cut
+  every house mesh into 4 m × 2 m cells (T-2219) so a courtyard view submits only what it
+  sees, and from the air every cell is in view.
+- **The fix** (`renderers/web/js/batch-coalesce.js`): after three culls and sorts a batch,
+  drawn entries whose index ranges touch and whose instance data match (matrix, colour,
+  structure) are joined into one; the cull is kept, so a hidden cell still breaks a run.
+  Blended batches join only entries already next to each other, keeping their order. It
+  wraps every structures batch that cuts cells and every `spatial-batch.js` ground batch.
+  `?coalesce=0` turns it off, for a before/after on one phone.
+- **After:** flight 2,853 / 2,931 / 2,143 draws at 0 / 7.5 / 15 s (were 27,895 / 32,824 /
+  19,993); walk 2,406 and 2,230 (18,389 and 17,707); 1835 flight 2,591 (3,485: its ground
+  pieces). Triangles unchanged everywhere. `docs/measurements/T-2927-flight-draws.json`.
+- **Not known yet: the phone.** SwiftShader's frame fell only 4,263 → 3,841 ms at the
+  flight, because it rasterises on the CPU and pays little per draw; a phone's driver pays
+  per draw. The owner's re-read decides it. If the flight is still over the walk, the
+  triangles are next: 1.84–2.02 M aloft against 0.79 M walking — the structures' 0.9–1.1 M
+  colour and 0.3–0.4 M in the sun's map, the railway (~330–355 k, about 250 k of it blended
+  ground decals; it is ~350 k of the walk's 0.79 M too) and the ground (145 k).
 
 ## T-2901 — the front door measures this device: a live performance meter (2026-10-20)
 

@@ -25,7 +25,7 @@ def _slab(b, corners, z, conf, material, bottom=-0.06):
               (c[1] - a[1], a[0] - c[0], 0))
 
 
-def _paving(b, p, q, r, s, z_front, z_back, f, material):
+def _paving(b, p, q, r, s, z_front, z_back, f, material, edges=True):
     """A quad corridor, front p/q to back s/r, with recessed transverse joints."""
     distance = max(math.dist(p, s), math.dist(q, r))
     count = max(1, math.ceil(distance / f['paving_joint_spacing_m']))
@@ -42,13 +42,37 @@ def _paving(b, p, q, r, s, z_front, z_back, f, material):
         t1 = (i + 1) / count - (half_gap if i < count-1 else 0)
         a, c, z0 = across(t0); d, e, z1 = across(t1)
         b.raw([(*a, z0), (*c, z0), (*e, z1), (*d, z1)], f['conf'], material, (0, 0, 1))
+    if not edges: return
     # Skirts close both long edges; open ends meet the next surface exactly.
-    for a, c, outward in ((p, s, (-1, 0, 0)), (q, r, (1, 0, 0))):
-        # derive the side normal away from the corridor centre
-        mid = ((p[0]+q[0]+r[0]+s[0])/4, (p[1]+q[1]+r[1]+s[1])/4)
-        outward = ((a[0]+c[0])/2-mid[0], (a[1]+c[1])/2-mid[1], 0)
-        b.raw([(*a, -.06), (*c, -.06), (*c, z_back), (*a, z_front)],
-              f['conf'], material, outward)
+    mid = ((p[0]+q[0]+r[0]+s[0])/4, (p[1]+q[1]+r[1]+s[1])/4)
+    for a, c in ((p, s), (q, r)):
+        _edge(b, a, c, z_front, z_back, mid, f['conf'], material)
+
+
+def _edge(b, a, c, za, zc, mid, conf, material, top=0.0):
+    """Close a paving edge a-c (heights za, zc) against the ground at `top`.
+
+    Above the ground the skirt runs down into grade, facing away from `mid`. T-2976:
+    where the paving is sunk below the ground (the carriage passage's approach and
+    ramps, over which the renderer cuts the field out) it is a dressed retaining face
+    from the paving up to the ground, facing `mid`. The edge is split where it crosses.
+    """
+    out = ((a[0]+c[0])/2-mid[0], (a[1]+c[1])/2-mid[1], 0)
+    pieces = [(0.0, 1.0)]
+    if (za - top) * (zc - top) < 0:
+        t = (top - za) / (zc - za)
+        pieces = [(0.0, t), (t, 1.0)]
+    for t0, t1 in pieces:
+        p0 = (a[0]+(c[0]-a[0])*t0, a[1]+(c[1]-a[1])*t0); z0 = za+(zc-za)*t0
+        p1 = (a[0]+(c[0]-a[0])*t1, a[1]+(c[1]-a[1])*t1); z1 = za+(zc-za)*t1
+        if (z0+z1)/2 >= top:
+            pts = [(*p0, -.06), (*p1, -.06), (*p1, z1), (*p0, z0)]
+            b.raw(pts, conf, material, out)
+        else:
+            pts = [(*p0, z0), (*p1, z1), (*p1, top), (*p0, top)]
+            pts = [v for i, v in enumerate(pts) if i < 2 or abs(v[2]-pts[3-i][2]) > 1e-6]
+            if len(pts) >= 3:
+                b.raw(pts, conf, TRIM, (-out[0], -out[1], 0))
 
 
 def _curb(b, path, f, reduced=False):
@@ -152,7 +176,13 @@ def add_frontage(b, params, reduced=False):
     low,high = f['porte_y']
     _paving(b,(f['walk_x'],high),(f['walk_x'],low),q,p,
             f['walk_z'],f['passage_front_z'],f,DRIVE)
-    _paving(b,p,q,inner_q,inner_p,f['passage_front_z'],f['passage_front_z'],f,TRIM)
+    # The threshold's inner half lies between the passage's own reveals; only the
+    # half outside the facade needs its sides closed (T-2976).
+    _paving(b,p,q,inner_q,inner_p,f['passage_front_z'],f['passage_front_z'],f,TRIM,edges=False)
+    wall = params.width_m
+    mid = ((p[0]+inner_p[0])/2, (p[1]+q[1])/2)
+    for a in (p, q):
+        _edge(b, a, (wall, a[1]), f['passage_front_z'], f['passage_front_z'], mid, f['conf'], TRIM)
 
 
 def _passage_mouth(params):
@@ -169,5 +199,56 @@ def passage_floor(b, params):
     if not f: return False
     p,q,r,s = params.detail['underpass']['pts']
     _,_,p,q = _passage_mouth(params)
-    _paving(b,p,q,r,s,f['passage_front_z'],f['passage_court_z'],f,DRIVE)
+    # Its sides are the underpass's own reveals, which run down past the floor.
+    _paving(b,p,q,r,s,f['passage_front_z'],f['passage_court_z'],f,DRIVE,
+            edges=min(f['passage_front_z'],f['passage_court_z'])>=0)
     return True
+
+
+def passage_ground(params):
+    """T-2976: the sunk floor of the carriage way, piece by piece, in building metres.
+
+    Each piece is a plan quad and the paving height at its four corners, exactly as
+    add_frontage, passage_floor and the courtyard ramp lay it: the approach falling
+    from the walk to the mouth, the threshold, the passage floor and the court ramp.
+    compile_scene declares them so the renderer cuts the ground out over them and
+    the walk follows them; [] when nothing is sunk below the ground.
+    """
+    f = params.detail.get('prairie_frontage')
+    u = params.detail.get('underpass')
+    if not f or not u or min(f['passage_front_z'], f['passage_court_z']) >= 0:
+        return []
+    p,q,inner_p,inner_q = _passage_mouth(params)
+    _,_,r,s = u['pts']
+    low,high = f['porte_y']
+    zf, zc, zw = f['passage_front_z'], f['passage_court_z'], f['walk_z']
+    pieces = [
+        ([(f['walk_x'],high),(f['walk_x'],low),q,p], [zw,zw,zf,zf]),
+        ([p,q,inner_q,inner_p], [zf]*4),
+        ([inner_p,inner_q,r,s], [zf,zf,zc,zc]),
+    ]
+    ramp = court_ramp(params)
+    if ramp:
+        pieces.append((ramp['pts'], ramp['z']))
+    return [{'pts': [tuple(round(v, 4) for v in pt) for pt in pts], 'z': [round(z, 4) for z in zs]}
+            for pts, zs in pieces]
+
+
+def court_ramp(params):
+    """T-2976: the carriage way's ramp from the passage's court mouth up to the drive.
+
+    Runs `passage_ramp_run_m` into the court along the drive's own two edges, from the
+    passage floor's court height to the drive's lift. None when the record has none.
+    """
+    spec = params.detail.get('court_ground') or {}
+    f = params.detail.get('prairie_frontage') or {}
+    run = spec.get('passage_ramp_run_m')
+    drive = next((g for g in params.ground if g['kind'] == 'drive'), None)
+    if not run or not drive or 'passage_court_z' not in f or len(drive['pts']) != 4:
+        return None
+    m0, a1, b1, m1 = drive['pts']        # mouth north, far north, far south, mouth south
+    def along(a, c):
+        t = run / math.dist(a, c)
+        return (a[0]+(c[0]-a[0])*t, a[1]+(c[1]-a[1])*t)
+    zc, zd = f['passage_court_z'], drive['lift_m']
+    return {'pts': [tuple(m0), along(m0, a1), along(m1, b1), tuple(m1)], 'z': [zc, zd, zd, zc]}

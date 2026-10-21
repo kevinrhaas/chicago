@@ -19,7 +19,7 @@
  * old research hub (js/evidence.js), which sits in this screen under the sheet. A fifth,
  * the order book, carries `data-researcher` and shows only in Researcher mode.
  *
- * Last (T-2666, NAV-806, design doc section 11): For teachers, the Field Check's seven steps
+ * Last (T-2666, NAV-806, design doc section 11): For teachers, the Field Check's eight steps
  * and three suggested Jaunts for each destination as a one-page handout to print
  * (teacher-handout.js). The steps are the tour engine's own; each destination's Jaunts are
  * read from its catalog the first time Guide opens, never at boot.

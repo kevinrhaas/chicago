@@ -13,6 +13,9 @@ from archetypes.masonry_house_v4_west_roof import area, clip, z
 
 record=json.loads((ROOT/'data/structures/glessner_house.json').read_text())
 p=from_phase(record['phases'][0],record)
+# HABS sheet 4 prints its heights over 18th Street grade, north_grade_above_grade_ft
+# over the model's grade at the Prairie walk (T-2955).
+NG=record['phases'][0]['form']['grade_datum']['value']['north_grade_above_grade_ft']
 bow=p.bows[0]
 n=next(r for r in p.ranges if r['name']=='north_range')
 e=next(r for r in p.ranges if r['name']=='east_wing')
@@ -163,8 +166,8 @@ for dm in p.dormers:
     for face in dormer_roof(dm)[3]:
         exposed=above_host(face,p)
         assert all(v[2]>=east_height(v[0])-1e-8 for v in exposed)
-    assert abs(dm['light'][0]/.3048-30.63)<.005
-    assert abs(dm['light'][1]/.3048-32.87)<.005
+    assert abs(dm['light'][0]/.3048-NG-30.63)<.005
+    assert abs(dm['light'][1]/.3048-NG-32.87)<.005
     assert abs((c-a)*(1-2*dm['light_margin_fraction'])/.3048-2.94)<.02
     ring,kick,apex,_=dormer_roof(dm)
     # Native HABS4 roof width540px at100.6px/ft, read independently of stock.
@@ -173,7 +176,11 @@ for dm in p.dormers:
     lower_slope=(kick[0][2]-ring[0][2])/(kick[0][1]-ring[0][1])
     upper_slope=(apex[2]-kick[0][2])/(apex[1]-kick[0][1])
     assert 0<lower_slope<upper_slope,('reversed dormer flare',lower_slope,upper_slope)
-assert abs(east_height(e['x0']-.20)/.3048-27.33)<.015
+# The bow's eave, 27.33 ft over 18th Street grade on sheet 4, under the east wing's court
+# slope. That slope runs from sheet 6's ridge (door datum) to sheet 4's eave (north grade),
+# so T-2955's 0.20 ft between the grades steepens it 0.016 ft here: the two readings still
+# agree to 0.02 ft, well inside their +/-0.15 ft.
+assert abs(east_height(e['x0']-.20)/.3048-NG-27.33)<.02,east_height(e['x0']-.20)/.3048-NG
 for reduced in (False,True):
     b=d.DetailBuilder('court-finial',p);b.reduced_sash=reduced
     court_finial(b,0,0,'dormer',3)

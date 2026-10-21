@@ -619,7 +619,6 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 @media (min-width: 621px) {
   .hud-chips { flex-direction: row; align-items: center; gap: 6px; }
 }
-.fly-glyph { font-size: 10px; opacity: .85; }
 
 .hud-actions { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
 
@@ -798,14 +797,46 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 }
 .street-toggle[aria-pressed="true"] { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
 .street-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* T-2977 (owner, 2026-10-21): the Walk/Fly key, moved here from the right-edge column, where
+   the Inspect key appearing over it pushed it up and down. A small round key left of the
+   heading, a size up from the street switch: its arrow points up to fly, and down to the
+   ground, in the accent, while flying. */
+.fly-key {
+  position: relative;
+  pointer-events: auto;
+  display: inline-grid; place-items: center;
+  width: 28px; height: 28px; padding: 0;
+  border: 1px solid var(--edge); border-radius: 999px;
+  background: var(--panel); color: var(--ink);
+  box-shadow: var(--shadow); cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.fly-key .fly-down, .fly-key[aria-pressed="true"] .fly-up { display: none; }
+.fly-key[aria-pressed="true"] .fly-down { display: block; }
+.fly-key[aria-pressed="true"] { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
+.fly-key:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
+.fly-key:active { transform: translateY(1px); }
+.fly-key:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* A thumb still gets the 44 px touch floor: the key draws at 28, and answers 8 px past its rim. */
+body:is(.is-touch, .touch-first) .fly-key::before { content: ""; position: absolute; inset: -8px; border-radius: 50%; }
 /* T-2741: where you stand, then and today, hung under the instrument's right edge so its
    width never shifts the round face. Terse machine status: a year tag, the era street;
    a TODAY tag, today's street, corner or house number. */
-.street-readout {
+/* T-2942: the column hung under the instrument — the street readout, then the name of what
+   you look at when it is docked here (its default place). Grid, right-aligned, so each card
+   keeps its own width and neither shifts the round face. */
+.instrument-below {
   position: absolute;
   top: 100%;
   right: 0;
   margin-top: 5px;
+  display: grid;
+  justify-items: end;
+  gap: 5px;
+  width: max-content;
+  pointer-events: none;
+}
+.street-readout {
   display: grid;
   width: max-content;
   max-width: 248px;
@@ -1188,18 +1219,86 @@ body.is-touch .crosshair { display: none; }
   transition: opacity .6s ease;
 }
 .target-tag[hidden] { display: none; }
+/* T-2975: a hidden tag stays hidden in every place. T-2942's docked rule below sets display:
+   flex at this rule's own specificity and later in the file, so `hidden` lost to it and the
+   docked tag never went away: not when switched off in Settings, not at the end of its fade,
+   not when the reticle left the building (owner, 2026-10-21: "Name of what you look at does
+   not appear to hide the name"). */
+.target-tag[data-place][hidden] { display: none; }
 /* T-2736: it holds a few seconds, then fades (target-tag.js FADE_MS matches). */
 .target-tag.is-fading { opacity: 0; pointer-events: none; }
 @media (prefers-reduced-motion: reduce) { .target-tag { animation: none; transition: none; } }
 .target-tag:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-/* T-2627: the quick column — Walk/Fly and, with a target, Inspect. Right edge, centred;
-   two buttons at most. */
+/* T-2942 (owner, 2026-10-20: "on the right side and make it smaller … the tags should have a
+   consistency"): docked under the address (its default), the tag is a card of the address's
+   own kind — the same panel, edge, 10 px radius and shadow, a mono caps label (AHEAD, from
+   data-label) in the column THEN and TODAY stand in, the name in the card's 12 px weight,
+   the distance dimmer. A long name wraps to two lines and then ends in an ellipsis. */
+.target-tag[data-place="right"] {
+  position: static; left: auto; top: auto; transform: none;
+  display: flex; align-items: baseline; gap: 6px;
+  width: max-content; max-width: 248px;
+  padding: 5px 9px 6px;
+  font-family: inherit; font-size: 12px; font-weight: 600; line-height: 1.25;
+  letter-spacing: normal; text-transform: none;
+  text-align: left; text-wrap: wrap;
+  color: var(--ink); background: var(--panel); border: 1px solid var(--edge);
+  border-radius: 10px; box-shadow: var(--shadow);
+}
+.target-tag[data-place="right"]::before {
+  content: attr(data-label);
+  flex: 0 0 auto; min-width: 3.4em;
+  color: var(--accent);
+  font: 700 8px/1 var(--font-mono, ui-monospace, monospace);
+  letter-spacing: .09em; text-transform: uppercase;
+}
+.target-tag[data-place="right"] .tt-name {
+  min-width: 0; overflow: hidden;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2;
+}
+.target-tag[data-place="right"] .tt-dist {
+  flex: 0 0 auto; color: var(--ink-dim); font-size: 11px; font-weight: 500;
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+/* T-2942: Bottom — the centre's own pill, at the top of the HUD's bottom row (above the hint
+   and the travel banner, which ride above the Navigator's sheet on a phone). */
+.target-tag[data-place="bottom"] { position: static; left: auto; top: auto; transform: none; }
+/* T-2627: the quick column — with a target, the Inspect key. Right edge, centred. Walk/Fly
+   left it for the instrument's heading row (T-2977). */
 .quick-column {
   position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
   display: grid; gap: 8px; justify-items: end; pointer-events: none;
 }
 .quick-column > [hidden] { display: none; }
 .quick-inspect { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, var(--edge)); }
+/* T-2977 (owner, 2026-10-21: "fade in and out reasonably quickly ... not so jarring"): the
+   Inspect key keeps its place while hidden and fades, 200 ms in and 250 ms out, sliding a
+   few pixels from the edge. Hidden, it is invisible to the pointer, the tab order and a
+   screen reader (visibility), which flips only once the fade is done. A target lost and
+   found again inside the fade just turns the fade round. */
+.quick-column > .quick-inspect {
+  transition: opacity .2s ease-out, transform .2s ease-out, visibility 0s linear 0s;
+}
+.quick-column > .quick-inspect[hidden] {
+  display: inline-flex;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transform: translateX(8px);
+  transition: opacity .25s ease-in, transform .25s ease-in, visibility 0s linear .25s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .quick-column > .quick-inspect, .quick-column > .quick-inspect[hidden] { transition: none; transform: none; }
+}
+/* T-2977 (owner, 2026-10-21: "that button overlaps on mobile landscape"): a phone on its side
+   is too short for a key at mid-height — the instrument, its heading row and the street
+   readout reach past the middle. So Inspect drops to the lower right corner, under the
+   right thumb. The rise / descend pad (free-fly) stood its two keys one above the other up
+   the same edge, over the street readout, so on its side it lays them in a row along the
+   foot, and Inspect steps left of it while it shows. */
+@media (max-height: 500px) and (orientation: landscape) {
+  .quick-column { top: auto; transform: none; bottom: calc(14px + var(--safe-b)); }
+  .touch-layer .rise-pad { grid-auto-flow: column; bottom: calc(14px + var(--safe-b)); }
+  body:has(#rise-pad:not([hidden])) .quick-column { right: 152px; }
+}
 @media (prefers-reduced-motion: reduce) { .target-tag { animation: none; } }
 
 .hud-bottom { margin-top: auto; display: flex; justify-content: center; }
@@ -1715,12 +1814,27 @@ kbd {
   border: 1px solid var(--edge);
   background: rgb(255 255 255 / 7%); color: var(--ink); font: inherit; font-size: 12px;
 }
+/* T-2975: drawn, not left to the platform. iOS draws an unticked box in a dark scheme as a
+   solid black square, which reads as "on" (owner, 2026-10-21). Off is an empty outline; on is
+   the appearance's accent, filled, with a tick in its ink. */
 .check-field input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  margin: 0;
-  accent-color: var(--accent);
+  -webkit-appearance: none; appearance: none;
+  flex: none; display: grid; place-content: center;
+  width: 20px; height: 20px; margin: 0; cursor: pointer;
+  border: 1.5px solid var(--ink-dim); border-radius: 5px;
+  background: transparent;
+  transition: background-color .12s ease, border-color .12s ease;
 }
+.check-field input[type="checkbox"]::before {
+  content: ''; width: 10px; height: 5px; margin-top: -3px;
+  border: solid var(--accent-ink, #0a1426); border-width: 0 0 2.5px 2.5px;
+  transform: rotate(-45deg) scale(0); transition: transform .12s ease;
+}
+.check-field input[type="checkbox"]:checked { background: var(--accent); border-color: var(--accent); }
+.check-field input[type="checkbox"]:checked::before { transform: rotate(-45deg) scale(1); }
+.check-field input[type="checkbox"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.check-field input[type="checkbox"]:disabled { opacity: .45; cursor: default; }
+@media (prefers-reduced-motion: reduce) { .check-field input[type="checkbox"], .check-field input[type="checkbox"]::before { transition: none; } }
 
 .jump-field input[type="search"] {
   width: 100%;
@@ -1820,7 +1934,7 @@ kbd {
      meaning; both keep their title and aria-label, and the Evidence tab
      explains the dot at length. */
   .chip-label { display: none; }
-  #btn-fly, #btn-confidence, #btn-inspect { width: var(--hud-row); justify-content: center; padding: 8px; }
+  #btn-confidence, #btn-inspect { width: var(--hud-row); justify-content: center; padding: 8px; }
   /* And when an altitude is showing, it says more than a date that never
      changes — so the date yields rather than the badge growing. */
   .badge.has-alt .badge-sub { display: none; }
@@ -1832,6 +1946,9 @@ kbd {
   .navigation-stack { top: calc(17px + var(--hud-row) + var(--safe-t)); }
   /* T-2626: the compass no longer stands above it, so it rides up beside the chips' second row; it stays clear of them. */
   .street-readout { max-width: min(206px, calc(100vw - 24px)); padding: 5px 8px 6px; }
+  /* T-2942: docked, the tag keeps the readout's phone width and type. */
+  .target-tag[data-place="right"] { max-width: min(206px, calc(100vw - 24px)); padding: 4px 8px 5px; font-size: 11px; }
+  .target-tag[data-place="right"] .tt-dist { font-size: 10.5px; }
   .street-line strong { font-size: 11px; }
   .street-modern { font-size: 10.5px; }
   /* A phone has room for where you are, not for what is coming. */
@@ -2223,7 +2340,9 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .jaunt-type { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 9px; color: var(--fam);
   background: color-mix(in srgb, var(--fam) 15%, transparent); border: 1px solid color-mix(in srgb, var(--fam) 40%, transparent); }
 .jaunt-row-body { min-width: 0; }
-.jaunt-card h3 { margin: 0; font-size: 15px; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.jaunt-card h3 { margin: 0; font-size: 15px; line-height: 1.2; white-space: normal; overflow: hidden; overflow-wrap: break-word;
+  /* T-2944: a title shows whole, wrapping to a second line before any ellipsis. */
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; }
 .jaunt-star { margin-left: 6px; font-size: 11px; color: var(--accent); vertical-align: 2px; }
 .jaunt-premise { margin: 2px 0 0; font-size: 12.5px; line-height: 1.35; color: var(--ink-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .jaunt-card.open .jaunt-premise { display: none; }

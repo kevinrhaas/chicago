@@ -453,12 +453,16 @@
     "s20-1630-f": "1630 Prairie, the small earlier frame house, now stands whole as the K16 timber record house_1630_prairie (T-2357, piece 3 of T-1862) — its main block, the two-storey wing on its south side and the porch across its front — which refines this draft in place under the draft's own id; the draft stands no second building beside it.",
     "s20-1634-f": "1634 Prairie's main body now stands as the K01 stone-front house house_1634_prairie under the flat roof K01 learned from K05 (T-2350, piece 2 of T-2346), the north half of the pair with 1636, which refines this draft in place under the draft's own id with the sheet's stone front bay on K08; the draft stands no second building beside it, and the sheet's '2B' rear wing and its one-storey end stand on K01's rear wings (T-2347).",
     "s20-1636-f": "1636 Prairie now stands as the K01 stone-front house house_1636_prairie under K01's flat roof (T-2348, piece 3 of T-1863), the south half of the pair with 1634, which refines this draft in place under the draft's own id: the wide front body on K01 with the sheet's canted stone bay on K08, and the narrow three-storey rear part on K01's rear wings; the draft stands no second building beside it.",
+    "s28-1816-front": "1816 Prairie now stands as the K01 brick frontage `henderson_house_1816_prairie` (T-2963, piece 1 of T-1886), read off the Chicagology photograph of the Henderson house against this sheet, which refines this draft in place under the draft's own id: the front block on K01 under its mansard, with the sheet's canted front bay and south flank bay on K08, its frame porch as the photograph's columned porch, and its rear range on K01's rear wings; the draft stands no second building beside it.",
+    "s20-1736-f": "1736 Prairie now stands as the K01 brick frontage house_1736_prairie (T-2933, piece 1 of T-1874), read off the c. 1890 photograph of the Ingraham/McBirney house against this sheet, which refines this draft in place under the draft's own id: the main body on K01 under its mansard, with the sheet's frame porch built as the photograph's veranda on K07; the draft stands no second building beside it.",
     "s20-1613-f": "1613 Prairie now stands as the K01 brick frontage house_1613_prairie under K01's flat roof (T-2417, piece 1 of T-1868), the north half of the pair with 1615, which refines this draft in place under the draft's own id: the four-storey main body on K01 and the sheet's one-storey frame rear porch on K01's rear wings in timber; the draft stands no second building beside it.",
     "s20-1625-f": "1625 Prairie's main body now stands as the K01 stone-front frontage house_1625_prairie (T-2432, piece 1 of T-1869), read off the 1890 Inland Architect photograph of Hugh J. McBirney's Tudor house against this sheet, which refines this draft in place under the draft's own id; the draft stands no second building beside it, and the sheet's four-storey rear section (s20-1625-a1) waits on T-2435.",
     "s20-1615-f": "1615 Prairie now stands as the K01 brick frontage house_1615_prairie under K01's flat roof (T-2418, piece 2 of T-1868), the south half of the pair with 1613, laid on 1613's south wall, which refines this draft in place under the draft's own id: the four-storey main body on K01, the sheet's small frame projection on its south wall on K08 in timber, and its one-storey frame rear porch on K01's rear wings in timber; the draft stands no second building beside it.",
     "s28-1811-front": "1811 Prairie now stands as the K01 stone-front house coleman_ames_house_1811_prairie (T-2541, piece 1 of T-1891), Miner T. Ames's house read off the Inland Architect plate of October 1888 against this sheet, which refines this draft in place under the draft's own id: the front block on K01 with its north bay and its oriel on K08, and the brick range and the two-storey rear section behind it on K01's rear wings; the draft stands no second building beside it.",
     "s20-1619-f": "1619 Prairie now stands as the K01 stone-front house house_1619_prairie under K01's flat roof (T-2434, piece 3 of T-1869), which refines this draft in place under the draft's own id: the four-storey main body on K01 with the sheet's curved bay on K08's bow, and the sheet's brick rear block and two-storey frame piece on K01's rear wings; the draft stands no second building beside it.",
-    "s20-1637-f": "1637 Prairie's main body now stands as the K01 brick frontage spalding_house_1637_prairie (T-2441, piece 1 of T-1870), read off the engraving of Jesse Spalding's remodel of the Grosvenor house against this sheet, which refines this draft in place under the draft's own id: the main body on K01 with the engraving's swell bay and the sheet's forward south wing on K08, and the sheet's rear range behind the south part on K01's rear wings; the draft stands no second building beside it."
+    "s20-1637-f": "1637 Prairie's main body now stands as the K01 brick frontage spalding_house_1637_prairie (T-2441, piece 1 of T-1870), read off the engraving of Jesse Spalding's remodel of the Grosvenor house against this sheet, which refines this draft in place under the draft's own id: the main body on K01 with the engraving's swell bay and the sheet's forward south wing on K08, and the sheet's rear range behind the south part on K01's rear wings; the draft stands no second building beside it.",
+    "s20-1726-f": "1726 Prairie now stands as the K01 brick frontage house_1726_prairie (T-2934, piece 2 of T-1874), which refines this draft in place under the draft's own id: the main body on K01 with the sheet's front and south canted bays and its side projections on K08, and the sheet's two-storey rear piece and frame porch on K01's rear wings; the draft stands no second building beside it.",
+    "s20-1730-f": "1730 Prairie now stands as the K01 brick frontage house_1730_prairie under a K05 mansard (T-2934, piece 2 of T-1874), which refines this draft in place under the draft's own id: the sheet's three-storey front block on K01 with its frame front bay and south projection and vestibule on K08, and the two-storey rear range and frame porch on K01's rear wings; the draft stands no second building beside it."
   },
   "frontages": {
     "frontage-28-038": {
@@ -471,7 +475,7 @@
     "frontage-28-039": {
       "slug": "henderson_house",
       "entrance": "north",
-      "why": "Second Empire: the register's mansard with dormers over the mapped rounded front bays, which the fitted plan carries as a projecting bay."
+      "why": "Second Empire: the register's mansard with dormers over the mapped rounded front bays, which the fitted plan carries as a projecting bay.", "house_id": "henderson_house_1816_prairie", "house_address": "1816"
     },
     "frontage-28-040": {
       "slug": "marsh_house",
@@ -758,20 +762,24 @@
     "frontage-20-019": {
       "slug": "house",
       "entrance": "north",
-      "why": "2B brick with a bay: the brick family's hip over two storeys."
+      "why": "2B brick with a bay: the brick family's hip over two storeys.",
+      "house_id": "house_1726_prairie",
+      "house_address": "1726"
     },
     "frontage-20-020": {
       "slug": "house",
       "roof": "flat",
       "brackets": true,
       "entrance": "south",
-      "why": "3B brick, rear 2B, the main block outlined by a dashed line: flat behind a bracketed cornice so that the three brick houses 1726-1736 do not share one roof; which it had is T-1874's."
+      "why": "3B brick, rear 2B, the main block outlined by a dashed line: flat behind a bracketed cornice so that the three brick houses 1726-1736 do not share one roof; which it had is T-1874's.",
+      "house_id": "house_1730_prairie",
+      "house_address": "1730"
     },
     "frontage-20-021": {
       "slug": "house",
       "roof": "mansard",
       "entrance": "north",
-      "why": "The register's 'three-storey brick corner dwelling with bounded mansard/attic treatment' at the 18th Street corner: a mansard over the mapped three storeys."
+      "why": "The register's 'three-storey brick corner dwelling with bounded mansard/attic treatment' at the 18th Street corner: a mansard over the mapped three storeys.", "house_id": "house_1736_prairie", "house_address": "1736"
     },
     "frontage-20-022": {
       "slug": "house",
