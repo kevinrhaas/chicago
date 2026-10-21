@@ -367,6 +367,20 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
         pipes.append({"wall": x["wall"], "s_m": float(x["s_m"])})
     if not pipes:
         raise ParamError("every gutter outlet leads to a pipe: rainwater.downpipes is empty")
+    # T-2953: a pipe down the street front from a rainwater head of its own, where no eave gutter
+    # runs to it (1812's shaped gable, its pipes at both ends of the front in the Levy print):
+    # `s_m` along the front from the south corner, the head's top `head_m` over grade, standing
+    # `proud_m` before the main front (a projection's face), down to `foot_m` (0: grade, its shoe
+    # over a splash stone; else a lower roof it discharges onto)
+    front = []
+    for x in rain.get("front_pipes", []):
+        if set(x) != {"s_m", "head_m", "foot_m", "proud_m"}:
+            raise ParamError("rainwater.front_pipes take s_m, head_m, foot_m and proud_m")
+        q = {k: float(x[k]) for k in ("s_m", "head_m", "foot_m", "proud_m")}
+        if not 0.0 <= q["proud_m"] <= 2.0 or not 0.0 <= q["foot_m"] <= q["head_m"] - 0.5 or q["head_m"] > 20.0:
+            raise ParamError(f"rainwater.front_pipes {x}: a head at most 20 m up, at least 0.5 m over its foot, "
+                             f"standing 0-2 m before the front")
+        front.append(q)
     rainwater = {
         "fabric": rain["fabric"], "ends_at": rain["ends_at"],
         "gutter_diameter_m": g["kinds"][gk]["diameter_m"], "fall": g["fall"],
@@ -377,6 +391,7 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
         "shoe_kick_deg": d["shoe"]["kick_deg"], "shoe_length_m": d["shoe"]["length_m"],
         "shoe_end_above_grade_m": d["shoe"]["end_above_grade_m"],
         "downpipes": pipes,
+        **({"front_pipes": front} if front else {}),
     }
     return roof, rainwater
 
@@ -1978,7 +1993,9 @@ def _arched_front(groups, openings, variants, kit, dress, pf, floors, width, doo
         for i in g["ops"]:
             o = openings[i]
             # T-2526: the door is K07's one round-headed hole, its spring a half span under its crown
-            v = {"bays": 1} if o.component == "k01.opening.door_leaf" else variants[kit[o.component]["variant"]]
+            v = ({"bays": 1, **({"head": "segmental", "rise_over_span": g["rise_over_span"]}
+                                if g.get("rise_over_span") else {})}
+                 if o.component == "k01.opening.door_leaf" else variants[kit[o.component]["variant"]])
             n, mull = int(v.get("bays", 1)), float(v.get("mullion_m", 0.0))
             bw = (o.width_m - mull * (n - 1)) / n
             # T-2818: a segmental head springs its rise under the crown, and each light's last
@@ -2871,8 +2888,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if not door_arch_of(val("entrance_kit")) or len(om) != 2:
             raise ParamError("entrance_kit.opening_m [width, height] sizes a round-arched door's hole (`arch`)")
         door_w, door_h = float(om[0]), float(om[1])
-        if not 1.0 <= door_w <= 2.2 or not door_w / 2 + 1.2 <= door_h <= 3.6:
-            raise ParamError(f"entrance_kit.opening_m {om}: an arch 1.0-2.2 m across whose jambs rise at least "
+        # T-2952: under a segmental head (`arch.rise_over_span`) the mouth may be a porch's, to 3.2 m
+        ros = door_arch_of(val("entrance_kit")).get("rise_over_span")
+        rise, widest = (door_w * float(ros), 3.2) if ros else (door_w / 2, 2.2)
+        if not 1.0 <= door_w <= widest or not rise + 1.2 <= door_h <= 3.6:
+            raise ParamError(f"entrance_kit.opening_m {om}: an arch 1.0-{widest} m across whose jambs rise at least "
                              f"1.2 m to its springing, its crown at most 3.6 m over the floor")
     openings.append(Opening("k01.opening.door_leaf", "k01.wall.street_front", door_s, round(door_floor, 4),
                             door_w, door_h, False))
@@ -3087,8 +3107,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         need = {"ring_m", "keystone_top_m", "keystone_m"}
         # T-2531: optionally the ring's curved extrados (`extrados`, the ring `ring_proud_m`
         # before the wall) and a band over its crown (`band_m`, a belt course [foot, top])
-        if not need <= set(da) <= need | {"extrados", "ring_proud_m", "band_m"}:
-            raise ParamError(f"entrance_kit.arch takes {sorted(need)}, and extrados, ring_proud_m and band_m")
+        if not need <= set(da) <= need | {"extrados", "ring_proud_m", "band_m", "rise_over_span"}:
+            raise ParamError(f"entrance_kit.arch takes {sorted(need)}, and extrados, ring_proud_m, band_m and "
+                             f"rise_over_span")
+        # T-2952: a broad porch arch whose head is a segment, not a half circle (1812's, the Levy
+        # print: about 2.7 m across, rising about 0.8 m from its spring to its crown)
+        if "rise_over_span" in da and (not 0.15 <= float(da["rise_over_span"]) <= 0.45 or "extrados" in da):
+            raise ParamError("entrance_kit.arch.rise_over_span: a segmental head rising 0.15-0.45 of its span, "
+                             "in a voussoir block (no curved extrados)")
         if not 0.15 <= float(da["ring_m"]) <= 0.6:
             raise ParamError("entrance_kit.arch.ring_m: a voussoir block 0.15-0.6 m outside the arch")
         if da.get("extrados", "curved") != "curved" or ("ring_proud_m" in da) != ("extrados" in da) \
@@ -3098,6 +3124,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         arched_groups.append({"component": "k01.opening.door_leaf", "bay": front_bays.index(door_s), "ops": [di],
                               "ring_m": float(da["ring_m"]), "keystone_top_m": float(da["keystone_top_m"]),
                               "keystone_m": tuple(float(x) for x in da["keystone_m"]),
+                              **({"rise_over_span": float(da["rise_over_span"])} if "rise_over_span" in da else {}),
                               **({"extrados": "curved", "ring_proud_m": float(da["ring_proud_m"])}
                                  if "extrados" in da else {})})
     arched = _arched_front(arched_groups, openings, variants, kit, val("street_front_dress") or {},
@@ -3159,11 +3186,28 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if terrace is not None:
         terraces = []
         for t in (terrace if isinstance(terrace, list) else [terrace]):
-            if set(t) - {"side", "to_v_m", "back", "out_m", "loggia"} or t.get("side", "right") not in ("right", "left"):
+            if set(t) - {"side", "to_v_m", "back", "out_m", "loggia", "parapet"} \
+                    or t.get("side", "right") not in ("right", "left"):
                 raise ParamError("entrance_kit.terrace takes side 'right' or 'left', to_v_m, "
-                                 "back [[v, out], ...], out_m and loggia alone, or a list of one a side")
+                                 "back [[v, out], ...], out_m, loggia and parapet alone, or a list of one a side")
             terraces.append({"side": t.get("side", "right"), "to_v_m": float(t["to_v_m"]),
                              "back": [[float(v), float(o)] for v, o in t.get("back", [])]})
+            # T-2952: a stone parapet along the terrace's front, pierced in rows of square holes
+            # (1812's beside its stair's head, the Levy print)
+            if "parapet" in t:
+                pp = t["parapet"]
+                if set(pp) != {"height_m", "thickness_m", "holes", "hole_m"} or len(pp["holes"]) != 2 \
+                        or len(pp["hole_m"]) != 2:
+                    raise ParamError("entrance_kit.terrace.parapet takes height_m, thickness_m, holes [rows, "
+                                     "columns] and hole_m [width, height]")
+                ph, pt = float(pp["height_m"]), float(pp["thickness_m"])
+                (rows, cols), (hw, hh) = (int(x) for x in pp["holes"]), (float(x) for x in pp["hole_m"])
+                if not 0.3 <= ph <= 1.1 or not 0.1 <= pt <= 0.4 or not 1 <= rows <= 4 or not 1 <= cols <= 20 \
+                        or not 0.03 <= hw <= 0.3 or not 0.03 <= hh <= 0.3 or rows * hh > ph - 0.2:
+                    raise ParamError(f"entrance_kit.terrace.parapet {pp}: 0.3-1.1 m high, 0.1-0.4 m thick, 1-4 rows "
+                                     f"of 1-20 holes 0.03-0.3 m across, a coping and a foot left round them")
+                terraces[-1]["parapet"] = {"height_m": ph, "thickness_m": pt, "holes": [rows, cols],
+                                           "hole_m": [hw, hh]}
             # T-2500: a terrace deeper than the landing (1808's loggia deck), and the loggia on
             # it (k07_entrances.Entrance._loggia): its deck clear of the walk, and its parts
             # named in full so a record cannot half-specify one
@@ -3260,6 +3304,20 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                   "panels": [int(x) for x in pd["panels"]], "transom_m": float(pd["transom_m"]),
                                   **({"glazed_rows": [int(x) for x in pd["glazed_rows"]]}
                                      if "glazed_rows" in pd else {})}
+    # T-2952: a side light beside the door under the arch's transom (1812's, the Levy print): the
+    # door's leaves take the left of the mouth, then a pier `pier_m` wide, then a glazed light
+    # `width_m` across from a sill `sill_m` over the floor up to the transom, a panel under it
+    if "side_light" in door_kit_in:
+        sl = door_kit_in["side_light"]
+        if not door_arch or "opening_m" not in door_kit_in or "porch_door" in door_kit_in \
+                or set(sl) != {"width_m", "pier_m", "sill_m"}:
+            raise ParamError("entrance_kit.side_light takes width_m, pier_m and sill_m, under a round- or "
+                             "segmental-arched door's own mouth (`arch`, `opening_m`; no porch_door)")
+        lw, pw, ls = (float(sl[k]) for k in ("width_m", "pier_m", "sill_m"))
+        if not 0.5 <= lw <= 1.5 or not 0.15 <= pw <= 0.5 or not 0.3 <= ls <= 1.5 or door_w - lw - pw < 1.0:
+            raise ParamError(f"entrance_kit.side_light {sl}: a light 0.5-1.5 m across beside a 0.15-0.5 m pier, "
+                             f"its sill 0.3-1.5 m up, leaving the door 1.0 m of the {door_w} m mouth")
+        door_kit["side_light"] = {"width_m": lw, "pier_m": pw, "sill_m": ls}
     # T-2910: a loggia behind the arch (1801's, the Taylor photograph): a room `v_m` [from, to]
     # along the front and `depth_m` behind its face, its floor the door's, a flat ceiling
     # `ceiling_m` over it, the porch door in its back wall; and `side_arch`, a round arch
@@ -3329,9 +3387,13 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if "cheek_form" in door_kit_in:
         cf = door_kit_in["cheek_form"]
         if not isinstance(cf, dict) or cf.get("kind") != "swept" or set(cf) != {"kind", "head_m", "foot_m", "block_m"} \
-                or {"terrace", "side_stoop"} & set(door_kit_in) or door_kit_in.get("cheeks") is False:
+                or "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False \
+                or any("parapet" not in t or "loggia" in t
+                       for t in ([door_kit_in["terrace"]] if isinstance(door_kit_in.get("terrace"), dict)
+                                 else door_kit_in.get("terrace") or [])):
+            # T-2952: a terrace beside a swept stoop stands behind a parapet, not a balustrade
             raise ParamError("entrance_kit.cheek_form is {kind: 'swept', head_m, foot_m, block_m}, on a "
-                             "stoop's own cheeks (no terrace or side stoop)")
+                             "stoop's own cheeks (no side stoop; a terrace beside it only behind its parapet)")
         if not 0.0 <= float(cf["head_m"]) <= 0.6 or not 0.3 <= float(cf["foot_m"]) <= 1.2 or not 0.2 <= float(cf["block_m"]) <= 1.0:
             raise ParamError("entrance_kit.cheek_form: head_m 0-0.6 m over the landing, foot_m 0.3-1.2 m over "
                              "grade, block_m 0.2-1.0 m")
