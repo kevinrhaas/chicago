@@ -17,14 +17,23 @@
  *      first and the jump the whole of it, and nothing else;
  *   4. `written` names exactly the texels the landing wrote.
  *
+ * T-2969: the walk is taken three times — a whole tile landed in one slice (the
+ * before), a band per slice (`sliceMs: 0`) and at the page's own budget — and
+ * the pool's reply carries the heights, so a band read from the wrong rows of
+ * it is a tile unlike the built one. A whole landing in bands takes exactly
+ * size / LAND_BAND_ROWS slices and in one slice exactly one; and a tile adopted
+ * while a whole one is still landing in bands is the adopted tile, the landing
+ * dropped.
+ *
  * The answers are a synthetic field (a hash of the texel's point), because the
  * question here is the keeper's arithmetic, not the town's; the town's own tile,
  * asked of the pool, is held to `nearField.build` at every critic station by
  * `tools/measure_near_field.mjs --walk`. `--self-test` breaks the keeper three
  * ways — a texel centre a texel off, a wrap a texel off, a strip not asked —
+ * and a fourth, a whole tile landed in one slice where bands were asked for,
  * and requires each to be refused.
  */
-import { FIELD_SPEC, fieldKeeper, buildField, sampleField, fieldWrap }
+import { FIELD_SPEC, LAND, LAND_BAND_ROWS, fieldKeeper, buildField, sampleField, fieldWrap }
   from '../renderers/web/js/near-field.js';
 
 const SPEC = FIELD_SPEC;
@@ -45,23 +54,35 @@ function at(e, n, out = [0, 0, 0]) {
   return out;
 }
 
-function makeKeeper({ off = 0, skip = false } = {}) {
-  return fieldKeeper({
+function makeKeeper({ off = 0, skip = false, sliceMs, liar = false } = {}) {
+  const k = fieldKeeper({
     spec: SPEC,
-    // A reply that comes home later, as the pool's does.
-    ask: () => new Promise((r) => setTimeout(() => r(null), 0)),
-    finish(_got, { i0, j0, w, h }, e0, n0, tx, cls, height) {
+    ...(sliceMs === undefined ? {} : { sliceMs: liar ? Infinity : sliceMs }),
+    // A reply that comes home later, as the pool's does, carrying the heights
+    // (row by row northward), which `finish` takes from it.
+    ask: ({ i0, j0, w, h }, e0, n0, tx) => new Promise((r) => setTimeout(() => {
+      const y = new Float32Array(w * h);
+      const o = [0, 0, 0];
+      for (let j = 0; j < h; j++) {
+        for (let i = 0; i < w; i++) y[j * w + i] = at(e0 + (i0 + i + 0.5 + off) * tx, n0 + (j0 + j + 0.5) * tx, o)[2];
+      }
+      r({ y });
+    }, 0)),
+    finish(got, { i0, j0, w, h }, e0, n0, tx, cls, height) {
       if (skip && w < size) return;
       const o = [0, 0, 0];
       for (let j = 0; j < h; j++) {
         for (let i = 0; i < w; i++) {
           at(e0 + (i0 + i + 0.5 + off) * tx, n0 + (j0 + j + 0.5) * tx, o);
           const k = j * w + i;
-          cls[2 * k] = o[0]; cls[2 * k + 1] = o[1]; height[k] = o[2];
+          cls[2 * k] = o[0]; cls[2 * k + 1] = o[1]; height[k] = got.y[k];
         }
       }
     },
   });
+  // `liar`: bands asked for, and the keeper quietly landing in one slice.
+  if (liar) k.asked = sliceMs;
+  return k;
 }
 
 /** Every way the kept tile can differ from the built one, counted. */
@@ -107,13 +128,24 @@ async function walk(opts = {}, wrapOff = 0) {
   const k = makeKeeper(opts);
   const bad = [];
   let prev = null;
+  // T-2969: every whole landing's slices, against the count its budget sets.
+  const budget = k.asked ?? k.sliceMs ?? LAND.sliceMs;
+  const want = budget === 0 ? size / LAND_BAND_ROWS : budget === Infinity ? 1 : null;
+  const sliced = async () => {
+    const whole = k.stats.whole, slices = k.stats.slices;
+    await k.settled();
+    const got = k.stats.slices - slices;
+    if (want !== null && k.stats.whole > whole && got !== want) {
+      bad.push(`a whole tile landed in ${got} slice(s), not ${want}`);
+    }
+  };
   k.update(0, 0);
-  await k.settled();
+  await sliced();
   for (const [e, n, burst] of route()) {
     const before = k.stats.texels;
     k.update(e, n);
     if (burst) continue;
-    await k.settled();
+    await sliced();
     const t = k.tile;
     const c = compare(t, wrapOff);
     if (c.texels || c.samples) bad.push(`at (${e.toFixed(1)}, ${n.toFixed(1)}): ${c.texels} texels and ${c.samples} samples differ from the built tile`);
@@ -140,11 +172,35 @@ async function walk(opts = {}, wrapOff = 0) {
   return { bad, stats: k.stats };
 }
 
+/** T-2969: a whole tile adopted while another is landing in bands. */
+async function adoptMidLanding() {
+  const k = makeKeeper({ sliceMs: 0 });
+  const bad = [];
+  k.update(0, 0);
+  await k.settled();
+  const slices = k.stats.slices;
+  k.update(500, 500);
+  // Let the reply come home and the first bands land, then adopt.
+  while (k.stats.slices < slices + 3) await new Promise((r) => setTimeout(r, 0));
+  const built = buildField(at, 1000, 1000, SPEC);
+  k.adopt(built);
+  await k.settled();
+  const t = k.tile;
+  if (t.e0 !== 1000 || t.n0 !== 1000) bad.push(`the adopted tile was replaced by the landing at (${t.e0}, ${t.n0})`);
+  else {
+    const c = compare(t);
+    if (c.texels || c.samples) bad.push(`adopted mid-landing: ${c.texels} texels differ from the built tile`);
+  }
+  if (k.stats.whole !== 1) bad.push(`${k.stats.whole - 1} landing(s) written after the adopt`);
+  return bad;
+}
+
 if (process.argv.includes('--self-test')) {
   const cases = [
     ['a texel centre a texel off', { off: 1 }, 0],
     ['a wrap a texel off', {}, 1],
     ['a strip not asked', { skip: true }, 0],
+    ['a whole tile landed in one slice where bands were asked for', { sliceMs: 0, liar: true }, 0],
   ];
   let ok = true;
   for (const [what, opts, wrapOff] of cases) {
@@ -155,8 +211,18 @@ if (process.argv.includes('--self-test')) {
   process.exit(ok ? 0 : 1);
 }
 
-const r = await walk();
-for (const b of r.bad.slice(0, 12)) console.log(`FAIL ${b}`);
-console.log(`${r.stats.recentres} re-centres landed (${r.stats.whole} whole), ${r.stats.texels} texels asked; `
-  + `${r.bad.length ? `${r.bad.length} disagreement(s)` : 'the kept tile is the built tile after every one'}`);
-process.exit(r.bad.length ? 1 : 0);
+let failed = 0;
+for (const [what, opts] of [['one slice a landing', { sliceMs: Infinity }],
+  ['a band a slice', { sliceMs: 0 }], ['the page\'s budget', {}]]) {
+  const r = await walk(opts);
+  for (const b of r.bad.slice(0, 12)) console.log(`FAIL ${what}: ${b}`);
+  console.log(`${what}: ${r.stats.recentres} re-centres landed (${r.stats.whole} whole) in ${r.stats.slices} slices, `
+    + `${r.stats.texels} texels asked; `
+    + `${r.bad.length ? `${r.bad.length} disagreement(s)` : 'the kept tile is the built tile after every one'}`);
+  failed += r.bad.length;
+}
+const adopted = await adoptMidLanding();
+for (const b of adopted) console.log(`FAIL ${b}`);
+console.log(`adopted while a whole tile landed in bands: ${adopted.length ? 'WRONG' : 'the adopted tile, the landing dropped'}`);
+failed += adopted.length;
+process.exit(failed ? 1 : 0);
