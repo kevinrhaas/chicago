@@ -431,6 +431,8 @@ async function driveMove({ move, tier, render, profile, sync, verify, xray, swar
   // flora ms, which is all it can be told apart by), and where the GPU draws the
   // near tufts (T-2716) what its deal pass, tile builds and uploads spent.
   const nearStats = a.flora.nearDraw?.stats;
+  // T-2967: the longest far reap slice is a running maximum: read per move.
+  if (nearStats && 'farSliceMaxMs' in nearStats) nearStats.farSliceMaxMs = 0;
   const nearDraw0 = nearStats ? { ...nearStats } : null;
   const nearMs = [];
   // T-2894: the near passes flora counted before the move, and the ones it
@@ -1021,6 +1023,17 @@ for (const vp of VIEWPORTS) {
             // beside the mid cards; the slots a kept yard re-seated.
             + (g.forbReaps != null ? ` | GPU forb ring: ${g.forbReaps} reaped ${g.forbReapMs.toFixed(0)} ms,`
               + ` ${g.forbSeated} re-seated` : '')
+            // T-2967: the far band, dealt in the same render against the far
+            // field and reaped between frames a slice at a time — the passes
+            // whose far band the CPU still walked (the kept far tile not home),
+            // the reaps and their slices (the longest is one task's main
+            // thread, in no frame's flora ms), the reaps a newer one overtook
+            // or a CPU pass made stale, and the slots the page dealt whole.
+            + (g.farDeals != null ? ` | GPU far band: ${g.farDeals} dealt, ${g.farCpu} walked by the CPU,`
+              + ` ${g.farMissed} missed, ${g.farUploads} uploads, ${g.farReaps} reaped`
+              + ` ${g.farReapMs.toFixed(0)} ms in ${g.farSlices} slices (longest ${g.farSliceMaxMs.toFixed(1)} ms),`
+              + ` ${g.farSkipped} overtaken, ${g.farStale} stale, ${g.farCards} cards,`
+              + ` ${g.farAsked} slots dealt whole on the page, ${g.farRedealt} re-dealt` : '')
             : ' | near tufts drawn by the CPU'));
       }
       // T-2896: the far passes — the far shrubs and the carries — on their own
