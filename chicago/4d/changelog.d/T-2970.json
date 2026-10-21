@@ -1,0 +1,8 @@
+{
+  "title": "Draw budgets now count every draw the graphics driver receives",
+  "kind": "fix",
+  "items": [
+    "The page counted each batch of buildings as one draw, but the graphics driver receives one draw per piece in the batch. Over 1904 the counter read 360 while the driver got 3,288.",
+    "The draw budgets, the light tier's floor and the frame-pacing reading now use the driver's count, so the gate sees what a phone actually pays. The ceilings were re-measured at the six test stands."
+  ]
+}

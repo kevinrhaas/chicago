@@ -10228,8 +10228,13 @@ for (const [label, viewport, touch] of [
     // batching peak at 313 (mobile West prairie, full); +15, rounded to five,
     // moves the general ceiling to 330. Light still has its own 90-call gate.
     // The measured argument is beside BUDGET in main.js; light stays at 90.
+    // T-2970: 330 -> 7,800, and the unit with it: `stats().drawCalls` is now the
+    // draws the GPU driver receives (driver-draws.js), where it was three's
+    // `renderer.info.render.calls`, which takes a BatchedMesh's whole multi-draw as
+    // one. Worst of the six stands at both widths, published mirror after T-2927's
+    // coalescing: 7,358 at full from the open aerial, 1280x800; +5 %, to a hundred.
     check(`${label}: the scene's draw-call ceiling is the one this gate was written against`,
-      stats.budget.drawCalls === 330,
+      stats.budget.drawCalls === 7800,
       `budget reads ${stats.budget.drawCalls} calls / ${stats.budget.triangles} tris`);
     check(`${label}: draw calls under budget at the reference stand`,
       stats.drawCalls <= stats.budget.drawCalls,
@@ -10705,13 +10710,24 @@ for (const [label, viewport, touch] of [
     // promise to a weak machine, the ratio is the claim that the scene-detail
     // control is not decoration, and a reading can break either without the
     // other.
-    const LIGHT_CALL_FLOOR = 90;
-    check(`${label}: the light tier draws inside its ${LIGHT_CALL_FLOOR}-call floor at the worst stand`,
+    //
+    // T-2970, 2026-10-20: 90 -> 5,900, A CHANGE OF UNIT AND NOT A RAISE. The owner's
+    // 90 was set against three's `renderer.info.render.calls`, which counts a
+    // BatchedMesh's multi-draw as one call where the driver receives one draw per
+    // kept instance — the meter read 85 while the GPU was handed thousands, so the
+    // promise was never measured in the unit a weak machine pays in. Counted at the
+    // driver (driver-draws.js), the same light scene's worst stand reads 5,541 at
+    // 1280x800 and 4,347 at 390x780, West prairie both (published mirror after
+    // T-2927's coalescing, tools/measure_detail_ceilings.mjs); +5 %, to a hundred,
+    // is 5,900. It holds light to what it draws today; winning draws back is the
+    // batching work's (T-2927's coalescing, T-2896), and this floor is what it
+    // will be read against.
+    const LIGHT_CALL_FLOOR = 5900;
+    check(`${label}: the light tier draws inside its ${LIGHT_CALL_FLOOR}-draw floor at the worst stand`,
       light.worstCalls.calls <= LIGHT_CALL_FLOOR,
-      `${light.worstCalls.calls} calls at light, worst stand ${light.worstCalls.label} `
-      + `— floor ${LIGHT_CALL_FLOOR}, set by the owner 2026-08-28 against a measured 85 `
-      + `at Lake and Market (was 80, the pre-2026-08 count restored by T-0147; `
-      + `the ruling is recorded at the definition site and on T-0247)`);
+      `${light.worstCalls.calls} driver draws at light, worst stand ${light.worstCalls.label} `
+      + `— floor ${LIGHT_CALL_FLOOR}, re-based by T-2970 from the owner's 90 three-calls of `
+      + `2026-08-28 (T-0247) to the driver's count of the same scene: 5,541 measured`);
     check(`${label}: the light tier stays materially cheaper than full at the worst stand`,
       light.worstCalls.calls <= full.worstCalls.calls * 0.9,
       `${light.worstCalls.calls} calls at light against ${full.worstCalls.calls} at full, `

@@ -118,7 +118,8 @@ export function summary(record) {
   const s = record.last;
   // T-2828: the bytes behind the counts, where the page could read them.
   const mb = (v) => (Number.isFinite(v) ? ` (${v} MB)` : '');
-  const gpu = s ? ` Last read: ${s.calls ?? '?'} draws, ${k(s.tris ?? 0)} triangles, ${s.tex ?? '?'} textures${mb(s.texMB)}, `
+  // T-2970: `draws` is what the driver received; a record written before it has only `calls`.
+  const gpu = s ? ` Last read: ${s.draws ?? s.calls ?? '?'} draws, ${k(s.tris ?? 0)} triangles, ${s.tex ?? '?'} textures${mb(s.texMB)}, `
     + `${s.geo ?? '?'} geometries${mb(s.geoMB)}, ${s.w ?? '?'}×${s.h ?? '?'} at ${s.ratio ?? '?'}×.` : '';
   const how = cut >= 0 ? 'Display reset' : 'Page stopped';
   return `${how} ${ago(at)} into the visit. Just before: ${steps.join('; ') || 'nothing logged'}.${gpu}`;
