@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2161, ts: '2026-10-21T16:37:42.638Z', date: 'Oct 21, 2026, 11:37 AM CT', title: 'Glessner\'s carriage passage stands at its drawn height', kind: 'fix',
+    items: [
+      'The porte-cochère floor now sits 1.2 ft below the sidewalk, as the HABS drawings show.',
+      'The passage clears 8.9 ft under the Prairie Avenue head, up from 7 ft.',
+      'The carriage way slopes down from the walk and back up into the courtyard.',
+      'The oak doors run down to the lower floor.',
+      'Walking follows the sunk floor, so you pass through at normal eye height.',
+    ] },
+  { v: 2160, ts: '2026-10-21T16:37:42.638Z', date: 'Oct 21, 2026, 11:37 AM CT', title: 'Fly key moves to the compass; Inspect fades in and out', kind: 'improvement',
+    items: [
+      'Fly is a small round key beside the heading, under the map. Its arrow turns down while you fly, to walk again. F still toggles it.',
+      'Inspect has the right edge to itself and fades in and out instead of popping, so nothing beside it moves.',
+      'Phone held sideways: Inspect drops to the lower right corner, clear of the map, the heading and the street names. While flying, the rise and descend keys sit in a row beside it.',
+    ] },
   { v: 2159, ts: '2026-10-21T15:31:46.895Z', date: 'Oct 21, 2026, 10:31 AM CT', title: 'Name of what you look at switches off again', kind: 'fix',
     items: [
       'Settings › Show › Name of what you look at, switched off, now hides the name of the building in front of you. Since the name moved under the address it kept showing anyway. The Inspect key stays.',
