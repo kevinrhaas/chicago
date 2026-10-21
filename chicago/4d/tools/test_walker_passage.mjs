@@ -25,6 +25,7 @@ register(`data:text/javascript,${encodeURIComponent(`export function resolve(s, 
 const THREE = await import('three');
 const { createWalker, footprintsFrom, passageLane, WALK, HEADROOM_MARGIN_M, LANE_REACH_M } = await import('../renderers/web/js/walker.js');
 const { createIntent } = await import('../renderers/web/js/controls/intent.js');
+const { passageGroundFrom, passageDepth } = await import('../renderers/web/js/passage-ground.js');
 
 const flat = { walkHeight: () => 0, surfaceHeight: () => 0, isWater: () => false };
 const inside = (e, n, pts) => {
@@ -104,6 +105,27 @@ try {
   for (const [e, n] of run.path) {
     if (!inside(e, n, gl[0].pts)) continue;
     assert(inside(e, n, g.pts), `inside the house only within the passage (${e.toFixed(2)},${n.toFixed(2)})`);
+  }
+  // T-2976: the floor sunk where the HABS sheets draw it, the passage clears a seated
+  // driver (eye 1.68 + 0.5 m) and the walk steps down onto the paving, not the field.
+  assert(g.clear >= 1.68 + 0.5 + HEADROOM_MARGIN_M, `its ${g.clear} m clears a driver's eye`);
+  const sunk = passageGroundFrom(new Map([[side.id, { id: side.id, sidecar: side }]]));
+  assert.equal(sunk.length, 4, 'approach, threshold, passage floor and court ramp are declared');
+  const atMouth = passageDepth(sunk, mouth[0] + (mouth[0] - court[0]) * 0.005, mouth[1] + (mouth[1] - court[1]) * 0.005);
+  assert(Math.abs(atMouth - -0.3536) < 0.01, `the mouth's paving is 1.16 ft under the sidewalk (${atMouth})`);
+  const atCourt = passageDepth(sunk, court[0] - (mouth[0] - court[0]) * 0.001, court[1] - (mouth[1] - court[1]) * 0.001);
+  assert(Math.abs(atCourt - -0.2835) < 0.01, `the court mouth's paving is 0.93 ft under the drive datum (${atCourt})`);
+  assert.equal(passageDepth(sunk, mouth[0] + 50, mouth[1]), null, 'off the carriage way the field is the ground');
+  const sunkTerrain = { ...flat, walkHeight: (e, n) => passageDepth(sunk, e, n) ?? 0 };
+  {
+    const camera = new THREE.PerspectiveCamera();
+    const w = createWalker({ camera, terrain: sunkTerrain, footprints: gl, spawn: { local_e: start[0], local_n: start[1], yaw_deg: bearing } });
+    const intent = createIntent();
+    let lowest = Infinity;
+    for (let i = 0; i < 14 * 60; i++) { intent.forward = 1; w.update(1 / 60, intent); lowest = Math.min(lowest, w.state.groundY); }
+    const past = (court[0] - mouth[0]) * (w.state.e - court[0]) + (court[1] - mouth[1]) * (w.state.n - court[1]);
+    assert(past > 0, 'down the approach, through the sunk passage and up the ramp into the court');
+    assert(lowest < -0.3, `the walk went down onto the sunk floor (lowest ${lowest.toFixed(3)} m)`);
   }
   const solidG = footprintsFrom(new Map([[side.id, { id: side.id, sidecar: { ...side, footprint: { ...side.footprint, passages: undefined } } }]]));
   const before = walk(solidG, start, bearing, 14);

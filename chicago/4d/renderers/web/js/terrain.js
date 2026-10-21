@@ -61,6 +61,7 @@ import { registerKTX2 } from './ktx2.js';
 import { HORIZON_HAZE } from './world.js';
 import { loadMeshoptDecoder } from './scene-loader.js';
 import { SEASON_HEAD, seasonShaderUniforms } from './season.js';
+import { passageDepth } from './passage-ground.js';
 
 // DEG and the bearing/yaw conversions are pure arithmetic and live in angles.js,
 // so a caller that needs only those does not load three behind them (T-1257).
@@ -462,6 +463,7 @@ export async function createTerrain({
   const farSward = farSwardGround();
   const groundMat = groundMaterial(zones, lakeShore, { turf, farSward });
   let walkOffset = null;
+  let passageGround = [];
   /** The radius around the eye inside which the 15 m base is not drawn. See
    *  the base below, and `baseHoleM()` for how it follows the reach. */
   const baseHole = { value: baseHoleM(Infinity) };
@@ -998,7 +1000,21 @@ export async function createTerrain({
     walkHeight(e, n) {
       const h = heightfield.sample(e, n);
       if (h < SHORE_Y) return WATER_BARRIER_Y;
+      const sunk = passageGround.length ? passageDepth(passageGround, e, n) : null;
+      if (sunk !== null) return h + sunk;
       return walkOffset ? h + walkOffset(e, n) : h;
+    },
+
+    /**
+     * T-2976: a building that lays its own ground below the field (Glessner's sunk
+     * carriage way, approach to court ramp) has the field cut out over it exactly, and
+     * the walk follows its paving: `pieces` from walker.js `passageGroundFrom`, each a
+     * convex quad `pts` of [e, n] and `z` its paving height over the ground at each
+     * corner. [] clears it. `surfaceHeight()` keeps reporting the field.
+     */
+    setPassageGround(pieces = []) {
+      passageGround = Array.isArray(pieces) ? pieces.slice(0, PASS_CUT_MAX) : [];
+      for (const m of [groundMat, groundBase?.material]) applyPassCut(m, passageGround);
     },
 
     /**
@@ -2532,6 +2548,15 @@ function groundMaterial(zones = [], lakeShore = null,
   // patches this material, so the cut cannot be a second program.
   const cut = { on: { value: 0 }, tex: { value: null }, box: { value: new THREE.Vector4() } };
   mat.userData.cut = cut;
+  // T-2976: a building's sunk ground (Glessner's carriage way), cut out exactly by up to
+  // PASS_CUT_MAX convex quads — the 0.5 m street mask would leave a lip a quarter-metre
+  // wide over a 2.4 m drive. Off (count 0) until `setPassageGround`.
+  const pass = {
+    quads: { value: Array.from({ length: PASS_CUT_MAX * 2 }, () => new THREE.Vector4()) },
+    count: { value: 0 },
+    box: { value: new THREE.Vector4(0, 0, -1, -1) },
+  };
+  mat.userData.passCut = pass;
 
   const prior = mat.onBeforeCompile;
   mat.onBeforeCompile = (shader, renderer) => {
@@ -2540,6 +2565,9 @@ function groundMaterial(zones = [], lakeShore = null,
     shader.uniforms.uChiCutOn = cut.on;
     shader.uniforms.uChiCut = cut.tex;
     shader.uniforms.uChiCutBox = cut.box;
+    shader.uniforms.uChiPassCut = pass.quads;
+    shader.uniforms.uChiPassCutN = pass.count;
+    shader.uniforms.uChiPassBox = pass.box;
     shader.uniforms.uPrairieLuma = { value: tex.userData.meanLinearLuma };
     Object.assign(shader.uniforms, swardUniforms(sward), variationUniforms(tex));
     if (lakeShore) shader.uniforms.uChiShore = { value: shoreUniform(lakeShore, THREE) };
@@ -2560,12 +2588,16 @@ ${nearHole ? 'uniform float uChiNearHole;' : ''}
 uniform float uChiCutOn;
 uniform sampler2D uChiCut;
 uniform vec4 uChiCutBox;
+uniform vec4 uChiPassCut[${PASS_CUT_MAX * 2}];
+uniform float uChiPassCutN;
+uniform vec4 uChiPassBox;
 ${zones.length ? shoreGlslHead(lakeShore) : ''}
 ${turf ? TURF_HEAD : ''}
 ${farSward ? FAR_SWARD_HEAD : ''}
 ` + shader.fragmentShader.replace('#include <clipping_planes_fragment>', `#include <clipping_planes_fragment>
 ${nearHole ? '  if (distance(vChiWorld, cameraPosition) < uChiNearHole) discard;' : ''}
-${GROUND_CUT_FRAGMENT}`)
+${GROUND_CUT_FRAGMENT}
+${PASS_CUT_FRAGMENT}`)
       .replace('#include <map_fragment>', /* glsl */`${PRAIRIE_FRAGMENT}
 ${zoneGlsl(zones, lakeShore)}
 ${farSward ? FAR_SWARD_FRAGMENT : ''}
@@ -2601,6 +2633,47 @@ const GROUND_CUT_FRAGMENT = /* glsl */`
         && texture2D(uChiCut, chiCutUv).r > 0.5) discard;
   }
 `;
+
+/** T-2976: the most sunk-ground quads one scene may cut (Glessner's carriage way is four). */
+export const PASS_CUT_MAX = 8;
+
+/** T-2976: drop the ground inside any of the passage quads (world x, z; convex, either
+ *  winding), behind one box test so the rest of the field pays a compare. */
+const PASS_CUT_FRAGMENT = /* glsl */`
+  if (uChiPassCutN > 0.5 && vChiWorld.x >= uChiPassBox.x && vChiWorld.x <= uChiPassBox.z
+      && vChiWorld.z >= uChiPassBox.y && vChiWorld.z <= uChiPassBox.w) {
+    vec2 chiP = vChiWorld.xz;
+    for (int i = 0; i < ${PASS_CUT_MAX}; i++) {
+      if (float(i) >= uChiPassCutN) break;
+      vec4 chiAB = uChiPassCut[2 * i];
+      vec4 chiCD = uChiPassCut[2 * i + 1];
+      vec2 chiA = chiAB.xy; vec2 chiB = chiAB.zw; vec2 chiC = chiCD.xy; vec2 chiD = chiCD.zw;
+      float c1 = (chiB.x - chiA.x) * (chiP.y - chiA.y) - (chiB.y - chiA.y) * (chiP.x - chiA.x);
+      float c2 = (chiC.x - chiB.x) * (chiP.y - chiB.y) - (chiC.y - chiB.y) * (chiP.x - chiB.x);
+      float c3 = (chiD.x - chiC.x) * (chiP.y - chiC.y) - (chiD.y - chiC.y) * (chiP.x - chiC.x);
+      float c4 = (chiA.x - chiD.x) * (chiP.y - chiD.y) - (chiA.y - chiD.y) * (chiP.x - chiD.x);
+      if ((c1 >= 0.0 && c2 >= 0.0 && c3 >= 0.0 && c4 >= 0.0)
+          || (c1 <= 0.0 && c2 <= 0.0 && c3 <= 0.0 && c4 <= 0.0)) discard;
+    }
+  }
+`;
+
+/** T-2976: hand a ground material its passage quads — `pieces` as passageGroundFrom()
+ *  returns them (`pts` four [e, n]) — or clear them with []. */
+function applyPassCut(m, pieces = []) {
+  const pass = m?.userData?.passCut;
+  if (!pass) return;
+  const use = pieces.slice(0, PASS_CUT_MAX);
+  let x0 = Infinity; let z0 = Infinity; let x1 = -Infinity; let z1 = -Infinity;
+  use.forEach((piece, i) => {
+    const xz = piece.pts.map(([e, n]) => [e, -n]);
+    pass.quads.value[2 * i].set(xz[0][0], xz[0][1], xz[1][0], xz[1][1]);
+    pass.quads.value[2 * i + 1].set(xz[2][0], xz[2][1], xz[3][0], xz[3][1]);
+    for (const [x, z] of xz) { x0 = Math.min(x0, x); z0 = Math.min(z0, z); x1 = Math.max(x1, x); z1 = Math.max(z1, z); }
+  });
+  if (use.length) pass.box.value.set(x0, z0, x1, z1); else pass.box.value.set(0, 0, -1, -1);
+  pass.count.value = use.length;
+}
 
 /**
  * Water: a silty prairie river, not a swimming pool.

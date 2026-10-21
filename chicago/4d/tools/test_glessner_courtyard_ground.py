@@ -26,10 +26,16 @@ def hits(x,y):
   if min(u,v,1-u-v)>1e-7:result.append((u*a[2]+v*c[2]+(1-u-v)*e[2],mat))
  return result
 
-for label,x,y in [('gate',.013,2.411),('passage',41.06,2.411),
+from archetypes.masonry_house_v4_frontage import court_ramp
+ramp=court_ramp(p)
+for label,x,y in [('gate',.013,2.411),('passage',41.06,2.411),('ramp top',ramp['pts'][1][0]-.01,2.411),
                   ('west walk',11.62,6.71),('stair foot',15.53,9.97),('terrace approach',38.52,6.52)]:
  h=hits(x,y);assert len(h)==1 and h[0][1]==d.DRIVE,(label,h)
- assert .035<h[0][0]<.045,(label,'ground level',h)
+ if label=='passage':
+  # T-2976: the court mouth is sunk; the ramp rises from it toward the drive.
+  run=ramp['pts'][0][0]-ramp['pts'][1][0];want=ramp['z'][0]+(ramp['z'][1]-ramp['z'][0])*(ramp['pts'][0][0]-x)/run
+  assert abs(h[0][0]-want)<.002,(label,'ramp level',h,want)
+ else:assert .035<h[0][0]<.045,(label,'ground level',h)
 # Probe just outside the actual lowest terrace tread across its entire width.
 a,c=p.detail['bow_terrace']['stair_boundaries'][-1][-2:]
 import math

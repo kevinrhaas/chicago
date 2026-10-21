@@ -46,6 +46,7 @@ import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { createWalker, footprintsFrom, decksFrom, WALK } from './walker.js';
+import { passageGroundFrom } from './passage-ground.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
 import { grownGroupName } from './tree-instances.js';
@@ -2166,6 +2167,10 @@ async function boot() {
   // drawn them and know how high they stood them. The walker holds it BY
   // REFERENCE and reads whatever is in it.
   const decks = decksFrom(loaded.registry);
+  // T-2976 — ground a building lays below the field (Glessner's sunk carriage way):
+  // the field is cut out over it and the walk steps down onto its paving.
+  const passageGround = passageGroundFrom(loaded.registry);
+  terrain.setPassageGround?.(passageGround);
   // T-1797 — the ground-strip proof, drawn only under `?proof=ground`. Its
   // module is not imported otherwise, so the walk without the flag is untouched.
   // Its three vantage points join the scene's anchors for this run.
@@ -2515,6 +2520,8 @@ async function boot() {
     // planting layer now refuses them too, so nothing grows up between the
     // planks of a bridge deck either.
     decks,
+    // The sunk carriage way (T-2976): paving under the field, which nothing grows through.
+    passageGround.map((g) => ({ id: g.id, pts: g.pts })),
     // The camps' ground (T-1803), which the walker crosses and the sward does not:
     // a bush rooting between the tents, or a tree through a wall tent, was the
     // first thing the bank showed once the canvas stood on it.

@@ -27,7 +27,8 @@ for reduced in (False,True):
    f=(o['at']-x)/(o['at']-41.0718)
    return o['u0']+f*(.3353-o['u0']),o['u1']+f*(3.2614-o['u1'])
   clearance=min(min(y-walls(x)[0],walls(x)[1]-y) for x,y,z in pts)
-  floor=min(z-(.064+(o['at']-x)/(o['at']-41.0718)*(.0366-.064)) for x,y,z in pts)
+  zf,zc=p.detail['prairie_frontage']['passage_front_z'],p.detail['prairie_frontage']['passage_court_z']
+  floor=min(z-(zf+max(0,o['at']-x)/(o['at']-41.0718)*(zc-zf)) for x,y,z in pts)
   print(angle,'wall clearance',round(clearance,4),'floor',round(floor,4))
   assert clearance>=.01 and floor>=.01
   assert not any(o['at']-.286<x<o['at']-.169 and (y<o['u0']+.05 or y>o['u1']-.05) for x,y,z in pts), 'Moving leaf clips fixed oak lining'

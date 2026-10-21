@@ -292,7 +292,8 @@ def walk_passages(structure: dict, phase: dict):
         sys.path.insert(0, gen)
     try:
         mod = __import__(f"archetypes.{arch}_params", fromlist=["from_phase"])
-        detail = getattr(mod.from_phase(phase), "detail", None) or {}
+        params = mod.from_phase(phase)
+        detail = getattr(params, "detail", None) or {}
     except Exception:  # noqa: BLE001
         return None
     under = detail.get("underpass") if isinstance(detail, dict) else None
@@ -302,6 +303,16 @@ def walk_passages(structure: dict, phase: dict):
     floors = [under.get("floor_z", 0.0)] + [front[k] for k in ("passage_front_z", "passage_court_z") if k in front]
     floor = max(float(v) for v in floors)
     soffit = min(float(under["ceiling_prairie_z"]), float(under["ceiling_court_z"]))
+    # T-2976: where the carriage way is sunk below the ground, the pieces of it the
+    # generator lays (approach, threshold, passage floor, court ramp), each a plan quad
+    # and its paving height at the four corners. The renderer cuts the field out over
+    # them and the walk follows them; the generator's own function, so the two agree.
+    ground = []
+    try:
+        fmod = __import__(f"archetypes.{arch}_v4_frontage", fromlist=["passage_ground"])
+        ground = fmod.passage_ground(params)
+    except Exception:  # noqa: BLE001
+        ground = []
     return [{
         "kind": "carriage passage",
         "polygon": [[round(float(x), 4), round(float(y), 4)] for x, y in under["pts"]],
@@ -309,6 +320,8 @@ def walk_passages(structure: dict, phase: dict):
         "open_edges": [[0, 1], [2, 3]],
         "floor_m": round(floor, 4),
         "clear_m": round(soffit - floor, 4),
+        **({"ground": [{"polygon": [list(pt) for pt in g["pts"]], "z_m": g["z"]} for g in ground]}
+           if ground else {}),
         "note": ("The model's own opening through the footprint (the underpass), carried from "
                  "the generator's parameters: its plan, its lower soffit above its higher "
                  "paving. Walking through it is how the scene is visited, not a claim about "

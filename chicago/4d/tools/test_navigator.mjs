@@ -1190,10 +1190,19 @@ for (const phone of [true, false]) {
   }
   assert.match(css, /\.28s var\(--ease-detent/, 'a height change takes 280 ms on the detent easing');
   assert.match(html, /<link rel="stylesheet" href="\.\/css\/navigator\.css">/);
-  // T-2627: the quick column holds two buttons at most — Walk/Fly and the Inspect key.
+  // T-2627: the quick column holds the Inspect key alone — T-2977 moved Walk/Fly into the
+  // instrument's heading row, so the key appearing no longer shifts it.
   const quick = html.slice(html.indexOf('<div class="quick-column"'), html.indexOf('</div>', html.indexOf('<div class="quick-column"')));
-  assert.equal((quick.match(/<button\b/g) ?? []).length, 2, 'the quick column never holds more than two buttons');
-  assert.match(quick, /id="btn-fly"/); assert.match(quick, /id="btn-inspect"[^>]*hidden/);
+  assert.equal((quick.match(/<button\b/g) ?? []).length, 1, 'the quick column holds the Inspect key alone');
+  assert.match(quick, /id="btn-inspect"[^>]*hidden/);
+  const row = html.slice(html.indexOf('<div class="compass-row">'), html.indexOf('<div id="compass"'));
+  assert.match(row, /<button type="button" id="btn-fly" class="fly-key" aria-pressed="false"/, 'T-2977: Walk/Fly is the heading row\'s round key');
+  assert.match(row, /id="fly-label">Fly</, 'T-2977: the key keeps its Walk/Fly name for a screen reader');
+  const walkCss = fs.readFileSync(new URL('../renderers/web/css/walk.css', import.meta.url), 'utf8');
+  assert.match(walkCss, /\.quick-column > \.quick-inspect\[hidden\] \{[^}]*opacity: 0; visibility: hidden;[^}]*visibility 0s linear \.25s/,
+    'T-2977: the Inspect key fades out, and leaves the pointer and the tab order once the fade is done');
+  assert.match(walkCss, /@media \(max-height: 500px\) and \(orientation: landscape\) \{\s*\.quick-column \{ top: auto;/,
+    'T-2977: a phone on its side puts the Inspect key in the lower corner, clear of the instrument');
   assert.match(html, /<button type="button" class="target-tag" id="target-tag" data-place="centre" data-label="Ahead" hidden><\/button>/);
   // T-2942: Settings › Show › where the name shows (right first: the default) and whether it fades.
   assert.match(html, /<select id="s-look-tag-place">\s*<option value="right">[^<]+<\/option>\s*<option value="centre">[^<]+<\/option>\s*<option value="bottom">/);
