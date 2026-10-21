@@ -40824,11 +40824,11 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the house at 1736 Prairie Avenue is no longer a district draft. It stands, under the draft's own id 1736 Prairie Avenue — the Ingraham/McBirney house, its veranda front from the c. 1890 photograph, as a k01 frontage record built by the k01 emit generator, against its one picture: the c. 1890 photograph of the Ingraham/McBirney house the Glessner House Museum reproduces ([The Ingraham/McBirney house, 1736 S. Prairie Avenue, as it appeared circa…, rights check required: forms and proportions only). Painted brick walls two storeys over a raised basement, a bracketed cornice, a slated mansard with two round-headed dormers on the street face, three arched and hooded upper windows, and a timber veranda the front's whole width on K07's terrace with the stair at its north end. **What is read, not invented.** From the 1911 Sanborn sheet 20 (trace s20fp-1736-b1, census s20-1736-f): the main body's place and plan (23.3 m deep by 6.75 m, the trace's own width where the draft's fit had stopped at 5.5 m), brick, the frame porch 1.8 m deep across the front. From the photograph, through its solved camera (the mcbirney c1890 photo data): the walls' pale tone, the principal floor, the wall head, the upper windows' places, sills and heads, the mansard's curb and its two street dormers, the veranda's four posts, frieze and balustrade, and the stair's place. Every height rests on the camera's distance, which the photograph bounds only to about 25-31 m (its `solve`). **What is invented.** The paint's colour (the print is monochrome); the walls' thickness and brick; the principal storey's window heads and heights, hidden by the veranda; the deck and balustrade in K07's stone where the photograph's are painted timber, and the plain posts; the veranda roof's pitch; the mansard's deck and its two south dormers over 18th Street; the stacks' places; every window of the south, north and rear walls (no picture sees them); the rainwater; the treads. **What is not built.** The south wall's two small projections and its side porch on 18th Street, the lower set-back front the photograph shows left of the house (not on the 1911 sheet), the arched heads' segmental curve and eared hoods, the basement openings under the deck, and the low wall at the street line: open on the match record for later work."
+          "text": "the house at 1736 Prairie Avenue is no longer a district draft. It stands, under the draft's own id 1736 Prairie Avenue — the Ingraham/McBirney house, its veranda front from the c. 1890 photograph, as a k01 frontage record built by the k01 emit generator, against its one picture: the c. 1890 photograph of the Ingraham/McBirney house the Glessner House Museum reproduces ([The Ingraham/McBirney house, 1736 S. Prairie Avenue, as it appeared circa…, rights check required: forms and proportions only). Painted brick walls two storeys over a raised basement, a bracketed cornice, a slated mansard with two round-headed dormers on the street face, three arched and hooded upper windows, and a timber veranda the front's whole width on K07's terrace with the stair at its north end. **What is read, not invented.** From the 1911 Sanborn sheet 20 (trace s20fp-1736-b1, census s20-1736-f): the main body's place and plan (23.3 m deep by 6.75 m, the trace's own width where the draft's fit had stopped at 5.5 m), brick, the frame porch 1.8 m deep across the front. From the photograph, through its solved camera (the mcbirney c1890 photo data): the walls' pale tone, the principal floor, the wall head, the upper windows' places, sills and heads, the mansard's curb and its two street dormers, the veranda's four posts, frieze and balustrade, and the stair's place. Every height rests on the camera's distance, which the photograph bounds only to about 25-31 m (its `solve`). **What is invented.** The paint's colour (the print is monochrome); the walls' thickness and brick; the principal storey's window heads and heights, hidden by the veranda; the veranda's plain square posts (the print's 6 px posts do not show a turned or chamfered section), the balustrade's pattern (builds it in painted timber with slender balusters at 0.14 m, the print showing only a light pierced band) and how far back the dark under the deck stands (0.5 m); the upper windows' hood profile and consoles, which are K09's (the print shows a flat moulded hood with drops at its ends, too small to read their mouldings); the veranda roof's pitch; the mansard's deck and its two south dormers over 18th Street; the stacks' places; every window of the south, north and rear walls (no picture sees them); the rainwater; the treads. **What is not built.** The south wall's two small projections and its side porch on 18th Street, the lower set-back front the photograph shows left of the house (not on the 1911 sheet), and the low wall at the street line: open on the match record for later work. (The arched heads' segmental curve under their hoods, the basement's dark openings between the posts' piers under the deck, and the painted timber deck and balustrade were built by.)"
         },
         {
           "label": "How to resolve",
-          "text": "Later work builds the flank, the service wing and the rear, argues the mansard's date and the set-back front, and brings the match record to `matches`; a later picture of the house, ingested as a source, says what changed by 1904."
+          "text": "Later work builds the street wall, argues the set-back front and brings the match record to `matches`; later work builds the flank, the service wing and the rear and argues the mansard's date; a later picture of the house, ingested as a source, says what changed by 1904."
         },
         {
           "label": "Covers",
@@ -40840,13 +40840,15 @@
         },
         {
           "label": "Recorded",
-          "text": "2026-10-20 (T-2933)."
+          "text": "2026-10-20 (T-2933; amended by T-2960)."
         }
       ],
       "work_refs": [
         "T-2933",
         "T-1874",
-        "T-2935"
+        "T-2960",
+        "T-2961",
+        "T-2962"
       ]
     },
     {

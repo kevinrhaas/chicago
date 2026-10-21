@@ -2,7 +2,7 @@
  "structure_id": "house_1736_prairie",
  "view": "mcbirney_c1890_photo",
  "glb": "assets/gltf/house_1736_prairie__as_mapped_1904.glb",
- "glb_sha256": "2c8dff5a3bec331fe1c95b24f87c767a3cb7783b74a031c468e817e60ecce0b9",
+ "glb_sha256": "d401529d942256c34dec354ea5e895af05d8e8353f6c59090c1249f6e9d852a9",
  "camera_sha256": "d924f0ee0e92dcf7693117ec8a43053a5929bcb7664a34b41590391a6964b6dd",
  "side_by_side": "docs/RESEARCH/photo-match/house_1736_prairie/mcbirney_c1890_photo-side-by-side.jpg",
  "verdict": "differs",
@@ -44,22 +44,30 @@
   },
   {
    "what": "the upper windows' heads: segmental arches under moulded hoods whose ends turn down (eared); built round-headed under a hood ring",
-   "status": "open"
+   "status": "fixed",
+   "how": "T-2960: each light cut to a segmental head rising 0.22 of its span, K06's one-over-one segmental sash in it, and K09's flat cornice hood over the crown with a scrolled console under each end standing just outside the jambs (street_front_round_heads head, rise_over_span and hood); the hood 0.25 m past each jamb, about 1.7 m across with its cornice, the photograph's 54 px"
   },
   {
-   "what": "the veranda's posts are turned or chamfered and its balustrade a lighter rail with a pierced pattern, all painted timber; built plain posts and K07's turned stone balustrade on a stone deck",
-   "status": "open"
+   "what": "the veranda's balustrade a lighter rail with a pierced infill and its deck, painted timber; built K07's turned stone balustrade on a stone deck",
+   "status": "fixed",
+   "how": "T-2960: the balustrade's rail, newels and slender balusters (0.14 m pitch) and the deck painted with the walls (entrance_kit balustrade fabric painted_timber, veranda open_under)"
+  },
+  {
+   "what": "the veranda posts' section: turned or chamfered, or plain",
+   "status": "not shown",
+   "how": "T-2960: each post is about 6 px across in the print, too few to show a chamfer or a turning; built plain square (docs/LIBERTIES.md L-k01-1736-mcbirney-veranda-2933)"
   },
   {
    "what": "under the deck the photograph shows the raised basement's dark openings between piers; the render stands the terrace's solid face to grade",
-   "status": "open"
+   "status": "fixed",
+   "how": "T-2960: the deck open beneath (K07 veranda open_under): each post carried on down past the deck to grade as a pier, a 0.2 m skirt along the deck's front, and the dark of the space under it 0.5 m back between them"
   },
   {
    "what": "the veranda roof's slope shows as a textured band over the fascia (y 300-328 px); the render's roof reads as a plain fascia",
    "status": "open"
   },
   {
-   "what": "a lower front set back about 3 m left of the house, with a one-storey canted bay and a dormer over it, which the 1911 sheet does not draw at 1736: whether it was 1736's own south part in c. 1890 (and gone or altered by 1911), or a neighbour, is T-2935's to argue",
+   "what": "a lower front set back about 3 m left of the house, with a one-storey canted bay and a dormer over it, which the 1911 sheet does not draw at 1736: whether it was 1736's own south part in c. 1890 (and gone or altered by 1911), or a neighbour, is T-2961's to argue",
    "status": "open"
   },
   {
