@@ -111,11 +111,14 @@ def cutters(a, k5, P, xf, ys, zc) -> list:
 def arch(d, g) -> dict:
     """T-2917: the great arch's circle in the face's frame (x across it from its centre, y
     up from the face's foot), and the angles at which its intrados and extrados leave the
-    pediment's foot, which is the cornice's top the ring stands on."""
+    pediment's foot, which is the cornice's top the ring stands on. T-2937: `Ro` is the
+    archivolt's outermost edge, its hood's where it has one, and `to` that edge's angle."""
     ar = d["wall_gable"]["arch"]
     R, Re = ar["radius_m"], ar["radius_m"] + ar["ring_m"]
+    Ro = Re + (ar["hood"]["ring_m"] if "hood" in ar else 0.0)
     cy = g["dhs"] - g["ys"] - ar["drop_m"]
-    return {"R": R, "Re": Re, "cy": cy, "ti": math.asin(ar["drop_m"] / R), "te": math.asin(ar["drop_m"] / Re)}
+    return {"R": R, "Re": Re, "Ro": Ro, "cy": cy, "ti": math.asin(ar["drop_m"] / R),
+            "te": math.asin(ar["drop_m"] / Re), "to": math.asin(ar["drop_m"] / Ro)}
 
 
 def _round_head(x, sill, w, h, n=8):
@@ -134,7 +137,7 @@ def arch_cutters(a, k5, P, xf, zc) -> list:
     ar, A = d["wall_gable"]["arch"], arch(d, g)
     pd = pediment(d, g)
     clear = (pd["inner"] - (g["ys"] + A["cy"])) / pd["cq"]    # the centre to the raking cornice's inner edge
-    if A["Re"] > clear - 0.03:
+    if A["Ro"] > clear - 0.03:
         raise ValueError("the wall gable's arch runs into its raking cornice")
     ys, n = g["ys"], 24
     curve = [A["ti"] + (math.pi - 2 * A["ti"]) * k / n for k in range(n + 1)]
@@ -148,7 +151,7 @@ def arch_cutters(a, k5, P, xf, zc) -> list:
     cl = ar.get("crown_light")
     if cl:   # the small light in the pediment over the arch's crown
         top = foot + cl["sill_m"] + cl["height_m"]
-        if foot + cl["sill_m"] < A["cy"] + A["Re"] + 0.05:
+        if foot + cl["sill_m"] < A["cy"] + A["Ro"] + 0.05:
             raise ValueError("the wall gable's crown light stands on its arch's ring")
         if cl["width_m"] / 2 > (pd["inner"] - ys - top) / g["dt"] - 0.05:
             raise ValueError("the wall gable's crown light runs into its raking cornice")
@@ -156,6 +159,8 @@ def arch_cutters(a, k5, P, xf, zc) -> list:
         out.append(k5.extrude([(zc - x, ys + y) for x, y in pts], xf - TYMPANUM_LIGHT_M, xf + 0.05, P,
                               "reveal", "backing", "reveal"))
     a.wall_gable = {"arch_m": [round(A["R"], 4), round(A["Re"], 4), round(ys + A["cy"], 4)]}
+    if "hood" in ar:
+        a.wall_gable["hood_m"] = round(A["Ro"], 4)
     return out
 
 
@@ -179,6 +184,18 @@ def _arch_dress(a, frame, O, conf):
                 (sc + A["Re"] * math.cos(out[i + 1]), cy + A["Re"] * math.sin(out[i + 1])),
                 (sc + A["R"] * math.cos(ang[i + 1]), cy + A["R"] * math.sin(ang[i + 1]))]
         _prism(a, "dormer_stone", frame, k._inset(poly, [JOINT_M] * 4), 0.0, ar["proud_m"], aseed, conf)
+    hd = ar.get("hood")
+    if hd:
+        # T-2937: the archivolt's outer order, the plate's moulded hood round the ring: cut on
+        # the voussoirs' own joints, standing prouder than they do, its ends on the cornice
+        hang = list(ang)
+        hang[0], hang[-1] = A["to"], math.pi - A["to"]
+        for i in range(n):
+            poly = [(sc + A["Re"] * math.cos(out[i]), cy + A["Re"] * math.sin(out[i])),
+                    (sc + A["Ro"] * math.cos(hang[i]), cy + A["Ro"] * math.sin(hang[i])),
+                    (sc + A["Ro"] * math.cos(hang[i + 1]), cy + A["Ro"] * math.sin(hang[i + 1])),
+                    (sc + A["Re"] * math.cos(out[i + 1]), cy + A["Re"] * math.sin(out[i + 1]))]
+            _prism(a, "dormer_stone", frame, k._inset(poly, [JOINT_M] * 4), 0.0, hd["proud_m"], aseed, conf)
     # the colonnettes: a square base on the lights' sill line, a round shaft and a square
     # capital under the cornice, each standing out of the face by its own radius
     co = ar["colonnettes"]
@@ -304,6 +321,12 @@ def dress(a, roof_seed):
     # head (through the eave) past the face's eave, a cap and a pyramid over each
     pn = wg["pinnacles"]
     hw = pn["shaft_m"] / 2
+    if pn.get("engage"):
+        # T-2937: a shaft that takes the rake's end must stand clear over the rake where the
+        # rake enters it, at its inner face, or the raking cornice would run over its cap
+        pd = pediment(d, g)
+        if g["ys"] + pn["top_m"] < pd["apex"] - (pn["at_m"] - hw) * g["dt"] + 0.25:
+            raise ValueError("the wall gable's rake runs over its pinnacles' caps")
     for i, sg in enumerate((-1, 1)):
         s = wd / 2 + sg * pn["at_m"]
         y0, y1 = g["ys"] + pn["foot_m"], g["ys"] + pn["top_m"]

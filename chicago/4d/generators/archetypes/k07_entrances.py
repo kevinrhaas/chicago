@@ -797,6 +797,30 @@ class Entrance(Opening):
                     self.quad("balcony", [(xo, -hb, -e), (xf, -hb, -e), (xo, yb, -e)], (0.0, 0.0, 1.0 if e == e0 else -1.0))
                 self.quad("balcony", [(xf, -hb, -e0), (xf, -hb, -e1), (xo, yb, -e1), (xo, yb, -e0)], (k * hc_, -out, 0.0))
                 self.meta["side_arch"]["balcony"] = {"out_m": out, "foot_m": round(yb, 4)}
+                cv = lg.get("carving")
+                if cv:   # T-2923: its carved face, the Taylor photograph's
+                    self._balcony_panels(xf, k, e0, e1, hb, cv["balcony_panels"])
+                    self.meta["side_arch"]["balcony"]["panels"] = cv["balcony_panels"]
+
+    def _balcony_panels(self, x, k, e0, e1, hb, n):
+        """T-2923: the side arch's balcony face (at `x`, facing `k`) carved in `n` panels, as the
+        Taylor photograph shows 1801's: raised ribs round and between them, 0.03 m inside the
+        face's edges, and a raised lozenge in each. The print's carving inside the panels is
+        not readable; the lozenges stand for it (docs/LIBERTIES.md L-kimball-1801-loggia-carving-2923)."""
+        to3 = lambda a, b, z: (x + k * z, b, a)
+        hint, rib, h, m = (float(k), 0.0, 0.0), 0.05, 0.02, 0.03
+        a0, a1, b0, b1 = -e1 + m, -e0 - m, -hb + m, -m
+        rect = lambda x0, x1, y0, y1: [(x0, y0), (x1, y0), (x1, y1), (x0, y1)]
+        self._raised("balcony", to3, rect(a0, a1, b0, b0 + rib), h, hint)
+        self._raised("balcony", to3, rect(a0, a1, b1 - rib, b1), h, hint)
+        step = (a1 - a0 - rib) / n
+        for i in range(n + 1):
+            x0 = a0 + i * step
+            self._raised("balcony", to3, rect(x0, x0 + rib, b0 + rib, b1 - rib), h, hint)
+        for i in range(n):
+            ac, bc = a0 + rib + (i + 0.5) * step - rib / 2, (b0 + b1) / 2
+            hw, hh = min(0.12, (step - rib) / 2 - 0.05), (b1 - b0) / 2 - rib - 0.05
+            self._raised("balcony", to3, [(ac, bc - hh), (ac + hw, bc), (ac, bc + hh), (ac - hw, bc)], h, hint)
 
     def _box(self, role, s0, s1, y0, y1, o0, o1, skip=()):
         """A closed block in the door's frame, s0 < s1 and o0 < o1; `skip` names the faces
@@ -1220,6 +1244,9 @@ class Entrance(Opening):
                 self.quad("cheek", [(x, -R, a), (x, -R, b), (x, yb, b), (x, ya, a)], (hx, 0.0, 0.0))
             self.quad("cheek", [(si, ya, a), (so, ya, a), (so, yb, b), (si, yb, b)], (0.0, b - a, ya - yb))
         self.quad("cheek", [(si, -R, F), (so, -R, F), (so, yF, F), (si, yF, F)], OUT)
+        cv = (self.v.get("loggia") or {}).get("carving")
+        if cv:   # T-2923: the foot block's carved faces (the Taylor photograph's)
+            self._carved_block(si, so, sgn, o1, F, -R, yF, cv["foot_blocks"]["proud_m"])
         mid = (si + so) / 2
         a, b = (cuts[1], cuts[2]) if start < L else (cuts[0], cuts[1])
         top_s, foot_s = (mid, (top(a) + top(b)) / 2, (a + b) / 2), (mid, yF, (o1 + F) / 2)
@@ -1227,6 +1254,47 @@ class Entrance(Opening):
         for pt in (top_s, foot_s):
             self.probe(*pt, ("cheek",), "a handrail socket on its cheek")
         self.meta.setdefault("swept_cheeks", {"head_m": h0, "foot_m": sw["foot_m"], "block_m": blk})
+
+    def _raised(self, role, to3, poly, h, hint):
+        """A convex outline `poly` ((a, b), counter-clockwise) on a face, raised `h` off it:
+        `to3(a, b, z)` is the face's point `z` before it, `hint` the face's outward normal.
+        Its sides start 0.005 m inside the face; it has no back."""
+        self.quad(role, [to3(a, b, h) for a, b in poly], hint)
+        for i in range(len(poly)):
+            (a0, b0), (a1, b1) = poly[i], poly[(i + 1) % len(poly)]
+            o, e = to3((a0 + a1) / 2, (b0 + b1) / 2, 0.0), to3((a0 + a1) / 2 + b1 - b0, (b0 + b1) / 2 + a0 - a1, 0.0)
+            self.quad(role, [to3(a0, b0, -0.005), to3(a1, b1, -0.005), to3(a1, b1, h), to3(a0, b0, h)],
+                      tuple(e[k] - o[k] for k in range(3)))
+
+    def _tablet(self, role, to3, a0, a1, b0, b1, h, hint):
+        """A round-headed tablet [a0, a1] x [b0, b1] raised `h` off a face, its head a half
+        circle on its width, and its field 0.035 m inside raised further, so each reads as a
+        moulded frame round its panel."""
+        for inset, z in ((0.0, h), (0.035, h * 1.6)):
+            x0, x1, y0, y1 = a0 + inset, a1 - inset, b0 + inset, b1 - inset
+            r = (x1 - x0) / 2
+            sp = y1 - r
+            poly = [(x0, y0), (x1, y0)] + [((x0 + x1) / 2 + r * math.cos(math.pi * i / 8), sp + r * math.sin(math.pi * i / 8))
+                                           for i in range(9)]
+            self._raised(role, to3, poly, z, hint)
+
+    def _carved_block(self, si, so, sgn, o1, F, y0, y1, h):
+        """T-2923: the foot block of a swept cheek carved as the Taylor photograph shows 1801's:
+        a round-headed tablet on its front and two side by side on its outer face. The print's
+        tracery is finer than it can be read at; the tablets stand for it
+        (docs/LIBERTIES.md L-kimball-1801-loggia-carving-2923)."""
+        lo, hi = sorted((si, so))
+        m = 0.05
+        b0, b1 = y0 + 0.12, y1 - 0.08
+        # the front, `F` out: a along s, b up
+        self._tablet("cheek", lambda a, b, z: (a, b, F + z), lo + m, hi - m, b0, b1, h, OUT)
+        # the outer face, at `so` facing `sgn`: a along the run, out from the wall
+        n = 2
+        w = (F - o1 - m * (n + 1)) / n
+        to3 = lambda a, b, z: (so + sgn * z, b, a)
+        for k in range(n):
+            a0 = o1 + m + k * (w + m)
+            self._tablet("cheek", to3, a0, a0 + w, b0, b1, h, (float(sgn), 0.0, 0.0))
 
     def _scrolled_cheek(self,si,so,sgn,start,F,R,c,half,t,terrace,low):
         # A concave swept stone cheek; tessellate in vertical strips, so no fan spans
