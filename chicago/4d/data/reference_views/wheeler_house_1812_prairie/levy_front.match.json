@@ -2,7 +2,7 @@
  "structure_id": "wheeler_house_1812_prairie",
  "view": "levy_front",
  "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
- "glb_sha256": "56d8c2f41a3224d436bd7d8b803c473a380186527a301a87e3063069b5f8c753",
+ "glb_sha256": "01a01ea79a9ace24db716e5f3341763d9a680d02ade79b72dcbb55b2a11c9117",
  "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
  "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
  "verdict": "differs",
@@ -56,12 +56,12 @@
    "status": "fixed"
   },
   {
-   "what": "South projection: flush with the south corner in the photograph; K08 stands it 0.3 m in",
-   "status": "open"
+   "what": "South projection: flush with the south corner, as the print's, its south cheek running on in the side wall's plane, and its north face kept on the print's (5.05 m out, the projection 5.05 m across where K08 had stood it 0.3 m in) (T-2953)",
+   "status": "fixed"
   },
   {
-   "what": "South projection: the barred basement light stands from about 0.1 m over the walk and is about 1 m high; K08 keeps it clear of the 0.6 m plinth, 0.65 m high",
-   "status": "open"
+   "what": "South projection: the barred basement light from the print's walk line up, over a 0.1 m plinth, the light 0.86 m clear to its head at 1.08 m, where K08 had kept it 0.65 m high over the 0.6 m plinth (T-2953)",
+   "status": "fixed"
   },
   {
    "what": "Balcony: the iron balcony on the projection's top, round its cheeks and front, its rail about 0.5 m over the cornice as the print's (47 px both) and its balusters 0.24 m apart (T-2888)",
@@ -104,11 +104,27 @@
    "status": "open"
   },
   {
-   "what": "Entrance: the porch's broad round arch (about 3.2 m across, its crown at about 5.2 m) over the door and its side light; built as K07's deep-arched double door",
+   "what": "Entrance: the porch's broad arch, a segment 2.7 m across rising 0.79 m from its spring (4.28 m over the walk) to its crown (5.07 m; its ring's top 5.22 m), the transom at its spring and the segment over it glazed in three lights; under it the double door, a 0.29 m pier and the side light, 1.04 m across from a sill 0.56 m over the floor (T-2952)",
+   "status": "fixed"
+  },
+  {
+   "what": "Stair: the straight stair to the walk between solid stone cheeks, level 0.5 m over the landing and swept down to a block 1.1 m high at the foot, the landing run on north as a terrace behind a stone parapet pierced in two rows of square holes, the print's pierced panel at the landing (T-2952)",
+   "status": "fixed"
+  },
+  {
+   "what": "Entrance: the arch's south jamb and moulding run down the projection's north corner in the print (its outer moulding at about x 740-755 px), so the arch reads about 0.3 m further south and broader; the build stands its 2.7 m mouth clear of the projection, from 5.2 m",
    "status": "open"
   },
   {
-   "what": "Stair: a straight stair to the walk between solid stone balustrades with a pierced panel at the landing; K07's stoop has plain cheeks",
+   "what": "Entrance: the arch is turned in a narrow moulded ring of light stone, and its curve is flatter at the crown than a segment (nearer a half ellipse); built as K01's voussoir block on a segmental head with a keystone flush with the ring",
+   "status": "open"
+  },
+  {
+   "what": "Entrance: the transom under the fanlight is a heavy moulded beam about 0.25 m deep, and the fanlight's three lights are divided by narrow columns of small panes; built as K07's 0.07 m bar and three plain lights",
+   "status": "open"
+  },
+  {
+   "what": "Stair: the north cheek flares out as it sweeps down and both end in a carved newel under a cap; built straight, to a plain block",
    "status": "open"
   },
   {
@@ -136,8 +152,8 @@
    "status": "open"
   },
   {
-   "what": "Downpipes down both ends of the front",
-   "status": "open"
+   "what": "Downpipes down both ends of the front: the north one from a head under the north kneeler (10.3 m, the print's pipe top) down the main front's north end to grade; the south one down the projection's south corner from a head under its cornice to grade, and from a head under the south kneeler down the main front to the projection's top (T-2953)",
+   "status": "fixed"
   },
   {
    "what": "Roof: the steep slated slopes the photograph shows behind the gable's shoulders, flat-topped like a mansard's; built as K01's hip (T-2545)",
