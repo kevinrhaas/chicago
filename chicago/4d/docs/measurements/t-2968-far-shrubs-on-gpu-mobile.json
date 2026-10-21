@@ -1,0 +1,1043 @@
+{
+ "ticket": "T-2968",
+ "tool": "tools/measure_walk_frames.mjs --source --only mobile --throttle 4 --tiers <tier> --moves walk,turn, one tier a run, before and after interleaved, two rounds",
+ "profile": "390x780 touch, CPU throttled 4x, SwiftShader, draw skipped; a shared machine, one run at a time",
+ "trees": {
+  "before": "origin/claude/project-thread-x1ue4m 21e0f1804 (T-2966 + T-2967 + T-2969: the far shrubs walked on the CPU in every far pass), measured with this change's copy of the tool",
+  "after": "this change (the far shrubs dealt in the carries' job against their own slot field, reaped with the carries)"
+ },
+ "order": [
+  "before-light-1",
+  "after-light-1",
+  "before-balanced-1",
+  "after-balanced-1",
+  "before-full-1",
+  "after-full-1",
+  "before-light-2",
+  "after-light-2",
+  "before-balanced-2",
+  "after-balanced-2",
+  "before-full-2",
+  "after-full-2"
+ ],
+ "notes": {
+  "farMedianMs": "the far pass line: a far pass's main-thread ms (its tail's included), median over the move",
+  "farMaxMs": "its worst pass (the first passes after the tier change, walked on the CPU in both trees)",
+  "farMsAll": "every far pass of the move, summed",
+  "farShrubs": "the GPU far shrubs' counters (after only)",
+  "heapMB": "the page heap after the move"
+ },
+ "runs": {
+  "before-light-1": [
+   {
+    "tier": "light",
+    "move": "walk",
+    "frames": 725,
+    "farPasses": 18,
+    "kinds": {
+     "drained": 2,
+     "landed": 15,
+     "jump": 1
+    },
+    "farMedianMs": 24,
+    "farMaxMs": 101.8,
+    "farMsAll": 573.9,
+    "nearMedianMs": 5,
+    "nearMsAll": 721,
+    "scripted": {
+     "median": 7.1,
+     "p95": 11.6,
+     "max": 65.6
+    },
+    "flora": {
+     "p95": 3.1,
+     "max": 58
+    },
+    "heapMB": 368.12,
+    "carries": {
+     "carryPasses": 16,
+     "carryCpu": 2,
+     "carryReaps": 16,
+     "carryReapMs": 106.2,
+     "carryTails": 0,
+     "carryTailFrames": 0,
+     "carryTailMs": 0
+    },
+    "farShrubs": {},
+    "longs": 1
+   },
+   {
+    "tier": "light",
+    "move": "turn",
+    "frames": 480,
+    "farPasses": 58,
+    "kinds": {
+     "landed": 41,
+     "drained": 16,
+     "one-frame": 1
+    },
+    "farMedianMs": 44,
+    "farMaxMs": 284.6,
+    "farMsAll": 2680.9,
+    "nearMedianMs": 6.6,
+    "nearMsAll": 286.9,
+    "scripted": {
+     "median": 7.8,
+     "p95": 15.8,
+     "max": 76.7
+    },
+    "flora": {
+     "p95": 6.3,
+     "max": 57.7
+    },
+    "heapMB": 368.12,
+    "carries": {
+     "carryPasses": 52,
+     "carryCpu": 6,
+     "carryReaps": 52,
+     "carryReapMs": 1690.9,
+     "carryTails": 12,
+     "carryTailFrames": 39,
+     "carryTailMs": 289.7
+    },
+    "farShrubs": {},
+    "longs": 1
+   }
+  ],
+  "after-light-1": [
+   {
+    "tier": "light",
+    "move": "walk",
+    "frames": 725,
+    "farPasses": 18,
+    "kinds": {
+     "drained": 3,
+     "landed": 14,
+     "jump": 1
+    },
+    "farMedianMs": 16.7,
+    "farMaxMs": 152,
+    "farMsAll": 560.1,
+    "nearMedianMs": 5.9,
+    "nearMsAll": 936.8,
+    "scripted": {
+     "median": 8.1,
+     "p95": 13.9,
+     "max": 44.2
+    },
+    "flora": {
+     "p95": 1.9,
+     "max": 31.7
+    },
+    "heapMB": 414.85,
+    "carries": {
+     "carryPasses": 16,
+     "carryCpu": 2,
+     "carryReaps": 16,
+     "carryReapMs": 128.1,
+     "carryTails": 1,
+     "carryTailFrames": 6,
+     "carryTailMs": 34.3
+    },
+    "farShrubs": {
+     "farShrubParts": 16,
+     "farShrubCpu": 2,
+     "farShrubUploads": 3,
+     "farShrubReaps": 16,
+     "farShrubReapMs": 24.7,
+     "farShrubBushes": 121,
+     "farShrubAsked": 0,
+     "farShrubRedealt": 0
+    },
+    "longs": 0
+   },
+   {
+    "tier": "light",
+    "move": "turn",
+    "frames": 480,
+    "farPasses": 48,
+    "kinds": {
+     "drained": 10,
+     "landed": 28,
+     "one-frame": 10
+    },
+    "farMedianMs": 37.1,
+    "farMaxMs": 125.6,
+    "farMsAll": 1966.7,
+    "nearMedianMs": 6,
+    "nearMsAll": 243.5,
+    "scripted": {
+     "median": 7.8,
+     "p95": 15.8,
+     "max": 69.3
+    },
+    "flora": {
+     "p95": 6.1,
+     "max": 60.3
+    },
+    "heapMB": 414.85,
+    "carries": {
+     "carryPasses": 41,
+     "carryCpu": 7,
+     "carryReaps": 41,
+     "carryReapMs": 1178.4,
+     "carryTails": 15,
+     "carryTailFrames": 90,
+     "carryTailMs": 322.4
+    },
+    "farShrubs": {
+     "farShrubParts": 41,
+     "farShrubCpu": 7,
+     "farShrubUploads": 1,
+     "farShrubReaps": 41,
+     "farShrubReapMs": 32.3,
+     "farShrubBushes": 105,
+     "farShrubAsked": 0,
+     "farShrubRedealt": 0
+    },
+    "longs": 1
+   }
+  ],
+  "before-balanced-1": [
+   {
+    "tier": "balanced",
+    "move": "walk",
+    "frames": 725,
+    "farPasses": 19,
+    "kinds": {
+     "drained": 5,
+     "landed": 13,
+     "jump": 1
+    },
+    "farMedianMs": 37.7,
+    "farMaxMs": 233.8,
+    "farMsAll": 1193.8,
+    "nearMedianMs": 6.3,
+    "nearMsAll": 1003.7,
+    "scripted": {
+     "median": 8.2,
+     "p95": 14,
+     "max": 96.4
+    },
+    "flora": {
+     "p95": 4.8,
+     "max": 84.1
+    },
+    "heapMB": 368.12,
+    "carries": {
+     "carryPasses": 16,
+     "carryCpu": 3,
+     "carryReaps": 16,
+     "carryReapMs": 183,
+     "carryTails": 2,
+     "carryTailFrames": 5,
+     "carryTailMs": 17.3
+    },
+    "farShrubs": {},
+    "longs": 2
+   },
+   {
+    "tier": "balanced",
+    "move": "turn",
+    "frames": 480,
+    "farPasses": 59,
+    "kinds": {
+     "landed": 30,
+     "drained": 29
+    },
+    "farMedianMs": 55.7,
+    "farMaxMs": 207.8,
+    "farMsAll": 3853.3,
+    "nearMedianMs": 6.2,
+    "nearMsAll": 285.1,
+    "scripted": {
+     "median": 9.4,
+     "p95": 16.3,
+     "max": 73.3
+    },
+    "flora": {
+     "p95": 6.6,
+     "max": 41.9
+    },
+    "heapMB": 368.12,
+    "carries": {
+     "carryPasses": 50,
+     "carryCpu": 9,
+     "carryReaps": 50,
+     "carryReapMs": 1765.8,
+     "carryTails": 22,
+     "carryTailFrames": 89,
+     "carryTailMs": 372.3
+    },
+    "farShrubs": {},
+    "longs": 1
+   }
+  ],
+  "after-balanced-1": [
+   {
+    "tier": "balanced",
+    "move": "walk",
+    "frames": 725,
+    "farPasses": 19,
+    "kinds": {
+     "drained": 4,
+     "landed": 14,
+     "jump": 1
+    },
+    "farMedianMs": 19.4,
+    "farMaxMs": 165.8,
+    "farMsAll": 757.4,
+    "nearMedianMs": 5.8,
+    "nearMsAll": 782.8,
+    "scripted": {
+     "median": 7,
+     "p95": 11.8,
+     "max": 79.8
+    },
+    "flora": {
+     "p95": 3.3,
+     "max": 68.6
+    },
+    "heapMB": 440.6,
+    "carries": {
+     "carryPasses": 16,
+     "carryCpu": 3,
+     "carryReaps": 16,
+     "carryReapMs": 178.7,
+     "carryTails": 1,
+     "carryTailFrames": 15,
+     "carryTailMs": 32.4
+    },
+    "farShrubs": {
+     "farShrubParts": 16,
+     "farShrubCpu": 3,
+     "farShrubUploads": 4,
+     "farShrubReaps": 16,
+     "farShrubReapMs": 35.9,
+     "farShrubBushes": 229,
+     "farShrubAsked": 0,
+     "farShrubRedealt": 0
+    },
+    "longs": 2
+   },
+   {
+    "tier": "balanced",
+    "move": "turn",
+    "frames": 480,
+    "farPasses": 59,
+    "kinds": {
+     "drained": 21,
+     "landed": 38
+    },
+    "farMedianMs": 42.1,
+    "farMaxMs": 269.2,
+    "farMsAll": 3487.5,
+    "nearMedianMs": 5.7,
+    "nearMsAll": 237.4,
+    "scripted": {
+     "median": 7.6,
+     "p95": 15.7,
+     "max": 224.5
+    },
+    "flora": {
+     "p95": 6.1,
+     "max": 216.5
+    },
+    "heapMB": 440.6,
+    "carries": {
+     "carryPasses": 48,
+     "carryCpu": 11,
+     "carryReaps": 48,
+     "carryReapMs": 1798.5,
+     "carryTails": 12,
+     "carryTailFrames": 42,
+     "carryTailMs": 377.4
+    },
+    "farShrubs": {
+     "farShrubParts": 48,
+     "farShrubCpu": 11,
+     "farShrubUploads": 1,
+     "farShrubReaps": 48,
+     "farShrubReapMs": 60.9,
+     "farShrubBushes": 270,
+     "farShrubAsked": 0,
+     "farShrubRedealt": 0
+    },
+    "longs": 3
+   }
+  ],
+  "before-full-1": [
+   {
+    "tier": "full",
+    "move": "walk",
+    "frames": 725,
+    "farPasses": 21,
+    "kinds": {
+     "drained": 16,
+     "landed": 4,
+     "jump": 1
+    },
+    "farMedianMs": 63.8,
+    "farMaxMs": 631.4,
+    "farMsAll": 2420.1,
+    "nearMedianMs": 6.1,
+    "nearMsAll": 1038.3,
+    "scripted": {
+     "median": 7.9,
+     "p95": 15.4,
+     "max": 328.6
+    },
+    "flora": {
+     "p95": 5.5,
+     "max": 313.4
+    },
+    "heapMB": 414.85,
+    "carries": {
+     "carryPasses": 17,
+     "carryCpu": 4,
+     "carryReaps": 17,
+     "carryReapMs": 390.7,
+     "carryTails": 11,
+     "carryTailFrames": 50,
+     "carryTailMs": 218
+    },
+    "farShrubs": {},
+    "longs": 4
+   },
+   {
+    "tier": "full",
+    "move": "turn",
+    "frames": 480,
+    "farPasses": 59,
+    "kinds": {
+     "drained": 55,
+     "landed": 4
+    },
+    "farMedianMs": 84.3,
+    "farMaxMs": 414.1,
+    "farMsAll": 7507.8,
+    "nearMedianMs": 5.9,
+    "nearMsAll": 319.5,
+    "scripted": {
+     "median": 10.7,
+     "p95": 17.8,
+     "max": 173.6
+    },
+    "flora": {
+     "p95": 8.5,
+     "max": 161.1
+    },
+    "heapMB": 414.85,
+    "carries": {
+     "carryPasses": 46,
+     "carryCpu": 13,
+     "carryReaps": 46,
+     "carryReapMs": 2248.4,
+     "carryTails": 42,
+     "carryTailFrames": 312,
+     "carryTailMs": 1316.1
+    },
+    "farShrubs": {},
+    "longs": 11
+   }
+  ],
+  "after-full-1": [
+   {
+    "tier": "full",
+    "move": "walk",
+    "frames": 725,
+    "farPasses": 21,
+    "kinds": {
+     "drained": 14,
+     "landed": 6,
+     "one-frame": 1
+    },
+    "farMedianMs": 37.8,
+    "farMaxMs": 416.4,
+    "farMsAll": 1717,
+    "nearMedianMs": 6,
+    "nearMsAll": 915.7,
+    "scripted": {
+     "median": 6.5,
+     "p95": 12.3,
+     "max": 139
+    },
+    "flora": {
+     "p95": 5.2,
+     "max": 134.9
+    },
+    "heapMB": 414.85,
+    "carries": {
+     "carryPasses": 16,
+     "carryCpu": 5,
+     "carryReaps": 16,
+     "carryReapMs": 329.4,
+     "carryTails": 10,
+     "carryTailFrames": 60,
+     "carryTailMs": 245.8
+    },
+    "farShrubs": {
+     "farShrubParts": 16,
+     "farShrubCpu": 5,
+     "farShrubUploads": 4,
+     "farShrubReaps": 16,
+     "farShrubReapMs": 77.9,
+     "farShrubBushes": 336,
+     "farShrubAsked": 0,
+     "farShrubRedealt": 0
+    },
+    "longs": 3
+   },
+   {
+    "tier": "full",
+    "move": "turn",
+    "frames": 480,
+    "farPasses": 49,
+    "kinds": {
+     "drained": 36,
+     "landed": 3,
+     "one-frame": 10
+    },
+    "farMedianMs": 61.5,
+    "farMaxMs": 288.4,
+    "farMsAll": 4472.7,
+    "nearMedianMs": 5.6,
+    "nearMsAll": 269.8,
+    "scripted": {
+     "median": 7.2,
+     "p95": 15.5,
+     "max": 152.5
+    },
+    "flora": {
+     "p95": 6.9,
+     "max": 147
+    },
+    "heapMB": 414.85,
+    "carries": {
+     "carryPasses": 38,
+     "carryCpu": 11,
+     "carryReaps": 38,
+     "carryReapMs": 1864.7,
+     "carryTails": 35,
+     "carryTailFrames": 290,
+     "carryTailMs": 1102.3
+    },
+    "farShrubs": {
+     "farShrubParts": 38,
+     "farShrubCpu": 11,
+     "farShrubUploads": 1,
+     "farShrubReaps": 38,
+     "farShrubReapMs": 97.9,
+     "farShrubBushes": 395,
+     "farShrubAsked": 0,
+     "farShrubRedealt": 0
+    },
+    "longs": 4
+   }
+  ],
+  "before-light-2": [
+   {
+    "tier": "light",
+    "move": "walk",
+    "frames": 725,
+    "farPasses": 18,
+    "kinds": {
+     "drained": 3,
+     "landed": 14,
+     "jump": 1
+    },
+    "farMedianMs": 25.4,
+    "farMaxMs": 107.8,
+    "farMsAll": 643.5,
+    "nearMedianMs": 5.8,
+    "nearMsAll": 891.8,
+    "scripted": {
+     "median": 8.2,
+     "p95": 13.4,
+     "max": 59.1
+    },
+    "flora": {
+     "p95": 3.3,
+     "max": 47.2
+    },
+    "heapMB": 368.12,
+    "carries": {
+     "carryPasses": 16,
+     "carryCpu": 2,
+     "carryReaps": 16,
+     "carryReapMs": 115.4,
+     "carryTails": 1,
+     "carryTailFrames": 4,
+     "carryTailMs": 16.6
+    },
+    "farShrubs": {},
+    "longs": 1
+   },
+   {
+    "tier": "light",
+    "move": "turn",
+    "frames": 480,
+    "farPasses": 59,
+    "kinds": {
+     "landed": 52,
+     "drained": 7
+    },
+    "farMedianMs": 40,
+    "farMaxMs": 88.4,
+    "farMsAll": 2533.6,
+    "nearMedianMs": 6.4,
+    "nearMsAll": 264.2,
+    "scripted": {
+     "median": 8.7,
+     "p95": 16.2,
+     "max": 29.1
+    },
+    "flora": {
+     "p95": 6,
+     "max": 23.5
+    },
+    "heapMB": 368.12,
+    "carries": {
+     "carryPasses": 53,
+     "carryCpu": 6,
+     "carryReaps": 53,
+     "carryReapMs": 1411.1,
+     "carryTails": 3,
+     "carryTailFrames": 3,
+     "carryTailMs": 1.5
+    },
+    "farShrubs": {},
+    "longs": 0
+   }
+  ],
+  "after-light-2": [
+   {
+    "tier": "light",
+    "move": "walk",
+    "frames": 725,
+    "farPasses": 18,
+    "kinds": {
+     "landed": 15,
+     "drained": 2,
+     "jump": 1
+    },
+    "farMedianMs": 17.4,
+    "farMaxMs": 135.6,
+    "farMsAll": 526.8,
+    "nearMedianMs": 5,
+    "nearMsAll": 704,
+    "scripted": {
+     "median": 6.6,
+     "p95": 11.8,
+     "max": 66.8
+    },
+    "flora": {
+     "p95": 1.6,
+     "max": 60.6
+    },
+    "heapMB": 391.01,
+    "carries": {
+     "carryPasses": 16,
+     "carryCpu": 2,
+     "carryReaps": 16,
+     "carryReapMs": 141.8,
+     "carryTails": 1,
+     "carryTailFrames": 6,
+     "carryTailMs": 36.3
+    },
+    "farShrubs": {
+     "farShrubParts": 16,
+     "farShrubCpu": 2,
+     "farShrubUploads": 3,
+     "farShrubReaps": 16,
+     "farShrubReapMs": 26.7,
+     "farShrubBushes": 122,
+     "farShrubAsked": 0,
+     "farShrubRedealt": 0
+    },
+    "longs": 1
+   },
+   {
+    "tier": "light",
+    "move": "turn",
+    "frames": 480,
+    "farPasses": 59,
+    "kinds": {
+     "landed": 51,
+     "drained": 8
+    },
+    "farMedianMs": 34.2,
+    "farMaxMs": 194.1,
+    "farMsAll": 2390.8,
+    "nearMedianMs": 6.2,
+    "nearMsAll": 239.1,
+    "scripted": {
+     "median": 7.3,
+     "p95": 15.8,
+     "max": 152.9
+    },
+    "flora": {
+     "p95": 6.5,
+     "max": 144.7
+    },
+    "heapMB": 391.01,
+    "carries": {
+     "carryPasses": 53,
+     "carryCpu": 6,
+     "carryReaps": 53,
+     "carryReapMs": 1637.4,
+     "carryTails": 5,
+     "carryTailFrames": 13,
+     "carryTailMs": 52.9
+    },
+    "farShrubs": {
+     "farShrubParts": 53,
+     "farShrubCpu": 6,
+     "farShrubUploads": 1,
+     "farShrubReaps": 53,
+     "farShrubReapMs": 47,
+     "farShrubBushes": 152,
+     "farShrubAsked": 0,
+     "farShrubRedealt": 0
+    },
+    "longs": 1
+   }
+  ],
+  "before-balanced-2": [
+   {
+    "tier": "balanced",
+    "move": "walk",
+    "frames": 725,
+    "farPasses": 19,
+    "kinds": {
+     "drained": 4,
+     "landed": 14,
+     "jump": 1
+    },
+    "farMedianMs": 39,
+    "farMaxMs": 151.5,
+    "farMsAll": 1000.1,
+    "nearMedianMs": 5.6,
+    "nearMsAll": 807.4,
+    "scripted": {
+     "median": 6.8,
+     "p95": 12.9,
+     "max": 74.5
+    },
+    "flora": {
+     "p95": 5,
+     "max": 68.7
+    },
+    "heapMB": 391.01,
+    "carries": {
+     "carryPasses": 16,
+     "carryCpu": 3,
+     "carryReaps": 16,
+     "carryReapMs": 190.1,
+     "carryTails": 1,
+     "carryTailFrames": 6,
+     "carryTailMs": 28.8
+    },
+    "farShrubs": {},
+    "longs": 3
+   },
+   {
+    "tier": "balanced",
+    "move": "turn",
+    "frames": 480,
+    "farPasses": 59,
+    "kinds": {
+     "drained": 22,
+     "landed": 37
+    },
+    "farMedianMs": 56.3,
+    "farMaxMs": 282.9,
+    "farMsAll": 4024,
+    "nearMedianMs": 5.7,
+    "nearMsAll": 259.7,
+    "scripted": {
+     "median": 7.8,
+     "p95": 14.7,
+     "max": 139.9
+    },
+    "flora": {
+     "p95": 6.4,
+     "max": 127.3
+    },
+    "heapMB": 391.01,
+    "carries": {
+     "carryPasses": 49,
+     "carryCpu": 10,
+     "carryReaps": 49,
+     "carryReapMs": 1663.8,
+     "carryTails": 14,
+     "carryTailFrames": 47,
+     "carryTailMs": 150.7
+    },
+    "farShrubs": {},
+    "longs": 4
+   }
+  ],
+  "after-balanced-2": [
+   {
+    "tier": "balanced",
+    "move": "walk",
+    "frames": 725,
+    "farPasses": 19,
+    "kinds": {
+     "drained": 4,
+     "landed": 14,
+     "jump": 1
+    },
+    "farMedianMs": 20,
+    "farMaxMs": 135.4,
+    "farMsAll": 701.4,
+    "nearMedianMs": 5.8,
+    "nearMsAll": 846.8,
+    "scripted": {
+     "median": 7.1,
+     "p95": 11.8,
+     "max": 65.7
+    },
+    "flora": {
+     "p95": 2.5,
+     "max": 58.6
+    },
+    "heapMB": 414.85,
+    "carries": {
+     "carryPasses": 16,
+     "carryCpu": 3,
+     "carryReaps": 16,
+     "carryReapMs": 184.6,
+     "carryTails": 1,
+     "carryTailFrames": 11,
+     "carryTailMs": 39.4
+    },
+    "farShrubs": {
+     "farShrubParts": 16,
+     "farShrubCpu": 3,
+     "farShrubUploads": 4,
+     "farShrubReaps": 16,
+     "farShrubReapMs": 37.2,
+     "farShrubBushes": 230,
+     "farShrubAsked": 0,
+     "farShrubRedealt": 0
+    },
+    "longs": 2
+   },
+   {
+    "tier": "balanced",
+    "move": "turn",
+    "frames": 480,
+    "farPasses": 59,
+    "kinds": {
+     "drained": 20,
+     "landed": 39
+    },
+    "farMedianMs": 42.9,
+    "farMaxMs": 147.8,
+    "farMsAll": 2972.5,
+    "nearMedianMs": 5.6,
+    "nearMsAll": 233.6,
+    "scripted": {
+     "median": 7.4,
+     "p95": 15.6,
+     "max": 68.3
+    },
+    "flora": {
+     "p95": 6,
+     "max": 60.2
+    },
+    "heapMB": 414.85,
+    "carries": {
+     "carryPasses": 49,
+     "carryCpu": 10,
+     "carryReaps": 49,
+     "carryReapMs": 1647.3,
+     "carryTails": 13,
+     "carryTailFrames": 39,
+     "carryTailMs": 151.1
+    },
+    "farShrubs": {
+     "farShrubParts": 49,
+     "farShrubCpu": 10,
+     "farShrubUploads": 1,
+     "farShrubReaps": 49,
+     "farShrubReapMs": 68.5,
+     "farShrubBushes": 277,
+     "farShrubAsked": 0,
+     "farShrubRedealt": 0
+    },
+    "longs": 1
+   }
+  ],
+  "before-full-2": [
+   {
+    "tier": "full",
+    "move": "walk",
+    "frames": 725,
+    "farPasses": 21,
+    "kinds": {
+     "drained": 16,
+     "landed": 5
+    },
+    "farMedianMs": 65.1,
+    "farMaxMs": 250.1,
+    "farMsAll": 1980.9,
+    "nearMedianMs": 5.3,
+    "nearMsAll": 905.1,
+    "scripted": {
+     "median": 7.1,
+     "p95": 13.3,
+     "max": 224.8
+    },
+    "flora": {
+     "p95": 5.1,
+     "max": 106
+    },
+    "heapMB": 368.12,
+    "carries": {
+     "carryPasses": 17,
+     "carryCpu": 4,
+     "carryReaps": 17,
+     "carryReapMs": 339,
+     "carryTails": 12,
+     "carryTailFrames": 35,
+     "carryTailMs": 125.5
+    },
+    "farShrubs": {},
+    "longs": 5
+   },
+   {
+    "tier": "full",
+    "move": "turn",
+    "frames": 480,
+    "farPasses": 59,
+    "kinds": {
+     "drained": 53,
+     "landed": 6
+    },
+    "farMedianMs": 97.7,
+    "farMaxMs": 341,
+    "farMsAll": 7230.3,
+    "nearMedianMs": 6.3,
+    "nearMsAll": 275.4,
+    "scripted": {
+     "median": 10.4,
+     "p95": 19.1,
+     "max": 91.6
+    },
+    "flora": {
+     "p95": 8.7,
+     "max": 84.9
+    },
+    "heapMB": 368.12,
+    "carries": {
+     "carryPasses": 47,
+     "carryCpu": 12,
+     "carryReaps": 47,
+     "carryReapMs": 2644.8,
+     "carryTails": 41,
+     "carryTailFrames": 371,
+     "carryTailMs": 1913.2
+    },
+    "farShrubs": {},
+    "longs": 6
+   }
+  ],
+  "after-full-2": [
+   {
+    "tier": "full",
+    "move": "walk",
+    "frames": 725,
+    "farPasses": 21,
+    "kinds": {
+     "drained": 11,
+     "landed": 9,
+     "jump": 1
+    },
+    "farMedianMs": 30.4,
+    "farMaxMs": 427.2,
+    "farMsAll": 1584.9,
+    "nearMedianMs": 5.3,
+    "nearMsAll": 876.7,
+    "scripted": {
+     "median": 8.3,
+     "p95": 14.8,
+     "max": 125.6
+    },
+    "flora": {
+     "p95": 4.8,
+     "max": 115.2
+    },
+    "heapMB": 414.85,
+    "carries": {
+     "carryPasses": 17,
+     "carryCpu": 4,
+     "carryReaps": 17,
+     "carryReapMs": 325,
+     "carryTails": 6,
+     "carryTailFrames": 36,
+     "carryTailMs": 142.4
+    },
+    "farShrubs": {
+     "farShrubParts": 17,
+     "farShrubCpu": 4,
+     "farShrubUploads": 4,
+     "farShrubReaps": 17,
+     "farShrubReapMs": 56.6,
+     "farShrubBushes": 357,
+     "farShrubAsked": 0,
+     "farShrubRedealt": 0
+    },
+    "longs": 3
+   },
+   {
+    "tier": "full",
+    "move": "turn",
+    "frames": 480,
+    "farPasses": 47,
+    "kinds": {
+     "drained": 26,
+     "landed": 9,
+     "one-frame": 12
+    },
+    "farMedianMs": 57.9,
+    "farMaxMs": 245.6,
+    "farMsAll": 4056.5,
+    "nearMedianMs": 5.1,
+    "nearMsAll": 227.5,
+    "scripted": {
+     "median": 8.8,
+     "p95": 16,
+     "max": 133.9
+    },
+    "flora": {
+     "p95": 6,
+     "max": 125.8
+    },
+    "heapMB": 414.85,
+    "carries": {
+     "carryPasses": 35,
+     "carryCpu": 12,
+     "carryReaps": 35,
+     "carryReapMs": 1473.5,
+     "carryTails": 26,
+     "carryTailFrames": 273,
+     "carryTailMs": 1020.9
+    },
+    "farShrubs": {
+     "farShrubParts": 35,
+     "farShrubCpu": 12,
+     "farShrubUploads": 1,
+     "farShrubReaps": 35,
+     "farShrubReapMs": 107.7,
+     "farShrubBushes": 423,
+     "farShrubAsked": 0,
+     "farShrubRedealt": 0
+    },
+    "longs": 5
+   }
+  ]
+ }
+}
