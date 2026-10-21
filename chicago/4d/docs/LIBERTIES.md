@@ -30807,3 +30807,31 @@ arch's curve and its south jamb; a second photograph of the stair settles its wi
 **Ticket:** T-2952, T-2953 (pieces 2 and 3 of T-2891).
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-21 (T-2952, T-2953).
+
+### L-glessner-passage-floor-2976 — Glessner's carriage passage sunk to its drawn floor, with an approach and a court ramp
+
+**Decision:** the porte-cochère passage through the `glessner_house` Prairie range (T-2976) lays
+its paving where both HABS sheets put the floor, under the ground at both mouths, instead of on
+the display-lifted sidewalk. **What is read.** Sheet 6, read at its own printed 0.00 and 24.30
+(75.3 px/ft), runs the opening and both oak leaves down to 1.9 ft under the door datum, 1.16 ft
+under the sidewalk it prints at -0.74, the sidewalk line returning down into the opening at both
+jambs; the street head stays at 7.0 over the door datum, so the passage clears 8.9 ft there.
+Sheet 4 draws the court mouth's floor 103 px (1.05 ft at 97.7 px/ft) under the ground it draws
+beside the mouth, with rounded stones at the jambs' feet; laid that far under the model's 0.12-ft
+court drive the floor is at -0.93 ft, and the passage clears 8.15 ft under the court lintel. The
+c. 1888 photograph's leaves run down past the rounded stones at the jambs' feet, which agrees.
+**What is invented.** The approach's fall from the walk to the sunk mouth (1.37 ft over about
+15 ft, straight), the court ramp's 10-ft run up to the drive along the drive's own edges, the
+dressed stone retaining edges along both sides of each, and the floor's straight rise between
+the two mouths; no sheet or photograph shows how the 1904 carriage way fell to and rose from the
+passage. **What is not changed.** The opening's plan, both heads, the corbels, the leaves'
+panels and hardware (the leaves are longer, so each panel is taller in proportion, as sheet 6
+draws them), and the courtyard's level. **Open.** Sheet 4's court lintel stands 8.5 ft over the
+ground drawn beside the mouth, but the record reads it at 7.22 ft on T-2228's section datum
+(y 5858), which lies about 1.3 ft over the ground the sheet draws at the north wall and the court
+mouth; reconciling that datum would raise the court-end clearance toward the sheet's 9.6 ft and
+is filed as T-2978. **How to resolve:** a photograph or drawing of the carriage way across the
+setback or in the court before 1946, when the court was paved for parking.
+**Ticket:** T-2976.
+**Review:** `docs/RESEARCH/glessner-passage-floor-T-2976/`.
+**Recorded:** 2026-10-21 (T-2976).

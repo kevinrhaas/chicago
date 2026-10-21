@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 672,
+  "count": 673,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -48636,6 +48636,40 @@
         "T-2953",
         "T-2891",
         "T-2543"
+      ]
+    },
+    {
+      "id": "L-glessner-passage-floor-2976",
+      "title": "Glessner's carriage passage sunk to its drawn floor, with an approach and a court ramp",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-21",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the porte-cochère passage through the John J. Glessner House Prairie range lays its paving where both HABS sheets put the floor, under the ground at both mouths, instead of on the display-lifted sidewalk. **What is read.** Sheet 6, read at its own printed 0.00 and 24.30 (75.3 px/ft), runs the opening and both oak leaves down to 1.9 ft under the door datum, 1.16 ft under the sidewalk it prints at -0.74, the sidewalk line returning down into the opening at both jambs; the street head stays at 7.0 over the door datum, so the passage clears 8.9 ft there. Sheet 4 draws the court mouth's floor 103 px (1.05 ft at 97.7 px/ft) under the ground it draws beside the mouth, with rounded stones at the jambs' feet; laid that far under the model's 0.12-ft court drive the floor is at -0.93 ft, and the passage clears 8.15 ft under the court lintel. The c. 1888 photograph's leaves run down past the rounded stones at the jambs' feet, which agrees. **What is invented.** The approach's fall from the walk to the sunk mouth (1.37 ft over about 15 ft, straight), the court ramp's 10-ft run up to the drive along the drive's own edges, the dressed stone retaining edges along both sides of each, and the floor's straight rise between the two mouths; no sheet or photograph shows how the 1904 carriage way fell to and rose from the passage. **What is not changed.** The opening's plan, both heads, the corbels, the leaves' panels and hardware (the leaves are longer, so each panel is taller in proportion, as sheet 6 draws them), and the courtyard's level. **Open.** Sheet 4's court lintel stands 8.5 ft over the ground drawn beside the mouth, but the record reads it at 7.22 ft on earlier work's section datum (y 5858), which lies about 1.3 ft over the ground the sheet draws at the north wall and the court mouth; reconciling that datum would raise the court-end clearance toward the sheet's 9.6 ft and is filed as later work."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph or drawing of the carriage way across the setback or in the court before 1946, when the court was paved for parking."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on glessner passage floor this work/."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-21 (T-2976)."
+        }
+      ],
+      "work_refs": [
+        "T-2976",
+        "T-2228",
+        "T-2978"
       ]
     },
     {

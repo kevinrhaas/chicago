@@ -276,8 +276,114 @@
             3
           ]
         ],
-        "floor_m": 0.064,
-        "clear_m": 2.1367,
+        "floor_m": -0.2835,
+        "clear_m": 2.4842,
+        "ground": [
+          {
+            "polygon": [
+              [
+                53.9405,
+                3.7643
+              ],
+              [
+                53.9405,
+                0.9601
+              ],
+              [
+                49.3014,
+                1.1704
+              ],
+              [
+                49.3014,
+                3.5418
+              ]
+            ],
+            "z_m": [
+              0.064,
+              0.064,
+              -0.3536,
+              -0.3536
+            ]
+          },
+          {
+            "polygon": [
+              [
+                49.3014,
+                3.5418
+              ],
+              [
+                49.3014,
+                1.1704
+              ],
+              [
+                48.9966,
+                1.16
+              ],
+              [
+                48.9966,
+                3.5385
+              ]
+            ],
+            "z_m": [
+              -0.3536,
+              -0.3536,
+              -0.3536,
+              -0.3536
+            ]
+          },
+          {
+            "polygon": [
+              [
+                48.9966,
+                3.5385
+              ],
+              [
+                48.9966,
+                1.16
+              ],
+              [
+                41.0718,
+                0.6218
+              ],
+              [
+                41.0718,
+                3.365
+              ]
+            ],
+            "z_m": [
+              -0.3536,
+              -0.3536,
+              -0.2835,
+              -0.2835
+            ]
+          },
+          {
+            "polygon": [
+              [
+                41.0718,
+                3.365
+              ],
+              [
+                38.024,
+                3.4025
+              ],
+              [
+                38.0239,
+                0.648
+              ],
+              [
+                41.0718,
+                0.6218
+              ]
+            ],
+            "z_m": [
+              -0.2835,
+              0.0366,
+              0.0366,
+              -0.2835
+            ]
+          }
+        ],
         "note": "The model's own opening through the footprint (the underpass), carried from the generator's parameters: its plan, its lower soffit above its higher paving. Walking through it is how the scene is visited, not a claim about who passed there."
       }
     ]
@@ -1727,7 +1833,8 @@
               "inset_ft": 0.5,
               "round_ft": 0.45,
               "depth_ft": 1.5
-            }
+            },
+            "note": "T-2976: z0 is the court ground; the passage floor runs on 0.93 ft below it (prairie_frontage.passage_court_z), as sheet 4 draws the opening continuing under the ground line with rounded stones at the jambs' feet. The underpass's own reveals carry the jambs down to the floor."
           },
           {
             "what": "first-floor window",
@@ -2350,7 +2457,8 @@
           "wall_fall_ft": 0.024,
           "wall_fall_run_ft": 4.0,
           "turf_lift_ft": 0.05,
-          "wall_fall_start_S": 59.75
+          "wall_fall_start_S": 59.75,
+          "passage_ramp_run_ft": 10.0
         }
       },
       "confidence": "reconstructed",
@@ -2358,7 +2466,7 @@
         "habs_glessner_house_il_1015_drawings",
         "habs_glessner_house_il_1015_data_pages"
       ],
-      "note": "T-2224 independently reconstructs circulation from the cleared HABS sheet 2 gate, passage and stair positions. The drive is a straight ruled connection between the gate and passage jambs, replacing the earlier photograph-based intermediate bend; no new geometry is derived from rights-uncleared HABS05. The measured plan does not draw a 1904 paving layout. The 4-foot pedestrian approaches, their outlines, pale compacted gravel surface, cut lawn edge and shallow falls away from the west masonry are RECONSTRUCTED functional choices, not a traced historical garden. Path and material choices are separate: gravel is a permeable period-plausible surface, not material identified in the plan. HABS data printed p2 records complete parking paving in September 1946; that surface is excluded. West access allows for the separate court-side stair whose chronology and final geometry remain T-2228. Solid building/step footprints and all hard surfaces are cut out of turf. Gate and passage connections retain the 0.12-ft surface datum. L-glessner-court-ground-2224. T-2906: the terrace approach's stair-side edge follows the lowest tread's foot where sheet 4's section re-seats it, (W31.58, S53.03) on the drum to (W33.75, S47.06) at the newel, so the step still lands on the walk."
+      "note": "T-2224 independently reconstructs circulation from the cleared HABS sheet 2 gate, passage and stair positions. The drive is a straight ruled connection between the gate and passage jambs, replacing the earlier photograph-based intermediate bend; no new geometry is derived from rights-uncleared HABS05. The measured plan does not draw a 1904 paving layout. The 4-foot pedestrian approaches, their outlines, pale compacted gravel surface, cut lawn edge and shallow falls away from the west masonry are RECONSTRUCTED functional choices, not a traced historical garden. Path and material choices are separate: gravel is a permeable period-plausible surface, not material identified in the plan. HABS data printed p2 records complete parking paving in September 1946; that surface is excluded. West access allows for the separate court-side stair whose chronology and final geometry remain T-2228. Solid building/step footprints and all hard surfaces are cut out of turf. Gate and passage connections retain the 0.12-ft surface datum. L-glessner-court-ground-2224. T-2906: the terrace approach's stair-side edge follows the lowest tread's foot where sheet 4's section re-seats it, (W31.58, S53.03) on the drum to (W33.75, S47.06) at the newel, so the step still lands on the walk. T-2976: the carriage way rises out of the sunk passage (its court mouth 0.93 ft under the drive datum, sheet 4) on a 10-ft ramp up to the 0.12-ft drive, with a stone retaining edge along both sides. The ramp's run and edging are reconstructed; sheet 4's section draws the court ground falling toward the mouth but no ramp. L-glessner-passage-floor-2976."
     },
     "porte_cochere_doors": {
       "value": "two oak leaves, each three panels wide and six high, every square panel sunk in a circular moulding; a horizontal iron strap two rows up with a lock plate and two ring pulls; scroll-ended strap hinges",
@@ -3450,7 +3558,7 @@
             "ng"
           ],
           "floor": [
-            0,
+            -1.25,
             "ng"
           ]
         },
@@ -4116,11 +4224,11 @@
           70.85
         ],
         "passage_front_z": [
-          0.21,
-          "ng"
+          -1.9,
+          "door"
         ],
         "passage_court_z": [
-          0.12,
+          -0.93,
           "ng"
         ],
         "paving_joint_spacing_ft": 3.5,
@@ -4133,7 +4241,7 @@
         "habs_glessner_house_il_1015_data_pages",
         "artic_glessner_sheet_23a_entrance_detail"
       ],
-      "note": "T-2202. House-side lawn edging and access gaps are visible in Taylor 2135 (c.1887–89) and HABS sheets 2/6 (1963/1965); continuity in 1904 is inferred, not a dated survey. The 14.7-ft setback reuses the existing Sanborn-aligned placement; the final 1.02 ft crosses only the reconstructed public margin to meet T-1728's unchanged six-foot walk. Curbs stop at the main entry and porte and return to the house with rounded plan corners and dressed top edges. Profile height 1.05 ft, width 0.65 ft, 0.8-ft corner radius and 4-ft joint spacing are bounded reconstructions (+/-0.25 ft profile, +/-1.5 ft setback), not dimensions printed by HABS. The door sill retains sheet 6's 0.00 datum, 0.74 ft above its sidewalk; two low stone risers join the existing sill to the rendered approach. The rendered 0.21-ft paving lift includes the terrain/sidewalk display clearance, not a newly surveyed historical grade. Passage paving tapers to the existing 0.12-ft courtyard drive, with no grass or duplicated floor. Paving uses dressed stone at the entry and neutral mineral surfacing at the carriage approach/passage; historic composition and joint layout remain reconstructed. No later street pavement is imported. L-glessner-frontage-2202. T-2228 supersedes the two risers: one continuous broad threshold is built into the cutback entry at the retained sill datum. Approach/curb gap widens to9.6ft to clear the9.1ft threshold, bounded by HABS5 and the owner photograph; one6.36in rendered rise above the display-lifted approach. No added projecting upper tread."
+      "note": "T-2202. House-side lawn edging and access gaps are visible in Taylor 2135 (c.1887–89) and HABS sheets 2/6 (1963/1965); continuity in 1904 is inferred, not a dated survey. The 14.7-ft setback reuses the existing Sanborn-aligned placement; the final 1.02 ft crosses only the reconstructed public margin to meet T-1728's unchanged six-foot walk. Curbs stop at the main entry and porte and return to the house with rounded plan corners and dressed top edges. Profile height 1.05 ft, width 0.65 ft, 0.8-ft corner radius and 4-ft joint spacing are bounded reconstructions (+/-0.25 ft profile, +/-1.5 ft setback), not dimensions printed by HABS. The door sill retains sheet 6's 0.00 datum, 0.74 ft above its sidewalk; two low stone risers join the existing sill to the rendered approach. The rendered 0.21-ft paving lift includes the terrain/sidewalk display clearance, not a newly surveyed historical grade. Passage paving tapers to the existing 0.12-ft courtyard drive, with no grass or duplicated floor. Paving uses dressed stone at the entry and neutral mineral surfacing at the carriage approach/passage; historic composition and joint layout remain reconstructed. No later street pavement is imported. L-glessner-frontage-2202. T-2228 supersedes the two risers: one continuous broad threshold is built into the cutback entry at the retained sill datum. Approach/curb gap widens to9.6ft to clear the9.1ft threshold, bounded by HABS5 and the owner photograph; one6.36in rendered rise above the display-lifted approach. No added projecting upper tread. T-2976 supersedes the passage paving lift: the carriage passage's floor is sunk, as both HABS sheets draw it. Sheet 6 (read at its own printed 0.00 and 24.30, 75.3 px/ft) runs the porte-cochere's opening and both oak leaves down to 1.9 ft under the door datum, 1.16 ft under the sidewalk it prints at -0.74, the sidewalk line returning down into the opening at both jambs; sheet 4 draws the court mouth's floor 1.05 ft (103 px at 97.7 px/ft) under the court ground drawn beside it. So passage_front_z is the sheet-6 floor and passage_court_z is that depth under the model's 0.12-ft court drive. With the floor where the sheets put it the passage clears 8.9 ft under the street head (sheet 6: 7.0 over the door datum) and 8.15 ft under the court lintel, against 7.0 ft when it was laid at the display-lifted sidewalk. The c.1888 photograph agrees: its leaves run down past the rounded stones at the jambs' feet. The carriage approach across the setback now falls from the walk to the sunk mouth (1.37 ft over about 15 ft), with a dressed stone retaining edge up to the ground along each side; where and how the 1904 approach fell is not drawn, so its line, fall and edging are reconstructed (docs/LIBERTIES.md L-glessner-passage-floor-2976)."
     },
     "rainwater_details": {
       "value": {

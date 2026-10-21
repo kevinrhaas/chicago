@@ -93,6 +93,12 @@ def layout(params):
     if not spec:return None
     solids=occupied(params)
     hard=[]
+    # T-2976: the carriage way's ramp up out of the sunk passage owns its ground first.
+    from archetypes.masonry_house_v4_frontage import court_ramp
+    ramp=court_ramp(params)
+    if ramp:
+        hard.append({'kind':'drive','id':'passage-ramp','pts':ramp['pts'],'lift_m':0,
+                     'vertices':[(*xy,z) for xy,z in zip(ramp['pts'],ramp['z'])],'conf':spec['conf']})
     for g in params.ground:
         if g['kind']!='lawn':hard.append({**g,'id':'drive','vertices':[(x,y,g['lift_m']) for x,y in g['pts']]})
     for w in spec['walks']:
@@ -168,6 +174,14 @@ def build(b,params):
     lawns=[g['pts'] for g in params.ground if g['kind']=='lawn']
     masks=[g['pts'] for g in data['hard']]+data['solids']
     for g in data['hard']:
+        if g['id']=='passage-ramp':
+            # Sunk below the court: a stone retaining edge up to the drive along both sides.
+            from archetypes.masonry_house_v4_frontage import _edge
+            v=g['vertices'];mid=tuple(sum(p[k] for p in v)/4 for k in range(2))
+            top=v[1][2]
+            for a,c in ((v[0],v[1]),(v[3],v[2])):
+                _edge(b,a[:2],c[:2],a[2],c[2],mid,g['conf'],DRIVE,top=top)
+            continue
         pts=g['vertices']
         if area(pts)<0:pts=list(reversed(pts))
         for a,c in zip(pts,pts[1:]+pts[:1]):

@@ -426,7 +426,10 @@ def check_frontage_ground():
                 else:
                     k=(p[0]-x)/(p[0]-s[0]);low=q[1]+(r[1]-q[1])*k;high=p[1]+(s[1]-p[1])*k
                 z,mat=height(surfaces,x,low+(high-low)*lane)
-                assert f['passage_court_z']-.004<=z<=f['passage_front_z']+1e-8 and mat!=LAWN,(reduced,x,z,mat)
+                # T-2976: the approach falls from the walk to the sunk mouth; the floor
+                # then rises gently to the court mouth.
+                lo=min(f['passage_front_z'],f['passage_court_z']);hi=max(f['walk_z'],f['passage_court_z'])
+                assert lo-.004<=z<=hi+1e-8 and mat!=LAWN,(reduced,x,z,mat)
         z,_=height(surfaces,s[0],(s[1]+r[1])/2)
         assert abs(z-f['passage_court_z'])<1e-8, 'passage does not meet courtyard drive datum'
         for low,high in f['lawns']:
