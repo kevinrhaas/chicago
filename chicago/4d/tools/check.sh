@@ -344,6 +344,9 @@ step "C02 actual door hierarchy refuses closed-preserving detachment (T-2794)" \
 step "Harness body fit reproduces original crossings and enforces 5 mm bind-pose clearance" \
   python3 tools/transport/test_harness_body_fit.py
 
+step "Parked vehicles keep their exact wagon stands and cannot cross era boundaries (T-2979)" \
+  python3 tools/transport/check_parked_placements.py
+
 step "Resident hair export rejects missing alpha, embedded images and skin bindings (T-1789)" \
   python3 tools/test_human_hair.py
 

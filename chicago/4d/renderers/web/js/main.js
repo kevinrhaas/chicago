@@ -65,6 +65,7 @@ import { loadAgencies } from './agencies.js';
 import { createFencedGround, fetchPrebuiltYards } from './yards.js';
 import { createSignage } from './signage.js';
 import { createYardGoods } from './yard.js';
+import { createParkedTransport } from './parked-transport.js';
 import { keptGround } from './kept-ground.js';
 import { createFrontage, fetchPrebuiltFrontage, pageBuild } from './frontage.js';
 import { setPickRenderer, setPickLog, pickResources } from './gpu-pick.js';
@@ -2395,13 +2396,23 @@ async function boot() {
   // the board hangs 1.7 m one side of the facade's centre and the goods pile
   // from the other end. Unlike a board, a barrel stands on the TERRAIN rather
   // than on the building's wall base — it is resting on the ground it is on.
+  const parkedTransport = await createParkedTransport({
+    dataBase: layerBase('parked_transport'), sceneId: YEAR, terrain, confidence,
+    detail: detailLevel, problems: layerProblems('parked_transport'), hostMissing,
+    groundHeight: String(YEAR) === '1904' ? (e, n) => streetGrid.carriagewayHeight(e, n) : null,
+  });
+  scene3d.add(parkedTransport.group);
+  api.parkedTransport = parkedTransport;
   const yard = await createYardGoods({
     dataBase: layerBase('yard_goods'), terrain, confidence, problems: layerProblems('yard_goods'), hostMissing,
     lowSpec: coarse,
+    replacementIds: parkedTransport.replacementIds,
   });
   scene3d.add(yard.group);
   settleOnGpu(yard.group);
   api.yard = yard;
+  parkedTransport.setFallback((id, visible) => yard.setReplacementVisible(id, visible));
+  parkedTransport.update(camera);
 
   // The frontage works — the plank walks along a building's street walls, the
   // board crossing over the road and the named board on its post at the corner
@@ -3025,6 +3036,7 @@ async function boot() {
       railway.setDetail(level);
       refreshGlessnerOcclusion();
       api.humans?.setTier(level);
+      void parkedTransport.setTier(level);
       applyShadowTier(level);
       applyFurnitureReach(level);
       applyGroundDetailReach(level);
@@ -3079,6 +3091,7 @@ async function boot() {
     railway.setDetail(level);
     // The figures' LOD ladder follows the tier (T-1788; docs/HUMAN-ASSET-CONTRACT.md § 8).
     api.humans?.setTier(level);
+    void parkedTransport.setTier(level);
     // The sun's half of the level takes effect on THIS frame rather than after
     // the replanting: it costs nothing to apply, and a visitor who turns the
     // setting down on a machine that is struggling should get the cheap half of
@@ -3944,6 +3957,8 @@ async function boot() {
     if (boat && boat.record && (!hit || boat.distance < hit.distance)) {
       hit = { ...boat };
     }
+    const vehicle = parkedTransport.pickAt(ndc, camera);
+    if (vehicle?.record && (!hit || vehicle.distance < hit.distance)) hit = vehicle;
     /**
      * And so can the fort's well, which is the second thing here belonging to no
      * structure at all: a curb answers with its OWN card record, built by the
@@ -4931,6 +4946,7 @@ async function boot() {
     streetTrees.update(dt, camera);
     railway.update(camera);
     flags.update(dt);
+    parkedTransport.update(camera);
     // T-2598: which house pictures are on the GPU, from where the eye ended up; at
     // most a frame's allowance of them is uploaded here, before the draw.
     residency?.tick(camera.position);

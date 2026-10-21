@@ -53,3 +53,9 @@ All cabin/hardware/color dimensions are reconstructed. Reference catalog wording
 
 
 **Metadata and articulation qualification:** The pre-door project scope quotation is preserved separately with its original branch and explicit non-period origin; the enabled branch now describes reconstructed rigid door/hinge geometry and endpoint transforms. Current model metadata hash is 93d4020036e5c685ce95010fe64b26c55a1561db4517405f0590f7a398253331 (860956 bytes). Corrected checks bind all 424 actual moving triangles to the unique active exported door and compose actual hierarchy transforms at each angle; closed-world shape alone cannot qualify detached geometry. Old closed-mapping/source-posed receipts are retained only as limited historical checkpoints. No continuous/occupant/photographic acceptance or installed-head gate is implied.
+
+
+Parked W01 `parked-wagon/wagon-w01.glb` and sidecar: original GPL-3.0-or-later reconstructed geometry with original CC0-1.0 procedural maps, source in tools/transport/wagon_parked and assets/authored/transport/wagon_parked.
+Parked C02 `parked-carriage/carriage-c02.glb`, sidecar and recipe: GPL-3.0-or-later original geometry/cushions/finish/maps, with CC0 helper code retaining its own SPDX. See parked-carriage/LICENSE. No imported photographic texture or identified historical owner/maker is supplied.
+
+`parked-carriage/shaft-rest.glb` and shaft-rest.json: original GPL-3.0-or-later reconstructed timber support, reproduced by tools/transport/produce_carriage_shaft_rest.py from actual carriage shaft underside and disclosed chosen trestle dimensions; no external image pixels.

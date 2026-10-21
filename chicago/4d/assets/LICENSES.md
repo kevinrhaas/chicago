@@ -1310,3 +1310,22 @@ is dedicated to CC0-1.0 alongside those inputs):
 | `authored/humans/era_studies/1904/body-target.json` | CC0-1.0 | Original reconstructed age61/height parameters; existing cleared MakeHuman graphical targets, not application code. |
 | `authored/humans/era_studies/1904/glessner_john_j_1904.prepared.json` | CC0-1.0 | Prepared existing cleared hm08 graphical body; exact source and target hashes remain in this file. |
 | `authored/humans/era_studies/1904/glessner_john_j_1904.garments.json` | CC0-1.0 | Original project-authored conjectural garment arrays; no external garment or picture derived. |
+
+
+## Parked original transport variants (T-2979)
+
+W01 geometry and source: GPL-3.0-or-later; nine original generated timber/paint/iron maps: CC0-1.0. See each SOURCE.json/ORIGINAL-MATERIAL-LICENSE.txt. No external photographic pixels or scans are incorporated.
+
+| path relative to assets/ | license | provenance |
+| --- | --- | --- |
+| `authored/transport/wagon_parked/ORIGINAL-MATERIAL-LICENSE.txt` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/SOURCE.json` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/iron_color.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/iron_normal.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/iron_orm.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/paint_color.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/paint_normal.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/paint_orm.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/wood_color.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/wood_normal.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/wood_orm.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |

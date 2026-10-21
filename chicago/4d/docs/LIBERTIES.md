@@ -30835,3 +30835,18 @@ setback or in the court before 1946, when the court was paved for parking.
 **Ticket:** T-2976.
 **Review:** `docs/RESEARCH/glessner-passage-floor-T-2976/`.
 **Recorded:** 2026-10-21 (T-2976).
+
+
+### L-parked-vehicles-2979 — Parked farm wagons and a1904 town carriage
+
+**Decision:** Stand original refined rigid vehicle types in the walking scenes. Three1835 farm-box wagons replace the earlier yard geometry at exactly the existing coordinates and bearings; their prior setting evidence is unchanged. The1904 enclosed town-carriage stop is an invented curbside location near Prairie and Eighteenth, not a Glessner or Pullman ownership claim. Maker and exact catalog model are unknown for both types.
+
+**What is reconstructed:** all vehicle dimensions, detailed joinery/hardware, finish, original timber/paint/leather textures, glazing, cushion form and the precise parked specimens. W01 follows the existing3.05m farm-box envelope; C02 remains an original enclosed-carriage study, not the newly researched Studebaker Brougham. The old study-only deployment restriction is superseded for these explicitly unoccupied parked examples by the owner's2026-10-21 request. No door interaction, occupants, harness, moving traffic or boarding is enabled. W01's articulated tongue rests at a terrain-solved angle using its actual vertices. Four-wheel ground-plane variation is bounded to30mm; a stand outside that bound is refused, not silently sunk. Light/far/failed-load views retain the prior1835 vehicle.
+
+**Source limits:** The Western Hotel yard source supports wagon-yard setting, not this wagon's maker, ownership or paint. New manufacturers/types research stays separate from these generic specimens: no first-party catalog is retroactively claimed as their construction source. Original material maps contain no external photo pixels.
+
+**Open:** photographic source matching, more precise period model construction, complete hitch/driver/passenger fit and movement. These models are a visible incremental replacement, not photographic completion.
+**Ticket:** T-2979; parent programs T-2793,T-2794.
+**Recorded:**2026-10-21.
+
+The parked1904 carriage also has an original small timber shaft-rest. Its crossbar top follows the actual model shaft undersides, while its timber sizes, feet and splay are an authored support hypothesis, not an attested personal accessory or force calculation. The carriage geometry is unchanged.
