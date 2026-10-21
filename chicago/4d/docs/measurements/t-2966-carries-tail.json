@@ -1,0 +1,719 @@
+{
+ "ticket": "T-2966",
+ "tool": "tools/measure_walk_frames.mjs --only desktop --verify --gate (CI's moving-frames command); and --source --only mobile --tiers light --moves walk,turn,flight",
+ "profile": "desktop 1280x800 unthrottled (the gated reading) and 390x780 touch at 4x CPU throttle, SwiftShader, draw skipped; a shared 4-core machine, every run under one lock. Per move: flora_max is flora's worst moving frame (the gated number), far_median / far_max the far pass's main-thread ms off flora's pass log (a tail's ms booked on its pass)",
+ "ceilings_ms": {
+  "full": 60,
+  "balanced": 32,
+  "light": 21
+ },
+ "trees": {
+  "dev": "58a0c3973 (origin/dev), read with this change's copy of the tool",
+  "before": "bd4733643: the T-2966 slice as CI failed it (#1161)",
+  "after": "this change: the carries' tail (DRAIN) and the deal programs' first use before the first carry deal"
+ },
+ "ci_before_on_pr_1161": {
+  "full/turn": 73.3,
+  "balanced/turn": 48.1,
+  "light/travel": 43.6,
+  "dev_run_39510335779": {
+   "full/turn": 19.0,
+   "balanced/turn": 8.0,
+   "light/travel": 6.7
+  }
+ },
+ "desktop": {
+  "before": {
+   "full/walk": {
+    "flora_p95": 1.4,
+    "flora_max": 48.1,
+    "far_passes": 16,
+    "far_kinds": "13 landed, 2 drained, 1 jump",
+    "far_median": 13.4,
+    "far_max": 85.6,
+    "far_all": 370,
+    "collected": 11,
+    "taken_in_frame": 3,
+    "reaps": 14,
+    "reap_ms": 65,
+    "carry_cpu": 4
+   },
+   "full/turn": {
+    "flora_p95": 13.2,
+    "flora_max": 184.9,
+    "far_passes": 59,
+    "far_kinds": "55 drained, 4 landed",
+    "far_median": 34.2,
+    "far_max": 203.0,
+    "far_all": 2656,
+    "collected": 0,
+    "taken_in_frame": 0,
+    "reaps": 0,
+    "reap_ms": 0,
+    "carry_cpu": 63,
+    "fail": [
+     "flora's worst moving frame 184.9 ms > full's ceiling 60 ms"
+    ]
+   },
+   "full/flight": {
+    "flora_p95": 4.8,
+    "flora_max": 15.5,
+    "far_passes": 32,
+    "far_kinds": "14 drained, 18 landed",
+    "far_median": 9.8,
+    "far_max": 62.4,
+    "far_all": 498,
+    "collected": 0,
+    "taken_in_frame": 0,
+    "reaps": 0,
+    "reap_ms": 0,
+    "carry_cpu": 36
+   },
+   "full/travel": {
+    "flora_p95": 5.3,
+    "flora_max": 23.5,
+    "far_passes": 55,
+    "far_kinds": "38 landed, 17 drained",
+    "far_median": 28.4,
+    "far_max": 104.4,
+    "far_all": 2074,
+    "collected": 0,
+    "taken_in_frame": 0,
+    "reaps": 0,
+    "reap_ms": 0,
+    "carry_cpu": 59
+   },
+   "balanced/walk": {
+    "flora_p95": 0.2,
+    "flora_max": 11.7,
+    "far_passes": 14,
+    "far_kinds": "11 landed, 1 drained, 1 one-frame, 1 jump",
+    "far_median": 5.8,
+    "far_max": 36.2,
+    "far_all": 133,
+    "collected": 11,
+    "taken_in_frame": 3,
+    "reaps": 14,
+    "reap_ms": 25,
+    "carry_cpu": 2
+   },
+   "balanced/turn": {
+    "flora_p95": 6.5,
+    "flora_max": 58.6,
+    "far_passes": 59,
+    "far_kinds": "20 landed, 39 drained",
+    "far_median": 14.7,
+    "far_max": 65.2,
+    "far_all": 984,
+    "collected": 5,
+    "taken_in_frame": 23,
+    "reaps": 28,
+    "reap_ms": 137,
+    "carry_cpu": 33,
+    "fail": [
+     "flora's worst moving frame 58.6 ms > balanced's ceiling 32 ms"
+    ]
+   },
+   "balanced/flight": {
+    "flora_p95": 2.2,
+    "flora_max": 11.5,
+    "far_passes": 25,
+    "far_kinds": "17 landed, 8 one-frame",
+    "far_median": 4.4,
+    "far_max": 19.6,
+    "far_all": 158,
+    "collected": 0,
+    "taken_in_frame": 0,
+    "reaps": 0,
+    "reap_ms": 0,
+    "carry_cpu": 29
+   },
+   "balanced/travel": {
+    "flora_p95": 4.1,
+    "flora_max": 11.1,
+    "far_passes": 43,
+    "far_kinds": "41 landed, 2 drained",
+    "far_median": 13.9,
+    "far_max": 42.7,
+    "far_all": 682,
+    "collected": 1,
+    "taken_in_frame": 3,
+    "reaps": 4,
+    "reap_ms": 10,
+    "carry_cpu": 43
+   },
+   "light/walk": {
+    "flora_p95": 0.2,
+    "flora_max": 47.3,
+    "far_passes": 14,
+    "far_kinds": "8 landed, 1 drained, 5 one-frame",
+    "far_median": 8.5,
+    "far_max": 53.7,
+    "far_all": 178,
+    "collected": 7,
+    "taken_in_frame": 7,
+    "reaps": 14,
+    "reap_ms": 14,
+    "carry_cpu": 2,
+    "fail": [
+     "flora's worst moving frame 47.3 ms > light's ceiling 21 ms"
+    ]
+   },
+   "light/turn": {
+    "flora_p95": 4.0,
+    "flora_max": 50.4,
+    "far_passes": 57,
+    "far_kinds": "49 landed, 6 drained, 2 one-frame",
+    "far_median": 6.6,
+    "far_max": 53.1,
+    "far_all": 482,
+    "collected": 31,
+    "taken_in_frame": 4,
+    "reaps": 35,
+    "reap_ms": 153,
+    "carry_cpu": 22,
+    "fail": [
+     "flora's worst moving frame 50.4 ms > light's ceiling 21 ms"
+    ]
+   },
+   "light/flight": {
+    "flora_p95": 1.6,
+    "flora_max": 46.6,
+    "far_passes": 19,
+    "far_kinds": "16 one-frame, 3 landed",
+    "far_median": 3.5,
+    "far_max": 46.4,
+    "far_all": 120,
+    "collected": 1,
+    "taken_in_frame": 3,
+    "reaps": 4,
+    "reap_ms": 7,
+    "carry_cpu": 19,
+    "fail": [
+     "flora's worst moving frame 46.6 ms > light's ceiling 21 ms"
+    ]
+   },
+   "light/travel": {
+    "flora_p95": 1.2,
+    "flora_max": 36.0,
+    "far_passes": 37,
+    "far_kinds": "24 landed, 13 one-frame",
+    "far_median": 7.8,
+    "far_max": 35.4,
+    "far_all": 355,
+    "collected": 14,
+    "taken_in_frame": 14,
+    "reaps": 28,
+    "reap_ms": 19,
+    "carry_cpu": 11,
+    "fail": [
+     "flora's worst moving frame 36.0 ms > light's ceiling 21 ms"
+    ]
+   }
+  },
+  "after": {
+   "full/walk": {
+    "flora_p95": 1.2,
+    "flora_max": 12.1,
+    "far_passes": 15,
+    "far_kinds": "13 landed, 1 drained, 1 jump",
+    "far_median": 11.1,
+    "far_max": 28.0,
+    "far_all": 206,
+    "tails": 1,
+    "tail_frames": 5,
+    "tail_ms": 6,
+    "queued": 0,
+    "tail_dropped": 0,
+    "collected": 12,
+    "taken_in_frame": 1,
+    "reaps": 13,
+    "reap_ms": 70,
+    "carry_cpu": 4
+   },
+   "full/turn": {
+    "flora_p95": 8.3,
+    "flora_max": 45.3,
+    "far_passes": 52,
+    "far_kinds": "39 drained, 6 landed, 7 one-frame",
+    "far_median": 23.5,
+    "far_max": 78.2,
+    "far_all": 1377,
+    "tails": 16,
+    "tail_frames": 180,
+    "tail_ms": 123,
+    "queued": 9,
+    "tail_dropped": 0,
+    "collected": 15,
+    "taken_in_frame": 1,
+    "reaps": 16,
+    "reap_ms": 109,
+    "carry_cpu": 35
+   },
+   "full/flight": {
+    "flora_p95": 3.5,
+    "flora_max": 4.9,
+    "far_passes": 32,
+    "far_kinds": "27 landed, 5 drained",
+    "far_median": 6.9,
+    "far_max": 26.4,
+    "far_all": 293,
+    "tails": 0,
+    "tail_frames": 0,
+    "tail_ms": 0,
+    "queued": 0,
+    "tail_dropped": 0,
+    "collected": 0,
+    "taken_in_frame": 0,
+    "reaps": 0,
+    "reap_ms": 0,
+    "carry_cpu": 36
+   },
+   "full/travel": {
+    "flora_p95": 4.3,
+    "flora_max": 13.9,
+    "far_passes": 50,
+    "far_kinds": "50 landed",
+    "far_median": 22.7,
+    "far_max": 46.9,
+    "far_all": 1192,
+    "tails": 0,
+    "tail_frames": 0,
+    "tail_ms": 0,
+    "queued": 0,
+    "tail_dropped": 0,
+    "collected": 0,
+    "taken_in_frame": 0,
+    "reaps": 0,
+    "reap_ms": 0,
+    "carry_cpu": 54
+   },
+   "balanced/walk": {
+    "flora_p95": 0.3,
+    "flora_max": 4.1,
+    "far_passes": 14,
+    "far_kinds": "11 landed, 1 drained, 1 one-frame, 1 jump",
+    "far_median": 5.5,
+    "far_max": 14.3,
+    "far_all": 96,
+    "tails": 2,
+    "tail_frames": 7,
+    "tail_ms": 1,
+    "queued": 0,
+    "tail_dropped": 0,
+    "collected": 12,
+    "taken_in_frame": 1,
+    "reaps": 13,
+    "reap_ms": 25,
+    "carry_cpu": 3
+   },
+   "balanced/turn": {
+    "flora_p95": 4.1,
+    "flora_max": 17.6,
+    "far_passes": 47,
+    "far_kinds": "21 drained, 15 landed, 11 one-frame",
+    "far_median": 13.8,
+    "far_max": 37.9,
+    "far_all": 643,
+    "tails": 14,
+    "tail_frames": 113,
+    "tail_ms": 75,
+    "queued": 2,
+    "tail_dropped": 0,
+    "collected": 14,
+    "taken_in_frame": 0,
+    "reaps": 14,
+    "reap_ms": 71,
+    "carry_cpu": 33
+   },
+   "balanced/flight": {
+    "flora_p95": 1.9,
+    "flora_max": 13.5,
+    "far_passes": 23,
+    "far_kinds": "12 landed, 11 one-frame",
+    "far_median": 4.4,
+    "far_max": 11.0,
+    "far_all": 121,
+    "tails": 0,
+    "tail_frames": 0,
+    "tail_ms": 0,
+    "queued": 0,
+    "tail_dropped": 0,
+    "collected": 0,
+    "taken_in_frame": 0,
+    "reaps": 0,
+    "reap_ms": 0,
+    "carry_cpu": 25
+   },
+   "balanced/travel": {
+    "flora_p95": 4.2,
+    "flora_max": 13.8,
+    "far_passes": 43,
+    "far_kinds": "43 landed",
+    "far_median": 14.0,
+    "far_max": 30.7,
+    "far_all": 657,
+    "tails": 0,
+    "tail_frames": 0,
+    "tail_ms": 0,
+    "queued": 0,
+    "tail_dropped": 0,
+    "collected": 0,
+    "taken_in_frame": 0,
+    "reaps": 0,
+    "reap_ms": 0,
+    "carry_cpu": 47
+   },
+   "light/walk": {
+    "flora_p95": 0.2,
+    "flora_max": 4.1,
+    "far_passes": 14,
+    "far_kinds": "2 landed, 1 drained, 11 one-frame",
+    "far_median": 3.0,
+    "far_max": 10.4,
+    "far_all": 53,
+    "tails": 12,
+    "tail_frames": 65,
+    "tail_ms": 12,
+    "queued": 0,
+    "tail_dropped": 0,
+    "collected": 13,
+    "taken_in_frame": 0,
+    "reaps": 13,
+    "reap_ms": 10,
+    "carry_cpu": 1
+   },
+   "light/turn": {
+    "flora_p95": 3.9,
+    "flora_max": 5.9,
+    "far_passes": 41,
+    "far_kinds": "22 landed, 2 drained, 17 one-frame",
+    "far_median": 7.8,
+    "far_max": 13.7,
+    "far_all": 317,
+    "tails": 18,
+    "tail_frames": 102,
+    "tail_ms": 82,
+    "queued": 1,
+    "tail_dropped": 0,
+    "collected": 18,
+    "taken_in_frame": 0,
+    "reaps": 18,
+    "reap_ms": 79,
+    "carry_cpu": 23
+   },
+   "light/flight": {
+    "flora_p95": 0.2,
+    "flora_max": 5.8,
+    "far_passes": 18,
+    "far_kinds": "18 one-frame",
+    "far_median": 3.5,
+    "far_max": 5.6,
+    "far_all": 66,
+    "tails": 0,
+    "tail_frames": 0,
+    "tail_ms": 0,
+    "queued": 0,
+    "tail_dropped": 0,
+    "collected": 0,
+    "taken_in_frame": 0,
+    "reaps": 0,
+    "reap_ms": 0,
+    "carry_cpu": 20
+   },
+   "light/travel": {
+    "flora_p95": 1.2,
+    "flora_max": 6.6,
+    "far_passes": 33,
+    "far_kinds": "11 landed, 22 one-frame",
+    "far_median": 3.4,
+    "far_max": 11.9,
+    "far_all": 148,
+    "tails": 22,
+    "tail_frames": 91,
+    "tail_ms": 18,
+    "queued": 0,
+    "tail_dropped": 0,
+    "collected": 23,
+    "taken_in_frame": 0,
+    "reaps": 23,
+    "reap_ms": 15,
+    "carry_cpu": 10
+   }
+  },
+  "dev_run_1": {
+   "full/walk": {
+    "flora_p95": 1.9,
+    "flora_max": 11.8
+   },
+   "full/turn": {
+    "flora_p95": 8.2,
+    "flora_max": 27.3
+   },
+   "full/flight": {
+    "flora_p95": 4.2,
+    "flora_max": 13.2
+   },
+   "full/travel": {
+    "flora_p95": 4.2,
+    "flora_max": 19.2
+   },
+   "balanced/walk": {
+    "flora_p95": 1.1,
+    "flora_max": 5.5
+   },
+   "balanced/turn": {
+    "flora_p95": 4.9,
+    "flora_max": 15.4
+   },
+   "balanced/flight": {
+    "flora_p95": 2.4,
+    "flora_max": 13.0
+   },
+   "balanced/travel": {
+    "flora_p95": 4.1,
+    "flora_max": 6.2
+   },
+   "light/walk": {
+    "flora_p95": 0.2,
+    "flora_max": 4.7
+   },
+   "light/turn": {
+    "flora_p95": 4.1,
+    "flora_max": 9.0
+   },
+   "light/flight": {
+    "flora_p95": 0.9,
+    "flora_max": 4.4
+   },
+   "light/travel": {
+    "flora_p95": 2.1,
+    "flora_max": 7.3
+   }
+  },
+  "dev_run_2": {
+   "full/walk": {
+    "flora_p95": 1.7,
+    "flora_max": 7.3,
+    "far_passes": 14,
+    "far_kinds": "13 landed, 1 jump",
+    "far_median": 24.8,
+    "far_max": 32.2,
+    "far_all": 345
+   },
+   "full/turn": {
+    "flora_p95": 9.3,
+    "flora_max": 37.4,
+    "far_passes": 59,
+    "far_kinds": "46 drained, 13 landed",
+    "far_median": 27.5,
+    "far_max": 91.7,
+    "far_all": 1906
+   },
+   "full/flight": {
+    "flora_p95": 4.1,
+    "flora_max": 19.6,
+    "far_passes": 32,
+    "far_kinds": "26 landed, 6 drained",
+    "far_median": 8.1,
+    "far_max": 96.1,
+    "far_all": 451
+   },
+   "full/travel": {
+    "flora_p95": 4.3,
+    "flora_max": 34.0,
+    "far_passes": 51,
+    "far_kinds": "51 landed",
+    "far_median": 24.4,
+    "far_max": 50.3,
+    "far_all": 1412
+   },
+   "balanced/walk": {
+    "flora_p95": 0.7,
+    "flora_max": 4.7,
+    "far_passes": 14,
+    "far_kinds": "13 landed, 1 jump",
+    "far_median": 13.2,
+    "far_max": 19.2,
+    "far_all": 190
+   },
+   "balanced/turn": {
+    "flora_p95": 4.4,
+    "flora_max": 8.9,
+    "far_passes": 59,
+    "far_kinds": "30 landed, 29 drained",
+    "far_median": 14.6,
+    "far_max": 32.4,
+    "far_all": 956
+   },
+   "balanced/flight": {
+    "flora_p95": 1.5,
+    "flora_max": 20.2,
+    "far_passes": 23,
+    "far_kinds": "12 landed, 11 one-frame",
+    "far_median": 4.6,
+    "far_max": 21.2,
+    "far_all": 142
+   },
+   "balanced/travel": {
+    "flora_p95": 4.1,
+    "flora_max": 5.0,
+    "far_passes": 43,
+    "far_kinds": "43 landed",
+    "far_median": 14.3,
+    "far_max": 21.7,
+    "far_all": 627
+   },
+   "light/walk": {
+    "flora_p95": 0.2,
+    "flora_max": 4.1,
+    "far_passes": 14,
+    "far_kinds": "13 landed, 1 jump",
+    "far_median": 8.5,
+    "far_max": 11.7,
+    "far_all": 119
+   },
+   "light/turn": {
+    "flora_p95": 4.1,
+    "flora_max": 8.6,
+    "far_passes": 59,
+    "far_kinds": "51 landed, 8 drained",
+    "far_median": 9.5,
+    "far_max": 26.9,
+    "far_all": 609
+   },
+   "light/flight": {
+    "flora_p95": 1.5,
+    "flora_max": 4.7,
+    "far_passes": 19,
+    "far_kinds": "3 landed, 16 one-frame",
+    "far_median": 3.6,
+    "far_max": 5.3,
+    "far_all": 69
+   },
+   "light/travel": {
+    "flora_p95": 2.2,
+    "flora_max": 8.5,
+    "far_passes": 39,
+    "far_kinds": "38 landed, 1 one-frame",
+    "far_median": 7.8,
+    "far_max": 13.4,
+    "far_all": 306
+   }
+  }
+ },
+ "mobile_light": {
+  "dev": {
+   "light/walk": {
+    "flora_p95": 2.3,
+    "flora_max": 25.5,
+    "far_passes": 14,
+    "far_kinds": "13 landed, 1 jump",
+    "far_median": 26.8,
+    "far_max": 38.6,
+    "far_all": 399
+   },
+   "light/turn": {
+    "flora_p95": 5.2,
+    "flora_max": 13.8,
+    "far_passes": 59,
+    "far_kinds": "52 landed, 7 drained",
+    "far_median": 40.0,
+    "far_max": 86.0,
+    "far_all": 2448
+   },
+   "light/flight": {
+    "flora_p95": 5.6,
+    "flora_max": 8.0,
+    "far_passes": 32,
+    "far_kinds": "32 landed",
+    "far_median": 34.3,
+    "far_max": 57.0,
+    "far_all": 1137
+   }
+  },
+  "after": {
+   "light/walk": {
+    "flora_p95": 1.3,
+    "flora_max": 13.0,
+    "far_passes": 14,
+    "far_kinds": "13 landed, 1 jump",
+    "far_median": 12.5,
+    "far_max": 47.0,
+    "far_all": 214,
+    "tails": 0,
+    "tail_frames": 0,
+    "tail_ms": 0,
+    "queued": 0,
+    "tail_dropped": 0,
+    "collected": 14,
+    "taken_in_frame": 0,
+    "reaps": 14,
+    "reap_ms": 58,
+    "carry_cpu": 0
+   },
+   "light/turn": {
+    "flora_p95": 5.8,
+    "flora_max": 18.8,
+    "far_passes": 58,
+    "far_kinds": "55 landed, 2 drained, 1 one-frame",
+    "far_median": 23.4,
+    "far_max": 58.3,
+    "far_all": 1520,
+    "tails": 3,
+    "tail_frames": 15,
+    "tail_ms": 58,
+    "queued": 0,
+    "tail_dropped": 0,
+    "collected": 53,
+    "taken_in_frame": 0,
+    "reaps": 53,
+    "reap_ms": 956,
+    "carry_cpu": 5
+   },
+   "light/flight": {
+    "flora_p95": 5.2,
+    "flora_max": 10.2,
+    "far_passes": 29,
+    "far_kinds": "26 landed, 2 one-frame, 1 drained",
+    "far_median": 10.7,
+    "far_max": 66.0,
+    "far_all": 501,
+    "tails": 2,
+    "tail_frames": 5,
+    "tail_ms": 9,
+    "queued": 0,
+    "tail_dropped": 0,
+    "collected": 25,
+    "taken_in_frame": 1,
+    "reaps": 26,
+    "reap_ms": 105,
+    "carry_cpu": 3
+   }
+  }
+ },
+ "first_mid_deal_after_a_tier_change_ms": {
+  "before": {
+   "light": [
+    57,
+    53,
+    53
+   ],
+   "balanced": [
+    10,
+    9,
+    9
+   ]
+  },
+  "after": {
+   "light": "under 8 in 3 of 3 walks",
+   "balanced": "under 8 in 3 of 3 walks"
+  }
+ },
+ "equivalence": {
+  "poses": "6 anchors (sauganash, lake_at_canal, forks, from_above, fort_dearborn, battle_reach_1812) x 4 bearings, phone, light, one-frame pass with kept tiles home (T-2896's dump)",
+  "after_vs_before": "every flora set bit-identical: 33,666 carry instances, every other set, colour included; 0 census rows differ",
+  "after_vs_dev": "33,519 carry instances bit-identical, 312 instance rows differing (the slice's texel class, as before_vs_dev reads exactly), every other set identical; 0 census rows differ",
+  "verify": "every move: the far pass the move left landed IS the one-frame pass"
+ }
+}
