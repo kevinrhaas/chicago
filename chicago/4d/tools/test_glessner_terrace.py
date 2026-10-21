@@ -36,8 +36,10 @@ for reduced in (False,True):
   heights.append(max(hit))
   if i>0:assert not rays(b,x,y,8),('landing protrudes over tread',i)
  # T-2906: the two treads at the foot stand at sheet 4's drawn 1.57 and 0.88 ft;
- # the seven above them share the rest of the rise to the deck evenly.
- expected=[1.68,1.51,1.34,1.17,.99,.82,.65,.479,.268]
+ # the seven above them share the rest of the rise to the deck evenly. Sheet 4 prints
+ # them over 18th Street grade, north_grade_above_grade_ft over the model's (T-2955).
+ ng=record['phases'][0]['form']['grade_datum']['value']['north_grade_above_grade_ft']*.3048
+ expected=[h+ng for h in (1.68,1.51,1.34,1.17,.99,.82,.65,.479,.268)]
  assert all(abs(a-c)<.015 for a,c in zip(heights,expected)),heights
  print('nine independent walk-line ray heights',reduced,[round(h,3) for h in heights])
  for face,mat in zip(b.faces,b.mat_index):
@@ -74,14 +76,14 @@ for reduced in (False,True):
    hit=rays(b,x,y,2)
    assert hit and abs(max(hit)-(bt['z1']-.18+.006))<.0001,('threshold depth separation',reduced,u,off,hit)
  print('stone threshold covers the coplanar reveal and sill',reduced)
- # Independently read section ordinates, metres over grade, on the exposed cap.
+ # Independently read section ordinates, metres over 18th Street grade, on the exposed cap.
  # They are sheet 4's S; T-2880 builds them on the plan's frame, 0.65 ft south
  # (T-2879's re-zero on the printed 26'-10" court face), so ask there.
  for south,upper,lower in ((43,2.52,2.30),(44,2.32,1.98),(44.5,2.13,1.46),(45,1.78,1.22)):
   a=math.pi+math.asin((south+.65-28.8)*.3048/(bt['r']+.055))
   x=bt['cx']+(bt['r']+.054)*math.cos(a);y=bt['cy']+(bt['r']+.054)*math.sin(a)
   hits=rays(b,x,y,2)
-  assert hits and abs(max(hits)-upper)<.04 and abs(min(hits)-lower)<.04,('coping section edges',reduced,south,hits)
+  assert hits and abs(max(hits)-ng-upper)<.04 and abs(min(hits)-ng-lower)<.04,('coping section edges',reduced,south,hits)
  print('both coping edges follow independent section ordinates',reduced)
 
 

@@ -10,6 +10,10 @@ from archetypes.masonry_house_v4_west_roof import components, patches, height, z
 
 record=json.loads((ROOT/'data/structures/glessner_house.json').read_text())
 p=from_phase(record['phases'][0],record)
+# The sections print their heights over 18th Street grade, which stands
+# north_grade_above_grade_ft over the model's grade at the Prairie walk (T-2955).
+NG=record['phases'][0]['form']['grade_datum']['value']['north_grade_above_grade_ft']
+zng=lambda h:(h+NG)*.3048
 r=next(r for r in p.ranges if r.get('stable_roof'))
 patch=patches(r)
 def contains(poly,x,y):
@@ -39,10 +43,10 @@ if g.get('level_courtyard_gable'):
     # Same front and rear peak, and every point between them: no falling ridge.
     for i in range(121):
         y=r['y0']+(r['y1']-r['y0'])*i/120
-        assert abs(height(r,r['ridge_at'],y)-38.6*.3048)<1e-4
+        assert abs(height(r,r['ridge_at'],y)-zng(38.6))<1e-4
     south=profile(r,'south')
     assert len(south)==3 and abs(south[1][0]-r['ridge_at'])<1e-4
-    assert abs(south[1][1]-38.6*.3048)<1e-4
+    assert abs(south[1][1]-zng(38.6))<1e-4
     # North section control S14.6 must continue across the west crossing.
     # The older S18.4 cross-gable can be watertight yet visibly kink in plan.
     assert abs(g['cross_y']-(74-14.6)*.3048)<1e-4
@@ -59,13 +63,13 @@ if g.get('level_courtyard_gable'):
     ny=n['y0']-n['eave_lo_overhang']
     for i in range(81):
         y=r['y0']+(ny-r['y0'])*i/80
-        assert abs(height(r,edge,y)-24*.3048)<1e-4
+        assert abs(height(r,edge,y)-zng(24))<1e-4
         for f in (.1,.5,.9):
             x=r['ridge_at']+(edge-r['ridge_at'])*f
-            assert abs(height(r,x,y)-(38.6+(24-38.6)*f)*.3048)<1e-4
+            assert abs(height(r,x,y)-zng(38.6+(24-38.6)*f))<1e-4
     north_edge=n['eave_lo_z']-n['eave_lo_overhang']*(n['ridge_z']-n['eave_lo_z'])/(n['ridge_at']-n['y0'])
     assert abs(height(r,edge,ny)-north_edge)<1e-4
-    assert abs(n['ridge_z']-34.1*.3048)<1e-4
+    assert abs(n['ridge_z']-zng(34.1))<1e-4
     from archetypes.masonry_house_v4_courtyard_roof import wall_profile
     court_wall=wall_profile(p,r['x1'],n['x1'],n['eave_lo_z'])
     for x,h in court_wall:
@@ -78,7 +82,7 @@ if g.get('level_courtyard_gable'):
     # The 2026-10-15 owner aerial priority supersedes the west-study peak
     # at S18.4. Preserve end eaves and the full-height north-south ridge.
     for station,roof_z in ((0,25.2),(14.6,38.6),(35,16.5),(59.75,16.5)):
-        assert abs(height(r,r['x0'],(74-station)*.3048)-roof_z*.3048)<1e-4
+        assert abs(height(r,r['x0'],(74-station)*.3048)-zng(roof_z))<1e-4
     for _,pts in patches(r,False):
         for a,b in zip(pts,pts[1:]+pts[:1]):
             dx,dy=b[0]-a[0],b[1]-a[1];length=math.hypot(dx,dy)
@@ -96,11 +100,11 @@ elif g.get('connected_roof_plan'):
     # control points. The stable crossing locally occludes the lower ridge.
     for i in range(101):
         y=r['y0']+(r['y1']-r['y0'])*i/100
-        assert abs(height(r,r['ridge_at'],y)-38.6*.3048)<1e-4
+        assert abs(height(r,r['ridge_at'],y)-zng(38.6))<1e-4
     for x in (r['x0'],r['x1']):
-        assert abs(height(r,x,n['ridge_at'])-34.1*.3048)<1e-4
+        assert abs(height(r,x,n['ridge_at'])-zng(34.1))<1e-4
     # Full south gable, never a hip or the former 25.5-ft rear ridge.
-    assert abs(height(r,r['ridge_at'],r['y0'])-38.6*.3048)<1e-4
+    assert abs(height(r,r['ridge_at'],r['y0'])-zng(38.6))<1e-4
     assert len(profile(r,'south'))==3
     # Every shared internal patch edge is continuous, including dormant hood.
     import math
@@ -129,8 +133,8 @@ elif g.get('lower_rear_gable'):
     south_pitch=math.degrees(math.atan2(g['cross_z']-g['cross_foot_eave'],g['cross_y']-g['south_foot_y']))
     assert 34 < north_pitch < 40 and 49 < south_pitch < 55
     assert abs(g['cross_y']-(74-18.4)*.3048)<1e-4
-    assert abs(height(r,r['x0'],g['cross_y'])-38.6*.3048)<1e-4
-    assert abs(height(r,r['x0'],r['y1'])-25.2*.3048)<1e-4
+    assert abs(height(r,r['x0'],g['cross_y'])-zng(38.6))<1e-4
+    assert abs(height(r,r['x0'],r['y1'])-zng(25.2))<1e-4
     for x in (r['x0'],g['front_x0']):
         assert abs(height(r,x,r['y1'])-g['north_west_eave'])<1e-4
     alley_band=next(b for b in p.bands if b['axis']=='x' and b['sign']==-1 and abs(b['at']-r['x0'])<1e-4)
@@ -138,9 +142,9 @@ elif g.get('lower_rear_gable'):
     assert abs(alley_band['u1']-g['south_foot_y'])<1e-4
     for south in [35,40,50,59.75]:
         y=(74-south)*.3048
-        assert abs(height(r,r['x0'],y)-16.5*.3048)<1e-4
-        assert abs(height(r,g['rear_x'],y)-25.5*.3048)<1e-4
-        assert abs(height(r,r['x1'],y)-23.1*.3048)<1e-4
+        assert abs(height(r,r['x0'],y)-zng(16.5))<1e-4
+        assert abs(height(r,g['rear_x'],y)-zng(25.5))<1e-4
+        assert abs(height(r,r['x1'],y)-zng(23.1))<1e-4
     # The east edge must meet the independent, measured north-range section.
     # Roof-wall rays alone could pass while leaving a vertical gap at this join.
     import math
@@ -176,14 +180,14 @@ else:
     # Retain T-1833's prior mode contract; a record selecting that historical
     # reconstruction must still get its balanced, level-ridge south gable.
     for y in [r['y0'],(74-40)*.3048,g['north_range']['y0']]:
-        assert abs(height(r,mid,y)-38.6*.3048)<1e-4
+        assert abs(height(r,mid,y)-zng(38.6))<1e-4
         for offset in [0,1,2,3,4]:
             assert abs(height(r,mid-offset,y)-height(r,mid+offset,y))<1e-4
     for i in range(41):
         t=i/40;lo,hi=g['north_range']['y0'],g['cross_y']
         x=g['rear_x']+(r['ridge_at']-g['rear_x'])*t
-        assert abs(height(r,x,lo+(hi-lo)*t)-38.6*.3048)<1e-4
-    assert abs(height(r,r['x0'],r['y0'])-26.5*.3048)<1e-4
+        assert abs(height(r,x,lo+(hi-lo)*t)-zng(38.6))<1e-4
+    assert abs(height(r,r['x0'],r['y0'])-zng(26.5))<1e-4
     assert abs(height(r,r['x1'],r['y0'])-g['north_range']['eave_lo_z'])<1e-4
 for face in ['west','east','south']:
     for a,b in zip(profile(r,face),profile(r,face)[1:]):
@@ -252,7 +256,7 @@ if p.detail.get('dining_crested_connection'):
     if g.get('level_courtyard_gable'):
         # The restored west slope closes a 0.32-ft corner wedge above the
         # north wall datum; the original flat endpoint would leave a slit.
-        left_height=(38.6+(24-38.6)*15.25/(15.25+2.36))*.3048
+        left_height=zng(38.6+(24-38.6)*15.25/(15.25+2.36))
         assert profile_points[0][0]==n['x0'] and abs(profile_points[0][1]-left_height)<1e-4
     else:
         assert profile_points[0]==(n['x0'],n['eave_lo_z'])

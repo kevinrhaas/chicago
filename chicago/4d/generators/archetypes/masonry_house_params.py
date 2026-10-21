@@ -880,7 +880,9 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                     "door_x": sorted(fr.x(v) for v in junction["service_door_W"]),
                     "step_x": sorted(fr.x(v) for v in junction["step_width_W"]),
                     "step_runs": [v * FT for v in junction["step_runs_ft"]],
-                    "step_heights": [v * FT for v in junction["step_heights_ft"]],
+                    # On 18th Street, so read from north grade like the service door's
+                    # sill they climb to (T-2955): the top tread stays at the threshold.
+                    "step_heights": [fr.z(v, "ng") for v in junction["step_heights_ft"]],
                     "wall_y": north["y1"],
                     "gable_foot_x": west["stable_roof"]["front_x1"],
                     "eave_z": north["eave_hi_z"],
