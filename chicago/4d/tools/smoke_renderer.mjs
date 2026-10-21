@@ -9762,6 +9762,46 @@ for (const [label, viewport, touch] of [
       check(`${label}: the look-at tag can be always shown, and fades after a few seconds by default (T-2942)`,
         places.always?.shown && places.always.stored === 'always' && places.fades === true && places.back, JSON.stringify({ always: places.always, fades: places.fades, fadeAfterMs: places.fadeAfterMs, back: places.back }));
       // <<< T-2942
+      // >>> T-2975 (owner, 2026-10-21: "Name of what you look at does not appear to hide the
+      // name"): the checks above read `tag.hidden`, which was true while the docked tag still
+      // drew — its display:flex beat [hidden]. So these read what is DRAWN: a box on screen.
+      // Faded in its default place, the tag is gone; switched off in Settings › Show, it never
+      // draws in any of its three places while the reticle rests on the building, the Inspect
+      // key stays, and the choice is stored.
+      const hidesTag = await page.evaluate(async () => {
+        const api = window.__chicago4d;
+        const tag = document.getElementById('target-tag');
+        const pick = (id, v) => { const el = document.getElementById(id); el.value = v; el.dispatchEvent(new Event('change', { bubbles: true })); };
+        const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+        const drawn = () => { const b = tag.getBoundingClientRect(); return b.width > 0 && b.height > 0 && getComputedStyle(tag).display !== 'none'; };
+        const out = {};
+        pick('s-look-tag-place', 'right'); pick('s-look-tag-hold', 'fade');
+        api.targetTag.setEnabled(false); api.targetTag.setEnabled(true);
+        for (let i = 0; i < 150 && tag.hidden; i++) await wait(50);
+        out.shownDrawn = !tag.hidden && drawn();
+        const t0 = performance.now();
+        while (!tag.hidden && performance.now() - t0 < 20000) await wait(100);
+        await wait(700);
+        out.fadedDrawn = drawn();
+        const box = document.getElementById('s-look-tag');
+        box.checked = false; box.dispatchEvent(new Event('change', { bubbles: true }));
+        out.saved = JSON.parse(localStorage.getItem('chicago4d.settings') || '{}').lookTag;
+        for (const place of ['right', 'centre', 'bottom']) {
+          pick('s-look-tag-place', place);
+          api.targetTag.setEnabled(false); api.targetTag.setEnabled(true); api.target.invalidate();
+          await wait(1500);
+          out[place] = { drawn: drawn(), current: api.targetTag.current?.id ?? null,
+            inspect: !document.getElementById('btn-inspect').hidden };
+        }
+        box.checked = true; box.dispatchEvent(new Event('change', { bubbles: true }));
+        pick('s-look-tag-place', 'right');
+        return out;
+      });
+      const offEverywhere = ['right', 'centre', 'bottom'].every((p) => hidesTag[p] && !hidesTag[p].drawn && (!hidesTag[p].current || hidesTag[p].inspect));
+      check(`${label}: the docked look-at tag is gone once it fades, and Settings › Show › Name of what you look at, off, hides it in every place with the Inspect key kept (T-2975)`,
+        hidesTag.shownDrawn && !hidesTag.fadedDrawn && hidesTag.saved === false && offEverywhere
+        && ['right', 'centre', 'bottom'].some((p) => hidesTag[p].current), JSON.stringify(hidesTag));
+      // <<< T-2975
     }
 
     // T-2639 (here, in the town: the device is hidden behind the welcome gate). Inspect's tabs

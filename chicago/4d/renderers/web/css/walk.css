@@ -1198,6 +1198,12 @@ body.is-touch .crosshair { display: none; }
   transition: opacity .6s ease;
 }
 .target-tag[hidden] { display: none; }
+/* T-2975: a hidden tag stays hidden in every place. T-2942's docked rule below sets display:
+   flex at this rule's own specificity and later in the file, so `hidden` lost to it and the
+   docked tag never went away: not when switched off in Settings, not at the end of its fade,
+   not when the reticle left the building (owner, 2026-10-21: "Name of what you look at does
+   not appear to hide the name"). */
+.target-tag[data-place][hidden] { display: none; }
 /* T-2736: it holds a few seconds, then fades (target-tag.js FADE_MS matches). */
 .target-tag.is-fading { opacity: 0; pointer-events: none; }
 @media (prefers-reduced-motion: reduce) { .target-tag { animation: none; transition: none; } }
@@ -1759,12 +1765,27 @@ kbd {
   border: 1px solid var(--edge);
   background: rgb(255 255 255 / 7%); color: var(--ink); font: inherit; font-size: 12px;
 }
+/* T-2975: drawn, not left to the platform. iOS draws an unticked box in a dark scheme as a
+   solid black square, which reads as "on" (owner, 2026-10-21). Off is an empty outline; on is
+   the appearance's accent, filled, with a tick in its ink. */
 .check-field input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  margin: 0;
-  accent-color: var(--accent);
+  -webkit-appearance: none; appearance: none;
+  flex: none; display: grid; place-content: center;
+  width: 20px; height: 20px; margin: 0; cursor: pointer;
+  border: 1.5px solid var(--ink-dim); border-radius: 5px;
+  background: transparent;
+  transition: background-color .12s ease, border-color .12s ease;
 }
+.check-field input[type="checkbox"]::before {
+  content: ''; width: 10px; height: 5px; margin-top: -3px;
+  border: solid var(--accent-ink, #0a1426); border-width: 0 0 2.5px 2.5px;
+  transform: rotate(-45deg) scale(0); transition: transform .12s ease;
+}
+.check-field input[type="checkbox"]:checked { background: var(--accent); border-color: var(--accent); }
+.check-field input[type="checkbox"]:checked::before { transform: rotate(-45deg) scale(1); }
+.check-field input[type="checkbox"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.check-field input[type="checkbox"]:disabled { opacity: .45; cursor: default; }
+@media (prefers-reduced-motion: reduce) { .check-field input[type="checkbox"], .check-field input[type="checkbox"]::before { transition: none; } }
 
 .jump-field input[type="search"] {
   width: 100%;
