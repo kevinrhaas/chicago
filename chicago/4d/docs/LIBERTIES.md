@@ -30691,3 +30691,48 @@ Canonical source composition may apply explicitly recorded shoe registration, so
 **How to resolve:** actual canonical exports and source/published images, independently reviewed period garments and anatomy, fit and source licenses. Unverified studies remain unaccepted.
 
 **Recorded:** 2026-10-19 (T-1789, T-2804).
+
+### L-k01-1812-wheeler-porch-2952 — 1812 Prairie's porch arch, side light, swept stair, pierced parapet, flush projection and front downpipes, read off the photograph
+
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-2952 and T-2953, pieces 2 and 3 of
+T-2891) takes the front's lower half as Albert Levy's photograph shows it. The entrance is a broad
+porch arch whose head is a segment, its transom at the spring and the segment over it glazed,
+with the double door, a stone pier and a side light under it; the stair runs straight to the walk
+between solid stone cheeks swept down to a block at the foot, and the landing runs on north to a
+stone parapet pierced in two rows of square holes. The south projection stands flush with the
+south corner, its barred basement light comes down to the walk, and a downpipe runs down each end
+of the front from a rainwater head of its own. The kits learn this: K01's door arch takes
+`rise_over_span` (a segmental head in its voussoir block) and a porch mouth up to 3.2 m across
+under it; K07 takes `side_light` (leaves, pier, light under a transom at the spring and a glazed
+segment over it), swept cheeks beside a terrace, and a terrace `parapet` pierced in rows of holes;
+K01's rainwater takes `front_pipes`, each from its own head. Every other K01 house re-emits
+byte-identical.
+**What is read, not invented.** Through the camera T-2543 solved
+(`data/reference_views/wheeler_house_1812_prairie/levy_front.json`; 88.5 px a metre at the main
+front, the walk at y 1549.6), on 3x crops of the print: the arch's north jamb at x 1020 px (7.9 m
+out), its crown at y 1100 (5.07 m over the walk) under a ring to y 1088 (5.21 m), its spring about
+y 1170 (4.28 m); the transom from 4.03 to 4.28 m; the door from about x 752 to 898, the pier to
+923 (0.29 m), the side light to 1015 (1.04 m), its sill at y 1353 (0.56 m over the 1.65 m floor);
+the cheeks' level tops at about y 1355 (0.5 m over the landing) and the foot blocks' about 1.1 m
+over the walk; the parapet from the north cheek to about x 1097, its two rows of holes about 0.08 m
+square; the stair about 2 m between its cheeks; the projection's south corner at the front's own
+(x 305 px), its basement light from about y 1450 to the walk line at 1550 (1.08 m to about 0.05 m),
+1.86 m across; the north pipe's top at y 647 (10.2 m) at x 1057-1080, and the south pipe at x
+293-300 from the top of the front to the walk.
+**What is invented.** The segment for the print's flatter curve; the arch's mouth 2.7 m across,
+started 0.15 m clear of the projection's north face where the print's moulding runs down the
+projection's corner; the ring 0.15 m and a keystone the ring's height; the fanlight's three plain
+lights and K07's transom bar; the door's two leaves and panels and the side light's single pane;
+the stair 2.05 m wide on v 6.1, its left cheek against the projection; the cheeks' 0.3 m thickness,
+the sweep's curve and the block's 0.45 m; the terrace to 8.2 m and the parapet's 0.2 m thickness,
+six holes a row; the plinth's 0.1 m and the light's sill stone; the rainwater heads' size, the
+south pipe split at the projection's top (the print's pipe runs on past the balcony), and the
+north pipe kept straight where the print's turns north at about 6 m.
+**What is built otherwise than read.** The arch's moulded ring (built a voussoir block), its south
+jamb in the projection's corner, the heavy transom, the fanlight's columns of small panes, the
+north cheek's flare and the newels' carving and caps are open items on the match record.
+**How to resolve:** A sharper print, a drawing or a building permit for the porch settles the
+arch's curve and its south jamb; a second photograph of the stair settles its width and newels.
+**Ticket:** T-2952, T-2953 (pieces 2 and 3 of T-2891).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-21 (T-2952, T-2953).
