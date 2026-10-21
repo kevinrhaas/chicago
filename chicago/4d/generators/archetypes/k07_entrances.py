@@ -145,7 +145,7 @@ class Entrance(Opening):
         if kind == "flat":
             head = Head("flat", s0, s1, H)
         else:
-            ros = 0.125
+            ros = v.get("rise_over_span", 0.125)   # T-2952: a porch arch's own segment
             head = Head(kind, s0, s1, H - Head(kind, s0, s1, 0.0, ros).rise, ros)
         flat = kind == "flat"
         self._arch_head = head
@@ -245,7 +245,25 @@ class Entrance(Opening):
         st = sa["stile_m"]
         top = day.top_y if head.kind == "flat" else head.spring
         has_glass = False
-        if head.kind == "round":
+        sl = v.get("side_light")
+        if sl and head.kind != "flat":
+            # T-2952: a broad arch's mouth (1812's, the Levy print): the transom at the spring, the
+            # segment over it glazed in lights, and under it the leaves, a pier and a side light
+            y_leaf = head.spring - bar
+            self._bar(day, y_leaf, head.spring, d, rev + fr["depth_m"])
+            fan = Region(day.s0, day.s1, head.spring, head=head, head_inset=day.head_inset)
+            self._sash("sash_outer", fan, d, sa, mu, (v.get("transom_lights", 3), 1), (st, st, st, st), "fanlight")
+            b1 = day.s1 - sl["width_m"]
+            a1 = b1 - sl["pier_m"]
+            self.plane("porch_back", box(a1, b1, 0.0, y_leaf), d)
+            self.plane("porch_back", box(b1, day.s1, 0.0, sl["sill_m"]), d)
+            self._sash("sash_outer", Region(b1, day.s1, sl["sill_m"], top_y=y_leaf), d, sa, mu, (1, 1),
+                       (st, st, st, st), "side_light")
+            self.meta["side_light"] = {"s_m": [round(b1, 4), round(day.s1, 4)], "sill_m": sl["sill_m"],
+                                       "pier_m": [round(a1, 4), round(b1, 4)]}
+            day = Region(day.s0, a1, 0.0, top_y=y_leaf)
+            has_glass = True
+        elif head.kind == "round":
             y_leaf = head.spring - bar
             self._bar(day, y_leaf, head.spring, d, rev + fr["depth_m"])
             fan = Region(day.s0, day.s1, head.spring, head=head, head_inset=fr["face_m"])
@@ -434,8 +452,9 @@ class Entrance(Opening):
                     else:
                         self._box("cheek",min(si,so),max(si,so),-R,.85,0,L)
                     continue
-                if st.get("cheek_form") == "swept" and not porches:   # T-2910
-                    self._swept_cheek(si, so, sgn, L, F, R, n, r, g, st["swept"])
+                if st.get("cheek_form") == "swept" and (not porches or all(q.get("parapet") for q in porches)):
+                    # T-2910; T-2952: beside a terrace the cheek starts at the landing's edge
+                    self._swept_cheek(si, so, sgn, L, F, R, n, r, g, st["swept"], start=o0)
                     continue
                 if Dq > L:
                     o0 = Dq
@@ -635,6 +654,9 @@ class Entrance(Opening):
                       (0.0, 0.0, -1.0))
         self.probe(m((s_deck + S) / 2), 0.0, (last + L) / 2, ("terrace",), "the terrace")
         B = porch.get("balustrade")
+        if porch.get("parapet"):
+            self._parapet(porch["parapet"], m, side, s_face, S, L)
+            B = None
         if B:
             # the newels stand REVEAL back from the terrace's edge, so the corner newel's face is
             # never on the plane of the cheek's end beside it (one face drawn twice)
@@ -1101,7 +1123,46 @@ class Entrance(Opening):
                 from .k01_stone_finish import turned_faces
                 self._finish_faces("balcony", turned_faces(c, o, [(.012, t0 + .27), (.05, t0 + .31), (.045, t0 + .37), (.012, t0 + .4)], 10))
 
-    def _swept_cheek(self, si, so, sgn, L, F, R, n, r, g, sw):
+    def _parapet(self, pp, m, side, a, b, L):
+        """T-2952: a stone parapet `height_m` high along a terrace's front from the cheek's face
+        (a) to the terrace's end (b), its face on the terrace's edge, pierced by `holes` [rows,
+        columns] of square holes `hole_m` across, spaced evenly in its length and height."""
+        H, t = pp["height_m"], pp["thickness_m"]
+        rows, cols = pp["holes"]
+        hw, hh = pp["hole_m"]
+        o0, o1 = L - t, L
+        gx = (b - a - cols * hw) / (cols + 1)
+        gy = (H - rows * hh) / (rows + 1)
+        if gx < 0.03 or gy < 0.03:
+            raise ValueError(f"a parapet {b - a:.3f} m long and {H} m high holds no {rows} by {cols} holes")
+        xs = [a]
+        for i in range(cols):
+            xs += [a + gx * (i + 1) + hw * i, a + (gx + hw) * (i + 1)]
+        xs.append(b)
+        ys = [0.0]
+        for j in range(rows):
+            ys += [gy * (j + 1) + hh * j, (gy + hh) * (j + 1)]
+        ys.append(H)
+        hole = lambda i, j: i % 2 == 1 and j % 2 == 1
+        for i in range(len(xs) - 1):
+            for j in range(len(ys) - 1):
+                x0, x1, y0, y1 = xs[i], xs[i + 1], ys[j], ys[j + 1]
+                if hole(i, j):
+                    for (p, q, nrm) in (((x0, y0), (x1, y0), (0.0, 1.0, 0.0)), ((x0, y1), (x1, y1), (0.0, -1.0, 0.0))):
+                        self.quad("cheek", [(m(p[0]), p[1], o0), (m(q[0]), q[1], o0), (m(q[0]), q[1], o1),
+                                            (m(p[0]), p[1], o1)], nrm)
+                    for xe, sg in ((x0, 1.0), (x1, -1.0)):
+                        self.quad("cheek", [(m(xe), y0, o0), (m(xe), y1, o0), (m(xe), y1, o1), (m(xe), y0, o1)],
+                                  (side * sg, 0.0, 0.0))
+                    continue
+                for o, nrm in ((o1, OUT), (o0, (0.0, 0.0, -1.0))):
+                    self.quad("cheek", [(m(x0), y0, o), (m(x1), y0, o), (m(x1), y1, o), (m(x0), y1, o)], nrm)
+        self.quad("cheek", [(m(a), H, o0), (m(b), H, o0), (m(b), H, o1), (m(a), H, o1)], Y)
+        self.quad("cheek", [(m(b), 0.0, o0), (m(b), H, o0), (m(b), H, o1), (m(b), 0.0, o1)], (side, 0.0, 0.0))
+        self.probe(m((a + b) / 2), H, (o0 + o1) / 2, ("cheek",), "the parapet's top")
+        self.meta["parapet"] = {"s": [m(a), m(b)], "height_m": H, "holes": [rows, cols]}
+
+    def _swept_cheek(self, si, so, sgn, L, F, R, n, r, g, sw, start=0.0):
         """T-2910: 1801's cheek walls, as the Taylor photograph shows them: the top level
         `head_m` over the landing beside it, then swept down in one reversed curve (level at
         both ends, steepest at its middle) to a block `block_m` long at the flight's foot whose
@@ -1115,7 +1176,9 @@ class Entrance(Opening):
         N = 24
         top = lambda o: h0 if o <= L else yF if o >= o1 else \
             yF + (h0 - yF) * (1.0 + math.cos(math.pi * (o - L) / (o1 - L))) / 2.0
-        cuts = [0.0, L] + [L + (o1 - L) * i / N for i in range(1, N)] + [o1, F]
+        cuts = ([0.0] if start < L else []) + [L] + [L + (o1 - L) * i / N for i in range(1, N)] + [o1, F]
+        if start >= L:   # T-2952: beside a terrace its back end stands on the terrace's front edge
+            self.quad("cheek", [(si, -R, L), (so, -R, L), (so, h0, L), (si, h0, L)], (0.0, 0.0, -1.0))
         for k in range(1, n):   # the nosing of tread k stands at L + (k-1)g, -k r: and k g further out
             for o in (L + (k - 1) * g, min(L + k * g, F)):
                 if top(o) < -k * r + 0.1 - 1e-9:
@@ -1128,7 +1191,7 @@ class Entrance(Opening):
             self.quad("cheek", [(si, ya, a), (so, ya, a), (so, yb, b), (si, yb, b)], (0.0, b - a, ya - yb))
         self.quad("cheek", [(si, -R, F), (so, -R, F), (so, yF, F), (si, yF, F)], OUT)
         mid = (si + so) / 2
-        a, b = cuts[1], cuts[2]
+        a, b = (cuts[1], cuts[2]) if start < L else (cuts[0], cuts[1])
         top_s, foot_s = (mid, (top(a) + top(b)) / 2, (a + b) / 2), (mid, yF, (o1 + F) / 2)
         self.sockets[f"handrail_{'left' if sgn < 0 else 'right'}"] = [top_s, foot_s]
         for pt in (top_s, foot_s):
