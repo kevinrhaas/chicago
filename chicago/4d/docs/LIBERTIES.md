@@ -28986,6 +28986,37 @@ photographs.
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-22 (T-2900).
 
+### L-kimball-1801-pavilion-gable-2998 — 1801 Prairie's south pavilion under its coped stone gable: the gable's feet, rise and finial read through the camera, its copings', kneelers' and pinnacles' sections and the slate behind it reconstructed
+
+**Decision:** 1801 Prairie's south pavilion (T-2998, piece 1 of T-2540) is capped with the coped
+stone gable J. W. Taylor's c. 1895 photograph shows over it (`taylor_c1895_kimball_residence_1801`),
+in place of K08's low hip, on a new K08 cap: a projection's `gable`, its front carried up between two
+kneelers over the plan's front corners, a slope from each kneeler's inner face to a ridge on the
+pavilion's middle run back to the wall plane, a stone coping along each rake, a pinnacle on each
+kneeler and a stone finial on the apex. **What is read, not invented.** From the print, through the
+Taylor camera and the render beside it: that the gable rises from the shelf over the pavilion's
+third storey between two corner pinnacles, its feet about 0.4 m in from each corner (its base about
+74 of the face's 95 px); that its copings rise about 3.0 m over a half-width of about 1.4 m (pitch
+2.1, about 65 degrees), so its apex stands about 2.9 m over its feet (built 14.51 to 17.45 m, where
+T-2538 read the apex at about 17.4 m); that a pinnacle stands at each foot to about 1.6 m under the
+apex (built to 15.81 m) and a finial about 0.5 m over it (built to 17.95 m); that a slate ridge runs
+back from it. **What is invented.** The kneelers' blocks, 0.4 m in from the corners and 0.78 m
+wide over them, 0.61 m tall from the 13.9 m wall top, run back to the wall plane and covering the
+returns' eaves (stopped on the front's plane); the copings' section, 0.45 m deep, 0.18 m thick and
+0.08 m proud, 0.15 m over the slates; the pinnacles' square shafts, 0.16 m across, 0.7 m tall under
+0.6 m pyramids, and the finial's 0.22 m block under a pyramid, where the print shows an urn; the
+slopes' slate run back only to the wall plane, closed there on it, where the print's ridge runs on
+into the main roof. The gable's face is plain where the print fills it with a carved panel (T-3002).
+Its place on the print is the pavilion face's (T-2999: built about 65 px south of the print's, with
+about 3.3 m of blank wall over the third storey's pair where the print's pair stands close under a
+roundel frieze and the gable's foot), so the gable renders about 60 px high and 65 px south of the
+print's with it.
+**How to resolve:** T-2999 stands the face where the print does and reads its third storey and the
+gable's springing again; a nearer picture of the gable would give its copings, pinnacles and finial.
+**Ticket:** T-2998 (piece 1 of T-2540).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-22 (T-2998).
+
 ### L-k01-1621-last-drawn-2531 — 1621 Prairie's last drawn differences: the door's ring turned to a curved extrados under a band in a deep recess, the light over it stood on a moulded shelf, and splayed voussoirs over the basement lights, their places read and their sections reconstructed
 
 **Decision:** John H. Hamline's house at 1621 Prairie (T-2531, piece 2 of T-2527) takes the three
