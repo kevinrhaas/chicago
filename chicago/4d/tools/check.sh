@@ -832,6 +832,14 @@ step "sheets 28, 20 and 35's 1904 building footprints re-derive from the raster 
 selftest "…and a broken trace, a clockwise or out-of-lot outline, an unnamed or twice-named building still fails it" \
   python3 tools/trace_prairie_1904_footprints.py --self-test
 
+# T-3008: the visibility census of the background behind Prairie Avenue — which Indiana,
+# Calumet, end-street and unlotted ground the avenue's walks see past the traced fabric —
+# re-derives from the street grid, the sheet censuses and the traces it reads.
+step "the background behind Prairie Avenue: what its walks see re-derives (T-3008)" \
+  python3 tools/census_prairie_1904_background.py --check
+selftest "…and its sight-line and storey-height rules hold (T-3008)" \
+  python3 tools/census_prairie_1904_background.py --self-test
+
 step "the 1904 outer lakefront joins every through track, keeps rails dry and reproduces its mapped apron (T-2495)" \
   python3 tools/extend_ic_lakefront_1904.py --check
 
