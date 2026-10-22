@@ -406,8 +406,10 @@ def sill(b, o):
         r.bead(a+i*step/2,z0+.004,.096,.017,.82)
     # The photograph shows conspicuous foliate blocks wider than the sill,
     # not an egg row terminating abruptly at the outer jambs.
-    for mirror,x in ((-1,a-.215),(1,c+.215)):
-        r.box(x-.22,x+.22,z0-.025,z1+.045,-.015,.068)
+    # T-2985: each block's width is the record's (sheet 6), 0.44 m where it names none.
+    half=o.get('terminal',.44)/2
+    for mirror,x in ((-1,a-half+.005),(1,c+half-.005)):
+        r.box(x-half,x+half,z0-.025,z1+.045,-.015,.068)
         _scroll(r,x, z0+height*.51,.105,.099,mirror,0 if mirror>0 else math.pi)
         for j in range(3):
             r.leaf(x-mirror*.17,z0+.012+j*.038,

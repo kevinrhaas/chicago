@@ -5644,3 +5644,6 @@ remain open. Buttons/facings are deferred until the large-form repair is reviewe
 
 
 - T-1789 current increment (2026-10-22): actual canonical96c4/run39736567239 shoulder repair exported and integrated for existing reconstructed Otis Bardwell at Wolf Point. Eight Bardwell assets only; exact measured registry/provenance and all original guards retained. The missing shoulder-panel defect is repaired in actual LOD0 pixels. Final town/current-head CI and full photographic tailoring/library/occupied/other-era acceptance remain open.
+
+
+T-1789 person-card honesty followup (2026-10-22): the existing invented trade-head mint category now reads reconstructed identity rather than named in a source, and model-assigned firm memberships disclose their reconstructed link. Exactly309 invented trade heads change classification; historically source-read residents retain theirs. Presence grades, identities, memberships, assets and the standing position are unchanged. This corrects a false provenance claim found in actual published-town card inspection; photographic finishing remains open.

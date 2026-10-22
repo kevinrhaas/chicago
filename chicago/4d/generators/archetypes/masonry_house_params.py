@@ -635,10 +635,16 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 if it.get("sash"):
                     # T-2212: a sash pattern read off a photograph (two_over_two).
                     op["sash"] = it["sash"]
+                if it.get("terminal_ft"):
+                    # T-2985: a carved band's end blocks, as wide as the elevation draws them.
+                    op["terminal"] = round(float(it["terminal_ft"]) * FT, 4)
                 if it.get("courses"):
                     # T-2926: the light stands in continuous lintel and sill courses
                     # (their own `band` items), so it lays no stones of its own.
                     op["courses"] = True
+                if it.get("panes"):
+                    # T-2928: a narrow light drawn as one pane, with no glazing bars.
+                    op["panes"] = int(it["panes"])
                 if it.get("corbels"):
                     # T-2926: a passage mouth narrowed by two stone corbels under its lintel.
                     cb = it["corbels"]

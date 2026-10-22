@@ -15499,6 +15499,8 @@ for (const [label, viewport, touch] of [
         // John Dean Caton holds four of these houses, which is the fact about the
         // town that no card said before this…
         person: of('caton_john_dean'),
+        reconstructed: of('rc_bardwell_otis'),
+        reconstructedLinks: idx.businesses.flatMap(b => (b.people || []).filter(p => p.person_id === 'rc_bardwell_otis').map(p => ({id:b.id,tier:p.tier}))),
         // …and the register names him FIVE times, because Collins & Caton prints
         // him under two styles. One printing is not one partnership, so the card
         // must list four rows and not five.
@@ -15572,6 +15574,34 @@ for (const [label, viewport, touch] of [
       && wanted.person.includes(landedFromPerson.id)
       && landedFromPerson.name.length > 0 && landedFromPerson.locations > 0,
       JSON.stringify(landedFromPerson));
+
+    // A source-named BUSINESS does not attest an invented person's modelled membership.
+    // Caton's existing positive register-link and click controls above remain unchanged.
+    const reconstructedCard = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      await api.people.open('rc_bardwell_otis');
+      const card = document.getElementById('people-card');
+      const out = {
+        name: card.querySelector('.people-card-name')?.textContent.trim() ?? '',
+        meta: card.querySelector('.people-card-meta')?.textContent ?? '',
+        mark: card.querySelector('.people-card-meta .person-mark')?.textContent.trim() ?? '',
+        what: card.querySelector('.people-card-what')?.textContent ?? '',
+        firmHead: card.querySelector('.people-firms .people-card-h')?.textContent ?? '',
+        firms: [...card.querySelectorAll('.people-firm')].map(el => ({id:el.dataset.business,text:el.textContent})),
+      };
+      api.people.close();
+      return out;
+    });
+    check(`${label}: a reconstructed person's card names the model and never claims archival identity or firm membership`,
+      reconstructedCard.name === 'Otis Bardwell' && /reconstructed/i.test(reconstructedCard.meta)
+      && reconstructedCard.mark === 'reconstructed identity'
+      && /no source names this person/.test(reconstructedCard.what)
+      && !/named in a source|Named by a source/.test(reconstructedCard.meta + reconstructedCard.what)
+      && reconstructedCard.firmHead === 'Firm connections assigned by the model'
+      && wanted.reconstructed.length > 0 && wanted.reconstructedLinks.every(p => p.tier === 'reconstructed')
+      && reconstructedCard.firms.map(p => p.id).sort().join(',') === wanted.reconstructed.join(',')
+      && reconstructedCard.firms.every(p => /modelled connection; no source names this link/.test(p.text)),
+      JSON.stringify({reconstructedCard, expected:wanted.reconstructedLinks}));
 
     // …and the same crosswalk the other way, on the building card's Use row.
     const roofFirms = await page.evaluate((ids) => {

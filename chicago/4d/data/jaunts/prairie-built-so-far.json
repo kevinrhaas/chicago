@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 3710945,
+  "content_version": 704494346,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -25,7 +25,7 @@
         "kind": "structure",
         "id": "glessner_house"
       },
-      "text": "Glessner House, 1800 Prairie. DETAIL 5/5: its own model, built piece by piece rather than from a kit; 12 solved pictures, 2 matching. Pictured: 54 of the pictures on the Images tab show it. Next: Osborn Keith House, 1808 Prairie.",
+      "text": "Glessner House, 1800 Prairie. DETAIL 5/5: its own model, built piece by piece rather than from a kit; 12 solved pictures, 3 matching. Pictured: 54 of the pictures on the Images tab show it. Next: Osborn Keith House, 1808 Prairie.",
       "read_s": 17,
       "evidence": [
         "stood-1",
@@ -760,10 +760,12 @@
       "id": "stood-3",
       "text": "1736 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
+        "sanborn_1911_chicago_v3_sheet_20",
+        "glessner_blog_1736_mcbirney_c1890_photo",
+        "glessner_blog_2020_07_early_history_prairie_iv"
       ],
       "confidence": "inferred",
-      "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+      "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). THE HOUSE'S DATE AND ITS MANSARD'S (T-2962): the house was 'completed in 1864' for Granville S. Ingraham (glessner_blog_2020_07_early_history_prairie_iv), and that post's author judges the mansard 'may well have been a later addition' to an Italianate house of the Civil War years; nothing read here dates the mansard, and the Keith house at 1900 Prairie had its mansard added in the 1880s (glessner_blog_2014_11_elbridge_keith_house), so a later mansard is the street's own pattern, not a proof for this house. For this phase the question is bounded either way: the c. 1890 photograph (earliest 1885) shows the mansard and the veranda front, and the 1911 sheet draws the mansard's curb and prints the house '3B', so the house as built here stood from at least the late 1880s to 1911. The range keeps to the 1904 target because only the front is seen in c. 1890; the flank's bays are the 1911 sheet's. When the house lost the mansard or was demolished is not read."
     },
     {
       "id": "stood-4",

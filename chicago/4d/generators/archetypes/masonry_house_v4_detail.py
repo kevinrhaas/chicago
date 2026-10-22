@@ -463,8 +463,9 @@ class DetailBuilder(MeshBuilder):
                 elif not (o.get('face')=='east' and o['z0']>5 and o['u1']-o['u0']>3):
                     continue
                 else:
-                    cut=[(o['u0']-.435,o['z0']-.025),(o['u1']+.435,o['z0']-.025),
-                         (o['u1']+.435,o['z1']+.045),(o['u0']-.435,o['z1']+.045)]
+                    out=o.get('terminal',.44)-.005
+                    cut=[(o['u0']-out,o['z0']-.025),(o['u1']+out,o['z0']-.025),
+                         (o['u1']+out,o['z1']+.045),(o['u0']-out,o['z1']+.045)]
             elif ringed(o):
                 # The voussoir ring is cut from the courses like the fan, so its
                 # rock faces stand on their own bed, not on the field's crowns.
@@ -916,7 +917,7 @@ def opening(b,o,courtyard=False):
         from archetypes import masonry_house_v4_sash as sash
         sill_mat=ROUGH_TRIM if courtyard else None
         if small and max(c-a,z1-z0)>=.45:
-            sash.slit_sash(b,o,a,c,z0,z1,conf,sill_mat=sill_mat)
+            sash.slit_sash(b,o,a,c,z0,z1,conf,sill_mat=sill_mat,sill=not o.get('courses'),panes=o.get('panes'))
             return
         if not small:
             sash.double_hung(b,o,a,c,z0,z1,conf,divided=o.get('sash')=='two_over_two',sill_mat=sill_mat,
