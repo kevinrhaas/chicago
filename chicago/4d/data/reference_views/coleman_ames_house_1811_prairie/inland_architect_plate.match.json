@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b4583207fee836c734eedf63cbbc39ee46ebbadef35f28fa309716caa4fd7dc7",
+  "glb_sha256": "728cba253d50a050f23c4a4da66a76620de2105a362510dd18ce14066f6146c4",
   "camera_sha256": "8f67a67f5a407ad30522085a1ab67f9c29ddc0bae6ceb1a979db9ea1accdc2b4",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/inland_architect_plate-side-by-side.jpg",
   "verdict": "differs",
@@ -39,6 +39,11 @@
     },
     {
       "what": "the bay's south return and the front's width: the solve puts the plate's front from x 112 to 287 px (v 2.29-5.99, about 3.7 m), its windows' centres at x 163 and 251 px; the build's return stands at s 5.45 (the downpipe beside it at s 5.7 is the plate's x 298-302 on the main wall), so its front is 3.16 m and its south window lands at x 206-251 against the plate's 232-271 (T-2993)",
+      "status": "fixed",
+      "how": "T-2993: re-read, the front is flat to its south corner: its cornice, both string courses and the sills and heads run level to about x 287-290 px, where the bay's rounded south corner stands (x 285-296), so the sheet's trace's south cant (u 8.51, v 4.88 back to the wall at v 6.02) is not the plate's. The return moved from s 5.45 to the solve's v 5.99, square and 1.0 m deep, so the front is 3.70 m (s_m 4.14), T-2541's own reading; the front's south corner lands at x 289 px against the plate's 287-290 and the return runs to the main wall at x 315, where the plate's cornice, wrapping the corner, slopes down to the main wall's band at about x 315. The south window and the basement light under it moved to v 5.22, the plate's centres: the window lands at x 231-276 against the plate's 232-271, the north one stays at 143-188 against 137-190"
+    },
+    {
+      "what": "the bay's south-return downpipe: the plate's pale rod at x 298-302 px, from a head under the bay's cornice, runs down the return's own south face about 0.3 m in from the front's corner (a 1.0 m return at v 5.99 hides the main wall from x 288 to 315 px, so it cannot stand on the main front there); K01's front pipes run only along the street front, so T-2993 stands it on the main front beside the return at 6.24 m, landing at x 320-326 px, about 21 px south of the plate's (T-2997)",
       "status": "open"
     },
     {
@@ -62,7 +67,7 @@
       "how": "T-2541's coped gable end on K01's 'north' wall, carried up by T-2542 to the steep roof's 16.0 m ridge; the stacks themselves are a difference of their own below"
     },
     {
-      "what": "the oriel's depth and returns: the plate's oriel stands about 0.6 m out on square returns with a light in each; the build's stands 0.5 m out on canted returns with none, K08's corbel rule holding three courses to 0.52 m; the plate's oriel is a flat-fronted box about 3 m across (x 338-470 px), its south return lit by two or three narrow lights, on a rounded rock-faced base (T-2989)",
+      "what": "the oriel's depth and returns: the plate's oriel is a flat-fronted box about 3 m across (x 338-470 px) about 0.6 m out, its south return lit by two or three narrow lights and stood on a rounded rock-faced base; the build's stands 0.5 m out on canted returns with none, on K08's three corbel courses (0.52 m at most). T-3005's re-read: the return reads 27 px wide (x 470-497), which a square 0.6 m return cannot fill from this camera (about 9 px): it follows the entrance block's ROUNDED south corner under it (T-3006), so the oriel waits on that corner (T-3007)",
       "status": "open"
     },
     {
@@ -76,7 +81,7 @@
       "how": "T-2918: the arch is the porch's mouth, 1.9 m across and crowned 2.75 m over the door's floor (4.1 m over grade, about 4 px under the plate's 4.2 m, so its head and ring clear the oriel's corbel foot), its 0.4 m voussoirs to about 4.5 m; behind it K01's loggia (T-2910), 2.3 m along the front and 1.8 m deep from the face, the double door under its transom in the back wall. Each jamb carries a cluster of round shafts (`loggia.columns`, new): two on the north side and three on the south, 0.22 m thick at 0.24 m centres, on a plinth 0.86 m over the floor, each under a necking ring, a flared bell and an abacus at the springing; overlaid on the plate, the south cluster's three shafts land on the plate's three (x 442, 452 and 463 px), the north shaft on its own (x 348), the capitals on the plate's line (y 673-684 px) and the plinths' tops within about 2 px of y 725. The stair's cheeks are K07's scrolled cheek (`cheek_form: scrolled`), swept down to a rolled scroll. The capitals' leafage is not carved: the bell and abacus stand for it"
     },
     {
-      "what": "the porch's south return: beside the arch, from about x 467 to 507 px, the plate opens the entrance block's south return as a small arcade of round-arched lights on colonnettes with carved capitals, lighting the porch from the side; the build closes it in coursed stone (T-2991); the arcade's capitals (y 680-690 px) and crowns (y 647-660) step down across x 476-501, so it stands on a face receding from the front, about v 9.4-9.5 by the camera, short of the solved south corner at v 10.40",
+      "what": "the porch's south return: beside the arch, from about x 467 to 507 px, the plate opens the entrance block's south return as a small arcade of round-arched lights on colonnettes with carved capitals, lighting the porch from the side; the build closes it in coursed stone (T-2991); the arcade's capitals (y 680-690 px) and crowns (y 647-660) step down across x 476-501, so it stands on a face receding from the front, about v 9.4-9.5 by the camera, short of the solved south corner at v 10.40; T-3005's re-read: the corner is ROUNDED, about 0.9 m radius, its front tangent at x 467-470 (v about 9.5) and its far side at about x 515-520 (the solve's x 510 is that edge), the downpipe's shoe at about y 816 px on the south face just behind it; the colonnettes step down because they run round the curve (on a 0.9 m radius, x 476, 490 and 501 px stand at about 8, 27 and 44 degrees from the front), not along a flat return. K01 has no rounded corner (T-3006); the arcade then stands on it (T-2991)",
       "status": "open"
     },
     {
@@ -119,7 +124,8 @@
     },
     {
       "what": "the oriel's height: its cornice stands at about 9.46 m against the plate's 9.06 m (about 18 px high), because K01 carries an oriel through the eave only 0.3 m past the eave datum (T-2989)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3005: the plate's 9.06 m is the TOP of the oriel's cornice: its moulded band is drawn at y 407-417 px (about 8.81-9.03 m at the oriel's face), the slates starting over it. K01 now lets a through-eave oriel's wall top stand under the eave datum, so long as it rises 0.3 m over the eave's front edge (the fascia's top, 8.50 m), so the eave still dies into its walls; its back is closed over the datum behind its eaves and spire only. Its wall top is 8.81 m and its 0.25 m fascia's top 9.06 m: the band lands at y 407-417 px with the plate's, where it stood at about 390-405, and the spire, rising 2.75 m, keeps its apex at 11.81 m (y about 295 px, the plate's). Every other K01 house re-emits byte-identical"
     },
     {
       "what": "the stacks: the plate's tall stack with its corbelled cap on the south gable and the range's second stack (x about 545 px); the build's two plain stacks stand behind the ridge where this camera does not see them",

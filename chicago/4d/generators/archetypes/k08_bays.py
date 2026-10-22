@@ -44,6 +44,10 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                the wall plane over the plan's middle, a polygonal cone; and an oriel carried
                up through its house's eave (`back_from_m`) closes its back on the wall plane
                from that height to the apex, since no wall stands behind it there
+  gable        (T-2998) a projection's coped stone gable: its front carried up between two
+               kneelers over its corners, a slope from each to a ridge on its middle run back
+               to the wall, a stone coping along each rake, and a pinnacle on each kneeler
+               and a finial on the apex when the roof names them
 
 Everything a run carries is built FLAT, in the run's own (s, y, z) frame (s along the
 run's outer face, y up, z out of it: K06's frame), then mapped onto the run: rigidly
@@ -732,6 +736,46 @@ def surround(o, su: dict, op, s: float, tier: str) -> list:
 
 # -- a window: a K06 opening, its recess cut to the bay ------------------------------------------
 
+class _Cut:
+    """T-2998: a run whose eaves end square on the plane where it meets its neighbour, not
+    mitred round the corner: a return's under a gable, stopped on the face's plane inside
+    the kneeler that covers it. Uncut, it is the run itself."""
+
+    def __init__(self, run, start=False, end=False):
+        self.run, self.start_cut, self.end_cut = run, start, end
+
+    def __getattr__(self, k):
+        return getattr(self.run, k)
+
+    def s_start(self, z):
+        return 0.0 if self.start_cut else self.run.s_start(z)
+
+    def s_end(self, z):
+        return self.run.L if self.end_cut else self.run.s_end(z)
+
+
+def gable_face(v: dict):
+    """T-2998: the run a gable roof is carried up from, or None under any other roof. A gable
+    stands on a projection's square plan (a return, the front, a return), the front square
+    to the wall: the front is the gable, its ridge runs back to the wall on the plan's
+    middle, and its slopes fall to the returns."""
+    rf = v.get("roof") or {}
+    if rf.get("kind") != "gable":
+        return None
+    pts = [tuple(map(float, q)) for q in v["plan"]["points"]] if v["plan"]["kind"] == "polyline" else []
+    eq = lambda a, b: abs(a - b) < 1e-9
+    if v["kind"] != "projection" or len(pts) != 4 or not (eq(pts[0][1], 0.0) and eq(pts[3][1], 0.0)
+                                                        and eq(pts[0][0], pts[1][0]) and eq(pts[2][0], pts[3][0])
+                                                        and eq(pts[1][1], pts[2][1]) and pts[1][1] > 0
+                                                        and pts[1][0] < pts[2][0]):
+        raise ValueError(f"{v['id']}: a gable stands on a projection's square plan, two returns and a front")
+    if rf.get("flare") or rf.get("finial"):
+        raise ValueError(f"{v['id']}: a gable does not flare, and its finial is its own stone one (gable.finial)")
+    if not 1.0 <= float(rf["pitch"]) <= 3.0:
+        raise ValueError(f"{v['id']}: a coped gable rises 1.0-3.0 m a metre in, not {rf['pitch']}")
+    return 1
+
+
 def k06_variant(w: dict) -> dict:
     data6 = K6.load()
     v6 = copy.deepcopy(next(x for x in data6["variants"] if x["id"] == w["opening"]))
@@ -809,6 +853,8 @@ class Bay:
         if prof:
             ov, fh = max(n for n, _ in prof), max(u for _, u in prof)
         y_e = y_top + fh
+        gi = gable_face(v)   # T-2998: the run a gable is carried up from, or None
+        self._y_top = y_top
         self.meta.update({"base_m": y0, "levels_m": [round(y, 4) for y in levels], "wall_top_m": round(y_top, 4),
                           "eave_m": round(y_e, 4), "wall_thickness_m": wall_t, "recess_m": recess,
                           "overhang_m": ov, "max_seg_deg": cv["max_seg_deg"]})
@@ -880,13 +926,18 @@ class Bay:
             # the eaves: a soffit out to the fascia, the fascia's top the roof's eaves line
             if v.get("cap_band"):
                 self._cap_band(flat, run, y_top, v["cap_band"])
-            if prof:
+            # T-2998: under a gable the face has no eaves (it is carried up as the gable), and
+            # the returns' eaves stop square on the face's plane, inside the kneelers
+            er = _Cut(run, start=gi is not None and i == gi + 1, end=gi is not None and i == gi - 1)
+            if gi is not None and i == gi:
+                pass
+            elif prof:
                 # T-2472: in the stone of the bay's bands, or the role its eaves name (the
                 # bracketed cornice's section is the eave's painted timber)
-                moulding(flat, eaves.get("role", "band"), run, y_top, prof)
+                moulding(flat, eaves.get("role", "band"), er, y_top, prof)
             else:
-                ledge(flat, "soffit", run, y_top, 0.0, ov, (0.0, -1.0, 0.0))
-                flat.plane("fascia", K6.box(run.s_start(ov), run.s_end(ov), y_top, y_e), -ov)
+                ledge(flat, "soffit", er, y_top, 0.0, ov, (0.0, -1.0, 0.0))
+                flat.plane("fascia", K6.box(er.s_start(ov), er.s_end(ov), y_top, y_e), -ov)
             if v.get("brackets"):
                 self._modillions(flat, run, y_top, ov)
             if v.get("balcony"):
@@ -1073,6 +1124,8 @@ class Bay:
     def _roof(self, world, y_e, ov, cv):
         rf = self.v["roof"]
         tower = self.v["kind"] == "tower"
+        if rf["kind"] == "gable":
+            return self._gable(world, self._y_top, y_e, ov)
         if rf["kind"] == "spire":
             self._spire(world, y_e, ov, float(rf["rise_m"]))
         elif self.plan["kind"] == "arc":
@@ -1136,6 +1189,112 @@ class Bay:
         if flare:
             self.meta["roof"]["flare"] = dict(flare)
 
+    def _gable(self, world, y_top, y_e, ov):
+        """T-2998: a coped stone gable (1801 Prairie's south pavilion, the Taylor photograph).
+        The front is carried up past the wall top as a gable between two KNEELERS, square
+        blocks over the plan's front corners that stand from the wall top to the copings'
+        foot, run back to the wall plane and cover the returns' eaves (stopped on the
+        front's plane, `_Cut`). From each kneeler's inner face a slope of the roof rises at
+        `pitch` to a ridge on the plan's middle, eaves line high at the kneeler, and runs
+        back from the gable to the wall plane. The gable's face stands `upstand_m` over the
+        roof's plane under a stone COPING along each rake, proud of the face, its back the
+        parapet's over the roof. A PINNACLE (a square shaft under a pyramid) may stand on
+        each kneeler and a stone FINIAL (a block under a pyramid) on the apex."""
+        rf, g = self.v["roof"], self.v["roof"]["gable"]
+        pitch = float(rf["pitch"])
+        pts = self.v["plan"]["points"]
+        xl, p, xr = float(pts[1][0]), float(pts[1][1]), float(pts[2][0])
+        xc = (xl + xr) / 2
+        up = float(g["upstand_m"])
+        cw, ch, cp = (float(g["coping"][k]) for k in ("width_m", "height_m", "proud_m"))
+        kw, ko = float(g["kneeler"]["width_m"]), float(g["kneeler"]["out_m"])
+        zf, zb = p + cp, p + cp - cw          # the copings' front and back (the parapet's back)
+        xa, xb = xl + kw, xr - kw             # the kneelers' inner faces
+        if not (0.1 <= up <= 0.6 and 0.1 <= ch <= 0.4 and 0.0 <= cp <= 0.15 and 0.01 <= ko <= 0.15):
+            raise ValueError(f"{self.v['id']}: gable upstand 0.1-0.6 m, coping 0.1-0.4 m high and 0-0.15 m "
+                             f"proud, kneeler 0.01-0.15 m out past the eaves (so its side is not the fascia's)")
+        if not (0.05 <= zb <= p - 0.1 and 0.1 <= kw and xa <= xc - 0.5):
+            raise ValueError(f"{self.v['id']}: the coping's back {zb:.3f} m out stands 0.05 m out of the wall "
+                             f"and 0.1 m behind the front, and the kneelers leave the gable a metre across")
+        roof = lambda x: y_e + pitch * (xc - xa - abs(x - xc))
+        under = lambda x: roof(x) + up
+        top = lambda x: under(x) + ch
+        y_r, y_k = roof(xc), top(xa)
+        F, B, D = (0.0, 0.0, 1.0), (0.0, 0.0, -1.0), (0.0, -1.0, 0.0)
+        # the roof's two slopes, kneeler to ridge, from the parapet's back to the wall plane
+        for xs in (xa, xb):
+            world.face("roof", [(xs, y_e, 0.0), (xc, y_r, 0.0), (xc, y_r, zb), (xs, y_e, zb)], Y)
+        # the gable: the front carried up from the wall top to the copings' beds
+        world.face("wall", [(xa, y_top, p), (xb, y_top, p), (xb, under(xb), p), (xc, under(xc), p),
+                            (xa, under(xa), p)], F)
+        for xs in (xa, xb):
+            n = (-1.0 if xs < xc else 1.0, 0.0, 0.0)
+            # the parapet's back over the roof
+            world.face("band", [(xs, roof(xs), zb), (xc, y_r, zb), (xc, under(xc), zb), (xs, under(xs), zb)], B)
+            # the coping, kneeler to apex: its top, its bed's overhang, its front and its back
+            world.face("band", [(xs, top(xs), zb), (xc, top(xc), zb), (xc, top(xc), zf), (xs, top(xs), zf)],
+                       _add(Y, _mul(n, pitch)))
+            world.face("band", [(xs, under(xs), p), (xc, under(xc), p), (xc, under(xc), zf), (xs, under(xs), zf)], D)
+            world.face("band", [(xs, under(xs), zf), (xc, under(xc), zf), (xc, top(xc), zf), (xs, top(xs), zf)], F)
+            world.face("band", [(xs, under(xs), zb), (xc, under(xc), zb), (xc, top(xc), zb), (xs, top(xs), zb)], B)
+        # the kneelers, over the plan's front corners; their backs over the eaves line only,
+        # where a host closes a projection's back from its wall top to its eaves
+        knees = ((xl - ov - ko, xa), (xb, xr + ov + ko))
+        for (a, b), (e0, e1) in zip(knees, ((xl - ov, xl), (xr, xr + ov))):
+            self._block(world, "band", a, b, y_top, y_k, 0.0, zf, back_from=y_e, under=False)
+            # its underside where the return's soffit is not: out past the fascia, and proud
+            # of the front
+            world.face("band", [(a, y_top, p), (b, y_top, p), (b, y_top, zf), (a, y_top, zf)], D)
+            o0, o1 = (a, e0) if a < e0 else (e1, b)
+            world.face("band", [(o0, y_top, 0.0), (o1, y_top, 0.0), (o1, y_top, p), (o0, y_top, p)], D)
+        meta = {"kind": "gable", "pitch": pitch, "planes": 2, "apex": [round(xc, 4), round(y_r, 4), 0.0],
+                "ridge_m": round(y_r, 4), "kneeler_m": round(y_k, 4), "gable_top_m": round(top(xc), 4)}
+        zm = (zb + zf) / 2
+        pn = g.get("pinnacle")
+        if pn:
+            w, sh, cap = (float(pn[k]) for k in ("width_m", "shaft_m", "cap_m"))
+            if not (w <= min(cw, xa - xl + ov + ko) - 0.04 and 0.1 <= sh <= 2.0 and 0.1 <= cap <= 1.5):
+                raise ValueError(f"{self.v['id']}: a pinnacle stands inside its kneeler, its shaft 0.1-2 m "
+                                 f"and its cap 0.1-1.5 m")
+            for a, b in knees:
+                self._spike(world, (a + b) / 2, zm, w, y_k, sh, cap)
+            meta["pinnacle_top_m"] = round(y_k + sh + cap, 4)
+        fn = g.get("finial")
+        if fn:
+            w, sh, cap = (float(fn[k]) for k in ("width_m", "shaft_m", "cap_m"))
+            if not (w <= cw - 0.04 and 0.05 <= sh <= 1.0 and 0.1 <= cap <= 1.5):
+                raise ValueError(f"{self.v['id']}: a gable's finial stands on its copings, its block 0.05-1 m "
+                                 f"and its cap 0.1-1.5 m")
+            # its block seated down the copings' slope to where both rakes are under it
+            self._spike(world, xc, zm, w, top(xc) - pitch * w / 2, sh + pitch * w / 2, cap)
+            meta["finial_top_m"] = round(top(xc) + sh + cap, 4)
+        self.meta["roof"] = meta
+
+    def _block(self, world, role, x0, x1, y0, y1, z0, z1, back_from=None, under=True):
+        """T-2998: a closed stone block, square to the bay's frame; its back on z0 from
+        `back_from` up when a host closes the rest, and no underside where the caller lays
+        its own."""
+        Lx, Rx = (-1.0, 0.0, 0.0), (1.0, 0.0, 0.0)
+        world.face(role, [(x0, y0, z1), (x1, y0, z1), (x1, y1, z1), (x0, y1, z1)], (0.0, 0.0, 1.0))
+        world.face(role, [(x0, y1, z0), (x1, y1, z0), (x1, y1, z1), (x0, y1, z1)], Y)
+        if under:
+            world.face(role, [(x0, y0, z0), (x1, y0, z0), (x1, y0, z1), (x0, y0, z1)], (0.0, -1.0, 0.0))
+        world.face(role, [(x0, y0, z0), (x0, y0, z1), (x0, y1, z1), (x0, y1, z0)], Lx)
+        world.face(role, [(x1, y0, z0), (x1, y0, z1), (x1, y1, z1), (x1, y1, z0)], Rx)
+        yb = y0 if back_from is None else back_from
+        world.face(role, [(x0, yb, z0), (x1, yb, z0), (x1, y1, z0), (x0, y1, z0)], (0.0, 0.0, -1.0))
+
+    def _spike(self, world, x, z, w, y0, sh, cap):
+        """T-2998: a pinnacle or a gable's finial: a square shaft `w` across from y0 up `sh`,
+        under a square pyramid `cap` high; its foot sits on the stone it stands on."""
+        h = w / 2
+        ring = [(x - h, z - h), (x + h, z - h), (x + h, z + h), (x - h, z + h)]
+        y1, tip = y0 + sh, (x, y0 + sh + cap, z)
+        for (ax, az), (bx, bz) in zip(ring, ring[1:] + ring[:1]):
+            n = ((ax + bx) / 2 - x, 0.0, (az + bz) / 2 - z)    # out of the shaft's middle
+            world.face("band", [(ax, y0, az), (bx, y0, bz), (bx, y1, bz), (ax, y1, az)], n)
+            world.face("band", [(ax, y1, az), (bx, y1, bz), tip], _add(n, Y))
+
     def _eaves_outline(self, ov):
         """The plan's eaves line: each run's line offset `ov` out, from where the first meets
         the wall plane to where the last does, through the corners between them."""
@@ -1172,18 +1331,27 @@ class Bay:
         eave, so its back is closed on the wall plane, in its own walling, from `y_b` (the
         house's wall head, where the house's roof leaves the wall) up: behind its walls to
         their top, behind its eaves to their line, and under its spire to the apex. Cut at
-        the junctions and at the eaves' ends, so no edge of it ends on another's middle."""
+        the junctions and at the eaves' ends, so no edge of it ends on another's middle.
+
+        T-2989: a wall top UNDER `y_b` (1811's oriel, its cornice under its house's eave
+        datum) has no back to its walls to close, since the house's own wall stands behind
+        them to `y_b`: the back is closed behind its eaves from `y_b` (if they rise past
+        it) and under its spire from its eaves line."""
         if not hasattr(self, "_spire_back"):
             raise ValueError(f"{self.v['id']}: only an oriel under a spire is carried through an eave")
         jl, jr = self.runs[0].world(0.0, 0.0, 0.0)[0], self.runs[-1].world(self.runs[-1].L, 0.0, 0.0)[0]
         el, er, apex = self._spire_back
-        if not el < jl < jr < er or not y_b < y_top - 0.3:
-            raise ValueError(f"{self.v['id']}: its back from {y_b} m needs the wall top at least 0.3 m over it")
+        under = y_top <= y_b
+        if not el < jl < jr < er or not (y_b < y_top - 0.3 or under):
+            raise ValueError(f"{self.v['id']}: its back from {y_b} m needs the wall top at least 0.3 m over it, "
+                             f"or under it")
         B = (0.0, 0.0, -1.0)
         q = lambda x0, x1, y0, y1: [(x1, y0, 0.0), (x0, y0, 0.0), (x0, y1, 0.0), (x1, y1, 0.0)]
-        world.face("roof_back", q(jl, jr, y_b, y_top), B)
+        if not under:
+            world.face("roof_back", q(jl, jr, y_b, y_top), B)
         for x0, x1 in ((el, jl), (jl, jr), (jr, er)):
-            world.face("roof_back", q(x0, x1, y_top, y_e), B)
+            if not under or y_b < y_e:
+                world.face("roof_back", q(x0, x1, y_b if under else y_top, y_e), B)
             world.face("roof_back", [(x1, y_e, 0.0), (x0, y_e, 0.0), apex], B)
         self.meta["back"] = {"from_m": round(y_b, 4), "to_m": round(apex[1], 4)}
 

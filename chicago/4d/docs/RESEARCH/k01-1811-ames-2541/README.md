@@ -65,3 +65,38 @@ The match record lists what is fixed and what is still open.
   `k01_frontage_params._bays` already applies. The edit re-keys every mesh built through
   `k01_frontage.py`: 25 K01, K12, K13 and K16 assets were rebaked with byte-identical GLBs, and only
   their `inputs_sha256` moved.
+
+## T-3005 — the entrance block's south corner, re-read; the oriel's cornice
+
+Piece 1 of T-2989. Read on the plate through the T-2541 camera (`x = 689 + 659 (v - 14.45) / (22.5 - u)`).
+
+**The corner is rounded.** Two things at the south end of the entrance block stand on a face
+that recedes: the porch arcade's colonnettes (x 476, 490 and 501 px, their capitals stepping from
+y 680 to 690 and their crowns from 647 to 660) and the oriel's south return (x 470-497 px, its
+cornice falling from y 412 to about 465 across it, three narrow lights in it). From this camera a
+square return at v about 9.7 shows about 15 px per metre of depth, so the oriel's 0.6 m return
+would fill about 9 px, not 27, and a flat return on the front's plane would need the oriel to
+stand about 2 m deep. The rock-faced base under the arcade is lit evenly from x about 458 to
+514 px with no arris, and the downpipe's shoe meets the walk at about y 816 px, which puts it at
+about u 6.0, v 10.2: on the south wall's face, just behind the front. A corner rounded on a
+radius of about 0.9 m (centre near u 6.67, v 9.5) reads all of it: its front tangent stands at
+x 470 px, its far side at about x 515-520 px (the edge T-2541's solve took for a square corner at
+x 510), and on it the three colonnettes stand at about 8, 27 and 44 degrees from the front,
+evenly about 0.28 m apart, stepping down as they go round. The 1911 sheet draws the front square
+to the south wall at its 50 ft scale; a 0.9 m round is under 1 mm there. The camera solve stands:
+the corner's silhouette moves its third edge 5-10 px, inside its stated uncertainty.
+
+K01 cannot round a corner, so the corner is T-3006, the oriel over it T-3007, and the arcade on it
+T-2991 after them.
+
+**The oriel's cornice.** The plate's "cornice at 9.06 m" is the cornice's TOP: its moulded band is
+drawn at y 407-417 px (about 8.81-9.03 m at the oriel's 0.6 m-proud face) with the slates
+starting directly over it. K01 carried an oriel through the eave only with its wall top 0.3 m
+over the eave datum (9.14 m), so it stood at 9.46 m with its fascia to 9.71. The rule now also
+takes a wall top under the datum that rises 0.3 m over the eave's front edge, the fascia's top
+(9.14 - 0.35 tan 61.2 = 8.50 m), so the eave still dies into its walls; `k08_bays._back` closes
+its back over the datum behind its eaves and spire only, since the house's own wall stands
+behind its walls to the datum. 1811's oriel storey is 3.81 m: its wall top 8.81 m and its
+fascia's top 9.06 m, the band landing at y 407-417 px with the plate's; the spire rises 2.75 m
+so its apex stays at 11.81 m. 1623's oriel, the only other through-eave one, re-emits
+byte-identical, as does every other K01 house.

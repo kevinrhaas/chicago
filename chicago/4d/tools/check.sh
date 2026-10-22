@@ -1021,6 +1021,15 @@ step "a mansard face holds two storeys; a K08 pavilion past the eave is closed b
 step "a K01 wing runs past its host wall; a K08 corner turret stands at a wing's end (T-2900)" \
   python3 tools/test_k01_wing_past_host.py
 
+# T-2998. ...and 1801 Prairie's south pavilion's coped stone gable, from the Taylor photograph:
+# a K08 projection's roof may be a `gable`, its front carried up between kneelers under raking
+# stone copings, a slope from each kneeler to a ridge on its middle run back to the wall, a
+# pinnacle on each kneeler and a stone finial on the apex; the front has no eaves and the
+# returns' stop on its plane inside the kneelers. Every other roof builds as before, and each
+# refusal round it says why.
+step "a K08 projection takes a coped stone gable (T-2998)" \
+  python3 tools/test_k08_gable.py
+
 # T-2788. ...and what an all-stone house is. A K01 record naming `construction: "stone"`
 # lays its K02 stone_front round every face, not a stone front on a brick box. No record
 # names it yet (1801 Prairie, T-2789, is the first), so this builds four houses that carry
