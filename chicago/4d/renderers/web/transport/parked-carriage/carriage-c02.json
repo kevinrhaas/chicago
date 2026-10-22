@@ -1,0 +1,567 @@
+{
+  "asset_id": "carriage_c02_parked_1904_reconstructed_01",
+  "revision": 2,
+  "units": "m",
+  "up_axis": "+Y",
+  "forward_axis": "+Z",
+  "root_datum": "ground midpoint between axles",
+  "status": "Original parked town-carriage reconstruction; maker, subtype and owner unknown; photographic quality remains unaccepted",
+  "scene_eligibility": "1904 parked reconstructed example only; no exact recorded carriage presence or ownership asserted",
+  "parameters": {
+    "cabin_envelope_m": [
+      1.32,
+      1.7,
+      1.44
+    ],
+    "wheelbase_m": 1.9,
+    "track_m": 1.4,
+    "wheel_radius_front_m": 0.45,
+    "wheel_radius_rear_m": 0.55,
+    "shaft_length_m": 2.2,
+    "shaft_inner_spacing_tip_m": 0.773,
+    "steering_limit_deg": 8,
+    "operable_door_study": true
+  },
+  "wheel_roll_axis": "+X",
+  "wheel_roll_sign_forward": 1,
+  "socket_policy": "new C02 empty boarding/seat/hitch transforms; no door traversal, occupant, gear fit or camera validated; do not reuse C01fit",
+  "license": "GPL-3.0-or-later",
+  "source_attributes": [
+    {
+      "attributes": "all geometry, proportions, materials",
+      "tier": "reconstructed",
+      "basis": "vehicle-master-spec.md engineering envelope; independently authored, no source image tracing",
+      "source_ids": []
+    }
+  ],
+  "liberties": [
+    "Separate enclosed roofed town-carriage silhouette study, not a named owner, manufacturer or diagnosed subtype",
+    "Spring forms, bodywork, simple lamps and upholstery are unmeasured engineering approximations",
+    "The enabled operable-door study adds independently reconstructed rigid door/hinge geometry and closed/open endpoint transforms. No brake, horse/team, rider, reins, fitted harness, hinge forces or passenger passage is supplied; cabin openings and furniture remain unverified independent reconstruction.",
+    "Steering bound provisional; swept collision and coupling remain integration gates"
+  ],
+  "statistics": {
+    "triangles": 12228,
+    "meshes": 31,
+    "nodes": 62
+  },
+  "reference_scope": {
+    "reference_record_id": "a16-pullman-det-4a08065",
+    "registry": "prairie_1904_v1/research/images/stream-1600-1700.json",
+    "catalog_url": "https://www.loc.gov/item/2016801921/",
+    "date_bounds": [
+      1890,
+      1901
+    ],
+    "rights": "No known restrictions on publication, existing catalog record; not an unconditional license",
+    "actually_viewed": true,
+    "used": "Coarse roofed dark cabin and open underbody silhouette only; no pixels/textures/tracing or physical dimensions extracted",
+    "unresolved": [
+      "vehicle ownership",
+      "manufacturer/subtype",
+      "door/window layout",
+      "wheel count/radii from photograph",
+      "horses/team",
+      "lamp construction",
+      "absolute dimensions"
+    ],
+    "scene_eligibility": "1904 period analogy only; no specific vehicle presence, date or ownership inferred"
+  },
+  "boarding_enabled": false,
+  "door_study": {
+    "node": "vehicle_door_left",
+    "hinge_axis": "+Y",
+    "closed_angle_deg": 0,
+    "open_angle_deg": 70,
+    "exported_angle_deg": 0,
+    "hinge_parent_translation_m": [
+      0.655,
+      0.82,
+      -0.28
+    ],
+    "status": "original reconstructed rigid door/hinge/step layout; no sourced design or occupant acceptance",
+    "production_enabled": false
+  },
+  "pre_door_source_scope_history": {
+    "quotation": "No working door/hinge, brake, horse/team, rider, reins, harness or physics; cabin openings and furniture are unproven independent reconstruction",
+    "quotation_origin": "Original project C02 pre-operable-door generator sidecar; not historical source text",
+    "applies_to": "Earlier C02 branch without reconstructed operable door",
+    "superseded_by": "operable_door_study=true adds original rigid door/hinge geometry and endpoint transforms only",
+    "not_attested": "historical door hardware, dimensions, ownership, forces, passenger passage and photographic quality"
+  },
+  "enclosure_repair": {
+    "status": "independently reconstructed continuous roof rails, sill rails, full side panes and crown fascia; historical layout unproven",
+    "side_pane_y_bounds_m": [
+      1.34,
+      2.0
+    ],
+    "side_pane_z_bounds_m": [
+      -1.0,
+      0.5
+    ],
+    "roof_rail_y_bounds_m": [
+      1.9525,
+      2.0375
+    ],
+    "sill_rail_y_bounds_m": [
+      1.3075,
+      1.3725
+    ],
+    "fascia_lower_y_m": 1.92,
+    "rail_edge_chamfer_m": 0.008
+  },
+  "cabin_component_bounds": {
+    "cabin_floor": {
+      "min_m": [
+        -0.5799999833106995,
+        0.7000000008940697,
+        -1.0600000023841858
+      ],
+      "max_m": [
+        0.5799999833106995,
+        0.7799999991059303,
+        0.5600000023841858
+      ]
+    },
+    "cabin_lower_side_-1": {
+      "min_m": [
+        -0.6200000047683716,
+        0.7799999713897705,
+        -1.0399999618530273
+      ],
+      "max_m": [
+        -0.5,
+        1.2999999523162842,
+        0.5
+      ]
+    },
+    "waist_rail_-1": {
+      "min_m": [
+        -0.6274999998509884,
+        1.2975000001490116,
+        -1.0600000023841858
+      ],
+      "max_m": [
+        -0.5725000001490116,
+        1.3524999998509883,
+        0.5600000023841858
+      ]
+    },
+    "side_glazing_-1": {
+      "min_m": [
+        -0.6075000001862645,
+        1.339999986886978,
+        -1.0
+      ],
+      "max_m": [
+        -0.5824999998137355,
+        2.000000013113022,
+        0.5
+      ]
+    },
+    "window_roof_rail_-1": {
+      "min_m": [
+        -0.6325000014901161,
+        1.9524999995529653,
+        -1.0600000023841858
+      ],
+      "max_m": [
+        -0.5574999985098839,
+        2.037500000447035,
+        0.5600000023841858
+      ]
+    },
+    "window_sill_rail_-1": {
+      "min_m": [
+        -0.6325000014901161,
+        1.307500001192093,
+        -1.0600000023841858
+      ],
+      "max_m": [
+        -0.5574999985098839,
+        1.3724999988079072,
+        0.5600000023841858
+      ]
+    },
+    "cabin_corner_pillar_-1_-1.025": {
+      "min_m": [
+        -0.6325000014901161,
+        1.29,
+        -1.062500001490116
+      ],
+      "max_m": [
+        -0.5574999985098839,
+        2.04,
+        -0.9874999985098838
+      ]
+    },
+    "cabin_corner_pillar_-1_0.525": {
+      "min_m": [
+        -0.6325000014901161,
+        1.29,
+        0.4874999985098839
+      ],
+      "max_m": [
+        -0.5574999985098839,
+        2.04,
+        0.5625000014901161
+      ]
+    },
+    "window_lower_frame_-1": {
+      "min_m": [
+        -0.6345000008940697,
+        1.3474999998137356,
+        -1.0099999904632568
+      ],
+      "max_m": [
+        -0.5894999991059303,
+        1.3725000001862646,
+        0.5099999904632568
+      ]
+    },
+    "window_upper_frame_-1": {
+      "min_m": [
+        -0.6345000008940697,
+        1.9674999998137355,
+        -1.0099999904632568
+      ],
+      "max_m": [
+        -0.5894999991059303,
+        1.9925000001862645,
+        0.5099999904632568
+      ]
+    },
+    "cabin_lower_fixed_door_rear": {
+      "min_m": [
+        0.5,
+        0.7799999713897705,
+        -1.0399999618530273
+      ],
+      "max_m": [
+        0.6200000047683716,
+        1.2999999523162842,
+        -0.3199999928474426
+      ]
+    },
+    "cabin_lower_fixed_door_front": {
+      "min_m": [
+        0.5,
+        0.7799999713897705,
+        0.4699999988079071
+      ],
+      "max_m": [
+        0.6200000047683716,
+        1.2999999523162842,
+        0.5
+      ]
+    },
+    "cabin_lower_fixed_door_sill": {
+      "min_m": [
+        0.5649999998509884,
+        0.7774999998137355,
+        -0.33000001072883606
+      ],
+      "max_m": [
+        0.6350000001490116,
+        0.8025000001862646,
+        0.46000001072883606
+      ]
+    },
+    "cabin_door_jamb_lower_-0.38": {
+      "min_m": [
+        0.5649999998509884,
+        1.1200000005960464,
+        -0.39999999955296517
+      ],
+      "max_m": [
+        0.6350000001490116,
+        1.3399999994039535,
+        -0.36000000044703484
+      ]
+    },
+    "cabin_door_jamb_lower_0.51": {
+      "min_m": [
+        0.5649999998509884,
+        1.1200000005960464,
+        0.49000000044703484
+      ],
+      "max_m": [
+        0.6350000001490116,
+        1.3399999994039535,
+        0.5299999995529652
+      ]
+    },
+    "side_glazing_fixed_rear": {
+      "min_m": [
+        0.5824999998137355,
+        1.339999986886978,
+        -0.9875000107288361
+      ],
+      "max_m": [
+        0.6075000001862645,
+        2.000000013113022,
+        -0.32249998927116397
+      ]
+    },
+    "window_fixed_rear_waist": {
+      "min_m": [
+        0.5624999985098839,
+        1.2900000008940697,
+        -1.0199999988079071
+      ],
+      "max_m": [
+        0.6375000014901161,
+        1.3699999991059304,
+        -0.33000000119209294
+      ]
+    },
+    "cabin_door_transom": {
+      "min_m": [
+        0.5675000011920929,
+        1.9274999998137354,
+        -0.33000001072883606
+      ],
+      "max_m": [
+        0.6324999988079071,
+        1.9525000001862645,
+        0.46000001072883606
+      ]
+    },
+    "cabin_window_jamb_trim": {
+      "min_m": [
+        0.5675000011920929,
+        1.3399999928474426,
+        0.4774999998137355
+      ],
+      "max_m": [
+        0.6324999988079071,
+        1.9500000071525574,
+        0.5025000001862645
+      ]
+    },
+    "window_roof_rail_1": {
+      "min_m": [
+        0.5574999985098839,
+        1.9524999995529653,
+        -1.0600000023841858
+      ],
+      "max_m": [
+        0.6325000014901161,
+        2.037500000447035,
+        0.5600000023841858
+      ]
+    },
+    "cabin_corner_pillar_1_-1.025": {
+      "min_m": [
+        0.5574999985098839,
+        1.29,
+        -1.062500001490116
+      ],
+      "max_m": [
+        0.6325000014901161,
+        2.04,
+        -0.9874999985098838
+      ]
+    },
+    "cabin_corner_pillar_1_0.525": {
+      "min_m": [
+        0.5574999985098839,
+        1.29,
+        0.4874999985098839
+      ],
+      "max_m": [
+        0.6325000014901161,
+        2.04,
+        0.5625000014901161
+      ]
+    },
+    "rear_lower_panel": {
+      "min_m": [
+        -0.5899999737739563,
+        0.7799999940395355,
+        -1.0724999998509883
+      ],
+      "max_m": [
+        0.5899999737739563,
+        1.3300000059604644,
+        -1.0175000001490115
+      ]
+    },
+    "rear_window_panel": {
+      "min_m": [
+        -0.5799999833106995,
+        1.339999988079071,
+        -1.0599999996647238
+      ],
+      "max_m": [
+        0.5799999833106995,
+        1.9400000119209289,
+        -1.030000000335276
+      ]
+    },
+    "rear_dark_glass": {
+      "min_m": [
+        -0.28999999165534973,
+        1.4900000023841857,
+        -1.074000000052154
+      ],
+      "max_m": [
+        0.28999999165534973,
+        1.8699999976158141,
+        -1.0619999999478458
+      ]
+    },
+    "rear_upper_header": {
+      "min_m": [
+        -0.6100000143051147,
+        1.9349999982118606,
+        -1.077499998807907
+      ],
+      "max_m": [
+        0.6100000143051147,
+        2.0250000017881393,
+        -1.0125000011920928
+      ]
+    },
+    "front_lower_panel": {
+      "min_m": [
+        -0.5899999737739563,
+        0.7799999940395355,
+        0.5075000001490116
+      ],
+      "max_m": [
+        0.5899999737739563,
+        1.3300000059604644,
+        0.5624999998509884
+      ]
+    },
+    "front_window_panel": {
+      "min_m": [
+        -0.5799999833106995,
+        1.339999988079071,
+        0.5200000003352762
+      ],
+      "max_m": [
+        0.5799999833106995,
+        1.9400000119209289,
+        0.5499999996647239
+      ]
+    },
+    "front_dark_glass": {
+      "min_m": [
+        -0.28999999165534973,
+        1.4900000023841857,
+        0.551999999947846
+      ],
+      "max_m": [
+        0.28999999165534973,
+        1.8699999976158141,
+        0.5640000000521541
+      ]
+    },
+    "front_upper_header": {
+      "min_m": [
+        -0.6100000143051147,
+        1.9349999982118606,
+        0.5025000011920929
+      ],
+      "max_m": [
+        0.6100000143051147,
+        2.0250000017881393,
+        0.5674999988079071
+      ]
+    },
+    "rear_upper_crown_fascia": {
+      "min_m": [
+        -0.6200000047683716,
+        1.9199999570846558,
+        -1.0779999494552612
+      ],
+      "max_m": [
+        0.6200000047683716,
+        2.0959999561309814,
+        -1.0119999647140503
+      ]
+    },
+    "front_upper_crown_fascia": {
+      "min_m": [
+        -0.6200000047683716,
+        1.9199999570846558,
+        0.5019999742507935
+      ],
+      "max_m": [
+        0.6200000047683716,
+        2.0959999561309814,
+        0.5680000185966492
+      ]
+    },
+    "crowned_cabin_roof": {
+      "min_m": [
+        -0.6600000262260437,
+        1.9800000190734863,
+        -1.100000023841858
+      ],
+      "max_m": [
+        0.6600000262260437,
+        2.140000104904175,
+        0.6000000238418579
+      ]
+    }
+  },
+  "cabin_geometry_subset": "Cabin floor, sidewalls, pillars, glass/frame and roof; excludes steps, driverfurniture, lamps and runninggear",
+  "cabin_bounds_basis": "All dimensions, roof/window/seat/step construction independently reconstructed; fixed envelope, not measured photograph",
+  "driver_cushion_study": {
+    "status": "original bounded stuffed-cushion and sewn-welt reconstruction; not photographic/subtype/occupant acceptance",
+    "removed_driver_box_triangles": 12,
+    "authored_parts": [
+      {
+        "name": "driver_cushion_crowned",
+        "triangle_start": 24,
+        "triangle_count": 280,
+        "material_index": 2,
+        "grade": "reconstructed"
+      },
+      {
+        "name": "driver_cushion_sewn_welt",
+        "triangle_start": 304,
+        "triangle_count": 448,
+        "material_index": 2,
+        "grade": "reconstructed"
+      }
+    ],
+    "outer_prism_m": [
+      0.92,
+      0.11,
+      0.38
+    ],
+    "same_socket_transforms": true,
+    "period": "1904 reconstructed example",
+    "source_analogy": "Ware1875printed326 trimming construction; exact C02design/colors/dimensions not attested"
+  },
+  "parked_display": {
+    "year": 1904,
+    "confidence": "reconstructed",
+    "owner": "unknown",
+    "maker": "unknown",
+    "subtype": "unknown",
+    "door_interaction_enabled": false,
+    "boarding_enabled": false,
+    "occupants": false,
+    "traffic_enabled": false,
+    "note": "Closed empty carriage displayed as a declared period reconstruction; reference photographs are not exact replicas."
+  },
+  "surface_refinement": {
+    "scope": "Original reconstructed painted timber and leather microfinish; parked 1904 demonstration",
+    "source_images": "none; algorithmically authored original maps",
+    "historical_limits": "No specific carriage, paint color, chemistry, hide, owner or measured optical property is attested",
+    "baseline_sha256": "cc469f5bda981e273d3b9a4e1ce72d1186cb9f5ffa9deae5d4af0359a2b64779",
+    "geometry_nodes_rig_doors_sockets": "unchanged",
+    "source_faces": 12228,
+    "photographic_acceptance": false,
+    "tile_m": {
+      "paint": 0.125,
+      "leather": 0.25
+    },
+    "native_texture_resolution": 256
+  }
+}

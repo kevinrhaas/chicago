@@ -3036,6 +3036,8 @@ export async function createYardGoods({
   hostMissing = () => false,
   /** A touch device: the mark atlas is uploaded at half size (T-2152). */
   lowSpec = false,
+  /** Authored near replacements keep their exact old vehicle as a light/far/load-failure fallback. */
+  replacementIds = new Set(),
 } = {}) {
   const group = new THREE.Group();
   group.name = 'yard';
@@ -3055,6 +3057,7 @@ export async function createYardGoods({
       woodpiles: 0, woodByKind: {}, woodChunks: 0, relief: null },
     pickAt: () => null,
     dispose: () => {},
+    setReplacementVisible: () => {},
   };
 
   if (!dataBase || !terrain) {
@@ -3193,12 +3196,13 @@ export async function createYardGoods({
    * nobody, so the range each object emitted is still the only honest answer.
    */
   const chunks = new Map();
-  const chunkAt = (e, n) => {
-    const key = `${Math.floor(e / CHUNK_M)},${Math.floor(n / CHUNK_M)}`;
+  const chunkAt = (e, n, fallbackId = null) => {
+    const key = fallbackId ? `parked-fallback:${fallbackId}` : `${Math.floor(e / CHUNK_M)},${Math.floor(n / CHUNK_M)}`;
     let chunk = chunks.get(key);
     if (!chunk) {
       chunk = {
         key,
+        fallbackId,
         buf: { pos: [], nrm: [], conf: [], col: [], uv: [], uv1: [], ...tones,
           tint: tones.timber, blank: atlas ? atlas.blank : [0, 0], wood: woodRects },
         spans: [],
@@ -3352,7 +3356,7 @@ export async function createYardGoods({
       // is unpickable and the aim falls through, which is the fences' behaviour —
       // and it is the RIGHT answer for a wagon standing in a public street, which
       // belongs to nobody this record can name.
-      if (!emit(chunkAt(at[0], at[1]), wagon.belongs_to,
+      if (!emit(chunkAt(at[0], at[1], replacementIds.has(wagon.id) ? wagon.id : null), wagon.belongs_to,
         (b) => build(b, wagon, form, terrain, LEVEL[wagon.confidence] ?? level,
           problems))) continue;
       out.wagons.push(wagon);
@@ -3466,6 +3470,11 @@ export async function createYardGoods({
   patchBoxTable(mat, boxes);
 
   const meshes = [];
+  const replacementMeshes = new Map();
+  out.setReplacementVisible = (id, visible) => {
+    const mesh = replacementMeshes.get(id);
+    if (mesh) mesh.visible = visible;
+  };
   /**
    * THE WOODPILE MESH HANGS IN A GROUP OF ITS OWN, named as this layer is, so the
    * furniture reach and the far merge (both of which find a layer by its group's
@@ -3515,6 +3524,7 @@ export async function createYardGoods({
       group.add(mesh);
     }
     meshes.push(mesh);
+    if (chunk.fallbackId) replacementMeshes.set(chunk.fallbackId, mesh);
   }
   if (woodGroup.children.length) group.add(woodGroup);
   out.census.woodChunks = woodGroup.children.length;
@@ -3528,7 +3538,7 @@ export async function createYardGoods({
    * hidden: a pick draws exactly the list it is handed, as the raycast tested it.
    */
   const pick = layerPick(
-    () => meshes.filter((m) => !m.parent?.userData.woodpiles || m.parent.visible),
+    () => meshes.filter((m) => m.visible && (!m.parent?.userData.woodpiles || m.parent.visible)),
     (hit) => {
       // The span table is the CHUNK's, so a hit resolves against the objects that
       // chunk actually holds and a face index cannot be read against another
