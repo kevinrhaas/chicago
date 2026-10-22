@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2200, ts: '2026-10-22T22:22:57.905Z', date: 'Oct 22, 2026, 5:22 PM CT', title: 'Glessner\'s stable cupola loses its dark corner stripes', kind: 'fix',
+    items: [
+      'The dark stripe that ran down each corner of the dovecote cupola on Glessner\'s coach house, from under its eave past the pigeon holes to the roof, is gone. Its stone corners now read clean and square, as both northwest photographs show them.',
+    ] },
   { v: 2199, ts: '2026-10-22T21:52:40.932Z', date: 'Oct 22, 2026, 4:52 PM CT', title: '1904: no stand-in houses in the street or on the tracks', kind: 'fix',
     items: [
       'The faded house that stood on 18th Street\'s curve into Calumet Avenue is gone, and so is every other stand-in that sat on a roadway, a walk, an alley or the Illinois Central\'s tracks.',
