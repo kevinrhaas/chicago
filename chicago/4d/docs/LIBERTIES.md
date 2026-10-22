@@ -27411,6 +27411,16 @@ The section's outline is the drawing's. Its moulding, its 3 mm stock, its back s
 outlet moved to the narrower trough's middle are reconstructed. The court-bow leader under it is unchanged and is
 compared with sheet 4 by T-2939.
 
+**Revised 2026-10-22 (T-2939):** native sheet 4 draws the court-bow leader side-on
+(docs/RESEARCH/glessner-court-bow-leader-T-2939/): its back on the north range's court-face line (S26.2), its
+front at S26.53, so the pipe stands in the corner with the bow on that wall, 0.10 m deep, and the 160 by 100 mm
+stock turns its broad fluted face south. Under the trough's floor (27.04 ft) hangs a head 0.229 m (0.75 ft) deep
+off the wall, straight-fronted down to 26.56 ft and stepping in to the pipe by 25.8 ft. The outline of the head
+and the pipe's depth are the drawing's. The head's width along the wall (the pipe's plus its stock, 0.172 m),
+its 3 mm stock, its fixing, the drop from the trough's outlet hidden inside it, and the two round features
+drawn on its side (a ring 0.37 ft across and a stud 0.12 ft across, built as shallow bosses because the drawing
+does not say what they are) are reconstructed.
+
 **Ticket:** T-2221.
 **Recorded:** 2026-10-14 (T-2221).
 **Covers:** `glessner_house.as_built_1887.form.rainwater_details`
