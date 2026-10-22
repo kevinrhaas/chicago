@@ -31114,6 +31114,26 @@ sheet's 0-0.1 m with its chamfer and re-checks the Taylor camera's south-west be
 **Ticket:** T-3006.
 **Recorded:** 2026-10-22.
 
+### L-elm-vase-3017 — The 1904 parkway elms grown on the open-grown American elm's vase
+
+**Decision:** the 1904 parkway elms (and the faded city's trees, which share them) are grown on
+`ARCH.ulmus_americana_vase` by `growElm` in `renderers/web/js/tree-model.js` (T-3017), not on the
+timber elm's habit: a clear bole to 24-41 % of the height, a fork into two to four co-dominant stems
+that fork again up to three times (the first fork on each stem climbing into the middle of the vase),
+every limb arching from steep at the fork to reaching out at its end, branches that sweep out and
+down off the limbs' upper reach, and twigs that hang from them. The leaf is carried on the hanging
+twigs, the branch ends and short upright twigs in the dome, as sprays hung from where they grow and
+faced to the street and the ground, so the crown is a flattened dome widest about seven tenths up,
+over an open interior where the limbs show. The crown spreads about 0.85 of the height (0.70 before).
+**What is read, not invented:** each tree's place, height band, girth band and colours, unchanged
+(L-prairie-parkway-elms-2473); the species, inferred from the 1887-91 photograph.
+**What is invented:** the form of every elm. It is the open-grown American elm's ordinary habit as
+field guides draw it and as the owner's two photographs of living street elms (2026-10-22) show it,
+set by hand and judged by eye; no source describes a Prairie Avenue elm's limbs.
+**How to resolve:** a photograph of the 1904 parkway close enough to read one tree's fork and limbs.
+**Ticket:** T-3017.
+**Recorded:** 2026-10-22 (T-3017).
+
 ### L-draft-district-background-3009 — The background behind Prairie Avenue continued: Indiana Avenue's east frontage, 20th to 22nd Street, stood up as drafts where Prairie's sidewalks see it, with the First Presbyterian Church on the 21st Street corner
 
 **Covers:** `first_presbyterian_church_2029_indiana.draft_1904.form.draft_elevation`, `first_presbyterian_church_2029_indiana.draft_1904.form.draft`, `first_presbyterian_church_2029_indiana_dwelling.draft_1904.form.draft_elevation`, `first_presbyterian_church_2029_indiana_dwelling.draft_1904.form.draft`, `first_presbyterian_church_2029_indiana_stable.draft_1904.form.draft_elevation`, `first_presbyterian_church_2029_indiana_stable.draft_1904.form.draft`, `house_2007_indiana.draft_1904.form.draft_elevation`, `house_2007_indiana.draft_1904.form.draft`, `house_2009_indiana.draft_1904.form.draft_elevation`, `house_2009_indiana.draft_1904.form.draft`, `house_2009_indiana_rear_dwelling.draft_1904.form.draft_elevation`, `house_2009_indiana_rear_dwelling.draft_1904.form.draft`, `house_2011_indiana.draft_1904.form.draft_elevation`, `house_2011_indiana.draft_1904.form.draft`, `house_2011_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2011_indiana_coach_house.draft_1904.form.draft`, `house_2013_indiana.draft_1904.form.draft_elevation`, `house_2013_indiana.draft_1904.form.draft`, `house_2013_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2013_indiana_coach_house.draft_1904.form.draft`, `house_2017_indiana.draft_1904.form.draft_elevation`, `house_2017_indiana.draft_1904.form.draft`, `house_2017_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2017_indiana_coach_house.draft_1904.form.draft`, `house_2019_indiana.draft_1904.form.draft_elevation`, `house_2019_indiana.draft_1904.form.draft`, `house_2019_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2019_indiana_coach_house.draft_1904.form.draft`, `house_2021_indiana.draft_1904.form.draft_elevation`, `house_2021_indiana.draft_1904.form.draft`, `house_2021_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2021_indiana_coach_house.draft_1904.form.draft`, `house_2023_indiana.draft_1904.form.draft_elevation`, `house_2023_indiana.draft_1904.form.draft`, `house_2023_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2023_indiana_coach_house.draft_1904.form.draft`, `house_2027_indiana.draft_1904.form.draft_elevation`, `house_2027_indiana.draft_1904.form.draft`, `house_2027_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2027_indiana_coach_house.draft_1904.form.draft`, `house_2107_indiana.draft_1904.form.draft_elevation`, `house_2107_indiana.draft_1904.form.draft`, `house_2107_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2107_indiana_coach_house.draft_1904.form.draft`, `house_2111_indiana.draft_1904.form.draft_elevation`, `house_2111_indiana.draft_1904.form.draft`, `house_2111_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2111_indiana_coach_house.draft_1904.form.draft`, `house_2115_indiana.draft_1904.form.draft_elevation`, `house_2115_indiana.draft_1904.form.draft`, `house_2119_indiana.draft_1904.form.draft_elevation`, `house_2119_indiana.draft_1904.form.draft`, `livery_2123_indiana.draft_1904.form.draft_elevation`, `livery_2123_indiana.draft_1904.form.draft`, `first_presbyterian_church_2029_indiana.draft_1904.position`, `first_presbyterian_church_2029_indiana.draft_1904.form.stories`

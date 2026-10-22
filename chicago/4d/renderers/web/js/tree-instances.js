@@ -96,8 +96,9 @@ export const isGrownForm = (spec) => spec.form !== 'thicket' && spec.form !== 's
 export const grownGroupName = (name) => `${name}s-grown`;
 
 function archetypeKey(spec) {
+  // A habit named outright (`spec.arch`, T-3017) is its own archetype.
   return [spec.speciesId ?? spec.common, spec.form, spec.common, spec.dark, spec.light, spec.bark,
-    spec.conf ?? 0.5].join('|');
+    spec.conf ?? 0.5].join('|') + (spec.arch ? `|${spec.arch}` : '');
 }
 
 /**
@@ -170,8 +171,10 @@ export class TreeInstances {
       for (let v = 0; v < n; v++) {
         const pause = checkpoint(); if (pause) { const p0 = performance.now(); await pause; paused += performance.now() - p0; }
         const seed = (hashString(kind.key) + v * 7919) >>> 0;
-        const o = { conf: spec.conf ?? 0.5, ...season };
         const light = this.level === 'light';
+        // T-3017: the phone's tier asks a grown habit that has one (the parkway
+        // elm) for its coarse leaf: fewer, larger sprays.
+        const o = { conf: spec.conf ?? 0.5, ...season, coarse: light };
         const first = buildTreeTemplate(spec, seed, light ? 'mid' : 'near', o);
         const mid = light ? first : buildTreeTemplate(spec, seed, 'mid', { ...o, skeleton: first.skeleton });
         const far = buildTreeTemplate(spec, seed, 'far', { ...o, skeleton: first.skeleton });

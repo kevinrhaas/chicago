@@ -1,4 +1,30 @@
 export const CHANGELOG = [ // newest first
+  { v: 2190, ts: '2026-10-22T17:27:25.324Z', date: 'Oct 22, 2026, 12:27 PM CT', title: 'Prairie Avenue\'s elms grow as real elms: forked trunks, arching limbs', kind: 'improvement',
+    items: [
+      'Each parkway elm forks low into two to four stems that climb in a V, fork again and arch out over the walk.',
+      'Leaves hang in sprays from drooping twigs instead of flat fans, so the limbs show through from below.',
+      'The two rows of crowns meet over the roadway, as in photographs of elm-lined streets.',
+      'Every tree\'s leaf cards are trimmed to their leaves, so the graphics card shades about 30% less leaf area.',
+    ] },
+  { v: 2189, ts: '2026-10-22T17:27:25.324Z', date: 'Oct 22, 2026, 12:27 PM CT', title: 'Take the tour any time, and a clearer Navigator', kind: 'feature',
+    items: [
+      'Guide (the ? on the Navigator\'s rail) now opens with Take the tour, so you can run the field check again whenever you like, even after skipping it.',
+      'Inspect has a magnifying glass for its icon, so it no longer looks like Home\'s house. The Inspect key in the scene has it too.',
+      'On Home, the Move and Confidence view tiles now open those screens.',
+      'A building\'s tabs stay pinned at the top while you scroll, wrap so Photos and Sources are always in view, and sit beside a Back key to where you came from.',
+    ] },
+  { v: 2188, ts: '2026-10-22T17:27:25.324Z', date: 'Oct 22, 2026, 12:27 PM CT', title: '1736 Prairie\'s card stops showing the other McBirney house', kind: 'fix',
+    items: [
+      'The 1736 Prairie card led with the 1890 Inland Architect picture of Hugh J. McBirney\'s new stone house. That is the son\'s house at 1625 Prairie, not his father\'s older house at 1736. The archive files the picture under 1736, and we had kept that address. The picture now shows on 1625\'s card only. 1736\'s card now leads with the 1893 Rand McNally street view, with its arrow on the house. Its Images tab opens on the house\'s own photograph of about 1890. The 1736 model was always built from that 1890 photograph, so its shape does not change.',
+      'The 1889 building permit for the son\'s house moves from 1736 to 1625 as well.',
+      'Glessner House\'s Images tab gains three close-up photographs of its carved stone capitals.',
+    ] },
+  { v: 2187, ts: '2026-10-22T17:06:04.478Z', date: 'Oct 22, 2026, 12:06 PM CT', title: '1811 Prairie\'s entrance corner now turns round, as the 1888 plate shows', kind: 'improvement',
+    items: [
+      'The corner beside the arched porch at 1811 Prairie is now a curve of rock-faced stone, about 0.9 m across, running from the ground to the cornice. It used to be a sharp square edge.',
+      'The corner downpipe now runs down the curve itself, where the plate draws it.',
+      'The builder can now round the corner of any stone-fronted house. Every other house on the avenue is unchanged.',
+    ] },
   { v: 2186, ts: '2026-10-22T15:58:52.281Z', date: 'Oct 22, 2026, 10:58 AM CT', title: '1801 Prairie\'s south pavilion stands nearer its photograph', kind: 'fix',
     items: [
       'The Kimball house\'s south pavilion on Prairie Avenue now starts right beside the bowed bay,, as J. W. Taylor\'s photograph of about 1895 shows. Its stone gable now springs about 0.7 m lower, so the gable, pinnacles and finial meet the photograph\'s heights. The top-floor pair of windows now sits about 0.8 m higher, close under the band below the gable, as the photograph shows. The pavilion\'s south corner still stands a little south of the photograph\'s. That is next: the 1911 map draws the corner cut back at an angle.',

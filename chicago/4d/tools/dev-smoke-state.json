@@ -3,6 +3,100 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "15",
+      "parts": [
+        15
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 34,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 841,
+      "takenAt": "2026-10-22T16:57:27.476Z",
+      "ref": "claude/project-thread-1eaje1",
+      "commit": "2796de7bc55f",
+      "devCommit": "59da1aaacc9a",
+      "treeHash": "sha256:51c9bf1d238cd5ee",
+      "treeDirty": false,
+      "changelogHash": "sha256:d02663968cd152cf",
+      "host": {
+        "kind": "local",
+        "cpus": 4,
+        "memGB": 15.7,
+        "loadavg": [
+          3.2,
+          3.5,
+          3.3
+        ]
+      },
+      "source": "/tmp/claude-0/-home-claude/f7cba7df-4565-528c-89e0-a818e5b78339/scratchpad/smoke-d15.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 358,
+      "takenAt": "2026-10-22T16:57:27.308Z",
+      "ref": "claude/project-thread-1eaje1",
+      "commit": "2796de7bc55f",
+      "devCommit": "59da1aaacc9a",
+      "treeHash": "sha256:51c9bf1d238cd5ee",
+      "treeDirty": false,
+      "changelogHash": "sha256:d02663968cd152cf",
+      "host": {
+        "kind": "local",
+        "cpus": 4,
+        "memGB": 15.7,
+        "loadavg": [
+          3.2,
+          3.5,
+          3.3
+        ]
+      },
+      "source": "/tmp/claude-0/-home-claude/f7cba7df-4565-528c-89e0-a818e5b78339/scratchpad/smoke-d3.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3,15",
+      "parts": [
+        3,
+        15
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 128,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 567,
+      "takenAt": "2026-10-22T16:57:27.156Z",
+      "ref": "claude/project-thread-1eaje1",
+      "commit": "2796de7bc55f",
+      "devCommit": "59da1aaacc9a",
+      "treeHash": "sha256:51c9bf1d238cd5ee",
+      "treeDirty": false,
+      "changelogHash": "sha256:d02663968cd152cf",
+      "host": {
+        "kind": "local",
+        "cpus": 4,
+        "memGB": 15.7,
+        "loadavg": [
+          3.2,
+          3.5,
+          3.3
+        ]
+      },
+      "source": "/tmp/claude-0/-home-claude/f7cba7df-4565-528c-89e0-a818e5b78339/scratchpad/smoke-m.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "3",
       "parts": [
         3
@@ -1602,103 +1696,6 @@
         "note": "T-2235 local published stage 13, 4 CPU quota / 16 GB. Initial desktop starts timed out under competing checks; final desktop startup ran alone. Mobile overlapped a precision-only liberties refresh; desktop later overlapped T-1273/T-2199 dev integration and source checks. No exact-tree claim: Glessner geometry and renderer roof assets remained unchanged throughout. See the T-2235 review report."
       },
       "source": "docs/RESEARCH/glessner-courtyard-roof-2235/smoke-desktop-13.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 101,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1119,
-      "takenAt": "2026-10-09T03:12:16.036Z",
-      "ref": "steward/t-2199-glessner-reference-recovery",
-      "commit": "6e5a9ec2d474",
-      "devCommit": "22685d12015b",
-      "treeHash": "sha256:faf2d640d2247577",
-      "treeDirty": false,
-      "changelogHash": "sha256:d2f546c17c0d209d",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          3.8,
-          4.4,
-          3.5
-        ]
-      },
-      "source": "/workspace/t2199-proof/smoke-desktop.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "13",
-      "parts": [
-        13
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 5,
-      "failed": 1,
-      "failures": [
-        "desktop 1280x800: scene reaches ready — timed out | agency_striker_log_house: review_required is set — this scene cannot be released | beaubien_barn: review_required is set — this scene cannot be released | beaubien_trading_post: review_required is set — this scene cannot be released"
-      ],
-      "wallSeconds": 99,
-      "takenAt": "2026-10-09T03:11:16.759000Z",
-      "ref": "steward/t-2235-glessner-courtyard-roof",
-      "commit": "696b510d312b",
-      "devCommit": "1bf113e2b626",
-      "treeHash": null,
-      "treeDirty": true,
-      "changelogHash": "sha256:9433500876ed1e2f",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          2.8,
-          5.6,
-          5.7
-        ],
-        "note": "T-2235 local published stage 13, 4 CPU quota / 16 GB. Initial desktop starts timed out under competing checks; final desktop startup ran alone. Mobile overlapped a precision-only liberties refresh; desktop later overlapped T-1273/T-2199 dev integration and source checks. No exact-tree claim: Glessner geometry and renderer roof assets remained unchanged throughout. See the T-2235 review report."
-      },
-      "source": "docs/RESEARCH/glessner-courtyard-roof-2235/smoke-desktop-source-load.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "13",
-      "parts": [
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 126,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 521,
-      "takenAt": "2026-10-09T03:09:10.374913Z",
-      "ref": "steward/t-2235-glessner-courtyard-roof",
-      "commit": "696b510d312b",
-      "devCommit": "1bf113e2b626",
-      "treeHash": null,
-      "treeDirty": true,
-      "changelogHash": "sha256:9433500876ed1e2f",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          2.8,
-          5.6,
-          5.7
-        ],
-        "note": "T-2235 local published stage 13, 4 CPU quota / 16 GB. Initial desktop starts timed out under competing checks; final desktop startup ran alone. Mobile overlapped a precision-only liberties refresh; desktop later overlapped T-1273/T-2199 dev integration and source checks. No exact-tree claim: Glessner geometry and renderer roof assets remained unchanged throughout. See the T-2235 review report."
-      },
-      "source": "docs/RESEARCH/glessner-courtyard-roof-2235/smoke-mobile-13.log"
     },
     {
       "viewport": "desktop",

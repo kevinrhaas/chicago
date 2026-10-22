@@ -850,12 +850,46 @@ def write_ktx2(leaves, colour, normal):
                            check=True, env=env)
 
 
+def print_crops(margin=8, alpha=24):
+    """T-3017 — each leaf tile's opaque box, as tree-model.js LEAF_CROP: the
+    tile's own u0, u1, v0, v1 in atlasUV's units (v up, the 6 px gutter out),
+    grown by `margin` pixels so a coarse mip's blurred edge stays inside it. A
+    card is cut to this box, so the GPU does not shade and alpha-test the empty
+    corners of every spray. Re-run whenever the leaf atlas is regenerated."""
+    a = np.asarray(Image.open(os.path.join(OUT, 'leaf_atlas.webp')).convert('RGBA'))[:, :, 3]
+    gx = a.shape[1] // TILE
+    gy = a.shape[0] // TILE
+    pad = 6
+    span = TILE - 2 * pad
+    rows = []
+    for t in range(gx * gy):
+        cx, cy = t % gx, t // gx
+        tile = a[cy * TILE:(cy + 1) * TILE, cx * TILE:(cx + 1) * TILE]
+        ys, xs = np.where(tile > alpha)
+        x0 = max(pad, xs.min() - margin)
+        x1 = min(TILE - pad, xs.max() + 1 + margin)
+        y0 = max(pad, ys.min() - margin)
+        y1 = min(TILE - pad, ys.max() + 1 + margin)
+        u0, u1 = (x0 - pad) / span, (x1 - pad) / span
+        v0, v1 = 1 - (y1 - pad) / span, 1 - (y0 - pad) / span
+        rows.append(f'[{u0:.3f}, {u1:.3f}, {v0:.3f}, {v1:.3f}]')
+    print('export const LEAF_CROP = [')
+    for i in range(0, len(rows), 4):
+        print('  ' + ', '.join(rows[i:i + 4]) + ',')
+    print('];')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
     ap.add_argument('--masters', action='store_true', help='also write the lossless PNGs')
     ap.add_argument('--sheet', metavar='PATH', help='also write a contact sheet (JPEG) there')
     ap.add_argument('--no-ktx2', action='store_true', help='skip the GPU-compressed copies')
+    ap.add_argument('--crops', action='store_true',
+                    help='print tree-model.js LEAF_CROP from the committed leaf atlas, and write nothing')
     args = ap.parse_args()
+    if args.crops:
+        print_crops()
+        return 0
     os.makedirs(OUT, exist_ok=True)
     leaves = make_leaves(2743)
     colour, normal = make_bark(27431)
