@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2185, ts: '2026-10-22T15:41:11.504Z', date: 'Oct 22, 2026, 10:41 AM CT', title: 'Glessner\'s courtyard: the bow\'s downpipe, built to its drawing', kind: 'change',
+    items: [
+      'The downpipe at the north end of the bow now hangs from its gutter under a squared head, as the 1963 measured drawing shows it. The head\'s front steps in to the pipe a foot below.',
+      'The pipe now stands against the north wing\'s courtyard face, with its broad fluted side facing the courtyard. Before, it stood on the bow with that side facing west, where the drawing shows only its narrow side.',
+      'The ring and stud drawn on the head\'s side are built as small round bosses; the drawing does not say what they were.',
+    ] },
   { v: 2184, ts: '2026-10-22T15:04:39.048Z', date: 'Oct 22, 2026, 10:04 AM CT', title: 'Calumet Avenue fills in behind Prairie', kind: 'feature',
     items: [
       'Look east down 18th Street from Glessner\'s corner, or between the houses on Prairie\'s east side: Calumet Avenue\'s block from 18th to 20th Street is no longer bare ground.',
