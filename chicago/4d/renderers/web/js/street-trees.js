@@ -45,13 +45,16 @@ const CONF = { attested: 0, inferred: 0.5, reconstructed: 1 };
  * Open-grown on a 14-ft sidewalk space it carries a clear bole to about a third
  * of its height and a high crown that arches over the walk (the photograph);
  * 17-23 m and 0.45-0.70 m at breast height for trees the 1887-91 print already
- * shows tall, a dozen years on.
+ * shows tall, a dozen years on. T-3017: grown on the open-grown elm's own habit
+ * (tree-model.js ARCH.ulmus_americana_vase: the forked bole, the arching limbs,
+ * the hanging sprays), as wide as about 0.85 of its height, so the two files'
+ * crowns meet over the roadway as they do in the owner's photographs.
  */
 function elmSpec(mode) {
   const base = SPECIES.ulmus_americana;
   const spec = {
-    ...base, speciesId: 'ulmus_americana', conf: CONF.reconstructed, crownW: null,
-    form: 'gallery', h: [17, 23], dbh: [0.45, 0.70], spreadK: 0.70, boleK: 0.48, puffs: 8, lean: 0.05,
+    ...base, speciesId: 'ulmus_americana', arch: 'ulmus_americana_vase', conf: CONF.reconstructed, crownW: null,
+    form: 'gallery', h: [17, 23], dbh: [0.45, 0.70], spreadK: 0.85, boleK: 0.48, puffs: 8, lean: 0.05,
   };
   if (mode === 'spring') {
     // Just leafing: the limbs of a summer tree carry small pale tufts. More
@@ -83,11 +86,14 @@ async function getJSON(url) {
  * in view, so the timber's 42 m near ring holds a dozen full elms here; the
  * spawn's elms were 466k triangles on those rings against the 92k the old crowns
  * drew. Near is the elm a visitor stands under, mid the next few down the walk.
+ * T-3017: the phone's `distant` comes in at 220 m (300 before): the grown elm's
+ * distant level keeps its forked stems under its crown, and at 220 m an elm is
+ * about 70 px tall on a 390-px phone, below what its far sprays resolve.
  */
 const STREET_LEVELS = {
   full: { near: 10, mid: 44, distant: 420 },
   balanced: { near: 10, mid: 40, distant: 380 },
-  light: { near: 0, mid: 32, distant: 300 },
+  light: { near: 0, mid: 32, distant: 220 },
 };
 /**
  * T-2833 — THE CONTEXT CITY'S TREES. The faded city around the district

@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-01-northwest",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "5e7a76bdfe060ea7944207a3953f5a71263ee8ce32251a329c2e52b07c405645",
+  "glb_sha256": "6f49d473338250cb165a61c304e12c463e1b964f59e9992c2cdad85d21d931da",
   "camera_sha256": "338f0d726e6c0e2d97069253e242a098ba4baae8344ce5a1fa224c2388e06bc0",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg",
   "verdict": "differs",
@@ -16,7 +16,7 @@
       "status": "fixed"
     },
     {
-      "what": "T-2849, reviewed from the rebaked master: the cupola body is now granite as the print shows its coursed shaft below the band (it was boarding), on stone landing ledges 0.25 ft deep; the gable's ledge now carries the two corbels this print shows under it, with the 5-3-1 pigeon holes at the spacing HABS photograph 15 measures. Still open: the hoist under the gable's arch projects as a long beam in this print, several times its modelled 1.75 ft; the pyramid's covering reads slate, not the model's red tile; the cupola's stone shaft shows more exposed height above the roof than the model's; the stable end sits about 28 px off because this camera is fitted at the Prairie corner (T-2758).",
+      "what": "T-2849, reviewed from the rebaked master: the cupola body is now granite as the print shows its coursed shaft below the band (it was boarding), on stone landing ledges 0.25 ft deep; the gable's ledge now carries the two corbels this print shows under it, with the 5-3-1 pigeon holes at the spacing HABS photograph 15 measures. Still open after T-3030: the pyramid's covering reads slate, not the model's red tile (T-3025); the cupola's height against the ridge is read differently here and in the Cornell view (T-3031); the cupola's corners carry a dark vertical strip from the band to the roof that neither northwest print shows (left with T-3031's cupola); the stable end sits about 28 px off because this camera is fitted at the Prairie corner (T-2758).",
       "status": "open"
     },
     {
@@ -37,6 +37,10 @@
     },
     {
       "what": "T-2873, re-rendered on the widened north stack (7.1 ft, read through HABS 14's camera): the stack's silhouette through the date stones reads 61 px (x 231-292) against the photograph's 58.5 (x 234.5-293), where the 5.1-ft stack drew about 51; the lit face's corner with the west side falls within about 2 px of the photograph's. The 3.5 px at the east edge is within this level camera's reading of the roof (about 2 ft low at the stable).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3030, reviewed from the rebaked master: the long dark band running east from under the gable's arch, past the gable's own edge, is the hoist stone's cast shadow under this print's raking sun, not a beam; the stone itself, its nose where a 3-4 ft projection puts it, is now built 4.0 ft out as a tapered cantilever. The render's review light does not cast that shadow, which is lighting, not geometry. The cupola's landing ledges now wrap its corners as the print shows.",
       "status": "fixed"
     }
   ],

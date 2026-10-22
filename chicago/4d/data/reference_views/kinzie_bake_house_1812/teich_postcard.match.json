@@ -1,0 +1,28 @@
+{
+  "structure_id": "kinzie_bake_house_1812",
+  "view": "teich_postcard",
+  "glb": "assets/gltf/kinzie_bake_house_1812__kinzie_1804.glb",
+  "glb_sha256": "ca5233eb148cf8eb89e7c5f98a71f1e948e820c7429837a1c9e4af4a87415f55",
+  "camera_sha256": "d12a7b1a4bb2989fcf7e19e0f73752163c49a454cd66c8b8f07fd288b100cb59",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_bake_house_1812/teich_postcard-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Gable end and roof: the west gable's back eave corner at about (380, 291), its foot at (380, 310) and apex (390, 278), soft to about +/-4 px; the render's within 4-5 px.",
+      "status": "fixed"
+    },
+    {
+      "what": "Stack: the painting shows none distinct over the roof; the built 0.6 m stack 0.46 m over the ridge is smaller than the painting's brushwork resolves.",
+      "status": "not shown"
+    },
+    {
+      "what": "Colour: the painting's dark red-brown walls and roof are a later painter's colour for the whole yard, and the record keeps the log's own (as for the house).",
+      "status": "not shown"
+    },
+    {
+      "what": "The front and the east part: behind the house's west gable.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

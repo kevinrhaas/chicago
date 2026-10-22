@@ -194,6 +194,10 @@ class K01FrontageParams:
     # under its own slated attic (1625's, its sheet and photograph; k01_rear_section) — empty
     # for every other house
     rear_section: dict = field(default_factory=dict)
+    # T-3006: a corner of the front block rounded from grade, in the front's stone, and
+    # corbelled out to the square under the wall head ({"corner", "radius_m"}; 1811's, off
+    # the 1888 plate) — empty for every other house, whose corners stand square
+    round_corner: dict = field(default_factory=dict)
     confidence: dict = field(default_factory=dict)
 
     def conf(self, attr: str, default: str = "reconstructed") -> float:
@@ -254,7 +258,7 @@ CONSUMED = frozenset({
     "street_front_openings", "street_front_dress", "entrance_floor_m", "street_front_round_heads",
     "front_bays_by_storey", "gable_roof", "wall_finish", "stone_finish", "shaped_gable",
     "street_front_windows", "street_front_frontispiece", "door_clear_height_m", "side_belts",
-    "slope_dormers",
+    "slope_dormers", "round_corner",
 })
 
 #: T-2451: a bay's corner strip -> K01 slot: dressed stone, or painted timber on a frame bay
@@ -391,7 +395,9 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
         if set(x) != {"s_m", "head_m", "foot_m", "proud_m"}:
             raise ParamError("rainwater.front_pipes take s_m, head_m, foot_m and proud_m")
         q = {k: float(x[k]) for k in ("s_m", "head_m", "foot_m", "proud_m")}
-        if not 0.0 <= q["proud_m"] <= 2.0 or not 0.0 <= q["foot_m"] <= q["head_m"] - 0.5 or q["head_m"] > 20.0:
+        # T-3006: a pipe on a rounded corner stands behind the front's plane, round the
+        # curve; from_phase holds it clear of the round's face (_round_corner)
+        if not -1.5 <= q["proud_m"] <= 2.0 or not 0.0 <= q["foot_m"] <= q["head_m"] - 0.5 or q["head_m"] > 20.0:
             raise ParamError(f"rainwater.front_pipes {x}: a head at most 20 m up, at least 0.5 m over its foot, "
                              f"standing 0-2 m before the front")
         front.append(q)
@@ -2734,6 +2740,69 @@ def _wing_towers(entries, wings, structure_id: str, front_stone: bool, overhang:
         out.append({**b, "wing": w["id"], "eave_m": w["top_m"]})
     return tuple(wings), tuple(out)
 
+#: T-3006: the corners a front block may round, each named by the side wall it turns into
+ROUND_CORNERS = ("north", "south")
+
+
+def round_corner_spans(rc: dict, depth: float, width: float) -> dict:
+    """T-3006: where a rounded corner stands: each wall's span (s0, s1) the round replaces,
+    and its centre in the footprint (u, v). The round's faces are tangent to the street
+    front and to the side wall it turns into, `radius_m` in from the square corner."""
+    r = rc["radius_m"]
+    if rc["corner"] == "north":   # the front's far end, s = width, into the north wall's start
+        return {"centre": (depth - r, width - r),
+                "walls": {"k01.wall.street_front": (width - r, width), "k01.wall.side.north": (0.0, r)}}
+    return {"centre": (depth - r, r),   # the front's start, s = 0, into the south wall's end
+            "walls": {"k01.wall.street_front": (0.0, r), "k01.wall.side.south": (depth - r, depth)}}
+
+
+def _round_corner(rc, depth, width, stone, openings, bays, rainwater, *, side_belts, frontispiece) -> dict:
+    """T-3006: a corner of the front block rounded on a radius from grade (1811's south corner
+    on the 1888 plate, K01's 'north'), laid in the front's own stone and corbelled out to the
+    square under the wall head, so the cornice, the eave and the gable end stand on the square
+    corner as before. Nothing else may stand on the walls it replaces."""
+    if not rc:
+        return {}
+    if not isinstance(rc, dict) or set(rc) != {"corner", "radius_m"} or rc["corner"] not in ROUND_CORNERS:
+        raise ParamError(f"round_corner takes corner ({' or '.join(ROUND_CORNERS)}) and radius_m, not {rc}")
+    r = float(rc["radius_m"])
+    if not stone:
+        raise ParamError("round_corner is laid in the front's stone: it needs a stone_front")
+    if stone.get("brick_above_m") is not None or frontispiece:
+        raise ParamError("round_corner is coursed on the front's own beds: not with brick_above_m or a frontispiece")
+    if rc["corner"] == "south" and (stone["corners"] or "south_return_m" in stone):
+        raise ParamError("round_corner south: the south corner is quoined or returned (corner_bond, south_return_m)")
+    if not 0.3 <= r <= min(1.5, width / 4, depth / 4):
+        raise ParamError(f"round_corner.radius_m {r}: 0.3-1.5 m and at most a quarter of the front block's "
+                         f"width and depth")
+    out = {"corner": rc["corner"], "radius_m": r}
+    spans = round_corner_spans(out, depth, width)["walls"]
+    for wall, (s0, s1) in spans.items():
+        for o in openings:
+            if o.wall == wall and o.s_m + o.width_m / 2 > s0 - 0.05 and o.s_m - o.width_m / 2 < s1 + 0.05:
+                raise ParamError(f"round_corner {rc['corner']}: {o.component} at s {o.s_m} on {wall} stands on the round")
+        for b in bays:
+            if b["wall"] == wall and b["span_m"][1] > s0 - 1e-6 and b["span_m"][0] < s1 + 1e-6:
+                raise ParamError(f"round_corner {rc['corner']}: the bay {b['id']} on {wall} stands on the round")
+        if any(sb.get("wall") == wall for sb in side_belts):
+            raise ParamError(f"round_corner {rc['corner']}: a side belt runs on {wall} into the round")
+    # a pipe on the round stands behind the front's plane, as far off the curve as a front
+    # pipe stands off the front (K04's offset and 0.05 m); one before the front's plane over
+    # the round would stand off nothing
+    cu, cv = round_corner_spans(out, depth, width)["centre"]
+    f0, f1 = spans["k01.wall.street_front"]
+    rain = rainwater or {}
+    for x in rain.get("front_pipes", []):
+        rp, off = rain["pipe_diameter_m"] / 2, rain["pipe_offset_from_wall_m"]
+        on = f0 - 1e-6 <= x["s_m"] <= f1 + 1e-6
+        if x["proud_m"] < 0.0 or on:
+            lat = depth + x["proud_m"] + off + 0.05 + rp
+            if not on or x["proud_m"] >= 0.0 or math.hypot(lat - cu, x["s_m"] - cv) < r + off + 0.05 + rp - 1e-6:
+                raise ParamError(f"rainwater.front_pipes {x}: a pipe behind the front's plane stands on the round "
+                                 f"corner, its centre at least {r + off + 0.05 + rp:.4f} m from the round's centre")
+    return out
+
+
 def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     form = phase.get("form", {})
     unknown = sorted(set(form) - CONSUMED)
@@ -4014,6 +4083,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     stone_finish = validate_stone_finish(dict(val("stone_finish", {}) or {}), width)
     if stone_finish and (roof_form != "flat" or not stone):
         raise ParamError("stone_finish requires a flat roof and a stone front")
+    round_corner = _round_corner(val("round_corner"), depth, width, stone, openings, bays, rainwater,
+                                 side_belts=val("side_belts") or (), frontispiece=frontispiece)
     names = sorted(CONSUMED)
     # T-2781: a side wall's stone belt (1637's south flank, the Grosvenor photograph's pale band
     # along its foot). Never on a wall that carries K03's brick course, which is the same line
@@ -4055,6 +4126,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         stone=stone, rear_wings=wings, condition=condition, arched_front=arched,
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, shaped_gable=shaped, entrance_floor_m=ef, round_heads=rh,
         wall_paint=paint, wall_paint_opaque=paint_opaque, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
+        round_corner=round_corner,
         confidence={n: form[n].get("confidence", "reconstructed") for n in names if n in form}
                    | {"footprint": (phase.get("footprint") or {}).get("confidence", "reconstructed")},
     )

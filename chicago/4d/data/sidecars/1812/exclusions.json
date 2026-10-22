@@ -211,6 +211,126 @@
         "T-2489",
         "T-0471"
       ]
+    },
+    {
+      "id": "kinzie_second_barn_1812",
+      "name": "The second of the two barns of du Sable's bill of sale (1800), for 1812",
+      "reason": "NO SOURCE READ PLACES IT AFTER 1800 — one barn stands as the Kinzie stable; nothing names a second.",
+      "detail": "The bill of sale of 1800 from Jean Baptiste Point du Sable to Jean La Lime, as other work reported it from Quaife's printing (Mississippi Valley Historical Review 15:1, 1928), lists two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article itself was NOT READ at other work: JSTOR and HathiTrust could not be reached from the run's container, so it is not cited here. Wau-Bun (ch. XVII) names the buildings surrounding the Kinzie house in 1831: 'dairy, bake-house, lodging-house for the Frenchmen, and stables'. Eastman's view of 1820 draws the yard east of the house with one log barn (The Kinzie stable, east of the house) and the lodging house, and nothing else. RULING: one barn stands in 1812 as The Kinzie stable, east of the house; the second is not built, because no source after 1800 names two and the one picture of the yard draws one. WHAT WOULD REOPEN THIS: a reading of the bill with a size or place for the barns, or any source after 1800 naming two barns or a barn besides the stable.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "eastman_schoolcraft_chicago_1820_engraving",
+          "citation": "\"Chicago in 1820.\" — steel engraving, Pl. 27, \"S. Eastman U.S. Army, from a sketch by H. R. Schoolcraft\", in Henry Rowe Schoolcraft, Historical and Statistical Information Respecting the History, Condition and Prospects of the Indian Tribes of the United States, part IV (Philadelphia: Lippincott, Grambo & Co., 1854).",
+          "url": "https://commons.wikimedia.org/wiki/File:Chicago_in_1820_(NBY_1788).jpg",
+          "archived_url": "",
+          "tier": 5,
+          "tier_label": "modern retrospective illustration/reconstruction",
+          "what_it_supplies": [
+            "the earliest picture of the house: end-on from the east, its gable toward the eye, the ridge along the river and the front slope carried low over the piazza on the river side",
+            "two stacks through the ridge, one just behind the east gable",
+            "two windows in the east end under the gable, and light, smooth walls",
+            "a log building, a whitewashed house and a yard fence round it in 1820",
+            "the second Fort Dearborn across the river to the left"
+          ],
+          "what_it_does_not_supply": [
+            "the house in 1812: it shows it eight years later, after the family's return in 1816",
+            "any dimension or position"
+          ]
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+          "url": "https://www.authorama.com/wau-bun-19.html",
+          "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+          "tier": 2,
+          "tier_label": "near-primary recollection"
+        }
+      ],
+      "work_refs": [
+        "T-2485",
+        "T-2484"
+      ]
+    },
+    {
+      "id": "kinzie_poultry_house_1812",
+      "name": "The poultry house of du Sable's bill of sale (1800), for 1812",
+      "reason": "NO SOURCE READ PLACES IT AFTER 1800 — Wau-Bun's list of the establishment in 1831 has none, and Eastman's view of the yard draws none.",
+      "detail": "The bill of sale of 1800 from Jean Baptiste Point du Sable to Jean La Lime, as other work reported it from Quaife's printing (Mississippi Valley Historical Review 15:1, 1928), lists two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article itself was NOT READ at other work: JSTOR and HathiTrust could not be reached from the run's container, so it is not cited here. Wau-Bun (ch. XVII) names the buildings surrounding the Kinzie house in 1831: 'dairy, bake-house, lodging-house for the Frenchmen, and stables'. Eastman's view of 1820 draws the yard east of the house with one log barn (The Kinzie stable, east of the house) and the lodging house, and nothing else. RULING: not built for 1812. A poultry house is a small, short-lived building and may well have stood; nothing read says so, and the scene does not build what no source after 1800 names. WHAT WOULD REOPEN THIS: any source naming a poultry house at the Kinzie place between 1804 and 1812.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "eastman_schoolcraft_chicago_1820_engraving",
+          "citation": "\"Chicago in 1820.\" — steel engraving, Pl. 27, \"S. Eastman U.S. Army, from a sketch by H. R. Schoolcraft\", in Henry Rowe Schoolcraft, Historical and Statistical Information Respecting the History, Condition and Prospects of the Indian Tribes of the United States, part IV (Philadelphia: Lippincott, Grambo & Co., 1854).",
+          "url": "https://commons.wikimedia.org/wiki/File:Chicago_in_1820_(NBY_1788).jpg",
+          "archived_url": "",
+          "tier": 5,
+          "tier_label": "modern retrospective illustration/reconstruction",
+          "what_it_supplies": [
+            "the earliest picture of the house: end-on from the east, its gable toward the eye, the ridge along the river and the front slope carried low over the piazza on the river side",
+            "two stacks through the ridge, one just behind the east gable",
+            "two windows in the east end under the gable, and light, smooth walls",
+            "a log building, a whitewashed house and a yard fence round it in 1820",
+            "the second Fort Dearborn across the river to the left"
+          ],
+          "what_it_does_not_supply": [
+            "the house in 1812: it shows it eight years later, after the family's return in 1816",
+            "any dimension or position"
+          ]
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+          "url": "https://www.authorama.com/wau-bun-19.html",
+          "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+          "tier": 2,
+          "tier_label": "near-primary recollection"
+        }
+      ],
+      "work_refs": [
+        "T-2485",
+        "T-2484"
+      ]
+    },
+    {
+      "id": "kinzie_smokehouse_1812",
+      "name": "The smokehouse of du Sable's bill of sale (1800), for 1812",
+      "reason": "NO SOURCE READ PLACES IT AFTER 1800 — Wau-Bun's list of the establishment in 1831 has none, and Eastman's view of the yard draws none.",
+      "detail": "The bill of sale of 1800 from Jean Baptiste Point du Sable to Jean La Lime, as other work reported it from Quaife's printing (Mississippi Valley Historical Review 15:1, 1928), lists two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article itself was NOT READ at other work: JSTOR and HathiTrust could not be reached from the run's container, so it is not cited here. Wau-Bun (ch. XVII) names the buildings surrounding the Kinzie house in 1831: 'dairy, bake-house, lodging-house for the Frenchmen, and stables'. Eastman's view of 1820 draws the yard east of the house with one log barn (The Kinzie stable, east of the house) and the lodging house, and nothing else. RULING: not built for 1812, for the same reason as the poultry house. WHAT WOULD REOPEN THIS: any source naming a smokehouse at the Kinzie place between 1804 and 1812.",
+      "earliest_scene": null,
+      "citations": [
+        {
+          "source_id": "eastman_schoolcraft_chicago_1820_engraving",
+          "citation": "\"Chicago in 1820.\" — steel engraving, Pl. 27, \"S. Eastman U.S. Army, from a sketch by H. R. Schoolcraft\", in Henry Rowe Schoolcraft, Historical and Statistical Information Respecting the History, Condition and Prospects of the Indian Tribes of the United States, part IV (Philadelphia: Lippincott, Grambo & Co., 1854).",
+          "url": "https://commons.wikimedia.org/wiki/File:Chicago_in_1820_(NBY_1788).jpg",
+          "archived_url": "",
+          "tier": 5,
+          "tier_label": "modern retrospective illustration/reconstruction",
+          "what_it_supplies": [
+            "the earliest picture of the house: end-on from the east, its gable toward the eye, the ridge along the river and the front slope carried low over the piazza on the river side",
+            "two stacks through the ridge, one just behind the east gable",
+            "two windows in the east end under the gable, and light, smooth walls",
+            "a log building, a whitewashed house and a yard fence round it in 1820",
+            "the second Fort Dearborn across the river to the left"
+          ],
+          "what_it_does_not_supply": [
+            "the house in 1812: it shows it eight years later, after the family's return in 1816",
+            "any dimension or position"
+          ]
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "citation": "Kinzie, Juliette A. M. Wau-Bun: The 'Early Day' in the North-West. New York: Derby & Jackson, 1856.",
+          "url": "https://www.authorama.com/wau-bun-19.html",
+          "archived_url": "https://archive.org/details/waubunearlydayin00kinzbyu",
+          "tier": 2,
+          "tier_label": "near-primary recollection"
+        }
+      ],
+      "work_refs": [
+        "T-2485",
+        "T-2484"
+      ]
     }
   ],
   "uncertain_standard": "Structures whose status on this date is genuinely OPEN — neither built with confidence nor ruled out. They are the third category, and each one says whether it is standing in front of you or was never found on the ground.",

@@ -327,7 +327,21 @@ function render(root, ctx) {
     if (key === 'overview') pane.append(page);
     panes.append(pane);
   }
-  root.append(bar, panes);
+  // T-3021 (the owner, 2026-10-22: "you cant navigate back from here in the building view"):
+  // Back and the tabs ride one bar pinned to the top of the screen, so neither scrolls away.
+  const head = el(doc, 'div', 'insp-bar');
+  const to = ctx.navigator?.backTo?.() ?? null;
+  if (to) {
+    const back = el(doc, 'button', 'insp-back');
+    back.type = 'button';
+    back.dataset.inspBack = '';
+    back.setAttribute('aria-label', `Back to ${to.label}`);
+    back.title = `Back to ${to.label}`;
+    back.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>';
+    head.append(back);
+  }
+  head.append(bar);
+  root.append(head, panes);
   root._insp = { id, sum, ctx };
   selectTab(root, tab);
   drawnFor = id;
@@ -462,8 +476,14 @@ async function fillPeople(pane, sec, ctx, id) {
 function onClick(e) {
   const root = e.currentTarget;
   const st = root._insp ?? {};
+  if (e.target.closest('[data-insp-back]')) { void st.ctx?.navigator?.back?.(); return; }
   const tab = e.target.closest('[data-insp-tab]');
-  if (tab) { selectTab(root, tab.dataset.inspTab); return; }
+  if (tab) {
+    selectTab(root, tab.dataset.inspTab);
+    // A tab opens at its top, under the pinned bar, not where the last one was scrolled to.
+    root.scrollTop = 0;
+    return;
+  }
   if (e.target.closest('[data-insp-full]') && st.id) { st.ctx?.actions?.openCard?.(st.id); return; }
   const toggle = e.target.closest('[data-toggle-note]');
   if (toggle) {

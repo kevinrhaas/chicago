@@ -103,7 +103,7 @@ export function createTour({ probe = () => ({}), render = () => {}, onFinish = (
     return was;
   }
   return {
-    /** Start from step 01 (Guide's "Take the field check", and a replay). */
+    /** Start from step 01 (Guide's "Take the tour", and a replay). */
     start() { enter(0); return true; },
     /** A reload: pick the tour up where it was left, if it was running. */
     resume() {
