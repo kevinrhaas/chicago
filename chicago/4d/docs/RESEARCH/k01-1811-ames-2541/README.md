@@ -100,3 +100,30 @@ behind its walls to the datum. 1811's oriel storey is 3.81 m: its wall top 8.81 
 fascia's top 9.06 m, the band landing at y 407-417 px with the plate's; the spire rises 2.75 m
 so its apex stays at 11.81 m. 1623's oriel, the only other through-eave one, re-emits
 byte-identical, as does every other K01 house.
+
+## T-3006 — K01 rounds a corner; 1811's entrance block turned on 0.9 m
+
+Piece 2 of T-2989. The front block's corner is now a record field, `round_corner`
+(`{"corner": "north" | "south", "radius_m"}`, K01's own names for the front's two ends). The round
+is a quarter circle tangent to the street front and to the side wall it turns into. It is laid in
+the front's stone and coursed on the front's own beds, from grade to the stone's top: base, coping,
+belt and walling, rock-faced as the front is. No course holds more than two stones, and each stone
+is curved in facets of at most 7.5 degrees (`Assembly.round_stone`). The front and the side wall are
+cut away over the round's spans up to that top. The front's courses stop at its tangent, and the side
+wall's brick and its string course start at the other.
+
+**The head.** The plate does not show the corner's head. The oriel's roof covers it, and the coped
+gable's edge rises straight over the round's far side. So the round's last course (7.89-8.30 m on
+1811) is a dressed corbel, ruled from the round out to the square, and the moulded cornice, the eave
+and the coped gable stand on the square corner as before (L-k01-1811-round-corner-3006). Carrying the
+cornice and the eave round a curve would change nothing the plate shows, and it would need a curved
+K10 cornice and a rounded roof corner, which K01 does not have.
+
+**The pipe.** The plate's rod at x 505-510 px stands on the round itself, about 50 degrees round from
+the front, so `front_pipes` now accepts a pipe behind the front's plane (proud_m down to -1.5 m)
+where it stands on a round, its centre as far off the curve as a front pipe stands off the front (`_round_corner` refuses
+anything else). 1811's pipe is at s 10.29 m, proud_m -0.368, which lands at about x 508 px.
+
+**What the plate camera reads now:** the round runs from the front's tangent at x about 469 px to
+its far side at about 518, against the plate's 470 and 515-520. Every other K01, K12, K13 and K16
+asset re-emits byte-identical, and only their manifest `inputs_sha256` moved.
