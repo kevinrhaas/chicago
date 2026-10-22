@@ -917,7 +917,7 @@ def opening(b,o,courtyard=False):
         from archetypes import masonry_house_v4_sash as sash
         sill_mat=ROUGH_TRIM if courtyard else None
         if small and max(c-a,z1-z0)>=.45:
-            sash.slit_sash(b,o,a,c,z0,z1,conf,sill_mat=sill_mat)
+            sash.slit_sash(b,o,a,c,z0,z1,conf,sill_mat=sill_mat,sill=not o.get('courses'),panes=o.get('panes'))
             return
         if not small:
             sash.double_hung(b,o,a,c,z0,z1,conf,divided=o.get('sash')=='two_over_two',sill_mat=sill_mat,
