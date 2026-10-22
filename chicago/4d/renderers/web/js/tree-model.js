@@ -111,12 +111,13 @@ export const ARCH = {
     crown: 'elm', crownBase: 0.30, fork: 'decurrent', stems: [1, 1], scaffolds: [2, 4],
     limbAngle: 20, rise: 0.02, twist: 0.18, order2: [5, 46], order3: [4, 0], droop: 0.55,
     clump: 0.10, clumpMin: 0.62, density: 1.0, gaps: 0.30, leaf: 'elm', bark: 'interlaced',
-    // `distant` keeps the co-dominant stems (only they are 12 cm and more), so a
-    // background elm is its V under its crown, not a post under a floating mass.
-    // The phone's tier (`coarse`) leaves out the branches a 390-px screen draws
-    // as a pixel or less: under 4.5 cm at the mid level, under 12 cm at the far.
-    farBins: [8, 3], sides: { near: [10, 7, 4, 3], distant: [3, 3, 0, 0] }, minRad: { distant: 0.12 },
-    minRadCoarse: { mid: 0.045, far: 0.12 }, elm: true,
+    // `distant` keeps the stoutest stems (16 cm and more), so a background elm
+    // is a stem or a V into its crown, not a post under a floating mass. The
+    // 1904 spawn sees 500 far and 2,630 distant elms, so those levels leave out
+    // what they cannot resolve (T-3032): mid under 4.5 cm, far under 10 cm on
+    // three-sided wood. The phone's tier (`coarse`) also drops far under 12 cm.
+    farBins: [8, 3], sides: { near: [10, 7, 4, 3], far: [3, 3, 0, 0], distant: [3, 3, 0, 0] },
+    minRad: { mid: 0.045, far: 0.1, distant: 0.16 }, minRadCoarse: { far: 0.12 }, elm: true,
   },
   fraxinus_pennsylvanica: {
     crown: 'oval', crownBase: 0.36, fork: 'decurrent', stems: [1, 1], scaffolds: [3, 5],
@@ -1095,9 +1096,11 @@ function elmCards(leaves, c, lod, { outward, colour, flex }, leafScale, sunTile,
   card(leaves, add(c.at, mul(randUnit(lrnd), c.r * 0.5)), c.dir, c.r * 1.4 * leafScale, sunTile, colour, outward, flex, lrnd, flat);
 }
 /** The share of an elm's clumps each level draws (T-3017); `coarse`, the
- *  phone's tier, draws fewer, larger sprays, the same leaf area on fewer cards. */
-const ELM_SHARE = { near: 1, mid: 0.62, far: 0.05 };
-const ELM_SHARE_COARSE = { near: 1, mid: 0.40, far: 0.028 };
+ *  phone's tier, draws fewer, larger sprays, the same leaf area on fewer cards.
+ *  Far is 0.02, not 0.05 (T-3032): the 1904 spawn sees 500 far elms, and at 0.05
+ *  they took its frame to 4,603,239 triangles, over the 4.6M ceiling. */
+const ELM_SHARE = { near: 1, mid: 0.62, far: 0.02 };
+const ELM_SHARE_COARSE = { near: 1, mid: 0.40, far: 0.02 };
 
 /**
  * Build a species template at one level of detail. The skeleton is grown from
