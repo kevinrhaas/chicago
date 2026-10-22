@@ -861,7 +861,7 @@ def _ridge_stack(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1, ridge_z: 
     shaft, so no gap shows on either slope, and its head the archetype's usual height
     over the ridge. Placed where a record says a picture puts it, never by default.
     """
-    half = _STACK_HALF
+    half = _STACK_HALF if p.ridge_stack_w_m is None else p.ridge_stack_w_m / 2.0
     if _ridge_along_x(x0, y0, x1, y1):
         c = x0 + f * (x1 - x0)
         ym = (y0 + y1) / 2.0
@@ -871,7 +871,8 @@ def _ridge_stack(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1, ridge_z: 
         xm = (x0 + x1) / 2.0
         bx = (xm - half, c - half, xm + half, c + half)
     run = half * math.tan(math.radians(p.roof_pitch_deg))
-    b.add_box(bx[0], bx[1], ridge_z - run - 0.25, bx[2], bx[3], ridge_z + 0.95, conf, mat,
+    head = 0.95 if p.ridge_stack_head_m is None else p.ridge_stack_head_m
+    b.add_box(bx[0], bx[1], ridge_z - run - 0.25, bx[2], bx[3], ridge_z + head, conf, mat,
               skip=("bottom",))
 
 

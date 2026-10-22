@@ -35,10 +35,10 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 840,
-    "structures_reached": 130,
+    "structures_placed": 845,
+    "structures_reached": 135,
     "structures_reached_by_grade": {
-      "inferred": 25,
+      "inferred": 30,
       "reconstructed": 105
     },
     "structures_unreached_by_section": {
@@ -2719,12 +2719,32 @@
           "margin_m": 53.0
         },
         {
+          "id": "kinzie_bake_house_1812",
+          "margin_m": 41.8
+        },
+        {
+          "id": "kinzie_dairy_1812",
+          "margin_m": 52.4
+        },
+        {
+          "id": "kinzie_garden_1812",
+          "margin_m": 57.8
+        },
+        {
           "id": "kinzie_house_1812",
           "margin_m": 35.4
         },
         {
           "id": "kinzie_house_1812_green",
           "margin_m": 16.0
+        },
+        {
+          "id": "kinzie_lodging_house_1812",
+          "margin_m": 48.9
+        },
+        {
+          "id": "kinzie_stable_1812",
+          "margin_m": 42.6
         },
         {
           "id": "lake_house_construction",
@@ -3016,12 +3036,32 @@
           "margin_m": 53.0
         },
         {
+          "id": "kinzie_bake_house_1812",
+          "margin_m": 41.8
+        },
+        {
+          "id": "kinzie_dairy_1812",
+          "margin_m": 52.4
+        },
+        {
+          "id": "kinzie_garden_1812",
+          "margin_m": 57.8
+        },
+        {
           "id": "kinzie_house_1812",
           "margin_m": 35.4
         },
         {
           "id": "kinzie_house_1812_green",
           "margin_m": 16.0
+        },
+        {
+          "id": "kinzie_lodging_house_1812",
+          "margin_m": 48.9
+        },
+        {
+          "id": "kinzie_stable_1812",
+          "margin_m": 42.6
         },
         {
           "id": "lake_house_construction",

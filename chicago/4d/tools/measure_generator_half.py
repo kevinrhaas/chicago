@@ -614,13 +614,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # houses at the forks of 1812 (`log_dwelling`) and the company cornfield's worm fence (`palisade`),
 # emitted the same way as T-2062's, restaling on the same rows.
 #
+# 891 -> 897, 737 -> 743 and 731 -> 737 on 2026-10-22 (T-2485): the Kinzie establishment of 1812,
+# a stable, lodging house and bake-house (`log_dwelling`), a dairy and the horse mill
+# (`outbuilding`) and the garden's picket fence (`palisade`), emitted the same way.
+#
 STATED = {
-    "assets": 891,
+    "assets": 897,
     "restales": {
-        "generators/common/*.py": 737,
+        "generators/common/*.py": 743,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 731,
+        "generators/emit.py": 737,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,
