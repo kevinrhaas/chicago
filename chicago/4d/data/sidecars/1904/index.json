@@ -156,6 +156,18 @@
       "asset": "gltf/goodman_house_1612_prairie_coach_house__draft_1904.glb"
     },
     {
+      "id": "hanford_house_2008_calumet",
+      "name": "2008 Calumet Avenue — Chateauesque brownstone (district draft; refined by T-1940)",
+      "sidecar": "sidecars/1904/hanford_house_2008_calumet.json",
+      "asset": "gltf/hanford_house_2008_calumet__draft_1904.glb"
+    },
+    {
+      "id": "hanford_house_2008_calumet_coach_house",
+      "name": "2008 S. Calumet Avenue — the alley building of the house at 2008 (district draft; refined by T-1940)",
+      "sidecar": "sidecars/1904/hanford_house_2008_calumet_coach_house.json",
+      "asset": "gltf/hanford_house_2008_calumet_coach_house__draft_1904.glb"
+    },
+    {
       "id": "henderson_house_1816_prairie",
       "name": "1816 Prairie Avenue — Charles M. Henderson house",
       "sidecar": "sidecars/1904/henderson_house_1816_prairie.json",
@@ -558,6 +570,24 @@
       "asset": "gltf/house_2125_prairie_coach_house__draft_1904.glb"
     },
     {
+      "id": "house_213_e20th",
+      "name": "213 East Twentieth Street — Rowhouse, flat behind a cornice (district draft; refined by T-1939)",
+      "sidecar": "sidecars/1904/house_213_e20th.json",
+      "asset": "gltf/house_213_e20th__draft_1904.glb"
+    },
+    {
+      "id": "house_215_e20th",
+      "name": "215 East Twentieth Street — Rowhouse, flat behind a cornice (district draft; refined by T-1939)",
+      "sidecar": "sidecars/1904/house_215_e20th.json",
+      "asset": "gltf/house_215_e20th__draft_1904.glb"
+    },
+    {
+      "id": "house_217_e20th",
+      "name": "217 East Twentieth Street — Queen Anne corner rowhouse with gable (district draft; refined by T-1939)",
+      "sidecar": "sidecars/1904/house_217_e20th.json",
+      "asset": "gltf/house_217_e20th__draft_1904.glb"
+    },
+    {
       "id": "ic_16th_street_station_1605_prairie",
       "name": "1605 S. Prairie Avenue — the Illinois Central's 16th Street station (district draft; refined by T-1866)",
       "sidecar": "sidecars/1904/ic_16th_street_station_1605_prairie.json",
@@ -804,6 +834,12 @@
       "asset": "gltf/sears_meeker_house_1815_prairie_coach_house__draft_1904.glb"
     },
     {
+      "id": "second_presbyterian_church_1936_michigan",
+      "name": "1936 S. Michigan Avenue — Second Presbyterian Church (district draft; refined by T-1942)",
+      "sidecar": "sidecars/1904/second_presbyterian_church_1936_michigan.json",
+      "asset": "gltf/second_presbyterian_church_1936_michigan__draft_1904.glb"
+    },
+    {
       "id": "shed_1834_1900_prairie",
       "name": "The shed on the strip between 1834 and 1900 Prairie Avenue (district draft; refined by T-1935)",
       "sidecar": "sidecars/1904/shed_1834_1900_prairie.json",
@@ -910,6 +946,18 @@
       "name": "Wheeler house (1812 Prairie Avenue): the coach house on the alley, K12",
       "sidecar": "sidecars/1904/wheeler_house_1812_prairie_coach_house.json",
       "asset": "gltf/wheeler_house_1812_prairie_coach_house__as_standing_1904.glb"
+    },
+    {
+      "id": "wheeler_kohn_house_2018_calumet",
+      "name": "2018 Calumet Avenue — Second Empire (district draft; refined by T-1941)",
+      "sidecar": "sidecars/1904/wheeler_kohn_house_2018_calumet.json",
+      "asset": "gltf/wheeler_kohn_house_2018_calumet__draft_1904.glb"
+    },
+    {
+      "id": "wheeler_kohn_house_2018_calumet_coach_house",
+      "name": "2018 S. Calumet Avenue — the alley building of the house at 2018 (district draft; refined by T-1941)",
+      "sidecar": "sidecars/1904/wheeler_kohn_house_2018_calumet_coach_house.json",
+      "asset": "gltf/wheeler_kohn_house_2018_calumet_coach_house__draft_1904.glb"
     }
   ],
   "excluded_by_date": [

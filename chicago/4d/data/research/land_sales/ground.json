@@ -35,7 +35,7 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 840,
+    "structures_placed": 848,
     "structures_reached": 130,
     "structures_reached_by_grade": {
       "inferred": 25,
@@ -45,7 +45,7 @@
       "09": 516,
       "10": 1,
       "16": 42,
-      "outside the four sections": 151
+      "outside the four sections": 159
     },
     "school_section": {
       "parcels": {
@@ -40508,6 +40508,8 @@
       "glessner_lee_house_1700_prairie_coach_house",
       "goodman_house_1612_prairie",
       "goodman_house_1612_prairie_coach_house",
+      "hanford_house_2008_calumet",
+      "hanford_house_2008_calumet_coach_house",
       "henderson_house_1816_prairie",
       "henderson_house_1816_prairie_coach_house",
       "hibbard_house_1701_prairie",
@@ -40575,6 +40577,9 @@
       "house_2123_prairie_coach_house",
       "house_2125_prairie",
       "house_2125_prairie_coach_house",
+      "house_213_e20th",
+      "house_215_e20th",
+      "house_217_e20th",
       "ic_16th_street_station_1605_prairie",
       "jones_house_1834_prairie",
       "jones_house_1834_prairie_coach_house",
@@ -40616,6 +40621,7 @@
       "rothschild_house_2112_prairie_coach_house",
       "sears_meeker_house_1815_prairie",
       "sears_meeker_house_1815_prairie_coach_house",
+      "second_presbyterian_church_1936_michigan",
       "shed_1834_1900_prairie",
       "sherman_house_2100_prairie",
       "sherman_house_2100_prairie_coach_house",
@@ -40633,7 +40639,9 @@
       "walker_house_1720_prairie",
       "walker_house_1720_prairie_coach_house",
       "wheeler_house_1812_prairie",
-      "wheeler_house_1812_prairie_coach_house"
+      "wheeler_house_1812_prairie_coach_house",
+      "wheeler_kohn_house_2018_calumet",
+      "wheeler_kohn_house_2018_calumet_coach_house"
     ]
   }
 }
