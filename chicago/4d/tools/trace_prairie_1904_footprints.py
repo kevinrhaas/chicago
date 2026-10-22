@@ -120,6 +120,19 @@ SHEETS = {
         "ticket": "T-3008",
         "census_ticket": "T-3008",
     },
+    # The background behind Prairie Avenue (T-3018, piece 1 of T-3010): the same scan and fit
+    # as "35", read on Calumet Avenue's west frontage from 20th to 22nd Street (2008 and 2018
+    # are the named Hanford and Wheeler-Kohn houses, "35x"'s).
+    "35e": {
+        "gcp": "sanborn_1911_v3_sheet_35",
+        "census_path": ROOT / "data" / "components" / "prairie_1904" / "edges_census_s35e.json",
+        "blocks": ("blk_prairie_calumet_20_21", "blk_prairie_calumet_21_22"),
+        "parcels": ("calumet_2000", "calumet_2004", "calumet_2016", "calumet_2032", "calumet_2100",
+                    "calumet_2106", "calumet_2114", "calumet_2124", "calumet_2128", "calumet_2140"),
+        "out": ROOT / "data" / "traces" / "prairie_1904_footprints_s35e.json",
+        "ticket": "T-3018",
+        "census_ticket": "T-3018",
+    },
 }
 
 # Colour rules, on 8-bit sRGB. The paper is cream (r >= g >= b, r - g under 30); brick
@@ -134,6 +147,7 @@ MIN_BUILDING_PX = 720  # 2 m2
 PARCEL_INSET_PX = 1    # stay off the neighbour's side of a shared lot line
 PORCH_MAX_M2 = 15.0
 STONE_FRONT_MAX_DEPTH_M = 1.6
+ABUT_M = 1.5           # an outline the census has no id for, this near the house, is the house's
 PART_ERODE_PX = 1      # parts are labelled on fabric eroded this far, then grown back
 TRIANGLE_FILL = 0.62   # under this share of its box a part is a triangle (a stable's cross)
 LINE_MEAN = 140        # under this mean of r, g and b a pixel is a drawn line, not a wash
@@ -420,6 +434,21 @@ def read_parcel(cls: np.ndarray, origin: tuple, lots: list, fit: Fit, n_rear: in
     u, front, depth = street_axis(lots)
     gms = [glab == g for g in range(1, gn + 1) if (glab == g).sum() >= MIN_BUILDING_PX]
     gms.sort(key=lambda m: _depths(m, off, fit, u, front)[0])
+    # More outlines than the census names, one of them against the house: the house cut in two
+    # by a drawn wall the coarse scan's bridge does not close (sheet 35e's 2100, its frame
+    # porch along the front, 1.3 m off it across the porch's dashed edge and the wall; 2140,
+    # its 1B rear piece). The outline nearest the street group, within ABUT_M of it, joins it,
+    # closed across the gap -- only while some outline would otherwise go unnamed, so a lot
+    # the census names in full traces exactly as before.
+    abut_px = max(1, round(ABUT_M / fit.m_per_px))
+    while has_front and len(gms) > 1 + n_rear:
+        reach = ndimage.binary_dilation(gms[0], iterations=abut_px)
+        near = [k for k in range(1, len(gms)) if (reach & gms[k]).any()]
+        if not near:
+            break
+        k = max(near, key=lambda k: (reach & gms[k]).sum())
+        gms[0] = ndimage.binary_fill_holes(ndimage.binary_closing(gms[0] | gms[k], iterations=abut_px)) & lot
+        del gms[k]
     # A service building the sheet draws against the house's rear wall closes into the
     # house's group. When the census names more detached buildings than stand apart, the
     # street group's parts that begin in the rear REAR_SPLIT of the lot are split off as one.
