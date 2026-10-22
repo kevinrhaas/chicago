@@ -1,0 +1,7 @@
+{
+  "title": "Nothing you can see changed: a misleading Glessner check corrected",
+  "kind": "chore",
+  "items": [
+    "Glessner House looks exactly as before. Its published files were rebuilt from scratch and came out identical, byte for byte. A copy of the house left behind on a work machine had been mistaken for a fault in the site itself. The check now names that case and how to clear it."
+  ]
+}
