@@ -2415,6 +2415,8 @@ class Assembly:
             v["stair"]["cheek_form"] = cf["kind"]
             if cf["kind"] == "swept":   # T-2918: a scrolled cheek takes no sizes of its own
                 v["stair"]["swept"] = {k: cf[k] for k in ("head_m", "foot_m", "block_m")}
+            elif "foot_block_m" in cf:   # T-2984: but its roll may stand on a foot block
+                v["stair"]["scroll_block_m"] = cf["foot_block_m"]
         # T-2530: a side stoop's landing, from the front's s into run coordinates about the door
         ss = p.entrance_kit.get("side_stoop")
         if ss:
@@ -3448,6 +3450,12 @@ class Assembly:
     # -- rainwater: gutter, brackets, outlets, downpipes, shoes, splash stones -----------
     def rainwater(self, ye, yf, seed):
         p, r = self.p, self.p.rainwater
+        if not r["downpipes"]:   # T-2919: a gable's front pipes alone, each from its own head
+            self.rain_runs = []
+            for x in r["front_pipes"]:
+                self.front_pipe(x, "k04_" + r["fabric"], r["pipe_diameter_m"] / 2,
+                                math.radians(r["shoe_kick_deg"]), p.worst_conf("rainwater", "eave_overhang_m"), seed)
+            return
         D, W, o = p.depth_m, p.width_m, p.eave_overhang_m
         conf = p.worst_conf("rainwater", "eave_overhang_m")
         mat = "k04_" + r["fabric"]

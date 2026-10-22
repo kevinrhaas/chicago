@@ -349,11 +349,20 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
         "step_leg_m": prof["dormer_apron"]["step_flashing_m"]["leg"],
         "step_upstand_m": prof["dormer_apron"]["step_flashing_m"]["upstand"],
     }
-    if flat or gable:     # T-2459: a gable roof hangs no gutter yet (from_phase refuses one)
-        return roof, {}
     gk, pk = rain.get("gutter"), rain.get("downpipe")
     g, d = prof["gutter"], prof["downpipe"]
-    if gk != "half_round":
+    # T-2919: a gable roof hangs no gutter yet, but its front may carry pipes down from
+    # rainwater heads of their own (T-2953's front_pipes; 1811's plate draws two)
+    gable_pipes = gable and bool(rain)
+    if gable_pipes:
+        if set(rain) != {"fabric", "downpipe", "ends_at", "front_pipes"} or not rain["front_pipes"]:
+            raise ParamError("a gable K01 roof's rainwater is front_pipes alone, from heads of their own: "
+                             "fabric, downpipe, ends_at and front_pipes (no gutter, no downpipes)")
+    elif flat or gable:     # T-2459: a gable roof hangs no gutter yet (from_phase refuses one)
+        return roof, {}
+    if gable_pipes:
+        gk = "half_round"   # no gutter is hung; its kind only keys the K04 fabrics a pipe may be
+    elif gk != "half_round":
         raise ParamError("k01_frontage hangs a half_round gutter on brackets; a built-in box is another eave")
     if rain.get("fabric") not in g["kinds"][gk]["fabrics"]:
         raise ParamError(f"rainwater.fabric {rain.get('fabric')!r} is not a K04 {gk} gutter fabric")
@@ -370,7 +379,7 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
         if x["wall"] == "k01.wall.side.north" and float(x["s_m"]) > 0.5:
             raise ParamError(f"a downpipe on the north wall at s {x['s_m']}: only by the front corner (s <= 0.5 m)")
         pipes.append({"wall": x["wall"], "s_m": float(x["s_m"])})
-    if not pipes:
+    if not pipes and not gable_pipes:
         raise ParamError("every gutter outlet leads to a pipe: rainwater.downpipes is empty")
     # T-2953: a pipe down the street front from a rainwater head of its own, where no eave gutter
     # runs to it (1812's shaped gable, its pipes at both ends of the front in the Levy print):
@@ -1395,8 +1404,15 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         v["id"] = f"{structure_id}|{e['id']}"
         if e.get("masonry"):
             m = e["masonry"]
-            if set(m) - {"coursing"} != {"course_m", "block_m", "joint_m", "relief_m"} or not (.2 <= m["course_m"] <= .6 and .4 <= m["block_m"] <= 1.5 and .004 <= m["joint_m"] <= .02 and .008 <= m["relief_m"] <= .06):
+            if set(m) - {"coursing", "to_m"} != {"course_m", "block_m", "joint_m", "relief_m"} or not (.2 <= m["course_m"] <= .6 and .4 <= m["block_m"] <= 1.5 and .004 <= m["joint_m"] <= .02 and .008 <= m["relief_m"] <= .06):
                 raise ParamError("bays.masonry: bounded coursed rock-faced ashlar")
+            # T-2919: or rock-faced only up to one of its storey lines, smooth ashlar over it
+            # (1811's bay on its plate, rock-faced to the first floor's sill course)
+            if "to_m" in m:
+                sts = e.get("storeys") or v["storeys"]
+                lines = [round(sum(float(st["height_m"]) for st in sts[:i]), 4) for i in range(1, len(sts))]
+                if not any(abs(float(m["to_m"]) - y) < 1e-6 for y in lines):
+                    raise ParamError(f"bays: {e['id']}.masonry.to_m {m['to_m']} must be one of its storey lines {lines}")
             # T-2584: a bay read off its photograph may lay its courses deep and thin in turn,
             # as the street front's T-2566 coursing does; course_m is then the deep course's
             # most, and the thin one stays at least the K02 profiles' least course (0.19 m)
@@ -3132,9 +3148,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError("rear_section stands beside a hipped K01 roof (the one built)")
     if val("gable_roof") and not gable:
         raise ParamError(f"a {roof_form} roof names no gable_roof")
-    if gable and val("rainwater"):
+    if gable and val("rainwater") and "front_pipes" not in val("rainwater"):
         raise ParamError("a gable K01 roof hangs no gutter yet: k01_frontage runs its half-round gutter "
-                         "round a hip's eaves, and a gable's side walls are parapets (rainwater is empty)")
+                         "round a hip's eaves, and a gable's side walls are parapets (rainwater is empty, "
+                         "or front_pipes alone)")
     k04, rainwater = _k04(val("roof_covering") or {}, val("rainwater") or {}, pitch, flat,
                           mansard_roof.get("lower_pitch_deg"), gable)
     if val("mansard") and not mansard:
@@ -3535,13 +3552,22 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             loggia["columns"] = _loggia_columns(lg["columns"], door_w, door_h)
         door_kit["loggia"] = loggia
     # T-2910: a stoop's cheeks swept down from the landing to a block at the foot
-    if "cheek_form" in door_kit_in and door_kit_in["cheek_form"] == {"kind": "scrolled"}:
+    if "cheek_form" in door_kit_in and isinstance(door_kit_in["cheek_form"], dict) \
+            and door_kit_in["cheek_form"].get("kind") == "scrolled":
         # T-2918: a stoop's cheeks swept down to a rolled scroll at the foot, K07's carved cheek
         # (1808's, T-2565); 1811's plate draws its stair between them
-        if "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False or "terrace" in door_kit_in:
+        cf = door_kit_in["cheek_form"]
+        if "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False or "terrace" in door_kit_in \
+                or set(cf) - {"kind", "foot_block_m"}:
             raise ParamError("entrance_kit.cheek_form 'scrolled' is a stoop's own two cheeks (no side stoop, "
-                             "no terrace)")
+                             "no terrace), optionally on a foot_block_m")
         door_kit["cheek_form"] = {"kind": "scrolled"}
+        # T-2984: the roll raised onto a plain foot block, its top `foot_block_m` over grade
+        if "foot_block_m" in cf:
+            fb = float(cf["foot_block_m"])
+            if not 0.2 <= fb <= 1.0:
+                raise ParamError("entrance_kit.cheek_form.foot_block_m: a scroll's foot block is 0.2-1.0 m tall")
+            door_kit["cheek_form"]["foot_block_m"] = fb
     elif "cheek_form" in door_kit_in:
         cf = door_kit_in["cheek_form"]
         if not isinstance(cf, dict) or cf.get("kind") != "swept" or set(cf) != {"kind", "head_m", "foot_m", "block_m"} \

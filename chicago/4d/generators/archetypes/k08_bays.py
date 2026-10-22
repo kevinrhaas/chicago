@@ -860,7 +860,8 @@ class Bay:
                         drop = (*drop, "head")
                     merge(flat.prims, o.prims, drop)
                     self.windows.append(self._window_record(run, i, k, w, s, o, wall_t))
-                if v.get("masonry") and self.tier == "full":
+                # T-2919: a bay rock-faced to a storey line (`to_m`) is smooth ashlar over it
+                if v.get("masonry") and self.tier == "full" and hi <= v["masonry"].get("to_m", math.inf) + 1e-6:
                     masonry_cells(flat, holes, run.L, lo, hi, v["masonry"], trim_holes)
                 else:
                     wall_cells(flat, "wall", holes, 0.0, run.L, lo, hi)
