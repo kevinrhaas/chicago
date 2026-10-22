@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 679,
+  "count": 680,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -49049,6 +49049,40 @@
       ],
       "work_refs": [
         "T-2986"
+      ]
+    },
+    {
+      "id": "L-elm-vase-3017",
+      "title": "The 1904 parkway elms grown on the open-grown American elm's vase",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-22",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the 1904 parkway elms (and the faded city's trees, which share them) are grown on ARCH.ulmus americana vase by `growElm` in the walkthrough's tree model code, not on the timber elm's habit: a clear bole to 24-41 % of the height, a fork into two to four co-dominant stems that fork again up to three times (the first fork on each stem climbing into the middle of the vase), every limb arching from steep at the fork to reaching out at its end, branches that sweep out and down off the limbs' upper reach, and twigs that hang from them. The leaf is carried on the hanging twigs, the branch ends and short upright twigs in the dome, as sprays hung from where they grow and faced to the street and the ground, so the crown is a flattened dome widest about seven tenths up, over an open interior where the limbs show. The crown spreads about 0.85 of the height (0.70 before)."
+        },
+        {
+          "label": "What is read, not invented",
+          "text": "each tree's place, height band, girth band and colours, unchanged (“The 1904 district's parkway elms: one file per block face at about 30 ft, every tree placed by rule”); the species, inferred from the 1887-91 photograph."
+        },
+        {
+          "label": "What is invented",
+          "text": "the form of every elm. It is the open-grown American elm's ordinary habit as field guides draw it and as the owner's two photographs of living street elms (2026-10-22) show it, set by hand and judged by eye; no source describes a Prairie Avenue elm's limbs."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of the 1904 parkway close enough to read one tree's fork and limbs."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-22 (T-3017)."
+        }
+      ],
+      "work_refs": [
+        "T-3017"
       ]
     },
     {

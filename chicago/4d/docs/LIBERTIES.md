@@ -31026,3 +31026,23 @@ The parked1904 carriage also has an original small timber shaft-rest. Its crossb
 **Re-opens on:** a measurement independent of both 1960s surveys: a camera solve of the 1888 front photograph spanning the door to the 24.30 soffit, or HABS field notes FN-128.
 **Ticket:** T-2986 (docs/RESEARCH/glessner-coursing-T-2986/).
 **Recorded:** 2026-10-22.
+
+### L-elm-vase-3017 — The 1904 parkway elms grown on the open-grown American elm's vase
+
+**Decision:** the 1904 parkway elms (and the faded city's trees, which share them) are grown on
+`ARCH.ulmus_americana_vase` by `growElm` in `renderers/web/js/tree-model.js` (T-3017), not on the
+timber elm's habit: a clear bole to 24-41 % of the height, a fork into two to four co-dominant stems
+that fork again up to three times (the first fork on each stem climbing into the middle of the vase),
+every limb arching from steep at the fork to reaching out at its end, branches that sweep out and
+down off the limbs' upper reach, and twigs that hang from them. The leaf is carried on the hanging
+twigs, the branch ends and short upright twigs in the dome, as sprays hung from where they grow and
+faced to the street and the ground, so the crown is a flattened dome widest about seven tenths up,
+over an open interior where the limbs show. The crown spreads about 0.85 of the height (0.70 before).
+**What is read, not invented:** each tree's place, height band, girth band and colours, unchanged
+(L-prairie-parkway-elms-2473); the species, inferred from the 1887-91 photograph.
+**What is invented:** the form of every elm. It is the open-grown American elm's ordinary habit as
+field guides draw it and as the owner's two photographs of living street elms (2026-10-22) show it,
+set by hand and judged by eye; no source describes a Prairie Avenue elm's limbs.
+**How to resolve:** a photograph of the 1904 parkway close enough to read one tree's fork and limbs.
+**Ticket:** T-3017.
+**Recorded:** 2026-10-22 (T-3017).
