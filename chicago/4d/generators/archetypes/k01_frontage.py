@@ -2400,7 +2400,8 @@ class Assembly:
         if p.entrance_kit.get("cheek_form"):
             cf = p.entrance_kit["cheek_form"]
             v["stair"]["cheek_form"] = cf["kind"]
-            v["stair"]["swept"] = {k: cf[k] for k in ("head_m", "foot_m", "block_m")}
+            if cf["kind"] == "swept":   # T-2918: a scrolled cheek takes no sizes of its own
+                v["stair"]["swept"] = {k: cf[k] for k in ("head_m", "foot_m", "block_m")}
         # T-2530: a side stoop's landing, from the front's s into run coordinates about the door
         ss = p.entrance_kit.get("side_stoop")
         if ss:
