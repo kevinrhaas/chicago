@@ -1,4 +1,23 @@
 export const CHANGELOG = [ // newest first
+  { v: 2184, ts: '2026-10-22T15:04:39.048Z', date: 'Oct 22, 2026, 10:04 AM CT', title: 'Calumet Avenue fills in behind Prairie', kind: 'feature',
+    items: [
+      'Look east down 18th Street from Glessner\'s corner, or between the houses on Prairie\'s east side: Calumet Avenue\'s block from 18th to 20th Street is no longer bare ground.',
+      'Nine brick houses stand there, from 1830 to 1932 Calumet, with five stables on the alley. Each is drawn from the 1911 fire-insurance map, so its plan and storeys are the map\'s, and the rest is a first draft.',
+      'We chose this block by measuring: sight lines from both Prairie Avenue sidewalks show that 56 of the 66 lots behind the avenue can be seen, and this block face is the most visible of them.',
+    ] },
+  { v: 2183, ts: '2026-10-22T13:51:20.213Z', date: 'Oct 22, 2026, 8:51 AM CT', title: 'Glessner\'s 18th Street wall: one granite course an inch lower', kind: 'fix',
+    items: [
+      'Glessner House\'s 22nd granite course is now its printed 8½ inches, not the 9½ copied in error, so the top course and the stone cap along 18th Street sit an inch lower. The second-floor corridor windows on 18th Street, and the tall window over the great arch, now have their heads an inch lower too, at the course they were set on. It is a small change: one inch, on the wall you see from 18th Street.',
+    ] },
+  { v: 2182, ts: '2026-10-22T13:51:20.213Z', date: 'Oct 22, 2026, 8:51 AM CT', title: 'Nothing you can see changed: a misleading Glessner check corrected', kind: 'chore',
+    items: [
+      'Glessner House looks exactly as before. Its published files were rebuilt from scratch and came out identical, byte for byte. A copy of the house left behind on a work machine had been mistaken for a fault in the site itself. The check now names that case and how to clear it.',
+    ] },
+  { v: 2181, ts: '2026-10-22T13:36:55.080Z', date: 'Oct 22, 2026, 8:36 AM CT', title: '1811 Prairie\'s oriel brought down to its cornice in the 1888 plate', kind: 'fix',
+    items: [
+      'The oriel over 1811 Prairie\'s entrance now carries its cornice at the plate\'s height, about 0.4 m lower than before, so its slate spire rises from the same line as in the 1888 Inland Architect plate.',
+      'A close look at the plate shows the entrance\'s south corner is rounded, not square. The arcade beside the porch and the oriel\'s side wall both turn round it. That corner is now its own piece of work.',
+    ] },
   { v: 2180, ts: '2026-10-22T12:43:23.224Z', date: 'Oct 22, 2026, 7:43 AM CT', title: '1801 Prairie\'s south pavilion rises to its stone gable', kind: 'feature',
     items: [
       'The Kimball house\'s south pavilion on Prairie Avenue now ends in the steep coped stone gable J. W. Taylor\'s photograph of about 1895 shows, with a pinnacle at each corner and a finial at the peak, where it had a low hipped cap.',

@@ -1331,18 +1331,27 @@ class Bay:
         eave, so its back is closed on the wall plane, in its own walling, from `y_b` (the
         house's wall head, where the house's roof leaves the wall) up: behind its walls to
         their top, behind its eaves to their line, and under its spire to the apex. Cut at
-        the junctions and at the eaves' ends, so no edge of it ends on another's middle."""
+        the junctions and at the eaves' ends, so no edge of it ends on another's middle.
+
+        T-2989: a wall top UNDER `y_b` (1811's oriel, its cornice under its house's eave
+        datum) has no back to its walls to close, since the house's own wall stands behind
+        them to `y_b`: the back is closed behind its eaves from `y_b` (if they rise past
+        it) and under its spire from its eaves line."""
         if not hasattr(self, "_spire_back"):
             raise ValueError(f"{self.v['id']}: only an oriel under a spire is carried through an eave")
         jl, jr = self.runs[0].world(0.0, 0.0, 0.0)[0], self.runs[-1].world(self.runs[-1].L, 0.0, 0.0)[0]
         el, er, apex = self._spire_back
-        if not el < jl < jr < er or not y_b < y_top - 0.3:
-            raise ValueError(f"{self.v['id']}: its back from {y_b} m needs the wall top at least 0.3 m over it")
+        under = y_top <= y_b
+        if not el < jl < jr < er or not (y_b < y_top - 0.3 or under):
+            raise ValueError(f"{self.v['id']}: its back from {y_b} m needs the wall top at least 0.3 m over it, "
+                             f"or under it")
         B = (0.0, 0.0, -1.0)
         q = lambda x0, x1, y0, y1: [(x1, y0, 0.0), (x0, y0, 0.0), (x0, y1, 0.0), (x1, y1, 0.0)]
-        world.face("roof_back", q(jl, jr, y_b, y_top), B)
+        if not under:
+            world.face("roof_back", q(jl, jr, y_b, y_top), B)
         for x0, x1 in ((el, jl), (jl, jr), (jr, er)):
-            world.face("roof_back", q(x0, x1, y_top, y_e), B)
+            if not under or y_b < y_e:
+                world.face("roof_back", q(x0, x1, y_b if under else y_top, y_e), B)
             world.face("roof_back", [(x1, y_e, 0.0), (x0, y_e, 0.0), apex], B)
         self.meta["back"] = {"from_m": round(y_b, 4), "to_m": round(apex[1], 4)}
 
