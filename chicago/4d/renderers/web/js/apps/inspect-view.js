@@ -30,6 +30,7 @@
 import { cardOpening } from '../popup.js';
 import { displayName } from '../display-name.js';
 import { fallbackSummary } from '../fallback-summary.js';
+import { builtPhrase } from '../range-words.js';
 import { hydratePictures } from '../pictures.js';
 import { renderPhotos } from '../photos-tab.js';
 import { cameraOf } from '../show-me.js';
@@ -102,6 +103,9 @@ function fallbackChips(s) {
     const v = String(today.value);
     out.push({ text: /^still standing/i.test(v) ? 'Still standing' : v.split(/[—–-]/)[0].trim(), grade: today.confidence });
   }
+  // T-3037: the build date as its sources give it — "Built 1886", "Built 1864 or 1875".
+  const built = builtPhrase(s?.attributes?.built?.value).replace(/^in /, '');
+  if (built) out.push({ text: `Built ${built}`, grade: s.attributes.built.confidence });
   return out;
 }
 

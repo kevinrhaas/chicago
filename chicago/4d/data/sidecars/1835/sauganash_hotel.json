@@ -27,7 +27,9 @@
       "kinzie_waubun_1856",
       "drloih_hotels"
     ],
-    "note": "Wau-Bun, describing 1831: 'a house just completed by Mark Beaubien.' Destroyed by fire 4 March 1851. The 1838 rename to Chicago Hotel and the 1837 arrival of the Chicago Theatre Company in the dining room are changes of use, not of form, so they do not open a new phase."
+    "note": "Wau-Bun, describing 1831: 'a house just completed by Mark Beaubien.' Destroyed by fire 4 March 1851. The 1838 rename to Chicago Hotel and the 1837 arrival of the Chicago Theatre Company in the dining room are changes of use, not of form, so they do not open a new phase.",
+    "from_is": "began",
+    "to_is": "ended"
   },
   "change_note": "Two-story frame block built onto the log core at the Lake and Market corner, 1831; the whole then known as the Sauganash Hotel, Chicago's first hotel.",
   "placement": {
@@ -238,6 +240,14 @@
         "drloih_hotels"
       ],
       "note": "The Beaubiens owned it until 1834; the hotel chronology gives 'Davis (1835)' as operator, possibly the John Davis running the Steamboat Hotel on North Water Street. Mark Beaubien himself had moved on by the scene date — he built the Exchange Coffee House at Lake and Wells in 1834. The 1835 proprietor is a lead, not a settled fact."
+    },
+    "built": {
+      "value": 1831,
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "note": "Wau-Bun, describing 1831: 'a house just completed by Mark Beaubien.'"
     }
   },
   "residents": [

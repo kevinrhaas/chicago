@@ -13,6 +13,14 @@
     ],
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
   },
+  "built": {
+    "value": 1884,
+    "confidence": "attested",
+    "sources": [
+      "hmdb_prairie_lost_houses_1800_1900_west"
+    ],
+    "note": "The marker: 'George H. Wheeler Residence. Built 1884'."
+  },
   "review_required": false,
   "research_note": "Refined from the district draft (T-2329) in place under the same id by T-2543, piece 1 of T-1884: K01 frontage kit, built from Albert Levy's photograph (levy_1812_prairie_photo, camera data/reference_views/wheeler_house_1812_prairie/levy_front.json) on the 1911 sheet's plan (s28fp-1812-b1). What the kit cannot yet build as the photograph shows is listed in the camera's match record and is T-2544's and T-2545's; every invention is L-k01-1812-wheeler-front-2543.",
   "phases": [
@@ -26,7 +34,8 @@
           "sanborn_1911_chicago_v3_sheet_28",
           "levy_1812_prairie_photo"
         ],
-        "note": "Built for George H. Wheeler on the Real Estate and Building Journal's permit of June 7, 1884 ('3-story dwelling, 30x80', the Prairie library's npo-1812-rebj-1884-06-07-wheeler-dwelling-permit), photographed by Albert Levy c. 1885-1900 and drawn on the 1911 sheet ('3B'); the T-1841 census rules it present in 1904 (present_as_mapped). The range claims the 1904 target and the sheet's date and no more."
+        "note": "Built for George H. Wheeler on the Real Estate and Building Journal's permit of June 7, 1884 ('3-story dwelling, 30x80', the Prairie library's npo-1812-rebj-1884-06-07-wheeler-dwelling-permit), photographed by Albert Levy c. 1885-1900 and drawn on the 1911 sheet ('3B'); the T-1841 census rules it present in 1904 (present_as_mapped). The range claims the 1904 target and the sheet's date and no more.",
+        "to_is": "seen"
       },
       "position": {
         "utm_e": 448442.797,

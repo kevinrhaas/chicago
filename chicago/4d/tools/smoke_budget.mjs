@@ -419,6 +419,8 @@ const COVERAGE = [
   ['renderers/web/js/popup.js', [3, 4, 14], 'the card a visitor opens, and its sections in Inspect\'s tabs (parts 4, 14; T-2639)'],
   // T-2636: the card's templated head and lead; part 14 reads the 1904 Glessner card's.
   ['renderers/web/js/fallback-summary.js', [3, 14], 'the card\'s opening when no summary is written'],
+  // T-3037: the words a card prints for a record's dates, read by the card, Story and Sources.
+  ['renderers/web/js/range-words.js', [3, 4, 14], 'the dates a card prints, only as the record dates them'],
   ['renderers/web/js/census.js', [13], 'the town census in Evidence → City'],
   ['data/terrain/', [3], 'the heightfield'],
   ['data/liberties.json', [3, 14], 'the liberties taken on THAT building'],

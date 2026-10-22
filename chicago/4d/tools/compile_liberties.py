@@ -131,7 +131,7 @@ DATE = re.compile(r"(\d{4}-\d{2}-\d{2})")
 # therefore carries its `form.` prefix, which is also what keeps the last segment
 # from having to be guessed at.
 COVER_ASPECTS = ("footprint", "position", "documented_range", "function", "occupants", "present_status",
-                 "ground_contact")
+                 "built", "ground_contact")
 FORM_ASPECT = r"form(?:\.[a-z0-9_]+)+"
 COVER_TOKEN = re.compile(
     r"^([a-z0-9_]+\*?|\*)(?:\.([a-z0-9_]+?|\*))?\.("
