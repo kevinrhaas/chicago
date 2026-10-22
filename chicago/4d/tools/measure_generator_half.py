@@ -624,13 +624,22 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # strip) on `prairie_draft`, emitted through generators/draft_emit.py, so restaling on that
 # archetype's own rows and on none of the shared ones above.
 #
+# 914 -> 920, 737 -> 743 and 731 -> 737 on 2026-10-22 (T-2485, landing after T-3008): the Kinzie
+# establishment of 1812, a stable, lodging house and bake-house (`log_dwelling`), a dairy and the
+# horse mill (`outbuilding`) and the garden's picket fence (`palisade`), emitted the same way.
+#
+# 920 -> 947 on 2026-10-22 (T-3009, landing after T-2485): the background behind Prairie Avenue continued, twenty-seven
+# drafts on Indiana Avenue's east frontage from 20th to 22nd Street (thirteen houses, the First
+# Presbyterian Church, a livery and twelve alley buildings) on `prairie_draft`, emitted through
+# generators/draft_emit.py, so restaling on that archetype's own rows and on none of the shared ones above.
+#
 STATED = {
-    "assets": 914,
+    "assets": 947,
     "restales": {
-        "generators/common/*.py": 737,
+        "generators/common/*.py": 743,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 731,
+        "generators/emit.py": 737,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,

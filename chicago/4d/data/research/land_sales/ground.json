@@ -35,17 +35,17 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 863,
-    "structures_reached": 130,
+    "structures_placed": 895,
+    "structures_reached": 135,
     "structures_reached_by_grade": {
-      "inferred": 25,
+      "inferred": 30,
       "reconstructed": 105
     },
     "structures_unreached_by_section": {
       "09": 516,
       "10": 1,
       "16": 42,
-      "outside the four sections": 174
+      "outside the four sections": 201
     },
     "school_section": {
       "parcels": {
@@ -2719,12 +2719,32 @@
           "margin_m": 53.0
         },
         {
+          "id": "kinzie_bake_house_1812",
+          "margin_m": 41.8
+        },
+        {
+          "id": "kinzie_dairy_1812",
+          "margin_m": 52.4
+        },
+        {
+          "id": "kinzie_garden_1812",
+          "margin_m": 57.8
+        },
+        {
           "id": "kinzie_house_1812",
           "margin_m": 35.4
         },
         {
           "id": "kinzie_house_1812_green",
           "margin_m": 16.0
+        },
+        {
+          "id": "kinzie_lodging_house_1812",
+          "margin_m": 48.9
+        },
+        {
+          "id": "kinzie_stable_1812",
+          "margin_m": 42.6
         },
         {
           "id": "lake_house_construction",
@@ -3016,12 +3036,32 @@
           "margin_m": 53.0
         },
         {
+          "id": "kinzie_bake_house_1812",
+          "margin_m": 41.8
+        },
+        {
+          "id": "kinzie_dairy_1812",
+          "margin_m": 52.4
+        },
+        {
+          "id": "kinzie_garden_1812",
+          "margin_m": 57.8
+        },
+        {
           "id": "kinzie_house_1812",
           "margin_m": 35.4
         },
         {
           "id": "kinzie_house_1812_green",
           "margin_m": 16.0
+        },
+        {
+          "id": "kinzie_lodging_house_1812",
+          "margin_m": 48.9
+        },
+        {
+          "id": "kinzie_stable_1812",
+          "margin_m": 42.6
         },
         {
           "id": "lake_house_construction",
@@ -40500,6 +40540,9 @@
       "edson_keith_house_1906_prairie_coach_house",
       "elbridge_keith_house_1900_prairie",
       "elbridge_keith_house_1900_prairie_coach_house",
+      "first_presbyterian_church_2029_indiana",
+      "first_presbyterian_church_2029_indiana_dwelling",
+      "first_presbyterian_church_2029_indiana_stable",
       "flats_2127_prairie",
       "forsyth_house_1635_prairie",
       "george_glessner_house_1706_prairie",
@@ -40572,20 +40615,43 @@
       "house_2001_prairie_coach_house",
       "house_2003_prairie",
       "house_2005_prairie",
+      "house_2007_indiana",
+      "house_2009_indiana",
+      "house_2009_indiana_rear_dwelling",
       "house_2010_prairie",
       "house_2010_prairie_coach_house",
+      "house_2011_indiana",
+      "house_2011_indiana_coach_house",
       "house_2011_prairie",
       "house_2011_prairie_coach_house",
+      "house_2013_indiana",
+      "house_2013_indiana_coach_house",
+      "house_2017_indiana",
+      "house_2017_indiana_coach_house",
       "house_2017_prairie",
       "house_2017_prairie_coach_house",
       "house_2018_prairie",
       "house_2018_prairie_coach_house",
+      "house_2019_indiana",
+      "house_2019_indiana_coach_house",
+      "house_2021_indiana",
+      "house_2021_indiana_coach_house",
+      "house_2023_indiana",
+      "house_2023_indiana_coach_house",
       "house_2026_prairie",
       "house_2026_prairie_coach_house",
+      "house_2027_indiana",
+      "house_2027_indiana_coach_house",
       "house_2027_prairie",
       "house_2027_prairie_coach_house",
       "house_2101_prairie",
       "house_2101_prairie_coach_house",
+      "house_2107_indiana",
+      "house_2107_indiana_coach_house",
+      "house_2111_indiana",
+      "house_2111_indiana_coach_house",
+      "house_2115_indiana",
+      "house_2119_indiana",
       "house_2120_prairie",
       "house_2120_prairie_coach_house",
       "house_2123_prairie",
@@ -40606,6 +40672,7 @@
       "kimball_house_1801_prairie",
       "law_house_1620_prairie",
       "law_house_1620_prairie_coach_house",
+      "livery_2123_indiana",
       "mark_kimball_house_2108_prairie",
       "mark_kimball_house_2108_prairie_coach_house",
       "marsh_house_1824_prairie",
