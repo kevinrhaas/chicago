@@ -3180,7 +3180,7 @@ class Assembly:
                            ([c[0, 0, -1], c[0, 0, 1], c[0, 1, 1], c[0, 1, -1]], "hidden"),   # its back
                            ([c[0, 0, -1], c[1, 0, -1], c[1, 1, -1], c[0, 1, -1]], "cheek"),  # a cheek
                            ([c[0, 0, 1], c[1, 0, 1], c[1, 1, 1], c[0, 1, 1]], "cheek")):     # the other
-            ctr = tuple(sum(q[k] for q in quad) / 4 for k in range(3))
+            ctr = tuple((quad[0][k] + quad[1][k] + quad[2][k] + quad[3][k]) / 4 for k in range(3))
             pl = k5.oriented(quad, role, tuple(ctr[k] - mid[k] for k in range(3)))
             if pl:
                 hood.append(pl)
