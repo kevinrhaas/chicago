@@ -1,0 +1,222 @@
+{
+  "id": "first_presbyterian_church_2029_indiana",
+  "phase": "draft_1904",
+  "name": "2029-2035 Indiana Avenue — First Presbyterian Church (district draft; refined by T-3014)",
+  "aka": [
+    "2029-2035 S. Indiana Avenue",
+    "216 E. 21st Street",
+    "First Presbyterian Church"
+  ],
+  "archetype": "prairie_draft",
+  "asset": "gltf/first_presbyterian_church_2029_indiana__draft_1904.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+    ],
+    "note": "No source dates the building; the draft claims the 1904 target on the 1911 sheet alone (study ruling 11)."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1326.446,
+    "local_n": -3602.952,
+    "rotation_deg": 179.497,
+    "position_confidence": "reconstructed",
+    "position_sources": [],
+    "position_note": "The rear corner of the main body (u -43.700, v 4.780 m from the building's front and southernmost faces), set from the corner at local (1282.71, -3598.56): Indiana Avenue's measured east line (data/street_grid/1904.json) with its centre 10.06 m (66 ft) west of it; the church's front stands 2.97 m behind that line and its south face 0.14 m behind 21st Street's north line, the trace's own readings. Good to about the trace's 0.19 m pixel and the sheet's fit. Rotation 179.497 degrees squares the plan to the avenue.",
+    "symbolic_location": "2029-2035 S. Indiana Avenue, the north-east corner of Indiana Avenue and East Twenty-first Street, on sheet 35's Indiana frontage.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        36.66,
+        -4.78
+      ],
+      [
+        43.16,
+        -4.78
+      ],
+      [
+        43.16,
+        0.0
+      ],
+      [
+        43.7,
+        0.0
+      ],
+      [
+        43.7,
+        23.11
+      ],
+      [
+        0.0,
+        23.11
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        36.66,
+        0.0
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+    ],
+    "note": "The building's whole plan as the trace outlines it: the body with its buttresses, and the tower and porch block that steps south of it at the 21st Street corner; the main body (43.7 x 23.1 m) is draft_plan's first rectangle."
+  },
+  "attributes": {
+    "stories": {
+      "value": 3,
+      "confidence": "reconstructed",
+      "note": "Three draft storeys of 4.6 m over a 0.9 m floor stand the walls to 14.7 m, the sheet's printed 48 ft to the eaves; a church has no storeys, and the count only sets the wall height and the rows of openings."
+    },
+    "construction": {
+      "value": "brick",
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "Brick: the sheet colours it pink."
+    },
+    "draft_plan": {
+      "value": {
+        "parts": [
+          {
+            "id": "r1",
+            "role": "main",
+            "storeys": 3,
+            "roof": "hip",
+            "pitch_deg": 40,
+            "rect": [
+              0.0,
+              0.0,
+              43.7,
+              23.11
+            ],
+            "from": "the church's body, buttresses included, as sheet 35 draws it under its dashed hips (the T-3009 trace of sheet 35 (s35wfp-indiana_2029-b1), read in metres from Indiana Avenue's east line and East 21st Street's north line)"
+          }
+        ],
+        "lot_v": [
+          -0.14,
+          23.25
+        ],
+        "street_u": 46.67
+      },
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "One rectangle, the body read off the trace in metres from Indiana's line and 21st Street's; the buttresses fold into it and the tower stands as a feature."
+    },
+    "draft_elevation": {
+      "value": {
+        "kind": "house",
+        "seed": 72272670,
+        "principal_floor_m": 0.9,
+        "storey_heights_m": [
+          4.6,
+          4.6,
+          4.6
+        ],
+        "roof_pitch_deg": 40,
+        "mansard_lower_m": 3.0,
+        "front_bays": 3,
+        "entrance": "centre",
+        "side_spacing_m": 4.0,
+        "chimneys": 0,
+        "brackets": false,
+        "attic_dormers": false,
+        "stone": "stone",
+        "features": [
+          {
+            "kind": "corner_tower",
+            "sides": 4,
+            "radius_m": 3.89,
+            "above_eave_m": 1.8,
+            "cap_m": 10.9,
+            "at": [
+              40.17,
+              -1.18
+            ]
+          }
+        ],
+        "draft_label": {
+          "pass": "T-3009",
+          "refined_by": [
+            "T-3014"
+          ]
+        },
+        "v_toward": "south"
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED by the site row: A hip at 40 degrees over the body, which the sheet draws with dashed hips. The tower is the sheet's three-storey square at the south-west corner, about 5.5 m across on the trace, its masonry to about 16.5 m and its slated spire to the printed 90 ft (27.4 m). Openings are the draft's sash in rows, not the church's, which are T-3014's. The seed 72272670 only tints the fabric inside +-6 %. Liberty L-draft-district-background-3009."
+    },
+    "draft": {
+      "value": {
+        "pass": "T-3009",
+        "liberty": "L-draft-district-background-3009",
+        "register_row": null,
+        "census_ids": [],
+        "trace_building": null,
+        "seed": 72272670,
+        "replaceable_by": [
+          "T-3014"
+        ],
+        "card": "District draft — refined by T-3014."
+      },
+      "confidence": "reconstructed",
+      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+      "geometry": "record_only"
+    },
+    "function": {
+      "value": "church",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "note": "The 1911 sheet letters the building '1st PRESBYN. CHURCH'. No 1904 source for it is in hand, so the 1904 function is inferred from the 1911 label: a masonry church of this size, with a 90 ft spire, is not one put up in the seven years to 1911 without a trace in the study (T-3014 sources it)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "sanborn_1911_chicago_v3_sheet_35",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 35.",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "Footprints, lots and street widths from 20th to 22nd Street between Indiana and Calumet, as of 1911, at the copy's coarser resolution",
+        "The position of Twentieth Street, which is vacated between Indiana and Calumet today"
+      ],
+      "what_it_does_not_supply": [
+        "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+        "A construction date for any building it draws",
+        "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+        "Architecture above the footprint beyond its story count, material colour and roof symbol",
+        "Any lake edge: the sheet ends at Calumet Avenue"
+      ]
+    }
+  ],
+  "research_note": "A DISTRICT DRAFT (T-3009, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-3014 refines in place under this same id. Written by tools/draft_prairie_1904.py from the rules' site row (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-district-background-3009). The church fills the 2029-2035 lot on Indiana Avenue at 21st Street, 48 ft to its eaves with a slated spire 90 ft high on its south-west tower, as Sanborn 1911 vol. 3 sheet 35 prints it; no photograph, drawing or 1904 record of it is in the repository yet. It is drafted from the T-3009 trace's measures, as a site so that its storeys, roof and tower are the sheet's printed heights and not a house's.",
+  "research_doc": "",
+  "review_required": false,
+  "called": "2029-2035 Indiana Avenue — First Presbyterian Church"
+}

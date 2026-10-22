@@ -133,6 +133,21 @@ SHEETS = {
         "ticket": "T-3018",
         "census_ticket": "T-3018",
     },
+    # The background behind Prairie Avenue (T-3009, piece 2 of T-2983): the same scan and fit
+    # as "35", read on Indiana Avenue's east frontage from 20th to 22nd Street and the two lots
+    # of East Twenty-first Street behind its 2101-2105 corner (213-217 E. 20th are "35x"'s).
+    "35w": {
+        "gcp": "sanborn_1911_v3_sheet_35",
+        "census_path": ROOT / "data" / "components" / "prairie_1904" / "edges_census_s35w.json",
+        "blocks": ("blk_indiana_prairie_20_21", "blk_indiana_prairie_21_22"),
+        "parcels": ("indiana_2001", "indiana_2007", "indiana_2009", "indiana_2011", "indiana_2013",
+                    "indiana_2017", "indiana_2019", "indiana_2021", "indiana_2023", "indiana_2027",
+                    "indiana_2029", "indiana_2101", "e21st_w_215", "e21st_215", "indiana_2107",
+                    "indiana_2111", "indiana_2115", "indiana_2119", "indiana_2123", "indiana_2129"),
+        "out": ROOT / "data" / "traces" / "prairie_1904_footprints_s35w.json",
+        "ticket": "T-3009",
+        "census_ticket": "T-3009",
+    },
 }
 
 # Colour rules, on 8-bit sRGB. The paper is cream (r >= g >= b, r - g under 30); brick
@@ -148,6 +163,7 @@ PARCEL_INSET_PX = 1    # stay off the neighbour's side of a shared lot line
 PORCH_MAX_M2 = 15.0
 STONE_FRONT_MAX_DEPTH_M = 1.6
 ABUT_M = 1.5           # an outline the census has no id for, this near the house, is the house's
+FRONT_SLIVER_GAP_M = 1.5  # a street-side sliver this near the building behind it is that building's front
 PART_ERODE_PX = 1      # parts are labelled on fabric eroded this far, then grown back
 TRIANGLE_FILL = 0.62   # under this share of its box a part is a triangle (a stable's cross)
 LINE_MEAN = 140        # under this mean of r, g and b a pixel is a drawn line, not a wash
@@ -459,6 +475,14 @@ def read_parcel(cls: np.ndarray, origin: tuple, lots: list, fit: Fit, n_rear: in
     # service building joined to it by a long rear range (sheet 35's 2035) begins further
     # forward than one drawn against the rear wall. Where some service building does stand
     # apart, ids left over are the joined-outline rule's (assign), as on sheet 20's 1720.
+    # A sliver at the street is the front of the building behind it, cut off by a drawn line:
+    # sheet 35w's 2007, the stone strip the sheet runs along the row's fronts, stands 0.7 m
+    # before its house. Under PORCH_MAX_M2 and within FRONT_SLIVER_GAP_M of the next group,
+    # it joins that group, so the census's front is the house and not the strip.
+    if has_front and len(gms) > 1 and gms[0].sum() * fit.m_per_px ** 2 <= PORCH_MAX_M2 and \
+            _depths(gms[1], off, fit, u, front)[0] - _depths(gms[0], off, fit, u, front)[1] <= FRONT_SLIVER_GAP_M:
+        joined = ndimage.binary_closing(gms[0] | gms[1], iterations=BRIDGE_PX) & lot
+        gms = [joined] + gms[2:]
     split = None
     if gms and has_front and len(gms) - 1 < n_rear:
         pms0 = part_masks(fabric, gms[0])

@@ -1,4 +1,33 @@
 export const CHANGELOG = [ // newest first
+  { v: 2197, ts: '2026-10-22T20:48:00.290Z', date: 'Oct 22, 2026, 3:48 PM CT', title: 'Glessner\'s stable cupola stands taller and slimmer, as its photographs show', kind: 'improvement',
+    items: [
+      'The dovecote cupola on the coach-house ridge now rises about a foot higher, its pyramid\'s point at 48 feet, as the 1887 and 1963 northwest photographs both put it once each is read against the gable beside it.',
+      'Its stone body is half a foot narrower, 5.5 feet square, and its eave reaches out nine inches instead of fifteen, closer to the trim cupola both photographs show.',
+      'The two tiers of pigeon holes ride up with it, where the 1963 photograph shows their landing ledges.',
+    ] },
+  { v: 2196, ts: '2026-10-22T20:20:44.253Z', date: 'Oct 22, 2026, 3:20 PM CT', title: 'Distant elms draw fewer, larger leaf sprays to stay in budget', kind: 'improve',
+    items: [
+      'Elms past 44 m carry their leaf on fewer, larger sprays and leave out limbs too thin to see, so the view down Prairie from 18th Street draws about 45,000 fewer triangles.',
+    ] },
+  { v: 2195, ts: '2026-10-22T20:05:02.257Z', date: 'Oct 22, 2026, 3:05 PM CT', title: 'Glessner\'s courtyard falls to the carriage passage, as drawn', kind: 'fix',
+    items: [
+      'The courtyard ground now slopes down 1.3 ft to the passage mouth, as the HABS section draws it.',
+      'The passage clears 9.7 ft under its courtyard lintel, up from 8.2 ft.',
+      'The stair tower\'s stone footing runs down to the lower ground.',
+      'The courtyard walls, windows and roofs keep their heights: the section\'s zero is the lawn.',
+    ] },
+  { v: 2194, ts: '2026-10-22T19:34:07.916Z', date: 'Oct 22, 2026, 2:34 PM CT', title: 'The Green Tree Tavern stands on its ground in 1835', kind: 'fix',
+    items: [
+      'The Green Tree Tavern no longer sits sunk into the riverbank: its doors and sills meet the ground.',
+      'It stands 5.8 m further west, so the inn and its rear wing sit on level ground instead of on the bank\'s slope.',
+      'Buildings now rest on the ground under their walls instead of under their eaves, which also lifts the Wolf Point Tavern out of the bank.',
+    ] },
+  { v: 2193, ts: '2026-10-22T19:34:07.916Z', date: 'Oct 22, 2026, 2:34 PM CT', title: 'Indiana Avenue\'s houses and First Presbyterian Church behind Prairie', kind: 'feature',
+    items: [
+      'Indiana Avenue\'s east side now stands from 20th to 22nd Street, seen across the yards from Prairie Avenue\'s walks: a row of nine stone-bayed brick houses, frame houses south of 21st Street, a livery and the stables on the alley.',
+      'First Presbyterian Church stands on the 21st Street corner, its corner tower carrying a slated spire about 27 metres high, as the 1911 atlas draws it.',
+      'Each building is marked as a draft from the atlas. The garages, the printing works and the post office the atlas shows on four corners are left open until their 1904 occupants are found.',
+    ] },
   { v: 2192, ts: '2026-10-22T18:37:53.288Z', date: 'Oct 22, 2026, 1:37 PM CT', title: '1812: the Kinzie yard rises behind the house', kind: 'feature',
     items: [
       'New in 1812: a log stable, the Frenchmen\'s whitewashed lodging house, a bake-house with an oven flue, a dairy and a picket kitchen garden stand behind the Kinzie house.',
