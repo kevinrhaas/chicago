@@ -550,6 +550,8 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "perch_projection_m": float(v["perch_projection_ft"]) * FT}
             if "ledge_ft" in v:
                 p.turrets[-1]["vent"]["ledge_m"] = float(v["ledge_ft"]) * FT
+            if v.get("ledge_corners") == "wrapped":
+                p.turrets[-1]["vent"]["ledge_corners"] = "wrapped"
             if t.get("body_material"):
                 p.turrets[-1]["body_material"] = t["body_material"]
             p.turrets[-1]["eave"] = {
@@ -965,6 +967,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             if "hook_drop_ft" in hoist:
                 p.detail["north_stable_fabric"]["hoist_stone"]["hook_drop"] = \
                     hoist["hook_drop_ft"]*FT
+            if "nose_ft" in hoist:
+                # T-3030: the nose's own depth, read from the Cornell view.
+                p.detail["north_stable_fabric"]["hoist_stone"]["nose"] = \
+                    hoist["nose_ft"]*FT
             leaves = stable_fabric.get("loft_leaves")
             if leaves:
                 p.detail["north_stable_fabric"]["loft_leaves"] = {
