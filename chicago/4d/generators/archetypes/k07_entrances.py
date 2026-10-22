@@ -447,7 +447,8 @@ class Entrance(Opening):
                 # its top rising from the rake to the deck's edge
                 Dq = next((q.get("out_m", L) for q, sd in zip(porches, psides) if sd == sgn), L)
                 carved = any(q.get("loggia", {}).get("finish") == "ionic_carved" for q in porches)
-                if carved:
+                # T-2918: a record may ask for the carved cheek on a plain stoop (1811's plate)
+                if carved or st.get("cheek_form") == "scrolled":
                     self._scrolled_cheek(si, so, sgn, Dq if Dq > L else L, F, R, c, half, t, Dq > L, -(n - 1) * r)
                     if Dq > L:
                         self.quad("cheek", [(si,-R,L),(si,-R,Dq),(si,0,Dq),(si,0,L)],(-sgn,0,0))
