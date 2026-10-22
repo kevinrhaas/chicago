@@ -1095,8 +1095,10 @@ function elmCards(leaves, c, lod, { outward, colour, flex }, leafScale, sunTile,
   card(leaves, add(c.at, mul(randUnit(lrnd), c.r * 0.5)), c.dir, c.r * 1.4 * leafScale, sunTile, colour, outward, flex, lrnd, flat);
 }
 /** The share of an elm's clumps each level draws (T-3017); `coarse`, the
- *  phone's tier, draws fewer, larger sprays, the same leaf area on fewer cards. */
-const ELM_SHARE = { near: 1, mid: 0.62, far: 0.05 };
+ *  phone's tier, draws fewer, larger sprays, the same leaf area on fewer cards.
+ *  Far is 0.03, not 0.05 (T-3032): the 1904 spawn sees 500 far elms, and at 0.05
+ *  they took its frame to 4,603,239 triangles, over the 4.6M ceiling. */
+const ELM_SHARE = { near: 1, mid: 0.62, far: 0.03 };
 const ELM_SHARE_COARSE = { near: 1, mid: 0.40, far: 0.028 };
 
 /**
