@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-15-stable-detail",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6f49d473338250cb165a61c304e12c463e1b964f59e9992c2cdad85d21d931da",
+  "glb_sha256": "3546f88accebbc9efcfecb636b4bced164ccc70846874e2b18523710d6d50296",
   "camera_sha256": "09789d6f7f1c6e24ff9cae425a4a272b17d6eee58eec7f85df30707277b18c82",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg",
   "verdict": "differs",
@@ -30,6 +30,10 @@
     {
       "what": "T-3030, reviewed from the rebaked master: what this print shows under the arch is the hoist stone's lit sloping underside, from its foot at the wall up to its nose, about 42 px tall; the render now shows the same sloping underside from a 4.0 ft cantilever (it showed a short block's front face), its foot at 26.0 ft as the print reads it about 10 px lower than before, and its narrow 0.75 ft width.",
       "status": "fixed"
+    },
+    {
+      "what": "T-3031, reviewed from the rebaked master: the cupola was raised about 1 ft, narrowed to 5.5 ft and its eave drawn in to 0.75 ft; this print hides the cupola behind its film holder, so nothing it shows changed and nothing here is judged anew.",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
