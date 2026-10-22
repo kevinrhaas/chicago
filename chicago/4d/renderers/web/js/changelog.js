@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2169, ts: '2026-10-22T06:38:09.184Z', date: 'Oct 22, 2026, 1:38 AM CT', title: 'Second Presbyterian\'s spire and the houses beyond Prairie Avenue', kind: 'feature',
+    items: [
+      'Second Presbyterian Church now stands at Michigan Avenue and 20th Street. Its corner tower carries the tall spire it had in 1904, which was lost in 1929.',
+      'The church is drafted from its survey drawings: the nave, the parish hall across the west end and the north aisle, with the nave\'s ridge at about 27 metres.',
+      'Three brick rowhouses stand on East Twentieth Street at 213, 215 and 217. The corner house has its gable and its turret toward Prairie.',
+      'On Calumet Avenue, the Hanford house stands under its steep brownstone roof and the Wheeler-Kohn house under its mansard, each with its brick barn on the alley.',
+    ] },
+  { v: 2168, ts: '2026-10-22T06:38:09.184Z', date: 'Oct 22, 2026, 1:38 AM CT', title: 'Glessner\'s front door fan and the stone under it, redrawn', kind: 'change',
+    items: [
+      'The carved fan over Glessner\'s front door now starts about three inches lower and stands about four inches less tall, as the 1963 survey drawing shows it. The stone under it is one course high, flat at its ends, with a slight rise only under the carving. It used to slope up across its whole length.',
+    ] },
   { v: 2167, ts: '2026-10-22T05:43:07.999Z', date: 'Oct 22, 2026, 12:43 AM CT', title: '1811 Prairie\'s open entrance porch, from its 1888 plate', kind: 'feature',
     items: [
       '1811 Prairie\'s entrance is now an open porch, as the 1888 Inland Architect plate draws it. The round arch is its mouth, with the double door set far back inside. The arch springs from clustered stone columns with carved capitals, two on one side and three on the other, and the broad stair climbs between stone cheeks that sweep down to rolled scrolls.',
