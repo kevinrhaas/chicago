@@ -176,6 +176,8 @@ step "The drawn cells of one structure mesh join into one draw, drawing the same
   node tools/test_batch_coalesce.mjs
 step "Draw budgets read the driver's draws: a BatchedMesh multi-draw counts one draw per kept entry, reset with renderer.info (T-2970)" \
   node tools/test_driver_draws.mjs
+step "Full active Ghost views use their measured envelope; ordinary and lower-tier ceilings restore unchanged (T-2981)" \
+  node tools/test_render_budget.mjs
 step "Read frame pacing is offered only on the dev preview or with ?pacing=read, and reads sd and p95 as measure_walk_frames --live does (T-2732)" \
   node tools/test_pacing_read.mjs
 
