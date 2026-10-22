@@ -3715,6 +3715,13 @@ step "Glessner street and stable opening schedule matches its record (T-2211)" \
 step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
   python3 tools/glessner_stable_roof_read.py --check
 
+# The cupola reading fits the stable cupola's height, size and place to both
+# northwest prints through T-2758's re-solved cameras, so a pick, camera or record
+# number that moves without the report being re-written and re-read is caught here
+# (T-3031).
+step "Glessner stable-cupola reading re-derives from both prints (T-3031)" \
+  python3 tools/glessner_cupola_read.py --check
+
 # Both north cameras are re-solved with the gable pairs' sill and head left free, so
 # a pick, camera or record height that moves without the reading being re-written,
 # or a record that builds the pairs outside it, is caught here (T-2850).

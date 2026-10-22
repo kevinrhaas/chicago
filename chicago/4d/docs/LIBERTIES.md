@@ -31276,3 +31276,15 @@ building in place under the same id; T-3014 sources and refines the church.
 **Ticket:** T-3009 (piece 2 of T-2983, the district's background).
 **Review:** `data/components/prairie_1904/edges_census_s35w.json`.
 **Recorded:** 2026-10-22 (T-3009).
+
+### L-glessner-cupola-height-3031 — Glessner's stable cupola raised about a foot, narrowed to 5.5 ft and its eave drawn in, read from both northwest prints at once
+
+**Decision:** The two northwest prints seemed to disagree about the cupola: read through the committed Cornell camera (a west-wall homography on two reconstructed eaves) its eave and apex stood some 27–32 px higher against the gable than HABS photograph 1 put them. Each print is now read through the camera T-2758 re-solved on measured controls at the stable (`data/comparisons/glessner/stable-roof-heights.json`), with its remaining local offset taken out at the north gable's coping apex, so each reads the cupola against the roof it stands on. Fitted to both at once (`tools/glessner_cupola_read.py`, `data/comparisons/glessner/stable-cupola.json`: the pyramid's apex, its eave corners and the body's corner arrises, 12 picks, 5.3 px RMS against 11.5 and 13.8 px for the build as it stood), the two prints agree on the eave (41.9 and 41.75 ft) and give a body half-width of 2.73 ± 0.18 ft, an eave overhang of 0.72 ± 0.23 ft, the eave at 41.87 ± 0.19 ft, the apex at 48.19 ± 0.28 ft and the centre at S 14.76 ± 0.23. So the body is 5.5 ft square (was 6.0), its top 42.0 ft (was 41.0), the apex 48.2 ft (was 47.0), the eave 0.75 ft out (was 1.25) and the pigeon-hole band 39.5–41.6 ft (was 39.1–40.8), where photograph 1's two lit landing ledges stand through the same camera.
+
+**What is invented.** These are photographic readings through hand-solved cameras on hand picks, about ± 0.3 ft each, and they take the stable roof's own heights as built (T-2758 left the roof unchanged inside its 1.5 ft tolerance), so they place the cupola against that roof, not absolutely. The prints still differ on the width (half 2.44 ft in photograph 1, 3.09 ft in the Cornell view) and on the apex (47.6 and 48.4 ft), each within about two sigma; the joint values are built. The flare's run is shortened to 0.5 ft so its kink stays outside the narrower body; its pitch is unchanged. The band keeps its two tiers of three holes and moves up with the eave; its exact course heights are below the prints' grain.
+
+**What is kept.** The centre S 14.6 (the fit confirms it within one sigma), the W 141 ridge axis, the base, the granite body, the wrapped ledges, the pyramid's covering (T-3025) and the finial.
+
+**Covers:** `glessner_house.as_built_1887.form.turret_stable`.
+**Ticket:** T-3031 (piece 2 of T-3023).
+**Recorded:** 2026-10-22.
