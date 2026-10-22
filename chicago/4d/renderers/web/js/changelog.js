@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2192, ts: '2026-10-22T18:37:53.288Z', date: 'Oct 22, 2026, 1:37 PM CT', title: '1812: the Kinzie yard rises behind the house', kind: 'feature',
+    items: [
+      'New in 1812: a log stable, the Frenchmen\'s whitewashed lodging house, a bake-house with an oven flue, a dairy and a picket kitchen garden stand behind the Kinzie house.',
+      'Whistler\'s old horse mill of 1808 stands west of the garden on the north bank, gone by 1816.',
+      'Matched to Eastman\'s 1820 view and the 1830s pictures of the house: the stable, bake-house and lodging house all pass, the lodging house built with the hipped far end Eastman draws.',
+      'Du Sable\'s 1800 bill of sale could not be read; its second barn, poultry house and smokehouse are ruled out of 1812.',
+      'Which building is which, and every place and size, are liberties (L420). New camera: Behind the Kinzie house.',
+    ] },
+  { v: 2191, ts: '2026-10-22T18:09:55.114Z', date: 'Oct 22, 2026, 1:09 PM CT', title: 'Glessner\'s stable hoist stone and cupola ledges matched to their photographs', kind: 'improvement',
+    items: [
+      'The hoist stone under the stable gable\'s arch now reaches about four feet out over 18th Street, a slim tapered stone cantilever as the 1887 photograph shows it; it had been a stubby block under two feet long.',
+      'The long dark streak beside it in the 1963 survey photograph turned out to be its shadow, so no timber beam was added.',
+      'The stone ledges round the rooftop cupola\'s pigeon holes now wrap its corners unbroken, as both northwest photographs show.',
+    ] },
   { v: 2190, ts: '2026-10-22T17:27:25.324Z', date: 'Oct 22, 2026, 12:27 PM CT', title: 'Prairie Avenue\'s elms grow as real elms: forked trunks, arching limbs', kind: 'improvement',
     items: [
       'Each parkway elm forks low into two to four stems that climb in a V, fork again and arch out over the walk.',

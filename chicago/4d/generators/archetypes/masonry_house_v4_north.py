@@ -116,10 +116,13 @@ def stable_fabric(b,p):
               [(radius,start),(outer,start),(outer,end),(radius,end)]]
         rough_stone(b,pl,poly,20000+i)
     h=d['hoist_stone'];a,c=h['u'];lo,hi=h['z'];depth=h['projection']
+    # The nose stands 0.6 of the stone's height unless the record reads its
+    # own depth (T-3030: the Cornell view's end face, about 0.83 ft).
+    under=hi-h['nose'] if 'nose' in h else lo+(hi-lo)*.40
     back=[v.legacy._plane_point(pl,u,z,.065) for u,z in
           [(a,lo),(c,lo),(c,hi),(a,hi)]]
     front=[v.legacy._plane_point(pl,u,z,depth) for u,z in
-           [(a,lo+(hi-lo)*.40),(c,lo+(hi-lo)*.40),(c,hi),(a,hi)]]
+           [(a,under),(c,under),(c,hi),(a,hi)]]
     v.solid_polygon(b,pl,[(a,lo),(c,lo),(c,hi),(a,hi)],0,.067,1.0,v.GRANITE)
     b.raw(front,1.0,v.GRANITE,v.legacy._plane_dir(pl))
     for i in range(4):
@@ -128,7 +131,7 @@ def stable_fabric(b,p):
     if drop:
         # An iron eye under the corbel's nose and the hook a tackle hung from
         # (T-2207); the stone is HABS's, the ironwork reconstructed.
-        mid=(a+c)/2;nose=depth-.10;under=lo+(hi-lo)*.40
+        mid=(a+c)/2;nose=depth-.10
         v.slab(b,pl,mid-.012,mid+.012,under-drop*.55,under,nose-.012,nose+.012,1.0,v.IRON)
         # A square loop of bar: the rails end inside the stiles and the stiles
         # inside the rails, so no two bar faces lie in one plane.
