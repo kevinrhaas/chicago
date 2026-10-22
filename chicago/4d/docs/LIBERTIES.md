@@ -14487,7 +14487,7 @@ than leaving the entry claiming a population it no longer has.
 
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
-**Scope:** `structures.records[brick_fabric]` — 104 structures (105 until T-2543, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until T-2440, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
+**Scope:** `structures.records[brick_fabric]` — 110 structures (104 until T-2982, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour; 105 until T-2543, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until T-2440, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
 `generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four
 are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`,
 `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says "two records are
@@ -30848,6 +30848,47 @@ setback or in the court before 1946, when the court was paved for parking.
 **Ticket:** T-2976.
 **Review:** `docs/RESEARCH/glessner-passage-floor-T-2976/`.
 **Recorded:** 2026-10-21 (T-2976).
+
+### L-draft-district-edges-2982 — The district's four named context buildings stood up as drafts: the three East Twentieth Street rowhouses, the Hanford and Wheeler-Kohn houses on Calumet, and Second Presbyterian with its 1904 spire
+
+**Covers:** `house_213_e20th.draft_1904.form.draft_elevation`, `house_213_e20th.draft_1904.form.draft`, `house_215_e20th.draft_1904.form.draft_elevation`, `house_215_e20th.draft_1904.form.draft`, `house_217_e20th.draft_1904.form.draft_elevation`, `house_217_e20th.draft_1904.form.draft`, `hanford_house_2008_calumet.draft_1904.form.draft_elevation`, `hanford_house_2008_calumet.draft_1904.form.draft`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft_elevation`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft_elevation`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.position`, `second_presbyterian_church_1936_michigan.draft_1904.form.stories`
+**Decision:** the district draft's named context buildings off Prairie Avenue (T-2982, piece 1 of
+T-2162), run by the builder and under the rules of `L-draft-prairie-18-20-west-2329`, whose "What is
+invented" and "What is not" hold here word for word. The five houses are read off sheet 35 in a
+census of their own (`data/components/prairie_1904/edges_census_s35.json`: the T-1842 census counts
+Prairie frontages only) and traced by the T-2340 tool as sheet `35x`: 213, 215 and 217 East
+Twentieth Street, three brick rowhouses where the study register had one aggregate record; 2008
+Calumet, the Hanford house, brick faced in stone along its front and south side under the steep
+hip of its 1883 plate, with its 1884 barn; and 2018 Calumet, the Wheeler-Kohn house, under a
+mansard, with its barn. Nothing on sheets 20, 28 or 35 moves.
+**What is invented here, beyond the 18th-20th list.** 213's storey figure is blurred on the scan
+(3 or 4) and is drafted as 3, its neighbour's. 213 and 215 stand flat behind a cornice; 217's
+3½-storey front takes a street gable and a turret at its Prairie corner for the copper oriel its
+photographs show; its body is the sheet's front part, not the larger rear range, which stands three
+storeys as the sheet prints. The two Calumet barns, lettered GARAGE in 1911, are backcast as
+stables.
+**Second Presbyterian, off every sheet.** No committed Sanborn sheet reaches Michigan Avenue, so
+the church is drafted from HABS IL-328: its plan (sheet 2, read at the feet bar because the pews'
+0.92 m spacing refutes the metric bar) as the nave with its narthex, the parish hall across the
+west end and the north aisle range, and its south elevation's printed levels for the hall's gable
+(80'-1") and the nave's ridge (87'-8 1/4"). The 1904 tower state is the full spire: the 1901
+Tribune cut and Sloan's photograph (1901-1925) both show it, and it was lost in 1929. The masonry's
+38 m and the spire's 16 m are proportions read off the photograph against the HABS ridge, upper
+figures. INVENTED: the position, a few metres either way. Michigan's centre is the e1871 terrain
+box's reading at 16th Street carried south on Indiana's measured bearing, its half-width the 66 ft
+every committed sheet prints (Michigan's own width is not read), and the east and south faces stand
+3.0 m behind the street lines. The openings are the draft's rows of sash, not the lancets, rose and
+great window, and the church's walls stand as three draft storeys to its 14.7 m eave.
+**What is not drafted here.** The background census of Indiana, Calumet, the end streets and the
+rail side (T-2983); 2016 Calumet and every other Calumet and Indiana frontage, which stay the
+context's faded stand-ins; boundary walls and fences.
+**How to resolve:** each building's per-building ticket replaces its attributes in place under the
+same id: T-1939 (213, 215, 217), T-1940 (Hanford, and its barn), T-1941 (Wheeler-Kohn, and its barn)
+and T-1942 (Second Presbyterian, whose ticket also owns a measured position). Each now carries an
+image gate naming its structure ids.
+**Ticket:** T-2982 (piece 1 of T-2162, the district's edges).
+**Review:** `docs/RESEARCH/district-draft-edges-2982/README.md`.
+**Recorded:** 2026-10-22 (T-2982).
 
 
 ### L-parked-vehicles-2979 — Parked farm wagons and a1904 town carriage

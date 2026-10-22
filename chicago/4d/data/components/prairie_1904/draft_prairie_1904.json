@@ -427,6 +427,27 @@
           "note": "The T-2340 trace assigned this building s35-2140-rear; read again on the raster, it is the three-storey building along the alley lettered CATERER and numbered 3, and the draft gives it s35-2140-alley (block 35's census_fix)."
         }
       }
+    },
+    "35x": {
+      "where": "the district's named context buildings off Prairie Avenue: East Twentieth Street between Indiana and Prairie, and Calumet Avenue between 20th and 21st Street (Sanborn 1911 vol. 3 sheet 35)",
+      "sides": [
+        "south",
+        "west"
+      ],
+      "source": "sanborn_1911_chicago_v3_sheet_35",
+      "census_file": "data/components/prairie_1904/edges_census_s35.json",
+      "census_ticket": "T-2982",
+      "pass": "T-2982",
+      "liberty": "L-draft-district-edges-2982",
+      "fit_note": "the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy",
+      "rear_ticket": {
+        "south": "T-1939",
+        "west": "T-1946"
+      },
+      "service_outline": {
+        "_doc": "As block 35, whose scan this is: a service building is filled from its traced outline.",
+        "close_cells": 2
+      }
     }
   },
   "skip": {
@@ -475,7 +496,9 @@
     "frontage-28-039": {
       "slug": "henderson_house",
       "entrance": "north",
-      "why": "Second Empire: the register's mansard with dormers over the mapped rounded front bays, which the fitted plan carries as a projecting bay.", "house_id": "henderson_house_1816_prairie", "house_address": "1816"
+      "why": "Second Empire: the register's mansard with dormers over the mapped rounded front bays, which the fitted plan carries as a projecting bay.",
+      "house_id": "henderson_house_1816_prairie",
+      "house_address": "1816"
     },
     "frontage-28-040": {
       "slug": "marsh_house",
@@ -483,7 +506,7 @@
       "pitch_deg": 35,
       "attic_dormers": true,
       "entrance": "south",
-      "why": "2\u00bdB on the map: two full storeys and a half in the roof, read as dormers in a hip behind the stone front."
+      "why": "2½B on the map: two full storeys and a half in the roof, read as dormers in a hip behind the stone front."
     },
     "frontage-28-041": {
       "slug": "house",
@@ -525,7 +548,7 @@
           "cap_m": 6.0
         }
       ],
-      "why": "Chateauesque: the register's 'conical corner turret' and 'steep slate roof'; 2\u00bdB read as dormers in the steep hip."
+      "why": "Chateauesque: the register's 'conical corner turret' and 'steep slate roof'; 2½B read as dormers in the steep hip."
     },
     "frontage-28-047": {
       "slug": "house",
@@ -540,7 +563,7 @@
           "cap_m": 4.5
         }
       ],
-      "why": "2\u00bdS.B. with a 'bay4B': a bay carried a storey above the house, drawn as a corner tower; its corner is not read off the sheet and is reconstructed."
+      "why": "2½S.B. with a 'bay4B': a bay carried a storey above the house, drawn as a corner tower; its corner is not read off the sheet and is reconstructed."
     },
     "frontage-28-048": {
       "skip": "The census rules 1936 an alias of 1918 with no footprint of its own (no dwelling drawn on the lot)."
@@ -567,7 +590,9 @@
       "stone": "brownstone",
       "front_bays": 3,
       "entrance": "north",
-      "why": "Romanesque: the register's 'rock-faced brown sandstone front' over 'brick side and rear', so the stone front is brownstone and the walls behind it brick; the steep Romanesque hip stands for the upper gable, whose arched lights are T-1891's.", "house_id": "coleman_ames_house_1811_prairie", "house_address": "1811"
+      "why": "Romanesque: the register's 'rock-faced brown sandstone front' over 'brick side and rear', so the stone front is brownstone and the walls behind it brick; the steep Romanesque hip stands for the upper gable, whose arched lights are T-1891's.",
+      "house_id": "coleman_ames_house_1811_prairie",
+      "house_address": "1811"
     },
     "frontage-28-051": {
       "slug": "sears_meeker_house",
@@ -620,7 +645,7 @@
       "slug": "marshall_field_jr_house",
       "entrance": "north",
       "front_body_from_u_m": 21.3,
-      "why": "2\u00bdS.B.: two full storeys and a half in the roof, read as gabled dormers in a hip over the post-1902 enlargement; the projecting tower/bay is T-1906's. The 1911 sheet's Gatlin Institute is a 1911 use and is not carried back. The sheet traces the house and its rear range as one part, whose largest rectangle is a 47 m strip down the lot; the main body is fitted in front of the part's own break at 21.3 m from the rear lot line, where it narrows to the street front, and the rear range behind it."
+      "why": "2½S.B.: two full storeys and a half in the roof, read as gabled dormers in a hip over the post-1902 enlargement; the projecting tower/bay is T-1906's. The 1911 sheet's Gatlin Institute is a 1911 use and is not carried back. The sheet traces the house and its rear range as one part, whose largest rectangle is a 47 m strip down the lot; the main body is fitted in front of the part's own break at 21.3 m from the rear lot line, where it narrows to the street front, and the rear range behind it."
     },
     "frontage-28-057": {
       "slug": "kellogg_house",
@@ -662,7 +687,7 @@
     "frontage-20-005": {
       "slug": "house",
       "entrance": "north",
-      "why": "2\u00bdB brick: two full storeys and a half in the roof, read as dormers in the brick family's hip; the sheet's frame bay at its north-east corner stands as a projection.",
+      "why": "2½B brick: two full storeys and a half in the roof, read as dormers in the brick family's hip; the sheet's frame bay at its north-east corner stands as a projection.",
       "house_id": "house_1616_prairie",
       "house_address": "1616"
     },
@@ -779,7 +804,9 @@
       "slug": "house",
       "roof": "mansard",
       "entrance": "north",
-      "why": "The register's 'three-storey brick corner dwelling with bounded mansard/attic treatment' at the 18th Street corner: a mansard over the mapped three storeys.", "house_id": "house_1736_prairie", "house_address": "1736"
+      "why": "The register's 'three-storey brick corner dwelling with bounded mansard/attic treatment' at the 18th Street corner: a mansard over the mapped three storeys.",
+      "house_id": "house_1736_prairie",
+      "house_address": "1736"
     },
     "frontage-20-022": {
       "slug": "house",
@@ -801,13 +828,84 @@
         "door_end": "north",
         "door_width_m": 1.6,
         "baggage_door_m": 2.4,
-        "hood": {"y_m": 3.05, "depth_m": 1.0, "width_m": 2.4},
-        "platform": {"v": [0.0, 12.19], "edge_u": [[0.0, -1.05], [11.0, -4.49]], "deck_m": 0.3},
-        "canopy": {"v": [3.2, 11.0], "depth_m": 2.0, "wall_y_m": 3.3, "drop_m": 0.35, "bracket_every_m": 1.6},
+        "hood": {
+          "y_m": 3.05,
+          "depth_m": 1.0,
+          "width_m": 2.4
+        },
+        "platform": {
+          "v": [
+            0.0,
+            12.19
+          ],
+          "edge_u": [
+            [
+              0.0,
+              -1.05
+            ],
+            [
+              11.0,
+              -4.49
+            ]
+          ],
+          "deck_m": 0.3
+        },
+        "canopy": {
+          "v": [
+            3.2,
+            11.0
+          ],
+          "depth_m": 2.0,
+          "wall_y_m": 3.3,
+          "drop_m": 0.35,
+          "bracket_every_m": 1.6
+        },
         "boards": [
-          {"face": "u1", "v": [2.3, 8.7], "y": [3.48, 4.38], "letter_m": 0.32, "lines": ["ILLINOIS CENTRAL R.R.", "16TH ST. STATION"]},
-          {"face": "u0", "v": [3.6, 7.4], "y": [3.5, 4.3], "letter_m": 0.4, "lines": ["16TH STREET"]},
-          {"on_posts": true, "at_v": 10.6, "length_m": 2.2, "y": [1.7, 2.25], "letter_m": 0.3, "back_from_edge_m": 0.7, "lines": ["16TH ST."]}
+          {
+            "face": "u1",
+            "v": [
+              2.3,
+              8.7
+            ],
+            "y": [
+              3.48,
+              4.38
+            ],
+            "letter_m": 0.32,
+            "lines": [
+              "ILLINOIS CENTRAL R.R.",
+              "16TH ST. STATION"
+            ]
+          },
+          {
+            "face": "u0",
+            "v": [
+              3.6,
+              7.4
+            ],
+            "y": [
+              3.5,
+              4.3
+            ],
+            "letter_m": 0.4,
+            "lines": [
+              "16TH STREET"
+            ]
+          },
+          {
+            "on_posts": true,
+            "at_v": 10.6,
+            "length_m": 2.2,
+            "y": [
+              1.7,
+              2.25
+            ],
+            "letter_m": 0.3,
+            "back_from_edge_m": 0.7,
+            "lines": [
+              "16TH ST."
+            ]
+          }
         ],
         "note": "The station's dressing is RECONSTRUCTED (T-2399, liberty L-ic-16th-street-station-2399): neither sheet 20 nor Robinson 1886 draws a platform, a canopy, a door or a board, and no picture of this building is known (the Tribune's 1886 'Sixteenth Street Station' sketch is a one-storey depot that the library reads as the C. B. & Q. depot moved away, so it is not built toward). Only the platform's EDGE is read off the sheet: the nearest track's west rail, traced on sheet 20 through the T-1250 fit at 2.05 m off the track wall at the north end and 5.49 m at the south, less 1.0 m of clearance, so the platform tapers from 1.05 m to 4.5 m as the tracks bear away; the canopy stands only where the platform is deeper than it. The wording is the sheet's own lettering of the building, set as a railway's boards."
       },
@@ -867,7 +965,7 @@
       "slug": "house",
       "roof": "mansard",
       "entrance": "south",
-      "why": "3B brick with a 4-storey rear section, the south unit of the group (the census reads it 3\u00bdB): a mansard over the mapped storeys carries the half storey, its door at the group's south end; the rear section stands as the sheet traces it.",
+      "why": "3B brick with a 4-storey rear section, the south unit of the group (the census reads it 3½B): a mansard over the mapped storeys carries the half storey, its door at the group's south end; the rear section stands as the sheet traces it.",
       "house_id": "house_1625_prairie",
       "house_address": "1625"
     },
@@ -877,7 +975,7 @@
       "pitch_deg": 50,
       "attic_dormers": true,
       "entrance": "south",
-      "why": "The register's Spalding remodel of the Grosvenor house: 'brick block with steep hip/mansard roof, dormers, tall chimneys, full-height swell bay, projecting gabled wing', drawn as a steep hip with dormers over the 2\u00bdB body, the sheet's frame bay as a projection. The 1904 Blue Book lists W. G. Hibbard Jr. at 1637, so the Spalding name is the one provisional association the census keeps; T-1870 rules.",
+      "why": "The register's Spalding remodel of the Grosvenor house: 'brick block with steep hip/mansard roof, dormers, tall chimneys, full-height swell bay, projecting gabled wing', drawn as a steep hip with dormers over the 2½B body, the sheet's frame bay as a projection. The 1904 Blue Book lists W. G. Hibbard Jr. at 1637, so the Spalding name is the one provisional association the census keeps; T-1870 rules.",
       "house_id": "spalding_house_1637_prairie",
       "house_address": "1637"
     },
@@ -888,7 +986,7 @@
       "brackets": true,
       "attic_dormers": true,
       "entrance": "centre",
-      "why": "The register's Italianate mansion with rear addition (the Hibbard house): a low hip on bracketed eaves over the 2\u00bdS.B. stone-based body, the half storey as dormers, the 1874 rear range as the sheet traces it; the arched lights, oriel and two-level rear veranda are T-1875's and T-1876's."
+      "why": "The register's Italianate mansion with rear addition (the Hibbard house): a low hip on bracketed eaves over the 2½S.B. stone-based body, the half storey as dormers, the 1874 rear range as the sheet traces it; the arched lights, oriel and two-level rear veranda are T-1875's and T-1876's."
     },
     "frontage-20-033": {
       "slug": "kellogg_house",
@@ -1012,7 +1110,7 @@
           "cap_m": 5.0
         }
       ],
-      "why": "The Thomas Murdoch house (Cobb, 1890): the register's 'stone-front block with brick rear, prominent rounded street bay/turret with conical cap, 2.5/3-storey transitions': the sheet's 2\u00bd read as dormers in a hip, and a turret under a cone stood on the round bay the sheet draws at the front's north end (its rectangle, fitted from the stone part, is where the turret stands). T-1927 reads its height and cap."
+      "why": "The Thomas Murdoch house (Cobb, 1890): the register's 'stone-front block with brick rear, prominent rounded street bay/turret with conical cap, 2.5/3-storey transitions': the sheet's 2½ read as dormers in a hip, and a turret under a cone stood on the round bay the sheet draws at the front's north end (its rectangle, fitted from the stone part, is where the turret stands). T-1927 reads its height and cap."
     },
     "frontage-35-071": {
       "slug": "tucker_smith_house",
@@ -1044,7 +1142,7 @@
       "roof": "hip",
       "pitch_deg": 38,
       "entrance": "north",
-      "why": "2\u00bdB brick with a stone front on the 20th Street corner (W. C. Free's in the 1904 Blue Book, a lead and not an identity): the register's stone-front family is a flat roof, but the sheet's half storey is a roof storey, so the draft takes the default hip with dormers over the stone street face and its traced bay; the door is toward the corner, beside the frame porch the sheet draws on the 20th Street side."
+      "why": "2½B brick with a stone front on the 20th Street corner (W. C. Free's in the 1904 Blue Book, a lead and not an identity): the register's stone-front family is a flat roof, but the sheet's half storey is a roof storey, so the draft takes the default hip with dormers over the stone street face and its traced bay; the door is toward the corner, beside the frame porch the sheet draws on the 20th Street side."
     },
     "frontage-35-073": {
       "slug": "house",
@@ -1067,7 +1165,7 @@
       "chimneys": 2,
       "front_bays": 2,
       "entrance": "north",
-      "why": "The Max A. Mayer house (Burnham & Root, 1888): the register's 'ogee gable with finial, two attic lights, tall chimneys' on a narrow party-wall front, drawn as the kit's shaped street gable over the 2\u00bdB brick body, two bays wide. Its ogee curve, carved frieze and bowed window group are T-1913's and T-1914's; the draft keeps only the silhouette."
+      "why": "The Max A. Mayer house (Burnham & Root, 1888): the register's 'ogee gable with finial, two attic lights, tall chimneys' on a narrow party-wall front, drawn as the kit's shaped street gable over the 2½B brick body, two bays wide. Its ogee curve, carved frieze and bowed window group are T-1913's and T-1914's; the draft keeps only the silhouette."
     },
     "frontage-35-076": {
       "slug": "house",
@@ -1081,7 +1179,7 @@
           "cap_m": 4.8
         }
       ],
-      "why": "The Romanesque neighbour of Mayer (the Lambs' in the 1904 Blue Book): the register's 'rough ashlar front, round-arched entrance, rounded corner turret/conical cap' as the Romanesque family's steep hip with dormers over the 2\u00bdB body, and a turret under a cone on the south front corner, where the sheet draws its stone rounded bay. Seen in the 1890s Mayer photograph; T-1915 reads it."
+      "why": "The Romanesque neighbour of Mayer (the Lambs' in the 1904 Blue Book): the register's 'rough ashlar front, round-arched entrance, rounded corner turret/conical cap' as the Romanesque family's steep hip with dormers over the 2½B body, and a turret under a cone on the south front corner, where the sheet draws its stone rounded bay. Seen in the 1890s Mayer photograph; T-1915 reads it."
     },
     "frontage-35-077": {
       "slug": "reid_house",
@@ -1113,12 +1211,12 @@
           "cap_m": 5.2
         }
       ],
-      "why": "The James L. High house (built for Benjamin Adams in the late 1870s; High's from 1886, with his 1887 rear range): the register's 'steep main gable, conical rounded corner tower, arched entry' as a steep gable to the avenue over the 2\u00bdB body and a round tower under a cone on the north front corner, where the sheet draws its front projection. Its broad side wing's secondary gable is T-1917's."
+      "why": "The James L. High house (built for Benjamin Adams in the late 1870s; High's from 1886, with his 1887 rear range): the register's 'steep main gable, conical rounded corner tower, arched entry' as a steep gable to the avenue over the 2½B body and a round tower under a cone on the north front corner, where the sheet draws its front projection. Its broad side wing's secondary gable is T-1917's."
     },
     "frontage-35-080": {
       "slug": "house",
       "entrance": "north",
-      "why": "2\u00bdB brick on a wide lot, the house the register associates with Silas B. Cobb (an open association, so the id names no one): the villa family's low hip with dormers over the traced body, its frame porch as the sheet draws it, restrained as the register asks ('no borrowed named mansion facade'). T-1917 reads it."
+      "why": "2½B brick on a wide lot, the house the register associates with Silas B. Cobb (an open association, so the id names no one): the villa family's low hip with dormers over the traced body, its frame porch as the sheet draws it, restrained as the register asks ('no borrowed named mansion facade'). T-1917 reads it."
     },
     "frontage-35-081": {
       "slug": "tolman_house",
@@ -1150,7 +1248,7 @@
     "frontage-35-084": {
       "slug": "house",
       "entrance": "south",
-      "why": "2\u00bdB brick on the 21st Street corner (the Pikes' in the 1904 Blue Book): the brick family's hip with dormers for the half storey over its long rear range, its frame porches as the sheet traces them; its door toward the corner."
+      "why": "2½B brick on the 21st Street corner (the Pikes' in the 1904 Blue Book): the brick family's hip with dormers for the half storey over its long rear range, its frame porches as the sheet traces them; its door toward the corner."
     },
     "frontage-35-085": {
       "slug": "roloson_house",
@@ -1194,6 +1292,238 @@
     "frontage-35-091": {
       "skip": true,
       "why": "2141 is open ground on the 22nd Street corner (census ruling r35-2141-open-corner): a non-building frontage, so the draft stands nothing on it."
+    },
+    "frontage-35x-213": {
+      "slug": "house",
+      "register": {
+        "address": "213",
+        "raw_story_notation": "3",
+        "map_material": "brick",
+        "family": "Rowhouse, flat behind a cornice",
+        "front_tickets": "T-1939"
+      },
+      "roof": "flat",
+      "chimneys": 2,
+      "why": "The register's red brick and sandstone rowhouse, standing today: flat behind a cornice, the roof its street front shows. The sheet's storey figure is blurred (3 or 4) and is drafted as 3, its neighbour's."
+    },
+    "frontage-35x-215": {
+      "slug": "house",
+      "register": {
+        "address": "215",
+        "raw_story_notation": "3",
+        "map_material": "brick",
+        "family": "Rowhouse, flat behind a cornice",
+        "front_tickets": "T-1939"
+      },
+      "roof": "flat",
+      "chimneys": 2,
+      "why": "The middle rowhouse, set back behind its front yard as the sheet draws it: flat behind a cornice."
+    },
+    "frontage-35x-217": {
+      "slug": "house",
+      "register": {
+        "address": "217",
+        "raw_story_notation": "3½; rear3",
+        "map_material": "brick",
+        "family": "Queen Anne corner rowhouse with gable",
+        "front_tickets": "T-1939"
+      },
+      "features": [
+        {
+          "kind": "corner_tower",
+          "corner": "front_v0",
+          "radius_m": 1.5,
+          "above_eave_m": 2.0,
+          "cap_m": 3.4
+        }
+      ],
+      "why": "The corner house, its body the sheet's front part (p1) and its rear range the 3-storey part behind the frame strip: its photographs' gable over the street front, which the sheet's 3½ is, and the copper oriel rising at its Prairie corner to a turret, drawn as the draft's corner turret; the oriel's copper and its corbelled start at the first floor are T-1939's.",
+      "main_part": "p1"
+    },
+    "frontage-35x-2008": {
+      "slug": "hanford_house",
+      "register": {
+        "address": "2008",
+        "raw_story_notation": "3B",
+        "map_material": "brick with stone front",
+        "family": "Chateauesque brownstone",
+        "front_tickets": "T-1940"
+      },
+      "rear_ticket": "T-1940",
+      "aka": [
+        "2010 S. Calumet Avenue",
+        "2012 S. Calumet Avenue"
+      ],
+      "why": "The register's brownstone house under a steep hipped roof with tall chimneys (the Inland Architect plate of December 1883): the steep hip in brownstone. The sheet faces its Calumet front and south side in stone over a brick body; the gabled dormers, the round-arched oriel, the corner projection's roof and the columned porch are T-1940's."
+    },
+    "frontage-35x-2018": {
+      "slug": "wheeler_kohn_house",
+      "register": {
+        "address": "2018",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Second Empire",
+        "front_tickets": "T-1941"
+      },
+      "rear_ticket": "T-1941",
+      "why": "The register's Second Empire envelope: the mansard over the brick body, its rear range as the sheet draws it. The copper bay, the limestone porch, the dormers' shapes and the high stoop are T-1941's."
     }
-  }
+  },
+  "sites": [
+    {
+      "_doc": "A building no traced sheet or 1904 parcel reaches (T-2982). `place` sets its corner where the avenue's line, moved in by its half-width and a setback, meets the cross street's measured line moved in by a setback; `parts` are rectangles in metres, u from the building's front face toward the street and v from its southernmost face along the front, the first the main body.",
+      "id": "second_presbyterian_church_1936_michigan",
+      "name": "1936 S. Michigan Avenue — Second Presbyterian Church (district draft; refined by T-1942)",
+      "aka": [
+        "Second Presbyterian Church",
+        "1936 S. Michigan Avenue"
+      ],
+      "where": "1936 S. Michigan Avenue, the north-west corner of Michigan Avenue and East Twentieth Street, west of every committed Sanborn sheet.",
+      "pass": "T-2982",
+      "liberty": "L-draft-district-edges-2982",
+      "refined_by": [
+        "T-1942"
+      ],
+      "register_row": "pa-1936-s.-michigan-avenue-32",
+      "sources": [
+        "habs_second_presbyterian_il_328_drawings",
+        "chicago_tribune_1901_11_10_second_presbyterian",
+        "newberry_sloan_second_presbyterian_street"
+      ],
+      "function": "church",
+      "construction": "stone",
+      "place": {
+        "along_face": "indiana__indiana_prairie_16_18",
+        "cross_face": "e20th__indiana_prairie_18_20",
+        "avenue_centre_local_m": [
+          1136.7,
+          -2949.6
+        ],
+        "front": "east",
+        "half_row_m": 10.06,
+        "setback_front_m": 3.0,
+        "setback_side_m": 3.0
+      },
+      "parts": [
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "gable",
+          "pitch_deg": 48,
+          "rect_m": [
+            -32.34,
+            5.96,
+            0.0,
+            27.8
+          ],
+          "from": "the nave with its east narthex, chancel arch to the east wall (HABS IL-328 sheet 2, read at the feet bar (42.3 px/m on the library copy), north up)"
+        },
+        {
+          "role": "wing",
+          "storeys": 3,
+          "roof": "gable",
+          "pitch_deg": 50,
+          "rect_m": [
+            -48.51,
+            0.0,
+            -32.34,
+            33.19
+          ],
+          "from": "the parish hall across the west end with the chancel and stair rooms beside it, its gable to 20th Street (HABS IL-328 sheet 2, read at the feet bar (42.3 px/m on the library copy), north up)"
+        },
+        {
+          "role": "range",
+          "storeys": 1,
+          "roof": "flat",
+          "rect_m": [
+            -32.34,
+            27.8,
+            -6.81,
+            32.34
+          ],
+          "from": "the north aisle range along the nave (HABS IL-328 sheet 2, read at the feet bar (42.3 px/m on the library copy), north up)"
+        }
+      ],
+      "elevation": {
+        "stories": 3,
+        "principal_floor_m": 0.9,
+        "storey_heights_m": [
+          4.6,
+          4.6,
+          4.6
+        ],
+        "roof_pitch_deg": 48,
+        "front_bays": 3,
+        "entrance": "centre",
+        "side_spacing_m": 4.0,
+        "stone": "stone",
+        "features": [
+          {
+            "kind": "corner_tower",
+            "sides": 4,
+            "radius_m": 5.52,
+            "at_m": [
+              -3.97,
+              7.52
+            ],
+            "above_eave_m": 23.3,
+            "cap_m": 16.0
+          }
+        ]
+      },
+      "notes": {
+        "function": "Second Presbyterian Church (James Renwick, 1872-1874), gutted by fire in March 1900 and rededicated in November 1901 inside its surviving walls and tower (Chicago Tribune, 10 November 1901).",
+        "research": "The church stands on Michigan Avenue at 20th Street, west of the three committed Sanborn sheets, so it is drafted from HABS IL-328's measured plan and south elevation and placed on the 1904 grid's measured lines. Its 1904 tower state is the full spire: the 1901 Tribune cut and Sloan's photograph (1901-1925) both show it, and it was lost in 1929.",
+        "range": "The rebuilt church was rededicated in November 1901 (Chicago Tribune, 10 November 1901) and stands today; the draft claims the 1904 target.",
+        "position": "Michigan Avenue's centre is the e1871 terrain box's reading at 16th Street (E +1136.7), carried south on the bearing of Indiana Avenue's measured east line; its west line is 10.06 m out (the 66 ft every street on the committed sheets prints; Michigan's own width is not read here), and the church's east face stands a reconstructed 3.0 m behind it, as the photograph's lawn strip shows; the south face stands 3.0 m behind East Twentieth Street's measured north line (data/street_grid/1904.json). Good to a few metres.",
+        "footprint": "The building's whole plan, the nave, the parish hall and the north aisle range as HABS IL-328 sheet 2 draws them, buttresses and the tower's projection left off, so the walls a visitor meets and the ground the context's stand-ins give way to are the church's own; the main body (the nave and narthex, 32.3 x 21.8 m) is draft_plan's first rectangle.",
+        "stories": "Three draft storeys of 4.6 m over a 0.9 m floor stand the walls to the 14.7 m eave the 1901 cut shows against the nave's ridge; a church has no storeys, and the count only sets the wall height and the rows of openings.",
+        "construction": "Stone: the rock-faced ashlar of the photograph and the 1901 cut, drawn in stone on HABS IL-328's elevations.",
+        "plan": "Three rectangles read off HABS IL-328 sheet 2 at its feet bar (the metric bar disagrees by 22 %; the pews' 0.92 m spacing settles which is right): the nave, the parish hall with the chancel rooms beside it, and the north aisle range. The narthex, vestibule and buttresses fold into the rectangles.",
+        "elevation": "The nave's ridge stands at HABS sheet 4's 87'-8 1/4\" (26.7 m: a 48-degree gable over the 21.8 m nave) and the hall's gable at its 80'-1\" (24.4 m: 50 degrees over 16.2 m). The tower is HABS sheet 2's 7.9 m square at the south-east corner; its masonry to about 38 m and its spire about 16 m above are proportions read off Sloan's photograph against the nave's ridge (upper figures: the tower stands nearer the camera). Openings are the draft's sash in rows, not the church's lancets, rose and great window, which are T-1942's."
+      },
+      "outline_m": [
+        [
+          -48.51,
+          0.0
+        ],
+        [
+          -32.34,
+          0.0
+        ],
+        [
+          -32.34,
+          5.96
+        ],
+        [
+          0.0,
+          5.96
+        ],
+        [
+          0.0,
+          27.8
+        ],
+        [
+          -6.81,
+          27.8
+        ],
+        [
+          -6.81,
+          32.34
+        ],
+        [
+          -32.34,
+          32.34
+        ],
+        [
+          -32.34,
+          33.19
+        ],
+        [
+          -48.51,
+          33.19
+        ]
+      ]
+    }
+  ]
 }
