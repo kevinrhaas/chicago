@@ -447,8 +447,10 @@ class Entrance(Opening):
                 # its top rising from the rake to the deck's edge
                 Dq = next((q.get("out_m", L) for q, sd in zip(porches, psides) if sd == sgn), L)
                 carved = any(q.get("loggia", {}).get("finish") == "ionic_carved" for q in porches)
-                if carved:
-                    self._scrolled_cheek(si, so, sgn, Dq if Dq > L else L, F, R, c, half, t, Dq > L, -(n - 1) * r)
+                # T-2918: a record may ask for the carved cheek on a plain stoop (1811's plate)
+                if carved or st.get("cheek_form") == "scrolled":
+                    self._scrolled_cheek(si, so, sgn, Dq if Dq > L else L, F, R, c, half, t, Dq > L, -(n - 1) * r,
+                                         st.get("scroll_block_m", 0.0))
                     if Dq > L:
                         self.quad("cheek", [(si,-R,L),(si,-R,Dq),(si,0,Dq),(si,0,L)],(-sgn,0,0))
                     else:
@@ -1296,14 +1298,17 @@ class Entrance(Opening):
             a0 = o1 + m + k * (w + m)
             self._tablet("cheek", to3, a0, a0 + w, b0, b1, h, (float(sgn), 0.0, 0.0))
 
-    def _scrolled_cheek(self,si,so,sgn,start,F,R,c,half,t,terrace,low):
+    def _scrolled_cheek(self,si,so,sgn,start,F,R,c,half,t,terrace,low,blk=0.0):
         # A concave swept stone cheek; tessellate in vertical strips, so no fan spans
         # the concavity. T-2565: both pictures end it at the street in a rolled foot,
         # a stone scroll lying across the cheek and standing proud of its outer face,
         # not in a scroll at its head; the sweep runs down onto the roll's crown.
+        # T-2984: or the roll stands `blk` up on a plain foot block under its front half
+        # (1811's plate), the sweep running down onto its crown there
         rr = .2
         Fc = F - rr
-        end = -R + 2 * rr; peak = .85 if not terrace else 1.0
+        base = -R + blk
+        end = base + 2 * rr; peak = .85 if not terrace else 1.0
         top = lambda o: end + (peak - end) * (1 - (o - start) / (Fc - start)) ** 2
         N=32
         for i in range(N):
@@ -1318,15 +1323,17 @@ class Entrance(Opening):
         # the last step's end, in front of the roll's recessed inner end
         self.quad("cheek", [(si, -R, Fc), (si, -R, F), (si, low, F), (si, low, Fc)], (-sgn, 0, 0))
         K = 20
-        ring = [(-R + rr + rr * math.sin(2 * math.pi * k / K), Fc + rr * math.cos(2 * math.pi * k / K)) for k in range(K)]
+        ring = [(base + rr + rr * math.sin(2 * math.pi * k / K), Fc + rr * math.cos(2 * math.pi * k / K)) for k in range(K)]
         for k in range(K):
             (ya, oa), (yb, ob) = ring[k], ring[(k + 1) % K]
             q = 2 * math.pi * (k + .5) / K
             self.quad("cheek", [(s_in, ya, oa), (s_out, ya, oa), (s_out, yb, ob), (s_in, yb, ob)], (0, math.sin(q), math.cos(q)))
         self.quad("cheek", [(s_in, y, o) for y, o in ring], (-sgn, 0, 0))
         self.quad("cheek", [(s_out, y, o) for y, o in ring], (sgn, 0, 0))
-        self._volute("cheek", s_out + sgn * .006, -R + rr, Fc, rr * .85, 1, (sgn, 0.0, 0.0))
-        self._volute("cheek", s_in - sgn * .006, -R + rr, Fc, rr * .85, 1, (-sgn, 0.0, 0.0))
+        self._volute("cheek", s_out + sgn * .006, base + rr, Fc, rr * .85, 1, (sgn, 0.0, 0.0))
+        self._volute("cheek", s_in - sgn * .006, base + rr, Fc, rr * .85, 1, (-sgn, 0.0, 0.0))
+        if blk > 0.0:   # the foot block, grade to the roll's underside, under its front half
+            self._box("cheek", min(si, so), max(si, so), -R, base, Fc, F)
         mid=(si+so)/2
         def mesh_top(o):
             q=(o-start)/(Fc-start)*N; i=min(N-1,int(q)); f=q-i
@@ -1335,7 +1342,7 @@ class Entrance(Opening):
         sockets=[(mid,mesh_top(start+.15),start+.15),(mid,mesh_top(Fc-.15),Fc-.15)]
         self.sockets[f"handrail_{'left' if sgn<0 else 'right'}"]=sockets
         for pt in sockets: self.probe(*pt,("cheek",),"a socket on the curved stone cheek")
-        self.probe(s_out, -R + rr, Fc, ("cheek",), "the cheek's rolled foot")
+        self.probe(s_out, base + rr, Fc, ("cheek",), "the cheek's rolled foot")
 
     def _stoop_balustrade(self, B, psides, half, L, F, n, r, g, R, c=0.0):
         """A turned balustrade on each cheek's top, level beside the landing and raked down

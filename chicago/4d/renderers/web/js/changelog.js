@@ -1,4 +1,90 @@
 export const CHANGELOG = [ // newest first
+  { v: 2184, ts: '2026-10-22T15:04:39.048Z', date: 'Oct 22, 2026, 10:04 AM CT', title: 'Calumet Avenue fills in behind Prairie', kind: 'feature',
+    items: [
+      'Look east down 18th Street from Glessner\'s corner, or between the houses on Prairie\'s east side: Calumet Avenue\'s block from 18th to 20th Street is no longer bare ground.',
+      'Nine brick houses stand there, from 1830 to 1932 Calumet, with five stables on the alley. Each is drawn from the 1911 fire-insurance map, so its plan and storeys are the map\'s, and the rest is a first draft.',
+      'We chose this block by measuring: sight lines from both Prairie Avenue sidewalks show that 56 of the 66 lots behind the avenue can be seen, and this block face is the most visible of them.',
+    ] },
+  { v: 2183, ts: '2026-10-22T13:51:20.213Z', date: 'Oct 22, 2026, 8:51 AM CT', title: 'Glessner\'s 18th Street wall: one granite course an inch lower', kind: 'fix',
+    items: [
+      'Glessner House\'s 22nd granite course is now its printed 8½ inches, not the 9½ copied in error, so the top course and the stone cap along 18th Street sit an inch lower. The second-floor corridor windows on 18th Street, and the tall window over the great arch, now have their heads an inch lower too, at the course they were set on. It is a small change: one inch, on the wall you see from 18th Street.',
+    ] },
+  { v: 2182, ts: '2026-10-22T13:51:20.213Z', date: 'Oct 22, 2026, 8:51 AM CT', title: 'Nothing you can see changed: a misleading Glessner check corrected', kind: 'chore',
+    items: [
+      'Glessner House looks exactly as before. Its published files were rebuilt from scratch and came out identical, byte for byte. A copy of the house left behind on a work machine had been mistaken for a fault in the site itself. The check now names that case and how to clear it.',
+    ] },
+  { v: 2181, ts: '2026-10-22T13:36:55.080Z', date: 'Oct 22, 2026, 8:36 AM CT', title: '1811 Prairie\'s oriel brought down to its cornice in the 1888 plate', kind: 'fix',
+    items: [
+      'The oriel over 1811 Prairie\'s entrance now carries its cornice at the plate\'s height, about 0.4 m lower than before, so its slate spire rises from the same line as in the 1888 Inland Architect plate.',
+      'A close look at the plate shows the entrance\'s south corner is rounded, not square. The arcade beside the porch and the oriel\'s side wall both turn round it. That corner is now its own piece of work.',
+    ] },
+  { v: 2180, ts: '2026-10-22T12:43:23.224Z', date: 'Oct 22, 2026, 7:43 AM CT', title: '1801 Prairie\'s south pavilion rises to its stone gable', kind: 'feature',
+    items: [
+      'The Kimball house\'s south pavilion on Prairie Avenue now ends in the steep coped stone gable J. W. Taylor\'s photograph of about 1895 shows, with a pinnacle at each corner and a finial at the peak, where it had a low hipped cap.',
+    ] },
+  { v: 2179, ts: '2026-10-22T11:55:19.926Z', date: 'Oct 22, 2026, 6:55 AM CT', title: '1811 Prairie\'s bay runs its full width, from its 1888 plate', kind: 'improve',
+    items: [
+      '1811 Prairie\'s bay front now runs its full 3.7 m, out to the corner where the 1888 plate draws it, so its south windows stand where the plate\'s do instead of half a metre north. The downpipe beside it moves past the corner onto the main front; the plate shows it running down the bay\'s side, which the build can\'t do yet.',
+    ] },
+  { v: 2178, ts: '2026-10-22T11:55:19.926Z', date: 'Oct 22, 2026, 6:55 AM CT', title: 'Glessner\'s second-floor windows taller, on their carved stone course', kind: 'fix',
+    items: [
+      'The eleven second-floor windows on Prairie Avenue now come down to 19.2 ft, as HABS sheet 6 and the 1965 photograph show. They were 19.8, so each window is now 5.1 ft tall, and the colonnettes between them stand on the sill with taller bases and capitals. The carved band under the group of four is now the full stone course the drawing shows, about a foot deep and directly under the sill. Its egg-and-dart reaches further each way, and its end blocks are wider.',
+    ] },
+  { v: 2177, ts: '2026-10-22T10:06:14.640Z', date: 'Oct 22, 2026, 5:06 AM CT', title: '1801 Prairie gains its corner turret and its full east range', kind: 'feature',
+    items: [
+      'The Kimball house\'s east range now runs its full length back from 18th Street, under one slate roof, and its small round corner turret stands at the far end with a slate cone and finial, as J. W. Taylor\'s photograph of about 1895 shows.',
+    ] },
+  { v: 2176, ts: '2026-10-22T10:06:14.640Z', date: 'Oct 22, 2026, 5:06 AM CT', title: 'Nothing you can see changed: Glessner\'s stone courses ruled', kind: 'chore',
+    items: [
+      'Nothing you can see changed. Glessner House\'s granite courses stand where they stood.',
+      'The 1965 survey drawing of the Prairie Avenue front turns out to show the same run of tall and short courses, in the same order, as the course heights written on the 1963 masonry sheet. So the front and the 18th Street wall share one coursing.',
+      'The 1965 drawing makes the upper courses about 4 % taller. The written heights are kept because they are the only measured ones, and only they fit under the 18th Street eave. That disagreement is now recorded in the liberties log.',
+      'The re-read also caught one height copied wrong: the 22nd course is 8½ inches, not 9½. Lowering the courses above it by that inch is queued for the next rebuild of the house.',
+    ] },
+  { v: 2175, ts: '2026-10-22T10:06:14.640Z', date: 'Oct 22, 2026, 5:06 AM CT', title: 'Glessner\'s courtyard: the wall beside the bow, built to its drawing', kind: 'change',
+    items: [
+      'The first-floor window between the bow and the stair tower now sits at the 1963 measured drawing\'s height, about a foot lower than before. It stands on the drawing\'s deep stone lintel and sill.',
+      'The light above it is now the narrow single pane the drawing shows, between its own head and sill stones, not a wider two-sash window.',
+      'The downpipe the drawing does not show on that wall is gone; its gutter now empties into the bow\'s trough. The barred basement light beside the tower gets the drawing\'s closer-set bars.',
+    ] },
+  { v: 2174, ts: '2026-10-22T09:16:21.931Z', date: 'Oct 22, 2026, 4:16 AM CT', title: '1736 Prairie\'s 18th Street side gains its three bay windows', kind: 'improvement',
+    items: [
+      'Walk down 18th Street past the Ingraham/McBirney house: the side wall now carries the three canted bays the 1911 fire-insurance map draws — a timber bay window at the back, a brick bay rising two storeys in the middle, and a second timber bay near the front.',
+      'The front one was taken for a side porch before; the map draws it closed and canted, like the one at the back.',
+      'The house\'s record now dates itself: completed in 1864 for Granville S. Ingraham, with its mansard roof standing by about 1890 and still there in 1911 — possibly a later addition, which no source yet dates.',
+    ] },
+  { v: 2173, ts: '2026-10-22T08:23:24.236Z', date: 'Oct 22, 2026, 3:23 AM CT', title: 'Flying over the 1904 district stays inside the phone\'s budget', kind: 'fix',
+    items: [
+      'The lakefront railway stops drawing rails too far off to see, where its ties already stopped. A phone flying over 20th Street now draws about 70,000 fewer triangles and stays inside its Light setting\'s limit.',
+    ] },
+  { v: 2172, ts: '2026-10-22T08:23:24.236Z', date: 'Oct 22, 2026, 3:23 AM CT', title: '1811 Prairie\'s bay turns its canted north face, from its 1888 plate', kind: 'improve',
+    items: [
+      '1811 Prairie\'s bay no longer stands square on its north side: that face now cants back to the wall, as the 1911 insurance map draws it and the 1888 plate shows it, with one narrow window a storey. The cornice, string courses and stone balustrade turn the corner with it, and the front\'s north window moves onto the plate\'s.',
+    ] },
+  { v: 2171, ts: '2026-10-22T07:10:00.105Z', date: 'Oct 22, 2026, 2:10 AM CT', title: 'Glessner\'s Prairie front windows and grilles set on their stone courses', kind: 'fix',
+    items: [
+      'The four first-floor windows on Prairie Avenue now sit lower, as HABS sheet 6 and the 1965 photograph show them. Each sill rests on the eighth granite bed, 8.71 ft over the door sill instead of 9.2, and each head is 14.3 ft, so the windows keep the drawing\'s 5.6 ft height. The basement grilles\' heads drop to the fourth bed, 4.54 ft from 4.7. The door, the porte-cochère, the small pair and the second floor were checked and left as built.',
+    ] },
+  { v: 2170, ts: '2026-10-22T06:50:59.928Z', date: 'Oct 22, 2026, 1:50 AM CT', title: '1811 Prairie\'s stone dressing, downpipes and stair scrolls, from its 1888 plate', kind: 'improve',
+    items: [
+      '1811 Prairie\'s bay is now rough rock-faced stone up to its first-floor windows and smooth dressed stone above, as the 1888 plate shows it, and two downpipes run down the front where the plate draws them.',
+      'The rolled stone scrolls at the foot of its front stair now sit up on plain blocks, as in the plate, instead of resting on the ground.',
+    ] },
+  { v: 2169, ts: '2026-10-22T06:38:09.184Z', date: 'Oct 22, 2026, 1:38 AM CT', title: 'Second Presbyterian\'s spire and the houses beyond Prairie Avenue', kind: 'feature',
+    items: [
+      'Second Presbyterian Church now stands at Michigan Avenue and 20th Street. Its corner tower carries the tall spire it had in 1904, which was lost in 1929.',
+      'The church is drafted from its survey drawings: the nave, the parish hall across the west end and the north aisle, with the nave\'s ridge at about 27 metres.',
+      'Three brick rowhouses stand on East Twentieth Street at 213, 215 and 217. The corner house has its gable and its turret toward Prairie.',
+      'On Calumet Avenue, the Hanford house stands under its steep brownstone roof and the Wheeler-Kohn house under its mansard, each with its brick barn on the alley.',
+    ] },
+  { v: 2168, ts: '2026-10-22T06:38:09.184Z', date: 'Oct 22, 2026, 1:38 AM CT', title: 'Glessner\'s front door fan and the stone under it, redrawn', kind: 'change',
+    items: [
+      'The carved fan over Glessner\'s front door now starts about three inches lower and stands about four inches less tall, as the 1963 survey drawing shows it. The stone under it is one course high, flat at its ends, with a slight rise only under the carving. It used to slope up across its whole length.',
+    ] },
+  { v: 2167, ts: '2026-10-22T05:43:07.999Z', date: 'Oct 22, 2026, 12:43 AM CT', title: '1811 Prairie\'s open entrance porch, from its 1888 plate', kind: 'feature',
+    items: [
+      '1811 Prairie\'s entrance is now an open porch, as the 1888 Inland Architect plate draws it. The round arch is its mouth, with the double door set far back inside. The arch springs from clustered stone columns with carved capitals, two on one side and three on the other, and the broad stair climbs between stone cheeks that sweep down to rolled scrolls.',
+    ] },
   { v: 2166, ts: '2026-10-22T04:19:14.385Z', date: 'Oct 21, 2026, 11:19 PM CT', title: 'Measured limits for Full Ghost views', kind: 'improvement',
     items: [
       'Full-detail Ghost views use a measured allowance for their extra transparent surfaces.',

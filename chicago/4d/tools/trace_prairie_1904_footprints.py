@@ -94,6 +94,32 @@ SHEETS = {
         "ticket": "T-2340",
         "census_ticket": "T-1842",
     },
+    # The district draft's named context buildings off Prairie Avenue (T-2982): the same
+    # scan and fit as "35", read on five named lots of East Twentieth Street and Calumet
+    # Avenue, against their own census beside the draft rules (the Prairie census counts
+    # Prairie frontages only).
+    "35x": {
+        "gcp": "sanborn_1911_v3_sheet_35",
+        "census_path": ROOT / "data" / "components" / "prairie_1904" / "edges_census_s35.json",
+        "blocks": ("blk_indiana_prairie_20_21", "blk_prairie_calumet_20_21"),
+        "parcels": ("e20th_213", "e20th_215", "e20th_217", "calumet_2008", "calumet_2018"),
+        "out": ROOT / "data" / "traces" / "prairie_1904_footprints_s35x.json",
+        "ticket": "T-2982",
+        "census_ticket": "T-2982",
+    },
+    # The background behind Prairie Avenue (T-3008, piece 1 of T-2983): the same scan and
+    # fit as "28", read on Calumet Avenue's west frontage from 18th to 20th Street (1800 is
+    # Pullman's glasshouse ground, T-1934's, and is not traced here).
+    "28x": {
+        "gcp": "sanborn_1911_v3_sheet_28",
+        "census_path": ROOT / "data" / "components" / "prairie_1904" / "edges_census_s28.json",
+        "blocks": ("blk_prairie_calumet_18_20",),
+        "parcels": ("calumet_1830", "calumet_1832", "calumet_1836", "calumet_1840", "calumet_1900",
+                    "calumet_1910", "calumet_1922", "calumet_1928", "calumet_1932"),
+        "out": ROOT / "data" / "traces" / "prairie_1904_footprints_s28x.json",
+        "ticket": "T-3008",
+        "census_ticket": "T-3008",
+    },
 }
 
 # Colour rules, on 8-bit sRGB. The paper is cream (r >= g >= b, r - g under 30); brick
@@ -319,13 +345,11 @@ def street_axis(lots: list) -> tuple:
 
 
 def _street_axis(parcel: dict) -> tuple:
+    # the lot's two street corners and two rear corners, whichever way it faces (a Prairie
+    # lot faces east or west; a cross-street lot of sheet "35x" faces north)
     c = parcel["corners_local_m"]
-    if parcel["side"] == "west":
-        front = (np.array(c["NE_street"]) + np.array(c["SE_street"])) / 2
-        rear = (np.array(c["NW_rear"]) + np.array(c["SW_rear"])) / 2
-    else:
-        front = (np.array(c["NW_street"]) + np.array(c["SW_street"])) / 2
-        rear = (np.array(c["NE_rear"]) + np.array(c["SE_rear"])) / 2
+    front = sum(np.array(v) for k, v in c.items() if k.endswith("_street")) / 2
+    rear = sum(np.array(v) for k, v in c.items() if k.endswith("_rear")) / 2
     u = front - rear
     return u / np.linalg.norm(u), front, float(np.linalg.norm(front - rear))
 
@@ -590,8 +614,9 @@ def build(sheet: str) -> dict:
     fit = Fit(gcp)
     px_rules = set_px_rules(fit.m_per_px)
     grid = json.loads(GRID.read_text(encoding="utf-8"))
-    census = json.loads((CENSUS_DIR / spec["census"]).read_text(encoding="utf-8"))
-    parcels = [p for p in grid["parcels"] if p["block"] in spec["blocks"] and p["street"] == "prairie"]
+    census = json.loads((spec.get("census_path") or CENSUS_DIR / spec["census"]).read_text(encoding="utf-8"))
+    parcels = [p for p in grid["parcels"] if p["block"] in spec["blocks"] and (
+        p["id"] in spec["parcels"] if spec.get("parcels") else p["street"] == "prairie")]
     bx = [fit.pixel(*q) for p in parcels for q in p["polygon_local_m"]]
     x0, y0 = int(min(p[0] for p in bx)) - 8, int(min(p[1] for p in bx)) - 8
     x1, y1 = int(max(p[0] for p in bx)) + 8, int(max(p[1] for p in bx)) + 8
@@ -660,7 +685,8 @@ def build(sheet: str) -> dict:
                 "m_per_px": fit.m_per_px,
                 "fit_rms_m": gcp["fit"]["rms_m"],
                 "independent_rms_m": gcp.get("independent_checks", {}).get("rms_component_m")},
-        "census": f"chicago/prairie_1904_v1/data/sheet_census/{spec['census']}",
+        "census": (str(spec["census_path"].relative_to(REPO)) if spec.get("census_path")
+                   else f"chicago/prairie_1904_v1/data/sheet_census/{spec['census']}"),
         "parcels_from": "data/street_grid/1904.json",
         "method": {
             "classes": "brick r-g>30 & r-b>25 & r>120; stone b-r>=10 & g>110; frame r-b>80 & g-b>60 & r>170 (8-bit sRGB)"

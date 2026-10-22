@@ -19870,7 +19870,32 @@ for (const [label, viewport, touch] of [
           'stone_house_2035_prairie',
           'stone_house_2035_prairie_rear_building',
           'tolman_house_2031_prairie',
-          'tolman_house_2031_prairie_coach_house'].sort();
+          'tolman_house_2031_prairie_coach_house',
+          // T-2982: the district's named context buildings off the avenue
+          'house_213_e20th',
+          'house_215_e20th',
+          'house_217_e20th',
+          'hanford_house_2008_calumet',
+          'hanford_house_2008_calumet_coach_house',
+          'wheeler_kohn_house_2018_calumet',
+          'wheeler_kohn_house_2018_calumet_coach_house',
+          'second_presbyterian_church_1936_michigan',
+          // T-3008: the background behind Prairie Avenue, Calumet's west frontage 18th-20th
+          'house_1830_calumet',
+          'house_1832_calumet',
+          'house_1836_calumet',
+          'house_1836_calumet_coach_house',
+          'house_1840_calumet',
+          'house_1900_calumet',
+          'house_1900_calumet_coach_house',
+          'house_1910_calumet',
+          'house_1910_calumet_coach_house',
+          'house_1922_calumet',
+          'house_1922_calumet_coach_house',
+          'house_1922_calumet_stable_strip',
+          'house_1928_calumet',
+          'house_1932_calumet',
+          'house_1932_calumet_coach_house'].sort();
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),

@@ -2676,6 +2676,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/census_prairie_1904_background.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/changelog-entries.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5746,11 +5750,19 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_k01_wing_past_host.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_k01_wing_roof.py": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_k01_wing_tower.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k08_gable.py": {
       "wrote": [],
       "wrote_ignored": []
     },

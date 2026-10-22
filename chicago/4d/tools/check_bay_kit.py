@@ -163,9 +163,18 @@ def rule_keyed(b, v):
         p = r.world(end, 0.0, 0.0)
         if abs(p[2]) > 1e-6:
             fails.append(f"keyed: the plan's end at x {p[0]:.3f} is {p[2]:.4f} m off the host wall's face")
-    worst = min((p[2], role) for role, pr in b.prims.items() if role not in K.BOARD_ROLES for p in pr.pos)
+    # T-2900: a corner turret's cone stands whole over its wing's roof (`cap_whole`), so its
+    # roof and finial reach behind the face, inside its eaves' circle and nowhere else
+    whole = ("roof", "finial") if v.get("cap_whole") else ()
+    worst = min((p[2], role) for role, pr in b.prims.items()
+                if role not in K.BOARD_ROLES and role not in whole for p in pr.pos)
     if worst[0] < -1e-6:
         fails.append(f"behind: a {worst[1]} vertex stands {-worst[0]:.4f} m behind the host wall's face")
+    if whole:
+        (cx, cz), reach = b.plan["centre"], b.plan["R"] + b.meta["overhang_m"]
+        far = max(math.hypot(p[0] - cx, p[2] - cz) for role in whole for p in b.prims.get(role, K.Prim(role)).pos)
+        if far > reach + 1e-6:
+            fails.append(f"behind: a whole cap reaches {far:.4f} m from its axis, past its eaves' {reach:.4f} m")
     # the outer wall on the declared plan
     off = 0.0
     for p in b.prims["wall"].pos:

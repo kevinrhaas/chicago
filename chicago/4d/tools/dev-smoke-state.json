@@ -2,6 +2,192 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13); on 2026-10-11 T-2337 halved part 10 again (11-14 -> 12-15). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 434,
+      "takenAt": "2026-10-22T13:13:01.703Z",
+      "ref": "steward/t3005-1811-oriel-cornice",
+      "commit": "f54d76a0fc48",
+      "devCommit": "9d89e905ccec",
+      "treeHash": "sha256:388f21c7ab7ebab6",
+      "treeDirty": false,
+      "changelogHash": "sha256:b3d7350da42e888f",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.7,
+          4,
+          3.9
+        ]
+      },
+      "source": "/tmp/w/smoke_d3.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 259,
+      "takenAt": "2026-10-22T05:19:43.280Z",
+      "ref": "steward/t2974-prairie-openings-on-beds",
+      "commit": "20dc04322043",
+      "devCommit": "a989a171ac95",
+      "treeHash": "sha256:aa7776c03a0551fb",
+      "treeDirty": false,
+      "changelogHash": "sha256:1c17c73c598d804b",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.6,
+          3.6,
+          3.8
+        ]
+      },
+      "source": "/tmp/t2974/smoke-d3.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 120,
+      "takenAt": "2026-10-22T05:19:43.184Z",
+      "ref": "steward/t2974-prairie-openings-on-beds",
+      "commit": "20dc04322043",
+      "devCommit": "a989a171ac95",
+      "treeHash": "sha256:aa7776c03a0551fb",
+      "treeDirty": false,
+      "changelogHash": "sha256:1c17c73c598d804b",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.6,
+          3.6,
+          3.8
+        ]
+      },
+      "source": "/tmp/t2974/smoke-m3.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 140,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 478,
+      "takenAt": "2026-10-22T04:59:32.119Z",
+      "ref": "steward/t2972-glessner-fan-header",
+      "commit": "6e4413e92c39",
+      "devCommit": "fdb227dbf5ed",
+      "treeHash": "sha256:8aeeb056d7f25403",
+      "treeDirty": false,
+      "changelogHash": "sha256:24aec61532f62af1",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.6,
+          4.4,
+          4.1
+        ]
+      },
+      "source": "/tmp/t2972/smoke-m14.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 232,
+      "takenAt": "2026-10-22T04:59:32.041Z",
+      "ref": "steward/t2972-glessner-fan-header",
+      "commit": "6e4413e92c39",
+      "devCommit": "fdb227dbf5ed",
+      "treeHash": "sha256:8aeeb056d7f25403",
+      "treeDirty": false,
+      "changelogHash": "sha256:24aec61532f62af1",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.6,
+          4.4,
+          4.1
+        ]
+      },
+      "source": "/tmp/t2972/smoke-d3.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 103,
+      "takenAt": "2026-10-22T04:59:31.959Z",
+      "ref": "steward/t2972-glessner-fan-header",
+      "commit": "6e4413e92c39",
+      "devCommit": "fdb227dbf5ed",
+      "treeHash": "sha256:8aeeb056d7f25403",
+      "treeDirty": false,
+      "changelogHash": "sha256:24aec61532f62af1",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.6,
+          4.4,
+          4.1
+        ]
+      },
+      "source": "/tmp/t2972/smoke-m3.log"
+    },
+    {
       "viewport": "mobile",
       "stage": "3",
       "parts": [
@@ -1513,198 +1699,6 @@
         "note": "T-2235 local published stage 13, 4 CPU quota / 16 GB. Initial desktop starts timed out under competing checks; final desktop startup ran alone. Mobile overlapped a precision-only liberties refresh; desktop later overlapped T-1273/T-2199 dev integration and source checks. No exact-tree claim: Glessner geometry and renderer roof assets remained unchanged throughout. See the T-2235 review report."
       },
       "source": "docs/RESEARCH/glessner-courtyard-roof-2235/smoke-mobile-13.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "13",
-      "parts": [
-        13
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 5,
-      "failed": 1,
-      "failures": [
-        "desktop 1280x800: scene reaches ready — timed out | agency_striker_log_house: review_required is set — this scene cannot be released | beaubien_barn: review_required is set — this scene cannot be released | beaubien_trading_post: review_required is set — this scene cannot be released"
-      ],
-      "wallSeconds": 94,
-      "takenAt": "2026-10-09T03:02:01.602577Z",
-      "ref": "steward/t-2235-glessner-courtyard-roof",
-      "commit": "696b510d312b",
-      "devCommit": "1bf113e2b626",
-      "treeHash": null,
-      "treeDirty": true,
-      "changelogHash": "sha256:9433500876ed1e2f",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          2.8,
-          5.6,
-          5.7
-        ],
-        "note": "T-2235 local published stage 13, 4 CPU quota / 16 GB. Initial desktop starts timed out under competing checks; final desktop startup ran alone. Mobile overlapped a precision-only liberties refresh; desktop later overlapped T-1273/T-2199 dev integration and source checks. No exact-tree claim: Glessner geometry and renderer roof assets remained unchanged throughout. See the T-2235 review report."
-      },
-      "source": "docs/RESEARCH/glessner-courtyard-roof-2235/smoke-desktop-initial-load.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 101,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 295,
-      "takenAt": "2026-10-09T02:53:12.850Z",
-      "ref": "steward/t-2199-glessner-reference-recovery",
-      "commit": "f4172ede4f7f",
-      "devCommit": "f4172ede4f7f",
-      "treeHash": "sha256:8a50bba5342fd0c0",
-      "treeDirty": false,
-      "changelogHash": "sha256:745082ba4ffddb43",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          2.2,
-          2.4,
-          1.2
-        ]
-      },
-      "source": "/workspace/t2199-proof/smoke-mobile.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "13",
-      "parts": [
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 126,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1561,
-      "takenAt": "2026-10-09T01:19:16.811Z",
-      "ref": "steward/t-2231-glessner-west-roof-width",
-      "commit": "5f8ca7e486a6",
-      "devCommit": "7aed0a2a1523",
-      "treeHash": null,
-      "treeDirty": true,
-      "changelogHash": "sha256:51e352b70b1c3d80",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          2.9,
-          5,
-          5.8
-        ],
-        "note": "Began before dev 7aed0a2a integration; published metadata refreshed during run. Glessner geometry and renderer unchanged. No exact-tree claim for this mixed timing; final integrated preflight passed separately."
-      },
-      "source": "/workspace/scratch/t2231/smoke-desktop-13.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 101,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1133,
-      "takenAt": "2026-10-09T01:08:16.541Z",
-      "ref": "steward/t-2198-glessner-source-audit",
-      "commit": "550336ed97fc",
-      "devCommit": "14ee07c9a701",
-      "treeHash": "sha256:605c60378284dc0c",
-      "treeDirty": false,
-      "changelogHash": "sha256:254c731bfef26bfe",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          1,
-          3.4,
-          4.2
-        ]
-      },
-      "source": "tickets/evidence/glessner-exterior-audit-2026-10-08/t2198/smoke-desktop.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 101,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 764,
-      "takenAt": "2026-10-09T01:08:16.431Z",
-      "ref": "steward/t-2198-glessner-source-audit",
-      "commit": "550336ed97fc",
-      "devCommit": "14ee07c9a701",
-      "treeHash": "sha256:605c60378284dc0c",
-      "treeDirty": false,
-      "changelogHash": "sha256:254c731bfef26bfe",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          1,
-          3.4,
-          4.2
-        ]
-      },
-      "source": "tickets/evidence/glessner-exterior-audit-2026-10-08/t2198/smoke-mobile.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 5,
-      "failed": 1,
-      "failures": [
-        "desktop 1280x800: scene reaches ready — timed out | agency_striker_log_house: review_required is set — this scene cannot be released | beaubien_barn: review_required is set — this scene cannot be released | beaubien_trading_post: review_required is set — this scene cannot be released"
-      ],
-      "wallSeconds": 110,
-      "takenAt": "2026-10-09T01:08:16.325Z",
-      "ref": "steward/t-2198-glessner-source-audit",
-      "commit": "550336ed97fc",
-      "devCommit": "14ee07c9a701",
-      "treeHash": "sha256:605c60378284dc0c",
-      "treeDirty": false,
-      "changelogHash": "sha256:254c731bfef26bfe",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          1,
-          3.4,
-          4.2
-        ]
-      },
-      "source": "tickets/evidence/glessner-exterior-audit-2026-10-08/t2198/smoke-desktop-startup-timeout.log"
     },
     {
       "viewport": "desktop",
