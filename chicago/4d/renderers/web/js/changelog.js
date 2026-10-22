@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 2177, ts: '2026-10-22T10:06:14.640Z', date: 'Oct 22, 2026, 5:06 AM CT', title: '1801 Prairie gains its corner turret and its full east range', kind: 'feature',
+    items: [
+      'The Kimball house\'s east range now runs its full length back from 18th Street, under one slate roof, and its small round corner turret stands at the far end with a slate cone and finial, as J. W. Taylor\'s photograph of about 1895 shows.',
+    ] },
+  { v: 2176, ts: '2026-10-22T10:06:14.640Z', date: 'Oct 22, 2026, 5:06 AM CT', title: 'Nothing you can see changed: Glessner\'s stone courses ruled', kind: 'chore',
+    items: [
+      'Nothing you can see changed. Glessner House\'s granite courses stand where they stood.',
+      'The 1965 survey drawing of the Prairie Avenue front turns out to show the same run of tall and short courses, in the same order, as the course heights written on the 1963 masonry sheet. So the front and the 18th Street wall share one coursing.',
+      'The 1965 drawing makes the upper courses about 4 % taller. The written heights are kept because they are the only measured ones, and only they fit under the 18th Street eave. That disagreement is now recorded in the liberties log.',
+      'The re-read also caught one height copied wrong: the 22nd course is 8½ inches, not 9½. Lowering the courses above it by that inch is queued for the next rebuild of the house.',
+    ] },
+  { v: 2175, ts: '2026-10-22T10:06:14.640Z', date: 'Oct 22, 2026, 5:06 AM CT', title: 'Glessner\'s courtyard: the wall beside the bow, built to its drawing', kind: 'change',
+    items: [
+      'The first-floor window between the bow and the stair tower now sits at the 1963 measured drawing\'s height, about a foot lower than before. It stands on the drawing\'s deep stone lintel and sill.',
+      'The light above it is now the narrow single pane the drawing shows, between its own head and sill stones, not a wider two-sash window.',
+      'The downpipe the drawing does not show on that wall is gone; its gutter now empties into the bow\'s trough. The barred basement light beside the tower gets the drawing\'s closer-set bars.',
+    ] },
   { v: 2174, ts: '2026-10-22T09:16:21.931Z', date: 'Oct 22, 2026, 4:16 AM CT', title: '1736 Prairie\'s 18th Street side gains its three bay windows', kind: 'improvement',
     items: [
       'Walk down 18th Street past the Ingraham/McBirney house: the side wall now carries the three canted bays the 1911 fire-insurance map draws — a timber bay window at the back, a brick bay rising two storeys in the middle, and a second timber bay near the front.',
