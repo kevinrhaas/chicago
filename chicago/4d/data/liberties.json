@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 675,
+  "count": 676,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -446,6 +446,14 @@
       "name": "Jones's Grocery and Provision Store"
     },
     {
+      "id": "hanford_house_2008_calumet",
+      "name": "2008 Calumet Avenue — Chateauesque brownstone"
+    },
+    {
+      "id": "hanford_house_2008_calumet_coach_house",
+      "name": "2008 S. Calumet Avenue — the alley building of the house at 2008"
+    },
+    {
       "id": "harmon_log_cabin",
       "name": "Dr Elijah Harmon's Cabin"
     },
@@ -728,6 +736,18 @@
     {
       "id": "house_2125_prairie_coach_house",
       "name": "2125 S. Prairie Avenue — the alley building of the house at 2125"
+    },
+    {
+      "id": "house_213_e20th",
+      "name": "213 East Twentieth Street — Rowhouse, flat behind a cornice"
+    },
+    {
+      "id": "house_215_e20th",
+      "name": "215 East Twentieth Street — Rowhouse, flat behind a cornice"
+    },
+    {
+      "id": "house_217_e20th",
+      "name": "217 East Twentieth Street — Queen Anne corner rowhouse with gable"
     },
     {
       "id": "ic_16th_street_station_1605_prairie",
@@ -2822,6 +2842,10 @@
       "name": "1815 S. Prairie Avenue — the alley building of the house at 1815"
     },
     {
+      "id": "second_presbyterian_church_1936_michigan",
+      "name": "1936 S. Michigan Avenue — Second Presbyterian Church"
+    },
+    {
       "id": "shed_1834_1900_prairie",
       "name": "The shed on the strip between 1834 and 1900 Prairie Avenue"
     },
@@ -2968,6 +2992,14 @@
     {
       "id": "wheeler_house_1812_prairie_coach_house",
       "name": "Wheeler house (1812 Prairie Avenue): the coach house on the alley"
+    },
+    {
+      "id": "wheeler_kohn_house_2018_calumet",
+      "name": "2018 Calumet Avenue — Second Empire"
+    },
+    {
+      "id": "wheeler_kohn_house_2018_calumet_coach_house",
+      "name": "2018 S. Calumet Avenue — the alley building of the house at 2018"
     },
     {
       "id": "wolf_point_tavern",
@@ -20488,14 +20520,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.records[brick_fabric]",
-        "count": 104
+        "count": 110
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "structures.records[brick fabric] — 104 structures (105 until, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until 's Wheeler house (1812 Prairie Avenue): the coach house on the alley, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until 's First Fort Dearborn — magazine, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour and never reads the materials tool; 17 until, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in the materials generator has carried tile (m) = None since other work, and three of the four are the records that take a course the moment it carries one: Fort Dearborn — commandant's quarters, Fort Dearborn — powder magazine and Lake House (under construction). **the project's notes on materials says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (the project's notes on materials §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** First Cook County court-house became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, the build generator resolves no phase for it and other work retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
+          "text": "structures.records[brick fabric] — 110 structures (104 until, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour; 105 until, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until 's Wheeler house (1812 Prairie Avenue): the coach house on the alley, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until 's First Fort Dearborn — magazine, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour and never reads the materials tool; 17 until, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in the materials generator has carried tile (m) = None since other work, and three of the four are the records that take a course the moment it carries one: Fort Dearborn — commandant's quarters, Fort Dearborn — powder magazine and Lake House (under construction). **the project's notes on materials says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (the project's notes on materials §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** First Cook County court-house became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, the build generator resolves no phase for it and other work retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
         },
         {
           "label": "Decision",
@@ -20511,6 +20543,7 @@
         }
       ],
       "work_refs": [
+        "T-2982",
         "T-2543",
         "T-2440",
         "T-2443",
@@ -48687,6 +48720,166 @@
         "T-2976",
         "T-2228",
         "T-2978"
+      ]
+    },
+    {
+      "id": "L-draft-district-edges-2982",
+      "title": "The district's four named context buildings stood up as drafts: the three East Twentieth Street rowhouses, the Hanford and Wheeler-Kohn houses on Calumet, and Second Presbyterian with its 1904 spire",
+      "section": "per_subject",
+      "subjects": [
+        "hanford_house_2008_calumet",
+        "hanford_house_2008_calumet_coach_house",
+        "house_213_e20th",
+        "house_215_e20th",
+        "house_217_e20th",
+        "second_presbyterian_church_1936_michigan",
+        "wheeler_kohn_house_2018_calumet",
+        "wheeler_kohn_house_2018_calumet_coach_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "hanford_house_2008_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "hanford_house_2008_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "hanford_house_2008_calumet_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "hanford_house_2008_calumet_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_213_e20th",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_215_e20th",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_217_e20th",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_217_e20th",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "second_presbyterian_church_1936_michigan",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "second_presbyterian_church_1936_michigan",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "second_presbyterian_church_1936_michigan",
+          "phase": "draft_1904",
+          "aspect": "form.stories"
+        },
+        {
+          "domain": "structure",
+          "structure": "second_presbyterian_church_1936_michigan",
+          "phase": "draft_1904",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "wheeler_kohn_house_2018_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "wheeler_kohn_house_2018_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "wheeler_kohn_house_2018_calumet_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "wheeler_kohn_house_2018_calumet_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        }
+      ],
+      "recorded": "2026-10-22",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`house_213_e20th.draft_1904.form.draft_elevation`, `house_213_e20th.draft_1904.form.draft`, `house_215_e20th.draft_1904.form.draft_elevation`, `house_215_e20th.draft_1904.form.draft`, `house_217_e20th.draft_1904.form.draft_elevation`, `house_217_e20th.draft_1904.form.draft`, `hanford_house_2008_calumet.draft_1904.form.draft_elevation`, `hanford_house_2008_calumet.draft_1904.form.draft`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft_elevation`, `hanford_house_2008_calumet_coach_house.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet.draft_1904.form.draft`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft_elevation`, `wheeler_kohn_house_2018_calumet_coach_house.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft_elevation`, `second_presbyterian_church_1936_michigan.draft_1904.form.draft`, `second_presbyterian_church_1936_michigan.draft_1904.position`, `second_presbyterian_church_1936_michigan.draft_1904.form.stories`"
+        },
+        {
+          "label": "Decision",
+          "text": "the district draft's named context buildings off Prairie Avenue, run by the builder and under the rules of `“The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed”`, whose \"What is invented\" and \"What is not\" hold here word for word. The five houses are read off sheet 35 in a census of their own (the edges census s35 data: the census counts Prairie frontages only) and traced by the tool as sheet `35x`: 213, 215 and 217 East Twentieth Street, three brick rowhouses where the study register had one aggregate record; 2008 Calumet, the Hanford house, brick faced in stone along its front and south side under the steep hip of its 1883 plate, with its 1884 barn; and 2018 Calumet, the Wheeler-Kohn house, under a mansard, with its barn. Nothing on sheets 20, 28 or 35 moves. **What is invented here, beyond the 18th-20th list.** 213's storey figure is blurred on the scan (3 or 4) and is drafted as 3, its neighbour's. 213 and 215 stand flat behind a cornice; 217's 3½-storey front takes a street gable and a turret at its Prairie corner for the copper oriel its photographs show; its body is the sheet's front part, not the larger rear range, which stands three storeys as the sheet prints. The two Calumet barns, lettered GARAGE in 1911, are backcast as stables. **Second Presbyterian, off every sheet.** No committed Sanborn sheet reaches Michigan Avenue, so the church is drafted from HABS IL-328: its plan (sheet 2, read at the feet bar because the pews' 0.92 m spacing refutes the metric bar) as the nave with its narthex, the parish hall across the west end and the north aisle range, and its south elevation's printed levels for the hall's gable (80'-1\") and the nave's ridge (87'-8 1/4\"). The 1904 tower state is the full spire: the 1901 Tribune cut and Sloan's photograph (1901-1925) both show it, and it was lost in 1929. The masonry's 38 m and the spire's 16 m are proportions read off the photograph against the HABS ridge, upper figures. INVENTED: the position, a few metres either way. Michigan's centre is the e1871 terrain box's reading at 16th Street carried south on Indiana's measured bearing, its half-width the 66 ft every committed sheet prints (Michigan's own width is not read), and the east and south faces stand 3.0 m behind the street lines. The openings are the draft's rows of sash, not the lancets, rose and great window, and the church's walls stand as three draft storeys to its 14.7 m eave. **What is not drafted here.** The background census of Indiana, Calumet, the end streets and the rail side; 2016 Calumet and every other Calumet and Indiana frontage, which stay the context's faded stand-ins; boundary walls and fences."
+        },
+        {
+          "label": "How to resolve",
+          "text": "each building's per-building piece of work replaces its attributes in place under the same id: earlier work (213, 215, 217), earlier work (Hanford, and its barn), earlier work (Wheeler-Kohn, and its barn) and earlier work (Second Presbyterian, whose piece of work also owns a measured position). Each now carries an image gate naming its structure ids."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on district draft edges."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-22 (T-2982)."
+        }
+      ],
+      "work_refs": [
+        "T-2982",
+        "T-2162",
+        "T-1842",
+        "T-2983",
+        "T-2340",
+        "T-1939",
+        "T-1940",
+        "T-1941",
+        "T-1942"
       ]
     },
     {
