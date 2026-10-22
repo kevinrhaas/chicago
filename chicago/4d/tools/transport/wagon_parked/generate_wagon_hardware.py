@@ -36,7 +36,7 @@ def geom(name,parent,vertices,faces,mat,t=(0,0,0),rotation=None):
  pos=[];norm=[]
  for face in faces:
   for j in range(1,len(face)-1):
-   a,b,c=[vertices[k] for k in (face[0],face[j],face[j+1])];u=[b[k]-a[k] for k in range(3)];v=[c[k]-a[k] for k in range(3)];n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]];l=math.sqrt(sum(q*q for q in n));n=[q/l for q in n] if l else [0,1,0]
+   a,b,c=[vertices[k] for k in (face[0],face[j],face[j+1])];u=[b[k]-a[k] for k in range(3)];v=[c[k]-a[k] for k in range(3)];n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]];l=math.sqrt(math.fsum(q*q for q in n));n=[q/l for q in n] if l else [0,1,0]
    pos.extend(a+b+c);norm.extend(n*3);tris+=1
  i=node(name,parent,t,rotation);geometry.append((i,pos,norm,mat));return i
 
@@ -68,8 +68,8 @@ def chamfer_box(name,parent,size,t,mat,rx,bevel=.0012):
  # Orient all faces outwards using center-to-face vector, including corner triangles.
  for face in fs:
   p,q,r=[vs[i] for i in face[:3]];u=[q[k]-p[k] for k in range(3)];v=[r[k]-p[k] for k in range(3)];normal=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]]
-  center=[sum(vs[i][k] for i in face)/len(face) for k in range(3)]
-  if sum(a*b for a,b in zip(normal,center))<0:face.reverse()
+  center=[math.fsum(vs[i][k] for i in face)/len(face) for k in range(3)]
+  if math.fsum(a*b for a,b in zip(normal,center))<0:face.reverse()
  return geom(name,parent,vs,fs,mat,t,[math.sin(rx/2),0,0,math.cos(rx/2)] if rx else None)
 
 def tapered_spoke(name,parent,r,angle,mat=1):
@@ -84,8 +84,8 @@ def tapered_spoke(name,parent,r,angle,mat=1):
  for k in range(8):j=(k+1)%8;fs.append([k,j,8+j,8+k])
  center=[0,(.08+r-.07)/2*math.cos(angle),(.08+r-.07)/2*math.sin(angle)]
  for face in fs:
-  p,q,t=[vs[i] for i in face[:3]];u=[q[k]-p[k] for k in range(3)];v=[t[k]-p[k] for k in range(3)];n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]];d=[sum(vs[i][k] for i in face)/len(face)-center[k] for k in range(3)]
-  if sum(a*b for a,b in zip(n,d))<0:face.reverse()
+  p,q,t=[vs[i] for i in face[:3]];u=[q[k]-p[k] for k in range(3)];v=[t[k]-p[k] for k in range(3)];n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]];d=[math.fsum(vs[i][k] for i in face)/len(face)-center[k] for k in range(3)]
+  if math.fsum(a*b for a,b in zip(n,d))<0:face.reverse()
  return geom(name,parent,vs,fs,mat)
 
 def box(name,parent,size,t,mat=0,rx=0):

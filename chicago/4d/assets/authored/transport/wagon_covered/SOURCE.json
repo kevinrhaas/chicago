@@ -7,7 +7,7 @@
   "recipe": "data/transport/parked/covered-w01.json",
   "producer": "tools/transport/generate_covered_wagons.py",
   "core_source": "tools/transport/wagon_covered/build.py",
-  "core_source_sha256": "29f239fa3c82507d8edd33c79de0688da7ccd946080583e3626d5805d8520913",
+  "core_source_sha256": "1a36e3506c9e515c5404d911f30f2c2093b325fe5a6184d931aefa6503d7555d",
   "reviewed_parent_sha256": "274e737b51872983df792d0b24de8e75de8631890a8d586a32d9c6f0066484fb",
   "source_commit": "2aebef95f6a5b6fa1bd8353db936c7674a73c32f",
   "actual_terrain_qualification": {
@@ -133,7 +133,7 @@
       "model": "covered_w01_western_blue",
       "legacy_id": "town_wagon_western_hotel_wagon_yard_1",
       "glb_sha256": "9b6575d1702ca288b5a66487ef089cc51dd0b86d14a47574f94b6fe6eaf23d23",
-      "sidecar_sha256": "cc44a5289b9dc821a50d40e824ee940270aaba56bc1a493e13eb01f0827bfcbd",
+      "sidecar_sha256": "5261e1ea4c89312322f1589019c05e2bcb6402aea600848d3ee1fb6f30c6d5fc",
       "source_seed_text": "wagon|town_wagon_western_hotel_wagon_yard_1|-136.05|-291",
       "scheme": {
         "weight": 3,
@@ -148,7 +148,7 @@
       "model": "covered_w01_wolfpoint_oak",
       "legacy_id": "town_wagon_wolf_point_tavern_yard_1",
       "glb_sha256": "c6f69830d4ad690125ed703353d429bb8f68d67d29d6f6161b383b8b2d78f191",
-      "sidecar_sha256": "c781cf738b54b4e61d98973095d4647a86e0ec3369c12554b59e12146af7ca38",
+      "sidecar_sha256": "2873ec1ea489651dde522fbea3d8f078d8fe2d5661dea9c510b5775fba753891",
       "source_seed_text": "wagon|town_wagon_wolf_point_tavern_yard_1|-90.5|-39.5",
       "scheme": {
         "weight": 1,

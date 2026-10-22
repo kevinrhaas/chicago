@@ -10,10 +10,10 @@ def need(c,m):
  if not c:raise ValueError(m)
 def sha(b):return hashlib.sha256(b).hexdigest()
 def unit(v):
- d=math.sqrt(sum(x*x for x in v));need(d>1e-12,'Degenerate vector');return [x/d for x in v]
+ d=math.sqrt(math.fsum(x*x for x in v));need(d>1e-12,'Degenerate vector');return [x/d for x in v]
 def cross(a,b):return [a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]
 def sub(a,b):return [x-y for x,y in zip(a,b)]
-def dot(a,b):return sum(x*y for x,y in zip(a,b))
+def dot(a,b):return math.fsum(x*y for x,y in zip(a,b))
 def srgb(hexvalue):
  v=int(hexvalue.lstrip('#'),16);o=[]
  for shift in [16,8,0]:
@@ -118,7 +118,7 @@ def build(base,parts,variant,parameters,folder,textures):
  for kind in ['color','normal','orm']:
   raw=(textures/('canvas_'+kind+'.png')).read_bytes();iv=len(g['images']);g['images'].append({'bufferView':a.view(raw),'mimeType':'image/png','name':'covered_original_canvas_'+kind});ti=len(g['textures']);g['textures'].append({'source':iv,'sampler':sampler});refs[kind]=ti
  import io
- mean=sum((c/255/12.92 if c/255<=.04045 else ((c/255+.055)/1.055)**2.4) for p in Image.open(textures/'canvas_color.png').getdata() for c in p)/(512*256*3)
+ mean=math.fsum((c/255/12.92 if c/255<=.04045 else ((c/255+.055)/1.055)**2.4) for p in Image.open(textures/'canvas_color.png').getdata() for c in p)/(512*256*3)
  fac=[c/mean for c in color['canvas']];need(max(fac)<=1,'Canvas mean normalization exceeds1')
  canvas={'name':'covered_original_canvas','doubleSided':True,'pbrMetallicRoughness':{'baseColorFactor':[*fac,1],'baseColorTexture':{'index':refs['color']},'metallicFactor':0,'roughnessFactor':1,'metallicRoughnessTexture':{'index':refs['orm']}},'normalTexture':{'index':refs['normal'],'scale':.6},'extras':{'grade':'reconstructed','original_pixels':'CC0-1.0; source-generated analytic weave; no external pixels'}}
  canvas_index=len(g['materials']);g['materials'].append(canvas);seam=copy.deepcopy(canvas);seam['name']='covered_original_folded_seams';seam['pbrMetallicRoughness']['baseColorFactor']=[v*.94 for v in fac]+[1];seam_index=len(g['materials']);g['materials'].append(seam)
