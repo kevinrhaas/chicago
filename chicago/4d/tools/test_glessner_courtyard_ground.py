@@ -27,7 +27,18 @@ def hits(x,y):
  return result
 
 from archetypes.masonry_house_v4_frontage import court_ramp
-ramp=court_ramp(p)
+from archetypes.masonry_house_v4_ground import fall_height
+ramp=court_ramp(p);fall=fall_height(p)
+# T-2978: sheet 4's fall, lawn to passage mouth. The bank's top is at the court's level,
+# the drive and lawn before the mouth 1.32 ft down, and the strip behind the drive's
+# south edge keeps the court's level (1808's wall stands on it).
+mf=p.detail['court_ground']['mouth_fall']
+assert abs(fall(mf['x'][0]-.5,mf['y'][0]+.2))<1e-9 and abs(fall(mf['x'][0]-.5,2.0)+mf['depth_m'])<1e-6
+assert abs(fall(mf['x'][0]-.5,.3))<1e-9 and abs(fall(mf['x'][2]-.2,2.0))<1e-9
+lawn_low=hits(mf['x'][0]-1.0,3.42)
+assert lawn_low and abs(lawn_low[0][0]-(.0152-mf['depth_m']))<.003,('lawn before the mouth',lawn_low)
+strip=hits(mf['x'][0]-3.0,.3)
+assert strip and abs(strip[0][0]-.0152)<.003,('strip behind the drive',strip)
 for label,x,y in [('gate',.013,2.411),('passage',41.06,2.411),('ramp top',ramp['pts'][1][0]-.01,2.411),
                   ('west walk',11.62,6.71),('stair foot',15.53,9.97),('terrace approach',38.52,6.52)]:
  h=hits(x,y);assert len(h)==1 and h[0][1]==d.DRIVE,(label,h)
@@ -35,7 +46,10 @@ for label,x,y in [('gate',.013,2.411),('passage',41.06,2.411),('ramp top',ramp['
   # T-2976: the court mouth is sunk; the ramp rises from it toward the drive.
   run=ramp['pts'][0][0]-ramp['pts'][1][0];want=ramp['z'][0]+(ramp['z'][1]-ramp['z'][0])*(ramp['pts'][0][0]-x)/run
   assert abs(h[0][0]-want)<.002,(label,'ramp level',h,want)
- else:assert .035<h[0][0]<.045,(label,'ground level',h)
+ else:
+  # T-2978: the court ground falls to the passage mouth; the drive follows it.
+  want=.0366+fall(x,y)
+  assert abs(h[0][0]-want)<.005,(label,'ground level',h,want)
 # Probe just outside the actual lowest terrace tread across its entire width.
 a,c=p.detail['bow_terrace']['stair_boundaries'][-1][-2:]
 import math
@@ -56,5 +70,8 @@ g=d.DetailBuilder('grass-test',p);count=add_lawn_blades(g,sample,max_blades=1500
 assert count==1500
 for point in g.verts:
  assert all(not _inside(point[:2],mask) for mask in plan['grass_masks']),'Grass intrudes into hard/occupied surface'
+roots=[v for v in g.verts if fall(v[0],v[1])<-.05]
+assert roots,'no blades on the sunk lawn before the mouth'
+assert all(v[2]<.06+fall(v[0],v[1]) for v in roots),'blades float over the sunk lawn'
 assert set(b.conf)=={1.0},'Reconstructed paving is falsely marked attested'
 print('PASS: disjoint court ground, five access contacts, outward fall and 1500 clear turf blades')

@@ -350,6 +350,8 @@ step "Parked vehicles keep their exact wagon stands and cannot cross era boundar
   python3 tools/transport/check_parked_placements.py
 step "Standing horse support survives normal coarse yard-array release (T-2800)" \
   node tools/test_yard_static_support.mjs
+step "Standing horse card separates modern credit from historical claims (T-2800)" \
+  node tools/test_standing_horse_card.mjs
 step "Selected empty covered wagons reproduce original reviewed sources" \
   python3 tools/transport/generate_covered_wagons.py --verify
 step "Covered identity rejects kind, yoke, era and stand substitutions" \
@@ -3716,6 +3718,13 @@ step "Glessner street and stable opening schedule matches its record (T-2211)" \
 # being re-written and re-read is caught here (T-2758).
 step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
   python3 tools/glessner_stable_roof_read.py --check
+
+# The cupola reading fits the stable cupola's height, size and place to both
+# northwest prints through T-2758's re-solved cameras, so a pick, camera or record
+# number that moves without the report being re-written and re-read is caught here
+# (T-3031).
+step "Glessner stable-cupola reading re-derives from both prints (T-3031)" \
+  python3 tools/glessner_cupola_read.py --check
 
 # Both north cameras are re-solved with the gable pairs' sill and head left free, so
 # a pick, camera or record height that moves without the reading being re-written,

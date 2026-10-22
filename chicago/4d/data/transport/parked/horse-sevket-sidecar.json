@@ -14,7 +14,8 @@
     "bytes": 3211248,
     "acquired_url": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-124/53a6eb7ccf054aa2a378dd7ec08f88fe.glb",
     "acquired_date": "2026-10-22",
-    "dataset_notice": "Objaverse database ODC-By1.0; individual model CC BY4.0. Deitke etal.,2022, https://arxiv.org/abs/2212.08051."
+    "dataset_notice": "Objaverse database ODC-By1.0; individual model CC BY4.0. Deitke etal.,2022, https://arxiv.org/abs/2212.08051.",
+    "publication_date": "2021-03-29"
   },
   "source_pose": "Original native default at construction; normalized derivative adds only declared reconstructed head/tail leaf idle. Original six clips remain retained and never autoplay. No rebind, per-limb deformation or clip relabeling.",
   "native_bounds": [
