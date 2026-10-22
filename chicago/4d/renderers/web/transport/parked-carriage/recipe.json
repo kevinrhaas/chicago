@@ -1,0 +1,70 @@
+{
+  "baseline_sha256": "cc469f5bda981e273d3b9a4e1ce72d1186cb9f5ffa9deae5d4af0359a2b64779",
+  "output_sha256": "f02c6a4ed9537546d5576ac9d15b881ae684920d5233a62f83387b015bf5af39",
+  "old_binary_prefix_exact": true,
+  "nodes_doors_sockets_exact": true,
+  "positions_normals_indices_exact": true,
+  "triangles": 12228,
+  "uv_streams_added": 13,
+  "textures": [
+    {
+      "file": "paint-color.png",
+      "sha256": "ff46e7e5813bf0096cf2472311a053d7475e2d7b64a03eb411035618e2f30cb2",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "paint-roughness.png",
+      "sha256": "d613f26e658c1e7440ea941be01f0ed9875069b8a60acd048d9606f0bb1a0f1b",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "paint-normal.png",
+      "sha256": "b80a2b95cfcfa0b5b97af77f1c6060dc6e66a3008cf7aa79db84c38c0eb709bf",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "painted_running_gear-color.png",
+      "sha256": "8c106bb8543f71c69fce68e8e14a330eb487217e16ff2c7e61611f387b3e91a7",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "painted_running_gear-roughness.png",
+      "sha256": "47f6b30eee44d5f69513bfb023085f9bf295debcd5cc3422f5b632c0b446338c",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "painted_running_gear-normal.png",
+      "sha256": "925b605d80bdd93e4b7dcb869575144b458d33607400069c1e44a5b422d310f9",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "leather-color.png",
+      "sha256": "a29d887a173e8ab28a10c3b35514f7660ab4326d2532d30eae1e336a1af1a597",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "leather-roughness.png",
+      "sha256": "daa96df9777838c6261e313ae9bbb51ee7134036fa92961cabb5b875278bc1a5",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "file": "leather-normal.png",
+      "sha256": "ee9347b97c6d3636383112ed57678f28f2694d65e01e38fdaca24e916ccf2506",
+      "width": 256,
+      "height": 256
+    }
+  ],
+  "output_bytes": 1844804,
+  "geometry_acceptance": "inherited only; no new model/fit qualification",
+  "appearance_acceptance": "UNREVIEWED; actual images required",
+  "glazing": "reconstructed tinted alpha-blended glass, original pane geometry retained",
+  "scene_eligibility": "1904 parked reconstruction only, owner/maker/subtype unknown; door/boarding/traffic interactions disabled"
+}

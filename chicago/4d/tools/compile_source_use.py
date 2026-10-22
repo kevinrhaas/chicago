@@ -13,8 +13,8 @@ from exclusion_scope import ruled_for
 ROOT = Path(__file__).resolve().parents[1]
 USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # The raw index.json ceiling (bytes). 120 000 from T-1248; 128 000 from T-1728; 136 000 from
-# T-2334; 144 000 from T-2473; 152 000 from T-2498; 160 000 from T-2747; 168 000 from T-2982
-# — see outputs().
+# T-2334; 144 000 from T-2473; 152 000 from T-2498; 160 000 from T-2747;
+# 168 000 from T-2792/T-2799 — see outputs().
 INDEX_BUDGET = 168_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
@@ -415,11 +415,13 @@ class Compiler:
         # records the walks' claims need, which took it to 152 941 bytes with every citation kept
         # whole. Same bargain: about twenty sources of room, the gzipped first open still held at
         # 120 KB by measure_sources.mjs.
-        # 168 000 SINCE 2026-10-22 (T-2982): the district draft's named context buildings off the
-        # avenue put Second Presbyterian in the scene, drafted from HABS IL-328 and dated by the
-        # 1901 Tribune cut and Sloan's photograph, three source records its card and its grade
-        # need, which took it to 160 690 bytes with every citation kept whole. Same bargain:
-        # about twenty sources of room; this is the raw file only.
+        # 168 000 SINCE 2026-10-22 (T-2792/T-2799): the owner-requested vehicle and
+        # horse reference/specification records take the complete 404-source index from
+        # 159 155 to 161 435 raw bytes. Full citations remain intact. The candidate's
+        # gzip is about 39 KB; the unchanged 120 KB first-open compressed allowance
+        # still includes sources.js and sources.css. This measured 8 KB raw increase
+        # follows the previous approximately twenty-source increments, with no change
+        # to scene-detail tiers, rendering allowances or the compressed-wire ceiling.
         if size > INDEX_BUDGET:
             raise ValueError(f'source index {size} bytes exceeds {INDEX_BUDGET}-byte budget')
         return outputs
