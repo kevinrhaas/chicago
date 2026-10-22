@@ -12,12 +12,12 @@
    "cabin": 42,
    "cottage": 174,
    "house": 92,
-   "keeper": 21,
+   "keeper": 20,
    "merchant": 37,
    "shanty": 32
   },
   "by_class": {
-   "keeper": 21,
+   "keeper": 20,
    "labourer": 89,
    "merchant": 37,
    "tradesman": 251
@@ -26,17 +26,17 @@
    "default": 16,
    "fabric_rule": 351,
    "function": 6,
-   "household_trade": 11,
+   "household_trade": 10,
    "reconstruction_occupation": 14
   },
   "items": {
-   "chopping_block": 366,
-   "cordwood": 420,
+   "chopping_block": 365,
+   "cordwood": 418,
    "log_heap": 42,
    "slab_heap": 32
   },
-  "piled": 398,
-  "refused": 1
+  "piled": 397,
+  "refused": 2
  },
  "existence": {
   "value": "every household in the town kept firewood at its house",
@@ -547,59 +547,6 @@
      "seed": 700467662
     }
    ]
-  },
-  {
-   "structure_id": "green_tree_tavern",
-   "name": "Green Tree Tavern",
-   "function": "tavern_inn",
-   "household_class": "keeper",
-   "household_by": "household_trade",
-   "house": "larger",
-   "row": "keeper",
-   "rule": "Y-W6",
-   "confidence": "reconstructed",
-   "wall": "side",
-   "items": [
-    {
-     "kind": "cordwood",
-     "at_local_enu_m": [
-      -23.64,
-      -93.77
-     ],
-     "bearing_deg": 270.0,
-     "length_m": 2.44,
-     "depth_m": 1.22,
-     "height_m": 1.22,
-     "stick": "cord",
-     "seed": 1305320839
-    },
-    {
-     "kind": "cordwood",
-     "at_local_enu_m": [
-      -23.64,
-      -90.98
-     ],
-     "bearing_deg": 270.0,
-     "length_m": 2.44,
-     "depth_m": 1.22,
-     "height_m": 1.03,
-     "stick": "cord",
-     "seed": 876087640
-    },
-    {
-     "kind": "chopping_block",
-     "at_local_enu_m": [
-      -21.93,
-      -94.54
-     ],
-     "bearing_deg": 270.0,
-     "billets": 3,
-     "seed": 495305494
-    }
-   ],
-   "household": "hh_ingersoll_chester",
-   "trade": "tavern_keeper",
-   "cut_down": "dealt 3 ricks; 2 fit the wall"
   },
   {
    "structure_id": "harmon_log_cabin",
@@ -9002,10 +8949,10 @@
     {
      "kind": "slab_heap",
      "at_local_enu_m": [
-      -39.65,
-      -201.36
+      -41.49,
+      -201.35
      ],
-     "bearing_deg": 90.47,
+     "bearing_deg": 90.46,
      "pieces": 8,
      "seed": 812214804
     }
@@ -9040,7 +8987,7 @@
      "kind": "chopping_block",
      "at_local_enu_m": [
       -129.74,
-      -202.72
+      -202.71
      ],
      "bearing_deg": 270.46,
      "billets": 1,
@@ -9116,7 +9063,7 @@
       -127.35,
       -341.47
      ],
-     "bearing_deg": 270.47,
+     "bearing_deg": 270.46,
      "length_m": 2.14,
      "depth_m": 0.61,
      "height_m": 1.01,
@@ -9129,7 +9076,7 @@
       -125.95,
       -342.1
      ],
-     "bearing_deg": 270.47,
+     "bearing_deg": 270.46,
      "billets": 1,
      "seed": 333498387
     }
@@ -9201,7 +9148,7 @@
      "kind": "cordwood",
      "at_local_enu_m": [
       -129.29,
-      -358.36
+      -358.37
      ],
      "bearing_deg": 180.46,
      "length_m": 3.21,
@@ -9250,7 +9197,7 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      -44.61,
+      -45.17,
       -338.89
      ],
      "bearing_deg": 90.47,
@@ -9263,7 +9210,7 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      -44.63,
+      -45.2,
       -342.02
      ],
      "bearing_deg": 90.47,
@@ -9276,7 +9223,7 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      -46.0,
+      -46.57,
       -337.94
      ],
      "bearing_deg": 90.47,
@@ -15690,6 +15637,11 @@
   }
  ],
  "refused": [
+  {
+   "structure_id": "green_tree_tavern",
+   "row": "keeper",
+   "why": "no wall with clear ground behind it: among trade goods, at a wagon, on a plank walk, on a street, the wall is shorter than the pile"
+  },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d2_09",
    "row": "shanty",
