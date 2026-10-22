@@ -348,6 +348,8 @@ step "Harness body fit reproduces original crossings and enforces 5 mm bind-pose
 
 step "Parked vehicles keep their exact wagon stands and cannot cross era boundaries (T-2979)" \
   python3 tools/transport/check_parked_placements.py
+step "Standing horse support survives normal coarse yard-array release (T-2800)" \
+  node tools/test_yard_static_support.mjs
 step "Selected empty covered wagons reproduce original reviewed sources" \
   python3 tools/transport/generate_covered_wagons.py --verify
 step "Covered identity rejects kind, yoke, era and stand substitutions" \

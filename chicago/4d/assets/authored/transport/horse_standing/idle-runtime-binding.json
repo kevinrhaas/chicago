@@ -1,0 +1,16 @@
+{
+  "schema": "sevket_normalized_idle_actual_runtime_binding_v1",
+  "status": "EXACT_ACTUAL_BYTES_BOUND_PLAYBACK_NOT_RELEASED",
+  "actual_export_file": "/workspace/shared/T2803-NORMALIZED-IDLE-APPEND-ACTUAL-20261022/horse-sevket-portable-filtered-idle-v1.glb",
+  "verifiedDerivedSha256": "c2559073966cfb5b2c9d2c536ca03fbf03b71734f9a11ffcff48d4ec86e4d25c",
+  "actual_export_bytes": 3377384,
+  "append_receipt_file": "/workspace/shared/T2803-NORMALIZED-IDLE-APPEND-ACTUAL-20261022/APPEND-RECEIPT.json",
+  "append_receipt_sha256": "9c562b999948035b0dfca6f3c0bbd5f523acaad9e63188ad4bc2757dfc70ac4a",
+  "runtime_adapter_file": "/workspace/shared/T2803-NORMALIZED-LINEAGE-IDLE-SOURCE-HELD-20261022/idle-playback-adapter.mjs",
+  "runtime_adapter_sha256": "56a236a902abc043be7e2a1c876caf1f595202c33e9947b91dda0dd6bda25daf",
+  "filtered_source_file": "/workspace/shared/T2803-sevket-native-clips-20261022/filtered-idle-source.json",
+  "filtered_source_sha256": "617f92059d5064270155c7562ee75e7659efe4ac2f8810858de39aa70b0d3d4b",
+  "normalization_parity_receipt_sha256": "2a119de7db254f469d11b41633be15028a7d61144eafedfb4dbceb24b105f36a",
+  "idle_mixer_fullsurface_contact_selfcontact_native_visual_acceptance": false,
+  "production_activation_allowed": false
+}

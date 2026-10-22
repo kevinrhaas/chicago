@@ -1,0 +1,42 @@
+{
+  "status": "Reconstructed support geometry explanation; not a certified anatomical support plane or original source bone/socket",
+  "labels": [
+    "fore_l",
+    "fore_r",
+    "hind_l",
+    "hind_r"
+  ],
+  "source_minimum_anchor_plane_y_equals_a_x_plus_b_z_plus_c": [
+    -0.0001301929217446015,
+    0.0063298296628930065,
+    0.0027126998844886952
+  ],
+  "source_minimum_anchor_plane_normal_canonical_xyz": [
+    0.00013019031251643954,
+    0.9999799587556143,
+    -0.006329702805229813
+  ],
+  "source_anchor_plane_residuals_m": [
+    2.2384850037675957e-05,
+    -2.2385095513443275e-05,
+    -1.3254736270893516e-05,
+    1.3254981746654423e-05
+  ],
+  "normal_after_proposed_support_rotation_canonical_xyz": [
+    8.282488767077036e-05,
+    0.9999998259669283,
+    0.0005841285398846194
+  ],
+  "normal_after_heading_world_xyz": [
+    0.0005841285398846194,
+    0.9999998259669283,
+    -8.282488767077034e-05
+  ],
+  "root_local_up_after_support_rotation_is_different_quantity": [
+    -4.736430111331867e-05,
+    0.9999760981486924,
+    0.006913818622127929
+  ],
+  "root_support_fit_is_not_recomputed": true,
+  "rigid_support_receipt_sha256": "564493b066567ca9c87a272b8da47cdbb8e3bf5a041f78768ea7ff83fd35e7e3"
+}

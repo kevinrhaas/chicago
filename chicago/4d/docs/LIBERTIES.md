@@ -31250,3 +31250,27 @@ building in place under the same id; T-3014 sources and refines the church.
 **Ticket:** T-3009 (piece 2 of T-2983, the district's background).
 **Review:** `data/components/prairie_1904/edges_census_s35w.json`.
 **Recorded:** 2026-10-22 (T-3009).
+
+
+### L-standing-horse-development-2800 — a first standing horse in the Western Hotel yard
+
+**Decision:** Add one static, unmounted, untied, unhaltered and unhitched horse at E−127.5,N−296.0,heading90degrees in the1835Western Hotel wagon yard, near the existing reconstructed parked wagons. The historical stable/yard account supports the setting, not this individual, exact day, stand, breed, owner, chestnut coat/blaze/stockings, grooming or stature. The host association filters location and never assigns ownership.
+
+**What is reconstructed:** adoption of a modern licensed development model; one uniform0.36440688373115426metres/native scale from a chosen1.55m geometric withers proxy; source-origin datum;0.396145degree whole-root rigid support rotation; precise placement; and explicit cloned-material metalness0. Original source/embedded-image bytes, source hierarchy,15joints, six clips, UVs, normals and weights remain unchanged. Playback is disabled. The source is “Horse” by sevketkabatas, CC BY4.0, via Objaverse; its2021publication/2026acquisition is modern asset metadata, not period evidence. No photo pixels or mesh derive from the rights-unresolved historical yard webpage.
+
+**Bounds and limits:** at most1mm per-foot sampled MINIMUM gap with no sampled penetration within declared numerical tolerance, not a flat full sole or continuous/physical support claim. Upright5.771mm history remains unaccepted; exact rigid-support/sample/normal evidence is preserved. The actual rendered yard triangles are copied only in one declared0.866317m² support region before normal GPU upload release, under32triangle/4096typed-array-byte caps with disposal. These are engineering guards, not a historical survey or new town-wide collision surface. The actual flat-plane four-image material comparison is mechanical/material evidence only; filenames labeled side are FRONT views. Actual yard desktop/mobile, photographic master, anatomical conformation, living mane/tail/eyes, meaningful LODs, approved gaits, fitted tack, certified sockets, hitch forces, driver/rider and boarding remain open.
+
+**Sources:** sevketkabatas_2021_horse_model records modern authored-source rights/provenance only; chicagology_prefire278 supplies historical horsekeeping context only.
+**Ticket:** T-2800, partial static-development increment; ticket remains open.
+**Recorded:**2026-10-22.
+
+
+### L-standing-horse-idle-2803 — reconstructed head and tail movement
+
+**Decision:** Extend the existing reconstructed Western Hotel yard horse with gentle source-derived head/tail-only idle. Source 41acd remains pristine; separately normalized/animated derivative c2559073 retains all source geometry/maps and original six decoded clips without playing them. Import exceptions are packed animation sampler references, exact-zero-weight joint-index cleanup, and three identity-local scene-root skinned nodes with actual 199-pose position/normal parity. These are declared engineering adaptations, not unchanged original node/container claims.
+
+**What is reconstructed:** A 12-second closed quaternion clip,6 percent source-relative rotation/window/retiming,0–2 second seeded initial rest delay and0.96–1.04 playback rate. Only original head node 17 / skin joint 12 and tail node 19 / skin joint 14 leaves may move. Original constant limb/root tracks are never played. No independent ear flick, breathing/root bob, weight shift, walking, source-gait approval, fitted tack, hitch, riding, breed or individual likeness is implied. Existing placement, support rotation, material adaptation and historical identity limits remain.
+
+**Evidence and limits:** Modern sevketkabatas_2021_horse_model supplies the licensed source/motion/rights only; chicagology_prefire278 supplies horsekeeping context only. Derived animation/normalization is engine-neutral glTF and separately credited CC BY 4.0. Actual 385-pose exported Mixer/full-surface/annotated-hoof/lower-limb/clock proof passed with zero measured hoof/lower-limb drift, and independent consumer review cleared the narrow integration. Root authorized head/tail idle activation; actual app native visual/world GPU and exhaustive neck/tail self-contact remain open. Sparse control or structural passes do not complete photographic anatomy, living mane/tail/eyes, biological behavior or loaded/continuous collision.
+**Ticket:** T-2803, standing-idle increment only; gait and master work remain open.
+**Recorded:**2026-10-22.

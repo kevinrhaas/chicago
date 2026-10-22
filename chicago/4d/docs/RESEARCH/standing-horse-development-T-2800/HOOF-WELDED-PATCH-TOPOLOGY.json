@@ -1,0 +1,128 @@
+{
+  "source_sha256": "41acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988",
+  "method": "Read-only actual position equivalence rounded5decimal native; identity indices and UVs not modified. Patch connectivity only, not wholebody manifold assertion.",
+  "patches": {
+    "fore_l": {
+      "position_weld_tolerance_native": 1e-05,
+      "position_weld_tolerance_m": 3.644068837311543e-06,
+      "components": [
+        {
+          "triangle_count": 63,
+          "bounds_native": [
+            [
+              0.39957813626143174,
+              -0.08100554207922217,
+              0.6424238287239435
+            ],
+            [
+              0.950877720302479,
+              0.000497733600135053,
+              1.2469255977770715
+            ]
+          ]
+        }
+      ],
+      "boundary_edges": 23,
+      "nonmanifold_edges": 0
+    },
+    "fore_r": {
+      "position_weld_tolerance_native": 1e-05,
+      "position_weld_tolerance_m": 3.644068837311543e-06,
+      "components": [
+        {
+          "triangle_count": 63,
+          "bounds_native": [
+            [
+              -0.950875676301062,
+              -0.08100117789442639,
+              0.6424339805518118
+            ],
+            [
+              -0.3995792644144148,
+              0.0005056772876654702,
+              1.2469374999703846
+            ]
+          ]
+        }
+      ],
+      "boundary_edges": 23,
+      "nonmanifold_edges": 0
+    },
+    "hind_l": {
+      "position_weld_tolerance_native": 1e-05,
+      "position_weld_tolerance_m": 3.644068837311543e-06,
+      "components": [
+        {
+          "triangle_count": 4,
+          "bounds_native": [
+            [
+              0.18059373167878334,
+              -0.09537431257051576,
+              -1.1887020965257293
+            ],
+            [
+              0.8249425369261587,
+              -0.02508874548619744,
+              -0.7136776226091607
+            ]
+          ]
+        },
+        {
+          "triangle_count": 3,
+          "bounds_native": [
+            [
+              0.29982011742369963,
+              -0.09493656570273412,
+              -1.4707465629447884
+            ],
+            [
+              0.7214362086126158,
+              -0.01507450994001891,
+              -1.3724873360796996
+            ]
+          ]
+        }
+      ],
+      "boundary_edges": 11,
+      "nonmanifold_edges": 0
+    },
+    "hind_r": {
+      "position_weld_tolerance_native": 1e-05,
+      "position_weld_tolerance_m": 3.644068837311543e-06,
+      "components": [
+        {
+          "triangle_count": 4,
+          "bounds_native": [
+            [
+              -0.8248882887780459,
+              -0.09508644873260498,
+              -1.1887219347554454
+            ],
+            [
+              -0.17991566229994593,
+              -0.02508958357521027,
+              -0.7136769410738714
+            ]
+          ]
+        },
+        {
+          "triangle_count": 2,
+          "bounds_native": [
+            [
+              -0.6402980562115423,
+              -0.09424955670240445,
+              -1.4755030564503575
+            ],
+            [
+              -0.2994297260783685,
+              -0.019900710873824598,
+              -1.374951397667279
+            ]
+          ]
+        }
+      ],
+      "boundary_edges": 10,
+      "nonmanifold_edges": 0
+    }
+  }
+}

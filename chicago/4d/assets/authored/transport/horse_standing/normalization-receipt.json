@@ -1,0 +1,921 @@
+{
+  "status": "ACTUAL IMPORT DERIVATIVE ONLY; validator/Mixer/position-normal parity pending",
+  "source_sha256": "41acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988",
+  "derived_sha256": "ceefa279b1602b97eac707cec19b2fbbb25c4442788981d82b20ac99ca205afc",
+  "derived_bytes": 3356764,
+  "original_bin_prefix_exact": true,
+  "animation_reference_changes": [
+    [
+      0,
+      0,
+      "output",
+      20,
+      199
+    ],
+    [
+      0,
+      1,
+      "output",
+      22,
+      200
+    ],
+    [
+      0,
+      2,
+      "output",
+      24,
+      201
+    ],
+    [
+      0,
+      3,
+      "output",
+      26,
+      202
+    ],
+    [
+      0,
+      4,
+      "output",
+      28,
+      203
+    ],
+    [
+      0,
+      5,
+      "output",
+      30,
+      204
+    ],
+    [
+      0,
+      6,
+      "output",
+      32,
+      205
+    ],
+    [
+      0,
+      7,
+      "output",
+      34,
+      206
+    ],
+    [
+      0,
+      8,
+      "output",
+      36,
+      207
+    ],
+    [
+      0,
+      9,
+      "output",
+      38,
+      208
+    ],
+    [
+      0,
+      10,
+      "output",
+      40,
+      209
+    ],
+    [
+      0,
+      11,
+      "output",
+      42,
+      210
+    ],
+    [
+      0,
+      12,
+      "output",
+      44,
+      211
+    ],
+    [
+      0,
+      13,
+      "output",
+      46,
+      212
+    ],
+    [
+      0,
+      14,
+      "output",
+      48,
+      213
+    ],
+    [
+      1,
+      0,
+      "output",
+      50,
+      214
+    ],
+    [
+      1,
+      1,
+      "output",
+      52,
+      215
+    ],
+    [
+      1,
+      2,
+      "output",
+      54,
+      216
+    ],
+    [
+      1,
+      3,
+      "output",
+      56,
+      217
+    ],
+    [
+      1,
+      4,
+      "output",
+      58,
+      218
+    ],
+    [
+      1,
+      5,
+      "output",
+      60,
+      219
+    ],
+    [
+      1,
+      6,
+      "output",
+      62,
+      220
+    ],
+    [
+      1,
+      7,
+      "output",
+      64,
+      221
+    ],
+    [
+      1,
+      8,
+      "output",
+      66,
+      222
+    ],
+    [
+      1,
+      9,
+      "output",
+      68,
+      223
+    ],
+    [
+      1,
+      10,
+      "output",
+      70,
+      224
+    ],
+    [
+      1,
+      11,
+      "output",
+      72,
+      225
+    ],
+    [
+      1,
+      12,
+      "output",
+      74,
+      226
+    ],
+    [
+      1,
+      13,
+      "output",
+      76,
+      227
+    ],
+    [
+      1,
+      14,
+      "output",
+      78,
+      228
+    ],
+    [
+      2,
+      0,
+      "output",
+      80,
+      229
+    ],
+    [
+      2,
+      1,
+      "output",
+      82,
+      230
+    ],
+    [
+      2,
+      2,
+      "output",
+      84,
+      231
+    ],
+    [
+      2,
+      3,
+      "output",
+      86,
+      232
+    ],
+    [
+      2,
+      4,
+      "output",
+      88,
+      233
+    ],
+    [
+      2,
+      5,
+      "output",
+      90,
+      234
+    ],
+    [
+      2,
+      6,
+      "output",
+      92,
+      235
+    ],
+    [
+      2,
+      7,
+      "output",
+      94,
+      236
+    ],
+    [
+      2,
+      8,
+      "output",
+      96,
+      237
+    ],
+    [
+      2,
+      9,
+      "output",
+      98,
+      238
+    ],
+    [
+      2,
+      10,
+      "output",
+      100,
+      239
+    ],
+    [
+      2,
+      11,
+      "output",
+      102,
+      240
+    ],
+    [
+      2,
+      12,
+      "output",
+      104,
+      241
+    ],
+    [
+      2,
+      13,
+      "output",
+      106,
+      242
+    ],
+    [
+      2,
+      14,
+      "output",
+      108,
+      243
+    ],
+    [
+      3,
+      0,
+      "output",
+      110,
+      244
+    ],
+    [
+      3,
+      1,
+      "output",
+      112,
+      245
+    ],
+    [
+      3,
+      2,
+      "output",
+      114,
+      246
+    ],
+    [
+      3,
+      3,
+      "output",
+      116,
+      247
+    ],
+    [
+      3,
+      4,
+      "output",
+      118,
+      248
+    ],
+    [
+      3,
+      5,
+      "output",
+      120,
+      249
+    ],
+    [
+      3,
+      6,
+      "output",
+      122,
+      250
+    ],
+    [
+      3,
+      7,
+      "output",
+      124,
+      251
+    ],
+    [
+      3,
+      8,
+      "output",
+      126,
+      252
+    ],
+    [
+      3,
+      9,
+      "output",
+      128,
+      253
+    ],
+    [
+      3,
+      10,
+      "output",
+      130,
+      254
+    ],
+    [
+      3,
+      11,
+      "output",
+      132,
+      255
+    ],
+    [
+      3,
+      12,
+      "output",
+      134,
+      256
+    ],
+    [
+      3,
+      13,
+      "output",
+      136,
+      257
+    ],
+    [
+      3,
+      14,
+      "output",
+      138,
+      258
+    ],
+    [
+      4,
+      0,
+      "output",
+      140,
+      259
+    ],
+    [
+      4,
+      1,
+      "output",
+      142,
+      260
+    ],
+    [
+      4,
+      2,
+      "output",
+      144,
+      261
+    ],
+    [
+      4,
+      3,
+      "output",
+      146,
+      262
+    ],
+    [
+      4,
+      4,
+      "output",
+      148,
+      263
+    ],
+    [
+      4,
+      5,
+      "output",
+      150,
+      264
+    ],
+    [
+      4,
+      6,
+      "output",
+      152,
+      265
+    ],
+    [
+      4,
+      7,
+      "output",
+      154,
+      266
+    ],
+    [
+      4,
+      8,
+      "output",
+      156,
+      267
+    ],
+    [
+      4,
+      9,
+      "output",
+      158,
+      268
+    ],
+    [
+      4,
+      10,
+      "output",
+      160,
+      269
+    ],
+    [
+      4,
+      11,
+      "output",
+      162,
+      270
+    ],
+    [
+      4,
+      12,
+      "output",
+      164,
+      271
+    ],
+    [
+      4,
+      13,
+      "output",
+      166,
+      272
+    ],
+    [
+      4,
+      14,
+      "output",
+      168,
+      273
+    ],
+    [
+      5,
+      0,
+      "output",
+      170,
+      274
+    ],
+    [
+      5,
+      1,
+      "output",
+      172,
+      275
+    ],
+    [
+      5,
+      2,
+      "output",
+      174,
+      276
+    ],
+    [
+      5,
+      3,
+      "output",
+      176,
+      277
+    ],
+    [
+      5,
+      4,
+      "output",
+      178,
+      278
+    ],
+    [
+      5,
+      5,
+      "output",
+      180,
+      279
+    ],
+    [
+      5,
+      6,
+      "output",
+      182,
+      280
+    ],
+    [
+      5,
+      7,
+      "output",
+      184,
+      281
+    ],
+    [
+      5,
+      8,
+      "output",
+      186,
+      282
+    ],
+    [
+      5,
+      9,
+      "output",
+      188,
+      283
+    ],
+    [
+      5,
+      10,
+      "output",
+      190,
+      284
+    ],
+    [
+      5,
+      11,
+      "output",
+      192,
+      285
+    ],
+    [
+      5,
+      12,
+      "output",
+      194,
+      286
+    ],
+    [
+      5,
+      13,
+      "output",
+      196,
+      287
+    ],
+    [
+      5,
+      14,
+      "output",
+      198,
+      288
+    ]
+  ],
+  "original_armature4_tracks_preserved": [
+    {
+      "clip_index": 0,
+      "key_count": 1,
+      "within_clip_constant": true,
+      "key_quaternion": [
+        0.9745064973831177,
+        0.0,
+        0.0,
+        0.2243591994047165
+      ],
+      "default_quaternion": [
+        0.9745065569877625,
+        0.0,
+        0.0,
+        0.2243591994047165
+      ],
+      "float32_ulp_delta": [
+        -1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "clip_index": 1,
+      "key_count": 1,
+      "within_clip_constant": true,
+      "key_quaternion": [
+        0.9745064973831177,
+        0.0,
+        0.0,
+        0.2243591994047165
+      ],
+      "default_quaternion": [
+        0.9745065569877625,
+        0.0,
+        0.0,
+        0.2243591994047165
+      ],
+      "float32_ulp_delta": [
+        -1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "clip_index": 2,
+      "key_count": 1,
+      "within_clip_constant": true,
+      "key_quaternion": [
+        0.9745064973831177,
+        0.0,
+        0.0,
+        0.2243591994047165
+      ],
+      "default_quaternion": [
+        0.9745065569877625,
+        0.0,
+        0.0,
+        0.2243591994047165
+      ],
+      "float32_ulp_delta": [
+        -1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "clip_index": 3,
+      "key_count": 1,
+      "within_clip_constant": true,
+      "key_quaternion": [
+        0.9745064973831177,
+        0.0,
+        0.0,
+        0.2243591994047165
+      ],
+      "default_quaternion": [
+        0.9745065569877625,
+        0.0,
+        0.0,
+        0.2243591994047165
+      ],
+      "float32_ulp_delta": [
+        -1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "clip_index": 4,
+      "key_count": 1,
+      "within_clip_constant": true,
+      "key_quaternion": [
+        0.9745064973831177,
+        0.0,
+        0.0,
+        0.2243591994047165
+      ],
+      "default_quaternion": [
+        0.9745065569877625,
+        0.0,
+        0.0,
+        0.2243591994047165
+      ],
+      "float32_ulp_delta": [
+        -1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "clip_index": 5,
+      "key_count": 1,
+      "within_clip_constant": true,
+      "key_quaternion": [
+        0.9745064973831177,
+        0.0,
+        0.0,
+        0.2243591994047165
+      ],
+      "default_quaternion": [
+        0.9745065569877625,
+        0.0,
+        0.0,
+        0.2243591994047165
+      ],
+      "float32_ulp_delta": [
+        -1,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "zero_weight_joint_changes": [
+    {
+      "mesh": 0,
+      "primitive": 0,
+      "joint_key": "JOINTS_0",
+      "old_accessor": 13,
+      "new_accessor": 289,
+      "zero_weight_components_changed": 4370
+    },
+    {
+      "mesh": 1,
+      "primitive": 0,
+      "joint_key": "JOINTS_0",
+      "old_accessor": 15,
+      "new_accessor": 290,
+      "zero_weight_components_changed": 3591
+    },
+    {
+      "mesh": 2,
+      "primitive": 0,
+      "joint_key": "JOINTS_0",
+      "old_accessor": 17,
+      "new_accessor": 291,
+      "zero_weight_components_changed": 7936
+    }
+  ],
+  "promoted_mesh_nodes": [
+    {
+      "node": 21,
+      "original_parent": 4,
+      "scene_membership": [
+        0
+      ],
+      "new_local_transform": "identity; matrix/TRS omitted",
+      "original_default_mesh_world_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.437279021880842,
+        0.8993260592242863,
+        0.0,
+        0.0,
+        -0.8993260592242863,
+        0.437279021880842,
+        0.0,
+        0.6711900234222412,
+        1.2445299625396733,
+        -1.6807399988174436,
+        1.0
+      ],
+      "mesh_world_basis_changed": true,
+      "parent4_has_animation_tracks": true,
+      "parent4_each_native_clip_one_constant_key": true,
+      "parent4_key_vs_default_float32_ulp_delta": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "pose_parity": "UNPROVEN pending actual loaded Mixer full-surface position/normal comparison"
+    },
+    {
+      "node": 22,
+      "original_parent": 4,
+      "scene_membership": [
+        0
+      ],
+      "new_local_transform": "identity; matrix/TRS omitted",
+      "original_default_mesh_world_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.437279021880842,
+        0.8993260592242863,
+        0.0,
+        0.0,
+        -0.8993260592242863,
+        0.437279021880842,
+        0.0,
+        0.6711900234222412,
+        1.2445299625396733,
+        -1.6807399988174436,
+        1.0
+      ],
+      "mesh_world_basis_changed": true,
+      "parent4_has_animation_tracks": true,
+      "parent4_each_native_clip_one_constant_key": true,
+      "parent4_key_vs_default_float32_ulp_delta": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "pose_parity": "UNPROVEN pending actual loaded Mixer full-surface position/normal comparison"
+    },
+    {
+      "node": 23,
+      "original_parent": 4,
+      "scene_membership": [
+        0
+      ],
+      "new_local_transform": "identity; matrix/TRS omitted",
+      "original_default_mesh_world_matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.437279021880842,
+        0.8993260592242863,
+        0.0,
+        0.0,
+        -0.8993260592242863,
+        0.437279021880842,
+        0.0,
+        0.6711900234222412,
+        1.2445299625396733,
+        -1.6807399988174436,
+        1.0
+      ],
+      "mesh_world_basis_changed": true,
+      "parent4_has_animation_tracks": true,
+      "parent4_each_native_clip_one_constant_key": true,
+      "parent4_key_vs_default_float32_ulp_delta": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "pose_parity": "UNPROVEN pending actual loaded Mixer full-surface position/normal comparison"
+    }
+  ],
+  "source_unchanged_after": true,
+  "adaptation": {
+    "original_source_sha256": "41acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988",
+    "license": "CC-BY-4.0",
+    "credit": "Horse by sevketkabatas, https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe ; CC BY4.0. Declared portable import adaptation: repacked original animation views; zeroed only zero-weight joint components; promoted three mesh nodes with identity local transforms (matrix/TRS omitted), changing mesh world basis while preserving skeleton world transforms. No geometry/UV/texture/key-value/positive-weight alteration. Native old-clip and idle full-surface parity NOT yet accepted."
+  }
+}

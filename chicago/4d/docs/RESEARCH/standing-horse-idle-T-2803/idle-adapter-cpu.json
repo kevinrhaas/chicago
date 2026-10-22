@@ -1,0 +1,3323 @@
+{
+  "status": "ACTUAL_NORMALIZED_IDLE_CPU_PASS",
+  "derived_sha256": "c2559073966cfb5b2c9d2c536ca03fbf03b71734f9a11ffcff48d4ec86e4d25c",
+  "actual_binding_sha256": "39c6ba579312588e644592633e74aa7bc3371f65f3986332d383202c55ddbcbd",
+  "runtime_adapter_sha256": "56a236a902abc043be7e2a1c876caf1f595202c33e9947b91dda0dd6bda25daf",
+  "filtered_source_sha256": "617f92059d5064270155c7562ee75e7659efe4ac2f8810858de39aa70b0d3d4b",
+  "surface_pose_count": 385,
+  "surface_complete": true,
+  "all_finite": true,
+  "old_six_clips_not_played": true,
+  "contacts": {
+    "tolerance_m": 0.00001,
+    "metres_per_native_unit": 0.36440688373115426,
+    "hoof_patches": {
+      "fore_l": {
+        "triangle_count": 63,
+        "vertex_count": 59,
+        "evaluations": 22715,
+        "maximum_drift_m": 0,
+        "nonempty": true
+      },
+      "fore_r": {
+        "triangle_count": 63,
+        "vertex_count": 59,
+        "evaluations": 22715,
+        "maximum_drift_m": 0,
+        "nonempty": true
+      },
+      "hind_l": {
+        "triangle_count": 7,
+        "vertex_count": 13,
+        "evaluations": 5005,
+        "maximum_drift_m": 0,
+        "nonempty": true
+      },
+      "hind_r": {
+        "triangle_count": 6,
+        "vertex_count": 10,
+        "evaluations": 3850,
+        "maximum_drift_m": 0,
+        "nonempty": true
+      }
+    },
+    "lower_limbs": {
+      "fore_l": {
+        "vertex_count": 200,
+        "evaluations": 77000,
+        "maximum_drift_m": 0
+      },
+      "fore_r": {
+        "vertex_count": 200,
+        "evaluations": 77000,
+        "maximum_drift_m": 0
+      },
+      "hind_l": {
+        "vertex_count": 166,
+        "evaluations": 63910,
+        "maximum_drift_m": 0
+      },
+      "hind_r": {
+        "vertex_count": 166,
+        "evaluations": 63910,
+        "maximum_drift_m": 0
+      }
+    }
+  },
+  "head_tail": {
+    "tail": {
+      "weighted_vertices": 1104,
+      "maximum_displacement_m": 0.029238311038481617,
+      "maximum_local_rotation_degrees": 1.4252540972153145,
+      "rotation_cap_degrees": 2,
+      "actual_geometry_rest_bounds_m": {
+        "min": [
+          -0.33280148569362955,
+          0.2283404413952172,
+          -1.1616864962751094
+        ],
+        "max": [
+          0.26559054889817946,
+          1.5466878802751363,
+          -0.4051767777056714
+        ]
+      },
+      "actual_geometry_all_sample_bounds_m": {
+        "min": [
+          -0.33280868459870383,
+          0.2190676011456627,
+          -1.1618792362004895
+        ],
+        "max": [
+          0.26606258289748635,
+          1.5469555323386297,
+          -0.40383379086162446
+        ]
+      }
+    },
+    "head": {
+      "weighted_vertices": 9141,
+      "maximum_displacement_m": 0.008542385879310704,
+      "maximum_local_rotation_degrees": 1.147364626798865,
+      "rotation_cap_degrees": 3,
+      "actual_geometry_rest_bounds_m": {
+        "min": [
+          -0.30037249388058496,
+          1.0031221852554466,
+          0.34055935427035744
+        ],
+        "max": [
+          0.2502553221798918,
+          1.792453330523893,
+          1.5428500249365389
+        ]
+      },
+      "actual_geometry_all_sample_bounds_m": {
+        "min": [
+          -0.3004575739982925,
+          1.0026838138319856,
+          0.3392190406586693
+        ],
+        "max": [
+          0.250585551090795,
+          1.7960660906420458,
+          1.5466969760250942
+        ]
+      }
+    }
+  },
+  "rest_surface": {
+    "position_tolerance_m": 0.00001,
+    "normal_tolerance_degrees": 0.01,
+    "maximum_position_delta_m": 0,
+    "maximum_normal_delta_degrees": 0
+  },
+  "loop": {
+    "position_tolerance_m": 0.00001,
+    "normal_tolerance_degrees": 0.01,
+    "maximum_position_delta_m": 0,
+    "maximum_normal_delta_degrees": 0
+  },
+  "body_contact_guard": {
+    "scope": "All indexedfinite; stationaryzero-leaf-weight body/hoof/lowerlimb surfaces; no new ground-envelope excursion. Leaf displacementbounded by actual source point-to-joint radii anddeclared3/2degcaps. No exhaustive pairwise/selfintersection or neck/tail clearance proof.",
+    "exhaustive_self_contact_proved": false,
+    "fixed_indexed_vertex_count": 1311,
+    "maximum_fixed_surface_drift_m": 0,
+    "maximum_fixed_surface_normal_degrees": 0,
+    "minimum_ground_envelope_delta_m": 0,
+    "maximum_radius_envelope_excess_m": 0,
+    "all_finite": true,
+    "sampled_fixed_body_ground_and_radius_guards_passed": true
+  },
+  "exhaustive_self_contact_proved": false,
+  "WebGL_contexts_created": 0,
+  "renderer_camera_world_created": false,
+  "app_activation": false,
+  "actual_candidate_export": false,
+  "photographic_accepted": false,
+  "samples": [
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 0,
+      "actual_adapter_elapsed_s": 0,
+      "actual_mixer_time_s": 0,
+      "maximum_displacement_from_rest_m": 4.5112100953005464e-8
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 0.03125,
+      "actual_adapter_elapsed_s": 0.031249999999999997,
+      "actual_mixer_time_s": 0.031249999999999997,
+      "maximum_displacement_from_rest_m": 4.513506638512808e-8
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 0.0625,
+      "actual_adapter_elapsed_s": 0.06249999999999997,
+      "actual_mixer_time_s": 0.06249999999999997,
+      "maximum_displacement_from_rest_m": 4.5112100953005464e-8
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 0.09375,
+      "actual_adapter_elapsed_s": 0.09374999999999997,
+      "actual_mixer_time_s": 0.09374999999999997,
+      "maximum_displacement_from_rest_m": 1.126307738204374e-7
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 0.125,
+      "actual_adapter_elapsed_s": 0.12499999999999997,
+      "actual_mixer_time_s": 0.12499999999999997,
+      "maximum_displacement_from_rest_m": 3.3384553320525645e-7
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 0.15625,
+      "actual_adapter_elapsed_s": 0.15624999999999997,
+      "actual_mixer_time_s": 0.15624999999999997,
+      "maximum_displacement_from_rest_m": 8.309056752333817e-7
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 0.1875,
+      "actual_adapter_elapsed_s": 0.18749999999999997,
+      "actual_mixer_time_s": 0.18749999999999997,
+      "maximum_displacement_from_rest_m": 0.0000017127176502075256
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 0.21875,
+      "actual_adapter_elapsed_s": 0.21874999999999997,
+      "actual_mixer_time_s": 0.21874999999999997,
+      "maximum_displacement_from_rest_m": 0.0000031551625361283055
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 0.25,
+      "actual_adapter_elapsed_s": 0.25,
+      "actual_mixer_time_s": 0.25,
+      "maximum_displacement_from_rest_m": 0.000005359082366764143
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 0.28125,
+      "actual_adapter_elapsed_s": 0.28124999999999994,
+      "actual_mixer_time_s": 0.28124999999999994,
+      "maximum_displacement_from_rest_m": 0.00000855645493738066
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 0.3125,
+      "actual_adapter_elapsed_s": 0.3125,
+      "actual_mixer_time_s": 0.3125,
+      "maximum_displacement_from_rest_m": 0.000012983788688369092
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 0.34375,
+      "actual_adapter_elapsed_s": 0.34375000000000006,
+      "actual_mixer_time_s": 0.34375000000000006,
+      "maximum_displacement_from_rest_m": 0.0000188481334491264
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 0.375,
+      "actual_adapter_elapsed_s": 0.3750000000000001,
+      "actual_mixer_time_s": 0.3750000000000001,
+      "maximum_displacement_from_rest_m": 0.0000264440823406747
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 0.40625,
+      "actual_adapter_elapsed_s": 0.40625000000000017,
+      "actual_mixer_time_s": 0.40625000000000017,
+      "maximum_displacement_from_rest_m": 0.00003596349326304272
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 0.4375,
+      "actual_adapter_elapsed_s": 0.4375000000000002,
+      "actual_mixer_time_s": 0.4375000000000002,
+      "maximum_displacement_from_rest_m": 0.00004767792430619091
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 0.46875,
+      "actual_adapter_elapsed_s": 0.4687500000000003,
+      "actual_mixer_time_s": 0.4687500000000003,
+      "maximum_displacement_from_rest_m": 0.00006177740102497296
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 0.5,
+      "actual_adapter_elapsed_s": 0.5000000000000003,
+      "actual_mixer_time_s": 0.5000000000000003,
+      "maximum_displacement_from_rest_m": 0.00007843576333301255
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 0.53125,
+      "actual_adapter_elapsed_s": 0.5312500000000004,
+      "actual_mixer_time_s": 0.5312500000000004,
+      "maximum_displacement_from_rest_m": 0.0000978046471930223
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 0.5625,
+      "actual_adapter_elapsed_s": 0.5625000000000004,
+      "actual_mixer_time_s": 0.5625000000000004,
+      "maximum_displacement_from_rest_m": 0.00011994190209108388
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 0.59375,
+      "actual_adapter_elapsed_s": 0.5937500000000004,
+      "actual_mixer_time_s": 0.5937500000000004,
+      "maximum_displacement_from_rest_m": 0.000145023342244181
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 0.625,
+      "actual_adapter_elapsed_s": 0.6250000000000004,
+      "actual_mixer_time_s": 0.6250000000000004,
+      "maximum_displacement_from_rest_m": 0.00017296522561496431
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 0.65625,
+      "actual_adapter_elapsed_s": 0.6562500000000004,
+      "actual_mixer_time_s": 0.6562500000000004,
+      "maximum_displacement_from_rest_m": 0.00020397470864480803
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 0.6875,
+      "actual_adapter_elapsed_s": 0.6875000000000004,
+      "actual_mixer_time_s": 0.6875000000000004,
+      "maximum_displacement_from_rest_m": 0.0002378316026070437
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 0.71875,
+      "actual_adapter_elapsed_s": 0.7187500000000004,
+      "actual_mixer_time_s": 0.7187500000000004,
+      "maximum_displacement_from_rest_m": 0.00027474744262668557
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 0.75,
+      "actual_adapter_elapsed_s": 0.7500000000000004,
+      "actual_mixer_time_s": 0.7500000000000004,
+      "maximum_displacement_from_rest_m": 0.0003144291156327251
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 0.78125,
+      "actual_adapter_elapsed_s": 0.7812500000000004,
+      "actual_mixer_time_s": 0.7812500000000004,
+      "maximum_displacement_from_rest_m": 0.00035649306281253956
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 0.8125,
+      "actual_adapter_elapsed_s": 0.8125000000000004,
+      "actual_mixer_time_s": 0.8125000000000004,
+      "maximum_displacement_from_rest_m": 0.0004027801067932935
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 0.84375,
+      "actual_adapter_elapsed_s": 0.8437500000000004,
+      "actual_mixer_time_s": 0.8437500000000004,
+      "maximum_displacement_from_rest_m": 0.00045381263544810375
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 0.875,
+      "actual_adapter_elapsed_s": 0.8750000000000004,
+      "actual_mixer_time_s": 0.8750000000000004,
+      "maximum_displacement_from_rest_m": 0.0005089937807699379
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 0.90625,
+      "actual_adapter_elapsed_s": 0.9062500000000004,
+      "actual_mixer_time_s": 0.9062500000000004,
+      "maximum_displacement_from_rest_m": 0.000572404660864597
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 0.9375,
+      "actual_adapter_elapsed_s": 0.9375000000000004,
+      "actual_mixer_time_s": 0.9375000000000004,
+      "maximum_displacement_from_rest_m": 0.0006435206775765505
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 0.96875,
+      "actual_adapter_elapsed_s": 0.9687500000000004,
+      "actual_mixer_time_s": 0.9687500000000004,
+      "maximum_displacement_from_rest_m": 0.0007224634985953955
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 1,
+      "actual_adapter_elapsed_s": 1.0000000000000004,
+      "actual_mixer_time_s": 1.0000000000000004,
+      "maximum_displacement_from_rest_m": 0.0008102378977282421
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 1.03125,
+      "actual_adapter_elapsed_s": 1.0312500000000004,
+      "actual_mixer_time_s": 1.0312500000000004,
+      "maximum_displacement_from_rest_m": 0.0009064206075922289
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 1.0625,
+      "actual_adapter_elapsed_s": 1.0625000000000004,
+      "actual_mixer_time_s": 1.0625000000000004,
+      "maximum_displacement_from_rest_m": 0.001011976208754673
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 1.09375,
+      "actual_adapter_elapsed_s": 1.0937500000000004,
+      "actual_mixer_time_s": 1.0937500000000004,
+      "maximum_displacement_from_rest_m": 0.0011262800766023598
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 1.125,
+      "actual_adapter_elapsed_s": 1.1250000000000004,
+      "actual_mixer_time_s": 1.1250000000000004,
+      "maximum_displacement_from_rest_m": 0.0012497543023506398
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 1.15625,
+      "actual_adapter_elapsed_s": 1.1562500000000004,
+      "actual_mixer_time_s": 1.1562500000000004,
+      "maximum_displacement_from_rest_m": 0.001380691688562835
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 1.1875,
+      "actual_adapter_elapsed_s": 1.1875000000000004,
+      "actual_mixer_time_s": 1.1875000000000004,
+      "maximum_displacement_from_rest_m": 0.001518973269845359
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 1.21875,
+      "actual_adapter_elapsed_s": 1.2187500000000004,
+      "actual_mixer_time_s": 1.2187500000000004,
+      "maximum_displacement_from_rest_m": 0.00166311949785836
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 1.25,
+      "actual_adapter_elapsed_s": 1.2500000000000004,
+      "actual_mixer_time_s": 1.2500000000000004,
+      "maximum_displacement_from_rest_m": 0.0018119218246958353
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 1.28125,
+      "actual_adapter_elapsed_s": 1.2812500000000004,
+      "actual_mixer_time_s": 1.2812500000000004,
+      "maximum_displacement_from_rest_m": 0.0019644708763066855
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 1.3125,
+      "actual_adapter_elapsed_s": 1.3125000000000004,
+      "actual_mixer_time_s": 1.3125000000000004,
+      "maximum_displacement_from_rest_m": 0.002118504224085592
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 1.34375,
+      "actual_adapter_elapsed_s": 1.3437500000000004,
+      "actual_mixer_time_s": 1.3437500000000004,
+      "maximum_displacement_from_rest_m": 0.0022738300161542304
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 1.375,
+      "actual_adapter_elapsed_s": 1.3750000000000004,
+      "actual_mixer_time_s": 1.3750000000000004,
+      "maximum_displacement_from_rest_m": 0.00242748500233435
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 1.40625,
+      "actual_adapter_elapsed_s": 1.4062500000000004,
+      "actual_mixer_time_s": 1.4062500000000004,
+      "maximum_displacement_from_rest_m": 0.0025798915598926955
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 1.4375,
+      "actual_adapter_elapsed_s": 1.4375000000000004,
+      "actual_mixer_time_s": 1.4375000000000004,
+      "maximum_displacement_from_rest_m": 0.0027279274989311163
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 1.46875,
+      "actual_adapter_elapsed_s": 1.4687500000000004,
+      "actual_mixer_time_s": 1.4687500000000004,
+      "maximum_displacement_from_rest_m": 0.002872353337771778
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 1.5,
+      "actual_adapter_elapsed_s": 1.5000000000000004,
+      "actual_mixer_time_s": 1.5000000000000004,
+      "maximum_displacement_from_rest_m": 0.003010182294467296
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 1.53125,
+      "actual_adapter_elapsed_s": 1.5312500000000004,
+      "actual_mixer_time_s": 1.5312500000000004,
+      "maximum_displacement_from_rest_m": 0.003146043537296531
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 1.5625,
+      "actual_adapter_elapsed_s": 1.5625000000000004,
+      "actual_mixer_time_s": 1.5625000000000004,
+      "maximum_displacement_from_rest_m": 0.003242750669218697
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 1.59375,
+      "actual_adapter_elapsed_s": 1.5937500000000004,
+      "actual_mixer_time_s": 1.5937500000000004,
+      "maximum_displacement_from_rest_m": 0.0033129631184060622
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 1.625,
+      "actual_adapter_elapsed_s": 1.6250000000000004,
+      "actual_mixer_time_s": 1.6250000000000004,
+      "maximum_displacement_from_rest_m": 0.0033039295266007406
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 1.65625,
+      "actual_adapter_elapsed_s": 1.6562500000000004,
+      "actual_mixer_time_s": 1.6562500000000004,
+      "maximum_displacement_from_rest_m": 0.003214022047385001
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 1.6875,
+      "actual_adapter_elapsed_s": 1.6875000000000004,
+      "actual_mixer_time_s": 1.6875000000000004,
+      "maximum_displacement_from_rest_m": 0.0030528562404378784
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 1.71875,
+      "actual_adapter_elapsed_s": 1.7187500000000004,
+      "actual_mixer_time_s": 1.7187500000000004,
+      "maximum_displacement_from_rest_m": 0.0027926588920317
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 1.75,
+      "actual_adapter_elapsed_s": 1.7500000000000004,
+      "actual_mixer_time_s": 1.7500000000000004,
+      "maximum_displacement_from_rest_m": 0.0025127061663697586
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 1.78125,
+      "actual_adapter_elapsed_s": 1.7812500000000002,
+      "actual_mixer_time_s": 1.7812500000000002,
+      "maximum_displacement_from_rest_m": 0.0022108162345415923
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 1.8125,
+      "actual_adapter_elapsed_s": 1.8125,
+      "actual_mixer_time_s": 1.8125,
+      "maximum_displacement_from_rest_m": 0.0018885881210386236
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 1.84375,
+      "actual_adapter_elapsed_s": 1.8437499999999998,
+      "actual_mixer_time_s": 1.8437499999999998,
+      "maximum_displacement_from_rest_m": 0.0018145752834236753
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 1.875,
+      "actual_adapter_elapsed_s": 1.8749999999999996,
+      "actual_mixer_time_s": 1.8749999999999996,
+      "maximum_displacement_from_rest_m": 0.0019471621432093195
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 1.90625,
+      "actual_adapter_elapsed_s": 1.9062499999999993,
+      "actual_mixer_time_s": 1.9062499999999993,
+      "maximum_displacement_from_rest_m": 0.0020750585724487367
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 1.9375,
+      "actual_adapter_elapsed_s": 1.9374999999999991,
+      "actual_mixer_time_s": 1.9374999999999991,
+      "maximum_displacement_from_rest_m": 0.0021989770950328748
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 1.96875,
+      "actual_adapter_elapsed_s": 1.968749999999999,
+      "actual_mixer_time_s": 1.968749999999999,
+      "maximum_displacement_from_rest_m": 0.0023183182307098477
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 2,
+      "actual_adapter_elapsed_s": 1.999999999999999,
+      "actual_mixer_time_s": 1.999999999999999,
+      "maximum_displacement_from_rest_m": 0.0024261300779744224
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 2.03125,
+      "actual_adapter_elapsed_s": 2.0312499999999987,
+      "actual_mixer_time_s": 2.0312499999999987,
+      "maximum_displacement_from_rest_m": 0.0025302599225810883
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 2.0625,
+      "actual_adapter_elapsed_s": 2.0624999999999987,
+      "actual_mixer_time_s": 2.0624999999999987,
+      "maximum_displacement_from_rest_m": 0.002621688231671319
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 2.09375,
+      "actual_adapter_elapsed_s": 2.0937499999999987,
+      "actual_mixer_time_s": 2.0937499999999987,
+      "maximum_displacement_from_rest_m": 0.002706453197413582
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 2.125,
+      "actual_adapter_elapsed_s": 2.1249999999999987,
+      "actual_mixer_time_s": 2.1249999999999987,
+      "maximum_displacement_from_rest_m": 0.0027835033360020613
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 2.15625,
+      "actual_adapter_elapsed_s": 2.1562499999999987,
+      "actual_mixer_time_s": 2.1562499999999987,
+      "maximum_displacement_from_rest_m": 0.0028517067072152936
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 2.1875,
+      "actual_adapter_elapsed_s": 2.1874999999999987,
+      "actual_mixer_time_s": 2.1874999999999987,
+      "maximum_displacement_from_rest_m": 0.002911569966138859
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 2.21875,
+      "actual_adapter_elapsed_s": 2.2187499999999987,
+      "actual_mixer_time_s": 2.2187499999999987,
+      "maximum_displacement_from_rest_m": 0.002962322591231274
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 2.25,
+      "actual_adapter_elapsed_s": 2.2499999999999987,
+      "actual_mixer_time_s": 2.2499999999999987,
+      "maximum_displacement_from_rest_m": 0.00300313953218469
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 2.28125,
+      "actual_adapter_elapsed_s": 2.2812499999999987,
+      "actual_mixer_time_s": 2.2812499999999987,
+      "maximum_displacement_from_rest_m": 0.0030328844176339595
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 2.3125,
+      "actual_adapter_elapsed_s": 2.3124999999999987,
+      "actual_mixer_time_s": 2.3124999999999987,
+      "maximum_displacement_from_rest_m": 0.003052178366289078
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 2.34375,
+      "actual_adapter_elapsed_s": 2.3437499999999987,
+      "actual_mixer_time_s": 2.3437499999999987,
+      "maximum_displacement_from_rest_m": 0.0030599528465014092
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 2.375,
+      "actual_adapter_elapsed_s": 2.3749999999999987,
+      "actual_mixer_time_s": 2.3749999999999987,
+      "maximum_displacement_from_rest_m": 0.0030570820347185206
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 2.40625,
+      "actual_adapter_elapsed_s": 2.4062499999999987,
+      "actual_mixer_time_s": 2.4062499999999987,
+      "maximum_displacement_from_rest_m": 0.0030425140176114957
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 2.4375,
+      "actual_adapter_elapsed_s": 2.4374999999999987,
+      "actual_mixer_time_s": 2.4374999999999987,
+      "maximum_displacement_from_rest_m": 0.0030184323568539103
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 2.46875,
+      "actual_adapter_elapsed_s": 2.4687499999999987,
+      "actual_mixer_time_s": 2.4687499999999987,
+      "maximum_displacement_from_rest_m": 0.0029841269861623984
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 2.5,
+      "actual_adapter_elapsed_s": 2.4999999999999987,
+      "actual_mixer_time_s": 2.4999999999999987,
+      "maximum_displacement_from_rest_m": 0.00294286444848175
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 2.53125,
+      "actual_adapter_elapsed_s": 2.5312499999999987,
+      "actual_mixer_time_s": 2.5312499999999987,
+      "maximum_displacement_from_rest_m": 0.0028944056878842067
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 2.5625,
+      "actual_adapter_elapsed_s": 2.5624999999999987,
+      "actual_mixer_time_s": 2.5624999999999987,
+      "maximum_displacement_from_rest_m": 0.0028418470225624187
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 2.59375,
+      "actual_adapter_elapsed_s": 2.5937499999999987,
+      "actual_mixer_time_s": 2.5937499999999987,
+      "maximum_displacement_from_rest_m": 0.0027855201070157874
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 2.625,
+      "actual_adapter_elapsed_s": 2.6249999999999987,
+      "actual_mixer_time_s": 2.6249999999999987,
+      "maximum_displacement_from_rest_m": 0.00272854934164992
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 2.65625,
+      "actual_adapter_elapsed_s": 2.6562499999999987,
+      "actual_mixer_time_s": 2.6562499999999987,
+      "maximum_displacement_from_rest_m": 0.002671724280026416
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 2.6875,
+      "actual_adapter_elapsed_s": 2.6874999999999987,
+      "actual_mixer_time_s": 2.6874999999999987,
+      "maximum_displacement_from_rest_m": 0.0026173504207233265
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 2.71875,
+      "actual_adapter_elapsed_s": 2.7187499999999987,
+      "actual_mixer_time_s": 2.7187499999999987,
+      "maximum_displacement_from_rest_m": 0.002566486652557844
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 2.75,
+      "actual_adapter_elapsed_s": 2.7499999999999987,
+      "actual_mixer_time_s": 2.7499999999999987,
+      "maximum_displacement_from_rest_m": 0.002520446602045488
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 2.78125,
+      "actual_adapter_elapsed_s": 2.7812499999999987,
+      "actual_mixer_time_s": 2.7812499999999987,
+      "maximum_displacement_from_rest_m": 0.0024803174328157274
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 2.8125,
+      "actual_adapter_elapsed_s": 2.8124999999999987,
+      "actual_mixer_time_s": 2.8124999999999987,
+      "maximum_displacement_from_rest_m": 0.0024466225410453776
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 2.84375,
+      "actual_adapter_elapsed_s": 2.8437499999999987,
+      "actual_mixer_time_s": 2.8437499999999987,
+      "maximum_displacement_from_rest_m": 0.0024189528111515967
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 2.875,
+      "actual_adapter_elapsed_s": 2.8749999999999987,
+      "actual_mixer_time_s": 2.8749999999999987,
+      "maximum_displacement_from_rest_m": 0.0023944717835267556
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 2.90625,
+      "actual_adapter_elapsed_s": 2.9062499999999987,
+      "actual_mixer_time_s": 2.9062499999999987,
+      "maximum_displacement_from_rest_m": 0.002371966376065055
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 2.9375,
+      "actual_adapter_elapsed_s": 2.9374999999999987,
+      "actual_mixer_time_s": 2.9374999999999987,
+      "maximum_displacement_from_rest_m": 0.0023486842898298747
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 2.96875,
+      "actual_adapter_elapsed_s": 2.9687499999999987,
+      "actual_mixer_time_s": 2.9687499999999987,
+      "maximum_displacement_from_rest_m": 0.002324953112999258
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 3,
+      "actual_adapter_elapsed_s": 2.9999999999999987,
+      "actual_mixer_time_s": 2.9999999999999987,
+      "maximum_displacement_from_rest_m": 0.0023009348836514052
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 3.03125,
+      "actual_adapter_elapsed_s": 3.0312499999999987,
+      "actual_mixer_time_s": 3.0312499999999987,
+      "maximum_displacement_from_rest_m": 0.002277317446778316
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 3.0625,
+      "actual_adapter_elapsed_s": 3.0624999999999987,
+      "actual_mixer_time_s": 3.0624999999999987,
+      "maximum_displacement_from_rest_m": 0.002254582355871203
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 3.09375,
+      "actual_adapter_elapsed_s": 3.0937499999999987,
+      "actual_mixer_time_s": 3.0937499999999987,
+      "maximum_displacement_from_rest_m": 0.0022331728669832828
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 3.125,
+      "actual_adapter_elapsed_s": 3.1249999999999987,
+      "actual_mixer_time_s": 3.1249999999999987,
+      "maximum_displacement_from_rest_m": 0.0022131400809102444
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 3.15625,
+      "actual_adapter_elapsed_s": 3.1562499999999987,
+      "actual_mixer_time_s": 3.1562499999999987,
+      "maximum_displacement_from_rest_m": 0.0021954560181033644
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 3.1875,
+      "actual_adapter_elapsed_s": 3.1874999999999987,
+      "actual_mixer_time_s": 3.1874999999999987,
+      "maximum_displacement_from_rest_m": 0.002180354508743852
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 3.21875,
+      "actual_adapter_elapsed_s": 3.2187499999999987,
+      "actual_mixer_time_s": 3.2187499999999987,
+      "maximum_displacement_from_rest_m": 0.0021685064263769387
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 3.25,
+      "actual_adapter_elapsed_s": 3.2499999999999987,
+      "actual_mixer_time_s": 3.2499999999999987,
+      "maximum_displacement_from_rest_m": 0.002159977502486886
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 3.28125,
+      "actual_adapter_elapsed_s": 3.2812499999999987,
+      "actual_mixer_time_s": 3.2812499999999987,
+      "maximum_displacement_from_rest_m": 0.0021550418917134274
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 3.3125,
+      "actual_adapter_elapsed_s": 3.3124999999999987,
+      "actual_mixer_time_s": 3.3124999999999987,
+      "maximum_displacement_from_rest_m": 0.0021534724795393093
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 3.34375,
+      "actual_adapter_elapsed_s": 3.3437499999999987,
+      "actual_mixer_time_s": 3.3437499999999987,
+      "maximum_displacement_from_rest_m": 0.0021555355287591173
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 3.375,
+      "actual_adapter_elapsed_s": 3.3749999999999987,
+      "actual_mixer_time_s": 3.3749999999999987,
+      "maximum_displacement_from_rest_m": 0.0021610663782197486
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 3.40625,
+      "actual_adapter_elapsed_s": 3.4062499999999987,
+      "actual_mixer_time_s": 3.4062499999999987,
+      "maximum_displacement_from_rest_m": 0.0021703743788102497
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 3.4375,
+      "actual_adapter_elapsed_s": 3.4374999999999987,
+      "actual_mixer_time_s": 3.4374999999999987,
+      "maximum_displacement_from_rest_m": 0.0021832903811440326
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 3.46875,
+      "actual_adapter_elapsed_s": 3.4687499999999987,
+      "actual_mixer_time_s": 3.4687499999999987,
+      "maximum_displacement_from_rest_m": 0.0021996464357159112
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 3.5,
+      "actual_adapter_elapsed_s": 3.4999999999999987,
+      "actual_mixer_time_s": 3.4999999999999987,
+      "maximum_displacement_from_rest_m": 0.0022192639572177547
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 3.53125,
+      "actual_adapter_elapsed_s": 3.5312499999999987,
+      "actual_mixer_time_s": 3.5312499999999987,
+      "maximum_displacement_from_rest_m": 0.0022415270281909688
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 3.5625,
+      "actual_adapter_elapsed_s": 3.5624999999999987,
+      "actual_mixer_time_s": 3.5624999999999987,
+      "maximum_displacement_from_rest_m": 0.0022662839059603575
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 3.59375,
+      "actual_adapter_elapsed_s": 3.5937499999999987,
+      "actual_mixer_time_s": 3.5937499999999987,
+      "maximum_displacement_from_rest_m": 0.0022960946350958785
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 3.625,
+      "actual_adapter_elapsed_s": 3.6249999999999987,
+      "actual_mixer_time_s": 3.6249999999999987,
+      "maximum_displacement_from_rest_m": 0.0023307325734717413
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 3.65625,
+      "actual_adapter_elapsed_s": 3.6562499999999987,
+      "actual_mixer_time_s": 3.6562499999999987,
+      "maximum_displacement_from_rest_m": 0.0023733841767959373
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 3.6875,
+      "actual_adapter_elapsed_s": 3.6874999999999987,
+      "actual_mixer_time_s": 3.6874999999999987,
+      "maximum_displacement_from_rest_m": 0.0024236070218329984
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 3.71875,
+      "actual_adapter_elapsed_s": 3.7187499999999987,
+      "actual_mixer_time_s": 3.7187499999999987,
+      "maximum_displacement_from_rest_m": 0.002483873723249167
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 3.75,
+      "actual_adapter_elapsed_s": 3.7499999999999987,
+      "actual_mixer_time_s": 3.7499999999999987,
+      "maximum_displacement_from_rest_m": 0.002553605483228424
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 3.78125,
+      "actual_adapter_elapsed_s": 3.781249999999999,
+      "actual_mixer_time_s": 3.781249999999999,
+      "maximum_displacement_from_rest_m": 0.0026352846539483637
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 3.8125,
+      "actual_adapter_elapsed_s": 3.8124999999999996,
+      "actual_mixer_time_s": 3.8124999999999996,
+      "maximum_displacement_from_rest_m": 0.0027282320211911033
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 3.84375,
+      "actual_adapter_elapsed_s": 3.84375,
+      "actual_mixer_time_s": 3.84375,
+      "maximum_displacement_from_rest_m": 0.0028337798138987624
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 3.875,
+      "actual_adapter_elapsed_s": 3.8750000000000004,
+      "actual_mixer_time_s": 3.8750000000000004,
+      "maximum_displacement_from_rest_m": 0.0029513932860966985
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 3.90625,
+      "actual_adapter_elapsed_s": 3.906250000000001,
+      "actual_mixer_time_s": 3.906250000000001,
+      "maximum_displacement_from_rest_m": 0.0030834015017921516
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 3.9375,
+      "actual_adapter_elapsed_s": 3.9375000000000013,
+      "actual_mixer_time_s": 3.9375000000000013,
+      "maximum_displacement_from_rest_m": 0.0032289413017094633
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 3.96875,
+      "actual_adapter_elapsed_s": 3.9687500000000013,
+      "actual_mixer_time_s": 3.9687500000000013,
+      "maximum_displacement_from_rest_m": 0.0033861458096306946
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 4,
+      "actual_adapter_elapsed_s": 4.000000000000002,
+      "actual_mixer_time_s": 4.000000000000002,
+      "maximum_displacement_from_rest_m": 0.0035622840947080307
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 4.03125,
+      "actual_adapter_elapsed_s": 4.031250000000002,
+      "actual_mixer_time_s": 4.031250000000002,
+      "maximum_displacement_from_rest_m": 0.0037474065079179894
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 4.0625,
+      "actual_adapter_elapsed_s": 4.062500000000002,
+      "actual_mixer_time_s": 4.062500000000002,
+      "maximum_displacement_from_rest_m": 0.00394905525022991
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 4.09375,
+      "actual_adapter_elapsed_s": 4.093750000000002,
+      "actual_mixer_time_s": 4.093750000000002,
+      "maximum_displacement_from_rest_m": 0.0041607608056284835
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 4.125,
+      "actual_adapter_elapsed_s": 4.125000000000002,
+      "actual_mixer_time_s": 4.125000000000002,
+      "maximum_displacement_from_rest_m": 0.004382437398148304
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 4.15625,
+      "actual_adapter_elapsed_s": 4.156250000000002,
+      "actual_mixer_time_s": 4.156250000000002,
+      "maximum_displacement_from_rest_m": 0.004615227029665585
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 4.1875,
+      "actual_adapter_elapsed_s": 4.187500000000002,
+      "actual_mixer_time_s": 4.187500000000002,
+      "maximum_displacement_from_rest_m": 0.004856030475629048
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 4.21875,
+      "actual_adapter_elapsed_s": 4.218750000000002,
+      "actual_mixer_time_s": 4.218750000000002,
+      "maximum_displacement_from_rest_m": 0.00510571334716186
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 4.25,
+      "actual_adapter_elapsed_s": 4.250000000000002,
+      "actual_mixer_time_s": 4.250000000000002,
+      "maximum_displacement_from_rest_m": 0.0053613747795545055
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 4.28125,
+      "actual_adapter_elapsed_s": 4.281250000000002,
+      "actual_mixer_time_s": 4.281250000000002,
+      "maximum_displacement_from_rest_m": 0.005623392768476155
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 4.3125,
+      "actual_adapter_elapsed_s": 4.312500000000002,
+      "actual_mixer_time_s": 4.312500000000002,
+      "maximum_displacement_from_rest_m": 0.0058903224495082595
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 4.34375,
+      "actual_adapter_elapsed_s": 4.343750000000002,
+      "actual_mixer_time_s": 4.343750000000002,
+      "maximum_displacement_from_rest_m": 0.006159656974580967
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 4.375,
+      "actual_adapter_elapsed_s": 4.375000000000002,
+      "actual_mixer_time_s": 4.375000000000002,
+      "maximum_displacement_from_rest_m": 0.006452559911918972
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 4.40625,
+      "actual_adapter_elapsed_s": 4.406250000000002,
+      "actual_mixer_time_s": 4.406250000000002,
+      "maximum_displacement_from_rest_m": 0.0067690567816601
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 4.4375,
+      "actual_adapter_elapsed_s": 4.437500000000002,
+      "actual_mixer_time_s": 4.437500000000002,
+      "maximum_displacement_from_rest_m": 0.0071280179431236716
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 4.46875,
+      "actual_adapter_elapsed_s": 4.468750000000002,
+      "actual_mixer_time_s": 4.468750000000002,
+      "maximum_displacement_from_rest_m": 0.007532358066499335
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 4.5,
+      "actual_adapter_elapsed_s": 4.500000000000002,
+      "actual_mixer_time_s": 4.500000000000002,
+      "maximum_displacement_from_rest_m": 0.007975040671970166
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 4.53125,
+      "actual_adapter_elapsed_s": 4.531250000000002,
+      "actual_mixer_time_s": 4.531250000000002,
+      "maximum_displacement_from_rest_m": 0.008457949274612306
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 4.5625,
+      "actual_adapter_elapsed_s": 4.562500000000002,
+      "actual_mixer_time_s": 4.562500000000002,
+      "maximum_displacement_from_rest_m": 0.008968367683191926
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 4.59375,
+      "actual_adapter_elapsed_s": 4.593750000000002,
+      "actual_mixer_time_s": 4.593750000000002,
+      "maximum_displacement_from_rest_m": 0.009505936610432359
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 4.625,
+      "actual_adapter_elapsed_s": 4.625000000000002,
+      "actual_mixer_time_s": 4.625000000000002,
+      "maximum_displacement_from_rest_m": 0.010053413387637622
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 4.65625,
+      "actual_adapter_elapsed_s": 4.656250000000002,
+      "actual_mixer_time_s": 4.656250000000002,
+      "maximum_displacement_from_rest_m": 0.01060736955233622
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 4.6875,
+      "actual_adapter_elapsed_s": 4.687500000000002,
+      "actual_mixer_time_s": 4.687500000000002,
+      "maximum_displacement_from_rest_m": 0.01114892410686196
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 4.71875,
+      "actual_adapter_elapsed_s": 4.718750000000002,
+      "actual_mixer_time_s": 4.718750000000002,
+      "maximum_displacement_from_rest_m": 0.011672006420832817
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 4.75,
+      "actual_adapter_elapsed_s": 4.750000000000002,
+      "actual_mixer_time_s": 4.750000000000002,
+      "maximum_displacement_from_rest_m": 0.012161251134534043
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 4.78125,
+      "actual_adapter_elapsed_s": 4.781250000000002,
+      "actual_mixer_time_s": 4.781250000000002,
+      "maximum_displacement_from_rest_m": 0.012609495148842485
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 4.8125,
+      "actual_adapter_elapsed_s": 4.812500000000002,
+      "actual_mixer_time_s": 4.812500000000002,
+      "maximum_displacement_from_rest_m": 0.01300755305257252
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 4.84375,
+      "actual_adapter_elapsed_s": 4.843750000000002,
+      "actual_mixer_time_s": 4.843750000000002,
+      "maximum_displacement_from_rest_m": 0.013349341918409422
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 4.875,
+      "actual_adapter_elapsed_s": 4.875000000000002,
+      "actual_mixer_time_s": 4.875000000000002,
+      "maximum_displacement_from_rest_m": 0.0136332779628749
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 4.90625,
+      "actual_adapter_elapsed_s": 4.906250000000002,
+      "actual_mixer_time_s": 4.906250000000002,
+      "maximum_displacement_from_rest_m": 0.013854402281620236
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 4.9375,
+      "actual_adapter_elapsed_s": 4.937500000000002,
+      "actual_mixer_time_s": 4.937500000000002,
+      "maximum_displacement_from_rest_m": 0.014014593185044026
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 4.96875,
+      "actual_adapter_elapsed_s": 4.968750000000002,
+      "actual_mixer_time_s": 4.968750000000002,
+      "maximum_displacement_from_rest_m": 0.014113608187793223
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 5,
+      "actual_adapter_elapsed_s": 5.000000000000002,
+      "actual_mixer_time_s": 5.000000000000002,
+      "maximum_displacement_from_rest_m": 0.014159211133538121
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 5.03125,
+      "actual_adapter_elapsed_s": 5.031250000000002,
+      "actual_mixer_time_s": 5.031250000000002,
+      "maximum_displacement_from_rest_m": 0.014150791195410867
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 5.0625,
+      "actual_adapter_elapsed_s": 5.062500000000002,
+      "actual_mixer_time_s": 5.062500000000002,
+      "maximum_displacement_from_rest_m": 0.014093765871898109
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 5.09375,
+      "actual_adapter_elapsed_s": 5.093750000000002,
+      "actual_mixer_time_s": 5.093750000000002,
+      "maximum_displacement_from_rest_m": 0.013984890829460975
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 5.125,
+      "actual_adapter_elapsed_s": 5.125000000000002,
+      "actual_mixer_time_s": 5.125000000000002,
+      "maximum_displacement_from_rest_m": 0.013826566027021646
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 5.15625,
+      "actual_adapter_elapsed_s": 5.156250000000002,
+      "actual_mixer_time_s": 5.156250000000002,
+      "maximum_displacement_from_rest_m": 0.013621618742713037
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 5.1875,
+      "actual_adapter_elapsed_s": 5.187500000000002,
+      "actual_mixer_time_s": 5.187500000000002,
+      "maximum_displacement_from_rest_m": 0.0133758495179305
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 5.21875,
+      "actual_adapter_elapsed_s": 5.218750000000002,
+      "actual_mixer_time_s": 5.218750000000002,
+      "maximum_displacement_from_rest_m": 0.013099287921274507
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 5.25,
+      "actual_adapter_elapsed_s": 5.250000000000002,
+      "actual_mixer_time_s": 5.250000000000002,
+      "maximum_displacement_from_rest_m": 0.012799194247417177
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 5.28125,
+      "actual_adapter_elapsed_s": 5.281250000000002,
+      "actual_mixer_time_s": 5.281250000000002,
+      "maximum_displacement_from_rest_m": 0.0124901656926558
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 5.3125,
+      "actual_adapter_elapsed_s": 5.312500000000002,
+      "actual_mixer_time_s": 5.312500000000002,
+      "maximum_displacement_from_rest_m": 0.012178141885623857
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 5.34375,
+      "actual_adapter_elapsed_s": 5.343750000000002,
+      "actual_mixer_time_s": 5.343750000000002,
+      "maximum_displacement_from_rest_m": 0.011877190641774676
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 5.375,
+      "actual_adapter_elapsed_s": 5.375000000000002,
+      "actual_mixer_time_s": 5.375000000000002,
+      "maximum_displacement_from_rest_m": 0.011590315360044812
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 5.40625,
+      "actual_adapter_elapsed_s": 5.406250000000002,
+      "actual_mixer_time_s": 5.406250000000002,
+      "maximum_displacement_from_rest_m": 0.011327573119129061
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 5.4375,
+      "actual_adapter_elapsed_s": 5.437500000000002,
+      "actual_mixer_time_s": 5.437500000000002,
+      "maximum_displacement_from_rest_m": 0.01108915998421855
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 5.46875,
+      "actual_adapter_elapsed_s": 5.468750000000002,
+      "actual_mixer_time_s": 5.468750000000002,
+      "maximum_displacement_from_rest_m": 0.01086025651215396
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 5.5,
+      "actual_adapter_elapsed_s": 5.500000000000002,
+      "actual_mixer_time_s": 5.500000000000002,
+      "maximum_displacement_from_rest_m": 0.010638575119892916
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 5.53125,
+      "actual_adapter_elapsed_s": 5.531250000000002,
+      "actual_mixer_time_s": 5.531250000000002,
+      "maximum_displacement_from_rest_m": 0.01040419057341875
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 5.5625,
+      "actual_adapter_elapsed_s": 5.562500000000002,
+      "actual_mixer_time_s": 5.562500000000002,
+      "maximum_displacement_from_rest_m": 0.010156841896334933
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 5.59375,
+      "actual_adapter_elapsed_s": 5.593750000000002,
+      "actual_mixer_time_s": 5.593750000000002,
+      "maximum_displacement_from_rest_m": 0.009897651821975554
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 5.625,
+      "actual_adapter_elapsed_s": 5.625000000000002,
+      "actual_mixer_time_s": 5.625000000000002,
+      "maximum_displacement_from_rest_m": 0.009627206552001364
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 5.65625,
+      "actual_adapter_elapsed_s": 5.656250000000002,
+      "actual_mixer_time_s": 5.656250000000002,
+      "maximum_displacement_from_rest_m": 0.009348205409042788
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 5.6875,
+      "actual_adapter_elapsed_s": 5.687500000000002,
+      "actual_mixer_time_s": 5.687500000000002,
+      "maximum_displacement_from_rest_m": 0.009060921556230058
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 5.71875,
+      "actual_adapter_elapsed_s": 5.718750000000002,
+      "actual_mixer_time_s": 5.718750000000002,
+      "maximum_displacement_from_rest_m": 0.00876873987563238
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 5.75,
+      "actual_adapter_elapsed_s": 5.750000000000002,
+      "actual_mixer_time_s": 5.750000000000002,
+      "maximum_displacement_from_rest_m": 0.008471535674190527
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 5.78125,
+      "actual_adapter_elapsed_s": 5.781250000000002,
+      "actual_mixer_time_s": 5.781250000000002,
+      "maximum_displacement_from_rest_m": 0.008371550113002838
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 5.8125,
+      "actual_adapter_elapsed_s": 5.812500000000002,
+      "actual_mixer_time_s": 5.812500000000002,
+      "maximum_displacement_from_rest_m": 0.008432644158414106
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 5.84375,
+      "actual_adapter_elapsed_s": 5.843750000000002,
+      "actual_mixer_time_s": 5.843750000000002,
+      "maximum_displacement_from_rest_m": 0.008480799769847927
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 5.875,
+      "actual_adapter_elapsed_s": 5.875000000000002,
+      "actual_mixer_time_s": 5.875000000000002,
+      "maximum_displacement_from_rest_m": 0.008514434602511545
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 5.90625,
+      "actual_adapter_elapsed_s": 5.906250000000002,
+      "actual_mixer_time_s": 5.906250000000002,
+      "maximum_displacement_from_rest_m": 0.00853551149842822
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 5.9375,
+      "actual_adapter_elapsed_s": 5.937500000000002,
+      "actual_mixer_time_s": 5.937500000000002,
+      "maximum_displacement_from_rest_m": 0.008542385879310704
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 5.96875,
+      "actual_adapter_elapsed_s": 5.968750000000002,
+      "actual_mixer_time_s": 5.968750000000002,
+      "maximum_displacement_from_rest_m": 0.008534536041437677
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 6,
+      "actual_adapter_elapsed_s": 6.000000000000002,
+      "actual_mixer_time_s": 6.000000000000002,
+      "maximum_displacement_from_rest_m": 0.008517602594789536
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 6.03125,
+      "actual_adapter_elapsed_s": 6.031250000000002,
+      "actual_mixer_time_s": 6.031250000000002,
+      "maximum_displacement_from_rest_m": 0.008477214967227358
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 6.0625,
+      "actual_adapter_elapsed_s": 6.062500000000002,
+      "actual_mixer_time_s": 6.062500000000002,
+      "maximum_displacement_from_rest_m": 0.008428774619130741
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 6.09375,
+      "actual_adapter_elapsed_s": 6.093750000000002,
+      "actual_mixer_time_s": 6.093750000000002,
+      "maximum_displacement_from_rest_m": 0.008361050998597483
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 6.125,
+      "actual_adapter_elapsed_s": 6.125000000000002,
+      "actual_mixer_time_s": 6.125000000000002,
+      "maximum_displacement_from_rest_m": 0.008276147052814103
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 6.15625,
+      "actual_adapter_elapsed_s": 6.156250000000002,
+      "actual_mixer_time_s": 6.156250000000002,
+      "maximum_displacement_from_rest_m": 0.008175888768899027
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 6.1875,
+      "actual_adapter_elapsed_s": 6.187500000000002,
+      "actual_mixer_time_s": 6.187500000000002,
+      "maximum_displacement_from_rest_m": 0.008057923041514621
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 6.21875,
+      "actual_adapter_elapsed_s": 6.218750000000002,
+      "actual_mixer_time_s": 6.218750000000002,
+      "maximum_displacement_from_rest_m": 0.007924575847820445
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 6.25,
+      "actual_adapter_elapsed_s": 6.250000000000002,
+      "actual_mixer_time_s": 6.250000000000002,
+      "maximum_displacement_from_rest_m": 0.007773322526348226
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 6.28125,
+      "actual_adapter_elapsed_s": 6.281250000000002,
+      "actual_mixer_time_s": 6.281250000000002,
+      "maximum_displacement_from_rest_m": 0.007607553492115418
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 6.3125,
+      "actual_adapter_elapsed_s": 6.312500000000002,
+      "actual_mixer_time_s": 6.312500000000002,
+      "maximum_displacement_from_rest_m": 0.00742480474895311
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 6.34375,
+      "actual_adapter_elapsed_s": 6.343750000000002,
+      "actual_mixer_time_s": 6.343750000000002,
+      "maximum_displacement_from_rest_m": 0.007229151284677602
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 6.375,
+      "actual_adapter_elapsed_s": 6.375000000000002,
+      "actual_mixer_time_s": 6.375000000000002,
+      "maximum_displacement_from_rest_m": 0.007018677757707064
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 6.40625,
+      "actual_adapter_elapsed_s": 6.406250000000002,
+      "actual_mixer_time_s": 6.406250000000002,
+      "maximum_displacement_from_rest_m": 0.006797084161052956
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 6.4375,
+      "actual_adapter_elapsed_s": 6.437500000000002,
+      "actual_mixer_time_s": 6.437500000000002,
+      "maximum_displacement_from_rest_m": 0.006692947162180302
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 6.46875,
+      "actual_adapter_elapsed_s": 6.468750000000002,
+      "actual_mixer_time_s": 6.468750000000002,
+      "maximum_displacement_from_rest_m": 0.007346267851138019
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 6.5,
+      "actual_adapter_elapsed_s": 6.500000000000002,
+      "actual_mixer_time_s": 6.500000000000002,
+      "maximum_displacement_from_rest_m": 0.007995991150066025
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 6.53125,
+      "actual_adapter_elapsed_s": 6.531250000000002,
+      "actual_mixer_time_s": 6.531250000000002,
+      "maximum_displacement_from_rest_m": 0.008637163243023176
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 6.5625,
+      "actual_adapter_elapsed_s": 6.562500000000002,
+      "actual_mixer_time_s": 6.562500000000002,
+      "maximum_displacement_from_rest_m": 0.009173620471839908
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 6.59375,
+      "actual_adapter_elapsed_s": 6.593750000000002,
+      "actual_mixer_time_s": 6.593750000000002,
+      "maximum_displacement_from_rest_m": 0.009594225058673864
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 6.625,
+      "actual_adapter_elapsed_s": 6.625000000000002,
+      "actual_mixer_time_s": 6.625000000000002,
+      "maximum_displacement_from_rest_m": 0.009860940032512745
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 6.65625,
+      "actual_adapter_elapsed_s": 6.656250000000002,
+      "actual_mixer_time_s": 6.656250000000002,
+      "maximum_displacement_from_rest_m": 0.009964766984476186
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 6.6875,
+      "actual_adapter_elapsed_s": 6.687500000000002,
+      "actual_mixer_time_s": 6.687500000000002,
+      "maximum_displacement_from_rest_m": 0.009914885162860421
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 6.71875,
+      "actual_adapter_elapsed_s": 6.718750000000002,
+      "actual_mixer_time_s": 6.718750000000002,
+      "maximum_displacement_from_rest_m": 0.009712604904470094
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 6.75,
+      "actual_adapter_elapsed_s": 6.750000000000002,
+      "actual_mixer_time_s": 6.750000000000002,
+      "maximum_displacement_from_rest_m": 0.009402538486648212
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 6.78125,
+      "actual_adapter_elapsed_s": 6.781250000000002,
+      "actual_mixer_time_s": 6.781250000000002,
+      "maximum_displacement_from_rest_m": 0.009047334494801518
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 6.8125,
+      "actual_adapter_elapsed_s": 6.812500000000002,
+      "actual_mixer_time_s": 6.812500000000002,
+      "maximum_displacement_from_rest_m": 0.008766226047984813
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 6.84375,
+      "actual_adapter_elapsed_s": 6.843750000000002,
+      "actual_mixer_time_s": 6.843750000000002,
+      "maximum_displacement_from_rest_m": 0.008708416664112805
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 6.875,
+      "actual_adapter_elapsed_s": 6.875000000000002,
+      "actual_mixer_time_s": 6.875000000000002,
+      "maximum_displacement_from_rest_m": 0.009030929208159006
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 6.90625,
+      "actual_adapter_elapsed_s": 6.906250000000002,
+      "actual_mixer_time_s": 6.906250000000002,
+      "maximum_displacement_from_rest_m": 0.00983292819890434
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 6.9375,
+      "actual_adapter_elapsed_s": 6.937500000000002,
+      "actual_mixer_time_s": 6.937500000000002,
+      "maximum_displacement_from_rest_m": 0.011218488019635733
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 6.96875,
+      "actual_adapter_elapsed_s": 6.968750000000002,
+      "actual_mixer_time_s": 6.968750000000002,
+      "maximum_displacement_from_rest_m": 0.013074300720076207
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 7,
+      "actual_adapter_elapsed_s": 7.000000000000002,
+      "actual_mixer_time_s": 7.000000000000002,
+      "maximum_displacement_from_rest_m": 0.015155593997635004
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 7.03125,
+      "actual_adapter_elapsed_s": 7.031250000000002,
+      "actual_mixer_time_s": 7.031250000000002,
+      "maximum_displacement_from_rest_m": 0.017339086252080426
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 7.0625,
+      "actual_adapter_elapsed_s": 7.062500000000002,
+      "actual_mixer_time_s": 7.062500000000002,
+      "maximum_displacement_from_rest_m": 0.019518488444076016
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 7.09375,
+      "actual_adapter_elapsed_s": 7.093750000000002,
+      "actual_mixer_time_s": 7.093750000000002,
+      "maximum_displacement_from_rest_m": 0.021595959697778923
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 7.125,
+      "actual_adapter_elapsed_s": 7.125000000000002,
+      "actual_mixer_time_s": 7.125000000000002,
+      "maximum_displacement_from_rest_m": 0.023510924910410243
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 7.15625,
+      "actual_adapter_elapsed_s": 7.156250000000002,
+      "actual_mixer_time_s": 7.156250000000002,
+      "maximum_displacement_from_rest_m": 0.025191457288196953
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 7.1875,
+      "actual_adapter_elapsed_s": 7.187500000000002,
+      "actual_mixer_time_s": 7.187500000000002,
+      "maximum_displacement_from_rest_m": 0.02661430457831549
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 7.21875,
+      "actual_adapter_elapsed_s": 7.218750000000002,
+      "actual_mixer_time_s": 7.218750000000002,
+      "maximum_displacement_from_rest_m": 0.027733469837847788
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 7.25,
+      "actual_adapter_elapsed_s": 7.250000000000002,
+      "actual_mixer_time_s": 7.250000000000002,
+      "maximum_displacement_from_rest_m": 0.02855193961313798
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 7.28125,
+      "actual_adapter_elapsed_s": 7.281250000000002,
+      "actual_mixer_time_s": 7.281250000000002,
+      "maximum_displacement_from_rest_m": 0.029047654976421113
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 7.3125,
+      "actual_adapter_elapsed_s": 7.312500000000002,
+      "actual_mixer_time_s": 7.312500000000002,
+      "maximum_displacement_from_rest_m": 0.029238311038481617
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 7.34375,
+      "actual_adapter_elapsed_s": 7.343750000000002,
+      "actual_mixer_time_s": 7.343750000000002,
+      "maximum_displacement_from_rest_m": 0.02903942272465061
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 7.375,
+      "actual_adapter_elapsed_s": 7.375000000000002,
+      "actual_mixer_time_s": 7.375000000000002,
+      "maximum_displacement_from_rest_m": 0.028459844565506324
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 7.40625,
+      "actual_adapter_elapsed_s": 7.406250000000002,
+      "actual_mixer_time_s": 7.406250000000002,
+      "maximum_displacement_from_rest_m": 0.02741893508052159
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 7.4375,
+      "actual_adapter_elapsed_s": 7.437500000000002,
+      "actual_mixer_time_s": 7.437500000000002,
+      "maximum_displacement_from_rest_m": 0.02594168028925537
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 7.46875,
+      "actual_adapter_elapsed_s": 7.468750000000002,
+      "actual_mixer_time_s": 7.468750000000002,
+      "maximum_displacement_from_rest_m": 0.024140239243671785
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 7.5,
+      "actual_adapter_elapsed_s": 7.500000000000002,
+      "actual_mixer_time_s": 7.500000000000002,
+      "maximum_displacement_from_rest_m": 0.02206016296259054
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 7.53125,
+      "actual_adapter_elapsed_s": 7.531250000000002,
+      "actual_mixer_time_s": 7.531250000000002,
+      "maximum_displacement_from_rest_m": 0.01997233223893784
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 7.5625,
+      "actual_adapter_elapsed_s": 7.562500000000002,
+      "actual_mixer_time_s": 7.562500000000002,
+      "maximum_displacement_from_rest_m": 0.01790014654344618
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 7.59375,
+      "actual_adapter_elapsed_s": 7.593750000000002,
+      "actual_mixer_time_s": 7.593750000000002,
+      "maximum_displacement_from_rest_m": 0.01613486418998724
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 7.625,
+      "actual_adapter_elapsed_s": 7.625000000000002,
+      "actual_mixer_time_s": 7.625000000000002,
+      "maximum_displacement_from_rest_m": 0.014649829736027173
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 7.65625,
+      "actual_adapter_elapsed_s": 7.656250000000002,
+      "actual_mixer_time_s": 7.656250000000002,
+      "maximum_displacement_from_rest_m": 0.013587938743354242
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 7.6875,
+      "actual_adapter_elapsed_s": 7.687500000000002,
+      "actual_mixer_time_s": 7.687500000000002,
+      "maximum_displacement_from_rest_m": 0.012893750263734936
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 7.71875,
+      "actual_adapter_elapsed_s": 7.718750000000002,
+      "actual_mixer_time_s": 7.718750000000002,
+      "maximum_displacement_from_rest_m": 0.012391149889453687
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 7.75,
+      "actual_adapter_elapsed_s": 7.750000000000002,
+      "actual_mixer_time_s": 7.750000000000002,
+      "maximum_displacement_from_rest_m": 0.01207972760325763
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 7.78125,
+      "actual_adapter_elapsed_s": 7.781250000000002,
+      "actual_mixer_time_s": 7.781250000000002,
+      "maximum_displacement_from_rest_m": 0.011761904724931084
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 7.8125,
+      "actual_adapter_elapsed_s": 7.812500000000002,
+      "actual_mixer_time_s": 7.812500000000002,
+      "maximum_displacement_from_rest_m": 0.011468239583757202
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 7.84375,
+      "actual_adapter_elapsed_s": 7.843750000000002,
+      "actual_mixer_time_s": 7.843750000000002,
+      "maximum_displacement_from_rest_m": 0.011199595719017368
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 7.875,
+      "actual_adapter_elapsed_s": 7.875000000000002,
+      "actual_mixer_time_s": 7.875000000000002,
+      "maximum_displacement_from_rest_m": 0.010953927381291554
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 7.90625,
+      "actual_adapter_elapsed_s": 7.906250000000003,
+      "actual_mixer_time_s": 7.906250000000003,
+      "maximum_displacement_from_rest_m": 0.010730348997867657
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 7.9375,
+      "actual_adapter_elapsed_s": 7.937500000000003,
+      "actual_mixer_time_s": 7.937500000000003,
+      "maximum_displacement_from_rest_m": 0.010527372375115735
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 7.96875,
+      "actual_adapter_elapsed_s": 7.968750000000003,
+      "actual_mixer_time_s": 7.968750000000003,
+      "maximum_displacement_from_rest_m": 0.010339376952768355
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 8,
+      "actual_adapter_elapsed_s": 8.000000000000004,
+      "actual_mixer_time_s": 8.000000000000004,
+      "maximum_displacement_from_rest_m": 0.010175874399556379
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 8.03125,
+      "actual_adapter_elapsed_s": 8.031250000000004,
+      "actual_mixer_time_s": 8.031250000000004,
+      "maximum_displacement_from_rest_m": 0.010021435546246639
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 8.0625,
+      "actual_adapter_elapsed_s": 8.062500000000004,
+      "actual_mixer_time_s": 8.062500000000004,
+      "maximum_displacement_from_rest_m": 0.009884868444344483
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 8.09375,
+      "actual_adapter_elapsed_s": 8.093750000000004,
+      "actual_mixer_time_s": 8.093750000000004,
+      "maximum_displacement_from_rest_m": 0.009758170227723415
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 8.125,
+      "actual_adapter_elapsed_s": 8.125000000000004,
+      "actual_mixer_time_s": 8.125000000000004,
+      "maximum_displacement_from_rest_m": 0.009637055460375434
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 8.15625,
+      "actual_adapter_elapsed_s": 8.156250000000004,
+      "actual_mixer_time_s": 8.156250000000004,
+      "maximum_displacement_from_rest_m": 0.00952307873748561
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 8.1875,
+      "actual_adapter_elapsed_s": 8.187500000000004,
+      "actual_mixer_time_s": 8.187500000000004,
+      "maximum_displacement_from_rest_m": 0.009410471819857498
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 8.21875,
+      "actual_adapter_elapsed_s": 8.218750000000004,
+      "actual_mixer_time_s": 8.218750000000004,
+      "maximum_displacement_from_rest_m": 0.009300474725401771
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 8.25,
+      "actual_adapter_elapsed_s": 8.250000000000004,
+      "actual_mixer_time_s": 8.250000000000004,
+      "maximum_displacement_from_rest_m": 0.009187081658317433
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 8.28125,
+      "actual_adapter_elapsed_s": 8.281250000000004,
+      "actual_mixer_time_s": 8.281250000000004,
+      "maximum_displacement_from_rest_m": 0.009070990358679813
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 8.3125,
+      "actual_adapter_elapsed_s": 8.312500000000004,
+      "actual_mixer_time_s": 8.312500000000004,
+      "maximum_displacement_from_rest_m": 0.00894788414023629
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 8.34375,
+      "actual_adapter_elapsed_s": 8.343750000000004,
+      "actual_mixer_time_s": 8.343750000000004,
+      "maximum_displacement_from_rest_m": 0.008817972354725508
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 8.375,
+      "actual_adapter_elapsed_s": 8.375000000000004,
+      "actual_mixer_time_s": 8.375000000000004,
+      "maximum_displacement_from_rest_m": 0.008678645105730185
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 8.40625,
+      "actual_adapter_elapsed_s": 8.406250000000004,
+      "actual_mixer_time_s": 8.406250000000004,
+      "maximum_displacement_from_rest_m": 0.008529811920665164
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 8.4375,
+      "actual_adapter_elapsed_s": 8.437500000000004,
+      "actual_mixer_time_s": 8.437500000000004,
+      "maximum_displacement_from_rest_m": 0.00837009705024897
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 8.46875,
+      "actual_adapter_elapsed_s": 8.468750000000004,
+      "actual_mixer_time_s": 8.468750000000004,
+      "maximum_displacement_from_rest_m": 0.008199326708873736
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 8.5,
+      "actual_adapter_elapsed_s": 8.500000000000004,
+      "actual_mixer_time_s": 8.500000000000004,
+      "maximum_displacement_from_rest_m": 0.00801805820811311
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 8.53125,
+      "actual_adapter_elapsed_s": 8.531250000000004,
+      "actual_mixer_time_s": 8.531250000000004,
+      "maximum_displacement_from_rest_m": 0.007826122450514778
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 8.5625,
+      "actual_adapter_elapsed_s": 8.562500000000004,
+      "actual_mixer_time_s": 8.562500000000004,
+      "maximum_displacement_from_rest_m": 0.007624323635187315
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 8.59375,
+      "actual_adapter_elapsed_s": 8.593750000000004,
+      "actual_mixer_time_s": 8.593750000000004,
+      "maximum_displacement_from_rest_m": 0.007412745708857897
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 8.625,
+      "actual_adapter_elapsed_s": 8.625000000000004,
+      "actual_mixer_time_s": 8.625000000000004,
+      "maximum_displacement_from_rest_m": 0.007193200856476246
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 8.65625,
+      "actual_adapter_elapsed_s": 8.656250000000004,
+      "actual_mixer_time_s": 8.656250000000004,
+      "maximum_displacement_from_rest_m": 0.006966624251830202
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 8.6875,
+      "actual_adapter_elapsed_s": 8.687500000000004,
+      "actual_mixer_time_s": 8.687500000000004,
+      "maximum_displacement_from_rest_m": 0.00673806325100126
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 8.71875,
+      "actual_adapter_elapsed_s": 8.718750000000004,
+      "actual_mixer_time_s": 8.718750000000004,
+      "maximum_displacement_from_rest_m": 0.006550181396143652
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 8.75,
+      "actual_adapter_elapsed_s": 8.750000000000004,
+      "actual_mixer_time_s": 8.750000000000004,
+      "maximum_displacement_from_rest_m": 0.006527173559672658
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 8.78125,
+      "actual_adapter_elapsed_s": 8.781250000000004,
+      "actual_mixer_time_s": 8.781250000000004,
+      "maximum_displacement_from_rest_m": 0.0064962728047910905
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 8.8125,
+      "actual_adapter_elapsed_s": 8.812500000000004,
+      "actual_mixer_time_s": 8.812500000000004,
+      "maximum_displacement_from_rest_m": 0.0064567387074937295
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 8.84375,
+      "actual_adapter_elapsed_s": 8.843750000000004,
+      "actual_mixer_time_s": 8.843750000000004,
+      "maximum_displacement_from_rest_m": 0.006409920528655188
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 8.875,
+      "actual_adapter_elapsed_s": 8.875000000000004,
+      "actual_mixer_time_s": 8.875000000000004,
+      "maximum_displacement_from_rest_m": 0.0063550061997791315
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 8.90625,
+      "actual_adapter_elapsed_s": 8.906250000000004,
+      "actual_mixer_time_s": 8.906250000000004,
+      "maximum_displacement_from_rest_m": 0.006293418448990496
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 8.9375,
+      "actual_adapter_elapsed_s": 8.937500000000004,
+      "actual_mixer_time_s": 8.937500000000004,
+      "maximum_displacement_from_rest_m": 0.006224366833482589
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 8.96875,
+      "actual_adapter_elapsed_s": 8.968750000000004,
+      "actual_mixer_time_s": 8.968750000000004,
+      "maximum_displacement_from_rest_m": 0.006149430936476781
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 9,
+      "actual_adapter_elapsed_s": 9.000000000000004,
+      "actual_mixer_time_s": 9.000000000000004,
+      "maximum_displacement_from_rest_m": 0.0060681366833851315
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 9.03125,
+      "actual_adapter_elapsed_s": 9.031250000000004,
+      "actual_mixer_time_s": 9.031250000000004,
+      "maximum_displacement_from_rest_m": 0.005981776467052908
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 9.0625,
+      "actual_adapter_elapsed_s": 9.062500000000004,
+      "actual_mixer_time_s": 9.062500000000004,
+      "maximum_displacement_from_rest_m": 0.005889895251139446
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 9.09375,
+      "actual_adapter_elapsed_s": 9.093750000000004,
+      "actual_mixer_time_s": 9.093750000000004,
+      "maximum_displacement_from_rest_m": 0.005788158639308024
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 9.125,
+      "actual_adapter_elapsed_s": 9.125000000000004,
+      "actual_mixer_time_s": 9.125000000000004,
+      "maximum_displacement_from_rest_m": 0.005661837325833427
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 9.15625,
+      "actual_adapter_elapsed_s": 9.156250000000004,
+      "actual_mixer_time_s": 9.156250000000004,
+      "maximum_displacement_from_rest_m": 0.005513585459328233
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 9.1875,
+      "actual_adapter_elapsed_s": 9.187500000000004,
+      "actual_mixer_time_s": 9.187500000000004,
+      "maximum_displacement_from_rest_m": 0.005323086949075863
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 9.21875,
+      "actual_adapter_elapsed_s": 9.218750000000004,
+      "actual_mixer_time_s": 9.218750000000004,
+      "maximum_displacement_from_rest_m": 0.005098922689137499
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 9.25,
+      "actual_adapter_elapsed_s": 9.250000000000004,
+      "actual_mixer_time_s": 9.250000000000004,
+      "maximum_displacement_from_rest_m": 0.004837440490665056
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 9.28125,
+      "actual_adapter_elapsed_s": 9.281250000000004,
+      "actual_mixer_time_s": 9.281250000000004,
+      "maximum_displacement_from_rest_m": 0.004546128199321124
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 9.3125,
+      "actual_adapter_elapsed_s": 9.312500000000004,
+      "actual_mixer_time_s": 9.312500000000004,
+      "maximum_displacement_from_rest_m": 0.004225242398527971
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 9.34375,
+      "actual_adapter_elapsed_s": 9.343750000000004,
+      "actual_mixer_time_s": 9.343750000000004,
+      "maximum_displacement_from_rest_m": 0.0040031582938847695
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 9.375,
+      "actual_adapter_elapsed_s": 9.375000000000004,
+      "actual_mixer_time_s": 9.375000000000004,
+      "maximum_displacement_from_rest_m": 0.0040234702659593165
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 9.40625,
+      "actual_adapter_elapsed_s": 9.406250000000004,
+      "actual_mixer_time_s": 9.406250000000004,
+      "maximum_displacement_from_rest_m": 0.004059834994474723
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 9.4375,
+      "actual_adapter_elapsed_s": 9.437500000000004,
+      "actual_mixer_time_s": 9.437500000000004,
+      "maximum_displacement_from_rest_m": 0.004112779498205122
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 9.46875,
+      "actual_adapter_elapsed_s": 9.468750000000004,
+      "actual_mixer_time_s": 9.468750000000004,
+      "maximum_displacement_from_rest_m": 0.004188489054754909
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 9.5,
+      "actual_adapter_elapsed_s": 9.500000000000004,
+      "actual_mixer_time_s": 9.500000000000004,
+      "maximum_displacement_from_rest_m": 0.004287532680929088
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 9.53125,
+      "actual_adapter_elapsed_s": 9.531250000000004,
+      "actual_mixer_time_s": 9.531250000000004,
+      "maximum_displacement_from_rest_m": 0.004408628700230046
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 9.5625,
+      "actual_adapter_elapsed_s": 9.562500000000004,
+      "actual_mixer_time_s": 9.562500000000004,
+      "maximum_displacement_from_rest_m": 0.004550311583248061
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 9.59375,
+      "actual_adapter_elapsed_s": 9.593750000000004,
+      "actual_mixer_time_s": 9.593750000000004,
+      "maximum_displacement_from_rest_m": 0.004708126839359184
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 9.625,
+      "actual_adapter_elapsed_s": 9.625000000000004,
+      "actual_mixer_time_s": 9.625000000000004,
+      "maximum_displacement_from_rest_m": 0.0048797394441761266
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 9.65625,
+      "actual_adapter_elapsed_s": 9.656250000000004,
+      "actual_mixer_time_s": 9.656250000000004,
+      "maximum_displacement_from_rest_m": 0.0050565721038073165
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 9.6875,
+      "actual_adapter_elapsed_s": 9.687500000000004,
+      "actual_mixer_time_s": 9.687500000000004,
+      "maximum_displacement_from_rest_m": 0.005236800874844097
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 9.71875,
+      "actual_adapter_elapsed_s": 9.718750000000004,
+      "actual_mixer_time_s": 9.718750000000004,
+      "maximum_displacement_from_rest_m": 0.005409327900951203
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 9.75,
+      "actual_adapter_elapsed_s": 9.750000000000004,
+      "actual_mixer_time_s": 9.750000000000004,
+      "maximum_displacement_from_rest_m": 0.005573723556488059
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 9.78125,
+      "actual_adapter_elapsed_s": 9.781250000000004,
+      "actual_mixer_time_s": 9.781250000000004,
+      "maximum_displacement_from_rest_m": 0.005718013916596419
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 9.8125,
+      "actual_adapter_elapsed_s": 9.812500000000004,
+      "actual_mixer_time_s": 9.812500000000004,
+      "maximum_displacement_from_rest_m": 0.005843614579108603
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 9.84375,
+      "actual_adapter_elapsed_s": 9.843750000000004,
+      "actual_mixer_time_s": 9.843750000000004,
+      "maximum_displacement_from_rest_m": 0.005939823952302101
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 9.875,
+      "actual_adapter_elapsed_s": 9.875000000000004,
+      "actual_mixer_time_s": 9.875000000000004,
+      "maximum_displacement_from_rest_m": 0.006009571663304254
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 9.90625,
+      "actual_adapter_elapsed_s": 9.906250000000004,
+      "actual_mixer_time_s": 9.906250000000004,
+      "maximum_displacement_from_rest_m": 0.006045921305434861
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 9.9375,
+      "actual_adapter_elapsed_s": 9.937500000000004,
+      "actual_mixer_time_s": 9.937500000000004,
+      "maximum_displacement_from_rest_m": 0.006052318615134868
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 9.96875,
+      "actual_adapter_elapsed_s": 9.968750000000004,
+      "actual_mixer_time_s": 9.968750000000004,
+      "maximum_displacement_from_rest_m": 0.0060314970877069435
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 10,
+      "actual_adapter_elapsed_s": 10.000000000000004,
+      "actual_mixer_time_s": 10.000000000000004,
+      "maximum_displacement_from_rest_m": 0.005969974530923247
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 10.03125,
+      "actual_adapter_elapsed_s": 10.031250000000004,
+      "actual_mixer_time_s": 10.031250000000004,
+      "maximum_displacement_from_rest_m": 0.005891608236800705
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 10.0625,
+      "actual_adapter_elapsed_s": 10.062500000000004,
+      "actual_mixer_time_s": 10.062500000000004,
+      "maximum_displacement_from_rest_m": 0.005773923178584115
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 10.09375,
+      "actual_adapter_elapsed_s": 10.093750000000004,
+      "actual_mixer_time_s": 10.093750000000004,
+      "maximum_displacement_from_rest_m": 0.005639879971388098
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 10.125,
+      "actual_adapter_elapsed_s": 10.125000000000004,
+      "actual_mixer_time_s": 10.125000000000004,
+      "maximum_displacement_from_rest_m": 0.00547268560156994
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 10.15625,
+      "actual_adapter_elapsed_s": 10.156250000000004,
+      "actual_mixer_time_s": 10.156250000000004,
+      "maximum_displacement_from_rest_m": 0.00527569118076535
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 10.1875,
+      "actual_adapter_elapsed_s": 10.187500000000004,
+      "actual_mixer_time_s": 10.187500000000004,
+      "maximum_displacement_from_rest_m": 0.005039495417672039
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 10.21875,
+      "actual_adapter_elapsed_s": 10.218750000000004,
+      "actual_mixer_time_s": 10.218750000000004,
+      "maximum_displacement_from_rest_m": 0.004765570729483586
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 10.25,
+      "actual_adapter_elapsed_s": 10.250000000000004,
+      "actual_mixer_time_s": 10.250000000000004,
+      "maximum_displacement_from_rest_m": 0.004466486837509177
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 10.28125,
+      "actual_adapter_elapsed_s": 10.281250000000004,
+      "actual_mixer_time_s": 10.281250000000004,
+      "maximum_displacement_from_rest_m": 0.004138199984919493
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 10.3125,
+      "actual_adapter_elapsed_s": 10.312500000000004,
+      "actual_mixer_time_s": 10.312500000000004,
+      "maximum_displacement_from_rest_m": 0.0037930595817297313
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 10.34375,
+      "actual_adapter_elapsed_s": 10.343750000000004,
+      "actual_mixer_time_s": 10.343750000000004,
+      "maximum_displacement_from_rest_m": 0.003431440720385668
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 10.375,
+      "actual_adapter_elapsed_s": 10.375000000000004,
+      "actual_mixer_time_s": 10.375000000000004,
+      "maximum_displacement_from_rest_m": 0.0030685919192188016
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 10.40625,
+      "actual_adapter_elapsed_s": 10.406250000000004,
+      "actual_mixer_time_s": 10.406250000000004,
+      "maximum_displacement_from_rest_m": 0.0027063640341564344
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 10.4375,
+      "actual_adapter_elapsed_s": 10.437500000000004,
+      "actual_mixer_time_s": 10.437500000000004,
+      "maximum_displacement_from_rest_m": 0.002361710108406555
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 10.46875,
+      "actual_adapter_elapsed_s": 10.468750000000004,
+      "actual_mixer_time_s": 10.468750000000004,
+      "maximum_displacement_from_rest_m": 0.0020388657112159108
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 10.5,
+      "actual_adapter_elapsed_s": 10.500000000000004,
+      "actual_mixer_time_s": 10.500000000000004,
+      "maximum_displacement_from_rest_m": 0.001754175972475325
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 10.53125,
+      "actual_adapter_elapsed_s": 10.531250000000004,
+      "actual_mixer_time_s": 10.531250000000004,
+      "maximum_displacement_from_rest_m": 0.0015140471756151044
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 10.5625,
+      "actual_adapter_elapsed_s": 10.562500000000004,
+      "actual_mixer_time_s": 10.562500000000004,
+      "maximum_displacement_from_rest_m": 0.0013297681772933665
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 10.59375,
+      "actual_adapter_elapsed_s": 10.593750000000004,
+      "actual_mixer_time_s": 10.593750000000004,
+      "maximum_displacement_from_rest_m": 0.0012036384272695996
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 10.625,
+      "actual_adapter_elapsed_s": 10.625000000000004,
+      "actual_mixer_time_s": 10.625000000000004,
+      "maximum_displacement_from_rest_m": 0.0011326532386252747
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 10.65625,
+      "actual_adapter_elapsed_s": 10.656250000000004,
+      "actual_mixer_time_s": 10.656250000000004,
+      "maximum_displacement_from_rest_m": 0.0011049859799272745
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 10.6875,
+      "actual_adapter_elapsed_s": 10.687500000000004,
+      "actual_mixer_time_s": 10.687500000000004,
+      "maximum_displacement_from_rest_m": 0.0011050975730622077
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 10.71875,
+      "actual_adapter_elapsed_s": 10.718750000000004,
+      "actual_mixer_time_s": 10.718750000000004,
+      "maximum_displacement_from_rest_m": 0.0011179370675135623
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 10.75,
+      "actual_adapter_elapsed_s": 10.750000000000004,
+      "actual_mixer_time_s": 10.750000000000004,
+      "maximum_displacement_from_rest_m": 0.001132656014180909
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 10.78125,
+      "actual_adapter_elapsed_s": 10.781250000000004,
+      "actual_mixer_time_s": 10.781250000000004,
+      "maximum_displacement_from_rest_m": 0.0011525717759216065
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 10.8125,
+      "actual_adapter_elapsed_s": 10.812500000000004,
+      "actual_mixer_time_s": 10.812500000000004,
+      "maximum_displacement_from_rest_m": 0.0011664245761840765
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 10.84375,
+      "actual_adapter_elapsed_s": 10.843750000000004,
+      "actual_mixer_time_s": 10.843750000000004,
+      "maximum_displacement_from_rest_m": 0.0011730006524545771
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 10.875,
+      "actual_adapter_elapsed_s": 10.875000000000004,
+      "actual_mixer_time_s": 10.875000000000004,
+      "maximum_displacement_from_rest_m": 0.001174790581894411
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 10.90625,
+      "actual_adapter_elapsed_s": 10.906250000000004,
+      "actual_mixer_time_s": 10.906250000000004,
+      "maximum_displacement_from_rest_m": 0.0011707329641087133
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 10.9375,
+      "actual_adapter_elapsed_s": 10.937500000000004,
+      "actual_mixer_time_s": 10.937500000000004,
+      "maximum_displacement_from_rest_m": 0.0011601374150221738
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 10.96875,
+      "actual_adapter_elapsed_s": 10.968750000000004,
+      "actual_mixer_time_s": 10.968750000000004,
+      "maximum_displacement_from_rest_m": 0.0011423671356967319
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 11,
+      "actual_adapter_elapsed_s": 11.000000000000004,
+      "actual_mixer_time_s": 11.000000000000004,
+      "maximum_displacement_from_rest_m": 0.001117418515570341
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 11.03125,
+      "actual_adapter_elapsed_s": 11.031250000000004,
+      "actual_mixer_time_s": 11.031250000000004,
+      "maximum_displacement_from_rest_m": 0.0010852258776443767
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 11.0625,
+      "actual_adapter_elapsed_s": 11.062500000000004,
+      "actual_mixer_time_s": 11.062500000000004,
+      "maximum_displacement_from_rest_m": 0.001046420667579974
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 11.09375,
+      "actual_adapter_elapsed_s": 11.093750000000004,
+      "actual_mixer_time_s": 11.093750000000004,
+      "maximum_displacement_from_rest_m": 0.0010016194440330443
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 11.125,
+      "actual_adapter_elapsed_s": 11.125000000000004,
+      "actual_mixer_time_s": 11.125000000000004,
+      "maximum_displacement_from_rest_m": 0.0009519623989476145
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 11.15625,
+      "actual_adapter_elapsed_s": 11.156250000000004,
+      "actual_mixer_time_s": 11.156250000000004,
+      "maximum_displacement_from_rest_m": 0.0008984982541822241
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 11.1875,
+      "actual_adapter_elapsed_s": 11.187500000000004,
+      "actual_mixer_time_s": 11.187500000000004,
+      "maximum_displacement_from_rest_m": 0.0008423699338485311
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 11.21875,
+      "actual_adapter_elapsed_s": 11.218750000000004,
+      "actual_mixer_time_s": 11.218750000000004,
+      "maximum_displacement_from_rest_m": 0.0007846789292623104
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 11.25,
+      "actual_adapter_elapsed_s": 11.250000000000004,
+      "actual_mixer_time_s": 11.250000000000004,
+      "maximum_displacement_from_rest_m": 0.0007263404998312335
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 11.28125,
+      "actual_adapter_elapsed_s": 11.281250000000004,
+      "actual_mixer_time_s": 11.281250000000004,
+      "maximum_displacement_from_rest_m": 0.0006488992924082946
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 11.3125,
+      "actual_adapter_elapsed_s": 11.312500000000004,
+      "actual_mixer_time_s": 11.312500000000004,
+      "maximum_displacement_from_rest_m": 0.0005522717410606293
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 11.34375,
+      "actual_adapter_elapsed_s": 11.343750000000004,
+      "actual_mixer_time_s": 11.343750000000004,
+      "maximum_displacement_from_rest_m": 0.0004345701059530773
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 11.375,
+      "actual_adapter_elapsed_s": 11.375000000000004,
+      "actual_mixer_time_s": 11.375000000000004,
+      "maximum_displacement_from_rest_m": 0.0003096792770612876
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 11.40625,
+      "actual_adapter_elapsed_s": 11.406250000000004,
+      "actual_mixer_time_s": 11.406250000000004,
+      "maximum_displacement_from_rest_m": 0.0002577740932796671
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 11.4375,
+      "actual_adapter_elapsed_s": 11.437500000000004,
+      "actual_mixer_time_s": 11.437500000000004,
+      "maximum_displacement_from_rest_m": 0.00023259157351187578
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 11.46875,
+      "actual_adapter_elapsed_s": 11.468750000000004,
+      "actual_mixer_time_s": 11.468750000000004,
+      "maximum_displacement_from_rest_m": 0.00020833285459583467
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 11.5,
+      "actual_adapter_elapsed_s": 11.500000000000004,
+      "actual_mixer_time_s": 11.500000000000004,
+      "maximum_displacement_from_rest_m": 0.00018658326881217907
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 11.53125,
+      "actual_adapter_elapsed_s": 11.531250000000004,
+      "actual_mixer_time_s": 11.531250000000004,
+      "maximum_displacement_from_rest_m": 0.00016934397877630604
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 11.5625,
+      "actual_adapter_elapsed_s": 11.562500000000004,
+      "actual_mixer_time_s": 11.562500000000004,
+      "maximum_displacement_from_rest_m": 0.00014386128623917438
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 11.59375,
+      "actual_adapter_elapsed_s": 11.593750000000004,
+      "actual_mixer_time_s": 11.593750000000004,
+      "maximum_displacement_from_rest_m": 0.00011871925161844381
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 11.625,
+      "actual_adapter_elapsed_s": 11.625000000000004,
+      "actual_mixer_time_s": 11.625000000000004,
+      "maximum_displacement_from_rest_m": 0.00009524375833289661
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 11.65625,
+      "actual_adapter_elapsed_s": 11.656250000000004,
+      "actual_mixer_time_s": 11.656250000000004,
+      "maximum_displacement_from_rest_m": 0.0000756481945175181
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 11.6875,
+      "actual_adapter_elapsed_s": 11.687500000000004,
+      "actual_mixer_time_s": 11.687500000000004,
+      "maximum_displacement_from_rest_m": 0.00006086881345883334
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 11.71875,
+      "actual_adapter_elapsed_s": 11.718750000000004,
+      "actual_mixer_time_s": 11.718750000000004,
+      "maximum_displacement_from_rest_m": 0.00005098819529117099
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 11.75,
+      "actual_adapter_elapsed_s": 11.750000000000004,
+      "actual_mixer_time_s": 11.750000000000004,
+      "maximum_displacement_from_rest_m": 0.00004450925553426327
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 11.78125,
+      "actual_adapter_elapsed_s": 11.781250000000004,
+      "actual_mixer_time_s": 11.781250000000004,
+      "maximum_displacement_from_rest_m": 0.000039297001084211016
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 11.8125,
+      "actual_adapter_elapsed_s": 11.812500000000004,
+      "actual_mixer_time_s": 11.812500000000004,
+      "maximum_displacement_from_rest_m": 0.00003370029880485257
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 11.84375,
+      "actual_adapter_elapsed_s": 11.843750000000004,
+      "actual_mixer_time_s": 11.843750000000004,
+      "maximum_displacement_from_rest_m": 0.000026675854448183066
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 11.875,
+      "actual_adapter_elapsed_s": 11.875000000000004,
+      "actual_mixer_time_s": 11.875000000000004,
+      "maximum_displacement_from_rest_m": 0.00001896047864059218
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 11.90625,
+      "actual_adapter_elapsed_s": 11.906250000000004,
+      "actual_mixer_time_s": 11.906250000000004,
+      "maximum_displacement_from_rest_m": 0.00001160736834164112
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 11.9375,
+      "actual_adapter_elapsed_s": 11.937500000000004,
+      "actual_mixer_time_s": 11.937500000000004,
+      "maximum_displacement_from_rest_m": 0.000005421465236502541
+    },
+    {
+      "kind": "midpoint",
+      "target_native_clip_time_s": 11.96875,
+      "actual_adapter_elapsed_s": 11.968750000000004,
+      "actual_mixer_time_s": 11.968750000000004,
+      "maximum_displacement_from_rest_m": 0.0000014290589193184731
+    },
+    {
+      "kind": "key",
+      "target_native_clip_time_s": 12,
+      "actual_adapter_elapsed_s": 12.000000000000004,
+      "actual_mixer_time_s": 12.000000000000004,
+      "maximum_displacement_from_rest_m": 4.5112100953005464e-8
+    }
+  ],
+  "old_six_decoded_keys_exact": true,
+  "maps_decoded_equivalent": true,
+  "sample_times_s": [
+    0,
+    0.03125,
+    0.0625,
+    0.09375,
+    0.125,
+    0.15625,
+    0.1875,
+    0.21875,
+    0.25,
+    0.28125,
+    0.3125,
+    0.34375,
+    0.375,
+    0.40625,
+    0.4375,
+    0.46875,
+    0.5,
+    0.53125,
+    0.5625,
+    0.59375,
+    0.625,
+    0.65625,
+    0.6875,
+    0.71875,
+    0.75,
+    0.78125,
+    0.8125,
+    0.84375,
+    0.875,
+    0.90625,
+    0.9375,
+    0.96875,
+    1,
+    1.03125,
+    1.0625,
+    1.09375,
+    1.125,
+    1.15625,
+    1.1875,
+    1.21875,
+    1.25,
+    1.28125,
+    1.3125,
+    1.34375,
+    1.375,
+    1.40625,
+    1.4375,
+    1.46875,
+    1.5,
+    1.53125,
+    1.5625,
+    1.59375,
+    1.625,
+    1.65625,
+    1.6875,
+    1.71875,
+    1.75,
+    1.78125,
+    1.8125,
+    1.84375,
+    1.875,
+    1.90625,
+    1.9375,
+    1.96875,
+    2,
+    2.03125,
+    2.0625,
+    2.09375,
+    2.125,
+    2.15625,
+    2.1875,
+    2.21875,
+    2.25,
+    2.28125,
+    2.3125,
+    2.34375,
+    2.375,
+    2.40625,
+    2.4375,
+    2.46875,
+    2.5,
+    2.53125,
+    2.5625,
+    2.59375,
+    2.625,
+    2.65625,
+    2.6875,
+    2.71875,
+    2.75,
+    2.78125,
+    2.8125,
+    2.84375,
+    2.875,
+    2.90625,
+    2.9375,
+    2.96875,
+    3,
+    3.03125,
+    3.0625,
+    3.09375,
+    3.125,
+    3.15625,
+    3.1875,
+    3.21875,
+    3.25,
+    3.28125,
+    3.3125,
+    3.34375,
+    3.375,
+    3.40625,
+    3.4375,
+    3.46875,
+    3.5,
+    3.53125,
+    3.5625,
+    3.59375,
+    3.625,
+    3.65625,
+    3.6875,
+    3.71875,
+    3.75,
+    3.78125,
+    3.8125,
+    3.84375,
+    3.875,
+    3.90625,
+    3.9375,
+    3.96875,
+    4,
+    4.03125,
+    4.0625,
+    4.09375,
+    4.125,
+    4.15625,
+    4.1875,
+    4.21875,
+    4.25,
+    4.28125,
+    4.3125,
+    4.34375,
+    4.375,
+    4.40625,
+    4.4375,
+    4.46875,
+    4.5,
+    4.53125,
+    4.5625,
+    4.59375,
+    4.625,
+    4.65625,
+    4.6875,
+    4.71875,
+    4.75,
+    4.78125,
+    4.8125,
+    4.84375,
+    4.875,
+    4.90625,
+    4.9375,
+    4.96875,
+    5,
+    5.03125,
+    5.0625,
+    5.09375,
+    5.125,
+    5.15625,
+    5.1875,
+    5.21875,
+    5.25,
+    5.28125,
+    5.3125,
+    5.34375,
+    5.375,
+    5.40625,
+    5.4375,
+    5.46875,
+    5.5,
+    5.53125,
+    5.5625,
+    5.59375,
+    5.625,
+    5.65625,
+    5.6875,
+    5.71875,
+    5.75,
+    5.78125,
+    5.8125,
+    5.84375,
+    5.875,
+    5.90625,
+    5.9375,
+    5.96875,
+    6,
+    6.03125,
+    6.0625,
+    6.09375,
+    6.125,
+    6.15625,
+    6.1875,
+    6.21875,
+    6.25,
+    6.28125,
+    6.3125,
+    6.34375,
+    6.375,
+    6.40625,
+    6.4375,
+    6.46875,
+    6.5,
+    6.53125,
+    6.5625,
+    6.59375,
+    6.625,
+    6.65625,
+    6.6875,
+    6.71875,
+    6.75,
+    6.78125,
+    6.8125,
+    6.84375,
+    6.875,
+    6.90625,
+    6.9375,
+    6.96875,
+    7,
+    7.03125,
+    7.0625,
+    7.09375,
+    7.125,
+    7.15625,
+    7.1875,
+    7.21875,
+    7.25,
+    7.28125,
+    7.3125,
+    7.34375,
+    7.375,
+    7.40625,
+    7.4375,
+    7.46875,
+    7.5,
+    7.53125,
+    7.5625,
+    7.59375,
+    7.625,
+    7.65625,
+    7.6875,
+    7.71875,
+    7.75,
+    7.78125,
+    7.8125,
+    7.84375,
+    7.875,
+    7.90625,
+    7.9375,
+    7.96875,
+    8,
+    8.03125,
+    8.0625,
+    8.09375,
+    8.125,
+    8.15625,
+    8.1875,
+    8.21875,
+    8.25,
+    8.28125,
+    8.3125,
+    8.34375,
+    8.375,
+    8.40625,
+    8.4375,
+    8.46875,
+    8.5,
+    8.53125,
+    8.5625,
+    8.59375,
+    8.625,
+    8.65625,
+    8.6875,
+    8.71875,
+    8.75,
+    8.78125,
+    8.8125,
+    8.84375,
+    8.875,
+    8.90625,
+    8.9375,
+    8.96875,
+    9,
+    9.03125,
+    9.0625,
+    9.09375,
+    9.125,
+    9.15625,
+    9.1875,
+    9.21875,
+    9.25,
+    9.28125,
+    9.3125,
+    9.34375,
+    9.375,
+    9.40625,
+    9.4375,
+    9.46875,
+    9.5,
+    9.53125,
+    9.5625,
+    9.59375,
+    9.625,
+    9.65625,
+    9.6875,
+    9.71875,
+    9.75,
+    9.78125,
+    9.8125,
+    9.84375,
+    9.875,
+    9.90625,
+    9.9375,
+    9.96875,
+    10,
+    10.03125,
+    10.0625,
+    10.09375,
+    10.125,
+    10.15625,
+    10.1875,
+    10.21875,
+    10.25,
+    10.28125,
+    10.3125,
+    10.34375,
+    10.375,
+    10.40625,
+    10.4375,
+    10.46875,
+    10.5,
+    10.53125,
+    10.5625,
+    10.59375,
+    10.625,
+    10.65625,
+    10.6875,
+    10.71875,
+    10.75,
+    10.78125,
+    10.8125,
+    10.84375,
+    10.875,
+    10.90625,
+    10.9375,
+    10.96875,
+    11,
+    11.03125,
+    11.0625,
+    11.09375,
+    11.125,
+    11.15625,
+    11.1875,
+    11.21875,
+    11.25,
+    11.28125,
+    11.3125,
+    11.34375,
+    11.375,
+    11.40625,
+    11.4375,
+    11.46875,
+    11.5,
+    11.53125,
+    11.5625,
+    11.59375,
+    11.625,
+    11.65625,
+    11.6875,
+    11.71875,
+    11.75,
+    11.78125,
+    11.8125,
+    11.84375,
+    11.875,
+    11.90625,
+    11.9375,
+    11.96875,
+    12
+  ],
+  "actual_key_count": 193,
+  "actual_midpoint_count": 192,
+  "clone_sanitized_guards": {
+    "real_SkeletonUtils_clone": true,
+    "clone_bones_distinct": true,
+    "sanitized_names_preserved": true,
+    "independent_clone_motion": true,
+    "duplicate_owner_rejection": "HorseIdleContract: another source idle owns this clone",
+    "unsanitized_name_rejection": "HorseIdleContract: source leaf name/order changed",
+    "original_name_metadata_rejection": "HorseIdleContract: source leaf name/order changed",
+    "dispose_idempotent": true,
+    "disposed_owner_released": true
+  },
+  "indexed_unique_vertices_per_pose": 11556,
+  "indexed_observations": 17308830,
+  "full_surface_position_and_normal_evaluations": 4449060,
+  "clocks": {
+    "target_sampling_max_error_s": 3.552713678800501e-15,
+    "initial_rest_delay_s": 0.1997553082648095,
+    "deterministic_playback_rate": 0.9870001024070661,
+    "pause_tests": [
+      {
+        "options": {
+          "visible": false
+        },
+        "elapsed_delta_s": 0,
+        "actual_bone_component_delta": 0
+      },
+      {
+        "options": {
+          "paused": true
+        },
+        "elapsed_delta_s": 0,
+        "actual_bone_component_delta": 0
+      },
+      {
+        "options": {
+          "reducedMotion": true
+        },
+        "elapsed_delta_s": 0,
+        "actual_bone_component_delta": 0
+      }
+    ],
+    "resume_error_s": 2.7755575615628914e-17,
+    "resume_actual_bone_component_delta": 0.0000027514810475581797,
+    "large_delta_unclamped_error_s": 2.220446049250313e-16,
+    "invalid_clock_rejections": [
+      "HorseIdleContract: invalid clock",
+      "HorseIdleContract: invalid clock",
+      "HorseIdleContract: invalid clock"
+    ],
+    "same_seed_status_exact": true,
+    "same_seed_bone_component_delta": 0,
+    "different_seed_parameters": true,
+    "partition_error_s": 3.9968028886505635e-15,
+    "partition_actual_bone_component_delta": 1.1102230246251565e-16
+  },
+  "played_clip_names": [
+    "sevket_reconstructed_head_tail_idle_v1"
+  ],
+  "play_calls": 7,
+  "loaded_clip_count": 7,
+  "actual_idle_clip_name": "sevket_reconstructed_head_tail_idle_v1",
+  "owned_adapter_player_count": 7,
+  "owned_adapter_players_retired": true,
+  "elapsed_ms": 3452.199999988079,
+  "no_renderer_or_WebGL": true,
+  "no_exhaustive_self_contact_or_native_visual_acceptance": true,
+  "started": "2026-10-22T18:24:40.047Z",
+  "finished": "2026-10-22T18:24:44.172Z",
+  "browser_closed": true,
+  "browser_errors": [],
+  "browser_warnings": [],
+  "caller_failure": null,
+  "preflight_sha256": "fa3957a6ca5651160c3400d4dd8d72377b1fb73dbb99ef8c354c44118e641d9e",
+  "caller_sha256": "4e9d5210e5c96a4b30ab7e431bdf18330ca9e3f3fdb61bfdeb6eda9c7441d98e",
+  "fixture_sha256": "5d6f217ee03ae898bf6794beb5b9c01b261b66cdf2b6fbfde40a128e4806c021",
+  "app_Git_mutation": false,
+  "retries": 0
+}

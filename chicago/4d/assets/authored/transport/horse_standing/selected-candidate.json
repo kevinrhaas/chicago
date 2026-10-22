@@ -1,0 +1,23 @@
+{
+  "uid": "53a6eb7ccf054aa2a378dd7ec08f88fe",
+  "dataset_path": "glbs/000-124/53a6eb7ccf054aa2a378dd7ec08f88fe.glb",
+  "name": "Horse",
+  "license": {
+    "uri": "https://api.sketchfab.com/v3/licenses/322a749bcfa841b29dff1e8a1bb74b0b",
+    "label": "CC Attribution",
+    "fullName": "Creative Commons Attribution",
+    "requirements": "Author must be credited. Commercial use is allowed.",
+    "url": "http://creativecommons.org/licenses/by/4.0/",
+    "slug": "by"
+  },
+  "author": "sevketkabatas",
+  "faces": 14986,
+  "vertices": 7524,
+  "isDownloadable": true,
+  "thumbnail": "https://media.sketchfab.com/models/53a6eb7ccf054aa2a378dd7ec08f88fe/thumbnails/11da51f99a444acdabdcec1d57d34037/c7ee607468c146879ef14f8c295b1940.jpeg",
+  "viewerUrl": "https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe",
+  "description": "",
+  "metadata_url": "https://api.sketchfab.com/v3/models/53a6eb7ccf054aa2a378dd7ec08f88fe",
+  "metadata_sha256": "7010efafde0d4e89460d9e0c69c9234cc2f25db981deece29a08b5b2a17812cb",
+  "status": 200
+}

@@ -1,0 +1,596 @@
+{
+  "phase": "materials",
+  "scope": "Development-base static smoke only, no photographic/anatomical/continuous-contact/ride/hitch/phone-hardware acceptance",
+  "pass": true,
+  "errors": [],
+  "requests": [
+    "http://127.0.0.1:40609/transport/standing-horse/horse-sevket-native.glb",
+    "http://127.0.0.1:40609/transport/standing-horse/horse-sevket-native.glb"
+  ],
+  "captures": [
+    {
+      "file": "source_native-side.png",
+      "sha256": "2ad743c26e06e0d717d17859c18bf5f0a51ef7c9e16b07a575dc3c2d65c6945a",
+      "state": {
+        "indexed_vertices": 11556,
+        "projected_bounds": {
+          "min": [
+            -0.06524344579684303,
+            -0.6151552377322116,
+            0.9938487147716695
+          ],
+          "max": [
+            0.22695253322654158,
+            0.6567073785360948,
+            0.996822445395078
+          ]
+        },
+        "world_bounds": [
+          [
+            -128.65596013775803,
+            -2.385321939968321e-10,
+            295.63822668005247
+          ],
+          [
+            -125.94863057427725,
+            1.780448696210343,
+            296.3628881461692
+          ]
+        ],
+        "meshes": [
+          {
+            "name": "BezierCurve005_Mesh005_0",
+            "bones": 15,
+            "vertices": 3275,
+            "metalness": 1,
+            "confidence_values": [
+              1
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "BezierCurve005_Mesh005_1",
+            "bones": 15,
+            "vertices": 4313,
+            "metalness": 1,
+            "confidence_values": [
+              1
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "BezierCurve005_Mesh005_2",
+            "bones": 15,
+            "vertices": 3968,
+            "metalness": 1,
+            "confidence_values": [
+              1
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        ],
+        "clips": [
+          "kafasallamaayak",
+          "kafasallama",
+          "kafasallamakuyruk",
+          "��ahakalkma2",
+          "kafasallama.001",
+          "��ahakalkma"
+        ],
+        "receipt": {
+          "material_variant": "source_native",
+          "root_y_m": -0.002472099442317407,
+          "support_quaternion_xyzw": [
+            0.0034569299659433193,
+            8.186949270382101e-8,
+            0.000023682575088531932,
+            0.9999940245193165
+          ],
+          "minimum_gap_by_hoof_m": {
+            "fore_l": 0.0000152848878080189,
+            "fore_r": 0,
+            "hind_l": 0.0004479331698117148,
+            "hind_r": 0.0005242263360885325
+          },
+          "equal_10mm_slab_minimum_gaps_m": {
+            "fore_l": 0.0000152848878080189,
+            "fore_r": 0,
+            "hind_l": 0.0004479331698117148,
+            "hind_r": 0.0005242263360885325
+          },
+          "mixer_count": 0,
+          "autoplay": false,
+          "native": {
+            "bounds": [
+              [
+                -0.9943228536449249,
+                -0.09537431257051554,
+                -3.1913002126610017
+              ],
+              [
+                0.9943187760889672,
+                4.823449701320227,
+                4.23044905156792
+              ]
+            ],
+            "meshes": 3,
+            "textures": 6,
+            "estimated_texture_mip_bytes": 23068671.999999996
+          }
+        },
+        "camera": {
+          "position": [
+            -122.8,
+            1.4,
+            296.2
+          ],
+          "quaternion": [
+            -0.038196184882429284,
+            0.7060743951315804,
+            0.03819618488242928,
+            0.7060743951315805
+          ],
+          "fov": 38
+        },
+        "stats": {
+          "draws": 7,
+          "triangles": 29974
+        }
+      }
+    },
+    {
+      "file": "source_native-three-quarter.png",
+      "sha256": "b8bb758cd455852f88b8a38dce5355a10e87e9749b13f76c276756fd413522a0",
+      "state": {
+        "indexed_vertices": 11556,
+        "projected_bounds": {
+          "min": [
+            -0.21540209234471008,
+            -0.4819762624834171,
+            0.9960148532756528
+          ],
+          "max": [
+            0.4853695146768278,
+            0.4491414384167523,
+            0.9972572204760178
+          ]
+        },
+        "world_bounds": [
+          [
+            -128.65596013775803,
+            -2.385321939968321e-10,
+            295.63822668005247
+          ],
+          [
+            -125.94863057427725,
+            1.780448696210343,
+            296.3628881461692
+          ]
+        ],
+        "meshes": [
+          {
+            "name": "BezierCurve005_Mesh005_0",
+            "bones": 15,
+            "vertices": 3275,
+            "metalness": 1,
+            "confidence_values": [
+              1
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "BezierCurve005_Mesh005_1",
+            "bones": 15,
+            "vertices": 4313,
+            "metalness": 1,
+            "confidence_values": [
+              1
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "BezierCurve005_Mesh005_2",
+            "bones": 15,
+            "vertices": 3968,
+            "metalness": 1,
+            "confidence_values": [
+              1
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        ],
+        "clips": [
+          "kafasallamaayak",
+          "kafasallama",
+          "kafasallamakuyruk",
+          "��ahakalkma2",
+          "kafasallama.001",
+          "��ahakalkma"
+        ],
+        "receipt": {
+          "material_variant": "source_native",
+          "root_y_m": -0.002472099442317407,
+          "support_quaternion_xyzw": [
+            0.0034569299659433193,
+            8.186949270382101e-8,
+            0.000023682575088531932,
+            0.9999940245193165
+          ],
+          "minimum_gap_by_hoof_m": {
+            "fore_l": 0.0000152848878080189,
+            "fore_r": 0,
+            "hind_l": 0.0004479331698117148,
+            "hind_r": 0.0005242263360885325
+          },
+          "equal_10mm_slab_minimum_gaps_m": {
+            "fore_l": 0.0000152848878080189,
+            "fore_r": 0,
+            "hind_l": 0.0004479331698117148,
+            "hind_r": 0.0005242263360885325
+          },
+          "mixer_count": 0,
+          "autoplay": false,
+          "native": {
+            "bounds": [
+              [
+                -0.9943228536449249,
+                -0.09537431257051554,
+                -3.1913002126610017
+              ],
+              [
+                0.9943187760889672,
+                4.823449701320227,
+                4.23044905156792
+              ]
+            ],
+            "meshes": 3,
+            "textures": 6,
+            "estimated_texture_mip_bytes": 23068671.999999996
+          }
+        },
+        "camera": {
+          "position": [
+            -123.7,
+            1.8,
+            300.5
+          ],
+          "quaternion": [
+            -0.07346614590602157,
+            0.35293349560256765,
+            0.027810158956372576,
+            0.932345037068514
+          ],
+          "fov": 38
+        },
+        "stats": {
+          "draws": 7,
+          "triangles": 29974
+        }
+      }
+    },
+    {
+      "file": "organic_dielectric_v1-side.png",
+      "sha256": "e3488a2832f7199a149a7cbcad8dc99a88e142c02d84df5c005d79e0c4a01620",
+      "state": {
+        "indexed_vertices": 11556,
+        "projected_bounds": {
+          "min": [
+            -0.06524344579684303,
+            -0.6151552377322116,
+            0.9938487147716695
+          ],
+          "max": [
+            0.22695253322654158,
+            0.6567073785360948,
+            0.996822445395078
+          ]
+        },
+        "world_bounds": [
+          [
+            -128.65596013775803,
+            -2.385321939968321e-10,
+            295.63822668005247
+          ],
+          [
+            -125.94863057427725,
+            1.780448696210343,
+            296.3628881461692
+          ]
+        ],
+        "meshes": [
+          {
+            "name": "BezierCurve005_Mesh005_0",
+            "bones": 15,
+            "vertices": 3275,
+            "metalness": 0,
+            "confidence_values": [
+              1
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "BezierCurve005_Mesh005_1",
+            "bones": 15,
+            "vertices": 4313,
+            "metalness": 0,
+            "confidence_values": [
+              1
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "BezierCurve005_Mesh005_2",
+            "bones": 15,
+            "vertices": 3968,
+            "metalness": 0,
+            "confidence_values": [
+              1
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        ],
+        "clips": [
+          "kafasallamaayak",
+          "kafasallama",
+          "kafasallamakuyruk",
+          "��ahakalkma2",
+          "kafasallama.001",
+          "��ahakalkma"
+        ],
+        "receipt": {
+          "material_variant": "organic_dielectric_v1",
+          "root_y_m": -0.002472099442317407,
+          "support_quaternion_xyzw": [
+            0.0034569299659433193,
+            8.186949270382101e-8,
+            0.000023682575088531932,
+            0.9999940245193165
+          ],
+          "minimum_gap_by_hoof_m": {
+            "fore_l": 0.0000152848878080189,
+            "fore_r": 0,
+            "hind_l": 0.0004479331698117148,
+            "hind_r": 0.0005242263360885325
+          },
+          "equal_10mm_slab_minimum_gaps_m": {
+            "fore_l": 0.0000152848878080189,
+            "fore_r": 0,
+            "hind_l": 0.0004479331698117148,
+            "hind_r": 0.0005242263360885325
+          },
+          "mixer_count": 0,
+          "autoplay": false,
+          "native": {
+            "bounds": [
+              [
+                -0.9943228536449249,
+                -0.09537431257051554,
+                -3.1913002126610017
+              ],
+              [
+                0.9943187760889672,
+                4.823449701320227,
+                4.23044905156792
+              ]
+            ],
+            "meshes": 3,
+            "textures": 6,
+            "estimated_texture_mip_bytes": 23068671.999999996
+          }
+        },
+        "camera": {
+          "position": [
+            -122.8,
+            1.4,
+            296.2
+          ],
+          "quaternion": [
+            -0.038196184882429284,
+            0.7060743951315804,
+            0.03819618488242928,
+            0.7060743951315805
+          ],
+          "fov": 38
+        },
+        "stats": {
+          "draws": 7,
+          "triangles": 29974
+        }
+      }
+    },
+    {
+      "file": "organic_dielectric_v1-three-quarter.png",
+      "sha256": "b2e3db23f37743e34fead7a1cd738b06a836164f38ad22b2037d7221d5aa664b",
+      "state": {
+        "indexed_vertices": 11556,
+        "projected_bounds": {
+          "min": [
+            -0.21540209234471008,
+            -0.4819762624834171,
+            0.9960148532756528
+          ],
+          "max": [
+            0.4853695146768278,
+            0.4491414384167523,
+            0.9972572204760178
+          ]
+        },
+        "world_bounds": [
+          [
+            -128.65596013775803,
+            -2.385321939968321e-10,
+            295.63822668005247
+          ],
+          [
+            -125.94863057427725,
+            1.780448696210343,
+            296.3628881461692
+          ]
+        ],
+        "meshes": [
+          {
+            "name": "BezierCurve005_Mesh005_0",
+            "bones": 15,
+            "vertices": 3275,
+            "metalness": 0,
+            "confidence_values": [
+              1
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "BezierCurve005_Mesh005_1",
+            "bones": 15,
+            "vertices": 4313,
+            "metalness": 0,
+            "confidence_values": [
+              1
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "name": "BezierCurve005_Mesh005_2",
+            "bones": 15,
+            "vertices": 3968,
+            "metalness": 0,
+            "confidence_values": [
+              1
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        ],
+        "clips": [
+          "kafasallamaayak",
+          "kafasallama",
+          "kafasallamakuyruk",
+          "��ahakalkma2",
+          "kafasallama.001",
+          "��ahakalkma"
+        ],
+        "receipt": {
+          "material_variant": "organic_dielectric_v1",
+          "root_y_m": -0.002472099442317407,
+          "support_quaternion_xyzw": [
+            0.0034569299659433193,
+            8.186949270382101e-8,
+            0.000023682575088531932,
+            0.9999940245193165
+          ],
+          "minimum_gap_by_hoof_m": {
+            "fore_l": 0.0000152848878080189,
+            "fore_r": 0,
+            "hind_l": 0.0004479331698117148,
+            "hind_r": 0.0005242263360885325
+          },
+          "equal_10mm_slab_minimum_gaps_m": {
+            "fore_l": 0.0000152848878080189,
+            "fore_r": 0,
+            "hind_l": 0.0004479331698117148,
+            "hind_r": 0.0005242263360885325
+          },
+          "mixer_count": 0,
+          "autoplay": false,
+          "native": {
+            "bounds": [
+              [
+                -0.9943228536449249,
+                -0.09537431257051554,
+                -3.1913002126610017
+              ],
+              [
+                0.9943187760889672,
+                4.823449701320227,
+                4.23044905156792
+              ]
+            ],
+            "meshes": 3,
+            "textures": 6,
+            "estimated_texture_mip_bytes": 23068671.999999996
+          }
+        },
+        "camera": {
+          "position": [
+            -123.7,
+            1.8,
+            300.5
+          ],
+          "quaternion": [
+            -0.07346614590602157,
+            0.35293349560256765,
+            0.027810158956372576,
+            0.932345037068514
+          ],
+          "fov": 38
+        },
+        "stats": {
+          "draws": 7,
+          "triangles": 29974
+        }
+      }
+    }
+  ],
+  "inputPins": {
+    "/workspace/shared/horse-public-base-search-20261022/horse-53a6eb7ccf054aa2a378dd7ec08f88fe.glb": "41acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988",
+    "/workspace/shared/horse-standing-intake-proposal-V2-20261022/proposed/renderers/web/js/standing-horses.js": "65bce03ad9a165ba65ec7ee52eee10ae6ac29266bab38784b88a5d50ca3fd244",
+    "/workspace/shared/horse-standing-intake-proposal-V2-20261022/proposed/data/transport/parked/standing-horses.json": "6ba0b19bb16e72a1888d7c9ae97efde1ff998b393fbfcd76b36ff8c42422d1aa",
+    "/workspace/shared/horse-standing-intake-proposal-V2-20261022/proposed/data/transport/parked/horse-sevket-sidecar.json": "3ba16db2f4fee984431c75477867a7780fe55378fdd4ac3f89cb91465dade80a",
+    "/workspace/shared/horse-standing-smoke-HELD-20261022/materials.js": "300e48e6d98f539579038a573ec2233e7a5bc0ab0c422b661ba84462db2657c0",
+    "/workspace/shared/horse-standing-smoke-HELD-20261022/materials.html": "c94b5b0c61988580c5decee186be7ebcde0729dd69200ebe60381147a27aa04e",
+    "/workspace/shared/horse-standing-smoke-HELD-20261022/capture_smoke.mjs": "c8c9a3e32f0cc15932529ffa6280dd6c079312273c8b44fbda2a3e373477ad22",
+    "/workspace/shared/horse-standing-smoke-HELD-20261022/run_owned.py": "d706e2443a93c1e6921bf84a3d32abb0fb4f74cab4b07f0667acacd5907f3bd0",
+    "/workspace/chicago/chicago/4d/renderers/web/js/confidence.js": "69ec0af83ae1bb50eeea150ec3b7b49c1c330e12129b1a3e37997ae2a9d894ce",
+    "/workspace/chicago/chicago/4d/renderers/web/js/scene-loader.js": "6de3ba8e27798dcd7ca2fed1deedd1513e686d2188a2e994d8e6b2ea9b53becf"
+  },
+  "started": "2026-10-22T14:43:04.533Z",
+  "closed": true,
+  "ended": "2026-10-22T14:43:11.807Z",
+  "inputs_unchanged": true
+}

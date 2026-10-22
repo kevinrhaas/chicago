@@ -5619,3 +5619,13 @@ Original refined W01 farm-box wagons replace three existing1835 stands at close 
 
 
 - T-2980: two empty covered derivatives now preserve exact per-ID finishes/aging, original stands/bearings/yokes and legacy fallback. Actual22-image source/published desktop/mobile inspection, eight runtime/clearance sets and four disposals passed under unchanged budgets/GL0; no page/console errors or request failures. Source/geometry/hull/conservative-host proof is bounded, not full physical collision. Photographic cloth/wood/iron finishing, compressed distinct LODs and full-app memory/tier acceptance remain open. Full preflight/current qualification and the parent X-RAY/Ghost budget failure must be resolved before ordinary DEV merge. People, horses, driving and boarding remain open.
+
+
+## T-2800 — first static horse increment; photographic master remains open (2026-10-22)
+
+Integrated one reconstructed standing horse in the1835Western Hotel yard through a dedicated skinned consumer, using an unchanged licensed modern development base and explicit modern credit. Root reviewed the actual flat-plane material comparison and accepted the reconstructed scale/support/contact development bounds. The individual, breed and owner are unidentified; no period likeness or breed is asserted. The source retains15joints/six clips without playback; the older harness fixture is untouched.
+
+Next acceptance: actual normally published-yard desktop then mobile inspection, real triangle-ground minimum gaps, bounded support-cache bytes and normal coarse-array release, all source groups/feet, card/credit/confidence, far/light no-fetch, teardown and existing render budgets. Then improve the solid mane/pointed tail/coarse eyes/1Kcoat and larger anatomy toward a photographic master, produce meaningful LODs and qualified gaits, and fit period gear before hitching/riding/boarding. This increment does not close T-2800 or any dependent capability ticket. See docs/RESEARCH/standing-horse-development-T-2800/.
+
+
+T-2803 standing-idle increment (2026-10-22): source-bound normalized head/tail-only idle is wired into the existing lazy standing layer, preserving source 41acd, reconstructed yard placement, support cache and phone-light guards. Actual 385-pose loaded CPU/hoof/lower-limb/clock proof and independent consumer review passed; root authorized gentle idle activation. Current-target full gate, native published desktop/mobile/GPU and exhaustive neck/tail self-contact review remain open. The original six clips are not a walk and never autoplay. Independent four-limb bind-study work remains outside app; actual gait/stance/gear/team circuits and full photographic master are still open.

@@ -1,0 +1,39 @@
+{
+  "status": "ACTUAL_NORMALIZED_APPEND_STRUCTURAL_CURVE_KHRONOS_PASS_ONLY",
+  "source_sha256": "ceefa279b1602b97eac707cec19b2fbbb25c4442788981d82b20ac99ca205afc",
+  "derived_sha256": "c2559073966cfb5b2c9d2c536ca03fbf03b71734f9a11ffcff48d4ec86e4d25c",
+  "derived_bytes": 3377384,
+  "normalized_BIN_bytes": 3276268,
+  "appended_BIN_bytes": 19300,
+  "normalized_buffer_prefix_and_all_views_exact": true,
+  "normalized_nodes_skins_inversebinds_meshes_maps_materials_accessors_and_6animations_exact": true,
+  "original_six_decoded_keys_preserved_by_verified_normalized_lineage": true,
+  "new_tracks": [
+    {
+      "node": 17,
+      "actual_exported_float32_stream_equals_reviewed_bundle": true,
+      "input_count": 193,
+      "output_VEC4_count": 579,
+      "actual_new_view_no_byteStride": true,
+      "native_endpoint_values_and_zero_tangents": true
+    },
+    {
+      "node": 19,
+      "actual_exported_float32_stream_equals_reviewed_bundle": true,
+      "input_count": 193,
+      "output_VEC4_count": 579,
+      "actual_new_view_no_byteStride": true,
+      "native_endpoint_values_and_zero_tangents": true
+    }
+  ],
+  "baseline_khronos_sha256": "4d300a507fb2309cc20bd480db3154888444df7854c7ca662c2db30076afb8c5",
+  "derived_khronos_sha256": "8fb96f1c00c96d72a2bd996a5f2a28a18414b0e2ced50f4c5f19fcf1bf6c1602",
+  "whole_asset_errors": 0,
+  "whole_asset_warnings": 0,
+  "whole_asset_infos": 97,
+  "untruncated": true,
+  "new_animation6_issues": 0,
+  "issue_arrays_exact": true,
+  "elapsed_seconds": 0.028752303012879565,
+  "scope": "Actual normalized derivative byte/curve/conformance proof only; idle Mixer/fullsurface/contact/selfcontact/native visuals and application acceptance NOT RUN"
+}
