@@ -1,0 +1,24 @@
+{
+  "id": "studebaker_1893_illustrated_souvenir",
+  "type": "book",
+  "citation": "Studebaker Brothers Manufacturing Company. Illustrated Souvenir [of Carriages]. 1893. Lithographs by Gies & Company, Buffalo, New York. Library of Congress copy, Internet Archive illustratedsouve00stud.",
+  "author": "Studebaker Brothers Manufacturing Company",
+  "date": "1893",
+  "describes_date": "1893",
+  "locator": "Title leaf0013; Chicago manufacturing description leaf0023; Brougham leaf0095; Farm Wagon No4 leaf0103; Fancy Parcel Wagon No382 leaf0107; Platform Express No345 leaf0065. Leaves refer to original JP2 scan suffix, not inferred printed page.",
+  "url": "https://archive.org/details/illustratedsouve00stud",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "asset_use": "geometry",
+  "verified": true,
+  "note": "Actual first-party text and selected color plates downloaded and viewed21Oct2026. Publication copyright1893; LoC metadata says unaware of any copyright restrictions. Title lists Chicago branch and body text describes fine-carriage manufacture in Chicago. This supports actual maker/type availability before1904, not a named household ownership, a particular specimen on Prairie Avenue, unchanged1904 production, exact dimensions or market-share/popularity figures. Plate colors are depicted1893 catalog colors, not proven pigment values.",
+  "rights_note": "1893 United States publication; original copyright expired. IA metadata of LoC copy states: The Library of Congress is unaware of any copyright restrictions for this item. Institutional scans and selected plate/text hashes are retained in the21Oct evidence packet.",
+  "what_it_supplies": [
+    "Documented1893 maker/catalog types: Brougham(0095), Farm Wagon No4(0103), Fancy Parcel Wagon No382(0107)",
+    "Depicted silhouette, components, plate colors and pair-team arrangement; Chicago business presence in title/0023 text"
+  ],
+  "what_it_does_not_supply": [
+    "Absolute metric dimensions, mechanical certification, material species/pigments, hidden/opposite elevations",
+    "A particular1904 Chicago household owner or specimen presence; market share/popularity rankings"
+  ]
+}

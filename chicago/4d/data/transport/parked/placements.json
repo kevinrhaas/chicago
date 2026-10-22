@@ -1,0 +1,201 @@
+{
+  "_doc": "Parked type reconstructions. Existing1835 coordinates are reused;1904 curbside parking is invented within the street grid. No model is assigned a maker or historical owner. L-parked-vehicles-2979.",
+  "models": {
+    "wagon_w01": {
+      "file": "transport/parked-wagon/wagon-w01.glb",
+      "type": "Farm-box wagon",
+      "basis": "Original reconstructed farm-box geometry follows the existing1835 yard envelope, with individual boards, iron hardware and original procedural finish. No exact manufacturer/model is established.",
+      "wheel_contacts_m": [
+        [
+          -0.605,
+          -1.175
+        ],
+        [
+          -0.605,
+          1.175
+        ],
+        [
+          0.605,
+          -1.175
+        ],
+        [
+          0.605,
+          1.175
+        ]
+      ]
+    },
+    "carriage_c02": {
+      "file": "transport/parked-carriage/carriage-c02.glb",
+      "type": "Enclosed town carriage",
+      "basis": "Original enclosed-carriage reconstruction for1904, with a dark cabin, painted running gear and glazed openings. It is not identified as a particular maker, catalog model or person's carriage.",
+      "wheel_contacts_m": [
+        [
+          -0.7,
+          -0.95
+        ],
+        [
+          -0.7,
+          0.95
+        ],
+        [
+          0.7,
+          -0.95
+        ],
+        [
+          0.7,
+          0.95
+        ]
+      ],
+      "support_file": "transport/parked-carriage/shaft-rest.glb"
+    },
+    "covered_w01_western_blue": {
+      "file": "transport/covered-wagon/covered_w01_western_blue/covered-w01.glb",
+      "type": "Covered wagon",
+      "basis": "Original empty covered-wagon reconstruction with faded blue body and oxide running gear, open canvas ends, bows, restrained seams/folds and a laid-by ox yoke. The original record ID and exact coordinates retain its seeded finish family and canvas aging. Canvas construction, color, wear and bows are reconstructed; no manufacturer, historical owner or load is identified. Source-owned donor bench/footboard were omitted; occupied, driver, hitch, collision, riding and boarding interfaces are unsupported.",
+      "wheel_contacts_m": [
+        [
+          -0.605,
+          -1.175
+        ],
+        [
+          -0.605,
+          1.175
+        ],
+        [
+          0.605,
+          -1.175
+        ],
+        [
+          0.605,
+          1.175
+        ]
+      ]
+    },
+    "covered_w01_wolfpoint_oak": {
+      "file": "transport/covered-wagon/covered_w01_wolfpoint_oak/covered-w01.glb",
+      "type": "Covered wagon",
+      "basis": "Original empty covered-wagon reconstruction with aged oak body and dark oak running gear, open canvas ends, bows, restrained seams/folds and a laid-by ox yoke. The original record ID and exact coordinates retain its seeded finish family and canvas aging. Canvas construction, color, wear and bows are reconstructed; no manufacturer, historical owner or load is identified. Source-owned donor bench/footboard were omitted; occupied, driver, hitch, collision, riding and boarding interfaces are unsupported.",
+      "wheel_contacts_m": [
+        [
+          -0.605,
+          -1.175
+        ],
+        [
+          -0.605,
+          1.175
+        ],
+        [
+          0.605,
+          -1.175
+        ],
+        [
+          0.605,
+          1.175
+        ]
+      ]
+    }
+  },
+  "scenes": {
+    "1835": [
+      {
+        "id": "parked_western_hotel_wagon_yard_wagon",
+        "model": "wagon_w01",
+        "name": "Farm-box wagon",
+        "replaces": "western_hotel_wagon_yard_wagon",
+        "belongs_to": "western_hotel",
+        "location": "Existing 1835 wagon stand",
+        "at_local_enu_m": [
+          -133.05,
+          -289.5
+        ],
+        "bearing_deg": 0.0,
+        "source_ids": [
+          "chicagology_prefire278"
+        ],
+        "liberty": "L-parked-vehicles-2979",
+        "note": "A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon."
+      },
+      {
+        "id": "parked_town_wagon_western_hotel_wagon_yard_2",
+        "model": "wagon_w01",
+        "name": "Farm-box wagon",
+        "replaces": "town_wagon_western_hotel_wagon_yard_2",
+        "belongs_to": null,
+        "location": "Existing 1835 wagon stand",
+        "at_local_enu_m": [
+          -130.05,
+          -290.0
+        ],
+        "bearing_deg": 176.2,
+        "source_ids": [],
+        "liberty": "L-parked-vehicles-2979",
+        "note": "A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon."
+      },
+      {
+        "id": "parked_town_wagon_wolf_point_tavern_yard_2",
+        "model": "wagon_w01",
+        "name": "Farm-box wagon",
+        "replaces": "town_wagon_wolf_point_tavern_yard_2",
+        "belongs_to": null,
+        "location": "Existing 1835 wagon stand",
+        "at_local_enu_m": [
+          -86.5,
+          -39.0
+        ],
+        "bearing_deg": 191.2,
+        "source_ids": [],
+        "liberty": "L-parked-vehicles-2979",
+        "note": "A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon."
+      },
+      {
+        "id": "parked_town_wagon_western_hotel_wagon_yard_1",
+        "model": "covered_w01_western_blue",
+        "name": "Covered wagon \u2014 blue and oxide",
+        "replaces": "town_wagon_western_hotel_wagon_yard_1",
+        "belongs_to": null,
+        "location": "Existing 1835 covered-wagon stand",
+        "at_local_enu_m": [
+          -136.05,
+          -291
+        ],
+        "bearing_deg": 356.2,
+        "source_ids": [],
+        "liberty": "L-covered-wagons-2980",
+        "note": "An empty, unhitched reconstructed covered type at its unchanged earlier stand and bearing; the old stable identity determines its distinct finish and canvas aging. The original laid-by yoke is retained, not attached to a team. No owner, maker, driver or cargo is identified; riding and boarding are unavailable."
+      },
+      {
+        "id": "parked_town_wagon_wolf_point_tavern_yard_1",
+        "model": "covered_w01_wolfpoint_oak",
+        "name": "Covered wagon \u2014 oak and dark oak",
+        "replaces": "town_wagon_wolf_point_tavern_yard_1",
+        "belongs_to": null,
+        "location": "Existing 1835 covered-wagon stand",
+        "at_local_enu_m": [
+          -90.5,
+          -39.5
+        ],
+        "bearing_deg": 356.2,
+        "source_ids": [],
+        "liberty": "L-covered-wagons-2980",
+        "note": "An empty, unhitched reconstructed covered type at its unchanged earlier stand and bearing; the old stable identity determines its distinct finish and canvas aging. The original laid-by yoke is retained, not attached to a team. No owner, maker, driver or cargo is identified; riding and boarding are unavailable."
+      }
+    ],
+    "1904": [
+      {
+        "id": "prairie_parked_carriage",
+        "model": "carriage_c02",
+        "name": "Enclosed town carriage",
+        "belongs_to": null,
+        "location": "Prairie Avenue near Eighteenth Street",
+        "at_local_enu_m": [
+          1397.6,
+          -3228.2
+        ],
+        "bearing_deg": 178.99,
+        "source_ids": [],
+        "liberty": "L-parked-vehicles-2979",
+        "note": "A reconstructed temporary curbside stop in the1904 carriageway, clear of the sidewalk and crossing. Its location does not identify the owner or imply use by the Glessner household. Empty and unhitched; doors remain closed and boarding is not enabled."
+      }
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "asset_id": "carriage_shaft_rest_1904_reconstructed_01",
+  "license": "GPL-3.0-or-later",
+  "scene_year": 1904,
+  "confidence": "reconstructed",
+  "units": "m",
+  "up_axis": "+Y",
+  "forward_axis": "+Z",
+  "root_datum": "Same ground midpoint-between-axles datum as exact carriage; transform both together",
+  "carriage_sha256": "f02c6a4ed9537546d5576ac9d15b881ae684920d5233a62f83387b015bf5af39",
+  "original_carriage_bytes_changed": false,
+  "dimensions": {
+    "station_z_m": 2.8,
+    "crossbar_width_m": 1.08,
+    "crossbar_depth_m": 0.07500004768371582,
+    "crossbar_bottom_y_m": 0.6305657029151917,
+    "crossbar_top_y_at_depth_ends_m": [
+      0.7105656862258911,
+      0.7146041393280029
+    ],
+    "feet_width_m": 0.13,
+    "feet_fore_aft_length_m": 0.34,
+    "feet_height_m": 0.045,
+    "leg_width_m": 0.055
+  },
+  "source_fit": {
+    "owner": "surface_355_1",
+    "position_accessor": 58,
+    "section_z_planes_m": [
+      2.762500047683716,
+      2.8375000953674316
+    ],
+    "full_clipped_triangle_vertex_checks": 64,
+    "minimum_signed_nonpenetration_m": 7.41694780037605e-08,
+    "contact_scope": "Crossbar is at or below every original clipped shaft triangle; microscopic float32-rounding gap is deliberate",
+    "original_section_min_y_m": [
+      0.7105657603953691,
+      0.7146042252817429
+    ]
+  },
+  "parts": [
+    {
+      "name": "crossbar",
+      "triangle_start": 0,
+      "triangle_count": 12
+    },
+    {
+      "name": "foot_left",
+      "triangle_start": 12,
+      "triangle_count": 12
+    },
+    {
+      "name": "splayed_leg_left",
+      "triangle_start": 24,
+      "triangle_count": 12
+    },
+    {
+      "name": "foot_right",
+      "triangle_start": 36,
+      "triangle_count": 12
+    },
+    {
+      "name": "splayed_leg_right",
+      "triangle_start": 48,
+      "triangle_count": 12
+    }
+  ],
+  "statistics": {
+    "triangles": 60,
+    "meshes": 1
+  },
+  "liberty": "The timber trestle form, dimensions, position, color and use here are original unmeasured engineering reconstruction, not a manufacturer or archival hardware identification. No force/load/stability acceptance."
+}

@@ -475,6 +475,12 @@ if [ -d data/yard ]; then
   cp -a data/yard "$SITE/data/yard"
 fi
 
+# The parked vehicles fetch their placement manifest from the scene data base.
+# Their authored GLBs already travel with renderers/web; publish the data too.
+mkdir -p "$SITE/data/transport"
+rm -rf "$SITE/data/transport/parked"
+cp -a data/transport/parked "$SITE/data/transport/parked"
+
 # The wharf layer — the river docks at the two forwarding warehouses whose own
 # records state one, drawn by renderers/web/js/wharves.js straight from these
 # numbers. Same argument as the enclosures, the signage and the yard above and

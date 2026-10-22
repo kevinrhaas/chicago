@@ -628,6 +628,7 @@ export async function createStreetGrid({
     surfaces: null,
     census: { carriageways: 0, faces: 0, alleys: 0, parcels: 0, triangles: 0, surfaced: 0, textured: 0 },
     parcelAt: () => null,
+    carriagewayHeight: () => null,
     setLotLines: () => {},
     pickAt: () => null,
     dispose: () => {},
@@ -962,18 +963,33 @@ export async function createStreetGrid({
       }
     }
   }
+  const roadStandSurfaces = [];
   for (const w of ways) {
     const quads = w.items.filter((it) => it.quad).map((it) => it.quad);
     const polys = [...w.items.filter((it) => it.poly),
       ...w.extra.flatMap((x) => (x.sliver ? x.sliver.polys.map((poly) => ({ poly, frame: x.frame })) : [x]))];
     if (quads.length || polys.length) {
       push('carriageway', w.id, quads, w.tier, w.surface, { priority: w.priority, pieceOf: w.pieceOf, polys });
+      roadStandSurfaces.push({ polygons: [...quads, ...polys.map(p => p.poly)],
+        lift: CLASSES.carriageway.lift + w.priority * PRIORITY_LIFT_M });
     }
     for (const m of w.margins) {
       push('carriageway', w.id, [], w.tier, w.surface, { priority: w.priority, seam: m.edge, polys: [m] });
       out.census.seams += 1;
     }
   }
+  // Vehicles stand on the same clipped carriageway and display lift we just drew,
+  // not the uncut heightfield above the depressed road (T-2979).
+  out.carriagewayHeight = (e, n) => {
+    let lift = null;
+    for (const surface of roadStandSurfaces) {
+      if (surface.polygons.some(poly => pointInPolygon(e, n, poly))) {
+        lift = Math.max(lift ?? -Infinity, surface.lift);
+      }
+    }
+    const ground = terrain.surfaceHeight(e, n);
+    return lift === null || !Number.isFinite(ground) ? null : ground + ROAD + lift;
+  };
   for (const a of grid.alleys ?? []) {
     const s = surfaceOf(surfaces, 'alley', a.id);
     push('alley', a.id, a.quads_local_m ?? [], a.geometry_tier, s);

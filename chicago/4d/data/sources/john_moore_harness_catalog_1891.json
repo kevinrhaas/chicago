@@ -7,19 +7,22 @@
   "describes_date": "1891",
   "repository": "Columbia University Libraries, digitized copy at Internet Archive",
   "url": "https://archive.org/details/fineharnesssaddl1891john",
-  "locator": "Printed p. 1, BUGGY HARNESS, No. 1; full-text OCR at https://archive.org/stream/fineharnesssaddl1891john/fineharnesssaddl1891john_djvu.txt",
+  "locator": "Printed p.1 BUGGY HARNESS No.1, direct page image at https://archive.org/download/fineharnesssaddl1891john/page/n2.jpg; printed p.16 English Style Coach Harness at page/n17.jpg; printed p.34 English Saddles illustration at page/n35.jpg. Image endpoint n is the zero-based DjVu object index, not scandata leafNum.",
   "tier": 1,
   "rights_status": "public_domain",
   "rights_note": "Reasoned US public-domain assessment based on New York publication in 1891. Internet Archive metadata supplies publication information but no explicit rights grant. Only factual construction text was used; no plates, image pixels, base meshes or textures were derived.",
   "asset_use": "geometry",
-  "verified": false,
-  "note": "Catalog metadata and OCR text were actually read 2026-10-18; page/plate images have not been visually verified because archive storage redirects remain denied. OCR describes folded/stitched breast collar, breeching and girth, straight stitched 1-inch traces, flat reins, bridle with round check rein and plated front, nickel or Davis rubber trim. Component list and 25.4 mm trace-width conversion bound an original development harness only. Width is text-reported, not scan-verified attestation. All other dimensions, routes, fittings, colors and fit remain reconstructed. This is a light driving harness family, not riding equipment or a full collar/hames harness. No Chicago owner, 1835 use or particular horse is established.",
+  "verified": true,
+  "note": "Printedp1 was directly viewed2026-10-22 and confirms No.1 folded/stitched breastcollar, breeching/girth, straight stitched1-inch traces, flat reins, neat bridle, round check rein and platedfront;25.4mm conversion is text-supported. No.1 has no complete harness drawing on that text page; exact strap routes, fittings, buckle/mouthpiece construction and fit remain reconstructed. Printedp16 No.100 describes an English coach family with patentleather collars, platednickel hames and1 1/4-inch traces; this is a separate family, never silently combined with No.1. Printedp34 depicts an English riding saddle; its underside, dimensions, stirrup attachment and full bridle are not shown. These1891 NewYork commercial records support before1904 American market availability only, not Chicago ownership, popularity ranking or1812/1835 eligibility. No source pixels or new geometry are shipped by this source update.",
   "what_it_supplies": [
-    "An 1891 American commercial light-harness component recipe as OCR-read, pending original-page verification."
+    "Directly inspected1891 printedp1 light-driving harness component recipe and1-inch(25.4mm) trace width.",
+    "Directly inspected printedp16 separate English Style Coach Harness family, No.100 collar/hames and1 1/4-inch trace description.",
+    "Directly inspected printedp34 English riding-saddle engraving and advertised starting price; qualitative visible form only."
   ],
   "what_it_does_not_supply": [
-    "Measured fit to the project horse or vehicle.",
-    "Proof this precise equipment was used by a named Chicago person or in 1835.",
-    "Verified plate shapes or photographic materials."
-  ]
+    "Measured fit to the projecthorse/vehicle, load/pressure suitability or full strap construction.",
+    "NamedChicagoownership, actuallocalpurchase or1812/1835 use.",
+    "No.1 complete drawn harness; saddle underside/tree/stirrup geometry; photographic materials or originalcolors."
+  ],
+  "access_notes": "Previous proxy-denied page access is historical. Normal public metadata, scandata, OCR XML and targeted JPEG requests succeededHTTP200 on2026-10-22. Direct images p1,p2,p3,p16,p34 actually viewed. The initial request n3 was misleadingly saved with p1/leaf3 in its filename; actual printedp2 was identified, preserved and corrected in the acquisition ledger. No source-page failure is hidden."
 }
