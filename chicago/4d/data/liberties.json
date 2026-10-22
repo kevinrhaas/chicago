@@ -49966,6 +49966,40 @@
       ]
     },
     {
+      "id": "L-glessner-court-fall-2978",
+      "title": "Glessner's court ground falls to the passage mouth; the lawn kept on north grade",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-22",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the courtyard of John J. Glessner House is no longer one level. HABS sheet 4's section draws the court lawn along the east wing's court face at one line and the ground beside the passage mouth 1.32 ft lower, falling across plan S 53.15-62.35 to reach it at the north jamb, and the opening's foot 1.02 ft lower again. **What is read.** Those three lines, on the sheet's own controls (97.7 px/ft up); earlier work's zero, y 5858, is the lawn line, not the ground the sheet draws at the 18th Street wall (y 5991). Read over the lawn, the court face's heights are what the sheet measured, and they stand. The court mouth's floor is laid at the opening's foot, so the passage clears 9.67 ft under the court lintel (sheet 9.65), and earlier work's 10-ft ramp rises 1.05 ft to the sunk drive. **What is invented.** Where the lawn stands over the streets: the sheets bound it at 0 to +1.25 ft over the 18th Street grade (on the street-side zero the roof and the passage floor agree with sheet 6, on the lawn zero the 18th Street wall agrees with sheet 5 and the photographs) and the model keeps it on north grade, so the passage floor falls 1.1 ft from its street mouth to its court mouth. The fall's extent westward (full depth to the section plane at W 51.5, back to the court's level by W 71.5), its straight slopes, the rough-stone footing run down to it at the tower and beside the mouth, and the strip between the drive and 1808 Prairie's wall kept at the court's level behind the drive's edge (the sheet draws the ground south of the mouth low too). **What is not changed.** Every court-face opening, lintel, eave, dormer and tower height; the street mouth's floor; the drive's plan."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a survey or a dated photograph that shows the court lawn against the 18th Street or Prairie Avenue walk, or the court mouth's floor against the street mouth's, before the court was paved for parking in 1946."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on glessner section datum this work/."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-22 (T-2978)."
+        }
+      ],
+      "work_refs": [
+        "T-2978",
+        "T-2228",
+        "T-2976"
+      ]
+    },
+    {
       "id": "L-draft-district-background-3009",
       "title": "The background behind Prairie Avenue continued: Indiana Avenue's east frontage, 20th to 22nd Street, stood up as drafts where Prairie's sidewalks see it, with the First Presbyterian Church on the 21st Street corner",
       "section": "per_subject",
