@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2186, ts: '2026-10-22T15:58:52.281Z', date: 'Oct 22, 2026, 10:58 AM CT', title: '1801 Prairie\'s south pavilion stands nearer its photograph', kind: 'fix',
+    items: [
+      'The Kimball house\'s south pavilion on Prairie Avenue now starts right beside the bowed bay,, as J. W. Taylor\'s photograph of about 1895 shows. Its stone gable now springs about 0.7 m lower, so the gable, pinnacles and finial meet the photograph\'s heights. The top-floor pair of windows now sits about 0.8 m higher, close under the band below the gable, as the photograph shows. The pavilion\'s south corner still stands a little south of the photograph\'s. That is next: the 1911 map draws the corner cut back at an angle.',
+    ] },
   { v: 2185, ts: '2026-10-22T15:41:11.504Z', date: 'Oct 22, 2026, 10:41 AM CT', title: 'Glessner\'s courtyard: the bow\'s downpipe, built to its drawing', kind: 'change',
     items: [
       'The downpipe at the north end of the bow now hangs from its gutter under a squared head, as the 1963 measured drawing shows it. The head\'s front steps in to the pipe a foot below.',
