@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-16-prairie-front",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "8febcc7455b381caa3599a59a832091d001c32601394143ae6902e1e6bd08b7b",
+  "glb_sha256": "e4b3f9f5bf0216773ef887dcad32782312f6a3d73a7094b9f1fefe4333d559ed",
   "camera_sha256": "a6cab11dcafff11f11d93e858c37ba17f45a1f59a8a82f28cf0431c025755e50",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-16-prairie-front-side-by-side.jpg",
   "verdict": "differs",
@@ -17,6 +17,10 @@
     },
     {
       "what": "T-2858 south pier: on sheet 6's openings, with the far jambs seen at the sash, the south corner pick reads 0.87 ft in from the corner, where sheet 6 draws the downspout it stands on (0.82 ft). The pier stands as built.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2974 first-floor lights and basement grilles registered on the beds: the lights' sills to bed 8 (8.71 from 9.2) and heads to the sheet's 5.6 ft over them (14.3 from 14.5), the grilles' heads to bed 4 (4.54 from 4.7). Read through this camera, the light's opening is 95 px high against the plate's 94.5 (90 before) and its sill stands 77.5 px over the grille's head against 75.5 (83 before). Every row on the render lies 8-10 px under the plate's alike (head, sill and grille), which is the camera's reconstructed height, not the openings (docs/RESEARCH/glessner-prairie-openings-T-2974/).",
       "status": "fixed"
     },
     {

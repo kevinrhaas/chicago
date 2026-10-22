@@ -126,7 +126,7 @@
         "corner_bond": []
       },
       "confidence": "reconstructed",
-      "note": "The plate's front is rock-faced ashlar in large courses with dressed trim; the T-1837 register reads it brown sandstone (frontage-28-050). The colour is the register's, not the plate's. The smooth ashlar of the bay's upper stage is T-2542's."
+      "note": "The plate's front is rock-faced ashlar in large courses with dressed trim; the T-1837 register reads it brown sandstone (frontage-28-050). The colour is the register's, not the plate's. The north bay is rock-faced in large courses only up to its first floor's sill course, its upper stage smooth ashlar, as the plate shows (T-2987, on the bay's own `masonry`)."
     },
     "street_front_trim": {
       "value": {
@@ -281,6 +281,13 @@
               0.12
             ],
             "foot_rail_m": 0.1
+          },
+          "masonry": {
+            "course_m": 0.6,
+            "block_m": 1.1,
+            "joint_m": 0.01,
+            "relief_m": 0.04,
+            "to_m": 5.0
           }
         },
         {
@@ -351,7 +358,7 @@
         "sanborn_1911_chicago_v3_sheet_28",
         "inland_architect_1888_10_ames_residence"
       ],
-      "note": "Read off the plate through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json). NORTH BAY: the front block's north part stands forward of the entrance block (the sheet's stone part p1 draws it about 1.0 m proud); its front, x 112-287 px, is about 3.7 m wide at the bay's own scale (47.4 px/m), with two windows a storey at about 0.3 and 0.78 of its front, iron-grilled basement lights under them, and a cornice at about 8.3 m over which the third storey stands back behind a pierced stone balcony. Built as K08's square-cornered full-height projection, two storeys from grade to 8.4 m: the plate shows (and the sheet draws) its north face CANTED, which K08 has no shape for; that and the bay's smooth upper stage are open on the match record. T-2916: the bay is three storeys of K08, a 1.75 m basement storey under the 3.25 m ground storey and the 2.944 m first, so the string course at 1.67-1.83 m stands where the plate's smooth sill course does (about 1.6-1.9 m, under the ground-floor sills at 2.05 m, unchanged); in it a basement light under each window, 0.95 m across and 1.0 m high from 0.22 m, the plate's lights at x 139-184 and 235-272 px and y 765-819 px (about 1.2 m down to just over grade: the head is the plate's, the sill stands 0.16 m higher because K06's sill stone, 0.1 m deep under the light, must stand on the plinth, not in its face), each barred in K08's grille (five bars and a ring: the plate's grilles are scrolled panels, which the kit draws as bars and one scroll); the bay's plinth is 0.1 m (the kit's 0.6 m would cover the lights' lower half, and the plate's rock-faced courses run down to the walk). On the bay's flat deck a stone balustrade round its cheeks and front (K08's balcony in the bay's stone, T-2780/T-2888): 0.7 m high, the plate's panel and coping at y 392-425 px, 0.3 m posts at the corners as the plate's piers are, a 0.22 m coping, and close-set stone bars at 0.12 m where the plate's panels are pierced fretwork (its interlace is not carved; the bars carry the panel's pierced light and shade). ORIEL: over the entrance arch, corbelled out from about 5.2 m, its front x 340-465 px (about 2.8 m) with three tall transomed lights and a window in each return, its cornice at about 9.1 m; built as K08's corbelled oriel 0.5 m out on three corbel courses from 4.4 m, its returns canted 0.2 m (the plate's are square, and stand further out: K08's oversail rule holds three courses to 0.52 m, and a fourth would bring the corbel down onto the arch). T-2542: carried through the street eave as 1623's is (T-2778), so the eave and the moulded stone cornice die into its cants, under its steep pyramid and finial on K08's spire: its wall top 9.46 m (one 4.46 m storey from 5.0 m), 0.4 m over the plate's cornice at 9.06 m because K01 carries an oriel through the eave only 0.3 m past the eave datum (9.14 m), and its spire rising 2.1 m toward the plate's apex at about 12.0 m. The bay's wall top is the stone cornice's foot (7.94 m), the cornice carried round it to 8.30 m, the plate's 8.3 m."
+      "note": "Read off the plate through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json). NORTH BAY: the front block's north part stands forward of the entrance block (the sheet's stone part p1 draws it about 1.0 m proud); its front, x 112-287 px, is about 3.7 m wide at the bay's own scale (47.4 px/m), with two windows a storey at about 0.3 and 0.78 of its front, iron-grilled basement lights under them, and a cornice at about 8.3 m over which the third storey stands back behind a pierced stone balcony. Built as K08's square-cornered full-height projection, two storeys from grade to 8.4 m: the plate shows (and the sheet draws) its north face CANTED, which K08 has no shape for; that and the bay's smooth upper stage are open on the match record. T-2916: the bay is three storeys of K08, a 1.75 m basement storey under the 3.25 m ground storey and the 2.944 m first, so the string course at 1.67-1.83 m stands where the plate's smooth sill course does (about 1.6-1.9 m, under the ground-floor sills at 2.05 m, unchanged); in it a basement light under each window, 0.95 m across and 1.0 m high from 0.22 m, the plate's lights at x 139-184 and 235-272 px and y 765-819 px (about 1.2 m down to just over grade: the head is the plate's, the sill stands 0.16 m higher because K06's sill stone, 0.1 m deep under the light, must stand on the plinth, not in its face), each barred in K08's grille (five bars and a ring: the plate's grilles are scrolled panels, which the kit draws as bars and one scroll); the bay's plinth is 0.1 m (the kit's 0.6 m would cover the lights' lower half, and the plate's rock-faced courses run down to the walk). On the bay's flat deck a stone balustrade round its cheeks and front (K08's balcony in the bay's stone, T-2780/T-2888): 0.7 m high, the plate's panel and coping at y 392-425 px, 0.3 m posts at the corners as the plate's piers are, a 0.22 m coping, and close-set stone bars at 0.12 m where the plate's panels are pierced fretwork (its interlace is not carved; the bars carry the panel's pierced light and shade). ORIEL: over the entrance arch, corbelled out from about 5.2 m, its front x 340-465 px (about 2.8 m) with three tall transomed lights and a window in each return, its cornice at about 9.1 m; built as K08's corbelled oriel 0.5 m out on three corbel courses from 4.4 m, its returns canted 0.2 m (the plate's are square, and stand further out: K08's oversail rule holds three courses to 0.52 m, and a fourth would bring the corbel down onto the arch). T-2542: carried through the street eave as 1623's is (T-2778), so the eave and the moulded stone cornice die into its cants, under its steep pyramid and finial on K08's spire: its wall top 9.46 m (one 4.46 m storey from 5.0 m), 0.4 m over the plate's cornice at 9.06 m because K01 carries an oriel through the eave only 0.3 m past the eave datum (9.14 m), and its spire rising 2.1 m toward the plate's apex at about 12.0 m. The bay's wall top is the stone cornice's foot (7.94 m), the cornice carried round it to 8.30 m, the plate's 8.3 m. T-2987: the plate's bay is rock-faced in large courses from grade up to its first floor's sill course (about y 575-580 px, where the 5.0 m storey line's band stands) and smooth ashlar above it, as the oriel is; the bay's K08 walls now carry K08's rock-faced relief (`masonry`, courses 0.6 m and blocks about 1.1 m, the plate's about 30 px high and 45-55 px long at 47.4 px/m) on its basement and ground storeys only (`masonry.to_m` 5.0, new), and its first floor stands smooth over the band. The courses' joints are the kit's even rhythm, not the plate's stone-by-stone layout."
     },
     "side_bays": {
       "value": [
@@ -537,9 +544,27 @@
       "note": "The plate's tall stack at the junction of the front block and the brick range on the south side, and one on the north wall, reconstructed; T-2542 carried them up past the steepened ridge with it. Their corbelled caps and the range's second stack (the plate's, x about 545 px) stay open on the match record."
     },
     "rainwater": {
-      "value": null,
+      "value": {
+        "fabric": "painted_tin_sheet",
+        "downpipe": "round",
+        "ends_at": "grade_with_splash_stone",
+        "front_pipes": [
+          {
+            "s_m": 5.7,
+            "head_m": 7.85,
+            "foot_m": 0.0,
+            "proud_m": 0.0
+          },
+          {
+            "s_m": 10.25,
+            "head_m": 7.85,
+            "foot_m": 0.0,
+            "proud_m": 0.0
+          }
+        ]
+      },
       "confidence": "reconstructed",
-      "note": "No gutters yet: a K01 gable roof hangs none (T-2459). The plate's two downpipes on the front (at the bay's south return and the entrance block's south corner) are open on the match record."
+      "note": "The plate draws two downpipes on the front (T-2987), read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): one down the main front beside the bay's south return, a pale rod at x 298-302 px clear of the tree's trunk from a box head under the cornice (about y 440-455 px), at about 5.6 m along the front from its north corner, built at 5.7 m so its head clears the bay's own cornice; and one down the entrance block's south corner (x 505-510 px) to a shoe kicked out at grade (y 805-820 px), built at 10.25 m, its head within the front. No eave gutter runs to them (a K01 gable roof hangs none, T-2459), so each runs from a rainwater head of its own (T-2953's front_pipes, which a gable roof may now carry), the heads at 7.85 m under the build's moulded cornice (the plate's stand about 0.4 m higher, under a cornice the build lays lower there). The pipes' fabric and paint (K04's painted tin, round) are the kit's: the print is monochrome and reads them only as pale; the heads' size, the straps and the splash stones are K04's too (L-k01-1811-ames-front-2541)."
     },
     "window_kit": {
       "value": {
@@ -558,18 +583,63 @@
           "variant": "k07.entrance.double_door_deep_arch",
           "front_yard_m": 7.6,
           "reveal_depth_m": 0.32,
+          "opening_m": [
+            1.9,
+            2.75
+          ],
           "arch": {
             "ring_m": 0.4,
-            "keystone_top_m": 4.75,
+            "keystone_top_m": 4.65,
             "keystone_m": [
               0.3,
-              0.45
+              0.4
             ]
+          },
+          "porch_door": {
+            "width_m": 1.3,
+            "offset_m": 0.0,
+            "height_m": 2.4,
+            "leaves": 2,
+            "panels": [
+              1,
+              2
+            ],
+            "transom_m": 0.4
+          },
+          "loggia": {
+            "v_m": [
+              6.75,
+              9.05
+            ],
+            "depth_m": 1.8,
+            "ceiling_m": 3.0,
+            "columns": {
+              "shafts_m": [
+                [
+                  0.03,
+                  0.27
+                ],
+                [
+                  0.03,
+                  0.27,
+                  0.51
+                ]
+              ],
+              "radius_m": 0.11,
+              "proud_m": 0.1,
+              "plinth_m": 0.86,
+              "base_m": 0.05,
+              "capital_m": 0.24
+            }
+          },
+          "cheek_form": {
+            "kind": "scrolled",
+            "foot_block_m": 0.7
           }
         }
       },
       "confidence": "reconstructed",
-      "note": "The plate's deep round arch on clustered columns, its springing about 3.3 m and its extrados about 4.5 m over grade through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json), read on K07's deep-arched double door. The porch's depth, the columns and the stair's scrolled cheek walls are the finishing ticket's (T-1892)."
+      "note": "The plate's entrance is an OPEN PORCH (T-2918), read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json) at 44.2 px/m on the entrance face: a round arch about 1.9 m across between its jambs (x 355-440 px), about 1.75 m between the columns' inner faces, springing at about 3.25 m and crowned at 4.2 m over grade (built at 4.1 m, 2.75 m over the door's floor, so the head and its 0.3 m clear the oriel's corbel foot at 4.4 m as K01 requires), its plain voussoirs about 0.4-0.55 m deep to an extrados at about 4.5-4.6 m (built 0.4 m, to 4.5 m). Each jamb carries a CLUSTER of round shafts with carved capitals, two on the north side and three on the south, about 0.24 m on centres and about 0.22 m thick (x 337 and 348 px; 442, 452 and 463 px), on a plinth whose top stands about 2.2 m over grade (y 725 px), the capitals under the springing (y 673-684 px). Through the mouth the plate shows only the porch's dark interior, the door far back in it: a loggia (K01's T-2910 room) 2.3 m along the front and 1.8 m deep from the face, the ticket's reading of the plate's porch 'about 1.8 m wide and deep' (the plate cannot measure a depth: reconstructed), its ceiling 3.0 m over the floor, and a double door 1.3 by 2.4 m under a transom in its back wall. The stair's cheeks are massive stone walls swept down to a rolled scroll at the foot (y 640-700 px at x 300-345 and 420-460 px), K07's carved cheek (T-2565). T-2990: each roll stands on a plain foot block, as the plate draws them (x 421-440 px on the south cheek): the roll's centre about 45 px over grade at the stair's foot (y 781 against grade at about 826 px; about 0.9 m at the foot's scale) on a block about 34 px tall; built with the block 0.7 m tall (`cheek_form.foot_block_m`, new), the roll 0.4 m across on it, which lands it at y 773-790 px against the plate's 775-792. The block's face is plain; the plate shows no carving on it. The leafage of the capitals and the scrolls' carving are finer than the print shows; what stands for them is reconstructed. The plate also opens the entrance block's south return beside the arch as a small arcade on colonnettes; that is a difference of its own on the match record."
     },
     "gable_roof": {
       "value": {

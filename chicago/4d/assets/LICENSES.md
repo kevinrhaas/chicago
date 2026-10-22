@@ -936,7 +936,7 @@ failure.
 | `web/shortall_gregory_house_1638_prairie_front__as_standing_1904.glb` | `tools/web_derivatives.sh` from the master above | project license | The web derivative of the K16 timber front; same provenance. |
 | `gltf/wheeler_house_1812_prairie_coach_house__as_standing_1904.glb` | `python3 generators/k12_emit.py` (this repo, pure Python, no Blender) from `data/structures/wheeler_house_1812_prairie_coach_house.json` | project license | The first K12 coach house on a named lot (T-2321). Generated output; its provenance is its record's, tracked in `assets/manifest.json`. Flat colours only; embeds no image. |
 | `web/wheeler_house_1812_prairie_coach_house__as_standing_1904.glb` | `tools/web_derivatives.sh` from the master above | project license | The web derivative of the 1812 coach house; same provenance, no image. |
-| `gltf/*__draft_1904.glb` (the one hundred and thirty-nine `prairie_draft` records) | `python3 generators/draft_emit.py` (this repo, pure Python, no Blender) from the matching `data/structures/*.json` record, written by `tools/draft_prairie_1904.py` | project license | The Prairie Avenue district draft (T-2329, T-2330, T-2334, T-2335, T-2351). Generated output; its provenance is its record's, tracked in `assets/manifest.json`. Flat colours only: no image is embedded. |
+| `gltf/*__draft_1904.glb` (the one hundred and thirty-nine `prairie_draft` records) | `python3 generators/draft_emit.py` (this repo, pure Python, no Blender) from the matching `data/structures/*.json` record, written by `tools/draft_prairie_1904.py` | project license | The Prairie Avenue district draft (T-2329, T-2330, T-2334, T-2335, T-2351) and its named context buildings off the avenue (T-2982). Generated output; its provenance is its record's, tracked in `assets/manifest.json`. Flat colours only: no image is embedded. |
 | `web/*__draft_1904.glb` | `tools/web_derivatives.sh` from the masters above | project license | The web derivatives of the district draft; same provenance. |
 | `gltf/recon_1835_*__inferred_1835.glb` and matching `web/` derivatives | `generators/inferred_placeholder.py` from the matching `data/structures/recon_1835_*.json` record | project license | Pure-Python review massing for the 108 anonymous inferred roofs. Every file self-identifies as a placeholder and is replaced, not silently promoted, when the canonical family bake lands. |
 | `humans/c4d_fixture.lod0.glb` | `tools/human_export.sh` (this repo, Blender 4.5.3): `tools/human_fixture_blend.py` builds the master, `tools/human_export.py` exports it | project license | The portable-human pipeline's CI fixture (T-1787, liberty L417): a figure that is nobody, built from primitives. Its master is the script, so the `.blend` is rebuilt on every run and this file is never the only copy. Its one texture, a 64 px twill, is generated in the script; nothing third-party is sampled or embedded. |
@@ -1365,3 +1365,18 @@ Actual run39712579846, head34cf462ed343b8b2b70da70303344fff7e5e083f, artifact123
 |humans/web/bardwell_otis_1835.lod1.glb|1564256|485856360666b48ea0534e645ebda0e678af63be9e66514be78df0621a262454|
 |humans/web/bardwell_otis_1835.lod2.glb|617540|b9976874ae6a20a1e884bec62d97c4039312ae2e8ac4bd5cfbffd8148192485a|
 |humans/web/bardwell_otis_1835.lod3.glb|308100|c86fff664ac893d0fb5d6877040a0d0a9d388dc9f25acfc208be0eeb13e12ad2|
+
+### Actual Bardwell connected-waistcoat canonical replacement — 2026-10-22
+
+Actual source96c4da4b1fe68e6dec3b18c15da2f14c596a60c5, successful canonical run39736567239 attempt1, artifact12408480668, ZIP SHA2569ca4e1e692da77d3cbb1e0089f2d53cc01cd360d8cafc2b0e97230434326d5f5. These eight exact same-run exports replace the earlier Bardwell initial-standing bytes only. Existing CC0-1.0 graphical/master/base/skin/hair provenance and notices above remain; project build-code licensing is unchanged. Source/web/sole/normal/rigid-frame/container/seated/W01 mechanical qualification is actual. Root reviewed actual publishedLOD0front/profile and accepted the repaired upper panels for the initial visible increment; broad photographic/full-fit/occupied acceptance remains open. Historical export receipts above remain historical.
+
+|Path under assets/|Bytes|SHA256|
+|---|---:|---|
+|humans/bardwell_otis_1835.lod0.glb|8656876|84cdeb6d362aa1a85549b18daef41ae492f18595a19ff5b7e6eff539a3576d04|
+|humans/bardwell_otis_1835.lod1.glb|8018176|e2ff6d6d4df02b3852248c4712b9472c86fe7ca14a60b3db02788deed8db73c3|
+|humans/bardwell_otis_1835.lod2.glb|7465876|bc7ab6752b92f5451b285b070d2f76d896edddffa46d976c3569820745b8be7f|
+|humans/bardwell_otis_1835.lod3.glb|7241808|8d36ceade3b2dce3b8d081dc484faa98bb57dd2c0d288c1043f0a6da9d3dc233|
+|humans/web/bardwell_otis_1835.lod0.glb|4447008|3c75b33e5130fb8fe4813866d52d248bdab4207ab7a10c78b4074cc5fc30e999|
+|humans/web/bardwell_otis_1835.lod1.glb|1568968|af2492264df071facce2c4ba128d851a5624f93bcf3f9e507eb406694e3124f1|
+|humans/web/bardwell_otis_1835.lod2.glb|619964|ac21fdb00c402f76810a23467e299612042aa3ce21b017e7705ca675793df77a|
+|humans/web/bardwell_otis_1835.lod3.glb|309428|b61d09e2efdb204a90d5d3c8fe49d1a6502108fd6ac62a592350129db48f8d40|

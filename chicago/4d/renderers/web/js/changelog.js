@@ -1,4 +1,28 @@
 export const CHANGELOG = [ // newest first
+  { v: 2171, ts: '2026-10-22T07:10:00.105Z', date: 'Oct 22, 2026, 2:10 AM CT', title: 'Glessner\'s Prairie front windows and grilles set on their stone courses', kind: 'fix',
+    items: [
+      'The four first-floor windows on Prairie Avenue now sit lower, as HABS sheet 6 and the 1965 photograph show them. Each sill rests on the eighth granite bed, 8.71 ft over the door sill instead of 9.2, and each head is 14.3 ft, so the windows keep the drawing\'s 5.6 ft height. The basement grilles\' heads drop to the fourth bed, 4.54 ft from 4.7. The door, the porte-cochère, the small pair and the second floor were checked and left as built.',
+    ] },
+  { v: 2170, ts: '2026-10-22T06:50:59.928Z', date: 'Oct 22, 2026, 1:50 AM CT', title: '1811 Prairie\'s stone dressing, downpipes and stair scrolls, from its 1888 plate', kind: 'improve',
+    items: [
+      '1811 Prairie\'s bay is now rough rock-faced stone up to its first-floor windows and smooth dressed stone above, as the 1888 plate shows it, and two downpipes run down the front where the plate draws them.',
+      'The rolled stone scrolls at the foot of its front stair now sit up on plain blocks, as in the plate, instead of resting on the ground.',
+    ] },
+  { v: 2169, ts: '2026-10-22T06:38:09.184Z', date: 'Oct 22, 2026, 1:38 AM CT', title: 'Second Presbyterian\'s spire and the houses beyond Prairie Avenue', kind: 'feature',
+    items: [
+      'Second Presbyterian Church now stands at Michigan Avenue and 20th Street. Its corner tower carries the tall spire it had in 1904, which was lost in 1929.',
+      'The church is drafted from its survey drawings: the nave, the parish hall across the west end and the north aisle, with the nave\'s ridge at about 27 metres.',
+      'Three brick rowhouses stand on East Twentieth Street at 213, 215 and 217. The corner house has its gable and its turret toward Prairie.',
+      'On Calumet Avenue, the Hanford house stands under its steep brownstone roof and the Wheeler-Kohn house under its mansard, each with its brick barn on the alley.',
+    ] },
+  { v: 2168, ts: '2026-10-22T06:38:09.184Z', date: 'Oct 22, 2026, 1:38 AM CT', title: 'Glessner\'s front door fan and the stone under it, redrawn', kind: 'change',
+    items: [
+      'The carved fan over Glessner\'s front door now starts about three inches lower and stands about four inches less tall, as the 1963 survey drawing shows it. The stone under it is one course high, flat at its ends, with a slight rise only under the carving. It used to slope up across its whole length.',
+    ] },
+  { v: 2167, ts: '2026-10-22T05:43:07.999Z', date: 'Oct 22, 2026, 12:43 AM CT', title: '1811 Prairie\'s open entrance porch, from its 1888 plate', kind: 'feature',
+    items: [
+      '1811 Prairie\'s entrance is now an open porch, as the 1888 Inland Architect plate draws it. The round arch is its mouth, with the double door set far back inside. The arch springs from clustered stone columns with carved capitals, two on one side and three on the other, and the broad stair climbs between stone cheeks that sweep down to rolled scrolls.',
+    ] },
   { v: 2166, ts: '2026-10-22T04:19:14.385Z', date: 'Oct 21, 2026, 11:19 PM CT', title: 'Measured limits for Full Ghost views', kind: 'improvement',
     items: [
       'Full-detail Ghost views use a measured allowance for their extra transparent surfaces.',

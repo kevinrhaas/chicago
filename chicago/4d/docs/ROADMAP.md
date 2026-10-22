@@ -5641,3 +5641,6 @@ layer observations support the source repair; new canonical exports, reduced-LOD
 and animation fit, actual desktop/mobile images and town review remain required.
 No photographic or T-1789 closure is claimed. Forty inherited negative projections
 remain open. Buttons/facings are deferred until the large-form repair is reviewed.
+
+
+- T-1789 current increment (2026-10-22): actual canonical96c4/run39736567239 shoulder repair exported and integrated for existing reconstructed Otis Bardwell at Wolf Point. Eight Bardwell assets only; exact measured registry/provenance and all original guards retained. The missing shoulder-panel defect is repaired in actual LOD0 pixels. Final town/current-head CI and full photographic tailoring/library/occupied/other-era acceptance remain open.

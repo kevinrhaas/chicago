@@ -2,10 +2,10 @@
   "format": "qualified_resident_asset_costs_v1",
   "resident_id": "rc_bardwell_otis",
   "asset_id": "bardwell_otis_1835",
-  "canonical_source_sha": "34cf462ed343b8b2b70da70303344fff7e5e083f",
-  "canonical_run_id": 39712579846,
-  "canonical_artifact_id": 12398870779,
-  "canonical_artifact_zip_sha256": "711a5e428f325673ef6f9fc4fc17dda33cf6c3d879e3c5c81776524b66be7404",
+  "canonical_source_sha": "96c4da4b1fe68e6dec3b18c15da2f14c596a60c5",
+  "canonical_run_id": 39736567239,
+  "canonical_artifact_id": 12408480668,
+  "canonical_artifact_zip_sha256": "9ca4e1e692da77d3cbb1e0089f2d53cc01cd360d8cafc2b0e97230434326d5f5",
   "mechanical_qualified": true,
   "photographic_accepted": false,
   "scope": "Actual canonical asset costs; one initial reconstructed standing depiction. Scene p95/GPU/phone and occupied interfaces are not established by these asset measurements.",
@@ -35,8 +35,8 @@
     {
       "file": "assets/humans/bardwell_otis_1835.lod0.glb",
       "lod": 0,
-      "sha256": "8b7d165bedfa5c8f12fd7e9aeb8d51e1cfc3cab816675a7817900f4bd9418198",
-      "triangles": 40931,
+      "sha256": "84cdeb6d362aa1a85549b18daef41ae492f18595a19ff5b7e6eff539a3576d04",
+      "triangles": 41555,
       "skinned_meshes": 9,
       "bone_count": 56,
       "standing_frame": {
@@ -56,7 +56,7 @@
         "left": -2.34999802946638e-07,
         "right": -2.34999802946638e-07
       },
-      "bytes": 8633684,
+      "bytes": 8656876,
       "draw_material_slots": 9,
       "decoded_images": [
         {
@@ -120,8 +120,8 @@
     {
       "file": "assets/humans/bardwell_otis_1835.lod1.glb",
       "lod": 1,
-      "sha256": "7935a45d0332020adae619b05fe84c5010a84a260ba04764bea6371ad953f318",
-      "triangles": 24927,
+      "sha256": "e2ff6d6d4df02b3852248c4712b9472c86fe7ca14a60b3db02788deed8db73c3",
+      "triangles": 25301,
       "skinned_meshes": 9,
       "bone_count": 56,
       "standing_frame": {
@@ -141,7 +141,7 @@
         "left": -2.3500138770988034e-07,
         "right": -2.3500138770988034e-07
       },
-      "bytes": 8004644,
+      "bytes": 8018176,
       "draw_material_slots": 9,
       "decoded_images": [
         {
@@ -205,8 +205,8 @@
     {
       "file": "assets/humans/bardwell_otis_1835.lod2.glb",
       "lod": 2,
-      "sha256": "555432bfd5ca37c96755d33ed8ff24cc1ff7d77ad50896fa75ec0b61497c00c4",
-      "triangles": 12335,
+      "sha256": "bc7ab6752b92f5451b285b070d2f76d896edddffa46d976c3569820745b8be7f",
+      "triangles": 12509,
       "skinned_meshes": 9,
       "bone_count": 56,
       "standing_frame": {
@@ -226,7 +226,7 @@
         "left": -2.350046021007516e-07,
         "right": -2.350046021007516e-07
       },
-      "bytes": 7459216,
+      "bytes": 7465876,
       "draw_material_slots": 9,
       "decoded_images": [
         {
@@ -290,8 +290,8 @@
     {
       "file": "assets/humans/bardwell_otis_1835.lod3.glb",
       "lod": 3,
-      "sha256": "4ec095034edbe19e91a53d34d82f5eb47ed99a0ec620ca2e487e328170872aa4",
-      "triangles": 6022,
+      "sha256": "8d36ceade3b2dce3b8d081dc484faa98bb57dd2c0d288c1043f0a6da9d3dc233",
+      "triangles": 6098,
       "skinned_meshes": 9,
       "bone_count": 56,
       "standing_frame": {
@@ -311,7 +311,7 @@
         "left": -2.3502289003534464e-07,
         "right": -2.3502289003534464e-07
       },
-      "bytes": 7238540,
+      "bytes": 7241808,
       "draw_material_slots": 9,
       "decoded_images": [
         {
@@ -375,8 +375,8 @@
     {
       "file": "assets/humans/web/bardwell_otis_1835.lod0.glb",
       "lod": 0,
-      "sha256": "47132fdfe27c1c144039e2db708bca6da6db63c201b37351a7632f1c0f45a953",
-      "triangles": 40931,
+      "sha256": "3c75b33e5130fb8fe4813866d52d248bdab4207ab7a10c78b4074cc5fc30e999",
+      "triangles": 41555,
       "skinned_meshes": 9,
       "bone_count": 56,
       "standing_frame": {
@@ -396,7 +396,7 @@
         "left": 1.2484731585882258e-05,
         "right": 1.2484731585882258e-05
       },
-      "bytes": 4439324,
+      "bytes": 4447008,
       "draw_material_slots": 9,
       "decoded_images": [
         {
@@ -460,8 +460,8 @@
     {
       "file": "assets/humans/web/bardwell_otis_1835.lod1.glb",
       "lod": 1,
-      "sha256": "485856360666b48ea0534e645ebda0e678af63be9e66514be78df0621a262454",
-      "triangles": 24927,
+      "sha256": "af2492264df071facce2c4ba128d851a5624f93bcf3f9e507eb406694e3124f1",
+      "triangles": 25301,
       "skinned_meshes": 9,
       "bone_count": 56,
       "standing_frame": {
@@ -481,7 +481,7 @@
         "left": 3.049288731138411e-05,
         "right": 3.049288731138411e-05
       },
-      "bytes": 1564256,
+      "bytes": 1568968,
       "draw_material_slots": 9,
       "decoded_images": [
         {
@@ -545,8 +545,8 @@
     {
       "file": "assets/humans/web/bardwell_otis_1835.lod2.glb",
       "lod": 2,
-      "sha256": "b9976874ae6a20a1e884bec62d97c4039312ae2e8ac4bd5cfbffd8148192485a",
-      "triangles": 12335,
+      "sha256": "ac21fdb00c402f76810a23467e299612042aa3ce21b017e7705ca675793df77a",
+      "triangles": 12509,
       "skinned_meshes": 9,
       "bone_count": 56,
       "standing_frame": {
@@ -566,7 +566,7 @@
         "left": 2.8792061251614598e-05,
         "right": 2.8792061251614598e-05
       },
-      "bytes": 617540,
+      "bytes": 619964,
       "draw_material_slots": 9,
       "decoded_images": [
         {
@@ -630,8 +630,8 @@
     {
       "file": "assets/humans/web/bardwell_otis_1835.lod3.glb",
       "lod": 3,
-      "sha256": "c86fff664ac893d0fb5d6877040a0d0a9d388dc9f25acfc208be0eeb13e12ad2",
-      "triangles": 6022,
+      "sha256": "b61d09e2efdb204a90d5d3c8fe49d1a6502108fd6ac62a592350129db48f8d40",
+      "triangles": 6098,
       "skinned_meshes": 9,
       "bone_count": 56,
       "standing_frame": {
@@ -651,7 +651,7 @@
         "left": 1.6740131675296865e-05,
         "right": 1.6740131675296865e-05
       },
-      "bytes": 308100,
+      "bytes": 309428,
       "draw_material_slots": 9,
       "decoded_images": [
         {

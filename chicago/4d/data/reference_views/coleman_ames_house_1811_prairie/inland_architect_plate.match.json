@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "69bd8cfad81ad31e3a89cd6240f0edee7346de1efba0623201791a067c8c5ba8",
+  "glb_sha256": "e542748212786cb28a282d182e632928b1858825ac09e0d6bf59ce7062fd0034",
   "camera_sha256": "8f67a67f5a407ad30522085a1ab67f9c29ddc0bae6ceb1a979db9ea1accdc2b4",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/inland_architect_plate-side-by-side.jpg",
   "verdict": "differs",
@@ -33,7 +33,7 @@
       "how": "T-2541: K08 corbelled oriel, 2.8 m across at the wall and 0.5 m out on three corbel courses from 4.4 m, three transomed lights 6.0-8.2 m; it lands at x 310-470 px against the plate's 340-500"
     },
     {
-      "what": "the bay's north face is CANTED (the sheet draws it, and the plate shows it dark and foreshortened at x 60-112 px, a narrow window a storey); the build stands it flat, as the main wall's north strip with one window a storey, K08 having no canted pavilion",
+      "what": "the bay's north face is CANTED (the sheet draws it, and the plate shows it dark and foreshortened at x 60-112 px, a narrow window a storey); the build stands it flat, as the main wall's north strip with one window a storey, K08 having no canted pavilion (T-2988)",
       "status": "open"
     },
     {
@@ -57,7 +57,7 @@
       "how": "T-2541's coped gable end on K01's 'north' wall, carried up by T-2542 to the steep roof's 16.0 m ridge; the stacks themselves are a difference of their own below"
     },
     {
-      "what": "the oriel's depth and returns: the plate's oriel stands about 0.6 m out on square returns with a light in each; the build's stands 0.5 m out on canted returns with none, K08's corbel rule holding three courses to 0.52 m",
+      "what": "the oriel's depth and returns: the plate's oriel stands about 0.6 m out on square returns with a light in each; the build's stands 0.5 m out on canted returns with none, K08's corbel rule holding three courses to 0.52 m; the plate's oriel is a flat-fronted box about 3 m across (x 338-470 px), its south return lit by two or three narrow lights, on a rounded rock-faced base (T-2989)",
       "status": "open"
     },
     {
@@ -67,15 +67,27 @@
     },
     {
       "what": "the entrance porch: the plate's arch is an open porch, about 1.8 m wide, deep, on clustered columns with carved capitals, the door far back in it; its stair runs between scrolled stone cheek walls; the build has a door in a shallow reveal under a small arch (T-1892)",
+      "status": "fixed",
+      "how": "T-2918: the arch is the porch's mouth, 1.9 m across and crowned 2.75 m over the door's floor (4.1 m over grade, about 4 px under the plate's 4.2 m, so its head and ring clear the oriel's corbel foot), its 0.4 m voussoirs to about 4.5 m; behind it K01's loggia (T-2910), 2.3 m along the front and 1.8 m deep from the face, the double door under its transom in the back wall. Each jamb carries a cluster of round shafts (`loggia.columns`, new): two on the north side and three on the south, 0.22 m thick at 0.24 m centres, on a plinth 0.86 m over the floor, each under a necking ring, a flared bell and an abacus at the springing; overlaid on the plate, the south cluster's three shafts land on the plate's three (x 442, 452 and 463 px), the north shaft on its own (x 348), the capitals on the plate's line (y 673-684 px) and the plinths' tops within about 2 px of y 725. The stair's cheeks are K07's scrolled cheek (`cheek_form: scrolled`), swept down to a rolled scroll. The capitals' leafage is not carved: the bell and abacus stand for it"
+    },
+    {
+      "what": "the porch's south return: beside the arch, from about x 467 to 507 px, the plate opens the entrance block's south return as a small arcade of round-arched lights on colonnettes with carved capitals, lighting the porch from the side; the build closes it in coursed stone (T-2991); the arcade's capitals (y 680-690 px) and crowns (y 647-660) step down across x 476-501, so it stands on a face receding from the front, about v 9.4-9.5 by the camera, short of the solved south corner at v 10.40",
       "status": "open"
+    },
+    {
+      "what": "the stair cheeks' scrolls: the plate's cheeks end in their scrolls about 0.9 m up, each standing on a plain foot block to grade (x 300-345 and 420-460 px, y 640-700 px); K07's carved cheek rolls its scroll on grade (T-2984)",
+      "status": "fixed",
+      "how": "T-2990: each roll stands on a plain foot block (K07's scrolled cheek learns `foot_block_m`), 0.7 m to the roll's underside, the roll 0.4 m across on it: the south cheek's roll lands at y 773-790 px against the plate's 775-792, the block's front under it to grade"
     },
     {
       "what": "the stone's dressing: the bay's upper stage (above about 5.5 m) and the oriel are smooth ashlar, the rest rock-faced in large courses; the build lays the whole front rock-faced brown sandstone",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-2987: the bay's K08 walls carry K08's rock-faced relief in large courses (0.6 m, blocks about 1.1 m) on its basement and ground storeys only (`masonry.to_m`, new), so it is rock-faced up to the band at 5.0 m (the plate's sill course at about y 575-580 px) and smooth ashlar over it; the oriel's walls are smooth K08 walling, as the plate's are. Its courses' joints are the kit's even rhythm. The oriel's rock-faced base is the oriel's own difference"
     },
     {
       "what": "downpipes: two on the front, at the bay's south return and the entrance block's south corner; the build hangs none (a K01 gable roof carries no gutter yet)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-2987: K01's front_pipes (T-2953) on a gable roof, each from a rainwater head of its own: one beside the bay's south return at 5.7 m from the north corner (render x about 296 px against the plate's 298-302), one down the entrance block's south corner at 10.25 m (x about 500 against 505-510), each to a shoe over a splash stone at grade. Their heads stand at 7.85 m under the build's cornice, about 0.4 m under the plate's (whose cornice is higher there)"
     },
     {
       "what": "the bay's stone gable's face: the plate lights its third storey through three flat-headed lights between colonnettes under a great round arch whose tympanum holds three small round-arched lights, with carving over it, the gable about 4 m across (its rake running out past the pinnacles' inner faces); the build's wall gable is 3.0 m across, its three lights flat-headed under voussoirs in a plain recessed panel, its face in the buff dressing stone (the plate's reads smooth ashlar of the front's stone) (T-1892)",
@@ -101,7 +113,7 @@
       "status": "open"
     },
     {
-      "what": "the oriel's height: its cornice stands at about 9.46 m against the plate's 9.06 m (about 18 px high), because K01 carries an oriel through the eave only 0.3 m past the eave datum",
+      "what": "the oriel's height: its cornice stands at about 9.46 m against the plate's 9.06 m (about 18 px high), because K01 carries an oriel through the eave only 0.3 m past the eave datum (T-2989)",
       "status": "open"
     },
     {
