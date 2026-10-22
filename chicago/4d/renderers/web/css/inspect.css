@@ -64,12 +64,20 @@
 }
 .insp-full { background: transparent; color: var(--ink); font: 500 0.9375rem/1.2 var(--font-body, inherit); cursor: pointer; }
 
-/* The tabs (T-2639): Overview · People · Design · Story · Photos · Sources. One row that
-   scrolls sideways on a phone rather than wrapping, each tab a 44 px target. */
-.insp-tabs { display: flex; gap: 4px; margin: 0 0 12px; overflow-x: auto; overscroll-behavior-x: contain;
-  border-bottom: 1px solid var(--edge); scrollbar-width: none; }
-.insp-tabs::-webkit-scrollbar { display: none; }
-.insp-tab { flex: 0 0 auto; min-height: 44px; padding: 0 12px; border: 0; border-bottom: 2px solid transparent;
+/* The tabs (T-2639): Overview · People · Design · Story · Photos · Sources, each a 44 px
+   target. T-3021: they wrap rather than scroll sideways (at 400 px Photos and Sources were
+   off the edge, unseen), and Back and the tabs ride one bar pinned to the top of the screen
+   (the screen's own 14 px top padding is what `top` takes back), so neither scrolls away. */
+.insp-bar { position: sticky; top: -14px; z-index: 2; display: flex; align-items: flex-start; gap: 4px;
+  margin: -14px -16px 0; padding: 6px 16px 0; background: var(--panel-solid, var(--panel));
+  border-bottom: 1px solid var(--edge); }
+.insp-back { flex: 0 0 auto; display: inline-grid; place-items: center; width: 44px; height: 44px; margin-left: -10px;
+  border: 0; border-radius: var(--r-control, 4px); background: transparent; color: var(--ink-dim); cursor: pointer; }
+.insp-back:hover { color: var(--ink); }
+.insp-back:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: -2px; }
+.insp-tabs { flex: 1 1 auto; min-width: 0; display: flex; flex-wrap: wrap; gap: 0 2px; margin: 0; }
+.insp-panes { padding-top: 12px; }
+.insp-tab { flex: 0 0 auto; min-height: 44px; padding: 0 10px; border: 0; border-bottom: 2px solid transparent;
   background: transparent; color: var(--ink-dim); cursor: pointer;
   font: var(--label-weight, 400) 0.75rem/1 var(--font-label, var(--font-mono, ui-monospace, monospace));
   letter-spacing: .08em; text-transform: uppercase; }

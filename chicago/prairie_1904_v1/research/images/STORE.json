@@ -3,7 +3,7 @@
  "base_url": "https://kevinrhaas.github.io/chicago-images/prairie-1904/files/",
  "prefix": "research/images/files/",
  "repository": "kevinrhaas/chicago-images",
- "bytes": 159606282,
+ "bytes": 160012788,
  "files": {
   "a16-aic-lantern-fort-dearborn-monument-thumb.jpg": {
    "bytes": 16725,
@@ -1100,6 +1100,30 @@
   "a18-gh-shipman-1828-with-automobile.jpg": {
    "bytes": 65613,
    "sha256": "7fc488986ba392bab28bbd5a42a7d3837f56797d55060a4fd1a49fb33b83b259"
+  },
+  "a18-ghm-blog-capital-1-2013-thumb.jpg": {
+   "bytes": 35272,
+   "sha256": "486fa686b6f08ef85b53b6fc2b8d4e8de4111d6a5fbdb9f8504db025742453e1"
+  },
+  "a18-ghm-blog-capital-1-2013.jpg": {
+   "bytes": 88530,
+   "sha256": "d4f7978eab16ddf25da250d7214391e58e2ba35fbe51cc233705b0022c7236a1"
+  },
+  "a18-ghm-blog-capital-2-2013-thumb.jpg": {
+   "bytes": 38535,
+   "sha256": "500bf35c89d2163b71bdf49da24c591c43f07b062f1c112931e977880761cb0f"
+  },
+  "a18-ghm-blog-capital-2-2013.jpg": {
+   "bytes": 99860,
+   "sha256": "b22d1cd27589408afc4501c67977160658d56a8e3073077c1689ddeb1b028aa4"
+  },
+  "a18-ghm-blog-capital-hhr-2013-thumb.jpg": {
+   "bytes": 31410,
+   "sha256": "217ede6c292e7f06fbdbda82bf83d5a0e9128023865ed080109c7fe74c1537bc"
+  },
+  "a18-ghm-blog-capital-hhr-2013.jpg": {
+   "bytes": 112899,
+   "sha256": "8d5507d6add4bdd53f539035adc8a78c4035e0e3e8cdb1141c3039f8c13aa2bf"
   },
   "a18-gho-house-under-construction-1887-thumb.jpg": {
    "bytes": 18404,
