@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 679,
+  "count": 680,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -626,12 +626,72 @@
       "name": "1828 S. Prairie Avenue — the alley building of the house at 1828"
     },
     {
+      "id": "house_1830_calumet",
+      "name": "1830 Calumet Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_1832_calumet",
+      "name": "1832 Calumet Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_1836_calumet",
+      "name": "1836 Calumet Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_1836_calumet_coach_house",
+      "name": "1836 S. Calumet Avenue — the alley building of the house at 1836"
+    },
+    {
+      "id": "house_1840_calumet",
+      "name": "1840 Calumet Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_1900_calumet",
+      "name": "1900 Calumet Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_1900_calumet_coach_house",
+      "name": "1900 S. Calumet Avenue — the alley building of the house at 1900"
+    },
+    {
+      "id": "house_1910_calumet",
+      "name": "1910 Calumet Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_1910_calumet_coach_house",
+      "name": "1910 S. Calumet Avenue — the alley building of the house at 1910"
+    },
+    {
       "id": "house_1918_prairie",
       "name": "1916 (1930) Prairie Avenue — Identity conflict beside Allerton"
     },
     {
       "id": "house_1918_prairie_coach_house",
       "name": "1918 S. Prairie Avenue — the alley building of the house at 1918"
+    },
+    {
+      "id": "house_1922_calumet",
+      "name": "1922 Calumet Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_1922_calumet_coach_house",
+      "name": "1922 S. Calumet Avenue — the alley building of the house at 1922"
+    },
+    {
+      "id": "house_1922_calumet_stable_strip",
+      "name": "1922 S. Calumet Avenue — the one-storey strip at the south end of 1910's stable, on the 1922 lot"
+    },
+    {
+      "id": "house_1928_calumet",
+      "name": "1928 Calumet Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_1932_calumet",
+      "name": "1932 Calumet Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_1932_calumet_coach_house",
+      "name": "1932 S. Calumet Avenue — the alley building of the house at 1932"
     },
     {
       "id": "house_2000_prairie",
@@ -20520,14 +20580,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.records[brick_fabric]",
-        "count": 110
+        "count": 125
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "structures.records[brick fabric] — 110 structures (104 until, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour; 105 until, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until 's Wheeler house (1812 Prairie Avenue): the coach house on the alley, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until 's First Fort Dearborn — magazine, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour and never reads the materials tool; 17 until, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in the materials generator has carried tile (m) = None since other work, and three of the four are the records that take a course the moment it carries one: Fort Dearborn — commandant's quarters, Fort Dearborn — powder magazine and Lake House (under construction). **the project's notes on materials says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (the project's notes on materials §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** First Cook County court-house became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, the build generator resolves no phase for it and other work retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
+          "text": "structures.records[brick fabric] — 125 structures (110 until, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour; 105 until, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until 's Wheeler house (1812 Prairie Avenue): the coach house on the alley, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until 's First Fort Dearborn — magazine, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour and never reads the materials tool; 17 until, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in the materials generator has carried tile (m) = None since other work, and three of the four are the records that take a course the moment it carries one: Fort Dearborn — commandant's quarters, Fort Dearborn — powder magazine and Lake House (under construction). **the project's notes on materials says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (the project's notes on materials §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** First Cook County court-house became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, the build generator resolves no phase for it and other work retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
         },
         {
           "label": "Decision",
@@ -20543,6 +20603,7 @@
         }
       ],
       "work_refs": [
+        "T-3008",
         "T-2982",
         "T-2543",
         "T-2440",
@@ -49053,6 +49114,245 @@
       ],
       "work_refs": [
         "T-2986"
+      ]
+    },
+    {
+      "id": "L-draft-district-background-3008",
+      "title": "The background behind Prairie Avenue begun: Calumet Avenue's west frontage, 18th to 20th Street, stood up as drafts where Prairie's sidewalks see it",
+      "section": "per_subject",
+      "subjects": [
+        "house_1830_calumet",
+        "house_1832_calumet",
+        "house_1836_calumet",
+        "house_1836_calumet_coach_house",
+        "house_1840_calumet",
+        "house_1900_calumet",
+        "house_1900_calumet_coach_house",
+        "house_1910_calumet",
+        "house_1910_calumet_coach_house",
+        "house_1922_calumet",
+        "house_1922_calumet_coach_house",
+        "house_1922_calumet_stable_strip",
+        "house_1928_calumet",
+        "house_1932_calumet",
+        "house_1932_calumet_coach_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_1830_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1830_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1832_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1832_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1836_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1836_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1836_calumet_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1836_calumet_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1840_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1840_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1900_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1900_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1900_calumet_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1900_calumet_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1910_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1910_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1910_calumet_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1910_calumet_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1922_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1922_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1922_calumet_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1922_calumet_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1922_calumet_stable_strip",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1922_calumet_stable_strip",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1928_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1928_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1932_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1932_calumet",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1932_calumet_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1932_calumet_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        }
+      ],
+      "recorded": "2026-10-22",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`house_1830_calumet.draft_1904.form.draft_elevation`, `house_1830_calumet.draft_1904.form.draft`, `house_1832_calumet.draft_1904.form.draft_elevation`, `house_1832_calumet.draft_1904.form.draft`, `house_1836_calumet.draft_1904.form.draft_elevation`, `house_1836_calumet.draft_1904.form.draft`, `house_1836_calumet_coach_house.draft_1904.form.draft_elevation`, `house_1836_calumet_coach_house.draft_1904.form.draft`, `house_1840_calumet.draft_1904.form.draft_elevation`, `house_1840_calumet.draft_1904.form.draft`, `house_1900_calumet.draft_1904.form.draft_elevation`, `house_1900_calumet.draft_1904.form.draft`, `house_1900_calumet_coach_house.draft_1904.form.draft_elevation`, `house_1900_calumet_coach_house.draft_1904.form.draft`, `house_1910_calumet.draft_1904.form.draft_elevation`, `house_1910_calumet.draft_1904.form.draft`, `house_1910_calumet_coach_house.draft_1904.form.draft_elevation`, `house_1910_calumet_coach_house.draft_1904.form.draft`, `house_1922_calumet.draft_1904.form.draft_elevation`, `house_1922_calumet.draft_1904.form.draft`, `house_1922_calumet_coach_house.draft_1904.form.draft_elevation`, `house_1922_calumet_coach_house.draft_1904.form.draft`, `house_1922_calumet_stable_strip.draft_1904.form.draft_elevation`, `house_1922_calumet_stable_strip.draft_1904.form.draft`, `house_1928_calumet.draft_1904.form.draft_elevation`, `house_1928_calumet.draft_1904.form.draft`, `house_1932_calumet.draft_1904.form.draft_elevation`, `house_1932_calumet.draft_1904.form.draft`, `house_1932_calumet_coach_house.draft_1904.form.draft_elevation`, `house_1932_calumet_coach_house.draft_1904.form.draft`"
+        },
+        {
+          "label": "Decision",
+          "text": "the first block face of the district's background, run by the builder and under the rules of `“The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed”`, whose \"What is invented\" and \"What is not\" hold here word for word. The block face was chosen by measurement, not taste: the new visibility census (the census prairie 1904 background tool, written to the background census data) casts sight lines from 264 stands along both of Prairie Avenue's walks past the 153 traced buildings, and finds 56 of the 66 background targets seen; Calumet's 18th-20th lots are 9 of 10 seen, 1830 to 1932 from up to 22 stands. The nine houses and their alley stables are read off sheet 28 in a census of their own (the edges census s28 data: the census counts Prairie frontages only) and traced by the tool as sheet `28x`. Nothing on sheets 20, 28 or 35 moves. **What is invented here, beyond the 18th-20th list.** These are houses with no name: no study register row, no 1904 directory row read, no photograph. Each is the brick family's hip over the sheet's printed storeys (a ½ storey as dormers), with the rules' openings, entrance and chimneys, so all nine read alike in kind and differ only in plan and height. 1840's \"3\" carries no basement figure and stands three storeys. 1922's \"GARAGE\" is backcast as a stable. The one-storey strip the sheet draws at the south end of 1910's stable crosses onto the 1922 lot and stands as its own record there (1922 S. Calumet Avenue — the one-storey strip at the south end of 1910's stable, on the 1922 lot). The frame porches, closets and side pieces the sheet colours yellow are not drafted. **Presence in 1904 is the sheet's alone.** Robinson 1886 plate 10 stops north of 1830, so no earlier plan checks these outlines, and the 1911 sheet is carried back to 1904 as study ruling 11 allows. Any one of these houses may postdate 1904; none is known to. **What is not drafted here.** 1800 Calumet: its two glasshouse ranges and lodge are Pullman's estate across 18th Street, the sheet-28 census's `s28-pullman-service-garden`, which earlier work builds. The rest of the background the census ranks: Indiana 20th-22nd and East 21st, Calumet 20th-22nd, Indiana 16th-18th and East 16th, and the unlotted Indiana half of 18th-20th and the Illinois Central strip, with the cross-street views captured and measured."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Earlier work (the side-street and rail-side background) refines each record in place under the same id."
+        },
+        {
+          "label": "Review",
+          "text": "the background census data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-22 (T-3008)."
+        }
+      ],
+      "work_refs": [
+        "T-3008",
+        "T-2983",
+        "T-1841",
+        "T-3009",
+        "T-3010",
+        "T-3011",
+        "T-2327",
+        "T-1934",
+        "T-1946"
       ]
     },
     {
