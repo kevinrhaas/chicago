@@ -975,8 +975,8 @@
       <!-- T-3021: each tile opens its app (the owner, 2026-10-22: "the move walking and
            confidence view would go to those settings"). -->
       <div class="nav-tiles">
-        <button class="nav-tile" id="nav-tile-move" type="button" data-app="move"><span class="nav-k" data-str="nav.tile.move">Move</span><span id="nav-move">Walking</span></button>
-        <button class="nav-tile" id="nav-tile-confidence" type="button" data-app="confidence"><span class="nav-k" data-str="nav.tile.confidence">Confidence view</span><span id="nav-confidence">Off</span></button>
+        <div class="nav-tile" id="nav-tile-move" data-app="move"><span class="nav-k" data-str="nav.tile.move">Move</span><span id="nav-move">Walking</span><button class="nav-tile-go" id="nav-go-move" type="button" aria-label="Open Move"></button></div>
+        <div class="nav-tile" id="nav-tile-confidence" data-app="confidence"><span class="nav-k" data-str="nav.tile.confidence">Confidence view</span><span id="nav-confidence">Off</span><button class="nav-tile-go" id="nav-go-confidence" type="button" aria-label="Open the Confidence view"></button></div>
       </div>
     </div>
   </div>

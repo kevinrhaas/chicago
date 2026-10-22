@@ -9829,7 +9829,9 @@ for (const [label, viewport, touch] of [
       }
       const current = () => root().querySelector('.insp-tab[aria-selected="true"]')?.dataset.inspTab ?? null;
       await open('hogan_store');
-      const out = { tabs: [...root().querySelectorAll('.insp-tab')].map((b) => b.textContent.trim()), panes: {} };
+      // The tabs a visitor sees: Research is drawn for every building but shows only with
+      // Settings › Expert research on (T-3022), checked below.
+      const out = { tabs: [...root().querySelectorAll('.insp-tab')].filter((b) => b.checkVisibility()).map((b) => b.textContent.trim()), panes: {} };
       for (const k of ['overview', 'people', 'design', 'story', 'photos', 'sources']) {
         const r = await tab(k);
         out.panes[k] = { shown: r.shown, filled: r.filled, selected: r.selected, len: r.text.length };
@@ -9843,6 +9845,24 @@ for (const [label, viewport, touch] of [
       out.held = /Held pending consultation/.test(held.text);
       await open('hogan_store');
       out.reopened = current();
+      // T-3022: Expert research (Settings) shows a Research tab carrying the card's Sources,
+      // Liberties and Record as folds; switched off, the tab is gone and Inspect is back on Overview.
+      const sw = document.getElementById('s-researcher');
+      const flip = (on) => { sw.checked = on; sw.dispatchEvent(new Event('change', { bubbles: true })); };
+      const researchTab = () => root().querySelector('[data-insp-tab="research"]');
+      flip(true);
+      const shownOn = !!researchTab()?.checkVisibility();
+      const r = await tab('research');
+      out.research = { shownOn, shown: r.shown, filled: r.filled,
+        folds: [...root().querySelectorAll('[data-insp-pane="research"] .insp-fold > summary')].map((x) => x.textContent.replace(/\d+/g, '').trim()) };
+      // The switch lives in Settings, so a visitor turns it off away from Inspect and comes back.
+      await a.navigator.select('settings');
+      flip(false);
+      await open('hogan_store');
+      // Inspect redraws on its way back in (after the summaries resolve), so wait for that.
+      await wait(() => current() === 'overview', 50);
+      out.research.hiddenOff = !researchTab()?.checkVisibility();
+      out.research.backTo = current();
       await a.navigator.select('home'); a.navigator.dock(); a.popup.close();
       return out;
     });
@@ -9852,6 +9872,10 @@ for (const [label, viewport, touch] of [
       && inspectTabs1835.people.households > 0 && inspectTabs1835.people.hogan && inspectTabs1835.people.link
       && inspectTabs1835.held && !inspectTabs1835.plumbing,
       JSON.stringify(inspectTabs1835).slice(0, 700));
+    const rs = inspectTabs1835.research;
+    check(`${label}: Settings › Expert research adds Inspect's Research tab, the card's Sources, Liberties and Record; off, it is gone (T-3022)`,
+      rs?.shownOn && rs.shown && rs.filled === 'yes' && JSON.stringify(rs.folds) === JSON.stringify(['Sources', 'Liberties', 'Record'])
+      && rs.hiddenOff && rs.backTo === 'overview', JSON.stringify(rs));
     // >>> T-2643: Inspect's Story tab on an 1835 building with no summary record. BUILT says the
     // records give no date (none is composed from where the evidence begins), YOU ARE HERE is the
     // scene's 1 July 1835, TODAY closes it after your visit, and the 5 August 1835 fire limit,

@@ -3791,9 +3791,10 @@ async function boot() {
     walker, intent, hud, settings: hud.settings, router, terrain, footprints,
     focusPoint, structurePosition,
     // Where a ride or a flight ends: the framed stand-off, the same one Go to uses.
-    standFor: (id, options) => framing(id, { card: true, ...options }),
+    // T-3022: the arrival opens the building in Inspect where it can, so frame for that.
+    standFor: (id, options) => framing(id, { card: arrivalPanel(id), ...options }),
     registry: loaded.registry,
-    frame: (id, options) => frame(id, { card: true, ...options }),
+    frame: (id, options) => frame(id, { card: arrivalPanel(id), ...options }),
     teleport: (where) => walker.teleport(where),
     goToAnchor: (id) => api.goTo(id),
     setFly: (on) => hud.setFly(on, { announce: false }),
@@ -4033,7 +4034,7 @@ async function boot() {
   // railway) and behind `pick`, the harness's reading of a record. Inspect opened this way
   // holds as the card did (T-2954): Esc, its Back key, or a click or tap on the town lets
   // it go, back to where the Navigator was (docked, if it was docked).
-  let handInspect = null; // { id, wasLevel } while Inspect shows a building the visitor opened
+  let handInspect = null; // { id, wasLevel, opening } while Inspect shows a building the visitor opened
   function openBuilding(id) {
     const record = loaded.registry.get(id);
     if (!record?.sidecar || !navigatorUi?.has?.('inspect')) return pick(id);
@@ -4041,20 +4042,33 @@ async function boot() {
     void ensureReaderText(); // T-2825: Inspect reads the record as the card says it
     if (isReconstructed(record.sidecar)) hints.show('reconstructed'); // T-2664
     const inspecting = !!handInspect && navigatorUi.app === 'inspect';
-    handInspect = { id, wasLevel: inspecting ? handInspect.wasLevel : navigatorUi.level };
+    // `opening` until Inspect is on screen: the device passes through other states on its way
+    // there (a first open loads Inspect), and those must not let the building go.
+    const hand = { id, wasLevel: inspecting ? handInspect.wasLevel : navigatorUi.level, opening: true };
+    handInspect = hand;
     inspectHold = id;
-    void navigatorUi.openLink({ app: 'inspect', id });
+    void Promise.resolve(navigatorUi.openLink({ app: 'inspect', id })).finally(() => {
+      hand.opening = false;
+      if (hand.released) letGo(hand); // let go before it was even on screen
+    });
     // The panel is read and clicked, as the card was: the mouse is let go.
     if (document.pointerLockElement) { cardTookPointer = true; document.exitPointerLock?.(); }
     return { id, record };
   }
+  /** What an arrival at `id` opens, for the framing: Inspect (as openBuilding does), else the card. */
+  const arrivalPanel = (id) => (loaded.registry.get(id)?.sidecar && navigatorUi?.has?.('inspect') ? 'inspect' : true);
   const inspectingByHand = () => !!handInspect && navigatorUi?.app === 'inspect' && navigatorUi.level > 0;
+  function letGo(was) {
+    if (navigatorUi?.app !== 'inspect') return false;
+    if (was.wasLevel === 0) navigatorUi.closeApp(); else void navigatorUi.back();
+    return true;
+  }
   function releaseInspect() {
     const was = handInspect;
     handInspect = null;
-    if (!was || navigatorUi?.app !== 'inspect') return false;
-    if (was.wasLevel === 0) navigatorUi.closeApp(); else void navigatorUi.back();
-    return true;
+    if (!was) return false;
+    if (was.opening) { was.released = true; return true; }
+    return letGo(was);
   }
 
   /** Programmatic pick: by structure_id, by NDC point, or down the crosshair. */
@@ -4080,7 +4094,7 @@ async function boot() {
    * height the record carries and from the camera's live field of view, never
    * from a fixed number, so a privy and a long store are each framed to fit.
    */
-  function framing(id, { card = popup.openId !== null, mode = travel?.mode ?? 'walk' } = {}) {
+  function framing(id, { card = popup.openId !== null || (handInspect ? 'inspect' : false), mode = travel?.mode ?? 'walk' } = {}) {
     const centre = structurePosition(id);
     const aim = focusPoint(id);
     if (!centre || !aim) return null;
@@ -4147,6 +4161,13 @@ async function boot() {
     if (!card) return { x: [-1, 1], y: [-1, 1] };
     const w = Math.max(1, window.innerWidth);
     const hgt = Math.max(1, window.innerHeight);
+    // T-3022: a building opens in the Navigator's Inspect now (`card` is 'inspect'), which
+    // mirrors css/navigator.css instead: a 400 px panel 10 px in from the LEFT above 620 px
+    // wide, else the half sheet over the lower 48 % of a phone.
+    if (card === 'inspect') {
+      if (w > 620) return { x: [-1 + 2 * Math.min(0.9, (Math.min(400, w - 20) + 10) / w), 1], y: [-1, 1] };
+      return { x: [-1, 1], y: [-1 + 2 * 0.48, 1] };
+    }
     if (w > 620) {
       const cardFrac = Math.min(0.9, Math.min(440, w - 24) / w);
       return { x: [-1, 1 - 2 * cardFrac], y: [-1, 1] };
@@ -4772,13 +4793,14 @@ async function boot() {
   });
   api.navigator = navigatorUi;
   // T-3022: Inspect opened on a building by hand is let go once the device leaves it.
-  navigatorUi?.onChange?.(({ app, level }) => { if (handInspect && (app !== 'inspect' || level === 0)) handInspect = null; });
+  navigatorUi?.onChange?.(({ app, level }) => { if (handInspect && !handInspect.opening && (app !== 'inspect' || level === 0)) handInspect = null; });
   api.openBuilding = openBuilding;
   /** T-3022: put away what the visitor has open on a building: the card, or Inspect. */
-  api.closeBuilding = () => { popup.close(); if (inspectingByHand()) releaseInspect(); };
-  /** T-3022: the building on screen for the visitor — the card's, or Inspect's while it is open. */
+  api.closeBuilding = () => { popup.close(); if (handInspect) releaseInspect(); };
+  /** T-3022: the building on screen for the visitor — the card's, or Inspect's while it is open
+   *  (from the moment it is asked for: a first open loads Inspect before it draws). */
   Object.defineProperty(api, 'inspecting', { enumerable: true, configurable: true,
-    get: () => popup.openId ?? (navigatorUi?.app === 'inspect' && navigatorUi.level > 0
+    get: () => popup.openId ?? handInspect?.id ?? (navigatorUi?.app === 'inspect' && navigatorUi.level > 0
       ? (document.getElementById('nav-app-inspect')?.dataset.structure || null) : null) });
   // T-2620: the drawer's sections now live in the Navigator's apps; hud.setPanel and
   // hud.selectTab open and close them there.
