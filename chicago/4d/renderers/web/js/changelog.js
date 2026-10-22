@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2196, ts: '2026-10-22T20:20:44.253Z', date: 'Oct 22, 2026, 3:20 PM CT', title: 'Distant elms draw fewer, larger leaf sprays to stay in budget', kind: 'improve',
+    items: [
+      'Elms past 44 m carry their leaf on fewer, larger sprays and leave out limbs too thin to see, so the view down Prairie from 18th Street draws about 45,000 fewer triangles.',
+    ] },
   { v: 2195, ts: '2026-10-22T20:05:02.257Z', date: 'Oct 22, 2026, 3:05 PM CT', title: 'Glessner\'s courtyard falls to the carriage passage, as drawn', kind: 'fix',
     items: [
       'The courtyard ground now slopes down 1.3 ft to the passage mouth, as the HABS section draws it.',
