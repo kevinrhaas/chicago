@@ -1,0 +1,29 @@
+{
+  "id": "joselodos_2025_horse_anatomy",
+  "type": "photograph",
+  "citation": "Joselodos, Horse posing in the grass,1May2025, Wikimedia Commons, CC0-1.0.",
+  "author": "Joselodos",
+  "date": "2025-05-01",
+  "describes_date": "2025-05-01",
+  "repository": "Wikimedia Commons",
+  "url": "https://commons.wikimedia.org/wiki/File:Horse_posing_in_the_grass.jpg",
+  "archived_url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Horse_posing_in_the_grass.jpg",
+  "locator": "Actual inspected1920x1280 Commons viewing rendition reference-view-164516842.jpg; full52.6MB original was acquired earlier but not inspected. Full body oblique broadside with head turned toward viewer.",
+  "tier": 4,
+  "rights_status": "cleared",
+  "rights_note": "Self-published CC0-1.0, saved original Commons file page/API metadata and waiver. Modern image, with visible watermark; no pixels, crop, texture or model copied into app assets.",
+  "rights_checked": {
+    "date": "2026-10-22",
+    "method": "Read saved Commons file page/API metadata and CC0 deed; viewed actual saved1920x1280 rendition.",
+    "outcome": "Cleared for general anatomy cross-check under CC0-1.0; no historical breed/color/ownership claim."
+  },
+  "asset_use": "cross_check",
+  "verified": true,
+  "note": "Contemporary anatomy only: breast/shoulder tissue continuity, eyelid/muzzle/nostril, mane and joint surfaces. This rendition shows the body largely broadside, head toward camera and a non-neutral hind stance; it is not a calibrated front view. Modern blaze and stockings are not evidence for a historical Chicago animal.",
+  "what_it_supplies": [
+    "Qualitative living head/chest/joint/hair detail, with viewing-rendition limits explicit."
+  ],
+  "what_it_does_not_supply": [
+    "Pre-1904 Chicago phenotype/coat/identity, exact dimensions or measured contact/gait."
+  ]
+}

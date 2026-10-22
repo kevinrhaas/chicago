@@ -1310,3 +1310,43 @@ is dedicated to CC0-1.0 alongside those inputs):
 | `authored/humans/era_studies/1904/body-target.json` | CC0-1.0 | Original reconstructed age61/height parameters; existing cleared MakeHuman graphical targets, not application code. |
 | `authored/humans/era_studies/1904/glessner_john_j_1904.prepared.json` | CC0-1.0 | Prepared existing cleared hm08 graphical body; exact source and target hashes remain in this file. |
 | `authored/humans/era_studies/1904/glessner_john_j_1904.garments.json` | CC0-1.0 | Original project-authored conjectural garment arrays; no external garment or picture derived. |
+
+
+## Parked original transport variants (T-2979)
+
+W01 geometry and source: GPL-3.0-or-later; nine original generated timber/paint/iron maps: CC0-1.0. See each SOURCE.json/ORIGINAL-MATERIAL-LICENSE.txt. No external photographic pixels or scans are incorporated.
+
+| path relative to assets/ | license | provenance |
+| --- | --- | --- |
+| `authored/transport/wagon_parked/ORIGINAL-MATERIAL-LICENSE.txt` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/SOURCE.json` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/iron_color.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/iron_normal.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/iron_orm.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/paint_color.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/paint_normal.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/paint_orm.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/wood_color.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/wood_normal.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+| `authored/transport/wagon_parked/textures/wood_orm.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+
+## Original covered-wagon surfaces (T-2980)
+
+| path relative to assets/ | license | provenance |
+| --- | --- | --- |
+| `authored/transport/wagon_covered/SOURCE.json` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
+| `authored/transport/wagon_covered/ORIGINAL-LICENSE.txt` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
+| `authored/transport/wagon_covered/textures/canvas_color.png` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
+| `authored/transport/wagon_covered/textures/canvas_normal.png` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
+| `authored/transport/wagon_covered/textures/canvas_orm.png` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
+
+
+## Original authored W01 material charts (T-2980)
+
+The existing project-authored geometry supplies these original UV/tangent source inputs. Their GPL license is separate from the CC0 original procedural pixel maps. Exact hardware, ownership, recipe and original authoring hashes are recorded in SOURCE.json and the chart manifest. The ordinary producer validates these authored inputs; the original numerical authoring remains explicit opt-in. No outside geometry or photographic pixels are incorporated.
+
+| path relative to assets/ | license | provenance |
+| --- | --- | --- |
+| `authored/transport/wagon_parked/charts/original-w01-charts.bin` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
+| `authored/transport/wagon_parked/charts/original-w01-charts.json` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
+| `authored/transport/wagon_parked/charts/original-w01-charts.mapping.json` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
