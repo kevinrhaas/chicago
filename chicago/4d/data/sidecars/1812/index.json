@@ -313,6 +313,30 @@
       "asset": "gltf/forks_house_soldier_1812__soldier_1812.glb"
     },
     {
+      "id": "kinzie_bake_house_1812",
+      "name": "The Kinzie bake-house, behind the house's west end",
+      "sidecar": "sidecars/1812/kinzie_bake_house_1812.json",
+      "asset": "gltf/kinzie_bake_house_1812__kinzie_1804.glb"
+    },
+    {
+      "id": "kinzie_dairy_1812",
+      "name": "The Kinzie dairy, behind the house",
+      "sidecar": "sidecars/1812/kinzie_dairy_1812.json",
+      "asset": "gltf/kinzie_dairy_1812__kinzie_1804.glb"
+    },
+    {
+      "id": "kinzie_garden_1812",
+      "name": "The Kinzie garden, north of the house",
+      "sidecar": "sidecars/1812/kinzie_garden_1812.json",
+      "asset": "gltf/kinzie_garden_1812__kinzie_1804.glb"
+    },
+    {
+      "id": "kinzie_horse_mill_1812",
+      "name": "The old horse mill beside Kinzie's garden",
+      "sidecar": "sidecars/1812/kinzie_horse_mill_1812.json",
+      "asset": "gltf/kinzie_horse_mill_1812__mill_1808.glb"
+    },
+    {
       "id": "kinzie_house_1812",
       "name": "The Kinzie house, built by Jean Baptiste Point du Sable",
       "sidecar": "sidecars/1812/kinzie_house_1812.json",
@@ -323,6 +347,18 @@
       "name": "The Kinzie house's fenced green",
       "sidecar": "sidecars/1812/kinzie_house_1812_green.json",
       "asset": "gltf/kinzie_house_1812_green__kinzie_1804.glb"
+    },
+    {
+      "id": "kinzie_lodging_house_1812",
+      "name": "The lodging house for Kinzie's Frenchmen",
+      "sidecar": "sidecars/1812/kinzie_lodging_house_1812.json",
+      "asset": "gltf/kinzie_lodging_house_1812__kinzie_1804.glb"
+    },
+    {
+      "id": "kinzie_stable_1812",
+      "name": "The Kinzie stable, east of the house",
+      "sidecar": "sidecars/1812/kinzie_stable_1812.json",
+      "asset": "gltf/kinzie_stable_1812__kinzie_1804.glb"
     },
     {
       "id": "lalime_house_1812",

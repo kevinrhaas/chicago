@@ -398,8 +398,42 @@ def _roof(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
     which the chimney needs so its stack clears the ridge."""
     if p.roof_type == "shed":
         return _shed_roof(b, x0, y0, x1, y1, eave_z, p.roof_pitch_deg, conf, M_ROOF)
+    if p.hip_end is not None:
+        return _hip_end_roof(b, x0, y0, x1, y1, eave_z, p.roof_pitch_deg, conf, M_ROOF,
+                             at_min=p.hip_end == "min", inset=p.hip_inset_m)
     return b.add_gable_roof(x0, y0, x1, y1, eave_z, p.roof_pitch_deg, conf, M_ROOF,
                             ridge_along_x=_ridge_along_x(x0, y0, x1, y1))
+
+
+def _hip_end_roof(b: MeshBuilder, x0, y0, x1, y1, eave_z, pitch_deg, conf, mat,
+                  at_min: bool, inset: float | None = None,
+                  overhang: float = 0.25) -> float:
+    """`add_gable_roof` along x with one end hipped (T-2485).
+
+    The ridge stops `inset` short of that end's eave line and the end's roof falls from
+    there to the eave, the way Eastman's 1820 view draws the lodging house's far end.
+    None is half the span, a hip at the slopes' own pitch; the inset is measured from
+    the wall, and the overhang is added to it. The other end keeps its gable. The
+    ridge runs along x only: params refuse `hip_end` anywhere else.
+    """
+    x0, y0, x1, y1 = x0 - overhang, y0 - overhang, x1 + overhang, y1 + overhang
+    rise = ((y1 - y0) / 2.0) * math.tan(math.radians(pitch_deg))
+    ridge_z = eave_z + rise
+    ym = (y0 + y1) / 2.0
+    inset = (y1 - y0) / 2.0 if inset is None else inset + overhang
+    ra = x0 + inset if at_min else x0
+    rb = x1 if at_min else x1 - inset
+    b.add_poly([(x0, y0, eave_z), (x1, y0, eave_z),
+                (rb, ym, ridge_z), (ra, ym, ridge_z)], conf, mat)
+    b.add_poly([(x1, y1, eave_z), (x0, y1, eave_z),
+                (ra, ym, ridge_z), (rb, ym, ridge_z)], conf, mat)
+    if at_min:
+        b.add_poly([(x0, y0, eave_z), (ra, ym, ridge_z), (x0, y1, eave_z)], conf, mat)
+        b.add_poly([(x1, y1, eave_z), (x1, ym, ridge_z), (x1, y0, eave_z)], conf, mat)
+    else:
+        b.add_poly([(x0, y0, eave_z), (x0, ym, ridge_z), (x0, y1, eave_z)], conf, mat)
+        b.add_poly([(x1, y1, eave_z), (rb, ym, ridge_z), (x1, y0, eave_z)], conf, mat)
+    return ridge_z
 
 
 def _shed_roof(b: MeshBuilder, x0, y0, x1, y1, eave_z, pitch_deg, conf, mat,
@@ -861,7 +895,7 @@ def _ridge_stack(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1, ridge_z: 
     shaft, so no gap shows on either slope, and its head the archetype's usual height
     over the ridge. Placed where a record says a picture puts it, never by default.
     """
-    half = _STACK_HALF
+    half = _STACK_HALF if p.ridge_stack_w_m is None else p.ridge_stack_w_m / 2.0
     if _ridge_along_x(x0, y0, x1, y1):
         c = x0 + f * (x1 - x0)
         ym = (y0 + y1) / 2.0
@@ -871,7 +905,8 @@ def _ridge_stack(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1, ridge_z: 
         xm = (x0 + x1) / 2.0
         bx = (xm - half, c - half, xm + half, c + half)
     run = half * math.tan(math.radians(p.roof_pitch_deg))
-    b.add_box(bx[0], bx[1], ridge_z - run - 0.25, bx[2], bx[3], ridge_z + 0.95, conf, mat,
+    head = 0.95 if p.ridge_stack_head_m is None else p.ridge_stack_head_m
+    b.add_box(bx[0], bx[1], ridge_z - run - 0.25, bx[2], bx[3], ridge_z + head, conf, mat,
               skip=("bottom",))
 
 
