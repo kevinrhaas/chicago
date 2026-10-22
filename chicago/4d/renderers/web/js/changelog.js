@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2187, ts: '2026-10-22T17:06:04.478Z', date: 'Oct 22, 2026, 12:06 PM CT', title: '1811 Prairie\'s entrance corner now turns round, as the 1888 plate shows', kind: 'improvement',
+    items: [
+      'The corner beside the arched porch at 1811 Prairie is now a curve of rock-faced stone, about 0.9 m across, running from the ground to the cornice. It used to be a sharp square edge.',
+      'The corner downpipe now runs down the curve itself, where the plate draws it.',
+      'The builder can now round the corner of any stone-fronted house. Every other house on the avenue is unchanged.',
+    ] },
   { v: 2186, ts: '2026-10-22T15:58:52.281Z', date: 'Oct 22, 2026, 10:58 AM CT', title: '1801 Prairie\'s south pavilion stands nearer its photograph', kind: 'fix',
     items: [
       'The Kimball house\'s south pavilion on Prairie Avenue now starts right beside the bowed bay,, as J. W. Taylor\'s photograph of about 1895 shows. Its stone gable now springs about 0.7 m lower, so the gable, pinnacles and finial meet the photograph\'s heights. The top-floor pair of windows now sits about 0.8 m higher, close under the band below the gable, as the photograph shows. The pavilion\'s south corner still stands a little south of the photograph\'s. That is next: the 1911 map draws the corner cut back at an angle.',

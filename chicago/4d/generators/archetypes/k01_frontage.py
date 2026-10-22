@@ -27,6 +27,10 @@ THE COMPONENTS (k01_contract.json `families`), each built about its own socket:
   k01.wall.rear_service     common brick, two bays a storey; on an all-stone house
                             (T-2788, `construction: "stone"`) the flanks, the rear and
                             every masonry wing are the front's K02 coursing, on its beds
+  k01.wall.round_corner     a corner of the front block rounded from grade (T-3006,
+                            `round_corner`): the front's stone, coursed on its beds and
+                            curved stone by stone, corbelled out to the square in its last
+                            course under the cornice, the eave and the gable end
   k01.opening.sash_flat     a K06 window (T-2298): reveal, frame, two sashes in two
                             planes, glass, blind, curtain edges and an enclosed dark
                             room, a stone sill with its drip; and a flat lintel
@@ -118,6 +122,7 @@ from . import k09_frontage
 from . import k10_frontage
 from . import k11_frontage
 from . import k14_yard
+from . import k01_frontage_params
 from .k01_frontage_params import EAVE_FASCIA_M, ROUND_CUT, ROUND_HOODED, STREET_WINDOW, STRIP_FABRICS, wing_walls
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -1444,6 +1449,7 @@ class Assembly:
         holes, arches, seats, belts, courses, square, ytop = self._course_plan(frame, openings, yf, beds, extra)
         if beds is None:
             self.front_course_beds = sorted({y for ya, yb, _ in courses for y in (ya, yb)})
+            self.front_courses, self.front_ytop = courses, ytop   # T-3006: a round corner's beds
         af = p.arched_front if beds is None else None
         # T-2753: a proud frontispiece: the courses and flat arches on it laid on its face
         fp = p.frontispiece if beds is None else None
@@ -1899,6 +1905,125 @@ class Assembly:
     K06_ROLES = {"reveal": None, "sill": "stone", "frame": "sash", "sash_outer": "sash",
                  "sash_inner": "sash", "glass_outer": "glass", "glass_inner": "glass",
                  "blind": "blind", "curtain": "curtain", "backing": "backing"}
+
+    # -- k01.wall.round_corner (T-3006) -------------------------------------------------
+    def round_stone(self, C, rad, a0, a1, y0, y1, joints, mat, seed, conf, *, recess, bevel, F=0.0, rock=0.0):
+        """One stone of a rounded corner: the cell [a0, a1] x [y0, y1] on the radius `rad`
+        about the plan centre C (x, z), its angle a turned from +x towards -z, `joints` its
+        half joints (bottom, a1 end, top, a0 end). Laid as `stone` lays a plane one: the
+        arris is the cell less its joints, recessed to the mortar at -recess; the face is
+        the arris less the bevel, F proud of the round, and a rock face rises `rock` further
+        along a crest up its middle. Every face follows the curve in facets of at most 7.5
+        degrees, so the round reads round and not as a polygon of plane stones."""
+        rng = random.Random(seed)
+        P = lambda a, y, d: (C[0] + (rad + d) * math.cos(a), y, C[1] - (rad + d) * math.sin(a))
+        radial = lambda a: (math.cos(a), 0.0, -math.sin(a))
+        tangent = lambda a: (-math.sin(a), 0.0, -math.cos(a))   # towards a rising
+        jb, jr, jt, jl = joints
+        A0, A1, B0, B1 = a0 + jl / rad, a1 - jr / rad, y0 + jb, y1 - jt
+        f0, f1, g0, g1 = A0 + bevel / rad, A1 - bevel / rad, B0 + bevel, B1 - bevel
+        n = max(2, math.ceil((a1 - a0) / math.radians(7.5)))
+        fa = [f0 + (f1 - f0) * i / n for i in range(n + 1)]
+        aa = [A0 + (A1 - A0) * i / n for i in range(n + 1)]
+        am = (a0 + a1) / 2
+        origin, bed, mirror = P(a0, y0, 0.0), tangent(am), bool(seed >> 31)
+
+        def face(pts, hint, project=True):
+            self._sface(mat, pts, hint, origin, bed, seed, mirror, conf, project)
+        if rock > 0:
+            # a split face: a crest up the stone near its middle, each of its points at its
+            # own height, the face falling from it to the arris on every side
+            tc = 0.5 + rng.uniform(-0.2, 0.2)
+            ym = (g0 + g1) / 2 + rng.uniform(-0.2, 0.2) * (g1 - g0)
+            crest = [P(fa[i], ym, F + rock * min(i / n / tc, (1 - i / n) / (1 - tc)) * rng.uniform(0.6, 1.0))
+                     for i in range(n + 1)]
+            for i in range(n):
+                for lo_, hi_ in (((P(fa[i], g0, F), P(fa[i + 1], g0, F)), (crest[i], crest[i + 1])),
+                                 ((crest[i], crest[i + 1]), (P(fa[i], g1, F), P(fa[i + 1], g1, F)))):
+                    for tri in ((lo_[0], lo_[1], hi_[1]), (lo_[0], hi_[1], hi_[0])):
+                        face(list(tri), radial(am), project=False)
+        else:
+            for i in range(n):
+                face([P(fa[i], g0, F), P(fa[i + 1], g0, F), P(fa[i + 1], g1, F), P(fa[i], g1, F)],
+                     radial((fa[i] + fa[i + 1]) / 2))
+        for i in range(n):   # the bevels down to the arris, under the face and over it
+            out = _mul(radial((fa[i] + fa[i + 1]) / 2), 0.05)
+            face([P(fa[i], g0, F), P(fa[i + 1], g0, F), P(aa[i + 1], B0, -recess), P(aa[i], B0, -recess)],
+                 _add(_mul(Y, -1), out))
+            face([P(fa[i], g1, F), P(fa[i + 1], g1, F), P(aa[i + 1], B1, -recess), P(aa[i], B1, -recess)],
+                 _add(Y, out))
+        face([P(f0, g0, F), P(f0, g1, F), P(A0, B1, -recess), P(A0, B0, -recess)], _mul(tangent(a0), -1))
+        face([P(f1, g0, F), P(f1, g1, F), P(A1, B1, -recess), P(A1, B0, -recess)], tangent(a1))
+        mb = self.basis("mortar", origin, bed, Y, seed)
+        for i in range(n):   # the mortar fills the whole cell, so every joint has a floor
+            b0_, b1_ = a0 + (a1 - a0) * i / n, a0 + (a1 - a0) * (i + 1) / n
+            self.prim("mortar").face([P(b0_, y0, -recess), P(b1_, y0, -recess), P(b1_, y1, -recess),
+                                      P(b0_, y1, -recess)], radial((b0_ + b1_) / 2), mb, conf)
+
+    def round_corner(self, thickness):
+        """T-3006: the front block's rounded corner (`round_corner`), laid after the street
+        front: a quarter round of the radius from the front's tangent to the side wall's,
+        coursed on the front's own beds (its base, coping, belts and walling, rock-faced as
+        the front is), up to the bed of the front's last course; over that, one course high,
+        a dressed corbel rising from the round to the square, so the last course, the
+        cornice, the eave and the gable end stand on the square corner as they did. The
+        walls it replaces are cut away to that course's top (`build`)."""
+        p, k = self.p, self.p.stone
+        rc = k01_frontage_params.round_corner_spans(p.round_corner, p.depth_m, p.width_m)
+        rad = p.round_corner["radius_m"]
+        cu, cv = rc["centre"]
+        C = (cu, -cv)
+        a_lo = 0.0 if p.round_corner["corner"] == "north" else -math.pi / 2
+        arc = rad * math.pi / 2
+        conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "stone_front", "round_corner")
+        wk, tk = k["wall"], k["trim_edges"]
+        courses, ytop = self.front_courses, self.front_ytop
+        y_sq = courses[-1][0]
+        cid = "k01.wall.round_corner"
+        self.instance(cid, "wall", {"length_m": arc, "height_m": ytop, "thickness_m": thickness,
+                                    "construction": "masonry", "openings": 0, "radius_m": rad,
+                                    "corner": p.round_corner["corner"], "fabric": k["fabric"],
+                                    "dressing": k["dressing"]},
+                      {"base": (cu + rad * math.cos(a_lo + math.pi / 4), 0.0, -(cv + rad * math.sin(a_lo + math.pi / 4))),
+                       "top": (cu + rad * math.cos(a_lo + math.pi / 4), ytop, -(cv + rad * math.sin(a_lo + math.pi / 4)))})
+        inst = len(self.components[cid]["instances"]) - 1
+        rng = random.Random(seed_of(self.sid, cid, inst))
+        af = p.arched_front
+        prev, j = (), 0
+        for ya, yb, kind in courses:
+            if ya >= y_sq - 1e-6:
+                break
+            trim = kind in ("coping", "belt", "band")
+            spec = tk if trim else wk
+            lo, hi = k["trim_block_m"] if trim else k["block_m"]
+            r = k["channel_depth_m"] if kind == "base" else wk["recess_m"]
+            jh = (k["channel_m"] if kind == "base" else spec["joint_m"]) / 2
+            jv = spec["joint_m"] / 2
+            if af and af["banded"] and kind in ("base", "walling"):
+                jv = af["banded"]["vertical_joint_m"] / 2
+            F = {"coping": k["coping_overhang_m"], "belt": 0.05}.get(kind, 0.0)
+            pieces = _lay(rng, 0.0, arc, lo, max(lo, min(hi, 0.65 * arc)), None, prev)
+            prev = [s1 for _, s1 in pieces[:-1]]
+            for s0, s1 in pieces:
+                bseed = self._stone_seed(cid, inst, j)
+                j += 1
+                brng = random.Random(bseed ^ 0x5EED)
+                rock = brng.uniform(*self._rock_range(ya, yb)) if not trim else 0.0
+                self.round_stone(C, rad, a_lo + s0 / rad, a_lo + s1 / rad, ya, yb,
+                                 (0.0 if ya <= 1e-9 else jh, jv, jh, jv),
+                                 "limestone_trim" if trim else "rough_stone_trim", bseed, conf,
+                                 recess=r, bevel=spec["bevel_m"], F=F, rock=rock)
+        # the corbel: ruled from the round at y_sq out to the square corner at ytop
+        steps = 12
+        phis = [a_lo + (math.pi / 2) * i / steps for i in range(steps + 1)]
+        pr, seed = self.prim("limestone_trim"), self._stone_seed(cid, inst, j)
+        b = self.basis("limestone_trim", (cu, y_sq, -cv), (1.0, 0.0, 0.0), (0.0, 0.0, -1.0), seed)
+        ring = [(cu + rad * math.cos(f), y_sq, -(cv + rad * math.sin(f))) for f in phis]
+        sq = [(cu + rad / max(abs(math.cos(f)), abs(math.sin(f))) * math.cos(f), ytop,
+               -(cv + rad / max(abs(math.cos(f)), abs(math.sin(f))) * math.sin(f))) for f in phis]
+        for i in range(steps):
+            fm = (phis[i] + phis[i + 1]) / 2
+            pr.quad(ring[i], ring[i + 1], sq[i + 1], sq[i], (math.cos(fm), -1.0, -math.sin(fm)), b, conf)
 
     def kit_variant(self, op) -> dict:
         from . import k06_windows
@@ -3852,6 +3977,10 @@ def build(params, structure_id: str):
     yf = E - drop - EAVE_FASCIA_M
     a.soffit_m = yf
     floors = p.floors_m
+    # T-3006: a rounded corner replaces the square one on the front and its side wall up to
+    # the stone's top (the round's corbel squares it there); `round_corner` lays it
+    rounded = k01_frontage_params.round_corner_spans(p.round_corner, D, W)["walls"] if p.round_corner else {}
+    y_round = p.arched_front["stone_top_m"] if p.arched_front else yf
     belts = [(floors[1] - 0.20, floors[1], 0.05)] + ([(floors[2] - 0.15, floors[2], 0.05)] if len(floors) > 2 else [])
 
     def stops(wall_id):
@@ -3863,6 +3992,8 @@ def build(params, structure_id: str):
             g = side_arch["group"]
             finish_gap = finish_gap + [(g["lights"][0][0], g["lights"][0][1], g["sill_m"], g["spring_m"]),
                                        (g["cuts"][0], g["cuts"][-1], g["spring_m"], g["top_m"])]
+        if wall_id in rounded:
+            finish_gap = finish_gap + [(*rounded[wall_id], 0.0, y_round)]
         return finish_gap, [(*w["host_span_m"], 0.0, w["deck_m"]) for w in p.rear_wings if w["host_wall"] == wall_id] + \
                ([(*p.rear_section["host_span_m"], 0.0, E)] if p.rear_section and p.rear_section["host_wall"] == wall_id
                 else [])
@@ -3920,7 +4051,10 @@ def build(params, structure_id: str):
                 laid[bay["id"]] = a.bay(bay, frames[bay["wall"]][0][0])
         mat, O, R, length, t, _ = walls["k01.wall.street_front"]
         front = [o for o in p.openings if o.wall == "k01.wall.street_front"]
-        frame, quoins = a.stone_front("k01.wall.street_front", O, R, length, E, yf, t, front)
+        frame, quoins = a.stone_front("k01.wall.street_front", O, R, length, E, yf, t, front,
+                                      extra=[(*rounded["k01.wall.street_front"], 0.0, y_round)] if rounded else ())
+        if p.round_corner:
+            a.round_corner(t)
         for cid, (mat, O, R, length, t, bands) in walls.items():
             if cid == "k01.wall.street_front":
                 continue
@@ -3957,10 +4091,12 @@ def build(params, structure_id: str):
     sc_conf = p.worst_conf("storey_heights_m", "construction", "service_wall_brick")
     # A blank south wall (T-2350: 1634's party wall with 1636) carries none, as the north one
     south_to = D - p.stone["south_return_m"] if p.stone and "south_return_m" in p.stone else D   # T-2581
+    south_to = min(south_to, rounded.get("k01.wall.side.south", (D, D))[0])   # T-3006: to the round
     courses = ([("k01.wall.side.south", -k03_brick.STRING_PROUD, south_to)] if p.side_bays else []) \
         + [("k01.wall.rear_service", 0.0, W)]
     if p.north_bays:
-        courses.append(("k01.wall.side.north", 0.0, D + k03_brick.STRING_PROUD))
+        courses.append(("k01.wall.side.north", rounded.get("k01.wall.side.north", (0.0, 0.0))[1],
+                        D + k03_brick.STRING_PROUD))
     if all_round:
         courses = []   # T-2788: no brick to run a brick course in; the front's belts go round
     for cid, s_from, s_to in courses:

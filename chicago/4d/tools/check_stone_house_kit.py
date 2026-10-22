@@ -154,7 +154,8 @@ def as_was(recs):
         if phase["form"]["construction"]["value"] == "stone":
             continue
         a = build(st, phase)
-        stone = [cid for cid in walls_of(a) if cid != "k01.wall.street_front"
+        # T-3006: a rounded corner is the street front's own stone turning the corner, not a flank
+        stone = [cid for cid in walls_of(a) if cid not in ("k01.wall.street_front", "k01.wall.round_corner")
                  and a.components[cid]["instances"][0]["params"].get("fabric")]
         out.append((not stone, f"{sid} as-was", f"stone-coursed side walls: {stone or 'none'}"))
     return out
