@@ -767,6 +767,8 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 'batter_m':es['batter_at_grade_ft']*FT,
                 **{k.replace('_ft','_m'):es[k]*FT for k in
                    ('recess_base_width_ft','recess_top_width_ft','lintel_crown_rise_ft','lintel_end_inset_ft')},
+                # T-2972: the raised centre's width, when it does not span the stone.
+                'lintel_crown_width_m':es.get('lintel_crown_width_ft',0.)*FT,
                 'relief_section':es['relief_section_m'],
                 'threshold_front_x':fr.x(es['threshold_front_W']),
                 'threshold_back_x':fr.x(es['threshold_back_W']),
