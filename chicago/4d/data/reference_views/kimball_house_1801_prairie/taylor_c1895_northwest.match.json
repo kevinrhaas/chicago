@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "1248ea3419c66d30c3feff77858484f58d204403ee54845d1585f42f1c396df5",
+  "glb_sha256": "ce62e512fbc87cf3927b4b46b0e34a0c695cb7a2c3ff72c2a83129bfd3830deb",
   "camera_sha256": "d89ca0a91bccddd25a0ffa04ea98ff95ec08faec3913c2588f95f158db8cedf3",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
   "verdict": "differs",
@@ -34,8 +34,8 @@
     },
     {
       "what": "the east turret: a small round turret under a cone at the flank's north-east corner, its eaves about 8 m and its apex about 12.7 m; the draft had none",
-      "status": "open",
-      "how": "T-2900: the photograph shows the turret's eaves level with the range's (about 8.0 m), a turret turned round the wing's corner; K08's tower on a wing's wall must stand 1.0 m past the wing's eave (T-2842), so the K01 build has none where the draft had one"
+      "status": "fixed",
+      "how": "T-2842 could not carry it (a K08 tower on a wing's wall stands 1.0 m past the wing's eave); T-2900: built as a K08 corner turret on the east range's 18th Street wall, its ring flush with the range's rear wall, 2.8 m across with its centre 0.3 m inside the wall (so 1.1 m proud), its eaves the range's own 8.1 m and its slate cone whole over the range's roof to about 12.7 m with a finial; its eaves line within about 5 px of the print's (y 892-895), its cone's flare within about 5-10 px at both edges (x 175-250 on the print, 170-245 in the render)"
     },
     {
       "what": "the corner entrance: an open loggia at the front's north-west corner, one round arch on each face, and a broad stair of about nine risers between curved cheek walls coming down the front; the build has a flat door and a straight stoop",
@@ -125,7 +125,11 @@
     {
       "what": "the east range runs on south behind the gabled section to v 18.3 on the sheet; the build stops it at the gabled section's 6 m (a K01 wing stands inside its host wall); not seen from this camera",
       "status": "not shown",
-      "how": "T-2900"
+      "how": "T-2900: built whole, a K01 wing longer than its host wall, from the 18th Street wall to v 18.3 under one hip, its front wall drawn where it runs past the gabled section; the photograph does not show it"
+    },
+    {
+      "what": "the east turret's shaft and finial: the print shows the shaft about 15 px wider toward the front (to x 237; the build's to about x 220), a moulded band at its first floor and a heavy eave moulding, and a finial spike about 40 px taller than the build's",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

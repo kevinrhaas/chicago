@@ -28770,6 +28770,8 @@ openings, roof and flank to the photographs; T-1890 finishes the architecture an
 **Revised:** 2026-10-20 (T-2910) — T-2790 was split: T-2910 builds the corner loggia and its stair
 (`L-kimball-1801-loggia-2910`), so the deep-arched door standing for the loggia above is retired;
 the bowed bay, the carved openings and frieze and the corbel table are T-2911's.
+**Revised:** 2026-10-22 (T-2900) — the east range is no longer stopped at its host's 6 m and its
+turret is built: both are `L-kimball-1801-turret-2900`.
 
 ### L-kimball-1801-loggia-2910 — 1801 Prairie's corner loggia: a room 2.3 m square behind its two arches under a flat ceiling, its door's leaves, plain stone for the carving, and the stair's cheeks swept on a reconstructed curve
 
@@ -28955,6 +28957,34 @@ cartouche band's frames.
 **Ticket:** T-2932 (piece 3 of T-2922).
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-21 (T-2932).
+
+### L-kimball-1801-turret-2900 — 1801 Prairie's east range run its full length and its corner turret: the turret stood 1.1 m proud where the sheet draws 0.6, the range's hip carried round its front, and every opening on its unseen faces reconstructed
+
+**Decision:** 1801 Prairie's east range (T-2900) runs the 1911 sheet's whole length and carries the
+north-east turret J. W. Taylor's c. 1895 photograph shows at the flank's east end
+(`taylor_c1895_kimball_residence_1801`), on two new kit pieces: a K01 wing longer than its host wall
+(`past_host`: it stands on the gabled section's 6 m rear wall and past it has a front wall of its own,
+its roof cut only along the host) and a K08 corner turret on a wing's wall (`corner`: its ring within
+0.3 m of the end wall's plane and never past it, its eaves the wing's own, its cone whole over the
+wing's roof). **What is read, not invented.** The range's rectangle on the sheet's trace, u -17.9 to
+-8.5 and v 0 to 18.3; the turret's place on the sheet's second bump (u -15.2 to -17.9, ending at the
+range's rear corner); its eaves level with the range's (about 8.0-8.1 m) and its cone to about 12.7 m
+with a finial, T-2538's readings of the photograph; one light a storey on its face toward the camera.
+**What is invented.** The turret's centre 0.3 m inside the wall and its radius 1.4 m, so it stands
+1.1 m proud where the sheet draws its bump about 0.6 m out: at the sheet's depth the render showed
+about half the shaft the print shows past the flank's end, and the photograph is the closer evidence
+(the sheet draws the round tower's bump short of its photograph too, `L-kimball-1801-k01-2843`); its
+ring flush with the range's rear wall, which no picture shows; its plain walling, with no band or
+eave moulding (the print shows both, open in the match record); its lights' places and sizes. The
+range's 45-degree slate hip along its length (ridge about 12.8 m) where it was a hip across its first
+6 m; its front wall on the stretch past the gabled section; the openings on its rear, its south face
+and its front, three, two and three, all at the kit's sash on places no picture shows.
+**How to resolve:** a picture of the range from the south or east, or of the turret nearer, would
+give its plan and the openings; T-2540 and T-1890 bring the roof and the architecture to the
+photographs.
+**Ticket:** T-2900.
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-22 (T-2900).
 
 ### L-k01-1621-last-drawn-2531 — 1621 Prairie's last drawn differences: the door's ring turned to a curved extrados under a band in a deep recess, the light over it stood on a moulded shelf, and splayed voussoirs over the basement lights, their places read and their sections reconstructed
 
