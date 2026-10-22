@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2183, ts: '2026-10-22T13:51:20.213Z', date: 'Oct 22, 2026, 8:51 AM CT', title: 'Glessner\'s 18th Street wall: one granite course an inch lower', kind: 'fix',
+    items: [
+      'Glessner House\'s 22nd granite course is now its printed 8½ inches, not the 9½ copied in error, so the top course and the stone cap along 18th Street sit an inch lower. The second-floor corridor windows on 18th Street, and the tall window over the great arch, now have their heads an inch lower too, at the course they were set on. It is a small change: one inch, on the wall you see from 18th Street.',
+    ] },
+  { v: 2182, ts: '2026-10-22T13:51:20.213Z', date: 'Oct 22, 2026, 8:51 AM CT', title: 'Nothing you can see changed: a misleading Glessner check corrected', kind: 'chore',
+    items: [
+      'Glessner House looks exactly as before. Its published files were rebuilt from scratch and came out identical, byte for byte. A copy of the house left behind on a work machine had been mistaken for a fault in the site itself. The check now names that case and how to clear it.',
+    ] },
   { v: 2181, ts: '2026-10-22T13:36:55.080Z', date: 'Oct 22, 2026, 8:36 AM CT', title: '1811 Prairie\'s oriel brought down to its cornice in the 1888 plate', kind: 'fix',
     items: [
       'The oriel over 1811 Prairie\'s entrance now carries its cornice at the plate\'s height, about 0.4 m lower than before, so its slate spire rises from the same line as in the 1888 Inland Architect plate.',
