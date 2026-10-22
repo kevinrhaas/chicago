@@ -2,7 +2,7 @@
   "structure_id": "house_1736_prairie",
   "view": "mcbirney_c1890_photo",
   "glb": "assets/gltf/house_1736_prairie__as_mapped_1904.glb",
-  "glb_sha256": "c379544a67f4f9bd151af450f56dbd76c8bea8deb6959a5627110345c13684d9",
+  "glb_sha256": "0a927c40e88471cfc642b6e9f49e41eacf0ee6b4fa8151de3f643766df44f94b",
   "camera_sha256": "d924f0ee0e92dcf7693117ec8a43053a5929bcb7664a34b41590391a6964b6dd",
   "side_by_side": "docs/RESEARCH/photo-match/house_1736_prairie/mcbirney_c1890_photo-side-by-side.jpg",
   "verdict": "matches",
@@ -93,7 +93,8 @@
     },
     {
       "what": "the south flank on 18th Street, the north wall, the rear and the roof behind the street face: the camera stands square to the front",
-      "status": "not shown"
+      "status": "not shown",
+      "how": "T-2994: the 18th Street wall's three canted bays, built off the 1911 sheet (the nearest stands 4.3 m behind the front and 0.85 m out), stand behind the front's south corner and the veranda from this camera; the side-by-side was re-rendered on the new GLB and shows no change"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
