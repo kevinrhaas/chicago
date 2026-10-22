@@ -256,6 +256,7 @@ function miniDom() {
   const home = add(navBody, 'div', 'nav-home', ['nav-screen']);
   for (const id of ['nav-home-title', 'nav-where', 'nav-where-detail', 'nav-front-name', 'nav-front-detail', 'nav-inspect',
     'nav-jaunt', 'nav-jaunt-step', 'nav-jaunt-title', 'nav-jaunt-bar', 'nav-move', 'nav-confidence']) add(home, 'div', id);
+  for (const id of ['nav-tile-move', 'nav-tile-confidence']) add(home, 'button', id);
   // The drawer's #panel, still in #hud as the page is written (T-2620 moves it into the apps).
   const hud = add(body, 'div', 'hud');
   const panel = add(hud, 'div', 'panel', ['hud-panel']);
@@ -516,6 +517,13 @@ for (const phone of [true, false]) {
   assert(dom.panel.classList.contains('has-one-section'), 'one section, no tab row');
   await nav.select('home');
   assert.equal(fakeHud.open, false, 'Home closes the section');
+  // T-3021: Home's MOVE tile opens Move, and Back from it returns to the app it came from.
+  dom.byId.get('nav-tile-move').dispatch('click');
+  await Promise.resolve();
+  assert.equal(nav.app, 'move', `${label}: Home's Move tile opens Move`);
+  assert.equal(nav.backTo().id, 'home', 'and Back goes to Home, where it was opened from');
+  await nav.back();
+  assert.equal(nav.app, 'home', `${label}: Back returns to Home`);
   await nav.select('guide');
   assert.deepEqual([fakeHud.open, fakeHud.tab], [true, 'controls'], 'Guide opens Controls first');
   nav.dock();

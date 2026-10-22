@@ -134,6 +134,10 @@ const html = read('renderers/web/index.html');
 for (const id of ['tour', 'tour-count', 'tour-skip', 'tour-task', 'tour-bubble', 'tour-status', 'tour-next', 'tour-start']) {
   assert(html.includes(`id="${id}"`), `#${id} is on the page`);
 }
+// T-3021: the tour can be taken any time — its block leads Guide, whatever became of the offer.
+assert(/id="guide-tour"[\s\S]{0,400}id="tour-start"[^>]*>Take the tour/.test(html), 'Guide\u2019s tour block carries Take the tour');
+assert(/getElementById\('guide-tour'\)[\s\S]{0,80}el\.append\(tour\)[\s\S]{0,200}nav-guide-sheet/.test(read('renderers/web/js/apps/guide.js')),
+  'Guide lifts the tour block to the top of its screen, ahead of the controls sheet');
 const main = read('renderers/web/js/main.js');
 assert(/if \(firstEntry && !api\.tour\?\.running\) api\.tour\?\.resume\(\);/.test(main), 'a reload resumes once back in the town');
 assert(/tourCounts\.apps\[now\] = \(tourCounts\.apps\[now\] \?\? 0\) \+ 1/.test(main), 'each Navigator app opening is counted');
