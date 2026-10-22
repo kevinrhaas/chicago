@@ -942,19 +942,19 @@
       "standoff_m": 0.55,
       "ground_quad_local_enu_m": [
         [
-          -18.9,
+          -24.7,
           -96.19
         ],
         [
-          -18.9,
+          -24.7,
           -88.57
         ],
         [
-          -31.09,
+          -36.89,
           -88.57
         ],
         [
-          -31.09,
+          -36.89,
           -96.19
         ]
       ],
@@ -963,7 +963,7 @@
           "kind": "barrel",
           "pose": "upright",
           "at_local_enu_m": [
-            -31.64,
+            -37.44,
             -95.38
           ],
           "bearing_deg": 270.0,
@@ -979,7 +979,7 @@
           "kind": "barrel",
           "pose": "upright",
           "at_local_enu_m": [
-            -31.64,
+            -37.44,
             -94.76
           ],
           "bearing_deg": 270.0,
@@ -995,7 +995,7 @@
           "kind": "barrel",
           "pose": "upright",
           "at_local_enu_m": [
-            -31.64,
+            -37.44,
             -94.14
           ],
           "bearing_deg": 270.0,
@@ -3776,11 +3776,11 @@
       "kind": "farm_box",
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -11.88,
+        -17.68,
         -90.17
       ],
       "bearing_deg": 90.0,
-      "clearance_m": 28.42,
+      "clearance_m": 22.65,
       "note": "A FARM WAGON IN THE GREEN TREE'S YARD, and the picture is the whole reason it is here. The Trowbridge drawing of this inn (data/sources/assets/owner_brief_2026_08_18/README.md, image 7) shows farm wagons standing in its yard — a tier-5 retrospective view, which may drive furniture and setting and may never drive a coordinate. So WHERE is derived: the wagons stand drawn up square to the building's built rear face — since T-0083 that is the rear ell's far wall — tongues out, 1.00 m clear of it, spaced at the 3.20 m of ground a parked wagon needs, laid in from the far end of that wall. The yard is taken to run back as far as the front is wide, which is the only length this record has. What is invented is the depth of that yard, that a wagon stood in it at noon on 1 July 1835, and the wagon itself: docs/LIBERTIES.md L131 and L133."
     },
     {
@@ -3789,11 +3789,11 @@
       "kind": "farm_box",
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -11.88,
+        -17.68,
         -93.37
       ],
       "bearing_deg": 90.0,
-      "clearance_m": 28.87,
+      "clearance_m": 23.2,
       "note": "A FARM WAGON IN THE GREEN TREE'S YARD, and the picture is the whole reason it is here. The Trowbridge drawing of this inn (data/sources/assets/owner_brief_2026_08_18/README.md, image 7) shows farm wagons standing in its yard — a tier-5 retrospective view, which may drive furniture and setting and may never drive a coordinate. So WHERE is derived: the wagons stand drawn up square to the building's built rear face — since T-0083 that is the rear ell's far wall — tongues out, 1.00 m clear of it, spaced at the 3.20 m of ground a parked wagon needs, laid in from the far end of that wall. The yard is taken to run back as far as the front is wide, which is the only length this record has. What is invented is the depth of that yard, that a wagon stood in it at noon on 1 July 1835, and the wagon itself: docs/LIBERTIES.md L131 and L133."
     },
     {
@@ -3804,11 +3804,11 @@
       "tilt": true,
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -20.93,
+        -26.73,
         -86.97
       ],
       "bearing_deg": 90.0,
-      "clearance_m": 17.25,
+      "clearance_m": 11.45,
       "note": "THE COVERED WAGON UNDER THE SHED, from the same plate and standing on the same derived centre as the bay over it. It is the farm wagon this record already draws — the body, the wheels and the tongue are L131's invented numbers and have not moved — with a TILT added: canvas on bows, 1.10 m of rise over the body's top rail and 0.12 m pulled past the end bows, open at both ends. The bows themselves are not drawn, for the reason the barrels' hoops are not: under the canvas there is nothing to see. It lies ALONG the wall because that is how a 4.05 m bay takes a 3.05 m body, with the tongue down and out of the open end into the yard. What is invented is the wagon, the tilt and the fact that either stood here on 1 July 1835: docs/LIBERTIES.md L131 and L134."
     },
     {
@@ -5339,7 +5339,7 @@
       "kind": "bench",
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -31.27,
+        -37.07,
         -89.98
       ],
       "bearing_deg": 270.0,
@@ -5353,7 +5353,7 @@
       "kind": "wagon_shed",
       "confidence": "reconstructed",
       "at_local_enu_m": [
-        -20.93,
+        -26.73,
         -86.97
       ],
       "bearing_deg": 0.0,
@@ -5361,7 +5361,7 @@
       "depth_m": 3.2,
       "eave_m": 2.95,
       "head_m": 3.63,
-      "clearance_m": 17.25,
+      "clearance_m": 11.45,
       "note": "AN OPEN-SIDED WAGON SHED AT THE INN'S YARD END, and the picture is the whole reason it is here. The Trowbridge drawing of this inn (data/sources/assets/owner_brief_2026_08_18/README.md, image 7) shows an open-sided wagon shed attached at the left of the house with a covered wagon standing under it — a tier-5 retrospective view, which may drive furniture and setting and may never drive a coordinate. WHICH WALL IS DERIVED: the placement record puts the front on Canal and the long side on Lake, T-0080's wagons already stand off the rear wall, and that leaves the north side wall — the only one of this inn's four that is neither a street frontage nor already occupied, and a wagon shed is entered off a yard rather than off a corporation street. WHAT IS NOT HONOURED: the committed massing lays this building's ridge along its longer axis, which puts its gables on the front and the rear, so this stands at the left END and not at a gable; the gable is a correction to the building's fabric and is bake-gated (T-0083). HOW BIG IS ARITHMETIC on numbers already here: the bay is 4.05 m along the wall (the wagon's body and 0.50 m of air at each end) by 3.20 m out from it (the ground a parked wagon is given), its open eave stands 2.95 m up (0.35 m over the tilt it covers) and its plate meets the wall 3.63 m up at 12 degrees. What is invented is that this inn had a wagon shed on 1 July 1835 and every dimension of it: docs/LIBERTIES.md L134. NOT THE SAME THING as the low one-storey additions John Gray describes at each end of the house — those are attributes of the BUILDING, dated three to six years after the scene and deliberately excluded from its footprint; this is a yard structure on the yard's own ground, and it does not date them."
     }
   ],

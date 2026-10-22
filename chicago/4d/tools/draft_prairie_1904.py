@@ -86,6 +86,8 @@ STREETS = {
     "calumet": ("S. Calumet Avenue", "Calumet Avenue", "calumet"),
     "e20th": ("E. Twentieth Street", "East Twentieth Street", "e20th"),
     "michigan": ("S. Michigan Avenue", "Michigan Avenue", "michigan"),
+    "indiana": ("S. Indiana Avenue", "Indiana Avenue", "indiana"),
+    "e21st": ("E. Twenty-first Street", "East Twenty-first Street", "e21st"),
 }
 
 
@@ -524,7 +526,8 @@ def site_record(rules, site, datum, grid) -> dict:
         "name": site["name"],
         "aka": sorted(site.get("aka", [])),
         "archetype": ARCHETYPE,
-        "function": _attr(site["function"], "attested", notes["function"], src),
+        # a site the sheet alone names (T-3009's First Presbyterian) is inferred, not attested
+        "function": _attr(site["function"], site.get("function_confidence", "attested"), notes["function"], src),
         "review_required": False,
         "research_note": (
             f"A DISTRICT DRAFT ({site['pass']}, the owner's district pass of 2026-10-08): a serviceable first model, "

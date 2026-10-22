@@ -109,15 +109,15 @@
     },
     {
       "id": "green_tree",
-      "local_e": -44.11,
+      "local_e": -49.91,
       "local_n": -121.52,
       "aerial": false,
       "inside": true,
-      "ground_m": 1.035,
+      "ground_m": 1.038,
       "dry": true,
       "stands_on": null,
       "deck_m": null,
-      "margin_m": 45,
+      "margin_m": 47.5,
       "inside_a_roof": null
     },
     {
