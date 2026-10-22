@@ -1034,6 +1034,26 @@
       "phase_id": "frame_1833",
       "structure_id": "h_jones_store"
     },
+    "hanford_house_2008_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 302276,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "1dd16f6c75653c960b3f62b1ce19a81efbdb3583536a0a50e46ae39ba74c1170",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "hanford_house_2008_calumet"
+    },
+    "hanford_house_2008_calumet_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 97996,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "4ea9f7e2fb324f88c1b04ab4ea1edfc63a38436d48aeec8da3d86c26cc426a09",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "hanford_house_2008_calumet_coach_house"
+    },
     "harmon_log_cabin__documented_1835.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
@@ -1739,6 +1759,36 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_2125_prairie_coach_house"
+    },
+    "house_213_e20th__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 149888,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "d6c837e14d9f3ca3233536faf4b7a50008512d0dc8bcc6849c32f370d2720878",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_213_e20th"
+    },
+    "house_215_e20th__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 60004,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "7d577e02d90dcde79582e3f898537e313f4144c12191d2713b80fa7cae31e617",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_215_e20th"
+    },
+    "house_217_e20th__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 80152,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "4ea91864222805b6805d33ebf1c12e47a1a2ce4d8fb2e50fe175df0ce71ba76f",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_217_e20th"
     },
     "ic_16th_street_station_1605_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
@@ -7734,6 +7784,16 @@
       "phase_id": "draft_1904",
       "structure_id": "sears_meeker_house_1815_prairie_coach_house"
     },
+    "second_presbyterian_church_1936_michigan__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 320556,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "1fdf02254ec33cb54cf65dcf1d69bc5d809009a061aad1641b66e1390c046eee",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "second_presbyterian_church_1936_michigan"
+    },
     "shed_1834_1900_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
@@ -8162,6 +8222,26 @@
       "kind": "generated",
       "phase_id": "as_standing_1904",
       "structure_id": "wheeler_house_1812_prairie_coach_house"
+    },
+    "wheeler_kohn_house_2018_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 240180,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "1f5f559b952944773f3b41b9d9c2c18e833f0fa1f26bbd7bfb0f86807c03ff4c",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "wheeler_kohn_house_2018_calumet"
+    },
+    "wheeler_kohn_house_2018_calumet_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 131024,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "35d807d9ed0bf608178f455546736ac814da3e2b85bdb4bb6c8f1246d0bc4c39",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "wheeler_kohn_house_2018_calumet_coach_house"
     },
     "wolf_point_tavern__log_frame_1828.glb": {
       "archetype": "log_dwelling",

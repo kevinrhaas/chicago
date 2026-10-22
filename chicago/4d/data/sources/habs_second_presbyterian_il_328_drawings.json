@@ -1,0 +1,27 @@
+{
+ "id": "habs_second_presbyterian_il_328_drawings",
+ "type": "illustration",
+ "citation": "Historic American Buildings Survey. Second Presbyterian Church, 1936 South Michigan Avenue, Chicago, Cook County, IL. HABS IL-328, measured drawings: sheet 2 of 22, Floor Plan (D. M. Weiss, Inspired Partnerships, 1998), and sheet 4 of 22, South Elevation - 1 (Christen Sundquist, School of the Art Institute of Chicago, 2010-2011, Charles E. Peterson Prize entry). Library of Congress, Prints and Photographs Division.",
+ "author": "Historic American Buildings Survey; Donna M. Weiss (plan); Christen Sundquist (south elevation)",
+ "date": "1998 (plan); 2010-2011 (elevation)",
+ "describes_date": "the church as surveyed in 1998-2011: Renwick's walls and tower of 1872-1874 under Howard Van Doren Shaw's reconstruction of 1900-1901, without the spire lost in 1929",
+ "repository": "Library of Congress Prints & Photographs Division (HABS/HAER/HALS collection)",
+ "url": "https://www.loc.gov/pictures/item/il0992.sheet.00002a/",
+ "archived_url": "https://www.loc.gov/pictures/item/il0992.sheet.00004a/",
+ "locator": "Sheet 2 (floor plan; the Prairie library's copy dw-habs-il328-second-presbyterian-sheet-02, 2400 x 1599 px) and sheet 4 (south elevation; dw-habs-il328-second-presbyterian-sheet-04, 1598 x 2400 px), read from the Prairie image store on 2026-10-22 for T-2982.",
+ "tier": 4,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "LoC HABS rights advisory: 'No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted.' The drawings are a Peterson Prize donation to HABS. Only dimensions are read from them; no drawing is reproduced as an asset.",
+ "asset_use": "geometry",
+ "verified": true,
+ "note": "THE PLAN'S TWO SCALE BARS DISAGREE. Its feet bar measures 129 px for 10 ft on the library copy (42.3 px/m) and its metric bar 130 px for 250 cm (52 px/m). The pews settle it: about nineteen rows in 620 display px are 0.92 m apart at the feet bar, the 36-inch spacing of a church pew, and 0.75 m at the metric bar, too close to sit in. The feet bar is read. North is up (the sheet's own arrow), Michigan Avenue on the right. The south elevation's grade datum and its printed levels (top of gable 80'-1\", the higher gable behind 87'-8 1/4\") give the hall's gable and the nave's ridge.",
+ "what_it_supplies": [
+  "the church's plan as surveyed: the nave and its east narthex, the south-east tower about 7.9 m square, the north aisle range, the chancel and the parish hall across the west end",
+  "the hall's south gable at 80'-1\" and the nave's ridge at 87'-8 1/4\" over grade (sheet 4's printed levels)"
+ ],
+ "what_it_does_not_supply": [
+  "the spire: the survey post-dates its loss in 1929",
+  "the 1904 state of anything Shaw's reconstruction or a later change altered; the plan is read as the 1901 church's on the 1901 cut's showing that the walls and tower stood through the fire",
+  "the building's position: the drawings carry no lot or street lines"
+ ]
+}
