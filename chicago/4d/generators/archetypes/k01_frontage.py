@@ -876,12 +876,17 @@ class Assembly:
         keep, self.soffit_m = self.soffit_m, w["top_m"]
         on_rear = [(*x["host_span_m"], 0.0, x["deck_m"]) for x in p.rear_wings
                    if x["host_wall"] == f"k01.wall.wing.{w['id']}.rear"]
+        # T-2900: a wing longer than its host wall has a front where it runs past the host;
+        # along the host it is the host's wall, so it is not drawn there
+        hv0, hv1 = w["host_v_m"]
+        v0 = w["rect"][2]
+        on_host = [(max(hv0, v0) - v0, min(hv1, w["rect"][3]) - v0, 0.0, w["top_m"])]
         for side, (O, R, length) in wing_walls(w).items():
             cid = f"k01.wall.wing.{w['id']}.{side}"
             ops = [o for o in w["openings"] if o.wall == cid]
             # T-2842: and where a K08 tower stands on it, from grade to the wing's wall top
-            cover = (on_rear if side == "rear" else []) + [(*b["span_m"], 0.0, w["top_m"]) for b in p.bays
-                                                           if b["wall"] == cid]
+            cover = (on_rear if side == "rear" else on_host if side == "front" else []) \
+                + [(*b["span_m"], 0.0, w["top_m"]) for b in p.bays if b["wall"] == cid]
             hs = [(o.s_m - o.width_m / 2, o.s_m + o.width_m / 2, o.sill_m, o.head_m) for o in ops] + cover
             if frame_wing:
                 frame, t = self.wall(cid, "bay_frame", O, R, length, w["top_m"], FRAME_WALL_M, hs,
@@ -905,7 +910,7 @@ class Assembly:
             # the string course at its second floor, on the south and rear walls as the main
             # body's: the south one stops short of the front by the course's own projection,
             # so it never doubles a course the main south wall runs out past its quoin
-            if side != "north" and len(w["floors_m"]) > 1:
+            if side in ("south", "rear") and len(w["floors_m"]) > 1:
                 s_from, s_to = (-k03_brick.STRING_PROUD, length - k03_brick.STRING_PROUD) if side == "south" \
                     else (0.0, length)
                 for s0, s1 in _pieces(s_from, s_to, [c[:2] for c in cover]):
@@ -991,7 +996,12 @@ class Assembly:
         else:                    # a gable to a flank: the ridge along the wing, a gable at each end
             solids, _, _, _ = k5.gable_element(z0, z1, u0, u1, top, t, o, o, f, base, "z")
         hi, end = r["ridge_m"] + 1.0, far + o + 2.0
-        cut = k5.extrude([(u1, base - 1.0), (end, base - 1.0), (end, hi), (u1, hi)], z0 - o - 2.0, z1 + o + 2.0,
+        # T-2900: a wing longer than its host wall is cut only along the host: past it, its
+        # eaves and its hip run round its own front
+        hv0, hv1 = w["host_v_m"]
+        c0 = -hv1 if v1 > hv1 + 1e-9 else z0 - o - 2.0
+        c1 = -hv0 if v0 < hv0 - 1e-9 else z1 + o + 2.0
+        cut = k5.extrude([(u1, base - 1.0), (end, base - 1.0), (end, hi), (u1, hi)], c0, c1,
                          k5.frame("z"), "host_end", "host_end", "host_end")
         pts, tris = _weld_shell(*k5.close(k5.subtract(k5.union_all(k5._snap(solids)), k5._snap([cut])[0])))
         walling = "bay_frame" if w.get("fabric") == "frame" else \
@@ -2071,7 +2081,9 @@ class Assembly:
         # is closed the same way, and so is its hipped cap's end on the plane, which K08
         # leaves open on a projection (a projection's cap otherwise dies into the wall over it)
         past = v["kind"] == "projection" and built.meta["wall_top_m"] > p.eave_m + 1e-6
-        if v["kind"] == "tower" or past:
+        # T-2900: a corner turret's eaves are its wing's and its cone is whole over the wing's
+        # roof, so nothing of it stands over the wall head to close
+        if (v["kind"] == "tower" and not b.get("corner")) or past:
             back = _mul(N, -1)
             wall_top, eave = built.meta["wall_top_m"], built.meta["eave_m"]
             on = [q[0] for q in built.prims["soffit"].pos if abs(q[2]) < 1e-6]
@@ -2091,7 +2103,8 @@ class Assembly:
         self.seat(frame, [(b["s_m"] + q[0], q[1], 0.0 if q[2] < 0.02 else -1.0)
                           for pr in built.prims.values() for q in pr.pos], "k08")
         roof = built.prims.get("roof")
-        top = max(q[1] for q in roof.pos if abs(q[2]) < 1e-6) if roof else built.meta["eave_m"]
+        on_wall = [q[1] for q in roof.pos if abs(q[2]) < 1e-6] if roof else []
+        top = max(on_wall) if on_wall else built.meta["eave_m"]
         xs = [q[0] for pr in built.prims.values() for q in pr.pos]
         return top, (b["s_m"] + min(xs), b["s_m"] + max(xs))
 

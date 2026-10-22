@@ -14,7 +14,7 @@
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B stone dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
   },
   "review_required": false,
-  "research_note": "MOVED ONTO K01 BY T-2843 (piece 3 of T-2789), at the massing T-2538 read off J. W. Taylor's photograph of c. 1895 (taylor_c1895_kimball_residence_1801, camera data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.json) and the 1911 sheet 28 trace (s28fp-1801-b1). The draft builder's copy is retired: the house is now an all-stone K01 frontage (T-2788) in Bedford stone, the register's material for it (pa-1801-23): two storeys of wall to a cornice at 8.1 m under steep slate mansard faces to a deck about 16-17 m up; the front's south pavilion and the 18th Street wall's three-storey section on K08 projections carried past the eave to 13.9 m; the round tower on a K08 tower on the 18th Street wall, its cone to about 18.7 m; the gabled section and the east range as slated K01 wings (T-2841). Three things the photograph and the sheet show are not built and each has its ticket: the east range's corner turret (a turret turned round a wing's corner, eaves level with the range's) and the range's south 12 m behind the gabled section (a wing longer than its host wall), both T-2900, and the pavilion's coped gable (T-2540). The corner loggia, its two arches and the swept stair are built (T-2910), and carved as the photograph shows them (T-2923, T-2932); the bowed bay, the front's openings and carving are T-2911's; the roof's dormers, cresting, stacks and the flank's gable are T-2540's; T-1890 finishes the architecture. What the build invents is in docs/LIBERTIES.md (L-kimball-1801-k01-2843, after L-kimball-1801-massing-2538) and what differs is open in the match record.",
+  "research_note": "MOVED ONTO K01 BY T-2843 (piece 3 of T-2789), at the massing T-2538 read off J. W. Taylor's photograph of c. 1895 (taylor_c1895_kimball_residence_1801, camera data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.json) and the 1911 sheet 28 trace (s28fp-1801-b1). The draft builder's copy is retired: the house is now an all-stone K01 frontage (T-2788) in Bedford stone, the register's material for it (pa-1801-23): two storeys of wall to a cornice at 8.1 m under steep slate mansard faces to a deck about 16-17 m up; the front's south pavilion and the 18th Street wall's three-storey section on K08 projections carried past the eave to 13.9 m; the round tower on a K08 tower on the 18th Street wall, its cone to about 18.7 m; the gabled section and the east range as slated K01 wings (T-2841). The east range runs the trace's whole length to v 18.3 and carries its north-east corner turret, eaves level with the range's (T-2900); the pavilion's coped gable is not built (T-2540). The corner loggia, its two arches and the swept stair are built (T-2910), and carved as the photograph shows them (T-2923, T-2932); the bowed bay, the front's openings and carving are T-2911's; the roof's dormers, cresting, stacks and the flank's gable are T-2540's; T-1890 finishes the architecture. What the build invents is in docs/LIBERTIES.md (L-kimball-1801-k01-2843, after L-kimball-1801-massing-2538) and what differs is open in the match record.",
   "phases": [
     {
       "id": "as_mapped_1904",
@@ -806,6 +806,54 @@
                 "covering": "slate_pennsylvania",
                 "finial": true
               }
+            },
+            {
+              "id": "turret",
+              "variant": "k08.tower.round",
+              "wall": "k01.wall.wing.r2.south",
+              "s_m": 1.4,
+              "corner": "left",
+              "fabric": "front_stone",
+              "plan": {
+                "radius_m": 1.4,
+                "centre_proud_m": -0.3
+              },
+              "storeys": [
+                {
+                  "height_m": 5.0,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 2.2,
+                      "sill_m": 2.15,
+                      "at_deg": [
+                        15
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "height_m": 3.1,
+                  "windows": [
+                    {
+                      "opening": "k06.opening.sash_2over2_flat",
+                      "clear_width_m": 0.8,
+                      "clear_height_m": 1.8,
+                      "sill_m": 0.6,
+                      "at_deg": [
+                        15
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "roof": {
+                "kind": "cone",
+                "pitch": 2.6,
+                "covering": "slate_pennsylvania",
+                "finial": true
+              }
             }
           ],
           "confidence": "inferred",
@@ -813,7 +861,7 @@
             "sanborn_1911_chicago_v3_sheet_28",
             "taylor_c1895_kimball_residence_1801"
           ],
-          "note": "Read through the Taylor camera (T-2538) and the 1911 sheet's trace, built on K08 (T-2843). p_south: the front's south pavilion, three storeys of wall to about 13.9 m, flush with the south corner as the photograph shows it (its face from about x 1235 to the corner's x 1345 on the print, so v 7.3-11.2 through the camera; built 3.6 m wide on the 11.0 m block), its storeys 5.0, 3.1 and 5.8 m from grade to the main cornice's line and the gable's springing. p_flank: the 18th Street wall's three-storey section with the corbel table, between the gabled section and the tower, to the same 13.9 m; the photograph's section runs about 7.8 m (u 2.2-10 at the camera) and K08's widest pavilion is 6.0 m, so it is built 6.0 m wide against the tower (u 5.1-11.1). Both stand 0.6 m proud (K08's own pavilion depth, the least its window recesses fit in), where the trace draws the pavilion at 0-0.4 m and the flank section at about 0.1 m, which also lets the main cornice's 0.3 m eave die behind their faces; over the eave each is closed on the wall plane (T-2843). Their caps are K08's low hip: the pavilion's coped stone gable (apex about 17 m) and the section's roof are T-2540's. tower: the round tower on the 18th Street wall, its axis 12.6 m from the main block's rear (between the photograph's u 13.0 and the sheet's bump at u 12.0), 1.45 m in radius, its eaves 12.9 m and its cone 5.8 m more to about 18.7 m with a finial, as the photograph reads; its centre 0.1 m out of the wall's face (the least that keeps its finial clear of the wall), so it stands 1.55 m proud where the sheet draws its bump 1.2-1.3 m out. One shaft for the photograph's shaft and corbelled upper stage. The tower's and the flank section's windows are the kit's sash at about the photograph's places. p_south's windows (T-2921): the photograph shows one mullioned and transomed pair a storey on the pavilion's face, about 2.4 m across between its carved pilasters (70 px of the face's 205), built as K06's plate-glass casement pair under a stone transom, 2.0 m clear on its 0.18 m mullion, centred as the photograph centres it; the principal storey's from 1.75 m (0.3 m over the floor; the print's sill at y 1000) 2.45 m tall, the second storey's from 5.6 m 2.2 m tall (its head a little over the bow's, as the print draws the two, and its frame inside the storey's clear wall under the 8.1 m eave), the third's 1.8 m from 8.8 m. The transom lights' small leaded glazing is not built. front_bow (T-2921): the photograph's bowed bay between the loggia and the pavilion, two storeys under a stone balcony. Its north junction at x 1130 and its silhouette's south edge against the pavilion's pilaster at x 1245 place it through the camera: built 3.4 m on its chord centred at v 5.05 (v 3.35-6.75, 0.65 m short of the pavilion's cheek) and 0.8 m out, and its render's outline falls within about 5 px of the print's at both edges. The sheet's bulge at v 4.8-10.2 is wider and further south; the photograph is the later and closer evidence, so the bay stands where the photograph has it. One broad light a storey, 1.5 m clear, set 20 degrees round the bow toward 18th Street, where the print shows each light filling the face it sees (x 1153-1230; at the crown the render put it 30 px south of the print's): the principal storey's 2.4 m from 1.75 m with a 0.7 m transom light over a 0.12 m bar (the print's bar about 0.8 m under the head), the second storey's 2.15 m from 5.4 m with a 0.6 m transom light. The bow is carried up 0.6 m past the house's eave, to 8.7 m, because the print wraps the main cornice round it over a frieze about 1.2 m deep above the second storey's heads (the build's main cornice stays at 8.1 m, T-2540's); its eaves are K10's moulded stone cornice swept round the bow, and on it a stone balustrade 0.6 m high round the bow from wall to wall, the print's coping at about y 535. The balustrade (T-2930): the print's pierced stone panels between posts, the one post it shows between the north wall's (x 1132) and the pavilion's pilaster (x 1231) standing at x 1186-1190, where a post a quarter of the way round the bow falls in the render (x 1191) and a post on its crown would fall at x 1247; so four panels between five posts, the crown's and the south quarter's hidden from this camera behind the pavilion's pilaster. Each panel is pierced right through in a diagonal lattice, two staggered rows of upright diamonds with half-diamonds against the coping and the base, about five across a panel (the right one at x 1191-1226, y 537-560 on the 1600 px print); the quatrefoils T-2922's title named cannot be told from diamonds at the print's 5-6 px a piercing. Built as K08's stone balustrade with panels: a 0.13 m coping, a 0.10 m base course on the cornice and 0.37 m of lattice between them (the print's about 8, 6 and 22 px of its 36), straps 0.05 m square crossing at 0.16 m along the bow. The straps' section and pitch, the posts' plain faces and the panels' depth are reconstructed within those sizes (L-kimball-1801-bow-lattice-2930). T-2931 (piece 2 of T-2922): the Taylor print's carved pilasters, one a storey at the bow's north junction (x 1127-1137) and at each corner of the pavilion's face (x 1232-1250 and 1322-1340), each under a capital below the band over it (the principal storey's at y 828-848) with a chain of carved lozenges down its shaft, the principal storey's from the windows' sill line on a corbel hanging under it (y 995-1018); and the moulded frame round every light of the bow and every pair of the pavilion under a projecting head. Built as K08's pilasters (0.22 m on the bow's ends, the hidden south one as the north; 0.30 m on the pavilion's) and K08's window surrounds (0.12 and 0.20 m jambs under 0.22 and 0.20 m hoods); their sections, the capitals' plain blocks for the print's carved ones and the lozenges are reconstructed (L-kimball-1801-pilasters-2931)."
+          "note": "Read through the Taylor camera (T-2538) and the 1911 sheet's trace, built on K08 (T-2843). p_south: the front's south pavilion, three storeys of wall to about 13.9 m, flush with the south corner as the photograph shows it (its face from about x 1235 to the corner's x 1345 on the print, so v 7.3-11.2 through the camera; built 3.6 m wide on the 11.0 m block), its storeys 5.0, 3.1 and 5.8 m from grade to the main cornice's line and the gable's springing. p_flank: the 18th Street wall's three-storey section with the corbel table, between the gabled section and the tower, to the same 13.9 m; the photograph's section runs about 7.8 m (u 2.2-10 at the camera) and K08's widest pavilion is 6.0 m, so it is built 6.0 m wide against the tower (u 5.1-11.1). Both stand 0.6 m proud (K08's own pavilion depth, the least its window recesses fit in), where the trace draws the pavilion at 0-0.4 m and the flank section at about 0.1 m, which also lets the main cornice's 0.3 m eave die behind their faces; over the eave each is closed on the wall plane (T-2843). Their caps are K08's low hip: the pavilion's coped stone gable (apex about 17 m) and the section's roof are T-2540's. tower: the round tower on the 18th Street wall, its axis 12.6 m from the main block's rear (between the photograph's u 13.0 and the sheet's bump at u 12.0), 1.45 m in radius, its eaves 12.9 m and its cone 5.8 m more to about 18.7 m with a finial, as the photograph reads; its centre 0.1 m out of the wall's face (the least that keeps its finial clear of the wall), so it stands 1.55 m proud where the sheet draws its bump 1.2-1.3 m out. One shaft for the photograph's shaft and corbelled upper stage. The tower's and the flank section's windows are the kit's sash at about the photograph's places. p_south's windows (T-2921): the photograph shows one mullioned and transomed pair a storey on the pavilion's face, about 2.4 m across between its carved pilasters (70 px of the face's 205), built as K06's plate-glass casement pair under a stone transom, 2.0 m clear on its 0.18 m mullion, centred as the photograph centres it; the principal storey's from 1.75 m (0.3 m over the floor; the print's sill at y 1000) 2.45 m tall, the second storey's from 5.6 m 2.2 m tall (its head a little over the bow's, as the print draws the two, and its frame inside the storey's clear wall under the 8.1 m eave), the third's 1.8 m from 8.8 m. The transom lights' small leaded glazing is not built. front_bow (T-2921): the photograph's bowed bay between the loggia and the pavilion, two storeys under a stone balcony. Its north junction at x 1130 and its silhouette's south edge against the pavilion's pilaster at x 1245 place it through the camera: built 3.4 m on its chord centred at v 5.05 (v 3.35-6.75, 0.65 m short of the pavilion's cheek) and 0.8 m out, and its render's outline falls within about 5 px of the print's at both edges. The sheet's bulge at v 4.8-10.2 is wider and further south; the photograph is the later and closer evidence, so the bay stands where the photograph has it. One broad light a storey, 1.5 m clear, set 20 degrees round the bow toward 18th Street, where the print shows each light filling the face it sees (x 1153-1230; at the crown the render put it 30 px south of the print's): the principal storey's 2.4 m from 1.75 m with a 0.7 m transom light over a 0.12 m bar (the print's bar about 0.8 m under the head), the second storey's 2.15 m from 5.4 m with a 0.6 m transom light. The bow is carried up 0.6 m past the house's eave, to 8.7 m, because the print wraps the main cornice round it over a frieze about 1.2 m deep above the second storey's heads (the build's main cornice stays at 8.1 m, T-2540's); its eaves are K10's moulded stone cornice swept round the bow, and on it a stone balustrade 0.6 m high round the bow from wall to wall, the print's coping at about y 535. The balustrade (T-2930): the print's pierced stone panels between posts, the one post it shows between the north wall's (x 1132) and the pavilion's pilaster (x 1231) standing at x 1186-1190, where a post a quarter of the way round the bow falls in the render (x 1191) and a post on its crown would fall at x 1247; so four panels between five posts, the crown's and the south quarter's hidden from this camera behind the pavilion's pilaster. Each panel is pierced right through in a diagonal lattice, two staggered rows of upright diamonds with half-diamonds against the coping and the base, about five across a panel (the right one at x 1191-1226, y 537-560 on the 1600 px print); the quatrefoils T-2922's title named cannot be told from diamonds at the print's 5-6 px a piercing. Built as K08's stone balustrade with panels: a 0.13 m coping, a 0.10 m base course on the cornice and 0.37 m of lattice between them (the print's about 8, 6 and 22 px of its 36), straps 0.05 m square crossing at 0.16 m along the bow. The straps' section and pitch, the posts' plain faces and the panels' depth are reconstructed within those sizes (L-kimball-1801-bow-lattice-2930). T-2931 (piece 2 of T-2922): the Taylor print's carved pilasters, one a storey at the bow's north junction (x 1127-1137) and at each corner of the pavilion's face (x 1232-1250 and 1322-1340), each under a capital below the band over it (the principal storey's at y 828-848) with a chain of carved lozenges down its shaft, the principal storey's from the windows' sill line on a corbel hanging under it (y 995-1018); and the moulded frame round every light of the bow and every pair of the pavilion under a projecting head. Built as K08's pilasters (0.22 m on the bow's ends, the hidden south one as the north; 0.30 m on the pavilion's) and K08's window surrounds (0.12 and 0.20 m jambs under 0.22 and 0.20 m hoods); their sections, the capitals' plain blocks for the print's carved ones and the lozenges are reconstructed (L-kimball-1801-pilasters-2931). turret (T-2900): the east range's north-east turret, the photograph's small round turret under a cone at the flank's east end, its eaves level with the range's, on the 1911 sheet's second bump (u -15.2 to -17.9, about 0.6 m proud, ending at the range's rear corner). Built as a K08 corner turret on the range's 18th Street wall (corner: left, its rear end): a ring 1.4 m in radius flush with the rear wall's plane, its junction 0.03 m from the corner, its wall top the range's own 8.1 m, and its slate cone (pitch 2.6) whole over the range's roof to about 12.7 m with a finial, as T-2538 read the photograph. Its centre stands 0.3 m inside the wall, so it is 1.1 m proud where the sheet draws 0.6: at the sheet's 0.6 m the render showed half the shaft the print shows past the flank's end, and the photograph is the closer evidence (L-kimball-1801-turret-2900). One light a storey toward Prairie Avenue, sills with the range's; the windows' places and the shaft's plain walling are reconstructed."
         },
         "rear_wings": {
           "value": [
@@ -868,7 +916,7 @@
                 -17.9,
                 -8.5,
                 0.0,
-                6.0
+                18.3
               ],
               "floor_m": 1.45,
               "storey_heights_m": [
@@ -889,16 +937,23 @@
               ],
               "windows": {
                 "south": [
-                  2.0,
-                  4.7,
-                  7.4
+                  3.7,
+                  6.0,
+                  8.3
                 ],
                 "rear": [
-                  3.0
+                  3.0,
+                  7.0,
+                  11.0
                 ],
                 "north": [
                   3.0,
                   6.4
+                ],
+                "front": [
+                  8.0,
+                  11.5,
+                  15.0
                 ]
               },
               "roof": {
@@ -907,7 +962,8 @@
                 "overhang_m": 0.3,
                 "fascia_m": 0.3,
                 "covering": "slate_pennsylvania"
-              }
+              },
+              "past_host": true
             }
           ],
           "confidence": "inferred",
@@ -915,7 +971,7 @@
             "sanborn_1911_chicago_v3_sheet_28",
             "taylor_c1895_kimball_residence_1801"
           ],
-          "note": "The sheet's two rectangles behind the main block, in the trace's own lines (T-2843), with the walls and roofs the Taylor photograph shows on the 18th Street flank. r3: the gabled section, u -8.5 to 0 and v 0 to 6.0 where the trace's south line steps in (the draft's fit stood it 0.5 m off the 18th Street wall, which the trace and the photograph run straight), three storeys to 13.9 m under a 45-degree slate hip, its apex about 16.9 m (the photograph's gable facing 18th Street with its balcony is T-2540's). r2: the east range, two storeys to 8.1 m (the photograph's eaves about 8.2 m) under a 45-degree slate hip, from u -8.5 back to the trace's rear at u -17.9, where the camera's bearing also puts the flank's east end (the draft's fit stopped at u -17.0). It is built v 0 to 6.0 only: a K01 wing stands inside its host wall's length, and the trace's range runs on south to v 18.3 behind a gabled section 6 m wide, so the south 12 m of it waits on that kit piece (T-2900). Its north-east corner turret is not built: the photograph shows its eaves level with the range's, a turret turned round the wing's corner rather than a K08 tower past its eave (T-2842's rule), and that is a kit piece of its own (T-2900). Openings are the kit's sash at reconstructed places."
+          "note": "The sheet's two rectangles behind the main block, in the trace's own lines (T-2843), with the walls and roofs the Taylor photograph shows on the 18th Street flank. r3: the gabled section, u -8.5 to 0 and v 0 to 6.0 where the trace's south line steps in (the draft's fit stood it 0.5 m off the 18th Street wall, which the trace and the photograph run straight), three storeys to 13.9 m under a 45-degree slate hip, its apex about 16.9 m (the photograph's gable facing 18th Street with its balcony is T-2540's). r2: the east range, two storeys to 8.1 m (the photograph's eaves about 8.2 m) under a 45-degree slate hip, from u -8.5 back to the trace's rear at u -17.9, where the camera's bearing also puts the flank's east end (the draft's fit stopped at u -17.0). T-2900 runs it the trace's whole length, v 0 to 18.3 (the trace's south face at y -3235.6 to -3235.7, its front at x 1448.7-1448.8 from v 6.0 on), as a K01 wing longer than its host wall (past_host): it stands on the gabled section's 6 m rear wall and past it has a front wall of its own, and its 45-degree slate hip runs along it, ridge about 12.8 m, its eaves carried round the front where it runs past the gabled section. Its north-east turret is a K08 corner turret on its 18th Street wall (bays.turret). Openings are the kit's sash at reconstructed places: three on the 18th Street wall clear of the turret, three on the rear, two on the south face and three on the front's free stretch; no picture shows the rear, the south face or the front."
         }
       }
     }

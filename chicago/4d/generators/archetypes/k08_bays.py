@@ -1288,8 +1288,11 @@ class Bay:
 
     def _cone(self, world, y_e, ov, pitch, cv, tower):
         """A cone on the plan's circle offset to the eaves, cut by the wall plane: a bow's
-        leans on the wall, a tower's is whole and closed at the back where the wall cuts it."""
+        leans on the wall, a tower's is whole and closed at the back where the wall cuts it.
+        T-2900: a corner turret's (`cap_whole`, its eaves at its wing's and its centre maybe
+        behind the wall's face) is not cut at all: it stands whole over the wing's roof."""
         c, R = self.plan["centre"], self.plan["R"]
+        whole = bool(self.v.get("cap_whole"))
         Re = R + ov
         step = math.radians(cv["max_seg_deg"])
         cz = c[1]
@@ -1308,6 +1311,8 @@ class Bay:
 
         def span(f):
             s = math.sin(f)
+            if whole:
+                return 0.0, Re
             if cz >= 0:
                 r_hi = Re if s >= 0 else min(Re, cz / -s)
                 return 0.0, r_hi

@@ -1003,6 +1003,15 @@ step "a K08 tower stands on a K01 rear wing's wall past the wing's eave, closed 
 step "a mansard face holds two storeys; a K08 pavilion past the eave is closed behind it (T-2843)" \
   python3 tools/test_k01_pavilion_past_eave.py
 
+# T-2900. ...and what 1801 Prairie's east range needed, held on its record: a K01 wing may run
+# past its host wall's ends when it says `past_host` (still standing on 1.0 m of that wall),
+# with a front wall of its own drawn only past the host and its roof cut only along it; and a
+# K08 corner turret on a rear wing's wall (`corner`), its ring 0-0.3 m inside the end wall's
+# plane, its eaves the wing's own and its cone whole over the wing's roof, closed behind by
+# nothing. Each refusal round both says why.
+step "a K01 wing runs past its host wall; a K08 corner turret stands at a wing's end (T-2900)" \
+  python3 tools/test_k01_wing_past_host.py
+
 # T-2788. ...and what an all-stone house is. A K01 record naming `construction: "stone"`
 # lays its K02 stone_front round every face, not a stone front on a brick box. No record
 # names it yet (1801 Prairie, T-2789, is the first), so this builds four houses that carry
