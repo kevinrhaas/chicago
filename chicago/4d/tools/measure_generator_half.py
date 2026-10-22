@@ -614,8 +614,13 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # houses at the forks of 1812 (`log_dwelling`) and the company cornfield's worm fence (`palisade`),
 # emitted the same way as T-2062's, restaling on the same rows.
 #
+# 891 -> 899 on 2026-10-22 (T-2982): the district's eight named context buildings drafted on
+# `prairie_draft` (213, 215 and 217 East Twentieth, Hanford and Wheeler-Kohn on Calumet, and Second
+# Presbyterian's parts), emitted through generators/draft_emit.py, so restaling on that archetype's
+# own rows and on none of the shared ones above.
+#
 STATED = {
-    "assets": 891,
+    "assets": 899,
     "restales": {
         "generators/common/*.py": 737,
         "generators/common/__init__.py": 0,
