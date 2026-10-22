@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2171, ts: '2026-10-22T07:10:00.105Z', date: 'Oct 22, 2026, 2:10 AM CT', title: 'Glessner\'s Prairie front windows and grilles set on their stone courses', kind: 'fix',
+    items: [
+      'The four first-floor windows on Prairie Avenue now sit lower, as HABS sheet 6 and the 1965 photograph show them. Each sill rests on the eighth granite bed, 8.71 ft over the door sill instead of 9.2, and each head is 14.3 ft, so the windows keep the drawing\'s 5.6 ft height. The basement grilles\' heads drop to the fourth bed, 4.54 ft from 4.7. The door, the porte-cochère, the small pair and the second floor were checked and left as built.',
+    ] },
   { v: 2170, ts: '2026-10-22T06:50:59.928Z', date: 'Oct 22, 2026, 1:50 AM CT', title: '1811 Prairie\'s stone dressing, downpipes and stair scrolls, from its 1888 plate', kind: 'improve',
     items: [
       '1811 Prairie\'s bay is now rough rock-faced stone up to its first-floor windows and smooth dressed stone above, as the 1888 plate shows it, and two downpipes run down the front where the plate draws them.',
