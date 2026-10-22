@@ -1,0 +1,204 @@
+{
+  "grade": "reconstructed",
+  "source_ids": [],
+  "scope": "Original EMPTY covered W01 derivatives; no external models or photographic pixels; no maker, historical owner or historical load identified",
+  "geometry_license": "GPL-3.0-or-later",
+  "original_procedural_pixels_license": "CC0-1.0",
+  "recipe": "data/transport/parked/covered-w01.json",
+  "producer": "tools/transport/generate_covered_wagons.py",
+  "core_source": "tools/transport/wagon_covered/build.py",
+  "core_source_sha256": "29f239fa3c82507d8edd33c79de0688da7ccd946080583e3626d5805d8520913",
+  "reviewed_parent_sha256": "274e737b51872983df792d0b24de8e75de8631890a8d586a32d9c6f0066484fb",
+  "source_commit": "2aebef95f6a5b6fa1bd8353db936c7674a73c32f",
+  "actual_terrain_qualification": {
+    "epoch": "e1834_harbor_cut",
+    "data_sha256": {
+      "chicago/4d/data/terrain/epochs/e1834_harbor_cut/heightfield.bin": "40b6a1f4e207f4c465be0bf303ea31889e427ea47257ce3f44fcc377b1d1ef9d",
+      "chicago/4d/data/terrain/epochs/e1834_harbor_cut/heightfield.json": "01da9094a54b93f0958646eaf3415fc2ed83023d5b8d664663ca587720b4b0b9"
+    },
+    "scope": "Four finite samples using actual pinned browser Heightfield at exact original stands; no main mesh/yoke/body clearance or shadow acceptance",
+    "stands": [
+      {
+        "id": "town_wagon_western_hotel_wagon_yard_1",
+        "at_local_enu_m": [
+          -136.05,
+          -291
+        ],
+        "bearing_deg": 356.2,
+        "contacts": [
+          {
+            "local": [
+              -0.605,
+              -1.175
+            ],
+            "e": -135.36845827871332,
+            "n": -292.13232101550113,
+            "inside": true,
+            "height": 1.1150000095367432
+          },
+          {
+            "local": [
+              -0.605,
+              1.175
+            ],
+            "e": -135.52420194465333,
+            "n": -289.7874875650148,
+            "inside": true,
+            "height": 1.1150000095367432
+          },
+          {
+            "local": [
+              0.605,
+              -1.175
+            ],
+            "e": -136.5757980553467,
+            "n": -292.2125124349852,
+            "inside": true,
+            "height": 1.1150000095367432
+          },
+          {
+            "local": [
+              0.605,
+              1.175
+            ],
+            "e": -136.7315417212867,
+            "n": -289.86767898449887,
+            "inside": true,
+            "height": 1.1150000095367432
+          }
+        ],
+        "wheel_plane_span_m": 0,
+        "eligible_unchanged_30mm_guard": true,
+        "seedText": "wagon|town_wagon_western_hotel_wagon_yard_1|-136.05|-291",
+        "yoke": true
+      },
+      {
+        "id": "town_wagon_wolf_point_tavern_yard_1",
+        "at_local_enu_m": [
+          -90.5,
+          -39.5
+        ],
+        "bearing_deg": 356.2,
+        "contacts": [
+          {
+            "local": [
+              -0.605,
+              -1.175
+            ],
+            "e": -89.81845827871331,
+            "n": -40.63232101550116,
+            "inside": true,
+            "height": 0.9997287509325579
+          },
+          {
+            "local": [
+              -0.605,
+              1.175
+            ],
+            "e": -89.97420194465332,
+            "n": -38.28748756501484,
+            "inside": true,
+            "height": 0.9965587258936583
+          },
+          {
+            "local": [
+              0.605,
+              -1.175
+            ],
+            "e": -91.02579805534668,
+            "n": -40.71251243498516,
+            "inside": true,
+            "height": 1
+          },
+          {
+            "local": [
+              0.605,
+              1.175
+            ],
+            "e": -91.18154172128669,
+            "n": -38.36767898449884,
+            "inside": true,
+            "height": 0.9982782839168343
+          }
+        ],
+        "wheel_plane_span_m": 0.003441274106341652,
+        "eligible_unchanged_30mm_guard": true,
+        "seedText": "wagon|town_wagon_wolf_point_tavern_yard_1|-90.5|-39.5",
+        "yoke": true
+      }
+    ]
+  },
+  "variants": [
+    {
+      "model": "covered_w01_western_blue",
+      "legacy_id": "town_wagon_western_hotel_wagon_yard_1",
+      "glb_sha256": "9b6575d1702ca288b5a66487ef089cc51dd0b86d14a47574f94b6fe6eaf23d23",
+      "sidecar_sha256": "cc44a5289b9dc821a50d40e824ee940270aaba56bc1a493e13eb01f0827bfcbd",
+      "source_seed_text": "wagon|town_wagon_western_hotel_wagon_yard_1|-136.05|-291",
+      "scheme": {
+        "weight": 3,
+        "body": "blue",
+        "gear": "oxide"
+      },
+      "ageScalar": 1.0226475121639669,
+      "canvasScalar": 0.8676343060377985,
+      "contains_laid_by_yoke": true
+    },
+    {
+      "model": "covered_w01_wolfpoint_oak",
+      "legacy_id": "town_wagon_wolf_point_tavern_yard_1",
+      "glb_sha256": "c6f69830d4ad690125ed703353d429bb8f68d67d29d6f6161b383b8b2d78f191",
+      "sidecar_sha256": "c781cf738b54b4e61d98973095d4647a86e0ec3369c12554b59e12146af7ca38",
+      "source_seed_text": "wagon|town_wagon_wolf_point_tavern_yard_1|-90.5|-39.5",
+      "scheme": {
+        "weight": 1,
+        "body": "oak",
+        "gear": "darkoak"
+      },
+      "ageScalar": 0.9146393269253895,
+      "canvasScalar": 0.9334987872233614,
+      "contains_laid_by_yoke": true
+    }
+  ],
+  "texture_mapped_RGBA8_plus_mips_bytes_per_variant": 8388608,
+  "limitations": [
+    "No attested textile pattern, bows, seams, hardware, historic paint/wear or identity",
+    "No occupied driver, hitch, horse, boarding, animation or collision interface",
+    "No source/published main scene comparisons, production shadows or phone-budget qualification yet",
+    "Only two explicit original covered records are proposed; no fleet or LOD expansion"
+  ],
+  "original_yard_seed_contracts": {
+    "WAGON_PAINT": {
+      "start": "const WAGON_PAINT = ",
+      "end": ";",
+      "sha256": "ed4ba2c0a5df60e284471a5307b7952d3ab8b376f203e86f609d864ac4a17633"
+    },
+    "WAGON_SCHEMES": {
+      "start": "const WAGON_SCHEMES = ",
+      "end": ";",
+      "sha256": "72d687dcf6cc41df5a097da62a62be8ecf83c73591e8aa49b245b54e50212b0f"
+    },
+    "hashOf": {
+      "start": "function hashOf(",
+      "sha256": "6aca8ed5cc40fc0ea9762d9b9b30e5f62536a0c2edd4be6cd9fbed6a9901eeaa"
+    },
+    "streamOf": {
+      "start": "function streamOf(",
+      "sha256": "642a2bade04559a3842fc8225bd1d470e6d56b6fc589d9d57e0e9d371031dcaa"
+    },
+    "wagonCoat": {
+      "start": "function wagonCoat(",
+      "sha256": "30bc545bebe088bd37a8854e74840610e6659d0d863692b2cc825caf570dd590"
+    },
+    "WOODS": {
+      "start": "const WOODS = ",
+      "end": ";",
+      "sha256": "26bbb905a6bb7fe38828d23b58d95005ad5337b493a2171087542c91bdb30626"
+    },
+    "CANVAS_COLOUR": {
+      "start": "const CANVAS_COLOUR = ",
+      "end": ";",
+      "sha256": "8d836262ecd5290d23f6fd8e5a4ae964c16eb2626c899324d8d8291df542fe80"
+    }
+  }
+}

@@ -30850,3 +30850,10 @@ setback or in the court before 1946, when the court was paved for parking.
 **Recorded:**2026-10-21.
 
 The parked1904 carriage also has an original small timber shaft-rest. Its crossbar top follows the actual model shaft undersides, while its timber sizes, feet and splay are an authored support hypothesis, not an attested personal accessory or force calculation. The carriage geometry is unchanged.
+
+
+### L-covered-wagons-2980 — two individual empty covered-wagon reconstructions
+
+**Decision:** Two existing reconstructed 1835 covered records retain their exact positions, bearings, stable original-ID/coordinate finish seeds, canvas aging and laid-by yokes. The Western Hotel example remains blue/oxide; Wolf Point remains oak/dark oak. Original W01 running gear is reused; five original bows, canvas seams, hems, restrained folds and analytic weave/weathering are reconstructed. No historical maker, owner, cargo, measured textile or joinery is established. The source-owned donor bench and footboard were omitted where they intersect the retained narrow cover; the original W01 is unchanged. This empty derivative supports no driver, passenger, hitch, collision, horse, motion, riding or boarding interface. Exact wheel-plane samples qualify the old stands against the unchanged 30 mm guard; actual main-world ground/yoke clearance, shadows, old/new comparisons and production quality remain separate acceptance work.
+
+**Recorded:**2026-10-21.
