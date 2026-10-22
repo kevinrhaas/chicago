@@ -30,12 +30,7 @@ assert.equal(visitWords('1904'), null, 'a year alone is not dressed up as a day'
 
 // --- Glessner, from its own summary record and sidecar ---------------------------------
 const sum = read('summaries/glessner_house.json');
-// T-3037: the record's range ends and build year, marked here as its notes give them. The
-// record itself takes the marks with the next Glessner bake: its bytes are part of the
-// light derivative's recipe (generators/common/versions.py), so editing it alone stales it.
-const raw = read('sidecars/1904/glessner_house.json');
-const sidecar = { ...raw, documented_range: { ...raw.documented_range, from_is: 'began', to_is: 'ended' },
-  attributes: { ...raw.attributes, built: { value: 1887, confidence: 'attested' } } };
+const sidecar = read('sidecars/1904/glessner_house.json');
 const g = storyTimeline({ sum, sidecar, scene: S1904 });
 const marks = g.rows.map((r) => r.mark);
 assert.equal(g.lead, 'From design to today. Your visit is 1 July 1904.');
