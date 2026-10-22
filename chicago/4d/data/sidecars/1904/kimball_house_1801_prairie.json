@@ -178,14 +178,72 @@
         "lower_rise_m": 7.2,
         "lower_pitch_deg": 72,
         "bulge": 0.0,
-        "dormers": [],
-        "storeys": 2
+        "dormers": [
+          {
+            "face": "street",
+            "along_m": 3.0,
+            "head": "hood",
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.6,
+              "height_m": 0.7,
+              "sill_m": 0.1
+            },
+            "surround_m": 0.2,
+            "face_setback_m": 0.55,
+            "hood": {
+              "shelf_m": 0.12,
+              "shelf_proud_m": 0.08,
+              "rise_m": 1.5,
+              "lean_m": 0.15,
+              "taper_m": 0.3
+            }
+          },
+          {
+            "face": "south",
+            "along_m": 16.7,
+            "head": "hood",
+            "sash": {
+              "variant": "k06.opening.sash_2over2_flat",
+              "width_m": 0.6,
+              "height_m": 0.7,
+              "sill_m": 0.1
+            },
+            "surround_m": 0.2,
+            "face_setback_m": 0.7,
+            "hood": {
+              "shelf_m": 0.12,
+              "shelf_proud_m": 0.08,
+              "rise_m": 1.8,
+              "lean_m": 0.15,
+              "taper_m": 0.3
+            }
+          }
+        ],
+        "storeys": 2,
+        "deck": {
+          "cresting": {
+            "height_m": 0.55,
+            "inset_m": 0.08
+          },
+          "finials": {
+            "height_m": 2.2,
+            "radius_m": 0.12
+          },
+          "hoods": {
+            "corners": [
+              "street_south"
+            ],
+            "base_m": 1.0,
+            "rise_m": 1.4
+          }
+        }
       },
       "confidence": "inferred",
       "sources": [
         "taylor_c1895_kimball_residence_1801"
       ],
-      "note": "Read through the solved camera (T-2538): straight steep faces at about 72 degrees from the 8.1 m cornice to a curb 7.2 m higher, so the deck's front edge reads 15.3-16.3 m up, inside the photograph's 15.5-17 m. A face this tall holds the house's third storey and its attic, which is why it passes K05's attic-storey 4.5 m (T-2843 lets a mansard that holds two storeys rise to 7.5 m). The face's two tiers of hooded dormers and the deck's cresting are T-2540's."
+      "note": "Read through the solved camera (T-2538): straight steep faces at about 72 degrees from the 8.1 m cornice to a curb 7.2 m higher, so the deck's front edge reads 15.3-16.3 m up, inside the photograph's 15.5-17 m. A face this tall holds the house's third storey and its attic, which is why it passes K05's attic-storey 4.5 m (T-2843 lets a mansard that holds two storeys rise to 7.5 m). The face's two tiers of hooded dormers and the deck's cresting are T-2540's. T-3000: the hooded dormers and the deck read off the same print through T-2538's camera. One hooded dormer shows on each face the camera sees, close by the corner: a short stone face with one small light (about 0.6 by 0.7 m) under a shelf, and over the shelf a tall slated hood with upright cheeks whose front falls about 0.4 m back to a level top (its edge leans about 20 px over the hood's 100), the street's at v 3.0 (the print reads about v 2.7; 3.0 is the nearest a dormer stands to the corner's hip here) its shelf about 10.9 m up, the 18th Street face's at u 16.7 about 0.5 m higher. The deck: a rail of pierced iron cresting about 0.55 m high (about 30 px at 54 px a metre) round the curb, a slated pyramid about 1.0 m across and 1.4 m high rising from the curb's north-west corner under a turned finial, the finials about 2.2 m high. The print shows no second tier of dormers. The dormers' sections, the cresting's pattern and the finials' turnings are reconstructed (L-kimball-1801-deck-cresting-3000)."
     },
     "stair_tread_m": {
       "value": 0.28,
@@ -306,11 +364,25 @@
           {
             "u_m": 3.0,
             "v_m": 10.0
+          },
+          {
+            "u_m": 5.0,
+            "v_m": 0.8,
+            "plan_m": [
+              1.2,
+              1.0
+            ],
+            "top_m": 16.4,
+            "cap_proud_m": 0.25,
+            "cap_depth_m": 0.5
           }
         ]
       },
       "confidence": "reconstructed",
-      "note": "One stack on the south wall, which no picture shows; the pavilion's and the flank's tall stacks in the photograph are T-2540's."
+      "note": "One stack on the south wall, which no picture shows (reconstructed). T-3000: the flank's tall stone stack, read off the Taylor photograph through T-2538's camera: it rises behind the 18th Street wall at the flank section's east end, about 1.2 m across (x 475-515 px on the print), to about 16.4 m (its cap's top at y 462 px), under a heavy corbelled cap about 0.25 m proud and 0.5 m deep; its depth into the roof is not seen. The pavilion's stack the parent ticket names is not in this print: nothing rises behind the pavilion's gable, and the dark stacks at the print's right edge are 1811's. L-kimball-1801-deck-cresting-3000.",
+      "sources": [
+        "taylor_c1895_kimball_residence_1801"
+      ]
     },
     "rainwater": {
       "value": {

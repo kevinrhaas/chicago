@@ -1,4 +1,28 @@
 export const CHANGELOG = [ // newest first
+  { v: 2201, ts: '2026-10-22T23:07:10.801Z', date: 'Oct 22, 2026, 6:07 PM CT', title: '1812 Prairie\'s roof behind its gable rebuilt as a slate mansard', kind: 'improvement',
+    items: [
+      'Behind the Wheeler house\'s shaped gable at 1812 Prairie, the roof is now a mansard: steep slate faces rising about 2 m from the side walls to a level, flat-topped curb. It had been a plain 45-degree hip.',
+      'Three photographs agree on it: Albert Levy\'s 1880s print of the front, the photograph of 1816 next door that looks along 1812\'s south side, and a view from about 1955.',
+      'Seen from Levy\'s camera, the slate now shows behind both of the gable\'s shoulders under a level top, within a few inches of the print on the north side.',
+      'The south side\'s top is a coped wall carried up past the roof with the tall chimney on it. That wall is not built yet and is next for this house.',
+    ] },
+  { v: 2200, ts: '2026-10-22T22:22:57.905Z', date: 'Oct 22, 2026, 5:22 PM CT', title: 'Glessner\'s stable cupola loses its dark corner stripes', kind: 'fix',
+    items: [
+      'The dark stripe that ran down each corner of the dovecote cupola on Glessner\'s coach house, from under its eave past the pigeon holes to the roof, is gone. Its stone corners now read clean and square, as both northwest photographs show them.',
+    ] },
+  { v: 2199, ts: '2026-10-22T21:52:40.932Z', date: 'Oct 22, 2026, 4:52 PM CT', title: '1904: no stand-in houses in the street or on the tracks', kind: 'fix',
+    items: [
+      'The faded house that stood on 18th Street\'s curve into Calumet Avenue is gone, and so is every other stand-in that sat on a roadway, a walk, an alley or the Illinois Central\'s tracks.',
+      'First Presbyterian Church now stands on its own corner north of 21st Street; it had been drawn flipped, across the street.',
+      'No faded street lies in the tracks any more: each one runs to the railway\'s edge and stops there, square.',
+      'East of Calumet Avenue the lots now run back to the railway, as the 1911 atlas draws them at 20th Street, instead of ending in open grass with streets stopping short.',
+      'Railway sheds no longer stack inside each other, and no tree grows in a roadway or on the tracks.',
+      'A check now fails the build if any of these overlaps comes back.',
+    ] },
+  { v: 2198, ts: '2026-10-22T21:48:34.973Z', date: 'Oct 22, 2026, 4:48 PM CT', title: '1801 Prairie\'s roof gains its dormers, iron cresting and finials', kind: 'feature',
+    items: [
+      'The Kimball house\'s steep slate roof now carries the tall hooded dormers, the iron cresting round its flat top and the turned finials J. W. Taylor\'s photograph of about 1895 shows, with the tall stone chimney on the 18th Street side.',
+    ] },
   { v: 2197, ts: '2026-10-22T20:48:00.290Z', date: 'Oct 22, 2026, 3:48 PM CT', title: 'Glessner\'s stable cupola stands taller and slimmer, as its photographs show', kind: 'improvement',
     items: [
       'The dovecote cupola on the coach-house ridge now rises about a foot higher, its pyramid\'s point at 48 feet, as the 1887 and 1963 northwest photographs both put it once each is read against the gable beside it.',
