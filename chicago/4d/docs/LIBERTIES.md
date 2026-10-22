@@ -30944,3 +30944,12 @@ The parked1904 carriage also has an original small timber shaft-rest. Its crossb
 **Decision:** Two existing reconstructed 1835 covered records retain their exact positions, bearings, stable original-ID/coordinate finish seeds, canvas aging and laid-by yokes. The Western Hotel example remains blue/oxide; Wolf Point remains oak/dark oak. Original W01 running gear is reused; five original bows, canvas seams, hems, restrained folds and analytic weave/weathering are reconstructed. No historical maker, owner, cargo, measured textile or joinery is established. The source-owned donor bench and footboard were omitted where they intersect the retained narrow cover; the original W01 is unchanged. This empty derivative supports no driver, passenger, hitch, collision, horse, motion, riding or boarding interface. Exact wheel-plane samples qualify the old stands against the unchanged 30 mm guard; actual main-world ground/yoke clearance, shadows, old/new comparisons and production quality remain separate acceptance work.
 
 **Recorded:**2026-10-21.
+
+
+### L-glessner-coursing-2986 — the printed course inches carried up the Prairie front against sheet 6
+
+**Decision:** Glessner's granite beds above the door head use HABS sheet 5's printed course inches on every face, the Prairie front included. Sheet 6, the 1965 photogrammetric front elevation, draws the same courses in the same order but 4.5 % taller: bed 7 to bed 23 is 14.77 ft there against the string's 14.13, about 0.65 ft by bed 23. The printed inches are kept because they are the only course dimensions recorded, and because sheet 4's 18th Street eave (23.1 ft ng) leaves room only for them. Sheet 6's beds carried round the corner would reach about 0.2 ft over that eave, which is close to what a scaled section can be read to. So the plot's heights are the standing dissent, not a refuted reading. The Prairie first-floor heads keep sheet 6's measured 14.3 ft, 0.38 ft up the 20-inch course, where the plot draws them on a bed.
+
+**Re-opens on:** a measurement independent of both 1960s surveys: a camera solve of the 1888 front photograph spanning the door to the 24.30 soffit, or HABS field notes FN-128.
+**Ticket:** T-2986 (docs/RESEARCH/glessner-coursing-T-2986/).
+**Recorded:** 2026-10-22.

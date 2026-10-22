@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 676,
+  "count": 677,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -48944,6 +48944,32 @@
         }
       ],
       "work_refs": []
+    },
+    {
+      "id": "L-glessner-coursing-2986",
+      "title": "the printed course inches carried up the Prairie front against sheet 6",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-22",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Glessner's granite beds above the door head use HABS sheet 5's printed course inches on every face, the Prairie front included. Sheet 6, the 1965 photogrammetric front elevation, draws the same courses in the same order but 4.5 % taller: bed 7 to bed 23 is 14.77 ft there against the string's 14.13, about 0.65 ft by bed 23. The printed inches are kept because they are the only course dimensions recorded, and because sheet 4's 18th Street eave (23.1 ft ng) leaves room only for them. Sheet 6's beds carried round the corner would reach about 0.2 ft over that eave, which is close to what a scaled section can be read to. So the plot's heights are the standing dissent, not a refuted reading. The Prairie first-floor heads keep sheet 6's measured 14.3 ft, 0.38 ft up the 20-inch course, where the plot draws them on a bed."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a measurement independent of both 1960s surveys: a camera solve of the 1888 front photograph spanning the door to the 24.30 soffit, or HABS field notes FN-128."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-22."
+        }
+      ],
+      "work_refs": [
+        "T-2986"
+      ]
     },
     {
       "id": "L46",
