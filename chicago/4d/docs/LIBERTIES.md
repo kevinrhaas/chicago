@@ -31026,3 +31026,36 @@ The parked1904 carriage also has an original small timber shaft-rest. Its crossb
 **Re-opens on:** a measurement independent of both 1960s surveys: a camera solve of the 1888 front photograph spanning the door to the 24.30 soffit, or HABS field notes FN-128.
 **Ticket:** T-2986 (docs/RESEARCH/glessner-coursing-T-2986/).
 **Recorded:** 2026-10-22.
+
+### L-kimball-1801-pavilion-face-3015 — 1801 Prairie's south pavilion's face and heights re-read off the Taylor photograph: its north cheek at the bow, its gable lowered to the print's springing, and its depth held at 0.6 m by its window recesses and the main eave's gutter
+
+**Decision:** 1801 Prairie's south pavilion (T-3015, piece 1 of T-2999) is re-stood and re-heighted
+from J. W. Taylor's c. 1895 photograph (`taylor_c1895_kimball_residence_1801`), read through the
+Taylor camera beside its render. **What is read, not invented.** That the face's north pilaster
+(x 1232-1250 on the print) stands against the bow's balustrade, so its north cheek stands at the bow's
+south junction (v 6.85, 0.1 m clear of the bow's chord; the render's cheek at x 1245), and the face
+runs from there to the corner the 1911 sheet and the print give it, 4.15 m (it stood 3.6 m from
+v 7.4). That the shelf the gable springs from stands at y 397-420 on the print, about 13.2 m at the
+face's depth, where T-2538 had read about 13.9 m and the build's gable and finial rendered about 60 px
+over the print's: the third storey is 5.1 m and the wall top 13.2 m. That the coping's apex stands at
+about y 248 (about 16.2 m) and the finial's top at y 220 (about 16.7 m), the pinnacles' tips at y 310
+and 365 (about 14.6 m), and the rake falls about 2.6 m over about 1.6 m on the wider face: pitch 1.5
+(T-2998 laid 2.1 on the 3.6 m face), the apex built to 16.32 m, the finial to 16.82 m and the
+pinnacles to 14.66 m on 0.4 m shafts under 0.45 m caps. That the third storey's pair stands close
+under the frieze, its head at y 478 and its sill on the main cornice's line: built 1.85 m from 9.6 m
+(it stood 1.8 m from 8.8 m). **What is invented or held by the kit.** The pavilion still stands 0.6 m
+proud where the sheet draws it 0-0.1 m with its south-west corner chamfered about 0.45 m: K08's
+window recesses run 0.55 m behind the face, and the main eave's gutter runs on across the front with
+its lip 0.46 m out (K01 does not stop it at a full-height projection under a mansard), so nothing
+shallower keeps both inside it; the corner is square. So the face's south corner still renders about 60 px south of the
+print's (x 1400 against 1335-1340) and the gable's apex about 55 px (x 1325 against 1270). The frieze
+over the third storey's pair, a dressed band with a roundel on the print, is plain wall (T-3002's
+carving). The kneelers', copings', pinnacles' and finial's sections stay T-2998's reconstruction
+(L-kimball-1801-pavilion-gable-2998), the pinnacles shortened to the print's tips.
+**How to resolve:** T-3016 teaches K01 to stop the mansard's eave box and gutter at a full-height
+projection's cheeks, K08's windows to recess into a shallow projection and its gable to stand on a
+shallow canted plan, then stands the face at the
+sheet's 0-0.1 m with its chamfer and re-checks the Taylor camera's south-west bearing.
+**Ticket:** T-3015 (piece 1 of T-2999).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-22 (T-3015).
