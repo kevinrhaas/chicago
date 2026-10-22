@@ -35,7 +35,7 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 848,
+    "structures_placed": 863,
     "structures_reached": 130,
     "structures_reached_by_grade": {
       "inferred": 25,
@@ -45,7 +45,7 @@
       "09": 516,
       "10": 1,
       "16": 42,
-      "outside the four sections": 159
+      "outside the four sections": 174
     },
     "school_section": {
       "parcels": {
@@ -40549,8 +40549,23 @@
       "house_1736_prairie_coach_house",
       "house_1828_prairie",
       "house_1828_prairie_coach_house",
+      "house_1830_calumet",
+      "house_1832_calumet",
+      "house_1836_calumet",
+      "house_1836_calumet_coach_house",
+      "house_1840_calumet",
+      "house_1900_calumet",
+      "house_1900_calumet_coach_house",
+      "house_1910_calumet",
+      "house_1910_calumet_coach_house",
       "house_1918_prairie",
       "house_1918_prairie_coach_house",
+      "house_1922_calumet",
+      "house_1922_calumet_coach_house",
+      "house_1922_calumet_stable_strip",
+      "house_1928_calumet",
+      "house_1932_calumet",
+      "house_1932_calumet_coach_house",
       "house_2000_prairie",
       "house_2000_prairie_coach_house",
       "house_2001_prairie",
