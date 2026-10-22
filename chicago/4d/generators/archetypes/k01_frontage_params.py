@@ -3477,13 +3477,22 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             loggia["columns"] = _loggia_columns(lg["columns"], door_w, door_h)
         door_kit["loggia"] = loggia
     # T-2910: a stoop's cheeks swept down from the landing to a block at the foot
-    if "cheek_form" in door_kit_in and door_kit_in["cheek_form"] == {"kind": "scrolled"}:
+    if "cheek_form" in door_kit_in and isinstance(door_kit_in["cheek_form"], dict) \
+            and door_kit_in["cheek_form"].get("kind") == "scrolled":
         # T-2918: a stoop's cheeks swept down to a rolled scroll at the foot, K07's carved cheek
         # (1808's, T-2565); 1811's plate draws its stair between them
-        if "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False or "terrace" in door_kit_in:
+        cf = door_kit_in["cheek_form"]
+        if "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False or "terrace" in door_kit_in \
+                or set(cf) - {"kind", "foot_block_m"}:
             raise ParamError("entrance_kit.cheek_form 'scrolled' is a stoop's own two cheeks (no side stoop, "
-                             "no terrace)")
+                             "no terrace), optionally on a foot_block_m")
         door_kit["cheek_form"] = {"kind": "scrolled"}
+        # T-2984: the roll raised onto a plain foot block, its top `foot_block_m` over grade
+        if "foot_block_m" in cf:
+            fb = float(cf["foot_block_m"])
+            if not 0.2 <= fb <= 1.0:
+                raise ParamError("entrance_kit.cheek_form.foot_block_m: a scroll's foot block is 0.2-1.0 m tall")
+            door_kit["cheek_form"]["foot_block_m"] = fb
     elif "cheek_form" in door_kit_in:
         cf = door_kit_in["cheek_form"]
         if not isinstance(cf, dict) or cf.get("kind") != "swept" or set(cf) != {"kind", "head_m", "foot_m", "block_m"} \
