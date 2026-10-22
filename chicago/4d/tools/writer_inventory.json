@@ -63,6 +63,13 @@
       "finding": "Reproduces: two --write runs on a clean tree rewrote its one output, data/comparisons/glessner/stable-roof-heights.json, byte for byte and moved nothing else; a deliberately perturbed report failed --check and was restored by --write. Before the fix in this measurement's commit it did NOT reproduce: its pixel-aspect fit has no minimum (the aspect trades exactly against focal length and distance, RMS 3.9229 px at every aspect from 1.00 to 1.06), so the solver stopped at a machine-dependent point (cupola S11.3 in CI, S11.77 on the steward runner) and --check went red on an unchanged tree. That fit is now walked at pinned aspects, each well posed (T-2758).",
       "placed": "not yet — measured to reproduce. It reads data/reference_views/glessner_house/habs-01-northwest.json, cornell-northwest-west-windows.json and data/structures/glessner_house.json, which no reconstruction stage writes, and nothing reads its report, so it has no ordering hazard on either side; the manifest's order is its own measured pass, so it is not appended blind (T-2758)."
     },
+    "glessner_cupola_read.py": {
+      "placement": "pending",
+      "write_mode": "--write",
+      "measured": "2026-10-22",
+      "finding": "Reproduces: two --write runs on a clean tree rewrote its one output, data/comparisons/glessner/stable-cupola.json, byte for byte and moved nothing else, and a perturbed report failed --check. Its fits are well posed (five cupola numbers over 19 residuals from two prints, every one-sigma under 0.3 ft), and every fit starts from the fixed pre-T-3031 numbers, never from the record, so a record edit cannot move where the solver lands (T-3031).",
+      "placed": "not yet — measured to reproduce. It reads T-2758's re-solved cameras (tools/glessner_stable_roof_read.py), data/reference_views/glessner_house/habs-01-northwest.json, cornell-northwest-west-windows.json and data/structures/glessner_house.json, which no reconstruction stage writes, and nothing reads its report, so it has no ordering hazard on either side (T-3031)."
+    },
     "check_stone_occlusion_atlas.py": {
       "placement": "not_a_writer",
       "write_mode": null,
