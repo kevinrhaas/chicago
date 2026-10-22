@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2198, ts: '2026-10-22T21:48:34.973Z', date: 'Oct 22, 2026, 4:48 PM CT', title: '1801 Prairie\'s roof gains its dormers, iron cresting and finials', kind: 'feature',
+    items: [
+      'The Kimball house\'s steep slate roof now carries the tall hooded dormers, the iron cresting round its flat top and the turned finials J. W. Taylor\'s photograph of about 1895 shows, with the tall stone chimney on the 18th Street side.',
+    ] },
   { v: 2197, ts: '2026-10-22T20:48:00.290Z', date: 'Oct 22, 2026, 3:48 PM CT', title: 'Glessner\'s stable cupola stands taller and slimmer, as its photographs show', kind: 'improvement',
     items: [
       'The dovecote cupola on the coach-house ridge now rises about a foot higher, its pyramid\'s point at 48 feet, as the 1887 and 1963 northwest photographs both put it once each is read against the gable beside it.',
