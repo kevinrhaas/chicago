@@ -1812,6 +1812,38 @@ for (const [label, viewport, touch] of [
     `${((Date.now() - bootFrom) / 1000).toFixed(1)} s of ${BOOT_READY_MS / 1000} s`, true);
 
   if (ready) {
+    // T-2662: measure a real first appearance while its screen is visible, before
+    // any part enters the town. T-3021 made Home's Confidence view tile an app
+    // button; term-tips correctly never nests a meaning button in another control.
+    // The Welcome intro already marks Reconstructed and Sources for this purpose.
+    // Keep this initial-document reading across later stages/reloads; the glossary
+    // and FAQ still get their own actual Guide reading in part 12 below.
+    let firstTermTap = null;
+    if (stageOn(12)) {
+      const selector = '#welcome .welcome-intro .locked-term[data-locked="Reconstructed"]';
+      try {
+        await untilLanded();
+        await clickChrome(selector);
+        firstTermTap = await page.evaluate((sel) => {
+          const term = document.querySelector(sel);
+          const tip = document.getElementById('term-tip');
+          const box = tip?.getBoundingClientRect();
+          return { term: term?.dataset.locked ?? null, shown: !!tip && !tip.hidden,
+            text: tip?.textContent.trim() ?? '',
+            inView: !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth
+              && box.top >= 0 && box.bottom <= innerHeight,
+            phase: window.__chicago4d.welcome?.state ?? null,
+            journey: document.documentElement.dataset.journey ?? null };
+        }, selector);
+        await clickChrome(selector);
+        firstTermTap.away = await page.evaluate(() => {
+          const tip = document.getElementById('term-tip');
+          return !tip || tip.hidden;
+        });
+      } catch (error) {
+        firstTermTap = { ...firstTermTap, error: error.message, away: false };
+      }
+    }
     const problems = await page.evaluate(() => window.__chicago4d.problems);
     // Provisional placement and placeholder-asset notes are expected findings,
     // not defects. `review_required` is also a deliberate release blocker, but
@@ -1833,17 +1865,55 @@ for (const [label, viewport, touch] of [
     const structures = await page.evaluate(() => window.__chicago4d.registry.size);
     check(`${label}: scene has structures`, structures > 0, `${structures} loaded`);
 
-    // THE SCENE-YEAR GATE FOR FIGURES (T-1788). The human layer (humans.js) is mounted for
-    // every scene and fetches only for one that lists `humans`; none does, and L1 stands
-    // besides, so it must be in the scene, empty, and have asked for nothing at all.
+    // The portable human scene-year gate follows the authored scene and exact index.
+    // An eligible scene can now mount ordinary person-bound actors; absent scenes
+    // still request nothing and draw nobody. L1 remains an explicit refusal.
+    const humanScene = await page.evaluate(() => window.__chicago4d.scene.id);
+    if (!/^[0-9]{4}$/.test(humanScene)) throw Error('unsafe human scene id');
+    const humanSceneRecord = JSON.parse(fs.readFileSync(path.join(ROOT, `data/scenes/${humanScene}.json`), 'utf8'));
+    const humanDeclared = humanSceneRecord.layers.includes('humans');
+    let humanExpectedRecords = [], humanL1 = true;
+    if (humanDeclared) {
+      const index = JSON.parse(fs.readFileSync(path.join(ROOT, `data/humans/instances/${humanScene}/index.json`), 'utf8'));
+      if (index.scene !== humanScene || !Array.isArray(index.instances)
+          || new Set(index.instances).size !== index.instances.length
+          || index.instances.some(id => typeof id !== 'string' || !/^hi_[a-z0-9_]+$/.test(id))) {
+        throw Error('invalid human browser manifest');
+      }
+      humanExpectedRecords = index.instances.map(id => {
+        const record = JSON.parse(fs.readFileSync(path.join(ROOT, `data/humans/instances/${humanScene}/${id}.json`), 'utf8'));
+        if (record.id !== id || record.scene !== humanScene) throw Error('human manifest/record identity mismatch');
+        return record;
+      });
+      humanL1 = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/humans/contract.json'), 'utf8')).l1.in_force !== false;
+    }
     const humans = await page.evaluate(() => {
       const h = window.__chicago4d.humans;
-      return h ? { count: h.count, records: h.records.length, inScene: !!h.group.parent } : null;
+      return h ? { count: h.count, records: h.records.map(r => r.id).sort(),
+        actors: h.actors.map(a => ({ id: a.id, personId: a.personId ?? null,
+          assetId: a.instance.appearance.asset_id })).sort((a, b) => a.id.localeCompare(b.id)),
+        withheld: [...h.withheld].sort(), refused: h.refused.map(r => r.id).sort(),
+        inScene: !!h.group.parent } : null;
     });
-    check(`${label}: the human layer is mounted and draws nobody`,
-      !!humans && humans.count === 0 && humans.records === 0 && humans.inScene, JSON.stringify(humans));
-    check(`${label}: nothing under humans/ is requested for a scene that does not list it`,
-      humanRequests.length === 0, humanRequests.slice(0, 3).join(' | '));
+    const humanShown = humanExpectedRecords.filter(r => r.display === 'shown');
+    const humanEligible = humanL1 ? [] : humanShown.map(r => ({ id: r.id,
+      personId: r.person_id ?? null, assetId: r.appearance.asset_id })).sort((a, b) => a.id.localeCompare(b.id));
+    check(`${label}: the human layer mounts exactly the scene's eligible records`,
+      !!humans && humans.inScene && humans.count === humanEligible.length
+      && JSON.stringify(humans.records) === JSON.stringify(humanExpectedRecords.map(r => r.id).sort())
+      && JSON.stringify(humans.actors) === JSON.stringify(humanEligible)
+      && JSON.stringify(humans.withheld) === JSON.stringify(humanExpectedRecords.filter(r => r.display !== 'shown').map(r => r.id).sort())
+      && JSON.stringify(humans.refused) === JSON.stringify(humanL1 ? humanShown.map(r => r.id).sort() : []),
+      JSON.stringify({ declared: humanDeclared, l1: humanL1, expected: humanEligible, actual: humans }));
+    const humanRequestPaths = humanRequests.map(url => new URL(url).pathname);
+    check(`${label}: human requests obey the exact scene-year gate`,
+      !humanDeclared ? humanRequestPaths.length === 0
+        : humanRequestPaths.some(p => p.endsWith(`/humans/instances/${humanScene}/index.json`))
+          && humanRequestPaths.some(p => p.endsWith('/humans/contract.json'))
+          && humanExpectedRecords.every(r => humanRequestPaths.some(p => p.endsWith(`/humans/instances/${humanScene}/${r.id}.json`)))
+          && humanRequestPaths.every(p => !/\/humans\/instances\/([0-9]{4})\//.test(p)
+            || p.includes(`/humans/instances/${humanScene}/`)),
+      JSON.stringify(humanRequestPaths));
 
     /**
      * DRAWN AGAINST INDEXED (T-1126). "The scene has structures" passes with one
@@ -6056,8 +6126,11 @@ for (const [label, viewport, touch] of [
           && m.sharedMaterial && !m.castsShadow && m.groundHugging
           && m.candidates === frontage.farWalkState?.candidateTriangles
           // T-2093 — the six new walk chunks' top faces: 107532 to 108554, read on dev.
-          // T-2195 — dev already read 108620 (T-2174's walks); the wedge's three faces: 111472.
-          && m.candidates === 111472
+          // T-2195 — the wedge brought the exact top-face census to 111472.
+          // T-3029 — blk_west_randolph_canal_north_walk_1 shortened from
+          // 21.070685798 to 20.840614194 m: 66 to 65 boards at 0.32 m pitch,
+          // hence two fewer top faces; check_far_plank_tops independently reads 111470.
+          && m.candidates === 111470
           && m.drawn === frontage.farWalkState?.triangles),
       JSON.stringify({ meshes: frontage.farWalkTops, state: frontage.farWalkState }));
     // THE NAME IS DRAWN, AND IT IS THE RECORD'S. This is the only lettering in the
@@ -13978,14 +14051,13 @@ for (const [label, viewport, touch] of [
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
     // ---- end T-2661 (part 12)
     // ---- T-2662: Guide's glossary lists the seven locked terms with their lines, its two
-    // questions answer in 60 words or fewer, and a locked term's first appearance (the
-    // Navigator Home's Confidence view) shows its line on tap.
+    // questions answer in 60 words or fewer. Its first-appearance tap was measured
+    // on the visible initial Welcome intro before entry, not on an app-action tile.
     await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
     await page.waitForFunction(() => document.querySelectorAll('#nav-app-guide #guide-faq details').length >= 2
       || /could not be read/.test(document.querySelector('#nav-app-guide #guide-faq')?.textContent ?? ''),
       null, { timeout: 15_000, polling: 100 }).catch(() => {});
     const guideWords = await page.evaluate(() => {
-      const api = window.__chicago4d;
       const g = document.querySelector('#nav-app-guide #guide-glossary');
       const faq = [...document.querySelectorAll('#nav-app-guide #guide-faq details')];
       const out = {
@@ -13998,23 +14070,16 @@ for (const [label, viewport, touch] of [
         // ones too, whose text a screen-wide textContent would read though no one can see it.
         snake: /[a-z0-9]+_[a-z0-9]+/i.test((document.querySelector('#nav-app-guide .nav-guide-sheet') ?? document.getElementById('nav-app-guide'))?.textContent ?? ''),
       };
-      api.navigator.select('home');
-      const term = document.querySelector('#nav-home .locked-term');
-      term?.click();
-      const tip = document.getElementById('term-tip');
-      const box = tip?.getBoundingClientRect();
-      out.tap = { term: term?.dataset.locked ?? null, shown: !!tip && !tip.hidden, text: tip?.textContent.trim() ?? '',
-        inView: !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth && box.top >= 0 && box.bottom <= innerHeight };
-      term?.click();
-      out.tap.away = !tip || tip.hidden;
-      api.navigator.dock();
       return out;
     });
+    guideWords.tap = firstTermTap;
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
     check(`${label}: Guide's glossary gives the seven locked terms their lines, both questions answer in 60 words or fewer, and a term's first appearance explains itself on tap (T-2662)`,
       guideWords.terms.join() === 'Attested,Inferred,Reconstructed,Confidence view,Liberties,Sources,Jaunts' && guideWords.lines === 7
       && guideWords.questions.join('|') === 'Is this real?|What does Reconstructed mean?' && guideWords.longest > 0 && guideWords.longest <= 60
-      && !guideWords.snake && guideWords.tap.term === 'Confidence view' && guideWords.tap.shown
-      && /^Confidence view Recolor the world by grade/.test(guideWords.tap.text) && guideWords.tap.inView && guideWords.tap.away,
+      && !guideWords.snake && !guideWords.tap?.error && guideWords.tap?.term === 'Reconstructed' && guideWords.tap.shown
+      && guideWords.tap.text === 'Reconstructed No record exists. We built it so the street makes sense, and say so.'
+      && guideWords.tap.inView && guideWords.tap.away && guideWords.tap.phase === 'welcome' && guideWords.tap.journey === 'landed',
       JSON.stringify(guideWords));
     // ---- end T-2662
     // >>> T-2666: Guide › For teachers — the Field Check's eight steps, read from the tour
@@ -15475,6 +15540,8 @@ for (const [label, viewport, touch] of [
         // John Dean Caton holds four of these houses, which is the fact about the
         // town that no card said before this…
         person: of('caton_john_dean'),
+        reconstructed: of('rc_bardwell_otis'),
+        reconstructedLinks: idx.businesses.flatMap(b => (b.people || []).filter(p => p.person_id === 'rc_bardwell_otis').map(p => ({id:b.id,tier:p.tier}))),
         // …and the register names him FIVE times, because Collins & Caton prints
         // him under two styles. One printing is not one partnership, so the card
         // must list four rows and not five.
@@ -15548,6 +15615,34 @@ for (const [label, viewport, touch] of [
       && wanted.person.includes(landedFromPerson.id)
       && landedFromPerson.name.length > 0 && landedFromPerson.locations > 0,
       JSON.stringify(landedFromPerson));
+
+    // A source-named BUSINESS does not attest an invented person's modelled membership.
+    // Caton's existing positive register-link and click controls above remain unchanged.
+    const reconstructedCard = await page.evaluate(async () => {
+      const api = window.__chicago4d;
+      await api.people.open('rc_bardwell_otis');
+      const card = document.getElementById('people-card');
+      const out = {
+        name: card.querySelector('.people-card-name')?.textContent.trim() ?? '',
+        meta: card.querySelector('.people-card-meta')?.textContent ?? '',
+        mark: card.querySelector('.people-card-meta .person-mark')?.textContent.trim() ?? '',
+        what: card.querySelector('.people-card-what')?.textContent ?? '',
+        firmHead: card.querySelector('.people-firms .people-card-h')?.textContent ?? '',
+        firms: [...card.querySelectorAll('.people-firm')].map(el => ({id:el.dataset.business,text:el.textContent})),
+      };
+      api.people.close();
+      return out;
+    });
+    check(`${label}: a reconstructed person's card names the model and never claims archival identity or firm membership`,
+      reconstructedCard.name === 'Otis Bardwell' && /reconstructed/i.test(reconstructedCard.meta)
+      && reconstructedCard.mark === 'reconstructed identity'
+      && /no source names this person/.test(reconstructedCard.what)
+      && !/named in a source|Named by a source/.test(reconstructedCard.meta + reconstructedCard.what)
+      && reconstructedCard.firmHead === 'Firm connections assigned by the model'
+      && wanted.reconstructed.length > 0 && wanted.reconstructedLinks.every(p => p.tier === 'reconstructed')
+      && reconstructedCard.firms.map(p => p.id).sort().join(',') === wanted.reconstructed.join(',')
+      && reconstructedCard.firms.every(p => /modelled connection; no source names this link/.test(p.text)),
+      JSON.stringify({reconstructedCard, expected:wanted.reconstructedLinks}));
 
     // …and the same crosswalk the other way, on the building card's Use row.
     const roofFirms = await page.evaluate((ids) => {
@@ -19909,7 +20004,35 @@ for (const [label, viewport, touch] of [
           'house_1922_calumet_stable_strip',
           'house_1928_calumet',
           'house_1932_calumet',
-          'house_1932_calumet_coach_house'].sort();
+          'house_1932_calumet_coach_house',
+          // T-3009 / PR1198: Indiana Avenue east frontage, 20th–22nd.
+          'first_presbyterian_church_2029_indiana',
+          'first_presbyterian_church_2029_indiana_dwelling',
+          'first_presbyterian_church_2029_indiana_stable',
+          'house_2007_indiana',
+          'house_2009_indiana',
+          'house_2009_indiana_rear_dwelling',
+          'house_2011_indiana',
+          'house_2011_indiana_coach_house',
+          'house_2013_indiana',
+          'house_2013_indiana_coach_house',
+          'house_2017_indiana',
+          'house_2017_indiana_coach_house',
+          'house_2019_indiana',
+          'house_2019_indiana_coach_house',
+          'house_2021_indiana',
+          'house_2021_indiana_coach_house',
+          'house_2023_indiana',
+          'house_2023_indiana_coach_house',
+          'house_2027_indiana',
+          'house_2027_indiana_coach_house',
+          'house_2107_indiana',
+          'house_2107_indiana_coach_house',
+          'house_2111_indiana',
+          'house_2111_indiana_coach_house',
+          'house_2115_indiana',
+          'house_2119_indiana',
+          'livery_2123_indiana'].sort();
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),

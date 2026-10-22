@@ -5621,6 +5621,34 @@ Original refined W01 farm-box wagons replace three existing1835 stands at close 
 - T-2980: two empty covered derivatives now preserve exact per-ID finishes/aging, original stands/bearings/yokes and legacy fallback. Actual22-image source/published desktop/mobile inspection, eight runtime/clearance sets and four disposals passed under unchanged budgets/GL0; no page/console errors or request failures. Source/geometry/hull/conservative-host proof is bounded, not full physical collision. Photographic cloth/wood/iron finishing, compressed distinct LODs and full-app memory/tier acceptance remain open. Full preflight/current qualification and the parent X-RAY/Ghost budget failure must be resolved before ordinary DEV merge. People, horses, driving and boarding remain open.
 
 
+## T-1789 — bounded 1835 workwear repair checkpoint (2026-10-21)
+
+Source-owned seams/normal ease, a joined source-fitted collar, clean waistcoat boundaries, closed support-plane shoes and original opaque eyes improve existing reconstructed resident authoring. A smooth source-arm-landmark ease field repairs two actually observed shoulder holes within the former displacement envelope. Independent source/finite-pose checks and sixteen actual source-swap images establish this bounded improvement. Canonical source/web export, exported sole/seated checks and actual new-model inspection remain next; then deliver one reviewed existing reconstructed resident through the portable-human scene path. Forty inherited idle negative face projections, comprehensive garment/LOD fit, fine period tailoring and photographic acceptance remain open. Glessner/Kinzie do not inherit this 1835 outfit. No new town figure, horse, occupied vehicle or riding claim is supplied by the source checkpoint.
+
+
+- T-1789 initial standing increment: exact qualified canonical39712579846 Bardwell source/web assets and one existing reconstructed1835 resident are integrated for actual town review. Index validation and ordinary smoke eligibility follow authored scenes; absent years stay empty. Main-world desktop/mobile/LOD/card/grounding and whole-town budget checks plus normal gate/CI remain next. Full photographic, garment/occupied fit and animation/population work remains open.
+
+
+## T-1789 — connected Bardwell waistcoat fronts (2026-10-22)
+
+Actual town inspection identified missing upper-front shoulder panels in the
+existing reconstructed Bardwell waistcoat. A Bardwell-only recipe pattern now
+retains connected source-triangle shoulder panels in the same existing mesh.
+Default workwear and the other resident recipes remain exact; body, rig, skin,
+shoes, UV interpolation and raw-normal/2mm sole limits are unchanged. Independent
+source review, old-topology negative control and finite actual idle shirt/body
+layer observations support the source repair; new canonical exports, reduced-LOD
+and animation fit, actual desktop/mobile images and town review remain required.
+No photographic or T-1789 closure is claimed. Forty inherited negative projections
+remain open. Buttons/facings are deferred until the large-form repair is reviewed.
+
+
+- T-1789 current increment (2026-10-22): actual canonical96c4/run39736567239 shoulder repair exported and integrated for existing reconstructed Otis Bardwell at Wolf Point. Eight Bardwell assets only; exact measured registry/provenance and all original guards retained. The missing shoulder-panel defect is repaired in actual LOD0 pixels. Final town/current-head CI and full photographic tailoring/library/occupied/other-era acceptance remain open.
+
+
+T-1789 person-card honesty followup (2026-10-22): the existing invented trade-head mint category now reads reconstructed identity rather than named in a source, and model-assigned firm memberships disclose their reconstructed link. Exactly309 invented trade heads change classification; historically source-read residents retain theirs. Presence grades, identities, memberships, assets and the standing position are unchanged. This corrects a false provenance claim found in actual published-town card inspection; photographic finishing remains open.
+
+
 ## T-2800 — first static horse increment; photographic master remains open (2026-10-22)
 
 Integrated one reconstructed standing horse in the1835Western Hotel yard through a dedicated skinned consumer, using an unchanged licensed modern development base and explicit modern credit. Root reviewed the actual flat-plane material comparison and accepted the reconstructed scale/support/contact development bounds. The individual, breed and owner are unidentified; no period likeness or breed is asserted. The source retains15joints/six clips without playback; the older harness fixture is untouched.

@@ -27034,6 +27034,21 @@ houses in the traced sheets' mix. North of 16th Street only Indiana's west face 
 and north of Twelfth only Michigan's (the yards, the lake front and its park lie east). Past the
 450 m near ring a run of three to six lots is one box at the house rules' heights, and a tree there is an
 eight-sided crown with no trunk.
+**Amended (T-3038, 2026-10-22; owner: "you put a building in the middle of the street, fix this and any
+others", then "some white things sitting in the tracks and also some streets that dont quite connect ...
+it seems odd to have streets ending like that"):** east of Calumet Avenue south of its curve at 18th
+Street, the lots no longer stop 46 m behind Calumet's east line with grass beyond: they run back to a
+fence's width (3 m) short of the Illinois Central's west verge, as Sanborn 1911 sheet 28 draws Calumet's
+east lots at 20th Street running from the avenue's line to the railway's, and where the railway bears
+away to the south-east, Calumet's pitch repeated east (the same invented avenues as above) carries the
+city up to the right of way. Every faded street now runs to the right of way and stops at its west verge
+with a square end, as the city's streets met the railway's fence; none is drawn across or along the
+tracks (no crossing or viaduct is claimed). Every stand-in is tested as its whole rectangle, not its
+centre, against the street grid's carriageways, walks, parkways, curbs and alleys, the faded streets with
+a walk's width beside them, the right of way and the stand-ins already placed, and is cut back off them
+or dropped; a sheet's drawn part is cut back the same way where its smallest rectangle overran the
+sheet's own street or alley line. Each block of the projection draws from its own seed. All of this is
+still invented: what stood east of Calumet below 20th Street is on Sanborn 1911 sheet 36, not held.
 **How to resolve:** a 1904 map of the city's streets and land use (the Sanborn volumes' key maps, a
 Rand McNally or Greeley-Carlson plat) traced through the same georeference would place each street,
 replace the zones with what the map draws, and put the South Branch, the yards and the Loop's blocks
@@ -31198,6 +31213,25 @@ set by hand and judged by eye; no source describes a Prairie Avenue elm's limbs.
 **Ticket:** T-3017.
 **Recorded:** 2026-10-22 (T-3017).
 
+
+
+### L-workwear-coverage-1789 — Source-owned work clothes, closed shoes and reconstructed eyes
+
+**Decision:** The original 1835 worker authoring uses full-body source-shared normal ease, source-triangle garment boundaries, a collar joined to the shirt before reduction, a closed shoe loft and original opaque sclera/iris/pupil surfaces. These are reconstructed construction choices, not recorded garments or individual likenesses. Existing L418/source and resident identity limits remain.
+**What is invented:** Seven millimetres of trouser normal ease; the shirt collar-base plane; assigning only new neckline head/jaw influence to the existing neck bone; a collar 12 mm high in front and 23 mm at the side/back; a continuous shoulder ease field measured from the source upper-arm axis/radial extent within the previous 13 mm displacement envelope; four-millimetre horizontal shoe support margin; eye dimensions, brown procedural iris and restrained procedural textile. Source UVs/weights are interpolated at garment cuts. Body geometry, skin and rig are unchanged; no skin visibility mask is used.
+**Evidence and limits:** Independent source controls and actual runtime source-swap previews show a closed trouser seam, joined collar, straighter waistcoat hem, enclosed toes, improved eyes and repair of two observed shoulder skin holes. The former collar separation is removed at the shared source boundary. These are not canonical export, sole, photographic or town-placement acceptance. Forty inherited negative face projections remain in the defined idle sample; comprehensive garment fit, independent head/jaw movement, actual reduced-LOD fit and period tailoring remain open. Original raw-normal and two-millimetre exported sole guards remain required.
+**Sources:** `chicago_american_1835` supplies text terminology only with the recipe's date caveat; it does not attest garment pattern, dimensions or eye color. The anonymous cleared source body/skin and existing reconstructed residents retain their current license/provenance records. New helper geometry and procedural iris are original CC0 work.
+**Ticket:** T-1789.
+**Recorded:** 2026-10-21.
+
+
+**V5/V6 tailoring update (2026-10-22, T-1789; further to L418 and L-workwear-coverage-1789):** William Sidney Mount's *Bargaining for a Horse (Farmers Bargaining)* and *Bar-room Scene*, both dated only to 1835, are qualitative American genre-painting comparators registered as `mount_1835_bargaining_for_a_horse` and `mount_1835_bar_room_scene`. Their full lower-trouser silhouettes and substantial closed waistcoat fronts inform the reconstruction; they do not attest a Chicago outfit, any modeled resident's likeness or occupation, or completion before the 1835-07-01 scene date. No painted pixels, measured cutting pattern, fiber or material sample is copied. The 12 mm section ease, 85% cuff-radius ratio, 65% knee-to-hip transition and 40% waist-to-shoulder closure are original engineering choices. The V6 trim uses each existing source-derived cuff cycle's highest point, shortening its low sawtooth portions; it is not a historical cuff dimension or finished hem construction. Existing body, rig, skin, source UVs and resident identity grades are retained. Actual V6 source-array preview technical PASS does not qualify canonical exports, complete seated footwear enclosure, animated/LOD fit or photographic appearance; 40 inherited idle negative source-face projections remain open. The historical preview's whole-shoe disappearance came from stale preview-sphere culling, not a demonstrated shoe-source defect. This addendum introduces no new person, placement or occupied transport.
+
+
+**L418 standing followup (2026-10-22, T-1789):** The first standing increment assigns the qualified Bardwell workwear body to existing reconstructed rc_bardwell_otis, idle and terrain-grounded in the Wolf Point Tavern yard at E -94, N -36.5, heading90degrees. This location/action is invented within the modeled west-side setting. No source places this resident in this yard, identifies him as its employee or assigns him either wagon. His own resident card retains reconstructed identity/role/age/presence. Actual canonical source/published exports were qualified and close-reviewed; this initial simplified depiction does not assert finished photographic skin/hair/cloth, individual likeness, full animated fit or occupied interfaces. Full T-1789 remains open.
+
+
+**L418 connected-waistcoat followup (2026-10-22, T-1789):** The actual published-town Bardwell front exposed missing shoulder panels: the original waistcoat top used the upper-arm joint plus25mm and the arm-influence cut removed upper-front cloth. Bardwell alone now opts into an original source-triangle shoulder pattern that connects the existing waistcoat fronts to its back, with a neck-minus25mm upper plane,50mm neck-opening halfwidth,100-to15mm transition below the arm joint,26mm outer inset and40mm field scale. These are unmeasured reconstructed dimensions, not a traced or attested cutting pattern. The registered `mount_1835_bargaining_for_a_horse` and `mount_1835_bar_room_scene` supply qualitative shoulder-connected-waistcoat analogies only; their year-only dates do not prove pre-July1Chicago, and neither attests Bardwell's outfit, likeness, color or occupation. No painted pixels, measured cloth or archival likeness enter the asset. Original source UV/skin interpolation is retained, including bounded nonzero head/jaw weight below0.5%; no body mask, rig edit, extra garment/material, shoes, buttons or facings are added. Independent source topology and finite frozen idle shirt/body depth observations support the source repair, not canonical/reduced-LOD/continuous fit or photographic completion. Existing40 negative idle projections and full T-1789 remain open; actual new canonical source/published assets and desktop/mobile inspection are required before promoting this large-form correction.
 ### L-glessner-hoist-3030 — Glessner's stable hoist stone built as the long tapered cantilever the prints show, and the cupola's landing ledges wrapped round its corners
 
 **Decision:** The hoist stone under the stable gable's relieving arch was built as a 1.75 ft corbel. The c. 1887 Cornell A. D. White northwest view (`cornell_adw_glessner_stable_1887`) sees its west side face: through that view's solved camera, with the camera's own offset at the arch's crown removed (−38, −17 px), the side face runs 62 px from the wall to the nose, which a 4.0 ft projection gives (63 px; 1.75 ft gives 27). Its end face is about 11 px across and 18 px deep there, 0.75 ft and 0.83 ft against the built 1.2 and 1.02 ft, and its underside meets the wall about 0.3–0.5 ft lower than built. HABS photograph 1 (`habs_glessner_photo_01_nw_1963`) puts the nose where a 3–4 ft projection does once that camera's 30 px offset at the gable apex is removed; the long dark band running east from it along the wall, past the gable's own edge, is the stone's cast shadow under a raking sun, not a beam, so no timber beam is built. HABS photograph 15 (`habs_glessner_photo_15_north_stable_1965`), nearly square to the gable, sees the lit sloping underside from foot to nose about 42 px tall, which a 3.6 ft projection gives, and its foot about 0.57 ft lower than built. The stone is now W 140.75–141.5, foot 26.0 ft, top 28.15 ft (T-2849's), projecting 4.0 ft with a 0.83 ft nose. Both northwest prints also run each tier's stone landing ledge on the stable cupola unbroken round its corners, where the build stopped them short; they now wrap the corners.
@@ -31288,6 +31322,41 @@ building in place under the same id; T-3014 sources and refines the church.
 **Covers:** `glessner_house.as_built_1887.form.turret_stable`.
 **Ticket:** T-3031 (piece 2 of T-3023).
 **Recorded:** 2026-10-22.
+
+### L-kimball-1801-deck-cresting-3000 — 1801 Prairie's roof dressing: hooded dormers, the deck's cresting and finials, and the flank's tall stack read off the Taylor print, their sections and the cresting's pattern reconstructed
+
+**Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.chimneys`
+**Decision:** the main mansard of the W. W. Kimball house at 1801 Prairie (T-3000, piece 3 of T-2540)
+takes what J. W. Taylor's c. 1895 photograph (`taylor_c1895_kimball_residence_1801`) shows on its
+roof, where the build had none of it. **What is read, not invented.** Through T-2538's solved camera:
+one hooded dormer on each face the camera sees, close by the corner, a short face with one small
+light (about 0.6 by 0.7 m, its centre within about 10 px of the print's on both faces) under a
+shelf, and over the shelf a tall slated hood about 1.5-1.8 m high whose front narrows as it climbs
+and whose cheeks widen against the receding roof; the street's at v 3.0 (the print reads about
+v 2.7; 3.0 is the nearest a lower-face dormer stands to the corner's hip), the 18th Street face's at
+u 16.7, about 0.5 m higher. A rail of iron cresting about 0.55 m high round the deck (about 30 px of
+the print at 54 px a metre; the build's 29 px). A slated pyramid about 1.0 m across and 1.4 m high
+rising from the curb's north-west corner under a turned finial, the finial about 2.2 m (116 px against
+the print's about 120), and a second finial at the deck's south end. The flank's tall stone stack at
+the flank section's east end, about 1.2 m across, its cap's top about 16.4 m (y 458-477 on the
+print against 462). **What is invented.** The dormer's sections: the face's 0.2 m surround, the
+shelf 0.12 m deep and 0.08 m proud, the hood's 0.15 m lean back and 0.3 m taper each side (the print
+gives the shapes, not the numbers); the light as a two-over-two sash. The cresting's pattern is the
+K10 kit's (`k10.cresting.iron_ridge`: posts, C-scrolls and spears) stretched to the print's height:
+the print's panels read only as a dense pierced band at this scale. The finials' turnings, one
+pattern at every corner of the deck; the two the print does not see (the rear's) follow the two it
+does. The hood's slopes in the lower faces' slate. The stack's plan depth into the roof and its cap
+as a plain block 0.25 m proud and 0.5 m deep for the print's corbelled one. **Not changed here.** The
+print's curb stands about 35-50 px lower than the build's at the front's corner, and the front's deck
+ends at the print's x 1092 where the build's runs on to x 1187, so the cresting, the corner hood and
+the south finial stand where the build's curb and deck do, not where the print's do (T-1890's, found here). No
+second tier of dormers is in the print, and nothing rises behind the pavilion's gable: the parent's
+"pavilion's stack" is not seen from this camera.
+**How to resolve:** a nearer or second photograph of the roof would give the cresting's pattern, the
+finials' turnings and the dormers' sections; T-3003's 1929 and HABS photographs may show the rear.
+**Ticket:** T-3000 (piece 3 of T-2540).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-22 (T-3000).
 
 
 ### L-standing-horse-development-2800 — a first standing horse in the Western Hotel yard

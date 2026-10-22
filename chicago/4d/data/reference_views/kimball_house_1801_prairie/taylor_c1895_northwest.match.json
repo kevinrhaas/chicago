@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "053bd294b730eaf58b90426e78ca06acc9469dc07d513e0ca56ad313b27767c8",
+  "glb_sha256": "d9bebfe553c660ba1a07569ce4229e920cce906a8a7b5957bb7c3d0b054ad0da",
   "camera_sha256": "d89ca0a91bccddd25a0ffa04ea98ff95ec08faec3913c2588f95f158db8cedf3",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
   "verdict": "differs",
@@ -99,8 +99,8 @@
     },
     {
       "what": "the roof's dormers and deck: tall hooded dormers in the steep faces, the iron cresting and finials round the deck, the pavilion's and flank's tall stacks; the build's dormers sit sunk in the face and show only their gables, and it has no cresting",
-      "status": "open",
-      "how": "T-3000"
+      "status": "fixed",
+      "how": "T-3000: a hooded dormer on each face the camera sees, a 0.6 by 0.7 m light in a short stone face under a shelf and a slated hood over it, 1.5 m on the street face (v 3.0) and 1.8 m on 18th Street (u 16.7), its front falling 0.15 m back and narrowing 0.3 m each side as it climbs; each light's centre within about 10 px of the print's (x 1102, y 500 against 1092, 502; x 839, y 517 against 830, 512). The K10 kit's iron cresting round the curb, 0.55 m high (29 px against the print's about 30); a slated pyramid 1.0 m across rising 1.4 m from the curb's north-west corner under a 2.2 m turned finial (116 px against the print's about 120), and a finial at every other corner of the deck. The flank's tall stack at u 5.0, 1.2 m across, its cap's top at 16.4 m (y 458-477 against the print's 462). The cresting's pattern, the finials' turnings and the dormers' sections are reconstructed (L-kimball-1801-deck-cresting-3000); the pavilion's stack is not in this print"
     },
     {
       "what": "the gabled section on the flank: a gable facing 18th Street with a balcony at about 11.5 m; the build has a hip there",
@@ -145,6 +145,16 @@
     {
       "what": "the east turret's shaft and finial: the print shows the shaft about 15 px wider toward the front (to x 237; the build's to about x 220), a moulded band at its first floor and a heavy eave moulding, and a finial spike about 40 px taller than the build's",
       "status": "open"
+    },
+    {
+      "what": "the mansard's curb and deck: at the front's north-west corner the print's curb stands about 35-50 px lower than the build's (the corner hip's top at about x 950, y 320 against 978, 247) and its corner hip runs about 25-30 px west of the build's; the front's deck ends at the print's x 1092 under its south finial, where the build's runs on to x 1187. So the cresting, the corner hood and its finial stand about 35-50 px over the print's, and the south finial about 95 px south of it (seen by T-3000)",
+      "status": "open",
+      "how": "T-1890 (its T-3000 finding)"
+    },
+    {
+      "what": "the hooded dormers' hoods: the print's cheeks widen further up the roof than the build's (the flank's lit cheek about 45 px across at the top against the build's about 25), as its lower faces fall back faster than the build's 72 degrees do; and their faces are slate with a pale frame round the light, where the build's are stone",
+      "status": "open",
+      "how": "T-1890 (with the curb; seen by T-3000)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
