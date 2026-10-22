@@ -463,8 +463,9 @@ class DetailBuilder(MeshBuilder):
                 elif not (o.get('face')=='east' and o['z0']>5 and o['u1']-o['u0']>3):
                     continue
                 else:
-                    cut=[(o['u0']-.435,o['z0']-.025),(o['u1']+.435,o['z0']-.025),
-                         (o['u1']+.435,o['z1']+.045),(o['u0']-.435,o['z1']+.045)]
+                    out=o.get('terminal',.44)-.005
+                    cut=[(o['u0']-out,o['z0']-.025),(o['u1']+out,o['z0']-.025),
+                         (o['u1']+out,o['z1']+.045),(o['u0']-out,o['z1']+.045)]
             elif ringed(o):
                 # The voussoir ring is cut from the courses like the fan, so its
                 # rock faces stand on their own bed, not on the field's crowns.
