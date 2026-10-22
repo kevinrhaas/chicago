@@ -29074,9 +29074,23 @@ and their plinth's 0.86 m; the capitals as a necking ring, a flared bell and an 
 carved leafage finer than the plate's 2.3 cm a pixel; the scrolls' rolled form and their place on grade
 (the plate's stand on foot blocks about 0.9 m up, T-2984). Not built: the small arcade on colonnettes the
 plate opens in the entrance block's south return beside the arch (T-2984).
-**How to resolve:** T-2919, T-2920 and T-2984 (the front's fabric and the roof, the gable's centre and
-carved pinnacles under T-2920, and the porch's south arcade and the cheeks' foot blocks) bring the match
-record to `matches`.
+**Revised:** 2026-10-22 (T-2987 and T-2990, pieces of T-2919 and T-2984). The north bay is rock-faced in
+large courses up to its first floor's sill course and smooth ashlar over it, as the plate shows: K08's
+rock-faced relief on its basement and ground storeys only (`masonry.to_m`). The plate's two front
+downpipes are built, beside the bay's south return and down the entrance block's south corner, each from
+a rainwater head of its own (K01's front pipes, which a gable roof may now carry with no eave gutter).
+The cheeks' scrolls stand on plain foot blocks 0.7 m tall, as the plate draws them. What that build
+invents: the courses' even rhythm and 0.6 m by 1.1 m blocks for the plate's stone-by-stone layout; the
+pipes' fabric and paint (K04's painted tin, round; the print reads them only as pale), their heads, straps
+and splash stones, and the heads' 7.85 m under the build's cornice, about 0.4 m under the plate's; the
+foot blocks' plain faces and their depth, the roll's half. Not built, each its own ticket now: the bay's
+canted north face (T-2988), the oriel's flat front, square returns, rounded base and lower cornice
+(T-2989), and the porch's south arcade (T-2991), the last two after a re-read of the entrance block's
+south corner, which the oriel's return and the arcade put near x 467-470 px where the camera solve puts it
+at x 510.
+**How to resolve:** T-2988, T-2989, T-2991 and T-2920 (the bay's canted face, the oriel, the porch's south
+arcade, and the roof with the gable's centre and carved pinnacles under T-2920) bring the match record
+to `matches`.
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.chimneys`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.gable_roof`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
