@@ -18,8 +18,9 @@ function card(row, manifest) {
       position_sources: row.source_ids, position_note: row.note },
     attributes: {
       vehicle_type: { value: manifest.type, confidence: 'reconstructed', sources: [], note: manifest.basis },
-      maker: { value: 'Unidentified; type reconstruction', confidence: 'reconstructed', sources: [],
-        note: 'This model is not identified as a particular manufacturer or catalog model.' },
+      maker: { value: manifest.design_reference ? 'Reconstructed individual; no attested specimen' : 'Unidentified; type reconstruction', confidence: 'reconstructed', sources: [],
+        note: manifest.design_reference ? 'The catalogue design is identified separately; this parked individual and its ownership are reconstructed.' : 'This model is not identified as a particular manufacturer or catalog model.' },
+      ...(manifest.design_reference ? { design_reference: manifest.design_reference } : {}),
       parked: { value: 'Unoccupied and unhitched', confidence: 'reconstructed', sources: [],
         note: 'A parked example, without a driver, passengers or a claim of ownership.' },
     },
@@ -183,9 +184,32 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
             row.at_local_enu_m[0] + cos * x + sin * z,
             row.at_local_enu_m[1] - (-sin * x + cos * z)));
           if (!heights.every(Number.isFinite)) throw Error('No ground under all four wheels');
-          const base = Math.max(...heights);
-          const wheelGap = base - Math.min(...heights);
+          let base = Math.max(...heights);
+          let wheelGap = base - Math.min(...heights);
           if (wheelGap > 0.03) throw Error(`Stand exceeds 30mm wheel-plane variation (${wheelGap})`);
+          // A pre-authored static pole shoe is not a hinge. Qualify its actual support
+          // points on the SAME rendered surface provider as the four wheel contacts.
+          let staticSupport = null;
+          if (spec.static_support_contacts_m) {
+            const contacts = spec.static_support_contacts_m;
+            if (!Array.isArray(contacts) || !contacts.length || contacts.some(p => !Array.isArray(p) || p.length !== 3 || !p.every(Number.isFinite))) throw Error('Invalid static support contacts');
+            const supportGrounds = contacts.map(([x, y, z]) => heightAt(
+              row.at_local_enu_m[0] + cos * x + sin * z,
+              row.at_local_enu_m[1] - (-sin * x + cos * z)));
+            // Missing carriageway is null; reject BEFORE subtraction can coerce it to zero.
+            if (!supportGrounds.every(Number.isFinite)) throw Error('No rendered ground under all static support contacts');
+            if (row.model === 'studebaker_brougham_1893') {
+              // This rigid parked model also rests on its fixed pole shoe. Solve
+              // the least vertical base clearing all four declared shoe corners
+              // and wheels, then retain the SAME wheel and shoe gap limits.
+              base = Math.max(base, ...contacts.map((point, index) => supportGrounds[index] - point[1]));
+              wheelGap = base - Math.min(...heights);
+              if (wheelGap > 0.03) throw Error(`Stand exceeds 30mm wheel-plane variation (${wheelGap})`);
+            }
+            const gaps = contacts.map((point, index) => base + point[1] - supportGrounds[index]);
+            if (!gaps.every(Number.isFinite) || Math.min(...gaps) < -0.001 || Math.max(...gaps) > 0.03) throw Error('Static support exceeds 1mm penetration/30mm gap limits');
+            staticSupport = { minimum_gap_m: Math.min(...gaps), maximum_gap_m: Math.max(...gaps) };
+          }
           const parking = parkTongue(root, row, terrain, base);
           const model = staticBatches(root, confidence);
           model.name = row.id; model.userData.parkedId = row.id;
@@ -194,7 +218,7 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
           model.visible = false;
           group.add(model);
           instances.push({ row, group: model, card: card(row, spec), parking,
-            wheel_clearance_m: wheelGap, draw_batches: model.children.length });
+            wheel_clearance_m: wheelGap, static_support: staticSupport, draw_batches: model.children.length });
         } catch (error) { problems.push(`parked transport ${row.id}: ${error.message}; ${row.replaces ? 'existing yard vehicle retained' : 'vehicle not shown'}`); }
       }
       if (lastCamera) out.update(lastCamera);

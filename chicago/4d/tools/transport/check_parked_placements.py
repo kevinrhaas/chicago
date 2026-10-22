@@ -19,7 +19,7 @@ def validate(record):
             ids.add(row['id'])
             assert len(row['at_local_enu_m']) == 2 and all(math.isfinite(x) for x in row['at_local_enu_m'])
             assert math.isfinite(row['bearing_deg'])
-            assert row['liberty'] == ('L-covered-wagons-2980' if row['model'] in COVERED_MODELS else 'L-parked-vehicles-2979')
+            assert row['liberty'] == ('L-brougham-parked-2794' if row['model'] == 'studebaker_brougham_1893' else 'L-covered-wagons-2980' if row['model'] in COVERED_MODELS else 'L-parked-vehicles-2979')
             assert row['note'] and row['location']
             for source in row['source_ids']:
                 assert (ROOT/f'data/sources/{source}.json').is_file(), ('Missing source', source)
@@ -32,6 +32,11 @@ def validate(record):
                 assert row['at_local_enu_m'] == old['at_local_enu_m'], 'Replacement must keep its existing stand'
                 assert row['bearing_deg'] == old['bearing_deg'], 'Replacement must keep its existing bearing'
                 assert row['belongs_to'] == old.get('belongs_to'), 'Do not invent a vehicle owner'
+            elif row['model'] == 'studebaker_brougham_1893':
+                assert year == '1904' and row['id'] == 'prairie_parked_studebaker_brougham', 'Catalogue type never backdated or aliased'
+                assert row.get('belongs_to') is None and not row.get('replaces'), 'No owner claim or existing C02 rebranding'
+                assert row['at_local_enu_m'] == [1397.9, -3240.0] and row['bearing_deg'] == 178.99, 'Explicit separately qualified reconstructed stand'
+                assert row['source_ids'] == ['studebaker_1893_illustrated_souvenir']
             else:
                 assert row['model'] == 'carriage_c02' and year == '1904', 'Never backdate the enclosed carriage'
                 assert not row.get('replaces') and row.get('belongs_to') is None
@@ -41,6 +46,20 @@ def validate(record):
         assert (ROOT/'renderers/web'/path).is_file(), ('Missing model', path)
         assert len(model['wheel_contacts_m']) == 4
         assert all(len(p) == 2 and all(math.isfinite(x) for x in p) for p in model['wheel_contacts_m'])
+    if 'studebaker_brougham_1893' in record['models']:
+        spec = record['models']['studebaker_brougham_1893']
+        assert spec['file'] == 'transport/parked-brougham/brougham-near.glb'
+        assert spec['wheel_contacts_m'] == [[-.67,-1.15],[.67,-1.15],[-.67,1.15],[.67,1.15]]
+        assert spec['static_support_contacts_m'] == [[-.0325,0,3.725],[.0325,0,3.725],[-.0325,0,3.825],[.0325,0,3.825]]
+        ref = spec['design_reference']
+        assert ref['confidence'] == 'attested' and ref['sources'] == ['studebaker_1893_illustrated_souvenir']
+        assert spec['delivery_lods'] == {'near':'transport/parked-brougham/brougham-near.glb','runtime_distance_selection_enabled':False}
+        assert sum(r['model'] == 'studebaker_brougham_1893' for r in record['scenes']['1904']) == 1
+        # The pre-existing unidentified reconstruction remains separate at its exact stand.
+        generic = [r for r in record['scenes']['1904'] if r['id'] == 'prairie_parked_carriage']
+        assert len(generic) == 1 and generic[0]['model'] == 'carriage_c02'
+        assert generic[0]['at_local_enu_m'] == [1397.6,-3228.2] and generic[0]['bearing_deg'] == 178.99
+        assert not record['models']['carriage_c02'].get('design_reference'), 'Catalogue must not retrospectively brand generic C02'
     validate_covered(record, originals, ROOT)
     return len(ids)
 

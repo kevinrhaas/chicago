@@ -1,5 +1,5 @@
 {
-  "_doc": "Parked type reconstructions. Existing1835 coordinates are reused;1904 curbside parking is invented within the street grid. No model is assigned a maker or historical owner. L-parked-vehicles-2979.",
+  "_doc": "Parked type reconstructions. Existing 1835 stands and generic 1904 C02 remain separate. The additional Brougham follows an evidenced 1893 catalogue design; its individual presence, owner and stop are reconstructed. L-parked-vehicles-2979; L-covered-wagons-2980; L-brougham-parked-2794.",
   "models": {
     "wagon_w01": {
       "file": "transport/parked-wagon/wagon-w01.glb",
@@ -93,6 +93,63 @@
           1.175
         ]
       ]
+    },
+    "studebaker_brougham_1893": {
+      "file": "transport/parked-brougham/brougham-near.glb",
+      "type": "Brougham \u2014 after the 1893 Studebaker catalogue",
+      "basis": "Original empty, unhitched Brougham reconstruction guided by Studebaker's 1893 catalogue illustration, leaf 0095. The shaped roof, curved door, separate footplates, fine step supports and dark rear quarters follow the depicted design. Metric dimensions, unseen construction, paint and surface materials, and this particular vehicle's presence, ownership and stop in 1904 are reconstructed. The catalogue does not identify the dark rear surface as glass or a curtain. Photographic refinement continues.",
+      "design_reference": {
+        "value": "Studebaker Brothers Manufacturing Company \u2014 Brougham, 1893 catalogue",
+        "confidence": "attested",
+        "sources": [
+          "studebaker_1893_illustrated_souvenir"
+        ],
+        "note": "The 1893 catalogue documents this maker and carriage type before the scene date. It does not document this reconstructed individual vehicle, its presence in Chicago or its ownership."
+      },
+      "wheel_contacts_m": [
+        [
+          -0.67,
+          -1.15
+        ],
+        [
+          0.67,
+          -1.15
+        ],
+        [
+          -0.67,
+          1.15
+        ],
+        [
+          0.67,
+          1.15
+        ]
+      ],
+      "static_support_contacts_m": [
+        [
+          -0.0325,
+          0,
+          3.725
+        ],
+        [
+          0.0325,
+          0,
+          3.725
+        ],
+        [
+          -0.0325,
+          0,
+          3.825
+        ],
+        [
+          0.0325,
+          0,
+          3.825
+        ]
+      ],
+      "delivery_lods": {
+        "near": "transport/parked-brougham/brougham-near.glb",
+        "runtime_distance_selection_enabled": false
+      }
     }
   },
   "scenes": {
@@ -195,6 +252,23 @@
         "source_ids": [],
         "liberty": "L-parked-vehicles-2979",
         "note": "A reconstructed temporary curbside stop in the1904 carriageway, clear of the sidewalk and crossing. Its location does not identify the owner or imply use by the Glessner household. Empty and unhitched; doors remain closed and boarding is not enabled."
+      },
+      {
+        "id": "prairie_parked_studebaker_brougham",
+        "model": "studebaker_brougham_1893",
+        "name": "Brougham \u2014 after Studebaker\u2019s 1893 catalogue",
+        "belongs_to": null,
+        "location": "Prairie Avenue carriageway south of Eighteenth Street",
+        "at_local_enu_m": [
+          1397.9,
+          -3240.0
+        ],
+        "bearing_deg": 178.99,
+        "source_ids": [
+          "studebaker_1893_illustrated_souvenir"
+        ],
+        "liberty": "L-brougham-parked-2794",
+        "note": "Reconstructed empty, unhitched parked individual using the 1893 catalogue design reference. The catalogue establishes the maker/type before 1904; neither this particular vehicle, its owner, a household connection nor this curbside stop is documented. Generic C02 remains a separate unidentified reconstruction at its existing stand. Closed doors, no occupant, horse, boarding, traffic or driving."
       }
     ]
   }

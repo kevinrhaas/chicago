@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 687,
+  "count": 688,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -49997,6 +49997,40 @@
         "T-2978",
         "T-2228",
         "T-2976"
+      ]
+    },
+    {
+      "id": "L-brougham-parked-2794",
+      "title": "catalogue-guided parked Brougham in 1904",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-22",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Add one empty, unhitched Brougham at local ENU E1397.9, N−3240, bearing178.99, retaining generic C02 at its separate stand. The 1893 Studebaker catalogue leaf0095, source Studebaker Brothers Manufacturing Company, attests a maker/type design before1904. It does not attest this individual specimen, the Prairie file presence, a Pullman/Glessner connection, ownership or this stop. belongs to remains null."
+        },
+        {
+          "label": "Reconstructed",
+          "text": "all absolute metres, hidden sides/interior/construction, pigments and optical materials, support/hardware attachment, opposite-side symmetry and the stop. V17 has separated footplates, slender curved step supports and two 8mm recessed dark opaque rear-quarter surfaces; the illustration does not identify these as glass, curtains or a specific lining. No image pixels are embedded. Matched native catalogue views prefer V17 over V15, but its flat paint, uniform inset, glass and smaller fittings remain visibly simplified. Photographic completion remains open."
+        },
+        {
+          "label": "Delivery and limits",
+          "text": "only the indexed near model is supplied. Full100m/Balanced65m/Light0 reach and existing confidence/picking/material batching remain unchanged. The fixed paired-team pole and its original ground shoe are parked-down geometry, not a new hinge or working-height hitch. The same rendered carriageway provider checks all wheels and four shoe corners, refusing nonfinite ground, wheel span over30mm, penetration over1mm or shoe gap over30mm. For this Brougham only, the least rigid vertical base clears both the wheels and the declared shoe corners; the maximum wheel gap is checked again after that solve. At the unchanged stand, actual source sampling found the previous wheel-only base put the shoe4.866mm into the road; the all-contact base rises4.866mm and leaves at most9.466mm wheel gap. The four corners bound this particular shoe patch on the current bilinear source surface; they do not qualify arbitrary terrain, full pole/body/obstacle clearance or rendered world contact. Actual world, phone, publication and whole-scene budget acceptance remain pending. No horizontal relocation, tilt, support geometry change or weakened renderer limit qualifies a failed stand."
+        },
+        {
+          "label": "Unsupported",
+          "text": "occupants, boarding, door operation, steering/wheel animation, horse/rein/hitch coupling, collision physics, traffic and riding. All source interface capability flags remain false. The native hitch[0.037,3.8]m is a parked datum. This work photographic and occupied work remains OPEN."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-22."
+        }
+      ],
+      "work_refs": [
+        "T-2794"
       ]
     },
     {
