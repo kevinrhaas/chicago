@@ -31,12 +31,12 @@
         "to_is": "seen"
       },
       "position": {
-        "utm_e": 448399.146,
-        "utm_n": 4633792.848,
+        "utm_e": 448398.857,
+        "utm_n": 4633825.797,
         "rotation_deg": 179.497,
         "symbolic_location": "2029-2035 S. Indiana Avenue, the north-east corner of Indiana Avenue and East Twenty-first Street, on sheet 35's Indiana frontage.",
         "confidence": "reconstructed",
-        "note": "The rear corner of the main body (u -43.700, v 4.780 m from the building's front and southernmost faces), set from the corner at local (1282.71, -3598.56): Indiana Avenue's measured east line (data/street_grid/1904.json) with its centre 10.06 m (66 ft) west of it; the church's front stands 2.97 m behind that line and its south face 0.14 m behind 21st Street's north line, the trace's own readings. Good to about the trace's 0.19 m pixel and the sheet's fit. Rotation 179.497 degrees squares the plan to the avenue.",
+        "note": "The rear corner of the main body (u -43.700, v -27.890 m from the building's front and southernmost faces), set from the corner at local (1282.70, -3598.28): Indiana Avenue's measured east line (data/street_grid/1904.json) with its centre 10.06 m (66 ft) west of it; the church's front stands 2.97 m behind that line and its south face 0.14 m behind 21st Street's north line, the trace's own readings. Good to about the trace's 0.19 m pixel and the sheet's fit. Rotation 179.497 degrees squares the plan to the avenue.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the 1904 street grid's faces and the rules' site row by tools/draft_prairie_1904.py --check instead."
@@ -46,35 +46,35 @@
         "polygon": [
           [
             36.66,
-            -4.78
+            27.89
           ],
           [
             43.16,
-            -4.78
+            27.89
           ],
           [
             43.16,
-            0.0
-          ],
-          [
-            43.7,
-            0.0
+            23.11
           ],
           [
             43.7,
             23.11
           ],
           [
-            0.0,
-            23.11
+            43.7,
+            0.0
           ],
           [
             0.0,
             0.0
+          ],
+          [
+            0.0,
+            23.11
           ],
           [
             36.66,
-            0.0
+            23.11
           ]
         ],
         "confidence": "inferred",
@@ -155,7 +155,7 @@
                 "cap_m": 10.9,
                 "at": [
                   40.17,
-                  -1.18
+                  24.29
                 ]
               }
             ],

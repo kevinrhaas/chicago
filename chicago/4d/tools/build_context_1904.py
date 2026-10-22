@@ -52,6 +52,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import random
 import inspect
 import json
 import math
@@ -164,6 +165,14 @@ ROW_CLEAR_OF_WATER_M = 40.0       # the Illinois Central's tracks on the made gr
 CARRIAGEWAY_M = 38 * 0.3048       # a 66 ft street less two 14 ft sidewalk spaces (row_66 of the grid)
 STREET_STEP_M = 2.0               # how finely a street line is tested for what it would cross
 STREET_CLEAR_OF_WATER_M = 20.0
+# T-3038: the Illinois Central's right of way (data/railway/1904_context.json: its west verge to
+# the lake edge's toe) is held clear of every lot, stand-in, tree and faded street. A lot stops a
+# fence's width short of the west verge; a street runs up to the verge and ends there, square.
+RAIL = ROOT / "data" / "railway" / "1904_context.json"
+RAIL_CLEAR_M = 3.0
+WALK_CLEAR_M = 2.0                # a stand-in keeps a walk's width off a faded street's carriageway
+TRIM_KEEP = 0.6                   # a stand-in trimmed off a street keeps at least this share of each side
+MIN_LOT_DEPTH_M = 14.0
 NEAR_BOX = (1100.0 - RING_M, 1800.0, -3800.0 - RING_M, -2900.0 + RING_M)
 VACANT_MIN = 0.06
 
@@ -252,6 +261,154 @@ def rect_corners(e, n, w, d, bearing):
     v = (u[1], -u[0])
     return [(e + su * u[0] * d / 2 + sv * v[0] * w / 2, n + su * u[1] * d / 2 + sv * v[1] * w / 2)
             for su, sv in ((1, 1), (1, -1), (-1, -1), (-1, 1))]
+
+
+def area(poly) -> float:
+    return abs(sum(x1 * y2 - x2 * y1 for (x1, y1), (x2, y2) in zip(poly, poly[1:] + poly[:1]))) / 2.0
+
+
+def clip_convex(subject: list, clip: list) -> list:
+    """Sutherland-Hodgman: the part of `subject` (any simple polygon) inside the convex
+    polygon `clip`, wound either way. Its area is the overlap of the two."""
+    s = sum(x1 * y2 - x2 * y1 for (x1, y1), (x2, y2) in zip(clip, clip[1:] + clip[:1]))
+    clip = clip if s > 0 else clip[::-1]
+    out = list(subject)
+    for (ax, ay), (bx, by) in zip(clip, clip[1:] + clip[:1]):
+        if not out:
+            break
+        side = lambda p: (bx - ax) * (p[1] - ay) - (by - ay) * (p[0] - ax)  # noqa: E731
+        src, out = out, []
+        for p, q in zip(src, src[1:] + src[:1]):
+            sp, sq = side(p), side(q)
+            if sp >= 0:
+                out.append(p)
+            if (sp >= 0) != (sq >= 0):
+                t = sp / (sp - sq)
+                out.append((p[0] + (q[0] - p[0]) * t, p[1] + (q[1] - p[1]) * t))
+    return out
+
+
+def ribbon_quads(stations: list, a: int = 0, b: int = 1) -> list:
+    """A ribbon of cross-lines [e_a, n_a, e_b, n_b] as one quad per pair of stations."""
+    return [[(s[0], s[1]), (s[2], s[3]), (t[2], t[3]), (t[0], t[1])] for s, t in zip(stations, stations[1:])]
+
+
+def segment_rect(e0, n0, e1, n1, half) -> list:
+    L = math.hypot(e1 - e0, n1 - n0)
+    ue, un = (e1 - e0) / L, (n1 - n0) / L
+    return [(e0 - un * half, n0 + ue * half), (e1 - un * half, n1 + ue * half),
+            (e1 + un * half, n1 - ue * half), (e0 + un * half, n0 - ue * half)]
+
+
+class Plan:
+    """Polygons in plan with a coarse grid index: what a stand-in, a tree or a faded street
+    must keep off (T-3038), and what has been placed already."""
+
+    CELL = 40.0
+
+    def __init__(self, polys=()):
+        self.polys, self.bbs, self.tags, self.idx = [], [], [], {}
+        for p in polys:
+            self.add(p)
+
+    def _cells(self, bb):
+        c = self.CELL
+        for i in range(int(math.floor(bb[0] / c)), int(math.floor(bb[1] / c)) + 1):
+            for j in range(int(math.floor(bb[2] / c)), int(math.floor(bb[3] / c)) + 1):
+                yield i, j
+
+    def add(self, poly, tag=None):
+        poly = [(float(x), float(y)) for x, y in poly]
+        bb = (min(q[0] for q in poly), max(q[0] for q in poly), min(q[1] for q in poly), max(q[1] for q in poly))
+        k = len(self.polys)
+        self.polys.append(poly)
+        self.bbs.append(bb)
+        self.tags.append(tag)
+        for cell in self._cells(bb):
+            self.idx.setdefault(cell, []).append(k)
+
+    def near(self, bb):
+        seen = set()
+        for cell in self._cells(bb):
+            for k in self.idx.get(cell, ()):
+                if k not in seen:
+                    seen.add(k)
+                    b = self.bbs[k]
+                    if b[0] <= bb[1] and bb[0] <= b[1] and b[2] <= bb[3] and bb[2] <= b[3]:
+                        yield k
+
+    def overlaps(self, rect, tol=0.25, skip_tag=None):
+        """The polygons a convex `rect` overlaps by more than `tol` m2, with each overlap."""
+        bb = (min(q[0] for q in rect), max(q[0] for q in rect), min(q[1] for q in rect), max(q[1] for q in rect))
+        out = []
+        for k in self.near(bb):
+            if skip_tag is not None and self.tags[k] == skip_tag:
+                continue
+            part = clip_convex(self.polys[k], rect)
+            if len(part) >= 3 and area(part) > tol:
+                out.append(part)
+        return out
+
+    def holds(self, e, n):
+        return any(inside(e, n, self.polys[k]) for k in self.near((e, e, n, n)))
+
+
+def trim(row: dict, hits: list) -> dict | None:
+    """The stand-in cut back, side by side, off what it overlaps: each step moves the one side
+    that frees the overlap for the least of its area, and a stand-in that would lose more than
+    TRIM_KEEP of a side, or come out narrower than 4 m, is dropped (None)."""
+    e, n, w, d, bearing = row["e"], row["n"], row["w"], row["d"], row["bearing"]
+    t = math.radians(bearing)
+    u = (math.sin(t), math.cos(t))                  # along d
+    v = (u[1], -u[0])                               # along w
+    lo_d, hi_d, lo_w, hi_w = -d / 2, d / 2, -w / 2, w / 2
+    for part in hits:
+        pd = [(x - e) * u[0] + (y - n) * u[1] for x, y in part]
+        pw = [(x - e) * v[0] + (y - n) * v[1] for x, y in part]
+        a0, a1, b0, b1 = max(min(pd), lo_d), min(max(pd), hi_d), max(min(pw), lo_w), min(max(pw), hi_w)
+        if a0 >= a1 or b0 >= b1:
+            continue                                # already cut clear by an earlier side
+        cuts = [("hi_d", (hi_d - a0) * (hi_w - lo_w)), ("lo_d", (a1 - lo_d) * (hi_w - lo_w)),
+                ("hi_w", (hi_w - b0) * (hi_d - lo_d)), ("lo_w", (b1 - lo_w) * (hi_d - lo_d))]
+        side = min(cuts, key=lambda c: c[1])[0]
+        if side == "hi_d":
+            hi_d = a0 - 0.3
+        elif side == "lo_d":
+            lo_d = a1 + 0.3
+        elif side == "hi_w":
+            hi_w = b0 - 0.3
+        else:
+            lo_w = b1 + 0.3
+    nd, nw = hi_d - lo_d, hi_w - lo_w
+    if nd < max(4.0, TRIM_KEEP * d) or nw < max(4.0, TRIM_KEEP * w):
+        return None
+    cd, cw = (hi_d + lo_d) / 2, (hi_w + lo_w) / 2
+    out = dict(row, e=e + u[0] * cd + v[0] * cw, n=n + u[1] * cd + v[1] * cw, w=nw, d=nd, trimmed=True)
+    if out["roof"] == "gable":
+        out["rise"] = min(out["rise"], 0.5 * nw + 0.5)
+    return out
+
+
+class RightOfWay:
+    """The Illinois Central's right of way as data/railway/1904_context.json draws it: the
+    west verge, the cinders, the east verge, the made ground and the lake edge's face, as
+    quads; and the west verge's outer line as u for v in the plan frame."""
+
+    def __init__(self, fr):
+        doc = json.loads(RAIL.read_text(encoding="utf-8"))
+        row = doc["right_of_way"]
+        self.quads = ribbon_quads(row["cinders"]) + ribbon_quads(row["made_ground"])
+        self.quads += [q for vg in row["verges"] for q in ribbon_quads(vg["stations"])]
+        self.quads += ribbon_quads(doc["lake_edge"]["face"])
+        west = next(vg for vg in row["verges"] if vg["side"] == "west")["stations"]
+        uv = sorted(fr.uv(s[0], s[1]) for s in west)
+        uv = sorted(uv, key=lambda p: p[1])
+        self._v = np.array([p[1] for p in uv])
+        self._u = np.array([p[0] for p in uv])
+        self.plan = Plan(self.quads)
+
+    def west_u(self, v: float) -> float:
+        return float(np.interp(v, self._v, self._u))
 
 
 # ---------------------------------------------------------------------------------------------
@@ -552,7 +709,7 @@ ZONE_EAVE = {"shops": (11.0, 15.0), "business": (17.0, 24.0), "loop": (28.0, 60.
 
 
 def projected(grid: dict, ground: Ground, fr: Frame, net: dict, sheet_rows: list, covered_extra: list,
-              plate_top_v: float, rnd) -> tuple:
+              plate_top_v: float, row_way: RightOfWay) -> tuple:
     U, V = net["u"], net["v"]
     umin, umax, vmin, vmax = net["box_uv"]
     near_box = NEAR_BOX
@@ -567,8 +724,9 @@ def projected(grid: dict, ground: Ground, fr: Frame, net: dict, sheet_rows: list
     # East of Prairie's east lots north of 18th, and of Calumet's east lots south of it, the
     # sheets draw the Illinois Central's tracks: no lots. The line is the grid's own:
     # blk_prairie_ic_16_18's rail-side edge, held where the box stops it in the north and run to
-    # its end at Calumet's curve in the south; south of that, the depth of Calumet's east lots on
-    # sheet 28. North of 16th Street, Robinson's plate draws the Illinois Central's yards east of
+    # its end at Calumet's curve in the south; south of that (T-3038), a fence's width short of the
+    # right of way's west verge, as sheet 28 draws Calumet's east lots at 20th Street running back
+    # to the railway's line. North of 16th Street, Robinson's plate draws the Illinois Central's yards east of
     # Indiana Avenue's lots and no Prairie Avenue: what it draws there is traced, and past its top
     # only Indiana's west face stands; north of Twelfth, only Michigan's (the lake front and its
     # park lie east).
@@ -581,9 +739,22 @@ def projected(grid: dict, ground: Ground, fr: Frame, net: dict, sheet_rows: list
         if v > V["16th"] + ROW_HALF_M:
             return U["indiana"]
         if v < vb_:
-            return U["calumet"] + ROW_HALF_M + 46.0
+            return row_way.west_u(v) - RAIL_CLEAR_M
         t = (min(v, va_) - va_) / (vb_ - va_)
         return ua_ + (ub_ - ua_) * t
+
+    def lot_depth(sgn, u_front, u_back, u_face, v):
+        """How deep a lot facing u_face runs at v, or None where it has no room. A lot east of
+        its avenue stops short of the railway (T-3038: Calumet's east lots get as deep as the
+        right of way lets them, up to the block's half); a lot west of its avenue needs that
+        avenue drawn in front of it, clear of the right of way."""
+        lim = east_limit(v)
+        depth = abs(u_back - u_front)
+        if sgn > 0:
+            depth = min(depth, lim - u_front)
+        elif max(u_front, u_back) > lim or (v < vb_ and u_face + CARRIAGEWAY_M / 2 > lim + RAIL_CLEAR_M):
+            return None
+        return depth if depth >= MIN_LOT_DEPTH_M else None
 
     def zone(u_face, u, v):
         if v > V["twelfth"] + ROW_HALF_M and u > U["canal"]:
@@ -632,6 +803,9 @@ def projected(grid: dict, ground: Ground, fr: Frame, net: dict, sheet_rows: list
             lo, hi = va + ROW_HALF_M, vb - ROW_HALF_M
             if hi - lo < 15:
                 continue
+            # T-3038: each block draws from its own seed, so a change to one block leaves the
+            # rest of the city as it was.
+            rnd = random.Random(f"{SEED}:{ua:.1f}:{va:.1f}")
             bz = zone(None, mid, (va + vb) / 2)
             if bz == "railway":
                 # One to three long sheds in a block of the railway lands, on its long axis.
@@ -649,14 +823,14 @@ def projected(grid: dict, ground: Ground, fr: Frame, net: dict, sheet_rows: list
                 continue
             for side, u_front, u_back, sgn, u_face in (("w", ua + ROW_HALF_M, mid - ALLEY_M / 2, 1, ua),
                                                        ("e", ub - ROW_HALF_M, mid + ALLEY_M / 2, -1, ub)):
-                depth = abs(u_back - u_front)
-                if depth < 14:
+                if abs(u_back - u_front) < MIN_LOT_DEPTH_M:
                     continue
                 v = hi
                 corner = True
                 while v - lo > 6.0:
-                    z = zone(u_face, u_front + sgn * depth / 2, v)
-                    e0, n0 = fr.en(u_front + sgn * depth / 2, v - 5)
+                    half = abs(u_back - u_front) / 2
+                    z = zone(u_face, u_front + sgn * half, v)
+                    e0, n0 = fr.en(u_front + sgn * half, v - 5)
                     lod = 0 if near(e0, n0) else 1
                     if z in ("shops", "business", "loop") or lod == 1:
                         # A run of lots as one building: a business block, or past the near ring
@@ -665,8 +839,11 @@ def projected(grid: dict, ground: Ground, fr: Frame, net: dict, sheet_rows: list
                                   v - lo)
                         vc = v - run / 2
                         v -= run
+                        depth = lot_depth(sgn, u_front, u_back, u_face, vc)
+                        if depth is None:
+                            continue
                         uc = u_front + sgn * depth / 2
-                        if not (max(u_front, u_back) <= east_limit(vc) and umin <= uc <= umax and vmin <= vc <= vmax):
+                        if not (umin <= uc <= umax and vmin <= vc <= vmax):
                             continue
                         if rnd.random() < VACANT_MIN:
                             continue
@@ -702,8 +879,10 @@ def projected(grid: dict, ground: Ground, fr: Frame, net: dict, sheet_rows: list
                     vc = v - f / 2
                     uf = u_front
                     v -= f
-                    lot_ok = max(u_front, u_back) <= east_limit(vc) and umin <= u_front <= umax and vmin <= vc <= vmax
-                    e0, n0 = fr.en(uf + sgn * depth / 2, vc)
+                    depth = lot_depth(sgn, u_front, u_back, u_face, vc)
+                    lot_ok = depth is not None and umin <= u_front <= umax and vmin <= vc <= vmax
+                    if lot_ok:
+                        e0, n0 = fr.en(uf + sgn * depth / 2, vc)
                     if not lot_ok or not place_ok(e0, n0):
                         corner = False
                         continue
@@ -739,7 +918,7 @@ def projected(grid: dict, ground: Ground, fr: Frame, net: dict, sheet_rows: list
                     # back yard: a stable at the alley on a wide lot, and a tree or two
                     if f >= 11.0 and rnd.random() < 0.45:
                         sw, sd = rnd.uniform(6.0, 8.0), rnd.uniform(7.0, 9.5)
-                        se, sn = fr.en(u_back - sgn * (sd / 2 + 0.6), vc + rnd.uniform(-1.5, 1.5))
+                        se, sn = fr.en(uf + sgn * (depth - sd / 2 - 0.6), vc + rnd.uniform(-1.5, 1.5))
                         smat = "frame" if rnd.random() < 0.45 else "brick"
                         if rect_ok(se, sn, sw, sd, across):
                             buildings.append({"e": se, "n": sn, "w": sw, "d": sd, "bearing": across,
@@ -758,17 +937,21 @@ def projected(grid: dict, ground: Ground, fr: Frame, net: dict, sheet_rows: list
                               "near_ring_m": RING_M, "zones": ZONES}, east_limit, zone
 
 
-def street_segments(grid: dict, ground: Ground, fr: Frame, net: dict, east_limit, zone) -> list:
+def street_segments(grid: dict, ground: Ground, fr: Frame, net: dict, east_limit, zone,
+                    row_way: RightOfWay) -> list:
     """The faded streets: each line of the network, cut where it would cross the street grid's
     own drawing (its carriageways, walks, lots and alleys stay the street grid's, and T-2475
     blends that edge), the water, the railway lands (a cross street runs through them, an
-    avenue does not) and the ground east of the lot line."""
+    avenue does not), the ground east of the lot line and the Illinois Central's right of way
+    (T-3038: a street runs to its west verge and stops there, as the city's streets met the
+    railway's fence). Each end is found to a decimetre, so a street meets what stops it square."""
     halfw = CARRIAGEWAY_M / 2
     polys = [c["polygon_local_m"] for c in grid["carriageways"]] + [a["polygon_local_m"] for a in grid["alleys"]]
     polys += [p["polygon_local_m"] for p in grid["parcels"]] + [b["outline_local_m"] for b in grid["blocks"]]
     for f in grid["faces"]:
         for band in f["bands"].values():
             polys += [list(q) for q in band]
+    polys += [list(q) for q in row_way.quads]
     bbs = [(min(q[0] for q in p) - halfw - 2, max(q[0] for q in p) + halfw + 2,
             min(q[1] for q in p) - halfw - 2, max(q[1] for q in p) + halfw + 2) for p in polys]
     umin, umax, vmin, vmax = net["box_uv"]
@@ -784,19 +967,35 @@ def street_segments(grid: dict, ground: Ground, fr: Frame, net: dict, east_limit
                 return True
         return False
 
+    def clear(line, axis, t):
+        u, v = (line, t) if axis == "u" else (t, line)
+        e, n = fr.en(u, v)
+        side = [fr.en(u + o, v) for o in (halfw + 1, halfw, -halfw, -halfw - 1)] if axis == "u" else \
+            [fr.en(u, v + o) for o in (halfw + 1, halfw, -halfw, -halfw - 1)]
+        return (ground.water_m(e, n) > STREET_CLEAR_OF_WATER_M
+                and u <= east_limit(v) + ROW_HALF_M
+                and not (axis == "u" and zone(None, u, v) == "railway")
+                and not blocked(e, n) and not any(blocked(*q) for q in side))
+
+    def edge(line, axis, t_ok, t_bad):
+        """The last clear station between a clear one and a blocked one, to 0.1 m, held back
+        0.2 m so the street's square end meets what stops it and does not lap onto it."""
+        t0 = t_ok
+        while abs(t_bad - t_ok) > 0.1:
+            m = (t_ok + t_bad) / 2
+            if clear(line, axis, m):
+                t_ok = m
+            else:
+                t_bad = m
+        back = t_ok - 0.2 if t_bad > t_ok else t_ok + 0.2
+        return back if (back - t0) * (t_bad - t0) >= 0 else t0
+
     def run(line, axis, idx, tier):
         segs, cur = [], None
         lo, hi = (vmin, vmax) if axis == "u" else (umin, umax)
         t = lo
         while t <= hi:
-            u, v = (line, t) if axis == "u" else (t, line)
-            e, n = fr.en(u, v)
-            side = [fr.en(u + halfw + 1, v), fr.en(u - halfw - 1, v)] if axis == "u" else \
-                [fr.en(u, v + halfw + 1), fr.en(u, v - halfw - 1)]
-            ok = (ground.water_m(e, n) > STREET_CLEAR_OF_WATER_M
-                  and u <= east_limit(v) + ROW_HALF_M
-                  and not (axis == "u" and zone(None, u, v) == "railway")
-                  and not blocked(e, n) and not any(blocked(*q) for q in side))
+            ok = clear(line, axis, t)
             if ok and cur is None:
                 cur = [t, t]
             elif ok:
@@ -808,6 +1007,10 @@ def street_segments(grid: dict, ground: Ground, fr: Frame, net: dict, east_limit
         if cur is not None:
             segs.append(cur)
         for a, b in segs:
+            if a > lo:
+                a = edge(line, axis, a, a - STREET_STEP_M)
+            if b + STREET_STEP_M <= hi:
+                b = edge(line, axis, b, b + STREET_STEP_M)
             if b - a < 12.0:
                 continue
             (e0, n0), (e1, n1) = (fr.en(line, a), fr.en(line, b)) if axis == "u" else (fr.en(a, line), fr.en(b, line))
@@ -818,6 +1021,73 @@ def street_segments(grid: dict, ground: Ground, fr: Frame, net: dict, east_limit
             names.append(name)
             run(line, kind, len(names) - 1, 0 if tier == "measured" else 1)
     return out, names
+
+
+def keep_off(grid: dict, row_way: RightOfWay, streets: list, walk: bool) -> tuple:
+    """What a stand-in keeps off (T-3038), as two plans: the ground that is someone else's (the
+    street grid's carriageways and alleys, its walks, parkways and curbs, the right of way with a
+    fence's width beside its west verge) and the faded streets' carriageways, widened by a walk
+    when `walk`. Trees keep off the same ground but the walks and parkways, where they grow."""
+    hard = [c["polygon_local_m"] for c in grid["carriageways"]] + [a["polygon_local_m"] for a in grid["alleys"]]
+    hard += list(row_way.quads)
+    west = next(vg for vg in json.loads(RAIL.read_text(encoding="utf-8"))["right_of_way"]["verges"]
+                if vg["side"] == "west")["stations"]
+    hard += ribbon_quads([[s[0] - RAIL_CLEAR_M, s[1], s[0], s[1]] for s in west])
+    bands = [list(q) for f in grid["faces"] for k, band in f["bands"].items() if k in ("walk", "parkway", "curb")
+             for q in band]
+    half = CARRIAGEWAY_M / 2 + (WALK_CLEAR_M if walk else 0.0)
+    faded = [segment_rect(*st[:4], half) for st in streets]
+    return Plan(hard + bands), Plan(hard), Plan(faded)
+
+
+def clear_city(grid: dict, row_way: RightOfWay, streets: list, sheet_rows: list, proj_rows: list,
+               trees: list) -> tuple:
+    """THE SWEEP (T-3038; the owner, 2026-10-22: "you put a building in the middle of the street,
+    fix this and any others"). Every stand-in is tested as its whole rectangle, not its centre,
+    against the ground keep_off() names and against the stand-ins already kept. A sheet's drawn
+    part is cut back off a roadway, an alley or the railway (its smallest rectangle overran the
+    line the sheet draws) and its parts may overlap each other, as one drawn building's do; a
+    projected stand-in is cut back off all of that and off every kept stand-in, or dropped. Trees
+    keep off roadways, alleys, the right of way, the faded streets and every kept stand-in."""
+    ground_b, _, faded_sheet = keep_off(grid, row_way, streets, walk=False)
+    _, _, faded_proj = keep_off(grid, row_way, streets, walk=True)
+    placed = Plan()
+    kept = []
+    tally = {"sheet_trimmed": 0, "sheet_dropped": 0, "project_trimmed": 0, "project_dropped": 0, "trees_dropped": 0}
+
+    def fit(row, plans, kind):
+        for _ in range(4):
+            rect = rect_corners(row["e"], row["n"], row["w"], row["d"], row["bearing"])
+            hits = [h for pl in plans for h in pl.overlaps(rect)]
+            if not hits:
+                return row
+            row = trim(row, hits)
+            if row is None:
+                tally[f"{kind}_dropped"] += 1
+                return None
+            tally[f"{kind}_trimmed"] += 1
+        return None
+
+    for r in sheet_rows:
+        r = fit(r, (ground_b, faded_sheet), "sheet")
+        if r is not None:
+            kept.append(r)
+            placed.add(rect_corners(r["e"], r["n"], r["w"], r["d"], r["bearing"]))
+    for r in proj_rows:
+        r = fit(r, (ground_b, faded_proj, placed), "project")
+        if r is not None:
+            kept.append(r)
+            placed.add(rect_corners(r["e"], r["n"], r["w"], r["d"], r["bearing"]))
+    _, ground_t, faded_t = keep_off(grid, row_way, streets, walk=False)
+    out_trees = []
+    for t in trees:
+        e, n = t["e"], t["n"]
+        if ground_t.holds(e, n) or faded_t.holds(e, n) or placed.holds(e, n):
+            tally["trees_dropped"] += 1
+            continue
+        out_trees.append(t)
+    n_sheet = sum(1 for r in kept if r["src"] != "project")
+    return kept[:n_sheet], kept[n_sheet:], out_trees, tally
 
 
 def pick(mix: dict, rnd) -> str:
@@ -872,7 +1142,6 @@ def sheet_trees(grid: dict, rows: list, rnd) -> list:
 
 
 def build() -> dict:
-    import random
     rnd = random.Random(SEED)
     grid = json.loads(GRID.read_text(encoding="utf-8"))
     ground = Ground()
@@ -886,10 +1155,14 @@ def build() -> dict:
     plate_top_v = max(fr.uv(*q)[1] for q in plate_roi)
     reach = reach_m()
     net = network(grid, fr, reach)
+    row_way = RightOfWay(fr)
     proj_rows, proj_trees, projection, east_limit, zone = projected(
-        grid, ground, fr, net, sheet_rows, [plate_roi], plate_top_v, rnd)
-    streets, street_names = street_segments(grid, ground, fr, net, east_limit, zone)
+        grid, ground, fr, net, sheet_rows, [plate_roi], plate_top_v, row_way)
+    streets, street_names = street_segments(grid, ground, fr, net, east_limit, zone, row_way)
     trees = sheet_trees(grid, sheet_rows, rnd) + proj_trees
+    sheet_rows, proj_rows, trees, tally = clear_city(grid, row_way, streets, sheet_rows, proj_rows, trees)
+    projection["clearance"] = {"_doc": inspect.cleandoc(clear_city.__doc__), "rail_clear_m": RAIL_CLEAR_M,
+                               "walk_clear_m": WALK_CLEAR_M, "trim_keep": TRIM_KEEP, **tally}
     srcs = ["20", "28", "35", "r10", "project"]
     roofs = ["flat", "gable", "pyramid"]
     rules = sorted({r["rule"] for r in sheet_rows + proj_rows})
@@ -971,7 +1244,9 @@ def dumps(doc: dict) -> str:
 
 def contract(doc: dict) -> list:
     """What must hold of any build: rows well formed, nothing on Prairie Avenue's lots or
-    streets, nothing in the water, every sheet named a source."""
+    streets, nothing in the water, every sheet named a source; and (T-3038) no stand-in's
+    rectangle on a roadway, walk, alley, faded street or the Illinois Central's right of way,
+    no projected stand-in on another, no faded street on the right of way, no tree in a road."""
     bad = []
     grid = json.loads(GRID.read_text(encoding="utf-8"))
     prairie = [p["polygon_local_m"] for p in grid["parcels"] if p["street"] == "prairie"]
@@ -1023,6 +1298,27 @@ def contract(doc: dict) -> list:
                 k += 5.0
                 continue
             break
+    fr = Frame(grid)
+    row_way = RightOfWay(fr)
+    streets = doc.get("streets", [])
+    ground_b, ground_t, faded = keep_off(grid, row_way, streets, walk=False)
+    rail_only = Plan(row_way.quads)
+    src = doc["enums"]["src"]
+    placed = Plan()
+    TOL = 1.0                         # m2: the rows are rounded to 0.1 m
+    for i, b in enumerate(doc["buildings"]):
+        rect = rect_corners(b[0], b[1], b[3], b[4], b[2])
+        if any(area(h) > TOL for pl in (ground_b, faded) for h in pl.overlaps(rect)):
+            bad.append(f"building {i} at ({b[0]}, {b[1]}) stands on a roadway, walk, alley, faded street or the railway")
+        if src[b[11]] == "project" and any(area(h) > TOL for h in placed.overlaps(rect)):
+            bad.append(f"building {i} at ({b[0]}, {b[1]}) (projected) stands on another stand-in")
+        placed.add(rect)
+    for i, st in enumerate(streets):
+        if any(area(h) > TOL for h in rail_only.overlaps(segment_rect(*st[:4], CARRIAGEWAY_M / 2))):
+            bad.append(f"street {i} ({doc['enums']['street_name'][st[4]]}) runs onto the Illinois Central's right of way")
+    for i, t in enumerate(doc["trees"]):
+        if ground_t.holds(t[0], t[1]) or faded.holds(t[0], t[1]):
+            bad.append(f"tree {i} at ({t[0]}, {t[1]}) stands in a roadway, an alley, a faded street or on the railway")
     src_dir = ROOT / "data" / "sources"
     for s in doc["sources"]:
         if not (src_dir / f"{s}.json").exists():
@@ -1047,10 +1343,26 @@ def self_test() -> int:
     ok2 = any("water" in f for f in contract(wet))
     across = dict(doc, streets=doc["streets"] + [[1300.0, -3100.0, 1500.0, -3100.0, 0, 1]])
     ok3 = any("crosses the street grid" in f for f in contract(across))
+    # T-3038, the owner's own case: the projected house that stood on 18th Street's curve into
+    # Calumet Avenue, the faded street that lay in the Illinois Central's tracks beside it, two
+    # projected stand-ins one on the other, and a tree in Calumet's roadway.
+    house = [1510.8, -3230.0, 179.0, 27.7, 14.4, 10.3, 0.0, 0, 0, 0, 0, 4, 0, 0]
+    ok4 = any("roadway, walk, alley" in f for f in contract(dict(doc, buildings=[house])))
+    rails = dict(doc, streets=[[1534.9, -3265.7, 1533.9, -3211.7, 0, 1]])
+    ok5 = any("right of way" in f for f in contract(rails))
+    pair = [[-600.0, -4000.0, 179.0, 10, 14, 10, 0, 0, 0, 0, 0, 4, 0, 0]] * 2
+    ok6 = any("on another stand-in" in f for f in contract(dict(doc, buildings=pair)))
+    cal = next(c for c in grid["carriageways"] if c["id"] == "calumet_20_22")["polygon_local_m"]
+    ce, cn = sum(q[0] for q in cal) / len(cal), sum(q[1] for q in cal) / len(cal)
+    ok7 = any("tree 0" in f for f in contract(dict(doc, trees=[[ce, cn, 12, 3, 0, 1, 0]])))
     print(f"a stand-in on a Prairie Avenue lot: {'FAIL (caught)' if ok else 'NOT CAUGHT'}")
     print(f"a stand-in in the lake: {'FAIL (caught)' if ok2 else 'NOT CAUGHT'}")
     print(f"a faded street across Prairie Avenue's blocks: {'FAIL (caught)' if ok3 else 'NOT CAUGHT'}")
-    return 0 if ok and ok2 and ok3 else 1
+    print(f"a stand-in on 18th Street's curve into Calumet: {'FAIL (caught)' if ok4 else 'NOT CAUGHT'}")
+    print(f"a faded street in the Illinois Central's tracks: {'FAIL (caught)' if ok5 else 'NOT CAUGHT'}")
+    print(f"one projected stand-in on another: {'FAIL (caught)' if ok6 else 'NOT CAUGHT'}")
+    print(f"a tree in Calumet Avenue's roadway: {'FAIL (caught)' if ok7 else 'NOT CAUGHT'}")
+    return 0 if all((ok, ok2, ok3, ok4, ok5, ok6, ok7)) else 1
 
 
 def main() -> int:
