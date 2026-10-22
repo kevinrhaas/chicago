@@ -165,6 +165,13 @@ def layout(p,reduced=False):
         # The surveyed tower position and broad garden light leave different
         # clear wall strips than the earlier tangent-based reconstruction.
         # Explicit record anchors keep both leaders and their straps off glass.
+        if name in cfg.get('court_east_into_bow',()):
+            # T-2928: sheet 4 draws no leader on the strip between the bow and the
+            # stair tower; its gutter runs on to the end of the bow's trough, whose
+            # leader (court-bow) takes the water. The junction is not drawn.
+            gutter(name,[(ex,a,ez),(ex,c,ez)],[(-1,0,0)]*2,[])
+            gutters[-1]['feeds']='bow'
+            continue
         y=cfg.get('court_east_leaders_y',{}).get(name,y)
         # T-2926: sheet 4 draws the south one under a hopper head.
         head=cfg.get('court_east_leader_heads',{}).get(name,'none')

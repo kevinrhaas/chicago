@@ -2,10 +2,10 @@
   "structure_id": "glessner_house",
   "view": "habs04-court-exterior",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "ef60e946008b3242884615f80baea34c35ee832c4b760be6de5ebab8372e4da4",
+  "glb_sha256": "a9cc80fc7a83f160f387e4a989c9707d0517cb51f7dae98216df633b7b9e8693",
   "camera_sha256": "c9d413f7fa89d5c38c8cbd3f61c5f6ab8dd56819095405939ad9717c94923f5a",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-court-exterior-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "Actual master reviewed: main roof no longer crosses any of the three dormer panes or the upper wall opening. Eave, body/window heights, bell finials and broad basement grille follow the fixed section more closely.",
@@ -52,8 +52,12 @@
       "status": "fixed"
     },
     {
-      "what": "Found by T-2926: between the bow and the stair tower the first-floor window (drawn about 9.6-14.2 ft under a lintel stone about 14.2-15.3, built 9.5-14.6 under a thin one), the narrow second-floor light and its stones (drawn about 20.0-25.0 under a stone at 25.0-26.2), the garden-level light's grille at S47-50, and the court-east-north leader at S42.4, which sheet 4 does not draw - T-2928.",
-      "status": "open"
+      "what": "Found by T-2926: between the bow and the stair tower the first-floor window (drawn about 9.6-14.2 ft under a lintel stone about 14.2-15.3, built 9.5-14.6 under a thin one), the narrow second-floor light and its stones (drawn about 20.0-25.0 under a stone at 25.0-26.2), the garden-level light's grille at S47-50, and the court-east-north leader at S42.4, which sheet 4 does not draw - T-2928. T-2928 built it (readings: docs/RESEARCH/glessner-court-strip-T-2928/).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2928: the strip between the bow and the stair tower to native sheet 4, carried onto the plan's frame by +0.65 ft. The first-floor window's frame at S43.30-48.44 and 9.13-13.31 ft (built 43.0-47.5 and 9.5-14.6) on a sill stone 8.39-9.13 under a lintel stone 13.31-14.51, both run 42.97-48.75; the second-floor light 1.13 ft across at 45.26-46.39 and 19.46-24.38 ft, one pane (built 1.8 ft wide, 44.9-46.7, 19.5-25.6), under a head stone 24.38-25.65 and on a sill stone 18.73-19.46, both 44.91-46.74. Sheet 4 draws no leader on the strip: the court-east-north leader at S42.4 and its straps are gone, the strip's gutter running on to the bow's trough. The barred basement light takes the drawn bar pitch (0.345 ft; nine bars on the built, held-short light, was six). On the render at the drawing's grain the frames and stones fall on the drawn lines across, and about 0.3 ft above them, the offset the previous build showed against its own record (the far-field camera's residual).",
+      "status": "fixed"
     },
     {
       "what": "This1963 measured section does not establish1904 RGB color, exact stock, weathering or hidden dormer depth. Camera controls are unchanged; finite perspective introduces about1% depth sensitivity.",
