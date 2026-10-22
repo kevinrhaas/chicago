@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2180, ts: '2026-10-22T12:43:23.224Z', date: 'Oct 22, 2026, 7:43 AM CT', title: '1801 Prairie\'s south pavilion rises to its stone gable', kind: 'feature',
+    items: [
+      'The Kimball house\'s south pavilion on Prairie Avenue now ends in the steep coped stone gable J. W. Taylor\'s photograph of about 1895 shows, with a pinnacle at each corner and a finial at the peak, where it had a low hipped cap.',
+    ] },
   { v: 2179, ts: '2026-10-22T11:55:19.926Z', date: 'Oct 22, 2026, 6:55 AM CT', title: '1811 Prairie\'s bay runs its full width, from its 1888 plate', kind: 'improve',
     items: [
       '1811 Prairie\'s bay front now runs its full 3.7 m, out to the corner where the 1888 plate draws it, so its south windows stand where the plate\'s do instead of half a metre north. The downpipe beside it moves past the corner onto the main front; the plate shows it running down the bay\'s side, which the build can\'t do yet.',
