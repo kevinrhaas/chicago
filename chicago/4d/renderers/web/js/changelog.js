@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2194, ts: '2026-10-22T19:34:07.916Z', date: 'Oct 22, 2026, 2:34 PM CT', title: 'The Green Tree Tavern stands on its ground in 1835', kind: 'fix',
+    items: [
+      'The Green Tree Tavern no longer sits sunk into the riverbank: its doors and sills meet the ground.',
+      'It stands 5.8 m further west, so the inn and its rear wing sit on level ground instead of on the bank\'s slope.',
+      'Buildings now rest on the ground under their walls instead of under their eaves, which also lifts the Wolf Point Tavern out of the bank.',
+    ] },
+  { v: 2193, ts: '2026-10-22T19:34:07.916Z', date: 'Oct 22, 2026, 2:34 PM CT', title: 'Indiana Avenue\'s houses and First Presbyterian Church behind Prairie', kind: 'feature',
+    items: [
+      'Indiana Avenue\'s east side now stands from 20th to 22nd Street, seen across the yards from Prairie Avenue\'s walks: a row of nine stone-bayed brick houses, frame houses south of 21st Street, a livery and the stables on the alley.',
+      'First Presbyterian Church stands on the 21st Street corner, its corner tower carrying a slated spire about 27 metres high, as the 1911 atlas draws it.',
+      'Each building is marked as a draft from the atlas. The garages, the printing works and the post office the atlas shows on four corners are left open until their 1904 occupants are found.',
+    ] },
   { v: 2192, ts: '2026-10-22T18:37:53.288Z', date: 'Oct 22, 2026, 1:37 PM CT', title: '1812: the Kinzie yard rises behind the house', kind: 'feature',
     items: [
       'New in 1812: a log stable, the Frenchmen\'s whitewashed lodging house, a bake-house with an oven flue, a dairy and a picket kitchen garden stand behind the Kinzie house.',

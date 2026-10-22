@@ -41,7 +41,7 @@
       "state"
     ],
     "faces_laid": 99,
-    "walk_m": 9067.9,
+    "walk_m": 9067.7,
     "crossing_m": 2430.7,
     "fence_m": 1953.5,
     "walking_decks": 856,
@@ -57,7 +57,7 @@
     "bare_fronts": 7,
     "fronts_only_faces": 5,
     "fronts_only_runs": 5,
-    "fronts_only_walk_m": 83.1
+    "fronts_only_walk_m": 82.9
   },
   "card": {
     "id": "town_street_edge",
@@ -72,7 +72,7 @@
         "note": "Asked for by the owner, 2026-08-18, of the first Cook County jail engraving: 'note the fences lining the street and what appears to be plank sidewalks. all of the streets should be updated like this... at least south of the river or near the river.' No 1835 source names a walk or a fence on any particular stretch of these streets."
       },
       "walk_m": {
-        "value": 9067.9,
+        "value": 9067.7,
         "confidence": "reconstructed",
         "sources": [],
         "note": "111 run(s) of sidewalk on 99 platted block face(s), plus 2430.7 m of board crossing at 103 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
@@ -25385,12 +25385,12 @@
       "business_class": "forwarding",
       "centreline_local_enu_m": [
         [
-          -23.51,
-          -130.15
+          -26.04,
+          -130.11
         ],
         [
-          -23.35,
-          -123.22
+          -25.95,
+          -123.18
         ]
       ],
       "width_m": 1.22,
@@ -25401,32 +25401,32 @@
       "plank_underside": false,
       "stringer_pitch_m": 2.08,
       "lot_line_offset_m": 2.69,
-      "verge_to_track_m": 19.09,
+      "verge_to_track_m": 20.74,
       "footway_decks": [
         {
-          "y": 1.138,
+          "y": 1.143,
           "pts": [
             [
-              -24.12,
-              -130.22
+              -26.65,
+              -130.18
             ],
             [
-              -23.96,
-              -123.12
+              -26.56,
+              -123.09
             ],
             [
-              -22.74,
-              -123.15
+              -25.34,
+              -123.1
             ],
             [
-              -22.9,
-              -130.24
+              -25.43,
+              -130.2
             ]
           ],
-          "ground_roll_m": 0.003
+          "ground_roll_m": 0.007
         }
       ],
-      "note": "THE DECKED WALK IN FRONT OF RECONSTRUCTED F2 NARROW TWO-STORY WAREHOUSE #001, a `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding house: the town's 1.83 m board walk widened by 1.22 m of 75 mm plank on its street side, a 3.05 m deck where goods were landed and loaded across the front. WHERE is derived: the house's own frontage projected onto blk_west_lake_canal's east face, 110.0 m to 116.9 m along it, clipped to the walk run laid there, on dry committed ground rolling 0.00 m and leaving 19.09 m to the West Water Street track. WHAT IS INVENTED: that the deck stood here on 1 July 1835, its width and its stock — no source in this repository measures a Chicago forwarding house's walk. docs/LIBERTIES.md L160 (amended by T-1814)."
+      "note": "THE DECKED WALK IN FRONT OF RECONSTRUCTED F2 NARROW TWO-STORY WAREHOUSE #001, a `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding house: the town's 1.83 m board walk widened by 1.22 m of 75 mm plank on its street side, a 3.05 m deck where goods were landed and loaded across the front. WHERE is derived: the house's own frontage projected onto blk_west_lake_canal's east face, 110.0 m to 116.9 m along it, clipped to the walk run laid there, on dry committed ground rolling 0.01 m and leaving 20.74 m to the West Water Street track. WHAT IS INVENTED: that the deck stood here on 1 July 1835, its width and its stock — no source in this repository measures a Chicago forwarding house's walk. docs/LIBERTIES.md L160 (amended by T-1814)."
     },
     {
       "id": "blk_west_lake_canal_east_walk_1",
@@ -25438,12 +25438,12 @@
       "chunk": "blk_west_lake_canal_east_1",
       "centreline_local_enu_m": [
         [
-          -25.19,
-          -137.13
+          -27.66,
+          -137.1
         ],
         [
-          -24.85,
-          -121.69
+          -27.46,
+          -121.66
         ]
       ],
       "width_m": 1.83,
@@ -25454,32 +25454,32 @@
       "plank_underside": false,
       "stringer_pitch_m": 2.08,
       "lot_line_offset_m": 1.17,
-      "verge_to_track_m": 13.39,
+      "verge_to_track_m": 15.21,
       "footway_decks": [
         {
-          "y": 1.142,
+          "y": 1.145,
           "pts": [
             [
-              -26.11,
-              -137.19
+              -28.58,
+              -137.16
             ],
             [
-              -25.76,
+              -28.37,
+              -121.56
+            ],
+            [
+              -26.54,
               -121.59
             ],
             [
-              -23.93,
-              -121.63
-            ],
-            [
-              -24.28,
-              -137.23
+              -26.75,
+              -137.19
             ]
           ],
-          "ground_roll_m": 0.009
+          "ground_roll_m": 0.011
         }
       ],
-      "note": "THE PLANK SIDEWALK ON THE WEST WATER STREET FRONTAGE of blk_west_lake_canal's east face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 13.39 m of verge between its outer edge and the West Water Street track. This run is the stretch from 103.0 m to 118.4 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160. LAID FRONTS-ONLY (T-1823): this face is beyond the covered streets, so the walk is laid only in front of the business that opens onto it — Reconstructed F2 narrow two-story warehouse #001 (narrow_two_story_warehouse, held `reconstructed`) — and half a march step past each end of its frontage, and nowhere else on the face."
+      "note": "THE PLANK SIDEWALK ON THE WEST WATER STREET FRONTAGE of blk_west_lake_canal's east face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 15.21 m of verge between its outer edge and the West Water Street track. This run is the stretch from 102.9 m to 118.4 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160. LAID FRONTS-ONLY (T-1823): this face is beyond the covered streets, so the walk is laid only in front of the business that opens onto it — Reconstructed F2 narrow two-story warehouse #001 (narrow_two_story_warehouse, held `reconstructed`) — and half a march step past each end of its frontage, and nowhere else on the face."
     },
     {
       "id": "blk_west_randolph_canal_north_walk_1",
@@ -25495,8 +25495,8 @@
           -262.31
         ],
         [
-          -124.04,
-          -262.48
+          -124.27,
+          -262.47
         ]
       ],
       "width_m": 1.83,
@@ -25517,11 +25517,11 @@
               -263.22
             ],
             [
-              -129.23,
+              -129.41,
               -263.35
             ],
             [
-              -129.22,
+              -129.39,
               -261.52
             ],
             [
@@ -25529,32 +25529,32 @@
               -261.39
             ]
           ],
-          "ground_roll_m": 0.023
+          "ground_roll_m": 0.022
         },
         {
           "y": 1.219,
           "pts": [
             [
-              -129.39,
+              -129.57,
               -263.35
             ],
             [
-              -123.97,
+              -124.2,
               -263.39
             ],
             [
-              -123.95,
+              -124.18,
               -261.56
             ],
             [
-              -129.38,
+              -129.55,
               -261.52
             ]
           ],
           "ground_roll_m": 0.009
         }
       ],
-      "note": "THE PLANK SIDEWALK ON THE RANDOLPH STREET FRONTAGE of blk_west_randolph_canal's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Randolph Street track. This run is the stretch from 0.0 m to 21.1 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160. LAID FRONTS-ONLY (T-1823): this face is beyond the covered streets, so the walk is laid only in front of the business that opens onto it — Western Hotel (tavern_inn, held `attested`) — and half a march step past each end of its frontage, and nowhere else on the face."
+      "note": "THE PLANK SIDEWALK ON THE RANDOLPH STREET FRONTAGE of blk_west_randolph_canal's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Randolph Street track. This run is the stretch from 0.0 m to 20.8 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160. LAID FRONTS-ONLY (T-1823): this face is beyond the covered streets, so the walk is laid only in front of the business that opens onto it — Western Hotel (tavern_inn, held `attested`) — and half a march step past each end of its frontage, and nowhere else on the face."
     },
     {
       "id": "blk_west_randolph_jefferson_east_walk_1",
@@ -32991,17 +32991,17 @@
       "trade_confidence": "reconstructed",
       "business_class": "forwarding",
       "at_local_enu_m": [
-        -21.32,
-        -126.73
+        -23.89,
+        -126.67
       ],
-      "facade_bearing_deg": 91.3,
+      "facade_bearing_deg": 90.8,
       "along_frontage_frac": 0.5,
       "parts": [
         {
           "part": "plank_1",
           "at_local_enu_m": [
-            -22.67,
-            -126.7
+            -25.24,
+            -126.65
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33010,8 +33010,8 @@
         {
           "part": "plank_2",
           "at_local_enu_m": [
-            -22.37,
-            -126.71
+            -24.94,
+            -126.66
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33020,8 +33020,8 @@
         {
           "part": "plank_3",
           "at_local_enu_m": [
-            -22.07,
-            -126.71
+            -24.64,
+            -126.66
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33030,8 +33030,8 @@
         {
           "part": "plank_4",
           "at_local_enu_m": [
-            -21.77,
-            -126.72
+            -24.34,
+            -126.66
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33040,8 +33040,8 @@
         {
           "part": "plank_5",
           "at_local_enu_m": [
-            -21.47,
-            -126.73
+            -24.04,
+            -126.67
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33050,8 +33050,8 @@
         {
           "part": "plank_6",
           "at_local_enu_m": [
-            -21.17,
-            -126.73
+            -23.74,
+            -126.67
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33060,8 +33060,8 @@
         {
           "part": "plank_7",
           "at_local_enu_m": [
-            -20.87,
-            -126.74
+            -23.44,
+            -126.68
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33070,8 +33070,8 @@
         {
           "part": "plank_8",
           "at_local_enu_m": [
-            -20.57,
-            -126.75
+            -23.14,
+            -126.68
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33080,8 +33080,8 @@
         {
           "part": "plank_9",
           "at_local_enu_m": [
-            -20.27,
-            -126.75
+            -22.84,
+            -126.68
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
@@ -33090,15 +33090,15 @@
         {
           "part": "plank_10",
           "at_local_enu_m": [
-            -19.97,
-            -126.76
+            -22.54,
+            -126.69
           ],
           "len_m": 3.05,
           "depth_m": 0.288,
           "top_m": 0.075
         }
       ],
-      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at Reconstructed F2 narrow two-story warehouse #001. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_west_lake_canal's east face — the middle of the front, where no elevation places a door — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 17.26 m to the West Water Street track, on committed ground at +1.02 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813).",
+      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at Reconstructed F2 narrow two-story warehouse #001. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_west_lake_canal's east face — the middle of the front, where no elevation places a door — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 19.32 m to the West Water Street track, on committed ground at +1.03 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813).",
       "standing_chunk": "town_street_edge__fronts_only__standing"
     },
     {
@@ -33433,23 +33433,23 @@
       "business_class": "works",
       "pts_local_enu_m": [
         [
-          -146.68,
+          -146.79,
           -120.69
         ],
         [
-          -136.19,
-          -120.78
+          -136.52,
+          -120.77
         ],
         [
-          -136.16,
-          -117.5
+          -136.49,
+          -117.49
         ],
         [
-          -146.66,
+          -146.77,
           -117.41
         ]
       ],
-      "note": "THE BARE FRONT OF ASAHEL PIERCE'S BLACKSMITH SHOP: no plank walk, and nothing planted, from the lot line out past the tie rail's line over 5.2 m to 15.7 m along blk_west_lake_canal's north face. A works fronts its own trodden ground (FRONTAGE_BY_BUSINESS). WHAT IS INVENTED: that this front was unplanked and worn bare on 1 July 1835. docs/LIBERTIES.md L160 (amended by T-1814)."
+      "note": "THE BARE FRONT OF ASAHEL PIERCE'S BLACKSMITH SHOP: no plank walk, and nothing planted, from the lot line out past the tie rail's line over 5.1 m to 15.4 m along blk_west_lake_canal's north face. A works fronts its own trodden ground (FRONTAGE_BY_BUSINESS). WHAT IS INVENTED: that this front was unplanked and worn bare on 1 July 1835. docs/LIBERTIES.md L160 (amended by T-1814)."
     },
     {
       "id": "blk_west_randolph_des_plaines_north_bare_ground_recon_1835_blk_west_randolph_des_plaines_w2_01",
@@ -34131,7 +34131,7 @@
     {
       "structure_id": "blk_west_randolph_canal_north_crossing_blk_randolph_market_north",
       "wall": "corner crossing",
-      "why": "the two walks stop 221.2 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
+      "why": "the two walks stop 221.5 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
     },
     {
       "structure_id": "blk_west_randolph_des_plaines_north",
@@ -34206,7 +34206,7 @@
     {
       "structure_id": "pierce_blacksmith_shop_walk",
       "wall": "blk_west_lake_canal north face, at its door",
-      "why": "no plank walk in front of pierce_blacksmith_shop, a blacksmith_shop (held `attested`): FRONTAGE_BY_BUSINESS reads it as a works, and a works fronts bare ground — its customers bring a horse to be shod or a wheel to be mended, and the trodden yard in front of a shoeing floor is its working ground. The walk on blk_west_lake_canal's north face stops either side of it, from 5.2 m to 15.7 m along the face (10.5 m, the march steps whose middle lies in front of its 9.1 m frontage)."
+      "why": "no plank walk in front of pierce_blacksmith_shop, a blacksmith_shop (held `attested`): FRONTAGE_BY_BUSINESS reads it as a works, and a works fronts bare ground — its customers bring a horse to be shod or a wheel to be mended, and the trodden yard in front of a shoeing floor is its working ground. The walk on blk_west_lake_canal's north face stops either side of it, from 5.1 m to 15.4 m along the face (10.3 m, the march steps whose middle lies in front of its 9.1 m frontage)."
     },
     {
       "structure_id": "recon_1835_blk_randolph_clark_w1_10",
