@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2195, ts: '2026-10-22T20:05:02.257Z', date: 'Oct 22, 2026, 3:05 PM CT', title: 'Glessner\'s courtyard falls to the carriage passage, as drawn', kind: 'fix',
+    items: [
+      'The courtyard ground now slopes down 1.3 ft to the passage mouth, as the HABS section draws it.',
+      'The passage clears 9.7 ft under its courtyard lintel, up from 8.2 ft.',
+      'The stair tower\'s stone footing runs down to the lower ground.',
+      'The courtyard walls, windows and roofs keep their heights: the section\'s zero is the lawn.',
+    ] },
   { v: 2194, ts: '2026-10-22T19:34:07.916Z', date: 'Oct 22, 2026, 2:34 PM CT', title: 'The Green Tree Tavern stands on its ground in 1835', kind: 'fix',
     items: [
       'The Green Tree Tavern no longer sits sunk into the riverbank: its doors and sills meet the ground.',
