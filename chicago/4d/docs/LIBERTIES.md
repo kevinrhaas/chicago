@@ -31177,3 +31177,35 @@ sheet's 0-0.1 m with its chamfer and re-checks the Taylor camera's south-west be
 **Re-opens on:** a photograph that shows the corner's head or the south flank close up. T-2920 solves the cameras of 1811's other pictures.
 **Ticket:** T-3006.
 **Recorded:** 2026-10-22.
+
+### L-elm-vase-3017 — The 1904 parkway elms grown on the open-grown American elm's vase
+
+**Decision:** the 1904 parkway elms (and the faded city's trees, which share them) are grown on
+`ARCH.ulmus_americana_vase` by `growElm` in `renderers/web/js/tree-model.js` (T-3017), not on the
+timber elm's habit: a clear bole to 24-41 % of the height, a fork into two to four co-dominant stems
+that fork again up to three times (the first fork on each stem climbing into the middle of the vase),
+every limb arching from steep at the fork to reaching out at its end, branches that sweep out and
+down off the limbs' upper reach, and twigs that hang from them. The leaf is carried on the hanging
+twigs, the branch ends and short upright twigs in the dome, as sprays hung from where they grow and
+faced to the street and the ground, so the crown is a flattened dome widest about seven tenths up,
+over an open interior where the limbs show. The crown spreads about 0.85 of the height (0.70 before).
+**What is read, not invented:** each tree's place, height band, girth band and colours, unchanged
+(L-prairie-parkway-elms-2473); the species, inferred from the 1887-91 photograph.
+**What is invented:** the form of every elm. It is the open-grown American elm's ordinary habit as
+field guides draw it and as the owner's two photographs of living street elms (2026-10-22) show it,
+set by hand and judged by eye; no source describes a Prairie Avenue elm's limbs.
+**How to resolve:** a photograph of the 1904 parkway close enough to read one tree's fork and limbs.
+**Ticket:** T-3017.
+**Recorded:** 2026-10-22 (T-3017).
+
+### L-glessner-hoist-3030 — Glessner's stable hoist stone built as the long tapered cantilever the prints show, and the cupola's landing ledges wrapped round its corners
+
+**Decision:** The hoist stone under the stable gable's relieving arch was built as a 1.75 ft corbel. The c. 1887 Cornell A. D. White northwest view (`cornell_adw_glessner_stable_1887`) sees its west side face: through that view's solved camera, with the camera's own offset at the arch's crown removed (−38, −17 px), the side face runs 62 px from the wall to the nose, which a 4.0 ft projection gives (63 px; 1.75 ft gives 27). Its end face is about 11 px across and 18 px deep there, 0.75 ft and 0.83 ft against the built 1.2 and 1.02 ft, and its underside meets the wall about 0.3–0.5 ft lower than built. HABS photograph 1 (`habs_glessner_photo_01_nw_1963`) puts the nose where a 3–4 ft projection does once that camera's 30 px offset at the gable apex is removed; the long dark band running east from it along the wall, past the gable's own edge, is the stone's cast shadow under a raking sun, not a beam, so no timber beam is built. HABS photograph 15 (`habs_glessner_photo_15_north_stable_1965`), nearly square to the gable, sees the lit sloping underside from foot to nose about 42 px tall, which a 3.6 ft projection gives, and its foot about 0.57 ft lower than built. The stone is now W 140.75–141.5, foot 26.0 ft, top 28.15 ft (T-2849's), projecting 4.0 ft with a 0.83 ft nose. Both northwest prints also run each tier's stone landing ledge on the stable cupola unbroken round its corners, where the build stopped them short; they now wrap the corners.
+
+**What is invented.** The projection is a photographic reading of 4.0 ft ± 0.4 through three cameras whose local errors at the stable end (13–48 px) were removed by local anchors, not a survey; the end face's 0.75 by 0.83 ft is read at about 11 and 18 px. The Cornell view reads the stone's top at the wall about 0.6 ft lower than HABS photograph 15 does; the top is kept at 28.15 ft and that disagreement is recorded, not resolved. The underside is a straight taper from foot to nose; any moulding on it is below the prints' grain. The ledges' corner returns take the faces' own 0.3 ft projection and 0.25 ft thickness, reconstructed as before. The iron eye and hook keep T-2207's reconstruction, moved to the new nose.
+
+**What is kept.** The relieving arch, the lintels, the loft and carriage openings, and the cupola's plan, centre, heights, band, eave and finial (its height above the ridge is T-3031's question: the Cornell view and HABS photograph 1 disagree on it).
+
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.turret_stable`.
+**Ticket:** T-3030 (piece 1 of T-3023).
+**Recorded:** 2026-10-22.
