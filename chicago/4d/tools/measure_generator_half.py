@@ -619,23 +619,27 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # Presbyterian's parts), emitted through generators/draft_emit.py, so restaling on that archetype's
 # own rows and on none of the shared ones above.
 #
-# 914 -> 935 on 2026-10-22 (T-3018): the background carried south, twenty-one drafts on Calumet
-# Avenue's west frontage from 20th to 22nd Street (ten houses, nine stables and two sheds) on
-# `prairie_draft`, emitted through generators/draft_emit.py, so restaling on that archetype's own
-# rows and on none of the shared ones above.
-#
 # 899 -> 914 on 2026-10-22 (T-3008): the background behind Prairie Avenue begun, fifteen drafts on
 # Calumet Avenue's west frontage from 18th to 20th Street (nine houses, five stables and one stable's
 # strip) on `prairie_draft`, emitted through generators/draft_emit.py, so restaling on that
 # archetype's own rows and on none of the shared ones above.
 #
+# 914 -> 920, 737 -> 743 and 731 -> 737 on 2026-10-22 (T-2485, landing after T-3008): the Kinzie
+# establishment of 1812, a stable, lodging house and bake-house (`log_dwelling`), a dairy and the
+# horse mill (`outbuilding`) and the garden's picket fence (`palisade`), emitted the same way.
+#
+# 920 -> 941 on 2026-10-22 (T-3018, landing after T-2485): the background carried south,
+# twenty-one drafts on Calumet Avenue's west frontage from 20th to 22nd Street (ten houses, nine
+# stables and two sheds) on `prairie_draft`, emitted through generators/draft_emit.py, so restaling
+# on that archetype's own rows and on none of the shared ones above.
+#
 STATED = {
-    "assets": 935,
+    "assets": 941,
     "restales": {
-        "generators/common/*.py": 737,
+        "generators/common/*.py": 743,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 731,
+        "generators/emit.py": 737,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,
