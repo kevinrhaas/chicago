@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2174, ts: '2026-10-22T09:16:21.931Z', date: 'Oct 22, 2026, 4:16 AM CT', title: '1736 Prairie\'s 18th Street side gains its three bay windows', kind: 'improvement',
+    items: [
+      'Walk down 18th Street past the Ingraham/McBirney house: the side wall now carries the three canted bays the 1911 fire-insurance map draws — a timber bay window at the back, a brick bay rising two storeys in the middle, and a second timber bay near the front.',
+      'The front one was taken for a side porch before; the map draws it closed and canted, like the one at the back.',
+      'The house\'s record now dates itself: completed in 1864 for Granville S. Ingraham, with its mansard roof standing by about 1890 and still there in 1911 — possibly a later addition, which no source yet dates.',
+    ] },
   { v: 2173, ts: '2026-10-22T08:23:24.236Z', date: 'Oct 22, 2026, 3:23 AM CT', title: 'Flying over the 1904 district stays inside the phone\'s budget', kind: 'fix',
     items: [
       'The lakefront railway stops drawing rails too far off to see, where its ties already stopped. A phone flying over 20th Street now draws about 70,000 fewer triangles and stays inside its Light setting\'s limit.',

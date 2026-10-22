@@ -87,3 +87,45 @@ Three generator rules widened (additive, each inert for a record that does not n
 place of the band and key (`k01_frontage.hole` cuts the segmental curve; `k09_frontage.head` lays
 the hood); K07's veranda may stand `open_under` (`k07_entrances._terrace` and `_veranda`); and
 `entrance_kit.balustrade.fabric` may be `painted_timber`, which K01 paints with the walls.
+
+## T-2962 / T-2994 — the 18th Street wall's three bays and the mansard's date
+
+T-2962 (piece 3 of T-2935) was split: T-2994 builds the flank's bays and argues the mansard's date;
+T-2995 has the roof behind the curb, the rear behind the brick bay and the coach house.
+
+**The sheet, re-read off the raster** (sheet 20 at x 2650-3180, y 5895-6070). The 18th Street wall
+carries three projections, every one drawn **canted** (its face shorter than its foot), about 0.85 m
+out, read from the trace's outline in the record's frame:
+
+| | colour | at the wall (u, m) | face (u, m) | built |
+|---|---|---|---|---|
+| rear | yellow, frame | 3.37 - 6.01 | 3.94 - 5.36 | K08 canted bay, frame, one storey to 5.75 m |
+| middle | pink, brick | 9.42 - 12.75 | 9.93 - 12.21 | K08 canted bay, brick, two storeys to a flat top at 9.25 m |
+| front | yellow, frame | 15.97 - 19.17 | 16.48 - 18.51 | K08 canted bay, frame, one storey to 5.75 m |
+
+The trace's role rule called the front one a frame porch (part p4: frame and under 15 m2 on a
+masonry house). The sheet draws it in solid lines, closed and canted exactly as the rear one is,
+where it draws the veranda in a porch's dashes, so it is built as a frame bay. Neither yellow bay has
+a storey figure, so each is one storey (1730's yellow bay, T-2934). The brick bay rises under the
+roof: the mansard's dashed curb turns down into its rear cheek. K01 cannot carry the mansard's face
+out over a bay, so the bay stands to a flat top 0.65 m under the eave.
+
+**The curb.** The dashed line runs about 1.2 m inside the street front and about 1.0 m inside the
+18th Street wall, from the front back only as far as the brick bay (u about 9.9). None is drawn along
+the north wall or over the rear 9.9 m. The sheet prints `12 12 8` against the north wall (u about
+14-17) and `14 12 12` against the south (u about 13-15), wall thicknesses in inches by storey; whether
+they start at the basement is not settled, so whether the north side and the rear stand as a straight
+brick third storey is left to T-2995. Today K05 builds the mansard on all four walls.
+
+**The mansard's date.** The Glessner House Museum's post on early Prairie Avenue
+(`glessner_blog_2020_07_early_history_prairie_iv`, read 2026-10-22) has the house 'completed in
+1864' for Granville S. Ingraham. Its author judges the mansard 'may well have been a later addition'
+to an Italianate house of the Civil War years. That is a judgement made from the photographs, not a
+record, and nothing read here dates the mansard. The Keith house at 1900 Prairie had its mansard
+added in the 1880s (`glessner_blog_2014_11_elbridge_keith_house`). The 1904 scene does not depend
+on the answer: the c. 1890 photograph (earliest 1885) shows the mansard and the 1911 sheet draws its
+curb, so it stood through 1904.
+
+**From 18th Street.** `south-flank-t2994.jpg` is the committed GLB rendered from a camera in 18th
+Street (u 12, v -24, eye 1.6 m, looking north). It is a review render, not a reference view: no
+picture of this wall is known.
