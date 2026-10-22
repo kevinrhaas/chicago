@@ -30705,6 +30705,7 @@ own curl and leaves; a measured photograph square to the fan would split the two
 **Ticket:** T-2912 (piece of T-2853; T-2913 holds the wall's courses and the header stone).
 **Review:** `docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg`.
 **Recorded:** 2026-10-20 (T-2912).
+**Revised 2026-10-22 (T-2972):** read again on the square crop the re-solved `habs5-entry` camera stands on (T-2971), where T-2912's readings were taken 3.3 % tall. The fan now springs from bed 8 (8.71 ft by the printed course string), the header's top, and is stilted 0.43 ft: the extrados's outer line fits radius 6.49 ft about a centre at 9.16, its inner line 6.41 at 9.12, the tympanum's ring 2.50 at 9.13, the crown at 15.65 (built 15.64), the plumb legs down to the header at 8.73-8.79. The header is one course, door head to bed 8, its top flat to the shoulders and raised in a shallow segment under the tympanum only, about 0.14 ft at the centre, where it had risen 0.3 ft from shoulders at its ends; the raised centre is the owner's close-up's (T-2228) at the drawing's height and width. Still invented: one stilt for both rings (0.43, where the three lines read 0.41-0.45), the segment's exact curve (the sheet draws a shallow arc; built circular).
 
 ### L-k01-1637-stack-pots-2782 — 1637 Prairie's three stacks crowned with clay pots where the engraving draws a dark hooded crown over each cap
 

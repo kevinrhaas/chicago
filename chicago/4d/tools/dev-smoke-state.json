@@ -1901,6 +1901,99 @@
         "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
       },
       "source": "gh-run:37157020341 https://github.com/kevinrhaas/chicago/actions/runs/37157020341"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 140,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 478,
+      "takenAt": "2026-10-22T04:59:32.119Z",
+      "ref": "steward/t2972-glessner-fan-header",
+      "commit": "6e4413e92c39",
+      "devCommit": "fdb227dbf5ed",
+      "treeHash": "sha256:8aeeb056d7f25403",
+      "treeDirty": false,
+      "changelogHash": "sha256:24aec61532f62af1",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.6,
+          4.4,
+          4.1
+        ]
+      },
+      "source": "/tmp/t2972/smoke-m14.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 232,
+      "takenAt": "2026-10-22T04:59:32.041Z",
+      "ref": "steward/t2972-glessner-fan-header",
+      "commit": "6e4413e92c39",
+      "devCommit": "fdb227dbf5ed",
+      "treeHash": "sha256:8aeeb056d7f25403",
+      "treeDirty": false,
+      "changelogHash": "sha256:24aec61532f62af1",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.6,
+          4.4,
+          4.1
+        ]
+      },
+      "source": "/tmp/t2972/smoke-d3.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 103,
+      "takenAt": "2026-10-22T04:59:31.959Z",
+      "ref": "steward/t2972-glessner-fan-header",
+      "commit": "6e4413e92c39",
+      "devCommit": "fdb227dbf5ed",
+      "treeHash": "sha256:8aeeb056d7f25403",
+      "treeDirty": false,
+      "changelogHash": "sha256:24aec61532f62af1",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.6,
+          4.4,
+          4.1
+        ]
+      },
+      "source": "/tmp/t2972/smoke-m3.log"
     }
   ]
 }
