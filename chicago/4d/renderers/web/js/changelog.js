@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2199, ts: '2026-10-22T21:52:40.932Z', date: 'Oct 22, 2026, 4:52 PM CT', title: '1904: no stand-in houses in the street or on the tracks', kind: 'fix',
+    items: [
+      'The faded house that stood on 18th Street\'s curve into Calumet Avenue is gone, and so is every other stand-in that sat on a roadway, a walk, an alley or the Illinois Central\'s tracks.',
+      'First Presbyterian Church now stands on its own corner north of 21st Street; it had been drawn flipped, across the street.',
+      'No faded street lies in the tracks any more: each one runs to the railway\'s edge and stops there, square.',
+      'East of Calumet Avenue the lots now run back to the railway, as the 1911 atlas draws them at 20th Street, instead of ending in open grass with streets stopping short.',
+      'Railway sheds no longer stack inside each other, and no tree grows in a roadway or on the tracks.',
+      'A check now fails the build if any of these overlaps comes back.',
+    ] },
   { v: 2198, ts: '2026-10-22T21:48:34.973Z', date: 'Oct 22, 2026, 4:48 PM CT', title: '1801 Prairie\'s roof gains its dormers, iron cresting and finials', kind: 'feature',
     items: [
       'The Kimball house\'s steep slate roof now carries the tall hooded dormers, the iron cresting round its flat top and the turned finials J. W. Taylor\'s photograph of about 1895 shows, with the tall stone chimney on the 18th Street side.',
