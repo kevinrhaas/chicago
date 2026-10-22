@@ -6851,8 +6851,29 @@ def run_stale_check(structures: dict, rep: Report) -> None:
     by_id = {st.get("id"): st for st in structures.values() if isinstance(st, dict)}
     fresh, stale, unchecked = 0, 0, 0
 
+    # Glessner's three v4 GLBs are untracked outputs of a committed archive (T-1730), so
+    # a clone that materialized them before the archive was repacked keeps the old bytes
+    # through every pull. Read against the manifest they look like a stale committed
+    # derivative, and T-3004 was filed against dev for exactly that while dev rebuilt
+    # byte-for-byte. Name the local cause first; the derivative checks below would
+    # only be measuring this clone's leftovers.
+    sys.path.insert(0, str(ROOT / "tools"))
+    try:
+        import recover_glessner_v4 as glessner_pack  # noqa: PLC0415
+        pack_drift = glessner_pack.drift(ROOT, ROOT / "docs/RESEARCH/glessner-v4-recovery")
+    except Exception as e:  # noqa: BLE001
+        rep.error("stale", f"cannot read the Glessner v4 package to tell a stale clone from a "
+                           f"stale derivative: {e}")
+        glessner_pack, pack_drift = None, {}
+    if pack_drift:
+        listed = ", ".join(f"{n} ({why})" for n, why in sorted(pack_drift.items()))
+        rep.error("stale", f"Glessner v4 packaged outputs do not match the committed archive: "
+                           f"{listed} — {glessner_pack.STALE_CLONE}")
+
     for name, entry in sorted(assets.items()):
         if not (gltf_dir / name).exists():
+            if f"assets/gltf/{name}" in pack_drift:
+                continue  # said once above, with the command that restores it
             rep.error("stale", f"manifest.json lists {name} but assets/gltf/{name} does not "
                                f"exist — the record of a bake outlived its output")
             continue
@@ -6889,7 +6910,7 @@ def run_stale_check(structures: dict, rep: Report) -> None:
 
         if got == recorded:
             fresh += 1
-            if name == "glessner_house__as_built_1887.glb":
+            if name == "glessner_house__as_built_1887.glb" and not pack_drift:
                 from common import versions as V
                 for problem in V.lod_problems(name, entry, ROOT):
                     rep.error("stale", f"{name}: {problem}")

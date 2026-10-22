@@ -97,6 +97,35 @@ def materialize(root=ROOT, recovery=RECOVERY, check=False):
     return len(missing)
 
 
+STALE_CLONE = ("this clone holds outputs materialized before the archive was last repacked "
+               "(they are untracked, so a pull never refreshes them): delete them and run "
+               "python3 tools/recover_glessner_v4.py --materialize. If YOU baked them, run --pack "
+               "after the bake/derivative gates and commit the parts")
+
+
+def drift(root=ROOT, recovery=RECOVERY):
+    """{target: 'missing' | 'divergent'} against the committed manifest's hashes (T-3004).
+
+    Hash-only, so a reader that is not about to materialize can tell a stale local
+    output from a stale committed derivative without unpacking 120 MB of parts. An
+    unreadable manifest is not drift; --check reports it.
+    """
+    try:
+        files = json.loads((recovery / "manifest.json").read_text())["files"]
+    except (OSError, ValueError, KeyError):
+        return {}
+    out = {}
+    for name in targets(root):
+        target = root / name
+        if name not in files:
+            continue
+        if not target.is_file():
+            out[name] = "missing"
+        elif sha256(target.read_bytes()) != files[name]["sha256"]:
+            out[name] = "divergent"
+    return out
+
+
 def pack(root=ROOT, recovery=RECOVERY):
     members = {name: (root / name).read_bytes() for name in targets(root)}
     buffer = io.BytesIO()
