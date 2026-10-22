@@ -31106,6 +31106,34 @@ sheet's 0-0.1 m with its chamfer and re-checks the Taylor camera's south-west be
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-22 (T-3015).
 
+### L-k01-1811-round-corner-3006 — 1811 Prairie's rounded south corner, squared under the cornice by a corbel
+
+**Decision:** The entrance block's south corner at 1811 Prairie (K01's 'north') is built as a quarter round, 0.9 m in radius, from grade to the stone's top at 8.30 m (T-3006, `form.round_corner`). The round itself is read off the 1888 Inland Architect plate through the T-2541 camera, as the record says, so it is graded `inferred`. Three things about it are invented. (1) The plate does not show the corner's head: the oriel's roof covers it from that camera, and the coped gable's edge rises straight over the round's far side. So the round is closed by a dressed corbel one course high (7.89-8.30 m), ruled from the round out to the square, and the moulded cornice, the eave and the coped gable stand on the square corner as they did before. A corner rounded all the way to the cornice, with the cornice carried round it, would read the same from the plate's camera. (2) The round is coursed on the front's own beds in its rock-faced stone. Each course is cut into stones of the front's block range, with no more than two stones a course, and a joint stands at each tangent. The plate is too coarse to show the corner's joints. (3) The south-corner downpipe stands on the round, about 50 degrees round from the front, where the plate's rod at x 505-510 px puts it. Its head and its splash stone are still K04's.
+
+**Re-opens on:** a photograph that shows the corner's head or the south flank close up. T-2920 solves the cameras of 1811's other pictures.
+**Ticket:** T-3006.
+**Recorded:** 2026-10-22.
+
+### L-elm-vase-3017 — The 1904 parkway elms grown on the open-grown American elm's vase
+
+**Decision:** the 1904 parkway elms (and the faded city's trees, which share them) are grown on
+`ARCH.ulmus_americana_vase` by `growElm` in `renderers/web/js/tree-model.js` (T-3017), not on the
+timber elm's habit: a clear bole to 24-41 % of the height, a fork into two to four co-dominant stems
+that fork again up to three times (the first fork on each stem climbing into the middle of the vase),
+every limb arching from steep at the fork to reaching out at its end, branches that sweep out and
+down off the limbs' upper reach, and twigs that hang from them. The leaf is carried on the hanging
+twigs, the branch ends and short upright twigs in the dome, as sprays hung from where they grow and
+faced to the street and the ground, so the crown is a flattened dome widest about seven tenths up,
+over an open interior where the limbs show. The crown spreads about 0.85 of the height (0.70 before).
+**What is read, not invented:** each tree's place, height band, girth band and colours, unchanged
+(L-prairie-parkway-elms-2473); the species, inferred from the 1887-91 photograph.
+**What is invented:** the form of every elm. It is the open-grown American elm's ordinary habit as
+field guides draw it and as the owner's two photographs of living street elms (2026-10-22) show it,
+set by hand and judged by eye; no source describes a Prairie Avenue elm's limbs.
+**How to resolve:** a photograph of the 1904 parkway close enough to read one tree's fork and limbs.
+**Ticket:** T-3017.
+**Recorded:** 2026-10-22 (T-3017).
+
 ### L-kimball-1801-deck-cresting-3000 — 1801 Prairie's roof dressing: hooded dormers, the deck's cresting and finials, and the flank's tall stack read off the Taylor print, their sections and the cresting's pattern reconstructed
 
 **Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.chimneys`
