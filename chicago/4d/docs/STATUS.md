@@ -1,3 +1,31 @@
+## T-1789 — connected Bardwell waistcoat source repair (2026-10-22)
+
+Actual published-town front inspection of the qualified Bardwell asset showed a
+V-shaped apron rather than shoulder-connected waistcoat fronts. Source diagnosis
+found the old upper-arm-joint top cap and arm-weight cut removed those panels;
+the unchanged shirt did not bury an existing front. This revision changes only
+Bardwell's existing waistcoat shell through an explicit recipe opt-in: retained
+source-triangle panels connect front and back over each shoulder. No extra mesh,
+material, body mask, buttons, facings, rig or footwear change is included.
+
+The source proposal passed independent review,14 finite source controls and a
+negative old-geometry shoulder-connectivity control. It adds624source triangles
+(3056total). Three frozen actual idle-frame CPU observations give1.504mm minimum
+targeted upper-body clearance. A separate unchanged-shirt test finds the12
+formerly absent shoulder rays per frame outside the actual shirt, at least3.150mm;
+two lateral armhole observations remain shirt-only. These are bounded idle-layer
+observations, not complete garment or animation fit. Head/jaw influence is bounded
+(max0.498%), not eliminated.
+
+Existing registered Mount1835 paintings support only the qualitative connected
+waistcoat form. Pattern dimensions remain original reconstructed choices, not
+Bardwell's recorded outfit, likeness or measured1835Chicago tailoring. The
+committed scene still loads the previous canonical bytes until the separate
+exact-head canonical build is qualified and its source/published LODs inspected.
+The current source repair has no new rendered or photographic acceptance. Forty
+inherited negative idle projections, complete animated/LOD fit, fine cloth, skin,
+hair, seated/occupied interfaces and full T-1789 remain open.
+
 ## T-2943 — a visitor walks through Glessner's carriage passage (2026-10-20)
 
 The owner, 2026-10-20, in Glessner's carriage passage on /4d/dev/1904/: *"i find it odd that i

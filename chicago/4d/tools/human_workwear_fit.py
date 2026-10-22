@@ -62,6 +62,30 @@ def garment_shell(m,kind,offset,recipe,bones,height,scale=1.):
     tailoring=recipe['workwear_tailoring_v5']
     closure_y=waist+tailoring['waistcoat_closed_front_torso_fraction']*(shoulder-waist)
     slope=.105/max(.01,shoulder-closure_y)
+    vest_top=shoulder+.025
+    shoulder_pattern=recipe.get('waistcoat_shoulder_pattern') if kind=='waistcoat' else None
+    armhole_fields=None
+    if shoulder_pattern:
+        if shoulder_pattern.get('id')!='bardwell_connected_waistcoat_v1':raise ValueError('unsupported waistcoat shoulder pattern')
+        # Original reconstructed pattern dimensions, not measurements from Mount.
+        # Upper-arm joint height is below the shoulder crest; it is not a top seam.
+        vest_top=neck-shoulder_pattern['neckline_drop_m']/scale
+        slope=(shoulder_pattern['neck_opening_halfwidth_m']/scale)/max(.01,vest_top-closure_y)
+        lo=shoulder-shoulder_pattern['armhole_transition_below_joint_m'][0]/scale
+        hi=shoulder-shoulder_pattern['armhole_transition_below_joint_m'][1]/scale
+        limit=abs(bones['upperarm_l']['head_m'][0])-shoulder_pattern['shoulder_outer_inset_m']/scale
+        field_scale=shoulder_pattern['armhole_field_scale_m']/scale
+        if not waist<lo<hi<vest_top<neck or not .10/scale<limit<.20/scale or field_scale<=0:raise ValueError('invalid source shoulder-pattern landmarks')
+        armhole_fields={}
+        for sid,p,w in zip(sids,ps,m['weights']):
+            arm=math.fsum(v for b,v in w.items() if b.startswith(('clavicle','upperarm','lowerarm')))
+            t=max(0.,min(1.,(p[1]-lo)/(hi-lo)))
+            field=(1-t)*(.35-arm)+t*(limit-abs(p[0]))/field_scale
+            if sid in armhole_fields and armhole_fields[sid]!=field:raise ValueError('source UV duplicate armhole fields disagree')
+            armhole_fields[sid]=field
+        # The scalar is defined on ORIGINAL source corners. Barycentric lookup
+        # makes every later clip linear within its original triangle and exactly
+        # shared across source edges; no nonlinear field hidden inside _clip.
     hang=trouser_hang_profile(m,bones,tailoring,scale) if kind=='trousers' else None
     shirt_ease=None
     if kind=='shirt':
@@ -85,12 +109,12 @@ def garment_shell(m,kind,offset,recipe,bones,height,scale=1.):
         leg=sum(v for b,v in w.items() if b.startswith(('thigh','calf','pelvis')))
         foot=sum(v for b,v in w.items() if b.startswith(('foot','ball')))
         keep=((hem<=p[1]<=neck+.035 and abs(p[0])<.23) or (arm>.35 and abs(p[0])<wrist-.012)) if kind=='shirt' else (
-             waist-.04<=p[1]<=shoulder+.025 and arm<.35 and abs(p[0])<.235) if kind=='waistcoat' else (
+             waist-.04<=p[1]<=vest_top and arm<.35 and abs(p[0])<.235) if kind=='waistcoat' else (
              p[1]<=waist and leg>.25 and foot<.35)
         if kind=='waistcoat':
             # Candidate next trim: retain every face crossing the torso slab;
             # continuous source fields, never centroid ownership, cut its edges.
-            keep=(max(ps[i][1] for i in face)>=waist-.04 and min(ps[i][1] for i in face)<=shoulder+.025)
+            keep=(max(ps[i][1] for i in face)>=waist-.04 and min(ps[i][1] for i in face)<=vest_top)
         if not keep:continue
         selected.append(fi)
         poly=[{'p':ps[i],'uv':m['uvs'][i],'w':m['weights'][i],'n':ns[i],'basis':{sids[i]:1.}} for i in face]
@@ -102,10 +126,11 @@ def garment_shell(m,kind,offset,recipe,bones,height,scale=1.):
             # Clip source corners/UVs/weights exactly on the declared lower/top
             # planes, side envelope and continuous arm-influence contour.
             poly=_clip(poly,lambda v:v['p'][1]-(waist-.04))
-            poly=_clip(poly,lambda v:shoulder+.025-v['p'][1])
+            poly=_clip(poly,lambda v:vest_top-v['p'][1])
+            if shoulder_pattern:poly=_clip(poly,lambda v:shoulder_pattern['maximum_head_jaw_source_mass']-math.fsum(v['w'].get(b,0.) for b in ('head','jaw')))
             poly=_clip(poly,lambda v:.235-v['p'][0])
             poly=_clip(poly,lambda v:.235+v['p'][0])
-            poly=_clip(poly,lambda v:.35-math.fsum(w for b,w in v['w'].items() if b.startswith(('clavicle','upperarm','lowerarm'))))
+            poly=_clip(poly,lambda v:math.fsum(armhole_fields[i]*w for i,w in v['basis'].items())) if armhole_fields is not None else _clip(poly,lambda v:.35-math.fsum(w for b,w in v['w'].items() if b.startswith(('clavicle','upperarm','lowerarm'))))
             # A union of three disjoint source regions. Their shared z=0
             # boundary is a seam, and the two front boundaries are straight Vs.
             back=_clip(poly,lambda v:-v['p'][2])
@@ -128,7 +153,7 @@ def garment_shell(m,kind,offset,recipe,bones,height,scale=1.):
                     # plane instead of sagging into a near-planar stair edge.
                     p[1]=neck if abs(vertex['p'][1]-neck)<=1e-12 else min(p[1],neck)
                 if kind=='waistcoat':
-                    lo,hi=waist-.04,shoulder+.025
+                    lo,hi=waist-.04,vest_top
                     p[1]=lo if abs(vertex['p'][1]-lo)<=1e-12 else (hi if abs(vertex['p'][1]-hi)<=1e-12 else max(lo,min(hi,p[1])))
                 if kind=='trousers':p=hanging_trouser_point(p,vertex['w'],hang)
                 mapping=dict(vertex['w'])
@@ -171,6 +196,7 @@ def garment_shell(m,kind,offset,recipe,bones,height,scale=1.):
         'waistcoat_front_closure_y_m':closure_y if kind=='waistcoat' else None,
         'body_mutated':False,'maximum_discarded_cut_weight':maximum_drop,'degenerate_cut_fans_discarded':discarded_zero,
         'fit_accepted':False,'scope':'Original source construction; actual deformation and rendered clothing still need review'}
+    if shoulder_pattern:result['receipt'].update(waistcoat_shoulder_pattern=shoulder_pattern,waistcoat_top_clip_y_m=vest_top)
     if kind=='trousers':result=level_trouser_hems(result,bones)
     return result
 

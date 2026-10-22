@@ -138,6 +138,9 @@ def build(args):
     if args.variant and args.variant not in variants:
         raise ValueError(f'unknown proof variant {args.variant!r}')
     variant = variants[args.variant]
+    if 'waistcoat_shoulder_pattern' in variant:
+        if args.variant!='bardwell_otis_1835':raise ValueError('connected waistcoat study is Bardwell-only')
+        recipe={**recipe,'waistcoat_shoulder_pattern':variant['waistcoat_shoulder_pattern']}
     reference = resolve_person_reference(variant)
     bodypath = ROOT/variant['body_input']
     if args.body and args.body.resolve()!=bodypath.resolve():

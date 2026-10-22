@@ -5627,3 +5627,17 @@ Source-owned seams/normal ease, a joined source-fitted collar, clean waistcoat b
 
 
 - T-1789 initial standing increment: exact qualified canonical39712579846 Bardwell source/web assets and one existing reconstructed1835 resident are integrated for actual town review. Index validation and ordinary smoke eligibility follow authored scenes; absent years stay empty. Main-world desktop/mobile/LOD/card/grounding and whole-town budget checks plus normal gate/CI remain next. Full photographic, garment/occupied fit and animation/population work remains open.
+
+
+## T-1789 — connected Bardwell waistcoat fronts (2026-10-22)
+
+Actual town inspection identified missing upper-front shoulder panels in the
+existing reconstructed Bardwell waistcoat. A Bardwell-only recipe pattern now
+retains connected source-triangle shoulder panels in the same existing mesh.
+Default workwear and the other resident recipes remain exact; body, rig, skin,
+shoes, UV interpolation and raw-normal/2mm sole limits are unchanged. Independent
+source review, old-topology negative control and finite actual idle shirt/body
+layer observations support the source repair; new canonical exports, reduced-LOD
+and animation fit, actual desktop/mobile images and town review remain required.
+No photographic or T-1789 closure is claimed. Forty inherited negative projections
+remain open. Buttons/facings are deferred until the large-form repair is reviewed.

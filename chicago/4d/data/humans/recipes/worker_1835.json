@@ -93,6 +93,25 @@
         "engineering_age_years": 25,
         "age_basis": "Authoring parameter inside the existing reconstructed age band, not an asserted exact age or birth year.",
         "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ethnicity or a portrait."
+      },
+      "waistcoat_shoulder_pattern": {
+        "id": "bardwell_connected_waistcoat_v1",
+        "status": "source_proposal_unrendered",
+        "neckline_drop_m": 0.025,
+        "neck_opening_halfwidth_m": 0.05,
+        "armhole_transition_below_joint_m": [
+          0.1,
+          0.015
+        ],
+        "shoulder_outer_inset_m": 0.026,
+        "armhole_field_scale_m": 0.04,
+        "scope": "Original connected shoulder/armhole pattern over cleared source torso, replacing mistaken joint-height cap and arm-weight-only clothing ownership. Dimensions unmeasured; Mount1835 qualitative shoulder-connected waistcoat/loose-shirt analogies only, no tracing or source likeness. Existing body/rig/weights/UV/material/normals/sole limits and lower closure preserved.",
+        "sources": [
+          "mount_1835_bargaining_for_a_horse",
+          "mount_1835_bar_room_scene"
+        ],
+        "acceptance": "Unrendered source proposal; targeted source controls only. Full fit/40 inherited negatives/animatedLOD/canonical/photo remain open.",
+        "maximum_head_jaw_source_mass": 0.01
       }
     },
     {
