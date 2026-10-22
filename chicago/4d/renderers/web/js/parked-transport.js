@@ -14,6 +14,7 @@ const yawOf = (bearing) => Math.PI - bearing * Math.PI / 180;
 function card(row, manifest) {
   return { id: row.id, sidecar: {
     name: row.name, phase: null,
+    ...(row.model === 'studebaker_brougham_1893' ? { change_note: 'This is a reconstructed, empty parked example based on the 1893 Studebaker Brougham catalogue design. This individual carriage, its ownership and its presence at this stop in 1904 are not attested.' } : {}),
     placement: { symbolic_location: row.location, position_confidence: 'reconstructed',
       position_sources: row.source_ids, position_note: row.note },
     attributes: {

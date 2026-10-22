@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "cornell-northwest-west-windows",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "6f49d473338250cb165a61c304e12c463e1b964f59e9992c2cdad85d21d931da",
+  "glb_sha256": "21dadfb03caa3e400533dfcc723f2fc8b0cbcbc627dc8e30b96125e73658baa5",
   "camera_sha256": "98341850e0c29a9e5841d5ef17833ecdc7c3c14a11ff76aa740c3aa84f82f4f4",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg",
   "verdict": "differs",
@@ -20,7 +20,7 @@
       "status": "fixed"
     },
     {
-      "what": "West/north gable, cupola, portal and framing residuals remain. The west-plane camera uses retained reconstructed eaves, so height/camera uncertainty is not mistaken for independently surveyed geometry. Still open after T-3030: the cupola's eave and apex read about 27-32 px higher here against the gable apex and the cupola's own foot, which HABS 01 does not confirm (T-3031); the cupola's corners carry a dark vertical strip from the band to the roof that neither northwest print shows (left with T-3031's cupola); the pyramid's covering reads slate against the model's red tile (T-3025); and the coursing of the cupola's stone is not modelled block by block (T-3026).",
+      "what": "West/north gable, cupola, portal and framing residuals remain. The west-plane camera uses retained reconstructed eaves, so height/camera uncertainty is not mistaken for independently surveyed geometry. Still open after T-3030: the cupola's corners carry a dark vertical strip from the band to the roof that neither northwest print shows (T-3036); the pyramid's covering reads slate against the model's red tile (T-3025); and the coursing of the cupola's stone is not modelled block by block (T-3026).",
       "status": "open"
     },
     {
@@ -33,6 +33,10 @@
     },
     {
       "what": "T-3030, reviewed from the rebaked master: the hoist stone now reaches 4.0 ft from the wall as a narrow tapered cantilever (W 140.75-141.5, nose 0.83 ft deep, foot 26.0 ft); its west side face runs from the wall to the nose over the run this print shows (about 62 px), and its end face is the print's narrow block. The cupola's two landing ledges now run unbroken round its corners as the print shows.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3031, reviewed from the rebaked master: the cupola is read from both northwest prints at once through the cameras T-2758 re-solved on measured controls at the stable, each with its local offset taken out at the north gable's coping apex (tools/glessner_cupola_read.py, data/comparisons/glessner/stable-cupola.json). The two prints agree on the eave (41.9 and 41.75 ft) and jointly fit a 5.5 ft body (half 2.73 +/-0.18), a 0.72 ft eave, the eave at 41.87 and the apex at 48.19 ft, centre S14.76 (5.3 px RMS over 12 picks, against 11.5 and 13.8 px for the build as it stood). Built: body 5.5 ft square with its top at 42.0 ft (was 6.0 ft, 41.0), apex 48.2 (was 47.0), eave 0.75 ft out (was 1.25), the pigeon-hole band raised with it to 39.5-41.6 ft; centre S14.6 kept. The 27-32 px by which this print had seemed to stand the cupola higher than HABS photograph 1 was mostly the committed camera's: through it the render is not a measure of the cupola's height at the stable end (T-2758).",
       "status": "fixed"
     }
   ],

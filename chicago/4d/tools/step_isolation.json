@@ -4115,6 +4115,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/glessner_cupola_read.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/glessner_north_finial_read.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5467,6 +5471,10 @@
       "wrote_ignored": []
     },
     "tools/test_boot_phases.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_brougham_card.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

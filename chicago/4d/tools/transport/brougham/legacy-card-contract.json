@@ -1,0 +1,311 @@
+{
+  "scope": "Actual installed placements spec through actual card adapter and actual popup renderer before own lead repair",
+  "cases": [
+    {
+      "id": "parked_western_hotel_wagon_yard_wagon",
+      "scene": "1835",
+      "card": {
+        "id": "parked_western_hotel_wagon_yard_wagon",
+        "sidecar": {
+          "name": "Farm-box wagon",
+          "phase": null,
+          "placement": {
+            "symbolic_location": "Existing 1835 wagon stand",
+            "position_confidence": "reconstructed",
+            "position_sources": [
+              "chicagology_prefire278"
+            ],
+            "position_note": "A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon."
+          },
+          "attributes": {
+            "vehicle_type": {
+              "value": "Farm-box wagon",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "Original reconstructed farm-box geometry follows the existing1835 yard envelope, with individual boards, iron hardware and original procedural finish. No exact manufacturer/model is established."
+            },
+            "maker": {
+              "value": "Unidentified; type reconstruction",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "This model is not identified as a particular manufacturer or catalog model."
+            },
+            "parked": {
+              "value": "Unoccupied and unhitched",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "A parked example, without a driver, passengers or a claim of ownership."
+            }
+          },
+          "citations": [
+            {
+              "source_id": "chicagology_prefire278"
+            }
+          ],
+          "research_note": "Original reconstructed farm-box geometry follows the existing1835 yard envelope, with individual boards, iron hardware and original procedural finish. No exact manufacturer/model is established. A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon. Liberties: L-parked-vehicles-2979."
+        }
+      },
+      "opening": {
+        "title": "Farm-box wagon",
+        "address": "Existing 1835 wagon stand",
+        "aka": [],
+        "kind": [],
+        "lead": "It stood here.",
+        "composed": true
+      },
+      "card_json_sha256": "6499d9f97a1801bbf6775925747dd26719b07ea947d406393c5169d236771f25",
+      "popup_html_sha256": "efad0f5121e4d88c60eb927bb76ef8b67886d777cd889dda201b2d7ceea91131",
+      "design_html_sha256": "d893afe14c3250a6ae667c75bb444e578d21165c3b9b5fd4deca1022d6730e9c"
+    },
+    {
+      "id": "parked_town_wagon_western_hotel_wagon_yard_2",
+      "scene": "1835",
+      "card": {
+        "id": "parked_town_wagon_western_hotel_wagon_yard_2",
+        "sidecar": {
+          "name": "Farm-box wagon",
+          "phase": null,
+          "placement": {
+            "symbolic_location": "Existing 1835 wagon stand",
+            "position_confidence": "reconstructed",
+            "position_sources": [],
+            "position_note": "A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon."
+          },
+          "attributes": {
+            "vehicle_type": {
+              "value": "Farm-box wagon",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "Original reconstructed farm-box geometry follows the existing1835 yard envelope, with individual boards, iron hardware and original procedural finish. No exact manufacturer/model is established."
+            },
+            "maker": {
+              "value": "Unidentified; type reconstruction",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "This model is not identified as a particular manufacturer or catalog model."
+            },
+            "parked": {
+              "value": "Unoccupied and unhitched",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "A parked example, without a driver, passengers or a claim of ownership."
+            }
+          },
+          "citations": [],
+          "research_note": "Original reconstructed farm-box geometry follows the existing1835 yard envelope, with individual boards, iron hardware and original procedural finish. No exact manufacturer/model is established. A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon. Liberties: L-parked-vehicles-2979."
+        }
+      },
+      "opening": {
+        "title": "Farm-box wagon",
+        "address": "Existing 1835 wagon stand",
+        "aka": [],
+        "kind": [],
+        "lead": "It stood here.",
+        "composed": true
+      },
+      "card_json_sha256": "3aa591e2e87fd1b513549cdd8f030c5bfb8c9010f722e36b8935b2112b38c380",
+      "popup_html_sha256": "761f78d56898506c061ac0d2d828203bbb33cbb0e17c9639b900a349bd1bff14",
+      "design_html_sha256": "d893afe14c3250a6ae667c75bb444e578d21165c3b9b5fd4deca1022d6730e9c"
+    },
+    {
+      "id": "parked_town_wagon_wolf_point_tavern_yard_2",
+      "scene": "1835",
+      "card": {
+        "id": "parked_town_wagon_wolf_point_tavern_yard_2",
+        "sidecar": {
+          "name": "Farm-box wagon",
+          "phase": null,
+          "placement": {
+            "symbolic_location": "Existing 1835 wagon stand",
+            "position_confidence": "reconstructed",
+            "position_sources": [],
+            "position_note": "A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon."
+          },
+          "attributes": {
+            "vehicle_type": {
+              "value": "Farm-box wagon",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "Original reconstructed farm-box geometry follows the existing1835 yard envelope, with individual boards, iron hardware and original procedural finish. No exact manufacturer/model is established."
+            },
+            "maker": {
+              "value": "Unidentified; type reconstruction",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "This model is not identified as a particular manufacturer or catalog model."
+            },
+            "parked": {
+              "value": "Unoccupied and unhitched",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "A parked example, without a driver, passengers or a claim of ownership."
+            }
+          },
+          "citations": [],
+          "research_note": "Original reconstructed farm-box geometry follows the existing1835 yard envelope, with individual boards, iron hardware and original procedural finish. No exact manufacturer/model is established. A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon. Liberties: L-parked-vehicles-2979."
+        }
+      },
+      "opening": {
+        "title": "Farm-box wagon",
+        "address": "Existing 1835 wagon stand",
+        "aka": [],
+        "kind": [],
+        "lead": "It stood here.",
+        "composed": true
+      },
+      "card_json_sha256": "0a1bccae48a86cca19808de848edb66fd43b8e55498a23e8253748c5a8a0ee0d",
+      "popup_html_sha256": "761f78d56898506c061ac0d2d828203bbb33cbb0e17c9639b900a349bd1bff14",
+      "design_html_sha256": "d893afe14c3250a6ae667c75bb444e578d21165c3b9b5fd4deca1022d6730e9c"
+    },
+    {
+      "id": "parked_town_wagon_western_hotel_wagon_yard_1",
+      "scene": "1835",
+      "card": {
+        "id": "parked_town_wagon_western_hotel_wagon_yard_1",
+        "sidecar": {
+          "name": "Covered wagon — blue and oxide",
+          "phase": null,
+          "placement": {
+            "symbolic_location": "Existing 1835 covered-wagon stand",
+            "position_confidence": "reconstructed",
+            "position_sources": [],
+            "position_note": "An empty, unhitched reconstructed covered type at its unchanged earlier stand and bearing; the old stable identity determines its distinct finish and canvas aging. The original laid-by yoke is retained, not attached to a team. No owner, maker, driver or cargo is identified; riding and boarding are unavailable."
+          },
+          "attributes": {
+            "vehicle_type": {
+              "value": "Covered wagon",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "Original empty covered-wagon reconstruction with faded blue body and oxide running gear, open canvas ends, bows, restrained seams/folds and a laid-by ox yoke. The original record ID and exact coordinates retain its seeded finish family and canvas aging. Canvas construction, color, wear and bows are reconstructed; no manufacturer, historical owner or load is identified. Source-owned donor bench/footboard were omitted; occupied, driver, hitch, collision, riding and boarding interfaces are unsupported."
+            },
+            "maker": {
+              "value": "Unidentified; type reconstruction",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "This model is not identified as a particular manufacturer or catalog model."
+            },
+            "parked": {
+              "value": "Unoccupied and unhitched",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "A parked example, without a driver, passengers or a claim of ownership."
+            }
+          },
+          "citations": [],
+          "research_note": "Original empty covered-wagon reconstruction with faded blue body and oxide running gear, open canvas ends, bows, restrained seams/folds and a laid-by ox yoke. The original record ID and exact coordinates retain its seeded finish family and canvas aging. Canvas construction, color, wear and bows are reconstructed; no manufacturer, historical owner or load is identified. Source-owned donor bench/footboard were omitted; occupied, driver, hitch, collision, riding and boarding interfaces are unsupported. An empty, unhitched reconstructed covered type at its unchanged earlier stand and bearing; the old stable identity determines its distinct finish and canvas aging. The original laid-by yoke is retained, not attached to a team. No owner, maker, driver or cargo is identified; riding and boarding are unavailable. Liberties: L-covered-wagons-2980."
+        }
+      },
+      "opening": {
+        "title": "Covered wagon — blue and oxide",
+        "address": "Existing 1835 covered-wagon stand",
+        "aka": [],
+        "kind": [],
+        "lead": "It stood here.",
+        "composed": true
+      },
+      "card_json_sha256": "a76925d9414147396db7a95b0a0ced43ce8463170615eab4dff492914c0ccd5f",
+      "popup_html_sha256": "3e72fbe6cc2d2d8639c3bff75f7719856724ed79b9acd3b5575ebb4d644aa1f5",
+      "design_html_sha256": "c1f95fe0fdcbfa04a840091c806cd47b848e02057bf00ec155fa50cddffecece"
+    },
+    {
+      "id": "parked_town_wagon_wolf_point_tavern_yard_1",
+      "scene": "1835",
+      "card": {
+        "id": "parked_town_wagon_wolf_point_tavern_yard_1",
+        "sidecar": {
+          "name": "Covered wagon — oak and dark oak",
+          "phase": null,
+          "placement": {
+            "symbolic_location": "Existing 1835 covered-wagon stand",
+            "position_confidence": "reconstructed",
+            "position_sources": [],
+            "position_note": "An empty, unhitched reconstructed covered type at its unchanged earlier stand and bearing; the old stable identity determines its distinct finish and canvas aging. The original laid-by yoke is retained, not attached to a team. No owner, maker, driver or cargo is identified; riding and boarding are unavailable."
+          },
+          "attributes": {
+            "vehicle_type": {
+              "value": "Covered wagon",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "Original empty covered-wagon reconstruction with aged oak body and dark oak running gear, open canvas ends, bows, restrained seams/folds and a laid-by ox yoke. The original record ID and exact coordinates retain its seeded finish family and canvas aging. Canvas construction, color, wear and bows are reconstructed; no manufacturer, historical owner or load is identified. Source-owned donor bench/footboard were omitted; occupied, driver, hitch, collision, riding and boarding interfaces are unsupported."
+            },
+            "maker": {
+              "value": "Unidentified; type reconstruction",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "This model is not identified as a particular manufacturer or catalog model."
+            },
+            "parked": {
+              "value": "Unoccupied and unhitched",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "A parked example, without a driver, passengers or a claim of ownership."
+            }
+          },
+          "citations": [],
+          "research_note": "Original empty covered-wagon reconstruction with aged oak body and dark oak running gear, open canvas ends, bows, restrained seams/folds and a laid-by ox yoke. The original record ID and exact coordinates retain its seeded finish family and canvas aging. Canvas construction, color, wear and bows are reconstructed; no manufacturer, historical owner or load is identified. Source-owned donor bench/footboard were omitted; occupied, driver, hitch, collision, riding and boarding interfaces are unsupported. An empty, unhitched reconstructed covered type at its unchanged earlier stand and bearing; the old stable identity determines its distinct finish and canvas aging. The original laid-by yoke is retained, not attached to a team. No owner, maker, driver or cargo is identified; riding and boarding are unavailable. Liberties: L-covered-wagons-2980."
+        }
+      },
+      "opening": {
+        "title": "Covered wagon — oak and dark oak",
+        "address": "Existing 1835 covered-wagon stand",
+        "aka": [],
+        "kind": [],
+        "lead": "It stood here.",
+        "composed": true
+      },
+      "card_json_sha256": "959b7f5433d399d086a875a1fc413ddad0588ae16cd5628e030aa35158e76450",
+      "popup_html_sha256": "50dd26ca35ce623ddf84bc3213c8be5ce19b48e7154981354cf89d07fbd50162",
+      "design_html_sha256": "534b769f3d9f07e8edfe188c312d44d43b1d57109c5274ae052a16ab8bde9ce9"
+    },
+    {
+      "id": "prairie_parked_carriage",
+      "scene": "1904",
+      "card": {
+        "id": "prairie_parked_carriage",
+        "sidecar": {
+          "name": "Enclosed town carriage",
+          "phase": null,
+          "placement": {
+            "symbolic_location": "Prairie Avenue near Eighteenth Street",
+            "position_confidence": "reconstructed",
+            "position_sources": [],
+            "position_note": "A reconstructed temporary curbside stop in the1904 carriageway, clear of the sidewalk and crossing. Its location does not identify the owner or imply use by the Glessner household. Empty and unhitched; doors remain closed and boarding is not enabled."
+          },
+          "attributes": {
+            "vehicle_type": {
+              "value": "Enclosed town carriage",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "Original enclosed-carriage reconstruction for1904, with a dark cabin, painted running gear and glazed openings. It is not identified as a particular maker, catalog model or person's carriage."
+            },
+            "maker": {
+              "value": "Unidentified; type reconstruction",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "This model is not identified as a particular manufacturer or catalog model."
+            },
+            "parked": {
+              "value": "Unoccupied and unhitched",
+              "confidence": "reconstructed",
+              "sources": [],
+              "note": "A parked example, without a driver, passengers or a claim of ownership."
+            }
+          },
+          "citations": [],
+          "research_note": "Original enclosed-carriage reconstruction for1904, with a dark cabin, painted running gear and glazed openings. It is not identified as a particular maker, catalog model or person's carriage. A reconstructed temporary curbside stop in the1904 carriageway, clear of the sidewalk and crossing. Its location does not identify the owner or imply use by the Glessner household. Empty and unhitched; doors remain closed and boarding is not enabled. Liberties: L-parked-vehicles-2979."
+        }
+      },
+      "opening": {
+        "title": "Enclosed town carriage",
+        "address": "Prairie Avenue near Eighteenth Street",
+        "aka": [],
+        "kind": [],
+        "lead": "It stood here.",
+        "composed": true
+      },
+      "card_json_sha256": "d91bb5a19c8328a3d9e0065e8e964c60565598ab33ca8bc8dcc087fd961766d2",
+      "popup_html_sha256": "06eb2e044d442eaaadf3dfb6cc9b2931e91694d7c3787acda2fdd752437cf049",
+      "design_html_sha256": "969e3fbfdba7947051f14ab6b7660462f76056f0fe0663324d664d0d30cf7235"
+    }
+  ]
+}
