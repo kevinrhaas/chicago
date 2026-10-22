@@ -537,7 +537,9 @@ def site_record(rules, site, datum, grid) -> dict:
         "phases": [{
             "id": PHASE,
             "documented_range": {"from": "1904-07-01", "to": "1911-12-31", "confidence": "inferred", "sources": src,
-                                 "note": notes["range"]},
+                                 "note": notes["range"],
+                                 # T-3037: what the range's end is, where the site's sources say
+                                 **({"to_is": site["to_is"]} if site.get("to_is") else {})},
             "position": {
                 "utm_e": round(datum["origin_utm_e"] + oe, 3), "utm_n": round(datum["origin_utm_n"] + on, 3),
                 "rotation_deg": rot,
@@ -923,6 +925,8 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
         "aka": sorted({where} | set(frow.get("aka", []) if kind == "house" else (join or {}).get("aka", []))),
         "archetype": ARCHETYPE,
         "function": function,
+        # T-3037: a build year a source prints (the district's markers), from the frontage row.
+        **({"built": frow["built"]} if kind == "house" and frow.get("built") else {}),
         "review_required": False,
         "research_note": (
             f"A DISTRICT DRAFT ({pass_}, the owner's district pass of 2026-10-08): a serviceable first model, "
@@ -939,7 +943,9 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
                 "note": ("The draft claims the 1904 target and no more: the 1911 sheet draws the building and the "
                          f"{cen} census rules it present in 1904 "
                          f"({(f or {}).get('decision_1904') or cp.get('decision_1904', 'present_as_mapped')}). "
-                         "Its building and loss dates are the per-building ticket's to read.")},
+                         "Its building and loss dates are the per-building ticket's to read."),
+                # T-3037: the 1911 sheet shows it standing then; 1 July 1904 is the scene's bound.
+                "to_is": "seen"},
             "position": {
                 "utm_e": utm_e, "utm_n": utm_n, "rotation_deg": rot,
                 "symbolic_location": f"{where}, parcel {parcel['parcel_id']} (data/street_grid/1904.json), "
