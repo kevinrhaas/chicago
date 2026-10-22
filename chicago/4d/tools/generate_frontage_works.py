@@ -1197,6 +1197,13 @@ def build(cfg: dict) -> tuple[list, list, list]:
         # in _street_facing rather than trusted.
         normal = (-along[1], along[0])
         mid = ((a[0] + b[0]) / 2.0, (a[1] + b[1]) / 2.0)
+        # T-3029: a wing built off the rear gable stands on ground the footprint
+        # polygon does not hold, so a walk laid off that wall would run through it.
+        if label == "rear" and ((sc.get("attributes") or {}).get("rear_ell") or {}).get("value") is True:
+            refused.append({"structure_id": sid_b, "wall": label, "why": (
+                f"the {noun}'s rear ell is built against this wall (form.rear_ell), so a "
+                "walk laid off it would run through the wing — no walk is laid.")})
+            continue
         sid, st, dist, aside = _street_facing(mid, normal, streets)
         if sid is None and aside:
             refused.append({"structure_id": sid_b, "wall": label, "why": (
