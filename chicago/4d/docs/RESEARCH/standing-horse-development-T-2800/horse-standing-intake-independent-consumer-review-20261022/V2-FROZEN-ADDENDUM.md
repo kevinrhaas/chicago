@@ -1,0 +1,3 @@
+# V2 frozen source binding
+
+Verified final archive4eab95bbe862f5cbbb1b6c34206181ecb51e817ff531411ae8ae857973feeaf9,172826bytes, and all42 manifest entries. Consumer65bce03a/helperb5168a40/patchc83d6242 remain exact reviewed bytes. Final sidecar/placement status now records root-accepted reconstructed1.55m proxy, whole-root support tilt and1mm per-foot minimum development bound; photographic/contact/browser limits remain explicit. The V2 source-clear verdict carries to this freeze only; actual cache census/grounding/coarse-release/appearance still require validation. No browser/build/app/Git mutation performed.

@@ -1,0 +1,19 @@
+{
+  "status": "CLEAR_SOURCE_DELTA_FOR_INTEGRATION_AND_SEPARATE_ACTUAL_VALIDATION",
+  "files": {
+    "proposed/renderers/web/js/standing-horses.js": "65bce03ad9a165ba65ec7ee52eee10ae6ac29266bab38784b88a5d50ca3fd244",
+    "proposed/renderers/web/js/yard-static-support.js": "b5168a4017898c823d498f456f16b08a2f742bcae73fe653becae346f3166a03",
+    "SCOPED-INTEGRATION.patch": "c83d6242a908e81bd57f958bb3049d4fee26bfd12929fe39d052fcaf29ce72e6",
+    "STATIC-SUPPORT-REGION-PROPOSAL.json": "2ec0deaec2ad058bc43b423e810bd0ed59e48001bf5169015e58e0fa9d136210"
+  },
+  "independent_sample_count": 962,
+  "independent_region_area_m2": 0.8663174265699496,
+  "independent_region_margins_m": [
+    0.05000000000001137,
+    0.05000000000001137,
+    0.04999999999999716,
+    0.05000000000001137
+  ],
+  "copied_existing_CPU_regression_sha256": "7d2c472cd1d7b25a27410d7884150e6b201d5523da857edf1dc2def764dc360f",
+  "browser_launched": false
+}

@@ -24521,3 +24521,14 @@ This is an initial visible person increment. Fine tailoring, photographic skin/h
 
 
 T-1789 person-card honesty followup (2026-10-22): the existing invented trade-head mint category now reads reconstructed identity rather than named in a source, and model-assigned firm memberships disclose their reconstructed link. Exactly309 invented trade heads change classification; historically source-read residents retain theirs. Presence grades, identities, memberships, assets and the standing position are unchanged. This corrects a false provenance claim found in actual published-town card inspection; photographic finishing remains open.
+
+
+## First static Western Hotel horse development placement — T-2800 (2026-10-22)
+
+A separate skinned standing-horse layer now configures one reconstructed animal in the1835Western Hotel wagon yard near the parked vehicles. The licensed sevketkabatas/Objaverse source is unchanged (3,211,248bytes,SHA25641acd9be…), retaining three textured primitives,15joints and six source clips with no playback. Root accepted the reconstructed1.55m geometric withers proxy,0.396145degree whole-root support rotation and1mm per-foot sampled-minimum development rule, then viewed the actual four-image flat-plane material study and selected the declared nonmetallic runtime option. The image filenames labeled side are actually frontal; no true broadside, actual-yard, photographic or hardware-phone acceptance is claimed.
+
+The canonical authored source and rights/credit notices are preserved; the runtime GLB is byte-identical. Modern2021publication/2026acquisition describes the asset, never an1835individual or breed. Yard context is historical; this animal, coat, stature, grooming, exact stand and ownership unknowns remain reconstructed. No halter/tie, harness, rider, driver, gait, certified socket, hitch or boarding capability is enabled, and the old horse/harness fixture remains unchanged.
+
+Normal coarse upload release remains intact. A narrow pre-upload copy retains only actual yard support triangles (one0.866317m² declared region;32triangle/4096byte caps), with explicit disposal. Lazy loading/reach, phone-light no-GLB, confidence/picking and resource guards are integrated. The existing finite real-Three regression proves support heights survive source-array release on a tiny fixture; actual published-yard counts/gaps/mobile release/render budgets and appearance are still to be inspected. Photographic anatomy, mane/tail/eyes/coat, period breed/type, real LODs, approved locomotion, fitted gear and all occupied interfaces remain open. T-2800 stays open.
+
+Evidence and precise scope: docs/RESEARCH/standing-horse-development-T-2800/README.md; liberty L-standing-horse-development-2800.

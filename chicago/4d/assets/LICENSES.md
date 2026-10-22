@@ -1380,3 +1380,22 @@ Actual source96c4da4b1fe68e6dec3b18c15da2f14c596a60c5, successful canonical run3
 |humans/web/bardwell_otis_1835.lod1.glb|1568968|af2492264df071facce2c4ba128d851a5624f93bcf3f9e507eb406694e3124f1|
 |humans/web/bardwell_otis_1835.lod2.glb|619964|ac21fdb00c402f76810a23467e299612042aa3ce21b017e7705ca675793df77a|
 |humans/web/bardwell_otis_1835.lod3.glb|309428|b61d09e2efdb204a90d5d3c8fe49d1a6502108fd6ac62a592350129db48f8d40|
+
+
+## Licensed standing-horse development base (T-2800)
+
+“Horse” by sevketkabatas, CC BY4.0, original https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe, retrieved via Objaverse by ordinary unauthenticated HTTP200 on2026-10-22. Source3,211,248bytes/SHA25641acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988; unchanged mesh, rig, six clips and embedded textures retain their individual CC BY4.0 rights. Full legal text, attribution and three agreeing rights records are preserved below. Modern licensing/publication does not attest an1835animal, breed, owner, dimensions, coat, grooming or tack.
+
+Runtime changes are explicit uniform-scale/source-origin/support/placement wrappers, reconstructed confidence and selected cloned-material metalness0; original source/map bytes, rig, six clips, UVs, normals and roughness remain unchanged. The runtime copy renderers/web/transport/standing-horse/horse-sevket-native.glb is byte-identical. Separate Objaverse database notice: ODC-By1.0, Deitke etal.,2022, https://arxiv.org/abs/2212.08051; individual model remains CC BY4.0. No third-party geometry or textures are relabeled CC0.
+
+|Path relative to assets/|License and provenance|
+|---|---|
+|`authored/transport/horse_standing/53a6eb7ccf054aa2a378dd7ec08f88fe-public-metadata.json`|Preserved author/source/license/acquisition metadata and credit notices; individual model CC-BY-4.0, dataset ODC-By1.0 where stated.|
+|`authored/transport/horse_standing/ATTRIBUTION.md`|Preserved author/source/license/acquisition metadata and credit notices; individual model CC-BY-4.0, dataset ODC-By1.0 where stated.|
+|`authored/transport/horse_standing/CC-BY-4.0-legal-text.txt`|Creative Commons legal-text notice, preserved verbatim; model license CC-BY-4.0.|
+|`authored/transport/horse_standing/SOURCE.json`|Original project-authored provenance/adaptation documentation; no relicensing of the third-party source.|
+|`authored/transport/horse_standing/dataset-README.md`|Original Objaverse database notice ODC-By1.0, with individual Creative Commons object rights expressly retained.|
+|`authored/transport/horse_standing/horse-sevket-native.glb`|CC-BY-4.0 — unchanged “Horse” mesh/skin/clips/textures by sevketkabatas; exact original source hash in SOURCE.json.|
+|`authored/transport/horse_standing/selected-acquisition.json`|Preserved author/source/license/acquisition metadata and credit notices; individual model CC-BY-4.0, dataset ODC-By1.0 where stated.|
+|`authored/transport/horse_standing/selected-candidate.json`|Preserved author/source/license/acquisition metadata and credit notices; individual model CC-BY-4.0, dataset ODC-By1.0 where stated.|
+|`authored/transport/horse_standing/selected-dataset-metadata.json`|Preserved author/source/license/acquisition metadata and credit notices; individual model CC-BY-4.0, dataset ODC-By1.0 where stated.|

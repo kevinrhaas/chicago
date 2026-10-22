@@ -1,0 +1,35 @@
+# First static horse development placement — T-2800
+
+One standing horse is configured in the 1835 Western Hotel wagon yard, near the existing parked wagons, using the modern licensed **“Horse” by sevketkabatas, CC BY 4.0, via Objaverse**. This is an initial development placement, not completion of the photographic horse master, period breed identification, gear, riding or traffic work. The earlier procedural horse/harness fixture is unchanged.
+
+## Source and rights
+
+The unchanged 3,211,248-byte GLB has SHA256 `41acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988`. Its canonical copy is `assets/authored/transport/horse_standing/horse-sevket-native.glb`; the runtime copy in `renderers/web/transport/standing-horse/` is byte-identical. The authored directory preserves the actual creator/API metadata, individual Objaverse record, acquisition receipt, attribution, full license and separate dataset notice. All three individual rights records identify CC BY 4.0. The Objaverse database notice does not replace the object's Creative Commons rights. No sign-in bypass, protected viewer extraction or paid acquisition supplied this asset.
+
+Modern publication in 2021 and acquisition in 2026 concern the asset and its rights, not an animal in July 1835. The source bibliography is a tier-5 modern reconstruction/cross-check record, not period testimony. The modern model's coat, blaze, stockings, grooming, anatomy and size identify no historical breed, owner or individual. They remain reconstructed when placed in Chicago. The existing `chicagology_prefire278` yard source supports horsekeeping context only; no mesh or texture pixels derive from that rights-unresolved historical webpage.
+
+## Exact source and declared adaptations
+
+The three textured skinned source primitives, 15 joints and six authored clips remain intact. Playback is disabled; none of those clips is relabeled as an approved gait. The consumer uses SkeletonUtils cloning and retains UVs, normals, weights, original hierarchy and all source meshes. It does not feed this asset to the rigid vehicle/wheel batcher or assume compatibility with the older horse rig.
+
+The explicit wrapper uses a single reconstructed scale of 0.36440688373115426 metres per native unit. A chosen geometric withers proxy is 1.55 m before the support rotation; this is not a measured breed dimension. A later whole-root rigid support rotation of 0.396145 degrees supersedes the preserved upright exploration's no-pitch restriction. No limb, bone, source vertex or source material/image byte changes. The model faces east at ENU E−127.5, N−296.0. The exact datum, rotation, all contact samples and conservative stand-clearance calculations are recorded alongside this note.
+
+Original upright yard arithmetic leaves a 5.771 mm largest per-foot sampled minimum gap and is preserved as unaccepted history. The declared rigid support on the bilinear heightfield plus yard-base lift reduces that value to 0.128857 mm, with no sampled penetration among 488 original and 474 independently clipped 10 mm slab samples. These are **per-foot minima**: curved underside samples rise about 30.5 mm, and the sample sets do not certify continuous sole contact, anatomy, loading or sockets. Root accepted a development rule of at most 1 mm per-foot sampled minimum gap with no sampled penetration within the declared numerical tolerance. Actual drawn-yard triangle grounding remains a browser acceptance check.
+
+The yard constructor retains only actual rendered triangles beneath one declared 0.866317 m² support rectangle before normal coarse-device GPU upload releases the large source arrays. The strict limits are one region, 4 m², 32 triangles and 4,096 retained typed-array bytes, with owned disposal. The original town arrays and release policy are unchanged. Finite real-Three CPU regression compares nine actual BatchedMesh raycasts, empties the original position/index arrays as normal upload release does, then checks exact retained heights, refusal/caps and disposal. Actual published yard counts, bytes and coarse-device grounding are still to be read back.
+
+## Actual material study
+
+The four unchanged images and receipt in `materials/` are the actual 2026-10-22 flat-plane comparison. The run passed mechanically, closed its browser/server, reported no browser errors and preserved all inputs. Root viewed all four and selected the explicit `organic_dielectric_v1` option: metalness zero on the three cloned runtime materials. The original GLB, maps, roughness factor, UVs, opacity and geometry are unchanged. The former absent metallicFactor/default-one behavior remains documented as `source_native`.
+
+**Camera-label qualification:** image filenames containing `side` actually show the **front**, because the scene bearing turns the horse east while the camera offset is global. No true broadside is claimed. The other pair is a frontal quarter. Both material cases use identical cameras, lights, geometry, source rig and scale. This is a flat inspection plane, not the actual town or a physical-phone performance reading. Its existing rigid rotation gives a largest per-foot minimum gap of 0.524227 mm on that flat plane; no adjustment was made between cases.
+
+Screenshots depict the licensed model and retain this credit: **“Horse” by sevketkabatas, CC BY 4.0, via Objaverse**, original https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe. The runtime material adaptation is the expressly declared metalness override above.
+
+## First-placement limits and next validation
+
+The animal is unmounted, untied, unhaltered and unhitched. No driver, person identity, owner, gait, reins, harness, boarding, collision forces, riding or certified attachment socket is implied. The yard/stable association is a location filter, not ownership. Every animal vertex carries reconstructed confidence; the selection card preserves these limits and modern source credit.
+
+The separate layer permits one instance, lazy loading inside 70 m/full or 40 m/balanced reach, no GLB fetch at a distant spawn or on light detail, and full-tier shadows only within 30 m. It preserves one actual LOD, not invented reduced variants. The six maps have a roughly 22 MiB decoded RGBA mip estimate under a 24 MiB cap. Light/dispose retires cloned geometry/material/skeleton and source resources; obsolete async loads are invalidated. These are development guards, not measured phone hardware acceptance.
+
+Before merging this placement as visually qualified, inspect the actual normally published 1835 yard on desktop and mobile, without `keep-geometry`: all source groups/feet, declared material, real triangle-ground gaps, support count/bytes, normal coarse source-array release, card/credit/confidence, far/light no-fetch, disposal and existing budgets. Root owns those later browser releases. The solid mane, pointed sheet tail, coarse eyes, 1K coat, broader anatomy/period type, photographic master, meaningful LODs, approved gaits and fitted gear remain open under T-2800 and its dependent work. No ticket is closed by this increment.

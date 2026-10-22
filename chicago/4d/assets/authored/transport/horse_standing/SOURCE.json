@@ -1,0 +1,38 @@
+{
+  "asset_id": "sevket_horse_standing_development_01",
+  "kind": "authored",
+  "authored_exception": "Licensed third-party source adopted unchanged under assets/authored; exempt from generator regeneration, with source/rights/credit preserved.",
+  "source_id": "sevketkabatas_2021_horse_model",
+  "author": "sevketkabatas",
+  "title": "Horse",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_url": "https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe",
+  "source_binary_bytes": 3211248,
+  "source_binary_sha256": "41acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988",
+  "source_files_unchanged": true,
+  "runtime_identical_copy": "renderers/web/transport/standing-horse/horse-sevket-native.glb",
+  "source_publication_date": "2021-03-29",
+  "acquired_date": "2026-10-22",
+  "dates_are_modern_asset_metadata_not_historical_animal_attestation": true,
+  "runtime_adaptations": [
+    "Uniform reconstructed0.36440688373115426metres/native-unit scale and explicit source-origin wrapper",
+    "Declared whole-root0.396145degree support rotation, no joint/bone/source geometry edits",
+    "Reconstructed1835Western Hotel yard static stand, no identified animal/breed/owner",
+    "Explicit cloned-material metalness0 for all three source materials; original map/GLB bytes and roughness unchanged",
+    "Reconstructed per-vertex confidence attribute; original UVs/normals/joints/weights retained"
+  ],
+  "source_rig_joints": 15,
+  "source_animation_clips_retained": 6,
+  "autoplay": false,
+  "capabilities": {
+    "static_development_stand": true,
+    "hitching": false,
+    "tying": false,
+    "riding": false,
+    "boarding": false,
+    "certified_sockets": false,
+    "photographic_master_complete": false
+  },
+  "evidence_limits": "Modern source is a licensed development base, not period testimony or evidence of a particular Chicago horse. Historical yard source supplies horsekeeping context only. No check_required photo supplies pixels or geometry."
+}

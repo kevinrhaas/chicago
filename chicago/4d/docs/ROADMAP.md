@@ -5647,3 +5647,10 @@ remain open. Buttons/facings are deferred until the large-form repair is reviewe
 
 
 T-1789 person-card honesty followup (2026-10-22): the existing invented trade-head mint category now reads reconstructed identity rather than named in a source, and model-assigned firm memberships disclose their reconstructed link. Exactly309 invented trade heads change classification; historically source-read residents retain theirs. Presence grades, identities, memberships, assets and the standing position are unchanged. This corrects a false provenance claim found in actual published-town card inspection; photographic finishing remains open.
+
+
+## T-2800 — first static horse increment; photographic master remains open (2026-10-22)
+
+Integrated one reconstructed standing horse in the1835Western Hotel yard through a dedicated skinned consumer, using an unchanged licensed modern development base and explicit modern credit. Root reviewed the actual flat-plane material comparison and accepted the reconstructed scale/support/contact development bounds. The individual, breed and owner are unidentified; no period likeness or breed is asserted. The source retains15joints/six clips without playback; the older harness fixture is untouched.
+
+Next acceptance: actual normally published-yard desktop then mobile inspection, real triangle-ground minimum gaps, bounded support-cache bytes and normal coarse-array release, all source groups/feet, card/credit/confidence, far/light no-fetch, teardown and existing render budgets. Then improve the solid mane/pointed tail/coarse eyes/1Kcoat and larger anatomy toward a photographic master, produce meaningful LODs and qualified gaits, and fit period gear before hitching/riding/boarding. This increment does not close T-2800 or any dependent capability ticket. See docs/RESEARCH/standing-horse-development-T-2800/.

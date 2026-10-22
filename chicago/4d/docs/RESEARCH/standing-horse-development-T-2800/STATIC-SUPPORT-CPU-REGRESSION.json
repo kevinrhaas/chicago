@@ -1,0 +1,67 @@
+{
+  "status": "PASS finite CPU real-BatchedMesh support regression; no browser/GPU/horse build/app writes",
+  "actual_triangle_comparisons": [
+    {
+      "e": 0.1,
+      "n": 0.1,
+      "actual_triangle_y": 1.0299999952316288,
+      "retained_y": 1.0299999952316283
+    },
+    {
+      "e": 0.1,
+      "n": 0.5,
+      "actual_triangle_y": 1.1100000143051147,
+      "retained_y": 1.1100000143051147
+    },
+    {
+      "e": 0.1,
+      "n": 0.9,
+      "actual_triangle_y": 1.1900000333786012,
+      "retained_y": 1.190000033378601
+    },
+    {
+      "e": 0.5,
+      "n": 0.1,
+      "actual_triangle_y": 1.0700000047683718,
+      "retained_y": 1.0700000047683715
+    },
+    {
+      "e": 0.5,
+      "n": 0.5,
+      "actual_triangle_y": 1.149999976158142,
+      "retained_y": 1.149999976158142
+    },
+    {
+      "e": 0.5,
+      "n": 0.9,
+      "actual_triangle_y": 1.2299999952316285,
+      "retained_y": 1.2299999952316285
+    },
+    {
+      "e": 0.9,
+      "n": 0.1,
+      "actual_triangle_y": 1.1100000143051147,
+      "retained_y": 1.1100000143051147
+    },
+    {
+      "e": 0.9,
+      "n": 0.5,
+      "actual_triangle_y": 1.189999985694885,
+      "retained_y": 1.1899999856948853
+    },
+    {
+      "e": 0.9,
+      "n": 0.9,
+      "actual_triangle_y": 1.2699999570846559,
+      "retained_y": 1.2699999570846559
+    }
+  ],
+  "retained_typed_array_bytes_before_disposal": 144,
+  "source_arrays_released": true,
+  "cache_works_after_release": true,
+  "disposal_releases_cache": true,
+  "wrong_region_record_outside_return_null": true,
+  "region_cap_fail_closed": true,
+  "late_snapshot_fail_closed": true,
+  "scope_limits": "Synthetic two-triangle reference fixture only. Actual published yard snapshot count/bytes/grounding and normal mobile upload-release require separately released app/browser readback."
+}

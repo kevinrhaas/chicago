@@ -1,0 +1,423 @@
+{
+  "status": "PROPOSED stand from nine bounded candidates, all geometry/source/terrain read only",
+  "scene": "1835",
+  "source_ids": [
+    "chicagology_prefire278"
+  ],
+  "yard": "western_hotel_wagon_yard",
+  "ground": "Exact committed heightfield bilinear samples plus authoritative yard-base lift. Runtime proposal reads the yard module API rather than duplicating its22mm lift.",
+  "terrain_meta_sha256": "01da9094a54b93f0958646eaf3415fc2ed83023d5b8d664663ca587720b4b0b9",
+  "terrain_bin_sha256": "40b6a1f4e207f4c465be0bf303ea31889e427ea47257ce3f44fcc377b1d1ef9d",
+  "yard_record_sha256": "3da065cafdc029535dec8b6668fe01128b8b351775854767becc737a2f2d4c5b",
+  "yard_source_code_sha256": "0f91b41a9464d8ebfe51bacdd30b580b16590ae5f1bb2f3b401d5586b7097736",
+  "vehicle_placements_sha256": "8ea65de8fa914af9d7bec65588075606f4262a6c1e7a8cede5088609531529d2",
+  "chosen": {
+    "at_local_enu_m": [
+      -127.5,
+      -296.0
+    ],
+    "bearing_deg": 90,
+    "root_y_m": 1.132000014315859,
+    "minimum_gap_by_hoof_m": {
+      "fore_l": 0.005771218781607468,
+      "fore_r": 0.005659244927223472,
+      "hind_l": 0.0,
+      "hind_r": 0.0001048995867376501
+    },
+    "maximum_hoof_gap_m": 0.005771218781607468,
+    "bounds_enu_m": [
+      [
+        -128.6616864962751,
+        -296.36283545123734
+      ],
+      [
+        -125.95714982574749,
+        -295.63816075208797
+      ]
+    ],
+    "building_AABB_clearance_m": 1.6371645487626552,
+    "vehicle_AABB_clearance_m": 1.4926041172404079,
+    "east_fence_clearance_m": 1.4571498257474929,
+    "stable_front_clearance_m": 1.6371645487626552,
+    "stable_door_3m_approach_clearance_m": 0.5633135037248849,
+    "eligible": true
+  },
+  "candidates": [
+    {
+      "at_local_enu_m": [
+        -128.0,
+        -296.0
+      ],
+      "bearing_deg": 90,
+      "root_y_m": 1.132000014315859,
+      "minimum_gap_by_hoof_m": {
+        "fore_l": 0.005236078880953121,
+        "fore_r": 0.005237669225475194,
+        "hind_l": 0.0,
+        "hind_r": 0.0001048995867376501
+      },
+      "maximum_hoof_gap_m": 0.005237669225475194,
+      "bounds_enu_m": [
+        [
+          -129.1616864962751,
+          -296.36283545123734
+        ],
+        [
+          -126.45714982574749,
+          -295.63816075208797
+        ]
+      ],
+      "building_AABB_clearance_m": 1.6371645487626552,
+      "vehicle_AABB_clearance_m": 1.3737355821777266,
+      "east_fence_clearance_m": 1.9571498257474929,
+      "stable_front_clearance_m": 1.6371645487626552,
+      "stable_door_3m_approach_clearance_m": 0.06331350372488487,
+      "eligible": false
+    },
+    {
+      "at_local_enu_m": [
+        -128.0,
+        -295.5
+      ],
+      "bearing_deg": 90,
+      "root_y_m": 1.132000014315859,
+      "minimum_gap_by_hoof_m": {
+        "fore_l": 0.005236078880953121,
+        "fore_r": 0.005237669225475194,
+        "hind_l": 0.0,
+        "hind_r": 0.0001048995867376501
+      },
+      "maximum_hoof_gap_m": 0.005237669225475194,
+      "bounds_enu_m": [
+        [
+          -129.1616864962751,
+          -295.86283545123734
+        ],
+        [
+          -126.45714982574749,
+          -295.13816075208797
+        ]
+      ],
+      "building_AABB_clearance_m": 2.137164548762655,
+      "vehicle_AABB_clearance_m": 0.8754498882591039,
+      "east_fence_clearance_m": 1.9571498257474929,
+      "stable_front_clearance_m": 2.137164548762655,
+      "stable_door_3m_approach_clearance_m": 0.06331350372488487,
+      "eligible": false
+    },
+    {
+      "at_local_enu_m": [
+        -128.0,
+        -295.0
+      ],
+      "bearing_deg": 90,
+      "root_y_m": 1.132000014315859,
+      "minimum_gap_by_hoof_m": {
+        "fore_l": 0.005236078880953121,
+        "fore_r": 0.005237669225475194,
+        "hind_l": 0.0,
+        "hind_r": 0.0001048995867376501
+      },
+      "maximum_hoof_gap_m": 0.005237669225475194,
+      "bounds_enu_m": [
+        [
+          -129.1616864962751,
+          -295.36283545123734
+        ],
+        [
+          -126.45714982574749,
+          -294.63816075208797
+        ]
+      ],
+      "building_AABB_clearance_m": 2.637164548762655,
+      "vehicle_AABB_clearance_m": 0.3816746834210748,
+      "east_fence_clearance_m": 1.9571498257474929,
+      "stable_front_clearance_m": 2.637164548762655,
+      "stable_door_3m_approach_clearance_m": 0.06331350372488487,
+      "eligible": false
+    },
+    {
+      "at_local_enu_m": [
+        -127.5,
+        -296.0
+      ],
+      "bearing_deg": 90,
+      "root_y_m": 1.132000014315859,
+      "minimum_gap_by_hoof_m": {
+        "fore_l": 0.005771218781607468,
+        "fore_r": 0.005659244927223472,
+        "hind_l": 0.0,
+        "hind_r": 0.0001048995867376501
+      },
+      "maximum_hoof_gap_m": 0.005771218781607468,
+      "bounds_enu_m": [
+        [
+          -128.6616864962751,
+          -296.36283545123734
+        ],
+        [
+          -125.95714982574749,
+          -295.63816075208797
+        ]
+      ],
+      "building_AABB_clearance_m": 1.6371645487626552,
+      "vehicle_AABB_clearance_m": 1.4926041172404079,
+      "east_fence_clearance_m": 1.4571498257474929,
+      "stable_front_clearance_m": 1.6371645487626552,
+      "stable_door_3m_approach_clearance_m": 0.5633135037248849,
+      "eligible": true
+    },
+    {
+      "at_local_enu_m": [
+        -127.5,
+        -295.5
+      ],
+      "bearing_deg": 90,
+      "root_y_m": 1.132000014315859,
+      "minimum_gap_by_hoof_m": {
+        "fore_l": 0.005930723928993631,
+        "fore_r": 0.005818750844804432,
+        "hind_l": 0.0,
+        "hind_r": 0.0001048995867376501
+      },
+      "maximum_hoof_gap_m": 0.005930723928993631,
+      "bounds_enu_m": [
+        [
+          -128.6616864962751,
+          -295.86283545123734
+        ],
+        [
+          -125.95714982574749,
+          -295.13816075208797
+        ]
+      ],
+      "building_AABB_clearance_m": 2.137164548762655,
+      "vehicle_AABB_clearance_m": 1.0522025032828601,
+      "east_fence_clearance_m": 1.4571498257474929,
+      "stable_front_clearance_m": 2.137164548762655,
+      "stable_door_3m_approach_clearance_m": 0.5633135037248849,
+      "eligible": true
+    },
+    {
+      "at_local_enu_m": [
+        -127.5,
+        -295.0
+      ],
+      "bearing_deg": 90,
+      "root_y_m": 1.132000014315859,
+      "minimum_gap_by_hoof_m": {
+        "fore_l": 0.006033604617882826,
+        "fore_r": 0.005978256762385614,
+        "hind_l": 0.0,
+        "hind_r": 0.0001048995867376501
+      },
+      "maximum_hoof_gap_m": 0.006033604617882826,
+      "bounds_enu_m": [
+        [
+          -128.6616864962751,
+          -295.36283545123734
+        ],
+        [
+          -125.95714982574749,
+          -294.63816075208797
+        ]
+      ],
+      "building_AABB_clearance_m": 2.637164548762655,
+      "vehicle_AABB_clearance_m": 0.697418930791542,
+      "east_fence_clearance_m": 1.4571498257474929,
+      "stable_front_clearance_m": 2.637164548762655,
+      "stable_door_3m_approach_clearance_m": 0.5633135037248849,
+      "eligible": false
+    },
+    {
+      "at_local_enu_m": [
+        -127.0,
+        -296.0
+      ],
+      "bearing_deg": 90,
+      "root_y_m": 1.1318852263331334,
+      "minimum_gap_by_hoof_m": {
+        "fore_l": 0.006327430323443073,
+        "fore_r": 0.006073058398406772,
+        "hind_l": 0.0,
+        "hind_r": 6.657994872827366e-05
+      },
+      "maximum_hoof_gap_m": 0.006327430323443073,
+      "bounds_enu_m": [
+        [
+          -128.1616864962751,
+          -296.36283545123734
+        ],
+        [
+          -125.45714982574749,
+          -295.63816075208797
+        ]
+      ],
+      "building_AABB_clearance_m": 1.6371645487626552,
+      "vehicle_AABB_clearance_m": 1.7517376093082142,
+      "east_fence_clearance_m": 0.9571498257474929,
+      "stable_front_clearance_m": 1.6371645487626552,
+      "stable_door_3m_approach_clearance_m": 1.0633135037248849,
+      "eligible": false
+    },
+    {
+      "at_local_enu_m": [
+        -127.0,
+        -295.5
+      ],
+      "bearing_deg": 90,
+      "root_y_m": 1.1318533428615405,
+      "minimum_gap_by_hoof_m": {
+        "fore_l": 0.006655051808501344,
+        "fore_r": 0.0064006806536600624,
+        "hind_l": 0.0,
+        "hind_r": 6.658731685393882e-05
+      },
+      "maximum_hoof_gap_m": 0.006655051808501344,
+      "bounds_enu_m": [
+        [
+          -128.1616864962751,
+          -295.86283545123734
+        ],
+        [
+          -125.45714982574749,
+          -295.13816075208797
+        ]
+      ],
+      "building_AABB_clearance_m": 2.137164548762655,
+      "vehicle_AABB_clearance_m": 1.3956531478044814,
+      "east_fence_clearance_m": 0.9571498257474929,
+      "stable_front_clearance_m": 2.137164548762655,
+      "stable_door_3m_approach_clearance_m": 1.0633135037248849,
+      "eligible": false
+    },
+    {
+      "at_local_enu_m": [
+        -127.0,
+        -295.0
+      ],
+      "bearing_deg": 90,
+      "root_y_m": 1.131840596957893,
+      "minimum_gap_by_hoof_m": {
+        "fore_l": 0.00687418630624248,
+        "fore_r": 0.006747440476859046,
+        "hind_l": 0.0,
+        "hind_r": 8.573225292485276e-05
+      },
+      "maximum_hoof_gap_m": 0.00687418630624248,
+      "bounds_enu_m": [
+        [
+          -128.1616864962751,
+          -295.36283545123734
+        ],
+        [
+          -125.45714982574749,
+          -294.63816075208797
+        ]
+      ],
+      "building_AABB_clearance_m": 2.637164548762655,
+      "vehicle_AABB_clearance_m": 1.1520029366665077,
+      "east_fence_clearance_m": 0.9571498257474929,
+      "stable_front_clearance_m": 2.637164548762655,
+      "stable_door_3m_approach_clearance_m": 1.0633135037248849,
+      "eligible": false
+    }
+  ],
+  "building_boxes": [
+    {
+      "id": "recon_1835_blk_west_randolph_canal_d5_01",
+      "bounds": [
+        [
+          -136.50667491263454,
+          -323.554
+        ],
+        [
+          -126.36453158880347,
+          -316.5642399093025
+        ]
+      ],
+      "source_json_sha256": "109e62d525b5e62f65e51655d2c6a53161b87c3ac41dca4210531350ffd23fd1"
+    },
+    {
+      "id": "western_hotel",
+      "bounds": [
+        [
+          -143.05,
+          -281.67
+        ],
+        [
+          -130.86,
+          -263.38
+        ]
+      ],
+      "source_json_sha256": "3940b13549f5d8794395021802b65263f107e45476f44d72242469e7d1278b03"
+    },
+    {
+      "id": "western_hotel_stable",
+      "bounds": [
+        [
+          -140.9,
+          -306.5
+        ],
+        [
+          -118.9,
+          -298.0
+        ]
+      ],
+      "source_json_sha256": "9d520325ab5dcc72dda91e94e7e99e9ee879e17bda19d104d08ec7ae69216649"
+    }
+  ],
+  "vehicle_boxes": [
+    {
+      "id": "parked_western_hotel_wagon_yard_wagon",
+      "bounds": [
+        [
+          -133.76499999940395,
+          -291.3600000023842
+        ],
+        [
+          -132.33500000059607,
+          -285.225
+        ]
+      ],
+      "source_glb_sha256": "274e737b51872983df792d0b24de8e75de8631890a8d586a32d9c6f0066484fb",
+      "method": "Conservative unpitched source all-mesh AABB, includes pole; parked positive tongue pitch shortens pole plan envelope. Not triangle collision certification."
+    },
+    {
+      "id": "parked_town_wagon_western_hotel_wagon_yard_2",
+      "bounds": [
+        [
+          -130.84759590266307,
+          -294.26742380919967
+        ],
+        [
+          -129.25240409733695,
+          -288.101673970332
+        ]
+      ],
+      "source_glb_sha256": "274e737b51872983df792d0b24de8e75de8631890a8d586a32d9c6f0066484fb",
+      "method": "Conservative unpitched source all-mesh AABB, includes pole; parked positive tongue pitch shortens pole plan envelope. Not triangle collision certification."
+    },
+    {
+      "id": "parked_town_wagon_western_hotel_wagon_yard_1",
+      "bounds": [
+        [
+          -136.84759590266307,
+          -292.898326029668
+        ],
+        [
+          -134.12807094867148,
+          -286.73257619080033
+        ]
+      ],
+      "source_glb_sha256": "9b6575d1702ca288b5a66487ef089cc51dd0b86d14a47574f94b6fe6eaf23d23",
+      "method": "Conservative unpitched source all-mesh AABB, includes pole; parked positive tongue pitch shortens pole plan envelope. Not triangle collision certification."
+    }
+  ],
+  "scope_limits": [
+    "Sidecar buildingAABBs use local footprint bounds; not per-triangle collision",
+    "Measured source pole/body conservative bounds only; no hitching or force physics",
+    "Door3m approach is an explicit clearance guard, not a historical surveyed route",
+    "First horse stand, phenotype and exact time are reconstructed; no owner or breed assigned"
+  ]
+}

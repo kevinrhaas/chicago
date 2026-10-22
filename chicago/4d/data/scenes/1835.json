@@ -143,6 +143,28 @@
       "yaw_deg": 0
     }
   ],
+  "static_support_regions": [
+    {
+      "id": "western_hotel_yard_horse_support_01",
+      "record_id": "western_hotel_wagon_yard",
+      "bounds_enu_m": [
+        [
+          -128.08635326139702,
+          -296.39700380717545
+        ],
+        [
+          -126.99391406043152,
+          -295.6039917788591
+        ]
+      ],
+      "basis": "Actual current horse contact annotations after declared uniform scale/rigid support/heading, with50mm plan margin. Source/pose changes outside this region refuse support.",
+      "maximum_region_count": 1,
+      "maximum_region_area_m2": 4,
+      "maximum_retained_triangles": 32,
+      "maximum_retained_typed_array_bytes": 4096,
+      "lifetime": "Snapshot actual drawn yard triangles before upload release; own only narrow Float64 triangle copies until yards.dispose, normal original arrays still release."
+    }
+  ],
   "layers": [
     "terrain",
     "water",
@@ -161,6 +183,7 @@
     "businesses",
     "exclusions",
     "parked_transport",
+    "standing_horses",
     "humans"
   ],
   "released": false,
