@@ -36,6 +36,13 @@ def stair_tower_plinth(b, params):
     step=(end-start)/len(heights)
     gap=.007/r
 
+    # T-2978: where the court ground falls to the passage mouth the footing runs down
+    # to it; its top edge is unchanged.
+    from archetypes.masonry_house_v4_ground import fall_height
+    fall=fall_height(params)
+    def foot(angle):
+        return min(base,fall(cx+(r+.06)*math.cos(angle),cy+(r+.06)*math.sin(angle)))
+
     def P(angle,off,z):
         return cx+(r+off)*math.cos(angle),cy+(r+off)*math.sin(angle),z
 
@@ -49,7 +56,7 @@ def stair_tower_plinth(b, params):
         for j in range(n):
             aa=lo+(hi-lo)*j/n;cc=lo+(hi-lo)*(j+1)/n
             mid=(aa+cc)/2
-            b.raw([P(aa,.008,base-.025),P(cc,.008,base-.025),
+            b.raw([P(aa,.008,foot(aa)-.025),P(cc,.008,foot(cc)-.025),
                    P(cc,.008,base+height),P(aa,.008,base+height)],
                   conf,MORTAR,(math.cos(mid),math.sin(mid),0))
 
@@ -57,7 +64,8 @@ def stair_tower_plinth(b, params):
         for j in range(n+1):
             angle=a+(c-a)*j/n
             for k in range(3):
-                z=base-.022+(height+.022)*k/2
+                low=foot(angle)-.022
+                z=low+(base+height-low)*k/2
                 edge=j in (0,n) or k in (0,2)
                 off=.016+rng.uniform(0,.008) if edge else .022+rng.uniform(0,.018)
                 if k==1:
