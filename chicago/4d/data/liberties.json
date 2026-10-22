@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 688,
+  "count": 689,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -42247,7 +42247,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "This work (owner, 2026-10-13: \"we should have some streets where they should be based on maps, you can continue it to the end of the visible map based on your analysis\") carries the faded context city of “The 1904 context city: faded stand-ins on every part of the map not yet built, their heights, roofs, colours and trees ours, and past the sheets their streets and lots too” out to the distance at which the 1904 haze is total (2,645 m from the camera, read from haze density in the walkthrough's world code) past the e1871 box on every land side, and lays faded streets (a 38 ft carriageway, the grid's row 66) under it. Robinson's 1886 plate 10, already georeferenced, is traced where it reaches north of 16th Street, and its Illinois Central yard east of Indiana Avenue is left clear. **What is measured.** The lines the project holds a reading for: Michigan, Indiana, Prairie and Calumet, and 16th to 22nd, as the 1904 street grid data and the terrain spec place them; State and Halsted, Madison and Twelfth at the school section's corners (OpenStreetMap crossings read for; Chicago's section lines run down the middle of their streets). **What is inferred, not attested.** Plate 10's outlines and materials north of 16th Street, carried eighteen years forward to 1904. **What is invented.** Every other street line: the section's mile cut in sixteen across (two 125 ft lots and an alley to a block) and in eight along; 13th, 14th and 15th Streets evenly between Twelfth and 16th; 23rd to 30th evenly between 22nd and a 31st Street one section mile south of 22nd; Wabash midway between State and Michigan; Calumet's pitch repeated east to the water. Their names past the numbered sequence are not given. The zones: State Street and Wabash Avenue south of Twelfth as three- and four-storey business blocks; Twelfth to Harrison, east of Canal Street, as five- to seven-storey lofts; north of Harrison as eight- to sixteen-storey office and loft blocks; Clark to Canal from Twelfth to 22nd as railway lands (long sheds and no houses, the river not drawn); west of Canal as frame cottages, seven in ten; the rest as houses in the traced sheets' mix. North of 16th Street only Indiana's west face stands past the plate, and north of Twelfth only Michigan's (the yards, the lake front and its park lie east). Past the 450 m near ring a run of three to six lots is one box at the house rules' heights, and a tree there is an eight-sided crown with no trunk."
+          "text": "This work (owner, 2026-10-13: \"we should have some streets where they should be based on maps, you can continue it to the end of the visible map based on your analysis\") carries the faded context city of “The 1904 context city: faded stand-ins on every part of the map not yet built, their heights, roofs, colours and trees ours, and past the sheets their streets and lots too” out to the distance at which the 1904 haze is total (2,645 m from the camera, read from haze density in the walkthrough's world code) past the e1871 box on every land side, and lays faded streets (a 38 ft carriageway, the grid's row 66) under it. Robinson's 1886 plate 10, already georeferenced, is traced where it reaches north of 16th Street, and its Illinois Central yard east of Indiana Avenue is left clear. **What is measured.** The lines the project holds a reading for: Michigan, Indiana, Prairie and Calumet, and 16th to 22nd, as the 1904 street grid data and the terrain spec place them; State and Halsted, Madison and Twelfth at the school section's corners (OpenStreetMap crossings read for; Chicago's section lines run down the middle of their streets). **What is inferred, not attested.** Plate 10's outlines and materials north of 16th Street, carried eighteen years forward to 1904. **What is invented.** Every other street line: the section's mile cut in sixteen across (two 125 ft lots and an alley to a block) and in eight along; 13th, 14th and 15th Streets evenly between Twelfth and 16th; 23rd to 30th evenly between 22nd and a 31st Street one section mile south of 22nd; Wabash midway between State and Michigan; Calumet's pitch repeated east to the water. Their names past the numbered sequence are not given. The zones: State Street and Wabash Avenue south of Twelfth as three- and four-storey business blocks; Twelfth to Harrison, east of Canal Street, as five- to seven-storey lofts; north of Harrison as eight- to sixteen-storey office and loft blocks; Clark to Canal from Twelfth to 22nd as railway lands (long sheds and no houses, the river not drawn); west of Canal as frame cottages, seven in ten; the rest as houses in the traced sheets' mix. North of 16th Street only Indiana's west face stands past the plate, and north of Twelfth only Michigan's (the yards, the lake front and its park lie east). Past the 450 m near ring a run of three to six lots is one box at the house rules' heights, and a tree there is an eight-sided crown with no trunk. **Amended (2026-10-22; owner: \"you put a building in the middle of the street, fix this and any others\", then \"some white things sitting in the tracks and also some streets that dont quite connect... it seems odd to have streets ending like that\"):** east of Calumet Avenue south of its curve at 18th Street, the lots no longer stop 46 m behind Calumet's east line with grass beyond: they run back to a fence's width (3 m) short of the Illinois Central's west verge, as Sanborn 1911 sheet 28 draws Calumet's east lots at 20th Street running from the avenue's line to the railway's, and where the railway bears away to the south-east, Calumet's pitch repeated east (the same invented avenues as above) carries the city up to the right of way. Every faded street now runs to the right of way and stops at its west verge with a square end, as the city's streets met the railway's fence; none is drawn across or along the tracks (no crossing or viaduct is claimed). Every stand-in is tested as its whole rectangle, not its centre, against the street grid's carriageways, walks, parkways, curbs and alleys, the faded streets with a walk's width beside them, the right of way and the stand-ins already placed, and is cut back off them or dropped; a sheet's drawn part is cut back the same way where its smallest rectangle overran the sheet's own street or alley line. Each block of the projection draws from its own seed. All of this is still invented: what stood east of Calumet below 20th Street is on Sanborn 1911 sheet 36, not held."
         },
         {
           "label": "How to resolve",
@@ -42260,6 +42260,7 @@
       ],
       "work_refs": [
         "T-0878",
+        "T-3038",
         "T-2491"
       ]
     },
@@ -50442,6 +50443,53 @@
         "T-3025",
         "T-3031",
         "T-3023"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-deck-cresting-3000",
+      "title": "1801 Prairie's roof dressing: hooded dormers, the deck's cresting and finials, and the flank's tall stack read off the Taylor print, their sections and the cresting's pattern reconstructed",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.chimneys"
+        }
+      ],
+      "recorded": "2026-10-22",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`kimball_house_1801_prairie.as_mapped_1904.form.chimneys`"
+        },
+        {
+          "label": "Decision",
+          "text": "the main mansard of the W. W. Kimball house at 1801 Prairie takes what J. W. Taylor's c. 1895 photograph (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…) shows on its roof, where the build had none of it. **What is read, not invented.** Through earlier work's solved camera: one hooded dormer on each face the camera sees, close by the corner, a short face with one small light (about 0.6 by 0.7 m, its centre within about 10 px of the print's on both faces) under a shelf, and over the shelf a tall slated hood about 1.5-1.8 m high whose front narrows as it climbs and whose cheeks widen against the receding roof; the street's at v 3.0 (the print reads about v 2.7; 3.0 is the nearest a lower-face dormer stands to the corner's hip), the 18th Street face's at u 16.7, about 0.5 m higher. A rail of iron cresting about 0.55 m high round the deck (about 30 px of the print at 54 px a metre; the build's 29 px). A slated pyramid about 1.0 m across and 1.4 m high rising from the curb's north-west corner under a turned finial, the finial about 2.2 m (116 px against the print's about 120), and a second finial at the deck's south end. The flank's tall stone stack at the flank section's east end, about 1.2 m across, its cap's top about 16.4 m (y 458-477 on the print against 462). **What is invented.** The dormer's sections: the face's 0.2 m surround, the shelf 0.12 m deep and 0.08 m proud, the hood's 0.15 m lean back and 0.3 m taper each side (the print gives the shapes, not the numbers); the light as a two-over-two sash. The cresting's pattern is the K10 kit's (k10.cresting.iron ridge: posts, C-scrolls and spears) stretched to the print's height: the print's panels read only as a dense pierced band at this scale. The finials' turnings, one pattern at every corner of the deck; the two the print does not see (the rear's) follow the two it does. The hood's slopes in the lower faces' slate. The stack's plan depth into the roof and its cap as a plain block 0.25 m proud and 0.5 m deep for the print's corbelled one. **Not changed here.** The print's curb stands about 35-50 px lower than the build's at the front's corner, and the front's deck ends at the print's x 1092 where the build's runs on to x 1187, so the cresting, the corner hood and the south finial stand where the build's curb and deck do, not where the print's do ('s, found here). No second grade of dormers is in the print, and nothing rises behind the pavilion's gable: the parent's \"pavilion's stack\" is not seen from this camera."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a nearer or second photograph of the roof would give the cresting's pattern, the finials' turnings and the dormers' sections; later work's 1929 and HABS photographs may show the rear."
+        },
+        {
+          "label": "Review",
+          "text": "the taylor c1895 northwest match data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-22 (T-3000)."
+        }
+      ],
+      "work_refs": [
+        "T-3000",
+        "T-2540",
+        "T-1890",
+        "T-2538",
+        "T-3003"
       ]
     },
     {
