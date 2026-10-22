@@ -108,6 +108,24 @@
       "asset": "gltf/elbridge_keith_house_1900_prairie_coach_house__draft_1904.glb"
     },
     {
+      "id": "first_presbyterian_church_2029_indiana",
+      "name": "2029-2035 Indiana Avenue — First Presbyterian Church (district draft; refined by T-3014)",
+      "sidecar": "sidecars/1904/first_presbyterian_church_2029_indiana.json",
+      "asset": "gltf/first_presbyterian_church_2029_indiana__draft_1904.glb"
+    },
+    {
+      "id": "first_presbyterian_church_2029_indiana_dwelling",
+      "name": "2029 S. Indiana Avenue — the dwelling on the church's lot, on the alley (district draft; refined by T-3014)",
+      "sidecar": "sidecars/1904/first_presbyterian_church_2029_indiana_dwelling.json",
+      "asset": "gltf/first_presbyterian_church_2029_indiana_dwelling__draft_1904.glb"
+    },
+    {
+      "id": "first_presbyterian_church_2029_indiana_stable",
+      "name": "2029 S. Indiana Avenue — the church lot's stable on the alley (district draft; refined by T-3014)",
+      "sidecar": "sidecars/1904/first_presbyterian_church_2029_indiana_stable.json",
+      "asset": "gltf/first_presbyterian_church_2029_indiana_stable__draft_1904.glb"
+    },
+    {
       "id": "flats_2127_prairie",
       "name": "2127 Prairie Avenue — Brick masonry (district draft; refined by T-1931)",
       "sidecar": "sidecars/1904/flats_2127_prairie.json",
@@ -540,6 +558,24 @@
       "asset": "gltf/house_2005_prairie__draft_1904.glb"
     },
     {
+      "id": "house_2007_indiana",
+      "name": "2007 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2007_indiana.json",
+      "asset": "gltf/house_2007_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_2009_indiana",
+      "name": "2009 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2009_indiana.json",
+      "asset": "gltf/house_2009_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_2009_indiana_rear_dwelling",
+      "name": "2009 S. Indiana Avenue — the two-storey brick dwelling at the rear of 2009 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2009_indiana_rear_dwelling.json",
+      "asset": "gltf/house_2009_indiana_rear_dwelling__draft_1904.glb"
+    },
+    {
       "id": "house_2010_prairie",
       "name": "2010 Prairie Avenue — Frame dwelling (district draft; refined by T-1909)",
       "sidecar": "sidecars/1904/house_2010_prairie.json",
@@ -552,6 +588,18 @@
       "asset": "gltf/house_2010_prairie_coach_house__draft_1904.glb"
     },
     {
+      "id": "house_2011_indiana",
+      "name": "2011 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2011_indiana.json",
+      "asset": "gltf/house_2011_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_2011_indiana_coach_house",
+      "name": "2011 S. Indiana Avenue — the alley building of the house at 2011 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2011_indiana_coach_house.json",
+      "asset": "gltf/house_2011_indiana_coach_house__draft_1904.glb"
+    },
+    {
       "id": "house_2011_prairie",
       "name": "2011 Prairie Avenue — Romanesque neighbour of Mayer (district draft; refined by T-1915)",
       "sidecar": "sidecars/1904/house_2011_prairie.json",
@@ -562,6 +610,30 @@
       "name": "2011 S. Prairie Avenue — the alley building of the house at 2011 (district draft; refined by T-1938)",
       "sidecar": "sidecars/1904/house_2011_prairie_coach_house.json",
       "asset": "gltf/house_2011_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_2013_indiana",
+      "name": "2013 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2013_indiana.json",
+      "asset": "gltf/house_2013_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_2013_indiana_coach_house",
+      "name": "2013 S. Indiana Avenue — the alley building of the house at 2013 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2013_indiana_coach_house.json",
+      "asset": "gltf/house_2013_indiana_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_2017_indiana",
+      "name": "2017 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2017_indiana.json",
+      "asset": "gltf/house_2017_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_2017_indiana_coach_house",
+      "name": "2017 S. Indiana Avenue — the alley building of the house at 2017 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2017_indiana_coach_house.json",
+      "asset": "gltf/house_2017_indiana_coach_house__draft_1904.glb"
     },
     {
       "id": "house_2017_prairie",
@@ -588,6 +660,42 @@
       "asset": "gltf/house_2018_prairie_coach_house__draft_1904.glb"
     },
     {
+      "id": "house_2019_indiana",
+      "name": "2019 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2019_indiana.json",
+      "asset": "gltf/house_2019_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_2019_indiana_coach_house",
+      "name": "2019 S. Indiana Avenue — the alley building of the house at 2019 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2019_indiana_coach_house.json",
+      "asset": "gltf/house_2019_indiana_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_2021_indiana",
+      "name": "2021 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2021_indiana.json",
+      "asset": "gltf/house_2021_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_2021_indiana_coach_house",
+      "name": "2021 S. Indiana Avenue — the alley building of the house at 2021 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2021_indiana_coach_house.json",
+      "asset": "gltf/house_2021_indiana_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_2023_indiana",
+      "name": "2023 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2023_indiana.json",
+      "asset": "gltf/house_2023_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_2023_indiana_coach_house",
+      "name": "2023 S. Indiana Avenue — the alley building of the house at 2023 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2023_indiana_coach_house.json",
+      "asset": "gltf/house_2023_indiana_coach_house__draft_1904.glb"
+    },
+    {
       "id": "house_2026_prairie",
       "name": "2026 Prairie Avenue — Stone-front masonry (district draft; refined by T-1910)",
       "sidecar": "sidecars/1904/house_2026_prairie.json",
@@ -598,6 +706,18 @@
       "name": "2026 S. Prairie Avenue — the alley building of the house at 2026 (district draft; refined by T-1937)",
       "sidecar": "sidecars/1904/house_2026_prairie_coach_house.json",
       "asset": "gltf/house_2026_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_2027_indiana",
+      "name": "2027 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2027_indiana.json",
+      "asset": "gltf/house_2027_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_2027_indiana_coach_house",
+      "name": "2027 S. Indiana Avenue — the alley building of the house at 2027 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2027_indiana_coach_house.json",
+      "asset": "gltf/house_2027_indiana_coach_house__draft_1904.glb"
     },
     {
       "id": "house_2027_prairie",
@@ -622,6 +742,42 @@
       "name": "2101 S. Prairie Avenue — the alley building of the house at 2101 (district draft; refined by T-1938)",
       "sidecar": "sidecars/1904/house_2101_prairie_coach_house.json",
       "asset": "gltf/house_2101_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_2107_indiana",
+      "name": "2107 Indiana Avenue — Frame dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2107_indiana.json",
+      "asset": "gltf/house_2107_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_2107_indiana_coach_house",
+      "name": "2107 S. Indiana Avenue — the alley building of the house at 2107 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2107_indiana_coach_house.json",
+      "asset": "gltf/house_2107_indiana_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_2111_indiana",
+      "name": "2111 Indiana Avenue — Frame dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2111_indiana.json",
+      "asset": "gltf/house_2111_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_2111_indiana_coach_house",
+      "name": "2111 S. Indiana Avenue — the alley building of the house at 2111 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2111_indiana_coach_house.json",
+      "asset": "gltf/house_2111_indiana_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_2115_indiana",
+      "name": "2115–2117 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2115_indiana.json",
+      "asset": "gltf/house_2115_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_2119_indiana",
+      "name": "2119 Indiana Avenue — Frame dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2119_indiana.json",
+      "asset": "gltf/house_2119_indiana__draft_1904.glb"
     },
     {
       "id": "house_2120_prairie",
@@ -742,6 +898,12 @@
       "name": "1616-1620 S. Prairie Avenue — the alley building of the house at 1620 (district draft; refined by T-1932)",
       "sidecar": "sidecars/1904/law_house_1620_prairie_coach_house.json",
       "asset": "gltf/law_house_1620_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "livery_2123_indiana",
+      "name": "2123 S. Indiana Avenue — the livery stable at 2123-2125, its wagon shed on 2123 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/livery_2123_indiana.json",
+      "asset": "gltf/livery_2123_indiana__draft_1904.glb"
     },
     {
       "id": "mark_kimball_house_2108_prairie",

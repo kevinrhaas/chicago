@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 686,
+  "count": 687,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -308,6 +308,18 @@
     {
       "id": "first_presbyterian_church",
       "name": "First Presbyterian Church"
+    },
+    {
+      "id": "first_presbyterian_church_2029_indiana",
+      "name": "2029-2035 Indiana Avenue — First Presbyterian Church"
+    },
+    {
+      "id": "first_presbyterian_church_2029_indiana_dwelling",
+      "name": "2029 S. Indiana Avenue — the dwelling on the church's lot, on the alley"
+    },
+    {
+      "id": "first_presbyterian_church_2029_indiana_stable",
+      "name": "2029 S. Indiana Avenue — the church lot's stable on the alley"
     },
     {
       "id": "flats_2127_prairie",
@@ -718,6 +730,18 @@
       "name": "2005 Prairie Avenue — Brick masonry"
     },
     {
+      "id": "house_2007_indiana",
+      "name": "2007 Indiana Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_2009_indiana",
+      "name": "2009 Indiana Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_2009_indiana_rear_dwelling",
+      "name": "2009 S. Indiana Avenue — the two-storey brick dwelling at the rear of 2009"
+    },
+    {
       "id": "house_2010_prairie",
       "name": "2010 Prairie Avenue — Frame dwelling"
     },
@@ -726,12 +750,36 @@
       "name": "2010 S. Prairie Avenue — the alley building of the house at 2010"
     },
     {
+      "id": "house_2011_indiana",
+      "name": "2011 Indiana Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_2011_indiana_coach_house",
+      "name": "2011 S. Indiana Avenue — the alley building of the house at 2011"
+    },
+    {
       "id": "house_2011_prairie",
       "name": "2011 Prairie Avenue — Romanesque neighbour of Mayer"
     },
     {
       "id": "house_2011_prairie_coach_house",
       "name": "2011 S. Prairie Avenue — the alley building of the house at 2011"
+    },
+    {
+      "id": "house_2013_indiana",
+      "name": "2013 Indiana Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_2013_indiana_coach_house",
+      "name": "2013 S. Indiana Avenue — the alley building of the house at 2013"
+    },
+    {
+      "id": "house_2017_indiana",
+      "name": "2017 Indiana Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_2017_indiana_coach_house",
+      "name": "2017 S. Indiana Avenue — the alley building of the house at 2017"
     },
     {
       "id": "house_2017_prairie",
@@ -750,12 +798,44 @@
       "name": "2018 S. Prairie Avenue — the alley building of the house at 2018"
     },
     {
+      "id": "house_2019_indiana",
+      "name": "2019 Indiana Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_2019_indiana_coach_house",
+      "name": "2019 S. Indiana Avenue — the alley building of the house at 2019"
+    },
+    {
+      "id": "house_2021_indiana",
+      "name": "2021 Indiana Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_2021_indiana_coach_house",
+      "name": "2021 S. Indiana Avenue — the alley building of the house at 2021"
+    },
+    {
+      "id": "house_2023_indiana",
+      "name": "2023 Indiana Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_2023_indiana_coach_house",
+      "name": "2023 S. Indiana Avenue — the alley building of the house at 2023"
+    },
+    {
       "id": "house_2026_prairie",
       "name": "2026 Prairie Avenue — Stone-front masonry"
     },
     {
       "id": "house_2026_prairie_coach_house",
       "name": "2026 S. Prairie Avenue — the alley building of the house at 2026"
+    },
+    {
+      "id": "house_2027_indiana",
+      "name": "2027 Indiana Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_2027_indiana_coach_house",
+      "name": "2027 S. Indiana Avenue — the alley building of the house at 2027"
     },
     {
       "id": "house_2027_prairie",
@@ -772,6 +852,30 @@
     {
       "id": "house_2101_prairie_coach_house",
       "name": "2101 S. Prairie Avenue — the alley building of the house at 2101"
+    },
+    {
+      "id": "house_2107_indiana",
+      "name": "2107 Indiana Avenue — Frame dwelling"
+    },
+    {
+      "id": "house_2107_indiana_coach_house",
+      "name": "2107 S. Indiana Avenue — the alley building of the house at 2107"
+    },
+    {
+      "id": "house_2111_indiana",
+      "name": "2111 Indiana Avenue — Frame dwelling"
+    },
+    {
+      "id": "house_2111_indiana_coach_house",
+      "name": "2111 S. Indiana Avenue — the alley building of the house at 2111"
+    },
+    {
+      "id": "house_2115_indiana",
+      "name": "2115–2117 Indiana Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_2119_indiana",
+      "name": "2119 Indiana Avenue — Frame dwelling"
     },
     {
       "id": "house_2120_prairie",
@@ -1092,6 +1196,10 @@
     {
       "id": "lemai_house_1812",
       "name": "Le Mai's house, the westernmost of the three houses west of the Kinzie house, at the field the draught letters 'Mr Coursell'"
+    },
+    {
+      "id": "livery_2123_indiana",
+      "name": "2123 S. Indiana Avenue — the livery stable at 2123-2125, its wagon shed on 2123"
     },
     {
       "id": "log_jail",
@@ -20597,6 +20705,7 @@
         "chicago_lighthouse_1832",
         "cook_county_courthouse_1835",
         "first_fort_dearborn_magazine",
+        "first_presbyterian_church",
         "fort_dearborn_commandants_quarters",
         "fort_dearborn_magazine",
         "lake_house_construction",
@@ -20606,14 +20715,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.records[brick_fabric]",
-        "count": 125
+        "count": 143
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "structures.records[brick fabric] — 125 structures (110 until, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour; 105 until, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until 's Wheeler house (1812 Prairie Avenue): the coach house on the alley, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until 's First Fort Dearborn — magazine, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour and never reads the materials tool; 17 until, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in the materials generator has carried tile (m) = None since other work, and three of the four are the records that take a course the moment it carries one: Fort Dearborn — commandant's quarters, Fort Dearborn — powder magazine and Lake House (under construction). **the project's notes on materials says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (the project's notes on materials §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** First Cook County court-house became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, the build generator resolves no phase for it and other work retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
+          "text": "structures.records[brick fabric] — 143 structures (125 until, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour; 105 until, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until 's Wheeler house (1812 Prairie Avenue): the coach house on the alley, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until 's First Fort Dearborn — magazine, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour and never reads the materials tool; 17 until, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in the materials generator has carried tile (m) = None since other work, and three of the four are the records that take a course the moment it carries one: Fort Dearborn — commandant's quarters, Fort Dearborn — powder magazine and Lake House (under construction). **the project's notes on materials says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (the project's notes on materials §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** First Cook County court-house became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, the build generator resolves no phase for it and other work retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
         },
         {
           "label": "Decision",
@@ -20629,6 +20738,7 @@
         }
       ],
       "work_refs": [
+        "T-3009",
         "T-3008",
         "T-2982",
         "T-2543",
@@ -49887,6 +49997,413 @@
         "T-2978",
         "T-2228",
         "T-2976"
+      ]
+    },
+    {
+      "id": "L-draft-district-background-3009",
+      "title": "The background behind Prairie Avenue continued: Indiana Avenue's east frontage, 20th to 22nd Street, stood up as drafts where Prairie's sidewalks see it, with the First Presbyterian Church on the 21st Street corner",
+      "section": "per_subject",
+      "subjects": [
+        "first_presbyterian_church",
+        "first_presbyterian_church_2029_indiana",
+        "first_presbyterian_church_2029_indiana_dwelling",
+        "first_presbyterian_church_2029_indiana_stable",
+        "house_2007_indiana",
+        "house_2009_indiana",
+        "house_2009_indiana_rear_dwelling",
+        "house_2011_indiana",
+        "house_2011_indiana_coach_house",
+        "house_2013_indiana",
+        "house_2013_indiana_coach_house",
+        "house_2017_indiana",
+        "house_2017_indiana_coach_house",
+        "house_2019_indiana",
+        "house_2019_indiana_coach_house",
+        "house_2021_indiana",
+        "house_2021_indiana_coach_house",
+        "house_2023_indiana",
+        "house_2023_indiana_coach_house",
+        "house_2027_indiana",
+        "house_2027_indiana_coach_house",
+        "house_2107_indiana",
+        "house_2107_indiana_coach_house",
+        "house_2111_indiana",
+        "house_2111_indiana_coach_house",
+        "house_2115_indiana",
+        "house_2119_indiana",
+        "livery_2123_indiana"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "first_presbyterian_church_2029_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "first_presbyterian_church_2029_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "first_presbyterian_church_2029_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.stories"
+        },
+        {
+          "domain": "structure",
+          "structure": "first_presbyterian_church_2029_indiana",
+          "phase": "draft_1904",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "first_presbyterian_church_2029_indiana_dwelling",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "first_presbyterian_church_2029_indiana_dwelling",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "first_presbyterian_church_2029_indiana_stable",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "first_presbyterian_church_2029_indiana_stable",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2007_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2007_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2009_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2009_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2009_indiana_rear_dwelling",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2009_indiana_rear_dwelling",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2011_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2011_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2011_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2011_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2013_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2013_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2013_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2013_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2017_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2017_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2017_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2017_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2019_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2019_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2019_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2019_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2021_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2021_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2021_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2021_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2023_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2023_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2023_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2023_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2027_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2107_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2107_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2107_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2107_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2111_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2111_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2111_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2111_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2115_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2115_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2119_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_2119_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "livery_2123_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "livery_2123_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        }
+      ],
+      "recorded": "2026-10-22",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`first_presbyterian_church_2029_indiana.draft_1904.form.draft_elevation`, `first_presbyterian_church_2029_indiana.draft_1904.form.draft`, `first_presbyterian_church_2029_indiana_dwelling.draft_1904.form.draft_elevation`, `first_presbyterian_church_2029_indiana_dwelling.draft_1904.form.draft`, `first_presbyterian_church_2029_indiana_stable.draft_1904.form.draft_elevation`, `first_presbyterian_church_2029_indiana_stable.draft_1904.form.draft`, `house_2007_indiana.draft_1904.form.draft_elevation`, `house_2007_indiana.draft_1904.form.draft`, `house_2009_indiana.draft_1904.form.draft_elevation`, `house_2009_indiana.draft_1904.form.draft`, `house_2009_indiana_rear_dwelling.draft_1904.form.draft_elevation`, `house_2009_indiana_rear_dwelling.draft_1904.form.draft`, `house_2011_indiana.draft_1904.form.draft_elevation`, `house_2011_indiana.draft_1904.form.draft`, `house_2011_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2011_indiana_coach_house.draft_1904.form.draft`, `house_2013_indiana.draft_1904.form.draft_elevation`, `house_2013_indiana.draft_1904.form.draft`, `house_2013_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2013_indiana_coach_house.draft_1904.form.draft`, `house_2017_indiana.draft_1904.form.draft_elevation`, `house_2017_indiana.draft_1904.form.draft`, `house_2017_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2017_indiana_coach_house.draft_1904.form.draft`, `house_2019_indiana.draft_1904.form.draft_elevation`, `house_2019_indiana.draft_1904.form.draft`, `house_2019_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2019_indiana_coach_house.draft_1904.form.draft`, `house_2021_indiana.draft_1904.form.draft_elevation`, `house_2021_indiana.draft_1904.form.draft`, `house_2021_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2021_indiana_coach_house.draft_1904.form.draft`, `house_2023_indiana.draft_1904.form.draft_elevation`, `house_2023_indiana.draft_1904.form.draft`, `house_2023_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2023_indiana_coach_house.draft_1904.form.draft`, `house_2027_indiana.draft_1904.form.draft_elevation`, `house_2027_indiana.draft_1904.form.draft`, `house_2027_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2027_indiana_coach_house.draft_1904.form.draft`, `house_2107_indiana.draft_1904.form.draft_elevation`, `house_2107_indiana.draft_1904.form.draft`, `house_2107_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2107_indiana_coach_house.draft_1904.form.draft`, `house_2111_indiana.draft_1904.form.draft_elevation`, `house_2111_indiana.draft_1904.form.draft`, `house_2111_indiana_coach_house.draft_1904.form.draft_elevation`, `house_2111_indiana_coach_house.draft_1904.form.draft`, `house_2115_indiana.draft_1904.form.draft_elevation`, `house_2115_indiana.draft_1904.form.draft`, `house_2119_indiana.draft_1904.form.draft_elevation`, `house_2119_indiana.draft_1904.form.draft`, `livery_2123_indiana.draft_1904.form.draft_elevation`, `livery_2123_indiana.draft_1904.form.draft`, `first_presbyterian_church_2029_indiana.draft_1904.position`, `first_presbyterian_church_2029_indiana.draft_1904.form.stories`"
+        },
+        {
+          "label": "Decision",
+          "text": "the second block face of the district's background, run by the builder and under the rules of `“The west side of Prairie Avenue, 18th to 20th, stood up as a district draft: every height, roof, opening and feature reconstructed”`, whose \"What is invented\" and \"What is not\" hold here word for word. The block face is the one earlier work's visibility census ranks next: every one of the eleven Indiana lots of the 20th-21st block is seen from Prairie Avenue's walks, 2029 from 25 stands. The lots are read off sheet 35 in a census of their own (the edges census s35w data: the census counts Prairie frontages only) and traced by the tool as sheet `35w`. Nothing on sheets 20, 28, 28x, 35 or 35x moves; the trace's one new rule (a street-side sliver within 1.5 m of the building behind it is that building's front: 2007's stone strip) leaves every other sheet's trace byte-identical. **What is invented here, beyond the 18th-20th list.** These are houses with no name: no study register row, no 1904 directory row read, no photograph. The row of nine 3B brick houses from 2007 to 2027 is the brick family's hip over the sheet's printed storeys, its rounded stone bays the draft's projecting bays; 2107, 2111 and 2119 are the same hip in frame, as the sheet colours them. 2115 and 2117, two houses on a party wall on one 1904 lot, stand as one record. The livery at 2123-2125 is one service building at the trace's outline, its height the service rules' and not the sheet's printed three storeys on 2125. The frame porches, closets and lean-tos are not drafted. **First Presbyterian Church.** The sheet letters 2029-2035 \"1st PRESBYN. CHURCH\", 48 ft to its eaves with a 90 ft slated spire on its south-west tower. No 1904 source for it is in the repository, so its function and its presence in 1904 are `inferred` from the 1911 label, never attested. It stands as a site record sized from its own trace: a 43.7 x 23.1 m body under a 40-degree hip (the sheet's dashed hips; the pitch is invented), three draft storeys to the printed eave, and the tower as a 5.5 m square with its masonry to about 16.5 m (invented) and its spire to the printed 90 ft. Its openings are the draft's sash. The dwelling and the stable behind it are drafted from the trace. **Presence in 1904 is the sheet's alone.** Robinson 1886 plate 10 stops north of 20th Street, so no earlier plan checks these outlines, and the 1911 sheet is carried back to 1904 as study ruling 11 allows. Any one of these houses may postdate 1904; none is known to. **What is not drafted here.** Four fronts the sheet draws with 1911 commercial uses are traced and ruled phase unresolved, and the draft stands nothing on them rather than a house nobody read: the printing works at 2001-2003 Indiana, the motor garages at 2101-2105 and 2129-2131, and the auto repair and blacksmith shop at 215-217 E. 21st, with the open lot beside it. The five-storey branch post office at 2133, on the 22nd Street corner, is not traced. Later work finds what stood on each in 1904. 213-217 E. 20th are earlier work's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Earlier work (the side-street and rail-side background) refines each house and service building in place under the same id; later work sources and refines the church."
+        },
+        {
+          "label": "Review",
+          "text": "the edges census s35w data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-22 (T-3009)."
+        }
+      ],
+      "work_refs": [
+        "T-3009",
+        "T-2983",
+        "T-1842",
+        "T-2327",
+        "T-3013",
+        "T-2982",
+        "T-1946",
+        "T-3014"
       ]
     },
     {
