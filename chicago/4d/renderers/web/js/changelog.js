@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2173, ts: '2026-10-22T08:23:24.236Z', date: 'Oct 22, 2026, 3:23 AM CT', title: 'Flying over the 1904 district stays inside the phone\'s budget', kind: 'fix',
+    items: [
+      'The lakefront railway stops drawing rails too far off to see, where its ties already stopped. A phone flying over 20th Street now draws about 70,000 fewer triangles and stays inside its Light setting\'s limit.',
+    ] },
+  { v: 2172, ts: '2026-10-22T08:23:24.236Z', date: 'Oct 22, 2026, 3:23 AM CT', title: '1811 Prairie\'s bay turns its canted north face, from its 1888 plate', kind: 'improve',
+    items: [
+      '1811 Prairie\'s bay no longer stands square on its north side: that face now cants back to the wall, as the 1911 insurance map draws it and the 1888 plate shows it, with one narrow window a storey. The cornice, string courses and stone balustrade turn the corner with it, and the front\'s north window moves onto the plate\'s.',
+    ] },
   { v: 2171, ts: '2026-10-22T07:10:00.105Z', date: 'Oct 22, 2026, 2:10 AM CT', title: 'Glessner\'s Prairie front windows and grilles set on their stone courses', kind: 'fix',
     items: [
       'The four first-floor windows on Prairie Avenue now sit lower, as HABS sheet 6 and the 1965 photograph show them. Each sill rests on the eighth granite bed, 8.71 ft over the door sill instead of 9.2, and each head is 14.3 ft, so the windows keep the drawing\'s 5.6 ft height. The basement grilles\' heads drop to the fourth bed, 4.54 ft from 4.7. The door, the porte-cochère, the small pair and the second floor were checked and left as built.',

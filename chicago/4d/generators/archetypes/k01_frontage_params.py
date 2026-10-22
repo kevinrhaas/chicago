@@ -1438,7 +1438,19 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             if not (1.5 <= w <= 6.0 and 0.1 <= d <= 1.2):
                 raise ParamError(f"bays: {e['id']}'s projection is {w} m wide and {d} m proud; a pavilion "
                                  f"is 1.5-6.0 m wide and stands 0.1-1.2 m proud")
-            v["plan"] = {"kind": "polyline", "points": [[-w / 2, 0.0], [-w / 2, d], [w / 2, d], [w / 2, 0.0]]}
+            # T-2988: either cheek may be CANTED, running from the wall `cant_*_m` further out
+            # along it than the front's corner (1811's bay on its 1911 sheet and its 1888 plate:
+            # the north cheek from the wall 1.99 m north of the front's north corner); s_m stays
+            # the front's centre, and the front keeps width_m. Neither cant: the square
+            # pavilion, its points as they always were
+            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m"}:
+                raise ParamError(f"bays: {e['id']} sizes its projection by width_m, proud_m and an optional "
+                                 f"cant_left_m or cant_right_m, not {sorted(q)}")
+            cl, cr = (float(q.get(k, 0.0)) for k in ("cant_left_m", "cant_right_m"))
+            if not all(c == 0.0 or 0.3 <= c <= 3.0 for c in (cl, cr)):
+                raise ParamError(f"bays: {e['id']}'s canted cheek runs 0.3-3.0 m along its wall, not "
+                                 f"{cl if cl else cr} m")
+            v["plan"] = {"kind": "polyline", "points": [[-w / 2 - cl, 0.0], [-w / 2, d], [w / 2, d], [w / 2 + cr, 0.0]]}
         elif "plan" in e and v["kind"] == "tower":
             # T-2787: a tower read off a picture keeps the picture's radius and how far its
             # centre stands out of the wall; the kit's tower is the shape (its ring, its sides),
