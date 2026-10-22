@@ -31105,3 +31105,38 @@ sheet's 0-0.1 m with its chamfer and re-checks the Taylor camera's south-west be
 **Ticket:** T-3015 (piece 1 of T-2999).
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-22 (T-3015).
+
+### L-kimball-1801-deck-cresting-3000 — 1801 Prairie's roof dressing: hooded dormers, the deck's cresting and finials, and the flank's tall stack read off the Taylor print, their sections and the cresting's pattern reconstructed
+
+**Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.chimneys`
+**Decision:** the main mansard of the W. W. Kimball house at 1801 Prairie (T-3000, piece 3 of T-2540)
+takes what J. W. Taylor's c. 1895 photograph (`taylor_c1895_kimball_residence_1801`) shows on its
+roof, where the build had none of it. **What is read, not invented.** Through T-2538's solved camera:
+one hooded dormer on each face the camera sees, close by the corner, a short face with one small
+light (about 0.6 by 0.7 m, its centre within about 10 px of the print's on both faces) under a
+shelf, and over the shelf a tall slated hood about 1.5-1.8 m high whose front narrows as it climbs
+and whose cheeks widen against the receding roof; the street's at v 3.0 (the print reads about
+v 2.7; 3.0 is the nearest a lower-face dormer stands to the corner's hip), the 18th Street face's at
+u 16.7, about 0.5 m higher. A rail of iron cresting about 0.55 m high round the deck (about 30 px of
+the print at 54 px a metre; the build's 29 px). A slated pyramid about 1.0 m across and 1.4 m high
+rising from the curb's north-west corner under a turned finial, the finial about 2.2 m (116 px against
+the print's about 120), and a second finial at the deck's south end. The flank's tall stone stack at
+the flank section's east end, about 1.2 m across, its cap's top about 16.4 m (y 458-477 on the
+print against 462). **What is invented.** The dormer's sections: the face's 0.2 m surround, the
+shelf 0.12 m deep and 0.08 m proud, the hood's 0.15 m lean back and 0.3 m taper each side (the print
+gives the shapes, not the numbers); the light as a two-over-two sash. The cresting's pattern is the
+K10 kit's (`k10.cresting.iron_ridge`: posts, C-scrolls and spears) stretched to the print's height:
+the print's panels read only as a dense pierced band at this scale. The finials' turnings, one
+pattern at every corner of the deck; the two the print does not see (the rear's) follow the two it
+does. The hood's slopes in the lower faces' slate. The stack's plan depth into the roof and its cap
+as a plain block 0.25 m proud and 0.5 m deep for the print's corbelled one. **Not changed here.** The
+print's curb stands about 35-50 px lower than the build's at the front's corner, and the front's deck
+ends at the print's x 1092 where the build's runs on to x 1187, so the cresting, the corner hood and
+the south finial stand where the build's curb and deck do, not where the print's do (T-1890's, found here). No
+second tier of dormers is in the print, and nothing rises behind the pavilion's gable: the parent's
+"pavilion's stack" is not seen from this camera.
+**How to resolve:** a nearer or second photograph of the roof would give the cresting's pattern, the
+finials' turnings and the dormers' sections; T-3003's 1929 and HABS photographs may show the rear.
+**Ticket:** T-3000 (piece 3 of T-2540).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-22 (T-3000).

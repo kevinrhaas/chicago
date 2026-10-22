@@ -749,12 +749,14 @@ MANSARD_FACES = {"street": "v", "rear": "v", "north": "u", "south": "u"}
 #: T-2866: or a hipped roof of its own over the face's square head (1625's south dormer).
 #: T-2902: or a FLAT hood — the face carried `frieze_m` over the sash's head to a projecting
 #: cornice, the kit's dormer eaves, under a cap falling `hood_fall_deg` (1625's rear section)
-DORMER_HEADS = {"round": "round", "gable": "flat", "hip": "flat", "flat": "flat"}
+#: T-3000: or a HOOD — a short face under a shelf, and over the shelf a tall slated hood with
+#: upright cheeks, its front falling back to a level top the lower face swallows (1801's)
+DORMER_HEADS = {"round": "round", "gable": "flat", "hip": "flat", "flat": "flat", "hood": "flat"}
 #: the heads whose eaves are K05's hip over the face's square wall head
 HIPPED_HEADS = ("hip", "flat")
 
 
-def _round_dormer(d: dict, what: str, room: float, hip: bool = False) -> dict:
+def _round_dormer(d: dict, what: str, room: float, hip: bool = False, hood: bool = False) -> dict:
     """A lower-face dormer's numbers (T-2404's crown dormer, T-2411's lower-face ones,
     T-2452's gabled ones): a K06 sash in a stone face `surround_m` round it, its face
     `face_setback_m` in from the fascia's face. `head` is `round` (the default: the sash's
@@ -770,14 +772,18 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False) -> dict:
     if head in HIPPED_HEADS and not hip:
         raise ParamError(f"{what}.head {head!r}: a dormer under its own eaves stands on a hip's slope "
                          f"(slope_dormers) or a rear section's attic")
+    if head == "hood" and not hood:
+        raise ParamError(f"{what}.head 'hood': a hooded dormer stands on the main mansard's lower faces")
     if kit.get(sh.get("variant"), {}).get("head") != DORMER_HEADS[head]:
         raise ParamError(f"{what}.sash.variant: a {DORMER_HEADS[head]}-headed K06 variant under a {head} head")
     sw, sht, sill = float(sh["width_m"]), float(sh["height_m"]), float(sh["sill_m"])
     ring, sb = float(d["surround_m"]), float(d["face_setback_m"])
     if not 0.1 <= ring <= 0.4 or not 0.0 < sb < room:
         raise ParamError(f"{what}: a 0.1-0.4 m surround, its face on the lower face")
-    if not 0.5 <= sw <= 1.2 or not 1.0 <= sht <= 2.4 or not 0.1 <= sill <= 0.6:
-        raise ParamError(f"{what}.sash: 0.5-1.2 m wide, 1.0-2.4 m high, on a 0.1-0.6 m sill")
+    # T-3000: a hood's light is the short one at its foot (1801's read about 0.9 m)
+    low = 0.6 if head == "hood" else 1.0
+    if not 0.5 <= sw <= 1.2 or not low <= sht <= 2.4 or not 0.1 <= sill <= 0.6:
+        raise ParamError(f"{what}.sash: 0.5-1.2 m wide, {low}-2.4 m high, on a 0.1-0.6 m sill")
     out = {"variant": sh["variant"], "head": head, "sash_width_m": sw, "sash_height_m": sht, "sill_m": sill,
            "surround_m": ring, "face_setback_m": sb, "width_m": round(sw + 2 * ring, 4),
            "head_m": round(sht + ring, 4)}
@@ -794,6 +800,23 @@ def _round_dormer(d: dict, what: str, room: float, hip: bool = False) -> dict:
         if not 30.0 <= hp <= 60.0:
             raise ParamError(f"{what}.hip_pitch_deg {hp}: a dormer's hip is pitched 30-60 deg")
         out["hip_pitch_deg"] = hp
+    if head == "hood":
+        # T-3000: the face's wall head `surround_m` over the sash, then a shelf `shelf_m` deep
+        # standing `shelf_proud_m` out of the face, then the hood: `rise_m` of slated front
+        # whose top falls `lean_m` back toward the roof, each cheek leaning `taper_m` in
+        hd = d.get("hood") or {}
+        try:
+            sf, sp, hr, ln, tp_ = (float(hd[k]) for k in ("shelf_m", "shelf_proud_m", "rise_m", "lean_m", "taper_m"))
+        except KeyError as e:
+            raise ParamError(f"{what}.hood names shelf_m, shelf_proud_m, rise_m, lean_m and taper_m ({e} missing)")
+        if not 0.08 <= sf <= 0.3 or not 0.0 <= sp <= 0.2:
+            raise ParamError(f"{what}.hood: a 0.08-0.3 m shelf standing 0-0.2 m out of the face")
+        if not 0.5 <= hr <= 4.0 or not 0.0 <= ln <= hr / 2:
+            raise ParamError(f"{what}.hood: a 0.5-4.0 m hood whose top falls back no more than half its rise")
+        if not 0.0 <= tp_ <= (sw / 2 + ring) - 0.15:
+            raise ParamError(f"{what}.hood.taper_m {tp_}: each cheek leans in 0 m up to 0.15 m short of the middle")
+        out["hood"] = {"shelf_m": sf, "shelf_proud_m": sp, "rise_m": hr, "lean_m": ln, "taper_m": tp_}
+        out["head_m"] = round(sht + ring + sf + hr, 4)
     if head == "flat":
         # T-2902: the face's wall head `frieze_m` over the sash (a frieze under the cornice, where
         # the surround's ring is only its jambs'), the cap K05's hip at a flat's fall
@@ -1150,7 +1173,7 @@ def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, 
         face = e.get("face")
         if face not in MANSARD_FACES:
             raise ParamError(f"{what}.face {face!r}: one of {', '.join(MANSARD_FACES)}")
-        d = _round_dormer(e, what, run)
+        d = _round_dormer(e, what, run, hood=True)
         ax = MANSARD_FACES[face]
         c, r = float(e["along_m"]), d["width_m"] / 2
         lo, hi = -overhang + run + 0.3 + r, lengths[ax] + overhang - run - 0.3 - r
@@ -1161,6 +1184,12 @@ def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, 
         top = foot + d["sill_m"] + d["head_m"]
         if top > m["lower_rise_m"] - 0.1:
             raise ParamError(f"{what}: its head at {top:.2f} m over the eave meets the curb at {m['lower_rise_m']} m")
+        if d["head"] == "hood":
+            # T-3000: the hood's top, fallen back by its lean, still stands 0.1 m proud of the
+            # lower face behind it, so the front never sinks into the roof it projects from
+            back = d["face_setback_m"] + d["hood"]["lean_m"] + 0.1
+            if mansard_face_height(back, m["lower_rise_m"], m["lower_pitch_deg"], m["bulge"], m["profile"]) > top:
+                raise ParamError(f"{what}.hood: its top, {d['hood']['lean_m']} m back, meets the lower face")
         # its plan, face to back, in (u, v): the body runs `run + 0.3` in from the fascia
         fa, ba = {"street": (depth + overhang, depth + overhang - run - 0.3),
                   "rear": (-overhang, -overhang + run + 0.3),
@@ -3815,8 +3844,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                     curb = mansard_roof["curb_m"] + float(crown.get("rise_above_curb_m", 0.0))
                     if top < curb + 0.6 - 1e-9:
                         raise ParamError(f"chimney at ({u}, {v}) tops at {top} m, under the curb's {curb} m + 0.6")
+            # T-3000: a stack may carry its own cap, as 1801's flank stack its heavy corbelled one
+            sp_, sd_ = float(st_.get("cap_proud_m", cap_p)), float(st_.get("cap_depth_m", cap_d))
+            if not 0.0 <= sp_ <= 0.4 or not 0.05 <= sd_ <= 0.8:
+                raise ParamError(f"chimney at ({u}, {v}): its cap stands 0-0.4 m proud and 0.05-0.8 m deep")
             chimneys.append({"u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": top, "base_m": base,
-                             "cap_proud_m": cap_p, "cap_depth_m": cap_d})
+                             "cap_proud_m": sp_, "cap_depth_m": sd_})
     elif ch and (flat or mansard or gable):
         raise ParamError(f"a {roof_form} K01 roof takes T-2302's plain stacks: K15's draught rule "
                          "reads a hip's covering")
@@ -3925,6 +3958,14 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if (val("mansard") or {}).get("dormers"):
         mansard_roof["dormers"] = _mansard_dormers(val("mansard")["dormers"], mansard_roof, depth, width, eave,
                                                    float(val("eave_overhang_m")), chimneys)
+    if (val("mansard") or {}).get("deck"):
+        # T-3000: the deck's cresting, finials and corner hoods (1801's, Taylor's photograph)
+        from .k01_mansard_deck import ParamError as DeckError, resolve as resolve_deck
+        try:
+            mansard_roof["deck"] = resolve_deck(val("mansard")["deck"], mansard_roof, depth, width,
+                                                float(val("eave_overhang_m")), pitch, chimneys)
+        except DeckError as e:
+            raise ParamError(str(e)) from None
 
     wings = _rear_wings(val("rear_wings"), depth, width, openings, cw,
                         opening["parameters"]["clear_height_m"]["range"], (record or {}).get("id", ""))
