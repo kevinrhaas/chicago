@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-15-stable-detail",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "21dadfb03caa3e400533dfcc723f2fc8b0cbcbc627dc8e30b96125e73658baa5",
+  "glb_sha256": "40c41087ed07d91fd27716120e1599260d194135dc7430d8519efa9acb68ece9",
   "camera_sha256": "09789d6f7f1c6e24ff9cae425a4a272b17d6eee58eec7f85df30707277b18c82",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg",
   "verdict": "differs",
@@ -33,6 +33,10 @@
     },
     {
       "what": "T-3031, reviewed from the rebaked master: the cupola was raised about 1 ft, narrowed to 5.5 ft and its eave drawn in to 0.75 ft; this print hides the cupola behind its film holder, so nothing it shows changed and nothing here is judged anew.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3036, reviewed from the rebaked master: only the cupola's corner faces changed (its walls now meet without coplanar ends), and the cupola stands above this print's top edge, so nothing this view compares moved.",
       "status": "not shown"
     }
   ],

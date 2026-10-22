@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-01-northwest",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "21dadfb03caa3e400533dfcc723f2fc8b0cbcbc627dc8e30b96125e73658baa5",
+  "glb_sha256": "40c41087ed07d91fd27716120e1599260d194135dc7430d8519efa9acb68ece9",
   "camera_sha256": "338f0d726e6c0e2d97069253e242a098ba4baae8344ce5a1fa224c2388e06bc0",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg",
   "verdict": "differs",
@@ -45,6 +45,10 @@
     },
     {
       "what": "T-3031, reviewed from the rebaked master: the cupola is read from both northwest prints at once through the cameras T-2758 re-solved on measured controls at the stable, each with its local offset taken out at the north gable's coping apex (tools/glessner_cupola_read.py, data/comparisons/glessner/stable-cupola.json). The two prints agree on the eave (41.9 and 41.75 ft) and jointly fit a 5.5 ft body (half 2.73 +/-0.18), a 0.72 ft eave, the eave at 41.87 and the apex at 48.19 ft, centre S14.76 (5.3 px RMS over 12 picks, against 11.5 and 13.8 px for the build as it stood). Built: body 5.5 ft square with its top at 42.0 ft (was 6.0 ft, 41.0), apex 48.2 (was 47.0), eave 0.75 ft out (was 1.25), the pigeon-hole band raised with it to 39.5-41.6 ft; centre S14.6 kept. The 27-32 px by which this print had seemed to stand the cupola higher than HABS photograph 1 was mostly the committed camera's: through it the render is not a measure of the cupola's height at the stable end (T-2758). Through this committed camera, which is fitted at the Prairie corner, the rebuilt apex now stands about 61 px over the gable apex against the print's 52 (the earlier build stood about 44): the camera's own depth at the stable (it reads the cupola's centre at S11.0) is the residual, not the cupola.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3036, reviewed from the rebaked master: the dark vertical strip that ran down each corner of the cupola's body, from under the eave through the pigeon-hole band to the roof, is gone; the corners read as one turned stone face, as the print shows them. It was the body's four walls each running the full plan width, so each wall's 0.08 m end lay in its neighbour's face, half of them wound inward: the east and west walls now take the corners, the north and south walls butt inside them, and every edge face of the walls and landing ledges is turned outward. No dimension of the cupola moved.",
       "status": "fixed"
     }
   ],
