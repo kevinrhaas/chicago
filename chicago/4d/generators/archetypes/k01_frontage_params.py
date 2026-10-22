@@ -2786,8 +2786,9 @@ def _round_corner(rc, depth, width, stone, openings, bays, rainwater, *, side_be
                 raise ParamError(f"round_corner {rc['corner']}: the bay {b['id']} on {wall} stands on the round")
         if any(sb.get("wall") == wall for sb in side_belts):
             raise ParamError(f"round_corner {rc['corner']}: a side belt runs on {wall} into the round")
-    # a pipe on the round stands behind the front's plane, clear of the curve by K04's offset;
-    # a pipe before the front's plane over the round would stand off nothing
+    # a pipe on the round stands behind the front's plane, as far off the curve as a front
+    # pipe stands off the front (K04's offset and 0.05 m); one before the front's plane over
+    # the round would stand off nothing
     cu, cv = round_corner_spans(out, depth, width)["centre"]
     f0, f1 = spans["k01.wall.street_front"]
     rain = rainwater or {}
@@ -2796,9 +2797,9 @@ def _round_corner(rc, depth, width, stone, openings, bays, rainwater, *, side_be
         on = f0 - 1e-6 <= x["s_m"] <= f1 + 1e-6
         if x["proud_m"] < 0.0 or on:
             lat = depth + x["proud_m"] + off + 0.05 + rp
-            if not on or x["proud_m"] >= 0.0 or math.hypot(lat - cu, x["s_m"] - cv) < r + off + rp - 1e-6:
+            if not on or x["proud_m"] >= 0.0 or math.hypot(lat - cu, x["s_m"] - cv) < r + off + 0.05 + rp - 1e-6:
                 raise ParamError(f"rainwater.front_pipes {x}: a pipe behind the front's plane stands on the round "
-                                 f"corner, its centre at least {r + off + rp:.4f} m from the round's centre")
+                                 f"corner, its centre at least {r + off + 0.05 + rp:.4f} m from the round's centre")
     return out
 
 

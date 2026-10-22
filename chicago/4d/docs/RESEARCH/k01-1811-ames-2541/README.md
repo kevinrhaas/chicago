@@ -121,7 +121,7 @@ K10 cornice and a rounded roof corner, which K01 does not have.
 
 **The pipe.** The plate's rod at x 505-510 px stands on the round itself, about 50 degrees round from
 the front, so `front_pipes` now accepts a pipe behind the front's plane (proud_m down to -1.5 m)
-where it stands on a round, its centre clear of the curve by K04's offset (`_round_corner` refuses
+where it stands on a round, its centre as far off the curve as a front pipe stands off the front (`_round_corner` refuses
 anything else). 1811's pipe is at s 10.29 m, proud_m -0.368, which lands at about x 508 px.
 
 **What the plate camera reads now:** the round runs from the front's tangent at x about 469 px to
