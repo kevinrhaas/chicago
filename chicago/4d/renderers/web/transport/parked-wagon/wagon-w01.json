@@ -953,7 +953,8 @@
   "recipe_sha256": "8e8e1f1703592277b31271ada771c1a3a01bbeea2883448be8788abf2a518830",
   "socket_policy": "Bench study driver seat and foot surface sockets reflect physical reconstructed furniture; remaining sockets retain proposed semantics",
   "source_sha256": {
-    "apply_materials.py": "0aaac1a3cbbfa9a6130722094b7fa9c29580db8da074b9bef24defadfc6da578",
+    "apply_materials.py": "c5b49d0cf275985f4748547192c3c01b89e6bb11bac4869e86201eb464070fb6",
+    "authored_charts.py": "64fdd45f4e1dfd119796c341e8a4a45701d0695fec428842b5d6954d561717b7",
     "generate_parked_wagon.py": "45ca7a7ee5b14ae459cacdb3e549a4049f0fc7e8e491d6364ec3bc9d8b8c0e12",
     "generate_tiles.py": "f7bcef9103a12dcd02d68396699d487cb7163fe266f5eba06dec074ff3d65df0",
     "generate_wagon_hardware.py": "451b37c475dcce5bbb571e0cb392d5fa1ef7ec077668df38c088613a0b18f18f",

@@ -47,4 +47,58 @@ def wrong_era(candidate, old):
 
 
 refuse('no covered backdating/era substitution', wrong_era)
+
+
+def check_original_chart_contract(root):
+    """Cheap actual authored-reader refusals; no numerical authoring or generator."""
+    import shutil
+    import struct
+    import tempfile
+    from wagon_parked.authored_charts import OriginalCharts, read_original_charts
+    directory = root/'assets/authored/transport/wagon_parked/charts'
+    charts = read_original_charts(directory)
+    assert len(charts.attributes) == 23 and len(charts.mapping) == 158
+    payload = (directory/'original-w01-charts.bin').read_bytes()
+    mapping = (directory/'original-w01-charts.mapping.json').read_bytes()
+    rejected = []
+
+    def refusal(label, operation):
+        try:
+            operation()
+        except (ValueError, FileNotFoundError):
+            rejected.append(label)
+            return
+        raise AssertionError('Original charts accepted '+label)
+
+    with tempfile.TemporaryDirectory(prefix='original-w01-chart-controls-') as temp:
+        copied = Path(temp)
+        for filename in ['original-w01-charts.json', 'original-w01-charts.mapping.json']:
+            shutil.copyfile(directory/filename, copied/filename)
+        refusal('missing payload', lambda: read_original_charts(copied))
+        corrupted = bytearray(payload)
+        # Changing only a zero's sign must also fail the exact authored-byte pin.
+        zero = next(k for k in range(0, len(payload), 4)
+                    if struct.unpack_from('<f', payload, k)[0] == 0)
+        corrupted[zero+3] ^= 0x80
+        (copied/'original-w01-charts.bin').write_bytes(corrupted)
+        refusal('changed signed-zero payload', lambda: read_original_charts(copied))
+
+    def malformed(label, mutate):
+        candidate = deepcopy(charts.contract)
+        mutate(candidate)
+        refusal(label, lambda: OriginalCharts(candidate, payload, mapping))
+
+    malformed('duplicate batch', lambda c: c['batches'].__setitem__(1, deepcopy(c['batches'][0])))
+    malformed('missing batch', lambda c: c['batches'].pop())
+    malformed('batch count mismatch', lambda c: c['batches'][0].update(vertex_count=c['batches'][0]['vertex_count']+3))
+    for key in ['hardware_glb_sha256', 'authored_parts_sha256', 'material_recipe_sha256']:
+        malformed(key+' mismatch', lambda c, k=key: c['source_inputs'].__setitem__(k, '0'*64))
+    malformed('changed owner name', lambda c: c['batches'][0]['parts'][0].update(name='different original part'))
+    malformed('changed owner frame', lambda c: c['batches'][0]['parts'][0].update(frame='vehicle_other_frame'))
+    malformed('changed owner material', lambda c: c['batches'][0]['parts'][0].update(material=4))
+    malformed('changed frozen accessor bound', lambda c: c['batches'][0]['attributes']['TEXCOORD_0']['min'].__setitem__(0, 1000.0))
+    assert len(rejected) == 12
+    print('ORIGINAL CHART CONTRACT PASS — 23 original batches; '+str(len(rejected))+' actual reader negative refusals')
+
+check_original_chart_contract(ROOT)
 print('COVERED IDENTITY PASS — two reviewed originals; '+str(len(cases))+' actual negative refusals')

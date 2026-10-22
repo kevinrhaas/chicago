@@ -1339,3 +1339,14 @@ W01 geometry and source: GPL-3.0-or-later; nine original generated timber/paint/
 | `authored/transport/wagon_covered/textures/canvas_color.png` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
 | `authored/transport/wagon_covered/textures/canvas_normal.png` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
 | `authored/transport/wagon_covered/textures/canvas_orm.png` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
+
+
+## Original authored W01 material charts (T-2980)
+
+The existing project-authored geometry supplies these original UV/tangent source inputs. Their GPL license is separate from the CC0 original procedural pixel maps. Exact hardware, ownership, recipe and original authoring hashes are recorded in SOURCE.json and the chart manifest. The ordinary producer validates these authored inputs; the original numerical authoring remains explicit opt-in. No outside geometry or photographic pixels are incorporated.
+
+| path relative to assets/ | license | provenance |
+| --- | --- | --- |
+| `authored/transport/wagon_parked/charts/original-w01-charts.bin` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
+| `authored/transport/wagon_parked/charts/original-w01-charts.json` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
+| `authored/transport/wagon_parked/charts/original-w01-charts.mapping.json` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
