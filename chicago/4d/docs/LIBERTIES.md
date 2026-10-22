@@ -28986,6 +28986,37 @@ photographs.
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-22 (T-2900).
 
+### L-kimball-1801-pavilion-gable-2998 — 1801 Prairie's south pavilion under its coped stone gable: the gable's feet, rise and finial read through the camera, its copings', kneelers' and pinnacles' sections and the slate behind it reconstructed
+
+**Decision:** 1801 Prairie's south pavilion (T-2998, piece 1 of T-2540) is capped with the coped
+stone gable J. W. Taylor's c. 1895 photograph shows over it (`taylor_c1895_kimball_residence_1801`),
+in place of K08's low hip, on a new K08 cap: a projection's `gable`, its front carried up between two
+kneelers over the plan's front corners, a slope from each kneeler's inner face to a ridge on the
+pavilion's middle run back to the wall plane, a stone coping along each rake, a pinnacle on each
+kneeler and a stone finial on the apex. **What is read, not invented.** From the print, through the
+Taylor camera and the render beside it: that the gable rises from the shelf over the pavilion's
+third storey between two corner pinnacles, its feet about 0.4 m in from each corner (its base about
+74 of the face's 95 px); that its copings rise about 3.0 m over a half-width of about 1.4 m (pitch
+2.1, about 65 degrees), so its apex stands about 2.9 m over its feet (built 14.51 to 17.45 m, where
+T-2538 read the apex at about 17.4 m); that a pinnacle stands at each foot to about 1.6 m under the
+apex (built to 15.81 m) and a finial about 0.5 m over it (built to 17.95 m); that a slate ridge runs
+back from it. **What is invented.** The kneelers' blocks, 0.4 m in from the corners and 0.78 m
+wide over them, 0.61 m tall from the 13.9 m wall top, run back to the wall plane and covering the
+returns' eaves (stopped on the front's plane); the copings' section, 0.45 m deep, 0.18 m thick and
+0.08 m proud, 0.15 m over the slates; the pinnacles' square shafts, 0.16 m across, 0.7 m tall under
+0.6 m pyramids, and the finial's 0.22 m block under a pyramid, where the print shows an urn; the
+slopes' slate run back only to the wall plane, closed there on it, where the print's ridge runs on
+into the main roof. The gable's face is plain where the print fills it with a carved panel (T-3002).
+Its place on the print is the pavilion face's (T-2999: built about 65 px south of the print's, with
+about 3.3 m of blank wall over the third storey's pair where the print's pair stands close under a
+roundel frieze and the gable's foot), so the gable renders about 60 px high and 65 px south of the
+print's with it.
+**How to resolve:** T-2999 stands the face where the print does and reads its third storey and the
+gable's springing again; a nearer picture of the gable would give its copings, pinnacles and finial.
+**Ticket:** T-2998 (piece 1 of T-2540).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-22 (T-2998).
+
 ### L-k01-1621-last-drawn-2531 — 1621 Prairie's last drawn differences: the door's ring turned to a curved extrados under a band in a deep recess, the light over it stood on a moulded shelf, and splayed voussoirs over the basement lights, their places read and their sections reconstructed
 
 **Decision:** John H. Hamline's house at 1621 Prairie (T-2531, piece 2 of T-2527) takes the three
@@ -29137,9 +29168,21 @@ plate's (x 143-188 px against 137-190). What that build invents: the cheek's foo
 the canted face (the plate shows that storey black). Not moved: the bay's south return stays at 5.45 m,
 where the downpipe beside it stands, so the front is 3.16 m and its south window stays about 20 px north of
 the plate's, whose front runs on to x 287 px (about v 5.99).
+**Revised:** 2026-10-22 (T-2993). The bay's south return is re-read and moved to v 5.99, where the camera
+solve puts the plate's front's south corner (x 287 px): the front's level lines (its cornice, both string
+courses, the sills and heads) run straight to about x 287-290 px, where the bay's rounded south corner
+stands, so the front is flat to there and its south side does not cant as the 1911 sheet's trace draws it
+(from u 8.51, v 4.88 back to the wall at v 6.02). The front is 3.70 m, T-2541's own reading; its south
+window and the basement light under it stand on the plate's centres at v 5.22 (x 227-276 px against the
+plate's 232-271). The pale rod at x 298-302 px is not on the main front: a 1.0 m return at v 5.99 hides
+the main wall from x 288 to 315 px, so the plate's pipe runs down the return's own south face, about
+0.3 m in from the front's corner. What that build invents: K01's front pipes run only along the street
+front, so the pipe stands on the main front beside the return at 6.24 m (0.25 m clear of the return for
+the bay's cornice, as before), about 21 px south of the plate's (x 323 against 298-302); the return's
+rock-faced and smooth courses are the front's, unread behind the tree's trunk.
 **How to resolve:** T-2989, T-2991 and T-2920 (the oriel, the porch's south arcade, and the roof with the
-gable's centre and carved pinnacles under T-2920), and the bay's south return re-read with its downpipe,
-bring the match record to `matches`.
+gable's centre and carved pinnacles under T-2920), and the south-return pipe carried on the return's own
+face (T-2997), bring the match record to `matches`.
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.chimneys`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.gable_roof`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.

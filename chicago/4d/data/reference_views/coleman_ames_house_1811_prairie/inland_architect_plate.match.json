@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b4583207fee836c734eedf63cbbc39ee46ebbadef35f28fa309716caa4fd7dc7",
+  "glb_sha256": "a5bf62a7dcca9c736ce8f8a1bc4e6c9fc7418bb00cb502cf07e854c91dd0ef24",
   "camera_sha256": "8f67a67f5a407ad30522085a1ab67f9c29ddc0bae6ceb1a979db9ea1accdc2b4",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/inland_architect_plate-side-by-side.jpg",
   "verdict": "differs",
@@ -39,6 +39,11 @@
     },
     {
       "what": "the bay's south return and the front's width: the solve puts the plate's front from x 112 to 287 px (v 2.29-5.99, about 3.7 m), its windows' centres at x 163 and 251 px; the build's return stands at s 5.45 (the downpipe beside it at s 5.7 is the plate's x 298-302 on the main wall), so its front is 3.16 m and its south window lands at x 206-251 against the plate's 232-271 (T-2993)",
+      "status": "fixed",
+      "how": "T-2993: re-read, the front is flat to its south corner: its cornice, both string courses and the sills and heads run level to about x 287-290 px, where the bay's rounded south corner stands (x 285-296), so the sheet's trace's south cant (u 8.51, v 4.88 back to the wall at v 6.02) is not the plate's. The return moved from s 5.45 to the solve's v 5.99, square and 1.0 m deep, so the front is 3.70 m (s_m 4.14), T-2541's own reading; the front's south corner lands at x 289 px against the plate's 287-290 and the return runs to the main wall at x 315, where the plate's cornice, wrapping the corner, slopes down to the main wall's band at about x 315. The south window and the basement light under it moved to v 5.22, the plate's centres: the window lands at x 231-276 against the plate's 232-271, the north one stays at 143-188 against 137-190"
+    },
+    {
+      "what": "the bay's south-return downpipe: the plate's pale rod at x 298-302 px, from a head under the bay's cornice, runs down the return's own south face about 0.3 m in from the front's corner (a 1.0 m return at v 5.99 hides the main wall from x 288 to 315 px, so it cannot stand on the main front there); K01's front pipes run only along the street front, so T-2993 stands it on the main front beside the return at 6.24 m, landing at x 320-326 px, about 21 px south of the plate's (T-2997)",
       "status": "open"
     },
     {

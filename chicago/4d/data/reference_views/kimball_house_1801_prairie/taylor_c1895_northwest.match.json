@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "ce62e512fbc87cf3927b4b46b0e34a0c695cb7a2c3ff72c2a83129bfd3830deb",
+  "glb_sha256": "dd7cb36adc19049ce0b8d488c34c76d5ec795f64cbc173acde6b4de4b2f8291a",
   "camera_sha256": "d89ca0a91bccddd25a0ffa04ea98ff95ec08faec3913c2588f95f158db8cedf3",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
   "verdict": "differs",
@@ -63,9 +63,9 @@
       "how": "T-2931: K08 pilasters at the bow's ends (0.22 m, 0.07 m proud) and the pavilion face's corners (0.30 m, 0.08 m proud), one a storey on a base and under a capital, a chain of lozenges on each shaft, the lowest from the 1.75 m sill line on a two-step corbel; K08 surrounds round the bow's lights (0.12 m jambs) and the pavilion's pairs (0.20 m) in two steps under a hood. The bow's north pilaster within about 5 px of the print's (x 1127-1137); the capitals and corbels at the print's heights within about 20 px. The capitals are plain blocks where the print's are carved, and the pavilion's two stand as far south as its face does (the next difference)"
     },
     {
-      "what": "the south pavilion's face renders about 30 px south of the print's at its north corner (the print's pilaster at x 1232-1250, the build's face from about x 1265) and about 55 px at its south corner (x 1340 against about 1395), its pairs of lights and its pilasters with it",
+      "what": "the south pavilion's face renders about 30 px south of the print's at its north corner (the print's pilaster at x 1232-1250, the build's face from about x 1265) and about 55 px at its south corner (x 1340 against about 1395), its pairs of lights and its pilasters with it; and its third storey: the print's pair stands close under a frieze with a roundel and the gable's foot (its head about y 470, the shelf under the gable about y 395-420), where the build's stands with about 3.3 m of blank wall over it to the 13.9 m wall top",
       "status": "open",
-      "how": "T-2540 (the envelope's match records); seen while T-2931 read the pilasters on the pavilion's corners"
+      "how": "T-2999 (seen while T-2931 read the pilasters on the pavilion's corners; the third storey by T-2998)"
     },
     {
       "what": "the bow balcony's pierced panels: the print's balustrade on the bow is pierced in a diagonal lattice of diamonds between posts, one post showing a quarter of the way round from the north wall; the build had square stone balusters",
@@ -90,17 +90,17 @@
     {
       "what": "the roof's dormers and deck: tall hooded dormers in the steep faces, the iron cresting and finials round the deck, the pavilion's and flank's tall stacks; the build's dormers sit sunk in the face and show only their gables, and it has no cresting",
       "status": "open",
-      "how": "T-2540"
+      "how": "T-3000"
     },
     {
       "what": "the gabled section on the flank: a gable facing 18th Street with a balcony at about 11.5 m; the build has a hip there",
       "status": "open",
-      "how": "T-2540"
+      "how": "T-3001"
     },
     {
       "what": "the south and east sides and the rear",
       "status": "not shown",
-      "how": "the camera looks from the north-west; T-2540 reads the HABS photographs for them"
+      "how": "the camera looks from the north-west; T-3003 reads the 1929 and HABS photographs for them"
     },
     {
       "what": "colour: the stone's tone and the slate's",
@@ -108,19 +108,24 @@
       "how": "a monochrome print"
     },
     {
-      "what": "the south pavilion's coped stone gable over its third storey, its apex about 17 m with a carved panel and finial; the build caps the pavilion with K08's low hip at its 13.9 m wall top, where the draft had a steep gable",
+      "what": "the south pavilion's coped stone gable over its third storey, its apex about 17 m with a finial; the build capped the pavilion with K08's low hip",
+      "status": "fixed",
+      "how": "T-2998: K08's gable cap on the pavilion in place of its hip: the front carried up from the 13.9 m wall top between two kneelers over its corners (0.4 m in, to 14.51 m), a stone coping along each rake rising at 2.1 to 17.45 m at the apex, a pinnacle on each kneeler to 15.81 m and a stone finial to 17.95 m, a slate ridge behind it run back to the wall. Read off the print beside its render: the copings' rise of about 3.0 m over a half-width of about 1.4 m (the print's apex at x 1270, y 245 over feet at about y 395-420), the feet about 0.4 m in from the face's corners (the print's base about 74 of the face's 95 px), the pinnacles to about 1.6 m under the apex (y 315 and 365) and the finial about 0.5 m over it (y 220). The gable renders about 60 px high and 65 px south of the print's (apex at x 1335, y 182; finial top y 158) because the face it stands on does (the open difference on the face's place, T-2999); its sections are reconstructed (L-kimball-1801-pavilion-gable-2998)"
+    },
+    {
+      "what": "the south pavilion's gable is filled with a carved panel, a tall leafy relief up the tympanum to the apex; the build's gable face is plain stone",
       "status": "open",
-      "how": "T-2540"
+      "how": "T-3002 (seen by T-2998)"
     },
     {
       "what": "the main cornice: a heavy moulded stone cornice under the roof's faces; the build's eave is K05's plain fascia and soffit (K10's moulded stone cornice stands only under a flat or gable roof)",
       "status": "open",
-      "how": "T-2540"
+      "how": "T-3002"
     },
     {
       "what": "the pavilion and the flank section stand about 0-0.4 m proud on the sheet; the build stands both 0.6 m proud (K08's pavilion depth, the least its window recesses fit in), and the main eave dies behind their faces, and the flank section is 6.0 m wide (K08's widest) against the photograph's about 7.8 m, short of the gabled section",
       "status": "open",
-      "how": "L-kimball-1801-k01-2843; T-2540 reads the flank's sections"
+      "how": "L-kimball-1801-k01-2843; T-2999 reads the pavilion's, T-3001 the flank section's"
     },
     {
       "what": "the east range runs on south behind the gabled section to v 18.3 on the sheet; the build stops it at the gabled section's 6 m (a K01 wing stands inside its host wall); not seen from this camera",
