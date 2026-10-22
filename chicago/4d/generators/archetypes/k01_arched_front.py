@@ -308,6 +308,9 @@ def _voussoirs(a, frame, g, conf, recess):
         a.stone(frame, [(p0, g["sill_m"]), (p1, g["sill_m"]), (p1, g["spring_m"]), (p0, g["spring_m"])], [hj] * 4,
                 "rough_stone_trim", a._stone_seed(cid, inst, j), conf, recess=recess, bevel=wk["bevel_m"], F=0.0)
         j += 1
+    cl = loggia_columns(a.p, g)
+    if cl:   # T-2918: the arch springs from clustered shafts in its jambs
+        _jamb_columns(a, frame, g, cl, conf)
     cv = loggia_carving(a.p, g)
     if cv:   # T-2923: the loggia's carving stands where the keystone would (the print has none)
         _loggia_carving(a, frame, g, cv, conf)
@@ -326,6 +329,54 @@ def loggia_carving(p, g) -> dict:
     if g["component"] not in LOGGIA_ARCHES:
         return {}
     return (((p.entrance_kit or {}).get("loggia") or {}).get("carving")) or {}
+
+
+def loggia_columns(p, g) -> dict:
+    """T-2918: the loggia's jamb columns (`entrance_kit.loggia.columns`) where `g` is its
+    mouth, else an empty dict."""
+    if g["component"] != "k01.opening.door_leaf":
+        return {}
+    return (((p.entrance_kit or {}).get("loggia") or {}).get("columns")) or {}
+
+
+def _jamb_columns(a, frame, g, cl, conf):
+    """T-2918: 1811's porch mouth (the Inland Architect plate of October 1888): each side of
+    the arch a cluster of round shafts standing before the jamb's face, `shafts_m` off the
+    intrados outward, on one plinth a side, each shaft on a square base under a carved
+    capital, a necking ring and a bell flaring to a square abacus whose top is the arch's
+    springing. The plate's capitals are carved leafage finer than its 2.3 cm a pixel; the
+    bell and abacus stand for it (docs/LIBERTIES.md L-k01-1811-ames-front-2541)."""
+    (s0, s1, spring, r, floor), = g["lights"]
+    c = (s0 + s1) / 2
+    rs, pr = cl["radius_m"], cl["proud_m"]
+    ph, bh, ch = cl["plinth_m"], cl["base_m"], cl["capital_m"]
+    left, right = cl["shafts_m"]
+    axes = [c - r - x for x in left] + [c + r + x for x in right]
+    seed = a.instance("k01.wall.jamb_columns", "wall",
+                      {"of": g["component"], "shafts": len(axes), "radius_m": rs,
+                       "shafts_s_m": [round(x, 4) for x in axes], "plinth_top_m": round(floor + ph, 4),
+                       "spring_m": round(spring, 4),
+                       "carving": "a necking ring, a flared bell and an abacus standing for the plate's leafage"},
+                      {"springing": _P(frame, c - r, spring, pr)})
+    mat = "dress_stone"
+    yp, yb, yc = floor + ph, floor + ph + bh, spring - ch
+    bw, aw = rs + 0.03, rs * 1.55
+    for sg, side in ((-1, left), (1, right)):
+        ss = [c + sg * (r + x) for x in side]
+        pa, pb = min(ss) - bw - 0.04, max(ss) + bw + 0.04
+        # the plinth runs back into the jamb's face; its inner end stands on the intrados' line
+        if sg < 0:
+            pb = min(pb, c - r + rs)
+        else:
+            pa = max(pa, c + r - rs)
+        _box(a, mat, frame, pa, pb, floor, yp, 0.0, pr + bw + 0.04, seed, conf, skip=("back", "bottom"))
+        for sc in ss:
+            _box(a, mat, frame, sc - bw, sc + bw, yp, yb, pr - bw, pr + bw, seed, conf, skip=("bottom",))
+            _frustum(a, mat, frame, sc, pr, yb, yc, rs, rs * 0.92, seed, conf)
+            # the necking ring, then the bell from the shaft out to the abacus' corners
+            _frustum(a, mat, frame, sc, pr, yc, yc + 0.04, rs * 1.08, rs * 1.08, seed, conf)
+            _frustum(a, mat, frame, sc, pr, yc + 0.04, spring - 0.06, rs * 0.92, aw, seed, conf)
+            _box(a, mat, frame, sc - aw, sc + aw, spring - 0.06, spring, pr - aw, pr + aw, seed, conf)
 
 
 def _raised(a, frame, poly, d0, d1, seed, conf, mat="dress_stone"):

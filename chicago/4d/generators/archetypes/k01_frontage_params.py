@@ -2410,6 +2410,36 @@ def _loggia_carving(cv, w, h, floor) -> dict:
             "rosette_m": rr, "foot_blocks": {"proud_m": float(fb["proud_m"])}, "balcony_panels": nb}
 
 
+def _loggia_columns(cl, w, h) -> dict:
+    """T-2918: clustered shafts in the jambs of a loggia's mouth (1811's, the Inland Architect
+    plate of 1888), laid by k01_arched_front._jamb_columns: each side a cluster of round
+    shafts `radius_m` thick, their axes `proud_m` before the wall and `shafts_m` [left, right]
+    off the intrados outward along the face, on one plinth a side `plinth_m` over the floor,
+    each on a `base_m` base, under a flared carved capital `capital_m` deep whose abacus
+    carries the arch at its springing."""
+    need = {"shafts_m", "radius_m", "proud_m", "plinth_m", "base_m", "capital_m"}
+    if not isinstance(cl, dict) or set(cl) != need:
+        raise ParamError(f"entrance_kit.loggia.columns takes {sorted(need)}")
+    rs, pr, ph, bh, ch = (float(cl[k]) for k in ("radius_m", "proud_m", "plinth_m", "base_m", "capital_m"))
+    sh = cl["shafts_m"]
+    if not isinstance(sh, list) or len(sh) != 2 or not all(isinstance(x, list) and 1 <= len(x) <= 4 for x in sh):
+        raise ParamError("entrance_kit.loggia.columns.shafts_m is [left, right], one to four offsets a side")
+    sides = [sorted(float(x) for x in side) for side in sh]
+    if not 0.05 <= rs <= 0.2 or not 0.0 <= pr <= rs + 0.05:
+        raise ParamError("entrance_kit.loggia.columns: shafts 0.05-0.2 m in radius, their axes at most a "
+                         "radius and 0.05 m before the wall")
+    for side in sides:
+        if not -rs <= side[0] <= 0.3 or any(b - a < 2 * rs + 0.01 for a, b in zip(side, side[1:])) or side[-1] > 1.0:
+            raise ParamError("entrance_kit.loggia.columns.shafts_m: a cluster from the intrados (at most a "
+                             "radius inside it) out to 1.0 m, its shafts clear of each other")
+    spring = h - w / 2
+    if not 0.3 <= ph <= 1.2 or not 0.02 <= bh <= 0.15 or not 0.1 <= ch <= 0.4 or ph + bh + 0.5 > spring - ch:
+        raise ParamError(f"entrance_kit.loggia.columns: a 0.3-1.2 m plinth, a 0.02-0.15 m base and a 0.1-0.4 m "
+                         f"capital leave a shaft at least 0.5 m under the arch's springing ({spring:.2f} m "
+                         f"over the floor)")
+    return {"shafts_m": sides, "radius_m": rs, "proud_m": pr, "plinth_m": ph, "base_m": bh, "capital_m": ch}
+
+
 def door_arch_of(entrance_kit) -> dict:
     """T-2526: the record's voussoir block round a round-headed door, or {}."""
     return dict(((entrance_kit or {}).get("k01.opening.door_leaf") or {}).get("arch") or {})
@@ -3440,8 +3470,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     if "loggia" in door_kit_in:
         lg = door_kit_in["loggia"]
         need = {"v_m", "depth_m", "ceiling_m"}
-        if not door_arch or "porch_door" not in door_kit_in or not need <= set(lg) <= need | {"side_arch", "carving"}:
-            raise ParamError(f"entrance_kit.loggia takes {sorted(need)} and optionally side_arch and carving, behind a "
+        if not door_arch or "porch_door" not in door_kit_in \
+                or not need <= set(lg) <= need | {"side_arch", "carving", "columns"}:
+            raise ParamError(f"entrance_kit.loggia takes {sorted(need)} and optionally side_arch, carving and "
+                             f"columns, behind a "
                              f"round-arched door's (`arch`) mouth with its porch_door at the back")
         v0, v1 = sorted(float(x) for x in lg["v_m"])
         D, Hc = float(lg["depth_m"]), float(lg["ceiling_m"])
@@ -3497,9 +3529,20 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             loggia["side_arch"] = arch
         if "carving" in lg:
             loggia["carving"] = _loggia_carving(lg["carving"], door_w, door_h, door_floor)
+        if "columns" in lg:
+            if "carving" in lg:
+                raise ParamError("entrance_kit.loggia: its carving's piers or its columns carry the arch, not both")
+            loggia["columns"] = _loggia_columns(lg["columns"], door_w, door_h)
         door_kit["loggia"] = loggia
     # T-2910: a stoop's cheeks swept down from the landing to a block at the foot
-    if "cheek_form" in door_kit_in:
+    if "cheek_form" in door_kit_in and door_kit_in["cheek_form"] == {"kind": "scrolled"}:
+        # T-2918: a stoop's cheeks swept down to a rolled scroll at the foot, K07's carved cheek
+        # (1808's, T-2565); 1811's plate draws its stair between them
+        if "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False or "terrace" in door_kit_in:
+            raise ParamError("entrance_kit.cheek_form 'scrolled' is a stoop's own two cheeks (no side stoop, "
+                             "no terrace)")
+        door_kit["cheek_form"] = {"kind": "scrolled"}
+    elif "cheek_form" in door_kit_in:
         cf = door_kit_in["cheek_form"]
         if not isinstance(cf, dict) or cf.get("kind") != "swept" or set(cf) != {"kind", "head_m", "foot_m", "block_m"} \
                 or "side_stoop" in door_kit_in or door_kit_in.get("cheeks") is False \
