@@ -31250,3 +31250,12 @@ building in place under the same id; T-3014 sources and refines the church.
 **Ticket:** T-3009 (piece 2 of T-2983, the district's background).
 **Review:** `data/components/prairie_1904/edges_census_s35w.json`.
 **Recorded:** 2026-10-22 (T-3009).
+
+### L-k01-1811-oriel-3007 — 1811 Prairie's oriel: its south return's lights, its rounded base and its back over the round
+
+**Decision:** The oriel over 1811 Prairie's entrance arch is rebuilt to the 1888 Inland Architect plate through the T-2541 camera (T-3007): a flat front 0.6 m out from v 6.82 to 9.69 (the plate's x 338-470 px), a square north return the camera cannot see, and a south return splayed back to the wall plane at v 10.10 (x 497 px), over the entrance block's rounded corner; its spire's apex over the front's middle (x 414 against the plate's 416); and a rock-faced base band 5.0-5.7 m whose foot turns under to the wall on a quarter round, in place of K08's three corbel courses. The plan and the heights are read off the plate and graded `inferred`. Four things are invented. (1) The plate shows THREE close-set narrow transomed lights in the return (x 473-491 px, about 0.15 m each on thin mullions); K08 cannot stand three in a 0.73 m return with its frames and its 0.33 m least recess, so two of 0.2 m stand there, covering the same stretch (x 472-488). (2) The round under the base is 0.2 m in radius: the plate shows the band's face ending at about 5.18 m and a shadow under it to the wall at about 5.0 m, not the curve's section. (3) The base's rock face is K08's even coursing (0.35 m courses), not the plate's stone-by-stone layout. (4) Where the return stands over the round, the curve falls away behind the oriel's back by up to 0.23 m; the back is closed on the wall plane from the base's foot to the round's top (8.30 m) in the oriel's walling, so no one looking up the gap sees into it. The plate cannot see that face.
+
+**Re-opens on:** a photograph that shows the oriel's south return or its base close up. T-2920 solves the cameras of 1811's other pictures.
+**Ticket:** T-3007 (piece 3 of T-2989).
+**Review:** `data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.match.json`.
+**Recorded:** 2026-10-22.

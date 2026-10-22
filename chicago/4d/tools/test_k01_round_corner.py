@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""T-3006: K01 rounds a corner of the front block, held on 1811 Prairie's record.
+"""T-3006: K01 rounds a corner of the front block, held on 1811 Prairie's record
+(T-3007: and its oriel carried out over the round).
 
 The 1888 Inland Architect plate shows 1811's entrance block turning its south corner
 (K01's 'north') on a round of about 0.9 m, and its corner downpipe running down the round.
@@ -67,6 +68,16 @@ rad = [math.hypot(q[0] - cu, -q[2] - cv) for q in near]
 check(bool(near) and min(rad) > 0.9 - 0.02 and max(rad) < 0.9 + 0.05,
       f"the round's rock faces lie on its radius ({min(rad, default=0):.3f}-{max(rad, default=0):.3f} m)")
 
+# T-3007: the oriel reaches onto the round from the flat front, its south return splayed back
+# to the wall plane 0.23 m off the curve, and its back is closed on that plane over the round
+ori = next(b for b in p.bays if b["id"] == "oriel")
+gap = KP.round_corner_gap(p.round_corner, p.depth_m, p.width_m, ori)
+check(gap is not None and gap[0] == 9.5 and abs(gap[1] - 10.1) < 1e-6 and 0.2 < gap[2] < 0.25,
+      f"the oriel stands over the round from its tangent to its junction, {gap and gap[2]} m off the curve")
+bo = [q for q in a.prims["bay_stone"].pos] if "bay_stone" in a.prims else []
+check(any(abs(q[0] - p.depth_m) < 1e-6 and 9.5 - 1e-6 <= -q[2] <= 10.1 + 1e-6 and q[1] > 5.0 for q in bo),
+      "its back is closed on the wall plane over the round")
+
 # the house without its round: the front and the side wall meet square, nothing else moves
 plain = copy.deepcopy(st)
 form = plain["phases"][0]["form"]
@@ -95,6 +106,17 @@ refused(variant(lambda f: f["rainwater"]["value"]["front_pipes"][0].update(proud
 refused(variant(lambda f: f["round_corner"]["value"].update(radius_m=1.5)), "a bay standing on the round",
         "the bay oriel")
 refused(variant(lambda f: f.pop("stone_front")), "a round with no stone front", "stone")
+
+
+def oriel_plan(f, pts, asym=True):
+    e = next(b for b in f["bays"]["value"] if b["id"] == "oriel")
+    e["plan"] = {"kind": "polyline", "points": pts, **({"asymmetric": True} if asym else {})}
+
+
+refused(variant(lambda f: f["round_corner"]["value"].update(radius_m=1.2)),
+        "an oriel whose junction stands 0.41 m off a 1.2 m round", "within 0.3 m of the curve")
+refused(variant(lambda f: oriel_plan(f, [[-1.08, 0.0], [-1.08, 0.6], [1.79, 0.6], [2.2, 0.0]], asym=False)),
+        "an asymmetric oriel plan that does not say so", "sizes its oriel's plan")
 
 if failures:
     print(f"test_k01_round_corner: {len(failures)} failure(s)")
