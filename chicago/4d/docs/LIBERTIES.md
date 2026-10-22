@@ -27034,6 +27034,21 @@ houses in the traced sheets' mix. North of 16th Street only Indiana's west face 
 and north of Twelfth only Michigan's (the yards, the lake front and its park lie east). Past the
 450 m near ring a run of three to six lots is one box at the house rules' heights, and a tree there is an
 eight-sided crown with no trunk.
+**Amended (T-3038, 2026-10-22; owner: "you put a building in the middle of the street, fix this and any
+others", then "some white things sitting in the tracks and also some streets that dont quite connect ...
+it seems odd to have streets ending like that"):** east of Calumet Avenue south of its curve at 18th
+Street, the lots no longer stop 46 m behind Calumet's east line with grass beyond: they run back to a
+fence's width (3 m) short of the Illinois Central's west verge, as Sanborn 1911 sheet 28 draws Calumet's
+east lots at 20th Street running from the avenue's line to the railway's, and where the railway bears
+away to the south-east, Calumet's pitch repeated east (the same invented avenues as above) carries the
+city up to the right of way. Every faded street now runs to the right of way and stops at its west verge
+with a square end, as the city's streets met the railway's fence; none is drawn across or along the
+tracks (no crossing or viaduct is claimed). Every stand-in is tested as its whole rectangle, not its
+centre, against the street grid's carriageways, walks, parkways, curbs and alleys, the faded streets with
+a walk's width beside them, the right of way and the stand-ins already placed, and is cut back off them
+or dropped; a sheet's drawn part is cut back the same way where its smallest rectangle overran the
+sheet's own street or alley line. Each block of the projection draws from its own seed. All of this is
+still invented: what stood east of Calumet below 20th Street is on Sanborn 1911 sheet 36, not held.
 **How to resolve:** a 1904 map of the city's streets and land use (the Sanborn volumes' key maps, a
 Rand McNally or Greeley-Carlson plat) traced through the same georeference would place each street,
 replace the zones with what the map draws, and put the South Branch, the yards and the Loop's blocks

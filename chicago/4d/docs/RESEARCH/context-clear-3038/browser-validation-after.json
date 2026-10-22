@@ -1,0 +1,261 @@
+{
+  "method": "Published /1904/ app, normal boot (TAG after); desktop 1280x800 at full detail, mobile 390x780 at light; animation paused after readiness.",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "load_ms_to_ready": 99529,
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "stands": [
+        {
+          "name": "curve-18th-calumet",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 3576,
+            "rendererCalls": 410,
+            "multiDraw": true,
+            "triangles": 5619641,
+            "programs": 77,
+            "geometries": 325,
+            "textures": 944,
+            "batches": 218,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 201,
+            "structuresExpected": 201,
+            "structuresStanding": 201,
+            "bytes": 115903280,
+            "fps": 0,
+            "cameraNear": 1.3,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4600000
+            },
+            "withinBudget": false
+          },
+          "camera": [
+            1578,
+            -3318,
+            36.34
+          ],
+          "target": [
+            1508,
+            -3226,
+            4.28
+          ]
+        },
+        {
+          "name": "church-21st-indiana",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 4568,
+            "rendererCalls": 212,
+            "multiDraw": true,
+            "triangles": 2437844,
+            "programs": 78,
+            "geometries": 323,
+            "textures": 1087,
+            "batches": 218,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 201,
+            "structuresExpected": 201,
+            "structuresStanding": 201,
+            "bytes": 115903280,
+            "fps": 0,
+            "cameraNear": 0.9500000000000001,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 4600000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1350,
+            -3655,
+            28.46
+          ],
+          "target": [
+            1302,
+            -3588,
+            10.47
+          ]
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "load_ms_to_ready": 43266,
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "stands": [
+        {
+          "name": "curve-18th-calumet",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 2902,
+            "rendererCalls": 259,
+            "multiDraw": true,
+            "triangles": 1338116,
+            "programs": 41,
+            "geometries": 294,
+            "textures": 1093,
+            "batches": 218,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 201,
+            "structuresExpected": 201,
+            "structuresStanding": 201,
+            "bytes": 86889136,
+            "fps": 1,
+            "cameraNear": 1.3,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": false
+          },
+          "camera": [
+            1578,
+            -3318,
+            36.34
+          ],
+          "target": [
+            1508,
+            -3226,
+            4.28
+          ]
+        },
+        {
+          "name": "church-21st-indiana",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 1573,
+            "rendererCalls": 47,
+            "multiDraw": true,
+            "triangles": 236668,
+            "programs": 41,
+            "geometries": 295,
+            "textures": 1097,
+            "batches": 218,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.867,
+                  "ktx2": true
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.907,
+                  "ktx2": true
+                }
+              }
+            },
+            "structures": 201,
+            "structuresExpected": 201,
+            "structuresStanding": 201,
+            "bytes": 86889136,
+            "fps": 0,
+            "cameraNear": 0.9500000000000001,
+            "budget": {
+              "drawCalls": 7800,
+              "triangles": 1270000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1350,
+            -3655,
+            28.46
+          ],
+          "target": [
+            1302,
+            -3588,
+            10.47
+          ]
+        }
+      ]
+    }
+  ]
+}
