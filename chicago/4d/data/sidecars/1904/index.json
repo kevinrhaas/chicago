@@ -504,6 +504,18 @@
       "asset": "gltf/house_1932_calumet_coach_house__draft_1904.glb"
     },
     {
+      "id": "house_2000_calumet",
+      "name": "2000 Calumet Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2000_calumet.json",
+      "asset": "gltf/house_2000_calumet__draft_1904.glb"
+    },
+    {
+      "id": "house_2000_calumet_coach_house",
+      "name": "2000 S. Calumet Avenue — the alley building of the house at 2000 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2000_calumet_coach_house.json",
+      "asset": "gltf/house_2000_calumet_coach_house__draft_1904.glb"
+    },
+    {
       "id": "house_2000_prairie",
       "name": "2000 Prairie Avenue — Frame dwelling (district draft; refined by T-1909)",
       "sidecar": "sidecars/1904/house_2000_prairie.json",
@@ -534,6 +546,18 @@
       "asset": "gltf/house_2003_prairie__draft_1904.glb"
     },
     {
+      "id": "house_2004_calumet",
+      "name": "2004 Calumet Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2004_calumet.json",
+      "asset": "gltf/house_2004_calumet__draft_1904.glb"
+    },
+    {
+      "id": "house_2004_calumet_coach_house",
+      "name": "2004 S. Calumet Avenue — the alley building of the house at 2004 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2004_calumet_coach_house.json",
+      "asset": "gltf/house_2004_calumet_coach_house__draft_1904.glb"
+    },
+    {
       "id": "house_2005_prairie",
       "name": "2005 Prairie Avenue — Brick masonry (district draft; refined by T-1912)",
       "sidecar": "sidecars/1904/house_2005_prairie.json",
@@ -562,6 +586,18 @@
       "name": "2011 S. Prairie Avenue — the alley building of the house at 2011 (district draft; refined by T-1938)",
       "sidecar": "sidecars/1904/house_2011_prairie_coach_house.json",
       "asset": "gltf/house_2011_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_2016_calumet",
+      "name": "2016 Calumet Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2016_calumet.json",
+      "asset": "gltf/house_2016_calumet__draft_1904.glb"
+    },
+    {
+      "id": "house_2016_calumet_coach_house",
+      "name": "2016 S. Calumet Avenue — the alley building of the house at 2016 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2016_calumet_coach_house.json",
+      "asset": "gltf/house_2016_calumet_coach_house__draft_1904.glb"
     },
     {
       "id": "house_2017_prairie",
@@ -612,6 +648,36 @@
       "asset": "gltf/house_2027_prairie_coach_house__draft_1904.glb"
     },
     {
+      "id": "house_2032_calumet",
+      "name": "2032 Calumet Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2032_calumet.json",
+      "asset": "gltf/house_2032_calumet__draft_1904.glb"
+    },
+    {
+      "id": "house_2032_calumet_coach_house",
+      "name": "2032 S. Calumet Avenue — the alley building of the house at 2032 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2032_calumet_coach_house.json",
+      "asset": "gltf/house_2032_calumet_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_2032_calumet_shed",
+      "name": "2032 S. Calumet Avenue — the one-storey frame building standing apart in 2032's yard (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2032_calumet_shed.json",
+      "asset": "gltf/house_2032_calumet_shed__draft_1904.glb"
+    },
+    {
+      "id": "house_2100_calumet",
+      "name": "2100 Calumet Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2100_calumet.json",
+      "asset": "gltf/house_2100_calumet__draft_1904.glb"
+    },
+    {
+      "id": "house_2100_calumet_coach_house",
+      "name": "2100 S. Calumet Avenue — the alley building of the house at 2100 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2100_calumet_coach_house.json",
+      "asset": "gltf/house_2100_calumet_coach_house__draft_1904.glb"
+    },
+    {
       "id": "house_2101_prairie",
       "name": "2101 Prairie Avenue — Brick masonry (district draft; refined by T-1924)",
       "sidecar": "sidecars/1904/house_2101_prairie.json",
@@ -622,6 +688,30 @@
       "name": "2101 S. Prairie Avenue — the alley building of the house at 2101 (district draft; refined by T-1938)",
       "sidecar": "sidecars/1904/house_2101_prairie_coach_house.json",
       "asset": "gltf/house_2101_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_2106_calumet",
+      "name": "2106 Calumet Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2106_calumet.json",
+      "asset": "gltf/house_2106_calumet__draft_1904.glb"
+    },
+    {
+      "id": "house_2106_calumet_coach_house",
+      "name": "2106 S. Calumet Avenue — the alley building of the house at 2106 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2106_calumet_coach_house.json",
+      "asset": "gltf/house_2106_calumet_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_2114_calumet",
+      "name": "2114 Calumet Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2114_calumet.json",
+      "asset": "gltf/house_2114_calumet__draft_1904.glb"
+    },
+    {
+      "id": "house_2114_calumet_coach_house",
+      "name": "2114 S. Calumet Avenue — the alley building of the house at 2114 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2114_calumet_coach_house.json",
+      "asset": "gltf/house_2114_calumet_coach_house__draft_1904.glb"
     },
     {
       "id": "house_2120_prairie",
@@ -648,6 +738,12 @@
       "asset": "gltf/house_2123_prairie_coach_house__draft_1904.glb"
     },
     {
+      "id": "house_2124_calumet",
+      "name": "2124 Calumet Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2124_calumet.json",
+      "asset": "gltf/house_2124_calumet__draft_1904.glb"
+    },
+    {
       "id": "house_2125_prairie",
       "name": "2125 Prairie Avenue — Frame dwelling (district draft; refined by T-1930)",
       "sidecar": "sidecars/1904/house_2125_prairie.json",
@@ -660,10 +756,40 @@
       "asset": "gltf/house_2125_prairie_coach_house__draft_1904.glb"
     },
     {
+      "id": "house_2128_calumet",
+      "name": "2128 Calumet Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2128_calumet.json",
+      "asset": "gltf/house_2128_calumet__draft_1904.glb"
+    },
+    {
+      "id": "house_2128_calumet_coach_house",
+      "name": "2128 S. Calumet Avenue — the alley building of the house at 2128 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2128_calumet_coach_house.json",
+      "asset": "gltf/house_2128_calumet_coach_house__draft_1904.glb"
+    },
+    {
       "id": "house_213_e20th",
       "name": "213 East Twentieth Street — Rowhouse, flat behind a cornice (district draft; refined by T-1939)",
       "sidecar": "sidecars/1904/house_213_e20th.json",
       "asset": "gltf/house_213_e20th__draft_1904.glb"
+    },
+    {
+      "id": "house_2140_calumet",
+      "name": "2140 Calumet Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2140_calumet.json",
+      "asset": "gltf/house_2140_calumet__draft_1904.glb"
+    },
+    {
+      "id": "house_2140_calumet_coach_house",
+      "name": "2140 S. Calumet Avenue — the alley building of the house at 2140 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2140_calumet_coach_house.json",
+      "asset": "gltf/house_2140_calumet_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_2140_calumet_shed",
+      "name": "2140 S. Calumet Avenue — the one-storey brick shed on 2140's alley (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_2140_calumet_shed.json",
+      "asset": "gltf/house_2140_calumet_shed__draft_1904.glb"
     },
     {
       "id": "house_215_e20th",
