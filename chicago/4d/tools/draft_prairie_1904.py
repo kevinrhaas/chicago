@@ -548,8 +548,12 @@ def site_record(rules, site, datum, grid) -> dict:
                                          "re-derived from the 1904 street grid's faces and the rules' site row by "
                                          "tools/draft_prairie_1904.py --check instead."}},
             "footprint": {
-                "polygon": [[0.0, 0.0], [round(mu1 - mu0, 3), 0.0], [round(mu1 - mu0, 3), round(mv1 - mv0, 3)],
-                            [0.0, round(mv1 - mv0, 3)]],
+                # the row's outline of every part when it gives one (the walker's walls and the
+                # context's give-way read this polygon), else the main body
+                "polygon": ([[round(q[0] - mu0, 3) + 0.0, round(q[1] - mv0, 3) + 0.0] for q in site["outline_m"]]
+                            if site.get("outline_m") else
+                            [[0.0, 0.0], [round(mu1 - mu0, 3), 0.0], [round(mu1 - mu0, 3), round(mv1 - mv0, 3)],
+                             [0.0, round(mv1 - mv0, 3)]]),
                 "confidence": "inferred", "sources": src,
                 "note": notes["footprint"]},
             "form": {

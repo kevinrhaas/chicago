@@ -1476,12 +1476,54 @@
         "research": "The church stands on Michigan Avenue at 20th Street, west of the three committed Sanborn sheets, so it is drafted from HABS IL-328's measured plan and south elevation and placed on the 1904 grid's measured lines. Its 1904 tower state is the full spire: the 1901 Tribune cut and Sloan's photograph (1901-1925) both show it, and it was lost in 1929.",
         "range": "The rebuilt church was rededicated in November 1901 (Chicago Tribune, 10 November 1901) and stands today; the draft claims the 1904 target.",
         "position": "Michigan Avenue's centre is the e1871 terrain box's reading at 16th Street (E +1136.7), carried south on the bearing of Indiana Avenue's measured east line; its west line is 10.06 m out (the 66 ft every street on the committed sheets prints; Michigan's own width is not read here), and the church's east face stands a reconstructed 3.0 m behind it, as the photograph's lawn strip shows; the south face stands 3.0 m behind East Twentieth Street's measured north line (data/street_grid/1904.json). Good to a few metres.",
-        "footprint": "The main body: the nave and narthex as HABS IL-328 sheet 2 draws them (32.3 x 21.8 m), buttresses left off. The hall and the north aisle are in draft_plan.",
+        "footprint": "The building's whole plan, the nave, the parish hall and the north aisle range as HABS IL-328 sheet 2 draws them, buttresses and the tower's projection left off, so the walls a visitor meets and the ground the context's stand-ins give way to are the church's own; the main body (the nave and narthex, 32.3 x 21.8 m) is draft_plan's first rectangle.",
         "stories": "Three draft storeys of 4.6 m over a 0.9 m floor stand the walls to the 14.7 m eave the 1901 cut shows against the nave's ridge; a church has no storeys, and the count only sets the wall height and the rows of openings.",
         "construction": "Stone: the rock-faced ashlar of the photograph and the 1901 cut, drawn in stone on HABS IL-328's elevations.",
         "plan": "Three rectangles read off HABS IL-328 sheet 2 at its feet bar (the metric bar disagrees by 22 %; the pews' 0.92 m spacing settles which is right): the nave, the parish hall with the chancel rooms beside it, and the north aisle range. The narthex, vestibule and buttresses fold into the rectangles.",
         "elevation": "The nave's ridge stands at HABS sheet 4's 87'-8 1/4\" (26.7 m: a 48-degree gable over the 21.8 m nave) and the hall's gable at its 80'-1\" (24.4 m: 50 degrees over 16.2 m). The tower is HABS sheet 2's 7.9 m square at the south-east corner; its masonry to about 38 m and its spire about 16 m above are proportions read off Sloan's photograph against the nave's ridge (upper figures: the tower stands nearer the camera). Openings are the draft's sash in rows, not the church's lancets, rose and great window, which are T-1942's."
-      }
+      },
+      "outline_m": [
+        [
+          -48.51,
+          0.0
+        ],
+        [
+          -32.34,
+          0.0
+        ],
+        [
+          -32.34,
+          5.96
+        ],
+        [
+          0.0,
+          5.96
+        ],
+        [
+          0.0,
+          27.8
+        ],
+        [
+          -6.81,
+          27.8
+        ],
+        [
+          -6.81,
+          32.34
+        ],
+        [
+          -32.34,
+          32.34
+        ],
+        [
+          -32.34,
+          33.19
+        ],
+        [
+          -48.51,
+          33.19
+        ]
+      ]
     }
   ]
 }
