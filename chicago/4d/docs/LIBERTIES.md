@@ -29278,7 +29278,7 @@ balustrade panels, the downpipes on the front.
 **How to resolve:** T-2544 (the front's detail: the balcony, the arched third storey, the stone lower
 storeys under a brick upper wall) and T-2545 (the flanks, the rear, the roof behind the gable and the
 c. 1955 and 1915 views) replace these choices in place, each against the same camera.
-**Covers:** `wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_front_m`, `wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_side_m`, `wheeler_house_1812_prairie.as_built_1884.form.service_wall_brick`, `wheeler_house_1812_prairie.as_built_1884.form.stone_front`, `wheeler_house_1812_prairie.as_built_1884.form.street_front_trim`, `wheeler_house_1812_prairie.as_built_1884.form.wall_head`, `wheeler_house_1812_prairie.as_built_1884.form.roof_form`, `wheeler_house_1812_prairie.as_built_1884.form.roof_pitch_deg`, `wheeler_house_1812_prairie.as_built_1884.form.eave_overhang_m`, `wheeler_house_1812_prairie.as_built_1884.form.stair_tread_m`, `wheeler_house_1812_prairie.as_built_1884.form.stair_landing_depth_m`, `wheeler_house_1812_prairie.as_built_1884.form.side_bays`, `wheeler_house_1812_prairie.as_built_1884.form.north_bays`, `wheeler_house_1812_prairie.as_built_1884.form.rear_bays`, `wheeler_house_1812_prairie.as_built_1884.form.roof_covering`.
+**Covers:** `wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_front_m`, `wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_side_m`, `wheeler_house_1812_prairie.as_built_1884.form.service_wall_brick`, `wheeler_house_1812_prairie.as_built_1884.form.stone_front`, `wheeler_house_1812_prairie.as_built_1884.form.street_front_trim`, `wheeler_house_1812_prairie.as_built_1884.form.wall_head`, `wheeler_house_1812_prairie.as_built_1884.form.roof_pitch_deg`, `wheeler_house_1812_prairie.as_built_1884.form.eave_overhang_m`, `wheeler_house_1812_prairie.as_built_1884.form.stair_tread_m`, `wheeler_house_1812_prairie.as_built_1884.form.stair_landing_depth_m`, `wheeler_house_1812_prairie.as_built_1884.form.side_bays`, `wheeler_house_1812_prairie.as_built_1884.form.north_bays`, `wheeler_house_1812_prairie.as_built_1884.form.rear_bays`, `wheeler_house_1812_prairie.as_built_1884.form.roof_covering`.
 **Ticket:** T-2543 (piece 1 of T-1884).
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-16 (T-2543).
@@ -31357,3 +31357,40 @@ finials' turnings and the dormers' sections; T-3003's 1929 and HABS photographs 
 **Ticket:** T-3000 (piece 3 of T-2540).
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-22 (T-3000).
+
+### L-k01-1812-wheeler-roof-3033 — 1812 Prairie's roof behind the gable built as a mansard with straight steep slate faces, read off the photographs
+
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-3033, piece 1 of T-2545) stands a
+mansard behind its shaped gable where K01's 45-degree hip stood: straight steep slate faces at
+72 degrees from the side walls' heads (12.45 m) to a level curb at 14.45 m, and an upper hip over
+the curb at 10 degrees in standing-seam tin. The kit learns it: a shaped gable may stand before a
+mansard's street face as well as a hip's street slope, its apex clearing the mansard's ridge, and
+behind a shaped gable a mansard's cornice may be as shallow as the gable's own eave (0.05 m) where
+it otherwise projects 0.3-1.0 m. Every other K01 house re-emits byte-identical.
+**What is read, not invented.** Through the camera T-2543 solved
+(`data/reference_views/wheeler_house_1812_prairie/levy_front.json`), on 3x crops of Levy's print:
+behind each shoulder a slate face laid in level courses under a level moulded cap with nothing over
+it — on the north the cap at y 302-313 px and the face's corner leaning out about 44 px over 143 px
+(about 0.5 m over 1.6 m of rise: a face of about 72 degrees); on the south the cap at y 257-277 px.
+The 1816 Henderson photograph (`chicagology_1816_henderson_photo`) sees 1812's south face over
+1816's roof as one straight steep slate plane with a level top, and the c. 1955 photograph shows
+the same. Rendered, the build's north curb stands at y 294-296 px, within about 8 px of the print's
+cap.
+**What is invented.** The 72-degree chord (read from one corner's lean, not measured on a section);
+the faces straight, with no bow; the rise of 2.0 m, the foot of K01's one-storey range, which puts
+the third storey under the walls' heads and an attic in the faces; the upper hip's 10 degrees and
+its tin, which no picture shows; the curb's own moulding (K05's) for the print's moulded cap; the
+ledge under the kneelers raised 2 cm to 12.57 m, since K01 stands it 0.12 m over a mansard's
+fascia top; the stack's top kept at 17.59 m (2.5 m over the new ridge) where it stood over the hip.
+**What is built otherwise than read.** On the south the print's slate face ends in a vertical band
+just outside the south wall's line, under a heavier cap about 0.4 m over the north cap, with the
+tall stack standing on it: the south wall carried up past the curb as a coped parapet, which the
+build does not have (an open item on the match record, T-3034's).
+**How to resolve:** The c. 1955 photograph's camera (T-3034) reads the south parapet, the stack's
+place and the faces' pitch from a second direction; a section or a building permit drawing would
+settle the rise and the attic.
+The roof's form and its faces are now inferred from Levy's print, so `form.roof_form` leaves L-k01-1812-wheeler-front-2543's Covers; the upper hip's pitch, which no picture shows, stays reconstructed.
+**Covers:** `wheeler_house_1812_prairie.as_built_1884.form.roof_pitch_deg`.
+**Ticket:** T-3033 (piece 1 of T-2545).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-22 (T-3033).

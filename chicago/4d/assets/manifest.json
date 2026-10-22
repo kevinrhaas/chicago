@@ -978,24 +978,24 @@
       "structure_id": "george_glessner_house_1706_prairie"
     },
     "glessner_house__as_built_1887.glb": {
-      "ao_occlusion_mean": 0.546728,
+      "ao_occlusion_mean": 0.549638,
       "archetype": "masonry_house",
       "baked_ao": true,
-      "bytes": 200796624,
-      "inputs_sha256": "67aefe70fe4c0156915e2559b4ab6e221643a321342c74a51c9dc226e0ab4176",
+      "bytes": 200802100,
+      "inputs_sha256": "69961634037aab3113e00088c3dd1a8d0f756a43930958a0a948a85feb01977b",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "web_lods": {
         "light": {
           "asset": "glessner_house__as_built_1887.light.glb",
-          "master_sha256": "21dadfb03caa3e400533dfcc723f2fc8b0cbcbc627dc8e30b96125e73658baa5",
-          "output_sha256": "584339efb240765da24479e4acce9ac18038c6a7fe5f96387e2c531e4327a4d8",
-          "recipe_sha256": "007fe12d4ee9e4953eaa91851f7447ae8170e03469611ab0bae241025334d847",
+          "master_sha256": "40c41087ed07d91fd27716120e1599260d194135dc7430d8519efa9acb68ece9",
+          "output_sha256": "d5c4a4e748dccc7456c9350a60cac888e67c460e06bbf8ab328fd273f02219c8",
+          "recipe_sha256": "b9f6078f9713876e45f657040afdabfb99c71b38273cb32ae567769f4e75dfa0",
           "triangles": 198611
         }
       },
-      "web_master_sha256": "21dadfb03caa3e400533dfcc723f2fc8b0cbcbc627dc8e30b96125e73658baa5"
+      "web_master_sha256": "40c41087ed07d91fd27716120e1599260d194135dc7430d8519efa9acb68ece9"
     },
     "glessner_lee_house_1700_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
@@ -8680,9 +8680,9 @@
     "wheeler_house_1812_prairie__as_built_1884.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 4051792,
+      "bytes": 4087372,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "06aabdfc33acdd70e1105759c20709dea2118118035bacd300ea14adba426c52",
+      "inputs_sha256": "c7fa9ff14a72a96008529badcd57f8d9c91e6c949aced54a447e04ab188b4980",
       "kind": "generated",
       "phase_id": "as_built_1884",
       "structure_id": "wheeler_house_1812_prairie"
