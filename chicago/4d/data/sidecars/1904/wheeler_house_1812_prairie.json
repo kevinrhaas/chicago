@@ -164,18 +164,18 @@
       "note": "No cornice (T-2889): the photograph carries the front up into the shaped gable with no eave or cornice across it, and no picture shows the side walls' heads, so they run plain under the 0.05 m eave, as 1625's (L-k01-1812-wheeler-third-storey-2889). Until T-2889 K10's bracketed timber eave stood here, under a 0.45 m overhang the gable had to stand 0.5 m proud of the wall to cover."
     },
     "roof_form": {
-      "value": "hip",
-      "confidence": "reconstructed",
+      "value": "mansard",
+      "confidence": "inferred",
       "sources": [
         "levy_1812_prairie_photo"
       ],
-      "note": "The photograph shows the roof only at the gable's two front corners, a steep slated slope rising behind each shoulder; the roof behind the gable is T-2545's. Built as K01's hip, its street slope behind the gable (L-k01-1812-wheeler-front-2543)."
+      "note": "T-3033: a mansard behind the shaped gable, as the photographs show it. Albert Levy's print shows, behind each of the gable's shoulders, a steep slate face laid in level courses under a level moulded cap with nothing over it (south: the cap at y 257-277 px, about 14.3-14.5 m over the walk at the front's plane; north: y 302-313 px, about 14.0-14.1 m), and on the north the face's corner leaning out about 0.5 m over 1.6 m of rise, a face of about 72 degrees, not a hip's 45-degree slope rising to a ridge; the 1816 Henderson photograph sees the same straight steep slate face along 1812's south side over 1816's roof with a level top, and the c. 1955 photograph (a18-cgy-1812-wheeler-c1955, link only, T-3034's) shows it again. Until T-3033 this was K01's hip at 45 degrees, its ridge at 16.7 m (L-k01-1812-wheeler-roof-3033). The 1816 Henderson photograph (chicagology_1816_henderson_photo) is cited here in text only: its rights are unresolved, so nothing is built from it; Levy's print alone carries the value."
     },
     "roof_pitch_deg": {
-      "value": 45,
+      "value": 10,
       "confidence": "reconstructed",
       "sources": [],
-      "note": "Steep enough to show at the gable's shoulders as the photograph does, and to stand its ridge (16.7 m) under the gable's apex (17.0 m); the Pennsylvania slate is cut for 45 degrees and steeper (L-k01-1812-wheeler-front-2543)."
+      "note": "The upper hip over the curb, which no picture shows: every print draws a level top over the steep faces with nothing above it, so the hip is laid at 10 degrees, the foot of K05's mansard_upper starting range, as 1637's is, which from Levy's eye stays behind the curb (L-k01-1812-wheeler-roof-3033). It was 45 degrees, K01's hip."
     },
     "eave_overhang_m": {
       "value": 0.05,
@@ -484,15 +484,16 @@
     },
     "roof_covering": {
       "value": {
-        "fabric": "slate_pennsylvania",
+        "fabric": "tin_standing_seam_painted",
         "flashing": "copper_sheet",
-        "caps": "copper_ridge_roll"
+        "caps": "copper_ridge_roll",
+        "lower_faces": "slate_pennsylvania"
       },
       "confidence": "reconstructed",
       "sources": [
         "levy_1812_prairie_photo"
       ],
-      "note": "The photograph's slopes at the gable's shoulders are laid in small units; slate, as the row's other K01 roofs (L-k01-1812-wheeler-front-2543)."
+      "note": "The photograph's faces at the gable's shoulders are laid in small units in level courses; slate, as the row's other K01 roofs (L-k01-1812-wheeler-front-2543). T-3033: those are the mansard's steep lower faces; the upper hip over the curb, which no picture shows, is painted standing-seam tin, as 1620's and 1637's mansards, since K04 slates no roof under 25 degrees (L-k01-1812-wheeler-roof-3033)."
     },
     "chimneys": {
       "value": {
@@ -500,7 +501,7 @@
           1.0,
           0.9
         ],
-        "top_above_ridge_m": 0.9,
+        "top_above_ridge_m": 2.5,
         "cap_proud_m": 0.05,
         "cap_depth_m": 0.15,
         "stacks": [
@@ -515,7 +516,7 @@
       "sources": [
         "levy_1812_prairie_photo"
       ],
-      "note": "The photograph shows one tall corbelled stack over the south wall behind the gable; its place along the wall is reconstructed."
+      "note": "The photograph shows one tall corbelled stack over the south wall behind the gable; its place along the wall is reconstructed. T-3033: with the hip gone the ridge is the mansard's (15.09 m), so the stack's top is kept where it stood (17.59 m, 2.5 m over that ridge, where it was 0.9 m over the hip's 16.7 m); its place and height against the photographs are T-3034's."
     },
     "rainwater": {
       "value": {
@@ -750,14 +751,14 @@
           "height_m": 0.5,
           "radius_m": 0.12
         },
-        "ledge_m": 12.55,
+        "ledge_m": 12.57,
         "takes_gutter": true
       },
       "confidence": "inferred",
       "sources": [
         "levy_1812_prairie_photo"
       ],
-      "note": "The front's shaped gable, read through the photograph's camera at the front's 88.5 px a metre about its centre (695 px, v 4.24 m): the outline's half-width and height over the walk at ten points from the kneelers (4.07 m out at 11.63 m) up the swell (its four lower points drawn in 0.15-0.2 m after the first render was laid over the print), the shoulder stone (1.24 m at 15.14 m) and the drawn-in head to the apex block at 17.0 m, the finial over it to about 17.5 m; the grid window 1.64 m across, its sill 13.33 m and its head 14.59 m over the walk. T-2889: its face brought onto the wall's own plane, as the photograph's is: the eave under it is 0.05 m (eave_overhang_m), so the slab stands 0.02 m before the street fascia and 0.07 m before the wall below, and its foot is set at 12.08 m, just over the third storey's two arched windows (crowns at 12.05 and 12.0 m), whose voussoirs run on up its face; the kneelers stand 4.07 m out, where the print's are, on a ledge at 12.55 m, 0.15 m over the street fascia; and it takes the eave's gutter (takes_gutter), as the print shows no gutter across the front: the gutter's street run is not built and its side runs die into the base, which runs out past the side walls to take them. Built otherwise: under the curves the base runs out square to the eave's corners and up to that ledge, where the photograph's outline leaves the wall at the kneelers, about 11.6-11.7 m; the slab is the side walls' brick where the print shows brick dressed in stone (L-k01-1812-wheeler-front-2543; L-k01-1812-wheeler-third-storey-2889). T-2951: the outline re-read against the print with the render's silhouette laid over it, both sides at a tenth of a metre (the south side reads about 0.25 m wider than the north all the way up, the print's crinkle or a slight roll, so the build takes the mean): the swell 2.98 m out at 13.0 m, 2.43 at 14.0 and 1.83 at 14.5 (built 0.04 m inside each, which the coping's projection gives back in the render), a convex curve swinging in to the shoulder, where the draft stood 0.3-0.5 m wide of it, and the head a bell drawn in from the shoulders (1.10 m at 15.3, 0.92 at 15.75, 0.75 at 16.0, 0.54 at 16.25, 0.35 at 16.5, built 0.05 m inside each) to the finial's square plinth, 0.48 m across from 16.65 m to the apex block at 17.0 m, which the draft drew as a point; the shoulder stones square blocks 0.9-1.62 m out from 14.6 to 15.22 m (the print's south 0.90-1.62 at 14.68-15.3, its north 0.92-1.60 about 0.15 lower), standing over the outline through the slab; the grid window three rows of three lights in the same 1.64 by 1.26 m opening, each light about 0.44 m across between 0.16 m stone mullions and 0.37 m high over a 0.07 m stone transom, one pane each, as the print's dark lights show no bars; and each kneeler a carved scroll console at the front's corner, its roll 0.4 m across from 11.35 m and its body up to a cap under the slab's foot, under a small pinnacle on the ledge 3.85 m out (the print's kneeler stone stands about 3.6-3.95 m out and rises to about 12.85 m). Not built: the window's quoined side stones and the wavy hood over it, the sunk panel in each shoulder stone and the scroll's carving beyond its roll and eye (L-k01-1812-wheeler-gable-2951)."
+      "note": "The front's shaped gable, read through the photograph's camera at the front's 88.5 px a metre about its centre (695 px, v 4.24 m): the outline's half-width and height over the walk at ten points from the kneelers (4.07 m out at 11.63 m) up the swell (its four lower points drawn in 0.15-0.2 m after the first render was laid over the print), the shoulder stone (1.24 m at 15.14 m) and the drawn-in head to the apex block at 17.0 m, the finial over it to about 17.5 m; the grid window 1.64 m across, its sill 13.33 m and its head 14.59 m over the walk. T-2889: its face brought onto the wall's own plane, as the photograph's is: the eave under it is 0.05 m (eave_overhang_m), so the slab stands 0.02 m before the street fascia and 0.07 m before the wall below, and its foot is set at 12.08 m, just over the third storey's two arched windows (crowns at 12.05 and 12.0 m), whose voussoirs run on up its face; the kneelers stand 4.07 m out, where the print's are, on a ledge at 12.55 m, 0.15 m over the street fascia; and it takes the eave's gutter (takes_gutter), as the print shows no gutter across the front: the gutter's street run is not built and its side runs die into the base, which runs out past the side walls to take them. Built otherwise: under the curves the base runs out square to the eave's corners and up to that ledge, where the photograph's outline leaves the wall at the kneelers, about 11.6-11.7 m; the slab is the side walls' brick where the print shows brick dressed in stone (L-k01-1812-wheeler-front-2543; L-k01-1812-wheeler-third-storey-2889). T-2951: the outline re-read against the print with the render's silhouette laid over it, both sides at a tenth of a metre (the south side reads about 0.25 m wider than the north all the way up, the print's crinkle or a slight roll, so the build takes the mean): the swell 2.98 m out at 13.0 m, 2.43 at 14.0 and 1.83 at 14.5 (built 0.04 m inside each, which the coping's projection gives back in the render), a convex curve swinging in to the shoulder, where the draft stood 0.3-0.5 m wide of it, and the head a bell drawn in from the shoulders (1.10 m at 15.3, 0.92 at 15.75, 0.75 at 16.0, 0.54 at 16.25, 0.35 at 16.5, built 0.05 m inside each) to the finial's square plinth, 0.48 m across from 16.65 m to the apex block at 17.0 m, which the draft drew as a point; the shoulder stones square blocks 0.9-1.62 m out from 14.6 to 15.22 m (the print's south 0.90-1.62 at 14.68-15.3, its north 0.92-1.60 about 0.15 lower), standing over the outline through the slab; the grid window three rows of three lights in the same 1.64 by 1.26 m opening, each light about 0.44 m across between 0.16 m stone mullions and 0.37 m high over a 0.07 m stone transom, one pane each, as the print's dark lights show no bars; and each kneeler a carved scroll console at the front's corner, its roll 0.4 m across from 11.35 m and its body up to a cap under the slab's foot, under a small pinnacle on the ledge 3.85 m out (the print's kneeler stone stands about 3.6-3.95 m out and rises to about 12.85 m). Not built: the window's quoined side stones and the wavy hood over it, the sunk panel in each shoulder stone and the scroll's carving beyond its roll and eye (L-k01-1812-wheeler-gable-2951). T-3033: the ledge stands at 12.57 m (it was 12.55): a mansard's fascia tops the wall head (12.45 m) where the hip's dropped by its 0.05 m run, and K01 stands a ledge at least 0.12 m over the fascia; 2 cm is about 2 px in the print."
     },
     "street_front_windows": {
       "value": {
@@ -869,6 +870,19 @@
       ],
       "note": "T-2889: the main wall's street windows read off the photograph through its camera (data/reference_views/wheeler_house_1812_prairie/levy_front.json: level and square to the front, 88.5 px a metre at the main front's plane, the walk at y 1549.6 px, v = 3.54 + (x - 633) / 88.5 m from the south wall), each on 2-3x crops of the print. Second storey, over the entrance: one wide window, 1.64 m across its frame (x 818-962 px) on a stone mullion, two plate lights under a stone transom whose foot is about 0.68 m under the head, the transom's lights low over it; its sill at 6.07 m (y 1013) and its head at 8.03 m (y 840), centred at 6.44 m. Third storey, over the balcony: the large window, 2.78 m between its jambs (x 447-693 px), its jambs rising to a spring at 11.30 m (y 550) and its head a flat segmental arch to a crown at 12.05 m (y 483), rising 0.75 m, a fanlight with radial bars over three lights; its foot is hidden behind the balcony and the projection's top, so its sill is set at 9.9 m, the 0.15 m K08 keeps an opening over where the projection's roof meets the wall (9.73 m). Its voussoirs run out about 0.43 m round the head (y 445 px at the crown), fifteen of them, under a keystone carried to 12.76 m (y 420), 0.37 m across its top. To its north the smaller arched window: 1.2 m across (x 840-946 px), a round head springing at about 11.4 m to a crown at 12.0 m (y 488), its sill at 10.75 m (y 598), centred at 6.48 m, in a ring of about eleven voussoirs 0.4 m deep. Built otherwise: the large window's three lights are a K06 three-light sash, where the print's middle light is wider than the two beside it and carries an arched head of its own, and its fanlight has radial bars only, where the print's also has a concentric bar; the small window is glazed as K06's round fanlight sash, where the print shows it filled with a patterned light or panel; the voussoirs are a ring of equal stones standing 0.1 m before the wall, where the print's alternate long and short into the brick; the transom's small squared glazing is not built (L-k01-1812-wheeler-third-storey-2889). T-2914: the second storey's north window in a dressed quoined surround, as the print's: its jambs a stone about 0.17 m and 0.32 m out from the frame in turn (15 and 28 px at 88.5 px a metre, 3x crops of x 760-1060), the long and short read on both jambs, and a lintel course about 0.17 m deep over the head; the stones' heights are the kit's courses, not the print's joints. T-2915: the carved stone over the north window, read at 4x crops of the print (x 760-1000, y 660-850 px) at the main front's 88.5 px a metre, the walk at y 1549.6: from the lintel up, a fillet at y 790-795 (8.53-8.58 m), the carved frieze to y 757 (8.95 m), an interlace of crossing straps and leaves; a moulded band to y 740 (9.15 m); the patterned band to y 697 (9.63 m), rows of small sunk oblong panels about 30-35 px (0.34-0.40 m) long whose joints break row on row; and a ledge to y 683 (9.79 m). Each runs from the projection's north face (x 775 px) to the north corner. So the front's belts are the photograph's: the 5.4-5.6 m belt under the second storey kept, the moulded band 8.95-9.15 m and the ledge 9.63-9.79 m, where K01 had laid its own 9.30-9.45 m belt at the third floor; and two carved belts between them, carved from s 5.05 m (the projection's north face; behind the projection they are belt courses only) to the corner: the frieze 8.55-8.95 m carved with T-2819's guilloche, rings 0.15 m in radius crossing at 1.5 radii, standing for the print's interlace, and the panel band 9.15-9.63 m in two rows of sunk panels about 0.36 m long between raised ribs, each row's joints halfway along the row under it (L-k01-1812-wheeler-carved-2915)."
     },
+    "mansard": {
+      "value": {
+        "variant": "k05.roof.mansard_convex",
+        "lower_rise_m": 2.0,
+        "lower_pitch_deg": 72,
+        "bulge": 0.0
+      },
+      "confidence": "inferred",
+      "sources": [
+        "levy_1812_prairie_photo"
+      ],
+      "note": "The steep faces straight, as both photographs show them (level slate courses on a plane, no bow), at 72 degrees, the north corner's lean in Levy's print (about 0.5 m out over 1.6 m of rise) and the convex variant's own chord; rising 2.0 m from the side walls' heads at 12.45 m to the curb at 14.45 m, the print's south cap (14.3-14.5 m), where the north cap reads about 0.4 m lower (an open item on the match record). 2.0 m is the foot of K01's one-storey range: the third storey stands under the walls' heads and the faces hold the attic over it (L-k01-1812-wheeler-roof-3033). The 1816 Henderson photograph (chicagology_1816_henderson_photo) is cited here in text only: its rights are unresolved, so nothing is built from it; Levy's print alone carries the value."
+    },
     "function": {
       "value": "residence",
       "confidence": "inferred",
@@ -942,7 +956,7 @@
       ]
     }
   ],
-  "research_note": "Refined from the district draft (T-2329) in place under the same id by T-2543, piece 1 of T-1884: K01 frontage kit, built from Albert Levy's photograph (levy_1812_prairie_photo, camera data/reference_views/wheeler_house_1812_prairie/levy_front.json) on the 1911 sheet's plan (s28fp-1812-b1). What the kit cannot yet build as the photograph shows is listed in the camera's match record and is T-2544's and T-2545's; every invention is L-k01-1812-wheeler-front-2543.",
+  "research_note": "Refined from the district draft (T-2329) in place under the same id by T-2543, piece 1 of T-1884: K01 frontage kit, built from Albert Levy's photograph (levy_1812_prairie_photo, camera data/reference_views/wheeler_house_1812_prairie/levy_front.json) on the 1911 sheet's plan (s28fp-1812-b1). What the kit cannot yet build as the photograph shows is listed in the camera's match record and is T-2544's and T-2545's; every invention is L-k01-1812-wheeler-front-2543. T-3033 (piece 1 of T-2545): the roof behind the gable is a mansard, read from Levy's print with the 1816 Henderson photograph and the c. 1955 photograph (a18-cgy-1812-wheeler-c1955, link only, whose camera is T-3034's) beside it (L-k01-1812-wheeler-roof-3033). Of the three pictures the image store lists for 1812, the third, the Chicago Tribune's item of July 16, 1915 (cgn-1812-tribune-1915-mabel-wheeler-young), is a newspaper portrait of a person and shows no part of the house: no camera is solved on it and nothing is read from it.",
   "research_doc": "",
   "review_required": false
 }
