@@ -39,7 +39,8 @@ export async function mount(el, ctx = {}) {
       row.className = 'nav-person';
       if (p.lives_at) {
         row.type = 'button';
-        row.addEventListener('click', () => { ctx.navigator?.dock?.(); ctx.actions?.inspect?.(p.lives_at); });
+        // T-3022: the house opens in Inspect, whose Back returns here.
+        row.addEventListener('click', () => { ctx.actions?.inspect?.(p.lives_at); });
       }
       const name = Object.assign(doc.createElement('span'), { className: 'nav-person-name', textContent: p.name });
       const sub = Object.assign(doc.createElement('span'), { className: 'nav-sub',

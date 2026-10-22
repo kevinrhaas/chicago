@@ -14471,7 +14471,7 @@ for (const [label, viewport, touch] of [
     // retired list did, and the device docks.
     const beforePick = await page.evaluate(() => {
       const api = window.__chicago4d;
-      api.popup.close();
+      api.closeBuilding();
       api.setTravelMode('instantly');
       const box = document.getElementById('welcome-search');
       box.value = 'Sauganash';
@@ -14484,14 +14484,14 @@ for (const [label, viewport, touch] of [
       const api = window.__chicago4d;
       const out = {
         moved: +Math.hypot(api.walker.state.e - b.e, api.walker.state.n - b.n).toFixed(1),
-        phase: api.travelState.phase, card: api.popup.openId,
+        phase: api.travelState.phase, card: api.inspecting,
         message: document.getElementById('welcome-message')?.textContent ?? '',
         detent: api.navigator.detent, welcome: api.welcome.state,
       };
       const box = document.getElementById('welcome-search');
       box.value = '';
       box.dispatchEvent(new Event('input', { bubbles: true }));
-      api.popup.close();
+      api.closeBuilding();
       return out;
     }, beforePick);
     check(`${label}: in the town, a Go to pick goes there — the walker moves or the ride starts, and no refusal shows (T-2620)`,
@@ -14572,7 +14572,7 @@ for (const [label, viewport, touch] of [
       out.back = await settle(() => getComputedStyle(popup).visibility === 'visible'
         && getComputedStyle(popup).transform === 'none');
       out.backHidden = popup.hasAttribute('hidden');
-      api.popup.close();
+      api.closeBuilding();
       return out;
     });
     check(`${label}: opening the drawer tucks an open card aside without closing it`,
@@ -14869,7 +14869,7 @@ for (const [label, viewport, touch] of [
       const WALK = api.walkBudget;
       const out = {};
       const dist = (id) => { const p = api.structurePosition(id); return +Math.hypot(p.e - w.state.e, p.n - w.state.n).toFixed(2); };
-      api.popup.close();
+      api.closeBuilding();
       api.setFly(false);
       api.goTo('south_water');
       api.setPace('walk');
@@ -14897,11 +14897,11 @@ for (const [label, viewport, touch] of [
       }
       out.arrive = { phase: r.phase, seconds: +r.seconds.toFixed(1), budget: +budget.toFixed(0),
         samples: r.samples.length, onStreetPct: +(100 * on / Math.max(1, r.samples.length)).toFixed(0),
-        distToCentre: dist('sauganash_hotel'), card: api.popup.openId, framed: framed('sauganash_hotel'),
+        distToCentre: dist('sauganash_hotel'), card: api.inspecting, framed: framed('sauganash_hotel'),
         bannerHidden: banner.hasAttribute('hidden'), eye: +(w.state.eyeY - w.state.groundY).toFixed(2) };
       // Own input stops a ride — the same call tick() makes, with the visitor's
       // forward set; the intent is theirs and is left as they wrote it.
-      api.popup.close();
+      api.closeBuilding();
       api.goTo('south_water');
       api.goToTarget({ kind: 'structure', id: 'sauganash_hotel', label: 'Sauganash Hotel' });
       for (let i = 0; i < 10; i++) { api.travel.update(1 / 30, api.intent); w.update(1 / 30, api.intent); api.travel.afterWalk(api.intent, 1 / 30); }
@@ -14952,7 +14952,7 @@ for (const [label, viewport, touch] of [
       const framed = eval(FRAMED);
       const w = api.walker;
       const dist = (id) => { const p = api.structurePosition(id); return +Math.hypot(p.e - w.state.e, p.n - w.state.n).toFixed(1); };
-      api.popup.close();
+      api.closeBuilding();
       api.setFly(false);
       api.goTo('south_water');
       api.setTravelMode('fly');
@@ -14962,16 +14962,18 @@ for (const [label, viewport, touch] of [
       const r = api.travelSimulate(300);
       const fly = { target: far, ok, phase: r.phase, seconds: +r.seconds.toFixed(1),
         maxAltitude: +r.maxAltitude.toFixed(1), flying: w.state.flying, altitude: +w.state.altitude.toFixed(2),
-        distToCentre: dist(far.id), card: api.popup.openId, framed: framed(far.id) };
+        distToCentre: dist(far.id), card: api.inspecting, framed: framed(far.id) };
       // And instantly is still instant.
       api.setTravelMode('instantly');
-      api.popup.close();
+      api.closeBuilding();
       const okI = api.goToTarget({ kind: 'structure', id: 'sauganash_hotel', label: 'Sauganash Hotel' });
-      const instant = { ok: okI, phase: api.travelState.phase, card: api.popup.openId,
+      const instant = { ok: okI, phase: api.travelState.phase, card: api.inspecting,
         dist: dist('sauganash_hotel'), bannerHidden: document.getElementById('travel-banner').hasAttribute('hidden') };
-      api.popup.close();
+      api.closeBuilding();
       return { fly, instant };
     }, FRAMED);
+    // T-3022: an arrival opens the building in the Navigator's Inspect, not the card;
+    // `api.inspecting` is whichever the visitor has open, and `closeBuilding` lets it go.
     check(`${label}: flying to a far building climbs to a cruise height, lands and opens its card`,
       flight.fly.ok && flight.fly.phase === 'idle' && flight.fly.maxAltitude >= 20
       && flight.fly.flying === false && flight.fly.altitude < 0.5
@@ -15276,10 +15278,10 @@ for (const [label, viewport, touch] of [
         verb: document.getElementById('travel-verb').textContent.trim() };
       const r = api.travelSimulate(((st.dist_m ?? 300) / 6.5) + 30);
       const p = api.structurePosition('hogan_store');
-      const end = { phase: r.phase, seconds: +r.seconds.toFixed(1), card: api.popup.openId,
+      const end = { phase: r.phase, seconds: +r.seconds.toFixed(1), card: api.inspecting,
         distToCentre: +Math.hypot(p.e - w.state.e, p.n - w.state.n).toFixed(2), framed: framed('hogan_store') };
       api.setTravelMode('instantly');
-      api.popup.close();
+      api.closeBuilding();
       api.people.close();
       return { start, end, cardClosed: document.getElementById('people-card').hasAttribute('hidden') };
     }, FRAMED);
@@ -16103,7 +16105,8 @@ for (const [label, viewport, touch] of [
       fieldSent.length === 0 && fieldLogRun.beacons.length === 0,
       JSON.stringify({ sent: fieldSent.slice(0, 5), beacons: fieldLogRun.beacons, watched: fieldRequests.length }));
     // <<< T-2660
-    // >>> T-2657: Researcher mode, the Settings › About switch. Off by default: no RESEARCHER
+    // >>> T-2657: Researcher mode, the Settings switch (T-3022: Expert research, Settings ›
+    // Research, the first group; it was in About). Off by default: no RESEARCHER
     // label, no [data-researcher] element drawn, the short "Why" hints shown and the full
     // essays not. The switch (a hit-tested click; a miss is this check's failure, read below,
     // and never aborts the part) turns it on: the label sits at the top, clear of the year
@@ -16121,7 +16124,7 @@ for (const [label, viewport, touch] of [
       return {
         attr: document.documentElement.hasAttribute('data-researcher-mode'), apiOn: api.researcher?.on ?? null,
         checked: document.getElementById('s-researcher')?.checked ?? null,
-        inAbout: !!document.getElementById('s-researcher')?.closest('#s-about'),
+        inAbout: !!document.getElementById('s-researcher')?.closest('#s-research'),
         stored: localStorage.getItem('chicago4d.researcher'),
         badge: shown(badge) && !!box(badge)?.w, badgeText: badge?.textContent.trim() ?? '', badgeBox: box(badge),
         year: box(document.getElementById('year-badge')), instrument: box(document.getElementById('hud-instrument')),
@@ -16147,7 +16150,7 @@ for (const [label, viewport, touch] of [
       const a = researchOff, b = researchOn, c = researchBack;
       const clear = (x, y) => !x || !y || x.r <= y.l || y.r <= x.l || x.b <= y.t || y.b <= x.t;
       const inView = (x) => !!x && x.l >= 0 && x.r <= b.innerW + 1 && x.t >= 0 && x.b <= b.innerH;
-      check(`${label}: Researcher mode is off by default; Settings › About's switch shows the RESEARCHER label and the full "Why this default" essays, is remembered, and turns off again (T-2657)`,
+      check(`${label}: Researcher mode is off by default; Settings › Research's Expert research switch shows the RESEARCHER label and the full "Why this default" essays, is remembered, and turns off again (T-2657)`,
         a.inAbout && !a.attr && a.apiOn === false && a.checked === false && a.stored === null && !a.badge
         && a.researchAll > 0 && a.researchShown === 0 && a.standShown === a.standAll && a.whys === 3 && a.full === 0 && a.hints === 3
         && !researchClick && b.attr && b.apiOn === true && b.checked === true && b.stored === 'on'
@@ -19367,13 +19370,15 @@ for (const [label, viewport, touch] of [
       // down the crosshair, so a test that has not aimed is testing the prairie.
       window.__chicago4d.frame('sauganash_hotel', 26);
     });
-    await page.evaluate(() => window.__chicago4d.popup.close());
+    // T-3022: what a visitor opens on a building opens in the Navigator's Inspect, not the
+    // card; `api.inspecting` names the building on screen either way.
+    await page.evaluate(() => window.__chicago4d.closeBuilding());
     await page.keyboard.press('Space');
     await page.waitForTimeout(250);
     const spaceOnFoot = await page.evaluate(() => ({
       alt: window.__chicago4d.player.altitude,
       flying: window.__chicago4d.player.flying,
-      inspected: !document.getElementById('popup').hasAttribute('hidden'),
+      inspected: !!window.__chicago4d.inspecting,
     }));
     check(`${label}: Space inspects on foot instead of lifting off`,
       spaceOnFoot.flying === false && Math.abs(spaceOnFoot.alt) < 0.2 && spaceOnFoot.inspected,
@@ -19390,19 +19395,16 @@ for (const [label, viewport, touch] of [
     // open right now, left by the Space assertion above.
     await page.keyboard.press('Escape');
     await page.waitForTimeout(150);
-    const escClosed = await page.evaluate(() =>
-      document.getElementById('popup').hasAttribute('hidden'));
+    const escClosed = await page.evaluate(() => !window.__chicago4d.inspecting);
     check(`${label}: Escape closes the inspection card`, escClosed,
       `card hidden after Escape: ${escClosed}`);
 
     await page.keyboard.press('Space');            // same crosshair, reopens
     await page.waitForTimeout(300);
-    const reopened = await page.evaluate(() =>
-      !document.getElementById('popup').hasAttribute('hidden'));
+    const reopened = await page.evaluate(() => !!window.__chicago4d.inspecting);
     await page.keyboard.press('KeyE');
     await page.waitForTimeout(300);
-    const keyToggled = await page.evaluate(() =>
-      document.getElementById('popup').hasAttribute('hidden'));
+    const keyToggled = await page.evaluate(() => !window.__chicago4d.inspecting);
     check(`${label}: the inspect key closes the card it opened`,
       reopened && keyToggled,
       `reopened ${reopened}, closed by the same key ${keyToggled}`);
@@ -19422,24 +19424,25 @@ for (const [label, viewport, touch] of [
     // Read the box BEFORE Escape: Chromium natively clears a type=search
     // input on Escape, so reading after would show empty even though the
     // keystroke typed rather than fired.
+    // T-3022: Go to takes the Navigator from Inspect, so what must not happen is E opening
+    // or toggling anything: Go to stays the open app, and nothing is inspected.
     const typedE = await page.evaluate(() => ({
-      cardOpen: !document.getElementById('popup').hasAttribute('hidden'),
+      cardOpen: window.__chicago4d.navigator.app === 'jaunts' && !window.__chicago4d.inspecting,
       typed: document.getElementById('welcome-search')?.value ?? '',
     }));
     await page.keyboard.press('Escape');
     await page.waitForTimeout(150);
-    const afterEsc = await page.evaluate(() =>
-      !document.getElementById('popup').hasAttribute('hidden'));
+    const afterEsc = await page.evaluate(() => !window.__chicago4d.inspecting);
     check(`${label}: neither key fires while typing in Go-to`,
       typedE.cardOpen && typedE.typed.includes('e') && afterEsc,
-      `E typed "${typedE.typed}" with card open ${typedE.cardOpen}, `
-      + `card open after Escape ${afterEsc}`);
+      `E typed "${typedE.typed}" with Go to open and nothing inspected ${typedE.cardOpen}, `
+      + `nothing inspected after Escape ${afterEsc}`);
     await page.evaluate(() => {
       const box = document.getElementById('welcome-search');
       if (box) { box.value = ''; box.dispatchEvent(new Event('input', { bubbles: true })); }
       window.__chicago4d.navigator.select('home');
       window.__chicago4d.navigator.dock();
-      window.__chicago4d.popup.close();
+      window.__chicago4d.closeBuilding();
     });
 
     // --- inspecting from the air --------------------------------------------
@@ -19501,13 +19504,15 @@ for (const [label, viewport, touch] of [
       await new Promise((r) => setTimeout(r, 400));
       api.step();
       await new Promise((r) => setTimeout(r, 200));
+      // T-3022: the building opens in Inspect (its id, and its name on Inspect's page).
+      const insp = document.getElementById('nav-app-inspect');
       return { locked, before: before.slice(0, 40),
-               after: (document.querySelector('#popup')?.textContent ?? '').slice(0, 80) };
+               after: `${api.inspecting ?? ''} ${insp?.querySelector('.insp-name')?.textContent ?? ''} ${document.querySelector('#popup')?.textContent ?? ''}`.trim().slice(0, 80) };
     });
     check(`${label}: a click under the crosshair inspects`,
       /Sauganash/i.test(clickPick.after),
-      `popup after click: "${clickPick.after}"`);
-    await page.evaluate(() => window.__chicago4d.popup.close());
+      `inspected after click: "${clickPick.after}"`);
+    await page.evaluate(() => { const a = window.__chicago4d; a.closeBuilding(); a.navigator.select('home'); a.navigator.dock(); });
     await page.evaluate(() => window.__chicago4d.frame('sauganash_hotel', 26));
 
     // --- the 1904 scene's front door (T-1739) --------------------------------
