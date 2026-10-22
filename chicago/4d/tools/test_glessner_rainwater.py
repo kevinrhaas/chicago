@@ -75,6 +75,15 @@ for reduced in (False,True):
             assert min(distance_to_segment(q,a,c) for a,c in zip(target['path'],target['path'][1:]))<.001
     # T-2861: a trough with its own section (the bow's, off sheet 4) keeps its own floor.
     trough={k:r.get('section',{}) for r in net['gutters'] for k in r['drains']}
+    if cfg.get('bow_leader'):
+        # T-2939: sheet 4 draws the court-bow leader side-on: its back on the north range's court
+        # face, 0.10 m deep, under a head hung from the trough's floor, and neither in the bow.
+        row=leaders['court-bow'];h=row['hopper'];north=next(r for r in p.ranges if r['name']=='north_range')['y0']
+        bow=next(t for t in p.bows if t['name']=='hall_bow')
+        assert row['normal']==(0,-1,0) and abs(row['mount'][1]+row['depth_m']/2-north)<.005
+        assert abs(h['centre'][2]-row['mouth'])<1e-9 and h['neck']==row['depth_m']
+        for y in (north-h['depth'],row['mount'][1]-row['depth_m']/2):
+            assert h['centre'][0]+h['width']/2<bow['cx']-math.sqrt(bow['r']**2-(y-bow['cy'])**2),'court-bow head in the bow'
     for row in leaders.values():
         assert row['spout'][0][2]>row['spout'][1][2]
         floor=row['inlet'][2]-trough.get(row['name'],{}).get('depth_m',cfg['gutter_depth_m'])-.012
