@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2181, ts: '2026-10-22T13:36:55.080Z', date: 'Oct 22, 2026, 8:36 AM CT', title: '1811 Prairie\'s oriel brought down to its cornice in the 1888 plate', kind: 'fix',
+    items: [
+      'The oriel over 1811 Prairie\'s entrance now carries its cornice at the plate\'s height, about 0.4 m lower than before, so its slate spire rises from the same line as in the 1888 Inland Architect plate.',
+      'A close look at the plate shows the entrance\'s south corner is rounded, not square. The arcade beside the porch and the oriel\'s side wall both turn round it. That corner is now its own piece of work.',
+    ] },
   { v: 2180, ts: '2026-10-22T12:43:23.224Z', date: 'Oct 22, 2026, 7:43 AM CT', title: '1801 Prairie\'s south pavilion rises to its stone gable', kind: 'feature',
     items: [
       'The Kimball house\'s south pavilion on Prairie Avenue now ends in the steep coped stone gable J. W. Taylor\'s photograph of about 1895 shows, with a pinnacle at each corner and a finial at the peak, where it had a low hipped cap.',
