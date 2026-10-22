@@ -42622,6 +42622,10 @@
           "text": "the bow's trough takes native sheet 4's section in place of the shared box: its face 0.094 m out from the bow wall and 0.11 m deep (read 0.31 ft out at the drawn south end and 0.35 ft at the cut north end, foot at 27.0-27.04 ft under the 27.38 ft eave), with no fascia board under it because none is drawn. The section's outline is the drawing's. Its moulding, its 3 mm stock, its back set 35 mm into the wall top and its outlet moved to the narrower trough's middle are reconstructed. The court-bow leader under it is unchanged and is compared with sheet 4 by later work."
         },
         {
+          "label": "Revised 2026-10-22",
+          "text": "native sheet 4 draws the court-bow leader side-on (the research notes on glessner court bow leader): its back on the north range's court-face line (S26.2), its front at S26.53, so the pipe stands in the corner with the bow on that wall, 0.10 m deep, and the 160 by 100 mm stock turns its broad fluted face south. Under the trough's floor (27.04 ft) hangs a head 0.229 m (0.75 ft) deep off the wall, straight-fronted down to 26.56 ft and stepping in to the pipe by 25.8 ft. The outline of the head and the pipe's depth are the drawing's. The head's width along the wall (the pipe's plus its stock, 0.172 m), its 3 mm stock, its fixing, the drop from the trough's outlet hidden inside it, and the two round features drawn on its side (a ring 0.37 ft across and a stud 0.12 ft across, built as shallow bosses because the drawing does not say what they are) are reconstructed."
+        },
+        {
           "label": "Recorded",
           "text": "2026-10-14 (T-2221)."
         },
@@ -49699,6 +49703,43 @@
         "T-2327",
         "T-1934",
         "T-1946"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-pavilion-face-3015",
+      "title": "1801 Prairie's south pavilion's face and heights re-read off the Taylor photograph: its north cheek at the bow, its gable lowered to the print's springing, and its depth held at 0.6 m by its window recesses and the main eave's gutter",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-22",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "1801 Prairie's south pavilion is re-stood and re-heighted from J. W. Taylor's c. 1895 photograph (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…), read through the Taylor camera beside its render. **What is read, not invented.** That the face's north pilaster (x 1232-1250 on the print) stands against the bow's balustrade, so its north cheek stands at the bow's south junction (v 6.85, 0.1 m clear of the bow's chord; the render's cheek at x 1245), and the face runs from there to the corner the 1911 sheet and the print give it, 4.15 m (it stood 3.6 m from v 7.4). That the shelf the gable springs from stands at y 397-420 on the print, about 13.2 m at the face's depth, where earlier work had read about 13.9 m and the build's gable and finial rendered about 60 px over the print's: the third storey is 5.1 m and the wall top 13.2 m. That the coping's apex stands at about y 248 (about 16.2 m) and the finial's top at y 220 (about 16.7 m), the pinnacles' tips at y 310 and 365 (about 14.6 m), and the rake falls about 2.6 m over about 1.6 m on the wider face: pitch 1.5 (laid 2.1 on the 3.6 m face), the apex built to 16.32 m, the finial to 16.82 m and the pinnacles to 14.66 m on 0.4 m shafts under 0.45 m caps. That the third storey's pair stands close under the frieze, its head at y 478 and its sill on the main cornice's line: built 1.85 m from 9.6 m (it stood 1.8 m from 8.8 m). **What is invented or held by the kit.** The pavilion still stands 0.6 m proud where the sheet draws it 0-0.1 m with its south-west corner chamfered about 0.45 m: K08's window recesses run 0.55 m behind the face, and the main eave's gutter runs on across the front with its lip 0.46 m out (K01 does not stop it at a full-height projection under a mansard), so nothing shallower keeps both inside it; the corner is square. So the face's south corner still renders about 60 px south of the print's (x 1400 against 1335-1340) and the gable's apex about 55 px (x 1325 against 1270). The frieze over the third storey's pair, a dressed band with a roundel on the print, is plain wall ('s carving). The kneelers', copings', pinnacles' and finial's sections stay earlier work's reconstruction (“1801 Prairie's south pavilion under its coped stone gable: the gable's feet, rise and finial read through the camera, its copings', kneelers' and pinnacles' sections and the slate behind it reconstructed”), the pinnacles shortened to the print's tips."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work teaches K01 to stop the mansard's eave box and gutter at a full-height projection's cheeks, K08's windows to recess into a shallow projection and its gable to stand on a shallow canted plan, then stands the face at the sheet's 0-0.1 m with its chamfer and re-checks the Taylor camera's south-west bearing."
+        },
+        {
+          "label": "Review",
+          "text": "the taylor c1895 northwest match data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-22 (T-3015)."
+        }
+      ],
+      "work_refs": [
+        "T-3015",
+        "T-2999",
+        "T-2998",
+        "T-3002",
+        "T-2538",
+        "T-3016"
       ]
     },
     {

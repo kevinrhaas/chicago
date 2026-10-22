@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 200782504,
-      "sha256": "1796f8979e0f31621128907feb61d92193e1d741c4e6ed947f35c9d80a2e013c",
+      "bytes": 200796192,
+      "sha256": "d8c49aa9d1b67d2368e1994a4d555d55196f31619d63680a2bfeb0e030e83de8",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -21,13 +21,13 @@
       "mesh": {
         "draw_primitives": 31,
         "materials": 31,
-        "triangles": 1391104,
-        "vertices": 3199808
+        "triangles": 1391262,
+        "vertices": 3200074
       },
       "texture": {
         "images": 38,
         "textures": 73,
-        "encoded_bytes": 31285315,
+        "encoded_bytes": 31285286,
         "pixels": 68681032,
         "gpu_rgba8_mip_bytes": 366298837,
         "largest_px": 4096
@@ -337,8 +337,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 44624408,
-      "sha256": "0799cef19caacee6f8ce127e2f5ee0d7bacee8a3c6f1cb3397e19e0acfd32abb",
+      "bytes": 44625460,
+      "sha256": "71613f7bf16c4de44ccf1710e53c6399589f55ba711430e8397f5278aad91afe",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -358,13 +358,13 @@
       "mesh": {
         "draw_primitives": 31,
         "materials": 31,
-        "triangles": 1391104,
-        "vertices": 2537169
+        "triangles": 1391262,
+        "vertices": 2537436
       },
       "texture": {
         "images": 37,
         "textures": 37,
-        "encoded_bytes": 17228211,
+        "encoded_bytes": 17228216,
         "pixels": 62390272,
         "gpu_rgba8_mip_bytes": 332748117,
         "largest_px": 2048
@@ -661,8 +661,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 15630036,
-      "sha256": "9d5e262b4777b778663af806472a7f35d136f11299e812fb99a1e5ca85bb6f7a",
+      "bytes": 15630532,
+      "sha256": "e8cb66eafe3fb32d5a24748e484a9957eab05f3e4507551577fe2ab664b6a9bd",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -682,13 +682,13 @@
       "mesh": {
         "draw_primitives": 28,
         "materials": 28,
-        "triangles": 198327,
-        "vertices": 386827
+        "triangles": 198425,
+        "vertices": 386986
       },
       "texture": {
         "images": 37,
         "textures": 37,
-        "encoded_bytes": 12185223,
+        "encoded_bytes": 12185255,
         "pixels": 34078720,
         "gpu_rgba8_mip_bytes": 181753173,
         "largest_px": 1024
@@ -732,7 +732,7 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 238,
+        "degenerate": 237,
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,

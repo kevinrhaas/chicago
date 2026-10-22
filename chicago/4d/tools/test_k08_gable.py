@@ -140,7 +140,8 @@ def main() -> int:
     bad["roof"]["gable"]["coping"]["width_m"] = 0.8
     refused(bad, "a coping deeper than the projection", "the coping's back")
     bad = copy.deepcopy(v)
-    bad["roof"]["gable"]["kneeler"]["width_m"] = 1.5
+    # wide enough on any face to leave under a metre between them (T-3015 widened 1801's to 4.15 m)
+    bad["roof"]["gable"]["kneeler"]["width_m"] = (xr - xl) / 2 - 0.3
     refused(bad, "kneelers that leave no gable", "leave the gable a metre across")
     bad = copy.deepcopy(v)
     bad["roof"]["gable"]["kneeler"]["out_m"] = 0.0
