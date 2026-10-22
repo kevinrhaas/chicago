@@ -46221,8 +46221,12 @@
           "text": "2026-10-22 (T-2987 and T-2990, pieces of T-2919 and T-2984). The north bay is rock-faced in large courses up to its first floor's sill course and smooth ashlar over it, as the plate shows: K08's rock-faced relief on its basement and ground storeys only (`masonry.to_m`). The plate's two front downpipes are built, beside the bay's south return and down the entrance block's south corner, each from a rainwater head of its own (K01's front pipes, which a gable roof may now carry with no eave gutter). The cheeks' scrolls stand on plain foot blocks 0.7 m tall, as the plate draws them. What that build invents: the courses' even rhythm and 0.6 m by 1.1 m blocks for the plate's stone-by-stone layout; the pipes' fabric and paint (K04's painted tin, round; the print reads them only as pale), their heads, straps and splash stones, and the heads' 7.85 m under the build's cornice, about 0.4 m under the plate's; the foot blocks' plain faces and their depth, the roll's half. Not built, each its own ticket now: the bay's canted north face (T-2988), the oriel's flat front, square returns, rounded base and lower cornice (T-2989), and the porch's south arcade (T-2991), the last two after a re-read of the entrance block's south corner, which the oriel's return and the arcade put near x 467-470 px where the camera solve puts it at x 510."
         },
         {
+          "label": "Revised",
+          "text": "2026-10-22 (T-2988, piece of T-2919). The bay's north face is canted, as the 1911 sheet draws it and the plate shows it, dark and foreshortened at x 60-112 px: K01's projection may now cant a cheek (`cant_left_m`), and the bay's north cheek runs from the main wall 0.3 m from the front's north corner to the bay front's north corner at v 2.29, 1.0 m out, the camera solve's point. On it one light a storey, at the front windows' sills and heads, landing at x 97-108 px against the plate's 92-107; the cornice, the string courses and the stone balustrade run round it. The front's north window moves 0.47 m south onto the plate's (x 143-188 px against 137-190). What that build invents: the cheek's foot 0.3 m from the corner (the kit's least pier; the sheet draws about 0.16-0.22 m, so it lands at x 65 px, not 60); the lights' 0.75 m width (the K06 ordinary least; the plate's read about 0.65 m seen obliquely); no basement light in the canted face (the plate shows that storey black). Not moved: the bay's south return stays at 5.45 m, where the downpipe beside it stands, so the front is 3.16 m and its south window stays about 20 px north of the plate's, whose front runs on to x 287 px (about v 5.99)."
+        },
+        {
           "label": "How to resolve",
-          "text": "Later work (the bay's canted face, the oriel, the porch's south arcade, and the roof with the gable's centre and carved pinnacles) bring the match record to `matches`."
+          "text": "Later work (the oriel, the porch's south arcade, and the roof with the gable's centre and carved pinnacles), and the bay's south return re-read with its downpipe, bring the match record to `matches`."
         },
         {
           "label": "Covers",
@@ -46243,7 +46247,6 @@
         "T-1891",
         "T-1837",
         "T-2920",
-        "T-2988",
         "T-2989",
         "T-2991"
       ]

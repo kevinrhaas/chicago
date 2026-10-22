@@ -29095,9 +29095,21 @@ canted north face (T-2988), the oriel's flat front, square returns, rounded base
 (T-2989), and the porch's south arcade (T-2991), the last two after a re-read of the entrance block's
 south corner, which the oriel's return and the arcade put near x 467-470 px where the camera solve puts it
 at x 510.
-**How to resolve:** T-2988, T-2989, T-2991 and T-2920 (the bay's canted face, the oriel, the porch's south
-arcade, and the roof with the gable's centre and carved pinnacles under T-2920) bring the match record
-to `matches`.
+**Revised:** 2026-10-22 (T-2988, piece of T-2919). The bay's north face is canted, as the 1911 sheet draws
+it and the plate shows it, dark and foreshortened at x 60-112 px: K01's projection may now cant a cheek
+(`cant_left_m`), and the bay's north cheek runs from the main wall 0.3 m from the front's north corner to
+the bay front's north corner at v 2.29, 1.0 m out, the camera solve's point. On it one light a storey, at
+the front windows' sills and heads, landing at x 97-108 px against the plate's 92-107; the cornice, the
+string courses and the stone balustrade run round it. The front's north window moves 0.47 m south onto the
+plate's (x 143-188 px against 137-190). What that build invents: the cheek's foot 0.3 m from the corner
+(the kit's least pier; the sheet draws about 0.16-0.22 m, so it lands at x 65 px, not 60); the lights'
+0.75 m width (the K06 ordinary least; the plate's read about 0.65 m seen obliquely); no basement light in
+the canted face (the plate shows that storey black). Not moved: the bay's south return stays at 5.45 m,
+where the downpipe beside it stands, so the front is 3.16 m and its south window stays about 20 px north of
+the plate's, whose front runs on to x 287 px (about v 5.99).
+**How to resolve:** T-2989, T-2991 and T-2920 (the oriel, the porch's south arcade, and the roof with the
+gable's centre and carved pinnacles under T-2920), and the bay's south return re-read with its downpipe,
+bring the match record to `matches`.
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.chimneys`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.gable_roof`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
