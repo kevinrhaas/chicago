@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2191, ts: '2026-10-22T18:09:55.114Z', date: 'Oct 22, 2026, 1:09 PM CT', title: 'Glessner\'s stable hoist stone and cupola ledges matched to their photographs', kind: 'improvement',
+    items: [
+      'The hoist stone under the stable gable\'s arch now reaches about four feet out over 18th Street, a slim tapered stone cantilever as the 1887 photograph shows it; it had been a stubby block under two feet long.',
+      'The long dark streak beside it in the 1963 survey photograph turned out to be its shadow, so no timber beam was added.',
+      'The stone ledges round the rooftop cupola\'s pigeon holes now wrap its corners unbroken, as both northwest photographs show.',
+    ] },
   { v: 2190, ts: '2026-10-22T17:27:25.324Z', date: 'Oct 22, 2026, 12:27 PM CT', title: 'Prairie Avenue\'s elms grow as real elms: forked trunks, arching limbs', kind: 'improvement',
     items: [
       'Each parkway elm forks low into two to four stems that climb in a V, fork again and arch out over the walk.',
