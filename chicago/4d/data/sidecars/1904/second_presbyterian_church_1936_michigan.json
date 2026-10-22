@@ -11,9 +11,11 @@
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
-    "value": "inferred",
-    "why": "Known from maps or written records; no picture of it has been found.",
-    "pictures": []
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "newberry_sloan_second_presbyterian_street"
+    ]
   },
   "documented_range": {
     "from": "1904-07-01",
