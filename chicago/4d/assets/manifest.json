@@ -1480,6 +1480,96 @@
       "phase_id": "draft_1904",
       "structure_id": "house_1828_prairie_coach_house"
     },
+    "house_1830_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 189048,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "e890c1c7eb701cd6131b38cd7a5f03b2d90ccb7fe54f6654b31b0c26d90338d8",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1830_calumet"
+    },
+    "house_1832_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 208912,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "e17b46958b02d323eb53858e6c1f229fcd9f5cd83fd7b5cd2815164aa0ce36c2",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1832_calumet"
+    },
+    "house_1836_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 161808,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "5b8b8c1bdc960e50b4360d77027511fa17fe372cb9e62d496cf7f2b7c0c68fba",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1836_calumet"
+    },
+    "house_1836_calumet_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 102868,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "bde86e2ce4aaf5ed8082c6d0167b249f40422166c458a7f64d498e00952c6e90",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1836_calumet_coach_house"
+    },
+    "house_1840_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 217144,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "c738da6e8744fdac1daf27808fe41b34b70fb1aaaf16c7f3f45e0fd7a88ebf3f",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1840_calumet"
+    },
+    "house_1900_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 173836,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "cafbcfc525068efd059a668f7f6dd8652d69b536959f78bfc9eb9c5f12883320",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1900_calumet"
+    },
+    "house_1900_calumet_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 110340,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "b83be5c0f53f7ec5aee6f7b2e97ab9c2745897e4927461f4e451b3b57747fd24",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1900_calumet_coach_house"
+    },
+    "house_1910_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 268748,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "ef18b95959b5c96c38fdb9cc9103a5d19a7a9e705d8c7cc3fd0c4818d0381dfc",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1910_calumet"
+    },
+    "house_1910_calumet_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 159948,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "644828f67c92b9f9e2b21d8ae16991d0865ca330f5d9ba0a73890ac00461a984",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1910_calumet_coach_house"
+    },
     "house_1918_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
@@ -1499,6 +1589,66 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_1918_prairie_coach_house"
+    },
+    "house_1922_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 379764,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "8242e79c063fb0110ad13b580a0e6cabfa6fde93bd2c7a203ace450f50b60ddd",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1922_calumet"
+    },
+    "house_1922_calumet_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 115996,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "9aac8b49c73d6de67b5550b3fac4689d8bcd8294474ed675a672884c08c443c8",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1922_calumet_coach_house"
+    },
+    "house_1922_calumet_stable_strip__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 13868,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "c162993065d22c94ab130ac03471ba598eab40b3cd6e18dec214a54b8be72e14",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1922_calumet_stable_strip"
+    },
+    "house_1928_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 174308,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "4289f016cfd1d0f6f79a2cc5a07c7528ad9632b6c7c2be110184430a037daa71",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1928_calumet"
+    },
+    "house_1932_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 131700,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "79d3c6c4c6935f40d0806aea4ed8447c823a7c1949c6d7aba176bc9c595910cf",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1932_calumet"
+    },
+    "house_1932_calumet_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 78552,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "263c968b40d9733062d20e3d027fc5e22e5b6d239ef05f33ac28c17d3d646934",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_1932_calumet_coach_house"
     },
     "house_2000_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
