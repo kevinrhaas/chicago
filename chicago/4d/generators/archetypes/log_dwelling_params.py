@@ -145,7 +145,7 @@ CONSUMED = frozenset({
     "front_windows_per_side", "window_w_m", "window_h_m", "front_shutters",
     "piazza_roof", "piazza_plate_m", "piazza_pitch_deg", "end_openings",
     "front_set_out", "door_w_m", "door_h_m", "chimney_end", "chimney_cross_m", "chimney_head_m", "lean_to",
-    "ridge_stack_w_m", "ridge_stack_head_m",
+    "ridge_stack_w_m", "ridge_stack_head_m", "hip_end", "hip_inset_m",
     "lean_to_length_m", "lean_to_width_m", "lean_to_wall_m", "lean_to_pitch_deg", "log_finish",
     "roof_condition",
 })
@@ -258,6 +258,16 @@ class LogDwellingParams:
     # How far that stack's head stands over the ridge, in metres (T-2485). None keeps
     # the builder's 0.95 m.
     ridge_stack_head_m: float | None = None
+    # ONE END HIPPED (T-2485): "min" or "max", the end of the ridge's axis whose roof
+    # a picture draws as a hip plane falling from the ridge's end to the eave, rather
+    # than a gable. None keeps the gable at both ends, which every other record has.
+    # It is not a hip roof: `roof_type` still refuses one on a log building as an
+    # invention, and this is set only where a picture draws the end.
+    hip_end: str | None = None
+    # How far in from that end's eave the ridge stops, in metres. None is half the
+    # span, a hip at the slopes' own pitch; a record whose picture stops the ridge
+    # nearer the end (a steeper hip) states it.
+    hip_inset_m: float | None = None
     # THE FRONT'S WINDOWS (T-2497). One small light each side of the door is the log
     # type and stays the default; a long house a picture draws with more and larger
     # sash states how many stand each side of the door and their size.
@@ -496,6 +506,25 @@ class LogDwellingParams:
                                  "record names none (chimney_ridge_at)")
             if not 0.3 <= self.ridge_stack_head_m <= 1.5:
                 raise ParamError(f"ridge_stack_head_m {self.ridge_stack_head_m} outside 0.3-1.5 m")
+        if self.hip_inset_m is not None and self.hip_end is None:
+            raise ParamError("hip_inset_m sets a hipped end, and this record names none (hip_end)")
+        if self.hip_end is not None:
+            if self.hip_end not in CHIMNEY_ENDS:
+                raise ParamError(f"hip_end {self.hip_end!r} not in {CHIMNEY_ENDS}")
+            cx0, cy0, cx1, cy1 = core_extent(self)
+            if self.roof_type != "gable" or (cx1 - cx0) < (cy1 - cy0):
+                raise ParamError("hip_end hips one end of a gable roof whose ridge runs "
+                                 "along the front; this record has no such ridge")
+            if self.frame_addition or self.lean_to or self.loft or self.end_openings:
+                raise ParamError("hip_end with a frame addition, lean-to, loft hatch or "
+                                 "end openings: each of those stands against a gable end")
+            if self.hip_inset_m is not None and not 0.3 <= self.hip_inset_m <= (cy1 - cy0) / 2.0:
+                raise ParamError(f"hip_inset_m {self.hip_inset_m} outside 0.3 m to half the "
+                                 f"span ({(cy1 - cy0) / 2.0:.2f} m)")
+            if self.chimneys > 0 and self.chimney_ridge_at is None:
+                raise ParamError("hip_end with a gable-end stack: a hipped end has no "
+                                 "gable to carry it, so the record puts its stacks on the "
+                                 "ridge (chimney_ridge_at)")
         if not 1 <= self.front_windows_per_side <= 3:
             raise ParamError(f"front_windows_per_side {self.front_windows_per_side} outside 1..3")
         if self.window_w_m is not None and not 0.4 <= self.window_w_m <= 1.2:
@@ -705,6 +734,8 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
                          else float(val("ridge_stack_w_m"))),
         ridge_stack_head_m=(None if val("ridge_stack_head_m") is None
                             else float(val("ridge_stack_head_m"))),
+        hip_end=(None if val("hip_end") is None else str(val("hip_end"))),
+        hip_inset_m=(None if val("hip_inset_m") is None else float(val("hip_inset_m"))),
         lean_to=bool(val("lean_to", False)),
         lean_to_length_m=float(val("lean_to_length_m", 2.4)),
         lean_to_width_m=float(val("lean_to_width_m", 3.0)),

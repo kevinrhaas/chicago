@@ -90,7 +90,23 @@
           "sources": [
             "eastman_schoolcraft_chicago_1820_engraving"
           ],
-          "note": "Eastman draws a ridge along the front and the far gable's rake falling at the right."
+          "note": "Eastman draws a ridge along the front; its far end is hipped (hip_end)."
+        },
+        "hip_end": {
+          "value": "min",
+          "confidence": "inferred",
+          "sources": [
+            "eastman_schoolcraft_chicago_1820_engraving"
+          ],
+          "note": "THE FAR END HIPPED, AS EASTMAN DRAWS IT (T-2485; owner's ruling 2026-10-22). The plate stops the ridge over the front's right-hand corner and draws the end's roof falling from there to the back eave corner, a hip plane, not a gable's rake. How far in the hip stands is fitted to the plate (hip_inset_m). The near (left) end is hidden by the stable's roof, so it keeps the archetype's gable. One small figure in one engraving is the whole of the evidence."
+        },
+        "hip_inset_m": {
+          "value": 0.9,
+          "confidence": "reconstructed",
+          "sources": [
+            "eastman_schoolcraft_chicago_1820_engraving"
+          ],
+          "note": "FITTED TO THE PLATE, NOT MEASURED. On this record's camera a gable (no hip) puts the ridge's end at x 1570, a hip at the slopes' own 40 degrees (2.5 m in from the wall, the default) at 1548, and the plate draws it at 1561 (+/-2 px), straight over the front's right-hand corner. 0.9 m in reproduces it: ridge end 1561, the end plane's outer edge running to the back eave corner at 1578 against the plate's 1575. That hip is steeper than the slopes, about 64 degrees, which is the plate's figure and may be the engraver's."
         },
         "roof_pitch_deg": {
           "value": 40.0,
