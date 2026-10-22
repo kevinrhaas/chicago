@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2192, ts: '2026-10-22T18:37:53.288Z', date: 'Oct 22, 2026, 1:37 PM CT', title: '1812: the Kinzie yard rises behind the house', kind: 'feature',
+    items: [
+      'New in 1812: a log stable, the Frenchmen\'s whitewashed lodging house, a bake-house with an oven flue, a dairy and a picket kitchen garden stand behind the Kinzie house.',
+      'Whistler\'s old horse mill of 1808 stands west of the garden on the north bank, gone by 1816.',
+      'Matched to Eastman\'s 1820 view and the 1830s pictures of the house: the stable, bake-house and lodging house all pass, the lodging house built with the hipped far end Eastman draws.',
+      'Du Sable\'s 1800 bill of sale could not be read; its second barn, poultry house and smokehouse are ruled out of 1812.',
+      'Which building is which, and every place and size, are liberties (L420). New camera: Behind the Kinzie house.',
+    ] },
   { v: 2191, ts: '2026-10-22T18:09:55.114Z', date: 'Oct 22, 2026, 1:09 PM CT', title: 'Glessner\'s stable hoist stone and cupola ledges matched to their photographs', kind: 'improvement',
     items: [
       'The hoist stone under the stable gable\'s arch now reaches about four feet out over 18th Street, a slim tapered stone cantilever as the 1887 photograph shows it; it had been a stubby block under two feet long.',

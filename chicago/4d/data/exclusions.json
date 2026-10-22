@@ -296,6 +296,48 @@
         "moses_kirkland_history_of_chicago_v1",
         "kinzie_waubun_1856"
       ]
+    },
+    {
+      "id": "kinzie_second_barn_1812",
+      "name": "The second of the two barns of du Sable's bill of sale (1800), for 1812",
+      "scenes": [
+        "1812"
+      ],
+      "reason": "NO SOURCE READ PLACES IT AFTER 1800 — one barn stands as the Kinzie stable; nothing names a second.",
+      "detail": "The bill of sale of 1800 from Jean Baptiste Point du Sable to Jean La Lime, as T-2484 reported it from Quaife's printing (Mississippi Valley Historical Review 15:1, 1928), lists two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article itself was NOT READ at T-2485: JSTOR and HathiTrust could not be reached from the run's container, so it is not cited here. Wau-Bun (ch. XVII) names the buildings surrounding the Kinzie house in 1831: 'dairy, bake-house, lodging-house for the Frenchmen, and stables'. Eastman's view of 1820 draws the yard east of the house with one log barn (kinzie_stable_1812) and the lodging house, and nothing else. RULING (T-2485): one barn stands in 1812 as kinzie_stable_1812; the second is not built, because no source after 1800 names two and the one picture of the yard draws one. WHAT WOULD REOPEN THIS: a reading of the bill with a size or place for the barns, or any source after 1800 naming two barns or a barn besides the stable.",
+      "earliest_scene": null,
+      "sources": [
+        "kinzie_waubun_1856",
+        "eastman_schoolcraft_chicago_1820_engraving"
+      ]
+    },
+    {
+      "id": "kinzie_poultry_house_1812",
+      "name": "The poultry house of du Sable's bill of sale (1800), for 1812",
+      "scenes": [
+        "1812"
+      ],
+      "reason": "NO SOURCE READ PLACES IT AFTER 1800 — Wau-Bun's list of the establishment in 1831 has none, and Eastman's view of the yard draws none.",
+      "detail": "The bill of sale of 1800 from Jean Baptiste Point du Sable to Jean La Lime, as T-2484 reported it from Quaife's printing (Mississippi Valley Historical Review 15:1, 1928), lists two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article itself was NOT READ at T-2485: JSTOR and HathiTrust could not be reached from the run's container, so it is not cited here. Wau-Bun (ch. XVII) names the buildings surrounding the Kinzie house in 1831: 'dairy, bake-house, lodging-house for the Frenchmen, and stables'. Eastman's view of 1820 draws the yard east of the house with one log barn (kinzie_stable_1812) and the lodging house, and nothing else. RULING (T-2485): not built for 1812. A poultry house is a small, short-lived building and may well have stood; nothing read says so, and the scene does not build what no source after 1800 names. WHAT WOULD REOPEN THIS: any source naming a poultry house at the Kinzie place between 1804 and 1812.",
+      "earliest_scene": null,
+      "sources": [
+        "kinzie_waubun_1856",
+        "eastman_schoolcraft_chicago_1820_engraving"
+      ]
+    },
+    {
+      "id": "kinzie_smokehouse_1812",
+      "name": "The smokehouse of du Sable's bill of sale (1800), for 1812",
+      "scenes": [
+        "1812"
+      ],
+      "reason": "NO SOURCE READ PLACES IT AFTER 1800 — Wau-Bun's list of the establishment in 1831 has none, and Eastman's view of the yard draws none.",
+      "detail": "The bill of sale of 1800 from Jean Baptiste Point du Sable to Jean La Lime, as T-2484 reported it from Quaife's printing (Mississippi Valley Historical Review 15:1, 1928), lists two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article itself was NOT READ at T-2485: JSTOR and HathiTrust could not be reached from the run's container, so it is not cited here. Wau-Bun (ch. XVII) names the buildings surrounding the Kinzie house in 1831: 'dairy, bake-house, lodging-house for the Frenchmen, and stables'. Eastman's view of 1820 draws the yard east of the house with one log barn (kinzie_stable_1812) and the lodging house, and nothing else. RULING (T-2485): not built for 1812, for the same reason as the poultry house. WHAT WOULD REOPEN THIS: any source naming a smokehouse at the Kinzie place between 1804 and 1812.",
+      "earliest_scene": null,
+      "sources": [
+        "kinzie_waubun_1856",
+        "eastman_schoolcraft_chicago_1820_engraving"
+      ]
     }
   ],
   "watch_list_doc": "Structures whose 1835 status is genuinely uncertain rather than excluded — the third category, between a building that stands and one that was researched and left out. They belong in the dataset with honest confidence, and they are listed here so nobody promotes them to documented without new evidence. That last sentence was unenforced prose until 2026-08-10: `original` on each entry is the free-text line it was written as, kept verbatim because this file's rule is that a finding is added to and not rewritten. Entries opened since carry `opened` instead, because there is no scaffold line to keep.",

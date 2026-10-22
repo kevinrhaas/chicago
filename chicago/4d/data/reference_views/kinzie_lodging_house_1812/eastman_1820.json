@@ -1,0 +1,21 @@
+{
+  "structure_id": "kinzie_lodging_house_1812",
+  "source_id": "eastman_schoolcraft_chicago_1820_engraving",
+  "photo": "../../../../reference/images/chicago/chicago_settlement_1820_2.jpg",
+  "image_px": [
+    1920,
+    1407
+  ],
+  "principal_px": [
+    972.0,
+    700.0
+  ],
+  "focal_px": 1600.0,
+  "eye": [
+    -69.2,
+    194.95,
+    6.19
+  ],
+  "yaw_deg": 139.77,
+  "solve": "THE HOUSE'S CAMERA ON THE SAME PICTURE, RE-FITTED ON THIS BUILDING (T-2485). The focal (1600.0 px), principal point and heading are held from data/reference_views/kinzie_house_1812/eastman_1820.json, carried into this record's footprint frame (house-frame eye re-expressed here: [-49.99, 150.95, 3.6], heading 139.77 degrees). The eye alone is fitted, by least squares, to points read off the picture on gridded crops (4-9x, to about +/-2 px): the front's right-hand corner at the eave (1561, 733) and grade (1561, 752), the ridge's right end (1562, 714), the door's centre (1549, 744) and the window's (1527.5, 744). Fitted eye [-69.2, 194.95, 6.19] (u along the front, v out of the front, metres over this building's grade), rms 0.7 px. THE EYE MOVES 48 m FROM THE HOUSE'S: the plate draws this house about as tall as the stable in front of it, so it is drawn further off than the place this record gives it, behind the stable on the same line. The building's place is reconstructed (docs/LIBERTIES.md L420), so this solve tests its form, not its position. The light is the house camera's (none stated: the review sun)."
+}
