@@ -78,7 +78,7 @@ const GROUND = {
 };
 /** The zone length along the yard, metres of northing. */
 const ZONE_M = 110;
-/** Per level: full section within `near`, ties at all within `ties`, tufts within `tufts`. */
+/** Per level: full section within `near`, ties and far rails at all within `ties`, tufts within `tufts`. */
 const REACH = {
   full: { near: 130, ties: 650, tufts: 240, rocks: 110 },
   balanced: { near: 100, ties: 480, tufts: 170, rocks: 85 },
@@ -1014,8 +1014,16 @@ export async function createRailway({
   let pileSpots = [];
   if (edgeSpec?.cap && lake && (lake.crest ?? []).length >= 2) {
     const capLib = maps.get(edgeSpec.cap.material ?? 'cap_timber');
-    const { mesh, pts } = capMesh(lake.crest, lake.face, edgeSpec.cap, terrain, capLib, confidence);
-    group.add(mesh); meshes.push(mesh); materials.push(mesh.material); geometries.push(mesh.geometry);
+    const { mesh: whole, pts } = capMesh(lake.crest, lake.face, edgeSpec.cap, terrain, capLib, confidence);
+    // T-2992: cut into the ground's 40 m cells. As one mesh three kilometres long the
+    // cap was never outside the sun's ±120 m box, so it drew into the shadow map from
+    // anywhere in the district; cut, three's own shadow-camera cull (and the view's)
+    // takes each cell on its own. The same triangles, so the same picture.
+    const mesh = await spatialBatchAsync(whole.geometry, whole.material);
+    whole.geometry.dispose();
+    mesh.name = 'railway-cap';
+    mesh.castShadow = true; mesh.receiveShadow = true;
+    group.add(mesh); meshes.push(mesh); materials.push(mesh.material); geometries.push(mesh);
     const pile = edgeSpec.piles;
     if (pile) {
       const pr = pile.diameter_m / 2;
@@ -1123,7 +1131,11 @@ export async function createRailway({
       if (near) nearRails(z);
       else if (z.railsNear && d > r.near + ZONE_M) dropNearRails(z);
       if (z.railsNear) z.railsNear.visible = near;
-      if (z.railsFar) z.railsFar.visible = !(near && z.railsNear);
+      // T-2992: past the tie reach a zone draws only its ground, as the header says.
+      // The three-face strips drew to the far end of the yard at every tier: from the
+      // air over the district at `light` that was 61,000 triangles of rail 600 m and
+      // more away, a fifteenth of a pixel wide, and it put the phone over its ceiling.
+      if (z.railsFar) z.railsFar.visible = !(near && z.railsNear) && d < r.ties;
       if (z.tiesNear) { z.tiesNear.visible = near; z.tiesFar.visible = !near && d < r.ties; }
       if (z.tuftMesh) z.tuftMesh.visible = d < r.tufts && z.tuftMesh.count > 0;
       if (z.rockMeshes) {
