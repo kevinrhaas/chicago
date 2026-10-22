@@ -3437,6 +3437,12 @@ class Assembly:
     # -- rainwater: gutter, brackets, outlets, downpipes, shoes, splash stones -----------
     def rainwater(self, ye, yf, seed):
         p, r = self.p, self.p.rainwater
+        if not r["downpipes"]:   # T-2919: a gable's front pipes alone, each from its own head
+            self.rain_runs = []
+            for x in r["front_pipes"]:
+                self.front_pipe(x, "k04_" + r["fabric"], r["pipe_diameter_m"] / 2,
+                                math.radians(r["shoe_kick_deg"]), p.worst_conf("rainwater", "eave_overhang_m"), seed)
+            return
         D, W, o = p.depth_m, p.width_m, p.eave_overhang_m
         conf = p.worst_conf("rainwater", "eave_overhang_m")
         mat = "k04_" + r["fabric"]
