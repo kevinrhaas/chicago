@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2170, ts: '2026-10-22T06:50:59.928Z', date: 'Oct 22, 2026, 1:50 AM CT', title: '1811 Prairie\'s stone dressing, downpipes and stair scrolls, from its 1888 plate', kind: 'improve',
+    items: [
+      '1811 Prairie\'s bay is now rough rock-faced stone up to its first-floor windows and smooth dressed stone above, as the 1888 plate shows it, and two downpipes run down the front where the plate draws them.',
+      'The rolled stone scrolls at the foot of its front stair now sit up on plain blocks, as in the plate, instead of resting on the ground.',
+    ] },
   { v: 2169, ts: '2026-10-22T06:38:09.184Z', date: 'Oct 22, 2026, 1:38 AM CT', title: 'Second Presbyterian\'s spire and the houses beyond Prairie Avenue', kind: 'feature',
     items: [
       'Second Presbyterian Church now stands at Michigan Avenue and 20th Street. Its corner tower carries the tall spire it had in 1904, which was lost in 1929.',
