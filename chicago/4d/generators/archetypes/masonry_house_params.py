@@ -747,6 +747,16 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             "conf": cf("courtyard_ground"),
             "wall_fall_start_y": fr.y(finish["wall_fall_start_S"]),
         }
+        # T-2978: sheet 4 draws the court ground falling from the lawn to the passage
+        # mouth; the generator sinks the court's surfaces by it (v4_ground.fall_quads).
+        mf = finish.get("mouth_fall")
+        if mf:
+            p.detail["court_ground"]["mouth_fall"] = {
+                "depth_m": round(float(mf["depth_ft"]) * FT, 4),
+                "x": [fr.x(mf["low_W"][0]), fr.x(mf["low_W"][1]), fr.x(mf["rise_to_W"])],
+                "y": [fr.y(mf["bank_S"][0]), fr.y(mf["bank_S"][1])],
+                "footing_y": sorted(fr.y(s) for s in mf.get("footing_S", [])),
+            }
 
     if p.detail_profile:
         fg = val("prairie_frontage")

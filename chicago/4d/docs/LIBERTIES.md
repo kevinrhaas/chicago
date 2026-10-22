@@ -31209,3 +31209,29 @@ set by hand and judged by eye; no source describes a Prairie Avenue elm's limbs.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`, `glessner_house.as_built_1887.form.turret_stable`.
 **Ticket:** T-3030 (piece 1 of T-3023).
 **Recorded:** 2026-10-22.
+
+### L-glessner-court-fall-2978 — Glessner's court ground falls to the passage mouth; the lawn kept on north grade
+
+**Decision:** the courtyard of `glessner_house` (T-2978) is no longer one level. HABS sheet 4's
+section draws the court lawn along the east wing's court face at one line and the ground beside
+the passage mouth 1.32 ft lower, falling across plan S 53.15-62.35 to reach it at the north jamb,
+and the opening's foot 1.02 ft lower again. **What is read.** Those three lines, on the sheet's
+own controls (97.7 px/ft up); T-2228's zero, y 5858, is the lawn line, not the ground the sheet
+draws at the 18th Street wall (y 5991). Read over the lawn, the court face's heights are what the
+sheet measured, and they stand. The court mouth's floor is laid at the opening's foot, so the
+passage clears 9.67 ft under the court lintel (sheet 9.65), and T-2976's 10-ft ramp rises 1.05 ft
+to the sunk drive. **What is invented.** Where the lawn stands over the streets: the sheets bound
+it at 0 to +1.25 ft over the 18th Street grade (on the street-side zero the roof and the passage
+floor agree with sheet 6, on the lawn zero the 18th Street wall agrees with sheet 5 and the
+photographs) and the model keeps it on north grade, so the passage floor falls 1.1 ft from its
+street mouth to its court mouth. The fall's extent westward (full depth to the section plane at
+W 51.5, back to the court's level by W 71.5), its straight slopes, the rough-stone footing run
+down to it at the tower and beside the mouth, and the strip between the drive and 1808 Prairie's
+wall kept at the court's level behind the drive's edge (the sheet draws the ground south of the
+mouth low too). **What is not changed.** Every court-face opening, lintel, eave, dormer and tower
+height; the street mouth's floor; the drive's plan. **How to resolve:** a survey or a dated
+photograph that shows the court lawn against the 18th Street or Prairie Avenue walk, or the court
+mouth's floor against the street mouth's, before the court was paved for parking in 1946.
+**Ticket:** T-2978.
+**Review:** `docs/RESEARCH/glessner-section-datum-T-2978/`.
+**Recorded:** 2026-10-22 (T-2978).
