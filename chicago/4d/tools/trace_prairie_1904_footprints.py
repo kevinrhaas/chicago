@@ -450,12 +450,22 @@ def read_parcel(cls: np.ndarray, origin: tuple, lots: list, fit: Fit, n_rear: in
     u, front, depth = street_axis(lots)
     gms = [glab == g for g in range(1, gn + 1) if (glab == g).sum() >= MIN_BUILDING_PX]
     gms.sort(key=lambda m: _depths(m, off, fit, u, front)[0])
+    # A sliver at the street is the front of the building behind it, cut off by a drawn line:
+    # sheet 35w's 2007, the stone strip the sheet runs along the row's fronts, stands 0.7 m
+    # before its house. Under PORCH_MAX_M2 and within FRONT_SLIVER_GAP_M of the next group,
+    # it joins that group, so the census's front is the house and not the strip.
+    if has_front and len(gms) > 1 and gms[0].sum() * fit.m_per_px ** 2 <= PORCH_MAX_M2 and \
+            _depths(gms[1], off, fit, u, front)[0] - _depths(gms[0], off, fit, u, front)[1] <= FRONT_SLIVER_GAP_M:
+        joined = ndimage.binary_closing(gms[0] | gms[1], iterations=BRIDGE_PX) & lot
+        gms = [joined] + gms[2:]
     # More outlines than the census names, one of them against the house: the house cut in two
     # by a drawn wall the coarse scan's bridge does not close (sheet 35e's 2100, its frame
     # porch along the front, 1.3 m off it across the porch's dashed edge and the wall; 2140,
     # its 1B rear piece). The outline nearest the street group, within ABUT_M of it, joins it,
     # closed across the gap -- only while some outline would otherwise go unnamed, so a lot
-    # the census names in full traces exactly as before.
+    # the census names in full traces exactly as before. It runs after the sliver rule above: its
+    # coarser closing and hole fill would take 2007's stone strip into the house's brick and lose
+    # the strip's stone part (T-3018, landing after T-3009).
     abut_px = max(1, round(ABUT_M / fit.m_per_px))
     while has_front and len(gms) > 1 + n_rear:
         reach = ndimage.binary_dilation(gms[0], iterations=abut_px)
@@ -475,14 +485,6 @@ def read_parcel(cls: np.ndarray, origin: tuple, lots: list, fit: Fit, n_rear: in
     # service building joined to it by a long rear range (sheet 35's 2035) begins further
     # forward than one drawn against the rear wall. Where some service building does stand
     # apart, ids left over are the joined-outline rule's (assign), as on sheet 20's 1720.
-    # A sliver at the street is the front of the building behind it, cut off by a drawn line:
-    # sheet 35w's 2007, the stone strip the sheet runs along the row's fronts, stands 0.7 m
-    # before its house. Under PORCH_MAX_M2 and within FRONT_SLIVER_GAP_M of the next group,
-    # it joins that group, so the census's front is the house and not the strip.
-    if has_front and len(gms) > 1 and gms[0].sum() * fit.m_per_px ** 2 <= PORCH_MAX_M2 and \
-            _depths(gms[1], off, fit, u, front)[0] - _depths(gms[0], off, fit, u, front)[1] <= FRONT_SLIVER_GAP_M:
-        joined = ndimage.binary_closing(gms[0] | gms[1], iterations=BRIDGE_PX) & lot
-        gms = [joined] + gms[2:]
     split = None
     if gms and has_front and len(gms) - 1 < n_rear:
         pms0 = part_masks(fabric, gms[0])
