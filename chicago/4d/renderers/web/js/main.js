@@ -40,6 +40,7 @@ import { createTerrain, enuToWorld, fetchPrebuiltBase, fetchPrebuiltGround, grou
 import { createBuildings } from './buildings.js';
 import { readGlassRequest, glassForDetail } from './glass.js';
 import { createConfidenceView } from './confidence.js';
+import { renderBudget } from './render-budget.js';
 import { toggleByGrade, restoreLooks } from './confidence-presets.js';
 import { createConfidenceLegend } from './confidence-legend.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
@@ -2027,6 +2028,9 @@ async function boot() {
   });
 
   const confidence = createConfidenceView();
+  // T-2981: public and frame statistics read the same current view/tier policy.
+  const currentBudget = () => renderBudget(BUDGET, detailLevel, confidence.ghosting);
+  Object.defineProperty(api, 'budget', { get: currentBudget });
   // T-2647: the furniture ghosts as a dither in the opaque pass, not in a second draw —
   // X-RAY one tap away has to fit the draw budget (confidence.js § setGhostAsDither).
   // T-2863: and so does the grown wood, since its batches hold a Reconstructed grade
@@ -5144,7 +5148,7 @@ async function boot() {
     setGroundReach(m) { return terrain.setGroundReach(m); },
     stats() {
       const info = renderer.info;
-      const budget = BUDGET;
+      const budget = currentBudget();
       // T-2970: `drawCalls` is the driver's draws, the figure the budgets are held
       // to; `rendererCalls` is three's own count, which takes a BatchedMesh's whole
       // multi-draw as one and is kept so the readings before T-2970 stay comparable.

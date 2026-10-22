@@ -176,6 +176,8 @@ step "The drawn cells of one structure mesh join into one draw, drawing the same
   node tools/test_batch_coalesce.mjs
 step "Draw budgets read the driver's draws: a BatchedMesh multi-draw counts one draw per kept entry, reset with renderer.info (T-2970)" \
   node tools/test_driver_draws.mjs
+step "Full active Ghost views use their measured envelope; ordinary and lower-tier ceilings restore unchanged (T-2981)" \
+  node tools/test_render_budget.mjs
 step "Read frame pacing is offered only on the dev preview or with ?pacing=read, and reads sd and p95 as measure_walk_frames --live does (T-2732)" \
   node tools/test_pacing_read.mjs
 
@@ -346,6 +348,10 @@ step "Harness body fit reproduces original crossings and enforces 5 mm bind-pose
 
 step "Parked vehicles keep their exact wagon stands and cannot cross era boundaries (T-2979)" \
   python3 tools/transport/check_parked_placements.py
+step "Selected empty covered wagons reproduce original reviewed sources" \
+  python3 tools/transport/generate_covered_wagons.py --verify
+step "Covered identity rejects kind, yoke, era and stand substitutions" \
+  python3 tools/transport/wagon_covered/test_identity.py
 
 step "Resident hair export rejects missing alpha, embedded images and skin bindings (T-1789)" \
   python3 tools/test_human_hair.py

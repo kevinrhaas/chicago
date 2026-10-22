@@ -30852,6 +30852,13 @@ setback or in the court before 1946, when the court was paved for parking.
 The parked1904 carriage also has an original small timber shaft-rest. Its crossbar top follows the actual model shaft undersides, while its timber sizes, feet and splay are an authored support hypothesis, not an attested personal accessory or force calculation. The carriage geometry is unchanged.
 
 
+### L-covered-wagons-2980 — two individual empty covered-wagon reconstructions
+
+**Decision:** Two existing reconstructed 1835 covered records retain their exact positions, bearings, stable original-ID/coordinate finish seeds, canvas aging and laid-by yokes. The Western Hotel example remains blue/oxide; Wolf Point remains oak/dark oak. Original W01 running gear is reused; five original bows, canvas seams, hems, restrained folds and analytic weave/weathering are reconstructed. No historical maker, owner, cargo, measured textile or joinery is established. The source-owned donor bench and footboard were omitted where they intersect the retained narrow cover; the original W01 is unchanged. This empty derivative supports no driver, passenger, hitch, collision, horse, motion, riding or boarding interface. Exact wheel-plane samples qualify the old stands against the unchanged 30 mm guard; actual main-world ground/yoke clearance, shadows, old/new comparisons and production quality remain separate acceptance work.
+
+**Recorded:**2026-10-21.
+
+
 ### L-workwear-coverage-1789 — Source-owned work clothes, closed shoes and reconstructed eyes
 
 **Decision:** The original 1835 worker authoring uses full-body source-shared normal ease, source-triangle garment boundaries, a collar joined to the shirt before reduction, a closed shoe loft and original opaque sclera/iris/pupil surfaces. These are reconstructed construction choices, not recorded garments or individual likenesses. Existing L418/source and resident identity limits remain.
@@ -30860,3 +30867,6 @@ The parked1904 carriage also has an original small timber shaft-rest. Its crossb
 **Sources:** `chicago_american_1835` supplies text terminology only with the recipe's date caveat; it does not attest garment pattern, dimensions or eye color. The anonymous cleared source body/skin and existing reconstructed residents retain their current license/provenance records. New helper geometry and procedural iris are original CC0 work.
 **Ticket:** T-1789.
 **Recorded:** 2026-10-21.
+
+
+**V5/V6 tailoring update (2026-10-22, T-1789; further to L418 and L-workwear-coverage-1789):** William Sidney Mount's *Bargaining for a Horse (Farmers Bargaining)* and *Bar-room Scene*, both dated only to 1835, are qualitative American genre-painting comparators registered as `mount_1835_bargaining_for_a_horse` and `mount_1835_bar_room_scene`. Their full lower-trouser silhouettes and substantial closed waistcoat fronts inform the reconstruction; they do not attest a Chicago outfit, any modeled resident's likeness or occupation, or completion before the 1835-07-01 scene date. No painted pixels, measured cutting pattern, fiber or material sample is copied. The 12 mm section ease, 85% cuff-radius ratio, 65% knee-to-hip transition and 40% waist-to-shoulder closure are original engineering choices. The V6 trim uses each existing source-derived cuff cycle's highest point, shortening its low sawtooth portions; it is not a historical cuff dimension or finished hem construction. Existing body, rig, skin, source UVs and resident identity grades are retained. Actual V6 source-array preview technical PASS does not qualify canonical exports, complete seated footwear enclosure, animated/LOD fit or photographic appearance; 40 inherited idle negative source-face projections remain open. The historical preview's whole-shoe disappearance came from stale preview-sphere culling, not a demonstrated shoe-source defect. This addendum introduces no new person, placement or occupied transport.

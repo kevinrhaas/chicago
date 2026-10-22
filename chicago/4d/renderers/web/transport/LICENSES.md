@@ -59,3 +59,7 @@ Parked W01 `parked-wagon/wagon-w01.glb` and sidecar: original GPL-3.0-or-later r
 Parked C02 `parked-carriage/carriage-c02.glb`, sidecar and recipe: GPL-3.0-or-later original geometry/cushions/finish/maps, with CC0 helper code retaining its own SPDX. See parked-carriage/LICENSE. No imported photographic texture or identified historical owner/maker is supplied.
 
 `parked-carriage/shaft-rest.glb` and shaft-rest.json: original GPL-3.0-or-later reconstructed timber support, reproduced by tools/transport/produce_carriage_shaft_rest.py from actual carriage shaft underside and disclosed chosen trestle dimensions; no external image pixels.
+
+## Original selected covered W01 derivatives (T-2980)
+
+`covered-wagon/{covered_w01_western_blue,covered_w01_wolfpoint_oak}/{covered-w01.glb,covered-w01.json}` and `covered-wagon/LICENSE`: original reconstructed project-derived GPL-3.0-or-later geometry/source, with original CC0-1.0 analytic pixels. Reproduced by `tools/transport/generate_covered_wagons.py` from the original pinned W01 source chain and `data/transport/parked/covered-w01.json`; source/product hashes and original per-ID coat/age/yoke lineage are recorded in `assets/authored/transport/wagon_covered/SOURCE.json`. Five bows, canvas construction, seams, folds and weathering are original reconstruction, not an attested maker or historical wagon. No imported model, scan, photographic pixels, historical owner/load, occupied socket, horse or ride claim.

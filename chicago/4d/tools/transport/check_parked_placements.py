@@ -2,6 +2,7 @@
 """Check era eligibility and exact replacement ownership for parked vehicles (T-2979)."""
 import json
 import math
+from wagon_covered.check import COVERED_MODELS, validate_covered
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -18,15 +19,16 @@ def validate(record):
             ids.add(row['id'])
             assert len(row['at_local_enu_m']) == 2 and all(math.isfinite(x) for x in row['at_local_enu_m'])
             assert math.isfinite(row['bearing_deg'])
-            assert row['liberty'] == 'L-parked-vehicles-2979'
+            assert row['liberty'] == ('L-covered-wagons-2980' if row['model'] in COVERED_MODELS else 'L-parked-vehicles-2979')
             assert row['note'] and row['location']
             for source in row['source_ids']:
                 assert (ROOT/f'data/sources/{source}.json').is_file(), ('Missing source', source)
-            if row['model'] == 'wagon_w01':
+            if row['model'] == 'wagon_w01' or row['model'] in COVERED_MODELS:
                 assert year == '1835' and row['replaces'] not in replaced, 'Wrong era or duplicate replacement'
                 replaced.add(row['replaces'])
                 old = originals[row['replaces']]
-                assert old['kind'] == 'farm_box', 'Do not replace a cart or covered wagon with a farm box'
+                kind = 'covered' if row['model'] in COVERED_MODELS else 'farm_box'
+                assert old['kind'] == kind, 'Do not change the original vehicle kind'
                 assert row['at_local_enu_m'] == old['at_local_enu_m'], 'Replacement must keep its existing stand'
                 assert row['bearing_deg'] == old['bearing_deg'], 'Replacement must keep its existing bearing'
                 assert row['belongs_to'] == old.get('belongs_to'), 'Do not invent a vehicle owner'
@@ -39,6 +41,7 @@ def validate(record):
         assert (ROOT/'renderers/web'/path).is_file(), ('Missing model', path)
         assert len(model['wheel_contacts_m']) == 4
         assert all(len(p) == 2 and all(math.isfinite(x) for x in p) for p in model['wheel_contacts_m'])
+    validate_covered(record, originals, ROOT)
     return len(ids)
 
 

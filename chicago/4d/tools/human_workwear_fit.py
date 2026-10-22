@@ -59,7 +59,10 @@ def garment_shell(m,kind,offset,recipe,bones,height,scale=1.):
     hem=recipe['shirt_hem_fraction']*height/scale
     shoulder=bones['upperarm_l']['head_m'][1]
     wrist=abs(bones['hand_l']['head_m'][0]);neck=bones['neck_01']['head_m'][1]
-    slope=.105/max(.01,shoulder-waist)
+    tailoring=recipe['workwear_tailoring_v5']
+    closure_y=waist+tailoring['waistcoat_closed_front_torso_fraction']*(shoulder-waist)
+    slope=.105/max(.01,shoulder-closure_y)
+    hang=trouser_hang_profile(m,bones,tailoring,scale) if kind=='trousers' else None
     shirt_ease=None
     if kind=='shirt':
         # Derive a continuous torso-to-sleeve ease field from the cleared arm
@@ -107,8 +110,8 @@ def garment_shell(m,kind,offset,recipe,bones,height,scale=1.):
             # boundary is a seam, and the two front boundaries are straight Vs.
             back=_clip(poly,lambda v:-v['p'][2])
             front=_clip(poly,lambda v:v['p'][2])
-            left=_clip(_clip(front,lambda v:v['p'][0]-.012),lambda v:v['p'][0]-slope*(v['p'][1]-waist))
-            right=_clip(_clip(front,lambda v:-v['p'][0]-.012),lambda v:-v['p'][0]-slope*(v['p'][1]-waist))
+            left=_clip(_clip(front,lambda v:v['p'][0]),lambda v:v['p'][0]-slope*(v['p'][1]-closure_y))
+            right=_clip(_clip(front,lambda v:-v['p'][0]),lambda v:-v['p'][0]-slope*(v['p'][1]-closure_y))
             polys=[back,left,right]
         for polygon in polys:
             ids=[]
@@ -127,6 +130,7 @@ def garment_shell(m,kind,offset,recipe,bones,height,scale=1.):
                 if kind=='waistcoat':
                     lo,hi=waist-.04,shoulder+.025
                     p[1]=lo if abs(vertex['p'][1]-lo)<=1e-12 else (hi if abs(vertex['p'][1]-hi)<=1e-12 else max(lo,min(hi,p[1])))
+                if kind=='trousers':p=hanging_trouser_point(p,vertex['w'],hang)
                 mapping=dict(vertex['w'])
                 if kind=='shirt' and abs(vertex['p'][1]-neck)<=1e-12:
                     # The newly cut collar seam belongs to the neck garment,
@@ -163,9 +167,11 @@ def garment_shell(m,kind,offset,recipe,bones,height,scale=1.):
     result['receipt']={'kind':kind,'source_selected_faces':selected,'source_uv_seams':'Full-body source-shared normals, not isolated UV chart normals',
         'neckline_clip_y_m':neck if kind=='shirt' else None,
         'maximum_new_collar_seam_head_jaw_mass_rebound_to_neck':maximum_neck_transfer,
-        'additional_global_x_ease_m':0. if kind=='trousers' else .007,'shirt_continuous_x_ease_field':shirt_ease,
+        'additional_global_x_ease_m':0. if kind=='trousers' else .007,'shirt_continuous_x_ease_field':shirt_ease,'trouser_hang_profile':hang,
+        'waistcoat_front_closure_y_m':closure_y if kind=='waistcoat' else None,
         'body_mutated':False,'maximum_discarded_cut_weight':maximum_drop,'degenerate_cut_fans_discarded':discarded_zero,
         'fit_accepted':False,'scope':'Original source construction; actual deformation and rendered clothing still need review'}
+    if kind=='trousers':result=level_trouser_hems(result,bones)
     return result
 
 
@@ -329,3 +335,116 @@ def standing_collar_extension(shirt,body_mesh,bones,recipe,scale=1.):
                 result['triangles'].append(face);result['corner_uvs'].append(uv);result['source_triangle_indices'].append(None)
     result['collar_extension']={'original_shirt_vertex_count':shirt_vertices,'original_shirt_face_count':shirt_faces,'shared_base_vertex_ids':ids,'ring_vertex_ids':rings,'source_support':support_records,'same_linen_material':True,'ring0_positions_weights_unchanged':True,'front_height_m':front_height*scale,'side_back_height_m':max_height*scale,'radial_ease_m':ease*scale,'lip_thickness_m':thickness*scale,'lip_return_m':return_depth*scale,'construction':'Reconstructed standing collar with lower front profile to avoid source chin; no new period attestation','uv':'Original shirt corners unchanged; new collar has authored per-corner circumference/height island and explicit U0/1 seam','lod':'Unified shirt/collar topology before existing decimation; same linen material, no extra draw/material','accepted':False}
     return result
+
+
+def trouser_hang_profile(mesh,bones,parameters,scale=1.):
+    """Original knee-to-shoe hanging volume from actual cleared limb sections.
+
+    High waist, seat and upper-thigh source topology remain; this bounded change
+    removes calf/knee muscle following with an elliptical hanging silhouette.
+    Dimensions are engineering choices, not measurements from an1835 painting.
+    """
+    result={'sides':{},'cuff_ratio':parameters['trouser_cuff_radius_ratio'],
+        'fullness_m':parameters['trouser_added_section_ease_m'],
+        'scope':'Static source construction only; no animated cloth/body/LOD/period/photo acceptance'}
+    if not .7<=result['cuff_ratio']<=1 or not 0<result['fullness_m']<.04:raise ValueError('invalid reconstructed trouser fullness')
+    for side in ('l','r'):
+        hip,knee,ankle=[bones[j+'_'+side]['head_m'] for j in ('thigh','calf','foot')]
+        fit_top=knee[1]+.1*(hip[1]-knee[1])
+        join=knee[1]+parameters['trouser_thigh_transition_fraction']*(hip[1]-knee[1])
+        lower=ankle[1]+.073/scale
+        chain={j+'_'+side for j in ('thigh','calf','foot','ball')}
+        points=[p for p,w in zip(mesh['positions_m'],mesh['weights']) if lower<=p[1]<=fit_top and math.fsum(v for j,v in w.items() if j in chain)>.9]
+        if not points or not ankle[1]<knee[1]<join<hip[1]:raise ValueError('invalid source trouser leg bands')
+        rx=max(abs(p[0]-hip[0]) for p in points)+result['fullness_m']/scale
+        rz=max(abs(p[2]-hip[2]) for p in points)+result['fullness_m']/scale
+        support=max(1.,max(math.hypot((p[0]-hip[0])/rx,(p[2]-hip[2])/rz) for p in points))
+        rx*=support;rz*=support
+        if rx>=abs(hip[0]):raise ValueError('hanging leg envelope reaches opposite leg centre plane')
+        result['sides'][side]={'axis_x_m':hip[0],'axis_z_m':hip[2],
+            'knee_y_m':knee[1],'transition_end_y_m':join,'hem_profile_y_m':ankle[1]+.03/scale,
+            'section_rx_m':rx,'section_rz_m':rz,'body_support_vertices':len(points),
+            'fit_band_y_m':[lower,fit_top],'source_bone_basis':'unchanged canonical prepared head_m frame; actual cleared source section supports'}
+    return result
+
+
+def hanging_trouser_point(point,weights,profile):
+    """Continuous radial-only expansion; no body/weight/UV/Y or topology edit."""
+    owner={side:math.fsum(v for j,v in weights.items() if j in {k+'_'+side for k in ('thigh','calf','foot','ball')}) for side in ('l','r')}
+    side=max(owner,key=owner.get);p=list(point);s=profile['sides'][side]
+    if p[1]>=s['transition_end_y_m']:return p
+    if owner[side]<.9:raise ValueError('hanging trouser vertex lacks source-owned leg identity')
+    t=max(0.,min(1.,(s['transition_end_y_m']-p[1])/(s['transition_end_y_m']-s['knee_y_m'])))
+    blend=t*t*(3-2*t)
+    taper=profile['cuff_ratio']+(1-profile['cuff_ratio'])*max(0.,min(1.,(p[1]-s['hem_profile_y_m'])/(s['knee_y_m']-s['hem_profile_y_m'])))
+    dx,dz=p[0]-s['axis_x_m'],p[2]-s['axis_z_m'];r=math.hypot(dx/(taper*s['section_rx_m']),dz/(taper*s['section_rz_m']))
+    if r<=1e-12:raise ValueError('trouser surface point lies on source leg axis')
+    expand=1+blend*(max(1.,1/r)-1)
+    p[0]=s['axis_x_m']+dx*expand;p[2]=s['axis_z_m']+dz*expand
+    return p
+
+
+def level_trouser_hems(shell,bones):
+    """Trim only the jagged V5 hem band on its existing source-derived faces.
+
+    Each level is the highest point of the corresponding actual boundary cycle,
+    recorded relative to its source ankle. This is an engineering trim, not a
+    historical measurement. Cut corners interpolate the existing V5 triangle's
+    source barycentrics, UVs and skin; retained V5 positions stay bit-exact.
+    The cuffs remain open tubes with closed perimeter cycles, never cap disks.
+    """
+    ps=shell['positions_m'];edges=collections.Counter(tuple(sorted(e)) for f in shell['triangles'] for e in zip(f,f[1:]+f[:1]))
+    if max(edges.values())>2:raise ValueError('hem trim requires manifold input edges')
+    adjacency=collections.defaultdict(set)
+    for (a,b),count in edges.items():
+        if count==1:adjacency[a].add(b);adjacency[b].add(a)
+    if any(len(v)!=2 for v in adjacency.values()):raise ValueError('hem trim requires closed boundary cycles')
+    seen=set();cycles=[]
+    for first in sorted(adjacency):
+        if first in seen:continue
+        todo=[first];cycle=[]
+        while todo:
+            i=todo.pop()
+            if i in seen:continue
+            seen.add(i);cycle.append(i);todo.extend(sorted(adjacency[i]-seen))
+        cycles.append(cycle)
+    def owner(weights,side):return math.fsum(v for b,v in weights.items() if b in ('thigh_'+side,'calf_'+side,'foot_'+side,'ball_'+side))
+    hems={}
+    for cycle in cycles:
+        if min(ps[i][1] for i in cycle)>=min(bones['calf_'+side]['head_m'][1] for side in ('l','r')):continue
+        side=max(('l','r'),key=lambda side:math.fsum(owner(shell['weights'][i],side) for i in cycle))
+        if side in hems or any(owner(shell['weights'][i],side)<.9 for i in cycle):raise ValueError('ambiguous source-owned hem cycle')
+        ankle=bones['foot_'+side]['head_m'][1];knee=bones['calf_'+side]['head_m'][1]
+        lo=min(ps[i][1] for i in cycle);hi=max(ps[i][1] for i in cycle)
+        if not ankle<lo<=hi<ankle+.15*(knee-ankle) or hi-lo>.1*(knee-ankle):raise ValueError('hem correction exceeds source ankle band')
+        hems[side]={'source_ankle_y_m':ankle,'existing_boundary_y_range_m':[lo,hi],'level_y_m':hi,'above_ankle_m':hi-ankle,'original_boundary_vertices':len(cycle)}
+    if set(hems)!={'l','r'} or len(cycles)!=3:raise ValueError('hem trim requires exactly waist and two leg cycles')
+    out={k:[] for k in ('positions_m','triangles','uvs','weights','source_basis','corner_uvs','source_triangle_indices')};cache={};maximum_drop=0.;cut_faces=0
+    for face,uvs,source_face in zip(shell['triangles'],shell['corner_uvs'],shell['source_triangle_indices']):
+        poly=[{'p':ps[i],'uv':uv,'n':[],'w':shell['weights'][i],'basis':shell['source_basis'][i]} for i,uv in zip(face,uvs)]
+        if min(ps[i][1] for i in face)<max(v['level_y_m'] for v in hems.values()):
+            side=max(('l','r'),key=lambda side:math.fsum(owner(shell['weights'][i],side) for i in face))
+            if any(owner(shell['weights'][i],side)<.9 for i in face):raise ValueError('ambiguous source-owned ankle face')
+            level=hems[side]['level_y_m'];poly=_clip(poly,lambda v:v['p'][1]-level);cut_faces+=1
+            for v in poly:
+                if abs(v['p'][1]-level)<=1e-12:v['p']=[v['p'][0],level,v['p'][2]]
+        ids=[]
+        for v in poly:
+            weights=sorted(((k,w) for k,w in v['w'].items() if w>1e-12),key=lambda kv:(-kv[1],kv[0]));drop=math.fsum(w for k,w in weights[4:]);maximum_drop=max(maximum_drop,drop)
+            if drop>.025:raise ValueError('hem cut exceeds 2.5 percent discarded skin mass')
+            # Keep original lanes exact; only genuinely interpolated cut lanes
+            # require truncation/normalization, following the existing guard.
+            if len(weights)>4 or len(v['basis'])>1:
+                weights=weights[:4];total=math.fsum(w for k,w in weights);mapping={k:w/total for k,w in weights}
+            else:mapping=dict(v['w'])
+            basis={k:w for k,w in v['basis'].items() if w>1e-12};key=(tuple(v['p']),tuple(sorted(mapping.items())))
+            if key not in cache:
+                cache[key]=len(out['positions_m']);out['positions_m'].append(list(v['p']));out['uvs'].append(list(v['uv']));out['weights'].append(mapping);out['source_basis'].append(basis)
+            ids.append(cache[key])
+        for k in range(1,len(ids)-1):
+            tri=[ids[0],ids[k],ids[k+1]]
+            a,b,c=[out['positions_m'][i] for i in tri];u=[b[i]-a[i] for i in range(3)];v=[c[i]-a[i] for i in range(3)];cross=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]]
+            if len(set(tri))<3 or math.hypot(*cross)<=1e-18:continue
+            out['triangles'].append(tri);out['corner_uvs'].append([poly[j]['uv'] for j in (0,k,k+1)]);out['source_triangle_indices'].append(source_face)
+    out['receipt']=copy.deepcopy(shell['receipt']);out['receipt']['trouser_level_hem_v6']={'sides':hems,'touched_original_hem_faces':cut_faces,'maximum_discarded_cut_weight':maximum_drop,'engineering_basis':'Highest existing closed hem-cycle point, relative to actual source ankle; no historical dimension','scope':'Finite ankle-band source trim; separate actual V6 source-preview hem technical PASS. Canonical qualification, full fit,40 inherited idle negative projections and photographic acceptance remain OPEN. Prior whole-shoe disappearance was V2 stale preview-sphere culling, not a shoe-source defect; complete seated enclosure remains unaccepted'}
+    return out

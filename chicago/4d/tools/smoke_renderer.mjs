@@ -16408,16 +16408,34 @@ for (const [label, viewport, touch] of [
       return { on: a.confidenceView, pressed, hidden: a.hud.hiddenLevels, hide: [u.x, u.y, u.z], ghosting: a.confidence.ghosting,
         modes: a.confidence.modes, readout: document.querySelector('#navigator .nav-readout')?.textContent ?? '' };
     });
+    // T-2981: independently pin the1835 envelope and public/stat agreement.
+    // Ordinary six-stand and lower-tier ceilings elsewhere remain unchanged.
+    const readConfidenceBudget = () => page.evaluate(() => {
+      const a = window.__chicago4d; a.step(); const st = a.stats();
+      return { year: a.year, detail: a.detail, ghosting: a.confidence.ghosting,
+        calls: st.drawCalls, triangles: st.triangles,
+        budget: { ...st.budget }, publicBudget: { ...a.budget } };
+    });
+    const confidenceBudgetPinned = (st) => {
+      const ordinary = { full: 3470000, balanced: 2625000, light: 1190000 }[st.detail];
+      const fullGhost = st.detail === 'full' && st.ghosting === true;
+      const draws = fullGhost ? 8900 : 7800;
+      const triangles = fullGhost ? 3675000 : ordinary;
+      return String(st.year) === '1835' && ordinary !== undefined
+        && st.budget.drawCalls === draws && st.budget.triangles === triangles
+        && st.publicBudget.drawCalls === draws && st.publicBudget.triangles === triangles;
+    };
     await clickChrome('#navigator .nav-preset[data-preset="bygrade"]');
     await page.waitForTimeout(150);
     const byGrade = await presetState();
     await clickChrome('#navigator .nav-preset[data-preset="xray"]');
     await page.waitForTimeout(150);
     const xrayPreset = await presetState();
-    const xrayStats = await page.evaluate(() => { const a = window.__chicago4d; a.step(); const st = a.stats(); return { calls: st.drawCalls, budget: st.budget.drawCalls }; });
+    const xrayStats = await readConfidenceBudget();
     await clickChrome('#navigator .nav-preset[data-preset="normal"]');
     await page.waitForTimeout(150);
     const normalPreset = await presetState();
+    const normalBudget = await readConfidenceBudget();
     check(`${label}: each Confidence view preset is one tap — BY GRADE colours, X-RAY ghosts, NORMAL clears (T-2647)`,
       byGrade.on === true && JSON.stringify(byGrade.pressed) === '["bygrade"]' && byGrade.hidden.length === 0
         && xrayPreset.on === true && JSON.stringify(xrayPreset.pressed) === '["xray"]' && xrayPreset.ghosting === true
@@ -16426,7 +16444,16 @@ for (const [label, viewport, touch] of [
         && /GRADE MASK 3\/3/.test(normalPreset.readout) && /MESHES \d/.test(normalPreset.readout) && /FRAME CLK/.test(normalPreset.readout),
       JSON.stringify({ byGrade, xrayPreset, normalPreset }));
     check(`${label}: X-RAY one tap away stays inside the draw budget (T-2647)`,
-      xrayStats.calls <= xrayStats.budget, JSON.stringify(xrayStats));
+      xrayStats.calls <= xrayStats.budget.drawCalls, JSON.stringify(xrayStats));
+    check(`${label}: X-RAY uses the pinned Full Ghost allowance only at Full, with public/stat agreement (T-2981)`,
+      xrayStats.ghosting === true && confidenceBudgetPinned(xrayStats), JSON.stringify(xrayStats));
+    // T-2981 calibrates measured Full Ghost work. Lower tiers keep their prior
+    // envelope pins and draw checks; their Ghost triangle readings remain in
+    // this diagnostic without claiming a new unmeasured performance guarantee.
+    check(`${label}: Full X-RAY triangles stay inside the declared view budget (T-2981)`,
+      xrayStats.detail !== 'full' || xrayStats.triangles <= xrayStats.budget.triangles, JSON.stringify(xrayStats));
+    check(`${label}: NORMAL restores the ordinary pinned ceilings after X-RAY (T-2981)`,
+      normalBudget.ghosting === false && confidenceBudgetPinned(normalBudget), JSON.stringify(normalBudget));
     // QA-12: ATTESTED ONLY is exactly hiding Inferred and Reconstructed by hand.
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     await clickChrome('#navigator .nav-preset[data-preset="attested"]');
@@ -16515,7 +16542,7 @@ for (const [label, viewport, touch] of [
     await page.waitForTimeout(300);
     const rowLook = await rowState();
     const rowLookFrame = await page.evaluate(() => window.__chicago4d.capture());
-    const rowLookStats = await page.evaluate(() => { const a = window.__chicago4d; a.step(); const st = a.stats(); return { calls: st.drawCalls, budget: st.budget.drawCalls }; });
+    const rowLookStats = await readConfidenceBudget();
     const dRowSwatch = signatureDistance(rowBase, rowSwatchFrame);
     const dRowOpacity = signatureDistance(rowSwatchFrame, rowOpacityFrame);
     const dRowLook = signatureDistance(rowOpacityFrame, rowLookFrame);
@@ -16531,8 +16558,12 @@ for (const [label, viewport, touch] of [
       `${JSON.stringify(rowOpacity.looks.reconstructed)} frame ${rowFmt(dRowOpacity)}`);
     check(`${label}: a grade row's Look ghosts the grade live, inside the draw budget (T-2648)`,
       rowLook.looks.reconstructed.mode === 'ghost' && Math.round(rowLook.looks.reconstructed.opacity * 100) === 40 && rowLook.ghosting === true
-        && /^Ghost · 40%$/.test(rowLook.looks.reconstructed.summary) && rowMoved(dRowLook) && rowLookStats.calls <= rowLookStats.budget,
+        && /^Ghost · 40%$/.test(rowLook.looks.reconstructed.summary) && rowMoved(dRowLook) && rowLookStats.calls <= rowLookStats.budget.drawCalls,
       `${JSON.stringify(rowLook.looks.reconstructed)} frame ${rowFmt(dRowLook)} ${JSON.stringify(rowLookStats)}`);
+    check(`${label}: Ghost40% uses the pinned current-tier allowance and public/stat agreement (T-2981)`,
+      rowLookStats.ghosting === true && confidenceBudgetPinned(rowLookStats), JSON.stringify(rowLookStats));
+    check(`${label}: Full Ghost40% triangles stay inside the declared view budget (T-2981)`,
+      rowLookStats.detail !== 'full' || rowLookStats.triangles <= rowLookStats.budget.triangles, JSON.stringify(rowLookStats));
     // The sweep: five opacities, three swatches and two looks already drawn, then one frame.
     const rowSweep = await page.evaluate(() => {
       const a = window.__chicago4d;
@@ -16580,6 +16611,9 @@ for (const [label, viewport, touch] of [
       a.setAnimationHold(false);
       await a.navigator.select('home'); a.navigator.dock(); document.activeElement?.blur?.();
     });
+    const restoredRowBudget = await readConfidenceBudget();
+    check(`${label}: NORMAL restores ordinary ceilings after the grade-row Ghost controls (T-2981)`,
+      restoredRowBudget.ghosting === false && confidenceBudgetPinned(restoredRowBudget), JSON.stringify(restoredRowBudget));
     // <<< T-2648
     // >>> T-2650: the Confidence view's overlays — street names, building labels, people pins
     // and the Jaunt route, each on its own switch at the foot of the app. Street names are

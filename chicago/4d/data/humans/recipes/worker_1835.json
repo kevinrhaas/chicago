@@ -9,9 +9,11 @@
   "license": "CC0-1.0",
   "grade": "reconstructed",
   "sources": [
-    "chicago_american_1835"
+    "chicago_american_1835",
+    "mount_1835_bargaining_for_a_horse",
+    "mount_1835_bar_room_scene"
   ],
-  "source_scope": "Text terminology only. Nearby June/July 1835 advertisements mention shirts, vests, pantaloons and round jackets. The July 4 advertisement postdates July 1; source text does not attest an exact outfit or before-scene availability. No page pixels, photographic garment tracing or named likeness is used.",
+  "source_scope": "Newspaper terminology only for chicago_american_1835: transcription-mediated nearby June/July 1835 advertisements mention shirts, vests, pantaloons and round jackets; the July 4 advertisement postdates July 1 and does not attest an exact outfit or before-scene stock. The two directly read Mount 1835 reproduction sources are qualitative period analogies for fuller hanging lower trousers and closed lower waistcoat fronts. Their year-only painting dates do not establish completion before 1835-07-01, exact Chicago outfits or named likenesses. No page/image pixels, painted garment tracing or measured patterns enter the model.",
   "reading": "transcription_mediated",
   "basis": "Original garment shells fitted to the cleared anonymous adult base. Shirt, separate waistcoat, high-waisted trousers and closed shoes are a bounded reconstruction. Pattern/cut, seams, layer ease, colors, buttons, wear and body shape are unmeasured choices; not an attested uniform or photographic character.",
   "liberty": "L418",
@@ -230,5 +232,22 @@
     "shirt_x_ease_arm_radius_fraction": 0.5,
     "shirt_x_ease_basis": "Reconstructed continuous source-arm ease field: original7mm X shift times clamp((upperarm_axisY-sourcepointY)/(0.5*actual dominant upperarm radialextent),0,1). Full6mm source normal ease, original source body/rig/weights/UV and original13mm maximum displacement envelope retained. The measured shoulder face/ray collision motivates this bounded construction, not a period measurement or body mask.",
     "shirt_coverage_limit": "Actual first idle shoulder rays and original source-face support regressions controlled; remaining preexisting negative face projections, complete triangle/animation/LOD/period/photographic fit remain open."
+  },
+  "workwear_tailoring_v5": {
+    "status": "V5 fuller lower trousers/closed waistcoat with V6 level hem: actual V6 source-preview hem technical PASS; canonical qualification, full fit,40 inherited idle negative projections and photographic acceptance remain OPEN. Prior whole-shoe disappearance was V2 stale preview-sphere culling; complete seated footwear enclosure remains unaccepted",
+    "selected_features": "Knee-to-shoe hanging trouser silhouette with a smooth mid-thigh transition and existing highwaist retained; substantial closed lower waistcoat front with shorter V",
+    "deferred": "Full seat/upperthigh drape, fuller shirt sleeves/distinctcuffs, collar/neckcloth, lapels/buttons/seams and photographic materials remain separate work",
+    "trouser_added_section_ease_m": 0.012,
+    "trouser_cuff_radius_ratio": 0.85,
+    "trouser_thigh_transition_fraction": 0.65,
+    "waistcoat_closed_front_torso_fraction": 0.4,
+    "engineering_basis": "Original dimensions from actual prepared body sections and unchanged bone landmarks;12mm added section ease,85percent cuff radius and65percent upper-leg transition are disclosed choices, not painted garment measurements. Lower front closes at40percent of waist-to-shoulder span.",
+    "period_analogy": "William Sidney Mount Bargaining for aHorse(1835),NYHS1858.59, and Bar-roomScene(1835),AIC1939.392: public-domain2D comparators support hanging trouser silhouettes and substantial closed lower waistcoat fronts; no named Chicago likeness/outfit, exactpattern/material or preJuly1completion is claimed.",
+    "source_registration_note": "Period comparator source records mount_1835_bargaining_for_a_horse and mount_1835_bar_room_scene are linked here and in recipe.sources with saved original-image/Commons rights proof. They permit cross-checking qualitative circa 1835 silhouette only; no completion before July 1, exact Chicago outfit, named likeness, geometry tracing or measured pattern is attested. Direct NYHS catalog proof is saved; AIC accession/title/link rely on saved Commons metadata because the V5 direct museum requests failed. Original dimensions and hem trim remain declared engineering choices; canonical/full fit/photographic acceptance remains OPEN.",
+    "sources": [
+      "mount_1835_bargaining_for_a_horse",
+      "mount_1835_bar_room_scene"
+    ],
+    "reading": "direct"
   }
 }

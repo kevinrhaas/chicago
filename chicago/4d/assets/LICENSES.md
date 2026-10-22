@@ -1329,3 +1329,13 @@ W01 geometry and source: GPL-3.0-or-later; nine original generated timber/paint/
 | `authored/transport/wagon_parked/textures/wood_color.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
 | `authored/transport/wagon_parked/textures/wood_normal.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
 | `authored/transport/wagon_parked/textures/wood_orm.png` | CC0-1.0 | Original project-authored procedural graphical input; reproducible by tools/transport/generate_parked_wagon.py. |
+
+## Original covered-wagon surfaces (T-2980)
+
+| path relative to assets/ | license | provenance |
+| --- | --- | --- |
+| `authored/transport/wagon_covered/SOURCE.json` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
+| `authored/transport/wagon_covered/ORIGINAL-LICENSE.txt` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
+| `authored/transport/wagon_covered/textures/canvas_color.png` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
+| `authored/transport/wagon_covered/textures/canvas_normal.png` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
+| `authored/transport/wagon_covered/textures/canvas_orm.png` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |

@@ -1,0 +1,1306 @@
+{
+  "ticket": "T-2981",
+  "scope": "Full detail with active true-transparency Ghost only; ordinary views, Balanced, Light and higher inspection allowances retain their prior envelopes. A declared measured allowance, preserving all rendering work.",
+  "policy": {
+    "draws": 8900,
+    "triangles": 3675000,
+    "draw_basis": {
+      "maximum": 8469,
+      "source": "actual failed CI39673247878/job119476336767/T2648 on2aebef95; local paired newGhost8466 retains gap−3",
+      "margin_fraction": 0.05,
+      "round_up_to": 100
+    },
+    "triangle_basis": {
+      "maximum": 3656436,
+      "source": "matched parent Xray in the complete raw receipt",
+      "defended_absolute_margin": 18059,
+      "margin_source": "main.js Full ordinary ceiling history/T-0672/period-transport-fresh-detail-2026-10-19.json",
+      "round_up_to": 5000
+    }
+  },
+  "measurements": [
+    {
+      "arm": "parent",
+      "mode": "normal",
+      "draws": 3694,
+      "triangles": 2844634,
+      "renderer_calls": 287,
+      "recorded_budget": {
+        "drawCalls": 7800,
+        "triangles": 3470000
+      },
+      "actual_GL_reconciliation": {
+        "primaryGL": 3694,
+        "primaryShippedCounter": 3694,
+        "pickingGL": 0,
+        "pickingMultiDrawExtra": 0,
+        "reportedShippedCounter": 3694,
+        "residualAfterPrimary": 0,
+        "PASS": true
+      },
+      "GL_error": 0,
+      "buckets": [
+        {
+          "pass": "shadow",
+          "layer": "structures",
+          "driverDraws": 702,
+          "commands": 5,
+          "objects": 5
+        },
+        {
+          "pass": "shadow",
+          "layer": "enclosures",
+          "driverDraws": 44,
+          "commands": 44,
+          "objects": 44
+        },
+        {
+          "pass": "shadow",
+          "layer": "signage",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "shadow",
+          "layer": "yard",
+          "driverDraws": 20,
+          "commands": 20,
+          "objects": 20
+        },
+        {
+          "pass": "shadow",
+          "layer": "frontage",
+          "driverDraws": 6,
+          "commands": 6,
+          "objects": 6
+        },
+        {
+          "pass": "shadow",
+          "layer": "wharves",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "shadow",
+          "layer": "boats",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "shadow",
+          "layer": "trees",
+          "driverDraws": 39,
+          "commands": 3,
+          "objects": 3
+        },
+        {
+          "pass": "opaque",
+          "layer": "flora",
+          "driverDraws": 12,
+          "commands": 12,
+          "objects": 12
+        },
+        {
+          "pass": "opaque",
+          "layer": "trees",
+          "driverDraws": 652,
+          "commands": 6,
+          "objects": 6
+        },
+        {
+          "pass": "opaque",
+          "layer": "structures",
+          "driverDraws": 1302,
+          "commands": 5,
+          "objects": 5
+        },
+        {
+          "pass": "opaque",
+          "layer": "sky",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "terrain",
+          "driverDraws": 186,
+          "commands": 13,
+          "objects": 13
+        },
+        {
+          "pass": "opaque",
+          "layer": "enclosures",
+          "driverDraws": 73,
+          "commands": 73,
+          "objects": 73
+        },
+        {
+          "pass": "opaque",
+          "layer": "signage",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "yard",
+          "driverDraws": 27,
+          "commands": 27,
+          "objects": 27
+        },
+        {
+          "pass": "opaque",
+          "layer": "wharves",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "boats",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "working_bank",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "streets",
+          "driverDraws": 159,
+          "commands": 3,
+          "objects": 3
+        },
+        {
+          "pass": "opaque",
+          "layer": "yard-ground",
+          "driverDraws": 407,
+          "commands": 5,
+          "objects": 5
+        },
+        {
+          "pass": "opaque",
+          "layer": "frontage",
+          "driverDraws": 57,
+          "commands": 57,
+          "objects": 57
+        }
+      ]
+    },
+    {
+      "arm": "parent",
+      "mode": "xray",
+      "draws": 8222,
+      "triangles": 3656436,
+      "renderer_calls": 313,
+      "recorded_budget": {
+        "drawCalls": 7800,
+        "triangles": 3470000
+      },
+      "actual_GL_reconciliation": {
+        "primaryGL": 8222,
+        "primaryShippedCounter": 8222,
+        "pickingGL": 0,
+        "pickingMultiDrawExtra": 0,
+        "reportedShippedCounter": 8222,
+        "residualAfterPrimary": 0,
+        "PASS": true
+      },
+      "GL_error": 0,
+      "buckets": [
+        {
+          "pass": "shadow",
+          "layer": "structures",
+          "driverDraws": 8,
+          "commands": 2,
+          "objects": 2
+        },
+        {
+          "pass": "shadow",
+          "layer": "enclosures",
+          "driverDraws": 44,
+          "commands": 44,
+          "objects": 44
+        },
+        {
+          "pass": "shadow",
+          "layer": "yard",
+          "driverDraws": 20,
+          "commands": 20,
+          "objects": 20
+        },
+        {
+          "pass": "shadow",
+          "layer": "frontage",
+          "driverDraws": 6,
+          "commands": 6,
+          "objects": 6
+        },
+        {
+          "pass": "shadow",
+          "layer": "wharves",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "shadow",
+          "layer": "boats",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "shadow",
+          "layer": "trees",
+          "driverDraws": 28,
+          "commands": 2,
+          "objects": 2
+        },
+        {
+          "pass": "opaque",
+          "layer": "flora",
+          "driverDraws": 12,
+          "commands": 12,
+          "objects": 12
+        },
+        {
+          "pass": "opaque",
+          "layer": "structures",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "sky",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "enclosures",
+          "driverDraws": 73,
+          "commands": 73,
+          "objects": 73
+        },
+        {
+          "pass": "opaque",
+          "layer": "yard",
+          "driverDraws": 27,
+          "commands": 27,
+          "objects": 27
+        },
+        {
+          "pass": "opaque",
+          "layer": "wharves",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "boats",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "trees",
+          "driverDraws": 615,
+          "commands": 4,
+          "objects": 4
+        },
+        {
+          "pass": "opaque",
+          "layer": "terrain",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "streets",
+          "driverDraws": 159,
+          "commands": 3,
+          "objects": 3
+        },
+        {
+          "pass": "opaque",
+          "layer": "frontage",
+          "driverDraws": 57,
+          "commands": 57,
+          "objects": 57
+        },
+        {
+          "pass": "ghost",
+          "layer": "flora",
+          "driverDraws": 21,
+          "commands": 21,
+          "objects": 12
+        },
+        {
+          "pass": "ghost",
+          "layer": "working_bank",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "ghost",
+          "layer": "trees",
+          "driverDraws": 73,
+          "commands": 3,
+          "objects": 2
+        },
+        {
+          "pass": "ghost",
+          "layer": "terrain",
+          "driverDraws": 3908,
+          "commands": 12,
+          "objects": 12
+        },
+        {
+          "pass": "ghost",
+          "layer": "streets",
+          "driverDraws": 150,
+          "commands": 2,
+          "objects": 2
+        },
+        {
+          "pass": "ghost",
+          "layer": "yard-ground",
+          "driverDraws": 407,
+          "commands": 5,
+          "objects": 5
+        },
+        {
+          "pass": "ghost",
+          "layer": "structures",
+          "driverDraws": 2604,
+          "commands": 10,
+          "objects": 5
+        },
+        {
+          "pass": "ghost",
+          "layer": "signage",
+          "driverDraws": 2,
+          "commands": 2,
+          "objects": 1
+        }
+      ]
+    },
+    {
+      "arm": "parent",
+      "mode": "ghost40",
+      "draws": 8465,
+      "triangles": 3451174,
+      "renderer_calls": 319,
+      "recorded_budget": {
+        "drawCalls": 7800,
+        "triangles": 3470000
+      },
+      "actual_GL_reconciliation": {
+        "primaryGL": 8465,
+        "primaryShippedCounter": 8465,
+        "pickingGL": 0,
+        "pickingMultiDrawExtra": 0,
+        "reportedShippedCounter": 8465,
+        "residualAfterPrimary": 0,
+        "PASS": true
+      },
+      "GL_error": 0,
+      "buckets": [
+        {
+          "pass": "shadow",
+          "layer": "structures",
+          "driverDraws": 220,
+          "commands": 5,
+          "objects": 5
+        },
+        {
+          "pass": "shadow",
+          "layer": "enclosures",
+          "driverDraws": 44,
+          "commands": 44,
+          "objects": 44
+        },
+        {
+          "pass": "shadow",
+          "layer": "yard",
+          "driverDraws": 20,
+          "commands": 20,
+          "objects": 20
+        },
+        {
+          "pass": "shadow",
+          "layer": "frontage",
+          "driverDraws": 6,
+          "commands": 6,
+          "objects": 6
+        },
+        {
+          "pass": "shadow",
+          "layer": "wharves",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "shadow",
+          "layer": "boats",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "shadow",
+          "layer": "trees",
+          "driverDraws": 39,
+          "commands": 3,
+          "objects": 3
+        },
+        {
+          "pass": "opaque",
+          "layer": "flora",
+          "driverDraws": 12,
+          "commands": 12,
+          "objects": 12
+        },
+        {
+          "pass": "opaque",
+          "layer": "trees",
+          "driverDraws": 652,
+          "commands": 6,
+          "objects": 6
+        },
+        {
+          "pass": "opaque",
+          "layer": "structures",
+          "driverDraws": 66,
+          "commands": 5,
+          "objects": 5
+        },
+        {
+          "pass": "opaque",
+          "layer": "sky",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "terrain",
+          "driverDraws": 186,
+          "commands": 13,
+          "objects": 13
+        },
+        {
+          "pass": "opaque",
+          "layer": "enclosures",
+          "driverDraws": 73,
+          "commands": 73,
+          "objects": 73
+        },
+        {
+          "pass": "opaque",
+          "layer": "yard",
+          "driverDraws": 27,
+          "commands": 27,
+          "objects": 27
+        },
+        {
+          "pass": "opaque",
+          "layer": "wharves",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "boats",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "streets",
+          "driverDraws": 159,
+          "commands": 3,
+          "objects": 3
+        },
+        {
+          "pass": "opaque",
+          "layer": "frontage",
+          "driverDraws": 57,
+          "commands": 57,
+          "objects": 57
+        },
+        {
+          "pass": "ghost",
+          "layer": "flora",
+          "driverDraws": 10,
+          "commands": 10,
+          "objects": 6
+        },
+        {
+          "pass": "ghost",
+          "layer": "working_bank",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "ghost",
+          "layer": "terrain",
+          "driverDraws": 3857,
+          "commands": 10,
+          "objects": 10
+        },
+        {
+          "pass": "ghost",
+          "layer": "streets",
+          "driverDraws": 150,
+          "commands": 2,
+          "objects": 2
+        },
+        {
+          "pass": "ghost",
+          "layer": "yard-ground",
+          "driverDraws": 407,
+          "commands": 5,
+          "objects": 5
+        },
+        {
+          "pass": "ghost",
+          "layer": "structures",
+          "driverDraws": 2472,
+          "commands": 10,
+          "objects": 5
+        },
+        {
+          "pass": "ghost",
+          "layer": "signage",
+          "driverDraws": 2,
+          "commands": 2,
+          "objects": 1
+        }
+      ]
+    },
+    {
+      "arm": "new",
+      "mode": "normal",
+      "draws": 3695,
+      "triangles": 2842422,
+      "renderer_calls": 288,
+      "recorded_budget": {
+        "drawCalls": 7800,
+        "triangles": 3470000
+      },
+      "actual_GL_reconciliation": {
+        "primaryGL": 3695,
+        "primaryShippedCounter": 3695,
+        "pickingGL": 0,
+        "pickingMultiDrawExtra": 0,
+        "reportedShippedCounter": 3695,
+        "residualAfterPrimary": 0,
+        "PASS": true
+      },
+      "GL_error": 0,
+      "buckets": [
+        {
+          "pass": "shadow",
+          "layer": "structures",
+          "driverDraws": 702,
+          "commands": 5,
+          "objects": 5
+        },
+        {
+          "pass": "shadow",
+          "layer": "enclosures",
+          "driverDraws": 44,
+          "commands": 44,
+          "objects": 44
+        },
+        {
+          "pass": "shadow",
+          "layer": "signage",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "shadow",
+          "layer": "yard",
+          "driverDraws": 21,
+          "commands": 21,
+          "objects": 21
+        },
+        {
+          "pass": "shadow",
+          "layer": "frontage",
+          "driverDraws": 6,
+          "commands": 6,
+          "objects": 6
+        },
+        {
+          "pass": "shadow",
+          "layer": "wharves",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "shadow",
+          "layer": "boats",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "shadow",
+          "layer": "trees",
+          "driverDraws": 39,
+          "commands": 3,
+          "objects": 3
+        },
+        {
+          "pass": "opaque",
+          "layer": "flora",
+          "driverDraws": 12,
+          "commands": 12,
+          "objects": 12
+        },
+        {
+          "pass": "opaque",
+          "layer": "trees",
+          "driverDraws": 652,
+          "commands": 6,
+          "objects": 6
+        },
+        {
+          "pass": "opaque",
+          "layer": "structures",
+          "driverDraws": 1302,
+          "commands": 5,
+          "objects": 5
+        },
+        {
+          "pass": "opaque",
+          "layer": "sky",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "terrain",
+          "driverDraws": 186,
+          "commands": 13,
+          "objects": 13
+        },
+        {
+          "pass": "opaque",
+          "layer": "enclosures",
+          "driverDraws": 73,
+          "commands": 73,
+          "objects": 73
+        },
+        {
+          "pass": "opaque",
+          "layer": "signage",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "yard",
+          "driverDraws": 27,
+          "commands": 27,
+          "objects": 27
+        },
+        {
+          "pass": "opaque",
+          "layer": "wharves",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "boats",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "working_bank",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "streets",
+          "driverDraws": 159,
+          "commands": 3,
+          "objects": 3
+        },
+        {
+          "pass": "opaque",
+          "layer": "yard-ground",
+          "driverDraws": 407,
+          "commands": 5,
+          "objects": 5
+        },
+        {
+          "pass": "opaque",
+          "layer": "frontage",
+          "driverDraws": 57,
+          "commands": 57,
+          "objects": 57
+        }
+      ]
+    },
+    {
+      "arm": "new",
+      "mode": "xray",
+      "draws": 8223,
+      "triangles": 3654224,
+      "renderer_calls": 314,
+      "recorded_budget": {
+        "drawCalls": 7800,
+        "triangles": 3470000
+      },
+      "actual_GL_reconciliation": {
+        "primaryGL": 8223,
+        "primaryShippedCounter": 8223,
+        "pickingGL": 0,
+        "pickingMultiDrawExtra": 0,
+        "reportedShippedCounter": 8223,
+        "residualAfterPrimary": 0,
+        "PASS": true
+      },
+      "GL_error": 0,
+      "buckets": [
+        {
+          "pass": "shadow",
+          "layer": "structures",
+          "driverDraws": 8,
+          "commands": 2,
+          "objects": 2
+        },
+        {
+          "pass": "shadow",
+          "layer": "enclosures",
+          "driverDraws": 44,
+          "commands": 44,
+          "objects": 44
+        },
+        {
+          "pass": "shadow",
+          "layer": "yard",
+          "driverDraws": 21,
+          "commands": 21,
+          "objects": 21
+        },
+        {
+          "pass": "shadow",
+          "layer": "frontage",
+          "driverDraws": 6,
+          "commands": 6,
+          "objects": 6
+        },
+        {
+          "pass": "shadow",
+          "layer": "wharves",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "shadow",
+          "layer": "boats",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "shadow",
+          "layer": "trees",
+          "driverDraws": 28,
+          "commands": 2,
+          "objects": 2
+        },
+        {
+          "pass": "opaque",
+          "layer": "flora",
+          "driverDraws": 12,
+          "commands": 12,
+          "objects": 12
+        },
+        {
+          "pass": "opaque",
+          "layer": "structures",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "sky",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "enclosures",
+          "driverDraws": 73,
+          "commands": 73,
+          "objects": 73
+        },
+        {
+          "pass": "opaque",
+          "layer": "yard",
+          "driverDraws": 27,
+          "commands": 27,
+          "objects": 27
+        },
+        {
+          "pass": "opaque",
+          "layer": "wharves",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "boats",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "trees",
+          "driverDraws": 615,
+          "commands": 4,
+          "objects": 4
+        },
+        {
+          "pass": "opaque",
+          "layer": "terrain",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "streets",
+          "driverDraws": 159,
+          "commands": 3,
+          "objects": 3
+        },
+        {
+          "pass": "opaque",
+          "layer": "frontage",
+          "driverDraws": 57,
+          "commands": 57,
+          "objects": 57
+        },
+        {
+          "pass": "ghost",
+          "layer": "flora",
+          "driverDraws": 21,
+          "commands": 21,
+          "objects": 12
+        },
+        {
+          "pass": "ghost",
+          "layer": "working_bank",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "ghost",
+          "layer": "trees",
+          "driverDraws": 73,
+          "commands": 3,
+          "objects": 2
+        },
+        {
+          "pass": "ghost",
+          "layer": "terrain",
+          "driverDraws": 3908,
+          "commands": 12,
+          "objects": 12
+        },
+        {
+          "pass": "ghost",
+          "layer": "streets",
+          "driverDraws": 150,
+          "commands": 2,
+          "objects": 2
+        },
+        {
+          "pass": "ghost",
+          "layer": "yard-ground",
+          "driverDraws": 407,
+          "commands": 5,
+          "objects": 5
+        },
+        {
+          "pass": "ghost",
+          "layer": "signage",
+          "driverDraws": 2,
+          "commands": 2,
+          "objects": 1
+        },
+        {
+          "pass": "ghost",
+          "layer": "structures",
+          "driverDraws": 2604,
+          "commands": 10,
+          "objects": 5
+        }
+      ]
+    },
+    {
+      "arm": "new",
+      "mode": "ghost40",
+      "draws": 8466,
+      "triangles": 3448962,
+      "renderer_calls": 320,
+      "recorded_budget": {
+        "drawCalls": 7800,
+        "triangles": 3470000
+      },
+      "actual_GL_reconciliation": {
+        "primaryGL": 8466,
+        "primaryShippedCounter": 8466,
+        "pickingGL": 0,
+        "pickingMultiDrawExtra": 0,
+        "reportedShippedCounter": 8466,
+        "residualAfterPrimary": 0,
+        "PASS": true
+      },
+      "GL_error": 0,
+      "buckets": [
+        {
+          "pass": "shadow",
+          "layer": "structures",
+          "driverDraws": 220,
+          "commands": 5,
+          "objects": 5
+        },
+        {
+          "pass": "shadow",
+          "layer": "enclosures",
+          "driverDraws": 44,
+          "commands": 44,
+          "objects": 44
+        },
+        {
+          "pass": "shadow",
+          "layer": "yard",
+          "driverDraws": 21,
+          "commands": 21,
+          "objects": 21
+        },
+        {
+          "pass": "shadow",
+          "layer": "frontage",
+          "driverDraws": 6,
+          "commands": 6,
+          "objects": 6
+        },
+        {
+          "pass": "shadow",
+          "layer": "wharves",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "shadow",
+          "layer": "boats",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "shadow",
+          "layer": "trees",
+          "driverDraws": 39,
+          "commands": 3,
+          "objects": 3
+        },
+        {
+          "pass": "opaque",
+          "layer": "flora",
+          "driverDraws": 12,
+          "commands": 12,
+          "objects": 12
+        },
+        {
+          "pass": "opaque",
+          "layer": "trees",
+          "driverDraws": 652,
+          "commands": 6,
+          "objects": 6
+        },
+        {
+          "pass": "opaque",
+          "layer": "structures",
+          "driverDraws": 66,
+          "commands": 5,
+          "objects": 5
+        },
+        {
+          "pass": "opaque",
+          "layer": "sky",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "terrain",
+          "driverDraws": 186,
+          "commands": 13,
+          "objects": 13
+        },
+        {
+          "pass": "opaque",
+          "layer": "enclosures",
+          "driverDraws": 73,
+          "commands": 73,
+          "objects": 73
+        },
+        {
+          "pass": "opaque",
+          "layer": "yard",
+          "driverDraws": 27,
+          "commands": 27,
+          "objects": 27
+        },
+        {
+          "pass": "opaque",
+          "layer": "wharves",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "boats",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "opaque",
+          "layer": "streets",
+          "driverDraws": 159,
+          "commands": 3,
+          "objects": 3
+        },
+        {
+          "pass": "opaque",
+          "layer": "frontage",
+          "driverDraws": 57,
+          "commands": 57,
+          "objects": 57
+        },
+        {
+          "pass": "ghost",
+          "layer": "flora",
+          "driverDraws": 10,
+          "commands": 10,
+          "objects": 6
+        },
+        {
+          "pass": "ghost",
+          "layer": "working_bank",
+          "driverDraws": 1,
+          "commands": 1,
+          "objects": 1
+        },
+        {
+          "pass": "ghost",
+          "layer": "terrain",
+          "driverDraws": 3857,
+          "commands": 10,
+          "objects": 10
+        },
+        {
+          "pass": "ghost",
+          "layer": "streets",
+          "driverDraws": 150,
+          "commands": 2,
+          "objects": 2
+        },
+        {
+          "pass": "ghost",
+          "layer": "yard-ground",
+          "driverDraws": 407,
+          "commands": 5,
+          "objects": 5
+        },
+        {
+          "pass": "ghost",
+          "layer": "signage",
+          "driverDraws": 2,
+          "commands": 2,
+          "objects": 1
+        },
+        {
+          "pass": "ghost",
+          "layer": "structures",
+          "driverDraws": 2472,
+          "commands": 10,
+          "objects": 5
+        }
+      ]
+    }
+  ],
+  "paired_pose": {
+    "position": [
+      104.5,
+      1.8381999981403307,
+      79
+    ],
+    "quaternion": [
+      0.014935690049529538,
+      -0.9672137232896036,
+      0.05856475578111403,
+      0.246667200947562
+    ],
+    "projection": [
+      1.2006138293569788,
+      0,
+      0,
+      0,
+      0,
+      1.9209821269711662,
+      0,
+      0,
+      0,
+      0,
+      -1.000066668888963,
+      -1,
+      0,
+      0,
+      -0.2000066668888963,
+      0
+    ],
+    "fov": 55,
+    "aspect": 1.6,
+    "near": 0.1,
+    "far": 3000
+  },
+  "paired_state": {
+    "detail": "full",
+    "pace": "walk",
+    "travelMode": "instantly",
+    "eyeHeight": 1.68,
+    "season": "summer",
+    "quality": 1,
+    "governor": {
+      "mode": "adaptive",
+      "scale": 1,
+      "pace": 1,
+      "fps": 60,
+      "moving": false,
+      "shadowEvery": 1,
+      "tier": "full",
+      "ceiling": 1,
+      "ratio": 1
+    },
+    "groundY": 0.1581999981403309,
+    "eyeY": 1.8381999981403307,
+    "flying": false
+  },
+  "comparison": [
+    {
+      "mode": "normal",
+      "new": 3695,
+      "parent": 3694,
+      "difference": 1,
+      "budget": 7800
+    },
+    {
+      "mode": "xray",
+      "new": 8223,
+      "parent": 8222,
+      "difference": 1,
+      "budget": 7800
+    },
+    {
+      "mode": "ghost40",
+      "new": 8466,
+      "parent": 8465,
+      "difference": 1,
+      "budget": 7800
+    }
+  ],
+  "provenance": {
+    "new_ref": "2aebef95f6a5b6fa1bd8353db936c7674a73c32f",
+    "parent_ref": "fdb227dbf5ed952921ef652f5a02480fffdad462",
+    "common_substrate": "immutable2aeb published mirror, exact runtime overlays; not a historic parent publish",
+    "new_execution": "V4b completed new arm retained from deadline-stopped two-arm attempt",
+    "parent_execution": "parent-only continuation; separate execution, all pose/state/prebuilt controls passed",
+    "complete_receipt_sha256": "85f78e1215b0bae6b6bd41e46e88372d7cc43172a4688e395635e67a0612601e",
+    "complete_capsule_sha256": "e0bd7d7915e9dae5743161672b5f83176088b13f52023a0726711e892c8524ba",
+    "evidence_repo": "https://github.com/kevinrhaas/chicago-tickets/tree/main/evidence/parked-vehicles-2026-10-22/",
+    "CI_failure": "https://github.com/kevinrhaas/chicago/actions/runs/39673247878",
+    "inherited": {
+      "inherited": true,
+      "executed_in_continuation_process": false,
+      "separate_execution": true,
+      "original_started": "2026-10-22T00:25:49.517Z",
+      "original_ended": "2026-10-22T00:32:18.840Z",
+      "original_overall_status": "STOPPED",
+      "original_parent_partial_modes": [
+        "normal"
+      ],
+      "limit": "Original parent NORMAL retained in source receipt only; continuation measures parent again, never replays new.",
+      "receipt_sha256": "5bfc6b2393acca8dbb26a7558981652f1392f77e3f99fd1a77740ec251e9eb1f",
+      "supervisor_sha256": "b8d43cbcee7309717d6433900d711e04ee06150ac3f0e4b9fccd6d67d39ff7f9",
+      "root_closed_sha256": "c07b21905d6f6443419158ca891aa41e6a5f004d6d6eb8e4baadf16fcca1cc1c",
+      "manifest_sha256": "734f3991e2554319ba446bfaa3b72a73a19b5a40684cb1efcd0e3ffa2eae0438",
+      "caller_sha256": "14c28eac45442d214eaf8d581aa41a73e512c04e6c627498282d33b57ad7c5cb",
+      "execution": "parked-2979-paired-overlay-ACTUAL-v4b",
+      "seed_sha256": "b12f86b92afc2af961cd6776dab6abb7ffc0c7e5b3e425537a567f6019ba2632",
+      "inherited_modes": [
+        "normal",
+        "xray",
+        "ghost40"
+      ]
+    }
+  },
+  "findings": [
+    "Every measured primary GL total equals shipped driver count, picking0; private-pick counter bug does not explain these frames.",
+    "Only measured per-pass/layer difference is shadow-yard21new/20parent (+1 each mode); all direct parked groups are hidden at this pose.",
+    "Xray terrain3908draws includes terrain-base3652 versus96inopaque; transparent sorting prevents contiguous coalescing. Ground already FrontSide; no safe blind sort bypass.",
+    "Both refs exceed original7800draw and3470000Xray triangle calibration at this Full pose.",
+    "Original six-stand calibration covered ordinary views. This extends measured Full Ghost coverage, without claiming all-camera or frame-rate guarantees."
+  ],
+  "qualification": "Original CI failure is retained. This diagnostic is not current changed-source CI qualification. Full preflight and relevant actual smoke checks are required before ordinary DEV merge."
+}
