@@ -1,0 +1,10 @@
+{
+  "title": "Glessner's courtyard falls to the carriage passage, as drawn",
+  "kind": "fix",
+  "items": [
+    "The courtyard ground now slopes down 1.3 ft to the passage mouth, as the HABS section draws it.",
+    "The passage clears 9.7 ft under its courtyard lintel, up from 8.2 ft.",
+    "The stair tower's stone footing runs down to the lower ground.",
+    "The courtyard walls, windows and roofs keep their heights: the section's zero is the lawn."
+  ]
+}
