@@ -7,7 +7,7 @@
   "recipe": "data/transport/parked/covered-w01.json",
   "producer": "tools/transport/generate_covered_wagons.py",
   "core_source": "tools/transport/wagon_covered/build.py",
-  "core_source_sha256": "1a36e3506c9e515c5404d911f30f2c2093b325fe5a6184d931aefa6503d7555d",
+  "core_source_sha256": "679fc439a98921b0afcf60b31a437687dd3f243c7d62c1737da3cb215a882e29",
   "reviewed_parent_sha256": "274e737b51872983df792d0b24de8e75de8631890a8d586a32d9c6f0066484fb",
   "source_commit": "2aebef95f6a5b6fa1bd8353db936c7674a73c32f",
   "actual_terrain_qualification": {
@@ -132,8 +132,8 @@
     {
       "model": "covered_w01_western_blue",
       "legacy_id": "town_wagon_western_hotel_wagon_yard_1",
-      "glb_sha256": "9b6575d1702ca288b5a66487ef089cc51dd0b86d14a47574f94b6fe6eaf23d23",
-      "sidecar_sha256": "5261e1ea4c89312322f1589019c05e2bcb6402aea600848d3ee1fb6f30c6d5fc",
+      "glb_sha256": "aaffa3396778d9ab88153b80480034354b03ac6aa0128aa4a2f4b0a5d839655a",
+      "sidecar_sha256": "feb0acfd8463e693b47e3d239b6c0b3218a2d3565fd9c334e1ece87852c10378",
       "source_seed_text": "wagon|town_wagon_western_hotel_wagon_yard_1|-136.05|-291",
       "scheme": {
         "weight": 3,
@@ -147,8 +147,8 @@
     {
       "model": "covered_w01_wolfpoint_oak",
       "legacy_id": "town_wagon_wolf_point_tavern_yard_1",
-      "glb_sha256": "c6f69830d4ad690125ed703353d429bb8f68d67d29d6f6161b383b8b2d78f191",
-      "sidecar_sha256": "2873ec1ea489651dde522fbea3d8f078d8fe2d5661dea9c510b5775fba753891",
+      "glb_sha256": "22072e6fc83f1f73faeb98b583facb8dd9a2cf9498118e6df9c43ffd485f9321",
+      "sidecar_sha256": "e2eb0b7d387fc8f604c2440af57b4852b9bd47e5ffafd17a9b0e33a836bae7dc",
       "source_seed_text": "wagon|town_wagon_wolf_point_tavern_yard_1|-90.5|-39.5",
       "scheme": {
         "weight": 1,
@@ -164,8 +164,8 @@
   "limitations": [
     "No attested textile pattern, bows, seams, hardware, historic paint/wear or identity",
     "No occupied driver, hitch, horse, boarding, animation or collision interface",
-    "No source/published main scene comparisons, production shadows or phone-budget qualification yet",
-    "Only two explicit original covered records are proposed; no fleet or LOD expansion"
+    "Only two explicit original covered records are proposed; no fleet or LOD expansion",
+    "Historical initial 22-image source/published main inspection and bounded mobile drape comparisons are recorded separately; candidate desktop/current-worktree browser and full photographic acceptance remain open."
   ],
   "original_yard_seed_contracts": {
     "WAGON_PAINT": {
@@ -200,5 +200,35 @@
       "end": ";",
       "sha256": "8d836262ecd5290d23f6fd8e5a4ae964c16eb2626c899324d8d8291df542fe80"
     }
+  },
+  "source_commit_scope": "Historical first integration source; current canvas refinement is bound separately below by exact source/product hashes.",
+  "canvas_drape_refinement": {
+    "ticket": "T-2980",
+    "integration_base_commit": "64e83fcd0a4fa48ba4373778af5666ec2c448de8",
+    "original_core_source_sha256": "1a36e3506c9e515c5404d911f30f2c2093b325fe5a6184d931aefa6503d7555d",
+    "original_glb_sha256": {
+      "covered_w01_western_blue": "9b6575d1702ca288b5a66487ef089cc51dd0b86d14a47574f94b6fe6eaf23d23",
+      "covered_w01_wolfpoint_oak": "c6f69830d4ad690125ed703353d429bb8f68d67d29d6f6161b383b8b2d78f191"
+    },
+    "scope": "Original reconstructed maximum inter-bow drape increases from 8\u201310 mm to 20\u201328 mm over 750 mm spans; the 1.2 mm crease amplitude is unchanged. No historic measurement or photographic pattern is asserted.",
+    "preserved": "Both original identities, positions, bearings, seeded blue/oxide versus oak/darkoak finishes, aging, yokes, running gear, materials and procedural textures; recipe and runtime unchanged.",
+    "actual_generation": {
+      "completed_utc": "2026-10-22T05:03:11.770440Z",
+      "scope": "One outside-app generation and bounded source/cloth-versus-bows readback; no full physical or occupied clearance claim",
+      "capsule": "covered-cloth-drape-generation-v1-2026-10-22.tar",
+      "sha256": "5719460a9e8a6e352e76c196871c2b98599f8f568aadbefb7d88566c41699b13"
+    },
+    "actual_mobile_comparison": {
+      "capsule": "covered-cloth-mobile-6PLUS2-proof-20261022.tar",
+      "sha256": "d3d21063871bc039162687dcd148876c7e910d44be770ff161ff7768d2625dce",
+      "scope": "Six PNGs belong to an original deadline failure; the remaining Wolf Point quarter pair and new-page cleanup belong to a separate pass. Root found the drape subtle and coherent; this is not final photographic acceptance.",
+      "caveat": "Camera/wagon state was matched; ordinary asynchronous residents and foliage were not stabilized. Bardwell appears only in the WolfPoint candidate frame. No whole-frame or wagon-only render-cost comparison.",
+      "independent_addendum_sha256": "6262758d63a4dd09d6346495217e4aa0adf2e7168c4706f7d8503fa2b8207d62"
+    },
+    "pending": [
+      "Current-worktree full preflight and current-head CI; existing production reproduction and targeted nonbrowser checks passed",
+      "Current source/published desktop appearance and integration qualification",
+      "Photographic/material/cloth-construction and distinct compressed LOD acceptance"
+    ]
   }
 }
