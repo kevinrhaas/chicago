@@ -1345,7 +1345,7 @@ def bracketed_section(k10: dict, overhang: float) -> list:
 
 def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_stone: bool = False,
           floors: tuple = (), eave: float = 0.0, overhang: float = 0.0, front_coursed: bool = False,
-          wing_corner: bool = False):
+          wing_corner: bool = False, eave_front: float | None = None):
     """Resolve the record's `bays` against the K08 kit; drop the host openings each covers.
 
     A bay stands in front of its wall from grade to its own wall top, so every host
@@ -1355,7 +1355,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
     one of the house's floors (`base_m`), the record may set its corbel courses and size
     its canted plan, and its wall top stays a metre under the main eave — unless the
     record carries it `through_eave` (T-2778), under a spire, its back closed over the
-    wall head.
+    wall head. `eave_front` is the height of the house eave's front edge, its fascia's top
+    (the eave datum when not given), which a through-eave oriel's walls must clear (T-2989).
     """
     import copy as _copy
     kit = {v["id"]: v for v in json.loads(BAY_KIT.read_text())["variants"]}
@@ -1804,11 +1805,18 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 # upper stage stands clear over the main roof under a spire, the house's eave,
                 # gutter and bed moulding die into its cants (so its front stands past them),
                 # and its back is closed over the wall head, where no wall stands behind it
+                # T-2989: or its wall top may stand UNDER the eave datum, as 1811's plate draws its
+                # oriel's cornice (its top 9.06 m, under the 9.14 m datum), so long as its walls
+                # rise 0.3 m over the eave's front edge (the fascia's top), so the eave still dies
+                # into them; its back is then closed from the datum up, over its eaves and spire
+                # only (k08_bays._back)
                 front = max(z for _, z in v["plan"]["points"])
-                if not spire or top < eave + 0.3 or front < overhang + 0.15:
+                edge = eave if eave_front is None else eave_front
+                if not spire or not (top >= eave + 0.3 or edge + 0.3 - 1e-9 <= top < eave) or front < overhang + 0.15:
                     raise ParamError(f"bays: {e['id']} is carried through the eave: under a spire, its wall top "
-                                     f"at least 0.3 m over the eave ({eave:.2f} m; has {top:.2f}) and its front "
-                                     f"0.15 m past the eave's {overhang} m (has {front})")
+                                     f"at least 0.3 m over the eave ({eave:.2f} m; has {top:.2f}), or under it and "
+                                     f"0.3 m over the eave's front edge ({edge:.2f} m), and its front 0.15 m past "
+                                     f"the eave's {overhang} m (has {front})")
                 v["back_from_m"] = eave
             elif spire or top > eave - 1.0:
                 raise ParamError(f"bays: {e['id']}'s wall top {top:.2f} m is not a metre under the eave "
@@ -3878,7 +3886,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                  {"k01.wall.street_front": width, "k01.wall.rear_service": width,
                                "k01.wall.side.south": depth, "k01.wall.side.north": depth},
                  openings, (record or {}).get("id", ""), bool(val("stone_front")), tuple(floors), eave,
-                 float(val("eave_overhang_m")), bool((val("stone_front") or {}).get("coursing")))
+                 float(val("eave_overhang_m")), bool((val("stone_front") or {}).get("coursing")),
+                 eave_front=(eave - float(val("eave_overhang_m")) * math.tan(math.radians(pitch))
+                             if roof_form in ("hip", "gable") else None))
     # T-2780: a round-headed window over a bay is cut after the kit was read, so its variant
     # is held here to what the street front's round heads are held to: one round-headed sash
     for o in openings:
