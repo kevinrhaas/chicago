@@ -25,7 +25,8 @@
       "sanborn_1911_chicago_v3_sheet_28",
       "levy_1812_prairie_photo"
     ],
-    "note": "Built for George H. Wheeler on the Real Estate and Building Journal's permit of June 7, 1884 ('3-story dwelling, 30x80', the Prairie library's npo-1812-rebj-1884-06-07-wheeler-dwelling-permit), photographed by Albert Levy c. 1885-1900 and drawn on the 1911 sheet ('3B'); the T-1841 census rules it present in 1904 (present_as_mapped). The range claims the 1904 target and the sheet's date and no more."
+    "note": "Built for George H. Wheeler on the Real Estate and Building Journal's permit of June 7, 1884 ('3-story dwelling, 30x80', the Prairie library's npo-1812-rebj-1884-06-07-wheeler-dwelling-permit), photographed by Albert Levy c. 1885-1900 and drawn on the 1911 sheet ('3B'); the T-1841 census rules it present in 1904 (present_as_mapped). The range claims the 1904 target and the sheet's date and no more.",
+    "to_is": "seen"
   },
   "change_note": "",
   "placement": {
@@ -889,10 +890,32 @@
         "sanborn_1911_chicago_v3_sheet_28"
       ],
       "note": "The 1911 sheet marks the building 'D' (dwelling): '3B brick dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
+    },
+    "built": {
+      "value": 1884,
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1800_1900_west"
+      ],
+      "note": "The marker: 'George H. Wheeler Residence. Built 1884'."
     }
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "hmdb_prairie_lost_houses_1800_1900_west",
+      "citation": "'Lost Houses of Prairie Avenue: 1800-1900 Blocks (West Side)', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308706.",
+      "url": "https://www.hmdb.org/m.asp?m=308706",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "year built, architect and style as the marker states them for 1808, 1812, 1824, 1834, 1912 and 1936 Prairie"
+      ],
+      "what_it_does_not_supply": [
+        "measurements or appearance beyond the style named"
+      ]
+    },
     {
       "source_id": "levy_1812_prairie_photo",
       "citation": "Wheeler, George H., Residence (1812 S. Prairie Ave.). Albert Levy, Architectural Photographic Series (New York), nos. 31, 33; photograph of the street front, c. 1885-1900. Ryerson & Burnham Art and Architecture Archives, Art Institute of Chicago, Special 779.4 L66a no. 31, 33.",

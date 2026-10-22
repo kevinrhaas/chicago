@@ -27,7 +27,8 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "No source dates the building; the draft claims the 1904 target on the 1911 sheet alone (study ruling 11)."
+        "note": "No source dates the building; the draft claims the 1904 target on the 1911 sheet alone (study ruling 11).",
+        "to_is": "seen"
       },
       "position": {
         "utm_e": 448398.857,

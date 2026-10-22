@@ -13,6 +13,14 @@
     ],
     "note": "The 1911 sheet marks the building 'D' (dwelling): '3B stone dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
   },
+  "built": {
+    "value": 1890,
+    "confidence": "attested",
+    "sources": [
+      "hmdb_prairie_heritage_preserved"
+    ],
+    "note": "The marker: 'William W. Kimball Residence. Built 1890'. The Prairie library's other readings run its building to 1892."
+  },
   "review_required": false,
   "research_note": "MOVED ONTO K01 BY T-2843 (piece 3 of T-2789), at the massing T-2538 read off J. W. Taylor's photograph of c. 1895 (taylor_c1895_kimball_residence_1801, camera data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.json) and the 1911 sheet 28 trace (s28fp-1801-b1). The draft builder's copy is retired: the house is now an all-stone K01 frontage (T-2788) in Bedford stone, the register's material for it (pa-1801-23): two storeys of wall to a cornice at 8.1 m under steep slate mansard faces to a deck about 16-17 m up; the front's south pavilion and the 18th Street wall's three-storey section on K08 projections carried past the eave to 13.9 m; the round tower on a K08 tower on the 18th Street wall, its cone to about 18.7 m; the gabled section and the east range as slated K01 wings (T-2841). The east range runs the trace's whole length to v 18.3 and carries its north-east corner turret, eaves level with the range's (T-2900); the pavilion's coped gable is not built (T-2540). The corner loggia, its two arches and the swept stair are built (T-2910), and carved as the photograph shows them (T-2923, T-2932); the bowed bay, the front's openings and carving are T-2911's; the roof's dormers, cresting, stacks and the flank's gable are T-2540's; T-1890 finishes the architecture. What the build invents is in docs/LIBERTIES.md (L-kimball-1801-k01-2843, after L-kimball-1801-massing-2538) and what differs is open in the match record.",
   "phases": [
@@ -26,7 +34,8 @@
           "sanborn_1911_chicago_v3_sheet_28",
           "taylor_c1895_kimball_residence_1801"
         ],
-        "note": "The record claims the 1904 target and no more: the 1911 sheet draws the building ('3B', stone) and the T-1841 census rules it present in 1904 (present_as_mapped); J. W. Taylor's photograph shows it standing about 1895. Its building and loss dates are the finishing ticket's to read (T-1890)."
+        "note": "The record claims the 1904 target and no more: the 1911 sheet draws the building ('3B', stone) and the T-1841 census rules it present in 1904 (present_as_mapped); J. W. Taylor's photograph shows it standing about 1895. Its building and loss dates are the finishing ticket's to read (T-1890).",
+        "to_is": "seen"
       },
       "position": {
         "utm_e": 448512.786,

@@ -32,7 +32,8 @@
       "sanborn_1911_chicago_v3_sheet_28",
       "taylor_c1895_kimball_residence_1801"
     ],
-    "note": "The record claims the 1904 target and no more: the 1911 sheet draws the building ('3B', stone) and the T-1841 census rules it present in 1904 (present_as_mapped); J. W. Taylor's photograph shows it standing about 1895. Its building and loss dates are the finishing ticket's to read (T-1890)."
+    "note": "The record claims the 1904 target and no more: the 1911 sheet draws the building ('3B', stone) and the T-1841 census rules it present in 1904 (present_as_mapped); J. W. Taylor's photograph shows it standing about 1895. Its building and loss dates are the finishing ticket's to read (T-1890).",
+    "to_is": "seen"
   },
   "change_note": "",
   "placement": {
@@ -1081,10 +1082,32 @@
         "sanborn_1911_chicago_v3_sheet_28"
       ],
       "note": "The 1911 sheet marks the building 'D' (dwelling): '3B stone dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
+    },
+    "built": {
+      "value": 1890,
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "note": "The marker: 'William W. Kimball Residence. Built 1890'. The Prairie library's other readings run its building to 1892."
     }
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "hmdb_prairie_heritage_preserved",
+      "citation": "'A Heritage Preserved', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308723.",
+      "url": "https://www.hmdb.org/m.asp?m=308723",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "year built, architect and style as the marker states them for 1800, 1801, 1811, 1900 and 1919 Prairie"
+      ],
+      "what_it_does_not_supply": [
+        "anything about the houses' state in 1904 beyond what each entry dates"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_28",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",
