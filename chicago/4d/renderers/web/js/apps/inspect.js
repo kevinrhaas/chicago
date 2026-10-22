@@ -8,7 +8,7 @@ export default {
   label: 'Inspect',
   code: 'SCR 03 · INSPECT',
   order: 20,
-  icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/><path d="M4 21h16"/></svg>',
+  icon: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5.5 5.5"/></svg>',
   // A building is selected, or one is under the reticle within 40 m; it stays 300 ms after
   // the target is lost, so a glance away does not make it flicker (QA-07).
   // §14: the first time a target appears, the scene's summaries are fetched, once (T-2638).
