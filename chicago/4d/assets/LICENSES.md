@@ -1350,3 +1350,33 @@ The existing project-authored geometry supplies these original UV/tangent source
 | `authored/transport/wagon_parked/charts/original-w01-charts.bin` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
 | `authored/transport/wagon_parked/charts/original-w01-charts.json` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
 | `authored/transport/wagon_parked/charts/original-w01-charts.mapping.json` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
+
+### Actual Bardwell initial-standing canonical exports — 2026-10-22
+
+Actual run39712579846, head34cf462ed343b8b2b70da70303344fff7e5e083f, artifact12398870779; exact existing CC0-1.0 graphical/component/master-export licenses and notices above continue. This receipt records actual bytes, not likeness, photographic or full-fit acceptance.
+
+|Path under assets/|Bytes|SHA256|
+|---|---:|---|
+|humans/bardwell_otis_1835.lod0.glb|8633684|8b7d165bedfa5c8f12fd7e9aeb8d51e1cfc3cab816675a7817900f4bd9418198|
+|humans/bardwell_otis_1835.lod1.glb|8004644|7935a45d0332020adae619b05fe84c5010a84a260ba04764bea6371ad953f318|
+|humans/bardwell_otis_1835.lod2.glb|7459216|555432bfd5ca37c96755d33ed8ff24cc1ff7d77ad50896fa75ec0b61497c00c4|
+|humans/bardwell_otis_1835.lod3.glb|7238540|4ec095034edbe19e91a53d34d82f5eb47ed99a0ec620ca2e487e328170872aa4|
+|humans/web/bardwell_otis_1835.lod0.glb|4439324|47132fdfe27c1c144039e2db708bca6da6db63c201b37351a7632f1c0f45a953|
+|humans/web/bardwell_otis_1835.lod1.glb|1564256|485856360666b48ea0534e645ebda0e678af63be9e66514be78df0621a262454|
+|humans/web/bardwell_otis_1835.lod2.glb|617540|b9976874ae6a20a1e884bec62d97c4039312ae2e8ac4bd5cfbffd8148192485a|
+|humans/web/bardwell_otis_1835.lod3.glb|308100|c86fff664ac893d0fb5d6877040a0d0a9d388dc9f25acfc208be0eeb13e12ad2|
+
+### Actual Bardwell connected-waistcoat canonical replacement — 2026-10-22
+
+Actual source96c4da4b1fe68e6dec3b18c15da2f14c596a60c5, successful canonical run39736567239 attempt1, artifact12408480668, ZIP SHA2569ca4e1e692da77d3cbb1e0089f2d53cc01cd360d8cafc2b0e97230434326d5f5. These eight exact same-run exports replace the earlier Bardwell initial-standing bytes only. Existing CC0-1.0 graphical/master/base/skin/hair provenance and notices above remain; project build-code licensing is unchanged. Source/web/sole/normal/rigid-frame/container/seated/W01 mechanical qualification is actual. Root reviewed actual publishedLOD0front/profile and accepted the repaired upper panels for the initial visible increment; broad photographic/full-fit/occupied acceptance remains open. Historical export receipts above remain historical.
+
+|Path under assets/|Bytes|SHA256|
+|---|---:|---|
+|humans/bardwell_otis_1835.lod0.glb|8656876|84cdeb6d362aa1a85549b18daef41ae492f18595a19ff5b7e6eff539a3576d04|
+|humans/bardwell_otis_1835.lod1.glb|8018176|e2ff6d6d4df02b3852248c4712b9472c86fe7ca14a60b3db02788deed8db73c3|
+|humans/bardwell_otis_1835.lod2.glb|7465876|bc7ab6752b92f5451b285b070d2f76d896edddffa46d976c3569820745b8be7f|
+|humans/bardwell_otis_1835.lod3.glb|7241808|8d36ceade3b2dce3b8d081dc484faa98bb57dd2c0d288c1043f0a6da9d3dc233|
+|humans/web/bardwell_otis_1835.lod0.glb|4447008|3c75b33e5130fb8fe4813866d52d248bdab4207ab7a10c78b4074cc5fc30e999|
+|humans/web/bardwell_otis_1835.lod1.glb|1568968|af2492264df071facce2c4ba128d851a5624f93bcf3f9e507eb406694e3124f1|
+|humans/web/bardwell_otis_1835.lod2.glb|619964|ac21fdb00c402f76810a23467e299612042aa3ce21b017e7705ca675793df77a|
+|humans/web/bardwell_otis_1835.lod3.glb|309428|b61d09e2efdb204a90d5d3c8fe49d1a6502108fd6ac62a592350129db48f8d40|
