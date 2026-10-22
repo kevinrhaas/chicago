@@ -6167,8 +6167,13 @@ for (const [label, viewport, touch] of [
     // walk's alone, and a walk that cannot clear the signboard's own bar from
     // the street is still a fault. Measured here: mobile 2.94 / 37, desktop
     // 5.70 / 69.
+    //
+    // T-3029 — the inn was re-seated 5.80 m west, off the bank, and the walk with
+    // it (E -24.7 to -36.89), so the stand moves the same 5.80 m: E -30.8 is the
+    // same traveller's ground opposite the same stretch of deck, on ground within
+    // 3 mm of the old stand's.
     await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: -25, local_n: -104, yaw_deg: 0, pitch_deg: -6 }));
+      { local_e: -30.8, local_n: -104, yaw_deg: 0, pitch_deg: -6 }));
     await page.waitForTimeout(350);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const frontWith = await page.evaluate(() => window.__chicago4d.capture());
@@ -6205,7 +6210,7 @@ for (const [label, viewport, touch] of [
     // (measured: 5 of 25 aims name the inn on each; -10 still misses on mobile).
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
     await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: -25.0, local_n: -104.0, yaw_deg: 0, pitch_deg: -12 }));
+      { local_e: -30.8, local_n: -104.0, yaw_deg: 0, pitch_deg: -12 }));
     await page.waitForTimeout(600);
     const frontagePick = await page.evaluate(() => {
       const a = window.__chicago4d;
@@ -10461,6 +10466,13 @@ for (const [label, viewport, touch] of [
     // instead of reading it and sampled an unrotated box, which reported eight
     // failures that did not exist — a gate that guesses at what the renderer did
     // is worth nothing.
+    //
+    // T-3029 — AND AT THE WALLS' FEET, WHERE THE BUILDING HAS THEM. A box's
+    // base corners are not where an L-plan or an eaved building touches the
+    // ground: the Green Tree's corner beside its rear ell stands 1.3 m off any
+    // wall. The renderer now beds on the feet (building-feet.js), so this reads
+    // the same feet through the same matrix, at y = 0; the box corners remain
+    // the measure for a structure with no geometry on that plane.
     const hover = await page.evaluate(() => {
       const api = window.__chicago4d;
       const bounds = api.buildings.instanceBounds();
@@ -10472,15 +10484,17 @@ for (const [label, viewport, touch] of [
         const b = bounds[id];
         const m = api.buildings.matrixOf(id);
         if (!b || !m) continue;
+        const feet = api.buildings.feetOf?.(id) ?? [];
+        const base = feet.length ? feet.map(([x, z]) => [x, 0, z])
+          : [[b.min[0], b.min[1], b.min[2]], [b.min[0], b.min[1], b.max[2]],
+            [b.max[0], b.min[1], b.min[2]], [b.max[0], b.min[1], b.max[2]]];
         let gap = -Infinity;
-        for (const cx of [b.min[0], b.max[0]]) {
-          for (const cz of [b.min[2], b.max[2]]) {
-            const e = m.elements;
-            const wx = e[0] * cx + e[4] * b.min[1] + e[8] * cz + e[12];
-            const wy = e[1] * cx + e[5] * b.min[1] + e[9] * cz + e[13];
-            const wz = e[2] * cx + e[6] * b.min[1] + e[10] * cz + e[14];
-            gap = Math.max(gap, wy - api.terrain.surfaceHeight(wx, -wz));
-          }
+        for (const [cx, cy, cz] of base) {
+          const e = m.elements;
+          const wx = e[0] * cx + e[4] * cy + e[8] * cz + e[12];
+          const wy = e[1] * cx + e[5] * cy + e[9] * cz + e[13];
+          const wz = e[2] * cx + e[6] * cy + e[10] * cz + e[14];
+          gap = Math.max(gap, wy - api.terrain.surfaceHeight(wx, -wz));
         }
         rows.push({ id, gap: +gap.toFixed(3) });
       }

@@ -3517,8 +3517,8 @@
       "household_class": "tradesman",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        -92.48,
-        -169.84
+        -93.55,
+        -169.83
       ],
       "bearing_deg": -89.54,
       "along_m": 1.22,
@@ -3539,8 +3539,8 @@
       "household_class": "tradesman",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        -92.14,
-        -193.52
+        -93.11,
+        -193.51
       ],
       "bearing_deg": -89.54,
       "along_m": 1.22,
@@ -3561,10 +3561,10 @@
       "household_class": "labourer",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        -84.05,
+        -85.01,
         -193.51
       ],
-      "bearing_deg": 90.47,
+      "bearing_deg": 90.46,
       "along_m": 1.07,
       "depth_m": 1.07,
       "eave_m": 1.85,
@@ -3701,10 +3701,10 @@
       "household_class": "keeper",
       "class_read_from": "its function, tavern_inn",
       "at_local_enu_m": [
-        -86.13,
-        -284.63
+        -86.71,
+        -284.62
       ],
-      "bearing_deg": -89.53,
+      "bearing_deg": -89.54,
       "along_m": 1.52,
       "depth_m": 1.22,
       "eave_m": 2.0,
@@ -3729,10 +3729,10 @@
       "household_class": "keeper",
       "class_read_from": "its function, tavern_inn",
       "at_local_enu_m": [
-        -87.84,
-        -267.74
+        -88.51,
+        -267.73
       ],
-      "bearing_deg": -89.53,
+      "bearing_deg": -89.54,
       "along_m": 6.1,
       "depth_m": 4.27,
       "eave_m": 2.6,
@@ -3753,7 +3753,7 @@
       "household_class": "tradesman",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        -85.84,
+        -86.31,
         -309.69
       ],
       "bearing_deg": -89.54,
@@ -3775,10 +3775,10 @@
       "household_class": "tradesman",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        -85.59,
-        -331.89
+        -85.95,
+        -331.88
       ],
-      "bearing_deg": -89.53,
+      "bearing_deg": -89.54,
       "along_m": 1.22,
       "depth_m": 1.22,
       "eave_m": 1.95,
@@ -3797,7 +3797,7 @@
       "household_class": "tradesman",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        -85.33,
+        -85.59,
         -354.08
       ],
       "bearing_deg": -89.54,
@@ -3819,7 +3819,7 @@
       "household_class": "tradesman",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        -77.27,
+        -77.53,
         -351.42
       ],
       "bearing_deg": 90.47,
