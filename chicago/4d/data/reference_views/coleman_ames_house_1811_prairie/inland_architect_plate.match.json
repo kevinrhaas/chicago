@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "69bd8cfad81ad31e3a89cd6240f0edee7346de1efba0623201791a067c8c5ba8",
+  "glb_sha256": "d98f719194a1d8e9b0ced09b637195e5afb1a5092c8fd1eb612c6175d12dab48",
   "camera_sha256": "8f67a67f5a407ad30522085a1ab67f9c29ddc0bae6ceb1a979db9ea1accdc2b4",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/inland_architect_plate-side-by-side.jpg",
   "verdict": "differs",
@@ -67,6 +67,15 @@
     },
     {
       "what": "the entrance porch: the plate's arch is an open porch, about 1.8 m wide, deep, on clustered columns with carved capitals, the door far back in it; its stair runs between scrolled stone cheek walls; the build has a door in a shallow reveal under a small arch (T-1892)",
+      "status": "fixed",
+      "how": "T-2918: the arch is the porch's mouth, 1.9 m across and crowned 2.75 m over the door's floor (4.1 m over grade, about 4 px under the plate's 4.2 m, so its head and ring clear the oriel's corbel foot), its 0.4 m voussoirs to about 4.5 m; behind it K01's loggia (T-2910), 2.3 m along the front and 1.8 m deep from the face, the double door under its transom in the back wall. Each jamb carries a cluster of round shafts (`loggia.columns`, new): two on the north side and three on the south, 0.22 m thick at 0.24 m centres, on a plinth 0.86 m over the floor, each under a necking ring, a flared bell and an abacus at the springing; overlaid on the plate, the south cluster's three shafts land on the plate's three (x 442, 452 and 463 px), the north shaft on its own (x 348), the capitals on the plate's line (y 673-684 px) and the plinths' tops within about 2 px of y 725. The stair's cheeks are K07's scrolled cheek (`cheek_form: scrolled`), swept down to a rolled scroll. The capitals' leafage is not carved: the bell and abacus stand for it"
+    },
+    {
+      "what": "the porch's south return: beside the arch, from about x 467 to 507 px, the plate opens the entrance block's south return as a small arcade of round-arched lights on colonnettes with carved capitals, lighting the porch from the side; the build closes it in coursed stone (T-2984)",
+      "status": "open"
+    },
+    {
+      "what": "the stair cheeks' scrolls: the plate's cheeks end in their scrolls about 0.9 m up, each standing on a plain foot block to grade (x 300-345 and 420-460 px, y 640-700 px); K07's carved cheek rolls its scroll on grade (T-2984)",
       "status": "open"
     },
     {

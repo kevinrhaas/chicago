@@ -29063,8 +29063,20 @@ moulding whose profile the plate does not resolve; the pinnacles' square plan an
 are carved, one under a scaled dome); and the gable's centre, about 0.25 m south of the plate's with its
 pinnacles, where T-2542 set it. The carving over the arch is argued away, not invented: at the plate's
 resolution the pediment there reads as coursed rock-faced stone with no carved panel legible.
-**How to resolve:** T-2918 to T-2920 (the porch, the front's fabric and the roof, and the gable's centre
-and carved pinnacles under T-2920) bring the match record to `matches`.
+**Revised:** 2026-10-22 (T-2918, piece 3 of T-1892). The entrance is the plate's open porch: the arch is
+its mouth, 1.9 m across, crowned 2.75 m over the door's floor (the plate's 4.2 m over grade is about 0.1 m
+higher; K01 keeps the arch's head 0.3 m under the oriel's corbel foot), its plain voussoirs 0.4 m; behind
+it K01's loggia, the door in its back wall; each jamb a cluster of round shafts, two north and three south
+as the plate draws them, at the plate's spacing and capital line; the stair between K07's scrolled cheeks.
+What that build invents: the porch's 1.8 m depth and 2.3 m width behind the mouth, its 3.0 m ceiling, the
+door's 1.3 by 2.4 m and its transom (the plate shows only a dark interior); the shafts' 0.22 m thickness
+and their plinth's 0.86 m; the capitals as a necking ring, a flared bell and an abacus, standing for
+carved leafage finer than the plate's 2.3 cm a pixel; the scrolls' rolled form and their place on grade
+(the plate's stand on foot blocks about 0.9 m up, T-2984). Not built: the small arcade on colonnettes the
+plate opens in the entrance block's south return beside the arch (T-2984).
+**How to resolve:** T-2919, T-2920 and T-2984 (the front's fabric and the roof, the gable's centre and
+carved pinnacles under T-2920, and the porch's south arcade and the cheeks' foot blocks) bring the match
+record to `matches`.
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.chimneys`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.gable_roof`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
@@ -30693,6 +30705,7 @@ own curl and leaves; a measured photograph square to the fan would split the two
 **Ticket:** T-2912 (piece of T-2853; T-2913 holds the wall's courses and the header stone).
 **Review:** `docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg`.
 **Recorded:** 2026-10-20 (T-2912).
+**Revised 2026-10-22 (T-2972):** read again on the square crop the re-solved `habs5-entry` camera stands on (T-2971), where T-2912's readings were taken 3.3 % tall. The fan now springs from bed 8 (8.71 ft by the printed course string), the header's top, and is stilted 0.43 ft: the extrados's outer line fits radius 6.49 ft about a centre at 9.16, its inner line 6.41 at 9.12, the tympanum's ring 2.50 at 9.13, the crown at 15.65 (built 15.64), the plumb legs down to the header at 8.73-8.79. The header is one course, door head to bed 8, its top flat to the shoulders and raised in a shallow segment under the tympanum only, about 0.14 ft at the centre, where it had risen 0.3 ft from shoulders at its ends; the raised centre is the owner's close-up's (T-2228) at the drawing's height and width. Still invented: one stilt for both rings (0.43, where the three lines read 0.41-0.45), the segment's exact curve (the sheet draws a shallow arc; built circular).
 
 ### L-k01-1637-stack-pots-2782 — 1637 Prairie's three stacks crowned with clay pots where the engraving draws a dark hooded crown over each cap
 

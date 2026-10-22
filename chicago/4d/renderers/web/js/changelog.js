@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2167, ts: '2026-10-22T05:43:07.999Z', date: 'Oct 22, 2026, 12:43 AM CT', title: '1811 Prairie\'s open entrance porch, from its 1888 plate', kind: 'feature',
+    items: [
+      '1811 Prairie\'s entrance is now an open porch, as the 1888 Inland Architect plate draws it. The round arch is its mouth, with the double door set far back inside. The arch springs from clustered stone columns with carved capitals, two on one side and three on the other, and the broad stair climbs between stone cheeks that sweep down to rolled scrolls.',
+    ] },
   { v: 2166, ts: '2026-10-22T04:19:14.385Z', date: 'Oct 21, 2026, 11:19 PM CT', title: 'Measured limits for Full Ghost views', kind: 'improvement',
     items: [
       'Full-detail Ghost views use a measured allowance for their extra transparent surfaces.',
