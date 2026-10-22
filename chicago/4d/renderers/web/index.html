@@ -822,10 +822,15 @@
       </div>
     </section>
     <section class="panel-body" data-panel="controls" hidden>
-      <!-- T-2663: the Field Check, replayed (or abandoned with its Skip) from here, the
-           section Guide opens until Guide's own screen lands (T-2661). -->
-      <div class="field row"><span>Tour mode: a sixty-second field check</span>
-        <button class="setting-button" id="tour-start" type="button">Take the field check</button></div>
+      <!-- T-2663: the Field Check, replayed (or abandoned with its Skip) from here. T-3021:
+           Guide's screen lifts this block to its top (apps/guide.js), so the tour is the
+           first thing Guide offers, skipped or finished before. -->
+      <section class="nav-block nav-guide-tour" id="guide-tour" aria-labelledby="guide-tour-title">
+        <span class="nav-k">Tour</span>
+        <strong class="nav-place" id="guide-tour-title">The field check</strong>
+        <span class="nav-sub">Eight steps, about a minute. Skip any time.</span>
+        <button class="nav-key nav-tour-key" id="tour-start" type="button">Take the tour <span aria-hidden="true">→</span></button>
+      </section>
       <dl class="keys" id="keys-desktop">
         <dt><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></dt><dd>walk</dd>
         <dt><kbd>Shift</kbd></dt><dd>run</dd>
@@ -869,7 +874,7 @@
        Walk/Fly key moved into the instrument's heading row, so this holds one key, and it
        fades in and out (css/walk.css) rather than popping; nothing beside it moves. -->
   <div class="quick-column" id="quick-column" role="group" aria-label="Quick controls">
-    <button id="btn-inspect" class="chip quick-inspect" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13"/><path d="M9 21v-6h6v6"/><path d="M4 21h16"/></svg> <span class="chip-label">Inspect</span></button>
+    <button id="btn-inspect" class="chip quick-inspect" type="button" hidden><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5.5 5.5"/></svg> <span class="chip-label">Inspect</span></button>
   </div>
   <!-- T-2640: Show me pulses this outline on the building for 2 s. -->
   <div class="show-me-outline" id="show-me-outline" aria-hidden="true" hidden></div>
@@ -961,9 +966,11 @@
         <strong class="nav-jaunt-title" id="nav-jaunt-title"></strong>
         <span class="nav-meter" aria-hidden="true"><i id="nav-jaunt-bar"></i></span>
       </section>
+      <!-- T-3021: each tile opens its app (the owner, 2026-10-22: "the move walking and
+           confidence view would go to those settings"). -->
       <div class="nav-tiles">
-        <span class="nav-tile"><span class="nav-k" data-str="nav.tile.move">Move</span><span id="nav-move">Walking</span></span>
-        <span class="nav-tile"><span class="nav-k" data-str="nav.tile.confidence">Confidence view</span><span id="nav-confidence">Off</span></span>
+        <button class="nav-tile" id="nav-tile-move" type="button" data-app="move"><span class="nav-k" data-str="nav.tile.move">Move</span><span id="nav-move">Walking</span></button>
+        <button class="nav-tile" id="nav-tile-confidence" type="button" data-app="confidence"><span class="nav-k" data-str="nav.tile.confidence">Confidence view</span><span id="nav-confidence">Off</span></button>
       </div>
     </div>
   </div>
