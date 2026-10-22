@@ -1451,13 +1451,18 @@ def dovecote_band(b,t,x0,x1,y0,y1):
     A `body_material` of granite builds the body, band and ledges in stone, as
     the c. 1887 Cornell view shows them, and `ledge_m` sets the ledge's depth
     (T-2849, L-glessner-cupola-stone-2849); without either it is boarding.
+
+    `ledge_corners: wrapped` runs each tier's ledge unbroken round the corners,
+    as both northwest prints show it (T-3030): the east and west faces' ledges
+    reach past the corners by their projection, and the north and south faces'
+    butt against them, so no two ledge faces lie in one plane.
     """
     lo,hi=t['louvre'];conf=t['conf'];v=t['vent'];reconstructed=1.0
     tiers,per_face=v['tiers'],v['per_face'];width=v['opening_width_m']
     perch=v['perch_projection_m'];board=v.get('ledge_m',.025)
     body=GRANITE if t.get('body_material')=='granite' else WOOD
     segments=3 if getattr(b,'reduced_roof_details',False) else 6
-    step=(hi-lo)/tiers
+    step=(hi-lo)/tiers;wrapped=v.get('ledge_corners')=='wrapped'
     for pl,(a,c) in (({'axis':'x','sign':1,'at':x1},(y0,y1)),
                      ({'axis':'x','sign':-1,'at':x0},(y0,y1)),
                      ({'axis':'y','sign':1,'at':y1},(x0,x1)),
@@ -1471,8 +1476,14 @@ def dovecote_band(b,t,x0,x1,y0,y1):
                 mid=ua+(uc-ua)*(k+.5)/per_face
                 holes.append(_arched_hole(mid-width/2,mid+width/2,sill,spring,segments))
             # The landing board the birds alight on, one per tier and face;
-            # it stops short of the corner so two faces' boards never meet.
-            slab(b,pl,ua,uc,base,base+board,-.04,perch,reconstructed,body)
+            # it stops short of the corner so two faces' boards never meet,
+            # unless the record wraps it round them (see the docstring).
+            if not wrapped:
+                slab(b,pl,ua,uc,base,base+board,-.04,perch,reconstructed,body)
+            elif pl['axis']=='x':
+                slab(b,pl,a-perch,c+perch,base,base+board,-.04,perch,reconstructed,body)
+            else:
+                slab(b,pl,a+.04,c-.04,base,base+board,-.04,perch,reconstructed,body)
         wall=[(a,t['z0']),(c,t['z0']),(c,t['top_z']),(a,t['top_z'])]
         for fragment in subtract(wall,holes):
             solid_polygon(b,pl,fragment,-.08,0,conf,body)
