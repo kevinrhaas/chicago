@@ -65,5 +65,14 @@ assert len(d.ornament.FIELD_ROUNDELS)==8 and all(math.hypot(x,z)+r<1 for x,z,r i
 head=next(o for o in p.openings if o.get('style')=='rock_faced_lintel')
 from archetypes.masonry_house_v4_entry import lintel_outline
 poly=lintel_outline(head,s)
-assert len(poly)==5 and poly[3][1]>poly[2][1]+.08 and poly[0][1]==poly[1][1],'Header lost shaped crown/level bearing'
+# T-2972: sheet 5 draws the header one course, door head to bed 8, its top flat to the
+# shoulders and raised only under the tympanum, about 0.14 ft at the centre.
+top=[q for q in poly[2:]]
+crown=max(z for _,z in top);shoulder=poly[2][1]
+assert poly[0][1]==poly[1][1] and poly[-1][1]==shoulder,'Header lost its level bearing or flat shoulders'
+assert .03<crown-shoulder<.06,'Header crown is not the sheet\'s shallow rise'
+raised=[u for u,z in top if z>shoulder+1e-6]
+cx=(head['u0']+head['u1'])/2
+assert raised and max(abs(u-cx) for u in raised)<fan['r_in'],'Header crown spreads past the tympanum'
+assert abs(fan['spring_z']-shoulder)<.005,'Fan does not spring from the header\'s shoulders'
 print('PASS: emitted cutback and outward wall slope, open door, one inset tread and recessed raised carving')
