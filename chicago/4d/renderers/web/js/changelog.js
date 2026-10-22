@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2184, ts: '2026-10-22T15:04:39.048Z', date: 'Oct 22, 2026, 10:04 AM CT', title: 'Calumet Avenue fills in behind Prairie', kind: 'feature',
+    items: [
+      'Look east down 18th Street from Glessner\'s corner, or between the houses on Prairie\'s east side: Calumet Avenue\'s block from 18th to 20th Street is no longer bare ground.',
+      'Nine brick houses stand there, from 1830 to 1932 Calumet, with five stables on the alley. Each is drawn from the 1911 fire-insurance map, so its plan and storeys are the map\'s, and the rest is a first draft.',
+      'We chose this block by measuring: sight lines from both Prairie Avenue sidewalks show that 56 of the 66 lots behind the avenue can be seen, and this block face is the most visible of them.',
+    ] },
   { v: 2183, ts: '2026-10-22T13:51:20.213Z', date: 'Oct 22, 2026, 8:51 AM CT', title: 'Glessner\'s 18th Street wall: one granite course an inch lower', kind: 'fix',
     items: [
       'Glessner House\'s 22nd granite course is now its printed 8½ inches, not the 9½ copied in error, so the top course and the stone cap along 18th Street sit an inch lower. The second-floor corridor windows on 18th Street, and the tall window over the great arch, now have their heads an inch lower too, at the course they were set on. It is a small change: one inch, on the wall you see from 18th Street.',
