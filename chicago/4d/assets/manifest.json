@@ -686,9 +686,9 @@
     "first_presbyterian_church_2029_indiana__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
-      "bytes": 112104,
+      "bytes": 112088,
       "generator": "generators/draft_emit.py",
-      "inputs_sha256": "753e265e9e10f79d30288df4f70ccbc5ae4556c2df341e54c4d3a4f04497abda",
+      "inputs_sha256": "05176f793a4499d718e998d0c202a9ca491d3e1cde54f8ed822418bb21336c2e",
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "first_presbyterian_church_2029_indiana"

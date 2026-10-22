@@ -482,16 +482,26 @@ def site_record(rules, site, datum, grid) -> dict:
     if pl["front"] == "west":
         u = [-u[0], -u[1]]
     v = [-u[1], u[0]]
+    # T-3038: the row measures v NORTHWARD from the building's southernmost face, but the
+    # record's frame is a rotation, so v = u turned left: north for a front on the east, south
+    # for a front on the west. A west-fronted site's v figures are mirrored into that frame
+    # (First Presbyterian, T-3009, stood its plan southward from 21st Street's north line,
+    # across the roadway and onto the next block, until this).
+    flip = 1.0 if v[0] * north[0] + v[1] * north[1] > 0 else -1.0
+    vm = [v[0] * flip, v[1] * flip]                # the row's own v: northward
     c = pl["avenue_centre_local_m"]
     k = pl["half_row_m"] + pl["setback_front_m"]
     front_pt = (c[0] - u[0] * k, c[1] - u[1] * k)
     s0, s1 = faces[pl["cross_face"]]
     m = math.hypot(s1[0] - s0[0], s1[1] - s0[1])
     sd = ((s1[0] - s0[0]) / m, (s1[1] - s0[1]) / m)
-    sn = (-sd[1], sd[0]) if -sd[1] * v[0] + sd[0] * v[1] > 0 else (sd[1], -sd[0])   # into the block
+    sn = (-sd[1], sd[0]) if -sd[1] * vm[0] + sd[0] * vm[1] > 0 else (sd[1], -sd[0])   # into the block
     side_pt = (s0[0] + sn[0] * pl["setback_side_m"], s0[1] + sn[1] * pl["setback_side_m"])
     corner = _line_meet(front_pt, north, side_pt, sd)
-    parts_m = site["parts"]
+
+    def mirror(r):
+        return [r[0], r[1], r[2], r[3]] if flip > 0 else [r[0], -r[3], r[2], -r[1]]
+    parts_m = [dict(q, rect_m=mirror(q["rect_m"])) for q in site["parts"]]
     mu0, mv0, mu1, mv1 = parts_m[0]["rect_m"]
     parts = [{"id": f"r{n + 1}", "role": q["role"], "storeys": q["storeys"], "roof": q["roof"],
               **({"pitch_deg": q["pitch_deg"]} if "pitch_deg" in q else {}),
@@ -508,7 +518,8 @@ def site_record(rules, site, datum, grid) -> dict:
     sid = site["id"]
     seed = seed_of(sid)
     el = site["elevation"]
-    feats = [{**ft, "at": [round(ft["at_m"][0] - mu0, 3), round(ft["at_m"][1] - mv0, 3)]} for ft in el.get("features", [])]
+    feats = [{**ft, "at": [round(ft["at_m"][0] - mu0, 3), round(ft["at_m"][1] * flip - mv0, 3) + 0.0]}
+             for ft in el.get("features", [])]
     for ft in feats:
         ft.pop("at_m", None)
     elev = {"kind": "house", "seed": seed, "principal_floor_m": el["principal_floor_m"],
@@ -553,7 +564,7 @@ def site_record(rules, site, datum, grid) -> dict:
             "footprint": {
                 # the row's outline of every part when it gives one (the walker's walls and the
                 # context's give-way read this polygon), else the main body
-                "polygon": ([[round(q[0] - mu0, 3) + 0.0, round(q[1] - mv0, 3) + 0.0] for q in site["outline_m"]]
+                "polygon": ([[round(q[0] - mu0, 3) + 0.0, round(q[1] * flip - mv0, 3) + 0.0] for q in site["outline_m"]]
                             if site.get("outline_m") else
                             [[0.0, 0.0], [round(mu1 - mu0, 3), 0.0], [round(mu1 - mu0, 3), round(mv1 - mv0, 3)],
                              [0.0, round(mv1 - mv0, 3)]]),
