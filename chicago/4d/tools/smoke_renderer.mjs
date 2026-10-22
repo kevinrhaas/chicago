@@ -1833,17 +1833,55 @@ for (const [label, viewport, touch] of [
     const structures = await page.evaluate(() => window.__chicago4d.registry.size);
     check(`${label}: scene has structures`, structures > 0, `${structures} loaded`);
 
-    // THE SCENE-YEAR GATE FOR FIGURES (T-1788). The human layer (humans.js) is mounted for
-    // every scene and fetches only for one that lists `humans`; none does, and L1 stands
-    // besides, so it must be in the scene, empty, and have asked for nothing at all.
+    // The portable human scene-year gate follows the authored scene and exact index.
+    // An eligible scene can now mount ordinary person-bound actors; absent scenes
+    // still request nothing and draw nobody. L1 remains an explicit refusal.
+    const humanScene = await page.evaluate(() => window.__chicago4d.scene.id);
+    if (!/^[0-9]{4}$/.test(humanScene)) throw Error('unsafe human scene id');
+    const humanSceneRecord = JSON.parse(fs.readFileSync(path.join(ROOT, `data/scenes/${humanScene}.json`), 'utf8'));
+    const humanDeclared = humanSceneRecord.layers.includes('humans');
+    let humanExpectedRecords = [], humanL1 = true;
+    if (humanDeclared) {
+      const index = JSON.parse(fs.readFileSync(path.join(ROOT, `data/humans/instances/${humanScene}/index.json`), 'utf8'));
+      if (index.scene !== humanScene || !Array.isArray(index.instances)
+          || new Set(index.instances).size !== index.instances.length
+          || index.instances.some(id => typeof id !== 'string' || !/^hi_[a-z0-9_]+$/.test(id))) {
+        throw Error('invalid human browser manifest');
+      }
+      humanExpectedRecords = index.instances.map(id => {
+        const record = JSON.parse(fs.readFileSync(path.join(ROOT, `data/humans/instances/${humanScene}/${id}.json`), 'utf8'));
+        if (record.id !== id || record.scene !== humanScene) throw Error('human manifest/record identity mismatch');
+        return record;
+      });
+      humanL1 = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/humans/contract.json'), 'utf8')).l1.in_force !== false;
+    }
     const humans = await page.evaluate(() => {
       const h = window.__chicago4d.humans;
-      return h ? { count: h.count, records: h.records.length, inScene: !!h.group.parent } : null;
+      return h ? { count: h.count, records: h.records.map(r => r.id).sort(),
+        actors: h.actors.map(a => ({ id: a.id, personId: a.personId ?? null,
+          assetId: a.instance.appearance.asset_id })).sort((a, b) => a.id.localeCompare(b.id)),
+        withheld: [...h.withheld].sort(), refused: h.refused.map(r => r.id).sort(),
+        inScene: !!h.group.parent } : null;
     });
-    check(`${label}: the human layer is mounted and draws nobody`,
-      !!humans && humans.count === 0 && humans.records === 0 && humans.inScene, JSON.stringify(humans));
-    check(`${label}: nothing under humans/ is requested for a scene that does not list it`,
-      humanRequests.length === 0, humanRequests.slice(0, 3).join(' | '));
+    const humanShown = humanExpectedRecords.filter(r => r.display === 'shown');
+    const humanEligible = humanL1 ? [] : humanShown.map(r => ({ id: r.id,
+      personId: r.person_id ?? null, assetId: r.appearance.asset_id })).sort((a, b) => a.id.localeCompare(b.id));
+    check(`${label}: the human layer mounts exactly the scene's eligible records`,
+      !!humans && humans.inScene && humans.count === humanEligible.length
+      && JSON.stringify(humans.records) === JSON.stringify(humanExpectedRecords.map(r => r.id).sort())
+      && JSON.stringify(humans.actors) === JSON.stringify(humanEligible)
+      && JSON.stringify(humans.withheld) === JSON.stringify(humanExpectedRecords.filter(r => r.display !== 'shown').map(r => r.id).sort())
+      && JSON.stringify(humans.refused) === JSON.stringify(humanL1 ? humanShown.map(r => r.id).sort() : []),
+      JSON.stringify({ declared: humanDeclared, l1: humanL1, expected: humanEligible, actual: humans }));
+    const humanRequestPaths = humanRequests.map(url => new URL(url).pathname);
+    check(`${label}: human requests obey the exact scene-year gate`,
+      !humanDeclared ? humanRequestPaths.length === 0
+        : humanRequestPaths.some(p => p.endsWith(`/humans/instances/${humanScene}/index.json`))
+          && humanRequestPaths.some(p => p.endsWith('/humans/contract.json'))
+          && humanExpectedRecords.every(r => humanRequestPaths.some(p => p.endsWith(`/humans/instances/${humanScene}/${r.id}.json`)))
+          && humanRequestPaths.every(p => !/\/humans\/instances\/([0-9]{4})\//.test(p)
+            || p.includes(`/humans/instances/${humanScene}/`)),
+      JSON.stringify(humanRequestPaths));
 
     /**
      * DRAWN AGAINST INDEXED (T-1126). "The scene has structures" passes with one

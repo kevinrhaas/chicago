@@ -24,6 +24,22 @@
     "assets/authored/transport/wagon_parked/textures/wood_normal.png": "9187f7bf24b0cad9fe212587b29ff7f2cc6edcf8cc76077062ae4d36ad1eea2c",
     "assets/authored/transport/wagon_parked/textures/wood_orm.png": "d583fb966c65ed725599ad0a0cf37f56890dcda337ca661121856242df99c65d",
     "renderers/web/transport/parked-wagon/wagon-w01.glb": "274e737b51872983df792d0b24de8e75de8631890a8d586a32d9c6f0066484fb",
-    "renderers/web/transport/parked-wagon/wagon-w01.json": "0856b257d1ba465b933aeae22cde270ff3153952dd147005892c80e5b4b348fd"
+    "renderers/web/transport/parked-wagon/wagon-w01.json": "3a96bef4f52a0f29516ae285fbb46d8ba88737cbeec23eb6187a48e317c2f72f"
+  },
+  "authored_chart_inputs_sha256": {
+    "assets/authored/transport/wagon_parked/charts/original-w01-charts.bin": "cc0b97144be8ff3a3764c583bac907ad010d1d06237aeaa8c7526a1a5a7f7e9a",
+    "assets/authored/transport/wagon_parked/charts/original-w01-charts.json": "e925adf8450a2db85f1183a789ea9aabdd3f83f407bf5763d160b24a14410a0b",
+    "assets/authored/transport/wagon_parked/charts/original-w01-charts.mapping.json": "e2b47d3062d9a7eb07e9b60bf5e557b5db7100f9207a472ec98fa446152cedc2"
+  },
+  "authored_chart_provenance": {
+    "license": "GPL-3.0-or-later",
+    "origin": "Original project-authored ordered UV/tangent charts captured from the reviewed 0138 material authoring; no external geometry or pixels",
+    "hardware_glb_sha256": "04820fc15b16c6f1b9b12487c2d6ceb3500d03c94094d84c73554f2b2d1f5709",
+    "authored_parts_sha256": "2fb3709d233e896280c50342618c28f9e340029e52c67b328100e05a125e2c27",
+    "material_recipe_sha256": "45b3d15ddf15bf28a38dbc6d2c788354d83eafecc8914278db6e17d9bcf4a0bf",
+    "reference_material_glb_sha256": "0138ad2565f3e8b08029ef788c5196c65c80c79643313e944c726b993ff31ee4",
+    "batches": 23,
+    "attributes": 46,
+    "scope": "Validated original source charts, not a cached whole GLB; exact ordered Float32 bytes/accessor metadata preserve signed zero and backend-independent production. Mapping metrics are pinned original author-time evidence, not new production measurements."
   }
 }

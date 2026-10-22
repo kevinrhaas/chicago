@@ -1,4 +1,21 @@
 export const CHANGELOG = [ // newest first
+  { v: 2166, ts: '2026-10-22T04:19:14.385Z', date: 'Oct 21, 2026, 11:19 PM CT', title: 'Measured limits for Full Ghost views', kind: 'improvement',
+    items: [
+      'Full-detail Ghost views use a measured allowance for their extra transparent surfaces.',
+    ] },
+  { v: 2165, ts: '2026-10-22T04:19:14.385Z', date: 'Oct 21, 2026, 11:19 PM CT', title: 'Distinct covered wagons in two yards', kind: 'improvement',
+    items: [
+      'Two parked covered wagons retain their individual finishes and laid-by yokes, with reconstructed canvas and bows.',
+    ] },
+  { v: 2164, ts: '2026-10-22T04:19:14.385Z', date: 'Oct 21, 2026, 11:19 PM CT', title: 'Parked wagons and a Prairie Avenue carriage', kind: 'feature',
+    items: [
+      'Detailed farm wagons replace three earlier1835 yard vehicles nearby; Light detail keeps the simpler versions.',
+      'An enclosed carriage stands beside Prairie Avenue in1904, with its reconstructed type and placement available for inspection.',
+    ] },
+  { v: 2163, ts: '2026-10-22T04:19:14.385Z', date: 'Oct 21, 2026, 11:19 PM CT', title: 'Period vehicle and horse reference notes', kind: 'chore',
+    items: [
+      'Reference notes distinguish Kinzie\'s 1831 Dearborn wagon, the 1893 Studebaker Brougham and period harness. These research updates do not change the parked models.',
+    ] },
   { v: 2162, ts: '2026-10-21T19:09:10.253Z', date: 'Oct 21, 2026, 2:09 PM CT', title: 'Glessner\'s granite courses and front door set to the survey', kind: 'change',
     items: [
       'Glessner\'s granite courses now start where the 1963 survey drawings start them, about two inches higher along Prairie Avenue. Running the courses level round the corner shows the 18th Street ground stands that much above the Prairie Avenue walk.',

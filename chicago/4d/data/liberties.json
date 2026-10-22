@@ -48736,7 +48736,9 @@
       "id": "L-workwear-coverage-1789",
       "title": "Source-owned work clothes, closed shoes and reconstructed eyes",
       "section": "per_subject",
-      "subjects": [],
+      "subjects": [
+        "wolf_point_tavern"
+      ],
       "covers": [],
       "recorded": "2026-10-21",
       "revised": null,
@@ -48760,6 +48762,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-21. **V5/V6 tailoring update (2026-10-22, T-1789; further to L418 and L-workwear-coverage-1789):** William Sidney Mount's *Bargaining for a Horse (Farmers Bargaining)* and *Bar-room Scene*, both dated only to 1835, are qualitative American genre-painting comparators registered as `mount_1835_bargaining_for_a_horse` and `mount_1835_bar_room_scene`. Their full lower-trouser silhouettes and substantial closed waistcoat fronts inform the reconstruction; they do not attest a Chicago outfit, any modeled resident's likeness or occupation, or completion before the 1835-07-01 scene date. No painted pixels, measured cutting pattern, fiber or material sample is copied. The 12 mm section ease, 85% cuff-radius ratio, 65% knee-to-hip transition and 40% waist-to-shoulder closure are original engineering choices. The V6 trim uses each existing source-derived cuff cycle's highest point, shortening its low sawtooth portions; it is not a historical cuff dimension or finished hem construction. Existing body, rig, skin, source UVs and resident identity grades are retained. Actual V6 source-array preview technical PASS does not qualify canonical exports, complete seated footwear enclosure, animated/LOD fit or photographic appearance; 40 inherited idle negative source-face projections remain open. The historical preview's whole-shoe disappearance came from stale preview-sphere culling, not a demonstrated shoe-source defect. This addendum introduces no new person, placement or occupied transport."
+        },
+        {
+          "label": "“Resident workwear studies on a licensed human base” standing followup",
+          "text": "The first standing increment assigns the qualified Bardwell workwear body to existing reconstructed rc bardwell otis, idle and terrain-grounded in the Wolf Point Tavern yard at E -94, N -36.5, heading90degrees. This location/action is invented within the modeled west-side setting. No source places this resident in this yard, identifies him as its employee or assigns him either wagon. His own resident card retains reconstructed identity/role/age/presence. Actual canonical source/published exports were qualified and close-reviewed; this initial simplified depiction does not assert finished photographic skin/hair/cloth, individual likeness, full animated fit or occupied interfaces. Full this work remains open."
         }
       ],
       "work_refs": [

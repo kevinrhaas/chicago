@@ -1339,3 +1339,29 @@ W01 geometry and source: GPL-3.0-or-later; nine original generated timber/paint/
 | `authored/transport/wagon_covered/textures/canvas_color.png` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
 | `authored/transport/wagon_covered/textures/canvas_normal.png` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
 | `authored/transport/wagon_covered/textures/canvas_orm.png` | CC0-1.0 original procedural pixels and descriptive data; geometry/source retain GPL-3.0-or-later | Original analytic reconstruction, no external pixels; reproducible by tools/transport/generate_covered_wagons.py; exact source and output hashes in SOURCE.json. |
+
+
+## Original authored W01 material charts (T-2980)
+
+The existing project-authored geometry supplies these original UV/tangent source inputs. Their GPL license is separate from the CC0 original procedural pixel maps. Exact hardware, ownership, recipe and original authoring hashes are recorded in SOURCE.json and the chart manifest. The ordinary producer validates these authored inputs; the original numerical authoring remains explicit opt-in. No outside geometry or photographic pixels are incorporated.
+
+| path relative to assets/ | license | provenance |
+| --- | --- | --- |
+| `authored/transport/wagon_parked/charts/original-w01-charts.bin` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
+| `authored/transport/wagon_parked/charts/original-w01-charts.json` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
+| `authored/transport/wagon_parked/charts/original-w01-charts.mapping.json` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
+
+### Actual Bardwell initial-standing canonical exports — 2026-10-22
+
+Actual run39712579846, head34cf462ed343b8b2b70da70303344fff7e5e083f, artifact12398870779; exact existing CC0-1.0 graphical/component/master-export licenses and notices above continue. This receipt records actual bytes, not likeness, photographic or full-fit acceptance.
+
+|Path under assets/|Bytes|SHA256|
+|---|---:|---|
+|humans/bardwell_otis_1835.lod0.glb|8633684|8b7d165bedfa5c8f12fd7e9aeb8d51e1cfc3cab816675a7817900f4bd9418198|
+|humans/bardwell_otis_1835.lod1.glb|8004644|7935a45d0332020adae619b05fe84c5010a84a260ba04764bea6371ad953f318|
+|humans/bardwell_otis_1835.lod2.glb|7459216|555432bfd5ca37c96755d33ed8ff24cc1ff7d77ad50896fa75ec0b61497c00c4|
+|humans/bardwell_otis_1835.lod3.glb|7238540|4ec095034edbe19e91a53d34d82f5eb47ed99a0ec620ca2e487e328170872aa4|
+|humans/web/bardwell_otis_1835.lod0.glb|4439324|47132fdfe27c1c144039e2db708bca6da6db63c201b37351a7632f1c0f45a953|
+|humans/web/bardwell_otis_1835.lod1.glb|1564256|485856360666b48ea0534e645ebda0e678af63be9e66514be78df0621a262454|
+|humans/web/bardwell_otis_1835.lod2.glb|617540|b9976874ae6a20a1e884bec62d97c4039312ae2e8ac4bd5cfbffd8148192485a|
+|humans/web/bardwell_otis_1835.lod3.glb|308100|c86fff664ac893d0fb5d6877040a0d0a9d388dc9f25acfc208be0eeb13e12ad2|
