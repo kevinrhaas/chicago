@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2197, ts: '2026-10-22T20:48:00.290Z', date: 'Oct 22, 2026, 3:48 PM CT', title: 'Glessner\'s stable cupola stands taller and slimmer, as its photographs show', kind: 'improvement',
+    items: [
+      'The dovecote cupola on the coach-house ridge now rises about a foot higher, its pyramid\'s point at 48 feet, as the 1887 and 1963 northwest photographs both put it once each is read against the gable beside it.',
+      'Its stone body is half a foot narrower, 5.5 feet square, and its eave reaches out nine inches instead of fifteen, closer to the trim cupola both photographs show.',
+      'The two tiers of pigeon holes ride up with it, where the 1963 photograph shows their landing ledges.',
+    ] },
   { v: 2196, ts: '2026-10-22T20:20:44.253Z', date: 'Oct 22, 2026, 3:20 PM CT', title: 'Distant elms draw fewer, larger leaf sprays to stay in budget', kind: 'improve',
     items: [
       'Elms past 44 m carry their leaf on fewer, larger sprays and leave out limbs too thin to see, so the view down Prairie from 18th Street draws about 45,000 fewer triangles.',
