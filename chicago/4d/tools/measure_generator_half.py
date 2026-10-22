@@ -619,13 +619,18 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # Presbyterian's parts), emitted through generators/draft_emit.py, so restaling on that archetype's
 # own rows and on none of the shared ones above.
 #
-# 899 -> 926 on 2026-10-22 (T-3009): the background behind Prairie Avenue continued, twenty-seven
-# drafts on Indiana Avenue's east frontage from 20th to 22nd Street (fourteen houses, the First
-# Presbyterian Church, a livery and eleven alley buildings) on `prairie_draft`, emitted through
+# 899 -> 914 on 2026-10-22 (T-3008): the background behind Prairie Avenue begun, fifteen drafts on
+# Calumet Avenue's west frontage from 18th to 20th Street (nine houses, five stables and one stable's
+# strip) on `prairie_draft`, emitted through generators/draft_emit.py, so restaling on that
+# archetype's own rows and on none of the shared ones above.
+#
+# 914 -> 941 on 2026-10-22 (T-3009): the background behind Prairie Avenue continued, twenty-seven
+# drafts on Indiana Avenue's east frontage from 20th to 22nd Street (thirteen houses, the First
+# Presbyterian Church, a livery and twelve alley buildings) on `prairie_draft`, emitted through
 # generators/draft_emit.py, so restaling on that archetype's own rows and on none of the shared ones above.
 #
 STATED = {
-    "assets": 926,
+    "assets": 941,
     "restales": {
         "generators/common/*.py": 737,
         "generators/common/__init__.py": 0,

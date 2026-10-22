@@ -107,6 +107,19 @@ SHEETS = {
         "ticket": "T-2982",
         "census_ticket": "T-2982",
     },
+    # The background behind Prairie Avenue (T-3008, piece 1 of T-2983): the same scan and
+    # fit as "28", read on Calumet Avenue's west frontage from 18th to 20th Street (1800 is
+    # Pullman's glasshouse ground, T-1934's, and is not traced here).
+    "28x": {
+        "gcp": "sanborn_1911_v3_sheet_28",
+        "census_path": ROOT / "data" / "components" / "prairie_1904" / "edges_census_s28.json",
+        "blocks": ("blk_prairie_calumet_18_20",),
+        "parcels": ("calumet_1830", "calumet_1832", "calumet_1836", "calumet_1840", "calumet_1900",
+                    "calumet_1910", "calumet_1922", "calumet_1928", "calumet_1932"),
+        "out": ROOT / "data" / "traces" / "prairie_1904_footprints_s28x.json",
+        "ticket": "T-3008",
+        "census_ticket": "T-3008",
+    },
     # The background behind Prairie Avenue (T-3009, piece 2 of T-2983): the same scan and fit
     # as "35", read on Indiana Avenue's east frontage from 20th to 22nd Street and the two lots
     # of East Twenty-first Street behind its 2101-2105 corner (213-217 E. 20th are "35x"'s).

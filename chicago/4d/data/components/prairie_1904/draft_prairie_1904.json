@@ -449,6 +449,21 @@
         "close_cells": 2
       }
     },
+    "28x": {
+      "where": "the background behind Prairie Avenue: Calumet Avenue's west frontage, 18th to 20th Street (Sanborn 1911 vol. 3 sheet 28)",
+      "sides": [
+        "west"
+      ],
+      "source": "sanborn_1911_chicago_v3_sheet_28",
+      "census_file": "data/components/prairie_1904/edges_census_s28.json",
+      "census_ticket": "T-3008",
+      "pass": "T-3008",
+      "liberty": "L-draft-district-background-3008",
+      "fit_note": "the sheet's own georeference: 0.34 m RMS on its control crossings and 1.47 m RMS on independent standing houses (data/traces/gcp/sanborn_1911_v3_sheet_28_gcps.json), plus about a pixel (0.05 m) of trace",
+      "rear_ticket": {
+        "west": "T-1946"
+      }
+    },
     "35w": {
       "where": "the background behind Prairie Avenue: Indiana Avenue's east frontage, 20th to 22nd Street, and East Twenty-first Street's lots behind its 2101-2105 corner (Sanborn 1911 vol. 3 sheet 35)",
       "sides": [
@@ -1393,6 +1408,126 @@
       },
       "rear_ticket": "T-1941",
       "why": "The register's Second Empire envelope: the mansard over the brick body, its rear range as the sheet draws it. The copper bay, the limestone porch, the dormers' shapes and the high stoop are T-1941's."
+    },
+    "frontage-28x-1830": {
+      "slug": "house",
+      "register": {
+        "address": "1830",
+        "raw_story_notation": "2B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. Rounded front bay at the south corner: a projecting bay on the Calumet front."
+    },
+    "frontage-28x-1832": {
+      "slug": "house",
+      "register": {
+        "address": "1832",
+        "raw_story_notation": "2½B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2½B: two full storeys and a half in the roof, read as dormers in the hip.",
+      "attic_dormers": true
+    },
+    "frontage-28x-1836": {
+      "slug": "house",
+      "register": {
+        "address": "1836",
+        "raw_story_notation": "2B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. An L plan; the sheet's frame front porch is the refining ticket's."
+    },
+    "frontage-28x-1840": {
+      "slug": "house",
+      "register": {
+        "address": "1840",
+        "raw_story_notation": "3",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. Three storeys without a basement figure: drafted at three storeys under the background hip."
+    },
+    "frontage-28x-1900": {
+      "slug": "house",
+      "register": {
+        "address": "1900",
+        "raw_story_notation": "2B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. Two storeys over a basement, its rear part as the sheet draws it."
+    },
+    "frontage-28x-1910": {
+      "slug": "house",
+      "register": {
+        "address": "1910",
+        "raw_story_notation": "2½B; rear3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2½B at the street with a 3B rear range: dormers in the front's hip and the range a storey higher, as printed.",
+      "attic_dormers": true
+    },
+    "frontage-28x-1922": {
+      "slug": "house",
+      "register": {
+        "address": "1922",
+        "raw_story_notation": "3B; rear1B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B with a 1B rear part: the front's rounded bays stand as the draft's projecting bays.",
+      "services": {
+        "s28x-1922-strip": {
+          "suffix": "stable_strip",
+          "use": {
+            "function": "outbuilding",
+            "name": "the one-storey strip at the south end of 1910's stable, on the 1922 lot"
+          }
+        }
+      }
+    },
+    "frontage-28x-1928": {
+      "slug": "house",
+      "register": {
+        "address": "1928",
+        "raw_story_notation": "2½B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2½B: dormers in the hip; the canted north bay is the refining ticket's.",
+      "attic_dormers": true
+    },
+    "frontage-28x-1932": {
+      "slug": "house",
+      "register": {
+        "address": "1932",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B on a T plan: the hip over the main body, the sheet's dashed inner line not read as a material."
     },
     "frontage-35w-2007": {
       "slug": "house",
