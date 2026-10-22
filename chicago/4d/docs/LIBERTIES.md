@@ -28770,6 +28770,8 @@ openings, roof and flank to the photographs; T-1890 finishes the architecture an
 **Revised:** 2026-10-20 (T-2910) — T-2790 was split: T-2910 builds the corner loggia and its stair
 (`L-kimball-1801-loggia-2910`), so the deep-arched door standing for the loggia above is retired;
 the bowed bay, the carved openings and frieze and the corbel table are T-2911's.
+**Revised:** 2026-10-22 (T-2900) — the east range is no longer stopped at its host's 6 m and its
+turret is built: both are `L-kimball-1801-turret-2900`.
 
 ### L-kimball-1801-loggia-2910 — 1801 Prairie's corner loggia: a room 2.3 m square behind its two arches under a flat ceiling, its door's leaves, plain stone for the carving, and the stair's cheeks swept on a reconstructed curve
 
@@ -28955,6 +28957,34 @@ cartouche band's frames.
 **Ticket:** T-2932 (piece 3 of T-2922).
 **Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
 **Recorded:** 2026-10-21 (T-2932).
+
+### L-kimball-1801-turret-2900 — 1801 Prairie's east range run its full length and its corner turret: the turret stood 1.1 m proud where the sheet draws 0.6, the range's hip carried round its front, and every opening on its unseen faces reconstructed
+
+**Decision:** 1801 Prairie's east range (T-2900) runs the 1911 sheet's whole length and carries the
+north-east turret J. W. Taylor's c. 1895 photograph shows at the flank's east end
+(`taylor_c1895_kimball_residence_1801`), on two new kit pieces: a K01 wing longer than its host wall
+(`past_host`: it stands on the gabled section's 6 m rear wall and past it has a front wall of its own,
+its roof cut only along the host) and a K08 corner turret on a wing's wall (`corner`: its ring within
+0.3 m of the end wall's plane and never past it, its eaves the wing's own, its cone whole over the
+wing's roof). **What is read, not invented.** The range's rectangle on the sheet's trace, u -17.9 to
+-8.5 and v 0 to 18.3; the turret's place on the sheet's second bump (u -15.2 to -17.9, ending at the
+range's rear corner); its eaves level with the range's (about 8.0-8.1 m) and its cone to about 12.7 m
+with a finial, T-2538's readings of the photograph; one light a storey on its face toward the camera.
+**What is invented.** The turret's centre 0.3 m inside the wall and its radius 1.4 m, so it stands
+1.1 m proud where the sheet draws its bump about 0.6 m out: at the sheet's depth the render showed
+about half the shaft the print shows past the flank's end, and the photograph is the closer evidence
+(the sheet draws the round tower's bump short of its photograph too, `L-kimball-1801-k01-2843`); its
+ring flush with the range's rear wall, which no picture shows; its plain walling, with no band or
+eave moulding (the print shows both, open in the match record); its lights' places and sizes. The
+range's 45-degree slate hip along its length (ridge about 12.8 m) where it was a hip across its first
+6 m; its front wall on the stretch past the gabled section; the openings on its rear, its south face
+and its front, three, two and three, all at the kit's sash on places no picture shows.
+**How to resolve:** a picture of the range from the south or east, or of the turret nearer, would
+give its plan and the openings; T-2540 and T-1890 bring the roof and the architecture to the
+photographs.
+**Ticket:** T-2900.
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-22 (T-2900).
 
 ### L-k01-1621-last-drawn-2531 — 1621 Prairie's last drawn differences: the door's ring turned to a curved extrados under a band in a deep recess, the light over it stood on a moulded shelf, and splayed voussoirs over the basement lights, their places read and their sections reconstructed
 
@@ -30956,3 +30986,12 @@ The parked1904 carriage also has an original small timber shaft-rest. Its crossb
 **Decision:** Two existing reconstructed 1835 covered records retain their exact positions, bearings, stable original-ID/coordinate finish seeds, canvas aging and laid-by yokes. The Western Hotel example remains blue/oxide; Wolf Point remains oak/dark oak. Original W01 running gear is reused; five original bows, canvas seams, hems, restrained folds and analytic weave/weathering are reconstructed. No historical maker, owner, cargo, measured textile or joinery is established. The source-owned donor bench and footboard were omitted where they intersect the retained narrow cover; the original W01 is unchanged. This empty derivative supports no driver, passenger, hitch, collision, horse, motion, riding or boarding interface. Exact wheel-plane samples qualify the old stands against the unchanged 30 mm guard; actual main-world ground/yoke clearance, shadows, old/new comparisons and production quality remain separate acceptance work.
 
 **Recorded:**2026-10-21.
+
+
+### L-glessner-coursing-2986 — the printed course inches carried up the Prairie front against sheet 6
+
+**Decision:** Glessner's granite beds above the door head use HABS sheet 5's printed course inches on every face, the Prairie front included. Sheet 6, the 1965 photogrammetric front elevation, draws the same courses in the same order but 4.5 % taller: bed 7 to bed 23 is 14.77 ft there against the string's 14.13, about 0.65 ft by bed 23. The printed inches are kept because they are the only course dimensions recorded, and because sheet 4's 18th Street eave (23.1 ft ng) leaves room only for them. Sheet 6's beds carried round the corner would reach about 0.2 ft over that eave, which is close to what a scaled section can be read to. So the plot's heights are the standing dissent, not a refuted reading. The Prairie first-floor heads keep sheet 6's measured 14.3 ft, 0.38 ft up the 20-inch course, where the plot draws them on a bed.
+
+**Re-opens on:** a measurement independent of both 1960s surveys: a camera solve of the 1888 front photograph spanning the door to the 24.30 soffit, or HABS field notes FN-128.
+**Ticket:** T-2986 (docs/RESEARCH/glessner-coursing-T-2986/).
+**Recorded:** 2026-10-22.

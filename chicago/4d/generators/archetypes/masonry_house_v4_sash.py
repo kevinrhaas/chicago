@@ -147,8 +147,11 @@ def granite_sill(b, o, a, c, z0, conf, mat=None):
             conf, mat)
 
 
-def slit_sash(b, o, a, c, z0, z1, conf, sill_mat=None):
-    """A narrow light: one sash in a light frame, divided by horizontal bars."""
+def slit_sash(b, o, a, c, z0, z1, conf, sill_mat=None, sill=True, panes=None):
+    """A narrow light: one sash in a light frame, divided by horizontal bars.
+
+    T-2928: `panes` fixes the count a drawing gives (1: no bars), and `sill=False`
+    leaves the stone to the light's own drawn sill `band`."""
     d = _d()
     P = lambda u, z, off: legacy._plane_point(o, u, z, off)
     n = legacy._plane_dir(o)
@@ -158,10 +161,11 @@ def slit_sash(b, o, a, c, z0, z1, conf, sill_mat=None):
     for x0, x1, y0, y1 in ((a, a + frame, z0, z1), (c - frame, c, z0, z1), (a, c, z1 - frame, z1)):
         d.slab(b, o, x0, x1, y0, y1, FRAME[0], FRAME[1], conf, d.PAINTED_WOOD)
     prism_u(b, o, a, c, [(-.300, z0), (-.170, z0), (-.170, z0 + .022), (-.300, z0 + frame)], conf, d.PAINTED_WOOD)
-    lights = max(2, round((z1 - z0) / .55))
+    lights = panes or max(2, round((z1 - z0) / .55))
     _sash(b, o, a + frame, c - frame, z0 + frame, z1 - frame, LOWER, (.06, .045), -.271, conf,
           bars=lights - 1, stile=.036)
-    granite_sill(b, o, a, c, z0, conf, sill_mat)
+    if sill:
+        granite_sill(b, o, a, c, z0, conf, sill_mat)
 
 
 def garden_bars(b, o, a, c, z0, z1, conf):
