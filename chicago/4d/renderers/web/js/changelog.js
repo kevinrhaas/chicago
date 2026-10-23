@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2220, ts: '2026-10-23T15:10:20.031Z', date: 'Oct 23, 2026, 10:10 AM CT', title: 'Glessner House\'s tall stone courses stand deeper', kind: 'improvement',
+    items: [
+      'The tall granite courses on the Glessner house now throw a deeper shadow under their lower edges than the short ones, as a photograph from about 1888 shows. Through that photograph\'s own camera the tall-to-short ratio was 0.86 and is now 1.33, against the photograph\'s 1.32.',
+      'The stable\'s stone cupola is now laid in rough-faced courses, where it had smooth plates. Its shaft has four courses and each row of pigeon holes is one course between its ledges, as an 1887 print shows it.',
+    ] },
   { v: 2219, ts: '2026-10-23T14:24:33.243Z', date: 'Oct 23, 2026, 9:24 AM CT', title: '1812 Prairie\'s tall south chimney stands near the front', kind: 'fix',
     items: [
       'The tall chimney on the south wall of George H. Wheeler\'s house at 1812 Prairie Avenue now stands near the front, about 2 m behind it, and rises to 16.8 m. It used to stand 6 m back and 0.8 m higher. A second photograph, taken about 1955 from a little south of the house, saw the chimney from a new angle. Comparing it with Albert Levy\'s photograph from the 1880s or 1890s fixed where the chimney stands. The 1955 photograph also shows a second tall chimney behind the gable\'s north side. Levy\'s photograph shows only open sky there, so that chimney is not built for 1904.',
