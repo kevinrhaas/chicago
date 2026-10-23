@@ -505,7 +505,8 @@ def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, 
 MANSARD_ROOFS = ("k05.roof.mansard_convex", "k05.roof.mansard_concave")
 
 
-def _mansard_roof(m: dict, depth: float, width: float, eave: float, pitch: float, overhang: float) -> dict:
+def _mansard_roof(m: dict, depth: float, width: float, eave: float, pitch: float, overhang: float,
+                  shaped: bool = False) -> dict:
     """The numbers a K01 mansard is built to (T-2370), from K05's mansard (T-2304): the
     record names the variant, which gives the lower face's profile, curve and chord pitch,
     and the lower face's rise to the curb, the attic storey's height; the upper hip is the
@@ -532,8 +533,12 @@ def _mansard_roof(m: dict, depth: float, width: float, eave: float, pitch: float
     lo, hi = (2.0, 4.5) if held == 1 else (4.5, 7.5)
     if not lo <= rise <= hi:
         raise ParamError(f"mansard.lower_rise_m {rise}: a face holding {held} storey(s) rises {lo}-{hi} m")
-    if not 0.3 <= overhang <= 1.0:
-        raise ParamError(f"eave_overhang_m {overhang}: a mansard's cornice projects 0.3-1.0 m")
+    # T-3033: behind a shaped gable the side walls run up plain under the gable's own shallow
+    # eave (1812 Prairie's, 0.05 m), so the mansard's cornice may be as shallow as that eave
+    lo = 0.05 if shaped else 0.3
+    if not lo <= overhang <= 1.0:
+        raise ParamError(f"eave_overhang_m {overhang}: a mansard's cornice projects {lo}-1.0 m"
+                         + (" behind a shaped gable" if shaped else ""))
     f = k5["parts"]["eave"]["fascia_depth_m"]
     run = rise / math.tan(math.radians(lower))
     half = min(depth, width) / 2 + overhang
@@ -1032,7 +1037,7 @@ def _wall_gable_arch(ar: dict, at: list, dormer: dict) -> dict:
 
 
 def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: float, pitch: float,
-                  overhang: float) -> dict:
+                  overhang: float, mansard: dict | None = None) -> dict:
     """T-2543: the street front's shaped gable — 1812 Prairie's, which its photograph shows
     standing over the whole front: `profile_m`, the outline's half-width over grade from its
     foot to its apex ([half-width, height] pairs, rising, the last on the centre line); the
@@ -1051,8 +1056,11 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
     front's stone where 1812's wears the side walls' brick."""
     if not sg:
         return {}
-    if roof_form != "hip":
-        raise ParamError("shaped_gable: a shaped gable stands in front of a hip's street slope (T-2543)")
+    # T-3033: or before a mansard's street face, as 1812's photographs show its slate faces
+    # rising behind the shoulders to a level curb (`mansard`, the resolved roof's numbers)
+    if roof_form not in ("hip", "mansard"):
+        raise ParamError("shaped_gable: a shaped gable stands in front of a hip's street slope (T-2543) "
+                         "or a mansard's street face (T-3033)")
     if dormer:
         raise ParamError("shaped_gable: a front carried up as a shaped gable carries no street dormer")
     pr = [(float(w), float(y)) for w, y in sg["profile_m"]]
@@ -1062,10 +1070,13 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
         raise ParamError("shaped_gable.profile_m: the outline rises point by point")
     if pr[0][0] > width / 2 or min(w for w, _ in pr) < 0.0:
         raise ParamError("shaped_gable.profile_m: the outline stands inside the front")
-    ye = eave - overhang * math.tan(math.radians(pitch))
-    ridge = eave + width / 2 * math.tan(math.radians(pitch))
+    if roof_form == "mansard":   # a mansard's eave is its cornice, the fascia's top on the wall head
+        ye, ridge = eave, mansard["ridge_m"]
+    else:
+        ye = eave - overhang * math.tan(math.radians(pitch))
+        ridge = eave + width / 2 * math.tan(math.radians(pitch))
     if pr[-1][1] < ridge + 0.3:
-        raise ParamError(f"shaped_gable: its apex ({pr[-1][1]} m) stands at least 0.3 m over the hip's ridge ({ridge:.2f} m)")
+        raise ParamError(f"shaped_gable: its apex ({pr[-1][1]} m) stands at least 0.3 m over the roof's ridge ({ridge:.2f} m)")
     foot, t, proud = float(sg["foot_m"]), float(sg["thickness_m"]), float(sg["proud_m"])
     if not eave - 2.0 <= foot < ye - 0.3:
         raise ParamError("shaped_gable.foot_m: the slab starts under the street fascia, within 2.0 m of the wall head")
@@ -3254,7 +3265,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
 
     flat_roof = _flat_roof(depth, eave, pitch, float(val("eave_overhang_m"))) if flat else {}
     mansard_roof = _mansard_roof(val("mansard"), depth, width, eave, pitch,
-                                 float(val("eave_overhang_m"))) if mansard else {}
+                                 float(val("eave_overhang_m")), shaped=bool(val("shaped_gable"))) if mansard else {}
     gable_roof = _gable_roof(val("gable_roof"), depth, width, eave, pitch, st) if gable else {}
     # T-2820: the rear section, resolved before the stacks, one of which may stand on its attic
     from .k01_rear_section import resolve as resolve_rear_section
@@ -3309,7 +3320,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     slope_dormers = _slope_dormers(val("slope_dormers"), roof_form, depth, width, eave, pitch,
                                    float(val("eave_overhang_m")), rear_section)
     shaped = _shaped_gable(val("shaped_gable") or {}, roof_form, dormer, width, eave, pitch,
-                           float(val("eave_overhang_m")))
+                           float(val("eave_overhang_m")), mansard_roof)
 
     # T-2298: every glazed K01 opening is built from a K06 variant. The K01 wall cuts a
     # rectangular hole, so only a flat-headed variant fits it; an arched head is a

@@ -13,6 +13,14 @@
     ],
     "note": "The 1911 sheet labels the building with a 1911 use, '2½S.B. brick The Gatlin Institute', which the draft does not carry back to 1904 (the T-1837 register warns not to assume the 1904 use from it). The register's family row, 'Field Jr., post-1902 enlargement', names it a house, so the 1904 function is inferred residence on that row and the T-1841 census ruling (present_as_mapped)."
   },
+  "built": {
+    "value": 1867,
+    "confidence": "attested",
+    "sources": [
+      "hmdb_prairie_heritage_preserved"
+    ],
+    "note": "The marker: 'Marshall Field Jr. Residence. Built 1867', enlarged several times, the last in 1902."
+  },
   "review_required": false,
   "research_note": "A DISTRICT DRAFT (T-2330, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1906, T-1907 refine in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 28 trace (s28fp-1919-b1), the T-1841 census (s28-1919-front, s28-1919-wing) and the T-1837 register row frontage-28-056 (Field Jr., post-1902 enlargement); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-prairie-18-20-east-2330).",
   "phases": [
@@ -25,7 +33,8 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "to_is": "seen"
       },
       "position": {
         "utm_e": 448519.639,

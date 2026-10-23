@@ -169,6 +169,15 @@
     ],
     "note": "DISPUTED FOR THE SCENE DATE. Three readings: William Walters was landlord 1833-1836, which puts the house in ordinary innkeeping in July 1835 (drloih_wolf_point); the hotel chronology says it 'ceased operations as a public house in 1834' (drloih_hotels); and a third account has the name changing successively to the Travelers' Home and the Western Stage House after 1834, which is a change of sign rather than of trade. Innkeeping is adopted because two of the three readings are compatible with it and because a stage house is still a public house, but the tag is inferred, not documented. Rates while it was a public house: 12 1/2 cents a night, 13 cents to stable a horse. In 1832 it served as Gen. Winfield Scott's headquarters during the Black Hawk War."
   },
+  "built": {
+    "value": "1823 or 1828",
+    "confidence": "attested",
+    "sources": [
+      "drloih_wolf_point",
+      "drloih_hotels"
+    ],
+    "note": "The sources disagree: the Wolf Point account gives 1828, the hotel chronology has it opened in 1823."
+  },
   "occupants": {
     "value": "William Walters, landlord",
     "confidence": "inferred",

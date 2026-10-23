@@ -20,7 +20,8 @@
  *    that only restate the address are not repeated.
  *  - The summary is at most three sentences, each from a template filled with words
  *    the card already prints elsewhere: what it is (its use, its material, its
- *    storeys), how long it had stood like this, and who lived here or what it is today.
+ *    storeys), when it was built or stood as the record dates it (never a bound), and
+ *    who lived here or what it is today.
  *    Nothing is paraphrased and no adjective is added.
  *  - Every phrase that goes in is linted first — no id, snake_case word, file path,
  *    link or ticket number, the same refusals compile_summaries.py makes of an authored
@@ -29,6 +30,8 @@
  *
  * Pure: no DOM, so the test can run it over every sidecar in node.
  */
+
+import { whenSentence } from './range-words.js';
 
 const SNAKE = /[A-Za-z0-9]+(?:_[A-Za-z0-9]+)+/g;
 const PATH = new RegExp(
@@ -167,7 +170,6 @@ function storeys(value) {
 }
 
 const article = (w) => (/^(?:one\b|one-|uni|eu)/i.test(w) ? 'a' : /^[aeiou]/i.test(w) ? 'an' : 'a');
-const ISO_YEAR = /^(\d{4})-\d{2}-\d{2}$/;
 
 /**
  * The templated summary, at most three sentences.
@@ -191,12 +193,12 @@ export function fallbackSummary(sidecar, { kind = '', today = '' } = {}) {
   const what = [tall, mat, noun || ((tall || mat) ? 'building' : '')].filter(Boolean).join(' ');
   sentences.push(what ? `It was ${article(what)} ${what}.` : 'It stood here.');
 
-  // 2. How long it had stood like this, from the phase's own dates. The phase's start,
-  // not the building's: a cabin turned barn in 1817 is older than 1817, so the sentence
-  // never says when it was built.
-  const from = ISO_YEAR.exec(sidecar?.documented_range?.from ?? '')?.[1];
-  const scene = /^\d{4}/.exec(sidecar?.target_date ?? sidecar?.scene ?? '')?.[0];
-  if (from && scene && Number(from) <= Number(scene)) sentences.push(`It had stood like this since ${from}.`);
+  // 2. When it stood, and only what the record dates (T-3037, range-words.js): its build
+  // date as the sources give it, a phase start a source dates, or a first sighting. The
+  // range's start alone is usually a bound — 1736 Prairie's is the 1904 scene's own day,
+  // under a picture of the house drawn in 1893 — so an unmarked start says nothing.
+  const when = whenSentence(sidecar);
+  if (when) sentences.push(when);
 
   // 3. Who lived here, as the record's first household says it, or else what it is today.
   const h = Array.isArray(sidecar?.residents) ? sidecar.residents[0] : null;

@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2201, ts: '2026-10-22T23:07:10.801Z', date: 'Oct 22, 2026, 6:07 PM CT', title: '1812 Prairie\'s roof behind its gable rebuilt as a slate mansard', kind: 'improvement',
+    items: [
+      'Behind the Wheeler house\'s shaped gable at 1812 Prairie, the roof is now a mansard: steep slate faces rising about 2 m from the side walls to a level, flat-topped curb. It had been a plain 45-degree hip.',
+      'Three photographs agree on it: Albert Levy\'s 1880s print of the front, the photograph of 1816 next door that looks along 1812\'s south side, and a view from about 1955.',
+      'Seen from Levy\'s camera, the slate now shows behind both of the gable\'s shoulders under a level top, within a few inches of the print on the north side.',
+      'The south side\'s top is a coped wall carried up past the roof with the tall chimney on it. That wall is not built yet and is next for this house.',
+    ] },
   { v: 2200, ts: '2026-10-22T22:22:57.905Z', date: 'Oct 22, 2026, 5:22 PM CT', title: 'Glessner\'s stable cupola loses its dark corner stripes', kind: 'fix',
     items: [
       'The dark stripe that ran down each corner of the dovecote cupola on Glessner\'s coach house, from under its eave past the pigeon holes to the roof, is gone. Its stone corners now read clean and square, as both northwest photographs show them.',

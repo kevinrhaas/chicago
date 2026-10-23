@@ -24,7 +24,9 @@
       "andreas_1884_v1",
       "chicagology_prefire021"
     ],
-    "note": "BOTH ENDS ARE ATTESTED, WHICH IS RARE HERE. Andreas, printed p. 635: 'In 1833, the first Tremont House, situated then on the northwest corner of Lake and Dearborn streets, was built by Alanson Sweet.' The end is dated to the day, twice in the same volume: 'was managing it at the time it burned, October 27, 1839' (p. 635) and, in the year-by-year narrative, 'October 27, the most disastrous fire occurred that had ever visited Chicago. It commenced on Lake Street, near Dearborn. The Tremont House and seventeen other buildings were burned.' chicagology_prefire021's 1874 Tribune letter agrees on the year - 'In the fall of 1839, the Tremont House was first consumed by fire.' THE FROM DATE IS A BOUND, NOT A DATE: no source gives a month in 1833, so 1833-01-01 is the earliest day the attested year permits. The scene date sits nearly two years inside the range under any reading of that month, so nothing in this record turns on it - unlike the Steamboat Hotel, where the same kind of bound is the whole risk."
+    "note": "BOTH ENDS ARE ATTESTED, WHICH IS RARE HERE. Andreas, printed p. 635: 'In 1833, the first Tremont House, situated then on the northwest corner of Lake and Dearborn streets, was built by Alanson Sweet.' The end is dated to the day, twice in the same volume: 'was managing it at the time it burned, October 27, 1839' (p. 635) and, in the year-by-year narrative, 'October 27, the most disastrous fire occurred that had ever visited Chicago. It commenced on Lake Street, near Dearborn. The Tremont House and seventeen other buildings were burned.' chicagology_prefire021's 1874 Tribune letter agrees on the year - 'In the fall of 1839, the Tremont House was first consumed by fire.' THE FROM DATE IS A BOUND, NOT A DATE: no source gives a month in 1833, so 1833-01-01 is the earliest day the attested year permits. The scene date sits nearly two years inside the range under any reading of that month, so nothing in this record turns on it - unlike the Steamboat Hotel, where the same kind of bound is the whole risk.",
+    "from_is": "began",
+    "to_is": "ended"
   },
   "change_note": "The house as built in 1833 by Alanson Sweet and kept through the scene date by Ira Couch. No change of fabric is attested inside the phase - Andreas records changes of proprietor (Sweet and a man from Canada named Darwin, then the Couch brothers, then James Couch from 1836) and no alteration - so the whole 1833-1839 span is modelled as one state, which is a limitation of the evidence rather than a claim that nothing changed.",
   "placement": {
@@ -144,6 +146,14 @@
         "chicagology_prefire021"
       ],
       "note": "Two sources put Couch here across the scene date and neither leaves a gap. chicagology_prefire021's 1874 letter: 'In 1833 there was built ... the Tremont House, and the following year Ira Couch became its proprietor' - i.e. 1834. Andreas: 'Ira Couch opened it as a hotel. He ran it until 1836, when his brother James took control.' So 1835-07-01 falls squarely inside Ira Couch's tenure. TWO CLAIMS IN CIRCULATION ARE NOT ADOPTED BECAUSE NOTHING THIS PROJECT HOLDS SUPPORTS THEM: docs/research/04-structures-south.md line 155 names Starr Foot as first proprietor and has the house 'sold to Mallory & Able 1835'. Neither name attaches to this building anywhere in Andreas vol. 1 - Starr Foot appears once, in an unrelated list, and no Mallory but a Hiram Mallory in another context - and neither is on the chicagology page. They are left out rather than repeated."
+    },
+    "built": {
+      "value": 1833,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas: 'In 1833, the first Tremont House ... was built by Alanson Sweet.'"
     }
   },
   "residents": [

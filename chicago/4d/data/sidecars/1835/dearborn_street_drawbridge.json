@@ -26,7 +26,8 @@
       "andreas_1884_v1",
       "chicagology_dearborn_st_bridges"
     ],
-    "note": "THE OPENING IS DISPUTED BY TEN WEEKS AND THE DISPUTE IS BETWEEN THE BUILDER AND HIS COMPILER. Nelson R. Norton, the ship-carpenter who built it, in a letter Andreas prints: 'I came to Chicago November 16, 1833. Soon after I arrived, I commenced cutting the lumber for a drawbridge... In March, 1834, I commenced building it, and I think it was completed by the 1st of June.' Andreas corrects him on the spot: 'Mr. Norton is evidently in error as to the time of the completion of the bridge, since the Democrat states that it was formally accepted by the Trustees in August, the first proposals having been received in February.' The range opens on the LATER of the two, 1 August 1834, because the question a range answers is when the structure certainly stood as a working public crossing, and 'I think it was completed by' is the weaker of the two claims even before Andreas contradicts it. Nothing turns on the choice for this scene: the bridge is standing eleven months before 1835-07-01 either way. THE CLOSE IS THE BEST-ATTESTED DATE ON THIS RECORD: 'the Common Council ordered its removal in July, 1839', and 'a large crowd gathered upon the river before daylight, the next morning, and going to work with a will, in a very short time chopped the bridge to pieces.' A structure destroyed within a day of a dated order is a rarity in this dataset. THE INFERRED TAG IS FOR THE OPENING AND NOT THE CLOSE. The August acceptance rests on an 1834 issue of the Chicago Democrat that this project does not hold, quoted by Andreas fifty years later; the paper itself is the thing that would move this to documented."
+    "note": "THE OPENING IS DISPUTED BY TEN WEEKS AND THE DISPUTE IS BETWEEN THE BUILDER AND HIS COMPILER. Nelson R. Norton, the ship-carpenter who built it, in a letter Andreas prints: 'I came to Chicago November 16, 1833. Soon after I arrived, I commenced cutting the lumber for a drawbridge... In March, 1834, I commenced building it, and I think it was completed by the 1st of June.' Andreas corrects him on the spot: 'Mr. Norton is evidently in error as to the time of the completion of the bridge, since the Democrat states that it was formally accepted by the Trustees in August, the first proposals having been received in February.' The range opens on the LATER of the two, 1 August 1834, because the question a range answers is when the structure certainly stood as a working public crossing, and 'I think it was completed by' is the weaker of the two claims even before Andreas contradicts it. Nothing turns on the choice for this scene: the bridge is standing eleven months before 1835-07-01 either way. THE CLOSE IS THE BEST-ATTESTED DATE ON THIS RECORD: 'the Common Council ordered its removal in July, 1839', and 'a large crowd gathered upon the river before daylight, the next morning, and going to work with a will, in a very short time chopped the bridge to pieces.' A structure destroyed within a day of a dated order is a rarity in this dataset. THE INFERRED TAG IS FOR THE OPENING AND NOT THE CLOSE. The August acceptance rests on an 1834 issue of the Chicago Democrat that this project does not hold, quoted by Andreas fifty years later; the paper itself is the thing that would move this to documented.",
+    "from_is": "began"
   },
   "change_note": "The single phase this structure has. Andreas records the bridge as repaired in 1835 and again in 1837, and the September 1834 payment of $166.67 for repairs shows it needed work within weeks of acceptance — so the structure standing on 1835-07-01 was patched and had been struck repeatedly by passing vessels. No source dates or describes any of those repairs closely enough to make a second phase, so the record models one state and says here that it was a worn one.",
   "placement": {
@@ -172,6 +173,15 @@
         "andreas_1884_v1"
       ],
       "note": "A public crossing and the first movable bridge in Chicago: 'The first drawbridge thrown across the river was at Dearborn Street.' It replaced a trustee-established free ferry at the same street — a flat-bottomed boat on a cable, which was moved to Rush Street when the bridge opened — and it was the only fixed link between the North and South Divisions of the town. By the scene date it is also an address: the Chicago American set up its office in June 1835 'on Water Street, near the draw-bridge'."
+    },
+    "built": {
+      "value": 1834,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "chicagology_dearborn_st_bridges"
+      ],
+      "note": "Built in 1834: its builder, Nelson R. Norton, began it in March 1834 and Andreas dates its acceptance to that summer."
     }
   },
   "residents": [

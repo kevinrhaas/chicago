@@ -92,3 +92,13 @@ render retained the reviewed `differs` verdict for unchanged inputs. Focused
 tests cover group placement and bearings, changed meshes and placements,
 malformed or absent members, and stale-review refusal through the actual image
 closing gate. Neither fort currently satisfies its original image gate.
+
+### Integration refresh — 2026-10-23
+
+Integrated `dev` at `ad95c276100e6c8c05b90fe97c0f3323e5206df0` and preserved both status entries. The
+fort mesh/placement fingerprints remain identical. The newer upstream Glessner
+light derivative was restored from its checksum-verified package after preserving
+the known prior-package local output; no bake or tracked asset edit was made by
+this task. Full reader-required preflight then passed all 1,047 checks again,
+exit 0. The mobile/desktop smoke evidence above belongs to the original feature
+tree; those slices were not repeated for the upstream building-date UI change.

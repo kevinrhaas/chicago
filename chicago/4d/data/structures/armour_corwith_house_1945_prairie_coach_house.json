@@ -25,7 +25,8 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_28"
         ],
-        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "to_is": "seen"
       },
       "position": {
         "utm_e": 448540.639,
