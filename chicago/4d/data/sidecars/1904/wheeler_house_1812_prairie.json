@@ -506,17 +506,25 @@
         "cap_depth_m": 0.15,
         "stacks": [
           {
-            "u_m": 9.0,
-            "v_m": 0.8,
-            "in_parapet": false
+            "u_m": 13.25,
+            "v_m": 0.23,
+            "plan_m": [
+              1.0,
+              0.55
+            ],
+            "on_cornice": true,
+            "top_m": 16.8,
+            "cap_proud_m": 0.1,
+            "cap_depth_m": 0.6
           }
         ]
       },
       "confidence": "inferred",
       "sources": [
-        "levy_1812_prairie_photo"
+        "levy_1812_prairie_photo",
+        "chicagology_1812_wheeler_c1955_photo"
       ],
-      "note": "The photograph shows one tall corbelled stack over the south wall behind the gable; its place along the wall is reconstructed. T-3033: with the hip gone the ridge is the mansard's (15.09 m), so the stack's top is kept where it stood (17.59 m, 2.5 m over that ridge, where it was 0.9 m over the hip's 16.7 m); its place and height against the photographs are T-3034's."
+      "note": "The photographs show one tall corbelled stack over the south wall behind the gable. T-3034: its place and top triangulated from the two solved cameras, Levy's print (levy_front.json) and the c. 1955 photograph (c1955_front.json, rights unresolved, read for place and proportion only): Levy's shaft at x 262-318 px (its south-east and north-west corners, the east face about 44 px of it) and the c. 1955 shaft's north-east corner at x 39 px meet at a stack whose front face stands about 1.35 m behind the main front (u 13.75, its back about u 12.75) and whose faces fall at about v -0.87 to -0.34, outside the traced south wall's line, in the 1.41 m gap to 1816; its top reads 16.8 m in Levy's print (y 127 px), and the build takes that. The c. 1955 photograph's top (y 90 px), read at the triangulated place, would make it 17.7 m, but the same camera also puts the south wall's coped top about 1 m higher than Levy's print does (y 166-170 px, 15.5-16 m, against Levy's cap at 14.3-14.5 m), so the later camera reads about a metre high off the front's plane (its distance is its weakest number, c1955_front.json's solve) rather than showing a stack raised after 1904. The same tension leaves the place good to about a metre along the wall: the c. 1955 heights would bring the stack nearer the front. Built with K01's on_cornice stack, centred 1.85 m behind the front (u 13.25) and straddling the wall line as far out as the 0.05 m cornice lets it (v -0.045 to 0.505), rising from the wall head to 16.8 m, where it stood 6.1 m back and 0.8 m inside the wall (u 9.0, v 0.8) at 17.59 m: the photographs' further 0.3-0.9 m outward, a stack carried on the wall's outer face in the gap, is a kit change K01 does not make (L-k01-1812-wheeler-stacks-3034). Its corbelled head as a cap 0.1 m proud and 0.6 m deep (Levy's wider head over y 127-200 px, the c. 1955 one's over y 90-115 px); 0.55 m across, as Levy's east face reads, and 1.0 m deep, the house's other stacks' plan (its depth is seen in neither picture). No second stack is built. The c. 1955 photograph shows a tall plain brick stack behind the gable's north shoulder (x 383-435 px, top y 128 px); for it to stand on 1812 at all (north of v 8.5 is 1808), its north-east corner at x 435 puts it within 1.2 m behind the main front (u 13.9-15.1, v about 7.0-8.2), topping about 16.6 m, and there Levy's camera draws it at x 930-1030 px from y 110 px down, against open sky beside the north shoulder, where the print shows sky. So it was built after Levy's print (c. 1885-1900), or it stands behind 1812 on 1808's ground; no picture inside the period shows it, and the 1904 build follows the one that does not (L-k01-1812-wheeler-stacks-3034)."
     },
     "rainwater": {
       "value": {
@@ -902,6 +910,25 @@
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "chicagology_1812_wheeler_c1955_photo",
+      "citation": "1812 S. Prairie Ave. About 1955. Photograph of the street front of the George H. Wheeler house from the walk across Prairie Avenue, a little south of square, with 1808 Prairie's stone front at the right; unknown photographer, about 1955. Reproduced on chicagology.com, Prairie Avenue, 1812 S. Prairie.",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/1812prairie/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "a second line of sight to the south stack, which with Levy's print places it along the south wall and gives its top",
+        "the south wall's face in the gap to 1816 and the projection's south cheek, which Levy's square view cannot see",
+        "a check of the front's openings, the balcony and the gable outline from a second camera"
+      ],
+      "what_it_does_not_supply": [
+        "colour: the print is monochrome",
+        "the 1904 state where it differs from Levy's print: it is fifty years later",
+        "the stair, the basement and the walk, which a parked car hides",
+        "the rear, and the north wall"
+      ]
+    },
     {
       "source_id": "hmdb_prairie_lost_houses_1800_1900_west",
       "citation": "'Lost Houses of Prairie Avenue: 1800-1900 Blocks (West Side)', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308706.",
