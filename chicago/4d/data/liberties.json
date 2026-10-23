@@ -51804,6 +51804,42 @@
       ]
     },
     {
+      "id": "L-kimball-1801-gable-inset-3073",
+      "title": "1801 Prairie's pavilion gable narrowed and raised to the Taylor photograph through the re-solved camera",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "1801 Prairie's south pavilion gable is re-stood from J. W. Taylor's c. 1895 photograph (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…), read through the Taylor camera as later work re-solved it. **What is read, not invented.** The gable is narrower than the face it stands on. Its south pinnacle stands at about v 9.99 (x 1314 on the print), about 0.55 m short of the chamfer's near end. Its apex pedestal's axis is at about v 8.4-8.6 (x 1270). It springs from a shelf at about 13.55-13.6 m. The pinnacle's top reads 15.06 m and the copings' apex 16.76 m. So the pavilion's third storey runs 5.5 m to a 13.6 m springing (it stood 5.1 m to 13.2 m). The gable's south corner stands 0.41 m in from the face's (gable.inset (m), a new K08 option) and its north corner on the face's, which puts its middle at v 8.50. Its pitch is 2.04, the rise from the kneelers to the apex over their run. **What is invented.** The gable's north corner is placed on the face's own. The print's north kneeler stands against the dark slate and reads only to about 0.2 m, so the north inset is taken as nothing. The south kneeler is carried on out over the face's corner as one block. The print's shelf end there reads about 11 px short of the render's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "A second picture of the pavilion's front ('s 1929 and HABS photographs) or a drawing of the gable. The finial's urn and the gable's carved panel are earlier work's."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23 (T-3073)."
+        }
+      ],
+      "work_refs": [
+        "T-3074",
+        "T-3003",
+        "T-3002",
+        "T-3073",
+        "T-3060"
+      ]
+    },
+    {
       "id": "L46",
       "title": "The fort stands on a bank the model has no cut or fill for",
       "section": "resolved",
