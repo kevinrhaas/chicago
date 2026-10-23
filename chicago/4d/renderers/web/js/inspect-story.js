@@ -4,7 +4,7 @@
  *
  * Every row is a dated fact the data already carries; nothing here composes a date:
  *
- *   - BUILT is the summary record's own `built.year`, with its grade, or else the sidecar's
+ *   - BUILT is the summary record's own `built.year` (worded by its `phrase` where it has one), with its grade, or else the sidecar's
  *     `built` attribute (T-3037: "1864 or 1875" where the sources disagree). With neither, the
  *     row says the records give no date: `documented_range.from` is where the record's claim
  *     begins (often the date of a description, or the scene's own date), never when it went up.
@@ -111,7 +111,9 @@ export function storyTimeline({ sum = null, sidecar = null, scene = null, fireLi
   const attrBuilt = sidecar?.attributes?.built;
   const attrPhrase = builtPhrase(attrBuilt?.value);
   const builtRow = Number.isInteger(built?.year)
-    ? { kind: 'built', mark: 'built', date: String(built.year), text: '', grade: graded(built.grade) }
+    ? { kind: 'built', mark: 'built', date: String(built.year),
+      text: builtPhrase(built.phrase) ? t('inspect-story.built.phrase', { phrase: builtPhrase(built.phrase) }) : '',
+      grade: graded(built.grade) }
     : attrPhrase
       ? { kind: 'built', mark: 'built', date: attrPhrase.match(/\d{4}/)[0],
         text: /^in \d{4}$/.test(attrPhrase) ? '' : t('inspect-story.built.phrase', { phrase: attrPhrase }),
