@@ -12,6 +12,68 @@
       "passed": 107,
       "failed": 0,
       "failures": [],
+      "wallSeconds": 316,
+      "takenAt": "2026-10-23T02:09:48.188Z",
+      "ref": "steward/t3053-owner-reference-approval",
+      "commit": "384e949d68a0",
+      "devCommit": "384e949d68a0",
+      "treeHash": "sha256:edf5d766adfc6ead",
+      "treeDirty": true,
+      "changelogHash": "sha256:182125d8bc1e7b35",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 33.3,
+        "loadavg": [
+          2,
+          2.1,
+          1.2
+        ]
+      },
+      "source": "/tmp/t3053-smoke-desktop.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 150,
+      "takenAt": "2026-10-23T02:03:51.761Z",
+      "ref": "steward/t3053-owner-reference-approval",
+      "commit": "384e949d68a0",
+      "devCommit": "384e949d68a0",
+      "treeHash": "sha256:edf5d766adfc6ead",
+      "treeDirty": true,
+      "changelogHash": "sha256:182125d8bc1e7b35",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 33.3,
+        "loadavg": [
+          1,
+          0.8,
+          0.4
+        ]
+      },
+      "source": "/tmp/t3053-smoke-mobile.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
       "wallSeconds": 630,
       "takenAt": "2026-10-22T23:20:45.519Z",
       "ref": "steward/t3040-fort-reference-groups",
@@ -1633,68 +1695,6 @@
         ]
       },
       "source": "/workspace/t2200-proof/smoke-desktop-12.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 101,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 468,
-      "takenAt": "2026-10-09T06:09:11.404Z",
-      "ref": "steward/t-2200-glessner-camera-baseline",
-      "commit": "d3aa85ea5353",
-      "devCommit": "d3aa85ea5353",
-      "treeHash": "sha256:d842a4c4ce597e86",
-      "treeDirty": true,
-      "changelogHash": "sha256:7d8c1c9e039fe444",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          5.4,
-          5.4,
-          3.4
-        ]
-      },
-      "source": "/workspace/t2200-proof/smoke-mobile-12.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3",
-      "parts": [
-        3
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 103,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 360,
-      "takenAt": "2026-10-09T06:09:11.264Z",
-      "ref": "steward/t-2200-glessner-camera-baseline",
-      "commit": "d3aa85ea5353",
-      "devCommit": "d3aa85ea5353",
-      "treeHash": "sha256:d842a4c4ce597e86",
-      "treeDirty": true,
-      "changelogHash": "sha256:7d8c1c9e039fe444",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          5.4,
-          5.4,
-          3.4
-        ]
-      },
-      "source": "/workspace/t2200-proof/smoke-desktop-3.log"
     },
     {
       "viewport": "desktop",
