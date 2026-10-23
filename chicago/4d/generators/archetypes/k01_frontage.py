@@ -3044,7 +3044,7 @@ class Assembly:
             v = b["variant"]
             if not v.get("shallow"):
                 continue
-            top = sum(float(st["height_m"]) for st in v["storeys"])
+            top = math.fsum(float(st["height_m"]) for st in v["storeys"])
             if b["wall"] != "k01.wall.street_front" or not self.p.mansard or top <= self.p.eave_m + 1e-6:
                 raise ValueError(f"{b['id']}: a shallow pavilion stands on the street front, carried up past "
                                  f"a mansard's eave")
