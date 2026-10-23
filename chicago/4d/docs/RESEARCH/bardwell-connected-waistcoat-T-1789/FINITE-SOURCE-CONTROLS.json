@@ -1,0 +1,111 @@
+{
+  "status": "FINITE_SOURCE_CONTROLS_PASS_NOT_CANONICAL_OR_POSED_FIT_ACCEPTANCE",
+  "checks": [
+    {
+      "name": "default geometry/UV/skin/sourcebasis/receipt exactly equals independent preimage helper",
+      "PASS": true
+    },
+    {
+      "name": "recipe only Bardwell explicit opt-in",
+      "PASS": true
+    },
+    {
+      "name": "body/rig/weights/UV arrays remain unchanged",
+      "PASS": true
+    },
+    {
+      "name": "nonempty original waistcoat mesh, no extra mesh/material inventory",
+      "PASS": true
+    },
+    {
+      "name": "existing 2.5 percent discarded-mass guard stays satisfied",
+      "PASS": true
+    },
+    {
+      "name": "all new vertex weights normalized/top4",
+      "PASS": true
+    },
+    {
+      "name": "per-corner source UV count preserved",
+      "PASS": true
+    },
+    {
+      "name": "inherited complete fit remains unaccepted",
+      "PASS": true
+    },
+    {
+      "name": "original shoulder path negative control fails on both sides",
+      "PASS": true
+    },
+    {
+      "name": "actual proposed indexed shoulder paths connect upper front/back on both sides",
+      "PASS": true
+    },
+    {
+      "name": "no emitted degenerate triangles",
+      "PASS": true
+    },
+    {
+      "name": "no nonmanifold source-shell edges",
+      "PASS": true
+    },
+    {
+      "name": "emitted head/jaw weight stays below existing 2.5 percent cap (not zero influence)",
+      "PASS": true
+    },
+    {
+      "name": "no authored garment vertex reaches above declared neckline plane",
+      "PASS": true
+    }
+  ],
+  "body_input": {
+    "path": "/workspace/chicago/chicago/4d/assets/authored/humans/makehuman_hm08/prepared_adult_25.json",
+    "sha256": "e7b088b88ea18bb309ca990ef6c0cafea9420ac152d42d1351c1a9795daa9269"
+  },
+  "source_preimage_head": "ad813a6278b7d76961b78ef3483f1bbf3e106c02",
+  "baseline": {
+    "vertices": 1343,
+    "triangles": 2432,
+    "shoulder_path_negative": [
+      {
+        "side": -1,
+        "front_upper_vertices": 0,
+        "back_upper_vertices": 11,
+        "path_above1_38m": false,
+        "upper_allowed_vertices": 29
+      },
+      {
+        "side": 1,
+        "front_upper_vertices": 0,
+        "back_upper_vertices": 11,
+        "path_above1_38m": false,
+        "upper_allowed_vertices": 29
+      }
+    ]
+  },
+  "proposal": {
+    "vertices": 1713,
+    "triangles": 3056,
+    "shoulder_paths": [
+      {
+        "side": -1,
+        "front_upper_vertices": 64,
+        "back_upper_vertices": 50,
+        "path_above1_38m": true,
+        "upper_allowed_vertices": 178
+      },
+      {
+        "side": 1,
+        "front_upper_vertices": 64,
+        "back_upper_vertices": 50,
+        "path_above1_38m": true,
+        "upper_allowed_vertices": 178
+      }
+    ],
+    "maximum_head_jaw_weight": 0.00498115243410239,
+    "maximum_discarded_skin_mass": 0.010000000000000004,
+    "top_Y_m": 1.476754675400791
+  },
+  "elapsed_seconds": 2.0231262360030087,
+  "remaining": "Forty inherited idle negative projections not waived; actual posed fit/period drape/LOD/canonical/export/pixels/photo remain open. Finite source continuity is not complete fit."
+}
