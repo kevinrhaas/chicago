@@ -6376,9 +6376,12 @@ for (const [label, viewport, touch] of [
     // T-2195 — dev already carried 50 (T-2174's drawbridge warehouse is a forwarding house, so a
     // sixth wagon apron), and the Market wedge's Dole warehouse fronts South Water with the
     // seventh: 51, seven aprons.
-    check(`${label}: the fifty-one business-front fittings are drawn at their own fronts`,
-      frontage.census?.fittings === 51 && (frontage.fittings ?? []).length === 51
-        && fitKinds.stoop === 37 && fitKinds.mounting_block === 6
+    // T-3078 — the New York House moved 8 m west off the Exchange Coffee House's
+    // lot and fronts Lake Street on its own, so an inn's stoop at its door: 52,
+    // thirty-eight stoops.
+    check(`${label}: the fifty-two business-front fittings are drawn at their own fronts`,
+      frontage.census?.fittings === 52 && (frontage.fittings ?? []).length === 52
+        && fitKinds.stoop === 38 && fitKinds.mounting_block === 6
         && fitKinds.wagon_apron === 7 && fitKinds.tie_rail === 1
         && fitBad.length === 0,
       `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}; `
