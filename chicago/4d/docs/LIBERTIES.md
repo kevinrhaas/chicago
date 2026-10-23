@@ -31116,6 +31116,8 @@ The parked1904 carriage also has an original small timber shaft-rest. Its crossb
 **Ticket:** T-2986 (docs/RESEARCH/glessner-coursing-T-2986/).
 **Recorded:** 2026-10-22.
 
+**Re-opened, 2026-10-23 (T-3044, of T-3026).** The independent measurement exists, and it sides with the dissent. Taylor 2135 (c. 1887-89) was read through its T-2858 camera, relative to its own window sills and heads. It puts beds 7-23 4.5-4.75 % over the printed inches on three separate piers (correlation 0.87-0.88 on the two clean ones; the printed string as laid correlates at -0.12 to 0.07), with bed 23 at 22.19-22.40 ft over the door datum. Sheet 6 has 22.39-22.49 and the string 21.63 (docs/RESEARCH/glessner-course-reading-T-3044/). So the printed inches now stand against two independent witnesses. They are carried until T-3045 re-courses the granite and re-weighs the north eave, which this ruling's first reason rests on. Until it lands, the model's beds above bed 7 are known to be about 4.5 % short.
+
 
 ### L-draft-district-background-3008 — The background behind Prairie Avenue begun: Calumet Avenue's west frontage, 18th to 20th Street, stood up as drafts where Prairie's sidewalks see it
 
