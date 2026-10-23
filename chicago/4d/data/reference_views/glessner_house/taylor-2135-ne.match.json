@@ -3,7 +3,7 @@
   "view": "taylor-2135-ne",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
   "glb_sha256": "5fff90bb9d42aa51dc25ecacc8da8b2a02f5e56cfebc6fb8e789f1b26f284a1b",
-  "camera_sha256": "4cc0045194c77abda93e5c0155f36dd59f59983d15f844a1975cdcd1a48effb9",
+  "camera_sha256": "f483dd0b658af4603b9125cc00ed31a0e6b4a973643c0d65e8dfe0d28947ba6f",
   "photo_sha256": "8f8c80a1fa6df906463ed8514b631ea6785b5b4b9b15b9d1e30b717da86c0a04",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/taylor-2135-ne-side-by-side.jpg",
   "verdict": "differs",
@@ -25,7 +25,11 @@
       "status": "fixed"
     },
     {
-      "what": "T-3058 camera: the stacks' offset left of the photograph grows from north to south (north within 4 px, middle 7-8, south 14.6) and is not the stacks' place (above). T-2858's camera holds T-2221's principal point and cannot reach the stacks even with them admitted as controls (south -13 px). Freed, the withheld south stack reads -7.3 px and all three fitted read within 5 px, so about half the offset is the held principal point; that solve has several minima and is not adopted here, and the rest is unexplained.",
+      "what": "T-3058 camera: the principal point, held at T-2221's value since T-2858, is freed, and the camera is fitted on the ten jambs, the five earlier controls, the three stacks' centres and tops and the photograph's own plumb edges (43 read off it, for pitch and roll). The stacks are their record boxes: the built cap course reads within 0.5 px of each box, so the correction T-2858 carried from T-2221's render was its picks' scatter, not a cap overhang. Every one of 36 starts ends at one camera: principal (549.6, 712.0), f 2251, pitch 2.6 deg, roll 1.4 deg; controls and jambs 2.08 px rms, jambs within 3.2 px, the stacks' centres and tops 1.6 px rms (centres: south -3.1, middle -1.9, north +0.3 px). The south and middle stacks' widths, not fitted, read within 0.6 px. Re-read through it, T-3045's courses stand: the two clean piers' free fits want scale 0.9975 about bed 7. Open: the plumb edges alone put the pitch at about 1.2 deg, the joint fit at 2.6 (docs/RESEARCH/glessner-taylor-camera-T-3058/).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3065 (found by T-3058): the north stack reads 8.6 px wider than the photograph through this camera (its box 82.6 px against the picks' 74; at rows 200-216, under the cap's soft right edge, about 82.6 against 77). The east face reads as built (44 px, 3.1 ft), the north face 34 px against the built 39, about 6.2 ft against T-2873's 7.1 from HABS 14; HABS 01 read about 6.3. The render's right-hand cross stands proud of the photograph's edge.",
       "status": "open"
     },
     {
