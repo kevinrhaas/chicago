@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "levy_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "d075d7611a69cf2cd58b66ef22a5fe00f433ce2a4112b83f946acb000c3c1dee",
+  "glb_sha256": "0fead7a893294f13c92698d5bb94ae6abe479d79b42e5f751a62a3a18a432dbd",
   "camera_sha256": "583a140b966885d2046ed67749a10c0a4683439263007f03fb00133c679a2def",
   "photo_sha256": "084dc78e2cbaa5091b68ba6244c261f7ab8654d869ee977e11fd39014f311ab2",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg",
@@ -161,11 +161,15 @@
       "status": "fixed"
     },
     {
-      "what": "Roof: at the south the print's slate face ends in a vertical band (x 277-293 px) standing just outside the south wall's line (the build's corner, about x 305), from the slate's foot up to a heavier level cap at y 257-277 px, about 0.4 m over the north cap, with the tall stack standing on it: the south wall carried up past the curb as a coped parapet (the c. 1955 photograph sees the same coped top from the south, T-3034); built as the mansard's south face, its corner leaning in from x 305 to about 360 px and its top level with the north: the side-wall parapet is a kit change K01 does not make",
-      "status": "open"
+      "what": "Roof: at the south the print's slate face ends in a vertical band (x 277-293 px) standing just outside the south wall's line, from the slate's foot up to a heavier level cap at y 257-277 px, about 0.4 m over the north cap, with the tall stack standing on it: the south wall carried up past the curb as a coped parapet (the c. 1955 photograph sees the same coped top from the south, T-3034). T-3061: built so, K01's mansard side parapet, the wall's own 0.33 m from the rear wall to the front, its 0.2 m coping's top at 14.5 m, the print's cap (rendered at y 267-282); the slate face behind it dies into its inner side. Its end renders at x 320-350, the wall line's offset (below)",
+      "status": "fixed"
     },
     {
-      "what": "South stack: Levy's shaft (x 262-318 px, top y 127) and the c. 1955 photograph's place it 1.35-2.35 m behind the main front, standing outside the south wall's line, topping 16.8 m; moved there from 6.1 m back at 17.59 m on K01's on_cornice stack, which stands it on the wall line, so it renders about 60 px north of the print's: the stack on the wall's outer face is the same kit change (L-k01-1812-wheeler-stacks-3034)",
+      "what": "South stack: Levy's shaft (x 262-318 px, top y 127) and the c. 1955 photograph's place it 1.35-2.35 m behind the main front, standing outside the south wall's line, topping 16.8 m; moved there from 6.1 m back at 17.59 m (T-3034), and T-3061 stands it on the south wall's outer face (v -0.55 to 0), carried to the ground as an outside breast, where it rendered about 60 px north of the print's on the wall line: its shaft now renders at x 288-345, 26-27 px north of the print's, the wall line's offset (below; L-k01-1812-wheeler-parapet-3061)",
+      "status": "fixed"
+    },
+    {
+      "what": "South wall line: the print's main front's south corner (its downpipe at x 293-300 px) stands about 23 px south of the build's (x 320), and the parapet's end and the outside stack by the same 26-30 px, about 0.26-0.31 m: sheet 28's traced wall may lie that far inside the wall the print shows (the permit's 30 ft, 9.14 m, is wider than the traced 8.5 m); the footprint is not moved for one reading (T-3075)",
       "status": "open"
     },
     {

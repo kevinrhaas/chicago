@@ -2363,6 +2363,18 @@ step "the woodpiles re-derive from the yard-by-household rule" \
 selftest "…and the yard-by-household rule's guarantees fire when broken" \
   python3 tools/yard_rule_1835.py --self-test
 
+# Nothing stands inside a building (T-3078). The owner, 2026-10-23, of two shops grown
+# into one another at Lake and Canal with a rail fence running into them: "make sure this
+# does not happen again". Every tool above tests what it places against what IT knows
+# about; this asks once, across layers and scenes, of the shapes the renderer draws — no
+# building inside another past a party wall, no fence, walk or palisade through a
+# building, no yard prop with its middle in a room, in 1812, 1835 and 1904. The four
+# ways it was found broken are its self-test, the counter-clockwise footprint included.
+step "no building, fence, walk or yard prop stands inside a building, in any scene (T-3078)" \
+  python3 tools/check_structure_clearance.py
+selftest "…and two shops on one corner, a fence through a turned house, a woodpile in a room and a stale ruling are each refused" \
+  python3 tools/check_structure_clearance.py --self-test
+
 # The fort apron is the same shape of claim about GROUND rather than about things standing
 # on it: both committed Fort Dearborn plates draw the ground round the stockade as bare
 # trodden earth, no source states a foot of it, and the render grew prairie to the pickets.

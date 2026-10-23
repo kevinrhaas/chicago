@@ -2,7 +2,7 @@
   "structure_id": "wheeler_house_1812_prairie",
   "view": "c1955_front",
   "glb": "assets/gltf/wheeler_house_1812_prairie__as_built_1884.glb",
-  "glb_sha256": "d075d7611a69cf2cd58b66ef22a5fe00f433ce2a4112b83f946acb000c3c1dee",
+  "glb_sha256": "0fead7a893294f13c92698d5bb94ae6abe479d79b42e5f751a62a3a18a432dbd",
   "camera_sha256": "019d11bb636e5ea964ea924d27ed4e60a428b386398f470c63c34249c4b9ff6e",
   "photo_sha256": "9d42de21b9c83ceaf17f58f197b844535a60d81461385b70dab989455a40bad8",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "d075d7611a69cf2cd58b66ef22a5fe00f433ce2a4112b83f946acb000c3c1dee"
+      "glb_sha256": "0fead7a893294f13c92698d5bb94ae6abe479d79b42e5f751a62a3a18a432dbd"
     },
     {
       "structure_id": "henderson_house_1816_prairie",
@@ -41,11 +41,11 @@
         0,
         16.293259561004927
       ],
-      "rotation_y": 8.726646259971656e-05,
+      "rotation_y": 0.00008726646259971656,
       "glb_sha256": "13e489cc3e2c66885a5d0432beb7a1c3cf0861418b60fc3887b96b88d9d3cd66"
     }
   ],
-  "group_sha256": "108249136b66bcbfaf413b8c59415399c468ebd2717ed80780e892a3cb8bdb0d",
+  "group_sha256": "035441ba8a40a4ac051697540ed7b2943586815dd58f9b90dba8de23829dbbf4",
   "side_by_side": "docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -58,11 +58,15 @@
       "status": "fixed"
     },
     {
-      "what": "South stack: the photograph's shaft (x 21-39 px, cut by the print's edge) stands about 30 px south of the render's (x 53-77), the stack carried on the south wall's outer face in the gap to 1816, 0.3-0.9 m further out than K01's on_cornice stack can stand; and its top reads about 17 px higher, the camera's distance error off the front's plane (L-k01-1812-wheeler-stacks-3034)",
-      "status": "open"
+      "what": "South stack: the photograph's shaft (x 21-39 px, cut by the print's edge) stood about 30 px south of the render's (x 53-77) on K01's on_cornice stack; T-3061 stands it on the south wall's outer face in the gap to 1816 (v -0.55 to 0), carried to the ground as an outside breast, and its shaft now renders at x 14-53, its north-east corner 14 px (about 0.34 m) north of the photograph's, the wall line's offset Levy's print shows too (T-3075); its top reads about 17 px higher, the camera's distance error off the front's plane (L-k01-1812-wheeler-stacks-3034)",
+      "status": "fixed"
     },
     {
-      "what": "South wall: carried up past the mansard's curb to a coped top (y 166-170 px at the print's edge) with the stack on it, the slate face behind the gable's south shoulder rising to meet it, as T-3033 read in Levy's print; built as the mansard's south face, the parapet a kit change K01 does not make",
+      "what": "South wall: carried up past the mansard's curb to a coped top (y 166-170 px at the print's edge) with the stack on it, the slate face behind the gable's south shoulder rising to meet it, as T-3033 read in Levy's print; T-3061 builds it so, K01's mansard side parapet to Levy's cap at 14.5 m: this camera draws the top about 1 m higher than Levy's does, its distance error (c1955_front.json's solve), so Levy's height is built",
+      "status": "fixed"
+    },
+    {
+      "what": "South wall line: the stack's 14 px and Levy's 23-30 px agree on a south wall about 0.3 m outside sheet 28's traced line (T-3075)",
       "status": "open"
     },
     {

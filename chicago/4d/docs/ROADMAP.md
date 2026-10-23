@@ -5661,6 +5661,12 @@ remain open. Buttons/facings are deferred until the large-form repair is reviewe
 
 
 T-1789 person-card honesty followup (2026-10-22): the existing invented trade-head mint category now reads reconstructed identity rather than named in a source, and model-assigned firm memberships disclose their reconstructed link. Exactly309 invented trade heads change classification; historically source-read residents retain theirs. Presence grades, identities, memberships, assets and the standing position are unchanged. This corrects a false provenance claim found in actual published-town card inspection; photographic finishing remains open.
+## Hogan's first picture-based geometry increment - T-2377
+
+The single front sash/off-centre doorway, gable opening and ridge stack are rebuilt from the Cameron depiction, with numeric choices reconstructed. The source/credit and compiler-derived pictured grade are recorded without changing geographic controls or scene-date limits. See docs/RESEARCH/hogan-picture-match-T-2377/README.md.
+
+Full matching remains open: solve/review camera and proportions, doorway, gable treatment, chimney detail, log/roof material and in-app context. This is a first visible increment, not an accepted picture match.
+
 ## School and Tremont reference-use approval - T-3053
 
 The owner's 2026-10-22 approval is recorded with both bibliographic sources.
@@ -5680,6 +5686,9 @@ with peer-mesh/placement freshness checks. The initial 30-member first-fort and
 findings and next work across T-2372 through T-2388. T-3041 and T-2388 retain
 the full model-matching acceptance; this prerequisite changes no building.
 
+T-2377 continuation (2026-10-23): revalidate the first Hogan refinement on current
+dev after restoring T-3009's 27 omitted 1904 smoke expectations. The full original
+image gate and remaining camera/door/gable/material differences stay open.
 
 ### Standing-horse integration checkpoint - T-2800/T-2803,2026-10-23
 
