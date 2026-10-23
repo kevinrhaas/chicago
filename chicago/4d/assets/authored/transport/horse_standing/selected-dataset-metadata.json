@@ -1,0 +1,132 @@
+{
+  "uri": "https://api.sketchfab.com/v3/models/53a6eb7ccf054aa2a378dd7ec08f88fe",
+  "uid": "53a6eb7ccf054aa2a378dd7ec08f88fe",
+  "name": "Horse",
+  "staffpickedAt": null,
+  "viewCount": 397,
+  "likeCount": 1,
+  "animationCount": 6,
+  "viewerUrl": "https://sketchfab.com/3d-models/53a6eb7ccf054aa2a378dd7ec08f88fe",
+  "embedUrl": "https://sketchfab.com/models/53a6eb7ccf054aa2a378dd7ec08f88fe/embed",
+  "commentCount": 0,
+  "isDownloadable": true,
+  "publishedAt": "2021-03-29T11:44:36.086239",
+  "tags": [],
+  "categories": [],
+  "thumbnails": {
+    "images": [
+      {
+        "uid": "60999c68907a461393d30859f2c19539",
+        "size": 25369,
+        "width": 1920,
+        "url": "https://media.sketchfab.com/models/53a6eb7ccf054aa2a378dd7ec08f88fe/thumbnails/11da51f99a444acdabdcec1d57d34037/c7ee607468c146879ef14f8c295b1940.jpeg",
+        "height": 1080
+      },
+      {
+        "uid": "c0502f43233249198d40bcffe1228a90",
+        "size": 8328,
+        "width": 1024,
+        "url": "https://media.sketchfab.com/models/53a6eb7ccf054aa2a378dd7ec08f88fe/thumbnails/11da51f99a444acdabdcec1d57d34037/b0f7ec342fca4a789f4196d3035f3342.jpeg",
+        "height": 576
+      },
+      {
+        "uid": "aefdc8794bd4438a8a6d6f52ba119f28",
+        "size": 4999,
+        "width": 720,
+        "url": "https://media.sketchfab.com/models/53a6eb7ccf054aa2a378dd7ec08f88fe/thumbnails/11da51f99a444acdabdcec1d57d34037/d6235718903e4ce5a8d037a25cd9da5d.jpeg",
+        "height": 405
+      },
+      {
+        "uid": "465832d6de774ef89de90d5cbd1c1a40",
+        "size": 1203,
+        "width": 256,
+        "url": "https://media.sketchfab.com/models/53a6eb7ccf054aa2a378dd7ec08f88fe/thumbnails/11da51f99a444acdabdcec1d57d34037/94f346b599d249048899d112fea5aec5.jpeg",
+        "height": 144
+      },
+      {
+        "uid": "888cd55f6cd347cc9368c59cc04527bc",
+        "size": 448,
+        "width": 64,
+        "url": "https://media.sketchfab.com/models/53a6eb7ccf054aa2a378dd7ec08f88fe/thumbnails/11da51f99a444acdabdcec1d57d34037/5bfd870c4fd74b8dae8203156e3cb306.jpeg",
+        "height": 36
+      }
+    ]
+  },
+  "user": {
+    "uid": "2f6f641327e9468bb5cb1eac678deea2",
+    "username": "sevketkabatas6153",
+    "displayName": "sevketkabatas",
+    "profileUrl": "https://sketchfab.com/sevketkabatas6153",
+    "account": "basic",
+    "avatar": {
+      "uri": "https://api.sketchfab.com/v3/avatars/0b3eacb72e2041f78fe1f2caddb464a2",
+      "images": [
+        {
+          "size": 809,
+          "width": 32,
+          "url": "https://media.sketchfab.com/avatars/0b3eacb72e2041f78fe1f2caddb464a2/1f9bb8571b45449b945d4bd8cb918224.jpeg",
+          "height": 32
+        },
+        {
+          "size": 1371,
+          "width": 48,
+          "url": "https://media.sketchfab.com/avatars/0b3eacb72e2041f78fe1f2caddb464a2/7a8150832a4b42aa8edc2e00484aa05a.jpeg",
+          "height": 48
+        },
+        {
+          "size": 3389,
+          "width": 90,
+          "url": "https://media.sketchfab.com/avatars/0b3eacb72e2041f78fe1f2caddb464a2/a911decbbdda4f2d819513d5004c8624.jpeg",
+          "height": 90
+        },
+        {
+          "size": 4104,
+          "width": 100,
+          "url": "https://media.sketchfab.com/avatars/0b3eacb72e2041f78fe1f2caddb464a2/70257031fc7a47dc8998e0e70e3bb92e.jpeg",
+          "height": 100
+        }
+      ]
+    },
+    "uri": "https://api.sketchfab.com/v3/users/2f6f641327e9468bb5cb1eac678deea2"
+  },
+  "description": "",
+  "faceCount": 14986,
+  "createdAt": "2021-03-29T11:43:52.159036",
+  "vertexCount": 7524,
+  "isAgeRestricted": false,
+  "archives": {
+    "glb": {
+      "textureCount": 6,
+      "size": 8300656,
+      "type": "glb",
+      "textureMaxResolution": 2048,
+      "faceCount": 14986,
+      "vertexCount": 11556
+    },
+    "gltf": {
+      "textureCount": 6,
+      "size": 7731404,
+      "type": "gltf",
+      "textureMaxResolution": 2048,
+      "faceCount": 14986,
+      "vertexCount": 11556
+    },
+    "source": {
+      "textureCount": null,
+      "size": 4803245,
+      "type": "source",
+      "textureMaxResolution": null,
+      "faceCount": null,
+      "vertexCount": null
+    },
+    "usdz": {
+      "textureCount": null,
+      "size": 5540734,
+      "type": "usdz",
+      "textureMaxResolution": null,
+      "faceCount": null,
+      "vertexCount": null
+    }
+  },
+  "license": "by"
+}
