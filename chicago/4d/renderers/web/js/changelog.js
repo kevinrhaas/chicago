@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2227, ts: '2026-10-23T20:54:35.362Z', date: 'Oct 23, 2026, 3:54 PM CT', title: 'Antoine Ouilmette\'s house joins the 1812 north bank', kind: 'feature',
+    items: [
+      'In 1812, a third small log house now stands on the north bank, a little behind the Kinzie house and to its west. It is Antoine Ouilmette\'s, the house his Métis household never left in August 1812, where Mrs. Helm was hidden the day after the battle. Whistler\'s 1808 plan draws it with one window, a door and a chimney on its west end, and it is built that way.',
+      'Behind it grow the currant bushes of Ouilmette\'s garden, where a soldier hid before climbing in at the back window (Wau-Bun). The number and placing of the bushes are ours.',
+      'Pettell\'s cabin, which a later history puts near the Kinzie house, is not built as a separate house: both 1808 counts of the bank find only four houses, so it is most likely one of them under a later name. The house card and the exclusions list give the reasoning.',
+    ] },
   { v: 2226, ts: '2026-10-23T19:04:18.788Z', date: 'Oct 23, 2026, 2:04 PM CT', title: 'A horse shifts its weight in the wagon yard', kind: 'feature',
     items: [
       'A reconstructed horse in the 1835 Western Hotel wagon yard shifts gently while standing. It remains unhitched and unmounted.',
