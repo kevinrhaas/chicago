@@ -159,8 +159,20 @@ def rule_data(v, data, b):
 
 def rule_keyed(b, v):
     fails = []
-    for r, end in ((b.runs[0], 0.0), (b.runs[-1], b.runs[-1].L)):
+    # T-3048: a chamfered corner's run ends on its side wall's plane, behind the face, inside
+    # the corner its host cuts away under it (k01_frontage_params.chamfer_spans); there, and
+    # nowhere else, the bay stands behind the face
+    corner = None
+    for r, end, side in ((b.runs[0], 0.0, "left"), (b.runs[-1], b.runs[-1].L, "right")):
         p = r.world(end, 0.0, 0.0)
+        if "side" in (r.start, r.end) and (r.end if side == "right" else r.start) == "side":
+            q = r.world(0.0 if side == "right" else r.L, 0.0, 0.0)
+            if not (-0.6 - 1e-6 <= p[2] < -1e-6 and q[2] > 1e-6):
+                fails.append(f"keyed: a chamfer's end at x {p[0]:.3f} stands {p[2]:.4f} m off the host wall's "
+                             f"face, where it meets its side wall 0-0.6 m behind it from a front proud of it")
+            cross = p[0] + (q[0] - p[0]) * (-p[2]) / (q[2] - p[2])
+            corner = (min(cross, p[0]) - 0.05, max(cross, p[0]) + 1e-6, p[2] - 1e-6)
+            continue
         if abs(p[2]) > 1e-6:
             fails.append(f"keyed: the plan's end at x {p[0]:.3f} is {p[2]:.4f} m off the host wall's face")
     # T-2900: a corner turret's cone stands whole over its wing's roof (`cap_whole`), so its
@@ -169,13 +181,16 @@ def rule_keyed(b, v):
     # T-3047: a shallow projection's window recesses and its gable's parapet run back through
     # the plane (its host opens its face round the recesses), no deeper than a recess reaches
     through = (*K.WINDOW_ROLES, "band") if v.get("shallow") else ()
-    worst = min((p[2], role) for role, pr in b.prims.items()
-                if role not in K.BOARD_ROLES and role not in whole and role not in through for p in pr.pos)
+    cut = (lambda p: corner[0] <= p[0] <= corner[1] and p[2] >= corner[2]) if corner else (lambda p: False)
+    worst = min(((p[2], role) for role, pr in b.prims.items()
+                if role not in K.BOARD_ROLES and role not in whole and role not in through for p in pr.pos
+                if not cut(p)), default=(0.0, None))
     if worst[0] < -1e-6:
         fails.append(f"behind: a {worst[1]} vertex stands {-worst[0]:.4f} m behind the host wall's face")
     if through:
         deep = b.meta["recess_m"] - max(q[1] for q in v["plan"]["points"])
-        far = min((p[2], role) for role in through for p in b.prims.get(role, K.Prim(role)).pos)
+        far = min(((p[2], role) for role in through for p in b.prims.get(role, K.Prim(role)).pos if not cut(p)),
+                  default=(0.0, None))
         if far[0] < -deep - 1e-6:
             fails.append(f"behind: a shallow projection's {far[1]} reaches {-far[0]:.4f} m behind the host wall's "
                          f"face, past its recesses' {deep:.4f} m")

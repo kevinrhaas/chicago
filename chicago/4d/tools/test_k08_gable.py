@@ -165,7 +165,9 @@ def main() -> int:
     zb = sp + g["coping"]["proud_m"] - g["coping"]["width_m"]
     sband = sb.prims["band"].pos
     check("roof" not in sb.prims and sb.meta["roof"]["planes"] == 0, "a shallow gable has no roof in front of the plane")
-    check(abs(min(q[2] for q in sband) - zb) < 1e-9, f"its parapet carried back to the copings' back ({zb:.2f} m)")
+    # (over the wall top: under it a chamfer's bands run on behind the plane, T-3048)
+    over = [q for q in sband if q[1] > sb.meta["wall_top_m"] + 0.005]
+    check(abs(min(q[2] for q in over) - zb) < 1e-9, f"its parapet carried back to the copings' back ({zb:.2f} m)")
     sy = sb.meta["wall_top_m"]
     under_top = [q for q in sband if abs(q[1] - sy) < 1e-9]
     check(any(abs(q[0] - pts[1][0]) < 1e-9 and abs(q[2] - zb) < 1e-9 for q in under_top)
