@@ -31515,16 +31515,6 @@ The roof's form and its faces are now inferred from Levy's print, so `form.roof_
 **What is unverified:** All eight fixed native near/mid desktop/mobile views were reviewed and accepted only for distance-LOD appearance. Native draw counts include fixture/shadow work and do not establish whole-scene budgets. Current published desktop/mobile performance, continuous obstacle/ground clearance, photographic completion, occupants, boarding, hitching and driving remain open. Earlier22,238mid proofs, original failed generation/native units and bounded world failures remain in Git/capsules and are not relabeled passes.
 **Ticket:** T-2794.
 **Recorded:** 2026-10-23.
-
-### L-hogan-pictured-openings-2377 — a first form reading of the first post office
-
-**What is read:** `cameron_c1900_first_post_office`, the committed halftone after Edgar S. Cameron's painting, captioned Chicago's First Postoffice in 1833 and credited to the Chicago Historical Society. The visible long wall has one sash and an off-centre doorway; the gable has one small framed rectangle; one stack rises through the roof. This retrospective picture bounds appearance, not a survey or the building's state in July 1835.
-**What is reconstructed:** the doorway at 8.45 m and sash at 11.55 m from minimum-u on the retained 13.716 m frontage; door 1.45 by 1.95 m, sash 0.75 by 0.95 m; the +x gable opening centred at z 3.35 m, rendered with the archetype's 0.7 by 0.8 m glazed-light proxy; and chimney station 0.6 along the ridge with the archetype's reconstructed 0.65 m square section and 0.95 m head above the ridge. Opening order/occurrence follows the picture, but these dimensions and stations depend on the existing reconstruction and a provisional drawing camera. Gable glazing versus a closed hatch is unresolved. The closed model door does not reproduce the dark open doorway with a person. Hidden faces, wall height, pitch, material colours and construction details retain their earlier bounds. No geographic placement or documented 45 by 20 ft footprint changes.
-**Rendered correction:** an actual paired close-up exposed the first door/sash stations (4.6/10.2 m) as too far along the wall and their widths (0.85/0.55 m) as too narrow. A new six-wallpoint review pose and the revised values above improve that visible arrangement; they do not make the drawing a metric survey.
-**How to resolve:** refit the drawing camera and review every visible difference, including gable treatment, open doorway, roof/log texture, proportions and context. No image-gate match or full T-2377 completion is claimed by this first rebuild.
-**Covers:** `hogan_store.log_1831.form.front_set_out`, `hogan_store.log_1831.form.window_w_m`, `hogan_store.log_1831.form.window_h_m`, `hogan_store.log_1831.form.door_w_m`, `hogan_store.log_1831.form.door_h_m`, `hogan_store.log_1831.form.end_openings`, `hogan_store.log_1831.form.chimney_ridge_at`, `hogan_store.log_1831.form.ridge_stack_w_m`.
-**Recorded:** 2026-10-22 (T-2377).
-
 ### L-kimball-1801-pavilion-shallow-3047 — 1801 Prairie's south pavilion stood at the 1911 sheet's 0.1 m as a shallow projection, its corner still square
 
 **Decision:** 1801 Prairie's south pavilion (T-3047, piece 1 of T-3016) stands 0.1 m proud of the
@@ -31554,3 +31544,43 @@ Taylor camera's south-west bearing against the chamfer's near end.
 **Ticket:** T-3047 (piece 1 of T-3016).
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-23 (T-3047).
+
+### L-kimball-1801-pavilion-chamfer-3059 — 1801 Prairie's south pavilion's south-west corner chamfered as its 1911 sheet draws it, the camera's south-west bearing left on the chamfer's back
+
+**Decision:** 1801 Prairie's south pavilion (T-3059, piece 1 of T-3048) chamfers its south-west
+corner where the 1911 sheet 28 trace (`s28fp-1801-b1`) cuts it: the face's line stops 0.44 m short of
+the south wall's line and runs back to it 0.43-0.47 m behind the face. Its face now stops 0.44 m short
+of the corner (v 10.56) and a canted face runs from there back to the south wall's plane 0.35 m behind
+the front's (0.45 m behind its own 0.1 m face), from grade to the gable, on K08's shallow projection
+(`plan.chamfer`); K01 cuts the house's own corner under it, the front and the south wall from grade to
+the soffit, and the mansard's eave box, its covering's foot and the gutter stop on the canted face and,
+along the south wall, at its back. The three mullioned pairs stand centred on the shortened face, and the
+coped gable stands on it, 3.71 m across, its south kneeler over the chamfer's head. **What is read, not
+invented.** The chamfer's two legs are the sheet's. Through the Taylor camera the face's south corner now
+renders at about x 1356 (it rendered 1368) against the print's 1335-1343, its north pilaster from about
+x 1247 against 1232-1250, and the face 109 px across against the print's 105. **What is invented or held
+by the kit.** The gable's rake is laid at 1.73 (it was 1.5 across the whole face) so that its rise holds
+the 2.51 m T-3015 matched to the print's apex and finial (finial top y 224 against 220); the print
+puts its apex at about x 1270, the render at 1293. Over the main eave the house is still not modelled
+behind the pavilion: the slot the mansard is cut back to there (0.5 m behind the plane) is closed on the
+south wall's plane from the pavilion's side to the cut's depth, where it showed through to the sky. The
+camera is not re-solved: T-2538 laid its south-west bearing (x 1345) on (u 20.1, v 11.2), the chamfer's
+back, which faces away from the camera, and the corner the print shows is the chamfer's near end, which
+projects about 10 px further south through the same camera, so the face renders about 15 px south of the
+print's across its whole width. Re-solved on the near end, the bearings fit within 2 px but every height
+read through the camera falls 15-20 px, which is a re-reading of the house, not of its corner.
+**How to resolve:** T-3060 re-solves the Taylor camera with its south-west bearing on the chamfer's near
+end and re-reads the heights read through it, which brings the corner within about 5 px of the print's.
+**Ticket:** T-3059 (piece 1 of T-3048).
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-23 (T-3059).
+
+### L-hogan-pictured-openings-2377 — a first form reading of the first post office
+
+**What is read:** `cameron_c1900_first_post_office`, the committed halftone after Edgar S. Cameron's painting, captioned Chicago's First Postoffice in 1833 and credited to the Chicago Historical Society. The visible long wall has one sash and an off-centre doorway; the gable has one small framed rectangle; one stack rises through the roof. This retrospective picture bounds appearance, not a survey or the building's state in July 1835.
+**What is reconstructed:** the doorway at 8.45 m and sash at 11.55 m from minimum-u on the retained 13.716 m frontage; door 1.45 by 1.95 m, sash 0.75 by 0.95 m; the +x gable opening centred at z 3.35 m, rendered with the archetype's 0.7 by 0.8 m glazed-light proxy; and chimney station 0.6 along the ridge with the archetype's reconstructed 0.65 m square section and 0.95 m head above the ridge. Opening order/occurrence follows the picture, but these dimensions and stations depend on the existing reconstruction and a provisional drawing camera. Gable glazing versus a closed hatch is unresolved. The closed model door does not reproduce the dark open doorway with a person. Hidden faces, wall height, pitch, material colours and construction details retain their earlier bounds. No geographic placement or documented 45 by 20 ft footprint changes.
+**Rendered correction:** an actual paired close-up exposed the first door/sash stations (4.6/10.2 m) as too far along the wall and their widths (0.85/0.55 m) as too narrow. A new six-wallpoint review pose and the revised values above improve that visible arrangement; they do not make the drawing a metric survey.
+**How to resolve:** refit the drawing camera and review every visible difference, including gable treatment, open doorway, roof/log texture, proportions and context. No image-gate match or full T-2377 completion is claimed by this first rebuild.
+**Covers:** `hogan_store.log_1831.form.front_set_out`, `hogan_store.log_1831.form.window_w_m`, `hogan_store.log_1831.form.window_h_m`, `hogan_store.log_1831.form.door_w_m`, `hogan_store.log_1831.form.door_h_m`, `hogan_store.log_1831.form.end_openings`, `hogan_store.log_1831.form.chimney_ridge_at`, `hogan_store.log_1831.form.ridge_stack_w_m`.
+**Recorded:** 2026-10-22 (T-2377).
+
