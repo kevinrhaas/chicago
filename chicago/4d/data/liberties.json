@@ -46417,12 +46417,6 @@
           "domain": "structure",
           "structure": "coleman_ames_house_1811_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.chimneys"
-        },
-        {
-          "domain": "structure",
-          "structure": "coleman_ames_house_1811_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.eave_overhang_m"
         },
         {
@@ -46436,12 +46430,6 @@
           "structure": "coleman_ames_house_1811_prairie",
           "phase": "as_mapped_1904",
           "aspect": "form.front_bays"
-        },
-        {
-          "domain": "structure",
-          "structure": "coleman_ames_house_1811_prairie",
-          "phase": "as_mapped_1904",
-          "aspect": "form.gable_roof"
         },
         {
           "domain": "structure",
@@ -46553,7 +46541,7 @@
         }
       ],
       "recorded": "2026-10-16",
-      "revised": "2026-10-22",
+      "revised": "2026-10-23",
       "fields": [
         {
           "label": "Decision",
@@ -46596,8 +46584,12 @@
           "text": "Later work (the oriel, the porch's south arcade, and the roof with the gable's centre and carved pinnacles), and the south-return pipe carried on the return's own face, bring the match record to `matches`."
         },
         {
+          "label": "Revised",
+          "text": "2026-10-23 (T-3050, piece 1 of T-2920, of T-1892). The roof is the plate's two masses, read through the T-2541 camera and checked on the Chicagology print (`cgn-1811-coleman-ames-photo`), which sees the south flank whole. Over the bay's end of the block a steep HIPPED MASS (`gable_roof.hip_mass`, a K05 hip over the full depth from the north wall to v 7.1 m), its street and rear faces at the street's 61.2 degrees and its end faces pitched to the apex the plate puts at about v 3.3 and 16.0 m; south of it the lower gable roof in the same street plane, its ridge 1.4 m behind the front at 11.69 m, where T-2542 had one ridge at half the depth along the whole front (a ridge there stands the south gable's coped rake in the plate's sky). Only the south wall is carried up as a coped parapet; the north wall is under the hip's end. The two south stacks stand in that gable: the tall stack 0.8 m behind the front, its corbelled band and narrower top stage read off the plate, and the second on the gable's rear fall about 4.3 m further back. What is invented: the hip's north end face, which no picture sees, takes the pitch the apex's place leaves (64 degrees); the rear slopes' fall to the wall head is unseen; the corbelled band is K01's deep proud cap, not coursed corbels; the top stage is a second, smaller stack standing in the first; the stacks' places along the flank are good to about +-0.5 m. The plate's coping on the gable's rear fall reads about 30 px under the build's, which the match record keeps open with the bay gable's centre and carved pinnacles (T-3051); T-3052 solves the cameras of 1811's other pictures."
+        },
+        {
           "label": "Covers",
-          "text": "`coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.chimneys`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.gable_roof`"
+          "text": "`coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`"
         },
         {
           "label": "Review",
@@ -50280,7 +50272,7 @@
         },
         {
           "label": "Re-opens on",
-          "text": "a photograph that shows the corner's head or the south flank close up. Earlier work solves the cameras of 1811's other pictures."
+          "text": "a photograph that shows the corner's head or the south flank close up. Later work solves the cameras of 1811's other pictures."
         },
         {
           "label": "Recorded",
@@ -50290,7 +50282,7 @@
       "work_refs": [
         "T-3006",
         "T-2541",
-        "T-2920"
+        "T-3052"
       ]
     },
     {
@@ -50902,7 +50894,7 @@
         },
         {
           "label": "Re-opens on",
-          "text": "a photograph that shows the oriel's south return or its base close up. Earlier work solves the cameras of 1811's other pictures."
+          "text": "a photograph that shows the oriel's south return or its base close up. Later work solves the cameras of 1811's other pictures."
         },
         {
           "label": "Review",
@@ -50916,7 +50908,7 @@
       "work_refs": [
         "T-3007",
         "T-2541",
-        "T-2920",
+        "T-3052",
         "T-2989"
       ]
     },

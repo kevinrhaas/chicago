@@ -90,9 +90,12 @@ function fakeStorage() {
 // ---- the page and the stylesheet --------------------------------------------------------
 {
   const page = fs.readFileSync(path.join(WEB, 'index.html'), 'utf8');
-  const about = page.slice(page.indexOf('id="s-about"'), page.indexOf('</div>', page.indexOf('id="s-researcher"')));
-  assert.match(about, /<input type="checkbox" id="s-researcher">/, 'the switch is in Settings › About');
-  assert.doesNotMatch(about, /id="s-researcher"[^>]*checked/, 'and is not checked in the markup');
+  // T-3022: the switch is Expert research, the first group of Settings.
+  const group = page.slice(page.indexOf('id="s-research"'), page.indexOf('</div>', page.indexOf('id="s-researcher"')));
+  assert(page.indexOf('id="s-research"') < page.indexOf('id="s-display"'), 'its group leads Settings, ahead of Display');
+  assert.match(group, /<input type="checkbox" id="s-researcher">/, 'the switch is in Settings › Research');
+  assert.match(group, /data-str="research.switch">Expert research</, 'named Expert research');
+  assert.doesNotMatch(group, /id="s-researcher"[^>]*checked/, 'and is not checked in the markup');
   assert.match(page, /<span class="research-badge" id="research-badge" data-researcher data-str="research.badge">RESEARCHER<\/span>/,
     'a small RESEARCHER label, shown only while it is on');
   // T-2658: each essay's fold is Researcher mode's, and a visitor's one line and "Why?"
@@ -132,4 +135,30 @@ function fakeStorage() {
   assert.match(page2, /<div class="ev-topic" data-topic="orderbook" data-researcher>/, 'and its topic is marked in the page');
 }
 
-console.log('RESEARCHER MODE PASS — off by default, remembered per device, the full essays in place while on, and a ticket only as a link behind plain words');
+// ---- T-3022: the building card folded into Inspect, as its Research tab ---------------------
+{
+  // The card's own research, for Inspect: one builder, the card's head without its title row.
+  globalThis.document ??= { documentElement: { classList: { add() {}, remove() {} } } };
+  const { createPopup } = await import('../renderers/web/js/popup.js');
+  const root = { addEventListener() {}, setAttribute() {}, removeAttribute() {}, dispatchEvent() {}, style: {} };
+  const sidecar = json('data/sidecars/1904/glessner_house.json');
+  const r = createPopup(root).sections({ id: 'glessner_house', sidecar }).research;
+  assert(r && r.head && r.facts && r.evidence && r.record, 'sections() carries the card\'s research for Inspect');
+  assert.doesNotMatch(r.head, /pop-title-row|data-close/, 'without the card\'s own title row and Close');
+  assert.match(r.evidence, /Attributes and evidence[\s\S]*<ol class="cites">/, 'Sources: the attributes and the citations');
+  assert.match(r.record, /pop-foot/, 'Record: the dossier and phase line');
+  // Inspect draws Research for every building, marked for the mode, so the switch shows or
+  // hides it in place; a visitor never lands on it.
+  const view = fs.readFileSync(path.join(WEB, 'js', 'apps', 'inspect-view.js'), 'utf8');
+  assert.match(view, /\['research', 'Research'\]\]/, 'Inspect has a Research tab, last');
+  assert.match(view, /if \(EXPERT_TABS\.has\(key\)\) b\.setAttribute\('data-researcher', ''\)/, 'marked for Expert research');
+  assert.match(view, /if \(EXPERT_TABS\.has\(key\) && !expertOn\(root\.ownerDocument\)\) key = 'overview'/, 'and never selected with it off');
+  // A building the visitor opens opens in Inspect, not the floating card.
+  const main = fs.readFileSync(path.join(WEB, 'js', 'main.js'), 'utf8');
+  assert.match(main, /if \(by === 'hand' && loaded\.registry\.get\(hit\.record\.id\) && openBuilding\(hit\.record\.id\)\) return hit;/,
+    'a click or tap on a building opens Inspect');
+  assert.match(main, /onArrive: \(id\) => \{ hud\.setPanel\(false\); openBuilding\(id\);/, 'and so does an arrival');
+  assert.match(main, /onInspect: \(id\) => openBuilding\(id\),/, 'and Home\'s Inspect key');
+}
+
+console.log('RESEARCHER MODE PASS — off by default, remembered per device, the full essays in place while on, and a ticket only as a link behind plain words; Expert research adds Inspect\'s Research tab, the card folded in');

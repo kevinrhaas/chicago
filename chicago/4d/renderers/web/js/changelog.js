@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2212, ts: '2026-10-23T05:36:29.796Z', date: 'Oct 23, 2026, 12:36 AM CT', title: 'Expert research folds the building card into the Navigator', kind: 'feature',
+    items: [
+      'Clicking or tapping a building, arriving at one, or pressing Inspect now opens it in the Navigator instead of a second card on the right.',
+      'Settings starts with a new Expert research switch. Turn it on and every building gets a Research tab with the full evidence, its liberties and its record, the same detail the right-hand card held.',
+      'With it off, buildings show just the familiar tabs: Overview, People, Design, Story, Photos and Sources.',
+      'Let a building go with Back, Esc, or a click or tap on the street. Streets, trees and the railway still open their small card.',
+    ] },
+  { v: 2211, ts: '2026-10-23T05:36:29.796Z', date: 'Oct 23, 2026, 12:36 AM CT', title: '1811 Prairie\'s roof now rises as the 1888 plate draws it', kind: 'improvement',
+    items: [
+      'A tall pyramid-like slate roof now rises over the stone bay at 1811 Prairie, peaking at about 16 m where the plate puts it.',
+      'South of it a lower roof now runs at the same steep pitch to the brick south gable, in place of one long ridge along the whole front.',
+      'The south gable now carries both of its chimneys: a tall one near the front with a corbelled band and a narrow top, and a smaller one further back.',
+      'Every other house is unchanged.',
+    ] },
   { v: 2210, ts: '2026-10-23T04:02:34.300Z', date: 'Oct 22, 2026, 11:02 PM CT', title: 'Tap "Confidence view" on Home to see what it means', kind: 'fix',
     items: [
       'On the Navigator\'s Home, the Confidence view tile\'s name explains itself on tap again. Tap the name to read its one-line meaning, or tap anywhere else on the tile to open the Confidence view, as before.',

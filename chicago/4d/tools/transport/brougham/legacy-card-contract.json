@@ -54,7 +54,7 @@
         "composed": true
       },
       "card_json_sha256": "9254afd415dcdc2a25dc531532fd8bf0435c11bcc4e221a5f7fd7e542e5e6e14",
-      "popup_html_sha256": "087d802c20470bc998f6865e22923d1138e15ba76d93da8f355f3a29c0ea7fa9",
+      "popup_html_sha256": "c536c99509ee94ea097115811dd2d2087c9b4c9f43dfaf0ac574aa19a1cf5cd4",
       "design_html_sha256": "48687f73280d7ec9613c35efde3bb4c00df8791407d5649232819a925ec54551"
     },
     {
@@ -104,7 +104,7 @@
         "composed": true
       },
       "card_json_sha256": "639791206a4c4d160d706841d93f540e4ad33e745020d399e28947d8c707d5b6",
-      "popup_html_sha256": "efc617875bffaf6cbc49297094b042d597ebc4972004470ac1af3903830399d0",
+      "popup_html_sha256": "7e41a1ed9623d9007f059fe38fe80a80d3157cc8e412894aaf247cb2d7e15127",
       "design_html_sha256": "48687f73280d7ec9613c35efde3bb4c00df8791407d5649232819a925ec54551"
     },
     {
@@ -154,7 +154,7 @@
         "composed": true
       },
       "card_json_sha256": "1d2b43fb5bb3e62245b40608eb573ac7c327867823f08a0cfddd862b55afbecc",
-      "popup_html_sha256": "efc617875bffaf6cbc49297094b042d597ebc4972004470ac1af3903830399d0",
+      "popup_html_sha256": "7e41a1ed9623d9007f059fe38fe80a80d3157cc8e412894aaf247cb2d7e15127",
       "design_html_sha256": "48687f73280d7ec9613c35efde3bb4c00df8791407d5649232819a925ec54551"
     },
     {
@@ -204,7 +204,7 @@
         "composed": true
       },
       "card_json_sha256": "a76925d9414147396db7a95b0a0ced43ce8463170615eab4dff492914c0ccd5f",
-      "popup_html_sha256": "3e72fbe6cc2d2d8639c3bff75f7719856724ed79b9acd3b5575ebb4d644aa1f5",
+      "popup_html_sha256": "f041b404febae1e5642189d3b2f4b2b199bcf7982b8fc4f814237af14eaf3fc9",
       "design_html_sha256": "c1f95fe0fdcbfa04a840091c806cd47b848e02057bf00ec155fa50cddffecece"
     },
     {
@@ -254,7 +254,7 @@
         "composed": true
       },
       "card_json_sha256": "959b7f5433d399d086a875a1fc413ddad0588ae16cd5628e030aa35158e76450",
-      "popup_html_sha256": "50dd26ca35ce623ddf84bc3213c8be5ce19b48e7154981354cf89d07fbd50162",
+      "popup_html_sha256": "c9721b49016b5962bc0041b628be11d556d85b768a6f9447a8116a9bcbc56e1e",
       "design_html_sha256": "534b769f3d9f07e8edfe188c312d44d43b1d57109c5274ae052a16ab8bde9ce9"
     },
     {
@@ -304,8 +304,15 @@
         "composed": true
       },
       "card_json_sha256": "d91bb5a19c8328a3d9e0065e8e964c60565598ab33ca8bc8dcc087fd961766d2",
-      "popup_html_sha256": "06eb2e044d442eaaadf3dfb6cc9b2931e91694d7c3787acda2fdd752437cf049",
+      "popup_html_sha256": "5ea4931cf3b8bf2bdacfe10e61f43f3b2ef60c80c4f7ad4e36c357c87cf6ec81",
       "design_html_sha256": "969e3fbfdba7947051f14ab6b7660462f76056f0fe0663324d664d0d30cf7235"
     }
-  ]
+  ],
+  "popup_baseline": {
+    "renderer_commit": "5135fb7674eea8cf5b140a7cf0c8bc208b0b1f4e",
+    "popup_js_sha256": "28a36fb02e3b28400e9ae3eb01413696e2a620f0695231ad9588047c37484fc5",
+    "input_checkpoint": "13375406538e76e8c1deadf18165089f7145ea28",
+    "method": "Exact upstream renderer/import closure and upstream parked-card adapter independently render the same frozen six current/historical legacy inputs; the feature adapter is compared against that independent baseline. Card JSON, openings and design hashes remain unchanged.",
+    "upstream_change": "T-3022 research-pane factoring changes only line-leading HTML indentation for these six cards; full serialized HTML is still checked."
+  }
 }
