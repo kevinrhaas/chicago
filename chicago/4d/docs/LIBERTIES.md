@@ -31722,27 +31722,40 @@ photograph that T-3052 is to find), or T-3052's solved camera on the Chicagology
 **Review:** `data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.match.json`.
 **Recorded:** 2026-10-23 (T-3063).
 
-### L-kimball-1801-gable-inset-3073 — 1801 Prairie's pavilion gable narrowed and raised to the Taylor photograph through the re-solved camera
+### L-k01-1812-wheeler-parapet-3061 — 1812 Prairie's south wall carried up as a coped parapet, its stack on the wall's outer face down to the ground
 
-**Decision:** 1801 Prairie's south pavilion gable is re-stood from J. W. Taylor's c. 1895 photograph
-(`taylor_c1895_kimball_residence_1801`), read through the Taylor camera as T-3074 re-solved it.
-**What is read, not invented.** The gable is narrower than the face it stands on. Its south
-pinnacle stands at about v 9.99 (x 1314 on the print), about 0.55 m short of the chamfer's near end.
-Its apex pedestal's axis is at about v 8.4-8.6 (x 1270). It springs from a shelf at about
-13.55-13.6 m. The pinnacle's top reads 15.06 m and the copings' apex 16.76 m. So the pavilion's
-third storey runs 5.5 m to a 13.6 m springing (it stood 5.1 m to 13.2 m). The gable's south
-corner stands 0.41 m in from the face's (`gable.inset_m`, a new K08 option) and its north corner on
-the face's, which puts its middle at v 8.50. Its pitch is 2.04, the rise from the kneelers to the
-apex over their run.
-**What is invented.** The gable's north corner is placed on the face's own. The print's north
-kneeler stands against the dark slate and reads only to about 0.2 m, so the north inset is taken
-as nothing. The south kneeler is carried on out over the face's corner as one block. The print's
-shelf end there reads about 11 px short of the render's.
-**How to resolve:** A second picture of the pavilion's front (T-3003's 1929 and HABS photographs) or
-a drawing of the gable. The finial's urn and the gable's carved panel are T-3002's.
-**Ticket:** T-3073 (found by T-3060).
-**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
-**Recorded:** 2026-10-23 (T-3073).
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-3061) carries its south side wall up
+past the mansard's curb as a coped parapet, and stands its tall south stack on that wall's outer
+face, in the 1.41 m gap to 1816, instead of on the cornice over the wall line. K01 learns both as
+`mansard.side_parapet` and an `outside_wall` stack; every other K01 house names neither and
+re-emits unchanged. With no eave gutter along a parapet wall, the two pipes the record hung on the
+south wall go, and the gutter round the north side and the rear falls to one pipe down the rear
+wall at its south end.
+**What is read, not invented.** Levy's print ends the slate face behind the gable's south shoulder
+in a vertical band (x 277-293 px) from the slate's foot to a heavier level cap (y 257-277 px,
+about 14.3-14.5 m at the front's plane), with the stack standing on it; the c. 1955 photograph sees
+the same coped top from the south (T-3033's and T-3034's readings). The stack's place along the
+wall, its top and its 0.55 m east face are T-3034's triangulation (L-k01-1812-wheeler-stacks-3034).
+**What is invented.** The parapet's thickness (the side wall's 13 inches) and its length: neither
+picture sees it behind the stack, and it is carried to the rear wall, as a parapet wall runs. The
+cap as a coping 0.2 m deep, the print's band. The stack's foot: neither picture sees it below the
+slate's foot, where 1816 stands in front of it, and it is carried down the wall to the ground as an
+outside chimney breast, the way a stack outside a wall is built; it is not corbelled out at the wall
+head. The single rear pipe and the gutter behind the parapet, which is not built: no picture shows
+the rear or the roof behind the parapet.
+**What is built otherwise than read.** Both photographs put the stack and the parapet's end about
+0.3 m further south than the build (Levy's shaft renders 26-27 px north of the print's, the c.
+1955 one 14 px), and Levy's print puts the main front's own south corner (its downpipe at x
+293-300 px) about 23 px south of the build's too. So the stack stands on the traced wall's outer
+face (v -0.55 to 0) rather than at the triangulated v -0.87 to -0.34: the difference is the wall's
+line, not the stack's, and the footprint is not moved for one reading (T-3075).
+**How to resolve:** T-3075 rules the south wall's line through both cameras, against the permit's
+30 ft; the 1816 Henderson photograph, once its rights are resolved, sees 1812's south wall over
+1816's roof and would show the breast's foot and the parapet's length.
+**Ticket:** T-3061 (found by T-3034).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`.
+**Recorded:** 2026-10-23 (T-3061).
 
 ### L-1812-ouilmette-2486 — Antoine Ouilmette's house of 1812: the drawn house taken as his, its height and pitch, its closing date, and the currant bushes behind it
 
@@ -31786,3 +31799,25 @@ it a dimension, or a date for the family's move to the north shore.
 **Ticket:** T-2486.
 **Recorded:** 2026-10-23 (T-2486).
 **Covers:** `ouilmette_house_1812.ouilmette_1812.position`, `ouilmette_house_1812.ouilmette_1812.footprint`, `ouilmette_house_1812.ouilmette_1812.form.wall_height_m`, `ouilmette_house_1812.ouilmette_1812.form.roof_pitch_deg`
+
+### L-kimball-1801-gable-inset-3073 — 1801 Prairie's pavilion gable narrowed and raised to the Taylor photograph through the re-solved camera
+
+**Decision:** 1801 Prairie's south pavilion gable is re-stood from J. W. Taylor's c. 1895 photograph
+(`taylor_c1895_kimball_residence_1801`), read through the Taylor camera as T-3074 re-solved it.
+**What is read, not invented.** The gable is narrower than the face it stands on. Its south
+pinnacle stands at about v 9.99 (x 1314 on the print), about 0.55 m short of the chamfer's near end.
+Its apex pedestal's axis is at about v 8.4-8.6 (x 1270). It springs from a shelf at about
+13.55-13.6 m. The pinnacle's top reads 15.06 m and the copings' apex 16.76 m. So the pavilion's
+third storey runs 5.5 m to a 13.6 m springing (it stood 5.1 m to 13.2 m). The gable's south
+corner stands 0.41 m in from the face's (`gable.inset_m`, a new K08 option) and its north corner on
+the face's, which puts its middle at v 8.50. Its pitch is 2.04, the rise from the kneelers to the
+apex over their run.
+**What is invented.** The gable's north corner is placed on the face's own. The print's north
+kneeler stands against the dark slate and reads only to about 0.2 m, so the north inset is taken
+as nothing. The south kneeler is carried on out over the face's corner as one block. The print's
+shelf end there reads about 11 px short of the render's.
+**How to resolve:** A second picture of the pavilion's front (T-3003's 1929 and HABS photographs) or
+a drawing of the gable. The finial's urn and the gable's carved panel are T-3002's.
+**Ticket:** T-3073 (found by T-3060).
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-23 (T-3073).

@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2229, ts: '2026-10-23T21:35:53.377Z', date: 'Oct 23, 2026, 4:35 PM CT', title: 'Buildings no longer stand inside each other, or fences through them', kind: 'fix',
+    items: [
+      'Lake and Canal, 1835: Pierce\'s blacksmith shop now stands next door to Goss & Cobb\'s saddlery instead of inside it.',
+      'The New York House moved off the Exchange Coffee House at Lake and Wells, and the agency striker\'s cabin out of a riverbank shed.',
+      'Yard fences and garden pickets on houses turned to face a side street now stop at the wall instead of running through the house.',
+      'Woodpiles, sheds and outbuildings keep out of houses and their back wings.',
+      'A new check refuses any building, fence, walk or yard prop standing inside a building, in 1812, 1835 and 1904.',
+    ] },
+  { v: 2228, ts: '2026-10-23T21:35:53.377Z', date: 'Oct 23, 2026, 4:35 PM CT', title: '1812 Prairie\'s south wall rises past its roof as a coped parapet', kind: 'fix',
+    items: [
+      'The south wall of George H. Wheeler\'s house at 1812 Prairie Avenue now rises past the edge of its slate roof to a heavy stone-capped top, as both photographs of the house show it. The slate roof used to slope away from the wall there. The tall south chimney now stands against the outside of that wall, in the gap to the house next door, and runs down to the ground. It used to sit on the wall\'s top edge. With no gutter along the raised wall, its two drainpipes are gone; one pipe now runs down the back wall instead.',
+    ] },
   { v: 2227, ts: '2026-10-23T20:54:35.362Z', date: 'Oct 23, 2026, 3:54 PM CT', title: 'Antoine Ouilmette\'s house joins the 1812 north bank', kind: 'feature',
     items: [
       'In 1812, a third small log house now stands on the north bank, a little behind the Kinzie house and to its west. It is Antoine Ouilmette\'s, the house his Métis household never left in August 1812, where Mrs. Helm was hidden the day after the battle. Whistler\'s 1808 plan draws it with one window, a door and a chimney on its west end, and it is built that way.',
