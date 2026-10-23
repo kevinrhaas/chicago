@@ -24458,6 +24458,16 @@ The horse research deliverable inventories the existing procedural horse/rig/har
 
 
 The six added reference records take the complete404-source catalogue index from159155 to161435 raw bytes. The declared raw allowance moves from160000 to168000 following the standing measured-headroom policy and previous8000-byte source increments; citations remain whole. Actual gzip accounting for the new index plus unchanged Sources module/CSS is45965bytes, below the unchanged120000-byte first-open ceiling. The standalone measurement's stale128000 raw calibration is aligned with this policy; no compressed-wire or scene-detail ceiling changes. Both original wagon wrappers also pass: W01 through Haswell and both covered variants through Nehalem retain every reviewed output byte and original guard.
+### T-3053 — Owner-approved school and Tremont references, 2026-10-22
+
+The owner approved the two linked illustrations for attributed project reference,
+comparison and source display. Both source records now carry that project-specific
+clearance, its date and the owner's instruction, while retaining the existing
+page links and credits. This is not a new public-domain or copyright-holder
+permission finding. Original publication/collection details remain unknown;
+the school drawing's subject and perspective limitations remain unresolved.
+T-2372 and T-2385 retain their full model-matching acceptance.
+
 # Fort image-review prerequisite — T-3040
 
 Whole-compound reference rendering now selects each member's phase, position and

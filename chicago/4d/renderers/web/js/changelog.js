@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2207, ts: '2026-10-23T02:44:15.354Z', date: 'Oct 22, 2026, 9:44 PM CT', title: 'Calumet Avenue fills in down to 22nd Street', kind: 'feature',
+    items: [
+      'Look east between the houses on Prairie\'s east side from 20th to 22nd Street: Calumet Avenue\'s west side is no longer bare ground behind them.',
+      'Ten more brick houses stand there, from 2000 to 2140 Calumet, beside the Hanford and Wheeler-Kohn houses, with eleven stables and sheds on the alley. Each is drawn from the 1911 fire-insurance map, so its plan and storeys are the map\'s, and the rest is a first draft.',
+    ] },
+  { v: 2206, ts: '2026-10-23T01:52:00.264Z', date: 'Oct 22, 2026, 8:52 PM CT', title: 'Glessner\'s stone courses measured against an 1880s photograph', kind: 'chore',
+    items: [
+      'Nothing in the town\'s appearance changes yet. Measured on a photograph from about 1888, the Glessner house\'s granite courses above the door stand about 4.5% taller than the model lays them. That agrees with the 1965 survey, so the walls will be re-coursed.',
+      'The same photograph shows the tall courses standing out further than the short ones. The model gives both the same depth, and a follow-up will deepen the tall ones.',
+    ] },
   { v: 2205, ts: '2026-10-23T01:04:59.884Z', date: 'Oct 22, 2026, 8:04 PM CT', title: 'Eight Prairie Avenue houses get fact cards', kind: 'feature',
     items: [
       'Fact cards for eight Prairie Avenue houses: who built each one, for whom, and a fact or two worth knowing, every one from a source.',

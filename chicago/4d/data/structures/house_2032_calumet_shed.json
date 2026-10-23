@@ -1,0 +1,169 @@
+{
+  "id": "house_2032_calumet_shed",
+  "name": "2032 S. Calumet Avenue — the one-storey frame building standing apart in 2032's yard (district draft; refined by T-1946)",
+  "aka": [
+    "2032 S. Calumet Avenue"
+  ],
+  "archetype": "prairie_draft",
+  "function": {
+    "value": "outbuilding",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_35"
+    ],
+    "note": "The 1911 sheet reads 'one-storey frame building standing apart in the yard north of the house, its outline dashed'.  Carried to 1904 on the T-3018 census ruling (present_as_mapped)."
+  },
+  "review_required": false,
+  "research_note": "A DISTRICT DRAFT (T-3018, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1946 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 35e trace (s35efp-calumet_2032-b2), the T-3018 census (s35e-2032-shed) and the T-1837 register row frontage-35e-2032; every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-district-background-3018).",
+  "phases": [
+    {
+      "id": "draft_1904",
+      "documented_range": {
+        "from": "1904-07-01",
+        "to": "1911-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_35"
+        ],
+        "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-3018 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+        "to_is": "seen"
+      },
+      "position": {
+        "utm_e": 448571.514,
+        "utm_n": 4633825.542,
+        "rotation_deg": -0.636,
+        "symbolic_location": "2032 S. Calumet Avenue, parcel calumet_2032 (data/street_grid/1904.json), west side of Calumet Avenue, the background behind Prairie Avenue: Calumet Avenue's west frontage, 20th to 22nd Street, beside the named Hanford and Wheeler-Kohn houses (Sanborn 1911 vol. 3 sheet 35).",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_35"
+        ],
+        "note": "The rear corner of the main body's rectangle (lot frame u 22.750, v 6.750 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy. Rotation -0.636 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            6.5,
+            0.0
+          ],
+          [
+            6.5,
+            7.25
+          ],
+          [
+            0.0,
+            7.25
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_35"
+        ],
+        "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front). The building's other rectangles are in draft_plan."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The census reading 'one-storey frame building standing apart in the yard north of the house, its outline dashed': 1 storeys."
+        },
+        "construction": {
+          "value": "frame",
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "The trace's fabric colour on the main part: frame."
+        },
+        "draft_plan": {
+          "value": {
+            "parts": [
+              {
+                "id": "r1",
+                "role": "main",
+                "storeys": 1,
+                "roof": "gable",
+                "rect": [
+                  0.0,
+                  0.0,
+                  6.5,
+                  7.25
+                ],
+                "from": "s35efp-calumet_2032-b2 outline (main, frame), rectangle 1 of that part; the part's rectangles cover 83% of its fill"
+              }
+            ],
+            "lot_v": [
+              -25.69,
+              12.19
+            ],
+            "street_u": 31.853
+          },
+          "confidence": "inferred",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_35"
+          ],
+          "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s35efp-calumet_2032-b2 outline (main, frame), rectangle 1 of that part; the part's rectangles cover 83% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+        },
+        "draft_elevation": {
+          "value": {
+            "kind": "service",
+            "seed": 3569963513,
+            "principal_floor_m": 0.0,
+            "storey_heights_m": [
+              3.4,
+              2.8,
+              2.6
+            ],
+            "roof_pitch_deg": 40,
+            "mansard_lower_m": 3.0,
+            "front_bays": 3,
+            "entrance": "north",
+            "side_spacing_m": 2.6,
+            "chimneys": 0,
+            "brackets": false,
+            "attic_dormers": false,
+            "stone": "stone",
+            "features": [],
+            "draft_label": {
+              "pass": "T-3018",
+              "refined_by": [
+                "T-1946"
+              ]
+            }
+          },
+          "confidence": "reconstructed",
+          "note": "RECONSTRUCTED by the draft rules, family row 'service' overlaid with the frontage row: A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3S.B. on the 21st Street corner, the largest house of the face, its 3B rear part as printed; the frame porches round it are the refining ticket's. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 3569963513 only tints the fabric inside +-6 %. Liberty L-draft-district-background-3018."
+        },
+        "draft": {
+          "value": {
+            "pass": "T-3018",
+            "liberty": "L-draft-district-background-3018",
+            "register_row": "frontage-35e-2032",
+            "census_ids": [
+              "s35e-2032-shed"
+            ],
+            "trace_building": "s35efp-calumet_2032-b2",
+            "seed": 3569963513,
+            "replaceable_by": [
+              "T-1946"
+            ],
+            "card": "District draft — refined by T-1946."
+          },
+          "confidence": "reconstructed",
+          "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+          "geometry": "record_only"
+        }
+      }
+    }
+  ]
+}
