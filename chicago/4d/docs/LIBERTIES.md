@@ -31545,6 +31545,30 @@ Taylor camera's south-west bearing against the chamfer's near end.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-23 (T-3047).
 
+### L-glessner-course-relief-3046 — Glessner's high courses crowned deeper than its low ones, fitted to Taylor 2135's shadows
+
+**Decision:** Taylor 2135 (c. 1887-89, `taylor_2135_glessner_exterior_1887_1889`), read through its T-2858 camera on three clear piers of the Prairie front, shows a course printed 11.5 in or over throwing about a third more shadow under its lower lip than a low course does: 1.32 times, re-read on the beds as T-3045 lays them (docs/RESEARCH/glessner-course-relief-T-3046/). The render read 0.86. The cause was in the build. Every course's bow was capped at 60 mm, and its lower face rose to the crown over 44 % of the course's height, so a tall course's lip came out gentler than a short one's. A course printed 11.5 in or over now crowns 1.25 times its stones' bow and rises to it over at most 0.09 m (`v4_detail.ashlar_crown_by_course`). That is about the lower face a 7.5 in course already has. Through the same camera the render now reads 1.33. The low courses are unchanged, at 0.359 before and 0.353 after (the occlusion re-bake). Both granite faces take it, because one coursing turns the NE corner (T-3044 § 2).
+
+**What is invented.** Both numbers, the 1.25 and the 0.09 m. No source prints how far any course projects. They were set so that the render's shadow ratio reads the photograph's through one camera, and the ratio is the measured thing, not the depth. The review render's light is not the print's exposure, so the two sets of absolute shadows differ (the render's 0.47 and 0.35 against the print's 0.25 and 0.19). Only their ratio was matched. The 11.5 in line is T-3044's split between high and low courses, not a mason's rule. The Light tier builds no bow, so it is unchanged.
+
+**What is kept.** The course heights and string (L-glessner-coursing-2986, T-3045), the stones' joints and lengths, the arris and pitch line, the per-stone relief draw and every random draw. The rock face's 0.104 m ceiling in front of the wall also stands, so lintels and voussoirs stay in front of the field.
+
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-3046 (piece 3 of T-3026).
+**Recorded:** 2026-10-23.
+
+### L-glessner-cupola-coursing-3046 — Glessner's stable cupola laid in rock-faced courses
+
+**Decision:** The c. 1887 Cornell A. D. White northwest view (`cornell_adw_glessner_stable_1887`) shows the cupola's shaft under the lower pigeon ledge with two or three bed joints. It shows each pigeon-hole tier as one rock-faced course between its ledges (T-3044 § 4). The model's body was dressed granite plates (L-glessner-cupola-stone-2849). It is now laid in the house's rock-faced stone. The shaft, from the roof to the lower ledge, is four equal courses of about 0.27 m, and the part clear of the ridge shows two or three joints through the Cornell camera. Each tier is one course from its ledge to the next. The band over the top tier, under the eave, is one course. Every face's courses run the full plan, so they close the corners. The pigeon holes' reveals run out to the pitch line, as the house's own apertures' do.
+
+**What is invented.** The count of four shaft courses, chosen to give the joints the print shows over the ridge. The print does not resolve the vertical joints, so the block lengths are the house's own rule for a course of that height. The top band's single course is not read. The print is too small there. The Light tier keeps the plates, as it keeps the cap's fine joints.
+
+**What is kept.** Plan, centre, heights, ledges and their wrapped corners, the eave, the pyramid and the dovecote counts and sizes of L-glessner-cupola-2207, L-glessner-cupola-stone-2849 and L-glessner-cupola-height-3031.
+
+**Covers:** `glessner_house.as_built_1887.form.turret_stable`.
+**Ticket:** T-3046 (piece 3 of T-3026).
+**Recorded:** 2026-10-23.
+
 ### L-kimball-1801-pavilion-chamfer-3059 — 1801 Prairie's south pavilion's south-west corner chamfered as its 1911 sheet draws it, the camera's south-west bearing left on the chamfer's back
 
 **Decision:** 1801 Prairie's south pavilion (T-3059, piece 1 of T-3048) chamfers its south-west
