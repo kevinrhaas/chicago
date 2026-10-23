@@ -31544,3 +31544,16 @@ Taylor camera's south-west bearing against the chamfer's near end.
 **Ticket:** T-3047 (piece 1 of T-3016).
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-23 (T-3047).
+
+
+### L-standing-horse-development-2800 — a planted-standing horse in the Western Hotel yard
+
+**Decision:** Add one reconstructed, unidentified horse at E−127.5,N−296.0,heading90degrees in the1835Western Hotel wagon yard, using the existing host/yard record as context rather than evidence of an individual or ownership. The chestnut coat/blaze/stockings, grooming,1.55m withers proxy, exact stand and date are reconstructed. It is unhitched, untied and unmounted.
+
+**What is reconstructed:** Licensed modern sevketkabatas Horse rest surface baked to canonical metres and adapted to project26 controls/V16skin; the already baked0.3644068837native scale is NOT applied again. The selected b479 derivative plays one12s planted body shift (4mm lateral,2mm longitudinal,4mm compression) with no original head/tail composition or walking. Existing0.396145degree whole-root support and cloned-material metalness0 are declared adaptations. Rig hierarchy analogy credits antemeossa CC BY4.0; no donor mesh/Walk keys were copied. Modern credit is not an historically graded animal attribute.
+
+**Bounds and limits:** Original stationary65 CPU and actual standardGLTFLoader/Mixer65keys+64midpoints passed unchanged surface/contact/loop/normal/meaningful controls, maximum loaded hoof contact8.6523737e−6m. This is not GPU/photo or actual-yard acceptance. One declared0.866317m² support region retains actual drawn yard triangles before normal GPU upload release, under32triangles/4096typed-array bytes and with disposal; no town-wide geometry retention is added. One-instance/reach70/40/0m and full-only30m shadow limits remain. Actual app yard/mobile visual, performance, photographic master, gaits, tack/teams/riders/boarding remain open. Earlier failed walking fields/poses remain failed.
+
+**Sources:** sevketkabatas_2021_horse_model supplies modern source/rights only; chicagology_prefire278 supplies historical horsekeeping context only.
+**Ticket:** T-2800/T-2803, partial standing increment; both master/gait acceptance remain open.
+**Recorded:**2026-10-23.
