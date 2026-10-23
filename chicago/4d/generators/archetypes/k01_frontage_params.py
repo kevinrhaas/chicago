@@ -436,6 +436,7 @@ TOWER_PAST_EAVE_M = 1.0
 #: T-2900: how far inside its end wall's plane a corner turret's ring may stand, at the most
 TURRET_CORNER_M = 0.3
 SHALLOW_PROUD_M = 0.3   # T-3047: a shallow projection stands at most this far proud
+CHAMFER_BEHIND_M = 0.6  # T-3048: and its chamfer runs back at most this far behind the wall's face
 
 #: T-2350: the K05 variant a flat K01 roof is built from (k05_roofs.json)
 FLAT_ROOF = "k05.roof.flat_parapet"
@@ -1593,9 +1594,9 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # the north cheek from the wall 1.99 m north of the front's north corner); s_m stays
             # the front's centre, and the front keeps width_m. Neither cant: the square
             # pavilion, its points as they always were
-            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m", "shallow"}:
+            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m", "shallow", "chamfer"}:
                 raise ParamError(f"bays: {e['id']} sizes its projection by width_m, proud_m, an optional "
-                                 f"cant_left_m or cant_right_m and shallow, not {sorted(q)}")
+                                 f"cant_left_m or cant_right_m, shallow and chamfer, not {sorted(q)}")
             cl, cr = (float(q.get(k, 0.0)) for k in ("cant_left_m", "cant_right_m"))
             if not all(c == 0.0 or 0.3 <= c <= 3.0 for c in (cl, cr)):
                 raise ParamError(f"bays: {e['id']}'s canted cheek runs 0.3-3.0 m along its wall, not "
@@ -1611,6 +1612,29 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     raise ParamError(f"bays: {e['id']}'s shallow is true, on a square full-height projection "
                                      f"at most {SHALLOW_PROUD_M} m proud (has {d} m)")
                 v["shallow"] = True
+            # T-3048: a shallow pavilion flush with its wall's corner may CHAMFER that corner (1801's
+            # south one, its south-west corner cut about 0.45 m on its 1911 sheet): its front stops
+            # `along_m` short of the corner and a canted face runs from there back to the side
+            # wall's plane `behind_m` behind the wall's face, so the house's own corner is cut
+            # under it (k01_frontage `chamfer_spans`). width_m stays the pavilion's whole width
+            ch = q.get("chamfer")
+            if ch is not None:
+                if not isinstance(ch, dict) or set(ch) != {"corner", "along_m", "behind_m"} \
+                        or ch["corner"] not in ("left", "right") or not v.get("shallow") \
+                        or e.get("flush_corner") != ch["corner"]:
+                    raise ParamError(f"bays: {e['id']}'s chamfer takes corner (left or right), along_m and "
+                                     f"behind_m, on a shallow pavilion flush with that corner")
+                ca, cb = float(ch["along_m"]), float(ch["behind_m"])
+                if not (0.2 <= ca <= min(1.0, w / 4) and 0.1 <= cb <= CHAMFER_BEHIND_M):
+                    raise ParamError(f"bays: {e['id']}'s chamfer runs 0.2-1.0 m (and at most a quarter of its "
+                                     f"width) along its front and 0.1-{CHAMFER_BEHIND_M} m behind the wall, "
+                                     f"not {ca} and {cb}")
+                pts = v["plan"]["points"]
+                if ch["corner"] == "right":
+                    pts[2], pts[3] = [w / 2 - ca, d], [w / 2, -cb]
+                else:
+                    pts[0], pts[1] = [-w / 2, -cb], [-w / 2 + ca, d]
+                v["plan"]["side_end"] = ch["corner"]
         elif "plan" in e and v["kind"] == "tower":
             # T-2787: a tower read off a picture keeps the picture's radius and how far its
             # centre stands out of the wall; the kit's tower is the shape (its ring, its sides),
@@ -2909,6 +2933,38 @@ def round_corner_spans(rc: dict, depth: float, width: float) -> dict:
                 "walls": {"k01.wall.street_front": (width - r, width), "k01.wall.side.north": (0.0, r)}}
     return {"centre": (depth - r, r),   # the front's start, s = 0, into the south wall's end
             "walls": {"k01.wall.street_front": (0.0, r), "k01.wall.side.south": (depth - r, depth)}}
+
+
+def chamfer_of(b: dict):
+    """T-3048: a shallow pavilion's chamfered corner, or None: (corner, along_m, behind_m,
+    cross_m), cross_m how far in from the corner its canted face crosses the wall's face."""
+    v = b["variant"]
+    side = v["plan"].get("side_end") if v["plan"]["kind"] == "polyline" else None
+    if not side:
+        return None
+    pts = v["plan"]["points"]
+    (fx, d), (bx, zb) = (pts[2], pts[3]) if side == "right" else (pts[1], pts[0])
+    along, behind = abs(bx - fx), -zb
+    return side, along, behind, along * behind / (d + behind)
+
+
+def chamfer_spans(bays, depth: float, width: float) -> dict:
+    """T-3048: each wall's span (s0, s1) a chamfered pavilion's corner cuts from the house: the
+    street front's from where the canted face crosses it to the corner, and the side wall's
+    from the corner back to where the face meets it, `behind_m` behind the front."""
+    out = {}
+    for b in bays:
+        ch = chamfer_of(b) if b["wall"] == "k01.wall.street_front" else None
+        if ch is None:
+            continue
+        side, _, behind, cross = ch
+        if side == "right":   # the front's far end, s = width, into the north wall's start
+            out["k01.wall.street_front"] = (width - cross, width)
+            out["k01.wall.side.north"] = (0.0, behind)
+        else:
+            out["k01.wall.street_front"] = (0.0, cross)
+            out["k01.wall.side.south"] = (depth - behind, depth)
+    return out
 
 
 #: T-3007: how far an oriel's junction on the wall plane may stand off a round corner's curve

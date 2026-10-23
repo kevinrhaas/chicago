@@ -1,0 +1,29 @@
+{
+ "id": "chicagology_1812_wheeler_c1955_photo",
+ "type": "photograph",
+ "citation": "1812 S. Prairie Ave. About 1955. Photograph of the street front of the George H. Wheeler house from the walk across Prairie Avenue, a little south of square, with 1808 Prairie's stone front at the right; unknown photographer, about 1955. Reproduced on chicagology.com, Prairie Avenue, 1812 S. Prairie.",
+ "author": "unknown photographer",
+ "date": "about 1955",
+ "describes_date": "about 1955",
+ "repository": "chicagology.com (secondary reproduction; the original holder is not named). Prairie library image a18-cgy-1812-wheeler-c1955, '1812 S. Prairie Ave. About 1955', recorded there as 'unknown - link only'; the project's reference copy is the image store's (kevinrhaas/chicago-images, prairie-1904/files/a18-cgy-1812-wheeler-c1955.jpg), committed since T-3034 at data/sources/assets/wheeler_1812_c1955_t3034/ with its attribution, as the owner directed on 2026-10-11 for the image gate's pictures.",
+ "url": "https://chicagology.com/chicagostreets/prairieavenue/1812prairie/",
+ "locator": "The whole print: the street front from the walk (a parked car hides the stair's foot and the basement) to the gable's finial, the south wall seen obliquely in the gap to 1816 with the stack on it, the slate face behind the gable's south shoulder, a tall brick stack behind the north shoulder, and the edge of 1808's stone front.",
+ "tier": 1,
+ "rights_status": "check_required",
+ "rights_note": "A secondary web reproduction whose original source and rights are not stated (the Prairie library's own ruling: 'unknown - link only'). Only forms, counts, places and proportions are read from it; nothing is derived from the image as an asset (no texture, no traced mesh), and the copy committed for the image gate (T-3034) is the store's, unaltered, with its attribution in the folder's README.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-23 (T-3034) from the image store's reference copy, 554 x 900 px greyscale, sha256 9d42de21b9c83ceaf17f58f197b844535a60d81461385b70dab989455a40bad8 (fetched 2026-10-11 from https://chicagology.com/wp-content/themes/revolution-20/chicagoimages9/1812sprairie.jpg).",
+ "note": "The second photograph of 1812 this project reads, about fifty years after the 1904 scene, so it is evidence of its own date: what it shows that Albert Levy's print (levy_1812_prairie_photo, c. 1885-1900) also shows is the house as built, and what Levy's print does not show is weighed as possibly later. It shows the front Levy's print shows, under the same shaped gable with its urn finial and grid window, the iron balcony on the projection, the arched entrance; and, because it stands a little south of square, the projection's south cheek and the south wall in the 1.41 m gap to 1816, in a paler common brick, with a downpipe down it near the front. Over that wall stands the tall corbelled stack Levy's print shows, and behind the gable's north shoulder a tall plain brick stack Levy's print does not show. A camera is solved from it: data/reference_views/wheeler_house_1812_prairie/c1955_front.json.",
+ "what_it_supplies": [
+  "a second line of sight to the south stack, which with Levy's print places it along the south wall and gives its top",
+  "the south wall's face in the gap to 1816 and the projection's south cheek, which Levy's square view cannot see",
+  "a check of the front's openings, the balcony and the gable outline from a second camera"
+ ],
+ "what_it_does_not_supply": [
+  "colour: the print is monochrome",
+  "the 1904 state where it differs from Levy's print: it is fifty years later",
+  "the stair, the basement and the walk, which a parked car hides",
+  "the rear, and the north wall"
+ ]
+}

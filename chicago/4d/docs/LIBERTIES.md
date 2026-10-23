@@ -31568,3 +31568,71 @@ Taylor camera's south-west bearing against the chamfer's near end.
 **Covers:** `glessner_house.as_built_1887.form.turret_stable`.
 **Ticket:** T-3046 (piece 3 of T-3026).
 **Recorded:** 2026-10-23.
+
+### L-kimball-1801-pavilion-chamfer-3059 — 1801 Prairie's south pavilion's south-west corner chamfered as its 1911 sheet draws it, the camera's south-west bearing left on the chamfer's back
+
+**Decision:** 1801 Prairie's south pavilion (T-3059, piece 1 of T-3048) chamfers its south-west
+corner where the 1911 sheet 28 trace (`s28fp-1801-b1`) cuts it: the face's line stops 0.44 m short of
+the south wall's line and runs back to it 0.43-0.47 m behind the face. Its face now stops 0.44 m short
+of the corner (v 10.56) and a canted face runs from there back to the south wall's plane 0.35 m behind
+the front's (0.45 m behind its own 0.1 m face), from grade to the gable, on K08's shallow projection
+(`plan.chamfer`); K01 cuts the house's own corner under it, the front and the south wall from grade to
+the soffit, and the mansard's eave box, its covering's foot and the gutter stop on the canted face and,
+along the south wall, at its back. The three mullioned pairs stand centred on the shortened face, and the
+coped gable stands on it, 3.71 m across, its south kneeler over the chamfer's head. **What is read, not
+invented.** The chamfer's two legs are the sheet's. Through the Taylor camera the face's south corner now
+renders at about x 1356 (it rendered 1368) against the print's 1335-1343, its north pilaster from about
+x 1247 against 1232-1250, and the face 109 px across against the print's 105. **What is invented or held
+by the kit.** The gable's rake is laid at 1.73 (it was 1.5 across the whole face) so that its rise holds
+the 2.51 m T-3015 matched to the print's apex and finial (finial top y 224 against 220); the print
+puts its apex at about x 1270, the render at 1293. Over the main eave the house is still not modelled
+behind the pavilion: the slot the mansard is cut back to there (0.5 m behind the plane) is closed on the
+south wall's plane from the pavilion's side to the cut's depth, where it showed through to the sky. The
+camera is not re-solved: T-2538 laid its south-west bearing (x 1345) on (u 20.1, v 11.2), the chamfer's
+back, which faces away from the camera, and the corner the print shows is the chamfer's near end, which
+projects about 10 px further south through the same camera, so the face renders about 15 px south of the
+print's across its whole width. Re-solved on the near end, the bearings fit within 2 px but every height
+read through the camera falls 15-20 px, which is a re-reading of the house, not of its corner.
+**How to resolve:** T-3060 re-solves the Taylor camera with its south-west bearing on the chamfer's near
+end and re-reads the heights read through it, which brings the corner within about 5 px of the print's.
+**Ticket:** T-3059 (piece 1 of T-3048).
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-23 (T-3059).
+
+### L-k01-1812-wheeler-stacks-3034 — 1812 Prairie's south stack placed from two photographs, and the north stack of the c. 1955 photograph not built
+
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-3034, piece 2 of T-2545) gains a second
+solved camera, on the c. 1955 photograph (`chicagology_1812_wheeler_c1955_photo`, rights
+check_required: places and proportions only; `data/reference_views/wheeler_house_1812_prairie/c1955_front.json`),
+and with it and Levy's camera beside it the tall corbelled south stack is triangulated and moved:
+from 6.1 m behind the front and 0.8 m inside the south wall (u 9.0, v 0.8), topping 17.59 m, to
+1.35-2.35 m behind the main front (u 12.75-13.75), straddling the wall line on K01's `on_cornice`
+stack, 0.55 m across and topping 16.8 m. The tall plain stack the c. 1955 photograph shows behind
+the gable's north shoulder is not built.
+**What is read, not invented.** Levy's shaft at x 262-318 px and top at y 127 px; the c. 1955
+shaft's north-east corner at x 39 px and top at y 90 px; through the two cameras they meet at a
+stack whose faces fall at about v -0.87 to -0.34, outside the traced south wall, its east face
+about 0.55 m across, its top 16.8 m by Levy's print. The c. 1955 photograph confirms the south wall
+carried up past the mansard's curb in a coped top with the stack on it (T-3033's reading of Levy's
+print), and sees the south wall's face in the 1.41 m gap to 1816 in a paler brick than the front.
+For the north stack: on 1812's ground (v up to 8.5) its north-east corner at x 435 px puts it
+within 1.2 m behind the main front, topping about 16.6 m, where Levy's camera draws it at x
+930-1030 px from y 110 px down, against the open sky the print shows beside the north shoulder.
+**What is invented.** The stack's depth along the wall (1.0 m, the house's other stacks', since
+neither picture sees its side square); its corbelled head as K01's cap, 0.1 m proud and 0.6 m deep;
+its foot at the wall head, as `on_cornice` builds it.
+**What is built otherwise than read.** The stack stands 0.3-0.9 m further out in both photographs,
+on the wall's outer face in the gap to 1816, than K01's `on_cornice` lets it (its outer face no
+further out than the 0.05 m cornice); and the coped parapet it stands on is not built (T-3033's
+open item). Both are a kit change: a stack and a parapet carried up on a mansard house's side wall.
+The c. 1955 camera reads things off the front's plane about a metre high (the stack's top 17.7 m,
+the parapet's cap 15.5-16 m, against Levy's 16.8 and 14.3-14.5), so the build takes Levy's heights
+and the place is good to about a metre along the wall.
+**How to resolve:** A third picture of the south side (the 1816 Henderson photograph, once its
+rights are resolved, sees 1812's south wall over 1816's roof) or a section; the kit change for the
+side-wall parapet and the stack on its outer face (T-3061). For the north stack, any dated picture between
+Levy's print and 1955.
+**Ticket:** T-3034 (piece 2 of T-2545).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-23 (T-3034).
