@@ -279,7 +279,10 @@ def sandbox() -> Path:
     # LOD freshness recomputes its real source/producer recipe inside this
     # sandbox. A fixture with only assets is intentionally an incomplete checkout,
     # not a clean control; copy the exact recipe inputs without running any writer.
-    recipe_files = [REAL / "tools/structure_versions.py", REAL / "tools/_glessner_lod.py",
+    # Version validation also checks the real flag renderer declaration/read contract.
+    # Copy its source into this fixture rather than weakening that validation.
+    recipe_files = [REAL / "renderers/web/js/flag-anchors.js",
+                    REAL / "tools/structure_versions.py", REAL / "tools/_glessner_lod.py",
                     REAL / "tools/_glessner_light_occlusion.py",
                     REAL / "generators/archetypes/masonry_house.py"]
     recipe_files.extend((REAL / "generators/archetypes").glob("masonry_house_v4*.py"))

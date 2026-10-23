@@ -320,6 +320,9 @@ step "Restoration baseline waits for observed scene readiness; after capture sta
 step "CC0 adult preparation preserves source UVs, metric frame and bounded rig weights (T-1789)" \
   python3 tools/test_human_base_prepare.py
 
+step "Bardwell waistcoat shoulder panels connect without changing default source (T-1789)" \
+  python3 tools/test_human_workwear_shoulders.py
+
 step "Resident hair preserves verified source pixels, fitted UVs and existing skin bindings (T-1789)" \
   python3 tools/test_human_hair_short04.py
 
@@ -352,8 +355,17 @@ step "C02 actual door hierarchy refuses closed-preserving detachment (T-2794)" \
 step "Harness body fit reproduces original crossings and enforces 5 mm bind-pose clearance" \
   python3 tools/transport/test_harness_body_fit.py
 
+step "Catalogue Brougham preserves exact V17 near and genuine11706mid, contacts and inert interfaces (T-2794)" \
+  python3 tools/check_brougham_near.py
+
+step "Brougham card and actual near/mid selection preserve catalogue scope, current/historical card contracts, active picking and disposal (T-2794)" \
+  node tools/test_brougham_card.mjs
+
 step "Parked vehicles keep their exact wagon stands and cannot cross era boundaries (T-2979)" \
   python3 tools/transport/check_parked_placements.py
+# Fresh original W01 geometry plus authored project charts and CC0 maps; about 13 s, no browser.
+step "Parked W01 fine timber regenerates exact original geometry and reviewed surface binding (T-2793)" \
+  python3 tools/check_parked_wagon_fine_wood.py
 step "Selected empty covered wagons reproduce original reviewed sources" \
   python3 tools/transport/generate_covered_wagons.py --verify
 step "Covered identity rejects kind, yoke, era and stand substitutions" \
@@ -2473,6 +2485,18 @@ step "the freight shed's cargo openings set out once and are read three times" \
 
 selftest "…and that agreement still fires when the frames drift off the holes" \
   python3 tools/test_outbuilding_cargo.py --self-test
+
+# T-2376/T-2383/T-2385: pictured frame controls on the real accumulator.
+step "pictured frame taverns preserve defaults and build their opt-in details" \
+  python3 tools/test_frame_tavern_picture_features.py
+
+# Roof cloth uses a phase-local staff, never an entire building box.
+step "explicit flag anchors preserve fort defaults and reject stale roof mounts" \
+  node tools/test_flag_anchors.mjs
+
+# Compiler/validator recognize real runtime consumption and honest card labels.
+step "flag form values have an actual renderer and honest geometry labels" \
+  python3 tools/test_flag_form_contract.py
 
 # W1's forge stack, and the reason it is gated here rather than only on the baked
 # master: `measure_stack_ordinance` reads the by-law's eighteen inches off the GLB, so

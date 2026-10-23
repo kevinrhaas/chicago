@@ -1,0 +1,30 @@
+{
+  "structure_id": "tremont_house_1",
+  "view": "gifford-provisional",
+  "glb": "assets/gltf/tremont_house_1__frame_1833.proposal.glb",
+  "glb_sha256": "0b6bc57f85cb1d454fb53a3ca047e15bfe11e11f2d6b8c14b8007ec991739611",
+  "camera_sha256": "16830ecda2efde0b4ccdb028bc559fb88529711a11b9cb0f05adbf4e8294bda2",
+  "photo_sha256": "b45d60680a0a519e561a7293bec824675d6014a6cac4da31a38ddc70d1323e59",
+  "side_by_side": "review/tremont/gifford-provisional-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Opaque matte arch panel removes invented radial glazing bars without inventing text; exact inscription/sign-versus-window identity, construction, tone and timing remain unresolved.",
+      "status": "fixed"
+    },
+    {
+      "what": "Plain broad jamb/header boards now outline the existing raised entries; exact sections, proportions, palette and hidden repeats remain reconstructed.",
+      "status": "fixed"
+    },
+    {
+      "what": "Source flag pose, opening/landing/rail/shutter/stack/eave details, finishes, neighbours and street context remain unresolved; the provisional camera is not accepted.",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "prototype_only": true,
+  "renderer_helpers_sha256": {
+    "photo_match.mjs": "c6299ddb08ab3a81feec0885f6309664d138ccdb2082fca9f7433e633476f968",
+    "photo_match_group.mjs": "12f1f96e154df492e269bc7e4e8f783805e83e8ddcabce5e0f33c1a623a5a930"
+  }
+}

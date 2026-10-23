@@ -107,10 +107,10 @@ coordinate and never a footprint.**
 | 4 | Wolf Tavern | **unidentified-pending** | — | — |
 | 5 | Tremont House street scene | wash drawing signed **N. Roswell Gifford**, captioned "Tremont House No. 1" | `gifford_tremont_house_no_1` | `check_required` |
 | 6 | Green Tree Inn — 1838 (Braunhold) | *"THE GREEN TREE HOTEL."*, wood engraving, Andreas 1884 vol. I p. 634 — captioned with no year and no legible signature | `andreas_1884_green_tree_hotel_plate` | `public_domain` |
-| 7 | Green Tree Inn (Trowbridge) | *"The Green Tree Tavern in 1835"*, signed **W. E. S. Trowbridge ’02** | `trowbridge_green_tree_1902` | `check_required` |
+| 7 | Green Tree Inn (Trowbridge) | *"The Green Tree Tavern in 1835"*, W. E. S. Trowbridge, independently verified in Gale 1902, facing printed p. 35, actual IA n55 | `trowbridge_green_tree_1902` | `public_domain` (verified 1902 US publication) |
 | 8 | "Sauganash Hotel. 1831" (Petford) | **unidentified-pending** | — | — |
 | 9 | "The Sauganash Hotel" (Braunhold) | *"THE SAUGANASH HOTEL."*, wood engraving, Andreas 1884 vol. I p. 632, copyright line `A. T. Andreas` lettered inside the plate border | `andreas_1884_sauganash_hotel_plate` | `public_domain` |
-| 10 | The Sauganash (Trowbridge) | undated drawing signed **W. E. S. Trowbridge**, captioned by Chicagology as Trowbridge's drawing of "Mark Beaubien's Sauganash hotel on Lake st. near Market st." | `trowbridge_sauganash_hotel` | `check_required` |
+| 10 | The Sauganash (Trowbridge) | *"Mark Beaubien’s Tavern, The Sauganash, in 1835"*, W. E. S. Trowbridge, independently verified in Gale 1902, facing printed p. 31, actual IA n49 | `trowbridge_sauganash_hotel` | `public_domain` (verified 1902 US publication) |
 | 11 | "South Water Street in 1834" | **unidentified-pending** | — | — |
 | 12 | Chicago circa 1833, looking east | **unidentified-pending** | — | — |
 
@@ -291,3 +291,8 @@ Actual captures / exact URLs and SHA256 hashes follow (retrieved and viewed 2026
 - `gale-p53-n80.jpg`: <https://archive.org/download/reminiscencesofe00ingale/page/n80.jpg>; SHA256 `031a197aa22df00bb718f2486a5efd96964ce350485ebc40f447fb38684ec99e`.
 - `gale-n81.jpg`: <https://archive.org/download/reminiscencesofe00ingale/page/n81.jpg>; SHA256 `239106353a9bba22691d7f4a6dd399242eec225786533636f77c33cd9f7f0664`.
 - `gale-p55-n82.jpg`: <https://archive.org/download/reminiscencesofe00ingale/page/n82.jpg>; SHA256 `c14f209e124241b019567c38a505e69d892dd6496e7360f939b0fbb0d136f29c`.
+
+
+## T-3055: verified 1902 hotel plates supersede earlier rights uncertainty
+
+Actual full-page inspection found the exact Trowbridge Sauganash drawing at Internet Archive `reminiscencesofe00ingale/page/n49` (facing printed p. 31), and the exact Green Tree drawing at `page/n55` (facing p. 35). The book’s actual title and copyright pages establish 1902 US publication and illustrator **W. E. S. Trowbridge**. Their prior `check_required` artwork holds and the older undated-publication language above are superseded; new unmodified page copies and hash manifests live in each source’s asset folder. The 1835 captions remain retrospective, and no historical fitting date, original colour, metric dimension, independent corroboration or image match is created by this verification.

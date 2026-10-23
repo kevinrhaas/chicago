@@ -1062,6 +1062,42 @@ the Early 1800s" digitisation, both named in the dossier and neither reached.
 
 ---
 
+### L74 — Tremont House I: a hotel built two storeys tall because three rests on one modern sentence
+**Decision:** the first Tremont House is built at the north-west corner of Lake and Dearborn as a
+**two-storey** braced-frame block 50 × 30 ft, unpainted, gable-roofed and without a gallery. The
+storey count, the wall height, the roof, the paint, the gallery and the footprint are all tagged
+`conjectural`.
+**Why, and the storey count is the whole entry.** What is documented about this building is
+unusually good: the corner three times over, frame construction three times over, Alanson Sweet
+as builder, Ira Couch as proprietor from 1834, and destruction by fire on 27 October 1839. What
+is not documented is its height. `chicagology_prefire021` prints an uncredited modern "Building
+Summary" — "a three-story wooden building" — beside two period texts that count no storeys at
+all: the Chicago *Tribune* letter of 2 February 1874 ("an unpretending frame structure") and
+*Chicago Illustrated* of January 1866 ("a wooden structure"). Andreas, who gives the building a
+builder, a corner, a material, four proprietors and a death date, gives it no height. So the
+three-storey Tremont has exactly one witness and it is a modern editor;
+`docs/research/04-structures-south.md` line 155 weighs it twice by citing "chicagology and
+Wikipedia". **Two is adopted and is still a guess**, on three arguments that are not evidence:
+Chicago in 1833 held about 350 people and *Wau-Bun* found the Sauganash's TWO storeys remarkable
+two years earlier; the *Chicago American*'s "Improvements in 1836", quoted by Andreas, counts
+"about twenty large two to three-story wooden buildings" among that year's NEW work; and this
+project already excludes the Saloon Building of 1836 partly as the town's first three-storey
+structure.
+**Consequence:** if the three-storey reading is right the building stands about 2.6 m taller than
+the model shows, and it would be the tallest thing in the 1835 scene. Everything else here is the
+usual: no source measures the house, describes its roof, names its finish or mentions a porch,
+and the confidence view renders the whole block as massing. **One documented thing about this
+building IS carried and is not built**: Ira Couch's "a mere shell, without any sidewalk around
+it". This project builds no plank walks anywhere, so the record states `sidewalk: false` as
+`record_only` — a negative finding about the ground, not an omission.
+**How to resolve:** the *Daily American*'s account of the 27 October 1839 fire, which Andreas
+quotes for the merchants' stock losses and which itemised insurance building by building; or any
+*Chicago American* or *Chicago Democrat* advertisement of the house, which in the period counted
+rooms.
+**Covers:** `tremont_house_1.frame_1833.footprint`, `tremont_house_1.frame_1833.form.stories`, `tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.roof_type`, `tremont_house_1.frame_1833.form.paint`, `tremont_house_1.frame_1833.form.gallery`.
+**Recorded:** 2026-08-11.
+**Resolved:** 2026-10-23 (T-2385): Gifford’s newly adopted whole-building drawing supersedes this text-only two-storey/roof reading. The historical entry is retained verbatim here. Unsettled footprint, height, paint and gallery decisions continue in L-tremont-corner-elevations-2385; this resolves no image-match ticket.
+
 ## Per-subject liberties
 
 ### L4 — Sauganash Hotel: the gallery question, and how it was decided
@@ -2807,41 +2843,6 @@ boarded wall as a finding about 1835 Chicago carpentry is reading the generator.
 1836 — none is currently known to this project. This entry has no `Covers:` field on purpose: it
 claims nothing about any single record, because the invention is in the archetype and lands on
 every one of them.
-**Recorded:** 2026-08-11.
-
-### L74 — Tremont House I: a hotel built two storeys tall because three rests on one modern sentence
-**Decision:** the first Tremont House is built at the north-west corner of Lake and Dearborn as a
-**two-storey** braced-frame block 50 × 30 ft, unpainted, gable-roofed and without a gallery. The
-storey count, the wall height, the roof, the paint, the gallery and the footprint are all tagged
-`conjectural`.
-**Why, and the storey count is the whole entry.** What is documented about this building is
-unusually good: the corner three times over, frame construction three times over, Alanson Sweet
-as builder, Ira Couch as proprietor from 1834, and destruction by fire on 27 October 1839. What
-is not documented is its height. `chicagology_prefire021` prints an uncredited modern "Building
-Summary" — "a three-story wooden building" — beside two period texts that count no storeys at
-all: the Chicago *Tribune* letter of 2 February 1874 ("an unpretending frame structure") and
-*Chicago Illustrated* of January 1866 ("a wooden structure"). Andreas, who gives the building a
-builder, a corner, a material, four proprietors and a death date, gives it no height. So the
-three-storey Tremont has exactly one witness and it is a modern editor;
-`docs/research/04-structures-south.md` line 155 weighs it twice by citing "chicagology and
-Wikipedia". **Two is adopted and is still a guess**, on three arguments that are not evidence:
-Chicago in 1833 held about 350 people and *Wau-Bun* found the Sauganash's TWO storeys remarkable
-two years earlier; the *Chicago American*'s "Improvements in 1836", quoted by Andreas, counts
-"about twenty large two to three-story wooden buildings" among that year's NEW work; and this
-project already excludes the Saloon Building of 1836 partly as the town's first three-storey
-structure.
-**Consequence:** if the three-storey reading is right the building stands about 2.6 m taller than
-the model shows, and it would be the tallest thing in the 1835 scene. Everything else here is the
-usual: no source measures the house, describes its roof, names its finish or mentions a porch,
-and the confidence view renders the whole block as massing. **One documented thing about this
-building IS carried and is not built**: Ira Couch's "a mere shell, without any sidewalk around
-it". This project builds no plank walks anywhere, so the record states `sidewalk: false` as
-`record_only` — a negative finding about the ground, not an omission.
-**How to resolve:** the *Daily American*'s account of the 27 October 1839 fire, which Andreas
-quotes for the merchants' stock losses and which itemised insurance building by building; or any
-*Chicago American* or *Chicago Democrat* advertisement of the house, which in the period counted
-rooms.
-**Covers:** `tremont_house_1.frame_1833.footprint`, `tremont_house_1.frame_1833.form.stories`, `tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.roof_type`, `tremont_house_1.frame_1833.form.paint`, `tremont_house_1.frame_1833.form.gallery`.
 **Recorded:** 2026-08-11.
 
 ### L75 — Mansion House: an attested frame front, built on invented arms
@@ -29225,6 +29226,23 @@ second, smaller stack standing in the first; the stacks' places along the flank 
 +-0.5 m. The plate's coping on the gable's rear fall reads about 30 px under the build's, which the
 match record keeps open with the bay gable's centre and carved pinnacles (T-3051); T-3052 solves
 the cameras of 1811's other pictures.
+**Revised:** 2026-10-23 (T-3062, piece 1 of T-3051; T-2997). The bay's stone gable stands on the
+plate's centre line: the face 0.28 m north (`dormer.v_m` 3.32, its apex and lights at about x 196-197
+px, the plate's 196-197) and 3.8 m across with its pinnacles 2.0 m either side, the shafts at x 96-115
+and 272-297 px against the plate's 97-119 and 276-298, the apex about 6 px higher with the wider face,
+as the plate draws it. The pinnacles are carved apart (`pinnacles.heads`): the south one rises to a
+moulded band at 11.40 m (y 316 px, the plate's 318) under a dome to about 11.96 m (y 292 px with the
+plate's); the north one carries a moulded block, 0.45 m square and 0.86 m high from 11.14 m, set 0.36 m
+in from the shaft's centre so the rake dies into its side, its top at y 282 px with the plate's. The
+bay's south-return downpipe stands on the return's own face (`front_pipes[].on: "return"`), 0.8 m before
+the main front, landing at x 297-301 px against the plate's 298-302. What is invented: the dome's
+scales and the block's mouldings are not cut (the plate's resolution shows the scaled surface and a
+moulded profile, not their stones), so the dome is a plain quarter-ellipse and the block a plinth, die
+and cornice; the north shaft's pyramid cap is K01's plain pyramid where the plate draws a scaled one;
+the block's inward place is read as such, though the plate's offset (about 16 px) would also be read
+by a block about 0.4 m behind the shaft; and the north shaft stands to 11.10 m, past the face's eave
+as K01 holds every engaged shaft, about 0.4 m over the plate's (its cap about 20 px high). The rear
+fall of the south gable is T-3063.
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
@@ -31123,7 +31141,7 @@ The parked1904 carriage also has an original small timber shaft-rest. Its crossb
 **Decision:** Two existing reconstructed 1835 covered records retain their exact positions, bearings, stable original-ID/coordinate finish seeds, canvas aging and laid-by yokes. The Western Hotel example remains blue/oxide; Wolf Point remains oak/dark oak. Original W01 running gear is reused; five original bows, canvas seams, hems, restrained folds and analytic weave/weathering are reconstructed. No historical maker, owner, cargo, measured textile or joinery is established. The source-owned donor bench and footboard were omitted where they intersect the retained narrow cover; the original W01 is unchanged. This empty derivative supports no driver, passenger, hitch, collision, horse, motion, riding or boarding interface. Exact wheel-plane samples qualify the old stands against the unchanged 30 mm guard; actual main-world ground/yoke clearance, shadows, old/new comparisons and production quality remain separate acceptance work.
 
 **Recorded:**2026-10-21.
-
+**Canvas refinement, 2026-10-22:** The same two covers now use an original 20–28 mm maximum inter-bow drape over 750 mm spans instead of 8–10 mm; the 1.2 mm creases and every finish, age, yoke and stand remain unchanged. These dimensions and cloth behavior are reconstructed, not measured historic textile construction. Actual source readback found no cloth/bow intersections in the bounded checked meshes. Mobile normal-main comparisons preserve six images from a deadline failure plus a separately completed two-image continuation; background population and foliage were not stabilized, and Bardwell appears only in one candidate frame. They support local form review, not whole-frame identity, isolated render cost, photographic completion or occupied clearance. Candidate desktop/current integration qualification and distinct compressed LODs remain open.
 
 ### L-glessner-coursing-2986 — the printed course inches carried up the Prairie front against sheet 6
 
@@ -31275,6 +31293,25 @@ set by hand and judged by eye; no source describes a Prairie Avenue elm's limbs.
 **Ticket:** T-3017.
 **Recorded:** 2026-10-22 (T-3017).
 
+
+
+### L-workwear-coverage-1789 — Source-owned work clothes, closed shoes and reconstructed eyes
+
+**Decision:** The original 1835 worker authoring uses full-body source-shared normal ease, source-triangle garment boundaries, a collar joined to the shirt before reduction, a closed shoe loft and original opaque sclera/iris/pupil surfaces. These are reconstructed construction choices, not recorded garments or individual likenesses. Existing L418/source and resident identity limits remain.
+**What is invented:** Seven millimetres of trouser normal ease; the shirt collar-base plane; assigning only new neckline head/jaw influence to the existing neck bone; a collar 12 mm high in front and 23 mm at the side/back; a continuous shoulder ease field measured from the source upper-arm axis/radial extent within the previous 13 mm displacement envelope; four-millimetre horizontal shoe support margin; eye dimensions, brown procedural iris and restrained procedural textile. Source UVs/weights are interpolated at garment cuts. Body geometry, skin and rig are unchanged; no skin visibility mask is used.
+**Evidence and limits:** Independent source controls and actual runtime source-swap previews show a closed trouser seam, joined collar, straighter waistcoat hem, enclosed toes, improved eyes and repair of two observed shoulder skin holes. The former collar separation is removed at the shared source boundary. These are not canonical export, sole, photographic or town-placement acceptance. Forty inherited negative face projections remain in the defined idle sample; comprehensive garment fit, independent head/jaw movement, actual reduced-LOD fit and period tailoring remain open. Original raw-normal and two-millimetre exported sole guards remain required.
+**Sources:** `chicago_american_1835` supplies text terminology only with the recipe's date caveat; it does not attest garment pattern, dimensions or eye color. The anonymous cleared source body/skin and existing reconstructed residents retain their current license/provenance records. New helper geometry and procedural iris are original CC0 work.
+**Ticket:** T-1789.
+**Recorded:** 2026-10-21.
+
+
+**V5/V6 tailoring update (2026-10-22, T-1789; further to L418 and L-workwear-coverage-1789):** William Sidney Mount's *Bargaining for a Horse (Farmers Bargaining)* and *Bar-room Scene*, both dated only to 1835, are qualitative American genre-painting comparators registered as `mount_1835_bargaining_for_a_horse` and `mount_1835_bar_room_scene`. Their full lower-trouser silhouettes and substantial closed waistcoat fronts inform the reconstruction; they do not attest a Chicago outfit, any modeled resident's likeness or occupation, or completion before the 1835-07-01 scene date. No painted pixels, measured cutting pattern, fiber or material sample is copied. The 12 mm section ease, 85% cuff-radius ratio, 65% knee-to-hip transition and 40% waist-to-shoulder closure are original engineering choices. The V6 trim uses each existing source-derived cuff cycle's highest point, shortening its low sawtooth portions; it is not a historical cuff dimension or finished hem construction. Existing body, rig, skin, source UVs and resident identity grades are retained. Actual V6 source-array preview technical PASS does not qualify canonical exports, complete seated footwear enclosure, animated/LOD fit or photographic appearance; 40 inherited idle negative source-face projections remain open. The historical preview's whole-shoe disappearance came from stale preview-sphere culling, not a demonstrated shoe-source defect. This addendum introduces no new person, placement or occupied transport.
+
+
+**L418 standing followup (2026-10-22, T-1789):** The first standing increment assigns the qualified Bardwell workwear body to existing reconstructed rc_bardwell_otis, idle and terrain-grounded in the Wolf Point Tavern yard at E -94, N -36.5, heading90degrees. This location/action is invented within the modeled west-side setting. No source places this resident in this yard, identifies him as its employee or assigns him either wagon. His own resident card retains reconstructed identity/role/age/presence. Actual canonical source/published exports were qualified and close-reviewed; this initial simplified depiction does not assert finished photographic skin/hair/cloth, individual likeness, full animated fit or occupied interfaces. Full T-1789 remains open.
+
+
+**L418 connected-waistcoat followup (2026-10-22, T-1789):** The actual published-town Bardwell front exposed missing shoulder panels: the original waistcoat top used the upper-arm joint plus25mm and the arm-influence cut removed upper-front cloth. Bardwell alone now opts into an original source-triangle shoulder pattern that connects the existing waistcoat fronts to its back, with a neck-minus25mm upper plane,50mm neck-opening halfwidth,100-to15mm transition below the arm joint,26mm outer inset and40mm field scale. These are unmeasured reconstructed dimensions, not a traced or attested cutting pattern. The registered `mount_1835_bargaining_for_a_horse` and `mount_1835_bar_room_scene` supply qualitative shoulder-connected-waistcoat analogies only; their year-only dates do not prove pre-July1Chicago, and neither attests Bardwell's outfit, likeness, color or occupation. No painted pixels, measured cloth or archival likeness enter the asset. Original source UV/skin interpolation is retained, including bounded nonzero head/jaw weight below0.5%; no body mask, rig edit, extra garment/material, shoes, buttons or facings are added. Independent source topology and finite frozen idle shirt/body depth observations support the source repair, not canonical/reduced-LOD/continuous fit or photographic completion. Existing40 negative idle projections and full T-1789 remain open; actual new canonical source/published assets and desktop/mobile inspection are required before promoting this large-form correction.
 ### L-glessner-hoist-3030 — Glessner's stable hoist stone built as the long tapered cantilever the prints show, and the cupola's landing ledges wrapped round its corners
 
 **Decision:** The hoist stone under the stable gable's relieving arch was built as a 1.75 ft corbel. The c. 1887 Cornell A. D. White northwest view (`cornell_adw_glessner_stable_1887`) sees its west side face: through that view's solved camera, with the camera's own offset at the arch's crown removed (−38, −17 px), the side face runs 62 px from the wall to the nose, which a 4.0 ft projection gives (63 px; 1.75 ft gives 27). Its end face is about 11 px across and 18 px deep there, 0.75 ft and 0.83 ft against the built 1.2 and 1.02 ft, and its underside meets the wall about 0.3–0.5 ft lower than built. HABS photograph 1 (`habs_glessner_photo_01_nw_1963`) puts the nose where a 3–4 ft projection does once that camera's 30 px offset at the gable apex is removed; the long dark band running east from it along the wall, past the gable's own edge, is the stone's cast shadow under a raking sun, not a beam, so no timber beam is built. HABS photograph 15 (`habs_glessner_photo_15_north_stable_1965`), nearly square to the gable, sees the lit sloping underside from foot to nose about 42 px tall, which a 3.6 ft projection gives, and its foot about 0.57 ft lower than built. The stone is now W 140.75–141.5, foot 26.0 ft, top 28.15 ft (T-2849's), projecting 4.0 ft with a 0.83 ft nose. Both northwest prints also run each tier's stone landing ledge on the stable cupola unbroken round its corners, where the build stopped them short; they now wrap the corners.
@@ -31312,6 +31349,19 @@ mouth's floor against the street mouth's, before the court was paved for parking
 **Ticket:** T-2978.
 **Review:** `docs/RESEARCH/glessner-section-datum-T-2978/`.
 **Recorded:** 2026-10-22 (T-2978).
+
+### L-brougham-parked-2794 — catalogue-guided parked Brougham in 1904
+
+**Decision:** Add one empty, unhitched Brougham at local ENU E1397.9, N−3240, bearing178.99, retaining generic C02 at its separate stand. The 1893 Studebaker catalogue leaf0095, source `studebaker_1893_illustrated_souvenir`, attests a maker/type design before1904. It does not attest this individual specimen, Chicago/Prairie presence, a Pullman/Glessner connection, ownership or this stop. `belongs_to` remains null.
+
+**Reconstructed:** all absolute metres, hidden sides/interior/construction, pigments and optical materials, support/hardware attachment, opposite-side symmetry and the stop. V17 has separated footplates, slender curved step supports and two 8mm recessed dark opaque rear-quarter surfaces; the illustration does not identify these as glass, curtains or a specific lining. No image pixels are embedded. Matched native catalogue views prefer V17 over V15, but its flat paint, uniform inset, glass and smaller fittings remain visibly simplified. Photographic completion remains open.
+
+**Delivery and limits:** only the indexed near model is supplied. Full100m/Balanced65m/Light0 reach and existing confidence/picking/material batching remain unchanged. The fixed paired-team pole and its original ground shoe are parked-down geometry, not a new hinge or working-height hitch. The same rendered carriageway provider checks all wheels and four shoe corners, refusing nonfinite ground, wheel span over30mm, penetration over1mm or shoe gap over30mm. For this Brougham only, the least rigid vertical base clears both the wheels and the declared shoe corners; the maximum wheel gap is checked again after that solve. At the unchanged stand, actual source sampling found the previous wheel-only base put the shoe4.866mm into the road; the all-contact base rises4.866mm and leaves at most9.466mm wheel gap. The four corners bound this particular shoe patch on the current bilinear source surface; they do not qualify arbitrary terrain, full pole/body/obstacle clearance or rendered world contact. Actual world, phone, publication and whole-scene budget acceptance remain pending. No horizontal relocation, tilt, support geometry change or weakened renderer limit qualifies a failed stand.
+
+**Unsupported:** occupants, boarding, door operation, steering/wheel animation, horse/rein/hitch coupling, collision physics, traffic and riding. All source interface capability flags remain false. The native hitch[0,.037,3.8]m is a parked datum. T-2794 photographic and occupied work remains OPEN.
+
+**Ticket:** T-2794.
+**Recorded:** 2026-10-22.
 
 ### L-draft-district-background-3009 — The background behind Prairie Avenue continued: Indiana Avenue's east frontage, 20th to 22nd Street, stood up as drafts where Prairie's sidewalks see it, with the First Presbyterian Church on the 21st Street corner
 
@@ -31447,6 +31497,25 @@ The roof's form and its faces are now inferred from Levy's print, so `form.roof_
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-22 (T-3033).
 
+### L-w01-timber-finish-2793 — Parked farm-box timber uses modern CC0 wood texture maps
+
+**Decision:** The three existing reconstructed 1835 W01 farm-box wagons share a finer timber surface adapted from Rob Tuytel's Poly Haven Fine Grained Wood CC0 texture maps. Native 2K color, roughness and OpenGL normal maps are rotated, cropped and reduced 2x, with an eight-pixel periodic edge blend, corresponding tangent-normal rotation and bounded 1.5 linear color exposure. Project-authored UV/tangent/index charts and freshly regenerated project geometry remain GPL-3.0-or-later; original paint, iron and cut-end pixels retain their CC0 provenance. The exact sources and changes are recorded in `assets/authored/transport/wagon_parked_fine_wood/SOURCE.json`.
+
+**What is invented:** Brown timber finish, grain scale and chart orientation are reconstructed from a modern optical analogy. The reference does not identify an 1835 species, coating, manufacturer, model, owner or Chicago specimen. No geometry, node pivot, wheel contact, placement, bearing or covered-wagon variation changes. Eight pooled material batches replace five for this asset; the 6,291,168-byte RGBA8-plus-mips figure is an image-dimension estimate, not measured GPU allocation. Four native fixed-camera images support a bounded material improvement; photographic, normal published-world and combined-budget acceptance remain open.
+
+**How to resolve:** Period close photographs or conserved material from an identified wagon would replace the surface inference; current-world mobile/desktop inspection must still establish rendering and budget acceptance.
+**Ticket:** T-2793.
+**Recorded:** 2026-10-23.
+
+### L-brougham-distance-replacement-2794 — Source tessellation for distance and removal of the obsolete C02 display
+
+**Decision:** The1904 Brougham uses the exact accepted11,706-triangle source-derived distance model beyond the existing24m/screen-size boundary, with unchanged5% hysteresis. The33,502-triangle near asset and its conservative collision proxy remain exact. Physical feature names,64spokes,16spring leaves, materials,42nodes,13runtime anchors, eight static targets, full bounds and wheel/pole/shoe contacts remain. Source subdivision records change468→302; no physical surface is omitted. The original producer's late-feature recipe shadowing and its eight-sided fittings are preserved. The tighter mid mudguard maxY is5.755mm lower inside the original conservative proxy; it is not used to reduce production clearance.
+
+**Replacement scope:** The owner requested replacing earlier prototype carriages. Only obsolete `prairie_parked_carriage` is removed; the Brougham stays at E1397.9,N−3240,bearing178.99°. C02 model/assets and historical compatibility tests remain, and all five1835wagon placements/identities stay exact. No camera, stand, selector, confidence or budget cap is moved to obtain acceptance. This updates the earlier additive display decision without identifying the old C02 as a Studebaker specimen.
+
+**What is unverified:** All eight fixed native near/mid desktop/mobile views were reviewed and accepted only for distance-LOD appearance. Native draw counts include fixture/shadow work and do not establish whole-scene budgets. Current published desktop/mobile performance, continuous obstacle/ground clearance, photographic completion, occupants, boarding, hitching and driving remain open. Earlier22,238mid proofs, original failed generation/native units and bounded world failures remain in Git/capsules and are not relabeled passes.
+**Ticket:** T-2794.
+**Recorded:** 2026-10-23.
 
 ### L-hogan-pictured-openings-2377 — a first form reading of the first post office
 
@@ -31486,3 +31555,142 @@ Taylor camera's south-west bearing against the chamfer's near end.
 **Ticket:** T-3047 (piece 1 of T-3016).
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-23 (T-3047).
+
+### L-tremont-corner-elevations-2385 — The first Tremont's pictured three storeys and shuttered corner elevations
+
+**Covers:** `tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.elevation_scheme`, `tremont_house_1.frame_1833.form.shutters`, `tremont_house_1.frame_1833.footprint`, `tremont_house_1.frame_1833.form.paint`, `tremont_house_1.frame_1833.form.gallery`
+**Decision:** adopt the three-storey form visible in N. Roswell Gifford's undated drawing reproduced by Chicagology as “Tremont House No. 1” (`gifford_tremont_house_no_1`). The actual picture shows three bays on the short gable and five on the long eaves elevation, with shutters and centred ground entrances. The earlier two-storey reconstruction rested on a text-only reading and did not consider this picture. The pictured form is inferred for the 1835 scene: the picture is retrospective, not a dated survey of every feature on 1835-07-01.
+**What is reconstructed:** the existing 15.24 × 9.14 m footprint is retained, with no position, bearing or geographic control change. Wall height is 7.8 m, three copies of the previous reconstruction's 2.6 m storey module, not a measurement from the drawing. A 3.1 m first storey and two 2.35 m upper storeys, evenly spaced bay centres, 0.85 × 1.35 m sashes and 1.2 × 2.1 m door openings use the existing kit. Unseen elevations repeat the visible three/five-bay arrangement, including the centred entrances; four model doors are a reconstruction and not a claim that the historical house had four entrances. Plain open shutter leaves are 42% of a sash's width and 25 mm thick, 10 mm beyond the clapboard skin. Green is a stock-palette reconstruction: the monochrome source does not supply original paint colours. Louvre patterns and hardware are not asserted. The final working roof is 32°; its coupled camera/envelope fit is not a historical pitch measurement.
+**Chronology disagreement:** the picture-based form inference is in tension with the Saloon Building exclusion's first-three-storey shorthand. Gifford does not date this depiction within the first Tremont's 1833-1839 life, so construction sequence remains unresolved. The Saloon is still excluded for its documented 1836 date; no source or dated construction claim is rewritten.
+**What remains open:** arch interpretation, entry and stack detail, flag cloth/anchor, roof silhouette, scale/perspective and feature-by-feature dating. The following fitting decision records the built first refinement; this increment does not close T-2385 or establish an image match. The street scene's neighbours, boardwalk, people and road are not folded into this building mesh.
+**Rights and attribution:** project owner approved attributed reference use on 2026-10-22; source record retains the exact instruction, source-page link and Gifford/Chicagology credit. No public-domain determination or original holding/publication claim is made.
+**How to resolve:** fit every relevant picture against the rebaked form, inspect the actual comparison, and replace reconstructed dimensions or concealed arrangements when a warranted scale or further view is available.
+**Ticket:** T-2385.
+**Recorded:** 2026-10-23.
+
+### L-tremont-entry-roof-details-2385 — The first Tremont's raised entries, arched gable feature and roof fittings
+
+**Covers:** `tremont_house_1.frame_1833.form.roof_pitch_deg`, `tremont_house_1.frame_1833.form.first_story_height_m`, `tremont_house_1.frame_1833.form.entry_raise_m`, `tremont_house_1.frame_1833.form.gable_lunette`, `tremont_house_1.frame_1833.form.flagstaff_height_m`, `tremont_house_1.frame_1833.form.chimney_placement`
+**Decision:** build the additional forms visible in Gifford's first Tremont drawing (`gifford_tremont_house_no_1`), retaining the current reconstructed envelope and documented geographic position. A raised entry appears on each pictured face, a shallow arch below the short gable's peak, a roof staff, and four distinct capped stack silhouettes. Their occurrence is read from the picture, not invented. The undated retrospective view still does not establish when each feature appeared between 1833 and 1839; their adoption for 1835 is an inference or reconstruction as tagged on the form attributes.
+**What is reconstructed:** the roof is 32°, rounded from an appearance fit near 31.5° under the provisional six-wall-corner camera. This is not a historical pitch measurement: the model dimensions, camera and drawing perspective remain coupled. The first storey is 3.1 m with two upper divisions of 2.35 m, retaining the total 7.8 m wall height. Entrances are 0.6 m above grade, with the existing 2.1 m-high doors, 2.2 × 1.2 m plank platforms, four 0.15 m risers on 0.28 m treads and plain 0.85 m side guards. These projections extend outside the wall footprint; they do not move the recorded polygon or its geographic control. The two concealed entrances/elevations repeat the pictured pair as reconstruction, not a historical four-door count.
+**The gable feature's interpretation is open:** its shallow arch and dark field are visible, but lettering/pane arrangement is not settled by this reproduction. A dark glazed field, plain rim and three radial bars are working reconstruction; no legible sign or verified fanlight specification is claimed. Its width is 0.40 of the short gable, rise 0.74 m and base 0.55 m above the eaves. The unpictured gable repeats it. Corner-gable end triangles now use the wall's finish and lap relief rather than the roof material; this changes no common helper or default building treatment.
+**The roof fittings:** four stack centres are at reconstructed fractions (u,v) = (0.04,0.86), (0.23,0.40), (0.525,0.23), (0.82,0.08). Heights above each local roof slope are 1.75, 0.60, 1.00 and 1.20 m; shafts 0.45 × 0.50 m, plain caps 75 mm high and 50 mm proud. Source pixel silhouettes near (904,292), (1019,278), (1114,293) and (1202,309) bound this appearance choice; they are not surveyed roof controls. The staff is a 70 mm square spar, 4.25 m above the ridge at u = 0.37 of the long axis. Its section, station and height are reconstruction. **No cloth is baked into the building:** the app's existing graded flag layer currently derives its anchor from a standalone staff's bounds, and needs an explicit hotel-roof anchor before a flag can be hung correctly. `form.flag` and `flag_flying` are deliberately not enabled at a wrong point.
+**Still open:** actual flag cloth/anchor integration; source-specific pane/lettering and rail detail; colours, shutter angles/joinery and opening proportions; all camera/image-gate review and source-feature dating. This is an inspected first rebuild increment, not an accepted image match or a completed original ticket.
+**Rights and attribution:** N. Roswell Gifford; reproduced by Chicagology as “Tremont House No. 1”, https://chicagology.com/prefire/prefire021/. Owner-approved attributed project reference use on 2026-10-22, with the source record's limitations retained. No public-domain finding is asserted.
+**How to resolve:** export/build through the supported pinned path, inspect actual new GLBs and side-by-sides, fit every relevant picture, and replace reconstructed controls where further warranted views or scale become available.
+**Ticket:** T-2385.
+**Recorded:** 2026-10-23.
+
+### L-green-tree-seven-bays-T-2376 — Green Tree's pictured south eaves rhythm, with unchanged stock sash and reconstructed spacing
+
+**Subjects:** `green_tree_tavern`. The bay count itself is inferred from the picture; the inherited stock/spacing remains reconstruction, described here without claiming the inferred count as an invented value.
+**Decision:** The public-domain retrospective Andreas/Braunhold illustration
+(`andreas_1884_green_tree_hotel_plate`; local reproduction
+`chicago/reference/images/chicago/chicago_green_tree_inn_1838.jpg`) depicts seven upper
+sash on the long elevation. The existing model's six came from rounding its 12.19 m
+length into 2.2 m modules. The south wall (`x_min` under the existing west-facing
+placement) takes seven bay stations without changing the footprint, geographic
+placement, height or roof. **Inferred from the picture:** seven visible upper bays
+and their assignment to the south elevation by the existing Lake Street frontage
+reading. The plate is a retrospective form witness, not proof of the 1 July 1835
+state, and its reproduced 1838 caption does not date the original undated Andreas
+plate. **Reconstructed:** exactly even station spacing (12.19 / 7 = 1.7414 m), the
+existing 0.85 by 1.35 m sash stock and storey bands, and the hidden parts of each
+opening. These widths and heights are preserved rather than measured from the
+picture. The attested side entrance continues to replace the middle ground-floor
+bay; this proposal does not pretend that a picture drawing lower sash establishes
+that door's exact appearance. The opposite north wall retains its existing six-bay
+reconstruction; no mirrored seven-bay claim is made. Gable opening arrangements and attic lights, and the disputed low wing, remain unresolved; main-gable wall cladding is corrected by the following decision.
+**How to resolve:** solve the picture's camera and inspect baseline/rebuilt renders;
+resolve gable and wing differences and compare every other ticket picture. A dated
+period image or dimensional description would replace the uncertain elevation and
+opening sizes. Neither this count correction nor its emitted-opening checks is a
+`matches` verdict.
+**Ticket:** T-2376.
+**Recorded:** 2026-10-23.
+
+### L-sauganash-end-sash-2383 — the pictured main gable's sash
+
+**What is read:** `andreas_1884_sauganash_hotel_plate`, inspected as the committed Braunhold sheet `chicago/reference/images/chicago/chicago_sauganash_hotel_1831.jpg`. The exposed main gable above the log annex has two upper-storey sash and an upright attic sash. The existing measured reading in tools/sauganash_plate_baseline.json records upper centres at image x564.8 and783.7 and an attic centre at628.3; these are a picture reading, not a solved model camera. Petford and Trowbridge repeat this composition rather than independently corroborating it.
+**What is reconstructed:** the upper pair use the frontage builder's retained0.85 ×1.35 m sash, with centres at30% and70% of the retained8 m depth and centre height4.25 m (the existing front's3.575–4.925 m upper band). The attic sash uses0.70 ×1.20 m, at mid-depth, centre6.70 m. These stations and sizes are first-comparison model choices; no metric historic window dimension or station is claimed. The +x end follows the record's existing east-annex relationship, not geographic inversion of a retrospective drawing. The front/back openings, main massing, reconstructed cross-wing, paint/shutters, other gable and annex remain as previously modelled. New end sash use the existing generic glazing proxy without extra shutters; full sash divisions, shutters in derivative pictures, rake/cornice, roof and grouped model/camera differences remain open.
+**How to resolve:** rebuild with the pinned toolchain, render the original and refined GLBs from the same provisional joint Sauganash/annex camera, compare every visible feature against all three local pictures, then refine the geometry and solve. Do not mark matches or close T-2383 from this increment alone.
+**Covers:** `sauganash_hotel.frame_1831.form.end_windows`.
+**Ticket:** T-2383.
+**Recorded:** 2026-10-23.
+
+### L-main-gable-wall-cladding-2376-2383 — Main-gable wall cladding — Green Tree and Sauganash (T-2376, T-2383)
+
+**Decision:** The Andreas/Braunhold retrospective depictions continue horizontal framed-wall siding into the visible main-block end triangle. The prior main-gable triangles inherited roof material, leaving Green Tree's gable dark and Sauganash's attic sash against green roof finish. `gable_wall_cladding=true` now uses each record's existing wall material and reconstructed siding course stock on both main-block end triangles, preserving all roof-plane coordinates, footprint, placement, wall/eave/ridge heights, pitch and roof covering. This is an opt-in to a closed main-block skin; repeating the pictured cladding on the concealed/opposite end is reconstruction, not independently observed evidence.
+
+The siding exposure/lay/lip relief and the triangular skin at the existing 0.25 m overhanging gable plane remain invented model construction, rather than a survey of original joinery. Both triangles conservatively carry reconstructed confidence. The helper generalizes Tremont's current wide-axis treatment to either ridge axis; Tremont's actual accumulated geometry/material/confidence stays identical. False is the default for every other existing record and preserves all 23 legacy family assets' treatment. Subsidiary cross-wing/ell roofs remain unchanged in this correction.
+
+Sources: `andreas_1884_green_tree_hotel_plate` and `andreas_1884_sauganash_hotel_plate`, with existing catalogue credits/rights retained. Their retrospective form does not establish a dated 1835 survey, hidden faces, dimensions or paint colours. Sauganash's established white finish and blue shutters remain grounded in their separate record evidence; Green Tree keeps its existing finish. No footprint or pitch is adjusted to match the provisional cameras. All original image-match tickets remain open, with roof/camera/opening/wing/context differences documented in the prior handoff.
+
+**Covers:** `green_tree_tavern.frame_1833.form.gable_wall_cladding`, `sauganash_hotel.frame_1831.form.gable_wall_cladding`.
+**Recorded:** 2026-10-23 (T-2376, T-2383).
+
+### L-tremont-opaque-arch-entry-2385 — First Tremont opaque arch and plain entry outlines
+
+**Covers:** `tremont_house_1.frame_1833.form.gable_arch_treatment`, `tremont_house_1.frame_1833.form.corner_entry_surround`.
+
+**Decision:** Re-inspection of the owner-approved attributed Gifford/Chicagology reproduction shows irregular light lettering-like marks within the dark gable arch, rather than a clearly resolved radial fanlight pattern. `gable_arch_treatment=opaque_panel` is the cautious working alternative: keep the prior shallow outline but use an opaque matte warm-charcoal field and remove invented radial bars/glass. It does **not** invent readable letters, a hotel-name inscription, original pigment or exact construction. Lettering, sign-versus-window identity and exact feature date remain unresolved. The opposite hidden arch remains a repeated reconstruction. Default `fanlight` preserves all earlier non-opted behavior exactly.
+
+`corner_entry_surround=true` adds a plain broad jamb/header outline to the existing entries. Source occurrence is visible, but stock width0.14m, depth65mm, existing trim tone, joinery and the mirrored concealed entries are reconstructed. The existing leaf/opening, raised landing, floor envelope, footprint/position, roof controls and source-date limits stay unchanged. Neither a classical order, a pediment nor ornamental lettering is claimed.
+
+Source `gifford_tremont_house_no_1`: N. Roswell Gifford, reproduced by Chicagology, https://chicagology.com/prefire/prefire021/. Owner-approved attributed project reference use; no public-domain finding. All new detail geometry/material choices carry reconstructed confidence. Further source/detail/camera matching remains open.
+
+**Ticket:** T-2385.
+**Recorded:** 2026-10-23 (T-3055).
+
+### L-tremont-explicit-roof-flag-2385 — First Tremont roof cloth on an explicit phase-local staff
+
+**Covers:** `tremont_house_1.frame_1833.form.flag`, `tremont_house_1.frame_1833.form.flag_flying`, `tremont_house_1.frame_1833.form.flag_anchor`.
+
+**Decision:** The owner-approved Gifford/Chicagology reproduction shows a roof spar with a striped flag/canton. It does not recover its star count, original colour, precise flag construction, staff/cloth dimensions or whether it flew at the1835 scene's forenoon. A24-star/13-stripe United States flag is a reconstructed hotel identity/pattern choice using the existing period library. It is legally current for1835-07-01; the explicit anchor interval ends1836-07-03 to avoid carrying that pattern beyond its supported date. The image is not a dated1835 observation. Flag flying, layout, wear, app breeze/pose and all dimensions are reconstructed, retaining Gifford/Chicagology attribution and owner-approved use without a public-domain assertion.
+
+Approximate source picks: spar head(1034,192), base(1034,279); cloth outline x1000..1034,y197..224. Raw projected fly/staff~0.39 and hoist/staff~0.31 only bound appearance: folds, perspective and the reconstructed camera do not yield metres. Relative working brackets fly0.35..0.50 and hoist0.25..0.40 of the already reconstructed4.25m spar allow a working1.85m fly and1.30m hoist. Its proportions and exact source/wind alignment remain open. Existing app wind/cloth wear are not claimed to match this particular drawing.
+
+The pole anchor is phase-local footprint metres[east,north,up] mapped to glTF[east,up,south] before the building's placement matrix. Head/foot follow the current reconstructed wall/roof/spar parameters, radius0.035m follows the square spar half-width, and both coordinates and dimensions have reconstructed confidence. The cloth's grade is the worst of pattern/flying/anchor. Wrong phase/date/frame, malformed coordinates, non-upright or out-of-bounds mounts refuse cloth explicitly instead of falling back to whole-hotel bounds. Legacy fort staffs retain their original bounds mount/dimensions unchanged. Cloth is an app layer, never baked into the hotel master.
+
+**Ticket:** T-2385.
+**Recorded:** 2026-10-23 (T-3055).
+
+
+### L-sauganash-lower-roof-fit-2383 — Sauganash roof and attic working appearance refinement
+
+**Covers:** `sauganash_hotel.frame_1831.form.roof_pitch_deg`, `sauganash_hotel.frame_1831.form.end_windows`.
+
+**Decision:** Reconstruct a25.2-degree roof on the existing9.92×8m footprint and5.5m walls, retaining the cross-wing’s shared span/pitch/ridge relationship. The exact same unsolved camera places the near apex around(636.5,350.1), improving the prior38-degree projection around(636.5,231.4) against approximate source(648,350). This remains an appearance-bounded reconstruction: principal point is far outside the plate, wall residuals reach30px and the drawing is not a measured survey. The changed pitch is reconstructed rather than inheriting the old typological inference’s grade.
+
+Retain the two pictured upper sash and their existing numeric choices; lower/widen the attic sash to working centrez6.1m,54percent of depth,.85mwidth×1.2mheight. Fresh native-pixel inspection distinguishes the complete frame (roughlyx625..690,y415..535, manual±10pxuncertainty) from the older detector’s partial hatching/topdetail box. The banked gate is not silently redefined. These stations, sizes, unseen treatment and existing stock details remain reconstructed. No footprint, position, bearing, wall height, date or whole-building grade changes.
+
+Source: `andreas_1884_sauganash_hotel_plate`, F.Braunhold’s engraving in Andreas1884, with its retrospective/date/dependence limits. The verified Gale1902 Trowbridge publication clears artwork use without making a later derivative picture an independent1835witness. Bright-blue shutters retain separate Wau-Bun colour evidence; louvred detail stays inferred. All original comparisons remain open. Actual before/after review must precede adoption; this fragment alone asserts no image match or official asset freshness.
+
+**Ticket:** T-2383 (shared controls T-3055).
+**Recorded:** 2026-10-23.
+
+
+### L-tremont-reconstructed-arch-name-2385 — A known name on the first Tremont’s unresolved arched inscription
+
+**Covers:** `tremont_house_1.frame_1833.form.gable_arch_text`.
+
+**Decision:** Consciously reconstruct **TREMONT** on the existing opaque arched panel, using the independently documented house name rather than claiming the native Gifford marks can be transcribed. The held and current remote image are byte-identical1637×796px; the arch is roughly70×20px. Light letter-like marks are visible, but the exact original wording, font and fine shapes remain unresolved. This choice follows the owner’s authority to reconstruct named signs and is explicitly reconstructed, not a public-domain or legible-inscription finding. Source `gifford_tremont_house_no_1` retains N.RoswellGifford/Chicagology attribution and owner-approved project use; `andreas_1884_v1` supplies the house identity.
+
+Six existing project stroke-capital shapes from `prairie_draft.GLYPHS` are adapted locally through MeshBuilder for seven paint-proxy letters, without importing another archetype or source pixels. The one optional `gable_arch_text` field defaults empty, is keyword-only and supports only the explicit known-name choice; it requires the opaque corner-gable panel and refuses a claim above reconstructed. All96 new vertices/24 stroke quads carry confidence1 and matte light paint. Working width is2.68/9.14of the shortgable (2.68m here), height0.32m, bottom0.65m aboveeaves and the plane5mm outside the existing opaque field to avoidz-fighting. Typeface, colour, dimensions, paint-proxy thickness/station, word and date use are reconstructed. The entire word rectangle fits inside the existing innerellipse. Only the pictured localx_min gable is lettered; the concealedopposite stays blank. No geographic controls, phase dates, roof/window/entry/flag geometry or other building defaults change.
+
+Actual pinned before/after exports and same-source-camera images were inspected: added light marks improve the empty panel, while the block font, exact baseline/wording, source perspective, chronology and remaining building/context details still differ. No original ticket closes or receives matches from this refinement. The existing runtime flag is outside this isolated baked-mesh comparison and retains separate app acceptance.
+
+**Ticket:** T-2385 (shared controls T-3055).
+**Recorded:** 2026-10-23.
+
+
+### L-tremont-reconstructed-dark-roof-2385 — A dark stock tone for the first Tremont’s pictured roof
+
+**Covers:** `tremont_house_1.frame_1833.form.roof_colour`.
+
+**Decision:** Consciously choose `dark_brown` as a reconstructed material-tone proxy to the dark roof against light walls in the monochrome Gifford view, preserving the pictured contrast while leaving actual pigment and weathering unknown. This reuses exactly `materials.roof_finish("darkened").rgba` from the existing material sheet; the material's stock name is not a claim that this hotel was weather-blackened. No new palette, infill reconstruction block, roof covering, source pixels or physical weather/fire/age history is asserted. The Gifford source remains owner-approved attributed project reference use with its existing rights limits.
+
+The existing optional `roof_colour` enum receives this one consciously reconstructed choice. Its confidence must be reconstructed; every face using the roof material carries the colour's uncertainty. All24 legacy record-phase mesh/material/confidence outputs and all40 positional parameters/defaults/order remain exact, including the existing moss_green path. The previously reviewed baked-name model is also exact when the new colour is absent. Roof vertices, faces, dimensions, silhouette, openings, glyphs, stacks, flag, geography and phase dates remain unchanged. Roof colour from a black-and-white illustration remains an appearance decision, not a source-attested brown pigment or a complete picture match. Actual pinned before/after exports and both same-camera comparisons were viewed by this agent and the parent. The darker roof improves the prior light-roof contrast without an observed geometry regression, but remains lighter than the black source roof. Baseline exactly reproduces the previously reviewed named-panel GLB and actual exported binary mesh buffers are identical. Parent approved bounded progress adoption; the verdict remains differs and all original cases stay open.
+
+**Ticket:** T-2385 (shared controls T-3055).
+**Recorded:** 2026-10-23.

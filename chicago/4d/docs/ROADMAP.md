@@ -1,3 +1,17 @@
+## T-2794 — Parked Brougham distance model and prototype replacement
+
+The Brougham replaces only the obsolete1904C02 display, retaining its own existing qualified stand and the five distinct1835wagons; C02 assets and model remain compatible. Exact33,502near geometry is paired with the unchanged validated11,706mid candidate. All physical feature categories, materials, nodes, anchors, contacts and original near conservative proxy remain; only source tessellation and active triangle reporting change. Eight fixed native views support distance-LOD appearance, not photographic or world-budget acceptance.
+
+Next: finish normal integrated source verification and published desktop/mobile qualification at unchanged cameras and caps, including combined budgets and full body/pole/ground/tree clearance. Earlier failed units remain recorded. Photographic refinement, people, horses, occupied driving, doors, hitching, boarding and traffic remain open.
+
+## T-2793 — Parked W01 timber material increment
+
+Modern CC0 wood texture maps improve the existing three reconstructed 1835 farm-box wagons while retaining their geometry, stands and original paint/iron. The original parked source and both covered-wagon finish families remain exact; a separate cloth-only increment preserves their colors and identities. Four actual native views support a bounded material improvement; GPL project charts and CC0 source pixels have explicit provenance, and no historic finish or specimen is claimed.
+
+Next: normal integrated DEV derivation and full preflight, followed by normal published mobile/desktop placement and combined-budget qualification (eight pooled batches versus five baseline). Photographic refinement, occupants, hitching, driving, riding and boarding remain open; this is a material increment under T-2793.
+
+- T-2980: carry the already generated20–28mm cloth-drape increment for the two existing distinct1835 covered wagons; preserve current terrain proof and all IDs/seeds/stands/yokes. Historical065646706 source+publishedstage8 qualification is separate from current combined integration. Photographic cloth/wood/iron, compressed LOD, occupancy and interaction remain open.
+
 ## T-2672 / T-1789 — resident transport adults (2026-10-18)
 
 The owner requested adults for driving, riding, standing near transport and walking,
@@ -5620,6 +5634,33 @@ Original refined W01 farm-box wagons replace three existing1835 stands at close 
 
 - T-2980: two empty covered derivatives now preserve exact per-ID finishes/aging, original stands/bearings/yokes and legacy fallback. Actual22-image source/published desktop/mobile inspection, eight runtime/clearance sets and four disposals passed under unchanged budgets/GL0; no page/console errors or request failures. Source/geometry/hull/conservative-host proof is bounded, not full physical collision. Photographic cloth/wood/iron finishing, compressed distinct LODs and full-app memory/tier acceptance remain open. Full preflight/current qualification and the parent X-RAY/Ghost budget failure must be resolved before ordinary DEV merge. People, horses, driving and boarding remain open.
 
+
+## T-1789 — bounded 1835 workwear repair checkpoint (2026-10-21)
+
+Source-owned seams/normal ease, a joined source-fitted collar, clean waistcoat boundaries, closed support-plane shoes and original opaque eyes improve existing reconstructed resident authoring. A smooth source-arm-landmark ease field repairs two actually observed shoulder holes within the former displacement envelope. Independent source/finite-pose checks and sixteen actual source-swap images establish this bounded improvement. Canonical source/web export, exported sole/seated checks and actual new-model inspection remain next; then deliver one reviewed existing reconstructed resident through the portable-human scene path. Forty inherited idle negative face projections, comprehensive garment/LOD fit, fine period tailoring and photographic acceptance remain open. Glessner/Kinzie do not inherit this 1835 outfit. No new town figure, horse, occupied vehicle or riding claim is supplied by the source checkpoint.
+
+
+- T-1789 initial standing increment: exact qualified canonical39712579846 Bardwell source/web assets and one existing reconstructed1835 resident are integrated for actual town review. Index validation and ordinary smoke eligibility follow authored scenes; absent years stay empty. Main-world desktop/mobile/LOD/card/grounding and whole-town budget checks plus normal gate/CI remain next. Full photographic, garment/occupied fit and animation/population work remains open.
+
+
+## T-1789 — connected Bardwell waistcoat fronts (2026-10-22)
+
+Actual town inspection identified missing upper-front shoulder panels in the
+existing reconstructed Bardwell waistcoat. A Bardwell-only recipe pattern now
+retains connected source-triangle shoulder panels in the same existing mesh.
+Default workwear and the other resident recipes remain exact; body, rig, skin,
+shoes, UV interpolation and raw-normal/2mm sole limits are unchanged. Independent
+source review, old-topology negative control and finite actual idle shirt/body
+layer observations support the source repair; new canonical exports, reduced-LOD
+and animation fit, actual desktop/mobile images and town review remain required.
+No photographic or T-1789 closure is claimed. Forty inherited negative projections
+remain open. Buttons/facings are deferred until the large-form repair is reviewed.
+
+
+- T-1789 current increment (2026-10-22): actual canonical96c4/run39736567239 shoulder repair exported and integrated for existing reconstructed Otis Bardwell at Wolf Point. Eight Bardwell assets only; exact measured registry/provenance and all original guards retained. The missing shoulder-panel defect is repaired in actual LOD0 pixels. Final town/current-head CI and full photographic tailoring/library/occupied/other-era acceptance remain open.
+
+
+T-1789 person-card honesty followup (2026-10-22): the existing invented trade-head mint category now reads reconstructed identity rather than named in a source, and model-assigned firm memberships disclose their reconstructed link. Exactly309 invented trade heads change classification; historically source-read residents retain theirs. Presence grades, identities, memberships, assets and the standing position are unchanged. This corrects a false provenance claim found in actual published-town card inspection; photographic finishing remains open.
 ## Hogan's first picture-based geometry increment - T-2377
 
 The single front sash/off-centre doorway, gable opening and ridge stack are rebuilt from the Cameron depiction, with numeric choices reconstructed. The source/credit and compiler-derived pictured grade are recorded without changing geographic controls or scene-date limits. See docs/RESEARCH/hogan-picture-match-T-2377/README.md.
@@ -5690,3 +5731,88 @@ T-3056 citation consistency follow-up (2026-10-23): the existing Chicagology sou
 
 
 T-3056 post-Gale full gate (2026-10-23): 1 of 1049 steps failed, the name-pool self-test. Its sole difference was the paragraph label Earlier, recognized after JSON parsing but missed after the escaped newline in raw JSON; no historical person was implicated. Replaced the label with an explicit all-caps historical heading. The actual name-pool self-test now passes all cases; a fresh ordered tail and full gate are still required. No source assertion or model parameter was changed for this repair.
+
+
+## T-3055 — bounded first frame-building picture increments (2026-10-23)
+
+GreenTree's pictured seven-bay south wall and main-gable siding, Sauganash's main-end
+upper/attic sash in white clapboard, and Gifford's three-storey shuttered first Tremont
+are implemented as source-bounded first increments. Tremont's raised entries now
+have plain outlines and its arch an opaque working field without invented lettering.
+An explicit phase/date-local roof flag anchor and its compiler/validator contract
+avoid hanging cloth from a whole hotel bounding box. Existing fort defaults remain.
+Existing footprints, geographic controls and building phase dates are retained.
+
+Actual isolated pinned emitter and unchanged-camera comparisons were inspected;
+all verdicts remain **differs**. The actual held app-layer diagnostic draws one
+reconstructed24-star flag on the roof spar with no reported problems, but shared
+breeze makes it nearly edge-on instead of the source-left pose. Letters, joinery,
+openings/roof/landing/stack/wing/context details and all full multi-view matches stay
+open. No original image-match ticket closes. See RESEARCH/frame-picture-match-T-2376-T-2385.
+Official23-family refresh, source/grade/sidecar provenance, published mobile/card
+checks and required full gates must be recorded by integration before landing.
+
+
+
+## T-3055/T-3056 — canonical integration checkpoint (2026-10-23)
+
+The completed source-only strict preflight passed all1049 checks, plus changelog
+and ticket-id checks, after the citation and name-pool heading repairs. Its exact
+source/compiled tree is pushed at e41ae248f; earlier failed runs remain failures.
+The shared frame controls and bounded opt-ins are now applied in the canonical
+working tree. Sauganash uses a reconstructed25.2-degree roof and adjusted attic
+sash. Tremont's opaque panel carries reconstructed known-name TREMONT strokes,
+not an attested transcription, and its dark-brown stock roof tone is a
+reconstructed tonal proxy for a monochrome drawing. All comparisons still differ.
+
+Pinned4.5.3 actually emitted all23 affected canonical masters and the publisher's
+real derivative producer ran for all23. Three hotel meshes change. Of the20 other
+masters,19 are byte-identical; one has only34 changed float UV components on
+untextured trim, with every position/normal/index/confidence/material stream and
+GLB JSON identical. The exact Blender packing cause is unproved. No master or
+recipe hash was copied/restamped from a preview. Actual Tremont bytes reproduce
+the reviewed final export. The liberty/entrance compilers and ordered55-producer
+tail passed two laps, last lap moving nothing; all workbook sheet values matched
+before restoring byte-only ZIP churn. Current feature tests15, anchor groups5,
+consumer tests6 and the real raw/parsed name-pool self-test also pass.
+
+The first actual grouped mobile/card check found a fixture navigation error: it
+compared CSS-uppercased summary innerText to mixed-case Record, leaving the real
+record disclosure closed. The failed/interrupted attempt is retained. Native
+textContent now locates that fold before its actual summary is clicked; the
+research assertion and all source/model/network oracles remain. Authoritative
+regeneration reproduces the corrected check. Complete corrected12-case QA,
+current-dev reconciliation, final grouped full preflight and both-viewports'
+all15-part published smoke remain pending. None is claimed by this checkpoint.
+No original image-match case is complete. This finishes only the shared tool and
+source prerequisite when the remaining integration gates pass.
+
+## T-3055/T-3056 — card/source acceptance checkpoint (2026-10-23)
+
+Published grouped acceptance is complete:12/12 cases across390×780 mobile and
+1280×800 desktop, including actual source/context/grade disclosures and Tremont's
+normal/confidence flag drawing. Page, network, server and unexpected-loader
+oracles are clear. Native Photos tests pass11 checks; the refreshed ordered55-step
+tail reaches a fixed point. Direct original-e41 versus final-code comparison
+preserves all23 producer-selected original frame phases; the additional stored
+Sauganash1829 phase is checked separately, not counted as a canonical output.
+
+[Recovery and acceptance limits](https://github.com/kevinrhaas/chicago-tickets/blob/4083c66910fdd088d2118f2a20127b190b017693/evidence/image-match-2026-10-22/closed-complete12QA-bridge-fort-20261023T120430Z/RECOVERY.md)
+are pinned. Remaining before this shared-tool/source group lands: current-M strict
+preflight and all15 published smoke parts on both viewports. All original image
+cases remain open with differs verdicts; those completions are not substituted by
+this prerequisite work.
+
+## T-3055/T-3056 local preflight repair (2026-10-23)
+
+The first current-M strict run failed six of1056 checks; its complete failed transcript is retained. The version fixture now copies the real flag reader rather than omitting the runtime contract. Its unchanged assertions pass. The three new steps and changed version/stack tools have measured isolation rows; the native audit passes all1029 keyed steps. Native rights remeasurement removes only the repaired Sauganash shutter citation and refreshes existing1736 Prairie corroboration metadata; no unresolved-source population grows. The native lodging model now follows Tremont's three storeys, redistributing ordinary-night capacities within the same total and35-person ceiling; it creates or moves nobody.
+
+The offset Tremont stacks already clear their local roof. The old highest-stack/global-ridge bound could not measure that scheme faithfully. The bounded new path decodes actual GLB shaft/cap and roof triangles, checks complete roof coverage under every cap and tests every stack against the unchanged18-inch minimum. All441 old-scheme readings are exact. The four actual local clearances are1.63754,0.48754,0.88754 and1.08754m; a single shortened stack fails independently, and malformed/missing mesh data fail closed. Geometry, camera, phase and surveyed placement are unchanged. The ordinance remains the existing dimensional ratchet, not evidence of a dated July1835 fitting.
+
+Fresh derived output/published mirror, the complete corrected strict run and final-head published smoke remain pending. The earlier12-card acceptance and later failure are separate recorded checkpoints; no final merge readiness or original image-match completion is claimed.
+
+
+### 2026-10-23 — T-3055/T-3056 downstream capacity checkpoint
+
+- Native capacity updates preserve all existing lodging identities and seats while reporting physical vacancy and ordinary overflow separately. The carried staffing allowance decreases as later occupants consume beds; reweighting alone cannot replenish it. Focused native builds/checks/self-tests pass, with quota and crowded refusals intact.
+- Finish the refreshed derived outputs, corrected full preflight, current-head published smoke acceptance and policy PR into dev. This prerequisite group does not close the original building picture-match cases.

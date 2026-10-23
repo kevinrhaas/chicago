@@ -273,10 +273,10 @@ Same artwork elsewhere in this repo: `chicago/pre_fire_v1/media/images/buildings
 
 #### `chicago_first_tremont_house_1833.jpg`
 
-**The First Tremont House, Lake and Dearborn Streets** — grisaille painting (reproduced) · scene: 1833-1839 · made: ca. 1900  
+**The First Tremont House, Lake and Dearborn Streets** — grisaille painting (reproduced) · scene: 1833-1839; exact scene date unresolved · made: undated on the plate; original publication date unresolved  
 *N. Roswell Gifford*  
 Street scene of the first Tremont House (built 1833, burned 1839) at the corner of Lake and Dearborn, with the row of early storefronts (H. Wells Groceries, Boots & Shoes, Bank & Albee) along the muddy street.  
-Institution: chicagology.com scan library · Rights: Public domain (pre-1930 artwork)  
+Reproduced by: Chicagology; original holding institution unresolved · Rights: owner-approved attributed project reference/comparison/source-display use (2026-10-22); original publication/collection and copyright status remain unresolved. This approval does not establish public-domain status, copyright-holder permission or an open redistribution licence. See `chicago/4d/data/sources/gifford_tremont_house_no_1.json`.  
 Source page: <https://chicagology.com/prefire/prefire021/>  
 
 #### `chicago_dearborn_drawbridge_1834.png`
@@ -307,20 +307,27 @@ Source page: <https://chicagology.com/harbor/riverbridges/dearbornstreetbridges/
 
 #### `chicago_green_tree_tavern_1835.jpg`
 
-**The Green Tree Tavern in 1835** — wash drawing / illustration · scene: 1835 · made: 1902  
-*W. E. S. Trowbridge*  
-The Green Tree Tavern at the northeast corner of Lake and West Water (Canal) streets in 1835, with covered wagons, stage, shed and hanging tavern sign.  
-Institution: chicagology.com scan library · Rights: Public domain (published 1902, pre-1930)  
-Source page: <https://chicagology.com/prefire/prefire127/>  
+**The Green Tree Tavern in 1835** — retrospective illustration · depicted state:1835 per caption · verified US publication:1902
+
+*W. E. S. Trowbridge, in Edwin O. Gale, Reminiscences of Early Chicago and Vicinity (Fleming H. Revell Company,1902), plate facing printed p. 35.*
+
+Two-storey clapboard tavern with hanging sign, seated figures, open wagon bay, wagons and field-edge context. The exact full composition was actually read in the1902 volume. Actual title credits **ILLUSTRATED BY W. E. S. TROWBRIDGE / MCMII**; actual copyright page says **COPYRIGHT, 1902, BY FLEMING H. REVELL COMPANY / October**.
+
+Rights: **Public domain for the independently verified US-published 1902 artwork, by age** (`trowbridge_green_tree_1902`). This replaces the formerly unsupported publication/rights claim and supersedes the source record’s artwork hold. A modern stock agency’s offered reproduction retains its own separate terms; no stock licence is claimed. Captioned 1835 does not prove every pictured fitting on 1 July 1835, dimensions, colour or independent corroboration.
+
+Actual plate: <https://archive.org/details/reminiscencesofe00ingale/page/n55/mode/1up>; title <https://archive.org/details/reminiscencesofe00ingale/page/n12/mode/1up>; copyright <https://archive.org/details/reminiscencesofe00ingale/page/n13/mode/1up>. Original reproduction links remain documented in the source’s historical note.
 
 #### `chicago_sauganash_tavern_1835.jpg`
 
-**Mark Beaubien's Tavern, The Sauganash, in 1835** — wash drawing / illustration · scene: 1835 · made: 1902  
-*W. E. S. Trowbridge*  
-Street-level view of the Sauganash Hotel in 1835 with its log-cabin wing, hitching post, and settlers and Potawatomi figures in the foreground.  
-Institution: chicagology.com scan library · Rights: Public domain (published 1902, pre-1930)  
-Source page: <https://chicagology.com/biographies/markbeaubien/>  
-Also held/licensed by: Universal History Archive / Universal Images Group via Getty Images · Getty Images #629448147 · <https://www.gettyimages.com/detail/629448147> · not shown on open page; rights-managed (RM) license via gettyimages.com  
+**Mark Beaubien’s Tavern, The Sauganash, in 1835** — retrospective illustration · depicted state:1835 per caption · verified US publication:1902
+
+*W. E. S. Trowbridge, in Edwin O. Gale, Reminiscences of Early Chicago and Vicinity (Fleming H. Revell Company,1902), plate facing printed p. 31.*
+
+Two-storey clapboard hotel with shuttered sash, log annex, road-edge posts and figures/horse. The exact full composition was actually read in the1902 volume. Actual title credits **ILLUSTRATED BY W. E. S. TROWBRIDGE / MCMII**; actual copyright page says **COPYRIGHT, 1902, BY FLEMING H. REVELL COMPANY / October**.
+
+Rights: **Public domain for the independently verified US-published 1902 artwork, by age** (`trowbridge_sauganash_hotel`). This replaces the formerly unsupported publication/rights claim and supersedes the source record’s artwork hold. A modern stock agency’s offered reproduction retains its own separate terms; no stock licence is claimed. Captioned 1835 does not prove every pictured fitting on 1 July 1835, dimensions, colour or independent corroboration.
+
+Actual plate: <https://archive.org/details/reminiscencesofe00ingale/page/n49/mode/1up>; title <https://archive.org/details/reminiscencesofe00ingale/page/n12/mode/1up>; copyright <https://archive.org/details/reminiscencesofe00ingale/page/n13/mode/1up>. Original reproduction links remain documented in the source’s historical note.
 
 #### `chicago_first_courthouse_1835.jpg`
 

@@ -1,0 +1,22 @@
+{
+  "scope": "ONE HELD original-source mid tessellation proposal. Every physical feature remains; subdivision records change. No runtime or photographic acceptance.",
+  "source_near_raw_sha256": "b74e00937871eef8666fe048501456a8409b18df185c87a0905b083b7a2448fa",
+  "details": {
+    "near": {},
+    "mid": {
+      "tube_sides": 4,
+      "ring_segments": 16,
+      "ring_cross_sides": 4,
+      "hub_ring_cross_sides": 8,
+      "spoke_cross_sides": 4,
+      "hub_segments": 8,
+      "rear_rows": 4,
+      "rear_columns": 6,
+      "roof_longitudinal_steps": 2,
+      "roof_cross_steps": 6,
+      "cushion_sections": 16,
+      "spring_steps": 5,
+      "mudguard_steps": 12
+    }
+  }
+}
