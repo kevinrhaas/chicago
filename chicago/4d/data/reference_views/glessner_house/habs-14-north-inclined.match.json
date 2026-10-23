@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "eabb640c6e2670f5d341c0dfab15ffade604f80cc7de095959c5b0ab4aecd6a5",
+  "glb_sha256": "5fff90bb9d42aa51dc25ecacc8da8b2a02f5e56cfebc6fb8e789f1b26f284a1b",
   "camera_sha256": "8bfd6b92c10170309c7b2656ba3f8d146184065de167400db4ce40edf4577a1d",
   "photo_sha256": "03e9b881e2032acd85c4c23f534ac235747ae6f17f373943b31308c13b0d8400",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
@@ -21,8 +21,8 @@
       "status": "fixed"
     },
     {
-      "what": "Stone/course appearance differs. T-3044: course heights to T-3045, rock-face relief to T-3046 (docs/RESEARCH/glessner-course-reading-T-3044/). T-3045 has laid the heights (the fixed entry below); what stays open here is the relief, T-3046's.",
-      "status": "open"
+      "what": "Stone/course appearance differs. T-3044: course heights to T-3045, rock-face relief to T-3046 (docs/RESEARCH/glessner-course-reading-T-3044/). T-3045 laid the heights (the fixed entry below), and T-3046 the relief on both granite faces, one coursing round the corner, closing with Taylor 2135's: a course printed 11.5 in or over now crowns 1.25 times its stones' bow and rises to it over at most 0.09 m, so through Taylor 2135's camera, on the laid beds, a high course's lower-lip shadow reads 1.33 times a low course's in the render against 1.32 in the photograph (0.86 before; docs/RESEARCH/glessner-course-relief-T-3046/).",
+      "status": "fixed"
     },
     {
       "what": "T-2870: the upper date stone's monogram. The photograph shows one joined device, not two letters: two bowls facing outward, each closed by a stem, and a bar between the stems at mid-height (x 959-991, y 267-280 on a stone at x 938-1013, y 262-287: about 0.43 of the stone's width and 0.53 of its height, centred; the stems at about 0.33 and 0.73 of the device's width). The model drew AD in a generic font; it now draws that device as cut strokes at those shares, and the render's device falls on the photograph's within the stone.",

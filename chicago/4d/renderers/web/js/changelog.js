@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2219, ts: '2026-10-23T14:24:33.243Z', date: 'Oct 23, 2026, 9:24 AM CT', title: '1812 Prairie\'s tall south chimney stands near the front', kind: 'fix',
+    items: [
+      'The tall chimney on the south wall of George H. Wheeler\'s house at 1812 Prairie Avenue now stands near the front, about 2 m behind it, and rises to 16.8 m. It used to stand 6 m back and 0.8 m higher. A second photograph, taken about 1955 from a little south of the house, saw the chimney from a new angle. Comparing it with Albert Levy\'s photograph from the 1880s or 1890s fixed where the chimney stands. The 1955 photograph also shows a second tall chimney behind the gable\'s north side. Levy\'s photograph shows only open sky there, so that chimney is not built for 1904.',
+    ] },
   { v: 2218, ts: '2026-10-23T12:27:58.344Z', date: 'Oct 23, 2026, 7:27 AM CT', title: '1801 Prairie\'s south pavilion has its cut-back corner', kind: 'fix',
     items: [
       'The south-west corner of the Kimball house\'s south pavilion on Prairie Avenue is now cut back at an angle, as the 1911 fire insurance map draws it: the front stops about 45 cm short of the corner and a slanted stone face runs back from there to the side wall, from the ground up to the gable. The house\'s own corner is cut away behind it, and the gable now sits on the narrower front with its peak at the same height. Seen from where J. W. Taylor took his photograph of about 1895, the pavilion\'s front is now as wide as his photograph shows it. The whole pavilion still sits a little south of where the photograph puts it, because the camera position fitted to that photograph took the wrong point for this corner; fixing that is next.',
