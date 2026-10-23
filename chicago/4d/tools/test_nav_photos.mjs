@@ -163,7 +163,11 @@ ok('the pane draws 12 tiles with year, caption and credit; All N shows every one
 
 // ---- link-only source identity and publication context -----------------------------------------
 ok('link-only cards keep sourced identity warnings and creator plus holder without changing captions', () => {
-  const pictures = JSON.parse(read('data/pictures/1835.json'));
+  // Derived from the tree, as the Glessner case below is: data/pictures/ is written only at
+  // publish, after this pooled step may already have run, so a clean checkout has no file.
+  const py = 'import sys, json; sys.path.insert(0, "tools"); import compile_pictures as cp; '
+    + 'print(json.dumps(cp.derive(*cp.read_tree())["1835"]))';
+  const pictures = JSON.parse(execFileSync('python3', ['-c', py], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 << 20 }));
   for (const [sid, sourceId, leaf] of [
     ['jb_beaubien_homestead', 'kinzie_1857_chicago_1831_panorama', null],
     ['green_tree_tavern', 'andreas_1884_green_tree_hotel_plate', '1301'],
