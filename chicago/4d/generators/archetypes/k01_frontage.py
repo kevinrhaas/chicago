@@ -2843,6 +2843,9 @@ class Assembly:
                              {"pitch_deg": p.roof_pitch_deg, "eave_overhang_m": o,
                               **({"variant": m["variant"], "lower_pitch_deg": m["lower_pitch_deg"],
                                   "lower_rise_m": m["lower_rise_m"], "curb_datum_m": m["curb_m"]} if m else {}),
+                              **({"side_parapet": {"wall": m["side_parapet"]["wall"],
+                                                   "top_m": m["side_parapet"]["top_m"]}}
+                                 if (m or {}).get("side_parapet") else {}),
                               **({"ridge_back_m": gb["ridge_back_m"], "back_pitch_deg": gb["back_pitch_deg"],
                                   "parapets": {k_: e["style"] for k_, e in gb["ends"].items()},
                                   "parapet_top_m": round(yr + gb["top_above_ridge_m"], 4)} if gb else {}),
@@ -2865,6 +2868,16 @@ class Assembly:
             hip, hs = k5.hip_element(0.0, D, -W, 0.0, E, tp, o, f)
         if not gb:
             solids = [hip, k5.body_box(0.0, D, -W, 0.0, hs - 1.0, hs)]
+        spp = (m or {}).get("side_parapet")
+        if spp:
+            # T-3061: a side wall carried up past the curb as a coped parapet, joined FIRST so
+            # the union keeps its faces on the wall's plane; its front end stops just behind
+            # the street wall's, as a gable roof's parapets do (k01_gable_roof.FRONT_SET_M)
+            from .k01_gable_roof import FRONT_SET_M
+            tw, slab = spp["thickness_m"], spp["top_m"] - spp["coping_m"]
+            c0, c1 = (-tw, 0.0) if spp["wall"] == "south" else (-W, -W + tw)
+            solids = k5.parapet_element({}, [(0.0, slab), (D - FRONT_SET_M, slab)], (c0, c1), "z", tw, hs,
+                                        spp["coping_m"], spp["drip_m"], 0.0, 0.0) + solids
         cr = (m or {}).get("crown")
         if cr and cr.get("form") == "hip":   # T-2465: a crown hipped to its own ridge
             crown, _, _ = k5.hip_crown_element(cr["x0"], cr["x1"], cr["z0"], cr["z1"], E, cr["pitch_deg"],
@@ -3806,6 +3819,17 @@ class Assembly:
             # not built and each side run dies into the gable's base at its back (k01_shaped_gable)
             xb = self.shaped_gable_geom["xb"]
             dead += [(starts[3] + xb + A, P), (0.0, starts[1] + D + A - xb)]
+        spp = (p.mansard or {}).get("side_parapet")
+        if spp:
+            # T-3061: no gutter along a side wall carried up as a parapet: the runs beside it
+            # stop at the wall's outer plane, each end stopped where the run beside it is live
+            i = 3 if spp["wall"] == "south" else 1
+            d0, d1 = starts[i] - A, starts[i] + lens[i] + A
+            live = lambda sv: not any(a - 1e-6 <= sv % P <= b + 1e-6 for a, b in dead)
+            for sv, sign in ((d0, 1.0), (d1 % P, -1.0)):
+                if live(sv - sign * 0.01):
+                    stop_ends.append((sv % P, sign))
+            dead += [(d0, P), (0.0, d1 - P)] if d1 > P else [(d0, d1)]
         stations = sorted({*(round(x % P, 6) for x in starts), *(round(x, 6) for x in outlets),
                            *(round(x, 6) for x in highs), *(round(x, 6) for d in dead for x in d)})
         pr = self.prim(mat)
