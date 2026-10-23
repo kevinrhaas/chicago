@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2230, ts: '2026-10-23T21:51:40.395Z', date: 'Oct 23, 2026, 4:51 PM CT', title: 'Hogan\'s store gains its pictured openings', kind: 'improvement',
+    items: [
+      'The first post office now has one front sash, an off-centre doorway, a small gable opening and a roof stack placed from Cameron\'s retrospective painting.',
+      'Its picture entry credits Cameron and the Chicago Historical Society. Exact dimensions remain reconstructed, and the building\'s full picture match is still in progress.',
+    ] },
   { v: 2229, ts: '2026-10-23T21:35:53.377Z', date: 'Oct 23, 2026, 4:35 PM CT', title: 'Buildings no longer stand inside each other, or fences through them', kind: 'fix',
     items: [
       'Lake and Canal, 1835: Pierce\'s blacksmith shop now stands next door to Goss & Cobb\'s saddlery instead of inside it.',
