@@ -2114,6 +2114,16 @@ class Assembly:
             lo_c, hi_c = p.stone["course_m"]
             v = {**v, "masonry": {**v["masonry"], "coursing": {**c, "beds_m": self.front_beds(),
                                                                 "thin_below_m": (lo_c + hi_c) / 2}}}
+        # T-3007: an oriel carried out over a rounded corner (1811's south return): its back is
+        # closed on the wall plane over the round, from its support's foot to the round's top
+        # (where the round's corbel has squared it out), since the curve falls away behind it
+        g = (k01_frontage_params.round_corner_gap(p.round_corner, p.depth_m, p.width_m, b)
+             if p.round_corner and v["kind"] == "oriel" else None)
+        if g is not None:
+            # the round's top, as build() cuts the front for it (`y_round`)
+            y_round = p.arched_front["stone_top_m"] if p.arched_front else self.soffit_m
+            v = {**v, "back_over": {"x": [g[0] - b["s_m"], g[1] - b["s_m"]],
+                                    "y": [K8.support_bottom(v), y_round]}}
         built = K8.Bay(v, K8.load(), "full").build(board=False)
         conf = p.conf("bays")
         seed = self.instance(f"k08.{v['kind']}", "bay",

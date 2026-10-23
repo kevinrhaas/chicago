@@ -84,6 +84,7 @@ ROOT = HERE.parents[1]
 DATA = ROOT / "data" / "components" / "prairie_1904" / "k08_bays.json"
 GENERATOR = "chicago-4d generators/archetypes/k08_bays.py (K08, T-2307)"
 RECONSTRUCTED = 1.0  # k01_frontage_params.CONFIDENCE_VALUE["reconstructed"]
+ROUND_APRON_STEPS = 8   # T-3007: a round apron's quarter round, in facets of 11.25 degrees
 Y = (0.0, 1.0, 0.0)
 
 # Role -> material. Fixed order: the file is the same bytes every run. `roof` and
@@ -792,6 +793,8 @@ def k06_variant(w: dict) -> dict:
     # T-2883: a narrow light (an oriel's cheek) is one light a sash: no bar splits its glass
     if w.get("narrow"):
         v6["panes"] = [1, 1]
+        if "transom_m" in v6:   # T-3007: and its transom one light (1811's oriel's return)
+            v6["transom_lights"] = 1
     return v6
 
 
@@ -864,7 +867,9 @@ class Bay:
             for w in st["windows"]:
                 for i, s in locate(self.runs, self.plan, w):
                     per_run[i][k].append((w, s))
-        y_wall0 = plinth["height_m"] if grade else y0
+        y_wall0 = plinth["height_m"] if grade else self._wall_foot(y0)
+        if not y_wall0 < levels[1] - 1e-9:
+            raise ValueError(f"{v['id']}: its walls start at {y_wall0:.3f} m, over its lowest storey")
         for i, run in enumerate(self.runs):
             flat = strip(f"{v['id']}|run{i}")
             for k in range(len(v["storeys"])):
@@ -959,6 +964,8 @@ class Bay:
         self._roof(world, y_e, ov, cv)
         if v.get("back_from_m") is not None:
             self._back(world, float(v["back_from_m"]), y_top, y_e)
+        if v.get("back_over") is not None:
+            self._back_over(world, v["back_over"])
         if v.get("brackets"):
             self._consoles(world, y_top, ov)
         merge(self.prims, world.prims)
@@ -1027,25 +1034,46 @@ class Bay:
                                "bottom_m": round(y, 4)}
 
     def _apron_layout(self, y0):
-        """T-2883: (foot, the foot's profile [n out, u up] from its underside to the face)."""
-        prof = [tuple(q) for q in part(self.v, self.data, "apron")["foot_profile"]]
+        """T-2883: (foot, the foot's profile [n out, u up] from its underside to the face).
+        T-3007: a ROUND apron (`form` "round", 1811's oriel's rock-faced base on its 1888
+        plate) is a quarter round of `radius_m` from the face turned under to its foot, so its
+        profile runs from the underside, that far behind the face, up round to the face, and
+        the walls stand from the round's top (`_wall_foot`): its foot may be the floor itself,
+        the round then taken out of the lowest storey's wall."""
         foot = float(self.v["apron"]["foot_m"])
+        if self.v["apron"].get("form") == "round":
+            R = float(self.v["apron"]["radius_m"])
+            if not 0.1 <= R <= 0.5 or not y0 - 0.5 <= foot <= y0 <= foot + R:
+                raise ValueError(f"{self.v['id']}: a round apron turns under on 0.1-0.5 m (not {R}) from a foot "
+                                 f"at most 0.5 m under its floor at {y0} m, its top on or over the floor")
+            k = ROUND_APRON_STEPS
+            return foot, [(-R + R * math.cos(math.pi / 2 * (k - j) / k), R - R * math.sin(math.pi / 2 * (k - j) / k))
+                          for j in range(k + 1)]
+        prof = [tuple(q) for q in part(self.v, self.data, "apron")["foot_profile"]]
         if not foot + max(u for _, u in prof) < y0:
             raise ValueError(f"{self.v['id']}: the apron's foot at {foot} m leaves no face under the floor at {y0} m")
         return foot, prof
+
+    def _wall_foot(self, y0):
+        """Where an oriel's walls start: its floor, or the top of its round apron (T-3007)."""
+        ap = self.v.get("apron") or {}
+        return max(y0, float(ap["foot_m"]) + float(ap["radius_m"])) if ap.get("form") == "round" else y0
 
     def _apron_face(self, flat, run, y0):
         """The run's face carried straight down from the floor to the foot, and the foot's
         moulding swept along it, in the apron's own role (T-2904: the kit lays it in the
         support's stone; a host may give it a stone of its own, as 1625's print reads it)."""
         foot, prof = self._apron_layout(y0)
-        wall_cells(flat, "apron", [], 0.0, run.L, foot + max(u for _, u in prof), y0)
+        if self.v["apron"].get("form") != "round":   # T-3007: a round apron is its moulding alone
+            wall_cells(flat, "apron", [], 0.0, run.L, foot + max(u for _, u in prof), y0)
         moulding(flat, "apron", run, foot, prof)
 
     def _apron_bottom(self, world, y0, cv):
         """The foot's underside: the plan offset out to the foot's nose, closed back to the wall."""
         foot, prof = self._apron_layout(y0)
-        z = max(n for n, _ in prof)
+        rnd = self.v["apron"].get("form") == "round"
+        # T-3007: a round apron's underside is its plan offset IN by its radius, back to the wall
+        z = min(n for n, _ in prof) if rnd else max(n for n, _ in prof)
         pts = []
         for r in self.runs:
             a, b = r.s_start(z), r.s_end(z)
@@ -1055,7 +1083,8 @@ class Bay:
                 pts.append(r.world(a + (b - a) * j / n, foot, z))
         world.face("apron", pts, (0.0, -1.0, 0.0))
         self.meta["apron"] = {"top_m": round(y0, 4), "foot_m": round(foot, 4),
-                              "foot_height_m": round(max(u for _, u in prof), 4), "foot_proud_m": round(z, 4)}
+                              "foot_height_m": round(max(u for _, u in prof), 4), "foot_proud_m": round(z, 4),
+                              **({"form": "round"} if rnd else {})}
 
     # brackets (T-2408) -----------------------------------------------------------------------
     def _modillions(self, flat, run, y_top, ov):
@@ -1316,7 +1345,12 @@ class Bay:
             raise ValueError(f"{self.v['id']}: a spire rises 0.5-6 m over its eaves, not {rise}")
         dom = self._eaves_outline(ov)
         # the apex stands the finial's radius off the wall plane, so the finial's shaft does too
-        apex = ((dom[0][0] + dom[-1][0]) / 2, y_e + rise,
+        # T-3007: or over the point the roof names (`apex_m` along the wall), where a plan is
+        # not symmetric (1811's oriel, its apex over its front's middle on the 1888 plate)
+        ax = self.v["roof"].get("apex_m")
+        if ax is not None and not dom[0][0] + 0.3 <= float(ax) <= dom[-1][0] - 0.3:
+            raise ValueError(f"{self.v['id']}: a spire's apex_m {ax} stands 0.3 m inside its eaves' ends")
+        apex = ((dom[0][0] + dom[-1][0]) / 2 if ax is None else float(ax), y_e + rise,
                 part(self.v, self.data, "finial")["radius_m"] if self.v["roof"].get("finial") else 0.0)
         for a, b in zip(dom, dom[1:]):
             world.face("roof", [(a[0], y_e, a[1]), (b[0], y_e, b[1]), apex], Y)
@@ -1354,6 +1388,20 @@ class Bay:
                 world.face("roof_back", q(x0, x1, y_b if under else y_top, y_e), B)
             world.face("roof_back", [(x1, y_e, 0.0), (x0, y_e, 0.0), apex], B)
         self.meta["back"] = {"from_m": round(y_b, 4), "to_m": round(apex[1], 4)}
+
+    def _back_over(self, world, bo):
+        """T-3007: where the host's wall is not on the wall plane behind the bay (1811's oriel,
+        its south return carried out over the entrance block's rounded corner on the 1888
+        plate), its back is closed on that plane, in its own walling, over `x` along the wall
+        and from `y` to `y`: so no one looking up the gap between it and the round sees into
+        it. The host says where (k01_frontage.bay); the face stands inside the bay's plan."""
+        (x0, x1), (y0, y1) = (tuple(map(float, bo["x"])), tuple(map(float, bo["y"])))
+        jl, jr = self.runs[0].world(0.0, 0.0, 0.0)[0], self.runs[-1].world(self.runs[-1].L, 0.0, 0.0)[0]
+        if not jl - 1e-9 <= x0 < x1 <= jr + 1e-9 or not y0 < y1:
+            raise ValueError(f"{self.v['id']}: its back over x {x0}..{x1} from {y0} to {y1} m stands "
+                             f"outside its junctions ({jl:.3f}..{jr:.3f})")
+        world.face("roof_back", [(x1, y0, 0.0), (x0, y0, 0.0), (x0, y1, 0.0), (x1, y1, 0.0)], (0.0, 0.0, -1.0))
+        self.meta["back_over"] = {"x": [round(x0, 4), round(x1, 4)], "y": [round(y0, 4), round(y1, 4)]}
 
     def _frieze(self, flat, run, y0, y1, fr, band_h, framed_above):
         """T-2778: a windowless storey's carved frieze on one run, between the floor bands

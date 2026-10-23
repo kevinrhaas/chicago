@@ -22,7 +22,8 @@
     "sources": [
       "andreas_1884_v1"
     ],
-    "note": "Andreas: Carpenter 'purchased a lot on South Water Street, between LaSalle and Wells streets' and 'erected a small store' in the summer of 1833. The range opens at 1 August, the middle of that summer, because no month is given and a mid-season date claims less than either end of it. THE SURVIVAL TO THE SCENE DATE IS THE ORDINARY CONTINUITY ARGUMENT, and it is stronger here than on most records in this parcel: this is the building Carpenter MOVED INTO, two years old on the scene date, on the street he had just bought a lot on, and nothing suggests a man does that and then leaves. Carpenter's own advertisement in the Chicago Democrat of 26 November 1833 — drugs, medicines, oils, paints, dye-stuffs, and also dry groceries, glass and nails — shows him trading three months after building it, though it gives no address and so cannot say which of his two premises it was placed from. THE END IS A HOUSEKEEPING BOUND at the scene year, not a demolition date."
+    "note": "Andreas: Carpenter 'purchased a lot on South Water Street, between LaSalle and Wells streets' and 'erected a small store' in the summer of 1833. The range opens at 1 August, the middle of that summer, because no month is given and a mid-season date claims less than either end of it. THE SURVIVAL TO THE SCENE DATE IS THE ORDINARY CONTINUITY ARGUMENT, and it is stronger here than on most records in this parcel: this is the building Carpenter MOVED INTO, two years old on the scene date, on the street he had just bought a lot on, and nothing suggests a man does that and then leaves. Carpenter's own advertisement in the Chicago Democrat of 26 November 1833 — drugs, medicines, oils, paints, dye-stuffs, and also dry groceries, glass and nails — shows him trading three months after building it, though it gives no address and so cannot say which of his two premises it was placed from. THE END IS A HOUSEKEEPING BOUND at the scene year, not a demolition date.",
+    "from_is": "began"
   },
   "change_note": "The small store Philo Carpenter erected in the summer of 1833 on a lot he had bought on South Water Street between LaSalle and Wells — the second premises of Chicago's first druggist, and the one that makes the survival of his 1832 log shop on Lake Street doubtful. On the scene date it is two years old.",
   "placement": {
@@ -130,6 +131,14 @@
         "andreas_1884_v1"
       ],
       "note": "Carpenter is documented as the man who bought the lot and erected the store in 1833. That he was still in it on 1835-07-01 is the continuity inference argued on documented_range. No partner, clerk or successor is attested."
+    },
+    "built": {
+      "value": 1833,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas: Carpenter 'erected a small store' in the summer of 1833."
     }
   },
   "residents": [

@@ -23,7 +23,8 @@
       "andreas_1884_v1",
       "lighthousefriends_chicago"
     ],
-    "note": "THE SECOND TOWER, AND THE ONLY ONE STANDING ON THE SCENE DATE. Andreas: 'Another tower, forty feet high, was begun and completed by Mr. Jackson in 1832.' No month is given by any source reached, so the range opens at the last day of 1832 rather than at an invented date inside it - which is deliberately conservative and still leaves the tower two and a half years old on 1835-07-01. The end of the range is an upper bound rather than a terminus: the Government put a new light at the end of the North Pier and the old one was eventually given away with its ground by an act of 1 August 1854, with Mark Beaubien the last keeper. THE FIRST TOWER IS NOT THIS ONE and is excluded in data/exclusions.json: it fell on 30 October 1831, unfinished, and everything usually quoted about its fabric - three-foot walls, fifty feet of height - is about the tower that collapsed."
+    "note": "THE SECOND TOWER, AND THE ONLY ONE STANDING ON THE SCENE DATE. Andreas: 'Another tower, forty feet high, was begun and completed by Mr. Jackson in 1832.' No month is given by any source reached, so the range opens at the last day of 1832 rather than at an invented date inside it - which is deliberately conservative and still leaves the tower two and a half years old on 1835-07-01. The end of the range is an upper bound rather than a terminus: the Government put a new light at the end of the North Pier and the old one was eventually given away with its ground by an act of 1 August 1854, with Mark Beaubien the last keeper. THE FIRST TOWER IS NOT THIS ONE and is excluded in data/exclusions.json: it fell on 30 October 1831, unfinished, and everything usually quoted about its fabric - three-foot walls, fifty feet of height - is about the tower that collapsed.",
+    "from_is": "began"
   },
   "change_note": "",
   "placement": {
@@ -118,6 +119,14 @@
         "lighthousefriends_chicago"
       ],
       "note": "The light at the mouth of the Chicago River, the first established on Lake Michigan. Samuel Lasby was the first keeper; who kept it on 1835-07-01 was not established - Wentworth names William M. Stevens as keeper when he arrived in October 1836, and no source reached covers the gap."
+    },
+    "built": {
+      "value": 1832,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas: 'Another tower, forty feet high, was begun and completed by Mr. Jackson in 1832.'"
     },
     "land_owner": {
       "value": "The ground was entered by John Baptist Baubian, 28 May 1835",

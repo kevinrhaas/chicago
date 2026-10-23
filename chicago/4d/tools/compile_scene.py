@@ -2874,7 +2874,7 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                     collect(v)
 
         collect(phase)
-        for key in ("function", "occupants", "present_status", "lot_address", "land_owner",
+        for key in ("function", "occupants", "present_status", "built", "lot_address", "land_owner",
                     "part_of", "stated_use"):
             collect(st.get(key, {}))
         if st.get("reconstruction", {}).get("source_id"):
@@ -2890,7 +2890,9 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
         for attr, a in (phase.get("form") or {}).items():
             attributes[attr] = {k: v for k, v in a.items() if k in
                                 ("value", "confidence", "sources", "note", "geometry")}
-        for key in ("function", "occupants", "present_status"):
+        # T-3037: `built` is the structure's build date as its sources give it, which the
+        # card prints; the phase's range below is not one (see `from_is`).
+        for key in ("function", "occupants", "present_status", "built"):
             if key in st:
                 attributes[key] = {k: v for k, v in st[key].items() if k in
                                    ("value", "confidence", "sources", "note", "geometry")}
@@ -3034,6 +3036,10 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 "confidence": rng.get("confidence", "reconstructed"),
                 "sources": rng.get("sources", []),
                 "note": rng.get("note", ""),
+                # T-3037. What each end IS — a dated beginning or end, a first or last
+                # sighting — carried only where the record says, so a card never prints a
+                # bound the record chose (the scene's own year, most often) as a date.
+                **{k: rng[k] for k in ("from_is", "to_is") if k in rng},
             },
             # What this phase IS, in the record's own words. Written for a reader
             # and read by nobody: it is where a record says that a building holding

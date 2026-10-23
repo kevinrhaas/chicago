@@ -28,7 +28,8 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
     ],
-    "note": "STANDING IN 1904 is what the scene needs, and it rests on sheet 20 of the 1911 Sanborn carried back seven years, the reading the Glessner, 1808 and 1904 parcel records make of these sheets. FROM: the T-1837 building register gives 1868 (the street marker) against 1870 (a 1973 report) for the house; the register is not a source record here, so the earlier year's first day stands, inferred. TO: the register gives the loss as 1944 (marker); same footing, that year's last day."
+    "note": "STANDING IN 1904 is what the scene needs, and it rests on sheet 20 of the 1911 Sanborn carried back seven years, the reading the Glessner, 1808 and 1904 parcel records make of these sheets. FROM: the T-1837 building register gives 1868 (the street marker) against 1870 (a 1973 report) for the house; the register is not a source record here, so the earlier year's first day stands, inferred. TO: the register gives the loss as 1944 (marker); same footing, that year's last day.",
+    "from_is": "began"
   },
   "change_note": "",
   "placement": {
@@ -941,6 +942,14 @@
         "sanborn_1911_chicago_v3_sheet_20"
       ],
       "note": "Sheet 20 prints the 1911 use 'D' (dwelling) on the 1638 lot."
+    },
+    "built": {
+      "value": 1868,
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ],
+      "note": "The marker: 'John G. Shortall-Robert B. Gregory Residence. Built 1868'. The Prairie library notes a 1973 report that gives 1870."
     }
   },
   "residents": [],
@@ -961,6 +970,22 @@
         "colour: the print is monochrome, so every paint colour stays reconstructed",
         "the side, rear and north walls, and the roofs behind the gable",
         "a date: undated, and its 1904 reading rests on nothing recorded as changing"
+      ]
+    },
+    {
+      "source_id": "hmdb_prairie_lost_houses_1600_1700",
+      "citation": "'Lost Houses of Prairie Avenue: 1600-1700 Blocks', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308722.",
+      "url": "https://www.hmdb.org/m.asp?m=308722",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "each house's builder, year built and architect as the district's marker gives them",
+        "Pullman's theatre, organ and bowling alley and Beman's conservatory additions, in paraphrase"
+      ],
+      "what_it_does_not_supply": [
+        "the 1904 occupants",
+        "any measurement or appearance"
       ]
     },
     {

@@ -1425,11 +1425,21 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # T-2883: or an apron in the corbel courses' place, a flat face down to a moulded foot
             if "apron" in e:
                 ap = e["apron"]
-                if "corbel" in e or not {"foot_m"} <= set(ap) <= {"foot_m", "fabric"} \
-                        or not 1.0 <= base - float(ap["foot_m"]) <= 2.5:
+                # T-3007: or a ROUND apron, its face turned under on a quarter round of
+                # radius_m (0.1-0.5 m) to a foot 0-0.5 m under the floor, its top on or over it
+                # (1811's oriel's rock-faced base on its 1888 plate, the floor its foot)
+                rnd = ap.get("form") == "round"
+                ok = {"foot_m", "form", "radius_m"} <= set(ap) <= {"foot_m", "fabric", "form", "radius_m"} \
+                    and ap["form"] == "round" and 0.1 <= float(ap["radius_m"]) <= 0.5 \
+                    and 0.0 <= base - float(ap["foot_m"]) <= min(0.5, float(ap["radius_m"])) if rnd \
+                    else {"foot_m"} <= set(ap) <= {"foot_m", "fabric"} and 1.0 <= base - float(ap["foot_m"]) <= 2.5
+                if "corbel" in e or not ok:
                     raise ParamError(f"bays: {e['id']}'s apron takes foot_m (and a fabric), 1.0-2.5 m under its floor "
-                                     f"at {base} m, in place of its corbel courses (not beside them)")
-                v["apron"] = {"foot_m": float(ap["foot_m"])}
+                                     f"at {base} m, in place of its corbel courses (not beside them); a round one "
+                                     f"(form 'round') a radius_m of 0.1-0.5 m and its foot under the floor by no "
+                                     f"more than that")
+                v["apron"] = {"foot_m": float(ap["foot_m"]),
+                              **({"form": "round", "radius_m": float(ap["radius_m"])} if rnd else {})}
                 v.pop("corbel", None)
                 # T-2904: or in a stone of its own: the front's K02 walling, where the bay is dressed
                 if "fabric" in ap and not (ap["fabric"] == "front_stone" and front_stone):
@@ -1438,11 +1448,20 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             q = e.get("plan")
             if q is not None:
                 pts = [[float(x), float(z)] for x, z in q.get("points", ())]
+                # T-3007: or, saying so (`asymmetric`), returns of their own (1811's on its 1888
+                # plate: square to the north, splayed back to the rounded corner to the south),
+                # each end on the wall either side of the centre, running left to right
+                asym = q.get("asymmetric") is True
                 if q.get("kind") != "polyline" or len(pts) != len(v["plan"]["points"]) \
-                        or any(abs(a[0] + b[0]) > 1e-9 or abs(a[1] - b[1]) > 1e-9 for a, b in zip(pts, pts[::-1])) \
+                        or set(q) - {"kind", "points", "asymmetric"} \
+                        or (not asym and any(abs(a[0] + b[0]) > 1e-9 or abs(a[1] - b[1]) > 1e-9
+                                             for a, b in zip(pts, pts[::-1]))) \
+                        or (asym and (abs(pts[-1][1]) > 1e-9 or not pts[0][0] < 0.0 < pts[-1][0]
+                                      or any(b[0] < a[0] - 1e-9 for a, b in zip(pts, pts[1:])))) \
                         or abs(pts[0][1]) > 1e-9 or not all(0.0 < z <= 1.2 for _, z in pts[1:-1]):
                     raise ParamError(f"bays: {e['id']} sizes its oriel's plan as the kit's canted polyline, "
-                                     f"symmetric, its ends on the wall and its front at most 1.2 m out")
+                                     f"symmetric (or `asymmetric`, running left to right about its centre), "
+                                     f"its ends on the wall and its front at most 1.2 m out")
                 v["plan"] = {"kind": "polyline", "points": pts}
         if e["wall"] not in wall_len:
             raise ParamError(f"bays: {e['wall']} is not one of this assembly's walls")
@@ -1593,13 +1612,15 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     w["head_band_m"] = hb
                 # T-2883: a narrow light in a shallow cheek (1625's oriel, from its print): one light
                 # a sash on a double-hung K06 opening, under half a metre, and it says why
+                # T-3007: or a transom sash's (1811's oriel's return, its lights transomed as its front's)
                 if "narrow" in w:
                     k06 = json.loads(WINDOW_KIT.read_text())
                     v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
-                    if w["narrow"] is not True or v6.get("operation") != "double_hung" or v6.get("bays", 1) != 1 \
+                    if w["narrow"] is not True or v6.get("operation") not in ("double_hung", "double_hung_transom") \
+                            or v6.get("bays", 1) != 1 \
                             or not 0.2 <= float(w.get("clear_width_m", 1.0)) <= 0.45 or not w.get("why_not_ordinary"):
                         raise ParamError(f"bays: {e['id']}'s narrow light is `narrow: true` on a single double-hung "
-                                         f"K06 opening 0.2-0.45 m across that says why (why_not_ordinary)")
+                                         f"(or transomed) K06 opening 0.2-0.45 m across that says why (why_not_ordinary)")
                 g = w.get("grille")
                 if g is None:
                     continue
@@ -2796,6 +2817,35 @@ def round_corner_spans(rc: dict, depth: float, width: float) -> dict:
             "walls": {"k01.wall.street_front": (0.0, r), "k01.wall.side.south": (depth - r, depth)}}
 
 
+#: T-3007: how far an oriel's junction on the wall plane may stand off a round corner's curve
+ROUND_ORIEL_GAP_M = 0.3
+
+
+def round_corner_gap(rc: dict, depth: float, width: float, b: dict):
+    """T-3007: an oriel on the street front reaching onto a rounded corner (1811's, its south
+    return carried back to the round on the 1888 plate): (s0, s1, gap) — the stretch of the
+    wall plane its back stands over the round, from the round's tangent to its junction, and
+    how far that junction stands off the curve — or None where it may not: it must stand on
+    the flat front as well, its junction short of the side wall's plane by BAY_PIER_M and
+    within ROUND_ORIEL_GAP_M of the curve. Its back over that stretch is closed on the plane
+    (k01_frontage.bay, `back_over`), since the round falls away behind it."""
+    r = rc["radius_m"]
+    (cu, cv), (s0, s1) = round_corner_spans(rc, depth, width)["centre"], \
+        round_corner_spans(rc, depth, width)["walls"]["k01.wall.street_front"]
+    a, e = b["span_m"]
+    end = e if rc["corner"] == "north" else a
+    if b["wall"] != "k01.wall.street_front" or (rc["corner"] == "north" and not a < s0 - 1e-6 < e) \
+            or (rc["corner"] == "south" and not a < s1 + 1e-6 < e):
+        return None
+    d = abs(end - cv)
+    if d > r - BAY_PIER_M:
+        return None
+    gap = depth - (cu + math.sqrt(r * r - d * d))
+    if gap > ROUND_ORIEL_GAP_M + 1e-9:
+        return None
+    return (s0, end, round(gap, 4)) if rc["corner"] == "north" else (end, s1, round(gap, 4))
+
+
 def _round_corner(rc, depth, width, stone, openings, bays, rainwater, *, side_belts, frontispiece) -> dict:
     """T-3006: a corner of the front block rounded on a radius from grade (1811's south corner
     on the 1888 plate, K01's 'north'), laid in the front's own stone and corbelled out to the
@@ -2823,7 +2873,10 @@ def _round_corner(rc, depth, width, stone, openings, bays, rainwater, *, side_be
                 raise ParamError(f"round_corner {rc['corner']}: {o.component} at s {o.s_m} on {wall} stands on the round")
         for b in bays:
             if b["wall"] == wall and b["span_m"][1] > s0 - 1e-6 and b["span_m"][0] < s1 + 1e-6:
-                raise ParamError(f"round_corner {rc['corner']}: the bay {b['id']} on {wall} stands on the round")
+                if b["variant"]["kind"] == "oriel" and round_corner_gap(out, depth, width, b) is not None:
+                    continue   # T-3007: an oriel carried out over the round (k01_frontage.bay closes its back)
+                raise ParamError(f"round_corner {rc['corner']}: the bay {b['id']} on {wall} stands on the round"
+                                 f"{'' if b['variant']['kind'] != 'oriel' else f' (an oriel may reach onto it from the flat front, its junction within {ROUND_ORIEL_GAP_M} m of the curve)'}")
         if any(sb.get("wall") == wall for sb in side_belts):
             raise ParamError(f"round_corner {rc['corner']}: a side belt runs on {wall} into the round")
     # a pipe on the round stands behind the front's plane, as far off the curve as a front

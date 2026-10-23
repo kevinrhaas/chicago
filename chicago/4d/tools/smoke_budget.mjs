@@ -194,6 +194,9 @@ const COVERAGE = [
   // data/summaries/ gets its row with the first record in it (T-2637): a row for a path
   // the tree does not hold is refused as rot.
   ['data/summary.schema.json', NONE, 'the shape those records are refused against: compile_summaries.py'],
+  // T-3037: the structure records' schema. No module fetches it; validate.py holds every
+  // record to it in check.sh, and what a record says reaches the browser through its sidecar.
+  ['data/structures.schema.json', NONE, 'the shape structure records are refused against: validate.py'],
   // T-2662 (prepared): the Guide's glossary and FAQ. No module reads them until the Navigator
   // Guide (T-2661) lands; check_guide.py holds them in check.sh.
   ['data/guide/', NONE, 'the Guide glossary and FAQ, read by no module yet: check_guide.py'],
@@ -417,6 +420,8 @@ const COVERAGE = [
   ['renderers/web/js/popup.js', [3, 4, 14], 'the card a visitor opens, and its sections in Inspect\'s tabs (parts 4, 14; T-2639)'],
   // T-2636: the card's templated head and lead; part 14 reads the 1904 Glessner card's.
   ['renderers/web/js/fallback-summary.js', [3, 14], 'the card\'s opening when no summary is written'],
+  // T-3037: the words a card prints for a record's dates, read by the card, Story and Sources.
+  ['renderers/web/js/range-words.js', [3, 4, 14], 'the dates a card prints, only as the record dates them'],
   ['renderers/web/js/census.js', [13], 'the town census in Evidence → City'],
   ['data/terrain/', [3], 'the heightfield'],
   ['data/liberties.json', [3, 14], 'the liberties taken on THAT building'],

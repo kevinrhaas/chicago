@@ -261,7 +261,7 @@ SLUG = re.compile(r"^[a-z0-9_]+$")
 # enumerated from the data rather than listed here. Kept in step with
 # tools/compile_liberties.py's COVER_ASPECTS.
 PHASE_ASPECTS = ("footprint", "position", "documented_range")
-STRUCTURE_ASPECTS = ("function", "occupants", "present_status")
+STRUCTURE_ASPECTS = ("function", "occupants", "present_status", "built")
 
 
 class Report:
@@ -353,6 +353,37 @@ def validate_schemas(sources, structures, scenes, rep: Report) -> None:
 # --------------------------------------------------------------------------
 # semantic: the confidence contract
 # --------------------------------------------------------------------------
+
+# T-3037. THE BUILD DATE A CARD PRINTS, in the few forms it can say truthfully: a year,
+# "about"/"by" a year, a span, or two years where the sources disagree. The card writes
+# "Built in 1886." from it, so a free phrase here would reach a visitor unread.
+BUILT_FORMS = re.compile(r"^(?:(?:about|by) \d{4}|between \d{4} and \d{4}|\d{4} or \d{4})$")
+
+
+def built_years(value) -> list[int]:
+    """The years a `built` value names, or [] when its form is not one the card reads."""
+    if isinstance(value, int) and not isinstance(value, bool):
+        return [value]
+    if isinstance(value, str) and BUILT_FORMS.match(value):
+        return [int(y) for y in re.findall(r"\d{4}", value)]
+    return []
+
+
+def check_built(where: str, st: dict, rep: Report) -> None:
+    """`built` holds a form the card can print, and no structure is built after a phase ends."""
+    block = st.get("built")
+    if block is None:
+        return
+    years = built_years(block.get("value") if isinstance(block, dict) else None)
+    if not years:
+        rep.error(where, "built: value must be a year, 'about 1834', 'by 1886', "
+                         "'between 1870 and 1876' or '1864 or 1875' (T-3037)")
+        return
+    for ph in st.get("phases", []):
+        to = (ph.get("documented_range") or {}).get("to", "")
+        if re.match(r"^\d{4}", to) and min(years) > int(to[:4]):
+            rep.error(where, f"built: {block['value']} is after phase {ph.get('id')} ends ({to})")
+
 
 def check_attested(where: str, key: str, att: dict, source_ids: set, rep: Report) -> str | None:
     """attested needs a resolving source; inferred and reconstructed need stated reasoning."""
@@ -6408,11 +6439,12 @@ def check_record_provenance(where: str, st: dict, source_ids: set, rep: Report,
         fp_conf = ph.get("footprint", {}).get("confidence")
         tally[fp_conf] = tally.get(fp_conf, 0) + 1
 
-    for key in ("function", "occupants", "present_status"):
+    for key in ("function", "occupants", "present_status", "built"):
         if key in st:
             check_attested(where, key, st[key], source_ids, rep)
             c = st[key].get("confidence")
             tally[c] = tally.get(c, 0) + 1
+    check_built(where, st, rep)
 
 
 def load_dir(d: Path, rep: Report) -> dict:

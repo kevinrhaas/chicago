@@ -5647,3 +5647,12 @@ remain open. Buttons/facings are deferred until the large-form repair is reviewe
 
 
 T-1789 person-card honesty followup (2026-10-22): the existing invented trade-head mint category now reads reconstructed identity rather than named in a source, and model-assigned firm memberships disclose their reconstructed link. Exactly309 invented trade heads change classification; historically source-read residents retain theirs. Presence grades, identities, memberships, assets and the standing position are unchanged. This corrects a false provenance claim found in actual published-town card inspection; photographic finishing remains open.
+## Fort compound reference rendering - T-3040 (under T-2387)
+
+The single-mesh reviewer could not test either fort's full picture acceptance.
+Group rendering now uses one scene's selected assets and surveyed placements,
+with peer-mesh/placement freshness checks. The initial 30-member first-fort and
+21-member second-fort baselines remain `differs`; neither camera is solved.
+[The checkpoint](RESEARCH/fort-reference-groups-T-3040/README.md) preserves source/date
+findings and next work across T-2372 through T-2388. T-3041 and T-2388 retain
+the full model-matching acceptance; this prerequisite changes no building.
