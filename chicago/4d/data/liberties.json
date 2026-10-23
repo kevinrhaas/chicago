@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 708,
+  "count": 709,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -51841,6 +51841,35 @@
         "T-3002",
         "T-3073",
         "T-3060"
+      ]
+    },
+    {
+      "id": "L-glessner-stack-layout-3024",
+      "title": "Glessner's 18th Street gable coping lowered to meet the stack under its date, the 1886 stone re-set to sheet 6, the crosses levelled",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "on the John J. Glessner House 18th Street gable, the parapet stands 0.5 ft above its roof (it was 1.2 ft), so its coping meets the stack's sides about 0.7 ft lower, just under the 1886 stone's foot; the 1886 stone stands 43.3-44.75 ft above north grade (it was 43.6-45.5, 1.9 ft tall); and the two crosses beside it stand level at its mid-height, 44.05 ft (they were stepped, 44.15 east and 44.95 west). The device's stone keeps its 45.8-47.2 ft. **What is read, not invented.** HABS sheet 6 (1965, no known restrictions) draws the stack edge-on from the east with both stones standing proud of it: at 73.6 px/ft from the printed 48.62 ft top, the device's stone stands 45.45-46.95 ft ng and the 1886 stone 43.2-44.65 (0.2 ft higher on the dimension's leader line), each about 1.45 ft tall, and the coping's rolled end meets the stack's east side at about 43.7-43.9 ft above grade, 0.3-0.75 ft under the built 44.2-44.5. Through HABS photograph 14's camera, anchored on that printed top (the camera's own solve puts the crest about 15 px high), the photograph reads the device's stone 45.55-47.15 ft ng and the 1886 stone 43.3-44.65, within 0.2 ft of the sheet on every edge; the crosses 44.15 and 44.0 ft, level within the print's grain; and the coping meeting both sides 1.2-1.5 ft under the built junction, both rakes 0.6-1.0 ft under the built ones along their length. HABS photograph 1 (1963) shows the coping meeting the stack about 0.8 ft lower than built, measured from the stack's crest. Photograph 4 (c. 1923; rights unknown, cited, nothing derived) shows the same coursing: a full course between the two stones, and the coping dying into the stack below the 1886 stone. **What is invented.** The coping's new height is the middle of three readings that spread from about 0.5 to 1.5 ft, so it is good to about +/-0.4 ft, and it is taken off the parapet's whole height, which lowers both rakes with it; the 1888 plate's reading of 1.2 ft (+/- 0.5) is superseded. The 1886 stone's 43.3-44.75 splits the sheet's two anchors and the photograph. The crosses' level is HABS 14's; photograph 4's upward, oblique view draws them stepped, and read along the date stone's own edges it still leaves the west one about a quarter of the stone's height higher, which this does not carry (rights unknown, and inside what that view's convergence allows)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a measured elevation of the 18th Street gable, or a tape on today's stack. Both photographs also read the stack's crest about 1.2-1.6 ft nearer the gable's fan than built; that is the crest and fan's to rule, not this one's."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23 (T-3024)."
+        }
+      ],
+      "work_refs": [
+        "T-3024",
+        "T-2854"
       ]
     },
     {

@@ -1,0 +1,118 @@
+{
+ "ticket": "T-3024",
+ "sheet6": {
+  "px_per_ft": 73.59,
+  "top_drawn": {
+   "device_stone_ng": [
+    45.44,
+    46.93
+   ],
+   "date_stone_ng": [
+    43.18,
+    44.65
+   ],
+   "coping_meets_G": 43.72
+  },
+  "top_leader": {
+   "device_stone_ng": [
+    45.63,
+    47.13
+   ],
+   "date_stone_ng": [
+    43.38,
+    44.85
+   ],
+   "coping_meets_G": 43.92
+  }
+ },
+ "habs14": {
+  "crest_shift_ft": 0.85,
+  "crest_projects_to_px": [
+   977.2,
+   216.9
+  ],
+  "crest": {
+   "photo_G": 48.51,
+   "photo_on_crest_G": 49.36,
+   "render_before_G": 49.41,
+   "W": 18.54
+  },
+  "device_top": {
+   "photo_G": 46.48,
+   "photo_on_crest_G": 47.33,
+   "render_before_G": 47.87,
+   "W": 18.61
+  },
+  "device_foot": {
+   "photo_G": 44.91,
+   "photo_on_crest_G": 45.76,
+   "render_before_G": 46.29,
+   "W": 18.57
+  },
+  "date_top": {
+   "photo_G": 43.98,
+   "photo_on_crest_G": 44.83,
+   "render_before_G": 45.97,
+   "W": 18.55
+  },
+  "date_foot": {
+   "photo_G": 42.63,
+   "photo_on_crest_G": 43.48,
+   "render_before_G": 44.04,
+   "W": 18.52
+  },
+  "cross_east": {
+   "photo_G": 43.5,
+   "photo_on_crest_G": 44.35,
+   "render_before_G": 44.55,
+   "W": 15.47
+  },
+  "cross_west": {
+   "photo_G": 43.35,
+   "photo_on_crest_G": 44.2,
+   "render_before_G": 45.27,
+   "W": 21.5
+  },
+  "coping_meets_east": {
+   "photo_G": 42.14,
+   "photo_on_crest_G": 42.99,
+   "render_before_G": 44.23,
+   "W": 14.73
+  },
+  "coping_meets_west": {
+   "photo_G": 42.09,
+   "photo_on_crest_G": 42.94,
+   "render_before_G": 44.48,
+   "W": 22.29
+  },
+  "fan_crown": {
+   "photo_G": 38.98,
+   "photo_on_crest_G": 39.83,
+   "render_before_G": 38.27,
+   "W": 18.44
+  }
+ },
+ "habs01": {
+  "px_per_ft": 8.94,
+  "photo_lower_than_built_from_crest_ft": {
+   "coping_meets_east": 0.78,
+   "fan_crown": -1.57
+  },
+  "crest_minus_fan_px": {
+   "photo": 79,
+   "render_before": 93
+  }
+ },
+ "record_after": {
+  "parapet_ft": 0.5,
+  "date_stone_ng": [
+   43.3,
+   44.75
+  ],
+  "crosses_ng": 44.05,
+  "device_stone_ng": [
+   45.8,
+   47.2
+  ]
+ }
+}
