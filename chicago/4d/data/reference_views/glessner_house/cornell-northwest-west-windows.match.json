@@ -51,6 +51,10 @@
     {
       "what": "T-3036, reviewed from the rebaked master: the dark vertical strips down the cupola's near and west corners, under the eave through the pigeon-hole band to the roof, are gone; the corners read as clean stone, as this print shows them. The body's walls no longer lay a 0.08 m end in a neighbour's face (the east and west walls take the corners, the north and south butt inside them) and every edge face of the walls and ledges looks outward. No dimension of the cupola moved.",
       "status": "fixed"
+    },
+    {
+      "what": "T-3072, ruled: the stable roof's course in this print is the model's 5 in. It counts about 43 courses between the west slope's ridge (the foot of the cresting) and its eave, and HABS photograph 1 of 1963 counts about 42 over the same two edges of the same plane, the year HABS measured 5 in. The roof kept one module from 1887 to 1963. T-3025's 6.4 in was this camera's scale on that plane: it puts 22-23 ft of slope between those edges, where HABS 1's camera puts 17-17.5 ft over the same courses. That is filed as T-3080 with this record's open west-plane camera residual. Nothing is rebaked (docs/RESEARCH/glessner-roof-module-T-3072/README.md).",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

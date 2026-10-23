@@ -22980,9 +22980,14 @@ exclude the tar coating reported by the later HABS survey.
 records those dimensions and quotes Glessner's 1923 account on printed p. 13 /
 PDF p. 14 describing the original red baked unglazed tiles. The HABS quotation
 is the reviewed source; the separately catalogued original remains unresolved.
-`taylor_2135_glessner_exterior_1887_1889` shows fine continuous early courses.
-The photograph is a visual check, not a dimensional measurement. Survival of
-the later measured module in 1904 is inferred. The half-tile stagger, 4-mm side
+`taylor_2135_glessner_exterior_1887_1889` shows fine continuous early courses,
+which read about 4.8 in on the 18th Street roof through its solved camera, a
+reading near the print's resolution. The c. 1887 Cornell print
+(`cornell_adw_glessner_stable_1887`) and HABS photograph 1 of 1963
+(`habs_glessner_photo_01_nw_1963`) count the same courses, about 42, between
+the stable's west-slope ridge and eave, so that roof kept one module from 1887
+to 1963; a 6.4 in course would show about 32. Survival of the later measured
+module in 1904 is inferred. The half-tile stagger, 4-mm side
 joints, 6-mm exposed lap relief, exact colour and weathering are reconstructed.
 No concealed headlap or total tile length is asserted. Faceted cone cuts and
 alternate-course geometry in Light are display approximations; every exposed
@@ -22994,6 +22999,8 @@ and surface condition directly.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Review:** `docs/RESEARCH/glessner-roof-tiles-2203/README.md`.
 **Recorded:** 2026-10-09.
+**Revised:** 2026-10-23 — the early prints' courses read against HABS's
+(`docs/RESEARCH/glessner-roof-module-T-3072/README.md`); the module stands.
 
 ### L-glessner-roof-edges-2205 — Reconstructed roof stock and flashing
 

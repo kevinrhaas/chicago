@@ -54,6 +54,10 @@
     {
       "what": "T-3036, reviewed from the rebaked master: the dark vertical strip that ran down each corner of the cupola's body, from under the eave through the pigeon-hole band to the roof, is gone; the corners read as one turned stone face, as the print shows them. It was the body's four walls each running the full plan width, so each wall's 0.08 m end lay in its neighbour's face, half of them wound inward: the east and west walls now take the corners, the north and south walls butt inside them, and every edge face of the walls and landing ledges is turned outward. No dimension of the cupola moved.",
       "status": "fixed"
+    },
+    {
+      "what": "T-3072, the course: through this camera the stable's west slope reads 4.85-5.00 in to the course, HABS's own 1963 measurement. The slope counts about 42 courses between its ridge and eave, the same count as the c. 1887 Cornell print over the same two edges, so the module is the one the model lays for 1904. The long west roof draws a 5 in course at about 2 px here, beyond what this print resolves, and is not read (docs/RESEARCH/glessner-roof-module-T-3072/README.md).",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
