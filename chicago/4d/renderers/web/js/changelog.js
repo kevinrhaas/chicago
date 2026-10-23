@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2231, ts: '2026-10-23T22:12:58.771Z', date: 'Oct 23, 2026, 5:12 PM CT', title: '1801 Prairie\'s south gable narrowed and raised to Taylor\'s photograph', kind: 'fix',
+    items: [
+      'The stone gable over the Kimball house\'s south pavilion at 1801 Prairie Avenue now matches J. W. Taylor\'s photograph of about 1895. It stands about 0.4 m higher and is narrower than before, stopping short of the pavilion\'s cut corner. Its peak, sloping edges and corner spire now sit on the photograph\'s.',
+      'The camera we use to compare the house with the photograph has been corrected again, and that change is not visible in the town. It now takes the horizon from the line of Lake Michigan visible at the photograph\'s left edge. Through it, the round tower and the small corner turret at the far end of 18th Street both line up with the photograph where the model already had them. The far end of that side now reads lower than the model, and that is written down for a later fix.',
+    ] },
   { v: 2230, ts: '2026-10-23T21:51:40.395Z', date: 'Oct 23, 2026, 4:51 PM CT', title: 'Hogan\'s store gains its pictured openings', kind: 'improvement',
     items: [
       'The first post office now has one front sash, an off-centre doorway, a small gable opening and a roof stack placed from Cameron\'s retrospective painting.',
