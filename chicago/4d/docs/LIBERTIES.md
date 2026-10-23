@@ -32270,3 +32270,32 @@ for the stable, entered as a source, gives its openings, roof and gable their tr
 **Ticket:** T-2995 (piece 2 of T-2962).
 **Review:** `docs/RESEARCH/k01-1736-mcbirney-2933/README.md` (§ T-2995).
 **Recorded:** 2026-10-23 (T-2995).
+### L-k01-1736-roof-rear-2995 — 1736 Prairie's mansard taken off the north wall, the rear and the 18th Street wall behind the brick bay, which rise as a straight brick third storey, built blank and coped
+
+**Decision:** 1736 Prairie's mansard (T-2995, piece 2 of T-2962) stands where the 1911 sheet 20 draws
+its dashed curb, the key's mansard-roof line: along the street front, and along the 18th Street wall
+from the front back to the brick bay (u about 9.9). The north wall, the rear and the 18th Street wall
+behind the bay rise as a straight brick third storey. K01 learns to build it (`mansard.straight`,
+`generators/archetypes/k01_mansard_straight.py`, additive: the other 24 K01 assets, both K12 coach
+houses, the K13 conservatory and the five K16 fronts rebuilt byte-identical). **What is read, not
+invented.** The curb's extent is the sheet's. The north wall's figures '12 12 8' are, by the key, a
+wall thickness for each of the building's three storeys over its basement ('3B'), so the north wall
+is brick to the third storey's head; the south wall's '14 12 12' says the same of the south wall.
+**What is inferred.** The rear: the sheet prints no figures on it, but its curb line leaves the rear
+out exactly as it leaves the north wall out, and the building is three storeys throughout. **What is
+invented.** The straight storey's height is the mansard's (its curb at 12.7 m, 2.7 m over the eave)
+and it is carried up as a parapet 0.45 m over the curb under K05's coping; the upper deck runs on
+behind it at the mansard's 10 degrees, draining to nothing modelled. No picture sees these walls,
+so their third storey is built blank, as the north wall's lower storeys already are: a window there
+is unread, not absent. Where a mansard face ends against a straight wall (the street front's at the
+north wall, the south face at u 9.9) its section is closed in the wall's brick, the wall carried up
+the mansard's profile; no picture shows either end. The south face's second dormer (u 8.0, itself
+reconstructed) is gone with the mansard behind the bay. The wall head's bracketed cornice and the
+gutter stop at the same ends, each gutter run closed by a stop end, and the two downpipes, which stood
+at the rear corners, now stand on the 18th Street wall at u 13.3 and 22.9, clear of the bays.
+**How to resolve:** a photograph of 1736 from 18th Street or from the alley, entered as a source,
+shows the third storey's windows, the parapet's height and the ends of the mansard.
+**Covers:** `house_1736_prairie.as_mapped_1904.form.rainwater`, `house_1736_prairie.as_mapped_1904.form.rear_bays`, `house_1736_prairie.as_mapped_1904.form.north_bays`
+**Ticket:** T-2995 (piece 2 of T-2962).
+**Review:** `docs/RESEARCH/k01-1736-mcbirney-2933/README.md` (§ T-2995).
+**Recorded:** 2026-10-23 (T-2995).

@@ -448,6 +448,19 @@ class Prim:
 TIN_PAINT = {"black": (0.030, 0.030, 0.026), "dark_green": (0.022, 0.040, 0.026)}
 
 
+
+def k01_mansard_straight_on(st, cid, s, depth):
+    """T-2995: which points along wall `cid` (at `s` along it) stand under a straight wall head."""
+    import numpy as np
+    s = np.asarray(s, dtype=np.float64)
+    if cid == "k01.wall.rear_service":
+        return np.ones(len(s), dtype=bool)
+    if cid == "k01.wall.side.north":   # its s runs from the front
+        return s >= depth - st["north_u_m"] - 1e-6
+    if cid == "k01.wall.side.south":   # its s runs from the rear
+        return s <= st["south_u_m"] + 1e-6
+    return np.zeros(len(s), dtype=bool)
+
 class Assembly:
     def __init__(self, structure_id: str, params):
         self.sid = structure_id
@@ -643,10 +656,15 @@ class Assembly:
                     & (np.abs(dv) < best)
                 best[ok], on[ok], xs[ok] = np.abs(dv[ok]), i, sv[ok]
             tone = np.ones(len(P))
+            st = (self.p.mansard or {}).get("straight")
             for i in range(-1, len(walls)):
                 m = on == i
                 if m.any():
-                    tone[m] = self.k14.wall_tone(P[m, 1], self.soffit_m, built=self.k14_built, fabric=fab,
+                    # T-2995: a straight wall has no eave over it; its soot hangs from its parapet's top
+                    head = self.soffit_m if not st or i < 0 else np.where(
+                        k01_mansard_straight_on(st, walls[i][0], xs[m], self.p.depth_m),
+                        self.p.mansard["curb_m"] + st["upstand_m"], self.soffit_m)
+                    tone[m] = self.k14.wall_tone(P[m, 1], head, built=self.k14_built, fabric=fab,
                                                  seed=self.k14_seed, x=xs[m] if i >= 0 else 0.0,
                                                  sources=srcs[i] if i >= 0 else ())
             pr.tone = [round(float(t), 4) for t in tone]
@@ -3030,6 +3048,11 @@ class Assembly:
             c0, c1 = (-tw, 0.0) if spp["wall"] == "south" else (-W, -W + tw)
             solids = k5.parapet_element({}, [(0.0, slab), (D - FRONT_SET_M, slab)], (c0, c1), "z", tw, hs,
                                         spp["coping_m"], spp["drip_m"], 0.0, 0.0) + solids
+        straight_cut = []
+        if (m or {}).get("straight"):   # T-2995: the straight walls' parapets, and their cutters
+            from . import k01_mansard_straight
+            more, straight_cut, _ = k01_mansard_straight.elements(p, k5, hs)
+            solids = more + solids
         cr = (m or {}).get("crown")
         if cr and cr.get("form") == "hip":   # T-2465: a crown hipped to its own ridge
             crown, _, _ = k5.hip_crown_element(cr["x0"], cr["x1"], cr["z0"], cr["z1"], E, cr["pitch_deg"],
@@ -3151,6 +3174,7 @@ class Assembly:
                 parts = {key: (k5._snap(x) if isinstance(x, list) else x) for key, x in parts.items()}
                 polys = k5.union(polys, k15.join_stack(parts))
         recesses += self.through_eave_cutters(k5, yf)
+        recesses += straight_cut
         recesses += self.shallow_bay_cutters(k5, yf)
         for rc in ([recess] if recess is not None else []) + recesses:
             polys = k5.subtract(polys, k5._snap([rc])[0])
@@ -3984,6 +4008,11 @@ class Assembly:
                 if live(sv - sign * 0.01):
                     stop_ends.append((sv % P, sign))
             dead += [(d0, P), (0.0, d1 - P)] if d1 > P else [(d0, d1)]
+        if (p.mansard or {}).get("straight"):   # T-2995: no gutter along a straight wall's head
+            from . import k01_mansard_straight
+            more, ends = k01_mansard_straight.gutter_dead(p, A, starts, P)
+            dead += more
+            stop_ends += ends
         stations = sorted({*(round(x % P, 6) for x in starts), *(round(x, 6) for x in outlets),
                            *(round(x, 6) for x in highs), *(round(x, 6) for d in dead for x in d)})
         pr = self.prim(mat)
