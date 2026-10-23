@@ -503,6 +503,23 @@
         "_doc": "As block 35, whose scan this is: a service building is filled from its traced outline.",
         "close_cells": 2
       }
+    },
+    "20w": {
+      "where": "the background behind Prairie Avenue: Indiana Avenue's east frontage, 16th to 18th Street, and East Sixteenth Street's row at 209-217 (Sanborn 1911 vol. 3 sheet 20, checked lot by lot against Robinson 1886 plate 10)",
+      "sides": [
+        "east",
+        "south"
+      ],
+      "source": "sanborn_1911_chicago_v3_sheet_20",
+      "census_file": "data/components/prairie_1904/edges_census_s20w.json",
+      "census_ticket": "T-3019",
+      "pass": "T-3019",
+      "liberty": "L-draft-district-background-3019",
+      "fit_note": "the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed",
+      "rear_ticket": {
+        "east": "T-1946",
+        "south": "T-1946"
+      }
     }
   },
   "skip": {
@@ -543,7 +560,12 @@
     "s35w-2101-front": "2101-2105 Indiana: the 1911 sheet draws a two-storey motor garage with concrete floors here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
     "s35w-215-front": "215-217 E. 21st Street: the 1911 sheet draws a two-storey auto repair and blacksmith shop here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
     "s35w-2129-front": "2129-2131 Indiana: the 1911 sheet draws a three-storey motor garage here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
-    "s35w-2029-front": "2029-2035 Indiana is the First Presbyterian Church, which stands as the site record first_presbyterian_church_2029_indiana (drafted by T-3009 from this outline's measures, refined by T-3014); the draft stands no second building on the trace."
+    "s35w-2029-front": "2029-2035 Indiana is the First Presbyterian Church, which stands as the site record first_presbyterian_church_2029_indiana (drafted by T-3009 from this outline's measures, refined by T-3014); the draft stands no second building on the trace.",
+    "s20w-1601-front": "1601-1603 Indiana: the 1911 sheet draws a five-storey office and tin shop at the 16th Street corner, where Robinson 1886 draws the west end of the brick row along 16th Street, and nothing in hand dates the change (census ruling phase_unresolved); the draft stands nothing rather than guess, and T-3068 reads it.",
+    "s20w-1605-front": "1605-1613 Indiana: the 1911 sheet draws the Thompson-Reid & Collins Bros. ice-cream factory across these lots, where Robinson 1886 draws a brick house and a frame house, and nothing in hand dates the change (census ruling phase_unresolved); the draft stands nothing rather than guess, and T-3068 reads it.",
+    "s20w-1619-front": "1619 Indiana: the 1911 sheet draws a 2½B brick house where Robinson 1886 draws a frame one, so the brick house was built between the plans and nothing in hand says which stood on 1 July 1904 (census ruling phase_unresolved); the draft stands neither, and T-3068 reads it.",
+    "s20w-1619-rear": "1619 Indiana's frame building on the alley is on both plans, but its frontage's 1904 phase is open (census ruling phase_unresolved), so it waits with the house for T-3068 rather than stand as a stable without its lot read.",
+    "s20w-1727-front": "1727-1737 Indiana: the 1911 sheet draws the Eastman Kodak and Taprell, Loomis & Co. photographic-supply factory across these lots, where Robinson 1886 draws two frame houses and their outbuildings, and nothing in hand dates the change (census ruling phase_unresolved); the draft stands nothing rather than guess, and T-3068 reads it."
   },
   "frontages": {
     "frontage-28-038": {
@@ -1984,6 +2006,80 @@
         }
       },
       "why": "The church itself stands as the site record first_presbyterian_church_2029_indiana (`sites`); its census front is skipped here, and the dwelling and stable behind it are drafted from the trace under its id."
+    },
+    "frontage-20w-209–217": {
+      "slug": "house",
+      "register": {
+        "address": "209–217",
+        "raw_story_notation": "3½B; rear3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. A row of five 3½B houses on East Sixteenth Street, its party walls carried to the rear wall, read as one ground (the 1904 grid gives the row one lot): one record under the brick family's hip, its half storey in the roof, until T-1946 parts them. Robinson 1886 draws the row. The sheet prints 3½B on every house of the row; the trace parts the row at its party walls into one body and four ranges, so 'rear3B' holds the other four at the row's full storeys."
+    },
+    "frontage-20w-1615–1617": {
+      "slug": "house",
+      "register": {
+        "address": "1615–1617",
+        "raw_story_notation": "3B; rear3B",
+        "map_material": "brick, stone front",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. Two 3B houses on a party wall behind the stone strip the sheet runs along their Indiana front, read as one ground (the 1904 grid gives 1615 and 1617 one lot): one record until T-1946 parts them; the small frame pieces at their rear are not drafted. Robinson 1886 draws a brick house with a stone front here. The sheet prints 3B on both houses; the trace reads 1617 as a range of 1615's body, so 'rear3B' holds it at the pair's full storeys."
+    },
+    "frontage-20w-1623": {
+      "slug": "house",
+      "register": {
+        "address": "1623",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B on a cross plan, the plan Robinson 1886 draws on the same lot: the main body under the hip, the cross's arms as the fitted plan's wings; the sheet's dashed inner line is not read as a material, and the small frame porch is the refining ticket's."
+    },
+    "frontage-20w-1637": {
+      "slug": "house",
+      "house_id": "house_1637_indiana",
+      "house_address": "1637",
+      "rear_ticket": "T-1946",
+      "why": "A stable on the alley with no house drafted before it: the 1911 sheet draws none on 1637, and the brick house Robinson 1886 draws at the street is T-3068's to read. The stable takes the id of the lot's house (house_1637_indiana_coach_house), so a house drafted there later is its owner; it stands astride the line between 1637 and the unnumbered strip north of it, as the sheet draws it."
+    },
+    "frontage-20w-1641": {
+      "slug": "house",
+      "house_id": "house_1641_indiana",
+      "house_address": "1641",
+      "rear_ticket": "T-1946",
+      "why": "A stable on the alley with no house drafted before it: the 1911 sheet draws none on 1641, and the stone-front brick house Robinson 1886 draws at the street is T-3068's to read. The stable takes the id of the lot's house (house_1641_indiana_coach_house), so a house drafted there later is its owner."
+    },
+    "frontage-20w-1703": {
+      "slug": "house",
+      "register": {
+        "address": "1703",
+        "raw_story_notation": "2½B",
+        "map_material": "brick, stone front",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2½B behind the stone strip along its Indiana front; the trace reads the 3B part at its rear into the main body, so it stands at the body's storeys until T-1946 reads it apart, and the one-storey frame piece at its south-west corner stands one storey, as the sheet prints it. Robinson 1886 draws a stone-front brick house here."
+    },
+    "frontage-20w-1713": {
+      "slug": "house",
+      "register": {
+        "address": "1713",
+        "raw_story_notation": "2B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2B with shallow bays on both side walls, which the fitted plan does not carry: they are the refining ticket's. Robinson 1886 draws a brick house here."
     }
   },
   "sites": [

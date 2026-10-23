@@ -1,4 +1,31 @@
 export const CHANGELOG = [ // newest first
+  { v: 2223, ts: '2026-10-23T16:13:10.592Z', date: 'Oct 23, 2026, 11:13 AM CT', title: 'Indiana Avenue fills in from 16th to 18th Street', kind: 'feature',
+    items: [
+      'Look west between the houses on Prairie\'s west side from 16th to 18th Street: Indiana Avenue\'s east side is no longer bare ground behind them. Five brick houses stand at 1615-1617, 1623, 1703 and 1713, and a row of five more at 209-217 East 16th Street, with six stables on the alley.',
+      'Each is drawn from the 1911 fire-insurance map, and only where Robinson\'s 1886 atlas draws the same building on the lot, so it stood on both sides of 1904. Where the two maps disagree (the corner office, two factories, and three houses that changed or went), the lot stays open until it is read.',
+    ] },
+  { v: 2222, ts: '2026-10-23T16:13:10.592Z', date: 'Oct 23, 2026, 11:13 AM CT', title: 'Taylor\'s Glessner photograph gets a better-fitting camera', kind: 'chore',
+    items: [
+      'Nothing you can see changed in the town. The camera that lines our model of the Glessner house up with J. W. Taylor\'s photograph from the late 1880s has been re-solved. It now fits all three chimneys as well as the windows, and the leaning edges in the photograph set its tilt. Through it, the south and middle chimneys match the photograph\'s widths. The chimney over the 18th Street gable reads wider than the photograph, and that is the next thing to look at.',
+    ] },
+  { v: 2221, ts: '2026-10-23T16:13:10.592Z', date: 'Oct 23, 2026, 11:13 AM CT', title: '1801 Prairie\'s photograph camera re-solved on the corner it sees', kind: 'fix',
+    items: [
+      'Nothing you can see changed in the town. The camera we use to compare the Kimball house at 1801 Prairie Avenue with J. W. Taylor\'s photograph of about 1895 was fitted to a corner of the house the photograph cannot see; it is now fitted to the one it does, and the side-by-side lines up better: the front\'s corners, the south pavilion and both entrance arches now fall within a few pixels of the photograph.',
+      'Seen through the corrected camera, the round tower, the far end of the 18th Street side and the south gable\'s top still differ from the photograph by small amounts, and each of those is now written down for a later fix.',
+    ] },
+  { v: 2220, ts: '2026-10-23T15:10:20.031Z', date: 'Oct 23, 2026, 10:10 AM CT', title: 'Glessner House\'s tall stone courses stand deeper', kind: 'improvement',
+    items: [
+      'The tall granite courses on the Glessner house now throw a deeper shadow under their lower edges than the short ones, as a photograph from about 1888 shows. Through that photograph\'s own camera the tall-to-short ratio was 0.86 and is now 1.33, against the photograph\'s 1.32.',
+      'The stable\'s stone cupola is now laid in rough-faced courses, where it had smooth plates. Its shaft has four courses and each row of pigeon holes is one course between its ledges, as an 1887 print shows it.',
+    ] },
+  { v: 2219, ts: '2026-10-23T14:24:33.243Z', date: 'Oct 23, 2026, 9:24 AM CT', title: '1812 Prairie\'s tall south chimney stands near the front', kind: 'fix',
+    items: [
+      'The tall chimney on the south wall of George H. Wheeler\'s house at 1812 Prairie Avenue now stands near the front, about 2 m behind it, and rises to 16.8 m. It used to stand 6 m back and 0.8 m higher. A second photograph, taken about 1955 from a little south of the house, saw the chimney from a new angle. Comparing it with Albert Levy\'s photograph from the 1880s or 1890s fixed where the chimney stands. The 1955 photograph also shows a second tall chimney behind the gable\'s north side. Levy\'s photograph shows only open sky there, so that chimney is not built for 1904.',
+    ] },
+  { v: 2218, ts: '2026-10-23T12:27:58.344Z', date: 'Oct 23, 2026, 7:27 AM CT', title: '1801 Prairie\'s south pavilion has its cut-back corner', kind: 'fix',
+    items: [
+      'The south-west corner of the Kimball house\'s south pavilion on Prairie Avenue is now cut back at an angle, as the 1911 fire insurance map draws it: the front stops about 45 cm short of the corner and a slanted stone face runs back from there to the side wall, from the ground up to the gable. The house\'s own corner is cut away behind it, and the gable now sits on the narrower front with its peak at the same height. Seen from where J. W. Taylor took his photograph of about 1895, the pavilion\'s front is now as wide as his photograph shows it. The whole pavilion still sits a little south of where the photograph puts it, because the camera position fitted to that photograph took the wrong point for this corner; fixing that is next.',
+    ] },
   { v: 2217, ts: '2026-10-23T10:02:11.085Z', date: 'Oct 23, 2026, 5:02 AM CT', title: 'Glessner\'s south chimney checked against the HABS drawings', kind: 'chore',
     items: [
       'Nothing you can see changed. In J. W. Taylor\'s photograph of the Glessner house the south chimney stands about a foot and a half north of where the model draws it. The 1960s survey drawings were checked to see whether the model had the chimney in the wrong place. Both drawings put the chimney where the model already has it, so it stays. The mismatch comes from how the photograph\'s camera has been reconstructed, and fixing that is the next task.',

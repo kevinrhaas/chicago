@@ -2,8 +2,9 @@
   "structure_id": "glessner_house",
   "view": "habs-17-habs-ne",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "905a3dd4947991bdd4d4d8c27c45b0b9e1cf4fe320bb4e6682d29a09a2b780e3",
+  "glb_sha256": "5fff90bb9d42aa51dc25ecacc8da8b2a02f5e56cfebc6fb8e789f1b26f284a1b",
   "camera_sha256": "4d314a4a64d2df0bc559faf6e75b77d808df0137b4efb59ce76bd0f402f63f11",
+  "photo_sha256": "74274df9fcebd442d645f42c6c629ea891f44e33a5fc98e14dea66bb390dcf5f",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-17-habs-ne-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -20,8 +21,8 @@
       "status": "not shown"
     },
     {
-      "what": "Stone/course relief: the 1965 soot hides the coursing at this distance; course relief stays open with Taylor 2135. T-3044 read it on Taylor 2135 (docs/RESEARCH/glessner-course-reading-T-3044/): T-3045 for the heights, T-3046 for the relief.",
-      "status": "open"
+      "what": "Stone/course relief: the 1965 soot hides the coursing at this distance; course relief stays open with Taylor 2135. T-3044 read it on Taylor 2135 (docs/RESEARCH/glessner-course-reading-T-3044/): T-3045 for the heights, T-3046 for the relief. T-3046 laid the relief, closing with Taylor 2135's: a course printed 11.5 in or over now crowns 1.25 times its stones' bow and rises to it over at most 0.09 m, so through Taylor 2135's camera, on the laid beds, a high course's lower-lip shadow reads 1.33 times a low course's in the render against 1.32 in the photograph (0.86 before; docs/RESEARCH/glessner-course-relief-T-3046/).",
+      "status": "fixed"
     },
     {
       "what": "Neighboring buildings, street poles/cars/signs and1965 vegetation are not copied into the1904 house. Monochrome tones do not determine historical RGB.",

@@ -186,7 +186,7 @@ def _inside(x, y, poly):
     return inside
 
 
-def fractured_stone(polygon, depth, rng, spacing=.075, crown=None):
+def fractured_stone(polygon, depth, rng, spacing=.075, crown=None, crown_scale=1.0, lip=None):
     """Reconstructed split-face stone, bounded to the existing block envelope.
 
     The measured facade owns courses and openings; these 7.5 cm fracture facets
@@ -195,6 +195,9 @@ def fractured_stone(polygon, depth, rng, spacing=.075, crown=None):
     breaks the bow into split planes without independent spikes. The perimeter
     stays inside the original stone. No new joints appear where an aperture
     cuts it. ``crown`` overrides the bow height for a stone of known shape.
+    ``crown_scale`` and ``lip`` are a course's own (T-3046): the bow is raised by
+    the scale, and a rectangular stone's lower face rises to the crown over at
+    most ``lip`` metres, however tall the course.
     """
     x0,y0,x1,y1=bounds(polygon)
     nx=max(2,math.ceil((x1-x0)/spacing));ny=max(2,math.ceil((y1-y0)/spacing))
@@ -222,10 +225,14 @@ def fractured_stone(polygon, depth, rng, spacing=.075, crown=None):
         reach=max(.02,reach)
         short=2*reach
     height=crown if crown is not None else min(BOW_MAX,max(BOW_MIN,BOW_PER_SHORT_SIDE*short+BOW_BASE))
+    if crown_scale!=1.0:
+        height*=crown_scale
     height*=.86+.28*min(1.0,max(0.0,(depth-.008)/.038))
     def bow(x,y):
         if rectangular:
             low,high=BOW_PEAK*(y1-y0),(1-BOW_PEAK)*(y1-y0)
+            if lip is not None and lip<low:
+                low,high=lip,(y1-y0)-lip
             across=_rise(min(x-x0,x1-x)/reach_x)
             up=min(_rise((y-y0)/low),_rise((y1-y)/high))
             return (across*up)**.85
@@ -508,7 +515,11 @@ class DetailBuilder(MeshBuilder):
                 continue
             rng = random.Random(87013+row*719+int(d*997)+mat*821)
             if mat != BRICK:
-                self.ashlar_course(polygon,holes,row,za,zb,point,n,confidence,mat,rng)
+                # T-3046: the house's own string carries each course's crown; a
+                # caller's course_origin (a chimney band, the cupola) keeps the bow.
+                crowns = None if own else self.params.detail.get('ashlar_course_crowns')
+                course = crowns[row%len(crowns)] if crowns else None
+                self.ashlar_course(polygon,holes,row,za,zb,point,n,confidence,mat,rng,course=course)
                 continue
             width = .2159
             start = math.floor(x0/width)*width-(width/2 if row%2 else 0)
@@ -523,7 +534,7 @@ class DetailBuilder(MeshBuilder):
                     self.block(tile,point,n,confidence,mat,rng,holes=holes)
                 a = c
 
-    def ashlar_course(self, polygon, holes, row, za, zb, point, n, confidence, mat, rng):
+    def ashlar_course(self, polygon, holes, row, za, zb, point, n, confidence, mat, rng, course=None):
         """One rock-faced course, laid from its ends and its opening jambs inward.
 
         T-2208 (reconstructed): the course is cut wherever a straight aperture jamb
@@ -579,10 +590,10 @@ class DetailBuilder(MeshBuilder):
                 right = c-(0 if (i==len(sizes)-1 and s1_jamb) else gap/2)
                 tile = rect_clip(polygon,left,za+gap/2,right,zb-gap/2)
                 if tile:
-                    self.block(tile,point,n,confidence,mat,rng,holes=holes)
+                    self.block(tile,point,n,confidence,mat,rng,holes=holes,**({'course':course} if course else {}))
                 a = c
 
-    def block(self, polygon, point, normal, confidence, mat, rng, holes=None):
+    def block(self, polygon, point, normal, confidence, mat, rng, holes=None, course=None):
         if len(polygon)<3:
             return
         x0,y0,x1,y1 = bounds(polygon)
@@ -663,7 +674,7 @@ class DetailBuilder(MeshBuilder):
             # next block width. Refining a face must not move any stone joint.
             consumed=52 if rectangular else len(polygon)+(len(polygon)<=6)
             for _ in range(consumed):rng.random()
-            for facet,is_front in stone_corner_normals(fractured_stone(polygon,depth,fracture_rng)):
+            for facet,is_front in stone_corner_normals(fractured_stone(polygon,depth,fracture_rng,**(course or {}))):
                 surface(facet,normal if is_front else None)
             return
         back=[(*q,-.009) for q in polygon]
@@ -1483,6 +1494,9 @@ def dovecote_band(b,t,x0,x1,y0,y1):
     The body's walls meet the same way (T-3036): the east and west walls run
     the plan's full depth and the north and south walls stop inside them, so
     no wall's end lies in its neighbour's face, and every edge face looks out.
+
+    `shaft_courses` lays a granite body in rock-faced courses (T-3046,
+    coursed_body) where it was dressed plates.
     """
     lo,hi=t['louvre'];conf=t['conf'];v=t['vent'];reconstructed=1.0
     tiers,per_face=v['tiers'],v['per_face'];width=v['opening_width_m']
@@ -1516,11 +1530,58 @@ def dovecote_band(b,t,x0,x1,y0,y1):
         # The east and west walls take the corners; the others butt inside.
         l,r=(a,c) if pl['axis']=='x' else (a+.08,c-.08)
         wall=[(l,t['z0']),(r,t['z0']),(r,t['top_z']),(l,t['top_z'])]
-        for fragment in subtract(wall,holes):
-            outward_solid(b,pl,fragment,-.08,0,conf,body)
+        if body==GRANITE and t.get('shaft_courses') and not getattr(b,'reduced_roof_details',False):
+            coursed_body(b,t,pl,a,c,l,r,holes,step,board,conf)
+        else:
+            for fragment in subtract(wall,holes):
+                outward_solid(b,pl,fragment,-.08,0,conf,body)
         # The dark cote behind the holes: one closing card per face.
         b.raw([legacy._plane_point(pl,u,z,-.17) for u,z in
                [(ua,lo),(uc,lo),(uc,hi),(ua,hi)]],reconstructed,DARK_GLASS,n)
+
+
+def coursed_body(b,t,pl,a,c,l,r,holes,step,board,conf):
+    """The granite cupola's body in rock-faced courses, as the Cornell print shows it (T-3046).
+
+    The c. 1887 print (T-3044 § 4) shows two or three bed joints in the shaft
+    below the lower ledge and each pigeon tier standing as one rock-faced course
+    between its ledges. So the shaft is laid in `shaft_courses` equal courses,
+    each tier in one course from its ledge to the next, and the band over the top
+    tier in one, all through the house's own ashlar_course on a string of their
+    own (the chimney bands' way, masonry_house_v4_chimneys._band). The print
+    does not resolve the vertical joints: block lengths are the house's own rule.
+    Every face's courses run the full plan, so they cover the corner walls' ends.
+    The body behind them stands back of the mortar bed, and the holes' reveals
+    run out to the pitch line, as the house's own apertures' do. Bounded
+    reconstruction: docs/LIBERTIES.md L-glessner-cupola-coursing-3046.
+    """
+    lo,hi=t['louvre'];z0,top=t['z0'],t['top_z'];n=legacy._plane_dir(pl)
+    for fragment in subtract([(l,z0),(r,z0),(r,top),(l,top)],holes):
+        outward_solid(b,pl,fragment,-.08,-.02,conf,GRANITE)
+    for hole in holes:
+        ccw=area(hole)>0
+        for (u0,v0),(u1,v1) in zip(hole,hole[1:]+hole[:1]):
+            ou,oz=(v0-v1,u1-u0) if ccw else (v1-v0,u0-u1)
+            want=(0.0,ou,oz) if pl['axis']=='x' else (ou,0.0,oz)
+            b.raw([legacy._plane_point(pl,u0,v0,-.02),legacy._plane_point(pl,u1,v1,-.02),
+                   legacy._plane_point(pl,u1,v1,PITCH_LINE),legacy._plane_point(pl,u0,v0,PITCH_LINE)],
+                  conf,GRANITE,want)
+    cut=[[legacy._plane_point(pl,u,v,0) for u,v in hole] for hole in holes]
+    count=t['shaft_courses']
+    bands=[(z0,lo,count)]+[(lo+i*step+board,lo+(i+1)*step,1) for i in range(t['vent']['tiers'])]
+    if top-hi>.05:
+        bands.append((hi,top,1))
+    old=b.course_schedule;had=hasattr(b,'course_origin');origin=getattr(b,'course_origin',None)
+    try:
+        for za,zb,k in bands:
+            b.course_schedule=[(zb-za)/k]*k;b.course_origin=za
+            pts=[legacy._plane_point(pl,u,v,0) for u,v in ((a,za),(c,za),(c,zb),(a,zb))]
+            if dot(legacy._normal(pts),n)<0:pts.reverse()
+            b.wall(pts,conf,GRANITE,custom_holes=cut)
+    finally:
+        b.course_schedule=old
+        if had:b.course_origin=origin
+        else:del b.course_origin
 
 
 def flared_turret_roof(b,t,x0,x1,y0,y1):

@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-13-north-level",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "eabb640c6e2670f5d341c0dfab15ffade604f80cc7de095959c5b0ab4aecd6a5",
+  "glb_sha256": "5fff90bb9d42aa51dc25ecacc8da8b2a02f5e56cfebc6fb8e789f1b26f284a1b",
   "camera_sha256": "c4607c01650b1d3dfeaf156dfd0d4ae0746fc97b45ed092c5504260edb48af9e",
   "photo_sha256": "b5de6769dbaab6ea0991a9351b10c47344e61b7480b0f53a6e5d104ecb48e176",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-13-north-level-side-by-side.jpg",
@@ -17,8 +17,8 @@
       "status": "fixed"
     },
     {
-      "what": "North masonry/course texture and pair detailing differ. T-3044: on Taylor 2135 the 18th Street face's courses fit within about 1-2 % of the Prairie corner's, so one coursing still turns the corner. Their height is T-3045's, and their relief T-3046's. T-3045 has laid the heights (the fixed entry below); what stays open here is the relief, T-3046's.",
-      "status": "open"
+      "what": "North masonry/course texture and pair detailing differ. T-3044: on Taylor 2135 the 18th Street face's courses fit within about 1-2 % of the Prairie corner's, so one coursing still turns the corner. Their height is T-3045's, and their relief T-3046's. T-3045 laid the heights (the fixed entry below), and T-3046 the relief on both granite faces, one coursing round the corner, closing with Taylor 2135's: a course printed 11.5 in or over now crowns 1.25 times its stones' bow and rises to it over at most 0.09 m, so through Taylor 2135's camera, on the laid beds, a high course's lower-lip shadow reads 1.33 times a low course's in the render against 1.32 in the photograph (0.86 before; docs/RESEARCH/glessner-course-relief-T-3046/).",
+      "status": "fixed"
     },
     {
       "what": "Signs, poles, cars, neighbor fabric and ground alterations date to1965; the photograph does not establish1904 RGB.",

@@ -88,6 +88,7 @@ STREETS = {
     "michigan": ("S. Michigan Avenue", "Michigan Avenue", "michigan"),
     "indiana": ("S. Indiana Avenue", "Indiana Avenue", "indiana"),
     "e21st": ("E. Twenty-first Street", "East Twenty-first Street", "e21st"),
+    "e16th": ("E. Sixteenth Street", "East Sixteenth Street", "e16th"),
 }
 
 
