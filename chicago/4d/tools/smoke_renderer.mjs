@@ -6057,7 +6057,10 @@ for (const [label, viewport, touch] of [
           && m.candidates === frontage.farWalkState?.candidateTriangles
           // T-2093 — the six new walk chunks' top faces: 107532 to 108554, read on dev.
           // T-2195 — dev already read 108620 (T-2174's walks); the wedge's three faces: 111472.
-          && m.candidates === 111472
+          // T-3029 — the Green Tree re-seated 5.8 m west re-cuts West Water and the
+          // West Division plat; its fronts-only walks shorten 0.2 m, one plank's two
+          // top triangles fewer: 111470.
+          && m.candidates === 111470
           && m.drawn === frontage.farWalkState?.triangles),
       JSON.stringify({ meshes: frontage.farWalkTops, state: frontage.farWalkState }));
     // THE NAME IS DRAWN, AND IT IS THE RECORD'S. This is the only lettering in the

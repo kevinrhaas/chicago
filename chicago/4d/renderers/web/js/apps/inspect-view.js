@@ -186,7 +186,7 @@ function render(root, ctx) {
   const useGrade = s?.attributes?.function?.confidence ?? null;
   const chipList = sum
     ? [{ text: sum.status.text, grade: sum.status.grade },
-      { text: `Built ${sum.built.year}`, grade: sum.built.grade },
+      { text: `Built ${sum.built.phrase ?? sum.built.year}`, grade: sum.built.grade },
       { text: sum.use, grade: useGrade }]
     : [...fallbackChips(s), ...(opening.kind[0] ? [{ text: opening.kind[0], grade: useGrade }] : [])];
   for (const c of chipList.filter((x) => x.text)) chips.append(line(doc, 'li', 'insp-chip', c.text, c.grade));

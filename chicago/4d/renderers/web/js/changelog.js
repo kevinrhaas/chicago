@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2206, ts: '2026-10-23T01:52:00.264Z', date: 'Oct 22, 2026, 8:52 PM CT', title: 'Glessner\'s stone courses measured against an 1880s photograph', kind: 'chore',
+    items: [
+      'Nothing in the town\'s appearance changes yet. Measured on a photograph from about 1888, the Glessner house\'s granite courses above the door stand about 4.5% taller than the model lays them. That agrees with the 1965 survey, so the walls will be re-coursed.',
+      'The same photograph shows the tall courses standing out further than the short ones. The model gives both the same depth, and a follow-up will deepen the tall ones.',
+    ] },
+  { v: 2205, ts: '2026-10-23T01:04:59.884Z', date: 'Oct 22, 2026, 8:04 PM CT', title: 'Eight Prairie Avenue houses get fact cards', kind: 'feature',
+    items: [
+      'Fact cards for eight Prairie Avenue houses: who built each one, for whom, and a fact or two worth knowing, every one from a source.',
+      '1812 Prairie is the Dutch-style row house Burnham and Root drew for a grain-elevator owner. 1736 Prairie was bought in 1880 by Hugh McBirney, who made white lead for house paint.',
+      'John Sherman\'s daughter married his architect, Daniel Burnham, while the house was going up. George Pullman\'s mansion had its own theatre, pipe organ and bowling alley.',
+      'A card can give a build date as its sources do: Pullman\'s house was built between 1870 and 1876.',
+    ] },
   { v: 2204, ts: '2026-10-23T00:38:08.916Z', date: 'Oct 22, 2026, 7:38 PM CT', title: '1811 Prairie\'s oriel now matches the 1888 plate over the rounded corner', kind: 'improvement',
     items: [
       'The bay window over the porch arch at 1811 Prairie now stands farther out, with a flat front and a straight south side.',
