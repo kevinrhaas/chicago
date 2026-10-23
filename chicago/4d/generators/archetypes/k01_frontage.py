@@ -2235,11 +2235,29 @@ class Assembly:
             snap = lambda x, y: tuple(round(c * 1000) / 1000 for c in W((x, y, -0.001)))
             # T-2842: on a rear wing's wall it is closed from the wing's wall top (`eave_m`)
             closes = [((b["span_m"][0] - b["s_m"], b["span_m"][1] - b["s_m"]), (b.get("eave_m", p.eave_m), wall_top))]
+            ch = k01_frontage_params.chamfer_of(b)
+            if ch is not None:   # T-3048: short of where a chamfer's face crosses the plane
+                (x0, x1), ys = closes[0]
+                closes = [((x0 + ch[3], x1) if ch[0] == "left" else (x0, x1 - ch[3]), ys)]
             if not shallow:
                 closes.append(((min(on), max(on)), (wall_top, eave)))
             for (x0, x1), (y0, y1) in closes:
                 for (xa, xb), (ya, yb) in K8.host_cells((x0, x1), (y0, y1), built.host_holes):
                     pr.face([snap(x, y) for x, y in ((xa, ya), (xb, ya), (xb, yb), (xa, yb))], back, bb, conf)
+            # T-3048: a shallow pavilion flush with a corner: over the eave the main roof is cut
+            # away behind it as deep as its recesses reach (shallow_bay_cutters), and from its
+            # side that cut showed as a slot through the roof; its side wall is carried back over
+            # the slot, in the side wall's plane, from its cheek (a chamfer's back) to the cut's
+            ch = k01_frontage_params.chamfer_of(b)
+            if shallow and b.get("flush_corner"):
+                right = b["flush_corner"] == "right"
+                xs = (b["span_m"][1] if right else b["span_m"][0]) - b["s_m"]
+                proud = max(float(q[1]) for q in v["plan"]["points"])
+                deep = -(K8.part(v, K8.load(), "recess")["depth_m"] - proud + 0.05)
+                zc = -ch[2] if ch is not None else 0.0
+                y0, y1 = b.get("eave_m", p.eave_m), wall_top
+                pr.face([W((xs, y0, deep)), W((xs, y0, zc)), W((xs, y1, zc)), W((xs, y1, deep))],
+                        R if right else _mul(R, -1), self.basis(body, W((xs, y0, deep)), N, Y, seed), conf)
             if past and not shallow:
                 cap = sorted({(round(q[0], 6), round(q[1], 6)) for q in built.prims["roof"].pos
                               if abs(q[2]) < 1e-6})
@@ -3075,6 +3093,16 @@ class Assembly:
             out.append(k5.extrude(inner, yf - 0.5, top, P, "wall", "wall", "wall"))
             outer = [(D + proud, near), (D + 2.0, near), (D + 2.0, far), (D + proud, far)]
             out.append(k5.extrude(outer, yf - 0.5, top, P, "return", "wall", "wall"))
+            # T-3048: and outside a chamfered corner's canted face, back to the side wall where
+            # it meets it, `behind_m` behind the front; the side's eave box stops square there
+            ch = k01_frontage_params.chamfer_of(b)
+            if ch is not None:
+                side, along, behind, _ = ch
+                cut = ([(D + proud, s1 - along), (D + 2.0, s1 - along), (D + 2.0, s1 + 1.0), (D - behind, s1 + 1.0),
+                        (D - behind, s1)] if side == "right" else
+                       [(D - behind, s0 - 1.0), (D + 2.0, s0 - 1.0), (D + 2.0, s0 + along), (D + proud, s0 + along),
+                        (D - behind, s0)])
+                out.append(k5.extrude(cut, yf - 0.5, top, P, "return", "wall", "wall"))
         return out
 
     def flat_roof(self):
@@ -3765,6 +3793,9 @@ class Assembly:
         for b, s0, s1, proud, _ in self.shallow_bays():
             d0 = starts[3] + D + A + proud if b.get("flush_corner") == "left" else A + s0
             d1 = starts[1] + A - proud if b.get("flush_corner") == "right" else A + s1
+            ch = k01_frontage_params.chamfer_of(b)   # T-3048: round a chamfer, at its back
+            if ch is not None:
+                d0, d1 = (starts[3] + D + A - ch[2], d1) if ch[0] == "left" else (d0, starts[1] + A + ch[2])
             if d0 > d1:
                 dead += [(d0, P), (0.0, d1)]
             else:
@@ -4125,6 +4156,9 @@ def build(params, structure_id: str):
     # T-3006: a rounded corner replaces the square one on the front and its side wall up to
     # the stone's top (the round's corbel squares it there); `round_corner` lays it
     rounded = k01_frontage_params.round_corner_spans(p.round_corner, D, W)["walls"] if p.round_corner else {}
+    # T-3048: and a chamfered pavilion's canted face stands where the square corner was, from
+    # grade, so the front and its side wall are cut back to it as far up
+    rounded = {**rounded, **k01_frontage_params.chamfer_spans(p.bays, D, W)}
     y_round = p.arched_front["stone_top_m"] if p.arched_front else yf
     belts = [(floors[1] - 0.20, floors[1], 0.05)] + ([(floors[2] - 0.15, floors[2], 0.05)] if len(floors) > 2 else [])
 

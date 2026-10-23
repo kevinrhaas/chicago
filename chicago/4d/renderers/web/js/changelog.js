@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2218, ts: '2026-10-23T12:27:58.344Z', date: 'Oct 23, 2026, 7:27 AM CT', title: '1801 Prairie\'s south pavilion has its cut-back corner', kind: 'fix',
+    items: [
+      'The south-west corner of the Kimball house\'s south pavilion on Prairie Avenue is now cut back at an angle, as the 1911 fire insurance map draws it: the front stops about 45 cm short of the corner and a slanted stone face runs back from there to the side wall, from the ground up to the gable. The house\'s own corner is cut away behind it, and the gable now sits on the narrower front with its peak at the same height. Seen from where J. W. Taylor took his photograph of about 1895, the pavilion\'s front is now as wide as his photograph shows it. The whole pavilion still sits a little south of where the photograph puts it, because the camera position fitted to that photograph took the wrong point for this corner; fixing that is next.',
+    ] },
   { v: 2217, ts: '2026-10-23T10:02:11.085Z', date: 'Oct 23, 2026, 5:02 AM CT', title: 'Glessner\'s south chimney checked against the HABS drawings', kind: 'chore',
     items: [
       'Nothing you can see changed. In J. W. Taylor\'s photograph of the Glessner house the south chimney stands about a foot and a half north of where the model draws it. The 1960s survey drawings were checked to see whether the model had the chimney in the wrong place. Both drawings put the chimney where the model already has it, so it stays. The mismatch comes from how the photograph\'s camera has been reconstructed, and fixing that is the next task.',
