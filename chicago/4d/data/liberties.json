@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 693,
+  "count": 694,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -50999,6 +50999,41 @@
         "T-3047",
         "T-3016",
         "T-3048"
+      ]
+    },
+    {
+      "id": "L-k01-1812-wheeler-stacks-3034",
+      "title": "1812 Prairie's south stack placed from two photographs, and the north stack of the c. 1955 photograph not built",
+      "section": "per_subject",
+      "subjects": [
+        "wheeler_house_1812_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "George H. Wheeler's house at 1812 Prairie gains a second solved camera, on the c. 1955 photograph (1812 S. Prairie Ave. About 1955. Photograph of the street front of the George…, rights check required: places and proportions only; the c1955 front data), and with it and Levy's camera beside it the tall corbelled south stack is triangulated and moved: from 6.1 m behind the front and 0.8 m inside the south wall (u 9.0, v 0.8), topping 17.59 m, to 1.35-2.35 m behind the main front (u 12.75-13.75), straddling the wall line on K01's on cornice stack, 0.55 m across and topping 16.8 m. The tall plain stack the c. 1955 photograph shows behind the gable's north shoulder is not built. **What is read, not invented.** Levy's shaft at x 262-318 px and top at y 127 px; the c. 1955 shaft's north-east corner at x 39 px and top at y 90 px; through the two cameras they meet at a stack whose faces fall at about v -0.87 to -0.34, outside the traced south wall, its east face about 0.55 m across, its top 16.8 m by Levy's print. The c. 1955 photograph confirms the south wall carried up past the mansard's curb in a coped top with the stack on it ('s reading of Levy's print), and sees the south wall's face in the 1.41 m gap to 1816 in a paler brick than the front. For the north stack: on 1812's ground (v up to 8.5) its north-east corner at x 435 px puts it within 1.2 m behind the main front, topping about 16.6 m, where Levy's camera draws it at x 930-1030 px from y 110 px down, against the open sky the print shows beside the north shoulder. **What is invented.** The stack's depth along the wall (1.0 m, the house's other stacks', since neither picture sees its side square); its corbelled head as K01's cap, 0.1 m proud and 0.6 m deep; its foot at the wall head, as on cornice builds it. **What is built otherwise than read.** The stack stands 0.3-0.9 m further out in both photographs, on the wall's outer face in the gap to 1816, than K01's on cornice lets it (its outer face no further out than the 0.05 m cornice); and the coped parapet it stands on is not built ('s open item). Both are a kit change: a stack and a parapet carried up on a mansard house's side wall. The c. 1955 camera reads things off the front's plane about a metre high (the stack's top 17.7 m, the parapet's cap 15.5-16 m, against Levy's 16.8 and 14.3-14.5), so the build takes Levy's heights and the place is good to about a metre along the wall."
+        },
+        {
+          "label": "How to resolve",
+          "text": "A third picture of the south side (the 1816 Henderson photograph, once its rights are resolved, sees 1812's south wall over 1816's roof) or a section; the kit change for the side-wall parapet and the stack on its outer face. For the north stack, any dated picture between Levy's print and 1955."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23 (T-3034)."
+        }
+      ],
+      "work_refs": [
+        "T-3034",
+        "T-2545",
+        "T-3033",
+        "T-3061"
       ]
     },
     {

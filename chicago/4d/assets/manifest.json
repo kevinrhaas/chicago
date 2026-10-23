@@ -8890,9 +8890,9 @@
     "wheeler_house_1812_prairie__as_built_1884.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 4087372,
+      "bytes": 4130488,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "4afa34738c0426cb507594b7f71f2b5be3edaf14aca259542c8f53f2941de3ca",
+      "inputs_sha256": "87b9b664410a6518adc9a27d03c17d8332d3488f114dadd04c71e76eb1b1a3a5",
       "kind": "generated",
       "phase_id": "as_built_1884",
       "structure_id": "wheeler_house_1812_prairie"

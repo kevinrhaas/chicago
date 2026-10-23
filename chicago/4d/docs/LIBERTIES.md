@@ -31476,3 +31476,41 @@ Taylor camera's south-west bearing against the chamfer's near end.
 **Ticket:** T-3047 (piece 1 of T-3016).
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-23 (T-3047).
+
+### L-k01-1812-wheeler-stacks-3034 — 1812 Prairie's south stack placed from two photographs, and the north stack of the c. 1955 photograph not built
+
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-3034, piece 2 of T-2545) gains a second
+solved camera, on the c. 1955 photograph (`chicagology_1812_wheeler_c1955_photo`, rights
+check_required: places and proportions only; `data/reference_views/wheeler_house_1812_prairie/c1955_front.json`),
+and with it and Levy's camera beside it the tall corbelled south stack is triangulated and moved:
+from 6.1 m behind the front and 0.8 m inside the south wall (u 9.0, v 0.8), topping 17.59 m, to
+1.35-2.35 m behind the main front (u 12.75-13.75), straddling the wall line on K01's `on_cornice`
+stack, 0.55 m across and topping 16.8 m. The tall plain stack the c. 1955 photograph shows behind
+the gable's north shoulder is not built.
+**What is read, not invented.** Levy's shaft at x 262-318 px and top at y 127 px; the c. 1955
+shaft's north-east corner at x 39 px and top at y 90 px; through the two cameras they meet at a
+stack whose faces fall at about v -0.87 to -0.34, outside the traced south wall, its east face
+about 0.55 m across, its top 16.8 m by Levy's print. The c. 1955 photograph confirms the south wall
+carried up past the mansard's curb in a coped top with the stack on it (T-3033's reading of Levy's
+print), and sees the south wall's face in the 1.41 m gap to 1816 in a paler brick than the front.
+For the north stack: on 1812's ground (v up to 8.5) its north-east corner at x 435 px puts it
+within 1.2 m behind the main front, topping about 16.6 m, where Levy's camera draws it at x
+930-1030 px from y 110 px down, against the open sky the print shows beside the north shoulder.
+**What is invented.** The stack's depth along the wall (1.0 m, the house's other stacks', since
+neither picture sees its side square); its corbelled head as K01's cap, 0.1 m proud and 0.6 m deep;
+its foot at the wall head, as `on_cornice` builds it.
+**What is built otherwise than read.** The stack stands 0.3-0.9 m further out in both photographs,
+on the wall's outer face in the gap to 1816, than K01's `on_cornice` lets it (its outer face no
+further out than the 0.05 m cornice); and the coped parapet it stands on is not built (T-3033's
+open item). Both are a kit change: a stack and a parapet carried up on a mansard house's side wall.
+The c. 1955 camera reads things off the front's plane about a metre high (the stack's top 17.7 m,
+the parapet's cap 15.5-16 m, against Levy's 16.8 and 14.3-14.5), so the build takes Levy's heights
+and the place is good to about a metre along the wall.
+**How to resolve:** A third picture of the south side (the 1816 Henderson photograph, once its
+rights are resolved, sees 1812's south wall over 1816's roof) or a section; the kit change for the
+side-wall parapet and the stack on its outer face (T-3061). For the north stack, any dated picture between
+Levy's print and 1955.
+**Ticket:** T-3034 (piece 2 of T-2545).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-23 (T-3034).
