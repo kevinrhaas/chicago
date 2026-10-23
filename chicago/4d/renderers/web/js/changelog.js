@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2208, ts: '2026-10-23T03:32:07.229Z', date: 'Oct 22, 2026, 10:32 PM CT', title: 'Sunlit walls no longer break into blotches on phones', kind: 'fix',
+    items: [
+      'On a phone, a pale wall facing the midday sun was catching blocky patches of its own shadow that shifted as you walked. The 1835 freight shed by the Dearborn Street drawbridge showed it worst. Phones now keep the sun\'s shadow clear of the wall casting it, so the shed\'s boards read clean.',
+      'Nothing changes on a desktop, and phones use no extra memory.',
+    ] },
   { v: 2207, ts: '2026-10-23T02:44:15.354Z', date: 'Oct 22, 2026, 9:44 PM CT', title: 'Calumet Avenue fills in down to 22nd Street', kind: 'feature',
     items: [
       'Look east between the houses on Prairie\'s east side from 20th to 22nd Street: Calumet Avenue\'s west side is no longer bare ground behind them.',

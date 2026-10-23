@@ -1,8 +1,0 @@
-{
-  "title": "Sunlit walls no longer break into blotches on phones",
-  "kind": "fix",
-  "items": [
-    "On a phone, a pale wall facing the midday sun was catching blocky patches of its own shadow that shifted as you walked. The 1835 freight shed by the Dearborn Street drawbridge showed it worst. Phones now keep the sun's shadow clear of the wall casting it, so the shed's boards read clean.",
-    "Nothing changes on a desktop, and phones use no extra memory."
-  ]
-}
