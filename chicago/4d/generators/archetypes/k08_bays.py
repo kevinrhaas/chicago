@@ -52,6 +52,11 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                gable's copings (1801's south pavilion, 0.1 m proud on its 1911 sheet): the
                recesses run back through the wall plane (`host_holes`, which its host opens
                its face round), and the gable is a solid parapet carried back past the plane
+  chamfer      (T-3048) a shallow projection flush with its wall's corner may cut that corner:
+               its last run cants from the front's corner back to the SIDE wall's plane behind
+               the wall's face (a `side` junction, mitred and trimmed on that plane, not the
+               face's), the gable on the shortened front and its kneeler over the chamfer's
+               head; its host cuts its own corner under it (k01_frontage_params.chamfer_spans)
 
 Everything a run carries is built FLAT, in the run's own (s, y, z) frame (s along the
 run's outer face, y up, z out of it: K06's frame), then mapped onto the run: rigidly
@@ -234,7 +239,10 @@ class Run:
         return (math.sin(f), 0.0, -math.cos(f)), (math.cos(f), 0.0, math.sin(f))
 
     def s_start(self, z):
-        """Where a surface z out of the face begins: on the wall plane, or mitred."""
+        """Where a surface z out of the face begins: on the wall plane, or mitred (T-3048: or,
+        a chamfer's, on its side wall's plane, square to the wall's)."""
+        if self.start == "side":
+            return -z * self.n[0] / self.e[0]
         if self.start == "wall":
             if self.kind == "line":
                 return -z * self.n[1] / self.e[1]
@@ -242,6 +250,8 @@ class Run:
         return -z * math.tan(self.start[1] / 2)
 
     def s_end(self, z):
+        if self.end == "side":
+            return self.L - z * self.n[0] / self.e[0]
         if self.end == "wall":
             if self.kind == "line":
                 return self.L - z * self.n[1] / self.e[1]
@@ -258,7 +268,9 @@ def turn(e1, e2) -> float:
     return -math.atan2(e1[0] * e2[1] - e1[1] * e2[0], e1[0] * e2[0] + e1[1] * e2[1])
 
 
-def line_runs(points):
+def line_runs(points, side=None):
+    """T-3048: `side` ("left" or "right") ends that run on its side wall's plane, behind the
+    wall's face (a chamfered corner's), in place of the wall's face."""
     runs = []
     n = len(points) - 1
     dirs = []
@@ -267,8 +279,8 @@ def line_runs(points):
         L = math.hypot(b[0] - a[0], b[1] - a[1])
         dirs.append(((b[0] - a[0]) / L, (b[1] - a[1]) / L))
     for i in range(n):
-        st = "wall" if i == 0 else ("corner", turn(dirs[i - 1], dirs[i]))
-        en = "wall" if i == n - 1 else ("corner", turn(dirs[i], dirs[i + 1]))
+        st = ("side" if side == "left" else "wall") if i == 0 else ("corner", turn(dirs[i - 1], dirs[i]))
+        en = ("side" if side == "right" else "wall") if i == n - 1 else ("corner", turn(dirs[i], dirs[i + 1]))
         runs.append(Run("line", st, en, A=tuple(points[i]), B=tuple(points[i + 1])))
     return runs
 
@@ -287,7 +299,7 @@ def plan_of(v: dict):
     p = v["plan"]
     if p["kind"] == "polyline":
         pts = [tuple(q) for q in p["points"]]
-        runs = line_runs(pts)
+        runs = line_runs(pts, p.get("side_end"))
         return runs, {"centre": None, "kind": "polyline", "lines": [(r.A, r.e, r.n) for r in runs]}
     if p["kind"] == "bow":
         h, rise = p["chord_m"] / 2, p["rise_m"]
@@ -444,8 +456,15 @@ def bend(run: Run, flat: dict, out: dict, step, join_quads=False, keep_behind=()
                             pieces.append(piece)
             for piece in pieces:
                 # the wall plane trims the bay: nothing of it stands behind the host wall's face
-                # (T-3047: but a shallow bay's window recesses, which run back through it)
-                if role not in keep_behind:
+                # (T-3047: but a shallow bay's window recesses, which run back through it).
+                # T-3048: a chamfer's run stands behind it to the side wall, whose plane trims it
+                if run.end == "side":
+                    xs = run.world(run.L, 0.0, 0.0)[0]
+                    piece = clip_half(piece, lambda q: xs - run.world(q[0], q[1], q[2])[0] + 1e-9)
+                elif run.start == "side":
+                    xs = run.world(0.0, 0.0, 0.0)[0]
+                    piece = clip_half(piece, lambda q: run.world(q[0], q[1], q[2])[0] - xs + 1e-9)
+                elif role not in keep_behind:
                     piece = clip_half(piece, lambda q: run.world(q[0], q[1], q[2])[2] + 1e-9)
                 if len(piece) < 3:
                     continue
@@ -454,7 +473,7 @@ def bend(run: Run, flat: dict, out: dict, step, join_quads=False, keep_behind=()
                     s, y, z = q[0], q[1], q[2]
                     al, ou = run.frame(s)
                     p = run.world(s, y, z)
-                    if -0.01 < p[2] < 0.0:     # a mitre's end bent onto the curve: onto the wall plane
+                    if -0.01 < p[2] < 0.0 and "side" not in (run.start, run.end):     # a mitre's end bent onto the curve: onto the wall plane
                         p = (p[0], p[1], 0.0)
                     pts.append(p)
                     nrms.append(_unit((q[3] * al[0] + q[5] * ou[0], q[4], q[3] * al[2] + q[5] * ou[2])))
@@ -771,6 +790,13 @@ def gable_face(v: dict):
         return None
     pts = [tuple(map(float, q)) for q in v["plan"]["points"]] if v["plan"]["kind"] == "polyline" else []
     eq = lambda a, b: abs(a - b) < 1e-9
+    # T-3048: or one return a chamfer, from the front's corner back to its side wall's plane
+    # behind the wall's face (1801's south pavilion on its 1911 sheet), the gable on the front
+    side = v["plan"].get("side_end")
+    if side and len(pts) == 4:
+        k = 0 if side == "left" else 3
+        if pts[k][1] < 0.0 and (pts[k][0] < pts[1][0] if side == "left" else pts[2][0] < pts[k][0]):
+            pts[k] = (pts[1 if side == "left" else 2][0], 0.0)
     if v["kind"] != "projection" or len(pts) != 4 or not (eq(pts[0][1], 0.0) and eq(pts[3][1], 0.0)
                                                         and eq(pts[0][0], pts[1][0]) and eq(pts[2][0], pts[3][0])
                                                         and eq(pts[1][1], pts[2][1]) and pts[1][1] > 0
@@ -949,6 +975,8 @@ class Bay:
             er = _Cut(run, start=gi is not None and i == gi + 1, end=gi is not None and i == gi - 1)
             if gi is not None and i == gi:
                 pass
+            elif gi is not None and "side" in (run.start, run.end):
+                pass   # T-3048: a chamfer's head is under its kneeler, which closes over it
             elif prof:
                 # T-2472: in the stone of the bay's bands, or the role its eaves name (the
                 # bracketed cornice's section is the eave's painted timber)
@@ -1260,6 +1288,7 @@ class Bay:
         # a solid parapet carried back through the wall plane to the copings' back, with no roof
         # in front of the plane; its host closes nothing over the wall top
         shallow = bool(self.v.get("shallow"))
+        chamfer = self.v["plan"].get("side_end")   # T-3048: a chamfered return, on a shallow one
         if not ((zb <= -0.05 if shallow else 0.05 <= zb) and zb <= p - 0.1 and 0.1 <= kw and xa <= xc - 0.5):
             raise ValueError(f"{self.v['id']}: the coping's back {zb:.3f} m out stands 0.05 m out of the wall "
                              f"(on a shallow projection 0.05 m behind it) and 0.1 m behind the front, and the "
@@ -1297,7 +1326,10 @@ class Bay:
             if shallow:   # T-3047: carried back with the parapet, its back and underside its own
                 self._block(world, "band", a, b, y_top, y_k, zb, zf, under=False)
                 k0, k1 = (a, xl) if a < xl else (xr, b)
-                world.face("band", [(k0, y_top, zb), (k1, y_top, zb), (k1, y_top, 0.0), (k0, y_top, 0.0)], D)
+                # T-3048: over a chamfer it oversails the canted face, so its underside runs
+                # out to the front's plane (the chamfer has no eaves of its own)
+                zc = p if (a < xl and chamfer == "left") or (a >= xl and chamfer == "right") else 0.0
+                world.face("band", [(k0, y_top, zb), (k1, y_top, zb), (k1, y_top, zc), (k0, y_top, zc)], D)
             else:
                 self._block(world, "band", a, b, y_top, y_k, 0.0, zf, back_from=y_e, under=False)
             # its underside where the return's soffit is not: out past the fascia, and proud
@@ -1306,7 +1338,8 @@ class Bay:
             o0, o1 = (a, e0) if a < e0 else (e1, b)
             if shallow:   # T-3047: past the return's fascia on either side (its parapet's is the rest)
                 o0, o1 = (a, e0) if a < xl else (e1, b)
-            world.face("band", [(o0, y_top, 0.0), (o1, y_top, 0.0), (o1, y_top, p), (o0, y_top, p)], D)
+            if not ((a < xl and chamfer == "left") or (a >= xl and chamfer == "right")):
+                world.face("band", [(o0, y_top, 0.0), (o1, y_top, 0.0), (o1, y_top, p), (o0, y_top, p)], D)
         meta = {"kind": "gable", "pitch": pitch, "planes": 0 if shallow else 2, "apex": [round(xc, 4), round(y_r, 4), 0.0],
                 "ridge_m": round(y_r, 4), "kneeler_m": round(y_k, 4), "gable_top_m": round(top(xc), 4)}
         zm = (zb + zf) / 2
@@ -1851,8 +1884,8 @@ class Bay:
         self.meta["sockets"] = {"junction_left": [round(c, 4) for c in jl], "junction_right": [round(c, 4) for c in jr],
                                 "base": [0.0, round(y0, 4), 0.0], "eave": [0.0, round(y_e, 4), 0.0]}
         self.meta["plan"] = {"runs": [{"kind": r.kind, "length_m": round(r.L, 4),
-                                       "start": r.start if r.start == "wall" else ["corner", round(math.degrees(r.start[1]), 3)],
-                                       "end": r.end if r.end == "wall" else ["corner", round(math.degrees(r.end[1]), 3)]}
+                                       "start": r.start if r.start in ("wall", "side") else ["corner", round(math.degrees(r.start[1]), 3)],
+                                       "end": r.end if r.end in ("wall", "side") else ["corner", round(math.degrees(r.end[1]), 3)]}
                                       for r in self.runs],
                              "width_at_wall_m": round(jr[0] - jl[0], 4), "projection_m": round(reach, 4)}
 

@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import copy
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -110,6 +111,10 @@ def main() -> int:
         s0, s1 = b["span_m"]
         lo, hi = sorted(to_axis(s)[0] for s in (s0, s1))
         area, reach = closed_back(a, plane, back, (lo, hi), p.eave_m, top)
+        # T-3048: a chamfered corner's closure stops where its canted face crosses the plane
+        ch = KP.chamfer_of(b)
+        if ch is not None:
+            s0, s1 = (s0 + ch[3], s1) if ch[0] == "left" else (s0, s1 - ch[3])
         want = (s1 - s0) * (top - p.eave_m)
         # T-3047: a shallow pavilion's back is opened where its windows' recesses run through
         # the plane, and its gable's parapet, carried back past the plane, closes its own top
@@ -156,6 +161,44 @@ def main() -> int:
     check(ws["fabric"] == ms["fabric"] and ws != ms,
           "the wing slate is the main roof's fabric and still its own material (dedup keeps its name)")
     check({"wing_slate", "mansard_slate"} <= set(a.prims), "1801 lays both slates")
+
+    # T-3048: the south pavilion's south-west corner chamfered as its 1911 sheet draws it, the
+    # house's own corner cut under the canted face from grade to the soffit
+    D, W = p.depth_m, p.width_m
+    bs = next(x for x in p.bays if x["id"] == "p_south")
+    ch = KP.chamfer_of(bs)
+    check(ch is not None and ch[0] == "right" and abs(ch[1] - 0.44) < 1e-9 and abs(ch[2] - 0.35) < 1e-9,
+          "1801's pavilion chamfers its corner 0.44 m along its front, back to 0.35 m behind it")
+    check(KP.chamfer_spans(p.bays, D, W) == {"k01.wall.street_front": (W - ch[3], W),
+                                              "k01.wall.side.north": (0.0, ch[2])},
+          f"the front cut from {W - ch[3]:.3f} m to the corner, the side wall back to {ch[2]} m")
+    proud = max(float(q[1]) for q in bs["variant"]["plan"]["points"])
+    (un, sn), (ub, sb_) = (D + proud, W - ch[1]), (D - ch[2], W)
+    side = lambda u, s_: (u - ub) * (sn - sb_) - (s_ - sb_) * (un - ub)
+    out = side(D + proud, W)
+    left = [q for name, pr in a.prims.items() if not name.startswith("bay_") for q in pr.pos
+            if q[1] < a.soffit_m - 0.05 and ub <= q[0] <= un and sn <= -q[2] <= W
+            and side(q[0], -q[2]) * out > 0 and abs(side(q[0], -q[2])) / math.hypot(un - ub, sn - sb_) > 0.005]
+    check(not left, f"no masonry of the house stands outside the canted face under the soffit ({len(left)} vertices)")
+
+    def chamfer_refused(change, why, says):
+        st, phase = load(SID)
+        st = copy.deepcopy(st)
+        phase = st["phases"][-1]
+        e = next(x for x in phase["form"]["bays"]["value"] if x["id"] == "p_south")
+        change(e)
+        try:
+            KP.from_phase(phase, st)
+        except KP.ParamError as err:
+            check(says in str(err), f"{why}: refused ({str(err)[:90]}...)")
+            return
+        check(False, f"{why}: refused")
+    chamfer_refused(lambda e: e["plan"]["chamfer"].__setitem__("corner", "left"),
+                    "a chamfer on the corner the pavilion is not flush with", "flush with that corner")
+    chamfer_refused(lambda e: e["plan"].pop("shallow"), "a chamfer on a pavilion that is not shallow",
+                    "on a shallow pavilion")
+    chamfer_refused(lambda e: e["plan"]["chamfer"].__setitem__("behind_m", 0.8),
+                    "a chamfer 0.8 m behind the wall", "behind the wall")
 
     if failures:
         print(f"test_k01_pavilion_past_eave: {len(failures)} failed")
