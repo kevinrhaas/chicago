@@ -22,6 +22,10 @@ The street slope is the hip's street plane, so the K05 dormer (1619's wall gable
 it exactly as before. K05's own `parapet_element` builds each parapet, so the slab and its
 coping are the kit's. Every number is the record's or K05's (k05_roofs.json parts.parapet,
 parts.coping), and docs/LIBERTIES.md L-k01-1619-gable-roof-2459 says which.
+
+T-3050: `hip_mass` adds a K05 hip over the low-v end of the block (1811 Prairie's tall hipped
+roof over its bay, the 1888 plate), its street face in the attic's street plane; the attic
+then starts inside it and only the high-v wall is a parapet.
 """
 
 from __future__ import annotations
@@ -83,16 +87,37 @@ def elements(p, k5, E: float, o: float, f: float):
     # the attic runs the whole width; its ends are the eave boxes' ends beyond the walls'
     # planes, and over the walls they lie in the parapets' outer faces, which are joined
     # FIRST so the union keeps the parapet's face there and drops the attic's
-    attic = k5.extrude([(-o, hs), (D + o, hs), (D + o, hef), (xr, yr), (-o, her)], -W, 0.0, P,
+    # T-3050: under a hipped mass the attic starts inside the hip, at `attic_from_m`
+    hm = g.get("hip_mass")
+    z1 = -hm["attic_from_m"] if hm else 0.0
+    attic = k5.extrude([(-o, hs), (D + o, hs), (D + o, hef), (xr, yr), (-o, her)], -W, z1, P,
                        k5.by_edge("covering", "soffit", "fascia"), "fascia", "fascia")
     tw, up = g["parapet_m"], g["upstand_m"]
     top = yr + g["top_above_ridge_m"]
     solids, lines = [], {}
     for side, (c0, c1) in (("south", (-tw, 0.0)), ("north", (-W, -W + tw))):
+        if side not in g["ends"]:
+            continue
         e = g["ends"][side]
         ln = [(min(x, D - FRONT_SET_M), y) for x, y in line(e["style"], e.get("steps", 0), D, xr, E, tf, tb, up, top)]
         # each parapet stands on its wall from the soffit up, the wall's top under the eave
         solids += k5.parapet_element({}, ln, (c0, c1), "z", tw, hs, g["coping_m"], g["drip_m"], 0.0, 0.0)
         lines[side] = [[round(a, 4), round(b, 4)] for a, b in ln]
-    solids += [attic, k5.body_box(0.0, D, -W, 0.0, hs - 1.0, hs)]
-    return solids, hs, hef, {"ridge_m": yr, "parapet_top_m": round(top, 4), "parapet_lines": lines}
+    solids.append(attic)
+    if hm:   # T-3050: the hipped mass over the low-v end, its street face the attic's street plane
+        if hm["apex_v_m"] is None:
+            hip, _ = k5.hip_element(0.0, D, -hm["v_m"], 0.0, E, tf, o, f)
+        else:   # its end faces pitched to the apex's place: K05's ring stack, as the hip's
+            X0, X1, Z0, Z1 = -o, D + o, -hm["v_m"] - o, o
+            rise = (D / 2 + o) * tf
+            tn = math.tan(math.radians(hm["end_pitch_deg"]["north"]))
+            ts = math.tan(math.radians(hm["end_pitch_deg"]["south"]))
+            za, zb, xc = Z0 + rise / tn, Z1 - rise / ts, D / 2
+            zb = max(zb, za)   # a pyramid: the two ends meet at the apex
+            rect = k5.inset_rect(X0, X1, Z0, Z1, 0.0)
+            hip = k5.ring_stack([(hs, rect), (hef, rect), (hef + rise, [(xc, za), (xc, za), (xc, zb), (xc, zb)])],
+                                ["fascia", "covering"], "soffit")
+        solids.append(hip)
+    solids.append(k5.body_box(0.0, D, -W, 0.0, hs - 1.0, hs))
+    return solids, hs, hef, {"ridge_m": yr, "parapet_top_m": round(top, 4), "parapet_lines": lines,
+                             **({"hip_apex_m": hm["apex_m"]} if hm else {})}

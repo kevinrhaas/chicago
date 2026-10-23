@@ -253,7 +253,7 @@ export function createNavigator({
   out.inspect?.addEventListener('click', () => {
     const t = shown;
     if (!t) return;
-    if (isPhone()) setLevel(0, { by: 'app' });
+    // T-3022: the building opens in Inspect, in the device, so a phone's sheet stays up.
     onInspect(t.id);
   });
 

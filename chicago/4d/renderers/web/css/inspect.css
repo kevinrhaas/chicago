@@ -250,3 +250,17 @@ button.insp-hot-row:focus-visible { outline: 2px solid var(--accent, currentColo
 .src-open .cites { margin: 0 0 12px; padding-left: 1.2rem; font-size: 0.8125rem; color: var(--ink-dim); }
 .src-foot { margin: 0; font-size: 0.875rem; color: var(--ink-dim); }
 .src-foot a { color: var(--accent, var(--ink)); }
+
+/* T-3022: the Research tab (Expert research): the floating card's head, facts and research
+   panes folded into Inspect. Each pane is a fold; Sources opens first. */
+.insp-research > .pop-head { padding: 0 0 8px; }
+.insp-research .pop-facts { margin: 0 0 12px; }
+.insp-fold { border-top: 1px solid var(--edge); }
+.insp-fold > summary { display: flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; list-style: none;
+  font: var(--label-weight, 400) 0.75rem/1 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+.insp-fold > summary::-webkit-details-marker { display: none; }
+.insp-fold > summary::after { content: '+'; margin-left: auto; color: var(--ink-dim); font-size: 1rem; }
+.insp-fold[open] > summary::after { content: '−'; }
+.insp-fold > summary:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: -2px; }
+.insp-fold > .pop-pane { padding: 0 0 12px; }
