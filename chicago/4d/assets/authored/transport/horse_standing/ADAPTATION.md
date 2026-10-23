@@ -1,0 +1,11 @@
+# Canonical26 planted-standing development derivative
+
+Original Horse by sevketkabatas, CC BY4.0, https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe. Original source SHA41acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988 is unchanged in acquisition/recovery records. The selected derivative is b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be,3,783,600bytes.
+
+Source rest surface is baked to canonical metres/Yup/Zforward/Xleft; new reconstructed26 controls, inverse binds and V16 weights replace the original15rig for this separate derivative. Original rest shape, maps/UVs/indices are preserved; raw original node/container/weight identity is NOT claimed. Runtime uses unit scale and zero origin; original0.3644068837native conversion is already baked and never reapplied. The source's six incompatible clips and earlier head/tail derivative are not shipped or played as this animation.
+
+Rigged Mid-Poly Horse by antemeossa, CC BY4.0, https://sketchfab.com/3d-models/rigged-mid-poly-horse-fea999c1d8d64eb4a9c2bb1fac1e7d83 supplied hierarchy analogy only, with no donor mesh or animation keys copied. Current body shift is explicitly reconstructed: one12s planted-standing clip,13 standardglTF channels/65LINEARkeys; no head/tail composition, walk, trot, route or riding. Runtime selected organic_dielectric_v1 clones set metalness0 while retaining original image/roughness/UV policy.
+
+Actual standardGLTFLoader/Mixer V2 passed65keys+64midpoints with original surface/contact/loop/meaningful controls. The compact loaded129-summary.json data record pins raw result52841c26764f1ef88def84275da992cc3d51d1289b62cde3d6976155f8e55997. Source BIN/field bytes and standard-loader normalization have distinct documented proof scopes. No renderer/GPU/photo/app or walking acceptance follows from that result. Actual yard/mobile inspection and full source gate remain required.
+
+The individual, period, breed, owner, coat, grooming, dimensions and precise placement are reconstructed; modern licensing and publication do not attest an1835animal. Existing historical yard source supplies horsekeeping context only. Rights/legal/dataset notices are retained beside SOURCE.json.

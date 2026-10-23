@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-16-prairie-front",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "eabb640c6e2670f5d341c0dfab15ffade604f80cc7de095959c5b0ab4aecd6a5",
+  "glb_sha256": "5fff90bb9d42aa51dc25ecacc8da8b2a02f5e56cfebc6fb8e789f1b26f284a1b",
   "camera_sha256": "a6cab11dcafff11f11d93e858c37ba17f45a1f59a8a82f28cf0431c025755e50",
   "photo_sha256": "c48a056ae87e4e31d21aa95956cf7c1b57b00df4ded49323f5daca424107f8d8",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-16-prairie-front-side-by-side.jpg",
@@ -29,8 +29,8 @@
       "status": "not shown"
     },
     {
-      "what": "Stone/course relief and the 1965 sash (painted light, two sashes) against the render's dark frames: the sash is the 1965 state and not compared; course relief stays open. T-3044: this plate is sheet 6's own (T-2986 \u00a7 2), so its course heights are sheet 6's, which Taylor 2135 now agrees with (T-3045). It shows relief too flat at this scale to measure, so the relief item closes with Taylor 2135's (T-3046). T-3045 has laid the heights (the fixed entry below); what stays open here is the relief, T-3046's.",
-      "status": "open"
+      "what": "Stone/course relief and the 1965 sash (painted light, two sashes) against the render's dark frames: the sash is the 1965 state and not compared; course relief stays open. T-3044: this plate is sheet 6's own (T-2986 \u00a7 2), so its course heights are sheet 6's, which Taylor 2135 now agrees with (T-3045). It shows relief too flat at this scale to measure, so the relief item closes with Taylor 2135's (T-3046). T-3045 laid the heights (the fixed entry below), and T-3046 the relief, which closes with Taylor 2135's: a course printed 11.5 in or over now crowns 1.25 times its stones' bow and rises to it over at most 0.09 m, so through Taylor 2135's camera, on the laid beds, a high course's lower-lip shadow reads 1.33 times a low course's in the render against 1.32 in the photograph (0.86 before; docs/RESEARCH/glessner-course-relief-T-3046/).",
+      "status": "fixed"
     },
     {
       "what": "The neighboring house, signs, modern air conditioners, cars and mature1965 vine extent are not1904 house geometry. Roof portions outside the plate cannot be accepted from this crop.",

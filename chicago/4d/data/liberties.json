@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 700,
+  "count": 706,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -534,6 +534,14 @@
       "name": "1613 Prairie Avenue — four-storey brick house, the north half of the pair with 1615"
     },
     {
+      "id": "house_1615_indiana",
+      "name": "1615–1617 Indiana Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_1615_indiana_coach_house",
+      "name": "1615 S. Indiana Avenue — the alley building of the house at 1615"
+    },
+    {
       "id": "house_1615_prairie",
       "name": "1615 Prairie Avenue — four-storey brick house, the south half of the pair with 1613"
     },
@@ -552,6 +560,14 @@
     {
       "id": "house_1621_prairie",
       "name": "1621 Prairie Avenue — John H. Hamline's stone-front house with its swell bay, from Treat & Foltz's drawing"
+    },
+    {
+      "id": "house_1623_indiana",
+      "name": "1623 Indiana Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_1623_indiana_coach_house",
+      "name": "1623 S. Indiana Avenue — the alley building of the house at 1623"
     },
     {
       "id": "house_1623_prairie",
@@ -594,6 +610,22 @@
       "name": "1636 Prairie Avenue — stone-front house, the south half of the pair with 1634"
     },
     {
+      "id": "house_1637_indiana_coach_house",
+      "name": "1623-1637-c S. Indiana Avenue — the alley building of the house at 1637"
+    },
+    {
+      "id": "house_1641_indiana_coach_house",
+      "name": "1641 S. Indiana Avenue — the alley building of the house at 1641"
+    },
+    {
+      "id": "house_1703_indiana",
+      "name": "1703 Indiana Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_1703_indiana_coach_house",
+      "name": "1703 S. Indiana Avenue — the alley building of the house at 1703"
+    },
+    {
       "id": "house_1708_prairie",
       "name": "1708 Prairie Avenue — Thorne-associated brick house"
     },
@@ -604,6 +636,14 @@
     {
       "id": "house_1712_prairie_coach_house",
       "name": "1712 S. Prairie Avenue — the alley building of the house at 1712"
+    },
+    {
+      "id": "house_1713_indiana",
+      "name": "1713 Indiana Avenue — Brick dwelling"
+    },
+    {
+      "id": "house_1713_indiana_coach_house",
+      "name": "1713 S. Indiana Avenue — the alley building of the house at 1713"
     },
     {
       "id": "house_1726_prairie",
@@ -880,6 +920,10 @@
     {
       "id": "house_2032_calumet_shed",
       "name": "2032 S. Calumet Avenue — the one-storey frame building standing apart in 2032's yard"
+    },
+    {
+      "id": "house_209_e16th",
+      "name": "209–217 East Sixteenth Street — Brick dwelling"
     },
     {
       "id": "house_2100_calumet",
@@ -1448,6 +1492,10 @@
     {
       "id": "otis_house_2033_prairie_coach_house",
       "name": "2033 S. Prairie Avenue — the alley building of the house at 2033"
+    },
+    {
+      "id": "ouilmette_house_1812",
+      "name": "Antoine Ouilmette's house, the easternmost of the three houses west of the Kinzie house"
     },
     {
       "id": "peck_store",
@@ -20684,19 +20732,20 @@
         "lee_house_1812",
         "lees_place_cabin_1812",
         "lemai_house_1812",
-        "north_side_school_1833"
+        "north_side_school_1833",
+        "ouilmette_house_1812"
       ],
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[roof_type_stated]",
-        "count": 690
+        "count": 691
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "structures.phases[roof type stated] — 690 phases (685 until 's stable, lodging house, bake-house, dairy and horse mill of the Kinzie establishment on the north bank, 2026-10-22, “The Kinzie establishment of 1812: which pictured building is which, where the unpictured ones stand, their sizes, and the rulings on du Sable's bill of sale”; 683 until 's two 1812 log houses at the forks of the river, The discharged soldier's house at the forks, 1812 and Clark's house at the forks, 1812, 2026-10-15, “The forks of 1812: the two houses Whistler draws there, Clark taken for one of them, and the company cornfield as a rail-fenced eight acres”; 682 until 's farm cabin at Lee's Place, Lee's Place (Hardscrabble): the farm cabin on the South Branch, 2026-10-15, “Lee's Place in 1812: the cabin's seat, size and shape, the field's bounds and fence, and the closing date”; 680 until 's La Lime and Le Mai houses on the north bank west of the Kinzie house, La Lime's house, the middle of the three houses west of the Kinzie house and Le Mai's house, the westernmost of the three houses west of the Kinzie house, at the field the draught letters 'Mr Coursell', 2026-10-15, dated 1808-1816, “La Lime's and Le Mai's houses of 1812: which drawn house is whose, the north bank's frame, their sizes, heights and closing dates”; 679 until 's Kinzie house on the north bank opposite the first fort, 2026-10-15, dated 1804-1833, “The Kinzie house in 1812: its size, its set-back, its piazza's measure, the green's corners and where its trees stand”; 675 until 's interpreter's house, armourer's shop, merchant's shop and bake house outside the first Fort Dearborn, 2026-10-15, dated 1808-1812, “The first fort's interpreter's house, armourer's shop, merchant's shop and bake house stand where the 1808 draught's rule puts them, and the interpreter's own figure is set aside for the river”; 673 until 's two 1812 log houses on the river, The Burns house, on the north bank at the later foot of State Street and The Lee family's house, on the shore at the river's mouth south of the fort, 2026-10-15, “The Burns and Lee houses of 1812: their seats, sizes, fabric and closing dates”; 671 until 's two houses on the east corners of the School Section row's block 82, the School Section row 82 block, 2026-10-10, “A cabin and a merchant's house invented on the east corners of the School Section row's block 82”; 667 until 's four houses on the School Section row's Market block south of Monroe, the School Section row 82 block, 2026-10-10, “Four invented houses on the School Section row's Market block south of Monroe”, on the tree merged with; 665 until 's two river warehouses on the South Branch's east bank between Madison and Washington, 2026-10-10, “Two invented river warehouses on the South Branch's east bank below Market Street”; 664 until 's lumber shed on the South Branch's east bank south of Washington Street, 2026-10-10, “The South's lumber shed: an open-sided shed on the South Branch's east bank that no source seats”; 663 until 's boarding house party-walled to the D5 on the Market wedge's lot 7, block 21, 2026-10-09, “An invented boarding house in a two-unit row on the Market wedge's lot 7”; 662 until 's larger frame house on the Market wedge's lot 7, block 21, 2026-10-09, “An invented house on the Market wedge's lot 7”; 659 until 's three roofs — a larger frame house on the School Section row's block 81, a larger tradesman's house on its block 95 and a barn on block 19, 2026-10-08, “Two invented houses on the School Section row's blocks 81 and 95 and an invented barn on South Water–Wells”; 658 until 's two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge on block 16, 2026-10-08, L406; 653 until 's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, “Five invented barns in the yards of the Wolcott-Kinzie core's houses”; 647 until 's six houses on the School Section row's Market block south of Madison, the School Section row 81 block, 2026-10-08, “Six invented houses on the School Section row's Market block south of Madison”; 644 until 's last three yard buildings on plat block 50, the Washington Clinton block, 2026-10-08, “The West's last three yard buildings, behind the Canal Street houses of plat block 50”; 631 until 's thirteen houses on the School Section row's Wells blocks south of Madison, the School Section row 94 block and _95, 2026-10-08, “Thirteen invented houses on the School Section row's Wells blocks south of Madison”; 628 until 's three yard buildings — a stable on the Indiana North Wolcott block, a barn or carriage shed on block 19 and a smokehouse on block 16, 2026-10-08, “Three yard buildings the reconstruction plan counted and nobody had built: a stable in Kinzie's Addition, a barn on South Water–Wells, a smokehouse on South Water–Dearborn”; 624 until 's four yard buildings behind the Canal Street houses of plat block 50, the Washington Clinton block, 2026-10-08, “Four more yard buildings behind the Canal Street houses of plat block 50”; 623 until 's river warehouse on the West Water bank at Washington Street, 2026-10-08, “The West Division's second freight roof: a narrow warehouse on the West Water bank at Washington Street that no source seats”; 622 until 's river warehouse on the North Water bank at LaSalle, 2026-10-07, “The North Division's seventh freight roof: a river warehouse on the North Water bank at LaSalle that no source seats”; 609 until 's thirteen roofs on plat block 50, the Washington Clinton block, Washington to Madison on the Canal face, 2026-10-06, “Plat block 50 between Clinton and Canal, Washington to Madison: thirteen invented roofs on the Canal face”; 569 until 's 26 North Division dwellings south of Michigan Street, 2026-10-05, “Twenty-six invented North Division houses carried off Kinzie's Addition, south of Michigan Street”; 563 until 's six houses on plat block 51, the West Washington Canal block, the West Division's last row between Washington and Madison, 2026-10-05; 559 until 's four houses on plat block 44, the West Randolph Canal block, 2026-10-05; 554 until 's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until 's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until 's six houses on the Washington Dearborn block and two houses and a smokehouse on the Washington Clark block, 2026-10-05; 531 until raised the Market block's ten roofs, 2026-10-05; 528 until 's two frame cottages and plank shanty on the West Lake Canal block, 2026-10-05; 516 until wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until folded beaubien new residence into the Beaubien homestead, 2026-10-03; 518 until withdrew the south-bank freight shed south bank shed dearborn e1, 2026-10-03; 512 until 's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until 's boarding house, stable and privy on the Indiana North Cass block, 2026-10-02, 500 until 's on the Washington Clark block the same day, and 503 until 's three houses with their stables and privies on the Washington Market block and the Washington Dearborn block, also that day). Every phase that states a roof type takes this exposure the moment the roof plane substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: later work's two Beaubien homestead buildings, later work's six South Branch works buildings, later work's three agency log buildings at the foot of State Street, later work's second garrison root-house and later work's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. Later work's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. Later work's first deal on the Washington Clark block makes 422: two frame cottages on the plat's last row and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. Later work's first deal on the Indiana North Wolcott block makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. Later work's deal on the Washington Wells block makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last row the Clark four stand on, every one of them shingled by this exposure for the same reason they are. Later work's second deal on the Indiana North Wolcott block makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes later work raised there and shingled by the same exposure. Later work's deal on the Washington Lasalle block makes **452** — seven dwellings and four yard buildings on the south-west block of that same row, every one of them shingled — so the row has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. Later work's first deal on the Indiana North Cass block makes **456**, the same four shapes later work raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. Later work's deal on the Washington Franklin block makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with a stable, a carriage shed, two woodsheds, a privy and a small utility building in their yards (two stables until corrected the yard mix to the block's plan, which moved no count), thirteen roofs that each state a roof type and thirteen more the exposure reaches. Later work's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. Later work's first deal on block 28 makes **476**: a two-room frame cottage on Canal Street, a one-room cottage on Clinton Street, and a stable off the alley behind the first. All three state a roof type and are shingled by this exposure. Later work's warehouse at Lake and West Water makes **477** — one F2 roof, the West Division's second freight roof (“The West Division's second freight roof: a warehouse at Lake and West Water that no source seats”). Later work's second deal on block 45, one block south of the Clinton cottages, makes **481** — a two-storey frame house and a two-room cottage on the same Canal teamster approach with a privy and a woodshed behind them, all four shingled by this exposure for the same reason every frame roof the block recipe raises is. Later work's house and barn in Wabansia make 483: the first roofs the exposure reaches in that survey, a story-and-a-half house with its kitchen ell and a plank barn, both named records rather than recipe roofs. Later work's deal on the West Randolph Des Plaines block makes **487**, and they are the first roofs this entry reaches on the West Division's outer platted blocks: a two-room cottage, a deep-plan cottage, a storey-and-a-half cottage and a carpenter's shop on the Randolph corner, out on the Des Plaines edge where the reviewed West recipe had stood only two roofs. Later work's boarding house on the Washington Clark block makes **488** — one H3 roof, the town's first, gable-end to Madison Street (“The town's first boarding house: an invented H3 on the Washington Clark block's Madison-and-Dearborn corner, its windows and stovepipes sized from modelled beds”). Later work's third deal on the same block makes **493** — the second H3, facing Washington Street, and a stable and a privy behind each of the two (“The emigrants' tents at the landing: the ground documented, the tents invented, the count the paper's \"some\"”). No record's roof type or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
+          "text": "structures.phases[roof type stated] — 691 phases (690 until 's Ouilmette house on the north bank west of the Kinzie house, Antoine Ouilmette's house, the easternmost of the three houses west of the Kinzie house, 2026-10-23, dated 1808-1829, “Antoine Ouilmette's house of 1812: the drawn house taken as his, its height and pitch, its closing date, and the currant bushes behind it”; 685 until 's stable, lodging house, bake-house, dairy and horse mill of the Kinzie establishment on the north bank, 2026-10-22, “The Kinzie establishment of 1812: which pictured building is which, where the unpictured ones stand, their sizes, and the rulings on du Sable's bill of sale”; 683 until 's two 1812 log houses at the forks of the river, The discharged soldier's house at the forks, 1812 and Clark's house at the forks, 1812, 2026-10-15, “The forks of 1812: the two houses Whistler draws there, Clark taken for one of them, and the company cornfield as a rail-fenced eight acres”; 682 until 's farm cabin at Lee's Place, Lee's Place (Hardscrabble): the farm cabin on the South Branch, 2026-10-15, “Lee's Place in 1812: the cabin's seat, size and shape, the field's bounds and fence, and the closing date”; 680 until 's La Lime and Le Mai houses on the north bank west of the Kinzie house, La Lime's house, the middle of the three houses west of the Kinzie house and Le Mai's house, the westernmost of the three houses west of the Kinzie house, at the field the draught letters 'Mr Coursell', 2026-10-15, dated 1808-1816, “La Lime's and Le Mai's houses of 1812: which drawn house is whose, the north bank's frame, their sizes, heights and closing dates”; 679 until 's Kinzie house on the north bank opposite the first fort, 2026-10-15, dated 1804-1833, “The Kinzie house in 1812: its size, its set-back, its piazza's measure, the green's corners and where its trees stand”; 675 until 's interpreter's house, armourer's shop, merchant's shop and bake house outside the first Fort Dearborn, 2026-10-15, dated 1808-1812, “The first fort's interpreter's house, armourer's shop, merchant's shop and bake house stand where the 1808 draught's rule puts them, and the interpreter's own figure is set aside for the river”; 673 until 's two 1812 log houses on the river, The Burns house, on the north bank at the later foot of State Street and The Lee family's house, on the shore at the river's mouth south of the fort, 2026-10-15, “The Burns and Lee houses of 1812: their seats, sizes, fabric and closing dates”; 671 until 's two houses on the east corners of the School Section row's block 82, the School Section row 82 block, 2026-10-10, “A cabin and a merchant's house invented on the east corners of the School Section row's block 82”; 667 until 's four houses on the School Section row's Market block south of Monroe, the School Section row 82 block, 2026-10-10, “Four invented houses on the School Section row's Market block south of Monroe”, on the tree merged with; 665 until 's two river warehouses on the South Branch's east bank between Madison and Washington, 2026-10-10, “Two invented river warehouses on the South Branch's east bank below Market Street”; 664 until 's lumber shed on the South Branch's east bank south of Washington Street, 2026-10-10, “The South's lumber shed: an open-sided shed on the South Branch's east bank that no source seats”; 663 until 's boarding house party-walled to the D5 on the Market wedge's lot 7, block 21, 2026-10-09, “An invented boarding house in a two-unit row on the Market wedge's lot 7”; 662 until 's larger frame house on the Market wedge's lot 7, block 21, 2026-10-09, “An invented house on the Market wedge's lot 7”; 659 until 's three roofs — a larger frame house on the School Section row's block 81, a larger tradesman's house on its block 95 and a barn on block 19, 2026-10-08, “Two invented houses on the School Section row's blocks 81 and 95 and an invented barn on South Water–Wells”; 658 until 's two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge on block 16, 2026-10-08, L406; 653 until 's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, “Five invented barns in the yards of the Wolcott-Kinzie core's houses”; 647 until 's six houses on the School Section row's Market block south of Madison, the School Section row 81 block, 2026-10-08, “Six invented houses on the School Section row's Market block south of Madison”; 644 until 's last three yard buildings on plat block 50, the Washington Clinton block, 2026-10-08, “The West's last three yard buildings, behind the Canal Street houses of plat block 50”; 631 until 's thirteen houses on the School Section row's Wells blocks south of Madison, the School Section row 94 block and _95, 2026-10-08, “Thirteen invented houses on the School Section row's Wells blocks south of Madison”; 628 until 's three yard buildings — a stable on the Indiana North Wolcott block, a barn or carriage shed on block 19 and a smokehouse on block 16, 2026-10-08, “Three yard buildings the reconstruction plan counted and nobody had built: a stable in Kinzie's Addition, a barn on South Water–Wells, a smokehouse on South Water–Dearborn”; 624 until 's four yard buildings behind the Canal Street houses of plat block 50, the Washington Clinton block, 2026-10-08, “Four more yard buildings behind the Canal Street houses of plat block 50”; 623 until 's river warehouse on the West Water bank at Washington Street, 2026-10-08, “The West Division's second freight roof: a narrow warehouse on the West Water bank at Washington Street that no source seats”; 622 until 's river warehouse on the North Water bank at LaSalle, 2026-10-07, “The North Division's seventh freight roof: a river warehouse on the North Water bank at LaSalle that no source seats”; 609 until 's thirteen roofs on plat block 50, the Washington Clinton block, Washington to Madison on the Canal face, 2026-10-06, “Plat block 50 between Clinton and Canal, Washington to Madison: thirteen invented roofs on the Canal face”; 569 until 's 26 North Division dwellings south of Michigan Street, 2026-10-05, “Twenty-six invented North Division houses carried off Kinzie's Addition, south of Michigan Street”; 563 until 's six houses on plat block 51, the West Washington Canal block, the West Division's last row between Washington and Madison, 2026-10-05; 559 until 's four houses on plat block 44, the West Randolph Canal block, 2026-10-05; 554 until 's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until 's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until 's six houses on the Washington Dearborn block and two houses and a smokehouse on the Washington Clark block, 2026-10-05; 531 until raised the Market block's ten roofs, 2026-10-05; 528 until 's two frame cottages and plank shanty on the West Lake Canal block, 2026-10-05; 516 until wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until folded beaubien new residence into the Beaubien homestead, 2026-10-03; 518 until withdrew the south-bank freight shed south bank shed dearborn e1, 2026-10-03; 512 until 's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until 's boarding house, stable and privy on the Indiana North Cass block, 2026-10-02, 500 until 's on the Washington Clark block the same day, and 503 until 's three houses with their stables and privies on the Washington Market block and the Washington Dearborn block, also that day). Every phase that states a roof type takes this exposure the moment the roof plane substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: later work's two Beaubien homestead buildings, later work's six South Branch works buildings, later work's three agency log buildings at the foot of State Street, later work's second garrison root-house and later work's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. Later work's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. Later work's first deal on the Washington Clark block makes 422: two frame cottages on the plat's last row and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. Later work's first deal on the Indiana North Wolcott block makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. Later work's deal on the Washington Wells block makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last row the Clark four stand on, every one of them shingled by this exposure for the same reason they are. Later work's second deal on the Indiana North Wolcott block makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes later work raised there and shingled by the same exposure. Later work's deal on the Washington Lasalle block makes **452** — seven dwellings and four yard buildings on the south-west block of that same row, every one of them shingled — so the row has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. Later work's first deal on the Indiana North Cass block makes **456**, the same four shapes later work raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. Later work's deal on the Washington Franklin block makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with a stable, a carriage shed, two woodsheds, a privy and a small utility building in their yards (two stables until corrected the yard mix to the block's plan, which moved no count), thirteen roofs that each state a roof type and thirteen more the exposure reaches. Later work's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. Later work's first deal on block 28 makes **476**: a two-room frame cottage on Canal Street, a one-room cottage on Clinton Street, and a stable off the alley behind the first. All three state a roof type and are shingled by this exposure. Later work's warehouse at Lake and West Water makes **477** — one F2 roof, the West Division's second freight roof (“The West Division's second freight roof: a warehouse at Lake and West Water that no source seats”). Later work's second deal on block 45, one block south of the Clinton cottages, makes **481** — a two-storey frame house and a two-room cottage on the same Canal teamster approach with a privy and a woodshed behind them, all four shingled by this exposure for the same reason every frame roof the block recipe raises is. Later work's house and barn in Wabansia make 483: the first roofs the exposure reaches in that survey, a story-and-a-half house with its kitchen ell and a plank barn, both named records rather than recipe roofs. Later work's deal on the West Randolph Des Plaines block makes **487**, and they are the first roofs this entry reaches on the West Division's outer platted blocks: a two-room cottage, a deep-plan cottage, a storey-and-a-half cottage and a carpenter's shop on the Randolph corner, out on the Des Plaines edge where the reviewed West recipe had stood only two roofs. Later work's boarding house on the Washington Clark block makes **488** — one H3 roof, the town's first, gable-end to Madison Street (“The town's first boarding house: an invented H3 on the Washington Clark block's Madison-and-Dearborn corner, its windows and stovepipes sized from modelled beds”). Later work's third deal on the same block makes **493** — the second H3, facing Washington Street, and a stable and a privy behind each of the two (“The emigrants' tents at the landing: the ground documented, the tents invented, the count the paper's \"some\"”). No record's roof type or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
         },
         {
           "label": "Scope revision, 2026-10-01",
@@ -20716,6 +20765,7 @@
         }
       ],
       "work_refs": [
+        "T-2486",
         "T-2485",
         "T-2512",
         "T-2509",
@@ -20799,14 +20849,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.records[brick_fabric]",
-        "count": 159
+        "count": 168
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "structures.records[brick fabric] — 159 structures (143 until other work, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until other work, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until other work, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until other work, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour; 105 until other work, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until other work, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until other work, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until other work, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until other work, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until other work's Wheeler house (1812 Prairie Avenue): the coach house on the alley, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until other work's First Fort Dearborn — magazine, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until other work, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour and never reads the materials tool; 17 until other work, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until other work, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until other work, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until other work, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until other work, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in the materials generator has carried tile (m) = None since other work, and three of the four are the records that take a course the moment it carries one: Fort Dearborn — commandant's quarters, Fort Dearborn — powder magazine and Lake House (under construction). **the project's notes on materials says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (the project's notes on materials §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** First Cook County court-house became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, the build generator resolves no phase for it and other work retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
+          "text": "structures.records[brick fabric] — 168 structures (159 until other work, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until other work, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until other work, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until other work, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until other work, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour; 105 until other work, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until other work, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until other work, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until other work, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until other work, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until other work's Wheeler house (1812 Prairie Avenue): the coach house on the alley, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until other work's First Fort Dearborn — magazine, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until other work, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: the prairie draft generator draws them in a flat colour and never reads the materials tool; 17 until other work, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until other work, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until other work, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until other work, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until other work, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in the materials generator has carried tile (m) = None since other work, and three of the four are the records that take a course the moment it carries one: Fort Dearborn — commandant's quarters, Fort Dearborn — powder magazine and Lake House (under construction). **the project's notes on materials says \"two records are attested brick\" and the layer holds three** — the magazine is the one the sentence forgot, which is exactly why this scope counts the population instead of restating the memo. The brick chimneys (the project's notes on materials §4, finding 1) ride the same substrate. **THE FOURTH ARRIVED 2026-09-27 AND TAKES NO COURSE, WHICH IS WHY THE COUNT MOVED AND THE DECISION DID NOT.** First Cook County court-house became an attested-brick record when the Andreas sentence that dates it — \"a one-story and basement brick court-house\" — was applied to its fabric. It draws nothing: its phase runs from October 1835, the only scene targets 1835-07-01, the build generator resolves no phase for it and other work retired its committed GLB for exactly that reason. So it is in the population this entry counts and not in the list of records a course reaches, and the distinction is worth keeping rather than smoothing over — the scope counts what the layer SAYS is brick, and a record can say brick without any wall of it being drawn. When a scene ever covers the fall of 1835 the courthouse joins the three, and it will need an archetype that can build brick before it needs a course: `outbuilding`, which it carries today, cannot."
         },
         {
           "label": "Decision",
@@ -20823,6 +20873,7 @@
       ],
       "work_refs": [
         "T-1687",
+        "T-3019",
         "T-3018",
         "T-3009",
         "T-3008",
@@ -20924,14 +20975,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[log_or_fort_archetype]",
-        "count": 106
+        "count": 107
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "structures.phases[log or fort archetype] — 106 phases: 81 log dwellings and 25 fort structures. It was 103 until later work, 2026-10-22, wrote the Kinzie establishment's stable, lodging house and bake-house, three log dwellings dated 1804-1833 (“The Kinzie establishment of 1812: which pictured building is which, where the unpictured ones stand, their sizes, and the rulings on du Sable's bill of sale”). It was 101 until later work, 2026-10-15, wrote the two houses Whistler's draught draws at the forks of the river, log dwellings dated 1808-1816 (“The forks of 1812: the two houses Whistler draws there, Clark taken for one of them, and the company cornfield as a rail-fenced eight acres”). It was 100 until later work, 2026-10-15, wrote the farm cabin at Lee's Place, Lee's Place (Hardscrabble): the farm cabin on the South Branch, a log dwelling on the South Branch dated 1812-1822 (“Lee's Place in 1812: the cabin's seat, size and shape, the field's bounds and fence, and the closing date”). It was 98 until later work, 2026-10-15, wrote La Lime's and Le Mai's houses, two log dwellings on the north bank dated 1808-1816 (“La Lime's and Le Mai's houses of 1812: which drawn house is whose, the north bank's frame, their sizes, heights and closing dates”). It was 97 until later work, 2026-10-15, wrote the Kinzie house, a log dwelling dated 1804-1833 (“The Kinzie house in 1812: its size, its set-back, its piazza's measure, the green's corners and where its trees stand”). It was 96 until later work, 2026-10-15, wrote the first fort's interpreter's house outside its stockade, a log dwelling dated 1808-1812 (“The first fort's interpreter's house, armourer's shop, merchant's shop and bake house stand where the 1808 draught's rule puts them, and the interpreter's own figure is set aside for the river”). It was 94 until later work, 2026-10-15, wrote the Burns house and the Lee family's house of 1812, two log dwellings on the river dated 1812-1819 and 1812-1817 (“The Burns and Lee houses of 1812: their seats, sizes, fabric and closing dates”). It was 93 until later work, 2026-10-10, raised a D1 log cabin on the east Monroe corner of the School Section row's block 82 (“A cabin and a merchant's house invented on the east corners of the School Section row's block 82”). It was 91 until later work, 2026-10-05, wrote the first fort's factory and agent's house outside its stockade, two log dwellings dated 1808-1812 (“The first fort's factory, agency, stables and gardens stand where the 1808 draught's own figures open it out”). It was 81 until later work, 2026-10-04, wrote the first Fort Dearborn's ten fort structure records (1803-1812; no scene resolves them yet). For that fort's ranges the shingles are not this entry's extension at all: Whistler's own 1808 note says \"shingled Roofs\". It was 83 until later work, 2026-10-03, folded beaubien new residence into the Beaubien homestead and moved Col. Jean Baptiste Beaubien's Trading Post onto the outbuilding archetype. It was 75 until later work re-familied the La Salle block's South Water frontage..._lasalle d1 08, a D1 log cabin standing on the town's business front with a documented dry-goods house in it, became a C1 shop and left this liberty's population for the framed one. Later work took the sixtieth the same way and for the same reason, one street south: recon 1835 blk lake clark d1 01, the D1 log cabin on the Clark corner of the Lake frontage with G. Blanshard's land office documented in it, is now a small shop or office, a C1 shop. Two pieces of work then took it the other way and added five between them. Later work raised beaubien new residence and Col. Jean Baptiste Beaubien's Trading Post, the two log buildings Andreas records at the Beaubien homestead on the Fort Dearborn reservation; later work raised the agency's ring at the foot of State Street — David McKee's log house, The agency log house Andreas gives Billy Caldwell and The agency striker's log house, log dwellings on the north bank. Later work raised Fort Dearborn — root house (b), the second of the garrison's root-houses, which makes 79 — and it is a banked earth mound, so the substrate this entry deals reaches it and draws nothing. All six are shingled by the same selector and on the same argument as the other 59. Later work then added four on the Des Plaines edge, an older log dwelling, `_051`, `_052` and `_054`, re-dealt into the D1 log cabin by later work's verdicts (“Six invented West Division roofs change what they are, and two of them lose a foot or two of depth to become buildable as it”), which makes 83. The count moves with the town and is re-derived by the liberties compiler. Nothing about their geometry, their roof type, their pitch or their weathering moves. This entry is about one thing: which of the two coverings this project can argue each of those roofs is drawn on."
+          "text": "structures.phases[log or fort archetype] — 107 phases: 82 log dwellings and 25 fort structures. It was 106 until later work, 2026-10-23, wrote Antoine Ouilmette's house, the draught's third no. 31 house on the north bank, a log dwelling dated 1808-1829 (“Antoine Ouilmette's house of 1812: the drawn house taken as his, its height and pitch, its closing date, and the currant bushes behind it”). It was 103 until later work, 2026-10-22, wrote the Kinzie establishment's stable, lodging house and bake-house, three log dwellings dated 1804-1833 (“The Kinzie establishment of 1812: which pictured building is which, where the unpictured ones stand, their sizes, and the rulings on du Sable's bill of sale”). It was 101 until later work, 2026-10-15, wrote the two houses Whistler's draught draws at the forks of the river, log dwellings dated 1808-1816 (“The forks of 1812: the two houses Whistler draws there, Clark taken for one of them, and the company cornfield as a rail-fenced eight acres”). It was 100 until later work, 2026-10-15, wrote the farm cabin at Lee's Place, Lee's Place (Hardscrabble): the farm cabin on the South Branch, a log dwelling on the South Branch dated 1812-1822 (“Lee's Place in 1812: the cabin's seat, size and shape, the field's bounds and fence, and the closing date”). It was 98 until later work, 2026-10-15, wrote La Lime's and Le Mai's houses, two log dwellings on the north bank dated 1808-1816 (“La Lime's and Le Mai's houses of 1812: which drawn house is whose, the north bank's frame, their sizes, heights and closing dates”). It was 97 until later work, 2026-10-15, wrote the Kinzie house, a log dwelling dated 1804-1833 (“The Kinzie house in 1812: its size, its set-back, its piazza's measure, the green's corners and where its trees stand”). It was 96 until later work, 2026-10-15, wrote the first fort's interpreter's house outside its stockade, a log dwelling dated 1808-1812 (“The first fort's interpreter's house, armourer's shop, merchant's shop and bake house stand where the 1808 draught's rule puts them, and the interpreter's own figure is set aside for the river”). It was 94 until later work, 2026-10-15, wrote the Burns house and the Lee family's house of 1812, two log dwellings on the river dated 1812-1819 and 1812-1817 (“The Burns and Lee houses of 1812: their seats, sizes, fabric and closing dates”). It was 93 until later work, 2026-10-10, raised a D1 log cabin on the east Monroe corner of the School Section row's block 82 (“A cabin and a merchant's house invented on the east corners of the School Section row's block 82”). It was 91 until later work, 2026-10-05, wrote the first fort's factory and agent's house outside its stockade, two log dwellings dated 1808-1812 (“The first fort's factory, agency, stables and gardens stand where the 1808 draught's own figures open it out”). It was 81 until later work, 2026-10-04, wrote the first Fort Dearborn's ten fort structure records (1803-1812; no scene resolves them yet). For that fort's ranges the shingles are not this entry's extension at all: Whistler's own 1808 note says \"shingled Roofs\". It was 83 until later work, 2026-10-03, folded beaubien new residence into the Beaubien homestead and moved Col. Jean Baptiste Beaubien's Trading Post onto the outbuilding archetype. It was 75 until later work re-familied the La Salle block's South Water frontage..._lasalle d1 08, a D1 log cabin standing on the town's business front with a documented dry-goods house in it, became a C1 shop and left this liberty's population for the framed one. Later work took the sixtieth the same way and for the same reason, one street south: recon 1835 blk lake clark d1 01, the D1 log cabin on the Clark corner of the Lake frontage with G. Blanshard's land office documented in it, is now a small shop or office, a C1 shop. Two pieces of work then took it the other way and added five between them. Later work raised beaubien new residence and Col. Jean Baptiste Beaubien's Trading Post, the two log buildings Andreas records at the Beaubien homestead on the Fort Dearborn reservation; later work raised the agency's ring at the foot of State Street — David McKee's log house, The agency log house Andreas gives Billy Caldwell and The agency striker's log house, log dwellings on the north bank. Later work raised Fort Dearborn — root house (b), the second of the garrison's root-houses, which makes 79 — and it is a banked earth mound, so the substrate this entry deals reaches it and draws nothing. All six are shingled by the same selector and on the same argument as the other 59. Later work then added four on the Des Plaines edge, an older log dwelling, `_051`, `_052` and `_054`, re-dealt into the D1 log cabin by later work's verdicts (“Six invented West Division roofs change what they are, and two of them lose a foot or two of depth to become buildable as it”), which makes 83. The count moves with the town and is re-derived by the liberties compiler. Nothing about their geometry, their roof type, their pitch or their weathering moves. This entry is about one thing: which of the two coverings this project can argue each of those roofs is drawn on."
         },
         {
           "label": "Decision",
@@ -20951,6 +21002,7 @@
         }
       ],
       "work_refs": [
+        "T-2486",
         "T-2485",
         "T-2512",
         "T-2509",
@@ -50225,6 +50277,191 @@
       ]
     },
     {
+      "id": "L-draft-district-background-3019",
+      "title": "The background behind Prairie Avenue carried north: Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street, stood up as drafts where the 1911 sheet and Robinson 1886 agree",
+      "section": "per_subject",
+      "subjects": [
+        "house_1615_indiana",
+        "house_1615_indiana_coach_house",
+        "house_1623_indiana",
+        "house_1623_indiana_coach_house",
+        "house_1637_indiana_coach_house",
+        "house_1641_indiana_coach_house",
+        "house_1703_indiana",
+        "house_1703_indiana_coach_house",
+        "house_1713_indiana",
+        "house_1713_indiana_coach_house",
+        "house_209_e16th"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "house_1615_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1615_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1623_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1637_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1637_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1641_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1641_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1703_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1703_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1703_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1703_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1713_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1713_indiana",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1713_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_1713_indiana_coach_house",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_209_e16th",
+          "phase": "draft_1904",
+          "aspect": "form.draft"
+        },
+        {
+          "domain": "structure",
+          "structure": "house_209_e16th",
+          "phase": "draft_1904",
+          "aspect": "form.draft_elevation"
+        }
+      ],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`house_1615_indiana.draft_1904.form.draft_elevation`, `house_1615_indiana.draft_1904.form.draft`, `house_1615_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1615_indiana_coach_house.draft_1904.form.draft`, `house_1623_indiana.draft_1904.form.draft_elevation`, `house_1623_indiana.draft_1904.form.draft`, `house_1623_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1623_indiana_coach_house.draft_1904.form.draft`, `house_1637_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1637_indiana_coach_house.draft_1904.form.draft`, `house_1641_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1641_indiana_coach_house.draft_1904.form.draft`, `house_1703_indiana.draft_1904.form.draft_elevation`, `house_1703_indiana.draft_1904.form.draft`, `house_1703_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1703_indiana_coach_house.draft_1904.form.draft`, `house_1713_indiana.draft_1904.form.draft_elevation`, `house_1713_indiana.draft_1904.form.draft`, `house_1713_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1713_indiana_coach_house.draft_1904.form.draft`, `house_209_e16th.draft_1904.form.draft_elevation`, `house_209_e16th.draft_1904.form.draft`"
+        },
+        {
+          "label": "Decision",
+          "text": "the last Indiana block face of the district's background north of 18th Street, run by the builder under the rules of `“The background behind Prairie Avenue begun: Calumet Avenue's west frontage, 18th to 20th Street, stood up as drafts where Prairie's sidewalks see it”`, whose \"What is invented\" holds here word for word. The background census (the background census data) sees 12 of the block's 17 Indiana lots, 1623 from 13 Prairie stands, and the 16th Street lot from 6. The lots are read off sheet 20 in a census of their own (the edges census s20w data) and traced by the tool as sheet `20w`, with no new rule: sheets 20, 28, 35, 35x, 28x, 35e and 35w re-derive byte for byte. This block, unlike the 20th-22nd faces, lies on Robinson 1886 plate 10, so every lot is checked against it for what stood there and in what material (never for an outline), and only where the two plans agree is the 1911 outline carried to 1904: the row of five houses at 209-217 East Sixteenth Street, the pair at 1615-1617, 1623, 1703 and 1713, and the stables on the alley behind them and behind 1637 and 1641. **What is invented here, beyond the 3008 list.** The row at 209-217 and the pair at 1615-1617 each stand as one record, the sheet's one outline, until earlier work parts them; the trace parts each at its party walls into a body and ranges, and the draft holds the ranges at the houses' printed storeys (`rear3B`), not the builder's one storey lower. 1615-1617's and 1703's blue strips along the Indiana front stand as a stone front on a brick house. 1703's 3B part at its rear is read into its 2½B main body and stands at the body's storeys. The five alley buildings lettered SHED (behind 1615, 1703 and 1713) are backcast as stables (study ruling 11), because Robinson 1886 draws a stable at each place. The stable behind 1637 stands astride the line between 1637 and the unnumbered strip north of it, as the sheet draws it, and those of 1637 and 1641 take the ids of houses this pass does not draft (1623-1637-c S. Indiana Avenue — the alley building of the house at 1637, 1641 S. Indiana Avenue — the alley building of the house at 1641). **Presence in 1904 is the two plans'.** No named record or directory row of this block face is in hand. A building both plans draw is carried to 1904 as study ruling 11 allows; any one of them may have been rebuilt on the same plan between 1886 and 1911, and none is known to have been. **What is not drafted here.** Seven lots where the plans disagree, ruled phase unresolved and left open: the office and tin shop at 1601-1603, the Thompson-Reid & Collins Bros. ice-cream factory at 1605-1613 and the Eastman Kodak and Taprell, Loomis & Co. photographic-supply factory at 1727-1737, each standing where Robinson 1886 draws houses; 1619, a 1911 brick house where Robinson draws a frame one, with the frame building on its alley that both draw; and the 1886 brick houses on 1637 and 1641, which the 1911 sheet no longer draws. The six unnumbered strips, open on both plans, stay open ground. The unlotted Indiana half of 18th-20th and the Illinois Central strip are earlier work's."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Earlier work (the side-street and rail-side background) refines each record in place under the same id; later work reads the seven open lots."
+        },
+        {
+          "label": "Review",
+          "text": "the edges census s20w data, the prairie 1904 footprints s20w data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23 (T-3019)."
+        }
+      ],
+      "work_refs": [
+        "T-3019",
+        "T-3010",
+        "T-2983",
+        "T-3068",
+        "T-2327",
+        "T-1946",
+        "T-3011"
+      ]
+    },
+    {
       "id": "L-kimball-1801-pavilion-face-3015",
       "title": "1801 Prairie's south pavilion's face and heights re-read off the Taylor photograph: its north cheek at the bow, its gable lowered to the print's springing, and its depth held at 0.6 m by its window recesses and the main eave's gutter",
       "section": "per_subject",
@@ -51148,6 +51385,119 @@
       ]
     },
     {
+      "id": "L-standing-horse-development-2800",
+      "title": "a planted-standing horse in the Western Hotel yard",
+      "section": "per_subject",
+      "subjects": [
+        "western_hotel"
+      ],
+      "covers": [],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Add one reconstructed, unidentified horse at E−127.5,N−296.0,heading90degrees in the1835Western Hotel wagon yard, using the existing host/yard record as context rather than evidence of an individual or ownership. The chestnut coat/blaze/stockings, grooming,1.55m withers proxy, exact stand and date are reconstructed. It is unhitched, untied and unmounted."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "Licensed modern sevketkabatas Horse rest surface baked to canonical metres and adapted to project26 controls/V16skin; the already baked0.3644068837native scale is NOT applied again. The selected b479 derivative plays one12s planted body shift (4mm lateral,2mm longitudinal,4mm compression) with no original head/tail composition or walking. Existing0.396145degree whole-root support and cloned-material metalness0 are declared adaptations. Rig hierarchy analogy credits antemeossa CC BY4.0; no donor mesh/Walk keys were copied. Modern credit is not an historically graded animal attribute."
+        },
+        {
+          "label": "Bounds and limits",
+          "text": "Original stationary65 CPU and actual standardGLTFLoader/Mixer65keys+64midpoints passed unchanged surface/contact/loop/normal/meaningful controls, maximum loaded hoof contact8.6523737e−6m. This is not GPU/photo or actual-yard acceptance. One declared0.866317m² support region retains actual drawn yard triangles before normal GPU upload release, under32triangles/4096typed-array bytes and with disposal; no town-wide geometry retention is added. One-instance/reach70/40/0m and full-only30m shadow limits remain. Actual app yard/mobile visual, performance, photographic master, gaits, tack/teams/riders/boarding remain open. Earlier failed walking fields/poses remain failed."
+        },
+        {
+          "label": "Sources",
+          "text": "sevketkabatas, “Horse”, published 29 March 2021, CC BY 4.0, retrieved via… supplies modern source/rights only; \"Town of Chicago.\" Chicagology. Transcribing the Inter Ocean of 22 July 1883… supplies historical horsekeeping context only."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23."
+        }
+      ],
+      "work_refs": [
+        "T-2800",
+        "T-2803"
+      ]
+    },
+    {
+      "id": "L-glessner-course-relief-3046",
+      "title": "Glessner's high courses crowned deeper than its low ones, fitted to Taylor 2135's shadows",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.v4_detail"
+        }
+      ],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Taylor 2135 (c. 1887-89, J. W. Taylor, Glessner Residence (2135), c.1887–1889), read through its camera on three clear piers of the Prairie front, shows a course printed 11.5 in or over throwing about a third more shadow under its lower lip than a low course does: 1.32 times, re-read on the beds as earlier work lays them (the research notes on glessner course relief). The render read 0.86. The cause was in the build. Every course's bow was capped at 60 mm, and its lower face rose to the crown over 44 % of the course's height, so a tall course's lip came out gentler than a short one's. A course printed 11.5 in or over now crowns 1.25 times its stones' bow and rises to it over at most 0.09 m (v4 detail ashlar crown by course). That is about the lower face a 7.5 in course already has. Through the same camera the render now reads 1.33. The low courses are unchanged, at 0.359 before and 0.353 after (the occlusion re-bake). Both granite faces take it, because one coursing turns the NE corner (§ 2). **What is invented.** Both numbers, the 1.25 and the 0.09 m. No source prints how far any course projects. They were set so that the render's shadow ratio reads the photograph's through one camera, and the ratio is the measured thing, not the depth. The review render's light is not the print's exposure, so the two sets of absolute shadows differ (the render's 0.47 and 0.35 against the print's 0.25 and 0.19). Only their ratio was matched. The 11.5 in line is earlier work's split between high and low courses, not a mason's rule. The Light grade builds no bow, so it is unchanged. **What is kept.** The course heights and string (“the printed course inches carried up the Prairie front against sheet 6”), the stones' joints and lengths, the arris and pitch line, the per-stone relief draw and every random draw. The rock face's 0.104 m ceiling in front of the wall also stands, so lintels and voussoirs stay in front of the field."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.v4_detail`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23."
+        }
+      ],
+      "work_refs": [
+        "T-3046",
+        "T-3044",
+        "T-3045",
+        "T-2858",
+        "T-3026"
+      ]
+    },
+    {
+      "id": "L-glessner-cupola-coursing-3046",
+      "title": "Glessner's stable cupola laid in rock-faced courses",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.turret_stable"
+        }
+      ],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The c. 1887 Cornell A. D. White northwest view (Unknown photographer, Detail, Glessner House, ca. 1887) shows the cupola's shaft under the lower pigeon ledge with two or three bed joints. It shows each pigeon-hole grade as one rock-faced course between its ledges (§ 4). The model's body was dressed granite plates (“Glessner's stable cupola body built in granite, its landing ledges in stone”). It is now laid in the house's rock-faced stone. The shaft, from the roof to the lower ledge, is four equal courses of about 0.27 m, and the part clear of the ridge shows two or three joints through the Cornell camera. Each grade is one course from its ledge to the next. The band over the top grade, under the eave, is one course. Every face's courses run the full plan, so they close the corners. The pigeon holes' reveals run out to the pitch line, as the house's own apertures' do. **What is invented.** The count of four shaft courses, chosen to give the joints the print shows over the ridge. The print does not resolve the vertical joints, so the block lengths are the house's own rule for a course of that height. The top band's single course is not read. The print is too small there. The Light row keeps the plates, as it keeps the cap's fine joints. **What is kept.** Plan, centre, heights, ledges and their wrapped corners, the eave, the pyramid and the dovecote counts and sizes of “The Glessner stable cupola as a two-grade dovecote, and the loft door and hoist iron, at counts and sizes of ours”, “Glessner's stable cupola body built in granite, its landing ledges in stone” and “Glessner's stable cupola raised about a foot, narrowed to 5.5 ft and its eave drawn in, read from both northwest prints at once”."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.turret_stable`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23."
+        }
+      ],
+      "work_refs": [
+        "T-3044",
+        "T-3046",
+        "T-3026"
+      ]
+    },
+    {
       "id": "L-kimball-1801-pavilion-chamfer-3059",
       "title": "1801 Prairie's south pavilion's south-west corner chamfered as its 1911 sheet draws it, the camera's south-west bearing left on the chamfer's back",
       "section": "per_subject",
@@ -51305,6 +51655,117 @@
       ],
       "work_refs": [
         "T-2377"
+      ]
+    },
+    {
+      "id": "L-k01-1811-rear-fall-3063",
+      "title": "1811 Prairie's roof behind the south gable falls steeply to a flat deck under a level coped wall head",
+      "section": "per_subject",
+      "subjects": [
+        "coleman_ames_house_1811_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "behind the tall stack, 1811 Prairie's south wall (K01's `north`) is built as a coped parapet whose coping's top runs LEVEL at 10.95 m back to the front block's rear wall, and the roof under it falls from the ridge at the street's 61.2 degrees to a flat deck 0.38 m under the coping, where earlier work had a plain rear slope falling at 22.4 degrees to the rear wall's eave and the coping following it down. The kit learns it (gable roof rear fall, coped ends only); every other K01 house re-emits byte-identical. **What is read, not invented.** Through the camera on the 1888 Inland Architect plate (\"Residence of Miner T. Ames, Chicago): the coping's top edge just clear of the tall stack at (528, 374-380) px and at the block's rear wall at (572, 485) px, which the camera puts on the wall's plane at u 5.9, 10.96 m and u -0.3, 10.98 m, a line running into the flank's vanishing point; the second stack's top 26-35 px over it. The Chicagology print (`cgn-1811-coleman-ames-photo`, rights unknown, read in the image store's display copy and not committed) draws the same from further south-west: a short steep fall from the tall stack, then one long coping line back past the second stack. Neither picture shows any roof over that coping. **What is invented.** What lies behind the coping: the fall's pitch (the street's own 61.2 degrees, the plainest choice; the plate's coping drops in about one column just behind the stack, which a fall nearer 75 degrees would match better), the deck (flat, falling a quarter inch to the foot to the rear wall, laid in the roof's slate where a tin deck is likelier; no picture sees it), and the parapet's head running on 0.1 m behind the ridge. The rendered fall spreads over x 528-533 px where the plate's drops at x 527-528. **Not changed here.** The plate and the print both step the flank down at the block's rear wall to a lower wall head of about 8.6 m over the brick range; the build carries the range at 11.4 m."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a view of the roof from above or behind (an aerial, a section, the 1965 HABS photograph that is to find), or earlier work's solved camera on the Chicagology print."
+        },
+        {
+          "label": "Review",
+          "text": "the inland architect plate match data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23 (T-3063)."
+        }
+      ],
+      "work_refs": [
+        "T-3077",
+        "T-3050",
+        "T-2541",
+        "T-3052",
+        "T-3063",
+        "T-3051"
+      ]
+    },
+    {
+      "id": "L-1812-ouilmette-2486",
+      "title": "Antoine Ouilmette's house of 1812: the drawn house taken as his, its height and pitch, its closing date, and the currant bushes behind it",
+      "section": "per_subject",
+      "subjects": [
+        "ouilmette_house_1812"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "ouilmette_house_1812",
+          "phase": "ouilmette_1812",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "ouilmette_house_1812",
+          "phase": "ouilmette_1812",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "ouilmette_house_1812",
+          "phase": "ouilmette_1812",
+          "aspect": "form.wall_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "ouilmette_house_1812",
+          "phase": "ouilmette_1812",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the third of the three houses Captain Whistler's draught of January 1808 draws across the river west of the Kinzie house, the one nearest it, stands in the 1812 scene at the log dwelling archetype as Antoine Ouilmette's house, the easternmost of the three houses west of the Kinzie house, with six currant bushes behind it (ouilmette garden 1812, a planting). **That Ouilmette's household lived close behind the Kinzie house and stayed there through August 1812, and that his garden had currant bushes, is the sources'**: Currey (1912) has his cabin 'close in the rear of the Kinzie house', Wau-Bun ch. XIX 'close at hand', and has Mrs. Helm hidden in the house and a sergeant hidden behind the garden's 'currant-bushes' before he climbed in at its back window. **That this drawn house was his is inferred** ('s assignment, “La Lime's and Le Mai's houses of 1812: which drawn house is whose, the north bank's frame, their sizes, heights and closing dates”): it is the nearest of the three to Kinzie's. Its seat is the north-bank rule's, which puts its front about 2 m behind the Kinzie house's back-wall line and 30 m west of it."
+        },
+        {
+          "label": "What a visitor sees of its shape",
+          "text": "the footprint is the drawn box at the index's forty feet to the inch, about 18.6 x 11.1 ft, an upper bound because the drawing is roof and front together; one storey of log under a gable; the stack on the west gable; one light and a door, in the order and at the places the draught draws them (read them off the pinned sheet)."
+        },
+        {
+          "label": "Invented",
+          "text": "seven feet to the plate (a little under its neighbours, for the smallest house), the 35 degree pitch, and the garden: six bushes in two rows 1.8 m apart behind the back wall, with no fence, because Wau-Bun names none. **The range.** It opens on 25 January 1808, the draught's date, and is probably too late: Mrs. Whistler counts Ouilmette among the four huts of 1803. Hubbard still lists 'a cabin on the north side occupied by Antoine Ouilmette' in 1818. It closes on 31 December 1829, the bound the exclusions record Antoine Ouilmette's cabin already gives it (Ouilmette gone to Gross Pointe in the later 1820s, no source attesting the cabin past that decade). It is out of 1835."
+        },
+        {
+          "label": "Not built",
+          "text": "the small back window (the archetype pierces no back wall), Pettell's cabin (the exclusions record Pettell's 'small cabin near the Kinzie house', for 1812: the two counts of 1808 find no fifth house), and anybody at all."
+        },
+        {
+          "label": "Consequence",
+          "text": "a visitor to 1812 sees a third small log house on the north bank, between La Lime's and the horse mill, a little behind the Kinzie house, with a few currant bushes at its back. That the household lived there is the sources'; which drawn house, how tall, and where the bushes stand are ours."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a picture of the north bank before 1830 that draws this house, any source giving it a dimension, or a date for the family's move to the north shore."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23 (T-2486)."
+        },
+        {
+          "label": "Covers",
+          "text": "`ouilmette_house_1812.ouilmette_1812.position`, `ouilmette_house_1812.ouilmette_1812.footprint`, `ouilmette_house_1812.ouilmette_1812.form.wall_height_m`, `ouilmette_house_1812.ouilmette_1812.form.roof_pitch_deg`"
+        }
+      ],
+      "work_refs": [
+        "T-2504",
+        "T-2486"
       ]
     },
     {

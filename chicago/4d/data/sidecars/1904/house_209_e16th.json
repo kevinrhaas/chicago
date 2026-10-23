@@ -1,0 +1,253 @@
+{
+  "id": "house_209_e16th",
+  "phase": "draft_1904",
+  "name": "209–217 East Sixteenth Street — Brick dwelling (district draft; refined by T-1946)",
+  "aka": [
+    "209 E. Sixteenth Street"
+  ],
+  "archetype": "prairie_draft",
+  "asset": "gltf/house_209_e16th__draft_1904.glb",
+  "scene": "1904",
+  "target_date": "1904-07-01",
+  "grade": {
+    "value": "inferred",
+    "why": "Known from maps or written records; no picture of it has been found.",
+    "pictures": []
+  },
+  "documented_range": {
+    "from": "1904-07-01",
+    "to": "1911-12-31",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-3019 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "to_is": "seen"
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1320.97,
+    "local_n": -2962.753,
+    "rotation_deg": -90.718,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "position_note": "The rear corner of the main body's rectangle (lot frame u 2.750, v -7.375 m from the middle of the rear lot line), through the T-1250 fit of the sheet: the sheet's georeference carries no independent check, so its own fit residual, 3.08 m RMS on its control crossings, is all that is claimed. Rotation -90.718 degrees turns the plan's u axis onto the lot's own rear-to-street line.",
+    "symbolic_location": "209 E. Sixteenth Street, parcel e16th_209 (data/street_grid/1904.json), south side of East Sixteenth Street, the background behind Prairie Avenue: Indiana Avenue's east frontage, 16th to 18th Street, and East Sixteenth Street's row at 209-217 (Sanborn 1911 vol. 3 sheet 20, checked lot by lot against Robinson 1886 plate 10).",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        9.5,
+        0.0
+      ],
+      [
+        9.5,
+        5.5
+      ],
+      [
+        0.0,
+        5.5
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_20"
+    ],
+    "note": "The main body: the largest rectangle that fits inside the traced main part (u toward the street, v along the front), widened to 5.5 m along the front because the fitted strip was narrower than any house of the avenue (T-2690). The building's other rectangles are in draft_plan."
+  },
+  "attributes": {
+    "stories": {
+      "value": 3,
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "'3½B; rear3B' printed on the 1911 sheet: 3 full storeys and a half storey in the roof."
+    },
+    "construction": {
+      "value": "brick",
+      "confidence": "attested",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The register reads the map's colours as 'brick'."
+    },
+    "draft_plan": {
+      "value": {
+        "parts": [
+          {
+            "id": "r1",
+            "role": "main",
+            "storeys": 3,
+            "roof": "hip",
+            "rect": [
+              0.0,
+              0.0,
+              9.5,
+              5.5
+            ],
+            "from": "s20wfp-e16th_209-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 93% of its fill"
+          },
+          {
+            "id": "r2",
+            "role": "range",
+            "storeys": 3,
+            "roof": "flat",
+            "rect": [
+              0.25,
+              5.375,
+              9.5,
+              10.125
+            ],
+            "from": "s20wfp-e16th_209-b1 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill"
+          },
+          {
+            "id": "r3",
+            "role": "range",
+            "storeys": 3,
+            "roof": "flat",
+            "rect": [
+              0.0,
+              15.125,
+              9.0,
+              20.375
+            ],
+            "from": "s20wfp-e16th_209-b1 p5 (range, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill"
+          },
+          {
+            "id": "r4",
+            "role": "range",
+            "storeys": 3,
+            "roof": "flat",
+            "rect": [
+              0.5,
+              10.125,
+              9.5,
+              15.125
+            ],
+            "from": "s20wfp-e16th_209-b1 p6 (range, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill"
+          },
+          {
+            "id": "r5",
+            "role": "range",
+            "storeys": 3,
+            "roof": "flat",
+            "rect": [
+              0.5,
+              -4.875,
+              9.5,
+              -0.125
+            ],
+            "from": "s20wfp-e16th_209-b1 p1 (range, brick), rectangle 1 of that part; the part's rectangles cover 93% of its fill"
+          }
+        ],
+        "lot_v": [
+          -6.3,
+          21.05
+        ],
+        "street_u": 9.677
+      },
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "Rectangles fitted inside the traced parts by the rules' fit (cell 0.25 m, at most 3 a part, to 90% cover): s20wfp-e16th_209-b1 p2 (main, brick), rectangle 1 of that part; the part's rectangles cover 93% of its fill; s20wfp-e16th_209-b1 p4 (range, brick), rectangle 1 of that part; the part's rectangles cover 89% of its fill; s20wfp-e16th_209-b1 p5 (range, brick), rectangle 1 of that part; the part's rectangles cover 86% of its fill; s20wfp-e16th_209-b1 p6 (range, brick), rectangle 1 of that part; the part's rectangles cover 84% of its fill; s20wfp-e16th_209-b1 p1 (range, brick), rectangle 1 of that part; the part's rectangles cover 93% of its fill. Roles: the main part's largest rectangle is the main body; a shallow rectangle at the front is a bay; the sheet's ranges, porches and stone fronts keep their roles. Storeys per piece and roof per piece are the draft rules' (reconstructed)."
+    },
+    "draft_elevation": {
+      "value": {
+        "kind": "house",
+        "seed": 2932148250,
+        "principal_floor_m": 1.4,
+        "storey_heights_m": [
+          3.9,
+          3.5,
+          3.3,
+          3.1
+        ],
+        "roof_pitch_deg": 38,
+        "mansard_lower_m": 3.0,
+        "front_bays": 2,
+        "entrance": "north",
+        "side_spacing_m": 2.6,
+        "chimneys": 2,
+        "brackets": false,
+        "attic_dormers": true,
+        "stone": "stone",
+        "features": [],
+        "draft_label": {
+          "pass": "T-3019",
+          "refined_by": [
+            "T-1946"
+          ]
+        },
+        "v_toward": "south"
+      },
+      "confidence": "reconstructed",
+      "note": "RECONSTRUCTED by the draft rules, family row '(default)' overlaid with the frontage row: A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. A row of five 3½B houses on East Sixteenth Street, its party walls carried to the rear wall, read as one ground (the 1904 grid gives the row one lot): one record under the brick family's hip, its half storey in the roof, until T-1946 parts them. Robinson 1886 draws the row. The sheet prints 3½B on every house of the row; the trace parts the row at its party walls into one body and four ranges, so 'rear3B' holds the other four at the row's full storeys. Heights are the rules' starting values inside RECONSTRUCTION-RULES.md's ranges; bays, entrance side, chimneys and dormers are counts the family rules choose, and the seed 2932148250 only tints the fabric inside +-6 %. Liberty L-draft-district-background-3019."
+    },
+    "draft": {
+      "value": {
+        "pass": "T-3019",
+        "liberty": "L-draft-district-background-3019",
+        "register_row": "frontage-20w-209–217",
+        "census_ids": [
+          "s20w-209-front"
+        ],
+        "trace_building": "s20wfp-e16th_209-b1",
+        "seed": 2932148250,
+        "replaceable_by": [
+          "T-1946"
+        ],
+        "card": "District draft — refined by T-1946."
+      },
+      "confidence": "reconstructed",
+      "note": "The draft's own provenance: the pass that wrote it, the rows it read and the tickets that replace it attribute by attribute under this id.",
+      "geometry": "record_only"
+    },
+    "function": {
+      "value": "residence",
+      "confidence": "inferred",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "The 1911 sheet marks the building 'D' (dwelling): 'A row of five 3½B brick dwellings (D), 209 to 217 E. 16th St., its four party walls carried to the row's rear wall, an open yard behind it to 1605's wall'. Carried to 1904 on the T-3019 census ruling (present_as_mapped)."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "sanborn_1911_chicago_v3_sheet_20",
+      "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 20.",
+      "url": "https://www.loc.gov/item/sanborn01790_020/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "The Illinois Central / Michigan Central right-of-way and, from the 16th Street row south about 60 m, the water's edge beside it, as of 1911",
+        "Footprints, lot lines, street widths (66 ft; 16th Street 50 ft), addresses, material by colour and story counts for Indiana Av. to the tracks, 16th to 18th Street, as of 1911",
+        "Its own printed Scale of Feet, which the georeference uses as its scale"
+      ],
+      "what_it_does_not_supply": [
+        "Anything as of 1904 on its own authority. It is a 1911 survey; Glessner House's reading that everything on sheets 20, 28 and 35 but 1609-1611 and 1620 Prairie stood in 1904 is attributed guidance, recorded in that README, and not checked by this record",
+        "A construction date for any building it draws",
+        "Elevations, grades, curb heights or fill depths -- no Sanborn sheet carries a level",
+        "Architecture above the footprint beyond its story count, material colour and roof symbol",
+        "The lake edge beyond the stretch the sheet actually inks: the pen line stops while the tracks run on"
+      ]
+    }
+  ],
+  "research_note": "A DISTRICT DRAFT (T-3019, the owner's district pass of 2026-10-08): a serviceable first model, complete from the street, the walks, the alley and the air, that T-1946 refines in place under this same id. Written by tools/draft_prairie_1904.py from the sheet 20w trace (s20wfp-e16th_209-b1), the T-3019 census (s20w-209-front) and the T-1837 register row frontage-20w-209–217 (Brick dwelling); every height, roof, opening and feature is the draft rules' reconstruction (data/components/prairie_1904/draft_prairie_1904.json; liberty L-draft-district-background-3019).",
+  "research_doc": "",
+  "review_required": false,
+  "called": "209–217 East Sixteenth Street — Brick dwelling"
+}

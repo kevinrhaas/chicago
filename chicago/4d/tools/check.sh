@@ -361,6 +361,9 @@ step "Catalogue Brougham preserves exact V17 near and genuine11706mid, contacts 
 step "Brougham card and actual near/mid selection preserve catalogue scope, current/historical card contracts, active picking and disposal (T-2794)" \
   node tools/test_brougham_card.mjs
 
+step "Canonical planted-standing horse preserves metre scale, allowed clip, clocks, modern credit and bounded drawn-yard support (T-2800/T-2803)" \
+  node tools/test_planted_standing_horse_contract.mjs
+
 step "Parked vehicles keep their exact wagon stands and cannot cross era boundaries (T-2979)" \
   python3 tools/transport/check_parked_placements.py
 # Fresh original W01 geometry plus authored project charts and CC0 maps; about 13 s, no browser.
@@ -1019,6 +1022,14 @@ step "a K01 frontage carries a K08 tower past its eave, closed above the wall he
 # facing no side and two slates on one house refused; every committed wing still flat.
 step "a K01 rear wing takes a slated hip or gable, its junction with the host closed above the host's top (T-2841)" \
   python3 tools/test_k01_wing_roof.py
+
+# T-3063. ...and a K01 gable roof's rear slope falls steeply to a flat deck under a level
+# coped wall head (1811 Prairie's south wall behind its tall stack, level in both its
+# pictures): the deck under the coping, the line level to the fall's foot and clear of the
+# covering everywhere, 1811 built so, the plain coped line unchanged, and a fall over
+# stepped ends, out of its pitch range, over the ridge or with too long a head refused.
+step "a K01 gable roof's rear slope falls to a deck under a level coped wall head (T-3063)" \
+  python3 tools/test_k01_rear_fall.py
 
 # T-2842. ...and a K08 tower stands on a K01 rear wing's wall, past the wing's own eave (the
 # kit piece 1801 Prairie's north-east turret on its east range needs). Built on 1604's

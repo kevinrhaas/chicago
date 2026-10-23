@@ -1,0 +1,157 @@
+{
+  "id": "ouilmette_house_1812",
+  "name": "Antoine Ouilmette's house, the easternmost of the three houses west of the Kinzie house",
+  "aka": [
+    "the easternmost no. 31 house on Whistler's draught (1808)",
+    "the cabin of Antoine Ouilmette, 'close in the rear of the Kinzie house' (Currey 1912)",
+    "the house of Ouilmette, whose garden hid a soldier behind its currant bushes on 16 August 1812 (Wau-Bun)"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "ouilmette_1812",
+      "documented_range": {
+        "from": "1808-01-25",
+        "to": "1829-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught",
+          "kinzie_waubun_1856",
+          "hubbard_autobiography_1911"
+        ],
+        "note": "OPENS ON THE DRAUGHT'S DATE, CLOSES WITH THE DECADE THE EXCLUSION GIVES IT. It opens on 25 January 1808, the date in the parade of Whistler's draught, the first day a source draws this house; Ouilmette had lived at Chicago since 1790 by Currey's account and Mrs. Whistler counted his among the four huts of 1803 (Moses and Kirkland v1 p. 35), so it may well be older. It STANDS IN AUGUST 1812 BY THE SOURCES, not by continuity: Wau-Bun ch. XIX has Mrs. Helm hidden in it on the 16th and a sergeant climb in at its back window the next afternoon, and Currey (1912) has the family alone of the village's residents not leave their dwelling. Hubbard, listing every building in the present limits of Cook County when he came in 1818, still has 'a cabin on the north side occupied by Antoine Ouilmette' (his autobiography, the inventory of 1818). It closes on 31 December 1829, which is data/exclusions.json `ouilmette_cabin`'s own bound: Ouilmette left for Gross Pointe in the later 1820s and no source attests the cabin past that decade. Out of 1835. L-1812-ouilmette-2486.",
+        "from_is": "seen"
+      },
+      "position": {
+        "utm_e": 448194.708,
+        "utm_n": 4637744.084,
+        "rotation_deg": 180.0,
+        "symbolic_location": "The north bank of the main river WEST of the Kinzie house, the draught's east no. 31 house, between the middle one (La Lime's) and the building numbered 32 (the horse mill); fort-frame box E -117.0..-98.4 ft, N +406.5..+417.6 ft by the north-bank rule (data/traces/whistler_1808_fort_dearborn.json north_bank), facing south to the river. Its front stands about 2 m north of the line of the Kinzie house's back wall and 30 m west of it. This record's origin is the footprint's north-east corner, local E +1122.0, N +348.3, which a south facing puts at the frame's (0, 0).",
+        "confidence": "reconstructed",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught",
+          "currey_1912_story_of_old_fort_dearborn"
+        ],
+        "note": "SEATED BY STATED RULE, NOT MEASURED. Whistler draws three houses west of Kinzie's, each with a '31' ('Oather Dwelling Houses on opisite side River'), and says his outside distances are 'not laid down by a scale'. The north bank is opened out about the Kinzie house as built, by the drafter's own '52 yards in length' on the picket along this bank (2.497 times the drawing), as for La Lime's and Le Mai's houses. This is the smallest of the three and the one nearest Kinzie's, which is why it is Ouilmette's: Currey has his cabin 'close in the rear of the Kinzie house' and 'a little in the rear of it', Wau-Bun 'close at hand'. The rule seats it a little behind the Kinzie house's line and 30 m west of it, which agrees with 'a little in the rear' and does not need to be moved to. tools/read_whistler_1808.py --check re-derives this seat from the sheet box and refuses it wet or on a neighbour. L-1812-ouilmette-2486.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Not by any of validate.py's methods (platted corner, traced waterline, street frontage): the draught is not to scale outside the stockade and the house was gone before any plat. The seat is the north-bank rule in the register, re-derived by tools/read_whistler_1808.py --check."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            5.669,
+            0
+          ],
+          [
+            5.669,
+            3.383
+          ],
+          [
+            0,
+            3.383
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "18.6 x 11.1 ft: the drawn box (42 x 25 px) at the index's forty feet to the inch, the scale every outside building is read at. The drawing is a small pictorial elevation, roof and front together, so the depth is an upper bound. The smallest of the three no. 31 houses, as Currey's 'less pretentious cabin' has it. L-1812-ouilmette-2486."
+      },
+      "form": {
+        "stories": {
+          "value": 1,
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The draught draws one storey of logs under the eaves, with no upper light."
+        },
+        "wall_height_m": {
+          "value": 2.2,
+          "confidence": "reconstructed",
+          "note": "Unattested. About seven feet of log to the plate, a little under its neighbours' eight, for the smallest house on the bank; the draught gives no height."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The draught draws the house in logs, the log ends standing out at both corners, as it draws the Kinzie house and the other two no. 31 houses. Hewn or round is not read off a drawing this small."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The draught draws a pitched roof running along the front with its gables at the ends."
+        },
+        "roof_pitch_deg": {
+          "value": 35.0,
+          "confidence": "reconstructed",
+          "note": "Unattested; the neighbours' pitch. The draught's elevation is too small and too freely drawn to measure one from."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The draught draws one chimney, standing against the house's west gable (sheet x 1124-1132)."
+        },
+        "chimney_end": {
+          "value": "max",
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The west gable, as the draught draws it. A south facing turns the footprint's +x to the west, so the stack stands at the ridge axis's max end."
+        },
+        "front_set_out": {
+          "value": [
+            [
+              "window",
+              2.23
+            ],
+            [
+              "door",
+              3.71
+            ]
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "THE DRAUGHT'S 'ONE LIGHT AND A DOOR', IN ITS ORDER. Read at T-2486 on a 12x gridded crop of the pinned sheet: from the river the door stands left of the middle (centre at 0.345 of the drawn box from its west end) and the one light right of it (0.607). Measured from the core's -x corner, the east end, that is the light at 2.23 m and the door at 3.71 m. Their sizes are the archetype's."
+        }
+      },
+      "change_note": "Built T-2486 (2026-10-23). The third of the three houses Whistler draws across the river west of Kinzie's in January 1808, the one nearest Kinzie's, standing in the 1812 scene as Antoine Ouilmette's."
+    }
+  ],
+  "function": {
+    "value": "residence",
+    "confidence": "inferred",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "currey_1912_story_of_old_fort_dearborn"
+    ],
+    "note": "Whistler letters the three no. 31 houses 'Oather Dwelling Houses'; Currey calls Ouilmette's 'the less pretentious cabin of Antoine Ouilmette'."
+  },
+  "occupants": {
+    "value": "Antoine Ouilmette's household: Ouilmette, a French Canadian at Chicago since 1790; his wife, a Potawatomi woman; their family; and in August 1812 his wife's sister, Mrs. Bisson. A Métis household.",
+    "confidence": "inferred",
+    "sources": [
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "moses_kirkland_history_of_chicago_v1"
+    ],
+    "note": "WHO LIVED IN OUILMETTE'S HOUSE IS THE SOURCES'; WHICH DRAWN HOUSE WAS HIS IS INFERRED. Currey (1912, ch. II): 'Ouilmette was a Frenchman with an Indian wife, and had lived here since 1790. His wife, being a member of the Potawatami tribe, was awarded ... a tract of land on the north shore', the Wilmette Reservation; and in the August chapter, 'A sister of his wife, known in the accounts as Mrs. Bisson, was a member of this same household.' Wau-Bun ch. XIX describes both women as of mixed descent. Victoire Porthier, born Mirandeau, remembered that 'some of us lived in the Ouilmette house across the river from the fort' before the fort burned (Moses and Kirkland v1, lines 6776-6779 of the committed text). The house is the no. 31 house nearest Kinzie's because Currey puts Ouilmette's cabin 'close in the rear of the Kinzie house' and Wau-Bun 'close at hand' (T-2504's assignment, L-1812-lalime-lemai-2504)."
+  },
+  "research_note": "ANTOINE OUILMETTE'S HOUSE (T-2486), the third no. 31 house on Whistler's draught of January 1808, the one nearest the Kinzie house. IN AUGUST 1812 it is the one house in Chicago whose household did not leave: Currey has the family stay because 'Ouilmette was regarded by the Potawatamis as belonging to their tribe'; Wau-Bun ch. XIX has Black Partridge bring Mrs. Helm here in a Frenchwoman's dress on the 16th, Mrs. Bisson hide her under the edge of a feather bed and sit sewing before it while the search went through the room, and a sergeant the next afternoon 'steal cautiously into the garden of Ouilmette, where he concealed himself for a time behind some currant-bushes' and climb 'through a small back window into the room where the family were'. The garden and its currants stand behind the house as ouilmette_garden_1812 in data/flora (a planting). NOT BUILT: the small back window, because the log_dwelling archetype pierces no back wall; a kit change, not a reading, would add it. NO PICTURE SHOWS IT, so it carries no image gate. Eastman's view of 1820 is the one picture of the north bank near its date, and through its solved camera (data/reference_views/kinzie_house_1812/eastman_1820.json) this house falls at x 1644-1690 px, off the engraving, whose right edge is at about x 1601. Three retrospective pictures take its seat inside their frames and draw trees or open ground there: Cram's 1893 engraving of the mansion (x 271-340 px, at the picture's left edge, trees), the Teich postcard painting (x 12-98, trees and the road) and Gemmell's bird's-eye lithograph (x 1213-1237, open prairie); none is a sighting of 1812, the first two show the place in the 1830s and later, and none names this house. PETTELL'S CABIN, which Currey puts 'near the Kinzie house', is not built beside it: data/exclusions.json pettell_cabin_1812 gives the ruling. It carries review_required and touches_removal: it reconstructs a Métis household's house at Chicago, the household that sheltered people on the day after the battle, and its Potawatomi family's later reservation on the north shore is part of the removal history this project is careful with (AGENTS.md § Standing constraint). Nobody is drawn in or near it.",
+  "review_required": true,
+  "touches_removal": true
+}

@@ -264,6 +264,18 @@
       "asset": "gltf/house_1613_prairie__as_mapped_1904.glb"
     },
     {
+      "id": "house_1615_indiana",
+      "name": "1615–1617 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1615_indiana.json",
+      "asset": "gltf/house_1615_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_1615_indiana_coach_house",
+      "name": "1615 S. Indiana Avenue — the alley building of the house at 1615 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1615_indiana_coach_house.json",
+      "asset": "gltf/house_1615_indiana_coach_house__draft_1904.glb"
+    },
+    {
       "id": "house_1615_prairie",
       "name": "1615 Prairie Avenue — four-storey brick house, the south half of the pair with 1613, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1615_prairie.json",
@@ -292,6 +304,18 @@
       "name": "1621 Prairie Avenue — John H. Hamline's stone-front house with its swell bay, from Treat & Foltz's drawing, K01 frontage assembly",
       "sidecar": "sidecars/1904/house_1621_prairie.json",
       "asset": "gltf/house_1621_prairie__as_mapped_1904.glb"
+    },
+    {
+      "id": "house_1623_indiana",
+      "name": "1623 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1623_indiana.json",
+      "asset": "gltf/house_1623_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_1623_indiana_coach_house",
+      "name": "1623 S. Indiana Avenue — the alley building of the house at 1623 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1623_indiana_coach_house.json",
+      "asset": "gltf/house_1623_indiana_coach_house__draft_1904.glb"
     },
     {
       "id": "house_1623_prairie",
@@ -354,6 +378,30 @@
       "asset": "gltf/house_1636_prairie__as_mapped_1904.glb"
     },
     {
+      "id": "house_1637_indiana_coach_house",
+      "name": "1623-1637-c S. Indiana Avenue — the alley building of the house at 1637 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1637_indiana_coach_house.json",
+      "asset": "gltf/house_1637_indiana_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_1641_indiana_coach_house",
+      "name": "1641 S. Indiana Avenue — the alley building of the house at 1641 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1641_indiana_coach_house.json",
+      "asset": "gltf/house_1641_indiana_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_1703_indiana",
+      "name": "1703 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1703_indiana.json",
+      "asset": "gltf/house_1703_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_1703_indiana_coach_house",
+      "name": "1703 S. Indiana Avenue — the alley building of the house at 1703 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1703_indiana_coach_house.json",
+      "asset": "gltf/house_1703_indiana_coach_house__draft_1904.glb"
+    },
+    {
       "id": "house_1708_prairie",
       "name": "1708 Prairie Avenue — Thorne-associated map-led brick house (district draft; refined by T-1872)",
       "sidecar": "sidecars/1904/house_1708_prairie.json",
@@ -370,6 +418,18 @@
       "name": "1712 S. Prairie Avenue — the alley building of the house at 1712 (district draft; refined by T-1932)",
       "sidecar": "sidecars/1904/house_1712_prairie_coach_house.json",
       "asset": "gltf/house_1712_prairie_coach_house__draft_1904.glb"
+    },
+    {
+      "id": "house_1713_indiana",
+      "name": "1713 Indiana Avenue — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1713_indiana.json",
+      "asset": "gltf/house_1713_indiana__draft_1904.glb"
+    },
+    {
+      "id": "house_1713_indiana_coach_house",
+      "name": "1713 S. Indiana Avenue — the alley building of the house at 1713 (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_1713_indiana_coach_house.json",
+      "asset": "gltf/house_1713_indiana_coach_house__draft_1904.glb"
     },
     {
       "id": "house_1726_prairie",
@@ -784,6 +844,12 @@
       "name": "2032 S. Calumet Avenue — the one-storey frame building standing apart in 2032's yard (district draft; refined by T-1946)",
       "sidecar": "sidecars/1904/house_2032_calumet_shed.json",
       "asset": "gltf/house_2032_calumet_shed__draft_1904.glb"
+    },
+    {
+      "id": "house_209_e16th",
+      "name": "209–217 East Sixteenth Street — Brick dwelling (district draft; refined by T-1946)",
+      "sidecar": "sidecars/1904/house_209_e16th.json",
+      "asset": "gltf/house_209_e16th__draft_1904.glb"
     },
     {
       "id": "house_2100_calumet",
@@ -1516,6 +1582,7 @@
     "north_side_school_1833",
     "north_water_slough_crossing",
     "old_bank_building",
+    "ouilmette_house_1812",
     "peck_store",
     "philo_carpenter_log_shop",
     "physicians_office",

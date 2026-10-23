@@ -495,6 +495,28 @@ def self_test() -> int:
     assert not mod.disjoint()
     fired += 1
 
+    # A NESTED `.git` IS NOT SOURCE, AT ANY DEPTH (T-3069, T-3070). Reading the
+    # tickets clone's object pack as text took about 10 GB per sweep, and the runner
+    # died with exit 143 and no verdict. Nothing asserted the rule, so dropping
+    # ".git" from NOT_A_SOURCE_DIR would have brought the failure back silently. The
+    # tickets themselves stay swept, and a name that only STARTS with ".git" is not
+    # the directory.
+    pack = "tickets/.git/objects/pack/pack-0.pack"
+    assert mod.not_the_source_tree(pack)
+    assert mod.not_the_source_tree("tickets/.git/HEAD")
+    assert not mod.not_the_source_tree("tickets/T-3000-3249/T-3070-a.md")
+    assert not mod.not_the_source_tree("assets/.gitkeep")
+    assert not any(".git" in rel.split("/") for rel in tree_now), \
+        "a sweep reaches a nested .git"
+    keep_dirs = mod.NOT_A_SOURCE_DIR
+    try:
+        mod.NOT_A_SOURCE_DIR = tuple(d for d in keep_dirs if d != ".git")
+        assert not mod.not_the_source_tree(pack), "the .git rule was never what held"
+    finally:
+        mod.NOT_A_SOURCE_DIR = keep_dirs
+    assert mod.not_the_source_tree(pack)
+    fired += 1
+
     print(f"roof_id_pins self-test: {fired} guard(s) fired")
     return 0
 

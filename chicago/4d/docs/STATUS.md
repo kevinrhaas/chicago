@@ -1,3 +1,36 @@
+## T-2800 — planted standing horse integration (2026-10-23)
+
+One reconstructed horse is placed in the 1835 Western Hotel yard with a
+12-second planted weight shift, a selectable provenance card and the existing
+host visibility, pause and resource-lifetime policies. The licensed canonical
+asset is `b479442c`. Its standard-loader standing check passed all 65 keys and
+64 midpoints. Actual published mobile/desktop qualification is still pending;
+photographic anatomy, walking, tack, teams and riding remain open.
+
+The complete serial preflight on the preceding tree finished with three failures
+among 1054 steps. Two exposed a test that mistook the deliberately inherited
+`CHECK_JOBS=1` for the default policy. Its child-local four-core and one-core
+fixtures now test the documented defaults independently of caller settings;
+the production harness is unchanged. Both focused harness modes pass, and a
+forced-serial-default negative control still fails the four-core assertion.
+
+The lap-lock fixture also failed its mid-rebuild case. Its original nested-CLI
+diagnostic passed on the subsequent quiet reproduction, so neither a production
+locking defect nor a particular resource failure is established. The fixture now
+executes the real sibling CLI in the rebuild process on its first `--run`, then
+independently verifies the real live marker before the original race assertions.
+This removes one nested Node process. Production lock scripts are unchanged;
+the integrated test passes and omitting the lock still fails both setup and race
+checks. All original nonpasses are retained. These focused results do not replace
+the new exact-tree complete preflight required before committing this change.
+
+The most recent complete run failed only the stale-marker lap case (1/1054).
+A quiet reproduction verified that same sandbox's real stale marker and passed
+the push and all live-lock guards. The test now checks aged-marker creation,
+asserts the same-sandbox stale premise and retains full output and process status
+on a failed push. No production lock behavior or assertion is relaxed. The fresh
+complete gate and exact-commit CI receipts belong to the resulting PR.
+
 ## T-1789 — connected Bardwell waistcoat source repair (2026-10-22)
 
 Actual published-town front inspection of the qualified Bardwell asset showed a
@@ -24592,3 +24625,15 @@ all prohibited 1835 layers were zero. Restore those expected IDs with the
 isolation assertion unchanged, then revalidate the new head. This is model
 progress; the original full picture-match case stays open and is never marked
 done by this increment. New-head checks are pending until their receipts exist.
+
+## Canonical26 planted-standing horse — source integration increment (2026-10-23)
+
+One reconstructed1835Western Hotel yard horse is proposed through the real scene layer/consumer with exact b479442c standing GLB (3,783,600bytes), canonical unit scale/zero origin, selected dielectric materials and bounded drawn-yard support. It plays only sevket_reconstructed_planted_posture_v1; no old15 head/tail clip, walk/trot, route, rider or gear is composed. Exact full artifact/source lineage is in assets/authored/transport/horse_standing/SOURCE.json. Current primary UI, Welcome/Home, humans, carriage distance/shadow changes and popup behavior are retained.
+
+Actual standardGLTFLoader/Mixer129 V2 passed65originalkeys+64midpoints, max contact8.652373712111605e−6m, positional parity1.3646619141056235e−7m, normal parity1.6246314097839457e−6deg. The compact data/transport/parked/standing-horse-planted/loaded129-summary.json pins raw result52841c26764f1ef88def84275da992cc3d51d1289b62cde3d6976155f8e55997; no renderer/GPU context was created. Prior baseline/runtime and walking failures are preserved separately and do not become passes.
+
+The standalone source patch was integrated onto DEV e4745b3c5714185079215d06d8072a4791c6de4a, retaining its newer Ames liberty changes. Actual compile_liberties.py, compile_scene.py --all and compile_source_use.py passed; the measured contract/clock/credit/support unit and isolation audit passed. Actual integration fullgate, yard desktop/mobile visuals, published budgets/selection/pause/reduced-motion and photographic completion remain pending. This checkpoint does not close T-2800 or T-2803 and does not claim walking, trot, head/tail composition, tack, teams or riding.
+
+The first actual preflight stopped after publication refused an inherited stale ignored Glessner output. The old outputs and dirty ticket clone were preserved; the existing verified-archive materializer restored the current output, and the current canonical ticket clone supplies the worktree. The next preflight published successfully but exhausted temporary storage when the existing ticket-mirror regression copied unrelated recovery archives into its fixture. Both attempts remain non-passes. That regression now excludes only evidence archives and Git internals, retains every ticket/metadata input and the original mirror assertions, and cleans up a failed initial copy. Its actual measured run and the isolation audit passed; a fresh full preflight is required.
+
+The final merge-ready dry-run fixture emits its fixed GitHub states as shell-quoted Bash cases rather than starting an unnecessary nested Node interpreter. Every original merger assertion remains; dry-run exit status and output are recorded. Production merge/lock/workflow code is unchanged. A complete1054-step attempt finished with one dry-run fixture failure; the old assertion did not record output, so the exact transient cause is not established. Focused real-merger and deliberately blocked dry-run negative controls are recorded externally; a fresh complete gate is required before commit.
