@@ -827,8 +827,12 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                     chimney['z0']=min(chimney['z0'],
                                       chimney_foot(p,chimney['x0']),
                                       chimney_foot(p,chimney['x1']))
-        p.detail["ashlar_courses_m"] = [round(float(h) * 0.0254, 6)
-                                          for h in raw.get("ashlar_courses_in", [])]
+        # T-3045: the printed inches stay the record's figures; the courses between two
+        # beds are laid at a measured scale over them (Taylor 2135 and sheet 6, beds 7-23).
+        stretch = raw.get("ashlar_course_scale") or {}
+        lo, hi = stretch.get("beds", (0, 0))
+        p.detail["ashlar_courses_m"] = [round(float(h) * 0.0254 * (float(stretch["scale"]) if lo < i + 1 <= hi else 1.0), 6)
+                                          for i, h in enumerate(raw.get("ashlar_courses_in", []))]
         # T-2955: the string is laid from north grade, so the beds run level round the NE
         # corner and stay registered on the 18th Street apertures (set on its sums above
         # north grade); on the Prairie face that is sheet 5's base line, 0.20 ft over the walk.

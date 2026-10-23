@@ -156,6 +156,8 @@ BOW_PEAK = .44
 # voussoirs laid over the field (masonry_house_v4_north.rough_stone) sit in
 # front of it.
 ROCK_FACE_MAX = .104
+# T-3045: a face piece under this in every direction is dropped as a clipping crumb.
+CRUMB_M = .0025
 
 
 def _segment_distance(x, y, a, b):
@@ -607,10 +609,15 @@ class DetailBuilder(MeshBuilder):
                 partitions.extend(getattr(point,'partition',lambda poly,conf,mat:[(poly,point)])(piece,confidence,variant))
             for piece,mapper_point in partitions:
                 piece_conf=max(confidence,getattr(mapper_point,'confidence',confidence))
+                pts=[mapper_point((q[0],q[1]),q[2]) for q in piece]
+                # T-3045: a facet clipped at a partition line can leave a crumb a
+                # millimetre or two across; the fan over it comes out as two faces
+                # back to back on K01's 1 mm lattice. Nothing that small is seen.
+                if max(max(q[k] for q in pts)-min(q[k] for q in pts) for k in range(3))<CRUMB_M:
+                    continue
                 if not emitted:
                     self.masonry_blocks+=1
                     emitted=True
-                pts=[mapper_point((q[0],q[1]),q[2]) for q in piece]
                 if len(piece[0])>3:
                     mapper=getattr(mapper_point,'normal',None)
                     if mapper:
