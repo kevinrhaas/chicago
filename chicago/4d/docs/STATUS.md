@@ -24458,6 +24458,20 @@ The horse research deliverable inventories the existing procedural horse/rig/har
 
 
 The six added reference records take the complete404-source catalogue index from159155 to161435 raw bytes. The declared raw allowance moves from160000 to168000 following the standing measured-headroom policy and previous8000-byte source increments; citations remain whole. Actual gzip accounting for the new index plus unchanged Sources module/CSS is45965bytes, below the unchanged120000-byte first-open ceiling. The standalone measurement's stale128000 raw calibration is aligned with this policy; no compressed-wire or scene-detail ceiling changes. Both original wagon wrappers also pass: W01 through Haswell and both covered variants through Nehalem retain every reviewed output byte and original guard.
+# Fort image-review prerequisite — T-3040
+
+Whole-compound reference rendering now selects each member's phase, position and
+bearing from one explicit scene and hashes every member's asset and placement.
+Actual baseline renders include 30 first-fort members and 21 second-fort members.
+Both remain `differs`: the provisional cameras are not solved and neither fort's
+image ticket is complete. No geometry, position, grade or rights ruling changed.
+See [the reproducible checkpoint and all 17 ticket findings](RESEARCH/fort-reference-groups-T-3040/README.md).
+T-3041 retains the full first-fort image gate under split parent T-2387; T-2388
+retains the second-fort acceptance. Reader-required preflight passed all 1,047
+checks. Published smoke slices passed 31 mobile and 107 desktop checks, with
+zero failures; the full renderer suite was not run. Details and timing limits
+are recorded in the research checkpoint linked above.
+
 
 
 ### T-3037 — Building cards state only dates the record supports, 2026-10-22

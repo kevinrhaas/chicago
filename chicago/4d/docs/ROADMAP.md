@@ -5619,3 +5619,13 @@ Original refined W01 farm-box wagons replace three existing1835 stands at close 
 
 
 - T-2980: two empty covered derivatives now preserve exact per-ID finishes/aging, original stands/bearings/yokes and legacy fallback. Actual22-image source/published desktop/mobile inspection, eight runtime/clearance sets and four disposals passed under unchanged budgets/GL0; no page/console errors or request failures. Source/geometry/hull/conservative-host proof is bounded, not full physical collision. Photographic cloth/wood/iron finishing, compressed distinct LODs and full-app memory/tier acceptance remain open. Full preflight/current qualification and the parent X-RAY/Ghost budget failure must be resolved before ordinary DEV merge. People, horses, driving and boarding remain open.
+
+## Fort compound reference rendering - T-3040 (under T-2387)
+
+The single-mesh reviewer could not test either fort's full picture acceptance.
+Group rendering now uses one scene's selected assets and surveyed placements,
+with peer-mesh/placement freshness checks. The initial 30-member first-fort and
+21-member second-fort baselines remain `differs`; neither camera is solved.
+[The checkpoint](RESEARCH/fort-reference-groups-T-3040/README.md) preserves source/date
+findings and next work across T-2372 through T-2388. T-3041 and T-2388 retain
+the full model-matching acceptance; this prerequisite changes no building.
