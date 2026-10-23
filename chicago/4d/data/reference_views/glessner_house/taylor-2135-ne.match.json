@@ -3,10 +3,10 @@
   "view": "taylor-2135-ne",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
   "glb_sha256": "5fff90bb9d42aa51dc25ecacc8da8b2a02f5e56cfebc6fb8e789f1b26f284a1b",
-  "camera_sha256": "4cc0045194c77abda93e5c0155f36dd59f59983d15f844a1975cdcd1a48effb9",
+  "camera_sha256": "f483dd0b658af4603b9125cc00ed31a0e6b4a973643c0d65e8dfe0d28947ba6f",
   "photo_sha256": "8f8c80a1fa6df906463ed8514b631ea6785b5b4b9b15b9d1e30b717da86c0a04",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/taylor-2135-ne-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "unreviewed",
   "differences": [
     {
       "what": "T-2857 openings: the jambs of the four first-floor windows and the door fit the model's opening spacing camera-free (one-dimensional projective fit along the course, 10 jambs, 1.50 px rms). The openings are right relative to one another (docs/RESEARCH/glessner-prairie-front-T-2857/).",
