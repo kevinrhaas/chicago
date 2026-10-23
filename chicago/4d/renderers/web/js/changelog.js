@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2204, ts: '2026-10-23T00:38:08.916Z', date: 'Oct 22, 2026, 7:38 PM CT', title: '1811 Prairie\'s oriel now matches the 1888 plate over the rounded corner', kind: 'improvement',
+    items: [
+      'The bay window over the porch arch at 1811 Prairie now stands farther out, with a flat front and a straight south side.',
+      'Its south side now turns back to the rounded corner below it, with two narrow lights in it.',
+      'It now sits on a heavy band of rough stone that curves back into the wall, in place of three stepped ledges.',
+      'Its pointed roof now peaks over the middle of the front, where the plate draws it. Every other house is unchanged.',
+    ] },
+  { v: 2203, ts: '2026-10-23T00:38:08.916Z', date: 'Oct 22, 2026, 7:38 PM CT', title: 'Fort picture comparisons now include the whole compound', kind: 'chore',
+    items: [
+      'Nothing in the town\'s appearance changes yet. The image-review tool can now compare both complete Fort Dearborn compounds with their pictures, while keeping the remaining camera and building differences open.',
+    ] },
   { v: 2202, ts: '2026-10-22T23:50:10.605Z', date: 'Oct 22, 2026, 6:50 PM CT', title: 'Building cards only state dates the records actually give', kind: 'fix',
     items: [
       'A card no longer says a house "had stood like this since 1904" because 1904 is the year you are visiting. That line came from the scene\'s own date, not from any source.',
