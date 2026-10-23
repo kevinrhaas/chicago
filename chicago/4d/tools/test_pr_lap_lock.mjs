@@ -63,7 +63,8 @@ function runClone(box, name, remote) {
 const tool = (repo, ...args) => {
   const r = spawnSync('node', [path.join(repo, 'chicago', '4d', 'tools', 'ticket.mjs'), ...args],
     { cwd: repo, encoding: 'utf8' });
-  return { code: r.status, out: `${r.stdout ?? ''}${r.stderr ?? ''}`.trim() };
+  return { code: r.status, signal: r.signal, error: r.error?.message,
+    out: `${r.stdout ?? ''}${r.stderr ?? ''}`.trim() };
 };
 
 /** The lock as a live run takes it: the REAL `ticket.mjs lap`, from a sibling clone. */
@@ -80,8 +81,15 @@ function plantAged(box, remote, hours) {
     GIT_AUTHOR_NAME: 'old', GIT_AUTHOR_EMAIL: 'old@test', GIT_COMMITTER_NAME: 'old', GIT_COMMITTER_EMAIL: 'old@test' };
   const scratch = path.join(box, `aged-${hours}`);
   git(box, 'init', '--quiet', scratch);
-  const tree = spawnSync('git', ['hash-object', '-w', '-t', 'tree', '/dev/null'], { cwd: scratch, encoding: 'utf8' }).stdout.trim();
-  const c = spawnSync('git', ['commit-tree', tree, '-m', `lap PR #${PR} — a run that died`], { cwd: scratch, encoding: 'utf8', env }).stdout.trim();
+  const tree = git(scratch, 'hash-object', '-w', '-t', 'tree', '/dev/null').trim();
+  const aged = spawnSync('git', ['commit-tree', tree, '-m', `lap PR #${PR} — a run that died`], { cwd: scratch, encoding: 'utf8', env });
+  if (aged.error || aged.status !== 0) {
+    throw new Error(`could not create the aged marker: ${JSON.stringify({
+      code: aged.status, signal: aged.signal, error: aged.error?.message,
+      out: `${aged.stdout ?? ''}${aged.stderr ?? ''}`,
+    })}`);
+  }
+  const c = aged.stdout.trim();
   git(scratch, 'push', '--quiet', '--force', remote, `${c}:refs/heads/lap/pr-${PR}`);
 }
 
@@ -236,8 +244,18 @@ function lap({ lock = 'none', midLap = false, noTool = false, source = null }) {
   // A sibling run, ready to take the lock from inside the lap if the case asks.
   const sibling = runClone(box, 'sibling', bare);
   const takeFromInside = midLap
-    ? `import { spawnSync } from 'node:child_process';
-spawnSync('node', [${JSON.stringify(path.join(sibling, 'chicago', '4d', 'tools', 'ticket.mjs'))}, 'lap', '${PR}', '--by', 'sibling run'], { cwd: ${JSON.stringify(sibling)} });
+    ? `import { pathToFileURL } from 'node:url';
+// This clean fixture rebuilds once with --run, then once with --tail. Invoke
+// the REAL CLI only on --run; a second take would correctly refuse the first.
+if (process.argv.includes('--run')) {
+  const savedCwd = process.cwd(), savedArgv = process.argv;
+  const ticket = ${JSON.stringify(path.join(sibling, 'chicago', '4d', 'tools', 'ticket.mjs'))};
+  process.chdir(${JSON.stringify(sibling)});
+  process.argv = [process.execPath, ticket, 'lap', '${PR}', '--by', 'sibling run'];
+  await import(pathToFileURL(ticket).href);
+  process.chdir(savedCwd);
+  process.argv = savedArgv;
+}
 `
     : '';
   writeFileSync(path.join(tools, 'rederive.mjs'), `${takeFromInside}console.log('[1/1] ok');\n`);
@@ -270,6 +288,9 @@ spawnSync('node', [${JSON.stringify(path.join(sibling, 'chicago', '4d', 'tools',
   git(work, 'push', '--quiet', 'origin', 'dev');
 
   setLock(box, bare, lock);
+  // Check THIS sandbox's premise, independently of section A's marker. Keep
+  // the real status and refusal in a failed push assertion's diagnostics.
+  const staleMarker = lock === 'stale' ? tool(sibling, 'lap', String(PR), '--status') : null;
 
   writeFileSync(path.join(bin, 'gh'), `#!/usr/bin/env bash
 case "$*" in
@@ -286,9 +307,14 @@ exit 0
     env: { ...process.env, PATH: `${bin}:${process.env.PATH}`, GH_TOKEN: 'fake', LAP_BASE: 'dev', LAP_ONLY: '' },
   });
   const after = git(box, '--git-dir', bare, 'rev-parse', 'refs/heads/claude/resume-1132').trim();
+  // Read from the outer test after the lap; the production lap only reads
+  // markers, so this independently proves the rebuild created a real live one.
+  const midLapMarker = midLap ? tool(sibling, 'lap', String(PR), '--status') : null;
   rmSync(box, { recursive: true, force: true });
   const out = `${r.stdout || ''}${r.stderr || ''}`;
-  return { code: r.status, out, moved: after !== head, summary: (out.match(/^PR lap: .*$/m) || ['no summary'])[0] };
+  return { code: r.status, signal: r.signal, error: r.error?.message, out,
+    moved: after !== head, head, after, staleMarker, midLapMarker,
+    summary: (out.match(/^PR lap: .*$/m) || ['no summary'])[0] };
 }
 
 console.log('\npr-lap.sh — a PR a live run is lapping is left to that run');
@@ -302,7 +328,12 @@ console.log('\npr-lap.sh — a PR a live run is lapping is left to that run');
 }
 {
   const r = lap({ lock: 'stale' });
-  check('a dead run\'s lock does not block the lap: the PR is lapped and pushed', r.moved && /pushed=1/.test(r.summary), r.summary);
+  check('the stale-lap sandbox really starts with a dead marker',
+    r.staleMarker?.code === 0 && /^stale lap\/pr-7\b/.test(r.staleMarker.out),
+    JSON.stringify(r.staleMarker));
+  const pushed = r.code === 0 && !r.error && r.moved && /pushed=1/.test(r.summary);
+  check('a dead run\'s lock does not block the lap: the PR is lapped and pushed',
+    pushed, pushed ? r.summary : JSON.stringify(r));
 }
 {
   const r = lap({ lock: 'none' });
@@ -310,6 +341,10 @@ console.log('\npr-lap.sh — a PR a live run is lapping is left to that run');
 }
 {
   const r = lap({ lock: 'none', midLap: true });
+  check('the rebuild actually took a live sibling marker before judging the push guard',
+        r.midLapMarker?.code === 3 && /^held lap\/pr-7\b/.test(r.midLapMarker.out)
+          && /sibling run/.test(r.midLapMarker.out),
+        r.midLapMarker ? `exit ${r.midLapMarker.code}: ${r.midLapMarker.out}` : 'missing fixture marker read');
   check('a lock taken WHILE the lap rebuilt stops the push — read again at the push',
         !r.moved && /took lap\/pr-7 while this lap rebuilt — NOT pushed/.test(r.out), r.summary);
   check('…and counts it being-lapped', /being-lapped=1/.test(r.summary), r.summary);

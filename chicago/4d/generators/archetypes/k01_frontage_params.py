@@ -466,6 +466,12 @@ def _flat_roof(depth: float, eave: float, pitch: float, overhang: float) -> dict
 GABLE_PARAPETS = ("stepped", "coped")
 
 
+def _gable_top_half() -> float:
+    """The parapet's level head either side of the ridge (k01_gable_roof.TOP_HALF_M)."""
+    from . import k01_gable_roof
+    return k01_gable_roof.TOP_HALF_M
+
+
 def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, side_wall: float,
                 overhang: float = 0.0) -> dict:
     """The numbers a K01 gable roof is built to (T-2459): the ridge runs along the street
@@ -484,7 +490,16 @@ def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, 
     faces at roof_pitch_deg from the same eave, so its street face is the gable's own street
     plane; `apex_v_m`, where a picture puts its apex, pitches its two end faces to it. The gable's attic
     then starts at `attic_from_m`, inside the hip's south face, and only the high-v (`north`)
-    wall is carried up as a parapet: the low-v wall is under the hip's end."""
+    wall is carried up as a parapet: the low-v wall is under the hip's end.
+
+    T-3063: `rear_fall` lets the rear slope fall steeply from the ridge, at its `pitch_deg`,
+    to a FLAT DECK that runs to the rear wall, and the coped parapet over it fall with it to a
+    LEVEL wall head, its coping's top at `wall_head_m`, the deck K05's upstand under the
+    parapet's slab (1811's south
+    wall behind its tall stack: both its pictures draw the coping level at about 10.95 m from
+    just behind the stack to the block's rear wall, with no roof showing over it, where a rear
+    slope falling to the rear eave stands it 0.5-1.4 m higher there). `head_back_m` is how far
+    the parapet's level head runs on behind the ridge before it falls. Coped ends only."""
     if not g:
         raise ParamError("a gable K01 roof names its gable_roof: ridge_back_m and the two ends")
     k5 = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())
@@ -518,6 +533,33 @@ def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, 
     top = float(g.get("top_above_ridge_m", pp["top_above_ridge_m"]))
     if not pp["upstand_min_m"] <= top <= 1.5:
         raise ParamError(f"gable_roof.top_above_ridge_m: {pp['upstand_min_m']}-1.5 m")
+    fall = {}
+    rf = g.get("rear_fall")
+    if rf:
+        if any(e["style"] != "coped" for e in out.values()):
+            raise ParamError("gable_roof.rear_fall: only a coped parapet runs level over a deck")
+        head, fp = float(rf["wall_head_m"]), float(rf["pitch_deg"])
+        # how far the parapet's level head runs on behind the ridge before it falls (the
+        # coped head's own half, unless a picture sees the fall start nearer the ridge)
+        hb = float(rf.get("head_back_m", _gable_top_half()))
+        if not 0.05 <= hb <= _gable_top_half():
+            raise ParamError(f"gable_roof.rear_fall.head_back_m {hb}: 0.05-{_gable_top_half()} m")
+        if not back_deg + 15.0 <= fp <= 75.0:
+            raise ParamError(f"gable_roof.rear_fall.pitch_deg {fp}: from the plain rear slope's "
+                             f"{back_deg:.1f} + 15 to 75 deg")
+        # the wall head is the coping's top, as a picture reads it; the parapet's slab stops a
+        # coping under it, and the deck K05's least upstand under that
+        up, ridge = float(pp["upstand_min_m"]), eave + rise
+        deck = head - float(cp["thickness_m"]) - up
+        run = (ridge - deck) / math.tan(math.radians(fp))
+        # the deck stands over the front eave and under the ridge, and the fall is long enough
+        # that the parapet's level head over the ridge stays over the covering behind it
+        if not (eave + 0.5 <= deck and run >= hb + 0.05 and run <= depth - r - 1.0):
+            raise ParamError(f"gable_roof.rear_fall.wall_head_m {head}: its deck {deck:.3f} m must stand "
+                             f"0.5 m over the eave {eave} and fall from the ridge {ridge:.3f} m over "
+                             f"{hb + 0.05:.2f} m to 1 m short of the rear wall (it falls {run:.2f})")
+        fall = {"rear_fall": {"wall_head_m": head, "pitch_deg": fp, "head_back_m": hb, "deck_m": round(deck, 4),
+                              "deck_from_m": round(depth - r - run, 4)}}
     hip = {}
     if hm:
         vm, va = float(hm["v_m"]), float(hm["attic_from_m"])
@@ -551,7 +593,7 @@ def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, 
                             "apex_v_m": av, "end_pitch_deg": {"south": round(math.degrees(math.atan(tn)), 4),
                                                              "north": round(math.degrees(math.atan(ts)), 4)}}}
     return {"ridge_back_m": r, "ridge_m": round(eave + rise, 4), "back_pitch_deg": round(back_deg, 4),
-            **hip, "ends": out, "parapet_m": side_wall, "upstand_m": float(pp["upstand_min_m"]),
+            **hip, **fall, "ends": out, "parapet_m": side_wall, "upstand_m": float(pp["upstand_min_m"]),
             "top_above_ridge_m": top, "coping_m": float(cp["thickness_m"]), "drip_m": float(cp["drip_m"])}
 
 
