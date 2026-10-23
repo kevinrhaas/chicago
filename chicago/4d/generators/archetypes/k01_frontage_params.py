@@ -602,7 +602,7 @@ MANSARD_ROOFS = ("k05.roof.mansard_convex", "k05.roof.mansard_concave")
 
 
 def _mansard_roof(m: dict, depth: float, width: float, eave: float, pitch: float, overhang: float,
-                  shaped: bool = False) -> dict:
+                  shaped: bool = False, side_wall: float = 0.0) -> dict:
     """The numbers a K01 mansard is built to (T-2370), from K05's mansard (T-2304): the
     record names the variant, which gives the lower face's profile, curve and chord pitch,
     and the lower face's rise to the curb, the attic storey's height; the upper hip is the
@@ -647,9 +647,48 @@ def _mansard_roof(m: dict, depth: float, width: float, eave: float, pitch: float
     bulge = float(m.get("bulge", v["bulge"]))
     if not 0.0 <= bulge <= 0.2:
         raise ParamError(f"mansard.bulge {bulge}: 0 (a straight face) to 0.2 of the chord")
-    return {"variant": vid, "profile": v["profile"], "lower_pitch_deg": lower, "bulge": bulge,
-            "segments": int(v["segments"]) if bulge > 0 else 1, "lower_rise_m": rise, "fascia_m": f,
-            "curb_m": round(eave + rise, 4), "ridge_m": round(ridge, 4)}
+    out = {"variant": vid, "profile": v["profile"], "lower_pitch_deg": lower, "bulge": bulge,
+           "segments": int(v["segments"]) if bulge > 0 else 1, "lower_rise_m": rise, "fascia_m": f,
+           "curb_m": round(eave + rise, 4), "ridge_m": round(ridge, 4)}
+    if m.get("side_parapet"):
+        out["side_parapet"] = _mansard_side_parapet(m["side_parapet"], k5, out, eave, overhang, side_wall)
+    return out
+
+
+#: T-3061: the side walls a mansard's wall may be carried up past its curb from
+MANSARD_PARAPET_WALLS = ("south", "north")
+
+
+def _mansard_side_parapet(sp: dict, k5: dict, m: dict, eave: float, overhang: float, side_wall: float) -> dict:
+    """T-3061: a side wall carried up past the mansard's curb as a coped parapet — 1812
+    Prairie's south wall, Levy's print and the c. 1955 photograph: the slate face behind the
+    gable's shoulder ends in the wall's end, which rises from the slate's foot to a heavy level
+    cap over the curb. The parapet is the side wall's own thickness, from the rear wall's plane
+    to the front's, its coping's top at `top_m` and `coping_m` deep; the lower face behind it
+    is the mansard's own, dying into its inner face. Its top stands no lower than the curb, so
+    nothing of the face shows over it from the street, and clears the face where the face
+    meets its inner side by K05's upstand."""
+    if set(sp) - {"wall", "top_m", "coping_m"} or not {"wall", "top_m"} <= set(sp):
+        raise ParamError("mansard.side_parapet takes wall, top_m and optionally coping_m")
+    if sp["wall"] not in MANSARD_PARAPET_WALLS:
+        raise ParamError(f"mansard.side_parapet.wall {sp['wall']!r}: one of {', '.join(MANSARD_PARAPET_WALLS)}")
+    pp, cp = k5["parts"]["parapet"], k5["parts"]["coping"]
+    curb = m["curb_m"]
+    top, cop = float(sp["top_m"]), float(sp.get("coping_m", cp["thickness_m"]))
+    if not cp["thickness_m"] <= cop <= 0.3:
+        raise ParamError(f"mansard.side_parapet.coping_m {cop}: {cp['thickness_m']}-0.3 m")
+    if not curb - 1e-9 <= top <= curb + 1.5:
+        raise ParamError(f"mansard.side_parapet.top_m {top}: from the curb's {curb} m to 1.5 m over it")
+    if side_wall <= 0.0:
+        raise ParamError("mansard.side_parapet: the side wall's thickness is the parapet's")
+    # where the lower face crosses the parapet's inner side, the fascia's face `overhang` out
+    meet = eave + mansard_face_height(overhang + side_wall, m["lower_rise_m"], m["lower_pitch_deg"], m["bulge"],
+                                      m["profile"])
+    if top - cop < meet + float(pp["upstand_min_m"]) - 1e-9:
+        raise ParamError(f"mansard.side_parapet.top_m {top}: its slab's top clears the lower face at its "
+                         f"inner side ({meet:.3f} m) by less than {pp['upstand_min_m']} m")
+    return {"wall": sp["wall"], "top_m": top, "coping_m": cop, "drip_m": float(cp["drip_m"]),
+            "thickness_m": side_wall}
 
 
 def _mansard_crown(c: dict, m: dict, bays: tuple, depth: float, width: float, eave: float, pitch: float,
@@ -3510,7 +3549,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
 
     flat_roof = _flat_roof(depth, eave, pitch, float(val("eave_overhang_m"))) if flat else {}
     mansard_roof = _mansard_roof(val("mansard"), depth, width, eave, pitch,
-                                 float(val("eave_overhang_m")), shaped=bool(val("shaped_gable"))) if mansard else {}
+                                 float(val("eave_overhang_m")), shaped=bool(val("shaped_gable")),
+                                 side_wall=float(val("wall_thickness_side_m"))) if mansard else {}
     gable_roof = _gable_roof(val("gable_roof"), depth, width, eave, pitch, st,
                              float(val("eave_overhang_m"))) if gable else {}
     # T-2820: the rear section, resolved before the stacks, one of which may stand on its attic
@@ -4112,6 +4152,23 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                         and max(sz / 2 - v, v + sz / 2 - width) <= o + 1e-9):
                     raise ParamError(f"chimney at ({u}, {v}) does not straddle a side wall inside its {o} m cornice")
                 base = round(pf + sum(heights), 4)
+            elif st_.get("outside_wall"):
+                # T-3061: a stack carried up on a side wall's outer face beside the mansard's
+                # side parapet (1812's south stack, in the gap to 1816, both its photographs):
+                # its inner face is the wall's outer face, and it rises from the ground
+                spp = (mansard_roof or {}).get("side_parapet") or {}
+                if not spp:
+                    raise ParamError(f"chimney at ({u}, {v}): only a wall carried up as a mansard's side "
+                                     "parapet carries a stack on its outer face")
+                if not (sx / 2 + 0.3 <= u <= depth - sx / 2 - 0.3):
+                    raise ParamError(f"chimney at ({u}, {v}) does not stand along the side wall")
+                if abs(v + sz / 2) > 1e-6 if spp["wall"] == "south" else abs(v - sz / 2 - width) > 1e-6:
+                    raise ParamError(f"chimney at ({u}, {v}): an outside stack's inner face is the "
+                                     f"{spp['wall']} wall's outer face")
+                if "top_m" not in st_ or float(st_["top_m"]) < spp["top_m"] + 0.6 - 1e-9:
+                    raise ParamError(f"chimney at ({u}, {v}): an outside stack names its top_m, 0.6 m or more "
+                                     f"over the parapet's {spp['top_m']} m")
+                base = 0.0
             elif st_.get("in_parapet"):
                 # T-2459: a stack carried up in a gable roof's side-wall parapet (1619's south
                 # stack at the head of its crow steps, its drawing): its outer face is the
@@ -4287,6 +4344,16 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                              "name their K15 variant in chimney_positions")
         _k15_heads(ch["k15"], ch["stacks"], chimneys,
                    mansard_cover(mansard_roof, depth, width, eave, pitch, float(val("eave_overhang_m"))))
+    spp = (mansard_roof or {}).get("side_parapet")
+    if spp:
+        # T-3061: no eave gutter runs along a wall carried up as a parapet, so no pipe falls from one
+        # there, and the lower face behind it is hidden: it takes no dormer
+        wall = f"k01.wall.side.{spp['wall']}"
+        if any(x["wall"] == wall for x in rainwater.get("downpipes", [])):
+            raise ParamError(f"rainwater.downpipes: no eave gutter runs along the {spp['wall']} wall, which is "
+                             "carried up as the mansard's side parapet")
+        if any(d.get("face") == spp["wall"] for d in (val("mansard") or {}).get("dormers") or []):
+            raise ParamError(f"mansard.dormers: the {spp['wall']} face stands behind the side parapet")
     if (val("mansard") or {}).get("dormers"):
         mansard_roof["dormers"] = _mansard_dormers(val("mansard")["dormers"], mansard_roof, depth, width, eave,
                                                    float(val("eave_overhang_m")), chimneys)

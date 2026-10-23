@@ -31722,6 +31722,41 @@ photograph that T-3052 is to find), or T-3052's solved camera on the Chicagology
 **Review:** `data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.match.json`.
 **Recorded:** 2026-10-23 (T-3063).
 
+### L-k01-1812-wheeler-parapet-3061 — 1812 Prairie's south wall carried up as a coped parapet, its stack on the wall's outer face down to the ground
+
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-3061) carries its south side wall up
+past the mansard's curb as a coped parapet, and stands its tall south stack on that wall's outer
+face, in the 1.41 m gap to 1816, instead of on the cornice over the wall line. K01 learns both as
+`mansard.side_parapet` and an `outside_wall` stack; every other K01 house names neither and
+re-emits unchanged. With no eave gutter along a parapet wall, the two pipes the record hung on the
+south wall go, and the gutter round the north side and the rear falls to one pipe down the rear
+wall at its south end.
+**What is read, not invented.** Levy's print ends the slate face behind the gable's south shoulder
+in a vertical band (x 277-293 px) from the slate's foot to a heavier level cap (y 257-277 px,
+about 14.3-14.5 m at the front's plane), with the stack standing on it; the c. 1955 photograph sees
+the same coped top from the south (T-3033's and T-3034's readings). The stack's place along the
+wall, its top and its 0.55 m east face are T-3034's triangulation (L-k01-1812-wheeler-stacks-3034).
+**What is invented.** The parapet's thickness (the side wall's 13 inches) and its length: neither
+picture sees it behind the stack, and it is carried to the rear wall, as a parapet wall runs. The
+cap as a coping 0.2 m deep, the print's band. The stack's foot: neither picture sees it below the
+slate's foot, where 1816 stands in front of it, and it is carried down the wall to the ground as an
+outside chimney breast, the way a stack outside a wall is built; it is not corbelled out at the wall
+head. The single rear pipe and the gutter behind the parapet, which is not built: no picture shows
+the rear or the roof behind the parapet.
+**What is built otherwise than read.** Both photographs put the stack and the parapet's end about
+0.3 m further south than the build (Levy's shaft renders 26-27 px north of the print's, the c.
+1955 one 14 px), and Levy's print puts the main front's own south corner (its downpipe at x
+293-300 px) about 23 px south of the build's too. So the stack stands on the traced wall's outer
+face (v -0.55 to 0) rather than at the triangulated v -0.87 to -0.34: the difference is the wall's
+line, not the stack's, and the footprint is not moved for one reading (T-3075).
+**How to resolve:** T-3075 rules the south wall's line through both cameras, against the permit's
+30 ft; the 1816 Henderson photograph, once its rights are resolved, sees 1812's south wall over
+1816's roof and would show the breast's foot and the parapet's length.
+**Ticket:** T-3061 (found by T-3034).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`.
+**Recorded:** 2026-10-23 (T-3061).
+
 ### L-1812-ouilmette-2486 — Antoine Ouilmette's house of 1812: the drawn house taken as his, its height and pitch, its closing date, and the currant bushes behind it
 
 **Decision:** the third of the three houses Captain Whistler's draught of January 1808 draws across

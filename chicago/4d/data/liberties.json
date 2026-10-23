@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 705,
+  "count": 706,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -51603,6 +51603,41 @@
         "T-3052",
         "T-3063",
         "T-3051"
+      ]
+    },
+    {
+      "id": "L-k01-1812-wheeler-parapet-3061",
+      "title": "1812 Prairie's south wall carried up as a coped parapet, its stack on the wall's outer face down to the ground",
+      "section": "per_subject",
+      "subjects": [
+        "wheeler_house_1812_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "George H. Wheeler's house at 1812 Prairie carries its south side wall up past the mansard's curb as a coped parapet, and stands its tall south stack on that wall's outer face, in the 1.41 m gap to 1816, instead of on the cornice over the wall line. K01 learns both as mansard.side parapet and an outside wall stack; every other K01 house names neither and re-emits unchanged. With no eave gutter along a parapet wall, the two pipes the record hung on the south wall go, and the gutter round the north side and the rear falls to one pipe down the rear wall at its south end. **What is read, not invented.** Levy's print ends the slate face behind the gable's south shoulder in a vertical band (x 277-293 px) from the slate's foot to a heavier level cap (y 257-277 px, about 14.3-14.5 m at the front's plane), with the stack standing on it; the c. 1955 photograph sees the same coped top from the south ('s and 's readings). The stack's place along the wall, its top and its 0.55 m east face are earlier work's triangulation (“1812 Prairie's south stack placed from two photographs, and the north stack of the c. 1955 photograph not built”). **What is invented.** The parapet's thickness (the side wall's 13 inches) and its length: neither picture sees it behind the stack, and it is carried to the rear wall, as a parapet wall runs. The cap as a coping 0.2 m deep, the print's band. The stack's foot: neither picture sees it below the slate's foot, where 1816 stands in front of it, and it is carried down the wall to the ground as an outside chimney breast, the way a stack outside a wall is built; it is not corbelled out at the wall head. The single rear pipe and the gutter behind the parapet, which is not built: no picture shows the rear or the roof behind the parapet. **What is built otherwise than read.** Both photographs put the stack and the parapet's end about 0.3 m further south than the build (Levy's shaft renders 26-27 px north of the print's, the c. 1955 one 14 px), and Levy's print puts the main front's own south corner (its downpipe at x 293-300 px) about 23 px south of the build's too. So the stack stands on the traced wall's outer face (v -0.55 to 0) rather than at the triangulated v -0.87 to -0.34: the difference is the wall's line, not the stack's, and the footprint is not moved for one reading."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Later work rules the south wall's line through both cameras, against the permit's 30 ft; the 1816 Henderson photograph, once its rights are resolved, sees 1812's south wall over 1816's roof and would show the breast's foot and the parapet's length."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23 (T-3061)."
+        }
+      ],
+      "work_refs": [
+        "T-3061",
+        "T-3033",
+        "T-3034",
+        "T-3075"
       ]
     },
     {
