@@ -507,12 +507,12 @@
         "stacks": [
           {
             "u_m": 13.25,
-            "v_m": 0.23,
+            "v_m": -0.275,
             "plan_m": [
               1.0,
               0.55
             ],
-            "on_cornice": true,
+            "outside_wall": true,
             "top_m": 16.8,
             "cap_proud_m": 0.1,
             "cap_depth_m": 0.6
@@ -524,7 +524,7 @@
         "levy_1812_prairie_photo",
         "chicagology_1812_wheeler_c1955_photo"
       ],
-      "note": "The photographs show one tall corbelled stack over the south wall behind the gable. T-3034: its place and top triangulated from the two solved cameras, Levy's print (levy_front.json) and the c. 1955 photograph (c1955_front.json, rights unresolved, read for place and proportion only): Levy's shaft at x 262-318 px (its south-east and north-west corners, the east face about 44 px of it) and the c. 1955 shaft's north-east corner at x 39 px meet at a stack whose front face stands about 1.35 m behind the main front (u 13.75, its back about u 12.75) and whose faces fall at about v -0.87 to -0.34, outside the traced south wall's line, in the 1.41 m gap to 1816; its top reads 16.8 m in Levy's print (y 127 px), and the build takes that. The c. 1955 photograph's top (y 90 px), read at the triangulated place, would make it 17.7 m, but the same camera also puts the south wall's coped top about 1 m higher than Levy's print does (y 166-170 px, 15.5-16 m, against Levy's cap at 14.3-14.5 m), so the later camera reads about a metre high off the front's plane (its distance is its weakest number, c1955_front.json's solve) rather than showing a stack raised after 1904. The same tension leaves the place good to about a metre along the wall: the c. 1955 heights would bring the stack nearer the front. Built with K01's on_cornice stack, centred 1.85 m behind the front (u 13.25) and straddling the wall line as far out as the 0.05 m cornice lets it (v -0.045 to 0.505), rising from the wall head to 16.8 m, where it stood 6.1 m back and 0.8 m inside the wall (u 9.0, v 0.8) at 17.59 m: the photographs' further 0.3-0.9 m outward, a stack carried on the wall's outer face in the gap, is a kit change K01 does not make (L-k01-1812-wheeler-stacks-3034). Its corbelled head as a cap 0.1 m proud and 0.6 m deep (Levy's wider head over y 127-200 px, the c. 1955 one's over y 90-115 px); 0.55 m across, as Levy's east face reads, and 1.0 m deep, the house's other stacks' plan (its depth is seen in neither picture). No second stack is built. The c. 1955 photograph shows a tall plain brick stack behind the gable's north shoulder (x 383-435 px, top y 128 px); for it to stand on 1812 at all (north of v 8.5 is 1808), its north-east corner at x 435 puts it within 1.2 m behind the main front (u 13.9-15.1, v about 7.0-8.2), topping about 16.6 m, and there Levy's camera draws it at x 930-1030 px from y 110 px down, against open sky beside the north shoulder, where the print shows sky. So it was built after Levy's print (c. 1885-1900), or it stands behind 1812 on 1808's ground; no picture inside the period shows it, and the 1904 build follows the one that does not (L-k01-1812-wheeler-stacks-3034)."
+      "note": "The photographs show one tall corbelled stack over the south wall behind the gable. T-3034: its place and top triangulated from the two solved cameras, Levy's print (levy_front.json) and the c. 1955 photograph (c1955_front.json, rights unresolved, read for place and proportion only): Levy's shaft at x 262-318 px (its south-east and north-west corners, the east face about 44 px of it) and the c. 1955 shaft's north-east corner at x 39 px meet at a stack whose front face stands about 1.35 m behind the main front (u 13.75, its back about u 12.75) and whose faces fall at about v -0.87 to -0.34, outside the traced south wall's line, in the 1.41 m gap to 1816; its top reads 16.8 m in Levy's print (y 127 px), and the build takes that. The c. 1955 photograph's top (y 90 px), read at the triangulated place, would make it 17.7 m, but the same camera also puts the south wall's coped top about 1 m higher than Levy's print does (y 166-170 px, 15.5-16 m, against Levy's cap at 14.3-14.5 m), so the later camera reads about a metre high off the front's plane (its distance is its weakest number, c1955_front.json's solve) rather than showing a stack raised after 1904. The same tension leaves the place good to about a metre along the wall: the c. 1955 heights would bring the stack nearer the front. Built with K01's on_cornice stack, centred 1.85 m behind the front (u 13.25) and straddling the wall line as far out as the 0.05 m cornice lets it (v -0.045 to 0.505), rising from the wall head to 16.8 m, where it stood 6.1 m back and 0.8 m inside the wall (u 9.0, v 0.8) at 17.59 m: the photographs' further 0.3-0.9 m outward, a stack carried on the wall's outer face in the gap, is a kit change K01 does not make (L-k01-1812-wheeler-stacks-3034). Its corbelled head as a cap 0.1 m proud and 0.6 m deep (Levy's wider head over y 127-200 px, the c. 1955 one's over y 90-115 px); 0.55 m across, as Levy's east face reads, and 1.0 m deep, the house's other stacks' plan (its depth is seen in neither picture). No second stack is built. The c. 1955 photograph shows a tall plain brick stack behind the gable's north shoulder (x 383-435 px, top y 128 px); for it to stand on 1812 at all (north of v 8.5 is 1808), its north-east corner at x 435 puts it within 1.2 m behind the main front (u 13.9-15.1, v about 7.0-8.2), topping about 16.6 m, and there Levy's camera draws it at x 930-1030 px from y 110 px down, against open sky beside the north shoulder, where the print shows sky. So it was built after Levy's print (c. 1885-1900), or it stands behind 1812 on 1808's ground; no picture inside the period shows it, and the 1904 build follows the one that does not (L-k01-1812-wheeler-stacks-3034). T-3061: the stack moved onto the south wall's outer face, in the gap to 1816, where both photographs put it (faces about v -0.87 to -0.34): K01's outside stack, its inner face on the wall's outer face (v -0.55 to 0), the nearest a stack carried by the wall can stand to the triangulated place, beside the new south parapet and topping it as Levy's print shows. Neither picture sees it below the slate's foot (1816 stands in front of it); it is carried down the wall to the ground as an outside chimney breast, a reconstruction (L-k01-1812-wheeler-parapet-3061)."
     },
     "rainwater": {
       "value": {
@@ -534,12 +534,8 @@
         "ends_at": "grade_with_splash_stone",
         "downpipes": [
           {
-            "wall": "k01.wall.side.south",
-            "s_m": 1.5
-          },
-          {
-            "wall": "k01.wall.side.south",
-            "s_m": 13.4
+            "wall": "k01.wall.rear_service",
+            "s_m": 7.9
           }
         ],
         "front_pipes": [
@@ -567,7 +563,7 @@
       "sources": [
         "levy_1812_prairie_photo"
       ],
-      "note": "The photograph shows a downpipe down each end of the front. No eave gutter runs across the front (the shaped gable stands there), so each is built from a rainwater head of its own (T-2953, front_pipes): the north one from a head under the north kneeler at about 10.3 m (the print's pipe top, y 647 px) straight down the main front's north end to a shoe over a splash stone at grade, past the end of the stair's terrace; the south one in two runs, from a head under the south kneeler down the main front to the projection's flat top, and from a head under the projection's cornice down its south corner to grade, which is where the print shows it (x 293-300 px, the corner's own line, from the top of the front to the walk). The heads' size and the split at the projection's top are the kit's (L-k01-1812-wheeler-porch-2952). The two pipes on the south wall run from the side eave's gutter, clear of its corner brackets. The gutter is K04's half-round on brackets (L-k01-1812-wheeler-front-2543)."
+      "note": "The photograph shows a downpipe down each end of the front. No eave gutter runs across the front (the shaped gable stands there), so each is built from a rainwater head of its own (T-2953, front_pipes): the north one from a head under the north kneeler at about 10.3 m (the print's pipe top, y 647 px) straight down the main front's north end to a shoe over a splash stone at grade, past the end of the stair's terrace; the south one in two runs, from a head under the south kneeler down the main front to the projection's flat top, and from a head under the projection's cornice down its south corner to grade, which is where the print shows it (x 293-300 px, the corner's own line, from the top of the front to the walk). The heads' size and the split at the projection's top are the kit's (L-k01-1812-wheeler-porch-2952). The two pipes on the south wall run from the side eave's gutter, clear of its corner brackets. The gutter is K04's half-round on brackets (L-k01-1812-wheeler-front-2543). T-3061: with the south wall carried up as a parapet no eave gutter runs along it, so its two pipes are gone: the gutter round the north side and the rear stops at the parapet's back, and falls to one pipe down the rear wall at its south end (v 0.6), clear of the rear range; the south face behind the parapet drains to a gutter behind it that is not built. Neither picture shows the rear (L-k01-1812-wheeler-parapet-3061)."
     },
     "window_kit": {
       "value": {
@@ -883,13 +879,18 @@
         "variant": "k05.roof.mansard_convex",
         "lower_rise_m": 2.0,
         "lower_pitch_deg": 72,
-        "bulge": 0.0
+        "bulge": 0.0,
+        "side_parapet": {
+          "wall": "south",
+          "top_m": 14.5,
+          "coping_m": 0.2
+        }
       },
       "confidence": "inferred",
       "sources": [
         "levy_1812_prairie_photo"
       ],
-      "note": "The steep faces straight, as both photographs show them (level slate courses on a plane, no bow), at 72 degrees, the north corner's lean in Levy's print (about 0.5 m out over 1.6 m of rise) and the convex variant's own chord; rising 2.0 m from the side walls' heads at 12.45 m to the curb at 14.45 m, the print's south cap (14.3-14.5 m), where the north cap reads about 0.4 m lower (an open item on the match record). 2.0 m is the foot of K01's one-storey range: the third storey stands under the walls' heads and the faces hold the attic over it (L-k01-1812-wheeler-roof-3033). The 1816 Henderson photograph (chicagology_1816_henderson_photo) is cited here in text only: its rights are unresolved, so nothing is built from it; Levy's print alone carries the value."
+      "note": "The steep faces straight, as both photographs show them (level slate courses on a plane, no bow), at 72 degrees, the north corner's lean in Levy's print (about 0.5 m out over 1.6 m of rise) and the convex variant's own chord; rising 2.0 m from the side walls' heads at 12.45 m to the curb at 14.45 m, the print's south cap (14.3-14.5 m), where the north cap reads about 0.4 m lower (an open item on the match record). 2.0 m is the foot of K01's one-storey range: the third storey stands under the walls' heads and the faces hold the attic over it (L-k01-1812-wheeler-roof-3033). The 1816 Henderson photograph (chicagology_1816_henderson_photo) is cited here in text only: its rights are unresolved, so nothing is built from it; Levy's print alone carries the value. T-3061: the south wall is carried up past the curb as a coped parapet, as both photographs show it: in Levy's print the slate face behind the gable's south shoulder ends in the wall's end, a vertical band (x 277-293 px) from the slate's foot to a heavier level cap at y 257-277 px (about 14.3-14.5 m at the front's plane), and the c. 1955 photograph sees the same coped top from the south (T-3034). Built as the side wall's own 0.33 m, from the rear wall to the front, its slab's top at 14.3 m under a coping 0.2 m deep to 14.5 m, the print's cap; the mansard's south face behind it is hidden from the street and dies into its inner side. Its length along the wall is not seen in either picture past the stack and is carried to the rear wall, as a parapet wall runs (L-k01-1812-wheeler-parapet-3061)."
     },
     "function": {
       "value": "residence",

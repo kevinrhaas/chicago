@@ -3023,7 +3023,7 @@
         "note": "cream fat face on Venetian red"
       },
       "anchor_local_enu_m": [
-        303.79,
+        295.79,
         -98.46
       ],
       "facade_bearing_deg": 180.5,
@@ -3044,19 +3044,19 @@
       "frontage_m": 12.19,
       "ground_quad_local_enu_m": [
         [
-          311.65,
+          303.65,
           -90.9
         ],
         [
-          299.46,
+          291.46,
           -90.8
         ],
         [
-          299.4,
+          291.4,
           -98.42
         ],
         [
-          311.59,
+          303.59,
           -98.52
         ]
       ]
@@ -3371,8 +3371,8 @@
         "note": "black Egyptian on a yellow-ochre ground"
       },
       "anchor_local_enu_m": [
-        -142.72,
-        -124.0
+        -134.56,
+        -120.98
       ],
       "facade_bearing_deg": 0.0,
       "arm_height_m": 2.75,
@@ -3389,20 +3389,20 @@
       "frontage_m": 9.0,
       "ground_quad_local_enu_m": [
         [
-          -145.0,
-          -131.0
+          -136.83,
+          -127.98
         ],
         [
-          -136.0,
-          -131.0
+          -127.83,
+          -127.98
         ],
         [
-          -136.0,
-          -124.0
+          -127.83,
+          -120.98
         ],
         [
-          -145.0,
-          -124.0
+          -136.83,
+          -120.98
         ]
       ],
       "opening_fit": {

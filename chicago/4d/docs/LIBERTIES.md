@@ -31559,15 +31559,6 @@ The roof's form and its faces are now inferred from Levy's print, so `form.roof_
 **Ticket:** T-2794.
 **Recorded:** 2026-10-23.
 
-### L-hogan-pictured-openings-2377 — a first form reading of the first post office
-
-**What is read:** `cameron_c1900_first_post_office`, the committed halftone after Edgar S. Cameron's painting, captioned Chicago's First Postoffice in 1833 and credited to the Chicago Historical Society. The visible long wall has one sash and an off-centre doorway; the gable has one small framed rectangle; one stack rises through the roof. This retrospective picture bounds appearance, not a survey or the building's state in July 1835.
-**What is reconstructed:** the doorway at 8.45 m and sash at 11.55 m from minimum-u on the retained 13.716 m frontage; door 1.45 by 1.95 m, sash 0.75 by 0.95 m; the +x gable opening centred at z 3.35 m, rendered with the archetype's 0.7 by 0.8 m glazed-light proxy; and chimney station 0.6 along the ridge with the archetype's reconstructed 0.65 m square section and 0.95 m head above the ridge. Opening order/occurrence follows the picture, but these dimensions and stations depend on the existing reconstruction and a provisional drawing camera. Gable glazing versus a closed hatch is unresolved. The closed model door does not reproduce the dark open doorway with a person. Hidden faces, wall height, pitch, material colours and construction details retain their earlier bounds. No geographic placement or documented 45 by 20 ft footprint changes.
-**Rendered correction:** an actual paired close-up exposed the first door/sash stations (4.6/10.2 m) as too far along the wall and their widths (0.85/0.55 m) as too narrow. A new six-wallpoint review pose and the revised values above improve that visible arrangement; they do not make the drawing a metric survey.
-**How to resolve:** refit the drawing camera and review every visible difference, including gable treatment, open doorway, roof/log texture, proportions and context. No image-gate match or full T-2377 completion is claimed by this first rebuild.
-**Covers:** `hogan_store.log_1831.form.front_set_out`, `hogan_store.log_1831.form.window_w_m`, `hogan_store.log_1831.form.window_h_m`, `hogan_store.log_1831.form.door_w_m`, `hogan_store.log_1831.form.door_h_m`, `hogan_store.log_1831.form.end_openings`, `hogan_store.log_1831.form.chimney_ridge_at`, `hogan_store.log_1831.form.ridge_stack_w_m`.
-**Recorded:** 2026-10-22 (T-2377).
-
 ### L-kimball-1801-pavilion-shallow-3047 — 1801 Prairie's south pavilion stood at the 1911 sheet's 0.1 m as a shallow projection, its corner still square
 
 **Decision:** 1801 Prairie's south pavilion (T-3047, piece 1 of T-3016) stands 0.1 m proud of the
@@ -31703,6 +31694,15 @@ Levy's print and 1955.
 `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-23 (T-3034).
 
+### L-hogan-pictured-openings-2377 — a first form reading of the first post office
+
+**What is read:** `cameron_c1900_first_post_office`, the committed halftone after Edgar S. Cameron's painting, captioned Chicago's First Postoffice in 1833 and credited to the Chicago Historical Society. The visible long wall has one sash and an off-centre doorway; the gable has one small framed rectangle; one stack rises through the roof. This retrospective picture bounds appearance, not a survey or the building's state in July 1835.
+**What is reconstructed:** the doorway at 8.45 m and sash at 11.55 m from minimum-u on the retained 13.716 m frontage; door 1.45 by 1.95 m, sash 0.75 by 0.95 m; the +x gable opening centred at z 3.35 m, rendered with the archetype's 0.7 by 0.8 m glazed-light proxy; and chimney station 0.6 along the ridge with the archetype's reconstructed 0.65 m square section and 0.95 m head above the ridge. Opening order/occurrence follows the picture, but these dimensions and stations depend on the existing reconstruction and a provisional drawing camera. Gable glazing versus a closed hatch is unresolved. The closed model door does not reproduce the dark open doorway with a person. Hidden faces, wall height, pitch, material colours and construction details retain their earlier bounds. No geographic placement or documented 45 by 20 ft footprint changes.
+**Rendered correction:** an actual paired close-up exposed the first door/sash stations (4.6/10.2 m) as too far along the wall and their widths (0.85/0.55 m) as too narrow. A new six-wallpoint review pose and the revised values above improve that visible arrangement; they do not make the drawing a metric survey.
+**How to resolve:** refit the drawing camera and review every visible difference, including gable treatment, open doorway, roof/log texture, proportions and context. No image-gate match or full T-2377 completion is claimed by this first rebuild.
+**Covers:** `hogan_store.log_1831.form.front_set_out`, `hogan_store.log_1831.form.window_w_m`, `hogan_store.log_1831.form.window_h_m`, `hogan_store.log_1831.form.door_w_m`, `hogan_store.log_1831.form.door_h_m`, `hogan_store.log_1831.form.end_openings`, `hogan_store.log_1831.form.chimney_ridge_at`, `hogan_store.log_1831.form.ridge_stack_w_m`.
+**Recorded:** 2026-10-22 (T-2377).
+
 ### L-k01-1811-rear-fall-3063 — 1811 Prairie's roof behind the south gable falls steeply to a flat deck under a level coped wall head
 
 **Decision:** behind the tall stack, 1811 Prairie's south wall (K01's `north`) is built as a
@@ -31732,6 +31732,41 @@ photograph that T-3052 is to find), or T-3052's solved camera on the Chicagology
 **Ticket:** T-3063 (piece 2 of T-3051).
 **Review:** `data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.match.json`.
 **Recorded:** 2026-10-23 (T-3063).
+
+### L-k01-1812-wheeler-parapet-3061 — 1812 Prairie's south wall carried up as a coped parapet, its stack on the wall's outer face down to the ground
+
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-3061) carries its south side wall up
+past the mansard's curb as a coped parapet, and stands its tall south stack on that wall's outer
+face, in the 1.41 m gap to 1816, instead of on the cornice over the wall line. K01 learns both as
+`mansard.side_parapet` and an `outside_wall` stack; every other K01 house names neither and
+re-emits unchanged. With no eave gutter along a parapet wall, the two pipes the record hung on the
+south wall go, and the gutter round the north side and the rear falls to one pipe down the rear
+wall at its south end.
+**What is read, not invented.** Levy's print ends the slate face behind the gable's south shoulder
+in a vertical band (x 277-293 px) from the slate's foot to a heavier level cap (y 257-277 px,
+about 14.3-14.5 m at the front's plane), with the stack standing on it; the c. 1955 photograph sees
+the same coped top from the south (T-3033's and T-3034's readings). The stack's place along the
+wall, its top and its 0.55 m east face are T-3034's triangulation (L-k01-1812-wheeler-stacks-3034).
+**What is invented.** The parapet's thickness (the side wall's 13 inches) and its length: neither
+picture sees it behind the stack, and it is carried to the rear wall, as a parapet wall runs. The
+cap as a coping 0.2 m deep, the print's band. The stack's foot: neither picture sees it below the
+slate's foot, where 1816 stands in front of it, and it is carried down the wall to the ground as an
+outside chimney breast, the way a stack outside a wall is built; it is not corbelled out at the wall
+head. The single rear pipe and the gutter behind the parapet, which is not built: no picture shows
+the rear or the roof behind the parapet.
+**What is built otherwise than read.** Both photographs put the stack and the parapet's end about
+0.3 m further south than the build (Levy's shaft renders 26-27 px north of the print's, the c.
+1955 one 14 px), and Levy's print puts the main front's own south corner (its downpipe at x
+293-300 px) about 23 px south of the build's too. So the stack stands on the traced wall's outer
+face (v -0.55 to 0) rather than at the triangulated v -0.87 to -0.34: the difference is the wall's
+line, not the stack's, and the footprint is not moved for one reading (T-3075).
+**How to resolve:** T-3075 rules the south wall's line through both cameras, against the permit's
+30 ft; the 1816 Henderson photograph, once its rights are resolved, sees 1812's south wall over
+1816's roof and would show the breast's foot and the parapet's length.
+**Ticket:** T-3061 (found by T-3034).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`.
+**Recorded:** 2026-10-23 (T-3061).
 
 ### L-1812-ouilmette-2486 — Antoine Ouilmette's house of 1812: the drawn house taken as his, its height and pitch, its closing date, and the currant bushes behind it
 

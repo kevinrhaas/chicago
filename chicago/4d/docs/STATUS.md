@@ -24616,6 +24616,15 @@ The owner found 1736 Prairie's card saying "It had stood like this since 1904" (
 
 The owner asked for interesting, true facts on the cards (the "Dutch-ish" house and the paint maker's). Eight new summary records under data/summaries/, each fact graded and sourced from records the project already holds, mostly the district's interpretive markers: 1812 Wheeler (a Dutch-style row house by Burnham & Root for a grain-elevator owner), 1736 McBirney (bought in 1880 for $25,000 by Hugh McBirney, a white lead maker, per chicagology's directory and Tribune transcriptions), 2100 Sherman (Burnham married the owner's daughter while it was building), 1729 Pullman (a 200-seat theatre, pipe organ and bowling alley), 1801 Kimball, 1811 Coleman, 1912 Moulton-Lowden (a future governor's home) and 1919 Field Jr. A summary's `built` may now carry a `phrase` ("between 1870 and 1876", "1864 or 1875"), placed on the timeline at its earliest year; compile_summaries.py refuses a phrase whose earliest year is not `year`. Left out on purpose: Max Meyer's 2009 house (the record is named Mayer, the marker Meyer, unresolved), Pullman's architect (the marker's Jaffay against others' Jaffray), and any McBirney–Dutch Boy link (no source found).
 
+### T-2377 integration continuation — 2026-10-23
+
+Hogan's reviewed first refinement is being brought onto the latest dev changes.
+The initial mobile smoke isolated an older expected-list omission: 27 valid
+1904 Indiana Avenue records from T-3009 were absent from the smoke oracle, while
+all prohibited 1835 layers were zero. Restore those expected IDs with the
+isolation assertion unchanged, then revalidate the new head. This is model
+progress; the original full picture-match case stays open and is never marked
+done by this increment. New-head checks are pending until their receipts exist.
 
 ## Canonical26 planted-standing horse — source integration increment (2026-10-23)
 
