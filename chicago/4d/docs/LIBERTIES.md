@@ -14372,7 +14372,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 690 phases (685 until T-2485's stable, lodging house, bake-house, dairy and horse mill of the Kinzie establishment on the north bank, 2026-10-22, L420; 683 until T-2512's two 1812 log houses at the forks of the river, forks_house_soldier_1812 and forks_house_clark_1812, 2026-10-15, L-1812-forks-2512; 682 until T-2509's farm cabin at Lee's Place, lees_place_cabin_1812, 2026-10-15, L-1812-lees-place-2509; 680 until T-2504's La Lime and Le Mai houses on the north bank west of the Kinzie house, lalime_house_1812 and lemai_house_1812, 2026-10-15, dated 1808-1816, L-1812-lalime-lemai-2504; 679 until T-2497's Kinzie house on the north bank opposite the first fort, 2026-10-15, dated 1804-1833, L-kinzie-house-1812-2497; 675 until T-2507's interpreter's house, armourer's shop, merchant's shop and bake house outside the first Fort Dearborn, 2026-10-15, dated 1808-1812, L-first-fort-outer-2507; 673 until T-2487's two 1812 log houses on the river, burns_house_1812 and lee_house_1812, 2026-10-15, L-1812-burns-lee-2487; 671 until T-2270's two houses on the east corners of the School Section tier's block 82, blk_school_section_tier_82, 2026-10-10, L-block82-east-corners-2270; 667 until T-2254's four houses on the School Section tier's Market block south of Monroe, blk_school_section_tier_82, 2026-10-10, L416, on the tree merged with T-2268; 665 until T-2268's two river warehouses on the South Branch's east bank between Madison and Washington, 2026-10-10, L415; 664 until T-2269's lumber shed on the South Branch's east bank south of Washington Street, 2026-10-10, L-south-lumber-shed-2269; 663 until T-2196's boarding house party-walled to the D5 on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L411; 662 until T-2238's larger frame house on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L410; 659 until T-2176's three roofs — a larger frame house on the School Section tier's block 81, a larger tradesman's house on its block 95 and a barn on blk_south_water_wells, 2026-10-08, L408; 658 until T-2174's two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge on blk_south_water_dearborn, 2026-10-08, L406; 653 until T-2170's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, L407; 647 until T-2147's six houses on the School Section tier's Market block south of Madison, blk_school_section_tier_81, 2026-10-08, L397; 644 until T-2169's last three yard buildings on plat block 50, blk_washington_clinton, 2026-10-08, L404; 631 until T-2146's thirteen houses on the School Section tier's Wells blocks south of Madison, blk_school_section_tier_94 and _95, 2026-10-08, L405; 628 until T-2165's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08, L401; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 691 phases (690 until T-2486's Ouilmette house on the north bank west of the Kinzie house, ouilmette_house_1812, 2026-10-23, dated 1808-1829, L-1812-ouilmette-2486; 685 until T-2485's stable, lodging house, bake-house, dairy and horse mill of the Kinzie establishment on the north bank, 2026-10-22, L420; 683 until T-2512's two 1812 log houses at the forks of the river, forks_house_soldier_1812 and forks_house_clark_1812, 2026-10-15, L-1812-forks-2512; 682 until T-2509's farm cabin at Lee's Place, lees_place_cabin_1812, 2026-10-15, L-1812-lees-place-2509; 680 until T-2504's La Lime and Le Mai houses on the north bank west of the Kinzie house, lalime_house_1812 and lemai_house_1812, 2026-10-15, dated 1808-1816, L-1812-lalime-lemai-2504; 679 until T-2497's Kinzie house on the north bank opposite the first fort, 2026-10-15, dated 1804-1833, L-kinzie-house-1812-2497; 675 until T-2507's interpreter's house, armourer's shop, merchant's shop and bake house outside the first Fort Dearborn, 2026-10-15, dated 1808-1812, L-first-fort-outer-2507; 673 until T-2487's two 1812 log houses on the river, burns_house_1812 and lee_house_1812, 2026-10-15, L-1812-burns-lee-2487; 671 until T-2270's two houses on the east corners of the School Section tier's block 82, blk_school_section_tier_82, 2026-10-10, L-block82-east-corners-2270; 667 until T-2254's four houses on the School Section tier's Market block south of Monroe, blk_school_section_tier_82, 2026-10-10, L416, on the tree merged with T-2268; 665 until T-2268's two river warehouses on the South Branch's east bank between Madison and Washington, 2026-10-10, L415; 664 until T-2269's lumber shed on the South Branch's east bank south of Washington Street, 2026-10-10, L-south-lumber-shed-2269; 663 until T-2196's boarding house party-walled to the D5 on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L411; 662 until T-2238's larger frame house on the Market wedge's lot 7, blk_south_water_market, 2026-10-09, L410; 659 until T-2176's three roofs — a larger frame house on the School Section tier's block 81, a larger tradesman's house on its block 95 and a barn on blk_south_water_wells, 2026-10-08, L408; 658 until T-2174's two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge on blk_south_water_dearborn, 2026-10-08, L406; 653 until T-2170's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, L407; 647 until T-2147's six houses on the School Section tier's Market block south of Madison, blk_school_section_tier_81, 2026-10-08, L397; 644 until T-2169's last three yard buildings on plat block 50, blk_washington_clinton, 2026-10-08, L404; 631 until T-2146's thirteen houses on the School Section tier's Wells blocks south of Madison, blk_school_section_tier_94 and _95, 2026-10-08, L405; 628 until T-2165's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08, L401; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14488,7 +14488,7 @@ than leaving the entry claiming a population it no longer has.
 
 ### L264 — The brick course is set from a period common brick, because the rhythm of a brick wall cannot be drawn without one and this project holds no Chicago brick
 
-**Scope:** `structures.records[brick_fabric]` — 159 structures (143 until T-3018, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until T-3009, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until T-3008, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until T-2982, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour; 105 until T-2543, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until T-2440, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
+**Scope:** `structures.records[brick_fabric]` — 168 structures (159 until T-3019, 2026-10-23, whose nine brick drafts of the background on Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street say brick because the 1911 Sanborn sheet colours them brick and Robinson 1886 agrees, and take no course from this substrate either (1615-1617's and 1703's say brick with a stone front, so they leave this count); 143 until T-3018, 2026-10-22, whose sixteen brick drafts of the background on Calumet Avenue's west frontage, 20th to 22nd Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either (2004's and 2016's say brick with a stone front, 2128's stone over a brick rear, and 2032's yard building frame, so they leave this count); 125 until T-3009, 2026-10-22, whose eighteen drafts of the background on Indiana Avenue's east frontage, 20th to 22nd Street, the First Presbyterian Church among them, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 110 until T-3008, 2026-10-22, whose fifteen drafts of the background on Calumet Avenue's west frontage, 18th to 20th Street, say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either; 104 until T-2982, 2026-10-22, whose six drafts of the district's edges on East Twentieth Street and Calumet Avenue say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour; 105 until T-2543, 2026-10-16, whose refinement of the 1812 Prairie draft reads a stone lower front off Albert Levy's photograph, so it says brick with a stone front and leaves this count; 106 until T-2440, 2026-10-15, which moved the drawing of John H. Hamline's stone-fronted house from 1619 to 1621, so the 1621 draft that said brick now says brick with a stone front and leaves this count, while 1619 returns to its draft, which says stone-front masonry; 105 until T-2443, 2026-10-13, which stands the 1635 Forsyth house as a district draft that says brick because Robinson 1886 colours it so, and takes no course from this substrate either; 106 until T-2432, 2026-10-13, whose refinement of the 1625 Prairie draft reads a stone street front off the house's 1890 photograph, so it says brick with a stone front and leaves this count; 107 until T-2433, 2026-10-13, which refined the 1623 draft to Granger Farwell's stone-fronted K01 house and so took it out of this population; 16 until T-2321's `wheeler_house_1812_prairie_coach_house`, 2026-10-10, attested brick on the 1911 sheet 28, whose K12 walls are drawn in flat colour and take no course from this liberty; 4 until T-2049's `first_fort_dearborn_magazine`, 2026-10-04, attested brick by Quaife and, like the courthouse below, resolved by no scene yet, so it takes no course today; 5 until T-2329, 2026-10-10, whose eleven Prairie Avenue district drafts of 1904 say brick because the 1911 Sanborn sheet colours them brick, and take no course from this substrate either: `generators/archetypes/prairie_draft.py` draws them in a flat colour and never reads `materials.py`; 17 until T-2330, 2026-10-11, whose twelve east-side drafts of the same block say brick for the same reason and take no course from it either; 29 until T-2334, 2026-10-11, whose twenty-five drafts on the west side of the 16th-18th block say brick for the same reason, 1620's because Robinson 1886 colours it so, and take no course from it either; 54 until T-2335, 2026-10-11, whose thirteen brick drafts on the east side of the same block say brick for the same reason, and take no course from it either; 67 until T-2351, 2026-10-11, whose seventeen brick drafts on the west side of the 20th-22nd block say brick for the same reason, and take no course from it either; 84 until T-2352, 2026-10-11, whose twenty-three brick drafts on the east side of the same block say brick for the same reason, and take no course from it either). The `brick` substrate in
 `generators/common/materials.py` has carried `tile_m = None` since T-0007, and three of the four
 are the records that take a course the moment it carries one: `fort_dearborn_commandants_quarters`,
 `fort_dearborn_magazine` and `lake_house_construction`. **materials.md says "two records are
@@ -14644,8 +14644,8 @@ for a West labourer household of five, and the housing deal (L354) seats them th
 
 ### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 78 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 106 phases: 81 log dwellings and
-25 fort structures. It was 103 until T-2485, 2026-10-22, wrote the Kinzie establishment's stable, lodging house and bake-house, three log dwellings dated 1804-1833 (L420). It was 101 until T-2512, 2026-10-15, wrote the two houses Whistler's draught draws at the forks of the river, log dwellings dated 1808-1816 (L-1812-forks-2512). It was 100 until T-2509, 2026-10-15, wrote the farm cabin at Lee's Place, lees_place_cabin_1812, a log dwelling on the South Branch dated 1812-1822 (L-1812-lees-place-2509). It was 98 until T-2504, 2026-10-15, wrote La Lime's and Le Mai's houses, two log dwellings on the north bank dated 1808-1816 (L-1812-lalime-lemai-2504). It was 97 until T-2497, 2026-10-15, wrote the Kinzie house, a log dwelling dated 1804-1833 (L-kinzie-house-1812-2497). It was 96 until T-2507, 2026-10-15, wrote the first fort's interpreter's house outside its stockade, a log dwelling dated 1808-1812 (L-first-fort-outer-2507). It was 94 until T-2487, 2026-10-15, wrote the Burns house and the Lee family's house of 1812, two log dwellings on the river dated 1812-1819 and 1812-1817 (L-1812-burns-lee-2487). It was 93 until T-2270, 2026-10-10, raised a D1 log cabin on the east Monroe
+**Scope:** `structures.phases[log_or_fort_archetype]` — 107 phases: 82 log dwellings and
+25 fort structures. It was 106 until T-2486, 2026-10-23, wrote Antoine Ouilmette's house, the draught's third no. 31 house on the north bank, a log dwelling dated 1808-1829 (L-1812-ouilmette-2486). It was 103 until T-2485, 2026-10-22, wrote the Kinzie establishment's stable, lodging house and bake-house, three log dwellings dated 1804-1833 (L420). It was 101 until T-2512, 2026-10-15, wrote the two houses Whistler's draught draws at the forks of the river, log dwellings dated 1808-1816 (L-1812-forks-2512). It was 100 until T-2509, 2026-10-15, wrote the farm cabin at Lee's Place, lees_place_cabin_1812, a log dwelling on the South Branch dated 1812-1822 (L-1812-lees-place-2509). It was 98 until T-2504, 2026-10-15, wrote La Lime's and Le Mai's houses, two log dwellings on the north bank dated 1808-1816 (L-1812-lalime-lemai-2504). It was 97 until T-2497, 2026-10-15, wrote the Kinzie house, a log dwelling dated 1804-1833 (L-kinzie-house-1812-2497). It was 96 until T-2507, 2026-10-15, wrote the first fort's interpreter's house outside its stockade, a log dwelling dated 1808-1812 (L-first-fort-outer-2507). It was 94 until T-2487, 2026-10-15, wrote the Burns house and the Lee family's house of 1812, two log dwellings on the river dated 1812-1819 and 1812-1817 (L-1812-burns-lee-2487). It was 93 until T-2270, 2026-10-10, raised a D1 log cabin on the east Monroe
 corner of the School Section tier's block 82 (L-block82-east-corners-2270). It was 91 until T-2062, 2026-10-05, wrote the first fort's factory and
 agent's house outside its stockade, two log dwellings dated 1808-1812 (L391). It was 81 until T-2049, 2026-10-04, wrote the first Fort Dearborn's ten
 `fort_structure` records (1803-1812; no scene resolves them yet). For that fort's ranges the shingles
@@ -31232,6 +31232,48 @@ under the same id.
 `data/traces/prairie_1904_footprints_s35e.json`.
 **Recorded:** 2026-10-22 (T-3018).
 
+### L-draft-district-background-3019 — The background behind Prairie Avenue carried north: Indiana Avenue's east frontage, 16th to 18th Street, and the row at 209-217 East Sixteenth Street, stood up as drafts where the 1911 sheet and Robinson 1886 agree
+
+**Covers:** `house_1615_indiana.draft_1904.form.draft_elevation`, `house_1615_indiana.draft_1904.form.draft`, `house_1615_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1615_indiana_coach_house.draft_1904.form.draft`, `house_1623_indiana.draft_1904.form.draft_elevation`, `house_1623_indiana.draft_1904.form.draft`, `house_1623_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1623_indiana_coach_house.draft_1904.form.draft`, `house_1637_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1637_indiana_coach_house.draft_1904.form.draft`, `house_1641_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1641_indiana_coach_house.draft_1904.form.draft`, `house_1703_indiana.draft_1904.form.draft_elevation`, `house_1703_indiana.draft_1904.form.draft`, `house_1703_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1703_indiana_coach_house.draft_1904.form.draft`, `house_1713_indiana.draft_1904.form.draft_elevation`, `house_1713_indiana.draft_1904.form.draft`, `house_1713_indiana_coach_house.draft_1904.form.draft_elevation`, `house_1713_indiana_coach_house.draft_1904.form.draft`, `house_209_e16th.draft_1904.form.draft_elevation`, `house_209_e16th.draft_1904.form.draft`
+**Decision:** the last Indiana block face of the district's background north of 18th Street (T-3019,
+piece 2 of T-3010, piece 3 of T-2983), run by the builder under the rules of
+`L-draft-district-background-3008`, whose "What is invented" holds here word for word. The
+background census (`data/components/prairie_1904/background_census.json`) sees 12 of the block's
+17 Indiana lots, 1623 from 13 Prairie stands, and the 16th Street lot from 6. The lots are read off
+sheet 20 in a census of their own (`data/components/prairie_1904/edges_census_s20w.json`) and traced
+by the T-2327 tool as sheet `20w`, with no new rule: sheets 20, 28, 35, 35x, 28x, 35e and 35w
+re-derive byte for byte. This block, unlike the 20th-22nd faces, lies on Robinson 1886 plate 10, so
+every lot is checked against it for what stood there and in what material (never for an outline),
+and only where the two plans agree is the 1911 outline carried to 1904: the row of five houses at
+209-217 East Sixteenth Street, the pair at 1615-1617, 1623, 1703 and 1713, and the stables on the
+alley behind them and behind 1637 and 1641.
+**What is invented here, beyond the 3008 list.** The row at 209-217 and the pair at 1615-1617 each
+stand as one record, the sheet's one outline, until T-1946 parts them; the trace parts each at its
+party walls into a body and ranges, and the draft holds the ranges at the houses' printed storeys
+(`rear3B`), not the builder's one storey lower. 1615-1617's and 1703's blue strips along the
+Indiana front stand as a stone front on a brick house. 1703's 3B part at its rear is read into its
+2½B main body and stands at the body's storeys. The five alley buildings lettered SHED (behind 1615,
+1703 and 1713) are backcast as stables (study ruling 11), because Robinson 1886 draws a stable at
+each place. The stable behind 1637 stands astride the line between 1637 and the unnumbered strip
+north of it, as the sheet draws it, and those of 1637 and 1641 take the ids of houses this pass does
+not draft (`house_1637_indiana_coach_house`, `house_1641_indiana_coach_house`).
+**Presence in 1904 is the two plans'.** No named record or directory row of this block face is in
+hand. A building both plans draw is carried to 1904 as study ruling 11 allows; any one of them may
+have been rebuilt on the same plan between 1886 and 1911, and none is known to have been.
+**What is not drafted here.** Seven lots where the plans disagree, ruled `phase_unresolved` and left
+open (T-3068): the office and tin shop at 1601-1603, the Thompson-Reid & Collins Bros. ice-cream
+factory at 1605-1613 and the Eastman Kodak and Taprell, Loomis & Co. photographic-supply factory at
+1727-1737, each standing where Robinson 1886 draws houses; 1619, a 1911 brick house where Robinson
+draws a frame one, with the frame building on its alley that both draw; and the 1886 brick houses on
+1637 and 1641, which the 1911 sheet no longer draws. The six unnumbered strips, open on both plans,
+stay open ground. The unlotted Indiana half of 18th-20th and the Illinois Central strip are T-3011's.
+**How to resolve:** T-1946 (the side-street and rail-side background) refines each record in place
+under the same id; T-3068 reads the seven open lots.
+**Ticket:** T-3019 (piece 2 of T-3010, the district's background).
+**Review:** `data/components/prairie_1904/edges_census_s20w.json`,
+`data/traces/prairie_1904_footprints_s20w.json`.
+**Recorded:** 2026-10-23 (T-3019).
+
 ### L-kimball-1801-pavilion-face-3015 — 1801 Prairie's south pavilion's face and heights re-read off the Taylor photograph: its north cheek at the bow, its gable lowered to the print's springing, and its depth held at 0.6 m by its window recesses and the main eave's gutter
 
 **Decision:** 1801 Prairie's south pavilion (T-3015, piece 1 of T-2999) is re-stood and re-heighted
@@ -31555,6 +31597,184 @@ Taylor camera's south-west bearing against the chamfer's near end.
 **Ticket:** T-3047 (piece 1 of T-3016).
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-23 (T-3047).
+
+
+### L-standing-horse-development-2800 — a planted-standing horse in the Western Hotel yard
+
+**Decision:** Add one reconstructed, unidentified horse at E−127.5,N−296.0,heading90degrees in the1835Western Hotel wagon yard, using the existing host/yard record as context rather than evidence of an individual or ownership. The chestnut coat/blaze/stockings, grooming,1.55m withers proxy, exact stand and date are reconstructed. It is unhitched, untied and unmounted.
+
+**What is reconstructed:** Licensed modern sevketkabatas Horse rest surface baked to canonical metres and adapted to project26 controls/V16skin; the already baked0.3644068837native scale is NOT applied again. The selected b479 derivative plays one12s planted body shift (4mm lateral,2mm longitudinal,4mm compression) with no original head/tail composition or walking. Existing0.396145degree whole-root support and cloned-material metalness0 are declared adaptations. Rig hierarchy analogy credits antemeossa CC BY4.0; no donor mesh/Walk keys were copied. Modern credit is not an historically graded animal attribute.
+
+**Bounds and limits:** Original stationary65 CPU and actual standardGLTFLoader/Mixer65keys+64midpoints passed unchanged surface/contact/loop/normal/meaningful controls, maximum loaded hoof contact8.6523737e−6m. This is not GPU/photo or actual-yard acceptance. One declared0.866317m² support region retains actual drawn yard triangles before normal GPU upload release, under32triangles/4096typed-array bytes and with disposal; no town-wide geometry retention is added. One-instance/reach70/40/0m and full-only30m shadow limits remain. Actual app yard/mobile visual, performance, photographic master, gaits, tack/teams/riders/boarding remain open. Earlier failed walking fields/poses remain failed.
+
+**Sources:** sevketkabatas_2021_horse_model supplies modern source/rights only; chicagology_prefire278 supplies historical horsekeeping context only.
+**Ticket:** T-2800/T-2803, partial standing increment; both master/gait acceptance remain open.
+**Recorded:**2026-10-23.
+
+### L-glessner-course-relief-3046 — Glessner's high courses crowned deeper than its low ones, fitted to Taylor 2135's shadows
+
+**Decision:** Taylor 2135 (c. 1887-89, `taylor_2135_glessner_exterior_1887_1889`), read through its T-2858 camera on three clear piers of the Prairie front, shows a course printed 11.5 in or over throwing about a third more shadow under its lower lip than a low course does: 1.32 times, re-read on the beds as T-3045 lays them (docs/RESEARCH/glessner-course-relief-T-3046/). The render read 0.86. The cause was in the build. Every course's bow was capped at 60 mm, and its lower face rose to the crown over 44 % of the course's height, so a tall course's lip came out gentler than a short one's. A course printed 11.5 in or over now crowns 1.25 times its stones' bow and rises to it over at most 0.09 m (`v4_detail.ashlar_crown_by_course`). That is about the lower face a 7.5 in course already has. Through the same camera the render now reads 1.33. The low courses are unchanged, at 0.359 before and 0.353 after (the occlusion re-bake). Both granite faces take it, because one coursing turns the NE corner (T-3044 § 2).
+
+**What is invented.** Both numbers, the 1.25 and the 0.09 m. No source prints how far any course projects. They were set so that the render's shadow ratio reads the photograph's through one camera, and the ratio is the measured thing, not the depth. The review render's light is not the print's exposure, so the two sets of absolute shadows differ (the render's 0.47 and 0.35 against the print's 0.25 and 0.19). Only their ratio was matched. The 11.5 in line is T-3044's split between high and low courses, not a mason's rule. The Light tier builds no bow, so it is unchanged.
+
+**What is kept.** The course heights and string (L-glessner-coursing-2986, T-3045), the stones' joints and lengths, the arris and pitch line, the per-stone relief draw and every random draw. The rock face's 0.104 m ceiling in front of the wall also stands, so lintels and voussoirs stay in front of the field.
+
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Ticket:** T-3046 (piece 3 of T-3026).
+**Recorded:** 2026-10-23.
+
+### L-glessner-cupola-coursing-3046 — Glessner's stable cupola laid in rock-faced courses
+
+**Decision:** The c. 1887 Cornell A. D. White northwest view (`cornell_adw_glessner_stable_1887`) shows the cupola's shaft under the lower pigeon ledge with two or three bed joints. It shows each pigeon-hole tier as one rock-faced course between its ledges (T-3044 § 4). The model's body was dressed granite plates (L-glessner-cupola-stone-2849). It is now laid in the house's rock-faced stone. The shaft, from the roof to the lower ledge, is four equal courses of about 0.27 m, and the part clear of the ridge shows two or three joints through the Cornell camera. Each tier is one course from its ledge to the next. The band over the top tier, under the eave, is one course. Every face's courses run the full plan, so they close the corners. The pigeon holes' reveals run out to the pitch line, as the house's own apertures' do.
+
+**What is invented.** The count of four shaft courses, chosen to give the joints the print shows over the ridge. The print does not resolve the vertical joints, so the block lengths are the house's own rule for a course of that height. The top band's single course is not read. The print is too small there. The Light tier keeps the plates, as it keeps the cap's fine joints.
+
+**What is kept.** Plan, centre, heights, ledges and their wrapped corners, the eave, the pyramid and the dovecote counts and sizes of L-glessner-cupola-2207, L-glessner-cupola-stone-2849 and L-glessner-cupola-height-3031.
+
+**Covers:** `glessner_house.as_built_1887.form.turret_stable`.
+**Ticket:** T-3046 (piece 3 of T-3026).
+**Recorded:** 2026-10-23.
+
+### L-kimball-1801-pavilion-chamfer-3059 — 1801 Prairie's south pavilion's south-west corner chamfered as its 1911 sheet draws it, the camera's south-west bearing left on the chamfer's back
+
+**Decision:** 1801 Prairie's south pavilion (T-3059, piece 1 of T-3048) chamfers its south-west
+corner where the 1911 sheet 28 trace (`s28fp-1801-b1`) cuts it: the face's line stops 0.44 m short of
+the south wall's line and runs back to it 0.43-0.47 m behind the face. Its face now stops 0.44 m short
+of the corner (v 10.56) and a canted face runs from there back to the south wall's plane 0.35 m behind
+the front's (0.45 m behind its own 0.1 m face), from grade to the gable, on K08's shallow projection
+(`plan.chamfer`); K01 cuts the house's own corner under it, the front and the south wall from grade to
+the soffit, and the mansard's eave box, its covering's foot and the gutter stop on the canted face and,
+along the south wall, at its back. The three mullioned pairs stand centred on the shortened face, and the
+coped gable stands on it, 3.71 m across, its south kneeler over the chamfer's head. **What is read, not
+invented.** The chamfer's two legs are the sheet's. Through the Taylor camera the face's south corner now
+renders at about x 1356 (it rendered 1368) against the print's 1335-1343, its north pilaster from about
+x 1247 against 1232-1250, and the face 109 px across against the print's 105. **What is invented or held
+by the kit.** The gable's rake is laid at 1.73 (it was 1.5 across the whole face) so that its rise holds
+the 2.51 m T-3015 matched to the print's apex and finial (finial top y 224 against 220); the print
+puts its apex at about x 1270, the render at 1293. Over the main eave the house is still not modelled
+behind the pavilion: the slot the mansard is cut back to there (0.5 m behind the plane) is closed on the
+south wall's plane from the pavilion's side to the cut's depth, where it showed through to the sky. The
+camera is not re-solved: T-2538 laid its south-west bearing (x 1345) on (u 20.1, v 11.2), the chamfer's
+back, which faces away from the camera, and the corner the print shows is the chamfer's near end, which
+projects about 10 px further south through the same camera, so the face renders about 15 px south of the
+print's across its whole width. Re-solved on the near end, the bearings fit within 2 px but every height
+read through the camera falls 15-20 px, which is a re-reading of the house, not of its corner.
+**How to resolve:** T-3060 re-solves the Taylor camera with its south-west bearing on the chamfer's near
+end and re-reads the heights read through it, which brings the corner within about 5 px of the print's.
+**Ticket:** T-3059 (piece 1 of T-3048).
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-23 (T-3059).
+
+### L-k01-1812-wheeler-stacks-3034 — 1812 Prairie's south stack placed from two photographs, and the north stack of the c. 1955 photograph not built
+
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-3034, piece 2 of T-2545) gains a second
+solved camera, on the c. 1955 photograph (`chicagology_1812_wheeler_c1955_photo`, rights
+check_required: places and proportions only; `data/reference_views/wheeler_house_1812_prairie/c1955_front.json`),
+and with it and Levy's camera beside it the tall corbelled south stack is triangulated and moved:
+from 6.1 m behind the front and 0.8 m inside the south wall (u 9.0, v 0.8), topping 17.59 m, to
+1.35-2.35 m behind the main front (u 12.75-13.75), straddling the wall line on K01's `on_cornice`
+stack, 0.55 m across and topping 16.8 m. The tall plain stack the c. 1955 photograph shows behind
+the gable's north shoulder is not built.
+**What is read, not invented.** Levy's shaft at x 262-318 px and top at y 127 px; the c. 1955
+shaft's north-east corner at x 39 px and top at y 90 px; through the two cameras they meet at a
+stack whose faces fall at about v -0.87 to -0.34, outside the traced south wall, its east face
+about 0.55 m across, its top 16.8 m by Levy's print. The c. 1955 photograph confirms the south wall
+carried up past the mansard's curb in a coped top with the stack on it (T-3033's reading of Levy's
+print), and sees the south wall's face in the 1.41 m gap to 1816 in a paler brick than the front.
+For the north stack: on 1812's ground (v up to 8.5) its north-east corner at x 435 px puts it
+within 1.2 m behind the main front, topping about 16.6 m, where Levy's camera draws it at x
+930-1030 px from y 110 px down, against the open sky the print shows beside the north shoulder.
+**What is invented.** The stack's depth along the wall (1.0 m, the house's other stacks', since
+neither picture sees its side square); its corbelled head as K01's cap, 0.1 m proud and 0.6 m deep;
+its foot at the wall head, as `on_cornice` builds it.
+**What is built otherwise than read.** The stack stands 0.3-0.9 m further out in both photographs,
+on the wall's outer face in the gap to 1816, than K01's `on_cornice` lets it (its outer face no
+further out than the 0.05 m cornice); and the coped parapet it stands on is not built (T-3033's
+open item). Both are a kit change: a stack and a parapet carried up on a mansard house's side wall.
+The c. 1955 camera reads things off the front's plane about a metre high (the stack's top 17.7 m,
+the parapet's cap 15.5-16 m, against Levy's 16.8 and 14.3-14.5), so the build takes Levy's heights
+and the place is good to about a metre along the wall.
+**How to resolve:** A third picture of the south side (the 1816 Henderson photograph, once its
+rights are resolved, sees 1812's south wall over 1816's roof) or a section; the kit change for the
+side-wall parapet and the stack on its outer face (T-3061). For the north stack, any dated picture between
+Levy's print and 1955.
+**Ticket:** T-3034 (piece 2 of T-2545).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-23 (T-3034).
+
+### L-k01-1811-rear-fall-3063 — 1811 Prairie's roof behind the south gable falls steeply to a flat deck under a level coped wall head
+
+**Decision:** behind the tall stack, 1811 Prairie's south wall (K01's `north`) is built as a
+coped parapet whose coping's top runs LEVEL at 10.95 m back to the front block's rear wall, and
+the roof under it falls from the ridge at the street's 61.2 degrees to a flat deck 0.38 m under
+the coping, where T-3050 had a plain rear slope falling at 22.4 degrees to the rear wall's eave and
+the coping following it down. The kit learns it (`gable_roof.rear_fall`, coped ends only); every
+other K01 house re-emits byte-identical.
+**What is read, not invented.** Through the T-2541 camera on the 1888 Inland Architect plate
+(`inland_architect_1888_10_ames_residence`): the coping's top edge just clear of the tall stack at
+(528, 374-380) px and at the block's rear wall at (572, 485) px, which the camera puts on the
+wall's plane at u 5.9, 10.96 m and u -0.3, 10.98 m, a line running into the flank's vanishing
+point; the second stack's top 26-35 px over it. The Chicagology print (`cgn-1811-coleman-ames-photo`,
+rights unknown, read in the image store's display copy and not committed) draws the same from
+further south-west: a short steep fall from the tall stack, then one long coping line back past
+the second stack. Neither picture shows any roof over that coping.
+**What is invented.** What lies behind the coping: the fall's pitch (the street's own 61.2
+degrees, the plainest choice; the plate's coping drops in about one column just behind the stack,
+which a fall nearer 75 degrees would match better), the deck (flat, falling a quarter inch to the
+foot to the rear wall, laid in the roof's slate where a tin deck is likelier; no picture sees it),
+and the parapet's head running on 0.1 m behind the ridge. The rendered fall spreads over x 528-533
+px where the plate's drops at x 527-528.
+**Not changed here.** The plate and the print both step the flank down at the block's rear wall to
+a lower wall head of about 8.6 m over the brick range; the build carries the range at 11.4 m (T-3077).
+**How to resolve:** a view of the roof from above or behind (an aerial, a section, the 1965 HABS
+photograph that T-3052 is to find), or T-3052's solved camera on the Chicagology print.
+**Ticket:** T-3063 (piece 2 of T-3051).
+**Review:** `data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.match.json`.
+**Recorded:** 2026-10-23 (T-3063).
+
+### L-1812-ouilmette-2486 — Antoine Ouilmette's house of 1812: the drawn house taken as his, its height and pitch, its closing date, and the currant bushes behind it
+
+**Decision:** the third of the three houses Captain Whistler's draught of January 1808 draws across
+the river west of the Kinzie house, the one nearest it, stands in the 1812 scene at the
+`log_dwelling` archetype as `ouilmette_house_1812`, with six currant bushes behind it
+(`ouilmette_garden_1812`, a planting). **That Ouilmette's household lived close behind the Kinzie
+house and stayed there through August 1812, and that his garden had currant bushes, is the
+sources'**: Currey (1912) has his cabin 'close in the rear of the Kinzie house', Wau-Bun ch. XIX
+'close at hand', and has Mrs. Helm hidden in the house and a sergeant hidden behind the garden's
+'currant-bushes' before he climbed in at its back window. **That this drawn house was his is
+inferred** (T-2504's assignment, L-1812-lalime-lemai-2504): it is the nearest of the three to
+Kinzie's. Its seat is the north-bank rule's, which puts its front about 2 m behind the Kinzie
+house's back-wall line and 30 m west of it.
+
+**What a visitor sees of its shape:** the footprint is the drawn box at the index's forty feet to
+the inch, about 18.6 x 11.1 ft, an upper bound because the drawing is roof and front together; one
+storey of log under a gable; the stack on the west gable; one light and a door, in the order and at
+the places the draught draws them (T-2486 read them off the pinned sheet). **Invented:** seven feet
+to the plate (a little under its neighbours, for the smallest house), the 35 degree pitch, and the
+garden: six bushes in two rows 1.8 m apart behind the back wall, with no fence, because Wau-Bun
+names none.
+
+**The range.** It opens on 25 January 1808, the draught's date, and is probably too late: Mrs.
+Whistler counts Ouilmette among the four huts of 1803. Hubbard still lists 'a cabin on the north
+side occupied by Antoine Ouilmette' in 1818. It closes on 31 December 1829, the bound
+`data/exclusions.json` `ouilmette_cabin` already gives it (Ouilmette gone to Gross Pointe in the
+later 1820s, no source attesting the cabin past that decade). It is out of 1835.
+
+**Not built:** the small back window (the archetype pierces no back wall), Pettell's cabin
+(`data/exclusions.json` `pettell_cabin_1812`: the two counts of 1808 find no fifth house), and
+anybody at all.
+
+**Consequence:** a visitor to 1812 sees a third small log house on the north bank, between La
+Lime's and the horse mill, a little behind the Kinzie house, with a few currant bushes at its back.
+That the household lived there is the sources'; which drawn house, how tall, and where the bushes
+stand are ours.
+
+**How to resolve:** a picture of the north bank before 1830 that draws this house, any source giving
+it a dimension, or a date for the family's move to the north shore.
+**Ticket:** T-2486.
+**Recorded:** 2026-10-23 (T-2486).
+**Covers:** `ouilmette_house_1812.ouilmette_1812.position`, `ouilmette_house_1812.ouilmette_1812.footprint`, `ouilmette_house_1812.ouilmette_1812.form.wall_height_m`, `ouilmette_house_1812.ouilmette_1812.form.roof_pitch_deg`
 
 ### L-tremont-corner-elevations-2385 — The first Tremont's pictured three storeys and shuttered corner elevations
 

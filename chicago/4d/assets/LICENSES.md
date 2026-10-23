@@ -1403,6 +1403,28 @@ The authored binding files `assets/authored/transport/wagon_parked_fine_wood/{su
 
 The covered-cloth refinement under T-2980 changes only the reconstructed inter-bow drape constants (8–10mm to20–28mm over750mm spans), retaining original GPL geometry/source lineage and CC0 analytic texture pixels. Current source/product hashes are in `assets/authored/transport/wagon_covered/SOURCE.json`: core679fc439, blue GLB aaffa339, oak GLB22072e6f. Variant identities, seeded finish colors/aging, yokes, pivots, stands and newer terrain qualification are preserved. This is not an attested historic textile form or physical cloth simulation.
 
+
+## Canonical26 planted-standing horse development derivative (T-2800/T-2803)
+
+“Horse” by sevketkabatas, [CC BY4.0](https://creativecommons.org/licenses/by/4.0/), original https://sketchfab.com/3d-models/horse-53a6eb7ccf054aa2a378dd7ec08f88fe, retrieved via Objaverse on2026-10-22. Exact original source SHA41acd9bee7bf05fbcdd813fad965027b01b8801d6a21ca1c22eb2178c8842988 is unchanged in preserved acquisition/recovery. Current derivative b479442cb03ac46eb13c19da15a79cdfaf28dbdf356b116f78de7ce7ecdc60be is3,783,600bytes. Source rest surface baked to canonical metres; reconstructed26controls/V16skin and12s planted body-shift clip are explicit project adaptations. UV/maps/index topology and source shape retain CC BY4.0; no source six-clip or earlier head/tail playback is composed.
+
+Rigged Mid-Poly Horse by antemeossa, CC BY4.0, https://sketchfab.com/3d-models/rigged-mid-poly-horse-fea999c1d8d64eb4a9c2bb1fac1e7d83 supplied hierarchy analogy only, not copied mesh or animation keys. Objaverse database notice remains ODC-By1.0 (Deitke etal.,2022); individual object rights remain CC BY4.0. Modern source publication/rights do not attest a Chicago individual, breed, owner or period appearance.
+
+|Path relative to assets/|License and provenance|
+|---|---|
+|`authored/transport/horse_standing/horse-sevket-v16-planted-standing-v1.glb`|CC-BY-4.0 derivative; exact source/field/export lineage in SOURCE.json and ADAPTATION.md.|
+|`authored/transport/horse_standing/SOURCE.json`|Project-authored source/change/binary binding; original third-party rights preserved.|
+|`authored/transport/horse_standing/ADAPTATION.md`|Project-authored exact reconstruction/normalization/motion scope notice.|
+|`authored/transport/horse_standing/ATTRIBUTION.md`|Preserved author/listing/license/acquisition credit and dataset notice.|
+|`authored/transport/horse_standing/CC-BY-4.0-legal-text.txt`|Creative Commons legal-text notice preserved verbatim.|
+|`authored/transport/horse_standing/dataset-README.md`|Preserved Objaverse ODC-By1.0 database notice; individual CC object license remains separate.|
+|`authored/transport/horse_standing/53a6eb7ccf054aa2a378dd7ec08f88fe-public-metadata.json`|Preserved modern author/source/CC-BY-4.0 metadata, not period evidence.|
+|`authored/transport/horse_standing/selected-dataset-metadata.json`|Preserved individual object license/creator metadata, not a new license grant.|
+|`authored/transport/horse_standing/selected-acquisition.json`|Preserved exact-source acquisition provenance.|
+|`authored/transport/horse_standing/planted-standing-export-receipt.json`|Project-authored source-protection/export receipt; export-only scope.|
+
+Byte-identical runtime copy: `renderers/web/transport/standing-horse/horse-sevket-v16-planted-standing-v1.glb`. The renderer's declared organic_dielectric_v1 variant changes only cloned material metalness0, with original PBR maps/roughness/UV policy unchanged. Loaded129 CPU/Mixer PASS is recorded separately; yard/mobile/GPU/photographic/gait/tack/riding acceptance is not implied.
+
 ## Verified 1902 jail reference pages — T-3056
 
 | item | licence | cleared for | NOT established |

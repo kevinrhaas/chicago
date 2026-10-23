@@ -1113,10 +1113,10 @@
     ],
     "scale_ft_per_in": 40.0,
     "facing": 180,
-    "record": null,
-    "builds": "T-2486",
+    "record": "ouilmette_house_1812",
     "drawn": "the smallest: a log house, one light and a door, a chimney on its west gable, between the middle house and the building numbered 32 beside Kinzie's garden",
-    "occupant": "Ouilmette, inferred: the one no. 31 house nearest Kinzie's, where Currey's 'close in the rear of the Kinzie house' and Wau-Bun's 'close at hand' put his. T-2486 builds it."
+    "occupant": "Ouilmette, inferred: the one no. 31 house nearest Kinzie's, where Currey's 'close in the rear of the Kinzie house' and Wau-Bun's 'close at hand' put his. Built by T-2486.",
+    "read": "Re-read at T-2486 on a 12x gridded crop of the pinned sheet: the chimney stands on the west gable (x 1124-1132), the door left of the middle (x 1132-1135, y 460-469) and the one light right of it (x 1142-1147, y 461-467), so their centres stand 0.345 and 0.607 of the box from its west end."
    },
    {
     "part": "coursoll_field",

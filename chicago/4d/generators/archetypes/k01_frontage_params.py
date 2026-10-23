@@ -436,6 +436,7 @@ TOWER_PAST_EAVE_M = 1.0
 #: T-2900: how far inside its end wall's plane a corner turret's ring may stand, at the most
 TURRET_CORNER_M = 0.3
 SHALLOW_PROUD_M = 0.3   # T-3047: a shallow projection stands at most this far proud
+CHAMFER_BEHIND_M = 0.6  # T-3048: and its chamfer runs back at most this far behind the wall's face
 
 #: T-2350: the K05 variant a flat K01 roof is built from (k05_roofs.json)
 FLAT_ROOF = "k05.roof.flat_parapet"
@@ -465,6 +466,12 @@ def _flat_roof(depth: float, eave: float, pitch: float, overhang: float) -> dict
 GABLE_PARAPETS = ("stepped", "coped")
 
 
+def _gable_top_half() -> float:
+    """The parapet's level head either side of the ridge (k01_gable_roof.TOP_HALF_M)."""
+    from . import k01_gable_roof
+    return k01_gable_roof.TOP_HALF_M
+
+
 def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, side_wall: float,
                 overhang: float = 0.0) -> dict:
     """The numbers a K01 gable roof is built to (T-2459): the ridge runs along the street
@@ -483,7 +490,16 @@ def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, 
     faces at roof_pitch_deg from the same eave, so its street face is the gable's own street
     plane; `apex_v_m`, where a picture puts its apex, pitches its two end faces to it. The gable's attic
     then starts at `attic_from_m`, inside the hip's south face, and only the high-v (`north`)
-    wall is carried up as a parapet: the low-v wall is under the hip's end."""
+    wall is carried up as a parapet: the low-v wall is under the hip's end.
+
+    T-3063: `rear_fall` lets the rear slope fall steeply from the ridge, at its `pitch_deg`,
+    to a FLAT DECK that runs to the rear wall, and the coped parapet over it fall with it to a
+    LEVEL wall head, its coping's top at `wall_head_m`, the deck K05's upstand under the
+    parapet's slab (1811's south
+    wall behind its tall stack: both its pictures draw the coping level at about 10.95 m from
+    just behind the stack to the block's rear wall, with no roof showing over it, where a rear
+    slope falling to the rear eave stands it 0.5-1.4 m higher there). `head_back_m` is how far
+    the parapet's level head runs on behind the ridge before it falls. Coped ends only."""
     if not g:
         raise ParamError("a gable K01 roof names its gable_roof: ridge_back_m and the two ends")
     k5 = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())
@@ -517,6 +533,33 @@ def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, 
     top = float(g.get("top_above_ridge_m", pp["top_above_ridge_m"]))
     if not pp["upstand_min_m"] <= top <= 1.5:
         raise ParamError(f"gable_roof.top_above_ridge_m: {pp['upstand_min_m']}-1.5 m")
+    fall = {}
+    rf = g.get("rear_fall")
+    if rf:
+        if any(e["style"] != "coped" for e in out.values()):
+            raise ParamError("gable_roof.rear_fall: only a coped parapet runs level over a deck")
+        head, fp = float(rf["wall_head_m"]), float(rf["pitch_deg"])
+        # how far the parapet's level head runs on behind the ridge before it falls (the
+        # coped head's own half, unless a picture sees the fall start nearer the ridge)
+        hb = float(rf.get("head_back_m", _gable_top_half()))
+        if not 0.05 <= hb <= _gable_top_half():
+            raise ParamError(f"gable_roof.rear_fall.head_back_m {hb}: 0.05-{_gable_top_half()} m")
+        if not back_deg + 15.0 <= fp <= 75.0:
+            raise ParamError(f"gable_roof.rear_fall.pitch_deg {fp}: from the plain rear slope's "
+                             f"{back_deg:.1f} + 15 to 75 deg")
+        # the wall head is the coping's top, as a picture reads it; the parapet's slab stops a
+        # coping under it, and the deck K05's least upstand under that
+        up, ridge = float(pp["upstand_min_m"]), eave + rise
+        deck = head - float(cp["thickness_m"]) - up
+        run = (ridge - deck) / math.tan(math.radians(fp))
+        # the deck stands over the front eave and under the ridge, and the fall is long enough
+        # that the parapet's level head over the ridge stays over the covering behind it
+        if not (eave + 0.5 <= deck and run >= hb + 0.05 and run <= depth - r - 1.0):
+            raise ParamError(f"gable_roof.rear_fall.wall_head_m {head}: its deck {deck:.3f} m must stand "
+                             f"0.5 m over the eave {eave} and fall from the ridge {ridge:.3f} m over "
+                             f"{hb + 0.05:.2f} m to 1 m short of the rear wall (it falls {run:.2f})")
+        fall = {"rear_fall": {"wall_head_m": head, "pitch_deg": fp, "head_back_m": hb, "deck_m": round(deck, 4),
+                              "deck_from_m": round(depth - r - run, 4)}}
     hip = {}
     if hm:
         vm, va = float(hm["v_m"]), float(hm["attic_from_m"])
@@ -550,7 +593,7 @@ def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, 
                             "apex_v_m": av, "end_pitch_deg": {"south": round(math.degrees(math.atan(tn)), 4),
                                                              "north": round(math.degrees(math.atan(ts)), 4)}}}
     return {"ridge_back_m": r, "ridge_m": round(eave + rise, 4), "back_pitch_deg": round(back_deg, 4),
-            **hip, "ends": out, "parapet_m": side_wall, "upstand_m": float(pp["upstand_min_m"]),
+            **hip, **fall, "ends": out, "parapet_m": side_wall, "upstand_m": float(pp["upstand_min_m"]),
             "top_above_ridge_m": top, "coping_m": float(cp["thickness_m"]), "drip_m": float(cp["drip_m"])}
 
 
@@ -1593,9 +1636,9 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # the north cheek from the wall 1.99 m north of the front's north corner); s_m stays
             # the front's centre, and the front keeps width_m. Neither cant: the square
             # pavilion, its points as they always were
-            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m", "shallow"}:
+            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m", "shallow", "chamfer"}:
                 raise ParamError(f"bays: {e['id']} sizes its projection by width_m, proud_m, an optional "
-                                 f"cant_left_m or cant_right_m and shallow, not {sorted(q)}")
+                                 f"cant_left_m or cant_right_m, shallow and chamfer, not {sorted(q)}")
             cl, cr = (float(q.get(k, 0.0)) for k in ("cant_left_m", "cant_right_m"))
             if not all(c == 0.0 or 0.3 <= c <= 3.0 for c in (cl, cr)):
                 raise ParamError(f"bays: {e['id']}'s canted cheek runs 0.3-3.0 m along its wall, not "
@@ -1611,6 +1654,29 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     raise ParamError(f"bays: {e['id']}'s shallow is true, on a square full-height projection "
                                      f"at most {SHALLOW_PROUD_M} m proud (has {d} m)")
                 v["shallow"] = True
+            # T-3048: a shallow pavilion flush with its wall's corner may CHAMFER that corner (1801's
+            # south one, its south-west corner cut about 0.45 m on its 1911 sheet): its front stops
+            # `along_m` short of the corner and a canted face runs from there back to the side
+            # wall's plane `behind_m` behind the wall's face, so the house's own corner is cut
+            # under it (k01_frontage `chamfer_spans`). width_m stays the pavilion's whole width
+            ch = q.get("chamfer")
+            if ch is not None:
+                if not isinstance(ch, dict) or set(ch) != {"corner", "along_m", "behind_m"} \
+                        or ch["corner"] not in ("left", "right") or not v.get("shallow") \
+                        or e.get("flush_corner") != ch["corner"]:
+                    raise ParamError(f"bays: {e['id']}'s chamfer takes corner (left or right), along_m and "
+                                     f"behind_m, on a shallow pavilion flush with that corner")
+                ca, cb = float(ch["along_m"]), float(ch["behind_m"])
+                if not (0.2 <= ca <= min(1.0, w / 4) and 0.1 <= cb <= CHAMFER_BEHIND_M):
+                    raise ParamError(f"bays: {e['id']}'s chamfer runs 0.2-1.0 m (and at most a quarter of its "
+                                     f"width) along its front and 0.1-{CHAMFER_BEHIND_M} m behind the wall, "
+                                     f"not {ca} and {cb}")
+                pts = v["plan"]["points"]
+                if ch["corner"] == "right":
+                    pts[2], pts[3] = [w / 2 - ca, d], [w / 2, -cb]
+                else:
+                    pts[0], pts[1] = [-w / 2, -cb], [-w / 2 + ca, d]
+                v["plan"]["side_end"] = ch["corner"]
         elif "plan" in e and v["kind"] == "tower":
             # T-2787: a tower read off a picture keeps the picture's radius and how far its
             # centre stands out of the wall; the kit's tower is the shape (its ring, its sides),
@@ -2909,6 +2975,38 @@ def round_corner_spans(rc: dict, depth: float, width: float) -> dict:
                 "walls": {"k01.wall.street_front": (width - r, width), "k01.wall.side.north": (0.0, r)}}
     return {"centre": (depth - r, r),   # the front's start, s = 0, into the south wall's end
             "walls": {"k01.wall.street_front": (0.0, r), "k01.wall.side.south": (depth - r, depth)}}
+
+
+def chamfer_of(b: dict):
+    """T-3048: a shallow pavilion's chamfered corner, or None: (corner, along_m, behind_m,
+    cross_m), cross_m how far in from the corner its canted face crosses the wall's face."""
+    v = b["variant"]
+    side = v["plan"].get("side_end") if v["plan"]["kind"] == "polyline" else None
+    if not side:
+        return None
+    pts = v["plan"]["points"]
+    (fx, d), (bx, zb) = (pts[2], pts[3]) if side == "right" else (pts[1], pts[0])
+    along, behind = abs(bx - fx), -zb
+    return side, along, behind, along * behind / (d + behind)
+
+
+def chamfer_spans(bays, depth: float, width: float) -> dict:
+    """T-3048: each wall's span (s0, s1) a chamfered pavilion's corner cuts from the house: the
+    street front's from where the canted face crosses it to the corner, and the side wall's
+    from the corner back to where the face meets it, `behind_m` behind the front."""
+    out = {}
+    for b in bays:
+        ch = chamfer_of(b) if b["wall"] == "k01.wall.street_front" else None
+        if ch is None:
+            continue
+        side, _, behind, cross = ch
+        if side == "right":   # the front's far end, s = width, into the north wall's start
+            out["k01.wall.street_front"] = (width - cross, width)
+            out["k01.wall.side.north"] = (0.0, behind)
+        else:
+            out["k01.wall.street_front"] = (0.0, cross)
+            out["k01.wall.side.south"] = (depth - behind, depth)
+    return out
 
 
 #: T-3007: how far an oriel's junction on the wall plane may stand off a round corner's curve

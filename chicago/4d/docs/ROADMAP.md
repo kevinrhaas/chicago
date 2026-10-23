@@ -5686,6 +5686,11 @@ with peer-mesh/placement freshness checks. The initial 30-member first-fort and
 findings and next work across T-2372 through T-2388. T-3041 and T-2388 retain
 the full model-matching acceptance; this prerequisite changes no building.
 
+
+### Standing-horse integration checkpoint - T-2800/T-2803,2026-10-23
+
+Canonical26 planted-standing increment: licensed b479/V16 field, unit runtime coordinates and existing Western Hotel yard position. Original CPU65 and actual standard GLTFLoader/Mixer65keys+64midpoints pass; published yard/mobile/render/performance and photographic gates remain open. Queue/tickets remain the work authority. Walking/trot/tack/teams/riders/boarding remain open. See STATUS and L-standing-horse-development-2800; earlier walking failures remain failures.
+
 T-2377 continuation (2026-10-23): revalidate the first Hogan refinement on current
 dev after restoring T-3009's 27 omitted 1904 smoke expectations. The full original
 image gate and remaining camera/door/gable/material differences stay open.

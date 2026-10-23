@@ -340,6 +340,13 @@ it to the attested instances.
 >   lists the files: publish them with `sync -m`, or `git -C tickets stash` them. Before
 >   this, `pushTickets`' `git add -A` published them under the command's own message —
 >   `done T-1205` (b679d90) reverted a scratch copy of T-1171 to `claimed` for a week.
+> - **Bulky evidence goes to kevinrhaas/chicago-evidence, never to the tickets repo**
+>   (owner, 2026-10-23, T-3071). Checkpoint folders, tar/zip snapshots, gate and smoke
+>   transcripts, solver dumps and screenshot runs grew chicago-tickets' `evidence/` to
+>   2.4 GB in five days, and every gate and steward run cloned it (it also ran runners out
+>   of memory, T-3069). Commit them to `evidence/<topic>-<date>/` in chicago-evidence (a
+>   separate clone; nothing in CI clones it) and cite the path from the ticket. A small
+>   text file a tool reads (the T-1837 frontage register) may stay in `tickets/evidence/`.
 
 **`tickets/` is the single operational answer to "what next".** The owner asked for it
 directly: his requests were getting lost inside an 11,000-line ROADMAP, and he could not

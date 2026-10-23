@@ -2,8 +2,8 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b74b8a96cbac1dc54bfff84adf0fab9dfb310009bc8f70964a49193a3bb5ac5c",
-  "camera_sha256": "d89ca0a91bccddd25a0ffa04ea98ff95ec08faec3913c2588f95f158db8cedf3",
+  "glb_sha256": "8604e1c12d35d5463d02e5235c7e8ce7c74abb1ec0dfd07ac3c8086c40f6394d",
+  "camera_sha256": "f87304de6737d9dd494f3f12bbe7f6349e01dd40e70dec5f4486a5358a59681b",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
   "verdict": "differs",
@@ -50,8 +50,8 @@
     },
     {
       "what": "both loggia arches, and their carving with them, render about 15-20 px south (the front's, x 1025-1105 against the print's 1010-1080) and east (the 18th Street face's, its corner pier at x 980-995 against the print's 955-974) of the print's",
-      "status": "open",
-      "how": "T-1890 (seen by T-2923; the arches' places are T-2910's)"
+      "status": "fixed",
+      "how": "T-1890 (seen by T-2923; the arches' places are T-2910's); T-3060: the offset was the camera's, not the build's. Through its re-solved camera the front's arch opening renders at x 1005-1082 against the print's 1012-1085 and its crown at y 875 against 872, and the 18th Street face's arch's right jamb at x 950 against 952"
     },
     {
       "what": "the carved frieze over the principal storey over the loggia; the build lays it in plain stone",
@@ -69,9 +69,9 @@
       "how": "T-3015 (piece 1 of T-2999): the face's north cheek at the bow's south junction (v 6.85), so the face runs 4.15 m to the corner and the cheek renders at x 1245 against the print's pilaster at 1232-1250. The third storey 5.1 m to a 13.2 m wall top, where the print's shelf under the gable stands (render y 395-415 against the print's 397-420), and its pair 1.85 m from 9.6 m, its head within about 5 px of the print's (y 480 against 478); the frieze over it is plain wall (the next difference but one)"
     },
     {
-      "what": "the south pavilion's south corner renders about 28 px south of the print's (x 1368 against 1335-1340) and its gable's apex about 30 px (x 1300 against 1270): the 1911 sheet draws the pavilion's south-west corner chamfered about 0.45 m back to the south wall behind the front's plane, where the build stands it square",
-      "status": "open",
-      "how": "T-3047 (piece 1 of T-3016) stood the face at the sheet's 0.1 m as a shallow K08 projection (it stood 0.6 m proud and its corner rendered at x 1400, its apex at 1325); T-3048 builds the chamfer (seen by T-3015)"
+      "what": "the south pavilion's face renders about 15 px south of the print's across its whole width: its south corner at about x 1356 against the print's 1335-1343 and its north pilaster from about x 1247 against 1232-1250 (the face 109 px across against the print's 105), its gable's apex at about x 1293 against 1270",
+      "status": "fixed",
+      "how": "T-3047 stood the face at the sheet's 0.1 m (its corner rendered at x 1400, then 1368); T-3059 (piece 1 of T-3048) chamfers its south-west corner as the 1911 sheet draws it, the face stopping 0.44 m short of the corner and a canted face running back to the south wall 0.35 m behind the front's plane, which brings the corner to about x 1356 and the face's width to the print's within 4 px. Re-checked: T-2538 laid this camera's south-west bearing (x 1345) on (u 20.1, v 11.2), the chamfer's back, which faces away from the camera; the corner it sees is the chamfer's near end (u 20.6, v 10.56), which projects about 10 px further south through the same camera, and the face's uniform offset is that. Re-solved on the near end with the principal point held, the four bearings fit within 2 px with the eye 0.56 m further north and 0.2 m further west and the yaw 301.0, but every height read through the camera falls 15-20 px; holding those heights leaves 7 px on the bearing. T-3060 re-solves the camera and re-reads the heights. T-3060 re-solved it: through the camera laid on the near end, the corner renders at x 1343 against the print's 1340-1342 at y 800-960 (1345 against 1336 at y 700, where the print's pilaster narrows), the north pilaster about 4 px east of the print's 1232, and the face's pairs and pilasters with them; the gable's apex is the next item"
     },
     {
       "what": "the frieze over the pavilion's third-storey pair: a dressed band with a roundel on the pair's axis (about y 430-470 on the print) under the shelf the gable springs from; the build's wall there is plain",
@@ -121,7 +121,7 @@
     {
       "what": "the south pavilion's coped stone gable over its third storey, its apex about 17 m with a finial; the build capped the pavilion with K08's low hip",
       "status": "fixed",
-      "how": "T-2998: K08's gable cap on the pavilion in place of its hip: the front carried up from the 13.9 m wall top between two kneelers over its corners (0.4 m in, to 14.51 m), a stone coping along each rake rising at 2.1 to 17.45 m at the apex, a pinnacle on each kneeler to 15.81 m and a stone finial to 17.95 m, a slate ridge behind it run back to the wall. Read off the print beside its render: the copings' rise of about 3.0 m over a half-width of about 1.4 m (the print's apex at x 1270, y 245 over feet at about y 395-420), the feet about 0.4 m in from the face's corners (the print's base about 74 of the face's 95 px), the pinnacles to about 1.6 m under the apex (y 315 and 365) and the finial about 0.5 m over it (y 220). T-3015: stood on the 13.2 m wall top and its rake laid at 1.5 across the 4.15 m face, kneelers to 13.81 m, the coping's apex to 16.32 m, pinnacles to 14.66 m and the finial to 16.82 m; its apex and finial now within about 5 px of the print's height (finial top y 218 against 220, the pinnacles' tips within about 10 px), and about 55 px south of the print's with the face's south corner (the difference above). Its sections are reconstructed (L-kimball-1801-pavilion-gable-2998)"
+      "how": "T-2998: K08's gable cap on the pavilion in place of its hip: the front carried up from the 13.9 m wall top between two kneelers over its corners (0.4 m in, to 14.51 m), a stone coping along each rake rising at 2.1 to 17.45 m at the apex, a pinnacle on each kneeler to 15.81 m and a stone finial to 17.95 m, a slate ridge behind it run back to the wall. Read off the print beside its render: the copings' rise of about 3.0 m over a half-width of about 1.4 m (the print's apex at x 1270, y 245 over feet at about y 395-420), the feet about 0.4 m in from the face's corners (the print's base about 74 of the face's 95 px), the pinnacles to about 1.6 m under the apex (y 315 and 365) and the finial about 0.5 m over it (y 220). T-3015: stood on the 13.2 m wall top and its rake laid at 1.5 across the 4.15 m face, kneelers to 13.81 m, the coping's apex to 16.32 m, pinnacles to 14.66 m and the finial to 16.82 m; its apex and finial now within about 5 px of the print's height (finial top y 218 against 220, the pinnacles' tips within about 10 px), and about 55 px south of the print's with the face's south corner (the difference above). Its sections are reconstructed (L-kimball-1801-pavilion-gable-2998) T-3059: on the face shortened by its chamfer the gable stands 3.71 m across, its rake laid at 1.73 so its rise holds T-3015's 2.51 m (finial top y 224 against the print's 220), and its apex at about x 1293 (it rendered 1300) against 1270, the chamfer's head under its south kneeler"
     },
     {
       "what": "the south pavilion's gable is filled with a carved panel, a tall leafy relief up the tympanum to the apex; the build's gable face is plain stone",
@@ -145,17 +145,33 @@
     },
     {
       "what": "the east turret's shaft and finial: the print shows the shaft about 15 px wider toward the front (to x 237; the build's to about x 220), a moulded band at its first floor and a heavy eave moulding, and a finial spike about 40 px taller than the build's",
-      "status": "open"
+      "status": "open",
+      "how": "Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it."
     },
     {
       "what": "the mansard's curb and deck: at the front's north-west corner the print's curb stands about 35-50 px lower than the build's (the corner hip's top at about x 950, y 320 against 978, 247) and its corner hip runs about 25-30 px west of the build's; the front's deck ends at the print's x 1092 under its south finial, where the build's runs on to x 1187. So the cresting, the corner hood and its finial stand about 35-50 px over the print's, and the south finial about 95 px south of it (seen by T-3000)",
       "status": "open",
-      "how": "T-1890 (its T-3000 finding)"
+      "how": "T-1890 (its T-3000 finding). Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it."
     },
     {
       "what": "the hooded dormers' hoods: the print's cheeks widen further up the roof than the build's (the flank's lit cheek about 45 px across at the top against the build's about 25), as its lower faces fall back faster than the build's 72 degrees do; and their faces are slate with a pale frame round the light, where the build's are stone",
       "status": "open",
-      "how": "T-1890 (with the curb; seen by T-3000)"
+      "how": "T-1890 (with the curb; seen by T-3000). Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it."
+    },
+    {
+      "what": "the south pavilion's gable apex and finial: through T-3060's camera the finial's axis renders at x 1280 against the print's 1268 (about 12 px south) and its top at y 237 against 218 (about 19 px low); carried through the camera, T-2538's readings put the gable's springing at about 14.1 m and its apex at 17.7 m, where the build stands 13.9 and 17.45 m",
+      "status": "open",
+      "how": "T-3073 (found by T-3060)"
+    },
+    {
+      "what": "the tower against T-3060's camera: its finial's axis renders at x 684 against the print's 700 (about 16 px east, about 0.7 m along the flank), and its cone springs well above the print's (the print's dark eave band at about y 496-508 on the axis, the render's at about y 418); T-2538's tower readings carried through the camera fall about 0.4-0.8 m (eaves 12.4 m, cone apex 18.0 m, finial 20.6 m)",
+      "status": "open",
+      "how": "T-3074 (found by T-3060); the cone's springing and stages are T-2539's"
+    },
+    {
+      "what": "the far flank's heights against T-3060's camera: T-2538's readings carried through it put the east range's eaves at about 7.5 m (the build 8.2) and the east turret's eaves at 7.3 m, apex 11.6 m and finial 13.8 m (read 8.0, 12.7 and 15.1); and the flank's string course across x 370-650 on the print (the shadow under it at y 1038 to 1023) falls about 12 px less across that run than the camera draws a level line on the 18th Street wall, so the camera's flank recedes more steeply than the print's and these heights are good only to about +-1 m",
+      "status": "open",
+      "how": "T-3074 (found by T-3060)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
