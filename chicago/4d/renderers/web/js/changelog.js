@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2210, ts: '2026-10-23T04:02:34.300Z', date: 'Oct 22, 2026, 11:02 PM CT', title: 'Tap "Confidence view" on Home to see what it means', kind: 'fix',
+    items: [
+      'On the Navigator\'s Home, the Confidence view tile\'s name explains itself on tap again. Tap the name to read its one-line meaning, or tap anywhere else on the tile to open the Confidence view, as before.',
+    ] },
   { v: 2209, ts: '2026-10-23T03:48:46.689Z', date: 'Oct 22, 2026, 10:48 PM CT', title: 'Glessner House re-coursed to its 1880s photograph', kind: 'improvement',
     items: [
       'The granite courses above the Glessner house\'s front door now stand about 4.5% taller, as a photograph from about 1888 and the 1965 survey both show them. On the Prairie Avenue front the courses now line up with the photograph\'s.',
