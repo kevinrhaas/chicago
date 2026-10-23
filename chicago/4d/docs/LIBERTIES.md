@@ -29225,6 +29225,23 @@ second, smaller stack standing in the first; the stacks' places along the flank 
 +-0.5 m. The plate's coping on the gable's rear fall reads about 30 px under the build's, which the
 match record keeps open with the bay gable's centre and carved pinnacles (T-3051); T-3052 solves
 the cameras of 1811's other pictures.
+**Revised:** 2026-10-23 (T-3062, piece 1 of T-3051; T-2997). The bay's stone gable stands on the
+plate's centre line: the face 0.28 m north (`dormer.v_m` 3.32, its apex and lights at about x 196-197
+px, the plate's 196-197) and 3.8 m across with its pinnacles 2.0 m either side, the shafts at x 96-115
+and 272-297 px against the plate's 97-119 and 276-298, the apex about 6 px higher with the wider face,
+as the plate draws it. The pinnacles are carved apart (`pinnacles.heads`): the south one rises to a
+moulded band at 11.40 m (y 316 px, the plate's 318) under a dome to about 11.96 m (y 292 px with the
+plate's); the north one carries a moulded block, 0.45 m square and 0.86 m high from 11.14 m, set 0.36 m
+in from the shaft's centre so the rake dies into its side, its top at y 282 px with the plate's. The
+bay's south-return downpipe stands on the return's own face (`front_pipes[].on: "return"`), 0.8 m before
+the main front, landing at x 297-301 px against the plate's 298-302. What is invented: the dome's
+scales and the block's mouldings are not cut (the plate's resolution shows the scaled surface and a
+moulded profile, not their stones), so the dome is a plain quarter-ellipse and the block a plinth, die
+and cornice; the north shaft's pyramid cap is K01's plain pyramid where the plate draws a scaled one;
+the block's inward place is read as such, though the plate's offset (about 16 px) would also be read
+by a block about 0.4 m behind the shaft; and the north shaft stands to 11.10 m, past the face's eave
+as K01 holds every engaged shaft, about 0.4 m over the plate's (its cap about 20 px high). The rear
+fall of the south gable is T-3063.
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
