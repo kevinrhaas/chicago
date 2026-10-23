@@ -31587,6 +31587,19 @@ Taylor camera's south-west bearing against the chamfer's near end.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-23 (T-3047).
 
+
+### L-standing-horse-development-2800 — a planted-standing horse in the Western Hotel yard
+
+**Decision:** Add one reconstructed, unidentified horse at E−127.5,N−296.0,heading90degrees in the1835Western Hotel wagon yard, using the existing host/yard record as context rather than evidence of an individual or ownership. The chestnut coat/blaze/stockings, grooming,1.55m withers proxy, exact stand and date are reconstructed. It is unhitched, untied and unmounted.
+
+**What is reconstructed:** Licensed modern sevketkabatas Horse rest surface baked to canonical metres and adapted to project26 controls/V16skin; the already baked0.3644068837native scale is NOT applied again. The selected b479 derivative plays one12s planted body shift (4mm lateral,2mm longitudinal,4mm compression) with no original head/tail composition or walking. Existing0.396145degree whole-root support and cloned-material metalness0 are declared adaptations. Rig hierarchy analogy credits antemeossa CC BY4.0; no donor mesh/Walk keys were copied. Modern credit is not an historically graded animal attribute.
+
+**Bounds and limits:** Original stationary65 CPU and actual standardGLTFLoader/Mixer65keys+64midpoints passed unchanged surface/contact/loop/normal/meaningful controls, maximum loaded hoof contact8.6523737e−6m. This is not GPU/photo or actual-yard acceptance. One declared0.866317m² support region retains actual drawn yard triangles before normal GPU upload release, under32triangles/4096typed-array bytes and with disposal; no town-wide geometry retention is added. One-instance/reach70/40/0m and full-only30m shadow limits remain. Actual app yard/mobile visual, performance, photographic master, gaits, tack/teams/riders/boarding remain open. Earlier failed walking fields/poses remain failed.
+
+**Sources:** sevketkabatas_2021_horse_model supplies modern source/rights only; chicagology_prefire278 supplies historical horsekeeping context only.
+**Ticket:** T-2800/T-2803, partial standing increment; both master/gait acceptance remain open.
+**Recorded:**2026-10-23.
+
 ### L-glessner-course-relief-3046 — Glessner's high courses crowned deeper than its low ones, fitted to Taylor 2135's shadows
 
 **Decision:** Taylor 2135 (c. 1887-89, `taylor_2135_glessner_exterior_1887_1889`), read through its T-2858 camera on three clear piers of the Prairie front, shows a course printed 11.5 in or over throwing about a third more shadow under its lower lip than a low course does: 1.32 times, re-read on the beds as T-3045 lays them (docs/RESEARCH/glessner-course-relief-T-3046/). The render read 0.86. The cause was in the build. Every course's bow was capped at 60 mm, and its lower face rose to the crown over 44 % of the course's height, so a tall course's lip came out gentler than a short one's. A course printed 11.5 in or over now crowns 1.25 times its stones' bow and rises to it over at most 0.09 m (`v4_detail.ashlar_crown_by_course`). That is about the lower face a 7.5 in course already has. Through the same camera the render now reads 1.33. The low courses are unchanged, at 0.359 before and 0.353 after (the occlusion re-bake). Both granite faces take it, because one coursing turns the NE corner (T-3044 § 2).
@@ -31678,6 +31691,36 @@ Levy's print and 1955.
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`,
 `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-23 (T-3034).
+
+### L-k01-1811-rear-fall-3063 — 1811 Prairie's roof behind the south gable falls steeply to a flat deck under a level coped wall head
+
+**Decision:** behind the tall stack, 1811 Prairie's south wall (K01's `north`) is built as a
+coped parapet whose coping's top runs LEVEL at 10.95 m back to the front block's rear wall, and
+the roof under it falls from the ridge at the street's 61.2 degrees to a flat deck 0.38 m under
+the coping, where T-3050 had a plain rear slope falling at 22.4 degrees to the rear wall's eave and
+the coping following it down. The kit learns it (`gable_roof.rear_fall`, coped ends only); every
+other K01 house re-emits byte-identical.
+**What is read, not invented.** Through the T-2541 camera on the 1888 Inland Architect plate
+(`inland_architect_1888_10_ames_residence`): the coping's top edge just clear of the tall stack at
+(528, 374-380) px and at the block's rear wall at (572, 485) px, which the camera puts on the
+wall's plane at u 5.9, 10.96 m and u -0.3, 10.98 m, a line running into the flank's vanishing
+point; the second stack's top 26-35 px over it. The Chicagology print (`cgn-1811-coleman-ames-photo`,
+rights unknown, read in the image store's display copy and not committed) draws the same from
+further south-west: a short steep fall from the tall stack, then one long coping line back past
+the second stack. Neither picture shows any roof over that coping.
+**What is invented.** What lies behind the coping: the fall's pitch (the street's own 61.2
+degrees, the plainest choice; the plate's coping drops in about one column just behind the stack,
+which a fall nearer 75 degrees would match better), the deck (flat, falling a quarter inch to the
+foot to the rear wall, laid in the roof's slate where a tin deck is likelier; no picture sees it),
+and the parapet's head running on 0.1 m behind the ridge. The rendered fall spreads over x 528-533
+px where the plate's drops at x 527-528.
+**Not changed here.** The plate and the print both step the flank down at the block's rear wall to
+a lower wall head of about 8.6 m over the brick range; the build carries the range at 11.4 m (T-3077).
+**How to resolve:** a view of the roof from above or behind (an aerial, a section, the 1965 HABS
+photograph that T-3052 is to find), or T-3052's solved camera on the Chicagology print.
+**Ticket:** T-3063 (piece 2 of T-3051).
+**Review:** `data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.match.json`.
+**Recorded:** 2026-10-23 (T-3063).
 
 ### L-kimball-1801-gable-inset-3073 — 1801 Prairie's pavilion gable narrowed and raised to the Taylor photograph through the re-solved camera
 

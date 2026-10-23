@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2226, ts: '2026-10-23T19:04:18.788Z', date: 'Oct 23, 2026, 2:04 PM CT', title: 'A horse shifts its weight in the wagon yard', kind: 'feature',
+    items: [
+      'A reconstructed horse in the 1835 Western Hotel wagon yard shifts gently while standing. It remains unhitched and unmounted.',
+    ] },
+  { v: 2225, ts: '2026-10-23T18:28:23.022Z', date: 'Oct 23, 2026, 1:28 PM CT', title: '1811 Prairie\'s south wall now runs level behind its tall chimney', kind: 'improvement',
+    items: [
+      'Behind the tall chimney, the top of 1811 Prairie\'s brick south wall no longer slopes down toward the back. It now runs level back to the end of the front block, as both old photographs show it, with the second chimney standing up from it.',
+    ] },
+  { v: 2224, ts: '2026-10-23T18:28:23.022Z', date: 'Oct 23, 2026, 1:28 PM CT', title: 'Glessner\'s roofs ruled red tile, though every old print shows grey', kind: 'change',
+    items: [
+      'Glessner House keeps its red, unglazed clay tile roofs, the stable cupola\'s included. Glessner\'s own account of the house names them, and the 1963 survey found clay tile under a later coat of tar. Old photographs show the roofs grey because they are black and white, and the 1960s ones show the tar.',
+    ] },
   { v: 2223, ts: '2026-10-23T16:13:10.592Z', date: 'Oct 23, 2026, 11:13 AM CT', title: 'Indiana Avenue fills in from 16th to 18th Street', kind: 'feature',
     items: [
       'Look west between the houses on Prairie\'s west side from 16th to 18th Street: Indiana Avenue\'s east side is no longer bare ground behind them. Five brick houses stand at 1615-1617, 1623, 1703 and 1713, and a row of five more at 209-217 East 16th Street, with six stables on the alley.',
