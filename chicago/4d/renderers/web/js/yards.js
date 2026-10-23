@@ -64,6 +64,7 @@
  */
 
 import * as THREE from 'three';
+import { retainYardStaticSupport } from './yard-static-support.js';
 import { GRIT_TILE_M } from './ground-strip-mask.js';
 import { DIRT_TONES, linearTone, roadGrit } from './streets.js';
 import { swardTexture, swardUniforms } from './terrain.js';
@@ -772,7 +773,7 @@ function rectRing(frame, u0, u1, v0, v1) {
  *          async since T-2600: its surfaces are partitioned on the job pool
  */
 export async function createFencedGround({
-  records = [], terrain, confidence = null, problems = [], prebuilt = null, recordHashes = null,
+  records = [], terrain, confidence = null, problems = [], prebuilt = null, recordHashes = null, supportRegions = [],
 } = {}) {
   const group = new THREE.Group();
   group.name = 'yard-ground';
@@ -782,6 +783,8 @@ export async function createFencedGround({
     census: { interiors: 0, cells: 0, beds: 0, paths: 0, byTreatment: {} },
     suppressesSward: () => false,
     treatmentAt: () => null,
+    drawnBaseHeightAt: () => null,
+    staticSupport: { regions: 0, triangles: 0, bytes: 0, disposed: false },
     dispose: () => {},
     /** T-2711: whether the surfaces came prebuilt, and if not, why not. */
     prebuilt: { used: false, why: prebuilt ? null : 'none offered' },
@@ -1086,7 +1089,16 @@ export async function createFencedGround({
     problems.push('yards: every fenced interior refused its ground — nothing is laid inside '
       + 'any fence in the town');
   }
-  out.dispose = () => { for (const d of disposables) d.dispose?.(); };
+  // Retain only declared small regions before normal coarse upload-release.
+  const support = retainYardStaticSupport(group, supportRegions, problems);
+  out.staticSupport = support.census;
+  out.drawnBaseHeightAt = (e, n, recordId, regionId) => {
+    const interior = out.interiors.find(item => item.record === recordId
+      && pointInPolygon(item.pts, e, n));
+    if (!interior || interior.treatment !== 'worn_earth') return null;
+    return support.heightAt(e, n, recordId, regionId);
+  };
+  out.dispose = () => { support.dispose(); for (const d of disposables) d.dispose?.(); };
   return out;
 }
 
