@@ -31691,3 +31691,33 @@ Levy's print and 1955.
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`,
 `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-23 (T-3034).
+
+### L-k01-1811-rear-fall-3063 — 1811 Prairie's roof behind the south gable falls steeply to a flat deck under a level coped wall head
+
+**Decision:** behind the tall stack, 1811 Prairie's south wall (K01's `north`) is built as a
+coped parapet whose coping's top runs LEVEL at 10.95 m back to the front block's rear wall, and
+the roof under it falls from the ridge at the street's 61.2 degrees to a flat deck 0.38 m under
+the coping, where T-3050 had a plain rear slope falling at 22.4 degrees to the rear wall's eave and
+the coping following it down. The kit learns it (`gable_roof.rear_fall`, coped ends only); every
+other K01 house re-emits byte-identical.
+**What is read, not invented.** Through the T-2541 camera on the 1888 Inland Architect plate
+(`inland_architect_1888_10_ames_residence`): the coping's top edge just clear of the tall stack at
+(528, 374-380) px and at the block's rear wall at (572, 485) px, which the camera puts on the
+wall's plane at u 5.9, 10.96 m and u -0.3, 10.98 m, a line running into the flank's vanishing
+point; the second stack's top 26-35 px over it. The Chicagology print (`cgn-1811-coleman-ames-photo`,
+rights unknown, read in the image store's display copy and not committed) draws the same from
+further south-west: a short steep fall from the tall stack, then one long coping line back past
+the second stack. Neither picture shows any roof over that coping.
+**What is invented.** What lies behind the coping: the fall's pitch (the street's own 61.2
+degrees, the plainest choice; the plate's coping drops in about one column just behind the stack,
+which a fall nearer 75 degrees would match better), the deck (flat, falling a quarter inch to the
+foot to the rear wall, laid in the roof's slate where a tin deck is likelier; no picture sees it),
+and the parapet's head running on 0.1 m behind the ridge. The rendered fall spreads over x 528-533
+px where the plate's drops at x 527-528.
+**Not changed here.** The plate and the print both step the flank down at the block's rear wall to
+a lower wall head of about 8.6 m over the brick range; the build carries the range at 11.4 m (T-3077).
+**How to resolve:** a view of the roof from above or behind (an aerial, a section, the 1965 HABS
+photograph that T-3052 is to find), or T-3052's solved camera on the Chicagology print.
+**Ticket:** T-3063 (piece 2 of T-3051).
+**Review:** `data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.match.json`.
+**Recorded:** 2026-10-23 (T-3063).

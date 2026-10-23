@@ -1,0 +1,37 @@
+{
+ "side_by_side": "docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg",
+ "bands": [
+  {
+   "columns": [
+    1000,
+    1030
+   ],
+   "print_px": 4.38,
+   "render_px": 3.4,
+   "ratio": 1.286,
+   "print_exposure_in": 6.43
+  },
+  {
+   "columns": [
+    1040,
+    1080
+   ],
+   "print_px": 4.45,
+   "render_px": 3.54,
+   "ratio": 1.257,
+   "print_exposure_in": 6.28
+  },
+  {
+   "columns": [
+    1090,
+    1120
+   ],
+   "print_px": 4.81,
+   "render_px": 3.67,
+   "ratio": 1.31,
+   "print_exposure_in": 6.55
+  }
+ ],
+ "mean_ratio": 1.284,
+ "print_exposure_in": 6.42
+}
