@@ -978,24 +978,24 @@
       "structure_id": "george_glessner_house_1706_prairie"
     },
     "glessner_house__as_built_1887.glb": {
-      "ao_occlusion_mean": 0.549638,
+      "ao_occlusion_mean": 0.551962,
       "archetype": "masonry_house",
       "baked_ao": true,
-      "bytes": 200802100,
-      "inputs_sha256": "69961634037aab3113e00088c3dd1a8d0f756a43930958a0a948a85feb01977b",
+      "bytes": 199043044,
+      "inputs_sha256": "380c996fd17c3d94b3c34d6ed964265b5980fdc5e6da9aaa364ddadfcdec5692",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "web_lods": {
         "light": {
           "asset": "glessner_house__as_built_1887.light.glb",
-          "master_sha256": "40c41087ed07d91fd27716120e1599260d194135dc7430d8519efa9acb68ece9",
-          "output_sha256": "feff2bf03710752c156f7696c6291520a637bda67d9e812d58cb40d0fb16fd3d",
-          "recipe_sha256": "aa7a2a0f49cf7e94229932c3d627ad149d2209a1d0c76cea37c1cd49bceecf48",
-          "triangles": 198611
+          "master_sha256": "eabb640c6e2670f5d341c0dfab15ffade604f80cc7de095959c5b0ab4aecd6a5",
+          "output_sha256": "9f2587f18955ac7564711a2613d334f60cc65a8b445c79cb84e386930bdb992d",
+          "recipe_sha256": "bff6b2d52e540fb3a79e69b24e08fac324a60029888680da5b2da5c9d844e325",
+          "triangles": 198093
         }
       },
-      "web_master_sha256": "40c41087ed07d91fd27716120e1599260d194135dc7430d8519efa9acb68ece9"
+      "web_master_sha256": "eabb640c6e2670f5d341c0dfab15ffade604f80cc7de095959c5b0ab4aecd6a5"
     },
     "glessner_lee_house_1700_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
@@ -1680,6 +1680,26 @@
       "phase_id": "draft_1904",
       "structure_id": "house_1932_calumet_coach_house"
     },
+    "house_2000_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 220880,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "660f209f35379e5be791a47bd5cd1a0226b8973e2c2e1a1f6abb4741b6d38a9d",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2000_calumet"
+    },
+    "house_2000_calumet_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 48592,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "fa39478365e58379e07210a9032b35ccb4473b24226bc5a667231de404979f58",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2000_calumet_coach_house"
+    },
     "house_2000_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
@@ -1729,6 +1749,26 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_2003_prairie"
+    },
+    "house_2004_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 182500,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "80583234169e0328817bfd44f310e1e05b1701374d4a0b788b2efd8384b8175f",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2004_calumet"
+    },
+    "house_2004_calumet_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 71056,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "9ec31e55310094c4d7f61013123656ff49c007b8fd8b79ed82438b9fa2b44078",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2004_calumet_coach_house"
     },
     "house_2005_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
@@ -1849,6 +1889,26 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_2013_indiana_coach_house"
+    },
+    "house_2016_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 119752,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "38391d9d93cfd615f18e132ab7139c956da6b836955bc0d74f719d69034257a7",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2016_calumet"
+    },
+    "house_2016_calumet_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 26096,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "dedf6f47b212bd22e1855589eb5c7c052632184c9216a8eb6ef41668f9179ca4",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2016_calumet_coach_house"
     },
     "house_2017_indiana__draft_1904.glb": {
       "archetype": "prairie_draft",
@@ -2030,6 +2090,56 @@
       "phase_id": "draft_1904",
       "structure_id": "house_2027_prairie_coach_house"
     },
+    "house_2032_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 279768,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "bd4290082f0ea96756575956f41b442570ea461cc6072a55f3aedbd682ff0623",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2032_calumet"
+    },
+    "house_2032_calumet_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 151584,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "0dfb8b84d638b9e6935c278347851017540a09b198830b1d60b998c433c1ab09",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2032_calumet_coach_house"
+    },
+    "house_2032_calumet_shed__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 32616,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "b6c591013b0c466314a9242aa80372835691b91ffd9d007fbaabc6cd4b0e7434",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2032_calumet_shed"
+    },
+    "house_2100_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 282580,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "6ad70549907cfe1542e5226b8e0e486d8ac76ba5f6c73466f7369f6fee007dc2",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2100_calumet"
+    },
+    "house_2100_calumet_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 78552,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "bd0547270fbd0cd584716a5d6a496a786f018433f1f7a97523f206a17244d63e",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2100_calumet_coach_house"
+    },
     "house_2101_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
@@ -2049,6 +2159,26 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_2101_prairie_coach_house"
+    },
+    "house_2106_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 194616,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "2b6856564da721d514e158c5eff9753fc2c1108ce695faeb99250f69fb96c699",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2106_calumet"
+    },
+    "house_2106_calumet_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 116012,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "64b43dbd850849c68314241c7934048c79db368eb27c1400d1dfbc7ec5b991a3",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2106_calumet_coach_house"
     },
     "house_2107_indiana__draft_1904.glb": {
       "archetype": "prairie_draft",
@@ -2089,6 +2219,26 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_2111_indiana_coach_house"
+    },
+    "house_2114_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 234820,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "58d72708df1c52e372a669e15caf87affc4fb850de662427491ebee5344a37b8",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2114_calumet"
+    },
+    "house_2114_calumet_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 129100,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "8fdb9db315c6ee9c4c3332041cc56ead54801af910813e079ae1f4ea4fecb96d",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2114_calumet_coach_house"
     },
     "house_2115_indiana__draft_1904.glb": {
       "archetype": "prairie_draft",
@@ -2150,6 +2300,16 @@
       "phase_id": "draft_1904",
       "structure_id": "house_2123_prairie_coach_house"
     },
+    "house_2124_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 172840,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "99c909ba577b54f3d4c8477141b40137ad17ec3bebe14ff638f35e3307b65827",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2124_calumet"
+    },
     "house_2125_prairie__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
@@ -2170,6 +2330,26 @@
       "phase_id": "draft_1904",
       "structure_id": "house_2125_prairie_coach_house"
     },
+    "house_2128_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 156240,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "794c428eb861d22e8481ba50166f945d57cae67f4105e4a4d99ed14ab0b831d1",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2128_calumet"
+    },
+    "house_2128_calumet_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 54192,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "4765511fbbe771bbcdda1af2a5149060c340204128d37d3a80737efa974c2c99",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2128_calumet_coach_house"
+    },
     "house_213_e20th__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
@@ -2179,6 +2359,36 @@
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_213_e20th"
+    },
+    "house_2140_calumet__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 136824,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "9d401be7809318ddd8f2f55c02e6d487f15fce275807785c3f95d95036fe2fd8",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2140_calumet"
+    },
+    "house_2140_calumet_coach_house__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 120452,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "a608ff748a2294142e8d17f3cf34bbe56fdfd3080dbee65a15c09e77670afe52",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2140_calumet_coach_house"
+    },
+    "house_2140_calumet_shed__draft_1904.glb": {
+      "archetype": "prairie_draft",
+      "baked_ao": false,
+      "bytes": 26968,
+      "generator": "generators/draft_emit.py",
+      "inputs_sha256": "0ec051b966a6583ed2070853b1efa4b65671bcfb5f1edc870a26f652f5fd6eca",
+      "kind": "generated",
+      "phase_id": "draft_1904",
+      "structure_id": "house_2140_calumet_shed"
     },
     "house_215_e20th__draft_1904.glb": {
       "archetype": "prairie_draft",

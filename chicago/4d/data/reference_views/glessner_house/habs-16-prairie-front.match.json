@@ -2,8 +2,9 @@
   "structure_id": "glessner_house",
   "view": "habs-16-prairie-front",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "e4b3f9f5bf0216773ef887dcad32782312f6a3d73a7094b9f1fefe4333d559ed",
+  "glb_sha256": "eabb640c6e2670f5d341c0dfab15ffade604f80cc7de095959c5b0ab4aecd6a5",
   "camera_sha256": "a6cab11dcafff11f11d93e858c37ba17f45a1f59a8a82f28cf0431c025755e50",
+  "photo_sha256": "c48a056ae87e4e31d21aa95956cf7c1b57b00df4ded49323f5daca424107f8d8",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-16-prairie-front-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -28,7 +29,7 @@
       "status": "not shown"
     },
     {
-      "what": "Stone/course relief and the 1965 sash (painted light, two sashes) against the render's dark frames: the sash is the 1965 state and not compared; course relief stays open. T-3044: this plate is sheet 6's own (T-2986 § 2), so its course heights are sheet 6's, which Taylor 2135 now agrees with (T-3045). It shows relief too flat at this scale to measure, so the relief item closes with Taylor 2135's (T-3046).",
+      "what": "Stone/course relief and the 1965 sash (painted light, two sashes) against the render's dark frames: the sash is the 1965 state and not compared; course relief stays open. T-3044: this plate is sheet 6's own (T-2986 \u00a7 2), so its course heights are sheet 6's, which Taylor 2135 now agrees with (T-3045). It shows relief too flat at this scale to measure, so the relief item closes with Taylor 2135's (T-3046). T-3045 has laid the heights (the fixed entry below); what stays open here is the relief, T-3046's.",
       "status": "open"
     },
     {
@@ -46,6 +47,10 @@
     {
       "what": "T-2912, re-rendered after the fan was stilted: the fan and its field read in the plate's place at this scale; the plate is too coarse to measure the stilt or the roundels, which HABS sheet 5 sets.",
       "status": "not shown"
+    },
+    {
+      "what": "T-3045 course heights: this plate's beds are sheet 6's, and the model's beds 7-23 are now laid 4.5 % over the printed inches, as sheet 6 draws them (bed 23 at 22.26 ft door, sheet 6 22.39-22.49); the first-floor sills stay on bed 8, now 8.76 ft door, and bed 19 meets the 19.2 ft second-floor sills.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
