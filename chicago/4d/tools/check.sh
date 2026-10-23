@@ -1020,6 +1020,14 @@ step "a K01 frontage carries a K08 tower past its eave, closed above the wall he
 step "a K01 rear wing takes a slated hip or gable, its junction with the host closed above the host's top (T-2841)" \
   python3 tools/test_k01_wing_roof.py
 
+# T-3063. ...and a K01 gable roof's rear slope falls steeply to a flat deck under a level
+# coped wall head (1811 Prairie's south wall behind its tall stack, level in both its
+# pictures): the deck under the coping, the line level to the fall's foot and clear of the
+# covering everywhere, 1811 built so, the plain coped line unchanged, and a fall over
+# stepped ends, out of its pitch range, over the ridge or with too long a head refused.
+step "a K01 gable roof's rear slope falls to a deck under a level coped wall head (T-3063)" \
+  python3 tools/test_k01_rear_fall.py
+
 # T-2842. ...and a K08 tower stands on a K01 rear wing's wall, past the wing's own eave (the
 # kit piece 1801 Prairie's north-east turret on its east range needs). Built on 1604's
 # brick range under its flat deck and on 1811 as all-stone with its rear section hipped in
