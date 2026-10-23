@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6770ebbf89c67836da6e37843b1d9eae5e8b1f73dda0429f44505dd06cebd249",
+  "glb_sha256": "ede069875c1b76cd59b3fdb1b4c9322eec7303a12d04639fb5fff4535e9844e4",
   "camera_sha256": "8f67a67f5a407ad30522085a1ab67f9c29ddc0bae6ceb1a979db9ea1accdc2b4",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/inland_architect_plate-side-by-side.jpg",
   "verdict": "differs",
@@ -68,7 +68,8 @@
     },
     {
       "what": "the oriel's depth and returns: the plate's oriel is a flat-fronted box about 3 m across (x 338-470 px) about 0.6 m out, its south return lit by two or three narrow lights and stood on a rounded rock-faced base; the build's stands 0.5 m out on canted returns with none, on K08's three corbel courses (0.52 m at most). T-3005's re-read: the return reads 27 px wide (x 470-497), which a square 0.6 m return cannot fill from this camera (about 9 px): it follows the entrance block's ROUNDED south corner under it (T-3006), so the oriel waits on that corner (T-3007)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3007: the oriel's plan is the plate's own (`asymmetric`): a flat front 0.6 m out from v 6.82 to 9.69, landing at x 330-475 px against the plate's 338-470, a square north return the camera cannot see, and its south return splayed back to the wall plane at v 10.10, over the entrance block's round (K01 lets an oriel reach onto a round corner from the flat front, its junction within 0.3 m of the curve; this one 0.23 m, its back closed on the plane over the round); the return lands at x 475-497 against the plate's 470-497, two narrow transomed lights in it at x 472-488 where the plate draws three close-set at 473-491 (L-k01-1811-oriel-3007). Its base: a rock-faced band 5.0-5.7 m (a windowless storey, K08's coursed relief) under the sill course, its foot turned under to the wall on a 0.2 m quarter round (K08's round apron), in place of the three corbel courses; the band's face ends at about y 590 px against the plate's 585. The front's lights respaced to the plate's centres (v 7.56, 8.31, 9.06) and the spire's apex set over the front's middle (x 414 against 416)"
     },
     {
       "what": "the bay's basement lights: two large iron-grilled lights under its windows, about 0.1-1.1 m over grade; not built (K08 stacks no second window in a storey; the ironwork is T-1892's)",
