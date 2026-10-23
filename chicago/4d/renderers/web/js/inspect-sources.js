@@ -107,7 +107,7 @@ export function buildingFacts(sidecar, summary) {
   const sum = summary && typeof summary === 'object' ? summary : null;
   if (sum) {
     if (sum.status) add('summary', s('label.today'), [sum.status.text, sum.status.today].filter(Boolean).join(' · '), sum.status);
-    if (sum.built) add('summary', s('label.built'), sum.built.year ?? '', sum.built);
+    if (sum.built) add('summary', s('label.built'), sum.built.phrase ?? sum.built.year ?? '', sum.built);
     for (const k of list(sum.key)) add('summary', k.label, k.value, k);
     for (const r of list(sum.residents)) add('summary', r.name ?? '', r.role ?? '', r);
     for (const l of list(sum.lookFor)) add('summary', s('label.look'), l.text, l);
