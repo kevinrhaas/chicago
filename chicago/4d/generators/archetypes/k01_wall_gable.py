@@ -31,6 +31,9 @@ PIN_SIDES = 4              # a pinnacle's spire: a square pyramid
 FINIAL_SINK_M = 0.06       # the finial's foot let into the ridge
 TYMPANUM_LIGHT_M = 0.08    # T-2917: a tympanum light's reveal, behind the tympanum's recess
 COLONNETTE_BLOCK_M = 0.08  # T-2917: a colonnette's square base and capital, each this high
+DOME_RINGS = 6             # T-3051: a pinnacle dome's rings, foot to knob
+BLOCK_PLINTH_M = 0.12      # T-3051: a pinnacle block's plinth and cornice, each this high
+BLOCK_CORNICE_M = 0.12
 
 
 def _k01():
@@ -321,24 +324,61 @@ def dress(a, roof_seed):
     # head (through the eave) past the face's eave, a cap and a pyramid over each
     pn = wg["pinnacles"]
     hw = pn["shaft_m"] / 2
+    heads = pn.get("heads")
+    pd = pediment(d, g) if pn.get("engage") or heads else None
+    rake = lambda s_: pd["apex"] - abs(s_ - wd / 2) * g["dt"]
     if pn.get("engage"):
         # T-2937: a shaft that takes the rake's end must stand clear over the rake where the
         # rake enters it, at its inner face, or the raking cornice would run over its cap
-        pd = pediment(d, g)
-        if g["ys"] + pn["top_m"] < pd["apex"] - (pn["at_m"] - hw) * g["dt"] + 0.25:
-            raise ValueError("the wall gable's rake runs over its pinnacles' caps")
+        # (T-3051: unless a block over the shaft takes the rake's foot instead)
+        for i, h in enumerate(heads or [None, None]):
+            top = h["top_m"] if h else pn["top_m"]
+            if h and "block" in h:
+                continue
+            if g["ys"] + top < pd["apex"] - (pn["at_m"] - hw) * g["dt"] + 0.25:
+                raise ValueError("the wall gable's rake runs over its pinnacles' caps")
     for i, sg in enumerate((-1, 1)):
         s = wd / 2 + sg * pn["at_m"]
-        y0, y1 = g["ys"] + pn["foot_m"], g["ys"] + pn["top_m"]
+        h = heads[i] if heads else None
+        top_m, spire_m = (h["top_m"], h["spire_m"]) if h else (pn["top_m"], pn["spire_m"])
+        y0, y1 = g["ys"] + pn["foot_m"], g["ys"] + top_m
         pseed = a.instance("k01.roof.gable_pinnacle", "roof",
                            {"shaft_m": pn["shaft_m"], "top_m": round(y1, 4), "cap_m": pn["cap_m"],
-                            "spire_m": pn["spire_m"]},
+                            "spire_m": spire_m, **({"spire": h["spire"]} if h else {})},
                            {"foot": k._add(O, k._add(k._mul(R, s), k._mul(k.Y, pn["foot_m"])))})
         Fr = ((O[0], 0.0, O[2]), R, N)
         af._box(a, "limestone_trim", Fr, s - hw, s + hw, y0, y1, -hw, hw, pseed, conf, skip=("bottom", "top"))
         c = hw + PIN_CAP_PROUD_M
         af._box(a, "limestone_trim", Fr, s - c, s + c, y1, y1 + pn["cap_m"], -c, c, pseed, conf)
-        _pyramid(a, "limestone_trim", Fr, s, 0.0, y1 + pn["cap_m"], hw, y1 + pn["cap_m"] + pn["spire_m"], pseed, conf)
+        if h and h["spire"] == "dome":
+            # T-3051: a dome on the cap (1811's south pinnacle: the plate's scaled dome),
+            # its profile a quarter ellipse from the cap's half-width, closed by a knob
+            yb, rr = y1 + pn["cap_m"], c - 0.01
+            n = DOME_RINGS
+            ring = [(yb + spire_m * 0.85 * math.sin(math.pi / 2 * j / n), rr * math.cos(math.pi / 2 * j / n))
+                    for j in range(n + 1)]
+            ring[-1] = (ring[-1][0], 0.03)
+            for (ya, ra), (yb_, rb) in zip(ring, ring[1:]):
+                af._frustum(a, "limestone_trim", Fr, s, 0.0, ya, yb_, ra, rb, pseed, conf)
+            yk = ring[-1][0]
+            af._frustum(a, "limestone_trim", Fr, s, 0.0, yk, yb + spire_m, 0.03, 0.004, pseed, conf)
+        else:
+            _pyramid(a, "limestone_trim", Fr, s, 0.0, y1 + pn["cap_m"], hw, y1 + pn["cap_m"] + spire_m, pseed, conf)
+        if h and "block" in h:
+            # T-3051: the moulded block over the low shaft's inner side, taking the rake's foot
+            # (the plate's north pinnacle): a plinth, a die and a cornice, square on plan
+            b = h["block"]
+            sc = s - sg * b["in_m"]
+            yf, yt = g["ys"] + b["foot_m"], g["ys"] + b["foot_m"] + b["height_m"]
+            inner = sc - sg * b["width_m"] / 2
+            if not yf < rake(inner) < yt - 0.25 or not yf <= rake(s - sg * hw) + 0.1:
+                raise ValueError(f"the wall gable's rake does not die into its pinnacle's block: the rake at "
+                                 f"{rake(inner):.3f} m by its inner face and {rake(s - sg * hw):.3f} m by the "
+                                 f"shaft's, the block {yf:.3f}-{yt:.3f} m (wall head {g['ys']:.3f} m)")
+            bw = b["width_m"] / 2
+            for (ya, yb_, hb) in ((yf, yf + BLOCK_PLINTH_M, bw), (yf + BLOCK_PLINTH_M, yt - BLOCK_CORNICE_M, bw - 0.04),
+                                  (yt - BLOCK_CORNICE_M, yt, bw + 0.03)):
+                af._box(a, "limestone_trim", Fr, sc - hb, sc + hb, ya, yb_, -hb, hb, pseed, conf)
     # the finial: a turned stone on the ridge over the pediment's apex, let into it
     fn = wg["finial"]
     ya = g["ridge"] - FINIAL_SINK_M

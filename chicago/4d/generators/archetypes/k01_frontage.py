@@ -3914,27 +3914,40 @@ class Assembly:
         """T-2953: a pipe down the street front from its own rainwater head (no eave gutter
         reaches it): a box head `head_m` up, the pipe straight down the face `proud_m` before
         the main front, strapped, to a shoe kicked out over a splash stone at grade, or (a
-        `foot_m` over grade) over the lower roof it discharges onto."""
+        `foot_m` over grade) over the lower roof it discharges onto.
+
+        T-2997: `on: "return"` stands it on a projection's high-s return instead, `s_m` that
+        face and `proud_m` its place along it: the same pipe built in the return's own frame
+        (the front's turned a quarter about the vertical), so a front pipe is unchanged."""
         p, r = self.p, self.p.rainwater
         R, N = (0.0, 0.0, -1.0), (1.0, 0.0, 0.0)
-        lat = p.depth_m + x["proud_m"] + r["pipe_offset_from_wall_m"] + 0.05 + rp
-        at_wall = lambda l, y: (l, y, -x["s_m"])
+        if x.get("on") == "return":
+            P = lambda l, y, z: (z, y, -l)            # l off the return (+s), z along it (u)
+            V = lambda v: (v[2], v[1], -v[0])
+            lat = x["s_m"] + r["pipe_offset_from_wall_m"] + 0.05 + rp
+            zc = p.depth_m + x["proud_m"]
+        else:
+            P = lambda l, y, z: (l, y, z)
+            V = lambda v: v
+            lat = p.depth_m + x["proud_m"] + r["pipe_offset_from_wall_m"] + 0.05 + rp
+            zc = -x["s_m"]
+        R_, N_ = V(R), V(N)
+        at_wall = lambda l, y: P(l, y, zc)
         hw, hh, hd = 0.14, 0.24, 0.09               # the head: half its width, its height, half its depth
         y_head = x["head_m"] - hh
         y4 = x["foot_m"] + r["shoe_end_above_grade_m"] + rp * math.cos(kick)
         y3 = y4 + r["shoe_length_m"] * math.sin(kick)
         self.tube(mat, [at_wall(lat, y_head + 0.02), at_wall(lat, y3),
-                        at_wall(lat + r["shoe_length_m"] * math.cos(kick), y4)], rp, R, seed, conf, cap_end=True)
+                        at_wall(lat + r["shoe_length_m"] * math.cos(kick), y4)], rp, R_, seed, conf, cap_end=True)
         hp = self.prim(mat)
-        c0 = at_wall(lat, y_head)
-        lo, hi = (c0[0] - hd, c0[0] + hd), (y_head, x["head_m"])
-        z0, z1 = c0[2] - hw, c0[2] + hw
-        bx = lambda l, y, z: (l, y, z)
-        b = self.basis(mat, c0, R, Y, seed)
-        hp.face([bx(lo[1], hi[0], z1), bx(lo[1], hi[0], z0), bx(lo[1], hi[1], z0), bx(lo[1], hi[1], z1)], N, b, conf)
-        hp.face([bx(lo[0], hi[0], z0), bx(lo[1], hi[0], z0), bx(lo[1], hi[1], z0), bx(lo[0], hi[1], z0)], R, b, conf)
+        lo, hi = (lat - hd, lat + hd), (y_head, x["head_m"])
+        z0, z1 = zc - hw, zc + hw
+        bx = P
+        b = self.basis(mat, at_wall(lat, y_head), R_, Y, seed)
+        hp.face([bx(lo[1], hi[0], z1), bx(lo[1], hi[0], z0), bx(lo[1], hi[1], z0), bx(lo[1], hi[1], z1)], N_, b, conf)
+        hp.face([bx(lo[0], hi[0], z0), bx(lo[1], hi[0], z0), bx(lo[1], hi[1], z0), bx(lo[0], hi[1], z0)], R_, b, conf)
         hp.face([bx(lo[1], hi[0], z1), bx(lo[0], hi[0], z1), bx(lo[0], hi[1], z1), bx(lo[1], hi[1], z1)],
-                _mul(R, -1), b, conf)
+                _mul(R_, -1), b, conf)
         hp.face([bx(lo[0], hi[0], z0), bx(lo[0], hi[0], z1), bx(lo[1], hi[0], z1), bx(lo[1], hi[0], z0)],
                 (0.0, -1.0, 0.0), b, conf)
         hp.face([bx(lo[0], hi[1], z1), bx(lo[0], hi[1], z0), bx(lo[1], hi[1], z0), bx(lo[1], hi[1], z1)], Y, b, conf)
@@ -3942,7 +3955,7 @@ class Assembly:
         yy = y_head - 0.4
         while yy > y3 + 0.3:
             c = at_wall(lat, yy)
-            band = [_add(c, _add(_mul(R, math.cos(a) * (rp + 0.004)), _mul(N, math.sin(a) * (rp + 0.004))))
+            band = [_add(c, _add(_mul(R_, math.cos(a) * (rp + 0.004)), _mul(N_, math.sin(a) * (rp + 0.004))))
                     for a in [2 * math.pi * j / 8 for j in range(9)]]
             for j in range(8):
                 mo = _sub(_mul(_add(band[j], band[j + 1]), 0.5), c)
@@ -3954,15 +3967,15 @@ class Assembly:
         st = self.prim("stoop_stone")
         l0, l1 = lat + 0.05, lat + r["shoe_length_m"] * math.cos(kick) + 0.30
         s0, s1, h = -0.17, 0.17, 0.04
-        Q = lambda l, s, y: _add(at_wall(l, y), _mul(R, s))
-        bt = self.basis("stoop_stone", Q(l0, s0, h), R, N, seed)
+        Q = lambda l, s, y: _add(at_wall(l, y), _mul(R_, s))
+        bt = self.basis("stoop_stone", Q(l0, s0, h), R_, N_, seed)
         st.face([Q(l0, s0, h), Q(l0, s1, h), Q(l1, s1, h), Q(l1, s0, h)], Y, bt, conf)
-        bs = self.basis("stoop_stone", Q(l0, s0, 0), R, Y, seed)
-        st.face([Q(l1, s0, 0), Q(l1, s1, 0), Q(l1, s1, h), Q(l1, s0, h)], N, bs, conf)
-        st.face([Q(l0, s0, 0), Q(l0, s1, 0), Q(l0, s1, h), Q(l0, s0, h)], _mul(N, -1), bs, conf)
-        be = self.basis("stoop_stone", Q(l0, s0, 0), N, Y, seed)
-        st.face([Q(l0, s0, 0), Q(l1, s0, 0), Q(l1, s0, h), Q(l0, s0, h)], _mul(R, -1), be, conf)
-        st.face([Q(l0, s1, 0), Q(l1, s1, 0), Q(l1, s1, h), Q(l0, s1, h)], R, be, conf)
+        bs = self.basis("stoop_stone", Q(l0, s0, 0), R_, Y, seed)
+        st.face([Q(l1, s0, 0), Q(l1, s1, 0), Q(l1, s1, h), Q(l1, s0, h)], N_, bs, conf)
+        st.face([Q(l0, s0, 0), Q(l0, s1, 0), Q(l0, s1, h), Q(l0, s0, h)], _mul(N_, -1), bs, conf)
+        be = self.basis("stoop_stone", Q(l0, s0, 0), N_, Y, seed)
+        st.face([Q(l0, s0, 0), Q(l1, s0, 0), Q(l1, s0, h), Q(l0, s0, h)], _mul(R_, -1), be, conf)
+        st.face([Q(l0, s1, 0), Q(l1, s1, 0), Q(l1, s1, h), Q(l0, s1, h)], R_, be, conf)
 
     def tube(self, mat, path, rad, ref, seed, conf, cap_end=False, sides=8):
         """A round pipe along a polyline lying in a plane normal to `ref`: rings mitred

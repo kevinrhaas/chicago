@@ -12,6 +12,12 @@ ROOT = Path(__file__).resolve().parents[3]
 record = json.loads((ROOT/'data/transport/parked/placements.json').read_text())
 originals = {r['id']: r for r in json.loads((ROOT/'data/yard/town_trade_goods.json').read_text())['wagons']}
 assert validate_covered(record, originals, ROOT) == 2
+# Both pre-existing and new separately validated families must retain the same covered subset.
+without_brougham = deepcopy(record)
+without_brougham['models'].pop('studebaker_brougham_1893', None)
+for rows in without_brougham['scenes'].values():
+    rows[:] = [row for row in rows if row['model'] != 'studebaker_brougham_1893']
+assert validate_covered(without_brougham, originals, ROOT) == 2
 cases = []
 
 
@@ -38,6 +44,8 @@ refuse('existing stand cannot move', lambda c, o: covered(c).update(at_local_enu
 refuse('bearing cannot change', lambda c, o: covered(c).update(bearing_deg=356.3))
 refuse('no unreviewed individual substitution', lambda c, o: covered(c).update(replaces='town_wagon_western_hotel_wagon_yard_2'))
 refuse('no duplicate covered replacement', lambda c, o: c['scenes']['1835'].append(deepcopy(covered(c))))
+refuse('unknown family cannot use optional Brougham allowance', lambda c, o: c['models'].__setitem__('unreviewed_family', deepcopy(c['models']['carriage_c02'])))
+refuse('required generic family cannot disappear', lambda c, o: c['models'].pop('carriage_c02'))
 
 
 def wrong_era(candidate, old):

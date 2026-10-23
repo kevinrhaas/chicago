@@ -1350,3 +1350,53 @@ The existing project-authored geometry supplies these original UV/tangent source
 | `authored/transport/wagon_parked/charts/original-w01-charts.bin` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
 | `authored/transport/wagon_parked/charts/original-w01-charts.json` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
 | `authored/transport/wagon_parked/charts/original-w01-charts.mapping.json` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
+
+### Actual Bardwell initial-standing canonical exports — 2026-10-22
+
+Actual run39712579846, head34cf462ed343b8b2b70da70303344fff7e5e083f, artifact12398870779; exact existing CC0-1.0 graphical/component/master-export licenses and notices above continue. This receipt records actual bytes, not likeness, photographic or full-fit acceptance.
+
+|Path under assets/|Bytes|SHA256|
+|---|---:|---|
+|humans/bardwell_otis_1835.lod0.glb|8633684|8b7d165bedfa5c8f12fd7e9aeb8d51e1cfc3cab816675a7817900f4bd9418198|
+|humans/bardwell_otis_1835.lod1.glb|8004644|7935a45d0332020adae619b05fe84c5010a84a260ba04764bea6371ad953f318|
+|humans/bardwell_otis_1835.lod2.glb|7459216|555432bfd5ca37c96755d33ed8ff24cc1ff7d77ad50896fa75ec0b61497c00c4|
+|humans/bardwell_otis_1835.lod3.glb|7238540|4ec095034edbe19e91a53d34d82f5eb47ed99a0ec620ca2e487e328170872aa4|
+|humans/web/bardwell_otis_1835.lod0.glb|4439324|47132fdfe27c1c144039e2db708bca6da6db63c201b37351a7632f1c0f45a953|
+|humans/web/bardwell_otis_1835.lod1.glb|1564256|485856360666b48ea0534e645ebda0e678af63be9e66514be78df0621a262454|
+|humans/web/bardwell_otis_1835.lod2.glb|617540|b9976874ae6a20a1e884bec62d97c4039312ae2e8ac4bd5cfbffd8148192485a|
+|humans/web/bardwell_otis_1835.lod3.glb|308100|c86fff664ac893d0fb5d6877040a0d0a9d388dc9f25acfc208be0eeb13e12ad2|
+
+### Actual Bardwell connected-waistcoat canonical replacement — 2026-10-22
+
+Actual source96c4da4b1fe68e6dec3b18c15da2f14c596a60c5, successful canonical run39736567239 attempt1, artifact12408480668, ZIP SHA2569ca4e1e692da77d3cbb1e0089f2d53cc01cd360d8cafc2b0e97230434326d5f5. These eight exact same-run exports replace the earlier Bardwell initial-standing bytes only. Existing CC0-1.0 graphical/master/base/skin/hair provenance and notices above remain; project build-code licensing is unchanged. Source/web/sole/normal/rigid-frame/container/seated/W01 mechanical qualification is actual. Root reviewed actual publishedLOD0front/profile and accepted the repaired upper panels for the initial visible increment; broad photographic/full-fit/occupied acceptance remains open. Historical export receipts above remain historical.
+
+|Path under assets/|Bytes|SHA256|
+|---|---:|---|
+|humans/bardwell_otis_1835.lod0.glb|8656876|84cdeb6d362aa1a85549b18daef41ae492f18595a19ff5b7e6eff539a3576d04|
+|humans/bardwell_otis_1835.lod1.glb|8018176|e2ff6d6d4df02b3852248c4712b9472c86fe7ca14a60b3db02788deed8db73c3|
+|humans/bardwell_otis_1835.lod2.glb|7465876|bc7ab6752b92f5451b285b070d2f76d896edddffa46d976c3569820745b8be7f|
+|humans/bardwell_otis_1835.lod3.glb|7241808|8d36ceade3b2dce3b8d081dc484faa98bb57dd2c0d288c1043f0a6da9d3dc233|
+|humans/web/bardwell_otis_1835.lod0.glb|4447008|3c75b33e5130fb8fe4813866d52d248bdab4207ab7a10c78b4074cc5fc30e999|
+|humans/web/bardwell_otis_1835.lod1.glb|1568968|af2492264df071facce2c4ba128d851a5624f93bcf3f9e507eb406694e3124f1|
+|humans/web/bardwell_otis_1835.lod2.glb|619964|ac21fdb00c402f76810a23467e299612042aa3ce21b017e7705ca675793df77a|
+|humans/web/bardwell_otis_1835.lod3.glb|309428|b61d09e2efdb204a90d5d3c8fe49d1a6502108fd6ac62a592350129db48f8d40|
+
+## V17 catalogue-guided Brougham (T-2794)
+
+Original project GPL-3.0-or-later source and generated geometry: `tools/transport/brougham/{generate.py,source_details.py,quarter_surface.py,index_streams.py,static_master.py,parameters.json,lods.json,rear-quarter.json,ring16-mid-lods.json,LICENSE}`. Raw near master SHA256 b74e00937871eef8666fe048501456a8409b18df185c87a0905b083b7a2448fa and indexed near SHA256 ec2bfc0da49b570429dbcd8db39250aa6f1bbf55587570f0dafad9a42afc4ee5 remain exact. The current 11,706-triangle distance mid has raw SHA256 48a9224ba38da8a1beb809f6970a7d51801da8d032332a52da4b60590c44102f and indexed SHA256 d6d6709ec4dda73e84a916e71dfb9dba6ad16961423a4f3babebdf58363c20d2. Its frozen original-source tessellation recipe and two optional generator controls preserve all physical feature categories, materials, contacts and interfaces; 468 subdivision records become302. No external geometry or image texture is used. The earlier22,238-triangle mid and its proof remain in Git history and recovery capsules.
+
+The public-domain appearance reference is US1893 Studebaker catalogue leaf0095, source `studebaker_1893_illustrated_souvenir`, plate SHA256 b458565ec06ba1e8e59d1455cc2d3f277c2371910b3085c2085749fc59a68abe. No plate pixels are embedded. Maker/design availability is evidenced; the individual specimen, owner, stop, dimensions, hidden construction and materials remain reconstructed. No Pullman/Glessner ownership is claimed. The opaque quarter is an unidentified surface interpretation. Eight fixed native desktop/mobile views were accepted narrowly for distance-LOD appearance; world, budget, photographic and occupied acceptance remain open. The production sidecar retains the original near conservative collision proxy, not the smaller mid tight bound. No Brougham file is added under assets/.
+
+## W01 fine-grained timber material increment (T-2793)
+
+`parked-wagon-fine-wood/` uses unchanged original project W01 geometry and project-authored UV/tangent/index charts (GPL-3.0-or-later). Side timber pixels derive from [Fine Grained Wood](https://polyhaven.com/a/fine_grained_wood), Rob Tuytel / Poly Haven, [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/); original paint, iron and cut-end pixels remain CC0. Native2K maps were rotated, cropped, reduced2x, narrow8pxperiodic edge blended, and albedo given bounded1.5linear exposure; GL normal vectors were correspondingly rotated and renormalized. This is a modern optical analogy and reconstructed brown finish, with no species/date/coating/maker/Chicago-specimen attestation. Photographic/world/budget acceptance remains open. Source map URLs, official hashes and derivation are in `assets/authored/transport/wagon_parked_fine_wood/SOURCE.json`.
+
+The authored binding files `assets/authored/transport/wagon_parked_fine_wood/{surface.json,surface.bin}` combine original project GPL-3.0-or-later UV/tangent/index charts with the documented CC0 image derivatives; the geometry is freshly regenerated by `tools/transport/generate_parked_wagon_fine_wood.py` through the unchanged original W01 pipeline. `ATTRIBUTION.txt` and `SOURCE.json` preserve creator, URLs, source hashes and transformations. The installed `renderers/web/transport/parked-wagon-fine-wood/wagon-w01.glb` SHA256 is e1e5b4f1d7dfe6bf08cca21e8cfae2e88748a3f6e6c6959753334ae2b0c84dd8. The original parked-wagon asset remains unchanged. The two covered variants retain distinct finish families and take only the separately documented cloth-drape increment.
+
+| Asset | License | Provenance |
+| --- | --- | --- |
+| `authored/transport/wagon_parked_fine_wood/ATTRIBUTION.txt` | GPL-3.0-or-later | Original project attribution text identifying the separately licensed CC0 texture maps and their transformations. |
+| `authored/transport/wagon_parked_fine_wood/surface.json` | GPL-3.0-or-later (project binding and charts); CC0-1.0 (texture derivatives) | Original project UV/tangent/index binding; Fine Grained Wood maps by Rob Tuytel / Poly Haven and original CC0 paint, iron and cut-end pixels, as documented above and in SOURCE.json. |
+| `authored/transport/wagon_parked_fine_wood/surface.bin` | GPL-3.0-or-later (project charts); CC0-1.0 (texture pixels) | Original project chart streams and documented CC0 texture derivatives; no third-party geometry. |
+
+The covered-cloth refinement under T-2980 changes only the reconstructed inter-bow drape constants (8–10mm to20–28mm over750mm spans), retaining original GPL geometry/source lineage and CC0 analytic texture pixels. Current source/product hashes are in `assets/authored/transport/wagon_covered/SOURCE.json`: core679fc439, blue GLB aaffa339, oak GLB22072e6f. Variant identities, seeded finish colors/aging, yokes, pivots, stands and newer terrain qualification are preserved. This is not an attested historic textile form or physical cloth simulation.

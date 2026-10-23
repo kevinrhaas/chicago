@@ -1,0 +1,15 @@
+{
+  "id": "prairie_parked_carriage",
+  "model": "carriage_c02",
+  "name": "Enclosed town carriage",
+  "belongs_to": null,
+  "location": "Prairie Avenue near Eighteenth Street",
+  "at_local_enu_m": [
+    1397.6,
+    -3228.2
+  ],
+  "bearing_deg": 178.99,
+  "source_ids": [],
+  "liberty": "L-parked-vehicles-2979",
+  "note": "A reconstructed temporary curbside stop in the1904 carriageway, clear of the sidewalk and crossing. Its location does not identify the owner or imply use by the Glessner household. Empty and unhitched; doors remain closed and boarding is not enabled."
+}

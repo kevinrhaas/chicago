@@ -855,7 +855,7 @@ PERSON_EVIDENCE_KINDS = (
 #: other four grade how well the town knew a RESIDENT, and a visitor of the season is not
 #: one. It is decided by the household the row came from (T-1353), not by a person flag,
 #: so it is passed in rather than read off the person.
-HOW_KNOWN = ("documented", "letter_list", "civic_mint", "projected", "transient")
+HOW_KNOWN = ("documented", "letter_list", "civic_mint", "projected", "transient", "reconstructed")
 
 #: T-1400. A pill is read by a visitor, and three of the programme's stage keys are
 #: written for the tool that owns them rather than for a reader: `readmissions` is a
@@ -879,6 +879,12 @@ def how_known(person: dict, transient: bool = False) -> str:
         return "civic_mint"
     if person.get("resident_subtype") == "projected_resident":
         return "projected"
+    # This explicit mint category invents names; grade alone does not.
+    # Readmitted and underdocumented source-read names keep their evidence category.
+    if (person.get("grade") == "reconstructed"
+            and person.get("resident_subtype") == "reconstructed_trade_head"
+            and (person.get("reconstruction") or {}).get("stage") == "trade_households"):
+        return "reconstructed"
     return "documented"
 
 
@@ -1593,9 +1599,8 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     # out of it rather than folded in: a summer crowd nobody named would otherwise have
     # read as 307 more documented Chicagoans. They are counted on their own row.
     known = {
-        "documented": sum(1 for r in resident_rows if not r["letter_list_only"]
-                          and not r["civic_mint"]
-                          and r["resident_subtype"] != "projected_resident"),
+        "documented": sum(1 for r in resident_rows if r["how_known"] == "documented"),
+        "reconstructed": sum(1 for r in resident_rows if r["how_known"] == "reconstructed"),
         "letter_list": sum(1 for r in resident_rows if r["letter_list_only"]),
         "civic_mint": sum(1 for r in resident_rows if r["civic_mint"]),
         "projected": sum(1 for r in resident_rows
@@ -1663,6 +1668,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
             "civic_mint": known["civic_mint"],
             "projected_residents": known["projected"],
             "documented": known["documented"],
+            "reconstructed_identities": known["reconstructed"],
             "by_grade": by_grade,
             # T-1400. The stage of the reconstruction programme that minted each person,
             # and the people no stage minted — which is every person a source names.

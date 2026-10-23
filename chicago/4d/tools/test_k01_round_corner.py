@@ -101,8 +101,14 @@ refused(variant(lambda f: f["rainwater"]["value"]["front_pipes"][1].update(proud
         "a pipe before the front's plane over the round", "stands on the round")
 refused(variant(lambda f: f["rainwater"]["value"]["front_pipes"][1].update(proud_m=-0.45)),
         "a pipe buried in the round", "stands on the round")
-refused(variant(lambda f: f["rainwater"]["value"]["front_pipes"][0].update(proud_m=-0.2)),
+# T-2997: front_pipes[0] stands on the bay's return, so the flat-front case is a plain pipe
+refused(variant(lambda f: f["rainwater"]["value"]["front_pipes"].__setitem__(
+            0, {"s_m": 6.24, "head_m": 7.85, "foot_m": 0.0, "proud_m": -0.2})),
         "a pipe behind the flat front", "stands on the round")
+refused(variant(lambda f: f["rainwater"]["value"]["front_pipes"][0].update(s_m=6.24)),
+        "a return pipe where no projection's return stands (T-2997)", "square high-s return")
+refused(variant(lambda f: f["rainwater"]["value"]["front_pipes"][0].update(proud_m=0.9)),
+        "a return pipe past the return's depth (T-2997)", "square high-s return")
 refused(variant(lambda f: f["round_corner"]["value"].update(radius_m=1.5)), "a bay standing on the round",
         "the bay oriel")
 refused(variant(lambda f: f.pop("stone_front")), "a round with no stone front", "stone")

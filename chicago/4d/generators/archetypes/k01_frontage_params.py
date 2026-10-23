@@ -390,11 +390,19 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
     # `s_m` along the front from the south corner, the head's top `head_m` over grade, standing
     # `proud_m` before the main front (a projection's face), down to `foot_m` (0: grade, its shoe
     # over a splash stone; else a lower roof it discharges onto)
+    # T-2997: or (`on: "return"`) down a street projection's square high-s return, its own face
+    # (1811's bay on its 1888 plate): `s_m` is then the return's face, `proud_m` where along it
+    # the pipe stands before the main front, and the pipe, head, straps and shoe turn to that
+    # face; from_phase holds it to a projection's return
     front = []
     for x in rain.get("front_pipes", []):
-        if set(x) != {"s_m", "head_m", "foot_m", "proud_m"}:
-            raise ParamError("rainwater.front_pipes take s_m, head_m, foot_m and proud_m")
+        if set(x) - {"on"} != {"s_m", "head_m", "foot_m", "proud_m"} or x.get("on", "front") not in ("front", "return"):
+            raise ParamError("rainwater.front_pipes take s_m, head_m, foot_m and proud_m (and on: front or return)")
         q = {k: float(x[k]) for k in ("s_m", "head_m", "foot_m", "proud_m")}
+        if x.get("on") == "return":
+            if not 0.15 <= q["proud_m"] <= 2.0:
+                raise ParamError(f"rainwater.front_pipes {x}: a pipe on a return stands 0.15-2 m before the front")
+            q["on"] = "return"
         # T-3006: a pipe on a rounded corner stands behind the front's plane, round the
         # curve; from_phase holds it clear of the round's face (_round_corner)
         if not -1.5 <= q["proud_m"] <= 2.0 or not 0.0 <= q["foot_m"] <= q["head_m"] - 0.5 or q["head_m"] > 20.0:
@@ -997,6 +1005,37 @@ def _wall_gable(d: dict, wg: dict, dormer: dict, width: float) -> dict:
         raise ParamError("dormer.wall_gable.pinnacles: a shaft rises from under the wall head past the face's eave")
     if vm - pin["at_m"] - pin["shaft_m"] / 2 < 0.0 or vm + pin["at_m"] + pin["shaft_m"] / 2 > width:
         raise ParamError("dormer.wall_gable.pinnacles: both shafts stand on the front")
+    # T-3051: or each shaft its own head (`heads`, the low-s one first; 1811's 1888 plate carves
+    # them apart): its own `top_m`, its spire a `pyramid` (the default, `spire_m` high) or a
+    # `dome` (`spire_m` its rise), and over the low one a moulded `block` straddling the rake's
+    # foot, `in_m` toward the face's centre, from `foot_m` (over the wall head) `height_m` high
+    if "heads" in pn:
+        hs = pn["heads"]
+        if not isinstance(hs, list) or len(hs) != 2:
+            raise ParamError("dormer.wall_gable.pinnacles.heads: one head a shaft, the low-s one first")
+        heads = []
+        for j, h in enumerate(hs):
+            if set(h) - {"top_m", "spire", "spire_m", "block"} or h.get("spire", "pyramid") not in ("pyramid", "dome"):
+                raise ParamError(f"dormer.wall_gable.pinnacles.heads[{j}] takes top_m, spire (pyramid or dome), "
+                                 "spire_m and block")
+            hd = {"top_m": float(h.get("top_m", pin["top_m"])), "spire": h.get("spire", "pyramid"),
+                  "spire_m": float(h.get("spire_m", pin["spire_m"]))}
+            if not dormer["face_height_m"] < hd["top_m"] <= 4.0 or not 0.1 <= hd["spire_m"] <= 1.2:
+                raise ParamError(f"dormer.wall_gable.pinnacles.heads[{j}]: a shaft rises past the face's eave "
+                                 "(at most 4 m), under a 0.1-1.2 m spire")
+            if "block" in h:
+                bk = h["block"]
+                if set(bk) != {"in_m", "width_m", "foot_m", "height_m"}:
+                    raise ParamError(f"dormer.wall_gable.pinnacles.heads[{j}].block takes in_m, width_m, foot_m "
+                                     "and height_m")
+                b = {k: float(bk[k]) for k in ("in_m", "width_m", "foot_m", "height_m")}
+                if not 0.3 <= b["width_m"] <= 1.0 or not 0.4 <= b["height_m"] <= 2.0 \
+                        or not 0.0 <= b["in_m"] - b["width_m"] / 2 <= pin["shaft_m"] / 2:
+                    raise ParamError(f"dormer.wall_gable.pinnacles.heads[{j}].block: 0.3-1.0 m wide, 0.4-2.0 m "
+                                     "high, its outer face over the shaft and inside its centre line")
+                hd["block"] = b
+            heads.append(hd)
+        pin["heads"] = heads
     finial = {"height_m": float(fn["height_m"]), "radius_m": float(fn["radius_m"])}
     if not 0.2 <= finial["height_m"] <= 1.0 or not 0.04 <= finial["radius_m"] <= 0.2:
         raise ParamError("dormer.wall_gable.finial: 0.2-1.0 m high, 0.04-0.2 m in radius")
@@ -4308,6 +4347,20 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError("stone_finish requires a flat roof and a stone front")
     round_corner = _round_corner(val("round_corner"), depth, width, stone, openings, bays, rainwater,
                                  side_belts=val("side_belts") or (), frontispiece=frontispiece)
+    # T-2997: a pipe on a return stands on a street projection's square high-s return, at
+    # least its head's half-width (0.14 m) and 0.01 m clear of the projection's face and the
+    # main front
+    for x in (rainwater or {}).get("front_pipes", []):
+        if x.get("on") != "return":
+            continue
+        rets = [b["s_m"] + pts[-1][0] for b in bays if b["wall"] == "k01.wall.street_front"
+                for pts in [((b.get("variant") or {}).get("plan") or {}).get("points") or []
+                            if isinstance(b.get("variant"), dict) else []]
+                if len(pts) >= 2 and pts[-1][1] == 0.0 and pts[-2][0] == pts[-1][0]
+                and 0.15 <= x["proud_m"] <= pts[-2][1] - 0.15]
+        if not any(abs(r - x["s_m"]) < 1e-6 for r in rets):
+            raise ParamError(f"rainwater.front_pipes {x}: no street projection's square high-s return stands at "
+                             f"s {x['s_m']} deep enough for a pipe {x['proud_m']} m before the front")
     names = sorted(CONSUMED)
     # T-2781: a side wall's stone belt (1637's south flank, the Grosvenor photograph's pale band
     # along its foot). Never on a wall that carries K03's brick course, which is the same line
