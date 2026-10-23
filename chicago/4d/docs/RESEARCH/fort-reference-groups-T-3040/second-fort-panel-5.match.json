@@ -1,0 +1,431 @@
+{
+  "structure_id": "fort_dearborn_blockhouse",
+  "view": "second-fort-panel-5",
+  "glb": "assets/gltf/fort_dearborn_blockhouse__log_1816.glb",
+  "glb_sha256": "4b49f0dba271d11ce407e6b407c6e4a766402bce04b93b24ebbcc2862f899e00",
+  "camera_sha256": "7ab41ad3e5bfb65127efadfa48742b26fb5076368892cc19157b580c0ab218a8",
+  "photo_sha256": "80c71433bd66455639b535718b936fa343be5e84a88a509dbe9f79e4f7b1818d",
+  "rendered_members": [
+    {
+      "structure_id": "fort_dearborn_blockhouse",
+      "glb": "assets/gltf/fort_dearborn_blockhouse__log_1816.glb",
+      "placement": {
+        "local_e": 1121.18,
+        "local_n": 196.72,
+        "rotation_deg": 8,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "log_1816"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "4b49f0dba271d11ce407e6b407c6e4a766402bce04b93b24ebbcc2862f899e00"
+    },
+    {
+      "structure_id": "fort_dearborn_artillery_house",
+      "glb": "assets/gltf/fort_dearborn_artillery_house__log_1816.glb",
+      "placement": {
+        "local_e": 1171.68,
+        "local_n": 194.41,
+        "rotation_deg": 278,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "log_1816"
+      },
+      "position": [
+        50.33002733466705,
+        0,
+        -4.740722359690274
+      ],
+      "rotation_y": -4.71238898038469,
+      "glb_sha256": "4e5a2c8b2b8b1d5aaabeca9b0e9addedd51be73efe6bf545eca236243043bf50"
+    },
+    {
+      "structure_id": "fort_dearborn_barracks",
+      "glb": "assets/gltf/fort_dearborn_barracks__log_1816.glb",
+      "placement": {
+        "local_e": 1172.62,
+        "local_n": 203.41,
+        "rotation_deg": 278,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "log_1816"
+      },
+      "position": [
+        50.00832141064337,
+        0,
+        -13.783957693266846
+      ],
+      "rotation_y": -4.71238898038469,
+      "glb_sha256": "bb6dff07ebf225fd57f54fc07644f50dba3d332862321f0749bac2bff702d7c3"
+    },
+    {
+      "structure_id": "fort_dearborn_big_barn",
+      "glb": "assets/gltf/fort_dearborn_big_barn__barn_1830.glb",
+      "placement": {
+        "local_e": 1042.35,
+        "local_n": 144.17,
+        "rotation_deg": 132,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "barn_1830"
+      },
+      "position": [
+        -70.7492854034467,
+        0,
+        63.00960256105151
+      ],
+      "rotation_y": -2.1642082724729685,
+      "glb_sha256": "2a2374a78d4d8ab77db3df18358d1da805d35da0be9e3e354b5858ab4c2eed47"
+    },
+    {
+      "structure_id": "fort_dearborn_commandants_quarters",
+      "glb": "assets/gltf/fort_dearborn_commandants_quarters__brick_1816.glb",
+      "placement": {
+        "local_e": 1149.02,
+        "local_n": 244.98,
+        "rotation_deg": 188,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "brick_1816"
+      },
+      "position": [
+        20.852569181432482,
+        0,
+        -51.66491612819638
+      ],
+      "rotation_y": -3.141592653589793,
+      "glb_sha256": "cb0ef3862d79243d40497f81807e120ca26fd29bd7b3f9e8d9b97e8a25aa3a9f"
+    },
+    {
+      "structure_id": "fort_dearborn_flagstaff",
+      "glb": "assets/gltf/fort_dearborn_flagstaff__staff_1833_37.glb",
+      "placement": {
+        "local_e": 1150.55,
+        "local_n": 221.46,
+        "rotation_deg": 8,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "staff_1833_37"
+      },
+      "position": [
+        25.641030661187795,
+        0,
+        -28.586745995863566
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "476674491a725533413da111db916bc8922b4f406c2863e633d0562a0b4b29de"
+    },
+    {
+      "structure_id": "fort_dearborn_garrison_garden",
+      "glb": "assets/gltf/fort_dearborn_garrison_garden__fence_1816.glb",
+      "placement": {
+        "local_e": 1019.1,
+        "local_n": 106.56,
+        "rotation_deg": 53,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "fence_1816"
+      },
+      "position": [
+        -88.53871767458004,
+        0,
+        103.48935922374346
+      ],
+      "rotation_y": -0.7853981633974483,
+      "glb_sha256": "565c8aaa23f8e6ed4389d4acc53f2fdfbbfc2aff5d736a53c63a19ae43e7fd1e"
+    },
+    {
+      "structure_id": "fort_dearborn_guard_house",
+      "glb": "assets/gltf/fort_dearborn_guard_house__log_1816.glb",
+      "placement": {
+        "local_e": 1138.27,
+        "local_n": 200.91,
+        "rotation_deg": 8,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "log_1816"
+      },
+      "position": [
+        16.340546001770683,
+        0,
+        -6.527691503434685
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "9567aa68ee7180faa9f4ef2493532dbc6f781b071a9e37a29cc641d67d6eb042"
+    },
+    {
+      "structure_id": "fort_dearborn_magazine",
+      "glb": "assets/gltf/fort_dearborn_magazine__brick_1816.glb",
+      "placement": {
+        "local_e": 1131.73,
+        "local_n": 207.28,
+        "rotation_deg": 8,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "brick_1816"
+      },
+      "position": [
+        8.977660179085232,
+        0,
+        -11.92550702103967
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "f8c8aa057f8f83b56e2e0a75cb66ac5c463f3da895eb8a0e2f8b4ededaa3ee13"
+    },
+    {
+      "structure_id": "fort_dearborn_officers_quarters",
+      "glb": "assets/gltf/fort_dearborn_officers_quarters__log_1816.glb",
+      "placement": {
+        "local_e": 1131.83,
+        "local_n": 232.2,
+        "rotation_deg": 98,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "log_1816"
+      },
+      "position": [
+        5.608493310034469,
+        0,
+        -36.61690460417559
+      ],
+      "rotation_y": -1.5707963267948966,
+      "glb_sha256": "7893888e5dc777e050ca4349bf889c7702e35118521426b44446ab8a20d6de12"
+    },
+    {
+      "structure_id": "fort_dearborn_out_building_a",
+      "glb": "assets/gltf/fort_dearborn_out_building_a__out_building_a_1830.glb",
+      "placement": {
+        "local_e": 1176.24,
+        "local_n": 56.58,
+        "rotation_deg": 154,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "out_building_a_1830"
+      },
+      "position": [
+        74.02787823345437,
+        0,
+        131.11329621458245
+      ],
+      "rotation_y": -2.548180707911721,
+      "glb_sha256": "59e6c771e8ab47c91ea91bb21c2a26b202e600aa22eb3f8f3d77990fbfa9ca95"
+    },
+    {
+      "structure_id": "fort_dearborn_out_building_b",
+      "glb": "assets/gltf/fort_dearborn_out_building_b__out_building_b_1830.glb",
+      "placement": {
+        "local_e": 1181,
+        "local_n": 61.7,
+        "rotation_deg": 139,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "out_building_b_1830"
+      },
+      "position": [
+        78.0289879637487,
+        0,
+        125.38065974205571
+      ],
+      "rotation_y": -2.286381320112572,
+      "glb_sha256": "23ee701aeea352d062809cbcdf0270850504e2d71435b9192c3e276e72092bdb"
+    },
+    {
+      "structure_id": "fort_dearborn_palisade",
+      "glb": "assets/gltf/fort_dearborn_palisade__picket_1816.glb",
+      "placement": {
+        "local_e": 1122.07,
+        "local_n": 198.45,
+        "rotation_deg": 8,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "picket_1816"
+      },
+      "position": [
+        0.6405691165189598,
+        0,
+        -1.837027818777347
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "1526a400bedd109a981a1af15861416b6b7ebfb5bb186c5c811990cb03a5a3b5"
+    },
+    {
+      "structure_id": "fort_dearborn_parade",
+      "glb": "assets/gltf/fort_dearborn_parade__parade_1816.glb",
+      "placement": {
+        "local_e": 1137.73,
+        "local_n": 206.75,
+        "rotation_deg": 8,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "parade_1816"
+      },
+      "position": [
+        14.993030335043487,
+        0,
+        -12.235703550367028
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "bc45f858a47aed9b89524242010033983e930d174db8787af6000f4c33d334d7"
+    },
+    {
+      "structure_id": "fort_dearborn_root_house",
+      "glb": "assets/gltf/fort_dearborn_root_house__cellar_1816.glb",
+      "placement": {
+        "local_e": 1117.73,
+        "local_n": 235.44,
+        "rotation_deg": 188,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "cellar_1816"
+      },
+      "position": [
+        -8.805207306332196,
+        0,
+        -37.863032423361375
+      ],
+      "rotation_y": -3.141592653589793,
+      "glb_sha256": "6826b10837f4d51beab80de4d03b6b4e53867075d688eecf219ef049567e7891"
+    },
+    {
+      "structure_id": "fort_dearborn_root_house_b",
+      "glb": "assets/gltf/fort_dearborn_root_house_b__cellar_1816_b.glb",
+      "placement": {
+        "local_e": 1108.73,
+        "local_n": 235.44,
+        "rotation_deg": 188,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "cellar_1816_b"
+      },
+      "position": [
+        -17.717619925006332,
+        0,
+        -36.610474514720785
+      ],
+      "rotation_y": -3.141592653589793,
+      "glb_sha256": "c11aa91ef159b9afbfdf50a3c7d1e46f948aa06cd7f5c12bb5411a92266b068c"
+    },
+    {
+      "structure_id": "fort_dearborn_shop",
+      "glb": "assets/gltf/fort_dearborn_shop__shop_1830.glb",
+      "placement": {
+        "local_e": 1212.57,
+        "local_n": 117.42,
+        "rotation_deg": 310,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "shop_1830"
+      },
+      "position": [
+        101.53702570842518,
+        0,
+        65.80922815446617
+      ],
+      "rotation_y": -5.270894341022875,
+      "glb_sha256": "6a080c52bc4553bbdbabf9efa02c777cf4e8a0a7384b53323bdc09e661a4ce89"
+    },
+    {
+      "structure_id": "fort_dearborn_store_house",
+      "glb": "assets/gltf/fort_dearborn_store_house__log_1816.glb",
+      "placement": {
+        "local_e": 1152.34,
+        "local_n": 199.09,
+        "rotation_deg": 8,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "log_1816"
+      },
+      "position": [
+        30.52691277271183,
+        0,
+        -6.683569148833145
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "48e29b26e9c3163ca6ef63f98e981ce71b408903bb498ee641de761099aa2fe4"
+    },
+    {
+      "structure_id": "fort_dearborn_sutlers_store",
+      "glb": "assets/gltf/fort_dearborn_sutlers_store__log_1816.glb",
+      "placement": {
+        "local_e": 1175.78,
+        "local_n": 240.52,
+        "rotation_deg": 188,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "log_1816"
+      },
+      "position": [
+        47.97285473123878,
+        0,
+        -50.97259272330035
+      ],
+      "rotation_y": -3.141592653589793,
+      "glb_sha256": "099b06535d982cbeb5698bc21e00ee42e6bc236ec67e9093edb3b6265b38b064"
+    },
+    {
+      "structure_id": "fort_dearborn_us_factors_house",
+      "glb": "assets/gltf/fort_dearborn_us_factors_house__us_factors_house_1818.glb",
+      "placement": {
+        "local_e": 1152.2,
+        "local_n": 36.4,
+        "rotation_deg": 320,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "us_factors_house_1818"
+      },
+      "position": [
+        53.030347038281185,
+        0,
+        154.44262718886733
+      ],
+      "rotation_y": -5.445427266222308,
+      "glb_sha256": "f39f80677fff9e8e07b8b0bfe22a9e141fa0788d86f33a4e8b78ba2c2ed6ad9f"
+    },
+    {
+      "structure_id": "fort_dearborn_wash_house",
+      "glb": "assets/gltf/fort_dearborn_wash_house__wash_house_1830.glb",
+      "placement": {
+        "local_e": 1231.57,
+        "local_n": 160.12,
+        "rotation_deg": 260,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "wash_house_1830"
+      },
+      "position": [
+        114.40942760352021,
+        0,
+        20.880492700959863
+      ],
+      "rotation_y": -4.39822971502571,
+      "glb_sha256": "da34f5631692e48b4663b529aac0d66fa1c79ab9ca277d59dd914d1beb2d2f02"
+    }
+  ],
+  "group_sha256": "a88ff7b7186bec90aad9fbaf1d942d7a15184e82b6a0dc6a2c89520b2c5e992e",
+  "side_by_side": "docs/RESEARCH/fort-reference-groups-T-3040/comparisons/second-fort-panel-5-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "The initial bounded landmark fit produces an aerial, undersized compound against a nearly level printed view. Camera scale, height and framing require further fitting before geometry can be judged pixel for pixel.",
+      "status": "open"
+    },
+    {
+      "what": "The blockhouse cupola visible at the right of panel 5 is absent from the current asset.",
+      "status": "open"
+    },
+    {
+      "what": "The print shows a galleried range; the corresponding range identity, its galleries, facade openings, roof forms and chimney counts are unresolved. Do not move surveyed placements to fit a compressed retrospective composition.",
+      "status": "open"
+    },
+    {
+      "what": "Terrain, bank, river, tree and canoes are excluded from this common-grade analytical renderer; context members are not automatically pictured/attested.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

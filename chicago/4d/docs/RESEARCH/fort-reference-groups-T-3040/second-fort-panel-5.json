@@ -1,0 +1,62 @@
+{
+  "structure_id": "fort_dearborn_blockhouse",
+  "scene": "1835",
+  "source_id": "kurz_allison_1893",
+  "photo": "../../../data/sources/assets/prefire_views_kevin_2026_08/p3_1.png",
+  "image_px": [
+    1081,
+    579
+  ],
+  "principal_px": [
+    540.5,
+    289.5
+  ],
+  "focal_px": 1513.7569833798866,
+  "eye": [
+    -147.54990708692117,
+    216.8130385451387,
+    100
+  ],
+  "yaw_deg": 124.60398758246501,
+  "basis_right_up_forward": [
+    [
+      -0.5679010310413586,
+      -0.8230968466360212,
+      0
+    ],
+    [
+      0.3061917084402153,
+      -0.21125896379045067,
+      0.9282328845180219
+    ],
+    [
+      0.7640255601906418,
+      -0.527144412164279,
+      -0.3719996130365632
+    ]
+  ],
+  "sky": "overcast",
+  "also_render": [
+    "fort_dearborn_artillery_house",
+    "fort_dearborn_barracks",
+    "fort_dearborn_big_barn",
+    "fort_dearborn_commandants_quarters",
+    "fort_dearborn_flagstaff",
+    "fort_dearborn_garrison_garden",
+    "fort_dearborn_guard_house",
+    "fort_dearborn_magazine",
+    "fort_dearborn_officers_quarters",
+    "fort_dearborn_out_building_a",
+    "fort_dearborn_out_building_b",
+    "fort_dearborn_palisade",
+    "fort_dearborn_parade",
+    "fort_dearborn_root_house",
+    "fort_dearborn_root_house_b",
+    "fort_dearborn_shop",
+    "fort_dearborn_store_house",
+    "fort_dearborn_sutlers_store",
+    "fort_dearborn_us_factors_house",
+    "fort_dearborn_wash_house"
+  ],
+  "solve": "INITIAL CONDITIONAL LANDMARK FIT, not an accepted photographic camera. Principal point fixed; least-squares correspondences: committed stockade NW top/bottom against [856,347]/[856,384], bare blockhouse pyramid apex against [1037,234], opposite roof extremities against [992,270]/[1080,270]. Coordinate RMS 8.7069 px, point RMS 12.313 px; eye height reached the imposed 100 m bound. Both stockade endpoints are cropped and the drawing compresses the compound. Cupola top near [1037,215] is a separate absent feature, not the bare-roof apex. Preserve surveyed placements; camera requires visual refinement. Common grade plane, not terrain-equivalent. Overcast review lighting is an analytical choice for this printed drawing, not a claim about the historical sun. Context does not attest hidden members."
+}
