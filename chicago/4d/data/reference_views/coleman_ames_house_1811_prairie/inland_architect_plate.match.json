@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "01b0c46b6b0fc9979a17dd3ba80783679cbd67a938f5e51a7400f9fa00a7c9e8",
+  "glb_sha256": "66f0cabd3411b4cb563d27011a24544fce7fbcaa70225ec07ff80170ec383420",
   "camera_sha256": "8f67a67f5a407ad30522085a1ab67f9c29ddc0bae6ceb1a979db9ea1accdc2b4",
   "photo_sha256": "e55aede801c2193a857746efb4545fe97c995e697344b7e68ead1f06a4b7c7fe",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/inland_architect_plate-side-by-side.jpg",
@@ -45,7 +45,8 @@
     },
     {
       "what": "the bay's south-return downpipe: the plate's pale rod at x 298-302 px, from a head under the bay's cornice, runs down the return's own south face about 0.3 m in from the front's corner (a 1.0 m return at v 5.99 hides the main wall from x 288 to 315 px, so it cannot stand on the main front there); K01's front pipes run only along the street front, so T-2993 stands it on the main front beside the return at 6.24 m, landing at x 320-326 px, about 21 px south of the plate's (T-2997)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-2997: K01's front pipes learn a projection's square return (`on: \"return\"`): the pipe stands on the return's own south face 0.8 m before the main front (0.2 m in from the bay front's corner), its head, straps, shoe and splash stone turned to that face, and lands at x 297-301 px against the plate's 298-302; every other K01 house re-emits byte-identical"
     },
     {
       "what": "the bay's stone gable: its rake from about 10.2 m to an apex about 13.2 m with a finial, a group of three round-arched lights in an arched recess, corner pinnacles, and the pierced (fretwork) balcony on the bay's top in front of the third storey",
@@ -118,7 +119,8 @@
     },
     {
       "what": "the bay's stone gable's centre: its apex, its lights and its pinnacles stand about 10 px (0.25 m) south of the plate's (the apex at x about 209 px against 196, the flat-headed lights' centre at 208 against 197), as T-2542 placed the gable on the bay's centre; and the plate's pinnacles are carved, the right-hand one capped by a scaled dome, the left by a moulded block, where the build's are square shafts under pyramids (T-3051)",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3062: the gable moved 0.28 m north to `v_m` 3.32 and widened to 3.8 m with its pinnacles 2.0 m either side: the finial's tip at x 193-200 px (the plate's 196), the lights' centre at about 197 (197), the shafts at x 96-115 and 272-297 against 97-119 and 276-298, and the apex about 6 px higher onto the plate's. The pinnacles are carved apart (`pinnacles.heads`): the south shaft to a moulded band at y 316 px (the plate's 318) under a dome to y 292 (292); the north shaft carries a moulded block 0.45 m square, its top at y 282 px with the plate's and its left face at x 108-110 against 108, set in from the shaft so the rake dies into its side. The dome's scales and the block's mouldings are not cut (a plain dome; plinth, die and cornice), and the north shaft's height is the difference below"
     },
     {
       "what": "the pierced (fretwork) stone balcony on the bay's deck in front of the third storey: not built; the bay's deck carries only its moulded cornice (T-1892)",
@@ -136,12 +138,17 @@
       "how": "T-3005: the plate's 9.06 m is the TOP of the oriel's cornice: its moulded band is drawn at y 407-417 px (about 8.81-9.03 m at the oriel's face), the slates starting over it. K01 now lets a through-eave oriel's wall top stand under the eave datum, so long as it rises 0.3 m over the eave's front edge (the fascia's top, 8.50 m), so the eave still dies into its walls; its back is closed over the datum behind its eaves and spire only. Its wall top is 8.81 m and its 0.25 m fascia's top 9.06 m: the band lands at y 407-417 px with the plate's, where it stood at about 390-405, and the spire, rising 2.75 m, keeps its apex at 11.81 m (y about 295 px, the plate's). Every other K01 house re-emits byte-identical"
     },
     {
+      "what": "the north pinnacle's shaft and cap: the plate's shaft stops at a band about y 342 px with a scaled pyramid over it to about y 320, under the block; K01 carries an engaged shaft past the face's eave (to 11.10 m), so the build's cap and plain pyramid stand about 20 px higher (y 317-325) and the pyramid is not scaled (T-3064)",
+      "status": "open",
+      "how": ""
+    },
+    {
       "what": "the stacks: the plate's tall stack with its corbelled cap on the south gable and the range's second stack (x about 545 px); the build's two plain stacks stand behind the ridge where this camera does not see them",
       "status": "fixed",
       "how": "T-3050: both south stacks stand in the south wall's coped gable. The tall stack, 0.8 m behind the front: its shaft renders at x 497-520 px (the plate's 498-522), its corbelled band at y 287-320 (293-320) and its narrower top stage to y 269 (268); the second stack on the gable's rear fall at x 541-558 px, its top y 394 (the plate's 538-558 and 395)"
     },
     {
-      "what": "the south gable's rear fall: behind the tall stack the plate's coping runs from about (528, 380) to (557, 453) px, about 30 px under the render's (522, 322) to (555, 417), parallel to it, so the rear fall stands lower than the coped rake built at the ridge + 0.3 m falling to the rear wall head; the second stack stands on that lower line in the plate. Read the flank's wall head and the rear slope against the Chicagology print (T-3051)",
+      "what": "the south gable's rear fall: behind the tall stack the plate's coping runs from about (528, 380) to (557, 453) px, about 30 px under the render's (522, 322) to (555, 417), parallel to it, so the rear fall stands lower than the coped rake built at the ridge + 0.3 m falling to the rear wall head; the second stack stands on that lower line in the plate. Read the flank's wall head and the rear slope against the Chicagology print (T-3063)",
       "status": "open",
       "how": ""
     },
