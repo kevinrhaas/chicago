@@ -378,6 +378,8 @@ def rule_apron(b, cb):
     meta = b.meta.get("apron")
     if not cb or not meta:
         return ["support: an oriel on an apron has no apron under it"]
+    if meta.get("form") == "round":
+        return rule_round_apron(b, cb, meta)
     y0, foot, fh = b.meta["base_m"], meta["foot_m"], meta["foot_height_m"]
     fails = []
     if not foot + fh < y0:
@@ -392,6 +394,27 @@ def rule_apron(b, cb):
         ys = [p[1] for p in face]
         if not ys or min(ys) > foot + fh + 1e-6 or max(ys) < y0 - 1e-6:
             fails.append(f"apron: run {i}'s face does not stand from the foot's moulding to the floor at {y0} m")
+    return fails
+
+
+def rule_round_apron(b, cb, meta):
+    """T-3007: a round apron is the bay's plan turned under on a quarter round: on every run its
+    surface rises from the foot, its radius behind the face, round to the face at the walls'
+    foot, and its underside closes it back to the wall at the foot."""
+    foot, R = meta["foot_m"], meta["foot_height_m"]
+    fails = []
+    under = [i for i, p in enumerate(cb.pos) if abs(p[1] - foot) < 1e-6 and cb.nrm[i][1] < -0.99]
+    if not under:
+        fails.append(f"apron: nothing closes the round apron under its foot at {foot} m")
+    for i, run in enumerate(b.runs):
+        mid = run.world(run.L / 2, 0.0, 0.0)
+        off = [((p[0] - mid[0]) * run.n[0] + (p[2] - mid[2]) * run.n[1], p[1]) for k, p in enumerate(cb.pos)
+               if abs(cb.nrm[k][1]) < 0.999] if run.kind == "line" else []
+        top = [d for d, y in off if abs(y - (foot + R)) < 1e-6]
+        low = [d for d, y in off if abs(y - foot) < 1e-6]
+        if run.kind == "line" and (not top or abs(max(top)) > 1e-6 or not low or abs(max(low) + R) > 1e-6):
+            fails.append(f"apron: run {i}'s round does not turn from its face at {foot + R:.3f} m to "
+                         f"{R} m behind it at its foot ({foot} m)")
     return fails
 
 
@@ -539,6 +562,11 @@ def self_test(data) -> int:
         v.pop("corbel")
         v["apron"] = {"foot_m": v["base"] - 0.05}
 
+    def m_round(d):   # T-3007: a round apron turned under on more than half a metre
+        v = _v(d, "k08.oriel.canted_corbelled")
+        v.pop("corbel")
+        v["apron"] = {"foot_m": v["base"], "form": "round", "radius_m": 0.6}
+
     def m_budget(d):
         d["costs"]["max_triangles"]["full"] = 900
 
@@ -559,6 +587,7 @@ def self_test(data) -> int:
         ("an oriel on one deep corbel course", m_corbel, "k08.oriel.canted_corbelled", "oversail:"),
         ("a bay on grade with no plinth", m_plinth, "k08.bay.canted", "foundation:"),
         ("an oriel on an apron with no face under its floor", m_apron, "k08.oriel.canted_corbelled", "leaves no face"),
+        ("an oriel on a round apron of 0.6 m", m_round, "k08.oriel.canted_corbelled", "a round apron turns under"),
         ("a bay over its budget", m_budget, "k08.bay.bowed", "costs:"),
         ("a light tier as heavy as the full", m_light, "k08.bay.canted", "light:"),
         ("a light tier cut so coarse it loses the silhouette", m_coarse, "k08.bay.bowed", "facet: the light tier"),

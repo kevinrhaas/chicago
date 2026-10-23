@@ -96,7 +96,12 @@ def main():
         geometry(name,parent,v,f,mat,smooth=False)
     def circle_tube(name,parent,radius,width,radial,mat,segments=80):
         # Elliptic cross-section rounded iron/wood rim; portable explicit normals.
-        v=[];N=lod_n(segments,'ring_segments');K=lod_n(8,'ring_cross_sides')
+        v=[];N=lod_n(segments,'ring_segments')
+        # Keep the broad rounded hub cross section at its independently chosen
+        # detail; thin tire/felloe/button rims may use the ring profile recipe.
+        cross_key=('hub_ring_cross_sides' if name=='rounded_hub'
+                   and 'hub_ring_cross_sides' in detail else 'ring_cross_sides')
+        K=lod_n(8,cross_key)
         for j in range(N):
             theta=j*math.tau/N
             for k in range(K):
@@ -367,13 +372,14 @@ def main():
             circle_tube('slender_painted_felloe',wheel,r-.021,.038,.016,1)
             circle_tube('rounded_hub',wheel,.049,.128,.017,1,40)
             solid_axial_body('solid_painted_hub_core',wheel,p['hub_core_profile_axial_radial_m'],1,p['hub_core_segments'])
+            spoke_sides=lod_n(8,'spoke_cross_sides')
             for i in range(p['spokes_per_wheel']):
                 t=i*math.tau/p['spokes_per_wheel'];direction=np.array([0,math.cos(t),math.sin(t)]);tangent=np.array([0,-math.sin(t),math.cos(t)])
                 vv=[]
                 for distance,wid,axial in [(.060,.025,.028),(r-.035,.014,.018)]:
                     c=direction*distance
-                    for k in range(8):phi=k*math.tau/8;vv.append(c+np.array([axial/2*math.cos(phi),0,0])+tangent*wid/2*math.sin(phi))
-                ff=[list(range(7,-1,-1)),list(range(8,16))]+[[k,(k+1)%8,(k+1)%8+8,k+8]for k in range(8)]
+                    for k in range(spoke_sides):phi=k*math.tau/spoke_sides;vv.append(c+np.array([axial/2*math.cos(phi),0,0])+tangent*wid/2*math.sin(phi))
+                ff=[list(range(spoke_sides-1,-1,-1)),list(range(spoke_sides,2*spoke_sides))]+[[k,(k+1)%spoke_sides,(k+1)%spoke_sides+spoke_sides,k+spoke_sides]for k in range(spoke_sides)]
                 geometry('tapered_rounded_spoke',wheel,vv,ff,1,smooth=True)
             cap=node('hubcap',wheel,(side*.079,0,0));circle_tube('bright_hubcap_rim',cap,.037,.020,.009,3,40)
             solid_axial_body('solid_bright_hub_button',cap,p['hub_button_profile_axial_radial_m'],3,p['hub_button_segments'],side)

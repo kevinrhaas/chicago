@@ -28,7 +28,8 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_28"
     ],
-    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+    "note": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read.",
+    "to_is": "seen"
   },
   "change_note": "",
   "placement": {
@@ -188,10 +189,52 @@
         "sanborn_1911_chicago_v3_sheet_28"
       ],
       "note": "The 1911 sheet marks the building 'D' (dwelling): '3B; rear1B brick with stone front dwelling (D)'. Carried to 1904 on the T-1841 census ruling (present_as_mapped)."
+    },
+    "built": {
+      "value": 1870,
+      "confidence": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved",
+        "glessner_blog_2014_11_elbridge_keith_house"
+      ],
+      "note": "The marker: 'Elbridge G. Keith Residence. Built 1870'; the museum's post gives 1870 to 1871."
     }
   },
   "residents": [],
   "citations": [
+    {
+      "source_id": "glessner_blog_2014_11_elbridge_keith_house",
+      "citation": "Glessner House Museum, 'Elbridge Keith House', The Story of a House (blog), 3 November 2014.",
+      "url": "https://glessnerhouse.blogspot.com/2014/11/elbridge-keith-house.html",
+      "archived_url": "https://web.archive.org/web/20260722103909/http://glessnerhouse.blogspot.com/2014/11/elbridge-keith-house.html",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the style, the limestone front and the slate mansard",
+        "that the mansard was added in the 1880s",
+        "the architect, the builder and the dates of building",
+        "that Elbridge Keith lived and died in the house, in May 1905",
+        "that the house still stands"
+      ],
+      "what_it_does_not_supply": [
+        "measurement",
+        "the 1904 household beyond Keith and his wife"
+      ]
+    },
+    {
+      "source_id": "hmdb_prairie_heritage_preserved",
+      "citation": "'A Heritage Preserved', Prairie Avenue Historic District interpretive marker, Chicago; transcription on the Historical Marker Database (HMdb), marker 308723.",
+      "url": "https://www.hmdb.org/m.asp?m=308723",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "year built, architect and style as the marker states them for 1800, 1801, 1811, 1900 and 1919 Prairie"
+      ],
+      "what_it_does_not_supply": [
+        "anything about the houses' state in 1904 beyond what each entry dates"
+      ]
+    },
     {
       "source_id": "sanborn_1911_chicago_v3_sheet_28",
       "citation": "Sanborn Map Company. Insurance Maps of Chicago, Illinois, Volume 3. New York: Sanborn Map Company, 1911. Sheet 28.",

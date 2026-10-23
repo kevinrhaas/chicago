@@ -24,7 +24,8 @@
       "andreas_1884_v1",
       "drloih_hotels"
     ],
-    "note": "THE YEAR IS DOCUMENTED TWICE IN ANDREAS AND THE MONTH IS NOT. In his hotel chapter: 'Mr. Beaubien had meanwhile built a new house on the northwest corner of Wells and Lake streets. In August of 1834, Mr. and Mrs. Murphy took charge of this new hotel, which they christened the Exchange Coffee House.' In his life of Mark Beaubien: 'In the latter year [1834] he completed another house on the northwest corner of Wells and Lake streets, which was called the Exchange Coffee House, and first kept by Mr. and Mrs. John Murphy.' So the house was finished and trading by August 1834, eleven months before the scene date, and 1834-01-01 is the first day the attested year permits rather than a date anybody gives - which is why this range is inferred and not documented. THE SCENE DATE IS NOT AT RISK: whatever month in 1834 the building went up, it was open under the Murphys from August 1834 and they 'remained there until 1836'. THE END IS A BOUND WHERE THE EVIDENCE STOPS, NOT A DEMOLITION: the Murphys left for the old Sauganash in 1836 and this project has nothing dating the building's fate. Andreas's list of minor houses in 1845 includes 'the Illinois Exchange, corner Wells and Lake streets', which may be the same fabric under a later sign or may not; the phase is closed at the end of the attested tenancy rather than run on speculatively."
+    "note": "THE YEAR IS DOCUMENTED TWICE IN ANDREAS AND THE MONTH IS NOT. In his hotel chapter: 'Mr. Beaubien had meanwhile built a new house on the northwest corner of Wells and Lake streets. In August of 1834, Mr. and Mrs. Murphy took charge of this new hotel, which they christened the Exchange Coffee House.' In his life of Mark Beaubien: 'In the latter year [1834] he completed another house on the northwest corner of Wells and Lake streets, which was called the Exchange Coffee House, and first kept by Mr. and Mrs. John Murphy.' So the house was finished and trading by August 1834, eleven months before the scene date, and 1834-01-01 is the first day the attested year permits rather than a date anybody gives - which is why this range is inferred and not documented. THE SCENE DATE IS NOT AT RISK: whatever month in 1834 the building went up, it was open under the Murphys from August 1834 and they 'remained there until 1836'. THE END IS A BOUND WHERE THE EVIDENCE STOPS, NOT A DEMOLITION: the Murphys left for the old Sauganash in 1836 and this project has nothing dating the building's fate. Andreas's list of minor houses in 1845 includes 'the Illinois Exchange, corner Wells and Lake streets', which may be the same fabric under a later sign or may not; the phase is closed at the end of the attested tenancy rather than run on speculatively.",
+    "from_is": "began"
   },
   "change_note": "The house Mark Beaubien built at Lake and Wells in 1834 after leaving the Sauganash, in the state it stood on the scene date and under the keepers it had then. Nothing in the phase is a change of fabric: the christening as the Exchange Coffee House in August 1834, the arrival of Abram A. Markle's name on it by 1836 and the later sign 'Illinois Exchange' are changes of use and of sign.",
   "placement": {
@@ -130,6 +131,14 @@
         "andreas_1884_v1"
       ],
       "note": "Attested twice in Andreas, in two chapters, with dates either side of the scene date: 'In August of 1834, Mr. and Mrs. Murphy took charge of this new hotel, which they christened the Exchange Coffee House. They remained there until 1836, when they removed to the old Sauganash, the name of which they changed to United States Hotel'; and, in the life of Mark Beaubien, the house was 'first kept by Mr. and Mrs. John Murphy'. So 1835-07-01 falls inside their tenancy with eleven months either side, which makes this the best-attested occupancy in the parcel. A CONFLICT WORTH RECORDING RATHER THAN RESOLVING: this project's dossiers have Abram A. Markle 'associated from 1835-36' with the house, and the American's advertisement of August 1836 does call it 'Markle's Exchange Coffee House'. Andreas has Markle taking the MANSION HOUSE in 1835 and keeping it two years. Either Markle held both houses, or one of the two datings is loose; the Murphy tenancy is the one with dates on both sides of the scene date and it is what this record carries."
+    },
+    "built": {
+      "value": 1834,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas: Mark Beaubien 'completed another house on the northwest corner' of Wells and Lake in 1834."
     }
   },
   "residents": [

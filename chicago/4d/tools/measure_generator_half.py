@@ -633,8 +633,13 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # Presbyterian Church, a livery and twelve alley buildings) on `prairie_draft`, emitted through
 # generators/draft_emit.py, so restaling on that archetype's own rows and on none of the shared ones above.
 #
+# 947 -> 968 on 2026-10-22 (T-3018, landing after T-3009): the background carried south,
+# twenty-one drafts on Calumet Avenue's west frontage from 20th to 22nd Street (ten houses, nine
+# stables and two sheds) on `prairie_draft`, emitted through generators/draft_emit.py, so restaling
+# on that archetype's own rows and on none of the shared ones above.
+#
 STATED = {
-    "assets": 947,
+    "assets": 968,
     "restales": {
         "generators/common/*.py": 743,
         "generators/common/__init__.py": 0,

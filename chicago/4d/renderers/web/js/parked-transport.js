@@ -161,7 +161,7 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
           instance.lod.levels[1].distance = broughamMidDistance(camera, getDrawingBufferHeight());
           instance.lod.update(camera);
           instance.active_lod = instance.lod.getCurrentLevel() === 0 ? 'near' : 'mid';
-          instance.active_triangles = instance.active_lod === 'near' ? 33502 : 22238;
+          instance.active_triangles = instance.active_lod === 'near' ? 33502 : 11706;
         }
         if (instance.row.replaces) fallback(instance.row.replaces, !visible);
       }

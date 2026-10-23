@@ -133,6 +133,12 @@ step "The page asks only for the prebuilt layers publish listed: a year with no 
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
 
+step "The sun's shadow biases hold the same fraction of a shadow texel on every detail tier, so a phone's coarser map does not self-shadow sunlit walls (T-3054)" \
+  node tools/check_shadow_bias.mjs
+
+selftest "The shadow-bias check refuses the fixed-length biases that blotched the 1835 shed on a phone (T-3054)" \
+  node tools/check_shadow_bias.mjs --self-test
+
 step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
   node tools/check_glass_modes.mjs
 
@@ -346,14 +352,17 @@ step "C02 actual door hierarchy refuses closed-preserving detachment (T-2794)" \
 step "Harness body fit reproduces original crossings and enforces 5 mm bind-pose clearance" \
   python3 tools/transport/test_harness_body_fit.py
 
-step "Catalogue Brougham preserves exact V17 near and genuine ring16 mid, contacts and inert interfaces (T-2794)" \
+step "Catalogue Brougham preserves exact V17 near and genuine11706mid, contacts and inert interfaces (T-2794)" \
   python3 tools/check_brougham_near.py
 
-step "Brougham card and actual near/mid selection preserve catalogue scope, all prior cards, active picking and disposal (T-2794)" \
+step "Brougham card and actual near/mid selection preserve catalogue scope, current/historical card contracts, active picking and disposal (T-2794)" \
   node tools/test_brougham_card.mjs
 
 step "Parked vehicles keep their exact wagon stands and cannot cross era boundaries (T-2979)" \
   python3 tools/transport/check_parked_placements.py
+# Fresh original W01 geometry plus authored project charts and CC0 maps; about 13 s, no browser.
+step "Parked W01 fine timber regenerates exact original geometry and reviewed surface binding (T-2793)" \
+  python3 tools/check_parked_wagon_fine_wood.py
 step "Selected empty covered wagons reproduce original reviewed sources" \
   python3 tools/transport/generate_covered_wagons.py --verify
 step "Covered identity rejects kind, yoke, era and stand substitutions" \

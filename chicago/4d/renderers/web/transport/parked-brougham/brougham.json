@@ -51,7 +51,7 @@
     {
       "detail": "mid",
       "file": "brougham-mid.glb",
-      "triangles": 22238,
+      "triangles": 11706,
       "raw_mesh_batches": 25,
       "parked_material_groups": 7,
       "nodes": 42,
@@ -67,11 +67,11 @@
           3.825000047683716
         ]
       },
-      "source_bytes": 1684032,
-      "indexed_bytes": 1047068,
-      "expanded_triangle_PN_sha256": "b22ebde8a8474409c66530c887217e33929353767d3b5c3537aee92fd9ff3eca",
-      "source_sha256": "7e70bf062196d87a38928a1ccc3e1afe39ae9a4b54a62f7f72bc6d5ddd7f78d7",
-      "indexed_sha256": "29a7feaa7aa660f31fbf53fecdc555526935a0d69fb59e39f6c427b644860282",
+      "source_bytes": 908028,
+      "indexed_bytes": 642048,
+      "expanded_triangle_PN_sha256": "e1bb1e62d8430b33bf99b7c8f0d8139539b86ebc89239be599c307bda2a2f82b",
+      "source_sha256": "48a9224ba38da8a1beb809f6970a7d51801da8d032332a52da4b60590c44102f",
+      "indexed_sha256": "d6d6709ec4dda73e84a916e71dfb9dba6ad16961423a4f3babebdf58363c20d2",
       "lossless_indexing": true,
       "meshopt_or_quantization": false
     }
@@ -1019,7 +1019,7 @@
   },
   "pending_deliverables": [
     "material and source-image refinement",
-    "mid fixed-view visual and normal runtime qualification",
+    "normal published-world qualification",
     "normal main/phone/published qualification",
     "actual world terrain and full pole/body obstacle clearance",
     "photographic review",
@@ -1027,13 +1027,14 @@
   ],
   "mid_provenance": {
     "recipe": "tools/transport/brougham/ring16-mid-lods.json",
-    "recipe_sha256": "d7dd2cc647ad095c4fef148e5f8db88ddeb1b74fab7878dc547f8e4a30b5100d",
+    "recipe_sha256": "89a82aac7baf965ab905ca25e7a286129bde1e36f297050bafc65fec6db97159",
     "source_master_near_sha256": "b74e00937871eef8666fe048501456a8409b18df185c87a0905b083b7a2448fa",
-    "change": "Only 16 rounded wheel ring longitudinal segment counts reduced to 16; original 8 cross sections and 452 other source parts retained exactly.",
+    "change": "Source tessellation only: 11706 triangles,302 subdivision records versus468 near; all physical feature names,64spokes,16leaves, materials,42nodes,13runtimeanchors and8static targets retained. Original near conservative collision proxy remains authoritative.",
     "license": "GPL-3.0-or-later",
-    "appearance_accepted": false,
+    "distance_lod_native_appearance_accepted": true,
+    "photographic_accepted": false,
     "world_budget_accepted": false,
     "build_receipt": "MID-BUILD-RECEIPT.json",
-    "build_receipt_sha256": "3af9e61cc84883a69ba7d7961d84e61315b293907e814ddf8842e8f5e0115158"
+    "build_receipt_sha256": "59ea93e112172e94fb9cf435eb01bae6f9b804a28931b0bd679af16920ab1862"
   }
 }

@@ -56,10 +56,12 @@ def validate(record):
         assert spec['delivery_lods'] == {'near':'transport/parked-brougham/brougham-near.glb','mid':'transport/parked-brougham/brougham-mid.glb','runtime_distance_selection_enabled':True}
         assert (ROOT/'renderers/web'/spec['delivery_lods']['mid']).is_file(), 'Missing genuine Brougham mid'
         assert sum(r['model'] == 'studebaker_brougham_1893' for r in record['scenes']['1904']) == 1
-        # The pre-existing unidentified reconstruction remains separate at its exact stand.
+        # The obsolete display is intentionally removed; its model and assets remain.
         generic = [r for r in record['scenes']['1904'] if r['id'] == 'prairie_parked_carriage']
-        assert len(generic) == 1 and generic[0]['model'] == 'carriage_c02'
-        assert generic[0]['at_local_enu_m'] == [1397.6,-3228.2] and generic[0]['bearing_deg'] == 178.99
+        assert len(generic) == 0, 'Obsolete 1904 C02 prototype display must remain removed'
+        assert record['models']['carriage_c02']['file'] == 'transport/parked-carriage/carriage-c02.glb', 'Keep legacy model and asset available'
+        assert len(record['scenes']['1835']) == 5 and len(record['scenes']['1904']) == 1, 'Five distinct wagons and one replacement carriage'
+        assert not any(r['model'] == 'carriage_c02' for rows in record['scenes'].values() for r in rows), 'No prototype display reintroduced in another era'
         assert not record['models']['carriage_c02'].get('design_reference'), 'Catalogue must not retrospectively brand generic C02'
     validate_covered(record, originals, ROOT)
     return len(ids)
@@ -67,4 +69,11 @@ def validate(record):
 
 if __name__ == '__main__':
     record = json.loads((ROOT/'data/transport/parked/placements.json').read_text())
-    print(f'PARKED PLACEMENTS PASS — {validate(record)} instances; exact prior wagon stands; explicit scene eligibility')
+    count=validate(record)
+    import copy
+    obsolete=json.loads((ROOT/'tools/transport/brougham/obsolete-c02-placement.json').read_text())
+    broken=copy.deepcopy(record);broken['scenes']['1904'].append(obsolete)
+    try:validate(broken)
+    except AssertionError:pass
+    else:raise AssertionError('Obsolete prototype reintroduction negative control failed')
+    print(f'PARKED PLACEMENTS PASS — {count} instances; five exact prior wagon stands; one carriage at its unchanged qualified stand; prototype reintroduction refused')

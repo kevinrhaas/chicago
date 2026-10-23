@@ -1,5 +1,5 @@
 {
-  "scope": "Actual installed placements spec through actual card adapter and actual popup renderer before own lead repair",
+  "scope": "Five current parked cards and one historical C02 compatibility card; three W01 basis descriptions updated for T-2793 with openings/other fields preserved. C02 has no scene placement.",
   "cases": [
     {
       "id": "parked_western_hotel_wagon_yard_wagon",
@@ -22,7 +22,7 @@
               "value": "Farm-box wagon",
               "confidence": "reconstructed",
               "sources": [],
-              "note": "Original reconstructed farm-box geometry follows the existing1835 yard envelope, with individual boards, iron hardware and original procedural finish. No exact manufacturer/model is established."
+              "note": "Original reconstructed farm-box geometry follows the existing 1835 yard envelope, with individual boards and iron hardware. Timber color and finish use modern CC0 wood texture maps and remain reconstructed; no historic specimen, species, coating, manufacturer or model is identified."
             },
             "maker": {
               "value": "Unidentified; type reconstruction",
@@ -42,7 +42,7 @@
               "source_id": "chicagology_prefire278"
             }
           ],
-          "research_note": "Original reconstructed farm-box geometry follows the existing1835 yard envelope, with individual boards, iron hardware and original procedural finish. No exact manufacturer/model is established. A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon. Liberties: L-parked-vehicles-2979."
+          "research_note": "Original reconstructed farm-box geometry follows the existing 1835 yard envelope, with individual boards and iron hardware. Timber color and finish use modern CC0 wood texture maps and remain reconstructed; no historic specimen, species, coating, manufacturer or model is identified. A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon. Liberties: L-parked-vehicles-2979."
         }
       },
       "opening": {
@@ -53,9 +53,9 @@
         "lead": "It stood here.",
         "composed": true
       },
-      "card_json_sha256": "6499d9f97a1801bbf6775925747dd26719b07ea947d406393c5169d236771f25",
-      "popup_html_sha256": "efad0f5121e4d88c60eb927bb76ef8b67886d777cd889dda201b2d7ceea91131",
-      "design_html_sha256": "d893afe14c3250a6ae667c75bb444e578d21165c3b9b5fd4deca1022d6730e9c"
+      "card_json_sha256": "9254afd415dcdc2a25dc531532fd8bf0435c11bcc4e221a5f7fd7e542e5e6e14",
+      "popup_html_sha256": "087d802c20470bc998f6865e22923d1138e15ba76d93da8f355f3a29c0ea7fa9",
+      "design_html_sha256": "48687f73280d7ec9613c35efde3bb4c00df8791407d5649232819a925ec54551"
     },
     {
       "id": "parked_town_wagon_western_hotel_wagon_yard_2",
@@ -76,7 +76,7 @@
               "value": "Farm-box wagon",
               "confidence": "reconstructed",
               "sources": [],
-              "note": "Original reconstructed farm-box geometry follows the existing1835 yard envelope, with individual boards, iron hardware and original procedural finish. No exact manufacturer/model is established."
+              "note": "Original reconstructed farm-box geometry follows the existing 1835 yard envelope, with individual boards and iron hardware. Timber color and finish use modern CC0 wood texture maps and remain reconstructed; no historic specimen, species, coating, manufacturer or model is identified."
             },
             "maker": {
               "value": "Unidentified; type reconstruction",
@@ -92,7 +92,7 @@
             }
           },
           "citations": [],
-          "research_note": "Original reconstructed farm-box geometry follows the existing1835 yard envelope, with individual boards, iron hardware and original procedural finish. No exact manufacturer/model is established. A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon. Liberties: L-parked-vehicles-2979."
+          "research_note": "Original reconstructed farm-box geometry follows the existing 1835 yard envelope, with individual boards and iron hardware. Timber color and finish use modern CC0 wood texture maps and remain reconstructed; no historic specimen, species, coating, manufacturer or model is identified. A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon. Liberties: L-parked-vehicles-2979."
         }
       },
       "opening": {
@@ -103,9 +103,9 @@
         "lead": "It stood here.",
         "composed": true
       },
-      "card_json_sha256": "3aa591e2e87fd1b513549cdd8f030c5bfb8c9010f722e36b8935b2112b38c380",
-      "popup_html_sha256": "761f78d56898506c061ac0d2d828203bbb33cbb0e17c9639b900a349bd1bff14",
-      "design_html_sha256": "d893afe14c3250a6ae667c75bb444e578d21165c3b9b5fd4deca1022d6730e9c"
+      "card_json_sha256": "639791206a4c4d160d706841d93f540e4ad33e745020d399e28947d8c707d5b6",
+      "popup_html_sha256": "efc617875bffaf6cbc49297094b042d597ebc4972004470ac1af3903830399d0",
+      "design_html_sha256": "48687f73280d7ec9613c35efde3bb4c00df8791407d5649232819a925ec54551"
     },
     {
       "id": "parked_town_wagon_wolf_point_tavern_yard_2",
@@ -126,7 +126,7 @@
               "value": "Farm-box wagon",
               "confidence": "reconstructed",
               "sources": [],
-              "note": "Original reconstructed farm-box geometry follows the existing1835 yard envelope, with individual boards, iron hardware and original procedural finish. No exact manufacturer/model is established."
+              "note": "Original reconstructed farm-box geometry follows the existing 1835 yard envelope, with individual boards and iron hardware. Timber color and finish use modern CC0 wood texture maps and remain reconstructed; no historic specimen, species, coating, manufacturer or model is identified."
             },
             "maker": {
               "value": "Unidentified; type reconstruction",
@@ -142,7 +142,7 @@
             }
           },
           "citations": [],
-          "research_note": "Original reconstructed farm-box geometry follows the existing1835 yard envelope, with individual boards, iron hardware and original procedural finish. No exact manufacturer/model is established. A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon. Liberties: L-parked-vehicles-2979."
+          "research_note": "Original reconstructed farm-box geometry follows the existing 1835 yard envelope, with individual boards and iron hardware. Timber color and finish use modern CC0 wood texture maps and remain reconstructed; no historic specimen, species, coating, manufacturer or model is identified. A refined unhitched farm-box type replaces the previous vehicle at the same reconstructed stand and bearing. Maker, owner, cargo and finish are unidentified. The existing yard source supports the kind of setting, not this exact wagon. Liberties: L-parked-vehicles-2979."
         }
       },
       "opening": {
@@ -153,9 +153,9 @@
         "lead": "It stood here.",
         "composed": true
       },
-      "card_json_sha256": "0a1bccae48a86cca19808de848edb66fd43b8e55498a23e8253748c5a8a0ee0d",
-      "popup_html_sha256": "761f78d56898506c061ac0d2d828203bbb33cbb0e17c9639b900a349bd1bff14",
-      "design_html_sha256": "d893afe14c3250a6ae667c75bb444e578d21165c3b9b5fd4deca1022d6730e9c"
+      "card_json_sha256": "1d2b43fb5bb3e62245b40608eb573ac7c327867823f08a0cfddd862b55afbecc",
+      "popup_html_sha256": "efc617875bffaf6cbc49297094b042d597ebc4972004470ac1af3903830399d0",
+      "design_html_sha256": "48687f73280d7ec9613c35efde3bb4c00df8791407d5649232819a925ec54551"
     },
     {
       "id": "parked_town_wagon_western_hotel_wagon_yard_1",

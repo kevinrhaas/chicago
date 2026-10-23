@@ -15,6 +15,8 @@ const T = await import('three');
 const { GLTFLoader } = await import('three/addons/loaders/GLTFLoader.js');
 const { createParkedTransport } = await import('../../../renderers/web/js/parked-transport.js');
 const record = JSON.parse(fs.readFileSync(new URL('../../../data/transport/parked/placements.json', import.meta.url)));
+const obsoleteC02=JSON.parse(fs.readFileSync(new URL('./obsolete-c02-placement.json',import.meta.url)));
+let compatibilityRecord=null;
 const load = GLTFLoader.prototype.loadAsync, parseAsyncBefore=GLTFLoader.prototype.parseAsync, fetchBefore = globalThis.fetch;
 const selfBefore=globalThis.self, bitmapBefore=globalThis.createImageBitmap;
 // Unchanged legacy C02 embeds images. Its pixel decoding is outside this geometry
@@ -49,7 +51,7 @@ globalThis.fetch=async(url,options={})=>{
   if(options.signal.aborted)throw options.signal.reason;
   return new Response(fs.readFileSync(u),{status:200,headers:{'Content-Type':'model/gltf-binary'}});
  }
- return{ok:true,json:async()=>JSON.parse(fs.readFileSync(u))};
+ return{ok:true,json:async()=>compatibilityRecord&&u.pathname.endsWith('/transport/parked/placements.json')?structuredClone(compatibilityRecord):JSON.parse(fs.readFileSync(u))};
 };
 const problems=[],patched=new Set(),hidden={reconstructed:false};
 let height=800;
@@ -59,17 +61,28 @@ const camera=new T.PerspectiveCamera(55,1.6,0.1,5000);
 const objects=[];
 const dispose=async out=>{out.dispose();await Promise.resolve();await Promise.resolve()};
 try {
+ // Actual installed scene owns one Brougham and no obsolete prototype; preserve
+ // all legacy loader assertions in a separate explicit compatibility fixture.
+ need(record.scenes['1835'].length===5&&record.scenes['1904'].length===1,'Installed scene keeps five1835wagons and one1904carriage');
+ need(!record.scenes['1904'].some(r=>r.id==='prairie_parked_carriage')&&record.models.carriage_c02.file==='transport/parked-carriage/carriage-c02.glb','Obsolete display removed while legacy C02 model remains');
+ const installed=await createParkedTransport(options);objects.push(installed);
+ need(installed.instances.length===1&&installed.instances[0].row.id==='prairie_parked_studebaker_brougham','Actual installed1904adapter loads only the replacement Brougham');
+ need(JSON.stringify(installed.instances[0].row.at_local_enu_m)==='[1397.9,-3240]'&&installed.instances[0].row.bearing_deg===178.99,'Replacement retains existing qualified stand and bearing');
+ need(legacyRequests.length===0,'Removed C02 display incurs no legacy asset load in installed1904scene');
+ await dispose(installed);need(sourceDisposals.every(r=>r.count===1)&&sourceMaterials.every(r=>r.count===1),'Installed replacement retires every source resource once');
+ const midRequestsBeforeCompat=requests.filter(u=>u.endsWith('/brougham-mid.glb')).length;
+ compatibilityRecord=structuredClone(record);compatibilityRecord.scenes['1904'].push(obsoleteC02);
  const out=await createParkedTransport(options);objects.push(out);
  need(problems.length===0,'Actual near, mid and C02 load and batch without runtime problems: '+JSON.stringify(problems));
  const b=out.instances.find(i=>i.row.model==='studebaker_brougham_1893'),legacy=out.instances.find(i=>i.row.model==='carriage_c02');
  need(b?.lod?.isLOD&&b.lod.autoUpdate===false&&b.lod.levels.length===2,'Only opted-in Brougham has controlled standard THREE.LOD');
  need(legacy&&!legacy.lod&&legacy.group.children.every(n=>n.isMesh),'Legacy C02 retains its ordinary merged group');
  need(b.draw_batches===7&&b.lod.levels.every(l=>l.object.children.length===7),'Actual near and mid each merge to seven material batches');
- need(count(b.lod.levels[0].object)===33502&&count(b.lod.levels[1].object)===22238,'Actual merged indexed geometry reads back genuine near/mid triangle counts');
+ need(count(b.lod.levels[0].object)===33502&&count(b.lod.levels[1].object)===11706,'Actual merged indexed geometry reads back genuine near/mid triangle counts');
  need(b.lod.levels[1].hysteresis===0.05,'Standard five percent hysteresis retained');
  for(const l of b.lod.levels)l.object.traverse(m=>{if(m.isMesh){need(patched.has(m.material),'Every level uses existing confidence material patch');need(Array.from(m.geometry.attributes._confidence.array).every(v=>v===1),'Every level retains reconstructed confidence values')}});
  const pose=(distance)=>{camera.position.copy(b.group.position).add(new T.Vector3(0,0,distance));camera.lookAt(b.group.position.clone().add(new T.Vector3(0,1,0)));camera.updateMatrixWorld(true);out.update(camera);out.group.updateMatrixWorld(true)};
- const active=(label,expected)=>need(b.active_lod===expected&&b.active_triangles===(expected==='near'?33502:22238)&&b.lod.levels.filter(l=>l.object.visible).length===1,label);
+ const active=(label,expected)=>need(b.active_lod===expected&&b.active_triangles===(expected==='near'?33502:11706)&&b.lod.levels.filter(l=>l.object.visible).length===1,label);
  pose(23.99);active('Near retained below 24m', 'near');
  pose(24.01);active('Actual mid selected beyond24m','mid');
  pose(23.0);active('Hysteresis keeps mid while returning through boundary','mid');
@@ -103,7 +116,7 @@ try {
  const beforeLight=requests.length;const light=await createParkedTransport({...options,detail:'light'});objects.push(light);need(requests.length===beforeLight&&!light.instances.length,'Light boot does not fetch either Brougham level');await dispose(light);
  rejectMid=true;const failed=[];const fallback=await createParkedTransport({...options,problems:failed});objects.push(fallback);
  const retained=fallback.instances.find(i=>i.row.model==='studebaker_brougham_1893');need(retained&&!retained.lod&&count(retained.group)===33502&&failed.some(s=>s.includes('near retained')),'Actual failed mid fetch retains original near and reports failure');await dispose(fallback);rejectMid=false;
- need(requests.filter(u=>u.endsWith('/brougham-mid.glb')).length===2,'Each created transport caches its one mid request; failure control is distinct');
+ need(requests.filter(u=>u.endsWith('/brougham-mid.glb')).length===midRequestsBeforeCompat+2,'Each created transport caches its one mid request; failure control is distinct');
  // A Light boot returns its API before loading. Dispose during its actual pending
  // mid load, then let the real GLTF parse finish; no late model may be attached.
  const waiting=await createParkedTransport({...options,detail:'light',problems:[]});objects.push(waiting);

@@ -1812,6 +1812,38 @@ for (const [label, viewport, touch] of [
     `${((Date.now() - bootFrom) / 1000).toFixed(1)} s of ${BOOT_READY_MS / 1000} s`, true);
 
   if (ready) {
+    // T-2662: measure a real first appearance while its screen is visible, before
+    // any part enters the town. T-3021 made Home's Confidence view tile an app
+    // button; term-tips correctly never nests a meaning button in another control.
+    // The Welcome intro already marks Reconstructed and Sources for this purpose.
+    // Keep this initial-document reading across later stages/reloads; the glossary
+    // and FAQ still get their own actual Guide reading in part 12 below.
+    let firstTermTap = null;
+    if (stageOn(12)) {
+      const selector = '#welcome .welcome-intro .locked-term[data-locked="Reconstructed"]';
+      try {
+        await untilLanded();
+        await clickChrome(selector);
+        firstTermTap = await page.evaluate((sel) => {
+          const term = document.querySelector(sel);
+          const tip = document.getElementById('term-tip');
+          const box = tip?.getBoundingClientRect();
+          return { term: term?.dataset.locked ?? null, shown: !!tip && !tip.hidden,
+            text: tip?.textContent.trim() ?? '',
+            inView: !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth
+              && box.top >= 0 && box.bottom <= innerHeight,
+            phase: window.__chicago4d.welcome?.state ?? null,
+            journey: document.documentElement.dataset.journey ?? null };
+        }, selector);
+        await clickChrome(selector);
+        firstTermTap.away = await page.evaluate(() => {
+          const tip = document.getElementById('term-tip');
+          return !tip || tip.hidden;
+        });
+      } catch (error) {
+        firstTermTap = { ...firstTermTap, error: error.message, away: false };
+      }
+    }
     const problems = await page.evaluate(() => window.__chicago4d.problems);
     // Provisional placement and placeholder-asset notes are expected findings,
     // not defects. `review_required` is also a deliberate release blocker, but
@@ -6057,7 +6089,10 @@ for (const [label, viewport, touch] of [
           && m.candidates === frontage.farWalkState?.candidateTriangles
           // T-2093 — the six new walk chunks' top faces: 107532 to 108554, read on dev.
           // T-2195 — dev already read 108620 (T-2174's walks); the wedge's three faces: 111472.
-          && m.candidates === 111472
+          // T-3029 — the Green Tree re-seated 5.8 m west re-cuts West Water and the
+          // West Division plat; its fronts-only walks shorten 0.2 m, one plank's two
+          // top triangles fewer: 111470.
+          && m.candidates === 111470
           && m.drawn === frontage.farWalkState?.triangles),
       JSON.stringify({ meshes: frontage.farWalkTops, state: frontage.farWalkState }));
     // THE NAME IS DRAWN, AND IT IS THE RECORD'S. This is the only lettering in the
@@ -9434,8 +9469,10 @@ for (const [label, viewport, touch] of [
       cardShape.saug.homes.where === 'evidence' && cardShape.saug.homes.liberties === 'liberties'
       && cardShape.saug.homes.record === 'record',
       JSON.stringify(cardShape.saug.homes));
-    check(`${label}: Hogan's facts say it was standing, from the year its record gives`,
-      cardShape.hogan.year === '1831' && /^Standing: 1831\b/.test(cardShape.hogan.standing)
+    // T-3037: 31 March 1831 is the first date a source puts the store standing (`from_is: seen`),
+    // not its build date, so the row says "by 1831".
+    check(`${label}: Hogan's facts say it was standing by the year its record first sees it`,
+      cardShape.hogan.year === '1831' && /^Standing: by 1831\b/.test(cardShape.hogan.standing)
       && cardShape.hogan.facts.length >= 3,
       `"${cardShape.hogan.standing}" from ${cardShape.hogan.year}; ${cardShape.hogan.facts.join(' | ').slice(0, 200)}`);
 
@@ -13978,14 +14015,13 @@ for (const [label, viewport, touch] of [
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
     // ---- end T-2661 (part 12)
     // ---- T-2662: Guide's glossary lists the seven locked terms with their lines, its two
-    // questions answer in 60 words or fewer, and a locked term's first appearance (the
-    // Navigator Home's Confidence view) shows its line on tap.
+    // questions answer in 60 words or fewer. Its first-appearance tap was measured
+    // on the visible initial Welcome intro before entry, not on an app-action tile.
     await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
     await page.waitForFunction(() => document.querySelectorAll('#nav-app-guide #guide-faq details').length >= 2
       || /could not be read/.test(document.querySelector('#nav-app-guide #guide-faq')?.textContent ?? ''),
       null, { timeout: 15_000, polling: 100 }).catch(() => {});
     const guideWords = await page.evaluate(() => {
-      const api = window.__chicago4d;
       const g = document.querySelector('#nav-app-guide #guide-glossary');
       const faq = [...document.querySelectorAll('#nav-app-guide #guide-faq details')];
       const out = {
@@ -13998,23 +14034,16 @@ for (const [label, viewport, touch] of [
         // ones too, whose text a screen-wide textContent would read though no one can see it.
         snake: /[a-z0-9]+_[a-z0-9]+/i.test((document.querySelector('#nav-app-guide .nav-guide-sheet') ?? document.getElementById('nav-app-guide'))?.textContent ?? ''),
       };
-      api.navigator.select('home');
-      const term = document.querySelector('#nav-home .locked-term');
-      term?.click();
-      const tip = document.getElementById('term-tip');
-      const box = tip?.getBoundingClientRect();
-      out.tap = { term: term?.dataset.locked ?? null, shown: !!tip && !tip.hidden, text: tip?.textContent.trim() ?? '',
-        inView: !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth && box.top >= 0 && box.bottom <= innerHeight };
-      term?.click();
-      out.tap.away = !tip || tip.hidden;
-      api.navigator.dock();
       return out;
     });
+    guideWords.tap = firstTermTap;
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
     check(`${label}: Guide's glossary gives the seven locked terms their lines, both questions answer in 60 words or fewer, and a term's first appearance explains itself on tap (T-2662)`,
       guideWords.terms.join() === 'Attested,Inferred,Reconstructed,Confidence view,Liberties,Sources,Jaunts' && guideWords.lines === 7
       && guideWords.questions.join('|') === 'Is this real?|What does Reconstructed mean?' && guideWords.longest > 0 && guideWords.longest <= 60
-      && !guideWords.snake && guideWords.tap.term === 'Confidence view' && guideWords.tap.shown
-      && /^Confidence view Recolor the world by grade/.test(guideWords.tap.text) && guideWords.tap.inView && guideWords.tap.away,
+      && !guideWords.snake && !guideWords.tap?.error && guideWords.tap?.term === 'Reconstructed' && guideWords.tap.shown
+      && guideWords.tap.text === 'Reconstructed No record exists. We built it so the street makes sense, and say so.'
+      && guideWords.tap.inView && guideWords.tap.away && guideWords.tap.phase === 'welcome' && guideWords.tap.journey === 'landed',
       JSON.stringify(guideWords));
     // ---- end T-2662
     // >>> T-2666: Guide › For teachers — the Field Check's eight steps, read from the tour
@@ -19909,7 +19938,57 @@ for (const [label, viewport, touch] of [
           'house_1922_calumet_stable_strip',
           'house_1928_calumet',
           'house_1932_calumet',
-          'house_1932_calumet_coach_house'].sort();
+          'house_1932_calumet_coach_house',
+          // T-3018: the background carried south, Calumet's west frontage 20th-22nd
+          'house_2000_calumet',
+          'house_2000_calumet_coach_house',
+          'house_2004_calumet',
+          'house_2004_calumet_coach_house',
+          'house_2016_calumet',
+          'house_2016_calumet_coach_house',
+          'house_2032_calumet',
+          'house_2032_calumet_coach_house',
+          'house_2032_calumet_shed',
+          'house_2100_calumet',
+          'house_2100_calumet_coach_house',
+          'house_2106_calumet',
+          'house_2106_calumet_coach_house',
+          'house_2114_calumet',
+          'house_2114_calumet_coach_house',
+          'house_2124_calumet',
+          'house_2128_calumet',
+          'house_2128_calumet_coach_house',
+          'house_2140_calumet',
+          'house_2140_calumet_coach_house',
+          'house_2140_calumet_shed',
+          // T-3009 / PR1198: Indiana east frontage, 20th–22nd; retain T-3018 Calumet above.
+          'first_presbyterian_church_2029_indiana',
+          'first_presbyterian_church_2029_indiana_dwelling',
+          'first_presbyterian_church_2029_indiana_stable',
+          'house_2007_indiana',
+          'house_2009_indiana',
+          'house_2009_indiana_rear_dwelling',
+          'house_2011_indiana',
+          'house_2011_indiana_coach_house',
+          'house_2013_indiana',
+          'house_2013_indiana_coach_house',
+          'house_2017_indiana',
+          'house_2017_indiana_coach_house',
+          'house_2019_indiana',
+          'house_2019_indiana_coach_house',
+          'house_2021_indiana',
+          'house_2021_indiana_coach_house',
+          'house_2023_indiana',
+          'house_2023_indiana_coach_house',
+          'house_2027_indiana',
+          'house_2027_indiana_coach_house',
+          'house_2107_indiana',
+          'house_2107_indiana_coach_house',
+          'house_2111_indiana',
+          'house_2111_indiana_coach_house',
+          'house_2115_indiana',
+          'house_2119_indiana',
+          'livery_2123_indiana'].sort();
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),

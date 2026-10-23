@@ -2,7 +2,7 @@
 """V17 exact NEAR delivery gate with independent additive MID gate. Existing decoded algorithms; no terrain/image/wholeLOD acceptance."""
 from pathlib import Path
 import argparse,hashlib,json,math,struct
-EXPECTED_CONTRACT='8b7c3601db7a2782b3c6ff94ec4187aae7c6b2c4ee84ad1c4fec5accafb4a7a7'
+EXPECTED_CONTRACT='860b7df7c8d25e1aa372a0a4250f92e4dfffb2c7cfbd14450b9db329cf5fc910'
 
 def read(path):
     b=path.read_bytes();assert struct.unpack_from('<III',b)==(0x46546c67,2,len(b)), 'Invalid GLB envelope'

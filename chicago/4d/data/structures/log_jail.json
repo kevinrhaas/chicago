@@ -16,7 +16,8 @@
         "sources": [
           "andreas_1884_v1"
         ],
-        "note": "Andreas: 'During the fall of 1833, the citizens felt that something more metropolitan was required than the estray pen', and a log jail was built (docs/research/04-structures-south.md section 7, from Andreas I scan pp. 367 and 1243). A SEASON IS THE WHOLE OF THE DATING. 1833-10-01 is the middle of a northern-Illinois autumn and is a bound rather than a date; the building is standing well before the scene date on any reading of 'fall'. THE END IS A HOUSEKEEPING BOUND, NOT A DEMOLITION DATE - nothing reached says when this jail came down or was replaced, and 1835-12-31 is the ordinary continuity cut at the scene year this dataset uses where a fate is unattested."
+        "note": "Andreas: 'During the fall of 1833, the citizens felt that something more metropolitan was required than the estray pen', and a log jail was built (docs/research/04-structures-south.md section 7, from Andreas I scan pp. 367 and 1243). A SEASON IS THE WHOLE OF THE DATING. 1833-10-01 is the middle of a northern-Illinois autumn and is a bound rather than a date; the building is standing well before the scene date on any reading of 'fall'. THE END IS A HOUSEKEEPING BOUND, NOT A DEMOLITION DATE - nothing reached says when this jail came down or was replaced, and 1835-12-31 is the ordinary continuity cut at the scene year this dataset uses where a fate is unattested.",
+        "from_is": "began"
       },
       "position": {
         "utm_e": 447538.21,
@@ -96,6 +97,14 @@
       "andreas_1884_v1"
     ],
     "note": "Purpose-built for confinement, and it is the building that ended the practice recorded on the estray_pen record - prisoners held in the stock pound for want of anywhere else. Cook County was organised in 1831 and the county's business was conducted in rented rooms; this is the first purpose-built county structure of any kind and it precedes the court-house on the same block by about two years."
+  },
+  "built": {
+    "value": 1833,
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas: the log jail was built in the fall of 1833."
   },
   "research_note": "A DOCUMENTED BUILDING WITH ONE DOCUMENTED ATTRIBUTE. What is attested is that it was a jail, that it was of logs, that it went up in the fall of 1833, and that it stood at the north-west corner of the court-house square. Everything else in this record - every dimension, the roof, the wall height, the door, the bearing - is inference or invention, and the confidence view will show it as such. THE RECORD IS WORTH HAVING ANYWAY, and this is the clearest case in the parcel for the working policy behind it: on 1835-07-01 the public square carried three things, a pound, a jail and (probably) a court-house, and a square rendered empty is a stronger and more misleading claim than a square carrying three honestly-graded conjectural boxes. ARCHETYPE CHOICE: outbuilding rather than log_dwelling, and the difference is not cosmetic. log_dwelling reads a storey count, a loft, a chimney count and a sign, and builds a dwelling's openings; outbuilding builds a plain box with one door sized by what has to get through it, and refuses a storey count outright. A jail is the second of those. The archetype's own family list - stable, shed, barn, smokehouse, privy, crib, woodshed - does not name a jail, and that is a gap in the vocabulary rather than a reason to build the wrong thing. WHAT THE PLATE ADDED, 2026-08-21 (T-0070, the owner asking that the jail 'should be made more accurate' to its engraving): a tier-5 pictorial of this building, written up as image 1 of the 2026-08-18 brief, which the record did not have when it was placed. It reached two attributes and no others. The roof came down from the archetype's 32-degree gable default to 12 degrees, because the plate draws a near-flat roof and a convention loses to a picture of the thing itself; the construction note stopped calling hewn-versus-round unattested, because the plate draws squared timber laid horizontally. It reached NEITHER dimension nor coordinate, and it may not: a tier-5 pictorial drives form, materials and massing as inferred and never a footprint outline or a position. So the footprint is still invented and still says so. WHAT WOULD UPGRADE THIS RECORD, in order of value: any county order or contract for the jail's construction, which is the kind of document that carries a dimension, a cost or a specification for the logs; Andreas vol. 1 at page-image level around scan pp. 367 and 1243, which is where the prose transcribed into this project's dossier sits; and the Cook County Sheriff's own published jail history, cited in the dossier and not yet held as a source record here.",
   "review_required": false

@@ -523,7 +523,7 @@
       "part": "tongue_strap_2.65"
     }
   ],
-  "bytes": 2970424,
+  "bytes": 2970448,
   "canvasTexture": {
     "RGBA8_mip_bytes_estimate": 2097152,
     "grade": "Original analytic woven-surface reconstruction; not a photograph/scan or dated textile weave measurement",
@@ -537,7 +537,7 @@
     ]
   },
   "estimatedActiveMappedRGBA8MipsBytes": 8388608,
-  "glb_sha256": "9b6575d1702ca288b5a66487ef089cc51dd0b86d14a47574f94b6fe6eaf23d23",
+  "glb_sha256": "aaffa3396778d9ab88153b80480034354b03ac6aa0128aa4a2f4b0a5d839655a",
   "legacy_record_id": "town_wagon_western_hotel_wagon_yard_1",
   "limitations": [
     "No actual ground qualification or main-scene placement",
@@ -932,7 +932,7 @@
     "seedText": "wagon|town_wagon_western_hotel_wagon_yard_1|-136.05|-291",
     "seedUint32": 1970835735
   },
-  "source_sha256": "1a36e3506c9e515c5404d911f30f2c2093b325fe5a6184d931aefa6503d7555d",
+  "source_sha256": "679fc439a98921b0afcf60b31a437687dd3f243c7d62c1737da3cb215a882e29",
   "triangles": 17292,
   "unsupportedInheritedSockets": [
     "vehicle_hitch_team",

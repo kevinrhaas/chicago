@@ -1440,6 +1440,22 @@ def _arched_hole(l,r,sill,spring,segments):
                                 for i in range(segments+1)]
 
 
+def outward_solid(b,pl,poly,depth0,depth1,confidence,mat):
+    """solid_polygon with every edge face turned out of the solid (T-3036).
+
+    solid_polygon leaves its edge faces to the polygon's winding, which the
+    plane's axis and sign mirror, so on half a box's faces they look inward.
+    """
+    n=legacy._plane_dir(pl);ccw=area(poly)>0
+    b.raw([legacy._plane_point(pl,u,z,depth1) for u,z in poly],confidence,mat,n)
+    for (u0,z0),(u1,z1) in zip(poly,poly[1:]+poly[:1]):
+        ou,oz=(z1-z0,u0-u1) if ccw else (z0-z1,u1-u0)
+        want=(0.0,ou,oz) if pl['axis']=='x' else (ou,0.0,oz)
+        b.raw([legacy._plane_point(pl,u0,z0,depth0),legacy._plane_point(pl,u1,z1,depth0),
+               legacy._plane_point(pl,u1,z1,depth1),legacy._plane_point(pl,u0,z0,depth1)],
+              confidence,mat,want)
+
+
 def dovecote_band(b,t,x0,x1,y0,y1):
     """The stable cupola's vent band as HABS photograph 1 shows it (T-2207).
 
@@ -1456,6 +1472,10 @@ def dovecote_band(b,t,x0,x1,y0,y1):
     as both northwest prints show it (T-3030): the east and west faces' ledges
     reach past the corners by their projection, and the north and south faces'
     butt against them, so no two ledge faces lie in one plane.
+
+    The body's walls meet the same way (T-3036): the east and west walls run
+    the plan's full depth and the north and south walls stop inside them, so
+    no wall's end lies in its neighbour's face, and every edge face looks out.
     """
     lo,hi=t['louvre'];conf=t['conf'];v=t['vent'];reconstructed=1.0
     tiers,per_face=v['tiers'],v['per_face'];width=v['opening_width_m']
@@ -1479,14 +1499,18 @@ def dovecote_band(b,t,x0,x1,y0,y1):
             # it stops short of the corner so two faces' boards never meet,
             # unless the record wraps it round them (see the docstring).
             if not wrapped:
-                slab(b,pl,ua,uc,base,base+board,-.04,perch,reconstructed,body)
+                l,r=ua,uc
             elif pl['axis']=='x':
-                slab(b,pl,a-perch,c+perch,base,base+board,-.04,perch,reconstructed,body)
+                l,r=a-perch,c+perch
             else:
-                slab(b,pl,a+.04,c-.04,base,base+board,-.04,perch,reconstructed,body)
-        wall=[(a,t['z0']),(c,t['z0']),(c,t['top_z']),(a,t['top_z'])]
+                l,r=a+.04,c-.04
+            outward_solid(b,pl,[(l,base),(r,base),(r,base+board),(l,base+board)],
+                          -.04,perch,reconstructed,body)
+        # The east and west walls take the corners; the others butt inside.
+        l,r=(a,c) if pl['axis']=='x' else (a+.08,c-.08)
+        wall=[(l,t['z0']),(r,t['z0']),(r,t['top_z']),(l,t['top_z'])]
         for fragment in subtract(wall,holes):
-            solid_polygon(b,pl,fragment,-.08,0,conf,body)
+            outward_solid(b,pl,fragment,-.08,0,conf,body)
         # The dark cote behind the holes: one closing card per face.
         b.raw([legacy._plane_point(pl,u,z,-.17) for u,z in
                [(ua,lo),(uc,lo),(uc,hi),(ua,hi)]],reconstructed,DARK_GLASS,n)

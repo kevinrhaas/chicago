@@ -1,3 +1,17 @@
+## T-2794 — Parked Brougham distance model and prototype replacement
+
+The Brougham replaces only the obsolete1904C02 display, retaining its own existing qualified stand and the five distinct1835wagons; C02 assets and model remain compatible. Exact33,502near geometry is paired with the unchanged validated11,706mid candidate. All physical feature categories, materials, nodes, anchors, contacts and original near conservative proxy remain; only source tessellation and active triangle reporting change. Eight fixed native views support distance-LOD appearance, not photographic or world-budget acceptance.
+
+Next: finish normal integrated source verification and published desktop/mobile qualification at unchanged cameras and caps, including combined budgets and full body/pole/ground/tree clearance. Earlier failed units remain recorded. Photographic refinement, people, horses, occupied driving, doors, hitching, boarding and traffic remain open.
+
+## T-2793 — Parked W01 timber material increment
+
+Modern CC0 wood texture maps improve the existing three reconstructed 1835 farm-box wagons while retaining their geometry, stands and original paint/iron. The original parked source and both covered-wagon finish families remain exact; a separate cloth-only increment preserves their colors and identities. Four actual native views support a bounded material improvement; GPL project charts and CC0 source pixels have explicit provenance, and no historic finish or specimen is claimed.
+
+Next: normal integrated DEV derivation and full preflight, followed by normal published mobile/desktop placement and combined-budget qualification (eight pooled batches versus five baseline). Photographic refinement, occupants, hitching, driving, riding and boarding remain open; this is a material increment under T-2793.
+
+- T-2980: carry the already generated20–28mm cloth-drape increment for the two existing distinct1835 covered wagons; preserve current terrain proof and all IDs/seeds/stands/yokes. Historical065646706 source+publishedstage8 qualification is separate from current combined integration. Photographic cloth/wood/iron, compressed LOD, occupancy and interaction remain open.
+
 ## T-2672 / T-1789 — resident transport adults (2026-10-18)
 
 The owner requested adults for driving, riding, standing near transport and walking,
@@ -5620,9 +5634,21 @@ Original refined W01 farm-box wagons replace three existing1835 stands at close 
 
 - T-2980: two empty covered derivatives now preserve exact per-ID finishes/aging, original stands/bearings/yokes and legacy fallback. Actual22-image source/published desktop/mobile inspection, eight runtime/clearance sets and four disposals passed under unchanged budgets/GL0; no page/console errors or request failures. Source/geometry/hull/conservative-host proof is bounded, not full physical collision. Photographic cloth/wood/iron finishing, compressed distinct LODs and full-app memory/tier acceptance remain open. Full preflight/current qualification and the parent X-RAY/Ghost budget failure must be resolved before ordinary DEV merge. People, horses, driving and boarding remain open.
 
+## School and Tremont reference-use approval - T-3053
 
-## T-2794 — V17 catalogue-guided parked Brougham intake
+The owner's 2026-10-22 approval is recorded with both bibliographic sources.
+Retain the Chicagology / N. Roswell Gifford credit and the Illinois History
+Journal reproduction link with the unidentified school artist. Project-use
+clearance resolves that use decision; it does not establish original publication,
+image identity, survey coordinates or a solved camera. Continue T-2372 and T-2385
+under their existing image acceptance.
 
-The additive reconstructed 1904 example retains its exact stand and original near asset alongside C02 and the five 1835 wagons. A genuine 22,238-triangle mid complements the 33,502-triangle near, with Brougham-only 24 m/screen-size selection, 5% hysteresis and active-level picking. Existing reach and legacy behavior remain. Actual native, parser/cache, HTTP-failure, manager-abort, card, placement and disposal checks pass. Desktop native near/mid images were reviewed; the repaired loader's separate mobile four-view run passed with zero request errors after cleanup. This is an initial parked development model; the identified 1893 design is distinct from its reconstructed individual presence.
+## Fort compound reference rendering - T-3040 (under T-2387)
 
-Next: the staged source's supported derived/isolation refresh and full preflight, then actual published desktop/mobile placement, full rigid-support/pole/body and tree/canopy clearance, and combined scene-budget proof with the existing caps. Earlier native and ordinary-world failures remain recorded. Replacing the older C02 display is a prospective option, not a placement change here. Photographic refinement and occupied, door, hitch, boarding and traffic capabilities remain open.
+The single-mesh reviewer could not test either fort's full picture acceptance.
+Group rendering now uses one scene's selected assets and surveyed placements,
+with peer-mesh/placement freshness checks. The initial 30-member first-fort and
+21-member second-fort baselines remain `differs`; neither camera is solved.
+[The checkpoint](RESEARCH/fort-reference-groups-T-3040/README.md) preserves source/date
+findings and next work across T-2372 through T-2388. T-3041 and T-2388 retain
+the full model-matching acceptance; this prerequisite changes no building.

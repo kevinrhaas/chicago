@@ -372,6 +372,41 @@ const HAZE_DENSITY = 0.00089;
 export const SHADOW_REACH_M = 240;
 
 /**
+ * THE SHADOW BIASES ARE FRACTIONS OF A TEXEL, NOT LENGTHS — T-3054.
+ *
+ * A shadow map is a raster, so a wall lit at a slant spans more depth inside
+ * one of its texels than the wall is thick, and without an allowance it finds
+ * itself behind its own stored depth and shadows itself in blocks. The two
+ * allowances are `bias` (depth, toward the light) and `normalBias` (along the
+ * receiver's own normal), and how much either must allow scales with the
+ * TEXEL: the depth a face spans in one texel is the texel times the tangent of
+ * the sun's angle off the face's normal. -0.0004 and 0.045 m were tuned on the
+ * 11.7 cm texel `full` and `balanced` draw. The `light` tier draws 23.4 cm
+ * (1024 over +/-120 m, `setShadowRig`) and kept both, which is half the
+ * allowance its texel needs: at the scene's 12:30 sun a south wall is lit
+ * about 70 degrees off its normal, and it shadowed itself.
+ *
+ * The owner saw it on his iPhone on 2026-10-23 as the 1835 freight shed by the
+ * Dearborn draw going "very pixelated when I moved around it": blotches of the
+ * wall's own shadow on a pale untextured board front. Measured at 375x636 on
+ * the phone profile: with the sun's shadow off the blotches vanish; doubling
+ * `normalBias` alone clears the shed's boards and not the D4 cottage's
+ * clapboards; doubling both clears both, leaving only the eaves' real shadow.
+ *
+ * So both are stated per texel and `setShadowRig` re-derives them with the
+ * map: exactly -0.0004 and 0.045 m on `full` and `balanced` (unchanged), and
+ * twice that on `light`. `tools/check_shadow_bias.mjs` holds it.
+ */
+const FULL_TEXEL_M = (2 * SHADOW_REACH_M) / 4096;
+export const SHADOW_BIAS_TEXELS = -0.0004 / FULL_TEXEL_M;
+export const SHADOW_NORMAL_BIAS_TEXELS = 0.045 / FULL_TEXEL_M;
+
+/** The depth and normal biases for a shadow texel of `texelM` metres. */
+export function shadowBiasFor(texelM) {
+  return { bias: SHADOW_BIAS_TEXELS * texelM, normalBias: SHADOW_NORMAL_BIAS_TEXELS * texelM };
+}
+
+/**
  * THE HAZE FOLLOWS THE SKY IT CONVERGES ON — T-1631.
  *
  * THE DEFECT, and it is one number. `HORIZON_HAZE` above is the horizon sky of
@@ -769,8 +804,9 @@ export function createWorld({
   // to the reach, which is why holding the texel size is what lets them stand.
   const baseMap = lowSpec ? 2048 : 4096;
   light.shadow.mapSize.setScalar(baseMap);
-  light.shadow.bias = -0.0004;
-  light.shadow.normalBias = 0.045;
+  // -0.0004 and 0.045 m at 4096 over ±240 m; a lowSpec device's 2048 gets twice
+  // both, and `setShadowRig` re-derives them for each tier's map (T-3054).
+  Object.assign(light.shadow, shadowBiasFor((2 * half) / baseMap));
 
   // THE FILL. One PMREM at boot, and it IS the fill — there is no hemisphere
   // light any more. See GROUND_REFLECTANCE for why the environment is built with
@@ -1045,6 +1081,8 @@ export function createWorld({
       shadowRig.reachM = r;
       shadowRig.mapSize = map;
       shadowRig.texelM = (2 * r) / map;
+      // T-3054: the biases hold their fraction of the texel the map just took.
+      Object.assign(light.shadow, shadowBiasFor(shadowRig.texelM));
       return { reachM: r, mapSize: map, texelM: shadowRig.texelM };
     },
     /**

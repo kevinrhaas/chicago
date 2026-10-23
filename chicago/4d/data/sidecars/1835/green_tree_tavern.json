@@ -26,7 +26,9 @@
       "drloih_hotels",
       "drloih_wolf_point"
     ],
-    "note": "Built 1833 by James Kinzie — 'the first structure ever erected in the place for hotel purposes' — and standing at the north-east corner of Lake and Canal until it was moved in 1880 to 35 and 37 Milwaukee Avenue to clear the site for the Jones & Laughlin works. Both ends are attested, which is why a forty-seven-year span is tagged documented rather than being a research gap in disguise. IT IS STILL TOO LONG TO BE ONE FORM-STATE, and that is a known limitation: John Gray, landlord 1838-41, recalls 'a low one-story addition to the right, the same as on the left', so the building demonstrably grew, and nothing dates those additions. The phase should be split the moment they can be dated. A second, smaller conflict: chicagology's Green Tree page dates the move to 1880, while its Town of Chicago page, written in 1883, says the building was 'removed two years ago', i.e. 1881. Immaterial to the 1835 scene. The carpenter is disputed too — chicagology names 'Philo Cobb', DRLOIH names Silas B. Cobb, who is the historically real person and is almost certainly correct."
+    "note": "Built 1833 by James Kinzie — 'the first structure ever erected in the place for hotel purposes' — and standing at the north-east corner of Lake and Canal until it was moved in 1880 to 35 and 37 Milwaukee Avenue to clear the site for the Jones & Laughlin works. Both ends are attested, which is why a forty-seven-year span is tagged documented rather than being a research gap in disguise. IT IS STILL TOO LONG TO BE ONE FORM-STATE, and that is a known limitation: John Gray, landlord 1838-41, recalls 'a low one-story addition to the right, the same as on the left', so the building demonstrably grew, and nothing dates those additions. The phase should be split the moment they can be dated. A second, smaller conflict: chicagology's Green Tree page dates the move to 1880, while its Town of Chicago page, written in 1883, says the building was 'removed two years ago', i.e. 1881. Immaterial to the 1835 scene. The carpenter is disputed too — chicagology names 'Philo Cobb', DRLOIH names Silas B. Cobb, who is the historically real person and is almost certainly correct.",
+    "from_is": "began",
+    "to_is": "ended"
   },
   "change_note": "Built 1833 as the first building in Chicago put up specifically to be a hotel. The phase carries the two-storey core as built; the low one-storey side additions attested by 1838-41 are recorded on the record but not in the geometry, because nothing dates them.",
   "placement": {
@@ -215,6 +217,15 @@
         "chicagology_prefire127"
       ],
       "note": "Ingersoll's tenancy is given as 1834-1837, which covers 1835-07-01, with Martin M. Ford associated. DRLOIH's list — 'initially by David Clark and then by Edward Parsons' — carries no dates and is compatible rather than contradictory: Clark (or Clock) is named elsewhere as the landlord who opened the house in 1833, before Ingersoll."
+    },
+    "built": {
+      "value": 1833,
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire127",
+        "drloih_hotels"
+      ],
+      "note": "Built 1833 by James Kinzie."
     }
   },
   "residents": [
