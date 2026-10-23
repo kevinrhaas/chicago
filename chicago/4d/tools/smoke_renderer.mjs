@@ -20108,7 +20108,19 @@ for (const [label, viewport, touch] of [
           'house_2111_indiana_coach_house',
           'house_2115_indiana',
           'house_2119_indiana',
-          'livery_2123_indiana'].sort();
+          'livery_2123_indiana',
+          // T-3019: Indiana Avenue's east frontage 16th-18th and the row at 209-217 E. 16th.
+          'house_209_e16th',
+          'house_1615_indiana',
+          'house_1615_indiana_coach_house',
+          'house_1623_indiana',
+          'house_1623_indiana_coach_house',
+          'house_1637_indiana_coach_house',
+          'house_1641_indiana_coach_house',
+          'house_1703_indiana',
+          'house_1703_indiana_coach_house',
+          'house_1713_indiana',
+          'house_1713_indiana_coach_house'].sort();
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),
