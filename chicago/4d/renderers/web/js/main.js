@@ -3792,9 +3792,10 @@ async function boot() {
     focusPoint, structurePosition,
     // Where a ride or a flight ends: the framed stand-off, the same one Go to uses.
     // T-3022: the arrival opens the building in Inspect where it can, so frame for that.
-    standFor: (id, options) => framing(id, { card: arrivalPanel(id), ...options }),
+    // (A ride says `card: false` when it opens nothing; any other ride opens the building.)
+    standFor: (id, options) => framing(id, { ...options, card: options?.card === false ? false : arrivalPanel(id) }),
     registry: loaded.registry,
-    frame: (id, options) => frame(id, { card: arrivalPanel(id), ...options }),
+    frame: (id, options) => frame(id, { ...options, card: options?.card === false ? false : arrivalPanel(id) }),
     teleport: (where) => walker.teleport(where),
     goToAnchor: (id) => api.goTo(id),
     setFly: (on) => hud.setFly(on, { announce: false }),
@@ -4035,6 +4036,7 @@ async function boot() {
   // holds as the card did (T-2954): Esc, its Back key, or a click or tap on the town lets
   // it go, back to where the Navigator was (docked, if it was docked).
   let handInspect = null; // { id, wasLevel, opening } while Inspect shows a building the visitor opened
+  let letting = null;     // one let go while still opening: Inspect closes as soon as it is up
   function openBuilding(id) {
     const record = loaded.registry.get(id);
     if (!record?.sidecar || !navigatorUi?.has?.('inspect')) return pick(id);
@@ -4049,7 +4051,7 @@ async function boot() {
     inspectHold = id;
     void Promise.resolve(navigatorUi.openLink({ app: 'inspect', id })).finally(() => {
       hand.opening = false;
-      if (hand.released) letGo(hand); // let go before it was even on screen
+      if (hand.released) { letGo(hand); if (letting === hand) letting = null; } // let go before it was on screen
     });
     // The panel is read and clicked, as the card was: the mouse is let go.
     if (document.pointerLockElement) { cardTookPointer = true; document.exitPointerLock?.(); }
@@ -4057,7 +4059,9 @@ async function boot() {
   }
   /** What an arrival at `id` opens, for the framing: Inspect (as openBuilding does), else the card. */
   const arrivalPanel = (id) => (loaded.registry.get(id)?.sidecar && navigatorUi?.has?.('inspect') ? 'inspect' : true);
-  const inspectingByHand = () => !!handInspect && navigatorUi?.app === 'inspect' && navigatorUi.level > 0;
+  // Held from the moment it is asked for, so Esc or the key a moment later lets it go even
+  // while Inspect is still on its way (a slow frame, or its first load).
+  const inspectingByHand = () => !!handInspect && (handInspect.opening || (navigatorUi?.app === 'inspect' && navigatorUi.level > 0));
   function letGo(was) {
     if (navigatorUi?.app !== 'inspect') return false;
     if (was.wasLevel === 0) navigatorUi.closeApp(); else void navigatorUi.back();
@@ -4067,7 +4071,7 @@ async function boot() {
     const was = handInspect;
     handInspect = null;
     if (!was) return false;
-    if (was.opening) { was.released = true; return true; }
+    if (was.opening) { was.released = true; letting = was; return true; }
     return letGo(was);
   }
 
@@ -4800,7 +4804,7 @@ async function boot() {
   /** T-3022: the building on screen for the visitor — the card's, or Inspect's while it is open
    *  (from the moment it is asked for: a first open loads Inspect before it draws). */
   Object.defineProperty(api, 'inspecting', { enumerable: true, configurable: true,
-    get: () => popup.openId ?? handInspect?.id ?? (navigatorUi?.app === 'inspect' && navigatorUi.level > 0
+    get: () => popup.openId ?? handInspect?.id ?? (!letting && navigatorUi?.app === 'inspect' && navigatorUi.level > 0
       ? (document.getElementById('nav-app-inspect')?.dataset.structure || null) : null) });
   // T-2620: the drawer's sections now live in the Navigator's apps; hud.setPanel and
   // hud.selectTab open and close them there.
