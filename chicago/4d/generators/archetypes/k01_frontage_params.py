@@ -390,11 +390,19 @@ def _k04(covering: dict, rain: dict, pitch: float, flat: bool = False,
     # `s_m` along the front from the south corner, the head's top `head_m` over grade, standing
     # `proud_m` before the main front (a projection's face), down to `foot_m` (0: grade, its shoe
     # over a splash stone; else a lower roof it discharges onto)
+    # T-2997: or (`on: "return"`) down a street projection's square high-s return, its own face
+    # (1811's bay on its 1888 plate): `s_m` is then the return's face, `proud_m` where along it
+    # the pipe stands before the main front, and the pipe, head, straps and shoe turn to that
+    # face; from_phase holds it to a projection's return
     front = []
     for x in rain.get("front_pipes", []):
-        if set(x) != {"s_m", "head_m", "foot_m", "proud_m"}:
-            raise ParamError("rainwater.front_pipes take s_m, head_m, foot_m and proud_m")
+        if set(x) - {"on"} != {"s_m", "head_m", "foot_m", "proud_m"} or x.get("on", "front") not in ("front", "return"):
+            raise ParamError("rainwater.front_pipes take s_m, head_m, foot_m and proud_m (and on: front or return)")
         q = {k: float(x[k]) for k in ("s_m", "head_m", "foot_m", "proud_m")}
+        if x.get("on") == "return":
+            if not 0.15 <= q["proud_m"] <= 2.0:
+                raise ParamError(f"rainwater.front_pipes {x}: a pipe on a return stands 0.15-2 m before the front")
+            q["on"] = "return"
         # T-3006: a pipe on a rounded corner stands behind the front's plane, round the
         # curve; from_phase holds it clear of the round's face (_round_corner)
         if not -1.5 <= q["proud_m"] <= 2.0 or not 0.0 <= q["foot_m"] <= q["head_m"] - 0.5 or q["head_m"] > 20.0:
@@ -4252,6 +4260,20 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         raise ParamError("stone_finish requires a flat roof and a stone front")
     round_corner = _round_corner(val("round_corner"), depth, width, stone, openings, bays, rainwater,
                                  side_belts=val("side_belts") or (), frontispiece=frontispiece)
+    # T-2997: a pipe on a return stands on a street projection's square high-s return, at
+    # least its head's half-width (0.14 m) and 0.01 m clear of the projection's face and the
+    # main front
+    for x in (rainwater or {}).get("front_pipes", []):
+        if x.get("on") != "return":
+            continue
+        rets = [b["s_m"] + pts[-1][0] for b in bays if b["wall"] == "k01.wall.street_front"
+                for pts in [((b.get("variant") or {}).get("plan") or {}).get("points") or []
+                            if isinstance(b.get("variant"), dict) else []]
+                if len(pts) >= 2 and pts[-1][1] == 0.0 and pts[-2][0] == pts[-1][0]
+                and 0.15 <= x["proud_m"] <= pts[-2][1] - 0.15]
+        if not any(abs(r - x["s_m"]) < 1e-6 for r in rets):
+            raise ParamError(f"rainwater.front_pipes {x}: no street projection's square high-s return stands at "
+                             f"s {x['s_m']} deep enough for a pipe {x['proud_m']} m before the front")
     names = sorted(CONSUMED)
     # T-2781: a side wall's stone belt (1637's south flank, the Grosvenor photograph's pale band
     # along its foot). Never on a wall that carries K03's brick course, which is the same line
