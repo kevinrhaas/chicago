@@ -6057,7 +6057,10 @@ for (const [label, viewport, touch] of [
           && m.candidates === frontage.farWalkState?.candidateTriangles
           // T-2093 — the six new walk chunks' top faces: 107532 to 108554, read on dev.
           // T-2195 — dev already read 108620 (T-2174's walks); the wedge's three faces: 111472.
-          && m.candidates === 111472
+          // T-3029 — the Green Tree re-seated 5.8 m west re-cuts West Water and the
+          // West Division plat; its fronts-only walks shorten 0.2 m, one plank's two
+          // top triangles fewer: 111470.
+          && m.candidates === 111470
           && m.drawn === frontage.farWalkState?.triangles),
       JSON.stringify({ meshes: frontage.farWalkTops, state: frontage.farWalkState }));
     // THE NAME IS DRAWN, AND IT IS THE RECORD'S. This is the only lettering in the
@@ -6129,8 +6132,13 @@ for (const [label, viewport, touch] of [
     // walk's alone, and a walk that cannot clear the signboard's own bar from
     // the street is still a fault. Measured here: mobile 2.94 / 37, desktop
     // 5.70 / 69.
+    //
+    // T-3029 — the inn was re-seated 5.80 m west, off the bank, and the walk with
+    // it (E -24.7 to -36.89), so the stand moves the same 5.80 m: E -30.8 is the
+    // same traveller's ground opposite the same stretch of deck, on ground within
+    // 3 mm of the old stand's.
     await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: -25, local_n: -104, yaw_deg: 0, pitch_deg: -6 }));
+      { local_e: -30.8, local_n: -104, yaw_deg: 0, pitch_deg: -6 }));
     await page.waitForTimeout(350);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const frontWith = await page.evaluate(() => window.__chicago4d.capture());
@@ -6167,7 +6175,7 @@ for (const [label, viewport, touch] of [
     // (measured: 5 of 25 aims name the inn on each; -10 still misses on mobile).
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
     await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: -25.0, local_n: -104.0, yaw_deg: 0, pitch_deg: -12 }));
+      { local_e: -30.8, local_n: -104.0, yaw_deg: 0, pitch_deg: -12 }));
     await page.waitForTimeout(600);
     const frontagePick = await page.evaluate(() => {
       const a = window.__chicago4d;
@@ -9429,8 +9437,10 @@ for (const [label, viewport, touch] of [
       cardShape.saug.homes.where === 'evidence' && cardShape.saug.homes.liberties === 'liberties'
       && cardShape.saug.homes.record === 'record',
       JSON.stringify(cardShape.saug.homes));
-    check(`${label}: Hogan's facts say it was standing, from the year its record gives`,
-      cardShape.hogan.year === '1831' && /^Standing: 1831\b/.test(cardShape.hogan.standing)
+    // T-3037: 31 March 1831 is the first date a source puts the store standing (`from_is: seen`),
+    // not its build date, so the row says "by 1831".
+    check(`${label}: Hogan's facts say it was standing by the year its record first sees it`,
+      cardShape.hogan.year === '1831' && /^Standing: by 1831\b/.test(cardShape.hogan.standing)
       && cardShape.hogan.facts.length >= 3,
       `"${cardShape.hogan.standing}" from ${cardShape.hogan.year}; ${cardShape.hogan.facts.join(' | ').slice(0, 200)}`);
 
@@ -10447,6 +10457,13 @@ for (const [label, viewport, touch] of [
     // instead of reading it and sampled an unrotated box, which reported eight
     // failures that did not exist — a gate that guesses at what the renderer did
     // is worth nothing.
+    //
+    // T-3029 — AND AT THE WALLS' FEET, WHERE THE BUILDING HAS THEM. A box's
+    // base corners are not where an L-plan or an eaved building touches the
+    // ground: the Green Tree's corner beside its rear ell stands 1.3 m off any
+    // wall. The renderer now beds on the feet (building-feet.js), so this reads
+    // the same feet through the same matrix, at y = 0; the box corners remain
+    // the measure for a structure with no geometry on that plane.
     const hover = await page.evaluate(() => {
       const api = window.__chicago4d;
       const bounds = api.buildings.instanceBounds();
@@ -10458,15 +10475,17 @@ for (const [label, viewport, touch] of [
         const b = bounds[id];
         const m = api.buildings.matrixOf(id);
         if (!b || !m) continue;
+        const feet = api.buildings.feetOf?.(id) ?? [];
+        const base = feet.length ? feet.map(([x, z]) => [x, 0, z])
+          : [[b.min[0], b.min[1], b.min[2]], [b.min[0], b.min[1], b.max[2]],
+            [b.max[0], b.min[1], b.min[2]], [b.max[0], b.min[1], b.max[2]]];
         let gap = -Infinity;
-        for (const cx of [b.min[0], b.max[0]]) {
-          for (const cz of [b.min[2], b.max[2]]) {
-            const e = m.elements;
-            const wx = e[0] * cx + e[4] * b.min[1] + e[8] * cz + e[12];
-            const wy = e[1] * cx + e[5] * b.min[1] + e[9] * cz + e[13];
-            const wz = e[2] * cx + e[6] * b.min[1] + e[10] * cz + e[14];
-            gap = Math.max(gap, wy - api.terrain.surfaceHeight(wx, -wz));
-          }
+        for (const [cx, cy, cz] of base) {
+          const e = m.elements;
+          const wx = e[0] * cx + e[4] * cy + e[8] * cz + e[12];
+          const wy = e[1] * cx + e[5] * cy + e[9] * cz + e[13];
+          const wz = e[2] * cx + e[6] * cy + e[10] * cz + e[14];
+          gap = Math.max(gap, wy - api.terrain.surfaceHeight(wx, -wz));
         }
         rows.push({ id, gap: +gap.toFixed(3) });
       }
@@ -13989,7 +14008,8 @@ for (const [label, viewport, touch] of [
     // ---- end T-2661 (part 12)
     // ---- T-2662: Guide's glossary lists the seven locked terms with their lines, its two
     // questions answer in 60 words or fewer, and a locked term's first appearance (the
-    // Navigator Home's Confidence view) shows its line on tap.
+    // Navigator Home's Confidence view) shows its line on tap. T-3043: that name sits beside
+    // its tile's open key (T-3021), so the tap shows the line and leaves Home where it was.
     await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
     await page.waitForFunction(() => document.querySelectorAll('#nav-app-guide #guide-faq details').length >= 2
       || /could not be read/.test(document.querySelector('#nav-app-guide #guide-faq')?.textContent ?? ''),
@@ -14010,11 +14030,17 @@ for (const [label, viewport, touch] of [
       };
       api.navigator.select('home');
       const term = document.querySelector('#nav-home .locked-term');
+      // T-3043: a finger on the term lands on the term, not on the tile key stretched under it.
+      term?.scrollIntoView({ block: 'nearest' });
+      const at = term?.getBoundingClientRect();
+      const hit = at && at.width > 0 ? document.elementFromPoint(at.left + at.width / 2, at.top + at.height / 2) : null;
       term?.click();
       const tip = document.getElementById('term-tip');
       const box = tip?.getBoundingClientRect();
       out.tap = { term: term?.dataset.locked ?? null, shown: !!tip && !tip.hidden, text: tip?.textContent.trim() ?? '',
-        inView: !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth && box.top >= 0 && box.bottom <= innerHeight };
+        inView: !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth && box.top >= 0 && box.bottom <= innerHeight,
+        app: api.navigator.app ?? null, inTile: !!term?.closest('.nav-tile') && !term.closest('button.nav-tile-open'),
+        onTop: !!hit && !!term?.contains(hit) };
       term?.click();
       out.tap.away = !tip || tip.hidden;
       api.navigator.dock();
@@ -14024,6 +14050,7 @@ for (const [label, viewport, touch] of [
       guideWords.terms.join() === 'Attested,Inferred,Reconstructed,Confidence view,Liberties,Sources,Jaunts' && guideWords.lines === 7
       && guideWords.questions.join('|') === 'Is this real?|What does Reconstructed mean?' && guideWords.longest > 0 && guideWords.longest <= 60
       && !guideWords.snake && guideWords.tap.term === 'Confidence view' && guideWords.tap.shown
+      && guideWords.tap.app === 'home' && guideWords.tap.inTile && guideWords.tap.onTop
       && /^Confidence view Recolor the world by grade/.test(guideWords.tap.text) && guideWords.tap.inView && guideWords.tap.away,
       JSON.stringify(guideWords));
     // ---- end T-2662
@@ -19924,7 +19951,29 @@ for (const [label, viewport, touch] of [
           'house_1922_calumet_stable_strip',
           'house_1928_calumet',
           'house_1932_calumet',
-          'house_1932_calumet_coach_house'].sort();
+          'house_1932_calumet_coach_house',
+          // T-3018: the background carried south, Calumet's west frontage 20th-22nd
+          'house_2000_calumet',
+          'house_2000_calumet_coach_house',
+          'house_2004_calumet',
+          'house_2004_calumet_coach_house',
+          'house_2016_calumet',
+          'house_2016_calumet_coach_house',
+          'house_2032_calumet',
+          'house_2032_calumet_coach_house',
+          'house_2032_calumet_shed',
+          'house_2100_calumet',
+          'house_2100_calumet_coach_house',
+          'house_2106_calumet',
+          'house_2106_calumet_coach_house',
+          'house_2114_calumet',
+          'house_2114_calumet_coach_house',
+          'house_2124_calumet',
+          'house_2128_calumet',
+          'house_2128_calumet_coach_house',
+          'house_2140_calumet',
+          'house_2140_calumet_coach_house',
+          'house_2140_calumet_shed'].sort();
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),

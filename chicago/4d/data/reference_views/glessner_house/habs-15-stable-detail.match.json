@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-15-stable-detail",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "1e6d2ef4a16c3d232cc250d8cf713b97547971b97200d7cd39308c20aaa70f5e",
+  "glb_sha256": "40c41087ed07d91fd27716120e1599260d194135dc7430d8519efa9acb68ece9",
   "camera_sha256": "09789d6f7f1c6e24ff9cae425a4a272b17d6eee58eec7f85df30707277b18c82",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg",
   "verdict": "differs",
@@ -12,7 +12,7 @@
       "status": "fixed"
     },
     {
-      "what": "Still open at the stable end: the hoist stone's foot reads about 10 px lower and its face narrower in the print than in the render, and the print hides the gable apex and the cupola behind its film holder, so neither is judged from this view. The roof covering reads slate-grey against the model's red tile (house-wide, not this ticket's).",
+      "what": "Still open at the stable end: the print hides the gable apex and the cupola behind its film holder, so neither is judged from this view. The roof covering reads slate-grey against the model's red tile (house-wide, T-3025). The camera's roll (about 1.2 degrees) and its 13-20 px offset at the loft still shift the hoist about 15 px west of the print's.",
       "status": "open"
     },
     {
@@ -25,6 +25,18 @@
     },
     {
       "what": "T-2848: the stone in this print is darkened by decades of city soot, so its tone in the 1960s photograph is not its 1887 tone; the render's clean stone is not compared against it.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3030, reviewed from the rebaked master: what this print shows under the arch is the hoist stone's lit sloping underside, from its foot at the wall up to its nose, about 42 px tall; the render now shows the same sloping underside from a 4.0 ft cantilever (it showed a short block's front face), its foot at 26.0 ft as the print reads it about 10 px lower than before, and its narrow 0.75 ft width.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3031, reviewed from the rebaked master: the cupola was raised about 1 ft, narrowed to 5.5 ft and its eave drawn in to 0.75 ft; this print hides the cupola behind its film holder, so nothing it shows changed and nothing here is judged anew.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3036, reviewed from the rebaked master: only the cupola's corner faces changed (its walls now meet without coplanar ends), and the cupola stands above this print's top edge, so nothing this view compares moved.",
       "status": "not shown"
     }
   ],

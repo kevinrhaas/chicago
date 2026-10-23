@@ -95,6 +95,33 @@ its ribbon stands on.
 | 1835 | 3 | 103 | 580 | 12 attested, 94 inferred, 580 reconstructed |
 | 1812 | 4 | 38 | 7 | 40 inferred, 9 reconstructed |
 
+## What a date on a card means (T-3037, 2026-10-22)
+
+A phase's `documented_range` is the span the record claims, and most of its ends are **bounds the
+record chose**, not dates anybody wrote down: 195 of the 209 Prairie Avenue structures of 1904 open
+on the scene's own day, because each record claims the 1904 target and no more, and 572 roofs of
+1835 open on 1 January 1835 for the same reason. The card printed the start as "It had stood like
+this since 1904", and the owner found it under the 1893 drawing of the same house (1736 Prairie):
+*"make sure that you are accurate and true when you say something"*.
+
+So a card prints a date only where the record says what the date is:
+
+| field | values | what the card says |
+|---|---|---|
+| structure `built` | a year; `about 1834`; `by 1886`; `between 1870 and 1876`; `1864 or 1875` | *Built in 1886.* — the build date as the sources give it, disagreement and all. Graded and sourced like any claim; `tools/validate.py` holds the form and refuses a year after a phase ends. |
+| `documented_range.from_is` | `began` | a source dates this phase's start (built, completed, converted, opened): *It had stood like this since 1833.* |
+| | `seen` | the first date a source shows it standing; it may be older: *Recorded here by 1831.* |
+| `documented_range.to_is` | `ended` | a source dates the end (burned, demolished, moved, altered): *until 1856* |
+| | `seen` | the last date a source shows it, as the 1911 Sanborn does for the 1904 district: *still in 1911* |
+
+An unmarked end is a bound, and **no card prints it as a date**: the summary leaves the sentence
+out, the Standing row says *Dates not recorded*, the Story tab says *Our records give no date for
+when it was built*. `renderers/web/js/range-words.js` is the one place the words are made, and
+`tools/test_fallback_summary.mjs` refuses any composed lead that prints a year the record does not
+date. Marking an end `began` or `seen` is a reading of the range's own note, and a year in `built`
+is one a source in its `sources` prints; neither is ever inferred from the other.
+
+
 1835's three are the Sauganash, the Green Tree and the Dearborn Street drawbridge; ten
 documented buildings (the Tremont, the Mansion House and others) are recorded only in text and are
 inferred. 1812's four are the Kinzie house and its green, and Lee's Place's cabin and field fence,

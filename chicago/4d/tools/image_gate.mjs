@@ -33,6 +33,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import os from 'node:os';
+import {renderGroup, groupReview} from './photo_match_group.mjs';
+import {testRenderGroups} from './test_photo_match_group.mjs';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 export let VIEWS_DIR = path.join(ROOT, 'data/reference_views');   // the self-test points it at a temp copy
@@ -71,6 +73,9 @@ function malformed(structureId, v) {
   if (cam.photo && !fs.existsSync(path.resolve(path.dirname(v.cameraFile), cam.photo))) out.push(`${rel(v.cameraFile)}: photo ${cam.photo} is not in the tree`);
   if (!cam.source_id && !cam.library_image) out.push(`${rel(v.cameraFile)}: names neither a source_id nor a library_image — whose picture is it?`);
   if (cam.source_id && !fs.existsSync(path.join(ROOT, 'data/sources', cam.source_id + '.json'))) out.push(`${rel(v.cameraFile)}: source_id ${cam.source_id} does not resolve in data/sources/`);
+  if (cam.also_render !== undefined) {
+    try { renderGroup(ROOT, cam); } catch (e) { out.push(`${rel(v.cameraFile)}: ${e.message}`); }
+  }
   if (fs.existsSync(v.matchFile)) {
     let m;
     try { m = JSON.parse(fs.readFileSync(v.matchFile, 'utf8')); } catch (e) { return [...out, `${rel(v.matchFile)}: not JSON (${e.message})`]; }
@@ -88,10 +93,16 @@ function malformed(structureId, v) {
 function blocker(structureId, v) {
   if (!fs.existsSync(v.matchFile)) return `${v.view}: never matched — run node tools/photo_match.mjs ${rel(v.cameraFile)}`;
   const m = JSON.parse(fs.readFileSync(v.matchFile, 'utf8'));
-  const glb = glbFor(structureId);
+  const camera = JSON.parse(fs.readFileSync(v.cameraFile, 'utf8'));
+  const members = camera.also_render?.length ? renderGroup(ROOT, camera) : null;
+  const glb = members ? members[0].glb : glbFor(structureId);
   if (!glb || !fs.existsSync(path.join(ROOT, glb))) return `${v.view}: ${structureId} has no GLB in assets/manifest.json`;
   if (m.glb_sha256 !== sha(path.join(ROOT, glb))) return `${v.view}: the GLB changed after the match — rerun node tools/photo_match.mjs ${rel(v.cameraFile)} and look again`;
   if (m.camera_sha256 !== sha(v.cameraFile)) return `${v.view}: the camera changed after the match — rerun photo_match`;
+  if (members && m.group_sha256 !== groupReview(ROOT, members).group_sha256)
+    return `${v.view}: a rendered group member or its scene placement changed after the match — rerun photo_match`;
+  if ((members || m.photo_sha256) && m.photo_sha256 !== sha(path.resolve(path.dirname(v.cameraFile), camera.photo)))
+    return `${v.view}: the reference picture changed after the match — rerun photo_match`;
   const open = (m.differences || []).filter((d) => d.status === 'open');
   if (m.verdict !== 'matches') return `${v.view}: verdict "${m.verdict}"${open.length ? `, ${open.length} difference(s) open: ${open.map((d) => d.what).join('; ')}` : ''}`;
   return null;
@@ -128,6 +139,7 @@ export function gatedStructures(body) {
 }
 
 function selfTest() {
+  testRenderGroups();
   let fails = 0;
   const ok = (c, what) => { console.log(`${c ? 'ok  ' : 'FAIL'} image gate self-test: ${what}`); if (!c) fails++; };
   const body = 'Text.\n\n## Image gate\n- `goodman_house_1612_prairie`\n* house_1608_prairie — its 1886 plate\n\n## Later\n- not_this_one\n';
@@ -152,6 +164,29 @@ function selfTest() {
     ok(gateFor([id]).some((b) => /never matched/.test(b)), 'a view with no match record does not close');
     fs.writeFileSync(path.join(dir, 'front.match.json'), JSON.stringify({ verdict: 'matches', differences: [{ what: 'cornice', status: 'open' }] }));
     ok(gateFor([id]).some((b) => /"matches" with a difference still open/.test(b)), 'matches with an open difference is malformed');
+    // Exercise the actual closing gate, not only the fingerprint helper. The
+    // camera and match live in the temporary view tree; real scene assets are read.
+    const anchor = 'first_fort_dearborn_blockhouse_nw';
+    const groupDir = path.join(VIEWS_DIR, anchor);
+    fs.mkdirSync(groupDir);
+    fs.writeFileSync(path.join(groupDir, 'p.jpg'), 'fixture picture');
+    const camera = {structure_id: anchor, library_image: 'fixture', scene: '1812',
+      also_render: ['first_fort_dearborn_blockhouse_se'], photo: 'p.jpg',
+      image_px: [1, 1], principal_px: [0, 0], focal_px: 1, eye: [0, 0, 0], yaw_deg: 0, solve: 'fixture'};
+    const cameraFile = path.join(groupDir, 'group.json'), matchFile = path.join(groupDir, 'group.match.json');
+    fs.writeFileSync(cameraFile, JSON.stringify(camera));
+    const members = renderGroup(ROOT, camera);
+    const match = {verdict: 'matches', differences: [], glb_sha256: sha(path.join(ROOT, members[0].glb)),
+      camera_sha256: sha(cameraFile), photo_sha256: sha(path.join(groupDir, 'p.jpg')),
+      ...groupReview(ROOT, members)};
+    fs.writeFileSync(matchFile, JSON.stringify(match));
+    ok(gateFor([anchor]).length === 0, 'a current group review can close');
+    fs.writeFileSync(matchFile, JSON.stringify({...match, group_sha256: 'old group'}));
+    ok(gateFor([anchor]).some(b => /group member or its scene placement changed/.test(b)),
+      'a stale group refuses closure even with a current anchor GLB and camera');
+    fs.writeFileSync(matchFile, JSON.stringify(match));
+    fs.writeFileSync(path.join(groupDir, 'p.jpg'), 'different fixture picture');
+    ok(gateFor([anchor]).some(b => /reference picture changed/.test(b)), 'a changed picture refuses closure');
   } finally { fs.rmSync(VIEWS_DIR, { recursive: true, force: true }); VIEWS_DIR = real; }
   return fails ? 1 : 0;
 }

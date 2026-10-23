@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs04-court-exterior",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "ca5f588b518b08ad19b171ca67da888d76465b6e17b8a2032767e2587b5b0efb",
+  "glb_sha256": "f6b4ea96c20fd26c82b5f93c18f95449ffb3a2a28954b8a5d1b1434bb8617283",
   "camera_sha256": "c9d413f7fa89d5c38c8cbd3f61c5f6ab8dd56819095405939ad9717c94923f5a",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs04-court-exterior-side-by-side.jpg",
   "verdict": "matches",
@@ -57,6 +57,10 @@
     },
     {
       "what": "T-2928: the strip between the bow and the stair tower to native sheet 4, carried onto the plan's frame by +0.65 ft. The first-floor window's frame at S43.30-48.44 and 9.13-13.31 ft (built 43.0-47.5 and 9.5-14.6) on a sill stone 8.39-9.13 under a lintel stone 13.31-14.51, both run 42.97-48.75; the second-floor light 1.13 ft across at 45.26-46.39 and 19.46-24.38 ft, one pane (built 1.8 ft wide, 44.9-46.7, 19.5-25.6), under a head stone 24.38-25.65 and on a sill stone 18.73-19.46, both 44.91-46.74. Sheet 4 draws no leader on the strip: the court-east-north leader at S42.4 and its straps are gone, the strip's gutter running on to the bow's trough. The barred basement light takes the drawn bar pitch (0.345 ft; nine bars on the built, held-short light, was six). On the render at the drawing's grain the frames and stones fall on the drawn lines across, and about 0.3 ft above them, the offset the previous build showed against its own record (the far-field camera's residual).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-2978: the court ground at the passage mouth to sheet 4. The sheet draws the lawn along the face 1.32 ft above the ground beside the mouth, falling across plan S 53.15-62.35, and the opening's foot 1.02 ft lower again (y 6097). The court was level, so the opening stood 1.3 ft short over its ground; the ground now falls as drawn and the passage floor meets the court face at the drawn foot, 9.67 ft under the lintel (sheet 9.65). The render shows the opening running down past the lawn line to the sunk drive. The fall's westward extent is reconstructed (L-glessner-court-fall-2978).",
       "status": "fixed"
     },
     {

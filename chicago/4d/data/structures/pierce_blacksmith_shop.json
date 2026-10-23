@@ -16,7 +16,8 @@
         "sources": [
           "andreas_1884_v1"
         ],
-        "note": "THE START IS DOCUMENTED TO THE DAY, WHICH IS RARE IN THIS DATASET. Andreas: 'It was upon the eighth day of October, 1833, that a young man named Asahel Pierce arrived in Chicago from Vermont, and commenced the erection of a blacksmith shop, on Lake Street, corner of Canal' (scan p. 1161). The range opens on that date, which is when building BEGAN rather than when the shop was working — nothing says how long it took, and a small board shop is a matter of weeks. The range is tagged inferred rather than documented for the far end only: nothing reached follows the building past 1834, and it closes at the end of 1835 as the last date this record needs to claim. THE SURVIVAL IS BETTER SUPPORTED THAN MOST HERE: Andreas has Pierce ironing the first Chicago-to-St-Louis stage line for John T. Temple & Co. in January 1834 and beginning the manufacture of the old-fashioned 'Bull' plough with a wooden mould-board in the spring of that year, which is a business growing rather than folding, and Pierce is still a Chicago figure decades later, an alderman in 1843 and 1844 with two streets named after him (scan pp. 387, 411)."
+        "note": "THE START IS DOCUMENTED TO THE DAY, WHICH IS RARE IN THIS DATASET. Andreas: 'It was upon the eighth day of October, 1833, that a young man named Asahel Pierce arrived in Chicago from Vermont, and commenced the erection of a blacksmith shop, on Lake Street, corner of Canal' (scan p. 1161). The range opens on that date, which is when building BEGAN rather than when the shop was working — nothing says how long it took, and a small board shop is a matter of weeks. The range is tagged inferred rather than documented for the far end only: nothing reached follows the building past 1834, and it closes at the end of 1835 as the last date this record needs to claim. THE SURVIVAL IS BETTER SUPPORTED THAN MOST HERE: Andreas has Pierce ironing the first Chicago-to-St-Louis stage line for John T. Temple & Co. in January 1834 and beginning the manufacture of the old-fashioned 'Bull' plough with a wooden mould-board in the spring of that year, which is a business growing rather than folding, and Pierce is still a Chicago figure decades later, an alderman in 1843 and 1844 with two streets named after him (scan pp. 387, 411).",
+        "from_is": "began"
       },
       "position": {
         "utm_e": 446927.7,
@@ -103,6 +104,14 @@
       "andreas_1884_v1"
     ],
     "note": "A blacksmith shop from October 1833, doing the ironwork the town and the road trade needed: Andreas records the order from John T. Temple & Co. for 'doing the ironing for the first stage line between Chicago and St. Louis' in January 1834, and the manufacture of the old-fashioned 'Bull' plough with a wooden mould-board from the spring of 1834 (scan p. 1161). THAT PLOUGH IS THE REASON THIS BUILDING MATTERS BEYOND ITS OWN CORNER: it is the wet-prairie tool, and a smith on the west side making them is the town's agricultural hinterland arriving in the town. Whether he was making them on 1835-07-01 specifically is not attested."
+  },
+  "built": {
+    "value": 1833,
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas: Asahel Pierce 'commenced the erection of a blacksmith shop' on 8 October 1833."
   },
   "occupants": {
     "value": "Asahel Pierce",

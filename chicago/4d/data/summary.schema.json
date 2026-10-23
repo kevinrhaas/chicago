@@ -122,6 +122,11 @@
           "minimum": 1600,
           "maximum": 2100
         },
+        "phrase": {
+          "type": "string",
+          "pattern": "^(?:(?:about|by) \\d{4}|between \\d{4} and \\d{4}|\\d{4} or \\d{4})$",
+          "description": "T-3037: the build date as the sources give it, where a single year would overstate them ('between 1870 and 1876', '1864 or 1875'). `year` is its earliest year, the one the timeline places it at."
+        },
         "grade": {
           "$ref": "#/$defs/grade"
         },

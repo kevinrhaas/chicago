@@ -550,6 +550,8 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "perch_projection_m": float(v["perch_projection_ft"]) * FT}
             if "ledge_ft" in v:
                 p.turrets[-1]["vent"]["ledge_m"] = float(v["ledge_ft"]) * FT
+            if v.get("ledge_corners") == "wrapped":
+                p.turrets[-1]["vent"]["ledge_corners"] = "wrapped"
             if t.get("body_material"):
                 p.turrets[-1]["body_material"] = t["body_material"]
             p.turrets[-1]["eave"] = {
@@ -745,6 +747,16 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             "conf": cf("courtyard_ground"),
             "wall_fall_start_y": fr.y(finish["wall_fall_start_S"]),
         }
+        # T-2978: sheet 4 draws the court ground falling from the lawn to the passage
+        # mouth; the generator sinks the court's surfaces by it (v4_ground.fall_quads).
+        mf = finish.get("mouth_fall")
+        if mf:
+            p.detail["court_ground"]["mouth_fall"] = {
+                "depth_m": round(float(mf["depth_ft"]) * FT, 4),
+                "x": [fr.x(mf["low_W"][0]), fr.x(mf["low_W"][1]), fr.x(mf["rise_to_W"])],
+                "y": [fr.y(mf["bank_S"][0]), fr.y(mf["bank_S"][1])],
+                "footing_y": sorted(fr.y(s) for s in mf.get("footing_S", [])),
+            }
 
     if p.detail_profile:
         fg = val("prairie_frontage")
@@ -815,8 +827,12 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                     chimney['z0']=min(chimney['z0'],
                                       chimney_foot(p,chimney['x0']),
                                       chimney_foot(p,chimney['x1']))
-        p.detail["ashlar_courses_m"] = [round(float(h) * 0.0254, 6)
-                                          for h in raw.get("ashlar_courses_in", [])]
+        # T-3045: the printed inches stay the record's figures; the courses between two
+        # beds are laid at a measured scale over them (Taylor 2135 and sheet 6, beds 7-23).
+        stretch = raw.get("ashlar_course_scale") or {}
+        lo, hi = stretch.get("beds", (0, 0))
+        p.detail["ashlar_courses_m"] = [round(float(h) * 0.0254 * (float(stretch["scale"]) if lo < i + 1 <= hi else 1.0), 6)
+                                          for i, h in enumerate(raw.get("ashlar_courses_in", []))]
         # T-2955: the string is laid from north grade, so the beds run level round the NE
         # corner and stay registered on the 18th Street apertures (set on its sums above
         # north grade); on the Prairie face that is sheet 5's base line, 0.20 ft over the walk.
@@ -965,6 +981,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             if "hook_drop_ft" in hoist:
                 p.detail["north_stable_fabric"]["hoist_stone"]["hook_drop"] = \
                     hoist["hook_drop_ft"]*FT
+            if "nose_ft" in hoist:
+                # T-3030: the nose's own depth, read from the Cornell view.
+                p.detail["north_stable_fabric"]["hoist_stone"]["nose"] = \
+                    hoist["nose_ft"]*FT
             leaves = stable_fabric.get("loft_leaves")
             if leaves:
                 p.detail["north_stable_fabric"]["loft_leaves"] = {

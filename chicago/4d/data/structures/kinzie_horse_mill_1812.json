@@ -1,0 +1,110 @@
+{
+  "id": "kinzie_horse_mill_1812",
+  "name": "The old horse mill beside Kinzie's garden",
+  "aka": [
+    "Whistler's index no. 32, 'Old Grist Mill Worked by Horses' (1808)",
+    "the horse mill of du Sable's bill of sale (1800), as T-2484 reported it"
+  ],
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "mill_1808",
+      "documented_range": {
+        "from": "1808-01-25",
+        "to": "1816-06-30",
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught",
+          "quaife_1913"
+        ],
+        "note": "THE RANGE IS BOUNDED BY THE DRAUGHT AND BY SILENCE. It opens on 25 January 1808, the date of Whistler's draught, whose index already calls it 'Old'; it is older, and the bill of sale of 1800 is reported to list a horse mill (T-2484; not read here). It is taken to stand through the 1812 scene dates (1 and 14 August) by continuity: nothing read says it was pulled down or burned. It closes on 30 June 1816 with the no. 31 houses beside it, the day before the second fort's records open: no source read names it after the war, Wau-Bun's establishment of 1831 has no mill in it, and Sarony's lithograph of about 1831 draws only trees and the road where it stood. Out of 1835. L420.",
+        "from_is": "seen"
+      },
+      "position": {
+        "utm_e": 448203.852,
+        "utm_n": 4637747.224,
+        "rotation_deg": 180.0,
+        "symbolic_location": "The north bank west of the Kinzie house, between the easternmost no. 31 house and Kinzie's kitchen garden, where the draught draws building no. 32; fort-frame box E -85.2..-68.4 ft, N +415.5..+427.9 ft by the north-bank rule (data/traces/whistler_1808_fort_dearborn.json north_bank). This record's origin is the footprint's north-east corner, local E +1131.2, N +351.4, which a south facing puts at the frame's (0, 0).",
+        "confidence": "reconstructed",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught",
+          "quaife_1913"
+        ],
+        "note": "SEATED BY STATED RULE, NOT MEASURED. Whistler's index names no. 32 'Old Grist Mill Worked by Horses' (Quaife 1913, note 413). The building carrying the numeral was found on the sheet at T-2504 between the easternmost no. 31 house and Kinzie's kitchen garden, at sheet px [1177, 427, 1215, 455] with its '32' under it near (1190, 460), and recorded in this ticket; this run could not fetch the sheet to read it again (the Gutenberg image host was unreachable from its container), so the box is T-2504's reading. It is seated by T-2504's north-bank rule, opened out about the Kinzie house as built by the drafter's '52 yards in length', exactly as the no. 31 houses are, and faces the river as the draught draws the houses on this bank. tools/read_whistler_1808.py --check re-derives this seat from the box and refuses it wet or on a neighbour. L420.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Not by any of validate.py's methods: the draught is not to scale outside the stockade. The seat is the north-bank rule in the register, re-derived by tools/read_whistler_1808.py --check."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            5.121,
+            0
+          ],
+          [
+            5.121,
+            3.78
+          ],
+          [
+            0,
+            3.78
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "17 x 12 ft: the drawn box at the index's forty feet to the inch, the scale every outside building is read at; an upper bound, the drawing being roof and front together. DU SABLE'S BILL OF SALE, 1800. T-2484 reported that the bill to Jean La Lime (printed by Quaife, 'Property of Jean Baptiste Point Sable', Mississippi Valley Historical Review 15:1, 1928) lists, besides the house, two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article was NOT READ for this record: JSTOR and HathiTrust, which hold it, could not be reached from the run's container (T-2485), so no dimension in it is used and it is not cited. Nothing here is its figure. The horse's walk and the sweep are not built: no source says whether the horse worked inside the building or round it."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "reconstructed",
+          "note": "Unattested; the draught draws every building on this bank in logs."
+        },
+        "wall_height_m": {
+          "value": 2.6,
+          "confidence": "reconstructed",
+          "note": "Unattested: high enough to header a door a horse is led through."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The draught draws a pitched roof, as on every building on this bank."
+        },
+        "roof_pitch_deg": {
+          "value": 35.0,
+          "confidence": "reconstructed",
+          "note": "Unattested; the north-bank houses' pitch."
+        },
+        "door": {
+          "value": "stable",
+          "confidence": "reconstructed",
+          "note": "Wide enough to lead the mill horse in, and the sacks of grain and meal with it."
+        },
+        "door_side": {
+          "value": "front",
+          "confidence": "reconstructed",
+          "note": "Toward the river."
+        }
+      },
+      "change_note": "Built T-2485 (2026-10-21): Whistler's no. 32, the old horse mill, on the north bank."
+    }
+  ],
+  "function": {
+    "value": "horse_mill",
+    "confidence": "attested",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "quaife_1913"
+    ],
+    "note": "Whistler's index, no. 32: 'Old Grist Mill Worked by Horses'."
+  },
+  "research_note": "THE OLD HORSE MILL (T-2485). DU SABLE'S BILL OF SALE, 1800. T-2484 reported that the bill to Jean La Lime (printed by Quaife, 'Property of Jean Baptiste Point Sable', Mississippi Valley Historical Review 15:1, 1928) lists, besides the house, two barns, a horse mill, a bakehouse, a poultry house, a dairy and a smokehouse. The article was NOT READ for this record: JSTOR and HathiTrust, which hold it, could not be reached from the run's container (T-2485), so no dimension in it is used and it is not cited. RULING: the horse mill STANDS in 1812, inferred: the draught names it in January 1808 and already calls it old, which fits a mill of du Sable's time, and nothing read says it went before the war. That it is the bill's mill is not shown. Whose it was in 1812 is not stated: it stands between the no. 31 houses and Kinzie's garden. No picture of it is known (Whistler's sheet is a plan with small elevations, read for place, as for the no. 31 houses), so it has no image gate to meet.",
+  "review_required": false
+}

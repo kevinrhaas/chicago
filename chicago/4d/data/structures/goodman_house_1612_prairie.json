@@ -13,6 +13,14 @@
     ],
     "note": "The 1911 sheet marks the building 'D' (dwelling): '2½B brick dwelling (D), stone (blue) Prairie front; small frame porch on the south wall'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
   },
+  "built": {
+    "value": 1869,
+    "confidence": "attested",
+    "sources": [
+      "hmdb_prairie_lost_houses_1600_1700"
+    ],
+    "note": "The marker: 'Joseph Goodman Residence. Built 1869'."
+  },
   "review_required": false,
   "research_note": "T-2366 rebuilds 1612 Prairie's street front from the house's own photograph (chicagology_1612_prairie_photo, the Prairie library's a16-cgy-1612-studebaker-photo), which T-2344 never opened: the library linked it and its summary ('paired segmental windows, arched columned entrance') was all the build read. Through a camera solve against the Sanborn's 11.25 m front, the photograph gives the three bays, the round-arched windows by storey with their radiating voussoirs and keystones, the floors' heights, the belt, the stone's top and the frieze, the frontispiece and portico, and the iron; tools/photo_match.mjs renders the built GLB from that camera beside the print (docs/RESEARCH/k01-1612-goodman-2366). The envelope, storeys and stone front still rest on the 1911 Sanborn sheet 20 (trace s20fp-1612-b1); what neither shows (the roof, the side and rear windows, the colours) is reconstructed (L-k01-1612-goodman-2366, which replaces L-k01-1612-goodman-2344). The detached rear building is the coach-house record's (T-1932). T-2369 finished the match (data/reference_views/goodman_house_1612_prairie/front_from_southeast.match.json, docs/RESEARCH/k01-1612-goodman-2369): paired brackets over a dark frieze, the south wall's canted oriel on its corbelling, the door at the stoop's head (1.7 m) with the stoop between iron rails, and the portico's depth; what it adds beyond the print is L-k01-1612-goodman-2369.",
   "phases": [
@@ -25,7 +33,8 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_20"
         ],
-        "note": "STANDING IN 1904 is what the scene needs: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped; the 1904 Blue Book lists a household here). FROM and TO are the T-1837 register's reported chronology (built 1869, lost circa 1960); the register is not a source record here, so each is the year's first or last day and the confidence inferred. Bishop Anderson's ownership begins in 1905, after the target, and changes nothing drawn."
+        "note": "STANDING IN 1904 is what the scene needs: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped; the 1904 Blue Book lists a household here). FROM and TO are the T-1837 register's reported chronology (built 1869, lost circa 1960); the register is not a source record here, so each is the year's first or last day and the confidence inferred. Bishop Anderson's ownership begins in 1905, after the target, and changes nothing drawn.",
+        "from_is": "began"
       },
       "position": {
         "utm_e": 448433.442,

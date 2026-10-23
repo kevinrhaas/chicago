@@ -1,5 +1,5 @@
 {
-  "_doc": "The rules of the Prairie Avenue DISTRICT DRAFT (owner, 2026-10-08; T-2159, split to T-2329 and T-2330; T-2160, split to T-2334 and T-2335; T-2161, split to T-2351 and T-2352). tools/draft_prairie_1904.py reads this file, the traced Sanborn footprints (data/traces/prairie_1904_footprints_s<sheet>.json), the sheet census and the T-1837 frontage register, and writes one prairie_draft structure record per building. A later block is drafted by ADDING rows here (a sheet under `blocks`, its frontages under `frontages`), never by editing the tool. Every number below is a RECONSTRUCTION bounded by the study's starting ranges (RECONSTRUCTION-RULES.md) and recorded as one liberty per block in docs/LIBERTIES.md.",
+  "_doc": "The rules of the Prairie Avenue DISTRICT DRAFT (owner, 2026-10-08; T-2159, split to T-2329 and T-2330; T-2160, split to T-2334 and T-2335; T-2161, split to T-2351 and T-2352). tools/draft_prairie_1904.py reads this file, the traced Sanborn footprints (data/traces/prairie_1904_footprints_s<sheet>.json), the sheet census and the T-1837 frontage register, and writes one prairie_draft structure record per building. A later block is drafted by ADDING rows here (a sheet under `blocks`, its frontages under `frontages`), never by editing the tool. Every number below is a RECONSTRUCTION bounded by the study's starting ranges (RECONSTRUCTION-RULES.md) and recorded as one liberty per block in docs/LIBERTIES.md. A frontage row's `built` (T-3037) is a build year a source prints, carried to the house's record as its `built` claim; the 1911 sheet's reading marks every drafted range's end `to_is: seen`.",
   "ticket": "T-2329",
   "fit": {
     "_doc": "How a traced part becomes rectangles: the part is scan-filled on a grid in its lot's own frame, and the largest rectangle inside the fill is taken, then the largest in what is left, until the rectangles cover `coverage` of the fill or `max_rects` are taken. A rectangle smaller than `min_rect_m2` or thinner than `min_side_m` is not taken; one lying `swallowed` or more inside an earlier rectangle of the building is dropped. A frontage row's `front_body_from_u_m` makes a house's first rectangle the largest in front of that lot-frame u (T-2330), for a house the sheet traces in one part with its rear range.",
@@ -463,6 +463,46 @@
       "rear_ticket": {
         "west": "T-1946"
       }
+    },
+    "35e": {
+      "where": "the background behind Prairie Avenue: Calumet Avenue's west frontage, 20th to 22nd Street, beside the named Hanford and Wheeler-Kohn houses (Sanborn 1911 vol. 3 sheet 35)",
+      "sides": [
+        "west"
+      ],
+      "source": "sanborn_1911_chicago_v3_sheet_35",
+      "census_file": "data/components/prairie_1904/edges_census_s35e.json",
+      "census_ticket": "T-3018",
+      "pass": "T-3018",
+      "liberty": "L-draft-district-background-3018",
+      "fit_note": "the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy",
+      "rear_ticket": {
+        "west": "T-1946"
+      },
+      "service_outline": {
+        "_doc": "As block 35, whose scan this is: a service building is filled from its traced outline.",
+        "close_cells": 2
+      }
+    },
+    "35w": {
+      "where": "the background behind Prairie Avenue: Indiana Avenue's east frontage, 20th to 22nd Street, and East Twenty-first Street's lots behind its 2101-2105 corner (Sanborn 1911 vol. 3 sheet 35)",
+      "sides": [
+        "east",
+        "south"
+      ],
+      "source": "sanborn_1911_chicago_v3_sheet_35",
+      "census_file": "data/components/prairie_1904/edges_census_s35w.json",
+      "census_ticket": "T-3009",
+      "pass": "T-3009",
+      "liberty": "L-draft-district-background-3009",
+      "fit_note": "the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy",
+      "rear_ticket": {
+        "east": "T-1946",
+        "south": "T-1946"
+      },
+      "service_outline": {
+        "_doc": "As block 35, whose scan this is: a service building is filled from its traced outline.",
+        "close_cells": 2
+      }
     }
   },
   "skip": {
@@ -498,7 +538,12 @@
     "s20-1619-f": "1619 Prairie now stands as the K01 stone-front house house_1619_prairie under K01's flat roof (T-2434, piece 3 of T-1869), which refines this draft in place under the draft's own id: the four-storey main body on K01 with the sheet's curved bay on K08's bow, and the sheet's brick rear block and two-storey frame piece on K01's rear wings; the draft stands no second building beside it.",
     "s20-1637-f": "1637 Prairie's main body now stands as the K01 brick frontage spalding_house_1637_prairie (T-2441, piece 1 of T-1870), read off the engraving of Jesse Spalding's remodel of the Grosvenor house against this sheet, which refines this draft in place under the draft's own id: the main body on K01 with the engraving's swell bay and the sheet's forward south wing on K08, and the sheet's rear range behind the south part on K01's rear wings; the draft stands no second building beside it.",
     "s20-1726-f": "1726 Prairie now stands as the K01 brick frontage house_1726_prairie (T-2934, piece 2 of T-1874), which refines this draft in place under the draft's own id: the main body on K01 with the sheet's front and south canted bays and its side projections on K08, and the sheet's two-storey rear piece and frame porch on K01's rear wings; the draft stands no second building beside it.",
-    "s20-1730-f": "1730 Prairie now stands as the K01 brick frontage house_1730_prairie under a K05 mansard (T-2934, piece 2 of T-1874), which refines this draft in place under the draft's own id: the sheet's three-storey front block on K01 with its frame front bay and south projection and vestibule on K08, and the two-storey rear range and frame porch on K01's rear wings; the draft stands no second building beside it."
+    "s20-1730-f": "1730 Prairie now stands as the K01 brick frontage house_1730_prairie under a K05 mansard (T-2934, piece 2 of T-1874), which refines this draft in place under the draft's own id: the sheet's three-storey front block on K01 with its frame front bay and south projection and vestibule on K08, and the two-storey rear range and frame porch on K01's rear wings; the draft stands no second building beside it.",
+    "s35w-2001-front": "2001-2003 Indiana: the 1911 sheet draws a three-storey printing works here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
+    "s35w-2101-front": "2101-2105 Indiana: the 1911 sheet draws a two-storey motor garage with concrete floors here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
+    "s35w-215-front": "215-217 E. 21st Street: the 1911 sheet draws a two-storey auto repair and blacksmith shop here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
+    "s35w-2129-front": "2129-2131 Indiana: the 1911 sheet draws a three-storey motor garage here, and nothing in hand says what stood on the lot on 1 July 1904 (census ruling phase_unresolved); the draft stands nothing rather than invent a house, and T-3013 reads it.",
+    "s35w-2029-front": "2029-2035 Indiana is the First Presbyterian Church, which stands as the site record first_presbyterian_church_2029_indiana (drafted by T-3009 from this outline's measures, refined by T-3014); the draft stands no second building on the trace."
   },
   "frontages": {
     "frontage-28-038": {
@@ -521,7 +566,15 @@
       "pitch_deg": 35,
       "attic_dormers": true,
       "entrance": "south",
-      "why": "2½B on the map: two full storeys and a half in the roof, read as dormers in a hip behind the stone front."
+      "why": "2½B on the map: two full storeys and a half in the roof, read as dormers in a hip behind the stone front.",
+      "built": {
+        "value": 1857,
+        "confidence": "attested",
+        "sources": [
+          "hmdb_prairie_lost_houses_1800_1900_west"
+        ],
+        "note": "The marker: 'Samuel B. Pomeroy Residence. Built 1857'."
+      }
     },
     "frontage-28-041": {
       "slug": "house",
@@ -532,12 +585,29 @@
       "slug": "jones_house",
       "roof": "mansard",
       "entrance": "north",
-      "why": "The register's 'recorded 1886 mansard storey': 3S.B. read as three storeys and the mansard over them."
+      "why": "The register's 'recorded 1886 mansard storey': 3S.B. read as three storeys and the mansard over them.",
+      "built": {
+        "value": 1866,
+        "confidence": "attested",
+        "sources": [
+          "hmdb_prairie_lost_houses_1800_1900_west"
+        ],
+        "note": "The marker: 'Fernando Jones Residence. Built 1866', with a mansard added in 1886."
+      }
     },
     "frontage-28-043": {
       "slug": "elbridge_keith_house",
       "entrance": "south",
-      "why": "Second Empire: slate mansard and dormers over the mapped corner bay."
+      "why": "Second Empire: slate mansard and dormers over the mapped corner bay.",
+      "built": {
+        "value": 1870,
+        "confidence": "attested",
+        "sources": [
+          "hmdb_prairie_heritage_preserved",
+          "glessner_blog_2014_11_elbridge_keith_house"
+        ],
+        "note": "The marker: 'Elbridge G. Keith Residence. Built 1870'; the museum's post gives 1870 to 1871."
+      }
     },
     "frontage-28-044": {
       "slug": "edson_keith_house",
@@ -563,7 +633,15 @@
           "cap_m": 6.0
         }
       ],
-      "why": "Chateauesque: the register's 'conical corner turret' and 'steep slate roof'; 2½B read as dormers in the steep hip."
+      "why": "Chateauesque: the register's 'conical corner turret' and 'steep slate roof'; 2½B read as dormers in the steep hip.",
+      "built": {
+        "value": 1882,
+        "confidence": "attested",
+        "sources": [
+          "hmdb_prairie_lost_houses_1800_1900_west"
+        ],
+        "note": "The marker: 'Byran P. Moulton Residence. Built 1882'."
+      }
     },
     "frontage-28-047": {
       "slug": "house",
@@ -660,7 +738,15 @@
       "slug": "marshall_field_jr_house",
       "entrance": "north",
       "front_body_from_u_m": 21.3,
-      "why": "2½S.B.: two full storeys and a half in the roof, read as gabled dormers in a hip over the post-1902 enlargement; the projecting tower/bay is T-1906's. The 1911 sheet's Gatlin Institute is a 1911 use and is not carried back. The sheet traces the house and its rear range as one part, whose largest rectangle is a 47 m strip down the lot; the main body is fitted in front of the part's own break at 21.3 m from the rear lot line, where it narrows to the street front, and the rear range behind it."
+      "why": "2½S.B.: two full storeys and a half in the roof, read as gabled dormers in a hip over the post-1902 enlargement; the projecting tower/bay is T-1906's. The 1911 sheet's Gatlin Institute is a 1911 use and is not carried back. The sheet traces the house and its rear range as one part, whose largest rectangle is a 47 m strip down the lot; the main body is fitted in front of the part's own break at 21.3 m from the rear lot line, where it narrows to the street front, and the rear range behind it.",
+      "built": {
+        "value": 1867,
+        "confidence": "attested",
+        "sources": [
+          "hmdb_prairie_heritage_preserved"
+        ],
+        "note": "The marker: 'Marshall Field Jr. Residence. Built 1867', enlarged several times, the last in 1902."
+      }
     },
     "frontage-28-057": {
       "slug": "kellogg_house",
@@ -1001,7 +1087,15 @@
       "brackets": true,
       "attic_dormers": true,
       "entrance": "centre",
-      "why": "The register's Italianate mansion with rear addition (the Hibbard house): a low hip on bracketed eaves over the 2½S.B. stone-based body, the half storey as dormers, the 1874 rear range as the sheet traces it; the arched lights, oriel and two-level rear veranda are T-1875's and T-1876's."
+      "why": "The register's Italianate mansion with rear addition (the Hibbard house): a low hip on bracketed eaves over the 2½S.B. stone-based body, the half storey as dormers, the 1874 rear range as the sheet traces it; the arched lights, oriel and two-level rear veranda are T-1875's and T-1876's.",
+      "built": {
+        "value": 1869,
+        "confidence": "attested",
+        "sources": [
+          "hmdb_prairie_lost_houses_1600_1700"
+        ],
+        "note": "The marker: 'William G. Hibbard Residence. Built 1869'."
+      }
     },
     "frontage-20-033": {
       "slug": "kellogg_house",
@@ -1021,7 +1115,15 @@
       "aka": [
         "1719 Prairie Avenue"
       ],
-      "why": "The Dexter house in its post-1889 phase (the register's 'flat classical front, rusticated base, entry portico, upper balcony, cornice and chimneys'): flat behind a cornice, a central entrance. The sheet prints 1721 where the register read 1719; the census rules them one property (study ruling 3), so one house stands and 1719 is its alias."
+      "why": "The Dexter house in its post-1889 phase (the register's 'flat classical front, rusticated base, entry portico, upper balcony, cornice and chimneys'): flat behind a cornice, a central entrance. The sheet prints 1721 where the register read 1719; the census rules them one property (study ruling 3), so one house stands and 1719 is its alias.",
+      "built": {
+        "value": 1863,
+        "confidence": "attested",
+        "sources": [
+          "hmdb_prairie_lost_houses_1600_1700"
+        ],
+        "note": "The marker: 'Wirt Dexter Residence. Built 1863'. The house was remodelled later."
+      }
     },
     "frontage-20-035": {
       "slug": "pullman_house",
@@ -1030,7 +1132,15 @@
       "keep_out": [
         "pullman_house_1729_prairie_conservatory"
       ],
-      "wing_storeys": 2
+      "wing_storeys": 2,
+      "built": {
+        "value": "between 1870 and 1876",
+        "confidence": "attested",
+        "sources": [
+          "hmdb_prairie_lost_houses_1600_1700"
+        ],
+        "note": "The marker: 'George M. Pullman Residence. Built 1870-1876'."
+      }
     },
     "frontage-35-059": {
       "slug": "house",
@@ -1070,7 +1180,15 @@
       "attic_dormers": true,
       "chimneys": 3,
       "entrance": "centre",
-      "why": "The John B. Sherman house (Burnham & Root, 1874), standing empty in 1904 after Sherman's death: the register's 'steep slate roof and stone dormers' and 'carved chimney tops' as a steep hip with dormers and three stacks over the 3S.B. brick body, the curved stair and clustered columns as a central entrance. The 1911 lettering McCORMICK MEDICAL COLLEGE is a later use and is not drawn; the oriel on its column is T-1919's."
+      "why": "The John B. Sherman house (Burnham & Root, 1874), standing empty in 1904 after Sherman's death: the register's 'steep slate roof and stone dormers' and 'carved chimney tops' as a steep hip with dormers and three stacks over the 3S.B. brick body, the curved stair and clustered columns as a central entrance. The 1911 lettering McCORMICK MEDICAL COLLEGE is a later use and is not drawn; the oriel on its column is T-1919's.",
+      "built": {
+        "value": 1874,
+        "confidence": "attested",
+        "sources": [
+          "hmdb_prairie_lost_houses_2000_2100"
+        ],
+        "note": "The marker: 'John B. Sherman Residence. Built 1874'."
+      }
     },
     "frontage-35-065": {
       "slug": "mark_kimball_house",
@@ -1150,7 +1268,15 @@
           }
         }
       },
-      "why": "The Tucker/Smith house (Van Osdel, 1876), Byron L. Smith's in 1904: the register's 'mansard/dormers, tall stacks' over the 3S.B. brick body and the sheet's round bay at the 22nd Street corner as a round tower. ONE ROOF STATE, as the register requires: its towers are drawn FLAT-TOPPED AND CRESTED, the house's first state (the pre-1881 stereo, under Tucker's name), because the conical spires are dated only by a 1928 photograph and nothing puts them on the house by 1904; a dated view showing spires by July 1904 replaces this state (T-1928, T-1929). The three-storey building at the alley corner is no one's stable: its 1911 use (CATERER) is not carried back, and it stands as an outbuilding."
+      "why": "The Tucker/Smith house (Van Osdel, 1876), Byron L. Smith's in 1904: the register's 'mansard/dormers, tall stacks' over the 3S.B. brick body and the sheet's round bay at the 22nd Street corner as a round tower. ONE ROOF STATE, as the register requires: its towers are drawn FLAT-TOPPED AND CRESTED, the house's first state (the pre-1881 stereo, under Tucker's name), because the conical spires are dated only by a 1928 photograph and nothing puts them on the house by 1904; a dated view showing spires by July 1904 replaces this state (T-1928, T-1929). The three-storey building at the alley corner is no one's stable: its 1911 use (CATERER) is not carried back, and it stands as an outbuilding.",
+      "built": {
+        "value": 1876,
+        "confidence": "attested",
+        "sources": [
+          "hmdb_prairie_lost_houses_2000_2100"
+        ],
+        "note": "The marker: 'William F. Tucker-Byron L. Smith Residence. Built 1876'."
+      }
     },
     "frontage-35-072": {
       "slug": "house",
@@ -1180,7 +1306,15 @@
       "chimneys": 2,
       "front_bays": 2,
       "entrance": "north",
-      "why": "The Max A. Mayer house (Burnham & Root, 1888): the register's 'ogee gable with finial, two attic lights, tall chimneys' on a narrow party-wall front, drawn as the kit's shaped street gable over the 2½B brick body, two bays wide. Its ogee curve, carved frieze and bowed window group are T-1913's and T-1914's; the draft keeps only the silhouette."
+      "why": "The Max A. Mayer house (Burnham & Root, 1888): the register's 'ogee gable with finial, two attic lights, tall chimneys' on a narrow party-wall front, drawn as the kit's shaped street gable over the 2½B brick body, two bays wide. Its ogee curve, carved frieze and bowed window group are T-1913's and T-1914's; the draft keeps only the silhouette.",
+      "built": {
+        "value": 1888,
+        "confidence": "attested",
+        "sources": [
+          "hmdb_prairie_lost_houses_2000_2100"
+        ],
+        "note": "The marker: 'Max A Meyer Residence. Built 1888'."
+      }
     },
     "frontage-35-076": {
       "slug": "house",
@@ -1274,7 +1408,15 @@
       "slug": "armour_house",
       "chimneys": 3,
       "entrance": "centre",
-      "why": "The David Kelley house of 1871, Mrs. Philip D. Armour's in 1904: the register's Second Empire 'patterned slate mansard and cresting' as the family's mansard with dormers over three storeys and a stone street face, the 'central arched doorway and pediment' as a central entrance. Its quoins, paired arches and stepped stair are T-1925's."
+      "why": "The David Kelley house of 1871, Mrs. Philip D. Armour's in 1904: the register's Second Empire 'patterned slate mansard and cresting' as the family's mansard with dormers over three storeys and a stone street face, the 'central arched doorway and pediment' as a central entrance. Its quoins, paired arches and stepped stair are T-1925's.",
+      "built": {
+        "value": 1871,
+        "confidence": "attested",
+        "sources": [
+          "hmdb_prairie_lost_houses_2000_2100"
+        ],
+        "note": "The marker: 'David Kelley-Philip D. Armour Residence. Built 1871'."
+      }
     },
     "frontage-35-087": {
       "slug": "house",
@@ -1502,6 +1644,346 @@
       },
       "rear_ticket": "T-1946",
       "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B on a T plan: the hip over the main body, the sheet's dashed inner line not read as a material."
+    },
+    "frontage-35e-2000": {
+      "slug": "house",
+      "register": {
+        "address": "2000",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B on the 20th Street corner: the canted bay on the Calumet front stands as the draft's projecting bay; the frame porch and the frame strip along the rear part are the refining ticket's."
+    },
+    "frontage-35e-2004": {
+      "slug": "house",
+      "register": {
+        "address": "2004",
+        "raw_story_notation": "3B",
+        "map_material": "brick, stone front",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B with the stone face the sheet runs along its Calumet front, stood as the house's own stone front with its canted bay."
+    },
+    "frontage-35e-2016": {
+      "slug": "house",
+      "register": {
+        "address": "2016",
+        "raw_story_notation": "3B; rear2B",
+        "map_material": "brick, stone front",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B behind a stone face on the Calumet front, its 2B rear part as printed. No Prairie stand sees this lot (the census's 0 stands); it is drafted so the frontage stands whole."
+    },
+    "frontage-35e-2032": {
+      "slug": "house",
+      "register": {
+        "address": "2032",
+        "raw_story_notation": "3S.B.; rear3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3S.B. on the 21st Street corner, the largest house of the face, its 3B rear part as printed; the frame porches round it are the refining ticket's.",
+      "services": {
+        "s35e-2032-shed": {
+          "suffix": "shed",
+          "use": {
+            "function": "outbuilding",
+            "name": "the one-storey frame building standing apart in 2032's yard"
+          }
+        }
+      }
+    },
+    "frontage-35e-2100": {
+      "slug": "house",
+      "register": {
+        "address": "2100",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B on the 21st Street corner: the one-storey frame porch along its north side and front, which the trace joins to the house across its dashed edge, stands as the sheet draws it; the rounded 2B south piece is the refining ticket's."
+    },
+    "frontage-35e-2106": {
+      "slug": "house",
+      "register": {
+        "address": "2106",
+        "raw_story_notation": "2B; rear3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2B at the street with a 3B rear part, as printed: the rounded bay on the Calumet front stands as the draft's projecting bay."
+    },
+    "frontage-35e-2114": {
+      "slug": "house",
+      "register": {
+        "address": "2114",
+        "raw_story_notation": "2½B; rear2B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2½B: dormers in the hip, its 2B rear part as printed; the frame porch round the front and the south side is the refining ticket's. The sheet draws the garage and the unlettered building south of it joined on the alley, so one outline carries both.",
+      "attic_dormers": true
+    },
+    "frontage-35e-2124": {
+      "slug": "house",
+      "register": {
+        "address": "2124",
+        "raw_story_notation": "2½B; rear3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2½B at the street with a 3B rear part, a storey higher as printed; the stone-faced canted bay on the front stands as the draft's projecting bay. The sheet draws nothing on its alley.",
+      "attic_dormers": true
+    },
+    "frontage-35e-2128": {
+      "slug": "house",
+      "register": {
+        "address": "2128",
+        "raw_story_notation": "2B",
+        "map_material": "stone and brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2B washed half stone and half brick across a diagonal: stood stone over a brick rear, the reading the builder gives the sheet's mixed wash."
+    },
+    "frontage-35e-2140": {
+      "slug": "house",
+      "register": {
+        "address": "2140",
+        "raw_story_notation": "2½B; rear2B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2½B on the 22nd Street end of the face with a 2B and a 1B rear part (the trace joins the 1B piece across its drawn wall); the frame porches on the south side are the refining ticket's.",
+      "attic_dormers": true,
+      "services": {
+        "s35e-2140-shed": {
+          "suffix": "shed",
+          "use": {
+            "function": "outbuilding",
+            "name": "the one-storey brick shed on 2140's alley"
+          }
+        }
+      }
+    },
+    "frontage-35w-2007": {
+      "slug": "house",
+      "register": {
+        "address": "2007",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B: the stone strip the sheet runs along 2007 and 2009's fronts stands as the house's own stone face (the trace joins it, T-3009); the small frame lean-to is not drafted."
+    },
+    "frontage-35w-2009": {
+      "slug": "house",
+      "register": {
+        "address": "2009",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B behind the same stone strip; the two-storey dwelling standing apart at the rear of the lot is drafted as its own building, its frame porch not.",
+      "services": {
+        "s35w-2009-rear": {
+          "suffix": "rear_dwelling",
+          "use": {
+            "function": "dwelling",
+            "name": "the two-storey brick dwelling at the rear of 2009"
+          }
+        }
+      }
+    },
+    "frontage-35w-2011": {
+      "slug": "house",
+      "register": {
+        "address": "2011",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B with a 2B rear part: the rounded stone bay on its Indiana front stands as the draft's projecting bay, one of the row of nine the sheet draws from 2007 to 2027."
+    },
+    "frontage-35w-2013": {
+      "slug": "house",
+      "register": {
+        "address": "2013",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B with a 2B rear part: the rounded stone bay on its Indiana front stands as the draft's projecting bay, one of the row of nine the sheet draws from 2007 to 2027."
+    },
+    "frontage-35w-2017": {
+      "slug": "house",
+      "register": {
+        "address": "2017",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B with a 2B rear part: the rounded stone bay on its Indiana front stands as the draft's projecting bay, one of the row of nine the sheet draws from 2007 to 2027."
+    },
+    "frontage-35w-2019": {
+      "slug": "house",
+      "register": {
+        "address": "2019",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B with a 2B rear part: the rounded stone bay on its Indiana front stands as the draft's projecting bay, one of the row of nine the sheet draws from 2007 to 2027."
+    },
+    "frontage-35w-2021": {
+      "slug": "house",
+      "register": {
+        "address": "2021",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B with a 2B rear part: the rounded stone bay on its Indiana front stands as the draft's projecting bay, one of the row of nine the sheet draws from 2007 to 2027."
+    },
+    "frontage-35w-2023": {
+      "slug": "house",
+      "register": {
+        "address": "2023",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B with a 2B rear part: the rounded stone bay on its Indiana front stands as the draft's projecting bay, one of the row of nine the sheet draws from 2007 to 2027. Its frame and brick stables, drawn against each other on the alley, stand as one outline."
+    },
+    "frontage-35w-2027": {
+      "slug": "house",
+      "register": {
+        "address": "2027",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B with a 2B rear part: the rounded stone bay on its Indiana front stands as the draft's projecting bay, one of the row of nine the sheet draws from 2007 to 2027."
+    },
+    "frontage-35w-2107": {
+      "slug": "house",
+      "register": {
+        "address": "2107",
+        "raw_story_notation": "2",
+        "map_material": "frame",
+        "family": "Frame dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the family's hip over the sheet's printed storeys in frame, as the sheet colours it, every face closed, nothing read beyond the sheet. Two storeys in frame, its one-storey frame pieces folded into the plan as the trace draws them."
+    },
+    "frontage-35w-2111": {
+      "slug": "house",
+      "register": {
+        "address": "2111",
+        "raw_story_notation": "2",
+        "map_material": "frame",
+        "family": "Frame dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the family's hip over the sheet's printed storeys in frame, as the sheet colours it, every face closed, nothing read beyond the sheet. Two storeys in frame with its one-storey frame rear range."
+    },
+    "frontage-35w-2115–2117": {
+      "slug": "house",
+      "register": {
+        "address": "2115–2117",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. Two 3B houses on a party wall, read as one ground (the 1904 grid gives 2115 and 2117 one lot): one record under the brick family's hip until T-1946 parts them."
+    },
+    "frontage-35w-2119": {
+      "slug": "house",
+      "register": {
+        "address": "2119",
+        "raw_story_notation": "2",
+        "map_material": "frame",
+        "family": "Frame dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the family's hip over the sheet's printed storeys in frame, as the sheet colours it, every face closed, nothing read beyond the sheet. Two storeys in frame, its stepped rear parts as the trace draws them."
+    },
+    "frontage-35w-2123–2125": {
+      "slug": "livery",
+      "use": {
+        "function": "stable_and_wagon_yard",
+        "name": "the livery stable at 2123-2125, its wagon shed on 2123"
+      },
+      "register": {
+        "address": "2123–2125",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A livery the sheet draws from Indiana Avenue to the alley: the brick stable and the frame wagon shed joined, drafted as one service building at the trace's outline under a gable, its height the service rules'. A horse-age use, carried to 1904 as one."
+    },
+    "frontage-35w-2029–2035": {
+      "house_id": "first_presbyterian_church_2029_indiana",
+      "rear_ticket": "T-3014",
+      "services": {
+        "s35w-2029-rear": {
+          "suffix": "dwelling",
+          "use": {
+            "function": "dwelling",
+            "name": "the dwelling on the church's lot, on the alley"
+          }
+        },
+        "s35w-2029-rear2": {
+          "suffix": "stable",
+          "use": {
+            "function": "stable",
+            "name": "the church lot's stable on the alley"
+          }
+        }
+      },
+      "why": "The church itself stands as the site record first_presbyterian_church_2029_indiana (`sites`); its census front is skipped here, and the dwelling and stable behind it are drafted from the trace under its id."
     }
   },
   "sites": [
@@ -1659,6 +2141,129 @@
           33.19
         ]
       ]
+    },
+    {
+      "_doc": "A building no traced sheet or 1904 parcel reaches (T-2982). `place` sets its corner where the avenue's line, moved in by its half-width and a setback, meets the cross street's measured line moved in by a setback; `parts` are rectangles in metres, u from the building's front face toward the street and v from its southernmost face along the front, the first the main body.",
+      "id": "first_presbyterian_church_2029_indiana",
+      "name": "2029-2035 Indiana Avenue — First Presbyterian Church (district draft; refined by T-3014)",
+      "aka": [
+        "First Presbyterian Church",
+        "2029-2035 S. Indiana Avenue",
+        "216 E. 21st Street"
+      ],
+      "where": "2029-2035 S. Indiana Avenue, the north-east corner of Indiana Avenue and East Twenty-first Street, on sheet 35's Indiana frontage.",
+      "pass": "T-3009",
+      "liberty": "L-draft-district-background-3009",
+      "refined_by": [
+        "T-3014"
+      ],
+      "register_row": null,
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_35"
+      ],
+      "function": "church",
+      "function_confidence": "inferred",
+      "construction": "brick",
+      "place": {
+        "along_face": "indiana__indiana_prairie_20_21",
+        "cross_face": "e21st__indiana_prairie_20_21",
+        "avenue_centre_local_m": [
+          1269.17,
+          -3541.04
+        ],
+        "front": "west",
+        "half_row_m": 10.06,
+        "setback_front_m": 2.97,
+        "setback_side_m": 0.14
+      },
+      "parts": [
+        {
+          "role": "main",
+          "storeys": 3,
+          "roof": "hip",
+          "pitch_deg": 40,
+          "rect_m": [
+            -43.7,
+            4.78,
+            0.0,
+            27.89
+          ],
+          "from": "the church's body, buttresses included, as sheet 35 draws it under its dashed hips (the T-3009 trace of sheet 35 (s35wfp-indiana_2029-b1), read in metres from Indiana Avenue's east line and East 21st Street's north line)"
+        }
+      ],
+      "elevation": {
+        "stories": 3,
+        "principal_floor_m": 0.9,
+        "storey_heights_m": [
+          4.6,
+          4.6,
+          4.6
+        ],
+        "roof_pitch_deg": 40,
+        "front_bays": 3,
+        "entrance": "centre",
+        "side_spacing_m": 4.0,
+        "stone": "stone",
+        "features": [
+          {
+            "kind": "corner_tower",
+            "sides": 4,
+            "radius_m": 3.89,
+            "at_m": [
+              -3.53,
+              3.6
+            ],
+            "above_eave_m": 1.8,
+            "cap_m": 10.9
+          }
+        ]
+      },
+      "notes": {
+        "function": "The 1911 sheet letters the building '1st PRESBYN. CHURCH'. No 1904 source for it is in hand, so the 1904 function is inferred from the 1911 label: a masonry church of this size, with a 90 ft spire, is not one put up in the seven years to 1911 without a trace in the study (T-3014 sources it).",
+        "research": "The church fills the 2029-2035 lot on Indiana Avenue at 21st Street, 48 ft to its eaves with a slated spire 90 ft high on its south-west tower, as Sanborn 1911 vol. 3 sheet 35 prints it; no photograph, drawing or 1904 record of it is in the repository yet. It is drafted from the T-3009 trace's measures, as a site so that its storeys, roof and tower are the sheet's printed heights and not a house's.",
+        "range": "No source dates the building; the draft claims the 1904 target on the 1911 sheet alone (study ruling 11).",
+        "position": "Indiana Avenue's measured east line (data/street_grid/1904.json) with its centre 10.06 m (66 ft) west of it; the church's front stands 2.97 m behind that line and its south face 0.14 m behind 21st Street's north line, the trace's own readings. Good to about the trace's 0.19 m pixel and the sheet's fit.",
+        "footprint": "The building's whole plan as the trace outlines it: the body with its buttresses, and the tower and porch block that steps south of it at the 21st Street corner; the main body (43.7 x 23.1 m) is draft_plan's first rectangle.",
+        "stories": "Three draft storeys of 4.6 m over a 0.9 m floor stand the walls to 14.7 m, the sheet's printed 48 ft to the eaves; a church has no storeys, and the count only sets the wall height and the rows of openings.",
+        "construction": "Brick: the sheet colours it pink.",
+        "plan": "One rectangle, the body read off the trace in metres from Indiana's line and 21st Street's; the buttresses fold into it and the tower stands as a feature.",
+        "elevation": "A hip at 40 degrees over the body, which the sheet draws with dashed hips. The tower is the sheet's three-storey square at the south-west corner, about 5.5 m across on the trace, its masonry to about 16.5 m and its slated spire to the printed 90 ft (27.4 m). Openings are the draft's sash in rows, not the church's, which are T-3014's."
+      },
+      "outline_m": [
+        [
+          -7.04,
+          0.0
+        ],
+        [
+          -0.54,
+          0.0
+        ],
+        [
+          -0.54,
+          4.78
+        ],
+        [
+          0.0,
+          4.78
+        ],
+        [
+          0.0,
+          27.89
+        ],
+        [
+          -43.7,
+          27.89
+        ],
+        [
+          -43.7,
+          4.78
+        ],
+        [
+          -7.04,
+          4.78
+        ]
+      ],
+      "to_is": "seen"
     }
   ]
 }

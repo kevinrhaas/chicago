@@ -133,6 +133,12 @@ step "The page asks only for the prebuilt layers publish listed: a year with no 
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
 
+step "The sun's shadow biases hold the same fraction of a shadow texel on every detail tier, so a phone's coarser map does not self-shadow sunlit walls (T-3054)" \
+  node tools/check_shadow_bias.mjs
+
+selftest "The shadow-bias check refuses the fixed-length biases that blotched the 1835 shed on a phone (T-3054)" \
+  node tools/check_shadow_bias.mjs --self-test
+
 step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
   node tools/check_glass_modes.mjs
 
@@ -3714,6 +3720,13 @@ step "Glessner street and stable opening schedule matches its record (T-2211)" \
 # being re-written and re-read is caught here (T-2758).
 step "Glessner stable-roof reading re-derives from its cameras (T-2758)" \
   python3 tools/glessner_stable_roof_read.py --check
+
+# The cupola reading fits the stable cupola's height, size and place to both
+# northwest prints through T-2758's re-solved cameras, so a pick, camera or record
+# number that moves without the report being re-written and re-read is caught here
+# (T-3031).
+step "Glessner stable-cupola reading re-derives from both prints (T-3031)" \
+  python3 tools/glessner_cupola_read.py --check
 
 # Both north cameras are re-solved with the gable pairs' sill and head left free, so
 # a pick, camera or record height that moves without the reading being re-written,

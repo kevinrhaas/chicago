@@ -408,6 +408,9 @@ NOT_LODGING_FUNCTIONS = {
     # Stabling is for the horses of a house of entertainment, not for its people.
     "hotel_stable",
     "tavern_stable",
+    # Wau-Bun's "lodging-house for the Frenchmen" (T-2485) housed Kinzie's own hired men in
+    # his yard in 1812; it took no guests, and it is not in the 1835 town.
+    "lodging_house",
 }
 
 

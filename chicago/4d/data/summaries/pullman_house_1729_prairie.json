@@ -1,0 +1,59 @@
+{
+  "id": "pullman_house_1729_prairie",
+  "scene": "1904",
+  "name": "George M. Pullman House",
+  "address": "1729 S. Prairie Ave.",
+  "status": {
+    "text": "Gone",
+    "today": "No longer standing",
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_lost_houses_1600_1700"
+    ],
+    "note": "The district's marker lists it among the lost houses of Prairie Avenue and gives no year."
+  },
+  "built": {
+    "year": 1870,
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_lost_houses_1600_1700"
+    ],
+    "phrase": "between 1870 and 1876"
+  },
+  "use": "Home",
+  "summary": "George M. Pullman's mansion, built between 1870 and 1876. Inside were a theatre for about 200 people, a pipe organ and a bowling alley.",
+  "key": [
+    {
+      "label": "Built for",
+      "value": "George M. Pullman",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "The house had its own theatre with about 200 seats, a pipe organ and a bowling alley.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ]
+    },
+    {
+      "text": "Solon S. Beman later added a palm room and a large conservatory.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_1600_1700"
+      ]
+    }
+  ],
+  "style": null,
+  "story": []
+}

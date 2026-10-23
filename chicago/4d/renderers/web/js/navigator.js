@@ -246,11 +246,9 @@ export function createNavigator({
   // head's own "open when docked" tap, which would reopen the device it just closed.
   closeKey?.addEventListener('pointerdown', (e) => e.stopPropagation());
   closeKey?.addEventListener('click', (e) => { e.stopPropagation(); close(); });
-  // T-3021: Home's MOVE and CONFIDENCE VIEW tiles open their apps. Each tile is a box whose
-  // open key stretches over it (css/navigator.css), not a button itself, so "Confidence view"
-  // stays a plain word that term-tips can make its locked term's first appearance (T-2662).
-  for (const [go, app] of [[$('nav-go-move'), 'move'], [$('nav-go-confidence'), 'confidence']]) {
-    go?.addEventListener('click', () => { if (registry.has(app)) void registry.select(app, { by: 'hand' }); });
+  // T-3021: Home's MOVE and CONFIDENCE VIEW tiles open their apps.
+  for (const [tile, app] of [[$('nav-tile-move'), 'move'], [$('nav-tile-confidence'), 'confidence']]) {
+    tile?.addEventListener('click', () => { if (registry.has(app)) void registry.select(app, { by: 'hand' }); });
   }
   out.inspect?.addEventListener('click', () => {
     const t = shown;

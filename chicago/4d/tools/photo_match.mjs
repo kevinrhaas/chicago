@@ -6,6 +6,9 @@
 //
 // <view>.json (one per reference view: data/reference_views/README.md, T-2368) holds:
 //   structure_id   the record the GLB is built for
+//   also_render    optional ids of context structures, all required in `scene`;
+//                  scene sidecars select phases and place them in the anchor frame.
+//                  The review uses a common grade plane, not the app terrain.
 //   source_id      the picture's record in data/sources/ (and/or library_image, its Prairie
 //                  library id)
 //   photo          the photograph or drawing, relative to the camera file
@@ -53,6 +56,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import os from 'node:os';
 import {createRequire} from 'node:module';
+import {renderGroup, groupReview} from './photo_match_group.mjs';
 const root = process.cwd(), require = createRequire(path.join(root, 'tools/qa.mjs'));
 const {chromium} = require('playwright');
 const args = process.argv.slice(2);
@@ -64,12 +68,9 @@ if (cam.pixel_aspect !== undefined && (!Number.isFinite(cam.pixel_aspect) || cam
 if (cam.sky !== undefined && !['sun', 'overcast'].includes(cam.sky)) throw Error('sky must be "sun" or "overcast"');
 if (cam.near_m !== undefined && (!Number.isFinite(cam.near_m) || cam.near_m<=0 || cam.near_m>=500)) throw Error('near_m must be finite and between 0 and the 500 m far plane');
 if (cam.clip_planes !== undefined && (!Array.isArray(cam.clip_planes) || cam.clip_planes.some(p => !p || !Array.isArray(p.normal) || p.normal.length !== 3 || !p.normal.every(Number.isFinite) || Math.abs(Math.hypot(...p.normal)-1)>1e-6 || !Number.isFinite(p.constant)))) throw Error('clip_planes requires finite unit [east,north,up] normals and constants in metres');
-const glb = opt('--glb') || (() => {
-  const m = JSON.parse(fs.readFileSync(path.join(root, 'assets/manifest.json'), 'utf8'));
-  const hit = Object.entries(m.assets || m).find(([k, v]) => v && v.structure_id === cam.structure_id && !/coach_house/.test(k));
-  if (!hit) throw Error(`no GLB for ${cam.structure_id} in assets/manifest.json`);
-  return path.join('assets/gltf', hit[0]);
-})();
+const members = renderGroup(root, cam, {glb: opt('--glb')});
+const glb = members[0].glb;
+const group = members.length > 1 ? groupReview(root, members) : null;
 const out = opt('--out') || path.join('docs/RESEARCH/photo-match', cam.structure_id);
 const name = path.basename(camFile, '.json');
 const photo = path.resolve(path.dirname(camFile), cam.photo);
@@ -83,7 +84,7 @@ import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
 import {KTX2Loader} from 'three/addons/loaders/KTX2Loader.js';
 import {tintKeithStone} from '/renderers/web/js/keith-stone.js';
-const c=${JSON.stringify({W, H, cx, cy, f, aspect: cam.pixel_aspect ?? 1, eye: cam.eye, yaw: cam.yaw_deg, basis: cam.basis_right_up_forward || null, near: cam.near_m ?? 0.1, sun: cam.sun_uvy || null, overcast: cam.sky === 'overcast', clips: cam.clip_planes || [], glb: '/' + glb.replace(/\\/g, '/')})};
+const c=${JSON.stringify({W, H, cx, cy, f, aspect: cam.pixel_aspect ?? 1, eye: cam.eye, yaw: cam.yaw_deg, basis: cam.basis_right_up_forward || null, near: cam.near_m ?? 0.1, sun: cam.sun_uvy || null, overcast: cam.sky === 'overcast', clips: cam.clip_planes || [], members: members.map(m => ({...m, glb: '/' + m.glb.replace(/\\/g, '/')}))})};
 const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});r.setPixelRatio(1);r.setSize(c.W,c.H);
 r.outputColorSpace=THREE.SRGBColorSpace;r.toneMapping=THREE.ACESFilmicToneMapping;r.shadowMap.enabled=true;
 r.clippingPlanes=c.clips.map(p=>new THREE.Plane(new THREE.Vector3(p.normal[0],p.normal[2],-p.normal[1]),p.constant));
@@ -113,8 +114,13 @@ if(c.basis){
 const l=new GLTFLoader();l.setMeshoptDecoder(MeshoptDecoder);
 // a web derivative's textures are KTX2 (T-2595); a master's stay PNG/JPEG and never reach this
 l.setKTX2Loader(new KTX2Loader().detectSupport(r));
-l.load(c.glb,x=>{x.scene.traverse(o=>{if(o.isMesh){o.castShadow=o.receiveShadow=true;for(const m of (Array.isArray(o.material)?o.material:[o.material]))tintKeithStone(m,{id:${JSON.stringify(cam.structure_id)}});}});s.add(x.scene);
-r.render(s,cam);window.__done=true;},undefined,e=>{window.__error=String(e);});
+Promise.all(c.members.map(async member=>{
+ const x=await l.loadAsync(member.glb);
+ x.scene.traverse(o=>{if(o.isMesh){o.castShadow=o.receiveShadow=true;for(const m of (Array.isArray(o.material)?o.material:[o.material]))tintKeithStone(m,{id:member.structure_id});}});
+ const placed=new THREE.Group();placed.position.fromArray(member.position);placed.rotation.y=member.rotation_y;
+ placed.add(x.scene);return placed;
+})).then(placed=>{for(const object of placed)s.add(object);r.render(s,cam);window.__done=true;})
+ .catch(e=>{window.__error=String(e);});
 </script>`;
 const types = {'.js': 'text/javascript', '.mjs': 'text/javascript', '.glb': 'model/gltf-binary', '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg', '.ktx2': 'image/ktx2', '.webp': 'image/webp'};
 const server = http.createServer((req, res) => {
@@ -154,10 +160,13 @@ try {
   const sha = f => crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex');
   const matchFile = camFile.replace(/\.json$/, '.match.json');
   const was = fs.existsSync(matchFile) ? JSON.parse(fs.readFileSync(matchFile, 'utf8')) : {};
-  const glbSha = sha(glb), camSha = sha(camFile);
-  const same = was.glb_sha256 === glbSha && was.camera_sha256 === camSha;
+  const glbSha = sha(glb), camSha = sha(camFile), photoSha = sha(photo);
+  const same = was.glb_sha256 === glbSha && was.camera_sha256 === camSha
+    && was.photo_sha256 === photoSha && (!group || was.group_sha256 === group.group_sha256);
   const rec = {
     structure_id: cam.structure_id, view: name, glb: glb.replace(/\\/g, '/'), glb_sha256: glbSha, camera_sha256: camSha,
+    photo_sha256: photoSha,
+    ...(group || {}),
     side_by_side: path.relative(root, side).replace(/\\/g, '/'),
     verdict: same && was.verdict ? was.verdict : 'unreviewed',
     differences: Array.isArray(was.differences) ? was.differences : [],

@@ -86,6 +86,8 @@ STREETS = {
     "calumet": ("S. Calumet Avenue", "Calumet Avenue", "calumet"),
     "e20th": ("E. Twentieth Street", "East Twentieth Street", "e20th"),
     "michigan": ("S. Michigan Avenue", "Michigan Avenue", "michigan"),
+    "indiana": ("S. Indiana Avenue", "Indiana Avenue", "indiana"),
+    "e21st": ("E. Twenty-first Street", "East Twenty-first Street", "e21st"),
 }
 
 
@@ -480,16 +482,26 @@ def site_record(rules, site, datum, grid) -> dict:
     if pl["front"] == "west":
         u = [-u[0], -u[1]]
     v = [-u[1], u[0]]
+    # T-3038: the row measures v NORTHWARD from the building's southernmost face, but the
+    # record's frame is a rotation, so v = u turned left: north for a front on the east, south
+    # for a front on the west. A west-fronted site's v figures are mirrored into that frame
+    # (First Presbyterian, T-3009, stood its plan southward from 21st Street's north line,
+    # across the roadway and onto the next block, until this).
+    flip = 1.0 if v[0] * north[0] + v[1] * north[1] > 0 else -1.0
+    vm = [v[0] * flip, v[1] * flip]                # the row's own v: northward
     c = pl["avenue_centre_local_m"]
     k = pl["half_row_m"] + pl["setback_front_m"]
     front_pt = (c[0] - u[0] * k, c[1] - u[1] * k)
     s0, s1 = faces[pl["cross_face"]]
     m = math.hypot(s1[0] - s0[0], s1[1] - s0[1])
     sd = ((s1[0] - s0[0]) / m, (s1[1] - s0[1]) / m)
-    sn = (-sd[1], sd[0]) if -sd[1] * v[0] + sd[0] * v[1] > 0 else (sd[1], -sd[0])   # into the block
+    sn = (-sd[1], sd[0]) if -sd[1] * vm[0] + sd[0] * vm[1] > 0 else (sd[1], -sd[0])   # into the block
     side_pt = (s0[0] + sn[0] * pl["setback_side_m"], s0[1] + sn[1] * pl["setback_side_m"])
     corner = _line_meet(front_pt, north, side_pt, sd)
-    parts_m = site["parts"]
+
+    def mirror(r):
+        return [r[0], r[1], r[2], r[3]] if flip > 0 else [r[0], -r[3], r[2], -r[1]]
+    parts_m = [dict(q, rect_m=mirror(q["rect_m"])) for q in site["parts"]]
     mu0, mv0, mu1, mv1 = parts_m[0]["rect_m"]
     parts = [{"id": f"r{n + 1}", "role": q["role"], "storeys": q["storeys"], "roof": q["roof"],
               **({"pitch_deg": q["pitch_deg"]} if "pitch_deg" in q else {}),
@@ -506,7 +518,8 @@ def site_record(rules, site, datum, grid) -> dict:
     sid = site["id"]
     seed = seed_of(sid)
     el = site["elevation"]
-    feats = [{**ft, "at": [round(ft["at_m"][0] - mu0, 3), round(ft["at_m"][1] - mv0, 3)]} for ft in el.get("features", [])]
+    feats = [{**ft, "at": [round(ft["at_m"][0] - mu0, 3), round(ft["at_m"][1] * flip - mv0, 3) + 0.0]}
+             for ft in el.get("features", [])]
     for ft in feats:
         ft.pop("at_m", None)
     elev = {"kind": "house", "seed": seed, "principal_floor_m": el["principal_floor_m"],
@@ -524,7 +537,8 @@ def site_record(rules, site, datum, grid) -> dict:
         "name": site["name"],
         "aka": sorted(site.get("aka", [])),
         "archetype": ARCHETYPE,
-        "function": _attr(site["function"], "attested", notes["function"], src),
+        # a site the sheet alone names (T-3009's First Presbyterian) is inferred, not attested
+        "function": _attr(site["function"], site.get("function_confidence", "attested"), notes["function"], src),
         "review_required": False,
         "research_note": (
             f"A DISTRICT DRAFT ({site['pass']}, the owner's district pass of 2026-10-08): a serviceable first model, "
@@ -534,7 +548,9 @@ def site_record(rules, site, datum, grid) -> dict:
         "phases": [{
             "id": PHASE,
             "documented_range": {"from": "1904-07-01", "to": "1911-12-31", "confidence": "inferred", "sources": src,
-                                 "note": notes["range"]},
+                                 "note": notes["range"],
+                                 # T-3037: what the range's end is, where the site's sources say
+                                 **({"to_is": site["to_is"]} if site.get("to_is") else {})},
             "position": {
                 "utm_e": round(datum["origin_utm_e"] + oe, 3), "utm_n": round(datum["origin_utm_n"] + on, 3),
                 "rotation_deg": rot,
@@ -550,7 +566,7 @@ def site_record(rules, site, datum, grid) -> dict:
             "footprint": {
                 # the row's outline of every part when it gives one (the walker's walls and the
                 # context's give-way read this polygon), else the main body
-                "polygon": ([[round(q[0] - mu0, 3) + 0.0, round(q[1] - mv0, 3) + 0.0] for q in site["outline_m"]]
+                "polygon": ([[round(q[0] - mu0, 3) + 0.0, round(q[1] * flip - mv0, 3) + 0.0] for q in site["outline_m"]]
                             if site.get("outline_m") else
                             [[0.0, 0.0], [round(mu1 - mu0, 3), 0.0], [round(mu1 - mu0, 3), round(mv1 - mv0, 3)],
                              [0.0, round(mv1 - mv0, 3)]]),
@@ -920,6 +936,8 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
         "aka": sorted({where} | set(frow.get("aka", []) if kind == "house" else (join or {}).get("aka", []))),
         "archetype": ARCHETYPE,
         "function": function,
+        # T-3037: a build year a source prints (the district's markers), from the frontage row.
+        **({"built": frow["built"]} if kind == "house" and frow.get("built") else {}),
         "review_required": False,
         "research_note": (
             f"A DISTRICT DRAFT ({pass_}, the owner's district pass of 2026-10-08): a serviceable first model, "
@@ -936,7 +954,9 @@ def draft_record(rules, block, sheet, parcel, b, kind, f, cp, fid, frow, row, fr
                 "note": ("The draft claims the 1904 target and no more: the 1911 sheet draws the building and the "
                          f"{cen} census rules it present in 1904 "
                          f"({(f or {}).get('decision_1904') or cp.get('decision_1904', 'present_as_mapped')}). "
-                         "Its building and loss dates are the per-building ticket's to read.")},
+                         "Its building and loss dates are the per-building ticket's to read."),
+                # T-3037: the 1911 sheet shows it standing then; 1 July 1904 is the scene's bound.
+                "to_is": "seen"},
             "position": {
                 "utm_e": utm_e, "utm_n": utm_n, "rotation_deg": rot,
                 "symbolic_location": f"{where}, parcel {parcel['parcel_id']} (data/street_grid/1904.json), "

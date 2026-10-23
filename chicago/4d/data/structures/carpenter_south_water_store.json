@@ -16,7 +16,8 @@
         "sources": [
           "andreas_1884_v1"
         ],
-        "note": "Andreas: Carpenter 'purchased a lot on South Water Street, between LaSalle and Wells streets' and 'erected a small store' in the summer of 1833. The range opens at 1 August, the middle of that summer, because no month is given and a mid-season date claims less than either end of it. THE SURVIVAL TO THE SCENE DATE IS THE ORDINARY CONTINUITY ARGUMENT, and it is stronger here than on most records in this parcel: this is the building Carpenter MOVED INTO, two years old on the scene date, on the street he had just bought a lot on, and nothing suggests a man does that and then leaves. Carpenter's own advertisement in the Chicago Democrat of 26 November 1833 — drugs, medicines, oils, paints, dye-stuffs, and also dry groceries, glass and nails — shows him trading three months after building it, though it gives no address and so cannot say which of his two premises it was placed from. THE END IS A HOUSEKEEPING BOUND at the scene year, not a demolition date."
+        "note": "Andreas: Carpenter 'purchased a lot on South Water Street, between LaSalle and Wells streets' and 'erected a small store' in the summer of 1833. The range opens at 1 August, the middle of that summer, because no month is given and a mid-season date claims less than either end of it. THE SURVIVAL TO THE SCENE DATE IS THE ORDINARY CONTINUITY ARGUMENT, and it is stronger here than on most records in this parcel: this is the building Carpenter MOVED INTO, two years old on the scene date, on the street he had just bought a lot on, and nothing suggests a man does that and then leaves. Carpenter's own advertisement in the Chicago Democrat of 26 November 1833 — drugs, medicines, oils, paints, dye-stuffs, and also dry groceries, glass and nails — shows him trading three months after building it, though it gives no address and so cannot say which of his two premises it was placed from. THE END IS A HOUSEKEEPING BOUND at the scene year, not a demolition date.",
+        "from_is": "began"
       },
       "position": {
         "utm_e": 447460.067,
@@ -118,6 +119,14 @@
       "chicago_american_1835"
     ],
     "note": "Andreas calls it 'a small store' without naming the trade; the trade is inferred from its owner, who was Chicago's first druggist and who advertised in the Chicago Democrat of 26 November 1833 — three months after building this store — offering drugs, medicines, oils, paints and dye-stuffs together with dry groceries, glass and nails. That advertisement carries no address, so it names the TRADE with certainty and the BUILDING not at all. A general store selling drugs among other things is the honest reading of what Carpenter was doing by 1833; 'drug_store' is the label this dataset has for it. THE TRADE IS NO LONGER INFERRED FROM THE MAN: HE ADVERTISES IT, SIGNED, THREE WEEKS BEFORE THE SCENE DATE. \"Drug[s], Medicines, Dye Woo[d]s, DYE STU[F]FS, &c. … a[n] [a]s[so]r[t]e[d] [a]ss[ort]me[nt of Drugs and] Medicines, Dye [St]u[ff]s, &c., &c.; among which are the [following]: A[l]o[e]s, Ipecac, Liquorice Ball … S[u]rgical In[st]rument[s], Trusses … Druggi[st]s, merchants and o[t]hers will find it for their advantage to call before they purchase elsewhere. PHILO CARPENTER.\" — The Chicago American, 1835-06-27, page 3 column 6, claim chicago_american_1835_06_27#c013. That is a drug store selling WHOLESALE TO THE TRADE as well as over a counter, which is the strongest form of the reading this note already argued, and it dates it to the scene year rather than to 1833. SO THE GRADE MOVES FROM `inferred` TO `attested` AND THE VALUE DOES NOT: 'drug_store' was already the right label and is now a documented one. THE ADDRESS IS STILL NOT ATTESTED — none of the American's Carpenter cards carries one, exactly as the 1833 Democrat advertisement carried none — so which of this project's two Carpenter records the advertisement was written from remains the continuity argument made on documented_range and not a fact this claim supplies. THE READING IS TRANSCRIPTION-MEDIATED AND SAYS SO. Under the owner's ruling of 2026-08-28 a claim read through this project's OCR-assisted transcriptions rather than off the page scan grades `attested` in this schema's vocabulary while carrying its own flag: reading = transcription_mediated, with the transcription's own uncertainty brackets preserved inside the quotation rather than tidied away. Where a scan is later read, the scan is the authority and this claim upgrades under it — the standard data/sources/chicago_democrat_1833_11_26.json set when a scan caught 'C. & I. HARMON' where the transcription had 'C. & L. Harmon'."
+  },
+  "built": {
+    "value": 1833,
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas: Carpenter 'erected a small store' in the summer of 1833."
   },
   "occupants": {
     "value": "Philo Carpenter, druggist",

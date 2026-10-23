@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "cornell-northwest-west-windows",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "1e6d2ef4a16c3d232cc250d8cf713b97547971b97200d7cd39308c20aaa70f5e",
+  "glb_sha256": "40c41087ed07d91fd27716120e1599260d194135dc7430d8519efa9acb68ece9",
   "camera_sha256": "98341850e0c29a9e5841d5ef17833ecdc7c3c14a11ff76aa740c3aa84f82f4f4",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg",
   "verdict": "differs",
@@ -20,7 +20,7 @@
       "status": "fixed"
     },
     {
-      "what": "West/north gable, cupola, portal and framing residuals remain. The west-plane camera uses retained reconstructed eaves, so height/camera uncertainty is not mistaken for independently surveyed geometry. T-2849 leaves open here: the hoist projects as a large block well beyond its modelled 1.75 ft; the cupola ledges run unbroken round its corners in the print where the model stops them short; the stone shaft below the band stands taller in the print; the pyramid's covering reads slate against the model's red tile; and the coursing of the cupola's stone is not modelled block by block.",
+      "what": "West/north gable, cupola, portal and framing residuals remain. The west-plane camera uses retained reconstructed eaves, so height/camera uncertainty is not mistaken for independently surveyed geometry. Still open after T-3030 (the cupola's dark corner strips are fixed, T-3036): the pyramid's covering reads slate against the model's red tile (T-3025); and the coursing of the cupola's stone is not modelled block by block (T-3026). T-3044 read the cupola at the print's resolution. The shaft under the lower pigeon ledge shows two to three horizontal joints, and each pigeon-hole tier stands as one rock-faced course between its ledges; the render has smooth plates. The vertical joints are not resolved. T-3046 lays the courses.",
       "status": "open"
     },
     {
@@ -29,6 +29,18 @@
     },
     {
       "what": "T-2848 light: the photograph is overcast (both faces lit almost equally, no shadow from the pole or the tree); the render now uses the overcast sky (camera solve.light) instead of the review sun.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3030, reviewed from the rebaked master: the hoist stone now reaches 4.0 ft from the wall as a narrow tapered cantilever (W 140.75-141.5, nose 0.83 ft deep, foot 26.0 ft); its west side face runs from the wall to the nose over the run this print shows (about 62 px), and its end face is the print's narrow block. The cupola's two landing ledges now run unbroken round its corners as the print shows.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3031, reviewed from the rebaked master: the cupola is read from both northwest prints at once through the cameras T-2758 re-solved on measured controls at the stable, each with its local offset taken out at the north gable's coping apex (tools/glessner_cupola_read.py, data/comparisons/glessner/stable-cupola.json). The two prints agree on the eave (41.9 and 41.75 ft) and jointly fit a 5.5 ft body (half 2.73 +/-0.18), a 0.72 ft eave, the eave at 41.87 and the apex at 48.19 ft, centre S14.76 (5.3 px RMS over 12 picks, against 11.5 and 13.8 px for the build as it stood). Built: body 5.5 ft square with its top at 42.0 ft (was 6.0 ft, 41.0), apex 48.2 (was 47.0), eave 0.75 ft out (was 1.25), the pigeon-hole band raised with it to 39.5-41.6 ft; centre S14.6 kept. The 27-32 px by which this print had seemed to stand the cupola higher than HABS photograph 1 was mostly the committed camera's: through it the render is not a measure of the cupola's height at the stable end (T-2758).",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3036, reviewed from the rebaked master: the dark vertical strips down the cupola's near and west corners, under the eave through the pigeon-hole band to the roof, are gone; the corners read as clean stone, as this print shows them. The body's walls no longer lay a 0.08 m end in a neighbour's face (the east and west walls take the corners, the north and south butt inside them) and every edge face of the walls and ledges looks outward. No dimension of the cupola moved.",
       "status": "fixed"
     }
   ],

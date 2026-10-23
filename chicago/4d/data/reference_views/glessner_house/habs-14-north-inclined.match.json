@@ -2,8 +2,9 @@
   "structure_id": "glessner_house",
   "view": "habs-14-north-inclined",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "22d4bb361f05c26ddab3d7b935c368538e48b03d63d7365d4cd36f91b772c6a5",
-  "camera_sha256": "7639e074421cc7e1a4768e010e8678a6e3b2ed4af090a69cbfb58e6ebc7efd72",
+  "glb_sha256": "eabb640c6e2670f5d341c0dfab15ffade604f80cc7de095959c5b0ab4aecd6a5",
+  "camera_sha256": "8bfd6b92c10170309c7b2656ba3f8d146184065de167400db4ce40edf4577a1d",
+  "photo_sha256": "03e9b881e2032acd85c4c23f534ac235747ae6f17f373943b31308c13b0d8400",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-14-north-inclined-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -20,7 +21,7 @@
       "status": "fixed"
     },
     {
-      "what": "Stone/course appearance differs.",
+      "what": "Stone/course appearance differs. T-3044: course heights to T-3045, rock-face relief to T-3046 (docs/RESEARCH/glessner-course-reading-T-3044/). T-3045 has laid the heights (the fixed entry below); what stays open here is the relief, T-3046's.",
       "status": "open"
     },
     {
@@ -50,6 +51,10 @@
     {
       "what": "T-2854 (found by T-2873): the stack's vertical layout. The gable's coping meets the stack's sides about 34 px lower in the photograph than in the render (rows 326 against 292; about 20 px past the camera's 14 px stack-crest offset, roughly 1.5 ft), the 1886 stone stands about 0.6 ft lower under the device's stone (a 13 px gap against 5), and the two crosses read level at the 1886 stone's mid-height here where the record carries photograph 4's stepped reading.",
       "status": "open"
+    },
+    {
+      "what": "T-3045 course heights: the courses above bed 7 laid 4.5 % over the printed inches on both granite faces, the narrow first-floor light re-set on beds 8-15 (9.3044-14.7471 ft) and this camera re-solved on it (tools/glessner_north_pairs.py --cameras): the pairs read 19.77-24.61 ft here, and the record builds both plates' 19.83-24.52.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

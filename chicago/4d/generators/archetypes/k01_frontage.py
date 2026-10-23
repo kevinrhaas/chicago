@@ -2114,6 +2114,16 @@ class Assembly:
             lo_c, hi_c = p.stone["course_m"]
             v = {**v, "masonry": {**v["masonry"], "coursing": {**c, "beds_m": self.front_beds(),
                                                                 "thin_below_m": (lo_c + hi_c) / 2}}}
+        # T-3007: an oriel carried out over a rounded corner (1811's south return): its back is
+        # closed on the wall plane over the round, from its support's foot to the round's top
+        # (where the round's corbel has squared it out), since the curve falls away behind it
+        g = (k01_frontage_params.round_corner_gap(p.round_corner, p.depth_m, p.width_m, b)
+             if p.round_corner and v["kind"] == "oriel" else None)
+        if g is not None:
+            # the round's top, as build() cuts the front for it (`y_round`)
+            y_round = p.arched_front["stone_top_m"] if p.arched_front else self.soffit_m
+            v = {**v, "back_over": {"x": [g[0] - b["s_m"], g[1] - b["s_m"]],
+                                    "y": [K8.support_bottom(v), y_round]}}
         built = K8.Bay(v, K8.load(), "full").build(board=False)
         conf = p.conf("bays")
         seed = self.instance(f"k08.{v['kind']}", "bay",
@@ -2846,6 +2856,7 @@ class Assembly:
         if m and m.get("dormers"):   # T-2411: the main mansard's lower-face dormers
             for g in self.mansard_dormer_bodies(m, E):
                 solids.append(g["body"])
+                solids += g.get("hood", [])   # T-3000: a hooded dormer's shelf and hood
                 recesses.append(g["recess"])
         if p.slope_dormers:   # T-2866: dormers on the hip's side slopes
             for g in self.slope_dormer_bodies(E, tp):
@@ -3220,6 +3231,10 @@ class Assembly:
         elif d.get("head") in HIPPED_HEADS:
             # T-2866: square to the face's wall head; the hip (T-2902: or flat hood) over it is joined below
             head = [(centre + r, top), (centre - r, top)]
+        elif d.get("head") == "hood":
+            # T-3000: square to the face's wall head under the shelf; the hood over it is joined below
+            eaves = sill + d["sash_height_m"] + d["surround_m"]
+            head = [(centre + r, eaves), (centre - r, eaves)]
         else:
             # the face's outline across the face: jambs to the sash's spring, then a half
             # circle struck from the sash's own centre, `surround_m` outside its arch
@@ -3233,7 +3248,7 @@ class Assembly:
         # T-2866: a hipped dormer's cheeks are its face's (1625's print draws both pale, where
         # its slates read dark); the others' are slated, as the K01 dormer's are
         body = k5.extrude(outline, min(back, nf), max(back, nf), P,
-                          "dormer_face" if d.get("head") in HIPPED_HEADS else "cheek", *ends)
+                          "dormer_face" if d.get("head") in HIPPED_HEADS + ("hood",) else "cheek", *ends)
         if d.get("head") == "gable":
             # T-2452: its cheeks and pediment slopes are slated as the lower faces are (_emit_shell
             # reads a cheek inside this box as one of them), its plan box in the K01 frame
@@ -3247,7 +3262,7 @@ class Assembly:
         recess = k5.extrude(rec, min(inner, outer), max(inner, outer), P, "reveal",
                             *(("window", "reveal") if sg > 0 else ("reveal", "window")))
         at = lambda along, y, n: (n, y, along) if axis == "x" else (along, y, n)
-        roof = None
+        roof, hood = None, []
         if d.get("head") in HIPPED_HEADS:
             # T-2866: K05's hip over the dormer's wall-line rectangle, its soffit on the face's
             # wall head and its eaves the kit's dormer overhang; its back end dies into the
@@ -3257,10 +3272,57 @@ class Assembly:
             t = math.tan(math.radians(d["hip_pitch_deg"]))
             roof, _ = k5.hip_element(x0, x1, z0, z1, top + d["overhang_m"] * t + d["fascia_m"], t,
                                      d["overhang_m"], d["fascia_m"])
-        return {"body": body, "recess": recess, "roof": roof,
+        if d.get("head") == "hood":
+            hood = self.dormer_hood(d, k5, axis, sg, nf, back, centre, r, eaves, top)
+            top = eaves   # the face, as the K01 dormer face is registered, stops under the shelf
+        return {"body": body, "recess": recess, "roof": roof, **({"hood": hood} if hood else {}),
                 "geom": {"O": at(centre - ra * r, ys, nf), "R": R, "ys": ys, "sill": sill,
                          "sill_pt": at(centre, sill, nf), "top_pt": at(centre, top, nf),
                          "width": 2 * r, "top": top, "variant": v, "d": d}}
+
+    HOOD_LIP_M = 0.03    # T-3000: the shelf stands this far past the face's cheeks
+    HOOD_BED_M = 0.03    # ... and is bedded this far down the face's head, so the two overlap
+    HOOD_BACK_M = 0.05   # ... and both it and the hood stop this far short of the face's back,
+                         # all three buried in the roof
+
+    def dormer_hood(self, d, k5, axis, sg, nf, back, centre, r, eaves, top):
+        """T-3000: a hooded dormer's shelf and hood as closed solids for the roof's union. The
+        shelf is `shelf_m` deep over the face's head, `shelf_proud_m` out of its front and
+        HOOD_LIP_M past its cheeks. The hood stands on it, as wide as the face at its foot,
+        and rises `rise_m` to a level top that runs on into the roof (which buries it), its
+        slated front falling `lean_m` back and each cheek leaning `taper_m` in, so the front
+        narrows as it climbs, as the print's do. Both plan boxes are a gabled dormer's: the
+        hood's slate is the lower faces' own."""
+        h = d["hood"]
+        y0, y1 = eaves - self.HOOD_BED_M, eaves + h["shelf_m"]
+        bk = back + sg * self.HOOD_BACK_M
+        out = nf + sg * h["shelf_proud_m"]
+        rh, rt = r + self.HOOD_LIP_M, r - h["taper_m"]
+        P = k5.frame("z" if axis == "x" else "x")   # (out, up, along) for a face whose out is `axis`
+        shelf = k5.extrude([(bk, y0), (out, y0), (out, y1), (bk, y1)], centre - rh, centre + rh, P,
+                           lambda i, p_, q_: "hidden" if abs(p_[0] - bk) < 1e-9 and abs(q_[0] - bk) < 1e-9
+                           else "dormer_face", "dormer_face", "dormer_face")
+        # the hood: bedded HOOD_BED_M into the shelf, its eight corners (out, up, along)
+        yb, nt, hb = y1 - self.HOOD_BED_M, nf - sg * h["lean_m"], bk + sg * 0.02
+        c = {(f, t, s): P(*((nf if f else hb) if not t else (nt if f else hb),
+                            top if t else yb, centre + s * (rt if t else r)))
+             for f in (0, 1) for t in (0, 1) for s in (-1, 1)}
+        mid = P((nf + hb) / 2, (yb + top) / 2, centre)
+        hood = []
+        for quad, role in (([c[0, 0, -1], c[1, 0, -1], c[1, 0, 1], c[0, 0, 1]], "hidden"),   # its bed
+                           ([c[0, 1, -1], c[1, 1, -1], c[1, 1, 1], c[0, 1, 1]], "cheek"),    # its top
+                           ([c[1, 0, -1], c[1, 0, 1], c[1, 1, 1], c[1, 1, -1]], "cheek"),    # its front
+                           ([c[0, 0, -1], c[0, 0, 1], c[0, 1, 1], c[0, 1, -1]], "hidden"),   # its back
+                           ([c[0, 0, -1], c[1, 0, -1], c[1, 1, -1], c[0, 1, -1]], "cheek"),  # a cheek
+                           ([c[0, 0, 1], c[1, 0, 1], c[1, 1, 1], c[0, 1, 1]], "cheek")):     # the other
+            ctr = tuple((quad[0][k] + quad[1][k] + quad[2][k] + quad[3][k]) / 4 for k in range(3))
+            pl = k5.oriented(quad, role, tuple(ctr[k] - mid[k] for k in range(3)))
+            if pl:
+                hood.append(pl)
+        a0, a1 = sorted((bk, out))
+        box = (a0, a1, centre - rh, centre + rh) if axis == "x" else (centre - rh, centre + rh, a0, a1)
+        self.gable_dormer_boxes = getattr(self, "gable_dormer_boxes", []) + [box]
+        return [shelf, hood]
 
     def crown_dormer_body(self, cr, E, f):
         """T-2404: the crown's round-headed dormer, on the crown's street face, centred on it."""
@@ -4147,6 +4209,10 @@ def build(params, structure_id: str):
     # T-2317: the K10 wall head — brackets and a bed moulding under the soffit, every
     # corner turned and every head, pipe and bay stood clear of; cresting on the ridge
     k10_frontage.dress(a, reach)
+    if (p.mansard or {}).get("deck"):
+        # T-3000: the deck's cresting and finials, the K10 kit's iron on the curb
+        from . import k01_mansard_deck
+        k01_mansard_deck.dress(a, p.mansard["deck"], max(p.conf("mansard"), p.conf("roof_form")))
     # T-2319: the K11 boundary — the front fence on the street line, a pair of gates on the
     # walk to the stoop, a gate across the side passage, the south boundary wall
     from . import k01_stone_finish

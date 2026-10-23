@@ -16,7 +16,8 @@
         "sources": [
           "andreas_1884_v1"
         ],
-        "note": "Andreas dates the warehouse and slaughter yard to 1832 and gives no month, so the range opens at the start of that year. THE SURVIVAL TO THE SCENE DATE IS INFERENCE AND THERE IS A SPECIFIC REASON TO DOUBT IT: in 1834 Newberry and Dole built a slaughter-house on the South Branch, which is where a slaughtering business goes when it outgrows a yard behind a warehouse two blocks from the river. So at least half of what Andreas describes here had probably moved by the scene date. The warehouse itself is a different question and nothing reached follows it either way; it stands in this scene on the ordinary continuity argument. A LOCATION GUARD THAT MUST TRAVEL WITH THIS RECORD: Newberry and Dole's forwarding warehouse — the one at whose wharf the schooner Illinois was cheered on 12 July 1834 — was on the NORTH side of the river, immediately east of where Rush Street bridge later stood. This record is the separate SOUTH-side 1832 warehouse and slaughter yard. Do not merge them and do not move this one to the river."
+        "note": "Andreas dates the warehouse and slaughter yard to 1832 and gives no month, so the range opens at the start of that year. THE SURVIVAL TO THE SCENE DATE IS INFERENCE AND THERE IS A SPECIFIC REASON TO DOUBT IT: in 1834 Newberry and Dole built a slaughter-house on the South Branch, which is where a slaughtering business goes when it outgrows a yard behind a warehouse two blocks from the river. So at least half of what Andreas describes here had probably moved by the scene date. The warehouse itself is a different question and nothing reached follows it either way; it stands in this scene on the ordinary continuity argument. A LOCATION GUARD THAT MUST TRAVEL WITH THIS RECORD: Newberry and Dole's forwarding warehouse — the one at whose wharf the schooner Illinois was cheered on 12 July 1834 — was on the NORTH side of the river, immediately east of where Rush Street bridge later stood. This record is the separate SOUTH-side 1832 warehouse and slaughter yard. Do not merge them and do not move this one to the river.",
+        "from_is": "began"
       },
       "position": {
         "utm_e": 447784.877,
@@ -111,6 +112,14 @@
       "andreas_1884_v1"
     ],
     "note": "Andreas names both uses in the same passage. The slaughter yard's status at the scene date is doubtful for the reason given on documented_range — Newberry and Dole built a South Branch slaughter-house in 1834 — and the yard is in any case not modelled."
+  },
+  "built": {
+    "value": 1832,
+    "confidence": "attested",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "note": "Andreas dates the warehouse and slaughter yard to 1832."
   },
   "occupants": {
     "value": "George W. Dole, forwarding and commission merchant and provision packer",

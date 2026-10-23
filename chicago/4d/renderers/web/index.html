@@ -973,10 +973,13 @@
         <span class="nav-meter" aria-hidden="true"><i id="nav-jaunt-bar"></i></span>
       </section>
       <!-- T-3021: each tile opens its app (the owner, 2026-10-22: "the move walking and
-           confidence view would go to those settings"). -->
+           confidence view would go to those settings"). T-3043: the tile's name sits beside
+           its open key, not inside it, so "Confidence view" stays a locked term's first
+           appearance that explains itself on tap; the key's hit area covers the tile and the
+           term sits above it, so a tap on the term shows its line and opens nothing. -->
       <div class="nav-tiles">
-        <div class="nav-tile" id="nav-tile-move" data-app="move"><span class="nav-k" data-str="nav.tile.move">Move</span><span id="nav-move">Walking</span><button class="nav-tile-go" id="nav-go-move" type="button" aria-label="Open Move"></button></div>
-        <div class="nav-tile" id="nav-tile-confidence" data-app="confidence"><span class="nav-k" data-str="nav.tile.confidence">Confidence view</span><span id="nav-confidence">Off</span><button class="nav-tile-go" id="nav-go-confidence" type="button" aria-label="Open the Confidence view"></button></div>
+        <div class="nav-tile"><span class="nav-k" id="nav-tile-move-k" data-str="nav.tile.move">Move</span><button class="nav-tile-open" id="nav-tile-move" type="button" data-app="move" aria-labelledby="nav-tile-move-k nav-move"><span id="nav-move">Walking</span></button></div>
+        <div class="nav-tile"><span class="nav-k" id="nav-tile-confidence-k" data-str="nav.tile.confidence">Confidence view</span><button class="nav-tile-open" id="nav-tile-confidence" type="button" data-app="confidence" aria-labelledby="nav-tile-confidence-k nav-confidence"><span id="nav-confidence">Off</span></button></div>
       </div>
     </div>
   </div>

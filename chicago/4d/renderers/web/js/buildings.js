@@ -47,6 +47,7 @@ import { filterGlessnerRoof } from './glessner-roof-filter.js';
 import { tintGlessnerGranite } from './glessner-stone.js';
 import {tintKeithStone} from './keith-stone.js';
 import { loadWallRelief } from './wall-relief.js';
+import { addFeet, feetPoints, packFeet } from './building-feet.js';
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
 import { layerPick } from './gpu-pick.js';
 import {
@@ -463,6 +464,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    *  can be stood on the lowest ground UNDER it rather than under its origin.
    *  Filled in the load loop because placement needs it. */
   const localXZ = new Map();
+  /** structure id -> where its walls meet the ground (building-feet.js, T-3029):
+   *  what groundUnder() samples when the structure has any. */
+  const localFeet = new Map();
   /** T-2600: the building cells being cut on the job pool, awaited after the loop. */
   const partitions = [];
   let totalTris = 0;
@@ -586,6 +590,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         minX: Math.min(seen.minX, gb.min.x), maxX: Math.max(seen.maxX, gb.max.x),
         minZ: Math.min(seen.minZ, gb.min.z), maxZ: Math.max(seen.maxZ, gb.max.z),
       } : { minX: gb.min.x, maxX: gb.max.x, minZ: gb.min.z, maxZ: gb.max.z });
+      if (!localFeet.has(record.id)) localFeet.set(record.id, new Map());
+      addFeet(localFeet.get(record.id), prepared.geo);
       // T-2219: a narrow phone courtyard view need not submit an entire
       // building's material primitive. Keep every triangle/attribute, but let
       // the existing BatchedMesh cull smaller pieces in each camera/shadow pass.
@@ -648,6 +654,13 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    * The footprint is sampled in the building's own rotated frame, because a
    * long building across a slope and the same building along it meet quite
    * different ground.
+   *
+   * T-3029: and the footprint is where its WALLS meet the ground, not its
+   * bounding box. The box reaches out to the eaves and fills the empty corners
+   * beside a wing, so on the bank it found ground no wall stands on: the Green
+   * Tree's box corner beside its rear ell sat 0.33 m below the ell's own foot,
+   * and the inn was bedded 0.88 m under its front door. building-feet.js reads
+   * the feet off the y = 0 plane; the box grid stays for a structure with none.
    */
   function groundUnder(record, e, n, rotationDeg) {
     if (!terrain) return 0;
@@ -662,6 +675,13 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // tents) starts inside its footprint. Otherwise all mesh-bound samples can
     // be uphill of that reference and lift the anchor above its own ground.
     let lowest = terrain.surfaceHeight(e, n);
+    const feet = feetPoints(localFeet.get(record.id));
+    if (feet.length) {
+      for (const [lx, lz] of feet) {
+        lowest = Math.min(lowest, terrain.surfaceHeight(e + lx * cos + lz * sin, n + lx * sin - lz * cos));
+      }
+      return Number.isFinite(lowest) ? lowest : terrain.surfaceHeight(e, n);
+    }
     const STEPS = 4;
     for (let i = 0; i <= STEPS; i += 1) {
       const lx = box.minX + ((box.maxX - box.minX) * i) / STEPS;
@@ -701,6 +721,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         + `${p.symbolic_location ?? 'no coordinates yet'}`);
     }
   }
+  for (const [id, feet] of localFeet) localFeet.set(id, packFeet(feet));
 
   // Shadows have to agree with the view: a wall you can see through should not
   // cast a solid shadow. The same patch on a depth material dithers the shadow
@@ -1107,6 +1128,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
      *  uniform dequantize scale; a point in the structure's frame goes through
      *  this one, a stored batch position through the instance matrix. */
     matrixOf(id) { return placements.get(id) ?? null; },
+
+    /** Where a structure's walls meet the ground, as [x, z] in its own frame
+     *  (metres; y = 0 there) — the points groundUnder() stood it on, so a gate
+     *  can measure the rendered base where a wall actually is (T-3029). */
+    feetOf(id) { return feetPoints(localFeet.get(id)); },
 
     /** Where a structure stands, in world space — for framing and popups. */
     positionOf(id) {
