@@ -60,7 +60,13 @@ def refused(v, why, says):
 
 def main() -> int:
     b = pavilion()
-    v = b["variant"]
+    shallow = b["variant"]
+    # T-3047: 1801's pavilion is now shallow (0.1 m proud, its gable a parapet carried back past
+    # the wall plane, below); the deep gable is held on the same pavilion stood 0.6 m proud
+    v = copy.deepcopy(shallow)
+    v.pop("shallow", None)
+    for q in v["plan"]["points"][1:3]:
+        q[1] = 0.6
     rf = v["roof"]
     check(rf["kind"] == "gable" and v["kind"] == "projection", "1801's south pavilion is a projection under a gable")
     built = K8.build_variant(v, board=False)
@@ -149,6 +155,27 @@ def main() -> int:
     bad = copy.deepcopy(v)
     bad["roof"]["gable"]["pinnacle"]["width_m"] = 0.6
     refused(bad, "a pinnacle wider than its kneeler", "a pinnacle stands inside its kneeler")
+
+    # T-3047: the shallow pavilion's gable, as 1801 stands it: no roof in front of the plane, the
+    # parapet and kneelers carried back to the copings' back and closed under it over the wall top
+    check(shallow.get("shallow") is True and max(q[1] for q in shallow["plan"]["points"]) < 0.3,
+          "1801's pavilion stands shallow")
+    sb = K8.build_variant(shallow, board=False)
+    sp = shallow["plan"]["points"][1][1]
+    zb = sp + g["coping"]["proud_m"] - g["coping"]["width_m"]
+    sband = sb.prims["band"].pos
+    check("roof" not in sb.prims and sb.meta["roof"]["planes"] == 0, "a shallow gable has no roof in front of the plane")
+    check(abs(min(q[2] for q in sband) - zb) < 1e-9, f"its parapet carried back to the copings' back ({zb:.2f} m)")
+    sy = sb.meta["wall_top_m"]
+    under_top = [q for q in sband if abs(q[1] - sy) < 1e-9]
+    check(any(abs(q[0] - pts[1][0]) < 1e-9 and abs(q[2] - zb) < 1e-9 for q in under_top)
+          and any(abs(q[0] - pts[2][0]) < 1e-9 and abs(q[2] - sp) < 1e-9 for q in under_top),
+          "and closed under it over the wall top, back to front")
+    check(sb.host_holes and all(h[3] <= sy for h in sb.host_holes),
+          f"its {len(sb.host_holes)} window holes are its host's to open")
+    bad = copy.deepcopy(shallow)
+    bad["roof"]["gable"]["coping"]["width_m"] = 0.15
+    refused(bad, "a shallow gable whose copings stop short of the plane", "on a shallow projection")
 
     print(f"\n{'FAIL' if failures else 'ok'}: {len(failures)} failure(s)")
     return 1 if failures else 0
