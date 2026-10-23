@@ -2043,7 +2043,7 @@
         "note": "black Egyptian on a yellow-ochre ground"
       },
       "anchor_local_enu_m": [
-        115.01,
+        113.62,
         -98.2
       ],
       "facade_bearing_deg": 180.0,
@@ -2083,36 +2083,29 @@
           "door"
         ],
         "fixed_to": null,
-        "note": "moved 1.77 m along the front, off door, onto blank face",
+        "note": "moved 0.38 m along the front, off door, onto blank face",
         "wall_span_local_m": [
           0.0,
           13.72
         ],
         "board_span_local_m": [
-          3.94,
-          6.24
+          5.32,
+          7.62
         ],
         "openings": [
           {
             "kind": "door",
-            "u0": 6.34,
-            "u1": 7.38,
+            "u0": 7.72,
+            "u1": 9.17,
             "z0": 0.02,
-            "z1": 1.95
+            "z1": 1.97
           },
           {
             "kind": "window",
-            "u0": 2.71,
-            "u1": 3.33,
-            "z0": 0.85,
-            "z1": 1.57
-          },
-          {
-            "kind": "window",
-            "u0": 10.39,
-            "u1": 11.01,
-            "z0": 0.85,
-            "z1": 1.57
+            "u0": 11.18,
+            "u1": 11.93,
+            "z0": 1.02,
+            "z1": 1.97
           }
         ]
       }

@@ -24575,6 +24575,12 @@ This is an initial visible person increment. Fine tailoring, photographic skin/h
 
 
 T-1789 person-card honesty followup (2026-10-22): the existing invented trade-head mint category now reads reconstructed identity rather than named in a source, and model-assigned firm memberships disclose their reconstructed link. Exactly309 invented trade heads change classification; historically source-read residents retain theirs. Presence grades, identities, memberships, assets and the standing position are unchanged. This corrects a false provenance claim found in actual published-town card inspection; photographic finishing remains open.
+### T-2377 — Hogan's first picture-based rebuild, 2026-10-22
+
+The first post office's generic log front now has Cameron's depicted one-sash/off-centre-door arrangement, a small gable opening and a roof-piercing chimney. The rebuilt GLB and compressed derivative use existing log_dwelling parameters; no generator or other building changes. New numeric set-outs/dimensions are reconstructed and covered by L-hogan-pictured-openings-2377. Documented footprint/placement and survival/use limits stand.
+
+The new Cameron/Chicago Historical Society source is linked on the generated picture card. A pictured ruling derives attested structure grade without promoting individual attributes. The actual before/after and provisional camera are in [the research comparison](RESEARCH/hogan-picture-match-T-2377/README.md). It is reviewed **differs**, with open doorway, gable treatment, camera/proportions, chimney detail and material work remaining; full T-2377 stays open. Validation results and the exact recovery state are retained in the [GitHub checkpoint](https://github.com/kevinrhaas/chicago-tickets/tree/main/evidence/image-match-2026-10-22/hogan-first-rebuild), including required gates and desktop/mobile card checks.
+
 ### T-3053 — Owner-approved school and Tremont references, 2026-10-22
 
 The owner approved the two linked illustrations for attributed project reference,
@@ -24610,6 +24616,15 @@ The owner found 1736 Prairie's card saying "It had stood like this since 1904" (
 
 The owner asked for interesting, true facts on the cards (the "Dutch-ish" house and the paint maker's). Eight new summary records under data/summaries/, each fact graded and sourced from records the project already holds, mostly the district's interpretive markers: 1812 Wheeler (a Dutch-style row house by Burnham & Root for a grain-elevator owner), 1736 McBirney (bought in 1880 for $25,000 by Hugh McBirney, a white lead maker, per chicagology's directory and Tribune transcriptions), 2100 Sherman (Burnham married the owner's daughter while it was building), 1729 Pullman (a 200-seat theatre, pipe organ and bowling alley), 1801 Kimball, 1811 Coleman, 1912 Moulton-Lowden (a future governor's home) and 1919 Field Jr. A summary's `built` may now carry a `phrase` ("between 1870 and 1876", "1864 or 1875"), placed on the timeline at its earliest year; compile_summaries.py refuses a phrase whose earliest year is not `year`. Left out on purpose: Max Meyer's 2009 house (the record is named Mayer, the marker Meyer, unresolved), Pullman's architect (the marker's Jaffay against others' Jaffray), and any McBirney–Dutch Boy link (no source found).
 
+### T-2377 integration continuation — 2026-10-23
+
+Hogan's reviewed first refinement is being brought onto the latest dev changes.
+The initial mobile smoke isolated an older expected-list omission: 27 valid
+1904 Indiana Avenue records from T-3009 were absent from the smoke oracle, while
+all prohibited 1835 layers were zero. Restore those expected IDs with the
+isolation assertion unchanged, then revalidate the new head. This is model
+progress; the original full picture-match case stays open and is never marked
+done by this increment. New-head checks are pending until their receipts exist.
 
 ## Canonical26 planted-standing horse — source integration increment (2026-10-23)
 

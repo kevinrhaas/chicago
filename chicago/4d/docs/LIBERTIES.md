@@ -31692,6 +31692,15 @@ Levy's print and 1955.
 `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-23 (T-3034).
 
+### L-hogan-pictured-openings-2377 — a first form reading of the first post office
+
+**What is read:** `cameron_c1900_first_post_office`, the committed halftone after Edgar S. Cameron's painting, captioned Chicago's First Postoffice in 1833 and credited to the Chicago Historical Society. The visible long wall has one sash and an off-centre doorway; the gable has one small framed rectangle; one stack rises through the roof. This retrospective picture bounds appearance, not a survey or the building's state in July 1835.
+**What is reconstructed:** the doorway at 8.45 m and sash at 11.55 m from minimum-u on the retained 13.716 m frontage; door 1.45 by 1.95 m, sash 0.75 by 0.95 m; the +x gable opening centred at z 3.35 m, rendered with the archetype's 0.7 by 0.8 m glazed-light proxy; and chimney station 0.6 along the ridge with the archetype's reconstructed 0.65 m square section and 0.95 m head above the ridge. Opening order/occurrence follows the picture, but these dimensions and stations depend on the existing reconstruction and a provisional drawing camera. Gable glazing versus a closed hatch is unresolved. The closed model door does not reproduce the dark open doorway with a person. Hidden faces, wall height, pitch, material colours and construction details retain their earlier bounds. No geographic placement or documented 45 by 20 ft footprint changes.
+**Rendered correction:** an actual paired close-up exposed the first door/sash stations (4.6/10.2 m) as too far along the wall and their widths (0.85/0.55 m) as too narrow. A new six-wallpoint review pose and the revised values above improve that visible arrangement; they do not make the drawing a metric survey.
+**How to resolve:** refit the drawing camera and review every visible difference, including gable treatment, open doorway, roof/log texture, proportions and context. No image-gate match or full T-2377 completion is claimed by this first rebuild.
+**Covers:** `hogan_store.log_1831.form.front_set_out`, `hogan_store.log_1831.form.window_w_m`, `hogan_store.log_1831.form.window_h_m`, `hogan_store.log_1831.form.door_w_m`, `hogan_store.log_1831.form.door_h_m`, `hogan_store.log_1831.form.end_openings`, `hogan_store.log_1831.form.chimney_ridge_at`, `hogan_store.log_1831.form.ridge_stack_w_m`.
+**Recorded:** 2026-10-22 (T-2377).
+
 ### L-k01-1811-rear-fall-3063 — 1811 Prairie's roof behind the south gable falls steeply to a flat deck under a level coped wall head
 
 **Decision:** behind the tall stack, 1811 Prairie's south wall (K01's `north`) is built as a
