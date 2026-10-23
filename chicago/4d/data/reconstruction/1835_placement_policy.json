@@ -1092,8 +1092,8 @@
         "evidence_records": 5,
         "standing_with_a_street": 4,
         "by_street_class": {
-          "principal": 1,
-          "ordinary": 2,
+          "principal": 2,
+          "ordinary": 1,
           "light": 1
         },
         "fronting_no_street": 0,
