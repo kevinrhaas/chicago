@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 703,
+  "count": 705,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -51385,6 +51385,43 @@
       ]
     },
     {
+      "id": "L-standing-horse-development-2800",
+      "title": "a planted-standing horse in the Western Hotel yard",
+      "section": "per_subject",
+      "subjects": [
+        "western_hotel"
+      ],
+      "covers": [],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Add one reconstructed, unidentified horse at E−127.5,N−296.0,heading90degrees in the1835Western Hotel wagon yard, using the existing host/yard record as context rather than evidence of an individual or ownership. The chestnut coat/blaze/stockings, grooming,1.55m withers proxy, exact stand and date are reconstructed. It is unhitched, untied and unmounted."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "Licensed modern sevketkabatas Horse rest surface baked to canonical metres and adapted to project26 controls/V16skin; the already baked0.3644068837native scale is NOT applied again. The selected b479 derivative plays one12s planted body shift (4mm lateral,2mm longitudinal,4mm compression) with no original head/tail composition or walking. Existing0.396145degree whole-root support and cloned-material metalness0 are declared adaptations. Rig hierarchy analogy credits antemeossa CC BY4.0; no donor mesh/Walk keys were copied. Modern credit is not an historically graded animal attribute."
+        },
+        {
+          "label": "Bounds and limits",
+          "text": "Original stationary65 CPU and actual standardGLTFLoader/Mixer65keys+64midpoints passed unchanged surface/contact/loop/normal/meaningful controls, maximum loaded hoof contact8.6523737e−6m. This is not GPU/photo or actual-yard acceptance. One declared0.866317m² support region retains actual drawn yard triangles before normal GPU upload release, under32triangles/4096typed-array bytes and with disposal; no town-wide geometry retention is added. One-instance/reach70/40/0m and full-only30m shadow limits remain. Actual app yard/mobile visual, performance, photographic master, gaits, tack/teams/riders/boarding remain open. Earlier failed walking fields/poses remain failed."
+        },
+        {
+          "label": "Sources",
+          "text": "sevketkabatas, “Horse”, published 29 March 2021, CC BY 4.0, retrieved via… supplies modern source/rights only; \"Town of Chicago.\" Chicagology. Transcribing the Inter Ocean of 22 July 1883… supplies historical horsekeeping context only."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23."
+        }
+      ],
+      "work_refs": [
+        "T-2800",
+        "T-2803"
+      ]
+    },
+    {
       "id": "L-glessner-course-relief-3046",
       "title": "Glessner's high courses crowned deeper than its low ones, fitted to Taylor 2135's shadows",
       "section": "per_subject",
@@ -51529,6 +51566,43 @@
         "T-2545",
         "T-3033",
         "T-3061"
+      ]
+    },
+    {
+      "id": "L-k01-1811-rear-fall-3063",
+      "title": "1811 Prairie's roof behind the south gable falls steeply to a flat deck under a level coped wall head",
+      "section": "per_subject",
+      "subjects": [
+        "coleman_ames_house_1811_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "behind the tall stack, 1811 Prairie's south wall (K01's `north`) is built as a coped parapet whose coping's top runs LEVEL at 10.95 m back to the front block's rear wall, and the roof under it falls from the ridge at the street's 61.2 degrees to a flat deck 0.38 m under the coping, where earlier work had a plain rear slope falling at 22.4 degrees to the rear wall's eave and the coping following it down. The kit learns it (gable roof rear fall, coped ends only); every other K01 house re-emits byte-identical. **What is read, not invented.** Through the camera on the 1888 Inland Architect plate (\"Residence of Miner T. Ames, Chicago): the coping's top edge just clear of the tall stack at (528, 374-380) px and at the block's rear wall at (572, 485) px, which the camera puts on the wall's plane at u 5.9, 10.96 m and u -0.3, 10.98 m, a line running into the flank's vanishing point; the second stack's top 26-35 px over it. The Chicagology print (`cgn-1811-coleman-ames-photo`, rights unknown, read in the image store's display copy and not committed) draws the same from further south-west: a short steep fall from the tall stack, then one long coping line back past the second stack. Neither picture shows any roof over that coping. **What is invented.** What lies behind the coping: the fall's pitch (the street's own 61.2 degrees, the plainest choice; the plate's coping drops in about one column just behind the stack, which a fall nearer 75 degrees would match better), the deck (flat, falling a quarter inch to the foot to the rear wall, laid in the roof's slate where a tin deck is likelier; no picture sees it), and the parapet's head running on 0.1 m behind the ridge. The rendered fall spreads over x 528-533 px where the plate's drops at x 527-528. **Not changed here.** The plate and the print both step the flank down at the block's rear wall to a lower wall head of about 8.6 m over the brick range; the build carries the range at 11.4 m."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a view of the roof from above or behind (an aerial, a section, the 1965 HABS photograph that is to find), or earlier work's solved camera on the Chicagology print."
+        },
+        {
+          "label": "Review",
+          "text": "the inland architect plate match data."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23 (T-3063)."
+        }
+      ],
+      "work_refs": [
+        "T-3077",
+        "T-3050",
+        "T-2541",
+        "T-3052",
+        "T-3063",
+        "T-3051"
       ]
     },
     {

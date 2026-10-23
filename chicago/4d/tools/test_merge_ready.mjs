@@ -50,6 +50,12 @@ function run({ list = '', listExit = 0, states = {}, only = '', dry = '' }) {
   const bin = path.join(box, 'bin');
   mkdirSync(bin, { recursive: true });
   const merges = path.join(box, 'merges.txt');
+  // Resolve the fixed fixture responses here: the fake CLI needs no Node child.
+  // Shell quoting keeps both case keys and response values literal.
+  const quoteShell = (value) => "'" + String(value).replaceAll("'", "'\\''") + "'";
+  const stateCases = Object.entries(states)
+    .map(([number, state]) => `  ${quoteShell(number)}) printf '%s\\n' ${quoteShell(state)} ;;`)
+    .join('\n');
 
   writeFileSync(path.join(bin, 'gh'), `#!/usr/bin/env bash
 # the merge itself — recorded, never performed
@@ -70,9 +76,11 @@ for a in "$@"; do
   esac
 done
 case "$*" in
-  *".mergeable_state"*) echo "$(node -e '
-      const s=JSON.parse(process.argv[1]); process.stdout.write(s[process.argv[2]]||"unknown");
-    ' ${JSON.stringify(JSON.stringify(states))} "$N")" ;;
+  *".mergeable_state"*)
+    case "$N" in
+${stateCases}
+      *) printf '%s\\n' 'unknown' ;;
+    esac ;;
   *".head.sha"*)        echo "deadbeefdeadbeefdeadbeefdeadbeefdeadbeef" ;;
   *".title"*)           echo "a pull request" ;;
 esac
@@ -195,8 +203,10 @@ console.log('merge-ready.sh — merges what GitHub calls clean, and nothing else
  *    no flag at all. */
 {
   const r = run({ list: '1319\n', states: { 1319: 'clean' }, dry: '1' });
+  const diagnostic = `exit ${r.code}; ${r.out.trim() || '(no output)'}`;
+  check('a dry run exits cleanly', r.code === 0, diagnostic);
   check('a dry run merges nothing', r.merges === '', r.merges.trim());
-  check('…and says what it would have done', /WOULD MERGE/.test(r.out));
+  check('…and says what it would have done', /WOULD MERGE/.test(r.out), diagnostic);
 }
 
 /* 9. MERGE_ONLY THAT MATCHES NOTHING IS LOUD. Drafts and `hold` are filtered out
