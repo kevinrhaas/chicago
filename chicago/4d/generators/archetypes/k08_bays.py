@@ -48,6 +48,10 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                kneelers over its corners, a slope from each to a ridge on its middle run back
                to the wall, a stone coping along each rake, and a pinnacle on each kneeler
                and a finial on the apex when the roof names them
+  shallow      (T-3047) a full-height projection too thin for its windows' recesses or its
+               gable's copings (1801's south pavilion, 0.1 m proud on its 1911 sheet): the
+               recesses run back through the wall plane (`host_holes`, which its host opens
+               its face round), and the gable is a solid parapet carried back past the plane
 
 Everything a run carries is built FLAT, in the run's own (s, y, z) frame (s along the
 run's outer face, y up, z out of it: K06's frame), then mapped onto the run: rigidly
@@ -395,7 +399,7 @@ def add_poly(pr: Prim, pts, nrms, uvs):
         pr.idx += [base, base + i, base + i + 1]
 
 
-def bend(run: Run, flat: dict, out: dict, step, join_quads=False):
+def bend(run: Run, flat: dict, out: dict, step, join_quads=False, keep_behind=()):
     """Map a strip's faces onto the run. On an arc, each face is cut into slabs of s first,
     and every vertex takes the curve's own frame, so its normal is the true one."""
     # where the outer face has an edge (a jamb, a band's end): a face meeting the outer face
@@ -440,7 +444,9 @@ def bend(run: Run, flat: dict, out: dict, step, join_quads=False):
                             pieces.append(piece)
             for piece in pieces:
                 # the wall plane trims the bay: nothing of it stands behind the host wall's face
-                piece = clip_half(piece, lambda q: run.world(q[0], q[1], q[2])[2] + 1e-9)
+                # (T-3047: but a shallow bay's window recesses, which run back through it)
+                if role not in keep_behind:
+                    piece = clip_half(piece, lambda q: run.world(q[0], q[1], q[2])[2] + 1e-9)
                 if len(piece) < 3:
                     continue
                 pts, nrms, uvs = [], [], []
@@ -834,6 +840,9 @@ class Bay:
         self.prims: dict[str, Prim] = {}
         self.meta: dict = {}
         self.windows: list[dict] = []
+        # T-3047: on a shallow projection, each window's hole as (x0, x1, y0, y1) in the bay's
+        # frame: its recess runs back through the wall plane, where the host opens its face
+        self.host_holes: list[tuple] = []
         self.seed = seed_of(v["id"], 0 if tier == "full" else 1)
         self.runs, self.plan = plan_of(v)
 
@@ -884,6 +893,10 @@ class Bay:
                     for h in o.holes:
                         sh = [(q[0] + s, q[1] + o.O[1]) for q in h]
                         holes.append((sh[0][0], sh[1][0], sh[0][1], sh[2][1], sh[2:], len(sh) == 4))
+                        if v.get("shallow"):
+                            xs = sorted(run.world(q[0], 0.0, 0.0)[0] for q in sh)
+                            ys = [q[1] for q in sh]
+                            self.host_holes.append((xs[0], xs[-1], min(ys), max(ys)))
                     if w.get("voussoirs"):
                         # T-2531: a dressed head over the light, up to the string course
                         sh = [(q[0] + s, q[1] + o.O[1]) for q in o.holes[0]]
@@ -955,7 +968,8 @@ class Bay:
                 self._apron_face(flat, run, y0)
             elif not grade:
                 self._corbel_courses(flat, run, y0)
-            bend(run, flat.prims, self.prims, run.seg_step(cv["max_seg_deg"]), join_quads=bool(v.get("masonry")))
+            bend(run, flat.prims, self.prims, run.seg_step(cv["max_seg_deg"]), join_quads=bool(v.get("masonry")),
+                 keep_behind=WINDOW_ROLES if v.get("shallow") else ())
         world = strip(f"{v['id']}|world")
         if not grade and v.get("apron"):
             self._apron_bottom(world, y0, cv)
@@ -1242,24 +1256,34 @@ class Bay:
         if not (0.1 <= up <= 0.6 and 0.1 <= ch <= 0.4 and 0.0 <= cp <= 0.15 and 0.01 <= ko <= 0.15):
             raise ValueError(f"{self.v['id']}: gable upstand 0.1-0.6 m, coping 0.1-0.4 m high and 0-0.15 m "
                              f"proud, kneeler 0.01-0.15 m out past the eaves (so its side is not the fascia's)")
-        if not (0.05 <= zb <= p - 0.1 and 0.1 <= kw and xa <= xc - 0.5):
+        # T-3047: on a shallow projection the copings are wider than it is deep, so the gable is
+        # a solid parapet carried back through the wall plane to the copings' back, with no roof
+        # in front of the plane; its host closes nothing over the wall top
+        shallow = bool(self.v.get("shallow"))
+        if not ((zb <= -0.05 if shallow else 0.05 <= zb) and zb <= p - 0.1 and 0.1 <= kw and xa <= xc - 0.5):
             raise ValueError(f"{self.v['id']}: the coping's back {zb:.3f} m out stands 0.05 m out of the wall "
-                             f"and 0.1 m behind the front, and the kneelers leave the gable a metre across")
+                             f"(on a shallow projection 0.05 m behind it) and 0.1 m behind the front, and the "
+                             f"kneelers leave the gable a metre across")
         roof = lambda x: y_e + pitch * (xc - xa - abs(x - xc))
         under = lambda x: roof(x) + up
         top = lambda x: under(x) + ch
         y_r, y_k = roof(xc), top(xa)
         F, B, D = (0.0, 0.0, 1.0), (0.0, 0.0, -1.0), (0.0, -1.0, 0.0)
         # the roof's two slopes, kneeler to ridge, from the parapet's back to the wall plane
-        for xs in (xa, xb):
+        for xs in (xa, xb) if not shallow else ():
             world.face("roof", [(xs, y_e, 0.0), (xc, y_r, 0.0), (xc, y_r, zb), (xs, y_e, zb)], Y)
+        if shallow:
+            # the parapet's underside over the wall top, from its back to the front, corner to
+            # corner (past them the kneelers' own)
+            world.face("band", [(xl, y_top, zb), (xr, y_top, zb), (xr, y_top, p), (xl, y_top, p)], D)
         # the gable: the front carried up from the wall top to the copings' beds
         world.face("wall", [(xa, y_top, p), (xb, y_top, p), (xb, under(xb), p), (xc, under(xc), p),
                             (xa, under(xa), p)], F)
         for xs in (xa, xb):
             n = (-1.0 if xs < xc else 1.0, 0.0, 0.0)
-            # the parapet's back over the roof
-            world.face("band", [(xs, roof(xs), zb), (xc, y_r, zb), (xc, under(xc), zb), (xs, under(xs), zb)], B)
+            # the parapet's back over the roof (a shallow one's from the wall top)
+            y_b = (lambda x: y_top) if shallow else roof
+            world.face("band", [(xs, y_b(xs), zb), (xc, y_b(xc), zb), (xc, under(xc), zb), (xs, under(xs), zb)], B)
             # the coping, kneeler to apex: its top, its bed's overhang, its front and its back
             world.face("band", [(xs, top(xs), zb), (xc, top(xc), zb), (xc, top(xc), zf), (xs, top(xs), zf)],
                        _add(Y, _mul(n, pitch)))
@@ -1270,13 +1294,20 @@ class Bay:
         # where a host closes a projection's back from its wall top to its eaves
         knees = ((xl - ov - ko, xa), (xb, xr + ov + ko))
         for (a, b), (e0, e1) in zip(knees, ((xl - ov, xl), (xr, xr + ov))):
-            self._block(world, "band", a, b, y_top, y_k, 0.0, zf, back_from=y_e, under=False)
+            if shallow:   # T-3047: carried back with the parapet, its back and underside its own
+                self._block(world, "band", a, b, y_top, y_k, zb, zf, under=False)
+                k0, k1 = (a, xl) if a < xl else (xr, b)
+                world.face("band", [(k0, y_top, zb), (k1, y_top, zb), (k1, y_top, 0.0), (k0, y_top, 0.0)], D)
+            else:
+                self._block(world, "band", a, b, y_top, y_k, 0.0, zf, back_from=y_e, under=False)
             # its underside where the return's soffit is not: out past the fascia, and proud
             # of the front
             world.face("band", [(a, y_top, p), (b, y_top, p), (b, y_top, zf), (a, y_top, zf)], D)
             o0, o1 = (a, e0) if a < e0 else (e1, b)
+            if shallow:   # T-3047: past the return's fascia on either side (its parapet's is the rest)
+                o0, o1 = (a, e0) if a < xl else (e1, b)
             world.face("band", [(o0, y_top, 0.0), (o1, y_top, 0.0), (o1, y_top, p), (o0, y_top, p)], D)
-        meta = {"kind": "gable", "pitch": pitch, "planes": 2, "apex": [round(xc, 4), round(y_r, 4), 0.0],
+        meta = {"kind": "gable", "pitch": pitch, "planes": 0 if shallow else 2, "apex": [round(xc, 4), round(y_r, 4), 0.0],
                 "ridge_m": round(y_r, 4), "kneeler_m": round(y_k, 4), "gable_top_m": round(top(xc), 4)}
         zm = (zb + zf) / 2
         pn = g.get("pinnacle")
@@ -1832,8 +1863,14 @@ class Bay:
         roof_y = max(p[1] for p in self.prims["roof"].pos if abs(p[2]) < 1e-6) if self.prims.get("roof") else y_e
         top = y_e if self.v["kind"] == "tower" else roof_y + 0.6
         D = 0.45
+        if self.v.get("shallow"):
+            # T-3047: a shallow bay's host is opened round its recesses, deeper than they reach,
+            # and stops under its parapet, which closes its own top
+            top = self.meta["wall_top_m"]
+            D = max(D, -min(p[2] for p in self.prims["backing"].pos) + 0.1)
         b = strip(f"{self.v['id']}|board")
-        b.face("board_wall", [(x0, 0.0, 0.0), (x1, 0.0, 0.0), (x1, top, 0.0), (x0, top, 0.0)], (0.0, 0.0, 1.0))
+        for (a0, a1), (b0, b1) in host_cells((x0, x1), (0.0, top), self.host_holes):
+            b.face("board_wall", [(a0, b0, 0.0), (a1, b0, 0.0), (a1, b1, 0.0), (a0, b1, 0.0)], (0.0, 0.0, 1.0))
         b.face("board_wall", [(x0, top, 0.0), (x1, top, 0.0), (x1, top, -D), (x0, top, -D)], Y)
         for x, hx in ((x0, -1.0), (x1, 1.0)):
             b.face("board_wall", [(x, 0.0, 0.0), (x, top, 0.0), (x, top, -D), (x, 0.0, -D)], (hx, 0.0, 0.0))
@@ -1842,6 +1879,30 @@ class Bay:
         b.face("ground", [(x0, 0.0, 0.0), (x1, 0.0, 0.0), (x1, 0.0, G), (x0, 0.0, G)], Y)
         merge(self.prims, b.prims)
         self.meta["board"] = {"x": [round(x0, 4), round(x1, 4)], "top_m": round(top, 4), "ground_to_m": round(G, 4)}
+
+
+def host_cells(xr, yr, holes):
+    """T-3047: the rectangle xr x yr less the rectangular holes (x0, x1, y0, y1) in it, as
+    ((x0, x1), (y0, y1)) cells on the holes' own lines, each row's free cells merged: a host
+    face opened round a shallow bay's recesses. With no hole in it, the rectangle itself."""
+    hs = [h for h in holes if h[0] < xr[1] - 1e-9 and h[1] > xr[0] + 1e-9 and h[2] < yr[1] - 1e-9 and h[3] > yr[0] + 1e-9]
+    if not hs:
+        return [(xr, yr)]
+    xs = sorted({xr[0], xr[1], *(min(max(c, xr[0]), xr[1]) for h in hs for c in h[:2])})
+    ys = sorted({yr[0], yr[1], *(min(max(c, yr[0]), yr[1]) for h in hs for c in h[2:4])})
+    out = []
+    for ya, yb in zip(ys, ys[1:]):
+        run = None
+        for xa, xb in zip(xs, xs[1:]):
+            cx, cy = (xa + xb) / 2, (ya + yb) / 2
+            if any(h[0] < cx < h[1] and h[2] < cy < h[3] for h in hs):
+                run = None
+            elif run is not None and abs(run[1] - xa) < 1e-12:
+                run[1] = xb
+            else:
+                run = [xa, xb]
+                out.append((run, (ya, yb)))
+    return [((r[0], r[1]), y) for r, y in out]
 
 
 def support_bottom(v: dict, data: dict | None = None) -> float:

@@ -546,6 +546,7 @@ class Assembly:
             self.fabric["bay_apron"] = self.fabric["bay_stone"]
             self.spec["bay_apron"] = dict(self.spec["bay_stone"], roughness=round(self.spec["bay_stone"]["roughness"] + 0.01, 3))
         self.footprints: dict[tuple, list] = {}
+        self.bay_holes: dict[str, list] = {}   # T-3047: a shallow bay's recesses, by host wall
 
     def seat(self, frame, pts, kind):
         """Note the (s, y) extent of what a kit laid on a wall's face — its points at or
@@ -2218,6 +2219,13 @@ class Assembly:
         past = v["kind"] == "projection" and built.meta["wall_top_m"] > p.eave_m + 1e-6
         # T-2900: a corner turret's eaves are its wing's and its cone is whole over the wing's
         # roof, so nothing of it stands over the wall head to close
+        # T-3047: a shallow projection's window recesses run back through the wall plane: the
+        # host's face is opened round each (the coursed front below its soffit, `bay_holes`, and
+        # the back closed over its eave here), and its gable's parapet closes its own top
+        shallow = bool(v.get("shallow"))
+        if built.host_holes:
+            self.bay_holes.setdefault(b["wall"], []).extend(
+                (b["s_m"] + x0, b["s_m"] + x1, y0, y1) for x0, x1, y0, y1 in built.host_holes)
         if (v["kind"] == "tower" and not b.get("corner")) or past:
             back = _mul(N, -1)
             wall_top, eave = built.meta["wall_top_m"], built.meta["eave_m"]
@@ -2226,11 +2234,13 @@ class Assembly:
             bb = self.basis(body, O, R, Y, seed)
             snap = lambda x, y: tuple(round(c * 1000) / 1000 for c in W((x, y, -0.001)))
             # T-2842: on a rear wing's wall it is closed from the wing's wall top (`eave_m`)
-            for (x0, x1), (y0, y1) in (((b["span_m"][0] - b["s_m"], b["span_m"][1] - b["s_m"]),
-                                        (b.get("eave_m", p.eave_m), wall_top)),
-                                       ((min(on), max(on)), (wall_top, eave))):
-                pr.face([snap(x, y) for x, y in ((x0, y0), (x1, y0), (x1, y1), (x0, y1))], back, bb, conf)
-            if past:
+            closes = [((b["span_m"][0] - b["s_m"], b["span_m"][1] - b["s_m"]), (b.get("eave_m", p.eave_m), wall_top))]
+            if not shallow:
+                closes.append(((min(on), max(on)), (wall_top, eave)))
+            for (x0, x1), (y0, y1) in closes:
+                for (xa, xb), (ya, yb) in K8.host_cells((x0, x1), (y0, y1), built.host_holes):
+                    pr.face([snap(x, y) for x, y in ((xa, ya), (xb, ya), (xb, yb), (xa, yb))], back, bb, conf)
+            if past and not shallow:
                 cap = sorted({(round(q[0], 6), round(q[1], 6)) for q in built.prims["roof"].pos
                               if abs(q[2]) < 1e-6})
                 pr.face([snap(x, y) for x, y in cap], back, bb, conf)
@@ -2958,6 +2968,7 @@ class Assembly:
                 parts = {key: (k5._snap(x) if isinstance(x, list) else x) for key, x in parts.items()}
                 polys = k5.union(polys, k15.join_stack(parts))
         recesses += self.through_eave_cutters(k5, yf)
+        recesses += self.shallow_bay_cutters(k5, yf)
         for rc in ([recess] if recess is not None else []) + recesses:
             polys = k5.subtract(polys, k5._snap([rc])[0])
         pts, tris = _weld_shell(*k5.close(polys))
@@ -3021,6 +3032,49 @@ class Assembly:
             # to over the covering's lip, which is all the hip has in front of the wall
             out.append(k5.extrude(plan, yf - 0.5, self.p.eave_m + 1.0, lambda a, b_, c: (a, c, -b_),
                                   "wall", "wall", "wall"))
+        return out
+
+    def shallow_bays(self):
+        """T-3047: the street front's shallow pavilions carried up past a mansard's eave, each as
+        (bay, s0, s1, proud, behind): its cheeks along the front, how far it stands proud, and
+        how far behind the wall plane its windows' recesses reach (with 0.05 m to spare)."""
+        from . import k08_bays as K8
+        out = []
+        for b in self.p.bays:
+            v = b["variant"]
+            if not v.get("shallow"):
+                continue
+            top = math.fsum(float(st["height_m"]) for st in v["storeys"])
+            if b["wall"] != "k01.wall.street_front" or not self.p.mansard or top <= self.p.eave_m + 1e-6:
+                raise ValueError(f"{b['id']}: a shallow pavilion stands on the street front, carried up past "
+                                 f"a mansard's eave")
+            proud = max(float(q[1]) for q in v["plan"]["points"])
+            behind = K8.part(v, K8.load(), "recess")["depth_m"] - proud + 0.05
+            out.append((b, b["span_m"][0], b["span_m"][1], proud, behind))
+        return out
+
+    def shallow_bay_cutters(self, k5, yf):
+        """T-3047: in front of a shallow pavilion the mansard's eave box, gutter and covering's
+        foot would stand out past its face, and its windows' recesses run back into the steep
+        lower face: cut them away. Inside it, and behind the wall plane as deep as its recesses
+        reach, they are cut on hidden faces (its walls and its back, closed on the plane, stand
+        in front of them); in front of its face the eave box stops square at its cheek and, past
+        a corner it is flush with, at its face, each end closed in the eave's trim (`return`)."""
+        out = []
+        D, top = self.p.depth_m, self.p.eave_m + 10.0
+        P = lambda a, b_, c: (a, c, -b_)
+        for b, s0, s1, proud, behind in self.shallow_bays():
+            far = s1 + 1.0 if b.get("flush_corner") == "right" else s1
+            near = s0 - 1.0 if b.get("flush_corner") == "left" else s0
+            inner = [(D - behind, s0 + 0.005), (D + proud + 0.005, s0 + 0.005), (D + proud + 0.005, s1 - 0.005),
+                     (D - behind, s1 - 0.005)]
+            if b.get("flush_corner") == "right":
+                inner[2:] = [(D + proud + 0.005, s1), (D - behind, s1)]
+            if b.get("flush_corner") == "left":
+                inner[:2] = [(D - behind, s0), (D + proud + 0.005, s0)]
+            out.append(k5.extrude(inner, yf - 0.5, top, P, "wall", "wall", "wall"))
+            outer = [(D + proud, near), (D + 2.0, near), (D + 2.0, far), (D + proud, far)]
+            out.append(k5.extrude(outer, yf - 0.5, top, P, "return", "wall", "wall"))
         return out
 
     def flat_roof(self):
@@ -3705,6 +3759,17 @@ class Assembly:
                 if len(xs) != 2:
                     raise ValueError(f"{b['id']}: the gutter's lip at {zo:.3f} m out does not cross its cants")
                 dead.append((A + min(xs), A + max(xs)))
+        # T-3047: and across a shallow pavilion carried up past the eave, from its cheek to its
+        # face round a corner it is flush with, each end stopped (`stop_ends`)
+        stop_ends = []
+        for b, s0, s1, proud, _ in self.shallow_bays():
+            d0 = starts[3] + D + A + proud if b.get("flush_corner") == "left" else A + s0
+            d1 = starts[1] + A - proud if b.get("flush_corner") == "right" else A + s1
+            if d0 > d1:
+                dead += [(d0, P), (0.0, d1)]
+            else:
+                dead.append((d0, d1))
+            stop_ends += [(d0 % P, 1.0), (d1 % P, -1.0)]
         if (p.shaped_gable or {}).get("takes_gutter"):
             # T-2889: no gutter across a front carried up as a shaped gable: the street run is
             # not built and each side run dies into the gable's base at its back (k01_shaped_gable)
@@ -3727,6 +3792,11 @@ class Assembly:
                         self.basis(mat, Ri[j], along, _unit(_sub(Ri[j + 1], Ri[j])), seed), conf)
             for j in (0, n_seg):  # the two rims, inner skin to outer
                 pr.quad(Ri[j], Rj[j], Rb[j], Ro[j], Y, self.basis(mat, Ri[j], along, _unit(_sub(Ro[j], Ri[j])), seed), conf)
+        for sv, sign in stop_ends:   # T-3047: a stop end, the half-round closed across its lips
+            arc, _ = ring(sv, ro)
+            i = max(j for j in range(4) if starts[j] <= sv + 1e-9)
+            n = _mul(dirs[i], sign)
+            pr.face(arc, n, self.basis(mat, arc[0], _unit(_sub(arc[-1], arc[0])), Y, seed), conf)
         # wrought-iron hangers at the bracket spacing, a band under the gutter and a leg
         # up the fascia, clear of the outlets
         iron = self.prim("iron")
@@ -4114,7 +4184,8 @@ def build(params, structure_id: str):
         mat, O, R, length, t, _ = walls["k01.wall.street_front"]
         front = [o for o in p.openings if o.wall == "k01.wall.street_front"]
         frame, quoins = a.stone_front("k01.wall.street_front", O, R, length, E, yf, t, front,
-                                      extra=[(*rounded["k01.wall.street_front"], 0.0, y_round)] if rounded else ())
+                                      extra=([(*rounded["k01.wall.street_front"], 0.0, y_round)] if rounded else [])
+                                      + a.bay_holes.get("k01.wall.street_front", []))
         if p.round_corner:
             a.round_corner(t)
         for cid, (mat, O, R, length, t, bands) in walls.items():

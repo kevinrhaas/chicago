@@ -31446,3 +31446,33 @@ The roof's form and its faces are now inferred from Levy's print, so `form.roof_
 **Ticket:** T-3033 (piece 1 of T-2545).
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-22 (T-3033).
+
+### L-kimball-1801-pavilion-shallow-3047 — 1801 Prairie's south pavilion stood at the 1911 sheet's 0.1 m as a shallow projection, its corner still square
+
+**Decision:** 1801 Prairie's south pavilion (T-3047, piece 1 of T-3016) stands 0.1 m proud of the
+front, where the 1911 sheet 28 trace (`s28fp-1801-b1`) draws it 0-0.1 m; it stood 0.6 m, the least
+depth K08's window recesses and the main eave's gutter fitted inside (L-kimball-1801-pavilion-face-3015).
+It is built as a SHALLOW K08 projection (`plan.shallow`): its windows' recesses, 0.55 m as before,
+run back through the wall plane, and the front's coursing below the soffit and the pavilion's back,
+closed on the plane over the eave, are opened round each light; its coped gable is a solid stone
+parapet carried back past the plane to the copings' back (0.27 m behind it), closed under it over
+the wall top, with no roof in front of the plane; and the mansard's eave box, its covering's foot and
+the gutter stop at its north cheek, square, each end closed in the eave's trim and the gutter's
+stop end, and past the south corner it is flush with they stop at its face. **What is read, not
+invented.** The depth is the sheet's. Through the Taylor camera the face's south corner now renders
+at about x 1368 (it rendered about 1400) against the print's 1340, its north pilaster at about
+x 1245-1255 against the print's 1232-1250, and the gable's apex at about x 1300 (it rendered about
+1325) against 1270. **What is invented or held by the kit.** The parapet's depth behind the plane is
+the copings' reconstructed 0.45 m width (L-kimball-1801-pavilion-gable-2998), and what stands behind
+the pavilion over the main eave (the room the third storey opens into, the mansard's faces meeting its
+cheeks) is not modelled: the mansard is cut back 0.5 m behind the plane across the pavilion's width,
+as deep as the recesses reach, and the pavilion's back is closed on the plane. The south-west corner
+stays square where the sheet chamfers it about 0.45 m back to the south wall behind the front's
+plane, so the corner still renders about 28 px south of the print's; the main cornice the print
+carries across the pavilion's face over the bow's frieze is not built across it.
+**How to resolve:** T-3048 cuts the main block's corner on K01 and stands K08's canted cheek under
+the gable, which brings the visible corner within about 5 px of the print's, and re-checks the
+Taylor camera's south-west bearing against the chamfer's near end.
+**Ticket:** T-3047 (piece 1 of T-3016).
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-23 (T-3047).
