@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2223, ts: '2026-10-23T16:13:10.592Z', date: 'Oct 23, 2026, 11:13 AM CT', title: 'Indiana Avenue fills in from 16th to 18th Street', kind: 'feature',
+    items: [
+      'Look west between the houses on Prairie\'s west side from 16th to 18th Street: Indiana Avenue\'s east side is no longer bare ground behind them. Five brick houses stand at 1615-1617, 1623, 1703 and 1713, and a row of five more at 209-217 East 16th Street, with six stables on the alley.',
+      'Each is drawn from the 1911 fire-insurance map, and only where Robinson\'s 1886 atlas draws the same building on the lot, so it stood on both sides of 1904. Where the two maps disagree (the corner office, two factories, and three houses that changed or went), the lot stays open until it is read.',
+    ] },
+  { v: 2222, ts: '2026-10-23T16:13:10.592Z', date: 'Oct 23, 2026, 11:13 AM CT', title: 'Taylor\'s Glessner photograph gets a better-fitting camera', kind: 'chore',
+    items: [
+      'Nothing you can see changed in the town. The camera that lines our model of the Glessner house up with J. W. Taylor\'s photograph from the late 1880s has been re-solved. It now fits all three chimneys as well as the windows, and the leaning edges in the photograph set its tilt. Through it, the south and middle chimneys match the photograph\'s widths. The chimney over the 18th Street gable reads wider than the photograph, and that is the next thing to look at.',
+    ] },
+  { v: 2221, ts: '2026-10-23T16:13:10.592Z', date: 'Oct 23, 2026, 11:13 AM CT', title: '1801 Prairie\'s photograph camera re-solved on the corner it sees', kind: 'fix',
+    items: [
+      'Nothing you can see changed in the town. The camera we use to compare the Kimball house at 1801 Prairie Avenue with J. W. Taylor\'s photograph of about 1895 was fitted to a corner of the house the photograph cannot see; it is now fitted to the one it does, and the side-by-side lines up better: the front\'s corners, the south pavilion and both entrance arches now fall within a few pixels of the photograph.',
+      'Seen through the corrected camera, the round tower, the far end of the 18th Street side and the south gable\'s top still differ from the photograph by small amounts, and each of those is now written down for a later fix.',
+    ] },
   { v: 2220, ts: '2026-10-23T15:10:20.031Z', date: 'Oct 23, 2026, 10:10 AM CT', title: 'Glessner House\'s tall stone courses stand deeper', kind: 'improvement',
     items: [
       'The tall granite courses on the Glessner house now throw a deeper shadow under their lower edges than the short ones, as a photograph from about 1888 shows. Through that photograph\'s own camera the tall-to-short ratio was 0.86 and is now 1.33, against the photograph\'s 1.32.',
