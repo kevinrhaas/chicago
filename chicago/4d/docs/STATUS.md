@@ -24458,6 +24458,12 @@ The horse research deliverable inventories the existing procedural horse/rig/har
 
 
 The six added reference records take the complete404-source catalogue index from159155 to161435 raw bytes. The declared raw allowance moves from160000 to168000 following the standing measured-headroom policy and previous8000-byte source increments; citations remain whole. Actual gzip accounting for the new index plus unchanged Sources module/CSS is45965bytes, below the unchanged120000-byte first-open ceiling. The standalone measurement's stale128000 raw calibration is aligned with this policy; no compressed-wire or scene-detail ceiling changes. Both original wagon wrappers also pass: W01 through Haswell and both covered variants through Nehalem retain every reviewed output byte and original guard.
+### T-2377 — Hogan's first picture-based rebuild, 2026-10-22
+
+The first post office's generic log front now has Cameron's depicted one-sash/off-centre-door arrangement, a small gable opening and a roof-piercing chimney. The rebuilt GLB and compressed derivative use existing log_dwelling parameters; no generator or other building changes. New numeric set-outs/dimensions are reconstructed and covered by L-hogan-pictured-openings-2377. Documented footprint/placement and survival/use limits stand.
+
+The new Cameron/Chicago Historical Society source is linked on the generated picture card. A pictured ruling derives attested structure grade without promoting individual attributes. The actual before/after and provisional camera are in [the research comparison](RESEARCH/hogan-picture-match-T-2377/README.md). It is reviewed **differs**, with open doorway, gable treatment, camera/proportions, chimney detail and material work remaining; full T-2377 stays open. Validation results and the exact recovery state are retained in the [GitHub checkpoint](https://github.com/kevinrhaas/chicago-tickets/tree/main/evidence/image-match-2026-10-22/hogan-first-rebuild), including required gates and desktop/mobile card checks.
+
 ### T-3053 — Owner-approved school and Tremont references, 2026-10-22
 
 The owner approved the two linked illustrations for attributed project reference,

@@ -5620,6 +5620,12 @@ Original refined W01 farm-box wagons replace three existing1835 stands at close 
 
 - T-2980: two empty covered derivatives now preserve exact per-ID finishes/aging, original stands/bearings/yokes and legacy fallback. Actual22-image source/published desktop/mobile inspection, eight runtime/clearance sets and four disposals passed under unchanged budgets/GL0; no page/console errors or request failures. Source/geometry/hull/conservative-host proof is bounded, not full physical collision. Photographic cloth/wood/iron finishing, compressed distinct LODs and full-app memory/tier acceptance remain open. Full preflight/current qualification and the parent X-RAY/Ghost budget failure must be resolved before ordinary DEV merge. People, horses, driving and boarding remain open.
 
+## Hogan's first picture-based geometry increment - T-2377
+
+The single front sash/off-centre doorway, gable opening and ridge stack are rebuilt from the Cameron depiction, with numeric choices reconstructed. The source/credit and compiler-derived pictured grade are recorded without changing geographic controls or scene-date limits. See docs/RESEARCH/hogan-picture-match-T-2377/README.md.
+
+Full matching remains open: solve/review camera and proportions, doorway, gable treatment, chimney detail, log/roof material and in-app context. This is a first visible increment, not an accepted picture match.
+
 ## School and Tremont reference-use approval - T-3053
 
 The owner's 2026-10-22 approval is recorded with both bibliographic sources.
