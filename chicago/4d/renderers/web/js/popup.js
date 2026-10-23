@@ -112,6 +112,7 @@ import { claimValueText } from './claim-value.js';
 // The card's opening when no summary has been written: the address once, other names
 // that do not restate it, and a templated lead — never a raw field (T-2636).
 import { cardTitle, clean, fallbackAddress, fallbackSummary, otherNames } from './fallback-summary.js';
+import { builtPhrase, rangeWords } from './range-words.js';
 
 const CONF_ORDER = { attested: 0, inferred: 1, reconstructed: 2 };
 
@@ -795,19 +796,14 @@ function archetypeWords(archetype) {
   return ARCHETYPE_WORDS[archetype] ?? String(archetype).replace(/_/g, ' ');
 }
 
-const ISO_DATE = /^(\d{4})-\d{2}-\d{2}$/;
-
-/** The standing span as years, when — and only when — both ends are ISO dates.
- *  `1831-01-01 → 1851-03-04` reads as "1831 – 1851"; a bound that is the end of a
- *  continuity argument (`1835-12-31`) reads as the year it bounds, which is what a
- *  year means. Anything odd is shown raw, because a renderer that tidies an odd
- *  date is guessing what it meant. The "Was it here" row keeps the raw pair. */
+/** The standing span in words, from the ends the record dates (T-3037, range-words.js):
+ *  "1831 – 1851" where a source dates both, "by 1890, still standing in 1911" for
+ *  sightings. An end the record only bounds — the scene's own year, most often — is not
+ *  a date and is not printed as one; with neither end dated the row says so. The "Was it
+ *  here" row keeps the raw pair and the record's reasoning. */
 function standingWords(range) {
   if (!range || !(range.from || range.to)) return '';
-  const f = ISO_DATE.exec(range.from ?? '');
-  const t = ISO_DATE.exec(range.to ?? '');
-  if (f && t) return f[1] === t[1] ? f[1] : `${f[1]} – ${t[1]}`;
-  return `${range.from || '?'} → ${range.to || '?'}`;
+  return rangeWords(range) || 'Dates not recorded';
 }
 
 /** Heads of the households the residents layer places here, by name. */
@@ -1113,6 +1109,8 @@ function factsHtml(s, firms = [], fromSign = false) {
     row('Today', prettyValue(attrs.present_status.value),
       attrs.present_status.confidence, 'present status');
   }
+  // T-3037: the build date as the sources give it ("1864 or 1875" where they disagree).
+  row('Year built', builtPhrase(attrs.built?.value).replace(/^in /, ''), attrs.built?.confidence, 'year built');
   row('Use', functionWords(attrs.function?.value), attrs.function?.confidence, 'use',
     firmChipsHtml(firms, fromSign));
   // T-1980. A building of an establishment — the fort's barn, the tannery's bark

@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2202, ts: '2026-10-22T23:50:10.605Z', date: 'Oct 22, 2026, 6:50 PM CT', title: 'Building cards only state dates the records actually give', kind: 'fix',
+    items: [
+      'A card no longer says a house "had stood like this since 1904" because 1904 is the year you are visiting. That line came from the scene\'s own date, not from any source.',
+      'Cards now say when a building was built where a source gives it: "Built in 1886", "Built about 1832", or "Built in 1864 or 1875" where the sources disagree. 43 buildings have a sourced year so far, from the Prairie Avenue district markers and Andreas\'s history.',
+      'Where a source only shows a building standing, the card says so: "Recorded here by 1831", "still in 1911". Where nothing dates it, the card says nothing rather than guess.',
+      '1736 Prairie, the McBirney house, now reads "Built in 1864 or 1875": the Glessner House Museum dates it to 1864, but an 1875 building permit for the same lot may mean the house that stood there was a newer one.',
+    ] },
   { v: 2201, ts: '2026-10-22T23:07:10.801Z', date: 'Oct 22, 2026, 6:07 PM CT', title: '1812 Prairie\'s roof behind its gable rebuilt as a slate mansard', kind: 'improvement',
     items: [
       'Behind the Wheeler house\'s shaped gable at 1812 Prairie, the roof is now a mansard: steep slate faces rising about 2 m from the side walls to a level, flat-topped curb. It had been a plain 45-degree hip.',

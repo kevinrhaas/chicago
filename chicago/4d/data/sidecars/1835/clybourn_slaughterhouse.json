@@ -22,7 +22,8 @@
     "sources": [
       "andreas_1884_v1"
     ],
-    "note": "THE BUILD YEAR IS DOCUMENTED AND THE MONTH IS NOT, so the range opens at the start of 1827: Andreas, in the packing-house chapter, 'The site of the original log slaughter-house, built by Archibald Clybourne in 1827, for the killing of such cattle as were required by the garrison at Fort Dearborn' (scan p. 1149). THE SURVIVAL TO THE SCENE DATE IS UNUSUALLY WELL SUPPORTED for this dataset: the same building is working six years later — 'The following year [1833] Archibald Clybourne, the Government butcher for the Pottawatomies, engaged in the packing business, at his log slaughter-house on the east side of the North Branch, where he packed some two hundred and fifty head of cattle and about two thousand hogs' (scan p. 1151) — which puts it in full operation nineteen months before 1835-07-01. The range closes at the end of 1835 as the last date this record needs to claim; Andreas writing in 1883 says the site was BY THEN occupied by a later frame slaughter-house of Clybourne's 'now falling into pieces from sheer old age', so the log building came down at some point between 1835 and 1883 and nothing reached dates that."
+    "note": "THE BUILD YEAR IS DOCUMENTED AND THE MONTH IS NOT, so the range opens at the start of 1827: Andreas, in the packing-house chapter, 'The site of the original log slaughter-house, built by Archibald Clybourne in 1827, for the killing of such cattle as were required by the garrison at Fort Dearborn' (scan p. 1149). THE SURVIVAL TO THE SCENE DATE IS UNUSUALLY WELL SUPPORTED for this dataset: the same building is working six years later — 'The following year [1833] Archibald Clybourne, the Government butcher for the Pottawatomies, engaged in the packing business, at his log slaughter-house on the east side of the North Branch, where he packed some two hundred and fifty head of cattle and about two thousand hogs' (scan p. 1151) — which puts it in full operation nineteen months before 1835-07-01. The range closes at the end of 1835 as the last date this record needs to claim; Andreas writing in 1883 says the site was BY THEN occupied by a later frame slaughter-house of Clybourne's 'now falling into pieces from sheer old age', so the log building came down at some point between 1835 and 1883 and nothing reached dates that.",
+    "from_is": "began"
   },
   "change_note": "The log slaughter-house as it stood from 1827 through the packing seasons of 1833 and 1834. Andreas describes it as still the working plant in 1833 and records a later frame slaughter-house of Clybourne's occupying the site by 1883; nothing dates the change, so this record models the log building and stops. The move from killing for the garrison to commercial packing is a change of BUSINESS, not of fabric, and does not open a phase.",
   "placement": {
@@ -101,6 +102,14 @@
       ],
       "note": "Andreas names Clybourne as the builder in 1827 and as the operator in the 1833 packing season, with George W. Dole packing at the same premises that year. Whether anyone was working the plant on 1835-07-01 specifically is not attested; July is the wrong end of the year for packing, which is winter work, so the honest reading of the scene date is a standing building between seasons."
     },
+    "built": {
+      "value": 1827,
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "note": "Andreas: 'the original log slaughter-house, built by Archibald Clybourne in 1827'."
+    },
     "land_owner": {
       "value": "The ground was entered by James Kinzie, 28 September 1830",
       "confidence": "reconstructed",
@@ -154,5 +163,5 @@
   "research_note": "PLACED OUTSIDE ITS OWN SITE, ON PURPOSE, AND THE POSITION NOTE IS THE MOST IMPORTANT FIELD IN THIS RECORD. The attested site — the east or south bank of the North Branch, south of the Bloomingdale Road, opposite the later North Chicago Rolling Mills — is roughly 3 km north-north-west of the forks and about 2.8 km beyond the northern edge of the 640 m terrain box this scene models, so the building stands at the edge of modelled ground with an error of kilometres and says so. RESEARCH GAINED IN THIS SLICE, and it is more than the dossier had: docs/research/03-structures-north.md section 3.6 records the slaughterhouse as 1827, log, on the north branch, with locations 'not pinned down in reachable sources [GAP]'. A full-text search of Andreas vol. 1 closes that gap — scan p. 1149 gives the reach and the bank, scan p. 1151 gives the bank again and the 1833 throughput, and scan p. 215 puts the family several miles up the branch at the rolling-mill ground. The dossier's [GAP] tag can be retired. WHAT THIS RECORD STILL CANNOT SAY: how big the building was, how it was arranged, where the pens and the stock yard stood, or what the plant looked like in a July between packing seasons. The associated stock yard, later called Bull's Head, is not modelled at all — this archetype builds a building and the yard is an enclosure, which is the same limitation docs/LIBERTIES.md L10 records against the Western Hotel's wagon yard.",
   "research_doc": "",
   "review_required": true,
-  "review_reason": "Andreas elsewhere calls Archibald Clybourne 'the Government butcher for the Pottawatomies' (scan p. 253), a treaty-provision post — recorded here because it is what the man was, and flagged for review with the rest of this record's Indigenous content rather than paraphrased away."
+  "review_reason": "Andreas elsewhere calls Archibald Clybourne 'the Government butcher for the Pottawatomies' (scan p. 253), a treaty-provision post — recorded here because it is what the man was, and flagged for review with the rest of this record's Indigenous content rather than paraphrased away. attested andreas_1884_v1 Andreas: 'the original log slaughter-house, built by Archibald Clybourne in 1827'."
 }

@@ -17,7 +17,8 @@
           "drloih_wolf_point",
           "andreas_1884_v1"
         ],
-        "note": "THE YEAR IS ATTESTED AND THE MONTH IS NOT, so the range opens on 1 January 1831 rather than claiming a build date. DRLOIH: 'In 1831 John Miller built a log house near his brother's tavern that he used as a tannery, Chicago's first recorded factory.' Andreas, independently and with a direction the other source lacks: 'John Miller, brother of Samuel, the landlord, came in 1831, and run a tannery just north of Miller's tavern.' THE END OF THE RANGE IS THE HONEST MINIMUM, NOT A FATE. Nothing reached follows this building past its founding: Andreas adds a partner, 'Benjamin Hall, tanner, a partner of John Miller, who came in 1832', and then the trade drops out of the record, while Samuel Miller — the brother whose tavern fixes this building's position — 'sold the tavern and moved away following the death of his wife in 1832'. So the anchor moved on three years before the scene date and the tannery's own survival rests on the ordinary continuity argument: a standing building stands until something says otherwise. Tagged inferred for that reason."
+        "note": "THE YEAR IS ATTESTED AND THE MONTH IS NOT, so the range opens on 1 January 1831 rather than claiming a build date. DRLOIH: 'In 1831 John Miller built a log house near his brother's tavern that he used as a tannery, Chicago's first recorded factory.' Andreas, independently and with a direction the other source lacks: 'John Miller, brother of Samuel, the landlord, came in 1831, and run a tannery just north of Miller's tavern.' THE END OF THE RANGE IS THE HONEST MINIMUM, NOT A FATE. Nothing reached follows this building past its founding: Andreas adds a partner, 'Benjamin Hall, tanner, a partner of John Miller, who came in 1832', and then the trade drops out of the record, while Samuel Miller — the brother whose tavern fixes this building's position — 'sold the tavern and moved away following the death of his wife in 1832'. So the anchor moved on three years before the scene date and the tannery's own survival rests on the ordinary continuity argument: a standing building stands until something says otherwise. Tagged inferred for that reason.",
+        "from_is": "began"
       },
       "position": {
         "utm_e": 447086.7,
@@ -104,6 +105,15 @@
       "andreas_1884_v1"
     ],
     "note": "'a log house ... that he used as a tannery, Chicago's first recorded factory' (DRLOIH); 'run a tannery just north of Miller's tavern' (Andreas). The function is the best-attested thing about this building and the model cannot show it: what stands is a log house, because a log house is what was built and because the yard that made it a tannery is not modelled. WHETHER IT WAS STILL TANNING ON 1835-07-01 IS UNATTESTED — Andreas's tanner partner arrives in 1832 and the trade then disappears from the record — so this value states what the building was for, not what it was doing on the scene date."
+  },
+  "built": {
+    "value": 1831,
+    "confidence": "attested",
+    "sources": [
+      "drloih_wolf_point",
+      "andreas_1884_v1"
+    ],
+    "note": "'In 1831 John Miller built a log house near his brother's tavern that he used as a tannery.'"
   },
   "research_note": "THE SETTLEMENT'S FIRST FACTORY, AND A ONE-SENTENCE BUILDING: two sources, one sentence each, and between them a year, a builder, a fabric, a use and a direction. The direction is the find that placed it — Andreas's 'just north of Miller's tavern', which the project's dossier did not carry; docs/research/03-structures-north.md § 3.1 had only DRLOIH's 'near his brother's tavern'. Andreas also names the partner, Benjamin Hall, tanner, who came in 1832. EVERYTHING DIMENSIONAL IS INVENTED and the record says so attribute by attribute. The building is placed against another record rather than against the ground, so it moves if the Miller house moves. See docs/RESEARCH/miller_tannery.md.",
   "review_required": false

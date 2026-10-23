@@ -67,3 +67,22 @@ at.
 Section drawings may supply optional `clip_planes`, each `{normal: [east,north,up], constant: metres}` with a unit normal. The review renderer retains points where `normal.dot(point)+constant >= 0`. State the source cut line and calibration in `solve`; this is a section through the asset, not a change to its app geometry.
 
 Distant drawing cameras can set `near_m` (positive, below the 500 m far plane) to keep fine layers distinguishable in the depth buffer. Place it in front of the subject, state it in `solve`, and retain the same value for before/after comparisons. Ordinary photographic views default to 0.1 m.
+
+## A picture of several structures
+
+Use `scene: "1812"` (or another scene id) and `also_render: ["other_structure_id", ...]`
+to render a compound from one camera. The camera remains in `structure_id`'s footprint
+frame. Every member is loaded from that scene's compiled sidecar, including its selected
+phase, position and bearing; an absent member, wrong-date sidecar or missing GLB refuses
+the render rather than silently omitting part of the compound. Compile the scene first
+after changing placements. `--glb` replaces only the anchor's asset for before/after work.
+
+The reviewer places all meshes on one common grade plane. It does not reproduce the app's
+terrain sampling or imply that independently sloping ground has been calibrated. Say so
+in the `solve`; do not move surveyed positions to fit a retrospective drawing.
+
+Group match records list `rendered_members` and hash every GLB and scene placement.
+Changing any member invalidates the review, including a moved barracks whose GLB bytes
+are unchanged. New reviews also hash the reference picture. The group is context, not
+an assertion that every member is visible or attested in that picture: document hidden
+and unpictured members explicitly. Existing single-building cameras retain their format.

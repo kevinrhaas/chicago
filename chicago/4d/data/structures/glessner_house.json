@@ -27,7 +27,9 @@
           "habs_glessner_house_il_1015_data_pages",
           "inland_architect_1888_02_glessner_exterior"
         ],
-        "note": "FROM: the family moved in in December 1887 (Glessner 1923; HABS data p. 1), and the February 1888 Inland Architect photograph shows the finished exterior; the day of the month is not stated, so the range opens on the 1st. TO: the research-centre conversion of September 1946 (HABS data p. 2) \u2014 stable door replaced, loft door closed up, courtyard paved \u2014 is the first exterior change recorded. The 1892 changes were interior. The phase is modelled as it stood on 1 July 1904, the scene date; values carried from the 1963-65 survey are ones the 1888 photograph brackets or the 1946 list does not touch (docs/RESEARCH/glessner_house_1904.md \u00a7 2)."
+        "note": "FROM: the family moved in in December 1887 (Glessner 1923; HABS data p. 1), and the February 1888 Inland Architect photograph shows the finished exterior; the day of the month is not stated, so the range opens on the 1st. TO: the research-centre conversion of September 1946 (HABS data p. 2) \u2014 stable door replaced, loft door closed up, courtyard paved \u2014 is the first exterior change recorded. The 1892 changes were interior. The phase is modelled as it stood on 1 July 1904, the scene date; values carried from the 1963-65 survey are ones the 1888 photograph brackets or the 1946 list does not touch (docs/RESEARCH/glessner_house_1904.md \u00a7 2).",
+        "from_is": "began",
+        "to_is": "ended"
       },
       "position": {
         "utm_e": 448411.39,
@@ -4499,6 +4501,14 @@
       "habs_glessner_house_il_1015_data_pages"
     ],
     "note": "The house of John Jacob Glessner (1843-1936) and Frances Macbeth Glessner, designed by H. H. Richardson and built by Norcross Brothers, 1886-1887; the family lived here from December 1887 (Glessner 1923; HABS data p. 1). The west wing was the family's stable and carriage house (see range_west_wing)."
+  },
+  "built": {
+    "value": 1887,
+    "confidence": "attested",
+    "sources": [
+      "hmdb_prairie_heritage_preserved"
+    ],
+    "note": "The marker: 'John Glessner Residence. Built 1887'; the family moved in that December."
   },
   "research_note": "THE DEFAULT VERSION OF THE GLESSNER HOUSE (T-1732), built from T-1731's specification (docs/RESEARCH/glessner_house_1904.md) and tightened by two sets of sources that landed after it: the 17 HABS photographs (PR #169) and ten Richardson drawings from Houghton Library (PR #171). What they settled, and what they did not, is \u00a7 13 of the research page. Alternates for the owner's comparison are T-1730's, under data/structures/versions/glessner_house/. Interior out of scope. The courtyard's south side \u2014 1808 Prairie's north wall \u2014 is that house's (T-0475) and is not drawn here, so until it lands the courtyard reads open to the south. V4 retains the canonical building placement and measured envelope. Its additional fabric and the precise distinction between HABS measurements and reconstruction are recorded in docs/RESEARCH/glessner_house_v4.md. Modern reference images inform reconstructed feature arrangement and material boundaries; no photographed pixels are copied into textures or meshes, and their modern state is not asserted as measured 1904 fabric.",
   "review_required": false
