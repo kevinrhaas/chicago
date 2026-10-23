@@ -17,7 +17,10 @@ T-2857 read the front against sheet 6 and the three street photographs
 3. TAYLOR 2135'S CAMERA. It was fitted on five controls, two of them the downspouts taken
    for the corners, and registered every jamb about 20 px left. Refitted here on the ten
    first-floor jambs (x only; the far jamb at the sash plane) with the controls' heights,
-   the downspouts at sheet 6's positions; the three stacks are withheld as checks.
+   the downspouts at sheet 6's positions. T-3058 freed its principal point (held at T-2221's
+   value, no pose reached the stacks) and admits the three stacks' centres and tops and the
+   photograph's plumb edges, which hold the pitch the freed principal point would trade
+   against; the stacks' widths are the check.
 
 The photograph picks are T-2857's (read_front.py); none is re-picked here.
 
