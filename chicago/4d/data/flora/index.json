@@ -1038,6 +1038,12 @@
       "file": "plantings/kinzie_house_1812_trees.json",
       "scenes": ["1812"],
       "note": "The Kinzie house's four Lombardy poplars and the two cottonwoods behind it (T-2497), scoped to scene 1812. Existence inferred from Currey and Wau-Bun; positions reconstructed (L-kinzie-house-1812-2497)."
+    },
+    {
+      "id": "ouilmette_garden_1812",
+      "file": "plantings/ouilmette_garden_1812.json",
+      "scenes": ["1812"],
+      "note": "The currant bushes of Antoine Ouilmette's garden behind his house (T-2486), scoped to scene 1812. Existence attested by Wau-Bun's account of 17 August 1812; the number and places reconstructed (L-1812-ouilmette-2486)."
     }
   ],
   "palettes": [
