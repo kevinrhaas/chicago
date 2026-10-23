@@ -31678,3 +31678,25 @@ Levy's print and 1955.
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`,
 `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-23 (T-3034).
+
+### L-kimball-1801-gable-inset-3073 — 1801 Prairie's pavilion gable narrowed and raised to the Taylor photograph through the re-solved camera
+
+**Decision:** 1801 Prairie's south pavilion gable is re-stood from J. W. Taylor's c. 1895 photograph
+(`taylor_c1895_kimball_residence_1801`), read through the Taylor camera as T-3074 re-solved it.
+**What is read, not invented.** The gable is narrower than the face it stands on. Its south
+pinnacle stands at about v 9.99 (x 1314 on the print), about 0.55 m short of the chamfer's near end.
+Its apex pedestal's axis is at about v 8.4-8.6 (x 1270). It springs from a shelf at about
+13.55-13.6 m. The pinnacle's top reads 15.06 m and the copings' apex 16.76 m. So the pavilion's
+third storey runs 5.5 m to a 13.6 m springing (it stood 5.1 m to 13.2 m). The gable's south
+corner stands 0.41 m in from the face's (`gable.inset_m`, a new K08 option) and its north corner on
+the face's, which puts its middle at v 8.50. Its pitch is 2.04, the rise from the kneelers to the
+apex over their run.
+**What is invented.** The gable's north corner is placed on the face's own. The print's north
+kneeler stands against the dark slate and reads only to about 0.2 m, so the north inset is taken
+as nothing. The south kneeler is carried on out over the face's corner as one block. The print's
+shelf end there reads about 11 px short of the render's.
+**How to resolve:** A second picture of the pavilion's front (T-3003's 1929 and HABS photographs) or
+a drawing of the gable. The finial's urn and the gable's carved panel are T-3002's.
+**Ticket:** T-3073 (found by T-3060).
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-23 (T-3073).
