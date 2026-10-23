@@ -1,0 +1,7 @@
+{
+  "title": "Smoke: the 1904 placed list holds Indiana Avenue's drafts",
+  "kind": "fix",
+  "items": [
+    "Stage 14's 1904 check holds by name the 27 Indiana Avenue east-frontage drafts (20th-22nd, First Presbyterian among them) that T-3009 placed; its PR left them off the list, so the check was red on dev."
+  ]
+}
