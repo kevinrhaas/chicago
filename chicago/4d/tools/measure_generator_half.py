@@ -643,13 +643,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # (five houses and six stables) on `prairie_draft`, emitted through generators/draft_emit.py, so
 # restaling on that archetype's own rows and on none of the shared ones above.
 #
+# 979 -> 980, 743 -> 744 and 737 -> 738 on 2026-10-23 (T-2486): Antoine Ouilmette's house,
+# the draught's third no. 31 house on the 1812 north bank, one `log_dwelling` emitted
+# through generators/emit.py like La Lime's and Le Mai's beside it.
+#
 STATED = {
-    "assets": 979,
+    "assets": 980,
     "restales": {
-        "generators/common/*.py": 743,
+        "generators/common/*.py": 744,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 737,
+        "generators/emit.py": 738,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 3,
