@@ -1,4 +1,23 @@
 export const CHANGELOG = [ // newest first
+  { v: 2217, ts: '2026-10-23T10:02:11.085Z', date: 'Oct 23, 2026, 5:02 AM CT', title: 'Glessner\'s south chimney checked against the HABS drawings', kind: 'chore',
+    items: [
+      'Nothing you can see changed. In J. W. Taylor\'s photograph of the Glessner house the south chimney stands about a foot and a half north of where the model draws it. The 1960s survey drawings were checked to see whether the model had the chimney in the wrong place. Both drawings put the chimney where the model already has it, so it stays. The mismatch comes from how the photograph\'s camera has been reconstructed, and fixing that is the next task.',
+    ] },
+  { v: 2216, ts: '2026-10-23T10:02:11.085Z', date: 'Oct 23, 2026, 5:02 AM CT', title: '1811 Prairie\'s stone gable now stands where the 1888 plate draws it', kind: 'improvement',
+    items: [
+      'The arched stone gable over 1811 Prairie\'s bay has moved a little north and widened, so its peak, its windows and its corner pinnacles line up with the 1888 plate.',
+      'Its two pinnacles are no longer twins: the south one now ends in a stone dome, and the north one carries a moulded stone block where the gable\'s slope runs into it.',
+      'The drainpipe beside the bay now runs down the bay\'s own south side, as the plate shows it, instead of the wall next to it.',
+    ] },
+  { v: 2215, ts: '2026-10-23T10:02:11.085Z', date: 'Oct 23, 2026, 5:02 AM CT', title: 'A reconstructed resident, timber wagons and a catalogue-guided carriage', kind: 'feature',
+    items: [
+      'Otis Bardwell, an existing reconstructed 1835 resident, stands near the Wolf Point wagons. His appearance and placement are reconstructed. Select him to open his resident card, which identifies the invented identity and model-assigned firm connection. Source-named residents retain their evidence labels.',
+      'Bardwell’s exported waistcoat now has connected shoulder panels in place of the clipped front. Further period tailoring and photographic finishing remain in progress.',
+      'A Brougham guided by the 1893 Studebaker catalogue replaces the earlier Prairie Avenue carriage prototype. The Brougham keeps its curbside stop, with fine detail nearby and a lighter version of the same carriage in the distance.',
+      'The three farm-box wagons gain finer timber grain from modern CC0 wood texture maps and a reconstructed brown finish. Their forms and stands stay the same.',
+      'The two covered wagons keep their distinct blue and oak finishes, aging and laid-by yokes, with a softer reconstructed canvas drape between the bows.',
+      'The individual vehicle, dimensions, finish and stop are reconstructed. Photographic refinement continues; boarding and driving are unavailable.',
+    ] },
   { v: 2214, ts: '2026-10-23T07:09:59.195Z', date: 'Oct 23, 2026, 2:09 AM CT', title: 'Smoke: the 1904 placed list holds Indiana Avenue\'s drafts', kind: 'fix',
     items: [
       'Stage 14\'s 1904 check holds by name the 27 Indiana Avenue east-frontage drafts (20th-22nd, First Presbyterian among them) that T-3009 placed; its PR left them off the list, so the check was red on dev.',
