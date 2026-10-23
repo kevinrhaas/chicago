@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2232, ts: '2026-10-23T23:07:01.094Z', date: 'Oct 23, 2026, 6:07 PM CT', title: 'Glessner\'s 18th Street chimney: date stone, crosses and coping re-set', kind: 'improvement',
+    items: [
+      'On the Glessner house\'s 18th Street gable, the 1886 date stone is now the height HABS sheet 6 draws it, a little shorter, with a course of stone between it and the monogram above, as every photograph shows.',
+      'The two crosses beside the date now stand level at its middle, as the 1965 survey photograph shows them.',
+      'The gable\'s stone coping is 0.7 ft lower, so it meets the chimney just under the date stone instead of beside it.',
+    ] },
   { v: 2231, ts: '2026-10-23T22:12:58.771Z', date: 'Oct 23, 2026, 5:12 PM CT', title: '1801 Prairie\'s south gable narrowed and raised to Taylor\'s photograph', kind: 'fix',
     items: [
       'The stone gable over the Kimball house\'s south pavilion at 1801 Prairie Avenue now matches J. W. Taylor\'s photograph of about 1895. It stands about 0.4 m higher and is narrower than before, stopping short of the pavilion\'s cut corner. Its peak, sloping edges and corner spire now sit on the photograph\'s.',
