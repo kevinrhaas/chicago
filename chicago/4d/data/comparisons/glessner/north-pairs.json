@@ -1,7 +1,7 @@
 {
   "ticket": "T-2850",
   "not_a_reading": "A re-solve of picks already committed by T-2200 (HABS 13) and T-2470 (HABS 14); no new archival reading and no new pick.",
-  "method": "Per photograph: pose, focal length and the pairs' shared sill S and head H solved together by least squares from fixed-height controls (corner at grade, the narrow first-floor light's printed course interval 9.25-14.4583 ft, in HABS 14 the east eave and T-2470's stack-crest and tower depth controls) and every upper-window corner at its plan W, 1 ft recess. HABS 14 solves its focal length and principal point; HABS 13, which has no off-plane control in frame, takes HABS 14's focal length with its principal point at the plate centre. Camera height bounded 1.0-2.5 m (T-2200). +/-5% principal-point moves are a sensitivity case, not a confidence interval.",
+  "method": "Per photograph: pose, focal length and the pairs' shared sill S and head H solved together by least squares from fixed-height controls (corner at grade, the narrow first-floor light's course interval, beds 8-15 (9.3044-14.7471 ft since T-3045), in HABS 14 the east eave and T-2470's stack-crest and tower depth controls) and every upper-window corner at its plan W, 1 ft recess. HABS 14 solves its focal length and principal point; HABS 13, which has no off-plane control in frame, takes HABS 14's focal length with its principal point at the plate centre. Camera height bounded 1.0-2.5 m (T-2200). +/-5% principal-point moves are a sensitivity case, not a confidence interval.",
   "views": {
     "habs-14-north-inclined": {
       "fixed_controls": 8,
@@ -9,72 +9,72 @@
       "focal": "solved, principal point free",
       "camera": {
         "eye": [
-          45.6838,
-          45.4461,
+          45.9056,
+          45.9835,
           2.5
         ],
         "basis_right_up_forward": [
           [
-            -0.9998739422,
-            0.0145154087,
-            0.0064344918
+            -0.9997012494,
+            0.0237391724,
+            0.0058192406
           ],
           [
-            0.0116019513,
-            0.3912706389,
-            0.9202025222
+            0.0144244841,
+            0.3808069632,
+            0.924542044
           ],
           [
-            -0.010839488,
-            -0.9201611761,
-            0.3913897232
+            -0.0197318556,
+            -0.924349776,
+            0.3810356222
           ]
         ],
-        "focal_px": 1475.661,
+        "focal_px": 1515.318,
         "principal_px": [
-          862.19,
-          362.43
+          862.62,
+          367.98
         ]
       },
-      "sill_ft": 19.61,
-      "head_ft": 24.45,
+      "sill_ft": 19.77,
+      "head_ft": 24.61,
       "principal_sensitivity_ft": {
         "sill": [
-          19.6,
-          19.61
+          19.76,
+          19.77
         ],
         "head": [
-          24.45,
-          24.46
+          24.61,
+          24.62
         ]
       },
-      "rms_px": 8.77,
-      "max_px": 23.68,
+      "rms_px": 8.72,
+      "max_px": 21.37,
       "residual_px": {
-        "narrow-W4-z9.25": 11.13,
-        "narrow-W5.6-z9.25": 6.79,
-        "narrow-W4-z14.458333": 8.62,
-        "narrow-W5.6-z14.458333": 2.1,
-        "corner-base": 6.78,
-        "east-eave": 23.68,
-        "stack-crest": 15.33,
-        "tower-depth": 14.68,
-        "W7.2-sill": 6.9,
-        "W10.1-sill": 9.45,
-        "W7.2-head": 4.82,
-        "W10.1-head": 8.45,
-        "W12-sill": 0.62,
-        "W14.7-sill": 4.28,
-        "W12-head": 1.42,
-        "W14.7-head": 5.02,
-        "W25.8-sill": 7.05,
-        "W28.1-sill": 2.6,
-        "W25.8-head": 1.88,
-        "W28.1-head": 9.73,
-        "W30-sill": 5.06,
-        "W32.9-sill": 2.18,
-        "W30-head": 4.19,
-        "W32.9-head": 7.77
+        "narrow-W4-z9.3044": 12.39,
+        "narrow-W5.6-z9.3044": 8.03,
+        "narrow-W4-z14.7471": 8.43,
+        "narrow-W5.6-z14.7471": 4.12,
+        "corner-base": 7.7,
+        "east-eave": 21.37,
+        "stack-crest": 15.69,
+        "tower-depth": 14.99,
+        "W7.2-sill": 7.07,
+        "W10.1-sill": 9.5,
+        "W7.2-head": 4.89,
+        "W10.1-head": 8.5,
+        "W12-sill": 0.7,
+        "W14.7-sill": 4.26,
+        "W12-head": 1.23,
+        "W14.7-head": 4.95,
+        "W25.8-sill": 6.9,
+        "W28.1-sill": 2.87,
+        "W25.8-head": 1.86,
+        "W28.1-head": 9.62,
+        "W30-sill": 4.67,
+        "W32.9-sill": 1.6,
+        "W30-head": 4.01,
+        "W32.9-head": 7.75
       },
       "converged": true
     },
@@ -84,68 +84,68 @@
       "focal": "HABS 14's, principal point at plate centre",
       "camera": {
         "eye": [
-          48.0853,
-          42.939,
+          47.6611,
+          43.7335,
           1.0
         ],
         "basis_right_up_forward": [
           [
-            -0.9947641241,
-            0.1008338062,
-            -0.0166397365
+            -0.9968173467,
+            0.0789171332,
+            -0.0112811121
           ],
           [
-            -0.0156952655,
-            0.0101527667,
-            0.9998252747
+            -0.0104734452,
+            0.010640816,
+            0.9998885338
           ],
           [
-            -0.1009851274,
-            -0.9948514788,
-            0.0085169948
+            -0.0790283768,
+            -0.9968243873,
+            0.0097804157
           ]
         ],
-        "focal_px": 1475.661,
+        "focal_px": 1515.318,
         "principal_px": [
           900.0,
           634.0
         ]
       },
-      "sill_ft": 19.64,
-      "head_ft": 24.14,
+      "sill_ft": 19.89,
+      "head_ft": 24.43,
       "principal_sensitivity_ft": {
         "sill": [
-          19.61,
-          19.66
+          19.87,
+          19.91
         ],
         "head": [
-          24.05,
-          24.23
+          24.34,
+          24.5
         ]
       },
-      "rms_px": 5.7,
-      "max_px": 9.2,
+      "rms_px": 5.45,
+      "max_px": 8.84,
       "residual_px": {
-        "corner-base": 5.0,
-        "first-narrow-head": 8.39,
-        "first-narrow-sill": 2.53,
-        "upper-left-head": 9.2,
-        "upper-left-sill": 8.8,
-        "upper-right-head": 2.04,
-        "upper-right-sill": 2.66,
-        "west-upper-head": 6.31,
-        "west-upper-sill": 2.7,
-        "far-upper-head": 1.64
+        "corner-base": 4.68,
+        "first-narrow-head": 8.47,
+        "first-narrow-sill": 3.1,
+        "upper-left-head": 8.1,
+        "upper-left-sill": 8.84,
+        "upper-right-head": 1.75,
+        "upper-right-sill": 2.07,
+        "west-upper-head": 5.97,
+        "west-upper-sill": 2.43,
+        "far-upper-head": 1.12
       },
       "converged": true
     }
   },
   "reading_ft": {
-    "sill": 19.62,
-    "head": 24.3,
+    "sill": 19.83,
+    "head": 24.52,
     "views_disagree_by": {
-      "sill": 0.03,
-      "head": 0.31
+      "sill": 0.12,
+      "head": 0.18
     }
   },
   "tolerance_ft": 0.5,
@@ -186,15 +186,15 @@
       "habs-14-north-inclined": {
         "solved_camera": {
           "east": [
-            7.47,
+            7.48,
             10.53,
-            11.83,
-            14.87
+            11.82,
+            14.86
           ],
           "west": [
             null,
             null,
-            29.86,
+            29.87,
             null
           ]
         },
@@ -202,13 +202,13 @@
           "east": [
             7.58,
             10.65,
-            11.95,
+            11.94,
             14.99
           ],
           "west": [
             null,
             null,
-            29.97,
+            29.98,
             null
           ]
         }
@@ -216,29 +216,29 @@
       "habs-13-north-level": {
         "solved_camera": {
           "east": [
-            7.37,
-            10.48,
-            11.77,
-            14.75
+            7.35,
+            10.49,
+            11.79,
+            14.79
           ],
           "west": [
             null,
-            28.37,
-            29.63,
+            28.41,
+            29.66,
             null
           ]
         },
         "without_inner_corners": {
           "east": [
             7.4,
-            10.51,
-            11.8,
-            14.79
+            10.53,
+            11.83,
+            14.84
           ],
           "west": [
             null,
-            28.48,
-            29.75,
+            28.52,
+            29.78,
             null
           ]
         }
@@ -247,17 +247,17 @@
     "reading": {
       "east": {
         "inner_jambs_W": [
-          10.54,
+          10.55,
           11.84
         ],
-        "pier_ft": 1.3
+        "pier_ft": 1.29
       },
       "west": {
         "inner_jambs_W": [
-          28.43,
-          29.8
+          28.46,
+          29.82
         ],
-        "pier_ft": 1.37
+        "pier_ft": 1.36
       }
     },
     "tolerance_ft": 0.15

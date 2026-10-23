@@ -14014,14 +14014,16 @@ for (const [label, viewport, touch] of [
     // Back as it was found: Home, docked (T-2619's dock opens on its last app).
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
     // ---- end T-2661 (part 12)
-    // ---- T-2662: Guide's glossary lists the seven locked terms with their lines, its two
-    // questions answer in 60 words or fewer. Its first-appearance tap was measured
-    // on the visible initial Welcome intro before entry, not on an app-action tile.
+    // ---- T-2662/T-3043: Guide retains all seven glossary lines and both short answers.
+    // The initial Welcome Reconstructed tap was measured before entering the town.
+    // Separately, Home's Confidence view name beside its open key must be the hit target,
+    // explain itself on tap, leave Home selected and dismiss; neither reading overwrites the other.
     await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
     await page.waitForFunction(() => document.querySelectorAll('#nav-app-guide #guide-faq details').length >= 2
       || /could not be read/.test(document.querySelector('#nav-app-guide #guide-faq')?.textContent ?? ''),
       null, { timeout: 15_000, polling: 100 }).catch(() => {});
     const guideWords = await page.evaluate(() => {
+      const api = window.__chicago4d;
       const g = document.querySelector('#nav-app-guide #guide-glossary');
       const faq = [...document.querySelectorAll('#nav-app-guide #guide-faq details')];
       const out = {
@@ -14034,16 +14036,36 @@ for (const [label, viewport, touch] of [
         // ones too, whose text a screen-wide textContent would read though no one can see it.
         snake: /[a-z0-9]+_[a-z0-9]+/i.test((document.querySelector('#nav-app-guide .nav-guide-sheet') ?? document.getElementById('nav-app-guide'))?.textContent ?? ''),
       };
+      api.navigator.select('home');
+      const term = document.querySelector('#nav-home .locked-term');
+      // T-3043: a finger on the term lands on the term, not on the tile key stretched under it.
+      term?.scrollIntoView({ block: 'nearest' });
+      const at = term?.getBoundingClientRect();
+      const hit = at && at.width > 0 ? document.elementFromPoint(at.left + at.width / 2, at.top + at.height / 2) : null;
+      term?.click();
+      const tip = document.getElementById('term-tip');
+      const box = tip?.getBoundingClientRect();
+      out.tap = { term: term?.dataset.locked ?? null, shown: !!tip && !tip.hidden, text: tip?.textContent.trim() ?? '',
+        inView: !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth && box.top >= 0 && box.bottom <= innerHeight,
+        app: api.navigator.app ?? null, inTile: !!term?.closest('.nav-tile') && !term.closest('button.nav-tile-open'),
+        onTop: !!hit && !!term?.contains(hit) };
+      term?.click();
+      out.tap.away = !tip || tip.hidden;
+      api.navigator.dock();
       return out;
     });
-    guideWords.tap = firstTermTap;
+    guideWords.firstTermTap = firstTermTap;
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
-    check(`${label}: Guide's glossary gives the seven locked terms their lines, both questions answer in 60 words or fewer, and a term's first appearance explains itself on tap (T-2662)`,
+    check(`${label}: Guide's glossary gives the seven locked terms their lines, both questions answer in 60 words or fewer, the initial Welcome term and Home Confidence view each explain themselves on tap (T-2662, T-3043)`,
       guideWords.terms.join() === 'Attested,Inferred,Reconstructed,Confidence view,Liberties,Sources,Jaunts' && guideWords.lines === 7
       && guideWords.questions.join('|') === 'Is this real?|What does Reconstructed mean?' && guideWords.longest > 0 && guideWords.longest <= 60
-      && !guideWords.snake && !guideWords.tap?.error && guideWords.tap?.term === 'Reconstructed' && guideWords.tap.shown
-      && guideWords.tap.text === 'Reconstructed No record exists. We built it so the street makes sense, and say so.'
-      && guideWords.tap.inView && guideWords.tap.away && guideWords.tap.phase === 'welcome' && guideWords.tap.journey === 'landed',
+      && !guideWords.snake && guideWords.tap.term === 'Confidence view' && guideWords.tap.shown
+      && guideWords.tap.app === 'home' && guideWords.tap.inTile && guideWords.tap.onTop
+      && /^Confidence view Recolor the world by grade/.test(guideWords.tap.text) && guideWords.tap.inView && guideWords.tap.away
+      && !guideWords.firstTermTap?.error && guideWords.firstTermTap?.term === 'Reconstructed' && guideWords.firstTermTap.shown
+      && guideWords.firstTermTap.text === 'Reconstructed No record exists. We built it so the street makes sense, and say so.'
+      && guideWords.firstTermTap.inView && guideWords.firstTermTap.away
+      && guideWords.firstTermTap.phase === 'welcome' && guideWords.firstTermTap.journey === 'landed',
       JSON.stringify(guideWords));
     // ---- end T-2662
     // >>> T-2666: Guide › For teachers — the Field Check's eight steps, read from the tour
@@ -19765,7 +19787,35 @@ for (const [label, viewport, touch] of [
         // T-2352 added its east side: thirty-three more.
         // T-2443 stood one more on the 16th-18th east side, the Forsyth house at 1635, and
         // its PR (#771) left it off this list, so stage 14 was red on dev until T-2468.
-        const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
+        const PLACED_1904 = [
+          'first_presbyterian_church_2029_indiana',
+          'first_presbyterian_church_2029_indiana_dwelling',
+          'first_presbyterian_church_2029_indiana_stable',
+          'house_2007_indiana',
+          'house_2009_indiana',
+          'house_2009_indiana_rear_dwelling',
+          'house_2011_indiana',
+          'house_2011_indiana_coach_house',
+          'house_2013_indiana',
+          'house_2013_indiana_coach_house',
+          'house_2017_indiana',
+          'house_2017_indiana_coach_house',
+          'house_2019_indiana',
+          'house_2019_indiana_coach_house',
+          'house_2021_indiana',
+          'house_2021_indiana_coach_house',
+          'house_2023_indiana',
+          'house_2023_indiana_coach_house',
+          'house_2027_indiana',
+          'house_2027_indiana_coach_house',
+          'house_2107_indiana',
+          'house_2107_indiana_coach_house',
+          'house_2111_indiana',
+          'house_2111_indiana_coach_house',
+          'house_2115_indiana',
+          'house_2119_indiana',
+          'livery_2123_indiana',
+          'glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
           'shortall_gregory_house_1638_prairie_front',
           'edson_keith_house_1906_prairie',
           'edson_keith_house_1906_prairie_coach_house',
@@ -19960,35 +20010,7 @@ for (const [label, viewport, touch] of [
           'house_2128_calumet_coach_house',
           'house_2140_calumet',
           'house_2140_calumet_coach_house',
-          'house_2140_calumet_shed',
-          // T-3009 / PR1198: Indiana east frontage, 20th–22nd; retain T-3018 Calumet above.
-          'first_presbyterian_church_2029_indiana',
-          'first_presbyterian_church_2029_indiana_dwelling',
-          'first_presbyterian_church_2029_indiana_stable',
-          'house_2007_indiana',
-          'house_2009_indiana',
-          'house_2009_indiana_rear_dwelling',
-          'house_2011_indiana',
-          'house_2011_indiana_coach_house',
-          'house_2013_indiana',
-          'house_2013_indiana_coach_house',
-          'house_2017_indiana',
-          'house_2017_indiana_coach_house',
-          'house_2019_indiana',
-          'house_2019_indiana_coach_house',
-          'house_2021_indiana',
-          'house_2021_indiana_coach_house',
-          'house_2023_indiana',
-          'house_2023_indiana_coach_house',
-          'house_2027_indiana',
-          'house_2027_indiana_coach_house',
-          'house_2107_indiana',
-          'house_2107_indiana_coach_house',
-          'house_2111_indiana',
-          'house_2111_indiana_coach_house',
-          'house_2115_indiana',
-          'house_2119_indiana',
-          'livery_2123_indiana'].sort();
+          'house_2140_calumet_shed'].sort();
         check(`${label}: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732, T-2266, T-2306, T-2323, T-2329, T-2330, T-2321, T-2334)`,
           stray.length === 0 && at.registry === PLACED_1904.length
           && JSON.stringify([...at.placed].sort()) === JSON.stringify([...PLACED_1904].sort()),

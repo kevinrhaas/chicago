@@ -343,37 +343,37 @@
       },
       "habs-14-north-inclined": {
         "tip_px": [
-          1329.3,
-          343.4
+          1330.9,
+          344.7
         ],
-        "tip_residual_px": 29.4,
+        "tip_residual_px": 30.5,
         "tip_du_dv_px": [
-          27.4,
-          -10.6
+          29.0,
+          -9.3
         ],
         "cone_slope_ratio": {
-          "right_edge": 1.248
+          "right_edge": 1.223
         }
       }
     }
   },
   "tips_triangulated": {
     "height_held_WS_ft": [
-      39.72,
-      8.77
+      39.65,
+      8.75
     ],
     "height_held_residual_px": [
-      3.38,
-      1.57
+      3.37,
+      0.73
     ],
     "free_WSz_ft": [
-      39.73,
-      8.8,
-      44.93
+      39.66,
+      8.84,
+      45.0
     ],
     "free_residual_px": [
-      3.17,
-      1.89
+      2.7,
+      1.6
     ]
   },
   "tangent_family": [
@@ -385,7 +385,7 @@
       ],
       "tip_residual_px": {
         "habs-01-northwest": 5.6,
-        "habs-14-north-inclined": 47.6
+        "habs-14-north-inclined": 48.8
       },
       "cone_slope_ratio": {
         "habs-01-northwest": {
@@ -393,7 +393,7 @@
           "width": 1.0
         },
         "habs-14-north-inclined": {
-          "right_edge": 1.114
+          "right_edge": 1.093
         }
       }
     },
@@ -405,7 +405,7 @@
       ],
       "tip_residual_px": {
         "habs-01-northwest": 4.2,
-        "habs-14-north-inclined": 36.4
+        "habs-14-north-inclined": 37.5
       },
       "cone_slope_ratio": {
         "habs-01-northwest": {
@@ -413,7 +413,7 @@
           "width": 1.07
         },
         "habs-14-north-inclined": {
-          "right_edge": 1.193
+          "right_edge": 1.169
         }
       }
     },
@@ -425,7 +425,7 @@
       ],
       "tip_residual_px": {
         "habs-01-northwest": 3.0,
-        "habs-14-north-inclined": 25.3
+        "habs-14-north-inclined": 26.4
       },
       "cone_slope_ratio": {
         "habs-01-northwest": {
@@ -433,7 +433,7 @@
           "width": 1.141
         },
         "habs-14-north-inclined": {
-          "right_edge": 1.272
+          "right_edge": 1.245
         }
       }
     },
@@ -445,7 +445,7 @@
       ],
       "tip_residual_px": {
         "habs-01-northwest": 2.4,
-        "habs-14-north-inclined": 14.5
+        "habs-14-north-inclined": 15.4
       },
       "cone_slope_ratio": {
         "habs-01-northwest": {
@@ -453,7 +453,7 @@
           "width": 1.212
         },
         "habs-14-north-inclined": {
-          "right_edge": 1.354
+          "right_edge": 1.326
         }
       }
     },
@@ -465,7 +465,7 @@
       ],
       "tip_residual_px": {
         "habs-01-northwest": 3.0,
-        "habs-14-north-inclined": 4.2
+        "habs-14-north-inclined": 4.5
       },
       "cone_slope_ratio": {
         "habs-01-northwest": {
@@ -473,7 +473,7 @@
           "width": 1.285
         },
         "habs-14-north-inclined": {
-          "right_edge": 1.438
+          "right_edge": 1.41
         }
       }
     },
@@ -485,7 +485,7 @@
       ],
       "tip_residual_px": {
         "habs-01-northwest": 4.2,
-        "habs-14-north-inclined": 7.8
+        "habs-14-north-inclined": 6.5
       },
       "cone_slope_ratio": {
         "habs-01-northwest": {
@@ -493,7 +493,7 @@
           "width": 1.357
         },
         "habs-14-north-inclined": {
-          "right_edge": 1.524
+          "right_edge": 1.494
         }
       }
     },
@@ -505,7 +505,7 @@
       ],
       "tip_residual_px": {
         "habs-01-northwest": 5.6,
-        "habs-14-north-inclined": 18.2
+        "habs-14-north-inclined": 17.2
       },
       "cone_slope_ratio": {
         "habs-01-northwest": {
@@ -513,7 +513,7 @@
           "width": 1.431
         },
         "habs-14-north-inclined": {
-          "right_edge": 1.616
+          "right_edge": 1.582
         }
       }
     },
@@ -525,7 +525,7 @@
       ],
       "tip_residual_px": {
         "habs-01-northwest": 7.1,
-        "habs-14-north-inclined": 28.7
+        "habs-14-north-inclined": 27.8
       },
       "cone_slope_ratio": {
         "habs-01-northwest": {
@@ -533,7 +533,7 @@
           "width": 1.503
         },
         "habs-14-north-inclined": {
-          "right_edge": 1.707
+          "right_edge": 1.672
         }
       }
     }
@@ -551,15 +551,15 @@
       "implied_eave_r_ft": 8.54
     },
     "habs-14-north-inclined": {
-      "best_scale": 0.82,
-      "best_rms_px": 0.373,
+      "best_scale": 0.84,
+      "best_rms_px": 0.628,
       "within_half_px_of_best": [
         0.82,
-        0.84
+        0.86
       ],
-      "built_rms_px": 7.388,
-      "proposal_rms_px": 9.68,
-      "implied_eave_r_ft": 7.89
+      "built_rms_px": 5.125,
+      "proposal_rms_px": 9.243,
+      "implied_eave_r_ft": 8.05
     }
   },
   "proposal_W39_7": {
@@ -587,16 +587,16 @@
       },
       "habs-14-north-inclined": {
         "tip_px": [
-          1302.3,
-          351.3
+          1303.7,
+          352.4
         ],
-        "tip_residual_px": 2.7,
+        "tip_residual_px": 2.5,
         "tip_du_dv_px": [
-          0.4,
-          -2.7
+          1.8,
+          -1.6
         ],
         "cone_slope_ratio": {
-          "right_edge": 1.455
+          "right_edge": 1.425
         }
       }
     }
@@ -604,55 +604,55 @@
   "habs14_camera_variants": {
     "both off-plane controls (committed)": {
       "tip_px": [
-        1329.3,
-        343.4
+        1330.9,
+        344.7
       ],
       "eye_m": [
-        45.68,
-        45.45,
+        45.91,
+        45.98,
         2.5
       ],
-      "focal_px": 1475.7,
-      "rms_px": 8.77,
+      "focal_px": 1515.3,
+      "rms_px": 8.72,
       "sill_head_ft": [
-        19.61,
-        24.45
+        19.77,
+        24.61
       ]
     },
     "stack crest only": {
       "tip_px": [
-        1307.1,
-        401.1
+        1310.4,
+        404.6
       ],
       "eye_m": [
-        45.55,
+        45.39,
         35.97,
-        2.07
+        1.93
       ],
       "focal_px": 943.5,
-      "rms_px": 6.41,
+      "rms_px": 6.23,
       "sill_head_ft": [
-        19.79,
-        24.88
+        19.96,
+        25.06
       ]
     },
     "tower-depth only": {
       "tip_px": [
-        1335.6,
-        341.1
+        1337.2,
+        343.0
       ],
       "eye_m": [
-        47.36,
-        47.97,
+        47.77,
+        48.92,
         2.5
       ],
-      "focal_px": 1689.1,
-      "rms_px": 7.42,
+      "focal_px": 1754.7,
+      "rms_px": 7.24,
       "sill_head_ft": [
-        19.57,
-        24.44
+        19.73,
+        24.61
       ]
     }
   },
-  "habs14_built_tip_spread_px": 28.5
+  "habs14_built_tip_spread_px": 26.8
 }
