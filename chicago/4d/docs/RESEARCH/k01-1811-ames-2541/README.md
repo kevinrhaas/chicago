@@ -127,3 +127,21 @@ anything else). 1811's pipe is at s 10.29 m, proud_m -0.368, which lands at abou
 **What the plate camera reads now:** the round runs from the front's tangent at x about 469 px to
 its far side at about 518, against the plate's 470 and 515-520. Every other K01, K12, K13 and K16
 asset re-emits byte-identical, and only their manifest `inputs_sha256` moved.
+
+## T-3007 — the oriel over the rounded corner
+
+Read through the T-2541 camera (x = 689 + 659 (v − 14.45) / (22.5 − u), level, yaw −90).
+
+- **Front.** The plate's oriel front runs x 338–470 px. At 0.6 m out (u 8.17) that is v 6.82–9.69, 2.87 m: a flat-fronted box,
+  its north return square (hidden from this camera). Its lights' centres, x 372 / 406 / 440 px, are v 7.56 / 8.31 / 9.06.
+- **South return.** 27 px wide (x 470–497). A square 0.6 m return would show about 9 px. Its three narrow lights shrink
+  only slightly to the right and its cornice line falls straight, so it is a flat face splayed toward the camera, not a
+  curve: from the front's corner (u 8.17, v 9.69) back to the wall plane at v 10.10 (x 497), 0.73 m. There the round
+  (centre u 6.67, v 9.5, r 0.9) stands 0.23 m behind the plane, so the oriel's back is closed on the plane over the round.
+  The downpipe at x 500–505 runs just past its end, as the plate draws it.
+- **Base.** A rock-faced band from y 561 to 584 px at the face (about 5.68 to 5.18 m), a shadow under it to about y 600
+  (5.0 m at the wall): the band turned under to the wall. Built as a 0.7 m rock-faced storey on a 0.2 m round apron
+  whose foot is the 5.0 m floor; the render's band ends at y 590.
+- **Spire.** Over the front's middle (v 8.26), the plate's finial at x 416; the render's at 414.
+
+What is invented is L-k01-1811-oriel-3007.

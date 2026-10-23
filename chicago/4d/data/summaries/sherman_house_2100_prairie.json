@@ -1,0 +1,66 @@
+{
+  "id": "sherman_house_2100_prairie",
+  "scene": "1904",
+  "name": "John B. Sherman House",
+  "address": "2100 S. Prairie Ave.",
+  "status": {
+    "text": "Gone",
+    "today": "No longer standing",
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_lost_houses_2000_2100"
+    ],
+    "note": "The district's marker lists it among the lost houses of Prairie Avenue and gives no year."
+  },
+  "built": {
+    "year": 1874,
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_lost_houses_2000_2100"
+    ]
+  },
+  "use": "Home",
+  "summary": "Built in 1874 for John B. Sherman, who ran the Union Stock Yards. Burnham and Root were the architects. Sherman's daughter Margaret married Daniel Burnham while it was going up.",
+  "key": [
+    {
+      "label": "Architect",
+      "value": "Burnham & Root",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ]
+    },
+    {
+      "label": "Built for",
+      "value": "John B. Sherman",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "The architect married the owner's daughter. Margaret Sherman wed Daniel Burnham while the house was being built.",
+      "about": "person",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ]
+    },
+    {
+      "text": "Sherman kept recommending his son-in-law's firm to his neighbors. Burnham and Root designed more houses on the street than any other architects.",
+      "about": "person",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_lost_houses_2000_2100"
+      ]
+    }
+  ],
+  "style": null,
+  "story": []
+}

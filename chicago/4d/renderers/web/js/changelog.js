@@ -1,4 +1,22 @@
 export const CHANGELOG = [ // newest first
+  { v: 2205, ts: '2026-10-23T01:04:59.884Z', date: 'Oct 22, 2026, 8:04 PM CT', title: 'Eight Prairie Avenue houses get fact cards', kind: 'feature',
+    items: [
+      'Fact cards for eight Prairie Avenue houses: who built each one, for whom, and a fact or two worth knowing, every one from a source.',
+      '1812 Prairie is the Dutch-style row house Burnham and Root drew for a grain-elevator owner. 1736 Prairie was bought in 1880 by Hugh McBirney, who made white lead for house paint.',
+      'John Sherman\'s daughter married his architect, Daniel Burnham, while the house was going up. George Pullman\'s mansion had its own theatre, pipe organ and bowling alley.',
+      'A card can give a build date as its sources do: Pullman\'s house was built between 1870 and 1876.',
+    ] },
+  { v: 2204, ts: '2026-10-23T00:38:08.916Z', date: 'Oct 22, 2026, 7:38 PM CT', title: '1811 Prairie\'s oriel now matches the 1888 plate over the rounded corner', kind: 'improvement',
+    items: [
+      'The bay window over the porch arch at 1811 Prairie now stands farther out, with a flat front and a straight south side.',
+      'Its south side now turns back to the rounded corner below it, with two narrow lights in it.',
+      'It now sits on a heavy band of rough stone that curves back into the wall, in place of three stepped ledges.',
+      'Its pointed roof now peaks over the middle of the front, where the plate draws it. Every other house is unchanged.',
+    ] },
+  { v: 2203, ts: '2026-10-23T00:38:08.916Z', date: 'Oct 22, 2026, 7:38 PM CT', title: 'Fort picture comparisons now include the whole compound', kind: 'chore',
+    items: [
+      'Nothing in the town\'s appearance changes yet. The image-review tool can now compare both complete Fort Dearborn compounds with their pictures, while keeping the remaining camera and building differences open.',
+    ] },
   { v: 2202, ts: '2026-10-22T23:50:10.605Z', date: 'Oct 22, 2026, 6:50 PM CT', title: 'Building cards only state dates the records actually give', kind: 'fix',
     items: [
       'A card no longer says a house "had stood like this since 1904" because 1904 is the year you are visiting. That line came from the scene\'s own date, not from any source.',

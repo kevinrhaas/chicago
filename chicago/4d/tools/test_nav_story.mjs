@@ -153,4 +153,11 @@ const text = block.textContent;
 assert.ok(!/[a-z0-9]+_[a-z0-9]+/i.test(text), 'no snake_case reaches a visitor');
 assert.ok(!/\b(attested|inferred|reconstructed)\b/.test(text), 'grade words appear only as dots, named for a screen reader');
 
+// --- T-3042: a summary record's build date as its sources give it --------------------------
+const pull = read('summaries/pullman_house_1729_prairie.json');
+const pr = storyTimeline({ sum: pull, sidecar: read('sidecars/1904/pullman_house_1729_prairie.json'), scene: S1904 });
+const pBuilt = pr.rows.find((r) => r.mark === 'built');
+assert.equal(pBuilt.when, '1870', 'a phrase is placed at its earliest year');
+assert.equal(pBuilt.text, 'Built between 1870 and 1876.');
+
 console.log('test_nav_story: OK');

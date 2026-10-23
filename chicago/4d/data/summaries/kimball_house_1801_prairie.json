@@ -1,0 +1,65 @@
+{
+  "id": "kimball_house_1801_prairie",
+  "scene": "1904",
+  "name": "William W. Kimball House",
+  "address": "1801 S. Prairie Ave.",
+  "status": {
+    "text": "Still standing",
+    "today": "Still on Prairie Avenue",
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_heritage_preserved"
+    ],
+    "note": "The district's marker for the houses still standing lists it."
+  },
+  "built": {
+    "year": 1890,
+    "grade": "attested",
+    "sources": [
+      "hmdb_prairie_heritage_preserved"
+    ]
+  },
+  "use": "Home",
+  "summary": "A house in the French château style, built in 1890 for William W. Kimball. He made pianos and organs. Solon S. Beman was the architect.",
+  "key": [
+    {
+      "label": "Architect",
+      "value": "Solon S. Beman",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ]
+    },
+    {
+      "label": "Built for",
+      "value": "William W. Kimball",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ]
+    },
+    {
+      "label": "Style",
+      "value": "Châteauesque",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "The man who built it was a prominent Chicago maker of pianos and organs.",
+      "about": "person",
+      "grade": "attested",
+      "sources": [
+        "hmdb_prairie_heritage_preserved"
+      ],
+      "note": "The marker: 'Built for the prominent Chicago piano and organ manufacturer'."
+    }
+  ],
+  "style": null,
+  "story": []
+}
