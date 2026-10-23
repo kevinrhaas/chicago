@@ -53,7 +53,8 @@ def validate(record):
         assert spec['static_support_contacts_m'] == [[-.0325,0,3.725],[.0325,0,3.725],[-.0325,0,3.825],[.0325,0,3.825]]
         ref = spec['design_reference']
         assert ref['confidence'] == 'attested' and ref['sources'] == ['studebaker_1893_illustrated_souvenir']
-        assert spec['delivery_lods'] == {'near':'transport/parked-brougham/brougham-near.glb','runtime_distance_selection_enabled':False}
+        assert spec['delivery_lods'] == {'near':'transport/parked-brougham/brougham-near.glb','mid':'transport/parked-brougham/brougham-mid.glb','runtime_distance_selection_enabled':True}
+        assert (ROOT/'renderers/web'/spec['delivery_lods']['mid']).is_file(), 'Missing genuine Brougham mid'
         assert sum(r['model'] == 'studebaker_brougham_1893' for r in record['scenes']['1904']) == 1
         # The pre-existing unidentified reconstruction remains separate at its exact stand.
         generic = [r for r in record['scenes']['1904'] if r['id'] == 'prairie_parked_carriage']

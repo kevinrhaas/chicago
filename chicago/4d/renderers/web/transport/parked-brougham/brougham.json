@@ -47,9 +47,36 @@
       "indexed_sha256": "ec2bfc0da49b570429dbcd8db39250aa6f1bbf55587570f0dafad9a42afc4ee5",
       "lossless_indexing": true,
       "meshopt_or_quantization": false
+    },
+    {
+      "detail": "mid",
+      "file": "brougham-mid.glb",
+      "triangles": 22238,
+      "raw_mesh_batches": 25,
+      "parked_material_groups": 7,
+      "nodes": 42,
+      "bounds_m": {
+        "min": [
+          -0.8600000143051147,
+          0.0,
+          -1.8365528583526611
+        ],
+        "max": [
+          0.8600000143051147,
+          2.1882998943328857,
+          3.825000047683716
+        ]
+      },
+      "source_bytes": 1684032,
+      "indexed_bytes": 1047068,
+      "expanded_triangle_PN_sha256": "b22ebde8a8474409c66530c887217e33929353767d3b5c3537aee92fd9ff3eca",
+      "source_sha256": "7e70bf062196d87a38928a1ccc3e1afe39ae9a4b54a62f7f72bc6d5ddd7f78d7",
+      "indexed_sha256": "29a7feaa7aa660f31fbf53fecdc555526935a0d69fb59e39f6c427b644860282",
+      "lossless_indexing": true,
+      "meshopt_or_quantization": false
     }
   ],
-  "lod_runtime_selection_enabled": false,
+  "lod_runtime_selection_enabled": true,
   "lod_appearance_accepted": {
     "near_original_master_only": false,
     "indexed_near": false,
@@ -57,7 +84,7 @@
     "far": false
   },
   "authored_texture_bytes": 0,
-  "rendering": "Original PBR factors; no image textures. Native indexing only, no meshopt or quantization. Existing runtime static merger groups seven shared materials; actual world and phone cost remain to measure.",
+  "rendering": "Original PBR factors; no image textures. Native lossless indexing only. Both near and mid merge into seven active material batches. Brougham-only distance/screen-size selection remains subject to actual world and photographic review.",
   "wheel_contacts_root_m": [
     [
       -0.67,
@@ -992,10 +1019,21 @@
   },
   "pending_deliverables": [
     "material and source-image refinement",
-    "optional mid/far V17 delivery",
+    "mid fixed-view visual and normal runtime qualification",
     "normal main/phone/published qualification",
     "actual world terrain and full pole/body obstacle clearance",
     "photographic review",
     "fit/doors/hitch/boarding/collision"
-  ]
+  ],
+  "mid_provenance": {
+    "recipe": "tools/transport/brougham/ring16-mid-lods.json",
+    "recipe_sha256": "d7dd2cc647ad095c4fef148e5f8db88ddeb1b74fab7878dc547f8e4a30b5100d",
+    "source_master_near_sha256": "b74e00937871eef8666fe048501456a8409b18df185c87a0905b083b7a2448fa",
+    "change": "Only 16 rounded wheel ring longitudinal segment counts reduced to 16; original 8 cross sections and 452 other source parts retained exactly.",
+    "license": "GPL-3.0-or-later",
+    "appearance_accepted": false,
+    "world_budget_accepted": false,
+    "build_receipt": "MID-BUILD-RECEIPT.json",
+    "build_receipt_sha256": "3af9e61cc84883a69ba7d7961d84e61315b293907e814ddf8842e8f5e0115158"
+  }
 }

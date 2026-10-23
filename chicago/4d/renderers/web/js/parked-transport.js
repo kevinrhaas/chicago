@@ -11,6 +11,46 @@ import { disposeLoadedAsset } from './scene-loader.js';
 const REACH = { full: 100, balanced: 65, light: 0 };
 const yawOf = (bearing) => Math.PI - bearing * Math.PI / 180;
 
+/** Candidate wheel-ring screen-size estimate, not visual/photographic acceptance.
+ * Keep the reviewed near geometry within 24 m; increase that distance for a
+ * larger actual drawing buffer or narrower field of view. THREE.LOD itself
+ * accounts for camera zoom. The 2.5 m reserve covers the changed wheel envelope.
+ */
+function broughamMidDistance(camera, drawingBufferHeight) {
+  if (!camera.isPerspectiveCamera || !Number.isFinite(camera.fov)
+    || camera.fov <= 0 || camera.fov >= 180 || !Number.isFinite(drawingBufferHeight)
+    || drawingBufferHeight <= 0) return Number.MAX_VALUE;
+  const wheelChord = 0.65 * (1 - Math.cos(Math.PI / 16));
+  const focalPixels = drawingBufferHeight / (2 * Math.tan(camera.fov * Math.PI / 360));
+  return Math.max(24, 2.5 + focalPixels * wheelChord / 0.5);
+}
+
+
+/** Own this Brougham's complete body read before parsing. The native plate
+ * helper uses this same path; the observed mobile FileLoader request was
+ * canceled before readiness despite a decoded model. Keep manager abort/error
+ * accounting, and resolve embedded relative resources from the asset directory.
+ */
+async function loadBrougham(file) {
+  const loader = new GLTFLoader(), manager = loader.manager;
+  const assetUrl = new URL(file, new URL('../', import.meta.url));
+  const requestUrl = manager.resolveURL(assetUrl.href);
+  manager.itemStart(requestUrl);
+  try {
+    const response = await fetch(requestUrl, {
+      headers: loader.requestHeader,
+      credentials: loader.withCredentials ? 'include' : 'same-origin',
+      signal: manager.abortController.signal,
+    });
+    if (!response.ok) throw Error(`Brougham HTTP ${response.status}`);
+    const bytes = await response.arrayBuffer();
+    return await loader.parseAsync(bytes, new URL('.', assetUrl).href);
+  } catch (error) {
+    manager.itemError(requestUrl);
+    throw error;
+  } finally { manager.itemEnd(requestUrl); }
+}
+
 function card(row, manifest) {
   return { id: row.id, sidecar: {
     name: row.name, phase: null,
@@ -100,7 +140,8 @@ function parkTongue(root, row, terrain, base) {
 }
 
 export async function createParkedTransport({ dataBase, sceneId, terrain, confidence,
-  detail = 'full', problems = [], hostMissing = () => false, groundHeight = null } = {}) {
+  detail = 'full', problems = [], hostMissing = () => false, groundHeight = null,
+  getDrawingBufferHeight = () => null } = {}) {
   const group = new THREE.Group(); group.name = 'parked-transport';
   const instances = [], assets = new Map(), replacementIds = new Set();
   let tier = detail, fallback = () => {}, lastCamera = null, disposed = false, loading = null;
@@ -114,6 +155,14 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
         const visible = (REACH[tier] ?? REACH.full) > 0
           && camera.position.distanceTo(instance.group.position) < REACH[tier];
         instance.group.visible = visible;
+        if (instance.lod) {
+          camera.updateWorldMatrix(true, false);
+          instance.lod.updateWorldMatrix(true, false);
+          instance.lod.levels[1].distance = broughamMidDistance(camera, getDrawingBufferHeight());
+          instance.lod.update(camera);
+          instance.active_lod = instance.lod.getCurrentLevel() === 0 ? 'near' : 'mid';
+          instance.active_triangles = instance.active_lod === 'near' ? 33502 : 22238;
+        }
         if (instance.row.replaces) fallback(instance.row.replaces, !visible);
       }
     },
@@ -126,7 +175,10 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
       if (disposed || confidence?.hidden?.reconstructed) return null;
       for (let ancestor = group; ancestor; ancestor = ancestor.parent) if (!ancestor.visible) return null;
       ray.setFromCamera(ndc ?? new THREE.Vector2(), camera);
-      const hit = ray.intersectObjects(instances.filter(i => i.group.visible).map(i => i.group), true)[0];
+      const hit = ray.intersectObjects(instances.filter(i => i.group.visible).map(i =>
+        // Recursive raycasting visits invisible LOD children too. Start at ONLY
+        // the committed active level, preserving the common parked card owner.
+        i.lod ? i.lod.levels[i.lod.getCurrentLevel()].object : i.group), true)[0];
       if (!hit) return null;
       let owner = hit.object;
       while (owner && !owner.userData.parkedId) owner = owner.parent;
@@ -162,7 +214,8 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
         try {
           let pending = assets.get(row.model);
           if (!pending) {
-            pending = new GLTFLoader().loadAsync(new URL(spec.file, new URL('../', import.meta.url)).href);
+            pending = row.model === 'studebaker_brougham_1893' ? loadBrougham(spec.file)
+              : new GLTFLoader().loadAsync(new URL(spec.file, new URL('../', import.meta.url)).href);
             assets.set(row.model, pending);
           }
           const asset = await pending;
@@ -212,14 +265,43 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
             staticSupport = { minimum_gap_m: Math.min(...gaps), maximum_gap_m: Math.max(...gaps) };
           }
           const parking = parkTongue(root, row, terrain, base);
-          const model = staticBatches(root, confidence);
+          let midAsset = null;
+          if (row.model === 'studebaker_brougham_1893'
+            && spec.delivery_lods?.runtime_distance_selection_enabled) {
+            try {
+              const key = `${row.model}:mid`;
+              let pendingMid = assets.get(key);
+              if (!pendingMid) {
+                pendingMid = loadBrougham(spec.delivery_lods.mid);
+                assets.set(key, pendingMid);
+              }
+              midAsset = await pendingMid;
+              if (disposed) break;
+            } catch (error) { problems.push(`parked transport ${row.id} mid: ${error.message}; near retained`); }
+          }
+          const near = staticBatches(root, confidence);
+          let model = near, lod = null;
+          if (midAsset) {
+            try {
+              const mid = staticBatches(midAsset.scene.clone(true), confidence);
+              lod = new THREE.LOD();
+              // Selection happens with the same camera as reach/picking. Avoid
+              // the renderer independently reselecting during shadow passes.
+              lod.autoUpdate = false;
+              lod.addLevel(near, 0);
+              lod.addLevel(mid, 24, 0.05);
+              near.visible = true; mid.visible = false;
+              model = lod;
+            } catch (error) { problems.push(`parked transport ${row.id} mid: ${error.message}; near retained`); }
+          }
           model.name = row.id; model.userData.parkedId = row.id;
           model.position.set(row.at_local_enu_m[0], base, -row.at_local_enu_m[1]);
           model.rotation.y = yaw;
           model.visible = false;
           group.add(model);
           instances.push({ row, group: model, card: card(row, spec), parking,
-            wheel_clearance_m: wheelGap, static_support: staticSupport, draw_batches: model.children.length });
+            wheel_clearance_m: wheelGap, static_support: staticSupport, draw_batches: near.children.length,
+            ...(lod ? { lod, active_lod: 'near', active_triangles: 33502 } : {}) });
         } catch (error) { problems.push(`parked transport ${row.id}: ${error.message}; ${row.replaces ? 'existing yard vehicle retained' : 'vehicle not shown'}`); }
       }
       if (lastCamera) out.update(lastCamera);

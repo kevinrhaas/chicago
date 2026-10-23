@@ -2400,10 +2400,12 @@ async function boot() {
   // the board hangs 1.7 m one side of the facade's centre and the goods pile
   // from the other end. Unlike a board, a barrel stands on the TERRAIN rather
   // than on the building's wall base — it is resting on the ground it is on.
+  const parkedDrawingBuffer = new THREE.Vector2();
   const parkedTransport = await createParkedTransport({
     dataBase: layerBase('parked_transport'), sceneId: YEAR, terrain, confidence,
     detail: detailLevel, problems: layerProblems('parked_transport'), hostMissing,
     groundHeight: String(YEAR) === '1904' ? (e, n) => streetGrid.carriagewayHeight(e, n) : null,
+    getDrawingBufferHeight: () => renderer.getDrawingBufferSize(parkedDrawingBuffer).y,
   });
   scene3d.add(parkedTransport.group);
   api.parkedTransport = parkedTransport;

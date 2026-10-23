@@ -346,10 +346,10 @@ step "C02 actual door hierarchy refuses closed-preserving detachment (T-2794)" \
 step "Harness body fit reproduces original crossings and enforces 5 mm bind-pose clearance" \
   python3 tools/transport/test_harness_body_fit.py
 
-step "Catalogue Brougham preserves exact V17 near source, contacts and inert interfaces (T-2794)" \
+step "Catalogue Brougham preserves exact V17 near and genuine ring16 mid, contacts and inert interfaces (T-2794)" \
   python3 tools/check_brougham_near.py
 
-step "The Brougham card distinguishes its catalogue design from a reconstructed parked individual, preserving every prior parked card (T-2794)" \
+step "Brougham card and actual near/mid selection preserve catalogue scope, all prior cards, active picking and disposal (T-2794)" \
   node tools/test_brougham_card.mjs
 
 step "Parked vehicles keep their exact wagon stands and cannot cross era boundaries (T-2979)" \

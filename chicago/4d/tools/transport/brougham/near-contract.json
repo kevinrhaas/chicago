@@ -1,5 +1,5 @@
 {
-  "scope": "V17 exact NEAR ONLY native source/delivery contract; not terrain, world, public, mid/far, occupied or photographic acceptance",
+  "scope": "Exact V17 NEAR native source/delivery contract with additive independently checked ring16 mid; not terrain, world, photographic or occupied acceptance",
   "raw_sha256": "b74e00937871eef8666fe048501456a8409b18df185c87a0905b083b7a2448fa",
   "near_sha256": "ec2bfc0da49b570429dbcd8db39250aa6f1bbf55587570f0dafad9a42afc4ee5",
   "raw_bytes": 2495128,
@@ -202,7 +202,7 @@
   "delivery_metadata_files": {
     "BUILD-RECEIPT.json": "ca8a80cede73c52637aa09c187d738d02ce84698226c313bdbdc3b1508f3a9ff",
     "LICENSE": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
-    "brougham.json": "35106921e8dd0552c10b0a7331b3f77e99732dbbaf8ab78c3eb5aee8f43bfc69"
+    "brougham.json": "d0266f0984ca534ffda5350f983bacd2de0ffe6df3e7c621fbce1a67a33c84eb"
   },
   "static_master": {
     "revision": "static_master_interfaces_v1",

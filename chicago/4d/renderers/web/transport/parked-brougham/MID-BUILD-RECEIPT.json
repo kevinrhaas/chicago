@@ -1,0 +1,71 @@
+{
+  "scope": "Original actual closed external generation and lossless indexing, preserved as historical receipts. This proposed app intake does not regenerate geometry.",
+  "license": "GPL-3.0-or-later",
+  "source_recipe": "tools/transport/brougham/ring16-mid-lods.json",
+  "source_recipe_sha256": "d7dd2cc647ad095c4fef148e5f8db88ddeb1b74fab7878dc547f8e4a30b5100d",
+  "source_files": {
+    "LICENSE": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+    "generate.py": "705e0aa9e40c316688c6dfed5e0a6360470b85375592d39e31b0ece172f1ae60",
+    "index_streams.py": "7b1b2efc904b0b6f87d21006d68578066fcd9095037f921e16e50f25852ca661",
+    "lods.json": "e7d731860724c1155d4d807dfe44f2e128dca4bd527cfbbd9ffac8e2fee34842",
+    "parameters.json": "e0cd31a992a466e0367625021f29aeee6e0a38bd7f252daa60d2caaa35173782",
+    "quarter_surface.py": "1538652107efd831f6f854107dcc69fbb76916faf55707d5d7bc04a9e5b2187f",
+    "rear-quarter.json": "557f59335c4aeaf442416473a928219baea08fc4603ad97bf6197774d275deac",
+    "source_details.py": "8856788e8535d9388b912306d63c90ee81d487368d20da5610bc570fc12206a0",
+    "static_master.py": "c78f54922759bc5b8d61d6106c6bd29696dcdb74e59d8e11bcadd61f44259be5"
+  },
+  "actual_generation": {
+    "state": "CLOSED_PASS",
+    "utc": "2026-10-22T23:04:00.310429+00:00",
+    "command": [
+      "python3",
+      "/workspace/shared/T2794-V17-GENUINE-RING16-MID-CANDIDATE-20261022/source/generate.py",
+      "--parameters",
+      "/workspace/shared/T2794-V17-GENUINE-RING16-MID-CANDIDATE-20261022/source/parameters.json",
+      "--lod-recipe",
+      "/workspace/shared/T2794-V17-GENUINE-RING16-MID-CANDIDATE-20261022/ring16-mid-recipe.json",
+      "--rear-quarter-recipe",
+      "/workspace/shared/T2794-V17-GENUINE-RING16-MID-CANDIDATE-20261022/source/rear-quarter.json",
+      "--detail",
+      "mid",
+      "--output",
+      "/workspace/shared/T2794-V17-GENUINE-RING16-MID-CANDIDATE-20261022/raw"
+    ],
+    "nice": 19,
+    "math_threads": 1,
+    "subprocess_bound_seconds": 14,
+    "source_file_pins": {
+      "LICENSE": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "generate.py": "705e0aa9e40c316688c6dfed5e0a6360470b85375592d39e31b0ece172f1ae60",
+      "index_streams.py": "7b1b2efc904b0b6f87d21006d68578066fcd9095037f921e16e50f25852ca661",
+      "lods.json": "e7d731860724c1155d4d807dfe44f2e128dca4bd527cfbbd9ffac8e2fee34842",
+      "parameters.json": "e0cd31a992a466e0367625021f29aeee6e0a38bd7f252daa60d2caaa35173782",
+      "quarter_surface.py": "1538652107efd831f6f854107dcc69fbb76916faf55707d5d7bc04a9e5b2187f",
+      "rear-quarter.json": "557f59335c4aeaf442416473a928219baea08fc4603ad97bf6197774d275deac",
+      "source_details.py": "8856788e8535d9388b912306d63c90ee81d487368d20da5610bc570fc12206a0",
+      "static_master.py": "c78f54922759bc5b8d61d6106c6bd29696dcdb74e59d8e11bcadd61f44259be5"
+    },
+    "baseline_raw_sha256": "b74e00937871eef8666fe048501456a8409b18df185c87a0905b083b7a2448fa",
+    "baseline_near_sha256": "ec2bfc0da49b570429dbcd8db39250aa6f1bbf55587570f0dafad9a42afc4ee5",
+    "source_or_runtime_edits": 0,
+    "browser_launched": false,
+    "exit": 0,
+    "seconds": 0.636,
+    "ended": "2026-10-22T23:04:00.946490+00:00"
+  },
+  "actual_lossless_indexing": {
+    "source_bytes": 1684032,
+    "indexed_bytes": 1047068,
+    "expanded_triangle_PN_sha256": "b22ebde8a8474409c66530c887217e33929353767d3b5c3537aee92fd9ff3eca",
+    "source_sha256": "7e70bf062196d87a38928a1ccc3e1afe39ae9a4b54a62f7f72bc6d5ddd7f78d7",
+    "indexed_sha256": "29a7feaa7aa660f31fbf53fecdc555526935a0d69fb59e39f6c427b644860282",
+    "lossless_indexing": true,
+    "meshopt_or_quantization": false,
+    "seconds": 0.092,
+    "utc": "2026-10-22T23:05:53.897187+00:00"
+  },
+  "raw_delivery": "brougham-mid-source.glb",
+  "indexed_delivery": "brougham-mid.glb",
+  "near_source_unchanged": true,
+  "runtime_world_visual_budget_accepted": false
+}

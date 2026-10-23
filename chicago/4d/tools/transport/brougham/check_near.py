@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
-"""V17 NEAR-ONLY original delivery gate. Existing decoded algorithms; no terrain/image/wholeLOD acceptance."""
+"""V17 exact NEAR delivery gate with independent additive MID gate. Existing decoded algorithms; no terrain/image/wholeLOD acceptance."""
 from pathlib import Path
 import argparse,hashlib,json,math,struct
-EXPECTED_CONTRACT='2da00a522b765f66934c43e67e889732485686245b4331922c4af3bee7c39b13'
+EXPECTED_CONTRACT='8b7c3601db7a2782b3c6ff94ec4187aae7c6b2c4ee84ad1c4fec5accafb4a7a7'
 
 def read(path):
     b=path.read_bytes();assert struct.unpack_from('<III',b)==(0x46546c67,2,len(b)), 'Invalid GLB envelope'
@@ -127,7 +127,7 @@ def check_near(directory,source_directory):
     assert all(extra[k] is False for k in ['door_interaction_enabled','boarding_enabled','traffic_enabled','occupants'])
     side=json.loads((directory/'brougham.json').read_text());assert side['source_master_sha256']==c['raw_sha256'] and side['parameters_sha256']==c['source_files']['parameters.json']
     assert side['grade']=='reconstructed' and side['license']=='GPL-3.0-or-later' and side['scene_eligibility']==c['scene_eligibility'] and extra['scene_year']==1904
-    assert len(side['lods'])==1 and side['lods'][0]['detail']=='near' and side['lods'][0]['indexed_sha256']==c['near_sha256'] and side['lod_runtime_selection_enabled'] is False
+    assert len(side['lods'])==2 and [r['detail'] for r in side['lods']]==['near','mid'] and side['lods'][0]['indexed_sha256']==c['near_sha256'] and side['lod_runtime_selection_enabled'] is True
     world=world_nodes(j);assert len(side['anchors'])==13
     for anchor in side['anchors']:assert anchor['node']==j['nodes'][anchor['node_index']]['name'] and anchor['translation_root_m']==world[anchor['node_index']] and anchor['rotation_xyzw']==[0,0,0,1] and anchor['scale']==[1,1,1] and anchor['dynamic_binding_supported'] is False
     assert side['static_master']['frame']=={'units':'m','up':'+Y','forward':'+Z','root':'vehicle_root'} and all(x is False for x in side['static_master']['capabilities'].values())

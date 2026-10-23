@@ -1,0 +1,25 @@
+{
+  "scope": "Exact generated ring16 mid from unchanged V17 source. Native geometry/provenance only; not appearance, runtime world or photographic acceptance.",
+  "raw_file": "brougham-mid-source.glb",
+  "raw_sha256": "7e70bf062196d87a38928a1ccc3e1afe39ae9a4b54a62f7f72bc6d5ddd7f78d7",
+  "raw_bytes": 1684032,
+  "indexed_file": "brougham-mid.glb",
+  "indexed_sha256": "29a7feaa7aa660f31fbf53fecdc555526935a0d69fb59e39f6c427b644860282",
+  "indexed_bytes": 1047068,
+  "triangles": 22238,
+  "expanded_triangle_PN_sha256": "b22ebde8a8474409c66530c887217e33929353767d3b5c3537aee92fd9ff3eca",
+  "recipe": "ring16-mid-lods.json",
+  "recipe_sha256": "d7dd2cc647ad095c4fef148e5f8db88ddeb1b74fab7878dc547f8e4a30b5100d",
+  "unchanged_near_sha256": "ec2bfc0da49b570429dbcd8db39250aa6f1bbf55587570f0dafad9a42afc4ee5",
+  "license": "GPL-3.0-or-later",
+  "changed_ring_parts": 16,
+  "protected_other_parts": 452,
+  "materials": 7,
+  "nodes": 42,
+  "anchors": 13,
+  "archived_current_validator_reports": {
+    "KHRONOS-MID-RAW.json": "fd8d08f9353e43e15c31d9cf8d6f7513050510606f92f629e569a71b54110712",
+    "KHRONOS-MID.json": "c377ed252ca774264e3c692f31da6ac05d9cb369270f1c10ca3f90511dc2e9fc"
+  },
+  "build_receipt_sha256": "3af9e61cc84883a69ba7d7961d84e61315b293907e814ddf8842e8f5e0115158"
+}

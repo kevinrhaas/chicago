@@ -37,3 +37,6 @@ try {
  need(JSON.stringify([row,spec,metadata])===before,'Adapter or popup mutated actual inputs');
  console.log(JSON.stringify({pass:true,scope:'Actual placements-spec card caller and actual popup show/opening/attribute rendering; no browser, geometry or world proof',actualOpening:shown.opening,actualInstalledTypeAndCatalogueWereAlreadyValid:true,rawSidecarIsNotTheRuntimeCardInput:true,legacyCardsAndPopupHTMLUnchanged:legacy.cases.length,negativeControls:controls},null,2));
 } finally {globalThis.document=oldDocument}
+
+// Same registered Brougham entry also exercises actual near/mid runtime ownership.
+await import('./transport/brougham/test_lod.mjs');

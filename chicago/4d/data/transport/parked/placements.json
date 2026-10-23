@@ -148,7 +148,8 @@
       ],
       "delivery_lods": {
         "near": "transport/parked-brougham/brougham-near.glb",
-        "runtime_distance_selection_enabled": false
+        "mid": "transport/parked-brougham/brougham-mid.glb",
+        "runtime_distance_selection_enabled": true
       }
     }
   },
