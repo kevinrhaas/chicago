@@ -1,3 +1,17 @@
+## T-2794 — Parked Brougham distance model and prototype replacement
+
+The Brougham replaces only the obsolete1904C02 display, retaining its own existing qualified stand and the five distinct1835wagons; C02 assets and model remain compatible. Exact33,502near geometry is paired with the unchanged validated11,706mid candidate. All physical feature categories, materials, nodes, anchors, contacts and original near conservative proxy remain; only source tessellation and active triangle reporting change. Eight fixed native views support distance-LOD appearance, not photographic or world-budget acceptance.
+
+Next: finish normal integrated source verification and published desktop/mobile qualification at unchanged cameras and caps, including combined budgets and full body/pole/ground/tree clearance. Earlier failed units remain recorded. Photographic refinement, people, horses, occupied driving, doors, hitching, boarding and traffic remain open.
+
+## T-2793 — Parked W01 timber material increment
+
+Modern CC0 wood texture maps improve the existing three reconstructed 1835 farm-box wagons while retaining their geometry, stands and original paint/iron. The original parked source and both covered-wagon finish families remain exact; a separate cloth-only increment preserves their colors and identities. Four actual native views support a bounded material improvement; GPL project charts and CC0 source pixels have explicit provenance, and no historic finish or specimen is claimed.
+
+Next: normal integrated DEV derivation and full preflight, followed by normal published mobile/desktop placement and combined-budget qualification (eight pooled batches versus five baseline). Photographic refinement, occupants, hitching, driving, riding and boarding remain open; this is a material increment under T-2793.
+
+- T-2980: carry the already generated20–28mm cloth-drape increment for the two existing distinct1835 covered wagons; preserve current terrain proof and all IDs/seeds/stands/yokes. Historical065646706 source+publishedstage8 qualification is separate from current combined integration. Photographic cloth/wood/iron, compressed LOD, occupancy and interaction remain open.
+
 ## T-2672 / T-1789 — resident transport adults (2026-10-18)
 
 The owner requested adults for driving, riding, standing near transport and walking,
@@ -5647,6 +5661,15 @@ remain open. Buttons/facings are deferred until the large-form repair is reviewe
 
 
 T-1789 person-card honesty followup (2026-10-22): the existing invented trade-head mint category now reads reconstructed identity rather than named in a source, and model-assigned firm memberships disclose their reconstructed link. Exactly309 invented trade heads change classification; historically source-read residents retain theirs. Presence grades, identities, memberships, assets and the standing position are unchanged. This corrects a false provenance claim found in actual published-town card inspection; photographic finishing remains open.
+## School and Tremont reference-use approval - T-3053
+
+The owner's 2026-10-22 approval is recorded with both bibliographic sources.
+Retain the Chicagology / N. Roswell Gifford credit and the Illinois History
+Journal reproduction link with the unidentified school artist. Project-use
+clearance resolves that use decision; it does not establish original publication,
+image identity, survey coordinates or a solved camera. Continue T-2372 and T-2385
+under their existing image acceptance.
+
 ## Fort compound reference rendering - T-3040 (under T-2387)
 
 The single-mesh reviewer could not test either fort's full picture acceptance.

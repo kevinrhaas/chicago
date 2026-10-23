@@ -2,8 +2,9 @@
   "structure_id": "glessner_house",
   "view": "habs-13-north-level",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "22d4bb361f05c26ddab3d7b935c368538e48b03d63d7365d4cd36f91b772c6a5",
-  "camera_sha256": "7ed6ecf3f30b39cce72d30507c3c3f40763fa9ea9487c7678a574a8dec4e4cd9",
+  "glb_sha256": "eabb640c6e2670f5d341c0dfab15ffade604f80cc7de095959c5b0ab4aecd6a5",
+  "camera_sha256": "c4607c01650b1d3dfeaf156dfd0d4ae0746fc97b45ed092c5504260edb48af9e",
+  "photo_sha256": "b5de6769dbaab6ea0991a9351b10c47344e61b7480b0f53a6e5d104ecb48e176",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-13-north-level-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -16,7 +17,7 @@
       "status": "fixed"
     },
     {
-      "what": "North masonry/course texture and pair detailing differ.",
+      "what": "North masonry/course texture and pair detailing differ. T-3044: on Taylor 2135 the 18th Street face's courses fit within about 1-2 % of the Prairie corner's, so one coursing still turns the corner. Their height is T-3045's, and their relief T-3046's. T-3045 has laid the heights (the fixed entry below); what stays open here is the relief, T-3046's.",
       "status": "open"
     },
     {
@@ -30,6 +31,10 @@
     {
       "what": "T-2848: the stone in this print is darkened by decades of city soot, so its tone in the 1960s photograph is not its 1887 tone; the render's clean stone is not compared against it.",
       "status": "not shown"
+    },
+    {
+      "what": "T-3045 course heights: the 18th Street courses rise with the Prairie front's (one coursing round the NE corner), the corridor lights stand on beds 8-15 and 19-23 at their new heights, and this camera was re-solved on the narrow light at 9.3044-14.7471 ft (tools/glessner_north_pairs.py --cameras), which reads the gable pairs at 19.89-24.43 ft; the record builds 19.83-24.52 from both north plates. Reviewed on the re-rendered side-by-side: the pairs and the narrow lights sit on the photograph's.",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

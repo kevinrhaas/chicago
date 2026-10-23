@@ -1,4 +1,50 @@
 export const CHANGELOG = [ // newest first
+  { v: 2214, ts: '2026-10-23T07:09:59.195Z', date: 'Oct 23, 2026, 2:09 AM CT', title: 'Smoke: the 1904 placed list holds Indiana Avenue\'s drafts', kind: 'fix',
+    items: [
+      'Stage 14\'s 1904 check holds by name the 27 Indiana Avenue east-frontage drafts (20th-22nd, First Presbyterian among them) that T-3009 placed; its PR left them off the list, so the check was red on dev.',
+    ] },
+  { v: 2213, ts: '2026-10-23T07:09:59.195Z', date: 'Oct 23, 2026, 2:09 AM CT', title: '1801 Prairie\'s south pavilion stands where the 1911 map draws it', kind: 'fix',
+    items: [
+      'The south pavilion of the Kimball house on Prairie Avenue now stands about 10 cm out from the front, as the 1911 fire insurance map draws it. It used to stand 60 cm out. Its windows still sit in deep stone openings, which now run back into the house wall. The roof\'s gutter and eave now stop at the pavilion\'s sides instead of running behind it. Seen from where J. W. Taylor took his photograph of about 1895, the pavilion\'s south corner now sits about 30 px closer to where his photograph shows it. The map also shows that corner cut back at an angle, and that is next.',
+    ] },
+  { v: 2212, ts: '2026-10-23T05:36:29.796Z', date: 'Oct 23, 2026, 12:36 AM CT', title: 'Expert research folds the building card into the Navigator', kind: 'feature',
+    items: [
+      'Clicking or tapping a building, arriving at one, or pressing Inspect now opens it in the Navigator instead of a second card on the right.',
+      'Settings starts with a new Expert research switch. Turn it on and every building gets a Research tab with the full evidence, its liberties and its record, the same detail the right-hand card held.',
+      'With it off, buildings show just the familiar tabs: Overview, People, Design, Story, Photos and Sources.',
+      'Let a building go with Back, Esc, or a click or tap on the street. Streets, trees and the railway still open their small card.',
+    ] },
+  { v: 2211, ts: '2026-10-23T05:36:29.796Z', date: 'Oct 23, 2026, 12:36 AM CT', title: '1811 Prairie\'s roof now rises as the 1888 plate draws it', kind: 'improvement',
+    items: [
+      'A tall pyramid-like slate roof now rises over the stone bay at 1811 Prairie, peaking at about 16 m where the plate puts it.',
+      'South of it a lower roof now runs at the same steep pitch to the brick south gable, in place of one long ridge along the whole front.',
+      'The south gable now carries both of its chimneys: a tall one near the front with a corbelled band and a narrow top, and a smaller one further back.',
+      'Every other house is unchanged.',
+    ] },
+  { v: 2210, ts: '2026-10-23T04:02:34.300Z', date: 'Oct 22, 2026, 11:02 PM CT', title: 'Tap "Confidence view" on Home to see what it means', kind: 'fix',
+    items: [
+      'On the Navigator\'s Home, the Confidence view tile\'s name explains itself on tap again. Tap the name to read its one-line meaning, or tap anywhere else on the tile to open the Confidence view, as before.',
+    ] },
+  { v: 2209, ts: '2026-10-23T03:48:46.689Z', date: 'Oct 22, 2026, 10:48 PM CT', title: 'Glessner House re-coursed to its 1880s photograph', kind: 'improvement',
+    items: [
+      'The granite courses above the Glessner house\'s front door now stand about 4.5% taller, as a photograph from about 1888 and the 1965 survey both show them. On the Prairie Avenue front the courses now line up with the photograph\'s.',
+      'The 18th Street windows that sit on those courses rise with them. The north wall\'s paired upper windows are re-read from two 1965 photographs and stand about 2.5 inches higher.',
+    ] },
+  { v: 2208, ts: '2026-10-23T03:32:07.229Z', date: 'Oct 22, 2026, 10:32 PM CT', title: 'Sunlit walls no longer break into blotches on phones', kind: 'fix',
+    items: [
+      'On a phone, a pale wall facing the midday sun was catching blocky patches of its own shadow that shifted as you walked. The 1835 freight shed by the Dearborn Street drawbridge showed it worst. Phones now keep the sun\'s shadow clear of the wall casting it, so the shed\'s boards read clean.',
+      'Nothing changes on a desktop, and phones use no extra memory.',
+    ] },
+  { v: 2207, ts: '2026-10-23T02:44:15.354Z', date: 'Oct 22, 2026, 9:44 PM CT', title: 'Calumet Avenue fills in down to 22nd Street', kind: 'feature',
+    items: [
+      'Look east between the houses on Prairie\'s east side from 20th to 22nd Street: Calumet Avenue\'s west side is no longer bare ground behind them.',
+      'Ten more brick houses stand there, from 2000 to 2140 Calumet, beside the Hanford and Wheeler-Kohn houses, with eleven stables and sheds on the alley. Each is drawn from the 1911 fire-insurance map, so its plan and storeys are the map\'s, and the rest is a first draft.',
+    ] },
+  { v: 2206, ts: '2026-10-23T01:52:00.264Z', date: 'Oct 22, 2026, 8:52 PM CT', title: 'Glessner\'s stone courses measured against an 1880s photograph', kind: 'chore',
+    items: [
+      'Nothing in the town\'s appearance changes yet. Measured on a photograph from about 1888, the Glessner house\'s granite courses above the door stand about 4.5% taller than the model lays them. That agrees with the 1965 survey, so the walls will be re-coursed.',
+      'The same photograph shows the tall courses standing out further than the short ones. The model gives both the same depth, and a follow-up will deepen the tall ones.',
+    ] },
   { v: 2205, ts: '2026-10-23T01:04:59.884Z', date: 'Oct 22, 2026, 8:04 PM CT', title: 'Eight Prairie Avenue houses get fact cards', kind: 'feature',
     items: [
       'Fact cards for eight Prairie Avenue houses: who built each one, for whom, and a fact or two worth knowing, every one from a source.',

@@ -497,8 +497,9 @@ for (const phone of [true, false]) {
   hit = { ...hit, distance: 12 }; pose = { ...pose, e: pose.e + 1 };
   t = 3000; target.tick(t);
   dom.byId.get('nav-inspect').dispatch('click');
-  assert.deepEqual(calls.at(-1), ['inspect', 'glessner_house'], `${label}: Inspect opens the building's card`);
-  if (phone) assert.equal(nav.detent, 'dock', 'phone: Inspect docks the sheet so the card has the screen');
+  assert.deepEqual(calls.at(-1), ['inspect', 'glessner_house'], `${label}: Inspect opens the building`);
+  // T-3022: the building opens in Inspect, inside the device, so a phone's sheet stays up.
+  if (phone) assert.notEqual(nav.detent, 'dock', 'phone: the Inspect key leaves the sheet up');
 
   // T-2620: the drawer's sections are apps. Settings moves the one #panel into its screen,
   // shows its own two tabs (Settings, What's new), opens its section; Home takes it away again.

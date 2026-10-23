@@ -427,6 +427,7 @@ BAY_KINDS = ("bay", "projection", "oriel", "tower")
 TOWER_PAST_EAVE_M = 1.0
 #: T-2900: how far inside its end wall's plane a corner turret's ring may stand, at the most
 TURRET_CORNER_M = 0.3
+SHALLOW_PROUD_M = 0.3   # T-3047: a shallow projection stands at most this far proud
 
 #: T-2350: the K05 variant a flat K01 roof is built from (k05_roofs.json)
 FLAT_ROOF = "k05.roof.flat_parapet"
@@ -456,7 +457,8 @@ def _flat_roof(depth: float, eave: float, pitch: float, overhang: float) -> dict
 GABLE_PARAPETS = ("stepped", "coped")
 
 
-def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, side_wall: float) -> dict:
+def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, side_wall: float,
+                overhang: float = 0.0) -> dict:
     """The numbers a K01 gable roof is built to (T-2459): the ridge runs along the street
     front `ridge_back_m` behind the front wall's plane, the street slope rises to it at
     roof_pitch_deg from the front eave, and the rear slope falls from it to the rear wall's
@@ -465,7 +467,15 @@ def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, 
     high-v wall, `south` the low-v one), either `stepped` (crow steps, `steps` a slope, each
     clearing the covering behind it by K05's upstand and carrying its own coping) or `coped`
     (one coping following the slopes at that clearance); both stand `top_above_ridge_m` over
-    the ridge at their head."""
+    the ridge at their head.
+
+    T-3050: `hip_mass` stands a steeper HIPPED MASS over the low-v end of the front block
+    (1811's, its 1888 plate: a tall hipped roof over the bay, the lower gable roof running on
+    to the tall stack): a K05 hip over the whole depth from v 0 to `v_m`, its street and rear
+    faces at roof_pitch_deg from the same eave, so its street face is the gable's own street
+    plane; `apex_v_m`, where a picture puts its apex, pitches its two end faces to it. The gable's attic
+    then starts at `attic_from_m`, inside the hip's south face, and only the high-v (`north`)
+    wall is carried up as a parapet: the low-v wall is under the hip's end."""
     if not g:
         raise ParamError("a gable K01 roof names its gable_roof: ridge_back_m and the two ends")
     k5 = json.loads((ROOT / "data" / "components" / "prairie_1904" / "k05_roofs.json").read_text())
@@ -479,7 +489,10 @@ def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, 
     if back_deg < 15.0:
         raise ParamError(f"gable_roof: the rear slope falls at {back_deg:.1f} deg; under 15 a slate roof sheds no water")
     ends = g.get("ends") or {}
-    if set(ends) != {"north", "south"}:
+    hm = g.get("hip_mass")
+    if hm and set(ends) != {"north"}:
+        raise ParamError("gable_roof.ends: under a hip_mass only the north (high-v) wall is a parapet")
+    if not hm and set(ends) != {"north", "south"}:
         raise ParamError("gable_roof.ends names the parapet on both side walls, north and south")
     out = {}
     for side, e in sorted(ends.items()):
@@ -496,8 +509,40 @@ def _gable_roof(g: dict, depth: float, width: float, eave: float, pitch: float, 
     top = float(g.get("top_above_ridge_m", pp["top_above_ridge_m"]))
     if not pp["upstand_min_m"] <= top <= 1.5:
         raise ParamError(f"gable_roof.top_above_ridge_m: {pp['upstand_min_m']}-1.5 m")
+    hip = {}
+    if hm:
+        vm, va = float(hm["v_m"]), float(hm["attic_from_m"])
+        if not 2.0 <= vm <= width - 1.0:
+            raise ParamError(f"gable_roof.hip_mass.v_m {vm}: 2 m to 1 m short of the width {width}")
+        he = eave - overhang * tf
+        rise_h = (depth / 2 + overhang) * tf      # the street and rear faces at the street's pitch
+        apex = he + rise_h
+        # the apex's place along the front (`apex_v_m`, read off a picture) sets the two end
+        # faces' pitches; without it they take the street's, and the ridge is centred
+        av = hm.get("apex_v_m")
+        if av is None:
+            if vm < depth:
+                raise ParamError("gable_roof.hip_mass narrower than the depth names its apex_v_m")
+            tn = ts = tf
+        else:
+            av = float(av)
+            tn, ts = rise_h / (av + overhang), rise_h / (vm + overhang - av)
+            for side, t_ in (("south", tn), ("north", ts)):
+                if not 45.0 <= math.degrees(math.atan(t_)) <= 70.0:
+                    raise ParamError(f"gable_roof.hip_mass.apex_v_m {av}: the {side} end face falls at "
+                                     f"{math.degrees(math.atan(t_)):.1f} deg, outside 45-70")
+        ridge = eave + rise
+        # the attic's end stands inside the hip: under its south face and its north one
+        if not (he + (va + overhang) * tn >= ridge + 0.05 and he + (vm + overhang - va) * ts >= ridge + 0.05):
+            raise ParamError(f"gable_roof.hip_mass.attic_from_m {va}: the attic's end must stand inside "
+                             f"the hip, under both its end faces, at the ridge {ridge:.3f} m")
+        if apex < ridge + 0.5:
+            raise ParamError(f"gable_roof.hip_mass: its apex {apex:.3f} m stands under the ridge + 0.5")
+        hip = {"hip_mass": {"v_m": vm, "attic_from_m": va, "apex_m": round(apex, 4),
+                            "apex_v_m": av, "end_pitch_deg": {"south": round(math.degrees(math.atan(tn)), 4),
+                                                             "north": round(math.degrees(math.atan(ts)), 4)}}}
     return {"ridge_back_m": r, "ridge_m": round(eave + rise, 4), "back_pitch_deg": round(back_deg, 4),
-            "ends": out, "parapet_m": side_wall, "upstand_m": float(pp["upstand_min_m"]),
+            **hip, "ends": out, "parapet_m": side_wall, "upstand_m": float(pp["upstand_min_m"]),
             "top_above_ridge_m": top, "coping_m": float(cp["thickness_m"]), "drip_m": float(cp["drip_m"])}
 
 
@@ -1509,14 +1554,24 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # the north cheek from the wall 1.99 m north of the front's north corner); s_m stays
             # the front's centre, and the front keeps width_m. Neither cant: the square
             # pavilion, its points as they always were
-            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m"}:
-                raise ParamError(f"bays: {e['id']} sizes its projection by width_m, proud_m and an optional "
-                                 f"cant_left_m or cant_right_m, not {sorted(q)}")
+            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m", "shallow"}:
+                raise ParamError(f"bays: {e['id']} sizes its projection by width_m, proud_m, an optional "
+                                 f"cant_left_m or cant_right_m and shallow, not {sorted(q)}")
             cl, cr = (float(q.get(k, 0.0)) for k in ("cant_left_m", "cant_right_m"))
             if not all(c == 0.0 or 0.3 <= c <= 3.0 for c in (cl, cr)):
                 raise ParamError(f"bays: {e['id']}'s canted cheek runs 0.3-3.0 m along its wall, not "
                                  f"{cl if cl else cr} m")
             v["plan"] = {"kind": "polyline", "points": [[-w / 2 - cl, 0.0], [-w / 2, d], [w / 2, d], [w / 2 + cr, 0.0]]}
+            # T-3047: a SHALLOW pavilion (1801's south one, 0-0.1 m proud on its 1911 sheet) is
+            # too thin to hold its windows' recesses or its gable's copings: they run back
+            # through the host wall's plane, and the host opens its face round each recess
+            # (k08_bays.Bay.host_holes) and stops its eave box and gutter at the cheeks
+            if q.get("shallow") is not None:
+                if q["shallow"] is not True or e.get("variant") != "k08.projection.full_height" or cl or cr \
+                        or d > SHALLOW_PROUD_M:
+                    raise ParamError(f"bays: {e['id']}'s shallow is true, on a square full-height projection "
+                                     f"at most {SHALLOW_PROUD_M} m proud (has {d} m)")
+                v["shallow"] = True
         elif "plan" in e and v["kind"] == "tower":
             # T-2787: a tower read off a picture keeps the picture's radius and how far its
             # centre stands out of the wall; the kit's tower is the shape (its ring, its sides),
@@ -3319,7 +3374,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     flat_roof = _flat_roof(depth, eave, pitch, float(val("eave_overhang_m"))) if flat else {}
     mansard_roof = _mansard_roof(val("mansard"), depth, width, eave, pitch,
                                  float(val("eave_overhang_m")), shaped=bool(val("shaped_gable"))) if mansard else {}
-    gable_roof = _gable_roof(val("gable_roof"), depth, width, eave, pitch, st) if gable else {}
+    gable_roof = _gable_roof(val("gable_roof"), depth, width, eave, pitch, st,
+                             float(val("eave_overhang_m"))) if gable else {}
     # T-2820: the rear section, resolved before the stacks, one of which may stand on its attic
     from .k01_rear_section import resolve as resolve_rear_section
     rear_section = resolve_rear_section(val("rear_section") or {}, depth=depth, width=width, eave=eave,
@@ -3969,9 +4025,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                     if top < deck + 0.6 - 1e-9:
                         raise ParamError(f"chimney at ({u}, {v}) tops at {top} m, under the deck's "
                                          f"{deck:.3f} m + 0.6")
+                elif gable and st_.get("in_parapet"):
+                    # T-3050: a parapet stack read off a picture stands at its own top (1811's
+                    # tall south stack, its 1888 plate), clearing the ridge by the same 0.6 m
+                    if top < gable_roof["ridge_m"] + 0.6 - 1e-9:
+                        raise ParamError(f"chimney at ({u}, {v}) tops at {top} m, under the ridge's "
+                                         f"{gable_roof['ridge_m']} m + 0.6")
                 elif not mansard:
-                    raise ParamError(f"chimney at ({u}, {v}): a top_m of its own is a mansard or a flat "
-                                     "roof's stack")
+                    raise ParamError(f"chimney at ({u}, {v}): a top_m of its own is a mansard, a flat "
+                                     "roof's or a gable parapet's stack")
                 else:
                     crown = (val("mansard") or {}).get("crown") or {}
                     curb = mansard_roof["curb_m"] + float(crown.get("rise_above_curb_m", 0.0))

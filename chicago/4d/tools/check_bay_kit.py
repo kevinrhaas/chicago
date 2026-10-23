@@ -166,10 +166,19 @@ def rule_keyed(b, v):
     # T-2900: a corner turret's cone stands whole over its wing's roof (`cap_whole`), so its
     # roof and finial reach behind the face, inside its eaves' circle and nowhere else
     whole = ("roof", "finial") if v.get("cap_whole") else ()
+    # T-3047: a shallow projection's window recesses and its gable's parapet run back through
+    # the plane (its host opens its face round the recesses), no deeper than a recess reaches
+    through = (*K.WINDOW_ROLES, "band") if v.get("shallow") else ()
     worst = min((p[2], role) for role, pr in b.prims.items()
-                if role not in K.BOARD_ROLES and role not in whole for p in pr.pos)
+                if role not in K.BOARD_ROLES and role not in whole and role not in through for p in pr.pos)
     if worst[0] < -1e-6:
         fails.append(f"behind: a {worst[1]} vertex stands {-worst[0]:.4f} m behind the host wall's face")
+    if through:
+        deep = b.meta["recess_m"] - max(q[1] for q in v["plan"]["points"])
+        far = min((p[2], role) for role in through for p in b.prims.get(role, K.Prim(role)).pos)
+        if far[0] < -deep - 1e-6:
+            fails.append(f"behind: a shallow projection's {far[1]} reaches {-far[0]:.4f} m behind the host wall's "
+                         f"face, past its recesses' {deep:.4f} m")
     if whole:
         (cx, cz), reach = b.plan["centre"], b.plan["R"] + b.meta["overhang_m"]
         far = max(math.hypot(p[0] - cx, p[2] - cz) for role in whole for p in b.prims.get(role, K.Prim(role)).pos)
@@ -199,7 +208,11 @@ def plan_distance(r, p):
 
 def inside_point(b):
     """A point inside the bay's solid and outside every recess, one per storey."""
-    for cand in ((0.0, 0.05), (0.0, 0.15), (0.3, 0.1), (-0.3, 0.1)):
+    cands = ((0.0, 0.05), (0.0, 0.15), (0.3, 0.1), (-0.3, 0.1))
+    if b.v.get("shallow"):   # T-3047: inside so thin a projection, beside its windows
+        (x0, d), (x1, _) = b.v["plan"]["points"][1:3]
+        cands = ((x0 + 0.15, d / 2), (x1 - 0.15, d / 2))
+    for cand in cands:
         if not any(in_hull(cand, w["footprint"]) for w in b.windows):
             break
     lv = b.meta["levels_m"]
@@ -263,11 +276,14 @@ def rule_windows(b, tracer):
 def rule_recesses(b, v, data):
     fails = []
     m = 0.01
+    # T-3047: a shallow projection's recesses run back through the host's plane, which its
+    # host opens round them (k01_frontage: bay_holes); in front of the plane its runs still hold them
+    floor = -(b.meta["recess_m"] - max(q[1] for q in v["plan"]["points"])) - EPS if v.get("shallow") else m
     for w in b.windows:
         if w["recess_m"] < data["parts"]["recess"]["min_m"] - EPS:
             fails.append(f"recess: {w['opening']} recess {w['recess_m']} m is shallower than the kit's minimum")
         for p in w["footprint"]:
-            if p[1] < m:
+            if p[1] < floor:
                 fails.append(f"recess: {w['opening']} (run {w['run']}) runs to z {p[1]:.3f}, behind or onto the host wall")
                 return fails
             for i, r in enumerate(b.runs):

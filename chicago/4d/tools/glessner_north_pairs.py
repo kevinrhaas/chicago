@@ -8,7 +8,8 @@ asked what the heights are, so a camera fitted on one assumption cannot test it.
 
 This solve leaves the pairs' sill S and head H free. Each camera is refitted from the
 controls whose heights are printed or not in question — the corner at grade, the narrow
-first-floor light's course interval (HABS sheet 5: 9.25-14.4583 ft ng) and, in HABS 14,
+first-floor light's course interval (HABS sheet 5's beds 8-15, 9.3044-14.7471 ft ng
+since T-3045 laid the courses above bed 7 4.5 % over its printed inches) and, in HABS 14,
 the east eave — plus every upper-window corner at its plan position (W, +/-0.4 ft) with
 its height an unknown shared by the pair row. Pose, focal length, S and H are solved
 together; the principal point is held at the plate's centre, and moved by 5% of the
@@ -105,7 +106,7 @@ def controls():
     for w, z, px in cam14["solve"]["aperture_controls_W_z_px"]:
         if z in (20, 25.25):
             pairs14.append((f"W{w}-{'head' if z == 25.25 else 'sill'}", w, "head" if z == 25.25 else "sill", px))
-        elif z in (9.25, 14.458333):
+        elif z in narrow_light():
             fixed14.append((f"narrow-W{w}-z{z}", w, RECESS_FT, z, px))
     v14 = next(v for v in obs["views"] if v["id"] == "north-inclined")
     for p in v14["landmarks"]:
@@ -230,7 +231,7 @@ def derive():
     return {
         "ticket": "T-2850",
         "not_a_reading": "A re-solve of picks already committed by T-2200 (HABS 13) and T-2470 (HABS 14); no new archival reading and no new pick.",
-        "method": "Per photograph: pose, focal length and the pairs' shared sill S and head H solved together by least squares from fixed-height controls (corner at grade, the narrow first-floor light's printed course interval 9.25-14.4583 ft, in HABS 14 the east eave and T-2470's stack-crest and tower depth controls) and every upper-window corner at its plan W, 1 ft recess. HABS 14 solves its focal length and principal point; HABS 13, which has no off-plane control in frame, takes HABS 14's focal length with its principal point at the plate centre. Camera height bounded 1.0-2.5 m (T-2200). +/-5% principal-point moves are a sensitivity case, not a confidence interval.",
+        "method": "Per photograph: pose, focal length and the pairs' shared sill S and head H solved together by least squares from fixed-height controls (corner at grade, the narrow first-floor light's course interval, beds 8-15 (9.3044-14.7471 ft since T-3045), in HABS 14 the east eave and T-2470's stack-crest and tower depth controls) and every upper-window corner at its plan W, 1 ft recess. HABS 14 solves its focal length and principal point; HABS 13, which has no off-plane control in frame, takes HABS 14's focal length with its principal point at the plate centre. Camera height bounded 1.0-2.5 m (T-2200). +/-5% principal-point moves are a sensitivity case, not a confidence interval.",
         "views": views,
         "reading_ft": {"sill": round(float(np.mean(sills)), 2), "head": round(float(np.mean(heads)), 2),
                        "views_disagree_by": {"sill": round(float(np.ptp(sills)), 2), "head": round(float(np.ptp(heads)), 2)}},
@@ -245,6 +246,12 @@ def record_jambs():
     pairs = sorted((it["at"] for it in form["openings_18th"]["value"]["items"] if it.get("style") == "north_gable_pair"),
                    key=lambda at: at[0][0])
     return {"east": [pairs[0][0][1], pairs[0][1][0]], "west": [pairs[1][0][1], pairs[1][1][0]]}
+
+
+def narrow_light():
+    """The narrow first-floor light's sill and head, ft ng: beds 8 and 15 (T-3045)."""
+    form = json.loads(RECORD.read_text())["phases"][0]["form"]
+    return tuple(form["opening_heights"]["value"]["openings_18th"]["first"])
 
 
 def record_pairs():
