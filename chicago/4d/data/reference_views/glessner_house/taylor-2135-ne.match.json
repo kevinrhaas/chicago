@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "taylor-2135-ne",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "5fff90bb9d42aa51dc25ecacc8da8b2a02f5e56cfebc6fb8e789f1b26f284a1b",
+  "glb_sha256": "905e6268d467711deb6075ec5d94887b7f544bd11c1bedb0ab0968473df15b79",
   "camera_sha256": "f483dd0b658af4603b9125cc00ed31a0e6b4a973643c0d65e8dfe0d28947ba6f",
   "photo_sha256": "8f8c80a1fa6df906463ed8514b631ea6785b5b4b9b15b9d1e30b717da86c0a04",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/taylor-2135-ne-side-by-side.jpg",
@@ -51,6 +51,10 @@
     {
       "what": "T-3045 course heights: the courses between bed 7 and bed 23 are now laid 4.5 % over sheet 5's printed inches. Re-read through this camera by T-3044's own read_courses.py on the re-coursed render, the render's courses as laid now correlate with the photograph's at 0.77 and 0.69 on the two clean piers (N1, N2; 0.04 and 0.07 before) and 0.17 on S1 (-0.12 before), and the best free fit about bed 7 is 0.995-1.000 where it was 1.045-1.0475: the beds stand where the photograph's do (docs/RESEARCH/glessner-recourse-T-3045/readings.json). The relief half of the item stays open on T-3046.",
       "status": "fixed"
+    },
+    {
+      "what": "T-3024: the 18th Street coping lowered 0.7 ft to sheet 6's junction (parapet 0.5 ft, was 1.2) and the 1886 stone re-set (43.3-44.75 ft ng). Re-rendered from the rebaked master. Read as a proportion (not through the camera), the stack above the coping's junction stands about 1.14 of its seen width in the photograph against 1.03 in the render, so this view reads the junction lower still; that is carried with the stack's depth and width on T-3065.",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
