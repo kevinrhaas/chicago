@@ -1,0 +1,9 @@
+# Bardwell connected waistcoat source repair
+
+The actual town front of canonical run39712579846 showed missing upper-front shoulder panels. The old upper-arm-joint cap and arm-ownership cut removed them, rather than the unchanged shirt hiding an existing panel. This Bardwell-only repair retains a connected source-triangle panel over each shoulder in the existing waistcoat mesh, without masking, trim or additional materials.
+
+Exact baseline: ad813a6278b7d76961b78ef3483f1bbf3e106c02; actual canonical source LOD0 SHA2568b7d165bedfa5c8f12fd7e9aeb8d51e1cfc3cab816675a7817900f4bd9418198. External frozen proposal archive SHA256159f260664de2e33d4bdbe35793bd4c0a48df1a1fb0d60d5b3f254c3c5053e72 retains exact source preimages, patch, generated arrays, CPU callers, actual town bone receipt and independent peer review38571a64c3cbc1493cc51e09dfa3a42cb0c4978ae8572741247b9075476ff37b.
+
+The14 source controls compare to the independent exact old helper. Old topology fails both shoulder paths; the new1713vertex/3056triangle shell connects both. Three frozen actual idle frames (not distinct articulation extremes) give minimum upper-body projection1.504mm and12 sampled new shoulder surfaces/frame outside unchanged canonical shirt, minimum3.150mm. Two lateral armhole observations/frame remain shirt-only. Maximum emitted head/jaw weight0.498%, not zero. The normal gate includes meaningful real-source topology, opt-out and invalid-pattern controls.
+
+Registered Mount1835 genre paintings are qualitative references only: mount_1835_bargaining_for_a_horse and mount_1835_bar_room_scene. No measured/traced pattern, paint pixels, Bardwell outfit/likeness or pre-July1Chicago dating is inferred. All pattern dimensions are original reconstruction; see append-only L418 followup. Canonical exports, actual source/published LOD images, continuous fit and photographic acceptance remain pending. Forty inherited negative projections are not waived. T1789 stays open.

@@ -232,13 +232,11 @@ const COVERAGE = [
   // per viewport to cover a JSON file nothing reads.
   ['data/render/', NONE, 'committed instrument readings — neither published nor fetched'],
   ['docs/', NONE, 'prose — except docs/LIBERTIES.md, which compiles into the scene'],
-  // T-1786: the portable human contract. No scene reads it yet (L1 stands, nothing
-  // is drawn); tools/human_contract.py holds it in check.sh.
-  ['data/humans/', NONE, 'human contract + instance schema: human_contract.py --check'],
-  // T-1787: the portable-human export path's GLBs. publish.sh copies assets/web/ only, so
-  // these are never served, and no scene loads one (L1); human_contract.py --check and
-  // human_fixture.mjs --check hold them in check.sh, chicago-4d-humans.yml in the browser.
-  ['assets/humans/', NONE, 'portable-human GLBs — unpublished, drawn by no scene'],
+  // Portable human records and compressed deliveries now feed the1835 scene.
+  // Bootstrap/eligibility, resident cards, movement and the existing budget ladder
+  // cover a visible actor; source contracts and canonical CI remain additional checks.
+  ['data/humans/', [1, 3, 4, 5, 13], 'portable human scene/index/identity, resident card and town budgets'],
+  ['assets/humans/', [1, 4, 5], 'actual source/web human assets served by the scene; loader and town budgets'],
   ['README.md', NONE, 'prose'],
   ['AGENTS.md', NONE, 'prose'],
   // The changelog entry file a PR adds (owner, 2026-10-10). Nothing serves or imports
