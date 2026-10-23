@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "taylor-2135-ne",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "eabb640c6e2670f5d341c0dfab15ffade604f80cc7de095959c5b0ab4aecd6a5",
+  "glb_sha256": "5fff90bb9d42aa51dc25ecacc8da8b2a02f5e56cfebc6fb8e789f1b26f284a1b",
   "camera_sha256": "4cc0045194c77abda93e5c0155f36dd59f59983d15f844a1975cdcd1a48effb9",
   "photo_sha256": "8f8c80a1fa6df906463ed8514b631ea6785b5b4b9b15b9d1e30b717da86c0a04",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/taylor-2135-ne-side-by-side.jpg",
@@ -33,8 +33,8 @@
       "status": "fixed"
     },
     {
-      "what": "Stone/course relief: the photograph's rock-faced courses alternate deep and shallow more strongly than the render's. Read by T-3044 (docs/RESEARCH/glessner-course-reading-T-3044/). The \"deep and shallow\" is two things. First, the heights: relative to the photograph's own sills and heads, its beds 7-23 stand 4.5-4.75 % over the printed string the model lays, on three piers, bed 23 at 22.19-22.40 ft door against the model's 21.63 and sheet 6's 22.39-22.49 (T-3045 re-courses). Second, the relief: a high course's lower-lip shadow is 1.32 times a low course's here and 0.95 times in the render (T-3046 deepens the high courses). T-3045 has laid the heights (the fixed entry below); what stays open here is the relief, T-3046's.",
-      "status": "open"
+      "what": "Stone/course relief: the photograph's rock-faced courses alternate deep and shallow more strongly than the render's. Read by T-3044 (docs/RESEARCH/glessner-course-reading-T-3044/). The \"deep and shallow\" is two things. First, the heights: relative to the photograph's own sills and heads, its beds 7-23 stand 4.5-4.75 % over the printed string the model lays, on three piers, bed 23 at 22.19-22.40 ft door against the model's 21.63 and sheet 6's 22.39-22.49 (T-3045 re-courses). Second, the relief: a high course's lower-lip shadow is 1.32 times a low course's here and 0.95 times in the render (T-3046 deepens the high courses). T-3045 laid the heights (the fixed entry below), and T-3046 the relief: a course printed 11.5 in or over now crowns 1.25 times its stones' bow and rises to it over at most 0.09 m, so through Taylor 2135's camera, on the laid beds, a high course's lower-lip shadow reads 1.33 times a low course's in the render against 1.32 in the photograph (0.86 before; docs/RESEARCH/glessner-course-relief-T-3046/).",
+      "status": "fixed"
     },
     {
       "what": "The early streetscape and neighbor geometry are separate context work; monochrome/sepia reproduction does not establish exact1904 RGB, and the courtyard is not visible.",

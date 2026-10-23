@@ -180,9 +180,10 @@ def build_jamb_piece(b,w):
         b.decorate=True
         b.add_box(x0,w['u0'],0,x1,w['u1'],w['z1'],w['conf'],d.GRANITE,skip=('bottom',face))
         had='block' in b.__dict__;original=b.block
-        def dressed(polygon,point,normal,confidence,mat,rng,holes=None):
+        def dressed(polygon,point,normal,confidence,mat,rng,holes=None,course=None):
             # Keep the established course schedule and its mortar bed. Dress
-            # the reveal flush so rock-face relief cannot bury the hinge pins.
+            # the reveal flush so rock-face relief cannot bury the hinge pins
+            # (so a course's own crown, T-3046, has nothing to raise here).
             variant=12+rng.randrange(4)
             for fragment in d.subtract(polygon,holes or []):
                 b.raw([point(q,0) for q in fragment],confidence,variant,normal)

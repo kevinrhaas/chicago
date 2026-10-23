@@ -554,6 +554,8 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 p.turrets[-1]["vent"]["ledge_corners"] = "wrapped"
             if t.get("body_material"):
                 p.turrets[-1]["body_material"] = t["body_material"]
+            if t.get("body_coursing"):
+                p.turrets[-1]["shaft_courses"] = int(t["body_coursing"]["shaft_courses"])
             p.turrets[-1]["eave"] = {
                 "overhang_m": float(e["overhang_ft"]) * FT,
                 "drop_m": float(e["drop_ft"]) * FT,
@@ -837,6 +839,13 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
         # corner and stay registered on the 18th Street apertures (set on its sums above
         # north grade); on the Prairie face that is sheet 5's base line, 0.20 ft over the walk.
         p.detail["ashlar_origin_m"] = fr.z(0.0, "ng")
+        # T-3046: a course printed at or over `from_in` crowns `scale` times its stones'
+        # bow, its lower face rising over at most `lip_m` (Taylor 2135's deep and shallow).
+        crown = raw.get("ashlar_crown_by_course")
+        if crown:
+            high = {"crown_scale": float(crown["scale"]), "lip": float(crown["lip_m"])}
+            p.detail["ashlar_course_crowns"] = [high if float(h) >= float(crown["from_in"]) else None
+                                                for h in raw.get("ashlar_courses_in", [])]
         p.detail["ashlar_relief_m"] = [float(v) * FT for v in
                                         raw.get("ashlar_relief_ft", [0.025,0.15])]
         p.detail["conf"] = cf("v4_detail")

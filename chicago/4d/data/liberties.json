@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 697,
+  "count": 699,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -51145,6 +51145,82 @@
         "T-3047",
         "T-3016",
         "T-3048"
+      ]
+    },
+    {
+      "id": "L-glessner-course-relief-3046",
+      "title": "Glessner's high courses crowned deeper than its low ones, fitted to Taylor 2135's shadows",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.v4_detail"
+        }
+      ],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Taylor 2135 (c. 1887-89, J. W. Taylor, Glessner Residence (2135), c.1887–1889), read through its camera on three clear piers of the Prairie front, shows a course printed 11.5 in or over throwing about a third more shadow under its lower lip than a low course does: 1.32 times, re-read on the beds as earlier work lays them (the research notes on glessner course relief). The render read 0.86. The cause was in the build. Every course's bow was capped at 60 mm, and its lower face rose to the crown over 44 % of the course's height, so a tall course's lip came out gentler than a short one's. A course printed 11.5 in or over now crowns 1.25 times its stones' bow and rises to it over at most 0.09 m (v4 detail ashlar crown by course). That is about the lower face a 7.5 in course already has. Through the same camera the render now reads 1.33. The low courses are unchanged, at 0.359 before and 0.353 after (the occlusion re-bake). Both granite faces take it, because one coursing turns the NE corner (§ 2). **What is invented.** Both numbers, the 1.25 and the 0.09 m. No source prints how far any course projects. They were set so that the render's shadow ratio reads the photograph's through one camera, and the ratio is the measured thing, not the depth. The review render's light is not the print's exposure, so the two sets of absolute shadows differ (the render's 0.47 and 0.35 against the print's 0.25 and 0.19). Only their ratio was matched. The 11.5 in line is earlier work's split between high and low courses, not a mason's rule. The Light grade builds no bow, so it is unchanged. **What is kept.** The course heights and string (“the printed course inches carried up the Prairie front against sheet 6”), the stones' joints and lengths, the arris and pitch line, the per-stone relief draw and every random draw. The rock face's 0.104 m ceiling in front of the wall also stands, so lintels and voussoirs stay in front of the field."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.v4_detail`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23."
+        }
+      ],
+      "work_refs": [
+        "T-3046",
+        "T-3044",
+        "T-3045",
+        "T-2858",
+        "T-3026"
+      ]
+    },
+    {
+      "id": "L-glessner-cupola-coursing-3046",
+      "title": "Glessner's stable cupola laid in rock-faced courses",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "glessner_house",
+          "phase": "as_built_1887",
+          "aspect": "form.turret_stable"
+        }
+      ],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The c. 1887 Cornell A. D. White northwest view (Unknown photographer, Detail, Glessner House, ca. 1887) shows the cupola's shaft under the lower pigeon ledge with two or three bed joints. It shows each pigeon-hole grade as one rock-faced course between its ledges (§ 4). The model's body was dressed granite plates (“Glessner's stable cupola body built in granite, its landing ledges in stone”). It is now laid in the house's rock-faced stone. The shaft, from the roof to the lower ledge, is four equal courses of about 0.27 m, and the part clear of the ridge shows two or three joints through the Cornell camera. Each grade is one course from its ledge to the next. The band over the top grade, under the eave, is one course. Every face's courses run the full plan, so they close the corners. The pigeon holes' reveals run out to the pitch line, as the house's own apertures' do. **What is invented.** The count of four shaft courses, chosen to give the joints the print shows over the ridge. The print does not resolve the vertical joints, so the block lengths are the house's own rule for a course of that height. The top band's single course is not read. The print is too small there. The Light row keeps the plates, as it keeps the cap's fine joints. **What is kept.** Plan, centre, heights, ledges and their wrapped corners, the eave, the pyramid and the dovecote counts and sizes of “The Glessner stable cupola as a two-grade dovecote, and the loft door and hoist iron, at counts and sizes of ours”, “Glessner's stable cupola body built in granite, its landing ledges in stone” and “Glessner's stable cupola raised about a foot, narrowed to 5.5 ft and its eave drawn in, read from both northwest prints at once”."
+        },
+        {
+          "label": "Covers",
+          "text": "`glessner_house.as_built_1887.form.turret_stable`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23."
+        }
+      ],
+      "work_refs": [
+        "T-3044",
+        "T-3046",
+        "T-3026"
       ]
     },
     {

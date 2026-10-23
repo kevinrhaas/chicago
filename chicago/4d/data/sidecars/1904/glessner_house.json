@@ -1248,7 +1248,10 @@
           "flare_run_ft": 0.5,
           "flare_pitch": 0.55
         },
-        "body_material": "granite"
+        "body_material": "granite",
+        "body_coursing": {
+          "shaft_courses": 4
+        }
       },
       "confidence": "reconstructed",
       "sources": [
@@ -4291,6 +4294,11 @@
             23
           ],
           "scale": 1.045
+        },
+        "ashlar_crown_by_course": {
+          "from_in": 11.5,
+          "scale": 1.25,
+          "lip_m": 0.09
         }
       },
       "confidence": "reconstructed",
