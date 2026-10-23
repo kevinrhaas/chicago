@@ -1383,6 +1383,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "wheeler_house_1812_prairie/as_built_1884/form.chimneys": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1812_wheeler_c1955_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "wolf_point_tavern/log_frame_1828/form.construction": {
       "kind": "structure",
       "blocked_sources": [
