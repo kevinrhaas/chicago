@@ -1,0 +1,26 @@
+{
+  "id": "chicagology_1736_prairie_page",
+  "type": "website",
+  "citation": "'1736 S. Prairie', chicagology.com, Chicago Streets: Prairie Avenue. A page of transcribed directory entries, newspaper notices and maps for 1736 S. Prairie Avenue (old no. 882).",
+  "author": "chicagology.com",
+  "date": "accessed 2026-10-22",
+  "describes_date": "1875-1912",
+  "url": "https://chicagology.com/chicagostreets/prairieavenue/1736prairie/",
+  "locator": "The page head ('Occupants: Henry Strong, Hugh McBirney'; 'Life Span: 1875-1912'); the directory transcriptions of 1884, 1885, 1887, 1892, 1904 and 1911; the Chicago Tribune city-property notice of 25 December 1880.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "A website's transcriptions, cited in words only; nothing is copied into the scene.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read 2026-10-22 (T-3037) through a fetch of the live page that returned the transcriptions quoted below verbatim. The Prairie library read the same page earlier (prairie_1904_v1/research/images/stream-chicagology-north.json, cgn-1736-text). The directories and the Tribune are read here only as chicagology transcribes them.",
+  "note": "Read: the Tribune of 25 December 1880, 'Prairie av. nw cor of Eighteenth st, e f, 27 11-13x177 ft. improved, dated Dec 18 (Henry Strong to Hugh McBinney)......25,000' (the page's spelling); the directories, 1884 'McBirney, Hugh, treas. McBirney & Johnston white lead co. ... house 1736 Prairie av.', 1885 'pres. McBirney & Johnston white lead co.', 1887 'v. pres. Southern white lead co. 306 W. 18th, h. 1736 Prairie av.', 1892 'McBirney Hugh Residence 1736 Prairie Av', and 'McBirney Day h 1736 Prairie' in 1904 and 1911. The page gives the house's life span as 1875-1912 and does not say where that comes from.",
+  "what_it_supplies": [
+    "that Hugh McBirney bought the improved corner lot from Henry Strong in December 1880, for $25,000",
+    "that Hugh McBirney made white lead, as treasurer, then president, of McBirney & Johnston and later vice-president of the Southern White Lead Company",
+    "the page's life span for the house, 1875-1912"
+  ],
+  "what_it_does_not_supply": [
+    "the source of its 1875-1912 life span",
+    "anything of the house's form"
+  ]
+}

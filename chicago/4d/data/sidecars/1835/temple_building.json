@@ -25,7 +25,8 @@
       "baptisthistoryhomepage",
       "andreas_1884_v1"
     ],
-    "note": "THE START IS DATED BY AN ARRIVAL, WHICH IS BETTER THAN A YEAR. Dr John T. Temple reached Chicago 'about the 4th of July, 1833', started a subscription for a building and headed it with $100; 'in a few weeks the building was erected'; and then, exactly: 'When Rev. Allen B. Freeman, with his wife, arrived on the 16th of August, he found the church building ready for use' (baptisthistoryhomepage, transcribing Andreas I pp. 315-325 with print page markers). So the structure is standing and usable on 1833-08-16, which is the date taken here - a date somebody recorded about somebody else's journey, which is why it is firm. THE END IS A HOUSEKEEPING BOUND, NOT A DEMOLITION DATE. No source reached says how long the building stood or what became of it. 1835-12-31 is the ordinary continuity cut at the scene year that this dataset uses where a fate is unattested, the same convention peck_store, madore_beaubien_house and hogan_store carry. The range is tagged inferred because of that second half. WHAT IS NOT IN DOUBT is the scene date: the building was in shared denominational use until the Presbyterian church was dedicated on 4 January 1834, and Sproat's school occupied the upper storey from December 1833."
+    "note": "THE START IS DATED BY AN ARRIVAL, WHICH IS BETTER THAN A YEAR. Dr John T. Temple reached Chicago 'about the 4th of July, 1833', started a subscription for a building and headed it with $100; 'in a few weeks the building was erected'; and then, exactly: 'When Rev. Allen B. Freeman, with his wife, arrived on the 16th of August, he found the church building ready for use' (baptisthistoryhomepage, transcribing Andreas I pp. 315-325 with print page markers). So the structure is standing and usable on 1833-08-16, which is the date taken here - a date somebody recorded about somebody else's journey, which is why it is firm. THE END IS A HOUSEKEEPING BOUND, NOT A DEMOLITION DATE. No source reached says how long the building stood or what became of it. 1835-12-31 is the ordinary continuity cut at the scene year that this dataset uses where a fate is unattested, the same convention peck_store, madore_beaubien_house and hogan_store carry. The range is tagged inferred because of that second half. WHAT IS NOT IN DOUBT is the scene date: the building was in shared denominational use until the Presbyterian church was dedicated on 4 January 1834, and Sproat's school occupied the upper storey from December 1833.",
+    "from_is": "began"
   },
   "change_note": "The two-storey frame building Dr John T. Temple's subscription put up near Franklin and South Water in the summer of 1833 - worship below, school above, about $900 - standing and ready for use by 16 August 1833. Used in turn by Methodists, Presbyterians and Baptists until the Presbyterian church was dedicated in January 1834, and by Grenville T. Sproat's English and Classical School for Boys in the upper storey from December 1833. No change of fabric is attested inside the phase.",
   "placement": {
@@ -165,6 +166,14 @@
         "moses_kirkland_history_of_chicago_v2"
       ],
       "note": "The First Baptist Church was organised on 19 October 1833 with nineteen members and Rev. Allen B. Freeman; Andreas calls this structure 'a small house of worship belonging to the First Baptist Church Society' by December 1833. Sproat's school is Andreas's. THE SHARED USE BY METHODISTS AND PRESBYTERIANS ENDED IN JANUARY 1834 and is not carried forward to the scene date: by 1835 the Presbyterians had their own building at Lake and Clark, which is a separate record here, and the Methodist meeting house is a north- or west-bank building (see walker_meeting_house and data/exclusions.json). A SECOND COMPILER PUTS THE SCHOOL IN THIS SAME BUILDING, BY THE SAME STREET AND CROSS STREET (T-1690). Moses and Kirkland, History of Chicago, Illinois, vol. 2 (1895), printed page 79, the reading `bk_mose2_003`: Sproat 'established an English and classical school for boys, occupying for that purpose the First Baptist church, a small frame building located on South Water street near Franklin', with 'Miss Sarah L. Warren (afterwards Mrs. Abel E. Carpenter)' his assistant from the spring of 1834. That is the Andreas building and the Andreas school under the Andreas street, so it corroborates this record rather than adding a second meeting house: the town has ONE First Baptist building near Franklin on South Water, and it is this one. The volume spells him Granville; Andreas and this record keep Grenville."
+    },
+    "built": {
+      "value": 1833,
+      "confidence": "attested",
+      "sources": [
+        "baptisthistoryhomepage"
+      ],
+      "note": "Raised in a few weeks of summer 1833 and 'ready for use' on 16 August."
     }
   },
   "residents": [

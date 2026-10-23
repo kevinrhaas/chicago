@@ -74,6 +74,10 @@
       "$ref": "#/$defs/attested",
       "description": "Optional sourced present-day survival/status, separate from historical phase ranges. The note must state when it was checked; never extends a modeled phase."
     },
+    "built": {
+      "$ref": "#/$defs/attested",
+      "description": "T-3037. When the structure was built, as its sources give it, separate from the phase ranges (a phase can begin later than the building, as an alteration does). `value` is a year (1886), or 'about 1834', 'by 1886', 'between 1870 and 1876', or '1864 or 1875' where the sources disagree; tools/validate.py holds the form. The card prints it ('Built in 1886.'), so a year no source gives is never written here."
+    },
     "reconstruction": {
       "type": "object",
       "additionalProperties": false,
@@ -1076,6 +1080,20 @@
         },
         "note": {
           "type": "string"
+        },
+        "from_is": {
+          "enum": [
+            "began",
+            "seen"
+          ],
+          "description": "T-3037. What the start IS, so a card may print it: 'began' when a source dates the start of this phase (built, completed, converted, extended, opened), 'seen' when it is the first date a source shows the structure standing and it may be older. Absent: the start is a bound the record chose (the scene's year, a description's window, a parent's range), and no card prints it as a date."
+        },
+        "to_is": {
+          "enum": [
+            "ended",
+            "seen"
+          ],
+          "description": "T-3037. What the end IS: 'ended' when a source dates the end of this phase (burned, demolished, moved, altered), 'seen' when it is the last date a source shows the structure standing (a later map or directory). Absent: the end is a bound the record chose, and no card prints it as a date."
         }
       }
     },

@@ -43,9 +43,11 @@ export default register('inspect-sources', {
   'label.notable': 'Notable fact',
   'label.stood': 'Stood here',
   'label.stood.whether': 'Whether it stood here',
+  'stood.in': 'In {year}',
   'label.place': 'Where it stood',
   'label.outline': 'Its outline',
   'label.detail': 'A recorded detail',
   'attr.present-status': 'Today',
   'attr.function': 'Use',
+  'attr.built': 'Year built',
 });

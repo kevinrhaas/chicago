@@ -9437,8 +9437,10 @@ for (const [label, viewport, touch] of [
       cardShape.saug.homes.where === 'evidence' && cardShape.saug.homes.liberties === 'liberties'
       && cardShape.saug.homes.record === 'record',
       JSON.stringify(cardShape.saug.homes));
-    check(`${label}: Hogan's facts say it was standing, from the year its record gives`,
-      cardShape.hogan.year === '1831' && /^Standing: 1831\b/.test(cardShape.hogan.standing)
+    // T-3037: 31 March 1831 is the first date a source puts the store standing (`from_is: seen`),
+    // not its build date, so the row says "by 1831".
+    check(`${label}: Hogan's facts say it was standing by the year its record first sees it`,
+      cardShape.hogan.year === '1831' && /^Standing: by 1831\b/.test(cardShape.hogan.standing)
       && cardShape.hogan.facts.length >= 3,
       `"${cardShape.hogan.standing}" from ${cardShape.hogan.year}; ${cardShape.hogan.facts.join(' | ').slice(0, 200)}`);
 

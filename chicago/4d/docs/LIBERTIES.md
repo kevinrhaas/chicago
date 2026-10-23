@@ -27034,6 +27034,21 @@ houses in the traced sheets' mix. North of 16th Street only Indiana's west face 
 and north of Twelfth only Michigan's (the yards, the lake front and its park lie east). Past the
 450 m near ring a run of three to six lots is one box at the house rules' heights, and a tree there is an
 eight-sided crown with no trunk.
+**Amended (T-3038, 2026-10-22; owner: "you put a building in the middle of the street, fix this and any
+others", then "some white things sitting in the tracks and also some streets that dont quite connect ...
+it seems odd to have streets ending like that"):** east of Calumet Avenue south of its curve at 18th
+Street, the lots no longer stop 46 m behind Calumet's east line with grass beyond: they run back to a
+fence's width (3 m) short of the Illinois Central's west verge, as Sanborn 1911 sheet 28 draws Calumet's
+east lots at 20th Street running from the avenue's line to the railway's, and where the railway bears
+away to the south-east, Calumet's pitch repeated east (the same invented avenues as above) carries the
+city up to the right of way. Every faded street now runs to the right of way and stops at its west verge
+with a square end, as the city's streets met the railway's fence; none is drawn across or along the
+tracks (no crossing or viaduct is claimed). Every stand-in is tested as its whole rectangle, not its
+centre, against the street grid's carriageways, walks, parkways, curbs and alleys, the faded streets with
+a walk's width beside them, the right of way and the stand-ins already placed, and is cut back off them
+or dropped; a sheet's drawn part is cut back the same way where its smallest rectangle overran the
+sheet's own street or alley line. Each block of the projection draws from its own seed. All of this is
+still invented: what stood east of Calumet below 20th Street is on Sanborn 1911 sheet 36, not held.
 **How to resolve:** a 1904 map of the city's streets and land use (the Sanborn volumes' key maps, a
 Rand McNally or Greeley-Carlson plat) traced through the same georeference would place each street,
 replace the zones with what the map draws, and put the South Branch, the yards and the Loop's blocks
@@ -29263,7 +29278,7 @@ balustrade panels, the downpipes on the front.
 **How to resolve:** T-2544 (the front's detail: the balcony, the arched third storey, the stone lower
 storeys under a brick upper wall) and T-2545 (the flanks, the rear, the roof behind the gable and the
 c. 1955 and 1915 views) replace these choices in place, each against the same camera.
-**Covers:** `wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_front_m`, `wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_side_m`, `wheeler_house_1812_prairie.as_built_1884.form.service_wall_brick`, `wheeler_house_1812_prairie.as_built_1884.form.stone_front`, `wheeler_house_1812_prairie.as_built_1884.form.street_front_trim`, `wheeler_house_1812_prairie.as_built_1884.form.wall_head`, `wheeler_house_1812_prairie.as_built_1884.form.roof_form`, `wheeler_house_1812_prairie.as_built_1884.form.roof_pitch_deg`, `wheeler_house_1812_prairie.as_built_1884.form.eave_overhang_m`, `wheeler_house_1812_prairie.as_built_1884.form.stair_tread_m`, `wheeler_house_1812_prairie.as_built_1884.form.stair_landing_depth_m`, `wheeler_house_1812_prairie.as_built_1884.form.side_bays`, `wheeler_house_1812_prairie.as_built_1884.form.north_bays`, `wheeler_house_1812_prairie.as_built_1884.form.rear_bays`, `wheeler_house_1812_prairie.as_built_1884.form.roof_covering`.
+**Covers:** `wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_front_m`, `wheeler_house_1812_prairie.as_built_1884.form.wall_thickness_side_m`, `wheeler_house_1812_prairie.as_built_1884.form.service_wall_brick`, `wheeler_house_1812_prairie.as_built_1884.form.stone_front`, `wheeler_house_1812_prairie.as_built_1884.form.street_front_trim`, `wheeler_house_1812_prairie.as_built_1884.form.wall_head`, `wheeler_house_1812_prairie.as_built_1884.form.roof_pitch_deg`, `wheeler_house_1812_prairie.as_built_1884.form.eave_overhang_m`, `wheeler_house_1812_prairie.as_built_1884.form.stair_tread_m`, `wheeler_house_1812_prairie.as_built_1884.form.stair_landing_depth_m`, `wheeler_house_1812_prairie.as_built_1884.form.side_bays`, `wheeler_house_1812_prairie.as_built_1884.form.north_bays`, `wheeler_house_1812_prairie.as_built_1884.form.rear_bays`, `wheeler_house_1812_prairie.as_built_1884.form.roof_covering`.
 **Ticket:** T-2543 (piece 1 of T-1884).
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-16 (T-2543).
@@ -31288,3 +31303,84 @@ building in place under the same id; T-3014 sources and refines the church.
 **Covers:** `glessner_house.as_built_1887.form.turret_stable`.
 **Ticket:** T-3031 (piece 2 of T-3023).
 **Recorded:** 2026-10-22.
+
+### L-k01-1811-oriel-3007 — 1811 Prairie's oriel: its south return's lights, its rounded base and its back over the round
+
+**Decision:** The oriel over 1811 Prairie's entrance arch is rebuilt to the 1888 Inland Architect plate through the T-2541 camera (T-3007): a flat front 0.6 m out from v 6.82 to 9.69 (the plate's x 338-470 px), a square north return the camera cannot see, and a south return splayed back to the wall plane at v 10.10 (x 497 px), over the entrance block's rounded corner; its spire's apex over the front's middle (x 414 against the plate's 416); and a rock-faced base band 5.0-5.7 m whose foot turns under to the wall on a quarter round, in place of K08's three corbel courses. The plan and the heights are read off the plate and graded `inferred`. Four things are invented. (1) The plate shows THREE close-set narrow transomed lights in the return (x 473-491 px, about 0.15 m each on thin mullions); K08 cannot stand three in a 0.73 m return with its frames and its 0.33 m least recess, so two of 0.2 m stand there, covering the same stretch (x 472-488). (2) The round under the base is 0.2 m in radius: the plate shows the band's face ending at about 5.18 m and a shadow under it to the wall at about 5.0 m, not the curve's section. (3) The base's rock face is K08's even coursing (0.35 m courses), not the plate's stone-by-stone layout. (4) Where the return stands over the round, the curve falls away behind the oriel's back by up to 0.23 m; the back is closed on the wall plane from the base's foot to the round's top (8.30 m) in the oriel's walling, so no one looking up the gap sees into it. The plate cannot see that face.
+
+**Re-opens on:** a photograph that shows the oriel's south return or its base close up. T-2920 solves the cameras of 1811's other pictures.
+**Ticket:** T-3007 (piece 3 of T-2989).
+**Review:** `data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.match.json`.
+**Recorded:** 2026-10-22.
+
+### L-kimball-1801-deck-cresting-3000 — 1801 Prairie's roof dressing: hooded dormers, the deck's cresting and finials, and the flank's tall stack read off the Taylor print, their sections and the cresting's pattern reconstructed
+
+**Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.chimneys`
+**Decision:** the main mansard of the W. W. Kimball house at 1801 Prairie (T-3000, piece 3 of T-2540)
+takes what J. W. Taylor's c. 1895 photograph (`taylor_c1895_kimball_residence_1801`) shows on its
+roof, where the build had none of it. **What is read, not invented.** Through T-2538's solved camera:
+one hooded dormer on each face the camera sees, close by the corner, a short face with one small
+light (about 0.6 by 0.7 m, its centre within about 10 px of the print's on both faces) under a
+shelf, and over the shelf a tall slated hood about 1.5-1.8 m high whose front narrows as it climbs
+and whose cheeks widen against the receding roof; the street's at v 3.0 (the print reads about
+v 2.7; 3.0 is the nearest a lower-face dormer stands to the corner's hip), the 18th Street face's at
+u 16.7, about 0.5 m higher. A rail of iron cresting about 0.55 m high round the deck (about 30 px of
+the print at 54 px a metre; the build's 29 px). A slated pyramid about 1.0 m across and 1.4 m high
+rising from the curb's north-west corner under a turned finial, the finial about 2.2 m (116 px against
+the print's about 120), and a second finial at the deck's south end. The flank's tall stone stack at
+the flank section's east end, about 1.2 m across, its cap's top about 16.4 m (y 458-477 on the
+print against 462). **What is invented.** The dormer's sections: the face's 0.2 m surround, the
+shelf 0.12 m deep and 0.08 m proud, the hood's 0.15 m lean back and 0.3 m taper each side (the print
+gives the shapes, not the numbers); the light as a two-over-two sash. The cresting's pattern is the
+K10 kit's (`k10.cresting.iron_ridge`: posts, C-scrolls and spears) stretched to the print's height:
+the print's panels read only as a dense pierced band at this scale. The finials' turnings, one
+pattern at every corner of the deck; the two the print does not see (the rear's) follow the two it
+does. The hood's slopes in the lower faces' slate. The stack's plan depth into the roof and its cap
+as a plain block 0.25 m proud and 0.5 m deep for the print's corbelled one. **Not changed here.** The
+print's curb stands about 35-50 px lower than the build's at the front's corner, and the front's deck
+ends at the print's x 1092 where the build's runs on to x 1187, so the cresting, the corner hood and
+the south finial stand where the build's curb and deck do, not where the print's do (T-1890's, found here). No
+second tier of dormers is in the print, and nothing rises behind the pavilion's gable: the parent's
+"pavilion's stack" is not seen from this camera.
+**How to resolve:** a nearer or second photograph of the roof would give the cresting's pattern, the
+finials' turnings and the dormers' sections; T-3003's 1929 and HABS photographs may show the rear.
+**Ticket:** T-3000 (piece 3 of T-2540).
+**Review:** `data/reference_views/kimball_house_1801_prairie/taylor_c1895_northwest.match.json`.
+**Recorded:** 2026-10-22 (T-3000).
+
+### L-k01-1812-wheeler-roof-3033 — 1812 Prairie's roof behind the gable built as a mansard with straight steep slate faces, read off the photographs
+
+**Decision:** George H. Wheeler's house at 1812 Prairie (T-3033, piece 1 of T-2545) stands a
+mansard behind its shaped gable where K01's 45-degree hip stood: straight steep slate faces at
+72 degrees from the side walls' heads (12.45 m) to a level curb at 14.45 m, and an upper hip over
+the curb at 10 degrees in standing-seam tin. The kit learns it: a shaped gable may stand before a
+mansard's street face as well as a hip's street slope, its apex clearing the mansard's ridge, and
+behind a shaped gable a mansard's cornice may be as shallow as the gable's own eave (0.05 m) where
+it otherwise projects 0.3-1.0 m. Every other K01 house re-emits byte-identical.
+**What is read, not invented.** Through the camera T-2543 solved
+(`data/reference_views/wheeler_house_1812_prairie/levy_front.json`), on 3x crops of Levy's print:
+behind each shoulder a slate face laid in level courses under a level moulded cap with nothing over
+it — on the north the cap at y 302-313 px and the face's corner leaning out about 44 px over 143 px
+(about 0.5 m over 1.6 m of rise: a face of about 72 degrees); on the south the cap at y 257-277 px.
+The 1816 Henderson photograph (`chicagology_1816_henderson_photo`) sees 1812's south face over
+1816's roof as one straight steep slate plane with a level top, and the c. 1955 photograph shows
+the same. Rendered, the build's north curb stands at y 294-296 px, within about 8 px of the print's
+cap.
+**What is invented.** The 72-degree chord (read from one corner's lean, not measured on a section);
+the faces straight, with no bow; the rise of 2.0 m, the foot of K01's one-storey range, which puts
+the third storey under the walls' heads and an attic in the faces; the upper hip's 10 degrees and
+its tin, which no picture shows; the curb's own moulding (K05's) for the print's moulded cap; the
+ledge under the kneelers raised 2 cm to 12.57 m, since K01 stands it 0.12 m over a mansard's
+fascia top; the stack's top kept at 17.59 m (2.5 m over the new ridge) where it stood over the hip.
+**What is built otherwise than read.** On the south the print's slate face ends in a vertical band
+just outside the south wall's line, under a heavier cap about 0.4 m over the north cap, with the
+tall stack standing on it: the south wall carried up past the curb as a coped parapet, which the
+build does not have (an open item on the match record, T-3034's).
+**How to resolve:** The c. 1955 photograph's camera (T-3034) reads the south parapet, the stack's
+place and the faces' pitch from a second direction; a section or a building permit drawing would
+settle the rise and the attic.
+The roof's form and its faces are now inferred from Levy's print, so `form.roof_form` leaves L-k01-1812-wheeler-front-2543's Covers; the upper hip's pitch, which no picture shows, stays reconstructed.
+**Covers:** `wheeler_house_1812_prairie.as_built_1884.form.roof_pitch_deg`.
+**Ticket:** T-3033 (piece 1 of T-2545).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
+**Recorded:** 2026-10-22 (T-3033).

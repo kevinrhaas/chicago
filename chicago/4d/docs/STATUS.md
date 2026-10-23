@@ -409,8 +409,8 @@ names that restate it are dropped, a title that opens with it loses the prefix, 
 that already holds it takes the line's place. A title's bracketed aside carrying a ticket
 number ("(district draft; refined by T-1894)") is dropped. The lead is the phase's own
 account verbatim when it is clean, else at most three templated sentences: what it was
-(storeys, material, use), how long it had stood like this, and who lived here or what it is
-today, marked `data-composed`. `tools/test_fallback_summary.mjs` (in `check.sh`) runs the
+(storeys, material, use), when it was built or stood as the record dates it (T-3037 below;
+never a bound), and who lived here or what it is today, marked `data-composed`. `tools/test_fallback_summary.mjs` (in `check.sh`) runs the
 card's own `cardOpening` over all 886 structures in 1812, 1835 and 1904 and finds none of
 those problems; the smoke's composed-lead check is restated (it no longer repeats the
 location) and part 14 gains QA-08 on the Glessner card.
@@ -24458,3 +24458,27 @@ The horse research deliverable inventories the existing procedural horse/rig/har
 
 
 The six added reference records take the complete404-source catalogue index from159155 to161435 raw bytes. The declared raw allowance moves from160000 to168000 following the standing measured-headroom policy and previous8000-byte source increments; citations remain whole. Actual gzip accounting for the new index plus unchanged Sources module/CSS is45965bytes, below the unchanged120000-byte first-open ceiling. The standalone measurement's stale128000 raw calibration is aligned with this policy; no compressed-wire or scene-detail ceiling changes. Both original wagon wrappers also pass: W01 through Haswell and both covered variants through Nehalem retain every reviewed output byte and original guard.
+# Fort image-review prerequisite — T-3040
+
+Whole-compound reference rendering now selects each member's phase, position and
+bearing from one explicit scene and hashes every member's asset and placement.
+Actual baseline renders include 30 first-fort members and 21 second-fort members.
+Both remain `differs`: the provisional cameras are not solved and neither fort's
+image ticket is complete. No geometry, position, grade or rights ruling changed.
+See [the reproducible checkpoint and all 17 ticket findings](RESEARCH/fort-reference-groups-T-3040/README.md).
+T-3041 retains the full first-fort image gate under split parent T-2387; T-2388
+retains the second-fort acceptance. Reader-required preflight passed all 1,047
+checks. Published smoke slices passed 31 mobile and 107 desktop checks, with
+zero failures; the full renderer suite was not run. Details and timing limits
+are recorded in the research checkpoint linked above.
+
+
+
+### T-3037 — Building cards state only dates the record supports, 2026-10-22
+
+The owner found 1736 Prairie's card saying "It had stood like this since 1904" (and Standing 1904 – 1911) under the 1893 Rand McNally drawing of the house. The fallback summary printed `documented_range.from` as a start, and on 195 of 209 structures of 1904 and 572 of 1835 that date is the scene's own (a bound), not a reading. Ranges now say what each end is (`from_is`: began | seen; `to_is`: ended | seen; docs/PROVENANCE.md "What a date on a card means"), and a structure may carry a sourced `built` date, carried to the sidecar as an attribute. Marked from the records' own notes, counted on the compiled sidecars: 69 dated or first-seen starts and 27 dated ends across 1812 and 1835, 4 dated starts and Glessner's dated end in 1904, and 191 1904 ends at the 1911 Sanborn sheet that draws them. 43 build years, each printed by a source the record cites: 23 in 1835 (Andreas, Wau-Bun, the hotel chronologies), 19 1904 houses from the district's interpretive markers, and 1736 Prairie as "1864 or 1875" (the Glessner House Museum's 1864 against an 1875 Tribune permit for the lot, as the Prairie library read it; new source records `chicago_tribune_1875_08_08_building_permits`, unverified here, and `chicagology_1736_prairie_page`). The summary, Standing row, Story tab and Sources tab read `range-words.js`; an unmarked end is not printed, and `test_fallback_summary.mjs` refuses a composed lead that dates a building by a year its record does not date. Glessner's record takes its marks too, and because its bytes are part of the light derivative's recipe (`lod_recipe_sha`) its light derivative is rebuilt here and the v4 archive repacked.
+
+
+### T-3042 — Sourced fact cards for eight Prairie Avenue houses, 2026-10-22
+
+The owner asked for interesting, true facts on the cards (the "Dutch-ish" house and the paint maker's). Eight new summary records under data/summaries/, each fact graded and sourced from records the project already holds, mostly the district's interpretive markers: 1812 Wheeler (a Dutch-style row house by Burnham & Root for a grain-elevator owner), 1736 McBirney (bought in 1880 for $25,000 by Hugh McBirney, a white lead maker, per chicagology's directory and Tribune transcriptions), 2100 Sherman (Burnham married the owner's daughter while it was building), 1729 Pullman (a 200-seat theatre, pipe organ and bowling alley), 1801 Kimball, 1811 Coleman, 1912 Moulton-Lowden (a future governor's home) and 1919 Field Jr. A summary's `built` may now carry a `phrase` ("between 1870 and 1876", "1864 or 1875"), placed on the timeline at its earliest year; compile_summaries.py refuses a phrase whose earliest year is not `year`. Left out on purpose: Max Meyer's 2009 house (the record is named Mayer, the marker Meyer, unresolved), Pullman's architect (the marker's Jaffay against others' Jaffray), and any McBirney–Dutch Boy link (no source found).

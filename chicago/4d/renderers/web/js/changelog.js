@@ -1,4 +1,53 @@
 export const CHANGELOG = [ // newest first
+  { v: 2205, ts: '2026-10-23T01:04:59.884Z', date: 'Oct 22, 2026, 8:04 PM CT', title: 'Eight Prairie Avenue houses get fact cards', kind: 'feature',
+    items: [
+      'Fact cards for eight Prairie Avenue houses: who built each one, for whom, and a fact or two worth knowing, every one from a source.',
+      '1812 Prairie is the Dutch-style row house Burnham and Root drew for a grain-elevator owner. 1736 Prairie was bought in 1880 by Hugh McBirney, who made white lead for house paint.',
+      'John Sherman\'s daughter married his architect, Daniel Burnham, while the house was going up. George Pullman\'s mansion had its own theatre, pipe organ and bowling alley.',
+      'A card can give a build date as its sources do: Pullman\'s house was built between 1870 and 1876.',
+    ] },
+  { v: 2204, ts: '2026-10-23T00:38:08.916Z', date: 'Oct 22, 2026, 7:38 PM CT', title: '1811 Prairie\'s oriel now matches the 1888 plate over the rounded corner', kind: 'improvement',
+    items: [
+      'The bay window over the porch arch at 1811 Prairie now stands farther out, with a flat front and a straight south side.',
+      'Its south side now turns back to the rounded corner below it, with two narrow lights in it.',
+      'It now sits on a heavy band of rough stone that curves back into the wall, in place of three stepped ledges.',
+      'Its pointed roof now peaks over the middle of the front, where the plate draws it. Every other house is unchanged.',
+    ] },
+  { v: 2203, ts: '2026-10-23T00:38:08.916Z', date: 'Oct 22, 2026, 7:38 PM CT', title: 'Fort picture comparisons now include the whole compound', kind: 'chore',
+    items: [
+      'Nothing in the town\'s appearance changes yet. The image-review tool can now compare both complete Fort Dearborn compounds with their pictures, while keeping the remaining camera and building differences open.',
+    ] },
+  { v: 2202, ts: '2026-10-22T23:50:10.605Z', date: 'Oct 22, 2026, 6:50 PM CT', title: 'Building cards only state dates the records actually give', kind: 'fix',
+    items: [
+      'A card no longer says a house "had stood like this since 1904" because 1904 is the year you are visiting. That line came from the scene\'s own date, not from any source.',
+      'Cards now say when a building was built where a source gives it: "Built in 1886", "Built about 1832", or "Built in 1864 or 1875" where the sources disagree. 43 buildings have a sourced year so far, from the Prairie Avenue district markers and Andreas\'s history.',
+      'Where a source only shows a building standing, the card says so: "Recorded here by 1831", "still in 1911". Where nothing dates it, the card says nothing rather than guess.',
+      '1736 Prairie, the McBirney house, now reads "Built in 1864 or 1875": the Glessner House Museum dates it to 1864, but an 1875 building permit for the same lot may mean the house that stood there was a newer one.',
+    ] },
+  { v: 2201, ts: '2026-10-22T23:07:10.801Z', date: 'Oct 22, 2026, 6:07 PM CT', title: '1812 Prairie\'s roof behind its gable rebuilt as a slate mansard', kind: 'improvement',
+    items: [
+      'Behind the Wheeler house\'s shaped gable at 1812 Prairie, the roof is now a mansard: steep slate faces rising about 2 m from the side walls to a level, flat-topped curb. It had been a plain 45-degree hip.',
+      'Three photographs agree on it: Albert Levy\'s 1880s print of the front, the photograph of 1816 next door that looks along 1812\'s south side, and a view from about 1955.',
+      'Seen from Levy\'s camera, the slate now shows behind both of the gable\'s shoulders under a level top, within a few inches of the print on the north side.',
+      'The south side\'s top is a coped wall carried up past the roof with the tall chimney on it. That wall is not built yet and is next for this house.',
+    ] },
+  { v: 2200, ts: '2026-10-22T22:22:57.905Z', date: 'Oct 22, 2026, 5:22 PM CT', title: 'Glessner\'s stable cupola loses its dark corner stripes', kind: 'fix',
+    items: [
+      'The dark stripe that ran down each corner of the dovecote cupola on Glessner\'s coach house, from under its eave past the pigeon holes to the roof, is gone. Its stone corners now read clean and square, as both northwest photographs show them.',
+    ] },
+  { v: 2199, ts: '2026-10-22T21:52:40.932Z', date: 'Oct 22, 2026, 4:52 PM CT', title: '1904: no stand-in houses in the street or on the tracks', kind: 'fix',
+    items: [
+      'The faded house that stood on 18th Street\'s curve into Calumet Avenue is gone, and so is every other stand-in that sat on a roadway, a walk, an alley or the Illinois Central\'s tracks.',
+      'First Presbyterian Church now stands on its own corner north of 21st Street; it had been drawn flipped, across the street.',
+      'No faded street lies in the tracks any more: each one runs to the railway\'s edge and stops there, square.',
+      'East of Calumet Avenue the lots now run back to the railway, as the 1911 atlas draws them at 20th Street, instead of ending in open grass with streets stopping short.',
+      'Railway sheds no longer stack inside each other, and no tree grows in a roadway or on the tracks.',
+      'A check now fails the build if any of these overlaps comes back.',
+    ] },
+  { v: 2198, ts: '2026-10-22T21:48:34.973Z', date: 'Oct 22, 2026, 4:48 PM CT', title: '1801 Prairie\'s roof gains its dormers, iron cresting and finials', kind: 'feature',
+    items: [
+      'The Kimball house\'s steep slate roof now carries the tall hooded dormers, the iron cresting round its flat top and the turned finials J. W. Taylor\'s photograph of about 1895 shows, with the tall stone chimney on the 18th Street side.',
+    ] },
   { v: 2197, ts: '2026-10-22T20:48:00.290Z', date: 'Oct 22, 2026, 3:48 PM CT', title: 'Glessner\'s stable cupola stands taller and slimmer, as its photographs show', kind: 'improvement',
     items: [
       'The dovecote cupola on the coach-house ridge now rises about a foot higher, its pyramid\'s point at 48 feet, as the 1887 and 1963 northwest photographs both put it once each is read against the gable beside it.',
