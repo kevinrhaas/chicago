@@ -43,9 +43,11 @@ assert.equal(STEPS[3].bubble({ scene: '1904' }), 'Click the Glessner House. Its 
 assert.equal(STEPS[3].bubble({ scene: '1904', touch: true }), 'Tap the Glessner House. Its file opens.', 'and on touch');
 assert.equal(STEPS[3].bubble({ scene: '1835', front: 'Sauganash Hotel', touch: true }), 'Tap the Sauganash Hotel. Its file opens.', 'in 1835, the building in front of you');
 assert.match(STEPS[4].bubble({}), /Esc/, 'release names Esc on a keyboard');
-assert.match(STEPS[4].bubble({ touch: true }), /Tap Close/, 'and Close on touch');
+assert.match(STEPS[4].bubble({ touch: true, card: true }), /Tap Close/, 'and the card\'s Close on touch');
+assert.match(STEPS[4].bubble({ touch: true }), /Tap Back/, 'and Inspect\'s Back where the building opened in Inspect (T-3022)');
 assert(!/Esc/.test(STEPS[4].bubble({ touch: true })), 'a phone has no Esc key');
-assert.equal(STEPS[4].target, '#popup:not([hidden]) .pop-close', 'release rings the card\'s Close');
+assert.equal(STEPS[4].target({ card: true }), '#popup:not([hidden]) .pop-close', 'release rings the card\'s Close');
+assert.equal(STEPS[4].target({}), '#nav-app-inspect .insp-back', 'or Inspect\'s Back (T-3022)');
 assert.equal(STEPS[5].target({ touch: true, level: 0 }), '#navigator', 'on a docked phone, Move rings the dock first');
 assert.equal(STEPS[5].target({ touch: true, level: 1 }), '#navigator .nav-app[data-app="move"]', 'then the rail key');
 assert.equal(STEPS[6].target({ touch: false, level: 0 }), '#navigator .nav-app[data-app="settings"]', 'the desktop rail is always out');

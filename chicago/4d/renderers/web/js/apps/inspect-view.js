@@ -12,7 +12,9 @@
  * EVERY FACT LINE CARRIES ITS GRADE DOT (the card's own `fact-dot`), with the grade in
  * words for a screen reader. The address is printed once.
  *
- * THE TABS (T-2639, §08 "Tabs"): Overview · People · Design · Story · Photos · Sources. A new
+ * THE TABS (T-2639, §08 "Tabs"): Overview · People · Design · Story · Photos · Sources, and
+ * Research with Expert research on (T-3022: the floating card's evidence, liberties and
+ * record, folded in; the card itself no longer opens on a building). A new
  * building always opens on Overview; the same building keeps its tab. People and Design are
  * the card's own content for now, rendered by popup.js `sections()` from the same renderers
  * and loaded state as the card, so the two cannot disagree while the card still exists
@@ -38,6 +40,7 @@ import { buildingFacts, factCounts, sourcesPaneHtml } from '../inspect-sources.j
 import { storyTimeline, renderStory } from '../inspect-story.js';
 import { count as countField } from '../field-log.js'; // T-2660
 import { designModel, renderDesign } from '../inspect-design.js';
+import { MODE_ATTR } from '../researcher.js';
 
 const GRADES = ['attested', 'inferred', 'reconstructed'];
 const WORD = { attested: 'Attested', inferred: 'Inferred', reconstructed: 'Reconstructed' };
@@ -51,7 +54,11 @@ let drawnFor = null;
 let lastTab = 'overview';
 let tabFor = null;            // the building the remembered tab belongs to
 const TABS = [['overview', 'Overview'], ['people', 'People'], ['design', 'Design'],
-  ['story', 'Story'], ['photos', 'Photos'], ['sources', 'Sources']];
+  ['story', 'Story'], ['photos', 'Photos'], ['sources', 'Sources'], ['research', 'Research']];
+/** T-3022: the tabs only Expert research shows (Settings; js/researcher.js). They are drawn
+ *  for every building and marked `data-researcher`, so the switch shows or hides them in place. */
+const EXPERT_TABS = new Set(['research']);
+const expertOn = (doc) => !!doc?.documentElement?.hasAttribute?.(MODE_ATTR);
 
 function el(doc, tag, cls, text) {
   const n = doc.createElement(tag);
@@ -300,16 +307,21 @@ function render(root, ctx) {
     page.append(meter);
   }
 
-  const full = el(doc, 'button', 'nav-tile insp-full', 'Full record');
+  // T-3022: the full record is Inspect's own Research tab now, shown with Expert research on
+  // (Settings); the floating card no longer opens from here.
+  const full = el(doc, 'button', 'nav-tile insp-full', 'Research');
   full.type = 'button';
-  full.addEventListener('click', () => ctx.actions?.openCard?.(id));
+  full.setAttribute('data-researcher', '');
+  full.setAttribute('aria-label', 'Open the Research tab: the evidence, liberties and record');
+  full.addEventListener('click', () => { selectTab(root, 'research'); root.scrollTop = 0; });
   page.append(full);
 
   // The tabs. A new building opens on Overview; the same building keeps its tab.
   // A deep link (?nav=inspect:<id>&tab=, T-2621) opens its tab the first time this building
   // draws; after that the visitor's own choice is kept.
   const linked = ctx.link?.app === 'inspect' && ctx.link.id === id && TABS.some(([k]) => k === ctx.link.tab) ? ctx.link.tab : null;
-  const tab = tabFor === id ? lastTab : (linked ?? 'overview');
+  let tab = tabFor === id ? lastTab : (linked ?? 'overview');
+  if (EXPERT_TABS.has(tab) && !expertOn(doc)) tab = 'overview';
   tabFor = id;
   const bar = el(doc, 'nav', 'insp-tabs');
   bar.setAttribute('role', 'tablist');
@@ -322,6 +334,7 @@ function render(root, ctx) {
     b.setAttribute('role', 'tab');
     b.id = `insp-tab-${key}`;
     b.setAttribute('aria-controls', `insp-pane-${key}`);
+    if (EXPERT_TABS.has(key)) b.setAttribute('data-researcher', '');
     bar.append(b);
     const pane = el(doc, 'section', `insp-pane${key === 'overview' ? '' : ' insp-card-pane'}`);
     pane.id = `insp-pane-${key}`;
@@ -354,6 +367,7 @@ function render(root, ctx) {
 /** Show one tab; build its pane the first time. */
 function selectTab(root, key) {
   if (!TABS.some(([k]) => k === key)) return;
+  if (EXPERT_TABS.has(key) && !expertOn(root.ownerDocument)) key = 'overview';
   // T-2660: a tab the visitor moved to (the first draw selects one, and is not counted).
   const was = root.querySelector('.insp-tab[aria-selected="true"]')?.dataset.inspTab ?? null;
   if (was && was !== key) countField('tab');
@@ -413,6 +427,21 @@ async function fillPane(root, pane, key) {
       sourceDates: ctx.inspectDoc?.source_dates ?? null,
       sceneYear: ctx.inspectDoc?.scene ?? ctx.scene?.id ?? null,
     });
+    pane.append(d);
+  } else if (key === 'research') {
+    // T-3022: the floating card's research, folded in — its flags and facts block, then its
+    // Sources, Liberties and Record panes, each built by the card's own renderers (popup.js
+    // `researchPanes`), so the two cannot disagree while the card still serves streets and trees.
+    const r = sec.research;
+    const d = el(doc, 'div', 'insp-card insp-research');
+    if (!r) {
+      d.append(el(doc, 'p', 'nav-sub', 'No research record for this building.'));
+    } else {
+      const fold = (label, count, inner, open) => `<details class="insp-fold"${open ? ' open' : ''}><summary>${label}${
+        count ? ` <span class="pop-count">${count}</span>` : ''}</summary><div class="pop-pane">${inner}</div></details>`;
+      d.innerHTML = `${r.head}${r.facts}${fold('Sources', 0, r.evidence, true)}${
+        fold('Liberties', r.libertyCount, r.liberties, false)}${fold('Record', 0, r.record, false)}`;
+    }
     pane.append(d);
   } else if (key === 'photos') {
     // T-2645: the Photos tab (photos-tab.js), from the card's own pictures file; the card's
