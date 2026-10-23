@@ -1,3 +1,17 @@
+## T-2794 — Parked Brougham distance model and prototype replacement
+
+The Brougham replaces only the obsolete1904C02 display, retaining its own existing qualified stand and the five distinct1835wagons; C02 assets and model remain compatible. Exact33,502near geometry is paired with the unchanged validated11,706mid candidate. All physical feature categories, materials, nodes, anchors, contacts and original near conservative proxy remain; only source tessellation and active triangle reporting change. Eight fixed native views support distance-LOD appearance, not photographic or world-budget acceptance.
+
+Next: finish normal integrated source verification and published desktop/mobile qualification at unchanged cameras and caps, including combined budgets and full body/pole/ground/tree clearance. Earlier failed units remain recorded. Photographic refinement, people, horses, occupied driving, doors, hitching, boarding and traffic remain open.
+
+## T-2793 — Parked W01 timber material increment
+
+Modern CC0 wood texture maps improve the existing three reconstructed 1835 farm-box wagons while retaining their geometry, stands and original paint/iron. The original parked source and both covered-wagon finish families remain exact; a separate cloth-only increment preserves their colors and identities. Four actual native views support a bounded material improvement; GPL project charts and CC0 source pixels have explicit provenance, and no historic finish or specimen is claimed.
+
+Next: normal integrated DEV derivation and full preflight, followed by normal published mobile/desktop placement and combined-budget qualification (eight pooled batches versus five baseline). Photographic refinement, occupants, hitching, driving, riding and boarding remain open; this is a material increment under T-2793.
+
+- T-2980: carry the already generated20–28mm cloth-drape increment for the two existing distinct1835 covered wagons; preserve current terrain proof and all IDs/seeds/stands/yokes. Historical065646706 source+publishedstage8 qualification is separate from current combined integration. Photographic cloth/wood/iron, compressed LOD, occupancy and interaction remain open.
+
 ## T-2672 / T-1789 — resident transport adults (2026-10-18)
 
 The owner requested adults for driving, riding, standing near transport and walking,
@@ -5620,6 +5634,33 @@ Original refined W01 farm-box wagons replace three existing1835 stands at close 
 
 - T-2980: two empty covered derivatives now preserve exact per-ID finishes/aging, original stands/bearings/yokes and legacy fallback. Actual22-image source/published desktop/mobile inspection, eight runtime/clearance sets and four disposals passed under unchanged budgets/GL0; no page/console errors or request failures. Source/geometry/hull/conservative-host proof is bounded, not full physical collision. Photographic cloth/wood/iron finishing, compressed distinct LODs and full-app memory/tier acceptance remain open. Full preflight/current qualification and the parent X-RAY/Ghost budget failure must be resolved before ordinary DEV merge. People, horses, driving and boarding remain open.
 
+
+## T-1789 — bounded 1835 workwear repair checkpoint (2026-10-21)
+
+Source-owned seams/normal ease, a joined source-fitted collar, clean waistcoat boundaries, closed support-plane shoes and original opaque eyes improve existing reconstructed resident authoring. A smooth source-arm-landmark ease field repairs two actually observed shoulder holes within the former displacement envelope. Independent source/finite-pose checks and sixteen actual source-swap images establish this bounded improvement. Canonical source/web export, exported sole/seated checks and actual new-model inspection remain next; then deliver one reviewed existing reconstructed resident through the portable-human scene path. Forty inherited idle negative face projections, comprehensive garment/LOD fit, fine period tailoring and photographic acceptance remain open. Glessner/Kinzie do not inherit this 1835 outfit. No new town figure, horse, occupied vehicle or riding claim is supplied by the source checkpoint.
+
+
+- T-1789 initial standing increment: exact qualified canonical39712579846 Bardwell source/web assets and one existing reconstructed1835 resident are integrated for actual town review. Index validation and ordinary smoke eligibility follow authored scenes; absent years stay empty. Main-world desktop/mobile/LOD/card/grounding and whole-town budget checks plus normal gate/CI remain next. Full photographic, garment/occupied fit and animation/population work remains open.
+
+
+## T-1789 — connected Bardwell waistcoat fronts (2026-10-22)
+
+Actual town inspection identified missing upper-front shoulder panels in the
+existing reconstructed Bardwell waistcoat. A Bardwell-only recipe pattern now
+retains connected source-triangle shoulder panels in the same existing mesh.
+Default workwear and the other resident recipes remain exact; body, rig, skin,
+shoes, UV interpolation and raw-normal/2mm sole limits are unchanged. Independent
+source review, old-topology negative control and finite actual idle shirt/body
+layer observations support the source repair; new canonical exports, reduced-LOD
+and animation fit, actual desktop/mobile images and town review remain required.
+No photographic or T-1789 closure is claimed. Forty inherited negative projections
+remain open. Buttons/facings are deferred until the large-form repair is reviewed.
+
+
+- T-1789 current increment (2026-10-22): actual canonical96c4/run39736567239 shoulder repair exported and integrated for existing reconstructed Otis Bardwell at Wolf Point. Eight Bardwell assets only; exact measured registry/provenance and all original guards retained. The missing shoulder-panel defect is repaired in actual LOD0 pixels. Final town/current-head CI and full photographic tailoring/library/occupied/other-era acceptance remain open.
+
+
+T-1789 person-card honesty followup (2026-10-22): the existing invented trade-head mint category now reads reconstructed identity rather than named in a source, and model-assigned firm memberships disclose their reconstructed link. Exactly309 invented trade heads change classification; historically source-read residents retain theirs. Presence grades, identities, memberships, assets and the standing position are unchanged. This corrects a false provenance claim found in actual published-town card inspection; photographic finishing remains open.
 ## School and Tremont reference-use approval - T-3053
 
 The owner's 2026-10-22 approval is recorded with both bibliographic sources.

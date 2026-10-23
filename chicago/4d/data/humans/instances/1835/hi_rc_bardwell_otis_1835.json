@@ -1,0 +1,44 @@
+{
+  "id": "hi_rc_bardwell_otis_1835",
+  "contract_version": 1,
+  "scene": "1835",
+  "person_id": "rc_bardwell_otis",
+  "appearance": {
+    "asset_id": "bardwell_otis_1835"
+  },
+  "placement": {
+    "local_e": -94.0,
+    "local_n": -36.5,
+    "heading_deg": 90,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0
+  },
+  "behaviour": {
+    "state": "standing"
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Initial reconstructed standing depiction of existing reconstructed resident Otis Bardwell in the west-side Wolf Point Tavern yard near an existing unhitched wagon. Exact mechanically qualified canonical run39736567239/head96c4da4b1fe68e6dec3b18c15da2f14c596a60c5 supplies the reusable body, clothing and idle pose. His name, age band and teamster role are model records, not documentary identity or likeness. This stand is an invented demonstration, not an observed action, tavern employment or wagon ownership. Simplified garment/skin/hair appearance is an initial visible increment; period-complete tailoring, full animated fit and photographic quality remain open. The connected upper waistcoat panels are repaired in this source increment; broader photographic materials, complete garment fit and occupied interfaces remain open.",
+    "sources": [
+      "mount_1835_bargaining_for_a_horse",
+      "mount_1835_bar_room_scene"
+    ],
+    "liberty": "L418",
+    "seed": "rc_bardwell_otis:1835:initial-standing:20261022",
+    "replaceable_by": "A better qualified depiction or evidence replacing this reconstructed resident slot; exact location/action has no documentary claim."
+  }
+}

@@ -44,6 +44,74 @@ def ok(msg):
     print(f"  ok    {msg}")
 
 
+def check_how_known():
+    """Only the explicit invented trade-head category loses the source-named fallback."""
+    rows = json.loads((DATA / "sidecars/1835/people.json").read_text())["people"]
+    by_id = {row["id"]: row for row in rows}
+    def raw(ident):
+        card = json.loads((DATA / "residents" / by_id[ident]["file"]).read_text())
+        return next(p for p in card["persons"] if p["id"] == ident)
+    person = raw("rc_bardwell_otis")
+    before = copy.deepcopy(person)
+    cases = [("actual invented Bardwell", person, False, "reconstructed"),
+             ("attested source-named", {"grade": "attested"}, False, "documented"),
+             ("inferred source-named", {"grade": "inferred"}, False, "documented"),
+             ("grade-reconstructed projected source name", {"grade": "reconstructed", "resident_subtype": "projected_resident"}, False, "projected"),
+             ("grade-reconstructed post-office name", {"grade": "reconstructed", "letter_list_only": True}, False, "letter_list"),
+             ("grade-reconstructed civic name", {"grade": "reconstructed", "civic_mint": True}, False, "civic_mint"),
+             ("visitor category retained", person, True, "transient"),
+             ("trade category with civic evidence", {**person, "civic_mint": True}, False, "civic_mint"),
+             ("trade category with letter evidence", {**person, "letter_list_only": True}, False, "letter_list"),
+             ("grade alone proves no invented name", {"grade": "reconstructed"}, False, "documented")]
+    for ident in ("stephen_r_beggs", "susan_anderson", "pay_co_je_bai", "nau_con_ne_bec", "maub_biss"):
+        source_named = raw(ident)
+        if not source_named.get("name_as_read"):
+            fail(f"{ident}: source-read negative control lost its actual name provenance")
+        cases.append((f"actual source-read {ident}", source_named, False, "documented"))
+    for label, row, transient, expected in cases:
+        got = cs.how_known(row, transient=transient)
+        if got != expected:
+            fail(f"{label}: how_known {got!r}, expected {expected!r}")
+        else:
+            ok(f"{label}: {expected}")
+    trade_rows = [row for row in rows if row.get("resident_subtype") == "reconstructed_trade_head"]
+    for row in trade_rows:
+        minted = raw(row["id"])
+        basis = (minted.get("name_basis") or {}).get("basis") or {}
+        if (minted.get("name_as_read") or basis.get("id") != "1835_invented_name_pools"
+                or (minted.get("reconstruction") or {}).get("stage") != "trade_households"
+                or cs.how_known(minted) != "reconstructed"):
+            fail(f"{row['id']}: trade-head category no longer proves a model-minted identity")
+    if not trade_rows:
+        fail("actual reconstructed trade-head provenance control is empty")
+    else:
+        ok(f"all {len(trade_rows)} actual trade heads retain explicit invented-name provenance")
+    if person != before:
+        fail("how_known changed the person's existing identity/grade/source record")
+
+
+def check_known_tallies(directory=None):
+    """The card/filter identity categories and declared counts agree; source-flag overlaps remain."""
+    directory = directory or json.loads((DATA / "sidecars/1835/people.json").read_text())
+    rows = directory["people"]
+    counts = directory["counts"]
+    residents = [r for r in rows if r["how_known"] != "transient"]
+    trade_ids = {r["id"] for r in rows if r.get("resident_subtype") == "reconstructed_trade_head"}
+    model_ids = {r["id"] for r in rows if r["how_known"] == "reconstructed"}
+    expected = {"documented": sum(r["how_known"] == "documented" for r in residents),
+                "reconstructed_identities": len(model_ids),
+                "letter_list_only": sum(bool(r["letter_list_only"]) for r in residents),
+                "civic_mint": sum(bool(r["civic_mint"]) for r in residents),
+                "projected_residents": sum(r["resident_subtype"] == "projected_resident" for r in residents)}
+    for key, value in expected.items():
+        if counts.get(key) != value:
+            fail(f"people counts.{key} is {counts.get(key)!r}, but actual card/filter rows count {value}")
+    if not trade_ids or model_ids != trade_ids:
+        fail("reconstructed identity card category is not exactly the explicitly minted trade-head set")
+    else:
+        ok(f"{len(trade_ids)} actual trade-head identity cards agree with the reconstructed tally; source counts preserved")
+
+
 def check():
     root = cs.residents_root("1904")
     cards = sorted((root / "households").glob("*.json"))
@@ -130,6 +198,8 @@ def self_test():
 
 
 if __name__ == "__main__":
+    check_how_known()
+    check_known_tallies()
     (self_test if "--self-test" in sys.argv else check)()
     if fails:
         print(f"FAIL: {len(fails)} problem(s)")

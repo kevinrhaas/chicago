@@ -1,3 +1,52 @@
+## T-1789 — connected Bardwell waistcoat source repair (2026-10-22)
+
+Actual published-town front inspection of the qualified Bardwell asset showed a
+V-shaped apron rather than shoulder-connected waistcoat fronts. Source diagnosis
+found the old upper-arm-joint top cap and arm-weight cut removed those panels;
+the unchanged shirt did not bury an existing front. This revision changes only
+Bardwell's existing waistcoat shell through an explicit recipe opt-in: retained
+source-triangle panels connect front and back over each shoulder. No extra mesh,
+material, body mask, buttons, facings, rig or footwear change is included.
+
+The source proposal passed independent review,14 finite source controls and a
+negative old-geometry shoulder-connectivity control. It adds624source triangles
+(3056total). Three frozen actual idle-frame CPU observations give1.504mm minimum
+targeted upper-body clearance. A separate unchanged-shirt test finds the12
+formerly absent shoulder rays per frame outside the actual shirt, at least3.150mm;
+two lateral armhole observations remain shirt-only. These are bounded idle-layer
+observations, not complete garment or animation fit. Head/jaw influence is bounded
+(max0.498%), not eliminated.
+
+Existing registered Mount1835 paintings support only the qualitative connected
+waistcoat form. Pattern dimensions remain original reconstructed choices, not
+Bardwell's recorded outfit, likeness or measured1835Chicago tailoring. The
+committed scene still loads the previous canonical bytes until the separate
+exact-head canonical build is qualified and its source/published LODs inspected.
+The current source repair has no new rendered or photographic acceptance. Forty
+inherited negative idle projections, complete animated/LOD fit, fine cloth, skin,
+hair, seated/occupied interfaces and full T-1789 remain open.
+## T-2794 — Parked Brougham distance model and prototype replacement
+
+The reconstructed 1904 Brougham remains at its already qualified stand E1397.9,N−3240,bearing178.99°, approximately25.157m from the unchanged spawn. Only the obsolete `prairie_parked_carriage` C02 display row is removed under the owner's replacement request. All C02 definitions/assets remain for compatibility, and all five distinct1835wagon rows, positions and bearings remain unchanged. The1893 Studebaker catalogue identifies the design, not this individual vehicle, owner or stop.
+
+The exact33,502-triangle near master/delivery remain b74e0093/ec2bfc0d. The accepted distance mid is11,706 triangles (raw48a9224b/indexedd6d6709e), replacing the earlier22,238 mid. Source tessellation alone changes468 records to302: physical categories,64spokes,16spring leaves, seven materials,42nodes,13runtime anchors, eight static named targets, outer bounds and full wheel/pole/shoe contacts remain. The original near conservative collision proxy stays exact; a5.755mm mid tight-box contraction is never substituted for production clearance. The original producer's late-fitting recipe shadowing is preserved, not fixed.
+
+Eight fixed24m desktop/mobile near/mid views passed8.587s with zero errors and closed cleanup; the root viewed all eight and accepted distance-LOD appearance only. Original generation/count/anchor-preparation failures and earlier native request-error and270s world deadline failures remain failures in their records. The24m/screen-size selector,5% hysteresis, active-only picking,100/65/Light0 reach, fetching/parsing, confidence, caches, disposal, camera and render caps are unchanged. Runtime triangle reporting now reads11,706 for mid.
+
+The source incorporates reviewed DEVb7cde6d with incoming summary UI, Glessner research notes and liberties preserved. Source/preflight/publication results are recorded against the actual PR commit. Current normal published desktop/mobile whole-world budgets, body/pole/ground and tree/canopy/obstacle clearance, and photographic completion remain unqualified. No people, occupants, door operation, hitch coupling, boarding, driving or traffic acceptance is claimed.
+
+## T-2793 — Parked W01 wood texture material increment
+
+The existing three 1835 farm-box wagons now select `parked-wagon-fine-wood/wagon-w01.glb` (SHA256 e1e5b4f1d7dfe6bf08cca21e8cfae2e88748a3f6e6c6959753334ae2b0c84dd8). Its 12,104-triangle original geometry, positions/normals, pivots, paint/iron and wheel contacts are preserved. Only timber material ownership, UV/tangent/index charts and CC0 wood texture map derivatives change. Original baseline 274e737b remains untouched. Both distinct covered finish families remain; their separately authorized cloth-only drape increment is recorded below. Poly Haven Fine Grained Wood by Rob Tuytel is a modern optical analogy, not an attested period species, finish or specimen; GPL project charts and CC0 pixels are separately declared.
+
+The root reviewed all four actual V4B fixed-camera native images and accepted a bounded visible material improvement. Fresh original-pipeline generation and binding matched the reviewed output externally; eight pooled app batches versus five baseline, and 6,291,168 estimated RGBA8-plus-mips bytes remain costs to qualify in the ordinary published world. Native images do not establish photographic completion, actual GPU allocation or combined mobile/desktop budgets. Reviewed DEVb7cde6d is incorporated with incoming research/status additions preserved. Integrated derivation, preflight and publication results are recorded against the actual PR commit. No people, horses, occupants, driving, boarding or parent-ticket completion is claimed.
+
+### T-2980 — Exact previously qualified covered-cloth increment
+
+The Western Hotel blue/oxide and Wolf Point oak/darkoak covered wagons retain distinct seeded finishes, aging, yokes, stands, bearings and running gear. Only their reconstructed inter-bow cloth/hem drape deepens from8–10mm to20–28mm over750mm spans, with1.2mm creases unchanged. The exact prior aaffa339/22072e6f products remain17,292triangles,26sourceprimitives,9materialgroups and8,388,608RGBA8+mipsdimension-estimate bytes each. Project geometry/source GPL-3.0-or-later; original procedural pixels CC0; no historical textile, manufacturer or owner attestation.
+
+Historical source065646706 passed normal1046checks/381self-tests, postcommit publication/mirror, and published desktop8/mobile8 each21passed/0failed. Those exact-source historical results do not qualify this combined integration. Initial mobile visual evidence remains6images from a deadline failure plus a separate2image continuation, with unfrozen residents/foliage; photographic materials/cloth construction, compressed LOD, occupied use and whole-world acceptance remain open. Current terrain-proof bytes are preserved.
+
 ## T-2943 — a visitor walks through Glessner's carriage passage (2026-10-20)
 
 The owner, 2026-10-20, in Glessner's carriage passage on /4d/dev/1904/: *"i find it odd that i
@@ -24458,6 +24507,41 @@ The horse research deliverable inventories the existing procedural horse/rig/har
 
 
 The six added reference records take the complete404-source catalogue index from159155 to161435 raw bytes. The declared raw allowance moves from160000 to168000 following the standing measured-headroom policy and previous8000-byte source increments; citations remain whole. Actual gzip accounting for the new index plus unchanged Sources module/CSS is45965bytes, below the unchanged120000-byte first-open ceiling. The standalone measurement's stale128000 raw calibration is aligned with this policy; no compressed-wire or scene-detail ceiling changes. Both original wagon wrappers also pass: W01 through Haswell and both covered variants through Nehalem retain every reviewed output byte and original guard.
+
+
+## T-1789 — 1835 workwear and eye authoring repair (2026-10-21)
+
+The source-owned garment shell retains shared source UVs and normal ease; trousers no longer receive a global X shift that cancels inner-leg clearance. Shirt/waistcoat boundaries use clipped source triangles. The collar now shares the actual shirt boundary before existing LOD reduction, and the waistcoat hem is planar. A smooth source-arm-landmark ease field repairs two observed shoulder skin holes without changing shirt topology, UVs or weights. A support-plane shoe loft encloses the source foot sections; original opaque sclera/iris/pupil replace the dark eye proxy. Body geometry, skin, existing resident identity, rig, raw 0.001 normal guard and exported 0.002 m sole tolerance are unchanged. L-workwear-coverage-1789 records reconstructed choices.
+
+Independent source controls reproduced 131 previous trouser vertices below 1 mm clearance and verify at least 7 mm after the repair. Collar shared geometry/weights/UVs, clipped waistcoat boundaries and unchanged core guards pass finite independent review. The final bounded runtime source-swap preview on the previous actual Bardwell rig produced sixteen images with zero page/console/request/GL errors; root inspected the closed shoulder patches, joined neckline and straighter hem. This is source construction evidence, not a new canonical exported asset. Forty inherited idle negative face projections, comprehensive garment/LOD fit, independent head/jaw movement, period tailoring, photographic quality and actual canonical seated/sole inspection remain open. No new figure is placed in any town scene. One fresh canonical CI with both resident and seated-driver inputs is still required.
+
+The first full preflight on the earlier source checkpoint failed two of 1,037 checks: a derived source-use report was stale after the new liberty, and two old generated parked JSON files remained after switching branches. The report was regenerated and those exact generated leftovers were preserved/removed; targeted source-use and mirror checks pass. A fresh full preflight on this final source is required before commit; the earlier failed run is not a pass.
+
+
+### T-1789 — Fuller workwear and level cuffs, 2026-10-22
+
+T-1789 source integration proposal (2026-10-22): the reviewed V5 fuller lower trousers/closed lower waistcoat and V6 level source-topology cuff trim are prepared against the exact canonical-builder source baseline. Two saved public-domain Mount reproductions are registered as qualitative 1835 clothing analogies, with explicit year-only/date, Chicago-outfit and likeness limits; the Art Institute catalog identity is Commons-mediated because the original direct museum requests failed. The first two finite controls compare frozen V5 with the 2f75 baseline; the third compares the final proposed V6 with that V5 and checks unchanged shirt/waistcoat/shoes. This layered source bridge passes, and V6's separate actual source-array preview captured 24 images with zero errors and passing framing/shoe-render guards. These garments are not yet canonically qualified. Forty inherited idle negative source-face projections, complete clothing/footwear enclosure, animated/LOD fit, finished tailoring/materials, photographic quality and occupied/world acceptance remain open. The prior whole-shoe disappearance is a superseded V2 preview-culling defect, not a V6 shoe repair. No new resident or scene population is supplied by this proposal.
+
+
+### T-1789 — Exact qualified standing Bardwell integration, 2026-10-22
+
+Canonical humanrun39712579846/head34cf462ed343b8b2b70da70303344fff7e5e083f completedSUCCESS and passed the strict source/web, normal, sole, container, seated-study and W01 qualification. Twenty-nine actual images were reviewed; root inspected standing-quarter and close-front. Eight exact same-run source/web GLBs (38265304bytes total;6929220publishedbytes) now replace no other identity and supply one reconstructed Otis Bardwell stand in the1835 Wolf Point yard. His own resident card remains authoritative. The finite full-reserve terrain proof gives <=1.6805mm conservative sole error across allLODs against the unchanged2mm guard and checks modeled structures/fences/vehicle/tongue envelopes. Decorative vegetation, actual town visibility/grounding/card/LOD/performance and source/published desktop/mobile checks remain to run on this integrated tree.
+
+The contract now validates the browser instance index separately from actual records; every actual instance still receives the existing full validation. The ordinary smoke checks the exact authored scene/index/eligible actors instead of requiring an empty layer in all years; unlisted scenes still require no human records/actors/requests. The smoke budget now prices actually served human data/assets. No body, rig, pose, normal, sole, LOD or render-budget tolerance changed. Existing source-level clothing negatives, full period tailoring, photographic skin/hair/cloth, seated/horse fit, animation-library and population acceptance remain open. PR1174 has actually merged969cd3d3e toDEV; this new scene integration is not yet committed, browser-qualified or merged.
+
+The first integrated standing-person preflight passed 1040 of 1041 steps; the sole failure was the fixture measurement registry still listing only the earlier eight GLBs. The registry now carries the sixteen installed files' unchanged actual browser measurements from successful canonical run39712579846, with exact member/file hashes and explicit provenance. No measurement, verdict or tolerance was synthesized. The finite registry check passes; a fresh complete preflight is required.
+
+
+### T-1789 — Actual shoulder repair exports integrated, 2026-10-22
+
+Canonical run39736567239 succeeded at source96c4da4b1fe68e6dec3b18c15da2f14c596a60c5 with both study inputs. Eight exact Bardwell source/web GLBs replace only his earlier assets. Actual published LOD0 front/profile images show connected shoulder panels and back coverage; the former missing front panels are repaired. Source and published inspection grids, hierarchy/raw-frame controls, animation times, hair/LOD, containers, named seated/W01 checks and unchanged2mm sole guards passed. The other sixteen Dufresne/Flynn study GLBs remain byte-identical to the previous build. These canonical pixels are LOD0; no unseen reduced-LOD pixel approval is claimed.
+
+The published four tiers total6,945,368bytes, an increase of16,148bytes. Their triangles are41,555/25,301/12,509/6,098 with nine skinned meshes,56 bones and nine material slots. The installed16-file measurement registry selects actual new Bardwell rows and retains unchanged fixture rows with their original provenance. The existing reconstructed resident, stand, heading, idle, card, source/normal/sole/LOD/budget limits and all other identities remain unchanged.
+
+This is an initial visible person increment. Fine tailoring, photographic skin/hair/cloth, forty inherited fit projections, comprehensive articulation/occupied fit, the modular library and other eras remain open. The original town views and moving diagnostic qualify their older ad813 tree; new town inspection and final-head CI/smoke coverage are required before DEV staging. Prior failures and successful recovery evidence remain in the tickets handover.
+
+
+T-1789 person-card honesty followup (2026-10-22): the existing invented trade-head mint category now reads reconstructed identity rather than named in a source, and model-assigned firm memberships disclose their reconstructed link. Exactly309 invented trade heads change classification; historically source-read residents retain theirs. Presence grades, identities, memberships, assets and the standing position are unchanged. This corrects a false provenance claim found in actual published-town card inspection; photographic finishing remains open.
 ### T-3053 — Owner-approved school and Tremont references, 2026-10-22
 
 The owner approved the two linked illustrations for attributed project reference,

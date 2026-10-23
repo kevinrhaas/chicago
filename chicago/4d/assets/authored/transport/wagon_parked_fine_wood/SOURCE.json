@@ -1,0 +1,66 @@
+{
+  "asset": "fine_grained_wood",
+  "creator": "Rob Tuytel",
+  "source": "https://polyhaven.com/a/fine_grained_wood",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "source_maps": {
+    "color": {
+      "sha256": "a90e4b26c0fb05b8144c7dacf5f9caa76fc781966ab05b5239b1fc2daad69673",
+      "official_md5": "7762bdf53e42e7aa622140788bc5b291",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/fine_grained_wood/fine_grained_wood_col_2k.png",
+      "bytes": 5970519
+    },
+    "normal": {
+      "sha256": "8bf311cca68565541749b32c91960e6e40fd9bfce651b923512394d571e21759",
+      "official_md5": "c29616d3509274d1ba7c3fa7a111045f",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/fine_grained_wood/fine_grained_wood_nor_gl_2k.png",
+      "bytes": 3210822
+    },
+    "roughness": {
+      "sha256": "135bacfcb37c5aed18bf6374ccff063cbaf7d16ad1029b3f1d5a67258be610f7",
+      "official_md5": "470f4054f357efccd166b6683c621c06",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/fine_grained_wood/fine_grained_wood_rough_2k.png",
+      "bytes": 2103115
+    }
+  },
+  "changes": {
+    "scope": "Material-only reconstructed finish increment; photographic, whole-app/world and budget acceptance remain open",
+    "source_family": "fine_grained_wood",
+    "source_author": "Rob Tuytel",
+    "source_license": "CC0-1.0",
+    "native_input_pixels": [
+      2048,
+      2048
+    ],
+    "rotated_crop": [
+      0,
+      784,
+      2048,
+      1264
+    ],
+    "linear_box_reduction": 2,
+    "unique_output_pixels": [
+      1024,
+      240
+    ],
+    "output_pixels": [
+      1024,
+      240
+    ],
+    "periodic_edge_blend_pixels": 8,
+    "reflection": false,
+    "linear_source_exposure": 1.5,
+    "GL_normal_rotation": "[-ny,nx,nz] for image90CCW",
+    "albedo_original_mean_std_matching": false,
+    "normal_scale": 0.35,
+    "normal_from_albedo": false,
+    "finish": "Reconstructed brown finish; no attested1835species/coating/date/maker",
+    "original_geometry_sha256": "274e737b51872983df792d0b24de8e75de8631890a8d586a32d9c6f0066484fb",
+    "project_authored_chart_source_sha256": "30af3da5d0ad40854b30ece08317f3b81ff0ceff76908062cb0fd01be24f37b7",
+    "project_authored_chart_license": "GPL-3.0-or-later original project work, no external GPL asset",
+    "OldCart_pixels_included": false
+  },
+  "project_geometry_chart_license": "GPL-3.0-or-later",
+  "historical_scope": "Modern optical analogy only; no period/species/date/coating/maker/Chicago-specimen claim. Photographic completion remains open."
+}
