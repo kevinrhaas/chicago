@@ -1270,17 +1270,25 @@ class Bay:
         back from the gable to the wall plane. The gable's face stands `upstand_m` over the
         roof's plane under a stone COPING along each rake, proud of the face, its back the
         parapet's over the roof. A PINNACLE (a square shaft under a pyramid) may stand on
-        each kneeler and a stone FINIAL (a block under a pyramid) on the apex."""
+        each kneeler and a stone FINIAL (a block under a pyramid) on the apex.
+        T-3073: `inset_m` [left, right] stands the gable's own corners that far in from the
+        front's (1801's, on the Taylor photograph, stops short of the chamfer): its middle,
+        rakes and pinnacles move with them, and each kneeler runs on out from the gable's
+        corner over the front's, so the wall top beside a narrower gable is still covered."""
         rf, g = self.v["roof"], self.v["roof"]["gable"]
         pitch = float(rf["pitch"])
         pts = self.v["plan"]["points"]
         xl, p, xr = float(pts[1][0]), float(pts[1][1]), float(pts[2][0])
-        xc = (xl + xr) / 2
+        il, ir = (float(a) for a in g.get("inset_m", (0.0, 0.0)))
+        if not (0.0 <= il <= 1.0 and 0.0 <= ir <= 1.0):
+            raise ValueError(f"{self.v['id']}: a gable's inset_m stands its corners 0-1 m in from the front's")
+        gl, gr = xl + il, xr - ir             # the gable's own corners (the front's unless inset)
+        xc = (gl + gr) / 2
         up = float(g["upstand_m"])
         cw, ch, cp = (float(g["coping"][k]) for k in ("width_m", "height_m", "proud_m"))
         kw, ko = float(g["kneeler"]["width_m"]), float(g["kneeler"]["out_m"])
         zf, zb = p + cp, p + cp - cw          # the copings' front and back (the parapet's back)
-        xa, xb = xl + kw, xr - kw             # the kneelers' inner faces
+        xa, xb = gl + kw, gr - kw             # the kneelers' inner faces
         if not (0.1 <= up <= 0.6 and 0.1 <= ch <= 0.4 and 0.0 <= cp <= 0.15 and 0.01 <= ko <= 0.15):
             raise ValueError(f"{self.v['id']}: gable upstand 0.1-0.6 m, coping 0.1-0.4 m high and 0-0.15 m "
                              f"proud, kneeler 0.01-0.15 m out past the eaves (so its side is not the fascia's)")
@@ -1349,8 +1357,10 @@ class Bay:
             if not (w <= min(cw, xa - xl + ov + ko) - 0.04 and 0.1 <= sh <= 2.0 and 0.1 <= cap <= 1.5):
                 raise ValueError(f"{self.v['id']}: a pinnacle stands inside its kneeler, its shaft 0.1-2 m "
                                  f"and its cap 0.1-1.5 m")
-            for a, b in knees:
-                self._spike(world, (a + b) / 2, zm, w, y_k, sh, cap)
+            # over the kneelers' middles, or on an inset gable over its own corners' kneelers
+            spots = [(a + b) / 2 for a, b in knees] if not (il or ir) else [gl + kw / 2, gr - kw / 2]
+            for x in spots:
+                self._spike(world, x, zm, w, y_k, sh, cap)
             meta["pinnacle_top_m"] = round(y_k + sh + cap, 4)
         fn = g.get("finial")
         if fn:

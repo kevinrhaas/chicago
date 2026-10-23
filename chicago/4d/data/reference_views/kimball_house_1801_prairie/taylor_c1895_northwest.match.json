@@ -2,8 +2,8 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8604e1c12d35d5463d02e5235c7e8ce7c74abb1ec0dfd07ac3c8086c40f6394d",
-  "camera_sha256": "f87304de6737d9dd494f3f12bbe7f6349e01dd40e70dec5f4486a5358a59681b",
+  "glb_sha256": "29f9785166374e11215e5e88d5c5ab45295e98e9b911dfbe983fdd2ea3921bf7",
+  "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
   "verdict": "differs",
@@ -146,32 +146,32 @@
     {
       "what": "the east turret's shaft and finial: the print shows the shaft about 15 px wider toward the front (to x 237; the build's to about x 220), a moulded band at its first floor and a heavy eave moulding, and a finial spike about 40 px taller than the build's",
       "status": "open",
-      "how": "Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it."
+      "how": "Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it. T-3074 re-solved it again (the horizon on the lake line, about 30 px higher), so read them through the current camera."
     },
     {
       "what": "the mansard's curb and deck: at the front's north-west corner the print's curb stands about 35-50 px lower than the build's (the corner hip's top at about x 950, y 320 against 978, 247) and its corner hip runs about 25-30 px west of the build's; the front's deck ends at the print's x 1092 under its south finial, where the build's runs on to x 1187. So the cresting, the corner hood and its finial stand about 35-50 px over the print's, and the south finial about 95 px south of it (seen by T-3000)",
       "status": "open",
-      "how": "T-1890 (its T-3000 finding). Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it."
+      "how": "T-1890 (its T-3000 finding). Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it. T-3074 re-solved it again (the horizon on the lake line, about 30 px higher), so read them through the current camera."
     },
     {
       "what": "the hooded dormers' hoods: the print's cheeks widen further up the roof than the build's (the flank's lit cheek about 45 px across at the top against the build's about 25), as its lower faces fall back faster than the build's 72 degrees do; and their faces are slate with a pale frame round the light, where the build's are stone",
       "status": "open",
-      "how": "T-1890 (with the curb; seen by T-3000). Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it."
+      "how": "T-1890 (with the curb; seen by T-3000). Its pixel figures were read through T-2538's camera; T-3060's re-solved camera moves the front's north-west corner about 25 px west and the far flank about 25 px east, so re-read them before working it. T-3074 re-solved it again (the horizon on the lake line, about 30 px higher), so read them through the current camera."
     },
     {
       "what": "the south pavilion's gable apex and finial: through T-3060's camera the finial's axis renders at x 1280 against the print's 1268 (about 12 px south) and its top at y 237 against 218 (about 19 px low); carried through the camera, T-2538's readings put the gable's springing at about 14.1 m and its apex at 17.7 m, where the build stands 13.9 and 17.45 m",
-      "status": "open",
-      "how": "T-3073 (found by T-3060)"
+      "status": "fixed",
+      "how": "T-3073, through T-3074's re-solved camera: the print's gable is narrower than the face and stands higher. Its south pinnacle is at about v 9.99 (x 1314), its axis at about v 8.4-8.6 (x 1270), its shelf at 13.55-13.6 m and its copings' apex at 16.76 m. The pavilion's third storey runs 5.5 m to a 13.6 m springing. The gable's south corner stands 0.41 m in from the face's (K08's new gable.inset_m) and its pitch is 2.04, so its middle is at v 8.50, its pinnacles' tops at 15.06 m and its copings' apex at 16.76 m. Its finial's axis now renders within about 2 px of the print's pedestal (x 1270), its rakes on the print's and its south pinnacle on the print's. The south kneeler's end stands about 11 px past the print's shelf end (x 1348 against 1337), and the print's urn finial (to about 17.5 m) is T-3002's (L-kimball-1801-gable-inset-3073)."
     },
     {
       "what": "the tower against T-3060's camera: its finial's axis renders at x 684 against the print's 700 (about 16 px east, about 0.7 m along the flank), and its cone springs well above the print's (the print's dark eave band at about y 496-508 on the axis, the render's at about y 418); T-2538's tower readings carried through the camera fall about 0.4-0.8 m (eaves 12.4 m, cone apex 18.0 m, finial 20.6 m)",
-      "status": "open",
-      "how": "T-3074 (found by T-3060); the cone's springing and stages are T-2539's"
+      "status": "fixed",
+      "how": "T-3074: the camera's flank was wrong, not the tower. Re-solved with the horizon on the lake line (y 1081) and the flank's level lines, the camera renders the tower's finial at x 700 against the print's 700-701 on its built axis (u 12.6), and the east turret's at 227-228 against 228. The cone springing above the print's eave band, and its flare, are the tower's form (T-2539's item above). Its heights through the new camera are a corbel table at about 9.4 m, eaves 12.2 m, cone's apex 17.8 m and finial 20.4 m."
     },
     {
-      "what": "the far flank's heights against T-3060's camera: T-2538's readings carried through it put the east range's eaves at about 7.5 m (the build 8.2) and the east turret's eaves at 7.3 m, apex 11.6 m and finial 13.8 m (read 8.0, 12.7 and 15.1); and the flank's string course across x 370-650 on the print (the shadow under it at y 1038 to 1023) falls about 12 px less across that run than the camera draws a level line on the 18th Street wall, so the camera's flank recedes more steeply than the print's and these heights are good only to about +-1 m",
+      "what": "the far flank's heights against T-3074's camera: its level lines now fit within 3 px, but its heights read low. T-3060's rows carried through it put the east range's eaves at about 6.5 m (built 8.1) and the turret's eaves at 6.3 m, apex 10.4 m and finial 12.4 m (built 8.1, about 12.7 and 13.4). Measured from the wall's foot, the turret's wall is about 7.2 m from foot to eaves, and its foot (y about 1105) reads about 0.8 m under the lot's grade at the corner. So 18th Street's ground may fall east, the far flank may stand lower than built, or both",
       "status": "open",
-      "how": "T-3074 (found by T-3060)"
+      "how": "T-3076 (found by T-3074): read the far flank's rows afresh off the print through T-3074's camera, find what the ground along 18th Street did, and rebuild or rule"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

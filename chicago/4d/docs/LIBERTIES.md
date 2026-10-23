@@ -31692,6 +31692,15 @@ Levy's print and 1955.
 `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`.
 **Recorded:** 2026-10-23 (T-3034).
 
+### L-hogan-pictured-openings-2377 — a first form reading of the first post office
+
+**What is read:** `cameron_c1900_first_post_office`, the committed halftone after Edgar S. Cameron's painting, captioned Chicago's First Postoffice in 1833 and credited to the Chicago Historical Society. The visible long wall has one sash and an off-centre doorway; the gable has one small framed rectangle; one stack rises through the roof. This retrospective picture bounds appearance, not a survey or the building's state in July 1835.
+**What is reconstructed:** the doorway at 8.45 m and sash at 11.55 m from minimum-u on the retained 13.716 m frontage; door 1.45 by 1.95 m, sash 0.75 by 0.95 m; the +x gable opening centred at z 3.35 m, rendered with the archetype's 0.7 by 0.8 m glazed-light proxy; and chimney station 0.6 along the ridge with the archetype's reconstructed 0.65 m square section and 0.95 m head above the ridge. Opening order/occurrence follows the picture, but these dimensions and stations depend on the existing reconstruction and a provisional drawing camera. Gable glazing versus a closed hatch is unresolved. The closed model door does not reproduce the dark open doorway with a person. Hidden faces, wall height, pitch, material colours and construction details retain their earlier bounds. No geographic placement or documented 45 by 20 ft footprint changes.
+**Rendered correction:** an actual paired close-up exposed the first door/sash stations (4.6/10.2 m) as too far along the wall and their widths (0.85/0.55 m) as too narrow. A new six-wallpoint review pose and the revised values above improve that visible arrangement; they do not make the drawing a metric survey.
+**How to resolve:** refit the drawing camera and review every visible difference, including gable treatment, open doorway, roof/log texture, proportions and context. No image-gate match or full T-2377 completion is claimed by this first rebuild.
+**Covers:** `hogan_store.log_1831.form.front_set_out`, `hogan_store.log_1831.form.window_w_m`, `hogan_store.log_1831.form.window_h_m`, `hogan_store.log_1831.form.door_w_m`, `hogan_store.log_1831.form.door_h_m`, `hogan_store.log_1831.form.end_openings`, `hogan_store.log_1831.form.chimney_ridge_at`, `hogan_store.log_1831.form.ridge_stack_w_m`.
+**Recorded:** 2026-10-22 (T-2377).
+
 ### L-k01-1811-rear-fall-3063 — 1811 Prairie's roof behind the south gable falls steeply to a flat deck under a level coped wall head
 
 **Decision:** behind the tall stack, 1811 Prairie's south wall (K01's `north`) is built as a
@@ -31799,3 +31808,25 @@ it a dimension, or a date for the family's move to the north shore.
 **Ticket:** T-2486.
 **Recorded:** 2026-10-23 (T-2486).
 **Covers:** `ouilmette_house_1812.ouilmette_1812.position`, `ouilmette_house_1812.ouilmette_1812.footprint`, `ouilmette_house_1812.ouilmette_1812.form.wall_height_m`, `ouilmette_house_1812.ouilmette_1812.form.roof_pitch_deg`
+
+### L-kimball-1801-gable-inset-3073 — 1801 Prairie's pavilion gable narrowed and raised to the Taylor photograph through the re-solved camera
+
+**Decision:** 1801 Prairie's south pavilion gable is re-stood from J. W. Taylor's c. 1895 photograph
+(`taylor_c1895_kimball_residence_1801`), read through the Taylor camera as T-3074 re-solved it.
+**What is read, not invented.** The gable is narrower than the face it stands on. Its south
+pinnacle stands at about v 9.99 (x 1314 on the print), about 0.55 m short of the chamfer's near end.
+Its apex pedestal's axis is at about v 8.4-8.6 (x 1270). It springs from a shelf at about
+13.55-13.6 m. The pinnacle's top reads 15.06 m and the copings' apex 16.76 m. So the pavilion's
+third storey runs 5.5 m to a 13.6 m springing (it stood 5.1 m to 13.2 m). The gable's south
+corner stands 0.41 m in from the face's (`gable.inset_m`, a new K08 option) and its north corner on
+the face's, which puts its middle at v 8.50. Its pitch is 2.04, the rise from the kneelers to the
+apex over their run.
+**What is invented.** The gable's north corner is placed on the face's own. The print's north
+kneeler stands against the dark slate and reads only to about 0.2 m, so the north inset is taken
+as nothing. The south kneeler is carried on out over the face's corner as one block. The print's
+shelf end there reads about 11 px short of the render's.
+**How to resolve:** A second picture of the pavilion's front (T-3003's 1929 and HABS photographs) or
+a drawing of the gable. The finial's urn and the gable's carved panel are T-3002's.
+**Ticket:** T-3073 (found by T-3060).
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-23 (T-3073).
