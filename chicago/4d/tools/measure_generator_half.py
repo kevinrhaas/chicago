@@ -639,7 +639,7 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # on that archetype's own rows and on none of the shared ones above.
 #
 STATED = {
-    "assets": 968,
+    "assets": 969,
     "restales": {
         "generators/common/*.py": 743,
         "generators/common/__init__.py": 0,

@@ -1,0 +1,27 @@
+{
+  "id": "chicago_blue_book_1904",
+  "type": "book",
+  "citation": "The Chicago Blue Book of Selected Names of Chicago and Suburban Towns, for the year ending 1904. Chicago: The Chicago Directory Company.",
+  "author": "The Chicago Directory Company",
+  "date": "1904",
+  "describes_date": "1904 (the edition 'for the year ending 1904', compiled the winter before)",
+  "repository": "Internet Archive",
+  "url": "https://archive.org/details/chicagobluebooko1904chic",
+  "locator": "The Indiana Avenue street list (printed page 156): '2001 Mr. & Mrs. A. Courtney Campbell' (the OCR reads the number 2061; the alphabetical list prints 'Campbell A. Courtney, 2001 Indiana av.') and '2001 Mrs. George C. Morton'; '2125 Mr. & Mrs. Ira O. Bane', '2125 D. H. Bane'. The classified business list, 'Livery and Boarding Stables': 'BANE BROS. 2125 to 2129 Indiana av. Tels. South-338 and 405'. A display advertisement in the back matter: 'Bane Brothers' Livery, 2125, 2127 and 2129 Indiana Ave., Chicago, Ill., Phone South-405, Stylish Turnouts'.",
+  "tier": 2,
+  "rights_status": "public_domain",
+  "rights_note": "A United States publication of 1904; public domain.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Read for T-3013 on 2026-10-23 from the item's OCR text (chicagobluebooko1904chic_djvu.txt), found by the Internet Archive's full-text search; the OCR is clean in these lines.",
+  "note": "The edition for the year ending 1904, the nearest directory of any kind to the scene's 1 July 1904 that is open to read. It puts two households in 2001 Indiana Avenue and Bane Brothers' livery and boarding stables across 2125, 2127 and 2129 Indiana Avenue.",
+  "what_it_supplies": [
+    "that 2001 Indiana Avenue was a private residence for 1904 (two households of the selected list)",
+    "that 2129 Indiana Avenue was part of Bane Brothers' livery and boarding stables, 2125 to 2129, for 1904"
+  ],
+  "what_it_does_not_supply": [
+    "the building's form, storeys, material or outline",
+    "a construction or demolition date",
+    "anything about the lots its selected list does not name: absence from a Blue Book proves nothing"
+  ]
+}

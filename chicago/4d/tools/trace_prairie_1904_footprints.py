@@ -549,9 +549,13 @@ def for_1904(b: dict, crow: list) -> str:
     front outline here is the 1911 replacement -- or, with no front drawn, the 1904 house is
     simply not on this sheet -- and a draft must not stand on it.
     `phase_unresolved`: the census leaves the frontage's 1904 phase open (sheet 35's 2126,
-    Robbins, building or rebuilding about then), so the draft declares one."""
+    Robbins, building or rebuilding about then), so the draft declares one.
+    `replaced_after_1904` reads as `not_1904` too: a directory or a dated advertisement puts
+    another use on the lot in 1904 (sheet 35w's 2001-2003, 2101-2105 and 215-217, T-3013), so
+    the 1911 front outline is the later building, and the 1904 one is unread, not drawn."""
     rows = [f for f in crow if set(b.get("census_ids", [])) & {p["id"] for p in f["polygons"]}]
-    if any(f["decision_1904"] == "backcast_1886" for f in rows) and b.get("kind") in ("front", "non_building_use"):
+    if any(f["decision_1904"] in ("backcast_1886", "replaced_after_1904") for f in rows) \
+            and b.get("kind") in ("front", "non_building_use"):
         return "not_1904"
     if any(f["decision_1904"] == "phase_unresolved" for f in rows):
         return "phase_unresolved"
@@ -767,7 +771,11 @@ def build(sheet: str) -> dict:
                          "on a backcast frontage, drawn in 1911 and not ruled out); no_census_ruling"
                          + ("; phase_unresolved (the census leaves its 1904 phase open and the draft declares one)"
                             if any(f["decision_1904"] == "phase_unresolved" for f in census["frontages"]
-                                   if f["polygons"]) else "")),
+                                   if f["polygons"]) else "")
+                         + ("; a front on a frontage ruled replaced_after_1904 is not_1904 as well (a dated "
+                            "record puts another use on the lot in 1904, so the 1911 outline is the later "
+                            "building and the 1904 one is unread)"
+                            if any(f["decision_1904"] == "replaced_after_1904" for f in census["frontages"]) else "")),
         },
         "accuracy": accuracy(gcp),
         "counts": {"parcels": len(rows), "buildings": n_b,
