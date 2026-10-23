@@ -415,6 +415,12 @@
       "asset": "gltf/lemai_house_1812__lemai_1812.glb"
     },
     {
+      "id": "ouilmette_house_1812",
+      "name": "Antoine Ouilmette's house, the easternmost of the three houses west of the Kinzie house",
+      "sidecar": "sidecars/1812/ouilmette_house_1812.json",
+      "asset": "gltf/ouilmette_house_1812__ouilmette_1812.glb"
+    },
+    {
       "id": "potawatomi_camp_1812_middle",
       "name": "The Potawatomi camp of August 1812: the lodges at the creek's middle reach",
       "sidecar": "sidecars/1812/potawatomi_camp_1812_middle.json",

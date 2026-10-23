@@ -3559,6 +3559,15 @@
       "phase_id": "draft_1904",
       "structure_id": "otis_house_2033_prairie_coach_house"
     },
+    "ouilmette_house_1812__ouilmette_1812.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 42836,
+      "inputs_sha256": "3522448b468b84ff5d06b319aeef281f6d19f17a719ebbd2d4b4a84a13750060",
+      "kind": "generated",
+      "phase_id": "ouilmette_1812",
+      "structure_id": "ouilmette_house_1812"
+    },
     "peck_store__frame_1833.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
