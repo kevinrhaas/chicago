@@ -13984,7 +13984,8 @@ for (const [label, viewport, touch] of [
     // ---- end T-2661 (part 12)
     // ---- T-2662: Guide's glossary lists the seven locked terms with their lines, its two
     // questions answer in 60 words or fewer, and a locked term's first appearance (the
-    // Navigator Home's Confidence view) shows its line on tap.
+    // Navigator Home's Confidence view) shows its line on tap. T-3043: that name sits beside
+    // its tile's open key (T-3021), so the tap shows the line and leaves Home where it was.
     await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
     await page.waitForFunction(() => document.querySelectorAll('#nav-app-guide #guide-faq details').length >= 2
       || /could not be read/.test(document.querySelector('#nav-app-guide #guide-faq')?.textContent ?? ''),
@@ -14005,11 +14006,17 @@ for (const [label, viewport, touch] of [
       };
       api.navigator.select('home');
       const term = document.querySelector('#nav-home .locked-term');
+      // T-3043: a finger on the term lands on the term, not on the tile key stretched under it.
+      term?.scrollIntoView({ block: 'nearest' });
+      const at = term?.getBoundingClientRect();
+      const hit = at && at.width > 0 ? document.elementFromPoint(at.left + at.width / 2, at.top + at.height / 2) : null;
       term?.click();
       const tip = document.getElementById('term-tip');
       const box = tip?.getBoundingClientRect();
       out.tap = { term: term?.dataset.locked ?? null, shown: !!tip && !tip.hidden, text: tip?.textContent.trim() ?? '',
-        inView: !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth && box.top >= 0 && box.bottom <= innerHeight };
+        inView: !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth && box.top >= 0 && box.bottom <= innerHeight,
+        app: api.navigator.app ?? null, inTile: !!term?.closest('.nav-tile') && !term.closest('button.nav-tile-open'),
+        onTop: !!hit && !!term?.contains(hit) };
       term?.click();
       out.tap.away = !tip || tip.hidden;
       api.navigator.dock();
@@ -14019,6 +14026,7 @@ for (const [label, viewport, touch] of [
       guideWords.terms.join() === 'Attested,Inferred,Reconstructed,Confidence view,Liberties,Sources,Jaunts' && guideWords.lines === 7
       && guideWords.questions.join('|') === 'Is this real?|What does Reconstructed mean?' && guideWords.longest > 0 && guideWords.longest <= 60
       && !guideWords.snake && guideWords.tap.term === 'Confidence view' && guideWords.tap.shown
+      && guideWords.tap.app === 'home' && guideWords.tap.inTile && guideWords.tap.onTop
       && /^Confidence view Recolor the world by grade/.test(guideWords.tap.text) && guideWords.tap.inView && guideWords.tap.away,
       JSON.stringify(guideWords));
     // ---- end T-2662
