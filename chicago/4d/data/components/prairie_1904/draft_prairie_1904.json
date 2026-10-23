@@ -464,6 +464,25 @@
         "west": "T-1946"
       }
     },
+    "35e": {
+      "where": "the background behind Prairie Avenue: Calumet Avenue's west frontage, 20th to 22nd Street, beside the named Hanford and Wheeler-Kohn houses (Sanborn 1911 vol. 3 sheet 35)",
+      "sides": [
+        "west"
+      ],
+      "source": "sanborn_1911_chicago_v3_sheet_35",
+      "census_file": "data/components/prairie_1904/edges_census_s35e.json",
+      "census_ticket": "T-3018",
+      "pass": "T-3018",
+      "liberty": "L-draft-district-background-3018",
+      "fit_note": "the sheet's georeference carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, a similarity on two degrees of freedom that says little away from them, plus about a pixel (0.19 m) of trace on this coarser copy",
+      "rear_ticket": {
+        "west": "T-1946"
+      },
+      "service_outline": {
+        "_doc": "As block 35, whose scan this is: a service building is filled from its traced outline.",
+        "close_cells": 2
+      }
+    },
     "35w": {
       "where": "the background behind Prairie Avenue: Indiana Avenue's east frontage, 20th to 22nd Street, and East Twenty-first Street's lots behind its 2101-2105 corner (Sanborn 1911 vol. 3 sheet 35)",
       "sides": [
@@ -1625,6 +1644,147 @@
       },
       "rear_ticket": "T-1946",
       "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B on a T plan: the hip over the main body, the sheet's dashed inner line not read as a material."
+    },
+    "frontage-35e-2000": {
+      "slug": "house",
+      "register": {
+        "address": "2000",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B on the 20th Street corner: the canted bay on the Calumet front stands as the draft's projecting bay; the frame porch and the frame strip along the rear part are the refining ticket's."
+    },
+    "frontage-35e-2004": {
+      "slug": "house",
+      "register": {
+        "address": "2004",
+        "raw_story_notation": "3B",
+        "map_material": "brick, stone front",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B with the stone face the sheet runs along its Calumet front, stood as the house's own stone front with its canted bay."
+    },
+    "frontage-35e-2016": {
+      "slug": "house",
+      "register": {
+        "address": "2016",
+        "raw_story_notation": "3B; rear2B",
+        "map_material": "brick, stone front",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B behind a stone face on the Calumet front, its 2B rear part as printed. No Prairie stand sees this lot (the census's 0 stands); it is drafted so the frontage stands whole."
+    },
+    "frontage-35e-2032": {
+      "slug": "house",
+      "register": {
+        "address": "2032",
+        "raw_story_notation": "3S.B.; rear3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3S.B. on the 21st Street corner, the largest house of the face, its 3B rear part as printed; the frame porches round it are the refining ticket's.",
+      "services": {
+        "s35e-2032-shed": {
+          "suffix": "shed",
+          "use": {
+            "function": "outbuilding",
+            "name": "the one-storey frame building standing apart in 2032's yard"
+          }
+        }
+      }
+    },
+    "frontage-35e-2100": {
+      "slug": "house",
+      "register": {
+        "address": "2100",
+        "raw_story_notation": "3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 3B on the 21st Street corner: the one-storey frame porch along its north side and front, which the trace joins to the house across its dashed edge, stands as the sheet draws it; the rounded 2B south piece is the refining ticket's."
+    },
+    "frontage-35e-2106": {
+      "slug": "house",
+      "register": {
+        "address": "2106",
+        "raw_story_notation": "2B; rear3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2B at the street with a 3B rear part, as printed: the rounded bay on the Calumet front stands as the draft's projecting bay."
+    },
+    "frontage-35e-2114": {
+      "slug": "house",
+      "register": {
+        "address": "2114",
+        "raw_story_notation": "2½B; rear2B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2½B: dormers in the hip, its 2B rear part as printed; the frame porch round the front and the south side is the refining ticket's. The sheet draws the garage and the unlettered building south of it joined on the alley, so one outline carries both.",
+      "attic_dormers": true
+    },
+    "frontage-35e-2124": {
+      "slug": "house",
+      "register": {
+        "address": "2124",
+        "raw_story_notation": "2½B; rear3B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2½B at the street with a 3B rear part, a storey higher as printed; the stone-faced canted bay on the front stands as the draft's projecting bay. The sheet draws nothing on its alley.",
+      "attic_dormers": true
+    },
+    "frontage-35e-2128": {
+      "slug": "house",
+      "register": {
+        "address": "2128",
+        "raw_story_notation": "2B",
+        "map_material": "stone and brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2B washed half stone and half brick across a diagonal: stood stone over a brick rear, the reading the builder gives the sheet's mixed wash."
+    },
+    "frontage-35e-2140": {
+      "slug": "house",
+      "register": {
+        "address": "2140",
+        "raw_story_notation": "2½B; rear2B",
+        "map_material": "brick",
+        "family": "Brick dwelling",
+        "front_tickets": "T-1946"
+      },
+      "rear_ticket": "T-1946",
+      "why": "A background house with no named record and no register row: the brick family's hip over the sheet's printed storeys, every face closed, nothing read beyond the sheet. 2½B on the 22nd Street end of the face with a 2B and a 1B rear part (the trace joins the 1B piece across its drawn wall); the frame porches on the south side are the refining ticket's.",
+      "attic_dormers": true,
+      "services": {
+        "s35e-2140-shed": {
+          "suffix": "shed",
+          "use": {
+            "function": "outbuilding",
+            "name": "the one-storey brick shed on 2140's alley"
+          }
+        }
+      }
     },
     "frontage-35w-2007": {
       "slug": "house",

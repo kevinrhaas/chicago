@@ -133,6 +133,12 @@ step "The page asks only for the prebuilt layers publish listed: a year with no 
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
 
+step "The sun's shadow biases hold the same fraction of a shadow texel on every detail tier, so a phone's coarser map does not self-shadow sunlit walls (T-3054)" \
+  node tools/check_shadow_bias.mjs
+
+selftest "The shadow-bias check refuses the fixed-length biases that blotched the 1835 shed on a phone (T-3054)" \
+  node tools/check_shadow_bias.mjs --self-test
+
 step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
   node tools/check_glass_modes.mjs
 

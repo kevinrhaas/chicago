@@ -1,5 +1,14 @@
 # Where the Eliza Chappel shore drawing came from: the external search (T-0663, T-0716)
 
+> **2026-10-22 owner-use decision (T-3053).** The owner approved this drawing for
+> attributed project reference, comparison and source display. Its source record
+> now carries project-specific `cleared` status and a dated `rights_checked` entry.
+> Statements below that `check_required` remained current describe the earlier
+> research runs and are superseded for this approved use. The original publication,
+> artist, pictured building identity and metric limitations remain unresolved;
+> this approval is not a public-domain determination or a solved image match.
+
+
 > **WHAT THIS FILE IS FOR.** T-0649 spent the sheet's internal evidence and closed the
 > geometric route: the drawing is composed rather than constructed, so no drawn position
 > can be inverted to a station, and the lighthouse cannot settle the subject
