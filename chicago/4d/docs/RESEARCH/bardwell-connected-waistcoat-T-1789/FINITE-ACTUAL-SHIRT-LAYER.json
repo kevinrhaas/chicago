@@ -1,0 +1,1644 @@
+{
+  "status": "FINITE_ACTUAL_SHIRT_LAYER_SOURCE_PROPOSAL_OBSERVATION",
+  "source_GLB_sha256": "8b7d165bedfa5c8f12fd7e9aeb8d51e1cfc3cab816675a7817900f4bd9418198",
+  "source_GLB_shirt": "Unchanged canonical source shirt geometry/skin and actual frozen rig matrices",
+  "scope": "20 fixed front-normal rays at authored Y1.35/1.38/1.40/1.42/1.45 and transverse plus/minus0.12/0.16 in each of three frozen idle frames, not distinct articulation extremes or full/continuous garment fit. Proposal uses original source positions, triangles, same canonical vest bind matrices and bone-name skin mapping. No rendering, source normal edits, rig/root shifts or material changes.",
+  "results": [
+    {
+      "actual_frozen_idle_frame": "profile",
+      "samples": [
+        {
+          "Y_m": 1.35,
+          "transverse_m": -0.16,
+          "shirt": {
+            "front_depth_m": 0.09641042787022513,
+            "point": [
+              -93.90358957212977,
+              2.3492000007629392,
+              36.66
+            ],
+            "faceIndex": 218
+          },
+          "before": {
+            "front_depth_m": 0.10721400171017592,
+            "point": [
+              -93.89278599828982,
+              2.3492000007629392,
+              36.66
+            ],
+            "faceIndex": 21
+          },
+          "after": {
+            "front_depth_m": 0.10721346141512811,
+            "point": [
+              -93.89278653858487,
+              2.3492000007629392,
+              36.66
+            ],
+            "faceIndex": 68
+          },
+          "after_minus_shirt_m": 0.010803033544902974,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.35,
+          "transverse_m": -0.12,
+          "shirt": {
+            "front_depth_m": 0.11822334365514564,
+            "point": [
+              -93.88177665634485,
+              2.3492000007629392,
+              36.62
+            ],
+            "faceIndex": 211
+          },
+          "before": {
+            "front_depth_m": 0.12645611643030463,
+            "point": [
+              -93.8735438835697,
+              2.3492000007629392,
+              36.62
+            ],
+            "faceIndex": 35
+          },
+          "after": {
+            "front_depth_m": 0.12645611643030463,
+            "point": [
+              -93.8735438835697,
+              2.3492000007629392,
+              36.62
+            ],
+            "faceIndex": 83
+          },
+          "after_minus_shirt_m": 0.008232772775158992,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.35,
+          "transverse_m": 0.12,
+          "shirt": {
+            "front_depth_m": 0.11822335771744008,
+            "point": [
+              -93.88177664228256,
+              2.3492000007629392,
+              36.38
+            ],
+            "faceIndex": 2638
+          },
+          "before": {
+            "front_depth_m": 0.12645614975401998,
+            "point": [
+              -93.87354385024598,
+              2.3492000007629392,
+              36.38
+            ],
+            "faceIndex": 1178
+          },
+          "after": {
+            "front_depth_m": 0.12645614975401998,
+            "point": [
+              -93.87354385024598,
+              2.3492000007629392,
+              36.38
+            ],
+            "faceIndex": 1538
+          },
+          "after_minus_shirt_m": 0.008232792036579895,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.35,
+          "transverse_m": 0.16,
+          "shirt": {
+            "front_depth_m": 0.09641124453129635,
+            "point": [
+              -93.9035887554687,
+              2.3492000007629392,
+              36.34
+            ],
+            "faceIndex": 2643
+          },
+          "before": {
+            "front_depth_m": 0.10721435659463907,
+            "point": [
+              -93.89278564340536,
+              2.3492000007629392,
+              36.34
+            ],
+            "faceIndex": 1165
+          },
+          "after": {
+            "front_depth_m": 0.10721410750824134,
+            "point": [
+              -93.89278589249176,
+              2.3492000007629392,
+              36.34
+            ],
+            "faceIndex": 1522
+          },
+          "after_minus_shirt_m": 0.010802862976944994,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.38,
+          "transverse_m": -0.16,
+          "shirt": {
+            "front_depth_m": 0.09074585527227441,
+            "point": [
+              -93.90925414472773,
+              2.379200000762939,
+              36.66
+            ],
+            "faceIndex": 183
+          },
+          "before": null,
+          "after": null,
+          "after_minus_shirt_m": null,
+          "classification": "NO_PROPOSED_FRONT_WAISTCOAT"
+        },
+        {
+          "Y_m": 1.38,
+          "transverse_m": -0.12,
+          "shirt": {
+            "front_depth_m": 0.10096664943699807,
+            "point": [
+              -93.899033350563,
+              2.379200000762939,
+              36.62
+            ],
+            "faceIndex": 180
+          },
+          "before": {
+            "front_depth_m": 0.10993315486233257,
+            "point": [
+              -93.89006684513767,
+              2.379200000762939,
+              36.62
+            ],
+            "faceIndex": 1
+          },
+          "after": {
+            "front_depth_m": 0.1093928052030293,
+            "point": [
+              -93.89060719479697,
+              2.379200000762939,
+              36.62
+            ],
+            "faceIndex": 52
+          },
+          "after_minus_shirt_m": 0.00842615576603123,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.38,
+          "transverse_m": 0.12,
+          "shirt": {
+            "front_depth_m": 0.10096658667778513,
+            "point": [
+              -93.89903341332221,
+              2.379200000762939,
+              36.38
+            ],
+            "faceIndex": 2605
+          },
+          "before": {
+            "front_depth_m": 0.10993278587767463,
+            "point": [
+              -93.89006721412233,
+              2.379200000762939,
+              36.38
+            ],
+            "faceIndex": 1145
+          },
+          "after": {
+            "front_depth_m": 0.10939282342256718,
+            "point": [
+              -93.89060717657743,
+              2.379200000762939,
+              36.38
+            ],
+            "faceIndex": 1507
+          },
+          "after_minus_shirt_m": 0.008426236744782045,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.38,
+          "transverse_m": 0.16,
+          "shirt": {
+            "front_depth_m": 0.09074652576299513,
+            "point": [
+              -93.909253474237,
+              2.379200000762939,
+              36.34
+            ],
+            "faceIndex": 2610
+          },
+          "before": null,
+          "after": null,
+          "after_minus_shirt_m": null,
+          "classification": "NO_PROPOSED_FRONT_WAISTCOAT"
+        },
+        {
+          "Y_m": 1.4,
+          "transverse_m": -0.16,
+          "shirt": {
+            "front_depth_m": 0.08410825256402177,
+            "point": [
+              -93.91589174743598,
+              2.399200000762939,
+              36.66
+            ],
+            "faceIndex": 163
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.09202205601839353,
+            "point": [
+              -93.9079779439816,
+              2.399200000762939,
+              36.66
+            ],
+            "faceIndex": 40
+          },
+          "after_minus_shirt_m": 0.00791380345437176,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.4,
+          "transverse_m": -0.12,
+          "shirt": {
+            "front_depth_m": 0.08668354017386548,
+            "point": [
+              -93.91331645982613,
+              2.399200000762939,
+              36.62
+            ],
+            "faceIndex": 162
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.09409174737891135,
+            "point": [
+              -93.90590825262109,
+              2.399200000762939,
+              36.62
+            ],
+            "faceIndex": 39
+          },
+          "after_minus_shirt_m": 0.007408207205045869,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.4,
+          "transverse_m": 0.12,
+          "shirt": {
+            "front_depth_m": 0.0866835742342289,
+            "point": [
+              -93.91331642576577,
+              2.399200000762939,
+              36.38
+            ],
+            "faceIndex": 2587
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.09409183865902548,
+            "point": [
+              -93.90590816134097,
+              2.399200000762939,
+              36.38
+            ],
+            "faceIndex": 1492
+          },
+          "after_minus_shirt_m": 0.0074082644247965845,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.4,
+          "transverse_m": 0.16,
+          "shirt": {
+            "front_depth_m": 0.08410813831380892,
+            "point": [
+              -93.91589186168619,
+              2.399200000762939,
+              36.34
+            ],
+            "faceIndex": 2590
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.092022068973165,
+            "point": [
+              -93.90797793102683,
+              2.399200000762939,
+              36.34
+            ],
+            "faceIndex": 1495
+          },
+          "after_minus_shirt_m": 0.007913930659356083,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.42,
+          "transverse_m": -0.16,
+          "shirt": {
+            "front_depth_m": 0.06917933269902221,
+            "point": [
+              -93.93082066730098,
+              2.419200000762939,
+              36.66
+            ],
+            "faceIndex": 1629
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.07667181886904473,
+            "point": [
+              -93.92332818113096,
+              2.419200000762939,
+              36.66
+            ],
+            "faceIndex": 725
+          },
+          "after_minus_shirt_m": 0.0074924861700225165,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.42,
+          "transverse_m": -0.12,
+          "shirt": {
+            "front_depth_m": 0.07225210433837503,
+            "point": [
+              -93.92774789566162,
+              2.419200000762939,
+              36.62
+            ],
+            "faceIndex": 279
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.07944915121670704,
+            "point": [
+              -93.9205508487833,
+              2.419200000762939,
+              36.62
+            ],
+            "faceIndex": 119
+          },
+          "after_minus_shirt_m": 0.007197046878332003,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.42,
+          "transverse_m": 0.12,
+          "shirt": {
+            "front_depth_m": 0.07225209868431648,
+            "point": [
+              -93.92774790131568,
+              2.419200000762939,
+              36.38
+            ],
+            "faceIndex": 2706
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.07944911467053828,
+            "point": [
+              -93.92055088532946,
+              2.419200000762939,
+              36.38
+            ],
+            "faceIndex": 1574
+          },
+          "after_minus_shirt_m": 0.0071970159862218,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.42,
+          "transverse_m": 0.16,
+          "shirt": {
+            "front_depth_m": 0.06917945010201265,
+            "point": [
+              -93.93082054989799,
+              2.419200000762939,
+              36.34
+            ],
+            "faceIndex": 4052
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.07667213323007616,
+            "point": [
+              -93.92332786676992,
+              2.419200000762939,
+              36.34
+            ],
+            "faceIndex": 2176
+          },
+          "after_minus_shirt_m": 0.007492683128063504,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.45,
+          "transverse_m": -0.16,
+          "shirt": {
+            "front_depth_m": 0.030342368248142293,
+            "point": [
+              -93.96965763175186,
+              2.4492000007629393,
+              36.66
+            ],
+            "faceIndex": 107
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.03443837456605081,
+            "point": [
+              -93.96556162543395,
+              2.4492000007629393,
+              36.66
+            ],
+            "faceIndex": 122
+          },
+          "after_minus_shirt_m": 0.004096006317908518,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.45,
+          "transverse_m": -0.12,
+          "shirt": {
+            "front_depth_m": 0.03494418007930733,
+            "point": [
+              -93.96505581992069,
+              2.4492000007629393,
+              36.62
+            ],
+            "faceIndex": 352
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.044962477726357974,
+            "point": [
+              -93.95503752227364,
+              2.4492000007629393,
+              36.62
+            ],
+            "faceIndex": 195
+          },
+          "after_minus_shirt_m": 0.010018297647050645,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.45,
+          "transverse_m": 0.12,
+          "shirt": {
+            "front_depth_m": 0.03494405485326979,
+            "point": [
+              -93.96505594514673,
+              2.4492000007629393,
+              36.38
+            ],
+            "faceIndex": 2775
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.04496210389372379,
+            "point": [
+              -93.95503789610628,
+              2.4492000007629393,
+              36.38
+            ],
+            "faceIndex": 1648
+          },
+          "after_minus_shirt_m": 0.010018049040454002,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.45,
+          "transverse_m": 0.16,
+          "shirt": {
+            "front_depth_m": 0.030342262955358024,
+            "point": [
+              -93.96965773704464,
+              2.4492000007629393,
+              36.34
+            ],
+            "faceIndex": 2534
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.034438519525735956,
+            "point": [
+              -93.96556148047426,
+              2.4492000007629393,
+              36.34
+            ],
+            "faceIndex": 1577
+          },
+          "after_minus_shirt_m": 0.004096256570377932,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        }
+      ],
+      "summary": {
+        "rays": 20,
+        "shirt_in_front": 0,
+        "missing": 2,
+        "covered": 18,
+        "minimum_gap_m": 0.004096006317908518
+      }
+    },
+    {
+      "actual_frozen_idle_frame": "front",
+      "samples": [
+        {
+          "Y_m": 1.35,
+          "transverse_m": -0.16,
+          "shirt": {
+            "front_depth_m": 0.0972036290260121,
+            "point": [
+              -93.90279637097399,
+              2.3492000007629392,
+              36.66
+            ],
+            "faceIndex": 218
+          },
+          "before": {
+            "front_depth_m": 0.10795586897731368,
+            "point": [
+              -93.89204413102269,
+              2.3492000007629392,
+              36.66
+            ],
+            "faceIndex": 21
+          },
+          "after": {
+            "front_depth_m": 0.10795537962822266,
+            "point": [
+              -93.89204462037178,
+              2.3492000007629392,
+              36.66
+            ],
+            "faceIndex": 68
+          },
+          "after_minus_shirt_m": 0.010751750602210564,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.35,
+          "transverse_m": -0.12,
+          "shirt": {
+            "front_depth_m": 0.11881167906045675,
+            "point": [
+              -93.88118832093954,
+              2.3492000007629392,
+              36.62
+            ],
+            "faceIndex": 211
+          },
+          "before": {
+            "front_depth_m": 0.12707261937953263,
+            "point": [
+              -93.87292738062047,
+              2.3492000007629392,
+              36.62
+            ],
+            "faceIndex": 35
+          },
+          "after": {
+            "front_depth_m": 0.12707261937953263,
+            "point": [
+              -93.87292738062047,
+              2.3492000007629392,
+              36.62
+            ],
+            "faceIndex": 83
+          },
+          "after_minus_shirt_m": 0.008260940319075871,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.35,
+          "transverse_m": 0.12,
+          "shirt": {
+            "front_depth_m": 0.11881169805548097,
+            "point": [
+              -93.88118830194452,
+              2.3492000007629392,
+              36.38
+            ],
+            "faceIndex": 2638
+          },
+          "before": {
+            "front_depth_m": 0.127072648814476,
+            "point": [
+              -93.87292735118552,
+              2.3492000007629392,
+              36.38
+            ],
+            "faceIndex": 1178
+          },
+          "after": {
+            "front_depth_m": 0.127072648814476,
+            "point": [
+              -93.87292735118552,
+              2.3492000007629392,
+              36.38
+            ],
+            "faceIndex": 1538
+          },
+          "after_minus_shirt_m": 0.008260950758995023,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.35,
+          "transverse_m": 0.16,
+          "shirt": {
+            "front_depth_m": 0.09720448562669048,
+            "point": [
+              -93.90279551437331,
+              2.3492000007629392,
+              36.34
+            ],
+            "faceIndex": 2643
+          },
+          "before": {
+            "front_depth_m": 0.10795617835927374,
+            "point": [
+              -93.89204382164073,
+              2.3492000007629392,
+              36.34
+            ],
+            "faceIndex": 1165
+          },
+          "after": {
+            "front_depth_m": 0.10795600693657548,
+            "point": [
+              -93.89204399306342,
+              2.3492000007629392,
+              36.34
+            ],
+            "faceIndex": 1522
+          },
+          "after_minus_shirt_m": 0.010751521309884993,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.38,
+          "transverse_m": -0.16,
+          "shirt": {
+            "front_depth_m": 0.09164984785414276,
+            "point": [
+              -93.90835015214586,
+              2.379200000762939,
+              36.66
+            ],
+            "faceIndex": 183
+          },
+          "before": null,
+          "after": null,
+          "after_minus_shirt_m": null,
+          "classification": "NO_PROPOSED_FRONT_WAISTCOAT"
+        },
+        {
+          "Y_m": 1.38,
+          "transverse_m": -0.12,
+          "shirt": {
+            "front_depth_m": 0.10160004949679546,
+            "point": [
+              -93.8983999505032,
+              2.379200000762939,
+              36.62
+            ],
+            "faceIndex": 180
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.11006231531702326,
+            "point": [
+              -93.88993768468298,
+              2.379200000762939,
+              36.62
+            ],
+            "faceIndex": 52
+          },
+          "after_minus_shirt_m": 0.008462265820227799,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.38,
+          "transverse_m": 0.12,
+          "shirt": {
+            "front_depth_m": 0.10159998086075461,
+            "point": [
+              -93.89840001913925,
+              2.379200000762939,
+              36.38
+            ],
+            "faceIndex": 2605
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.11006232475168076,
+            "point": [
+              -93.88993767524832,
+              2.379200000762939,
+              36.38
+            ],
+            "faceIndex": 1507
+          },
+          "after_minus_shirt_m": 0.00846234389092615,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.38,
+          "transverse_m": 0.16,
+          "shirt": {
+            "front_depth_m": 0.09165051633235066,
+            "point": [
+              -93.90834948366765,
+              2.379200000762939,
+              36.34
+            ],
+            "faceIndex": 2610
+          },
+          "before": null,
+          "after": null,
+          "after_minus_shirt_m": null,
+          "classification": "NO_PROPOSED_FRONT_WAISTCOAT"
+        },
+        {
+          "Y_m": 1.4,
+          "transverse_m": -0.16,
+          "shirt": {
+            "front_depth_m": 0.08482201506485865,
+            "point": [
+              -93.91517798493514,
+              2.399200000762939,
+              36.66
+            ],
+            "faceIndex": 163
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.0926934729676816,
+            "point": [
+              -93.90730652703232,
+              2.399200000762939,
+              36.66
+            ],
+            "faceIndex": 40
+          },
+          "after_minus_shirt_m": 0.007871457902822954,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.4,
+          "transverse_m": -0.12,
+          "shirt": {
+            "front_depth_m": 0.08745441271267396,
+            "point": [
+              -93.91254558728733,
+              2.399200000762939,
+              36.62
+            ],
+            "faceIndex": 162
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.09481625399391191,
+            "point": [
+              -93.90518374600609,
+              2.399200000762939,
+              36.62
+            ],
+            "faceIndex": 39
+          },
+          "after_minus_shirt_m": 0.0073618412812379574,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.4,
+          "transverse_m": 0.12,
+          "shirt": {
+            "front_depth_m": 0.08745444295131222,
+            "point": [
+              -93.91254555704869,
+              2.399200000762939,
+              36.38
+            ],
+            "faceIndex": 2587
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.09481635093361263,
+            "point": [
+              -93.90518364906639,
+              2.399200000762939,
+              36.38
+            ],
+            "faceIndex": 1492
+          },
+          "after_minus_shirt_m": 0.0073619079823004085,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.4,
+          "transverse_m": 0.16,
+          "shirt": {
+            "front_depth_m": 0.08482189022029729,
+            "point": [
+              -93.9151781097797,
+              2.399200000762939,
+              36.34
+            ],
+            "faceIndex": 2590
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.09269347039568743,
+            "point": [
+              -93.90730652960431,
+              2.399200000762939,
+              36.34
+            ],
+            "faceIndex": 1495
+          },
+          "after_minus_shirt_m": 0.007871580175390136,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.42,
+          "transverse_m": -0.16,
+          "shirt": {
+            "front_depth_m": 0.06999733890259563,
+            "point": [
+              -93.9300026610974,
+              2.419200000762939,
+              36.66
+            ],
+            "faceIndex": 1629
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.07739352726289894,
+            "point": [
+              -93.9226064727371,
+              2.419200000762939,
+              36.66
+            ],
+            "faceIndex": 725
+          },
+          "after_minus_shirt_m": 0.007396188360303313,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.42,
+          "transverse_m": -0.12,
+          "shirt": {
+            "front_depth_m": 0.07307291133402316,
+            "point": [
+              -93.92692708866598,
+              2.419200000762939,
+              36.62
+            ],
+            "faceIndex": 279
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.08022805759755158,
+            "point": [
+              -93.91977194240245,
+              2.419200000762939,
+              36.62
+            ],
+            "faceIndex": 119
+          },
+          "after_minus_shirt_m": 0.007155146263528422,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.42,
+          "transverse_m": 0.12,
+          "shirt": {
+            "front_depth_m": 0.0730729059180959,
+            "point": [
+              -93.9269270940819,
+              2.419200000762939,
+              36.38
+            ],
+            "faceIndex": 2706
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.0802280216701945,
+            "point": [
+              -93.9197719783298,
+              2.419200000762939,
+              36.38
+            ],
+            "faceIndex": 1574
+          },
+          "after_minus_shirt_m": 0.007155115752098595,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.42,
+          "transverse_m": 0.16,
+          "shirt": {
+            "front_depth_m": 0.06999744316588874,
+            "point": [
+              -93.93000255683411,
+              2.419200000762939,
+              36.34
+            ],
+            "faceIndex": 4052
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.07739381642321064,
+            "point": [
+              -93.92260618357679,
+              2.419200000762939,
+              36.34
+            ],
+            "faceIndex": 2176
+          },
+          "after_minus_shirt_m": 0.007396373257321898,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.45,
+          "transverse_m": -0.16,
+          "shirt": {
+            "front_depth_m": 0.030943269144714236,
+            "point": [
+              -93.96905673085529,
+              2.4492000007629393,
+              36.66
+            ],
+            "faceIndex": 107
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.0352847056877863,
+            "point": [
+              -93.96471529431221,
+              2.4492000007629393,
+              36.66
+            ],
+            "faceIndex": 122
+          },
+          "after_minus_shirt_m": 0.004341436543072064,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.45,
+          "transverse_m": -0.12,
+          "shirt": {
+            "front_depth_m": 0.035894667627985655,
+            "point": [
+              -93.96410533237201,
+              2.4492000007629393,
+              36.62
+            ],
+            "faceIndex": 352
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.04588743666721484,
+            "point": [
+              -93.95411256333279,
+              2.4492000007629393,
+              36.62
+            ],
+            "faceIndex": 195
+          },
+          "after_minus_shirt_m": 0.009992769039229188,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.45,
+          "transverse_m": 0.12,
+          "shirt": {
+            "front_depth_m": 0.035894561014728765,
+            "point": [
+              -93.96410543898527,
+              2.4492000007629393,
+              36.38
+            ],
+            "faceIndex": 2775
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.04588707234002243,
+            "point": [
+              -93.95411292765998,
+              2.4492000007629393,
+              36.38
+            ],
+            "faceIndex": 1648
+          },
+          "after_minus_shirt_m": 0.009992511325293663,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.45,
+          "transverse_m": 0.16,
+          "shirt": {
+            "front_depth_m": 0.030943174891547187,
+            "point": [
+              -93.96905682510845,
+              2.4492000007629393,
+              36.34
+            ],
+            "faceIndex": 2534
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.03528485807146353,
+            "point": [
+              -93.96471514192854,
+              2.4492000007629393,
+              36.34
+            ],
+            "faceIndex": 1577
+          },
+          "after_minus_shirt_m": 0.004341683179916345,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        }
+      ],
+      "summary": {
+        "rays": 20,
+        "shirt_in_front": 0,
+        "missing": 2,
+        "covered": 18,
+        "minimum_gap_m": 0.004341436543072064
+      }
+    },
+    {
+      "actual_frozen_idle_frame": "quarter",
+      "samples": [
+        {
+          "Y_m": 1.35,
+          "transverse_m": -0.16,
+          "shirt": {
+            "front_depth_m": 0.09343041797535534,
+            "point": [
+              -93.90656958202464,
+              2.3492000007629392,
+              36.66
+            ],
+            "faceIndex": 218
+          },
+          "before": {
+            "front_depth_m": 0.10442731820671725,
+            "point": [
+              -93.89557268179328,
+              2.3492000007629392,
+              36.66
+            ],
+            "faceIndex": 21
+          },
+          "after": {
+            "front_depth_m": 0.10442658759794199,
+            "point": [
+              -93.89557341240206,
+              2.3492000007629392,
+              36.66
+            ],
+            "faceIndex": 68
+          },
+          "after_minus_shirt_m": 0.010996169622586649,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.35,
+          "transverse_m": -0.12,
+          "shirt": {
+            "front_depth_m": 0.115931451653708,
+            "point": [
+              -93.88406854834629,
+              2.3492000007629392,
+              36.62
+            ],
+            "faceIndex": 227
+          },
+          "before": {
+            "front_depth_m": 0.12414368826293298,
+            "point": [
+              -93.87585631173707,
+              2.3492000007629392,
+              36.62
+            ],
+            "faceIndex": 35
+          },
+          "after": {
+            "front_depth_m": 0.12414368826293298,
+            "point": [
+              -93.87585631173707,
+              2.3492000007629392,
+              36.62
+            ],
+            "faceIndex": 83
+          },
+          "after_minus_shirt_m": 0.008212236609224988,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.35,
+          "transverse_m": 0.12,
+          "shirt": {
+            "front_depth_m": 0.11593146806498567,
+            "point": [
+              -93.88406853193501,
+              2.3492000007629392,
+              36.38
+            ],
+            "faceIndex": 2654
+          },
+          "before": {
+            "front_depth_m": 0.12414373627774467,
+            "point": [
+              -93.87585626372226,
+              2.3492000007629392,
+              36.38
+            ],
+            "faceIndex": 1178
+          },
+          "after": {
+            "front_depth_m": 0.12414373627774467,
+            "point": [
+              -93.87585626372226,
+              2.3492000007629392,
+              36.38
+            ],
+            "faceIndex": 1538
+          },
+          "after_minus_shirt_m": 0.008212268212759,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.35,
+          "transverse_m": 0.16,
+          "shirt": {
+            "front_depth_m": 0.09343108576818793,
+            "point": [
+              -93.90656891423181,
+              2.3492000007629392,
+              36.34
+            ],
+            "faceIndex": 2643
+          },
+          "before": {
+            "front_depth_m": 0.10442784358608037,
+            "point": [
+              -93.89557215641392,
+              2.3492000007629392,
+              36.34
+            ],
+            "faceIndex": 1165
+          },
+          "after": {
+            "front_depth_m": 0.10442730414392543,
+            "point": [
+              -93.89557269585607,
+              2.3492000007629392,
+              36.34
+            ],
+            "faceIndex": 1522
+          },
+          "after_minus_shirt_m": 0.010996218375737499,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.38,
+          "transverse_m": -0.16,
+          "shirt": {
+            "front_depth_m": 0.08734741136886726,
+            "point": [
+              -93.91265258863113,
+              2.379200000762939,
+              36.66
+            ],
+            "faceIndex": 183
+          },
+          "before": null,
+          "after": null,
+          "after_minus_shirt_m": null,
+          "classification": "NO_PROPOSED_FRONT_WAISTCOAT"
+        },
+        {
+          "Y_m": 1.38,
+          "transverse_m": -0.12,
+          "shirt": {
+            "front_depth_m": 0.09858634619810402,
+            "point": [
+              -93.9014136538019,
+              2.379200000762939,
+              36.62
+            ],
+            "faceIndex": 180
+          },
+          "before": {
+            "front_depth_m": 0.10725754574420421,
+            "point": [
+              -93.8927424542558,
+              2.379200000762939,
+              36.62
+            ],
+            "faceIndex": 1
+          },
+          "after": {
+            "front_depth_m": 0.10687698784980171,
+            "point": [
+              -93.8931230121502,
+              2.379200000762939,
+              36.62
+            ],
+            "faceIndex": 52
+          },
+          "after_minus_shirt_m": 0.008290641651697683,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.38,
+          "transverse_m": 0.12,
+          "shirt": {
+            "front_depth_m": 0.09858630572368554,
+            "point": [
+              -93.90141369427631,
+              2.379200000762939,
+              36.38
+            ],
+            "faceIndex": 2605
+          },
+          "before": {
+            "front_depth_m": 0.10725560293947467,
+            "point": [
+              -93.89274439706053,
+              2.379200000762939,
+              36.38
+            ],
+            "faceIndex": 1145
+          },
+          "after": {
+            "front_depth_m": 0.10687703930693715,
+            "point": [
+              -93.89312296069306,
+              2.379200000762939,
+              36.38
+            ],
+            "faceIndex": 1507
+          },
+          "after_minus_shirt_m": 0.008290733583251608,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.38,
+          "transverse_m": 0.16,
+          "shirt": {
+            "front_depth_m": 0.0873480894305203,
+            "point": [
+              -93.91265191056948,
+              2.379200000762939,
+              36.34
+            ],
+            "faceIndex": 2610
+          },
+          "before": null,
+          "after": null,
+          "after_minus_shirt_m": null,
+          "classification": "NO_PROPOSED_FRONT_WAISTCOAT"
+        },
+        {
+          "Y_m": 1.4,
+          "transverse_m": -0.16,
+          "shirt": {
+            "front_depth_m": 0.0810320571112868,
+            "point": [
+              -93.91896794288871,
+              2.399200000762939,
+              36.66
+            ],
+            "faceIndex": 166
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.08949618075129706,
+            "point": [
+              -93.9105038192487,
+              2.399200000762939,
+              36.66
+            ],
+            "faceIndex": 40
+          },
+          "after_minus_shirt_m": 0.008464123640010257,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.4,
+          "transverse_m": -0.12,
+          "shirt": {
+            "front_depth_m": 0.08378030208413634,
+            "point": [
+              -93.91621969791586,
+              2.399200000762939,
+              36.62
+            ],
+            "faceIndex": 162
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.09136495830603053,
+            "point": [
+              -93.90863504169397,
+              2.399200000762939,
+              36.62
+            ],
+            "faceIndex": 39
+          },
+          "after_minus_shirt_m": 0.007584656221894193,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.4,
+          "transverse_m": 0.12,
+          "shirt": {
+            "front_depth_m": 0.08378035056057342,
+            "point": [
+              -93.91621964943943,
+              2.399200000762939,
+              36.38
+            ],
+            "faceIndex": 2587
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.09136502818900283,
+            "point": [
+              -93.908634971811,
+              2.399200000762939,
+              36.38
+            ],
+            "faceIndex": 1492
+          },
+          "after_minus_shirt_m": 0.007584677628429404,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.4,
+          "transverse_m": 0.16,
+          "shirt": {
+            "front_depth_m": 0.08103125798537292,
+            "point": [
+              -93.91896874201463,
+              2.399200000762939,
+              36.34
+            ],
+            "faceIndex": 2591
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.0894962526911911,
+            "point": [
+              -93.91050374730881,
+              2.399200000762939,
+              36.34
+            ],
+            "faceIndex": 1495
+          },
+          "after_minus_shirt_m": 0.008464994705818185,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.42,
+          "transverse_m": -0.16,
+          "shirt": {
+            "front_depth_m": 0.06609338145659649,
+            "point": [
+              -93.9339066185434,
+              2.419200000762939,
+              36.66
+            ],
+            "faceIndex": 1629
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.07377554066063396,
+            "point": [
+              -93.92622445933937,
+              2.419200000762939,
+              36.66
+            ],
+            "faceIndex": 726
+          },
+          "after_minus_shirt_m": 0.007682159204037475,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.42,
+          "transverse_m": -0.12,
+          "shirt": {
+            "front_depth_m": 0.06914585881044388,
+            "point": [
+              -93.93085414118956,
+              2.419200000762939,
+              36.62
+            ],
+            "faceIndex": 144
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.07651315032620687,
+            "point": [
+              -93.9234868496738,
+              2.419200000762939,
+              36.62
+            ],
+            "faceIndex": 119
+          },
+          "after_minus_shirt_m": 0.007367291515762986,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.42,
+          "transverse_m": 0.12,
+          "shirt": {
+            "front_depth_m": 0.06914588730624871,
+            "point": [
+              -93.93085411269375,
+              2.419200000762939,
+              36.38
+            ],
+            "faceIndex": 2569
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.07651311143072803,
+            "point": [
+              -93.92348688856927,
+              2.419200000762939,
+              36.38
+            ],
+            "faceIndex": 1574
+          },
+          "after_minus_shirt_m": 0.007367224124479321,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.42,
+          "transverse_m": 0.16,
+          "shirt": {
+            "front_depth_m": 0.06609354844340487,
+            "point": [
+              -93.9339064515566,
+              2.419200000762939,
+              36.34
+            ],
+            "faceIndex": 4052
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.07377605195908643,
+            "point": [
+              -93.92622394804091,
+              2.419200000762939,
+              36.34
+            ],
+            "faceIndex": 2180
+          },
+          "after_minus_shirt_m": 0.00768250351568156,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.45,
+          "transverse_m": -0.16,
+          "shirt": {
+            "front_depth_m": 0.028082161500663005,
+            "point": [
+              -93.97191783849934,
+              2.4492000007629393,
+              36.66
+            ],
+            "faceIndex": 108
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.0312323601398532,
+            "point": [
+              -93.96876763986015,
+              2.4492000007629393,
+              36.66
+            ],
+            "faceIndex": 122
+          },
+          "after_minus_shirt_m": 0.0031501986391901937,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.45,
+          "transverse_m": -0.12,
+          "shirt": {
+            "front_depth_m": 0.03134577240290071,
+            "point": [
+              -93.9686542275971,
+              2.4492000007629393,
+              36.62
+            ],
+            "faceIndex": 352
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.0414246810916552,
+            "point": [
+              -93.95857531890834,
+              2.4492000007629393,
+              36.62
+            ],
+            "faceIndex": 704
+          },
+          "after_minus_shirt_m": 0.010078908688754495,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.45,
+          "transverse_m": 0.12,
+          "shirt": {
+            "front_depth_m": 0.03134557746348321,
+            "point": [
+              -93.96865442253652,
+              2.4492000007629393,
+              36.38
+            ],
+            "faceIndex": 2775
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.04142433337051443,
+            "point": [
+              -93.95857566662949,
+              2.4492000007629393,
+              36.38
+            ],
+            "faceIndex": 2155
+          },
+          "after_minus_shirt_m": 0.010078755907031223,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        },
+        {
+          "Y_m": 1.45,
+          "transverse_m": 0.16,
+          "shirt": {
+            "front_depth_m": 0.028081700211217253,
+            "point": [
+              -93.97191829978878,
+              2.4492000007629393,
+              36.34
+            ],
+            "faceIndex": 2533
+          },
+          "before": null,
+          "after": {
+            "front_depth_m": 0.031232476975759482,
+            "point": [
+              -93.96876752302424,
+              2.4492000007629393,
+              36.34
+            ],
+            "faceIndex": 1577
+          },
+          "after_minus_shirt_m": 0.003150776764542229,
+          "classification": "PROPOSED_WAISTCOAT_OUTSIDE_SHIRT"
+        }
+      ],
+      "summary": {
+        "rays": 20,
+        "shirt_in_front": 0,
+        "missing": 2,
+        "covered": 18,
+        "minimum_gap_m": 0.0031501986391901937
+      }
+    }
+  ],
+  "all_sampled_existing_shirt_points_have_outer_proposed_vest": false,
+  "whole_fit_and_40_inherited_negatives_remain_open": true,
+  "shoulder_ray_summary": {
+    "rays_per_frame": 12,
+    "Y_m": [
+      1.4,
+      1.42,
+      1.45
+    ],
+    "transverse_m": [
+      -0.16,
+      -0.12,
+      0.12,
+      0.16
+    ],
+    "baseline_source_vest_all_absent": true,
+    "new_vest_all_outside_actual_shirt": true,
+    "minimum_outer_gap_m": 0.0031501986391901937,
+    "additional_lateral_observations": "Y1.38/transverse\u00b1.16 stay shirt-only at the authored armholes; preserved as2 missing observations per frame, not a blanket full-coverage PASS."
+  }
+}

@@ -523,7 +523,7 @@
       "part": "tongue_strap_2.65"
     }
   ],
-  "bytes": 2970420,
+  "bytes": 2970448,
   "canvasTexture": {
     "RGBA8_mip_bytes_estimate": 2097152,
     "grade": "Original analytic woven-surface reconstruction; not a photograph/scan or dated textile weave measurement",
@@ -537,7 +537,7 @@
     ]
   },
   "estimatedActiveMappedRGBA8MipsBytes": 8388608,
-  "glb_sha256": "c6f69830d4ad690125ed703353d429bb8f68d67d29d6f6161b383b8b2d78f191",
+  "glb_sha256": "22072e6fc83f1f73faeb98b583facb8dd9a2cf9498118e6df9c43ffd485f9321",
   "legacy_record_id": "town_wagon_wolf_point_tavern_yard_1",
   "limitations": [
     "No actual ground qualification or main-scene placement",
@@ -932,7 +932,7 @@
     "seedText": "wagon|town_wagon_wolf_point_tavern_yard_1|-90.5|-39.5",
     "seedUint32": 1535618531
   },
-  "source_sha256": "1a36e3506c9e515c5404d911f30f2c2093b325fe5a6184d931aefa6503d7555d",
+  "source_sha256": "679fc439a98921b0afcf60b31a437687dd3f243c7d62c1737da3cb215a882e29",
   "triangles": 17292,
   "unsupportedInheritedSockets": [
     "vehicle_hitch_team",
