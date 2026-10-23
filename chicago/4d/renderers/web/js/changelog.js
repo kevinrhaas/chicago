@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2214, ts: '2026-10-23T07:09:59.195Z', date: 'Oct 23, 2026, 2:09 AM CT', title: 'Smoke: the 1904 placed list holds Indiana Avenue\'s drafts', kind: 'fix',
+    items: [
+      'Stage 14\'s 1904 check holds by name the 27 Indiana Avenue east-frontage drafts (20th-22nd, First Presbyterian among them) that T-3009 placed; its PR left them off the list, so the check was red on dev.',
+    ] },
+  { v: 2213, ts: '2026-10-23T07:09:59.195Z', date: 'Oct 23, 2026, 2:09 AM CT', title: '1801 Prairie\'s south pavilion stands where the 1911 map draws it', kind: 'fix',
+    items: [
+      'The south pavilion of the Kimball house on Prairie Avenue now stands about 10 cm out from the front, as the 1911 fire insurance map draws it. It used to stand 60 cm out. Its windows still sit in deep stone openings, which now run back into the house wall. The roof\'s gutter and eave now stop at the pavilion\'s sides instead of running behind it. Seen from where J. W. Taylor took his photograph of about 1895, the pavilion\'s south corner now sits about 30 px closer to where his photograph shows it. The map also shows that corner cut back at an angle, and that is next.',
+    ] },
   { v: 2212, ts: '2026-10-23T05:36:29.796Z', date: 'Oct 23, 2026, 12:36 AM CT', title: 'Expert research folds the building card into the Navigator', kind: 'feature',
     items: [
       'Clicking or tapping a building, arriving at one, or pressing Inspect now opens it in the Navigator instead of a second card on the right.',
