@@ -314,6 +314,9 @@ step "Restoration baseline waits for observed scene readiness; after capture sta
 step "CC0 adult preparation preserves source UVs, metric frame and bounded rig weights (T-1789)" \
   python3 tools/test_human_base_prepare.py
 
+step "Bardwell waistcoat shoulder panels connect without changing default source (T-1789)" \
+  python3 tools/test_human_workwear_shoulders.py
+
 step "Resident hair preserves verified source pixels, fitted UVs and existing skin bindings (T-1789)" \
   python3 tools/test_human_hair_short04.py
 

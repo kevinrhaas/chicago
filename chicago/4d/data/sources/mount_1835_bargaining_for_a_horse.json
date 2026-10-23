@@ -1,0 +1,32 @@
+{
+  "id": "mount_1835_bargaining_for_a_horse",
+  "type": "illustration",
+  "citation": "William Sidney Mount, Bargaining for a Horse (Farmers Bargaining),1835, New-York Historical Society, accession 1858.59; public-domain two-dimensional reproduction via Wikimedia Commons.",
+  "author": "William Sidney Mount",
+  "date": "1835",
+  "repository": "New-York Historical Society; saved faithful two-dimensional reproduction and imageinfo rights metadata from Wikimedia Commons",
+  "url": "https://commons.wikimedia.org/wiki/File:Bargaining_for_a_Horse_1835_William_Sidney_Mount.jpg",
+  "locator": "The whole 1029x829 pixel reproduction, especially the two clothed barnyard men; Commons file page id 5790243; accession 1858.59.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "The saved Commons imageinfo for this exact reproduction explicitly states Public domain, Copyrighted=False, AttributionRequired=false, and PD-Art/PD-old-100-expired categories. It reproduces a two-dimensional 1835 painting by William Sidney Mount (1807-1868). This clearance does not attest the depicted clothing as a named resident wardrobe.",
+  "rights_checked": {
+    "date": "2026-10-22",
+    "method": "Read the saved Commons imageinfo rights fields and original image bytes; exact image SHA1 matches its saved imageinfo SHA1. No new catalog/rights request.",
+    "outcome": "public_domain for this faithful two-dimensional reproduction, supported by the saved Commons declaration and work/author dates"
+  },
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Saved New-York Historical Society catalog HTML confirms artist, title, signed 1835 date and accession 1858.59; catalog URL https://emuseum.nyhistory.org/objects/22396/bargaining-for-a-horse-farmers-bargaining. Both original saved reproduction pixels and saved Commons metadata were locally re-read on 2026-10-22 without a new network request. Saved image SHA1 9e2f29f542773622bb33d6c50214391ccbc95e5b matches the Commons imageinfo record.",
+  "what_it_supplies": [
+    "A circa 1835 American genre-painting comparator for a declared reconstruction, not Chicago eyewitness evidence.",
+    "Visible hanging trouser fullness and a substantial closed lower waistcoat front; qualitative silhouette analogy only."
+  ],
+  "what_it_does_not_supply": [
+    "Completion before the 1835-07-01 Chicago scene date: the painting date is year-only.",
+    "Any named Chicago resident, likeness, exact outfit, occupation or uniform.",
+    "Measured garment/body dimensions, cutting patterns, fibers, weave, cloth thickness, colors as material measurements, hardware or PBR parameters.",
+    "Full fit, animated/LOD clearance, photographic quality, exact July 1835 Chicago wardrobe or geometry-tracing authority."
+  ],
+  "note": "Tier 1 describes the date of the original painting, not eyewitness status for Chicago. Genre staging is not an occupational uniform survey. Used only to cross-check the independently reconstructed lower-trouser silhouette and waistcoat front; no painted pixels, tracing, portrait, color sampling or historical measurements enter the authored model."
+}
