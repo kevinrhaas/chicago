@@ -28,3 +28,16 @@ The open doorway, gable glazing/hatch, chimney detail, camera/proportions, log/r
 In chicago/4d, use the exact binary from generators/blender.pin (4.5.3, checksum verified), `blender -b -noaudio --factory-startup --python generators/build.py -- --only hogan_store --wrote /tmp/hogan-wrote.txt`, then `npm_config_cache=/workspace/shared/npm-cache tools/web_derivatives.sh --only hogan_store__log_1831.glb`, `python3 tools/compile_liberties.py`, `python3 tools/generate_entrances.py`, `node tools/rederive.mjs --tail tools/compile_scene.py`, and `PW_EXECUTABLE=/usr/bin/chromium node tools/photo_match.mjs docs/RESEARCH/hogan-picture-match-T-2377/cameron-1833.json --out docs/RESEARCH/hogan-picture-match-T-2377`. The working environment is an interactive cloud workspace; the system Blender4.3.2 was not used. The pinned binary was downloaded to /workspace/shared/blender-dl and verified against the committed SHA256. On an improve runner, obey the no-Blender rule and use the supported content-build workflow.
 
 Validation and in-app checks are recorded in STATUS and the GitHub recovery checkpoint when complete; this README does not claim unrun checks.
+
+## Integration check repair (2026-10-23)
+
+The first mobile 14–15 smoke found a stale 1904 expected-ID list: it omitted
+27 Indiana Avenue records added by T-3009 / PR #1198. The captured 222-ID
+registry exactly matched that head's 1904 sidecars; all prohibited 1835 layer
+counts were zero. The smoke's expected list now names those verified records.
+The assertion itself, missing/extra-ID checks, loader behavior and timeouts are
+unchanged. A focused proof reproduces the original failure and still rejects
+missing old/new records, an extra 1835 Hogan record, prohibited layers and an
+inconsistent registry count. This is a deterministic test-oracle repair, not an
+unchanged flaky rerun. New-head local and published-smoke checks remain required.
+The original Hogan image gate remains open; this PR records model progress only.

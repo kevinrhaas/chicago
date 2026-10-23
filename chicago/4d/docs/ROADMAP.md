@@ -5644,3 +5644,7 @@ with peer-mesh/placement freshness checks. The initial 30-member first-fort and
 [The checkpoint](RESEARCH/fort-reference-groups-T-3040/README.md) preserves source/date
 findings and next work across T-2372 through T-2388. T-3041 and T-2388 retain
 the full model-matching acceptance; this prerequisite changes no building.
+
+T-2377 continuation (2026-10-23): revalidate the first Hogan refinement on current
+dev after restoring T-3009's 27 omitted 1904 smoke expectations. The full original
+image gate and remaining camera/door/gable/material differences stay open.

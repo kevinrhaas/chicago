@@ -905,7 +905,7 @@ function heldFlagHtml(s) {
       }</span>`;
 }
 
-function headHtml(s, record, called, p, place) {
+function headHtml(s, record, called, p, place, { titleRow = true } = {}) {
   const opening = cardOpening(s, called);
   const aka = opening.aka.length
     ? `<p class="pop-aka">also ${opening.aka.map(escapeHtml).join(' · ')}</p>` : '';
@@ -974,10 +974,11 @@ function headHtml(s, record, called, p, place) {
 
   // The title row sits outside .pop-head so it can stay pinned for the card's whole
   // scroll (T-2954): a sticky box only sticks inside its own parent.
-  return `<div class="pop-title-row">
+  // T-3022: Inspect's Research tab shows the head under its own name, without this row.
+  return `${titleRow ? `<div class="pop-title-row">
       <h2>${escapeHtml(opening.title)}</h2>
       <button class="pop-close" type="button" data-close aria-label="Close" title="Close (Esc)"><span class="pop-close-x" aria-hidden="true">×</span><span class="pop-close-label">Close</span><kbd class="pop-close-key" aria-hidden="true">Esc</kbd></button>
-    </div>
+    </div>` : ''}
     <div class="pop-head">
     ${s.id === 'glessner_house' ? `<p><a href="${new URL('../glessner-baseline.html', import.meta.url).href}" target="_blank" rel="noopener">Photographic comparison baseline ↗</a></p>` : ''}
     ${aka}
@@ -1347,6 +1348,63 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     return saidCache.get(doc);
   };
 
+  /**
+   * The card's three research panes for one record — Sources (the evidence), Liberties (with
+   * the open questions) and Record — and the counts their tabs carry. One builder for the
+   * card and for Inspect's Research tab (T-3022), so the two can never say a building two ways.
+   */
+  function researchPanes(record, s, p, place, called) {
+    const spec = called.spec
+      ? `<p class="pop-spec">Reconstruction reference
+           <code>${escapeHtml(called.spec)}</code></p>`
+      : '';
+    // Empty when no dossier has been WRITTEN for this record — the compiler
+    // resolves the path against the repository rather than naming one by
+    // convention and hoping (ROADMAP K26). Offering a link that breaks taught a
+    // visitor to distrust the ones that do not, so the sentence says which it is.
+    // T-2825: the dossier is a link in plain words, like any source; its path is not
+    // something a reader is handed.
+    const doc = s.research_doc
+      ? `<a href="${escapeHtml(docBase + s.research_doc)}" target="_blank" rel="noopener">
+           the research notes on this building</a>`
+      : 'no dossier written for this building yet';
+
+    // The liberties count on its tab, so a visitor can see there is something
+    // to read before opening it. Null lists (not loaded) count as nothing, which
+    // is the same "claim nothing" rule `libertySection` applies.
+    const libertyCount = Array.isArray(liberties)
+      ? libertiesFor(liberties, record.id).length : 0;
+    const questionCount = Array.isArray(openQuestions)
+      ? openQuestionsFor(openQuestions, record.id).length : 0;
+
+    const evidencePane = `
+      ${basisSection(s, place)}
+      ${whereSection(p, place)}
+      ${ordinanceSection(ordinanceLimits, p)}
+      ${presenceSection(s)}
+      ${shapeSection(s)}
+      <section class="pop-sec">
+        <h3>Attributes and evidence</h3>
+        <table class="attrs"><tbody>${attributeRows(s.attributes)}</tbody></table>
+      </section>
+      <section class="pop-sec">
+        <h3>Sources</h3>
+        <ol class="cites">${citationItems(s.citations)}</ol>
+      </section>`;
+
+    const libertiesPane = `
+      ${libertySection(liberties, record.id)}
+      ${openQuestionSection(openQuestions, record.id)}`;
+
+    const recordPane = `
+      ${researchSection(s)}
+      ${spec}
+      <p class="pop-foot">Full dossier: ${doc}<br>
+        Phase: ${escapeHtml(s.phase ? String(s.phase).replace(/_/g, ' ') : '—')}${record.version
+          ? ` · version: ${escapeHtml(clean(String(record.version.label ?? '')) || 'a version other than the default')}` : ''}</p>`;
+    return { evidencePane, libertiesPane, recordPane, libertyCount, questionCount };
+  }
+
   function close() {
     closePictureViewer();
     currentId = null;
@@ -1540,6 +1598,23 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
         liberties: Array.isArray(liberties) ? libertiesFor(liberties, record.id) : null,
         questions: Array.isArray(openQuestions) ? openQuestionsFor(openQuestions, record.id) : null,
         dossier: s.research_doc ? docBase + s.research_doc : null,
+        // T-3022: everything the card holds beyond Inspect's own tabs, for its Research tab
+        // (Expert research): the head's flags, the facts block, and the three research panes.
+        // Built when read, so the tabs that do not show it do not pay for it.
+        get research() {
+          const place = { confidence: p.position_confidence, sources: p.position_sources, note: p.position_note };
+          const called = displayName(s, record.id);
+          const firms = businessesByStructure?.get?.(record.id) ?? [];
+          const panes = researchPanes(record, s, p, place, called);
+          return {
+            head: headHtml(s, record, called, p, place, { titleRow: false }),
+            facts: factsHtml(s, firms, false),
+            evidence: panes.evidencePane,
+            liberties: panes.libertiesPane,
+            record: panes.recordPane,
+            libertyCount: panes.libertyCount + panes.questionCount,
+          };
+        },
       };
     },
 
@@ -1576,56 +1651,8 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
       // #017` is what the parcel re-derives, what the GLB is named for, and what
       // somebody reading the dataset has in hand.
       const called = displayName(s, record.id);
-      const spec = called.spec
-        ? `<p class="pop-spec">Reconstruction reference
-             <code>${escapeHtml(called.spec)}</code></p>`
-        : '';
-
-      // Empty when no dossier has been WRITTEN for this record — the compiler
-      // resolves the path against the repository rather than naming one by
-      // convention and hoping (ROADMAP K26). Offering a link that breaks taught a
-      // visitor to distrust the ones that do not, so the sentence says which it is.
-      // T-2825: the dossier is a link in plain words, like any source; its path is not
-      // something a reader is handed.
-      const doc = s.research_doc
-        ? `<a href="${escapeHtml(docBase + s.research_doc)}" target="_blank" rel="noopener">
-             the research notes on this building</a>`
-        : 'no dossier written for this building yet';
-
-      // The liberties count on its tab, so a visitor can see there is something
-      // to read before opening it. Null lists (not loaded) count as nothing, which
-      // is the same "claim nothing" rule `libertySection` applies.
-      const libertyCount = Array.isArray(liberties)
-        ? libertiesFor(liberties, record.id).length : 0;
-      const questionCount = Array.isArray(openQuestions)
-        ? openQuestionsFor(openQuestions, record.id).length : 0;
+      const { evidencePane, libertiesPane, recordPane, libertyCount, questionCount } = researchPanes(record, s, p, place, called);
       const pictureCount = picturesFor(pictures, record.id)?.length ?? 0;
-
-      const evidencePane = `
-        ${basisSection(s, place)}
-        ${whereSection(p, place)}
-        ${ordinanceSection(ordinanceLimits, p)}
-        ${presenceSection(s)}
-        ${shapeSection(s)}
-        <section class="pop-sec">
-          <h3>Attributes and evidence</h3>
-          <table class="attrs"><tbody>${attributeRows(s.attributes)}</tbody></table>
-        </section>
-        <section class="pop-sec">
-          <h3>Sources</h3>
-          <ol class="cites">${citationItems(s.citations)}</ol>
-        </section>`;
-
-      const libertiesPane = `
-        ${libertySection(liberties, record.id)}
-        ${openQuestionSection(openQuestions, record.id)}`;
-
-      const recordPane = `
-        ${researchSection(s)}
-        ${spec}
-        <p class="pop-foot">Full dossier: ${doc}<br>
-          Phase: ${escapeHtml(s.phase ? String(s.phase).replace(/_/g, ' ') : '—')}${record.version
-            ? ` · version: ${escapeHtml(clean(String(record.version.label ?? '')) || 'a version other than the default')}` : ''}</p>`;
 
       root.innerHTML = `
         ${headHtml(s, record, called, p, place)}
