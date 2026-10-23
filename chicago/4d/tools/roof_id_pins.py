@@ -96,7 +96,21 @@ NOT_THE_SOURCE_TREE = (".git/", "node_modules/", "site/")
 # execute_roof_redeal.cpython-312.pyc names recon_1835_blk_randolph_market_a1_07`,
 # for a name the list had already ruled may stand. A prefix tuple cannot say this —
 # a pycache sits at any depth — so it is asked as a path SEGMENT.
-NOT_A_SOURCE_DIR = ("__pycache__",)
+#
+# AND NEITHER IS A NESTED `.git`, at any depth. The prefix above only ever matched a
+# `.git/` at this tree's root, where there is none (the repository's own sits two
+# levels up), so a clone dropped inside the tree was read object pack and all. One is:
+# tools/tickets.sh clones kevinrhaas/chicago-tickets into `tickets/`. Its tickets stay
+# swept (the `ticket` pin below is about them), but on 2026-10-23 its
+# `.git/objects/pack/*.pack` had grown to 1.9 GB, and the two sweeps that walk the
+# whole tree (`execute_roof_redeal.py --check-migration` and `--check-blocks`) each
+# read it with `read_text(errors="ignore")`: about 10 GB resident apiece, because
+# stray high code points make Python store the string at four bytes a character.
+# With both in the gate's pool at once a 16 GB runner ran out, which GitHub reports
+# as "the runner has received a shutdown signal" — six steward runs and four gate
+# runs died that way between 09:50 and 11:40 UTC. Skipping it, each sweep peaks
+# under 400 MB and takes a third of the time.
+NOT_A_SOURCE_DIR = ("__pycache__", ".git")
 
 
 def not_the_source_tree(rel: str) -> bool:
