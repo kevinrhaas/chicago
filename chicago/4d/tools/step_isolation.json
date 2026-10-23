@@ -2716,6 +2716,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_brougham_near.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_chimney_kit.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2845,6 +2849,10 @@
       "wrote_ignored": []
     },
     "tools/check_only_selection.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_parked_wagon_fine_wood.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5471,6 +5479,10 @@
       "wrote_ignored": []
     },
     "tools/test_boot_phases.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_brougham_card.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

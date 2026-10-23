@@ -1,3 +1,25 @@
+## T-2794 — Parked Brougham distance model and prototype replacement
+
+The reconstructed 1904 Brougham remains at its already qualified stand E1397.9,N−3240,bearing178.99°, approximately25.157m from the unchanged spawn. Only the obsolete `prairie_parked_carriage` C02 display row is removed under the owner's replacement request. All C02 definitions/assets remain for compatibility, and all five distinct1835wagon rows, positions and bearings remain unchanged. The1893 Studebaker catalogue identifies the design, not this individual vehicle, owner or stop.
+
+The exact33,502-triangle near master/delivery remain b74e0093/ec2bfc0d. The accepted distance mid is11,706 triangles (raw48a9224b/indexedd6d6709e), replacing the earlier22,238 mid. Source tessellation alone changes468 records to302: physical categories,64spokes,16spring leaves, seven materials,42nodes,13runtime anchors, eight static named targets, outer bounds and full wheel/pole/shoe contacts remain. The original near conservative collision proxy stays exact; a5.755mm mid tight-box contraction is never substituted for production clearance. The original producer's late-fitting recipe shadowing is preserved, not fixed.
+
+Eight fixed24m desktop/mobile near/mid views passed8.587s with zero errors and closed cleanup; the root viewed all eight and accepted distance-LOD appearance only. Original generation/count/anchor-preparation failures and earlier native request-error and270s world deadline failures remain failures in their records. The24m/screen-size selector,5% hysteresis, active-only picking,100/65/Light0 reach, fetching/parsing, confidence, caches, disposal, camera and render caps are unchanged. Runtime triangle reporting now reads11,706 for mid.
+
+The source incorporates reviewed DEVb7cde6d with incoming summary UI, Glessner research notes and liberties preserved. Source/preflight/publication results are recorded against the actual PR commit. Current normal published desktop/mobile whole-world budgets, body/pole/ground and tree/canopy/obstacle clearance, and photographic completion remain unqualified. No people, occupants, door operation, hitch coupling, boarding, driving or traffic acceptance is claimed.
+
+## T-2793 — Parked W01 wood texture material increment
+
+The existing three 1835 farm-box wagons now select `parked-wagon-fine-wood/wagon-w01.glb` (SHA256 e1e5b4f1d7dfe6bf08cca21e8cfae2e88748a3f6e6c6959753334ae2b0c84dd8). Its 12,104-triangle original geometry, positions/normals, pivots, paint/iron and wheel contacts are preserved. Only timber material ownership, UV/tangent/index charts and CC0 wood texture map derivatives change. Original baseline 274e737b remains untouched. Both distinct covered finish families remain; their separately authorized cloth-only drape increment is recorded below. Poly Haven Fine Grained Wood by Rob Tuytel is a modern optical analogy, not an attested period species, finish or specimen; GPL project charts and CC0 pixels are separately declared.
+
+The root reviewed all four actual V4B fixed-camera native images and accepted a bounded visible material improvement. Fresh original-pipeline generation and binding matched the reviewed output externally; eight pooled app batches versus five baseline, and 6,291,168 estimated RGBA8-plus-mips bytes remain costs to qualify in the ordinary published world. Native images do not establish photographic completion, actual GPU allocation or combined mobile/desktop budgets. Reviewed DEVb7cde6d is incorporated with incoming research/status additions preserved. Integrated derivation, preflight and publication results are recorded against the actual PR commit. No people, horses, occupants, driving, boarding or parent-ticket completion is claimed.
+
+### T-2980 — Exact previously qualified covered-cloth increment
+
+The Western Hotel blue/oxide and Wolf Point oak/darkoak covered wagons retain distinct seeded finishes, aging, yokes, stands, bearings and running gear. Only their reconstructed inter-bow cloth/hem drape deepens from8–10mm to20–28mm over750mm spans, with1.2mm creases unchanged. The exact prior aaffa339/22072e6f products remain17,292triangles,26sourceprimitives,9materialgroups and8,388,608RGBA8+mipsdimension-estimate bytes each. Project geometry/source GPL-3.0-or-later; original procedural pixels CC0; no historical textile, manufacturer or owner attestation.
+
+Historical source065646706 passed normal1046checks/381self-tests, postcommit publication/mirror, and published desktop8/mobile8 each21passed/0failed. Those exact-source historical results do not qualify this combined integration. Initial mobile visual evidence remains6images from a deadline failure plus a separate2image continuation, with unfrozen residents/foliage; photographic materials/cloth construction, compressed LOD, occupied use and whole-world acceptance remain open. Current terrain-proof bytes are preserved.
+
 ## T-2943 — a visitor walks through Glessner's carriage passage (2026-10-20)
 
 The owner, 2026-10-20, in Glessner's carriage passage on /4d/dev/1904/: *"i find it odd that i

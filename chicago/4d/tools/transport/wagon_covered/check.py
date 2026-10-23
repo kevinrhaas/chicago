@@ -27,7 +27,10 @@ def validate_covered(record, originals, root):
                 elif yard_source[end] == '}': depth -= 1
                 end += 1
         assert hashlib.sha256(yard_source[start:end].encode()).hexdigest() == contract['sha256'], 'Original seeded finish contract changed; re-audit its legacy colors'
-    assert set(record['models']) == {'wagon_w01', 'carriage_c02'} | COVERED_MODELS, 'Unknown model family'
+    # This checker owns the covered subset. Keep every existing required family,
+    # allow only the separately validated named Brougham addition, reject all others.
+    required_models = {'wagon_w01', 'carriage_c02'} | COVERED_MODELS
+    assert required_models <= set(record['models']) <= required_models | {'studebaker_brougham_1893'}, 'Unknown or missing model family'
     variants = {v['asset_id']: v for v in recipe['variants']}
     products = {v['model']: v for v in source['variants']}
     assert set(variants) == set(products) == COVERED_MODELS, 'Only two reviewed covered variants'

@@ -1812,6 +1812,38 @@ for (const [label, viewport, touch] of [
     `${((Date.now() - bootFrom) / 1000).toFixed(1)} s of ${BOOT_READY_MS / 1000} s`, true);
 
   if (ready) {
+    // T-2662: measure a real first appearance while its screen is visible, before
+    // any part enters the town. T-3021 made Home's Confidence view tile an app
+    // button; term-tips correctly never nests a meaning button in another control.
+    // The Welcome intro already marks Reconstructed and Sources for this purpose.
+    // Keep this initial-document reading across later stages/reloads; the glossary
+    // and FAQ still get their own actual Guide reading in part 12 below.
+    let firstTermTap = null;
+    if (stageOn(12)) {
+      const selector = '#welcome .welcome-intro .locked-term[data-locked="Reconstructed"]';
+      try {
+        await untilLanded();
+        await clickChrome(selector);
+        firstTermTap = await page.evaluate((sel) => {
+          const term = document.querySelector(sel);
+          const tip = document.getElementById('term-tip');
+          const box = tip?.getBoundingClientRect();
+          return { term: term?.dataset.locked ?? null, shown: !!tip && !tip.hidden,
+            text: tip?.textContent.trim() ?? '',
+            inView: !!box && box.width > 0 && box.left >= 0 && box.right <= innerWidth
+              && box.top >= 0 && box.bottom <= innerHeight,
+            phase: window.__chicago4d.welcome?.state ?? null,
+            journey: document.documentElement.dataset.journey ?? null };
+        }, selector);
+        await clickChrome(selector);
+        firstTermTap.away = await page.evaluate(() => {
+          const tip = document.getElementById('term-tip');
+          return !tip || tip.hidden;
+        });
+      } catch (error) {
+        firstTermTap = { ...firstTermTap, error: error.message, away: false };
+      }
+    }
     const problems = await page.evaluate(() => window.__chicago4d.problems);
     // Provisional placement and placeholder-asset notes are expected findings,
     // not defects. `review_required` is also a deliberate release blocker, but
@@ -14006,10 +14038,10 @@ for (const [label, viewport, touch] of [
     // Back as it was found: Home, docked (T-2619's dock opens on its last app).
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
     // ---- end T-2661 (part 12)
-    // ---- T-2662: Guide's glossary lists the seven locked terms with their lines, its two
-    // questions answer in 60 words or fewer, and a locked term's first appearance (the
-    // Navigator Home's Confidence view) shows its line on tap. T-3043: that name sits beside
-    // its tile's open key (T-3021), so the tap shows the line and leaves Home where it was.
+    // ---- T-2662/T-3043: Guide retains all seven glossary lines and both short answers.
+    // The initial Welcome Reconstructed tap was measured before entering the town.
+    // Separately, Home's Confidence view name beside its open key must be the hit target,
+    // explain itself on tap, leave Home selected and dismiss; neither reading overwrites the other.
     await page.evaluate(() => window.__chicago4d.navigator.select('guide'));
     await page.waitForFunction(() => document.querySelectorAll('#nav-app-guide #guide-faq details').length >= 2
       || /could not be read/.test(document.querySelector('#nav-app-guide #guide-faq')?.textContent ?? ''),
@@ -14046,12 +14078,18 @@ for (const [label, viewport, touch] of [
       api.navigator.dock();
       return out;
     });
-    check(`${label}: Guide's glossary gives the seven locked terms their lines, both questions answer in 60 words or fewer, and a term's first appearance explains itself on tap (T-2662)`,
+    guideWords.firstTermTap = firstTermTap;
+    await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
+    check(`${label}: Guide's glossary gives the seven locked terms their lines, both questions answer in 60 words or fewer, the initial Welcome term and Home Confidence view each explain themselves on tap (T-2662, T-3043)`,
       guideWords.terms.join() === 'Attested,Inferred,Reconstructed,Confidence view,Liberties,Sources,Jaunts' && guideWords.lines === 7
       && guideWords.questions.join('|') === 'Is this real?|What does Reconstructed mean?' && guideWords.longest > 0 && guideWords.longest <= 60
       && !guideWords.snake && guideWords.tap.term === 'Confidence view' && guideWords.tap.shown
       && guideWords.tap.app === 'home' && guideWords.tap.inTile && guideWords.tap.onTop
-      && /^Confidence view Recolor the world by grade/.test(guideWords.tap.text) && guideWords.tap.inView && guideWords.tap.away,
+      && /^Confidence view Recolor the world by grade/.test(guideWords.tap.text) && guideWords.tap.inView && guideWords.tap.away
+      && !guideWords.firstTermTap?.error && guideWords.firstTermTap?.term === 'Reconstructed' && guideWords.firstTermTap.shown
+      && guideWords.firstTermTap.text === 'Reconstructed No record exists. We built it so the street makes sense, and say so.'
+      && guideWords.firstTermTap.inView && guideWords.firstTermTap.away
+      && guideWords.firstTermTap.phase === 'welcome' && guideWords.firstTermTap.journey === 'landed',
       JSON.stringify(guideWords));
     // ---- end T-2662
     // >>> T-2666: Guide › For teachers — the Field Check's eight steps, read from the tour
@@ -19778,7 +19816,35 @@ for (const [label, viewport, touch] of [
         // T-2352 added its east side: thirty-three more.
         // T-2443 stood one more on the 16th-18th east side, the Forsyth house at 1635, and
         // its PR (#771) left it off this list, so stage 14 was red on dev until T-2468.
-        const PLACED_1904 = ['glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
+        const PLACED_1904 = [
+          'first_presbyterian_church_2029_indiana',
+          'first_presbyterian_church_2029_indiana_dwelling',
+          'first_presbyterian_church_2029_indiana_stable',
+          'house_2007_indiana',
+          'house_2009_indiana',
+          'house_2009_indiana_rear_dwelling',
+          'house_2011_indiana',
+          'house_2011_indiana_coach_house',
+          'house_2013_indiana',
+          'house_2013_indiana_coach_house',
+          'house_2017_indiana',
+          'house_2017_indiana_coach_house',
+          'house_2019_indiana',
+          'house_2019_indiana_coach_house',
+          'house_2021_indiana',
+          'house_2021_indiana_coach_house',
+          'house_2023_indiana',
+          'house_2023_indiana_coach_house',
+          'house_2027_indiana',
+          'house_2027_indiana_coach_house',
+          'house_2107_indiana',
+          'house_2107_indiana_coach_house',
+          'house_2111_indiana',
+          'house_2111_indiana_coach_house',
+          'house_2115_indiana',
+          'house_2119_indiana',
+          'livery_2123_indiana',
+          'glessner_house', 'keith_house_1808_prairie', 'pullman_house_1729_prairie_conservatory',
           'shortall_gregory_house_1638_prairie_front',
           'edson_keith_house_1906_prairie',
           'edson_keith_house_1906_prairie_coach_house',
