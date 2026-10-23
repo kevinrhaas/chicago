@@ -160,7 +160,7 @@
     "roof_form": {
       "value": "gable",
       "confidence": "reconstructed",
-      "note": "A ridge along the street front, its street slope rising steeply from the eave behind the bay's stone gable and the oriel's pyramid (T-2542), and the front block's side walls carried up in brick as coped gable ends, the south one to the tall stack, as the plate and the Chicagology print show it; the north end, unseen, the same."
+      "note": "T-2920: a steep hipped mass over the bay and a lower gable roof south of it, its ridge parallel to the street 1.4 m behind the front, in the same street plane; the south wall carried up in brick as a coped gable to the tall stack, as the 1888 plate and the Chicagology print show it. The north end is under the hip, unseen by either picture."
     },
     "roof_pitch_deg": {
       "value": 61.2,
@@ -168,7 +168,7 @@
       "sources": [
         "inland_architect_1888_10_ames_residence"
       ],
-      "note": "T-2542: read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): the street slope rises from its eave, at about 8.5-8.8 m, to the roof's apex, x 320 y 240 px, about 16 m over grade if it stands on the ridge 3.78 m behind the front (the ridge's depth is reconstructed; the plate sees no ridge end). 61.2 degrees from the 9.14 m eave datum over 3.78 m rises 6.87 m, to 16.01 m: in the K01 contract's steep band, which a gable read off a source may take. The rear slope falls at about the same pitch to the same wall head."
+      "note": "T-2542: read through the T-2541 camera on the 1888 plate (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json): the street slope rises from its eave, at about 8.5-8.8 m, to the roof's apex, x 320 y 240 px, about 16 m over grade. T-2920 puts that apex on a hipped mass over the bay's end of the block rather than on a ridge along the whole front: a K05 hip over the full 7.57 m depth at 61.2 degrees from the 9.14 m eave datum rises to 16.01 m, and the lower gable roof south of it shares the street plane. In the K01 contract's steep band, which a roof read off a source may take."
     },
     "eave_overhang_m": {
       "value": 0.35,
@@ -592,8 +592,40 @@
         "cap_depth_m": 0.15,
         "stacks": [
           {
-            "u_m": 0.8,
-            "v_m": 9.4
+            "u_m": 6.8,
+            "v_m": 10.2,
+            "plan_m": [
+              0.8,
+              0.4
+            ],
+            "in_parapet": true,
+            "top_m": 12.29,
+            "cap_proud_m": 0.1,
+            "cap_depth_m": 0.58
+          },
+          {
+            "u_m": 6.8,
+            "v_m": 10.235,
+            "plan_m": [
+              0.5,
+              0.33
+            ],
+            "in_parapet": true,
+            "top_m": 12.86,
+            "cap_proud_m": 0.03,
+            "cap_depth_m": 0.12
+          },
+          {
+            "u_m": 2.5,
+            "v_m": 10.175,
+            "plan_m": [
+              0.8,
+              0.45
+            ],
+            "in_parapet": true,
+            "top_m": 12.29,
+            "cap_proud_m": 0.1,
+            "cap_depth_m": 0.4
           },
           {
             "u_m": 1.0,
@@ -601,8 +633,11 @@
           }
         ]
       },
-      "confidence": "reconstructed",
-      "note": "The plate's tall stack at the junction of the front block and the brick range on the south side, and one on the north wall, reconstructed; T-2542 carried them up past the steepened ridge with it. Their corbelled caps and the range's second stack (the plate's, x about 545 px) stay open on the match record."
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1888_10_ames_residence"
+      ],
+      "note": "T-2920: the two south stacks stand IN the south wall's coped gable, as the 1888 plate and the Chicagology print (cgn-1811-coleman-ames-photo) both draw them, solved through the T-2541 camera and checked on its render. The tall stack rises from the gable's street slope about 0.8 m behind the front (its shaft the plate's x 498-522 px, about 0.4 m across the wall), its shaft to a corbelled band at 11.7-12.29 m (y 293-320 px), built as K01's deep proud cap, and over it a narrower top stage to 12.86 m (y 268 px, x 502-517), built as a second, smaller stack standing in the first. The second stack stands on the gable's rear fall about 4.3 m further back (x 537-557 px, its top y 395, 12.29 m), with its own head. Their places along the flank are inferred from the camera to about +-0.5 m. The north stack is reconstructed (no picture sees the north side) and stands where T-2542 put it, now under the hip."
     },
     "rainwater": {
       "value": {
@@ -704,19 +739,24 @@
     },
     "gable_roof": {
       "value": {
-        "ridge_back_m": 3.78,
+        "ridge_back_m": 1.4,
         "top_above_ridge_m": 0.3,
+        "hip_mass": {
+          "v_m": 7.1,
+          "apex_v_m": 3.3,
+          "attic_from_m": 5.0
+        },
         "ends": {
           "north": {
-            "style": "coped"
-          },
-          "south": {
             "style": "coped"
           }
         }
       },
-      "confidence": "reconstructed",
-      "note": "The ridge at half the front block's depth, so the two slopes fall at the same pitch to the one wall head; the side walls carried up as coped parapets (K01's 'north' is the street's south end: the brick gable the plate and the Chicagology print show rising to the tall stack, a smooth coped rake, not crow-stepped)."
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1888_10_ames_residence"
+      ],
+      "note": "T-2920, read through the T-2541 camera on the 1888 plate and checked on the Chicagology print (cgn-1811-coleman-ames-photo, a second negative from nearly the same place, which shows the south flank whole). The roof is two masses, not one ridge. Over the bay (K01's low-v end) a steep HIPPED mass, its apex at the plate's x 313-329 px, y 243-247, which the camera puts at u 3.8, v 3.8-4.2 and 16.0 m: a K05 hip over the whole depth from v 0 to 8.0 m at the street's 61.2 degrees reaches 16.01 m there, its south hip arris crossing y 335 at x 386 (the plate's 390). South of it a LOWER gable roof in the same street plane, its ridge 1.4 m behind the front at 11.68 m: the plate's level slate top at y 345-352 between the oriel's pyramid and the stack (x 448-498) lies on that line, and the south wall's coped gable rises from the front corner at the street's pitch to the tall stack and falls behind it, as both pictures draw it; a ridge at half the depth (T-2542's 3.78 m) would stand the coped rake in the sky the plate shows at x 541, y 335. Only the south (K01 'north') wall is carried up as a coped parapet; the north wall is under the hip's end. The ridge's depth is inferred to about +-0.4 m (the camera's depth along the flank is good to about +-1 m); the rear slope falls at 22.6 degrees to the wall head, its fall unseen."
     },
     "dormer": {
       "value": {
