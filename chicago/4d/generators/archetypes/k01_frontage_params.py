@@ -427,6 +427,7 @@ BAY_KINDS = ("bay", "projection", "oriel", "tower")
 TOWER_PAST_EAVE_M = 1.0
 #: T-2900: how far inside its end wall's plane a corner turret's ring may stand, at the most
 TURRET_CORNER_M = 0.3
+SHALLOW_PROUD_M = 0.3   # T-3047: a shallow projection stands at most this far proud
 
 #: T-2350: the K05 variant a flat K01 roof is built from (k05_roofs.json)
 FLAT_ROOF = "k05.roof.flat_parapet"
@@ -1553,14 +1554,24 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             # the north cheek from the wall 1.99 m north of the front's north corner); s_m stays
             # the front's centre, and the front keeps width_m. Neither cant: the square
             # pavilion, its points as they always were
-            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m"}:
-                raise ParamError(f"bays: {e['id']} sizes its projection by width_m, proud_m and an optional "
-                                 f"cant_left_m or cant_right_m, not {sorted(q)}")
+            if set(q) - {"width_m", "proud_m", "cant_left_m", "cant_right_m", "shallow"}:
+                raise ParamError(f"bays: {e['id']} sizes its projection by width_m, proud_m, an optional "
+                                 f"cant_left_m or cant_right_m and shallow, not {sorted(q)}")
             cl, cr = (float(q.get(k, 0.0)) for k in ("cant_left_m", "cant_right_m"))
             if not all(c == 0.0 or 0.3 <= c <= 3.0 for c in (cl, cr)):
                 raise ParamError(f"bays: {e['id']}'s canted cheek runs 0.3-3.0 m along its wall, not "
                                  f"{cl if cl else cr} m")
             v["plan"] = {"kind": "polyline", "points": [[-w / 2 - cl, 0.0], [-w / 2, d], [w / 2, d], [w / 2 + cr, 0.0]]}
+            # T-3047: a SHALLOW pavilion (1801's south one, 0-0.1 m proud on its 1911 sheet) is
+            # too thin to hold its windows' recesses or its gable's copings: they run back
+            # through the host wall's plane, and the host opens its face round each recess
+            # (k08_bays.Bay.host_holes) and stops its eave box and gutter at the cheeks
+            if q.get("shallow") is not None:
+                if q["shallow"] is not True or e.get("variant") != "k08.projection.full_height" or cl or cr \
+                        or d > SHALLOW_PROUD_M:
+                    raise ParamError(f"bays: {e['id']}'s shallow is true, on a square full-height projection "
+                                     f"at most {SHALLOW_PROUD_M} m proud (has {d} m)")
+                v["shallow"] = True
         elif "plan" in e and v["kind"] == "tower":
             # T-2787: a tower read off a picture keeps the picture's radius and how far its
             # centre stands out of the wall; the kit's tower is the shape (its ring, its sides),

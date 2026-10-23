@@ -10,6 +10,10 @@ up as walls to about 13.9 m, and its wings slated like the main roof. So:
   * a K08 projection carried past the main eave is closed on the wall plane behind it, from
     the eave to its wall top across its junctions, and its cap's end too (K08 leaves both
     open on a projection, whose top otherwise stands at the eave under the main roof);
+  * T-3047: a SHALLOW one (1801's south pavilion, 0.1 m proud) is opened on that plane where its
+    windows' recesses run through it, its gable's parapet closes its top, and the mansard's
+    eave box, covering foot and gutter stop at its cheeks, nothing of them in front of its
+    face nor in its recesses behind the plane;
   * a projection that stops at the eave (1812's) gains nothing;
   * a wing slated in the main roof's own slate keeps its own material, so the publish
     path's dedup cannot merge `wing_slate` into `mansard_slate` and lose its name.
@@ -107,9 +111,37 @@ def main() -> int:
         lo, hi = sorted(to_axis(s)[0] for s in (s0, s1))
         area, reach = closed_back(a, plane, back, (lo, hi), p.eave_m, top)
         want = (s1 - s0) * (top - p.eave_m)
+        # T-3047: a shallow pavilion's back is opened where its windows' recesses run through
+        # the plane, and its gable's parapet, carried back past the plane, closes its own top
+        shallow = bool(b["variant"].get("shallow"))
+        holes = [h for h in a.bay_holes.get(b["wall"], []) if s0 <= h[0] and h[1] <= s1]
+        want -= sum((h[1] - h[0]) * max(0.0, min(h[3], top) - max(h[2], p.eave_m)) for h in holes)
         check(abs(area - want) < 0.02 * want,
-              f"{b['id']}: closed over the eave on the wall plane ({area:.2f} of {want:.2f} m2)")
-        check(reach > top + 0.2, f"{b['id']}: and its cap's end ({reach:.2f} m, wall top {top:.2f} m)")
+              f"{b['id']}: closed over the eave on the wall plane ({area:.2f} of {want:.2f} m2"
+              + (f", less {len(holes)} recesses" if holes else "") + ")")
+        if shallow:
+            check(holes and abs(reach - top) < 1e-3,
+                  f"{b['id']}: shallow, its recesses open through the plane and no cap's end over its wall top "
+                  f"({reach:.2f} m)")
+        else:
+            check(reach > top + 0.2, f"{b['id']}: and its cap's end ({reach:.2f} m, wall top {top:.2f} m)")
+        if shallow:
+            # T-3047: the mansard's eave box, covering foot and gutter stop at its cheeks: nothing
+            # of the roof stands in front of its face across its span, nor behind the plane as deep
+            # as its recesses reach between its third storey's sill and head
+            sb = next(x for x in a.shallow_bays() if x[0]["id"] == b["id"])
+            _, _, _, proud, behind = sb
+            pts, _ = a.roof_shell
+            inside = lambda q: s0 + 0.01 < -q[2] < s1 - 0.01
+            check(not any(inside(q) and q[0] > D + proud + 1e-3 for q in pts),
+                  f"{b['id']}: no eave box or covering in front of its {proud} m face")
+            sills = [h for h in holes if h[2] > p.eave_m]
+            check(sills and not any(inside(q) and q[0] > D - behind + 1e-3 and min(h[2] for h in sills) - 0.01 < q[1]
+                                    < max(h[3] for h in sills) + 0.01 for q in pts),
+                  f"{b['id']}: nor in its recesses' {behind:.2f} m behind the plane")
+            gut = [q for name, pr in a.prims.items() if name.startswith("k04_") for q in pr.pos
+                   if inside(q) and abs(q[1] - p.eave_m) < 0.5 and q[0] > D]
+            check(not gut, f"{b['id']}: and no gutter across it ({len(gut)} vertices)")
 
     # 1812's projection stops at its eave: nothing is added behind it
     st2, ph2 = load("wheeler_house_1812_prairie")

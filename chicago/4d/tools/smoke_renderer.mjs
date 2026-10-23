@@ -19974,10 +19974,8 @@ for (const [label, viewport, touch] of [
           'house_2140_calumet',
           'house_2140_calumet_coach_house',
           'house_2140_calumet_shed',
-          // T-3009: Indiana Avenue's east frontage 20th-22nd, including First Presbyterian
-          'first_presbyterian_church_2029_indiana',
-          'first_presbyterian_church_2029_indiana_dwelling',
-          'first_presbyterian_church_2029_indiana_stable',
+          // T-3009: Indiana Avenue's east frontage 20th-22nd, First Presbyterian among it; its PR
+          // (#1198) left these off the list, so stage 14 was red on dev until T-3057.
           'house_2007_indiana',
           'house_2009_indiana',
           'house_2009_indiana_rear_dwelling',
@@ -19995,6 +19993,9 @@ for (const [label, viewport, touch] of [
           'house_2023_indiana_coach_house',
           'house_2027_indiana',
           'house_2027_indiana_coach_house',
+          'first_presbyterian_church_2029_indiana',
+          'first_presbyterian_church_2029_indiana_dwelling',
+          'first_presbyterian_church_2029_indiana_stable',
           'house_2107_indiana',
           'house_2107_indiana_coach_house',
           'house_2111_indiana',

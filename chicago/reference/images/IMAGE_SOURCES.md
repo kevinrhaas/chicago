@@ -8,7 +8,7 @@ A scene *depicted* pre-1850 qualifies even when the artwork is later (an 1884 An
 
 | Path | What it holds | Rights |
 |---|---|---|
-| `chicago/` | 45 public-domain/institutional images of Chicago | Public domain (see each entry) |
+| `chicago/` | 45 historic/institutional images of Chicago | Public-domain artwork by verified publication (see entries; copy-specific limits remain) |
 | `chicago/licensed_previews/` | 20 preview/thumbnail images from commercial archives | **Previews only** — see below |
 | `st_louis/` | 20 public-domain/institutional images of St. Louis | Public domain (see each entry) |
 | `st_louis/licensed_previews/` | 2 preview/thumbnail images from commercial archives | **Previews only** — see below |
@@ -73,7 +73,7 @@ Primary subject of this collection: the Fort Dearborn settlement (1803-1830s) an
 | `chicago_kinzie_house_1833.png` | ca. 1832-1833 | building exterior | The Kinzie House |
 | `chicago_kinzie_residence_sarony_currey_1912.png` | 1804-1828 | building exterior | Residence of John Kinzie (Sarony lithograph, in Currey 1912) |
 | `chicago_kinzie_mansion_1812_kirkland_1893.png` | 1812 | building exterior | Kinzie Mansion—1812 (in Kirkland 1893) |
-| `chicago_st_marys_church_1843.jpg` | ca. 1834-1843 | building exterior | St. Mary's Church |
+| `chicago_st_marys_church_1843.jpg` | undated wooden church with belfry | building exterior | St. Mary's Church |
 | `chicago_saloon_building_1836.jpg` | ca. 1836-1848 | street scene | The Saloon Building |
 | `chicago_fort_dearborn_river_mouth_1830.jpg` | ca. 1836-1849 | building exterior | Old Fort Dearborn, erected at the mouth of Chicago River for defence against the Indians |
 | `chicago_first_swing_bridge_1849_earle.jpg` | ca. 1849 | riverfront | The First Swing Bridge (Dearborn Street Bridge) |
@@ -334,11 +334,12 @@ Source page: <https://chicagology.com/prefire/prefire001/>
 
 #### `chicago_cook_county_jail_1836.jpg`
 
-**Cook County's First Jail** — engraving (halftone reproduction) · scene: 1836 · made: 19th century engraving (1947 newspaper reproduction)  
-*unknown engraver; reproduced in Chicago Tribune, June 10, 1947*  
-The first Cook County jail as it appeared in 1836 — a log-stockade compound with adjoining clapboard house on the public square at Randolph and LaSalle, with oxen and settlers in the street.  
-Institution: chicagology.com scan library · Rights: Public domain (faithful reproduction of pre-1930 artwork)  
-Source page: <https://chicagology.com/prefire/prefire001/>  
+**Cook County’s First Jail** — retrospective illustration; later halftone reproduction · scene:1836 per caption · independently verified publication:1902; matching photographic copy catalogued 1930; newspaper reproduction 1947  
+*W. E. S. Trowbridge, illustrated plate in Edwin O. Gale, Reminiscences of Early Chicago and Vicinity (Fleming H. Revell Company, 1902), facing printed p53.*  
+The exact full composition was actually inspected in the 1902volume: same keeper house, barred-looking log-gable light, stockade/gate, oxen, dogs, people and birds. Actual title page credits **ILLUSTRATED BY W. E. S. TROWBRIDGE**, with imprint **MCMII**; actual copyright page reads **COPYRIGHT,1902, BY FLEMING H. REVELL COMPANY / October**. The small plate signature ends **02**; the full artist credit follows the legible title page.  
+Rights: **Public domain for the independently verified US-published 1902artwork, by age** (`trowbridge_first_jail_gale_1902`). This unblocks project use from the 1902plate and supersedes the earlier artwork-level hold; it does not assert a nineteenth-century original, assume 1930 publication or license added 1947 newspaper text/layout.  
+Later-copy history remains: UCR/Calisphere item 1996.0009.L54254 attributes the matching copy to Francis Dare, **Date Created and/or Issued: September 19, 1930**, Keystone View Company. Its catalogue requests a copyright-status inquiry and supplies no affirmative item reuse licence. That combined date remains copy-date evidence, not publication proof. Required institutional credit when citing that copy: **Keystone-Mast Collection, UCR/California Museum of Photography, University of California at Riverside.** The textual catalogue record remains `check_required` / `text_only`; the independent1902 publication is the new artwork rights basis.  
+Source pages: actual 1902plate <https://archive.org/details/reminiscencesofe00ingale/page/n79/mode/1up>; title <https://archive.org/details/reminiscencesofe00ingale/page/n12/mode/1up>; copyright <https://archive.org/details/reminiscencesofe00ingale/page/n13/mode/1up>; later catalogue <https://calisphere.org/item/ark:/13030/kt438nc0n9/>; 1947 reproduction host <https://chicagology.com/prefire/prefire001/>. The plate’s 1836 depicted-state caption, the 1835 town-walk recollection and the exact July 1835 condition are separate claims. No geometry changes with this source correction.  
 
 #### `chicago_green_tree_inn_1838.jpg`
 
@@ -440,11 +441,13 @@ Same artwork elsewhere in this repo: `chicago/pre_fire_v1/media/images/buildings
 
 #### `chicago_st_marys_church_1843.jpg`
 
-**St. Mary's Church** — wood engraving · scene: ca. 1834-1843 · made: ca. 1884-1895  
-*Moss Engraving Co., New York*  
-Wood engraving of early St. Mary's Roman Catholic Church, a gable-front building with open bell cupola and onion-dome finial, with figures on the plank sidewalk.  
-Institution: chicagology.com scan library · Rights: Public domain (pre-1930 publication)  
-Source page: <https://chicagology.com/prefire/prefire216/>  
+**St. Mary's Church** — wood engraving · scene: undated wooden church with belfry · published: 1884  
+*Moss Engraving Co., New York; A. T. Andreas, publisher*  
+The exact engraving appears in Andreas, *History of Chicago*, vol. 1 (1884), printed p. 291. It shows a blank near gable, five tall sash and an end door on the visible long wall, and an open belfry with cross. The caption gives no year; the filename's `1843` is not a source-attested scene date. Andreas p. 290 dates the initial no-tower state to construction in 1833 and the tower only to “some time afterwards”. Quarter's May 1844 diary describes a long, low old frame church with small steeple, bell and cross, without dating this engraving.  
+Institution: Internet Archive, item `historyofchicago01andr`; held image via Chicagology reproduction · Rights: Public domain (verified 1884 US publication)  
+Original printed page: <https://archive.org/download/historyofchicago01andr/page/n602_large.jpg>  
+Reproduction page: <https://chicagology.com/prefire/prefire216/>  
+Source records: `andreas_1884_st_marys_engraving`, `quarter_diary_may_1844_garraghan`.
 
 #### `chicago_saloon_building_1836.jpg`
 

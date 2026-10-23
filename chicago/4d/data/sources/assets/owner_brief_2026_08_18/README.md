@@ -264,3 +264,30 @@ is why image 8 ends with an artist and a collection rather than an accession num
 **Still true of all eight, and of the five that remain: none of them blocks anything.** What the
 three new records change is that the claims resting on them cite a numbered page of a
 public-domain volume instead of a line in this file.
+
+
+### 2026-10-23 — T-2380 jail attribution / rights correction (text only)
+
+The detailed jail artwork remains distinct from Andreas's courthouse plate. A matching earlier copy was actually read in the UCR/Calisphere Keystone-Mast catalogue, item 1996.0009.L54254, creator Francis Dare, Date Created and/or Issued September 19, 1930; the separate newspaper reproduction is credited 10 June 1947. The combined copy date does not prove original publication in 1930, and original engraving/publication remain unknown. The textual source `calisphere_ucr_first_jail_catalogue_1930` records the credit and unresolved rights (`check_required`, `text_only`). The inherited image inventory's pre-1930/public-domain assertion is withdrawn; no new asset derivation or geometry is authorized. Required credit: Keystone-Mast Collection, UCR/California Museum of Photography, University of California at Riverside.
+
+The earlier statement that Andreas volume1 has “no jail at all” refers to the absence of a separately titled detailed jail plate; it should not be read as absence of a jail in the illustrations. The actual First Court-House plate at printed p177 shows the jail ensemble in its background, and the identical artwork at Cook County p353 is explicitly captioned FIRST COURT HOUSE AND JAIL. Both carry 1884 copyright credits, establishing that artwork's separate public-domain basis. Chicago p175 distinguishes original jail/later separate oaken cell; p176 dates the courthouse to fall 1835. Thus this plate does not establish the exact July 1835 cell shape or completion of the whole enclosure. It is not a substitute licence for the detailed drawing.
+
+
+### Later same-day supersession — exact Gale 1902 publication verified
+
+The earlier hold above records the evidence available at that checkpoint and is superseded **for the underlying artwork** by actual source `trowbridge_first_jail_gale_1902`: the exact detailed jail plate facing p53 in Edwin O.Gale’s 1902book. Actual title page n12 credits W. E. S. Trowbridge as illustrator, publisher Fleming H. Revell Company, Chicago/New York/Toronto, MCMII. Actual copyright page n13 states COPYRIGHT 1902 BY FLEMING H.REVELL COMPANY, October. Actual full plate n79 has the identical keeper-house/log-gable/palisade/gate/oxen/dogs/people/birds composition and caption 1836, plus a small signature ending 02. This is direct evidence of US 1902 publication, independently establishing public-domain artwork by age and unblocking project image work from that plate. No UCR 1930 publication is assumed; its catalogue retains its actual combined date, required credit and copy-specific caution. No 1947 added layout/text is cleared by this finding.
+
+Actual narrative pages 25,43,51–55 were read. Arrival is 25 May 1835; chapter III is a morning town stroll, not an independently dated day-by-day construction log. Page 51 names the small log jail concealed by a high plank palisade, with John Beach’s house partly in the same enclosure facing Randolph; the courthouse is “just started.” Pages 52–55 continue the walk and give no cell alteration sequence. This memoir was published 1902; the plate caption remains 1836. Rights are now supported independently, while precise July 1835 component continuity, metric dimensions and the contrasting Andreas cap remain unresolved. No original 1833 cell identity, stockade completion date, new model form, camera or matched verdict is manufactured here. The existing numerical proposal is still unapplied; this source correction performs no bake.
+
+Actual captures / exact URLs and SHA256 hashes follow (retrieved and viewed 2026-10-23):
+
+- `gale-title-n12.jpg`: <https://archive.org/download/reminiscencesofe00ingale/page/n12.jpg>; SHA256 `f173ab1f53a972dffca951afe4ebe0e195c80f4be669529ef9e9d964725518b5`.
+- `gale-copyright-n13.jpg`: <https://archive.org/download/reminiscencesofe00ingale/page/n13.jpg>; SHA256 `4e8de039eb2d92260fd7529ccef70c65c2385162f5469b277fe6addb275485a8`.
+- `gale-n79.jpg`: <https://archive.org/download/reminiscencesofe00ingale/page/n79.jpg>; SHA256 `d1fa0afa1dcd10af3b97ba11b46510fd71dd6504f6f9574aba73828e0fefb85a`.
+- `gale-p25-n40.jpg`: <https://archive.org/download/reminiscencesofe00ingale/page/n40.jpg>; SHA256 `15aacc9806d22ea495ac1dc997852de1d20e19850820c02b59dfb0b7b97c541d`.
+- `gale-p43-n66.jpg`: <https://archive.org/download/reminiscencesofe00ingale/page/n66.jpg>; SHA256 `9684d07a2f4673635f4f260aa2f2a1147c1bc89f7a9773c204122071d93b4677`.
+- `gale-p51-n76.jpg`: <https://archive.org/download/reminiscencesofe00ingale/page/n76.jpg>; SHA256 `4369ae76867656d6c06fd118de09a6ff5dec01c36b4b3e3769e652474d2731c6`.
+- `gale-p52-n77.jpg`: <https://archive.org/download/reminiscencesofe00ingale/page/n77.jpg>; SHA256 `2252890d8f9ac9a5760412d97b4c5c679f6f56ed3f0c26b96ba047d244d1559e`.
+- `gale-p53-n80.jpg`: <https://archive.org/download/reminiscencesofe00ingale/page/n80.jpg>; SHA256 `031a197aa22df00bb718f2486a5efd96964ce350485ebc40f447fb38684ec99e`.
+- `gale-n81.jpg`: <https://archive.org/download/reminiscencesofe00ingale/page/n81.jpg>; SHA256 `239106353a9bba22691d7f4a6dd399242eec225786533636f77c33cd9f7f0664`.
+- `gale-p55-n82.jpg`: <https://archive.org/download/reminiscencesofe00ingale/page/n82.jpg>; SHA256 `c14f209e124241b019567c38a505e69d892dd6496e7360f939b0fbb0d136f29c`.

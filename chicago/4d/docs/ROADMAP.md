@@ -5648,3 +5648,45 @@ the full model-matching acceptance; this prerequisite changes no building.
 T-2377 continuation (2026-10-23): revalidate the first Hogan refinement on current
 dev after restoring T-3009's 27 omitted 1904 smoke expectations. The full original
 image gate and remaining camera/door/gable/material differences stay open.
+
+## T-3056 — early-building image credits and evidence limits (2026-10-23)
+
+St Mary's exact1884 engraving and mediated May1844 diary are credited without
+inventing an1843 picture date or a tower addition day. Current July1835 form stays;
+tower absence becomes an inference, and the whole-building picture is graded
+separately. Beaubien's card corrects the unsupported pre1817/oldest-house rationale
+and labels the panorama's building identity unresolved. The jail inventories
+withdraw an unsupported public-domain assertion, give the actual UCR catalogue
+credit/date limits, and retain a text-only rights hold; no held image supplies
+new geometry. Original T-2378/T-2380/T-2384 remain open. See the source correction
+research packet. Official recipe/compiled/card and fullgate receipts are pending
+until actually run; isolated studies are not canonical scene phases.
+
+Loading-card follow-through: the first complete local preflight found one stale
+claim among 1,049 checks: loading_009 called no steeple in1835 attested and cited
+the old indirect source. The card now says St Mary's gained a steeple after it
+was built but its addition year is uncertain, uses Andreas1884 and preserves
+the inferred grade. The existing160-card check and five negative fixtures pass.
+Source-use backlinks are being regenerated; the final full gate and combined
+published mobile/desktop card checks remain pending. The first failed run is
+retained as a failure, not represented as a pass.
+
+## T-3056 — verified jail publication supersedes the artwork hold (2026-10-23)
+
+The exact detailed jail illustration is in Gale’s 1902 book, credited on its
+actual title page to W. E. S. Trowbridge; the actual copyright page confirms
+1902. The independently public-domain plate supersedes the earlier artwork
+hold. Three unmodified source pages and their hashes are retained with source
+and licence credits. UCR’s separate copy/date/licence facts remain distinct and
+are stated on the card. The caption remains 1836; core/compound continuity,
+metric dimensions and the Andreas cap conflict remain unresolved. No jail
+geometry or grade is changed. Current dev is integrated, preserving both
+Hogan’s and Kimball’s complete liberty additions and dev’s T-3057 smoke fix.
+New source compilation/full preflight and combined mobile/desktop card QA are
+pending; earlier superseded attempts are not reported as passes.
+
+
+T-3056 citation consistency follow-up (2026-10-23): the existing Chicagology source entry also asserted no tower in July 1835. Its visitor-visible note and limits now distinguish the attested no-tower construction state in 1833 from the undated addition, and record the actual Andreas p. 290 collation. No form, placement or date changes. This text correction requires a fresh ordered producer tail before the post-Gale full gate; both remain pending at this checkpoint.
+
+
+T-3056 post-Gale full gate (2026-10-23): 1 of 1049 steps failed, the name-pool self-test. Its sole difference was the paragraph label Earlier, recognized after JSON parsing but missed after the escaped newline in raw JSON; no historical person was implicated. Replaced the label with an explicit all-caps historical heading. The actual name-pool self-test now passes all cases; a fresh ordered tail and full gate are still required. No source assertion or model parameter was changed for this repair.

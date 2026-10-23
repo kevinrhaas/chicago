@@ -2,8 +2,9 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "d9bebfe553c660ba1a07569ce4229e920cce906a8a7b5957bb7c3d0b054ad0da",
+  "glb_sha256": "b74b8a96cbac1dc54bfff84adf0fab9dfb310009bc8f70964a49193a3bb5ac5c",
   "camera_sha256": "d89ca0a91bccddd25a0ffa04ea98ff95ec08faec3913c2588f95f158db8cedf3",
+  "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
@@ -68,9 +69,9 @@
       "how": "T-3015 (piece 1 of T-2999): the face's north cheek at the bow's south junction (v 6.85), so the face runs 4.15 m to the corner and the cheek renders at x 1245 against the print's pilaster at 1232-1250. The third storey 5.1 m to a 13.2 m wall top, where the print's shelf under the gable stands (render y 395-415 against the print's 397-420), and its pair 1.85 m from 9.6 m, its head within about 5 px of the print's (y 480 against 478); the frieze over it is plain wall (the next difference but one)"
     },
     {
-      "what": "the south pavilion's south corner renders about 60 px south of the print's (x 1400 against 1335-1340) and its gable's apex about 55 px (x 1325 against 1270): the 1911 sheet draws the pavilion 0-0.1 m proud with its south-west corner chamfered about 0.45 m, where the build stands it 0.6 m proud (K08's depth, the least its window recesses fit in, and more than the main eave's gutter needs to die behind its face) and square at the corner",
+      "what": "the south pavilion's south corner renders about 28 px south of the print's (x 1368 against 1335-1340) and its gable's apex about 30 px (x 1300 against 1270): the 1911 sheet draws the pavilion's south-west corner chamfered about 0.45 m back to the south wall behind the front's plane, where the build stands it square",
       "status": "open",
-      "how": "T-3016 (seen by T-3015)"
+      "how": "T-3047 (piece 1 of T-3016) stood the face at the sheet's 0.1 m as a shallow K08 projection (it stood 0.6 m proud and its corner rendered at x 1400, its apex at 1325); T-3048 builds the chamfer (seen by T-3015)"
     },
     {
       "what": "the frieze over the pavilion's third-storey pair: a dressed band with a roundel on the pair's axis (about y 430-470 on the print) under the shelf the gable springs from; the build's wall there is plain",
@@ -133,9 +134,9 @@
       "how": "T-3002"
     },
     {
-      "what": "the pavilion and the flank section stand about 0-0.1 m proud on the sheet (the pavilion with a chamfered south-west corner); the build stands both 0.6 m proud (K08's pavilion depth, the least its window recesses fit in; the main eave's gutter, its lip 0.46 m out, also dies behind them), and the flank section is 6.0 m wide (K08's widest) against the photograph's about 7.8 m, short of the gabled section",
+      "what": "the flank section stands about 0.1 m proud on the sheet; the build stands it 0.6 m proud (K08's pavilion depth, the least its window recesses fit in; the main eave's gutter, its lip 0.46 m out, also dies behind it), and 6.0 m wide (K08's widest) against the photograph's about 7.8 m, short of the gabled section. The pavilion stood 0.6 m proud too",
       "status": "open",
-      "how": "L-kimball-1801-k01-2843; T-3016 the pavilion's, T-3001 the flank section's"
+      "how": "L-kimball-1801-k01-2843; T-3001 the flank section's. The pavilion's is fixed: T-3047 stands it 0.1 m proud as a shallow projection, its recesses run back through the wall plane, its gable a parapet carried back past it, and the mansard's eave box and gutter stopped at its cheeks (L-kimball-1801-pavilion-shallow-3047)"
     },
     {
       "what": "the east range runs on south behind the gabled section to v 18.3 on the sheet; the build stops it at the gabled section's 6 m (a K01 wing stands inside its host wall); not seen from this camera",

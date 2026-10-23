@@ -8,7 +8,7 @@ A scene *depicted* pre-1850 qualifies even when the artwork is later (an 1884 An
 
 | Path | What it holds | Rights |
 |---|---|---|
-| `chicago/` | 43 public-domain/institutional images of Chicago | Public domain (see each entry) |
+| `chicago/` | 43 historic/institutional images of Chicago | Public-domain artwork by verified publication (see entries; copy-specific limits remain) |
 | `chicago/licensed_previews/` | 20 preview/thumbnail images from commercial archives | **Previews only** — see below |
 | `st_louis/` | 20 public-domain/institutional images of St. Louis | Public domain (see each entry) |
 | `st_louis/licensed_previews/` | 2 preview/thumbnail images from commercial archives | **Previews only** — see below |
@@ -332,11 +332,12 @@ Source page: <https://chicagology.com/prefire/prefire001/>
 
 #### `chicago_cook_county_jail_1836.jpg`
 
-**Cook County's First Jail** — engraving (halftone reproduction) · scene: 1836 · made: 19th century engraving (1947 newspaper reproduction)  
-*unknown engraver; reproduced in Chicago Tribune, June 10, 1947*  
-The first Cook County jail as it appeared in 1836 — a log-stockade compound with adjoining clapboard house on the public square at Randolph and LaSalle, with oxen and settlers in the street.  
-Institution: chicagology.com scan library · Rights: Public domain (faithful reproduction of pre-1930 artwork)  
-Source page: <https://chicagology.com/prefire/prefire001/>  
+**Cook County’s First Jail** — retrospective illustration; later halftone reproduction · scene:1836 per caption · independently verified publication:1902; matching photographic copy catalogued 1930; newspaper reproduction 1947  
+*W. E. S. Trowbridge, illustrated plate in Edwin O. Gale, Reminiscences of Early Chicago and Vicinity (Fleming H. Revell Company, 1902), facing printed p53.*  
+The exact full composition was actually inspected in the 1902volume: same keeper house, barred-looking log-gable light, stockade/gate, oxen, dogs, people and birds. Actual title page credits **ILLUSTRATED BY W. E. S. TROWBRIDGE**, with imprint **MCMII**; actual copyright page reads **COPYRIGHT,1902, BY FLEMING H. REVELL COMPANY / October**. The small plate signature ends **02**; the full artist credit follows the legible title page.  
+Rights: **Public domain for the independently verified US-published 1902artwork, by age** (`trowbridge_first_jail_gale_1902`). This unblocks project use from the 1902plate and supersedes the earlier artwork-level hold; it does not assert a nineteenth-century original, assume 1930 publication or license added 1947 newspaper text/layout.  
+Later-copy history remains: UCR/Calisphere item 1996.0009.L54254 attributes the matching copy to Francis Dare, **Date Created and/or Issued: September 19, 1930**, Keystone View Company. Its catalogue requests a copyright-status inquiry and supplies no affirmative item reuse licence. That combined date remains copy-date evidence, not publication proof. Required institutional credit when citing that copy: **Keystone-Mast Collection, UCR/California Museum of Photography, University of California at Riverside.** The textual catalogue record remains `check_required` / `text_only`; the independent1902 publication is the new artwork rights basis.  
+Source pages: actual 1902plate <https://archive.org/details/reminiscencesofe00ingale/page/n79/mode/1up>; title <https://archive.org/details/reminiscencesofe00ingale/page/n12/mode/1up>; copyright <https://archive.org/details/reminiscencesofe00ingale/page/n13/mode/1up>; later catalogue <https://calisphere.org/item/ark:/13030/kt438nc0n9/>; 1947 reproduction host <https://chicagology.com/prefire/prefire001/>. The plate’s 1836 depicted-state caption, the 1835 town-walk recollection and the exact July 1835 condition are separate claims. No geometry changes with this source correction.  
 
 #### `chicago_green_tree_inn_1838.jpg`
 

@@ -1350,3 +1350,9 @@ The existing project-authored geometry supplies these original UV/tangent source
 | `authored/transport/wagon_parked/charts/original-w01-charts.bin` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
 | `authored/transport/wagon_parked/charts/original-w01-charts.json` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
 | `authored/transport/wagon_parked/charts/original-w01-charts.mapping.json` | GPL-3.0-or-later | Original project-authored ordered UV/tangent data and author-time mapping from the reviewed W01 source; exact provenance in the manifest and SOURCE.json. |
+
+## Verified 1902 jail reference pages — T-3056
+
+| item | licence | cleared for | NOT established |
+|---|---|---|---|
+| `data/sources/assets/trowbridge_first_jail_gale_1902/` — three unmodified JPEG scans, exact URLs/hashes in its manifest; [Internet Archive](https://archive.org/details/reminiscencesofe00ingale/page/n79/mode/1up) | **Public domain by age: US publication 1902**, verified actual title and copyright pages | Faithful reference copies and model derivation from W. E. S. Trowbridge’s published illustration in Edwin O. Gale’s book; credit retained in the source record and companion README | Exact July 1835 condition, metric dimensions, rights in added 1947 newspaper layout, or an item-specific licence for the separate UCR copy |
