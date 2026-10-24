@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "cornell-northwest-west-windows",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "5fff90bb9d42aa51dc25ecacc8da8b2a02f5e56cfebc6fb8e789f1b26f284a1b",
+  "glb_sha256": "606eb2986f37826a0b0e66284aaadd1a059d0f1aee2bbf67c1c307770da84337",
   "camera_sha256": "98341850e0c29a9e5841d5ef17833ecdc7c3c14a11ff76aa740c3aa84f82f4f4",
   "photo_sha256": "5fe13212fd1a893382c2b02c5be1cd2c1feb5d17b1e32f13a1a734fc90dbbca5",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg",
@@ -25,7 +25,7 @@
       "status": "open"
     },
     {
-      "what": "T-3025, ruled: the roofs and the cupola's pyramid read slate-grey in this c. 1887 print, and the record's red tile reads the same slate-grey when the render through this camera is reduced to luminance (docs/RESEARCH/glessner-roof-covering-T-3025/stable-roof-cornell.jpg). A red surface records dark on a dry plate of the period. The covering was red baked, unglazed terracotta tile (Glessner 1923, HABS data p. 13; HABS's 1963 survey finds terracotta, which excludes slate), and the record lays that. Colour in a monochrome print is not shown; nothing is rebaked. The print's course, about 6.4 in against the model's 5 in, is a module question filed separately (README § 3).",
+      "what": "T-3025, ruled: the roofs and the cupola's pyramid read slate-grey in this c. 1887 print, and the record's red tile reads the same slate-grey when the render through this camera is reduced to luminance (docs/RESEARCH/glessner-roof-covering-T-3025/stable-roof-cornell.jpg). A red surface records dark on a dry plate of the period. The covering was red baked, unglazed terracotta tile (Glessner 1923, HABS data p. 13; HABS's 1963 survey finds terracotta, which excludes slate), and the record lays that. Colour in a monochrome print is not shown; nothing is rebaked. The print's course, about 6.4 in against the model's 5 in, is a module question filed separately (README \u00a7 3).",
       "status": "not shown"
     },
     {
