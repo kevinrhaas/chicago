@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2239, ts: '2026-10-24T03:15:39.407Z', date: 'Oct 23, 2026, 10:15 PM CT', title: '1811 Prairie\'s north pinnacle stops under its block', kind: 'improvement',
+    items: [
+      'The north pinnacle on 1811 Prairie\'s stone gable now stops at a carved band level with the gable\'s cornice, as the 1888 Inland Architect plate draws it, about half a metre lower than before; over the band a scaled stone leans in to the moulded block, and the gable\'s eave dies into it instead of showing beside the shaft.',
+    ] },
   { v: 2238, ts: '2026-10-24T02:31:28.700Z', date: 'Oct 23, 2026, 9:31 PM CT', title: 'Glessner\'s stable roof: the 1887 photograph\'s camera was wrong, not the roof', kind: 'change',
     items: [
       'Nothing you can see changes. An 1887 photograph seemed to show the stable\'s roof a third longer than a 1963 one, because it was being read through a camera fitted to the alley wall. Read through the camera fitted at the stable, its tiles come out at the 5 inches the 1963 surveyors measured.',
