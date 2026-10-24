@@ -65,6 +65,10 @@
       "status": "fixed"
     },
     {
+      "what": "T-3080, found: the stable's alley-end roof's north slope, eave to ridge, is 21.4 ft in the model, about 51 courses at 5 in, where this photograph counts 40.6-42.9 courses between the eave and the cresting's foot and the c. 1887 Cornell print 41.7-43.9. Through this camera and T-2758's doorway re-solves the photograph's eave lies 0.2-0.4 m under the model's and the cresting's foot 0.6-1.1 m below the model's ridge. Filed as T-3094 (docs/RESEARCH/glessner-roof-slope-camera-T-3080/README.md).",
+      "status": "open"
+    },
+    {
       "what": "T-3065: re-rendered on the 2.6-ft depth. From the north-west the depth is the west side, which read within 2 px already and moves under 1 px; the north face's 3.5-5 px at its east edge is the lit stone against a white sky on a level camera that reads this roof about 2 ft low. HABS 14 (square to the face) and Taylor 2135's stones carry the width.",
       "status": "fixed"
     }
