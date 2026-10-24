@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2251, ts: '2026-10-24T09:46:09.529Z', date: 'Oct 24, 2026, 4:46 AM CT', title: 'Glessner\'s stable roof brought down to the old pictures', kind: 'fix',
+    items: [
+      'The roof over the Glessner stable\'s alley end is lower: its ridge sits about two feet lower and two feet further north, on the same pitch, so the slope carries the 42 or 43 rows of tiles that the 1887 print and the 1963 survey photograph both show, where it had about 51. The alley gable now stands up past the roof as a stone parapet with a coping, as both pictures draw it.',
+    ] },
+  { v: 2250, ts: '2026-10-24T09:39:17.174Z', date: 'Oct 24, 2026, 4:39 AM CT', title: 'Glessner\'s stable roof: which 1887 camera solution to trust', kind: 'change',
+    items: [
+      'Nothing you can see changes. The 1887 photograph of the Glessner stable had two camera solutions that disagreed by half a metre on its roof. The downpipes in the picture, which should stand upright, show the camera was tipped up only slightly, and the 1963 photograph sees the gable at the height that slight tip gives. Through that camera the rebuilt ridge matches the photograph, so it stays as built.',
+    ] },
+  { v: 2249, ts: '2026-10-24T08:52:33.572Z', date: 'Oct 24, 2026, 3:52 AM CT', title: '1812 Prairie\'s front windows match their photographs', kind: 'improvement',
+    items: [
+      'The large third-storey window has a wide middle light under its own low arch, and its fanlight is crossed by a curved bar, as in Levy\'s photograph.',
+      'The small arched window beside it is now a patterned leaded light. The pattern itself is a liberty.',
+      'The stones round both arches alternate long and short into the brick.',
+      'The transom lights over the second-storey windows are glazed in small squares.',
+      'The bay\'s paired window has a heavy stone mullion and a moulded hood, and its jambs rise to carved caps under the cornice.',
+    ] },
   { v: 2248, ts: '2026-10-24T07:59:40.223Z', date: 'Oct 24, 2026, 2:59 AM CT', title: '1811 Prairie\'s bay balcony pierced, as a second photograph shows it', kind: 'improvement',
     items: [
       'The stone balustrade on 1811 Prairie\'s bay is now cut through in a lattice of openings, where it stood solid bars. A sharper photograph of the house shows a pierced fretwork panel there.',
