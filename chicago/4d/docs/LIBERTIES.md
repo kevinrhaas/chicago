@@ -29266,6 +29266,17 @@ imbricated scales whose stones it does not resolve; the stone's top is the block
 foot the cap's, the plate showing only its outer face. The block itself still stands about 10 px outside
 the plate's die (x about 105 against 115) and is cut as a plinth, die and cornice where the plate steps
 its plinth twice (x 105 and 108).
+**Revised:** 2026-10-24 (T-3100, piece 1 of T-3052, of T-2920; T-3079). The bay's balustrade is pierced. The
+Chicagology photograph (`chicagology_1811_ames_photo`), a second negative at about twice the plate's
+scale, shows its front run as one continuous pierced panel of interlaced fretwork between plain end
+blocks, its openings about 0.25 m apart in two rows; the close-set bars at 0.12 m are replaced by K08's
+pierced stone panel (T-2930), one panel a run, a diagonal lattice of 0.05 m straps at 0.24 m with two
+diamonds to its height. What that build invents: the lattice for the interlace (its loops are not
+carved; the diamonds carry its pierced light and shade at its spacing), the straps' 0.05 m, and the
+same pattern on the canted runs, which the photograph sees only edge-on. The photograph's camera was
+solved on its own (`data/reference_views/coleman_ames_house_1811_prairie/chicagology_photo.json`) and
+agrees with T-2541's near camera on the plate; the south flank it shows, shorter than the 1911 sheet's,
+is not built from it (both pictures are of about 1888): T-3099 holds that question.
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
