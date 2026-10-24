@@ -1,0 +1,87 @@
+{
+ "ticket": "T-3116",
+ "habs14": {
+  "photo_anchor_residual_ft": 0.14,
+  "render_anchor_residual_ft": 0.19,
+  "fan_crown": {
+   "photo_ng": 40.4,
+   "render_ng": 39.01,
+   "built_ng": 39.15,
+   "photo_over_built_ft": 1.39
+  },
+  "light_head": {
+   "photo_ng": 36.25,
+   "render_ng": 35.02,
+   "built_ng": 35.2,
+   "photo_over_built_ft": 1.23
+  },
+  "transom_top": {
+   "photo_ng": 34.42,
+   "render_ng": 33.73,
+   "built_ng": 33.88,
+   "photo_over_built_ft": 0.7
+  },
+  "transom_foot": {
+   "photo_ng": 33.55,
+   "render_ng": 33.0,
+   "built_ng": 33.14,
+   "photo_over_built_ft": 0.54
+  },
+  "light_sill": {
+   "photo_ng": 29.75,
+   "render_ng": 28.97,
+   "built_ng": 29.0,
+   "photo_over_built_ft": 0.78
+  },
+  "coping_meets": {
+   "photo_ng": 42.79,
+   "render_ng": 43.33,
+   "built_ng": 43.3,
+   "photo_over_built_ft": -0.53
+  }
+ },
+ "habs01": {
+  "photo_anchor_residual_ft": 0.0,
+  "render_anchor_residual_ft": 0.0,
+  "fan_crown": {
+   "photo_ng": 39.86,
+   "render_ng": 38.86,
+   "built_ng": 39.15,
+   "photo_over_built_ft": 1.0
+  },
+  "light_head": {
+   "photo_ng": 35.87,
+   "render_ng": 34.87,
+   "built_ng": 35.2,
+   "photo_over_built_ft": 1.0
+  },
+  "light_sill": {
+   "photo_ng": 29.41,
+   "render_ng": 28.89,
+   "built_ng": 29.0,
+   "photo_over_built_ft": 0.52
+  },
+  "coping_meets": {
+   "photo_ng": 42.28,
+   "render_ng": 43.07,
+   "built_ng": 43.3,
+   "photo_over_built_ft": -0.79
+  }
+ },
+ "mean_rise_fan_head_sill_ft": 0.99,
+ "ruled": {
+  "rise_ft": 1.0,
+  "light_ng": [
+   30.0,
+   36.2
+  ],
+  "spring_ng": 35.45,
+  "transom_ng": [
+   34.14,
+   34.88
+  ],
+  "ring_ft": 4.7,
+  "fan_crown_ng": 40.15,
+  "coping_meets_ng": "kept at 43.3 (T-3024)"
+ }
+}
