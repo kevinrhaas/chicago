@@ -57,6 +57,10 @@
       "status": "fixed"
     },
     {
+      "what": "T-3072, the course: through this camera the stable's west slope reads 4.85-5.00 in to the course, HABS's own 1963 measurement. The slope counts about 42 courses between its ridge and eave, the same count as the c. 1887 Cornell print over the same two edges, so the module is the one the model lays for 1904. The long west roof draws a 5 in course at about 2 px here, beyond what this print resolves, and is not read (docs/RESEARCH/glessner-roof-module-T-3072/README.md).",
+      "status": "fixed"
+    },
+    {
       "what": "T-3024: the 18th Street coping lowered 0.7 ft (parapet 0.5 ft, was 1.2), the 1886 stone re-set to sheet 6 (43.3-44.75 ft ng) and the crosses levelled. Measured from the stack's crest, this print had the coping meeting the stack about 0.8 ft under the built junction (57 px under the crest against 50 at about 8.9 px/ft); re-rendered, it meets the stack under the 1886 stone's foot, as the print shows. The crest stands about 12 px over the print's and the gable's fan level with it, so this camera reads the crest about 1.6 ft nearer the fan than built; HABS 14 reads the same (T-3065).",
       "status": "fixed"
     }
