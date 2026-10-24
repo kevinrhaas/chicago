@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2235, ts: '2026-10-24T00:17:08.828Z', date: 'Oct 23, 2026, 7:17 PM CT', title: 'Glessner House\'s roof tiles checked against an 1887 photograph', kind: 'change',
+    items: [
+      'Glessner House\'s Evidence panel now says what the earliest pictures show about its roof tiles. An 1887 photograph of the stable and a 1963 survey photograph count the same rows of tile up the same roof, about 42. So the 5-inch course the 1963 surveyors measured was already there when the house was new, and the roof keeps it. An earlier reading of about 6.4 inches came from that photograph\'s camera, not from the roof. The house itself looks the same.',
+    ] },
+  { v: 2234, ts: '2026-10-24T00:17:08.828Z', date: 'Oct 23, 2026, 7:17 PM CT', title: '1811 Prairie\'s back wing now meets the top of its south wall', kind: 'improvement',
+    items: [
+      'The three-storey brick wing behind 1811 Prairie\'s stone front no longer stands taller than the house. Its roof now lines up with the top of the south wall, and its windows sit at the heights the 1888 engraving shows them.',
+    ] },
   { v: 2233, ts: '2026-10-23T23:57:31.459Z', date: 'Oct 23, 2026, 6:57 PM CT', title: '1801 Prairie\'s east range and turret stand at the photograph\'s height', kind: 'improvement',
     items: [
       'W. W. Kimball\'s house at 1801 Prairie: the low service range at the far end of its 18th Street side, and the small round turret on its corner, now stand about 1.8 m lower, as J. W. Taylor\'s c. 1895 photograph shows them. The eaves are at about 6.35 m instead of 8.1, and the turret\'s cone tops out at about 10.2 m. The ground along 18th Street falls about 0.3 m toward the lake, which the photograph and today\'s elevation survey both show.',

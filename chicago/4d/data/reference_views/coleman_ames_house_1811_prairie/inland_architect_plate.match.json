@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "2e70ce892dadfd60c5363553b727f3d8d9980b78058b456b4183ebd5667cf0bb",
+  "glb_sha256": "51d279cdb3e1dcd779d15ac55a53d31d1b794d96c376342bf0b1a858f7e99f4d",
   "camera_sha256": "8f67a67f5a407ad30522085a1ab67f9c29ddc0bae6ceb1a979db9ea1accdc2b4",
   "photo_sha256": "e55aede801c2193a857746efb4545fe97c995e697344b7e68ead1f06a4b7c7fe",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/inland_architect_plate-side-by-side.jpg",
@@ -151,6 +151,16 @@
       "what": "the south gable's rear fall: behind the tall stack the plate's coping runs from about (528, 380) to (557, 453) px, about 30 px under the render's (522, 322) to (555, 417), parallel to it, so the rear fall stands lower than the coped rake built at the ridge + 0.3 m falling to the rear wall head; the second stack stands on that lower line in the plate. Read the flank's wall head and the rear slope against the Chicagology print (T-3063)",
       "status": "fixed",
       "how": "T-3063: K01's gable roof learns a rear fall (gable_roof.rear_fall): the rear slope falls from the ridge at the street's 61.2 degrees to a flat deck, and the coped parapet over it falls with it to a level wall head, its coping's top at 10.95 m, run back to the block's rear wall. Rendered, the coping's skyline stands at y 389-392 px at x 533-534 (the plate's 400-402) and y 461-471 at x 562-566 (the plate's 465-472), a level line into the flank's vanishing point; the second stack's top at y 394 from x 535 (the plate's 393-396 from x 535). Still differs: the fall itself spreads over x 528-533 where the plate drops in one column at x 527-528 (the render 11-33 px over the plate at x 529-532), as a 61.2-degree fall would; and beyond x 569 the render's range stands at its 11.4 m wall head (y 462-471) where the plate steps down at x 573 to about y 552, a lower wall head of about 8.6 m behind the front block (T-3077)."
+    },
+    {
+      "what": "the brick range's height: past the front block's rear wall the build's range stood at an 11.4 m wall head, its deck's fascia at 11.7 m (y 462-471 px at x 569), over the plate's level coping, which runs on at 10.98 m to x 572 px (T-3077)",
+      "status": "fixed",
+      "how": "T-3077: the range keeps the 1911 sheet's three storeys and its deck comes down to the coping: storeys 3.25, 3.0 and 3.08 m from the 1.35 m floor, wall top 10.68 m, deck 10.98 m, its lights at the plate's rows (about 1.95-4.15, 5.1-7.2 and 8.0-9.7 m on the flank's plane); the rear section's first floor moves onto the range's 4.6 m, its lights at the plate's 5.1-7.2 m and its deck still 8.7 m (the plate's 8.65 m). Rendered, the range's skyline stands at y 483 px at x 572 (the plate's coping 485-488). The step the plate draws at x 573 to about 8.65 m is read as the rear section's wall head, not the range's (L-k01-1811-range-3077)."
+    },
+    {
+      "what": "the south flank's depth: between the stone face and the step at x 573 px the plate draws six windows a storey (centres about x 525, 541, 553, 564, 571 and 576 px), and past x 584 sky over a lower pavilion (the coach house, its arched door on the Chicagology print); the build's six flank bays render at x 555-611 px and its range runs on to x 616 px (y 589) and its rear section to x 624, where the plate shows sky. The camera's distance (about 15 m, fixed by the canted bay face's 1.1 m depth) puts the flank about 2.6 times too long: a camera about 32 m out puts the bays at x 529-574 px and the step on the sheet's '3B'/'2B' wall (T-3079)",
+      "status": "open",
+      "how": ""
     },
     {
       "what": "colour: a monochrome print. The brown sandstone is the T-1837 register's reading",

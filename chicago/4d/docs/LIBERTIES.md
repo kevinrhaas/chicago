@@ -22981,9 +22981,14 @@ exclude the tar coating reported by the later HABS survey.
 records those dimensions and quotes Glessner's 1923 account on printed p. 13 /
 PDF p. 14 describing the original red baked unglazed tiles. The HABS quotation
 is the reviewed source; the separately catalogued original remains unresolved.
-`taylor_2135_glessner_exterior_1887_1889` shows fine continuous early courses.
-The photograph is a visual check, not a dimensional measurement. Survival of
-the later measured module in 1904 is inferred. The half-tile stagger, 4-mm side
+`taylor_2135_glessner_exterior_1887_1889` shows fine continuous early courses,
+which read about 4.8 in on the 18th Street roof through its solved camera, a
+reading near the print's resolution. The c. 1887 Cornell print
+(`cornell_adw_glessner_stable_1887`) and HABS photograph 1 of 1963
+(`habs_glessner_photo_01_nw_1963`) count the same courses, about 42, between
+the stable's west-slope ridge and eave, so that roof kept one module from 1887
+to 1963; a 6.4 in course would show about 32. Survival of the later measured
+module in 1904 is inferred. The half-tile stagger, 4-mm side
 joints, 6-mm exposed lap relief, exact colour and weathering are reconstructed.
 No concealed headlap or total tile length is asserted. Faceted cone cuts and
 alternate-course geometry in Light are display approximations; every exposed
@@ -22995,6 +23000,8 @@ and surface condition directly.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`.
 **Review:** `docs/RESEARCH/glessner-roof-tiles-2203/README.md`.
 **Recorded:** 2026-10-09.
+**Revised:** 2026-10-23 — the early prints' courses read against HABS's
+(`docs/RESEARCH/glessner-roof-module-T-3072/README.md`); the module stands.
 
 ### L-glessner-roof-edges-2205 — Reconstructed roof stock and flashing
 
@@ -31971,6 +31978,44 @@ The existing optional `roof_colour` enum receives this one consciously reconstru
 
 **Ticket:** T-2385 (shared controls T-3055).
 **Recorded:** 2026-10-23.
+### L-k01-1811-range-3077 — 1811 Prairie's brick range kept at three storeys, its deck lowered to the front block's coping, and the plate's step read as the rear section
+
+**Decision:** the brick range behind 1811 Prairie's front block stays three storeys, as the 1911
+sheet's '3B' says, and its deck comes down from 11.7 m to 10.98 m, level with the front block's
+coping; its storeys become 3.25, 3.0 and 3.08 m (floors at 4.6 and 7.6 m) and the two-storey rear
+section's upper floor moves onto the range's 4.6 m, its wall top and 8.7 m deck unchanged. T-3077
+asked whether the range should step down to about 8.6 m at the block's rear wall, as the 1888 plate
+seemed to show through the T-2541 camera; it should not.
+**What is read, not invented.** On the 1888 Inland Architect plate
+(`inland_architect_1888_10_ames_residence`), heights on the south flank's plane depend only on the
+flank's 4.05 m offset from the eye and the eye's 1.05 m height, not on the camera's distance, so
+they stand whatever T-3079 finds: the coping's level top at 10.98 m back to x 572 px; a level line
+at about 8.65 m running the whole flank from x 520 to 584 px, which past x 572 is the wall head of a
+lower part with two rows of windows over arched basement lights; first-floor lights about 5.1-7.2 m
+(on the range and on that lower part alike), ground-floor heads about 4.1-4.3 m, second-floor lights
+about 8.0-9.7 m. The Chicagology print (`cgn-1811-coleman-ames-photo`, rights unknown, read in the
+image store's display copy and not committed) draws the same step at x 1167-1200 px, and beyond it
+a separate building with a tall arched door, the coach house. WHERE the step stands is what the
+camera gets wrong: between the stone face and x 578 px the plate draws six windows a storey (centres
+about x 525, 541, 553, 564, 571 and 576 px), which is the build's six bays along the flank, the
+block's one and the range's five at 2.6 m. T-2541's camera, fitted only to the front, puts those six
+at x 555-611 px, where the plate shows sky, and a camera about 32 m out (f about 1416 px) puts them at
+x 529-574 px and x 573 px about 19-21.6 m behind the face, on the sheet's solid wall between '3B'
+and '2B' (21.6 m). So the lower part past the step is the sheet's two-storey section, which the build
+already stands at an 8.7 m deck, and the range runs at the coping's height to it.
+**What is invented.** The range's floor levels: the sheet gives none, and the plate's rows are read
+to about +-0.3 m, so the floors stand about 0.4 m under the front block's; the third storey's 0.98 m
+of wall over its heads; the rear section's 3.8 m upper storey, which keeps its 8.4 m wall top on the
+new floor. The range's deck is still K01's flat tin deck on a 0.3 m fascia, not the plate's coped
+parapet.
+**Not changed here.** The camera's distance and everything placed along the flank through it (the
+second stack's u, T-3063's rear fall, the range's rendered length): T-3079. Until then the
+side-by-side draws the range running on past x 573 px against the plate's sky.
+**How to resolve:** T-3079's re-solved camera, or a view of the range from the south side yard or
+the alley.
+**Ticket:** T-3077.
+**Recorded:** 2026-10-23 (T-3077).
+**Review:** `data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.match.json`.
 
 ### L-glessner-stack-layout-3024 — Glessner's 18th Street gable coping lowered to meet the stack under its date, the 1886 stone re-set to sheet 6, the crosses levelled
 
