@@ -1,0 +1,28 @@
+{
+  "id": "calisphere_ucr_first_jail_catalogue_1930",
+  "type": "website",
+  "citation": "Calisphere / UCR California Museum of Photography, Keystone-Mast Collection, 'Cook County’s first Jail as it was in 1836 - Located on the Northwest Corner of the Public Square, Chicago', catalogue item 1996.0009.L54254, ark:/13030/kt438nc0n9.",
+  "author": "UCR/California Museum of Photography (catalogue); Francis Dare (catalogued copy creator)",
+  "date": "Date Created and/or Issued: September 19, 1930 (catalogued copy); catalogue page undated",
+  "describes_date": "1836, per item title; no original artwork publication date established",
+  "repository": "UCR/California Museum of Photography, Keystone-Mast Collection",
+  "url": "https://calisphere.org/item/ark:/13030/kt438nc0n9/",
+  "archived_url": "https://oac.cdlib.org/ark:/13030/kt438nc0n9/",
+  "locator": "Item1996.0009.L54254: Title; Creator; Date Created and/or Issued; Publication Information; Rights Information; Physical Description; Identifier. The institutional ARK is a persistent collection locator, not a claimed Wayback snapshot.",
+  "tier": 4,
+  "rights_status": "check_required",
+  "rights_note": "The catalogue requests an inquiry to UCR about copyright status and supplies no affirmative reuse licence for this item. A visually matching copy is dated 1930 in a combined creation/issuance field. That does not establish original publication or public distribution in 1930. The inherited inventory claim that the underlying artwork was pre-1930/public domain is withdrawn as unverified. No geometry, texture, mesh or other asset may be derived from this held image. Textual citation of catalogue facts remains allowed. SUPERSESSION: The independent exact matching plate was subsequently actually located in Gale 1902, trowbridge_first_jail_gale_1902, with actual 1902title/copyright pages. Its US 1902 publication establishes public-domain artwork by age and unblocks project image use from that independent plate. This catalogue record retains check_required/text_only for its copy-specific caution; its 1930combined field is still not asserted to prove publication.",
+  "asset_use": "text_only",
+  "verified": true,
+  "access_notes": "Actual catalogue page and matching surrogate retrieved and read 2026-10-23; independent research captures retained under /tmp/chicago-next-model/T-2380-rights/. Required credit: Keystone-Mast Collection, UCR/California Museum of Photography, University of California at Riverside. Publication Information: Keystone View Company. Format: Keystone one-sided photo print 7.18 in. ×4.18 in. Catalogue creator Francis Dare is not independently identified as the original engraving artist. The OAC ARK redirects to the same Calisphere item.",
+  "note": "This is the textual institutional catalogue record, not an image source added to a model form or an image-match camera. Its surrogate visibly matches the detailed jail image reproduced in the Chicago Tribune on 10 June 1947 and now hosted by Chicagology. The actual earlier copy predates that reproduction, while original authorship/publication and affirmative reuse rights remain unresolved. LATER SAME-DAY FINDING: original publication was unknown at the earlier research checkpoint; an exact matching 1902published plate and the book’s illustrator credit have now been verified independently in trowbridge_first_jail_gale_1902. This supersedes the artwork-level unknown/rightshold, not the catalogue’s actual date or rights statement.",
+  "what_it_supplies": [
+    "Institutional identity, catalogue copy date, item identifier, named creator and required credit.",
+    "An independently read earlier matching copy, with no claim that the combined date proves publication."
+  ],
+  "what_it_does_not_supply": [
+    "A verified original publication date, affirmative reuse licence or public-domain determination for the jail artwork.",
+    "Evidence that the whole depicted 1836 compound existed by 1 July 1835.",
+    "Any new model geometry, link from a form attribute to the source, dimensional authority or image-match verdict."
+  ]
+}

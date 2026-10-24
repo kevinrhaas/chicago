@@ -41,6 +41,7 @@ sys.path.insert(0, str(ROOT / "generators"))
 from common.materials import fabric_tone  # noqa: E402
 from grade_structures import grade_street  # noqa: E402
 import readable_text  # noqa: E402
+from flag_form_contract import compiled_form_attributes  # noqa: E402
 
 
 CHECK = False
@@ -2886,10 +2887,9 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
         # to it: a documented value the mesh does not contain is a true statement
         # about the evidence and a false one about the view, and the popup has to
         # be able to say which it is showing.
-        attributes = {}
-        for attr, a in (phase.get("form") or {}).items():
-            attributes[attr] = {k: v for k, v in a.items() if k in
-                                ("value", "confidence", "sources", "note", "geometry")}
+        # Runtime flag values have a real declared reader; do not compile a
+        # silently unbuilt anchor or a false card geometry omission marker.
+        attributes = compiled_form_attributes(phase.get("form") or {}, ROOT)
         # T-3037: `built` is the structure's build date as its sources give it, which the
         # card prints; the phase's range below is not one (see `from_is`).
         for key in ("function", "occupants", "present_status", "built"):

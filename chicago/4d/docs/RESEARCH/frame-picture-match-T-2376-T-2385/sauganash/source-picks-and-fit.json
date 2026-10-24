@@ -1,0 +1,137 @@
+{
+  "status": "provisional_not_solved_not_accepted",
+  "image_size": [
+    2017,
+    1296
+  ],
+  "fit_scope": "Five approximate visible main-wall corners; obscured far gable grade corner excluded. Fixed model dimensions, not picture-derived metrics.",
+  "eye": [
+    42.75817160861064,
+    60.68856053185239,
+    1.869951965172664
+  ],
+  "yaw_deg": 246.33520855106465,
+  "focal_px": 4730.352526721041,
+  "principal_px": [
+    4129.395927696468,
+    856.404866199997
+  ],
+  "point_rms_px": 16.279810155874408,
+  "coordinate_rms_px": 11.511564157648419,
+  "max_point_residual_px": 30.14554006790497,
+  "observations": [
+    {
+      "world_uvy": [
+        9.92,
+        8.0,
+        0.0
+      ],
+      "source_pixel": [
+        891.0,
+        1027.0
+      ],
+      "predicted_pixel": [
+        890.217773972217,
+        1029.0842072954238
+      ],
+      "residual": [
+        -0.7822260277830537,
+        2.0842072954237665
+      ]
+    },
+    {
+      "world_uvy": [
+        0.0,
+        8.0,
+        0.0
+      ],
+      "source_pixel": [
+        1686.0,
+        1001.0
+      ],
+      "predicted_pixel": [
+        1690.496603734573,
+        1003.0701572863276
+      ],
+      "residual": [
+        4.496603734573,
+        2.0701572863275715
+      ]
+    },
+    {
+      "world_uvy": [
+        9.92,
+        8.0,
+        5.5
+      ],
+      "source_pixel": [
+        891.0,
+        505.0
+      ],
+      "predicted_pixel": [
+        890.217773972217,
+        521.1907460122337
+      ],
+      "residual": [
+        -0.7822260277830537,
+        16.190746012233717
+      ]
+    },
+    {
+      "world_uvy": [
+        0.0,
+        8.0,
+        5.5
+      ],
+      "source_pixel": [
+        1696.0,
+        562.0
+      ],
+      "predicted_pixel": [
+        1690.496603734573,
+        571.6905732121802
+      ],
+      "residual": [
+        -5.503396265427,
+        9.690573212180198
+      ]
+    },
+    {
+      "world_uvy": [
+        9.92,
+        0.0,
+        5.5
+      ],
+      "source_pixel": [
+        442.0,
+        571.0
+      ],
+      "predicted_pixel": [
+        444.5712443475727,
+        540.9643164137931
+      ],
+      "residual": [
+        2.5712443475727014,
+        -30.035683586206915
+      ]
+    }
+  ],
+  "withheld_roof": {
+    "near_roof_apex": {
+      "world": [
+        10.17,
+        4,
+        8.82046391265355
+      ],
+      "picked_pixel": [
+        648,
+        350
+      ],
+      "predicted_pixel": [
+        636.4992499953205,
+        231.36158837929645
+      ]
+    }
+  },
+  "at_bound": false
+}

@@ -761,7 +761,7 @@
       "blocked_sources": [
         "glessner_blog_1736_mcbirney_c1890_photo"
       ],
-      "sole_support": true,
+      "sole_support": false,
       "confidence": "inferred"
     },
     "house_1736_prairie/as_mapped_1904/form.sash_by_storey": {
@@ -908,14 +908,6 @@
       "kind": "structure",
       "blocked_sources": [
         "chicagology_prefire273"
-      ],
-      "sole_support": true,
-      "confidence": "inferred"
-    },
-    "sauganash_hotel/frame_1831/form.shutter_type": {
-      "kind": "structure",
-      "blocked_sources": [
-        "trowbridge_sauganash_hotel"
       ],
       "sole_support": true,
       "confidence": "inferred"

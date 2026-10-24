@@ -1,0 +1,6 @@
+PASS: structure/source schema; only research_note differs in structure; all phase/form/source/confidence/date/place values identical
+PASS: textual website source check_required/text_only; no form-source linkage or automatic picture entry
+PASS: exact current mesh input document and SHA unchanged: daf789e64dede9497de8d144326e728980e2e0e484f9797cfc03ec7e4c74b6f9
+PASS: focused actual picture join and pure grade unchanged: {"value": "inferred", "why": "Known from maps or written records; no picture of it has been found.", "pictures": []}
+PASS: inventory corrections in both copies; no asset/generator/camera/sidecar changed; git apply --check
+UNRUN: compile/release/full gate; no derived asset, browser or bake performed

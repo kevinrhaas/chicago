@@ -1,0 +1,49 @@
+{
+  "structure_id": "green_tree_tavern",
+  "view": "andreas_1884_south.provisional",
+  "glb": "assets/gltf/green_tree_tavern__frame_1833.proposal.glb",
+  "glb_sha256": "06502d3176ac43778dcbd8da7de059416db044661a91e2a4df9045c5f9ca9364",
+  "camera_sha256": "e27c8f754165dd83b052668f10c958787ba96ebea9df66fe7a85c8b5eee58960",
+  "photo_sha256": "bfaa184f9043ea94560eb74e44926c631f06338bc90e6ba54951a610edef119a",
+  "side_by_side": "review/green-tree/andreas_1884_south.provisional-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Visible main-gable triangle now continues the existing wall finish and horizontal clapboard courses instead of using roof covering material. Roof planes/dimensions/pitch remain unchanged; concealed opposite-end treatment is reconstructed.",
+      "status": "fixed"
+    },
+    {
+      "what": "Pictured long/south elevation now renders seven upper sash, replacing its former six-bay default; opposite north stays six while main-block triangular gable cladding is corrected in this follow-up.",
+      "status": "fixed"
+    },
+    {
+      "what": "Exact sash width/height, vertical bands and equal station spacing remain reconstructed; visible openings and facade proportions are not a detailed match.",
+      "status": "open"
+    },
+    {
+      "what": "The model keeps a centred gable entry, while this Andreas view places the pictured entry differently. Gable ground/upper arrangement and attic-light depiction remain unresolved across the ticket pictures.",
+      "status": "open"
+    },
+    {
+      "what": "Text-attested side entry remains at the middle ground-floor bay. This review does not reconcile its appearance with the drawing lower sash/entry arrangement.",
+      "status": "open"
+    },
+    {
+      "what": "Source composition shows low buildings to the left; the current main mesh extension projects to the right. Identity, connection, wing massing and context must be resolved without moving geographic controls to fit a drawing.",
+      "status": "open"
+    },
+    {
+      "what": "Roof shape/stacks, siding/trim, sign and street context/figures differ or are omitted by this bare-building review.",
+      "status": "open"
+    },
+    {
+      "what": "Camera is an unsolved drawing fit: principal x=-3472.8px outside the source,6.11px coordinate RMS,12.65max point residual; two withheld roof picks disagree. No physical or geographic camera is accepted.",
+      "status": "open"
+    },
+    {
+      "what": "Retrospective source form is not a dated1835 survey. Colours and hidden treatment cannot be established by this monochrome picture.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

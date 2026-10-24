@@ -1,0 +1,464 @@
+--- /dev/null
++++ b/chicago/4d/renderers/web/js/flag-anchors.js
+@@ -0,0 +1,67 @@
++/** Explicit roof-staff anchors; pure logic, with no renderer dependency.
++ *
++ * Existing freestanding staffs retain their bounding-box mount. An explicit
++ * anchor is phase/date-specific and never silently falls back to a hotel box.
++ * Its local frame is footprint metres [east, north, up], mapped to glTF's
++ * [east, up, south] before the building's existing placement matrix is applied.
++ */
++// Read by validate.py as well as exercised by test_flag_anchors.mjs.
++export const CONSUMED_FORM = Object.freeze(["flag", "flag_flying", "flag_anchor"]);
++
++const valueOf = a => a && typeof a === 'object' && !Array.isArray(a) ? a.value : a;
++
++export function flownFlags(registry, levels) {
++  const grade = a => levels[a && typeof a === 'object' ? a.confidence : null] ?? levels.reconstructed;
++  const out = [];
++  for (const record of registry.values()) {
++    const sidecar = record.sidecar ?? {};
++    const at = sidecar.attributes ?? {};
++    const pattern = valueOf(at.flag);
++    if (!pattern || valueOf(at.flag_flying) !== true) continue;
++    const anchored = Object.hasOwn(at, 'flag_anchor');
++    out.push({ id: record.id, pattern,
++      confidence: Math.max(grade(at.flag), grade(at.flag_flying), ...(anchored ? [grade(at.flag_anchor)] : [])),
++      ...(anchored ? { anchor: valueOf(at.flag_anchor), phase: sidecar.phase, targetDate: sidecar.target_date } : {}),
++    });
++  }
++  return out;
++}
++
++function validDate(value) {
++  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
++  const millis = Date.parse(value + 'T00:00:00Z');
++  return Number.isFinite(millis) && new Date(millis).toISOString().slice(0, 10) === value;
++}
++
++/** Returns a mount in local glTF coordinates, or throws a reported refusal. */
++export function flagMount(flag, box, { fly, hoistToFly, truckGap }) {
++  if (!Object.hasOwn(flag, 'anchor')) {
++    return { axis: [(box.min[0]+box.max[0])/2, box.max[1], (box.min[2]+box.max[2])/2],
++      foot: [(box.min[0]+box.max[0])/2, box.min[1], (box.min[2]+box.max[2])/2],
++      radius: Math.max(.04, Math.min(box.max[0]-box.min[0], box.max[2]-box.min[2])/2*.6),
++      fly, hoist: fly*hoistToFly };
++  }
++  const a = flag.anchor;
++  if (!a || typeof a !== 'object' || Array.isArray(a)) throw new Error('flag_anchor must be an object');
++  if (a.frame !== 'footprint_enu_m') throw new Error('flag_anchor frame must be footprint_enu_m');
++  if (!a.phase || a.phase !== flag.phase) throw new Error('flag_anchor phase disagrees with the drawn phase');
++  if (![a.valid_from, a.valid_to, flag.targetDate].every(validDate) || a.valid_from > a.valid_to)
++    throw new Error('flag_anchor needs a valid inclusive date interval and scene target_date');
++  if (flag.targetDate < a.valid_from || flag.targetDate > a.valid_to)
++    throw new Error('flag_anchor is outside its supported pattern/date interval');
++  const vector = v => Array.isArray(v) && v.length === 3 && v.every(n => typeof n === 'number' && Number.isFinite(n));
++  if (!vector(a.head) || !vector(a.foot)) throw new Error('flag_anchor head/foot must be finite [east,north,up] triples');
++  const map = v => [v[0], v[2], -v[1]];
++  const axis = map(a.head), foot = map(a.foot), height = axis[1]-foot[1];
++  if (Math.abs(axis[0]-foot[0]) > 1e-6 || Math.abs(axis[2]-foot[2]) > 1e-6 || height < .5)
++    throw new Error('flag_anchor needs an upright staff at least half a metre tall');
++  if (typeof a.radius_m !== 'number' || !Number.isFinite(a.radius_m) || a.radius_m < .005 || a.radius_m > .5)
++    throw new Error('flag_anchor radius_m outside .005..0.5 metres');
++  if (typeof a.fly_m !== 'number' || !Number.isFinite(a.fly_m) || a.fly_m < .1 || a.fly_m > 12 ||
++      typeof a.hoist_m !== 'number' || !Number.isFinite(a.hoist_m) || a.hoist_m < .1 || a.hoist_m > height-truckGap)
++    throw new Error('flag_anchor cloth dimensions are invalid or extend below the staff');
++  // Catch a stale head/foot after a model change instead of flying it elsewhere.
++  if ([axis, foot].some(p => p.some((v, i) => v < box.min[i]-.03 || v > box.max[i]+.03)))
++    throw new Error('flag_anchor head/foot fall outside the drawn model');
++  return { axis, foot, radius: a.radius_m, fly: a.fly_m, hoist: a.hoist_m };
++}
+--- a/chicago/4d/renderers/web/js/flags.js
++++ b/chicago/4d/renderers/web/js/flags.js
+@@ -40,6 +40,7 @@
+ 
+ import * as THREE from 'three';
+ import { LEVELS } from './confidence.js';
++import { flownFlags, flagMount } from './flag-anchors.js';
+ 
+ /**
+  * THE PATTERNS — counted from the acts, laid out by us. Rows of stars are the
+@@ -110,31 +111,9 @@
+ };
+ const WEAR = { us_flag_24_star: 1.0, us_flag_15_star_15_stripe: 0.5 };
+ 
+-function valueOf(a) {
+-  return a && typeof a === 'object' && !Array.isArray(a) ? a.value : a;
+-}
+-
+-function gradeOf(a) {
+-  const c = a && typeof a === 'object' ? a.confidence : null;
+-  return LEVELS[c] ?? LEVELS.reconstructed;
+-}
+-
+-/** The staff records that fly a flag on this scene's date, with what they fly. */
++/** Phase-selected sidecars provide pattern, flying state and optional anchor. */
+ export function flagsFlown(registry) {
+-  const out = [];
+-  for (const record of registry.values()) {
+-    const at = record.sidecar?.attributes ?? {};
+-    const pattern = valueOf(at.flag);
+-    if (!pattern || valueOf(at.flag_flying) !== true) continue;
+-    out.push({
+-      id: record.id,
+-      pattern,
+-      // The cloth is drawn at the worse of its two grades: a flag whose pattern
+-      // is inferred but whose being up is reconstructed is a reconstruction.
+-      confidence: Math.max(gradeOf(at.flag), gradeOf(at.flag_flying)),
+-    });
+-  }
+-  return out;
++  return flownFlags(registry, LEVELS);
+ }
+ 
+ /** A five-pointed star, filled, centred at (x, y) with outer radius r. */
+@@ -159,12 +138,12 @@
+ }
+ 
+ /** Draw one flag into a canvas: stripes, canton, stars, then the wear. */
+-export function paintFlag(patternId, { width = 512, seed = 1835 } = {}) {
++export function paintFlag(patternId, { width = 512, seed = 1835, hoistToFly = HOIST_TO_FLY } = {}) {
+   const pat = PATTERNS[patternId];
+   if (!pat) throw new Error(`no flag pattern '${patternId}'`);
+   const wear = WEAR[patternId] ?? 0.5;
+   const w = width;
+-  const h = Math.round(width * HOIST_TO_FLY);
++  const h = Math.round(width * hoistToFly);
+   const cv = document.createElement('canvas');
+   cv.width = w;
+   cv.height = h;
+@@ -396,17 +375,19 @@
+       problems.push(`${flag.id}: flag pattern '${flag.pattern}' is not one this layer knows`);
+       continue;
+     }
+-    // The staff's axis and head, from the mesh the buildings actually drew.
+-    const axis = new THREE.Vector3((box.min[0] + box.max[0]) / 2, box.max[1],
+-      (box.min[2] + box.max[2]) / 2).applyMatrix4(m);
+-    const foot = new THREE.Vector3((box.min[0] + box.max[0]) / 2, box.min[1],
+-      (box.min[2] + box.max[2]) / 2).applyMatrix4(m);
++    let mount;
++    try {
++      mount = flagMount(flag, box, { fly: FLY_M, hoistToFly: HOIST_TO_FLY, truckGap: TRUCK_GAP_M });
++    } catch (error) {
++      problems.push(`${flag.id}: ${error.message} — no flag hung`);
++      continue;
++    }
++    const axis = new THREE.Vector3(...mount.axis).applyMatrix4(m);
++    const foot = new THREE.Vector3(...mount.foot).applyMatrix4(m);
+     const staffH = axis.y - foot.y;
+-    const radius = Math.max(0.04, Math.min(box.max[0] - box.min[0], box.max[2] - box.min[2]) / 2 * 0.6);
+-    const fly = FLY_M;
+-    const hoist = fly * HOIST_TO_FLY;
+-
+-    const tex = new THREE.CanvasTexture(paintFlag(flag.pattern, { seed: flag.id.length * 7919 }));
++    const { radius, fly, hoist } = mount;
++
++    const tex = new THREE.CanvasTexture(paintFlag(flag.pattern, { seed: flag.id.length * 7919, hoistToFly: hoist / fly }));
+     tex.colorSpace = THREE.SRGBColorSpace;
+     tex.anisotropy = 4;
+     // Wool is matte with a soft sheen at grazing light, never a gloss: the
+--- /dev/null
++++ b/chicago/4d/tools/test_flag_anchors.mjs
+@@ -0,0 +1,75 @@
++#!/usr/bin/env node
++/** Pure CPU contract tests; no canvas, browser, Three or shipped GLB needed. */
++import assert from 'node:assert/strict';
++import { fileURLToPath } from 'node:url';
++import path from 'node:path';
++import fs from 'node:fs';
++const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
++const { flownFlags, flagMount } = await import(path.join(root, 'renderers/web/js/flag-anchors.js'));
++const defaults = { fly: 12*.3048, hoistToFly: 1/1.85, truckGap: .18 };
++const levels = { attested: 0, inferred: .5, reconstructed: 1 };
++const attr = (value, confidence='attested') => ({ value, confidence });
++const box = { min: [-2.32, 0, -11.46], max: [17.56, 15.061870575, 2.32] };
++const record = JSON.parse(fs.readFileSync(path.join(root, 'data/structures/tremont_house_1.json')));
++const phase = record.phases.find(p => p.id === 'frame_1833');
++const registry = new Map([[record.id, {id: record.id, sidecar: { phase: phase.id,
++  target_date: '1835-07-01', attributes: phase.form } }]]);
++let tests = 0;
++const ok = (name, fn) => { fn(); tests++; console.log('  ok '+name); };
++ok('unanchored fort mount exactly retains legacy bounding-box computation', () => {
++  const b = {min: [-.2, 0, -.3], max: [.2, 15, .3]};
++  assert.deepEqual(flagMount({id: 'fort'}, b, defaults), {
++    axis: [0, 15, 0], foot: [0, 0, 0], radius: .4/2*.6,
++    fly: defaults.fly, hoist: defaults.fly*defaults.hoistToFly,
++  });
++  const old = flownFlags(new Map([['fort', {id:'fort',sidecar:{attributes:{flag:attr('us_flag_24_star'),flag_flying:attr(true,'inferred')}}}]]),levels);
++  assert.deepEqual(old, [{id:'fort',pattern:'us_flag_24_star',confidence:.5}]);
++});
++ok('phase-selected roof data maps east/north/up to local glTF without hotel centre', () => {
++  const flags = flownFlags(registry, levels); assert.equal(flags.length, 1);
++  const mount = flagMount(flags[0], box, defaults), a = phase.form.flag_anchor.value;
++  assert.deepEqual(mount.axis, [a.head[0], a.head[2], -a.head[1]]);
++  assert.deepEqual(mount.foot, [a.foot[0], a.foot[2], -a.foot[1]]);
++  assert.notEqual(mount.axis[0], (box.min[0]+box.max[0])/2);
++  assert.equal(mount.radius, .035); assert.equal(mount.fly, 1.85); assert.equal(mount.hoist, 1.3);
++  // Both horizontal components map independently; a north-axis staff isn't
++  // mistaken for east, and a placement rotation/translation happens only later.
++  const altered = {...flags[0],anchor:{...a,head:[2,6,14],foot:[2,6,10]}};
++  assert.deepEqual(flagMount(altered,box,defaults).axis,[2,14,-6]);
++});
++ok('record anchor stays on reconstructed generator spar and source bounds', () => {
++  const a=phase.form.flag_anchor.value, f=phase.form;
++  const w=Math.max(...phase.footprint.polygon.map(p=>p[0]));
++  const d=Math.max(...phase.footprint.polygon.map(p=>p[1]));
++  const ridge=f.wall_height_m.value+(d/2+.25)*Math.tan(f.roof_pitch_deg.value*Math.PI/180);
++  assert.deepEqual(a.head.slice(0,2),[w*.37,d/2]);
++  assert.ok(Math.abs(a.head[2]-(ridge+f.flagstaff_height_m.value))<1e-9);
++  assert.ok(Math.abs(a.foot[2]-(ridge-.15))<1e-9);
++  assert.ok(a.fly_m/f.flagstaff_height_m.value>=.35 && a.fly_m/f.flagstaff_height_m.value<=.50);
++  assert.ok(a.hoist_m/f.flagstaff_height_m.value>=.25 && a.hoist_m/f.flagstaff_height_m.value<=.40);
++  assert.equal(f.flag.value,'us_flag_24_star');
++});
++ok('anchor grade participates in cloth confidence and absence keeps it off', () => {
++  const r={id:'roof',sidecar:{phase:'p',target_date:'1835-07-01',attributes:{
++    flag:attr('us_flag_24_star'),flag_flying:attr(true),flag_anchor:attr({},'reconstructed')}}};
++  assert.equal(flownFlags(new Map([['roof',r]]),levels)[0].confidence,1);
++  r.sidecar.attributes.flag_anchor.confidence='inferred';
++  assert.equal(flownFlags(new Map([['roof',r]]),levels)[0].confidence,.5);
++  r.sidecar.attributes.flag_flying.value=false;
++  assert.deepEqual(flownFlags(new Map([['roof',r]]),levels),[]);
++});
++ok('unsupported dates/phase/frames and malformed/stale anchors refuse without fallback', () => {
++  const flag=flownFlags(registry,levels)[0], a=flag.anchor;
++  const cases=[{anchor:null},{phase:'other'},{targetDate:'1836-07-04'},{targetDate:'1835-02-30'},
++    {anchor:{...a,phase:''}},{anchor:{...a,frame:'blender'}},
++    {anchor:{...a,head:[NaN,0,10]}},{anchor:{...a,head:[true,4,10]}},
++    {anchor:{...a,head:[a.head[0]+1,a.head[1],a.head[2]]}},
++    {anchor:{...a,head:[1,1,1],foot:[1,1,2]}},
++    {anchor:{...a,radius_m:0}},{anchor:{...a,fly_m:Infinity}},
++    {anchor:{...a,hoist_m:20}},{anchor:{...a,head:[a.head[0],a.head[1],30]}},
++    {anchor:{...a,valid_from:'1837-01-01',valid_to:'1836-01-01'}}];
++  for (const change of cases) assert.throws(()=>flagMount({...flag,...change},box,defaults),Error);
++  for (const targetDate of ['1833-01-01','1836-07-03'])
++    assert.doesNotThrow(()=>flagMount({...flag,targetDate},box,defaults));
++});
++console.log(`Flag anchor contract: ${tests} checks passed; no browser or accepted image match.`);
+--- /dev/null
++++ b/chicago/4d/tools/flag_form_contract.py
+@@ -0,0 +1,48 @@
++"""The three form values the actual flag app layer consumes, not master geometry.
++
++The declaration belongs beside its JS sidecar reads. Both validator and compiler
++check it; an omitted runtime module/read must not turn an anchor into a silent
++record-only note. This is deliberately bounded to the existing flag layer.
++"""
++from __future__ import annotations
++import json
++import re
++from pathlib import Path
++
++FLAG_FORM_FIELDS = frozenset(("flag", "flag_flying", "flag_anchor"))
++FLAG_READER = Path("renderers/web/js/flag-anchors.js")
++
++
++def flag_form_fields(root: Path) -> frozenset[str]:
++    path = root / FLAG_READER
++    text = path.read_text() if path.is_file() else ""
++    declaration = re.search(
++        r"export\s+const\s+CONSUMED_FORM\s*=\s*Object\.freeze\((\[[^;]*?\])\);", text)
++    try:
++        names = json.loads(declaration.group(1)) if declaration else None
++    except (ValueError, TypeError):
++        names = None
++    if not isinstance(names, list) or any(not isinstance(n, str) for n in names) or set(names) != FLAG_FORM_FIELDS:
++        raise ValueError(f"{FLAG_READER}: CONSUMED_FORM must name exactly flag, flag_flying, flag_anchor")
++    code = re.sub(r"/\*.*?\*/|//[^\n]*", "", text, flags=re.S)
++    for name in names:
++        if not re.search(r"\bat\." + re.escape(name) + r"\b", code):
++            raise ValueError(f"{FLAG_READER}: declares {name} without reading at.{name}")
++    return FLAG_FORM_FIELDS
++
++
++def compiled_form_attributes(form: dict, root: Path) -> dict:
++    """Keep existing sidecar/card shape and reject false runtime omissions.
++
++    Legacy fort record_only declarations still describe their masters and are
++    preserved byte-for-byte in content. New runtime anchor claims need no such
++    label: the flag layer really builds them, with their own grade and reasoning.
++    """
++    if FLAG_FORM_FIELDS.intersection(form):
++        consumed = flag_form_fields(root)
++        for key in consumed.intersection(form):
++            if form[key].get("geometry") not in (None, "record_only"):
++                raise ValueError(f"form.{key}: the flag renderer consumes this value; geometry omission is false")
++    return {key: {k: v for k, v in claim.items() if k in
++            ("value", "confidence", "sources", "note", "geometry")}
++            for key, claim in form.items()}
+--- a/chicago/4d/tools/validate.py
++++ b/chicago/4d/tools/validate.py
+@@ -1619,6 +1619,21 @@
+ GROUND_GEOMETRY_STATES = GEOMETRY_STATES + ("restated_in_code",)
+ 
+ 
++# The app's real flag reads are checked separately from master CONSUMED fields.
++# Keep fort record_only master declarations compatible; never use them to excuse
++# a missing renderer or a silently unbuilt roof anchor.
++from flag_form_contract import flag_form_fields  # noqa: E402
++
++
++def renderer_form_consumed(rep: Report | None = None) -> frozenset[str]:
++    try:
++        return flag_form_fields(ROOT)
++    except ValueError as error:
++        if rep is not None:
++            rep.error("renderer form contract", str(error))
++        return frozenset()
++
++
+ def unbuilt_values(structures: dict, consumed: dict[str, frozenset]) -> list[tuple]:
+     """Every form attribute whose archetype does not read it.
+ 
+@@ -1633,6 +1648,7 @@
+     and the mesh cannot show.
+     """
+     found: list[tuple] = []
++    app_known = renderer_form_consumed()
+     for name, st in sorted(structures.items()):
+         sid = st.get("id", name)
+         known = consumed.get(st.get("archetype"))
+@@ -1641,7 +1657,7 @@
+         for ph in st.get("phases", []):
+             pid = ph.get("id", "?")
+             for attr, a in sorted((ph.get("form") or {}).items()):
+-                if attr in known or not isinstance(a, dict):
++                if attr in known or attr in app_known or not isinstance(a, dict):
+                     continue
+                 found.append((sid, pid, f"form.{attr}", f"structure {sid}/{pid}", a))
+     return found
+@@ -1674,6 +1690,7 @@
+         rep.note("geometry check: no archetype params modules to compare against")
+         return
+     declared = 0
++    app_known = renderer_form_consumed(rep)
+     for name, st in sorted(structures.items()):
+         sid = st.get("id", name)
+         known = consumed.get(st.get("archetype"))
+@@ -1693,6 +1710,11 @@
+                                          f"— it is built from the value, so there is nothing to "
+                                          f"declare. Drop the field, or remove the attribute from "
+                                          f"CONSUMED if the generator stopped using it")
++                    continue
++                if attr in app_known:
++                    if state not in (None, "record_only"):
++                        rep.error(where, f"form.{attr} is consumed by a registered app renderer, "
++                                         f"so geometry: '{state}' is a false omission admission")
+                     continue
+                 if state is None:
+                     rep.error(where, f"form.{attr} is stated by the record and the "
+--- a/chicago/4d/tools/compile_scene.py
++++ b/chicago/4d/tools/compile_scene.py
+@@ -41,6 +41,7 @@
+ from common.materials import fabric_tone  # noqa: E402
+ from grade_structures import grade_street  # noqa: E402
+ import readable_text  # noqa: E402
++from flag_form_contract import compiled_form_attributes  # noqa: E402
+ 
+ 
+ CHECK = False
+@@ -2880,10 +2881,9 @@
+         # to it: a documented value the mesh does not contain is a true statement
+         # about the evidence and a false one about the view, and the popup has to
+         # be able to say which it is showing.
+-        attributes = {}
+-        for attr, a in (phase.get("form") or {}).items():
+-            attributes[attr] = {k: v for k, v in a.items() if k in
+-                                ("value", "confidence", "sources", "note", "geometry")}
++        # Runtime flag values have a real declared reader; do not compile a
++        # silently unbuilt anchor or a false card geometry omission marker.
++        attributes = compiled_form_attributes(phase.get("form") or {}, ROOT)
+         # T-3037: `built` is the structure's build date as its sources give it, which the
+         # card prints; the phase's range below is not one (see `from_is`).
+         for key in ("function", "occupants", "present_status", "built"):
+--- /dev/null
++++ b/chicago/4d/tools/test_flag_form_contract.py
+@@ -0,0 +1,88 @@
++#!/usr/bin/env python3
++"""Runtime flag consumption cannot be hidden as an unbuilt master attribute."""
++from __future__ import annotations
++import copy
++import json
++from pathlib import Path
++import sys
++import tempfile
++import unittest
++from unittest.mock import patch
++
++ROOT = Path(__file__).resolve().parent.parent
++sys.path.insert(0, str(ROOT / 'tools'))
++from flag_form_contract import (  # noqa: E402
++    FLAG_FORM_FIELDS, FLAG_READER, compiled_form_attributes, flag_form_fields,
++)
++import validate  # noqa: E402
++
++
++class FlagFormContract(unittest.TestCase):
++    def test_actual_renderer_declares_and_reads_only_three_flag_fields(self):
++        self.assertEqual(flag_form_fields(ROOT), FLAG_FORM_FIELDS)
++
++    def test_new_runtime_fields_compile_without_false_unbuilt_labels(self):
++        form = {k: {'value': True, 'confidence': 'reconstructed', 'note': 'Working choice',
++                    'sources': [], 'internal': 'not a card field'} for k in FLAG_FORM_FIELDS}
++        expected = {k: {a: v for a, v in claim.items() if a != 'internal'} for k, claim in form.items()}
++        self.assertEqual(compiled_form_attributes(form, ROOT), expected)
++        self.assertTrue(all('geometry' not in a for a in expected.values()))
++        structures = {'roof': {'id': 'roof', 'archetype': 'frame_tavern',
++                              'phases': [{'id': 'p', 'form': form}]}}
++        with patch.object(validate, 'ROOT', ROOT):
++            self.assertEqual(validate.unbuilt_values(structures, {'frame_tavern': frozenset()}), [])
++            report = validate.Report()
++            validate.check_geometry_declarations(structures, {'frame_tavern': frozenset()}, report)
++            self.assertFalse(report.errors, report.errors)
++            bad = copy.deepcopy(structures)
++            bad['roof']['phases'][0]['form']['unknown_roof_feature'] = {'value': True, 'confidence': 'reconstructed'}
++            report = validate.Report()
++            validate.check_geometry_declarations(bad, {'frame_tavern': frozenset()}, report)
++            self.assertTrue(any('unknown_roof_feature' in e for e in report.errors))
++
++    def test_compiler_attributes_are_visible_to_existing_sidecar_read_gate(self):
++        form = {key: {"value": True, "confidence": "reconstructed", "note": "working"}
++                for key in FLAG_FORM_FIELDS}
++        attributes = compiled_form_attributes(form, ROOT)
++        shape = {"phase": None, "target_date": None,
++                 "attributes": {key: {k: None for k in a} for key, a in attributes.items()}}
++        reads = {field for _, field in validate.sidecar_field_reads((ROOT / FLAG_READER).read_text(), shape)}
++        self.assertTrue({"attributes."+key for key in FLAG_FORM_FIELDS} <= reads)
++        self.assertTrue({"phase", "target_date"} <= reads)
++
++    def test_legacy_fort_sidecar_attribute_content_unchanged(self):
++        for name in ('fort_dearborn_flagstaff', 'first_fort_dearborn_flagstaff'):
++            record = json.loads((ROOT / 'data/structures' / f'{name}.json').read_text())
++            for phase in record['phases']:
++                form = phase.get('form', {})
++                old = {key: {k: v for k, v in a.items() if k in
++                       ('value', 'confidence', 'sources', 'note', 'geometry')} for key, a in form.items()}
++                self.assertEqual(compiled_form_attributes(form, ROOT), old)
++
++    def test_runtime_fields_cannot_claim_absent_or_simplified(self):
++        for state in ('absent', 'simplified'):
++            with self.subTest(state=state), self.assertRaises(ValueError):
++                compiled_form_attributes({'flag_anchor': {'value': {}, 'geometry': state}}, ROOT)
++
++    def test_missing_or_dishonest_renderer_is_a_compiler_and_validator_error(self):
++        actual = (ROOT / FLAG_READER).read_text()
++        with tempfile.TemporaryDirectory() as temp:
++            root = Path(temp)
++            file = root / FLAG_READER
++            file.parent.mkdir(parents=True)
++            for text in ('', actual.replace('at.flag_anchor', 'at.unused_anchor'),
++                         actual.replace('"flag_anchor"]', '"flag_anchor", "imaginary_feature"]')):
++                file.write_text(text)
++                with self.subTest(source=text[:20]):
++                    with self.assertRaises(ValueError):
++                        compiled_form_attributes({'flag_anchor': {'value': {}}}, root)
++                    with patch.object(validate, 'ROOT', root):
++                        report = validate.Report()
++                        validate.check_geometry_declarations({'roof': {'archetype': 'frame_tavern',
++                            'phases': [{'id': 'p', 'form': {'flag_anchor': {'value': {}}}}]}},
++                            {'frame_tavern': frozenset()}, report)
++                        self.assertTrue(report.errors)
++
++
++if __name__ == '__main__':
++    unittest.main()

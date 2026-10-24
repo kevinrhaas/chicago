@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 711,
+  "count": 721,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -7176,77 +7176,6 @@
         {
           "label": "How to resolve",
           "text": "any period description or depiction of a secondary building at Chicago before 1836 — none is currently known to this project. This entry has no `Covers:` field on purpose: it claims nothing about any single record, because the invention is in the archetype and lands on every one of them."
-        },
-        {
-          "label": "Recorded",
-          "text": "2026-08-11."
-        }
-      ],
-      "work_refs": []
-    },
-    {
-      "id": "L74",
-      "title": "Tremont House I: a hotel built two storeys tall because three rests on one modern sentence",
-      "section": "per_subject",
-      "subjects": [
-        "tremont_house_1"
-      ],
-      "covers": [
-        {
-          "domain": "structure",
-          "structure": "tremont_house_1",
-          "phase": "frame_1833",
-          "aspect": "footprint"
-        },
-        {
-          "domain": "structure",
-          "structure": "tremont_house_1",
-          "phase": "frame_1833",
-          "aspect": "form.gallery"
-        },
-        {
-          "domain": "structure",
-          "structure": "tremont_house_1",
-          "phase": "frame_1833",
-          "aspect": "form.paint"
-        },
-        {
-          "domain": "structure",
-          "structure": "tremont_house_1",
-          "phase": "frame_1833",
-          "aspect": "form.roof_type"
-        },
-        {
-          "domain": "structure",
-          "structure": "tremont_house_1",
-          "phase": "frame_1833",
-          "aspect": "form.stories"
-        },
-        {
-          "domain": "structure",
-          "structure": "tremont_house_1",
-          "phase": "frame_1833",
-          "aspect": "form.wall_height_m"
-        }
-      ],
-      "recorded": "2026-08-11",
-      "revised": null,
-      "fields": [
-        {
-          "label": "Decision",
-          "text": "the first Tremont House is built at the north-west corner of Lake and Dearborn as a **two-storey** braced-frame block 50 × 30 ft, unpainted, gable-roofed and without a gallery. The storey count, the wall height, the roof, the paint, the gallery and the footprint are all tagged `conjectural`. **Why, and the storey count is the whole entry.** What is documented about this building is unusually good: the corner three times over, frame construction three times over, Alanson Sweet as builder, Ira Couch as proprietor from 1834, and destruction by fire on 27 October 1839. What is not documented is its height. \"Tremont House.\" Chicagology. Compiling city-directory entries 1846-1870, an… prints an uncredited modern \"Building Summary\" — \"a three-story wooden building\" — beside two period texts that count no storeys at all: the Chicago *Tribune* letter of 2 February 1874 (\"an unpretending frame structure\") and *Chicago Illustrated* of January 1866 (\"a wooden structure\"). Andreas, who gives the building a builder, a corner, a material, four proprietors and a death date, gives it no height. So the three-storey Tremont has exactly one witness and it is a modern editor; the research notes on structures south line 155 weighs it twice by citing \"chicagology and Wikipedia\". **Two is adopted and is still a guess**, on three arguments that are not evidence: Chicago in 1833 held about 350 people and *Wau-Bun* found the Sauganash's TWO storeys remarkable two years earlier; the *Chicago American*'s \"Improvements in 1836\", quoted by Andreas, counts \"about twenty large two to three-story wooden buildings\" among that year's NEW work; and this project already excludes the Saloon Building of 1836 partly as the town's first three-storey structure."
-        },
-        {
-          "label": "Consequence",
-          "text": "if the three-storey reading is right the building stands about 2.6 m taller than the model shows, and it would be the tallest thing in the 1835 scene. Everything else here is the usual: no source measures the house, describes its roof, names its finish or mentions a porch, and the confidence view renders the whole block as massing. **One documented thing about this building IS carried and is not built**: Ira Couch's \"a mere shell, without any sidewalk around it\". This project builds no plank walks anywhere, so the record states `sidewalk: false` as record only — a negative finding about the ground, not an omission."
-        },
-        {
-          "label": "How to resolve",
-          "text": "the *Daily American*'s account of the 27 October 1839 fire, which Andreas quotes for the merchants' stock losses and which itemised insurance building by building; or any *Chicago American* or *Chicago Democrat* advertisement of the house, which in the period counted rooms."
-        },
-        {
-          "label": "Covers",
-          "text": "`tremont_house_1.frame_1833.footprint`, `tremont_house_1.frame_1833.form.stories`, `tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.roof_type`, `tremont_house_1.frame_1833.form.paint`, `tremont_house_1.frame_1833.form.gallery`."
         },
         {
           "label": "Recorded",
@@ -51844,6 +51773,512 @@
       ]
     },
     {
+      "id": "L-tremont-corner-elevations-2385",
+      "title": "The first Tremont's pictured three storeys and shuttered corner elevations",
+      "section": "per_subject",
+      "subjects": [
+        "tremont_house_1"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.elevation_scheme"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.gallery"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.paint"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.shutters"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.wall_height_m"
+        }
+      ],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.elevation_scheme`, `tremont_house_1.frame_1833.form.shutters`, `tremont_house_1.frame_1833.footprint`, `tremont_house_1.frame_1833.form.paint`, `tremont_house_1.frame_1833.form.gallery`"
+        },
+        {
+          "label": "Decision",
+          "text": "adopt the three-storey form visible in N. Roswell Gifford's undated drawing reproduced by Chicagology as “Tremont House No. 1” (N. Roswell Gifford. View of the first Tremont House and the storefront row on…). The actual picture shows three bays on the short gable and five on the long eaves elevation, with shutters and centred ground entrances. The earlier two-storey reconstruction rested on a text-only reading and did not consider this picture. The pictured form is inferred for the 1835 scene: the picture is retrospective, not a dated survey of every feature on 1835-07-01."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "the existing 15.24 × 9.14 m footprint is retained, with no position, bearing or geographic control change. Wall height is 7.8 m, three copies of the previous reconstruction's 2.6 m storey module, not a measurement from the drawing. A 3.1 m first storey and two 2.35 m upper storeys, evenly spaced bay centres, 0.85 × 1.35 m sashes and 1.2 × 2.1 m door openings use the existing kit. Unseen elevations repeat the visible three/five-bay arrangement, including the centred entrances; four model doors are a reconstruction and not a claim that the historical house had four entrances. Plain open shutter leaves are 42% of a sash's width and 25 mm thick, 10 mm beyond the clapboard skin. Green is a stock-palette reconstruction: the monochrome source does not supply original paint colours. Louvre patterns and hardware are not asserted. The final working roof is 32°; its coupled camera/envelope fit is not a historical pitch measurement."
+        },
+        {
+          "label": "Chronology disagreement",
+          "text": "the picture-based form inference is in tension with the Saloon Building exclusion's first-three-storey shorthand. Gifford does not date this depiction within the first Tremont's 1833-1839 life, so construction sequence remains unresolved. The Saloon is still excluded for its documented 1836 date; no source or dated construction claim is rewritten."
+        },
+        {
+          "label": "What remains open",
+          "text": "arch interpretation, entry and stack detail, flag cloth/anchor, roof silhouette, scale/perspective and feature-by-feature dating. The following fitting decision records the built first refinement; this increment does not close this work or establish an image match. The street scene's neighbours, boardwalk, people and road are not folded into this building mesh."
+        },
+        {
+          "label": "Rights and attribution",
+          "text": "project owner approved attributed reference use on 2026-10-22; source record retains the exact instruction, source-page link and Gifford/Chicagology credit. No public-domain determination or original holding/publication claim is made."
+        },
+        {
+          "label": "How to resolve",
+          "text": "fit every relevant picture against the rebaked form, inspect the actual comparison, and replace reconstructed dimensions or concealed arrangements when a warranted scale or further view is available."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23."
+        }
+      ],
+      "work_refs": [
+        "T-2385"
+      ]
+    },
+    {
+      "id": "L-tremont-entry-roof-details-2385",
+      "title": "The first Tremont's raised entries, arched gable feature and roof fittings",
+      "section": "per_subject",
+      "subjects": [
+        "tremont_house_1"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.chimney_placement"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.entry_raise_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.first_story_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.flagstaff_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.gable_lunette"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.roof_pitch_deg"
+        }
+      ],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`tremont_house_1.frame_1833.form.roof_pitch_deg`, `tremont_house_1.frame_1833.form.first_story_height_m`, `tremont_house_1.frame_1833.form.entry_raise_m`, `tremont_house_1.frame_1833.form.gable_lunette`, `tremont_house_1.frame_1833.form.flagstaff_height_m`, `tremont_house_1.frame_1833.form.chimney_placement`"
+        },
+        {
+          "label": "Decision",
+          "text": "build the additional forms visible in Gifford's first Tremont drawing (N. Roswell Gifford. View of the first Tremont House and the storefront row on…), retaining the current reconstructed envelope and documented geographic position. A raised entry appears on each pictured face, a shallow arch below the short gable's peak, a roof staff, and four distinct capped stack silhouettes. Their occurrence is read from the picture, not invented. The undated retrospective view still does not establish when each feature appeared between 1833 and 1839; their adoption for 1835 is an inference or reconstruction as tagged on the form attributes."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "the roof is 32°, rounded from an appearance fit near 31.5° under the provisional six-wall-corner camera. This is not a historical pitch measurement: the model dimensions, camera and drawing perspective remain coupled. The first storey is 3.1 m with two upper divisions of 2.35 m, retaining the total 7.8 m wall height. Entrances are 0.6 m above grade, with the existing 2.1 m-high doors, 2.2 × 1.2 m plank platforms, four 0.15 m risers on 0.28 m treads and plain 0.85 m side guards. These projections extend outside the wall footprint; they do not move the recorded polygon or its geographic control. The two concealed entrances/elevations repeat the pictured pair as reconstruction, not a historical four-door count."
+        },
+        {
+          "label": "The gable feature's interpretation is open",
+          "text": "its shallow arch and dark field are visible, but lettering/pane arrangement is not settled by this reproduction. A dark glazed field, plain rim and three radial bars are working reconstruction; no legible sign or verified fanlight specification is claimed. Its width is 0.40 of the short gable, rise 0.74 m and base 0.55 m above the eaves. The unpictured gable repeats it. Corner-gable end triangles now use the wall's finish and lap relief rather than the roof material; this changes no common helper or default building treatment."
+        },
+        {
+          "label": "The roof fittings",
+          "text": "four stack centres are at reconstructed fractions (u,v) = (0.04,0.86), (0.23,0.40), (0.525,0.23), (0.82,0.08). Heights above each local roof slope are 1.75, 0.60, 1.00 and 1.20 m; shafts 0.45 × 0.50 m, plain caps 75 mm high and 50 mm proud. Source pixel silhouettes near (904,292), (1019,278), (1114,293) and (1202,309) bound this appearance choice; they are not surveyed roof controls. The staff is a 70 mm square spar, 4.25 m above the ridge at u = 0.37 of the long axis. Its section, station and height are reconstruction."
+        },
+        {
+          "label": "No cloth is baked into the building",
+          "text": "the app's existing graded flag layer currently derives its anchor from a standalone staff's bounds, and needs an explicit hotel-roof anchor before a flag can be hung correctly. `form.flag` and flag flying are deliberately not enabled at a wrong point."
+        },
+        {
+          "label": "Still open",
+          "text": "actual flag cloth/anchor integration; source-specific pane/lettering and rail detail; colours, shutter angles/joinery and opening proportions; all camera/image-gate review and source-feature dating. This is an inspected first rebuild increment, not an accepted image match or a completed original piece of work."
+        },
+        {
+          "label": "Rights and attribution",
+          "text": "N. Roswell Gifford; reproduced by Chicagology as “Tremont House No. 1”, chicagology.com. Owner-approved attributed project reference use on 2026-10-22, with the source record's limitations retained. No public-domain finding is asserted."
+        },
+        {
+          "label": "How to resolve",
+          "text": "export/build through the supported pinned path, inspect actual new GLBs and side-by-sides, fit every relevant picture, and replace reconstructed controls where further warranted views or scale become available."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23."
+        }
+      ],
+      "work_refs": [
+        "T-2385"
+      ]
+    },
+    {
+      "id": "L-green-tree-seven-bays",
+      "title": "This work — Green Tree's pictured south eaves rhythm, with unchanged stock sash and reconstructed spacing",
+      "section": "per_subject",
+      "subjects": [
+        "green_tree_tavern"
+      ],
+      "covers": [],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Subjects",
+          "text": "Green Tree Tavern. The bay count itself is inferred from the picture; the inherited stock/spacing remains reconstruction, described here without claiming the inferred count as an invented value."
+        },
+        {
+          "label": "Decision",
+          "text": "The public-domain retrospective Andreas/Braunhold illustration (\"THE GREEN TREE HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago…; local reproduction the chicago green tree inn 1838 image) depicts seven upper sash on the long elevation. The existing model's six came from rounding its 12.19 m length into 2.2 m modules. The south wall (x min under the existing west-facing placement) takes seven bay stations without changing the footprint, geographic placement, height or roof."
+        },
+        {
+          "label": "Inferred from the picture",
+          "text": "seven visible upper bays and their assignment to the south elevation by the existing Lake Street frontage reading. The plate is a retrospective form witness, not proof of the 1 July 1835 state, and its reproduced 1838 caption does not date the original undated Andreas plate."
+        },
+        {
+          "label": "Reconstructed",
+          "text": "exactly even station spacing (12.19 / 7 = 1.7414 m), the existing 0.85 by 1.35 m sash stock and storey bands, and the hidden parts of each opening. These widths and heights are preserved rather than measured from the picture. The attested side entrance continues to replace the middle ground-floor bay; this proposal does not pretend that a picture drawing lower sash establishes that door's exact appearance. The opposite north wall retains its existing six-bay reconstruction; no mirrored seven-bay claim is made. Gable opening arrangements and attic lights, and the disputed low wing, remain unresolved; main-gable wall cladding is corrected by the following decision."
+        },
+        {
+          "label": "How to resolve",
+          "text": "solve the picture's camera and inspect baseline/rebuilt renders; resolve gable and wing differences and compare every other piece of work picture. A dated period image or dimensional description would replace the uncertain elevation and opening sizes. Neither this count correction nor its emitted-opening checks is a `matches` verdict."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23."
+        }
+      ],
+      "work_refs": [
+        "T-2376"
+      ]
+    },
+    {
+      "id": "L-sauganash-end-sash-2383",
+      "title": "the pictured main gable's sash",
+      "section": "per_subject",
+      "subjects": [
+        "sauganash_hotel"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "sauganash_hotel",
+          "phase": "frame_1831",
+          "aspect": "form.end_windows"
+        }
+      ],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "What is read",
+          "text": "\"THE SAUGANASH HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago…, inspected as the committed Braunhold sheet the chicago sauganash hotel 1831 image. The exposed main gable above the log annex has two upper-storey sash and an upright attic sash. The existing measured reading in the sauganash plate baseline tool records upper centres at image x564.8 and783.7 and an attic centre at628.3; these are a picture reading, not a solved model camera. Petford and Trowbridge repeat this composition rather than independently corroborating it."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "the upper pair use the frontage builder's retained0.85 ×1.35 m sash, with centres at30% and70% of the retained8 m depth and centre height4.25 m (the existing front's3.575–4.925 m upper band). The attic sash uses0.70 ×1.20 m, at mid-depth, centre6.70 m. These stations and sizes are first-comparison model choices; no metric historic window dimension or station is claimed. The +x end follows the record's existing east-annex relationship, not geographic inversion of a retrospective drawing. The front/back openings, main massing, reconstructed cross-wing, paint/shutters, other gable and annex remain as previously modelled. New end sash use the existing generic glazing proxy without extra shutters; full sash divisions, shutters in derivative pictures, rake/cornice, roof and grouped model/camera differences remain open."
+        },
+        {
+          "label": "How to resolve",
+          "text": "rebuild with the pinned toolchain, render the original and refined GLBs from the same provisional joint Sauganash/annex camera, compare every visible feature against all three local pictures, then refine the geometry and solve. Do not mark matches or close this work from this increment alone."
+        },
+        {
+          "label": "Covers",
+          "text": "`sauganash_hotel.frame_1831.form.end_windows`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23."
+        }
+      ],
+      "work_refs": [
+        "T-2383"
+      ]
+    },
+    {
+      "id": "L-main-gable-wall-cladding-2376-2383",
+      "title": "Main-gable wall cladding — Green Tree and Sauganash",
+      "section": "per_subject",
+      "subjects": [
+        "green_tree_tavern",
+        "sauganash_hotel"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "green_tree_tavern",
+          "phase": "frame_1833",
+          "aspect": "form.gable_wall_cladding"
+        },
+        {
+          "domain": "structure",
+          "structure": "sauganash_hotel",
+          "phase": "frame_1831",
+          "aspect": "form.gable_wall_cladding"
+        }
+      ],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The Andreas/Braunhold retrospective depictions continue horizontal framed-wall siding into the visible main-block end triangle. The prior main-gable triangles inherited roof material, leaving Green Tree's gable dark and Sauganash's attic sash against green roof finish. gable wall cladding=true now uses each record's existing wall material and reconstructed siding course stock on both main-block end triangles, preserving all roof-plane coordinates, footprint, placement, wall/eave/ridge heights, pitch and roof covering. This is an opt-in to a closed main-block skin; repeating the pictured cladding on the concealed/opposite end is reconstruction, not independently observed evidence. The siding exposure/lay/lip relief and the triangular skin at the existing 0.25 m overhanging gable plane remain invented model construction, rather than a survey of original joinery. Both triangles conservatively carry reconstructed confidence. The helper generalizes Tremont's current wide-axis treatment to either ridge axis; Tremont's actual accumulated geometry/material/confidence stays identical. False is the default for every other existing record and preserves all 23 legacy family assets' treatment. Subsidiary cross-wing/ell roofs remain unchanged in this correction. Sources: \"THE GREEN TREE HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago… and \"THE SAUGANASH HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago…, with existing catalogue credits/rights retained. Their retrospective form does not establish a dated 1835 survey, hidden faces, dimensions or paint colours. Sauganash's established white finish and blue shutters remain grounded in their separate record evidence; Green Tree keeps its existing finish. No footprint or pitch is adjusted to match the provisional cameras. All original image-match pieces of work remain open, with roof/camera/opening/wing/context differences documented in the prior handoff."
+        },
+        {
+          "label": "Covers",
+          "text": "`green_tree_tavern.frame_1833.form.gable_wall_cladding`, `sauganash_hotel.frame_1831.form.gable_wall_cladding`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23 (T-2376, T-2383)."
+        }
+      ],
+      "work_refs": [
+        "T-2376",
+        "T-2383"
+      ]
+    },
+    {
+      "id": "L-tremont-opaque-arch-entry-2385",
+      "title": "First Tremont opaque arch and plain entry outlines",
+      "section": "per_subject",
+      "subjects": [
+        "tremont_house_1"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.corner_entry_surround"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.gable_arch_treatment"
+        }
+      ],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`tremont_house_1.frame_1833.form.gable_arch_treatment`, `tremont_house_1.frame_1833.form.corner_entry_surround`."
+        },
+        {
+          "label": "Decision",
+          "text": "Re-inspection of the owner-approved attributed Gifford/Chicagology reproduction shows irregular light lettering-like marks within the dark gable arch, rather than a clearly resolved radial fanlight pattern. gable arch treatment=opaque panel is the cautious working alternative: keep the prior shallow outline but use an opaque matte warm-charcoal field and remove invented radial bars/glass. It does **not** invent readable letters, a hotel-name inscription, original pigment or exact construction. Lettering, sign-versus-window identity and exact feature date remain unresolved. The opposite hidden arch remains a repeated reconstruction. Default `fanlight` preserves all earlier non-opted behavior exactly. corner entry surround=true adds a plain broad jamb/header outline to the existing entries. Source occurrence is visible, but stock width0.14m, depth65mm, existing trim tone, joinery and the mirrored concealed entries are reconstructed. The existing leaf/opening, raised landing, floor envelope, footprint/position, roof controls and source-date limits stay unchanged. Neither a classical order, a pediment nor ornamental lettering is claimed. Source N. Roswell Gifford. View of the first Tremont House and the storefront row on…: N. Roswell Gifford, reproduced by Chicagology, chicagology.com. Owner-approved attributed project reference use; no public-domain finding. All new detail geometry/material choices carry reconstructed confidence. Further source/detail/camera matching remains open."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23 (T-3055)."
+        }
+      ],
+      "work_refs": [
+        "T-2385"
+      ]
+    },
+    {
+      "id": "L-tremont-explicit-roof-flag-2385",
+      "title": "First Tremont roof cloth on an explicit phase-local staff",
+      "section": "per_subject",
+      "subjects": [
+        "tremont_house_1"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.flag"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.flag_anchor"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.flag_flying"
+        }
+      ],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`tremont_house_1.frame_1833.form.flag`, `tremont_house_1.frame_1833.form.flag_flying`, `tremont_house_1.frame_1833.form.flag_anchor`."
+        },
+        {
+          "label": "Decision",
+          "text": "The owner-approved Gifford/Chicagology reproduction shows a roof spar with a striped flag/canton. It does not recover its star count, original colour, precise flag construction, staff/cloth dimensions or whether it flew at the1835 scene's forenoon. A24-star/13-stripe United States flag is a reconstructed hotel identity/pattern choice using the existing period library. It is legally current for1835-07-01; the explicit anchor interval ends1836-07-03 to avoid carrying that pattern beyond its supported date. The image is not a dated1835 observation. Flag flying, layout, wear, app breeze/pose and all dimensions are reconstructed, retaining Gifford/Chicagology attribution and owner-approved use without a public-domain assertion. Approximate source picks: spar head(1034,192), base(1034,279); cloth outline x1000..1034,y197..224. Raw projected fly/staff~0.39 and hoist/staff~0.31 only bound appearance: folds, perspective and the reconstructed camera do not yield metres. Relative working brackets fly0.35..0.50 and hoist0.25..0.40 of the already reconstructed4.25m spar allow a working1.85m fly and1.30m hoist. Its proportions and exact source/wind alignment remain open. Existing app wind/cloth wear are not claimed to match this particular drawing. The pole anchor is phase-local footprint metres[east,north,up] mapped to glTF[east,up,south] before the building's placement matrix. Head/foot follow the current reconstructed wall/roof/spar parameters, radius0.035m follows the square spar half-width, and both coordinates and dimensions have reconstructed confidence. The cloth's grade is the worst of pattern/flying/anchor. Wrong phase/date/frame, malformed coordinates, non-upright or out-of-bounds mounts refuse cloth explicitly instead of falling back to whole-hotel bounds. Legacy fort staffs retain their original bounds mount/dimensions unchanged. Cloth is an app layer, never baked into the hotel master."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23 (T-3055)."
+        }
+      ],
+      "work_refs": [
+        "T-2385"
+      ]
+    },
+    {
+      "id": "L-sauganash-lower-roof-fit-2383",
+      "title": "Sauganash roof and attic working appearance refinement",
+      "section": "per_subject",
+      "subjects": [
+        "sauganash_hotel"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "sauganash_hotel",
+          "phase": "frame_1831",
+          "aspect": "form.end_windows"
+        },
+        {
+          "domain": "structure",
+          "structure": "sauganash_hotel",
+          "phase": "frame_1831",
+          "aspect": "form.roof_pitch_deg"
+        }
+      ],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`sauganash_hotel.frame_1831.form.roof_pitch_deg`, `sauganash_hotel.frame_1831.form.end_windows`."
+        },
+        {
+          "label": "Decision",
+          "text": "Reconstruct a25.2-degree roof on the existing9.92×8m footprint and5.5m walls, retaining the cross-wing’s shared span/pitch/ridge relationship. The exact same unsolved camera places the near apex around(636.5,350.1), improving the prior38-degree projection around(636.5,231.4) against approximate source(648,350). This remains an appearance-bounded reconstruction: principal point is far outside the plate, wall residuals reach30px and the drawing is not a measured survey. The changed pitch is reconstructed rather than inheriting the old typological inference’s grade. Retain the two pictured upper sash and their existing numeric choices; lower/widen the attic sash to working centrez6.1m,54percent of depth.85mwidth×1.2mheight. Fresh native-pixel inspection distinguishes the complete frame (roughlyx625..690,y415..535, manual±10pxuncertainty) from the older detector’s partial hatching/topdetail box. The banked gate is not silently redefined. These stations, sizes, unseen treatment and existing stock details remain reconstructed. No footprint, position, bearing, wall height, date or whole-building grade changes. Source: \"THE SAUGANASH HOTEL.\" — wood engraving, in A. T. Andreas, History of Chicago…, F.Braunhold’s engraving in Andreas1884, with its retrospective/date/dependence limits. The verified Gale1902 Trowbridge publication clears artwork use without making a later derivative picture an independent1835witness. Bright-blue shutters retain separate Wau-Bun colour evidence; louvred detail stays inferred. All original comparisons remain open. Actual before/after review must precede adoption; this fragment alone asserts no image match or official asset freshness."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23."
+        }
+      ],
+      "work_refs": [
+        "T-2383",
+        "T-3055"
+      ]
+    },
+    {
+      "id": "L-tremont-reconstructed-arch-name-2385",
+      "title": "A known name on the first Tremont’s unresolved arched inscription",
+      "section": "per_subject",
+      "subjects": [
+        "tremont_house_1"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.gable_arch_text"
+        }
+      ],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`tremont_house_1.frame_1833.form.gable_arch_text`."
+        },
+        {
+          "label": "Decision",
+          "text": "Consciously reconstruct **TREMONT** on the existing opaque arched panel, using the independently documented house name rather than claiming the native Gifford marks can be transcribed. The held and current remote image are byte-identical1637×796px; the arch is roughly70×20px. Light letter-like marks are visible, but the exact original wording, font and fine shapes remain unresolved. This choice follows the owner’s authority to reconstruct named signs and is explicitly reconstructed, not a public-domain or legible-inscription finding. Source N. Roswell Gifford. View of the first Tremont House and the storefront row on… retains N.RoswellGifford/Chicagology attribution and owner-approved project use; Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time supplies the house identity. Six existing project stroke-capital shapes from prairie draft glyphs are adapted locally through MeshBuilder for seven paint-proxy letters, without importing another archetype or source pixels. The one optional gable arch text field defaults empty, is keyword-only and supports only the explicit known-name choice; it requires the opaque corner-gable panel and refuses a claim above reconstructed. All96 new vertices/24 stroke quads carry confidence1 and matte light paint. Working width is2.68/9.14of the shortgable (2.68m here), height0.32m, bottom0.65m aboveeaves and the plane5mm outside the existing opaque field to avoidz-fighting. Typeface, colour, dimensions, paint-proxy thickness/station, word and date use are reconstructed. The entire word rectangle fits inside the existing innerellipse. Only the pictured localx min gable is lettered; the concealedopposite stays blank. No geographic controls, phase dates, roof/window/entry/flag geometry or other building defaults change. Actual pinned before/after exports and same-source-camera images were inspected: added light marks improve the empty panel, while the block font, exact baseline/wording, source perspective, chronology and remaining building/context details still differ. No original piece of work closes or receives matches from this refinement. The existing runtime flag is outside this isolated baked-mesh comparison and retains separate app acceptance."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23."
+        }
+      ],
+      "work_refs": [
+        "T-2385",
+        "T-3055"
+      ]
+    },
+    {
+      "id": "L-tremont-reconstructed-dark-roof-2385",
+      "title": "A dark stock tone for the first Tremont’s pictured roof",
+      "section": "per_subject",
+      "subjects": [
+        "tremont_house_1"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.roof_colour"
+        }
+      ],
+      "recorded": "2026-10-23",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`tremont_house_1.frame_1833.form.roof_colour`."
+        },
+        {
+          "label": "Decision",
+          "text": "Consciously choose dark brown as a reconstructed material-tone proxy to the dark roof against light walls in the monochrome Gifford view, preserving the pictured contrast while leaving actual pigment and weathering unknown. This reuses exactly materials.roof finish(\"darkened\").rgba from the existing material sheet; the material's stock name is not a claim that this hotel was weather-blackened. No new palette, infill reconstruction block, roof covering, source pixels or physical weather/fire/age history is asserted. The Gifford source remains owner-approved attributed project reference use with its existing rights limits. The existing optional roof colour enum receives this one consciously reconstructed choice. Its confidence must be reconstructed; every face using the roof material carries the colour's uncertainty. All24 legacy record-phase mesh/material/confidence outputs and all40 positional parameters/defaults/order remain exact, including the existing moss green path. The previously reviewed baked-name model is also exact when the new colour is absent. Roof vertices, faces, dimensions, silhouette, openings, glyphs, stacks, flag, geography and phase dates remain unchanged. Roof colour from a black-and-white illustration remains an appearance decision, not a source-attested brown pigment or a complete picture match. Actual pinned before/after exports and both same-camera comparisons were viewed by this agent and the parent. The darker roof improves the prior light-roof contrast without an observed geometry regression, but remains lighter than the black source roof. Baseline exactly reproduces the previously reviewed named-panel GLB and actual exported binary mesh buffers are identical. Parent approved bounded progress adoption; the verdict remains differs and all original cases stay open."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-23."
+        }
+      ],
+      "work_refs": [
+        "T-2385",
+        "T-3055"
+      ]
+    },
+    {
       "id": "L-k01-1811-range-3077",
       "title": "1811 Prairie's brick range kept at three storeys, its deck lowered to the front block's coping, and the plate's step read as the rear section",
       "section": "per_subject",
@@ -53090,6 +53525,83 @@
         "T-1460",
         "T-0795",
         "T-1416"
+      ]
+    },
+    {
+      "id": "L74",
+      "title": "Tremont House I: a hotel built two storeys tall because three rests on one modern sentence",
+      "section": "resolved",
+      "subjects": [
+        "tremont_house_1"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.gallery"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.paint"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.roof_type"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.stories"
+        },
+        {
+          "domain": "structure",
+          "structure": "tremont_house_1",
+          "phase": "frame_1833",
+          "aspect": "form.wall_height_m"
+        }
+      ],
+      "recorded": "2026-08-11",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the first Tremont House is built at the north-west corner of Lake and Dearborn as a **two-storey** braced-frame block 50 × 30 ft, unpainted, gable-roofed and without a gallery. The storey count, the wall height, the roof, the paint, the gallery and the footprint are all tagged `conjectural`. **Why, and the storey count is the whole entry.** What is documented about this building is unusually good: the corner three times over, frame construction three times over, Alanson Sweet as builder, Ira Couch as proprietor from 1834, and destruction by fire on 27 October 1839. What is not documented is its height. \"Tremont House.\" Chicagology. Compiling city-directory entries 1846-1870, an… prints an uncredited modern \"Building Summary\" — \"a three-story wooden building\" — beside two period texts that count no storeys at all: the Chicago *Tribune* letter of 2 February 1874 (\"an unpretending frame structure\") and *Chicago Illustrated* of January 1866 (\"a wooden structure\"). Andreas, who gives the building a builder, a corner, a material, four proprietors and a death date, gives it no height. So the three-storey Tremont has exactly one witness and it is a modern editor; the research notes on structures south line 155 weighs it twice by citing \"chicagology and Wikipedia\". **Two is adopted and is still a guess**, on three arguments that are not evidence: Chicago in 1833 held about 350 people and *Wau-Bun* found the Sauganash's TWO storeys remarkable two years earlier; the *Chicago American*'s \"Improvements in 1836\", quoted by Andreas, counts \"about twenty large two to three-story wooden buildings\" among that year's NEW work; and this project already excludes the Saloon Building of 1836 partly as the town's first three-storey structure."
+        },
+        {
+          "label": "Consequence",
+          "text": "if the three-storey reading is right the building stands about 2.6 m taller than the model shows, and it would be the tallest thing in the 1835 scene. Everything else here is the usual: no source measures the house, describes its roof, names its finish or mentions a porch, and the confidence view renders the whole block as massing. **One documented thing about this building IS carried and is not built**: Ira Couch's \"a mere shell, without any sidewalk around it\". This project builds no plank walks anywhere, so the record states `sidewalk: false` as record only — a negative finding about the ground, not an omission."
+        },
+        {
+          "label": "How to resolve",
+          "text": "the *Daily American*'s account of the 27 October 1839 fire, which Andreas quotes for the merchants' stock losses and which itemised insurance building by building; or any *Chicago American* or *Chicago Democrat* advertisement of the house, which in the period counted rooms."
+        },
+        {
+          "label": "Covers",
+          "text": "`tremont_house_1.frame_1833.footprint`, `tremont_house_1.frame_1833.form.stories`, `tremont_house_1.frame_1833.form.wall_height_m`, `tremont_house_1.frame_1833.form.roof_type`, `tremont_house_1.frame_1833.form.paint`, `tremont_house_1.frame_1833.form.gallery`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-08-11."
+        },
+        {
+          "label": "Resolved",
+          "text": "2026-10-23: Gifford’s newly adopted whole-building drawing supersedes this text-only two-storey/roof reading. The historical entry is retained verbatim here. Unsettled footprint, height, paint and gallery decisions continue in “The first Tremont's pictured three storeys and shuttered corner elevations”; this resolves no image-match piece of work."
+        }
+      ],
+      "work_refs": [
+        "T-2385"
       ]
     }
   ]

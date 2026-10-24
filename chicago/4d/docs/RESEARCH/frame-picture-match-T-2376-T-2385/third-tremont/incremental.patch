@@ -1,0 +1,215 @@
+--- a/chicago/4d/generators/archetypes/frame_tavern.py
++++ b/chicago/4d/generators/archetypes/frame_tavern.py
+@@ -437,6 +437,9 @@
+                     _door(b, params, axis, plane, outward,
+                           centre - 0.6, centre + 0.6, params.entry_raise_m,
+                           params.entry_raise_m + 2.1, conf)
++                    if params.corner_entry_surround:
++                        _corner_entry_surround(b, params, axis, plane, outward,
++                                               centre, params.entry_raise_m)
+                     if params.entry_raise_m > 0:
+                         _corner_landing(b, axis, plane, outward, centre,
+                                         params.entry_raise_m)
+@@ -507,6 +510,25 @@
+         b.add_box(u0, lo, z0, u1, hi, z1, 1.0, mat)
+ 
+ 
++def _corner_entry_surround(b: MeshBuilder, params: FrameTavernParams,
++                           axis: str, plane: float, outward: int,
++                           centre: float, raised: float) -> None:
++    """Plain broad jamb/header outline; stock and hidden repeats reconstructed.
++
++    Gifford shows an outlined entry, not a measured order of columns. Keep the
++    existing door opening/leaf and add neither a pediment nor decorative text.
++    """
++    trim = _kit(b, params).casing
++    half, stock, top = 0.60, 0.14, raised + 2.10
++    for side in (-1, 1):
++        lo, hi = sorted((centre + side*half, centre + side*(half+stock)))
++        _corner_wall_box(b, axis, plane, outward, lo, hi,
++                         LIP_M+0.035, LIP_M+0.10, raised, top, trim)
++    _corner_wall_box(b, axis, plane, outward, centre-half-stock,
++                     centre+half+stock, LIP_M+0.035, LIP_M+0.10,
++                     top, top+stock, trim)
++
++
+ def _corner_landing(b: MeshBuilder, axis: str, plane: float, outward: int,
+                     centre: float, rise: float) -> None:
+     """Raised plank platform, four-step working profile and simple side guards.
+@@ -543,6 +565,11 @@
+     Gifford's dark arch is clear but its fine lettering/pane interpretation
+     is not. Draw the visible arched outline without claiming a legible sign.
+     """
++    opaque = params.gable_arch_treatment == "opaque_panel"
++    # Matte warm charcoal is a reconstructed tonal choice, not an original
++    # pigment identification from the monochrome reproduction.
++    field_mat = (b.named_mat("gable_panel", (0.11, 0.10, 0.09, 1.0), 0.95)
++                 if opaque else M_GLASS)
+     half, rise, base = d * 0.20, 0.74, wall_z + 0.55
+     rim, samples = 0.09, 16
+     for plane, outward in ((-ROOF_OVERHANG, -1), (w + ROOF_OVERHANG, 1)):
+@@ -563,14 +590,15 @@
+         # Opening field as triangles, front/back facing handled explicitly.
+         for i in range(samples):
+             pts = [point(mid, base + rim), point(*inner[i]), point(*inner[i+1])]
+-            face(pts,M_GLASS)
++            face(pts,field_mat)
+             pts = [point(*outer[i],off=0.045), point(*outer[i+1],off=0.045),
+                    point(*inner[i+1],off=0.045), point(*inner[i],off=0.045)]
+             face(pts,M_WALL)
+         _corner_wall_box(b, "x", plane, outward, mid-half, mid+half,
+                          0.025, 0.070, base-0.06, base+rim)
+-        # Three plain radial bars; source does not calibrate fanlight joinery.
+-        for angle in (math.pi/4, math.pi/2, 3*math.pi/4):
++        # Preserve the old fanlight only by default. The opaque-panel opt-in
++        # removes unsupported glazing bars; source lettering remains unresolved.
++        for angle in (() if opaque else (math.pi/4, math.pi/2, 3*math.pi/4)):
+             u, z = mid + (half-rim) * math.cos(angle), base+rim+(rise-2*rim)*math.sin(angle)
+             du, dz = u-mid, z-(base+rim); length = math.hypot(du,dz)
+             nx, nz = -dz/length*0.018, du/length*0.018
+--- a/chicago/4d/generators/archetypes/frame_tavern_params.py
++++ b/chicago/4d/generators/archetypes/frame_tavern_params.py
+@@ -53,6 +53,7 @@
+     "upper_windows", "stovepipes", "rear_ell_door", "eaves_bays", "end_windows",
+     "first_story_height_m", "entry_raise_m", "gable_lunette",
+     "flagstaff", "flagstaff_height_m", "gable_wall_cladding",
++    "gable_arch_treatment", "corner_entry_surround",
+ })
+ 
+ # How narrow a window bay may get before the piers between the sashes are not walls
+@@ -146,6 +147,10 @@
+     first_story_height_m: float | None = None
+     entry_raise_m: float = 0.0
+     gable_lunette: bool = False
++    # A matte unresolved panel avoids asserting glazing where Gifford shows
++    # lettering-like light marks. No text is invented or claimed legible.
++    gable_arch_treatment: str = "fanlight"
++    corner_entry_surround: bool = False
+     flagstaff: bool = False
+     flagstaff_height_m: float = 4.25
+ 
+@@ -362,7 +367,8 @@
+                 raise ParamError("slope_offsets is the corner-gable four-stack "
+                                  "layout, not an alias for the old ridge stacks")
+         for label, value in (("gable_lunette", self.gable_lunette),
+-                             ("flagstaff", self.flagstaff)):
++                             ("flagstaff", self.flagstaff),
++                             ("corner_entry_surround", self.corner_entry_surround)):
+             if type(value) is not bool:
+                 raise ParamError(f"{label} must be boolean")
+         for label, value in (("entry_raise_m", self.entry_raise_m),
+@@ -380,8 +386,12 @@
+             if self.stories < 2 or not 2.25 <= height <= self.wall_height_m - 2.25 * (self.stories - 1):
+                 raise ParamError("first_story_height_m must leave at least 2.25 m "
+                                  "for each upper storey")
++        if self.gable_arch_treatment not in ("fanlight", "opaque_panel"):
++            raise ParamError("gable_arch_treatment must be fanlight or opaque_panel")
++        if self.gable_arch_treatment != "fanlight" and not self.gable_lunette:
++            raise ParamError("opaque arch treatment needs a gable_lunette outline")
+         detailed = (self.first_story_height_m is not None or self.entry_raise_m > 0
+-                    or self.gable_lunette or self.flagstaff)
++                    or self.gable_lunette or self.flagstaff or self.corner_entry_surround)
+         if detailed and self.elevation_scheme != "corner_gable":
+             raise ParamError("corner details need the corner_gable elevation scheme")
+         if self.gable_lunette:
+@@ -629,6 +639,8 @@
+         first_story_height_m=measure("first_story_height_m"),
+         entry_raise_m=measure("entry_raise_m", 0.0),
+         gable_lunette=val("gable_lunette", False),
++        gable_arch_treatment=val("gable_arch_treatment", "fanlight"),
++        corner_entry_surround=val("corner_entry_surround", False),
+         flagstaff=val("flagstaff", False),
+         flagstaff_height_m=measure("flagstaff_height_m", 4.25),
+         chimney_placement=str(val("chimney_placement", "frontage")),
+--- a/chicago/4d/data/structures/tremont_house_1.json
++++ b/chicago/4d/data/structures/tremont_house_1.json
+@@ -195,6 +195,22 @@
+             "gifford_tremont_house_no_1"
+           ],
+           "note": "Working four-stack layout chosen against the provisional picture camera: normalized (u,v) stations (0.04,0.86), (0.23,0.40), (0.525,0.23), (0.82,0.08). Heights above their local roof slopes are 1.75, 0.60, 1.00 and 1.20 m; shafts 0.45 x 0.50 m, plain 75 mm caps. These are reconstructed geometry, not surveyed roof controls. The picture is the occurrence/rough-silhouette reference only."
++        },
++        "gable_arch_treatment": {
++          "value": "opaque_panel",
++          "confidence": "reconstructed",
++          "sources": [
++            "gifford_tremont_house_no_1"
++          ],
++          "note": "Re-inspecting the Gifford reproduction, the dark arched field contains irregular light lettering-like marks rather than a clearly resolved fanlight radial pattern. Opaque matte panel is the more cautious working interpretation: remove the invented glass/radial bars, retain the prior arch outline, and do not invent a legible hotel name or any letter shapes. Exact original inscription, panel construction, finish/pigment and hidden opposite treatment remain unresolved/reconstructed. Working warm charcoal is a tonal choice from a monochrome image, not an attested colour. All source attribution and owner-approved use metadata remain controlling."
++        },
++        "corner_entry_surround": {
++          "value": true,
++          "confidence": "reconstructed",
++          "sources": [
++            "gifford_tremont_house_no_1"
++          ],
++          "note": "The pictured ground-level entries have broad simple outlines. Add plain jambs and a level header around the existing opening without a pediment or invented ornamental order. The working0.14m stock and65mm projection, existing trim palette, exact sections, and repeated concealed entry surrounds are reconstructed, not measured dimensions. Existing opening centres, door leaf,7.8m envelope, platform layout, footprint/placement and source-date uncertainty remain unchanged."
+         }
+       },
+       "change_note": "The house as built in 1833 by Alanson Sweet and kept through the scene date by Ira Couch. No change of fabric is attested inside the phase - Andreas records changes of proprietor (Sweet and a man from Canada named Darwin, then the Couch brothers, then James Couch from 1836) and no alteration - so the whole 1833-1839 span is modelled as one state, which is a limitation of the evidence rather than a claim that nothing changed. T-2385 adopts the owner-approved Gifford picture's three-storey form as a retrospective inference, retaining the existing broad phase. The picture does not establish when each visible fitting was added; no alteration date is invented."
+--- a/chicago/4d/tools/test_frame_tavern_picture_features.py
++++ b/chicago/4d/tools/test_frame_tavern_picture_features.py
+@@ -133,9 +133,10 @@
+         with patch.object(builder, "_win", wraps=builder._win) as windows, \
+              patch.object(builder, "_door", wraps=builder._door) as doors, \
+              patch.object(builder, "_corner_landing", wraps=builder._corner_landing) as landings, \
+-             patch.object(builder, "_corner_lunettes", wraps=builder._corner_lunettes) as lunettes:
++             patch.object(builder, "_corner_lunettes", wraps=builder._corner_lunettes) as lunettes, \
++             patch.object(builder, "_corner_entry_surround", wraps=builder._corner_entry_surround) as surrounds:
+             mesh, _ = builder.build(p, "tremont_house_1__frame_1833")
+-        self.assertEqual((landings.call_count, lunettes.call_count), (4, 1))
++        self.assertEqual((landings.call_count, lunettes.call_count, surrounds.call_count), (4, 1, 4))
+         self.assertEqual(len(windows.call_args_list), 44)
+         self.assertEqual(len(doors.call_args_list), 4)
+         by_face = collections.Counter(tuple(c.args[2:4]) for c in windows.call_args_list)
+@@ -161,7 +162,9 @@
+     def test_tremont_lunette_staff_and_stack_occurrences(self):
+         _, _, p = record_params("tremont_house_1", "frame_1833")
+         lunette = MeshBuilder("lunette")
+-        builder._corner_lunettes(lunette, p, p.width_m, p.depth_m, p.wall_height_m)
++        # The legacy optional fanlight remains a supported default treatment.
++        fanlight = dataclasses.replace(p, gable_arch_treatment="fanlight")
++        builder._corner_lunettes(lunette, fanlight, p.width_m, p.depth_m, p.wall_height_m)
+         glass = [f for f, m in zip(lunette.faces, lunette.mat_index) if m == builder.M_GLASS]
+         self.assertTrue(glass)
+         for face in glass:
+@@ -189,6 +192,21 @@
+         self.assertEqual(signature(builder.build(off, "staff_off__frame")),
+                          signature(builder.build(dataclasses.replace(off, flagstaff_height_m=7.), "staff_off__frame")))
+ 
++    def test_tremont_opaque_arch_does_not_invent_glass_or_radial_bars(self):
++        _, _, p = record_params("tremont_house_1", "frame_1833")
++        self.assertEqual(p.gable_arch_treatment, "opaque_panel")
++        mesh = MeshBuilder("opaque_arch")
++        builder._corner_lunettes(mesh, p, p.width_m, p.depth_m, p.wall_height_m)
++        self.assertNotIn(builder.M_GLASS, mesh.mat_index)
++        self.assertIn("gable_panel", mesh.named)
++        self.assertEqual(mesh.named["gable_panel"][2], .95)
++        self.assertTrue(all(c == 1 for c in mesh.conf))
++        fan = MeshBuilder("old_fanlight")
++        builder._corner_lunettes(fan, dataclasses.replace(p, gable_arch_treatment="fanlight"),
++                                 p.width_m, p.depth_m, p.wall_height_m)
++        self.assertEqual(len(fan.faces)-len(mesh.faces), 6)
++        self.assert_valid_mesh(mesh)
++
+     def test_green_tree_override_changes_only_named_eaves_face(self):
+         _, _, p = record_params("green_tree_tavern", "frame_1833")
+         self.assertEqual(p.eaves_bays, {"x_min": 7})
+@@ -237,6 +255,8 @@
+             {"flagstaff_height_m": float("inf")}, {"flagstaff_height_m": True},
+             {"entry_raise_m": 1.21},
+             {"flagstaff": 1}, {"gable_lunette": "true"}, {"roof_pitch_deg": 10.},
++            {"gable_arch_treatment": "text"}, {"gable_lunette": False},
++            {"corner_entry_surround": 1},
+             {"chimneys": 3}, {"roof_type": "hip"}, {"log_wing": True})]
+         cases += [(green, {"eaves_bays": d}) for d in ({"x_min": True}, {"y_min": 7}, {"x_min": 20})]
+         cases += [(hotel, {"end_windows": d}) for d in (
+@@ -251,7 +271,8 @@
+ 
+     def test_record_values_are_consumed_and_not_truthy_coerced(self):
+         fields = {"eaves_bays", "end_windows", "first_story_height_m", "entry_raise_m",
+-                  "gable_lunette", "flagstaff", "flagstaff_height_m", "gable_wall_cladding"}
++                  "gable_lunette", "flagstaff", "flagstaff_height_m", "gable_wall_cladding",
++                  "gable_arch_treatment", "corner_entry_surround"}
+         self.assertTrue(fields <= CONSUMED)
+         record, phase, _ = record_params("green_tree_tavern", "frame_1833")
+         for value in (1, "false", None):
