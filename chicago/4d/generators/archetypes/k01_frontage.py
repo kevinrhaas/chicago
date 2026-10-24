@@ -1627,12 +1627,14 @@ class Assembly:
         if af:
             k01_arched_front.lay(self, frame, yf, length, conf, r_wall)
         # the wall behind the soffit, up to the eave: inside the roof, one plain face
+        # (T-3112: from the pier's side, which stops under the cap)
         P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
+        s_lo = p.front_pier["to_m"] if p.front_pier and beds is None else 0.0
         if E - yf > 1e-6:
             if brick is not None:   # T-2914: brick up to the eave
-                self.prim("brick").face([P(0.0, yf, 0.0), P(length, yf, 0.0), P(length, E, 0.0), P(0.0, E, 0.0)], N, bb, conf)
+                self.prim("brick").face([P(s_lo, yf, 0.0), P(length, yf, 0.0), P(length, E, 0.0), P(s_lo, E, 0.0)], N, bb, conf)
             else:
-                self.prim("rough_stone_trim").face([P(0.0, yf, 0.0), P(length, yf, 0.0), P(length, E, 0.0), P(0.0, E, 0.0)],
+                self.prim("rough_stone_trim").face([P(s_lo, yf, 0.0), P(length, yf, 0.0), P(length, E, 0.0), P(s_lo, E, 0.0)],
                                                    N, self.basis("rough_stone_trim", O, R, Y, 0), conf)
         return frame, quoins
 
@@ -1952,6 +1954,87 @@ class Assembly:
                  "blind": "blind", "curtain": "curtain", "backing": "backing",
                  # T-3091: a pictured leaded light's cames (1812's small arched window), in the iron
                  "came": "iron"}
+
+    # -- k01.wall.front_pier (T-3112) ---------------------------------------------------
+    PIER_LIP_M = 0.03   # the weathering's slate stands this far over the cap at its front edge
+
+    def pier_slope(self):
+        """T-3112: the weathering's top over the pier, as y(u): from the cap's front edge,
+        PIER_LIP_M over the cap's top, rising back at the record's pitch."""
+        fp = self.p.front_pier
+        tp = math.tan(math.radians(fp["weathering_pitch_deg"]))
+        front, yt = self.p.depth_m + fp["cap_proud_m"], fp["cap_m"][1]
+        return lambda u: yt + self.PIER_LIP_M + (front - u) * tp
+
+    def front_pier(self, thickness):
+        """T-3112: the pier at the street front's low-s end (`front_pier`), laid after the
+        front (whose courses stop at it): the front's base and coping, then rock-faced
+        walling in courses of the front's own range, unbroken by the front's belts, up to a
+        dressed band, one rock-faced course and a moulded cap, the band and the cap proud of
+        the pier and returned along the side wall as far back as the weathering over them
+        reaches the soffit. The weathering, and the eave cut back over it, are the roof's."""
+        p, k, fp = self.p, self.p.stone, self.p.front_pier
+        D, to = p.depth_m, fp["to_m"]
+        (b0, b1), (c0, c1) = fp["band_m"], fp["cap_m"]
+        conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "stone_front", "front_pier")
+        cid = "k01.wall.front_pier"
+        seed0 = self.instance(cid, "wall", {"length_m": to, "height_m": c1, "thickness_m": thickness,
+                                            "construction": "masonry", "fabric": k["fabric"],
+                                            "dressing": k["dressing"], "band_m": list(fp["band_m"]),
+                                            "cap_m": list(fp["cap_m"]), "cap_proud_m": fp["cap_proud_m"]},
+                              {"base": (D, 0.0, 0.0), "top": (D, c1, 0.0)})
+        inst = len(self.components[cid]["instances"]) - 1
+        rng = random.Random(seed0)
+        frame = ((D, 0.0, 0.0), (0.0, 0.0, -1.0), (1.0, 0.0, 0.0))
+        wk, tk = k["wall"], k["trim_edges"]
+        base_top, cop_top = k["base_course_m"] * k["base_courses"], k["coping_top_m"]
+        # the front's own bed lines below the band, less its belts', walled anew between them
+        belts = {y for ya, yb, kind in self.front_courses if kind == "belt" for y in (ya, yb)}
+        lines = sorted({0.0, b0, *[y for ya, yb, _ in self.front_courses for y in (ya, yb)
+                                   if y < b0 - 0.1 and all(abs(y - e) > 1e-6 for e in belts)]})
+        courses = []
+        for ya, yb in zip(lines, lines[1:]):
+            if yb <= base_top + 1e-6:
+                courses.append((ya, yb, "base"))
+            elif abs(ya - base_top) < 1e-6 and abs(yb - cop_top) < 1e-6:
+                courses.append((ya, yb, "coping"))
+            else:
+                courses += [(a_, b_, "walling") for a_, b_ in self._walling(ya, yb)]
+        courses += [(b0, b1, "band"), (b1, c0, "walling"), (c0, c1, "cap")]
+        prev, j = (), 0
+        for ya, yb, kind in courses:
+            trim = kind in ("coping", "band", "cap")
+            spec = tk if trim else wk
+            lo, hi = k["trim_block_m"] if trim else k["block_m"]
+            r = k["channel_depth_m"] if kind == "base" else wk["recess_m"]
+            jh = (k["channel_m"] if kind == "base" else spec["joint_m"]) / 2
+            jv = spec["joint_m"] / 2
+            pieces = [(0.0, to)] if trim else _lay(rng, 0.0, to, lo, max(lo, min(hi, to)), None, prev)
+            prev = [s1 for _, s1 in pieces[:-1]]
+            for s0, s1 in pieces:
+                bseed = self._stone_seed(cid, inst, j)
+                j += 1
+                joints = (0.0 if ya <= 1e-9 else jh, 0.0 if s1 >= to - 1e-9 else jv, jh, 0.0 if s0 <= 1e-9 else jv)
+                if kind == "coping":
+                    self.coping_piece(frame, s0, s1, ya, yb, joints, bseed, conf, r)
+                elif kind in ("band", "cap"):
+                    continue
+                else:
+                    rock = random.Random(bseed ^ 0x5EED).uniform(*self._rock_range(ya, yb))
+                    self.stone(frame, [(s0, ya), (s1, ya), (s1, yb), (s0, yb)], joints, "rough_stone_trim",
+                               bseed, conf, recess=r, bevel=spec["bevel_m"], rock=rock, chips=spec)
+        # the band and the cap: dressed, proud, and turned onto the side wall back to where the
+        # weathering over them meets the soffit; the cap's lower member a narrower fillet
+        L = self.pier_slope()
+        back = max(0.3, D - (self.soffit_m - (c1 + self.PIER_LIP_M)) /
+                   math.tan(math.radians(fp["weathering_pitch_deg"])) + fp["cap_proud_m"])
+        side = ((0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0))
+        cp, bp = fp["cap_proud_m"], fp["band_proud_m"]
+        for y0, y1, d, sd in ((b0, b1, bp, 0), (c0, c0 + 0.4 * (c1 - c0), 0.6 * cp, 1), (c0 + 0.4 * (c1 - c0), c1, cp, 2)):
+            self.proud_box("limestone_trim", frame, -d, to, y0, y1, d, seed0 + sd, conf)
+            self.proud_box("limestone_trim", side, back, D, y0, y1, d, seed0 + sd, conf)
+        self.pier_back_u = back
+        assert L(D) > c1
 
     # -- k01.wall.round_corner (T-3006) -------------------------------------------------
     def round_stone(self, C, rad, a0, a1, y0, y1, joints, mat, seed, conf, *, recess, bevel, F=0.0, rock=0.0):
@@ -3149,6 +3232,7 @@ class Assembly:
             recesses += k01_shaped_gable.cutters(self, k5)
         # T-2302's plain stacks, for a record that names no K15 variant (1612 Goodman)
         self.stone_stack_boxes = []
+        plain_stacks = []
         for c in p.chimneys:
             if "k15" in c or "k15_head" in c:
                 continue
@@ -3168,6 +3252,7 @@ class Assembly:
             solids.append(k5.extrude([(u - sx / 2 - cp, top - cd), (u + sx / 2 + cp, top - cd),
                                       (u + sx / 2 + cp, top), (u - sx / 2 - cp, top)],
                                      z - sz / 2 - cp, z + sz / 2 + cp, P, "coping", "coping", "coping"))
+            plain_stacks += solids[-2:]
         polys = k5.union_all(k5._snap(solids))
         # T-2313: each stack from the K15 kit, built in this roof as the kit builds its
         # specimen's (k15_chimneys.build_variant): its parts joined and its flues cut on
@@ -3208,6 +3293,12 @@ class Assembly:
         recesses += self.shallow_bay_cutters(k5, yf)
         for rc in ([recess] if recess is not None else []) + recesses:
             polys = k5.subtract(polys, k5._snap([rc])[0])
+        if p.front_pier:   # T-3112: the eave cut back over the pier and its weathering joined
+            cut, hood = self.pier_roof(k5, yf)
+            polys = k5.union(k5.subtract(polys, cut), k5._snap([hood])[0])
+            # a stack standing in the cut (1811's at u 1.0, v 0.9) is the stack's, not the slope's
+            for st in plain_stacks:
+                polys = k5.union(polys, k5._snap([st])[0])
         pts, tris = _weld_shell(*k5.close(polys))
         self.roof_shell = (pts, tris)
         # the graph reads a stack's every part as `chimney`, which K05 already classes as
@@ -3228,6 +3319,37 @@ class Assembly:
         if p.rainwater:
             self.rainwater(ye, yf, seed)
         return yf
+
+    def pier_roof(self, k5, yf):
+        """T-3112: over the pier (`front_pier`) the roof is cut down to the weathering's slope
+        across the pier's width and the side eave beside it, from in front of the street eave
+        back to where the slope has risen out of the roof (the cut's end face, in the pier's
+        side of the bay, is slate, as a dormer's cheek); and the weathering itself is joined:
+        a slated wedge from the cap's top to that slope, out over the cap's front and side,
+        back to where the slope stands over the soffit, its front a fascia's lip, its back
+        returned under the side eave. K05's frame: (u, y, -v)."""
+        p, fp = self.p, self.p.front_pier
+        D, to, cp = p.depth_m, fp["to_m"], fp["cap_proud_m"]
+        L, yt = self.pier_slope(), fp["cap_m"][1]
+        tp = math.tan(math.radians(fp["weathering_pitch_deg"]))
+        P = k5.frame("z")
+        top = p.ridge_m + 10.0
+        u_far = D + cp - (top - yt) / tp
+        cut = k5.extrude([(u_far, top), (D + cp, yt + self.PIER_LIP_M - 0.002), (D + 3.0, yt + self.PIER_LIP_M - 0.002),
+                          (D + 3.0, top)], -to, 3.0, P, k5.by_edge("hidden", "covering", "hidden"), "cheek", "hidden")
+        back = D + cp - (yf + 0.05 - yt - self.PIER_LIP_M) / tp
+        hood = k5.extrude([(D + cp, yt), (back, yt), (back, L(back)), (D + cp, yt + self.PIER_LIP_M)],
+                          -to, cp, P, lambda i, a, b: (("fascia" if a[0] > back + 1e-6 else "return")
+                                                       if abs(a[0] - b[0]) < 1e-9 else
+                                                       "covering" if a[0] > b[0] else "soffit"), "cheek", "cheek")
+        # beside the weathering the side eave box, which stands out past it, stops square where
+        # the slope has risen over its fascia, its end closed in the eave's trim
+        he = p.eave_m - p.eave_overhang_m * math.tan(math.radians(p.roof_pitch_deg))
+        u_e = D + cp - (he + 0.05 - yt - self.PIER_LIP_M) / tp
+        side = k5.extrude([(u_e, yt), (D + 3.0, yt), (D + 3.0, top), (u_e, top)], cp, 3.0, P,
+                          lambda i, a, b: "return" if abs(a[0] - u_e) < 1e-9 and abs(b[0] - u_e) < 1e-9 else "hidden",
+                          "return", "hidden")
+        return k5.union(k5._snap([cut])[0], k5._snap([side])[0]), hood
 
     THROUGH_EAVE_INSET_M = 0.05   # T-2778: the eave runs this far into the oriel's walls
 
@@ -4417,6 +4539,13 @@ def build(params, structure_id: str):
                                        (g["cuts"][0], g["cuts"][-1], g["spring_m"], g["top_m"])]
         if wall_id in rounded:
             finish_gap = finish_gap + [(*rounded[wall_id], 0.0, y_round)]
+        # T-3112: the side wall beside the pier stepped down under its weathering's slope
+        if p.front_pier and wall_id == "k01.wall.side.south":
+            L, step = a.pier_slope(), 0.1
+            u = D
+            while u > 0.0 and L(u) < E:
+                finish_gap = finish_gap + [(max(0.0, u - step), u, L(u) - 0.01, E)]
+                u -= step
         return finish_gap, [(*w["host_span_m"], 0.0, w["deck_m"]) for w in p.rear_wings if w["host_wall"] == wall_id] + \
                ([(*p.rear_section["host_span_m"], 0.0, E)] if p.rear_section and p.rear_section["host_wall"] == wall_id
                 else [])
@@ -4476,9 +4605,12 @@ def build(params, structure_id: str):
         front = [o for o in p.openings if o.wall == "k01.wall.street_front"]
         frame, quoins = a.stone_front("k01.wall.street_front", O, R, length, E, yf, t, front,
                                       extra=([(*rounded["k01.wall.street_front"], 0.0, y_round)] if rounded else [])
+                                      + ([(0.0, p.front_pier["to_m"], 0.0, E)] if p.front_pier else [])
                                       + a.bay_holes.get("k01.wall.street_front", []))
         if p.round_corner:
             a.round_corner(t)
+        if p.front_pier:   # T-3112: the pier the front's courses stopped at
+            a.front_pier(t)
         for cid, (mat, O, R, length, t, bands) in walls.items():
             if cid == "k01.wall.street_front":
                 continue

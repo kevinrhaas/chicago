@@ -878,9 +878,23 @@ def gothic_church(m: Mesh, feat: dict, facts: dict) -> tuple[int, int]:
         if cr:
             m.box("trim", uf + 0.05, uf + 0.35, vm - 0.14, vm + 0.14, ya, ya + float(cr))
             yc = ya + float(cr) * 0.62
-            m.box("trim", uf + 0.05, uf + 0.35, vm - 0.6, vm + 0.6, yc - 0.13, yc + 0.13)
-            slab(m, "trim", _onto((uf + 0.15, vm), (0.0, 1.0), (1.0, 0.0)),
-                 disc(0.0, yc, 0.42, 12), 0.0, 0.12)
+            arm = float(vg.get("cross_span_m", 1.2)) / 2
+            m.box("trim", uf + 0.05, uf + 0.35, vm - arm, vm + arm, yc - 0.13, yc + 0.13)
+            P = _onto((uf + 0.15, vm), (0.0, 1.0), (1.0, 0.0))
+            ring = vg.get("cross_ring_m")
+            if ring is None:
+                slab(m, "trim", P, disc(0.0, yc, 0.42, 12), 0.0, 0.12)
+            else:
+                # an open ring round the crossing, its outer radius read off a photograph
+                # (T-3104), a band 0.14 m wide in sixteen pieces
+                r1 = float(ring)
+                r0 = r1 - 0.14
+                for k in range(16):
+                    a0, a1 = 2 * math.pi * k / 16, 2 * math.pi * (k + 1) / 16
+                    slab(m, "trim", P, [(r0 * math.cos(a0), yc + r0 * math.sin(a0)),
+                                        (r1 * math.cos(a0), yc + r1 * math.sin(a0)),
+                                        (r1 * math.cos(a1), yc + r1 * math.sin(a1)),
+                                        (r0 * math.cos(a1), yc + r0 * math.sin(a1))], 0.0, 0.12)
     # stepped buttresses, each a run of [u0, u1, v0, v1, y0, y1] stages under a sloped
     # offset, and an optional pinnacle: [u0, u1, v0, v1, y0, shaft_top, apex]
     for b in feat.get("buttresses", []):

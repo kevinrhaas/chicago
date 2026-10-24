@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "2627d6950e7974c7179f5fd0f439a006684d8f133ad0d2493baa724280158c4f",
+  "glb_sha256": "122009185e1fb8b8b813663c14f7d8272c0eb2d4abdc8786b031f7dbc34c32ff",
   "camera_sha256": "8f67a67f5a407ad30522085a1ab67f9c29ddc0bae6ceb1a979db9ea1accdc2b4",
   "photo_sha256": "e55aede801c2193a857746efb4545fe97c995e697344b7e68ead1f06a4b7c7fe",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/inland_architect_plate-side-by-side.jpg",
@@ -172,12 +172,12 @@
       "how": ""
     },
     {
-      "what": "the north pier's head: the pictures cap the pier BELOW the bay's cornice, a moulded cap with a small slate-covered top over it: on the plate the cap at y 475-500 px and the slate to y 450 (about 7.3-7.8 m, the slate to 8.4 m through T-2541's camera), on the Chicagology print the cap at y 625-675 px and the slate to 590 (about 7.1-7.7 m, to 8.1 m); the build carries the front's wall head and its K10 cornice across it at the bay's height (7.94 m, the cornice to 8.3 m) with the main roof's eave over it, so its top stands about 0.3-0.5 m high and reads as the bay's cornice run on, not a cap of its own",
-      "status": "open"
+      "what": "the north pier's head: the pictures cap the pier BELOW the bay's cornice, a moulded cap with a small slate-covered top over it: on the plate the cap at y 475-500 px and the slate to y 450 (about 7.3-7.8 m, the slate to 8.4 m through T-2541's camera), on the Chicagology print the cap at y 625-675 px and the slate to 590 (about 7.1-7.7 m, to 8.1 m); the build carries the front's wall head and its K10 cornice across it at the bay's height (7.94 m, the cornice to 8.3 m) with the main roof's eave over it, so its top stands about 0.3-0.5 m high and reads as the bay's cornice run on, not a cap of its own; T-3112: fixed. The pier is capped under the bay's cornice (front_pier): a dressed band at 7.10-7.22 m, one rock-faced course, and a moulded cap at 7.52-7.72 m (a fillet over a deeper member), 0.05 and 0.12 m proud and returned on the side wall, under a slate weathering rising back at 42 degrees from the cap's front edge into the bay's cornice; the front's wall head, the moulded cornice and the main roof's street and side eaves are cut back over the pier to that slope, so sky stands over it. On the plate the cap renders about 3-4 px under the plate's (y 478-490 against 475-500, the plate's camera reading the cap about 0.2 m higher than the Chicagology print's does; the build stands between the two readings), the weathering to about y 462 against the plate's slate to 450.",
+      "status": "fixed"
     },
     {
-      "what": "the north pier's courses: the photographs' pier is rock-faced in unbroken courses from its base course to its cap; the build runs the front's dressed string course (about 4.8-5.0 m) across it as a pale band",
-      "status": "open"
+      "what": "the north pier's courses: the photographs' pier is rock-faced in unbroken courses from its base course to its cap; the build runs the front's dressed string course (about 4.8-5.0 m) across it as a pale band; T-3112: fixed. The pier is laid apart from the front (k01.wall.front_pier) on the front's own bed lines less its belts, so its rock-faced courses run unbroken from the base course to the band and the front's dressed string course stops at the bay's cheek.",
+      "status": "fixed"
     },
     {
       "what": "colour: a monochrome print. The brown sandstone is the T-1837 register's reading",
