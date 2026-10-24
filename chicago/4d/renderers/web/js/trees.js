@@ -3225,7 +3225,13 @@ export async function createTrees({
   const stems = STEMS[level] ?? STEMS.full;
   const step = stems.step;
   const cellArea = step * step;
-  const keep = stems.keep;
+  // T-3106: 1812 has more uncleared ground than 1835. Its Light and Full
+  // sweeps reached their unchanged 2100/4700-tree backstops and lost the wood's
+  // north end. Thin the existing acceptance rolls everywhere in these tiers
+  // by a further 25%, before any stem is chosen; caps, source densities and
+  // stated plantings remain unchanged. Balanced and other scenes retain keep.
+  const keep = stems.keep * (String(sceneId) === '1812'
+    && (level === 'light' || level === 'full') ? 0.75 : 1);
   const maxTrees = stems.trees;
   const maxThickets = stems.thickets;
   const maxShrubs = stems.shrubs;
