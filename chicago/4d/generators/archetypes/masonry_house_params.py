@@ -85,7 +85,7 @@ CONSUMED = frozenset({
     "range_east_wing", "range_north_range", "range_west_wing",
     "ridge_east_wing", "ridge_north_range", "ridge_west_wing",
     "gable_east_wing_north", "gable_east_wing_south",
-    "gable_west_wing_north", "gable_west_wing_south",
+    "gable_west_wing_north", "gable_west_wing_south", "gable_west_wing_west",
     "tower_stair", "tower_north", "tower_north_plan",
     "hall_bow", "hall_bow_height", "hall_bow_roof",
     "bay_dining", "bay_dining_elevation",
@@ -904,6 +904,13 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "hip_y": fr.y(rework["south_hip_S"]),
                 "front_hip_y": fr.y(rework["front_hip_S"]),
                 "north_range": dict(north)}
+            if west["gable_ends"].get("west") == "parapet" and "alley_gable_apex" in rework:
+                # T-3096: the alley gable's wall keeps its own apex, standing proud of a
+                # cross roof that comes down behind it; the roof stops at the wall.
+                west["stable_roof"]["alley_parapet"] = {
+                    "apex_y": fr.y(rework["alley_gable_apex_S"]),
+                    "apex_z": fr.zval(rework["alley_gable_apex"]),
+                    "lift": west["parapet_m"]["west"]}
             west["stable_roof"]["connected_roof_plan"] = rework.get("connected_roof_plan", False)
             west["stable_roof"]["continuous_south_gable"] = rework.get("continuous_south_gable", False)
             west["stable_roof"]["lower_rear_gable"] = rework.get("lower_rear_gable", False)
