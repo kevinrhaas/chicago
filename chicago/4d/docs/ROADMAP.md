@@ -5837,3 +5837,5 @@ T-3081: actual mobile/desktop stored-position body verification passes. Repeat f
 T-3081 latest integration: dev 67bd69e9 is composed normally; the native tail and full dataset/staleness check pass. Complete full preflight 04 and current-head hosted mobile/desktop smoke coverage before merge. Original picture tickets remain open.
 
 T-3081 full preflight 04 passes (1,061 checks, 383 self-tests). Finish latest-dev reconciliation and complete published mobile/desktop smokes before merge.
+
+T-3081: incorporate dev 6f992fa75 and its native Glessner package; complete full preflight 05 and all current-head published mobile/desktop smokes, then merge PR #1260 into dev. Keep all five original picture cases open.

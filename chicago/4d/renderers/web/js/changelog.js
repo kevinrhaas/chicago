@@ -1,4 +1,22 @@
 export const CHANGELOG = [ // newest first
+  { v: 2244, ts: '2026-10-24T04:58:39.090Z', date: 'Oct 23, 2026, 11:58 PM CT', title: 'Glessner\'s 18th Street chimney slimmed to its drawn depth', kind: 'fix',
+    items: [
+      'The chimney stack on the Glessner House\'s 18th Street gable is half a foot shallower, 2.6 ft deep where it was 3.1, as the 1965 survey\'s east elevation draws it. Seen from Prairie and 18th, it now stands as slim as it does in the 1887 photograph.',
+    ] },
+  { v: 2243, ts: '2026-10-24T04:48:06.241Z', date: 'Oct 23, 2026, 11:48 PM CT', title: '1811 Prairie\'s porch arcade turns its rounded corner', kind: 'improvement',
+    items: [
+      'Beside the arched porch at 1811 Prairie, three slim round-headed lights now open in the curved corner, each standing on a carved stone colonnette, as the 1888 Inland Architect plate shows them.',
+    ] },
+  { v: 2242, ts: '2026-10-24T04:44:50.894Z', date: 'Oct 23, 2026, 11:44 PM CT', title: 'Glessner\'s stable roof: its ridge stands too high, its slope is right', kind: 'change',
+    items: [
+      'Nothing in the 3-D scene changes yet. The stable roof\'s alley end shows about eight more rows of tiles than the 1887 and 1963 photographs do. Three ways to remove them were tested against both photographs: lowering the ridge down the same slope, flattening the slope under the same ridge line, or steepening it under the same ridge height. Only the first fits both pictures. The ridge stands about two feet too high and should sit a little further from 18th Street. The Evidence panel now says so, and the rebuild is the next ticket.',
+    ] },
+  { v: 2241, ts: '2026-10-24T03:54:42.842Z', date: 'Oct 23, 2026, 10:54 PM CT', title: '1812 Prairie\'s gable finished to its photographs', kind: 'improvement',
+    items: [
+      'The Wheeler house\'s gable window now reads as nine dark openings between stone quoins, under a moulded hood with a waved top and over a deep stone shelf.',
+      'A carved urn now crowns the gable, and each shoulder stone carries a sunk panel.',
+      'Each scroll under the gable\'s corners has a carved rosette, and the gable\'s base now narrows above the scrolls as the photograph shows.',
+    ] },
   { v: 2240, ts: '2026-10-24T03:19:13.646Z', date: 'Oct 23, 2026, 10:19 PM CT', title: 'First Presbyterian Church\'s spire rises to its 1887 photograph\'s height', kind: 'improvement',
     items: [
       'The 1904 First Presbyterian Church at Indiana Avenue and 21st Street now has a steep gable facing the avenue, replacing the low hipped roof. Its corner tower is brick to about 40 m, and a slender slated spire rises to about 75 m. Before, the whole tower stopped at 27 m.',

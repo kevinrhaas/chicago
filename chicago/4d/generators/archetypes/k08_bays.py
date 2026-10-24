@@ -48,6 +48,13 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                kneelers over its corners, a slope from each to a ridge on its middle run back
                to the wall, a stone coping along each rake, and a pinnacle on each kneeler
                and a finial on the apex when the roof names them
+  gable panel  (T-3002) a carved panel filling a gable's tympanum (1801's south pavilion): a
+               dressed panel `proud_m` out, `border_m` in from the copings' beds and stood
+               `base_m` over the wall top, and on it a tall leafy relief, a stem up its middle
+               with pairs of leaves leaning out from it, each as long as the panel allows, under
+               a fleuron near the apex and over a boss at the foot (the light tier keeps the panel)
+  head frieze  (T-3002) a dressed band across one run over a storey's windows, under the wall
+               top, with a roundel on it (1801's south pavilion under its gable's shelf)
   shallow      (T-3047) a full-height projection too thin for its windows' recesses or its
                gable's copings (1801's south pavilion, 0.1 m proud on its 1911 sheet): the
                recesses run back through the wall plane (`host_holes`, which its host opens
@@ -960,6 +967,9 @@ class Bay:
                         raise ValueError(f"{v['id']}: a frieze is a windowless storey over another")
                     self._frieze(flat, run, levels[k], hi, v["storeys"][k]["frieze"], band["height_m"],
                                  k + 1 < len(v["storeys"]))
+                hf = v["storeys"][k].get("head_frieze")
+                if hf and i == hf["run"]:
+                    self._head_frieze(flat, run, levels[k], hf)
                 if 0 < k:
                     yb = levels[k]
                     proud(flat, "band", run, yb - band["height_m"] / 2, yb + band["height_m"] / 2, band["proud_m"])
@@ -1350,6 +1360,8 @@ class Bay:
                 world.face("band", [(o0, y_top, 0.0), (o1, y_top, 0.0), (o1, y_top, p), (o0, y_top, p)], D)
         meta = {"kind": "gable", "pitch": pitch, "planes": 0 if shallow else 2, "apex": [round(xc, 4), round(y_r, 4), 0.0],
                 "ridge_m": round(y_r, 4), "kneeler_m": round(y_k, 4), "gable_top_m": round(top(xc), 4)}
+        if g.get("panel"):
+            meta["panel"] = self._gable_panel(world, g["panel"], xa, xb, xc, y_top, under, p, pitch)
         zm = (zb + zf) / 2
         pn = g.get("pinnacle")
         if pn:
@@ -1372,6 +1384,75 @@ class Bay:
             self._spike(world, xc, zm, w, top(xc) - pitch * w / 2, sh + pitch * w / 2, cap)
             meta["finial_top_m"] = round(top(xc) + sh + cap, 4)
         self.meta["roof"] = meta
+
+    def _gable_panel(self, world, pn, xa, xb, xc, y_top, under, p, pitch):
+        """T-3002: the carved panel filling a gable's tympanum (1801's south pavilion: a tall
+        leafy relief up the gable to its apex, the Taylor photograph). A dressed panel
+        `proud_m` out of the gable's face, `border_m` in from the copings' beds and between
+        the kneelers, from `base_m` over the wall top; on it a STEM `stem_m` wide up its
+        middle, a pair of LEAVES at every `pitch_m` up it, each a lozenge leaning out and up
+        from the stem and as long as the panel lets it be (`leaf_m` at most, `margin_m` clear
+        of the panel's edge), a lozenge BOSS at its foot and a FLEURON at its head, all
+        standing the relief's `proud_m` past the panel. The light tier keeps the panel."""
+        keys = {"border_m", "base_m", "proud_m", "relief"}
+        rk = {"proud_m", "stem_m", "leaf_m", "pitch_m", "margin_m"}
+        rl = pn.get("relief") if isinstance(pn, dict) else None
+        if not isinstance(rl, dict) or set(pn) != keys or set(rl) != rk:
+            raise ValueError(f"{self.v['id']}: a gable panel takes {sorted(keys)}, its relief {sorted(rk)}")
+        b, base, pr = float(pn["border_m"]), float(pn["base_m"]), float(pn["proud_m"])
+        rp, sw, lm, pm, mg = (float(rl[k]) for k in ("proud_m", "stem_m", "leaf_m", "pitch_m", "margin_m"))
+        if not (0.05 <= b <= 0.3 and 0.0 <= base <= 0.5 and 0.01 <= pr <= 0.06 and 0.01 <= rp <= 0.06
+                and 0.04 <= sw <= 0.2 and 0.15 <= lm <= 0.8 and 0.15 <= pm <= 0.8 and 0.02 <= mg <= 0.15):
+            raise ValueError(f"{self.v['id']}: a gable panel's border 0.05-0.3 m, base 0-0.5 m, proud 0.01-0.06 m; "
+                             f"its relief 0.01-0.06 m proud, stem 0.04-0.2 m, leaves and pitch 0.15-0.8 m, "
+                             f"margin 0.02-0.15 m")
+        dn = b * math.sqrt(1.0 + pitch * pitch)          # the border, measured down a rake
+        left = lambda x: under(xa) - dn + pitch * (x - xa)   # each rake's bed, `border_m` in
+        right = lambda x: under(xb) - dn + pitch * (xb - x)
+        y_b, apex = y_top + base, left(xc)
+        poly = [(xa + b, y_b), (xb - b, y_b), (xb - b, apex + 1.0), (xa + b, apex + 1.0)]
+        poly = clip_half(clip_half(poly, lambda q: left(q[0]) - q[1]), lambda q: right(q[0]) - q[1])
+        if apex - y_b < 1.0:
+            raise ValueError(f"{self.v['id']}: a gable panel needs a metre over its base")
+        world.plane("band", poly, -(p + pr))
+        world.tube("band", poly, -p, -(p + pr), inward=False)
+        meta = {"y_m": [round(y_b, 4), round(apex, 4)], "leaves": 0}
+        if self.tier == "light":
+            return meta
+        z0 = -(p + pr)
+
+        def lay(q, k=1.0):   # stood `k` of the relief's proud past the panel
+            world.plane("band", q, z0 - k * rp)
+            world.tube("band", q, z0, z0 - k * rp, inward=False)
+
+        def half(y):   # the panel's half-width at height y, short of its margin
+            return xc - max(xa + b, xa + (y - left(xa)) / pitch) - mg
+
+        y0, top = y_b + mg, apex - mg
+        lay([(xc, y0), (xc + 2 * sw, y0 + 2 * sw), (xc, y0 + 4 * sw), (xc - 2 * sw, y0 + 4 * sw - 2 * sw)])
+        hf = (top - y0) * 0.12                               # the fleuron's height, under the apex
+        stem = [(xc - sw / 2, y0 + 4 * sw), (xc + sw / 2, y0 + 4 * sw), (xc + sw / 2, top - hf), (xc - sw / 2, top - hf)]
+        lay(stem)
+        fw = min(3 * sw, 2 * max(half(top - hf / 2), sw / 2))
+        lay([(xc, top - hf), (xc + fw / 2, top - hf / 2), (xc, top), (xc - fw / 2, top - hf / 2)])
+        n, y = 0, y0 + 4 * sw + pm / 2
+        while y < top - hf - 0.05:
+            rise, wl = 0.5, 0.9                               # a leaf climbs half its length; its width
+            L = min(lm, half(y + rise * lm) - sw / 2)
+            if L < 0.12:
+                break
+            for sg in (-1.0, 1.0):
+                x0 = xc + sg * sw / 2
+                tip = (x0 + sg * L, y + rise * L)
+                mid = lambda t, o: (x0 + sg * L * t - sg * o * rise, y + rise * L * t + o)
+                # leaves overlap the next two up their side, so each of three stands its own depth
+                lay(sorted([(x0, y), mid(0.45, wl * L / 2), tip, mid(0.55, -wl * L / 2)],
+                           key=lambda q: math.atan2(q[1] - (y + rise * L / 2), q[0] - (x0 + sg * L / 2))),
+                    (0.8, 0.65, 0.5)[n % 3])
+            n += 1
+            y += pm
+        meta["leaves"] = 2 * n
+        return meta
 
     def _block(self, world, role, x0, x1, y0, y1, z0, z1, back_from=None, under=True):
         """T-2998: a closed stone block, square to the bay's frame; its back on z0 from
@@ -1528,18 +1609,51 @@ class Bay:
         sc = (s0 + s1) / 2 - (n - 1) * pitch / 2
         yc = (lo + hi) / 2
         for j in range(n):
-            d0 = -pr
-            d1 = -pr - (rp if j % 2 == 0 else rp / 2)
-            cs = sc + j * pitch
-            ring_ = lambda r, t: (cs + r * math.cos(2 * math.pi * t / k), yc + r * math.sin(2 * math.pi * t / k))
-            for t in range(k):
-                o0, o1, i0, i1 = ring_(R, t), ring_(R, t + 1), ring_(R - w, t), ring_(R - w, t + 1)
-                flat.plane("band", [o0, o1, i1, i0], d1)
-                mo = ((o0[0] + o1[0]) / 2 - cs, (o0[1] + o1[1]) / 2 - yc, 0.0)
-                flat.face("band", [flat.P(*o0, d0), flat.P(*o1, d0), flat.P(*o1, d1), flat.P(*o0, d1)], mo)
-                flat.face("band", [flat.P(*i1, d0), flat.P(*i0, d0), flat.P(*i0, d1), flat.P(*i1, d1)],
-                          (-mo[0], -mo[1], 0.0))
+            self._ring(flat, sc + j * pitch, yc, R, w, k, -pr, -pr - (rp if j % 2 == 0 else rp / 2))
         return n
+
+    @staticmethod
+    def _ring(flat, cs, yc, R, w, k, d0, d1):
+        """One ring of `k` segments, `w` wide inside radius R, standing from depth d0 out to d1."""
+        ring_ = lambda r, t: (cs + r * math.cos(2 * math.pi * t / k), yc + r * math.sin(2 * math.pi * t / k))
+        for t in range(k):
+            o0, o1, i0, i1 = ring_(R, t), ring_(R, t + 1), ring_(R - w, t), ring_(R - w, t + 1)
+            flat.plane("band", [o0, o1, i1, i0], d1)
+            mo = ((o0[0] + o1[0]) / 2 - cs, (o0[1] + o1[1]) / 2 - yc, 0.0)
+            flat.face("band", [flat.P(*o0, d0), flat.P(*o1, d0), flat.P(*o1, d1), flat.P(*o0, d1)], mo)
+            flat.face("band", [flat.P(*i1, d0), flat.P(*i0, d0), flat.P(*i0, d1), flat.P(*i1, d1)],
+                      (-mo[0], -mo[1], 0.0))
+
+    def _head_frieze(self, flat, run, y_floor, hf):
+        """T-3002: a dressed band across the run over a storey's windows (1801's south pavilion,
+        the Taylor photograph: under the gable's shelf, over the third storey's pair): `proud_m`
+        out from `from_m` to `to_m` over the storey's floor, `border_m` in from the run's ends
+        (clear of the pilasters there), and on it a ROUNDEL at `at` along the run, a ring
+        `ring_m` wide round a boss, both standing `proud_m` past the band. The light tier
+        keeps the band and drops the roundel."""
+        b, pr = float(hf["border_m"]), float(hf["proud_m"])
+        lo, hi = y_floor + float(hf["from_m"]), y_floor + float(hf["to_m"])
+        s0, s1 = b, run.L - b
+        if s1 - s0 < 0.5:
+            raise ValueError(f"{self.v['id']}: a {run.L:.2f} m run leaves its head frieze no band")
+        band_ = rect(s0, s1, lo, hi)
+        flat.plane("band", band_, -pr)
+        flat.tube("band", band_, 0.0, -pr, inward=False)
+        m = {"run": hf["run"], "y_m": [round(lo, 4), round(hi, 4)], "s_m": [round(s0, 4), round(s1, 4)]}
+        self.meta["head_frieze"] = m
+        if self.tier == "light":
+            return
+        rd = hf["roundel"]
+        R, w, rp, k = float(rd["radius_m"]), float(rd["ring_m"]), float(rd["proud_m"]), int(rd["segments"])
+        cs, yc = run.L * float(hf["at"]), (lo + hi) / 2
+        if not (R <= (hi - lo) / 2 - 0.02 and s0 + 0.02 <= cs - R and cs + R <= s1 - 0.02 and w < R - 0.02):
+            raise ValueError(f"{self.v['id']}: the head frieze's roundel ({R} m) does not stand inside its band")
+        self._ring(flat, cs, yc, R, w, k, -pr, -pr - rp)
+        boss = [(cs + (R - w - 0.01) * math.cos(2 * math.pi * t / k), yc + (R - w - 0.01) * math.sin(2 * math.pi * t / k))
+                for t in range(k)]
+        flat.plane("band", boss, -pr - rp * 0.6)
+        flat.tube("band", boss, -pr, -pr - rp * 0.6, inward=False)
+        m["roundel"] = {"s_m": round(cs, 4), "y_m": round(yc, 4), "radius_m": R}
 
     def _flare_bands(self, reg, Li, d, y_e, pitch, flare):
         """T-2408: one plane of a flared hip. Its slope runs from `eave_pitch` at the eaves up

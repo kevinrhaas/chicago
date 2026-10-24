@@ -1,0 +1,227 @@
+{
+ "ticket": "T-3095",
+ "course_in": 5.0,
+ "roll_foot_below_top_m": 0.09,
+ "model": {
+  "foot_yz": [
+   22.71,
+   7.65
+  ],
+  "top_yz": [
+   17.96,
+   12.01
+  ],
+  "courses_at_5in": 49.7,
+  "record_ridge_ft_S": [
+   38.6,
+   14.6
+  ],
+  "glb_plane_check": {
+   "pitch_deg": 42.51,
+   "foot_yz": [
+    22.71,
+    7.65
+   ],
+   "top_yz": [
+    17.96,
+    12.01
+   ]
+  }
+ },
+ "columns": [
+  {
+   "view": "cornell-northwest-west-windows",
+   "column": 1040,
+   "print_courses": 41.7,
+   "cameras": {
+    "roof_pitched": {
+     "rms_px": 3.65,
+     "top_z_A": 11.591,
+     "top_z_B": 11.763
+    },
+    "roof_level": {
+     "rms_px": 4.76,
+     "top_z_A": 11.135,
+     "top_z_B": 11.509
+    }
+   },
+   "top_z_A_from_count": 11.321,
+   "top_z_B_from_count": 10.376
+  },
+  {
+   "view": "cornell-northwest-west-windows",
+   "column": 1060,
+   "print_courses": 43.7,
+   "cameras": {
+    "roof_pitched": {
+     "rms_px": 3.65,
+     "top_z_A": 11.733,
+     "top_z_B": 11.847
+    },
+    "roof_level": {
+     "rms_px": 4.76,
+     "top_z_A": 11.257,
+     "top_z_B": 11.582
+    }
+   },
+   "top_z_A_from_count": 11.493,
+   "top_z_B_from_count": 10.822
+  },
+  {
+   "view": "cornell-northwest-west-windows",
+   "column": 1080,
+   "print_courses": 43.9,
+   "cameras": {
+    "roof_pitched": {
+     "rms_px": 3.65,
+     "top_z_A": 11.822,
+     "top_z_B": 11.9
+    },
+    "roof_level": {
+     "rms_px": 4.76,
+     "top_z_A": 11.331,
+     "top_z_B": 11.625
+    }
+   },
+   "top_z_A_from_count": 11.51,
+   "top_z_B_from_count": 10.865
+  },
+  {
+   "view": "habs-01-northwest",
+   "column": 1480,
+   "print_courses": 40.6,
+   "cameras": {
+    "doorway": {
+     "rms_px": 3.92,
+     "top_z_A": 11.363,
+     "top_z_B": 11.548
+    },
+    "doorway_eye_height": {
+     "rms_px": 3.09,
+     "top_z_A": 11.136,
+     "top_z_B": 11.39
+    },
+    "doorway_lean": {
+     "rms_px": 3.13,
+     "top_z_A": 11.062,
+     "top_z_B": 11.324
+    }
+   },
+   "top_z_A_from_count": 11.227,
+   "top_z_B_from_count": 10.115
+  },
+  {
+   "view": "habs-01-northwest",
+   "column": 1500,
+   "print_courses": 41.6,
+   "cameras": {
+    "doorway": {
+     "rms_px": 3.92,
+     "top_z_A": 11.425,
+     "top_z_B": 11.593
+    },
+    "doorway_eye_height": {
+     "rms_px": 3.09,
+     "top_z_A": 11.193,
+     "top_z_B": 11.432
+    },
+    "doorway_lean": {
+     "rms_px": 3.13,
+     "top_z_A": 11.118,
+     "top_z_B": 11.365
+    }
+   },
+   "top_z_A_from_count": 11.313,
+   "top_z_B_from_count": 10.353
+  },
+  {
+   "view": "habs-01-northwest",
+   "column": 1520,
+   "print_courses": 42.7,
+   "cameras": {
+    "doorway": {
+     "rms_px": 3.92,
+     "top_z_A": 11.486,
+     "top_z_B": 11.637
+    },
+    "doorway_eye_height": {
+     "rms_px": 3.09,
+     "top_z_A": 11.249,
+     "top_z_B": 11.473
+    },
+    "doorway_lean": {
+     "rms_px": 3.13,
+     "top_z_A": 11.173,
+     "top_z_B": 11.406
+    }
+   },
+   "top_z_A_from_count": 11.407,
+   "top_z_B_from_count": 10.603
+  }
+ ],
+ "families": {
+  "A": {
+   "top_z_from_count": [
+    11.227,
+    11.51
+   ],
+   "top_z_from_cameras": [
+    11.062,
+    11.822
+   ],
+   "camera_minus_count_m": [
+    -0.236,
+    -0.12,
+    0.312
+   ],
+   "median_count_top_yz": [
+    18.66,
+    11.364
+   ],
+   "pitch_deg": 42.5,
+   "record_ridge_ft_S": [
+    36.48,
+    12.29
+   ]
+  },
+  "B": {
+   "top_z_from_count": [
+    10.115,
+    10.865
+   ],
+   "top_z_from_cameras": [
+    11.324,
+    11.9
+   ],
+   "camera_minus_count_m": [
+    0.76,
+    1.035,
+    1.433
+   ],
+   "median_count_top_yz": [
+    17.96,
+    10.489
+   ],
+   "pitch_deg": 30.9,
+   "record_ridge_ft_S": [
+    33.61,
+    14.6
+   ]
+  },
+  "C": {
+   "top_yz": [
+    19.37,
+    12.01
+   ],
+   "pitch_deg": 52.5,
+   "ridge_row_shift_px_vs_model": [
+    -26.0,
+    -29.9,
+    -15.6,
+    -15.9,
+    -15.1
+   ],
+   "note": "negative rows are higher in the print; the prints' roll foot lies BELOW the model's top"
+  }
+ }
+}

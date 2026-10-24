@@ -2,7 +2,7 @@
 """T-2843: the three kit pieces 1801 Prairie's move onto K01 needed, held on its record.
 
 J. W. Taylor's c. 1895 photograph shows the Kimball house's steep slate faces rising from an
-8.1 m cornice to a deck about 17 m up, its south pavilion and its 18th Street section carried
+8.1 m cornice (T-3002: 8.9 m) to a deck about 17 m up, its south pavilion and its 18th Street section carried
 up as walls to about 13.9 m, and its wings slated like the main roof. So:
 
   * a K05 mansard face may hold two storeys (`storeys: 2`) and then rises 4.5-7.5 m; one
@@ -89,9 +89,9 @@ def main() -> int:
     st, phase = load(SID)
     p = KP.from_phase(phase, st)
     m = p.roof.get("mansard") or {}
-    check(p.roof_form == "mansard" and abs(p.eave_m - 8.1) < 1e-6,
+    check(p.roof_form == "mansard" and abs(p.eave_m - 8.9) < 1e-6,
           f"1801 resolves: a mansard over an {p.eave_m:.2f} m cornice")
-    mansard_refused(lambda v: v.pop("storeys"), "a 7.2 m face that names no second storey",
+    mansard_refused(lambda v: v.pop("storeys"), "a 6.4 m face that names no second storey",
                     "holding 1 storey(s) rises 2.0-4.5 m")
     mansard_refused(lambda v: v.__setitem__("storeys", 3), "a face holding three storeys", "holds 1 storey")
     mansard_refused(lambda v: v.__setitem__("lower_rise_m", 7.8), "a two-storey face rising 7.8 m",

@@ -7,31 +7,31 @@
     1502
   ],
   "principal_px": [
-    549.552,
-    712.04
+    564.47,
+    696.935
   ],
-  "focal_px": 2250.9908,
+  "focal_px": 2256.2729,
   "eye": [
-    87.347444,
-    39.984945,
-    1.814685
+    87.401166,
+    40.089291,
+    1.793294
   ],
-  "yaw_deg": 235.978821,
+  "yaw_deg": 236.281071,
   "basis_right_up_forward": [
     [
-      -0.5584434116,
-      0.8291980891,
-      0.0239057564
+      -0.5539724009,
+      0.8322175134,
+      0.0229910725
     ],
     [
-      0.0508073245,
-      0.0054251046,
-      0.9986937388
+      0.0561920186,
+      0.0098233842,
+      0.9983716533
     ],
     [
-      -0.8279852486,
-      -0.5589285262,
-      0.0451589503
+      -0.8306365246,
+      -0.5543622566,
+      0.0522058657
     ]
   ],
   "sky": "overcast",
@@ -82,60 +82,60 @@
     "residual_px": [
       [
         null,
-        2.85
+        3.33
       ],
       [
         null,
-        1.81
+        1.04
       ],
       [
         null,
-        -3.77
+        -3.86
       ],
       [
         null,
-        -0.9
+        -1.15
       ],
       [
-        -0.12,
-        1.29
+        -0.26,
+        0.73
       ]
     ],
     "rms_px": 2.08,
     "light": "T-2848, read off the photograph: hazy, diffuse light. The lamp post at the corner, the two street trees and the window heads throw no shadow, and the rustication is shaded softly along each block's lower edge; the Prairie (east) front reads a little brighter than the 18th Street (north) flank. So the sky is brightest to the east and somewhat high: the overcast sky with its soft key at sun_uvy [0.8, -0.2, 1] (east, a little south, about 45 degrees up). This replaces [55, 20, 40], which T-2221 carried over with the camera and no reading behind it.",
     "jamb_residual_px": [
-      0.53,
-      -1.03,
-      -0.82,
-      -0.41,
-      -0.84,
-      -3.16,
-      3.25,
-      2.57,
-      2.64,
-      2.06
+      0.06,
+      -1.36,
+      -1.04,
+      -0.55,
+      -0.83,
+      -3.17,
+      3.19,
+      2.49,
+      2.49,
+      1.87
     ],
     "stacks_px": {
       "south": {
-        "centre_x": -3.1,
-        "top_y": -0.8,
-        "width": -0.1
+        "centre_x": -2.9,
+        "top_y": -0.7,
+        "width": -0.0
       },
       "middle": {
-        "centre_x": -1.9,
-        "top_y": -1.0,
+        "centre_x": -2.2,
+        "top_y": -0.6,
         "width": -0.6
       },
       "north": {
-        "centre_x": 0.3,
-        "top_y": 0.5,
-        "width": 8.6
+        "centre_x": 2.2,
+        "top_y": 1.2,
+        "width": 1.5
       }
     },
-    "stack_fit_rms_px": 1.6,
+    "stack_fit_rms_px": 1.9,
     "verticals": {
       "edges": 43,
-      "lean_rms": 0.0096
+      "lean_rms": 0.0104
     }
   },
   "source_id": "taylor_2135_glessner_exterior_1887_1889"

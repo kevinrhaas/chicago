@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "cornell-northwest-west-windows",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "5fff90bb9d42aa51dc25ecacc8da8b2a02f5e56cfebc6fb8e789f1b26f284a1b",
+  "glb_sha256": "606eb2986f37826a0b0e66284aaadd1a059d0f1aee2bbf67c1c307770da84337",
   "camera_sha256": "98341850e0c29a9e5841d5ef17833ecdc7c3c14a11ff76aa740c3aa84f82f4f4",
   "photo_sha256": "5fe13212fd1a893382c2b02c5be1cd2c1feb5d17b1e32f13a1a734fc90dbbca5",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg",
@@ -25,7 +25,7 @@
       "status": "open"
     },
     {
-      "what": "T-3025, ruled: the roofs and the cupola's pyramid read slate-grey in this c. 1887 print, and the record's red tile reads the same slate-grey when the render through this camera is reduced to luminance (docs/RESEARCH/glessner-roof-covering-T-3025/stable-roof-cornell.jpg). A red surface records dark on a dry plate of the period. The covering was red baked, unglazed terracotta tile (Glessner 1923, HABS data p. 13; HABS's 1963 survey finds terracotta, which excludes slate), and the record lays that. Colour in a monochrome print is not shown; nothing is rebaked. The print's course, about 6.4 in against the model's 5 in, is a module question filed separately (README § 3).",
+      "what": "T-3025, ruled: the roofs and the cupola's pyramid read slate-grey in this c. 1887 print, and the record's red tile reads the same slate-grey when the render through this camera is reduced to luminance (docs/RESEARCH/glessner-roof-covering-T-3025/stable-roof-cornell.jpg). A red surface records dark on a dry plate of the period. The covering was red baked, unglazed terracotta tile (Glessner 1923, HABS data p. 13; HABS's 1963 survey finds terracotta, which excludes slate), and the record lays that. Colour in a monochrome print is not shown; nothing is rebaked. The print's course, about 6.4 in against the model's 5 in, is a module question filed separately (README \u00a7 3).",
       "status": "not shown"
     },
     {
@@ -61,7 +61,7 @@
       "status": "fixed"
     },
     {
-      "what": "T-3080, found: the alley-end roof's north slope, eave to ridge, is 21.4 ft in the model, about 51 courses at 5 in, where this print counts 41.7-43.9 courses between the eave and the cresting's foot and HABS photograph 1 counts 40.6-42.9. Through T-2758's two roof fits of this print its eave lies on the model's (0.0-0.3 m) and the cresting's foot 0.3-1.0 m below the model's ridge. Filed as T-3094.",
+      "what": "T-3080, found: the alley-end roof's north slope, eave to ridge, is 21.4 ft in the model, about 51 courses at 5 in, where this print counts 41.7-43.9 courses between the eave and the cresting's foot and HABS photograph 1 counts 40.6-42.9. Through T-2758's two roof fits of this print its eave lies on the model's (0.0-0.3 m) and the cresting's foot 0.3-1.0 m below the model's ridge. Filed as T-3094; T-3095 rules it the ridge, not the pitch: put to the count and to T-2758's six measured cameras, only a ridge brought down the same 42.5-degree plane (about 0.65 m lower and 0.7 m north, the record's 36.5 ft at S 12.3) gives the same height both ways, where flattening under the S 14.6 line misses by 0.8-1.4 m and steepening under the present height projects the ridge higher still. The alley gable's coping stays up and stands proud over the lowered roof. Rebuild is T-3096 (docs/RESEARCH/glessner-stable-ridge-T-3095/README.md).",
       "status": "open"
     }
   ],

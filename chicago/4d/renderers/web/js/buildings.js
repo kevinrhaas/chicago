@@ -36,6 +36,7 @@ import * as THREE from 'three';
 import { spatialPiecesAsync } from './spatial-batch.js';
 import { castOnlyTowardView } from './shadow-casters.js';
 import { coalesceRuns, COALESCE_ON } from './batch-coalesce.js';
+import { rigidBoundsMaterial, installFrustumBoxCull } from './batch-frustum-box.js';
 import { backingTriangles } from './view-occlusion.js';
 import { opaqueConfidenceRange, programKeyOf } from './confidence.js';
 import { seasonPreservesSurface } from './season.js';
@@ -561,6 +562,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // established in-place material lifecycle and batching policy.
       const stableSurface = [THREE.MeshStandardMaterial, THREE.MeshPhysicalMaterial].includes(material.constructor)
         && !JSON.stringify(captureHooks(material)).includes('opaque-hooks');
+      const boundsRigid = preserveMaterials && spatialCells === null && rigidBoundsMaterial(material, captureHooks(material));
       const key = preserveMaterials ? inspectionMaterialKey(material) : materialKey(material);
       let bucket = groups.get(key);
       if (!bucket) {
@@ -578,10 +580,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         // simply never read once the patch is installed.
         perVertexScalars(material);
         confidence.patch(material, { packed: PACKED_CONFIDENCE });
-        bucket = { material, entries: [] };
+        bucket = { material, entries: [], boundsRigid };
         groups.set(key, bucket);
-      } else if (preserveMaterials) {
-        material.dispose();
+      } else {
+        bucket.boundsRigid = bucket.boundsRigid && boundsRigid;
+        if (preserveMaterials) material.dispose();
       }
       totalTris += prepared.geo.getIndex().count / 3;
 
@@ -788,9 +791,6 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // T-2529: at `light`, a piece whose shadow cannot reach the view is left
     // out of the sun's pass (shadow-casters.js); the colour pass is untouched.
     if (shadowCasters) castOnlyTowardView(batch, shadowCasters);
-    // T-2927: where meshes are cut into cells, the drawn cells of one mesh that
-    // touch are drawn as one (batch-coalesce.js): aloft, every cell is in view.
-    if (cutsCells) coalesceRuns(batch, coalesce);
     batch.userData.batchIndex = [];
     // Each instance's dequantize scale, for a reader that needs the structure's
     // frame back off the batch (tools/drawn_placement_census.mjs).
@@ -913,6 +913,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     backingPositionVersion=batch.geometry.attributes.position.version;
     backingIndexVersion=batch.geometry.index.version;
     backingConfidenceVersion=batch.geometry.attributes[SCALARS].version;
+    // Narrow phase sees native whole-instance entries before existing coalescing.
+    const narrow = installFrustumBoxCull(batch, bucket.boundsRigid, depthMaterial, seasonPreservesSurface, coalesce);
+    if (cutsCells) coalesceRuns(batch, coalesce);
+    narrow?.seal();
     batch.computeBoundingBox();
     batch.computeBoundingSphere();
     group.add(batch);

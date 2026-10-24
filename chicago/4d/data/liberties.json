@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 734,
+  "count": 738,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -50464,6 +50464,35 @@
       ]
     },
     {
+      "id": "L-k01-1811-round-arcade-2991",
+      "title": "1811 Prairie's porch arcade round its rounded corner: the capitals, the dark behind the lights, and a level line",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-24",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The porch arcade on the entrance block's rounded south corner at 1811 Prairie (entrance kit loggia round arcade) is built from the 1888 Inland Architect plate, read through the camera: three colonnettes at about 8, 27 and 44 degrees round the 0.9 m round, and over each capital a round-headed light 0.18 m across with its crown at 3.94 m. Four things about it are invented. (1) The capitals are the mouth's stand-in, a necking ring, a flared bell and an abacus. The plate's carved leafage is finer than its 2.3 cm a pixel, as at the mouth (“1811 Prairie refined from the district draft to a K01 rock-faced stone front read off its 1888 photograph, its gable, pyramid and steep roof raised by later work”). (2) The lights open into shadow on the plate, so what is behind them is not shown. The porch room (K01's loggia) is not carried round behind the curve: each light is cut 0.3 m into the round's courses and closed by a dark back. From any street view that reads the same as an opening onto the porch's dark interior. (3) The two courses the lights stand in (3.15-4.05 m) are cut into dressed stones, one a light, from the round's tangent to 0.12 m past the last light. The plate is too coarse to show their joints. (4) The plate's arcade steps down to the south, its bases by up to 9 px and its crowns by up to 12 px. The camera does not explain this, so the build stands level on the mouth's springing and plinth lines, and the step is left open on the match record for later work's re-solve of the camera."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "Later work's re-solved camera, or a photograph showing the porch's south side close up (solves the cameras of 1811's other pictures)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-24."
+        }
+      ],
+      "work_refs": [
+        "T-2991",
+        "T-2541",
+        "T-3079",
+        "T-3052"
+      ]
+    },
+    {
       "id": "L-elm-vase-3017",
       "title": "The 1904 parkway elms grown on the open-grown American elm's vase",
       "section": "per_subject",
@@ -52413,6 +52442,119 @@
         "T-2843",
         "T-3003",
         "T-3001"
+      ]
+    },
+    {
+      "id": "L-k01-1812-wheeler-gable-3090",
+      "title": "1812 Prairie's gable dressed to the Levy and c. 1955 photographs: the grid window's quoins, hood, shelf and dark lights, the shoulder panels, the carved scrolls, the urn finial and the base drawn in",
+      "section": "per_subject",
+      "subjects": [
+        "wheeler_house_1812_prairie"
+      ],
+      "covers": [],
+      "recorded": "2026-10-24",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The rest of George H. Wheeler's shaped gable at 1812 Prairie is built as Albert Levy's photograph and the c. 1955 photograph show it. The grid window's lights read as dark openings, between quoined side stones, under a moulded hood with a waved upper edge, over a deep moulded shelf; each shoulder block carries a sunk panel; each kneeler's scroll has a carved rosette in its eye; the finial is an urn on a carved ball over the apex's plinth; and the slab's base draws in from its foot to the kneelers' ledge instead of running out square past the side walls. The kit learns this in shaped gable: `lights.glazing: \"dark\"`, `lights.quoins`, `lights.hood` and `lights.shelf`; `shoulders.panel`; `kneelers.scroll.rosette`; `finial.form: \"urn\"`; and base ledge half (m). Every other K01 house re-emits as before (1625 Prairie's wall gable names none of them). **What is read, not invented.** Through the two cameras earlier work solved (the levy front data, 88.5 px a metre at the front; the c1955 front data): the quoins about 0.34 m across, one a row each side of the window (Levy x 397-427 and 567-597 px); the hood just over the window's head, about 14.6-14.75 m, its top rising to a crown at the middle and flicking up at each end (y 245-250 px); the shelf from about 13.05 to 13.33 m and about 1.8 m across, a projecting slab over a band (y 370-395 px); a sunk panel about 0.23-0.31 m across and 0.1 m high near the top of each shoulder block; a rosette in each scroll's eye; the finial's carved block about 0.55 m across from about 16.8 to 17.2 m with a ring over it (Levy, which cuts the urn at its foot) and the urn, lid and knob over it to about 1.2 m above the head (the c. 1955 photograph); and the print's outline about 3.98 m out from the centre on its south side between the scroll and the ledge (x 344-365 px), where the build's base stood 4.47 m out. **What is invented.** The quoins' long 0.36 m and short 0.28 m and their 0.03 m proud; the hood's 0.08 m height, 0.07 m crown, 0.05 m flicks and 0.06 m proud; the shelf's 0.11 m slab 0.12 m proud over a 0.17 m band 0.06 m proud; the panels' 0.04 m depth; the rosette's eight petals; the dark lights' backing and thin frame (neither print shows what stands in the openings); the finial's turned outline (urn profile in k01 shaped gable), its ball turned plain where both prints show it carved, and its 1.1 m, between the two prints' readings; and the base's 4.0 m at the ledge, the pinnacles' outer faces, about 0.02 m wider than the south side's reading and wider than the north side's (about 3.7 m), which the print reads narrower all the way up. **What is built otherwise than read.** The c. 1955 photograph puts the gable's head about 0.2 m north of the build's and its south shoulder stone narrower. That offset grows with height, from about 2 px on the front's features to 9 px at the grid window and about 17 px at the finial, so it is put down to that camera's roll above the front it was solved on, and the build stays on Levy's near-frontal print (the match record's ruling). The carved block under each scroll in Levy's print is read as the rainwater pipe's head, not as part of the console, and is not added to it."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Burnham & Root's drawings for the house, or a closer photograph of the gable, would fix the carving, the finial's outline and every depth; a camera for the c. 1955 photograph solved with its roll constrained by the gable itself would test the ruling on the head."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-24 (T-3090)."
+        }
+      ],
+      "work_refs": [
+        "T-3090",
+        "T-3035"
+      ]
+    },
+    {
+      "id": "L-glessner-stack-depth-3065",
+      "title": "Glessner's 18th Street stack taken back to 2.6 ft deep, its 7.1-ft face kept",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-10-24",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the John J. Glessner House north-gable stack is 2.6 ft deep (S 0-2.6), where it was 3.1, and its face stays 7.1 ft wide (W 15.25-22.35). **What is read, not invented.** HABS sheet 6 (1965, no known restrictions), the east elevation, draws the stack edge-on: 2.44 ft between its outline strokes at 73.59 px/ft. The record carried S 0.5-3.1 (2.6 ft) until earlier work moved the face to S 0, flush with the gable, and left the back where it was, so the stack grew half a foot deeper with no source for it. Taylor 2135 (1887-1889), refitted on the new box, puts the stack's back corner within 0.5 px of the photograph's edge, the two stones' ends and the north-west corner within about 1 px, and the stack's width 1.5 px over the picks where it was 8.6. HABS photograph 14, square to the face and on a camera that holds the east rake along its whole length, reads the 7.1 ft. **What is invented.** The 2.6 ft against the strokes' 2.44: the same reading gives the middle and south stacks 2.64 and 3.85 ft against their recorded 2.8 and 4.0, so 2.6 is the sheet read the way this record reads it, good to about +/-0.15 ft. HABS photograph 1 and HABS 17 read the north face 0.8-0.9 ft narrower than 7.1; neither is carried (a lit face's edge against a white sky on a level camera that reads this roof about 2 ft low, and a camera that stands about 8 px off the stack)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a measured plan of the stack at the roof, or a tape on today's stack."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on glessner stack depth this work/the taylor before after image."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-24 (T-3065)."
+        }
+      ],
+      "work_refs": [
+        "T-2214",
+        "T-3065",
+        "T-3058"
+      ]
+    },
+    {
+      "id": "L-kimball-1801-carved-stone-3002",
+      "title": "1801 Prairie's main cornice raised to the bow's and moulded under the mansard; the south pavilion's frieze roundel and carved gable panel",
+      "section": "per_subject",
+      "subjects": [
+        "kimball_house_1801_prairie"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "kimball_house_1801_prairie",
+          "phase": "as_mapped_1904",
+          "aspect": "form.wall_head"
+        }
+      ],
+      "recorded": "2026-10-24",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "three pieces of 1801 Prairie's carved stone are built from J. W. Taylor's c. 1895 photograph (J. W. Taylor (Chicago), 'Kimball, William W., Residence (1801 S. Prairie…), read through the Taylor camera as later work re-solved it. **What is read, not invented.** The main cornice under the mansard's slate faces is one heavy moulded course, a row of blocks under its corona, that runs along the avenue front and the 18th Street flank and wraps the front's bow at the bow's own cornice: at the bow's north junction (x 1070-1110) the print's main cornice stands at y 555-590 and the bow's at y 560-590. The build's main eave stood at 8.1 m, about 0.8 m under the bow's 8.34-8.7 m cornice, and at the front's north-west corner its crown rendered at y 583 against the print's 520. So the main block's second storey is 3.9 m (from 3.1) to an eave at 8.9 m, and the K10 moulded stone cornice (0.36 m, 0.32 m out) stands under the K05 soffit from 8.34 m to 8.7 m, level with the bow's, on the 18th Street and avenue walls, dying into the bow, the tower and both pavilions. Its crown now renders at y 535 at the corner and with the bow's cornice at its junction (both about 15 px under the print's, the bow's own offset through this camera). The mansard keeps its curb: its lower face rises 6.4 m (from 7.2) at 69.1 degrees (from 72), so the curb, the deck and its cresting stand where they stood, and the dormers' faces are set back 0.34 m and 0.52 m (from 0.55 and 0.7) so their lights keep their heights. On the south pavilion, under the gable's shelf and over the third storey's pair, the print shows a dressed band with a roundel on the pair's axis (y 415-452, the roundel about 15 px across at y 442): built as a band from 4.35 m to 5.3 m over the storey's floor, between the pilasters, with a ring 0.22 m in radius round a boss. The gable's tympanum is filled with a carved panel, a tall leafy relief rising to the apex: built as a dressed panel 0.03 m proud, 0.12 m in from the copings' beds, carrying a stem with paired leaves, a boss at its foot and a fleuron under the apex. **What is invented.** The cornice's section is K10's generic moulded stone eave (read off 1619's drawing); the print's block row and its corona's mouldings are not built, and the eave's K05 fascia and copper gutter stand over it where the print shows none. The overhang (0.4 m, from 0.3) is the least the section fits under. The second storey's windows keep their heads at 7.4 m, so 0.8 m more wall stands over them; the print's are not re-read here. The frieze's depth, the roundel's ring and boss, and the whole of the gable's carving are reconstructed: the print shows leafage too fine to read at its scale, and the stem, leaves and fleuron stand for it."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a sharper print of the front, later work's 1929 and HABS photographs, or a drawing of the house's carved work."
+        },
+        {
+          "label": "Covers",
+          "text": "`kimball_house_1801_prairie.as_mapped_1904.form.wall_head`"
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-24 (T-3002)."
+        }
+      ],
+      "work_refs": [
+        "T-2460",
+        "T-3074",
+        "T-3003",
+        "T-3002"
       ]
     },
     {
