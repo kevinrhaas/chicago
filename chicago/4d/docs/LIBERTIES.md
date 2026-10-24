@@ -29250,6 +29250,19 @@ the block's inward place is read as such, though the plate's offset (about 16 px
 by a block about 0.4 m behind the shaft; and the north shaft stands to 11.10 m, past the face's eave
 as K01 holds every engaged shaft, about 0.4 m over the plate's (its cap about 20 px high). The rear
 fall of the south gable is T-3063.
+**Revised:** 2026-10-24 (T-3064). The north shaft stops under its block, as the plate draws it: a
+shaft under a block may now stop below the face's eave (`pinnacles.heads[].top_m` at or under
+`face_height_m`, the block required), so the shaft rises to 10.58 m and its cap, the plate's band, stands
+at 10.58-10.68 m (y 339-346 px against the plate's 342-348, level with the horizontal cornice the band
+carries round). Over it the plate's scaled stone (`spire: "scaled_pyramid"`) leans in from the cap to the
+block's plinth at 11.14 m (its outer edge from x 97 to 104 px against the plate's 98 to 105, its top at
+y 318 against 320), and the gable's eave and rake, which had died into the taller shaft, now die into
+that stone: K01 refuses a block set so far in that the eave's end would leave it. What is invented: the
+scales are five courses, each course's foot 15 mm proud of the one under it, where the plate shows
+imbricated scales whose stones it does not resolve; the stone's top is the block's plinth square and its
+foot the cap's, the plate showing only its outer face. The block itself still stands about 10 px outside
+the plate's die (x about 105 against 115) and is cut as a plinth, die and cornice where the plate steps
+its plinth twice (x 105 and 108).
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
@@ -32111,3 +32124,48 @@ drawing of the house, or a sheet drawing the section's projection.
 **Ticket:** T-3001.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-24 (T-3001).
+
+### L-k01-1812-wheeler-gable-3090 — 1812 Prairie's gable dressed to the Levy and c. 1955 photographs: the grid window's quoins, hood, shelf and dark lights, the shoulder panels, the carved scrolls, the urn finial and the base drawn in
+
+**Decision:** The rest of George H. Wheeler's shaped gable at 1812 Prairie (T-3090, piece 1 of
+T-3035) is built as Albert Levy's photograph and the c. 1955 photograph show it. The grid window's
+lights read as dark openings, between quoined side stones, under a moulded hood with a waved upper
+edge, over a deep moulded shelf; each shoulder block carries a sunk panel; each kneeler's scroll
+has a carved rosette in its eye; the finial is an urn on a carved ball over the apex's plinth; and
+the slab's base draws in from its foot to the kneelers' ledge instead of running out square past
+the side walls. The kit learns this in `shaped_gable`: `lights.glazing: "dark"`, `lights.quoins`,
+`lights.hood` and `lights.shelf`; `shoulders.panel`; `kneelers.scroll.rosette`; `finial.form:
+"urn"`; and `base_ledge_half_m`. Every other K01 house re-emits as before (1625 Prairie's wall
+gable names none of them).
+**What is read, not invented.** Through the two cameras earlier work solved
+(`data/reference_views/wheeler_house_1812_prairie/levy_front.json`, 88.5 px a metre at the front;
+`c1955_front.json`): the quoins about 0.34 m across, one a row each side of the window (Levy x
+397-427 and 567-597 px); the hood just over the window's head, about 14.6-14.75 m, its top rising
+to a crown at the middle and flicking up at each end (y 245-250 px); the shelf from about 13.05 to
+13.33 m and about 1.8 m across, a projecting slab over a band (y 370-395 px); a sunk panel about
+0.23-0.31 m across and 0.1 m high near the top of each shoulder block; a rosette in each scroll's
+eye; the finial's carved block about 0.55 m across from about 16.8 to 17.2 m with a ring over it
+(Levy, which cuts the urn at its foot) and the urn, lid and knob over it to about 1.2 m above the
+head (the c. 1955 photograph); and the print's outline about 3.98 m out from the centre on its
+south side between the scroll and the ledge (x 344-365 px), where the build's base stood 4.47 m out.
+**What is invented.** The quoins' long 0.36 m and short 0.28 m and their 0.03 m proud; the hood's
+0.08 m height, 0.07 m crown, 0.05 m flicks and 0.06 m proud; the shelf's 0.11 m slab 0.12 m proud
+over a 0.17 m band 0.06 m proud; the panels' 0.04 m depth; the rosette's eight petals; the dark
+lights' backing and thin frame (neither print shows what stands in the openings); the finial's
+turned outline (URN_PROFILE in `k01_shaped_gable`), its ball turned plain where both prints show it
+carved, and its 1.1 m, between the two prints' readings; and the base's 4.0 m at the ledge, the
+pinnacles' outer faces, about 0.02 m wider than the south side's reading and wider than the north
+side's (about 3.7 m), which the print reads narrower all the way up.
+**What is built otherwise than read.** The c. 1955 photograph puts the gable's head about 0.2 m
+north of the build's and its south shoulder stone narrower. That offset grows with height, from about
+2 px on the front's features to 9 px at the grid window and about 17 px at the finial, so it is put
+down to that camera's roll above the front it was solved on, and the build stays on Levy's
+near-frontal print (the match record's ruling). The carved block under each scroll in Levy's print
+is read as the rainwater pipe's head, not as part of the console, and is not added to it.
+**How to resolve:** Burnham & Root's drawings for the house, or a closer photograph of the gable,
+would fix the carving, the finial's outline and every depth; a camera for the c. 1955 photograph
+solved with its roll constrained by the gable itself would test the ruling on the head.
+**Ticket:** T-3090 (piece 1 of T-3035).
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`.
+**Recorded:** 2026-10-24 (T-3090).

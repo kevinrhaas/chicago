@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2241, ts: '2026-10-24T03:54:42.842Z', date: 'Oct 23, 2026, 10:54 PM CT', title: '1812 Prairie\'s gable finished to its photographs', kind: 'improvement',
+    items: [
+      'The Wheeler house\'s gable window now reads as nine dark openings between stone quoins, under a moulded hood with a waved top and over a deep stone shelf.',
+      'A carved urn now crowns the gable, and each shoulder stone carries a sunk panel.',
+      'Each scroll under the gable\'s corners has a carved rosette, and the gable\'s base now narrows above the scrolls as the photograph shows.',
+    ] },
+  { v: 2240, ts: '2026-10-24T03:19:13.646Z', date: 'Oct 23, 2026, 10:19 PM CT', title: 'First Presbyterian Church\'s spire rises to its 1887 photograph\'s height', kind: 'improvement',
+    items: [
+      'The 1904 First Presbyterian Church at Indiana Avenue and 21st Street now has a steep gable facing the avenue, replacing the low hipped roof. Its corner tower is brick to about 40 m, and a slender slated spire rises to about 75 m. Before, the whole tower stopped at 27 m.',
+      'The heights come from a photograph of the church taken in 1887 and printed in the congregation\'s 1913 history. The same book dates the building to 1870-1873 and records its last service on 29 December 1912, so the church\'s card now cites it.',
+      'The front\'s rose window, porch and buttresses, and the spire\'s lucarnes, are still plain. They are listed as open differences for the next pass.',
+    ] },
+  { v: 2239, ts: '2026-10-24T03:15:39.407Z', date: 'Oct 23, 2026, 10:15 PM CT', title: '1811 Prairie\'s north pinnacle stops under its block', kind: 'improvement',
+    items: [
+      'The north pinnacle on 1811 Prairie\'s stone gable now stops at a carved band level with the gable\'s cornice, as the 1888 Inland Architect plate draws it, about half a metre lower than before; over the band a scaled stone leans in to the moulded block, and the gable\'s eave dies into it instead of showing beside the shaft.',
+    ] },
   { v: 2238, ts: '2026-10-24T02:31:28.700Z', date: 'Oct 23, 2026, 9:31 PM CT', title: 'Glessner\'s stable roof: the 1887 photograph\'s camera was wrong, not the roof', kind: 'change',
     items: [
       'Nothing you can see changes. An 1887 photograph seemed to show the stable\'s roof a third longer than a 1963 one, because it was being read through a camera fitted to the alley wall. Read through the camera fitted at the stable, its tiles come out at the 5 inches the 1963 surveyors measured.',
