@@ -866,12 +866,19 @@ async function selfTest() {
   check_('the step a caller re-runs late is found, and it is not the last one',
     tailFrom(scene, real) >= 0 && tailFrom(scene, real) < real.steps.length - 1,
     `step ${tailFrom(scene, real) + 1} of ${real.steps.length}`);
-  // T-2747: the built-so-far walk is written from the compiled sidecars, so it sits between
-  // the scene and the jaunts that compile it.
+  // T-3081: entrance aprons follow the compiled sidecars. T-2747's built-so-far
+  // walk then precedes the jaunts and source-use that consume their claims.
+  check_('the scene tail rebuilds entrance aprons before their downstream consumers (T-3081)',
+    (real.steps[tailFrom(scene, real) + 1]?.command ?? []).join(' ').includes('generate_entrances.py'));
   check_('the scene tail rebuilds jaunts before source-use consumes their claims (T-1253, T-2747)',
-    (real.steps[tailFrom(scene, real) + 1]?.command ?? []).join(' ').includes('jaunt_built_so_far.py')
-    && (real.steps[tailFrom(scene, real) + 2]?.command ?? []).join(' ').includes('compile_jaunts.py')
-    && (real.steps[tailFrom(scene, real) + 3]?.command ?? []).join(' ').includes('compile_source_use.py'));
+    (real.steps[tailFrom(scene, real) + 2]?.command ?? []).join(' ').includes('jaunt_built_so_far.py')
+    && (real.steps[tailFrom(scene, real) + 3]?.command ?? []).join(' ').includes('compile_jaunts.py')
+    && (real.steps[tailFrom(scene, real) + 4]?.command ?? []).join(' ').includes('compile_source_use.py'));
+  const woodpile = real.steps.findIndex((st) => (st.command ?? []).includes('tools/generate_woodpiles.py'));
+  check_('woodpiles rebuild after outbuildings and before kept ground (T-3081)',
+    woodpile >= 0
+    && (real.steps[woodpile - 1]?.command ?? []).includes('tools/generate_yard_outbuildings.py')
+    && (real.steps[woodpile + 1]?.command ?? []).includes('tools/generate_kept_ground.py'));
   check_('a name no step runs is refused, not silently skipped', tailFrom('tools/no_such.py', real) === -1);
   check_('a name MANY steps run is refused — the tail has one start', tailFrom('tools/generate_', real) === -1);
   check_('no argument at all is refused', tailFrom('', real) === -1);

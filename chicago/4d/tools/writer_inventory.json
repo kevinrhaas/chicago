@@ -891,11 +891,11 @@
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
     "generate_entrances.py": {
-      "placement": "pending",
+      "placement": "manifest",
       "write_mode": "(bare)",
       "measured": "2026-10-02",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 3s, rewrote data/enclosures/town_entrance_aprons.json byte for byte, changed no committed byte.",
-      "placed": "not yet placed: it reads data/sidecars/1835/ and data/streets/1835.json, and tools/generate_yard_goods.py reads its output (wagon stands on the trodden ground are refused), so its slot is after the sidecar and street writers and before generate_yard_goods.py — to be measured in its own ordering pass (T-1453), not appended blind (T-1984)"
+      "placed": "T-3081: immediately after compile_scene.py, following the sidecar and street writers and before the jaunt, frontage and yard consumers. The ordered native tail rederived 653 doors on 651 buildings and converged without changing the final lap; generate_yard_goods.py consumes the resulting entrance aprons. The earlier clean-tree measurement remains historical."
     },
     "generate_alley_lanes.py": {
       "placement": "pending",
@@ -1057,11 +1057,11 @@
       "placed": "by layer, 2026-10-09 \u2014 reasoned, not derived; beside generate_north_freight.py in the manifest"
     },
     "generate_woodpiles.py": {
-      "placement": "pending",
+      "placement": "manifest",
       "write_mode": "(bare)",
       "measured": "2026-10-02",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 5s, wrote its outputs, changed no committed byte.",
-      "placed": "not yet ordered (T-1959): it reads data/enclosures/town_dooryard_pickets.json, data/flora/plantings/*.json and data/yard/*.json, so its slot is after generate_dooryard_pickets, generate_dooryard_plantings and generate_yard_goods; the manifest's own ordering pass places it"
+      "placed": "T-3081: after generate_yard_outbuildings and before generate_kept_ground, after every current physical obstacle input. The writer uses compiled footprints, exact-phase doorway zones, pickets/plantings, frontage walks, trade goods, wagons and outbuildings, and excludes its own output. The pre-existing repeated scene tail settles wider upstream record changes; no woodpile-to-goods/outbuilding feedback read was found. The measured/finding fields retain the historical clean-tree result."
     },
     "generate_kept_ground.py": {
       "placement": "manifest",

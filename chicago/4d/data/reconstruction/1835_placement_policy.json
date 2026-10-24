@@ -1307,7 +1307,7 @@
         "fronting_no_street": 0,
         "on_the_street_line": 7,
         "setback_m_min": -1.75,
-        "setback_m_max": 39.76
+        "setback_m_max": 42.15
       }
     },
     {
@@ -1791,9 +1791,9 @@
       "family": "T1",
       "street": "lake",
       "class": "principal",
-      "setback_m": 39.76,
+      "setback_m": 42.15,
       "measured": [
-        "stands 39.76 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line"
+        "stands 42.15 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line"
       ],
       "reason": "at the forks, 40 m off Lake's line: the tavern fronts the ferry and the two branches, which is precisely why it stands there."
     },
