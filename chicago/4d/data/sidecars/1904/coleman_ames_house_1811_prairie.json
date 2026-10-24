@@ -158,9 +158,10 @@
       "confidence": "inferred",
       "sources": [
         "inland_architect_1888_10_ames_residence",
-        "chicagology_1811_ames_photo"
+        "chicagology_1811_ames_photo",
+        "habs_kimball_house_il_1077"
       ],
-      "note": "T-3112: the front's north end (K01's low-s end, v 0 to 0.93, where T-3111 put the canted cheek's junction) stands as a pier capped BELOW the bay's cornice, with sky over it, in all three pictures: the 1888 plate through T-2541's camera (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json) caps it at y 475-500 px with a small slate top to y 450 (about 7.3-7.8 m, the slate to 8.4 m), the Chicagology photograph through T-3052's camera (chicagology_photo.json) at y 625-675 px with the slate to y 590 (about 7.1-7.7 m, to 8.1 m), and the 1965 HABS photograph shows the same head across 1801's court (its camera is not good for heights, habs_1965.json). Read at twice the plate's scale, the Chicagology print's head is a narrow dressed band (y 670-681 px, about 7.10-7.22 m, scaled from the cap's top at 89 px/m), one rock-faced course of about 0.3 m, and a moulded cap (y 625-642 px, about 7.52-7.72 m), a fillet over a deep cove, about twice the band's projection, with a pale slate weathering over it rising back toward the bay's cornice; the pier's rock-faced courses run unbroken from its base course to that band, the front's dressed string course (4.8-5.0 m) stopping at it. Built so: the pier in the front's stone on the front's own bed lines less its belts, the band 0.05 m and the cap 0.12 m proud (its lower member a narrower fillet) and both returned on the side wall under the weathering, the weathering slated at 42 degrees from the cap's front edge, and the front's wall head, the moulded cornice and the roof's street and side eaves cut back over the pier to that slope, so nothing of the main roof stands over the cap at the front. What the pictures do not show, the weathering's pitch behind its front edge, how the hipped roof meets it over the north wall, and the cap's return along the north side, is reconstructed (L-k01-1811-north-pier-3112)."
+      "note": "T-3112: the front's north end (K01's low-s end, v 0 to 0.93, where T-3111 put the canted cheek's junction) stands as a pier capped BELOW the bay's cornice, with sky over it, in all three pictures: the 1888 plate through T-2541's camera (data/reference_views/coleman_ames_house_1811_prairie/inland_architect_plate.json) caps it at y 475-500 px with a small slate top to y 450 (about 7.3-7.8 m, the slate to 8.4 m), the Chicagology photograph through T-3052's camera (chicagology_photo.json) at y 625-675 px with the slate to y 590 (about 7.1-7.7 m, to 8.1 m), and the 1965 HABS photograph (habs_kimball_house_il_1077, its LoC photograph of 1801 Prairie) shows the same head across 1801's court (its camera is not good for heights, habs_1965.json). Read at twice the plate's scale, the Chicagology print's head is a narrow dressed band (y 670-681 px, about 7.10-7.22 m, scaled from the cap's top at 89 px/m), one rock-faced course of about 0.3 m, and a moulded cap (y 625-642 px, about 7.52-7.72 m), a fillet over a deep cove, about twice the band's projection, with a pale slate weathering over it rising back toward the bay's cornice; the pier's rock-faced courses run unbroken from its base course to that band, the front's dressed string course (4.8-5.0 m) stopping at it. Built so: the pier in the front's stone on the front's own bed lines less its belts, the band 0.05 m and the cap 0.12 m proud (its lower member a narrower fillet) and both returned on the side wall under the weathering, the weathering slated at 42 degrees from the cap's front edge, and the front's wall head, the moulded cornice and the roof's street and side eaves cut back over the pier to that slope, so nothing of the main roof stands over the cap at the front. What the pictures do not show, the weathering's pitch behind its front edge, how the hipped roof meets it over the north wall, and the cap's return along the north side, is reconstructed (L-k01-1811-north-pier-3112)."
     },
     "street_front_trim": {
       "value": {
@@ -673,12 +674,6 @@
         "ends_at": "grade_with_splash_stone",
         "front_pipes": [
           {
-            "s_m": 0.93,
-            "head_m": 7.0,
-            "foot_m": 0.0,
-            "proud_m": 0.0
-          },
-          {
             "s_m": 5.99,
             "on": "return",
             "head_m": 7.85,
@@ -690,6 +685,12 @@
             "head_m": 7.85,
             "foot_m": 0.0,
             "proud_m": -0.368
+          },
+          {
+            "s_m": 0.93,
+            "head_m": 7.0,
+            "foot_m": 0.0,
+            "proud_m": 0.0
           }
         ]
       },
@@ -951,6 +952,21 @@
         "colour: the print is monochrome",
         "a date: undated, after 1886",
         "the north flank and the rear"
+      ]
+    },
+    {
+      "source_id": "habs_kimball_house_il_1077",
+      "citation": "Historic American Buildings Survey. W. W. Kimball House, 1801 South Prairie Avenue, Chicago, Cook County, IL. HABS IL-1077 (HABS ILL,16-CHIG,75-). Documentation compiled after 1933; historians Wesley Shank and Leland Roth. Washington, D.C.: Library of Congress, Prints and Photographs Division.",
+      "url": "https://www.loc.gov/item/il0136/",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "that the Kimball House at 1801 South Prairie Avenue was designed by Solon S. Beman for the founder of the Kimball Piano Company, and that it is one of the few residences of the avenue still standing when the survey was made"
+      ],
+      "what_it_does_not_supply": [
+        "A CONSTRUCTION DATE. This record was opened specifically to date the house and it carries no `Building/structure dates` note and no date in its significance statement.",
+        "any position, footprint or dimension; nothing is traced from it"
       ]
     },
     {

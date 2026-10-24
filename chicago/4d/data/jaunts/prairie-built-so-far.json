@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 244263945,
+  "content_version": 375201381,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -67,7 +67,7 @@
         "kind": "structure",
         "id": "house_1736_prairie"
       },
-      "text": "1736 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Wheeler House, 1812 Prairie.",
+      "text": "1736 Prairie. DETAIL 4/5: a kit build matched to its picture; 1 solved picture, 1 matching. Pictured: a picture on the Images tab shows it. Next: Coleman-Ames House, 1811 Prairie.",
       "read_s": 13,
       "evidence": [
         "stood-3",
@@ -86,54 +86,12 @@
       "id": "stop-4",
       "destination": {
         "kind": "structure",
-        "id": "wheeler_house_1812_prairie"
-      },
-      "text": "Wheeler House, 1812 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Henderson House, 1816 Prairie.",
-      "read_s": 16,
-      "evidence": [
-        "stood-4",
-        "tour"
-      ],
-      "links": [
-        {
-          "kind": "structure",
-          "id": "wheeler_house_1812_prairie",
-          "label": "About this building"
-        }
-      ],
-      "next": "stop-5"
-    },
-    {
-      "id": "stop-5",
-      "destination": {
-        "kind": "structure",
-        "id": "henderson_house_1816_prairie"
-      },
-      "text": "Henderson House, 1816 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Coleman-Ames House, 1811 Prairie.",
-      "read_s": 16,
-      "evidence": [
-        "stood-5",
-        "tour"
-      ],
-      "links": [
-        {
-          "kind": "structure",
-          "id": "henderson_house_1816_prairie",
-          "label": "About this building"
-        }
-      ],
-      "next": "stop-6"
-    },
-    {
-      "id": "stop-6",
-      "destination": {
-        "kind": "structure",
         "id": "coleman_ames_house_1811_prairie"
       },
-      "text": "Coleman-Ames House, 1811 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 4 solved pictures, 0 matching. Pictured: 4 of the pictures on the Images tab show it. Next: W. W. Kimball House, 1801 Prairie.",
-      "read_s": 16,
+      "text": "Coleman-Ames House, 1811 Prairie. DETAIL 4/5: a kit build matched to its picture; 4 solved pictures, 1 matching. Pictured: 4 of the pictures on the Images tab show it. Next: W. W. Kimball House, 1801 Prairie.",
+      "read_s": 15,
       "evidence": [
-        "stood-6",
+        "stood-4",
         "tour"
       ],
       "links": [
@@ -143,18 +101,18 @@
           "label": "About this building"
         }
       ],
-      "next": "stop-7"
+      "next": "stop-5"
     },
     {
-      "id": "stop-7",
+      "id": "stop-5",
       "destination": {
         "kind": "structure",
         "id": "kimball_house_1801_prairie"
       },
-      "text": "W. W. Kimball House, 1801 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 9 of the pictures on the Images tab show it. Next: 1726 Prairie.",
+      "text": "W. W. Kimball House, 1801 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 9 of the pictures on the Images tab show it. Next: Henderson House, 1816 Prairie.",
       "read_s": 16,
       "evidence": [
-        "stood-7",
+        "stood-5",
         "tour"
       ],
       "links": [
@@ -164,16 +122,58 @@
           "label": "About this building"
         }
       ],
+      "next": "stop-6"
+    },
+    {
+      "id": "stop-6",
+      "destination": {
+        "kind": "structure",
+        "id": "henderson_house_1816_prairie"
+      },
+      "text": "Henderson House, 1816 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Wheeler House, 1812 Prairie.",
+      "read_s": 16,
+      "evidence": [
+        "stood-6",
+        "tour"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "henderson_house_1816_prairie",
+          "label": "About this building"
+        }
+      ],
+      "next": "stop-7"
+    },
+    {
+      "id": "stop-7",
+      "destination": {
+        "kind": "structure",
+        "id": "wheeler_house_1812_prairie"
+      },
+      "text": "Wheeler House, 1812 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Wheeler coach house, 1812 Prairie.",
+      "read_s": 16,
+      "evidence": [
+        "stood-7",
+        "tour"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "wheeler_house_1812_prairie",
+          "label": "About this building"
+        }
+      ],
       "next": "stop-8"
     },
     {
       "id": "stop-8",
       "destination": {
         "kind": "structure",
-        "id": "house_1726_prairie"
+        "id": "wheeler_house_1812_prairie_coach_house"
       },
-      "text": "1726 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1730 Prairie.",
-      "read_s": 12,
+      "text": "Wheeler coach house, 1812 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Coach house, 1736 Prairie.",
+      "read_s": 14,
       "evidence": [
         "stood-8",
         "tour"
@@ -181,7 +181,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1726_prairie",
+          "id": "wheeler_house_1812_prairie_coach_house",
           "label": "About this building"
         }
       ],
@@ -191,33 +191,12 @@
       "id": "stop-9",
       "destination": {
         "kind": "structure",
-        "id": "house_1730_prairie"
-      },
-      "text": "1730 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: Coach house, 1736 Prairie.",
-      "read_s": 11,
-      "evidence": [
-        "stood-9",
-        "tour"
-      ],
-      "links": [
-        {
-          "kind": "structure",
-          "id": "house_1730_prairie",
-          "label": "About this building"
-        }
-      ],
-      "next": "stop-10"
-    },
-    {
-      "id": "stop-10",
-      "destination": {
-        "kind": "structure",
         "id": "house_1736_prairie_coach_house"
       },
-      "text": "Coach house, 1736 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: Wheeler coach house, 1812 Prairie.",
-      "read_s": 14,
+      "text": "Coach house, 1736 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1730 Prairie.",
+      "read_s": 13,
       "evidence": [
-        "stood-10",
+        "stood-9",
         "tour"
       ],
       "links": [
@@ -227,16 +206,37 @@
           "label": "About this building"
         }
       ],
+      "next": "stop-10"
+    },
+    {
+      "id": "stop-10",
+      "destination": {
+        "kind": "structure",
+        "id": "house_1730_prairie"
+      },
+      "text": "1730 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: 1726 Prairie.",
+      "read_s": 10,
+      "evidence": [
+        "stood-10",
+        "tour"
+      ],
+      "links": [
+        {
+          "kind": "structure",
+          "id": "house_1730_prairie",
+          "label": "About this building"
+        }
+      ],
       "next": "stop-11"
     },
     {
       "id": "stop-11",
       "destination": {
         "kind": "structure",
-        "id": "wheeler_house_1812_prairie_coach_house"
+        "id": "house_1726_prairie"
       },
-      "text": "Wheeler coach house, 1812 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: walk on to the 1600-1638 Prairie area, starting at Shortall-Gregory House, 1638 Prairie.",
-      "read_s": 18,
+      "text": "1726 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: walk on to the 1600-1638 Prairie area, starting at Shortall-Gregory House, 1638 Prairie.",
+      "read_s": 17,
       "evidence": [
         "stood-11",
         "tour"
@@ -244,7 +244,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "wheeler_house_1812_prairie_coach_house",
+          "id": "house_1726_prairie",
           "label": "About this building"
         }
       ],
@@ -790,25 +790,6 @@
     },
     {
       "id": "stood-4",
-      "text": "Wheeler House, 1812 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_28",
-        "levy_1812_prairie_photo"
-      ],
-      "confidence": "inferred",
-      "reasoning": "Built for George H. Wheeler on the Real Estate and Building Journal's permit of June 7, 1884 ('3-story dwelling, 30x80', the Prairie library's npo-1812-rebj-1884-06-07-wheeler-dwelling-permit), photographed by Albert Levy c. 1885-1900 and drawn on the 1911 sheet ('3B'); the T-1841 census rules it present in 1904 (present_as_mapped). The range claims the 1904 target and the sheet's date and no more."
-    },
-    {
-      "id": "stood-5",
-      "text": "Henderson House, 1816 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_28"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the photograph (after 1873) shows the same plan. Its building and loss dates are not read here."
-    },
-    {
-      "id": "stood-6",
       "text": "Coleman-Ames House, 1811 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -817,7 +798,7 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1841 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-7",
+      "id": "stood-5",
       "text": "W. W. Kimball House, 1801 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
@@ -827,25 +808,35 @@
       "reasoning": "The record claims the 1904 target and no more: the 1911 sheet draws the building ('3B', stone) and the T-1841 census rules it present in 1904 (present_as_mapped); J. W. Taylor's photograph shows it standing about 1895. Its building and loss dates are the finishing ticket's to read (T-1890)."
     },
     {
-      "id": "stood-8",
-      "text": "1726 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "id": "stood-6",
+      "text": "Henderson House, 1816 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
+        "sanborn_1911_chicago_v3_sheet_28"
       ],
       "confidence": "inferred",
-      "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+      "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the photograph (after 1873) shows the same plan. Its building and loss dates are not read here."
+    },
+    {
+      "id": "stood-7",
+      "text": "Wheeler House, 1812 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28",
+        "levy_1812_prairie_photo"
+      ],
+      "confidence": "inferred",
+      "reasoning": "Built for George H. Wheeler on the Real Estate and Building Journal's permit of June 7, 1884 ('3-story dwelling, 30x80', the Prairie library's npo-1812-rebj-1884-06-07-wheeler-dwelling-permit), photographed by Albert Levy c. 1885-1900 and drawn on the 1911 sheet ('3B'); the T-1841 census rules it present in 1904 (present_as_mapped). The range claims the 1904 target and the sheet's date and no more."
+    },
+    {
+      "id": "stood-8",
+      "text": "Wheeler coach house, 1812 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "confidence": "inferred",
+      "reasoning": "STANDING IN 1904 is what the scene needs, and it rests on sheet 28 of the 1911 Sanborn carried back seven years, the reading the Glessner and 1808 records and the T-1841 sheet census make of this sheet. FROM: the T-1837 building register dates the Wheeler house 1884, and the stable is read as built with it; the register is not a source record here and nothing dates the stable itself, so the day is the 1st of January and the confidence inferred. TO: the last day of the year the sheet was published, the latest date anything here shows the building standing; it is not a demolition date."
     },
     {
       "id": "stood-9",
-      "text": "1730 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
-    },
-    {
-      "id": "stood-10",
       "text": "Coach house, 1736 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -854,13 +845,22 @@
       "reasoning": "STANDING IN 1904 rests on the 1911 sheet carried back seven years, as every building on sheets 20, 28 and 35 is read (the T-1840 census rules it present_as_mapped, census row s20-1736-r1). FROM: nothing read here dates the building, so the record claims the 1904 target and no earlier day; the house was built in 1864 or 1875 (house_1736_prairie.built) and its stable is not dated with it. TO: the last day of the year the sheet was published, the latest date anything here shows it standing; it is not a demolition date."
     },
     {
-      "id": "stood-11",
-      "text": "Wheeler coach house, 1812 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "id": "stood-10",
+      "text": "1730 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_28"
+        "sanborn_1911_chicago_v3_sheet_20"
       ],
       "confidence": "inferred",
-      "reasoning": "STANDING IN 1904 is what the scene needs, and it rests on sheet 28 of the 1911 Sanborn carried back seven years, the reading the Glessner and 1808 records and the T-1841 sheet census make of this sheet. FROM: the T-1837 building register dates the Wheeler house 1884, and the stable is read as built with it; the register is not a source record here and nothing dates the stable itself, so the day is the 1st of January and the confidence inferred. TO: the last day of the year the sheet was published, the latest date anything here shows the building standing; it is not a demolition date."
+      "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+    },
+    {
+      "id": "stood-11",
+      "text": "1726 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
       "id": "stood-12",

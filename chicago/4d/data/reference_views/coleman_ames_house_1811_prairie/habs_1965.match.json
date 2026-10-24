@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "habs_1965",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "1dbaa270fc6990e5a338e5c5e80cd9981a9a94be88969b02ab531ada5d139323",
+  "glb_sha256": "122009185e1fb8b8b813663c14f7d8272c0eb2d4abdc8786b031f7dbc34c32ff",
   "camera_sha256": "1cd3bf150e1c86a593fc2572230fc9c98ea543c39bf5f82d55056b8d841bf8be",
   "photo_sha256": "7ace480beb382d33473f7870395255bbfce13ab703b6df4b0b8506c08df50254",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "1dbaa270fc6990e5a338e5c5e80cd9981a9a94be88969b02ab531ada5d139323"
+      "glb_sha256": "122009185e1fb8b8b813663c14f7d8272c0eb2d4abdc8786b031f7dbc34c32ff"
     },
     {
       "structure_id": "kimball_house_1801_prairie",
@@ -45,7 +45,7 @@
       "glb_sha256": "708b1963346ac353892d09f35ada43e7a56bffe99ce84716f00d0717d6ebff1e"
     }
   ],
-  "group_sha256": "c8c8daba26739077a41de1215c3370e174b4ab7a17ce2a995fa3041fa6f906bc",
+  "group_sha256": "73eb80e4b5643eff76eba63e36303f3b40e38943d0e4f29ca0fe71d24120abdf",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/habs_1965-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
