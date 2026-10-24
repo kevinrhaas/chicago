@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "51d279cdb3e1dcd779d15ac55a53d31d1b794d96c376342bf0b1a858f7e99f4d",
+  "glb_sha256": "e23e7bf26051fa679debf69afd76f43a9827179a915179818bc10eb0d90fcbe9",
   "camera_sha256": "8f67a67f5a407ad30522085a1ab67f9c29ddc0bae6ceb1a979db9ea1accdc2b4",
   "photo_sha256": "e55aede801c2193a857746efb4545fe97c995e697344b7e68ead1f06a4b7c7fe",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/inland_architect_plate-side-by-side.jpg",
@@ -139,8 +139,8 @@
     },
     {
       "what": "the north pinnacle's shaft and cap: the plate's shaft stops at a band about y 342 px with a scaled pyramid over it to about y 320, under the block; K01 carries an engaged shaft past the face's eave (to 11.10 m), so the build's cap and plain pyramid stand about 20 px higher (y 317-325) and the pyramid is not scaled (T-3064)",
-      "status": "open",
-      "how": ""
+      "status": "fixed",
+      "how": "T-3064: K01 lets a shaft under a block stop below the face's eave: the north shaft rises to 10.58 m and its cap, the plate's band, lands at y 339-346 px against the plate's 342-348, level with the horizontal cornice; over it a scaled stone (five courses, each foot 15 mm proud) leans in from the cap to the block's plinth, its outer edge x 97-104 px against the plate's 98-105 and its top at y 318 against 320, so the gable's eave and rake die into it under the block as the plate's do. The block still stands about 10 px outside the plate's die (x about 105 against 115), and the plate steps its plinth twice (x 105 and 108) where the build cuts one plinth"
     },
     {
       "what": "the stacks: the plate's tall stack with its corbelled cap on the south gable and the range's second stack (x about 545 px); the build's two plain stacks stand behind the ridge where this camera does not see them",

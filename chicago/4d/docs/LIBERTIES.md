@@ -29250,6 +29250,19 @@ the block's inward place is read as such, though the plate's offset (about 16 px
 by a block about 0.4 m behind the shaft; and the north shaft stands to 11.10 m, past the face's eave
 as K01 holds every engaged shaft, about 0.4 m over the plate's (its cap about 20 px high). The rear
 fall of the south gable is T-3063.
+**Revised:** 2026-10-24 (T-3064). The north shaft stops under its block, as the plate draws it: a
+shaft under a block may now stop below the face's eave (`pinnacles.heads[].top_m` at or under
+`face_height_m`, the block required), so the shaft rises to 10.58 m and its cap, the plate's band, stands
+at 10.58-10.68 m (y 339-346 px against the plate's 342-348, level with the horizontal cornice the band
+carries round). Over it the plate's scaled stone (`spire: "scaled_pyramid"`) leans in from the cap to the
+block's plinth at 11.14 m (its outer edge from x 97 to 104 px against the plate's 98 to 105, its top at
+y 318 against 320), and the gable's eave and rake, which had died into the taller shaft, now die into
+that stone: K01 refuses a block set so far in that the eave's end would leave it. What is invented: the
+scales are five courses, each course's foot 15 mm proud of the one under it, where the plate shows
+imbricated scales whose stones it does not resolve; the stone's top is the block's plinth square and its
+foot the cap's, the plate showing only its outer face. The block itself still stands about 10 px outside
+the plate's die (x about 105 against 115) and is cut as a plinth, die and cornice where the plate steps
+its plinth twice (x 105 and 108).
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
