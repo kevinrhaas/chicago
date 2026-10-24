@@ -29263,6 +29263,17 @@ imbricated scales whose stones it does not resolve; the stone's top is the block
 foot the cap's, the plate showing only its outer face. The block itself still stands about 10 px outside
 the plate's die (x about 105 against 115) and is cut as a plinth, die and cornice where the plate steps
 its plinth twice (x 105 and 108).
+**Revised:** 2026-10-24 (T-3100, piece 1 of T-3052, of T-2920; T-3079). The bay's balustrade is pierced. The
+Chicagology photograph (`chicagology_1811_ames_photo`), a second negative at about twice the plate's
+scale, shows its front run as one continuous pierced panel of interlaced fretwork between plain end
+blocks, its openings about 0.25 m apart in two rows; the close-set bars at 0.12 m are replaced by K08's
+pierced stone panel (T-2930), one panel a run, a diagonal lattice of 0.05 m straps at 0.24 m with two
+diamonds to its height. What that build invents: the lattice for the interlace (its loops are not
+carved; the diamonds carry its pierced light and shade at its spacing), the straps' 0.05 m, and the
+same pattern on the canted runs, which the photograph sees only edge-on. The photograph's camera was
+solved on its own (`data/reference_views/coleman_ames_house_1811_prairie/chicagology_photo.json`) and
+agrees with T-2541's near camera on the plate; the south flank it shows, shorter than the 1911 sheet's,
+is not built from it (both pictures are of about 1888): T-3099 holds that question.
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
@@ -32283,3 +32294,29 @@ fix the small window's design, the lattices and the carving.
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`,
 `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`.
 **Recorded:** 2026-10-24 (T-3091).
+
+### L-kimball-1801-upper-lights-3097 — 1801 Prairie's second-storey lights re-read under the raised cornice; the 18th Street flank's round-headed pair
+
+**Decision:** the second storey's lights are re-read off J. W. Taylor's c. 1895 photograph
+(`taylor_c1895_kimball_residence_1801`) through T-3074's camera, each on its own wall's plane.
+**What is read, not invented.** The light over the loggia on the avenue front opens at y 634-766 px
+(7.76 to 5.48 m) and its fellow on the 18th Street flank at y 637-772 (7.69 to 5.37 m), so the
+storey's lights stand 0.4 m over the 5.0 m floor and are 2.3 m tall (they stood 5.6-7.4 m, about
+20 px under the print's once T-3002 raised the cornice). The flank's light stands at u 18.67, off
+the side arch's axis, where the print puts it. Between the tower and that light the print's
+second storey has two round-headed lights on a narrow pier (x 760-822 px; about 0.76 m each,
+sills about 6.1 m, crowns about 7.77 m) and plain ashlar under them, where the build laid one sash
+a storey: they are built so, round-headed in the coursing under no flat arch.
+**What is invented.** Both lights over the loggia show a transom bar, so the house's sash is K06's
+one-over-one under a fixed transom, and that sash is carried to every K01 sash of the house,
+including the north and rear walls the print does not show. Its transom light is the kit's 0.45 m,
+where the print's bar stands about 0.75-1.0 m under the head. The round-headed pair is K06's
+fixed round-headed plate light. The print draws a bar near each one's spring, and that bar is not
+built. The lights stay 1.15 m wide (K01's widest ordinary sash) where the print's outlines read
+about 1.2 m once the reveal is taken off. Their moulded frames and carved pilasters are not built.
+**How to resolve:** a sharper print of the flank, T-3003's 1929 and HABS photographs, or a plan
+or elevation of the house.
+**Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.window_kit`
+**Ticket:** T-3097.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-24 (T-3097).
