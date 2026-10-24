@@ -167,9 +167,26 @@ jobs:
       #      runner-hour, not the owner's switch dying silently.
       # The pack itself (1.31 GiB of superseded GLB masters) remains the root
       # cause; T-0232 item 4 scopes the cure.
+      #
+      # T-3098 — THIS checkout IS a partial clone, though, and it has to be. The
+      # pack is 11.57 GiB now, not 1.31, and an unfiltered `fetch-depth: 0` is
+      # nearly all of this job: on 2026-10-24 its checkout took 1m58s-3m08s on
+      # the runs that finished (every step after it took about two seconds),
+      # and it ran out the 5-minute cap on dev (03:13, 03:51), on #1261 (03:25)
+      # and twice on #1264's head (04:23, 04:29). A cancelled `warranted` is a
+      # red check, so it refused those merges while ruling on nothing.
+      # `filter: blob:none` still fetches every commit and tree, so the
+      # three-dot diff, the merge base and `git show origin/dev:<workflow>` all
+      # work as before. Blobs arrive on demand, and nearly all of them come once,
+      # for HEAD's working tree (2.2 GiB). Measured on a partial clone of dev:
+      # the clone took 1.6 s, the checkout 58 s, the materialize and both
+      # `--decide` screens gave the same verdicts as a full clone, and nothing
+      # more was fetched after the checkout. This is the native checkout with
+      # one input added, not the T-0232 clone script, so the ruling above stands.
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          filter: blob:none
       # The second screen below reads the generators' own input-hash recipe. It
       # needs no third-party package — that is measured, and it is why this gate
       # is still a five-minute job — but it should read it under the same Python
