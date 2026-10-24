@@ -4454,8 +4454,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             sp_, sd_ = float(st_.get("cap_proud_m", cap_p)), float(st_.get("cap_depth_m", cap_d))
             if not 0.0 <= sp_ <= 0.4 or not 0.05 <= sd_ <= 0.8:
                 raise ParamError(f"chimney at ({u}, {v}): its cap stands 0-0.4 m proud and 0.05-0.8 m deep")
+            # T-3003: a stack may be laid in the house's own stone rather than brick, as 1801's
+            # two tall south stacks are in HABS photograph 1 (pale ashlar to the cap, the walls' tone)
+            fab = st_.get("fabric", "brick")
+            if fab not in ("brick", "stone"):
+                raise ParamError(f"chimney at ({u}, {v}): fabric is 'brick' or 'stone', not {fab!r}")
+            if fab == "stone" and not val("stone_front"):
+                raise ParamError(f"chimney at ({u}, {v}): a stone stack stands on a house with a stone front")
             chimneys.append({"u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": top, "base_m": base,
-                             "cap_proud_m": sp_, "cap_depth_m": sd_})
+                             "cap_proud_m": sp_, "cap_depth_m": sd_, "stone": fab == "stone"})
     elif ch and (flat or mansard or gable):
         raise ParamError(f"a {roof_form} K01 roof takes T-2302's plain stacks: K15's draught rule "
                          "reads a hip's covering")

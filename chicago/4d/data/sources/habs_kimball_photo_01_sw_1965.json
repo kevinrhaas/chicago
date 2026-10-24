@@ -1,0 +1,27 @@
+{
+ "id": "habs_kimball_photo_01_sw_1965",
+ "type": "photograph",
+ "citation": "Harold Allen for HABS, 'View: west (Prairie Ave.) and south (court) elevations', W. W. Kimball House, 1801 South Prairie Avenue, Chicago, June 1965. HABS IL-1077 photograph 1 of 3 (call number HABS ILL,16-CHIG,75--1). Library of Congress.",
+ "author": "Harold Allen (HABS)",
+ "date": "1965-06",
+ "describes_date": "1965",
+ "repository": "Library of Congress, Prints and Photographs Division (HABS). Master TIFF 580872pu.tif (5292 x 4008 px, sha256 bfd62a769a55c88ac3a571b34067363e670d068e2c4df3c50cd5d327130f9304); 1800 px web copy committed at chicago/prairie_1904_v1/research/public/kimball-habs-photo-01.jpg (Prairie library a18-kimball-habs-photo-01).",
+ "url": "https://www.loc.gov/pictures/item/il0136.photos.580872p/",
+ "locator": "The whole plate, from above the west side of Prairie Avenue south-west of the house: the front's south end and the south wall toward the court, its roof and stacks, the rear range behind it and, at the right edge, 1811's brownstone north wall.",
+ "tier": 1,
+ "rights_status": "no_known_restrictions",
+ "rights_note": "Made for HABS (U.S. Government); LOC: no known restrictions. Measurements only; nothing derived as an asset.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read 2026-10-24 (T-3107) from the LOC master TIFF, reduced to 1800 px; camera solved in data/reference_views/kimball_house_1801_prairie/habs_1965_01_southwest.json. The copy is not mirrored: the NO PARKING sign on the court fence reads true.",
+ "note": "A 1965 photograph: evidence of the house as it stood that June, carried to 1904 only for fabric the Taylor photograph of c. 1895 or the 1911 sheet does not contradict (the house was built 1890-92 and the survey describes its exterior as substantially as built). It is the only picture known to this project of the south wall: two tall stone stacks rising from the main cornice, a hooded dormer between them, a two-storey round bay at the south-west corner under a pierced balcony, a canted bay toward the east end and a recessed range behind it, and a pinnacle at the roof's south-east corner.",
+ "what_it_supplies": [
+  "the two south stacks' positions along the wall, their size and their heights, through the solved camera",
+  "the stacks' fabric: pale ashlar the walls' tone, not brick",
+  "the south wall's round south-west corner bay, its canted bay and its dormers, for the pieces after T-3107"
+ ],
+ "what_it_does_not_supply": [
+  "the 1904 state of anything altered between 1904 and 1965",
+  "the stacks' depth into the roof, or the deck behind the cresting"
+ ]
+}
