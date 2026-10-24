@@ -5831,3 +5831,9 @@ T-3081 gate repair: keep Cobweb's chosen 5.05 m chimney heads reconstructed, ref
 T-3081 current native checkpoint: the all-family export redo and 202-step manifest integration are complete; the affected 61-step native tail settles without changing lodging identities. Finish the full preflight, published five-building/source review and applicable mobile/desktop smoke gates before merging the visible increment. Original image-match cases remain open.
 
 T-3081 full preflight 02 passes (1,060 checks); finish published app/source comparisons and the complete applicable mobile/desktop smoke coverage before dev merge.
+
+T-3081: actual mobile/desktop stored-position body verification passes. Repeat full preflight and current-head published smoke coverage. Keep the original five picture cases open: all latest photo comparisons still differ.
+
+T-3081 latest integration: dev 67bd69e9 is composed normally; the native tail and full dataset/staleness check pass. Complete full preflight 04 and current-head hosted mobile/desktop smoke coverage before merge. Original picture tickets remain open.
+
+T-3081 full preflight 04 passes (1,061 checks, 383 self-tests). Finish latest-dev reconciliation and complete published mobile/desktop smokes before merge.

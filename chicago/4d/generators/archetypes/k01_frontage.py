@@ -887,7 +887,20 @@ class Assembly:
         hv0, hv1 = w["host_v_m"]
         v0 = w["rect"][2]
         on_host = [(max(hv0, v0) - v0, min(hv1, w["rect"][3]) - v0, 0.0, w["top_m"])]
-        for side, (O, R, length) in wing_walls(w).items():
+        walls = wing_walls(w)
+        # T-3001: a wing standing taller than its host under a ridge along it (1801's gabled
+        # section, three storeys on a host whose cornice is at 8.3 m) has a front where it
+        # rises past the host's top: its roof's end comes down to the eave there, so the
+        # cut in the host plane closes no more than the eave box, and the wall under it is
+        # this wing's own, from the host's top to its wall top
+        host = next((x for x in p.rear_wings if w["host_wall"] == f"k01.wall.wing.{x['id']}.rear"), None)
+        host_top = p.eave_m if host is None else host["top_m"]
+        if "front" not in walls and w["roof"]["kind"] != "flat" and w["roof"]["axis"] == "v" \
+                and w["top_m"] > host_top + 1e-6:
+            u1, v1 = w["rect"][1], w["rect"][3]
+            walls["front"] = ((u1, 0.0, -v0), (0.0, 0.0, -1.0), v1 - v0)
+            on_host = [(0.0, v1 - v0, 0.0, host_top)]
+        for side, (O, R, length) in walls.items():
             cid = f"k01.wall.wing.{w['id']}.{side}"
             ops = [o for o in w["openings"] if o.wall == cid]
             # T-2842: and where a K08 tower stands on it, from grade to the wing's wall top
@@ -3074,7 +3087,9 @@ class Assembly:
         out = []
         for b in self.p.bays:
             v = b["variant"]
-            if not v.get("shallow"):
+            # T-3001: a shallow pavilion on a rear wing's wall (1801's gabled section) stands
+            # clear of the main roof, so there is nothing of the mansard's to cut for it
+            if not v.get("shallow") or b.get("wing"):
                 continue
             top = math.fsum(float(st["height_m"]) for st in v["storeys"])
             if b["wall"] != "k01.wall.street_front" or not self.p.mansard or top <= self.p.eave_m + 1e-6:

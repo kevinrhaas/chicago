@@ -10439,6 +10439,8 @@ for (const [label, viewport, touch] of [
           id,
           size: box.size,
           wallHeight: attrs.wall_height_m?.value ?? null,
+          body: box.body ?? null,
+          declaredAppendage: attrs.sign_pole_set_out?.value != null,
           footprint: [attrs.footprint_w_m?.value ?? null, attrs.footprint_d_m?.value ?? null],
         });
       }
@@ -10575,11 +10577,13 @@ for (const [label, viewport, touch] of [
     // Where a record states a wall height, the render has to honour it. This is
     // the provenance check hiding inside the scale check: a documented number
     // that the geometry ignores is a claim the walkthrough cannot support.
-    const claimed = scale.perStructure.filter((s) => typeof s.wallHeight === 'number');
+    const claimed = scale.perStructure.filter((s) => typeof s.wallHeight === 'number' || s.declaredAppendage);
     const offClaim = claimed.filter((s) => {
-      // The box includes the roof, so height must be at least the walls and at
-      // most the walls plus a steep roof and a chimney.
-      const h = s.size[1];
+      // Full bounds still drive every size/clamp/placement guard above. A declared
+      // exterior sign needs a valid stored-position body readback, including its
+      // roof and chimney; its tall pole does not state a wall height.
+      if (s.declaredAppendage && !s.body?.valid) return true;
+      const h = s.declaredAppendage ? s.body.size[1] : s.size[1];
       return h < s.wallHeight * 0.9 || h > s.wallHeight * 2.6 + 3;
     });
     check(`${label}: rendered height matches the documented wall height`,
@@ -10587,8 +10591,9 @@ for (const [label, viewport, touch] of [
       claimed.length === 0
         ? 'no structure carried a wall_height_m to check against'
         : offClaim.length
-          ? offClaim.slice(0, 5).map((s) => `${s.id} rendered ${s.size[1].toFixed(1)} m `
-            + `against a documented ${s.wallHeight} m wall`).join('; ')
+          ? offClaim.slice(0, 5).map((s) => `${s.id} rendered ${(s.declaredAppendage ? s.body?.size?.[1] : s.size[1])?.toFixed(1)} m `
+            + `against a documented ${s.wallHeight} m wall`
+            + (s.declaredAppendage && !s.body?.valid ? ` (${s.body?.errors?.join('; ') ?? 'missing body readback'})` : '')).join('; ')
           : `${claimed.length} structures agree with their documented wall height`);
 
     inStageWork = false;

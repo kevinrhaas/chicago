@@ -263,9 +263,10 @@ def main() -> int:
              "west_block": {"kind": "hip", "pitch_deg": 45, "covering": "slate_vermont"}}, "two slates on one house")
 
     # as-was: every committed K01 wing is still decked flat in tin, no wing slate laid, but
-    # those a building's own ticket roofs from its picture (T-2843: 1801's, the Taylor photograph)
+    # those a building's own ticket roofs from its picture (T-2843: 1801's, the Taylor photograph;
+    # T-3001: and r3b, the part of the sheet's rectangle the print shows at the east range's height)
     import k01_emit
-    pictured = {"kimball_house_1801_prairie": {"r3", "r2"}}
+    pictured = {"kimball_house_1801_prairie": {"r3", "r3b", "r2"}}
     n = 0
     for st, phase, _ in k01_emit.records():
         for w in (phase["form"].get("rear_wings") or {}).get("value", ()):
