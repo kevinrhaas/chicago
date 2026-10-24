@@ -76,6 +76,10 @@ PIPE_SIDE = 0.16            # a 6-in pipe, drawn square at this LOD
 BRICK = materials.chimney_finish("interior")
 BRICK_RGBA = BRICK.rgba
 ROOF_MOSS_RGBA = (0.20, 0.26, 0.17, 1.0)   # the Petford view's dark green/moss shingle
+# T-2385: source-specific reconstructed contrast, never a shared stock retune.
+# The actual native roof-only trial selected one quarter of the stock linear RGB;
+# alpha, roughness, roof geometry and every unselected record remain unchanged.
+ROOF_DEEP_BROWN_RGBA = tuple(c * 0.25 for c in materials.roof_finish("darkened").rgba[:3]) + (1.0,)
 
 # The exposed face per course is `params.siding_exposure_m` — a record's own mill
 # stock since T-0049, defaulting to 0.14 m (~5.5 in), which was a constant here.
@@ -219,7 +223,8 @@ def build(params: FrameTavernParams, name: str):
     # the town's default tone where it does not; neither claims a covering.
     # The explicit reconstructed dark_brown option reuses stock solely for
     # monochrome contrast, without extending the watercolour's colour evidence.
-    roof_rgba = (ROOF_MOSS_RGBA if params.roof_colour == "moss_green"
+    roof_rgba = (ROOF_DEEP_BROWN_RGBA if params.roof_colour == "deep_brown"
+                 else ROOF_MOSS_RGBA if params.roof_colour == "moss_green"
                  else materials.roof_finish("darkened").rgba
                  if params.roof_colour == "dark_brown"
                  else materials.roof_finish(params.roof_condition).rgba)
@@ -227,7 +232,7 @@ def build(params: FrameTavernParams, name: str):
     # becoming infill or claiming a weathering history. The new colour's own
     # uncertainty reaches EVERY face using that material, including appendages.
     # Legacy/absent colours retain their exact previous confidence treatment.
-    if params.roof_colour == "dark_brown":
+    if params.roof_colour in ("dark_brown", "deep_brown"):
         c_colour = params.worst_conf("roof_colour")
         for face, material in zip(b.faces, b.mat_index):
             if material == M_ROOF:

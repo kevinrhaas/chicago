@@ -48,7 +48,7 @@ It reads no source. It measures committed structure records and apportions figur
 | Steamboat Hotel | inn tavern | named | 240 m² | 10 | 35 | reconstructed · clamped |
 | Tremont House (the first) | inn tavern | named | 418 m² | 17 | 35 | reconstructed · clamped |
 | Western Hotel | inn tavern | named | 329 m² | 14 | 35 | inferred · clamped |
-| Wolf Point Tavern | inn tavern | named | 84 m² | 3 | 35 | reconstructed |
+| Wolf Point Tavern | inn tavern | named | 62 m² | 3 | 35 | reconstructed |
 
 `floor` is the footprint times the storeys. `grade` is the weakest of the footprint and storey claims the capacity rests on — a bed count read off a reconstructed outline is reconstructed, whatever the building is called. `clamped` means a proportional share asked for more than the largest household the 1840 enumerator recorded (35) and was held to it.
 

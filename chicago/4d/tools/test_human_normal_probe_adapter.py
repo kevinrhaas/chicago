@@ -31,13 +31,13 @@ class Tests(unittest.TestCase):
   return experiment(mesh,[target,target],[10,10],path)
  def test_api_adapter_success_raw_guard_and_bounded_receipt(self):
   mesh=Mesh();original=CornerAdapter(mesh).read_codes();invariant=CornerAdapter(mesh).invariant_digest()
-  with tempfile.TemporaryDirectory()as tmp:
+  with tempfile.TemporaryDirectory(dir='/tmp')as tmp:
    p=Path(tmp)/'receipt.json';r=self.run_experiment(mesh,p);self.assertEqual(r['status'],'passed');self.assertLess(r['after']['maximum_raw_vector_delta'],1e-3);self.assertEqual(json.loads(p.read_text())['status'],'passed');self.assertNotIn('codes',r['result'])
   self.assertNotEqual(CornerAdapter(mesh).read_codes(),original);self.assertEqual(CornerAdapter(mesh).invariant_digest(),invariant)
  def test_stale_cache_and_bad_actual_output_restore_original(self):
   for mesh in [Mesh(stale=True),Mesh(fail_after_probe=True)]:
    original=CornerAdapter(mesh).read_codes()
-   with tempfile.TemporaryDirectory()as tmp,contextlib.redirect_stdout(io.StringIO()):
+   with tempfile.TemporaryDirectory(dir='/tmp')as tmp,contextlib.redirect_stdout(io.StringIO()):
     p=Path(tmp)/'receipt.json'
     with self.assertRaises(Refused):self.run_experiment(mesh,p)
     self.assertTrue(json.loads(p.read_text())['original_codes_and_mesh_invariants_restored']);self.assertEqual(CornerAdapter(mesh).read_codes(),original)
@@ -49,7 +49,7 @@ class Tests(unittest.TestCase):
   with self.assertRaises(Refused):CornerAdapter(mesh)
  def test_receipt_io_failure_also_restores(self):
   mesh=Mesh();original=CornerAdapter(mesh).read_codes()
-  with tempfile.TemporaryDirectory()as tmp,contextlib.redirect_stdout(io.StringIO()):
+  with tempfile.TemporaryDirectory(dir='/tmp')as tmp,contextlib.redirect_stdout(io.StringIO()):
    bad=Path(tmp)/'file';bad.write_text('parent is a file')
    with self.assertRaises(OSError):self.run_experiment(mesh,bad/'receipt.json')
   self.assertEqual(CornerAdapter(mesh).read_codes(),original)
