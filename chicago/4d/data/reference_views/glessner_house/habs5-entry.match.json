@@ -2,8 +2,9 @@
   "structure_id": "glessner_house",
   "view": "habs5-entry",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "dc22e014e7f73eb73c5c2130cd325f587fe60f708c81a72ddf6edeaabbdb3eb5",
+  "glb_sha256": "606eb2986f37826a0b0e66284aaadd1a059d0f1aee2bbf67c1c307770da84337",
   "camera_sha256": "8912fa320f417bc61deeba8add0324e7cd2467ee644ef5c2fafef05eaba759a1",
+  "photo_sha256": "1a921a9ac23470bc30223553c657dc50cf0348437e27e7f6fc529e66582c43a3",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg",
   "verdict": "matches",
   "differences": [

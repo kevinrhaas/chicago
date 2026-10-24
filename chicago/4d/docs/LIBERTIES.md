@@ -32177,3 +32177,24 @@ solved with its roll constrained by the gable itself would test the ruling on th
 **Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`,
 `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`.
 **Recorded:** 2026-10-24 (T-3090).
+
+### L-glessner-stack-depth-3065 — Glessner's 18th Street stack taken back to 2.6 ft deep, its 7.1-ft face kept
+
+**Decision:** the `glessner_house` north-gable stack is 2.6 ft deep (S 0-2.6), where it was 3.1, and its
+face stays 7.1 ft wide (W 15.25-22.35).
+**What is read, not invented.** HABS sheet 6 (1965, no known restrictions), the east elevation, draws the
+stack edge-on: 2.44 ft between its outline strokes at 73.59 px/ft. The record carried S 0.5-3.1 (2.6 ft)
+until T-2214 moved the face to S 0, flush with the gable, and left the back where it was, so the stack grew
+half a foot deeper with no source for it. Taylor 2135 (1887-1889), refitted on the new box, puts the
+stack's back corner within 0.5 px of the photograph's edge, the two stones' ends and the north-west corner
+within about 1 px, and the stack's width 1.5 px over the picks where it was 8.6. HABS photograph 14, square
+to the face and on a camera that holds the east rake along its whole length, reads the 7.1 ft.
+**What is invented.** The 2.6 ft against the strokes' 2.44: the same reading gives the middle and south
+stacks 2.64 and 3.85 ft against their recorded 2.8 and 4.0, so 2.6 is the sheet read the way this record
+reads it, good to about +/-0.15 ft. HABS photograph 1 and HABS 17 read the north face 0.8-0.9 ft narrower
+than 7.1; neither is carried (a lit face's edge against a white sky on a level camera that reads this roof
+about 2 ft low, and a camera that stands about 8 px off the stack).
+**How to resolve:** a measured plan of the stack at the roof, or a tape on today's stack.
+**Ticket:** T-3065 (found by T-3058).
+**Review:** `docs/RESEARCH/glessner-stack-depth-T-3065/taylor-before-after.jpg`.
+**Recorded:** 2026-10-24 (T-3065).
