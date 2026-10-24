@@ -731,7 +731,7 @@
           },
           "stories": 3,
           "stories_note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, no longer draws the house. Three storeys is the block face's own median: the 1911 sheet prints 3B, 3B, 2½B, 2B and 3½B on the Indiana and 16th Street houses drafted beside it.",
-          "construction": "brick",
+          "construction": "brick_with_stone_front",
           "construction_note": "Robinson 1886 colours the house pink, the plate's brick, with a darker strip along its Indiana face, the plate's mark for a stone front, as on 1615 and 1703.",
           "frontage": {
             "register": {

@@ -74,7 +74,7 @@
           "note": "RECONSTRUCTED: Robinson's atlas prints no storey count, and the 1911 sheet, which would, no longer draws the house. Three storeys is the block face's own median: the 1911 sheet prints 3B, 3B, 2½B, 2B and 3½B on the Indiana and 16th Street houses drafted beside it."
         },
         "construction": {
-          "value": "brick",
+          "value": "brick_with_stone_front",
           "confidence": "inferred",
           "sources": [
             "robinson_1886_chicago_plate_10"

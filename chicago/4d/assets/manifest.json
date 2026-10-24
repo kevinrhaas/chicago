@@ -1493,9 +1493,9 @@
     "house_1641_indiana__draft_1904.glb": {
       "archetype": "prairie_draft",
       "baked_ao": false,
-      "bytes": 226484,
+      "bytes": 226480,
       "generator": "generators/draft_emit.py",
-      "inputs_sha256": "e8f6a474207df318d43372d59fd64c99b82bb13072116b631397527a9b4bfd00",
+      "inputs_sha256": "b90c4c5eef7b76681afcfdea4288c2ba23a1573f08c3e4ce31b3b9e11996578c",
       "kind": "generated",
       "phase_id": "draft_1904",
       "structure_id": "house_1641_indiana"
