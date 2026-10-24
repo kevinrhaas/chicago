@@ -1,0 +1,57 @@
+{
+  "structure_id": "tremont_house_1",
+  "view": "gifford-provisional",
+  "glb": "assets/gltf/tremont_house_1__frame_1833.proposal.glb",
+  "glb_sha256": "f6cc59b2545eab5565329df64d766b85dc1ae4537eebe318fb6c4f5d50144999",
+  "camera_sha256": "16830ecda2efde0b4ccdb028bc559fb88529711a11b9cb0f05adbf4e8294bda2",
+  "photo_sha256": "b45d60680a0a519e561a7293bec824675d6014a6cac4da31a38ddc70d1323e59",
+  "side_by_side": "review/tremont/gifford-provisional-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Three complete storeys and visible three-bay short gable/five-bay long elevation now follow the drawing; exact sizes and stations remain reconstructed.",
+      "status": "fixed"
+    },
+    {
+      "what": "The previously blank gable now carries windows and a shallow arched dark feature; its formerly missing occurrence is built. Fine glazing/radial bars versus lettering/sign interpretation remains unresolved.",
+      "status": "fixed"
+    },
+    {
+      "what": "Raised entries, platforms, steps/side guards, roof spar and four offset capped stack silhouettes now render where the first preview had none or only two simple ridge stacks. Occurrence is improved; exact shape and metric controls remain reconstructed.",
+      "status": "fixed"
+    },
+    {
+      "what": "Near roof apex now projects near source y277 after the working32-degree change, improving the first preview ridge near y260. This is an appearance fit under a provisional envelope camera, not a historical pitch calibration.",
+      "status": "fixed"
+    },
+    {
+      "what": "Flag cloth is still absent; the roof spar is bare. Existing app flag layer needs an explicit roof-staff anchor rather than the whole hotel bounds.",
+      "status": "open"
+    },
+    {
+      "what": "The shallow arch is represented as a plain glazed fanlight with radial bars, while the source fine dark/lettered treatment is unresolved. Its exact outline, rim and interpretation must be reviewed further.",
+      "status": "open"
+    },
+    {
+      "what": "Landing/step/guard layout and opening vertical stations/proportions are approximations. The source gable platform and long entrance/boardwalk relationships are not yet reproduced in detail.",
+      "status": "open"
+    },
+    {
+      "what": "Stack shaft/cap proportions, precise roof junctions, eaves, sash divisions, shutter angles/joinery and material/tonal treatment still require comparison/refinement.",
+      "status": "open"
+    },
+    {
+      "what": "Camera remains a provisional six-wall-corner fit to reconstructed15.24x9.14x7.8m envelope (3.546px point RMS,6.866max); source feature dating within1833-1839 and all other ticket views remain unresolved.",
+      "status": "open"
+    },
+    {
+      "what": "Source street neighbours/walk/road/people are omitted from this single-mesh preview; they are context work, not missing geometry to fold into the hotel mesh.",
+      "status": "open"
+    },
+    {
+      "what": "Monochrome source cannot establish original paint/shutter colours or concealed elevations. Four model entries and repeated hidden treatment remain declared reconstruction.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

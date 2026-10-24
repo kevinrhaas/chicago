@@ -1,0 +1,207 @@
+{
+  "status": "provisional_not_solved_not_accepted",
+  "source_image": "/workspace/chicago/chicago/reference/images/chicago/chicago_green_tree_inn_1838.jpg",
+  "image_px": [
+    1600,
+    1000
+  ],
+  "selection": "Approximate manual readings from the full image, not an archival calibrated control file. Wall vertices can be ambiguous by 8-15 px because the cornice, plinth, walk and ink are distinct edges.",
+  "model_dimensions_not_measured_from_picture": {
+    "width_m": 7.62,
+    "depth_m": 12.19,
+    "wall_m": 5.0,
+    "roof_pitch_deg": 38
+  },
+  "fit_parameters_order": [
+    "eye_u",
+    "eye_v",
+    "eye_h",
+    "yaw_deg",
+    "focal_px",
+    "principal_x",
+    "principal_y"
+  ],
+  "fit_parameters": [
+    -119.02830380700041,
+    72.37506685114646,
+    1.6395476268613007,
+    84.47345858188956,
+    6661.424855035462,
+    -3472.8297136919055,
+    682.311321563539
+  ],
+  "rms_per_coordinate_px": 6.112784885252592,
+  "rms_per_point_px": 8.644783288593477,
+  "max_point_residual_px": 12.651625091602904,
+  "picks": [
+    {
+      "id": "near_southwest_wall_base",
+      "model_uvh": [
+        0,
+        12.19,
+        0
+      ],
+      "image_px": [
+        746,
+        787
+      ],
+      "reprojected_px": [
+        746.387,
+        779.239
+      ],
+      "residual_px": [
+        0.387,
+        -7.761
+      ]
+    },
+    {
+      "id": "far_northwest_wall_base",
+      "model_uvh": [
+        7.62,
+        12.19,
+        0
+      ],
+      "image_px": [
+        521,
+        772
+      ],
+      "reprojected_px": [
+        520.945,
+        773.126
+      ],
+      "residual_px": [
+        -0.055,
+        1.126
+      ]
+    },
+    {
+      "id": "far_southeast_wall_base",
+      "model_uvh": [
+        0,
+        0,
+        0
+      ],
+      "image_px": [
+        1516,
+        772
+      ],
+      "reprojected_px": [
+        1515.668,
+        780.26
+      ],
+      "residual_px": [
+        -0.332,
+        8.26
+      ]
+    },
+    {
+      "id": "near_southwest_wall_plate",
+      "model_uvh": [
+        0,
+        12.19,
+        5.0
+      ],
+      "image_px": [
+        746,
+        471
+      ],
+      "reprojected_px": [
+        746.387,
+        483.646
+      ],
+      "residual_px": [
+        0.387,
+        12.646
+      ]
+    },
+    {
+      "id": "far_northwest_wall_plate",
+      "model_uvh": [
+        7.62,
+        12.19,
+        5.0
+      ],
+      "image_px": [
+        521,
+        498
+      ],
+      "reprojected_px": [
+        520.945,
+        496.175
+      ],
+      "residual_px": [
+        -0.055,
+        -1.825
+      ]
+    },
+    {
+      "id": "far_southeast_wall_plate",
+      "model_uvh": [
+        0,
+        0,
+        5.0
+      ],
+      "image_px": [
+        1516,
+        494
+      ],
+      "reprojected_px": [
+        1515.668,
+        481.554
+      ],
+      "residual_px": [
+        -0.332,
+        -12.446
+      ]
+    }
+  ],
+  "holdouts_not_fitted": [
+    {
+      "id": "near_west_ridge",
+      "model_uvh": [
+        3.81,
+        12.19,
+        7.976698236990593
+      ],
+      "image_px": [
+        612,
+        309
+      ],
+      "reprojected_px": [
+        629.996,
+        319.866
+      ],
+      "residual_px": [
+        17.996,
+        10.866
+      ]
+    },
+    {
+      "id": "far_east_ridge",
+      "model_uvh": [
+        3.81,
+        0,
+        7.976698236990593
+      ],
+      "image_px": [
+        1393,
+        365
+      ],
+      "reprojected_px": [
+        1372.789,
+        316.175
+      ],
+      "residual_px": [
+        -20.211,
+        -48.825
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Extreme off-image principal point and large focal length indicate an ill-conditioned drawing fit, not an identified physical lens or visitor viewpoint.",
+    "Fixed existing model proportions may disagree with the drawing. Do not change dimensions or move the building to fit an unsolved camera.",
+    "Different high- and low-level parallel lines in the drawing may not share a single perspective. The two roof-ridge points were withheld and do not match.",
+    "Lighting and material tone have not been fitted.",
+    "No actual GLB render has been produced or inspected for this camera."
+  ]
+}

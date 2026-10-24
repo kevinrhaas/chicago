@@ -1,0 +1,41 @@
+[
+  {
+    "name": "previous-proposal",
+    "command": [
+      "node",
+      "tools/photo_match.mjs",
+      "review/tremont/before/gifford-provisional.json",
+      "--glb",
+      "assets/gltf/before/tremont_house_1__frame_1833.glb",
+      "--out",
+      "review/tremont/before"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "third-proposal",
+    "command": [
+      "node",
+      "tools/photo_match.mjs",
+      "review/tremont/gifford-provisional.json",
+      "--glb",
+      "assets/gltf/tremont_house_1__frame_1833.proposal.glb",
+      "--out",
+      "review/tremont"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "flag-layer-held-diagnostic",
+    "command": [
+      "node",
+      "tools/photo_match_flags_diagnostic.mjs",
+      "review/tremont-flag/gifford-provisional.json",
+      "--glb",
+      "assets/gltf/tremont_house_1__frame_1833.proposal.glb",
+      "--out",
+      "review/tremont-flag"
+    ],
+    "exit_code": 0
+  }
+]

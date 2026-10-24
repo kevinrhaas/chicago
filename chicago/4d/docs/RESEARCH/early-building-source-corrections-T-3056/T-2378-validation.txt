@@ -1,0 +1,6 @@
+PASS: source/structure schemas; exactly construction.note, change_note and research_note change; every form value, confidence, footprint, position and mesh input hash is preserved.
+UNCHANGED_MESH_INPUT_SHA256 902255ea4868b7bf1038e4acaa6a59897b05676c66e25e365be3cd681d99bd6f
+PASS: actual picture compiler adds one credited contextual link whose visible title says the identification is unresolved.
+PASS: actual derived structure-grade function remains unchanged: {"value": "inferred", "why": "Known from maps or written records; no picture of it has been found.", "pictures": []}
+NO CLAIM: camera/identity match, rendered appearance, app screenshot, full gate, ticket closure, PR or merge is not established.
+PASS: phase account and construction note pass the real visitor-text filter, so the bounded caveat is not hidden as internal plumbing.

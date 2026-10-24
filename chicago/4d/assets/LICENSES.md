@@ -39,6 +39,8 @@ with what it permits and what it does not.
 | `data/sources/assets/samstone_2017_tallgrass_trail/tallgrass_prairie_trail_2017-09-08.jpg` — Samstone13, *Tallgrass Prairie Trail*, 8 September 2017, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tallgrass_Prairie_Trail.jpg) | **CC BY-SA 4.0**, attribution required | **Verbatim redistribution in this repository, and measurement.** Committed byte-for-byte unmodified (SHA-1 `c2da32962b8c4ddb73b8f2cd36f4a39abeff7628`), so what is redistributed is the licensed work and not an adaptation — ShareAlike is not triggered. Source record `samstone_2017_tallgrass_trail`; it is the road-contrast reference for R-M1b. | **Any derived asset.** A crop, a resample, a texture or a tile built from it is an adaptation and would have to be released under CC BY-SA 4.0. This project derives nothing from it: it is measured and never enters a scene. `tools/publish.sh` does not copy `data/sources/`, so it is not on the published site. |
 | `data/sources/assets/haas_2021_sagebrush_two_track/sagebrush_two_track_2021-06-26.jpg` — Kevin Haas, *Earth two-track through sagebrush steppe*, 26 June 2021 | **All rights reserved.** The owner's own photograph, deliberately NOT under an open licence | **Reading it, to check the figures derived from it.** Committed verbatim (SHA-1 `9fdb465d952b98adb6ada9356f21df8c76897bd1`, 4032x3024) so a reader can verify a measurement against the pixels it came from — which is this project's standard and why it is committed rather than withheld. Source record `haas_2021_sagebrush_two_track`; it is the far-band road-contrast reference for R-M1b. | **Reuse of any kind.** No redistribution, no republication, no derived asset — not a crop, a resample, a texture or a tile. VISIBLE IS NOT REUSABLE: this is the one row in this table outside the CC0/CC-BY default, at the owner's direction of 2026-08-15. `tools/publish.sh` does not copy `data/sources/`, so it is not on the published site. |
 
+| `gifford_tremont_house_no_1` — N. Roswell Gifford, first Tremont drawing, reproduced by [Chicagology](https://chicagology.com/prefire/prefire021/) | **Owner-approved attributed project use**, 2026-10-22; original publication/collection and copyright status unresolved | Reference, picture comparison/source display and this project’s explicitly reconstructed Tremont appearance. Credit and source link retained in the source record and research comparison. Generated model contains no external image texture. | Public-domain status, copyright-holder permission, an open redistribution licence or any geographic/metric survey claim. |
+
 Held out of the published tree entirely, by the user's instruction:
 
 | item | disposition |
@@ -1422,3 +1424,21 @@ Rigged Mid-Poly Horse by antemeossa, CC BY4.0, https://sketchfab.com/3d-models/r
 |`authored/transport/horse_standing/planted-standing-export-receipt.json`|Project-authored source-protection/export receipt; export-only scope.|
 
 Byte-identical runtime copy: `renderers/web/transport/standing-horse/horse-sevket-v16-planted-standing-v1.glb`. The renderer's declared organic_dielectric_v1 variant changes only cloned material metalness0, with original PBR maps/roughness/UV policy unchanged. Loaded129 CPU/Mixer PASS is recorded separately; yard/mobile/GPU/photographic/gait/tack/riding acceptance is not implied.
+
+## Verified 1902 jail reference pages — T-3056
+
+| item | licence | cleared for | NOT established |
+|---|---|---|---|
+| `data/sources/assets/trowbridge_first_jail_gale_1902/` — three unmodified JPEG scans, exact URLs/hashes in its manifest; [Internet Archive](https://archive.org/details/reminiscencesofe00ingale/page/n79/mode/1up) | **Public domain by age: US publication 1902**, verified actual title and copyright pages | Faithful reference copies and model derivation from W. E. S. Trowbridge’s published illustration in Edwin O. Gale’s book; credit retained in the source record and companion README | Exact July 1835 condition, metric dimensions, rights in added 1947 newspaper layout, or an item-specific licence for the separate UCR copy |
+
+
+## Verified1902 Green Tree and Sauganash reference pages — T-3055
+
+| item | licence | provenance and limits |
+|---|---|---|
+| `data/sources/assets/trowbridge_green_tree_1902/gale-n55.jpg` and `data/sources/assets/trowbridge_sauganash_hotel/gale-n49.jpg` | Public domain by independently verified 1902 US publication | Unmodified InternetArchive page scans of W. E. S. Trowbridge illustrations in Edwin O. Gale, *Reminiscences of Early Chicago and Vicinity* (Fleming H. Revell Company,1902), facing printed pp. 35 and31. Exact URLs/hashes in adjacent manifests; actual title/copyright proof shared with `trowbridge_first_jail_gale_1902`. Retrospective 1835 caption does not establish July 1835 fitting dates, metrics, colours or modern stock reproduction licences. |
+
+
+## T-3055 first Tremont reconstructed arch name
+
+The optional baked TREMONT paint strokes are original project GPL-3.0-or-later procedural geometry, adapting six existing prairie_draft.GLYPHS capitals locally through MeshBuilder. No external font, photograph or source-image pixels are baked. The independently known house name bounds the explicit reconstructed word; Gifford/Chicagology remains owner-approved attributed reference use, with no claim of a legible original inscription or public-domain finding. Exact glyph/colour/placement choices and source limits are recorded in L-tremont-reconstructed-arch-name-2385.

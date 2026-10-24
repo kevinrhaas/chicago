@@ -1,0 +1,33 @@
+{
+  "state": "frozen before isolated execution",
+  "code_and_contracts": {
+    "/tmp/chicago-next-model/T-2385-roof-flag-anchor/proposed/chicago/4d/data/structures/tremont_house_1.json": "3e4fe7bee7f870efd4fd0ec7334b6d36751854551c0b358ec12c8851e1c7e01e",
+    "/tmp/chicago-next-model/T-2385-roof-flag-anchor/proposed/chicago/4d/renderers/web/js/flag-anchors.js": "ac2c6f914f6550ee2b779c5b3d797d52fb44feba8779caf7664c8915f1f73b85",
+    "/tmp/chicago-next-model/T-2385-roof-flag-anchor/proposed/chicago/4d/renderers/web/js/flags.js": "99df78c566e097a4a137079a8b51249ade4d7c41c57e1fae57b9509f26466e96",
+    "/tmp/chicago-next-model/T-2385-roof-flag-anchor/proposed/chicago/4d/tools/compile_scene.py": "839286d95529c15ad013854d48ceca5830df798495a20abf4a618a0dc359cfc0",
+    "/tmp/chicago-next-model/T-2385-roof-flag-anchor/proposed/chicago/4d/tools/flag_form_contract.py": "a64f1cc422537a1b548a514b74c5da4de5f09ef2c658ed17ac6c922d57240d3c",
+    "/tmp/chicago-next-model/T-2385-roof-flag-anchor/proposed/chicago/4d/tools/test_flag_anchors.mjs": "2a2449df19d7a42f4df135ae003d576a94a10b1ae1c5d95d5399bc8d3cc985f8",
+    "/tmp/chicago-next-model/T-2385-roof-flag-anchor/proposed/chicago/4d/tools/test_flag_form_contract.py": "f3e78018159f94c7be3eea0a02c86b80d1b576b6ea9951c742f56f3d26797a4b",
+    "/tmp/chicago-next-model/T-2385-roof-flag-anchor/proposed/chicago/4d/tools/validate.py": "8f3316f0a72d3ca80f46bd4eac8a57bbcc5ef7486237a596043c7a4e3e143319",
+    "/tmp/chicago-next-model/T-2385-third/export_previews.py": "a5277c39a539e5a6aa900b8907368a9028b938cba5431752780bc91c05a850a8",
+    "/tmp/chicago-next-model/T-2385-third/preview-root/renderers/web/js/flag-anchors.js": "ac2c6f914f6550ee2b779c5b3d797d52fb44feba8779caf7664c8915f1f73b85",
+    "/tmp/chicago-next-model/T-2385-third/preview-root/renderers/web/js/flags.js": "99df78c566e097a4a137079a8b51249ade4d7c41c57e1fae57b9509f26466e96",
+    "/tmp/chicago-next-model/T-2385-third/preview-root/review/tremont/gifford-provisional.json": "16830ecda2efde0b4ccdb028bc559fb88529711a11b9cb0f05adbf4e8294bda2",
+    "/tmp/chicago-next-model/T-2385-third/preview-root/review/tremont-flag/gifford-provisional.json": "16830ecda2efde0b4ccdb028bc559fb88529711a11b9cb0f05adbf4e8294bda2",
+    "/tmp/chicago-next-model/T-2385-third/preview-root/tools/photo_match.mjs": "c6299ddb08ab3a81feec0885f6309664d138ccdb2082fca9f7433e633476f968",
+    "/tmp/chicago-next-model/T-2385-third/preview-root/tools/photo_match_flags_diagnostic.mjs": "9d9362440f6e6485ac78f066b39e660a4731419ab40b0a7357a0019ec70aa175",
+    "/tmp/chicago-next-model/T-2385-third/preview-root/tools/photo_match_group.mjs": "12f1f96e154df492e269bc7e4e8f783805e83e8ddcabce5e0f33c1a623a5a930",
+    "/tmp/chicago-next-model/T-2385-third/proposed/data/structures/green_tree_tavern.json": "b3250faa3431d3ad30872802c74f4c02e34c15a43dfac48b0db665918892f109",
+    "/tmp/chicago-next-model/T-2385-third/proposed/data/structures/sauganash_hotel.json": "1b11fe2f2f083cc6ef0b122898bcef3199d66e06fcace2207f92f0ce6159765b",
+    "/tmp/chicago-next-model/T-2385-third/proposed/data/structures/tremont_house_1.json": "06f28f59a50e12e95eb5b8c29737fdadb3a226633e3b02d37ac9563e782cf128",
+    "/tmp/chicago-next-model/T-2385-third/proposed/generators/archetypes/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "/tmp/chicago-next-model/T-2385-third/proposed/generators/archetypes/frame_tavern.py": "25b497fa5ddd957809f23e601c7eaa68327af1062d17aa2bbd0de123878cebac",
+    "/tmp/chicago-next-model/T-2385-third/proposed/generators/archetypes/frame_tavern_params.py": "af883d9598a97e9f1d34b1d85fffb696aa934507323b6b6b798233e1a8e371e5",
+    "/tmp/chicago-next-model/T-2385-third/proposed/tools/test_frame_tavern_picture_features.py": "769f4225cb6c338411a892c6877db54e411d6317c9ccf0614ed45c59fb489822",
+    "/tmp/chicago-next-model/T-2385-third/run_exports.sh": "9ef80e385509d85b083320bbfc2c6699e5c9a87decf44dca449cdbd617332526"
+  },
+  "emitter": "canonical emit.emit_structure with official structure_id__phase_id seed",
+  "base_modules": "immutable frame-gable-cladding/proposed snapshots",
+  "camera_bytes_unchanged_from_prior": true,
+  "first_increment_immutable": true
+}
