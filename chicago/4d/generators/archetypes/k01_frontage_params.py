@@ -2325,6 +2325,9 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                     **({"flush_corner": flush} if flush else {}),
                     **({"corner": corner} if corner else {}),
                     **({"through_eave": True} if e.get("through_eave") else {}),
+                    # T-3101: a canted cheek seats the bay part by part on its wall
+                    **({"canted": True} if any(float((e.get("plan") or {}).get(k, 0.0))
+                                               for k in ("cant_left_m", "cant_right_m")) else {}),
                     **({"strips": tuple(strips)} if strips else {}),
                     **({"columns": columns} if columns else {}),
                     **({"dress": dress} if dress else {}),

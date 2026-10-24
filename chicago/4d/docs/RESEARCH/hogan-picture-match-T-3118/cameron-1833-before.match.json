@@ -1,0 +1,37 @@
+{
+  "structure_id": "hogan_store",
+  "view": "cameron-1833-before",
+  "glb": ".t3118-runtime/H9-committed-before.glb",
+  "glb_sha256": "c196950ac57ec0e76d78698de43b956188eeb0ea2403264700991c9587bd5fe2",
+  "camera_sha256": "e4a0a576d3ad33314623d75244d75d07cc3dcbc089935bcc5572e81b13bfa7e4",
+  "photo_sha256": "bea3548297a7b81e76c73f1083af2d013e3884cda39dd3f5ed37c0a2423a903a",
+  "side_by_side": "docs/RESEARCH/hogan-picture-match-T-3118/before/cameron-1833-before-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "The baseline uses a closed board leaf, unlike the depicted dark occupied doorway.",
+      "status": "open"
+    },
+    {
+      "what": "The baseline gable opening uses an obvious glazed sash, while the painting only resolves a small framed rectangle.",
+      "status": "open"
+    },
+    {
+      "what": "The generic 0.95 m ridge head is visually tall relative to the source silhouette.",
+      "status": "open"
+    },
+    {
+      "what": "Regular hewn-log/chink spacing, gable cladding and smooth unweathered roof differ in surface rhythm, material and monochrome tone.",
+      "status": "open"
+    },
+    {
+      "what": "Visible sash pattern/trim and building proportions remain unresolved under the provisional drawing camera, whose convergence is inconsistent.",
+      "status": "open"
+    },
+    {
+      "what": "Source figure, wagon/trees/river/ground and surrounding buildings are omitted; hidden elevations and July1835 survival/state cannot be read from this retrospective1833 scene.",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

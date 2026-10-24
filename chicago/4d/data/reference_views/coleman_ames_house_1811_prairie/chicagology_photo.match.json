@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "edfed6d88385226be31a85724e31699707e97038c218891bac7cc0b560b7e675",
+  "glb_sha256": "2627d6950e7974c7179f5fd0f439a006684d8f133ad0d2493baa724280158c4f",
   "camera_sha256": "cb362fce20647693405877df9217185fbe854f22b072fdf325c232d8d6a9771c",
   "photo_sha256": "6f5d94e0a9794ccf9f84d0f5cd0cf00c6bd09caa8e57be79d83958572bbc9b0c",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/chicagology_photo-side-by-side.jpg",
@@ -10,6 +10,10 @@
   "differences": [
     {
       "what": "massing and the street front: the bay, its canted north face, the entrance block, the oriel and the gable stand where the photograph stands them; the camera was fitted to them (2.4 px rms on 36 points, 6.9 px at worst), so this says the front and the plate agree, read again on a sharper, wider print",
+      "status": "fixed"
+    },
+    {
+      "what": "the NORTH PIER (T-3101): the front's north end stands as a pier of rock-faced brownstone about 0.93 m wide on the front's plane, from the north wall's arris to the bay's canted cheek, which leaves the wall there; the plate draws it at x 52-92 px (its arris and its junction with the cheek, v 0 and 0.93 through T-2541's camera), the Chicagology photograph at x 110-185 px and the 1965 HABS photograph at x 927-972 px. The build ran the canted cheek from 0.3 m off the corner (the kit's least corner pier, the 1911 sheet's trace drawing about 0.16 m, which at its 50 ft scale cannot part 0.16 m from 0.93), so the cheek covered most of the pier, and K01's coursing stopped one box round the whole bay (its cornice reaches the wall at v 0.37), leaving the strip plain dressed trim. Now the cheek leaves the wall at v 0.93 (`cant_left_m` 1.36, the front's north corner unmoved at v 2.29) and a canted bay seats its walls apart from its cornice, so the pier is coursed rock-faced from grade to the wall head: it renders at x 51-92 px on the plate, 113-190 on the Chicagology print and 928-970 on the HABS print. The cheek's light stays one a storey, 0.75 m, now on a 1.69 m face (`at` 0.1753, its centre 1.12 m along it, where K08 keeps its recess in front of the wall; the front's two lights keep their places, `at` 0.427 and 0.7229)",
       "status": "fixed"
     },
     {
@@ -37,7 +41,7 @@
       "status": "fixed"
     },
     {
-      "what": "the north eave: the build's main roof carries its eave out past the canted face's top at about 8.8 m, to x 50 px, where the photograph shows sky and only the bay's own cornice returning at x 115-135 px; the roof's north side is to be brought in over the canted face",
+      "what": "the north eave: the build's main roof carries its eave out past the canted face's top at about 8.8 m, to x 50 px, where the photograph shows sky and only the bay's own cornice returning at x 115-135 px; the roof's north side is to be brought in over the canted face; T-3101: the 'bay's own cornice returning at x 115-135 px' is the north pier's cap (the pier item above), and the eave to be brought in is the main roof's over the pier's head",
       "status": "open"
     },
     {
@@ -54,6 +58,18 @@
     },
     {
       "what": "the front block's coped south wall: the photograph's coping, read against the flank's vanishing point, stands about 0.6 m higher than the build's level 10.95 m and runs back to about x 1160 px, about 2.8 m past the front block's rear wall, before it drops; both belong to the flank's question (T-3099) and are read with it",
+      "status": "open"
+    },
+    {
+      "what": "the north pier's head: the pictures cap the pier BELOW the bay's cornice, a moulded cap with a small slate-covered top over it: on the plate the cap at y 475-500 px and the slate to y 450 (about 7.3-7.8 m, the slate to 8.4 m through T-2541's camera), on the Chicagology print the cap at y 625-675 px and the slate to 590 (about 7.1-7.7 m, to 8.1 m); the build carries the front's wall head and its K10 cornice across it at the bay's height (7.94 m, the cornice to 8.3 m) with the main roof's eave over it, so its top stands about 0.3-0.5 m high and reads as the bay's cornice run on, not a cap of its own",
+      "status": "open"
+    },
+    {
+      "what": "the north pier's courses: the photographs' pier is rock-faced in unbroken courses from its base course to its cap; the build runs the front's dressed string course (about 4.8-5.0 m) across it as a pale band",
+      "status": "open"
+    },
+    {
+      "what": "the downpipe down the pier's junction with the canted cheek, from the cap to grade (the Chicagology print's x 110-115 px dark rod, the HABS print's x 972-975 px): the build hangs none there",
       "status": "open"
     },
     {
