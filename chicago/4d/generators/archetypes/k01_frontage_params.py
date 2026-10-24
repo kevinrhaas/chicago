@@ -1275,6 +1275,36 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
     if panes is not None and (len(panes) != 2 or not all(1 <= int(n) <= 4 for n in panes)):
         raise ParamError("shaped_gable.lights.panes: [across, up], 1-4 each")
     lh_all = rows * lh + (rows - 1) * tr
+    # T-3090: the grid window's dressings, each optional — `glazing: "dark"` (the print's
+    # lights read as dark openings: no K06 sash, a dark backing behind glass at the reveal's
+    # back), `quoins` (its side stones, one a row each side, long and short in turn), a `hood`
+    # over its head (its upper edge waved: a crown at the middle, a flick at each end) and a
+    # two-step moulded `shelf` under its sill
+    dressing = {}
+    glz = li.get("glazing", "sash")
+    if glz not in ("sash", "dark"):
+        raise ParamError("shaped_gable.lights.glazing: sash (K06's) or dark (an opening read dark, T-3090)")
+    if glz == "dark":
+        dressing["glazing"] = "dark"
+    if li.get("quoins"):
+        qn = {k_: float(li["quoins"][k_]) for k_ in ("long_m", "short_m", "proud_m")}
+        if not 0.1 <= qn["short_m"] <= qn["long_m"] <= 0.6 or not 0.0 < qn["proud_m"] <= 0.08:
+            raise ParamError("shaped_gable.lights.quoins: short 0.1 m to long 0.6 m, 0-0.08 m proud")
+        dressing["quoins"] = qn
+    if li.get("hood"):
+        hd = {k_: float(li["hood"][k_]) for k_ in ("over_m", "height_m", "crown_m", "flick_m", "proud_m")}
+        if not 0.0 <= hd["over_m"] <= 0.5 or not 0.04 <= hd["height_m"] <= 0.3 \
+                or not 0.0 <= hd["crown_m"] <= 0.2 or not 0.0 <= hd["flick_m"] <= 0.15 or not 0.0 < hd["proud_m"] <= 0.15:
+            raise ParamError("shaped_gable.lights.hood: 0-0.5 m past the window, 0.04-0.3 m high, its crown "
+                             "0-0.2 m and its flicks 0-0.15 m over that, 0-0.15 m proud")
+        dressing["hood"] = hd
+    if li.get("shelf"):
+        sf = {k_: float(li["shelf"][k_]) for k_ in ("over_m", "height_m", "proud_m", "band_m", "band_proud_m")}
+        if not 0.0 <= sf["over_m"] <= 0.5 or not 0.04 <= sf["height_m"] <= 0.25 or not 0.0 < sf["proud_m"] <= 0.25 \
+                or not 0.0 <= sf["band_m"] <= 0.3 or not 0.0 <= sf["band_proud_m"] <= sf["proud_m"]:
+            raise ParamError("shaped_gable.lights.shelf: 0-0.5 m past the window, 0.04-0.25 m high and 0-0.25 m "
+                             "proud, over a band 0-0.3 m high standing no further out")
+        dressing["shelf"] = sf
     ledge = ye + 0.12
     ledge_m = None
     if sg.get("ledge_m") is not None:   # T-2865: the front carried up full width past the eave
@@ -1310,12 +1340,21 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
             if not 0.05 <= sc["proud_m"] <= 0.4 or not foot - 1.5 <= sc["bed_m"] <= foot - 2 * sc["radius_m"] - 0.1:
                 raise ParamError("shaped_gable.kneelers.scroll: 0.05-0.4 m proud, its roll under the slab's foot "
                                  "and its bed within 1.5 m of it")
+            # T-3090: the print's scroll is carved — a rosette in the roll's eye
+            if kn["scroll"].get("rosette"):
+                sc["rosette"] = int(kn["scroll"]["rosette"])
+                if not 5 <= sc["rosette"] <= 12:
+                    raise ParamError("shaped_gable.kneelers.scroll.rosette: 5-12 petals")
             kne["scroll"] = sc
     fin = {}
     if fn:
         fin = {"height_m": float(fn["height_m"]), "radius_m": float(fn["radius_m"])}
         if not 0.2 <= fin["height_m"] <= 1.2 or not 0.04 <= fin["radius_m"] <= 0.3:
             raise ParamError("shaped_gable.finial: 0.2-1.2 m high, 0.04-0.3 m in radius")
+        if fn.get("form", "spike") not in ("spike", "urn"):
+            raise ParamError("shaped_gable.finial.form: spike (T-2543's) or urn (a carved ball under an urn, T-3090)")
+        if fn.get("form") == "urn":
+            fin["form"] = "urn"
     fabric = sg.get("fabric", "brick")
     if fabric not in ("brick", "front"):
         raise ParamError(f"shaped_gable.fabric {fabric!r}: brick (the side walls') or front (the front's stone)")
@@ -1340,17 +1379,36 @@ def _shaped_gable(sg: dict, roof_form: str, dormer: dict, width: float, eave: fl
             raise ParamError("shaped_gable.shoulders: 0-0.15 m proud, its foot inside the outline")
         if sho["bed_m"] < sill + lh_all + 0.15 and sho["inner_m"] < max(abs(x) for x in at) + lw / 2 + 0.05:
             raise ParamError("shaped_gable.shoulders: clear of the lights")
+        if s_.get("panel"):   # T-3090: a sunk panel in each block's face
+            pn = {k_: float(s_["panel"][k_]) for k_ in ("width_m", "height_m", "drop_m", "sunk_m")}
+            bw_, bh_ = sho["outer_m"] - sho["inner_m"], sho["top_m"] - sho["bed_m"]
+            if not 0.05 <= pn["width_m"] <= bw_ - 0.1 or not 0.03 <= pn["height_m"] or pn["drop_m"] < 0.05 \
+                    or pn["drop_m"] + pn["height_m"] > bh_ - 0.05 or not 0.0 < pn["sunk_m"] < sho["proud_m"]:
+                raise ParamError("shaped_gable.shoulders.panel: inside the block's face by 0.05 m all round, "
+                                 "sunk less than the block stands proud")
+            sho["panel"] = pn
     tg = sg.get("takes_gutter", False)
     if not isinstance(tg, bool):
         raise ParamError("shaped_gable.takes_gutter: true or false (T-2889)")
+    base_in = None
+    if sg.get("base_ledge_half_m") is not None:
+        # T-3090: the slab's base drawn in from its foot to the ledge, where the print's outline
+        # is already drawing in past the kneelers, in place of a square run past the side walls
+        base_in = float(sg["base_ledge_half_m"])
+        if not kne or not ksg.half_width(q, ledge) <= base_in <= width / 2 \
+                or kne["at_m"] + kne["shaft_m"] / 2 > base_in + 1e-9:
+            raise ParamError("shaped_gable.base_ledge_half_m: wider than the outline at the ledge, inside the "
+                             "front, and wide enough to carry the kneelers' pinnacles")
     return {"profile_m": pr, "foot_m": foot, "thickness_m": t, "proud_m": proud,
             **({"takes_gutter": True} if tg else {}),
             "lights": {"variant": li["variant"], "sill_m": sill, "width_m": lw, "height_m": lh, "at_m": at,
                        **({"rows": rows, "transom_m": tr} if rows > 1 else {}),
-                       **({"panes": [int(n) for n in panes]} if panes is not None else {})},
+                       **({"panes": [int(n) for n in panes]} if panes is not None else {}),
+                       **dressing},
             **({"shoulders": sho} if sho else {}),
             "coping": coping, "kneelers": kne, "finial": fin, "fabric": fabric, "oculus": oc,
-            **({"ledge_m": ledge_m} if ledge_m is not None else {})}
+            **({"ledge_m": ledge_m} if ledge_m is not None else {}),
+            **({"base_ledge_half_m": base_in} if base_in is not None else {})}
 
 
 def _mansard_dormers(entries, m: dict, depth: float, width: float, eave: float, overhang: float,
