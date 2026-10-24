@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2259, ts: '2026-10-24T20:48:04.535Z', date: 'Oct 24, 2026, 3:48 PM CT', title: 'First Presbyterian Church\'s roof and cross, checked against a 1912 photograph', kind: 'improvement',
+    items: [
+      'The church at Indiana Avenue and 21st Street now has two small gabled vents on the south side of its roof, and a short chimney on top of its east gable. A 1912 photograph of the church shows both.',
+      'The cross on the west gable is taller, with wider arms and a ring around the centre. The 1912 photograph and the 1887 one agree on its size.',
+      'The 1912 photograph is now a second reference picture for the church, and the model matches it. It was taken from down Indiana Avenue, looking up at the tower.',
+      'The church\'s 21st Street side is still unchanged. The 1912 photograph doesn\'t show it: buildings across the street and a streetcar block the view.',
+    ] },
+  { v: 2258, ts: '2026-10-24T20:48:04.535Z', date: 'Oct 24, 2026, 3:48 PM CT', title: 'Glessner\'s 18th Street gable window and its stone fan raised a foot', kind: 'fix',
+    items: [
+      'The tall arched window high in the Glessner house\'s 18th Street gable, with the fan of radiating stones over it, now stands a foot higher, closer under the chimney, as three survey photographs from 1963 and 1965 show it. Before, the chimney seemed to rise too far above the fan.',
+    ] },
   { v: 2257, ts: '2026-10-24T17:31:02.493Z', date: 'Oct 24, 2026, 12:31 PM CT', title: '1811 Prairie\'s north corner stands as a rock-faced stone pier', kind: 'improvement',
     items: [
       'The north end of 1811 Prairie\'s front is now a narrow pier of rough-faced brownstone, almost a metre wide. Before, the bay\'s slanted side ran nearly to the corner and left a strip of plain pale stone there. The 1888 plate, a later photograph and a 1965 survey photograph all show the pier.',
