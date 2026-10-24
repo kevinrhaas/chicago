@@ -32697,3 +32697,23 @@ arrangement differences, and keep the full T-2387 match open.
 **Recorded:** 2026-10-24 (T-3105; T-3041/T-2387 full matching stays open).
 
 **Subjects:** `first_fort_dearborn_north_range`, `first_fort_dearborn_officers_barracks`, `first_fort_dearborn_commanding_officers_barracks`, `first_fort_dearborn_soldiers_barracks_sw`, `first_fort_dearborn_soldiers_barracks_se`.
+
+
+### L-1812-flora-3106 — Render declared garden stems and thin the Light wood
+
+**Decision:** Keep all four Kinzie poplars at their existing reconstructed positions inside the green's fence footprint. The existing planting-record `in_structure` mechanism names only `kinzie_house_1812_green`, so the house, other walls and travelled tracks retain their normal protection. The two rear cottonwoods remain outside the green. This makes the record's existing declared row visible; no source, date, number, species, height or stem position is promoted or changed.
+
+Move Ouilmette's six reconstructed currant positions north by 3.1 m, keeping their eastings, heights, number and two rows 1.8 m apart. The rows at N +353.3/+355.1 are 5.016/6.816 m behind the unchanged house's back wall at N +348.284; the former rows were refused by the renderer's unchanged 4.5 m footprint clearance. Wau-Bun attests currant bushes behind the house and the escape through its back window, not measured rows or a garden plan. These remain chosen garden positions, not source measurements. No new fence, house exemption or reduced collision guard is introduced. The actual native generated wood/leaf envelope has at least 3.923 m static clearance from the house across Light/full templates; arbitrary wind, every hypothetical future template and every viewpoint are not proven by that check.
+
+For the 1812 scene's Light tier alone, multiply the existing uniform woody acceptance probability by 0.75, changing effective `keep` from 0.300 to 0.225. This is a rendering reconstruction, not a change to the source density, species mix, plot clearing, water or geographical reach. The 2100-tree cap remains a backstop and its failure report remains. Stated garden stems are not thinned. Other scenes and detail tiers retain their former fractions. A narrower renderer wood would falsely hide the scene's north end; uniform thinning keeps the entire swept ground eligible. Actual published app QA and final full integration gates must demonstrate the finished sweep and source-bound plantings rather than accepting a stem count alone.
+
+**Ticket:** T-3106, prerequisite for T-3105.
+**Recorded:** 2026-10-24.
+
+
+### L-1812-full-flora-3106 — Finish the Full woodland sweep
+
+**Decision:** The combined first-fort desktop application case exposed 1812 Full reaching its unchanged 4700-tree backstop at effective keep 0.700. That native failure is retained. Apply the same existing uniform acceptance thinning used for 1812 Light to Full alone: multiply Full keep by 0.75, giving 0.525. The choice is a renderer density reconstruction, not a change to source species densities or the historical wood's extent. No position predicate clips the north end, and no stated planting is thinned. Keep the 4700 cap, its hard failure report, all collision/water/plot rules, the repaired garden stems, 1812 Light at 0.225, Balanced at 0.500 and every other scene unchanged. Actual Full app count, northern reach and declared plantings must pass before canonical adoption; neither a cap increase nor an exception to a failing loader message substitutes for that proof. L-1812-flora-3106's other choices remain.
+
+**Ticket:** T-3106, prerequisite for T-3105.
+**Recorded:** 2026-10-24.
