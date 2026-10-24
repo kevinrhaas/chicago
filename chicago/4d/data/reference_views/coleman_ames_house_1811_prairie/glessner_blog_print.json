@@ -1,0 +1,23 @@
+{
+  "structure_id": "coleman_ames_house_1811_prairie",
+  "source_id": "inland_architect_1888_10_ames_residence",
+  "library_image": "a18-gh-1811-ames-house",
+  "photo": "../../sources/assets/ames_1811_photos_t3052/ames_1811_glessner_blog_print.jpg",
+  "image_px": [
+    562,
+    675
+  ],
+  "principal_px": [
+    625.0,
+    578.1
+  ],
+  "focal_px": 628.3,
+  "pixel_aspect": 1.0093,
+  "eye": [
+    22.5,
+    14.45,
+    1.05
+  ],
+  "yaw_deg": -90.0,
+  "solve": "Carried by T-3052 from T-2541's camera on the 1888 plate (inland_architect_plate.json), because this print IS that plate: not a second exposure but a toned copy of the same image, cropped and resampled. SIFT finds 1,459 matches between the two and 1,381 of them fit one affine map within 0.80 px rms (1.50 px at the 95th percentile), spread over the whole picture (plate x 54-614, y 205-870): the tree's twigs, the stair, the flank and the gable all land together, which two exposures cannot do (the Chicagology photograph, a different negative, misses by up to 70 px on the tree). The map, plate px to this print's px: x' = 0.96224 x - 0.00318 y - 35.555, y' = 0.00444 x + 0.95336 y - 162.824, a scale of 0.962 across and 0.953 down (the copy was resampled 0.93 % wider than tall, hence pixel_aspect 1.0093) and a turn of about 0.23 degrees, which this camera leaves out (under 2 px at the print's edges). So the eye and heading are the plate's (u 22.5, v 14.45, 1.05 m over grade, yaw -90), the principal point is the plate's (689, 774) carried through the map, (625.0, 578.1), and the focal length is the plate's 659 px times the vertical scale, 628.3 px. Everything the plate's camera reads, and every way it misses (T-3079's flank), it reads and misses here."
+}
