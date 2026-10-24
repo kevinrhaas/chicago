@@ -1,9 +1,11 @@
 {
-  "source_bytes": 908028,
-  "indexed_bytes": 642048,
-  "expanded_triangle_PN_sha256": "e1bb1e62d8430b33bf99b7c8f0d8139539b86ebc89239be599c307bda2a2f82b",
-  "source_sha256": "48a9224ba38da8a1beb809f6970a7d51801da8d032332a52da4b60590c44102f",
-  "indexed_sha256": "d6d6709ec4dda73e84a916e71dfb9dba6ad16961423a4f3babebdf58363c20d2",
+  "source_bytes": 909556,
+  "indexed_bytes": 642428,
+  "expanded_triangle_PN_sha256": "eccfc45c413f84145d873d9c73b929d04c166db7ba991852c63afddcac56ce34",
+  "source_sha256": "f184d0fc96ecca92ae4ed51a57c468e9cf7e689264865ae45b23ccb007236f0d",
+  "indexed_sha256": "65eec8b7e04e636c90e2d797f5e7e8c1d2695f0f45c6fb5c7f340f73e5616fa1",
   "lossless_indexing": true,
-  "meshopt_or_quantization": false
+  "meshopt_or_quantization": false,
+  "variant": "V18_rounded_coach_lamps",
+  "near_and_mid_new_lamp_geometry": "Exact fixed heads/lower bodies; existing finial follows unchanged tessellation recipes"
 }
