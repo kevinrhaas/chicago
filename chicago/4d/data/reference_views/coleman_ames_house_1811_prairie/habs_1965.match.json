@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "habs_1965",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "2627d6950e7974c7179f5fd0f439a006684d8f133ad0d2493baa724280158c4f",
+  "glb_sha256": "1dbaa270fc6990e5a338e5c5e80cd9981a9a94be88969b02ab531ada5d139323",
   "camera_sha256": "1cd3bf150e1c86a593fc2572230fc9c98ea543c39bf5f82d55056b8d841bf8be",
   "photo_sha256": "7ace480beb382d33473f7870395255bbfce13ab703b6df4b0b8506c08df50254",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "2627d6950e7974c7179f5fd0f439a006684d8f133ad0d2493baa724280158c4f"
+      "glb_sha256": "1dbaa270fc6990e5a338e5c5e80cd9981a9a94be88969b02ab531ada5d139323"
     },
     {
       "structure_id": "kimball_house_1801_prairie",
@@ -45,9 +45,9 @@
       "glb_sha256": "708b1963346ac353892d09f35ada43e7a56bffe99ce84716f00d0717d6ebff1e"
     }
   ],
-  "group_sha256": "a528bdd5b80afcf0029bb577fbbb688f78bf211dc15501dc46d39f75f9e10fe9",
+  "group_sha256": "c8c8daba26739077a41de1215c3370e174b4ab7a17ce2a995fa3041fa6f906bc",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/habs_1965-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "what this picture is: Harold Allen's HABS photograph of June 1965, made of 1801 Prairie's front and south court face; 1811 is at its right edge only, from x 927 px to the frame at x 983, behind the court's iron fence and a young tree. The camera is fitted to 1801 (habs_1965.json's solve) and 1801 renders with it as context; 1801's own differences are its tickets' (T-3003, T-1890), not this record's",
@@ -62,16 +62,16 @@
       "status": "fixed"
     },
     {
-      "what": "the north pier's head: the pictures cap the pier BELOW the bay's cornice, a moulded cap with a small slate-covered top over it: on the plate the cap at y 475-500 px and the slate to y 450 (about 7.3-7.8 m, the slate to 8.4 m through T-2541's camera), on the Chicagology print the cap at y 625-675 px and the slate to 590 (about 7.1-7.7 m, to 8.1 m); the build carries the front's wall head and its K10 cornice across it at the bay's height (7.94 m, the cornice to 8.3 m) with the main roof's eave over it, so its top stands about 0.3-0.5 m high and reads as the bay's cornice run on, not a cap of its own; on this print the cap stands at y 257-290 px with the slate rising behind it to the frame, which through this camera reads about 7.9-8.6 m, but its scale is 1801's carried across the court and 1811's grade is hidden, so the height is the plate's and the Chicagology print's",
-      "status": "open"
+      "what": "the north pier's head: the pictures cap the pier BELOW the bay's cornice, a moulded cap with a small slate-covered top over it: on the plate the cap at y 475-500 px and the slate to y 450 (about 7.3-7.8 m, the slate to 8.4 m through T-2541's camera), on the Chicagology print the cap at y 625-675 px and the slate to 590 (about 7.1-7.7 m, to 8.1 m); the build carries the front's wall head and its K10 cornice across it at the bay's height (7.94 m, the cornice to 8.3 m) with the main roof's eave over it, so its top stands about 0.3-0.5 m high and reads as the bay's cornice run on, not a cap of its own; on this print the cap stands at y 257-290 px with the slate rising behind it to the frame, which through this camera reads about 7.9-8.6 m, but its scale is 1801's carried across the court and 1811's grade is hidden, so the height is the plate's and the Chicagology print's; T-3112: fixed. The pier is capped under the bay's cornice (front_pier): a dressed band at 7.10-7.22 m, one rock-faced course, and a moulded cap at 7.52-7.72 m (a fillet over a deeper member), 0.05 and 0.12 m proud and returned on the side wall, under a slate weathering rising back at 42 degrees from the cap's front edge into the bay's cornice; the front's wall head, the moulded cornice and the main roof's street and side eaves are cut back over the pier to that slope, so sky stands over it. Across 1801's court the cap, the band and the slate top over them read as the print's do; this camera does not hold heights on 1811 (habs_1965.json), so they are the plate's and the Chicagology print's.",
+      "status": "fixed"
     },
     {
-      "what": "the north pier's courses: the photographs' pier is rock-faced in unbroken courses from its base course to its cap; the build runs the front's dressed string course (about 4.8-5.0 m) across it as a pale band (here the band at about y 425 px; the print's pier has none)",
-      "status": "open"
+      "what": "the north pier's courses: the photographs' pier is rock-faced in unbroken courses from its base course to its cap; the build runs the front's dressed string course (about 4.8-5.0 m) across it as a pale band (here the band at about y 425 px; the print's pier has none); T-3112: fixed. The pier is laid apart from the front (k01.wall.front_pier) on the front's own bed lines less its belts, so its rock-faced courses run unbroken from the base course to the band and the front's dressed string course stops at the bay's cheek.",
+      "status": "fixed"
     },
     {
-      "what": "the downpipe down the pier's junction with the canted cheek, from the cap to grade (the Chicagology print's x 110-115 px dark rod, the HABS print's x 972-975 px): the build hangs none there",
-      "status": "open"
+      "what": "the downpipe down the pier's junction with the canted cheek, from the cap to grade (the Chicagology print's x 110-115 px dark rod, the HABS print's x 972-975 px): the build hangs none there; T-3112: fixed. A third front pipe stands at the pier's junction with the canted cheek, 0.93 m along the front, its K04 head (6.76-7.0 m) under the pier's band and its shoe at grade. On the Chicagology print it renders within about 3 px of the print's dark rod, which reads at about x 188-193 px at the cheek's foot (the x 110-115 px written above is not where this print's rod stands; re-measured here), and on the HABS print it stands at the pier's south arris beside the cheek, as the print's does.",
+      "status": "fixed"
     },
     {
       "what": "the rest of 1811: its canted cheek past its first few centimetres, the bay, the entrance, the gable and the roof are out of frame; colour (a monochrome print, though the pier's dark tone is the brownstone's)",
