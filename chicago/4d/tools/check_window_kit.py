@@ -222,7 +222,14 @@ def rule_sash(o, v, data):
             continue
         xs = [q[0] for q in p["poly"]]
         by.setdefault((p["sash"], round(min(q[1] for q in p["poly"]), 3)), []).append(max(xs) - min(xs))
+    lr = v.get("light_ratios")
     for (sash, _), widths in by.items():
+        if lr and len(widths) == len(lr):
+            # T-3091: lights a picture draws unequal stand in the variant's own ratios
+            if any(abs(w / sum(widths) - r / sum(lr)) > 1e-3 for w, r in zip(widths, lr)):
+                out.append(f"sash: the {sash} sash's panes ({[round(w, 3) for w in widths]} m) are not in "
+                           f"its light_ratios {lr}")
+            continue
         if max(widths) - min(widths) > 1e-3:
             out.append(f"sash: the {sash} sash's panes are uneven ({[round(w, 3) for w in widths]} m) — "
                        f"the muntins must divide it evenly")
@@ -248,7 +255,12 @@ def rule_sash(o, v, data):
     if v["operation"] == "fixed_leaded":
         res = next(r for r in data["restrictions"] if r["part"] == "leaded")
         area = v["clear_width_m"] * v["clear_height_m"]
-        if v["use"] not in res["allowed_uses"] or area > res["max_area_m2"]:
+        # T-3091: the restriction binds the leaded lights we place; one a photograph shows
+        # (`pictured_by`, a source record) is that photograph's, wherever it stands
+        pic = v.get("pictured_by")
+        if pic is not None and not (ROOT / "data" / "sources" / f"{pic}.json").exists():
+            out.append(f"sash: {v['id']} is pictured_by {pic!r}, which is no source record")
+        elif pic is None and (v["use"] not in res["allowed_uses"] or area > res["max_area_m2"]):
             out.append(f"sash: a leaded light in a {v['use']} position of {area:.2f} m2 breaks the restriction "
                        f"({res['allowed_uses']}, max {res['max_area_m2']} m2)")
     if (v.get("bays", 1) > 1 or v.get("well")) and v["ordinary"]:
@@ -341,6 +353,9 @@ def self_test(data) -> int:
     def m_leaded(d):
         _v(d, "k06.opening.leaded_stair")["use"] = "principal"
 
+    def m_pictured(d):
+        _v(d, "k06.opening.fixed_round_leaded_bordered")["pictured_by"] = "no_such_source"
+
     def m_cost(d):
         d["costs"]["max_triangles"]["ordinary"] = 100
 
@@ -357,6 +372,7 @@ def self_test(data) -> int:
         ("an ordinary sash too wide", m_width, "outside the reconstruction rules' range"),
         ("a segmental arch risen past a semicircle", m_rise, "untrue to its kind"),
         ("a leaded light on a street front", m_leaded, "breaks the restriction"),
+        ("a pictured leaded light whose picture is no source", m_pictured, "which is no source record"),
         ("an opening over budget", m_cost, "over its ordinary budget"),
         ("a grouped window that does not say why", m_why, "must say why"),
         ("a drip groove outside the sill", m_drip, "drip"),

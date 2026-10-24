@@ -277,14 +277,21 @@
               "height_m": 3.85,
               "windows": [
                 {
-                  "opening": "k06.opening.sash_paired_flat",
+                  "opening": "k06.opening.sash_paired_transom_squared",
                   "clear_width_m": 2.3,
-                  "clear_height_m": 2.2,
+                  "clear_height_m": 2.41,
                   "sill_m": 0.63,
                   "at": [
                     0.5
                   ],
-                  "why_not_ordinary": "the second storey's paired window under its transom, read off the photograph: 2.3 m across the pair (T-2543)"
+                  "why_not_ordinary": "the second storey's paired window under its transom lights, read off the photograph: 2.3 m across the pair (T-2543); T-3091: its sashes' heads at about 8.04 m under a heavy stone bar to 8.23 m, a low light glazed in small squares over each to 8.64 m (tiers), on a 0.24 m mullion",
+                  "mullion_m": 0.24,
+                  "tiers": {
+                    "bar_m": 0.19,
+                    "lights_m": [
+                      0.41
+                    ]
+                  }
                 }
               ]
             }
@@ -330,12 +337,12 @@
                   3.675
                 ],
                 "from_m": 6.24,
-                "to_m": 8.43,
+                "to_m": 8.53,
                 "returns_m": [
                   0.4,
                   0.55
                 ],
-                "courses": 10,
+                "courses": 11,
                 "proud_m": 0.02
               }
             ],
@@ -372,6 +379,50 @@
                 "proud_m": 0.05,
                 "field": "boss"
               }
+            ],
+            "blocks": [
+              {
+                "run": 1,
+                "s_m": [
+                  2.405,
+                  2.645
+                ],
+                "from_m": 6.23,
+                "to_m": 8.8,
+                "proud_m": 0.04
+              },
+              {
+                "run": 1,
+                "s_m": [
+                  1.335,
+                  3.715
+                ],
+                "from_m": 8.04,
+                "to_m": 8.14,
+                "proud_m": 0.07
+              },
+              {
+                "run": 1,
+                "s_m": [
+                  0.85,
+                  1.375
+                ],
+                "from_m": 8.53,
+                "to_m": 8.8,
+                "proud_m": 0.05,
+                "boss": true
+              },
+              {
+                "run": 1,
+                "s_m": [
+                  3.675,
+                  4.2
+                ],
+                "from_m": 8.53,
+                "to_m": 8.8,
+                "proud_m": 0.05,
+                "boss": true
+              }
             ]
           }
         }
@@ -381,7 +432,7 @@
         "sanborn_1911_chicago_v3_sheet_28",
         "levy_1812_prairie_photo"
       ],
-      "note": "The south projection: the photograph shows the south part of the front carried forward through the basement and the first two storeys to a flat top at the third floor, where the balcony stands; it reads 4.75-5.0 m across against the sheet's 8.5 m front (T-2953: built 5.05 m across, flush with the south corner, so its north face stays where the photograph has it, x 767-778 px at its upper storeys) (the sheet's own step is 3.9 m from the south wall, which the photograph does not bear out, and it is built to the photograph). It stands out 1.2 m, the kit's most against the sheet's 1.3 m, flush with the south corner as the photograph has it (flush_corner; T-2953, where T-2543 had stood it 0.3 m in), its south cheek running on in the side wall's plane. Its basement light comes down to the walk on a 0.1 m plinth (plinth_m; L-k01-1812-wheeler-porch-2952). Its openings are the photograph's. On its flat top stands the photograph's balcony (T-2888): an iron rail on the eaves, 0.1 m in from their edge, round the cheeks and the front from the wall to the wall, 0.55 m high, its balusters 0.24 m apart. Through the camera the print's rail rises about 47 px (0.51 m at the projection's 92.4 px a metre) over the cornice's top edge, which hides its foot, and its balusters stand about 22 px apart; the posts', rails' and balusters' sections and the inset are K08's to choose, and the print's solid stone panel in the middle of the front run, rising to a central pedestal, is built as more of the iron rail (L-k08-1812-projection-balcony-2888). T-2914: its wall is brick over the basement (brick_above_m 1.65 m, the principal floor), as the print's first and second storeys are, the brick showing round the arched window and either side of the paired one; its plinth, its bands at the two floors, its sills, heads and reveals stay stone. The print's quoined jambs and the band at the arched window's spring are not laid on it (L-k01-1812-wheeler-fabric-2914). T-2915: its dressings are laid as the print's (dress), read at 2x crops of x 280-770, y 780-1380 px at the projection's 92.4 px a metre (the horizon at y 1408, 1.6 m): the paired window's jambs in dressed stones about 37 and 50 px (0.40 and 0.55 m) out from its frame in turn, in courses about 20 px (0.22 m), from its sill to its head, built as ten courses from 6.24 to 8.43 m; the arched window's in taller stones about 40 px (0.43 m), returning about 35-45 and 55-65 px (0.40 and 0.62 m built), four courses from its sill to the band; that band, at y 1140-1175 px (4.12-4.5 m), a long stone running from each corner of the projection to the arch, built at 3.9-4.28 m so its bed stands about 0.1 m under the kit's spring (4.0 m) as the print's under its arch's, 0.04 m proud and stopping at the arch ring's extrados; and under the second storey's jambs, in the band over the second floor's belt, two carved shields about 42-45 px across and 37 px high (0.47 by 0.40 m) centred at y 1012 (5.89 m) and 132 and 139 px (about 1.46 m) either side of the window's axis, built as oval bosses standing for the carving, 0.05 m proud in a moulded ring. The courses' joints, the quoins' 0.02 m and the bosses' carving are the kit's, and the cheeks, which the print does not see, are left plain (L-k01-1812-wheeler-carved-2915)."
+      "note": "The south projection: the photograph shows the south part of the front carried forward through the basement and the first two storeys to a flat top at the third floor, where the balcony stands; it reads 4.75-5.0 m across against the sheet's 8.5 m front (T-2953: built 5.05 m across, flush with the south corner, so its north face stays where the photograph has it, x 767-778 px at its upper storeys) (the sheet's own step is 3.9 m from the south wall, which the photograph does not bear out, and it is built to the photograph). It stands out 1.2 m, the kit's most against the sheet's 1.3 m, flush with the south corner as the photograph has it (flush_corner; T-2953, where T-2543 had stood it 0.3 m in), its south cheek running on in the side wall's plane. Its basement light comes down to the walk on a 0.1 m plinth (plinth_m; L-k01-1812-wheeler-porch-2952). Its openings are the photograph's. On its flat top stands the photograph's balcony (T-2888): an iron rail on the eaves, 0.1 m in from their edge, round the cheeks and the front from the wall to the wall, 0.55 m high, its balusters 0.24 m apart. Through the camera the print's rail rises about 47 px (0.51 m at the projection's 92.4 px a metre) over the cornice's top edge, which hides its foot, and its balusters stand about 22 px apart; the posts', rails' and balusters' sections and the inset are K08's to choose, and the print's solid stone panel in the middle of the front run, rising to a central pedestal, is built as more of the iron rail (L-k08-1812-projection-balcony-2888). T-2914: its wall is brick over the basement (brick_above_m 1.65 m, the principal floor), as the print's first and second storeys are, the brick showing round the arched window and either side of the paired one; its plinth, its bands at the two floors, its sills, heads and reveals stay stone. The print's quoined jambs and the band at the arched window's spring are not laid on it (L-k01-1812-wheeler-fabric-2914). T-2915: its dressings are laid as the print's (dress), read at 2x crops of x 280-770, y 780-1380 px at the projection's 92.4 px a metre (the horizon at y 1408, 1.6 m): the paired window's jambs in dressed stones about 37 and 50 px (0.40 and 0.55 m) out from its frame in turn, in courses about 20 px (0.22 m), from its sill to its head, built as ten courses from 6.24 to 8.43 m; the arched window's in taller stones about 40 px (0.43 m), returning about 35-45 and 55-65 px (0.40 and 0.62 m built), four courses from its sill to the band; that band, at y 1140-1175 px (4.12-4.5 m), a long stone running from each corner of the projection to the arch, built at 3.9-4.28 m so its bed stands about 0.1 m under the kit's spring (4.0 m) as the print's under its arch's, 0.04 m proud and stopping at the arch ring's extrados; and under the second storey's jambs, in the band over the second floor's belt, two carved shields about 42-45 px across and 37 px high (0.47 by 0.40 m) centred at y 1012 (5.89 m) and 132 and 139 px (about 1.46 m) either side of the window's axis, built as oval bosses standing for the carving, 0.05 m proud in a moulded ring. The courses' joints, the quoins' 0.02 m and the bosses' carving are the kit's, and the cheeks, which the print does not see, are left plain (L-k01-1812-wheeler-carved-2915). T-3091: the paired window to the print at 3x (x 370-780, y 690-900 px, 92.4 px a metre at the projection's face, the horizon y 1408 at 1.6 m): its sashes' heads at y 810 (8.04 m), a heavy stone bar over them to the transom lights' sills at y 793 (8.23 m) and a low light in each bay to y 755 (8.64 m) glazed in a row of small squares, so the hole runs 2.41 m from its sill (tiers, the bar 0.19 m and the light 0.41 m); its mullion about 22 px (0.24 m) across, carried up past the head as a pier to the caps' top (dress.blocks, 0.04 m proud); a moulded hood over the sashes' heads, x 425-655 (8.04-8.14 m, 0.07 m proud); and the jambs' quoins carried up past the head, eleven courses to 8.53 m, to a carved cap each side at y 740-765 (8.53-8.80 m, x 385-425 and 655-695), built as a dressed block 0.05 m proud with a raised oval boss standing for the carving, a swag the print draws (L-k01-1812-wheeler-windows-3091)."
     },
     "side_bays": {
       "value": [],
@@ -568,15 +619,15 @@
     "window_kit": {
       "value": {
         "k01.opening.sash_flat": "k06.opening.sash_paired_flat",
-        "k01.opening.street_casement_pair_transom": "k06.opening.casement_pair_transom_plate",
+        "k01.opening.street_casement_pair_transom": "k06.opening.casement_pair_transom_squared",
         "k01.opening.street_sash_segmental_fanlight": "k06.opening.sash_segmental_fanlight_wide",
-        "k01.opening.street_sash_round_fanlight": "k06.opening.sash_round_fanlight"
+        "k01.opening.street_sash_round_fanlight": "k06.opening.fixed_round_leaded_bordered"
       },
       "confidence": "inferred",
       "sources": [
         "levy_1812_prairie_photo"
       ],
-      "note": "The street windows from the photograph's kinds (T-2889): the second storey's wide mullioned window under its transom, the third storey's large segmental fanlight window over the balcony and its small round-arched one. The rear range's windows, which no picture shows, keep the paired sash. The street front has no basement light on its main wall (the projection's barred light is K08's), so it names no area light."
+      "note": "The street windows from the photograph's kinds (T-2889): the second storey's wide mullioned window under its transom, the third storey's large segmental fanlight window over the balcony and its small round-arched one. The rear range's windows, which no picture shows, keep the paired sash. The street front has no basement light on its main wall (the projection's barred light is K08's), so it names no area light. T-3091: the north window's transom lights glazed in small squares (k06.opening.casement_pair_transom_squared), and the small arched window a patterned leaded light (k06.opening.fixed_round_leaded_bordered: a border of small panes round a field of quarries and a roundel), as the print shows them; the kit's variants say what was read."
     },
     "entrance_kit": {
       "value": {
@@ -818,7 +869,8 @@
               "key_m": [
                 0.37,
                 0.71
-              ]
+              ],
+              "short_m": 0.28
             }
           },
           {
@@ -835,7 +887,8 @@
               "key_m": [
                 0.26,
                 0.4
-              ]
+              ],
+              "short_m": 0.26
             }
           }
         ],
@@ -901,7 +954,7 @@
       "sources": [
         "levy_1812_prairie_photo"
       ],
-      "note": "T-2889: the main wall's street windows read off the photograph through its camera (data/reference_views/wheeler_house_1812_prairie/levy_front.json: level and square to the front, 88.5 px a metre at the main front's plane, the walk at y 1549.6 px, v = 3.54 + (x - 633) / 88.5 m from the south wall), each on 2-3x crops of the print. Second storey, over the entrance: one wide window, 1.64 m across its frame (x 818-962 px) on a stone mullion, two plate lights under a stone transom whose foot is about 0.68 m under the head, the transom's lights low over it; its sill at 6.07 m (y 1013) and its head at 8.03 m (y 840), centred at 6.44 m. Third storey, over the balcony: the large window, 2.78 m between its jambs (x 447-693 px), its jambs rising to a spring at 11.30 m (y 550) and its head a flat segmental arch to a crown at 12.05 m (y 483), rising 0.75 m, a fanlight with radial bars over three lights; its foot is hidden behind the balcony and the projection's top, so its sill is set at 9.9 m, the 0.15 m K08 keeps an opening over where the projection's roof meets the wall (9.73 m). Its voussoirs run out about 0.43 m round the head (y 445 px at the crown), fifteen of them, under a keystone carried to 12.76 m (y 420), 0.37 m across its top. To its north the smaller arched window: 1.2 m across (x 840-946 px), a round head springing at about 11.4 m to a crown at 12.0 m (y 488), its sill at 10.75 m (y 598), centred at 6.48 m, in a ring of about eleven voussoirs 0.4 m deep. Built otherwise: the large window's three lights are a K06 three-light sash, where the print's middle light is wider than the two beside it and carries an arched head of its own, and its fanlight has radial bars only, where the print's also has a concentric bar; the small window is glazed as K06's round fanlight sash, where the print shows it filled with a patterned light or panel; the voussoirs are a ring of equal stones standing 0.1 m before the wall, where the print's alternate long and short into the brick; the transom's small squared glazing is not built (L-k01-1812-wheeler-third-storey-2889). T-2914: the second storey's north window in a dressed quoined surround, as the print's: its jambs a stone about 0.17 m and 0.32 m out from the frame in turn (15 and 28 px at 88.5 px a metre, 3x crops of x 760-1060), the long and short read on both jambs, and a lintel course about 0.17 m deep over the head; the stones' heights are the kit's courses, not the print's joints. T-2915: the carved stone over the north window, read at 4x crops of the print (x 760-1000, y 660-850 px) at the main front's 88.5 px a metre, the walk at y 1549.6: from the lintel up, a fillet at y 790-795 (8.53-8.58 m), the carved frieze to y 757 (8.95 m), an interlace of crossing straps and leaves; a moulded band to y 740 (9.15 m); the patterned band to y 697 (9.63 m), rows of small sunk oblong panels about 30-35 px (0.34-0.40 m) long whose joints break row on row; and a ledge to y 683 (9.79 m). Each runs from the projection's north face (x 775 px) to the north corner. So the front's belts are the photograph's: the 5.4-5.6 m belt under the second storey kept, the moulded band 8.95-9.15 m and the ledge 9.63-9.79 m, where K01 had laid its own 9.30-9.45 m belt at the third floor; and two carved belts between them, carved from s 5.05 m (the projection's north face; behind the projection they are belt courses only) to the corner: the frieze 8.55-8.95 m carved with T-2819's guilloche, rings 0.15 m in radius crossing at 1.5 radii, standing for the print's interlace, and the panel band 9.15-9.63 m in two rows of sunk panels about 0.36 m long between raised ribs, each row's joints halfway along the row under it (L-k01-1812-wheeler-carved-2915)."
+      "note": "T-2889: the main wall's street windows read off the photograph through its camera (data/reference_views/wheeler_house_1812_prairie/levy_front.json: level and square to the front, 88.5 px a metre at the main front's plane, the walk at y 1549.6 px, v = 3.54 + (x - 633) / 88.5 m from the south wall), each on 2-3x crops of the print. Second storey, over the entrance: one wide window, 1.64 m across its frame (x 818-962 px) on a stone mullion, two plate lights under a stone transom whose foot is about 0.68 m under the head, the transom's lights low over it; its sill at 6.07 m (y 1013) and its head at 8.03 m (y 840), centred at 6.44 m. Third storey, over the balcony: the large window, 2.78 m between its jambs (x 447-693 px), its jambs rising to a spring at 11.30 m (y 550) and its head a flat segmental arch to a crown at 12.05 m (y 483), rising 0.75 m, a fanlight with radial bars over three lights; its foot is hidden behind the balcony and the projection's top, so its sill is set at 9.9 m, the 0.15 m K08 keeps an opening over where the projection's roof meets the wall (9.73 m). Its voussoirs run out about 0.43 m round the head (y 445 px at the crown), fifteen of them, under a keystone carried to 12.76 m (y 420), 0.37 m across its top. To its north the smaller arched window: 1.2 m across (x 840-946 px), a round head springing at about 11.4 m to a crown at 12.0 m (y 488), its sill at 10.75 m (y 598), centred at 6.48 m, in a ring of about eleven voussoirs 0.4 m deep. Built otherwise: the large window's three lights are a K06 three-light sash, where the print's middle light is wider than the two beside it and carries an arched head of its own, and its fanlight has radial bars only, where the print's also has a concentric bar; the small window is glazed as K06's round fanlight sash, where the print shows it filled with a patterned light or panel; the voussoirs are a ring of equal stones standing 0.1 m before the wall, where the print's alternate long and short into the brick; the transom's small squared glazing is not built (L-k01-1812-wheeler-third-storey-2889). T-2914: the second storey's north window in a dressed quoined surround, as the print's: its jambs a stone about 0.17 m and 0.32 m out from the frame in turn (15 and 28 px at 88.5 px a metre, 3x crops of x 760-1060), the long and short read on both jambs, and a lintel course about 0.17 m deep over the head; the stones' heights are the kit's courses, not the print's joints. T-2915: the carved stone over the north window, read at 4x crops of the print (x 760-1000, y 660-850 px) at the main front's 88.5 px a metre, the walk at y 1549.6: from the lintel up, a fillet at y 790-795 (8.53-8.58 m), the carved frieze to y 757 (8.95 m), an interlace of crossing straps and leaves; a moulded band to y 740 (9.15 m); the patterned band to y 697 (9.63 m), rows of small sunk oblong panels about 30-35 px (0.34-0.40 m) long whose joints break row on row; and a ledge to y 683 (9.79 m). Each runs from the projection's north face (x 775 px) to the north corner. So the front's belts are the photograph's: the 5.4-5.6 m belt under the second storey kept, the moulded band 8.95-9.15 m and the ledge 9.63-9.79 m, where K01 had laid its own 9.30-9.45 m belt at the third floor; and two carved belts between them, carved from s 5.05 m (the projection's north face; behind the projection they are belt courses only) to the corner: the frieze 8.55-8.95 m carved with T-2819's guilloche, rings 0.15 m in radius crossing at 1.5 radii, standing for the print's interlace, and the panel band 9.15-9.63 m in two rows of sunk panels about 0.36 m long between raised ribs, each row's joints halfway along the row under it (L-k01-1812-wheeler-carved-2915). T-3091, from 4-5x crops of the print (x 430-760, y 410-640 px): the large window's lights stand unequal under the middle one's own arch, its fanlight crossed by a concentric bar and the posts' bars (the K06 variant's note has the reading); the small window is filled with a patterned light, built as a bordered leaded light; the north window's transom lights are glazed in small squares; and both rings' voussoirs run long and short in turn into the brick, the keystone's neighbours short: the long stones the ring's 0.43 and 0.40 m, the short ones about two thirds of that where the print's stepped ends fall (0.28 and 0.26 m; short_m). The stones' squared ends in the brick are cut on the ring's radii, as the rest of the ring (L-k01-1812-wheeler-windows-3091)."
     },
     "mansard": {
       "value": {

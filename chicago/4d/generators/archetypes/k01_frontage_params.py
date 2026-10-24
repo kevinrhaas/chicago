@@ -2316,7 +2316,7 @@ def _bay_dress(e: dict, v: dict, top: float, columns: dict | None) -> dict:
     whose field is a raised boss."""
     ds, bid = e["dress"], e["id"]
     pts = v["plan"]["points"] if v["plan"]["kind"] == "polyline" else None
-    known = {"capitals", "bands", "ovals", "volutes_m", "shutters", "quoins", "run_bands"}
+    known = {"capitals", "bands", "ovals", "volutes_m", "shutters", "quoins", "run_bands", "blocks"}
     if pts is None or e.get("fabric", "stone") not in ("stone", "front_stone") or not ds or set(ds) - known:
         raise ParamError(f"bays: {bid}'s dress takes {sorted(known)}, on a stone bay's polyline plan")
     out = {"soffit_m": round(top, 4)}
@@ -2397,6 +2397,32 @@ def _bay_dress(e: dict, v: dict, top: float, columns: dict | None) -> dict:
         rbs.append({"run": run, "from_m": y0, "to_m": y1, "proud_m": d, "gaps_m": tuple(gaps)})
     if rbs:
         out["run_bands"] = tuple(rbs)
+    blocks, bosses = [], []
+    for j, q in enumerate(ds.get("blocks") or ()):
+        # T-3091: a dressed block on one run of the plan, `s_m` [from, to] along it and `from_m`
+        # to `to_m` over grade, `proud_m` before the wall (1812's projection, the Levy print: its
+        # paired window's mullion carried up as a pier, the moulded hood over its sashes and the
+        # carved caps its jambs rise to); `boss` raises an oval boss on its face, standing for
+        # carving the build does not model, as the shields' (T-2915)
+        need = {"run", "s_m", "from_m", "to_m", "proud_m"}
+        if set(q) - {"boss"} != need or not 0 <= int(q["run"]) < len(pts) - 1:
+            raise ParamError(f"bays: {bid}.dress.blocks[{j}] takes {sorted(need)} and an optional boss, on a "
+                             f"run of its plan")
+        run = int(q["run"])
+        a, b = sorted(float(x) for x in q["s_m"])
+        y0, y1, d = float(q["from_m"]), float(q["to_m"]), float(q["proud_m"])
+        if not 0.0 <= a < b <= run_len(run) or b - a > 3.0 or not 0.0 < y0 < y1 <= top or y1 - y0 > 3.0 \
+                or not 0.01 <= d <= 0.1:
+            raise ParamError(f"bays: {bid}.dress.blocks[{j}] {q} is a block up to 3 m each way inside its run "
+                             f"(0-{run_len(run):.3f} m) and the bay's wall (top {top:.2f} m), 0.01-0.1 m proud")
+        blocks.append({"run": run, "s_m": (a, b), "from_m": y0, "to_m": y1, "proud_m": d})
+        if q.get("boss"):
+            bosses.append({"run": run, "s_m": (a + b) / 2, "y_m": (y0 + y1) / 2, "width_m": round(0.6 * (b - a), 4),
+                           "height_m": round(0.6 * (y1 - y0), 4), "proud_m": round(d + 0.015, 4), "field": "boss"})
+    if blocks:
+        out["blocks"] = tuple(blocks)
+    if bosses:
+        out["ovals"] = tuple(out.get("ovals", ())) + tuple(bosses)
     if "volutes_m" in ds:
         rv, con = float(ds["volutes_m"]), (v.get("brackets") or {}).get("consoles")
         if con is None or not 0.02 <= rv <= min(0.15, con["drop_m"] / 4, con["reach_m"] / 3):
@@ -2644,8 +2670,9 @@ def _voussoirs(vs, k, variant, s, sill, h, sgr, overhang, eave) -> dict:
     `proud_m` before the wall, the keystone `key_m` [width at its top, height over the crown].
     Where the ring rises past a shaped gable's foot it stands before the gable's face too."""
     what = f"street_front_windows.windows[{k}].voussoirs"
-    if set(vs) != {"ring_m", "stones", "proud_m", "key_m"}:
-        raise ParamError(f"{what} takes ring_m, stones, proud_m and key_m [width, height]")
+    if set(vs) - {"short_m"} != {"ring_m", "stones", "proud_m", "key_m"}:
+        raise ParamError(f"{what} takes ring_m, stones, proud_m and key_m [width, height], and an optional "
+                         f"short_m")
     if variant["head"] not in ("round", "segmental"):
         raise ParamError(f"{what}: a ring is turned over a round or segmental head, not a {variant['head']} one")
     ring, n, proud = float(vs["ring_m"]), int(vs["stones"]), float(vs["proud_m"])
@@ -2656,6 +2683,11 @@ def _voussoirs(vs, k, variant, s, sill, h, sgr, overhang, eave) -> dict:
     if not 0.15 <= kw <= 0.6 or not ring <= kh <= ring + 0.6:
         raise ParamError(f"{what}.key_m: a keystone 0.15-0.6 m across its top, rising at least the ring's depth "
                          f"and at most 0.6 m past it")
+    # T-3091: long and short in turn into the walling (1812's, the Levy print): every other
+    # stone, from the keystone's neighbours out, `short_m` deep where the rest are `ring_m`
+    short = float(vs["short_m"]) if "short_m" in vs else None
+    if short is not None and not 0.1 <= short <= ring - 0.05:
+        raise ParamError(f"{what}.short_m: the short stones 0.1 m deep up to 0.05 m short of the ring ({ring} m)")
     top = sill + h + kh
     if sgr and top > float(sgr["foot_m"]):
         face = overhang + float(sgr["proud_m"])
@@ -2665,7 +2697,7 @@ def _voussoirs(vs, k, variant, s, sill, h, sgr, overhang, eave) -> dict:
     elif top > eave - 0.05:
         raise ParamError(f"{what}: the keystone runs into the wall head")
     return {"s_m": round(s, 4), "sill_m": round(sill, 4), "ring_m": ring, "stones": n, "proud_m": proud,
-            "key_m": (kw, kh)}
+            "key_m": (kw, kh), **({"short_m": short} if short is not None else {})}
 
 
 def _street_frontispiece(fp, openings, dress, floors, width) -> dict:

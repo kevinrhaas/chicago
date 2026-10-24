@@ -32247,6 +32247,54 @@ drawing of the house's carved work.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-24 (T-3002).
 
+### L-k01-1812-wheeler-windows-3091 — 1812 Prairie's front windows to the Levy and c. 1955 photographs: the large window's unequal lights, middle arch and fanlight bars, the small window's patterned light, the long and short voussoirs, the squared transom lights and the projection's caps, pier and hood
+
+**Decision:** The front windows of George H. Wheeler's house at 1812 Prairie (T-3091, piece 2 of
+T-3035) are built as Albert Levy's photograph shows them. The third storey's large window stands
+in three unequal lights, the middle one wider and under a low moulded arch of its own, a heavy bar
+running on from each post's head to the head, and a concentric bar crossing the fanlight's radial
+ones; the small arched window is filled with a patterned light; both arches' voussoirs run long
+and short in turn into the brick; the second storey's north window has its transom lights glazed
+in small squares; and the south projection's paired window stands on a heavy pier of a mullion,
+under a moulded hood with a squared transom light over each sash, its quoined jambs rising past
+the head to carved caps under the cornice. The K06 kit learns `light_ratios`, `post_m` and
+`middle_arch` (a fanlight's middle arch, post bars and concentric bar), `transom_grid` (a transom
+light's lattice over one glass), and `border_m`, `border_pane_m` and `roundel_m` (a leaded light's
+border and medallion), in three new variants and the large window's own; a leaded light outside
+the restriction's positions is allowed only where a source record pictures it (`pictured_by`).
+K01 learns `short_m` on a street window's voussoirs and `blocks` in a bay's dress. Every other
+house re-emits as before (none names any of them).
+**What is read, not invented.** Through Levy's camera
+(`data/reference_views/wheeler_house_1812_prairie/levy_front.json`, 88.5 px a metre at the main
+front, 92.4 at the projection's face): the large window's glass about 40, 120 and 43 px across
+between posts about 17-18 px (0.2 m), the middle arch's crown about 14 px (0.16 m) over the side
+lights' transoms, the post bars leaning about 23 degrees from upright, the concentric bar about
+22 px (0.25 m) inside the glass's crown; the small window's border about 10-12 px (0.12 m) wide
+round a figured field, deep in a dark reveal; the long and short stones' stepped ends; the north
+window's transom lights a lattice of small squares about 5 px (0.055 m); and the projection's
+sash heads at y 810 (8.04 m), the stone bar over them to y 793 (8.23 m), the transom lights to
+y 755 (8.64 m), the mullion about 22 px (0.24 m), the hood x 425-655 px, and the caps at
+y 740-765 px (8.53-8.80 m), x 385-425 and 655-695 px.
+**What is invented.** The small window's pattern past its border: diamond quarries 0.12 by 0.16 m
+and a 0.2 m roundel stand for a figure the print does not resolve, and the cames are iron-dark;
+its 0.2 m reveal; the short voussoirs' 0.28 and 0.26 m (about two thirds of the long, where the
+print's ends fall) and their ends cut on the ring's radii, where the print's step square into the
+brick courses; the lattices' counts (eight by eight in the north window's transom lights, twelve by
+four in the projection's), the print showing small squares in a panel smaller than the light; the
+eleven radial bars; the caps' carving, a swag in the print, built as a raised oval boss on a block
+0.05 m proud; the pier's 0.04 m and the hood's 0.07 m proud and 0.1 m height; and every bar's
+section, which is the kit's.
+**What is built otherwise than read.** The print's middle arch springs from the posts a little
+below the side lights' transoms; the build's springs on the transom bar. The c. 1955 photograph
+shows the small window glazed as a plain sash, taken for a later change: the patterned light is
+built for 1904 from Levy's print.
+**How to resolve:** Burnham & Root's drawings, or a closer photograph of the third storey, would
+fix the small window's design, the lattices and the carving.
+**Ticket:** T-3091.
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`.
+**Recorded:** 2026-10-24 (T-3091).
+
 ### L-kimball-1801-upper-lights-3097 — 1801 Prairie's second-storey lights re-read under the raised cornice; the 18th Street flank's round-headed pair
 
 **Decision:** the second storey's lights are re-read off J. W. Taylor's c. 1895 photograph
