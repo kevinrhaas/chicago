@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 751,
+  "count": 752,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -53866,6 +53866,46 @@
       "work_refs": [
         "T-3106",
         "T-3105"
+      ]
+    },
+    {
+      "id": "L-lake-house-open-shell-2379",
+      "title": "distinguish an omitted roof from a flat cap",
+      "section": "per_subject",
+      "subjects": [
+        "lake_house_construction"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "lake_house_construction",
+          "phase": "shell_1835",
+          "aspect": "form.roof_type"
+        }
+      ],
+      "recorded": "2026-10-24",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Covers",
+          "text": "`lake_house_construction.shell_1835.form.roof_type`."
+        },
+        {
+          "label": "Decision",
+          "text": "Keep the existing reconstructed one-storey/four-metre, 24×15 m worksite and roof type: none, and make that selector omit the generic roof cap. `flat` retains its exact existing cap; all pitched roofs and other role dispatch remain unchanged. This removes a 360 m² cap/four raw vertices/two triangles; it introduces no excavation, floor, scaffold, interior passage, construction stock or new phase."
+        },
+        {
+          "label": "Evidence and bounds",
+          "text": "The held Chicago Democrat notice of 10 June 1835, p.2 col.5, reports an active house-building project in Kinzie's Addition, understood to be named Lake House. The bracketed/transcription-mediated reading does not show roof or progress. June 1836 unfinished work and autumn 1836 opening do not establish July 1835 roof absence. The roof field therefore becomes reconstructed; all phase dates, footprint, coordinates, dimensions, whole-building grade and the zero-to-two-storey uncertainty stay unchanged. Bonnell's conflicting retrospective dates remain unresolved. No later completed-hotel picture supplies the July construction stage. OriginalT-2379 remains open/differs; actual native family refresh, above-wall comparison and app/gates are owed."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-24. Official current-source exports and actual app reviews are required before this utility is ready for review."
+        }
+      ],
+      "work_refs": [
+        "T-3123",
+        "T-2379"
       ]
     },
     {

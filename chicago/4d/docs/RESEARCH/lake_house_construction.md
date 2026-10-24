@@ -126,3 +126,12 @@ stacked material.
   plan, and would settle which side of Rush Street the block is on.
 - Anything at all giving the finished building a frontage would replace the record's
   order-of-magnitude arithmetic on its cost.
+
+
+## Current evidence correction — roof absence is reconstructed
+
+The earlier statements that modern compilations alone establish the 1835 site, and that rooflessness is a documented fact, are superseded here. The already-held *Chicago Democrat*, 10 June 1835, p.2 col.5, claim `chicago_democrat_1835_06_10#c 001`, reports a new house building in Kinzie's Addition, understood to be named Lake House. Its reading is transcription-mediated, with bracketed supplies; no newspaper scan was newly inspected for this correction. It establishes an active project before 1 July, not the groundbreaking day, height, storeys, plan or roof. The existing January 1 bound remains inferred.
+
+Martineau's unfinished hotel interior in June 1836 and Andreas's autumn 1836 opening do not prove roof absence in July 1835. The current one-storey/four-metre open shell, 24×15 m plan and zero-to-two-storey progress range remain reconstructed choices. No scaffolding, excavation, materials stock, later completed-hotel appearance, new phase or exact construction schedule is inferred. Bonnell's explicit 1835/date-arithmetic 1836/introductory 1837 conflict remains unresolved. The exclusion of the finished hotel does not establish the site's July progress.
+
+`roof_type: none` must omit the generic cap; `flat` retains its existing cap. Actual dispatch isolates the visible change to this magazine-role worksite among the 25 current fort-family phases; parades, flagstaffs, tower and earth-covered root houses use other builders. The full shared-family official refresh, actual above-wall comparison, app and policy gates remain owed. OriginalT-2379 stays open/differs; this correction is not an accepted picture match.

@@ -1,3 +1,16 @@
+## T-3123 — Lake House roof-cap semantics (2026-10-24)
+
+The selected one-storey July 1835 worksite now omits its roof cap. Roof absence
+is reconstructed: unfinished work in 1836 does not establish the July 1835 stage.
+The existing June 10 notice establishes an active named project, without a roof
+observation. Dimensions, placement, dates and whole-building grade stay unchanged.
+
+Genuine pinned Blender 4.5.3 masters and native web derivatives refreshed all 25
+fort-family phases. Actual Float32 readback removes exactly the 360-square-metre
+cap and preserves every other face; all 24 default masters and web files are byte
+exact. Ordered native derivation and all 342 protected file checks pass. Actual app
+review and final policy gates remain pending. Original T-2379 remains open with its complete picture-match scope.
+
 ## T-2800 — planted standing horse integration (2026-10-23)
 
 One reconstructed horse is placed in the 1835 Western Hotel yard with a

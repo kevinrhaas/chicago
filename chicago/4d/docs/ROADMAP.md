@@ -5863,3 +5863,17 @@ The scoped prerequisite renders four Kinzie poplars through the existing green c
 
 
 T-3106 retains its medium parent and provenance history. Its two independent no-bake demonstrations are T-3119 (the declared garden plants and physical clearance) and T-3120 (the Light/Full woodland sweep within unchanged caps), grouped with T-3105. This ticket mapping changes no model, planting, renderer, camera, source grade or original picture acceptance.
+
+
+## T-3122 / T-3123 / T-3124 — fort-family picture progress
+
+T-3123 corrects the selected Lake House open-shell cap while keeping its July 1835
+roof absence reconstructed. Its first genuine 25-family export has cap-only
+readback and 24 byte-exact master/web controls. Ordered native checks and protected
+inputs pass; complete actual mobile/desktop review before the group is ready for a PR.
+
+The separately reviewed lighthouse profile (T-3122) and reconstructed second-fort
+officers' upper piazza (T-3124) are prepared, not adopted in this intermediate
+source checkpoint. Their genuine exports, provenance and app checks remain owed.
+Original T-2373, T-2379 and T-2388 retain all unresolved pictures, cameras, dates
+and rights obligations; no helper or incremental model result closes them.
