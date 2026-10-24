@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2250, ts: '2026-10-24T09:39:17.174Z', date: 'Oct 24, 2026, 4:39 AM CT', title: 'Glessner\'s stable roof: which 1887 camera solution to trust', kind: 'change',
+    items: [
+      'Nothing you can see changes. The 1887 photograph of the Glessner stable had two camera solutions that disagreed by half a metre on its roof. The downpipes in the picture, which should stand upright, show the camera was tipped up only slightly, and the 1963 photograph sees the gable at the height that slight tip gives. Through that camera the rebuilt ridge matches the photograph, so it stays as built.',
+    ] },
   { v: 2249, ts: '2026-10-24T08:52:33.572Z', date: 'Oct 24, 2026, 3:52 AM CT', title: '1812 Prairie\'s front windows match their photographs', kind: 'improvement',
     items: [
       'The large third-storey window has a wide middle light under its own low arch, and its fanlight is crossed by a curved bar, as in Levy\'s photograph.',
