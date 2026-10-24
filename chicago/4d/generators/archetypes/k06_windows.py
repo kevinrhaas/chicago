@@ -90,6 +90,15 @@ def seed_of(component_id: str, index: int, structure_id: str = "k06_window_kit")
 
 # -- 2D helpers in the wall plane (s along the wall, y up) ---------------------------------
 
+def _seqsum(xs) -> float:
+    """T-3091: a sum added left to right, so a built mesh's bytes never depend on the Python
+    minor version's built-in summation (3.12 compensates; T-2363)."""
+    t = 0.0
+    for x in xs:
+        t += x
+    return t
+
+
 def area2(poly) -> float:
     a = 0.0
     for i, p in enumerate(poly):
@@ -362,7 +371,7 @@ class Opening:
         lr = self.v.get("light_ratios")
         if lr and len(lr) == cols and cols > 1:
             pw = float(self.v.get("post_m", mw))
-            span, tot, x, cells = xs1 - xs0 - pw * (cols - 1), float(sum(lr)), xs0, []
+            span, tot, x, cells = xs1 - xs0 - pw * (cols - 1), _seqsum(float(r_) for r_ in lr), xs0, []
             for r_ in lr:
                 cells.append((x, x + span * r_ / tot))
                 x = cells[-1][1] + pw
@@ -698,9 +707,9 @@ class Opening:
             return q if area2(q) > 0 else q[::-1]
         self.ring("came", day.outline(*(x + bd - hw for x in rails)), day.outline(*(x + bd + hw for x in rails)),
                   g - 0.004)
-        c = (sum(q[0] for q in field) / len(field), sum(q[1] for q in field) / len(field))
+        c = (_seqsum(q[0] for q in field) / len(field), _seqsum(q[1] for q in field) / len(field))
         per = [(a, b, math.dist(a, b)) for a, b in zip(outer, outer[1:] + outer[:1]) if math.dist(a, b) > 1e-4]
-        total = sum(L for _, _, L in per)
+        total = _seqsum(L for _, _, L in per)
         n = max(4, int(total / float(self.v.get("border_pane_m", 0.15)) + 0.5))
         for k in range(n):
             t, acc = total * (k + 0.5) / n, 0.0
