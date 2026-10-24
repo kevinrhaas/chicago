@@ -3114,6 +3114,7 @@ class Assembly:
             solids.append(k01_shaped_gable.element(self, k5, ye))
             recesses += k01_shaped_gable.cutters(self, k5)
         # T-2302's plain stacks, for a record that names no K15 variant (1612 Goodman)
+        self.stone_stack_boxes = []
         for c in p.chimneys:
             if "k15" in c or "k15_head" in c:
                 continue
@@ -3128,6 +3129,8 @@ class Assembly:
             solids.append(k5.extrude([(u - sx / 2, y0), (u + sx / 2, y0), (u + sx / 2, top - cd / 2),
                                       (u - sx / 2, top - cd / 2)], z - sz / 2, z + sz / 2, P,
                                      lambda i, p_, q_: "chimney" if i != 2 else "hidden", "chimney", "chimney"))
+            if c.get("stone"):   # T-3003: its shaft in the walls' stone (_emit_shell reads the box)
+                self.stone_stack_boxes.append((u - sx / 2 - 1e-3, u + sx / 2 + 1e-3, z - sz / 2 - 1e-3, z + sz / 2 + 1e-3))
             solids.append(k5.extrude([(u - sx / 2 - cp, top - cd), (u + sx / 2 + cp, top - cd),
                                       (u + sx / 2 + cp, top), (u - sx / 2 - cp, top)],
                                      z - sz / 2 - cp, z + sz / 2 + cp, P, "coping", "coping", "coping"))
@@ -3399,6 +3402,11 @@ class Assembly:
     BOARD = ("wall", "base")   # the body under the roof: the walls' own business
     OPEN = ("window",)         # the sash recess's back: the K06 opening set in it closes it
 
+    def _in_stone_stack(self, tri):
+        """T-3003: whether a stack face's centroid lies in a stone stack's plan box."""
+        cx, cz = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, (tri[0][2] + tri[1][2] + tri[2][2]) / 3
+        return any(b[0] <= cx <= b[1] and b[2] <= cz <= b[3] for b in getattr(self, "stone_stack_boxes", ()))
+
     def _in_gable_dormer(self, tri):
         """T-2452: whether a face's centroid lies in a gabled lower-face dormer's plan box."""
         cx, cz = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, (tri[0][2] + tri[1][2] + tri[2][2]) / 3
@@ -3434,6 +3442,8 @@ class Assembly:
             elif role in ("soffit", "fascia") and min(q[0] for q in (pts[a], pts[b], pts[c])) \
                     >= getattr(self, "stone_cornice_u", math.inf):
                 mat = "dress_stone"                       # T-2577: the cornice box, in the front's stone
+            elif role == "chimney" and self._in_stone_stack((pts[a], pts[b], pts[c])):
+                mat = "rough_stone_trim"                  # T-3003: a stack laid in the walls' stone
             elif role not in self.SHELL:
                 raise ValueError(f"the K05 union left a {role!r} face on the roof")
             else:
