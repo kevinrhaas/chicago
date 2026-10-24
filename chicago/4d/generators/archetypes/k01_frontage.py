@@ -448,6 +448,19 @@ class Prim:
 TIN_PAINT = {"black": (0.030, 0.030, 0.026), "dark_green": (0.022, 0.040, 0.026)}
 
 
+
+def k01_mansard_straight_on(st, cid, s, depth):
+    """T-2995: which points along wall `cid` (at `s` along it) stand under a straight wall head."""
+    import numpy as np
+    s = np.asarray(s, dtype=np.float64)
+    if cid == "k01.wall.rear_service":
+        return np.ones(len(s), dtype=bool)
+    if cid == "k01.wall.side.north":   # its s runs from the front
+        return s >= depth - st["north_u_m"] - 1e-6
+    if cid == "k01.wall.side.south":   # its s runs from the rear
+        return s <= st["south_u_m"] + 1e-6
+    return np.zeros(len(s), dtype=bool)
+
 class Assembly:
     def __init__(self, structure_id: str, params):
         self.sid = structure_id
@@ -643,10 +656,15 @@ class Assembly:
                     & (np.abs(dv) < best)
                 best[ok], on[ok], xs[ok] = np.abs(dv[ok]), i, sv[ok]
             tone = np.ones(len(P))
+            st = (self.p.mansard or {}).get("straight")
             for i in range(-1, len(walls)):
                 m = on == i
                 if m.any():
-                    tone[m] = self.k14.wall_tone(P[m, 1], self.soffit_m, built=self.k14_built, fabric=fab,
+                    # T-2995: a straight wall has no eave over it; its soot hangs from its parapet's top
+                    head = self.soffit_m if not st or i < 0 else np.where(
+                        k01_mansard_straight_on(st, walls[i][0], xs[m], self.p.depth_m),
+                        self.p.mansard["curb_m"] + st["upstand_m"], self.soffit_m)
+                    tone[m] = self.k14.wall_tone(P[m, 1], head, built=self.k14_built, fabric=fab,
                                                  seed=self.k14_seed, x=xs[m] if i >= 0 else 0.0,
                                                  sources=srcs[i] if i >= 0 else ())
             pr.tone = [round(float(t), 4) for t in tone]
@@ -1118,7 +1136,8 @@ class Assembly:
         if getattr(op, "plain", False):
             # T-2884: a head its picture shows plain (1625's south wall): the light, its hole cut
             # square or round, and nothing laid over it — no hood, no K03 arch, no lintel
-            self.glaze(op, frame, body_mat, stone_trim, seed, max(conf, p.conf("north_bays")))
+            self.glaze(op, frame, body_mat, stone_trim, seed,
+                       max(conf, p.conf("north_bays" if op.wall == "k01.wall.side.north" else "side_bays")))
             return
         if not door:
             # T-2298: a window is a K06 opening — reveal, sill, frame, sashes, glass,
@@ -1369,7 +1388,9 @@ class Assembly:
         # T-2752: a window named off a photograph (`street_front_windows`) stands in the coursing
         # where the picture puts it, under no flat arch, and strikes no course line of its own:
         # its heads and sills differ window to window, and lines at each would band the front
-        named = [o for o in square if o.component.startswith(STREET_WINDOW)]
+        # T-3097: and on an all-stone house's other faces, a window read off a picture with its
+        # head plain or round (`north_bays`/`side_bays`), which has no lintel to lay
+        named = [o for o in square if o.component.startswith(STREET_WINDOW) or (beds is not None and o.plain)]
         lined = [h for o, h in zip(square, holes) if o not in named]
         # a flat arch where K09 leaves a flat head: the area lights and the third floor
         arches = [(s0, s1, y1, round(y1 + 0.30, 4)) for o, (s0, s1, _, y1) in zip(square, holes)
@@ -1596,6 +1617,9 @@ class Assembly:
             self.flat_arch(frame_fp if fp and s0 >= fs0 and y2 <= fbed else frame, s0, s1, y1, y2 - y1, conf, r_wall)
         if beds is None:
             self.street_window_dress(frame, square, conf, r_wall)
+        elif any(o.plain for o in square):   # T-3097: a read round head's spandrels on a side face
+            self.street_window_dress(frame, [o for o in square if o.plain], conf, r_wall, read=True)
+        if beds is None:
             if p.street_dress.get("carved_bands"):   # T-2915: the belts carved off a picture
                 k01_arched_front.street_carved_bands(self, frame, p.street_dress["carved_bands"], conf)
         if fp:
@@ -1612,7 +1636,7 @@ class Assembly:
                                                    N, self.basis("rough_stone_trim", O, R, Y, 0), conf)
         return frame, quoins
 
-    def street_window_dress(self, frame, openings, conf, recess):
+    def street_window_dress(self, frame, openings, conf, recess, read=False):
         """T-2752: what the coursing leaves in a named street window's hole (`street_front_windows`):
         a mullion between its lights, one dressed stone from sill to head, and over a segmental
         head the spandrels from K06's curve up to the hole's top, flush strips of the walling
@@ -1623,7 +1647,8 @@ class Assembly:
         hj = self.p.stone["wall"]["joint_m"] / 2
         cid = "k01.opening.street_dress"
         for op in openings:
-            if not op.component.startswith(STREET_WINDOW):
+            # T-3097: `read`, a side face's plain or round-headed window read off a picture
+            if not (op.component.startswith(STREET_WINDOW) or (read and op.plain)):
                 continue
             # T-2753: a window on the frontispiece is dressed on its face
             frame = self.frontispiece_frame(wall_frame) if self.p.on_frontispiece(op) else wall_frame
@@ -1699,7 +1724,9 @@ class Assembly:
                 pts = [P(r0, a0), (hd.cx + kw / 2, crown + kh), (hd.cx - kw / 2, crown + kh), P(r0, a1)]
                 F = ring["proud_m"] + self.KEYSTONE_PROUD_M
             else:
-                pts = [P(r0, a0), P(r1, a0), P(r1, a1), P(r0, a1)]
+                # T-3091: long and short in turn, the keystone's neighbours short
+                r_ = r0 + ring["short_m"] if "short_m" in ring and (i - n // 2) % 2 else r1
+                pts = [P(r0, a0), P(r_, a0), P(r_, a1), P(r0, a1)]
                 F = ring["proud_m"]
             self.stone(frame, pts, [hj] * 4, "dress_stone", self._stone_seed(cid, inst, j), conf,
                        recess=recess, bevel=wk["bevel_m"], F=F, bed=bed)
@@ -1922,7 +1949,9 @@ class Assembly:
     # came, a well — is one this house's variants do not build, and is refused.
     K06_ROLES = {"reveal": None, "sill": "stone", "frame": "sash", "sash_outer": "sash",
                  "sash_inner": "sash", "glass_outer": "glass", "glass_inner": "glass",
-                 "blind": "blind", "curtain": "curtain", "backing": "backing"}
+                 "blind": "blind", "curtain": "curtain", "backing": "backing",
+                 # T-3091: a pictured leaded light's cames (1812's small arched window), in the iron
+                 "came": "iron"}
 
     # -- k01.wall.round_corner (T-3006) -------------------------------------------------
     def round_stone(self, C, rad, a0, a1, y0, y1, joints, mat, seed, conf, *, recess, bevel, F=0.0, rock=0.0):
@@ -2586,6 +2615,11 @@ class Assembly:
             cuts = [0.0, *[x for g in q["gaps_m"] for x in g], L]
             for s0, s1 in zip(cuts[0::2], cuts[1::2]):
                 self.proud_box(mat, fr, s0, s1, q["from_m"], q["to_m"], q["proud_m"], seed + j, conf)
+        # T-3091: dressed blocks along one run (a pier, a hood, a cap under the cornice)
+        for j, q in enumerate(d.get("blocks", ())):
+            (x0, z0), (tx, tz), (nx, nz), L = runs[q["run"]]
+            fr = (W((x0, 0.0, z0)), V(tx, tz), V(nx, nz))
+            self.proud_box(mat, fr, q["s_m"][0], q["s_m"][1], q["from_m"], q["to_m"], q["proud_m"], seed + j, conf)
         vo = d.get("volutes")
         if vo:
             rv, Rc, D, t = vo["radius_m"], vo["reach_m"], vo["drop_m"], vo["thickness_m"] / 2 + 0.02
@@ -3030,6 +3064,11 @@ class Assembly:
             c0, c1 = (-tw, 0.0) if spp["wall"] == "south" else (-W, -W + tw)
             solids = k5.parapet_element({}, [(0.0, slab), (D - FRONT_SET_M, slab)], (c0, c1), "z", tw, hs,
                                         spp["coping_m"], spp["drip_m"], 0.0, 0.0) + solids
+        straight_cut = []
+        if (m or {}).get("straight"):   # T-2995: the straight walls' parapets, and their cutters
+            from . import k01_mansard_straight
+            more, straight_cut, _ = k01_mansard_straight.elements(p, k5, hs)
+            solids = more + solids
         cr = (m or {}).get("crown")
         if cr and cr.get("form") == "hip":   # T-2465: a crown hipped to its own ridge
             crown, _, _ = k5.hip_crown_element(cr["x0"], cr["x1"], cr["z0"], cr["z1"], E, cr["pitch_deg"],
@@ -3151,6 +3190,7 @@ class Assembly:
                 parts = {key: (k5._snap(x) if isinstance(x, list) else x) for key, x in parts.items()}
                 polys = k5.union(polys, k15.join_stack(parts))
         recesses += self.through_eave_cutters(k5, yf)
+        recesses += straight_cut
         recesses += self.shallow_bay_cutters(k5, yf)
         for rc in ([recess] if recess is not None else []) + recesses:
             polys = k5.subtract(polys, k5._snap([rc])[0])
@@ -3984,6 +4024,11 @@ class Assembly:
                 if live(sv - sign * 0.01):
                     stop_ends.append((sv % P, sign))
             dead += [(d0, P), (0.0, d1 - P)] if d1 > P else [(d0, d1)]
+        if (p.mansard or {}).get("straight"):   # T-2995: no gutter along a straight wall's head
+            from . import k01_mansard_straight
+            more, ends = k01_mansard_straight.gutter_dead(p, A, starts, P)
+            dead += more
+            stop_ends += ends
         stations = sorted({*(round(x % P, 6) for x in starts), *(round(x, 6) for x in outlets),
                            *(round(x, 6) for x in highs), *(round(x, 6) for d in dead for x in d)})
         pr = self.prim(mat)

@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "taylor-2135-ne",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "606eb2986f37826a0b0e66284aaadd1a059d0f1aee2bbf67c1c307770da84337",
+  "glb_sha256": "22360520275c7f4ac40e1369fc67b6107ccf74db95ed37318033d9f6d37d9f7a",
   "camera_sha256": "7146c5ae0d24d7c724177b925417a90c20a38cb3d0e36e01a5a6ad3e04549ec7",
   "photo_sha256": "8f8c80a1fa6df906463ed8514b631ea6785b5b4b9b15b9d1e30b717da86c0a04",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/taylor-2135-ne-side-by-side.jpg",
@@ -58,6 +58,10 @@
     },
     {
       "what": "T-3065 camera: refitted by tools/glessner_prairie_front.py on the north stack's corrected box (S 0-2.6). Principal (564.5, 696.9), f 2256, pitch 3.0 deg, roll 1.3 deg; controls and jambs 2.08 px rms, jambs within 3.2 px, the stacks' centres and tops 1.9 px rms (north centre +2.2), and every stack's width within 1.5 px (south -0.0, middle -0.6, north +1.5). The plumb edges keep a lean rms of 0.0104; the pitch question T-3058 left open (the edges alone give 1.2 deg) stands.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3115 (found by T-3065): the west cross no longer stands past the face's edge from this eye; draped on the rock instead of at its furthest reach, it falls on the face (docs/RESEARCH/glessner-crosses-T-3115/taylor-before-after.jpg). The print does not resolve the crosses themselves.",
       "status": "fixed"
     }
   ],

@@ -2316,7 +2316,7 @@ def _bay_dress(e: dict, v: dict, top: float, columns: dict | None) -> dict:
     whose field is a raised boss."""
     ds, bid = e["dress"], e["id"]
     pts = v["plan"]["points"] if v["plan"]["kind"] == "polyline" else None
-    known = {"capitals", "bands", "ovals", "volutes_m", "shutters", "quoins", "run_bands"}
+    known = {"capitals", "bands", "ovals", "volutes_m", "shutters", "quoins", "run_bands", "blocks"}
     if pts is None or e.get("fabric", "stone") not in ("stone", "front_stone") or not ds or set(ds) - known:
         raise ParamError(f"bays: {bid}'s dress takes {sorted(known)}, on a stone bay's polyline plan")
     out = {"soffit_m": round(top, 4)}
@@ -2397,6 +2397,32 @@ def _bay_dress(e: dict, v: dict, top: float, columns: dict | None) -> dict:
         rbs.append({"run": run, "from_m": y0, "to_m": y1, "proud_m": d, "gaps_m": tuple(gaps)})
     if rbs:
         out["run_bands"] = tuple(rbs)
+    blocks, bosses = [], []
+    for j, q in enumerate(ds.get("blocks") or ()):
+        # T-3091: a dressed block on one run of the plan, `s_m` [from, to] along it and `from_m`
+        # to `to_m` over grade, `proud_m` before the wall (1812's projection, the Levy print: its
+        # paired window's mullion carried up as a pier, the moulded hood over its sashes and the
+        # carved caps its jambs rise to); `boss` raises an oval boss on its face, standing for
+        # carving the build does not model, as the shields' (T-2915)
+        need = {"run", "s_m", "from_m", "to_m", "proud_m"}
+        if set(q) - {"boss"} != need or not 0 <= int(q["run"]) < len(pts) - 1:
+            raise ParamError(f"bays: {bid}.dress.blocks[{j}] takes {sorted(need)} and an optional boss, on a "
+                             f"run of its plan")
+        run = int(q["run"])
+        a, b = sorted(float(x) for x in q["s_m"])
+        y0, y1, d = float(q["from_m"]), float(q["to_m"]), float(q["proud_m"])
+        if not 0.0 <= a < b <= run_len(run) or b - a > 3.0 or not 0.0 < y0 < y1 <= top or y1 - y0 > 3.0 \
+                or not 0.01 <= d <= 0.1:
+            raise ParamError(f"bays: {bid}.dress.blocks[{j}] {q} is a block up to 3 m each way inside its run "
+                             f"(0-{run_len(run):.3f} m) and the bay's wall (top {top:.2f} m), 0.01-0.1 m proud")
+        blocks.append({"run": run, "s_m": (a, b), "from_m": y0, "to_m": y1, "proud_m": d})
+        if q.get("boss"):
+            bosses.append({"run": run, "s_m": (a + b) / 2, "y_m": (y0 + y1) / 2, "width_m": round(0.6 * (b - a), 4),
+                           "height_m": round(0.6 * (y1 - y0), 4), "proud_m": round(d + 0.015, 4), "field": "boss"})
+    if blocks:
+        out["blocks"] = tuple(blocks)
+    if bosses:
+        out["ovals"] = tuple(out.get("ovals", ())) + tuple(bosses)
     if "volutes_m" in ds:
         rv, con = float(ds["volutes_m"]), (v.get("brackets") or {}).get("consoles")
         if con is None or not 0.02 <= rv <= min(0.15, con["drop_m"] / 4, con["reach_m"] / 3):
@@ -2644,8 +2670,9 @@ def _voussoirs(vs, k, variant, s, sill, h, sgr, overhang, eave) -> dict:
     `proud_m` before the wall, the keystone `key_m` [width at its top, height over the crown].
     Where the ring rises past a shaped gable's foot it stands before the gable's face too."""
     what = f"street_front_windows.windows[{k}].voussoirs"
-    if set(vs) != {"ring_m", "stones", "proud_m", "key_m"}:
-        raise ParamError(f"{what} takes ring_m, stones, proud_m and key_m [width, height]")
+    if set(vs) - {"short_m"} != {"ring_m", "stones", "proud_m", "key_m"}:
+        raise ParamError(f"{what} takes ring_m, stones, proud_m and key_m [width, height], and an optional "
+                         f"short_m")
     if variant["head"] not in ("round", "segmental"):
         raise ParamError(f"{what}: a ring is turned over a round or segmental head, not a {variant['head']} one")
     ring, n, proud = float(vs["ring_m"]), int(vs["stones"]), float(vs["proud_m"])
@@ -2656,6 +2683,11 @@ def _voussoirs(vs, k, variant, s, sill, h, sgr, overhang, eave) -> dict:
     if not 0.15 <= kw <= 0.6 or not ring <= kh <= ring + 0.6:
         raise ParamError(f"{what}.key_m: a keystone 0.15-0.6 m across its top, rising at least the ring's depth "
                          f"and at most 0.6 m past it")
+    # T-3091: long and short in turn into the walling (1812's, the Levy print): every other
+    # stone, from the keystone's neighbours out, `short_m` deep where the rest are `ring_m`
+    short = float(vs["short_m"]) if "short_m" in vs else None
+    if short is not None and not 0.1 <= short <= ring - 0.05:
+        raise ParamError(f"{what}.short_m: the short stones 0.1 m deep up to 0.05 m short of the ring ({ring} m)")
     top = sill + h + kh
     if sgr and top > float(sgr["foot_m"]):
         face = overhang + float(sgr["proud_m"])
@@ -2665,7 +2697,7 @@ def _voussoirs(vs, k, variant, s, sill, h, sgr, overhang, eave) -> dict:
     elif top > eave - 0.05:
         raise ParamError(f"{what}: the keystone runs into the wall head")
     return {"s_m": round(s, 4), "sill_m": round(sill, 4), "ring_m": ring, "stones": n, "proud_m": proud,
-            "key_m": (kw, kh)}
+            "key_m": (kw, kh), **({"short_m": short} if short is not None else {})}
 
 
 def _street_frontispiece(fp, openings, dress, floors, width) -> dict:
@@ -3535,6 +3567,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             comp = ROUND_HOODED if rh and k in rh["storeys"] else "k01.opening.sash_flat"
             openings.append(Opening(comp, "k01.wall.street_front", s, round(sill, 4), w, h))
         for s in val("side_bays"):
+            if isinstance(s, dict):   # T-3097: a window read off a picture is laid once, below
+                continue
             if k == 0 and _in_side_arch(float(s), w):   # T-2910: the loggia's arch stands there
                 continue
             openings.append(Opening("k01.opening.sash_flat", "k01.wall.side.south", float(s), round(sill, 4), w, h))
@@ -3549,11 +3583,15 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # a column on every storey; the contract's single sash width, its height read (as
     # street_front_windows' and rear_section's are), its lintel clear of the soffit
     soffit = eave - (0.0 if mansard else float(val("eave_overhang_m")) * math.tan(math.radians(pitch)))
-    read = []
-    for j, e in enumerate(val("north_bays") or ()):
+    # T-3097: and the south wall's the same way (1801's 18th Street flank on the Taylor camera:
+    # the corner light over the loggia off the arch's axis, the round-headed pair past the tower)
+    read = {}
+    for attr, wall_id, j, e in [("north_bays", "k01.wall.side.north", j, e)
+                                for j, e in enumerate(val("north_bays") or ())] + \
+            [("side_bays", "k01.wall.side.south", j, e) for j, e in enumerate(val("side_bays") or ())]:
         if not isinstance(e, dict):
             continue
-        what = f"north_bays[{j}]"
+        what = f"{attr}[{j}]"
         if not {"s_m", "sill_m", "width_m", "height_m"} <= set(e) <= {"s_m", "sill_m", "width_m", "height_m",
                                                                      "head", "why_not_ordinary"}:
             raise ParamError(f"{what}: a window read off a picture takes s_m, sill_m, width_m and height_m, "
@@ -3583,11 +3621,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError(f"{what}'s lintel runs into the soffit at {soffit:.2f} m")
         if s - wd / 2 < 0.45 or s + wd / 2 > depth - 0.45:
             raise ParamError(f"{what} stands within 0.45 m of the wall's ends")
-        for a0, a1, b0, b1 in read:
+        for a0, a1, b0, b1 in read.setdefault(wall_id, []):
             if s - wd / 2 < a1 + 0.3 and s + wd / 2 > a0 - 0.3 and sill < b1 + 0.45 and sill + h > b0 - 0.45:
                 raise ParamError(f"{what} meets another read window, or its lintel")
-        read.append((s - wd / 2, s + wd / 2, sill, sill + h))
-        openings.append(Opening(ROUND_PLAIN if head == "round" else "k01.opening.sash_flat", "k01.wall.side.north",
+        read[wall_id].append((s - wd / 2, s + wd / 2, sill, sill + h))
+        openings.append(Opening(ROUND_PLAIN if head == "round" else "k01.opening.sash_flat", wall_id,
                                 s, round(sill, 4), wd, h, head != "round", plain=head is not None, narrow=narrow))
     # T-2821: a door whose height its picture reads (1625's, 2.48 m clear over its one step);
     # K07 hangs its leaf in the K01 hole, so the hole is the door's. K01's 2.70 m otherwise
@@ -3718,6 +3756,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     mansard_roof = _mansard_roof(val("mansard"), depth, width, eave, pitch,
                                  float(val("eave_overhang_m")), shaped=bool(val("shaped_gable")),
                                  side_wall=float(val("wall_thickness_side_m"))) if mansard else {}
+    # T-2995: a mansard on the street front and part of a side, the rest a straight brick storey
+    if mansard and (val("mansard") or {}).get("straight"):
+        from .k01_mansard_straight import resolve as resolve_straight
+        mansard_roof["straight"] = resolve_straight(val("mansard")["straight"], depth=depth, width=width,
+                                                    side_wall=float(val("wall_thickness_side_m")),
+                                                    dormers=list(val("mansard").get("dormers") or []))
     gable_roof = _gable_roof(val("gable_roof"), depth, width, eave, pitch, st,
                              float(val("eave_overhang_m"))) if gable else {}
     # T-2820: the rear section, resolved before the stacks, one of which may stand on its attic
@@ -4672,7 +4716,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         landing_depth_m=float(val("stair_landing_depth_m")),
         stoop_width_m=float(val("stoop_width_m")), entrance_bay=entrance,
         front_bays=front_bays,
-        side_bays=tuple(float(s) for s in val("side_bays")),
+        side_bays=tuple(float(s["s_m"] if isinstance(s, dict) else s) for s in val("side_bays")),
         rear_bays=tuple(float(s) for s in val("rear_bays")),
         north_bays=tuple(float(s["s_m"] if isinstance(s, dict) else s) for s in val("north_bays") or ()),
         side_belts=tuple(side_belts),

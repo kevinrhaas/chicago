@@ -36,7 +36,7 @@ on:
 
 jobs:
   smoke:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Both viewports, unfiltered, measured ~26 min in 2026-08-14 and the suite
     # has grown since; leave room rather than killing the measurement run.
     # 2026-10-19: desktop part 13 alone ran 85 min (#1054) and three runs were cut off

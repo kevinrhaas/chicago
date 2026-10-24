@@ -67,6 +67,7 @@ class PictureFeatures(unittest.TestCase):
         from common import materials
         _, _, p = record_params("tremont_house_1", "frame_1833")
         p = dataclasses.replace(p,confidence={**p.confidence,"roof_type":"attested","roof_pitch_deg":"attested"})
+        p = dataclasses.replace(p, roof_colour="dark_brown")
         baseline = dataclasses.replace(p, roof_colour=None)
         before, bm = builder.build(baseline, "tone")
         after, am = builder.build(p, "tone")
@@ -86,6 +87,22 @@ class PictureFeatures(unittest.TestCase):
                 dataclasses.replace(p,confidence={**p.confidence,"roof_colour":grade}).validate()
         with self.assertRaises(ParamError):
             dataclasses.replace(p,roof_colour="imaginary_black").validate()
+
+    def test_deep_roof_changes_only_selected_stock_linear_rgb(self):
+        from common import materials
+        _, _, p = record_params("tremont_house_1", "frame_1833")
+        before, bm = builder.build(dataclasses.replace(p, roof_colour="dark_brown"), "tone")
+        after, am = builder.build(dataclasses.replace(p, roof_colour="deep_brown"), "tone")
+        self.assertEqual((before.verts, before.faces, before.mat_index, before.named, before.conf),
+                         (after.verts, after.faces, after.mat_index, after.named, after.conf))
+        self.assertEqual(bm[:1] + bm[2:], am[:1] + am[2:])
+        stock = materials.roof_finish("darkened").rgba
+        self.assertEqual(am[builder.M_ROOF][1][0], tuple(c * 0.25 for c in stock[:3]) + (stock[3],))
+        self.assertEqual(bm[builder.M_ROOF][2], am[builder.M_ROOF][2])
+        for grade in ("attested", "inferred"):
+            with self.assertRaises(ParamError):
+                dataclasses.replace(p, roof_colour="deep_brown",
+                                    confidence={**p.confidence, "roof_colour": grade}).validate()
 
     def test_original_positional_constructor_and_defaults_are_preserved(self):
         # These are the original forty positional parameters, before picture

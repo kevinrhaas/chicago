@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-13-north-level",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "606eb2986f37826a0b0e66284aaadd1a059d0f1aee2bbf67c1c307770da84337",
+  "glb_sha256": "22360520275c7f4ac40e1369fc67b6107ccf74db95ed37318033d9f6d37d9f7a",
   "camera_sha256": "c4607c01650b1d3dfeaf156dfd0d4ae0746fc97b45ed092c5504260edb48af9e",
   "photo_sha256": "b5de6769dbaab6ea0991a9351b10c47344e61b7480b0f53a6e5d104ecb48e176",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-13-north-level-side-by-side.jpg",
@@ -34,6 +34,10 @@
     },
     {
       "what": "T-3045 course heights: the 18th Street courses rise with the Prairie front's (one coursing round the NE corner), the corridor lights stand on beds 8-15 and 19-23 at their new heights, and this camera was re-solved on the narrow light at 9.3044-14.7471 ft (tools/glessner_north_pairs.py --cameras), which reads the gable pairs at 19.89-24.43 ft; the record builds 19.83-24.52 from both north plates. Reviewed on the re-rendered side-by-side: the pairs and the narrow lights sit on the photograph's.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3115: the crosses are draped on the stack's rock (they stood 2-4 cm proud of it); at this camera's scale they read as before.",
       "status": "fixed"
     }
   ],

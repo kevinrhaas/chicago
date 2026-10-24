@@ -5474,6 +5474,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_batch_shadow_cull.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_blackbox.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5795,6 +5799,10 @@
       "wrote_ignored": []
     },
     "tools/test_k01_round_corner.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_k01_side_read_windows.py": {
       "wrote": [],
       "wrote_ignored": []
     },

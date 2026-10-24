@@ -36,6 +36,7 @@ import * as THREE from 'three';
 import { spatialPiecesAsync } from './spatial-batch.js';
 import { castOnlyTowardView } from './shadow-casters.js';
 import { coalesceRuns, COALESCE_ON } from './batch-coalesce.js';
+import { rigidBoundsMaterial, installFrustumBoxCull } from './batch-frustum-box.js';
 import { backingTriangles } from './view-occlusion.js';
 import { opaqueConfidenceRange, programKeyOf } from './confidence.js';
 import { seasonPreservesSurface } from './season.js';
@@ -48,6 +49,7 @@ import { tintGlessnerGranite } from './glessner-stone.js';
 import {tintKeithStone} from './keith-stone.js';
 import { loadWallRelief } from './wall-relief.js';
 import { addFeet, feetPoints, packFeet } from './building-feet.js';
+import { buildingBodyBounds } from './building-body-bounds.js';
 import { cheapenGlass, DEFAULT_GLASS, writePaneAttributes } from './glass.js';
 import { layerPick } from './gpu-pick.js';
 import {
@@ -422,6 +424,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
 
   // material key -> { material, entries: [{ record, geo, factors }] }
   const groups = new Map();
+  const sourceRoles = new WeakMap();
   const viewOccluders = [];
   /** structure id -> the facade tone applied to every one of its surfaces. */
   const tones = new Map();
@@ -510,6 +513,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     for (const { mesh, matrix } of meshes) {
       const label = `${record.id}/${mesh.name || 'mesh'}`;
       const sourceMaterial = Array.isArray(mesh.material) ? mesh.material[0] : mesh.material;
+      if (!sourceRoles.has(sourceMaterial)) sourceRoles.set(sourceMaterial, sourceMaterial.name);
+      const bodyRole = sourceRoles.get(sourceMaterial); // before batching whitens/names it
       // A detail replacement rebuilds from the same source records. Never whiten
       // or shader-patch those source materials: each batch owns its own copy.
       let material = preserveMaterials ? sourceMaterial.clone() : sourceMaterial;
@@ -557,6 +562,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // established in-place material lifecycle and batching policy.
       const stableSurface = [THREE.MeshStandardMaterial, THREE.MeshPhysicalMaterial].includes(material.constructor)
         && !JSON.stringify(captureHooks(material)).includes('opaque-hooks');
+      const boundsRigid = preserveMaterials && spatialCells === null && rigidBoundsMaterial(material, captureHooks(material));
       const key = preserveMaterials ? inspectionMaterialKey(material) : materialKey(material);
       let bucket = groups.get(key);
       if (!bucket) {
@@ -574,10 +580,11 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         // simply never read once the patch is installed.
         perVertexScalars(material);
         confidence.patch(material, { packed: PACKED_CONFIDENCE });
-        bucket = { material, entries: [] };
+        bucket = { material, entries: [], boundsRigid };
         groups.set(key, bucket);
-      } else if (preserveMaterials) {
-        material.dispose();
+      } else {
+        bucket.boundsRigid = bucket.boundsRigid && boundsRigid;
+        if (preserveMaterials) material.dispose();
       }
       totalTris += prepared.geo.getIndex().count / 3;
 
@@ -609,7 +616,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         && material.colorWrite && !material.wireframe && !material.stencilWrite
         && !material.clippingPlanes?.length;
       const { geo: source, base, factors } = prepared;
-      const entryOf = (geo) => ({ record, geo, base, factors, occludesView });
+      const entryOf = (geo) => ({ record, geo, base, factors, occludesView, bodyRole });
       if (!cells) {
         bucket.entries.push(entryOf(source));
       } else {
@@ -734,6 +741,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   const batches = [];
   /** structure id -> its union bounding box, in the structure's own frame. */
   const localBoxes = new Map();
+  const bodySamples = new Map();
   /** structure id -> the confidence channel the shader will actually read. */
   const channels = new Map();
   // T-2575. Positions go into the batch as Int16 over one uniform scale per
@@ -783,9 +791,6 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // T-2529: at `light`, a piece whose shadow cannot reach the view is left
     // out of the sun's pass (shadow-casters.js); the colour pass is untouched.
     if (shadowCasters) castOnlyTowardView(batch, shadowCasters);
-    // T-2927: where meshes are cut into cells, the drawn cells of one mesh that
-    // touch are drawn as one (batch-coalesce.js): aloft, every cell is in view.
-    if (cutsCells) coalesceRuns(batch, coalesce);
     batch.userData.batchIndex = [];
     // Each instance's dequantize scale, for a reader that needs the structure's
     // frame back off the batch (tools/drawn_placement_census.mjs).
@@ -796,7 +801,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     batch.userData.confidenceRanges = [];
     let backingPositionVersion, backingIndexVersion, backingConfidenceVersion;
 
-    for (const { record, geo, base, factors, occludesView } of bucket.entries) {
+    for (const { record, geo, base, factors, occludesView, bodyRole } of bucket.entries) {
       const pause = checkpoint(); if (pause) await pause;
       compactGeometry(geo, plan);
       const frame = instanceFrames.get(record.id);
@@ -878,6 +883,13 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       let box = localBoxes.get(record.id);
       if (!box) { box = new THREE.Box3(); localBoxes.set(record.id, box); }
       box.union(geo.boundingBox);
+      if (record.sidecar?.attributes?.sign_pole_set_out?.value != null) {
+        let samples = bodySamples.get(record.id);
+        if (!samples) { samples = []; bodySamples.set(record.id, samples); }
+        const storedPosition = geo.getAttribute('position');
+        for (let i = 0; i < storedPosition.count; i++) samples.push({ role: bodyRole,
+          point: [storedPosition.getX(i) * frame.scale, storedPosition.getY(i) * frame.scale, storedPosition.getZ(i) * frame.scale] });
+      }
       // The confidence the SHADER will see, after the existence floor, recorded
       // per structure so a gate can ask the question a visitor asked: does this
       // building dither, and does it dither all over?
@@ -901,6 +913,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     backingPositionVersion=batch.geometry.attributes.position.version;
     backingIndexVersion=batch.geometry.index.version;
     backingConfidenceVersion=batch.geometry.attributes[SCALARS].version;
+    // Narrow phase sees native whole-instance entries before existing coalescing.
+    const narrow = installFrustumBoxCull(batch, bucket.boundsRigid, depthMaterial, seasonPreservesSurface, coalesce, shadowCasters);
+    if (cutsCells) coalesceRuns(batch, coalesce);
+    narrow?.seal();
     batch.computeBoundingBox();
     batch.computeBoundingSphere();
     group.add(batch);
@@ -929,6 +945,12 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    * A visitor never calls it. It is not a setting; the tone is what the town
    * looks like.
    */
+  const bodyDiagnostics = new Map();
+  for (const [id, samples] of bodySamples) {
+    bodyDiagnostics.set(id, buildingBodyBounds(registry.get(id).sidecar, samples,
+      instanceFrames.get(id).scale / 32767));
+  }
+  bodySamples.clear();
   let weathering = 1;
   function setWeathering(value) {
     const t = Math.max(0, Math.min(1, Number(value)));
@@ -1101,6 +1123,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
           size: [size.x, size.y, size.z],
           min: box.min.toArray(),
           max: box.max.toArray(),
+          ...(bodyDiagnostics.has(id) ? { body: bodyDiagnostics.get(id) } : {}),
           // What the confidence view will show for this building.
           confidence: c ? { min: c.min, max: c.max, ditheredShare: c.dithered / c.total } : null,
         };

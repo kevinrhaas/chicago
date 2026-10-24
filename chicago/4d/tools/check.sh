@@ -180,6 +180,8 @@ step "A pick draws only the building batches its ray meets, and a phone's look-a
   node tools/test_pick_boxes.mjs
 step "The drawn cells of one structure mesh join into one draw, drawing the same triangles with the same instance data (T-2927)" \
   node tools/test_batch_coalesce.mjs
+selftest "Directional shadow culling retains toward-view and filter-near casters, preserves colour lists, and fails open on unknown light, camera or map state" \
+  node tools/test_batch_shadow_cull.mjs
 step "Draw budgets read the driver's draws: a BatchedMesh multi-draw counts one draw per kept entry, reset with renderer.info (T-2970)" \
   node tools/test_driver_draws.mjs
 step "Full active Ghost views use their measured envelope; ordinary and lower-tier ceilings restore unchanged (T-2981)" \
@@ -1057,6 +1059,12 @@ step "a mansard face holds two storeys; a K08 pavilion past the eave is closed b
 # frieze with its roundel; and a K08 gable's carved panel, its relief dropped on the light tier.
 step "a stone cornice runs under a mansard; a K08 head frieze and gable panel (T-3002)" \
   python3 tools/test_k10_mansard_cornice.py
+
+# T-3097. ...and its second-storey lights: K01's side_bays take windows read off a picture, as
+# north_bays do, each laid once at its own sill; a read round head on an all-stone side face
+# stands in the coursing under no flat arch, its spandrels in the wall's stone.
+step "side_bays take read windows; a read round head on a stone side face has no flat arch (T-3097)" \
+  python3 tools/test_k01_side_read_windows.py
 
 # T-2900. ...and what 1801 Prairie's east range needed, held on its record: a K01 wing may run
 # past its host wall's ends when it says `past_host` (still standing on 1.0 m of that wall),

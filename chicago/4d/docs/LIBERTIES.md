@@ -24176,7 +24176,7 @@ gone, and its stable keeps `coleman_ames_house_1811_prairie_coach_house` here.
 
 ### L-draft-prairie-16-18-west-2334 — The west side of Prairie Avenue, 16th to 18th, stood up as a district draft: every height, roof, opening and feature reconstructed, and 1620 read off the 1886 plate
 
-**Covers:** `george_glessner_house_1706_prairie.draft_1904.form.draft_elevation`, `george_glessner_house_1706_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1708_prairie.draft_1904.form.draft_elevation`, `house_1708_prairie.draft_1904.form.draft`, `house_1712_prairie.draft_1904.form.draft_elevation`, `house_1712_prairie.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `house_1736_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1736_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie.draft_1904.form.draft_elevation`, `walker_house_1720_prairie.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
+**Covers:** `george_glessner_house_1706_prairie.draft_1904.form.draft_elevation`, `george_glessner_house_1706_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie.draft_1904.form.draft`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft_elevation`, `glessner_lee_house_1700_prairie_coach_house.draft_1904.form.draft`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft_elevation`, `goodman_house_1612_prairie_coach_house.draft_1904.form.draft`, `house_1616_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1616_prairie_coach_house.draft_1904.form.draft`, `house_1626_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1626_prairie_coach_house.draft_1904.form.draft`, `house_1628_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1628_prairie_coach_house.draft_1904.form.draft`, `house_1630_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1630_prairie_coach_house.draft_1904.form.draft`, `house_1708_prairie.draft_1904.form.draft_elevation`, `house_1708_prairie.draft_1904.form.draft`, `house_1712_prairie.draft_1904.form.draft_elevation`, `house_1712_prairie.draft_1904.form.draft`, `house_1712_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1712_prairie_coach_house.draft_1904.form.draft`, `house_1726_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1726_prairie_coach_house.draft_1904.form.draft`, `house_1730_prairie_coach_house.draft_1904.form.draft_elevation`, `house_1730_prairie_coach_house.draft_1904.form.draft`, `law_house_1620_prairie_coach_house.draft_1904.form.draft_elevation`, `law_house_1620_prairie_coach_house.draft_1904.form.draft`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft_elevation`, `shortall_gregory_house_1638_prairie_coach_house.draft_1904.form.draft`, `walker_house_1720_prairie.draft_1904.form.draft_elevation`, `walker_house_1720_prairie.draft_1904.form.draft`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft_elevation`, `walker_house_1720_prairie_coach_house.draft_1904.form.draft`
 **Decision:** the district draft's 16th-18th block (T-2160, split to T-2334 for the west side
 and T-2335 for the east), run by the builder and under the rules of
 `L-draft-prairie-18-20-west-2329`, whose "What is invented" and "What is not" hold here word for
@@ -24225,6 +24225,9 @@ frame bay, south projection and vestibule, and its two-storey rear range); their
 are gone, and their stables keep `house_1726_prairie_coach_house` and `house_1730_prairie_coach_house`
 here. The rule above that drew 1730 flat beside 1726 is retired with them: the sheet's own dashed
 line puts a mansard on 1730.
+**1736's stable retired from this liberty by T-2995 (2026-10-23):** `house_1736_prairie_coach_house`
+now stands as the K12 coach house under `L-k12-1736-coach-house-2995`, under the same id, on the
+outline, storeys, brick and window mark the sheet draws; its draft attributes are gone.
 1720 Walker's Italianate
 frame is a low bracketed hip, its central gable, canted bay and full-width porch left to T-1873.
 The pairs the sheet attests (1626/1628, 1634/1636, 1700/1706) mirror their entrances to their
@@ -29263,6 +29266,17 @@ imbricated scales whose stones it does not resolve; the stone's top is the block
 foot the cap's, the plate showing only its outer face. The block itself still stands about 10 px outside
 the plate's die (x about 105 against 115) and is cut as a plinth, die and cornice where the plate steps
 its plinth twice (x 105 and 108).
+**Revised:** 2026-10-24 (T-3100, piece 1 of T-3052, of T-2920; T-3079). The bay's balustrade is pierced. The
+Chicagology photograph (`chicagology_1811_ames_photo`), a second negative at about twice the plate's
+scale, shows its front run as one continuous pierced panel of interlaced fretwork between plain end
+blocks, its openings about 0.25 m apart in two rows; the close-set bars at 0.12 m are replaced by K08's
+pierced stone panel (T-2930), one panel a run, a diagonal lattice of 0.05 m straps at 0.24 m with two
+diamonds to its height. What that build invents: the lattice for the interlace (its loops are not
+carved; the diamonds carry its pierced light and shade at its spacing), the straps' 0.05 m, and the
+same pattern on the canted runs, which the photograph sees only edge-on. The photograph's camera was
+solved on its own (`data/reference_views/coleman_ames_house_1811_prairie/chicagology_photo.json`) and
+agrees with T-2541's near camera on the plate; the south flank it shows, shorter than the 1911 sheet's,
+is not built from it (both pictures are of about 1888): T-3099 holds that question.
 **Covers:** `coleman_ames_house_1811_prairie.as_mapped_1904.form.principal_floor_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.storey_heights_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_front_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_thickness_side_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.service_wall_brick`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stone_front`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.street_front_trim`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.wall_head`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_form`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.eave_overhang_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_tread_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stair_landing_depth_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.stoop_width_m`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.front_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.side_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.north_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rear_bays`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.basement_lights`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.roof_covering`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.rainwater`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.window_kit`, `coleman_ames_house_1811_prairie.as_mapped_1904.form.entrance_kit`
 **Ticket:** T-2541 (piece 1 of T-1891).
 **Review:** `docs/RESEARCH/k01-1811-ames-2541/README.md`.
@@ -32243,3 +32257,361 @@ drawing of the house's carved work.
 **Ticket:** T-3002.
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
 **Recorded:** 2026-10-24 (T-3002).
+
+### L-k12-1736-coach-house-2995 — The coach house on the alley behind 1736 Prairie, at the 18th Street corner, built from the K12 kit on the outline the 1911 sheet draws
+
+**Decision:** the district draft's alley building behind 1736 Prairie Avenue (T-2995, piece 2 of
+T-2962) is refined in place, under its own id `house_1736_prairie_coach_house`, onto the K12 coach-house
+kit (L-k12-coach-house-kit-2320), the second K12 coach house in the scene after 1812's
+(L-k12-1812-coach-house-2321). **What is read.** From sheet 20 of the 1911 Sanborn: its outline, 15.31 m
+deep from the alley line by 7.74 m along it, the lot's whole width to the 18th Street line, measured
+between line centres on the committed raster (median darkness profiles: columns 2227 and 2528.5, rows
+5910.5 and 6063) and carried by the sheet's fitted similarity; its '2' storeys; its brick; the wall
+figures '12 8' on its north wall, the first storey's and the second's in inches by the sheet's key; the
+key's window symbol on the alley wall about 3.3 m from the north wall, a dot for each storey; 1730's
+alley building drawn on its north wall's line from the alley to about 7.6 m back; and the house's rear
+wall 7.31 m east of it. Inferred for 1904 as every reading of these sheets is. **What is invented.** Its
+USE: the sheet letters it GARAGE, a 1911 use not read as the 1904 one (restriction `no_1911_use_labels`);
+it is built as the house's stable and coach house, as 1812's is, and nothing of a motor garage. Every
+opening but the window pair is the kit's laid out for this lot: on the alley, a man door with a loft sash
+over it at the north end, a stable sash and a loft sash where the sheet's mark stands, and the carriage
+bay 3.0 m clear with the loft hatch and hoist over it toward 18th Street; on the yard side a door between
+two stable sash and two loft sash; the south end on 18th Street is the kit's open gable with two stable
+sash, the loft door and an attic sash. The north end is the kit's party wall over the building's whole
+depth, though 1730's building stands against only its western half. The roof is the kit's gable with its
+ridge along the alley at 30 degrees, as 1812's: at the kit's 40 the ridge of a 15.3 m deep building would
+stand 6.4 m over the eaves. The kit's 1.8 m basement is reached by nothing. The workyard is paved in brick
+from the yard door to the house's rear wall line. Flat colours. **What is not.** The outline, its place on
+the lot, its two storeys, its brick, the window mark's place and the distance to the house are the
+sheet's. **How to resolve:** a photograph of 18th Street or of the alley behind 1736, or a building permit
+for the stable, entered as a source, gives its openings, roof and gable their true form.
+**Covers:** `house_1736_prairie_coach_house.function`, `house_1736_prairie_coach_house.as_standing_1904.form.coach_house`, `house_1736_prairie_coach_house.as_standing_1904.form.stories`, `house_1736_prairie_coach_house.as_standing_1904.form.construction`
+**Ticket:** T-2995 (piece 2 of T-2962).
+**Review:** `docs/RESEARCH/k01-1736-mcbirney-2933/README.md` (§ T-2995).
+**Recorded:** 2026-10-23 (T-2995).
+
+### L-k01-1736-roof-rear-2995 — 1736 Prairie's mansard taken off the north wall, the rear and the 18th Street wall behind the brick bay, which rise as a straight brick third storey, built blank and coped
+
+**Decision:** 1736 Prairie's mansard (T-2995, piece 2 of T-2962) stands where the 1911 sheet 20 draws
+its dashed curb, the key's mansard-roof line: along the street front, and along the 18th Street wall
+from the front back to the brick bay (u about 9.9). The north wall, the rear and the 18th Street wall
+behind the bay rise as a straight brick third storey. K01 learns to build it (`mansard.straight`,
+`generators/archetypes/k01_mansard_straight.py`, additive: the other 24 K01 assets, both K12 coach
+houses, the K13 conservatory and the five K16 fronts rebuilt byte-identical). **What is read, not
+invented.** The curb's extent is the sheet's. The north wall's figures '12 12 8' are, by the key, a
+wall thickness for each of the building's three storeys over its basement ('3B'), so the north wall
+is brick to the third storey's head; the south wall's '14 12 12' says the same of the south wall.
+**What is inferred.** The rear: the sheet prints no figures on it, but its curb line leaves the rear
+out exactly as it leaves the north wall out, and the building is three storeys throughout. **What is
+invented.** The straight storey's height is the mansard's (its curb at 12.7 m, 2.7 m over the eave)
+and it is carried up as a parapet 0.45 m over the curb under K05's coping; the upper deck runs on
+behind it at the mansard's 10 degrees, draining to nothing modelled. No picture sees these walls,
+so their third storey is built blank, as the north wall's lower storeys already are: a window there
+is unread, not absent. Where a mansard face ends against a straight wall (the street front's at the
+north wall, the south face at u 9.9) its section is closed in the wall's brick, the wall carried up
+the mansard's profile; no picture shows either end. The south face's second dormer (u 8.0, itself
+reconstructed) is gone with the mansard behind the bay. The wall head's bracketed cornice and the
+gutter stop at the same ends, each gutter run closed by a stop end, and the two downpipes, which stood
+at the rear corners, now stand on the 18th Street wall at u 13.3 and 22.9, clear of the bays.
+**How to resolve:** a photograph of 1736 from 18th Street or from the alley, entered as a source,
+shows the third storey's windows, the parapet's height and the ends of the mansard.
+**Covers:** `house_1736_prairie.as_mapped_1904.form.rainwater`, `house_1736_prairie.as_mapped_1904.form.rear_bays`, `house_1736_prairie.as_mapped_1904.form.north_bays`
+**Ticket:** T-2995 (piece 2 of T-2962).
+**Review:** `docs/RESEARCH/k01-1736-mcbirney-2933/README.md` (§ T-2995).
+**Recorded:** 2026-10-23 (T-2995).
+
+### L-glessner-alley-ridge-3096 — Glessner's stable cross ridge brought down its own plane; the alley gable kept as a parapet
+
+**Decision:** the `glessner_house` stable's E-W cross ridge over the alley end stands at 36.5 ft ng at S 12.31,
+where it stood at 38.6 ft at S 14.6, on the same 42.5-degree north plane; the alley gable's wall keeps its apex
+at S 14.6, 38.6 ft, and stands 1.0 ft over that line as a parapet with a stone coping, proud of the lowered roof.
+**What is read, not invented.** T-3095's ruling A: the c. 1887 Cornell print counts 41.7-43.9 courses and HABS
+photograph 1 counts 40.6-42.7 between the eave and the cresting's foot on that plane, and T-2758's six
+measured-control cameras put the ridge where the count does (median 0.12 m apart) only if the ridge comes down
+the plane. On the rebaked GLB the model lays 41.8-43.9 courses at 5 in through every measured fit (it laid about
+51). Both prints draw the alley gable's coping standing proud along its rakes with its apex at the cresting.
+**What is invented.** The parapet's 1.0 ft over the wall line is the 18th Street gable's on the same stable, not
+read on the alley face; the coping's top at the apex (about 40.2 ft) falls inside T-2758's 38.75-40.63 ft read
+through the Cornell fits. The apex keeps its S 14.6, which T-3095 left to be re-read (one camera put it at
+S 14.9-16.7). The cupola stays on the north range's S 14.6 line (T-2228); the lowered ridge runs into its west
+face 0.14 m inside its north side. East of the ridge's end, under the cupola, the 18th Street gable's west plane
+meets the slope behind it in a seam of at most 4 cm that nothing shows. The south slope flattens from about
+47 to 41 degrees; no camera here sees it.
+**What is left open.** The roll foot lies within 0.26 m of the prints' through the three HABS 1 doorway fits
+and the Cornell level fit, but 0.21-0.44 m under the Cornell pitched fit's, which the level fit contradicts by
+0.46-0.49 m on the same columns (T-3102). HABS 1's eye-height and lean fits put the print's eave 0.39-0.45 m
+under the model's, as they did before this rebuild (0.38-0.42 m): the eave did not move.
+**How to resolve:** T-3102; a measured section through the stable's alley end.
+**Ticket:** T-3096 (T-3094's second piece; ruled by T-3095).
+**Review:** `docs/RESEARCH/photo-match/glessner_house/cornell-northwest-west-windows-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-24 (T-3096).
+
+### L-k01-1812-wheeler-windows-3091 — 1812 Prairie's front windows to the Levy and c. 1955 photographs: the large window's unequal lights, middle arch and fanlight bars, the small window's patterned light, the long and short voussoirs, the squared transom lights and the projection's caps, pier and hood
+
+**Decision:** The front windows of George H. Wheeler's house at 1812 Prairie (T-3091, piece 2 of
+T-3035) are built as Albert Levy's photograph shows them. The third storey's large window stands
+in three unequal lights, the middle one wider and under a low moulded arch of its own, a heavy bar
+running on from each post's head to the head, and a concentric bar crossing the fanlight's radial
+ones; the small arched window is filled with a patterned light; both arches' voussoirs run long
+and short in turn into the brick; the second storey's north window has its transom lights glazed
+in small squares; and the south projection's paired window stands on a heavy pier of a mullion,
+under a moulded hood with a squared transom light over each sash, its quoined jambs rising past
+the head to carved caps under the cornice. The K06 kit learns `light_ratios`, `post_m` and
+`middle_arch` (a fanlight's middle arch, post bars and concentric bar), `transom_grid` (a transom
+light's lattice over one glass), and `border_m`, `border_pane_m` and `roundel_m` (a leaded light's
+border and medallion), in three new variants and the large window's own; a leaded light outside
+the restriction's positions is allowed only where a source record pictures it (`pictured_by`).
+K01 learns `short_m` on a street window's voussoirs and `blocks` in a bay's dress. Every other
+house re-emits as before (none names any of them).
+**What is read, not invented.** Through Levy's camera
+(`data/reference_views/wheeler_house_1812_prairie/levy_front.json`, 88.5 px a metre at the main
+front, 92.4 at the projection's face): the large window's glass about 40, 120 and 43 px across
+between posts about 17-18 px (0.2 m), the middle arch's crown about 14 px (0.16 m) over the side
+lights' transoms, the post bars leaning about 23 degrees from upright, the concentric bar about
+22 px (0.25 m) inside the glass's crown; the small window's border about 10-12 px (0.12 m) wide
+round a figured field, deep in a dark reveal; the long and short stones' stepped ends; the north
+window's transom lights a lattice of small squares about 5 px (0.055 m); and the projection's
+sash heads at y 810 (8.04 m), the stone bar over them to y 793 (8.23 m), the transom lights to
+y 755 (8.64 m), the mullion about 22 px (0.24 m), the hood x 425-655 px, and the caps at
+y 740-765 px (8.53-8.80 m), x 385-425 and 655-695 px.
+**What is invented.** The small window's pattern past its border: diamond quarries 0.12 by 0.16 m
+and a 0.2 m roundel stand for a figure the print does not resolve, and the cames are iron-dark;
+its 0.2 m reveal; the short voussoirs' 0.28 and 0.26 m (about two thirds of the long, where the
+print's ends fall) and their ends cut on the ring's radii, where the print's step square into the
+brick courses; the lattices' counts (eight by eight in the north window's transom lights, twelve by
+four in the projection's), the print showing small squares in a panel smaller than the light; the
+eleven radial bars; the caps' carving, a swag in the print, built as a raised oval boss on a block
+0.05 m proud; the pier's 0.04 m and the hood's 0.07 m proud and 0.1 m height; and every bar's
+section, which is the kit's.
+**What is built otherwise than read.** The print's middle arch springs from the posts a little
+below the side lights' transoms; the build's springs on the transom bar. The c. 1955 photograph
+shows the small window glazed as a plain sash, taken for a later change: the patterned light is
+built for 1904 from Levy's print.
+**How to resolve:** Burnham & Root's drawings, or a closer photograph of the third storey, would
+fix the small window's design, the lattices and the carving.
+**Ticket:** T-3091.
+**Review:** `docs/RESEARCH/photo-match/wheeler_house_1812_prairie/levy_front-side-by-side.jpg`,
+`docs/RESEARCH/photo-match/wheeler_house_1812_prairie/c1955_front-side-by-side.jpg`.
+**Recorded:** 2026-10-24 (T-3091).
+
+### L-kimball-1801-upper-lights-3097 — 1801 Prairie's second-storey lights re-read under the raised cornice; the 18th Street flank's round-headed pair
+
+**Decision:** the second storey's lights are re-read off J. W. Taylor's c. 1895 photograph
+(`taylor_c1895_kimball_residence_1801`) through T-3074's camera, each on its own wall's plane.
+**What is read, not invented.** The light over the loggia on the avenue front opens at y 634-766 px
+(7.76 to 5.48 m) and its fellow on the 18th Street flank at y 637-772 (7.69 to 5.37 m), so the
+storey's lights stand 0.4 m over the 5.0 m floor and are 2.3 m tall (they stood 5.6-7.4 m, about
+20 px under the print's once T-3002 raised the cornice). The flank's light stands at u 18.67, off
+the side arch's axis, where the print puts it. Between the tower and that light the print's
+second storey has two round-headed lights on a narrow pier (x 760-822 px; about 0.76 m each,
+sills about 6.1 m, crowns about 7.77 m) and plain ashlar under them, where the build laid one sash
+a storey: they are built so, round-headed in the coursing under no flat arch.
+**What is invented.** Both lights over the loggia show a transom bar, so the house's sash is K06's
+one-over-one under a fixed transom, and that sash is carried to every K01 sash of the house,
+including the north and rear walls the print does not show. Its transom light is the kit's 0.45 m,
+where the print's bar stands about 0.75-1.0 m under the head. The round-headed pair is K06's
+fixed round-headed plate light. The print draws a bar near each one's spring, and that bar is not
+built. The lights stay 1.15 m wide (K01's widest ordinary sash) where the print's outlines read
+about 1.2 m once the reveal is taken off. Their moulded frames and carved pilasters are not built.
+**How to resolve:** a sharper print of the flank, T-3003's 1929 and HABS photographs, or a plan
+or elevation of the house.
+**Covers:** `kimball_house_1801_prairie.as_mapped_1904.form.window_kit`
+**Ticket:** T-3097.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg`.
+**Recorded:** 2026-10-24 (T-3097).
+
+### L-school-pictured-openings-roof-2372 — provisional doorway gable and higher lights
+**Decision:** The owner-approved attributed school-shore reproduction guides a reconstructed
+doorway-gable roof direction and opening treatment without identifying its subject
+as this school or establishing original copyright/publication or a July 1835 state.
+The existing footprint, 90-degree placement and 35-degree pitch remain. Sash
+0.85 m square, doorway 1.20 m wide with 2.05 m clear height, common 2.07 m head,
+rounded inherited front centres, no external front shutters and a local-Y core
+ridge are chosen model dimensions/directions. The unseen rear light follows the
+same new band; roof, loft/gable classification and rear stack follow one declared
+axis. These are not metric evidence. The former eave-front roof assumption is
+superseded only for this record. Open door state, covering, massing/proportions,
+subject identity, historical function and camera remain unresolved; T-2372 stays
+open. The source credit, URL and project-specific owner clearance are retained,
+without claiming public domain or copyright-holder permission.
+**Covers:** `chappel_infant_school.log_1833.form.front_set_out`, `chappel_infant_school.log_1833.form.window_w_m`, `chappel_infant_school.log_1833.form.window_h_m`, `chappel_infant_school.log_1833.form.door_w_m`, `chappel_infant_school.log_1833.form.door_h_m`, `chappel_infant_school.log_1833.form.roof_ridge_axis`, `chappel_infant_school.log_1833.form.front_shutters`.
+**Ticket:** T-2372.
+**Recorded:** 2026-10-23.
+
+
+### L-cobweb-compound-2374 — five log rooms instead of one bounding box
+**What was done:** Cobweb Castle opts into the connected room layout, partitioning its existing
+reconstructed 20-vertex footprint into a centre, two wings and two rear tails.
+Existing placement, polygon, nominal eave, pitch, finishes and inferred two-stack
+count stay unchanged. Orthogonal gables replace the single bounding-box roof.
+**Evidence:** Wau-Bun (the 1856 Wau-Bun account) describes the 1831 composition and an
+"odd-shaped roof". It establishes neither dimensions nor the precise roof layout.
+**Chosen:** every room dimension remains the old footprint's invention. Equal
+2.6 m eaves, ridge directions, wing roofs extended to the centre ridge, overlapping
+roof surfaces rather than detailed valleys, a centred front door and one window on
+each wing, and stacks against the outer wing ends are reconstructed. Shared room
+walls remain internal geometry; no interior, exact junction joinery or clapboarding
+is recovered. New compound faces carry reconstructed confidence. Partial siding
+remains simplified and its presence by July 1835 uncertain.
+**Limits:** the phase applies the 1831 form back to 1820 and infers survival to
+July 1835; neither issue is resolved. The later Wau-Bun panorama remains an
+uncalibrated comparison whose tiny agency-house subject needs positive identification.
+This is a text-bounded first massing increment, not a picture match. After a pinned
+bake, compare the actual silhouette, roof junctions, openings and finishes and keep
+T-2374 open until its acceptance is demonstrated.
+**Head clearance (T-3081, 2026-10-24):** both outer-wing chimney heads are chosen at 5.05 m
+above grade. The unchanged roofs have a highest ridge of about 4.526 m and
+wing ridges of about 4.175 m: the heads stand 0.524 m above the highest roof
+and 0.875 m above their own wings. The project measures its eighteen-inch
+(0.4572 m) floor conservatively from the highest roof; this head leaves a
+margin without changing any roof, stack count, position or section. The
+newspaper corpus records the 5 August by-law printed on 19 August 1835, not
+Cobweb's actual height or July compliance. Both heads remain reconstructed;
+no image match or historical measurement is claimed.
+**Recorded:** 2026-10-23.
+**Covers:** `cobweb_castle.log_1820.form.plan_composition`, `cobweb_castle.log_1820.form.roof_type`, `cobweb_castle.log_1820.form.compound_parts`, `cobweb_castle.log_1820.footprint`, `cobweb_castle.log_1820.form.chimney_head_m`.
+
+
+### L-miller-mixed-cladding-2381 — logs below, vertical boards above
+**What is read:** the tall Miller House at the right of `the 1867 Wolf Point lithograph`, inspected as the NYPL lithograph `chicago/reference/images/chicago/the NYPL Wolf Point in 1833 image.jpg`. Its ground storey is drawn as horizontal log courses, its upper storey and gable as vertical boards. The sharper Colbert reproduction and the1892 Blanchard chromolithograph repeat that general mixed treatment; retrospective agreement is not promoted to a contemporary construction record. The earlier inference that 'partly sided' meant horizontal clapboard on both storeys is superseded by the actual depicted form.
+**What is reconstructed:** the retained5.2 m addition height is split at its2.6 m midpoint for the lower/upper cladding break. Lower walls use the existing hewn-log/chinking/notching kit; upper walls retain the existing unpainted frame material but receive vertical board-edge relief. The nominal0.24 m board rhythm,0.012 m-wide edges,0.012 m wall relief,0.004 m gable face separation and plain joint representation are modelling choices, not historic board dimensions or evidence for a particular board-and-batten joint. Both unseen rear surfaces follow the same reconstructed finish. The gable overlays are on the roof builder's0.25 m overhang plane so they remain visible rather than hidden behind the old roof-material triangles; that is the existing roof's graphical convention, not an altered footprint. Source courses, board count, texture/tone and exact joinery are not completely reproduced.
+**What remains:** the low cabin is still behind the main block rather than alongside as in the clearest pictures; the main upper front still has two windows instead of the pictured three; exterior chimneys are not the pictured ridge stack; glazing/doors, camera and roof/material details remain open. Existing coordinates, footprint, documented range, identities and uses have not been changed. The retrospective1833 scene does not prove an unchanged1 July1835 state.
+**How to resolve:** perform the pinned family rebuild and actual same-camera before/after comparison, then refine the remaining composition, openings, chimney and material differences against all listed pictures. This first visible finish correction is not a completed image match.
+**Covers:** `miller_house.log_frame_1827.form.cladding`.
+**Ticket:** T-2381.
+
+**Revision:** Combined confidence ruling: wall/gable finish category faces remain inferred; chosen narrow board-edge sections and rhythm emit reconstructed confidence (1.0).
+**Recorded:** 2026-10-23.
+
+
+### L-carpenter-pictured-sash-2382 — upright sash on the Sauganash's log annex
+**What is read:** `the Sauganash engraving published by Andreas in 1884`, the public-domain Braunhold engraving inspected as `chicago/reference/images/chicago/the Sauganash Hotel in 1831 image.jpg`. The cabin already identified by `the Illinois History Journal's Beaubien caption` as Carpenter's former shop has a doorway between two tall, bare sash, their heads approximately aligned. The Petford and Trowbridge copies are not independent corroboration. The retrospective picture bounds appearance, not geographic coordinates or proof of the cabin's use/survival on 1 July 1835.
+**What is reconstructed:** 0.70 m sash width and 1.40 m height under the retained 1.95 m door head, making the sill 0.55 m and the sash proportion 2:1 rather than the former generic almost-square 0.62 by 0.72 m light. Opening centres remain the archetype's former 28-percent flank rule on the retained attested 6.096 m frontage: 1.341, 3.048 and 4.755 m, rounded to millimetres. These are provisional model dimensions/stations, not measurements from a solved camera. The existing archetype propagates the sash band to its unseen rear light; that height and the rear's narrower default width are reconstructed. Default glazing divisions remain a proxy and do not reproduce every drawn muntin. The end-wall chimney, roof, logs and material tones remain under their earlier bounds and still differ from the picture.
+**How to resolve:** fit a joint Sauganash/annex review camera, rebuild the annex, compare the actual before/after GLBs with the original engraving and both derivative pictures, then iterate on all remaining visible differences. No completed image match or T-2382 closure is claimed by these data changes.
+**Covers:** `philo_carpenter_log_shop.log_1832.form.front_set_out`, `philo_carpenter_log_shop.log_1832.form.window_w_m`, `philo_carpenter_log_shop.log_1832.form.window_h_m`, `philo_carpenter_log_shop.log_1832.form.chimney_ridge_at`, `philo_carpenter_log_shop.log_1832.form.ridge_stack_w_m`, `philo_carpenter_log_shop.log_1832.form.ridge_stack_head_m`.
+**Ticket:** T-2382.
+
+**Revision:** T-2382 next increment below supersedes this first entry’s generic end-stack description.
+**Recorded:** 2026-10-23.
+
+
+### L-carpenter-pictured-stack-2382 — the annex's roof-piercing chimney
+**What is read:** the annex chimney in `the Sauganash engraving published by Andreas in 1884`, inspected as the committed Braunhold engraving `chicago/reference/images/chicago/the Sauganash Hotel in 1831 image.jpg`. One small shaft breaks the roof near the cabin's exposed outer gable. The cabin is the existing `the Illinois History Journal's Beaubien caption` caption identification, and the hotel/cabin placement has not been rederived from the drawing.
+**What is reconstructed:** a ridge station of 0.80 on the existing 6.096 m cabin frontage, 4.8768 m from minimum-u and 1.2192 m short of the exposed local +x gable; a square 0.55 m shaft; and a head 0.65 m over the ridge. The roof-piercing disposition is pictured; those exact dimensions and station are first comparison choices requiring actual paired review, not a solved camera or measurements of the historical chimney. The existing ridge-stack builder supplies plain sides and its existing embedded foot. Its hardcoded stick-and-clay tone remains an unresolved proxy for the picture's masonry stack. No geographic position, footprint, scene date, use or occupancy changes.
+**How to resolve:** render the rebuilt cabin and compare its chimney against the full original sheet using the same before/after camera; refine the shaft station, silhouette, head/cap and masonry treatment. Inspect the Petford/Trowbridge derivatives separately while preserving the Braunhold governing-sheet choice. This increment does not claim the annex or hotel matches the picture.
+**Covers:** `philo_carpenter_log_shop.log_1832.form.chimney_ridge_at`, `philo_carpenter_log_shop.log_1832.form.ridge_stack_w_m`, `philo_carpenter_log_shop.log_1832.form.ridge_stack_head_m`.
+**Ticket:** T-2382.
+**Recorded:** 2026-10-23.
+
+
+### L-miller-visible-joints-2381 — readable vertical joint cues
+**Decision:** The first actual neutral review showed that same-material 12 mm edges with
+12 mm relief were effectively invisible. This supersedes those first-proposal
+sections only: joint proxies now use 24 mm width, 4 mm relief and the existing
+darker log material, retaining nominal 0.24 m board rhythm and every room, roof,
+opening, cladding break and surveyed placement. Broad wall/gable finish faces
+remain inferred; chosen contrast-strip geometry remains reconstructed (1.0).
+The source supports vertical boards and their visible joint rhythm, not these
+exact widths, relief, colour, board gaps or an applied board-and-batten joint.
+This is a readable joint depiction, not a measured physical gap or paint claim.
+Unseen surfaces inherit the reconstructed treatment. Existing palette slots are
+reused; no new material is introduced. Same-camera export/review must demonstrate
+that the joints read while source textures, three upper windows, ridge stack,
+side-cabin arrangement and camera remain open differences. T-2381 stays open.
+
+**Recorded:** 2026-10-23.
+**Building:** Miller House.
+
+
+### L-school-dark-door-recess-2372 — a dark blind exterior doorway
+**Decision:** The actual school-shore comparison still shows a closed pale planked leaf where the picture has a dark doorway occupied by a woman. The model now opts into the existing `a recessed front doorway` treatment. Its cut front skin, framed reveals, threshold and dark back 0.30 m inside are reconstructed visual proxies. This does not infer an interior, passage, door swing, historical leaf position, or 1835 occupant. Solid footprint collision and the walker contract remain unchanged. No source pixels become a texture.
+
+**Source:** `eliza_chappel_school_shore_view`. Artist unidentified; reproduced by the Digital Research Library of Illinois History Journal in its 2018 Eliza Chappell article, https://drloihjournal.blogspot.com/2018/01/eliza-chappell-the-first-chicago-teacher-paid-by-public-funds-in-1833.html . The owner approved attributed project reference/comparison/display use on 2026-10-22 (T-3053). This is not a public-domain determination, copyright-holder grant or general open licence. The subject, original artist/publication/date, school/annex identification and historical camera remain unresolved.
+
+**Bounds:** Preserve the proposed roof-axis/opening values, footprint, position, dates, inferred building grade and unknown 1835 use. The school had left this building in 1834. The drawing's broader scene is composed, not a metric construction. Broad facade, plain gable triangle, roof covering, opening alignment, chinking/tones, unestablished rear stack and camera remain different. Rebuild and inspect the actual same-camera comparison before judging this increment. T-2372 retains its full original acceptance and remains open; this proposal is unrendered.
+
+**Covers:** `chappel_infant_school.log_1833.form.front_door_state`.
+**Ticket:** T-2372.
+**Recorded:** 2026-10-23.
+
+
+### L-school-front-gable-courses-2372 — horizontal courses on the front gable
+**Decision:** The approved attributed school-shore picture visibly continues horizontal courses into the front gable. Its subject, date, artist and original publication remain unresolved. This design category guides an isolated default-off +Y-cap replacement; the existing 340mm course rhythm, 55mm chink bands, small existing relief and exact colour/section/joints are reconstructed model choices, not image measurements. Preserve roof silhouette, ridge, physical footprint, placement, camera, openings, blind doorway and all date/use limits. No rear-gable finish or occupant is asserted.
+
+**Covers:** `chappel_infant_school.log_1833.form.front_gable_cladding`.
+**Building:** Eliza Chappel's infant school.
+**Ticket:** T-2372.
+**Recorded:** 2026-10-23.
+
+
+### L-wolfpoint-elbow-layout-2386 — two outward gable ends and a physical L
+**Building:** Wolf Point Tavern.
+**Decision:** Re-reading `the 1867 Wolf Point lithograph` corrects the earlier parallel-pen assumption. In the actual NYPL sheet the left front gable's ridge recedes rightwards, the right front gable's ridge leftwards, and two inside wall edges meet between them. A connected orthogonal L is a better-supported form hypothesis. Context identifies this left-bank subject by its wolf pole; it is not Miller's house. It does not supply a measured plan or prove the exactJuly1835 state.
+
+The former12x7m rectangle was a placeholder, not an attested footprint. It is replaced by the physical polygon(0,0),(7.2,0),(7.2,5),(5,5),(5,10.1),(0,10.1). The nominal5m span is a reconstructed metric gauge. Core5x10.1m and rear side extension2.2x5m, equal2.6m eaves,42degree pitch, flush eaves, simple roof caps and exact clipped valleys are chosen construction, not surveyed dimensions or directly scaled from the drawing. The cross-roof projects only to the core ridge; the new helper emits the external upper envelope, not two buried crossing roof surfaces. New room/roof/opening/head/pipe geometry emits reconstructed confidence; the inherited sign kit retains its existing occurrence-confidence policy.
+
+The existing partly-log/partly-frame text is retained, but assigning the extension to frame is not identification of a pictured fabric. Log versus clapboard/gable surfaces remain visibly incomplete. The two doorway proxies and right-front window use explicit room/face rectangles; their exact stations, sizes, closure, glass and kits are reconstructed. The+X entry is not falsely flattened onto the+Y front-wall API. A broad existing0.45m ridge head with0.5m rise is trialled at0.29of the new core ridge near the junction; source host/fraction/hidden flue are not established. A separate eight-sided dark projection is trialled at0.74of that ridge,0.14m outside diameter and0.55m head. Metal, stove, cap, hidden pipe and interior are not identified, and it is not silently counted as a second masonry chimney. Existing sign kit remains but its position, height, lean and board still differ.
+
+The current record origin/rotation, dates, use and occupants remain. Physical occupied ground and its centre change: bbox centre(6,3.5) becomes(3.6,5.05), a local(-2.4,+1.55)m shift; at the retained90degree bearing this is(+1.55E,+2.4N)m. The renderer/ShowMe vertex-mean centre shifts differently and is recorded separately in the reader receipt. This is not a newly surveyed world location or an old invisible box left for collision. The actual concave polygon is shared with normal collision, contact, sidecar and ground readers.
+
+The fitted square-pixel research camera gives an analytic corner/apex agreement within manual source-pick uncertainty, not an actual GLB/render match, a surveyed station or evidence of metres. Focal-distance/absolute-scale ambiguity, uncertain ground/eye height, roof details and all other views remain open. The later1892-labelled poster is only an inspected comparison: Newberry's currentPoole27 page says1935 and Copyright Not Evaluated, so its reproduction is not promoted to a cleared source or used to derive this mesh. The independently dated1867 NYPL sheet governs the proposal. No accepted camera, gate exception or whole-building match is added. T-2386 remains open and `differs` until actual comparisons meet acceptance.
+
+**Covers:** `wolf_point_tavern.log_frame_1828.footprint`, `wolf_point_tavern.log_frame_1828.form.frame_addition_side`, `wolf_point_tavern.log_frame_1828.form.frame_addition_width_m`, `wolf_point_tavern.log_frame_1828.form.frame_addition_depth_m`, `wolf_point_tavern.log_frame_1828.form.frame_addition_height_m`, `wolf_point_tavern.log_frame_1828.form.roof_pitch_deg`, `wolf_point_tavern.log_frame_1828.form.compound_joint`, `wolf_point_tavern.log_frame_1828.form.compound_parts`, `wolf_point_tavern.log_frame_1828.form.chimney_ridge_at`, `wolf_point_tavern.log_frame_1828.form.roof_pipe`, `wolf_point_tavern.log_frame_1828.form.ridge_stack_w_m`, `wolf_point_tavern.log_frame_1828.form.ridge_stack_head_m`.
+**Ticket:** T-2386.
+**Recorded:** 2026-10-23.
+
+
+### L-wolfpoint-centre-preserving-origin-2386 — rebase a reconstructed model origin
+**Building:** Wolf Point Tavern.
+**Decision:** Changing the former12x7m placeholder to a physical7.2x10.1m L must not silently choose a new world centre or leave its primary worn apron in the river. Rebase the local origin by(-1.55E,-2.40N)m toE446993.85,N4637348.30 at the retained90degree bearing, keeping the old bbox centre exactly. This is an explicitly reconstructed model-origin/plan choice, not a coordinate derived from tier5picture pixels or a new survey. The old coarse source-supported west-bank/relative-order site and40m along/20m across uncertainty remain. Position confidence is reconstructed to expose the exact new choice; no source is promoted to metric control. Relative to the old rectangle the final bbox centre is unchanged, while the different concave outline and the ShowMe vertex-mean centre differ as recorded in geometry receipts.
+
+The retained-origin L trial's primary apron enters the native1835river by about0.39m. With the centre-preserving rebase its body and primary apron clear that committed river outline by about3.69m and2.18m, with nearest stable/store separations about9.15m and9.60m. These are runtime model-coherence checks at the committed datum, not measured historic setbacks or newly verified1835banks. Keep the phase dates, bearing, source credits and historical uncertainty. Sidecar/contact/terrain/entrance/route and app checks must regenerate normally; no asset hash or derived grade is handwritten.
+
+**Covers:** `wolf_point_tavern.log_frame_1828.position`.
+**Ticket:** T-2386.
+**Recorded:** 2026-10-23.
+
+
+### L-wolfpoint-pictured-courses-pole-2386 — visible envelope and sign-pole refinement
+**Building:** Wolf Point Tavern.
+**Decision:** The actual two-gable L comparison is a material improvement but differs. Re-read the same independently dated 1867 Blanchard/Shober NYPL sheet, depicting 1833, rather than substitute the uncleared Newberry poster or a new camera. Both facing walls and their gable triangles show horizontal log-like courses. That pictured category is inferred. It does not attest timber section, pale chinking, notches, exact rhythm, literal hidden log construction, colour or a photographic texture. The bounded elbow opts into the existing hewn-log kit on its formerly clapboard face and into matching triangular course faces, at reconstructed emitted confidence. The historical partly-frame text remains; assigning a visible course envelope does not identify hidden framing. The 340 mm rhythm, 55 mm relief bands, existing kit palette and unseen rear face are reconstruction choices, not dimensions read from pixels.
+
+Choose 120 mm roof projection and a 50 mm vertical edge/underside thickness while keeping the existing pitch, ridge elevations and true physical L. The clipped upper envelope remains one external roof, with no duplicate intersecting upper surfaces. These small roof-edge dimensions are chosen proxies, not evidence of metres, exact joinery or measured overhang. Raise the existing small right light by 300 mm to z1.4–2.0 m, keeping its width and station; the prior approximate camera projection put it about nine source pixels low. Its sill, sash and door states remain reconstructed; no additional window is invented.
+
+Choose the sapling base at local [5.4,7.3] m in the actual empty courtyard, head [6.45,6.0,10.3] m, cross-arm vector [-1.32,1.63,0.66] m, board 1.60×1.05 m and hanger drop 0.32 m. The source's pole leans screen-left, with a rising cross-arm, supporting diagonal and tilted board. The local pose is a reconstruction under the unchanged provisional square-pixel camera and 5 m building gauge. All sections, taper, braces, board/iron shapes, silhouette and neutral colours remain reconstructed; the sign's occurrence and mounting evidence are not promoted. Keep the approximately six-pixel base-height residual instead of moving the post tens of metres across the site to force a common-plane pixel match. No geographic coordinate, surveyed placement or literal drawing by Lieutenant Allen is derived here.
+
+All new detailed primitives emit reconstructed confidence. Existing footprint/world origin/position grade/date/source credits and rights remain unchanged. The new position is not a parcel or river claim; the previous centre-preserving origin liberty still governs placement. The solid-footprint walker still has no interior passage. Old closed doors, fabrication/texture/colour, exact roof edges/junction, camera degeneracy, hidden layout, 1833-to-1835 continuity and every other listed source view remain open. No source-image verdict is preassigned; another actual rendered comparison and the full original T-2386 acceptance remain required. The canonical all81 refresh and affected entrance/props/contact/scene/app checks are still owed; the four stale trade-goods instances are not whitelisted.
+
+**Covers:** `wolf_point_tavern.log_frame_1828.form.compound_parts`, `wolf_point_tavern.log_frame_1828.form.compound_roof_overhang_m`, `wolf_point_tavern.log_frame_1828.form.sign_pole_set_out`.
+**Ticket:** T-2386.
+**Recorded:** 2026-10-23.
+
+
+### L-wolfpoint-blind-doors-curved-courses-2386 — exterior dark depth and log-face relief
+**Building:** Wolf Point Tavern.
+**Decision:** The actual surface/pole render improves the governing 1867 NYPL sheet's two gables and sign pose but still has closed pale planked doors and regular pale chink stripes. Re-reading the same sheet, depicting1833, guides two dark/open-looking entry apertures and rounded/unevenly shaded horizontal course faces with narrow recessed joints. These categories do not establish an interior, exact door state or swing, literal timber cross-section, authentic colour/weathering, photographic texture or an original sign-device likeness.
+
+Under the explicit reconstructed compound door-state opt-in, subtract only the existing stated +Y/+X exterior door rectangles from wall skins and inset joint backing. Omit the closed leaves and build the existing casing/reveals/threshold kit with a blind dark back300mm behind the face. This bounds exterior depth; there is no inferred room, route, doorway traversal, occupant or light inside. All doorway stations/sizes, physical concave polygon, world placement, dates and external entrance metadata remain unchanged. The walker still treats the whole building footprint as solid. The existing Hogan +Y cutter is generalized to accept a normal axis and skin-back distance; its default zero-depth selection and all81 prior raw/material/conf outputs are preserved exactly.
+
+The inferred rounded-relief category changes only this explicit log-course compound. Use existing palette materials, a chosen300mm rhythm,20mm joint gaps,15mm dark backing setback,38–48mm seeded curved face relief and six profile panels per course. Continue the same selected phase/rhythm into gable triangles. These dimensions, seeded variation, dark shadow backing, hidden faces and curved sections are reconstructed surface proxies, not source measurements, a new global palette or attested black painted chinking. They replace the earlier pale strip representation and omit its exaggerated squared end notches only for this profile. Chosen sections emit reconstructed confidence; occurrence/category metadata keeps its own grade.
+
+The pole/board/device, light and roof controls, camera bytes, footprint/position/date/source credits and rights remain unchanged. Material lighting/tones, actual course/joint fabrication, opening proportions, sign outline, hidden structure, camera degeneracy, retrospective source continuity and all other ticket pictures remain open. A future actual GLB comparison is required; no match or original acceptance is preassigned. Canonical all81 refresh, affected entrance/props/contact/scene/app checks and normal regeneration of the four stale trade-goods instances remain owed. No app/site/terrain/parcel or passable-interior claim is made by this proposal.
+
+**Covers:** `wolf_point_tavern.log_frame_1828.form.compound_door_state`, `wolf_point_tavern.log_frame_1828.form.compound_parts`.
+**Ticket:** T-2386.
+**Recorded:** 2026-10-23.
+
+
+### L-tremont-deep-roof-2385 — A source-specific deeper roof contrast
+
+**Covers:** `tremont_house_1.frame_1833.form.roof_colour`.
+
+**Decision:** Extend the existing optional roof_colour stock selector with `deep_brown`, then choose it only for the first Tremont. It is precisely one quarter of the existing darkened-stock linear RGB, with the same alpha/roughness, selected from three actual fixed-camera native roof-only comparisons (.5/.25/.125). The .25 alternative is nearest the selected dark source roof patch and visibly improves contrast; monochrome Gifford does not attest brown pigment, a calibrated reflectance, actual weather-blackening, age, damage or a precise dated surface condition. The named dark stock and its channel ratios are conscious reconstructions. Source remains owner-approved attributed project reference/comparison/display use with its current copyright limits; no rights upgrade follows.
+
+All 24 parsable frame record-phase geometry/confidence and nonroof material streams remain exact, as do all 23 non-target phase complete material streams and every constructor name/kind/default. Existing None/moss_green/dark_brown branches remain exact. Both dark and deep stocks require reconstructed confidence. This change neither alters the common material sheet nor roof geometry/covering, facade openings, footprint/location/date, source camera, native flag pose/wind/time or global lighting. Shared producer recipe changes require an official fresh23-current-master family rebuild and real web derivatives/consumers/gates if adopted. CPU parity and runtime overrides are not a freshness claim.
+
+Actual roof-only native GPU captures were directly inspected: source roof patch luma57.30, unchanged native baseline148.72, .5=101.42, .25=64.20, .125=39.93. Chosen patches are approximate drawing/render pixels, not a colour measurement or acceptance metric. The image still differs in flag silhouette, shutters/entries, facade tones, provisional framing and absent town/ground/context. No accepted picture match or original-ticket completion follows.
+
+**Ticket:** T-2385.
+**Recorded:** 2026-10-23.

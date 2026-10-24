@@ -204,6 +204,32 @@ def level_courtyard_gable(r):
             ('straight_north', (xm, edge, r['y0']-.20, r['y1']), north)]
 
 
+# The alley gable's parapet wall is this thick (masonry_house.WALL_T): its coping
+# covers the roof's end, and the cross ridge's roll starts behind it.
+PARAPET_T = .45
+
+
+def alley_parapet(r, comps):
+    """T-3096: the alley gable stands proud of the cross roof as a parapet.
+
+    Over the gable's span, north of its south foot, no roof oversails the alley
+    wall: every component's verge stops at the wall's outer face, so the wall and
+    its coping close the roof's end. South of the foot the alley eave keeps its
+    overhang. A box is split there, never warped, so each piece stays convex.
+    """
+    g=r['stable_roof'];x0=r['x0'];foot=g['south_foot_y'];out=[]
+    for name,box,planes in comps:
+        if isinstance(box[0],(tuple,list)) or box[0]>=x0-EPS:
+            out.append((name,box,planes));continue
+        bx0,bx1,by0,by1=box
+        if by0<foot-EPS and name not in ('cross','north_gable'):
+            out.append((name,(bx0,bx1,by0,min(by1,foot)),planes))
+            if by1>foot+EPS:out.append((name+'_alley',(x0,bx1,foot,by1),planes))
+        else:
+            out.append((name,(x0,bx1,by0,by1),planes))
+    return out
+
+
 def components(r, include_dormer=True):
     g=r['stable_roof'];x0,x1,y0,y1=r['x0'],r['x1'],r['y0'],r['y1'];ov=.15
     box=(x0-ov,x1,y0-ov,y1)
@@ -239,6 +265,8 @@ def components(r, include_dormer=True):
                ('connector_kick',(x0-ov,x1,n['y0'],yk),[taper(low)])]
         if g.get('continuous_south_gable'):
             comps=[comps[0],*continuous_gable(r),*comps[3:]]
+    if g.get('alley_parapet'):
+        comps=alley_parapet(r,comps)
     if include_dormer and g.get('dormer'):
         d=g['dormer'];front=d['hood_front'];back=d['back'];overhang=d.get('hood_overhang_m',.25)
         a=d['u0']-overhang;c=d['u1']+overhang
@@ -345,7 +373,7 @@ def ridge_ranges(r):
       ('y',g['rear_x'],g['rear_z'],g['hip_y'],g['cross_y'])]
     if g.get('level_courtyard_gable'):
         candidates=[('y',r['ridge_at'],r['ridge_z'],r['y0'],r['y1']),
-                    ('x',g['cross_y'],g['cross_z'],r['x0'],r['ridge_at']),
+                    ('x',g['cross_y'],g['cross_z'],r['x0']+(PARAPET_T if g.get('alley_parapet') else 0),r['ridge_at']),
                     ('x',g['north_range']['ridge_at'],g['north_range']['ridge_z'],r['ridge_at'],g['court_edge_x'])]
         d=g.get('dormer')
         if d and d.get('connected_ridge'):

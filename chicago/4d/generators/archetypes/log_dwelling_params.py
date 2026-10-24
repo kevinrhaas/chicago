@@ -104,10 +104,10 @@ SIGN_MOUNTS = ("bracket", "sapling_pole")
 # archetype cannot draw has to be refused rather than silently given a blank board.
 SIGN_DEVICES = (None, "wolf")
 
-ADDITION_SIDES = ("front", "end")
+ADDITION_SIDES = ("front", "end", "elbow")
 PIAZZA_ROOFS = ("hung", "swept")
 GABLE_ENDS = ("+x", "-x")
-END_OPENING_KINDS = ("door", "window", "light")
+END_OPENING_KINDS = ("door", "window", "light", "hatch")
 LIGHT_HALF_W_M = 0.35   # an end wall's or gable's small light (T-2516): 0.7 x 0.8 m
 LIGHT_HALF_H_M = 0.40
 
@@ -137,17 +137,18 @@ LIGHT_HALF_H_M = 0.40
 # no archetype could read them for as long as `from_phase` took only a phase, and it
 # is what `docs/RESEARCH/materials.md` §4 finding 4 was pointing at.
 CONSUMED = frozenset({
-    "stories", "wall_height_m", "roof_type", "roof_pitch_deg", "construction",
+    "stories", "wall_height_m", "roof_type", "roof_pitch_deg", "construction", "roof_ridge_axis", "front_gable_cladding",
     "loft", "chimneys", "sign", "sign_mount", "sign_device", "frame_paint",
     "frame_addition", "frame_addition_side", "frame_addition_width_m",
     "frame_addition_depth_m", "frame_addition_stories", "frame_addition_height_m",
+    "frame_addition_cladding",
     "piazza", "piazza_depth_m", "piazza_posts", "piazza_rail", "chimney_ridge_at",
     "front_windows_per_side", "window_w_m", "window_h_m", "front_shutters",
     "piazza_roof", "piazza_plate_m", "piazza_pitch_deg", "end_openings",
     "front_set_out", "door_w_m", "door_h_m", "chimney_end", "chimney_cross_m", "chimney_head_m", "lean_to",
     "ridge_stack_w_m", "ridge_stack_head_m", "hip_end", "hip_inset_m",
     "lean_to_length_m", "lean_to_width_m", "lean_to_wall_m", "lean_to_pitch_deg", "log_finish",
-    "roof_condition",
+    "roof_condition", "compound_parts", "front_door_state", "compound_joint", "roof_pipe", "compound_wall_cladding", "compound_roof_overhang_m", "sign_pole_set_out", "compound_door_state", "compound_log_profile",
 })
 
 #: The coatings a log wall can be stated to wear (T-2511). Whitewash is the one a
@@ -190,6 +191,30 @@ class LogDwellingParams:
     # low. Wolf Point Tavern is described as low and that has to survive the roof.
     roof_pitch_deg: float = 35.0
     construction: str = "log"
+    # Opt-in non-overlapping rectangular log rooms, in footprint-local metres.
+    # Each tuple is (wall_rect, roof_rect, ridge_axis, front_opening).
+    # Empty preserves the existing bbox cabin and all its optional features.
+    compound_parts: tuple = field(default=(), kw_only=True)
+    # None retains the first independent-room roof path. Elbow joins two equal
+    # gable spans at an inside corner; its physical concave union is validated.
+    compound_joint: str | None = field(default=None, kw_only=True)
+    # Optional pictured envelope/edge controls, currently bounded to elbow plans.
+    compound_wall_cladding: str | None = field(default=None, kw_only=True)
+    # First exterior recess/profile proxies, bounded to this stated compound.
+    compound_door_state: str | None = field(default=None, kw_only=True)
+    compound_log_profile: str | None = field(default=None, kw_only=True)
+    compound_roof_overhang_m: float = field(default=0.0, kw_only=True)
+    # (baseXY,headXYZ,armXYZ,boardWH,hangerDrop), local reconstructed set-out.
+    sign_pole_set_out: tuple | None = field(default=None, kw_only=True)
+    # (fraction along elbow core ridge, diameter, head above ridge), reconstructed.
+    roof_pipe: tuple | None = field(default=None, kw_only=True)
+    # T-2372: an explicit core roof ridge, independent of footprint proportions.
+    # None preserves the historical longest-plan-axis choice for every other house.
+    # This changes roof/gable/chimney/loft disposition, never the footprint or placement.
+    roof_ridge_axis: str | None = field(default=None, kw_only=True)
+    # Optional school-reference horizontal courses on the +Y core gable only.
+    # None preserves all existing legacy outputs; exact section is reconstructed.
+    front_gable_cladding: str | None = field(default=None, kw_only=True)
 
     # a sleeping or storage loft under the roof. From outside this is a gable-end
     # opening and nothing else, which is honest: a loft leaves no other external
@@ -214,6 +239,8 @@ class LogDwellingParams:
     frame_addition_depth_m: float = 4.0
     frame_addition_stories: int = 2
     frame_addition_height_m: float | None = None
+    # Opt-in pictured finish; the default preserves every existing frame block.
+    frame_addition_cladding: str = field(default="clapboard", kw_only=True)
     frame_paint: str = "unpainted"
 
     # THE PIAZZA (T-2497): a full-front porch on posts under its own shed roof, the
@@ -289,6 +316,9 @@ class LogDwellingParams:
     front_set_out: tuple | None = None
     door_w_m: float | None = None
     door_h_m: float | None = None
+    # Opt-in blind recess for a pictured dark, open doorway; no invented interior
+    # or leaf position. Closed remains the default. Restricted to stated fronts.
+    front_door_state: str = field(default="closed", kw_only=True)
     # WHICH GABLE THE STACK STANDS AGAINST (T-2511). "min" is the low end of the
     # ridge's axis, where `_chimneys` has always put the first stack (L26); "max" is
     # the other gable, for a record whose picture draws it there. The facade of a
@@ -378,6 +408,54 @@ class LogDwellingParams:
         return 2.55 if self.frame_addition_stories == 1 else 4.7
 
     def validate(self) -> None:
+        if self.front_gable_cladding not in (None, "log_courses"):
+            raise ParamError("front_gable_cladding is None or log_courses")
+        if self.front_gable_cladding is not None:
+            if (self.roof_type != "gable" or self.hip_end is not None or
+                    self.compound_parts or self.frame_addition or self.loft or
+                    resolved_core_ridge_axis(self) != "y"):
+                raise ParamError("front log-gable courses require a simple +Y gable without hip, compound, frame addition or loft")
+        if self.front_door_state not in ("closed", "recess"):
+            raise ParamError("front_door_state is closed or recess")
+        if self.front_door_state == "recess" and (self.front_set_out is None or self.compound_parts or self.frame_addition or self.stories != 1):
+            raise ParamError("a recessed front door needs a stated single-storey log front, without compound rooms or addition")
+        if self.compound_door_state not in (None,"recess"):
+            raise ParamError("compound_door_state is None or recess")
+        if self.compound_log_profile not in (None,"rounded_relief"):
+            raise ParamError("compound_log_profile is None or rounded_relief")
+        if (self.compound_door_state is not None or self.compound_log_profile is not None) and self.compound_joint!="elbow":
+            raise ParamError("compound opening/profile requires bounded elbow")
+        if self.compound_log_profile is not None and self.compound_wall_cladding!="log_courses":
+            raise ParamError("rounded compound relief requires explicit log-course envelope")
+        if self.compound_wall_cladding not in (None, "log_courses"):
+            raise ParamError("compound_wall_cladding is None or log_courses")
+        if (isinstance(self.compound_roof_overhang_m, bool) or
+                not isinstance(self.compound_roof_overhang_m, (int,float)) or
+                not math.isfinite(self.compound_roof_overhang_m) or
+                not 0 <= self.compound_roof_overhang_m <= .30):
+            raise ParamError("compound_roof_overhang_m outside finite0..0.30m")
+        if ((self.compound_wall_cladding is not None or self.compound_roof_overhang_m > 0)
+                and self.compound_joint != "elbow"):
+            raise ParamError("compound envelope controls require the bounded elbow")
+        if self.sign_pole_set_out is not None:
+            _validate_sign_pole_set_out(self)
+        if self.compound_joint not in (None, "elbow"):
+            raise ParamError("compound_joint is None or elbow")
+        if self.compound_joint is not None and not self.compound_parts:
+            raise ParamError("compound_joint needs compound_parts")
+        if self.roof_pipe is not None:
+            if self.compound_joint != "elbow":
+                raise ParamError("roof_pipe requires the elbow joint")
+            if (not isinstance(self.roof_pipe, tuple) or len(self.roof_pipe) != 3 or
+                    any(isinstance(v,bool) or not isinstance(v,(int,float)) or not math.isfinite(v) for v in self.roof_pipe)):
+                raise ParamError("roof_pipe needs three finite numbers")
+            at,diameter,head=self.roof_pipe
+            if not (0.15 <= at <= 0.85 and 0.08 <= diameter <= 0.25 and 0.3 <= head <= 1.5):
+                raise ParamError("roof_pipe fraction/diameter/head outside bounds")
+        if self.frame_addition_side == "elbow" and self.compound_joint != "elbow":
+            raise ParamError("elbow addition needs the bounded joined compound")
+        if self.compound_parts:
+            _validate_compound(self)
         if not 2.0 <= self.width_m <= 40.0:
             raise ParamError(f"width_m {self.width_m} outside plausible range 2-40 m "
                              f"for a log building")
@@ -397,6 +475,15 @@ class LogDwellingParams:
                 f"roof_type '{self.roof_type}' not in {LOG_ROOF_TYPES}. log_dwelling "
                 f"builds gable and shed only; a hip or gambrel roof on a log building "
                 f"here would be an invention, so it is refused rather than substituted")
+        if self.roof_ridge_axis not in (None, "x", "y"):
+            raise ParamError("roof_ridge_axis must be None, x or y")
+        if self.roof_ridge_axis is not None:
+            if self.roof_type != "gable":
+                raise ParamError("roof_ridge_axis states a gable ridge, not a shed roof")
+            if self.hip_end is not None:
+                raise ParamError("roof_ridge_axis with hip_end is not supported; keep the existing hipped-roof axis")
+            if getattr(self, "compound_parts", ()):
+                raise ParamError("roof_ridge_axis with compound_parts: each part already states its axis")
         if not 15.0 <= self.roof_pitch_deg <= 55.0:
             raise ParamError(f"roof_pitch_deg {self.roof_pitch_deg} outside 15-55 deg")
         if self.construction != "log":
@@ -437,6 +524,10 @@ class LogDwellingParams:
         if self.chimneys > 1 and not self.frame_addition and self.width_m < 4.0:
             raise ParamError(f"two stacks on a {self.width_m} m log pen with no frame "
                              f"addition would stand within a metre of each other")
+        if self.frame_addition_cladding not in ("clapboard", "log_lower_vertical_upper"):
+            raise ParamError(f"frame_addition_cladding {self.frame_addition_cladding!r} is unsupported")
+        if self.frame_addition_cladding != "clapboard" and (not self.frame_addition or self.frame_addition_stories != 2):
+            raise ParamError("mixed addition cladding needs a two-storey frame addition")
         if self.frame_addition:
             self._validate_addition()
         if self.chimney_end not in CHIMNEY_ENDS:
@@ -446,7 +537,7 @@ class LogDwellingParams:
             if self.frame_addition:
                 raise ParamError("chimney_end 'max' with a frame addition: the addition "
                                  "already owns the stack at that end")
-            if self.roof_type != "shed" and (cx1 - cx0) < (cy1 - cy0):
+            if self.roof_type != "shed" and resolved_core_ridge_axis(self) == "y":
                 raise ParamError("chimney_end 'max' on a gable-fronted cabin is its "
                                  "facade, and a stack is not what that elevation carries")
         if self.chimney_head_m is not None:
@@ -461,6 +552,8 @@ class LogDwellingParams:
         if self.front_set_out is not None:
             self._validate_set_out()
         if self.lean_to:
+            if self.roof_ridge_axis == "y":
+                raise ParamError("lean_to stands against an x-axis core ridge gable")
             if self.chimney_ridge_at is not None or self.frame_addition:
                 raise ParamError("lean_to stands beyond a gable stack, and this record's "
                                  "stack is on the ridge or its end is an addition")
@@ -512,7 +605,7 @@ class LogDwellingParams:
             if self.hip_end not in CHIMNEY_ENDS:
                 raise ParamError(f"hip_end {self.hip_end!r} not in {CHIMNEY_ENDS}")
             cx0, cy0, cx1, cy1 = core_extent(self)
-            if self.roof_type != "gable" or (cx1 - cx0) < (cy1 - cy0):
+            if self.roof_type != "gable" or resolved_core_ridge_axis(self) != "x":
                 raise ParamError("hip_end hips one end of a gable roof whose ridge runs "
                                  "along the front; this record has no such ridge")
             if self.frame_addition or self.lean_to or self.loft or self.end_openings:
@@ -564,7 +657,7 @@ class LogDwellingParams:
               or self.piazza_pitch_deg is not None):
             raise ParamError("piazza_roof, piazza_plate_m and piazza_pitch_deg need a piazza")
         if self.end_openings:
-            if self.roof_type != "gable" or self.width_m < self.depth_m:
+            if self.roof_type != "gable" or resolved_core_ridge_axis(self) != "x":
                 raise ParamError("end_openings stand in the +/-x gable ends, so they need "
                                  "a gable roof whose ridge runs along x")
             if self.frame_addition and self.frame_addition_side == "end":
@@ -577,7 +670,7 @@ class LogDwellingParams:
                                  f"{GABLE_ENDS} and kind one of {END_OPENING_KINDS}")
             if not 0.15 <= at <= 0.85:
                 raise ParamError(f"end_openings at {at} outside 0.15-0.85 of the end wall")
-            if kind == "light" and z is None or kind == "door" and z is not None:
+            if kind in ("light", "hatch") and z is None or kind == "door" and z is not None:
                 raise ParamError(f"end_openings {kind} at {at}: a light states its centre "
                                  f"height z, and a door does not")
             if kind == "window" and z is not None:
@@ -628,7 +721,7 @@ class LogDwellingParams:
             raise ParamError("frame addition is deeper than the footprint it sits in")
         # The addition is carved out of the footprint, so what is left has to still be
         # a building. 2 m is about the smallest single-pen log room anyone lived in.
-        if self.frame_addition_side == "end":
+        if self.frame_addition_side in ("end", "elbow"):
             if self.width_m - self.frame_addition_width_m < 2.0:
                 raise ParamError(
                     f"an end addition {self.frame_addition_width_m} m wide leaves only "
@@ -694,6 +787,20 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
         roof_type=str(val("roof_type", "gable")),
         roof_pitch_deg=float(val("roof_pitch_deg", 35.0)),
         construction=str(val("construction", "log")),
+        compound_parts=tuple((tuple(float(v) for v in item["wall_rect"]),
+                              tuple(float(v) for v in item["roof_rect"]),
+                              str(item["ridge_axis"]), item.get("front_opening"))
+                             for item in (val("compound_parts") or ())),
+        compound_joint=val("compound_joint"),
+        compound_wall_cladding=val("compound_wall_cladding"),
+        compound_door_state=val("compound_door_state"),
+        compound_log_profile=val("compound_log_profile"),
+        compound_roof_overhang_m=val("compound_roof_overhang_m",0.0),
+        sign_pole_set_out=_read_sign_pole_set_out(val("sign_pole_set_out")),
+        roof_pipe=(None if val("roof_pipe") is None else tuple(val("roof_pipe"))),
+        roof_ridge_axis=(None if val("roof_ridge_axis") is None
+                         else str(val("roof_ridge_axis"))),
+        front_gable_cladding=val("front_gable_cladding"),
         loft=bool(val("loft", False)),
         chimneys=int(val("chimneys", 1)),
         frame_addition=bool(val("frame_addition", False)),
@@ -703,6 +810,7 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
         frame_addition_depth_m=float(val("frame_addition_depth_m",
                                          round(depth * 0.5, 3))),
         frame_addition_stories=int(val("frame_addition_stories", 2)),
+        frame_addition_cladding=str(val("frame_addition_cladding", "clapboard")),
         frame_addition_height_m=(None if val("frame_addition_height_m") is None
                                  else float(val("frame_addition_height_m"))),
         frame_paint=str(val("frame_paint", "unpainted")),
@@ -726,6 +834,7 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
                        else tuple((str(k), float(a)) for k, a in val("front_set_out"))),
         door_w_m=(None if val("door_w_m") is None else float(val("door_w_m"))),
         door_h_m=(None if val("door_h_m") is None else float(val("door_h_m"))),
+        front_door_state=str(val("front_door_state", "closed")),
         chimney_end=str(val("chimney_end", "min")),
         chimney_cross_m=float(val("chimney_cross_m", 0.0)),
         chimney_head_m=(None if val("chimney_head_m") is None
@@ -759,6 +868,28 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
         confidence=confidences,
     )
     p.validate()
+    if p.compound_parts:
+        # Reject a compound whose occupied plan differs from the authoritative
+        # polygon. Cell centres suffice for an orthogonal polygon and rectangles.
+        if any(a[0] != b[0] and a[1] != b[1]
+               for a, b in zip(poly, poly[1:] + poly[:1])):
+            raise ParamError("compound_parts requires an orthogonal footprint")
+        xs = sorted(set([v[0] for v in poly] + [v for r, *_ in p.compound_parts for v in (r[0], r[2])]))
+        ys = sorted(set([v[1] for v in poly] + [v for r, *_ in p.compound_parts for v in (r[1], r[3])]))
+        def inside(x, y):
+            hits = 0
+            for a, b in zip(poly, poly[1:] + poly[:1]):
+                if (a[1] > y) != (b[1] > y):
+                    at = a[0] + (y-a[1])*(b[0]-a[0])/(b[1]-a[1])
+                    hits += at > x
+            return bool(hits % 2)
+        for xa, xb in zip(xs, xs[1:]):
+            for ya, yb in zip(ys, ys[1:]):
+                x, y = (xa+xb)/2, (ya+yb)/2
+                occupied = any(r[0] < x < r[2] and r[1] < y < r[3]
+                               for r, *_ in p.compound_parts)
+                if occupied != inside(x, y):
+                    raise ParamError("compound_parts union differs from footprint")
     return p
 
 
@@ -790,9 +921,25 @@ def core_extent(p: "LogDwellingParams") -> tuple[float, float, float, float]:
     w, d = p.width_m, p.depth_m
     if not p.frame_addition:
         return 0.0, 0.0, w, d
-    if p.frame_addition_side == "end":
+    if p.frame_addition_side in ("end", "elbow"):
         return 0.0, 0.0, w - p.frame_addition_width_m, d
     return 0.0, 0.0, w, d - p.frame_addition_depth_m
+
+
+def resolved_core_ridge_axis(p: "LogDwellingParams") -> str:
+    """The actual log-core ridge axis, shared by builder and validation (T-2372).
+
+    A shed has no ridge to override and retains its x-axis high edge. None on a
+    gable retains the old longer-plan-axis rule, including x on a square core.
+    An explicit choice governs the roof, its gables, loft hatch and core stacks
+    together; a footprint's longer dimension does not override a stated roof.
+    """
+    if p.roof_type == "shed":
+        return "x"
+    if p.roof_ridge_axis is not None:
+        return p.roof_ridge_axis
+    x0, y0, x1, y1 = core_extent(p)
+    return "x" if (x1 - x0) >= (y1 - y0) else "y"
 
 
 def addition_extent(p: "LogDwellingParams") -> tuple[float, float, float, float]:
@@ -800,6 +947,8 @@ def addition_extent(p: "LogDwellingParams") -> tuple[float, float, float, float]
     to the +x edge and aligns its front wall with the core's."""
     w, d = p.width_m, p.depth_m
     fw, fd = p.frame_addition_width_m, p.frame_addition_depth_m
+    if p.frame_addition_side == "elbow":
+        return w - fw, 0.0, w, fd
     if p.frame_addition_side == "end":
         return w - fw, max(d - fd, 0.0), w, d
     x0 = (w - fw) / 2.0
@@ -814,6 +963,9 @@ def core_front_rects(p: "LogDwellingParams") -> list[tuple]:
     When a front addition exists it takes the front door, so the core gets a window
     where its door would have been.
     """
+    if p.compound_parts:
+        front = max(r[3] for r, *_ in p.compound_parts)
+        return [entry[1:] for entry in compound_front_rects(p) if entry[0] == front]
     x0, _y0, x1, _y1 = core_extent(p)
     if p.front_set_out is not None:
         return _stated_front_rects(p, x0)
@@ -917,7 +1069,12 @@ def front_wall(p: "LogDwellingParams") -> dict:
     behind it. Anything mounted on the front has to know that: `u0`/`u1` are the
     extent of real wall on the plane, not the footprint's own width.
     """
-    if p.frame_addition and p.frame_addition_side == "front":
+    if p.compound_parts:
+        front = max(r[3] for r, *_ in p.compound_parts)
+        rooms = [r for r, *_ in p.compound_parts if r[3] == front]
+        rects = core_front_rects(p)
+        u0, u1, top = min(r[0] for r in rooms), max(r[2] for r in rooms), p.wall_height_m
+    elif p.frame_addition and p.frame_addition_side == "front":
         ax0, _ay0, ax1, _ay1 = addition_extent(p)
         rects = addition_front_rects(p)
         u0, u1, top = ax0, ax1, p.addition_height_m
@@ -945,3 +1102,161 @@ def front_wall(p: "LogDwellingParams") -> dict:
 def front_openings(p: "LogDwellingParams") -> list[dict]:
     """Everything on the front wall a signboard must not be hung over."""
     return front_wall(p)["openings"]
+
+
+def compound_front_rects(p: LogDwellingParams) -> list[tuple]:
+    """Each stepped front opening as (plane,kind,u0,u1,z0,z1)."""
+    result=[]
+    for (x0,y0,x1,y1),_roof,_axis,opening in p.compound_parts:
+        if p.compound_joint == "elbow":
+            # The front-wall API means +Y only: never flatten a +X side entry here.
+            for item in opening or ():
+                face,kind,u0,u1,z0,z1=item
+                if face == "+y":result.append((y1,kind,u0,u1,z0,z1))
+            continue
+        if opening:
+            u=(x0+x1)/2
+            half=DOOR_HALF_M if opening == "door" else WIN_HALF_M
+            z0,z1=(0.02,1.95) if opening == "door" else (0.88,1.60)
+            result.append((y1,opening,u-half,u+half,z0,z1))
+    return result
+
+
+def _validate_compound(p: LogDwellingParams) -> None:
+    """Constrained first compound path; unsupported combinations fail loudly."""
+    if p.compound_joint == "elbow":
+        return _validate_elbow(p)
+    if not 2 <= len(p.compound_parts) <= 8:
+        raise ParamError("compound_parts needs 2..8 rectangular rooms")
+    if (p.stories != 1 or p.roof_type != "gable" or p.frame_addition or
+            p.lean_to or p.piazza or p.loft or p.sign or p.end_openings or
+            p.front_set_out is not None or p.chimney_ridge_at is not None or
+            p.hip_end is not None or p.door_w_m is not None or
+            p.door_h_m is not None or p.window_w_m is not None or
+            p.window_h_m is not None or p.front_shutters is not None or
+            p.front_windows_per_side != 1 or p.chimney_end != "min" or
+            p.chimney_cross_m != 0 or
+            p.ridge_stack_w_m is not None or p.ridge_stack_head_m is not None):
+        raise ParamError("compound_parts cannot combine with facade/addition/stack overrides")
+    for r, roof, axis, opening in p.compound_parts:
+        if len(r) != 4 or len(roof) != 4 or not all(math.isfinite(v) for v in (*r,*roof)):
+            raise ParamError("compound room and roof need four finite coordinates")
+        if not (0 <= r[0] < r[2] <= p.width_m and 0 <= r[1] < r[3] <= p.depth_m):
+            raise ParamError("compound room must lie inside footprint envelope")
+        if min(r[2]-r[0],r[3]-r[1]) < 1:
+            raise ParamError("compound room must be at least one metre across")
+        if not (roof[0] <= r[0] and roof[1] <= r[1] and roof[2] >= r[2] and roof[3] >= r[3]):
+            raise ParamError("compound roof must cover its room")
+        if min(roof) < -1 or roof[2] > p.width_m+1 or roof[3] > p.depth_m+1:
+            raise ParamError("compound roof extends beyond supported envelope")
+        if axis not in ("x", "y") or opening not in (None,"door","window"):
+            raise ParamError("unknown compound ridge axis or opening")
+        if opening and r[2]-r[0] < 2:
+            raise ParamError("front opening needs a two-metre wall")
+    reached={0}
+    for i,(a,*_) in enumerate(p.compound_parts):
+        for b,*_ in p.compound_parts[i+1:]:
+            if min(a[2],b[2]) > max(a[0],b[0]) and min(a[3],b[3]) > max(a[1],b[1]):
+                raise ParamError("compound rooms overlap")
+    def touches(a,b):
+        return ((a[2] == b[0] or b[2] == a[0]) and min(a[3],b[3]) > max(a[1],b[1]) or
+                (a[3] == b[1] or b[3] == a[1]) and min(a[2],b[2]) > max(a[0],b[0]))
+    for _ in p.compound_parts:
+        reached |= {i for i,(a,*_) in enumerate(p.compound_parts)
+                    if any(touches(a,p.compound_parts[j][0]) for j in reached)}
+    if len(reached) != len(p.compound_parts):
+        raise ParamError("compound rooms must connect across shared wall runs")
+
+
+def _validate_elbow(p: LogDwellingParams) -> None:
+    """Only the physically concave two-room, equal-span first elbow is supported."""
+    if (len(p.compound_parts) != 2 or p.stories != 1 or p.roof_type != "gable" or
+            not p.frame_addition or p.frame_addition_side != "elbow" or p.frame_addition_stories != 1 or
+            p.frame_addition_cladding != "clapboard" or p.lean_to or p.piazza or p.loft or
+            p.end_openings or p.front_set_out is not None or p.roof_ridge_axis is not None or
+            p.hip_end is not None or p.front_door_state != "closed" or p.chimneys != 1 or
+            p.chimney_ridge_at is None or p.chimney_end != "min" or p.chimney_head_m is not None or
+            p.chimney_cross_m != 0 or p.door_w_m is not None or p.door_h_m is not None or
+            p.window_w_m is not None or p.window_h_m is not None or p.front_shutters is not None or
+            p.front_windows_per_side != 1):
+        raise ParamError("elbow needs exactly two stated one-storey rooms, one ridge head and no unsupported facade/additions")
+    if abs(p.addition_height_m-p.wall_height_m)>1e-9:
+        raise ParamError("elbow eaves must agree")
+    core=core_extent(p);add=addition_extent(p);cw=core[2]
+    if (not 2 <= cw <= 8 or abs(add[3]-cw)>1e-9 or
+            not 1 <= add[2]-add[0] <= 12 or p.depth_m <= add[3]+1):
+        raise ParamError("elbow needs equal2..8m gable spans and two positive arms")
+    expected=[(core,core,"y"),(add,(cw/2,0.,p.width_m,cw),"x")]
+    for (wall,roof,axis,openings),(ew,er,ea) in zip(p.compound_parts,expected):
+        if wall != ew or roof != er or axis != ea:
+            raise ParamError("elbow room/roof extent differs from declared physical plan")
+        if not isinstance(openings,(tuple,list)):
+            raise ParamError("elbow openings must be explicit face/rectangle tuples")
+        for item in openings:
+            if len(item)!=6 or item[0] not in ("+x","+y") or item[1] not in ("door","window"):
+                raise ParamError("elbow opening needs face,kind,u0,u1,z0,z1")
+            face,kind,u0,u1,z0,z1=item
+            if (face != ("+y" if axis == "y" else "+x") or
+                    not all(isinstance(v,(int,float)) and not isinstance(v,bool) and math.isfinite(v) for v in (u0,u1,z0,z1))):
+                raise ParamError("elbow opening lies on its own outward gable")
+            lo,hi=(wall[0],wall[2]) if face=="+y" else (wall[1],wall[3])
+            if not (lo+.15 <= u0 < u1 <= hi-.15 and 0 <= z0 < z1 <= p.wall_height_m-.15):
+                raise ParamError("elbow opening outside its wall")
+        ordered=sorted(openings,key=lambda a:a[2])
+        if any(a[3]+.15>b[2] for a,b in zip(ordered,ordered[1:])):
+            raise ParamError("elbow openings overlap")
+
+
+def side_access_faces(p: LogDwellingParams) -> list[dict]:
+    """Explicit additional ground-access faces, never projected onto +Y frontage.
+
+    The bounded elbow is the first declared side entry. Empty says this model
+    states no additional face; it does not infer a door from a roof or blank wall.
+    Rectangles are the exact ones read by the builder. Plane/along coordinates
+    remain in footprint-local metres; callers compose placement once.
+    """
+    if p.compound_joint != "elbow":
+        return []
+    out=[]
+    for wall,_roof,_axis,rects in p.compound_parts:
+        doors=[{"kind":kind,"u0":u0,"u1":u1,"z0":z0,"z1":z1}
+               for face,kind,u0,u1,z0,z1 in rects
+               if face=="+x" and kind=="door" and z0<.30]
+        if doors:
+            out.append({"face":"+x","plane_m":wall[2],"u0":wall[1],"u1":wall[3],"openings":doors})
+    return out
+
+
+def _read_sign_pole_set_out(raw):
+    if raw is None:
+        return None
+    if not isinstance(raw,dict) or set(raw) != {"base_xy","head_xyz","arm_vector_xyz","board_wh","hanger_drop_m"}:
+        raise ParamError("sign_pole_set_out needs exactly base_xy,head_xyz,arm_vector_xyz,board_wh,hanger_drop_m")
+    try:
+        return (tuple(raw["base_xy"]),tuple(raw["head_xyz"]),tuple(raw["arm_vector_xyz"]),tuple(raw["board_wh"]),raw["hanger_drop_m"])
+    except TypeError as exc:
+        raise ParamError("sign_pole_set_out coordinates must be sequences") from exc
+
+
+def _validate_sign_pole_set_out(p):
+    if p.compound_joint != "elbow" or not p.sign or p.sign_mount != "sapling_pole":
+        raise ParamError("explicit pole set-out requires the bounded elbow's stated sapling sign")
+    v=p.sign_pole_set_out
+    if not isinstance(v,tuple) or len(v)!=5:
+        raise ParamError("sign_pole_set_out needs five engine-neutral components")
+    for part,n in zip(v[:4],(2,3,3,2)):
+        if not isinstance(part,tuple) or len(part)!=n:
+            raise ParamError("sign_pole_set_out coordinate/size component has wrong shape")
+    values=tuple(x for part in v[:4] for x in part)+(v[4],)
+    if any(isinstance(x,bool) or not isinstance(x,(int,float)) or not math.isfinite(x) for x in values):
+        raise ParamError("sign_pole_set_out needs finite numbers")
+    (bx,by),(tx,ty,tz),(ax,ay,az),(bw,bh),drop=v;cw=core_extent(p)[2]
+    # First declared position stays in the physical empty courtyard, not a hidden
+    # part of the old bounding box; a200mm margin exceeds the105mm pole radius.
+    if not (cw+.2 <= bx <= p.width_m+2 and cw+.2 <= by <= p.depth_m+2):
+        raise ParamError("explicit pole base must stand clear in the elbow courtyard")
+    if (not cw+.2 <= tx <= p.width_m+3 or not cw+.2 <= ty <= p.depth_m+3 or
+            not 7 <= tz <= 14 or math.hypot(tx-bx,ty-by)>tz*.25):
+        raise ParamError("explicit pole head height/lean outside bounded sapling pose")
+    if not (1 <= math.hypot(ax,ay) <= 3.5 and abs(az)<=1.5 and .8<=bw<=2.4 and .5<=bh<=1.5 and .1<=drop<=.6):
+        raise ParamError("explicit sign arm/board/hanger outside bounded dimensions")
